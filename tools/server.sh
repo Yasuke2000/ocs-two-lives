@@ -4,7 +4,7 @@ set -euo pipefail
 
 NODE="${TTL_NODE:-root@100.109.28.21}"
 NS=ocs-two-lives
-k() { ssh -o ConnectTimeout=10 -o LogLevel=ERROR "$NODE" "k3s kubectl -n $NS $*"; }
+k() { ssh -n -o ConnectTimeout=10 -o LogLevel=ERROR "$NODE" "k3s kubectl -n $NS $*"; }
 rcon() { k exec deploy/mc -- rcon-cli "$(printf '%q' "$1")"; }
 
 case "${1:-}" in
