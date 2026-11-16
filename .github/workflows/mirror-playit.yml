@@ -1,0 +1,32 @@
+name: mirror-playit
+
+# The homelab nodes authenticate every ghcr.io pull with a token scoped to Yasuke2000's
+# packages, which gets 403 on playit-cloud's image. Copy it under our namespace instead.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/mirror-playit.yml]
+
+env:
+  SOURCE: ghcr.io/playit-cloud/playit-agent:1.0
+  TARGET: ghcr.io/yasuke2000/playit-agent:1.0
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Copy multi-arch manifest
+        run: |
+          docker buildx imagetools create \
+            --annotation "index:org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+            -t "$TARGET" "$SOURCE"
+          docker buildx imagetools inspect "$TARGET"
