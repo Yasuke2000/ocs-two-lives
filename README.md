@@ -5,6 +5,8 @@ die, and reincarnate into the world of *That Time I Got Reincarnated as a Slime*
 
 Status: **Phase 0 (prototype)** — not playable yet.
 
+**Testers: volg [TESTERS.md](TESTERS.md)** (stap-voor-stap, Nederlands).
+
 ## Install (Prism Launcher)
 
 1. Create a NeoForge 1.21.1 instance.
