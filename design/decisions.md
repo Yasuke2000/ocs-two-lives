@@ -11,3 +11,4 @@ changes and new decisions with a date.
 | 16/11/2026 | — | Modrinth preferred over CurseForge when a mod is on both | CurseForge files resolve through its API at install time and authors can block third-party downloads. FTB suite, FTB XMod Compat, AllTheLeaks, TensuraMoreConfig are CurseForge-only. |
 | 16/11/2026 | — | JEI as the recipe viewer (not EMI) | One viewer only; JEI has the widest addon compat on 1.21.1. |
 | 16/11/2026 | — | Staging server whitelist-only, LAN/Tailscale (10.0.20.103); no public port yet | Public exposure decided at soft launch (plan Q6). |
+| 16/11/2026 | — | External testers via playit.gg tunnel `molecule-threefold.tun.ply.gg` (free network, Germany) → 10.0.20.103:25565 | No router change, home IP hidden. Agent runs in the server namespace on node3; image mirrored to ghcr.io/yasuke2000 because node-level GHCR auth returns 403. Whitelist stays the access control. |
