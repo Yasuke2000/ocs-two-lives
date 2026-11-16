@@ -1,0 +1,13 @@
+name = "OCS Tensura: Two Lives"
+author = "Outcast Society"
+version = "3.0.0-alpha.1"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "acb4f203c9e06587b1d2da722ca00085216bbf623b63b251b6e2547877d654af"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.266"

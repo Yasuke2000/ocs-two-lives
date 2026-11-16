@@ -1,0 +1,13 @@
+name = "TensuraMoreConfig"
+filename = "tensuramoreconfigs-0.0.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "b34f2cca050ae7e77c21995ebed75b9d1f3e971f"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9155556
+project-id = 1727000

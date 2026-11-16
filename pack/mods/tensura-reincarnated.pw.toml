@@ -1,0 +1,13 @@
+name = "Tensura: Reincarnated"
+filename = "tensura-neoforge-2.0.1.5.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Br0kXPwc/versions/WuoYFS45/tensura-neoforge-2.0.1.5.jar"
+hash-format = "sha512"
+hash = "8ba94ad41b4bb7ae69e386037ebed801c7e55c1c719e253b93b82c7f4259e2a948c32fdac29c94c082772b155229d0a3614d692ebbe093d1477260a20d266b6a"
+
+[update]
+[update.modrinth]
+mod-id = "Br0kXPwc"
+version = "WuoYFS45"

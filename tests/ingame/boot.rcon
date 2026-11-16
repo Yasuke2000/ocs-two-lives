@@ -1,0 +1,3 @@
+# Phase 0 smoke test: server answers RCON and the core mods are loaded.
+list
+neoforge tps

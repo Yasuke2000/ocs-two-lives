@@ -1,0 +1,13 @@
+name = "CervLogger"
+filename = "cervlogger-1.0.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/k80uf82n/versions/E9yFaDrs/cervlogger-1.0.0.jar"
+hash-format = "sha512"
+hash = "adbbcb56df6cfac979382b8026f5c500fd442a3b59b496660d55a403c20cc3543398f4ce30f2a58cc717900582fe69c934d95e6dd79925f9fa87d16b3bd6f703"
+
+[update]
+[update.modrinth]
+mod-id = "k80uf82n"
+version = "E9yFaDrs"
