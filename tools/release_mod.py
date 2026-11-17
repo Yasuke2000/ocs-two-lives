@@ -26,7 +26,11 @@ def run(cmd, cwd=ROOT, **kw):
 
 
 def packwiz() -> str:
-    found = shutil.which("packwiz") or shutil.which(str(Path.home() / "go" / "bin" / "packwiz"))
+    found = shutil.which("packwiz")
+    for name in ("packwiz.exe", "packwiz"):
+        candidate = Path.home() / "go" / "bin" / name
+        if not found and candidate.exists():
+            found = str(candidate)
     if not found:
         sys.exit("packwiz not found (go install github.com/packwiz/packwiz@latest)")
     return found
