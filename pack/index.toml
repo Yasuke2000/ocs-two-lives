@@ -878,7 +878,7 @@ hash = "3a06e656323ddfd8221469c3aebf0849e65638aa886d71ceb4cbf9e023b9787d"
 
 [[files]]
 file = "config/simple-discord-link/simple-discord-link.toml"
-hash = "af40c593b43c5c841c76b6ba32833532aedc3bfec74755271bfa45ca12c8d437"
+hash = "5d4fd50be9c2df40cf6fcf4ad30d20777e8ab867ae95f98e684d2b77135859fb"
 
 [[files]]
 file = "config/sophisticatedbackpacks-common.toml"
@@ -1291,6 +1291,10 @@ hash = "afde05224fbe0caf36b76b332e9ea92598bf5f869a1e60584968d7b6e505189d"
 [[files]]
 file = "kubejs/data/ttl/structure/trial_vengeance.nbt"
 hash = "9f92291a755f345c07d7b3dcac65bf9547c056a9726f2817bd898578b6eddba1"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/access.js"
+hash = "cf04740e16e34d52b86eb952f460f23b2db04620861fb6660f234a83cd4d35e3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/boot.js"

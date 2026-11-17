@@ -298,23 +298,25 @@
 #Manage access to your server, similar to whitelisting
 [accessControl]
 	#Enable Access Control
-	enabled = false
+	# OCS: on. Linking your Discord account (/verify <code>) replaces the manual whitelist; kubejs
+	# server_scripts/ttl/access.js keeps it fail-closed when the bot is offline.
+	enabled = true
 	#Allow users to verify their accounts without access control. This setting is ignored if the above setting is set to true
 	optionalVerification = true
 	#Allows verification and un-verification via DM
 	allowVerifyInDm = true
 	#Does the player need to be a member of your discord to join
-	requireDiscordMembership = false
+	requireDiscordMembership = true
 	#Can players verify multiple Minecraft Accounts
 	allowMultipleAccounts = false
 	#Change the discord user nickname to their Minecraft name when their accounts are linked
-	changeDiscordNickname = false
+	changeDiscordNickname = true
 	#Optional: The player requires any of these roles to be able to join your server
 	requiredRoles = []
 	#Optional: Players with these roles will never be allowed access to your server
 	deniedRoles = []
 	#Optional: Role name or ID to assign to verified player accounts
-	verifiedRole = []
+	verifiedRole = ["Linked"]
 	#Should players with verified accounts, be banned from Minecraft if they get banned on discord
 	banPlayerOnDiscordBan = false
 	#Should members with verified accounts, be banned from discord when they are banned on Minecraft
@@ -325,9 +327,9 @@
 		#This message is shown to users when they use the in-game verification command
 		optionalVerificationMessage = "Your verification code is: {code}. DM it to our bot, or use /verify <code> in our Discord, to link your account"
 		#The message shown to players that are not verified
-		accountVerification = "This server requires a linked Discord account. Your code is: {code}. Use /verify {code} in our Discord (or DM it to the bot), then join again."
+		accountVerification = "Welcome! Link your Discord account first: in the OCS Tensura Discord type /verify {code} (or DM {code} to the bot), then join again. Not in the Discord yet? Ask the friend who invited you."
 		#Message to show to players that are not a member of your discord
-		nonMember = "Sorry, you need to be a member of our Discord server to join this server"
+		nonMember = "Join the OCS Tensura Discord first (ask the friend who invited you for the invite), then join again."
 		#Message to show when player doesn't have one of the required roles. Use {roles} to display the names of configured roles
 		requireRoles = "Sorry, but you require any of the following roles: {roles}"
 		#Message to show when player has a role from the deniedRoles list

@@ -85,3 +85,12 @@ assigning yourself and saying so in the issue.
 - `design/decisions.md` — why things are the way they are
 - `docs/configs.md` — every config file · `docs/server.md` — server settings
 - `tools/server.sh` — staging server control (needs homelab SSH; most people don't need it)
+
+## Version numbers
+
+The Java mod (`ttl-portals`, `mod/gradle.properties`) counts slowly on purpose:
+- **patch** (0.8.**1**, 0.8.2, …): every normal release — fixes, new content, tweaks. This is the default:
+  `python tools/release_mod.py` (same as `--bump patch`).
+- **minor** (0.**9**.0): only when a milestone lands (a finished sprint, or a big new system); agree it with David.
+- **major** (1.0.0): the public launch.
+Pack-only changes (configs, scripts, builds, quests) need no version bump: every merge to `main` is deployed.
