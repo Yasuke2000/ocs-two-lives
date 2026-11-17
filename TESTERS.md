@@ -45,8 +45,10 @@ Staat hij er niet? Klik **Add Server** en vul als adres `molecule-threefold.tun.
 
 1. **Leven 1:** je start als gewone mens in de **Mortal Realm**, een wereld zonder Tensura-monsters en zonder skills. Je hebt maar één leven.
 2. **Doodgaan:** je spullen ben je kwijt, maar je XP en advancements blijven. Je ziel komt in de **Spirit Corridor**, een zwevende hal in de leegte.
-3. **Kiezen:** in de chat krijg je drie rassen aangeboden. Klik op een ras (of typ `/ttl choose <ras>`).
-4. **Leven 2:** je wordt herboren in de Tensura-wereld, als het gekozen ras en met één unieke skill.
+3. **Laatste wens:** de Voice of the World vraagt wat je ziel op het einde wenste (Strength, Knowledge, Hunger, …). Je wens bepaalt uit welke skills je unieke skill komt.
+4. **Proef van de Ziel (optioneel):** elke wens heeft zijn eigen proef, bv. golven monsters (Strength), raadsels (Knowledge), een dorpeling beschermen (Protection), parkour (Freedom) of ongezien voorbij wachters sluipen (Deceit). Slaag je, dan kies je zelf je skill uit drie. Faal je, dan beslist het lot.
+5. **Ras kiezen:** klik op een van de drie rassen in de chat (of typ `/ttl choose <ras>`).
+6. **Leven 2:** je wordt herboren in de Tensura-wereld, als het gekozen ras en met één unieke skill.
 
 Met `/ttl status` zie je in welk leven je zit. Ver kijken: Distant Horizons tekent de verre omgeving. Zet de afstand via **Options → Video Settings** (DH-knop) of laat de standaard staan.
 
