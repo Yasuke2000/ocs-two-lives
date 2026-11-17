@@ -34,7 +34,7 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "5a8fef8b8db723bb5657eb980586fd1e42c50eb869927082eebae9dba2e13261"
+hash = "c7eb606ccf7d02e418c19e5ff98e3dbd153e7c31cf573e745163b90a1724301a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
@@ -62,7 +62,7 @@ hash = "a0019d7bbbb67f9a90d63f7350e6a9108f5dbf8a907219cfe1e30522cabfe6fa"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
-hash = "011d48c0a18103368761a694ff31a9103978f5f0fd7fc1c57d4f7758066e945c"
+hash = "e8567af127e29e307ed42fefd738797858c44f16d971e1c28c40ea578df2974e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"

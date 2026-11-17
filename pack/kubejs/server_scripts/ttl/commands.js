@@ -38,6 +38,17 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  // Brigadier swallows script errors as "An unexpected error occurred"; log the real cause.
+  const logged = fn => ctx => {
+    try {
+      return fn(ctx)
+    } catch (e) {
+      console.error(`[ttl] command failed: ${e}`)
+      ctx.source.sendSystemMessage(Text.red(`ttl: ${e}`))
+      return 0
+    }
+  }
+
   const reset = ctx => {
     const server = ctx.source.getServer()
     const target = Arguments.PLAYER.getResult(ctx, 'target')
@@ -70,8 +81,8 @@ ServerEvents.commandRegistry(event => {
     .then(Commands.literal('status').executes(status))
     .then(Commands.literal('inspect')
       .requires(src => src.hasPermission(2))
-      .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(inspect)))
+      .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(inspect))))
     .then(Commands.literal('reset')
       .requires(src => src.hasPermission(2))
-      .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(reset))))
+      .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(reset)))))
 })

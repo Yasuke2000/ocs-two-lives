@@ -38,9 +38,10 @@ const TtlLife = {
     let x = 0
     let z = 0
     try {
-      const spawn = server.overworld().getSharedSpawnPos()
-      x = spawn.getX()
-      z = spawn.getZ()
+      // Not `spawn`: server scripts share one scope and Rhino rejects the redeclaration.
+      const worldSpawn = server.overworld().getSharedSpawnPos()
+      x = worldSpawn.getX()
+      z = worldSpawn.getZ()
     } catch (e) {
       console.warn(`[ttl] world spawn unreadable, using 0 0: ${e}`)
     }
