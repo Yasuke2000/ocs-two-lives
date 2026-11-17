@@ -9,6 +9,8 @@ import dev.architectury.registry.menu.MenuRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.RaceAPI;
 import io.github.manasmods.tensura.menu.ReincarnationMenu;
+import io.github.manasmods.tensura.storage.TensuraStorages;
+import io.github.manasmods.tensura.storage.player.ITensuraPlayer;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -33,7 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Life 2 rebirth through Tensura's own reincarnation menu, so the Great Sage addon plays its scene on top.
  * The scripts decide the race offers; ReincarnationMenuMixin makes the menu show exactly those, and when
  * the player confirms, {@code /ttl reborn <player> <race>} hands control back to the scripts.
- * Players without a race (Life 1 first login) never get Tensura's menu: the scripts make them Human.
+ * Outside that rebirth nobody gets Tensura's menu at login: the scripts make Life 1 players Human.
  */
 public final class Rebirth {
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -57,8 +59,19 @@ public final class Rebirth {
         return ids.stream().map(id -> RaceAPI.getRaceRegistry().get(ResourceLocation.parse(id))).filter(Objects::nonNull).toList();
     }
 
+    // Tensura reopens its menu at every login while its reset-in-progress flag is set, and only the menu's
+    // submit button clears it. Races set by command (Life 1, reset) leave it set, which sent players through
+    // the Great Sage scene, its wishes and a teleport to the Tensura world on login. Only our own rebirth may
+    // show the menu, so anything else is blocked and the stale flag cleared.
     public static boolean blockFirstLogin(ServerPlayer player) {
-        return RaceAPI.getRaceFrom(player).getRace().isEmpty() && !OFFERS.containsKey(player.getUUID());
+        if (OFFERS.containsKey(player.getUUID())) return false;
+        ITensuraPlayer data = TensuraStorages.getPlayerDataFrom(player);
+        if (data.getInResetProgress() != 0) {
+            data.setInResetProgress(0);
+            player.setInvulnerable(false);
+            LOGGER.info("[ttl] rebirth: cleared Tensura's pending reincarnation for {}", player.getGameProfile().getName());
+        }
+        return true;
     }
 
     public static void onRaceSet(Player player, ManasRace race) {
