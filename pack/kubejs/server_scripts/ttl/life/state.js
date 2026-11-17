@@ -4,6 +4,8 @@
 // Life 2 deaths; offers live in persistentData.
 const TtlLife = {
   MORTAL: 'ttl:mortal_realm',
+  // Life 1's own Nether and End; the ttl-portals mod links their portals to the Mortal Realm only.
+  MORTAL_DIMS: ['ttl:mortal_realm', 'ttl:mortal_nether', 'ttl:mortal_end'],
   CORRIDOR: 'ttl:spirit_corridor',
   OVERWORLD: 'minecraft:overworld',
   // Phase 0 offer pool (reincarnationRaces from Tensura's config). Karma tiers replace this in Phase 1.
@@ -14,6 +16,10 @@ const TtlLife = {
     if (player.stages.has('ttl.corridor')) return 'corridor'
     if (player.stages.has('ttl.life1')) return 'life1'
     return null
+  },
+
+  isMortal(dimension) {
+    return this.MORTAL_DIMS.indexOf(String(dimension)) >= 0
   },
 
   dimensionOf(player) {

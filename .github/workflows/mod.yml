@@ -1,0 +1,37 @@
+name: mod
+
+# Builds the ttl-portals mod (mod/) and publishes the jar as a release asset that packwiz links to.
+# Bump `version` in mod/build.gradle and neoforge.mods.toml for every release; the tag follows it.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [mod/**, .github/workflows/mod.yml]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.14.3
+      - name: Build
+        working-directory: mod
+        run: gradle build --no-daemon
+      - name: Publish release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          jar=$(ls mod/build/libs/ttl-portals-*.jar | grep -v sources | head -1)
+          version=$(basename "$jar" .jar | sed 's/^ttl-portals-//')
+          tag="mod-v$version"
+          gh release view "$tag" >/dev/null 2>&1 || \
+            gh release create "$tag" --title "ttl-portals $version" --notes "Two Lives portal mod, built from mod/."
+          gh release upload "$tag" "$jar" --clobber

@@ -6,7 +6,15 @@ hash = "ab4d84553df4168e5350722249dfa158c6e378b618661dfab6e81ab92f8770cc"
 
 [[files]]
 file = "config/tombstone-common.toml"
-hash = "93cdff6594fe5ea0c690564579114b68a75dbac04d3d3c9991a5762e880931e8"
+hash = "dca75933aa25e6c95878bc12c43d900fc55dc9a197a1be42f6ae7a1f9ba5e35e"
+
+[[files]]
+file = "kubejs/data/ttl/dimension/mortal_end.json"
+hash = "529d15ff4e0efb331d02993b2f3ef7e219b07e1a67fce23b367fc1529254cb90"
+
+[[files]]
+file = "kubejs/data/ttl/dimension/mortal_nether.json"
+hash = "7cadba283bc297fd39fe33613a6e11837e1f3861779745d9cbe198f62225f322"
 
 [[files]]
 file = "kubejs/data/ttl/dimension/mortal_realm.json"
@@ -42,15 +50,15 @@ hash = "d3de53ed1ebf78f00ce61e828b5d64168fe039c114e1ac88a6c484fa3acb02dc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
-hash = "c0a9cd79ccf5a8b3d454e11656e93310618c5efe7d1676b157348ae355b3563f"
+hash = "03b127fcde88b86749090e790d5cdb61919a8af80f773e84919fbf46736b5b79"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
-hash = "a4cbe41e50e16966e243de4b0c28142869bdf9ecdcd51f4cca3fa9efa9b24606"
+hash = "a0019d7bbbb67f9a90d63f7350e6a9108f5dbf8a907219cfe1e30522cabfe6fa"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
-hash = "6e5cb09b096ab6bc2b05db81ca22a5b016d15f519be5715e72053637eb87163e"
+hash = "e988677d37f94cd58bab8ee6684f2bc64dbcbc77c1e7f031895e142990fad67a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"

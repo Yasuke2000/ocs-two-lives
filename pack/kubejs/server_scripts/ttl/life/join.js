@@ -18,7 +18,7 @@ PlayerEvents.loggedIn(event => {
 
   const dim = life.dimensionOf(player)
   if (phase === 'corridor' && dim !== life.CORRIDOR) server.scheduleInTicks(20, () => life.toCorridor(server, player))
-  if (phase === 'life1' && dim !== life.MORTAL) server.scheduleInTicks(20, () => life.toMortal(server, player))
+  if (phase === 'life1' && !life.isMortal(dim)) server.scheduleInTicks(20, () => life.toMortal(server, player))
 })
 
 // Fallback if a Life 1 death slipped past death.js: the respawn lands in the Corridor anyway.

@@ -4,3 +4,5 @@ server/
 *.log
 __pycache__/
 .claude/settings.local.json
+mod/build/
+mod/.gradle/

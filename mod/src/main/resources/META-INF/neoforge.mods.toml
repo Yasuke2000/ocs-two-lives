@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "ttl"
+version = "0.1.0"
+displayName = "OCS Two Lives: Portals"
+description = '''
+Links the Mortal Realm (Life 1) to its own Nether and End, so Life 1 never reaches the Tensura world's
+Nether or End, and gives the Mortal End its own dragon fight.
+'''
+
+[[mixins]]
+config = "ttl.mixins.json"
+
+[[dependencies.ttl]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ttl]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"
