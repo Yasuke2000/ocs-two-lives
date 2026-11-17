@@ -22,7 +22,8 @@ EntityEvents.death('minecraft:player', event => {
 
   // The Trial of Vengeance brings back whatever killed you.
   try {
-    var killer = event.source.getEntity()
+    // KubeJS names the attacker `actual`; DamageSource.getEntity() is not visible to scripts.
+    var killer = event.source.actual
     player.persistentData.putString('ttl.killer', killer ? String(killer.type) : '')
   } catch (e) {
     player.persistentData.putString('ttl.killer', '')

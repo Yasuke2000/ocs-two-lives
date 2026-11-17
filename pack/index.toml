@@ -46,7 +46,7 @@ hash = "64d2aa49752f02b0d44347824657b432bfcf1f1253bc54f402be045f4857e9bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
-hash = "a72f93f8a552ef5bac49265dae1cbce01ec203c730ca80399a4bb1a6144645a1"
+hash = "b9196b562dcace325395b27c74feb73854c7a96b76c64b0f2fb6d2bc418e14fa"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
