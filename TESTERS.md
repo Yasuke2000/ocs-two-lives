@@ -18,8 +18,9 @@ Bedankt om mee te testen! Reken op ongeveer 15 minuten voor de installatie. Daar
 
 1. Klik **Add Instance**.
 2. Geef hem een naam, bv. `OCS Two Lives`.
-3. Kies bij versie **1.21.1**.
+3. Kies bij versie **1.21.1**. Let op: **niet** 1.21.10 of 1.21.11, die staan er vlak naast.
 4. Kies onderaan bij **Mod loader** voor **NeoForge**, versie **21.1.266**.
+   Zie je bij NeoForge "No versions are currently available"? Dan heb je de verkeerde Minecraft-versie gekozen. Ga naar **Edit → Version**, selecteer de rij **Minecraft**, klik **Change Version** en kies **1.21.1**. Klik daarna **Install Loader → NeoForge → 21.1.266**.
 5. Klik **OK**.
 
 ## 3. De mods automatisch laten installeren
@@ -62,6 +63,7 @@ Je installeert de mods niet zelf. Een klein programmaatje (packwiz) haalt ze bij
 
 | Probleem | Oplossing |
 | --- | --- |
+| NeoForge: "No versions are currently available" | Je instance staat op 1.21.10 of 1.21.11. Zet hem op **1.21.1** (zie stap 2.4). |
 | "You are not whitelisted on this server" | Je naam staat nog niet op de whitelist. Stuur je exacte Minecraft-naam naar David. |
 | "Mismatched mod list" of "Incompatible mods" | Je pack is verouderd. Sluit Minecraft volledig en start opnieuw via Prism; packwiz werkt hem dan bij. |
 | Er verschijnt geen downloadvenster, of er komen geen mods bij | Controleer of het `.jar`-bestand echt in de map `minecraft` staat en of het pre-launch command exact klopt, inclusief de aanhalingstekens. |
