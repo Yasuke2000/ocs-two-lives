@@ -13,15 +13,21 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ClientInformation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.CommonListenerCookie;
+import net.minecraft.world.level.storage.LevelResource;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import org.slf4j.Logger;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
  * Staging-only test players: a real ServerPlayer on a dead connection, so login, death, stages and
  * every script hook run exactly as for a person. Drive them with {@code execute as <bot> run ...}.
  * Bots skip the whitelist and don't tick movement, so they never walk, fall or use portals by themselves.
+ * Every spawn starts from a fresh player file: a bot never respawns, so a saved dead bot stays dead.
  */
 public final class TestBots {
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -54,7 +60,16 @@ public final class TestBots {
             ctx.getSource().sendFailure(Component.literal(name + " is already online"));
             return 0;
         }
-        GameProfile profile = new GameProfile(UUIDUtil.createOfflinePlayerUUID(name), name);
+        UUID id = UUIDUtil.createOfflinePlayerUUID(name);
+        Path playerData = server.getWorldPath(LevelResource.PLAYER_DATA_DIR);
+        try {
+            Files.deleteIfExists(playerData.resolve(id + ".dat"));
+            Files.deleteIfExists(playerData.resolve(id + ".dat_old"));
+        } catch (IOException e) {
+            ctx.getSource().sendFailure(Component.literal("Could not reset " + name + ": " + e.getMessage()));
+            return 0;
+        }
+        GameProfile profile = new GameProfile(id, name);
         ServerPlayer bot = new ServerPlayer(server, server.overworld(), profile, ClientInformation.createDefault());
         server.getPlayerList().placeNewPlayer(new BotConnection(), bot, CommonListenerCookie.createInitial(profile, false));
         LOGGER.info("[ttl] test bot {} joined", name);

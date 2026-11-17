@@ -25,3 +25,6 @@ neoforge tps
 ttl inspect TtlBotTrial
 execute as TtlBotTrial run ttl choose slime
 ttl inspect TtlBotTrial
+tensura get ability list skill TtlBotTrial
+ttl reset TtlBotTrial
+ttlbot remove TtlBotTrial
