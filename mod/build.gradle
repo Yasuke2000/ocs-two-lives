@@ -23,8 +23,22 @@ repositories {
 
 dependencies {
     compileOnly 'maven.modrinth:Br0kXPwc:WuoYFS45'   // Tensura: Reincarnated 2.0.1.5
-    compileOnly 'maven.modrinth:wRRSWpd1:yhLQMaxS'   // ManasCore 4.0.0.2
     compileOnly 'maven.modrinth:lhGA9TYQ:xGfBrBzj'   // Architectury 13.0.12
+}
+
+// ManasCore ships its modules (race, skill, ...) as nested jars; compile against the extracted ones.
+configurations { manascoreBundle { transitive = false } }
+dependencies { manascoreBundle 'maven.modrinth:wRRSWpd1:yhLQMaxS' }   // ManasCore 4.0.0.2
+def extractManascore = tasks.register('extractManascore', Copy) {
+    from({ zipTree(configurations.manascoreBundle.singleFile) }) {
+        include 'META-INF/jars/*.jar'
+        eachFile { it.path = it.name }
+    }
+    includeEmptyDirs = false
+    into layout.buildDirectory.dir('manascore')
+}
+dependencies {
+    compileOnly files(['race', 'skill', 'storage', 'config', 'network'].collect { "build/manascore/manascore-${it}-neoforge-4.0.0.2.jar" }).builtBy(extractManascore)
 }
 
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
