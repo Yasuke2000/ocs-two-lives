@@ -6,7 +6,7 @@ PlayerEvents.loggedIn(event => {
 
   if (phase === null) {
     player.stages.add('ttl.life1')
-    player.persistentData.putLong('ttl.l1.start', server.overworld().getGameTime())
+    player.persistentData.putLong('ttl.l1.start', Date.now())
     // The login tp lands before the client finishes joining unless it waits a moment.
     server.scheduleInTicks(20, () => {
       life.toMortal(server, player)

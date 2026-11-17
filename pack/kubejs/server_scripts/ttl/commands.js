@@ -34,7 +34,7 @@ ServerEvents.commandRegistry(event => {
       .map(k => `${k}=${data.getString(k)}`)
       .concat([`ttl.trial.done=${data.getBoolean('ttl.trial.done')}`, `ttl.trial.passed=${data.getBoolean('ttl.trial.passed')}`])
     const line = `${target.username}: phase=${life.phase(target)} dim=${life.dimensionOf(target)} ${fields.join(' ')}`
-    ctx.source.sendSuccess(() => Text.of(line), false)
+    ctx.source.sendSystemMessage(Text.of(line))
     return 1
   }
 
@@ -51,7 +51,7 @@ ServerEvents.commandRegistry(event => {
     target.stages.add('ttl.life1')
     life.toMortal(server, target)
     console.info(`[ttl] ${name} reset to Life 1`)
-    ctx.source.sendSuccess(() => Text.of(`${name} reset to Life 1`), true)
+    ctx.source.sendSystemMessage(Text.of(`${name} reset to Life 1`))
     return 1
   }
 

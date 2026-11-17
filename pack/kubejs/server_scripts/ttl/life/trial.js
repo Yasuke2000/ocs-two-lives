@@ -113,7 +113,7 @@ const TtlTrial = {
 EntityEvents.death(event => {
   const entity = event.entity
   if (entity.isPlayer()) return
-  if (entity.getTags().contains(TtlTrial.TAG)) TtlTrial.onMobDeath(event.server)
+  if (entity.tags.contains(TtlTrial.TAG)) TtlTrial.onMobDeath(event.server)
 })
 
 // A restart mid-trial must not leave the hall locked.

@@ -23,7 +23,7 @@ EntityEvents.death('minecraft:player', event => {
   // Swap the stage now: void damage can fire another death before the tp next tick.
   player.stages.remove('ttl.life1')
   player.stages.add('ttl.corridor')
-  console.info(`[ttl] ${player.username} died in Life 1 (${event.source.getMsgId()})`)
+  console.info(`[ttl] ${player.username} died in Life 1 (${String(event.source)})`)
 
   server.scheduleInTicks(1, () => {
     const name = player.username

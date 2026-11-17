@@ -35,8 +35,16 @@ const TtlLife = {
   },
 
   toOverworld(server, player) {
-    const spawn = server.overworld().getSharedSpawnPos()
-    server.runCommandSilent(`execute in ${this.OVERWORLD} run spreadplayers ${spawn.getX()} ${spawn.getZ()} 0 32 false ${player.username}`)
+    let x = 0
+    let z = 0
+    try {
+      const spawn = server.overworld().getSharedSpawnPos()
+      x = spawn.getX()
+      z = spawn.getZ()
+    } catch (e) {
+      console.warn(`[ttl] world spawn unreadable, using 0 0: ${e}`)
+    }
+    server.runCommandSilent(`execute in ${this.OVERWORLD} run spreadplayers ${x} ${z} 0 32 false ${player.username}`)
   },
 
   // Slime stays in every offer (master plan §3); two more are drawn from the pool. Read by TtlCorridor.
