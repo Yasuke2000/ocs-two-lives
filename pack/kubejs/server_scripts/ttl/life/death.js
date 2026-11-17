@@ -39,8 +39,6 @@ EntityEvents.death('minecraft:player', event => {
     server.runCommandSilent(`quietly clear ${name}`)
     life.toCorridor(server, player)
     server.runCommandSilent(`quietly gamemode adventure ${name}`)
-    server.runCommandSilent(`title ${name} title {"text":"Your first life has ended","color":"dark_red"}`)
-    server.runCommandSilent(`title ${name} subtitle {"text":"The Voice of the World is listening","color":"gray"}`)
     TtlCorridor.begin(server, player)
   })
   return event.cancel()

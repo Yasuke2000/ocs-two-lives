@@ -80,6 +80,7 @@ const TtlTrial = {
     this.run(server, `tp ${name} ${o.x + d.start[0] + 0.5} ${o.y + d.start[1]} ${o.z + d.start[2] + 0.5} 0 0`)
     server.runCommandSilent(`title ${name} title ${TtlTrials.named(d.title, 'red')}`)
     server.runCommandSilent(`title ${name} subtitle ${TtlTrials.named(d.intro, 'gray')}`)
+    TtlCorridor.say(server, name, 'kono_michi_wa_kewashii')
     TtlCorridor.voice(server, name, `${d.title}: ${d.intro} (${d.limit} seconds)`)
     console.info(`[ttl] ${name} started the ${d.title}`)
 
@@ -169,7 +170,7 @@ const TtlTrial = {
     player.getFoodData().setFoodLevel(20)
     player.clearFire()
     TtlLife.toCorridor(server, player)
-    TtlCorridor.voice(server, name, passed ? `${why} You may choose your skill.` : `${why} Fate will choose your skill.`)
+    TtlCorridor.say(server, name, passed ? 'shounin' : 'sekai_ga_kimeru')
     TtlCorridor.showLater(server, player)
   }
 }

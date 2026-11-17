@@ -11,6 +11,7 @@ PlayerEvents.loggedIn(event => {
     server.scheduleInTicks(20, () => {
       life.makeHuman(server, player)
       life.toMortal(server, player)
+      TtlCorridor.say(server, player.username, 'hajimari')
       player.tell(Text.gold('You are human, and you only live once here. Die, and your soul moves on.'))
     })
     console.info(`[ttl] ${player.username} started Life 1`)

@@ -14,6 +14,22 @@ const TtlCorridor = {
     return path.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
   },
 
+  // The Great Sage addon's Voice of the World: on-screen overlay plus the recorded clip. The English line
+  // is the addon's own subtitle for the clip (greatsage.voice.<clip>), so it follows the client language.
+  // Clip names come from the addon jar (assets/greatsage/sounds/world/); the Japanese lines are ours.
+  CLIPS: {
+    hajimari: '始まります。', shibou_kakunin: '死亡を確認しました。', tamashii_hosoku: '魂を捕捉。損傷はありません。',
+    saigo_no_negai: '最後の願い。', kakunin_shimashita: '確認しました。', shuzoku_sentaku: '種族を選択してください。',
+    kono_michi_wa_kewashii: 'この道は険しい。', shounin: '……承認します', sekai_ga_kimeru: '世界が決めます。',
+    kouho_teiji: '候補を提示します。', tensei_kanryou: '転生、完了しました。', me_o_akete: '目を開けて。'
+  },
+
+  say(server, name, clip) {
+    var jp = JSON.stringify({ text: this.CLIPS[clip] || '' })
+    var en = JSON.stringify({ translate: `greatsage.voice.${clip}` })
+    server.runCommandSilent(`greatsage worldvoice ${name} ${clip} ${jp} ${en}`)
+  },
+
   voice(server, name, text) {
     server.runCommandSilent(`tellraw ${name} ${JSON.stringify([{ text: '[Voice of the World] ', color: 'gold' }, { text: text, color: 'yellow' }])}`)
   },
@@ -59,7 +75,12 @@ const TtlCorridor = {
     this.KEYS.forEach(k => data.remove(k))
     data.putString('ttl.step', 'wish')
     data.putString('ttl.offers', TtlLife.rollOffers().join(','))
-    this.showLater(server, player)
+    var name = player.username
+    this.say(server, name, 'shibou_kakunin')
+    server.scheduleInTicks(50, () => this.say(server, name, 'tamashii_hosoku'))
+    server.scheduleInTicks(100, () => this.say(server, name, 'saigo_no_negai'))
+    // The wish menu opens once the death lines have played.
+    server.scheduleInTicks(110, () => this.showStep(server, player))
   },
 
   // A screen opened while the client is still loading the new dimension gets closed by the loading
@@ -146,7 +167,8 @@ const TtlCorridor = {
     if (!wish) return `Unknown wish: ${id}`
     data.putString('ttl.wish', wish.id)
     data.putString('ttl.step', 'race')
-    this.voice(server, player.username, `Confirmed. "${wish.wish}" Your wish has been heard.`)
+    this.say(server, player.username, 'kakunin_shimashita')
+    server.scheduleInTicks(30, () => this.say(server, player.username, 'shuzoku_sentaku'))
     console.info(`[ttl] ${player.username} wished for ${wish.id}`)
     this.showRaces(server, player)
     return null
@@ -164,6 +186,7 @@ const TtlCorridor = {
       if (options.length > 0) {
         data.putString('ttl.uniqueOptions', options.join(','))
         data.putString('ttl.step', 'unique')
+        this.say(server, player.username, 'kouho_teiji')
         this.showUniques(server, player)
         return null
       }
@@ -188,9 +211,8 @@ const TtlCorridor = {
     var name = player.username
     var race = data.getString('ttl.race')
     server.runCommandSilent(`quietly tensura edit race ${name} set tensura:${race}`)
-    if (skill && TtlRegistry.grant(server, player, skill)) {
-      this.voice(server, name, `Confirmed. Unique Skill [${this.title(skill)}] acquired.`)
-    } else {
+    // The Great Sage addon announces the granted skill itself (overlay + name clip).
+    if (!(skill && TtlRegistry.grant(server, player, skill))) {
       // Every unique in the wish's pool is taken: reborn without one rather than breaking the cap.
       this.voice(server, name, 'Your wish echoes, but no free skill answers it. You are reborn without one.')
     }
@@ -201,6 +223,8 @@ const TtlCorridor = {
     data.remove('ttl.killer')
     server.runCommandSilent(`quietly gamemode survival ${name}`)
     TtlLife.toOverworld(server, player)
+    this.say(server, name, 'tensei_kanryou')
+    server.scheduleInTicks(60, () => this.say(server, name, 'me_o_akete'))
     server.runCommandSilent(`tellraw @a ${JSON.stringify([
       { text: '[Voice of the World] ', color: 'gold' },
       { text: `${name} has been reborn as a ${this.title(race)}.`, color: 'yellow' }

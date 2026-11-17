@@ -50,19 +50,19 @@ hash = "1336c660acdbbf45d795651882fe740da983c99c3e4e9d9c887df615c7d55bd1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "3ab87455179a8ad9b768e85702cbd301c50a3aa38c16a4b7cf367d0fb64394e2"
+hash = "f69591d27042210d22152b94d53ac1f2b176c7b8a33200c8d6b0ce2253b06080"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
-hash = "5b9d4a44dc17a1cea326ba0457aa897d933714db2da5713f1a99b4263db2cd0c"
+hash = "7167dd4af16033e3c5313b41220f2e897456e85505535332109b42a554c6df64"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
-hash = "d3de53ed1ebf78f00ce61e828b5d64168fe039c114e1ac88a6c484fa3acb02dc"
+hash = "8f96e165b461f55767bdf222f24fcd3dc693b3735e4d119d2e5618ab8ef218c4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
-hash = "3b7e0c271fe298603dee5896851865f793dfc8803531e4a6cd1618d6819da054"
+hash = "1210faea2e1927d31a7590773165265b9dcb21f10b44423d8519462d99cb2f41"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
@@ -74,7 +74,7 @@ hash = "1ba700c438b5c8b74c42879bb6315b4ee38559d4e1205175c7ef6968de64b68f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
-hash = "9d83ccd29d599d2725d520b235f7f0ce27cb0ce47d9b924def55838451072fcc"
+hash = "823a307b01f9c587246c1366049770675afac947edc9d2490d994b3bf5e695a0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial_defs.js"
