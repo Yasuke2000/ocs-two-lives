@@ -41,6 +41,15 @@ Alles staat dan al juist: de Minecraft-versie, NeoForge, het geheugen, de mod-in
 
 Staat hij er niet? Klik **Add Server** en vul als adres `molecule-threefold.tun.ply.gg` in, zonder poortnummer.
 
+## Hoe het spel werkt (testversie)
+
+1. **Leven 1:** je start als gewone mens in de **Mortal Realm**, een wereld zonder Tensura-monsters en zonder skills. Je hebt maar één leven.
+2. **Doodgaan:** je spullen ben je kwijt, maar je XP en advancements blijven. Je ziel komt in de **Spirit Corridor**, een zwevende hal in de leegte.
+3. **Kiezen:** in de chat krijg je drie rassen aangeboden. Klik op een ras (of typ `/ttl choose <ras>`).
+4. **Leven 2:** je wordt herboren in de Tensura-wereld, als het gekozen ras en met één unieke skill.
+
+Met `/ttl status` zie je in welk leven je zit. Ver kijken: Distant Horizons tekent de verre omgeving. Zet de afstand via **Options → Video Settings** (DH-knop) of laat de standaard staan.
+
 ## Problemen?
 
 | Probleem | Oplossing |
