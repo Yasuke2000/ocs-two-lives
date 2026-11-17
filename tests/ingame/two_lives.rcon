@@ -5,4 +5,4 @@ execute in ttl:mortal_realm run time query gametime
 execute in ttl:spirit_corridor run time query gametime
 gamerule noUniqueStart
 gamerule trulyUnique
-execute in ttl:spirit_corridor if block 0 64 0 minecraft:sea_lantern run say corridor hall ok
+execute in ttl:spirit_corridor if block 0 64 0 minecraft:sea_lantern
