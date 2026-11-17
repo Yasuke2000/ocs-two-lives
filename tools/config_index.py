@@ -14,7 +14,7 @@ TARGET = ROOT / "docs" / "configs.md"
 CURATED = {
     "tensura/reincarnation_config.toml": "Human-only first spawn; Legendaries removed from the reincarnation skill pools",
     "greatsage-common.toml": "Legendaries excluded from Great Sage's reincarnation wishes; no reincarnation error chance",
-    "tombstone-common.toml": "No graves in the Mortal dimensions and the Spirit Corridor",
+    "tombstone-common.toml": "No graves in the Mortal dimensions and the Spirit Corridor; Tensura/NEB bosses can't be caught in a Familiar Receptacle",
     "DistantHorizons.toml": "Chat warnings and the auto-updater off",
     "enhancedcelestials2core/translations.json": "Translation prompt off",
 }
