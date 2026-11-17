@@ -6,6 +6,7 @@ import com.google.gson.JsonParser;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.logging.LogUtils;
+import com.yasuke.ttl.bot.TestBots;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
@@ -87,7 +88,8 @@ public final class BugReports {
 
         String token = System.getenv("TTL_GITHUB_TOKEN");
         String repo = System.getenv("TTL_REPORT_REPO");
-        if (token == null || token.isBlank() || repo == null || repo.isBlank()) {
+        // The bot suite runs /bug after every deploy; those reports stay on the server, not on GitHub.
+        if (token == null || token.isBlank() || repo == null || repo.isBlank() || TestBots.isBot(player)) {
             player.sendSystemMessage(Component.literal("Thanks! Your report was saved (" + file.getFileName() + ").").withStyle(ChatFormatting.GREEN));
             return 1;
         }
