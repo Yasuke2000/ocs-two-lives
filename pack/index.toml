@@ -26,15 +26,15 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "fa0aba864bb9bc09c9006957187eb2dfa0e5a1c11c88c585d2ab742d935a7208"
+hash = "074f37f978d1a35e414f8b546ba93256d4f3877d5a80b4321eb80aca98db9e00"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
-hash = "501601b57e0d58baff1d056302ed5280a399a86e0a4d33cbe25130fc711af02e"
+hash = "0459e86bb8c94463ae167701d6afd9be1a2667e8d39fc387b81db2306c95770a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
-hash = "2985c5df594e7d3a82ed45fa98ed1fb47b36d27b14a64b55617c169d716a9cee"
+hash = "a8087c8f6e547d123d4dffe297ef56cd392bd812aa0e5946e1d317c86adc8b54"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -42,19 +42,19 @@ hash = "d3de53ed1ebf78f00ce61e828b5d64168fe039c114e1ac88a6c484fa3acb02dc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
-hash = "aee84454376ef08ce348d9b68c26f5de57a762e0f00ccfb295bb129831803721"
+hash = "c0a9cd79ccf5a8b3d454e11656e93310618c5efe7d1676b157348ae355b3563f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
-hash = "d264ef7caad17d68e57f0f44125979a653ce26f0bb39e9516e0af8dd7d2f3e65"
+hash = "a4cbe41e50e16966e243de4b0c28142869bdf9ecdcd51f4cca3fa9efa9b24606"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
-hash = "2a1051e74904fde43b8aa5657426d063b781297aa2f35f64b3771d3c50e02439"
+hash = "6e5cb09b096ab6bc2b05db81ca22a5b016d15f519be5715e72053637eb87163e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "c484775cdbfca6eefb5a0f4b976a80cf6ef60a0456d098b437d3141e535c4cbb"
+hash = "a34cdaa631867383f9f4a9c4725970029b24c5367ad66cf64f934e6f000d0541"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"
@@ -94,11 +94,6 @@ metafile = true
 [[files]]
 file = "mods/cervlogger.pw.toml"
 hash = "4c8eb10bfa6fc4ec4905c6b9b396a53aa62818748a560f6e8f5cc34fef32f745"
-metafile = true
-
-[[files]]
-file = "mods/chunky.pw.toml"
-hash = "1d5cc2b6dcfd1fc3adba4566b1c29b57ff1175316678c1f22e63cbc3e28a5ba0"
 metafile = true
 
 [[files]]

@@ -3,7 +3,7 @@
 // /ttl reset <player> — (op) send a player back to a fresh Life 1, for testing.
 ServerEvents.commandRegistry(event => {
   const { commands: Commands, arguments: Arguments } = event
-  const life = global.ttlLife
+  const life = TtlLife
 
   const choose = ctx => {
     const player = ctx.source.getPlayerOrException()
@@ -20,7 +20,7 @@ ServerEvents.commandRegistry(event => {
     }
     const name = player.username
     server.runCommandSilent(`tensura edit race ${name} set tensura:${race}`)
-    const skill = global.ttlRegistry.grantInnate(server, player)
+    const skill = TtlRegistry.grantInnate(server, player)
     player.stages.remove('ttl.corridor')
     player.stages.add('ttl.life2')
     player.persistentData.remove('ttl.offers')
@@ -48,7 +48,7 @@ ServerEvents.commandRegistry(event => {
     ;['ttl.life1', 'ttl.corridor', 'ttl.life2'].forEach(s => target.stages.remove(s))
     target.persistentData.remove('ttl.offers')
     server.runCommandSilent(`tensura reset ${name} race`)
-    global.ttlRegistry.revokeAll(server, target)
+    TtlRegistry.revokeAll(server, target)
     server.runCommandSilent(`clear ${name}`)
     server.runCommandSilent(`gamemode survival ${name}`)
     target.stages.add('ttl.life1')

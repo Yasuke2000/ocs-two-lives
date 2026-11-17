@@ -1,7 +1,8 @@
 // priority: 100
-// Shared Two Lives helpers. The life is tracked with stages (ttl.life1 / ttl.corridor / ttl.life2)
-// because stages survive Life 2 deaths; offers live in persistentData.
-global.ttlLife = {
+// Shared Two Lives helpers. Server scripts share one scope (KubeJS forbids writing to `global` there).
+// The life is tracked with stages (ttl.life1 / ttl.corridor / ttl.life2) because stages survive
+// Life 2 deaths; offers live in persistentData.
+const TtlLife = {
   MORTAL: 'ttl:mortal_realm',
   CORRIDOR: 'ttl:spirit_corridor',
   OVERWORLD: 'minecraft:overworld',

@@ -1,7 +1,7 @@
 // priority: 90
 // Golden rule 1: every unique-skill grant or revoke goes through here.
 // Phase 0 stub: one random innate unique at rebirth. Slots, rarities and reconcile come in Phase 1.
-global.ttlRegistry = {
+const TtlRegistry = {
   // Legendary uniques are never innate (master plan §5); they are only won by absorption.
   LEGENDARY: [
     'tensura:predator', 'tensura:great_sage', 'tensura:creator',

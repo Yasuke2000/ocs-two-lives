@@ -1,7 +1,7 @@
 // New players start Life 1 in the Mortal Realm; returning players are put back where their life belongs.
 PlayerEvents.loggedIn(event => {
   const { player, server } = event
-  const life = global.ttlLife
+  const life = TtlLife
   const phase = life.phase(player)
 
   if (phase === null) {
@@ -24,8 +24,8 @@ PlayerEvents.loggedIn(event => {
 // Fallback if a Life 1 death slipped past death.js: the respawn lands in the Corridor anyway.
 PlayerEvents.respawned(event => {
   const { player, server } = event
-  const phase = global.ttlLife.phase(player)
+  const phase = TtlLife.phase(player)
   if (phase === 'life1' || phase === 'corridor') {
-    server.scheduleInTicks(1, () => global.ttlLife.toCorridor(server, player))
+    server.scheduleInTicks(1, () => TtlLife.toCorridor(server, player))
   }
 })

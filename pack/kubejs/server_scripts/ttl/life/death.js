@@ -4,7 +4,7 @@
 EntityEvents.death('minecraft:player', event => {
   const player = event.entity
   const server = event.server
-  const life = global.ttlLife
+  const life = TtlLife
   const phase = life.phase(player)
   if (phase !== 'life1' && phase !== 'corridor') return
 
