@@ -28,6 +28,12 @@ case "${1:-}" in
     exit 1 ;;
   test)
     f="$(dirname "$0")/../tests/ingame/${2:?usage: server.sh test <name>}.rcon"
-    grep -vE '^\s*(#|$)' "$f" | while IFS= read -r cmd; do echo "> $cmd"; rcon "$cmd"; done ;;
+    # `@sleep N` lines wait N seconds (game time has to pass between some steps).
+    grep -vE '^\s*(#|$)' "$f" | while IFS= read -r cmd; do
+      case "$cmd" in
+        @sleep\ *) sleep "${cmd#@sleep }" ;;
+        *) echo "> $cmd"; rcon "$cmd" ;;
+      esac
+    done ;;
   *) echo "usage: server.sh status|logs [n]|follow|restart|deploy|rcon \"<cmd>\"|reload|test <name>" >&2; exit 2 ;;
 esac

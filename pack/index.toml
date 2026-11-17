@@ -42,7 +42,7 @@ hash = "1336c660acdbbf45d795651882fe740da983c99c3e4e9d9c887df615c7d55bd1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "1963b9def70bf9ac22e4ea364235310fd61fd8022b4c8d768fc191943cc31c36"
+hash = "cbbb9ab3e696983d7603f3d8d831e29256c40c93dbe5901eb4581bc1a0ca0b74"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"

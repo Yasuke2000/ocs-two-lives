@@ -2,8 +2,7 @@
 # phase=life1; after the kill phase=corridor step=wish in ttl:spirit_corridor; step=race with wish=knowledge;
 # then phase=life2 in minecraft:overworld with a tensura: unique in ttl.uniques. Slime is always offered.
 ttlbot spawn TtlBotRebirth
-neoforge tps
-neoforge tps
+@sleep 2
 ttl inspect TtlBotRebirth
 kill TtlBotRebirth
 neoforge tps

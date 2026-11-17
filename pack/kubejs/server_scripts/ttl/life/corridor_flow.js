@@ -56,7 +56,7 @@ const TtlCorridor = {
   showUniques(server, player) {
     var options = player.persistentData.getString('ttl.uniqueOptions').split(',')
     this.buttons(server, player.username, 'Your soul has proven itself. Choose what it becomes:',
-      options.map(s => ({ label: this.title(s), color: 'light_purple', command: `/ttl unique ${s.replace(/^.*:/, '')}`, hover: s })))
+      options.map(s => ({ label: this.title(s), color: 'light_purple', command: `/ttl unique ${String(s).replace(/^.*:/, '')}`, hover: s })))
   },
 
   wish(server, player, id) {

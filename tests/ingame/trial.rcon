@@ -1,30 +1,29 @@
 # Trial of the Soul with a test bot. The bot can't fight, so each wave is killed by command. Waves spawn
-# 60 ticks after the start and 40 ticks after the previous one; the `neoforge tps` lines only pass time.
-# Expect: step=trial while running, then step=race with ttl.trial.passed=true, then step=unique with three
-# ttl.uniqueOptions from the "knowledge" pool. The log shows "[ttl] trial TtlBotTrial: wave N, X left".
+# 3 s after the start; the watcher checks once a second and sends the next wave as soon as one is cleared.
+# Expect: step=trial while running, the log shows waves 1-3, then step=race with ttl.trial.passed=true,
+# then step=unique with three ttl.uniqueOptions from the "knowledge" pool.
 ttlbot spawn TtlBotTrial
-neoforge tps
-neoforge tps
+@sleep 2
 kill TtlBotTrial
 execute as TtlBotTrial run ttl wish knowledge
 execute as TtlBotTrial run ttl trial
 ttl inspect TtlBotTrial
-neoforge tps
-neoforge tps
-neoforge tps
-neoforge tps
+@sleep 5
 kill @e[tag=ttl_trial]
-neoforge tps
-neoforge tps
-neoforge tps
+@sleep 3
 kill @e[tag=ttl_trial]
-neoforge tps
-neoforge tps
-neoforge tps
+@sleep 3
 kill @e[tag=ttl_trial]
-neoforge tps
+@sleep 3
 ttl inspect TtlBotTrial
 execute as TtlBotTrial run ttl choose slime
 ttl inspect TtlBotTrial
+# Not an option (great_sage is Legendary): must be refused, the bot stays at step=unique.
+execute as TtlBotTrial run ttl unique great_sage
+execute as TtlBotTrial run ttl unique observer
+execute as TtlBotTrial run ttl unique researcher
+execute as TtlBotTrial run ttl unique mathematician
+ttl inspect TtlBotTrial
+ttl registry
 ttl reset TtlBotTrial
 ttlbot remove TtlBotTrial
