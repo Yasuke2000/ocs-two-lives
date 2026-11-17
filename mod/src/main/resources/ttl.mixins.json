@@ -6,6 +6,7 @@
   "mixins": [
     "EndPortalBlockMixin",
     "NetherPortalBlockMixin",
+    "ReincarnationMenuMixin",
     "ServerCommonPacketListenerImplMixin",
     "ServerLevelMixin",
     "ServerPlayerMixin"

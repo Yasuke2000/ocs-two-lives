@@ -3,7 +3,7 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.139'
 }
 
-version = '0.4.0'
+version = '0.5.0'
 group = 'com.yasuke.ttl'
 base { archivesName = 'ttl-portals' }
 
@@ -14,6 +14,17 @@ neoForge {
     mods {
         ttl { sourceSet sourceSets.main }
     }
+}
+
+repositories {
+    // Tensura, ManasCore and Architectury are only compiled against; the pack ships them.
+    maven { url = 'https://api.modrinth.com/maven' }
+}
+
+dependencies {
+    compileOnly 'maven.modrinth:Br0kXPwc:WuoYFS45'   // Tensura: Reincarnated 2.0.1.5
+    compileOnly 'maven.modrinth:wRRSWpd1:yhLQMaxS'   // ManasCore 4.0.0.2
+    compileOnly 'maven.modrinth:lhGA9TYQ:xGfBrBzj'   // Architectury 13.0.12
 }
 
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
