@@ -1,0 +1,17 @@
+name: Bug
+description: Something is broken or behaves wrong
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: "Fastest: type `/bug <what happened>` in game — it attaches your position, state and the server logs."
+  - type: textarea
+    id: what
+    attributes: { label: What happened, description: What you did, what you expected, what you got. }
+    validations: { required: true }
+  - type: input
+    id: where
+    attributes: { label: Where, description: "Life 1/Corridor/Life 2, dimension, coordinates if you have them" }
+  - type: textarea
+    id: extra
+    attributes: { label: Screenshots or logs }

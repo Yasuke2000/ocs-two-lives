@@ -3,7 +3,7 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.139'
 }
 
-version = '0.6.0'
+version = mod_version
 group = 'com.yasuke.ttl'
 base { archivesName = 'ttl-portals' }
 
@@ -39,6 +39,12 @@ def extractManascore = tasks.register('extractManascore', Copy) {
 }
 dependencies {
     compileOnly files(['race', 'skill', 'storage', 'config', 'network'].collect { "build/manascore/manascore-${it}-neoforge-4.0.0.2.jar" }).builtBy(extractManascore)
+}
+
+// One version source (gradle.properties) for the jar name and the mod metadata.
+tasks.named('processResources', ProcessResources) {
+    inputs.property 'mod_version', mod_version
+    filesMatching('META-INF/neoforge.mods.toml') { expand mod_version: mod_version }
 }
 
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }

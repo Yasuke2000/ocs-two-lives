@@ -4,8 +4,16 @@ set -euo pipefail
 
 NODE="${TTL_NODE:-root@100.109.28.21}"
 NS=ocs-two-lives
-k() { ssh -n -o ConnectTimeout=10 -o LogLevel=ERROR "$NODE" "k3s kubectl -n $NS $*"; }
-rcon() { k exec deploy/mc -- rcon-cli "$(printf '%q' "$1")"; }
+# Inside the cluster (the ttl-ops auto-deployer) kubectl talks to the API directly; elsewhere via SSH.
+# rq quotes one argument for that path: the SSH hop goes through a remote shell, kubectl does not.
+if [ -n "${TTL_IN_CLUSTER:-}" ]; then
+  k() { kubectl -n "$NS" "$@"; }
+  rq() { printf '%s' "$1"; }
+else
+  k() { ssh -n -o ConnectTimeout=10 -o LogLevel=ERROR "$NODE" "k3s kubectl -n $NS $*"; }
+  rq() { printf '%q' "$1"; }
+fi
+rcon() { k exec deploy/mc -- rcon-cli "$(rq "$1")"; }
 plain() { sed 's/\[[0-9;]*m//g'; }
 # Real players online (test bots excluded), comma-separated; empty when nobody is playing.
 humans() {
@@ -35,6 +43,16 @@ case "${1:-}" in
   restart) k rollout restart deploy/mc && k rollout status deploy/mc --timeout=25m ;;
   rcon)    rcon "${2:?usage: server.sh rcon \"<command>\"}" ;;
   reload)  rcon "reload" ;;
+  # Staging shortcut for KubeJS-only edits: copy pack/kubejs into the server and /reload (seconds).
+  # The next restart installs git's version again, so push the change too.
+  push-scripts)
+    pod=$(k get pods -l app=mc -o name | head -1 | cut -d/ -f2)
+    tar -C "$(dirname "$0")/../pack" -cf - kubejs | if [ -n "${TTL_IN_CLUSTER:-}" ]; then
+      kubectl -n "$NS" exec -i "$pod" -- tar -C /data -xf -
+    else
+      ssh -o LogLevel=ERROR "$NODE" "k3s kubectl -n $NS exec -i $pod -- tar -C /data -xf -"
+    fi
+    rcon "reload" ;;
   # raw.githubusercontent.com edges can serve a stale pack.toml for minutes, so a plain restart may
   # install an old pack. Restart until the installed pack hash matches the local pack/pack.toml.
   deploy)
@@ -64,8 +82,7 @@ case "${1:-}" in
       if grep -qE 'Unknown or incomplete|Incorrect argument|An unexpected error|ttl: ' <<<"$out"; then verdict="command error"; fi
       if [[ $name == trial_* ]]; then
         bot=$(grep -m1 -oE 'ttlbot spawn [A-Za-z0-9_]+' "$f" | cut -d' ' -f3)
-        # Single quotes survive the ssh hop: the pattern reaches grep in the pod intact.
-        result=$(k exec deploy/mc -- grep -E "'$bot (passed|failed) the'" /data/logs/latest.log | tail -1 | grep -oE 'passed|failed' || true)
+        result=$(k exec deploy/mc -- grep -E "$(rq "$bot (passed|failed) the")" /data/logs/latest.log | tail -1 | grep -oE 'passed|failed' || true)
         want=passed; [[ $name == *_fail ]] && want=failed
         [ "$result" = "$want" ] || verdict="expected $want, got ${result:-nothing}"
       fi
@@ -76,5 +93,5 @@ case "${1:-}" in
     echo "$fails failing"
     [ "$fails" -eq 0 ] ;;
   who) humans ;;
-  *) echo "usage: server.sh status|logs [n]|follow|restart|deploy [--force]|rcon \"<cmd>\"|reload|test <name>|test-all|who" >&2; exit 2 ;;
+  *) echo "usage: server.sh status|logs [n]|follow|restart|deploy [--force]|rcon \"<cmd>\"|reload|push-scripts|test <name>|test-all|who" >&2; exit 2 ;;
 esac

@@ -26,9 +26,8 @@ Decisions: `design/decisions.md` (append, never rewrite history).
 3. **Never hand-edit generated files**: `pack/mods/*.pw.toml`, `pack/index.toml`, `pack/config/ftbquests/quests/**`. Use `packwiz` and `tools/gen_quests.py`.
 4. **Never invent mod, race, skill, entity or item IDs.** Look them up in `design/dumps/`. If the dump is missing, run `/dump-ids` first.
 5. **No Java** without asking. KubeJS, datapacks and configs first. The one approved Java mod is `mod/`
-   (`ttl-portals`: Mortal Nether/End portal links + the Mortal End's dragon fight). To release it: bump the
-   version in `mod/build.gradle` and `neoforge.mods.toml`, push (`.github/workflows/mod.yml` builds the
-   `mod-v<version>` release), then `packwiz url add` the new jar URL with `--meta-name ttl-portals`.
+   (`ttl-portals`: portals, Mortal End dragon fight, test bots, choice menus, `/quietly`, Life 2 rebirth
+   menu, `/bug`). Release it with `python tools/release_mod.py` (local build, no Actions).
 6. **Every mod must have a NeoForge 1.21.1 build** — add only with `/add-mod`. Never add: Epic Fight, Better Combat, Tensura: Predation, a second claims/nations/minimap mod, Mekanism.
 7. Client-only mods need `side = "client"` in their `.pw.toml` (`packwiz` sets it from Modrinth metadata; check CurseForge ones).
 

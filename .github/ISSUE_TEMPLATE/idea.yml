@@ -1,0 +1,8 @@
+name: Idea
+description: A feature, quest, build or system idea
+labels: [idea]
+body:
+  - type: textarea
+    id: idea
+    attributes: { label: The idea, description: "What should players experience? How does it fit the lore and design/master-plan.md?" }
+    validations: { required: true }

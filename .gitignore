@@ -6,3 +6,4 @@ __pycache__/
 .claude/settings.local.json
 mod/build/
 mod/.gradle/
+!mod/gradle/wrapper/gradle-wrapper.jar

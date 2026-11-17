@@ -1,0 +1,12 @@
+name: Balance / config change
+description: A number or setting should be different
+labels: [balance]
+body:
+  - type: input
+    id: file
+    attributes: { label: Which file and setting, description: "e.g. design/data/skills.toml caps.rare, or pack/config/… (see docs/configs.md)" }
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes: { label: Current value, proposed value, and why }
+    validations: { required: true }
