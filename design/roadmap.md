@@ -27,7 +27,7 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 - [ ] Daily off-site backups (restic CronJob) — needs a backup target
 - [ ] Chunky + DH re-test on the existing world, then pregenerate
 - [ ] Voice of the World NPC in the hall (Easy NPC)
-- [ ] Trial knobs in `design/trials.yaml`
+- [x] Trial knobs in `design/data/trials.toml` (limits, gear, waves, questions, radii, counts)
 - [ ] Singleplayer check (owner, needs a client)
 
 ## Collaboration (coworkers can see and change everything)

@@ -1218,7 +1218,7 @@ hash = "47bceba500faacdca062ff50f9770545555be1956cd8e0c9d7c7f4c0408a328d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "9ac76149a274cbe17135ef52e2bc2440151553ff802813318e31d2c5a2e2967d"
+hash = "46ed42a1cbdf5b003beada0ca30439c616d0d5604c5ab3df1c18e286da6cd3ae"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
@@ -1234,7 +1234,7 @@ hash = "7167dd4af16033e3c5313b41220f2e897456e85505535332109b42a554c6df64"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
-hash = "c87a7de062a2cbc75e4956ef87d4b3ea3a172b6c8a0a8154f9b6a11f4c9973ef"
+hash = "dc4013c1f337c4901486ef8d5e6f2a0e13077eb66b44683cdc67364ac7617695"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
@@ -1258,7 +1258,7 @@ hash = "3cd98457a57f3ab34d89b40e8c852c742c26a6057d51e7d0473ba9084a088300"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial_defs.js"
-hash = "cee4a39aa7e804261276f34abcbcc2234236b5279a247537dafe4df149a9f361"
+hash = "cbae3b498ac6fdccf6a18b2065187ae7d884d6231e115eb3359f24af5da0bbf1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"

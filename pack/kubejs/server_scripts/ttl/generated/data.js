@@ -73,5 +73,190 @@ const TtlData = {
         "villain"
       ]
     }
+  },
+  "trials": {
+    "creation": {
+      "gear": [],
+      "limit": 150,
+      "target": "minecraft:lantern"
+    },
+    "deceit": {
+      "gear": [],
+      "limit": 150,
+      "radius": 7.5,
+      "strikes": 3
+    },
+    "dominion": {
+      "gear": [
+        "lead 4",
+        "wheat 16"
+      ],
+      "herd": 5,
+      "limit": 180,
+      "needed": 3
+    },
+    "freedom": {
+      "gear": [],
+      "limit": 150
+    },
+    "hunger": {
+      "gear": [
+        "wooden_sword"
+      ],
+      "limit": 90,
+      "spiders": 2,
+      "start_food": 4
+    },
+    "knowledge": {
+      "gear": [],
+      "limit": 180,
+      "pass_score": 4,
+      "questions": [
+        {
+          "a": "slime",
+          "options": [
+            "slime",
+            "goblin",
+            "dragon"
+          ],
+          "q": "A man died saving a stranger and woke as the weakest of monsters. What was he reborn as?"
+        },
+        {
+          "a": "great_sage",
+          "options": [
+            "predator",
+            "great_sage",
+            "gluttony"
+          ],
+          "q": "Which skill gave him a voice that answers every question?"
+        },
+        {
+          "a": "magicules",
+          "options": [
+            "souls",
+            "mana",
+            "magicules"
+          ],
+          "q": "What do all magic and skills in this world feed on?"
+        },
+        {
+          "a": "hero",
+          "options": [
+            "hero",
+            "demon_lord",
+            "church"
+          ],
+          "q": "Who sealed the Storm Dragon in the cave three hundred years ago?"
+        },
+        {
+          "a": "footsteps",
+          "options": [
+            "memories",
+            "footsteps",
+            "coins"
+          ],
+          "q": "The more of me you take, the more you leave behind. What am I?"
+        }
+      ]
+    },
+    "protection": {
+      "every": 15,
+      "gear": [
+        "iron_sword",
+        "iron_chestplate",
+        "iron_leggings",
+        "cooked_beef 4"
+      ],
+      "heavy": "minecraft:vindicator",
+      "limit": 90,
+      "raider": "minecraft:zombie",
+      "raiders": 2
+    },
+    "strength": {
+      "gear": [
+        "iron_sword",
+        "shield",
+        "iron_helmet",
+        "iron_chestplate",
+        "iron_leggings",
+        "iron_boots",
+        "cooked_beef 8"
+      ],
+      "limit": 180,
+      "waves": [
+        [
+          [
+            "minecraft:zombie",
+            4
+          ]
+        ],
+        [
+          [
+            "minecraft:skeleton",
+            3
+          ],
+          [
+            "minecraft:spider",
+            2
+          ]
+        ],
+        [
+          [
+            "minecraft:husk",
+            3
+          ],
+          [
+            "minecraft:vindicator",
+            1
+          ]
+        ],
+        [
+          [
+            "minecraft:vindicator",
+            2,
+            "Echo of Your Last Breath"
+          ],
+          [
+            "minecraft:skeleton",
+            2
+          ]
+        ]
+      ]
+    },
+    "survival": {
+      "gear": [],
+      "hazard_every": 8,
+      "limit": 120,
+      "skeletons": 2
+    },
+    "vengeance": {
+      "duelists": [
+        "minecraft:zombie",
+        "minecraft:husk",
+        "minecraft:drowned",
+        "minecraft:skeleton",
+        "minecraft:stray",
+        "minecraft:spider",
+        "minecraft:cave_spider",
+        "minecraft:vindicator",
+        "minecraft:pillager",
+        "minecraft:witch",
+        "minecraft:enderman",
+        "minecraft:piglin_brute",
+        "minecraft:wither_skeleton",
+        "minecraft:blaze",
+        "minecraft:zombified_piglin"
+      ],
+      "fallback": "minecraft:vindicator",
+      "gear": [
+        "iron_sword",
+        "shield",
+        "iron_chestplate",
+        "iron_leggings",
+        "cooked_beef 4"
+      ],
+      "limit": 120,
+      "nemesis_health": 60
+    }
   }
 }

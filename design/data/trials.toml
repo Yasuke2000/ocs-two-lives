@@ -1,0 +1,85 @@
+# Trial of the Soul knobs, one table per Last Wish (the trial logic is in
+# pack/kubejs/server_scripts/ttl/life/trial_defs.js, the arenas in blueprints/trial_<wish>.py).
+# Edit, then run `python tools/gen_data.py`. Every trial has:
+#   limit = seconds before the trial ends (survive-type trials pass then, the others fail)
+#   gear  = items lent for the trial (`give` arguments without the minecraft: prefix), taken back afterwards
+# Mob ids are full ids (minecraft:zombie). Bot tests in tests/ingame/trial_*.rcon play these trials:
+# run `tools/server.sh test-all` (or let ttl-ops do it after merging) when you change them.
+
+[strength]
+limit = 180
+gear = ["iron_sword", "shield", "iron_helmet", "iron_chestplate", "iron_leggings", "iron_boots", "cooked_beef 8"]
+# Each wave is a list of [mob, count] or [mob, count, name]; the next wave comes when the last is dead.
+waves = [
+  [["minecraft:zombie", 4]],
+  [["minecraft:skeleton", 3], ["minecraft:spider", 2]],
+  [["minecraft:husk", 3], ["minecraft:vindicator", 1]],
+  [["minecraft:vindicator", 2, "Echo of Your Last Breath"], ["minecraft:skeleton", 2]],
+]
+
+[vengeance]
+limit = 120
+gear = ["iron_sword", "shield", "iron_chestplate", "iron_leggings", "cooked_beef 4"]
+nemesis_health = 60
+# Killers that make a fair duel; anything else (creepers, players, the void) sends `fallback`.
+duelists = [
+  "minecraft:zombie", "minecraft:husk", "minecraft:drowned", "minecraft:skeleton", "minecraft:stray",
+  "minecraft:spider", "minecraft:cave_spider", "minecraft:vindicator", "minecraft:pillager", "minecraft:witch",
+  "minecraft:enderman", "minecraft:piglin_brute", "minecraft:wither_skeleton", "minecraft:blaze", "minecraft:zombified_piglin",
+]
+fallback = "minecraft:vindicator"
+
+[protection]
+limit = 90
+gear = ["iron_sword", "iron_chestplate", "iron_leggings", "cooked_beef 4"]
+every = 15          # seconds between raids
+raiders = 2         # raiders in the first raid; one more every 30 seconds
+# Every third raider is the `heavy` one.
+raider = "minecraft:zombie"
+heavy = "minecraft:vindicator"
+
+[knowledge]
+limit = 180
+gear = []
+pass_score = 4      # right answers needed out of the questions below
+# options are shown as buttons; `a` must be one of them. Keep ids lowercase with underscores.
+questions = [
+  { q = "A man died saving a stranger and woke as the weakest of monsters. What was he reborn as?", a = "slime", options = ["slime", "goblin", "dragon"] },
+  { q = "Which skill gave him a voice that answers every question?", a = "great_sage", options = ["predator", "great_sage", "gluttony"] },
+  { q = "What do all magic and skills in this world feed on?", a = "magicules", options = ["souls", "mana", "magicules"] },
+  { q = "Who sealed the Storm Dragon in the cave three hundred years ago?", a = "hero", options = ["hero", "demon_lord", "church"] },
+  { q = "The more of me you take, the more you leave behind. What am I?", a = "footsteps", options = ["memories", "footsteps", "coins"] },
+]
+
+[hunger]
+limit = 90
+gear = ["wooden_sword"]
+start_food = 4      # hunger bar at the start (20 = full); the trial passes at 20
+spiders = 2
+
+[freedom]
+limit = 150
+gear = []
+
+[deceit]
+limit = 150
+gear = []
+radius = 7.5        # how close a Watcher sees anyone walking upright
+strikes = 3         # times you may be seen; the last one fails the trial
+
+[creation]
+limit = 150
+gear = []
+target = "minecraft:lantern"   # what to craft; the parts dropped in trial_defs.js must make it
+
+[dominion]
+limit = 180
+gear = ["lead 4", "wheat 16"]
+herd = 5            # cows in the herd
+needed = 3          # cows that must be in the pen
+
+[survival]
+limit = 120
+gear = []
+hazard_every = 8    # seconds between hazards (poison, a falling anvil, fire, in turn)
+skeletons = 2
