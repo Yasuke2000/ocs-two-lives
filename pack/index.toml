@@ -673,18 +673,6 @@ file = "config/cervlogger/config.properties"
 hash = "6ea911dc19053a04fc1e1b5cdd35aefe5effe1e0def5b7713f00913bdf59be4e"
 
 [[files]]
-file = "config/cervlogger/database.db"
-hash = "b75e93ba702c4925f6396e538624eae3b48a9583bd5131da2fa5f1f032f05dba"
-
-[[files]]
-file = "config/cervlogger/database.db-shm"
-hash = "2c756435a086a8f982022cf0b36ade98d86ec2e1590be0e9eca7a1c2864280ae"
-
-[[files]]
-file = "config/cervlogger/database.db-wal"
-hash = "1c97b8f61bb37cd85b10de7ca42d496affee5eee3c44685251e2fd0ffb92b7b9"
-
-[[files]]
 file = "config/create-common.toml"
 hash = "1c632f62c30f4e1223669267196d2ff1a2c03e400bf565ff4fe81e20c7cd2bdf"
 

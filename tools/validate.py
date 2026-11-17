@@ -51,6 +51,14 @@ def check_index_fresh() -> None:
         errors.append("pack/index.toml was stale — refreshed it, commit the change")
 
 
+def check_config_text() -> None:
+    # Some mods keep a database in config/ (CervLogger's SQLite); shipping one overwrites and corrupts
+    # the live file on every server start.
+    for p in (PACK / "config").rglob("*"):
+        if p.is_file() and bytes([0]) in p.read_bytes()[:4096]:
+            errors.append(f"binary file in pack/config (a mod database?): {p.relative_to(ROOT)}")
+
+
 def check_generated() -> None:
     for tool in ("gen_data.py", "config_index.py", "build_structures.py"):
         r = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / tool), "--check"], capture_output=True, text=True)
@@ -58,7 +66,7 @@ def check_generated() -> None:
             errors.append(r.stdout.strip() or r.stderr.strip())
 
 
-for check in (check_json, check_js, check_mods, check_generated, check_index_fresh):
+for check in (check_json, check_js, check_mods, check_config_text, check_generated, check_index_fresh):
     check()
 
 for e in errors:
