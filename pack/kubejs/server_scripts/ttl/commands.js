@@ -1,5 +1,6 @@
 // Players:  /ttl wish <id> · /ttl trial · /ttl choose <race> · /ttl unique <skill> · /ttl status
 // Ops:      /ttl inspect <player> (answers over RCON) · /ttl reset <player> (back to a fresh Life 1)
+//           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
   var life = TtlLife
@@ -72,6 +73,22 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var registryList = ctx => {
+    var held = TtlRegistry.held(ctx.source.getServer())
+    ctx.source.sendSystemMessage(Text.of(`Held uniques: ${held.length ? held.join(', ') : 'none'}`))
+    return 1
+  }
+
+  var registryFree = ctx => {
+    var server = ctx.source.getServer()
+    var skill = `tensura:${word(ctx, 'skill')}`
+    var held = TtlRegistry.held(server).filter(id => id !== skill)
+    server.persistentData.putString('ttl.reg.held', held.join(','))
+    console.info(`[ttl] registry: ${skill} released by an admin`)
+    ctx.source.sendSystemMessage(Text.of(`Released ${skill}`))
+    return 1
+  }
+
   event.register(Commands.literal('ttl')
     .then(Commands.literal('wish')
       .then(Commands.argument('id', Arguments.STRING.create(event))
@@ -88,6 +105,11 @@ ServerEvents.commandRegistry(event => {
     .then(Commands.literal('inspect')
       .requires(src => src.hasPermission(2))
       .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(inspect))))
+    .then(Commands.literal('registry')
+      .requires(src => src.hasPermission(2))
+      .executes(logged(registryList))
+      .then(Commands.literal('free')
+        .then(Commands.argument('skill', Arguments.STRING.create(event)).executes(logged(registryFree)))))
     .then(Commands.literal('reset')
       .requires(src => src.hasPermission(2))
       .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(reset)))))
