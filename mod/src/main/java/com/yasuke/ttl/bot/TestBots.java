@@ -15,6 +15,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.CommonListenerCookie;
 import net.minecraft.world.level.storage.LevelResource;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -43,6 +44,14 @@ public final class TestBots {
                 .then(Commands.literal("remove")
                         .then(Commands.argument("name", StringArgumentType.word()).executes(TestBots::remove)))
                 .then(Commands.literal("list").executes(TestBots::list)));
+    }
+
+    /**
+     * A player stays invulnerable after a dimension change until its client confirms arrival
+     * (ServerPlayer.isInvulnerableTo checks isChangingDimension). A bot has no client, so confirm for it.
+     */
+    public static void onChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player && isBot(player)) player.hasChangedDimension();
     }
 
     public static boolean isBot(ServerPlayer player) {

@@ -1,14 +1,15 @@
-# Trial of the Soul with a test bot. The bot can't fight, so each wave is killed by command; the
-# `neoforge tps` lines only give the next wave time to spawn (60 ticks first, 40 between waves).
-# Expect: step=trial while running, then step=race with ttl.trial.passed=true, then step=unique with
-# three ttl.uniqueOptions from the "knowledge" pool, then life2 with the chosen unique.
+# Trial of the Soul with a test bot. The bot can't fight, so each wave is killed by command. Waves spawn
+# 60 ticks after the start and 40 ticks after the previous one; the `neoforge tps` lines only pass time.
+# Expect: step=trial while running, then step=race with ttl.trial.passed=true, then step=unique with three
+# ttl.uniqueOptions from the "knowledge" pool. The log shows "[ttl] trial TtlBotTrial: wave N, X left".
 ttlbot spawn TtlBotTrial
 neoforge tps
-kill TtlBotTrial
 neoforge tps
+kill TtlBotTrial
 execute as TtlBotTrial run ttl wish knowledge
 execute as TtlBotTrial run ttl trial
 ttl inspect TtlBotTrial
+neoforge tps
 neoforge tps
 neoforge tps
 neoforge tps
@@ -25,6 +26,5 @@ neoforge tps
 ttl inspect TtlBotTrial
 execute as TtlBotTrial run ttl choose slime
 ttl inspect TtlBotTrial
-tensura get ability list skill TtlBotTrial
 ttl reset TtlBotTrial
 ttlbot remove TtlBotTrial

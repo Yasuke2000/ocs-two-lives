@@ -77,6 +77,7 @@ const TtlTrial = {
     if (!name) return
     var left = server.persistentData.getInt('ttl.trial.left') - 1
     server.persistentData.putInt('ttl.trial.left', left)
+    console.info(`[ttl] trial ${name}: wave ${server.persistentData.getInt('ttl.trial.wave') + 1}, ${left} left`)
     if (left > 0) return
     var next = server.persistentData.getInt('ttl.trial.wave') + 1
     if (next < this.WAVES.length) {

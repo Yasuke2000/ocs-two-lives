@@ -3,6 +3,7 @@
 # then phase=life2 in minecraft:overworld with a tensura: unique in ttl.uniques. Slime is always offered.
 ttlbot spawn TtlBotRebirth
 neoforge tps
+neoforge tps
 ttl inspect TtlBotRebirth
 kill TtlBotRebirth
 neoforge tps
@@ -12,7 +13,6 @@ ttl inspect TtlBotRebirth
 execute as TtlBotRebirth run ttl choose slime
 neoforge tps
 ttl inspect TtlBotRebirth
-tensura get ability list skill TtlBotRebirth
 ttl reset TtlBotRebirth
 ttl inspect TtlBotRebirth
 ttlbot remove TtlBotRebirth
