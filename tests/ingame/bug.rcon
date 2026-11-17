@@ -1,0 +1,7 @@
+# /bug from a test bot. Without TTL_GITHUB_TOKEN the report is saved to ttl-reports/ on the server.
+# Expect the log line "[ttl] bug report from TtlBotBug: test report from the bot suite".
+ttlbot spawn TtlBotBug
+@sleep 2
+execute as TtlBotBug run bug test report from the bot suite
+@sleep 1
+ttlbot remove TtlBotBug
