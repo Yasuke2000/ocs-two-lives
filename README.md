@@ -9,9 +9,12 @@ Status: **Phase 0 (prototype)** — not playable yet.
 
 ## Install (Prism Launcher)
 
-1. Create a NeoForge 1.21.1 instance.
-2. Add [packwiz-installer-bootstrap](https://github.com/packwiz/packwiz-installer-bootstrap) as a pre-launch command:
-   `"$INST_JAVA" -jar packwiz-installer-bootstrap.jar https://raw.githubusercontent.com/Yasuke2000/ocs-two-lives/main/pack/pack.toml`
+Add Instance → Import → paste
+`https://github.com/Yasuke2000/ocs-two-lives/releases/download/prism-instance/OCS-Two-Lives.zip`.
+
+The zip (built by `.github/workflows/prism-instance.yml` from `prism/`) sets MC 1.21.1 + NeoForge,
+6 GB memory, the server entry, and [packwiz-installer-bootstrap](https://github.com/packwiz/packwiz-installer-bootstrap)
+as pre-launch command, so mods sync from `pack/pack.toml` on every launch.
 
 ## Repo
 

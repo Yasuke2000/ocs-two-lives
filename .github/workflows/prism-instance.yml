@@ -1,0 +1,38 @@
+name: prism-instance
+
+# Testers import this zip in Prism (Add Instance → Import → URL) instead of picking the
+# version, loader, pre-launch command and memory by hand. Mods still come from packwiz
+# at every launch, so the zip only needs rebuilding when prism/ changes.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [prism/**, tools/make_servers_dat.py, .github/workflows/prism-instance.yml]
+
+env:
+  SERVER_NAME: "OCS Tensura: Two Lives"
+  SERVER_ADDRESS: molecule-threefold.tun.ply.gg
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble instance
+        run: |
+          mkdir -p build/minecraft
+          cp prism/instance.cfg prism/mmc-pack.json build/
+          curl -fsSL -o build/minecraft/packwiz-installer-bootstrap.jar \
+            https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest/download/packwiz-installer-bootstrap.jar
+          python3 tools/make_servers_dat.py build/minecraft/servers.dat "$SERVER_NAME" "$SERVER_ADDRESS"
+          (cd build && zip -r ../OCS-Two-Lives.zip .)
+      - name: Publish release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view prism-instance >/dev/null 2>&1 || \
+            gh release create prism-instance --title "Prism instance" \
+              --notes "Prism Launcher: Add Instance → Import → paste the link to OCS-Two-Lives.zip. See TESTERS.md."
+          gh release upload prism-instance OCS-Two-Lives.zip --clobber
