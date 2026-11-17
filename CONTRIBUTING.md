@@ -39,6 +39,7 @@ Using Claude Code? Open the repo folder; [CLAUDE.md](CLAUDE.md) and `.claude/` (
 | Add or update a mod | `packwiz mr add <slug>` (or `/add-mod` in Claude Code) | check it has a NeoForge 1.21.1 build |
 | The Java mod (`ttl-portals`) | `mod/src/` | `python tools/release_mod.py` (maintainers) |
 | Server settings (view distance, memory, …) | not in this repo — see [docs/server.md](docs/server.md) | ask David |
+| A build (hall, arena, village…) | `blueprints/<name>.py` (Python: `fill`, `box`, `disc`, `pillar`, `around`) | `python tools/build_structures.py` → check `docs/previews/<name>-iso.png`; in game `/ttl build <name>` |
 | Bot tests | `tests/ingame/*.rcon` | run by the server after each deploy |
 
 ## Rules (short version of CLAUDE.md)

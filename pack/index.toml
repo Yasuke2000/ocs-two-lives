@@ -1169,12 +1169,16 @@ file = "kubejs/data/ttl/dimension_type/spirit_corridor.json"
 hash = "fcfd6e4ad7382eaf7953ca7f0b05e63b1eb25b77a203972bf58a5992388bafa1"
 
 [[files]]
+file = "kubejs/data/ttl/structure/spirit_corridor_hall.nbt"
+hash = "f930e459f15166e975facb5d85c9ddf165dbb333d6911ca5aa54f03e30139067"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/boot.js"
 hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "95b4f9358a737347614795e6ab593f653606032b2fa21f9000cced40ab5f7ea3"
+hash = "63bb72890e04f3ce241a28cc0b7c438b7c3a72754390489fc1dcffe9905c49df"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
@@ -1182,7 +1186,7 @@ hash = "9ac76149a274cbe17135ef52e2bc2440151553ff802813318e31d2c5a2e2967d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
-hash = "1336c660acdbbf45d795651882fe740da983c99c3e4e9d9c887df615c7d55bd1"
+hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"

@@ -52,7 +52,7 @@ def check_index_fresh() -> None:
 
 
 def check_generated() -> None:
-    for tool in ("gen_data.py", "config_index.py"):
+    for tool in ("gen_data.py", "config_index.py", "build_structures.py"):
         r = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / tool), "--check"], capture_output=True, text=True)
         if r.returncode != 0:
             errors.append(r.stdout.strip() or r.stderr.strip())

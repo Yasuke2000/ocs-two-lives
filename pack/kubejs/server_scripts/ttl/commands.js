@@ -1,7 +1,8 @@
 // Players:  /ttl menu (reopen choices) · /ttl wish <id> · /ttl trial · /ttl answer <word> · /ttl choose <race> · /ttl unique <skill> · /ttl status
 // Ops:      /ttl inspect <player> (answers over RCON) · /ttl reset <player> (back to a fresh Life 1)
 //           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
-//           /ttl grant <player> <skill> (through the registry: caps apply, Legendary refused)
+//           /ttl grant <player> <skill> (through the registry, caps apply)
+//           /ttl build <name> (place blueprints/<name>.py with its corner at your feet)
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
   var life = TtlLife
@@ -139,6 +140,15 @@ ServerEvents.commandRegistry(event => {
           ctx.source.sendSystemMessage(Text.of(ok ? `Granted ${skill} to ${target.username}` : `Refused ${skill} for ${target.username}`))
           return ok ? 1 : 0
         })))))
+    .then(Commands.literal('build')
+      .requires(src => src.hasPermission(2))
+      .then(Commands.argument('name', Arguments.STRING.create(event)).executes(logged(ctx => {
+        var player = ctx.source.getPlayerOrException()
+        var name = word(ctx, 'name')
+        ctx.source.getServer().runCommandSilent(`execute as ${player.username} at @s run place template ttl:${name} ~ ~ ~`)
+        console.info(`[ttl] ${player.username} placed blueprint ${name}`)
+        return 1
+      }))))
     .then(Commands.literal('registry')
       .requires(src => src.hasPermission(2))
       .executes(logged(registryList))

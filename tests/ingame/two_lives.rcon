@@ -6,3 +6,5 @@ execute in ttl:spirit_corridor run time query gametime
 gamerule noUniqueStart
 gamerule trulyUnique
 execute in ttl:spirit_corridor if block 0 64 0 minecraft:sea_lantern
+# The hall is the blueprint structure: its first (north) Last Wish pedestal.
+execute in ttl:spirit_corridor if block 0 65 -11 minecraft:polished_deepslate

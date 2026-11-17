@@ -38,11 +38,12 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 - [ ] Collaborators: Lancelot Boden (already added); others' GitHub + Minecraft names
 
 ## Sprint 2 — building and visuals
-- [ ] `blueprints/` DSL → `tools/build_structures.py` → structure .nbt; `tools/render_structure.py` previews; `/ttl build`
+- [x] `blueprints/` DSL (`tools/blueprint.py`) → `tools/build_structures.py` → structure .nbt + isometric/top previews (`docs/previews/`), stdlib only; `/ttl build <name>`
 - [ ] WorldEdit round trip (`tools/import_schem.py`)
 - [ ] `tools/pixelize.py` (AI concept → 16×16 / 64×64), review gallery
 - [ ] Custom screens/title screen in the Great Sage visual style
-- [ ] Real builds: Corridor hall, Trial arenas (bump `ARENA_VERSION`), Mortal Realm spawn
+- [x] Corridor hall v2 as a blueprint (`blueprints/spirit_corridor_hall.py`)
+- [ ] Real builds: Trial arenas (bump `ARENA_VERSION`), Mortal Realm spawn
 
 ## Sprint 3 — content
 - [ ] Mortal Realm filters (`ttl:mortal_banned`), Iron Tyrant boss, quest generator + chapters 0–1
