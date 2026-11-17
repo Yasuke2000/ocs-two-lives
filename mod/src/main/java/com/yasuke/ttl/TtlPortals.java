@@ -1,6 +1,8 @@
 package com.yasuke.ttl;
 
 import com.yasuke.ttl.bot.TestBots;
+import com.yasuke.ttl.ui.ChoiceMenu;
+import com.yasuke.ttl.ui.Quiet;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 
@@ -12,5 +14,7 @@ public final class TtlPortals {
         NeoForge.EVENT_BUS.addListener(TestBots::registerCommands);
         NeoForge.EVENT_BUS.addListener(TestBots::onChangedDimension);
         NeoForge.EVENT_BUS.addListener(TestBots::onServerTick);
+        NeoForge.EVENT_BUS.addListener(Quiet::registerCommands);
+        NeoForge.EVENT_BUS.addListener(ChoiceMenu::registerCommands);
     }
 }

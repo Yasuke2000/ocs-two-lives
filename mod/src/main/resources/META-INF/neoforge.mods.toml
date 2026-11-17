@@ -4,11 +4,11 @@ license = "MIT"
 
 [[mods]]
 modId = "ttl"
-version = "0.3.1"
+version = "0.4.0"
 displayName = "OCS Two Lives: Portals"
 description = '''
 Links the Mortal Realm (Life 1) to its own Nether and End, so Life 1 never reaches the Tensura world's
-Nether or End, and gives the Mortal End its own dragon fight. Also: /ttlbot test players for staging.
+Nether or End, and gives the Mortal End its own dragon fight. Also: /ttlbot test players, /ttlmenu on-screen choice menus, /quietly for scripted commands.
 '''
 
 [[mixins]]
