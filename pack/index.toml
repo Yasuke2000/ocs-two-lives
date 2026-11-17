@@ -66,7 +66,7 @@ hash = "3dbdc117a82becdb392add7c80cfdad7a2cfb9d75095b996a347cb1f030c1eb3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
-hash = "a7a3892316192dd47b526f54bec7e8a50e950ffb42faabba4568cd95ccc962c5"
+hash = "9473c1608ed73127849b4d1841a9cf7c5e64799a3f243017a15e08aca4e72abc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"
@@ -433,5 +433,5 @@ metafile = true
 
 [[files]]
 file = "mods/ttl-portals.pw.toml"
-hash = "f75a10d9808ee09772cb4a2f3918f75f6621efcfdbd1557129a0a86ad4bafa5c"
+hash = "26777a963d78f7bea491d047f51b0030be36bc947e803da9fa1429e9834cee47"
 metafile = true
