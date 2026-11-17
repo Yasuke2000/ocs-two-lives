@@ -15,6 +15,7 @@ issue with the label `server` or ask David.
 | Difficulty | hard |
 | Whitelist | on — send David your Minecraft name |
 | Spawn protection | off |
+| Flight | allowed (Tensura flight skills and wings; off kicks players mid-air) |
 | Pack | installed from `main` (`pack/pack.toml`) on every restart |
 
 **Deploys:** a merge to `main` is picked up automatically when nobody is online; the bot tests then
