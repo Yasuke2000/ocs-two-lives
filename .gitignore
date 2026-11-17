@@ -7,3 +7,4 @@ __pycache__/
 mod/build/
 mod/.gradle/
 !mod/gradle/wrapper/gradle-wrapper.jar
+mod/.vscode/
