@@ -2,14 +2,15 @@
 // The ten Trials of the Soul, one per Last Wish. Each lives in its own arena in the Spirit Corridor,
 // 100 blocks apart along x, so different trials can run at the same time.
 // A trial: title + intro (shown at start), limit (seconds), passOnTimeout (survive-type trials),
-// floorY, start (player spawn, relative to the arena origin), gear (item commands with {p}),
-// build(b) (arena blocks), setup(ctx) (mobs/items at start), tick(ctx) → 'pass' | 'fail' | null (each second).
+// floorY (where the arena structure ttl:trial_<wish> is placed, see blueprints/trial_<wish>.py),
+// start (player spawn, relative to the arena origin), gear (give arguments), setup(ctx) (mobs/items at start),
+// tick(ctx) → 'pass' | 'fail' | null (each second).
 // ctx: { server, player, name, o: origin {x,y,z}, data: player.persistentData, seconds, run(cmd), at(x,y,z) }.
 // Checks only use accessors verified in KubeJS 2101 (position, food level, inventory count, isShiftKeyDown,
 // entity tags/isAlive); mob deaths are counted, never hooked (EntityEvents.death skips mobs here).
 const TtlTrials = {
   ORDER: ['strength', 'vengeance', 'protection', 'knowledge', 'hunger', 'freedom', 'deceit', 'creation', 'dominion', 'survival'],
-  ARENA_VERSION: 1,
+  ARENA_VERSION: 2,
 
   origin(wish) {
     return { x: 1000 + 100 * this.ORDER.indexOf(wish), y: 64, z: 0 }
@@ -44,7 +45,7 @@ const TtlTrials = {
   DEFS: {
     strength: {
       title: 'Trial of Strength', intro: 'Four waves. Stand your ground.', limit: 180,
-      floor: 'minecraft:polished_andesite', start: [0, 1, -12],
+      start: [0, 1, -12],
       gear: ['iron_sword', 'shield', 'iron_helmet', 'iron_chestplate', 'iron_leggings', 'iron_boots', 'cooked_beef 8'],
       WAVES: [
         [['minecraft:zombie', 4]],
@@ -76,15 +77,12 @@ const TtlTrials = {
 
     vengeance: {
       title: 'Trial of Vengeance', intro: 'The one who killed you is here. Make it pay.', limit: 120,
-      floor: 'minecraft:polished_blackstone', start: [0, 1, -12],
+      start: [0, 1, -12],
       gear: ['iron_sword', 'shield', 'iron_chestplate', 'iron_leggings', 'cooked_beef 4'],
       // Mobs that make a fair duel; anything else (creepers, players, the void) sends a vindicator.
       DUELISTS: ['minecraft:zombie', 'minecraft:husk', 'minecraft:drowned', 'minecraft:skeleton', 'minecraft:stray',
         'minecraft:spider', 'minecraft:cave_spider', 'minecraft:vindicator', 'minecraft:pillager', 'minecraft:witch',
         'minecraft:enderman', 'minecraft:piglin_brute', 'minecraft:wither_skeleton', 'minecraft:blaze', 'minecraft:zombified_piglin'],
-      build(b) {
-        b.fill(-6, 0, -6, 6, 0, 6, 'minecraft:crying_obsidian', 'outline')
-      },
       setup(ctx) {
         var killer = ctx.data.getString('ttl.killer')
         var type = this.DUELISTS.indexOf(killer) >= 0 ? killer : 'minecraft:vindicator'
@@ -103,11 +101,8 @@ const TtlTrials = {
 
     protection: {
       title: 'Trial of Protection', intro: 'Keep them alive for 90 seconds.', limit: 90, passOnTimeout: true,
-      floor: 'minecraft:grass_block', start: [0, 1, -4],
+      start: [0, 1, -4],
       gear: ['iron_sword', 'iron_chestplate', 'iron_leggings', 'cooked_beef 4'],
-      build(b) {
-        b.fill(-1, 0, -1, 1, 0, 1, 'minecraft:hay_block')
-      },
       setup(ctx) {
         TtlTrials.mob(ctx, 'minecraft:villager', 0, 0, {
           NoAI: true,
@@ -131,7 +126,7 @@ const TtlTrials = {
 
     knowledge: {
       title: 'Trial of Knowledge', intro: 'Answer the Voice. Four of five must be right.', limit: 180,
-      floor: 'minecraft:dark_oak_planks', start: [0, 1, 0], gear: [],
+      start: [0, 1, 0], gear: [],
       QUESTIONS: [
         { q: 'A man died saving a stranger and woke as the weakest of monsters. What was he reborn as?', a: 'slime', options: ['slime', 'goblin', 'dragon'] },
         { q: 'Which skill gave him a voice that answers every question?', a: 'great_sage', options: ['predator', 'great_sage', 'gluttony'] },
@@ -139,13 +134,6 @@ const TtlTrials = {
         { q: 'Who sealed the Storm Dragon in the cave three hundred years ago?', a: 'hero', options: ['hero', 'demon_lord', 'church'] },
         { q: 'The more of me you take, the more you leave behind. What am I?', a: 'footsteps', options: ['memories', 'footsteps', 'coins'] }
       ],
-      build(b) {
-        b.fill(-15, 1, -15, 15, 3, -15, 'minecraft:bookshelf')
-        b.fill(-15, 1, 15, 15, 3, 15, 'minecraft:bookshelf')
-        b.fill(-15, 1, -15, -15, 3, 15, 'minecraft:bookshelf')
-        b.fill(15, 1, -15, 15, 3, 15, 'minecraft:bookshelf')
-        b.fill(0, 1, 0, 0, 1, 0, 'minecraft:lectern')
-      },
       setup(ctx) {
         ctx.data.putInt('ttl.trial.q', 0)
         ctx.data.putInt('ttl.trial.correct', 0)
@@ -181,7 +169,7 @@ const TtlTrials = {
 
     hunger: {
       title: 'Trial of Hunger', intro: 'You are starving. Eat until you are full before time runs out.', limit: 90,
-      floor: 'minecraft:coarse_dirt', start: [0, 1, 0], gear: ['wooden_sword'],
+      start: [0, 1, 0], gear: ['wooden_sword'],
       setup(ctx) {
         ctx.player.getFoodData().setFoodLevel(4)
         var food = [['minecraft:bread', 1, 10, 10], ['minecraft:bread', 1, -10, 10], ['minecraft:bread', 1, 0, -12],
@@ -198,14 +186,8 @@ const TtlTrials = {
 
     freedom: {
       title: 'Trial of Freedom', intro: 'Reach the golden platform. Fall, and you start over.', limit: 150,
-      floorY: -6, floor: 'minecraft:smooth_stone', start: [0, 1, -13], gear: [],
-      // Jump course over a pit: [x, y, z] blocks relative to the origin, 1-2 block gaps, a few steps up.
-      COURSE: [[0, 0, -9], [0, 0, -6], [1, 1, -4], [1, 1, -1], [0, 2, 1], [0, 2, 4], [-1, 1, 7], [0, 0, 10]],
-      build(b) {
-        b.fill(-1, 0, -15, 1, 0, -12, 'minecraft:quartz_block')
-        this.COURSE.forEach(c => b.fill(c[0], c[1], c[2], c[0], c[1], c[2], 'minecraft:quartz_pillar'))
-        b.fill(-1, 0, 12, 1, 0, 14, 'minecraft:gold_block')
-      },
+      floorY: -6, start: [0, 1, -13], gear: [],
+      // The jump course over the pit is in blueprints/trial_freedom.py (COURSE).
       tick(ctx) {
         var p = ctx.player
         var dz = p.getZ() - ctx.o.z
@@ -220,13 +202,10 @@ const TtlTrials = {
 
     deceit: {
       title: 'Trial of Deceit', intro: 'Reach the emerald exit unseen. Watchers see anyone who walks upright near them: sneak.', limit: 150,
-      floor: 'minecraft:deepslate_tiles', start: [0, 1, -14], gear: [],
+      start: [0, 1, -14], gear: [],
       RADIUS: 7.5,
       // Watcher rows (z): the start (z -14) is out of sight of the first row, the exit is checked first.
       ROWS: [-4, 3, 10],
-      build(b) {
-        b.fill(-1, 0, 13, 1, 0, 15, 'minecraft:emerald_block')
-      },
       setup(ctx) {
         ctx.data.putInt('ttl.trial.strikes', 0)
         this.ROWS.forEach(z => [-8, 0, 8].forEach(x => TtlTrials.mob(ctx, 'minecraft:evoker', x, z, {
@@ -257,10 +236,7 @@ const TtlTrials = {
 
     creation: {
       title: 'Trial of Creation', intro: 'Gather what lies around you and craft a Lantern.', limit: 150,
-      floor: 'minecraft:oak_planks', start: [0, 1, -6], gear: [],
-      build(b) {
-        b.fill(0, 1, 0, 0, 1, 0, 'minecraft:crafting_table')
-      },
+      start: [0, 1, -6], gear: [],
       setup(ctx) {
         var parts = [['minecraft:iron_ingot', 1, 12, 12], ['minecraft:coal', 1, -12, 10], ['minecraft:stick', 1, 10, -12],
           ['minecraft:cobblestone', 4, -10, -12], ['minecraft:string', 2, 13, 0], ['minecraft:flint', 1, -13, 0]]
@@ -273,15 +249,8 @@ const TtlTrials = {
 
     dominion: {
       title: 'Trial of Dominion', intro: 'Bring three of the herd into the pen.', limit: 180,
-      floor: 'minecraft:grass_block', start: [0, 1, 0], gear: ['lead 4', 'wheat 16'],
+      start: [0, 1, 0], gear: ['lead 4', 'wheat 16'],
       PEN: { x1: 9, z1: 9, x2: 13, z2: 13 },
-      build(b) {
-        b.fill(8, 1, 8, 14, 1, 8, 'minecraft:oak_fence')
-        b.fill(8, 1, 14, 14, 1, 14, 'minecraft:oak_fence')
-        b.fill(8, 1, 8, 8, 1, 14, 'minecraft:oak_fence')
-        b.fill(14, 1, 8, 14, 1, 14, 'minecraft:oak_fence')
-        b.fill(8, 1, 11, 8, 1, 11, 'minecraft:oak_fence_gate[facing=east]')
-      },
       setup(ctx) {
         ;[[-10, -10], [-12, -6], [-6, -12], [-12, -12], [-8, -8]].forEach(c => TtlTrials.mob(ctx, 'minecraft:cow', c[0], c[1], { Tags: ['ttl_trial', 'ttl_herd'] }))
       },
@@ -301,7 +270,7 @@ const TtlTrials = {
 
     survival: {
       title: 'Trial of Survival', intro: 'No weapons. Live for two minutes.', limit: 120, passOnTimeout: true,
-      floor: 'minecraft:cobblestone', start: [0, 1, 0], gear: [],
+      start: [0, 1, 0], gear: [],
       setup(ctx) {
         TtlTrials.mob(ctx, 'minecraft:skeleton', 12, 12)
         TtlTrials.mob(ctx, 'minecraft:skeleton', -12, -12)

@@ -17,6 +17,7 @@ from blueprint import Blueprint, from_schem, from_structure  # noqa: E402
 import nbt  # noqa: E402
 
 BLUEPRINTS = ROOT / "blueprints"
+sys.path.insert(0, str(BLUEPRINTS))  # shared helpers: blueprints/_*.py
 STRUCTURES = ROOT / "pack" / "kubejs" / "data" / "ttl" / "structure"
 PREVIEWS = ROOT / "docs" / "previews"
 
@@ -39,7 +40,7 @@ def main() -> None:
     names = [a for a in sys.argv[1:] if not a.startswith("--")]
     # Captured from the world (.nbt, tools/capture.py) wins over polished in WorldEdit (.schem,
     # tools/import_schem.py), which wins over code (.py) of the same name.
-    by_name = {p.stem: p for p in sorted(BLUEPRINTS.glob("*.py"))}
+    by_name = {p.stem: p for p in sorted(BLUEPRINTS.glob("*.py")) if not p.stem.startswith("_")}
     by_name.update({p.stem: p for p in sorted(BLUEPRINTS.glob("*.schem"))})
     by_name.update({p.stem: p for p in sorted(BLUEPRINTS.glob("*.nbt"))})
     files = [by_name[n] for n in sorted(by_name)]

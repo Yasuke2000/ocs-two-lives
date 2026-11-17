@@ -33,8 +33,11 @@ const TtlLife = {
     return String(player.level.dimension)
   },
 
+  // Wayfarer's Rest (mortal_spawn.js), facing the shrine; spread around 0 0 until it has been placed.
   toMortal(server, player) {
-    server.runCommandSilent(`execute in ${this.MORTAL} run spreadplayers 0 0 0 48 false ${player.username}`)
+    var spawn = String(server.persistentData.getString('ttl.mortal.spawn'))
+    if (spawn) server.runCommandSilent(`execute in ${this.MORTAL} run tp ${player.username} ${spawn} 180 0`)
+    else server.runCommandSilent(`execute in ${this.MORTAL} run spreadplayers 0 0 0 48 false ${player.username}`)
   },
 
   toCorridor(server, player) {

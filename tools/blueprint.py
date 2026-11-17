@@ -157,16 +157,38 @@ _COLORS = [
     ("grass", (100, 160, 70)), ("moss", (90, 130, 50)), ("dirt", (130, 95, 65)), ("sand", (220, 205, 160)),
     ("snow", (245, 250, 250)), ("water", (60, 100, 200)), ("lava", (230, 110, 30)), ("soul", (80, 200, 215)),
     ("bookshelf", (140, 100, 60)), ("brick", (150, 75, 60)), ("stone", (125, 125, 125)), ("cobble", (115, 115, 115)),
+    ("stone_brick", (122, 121, 122)), ("mossy", (95, 115, 80)), ("nether_brick", (60, 30, 35)), ("red_nether", (90, 20, 25)),
+    ("mud_brick", (140, 105, 80)), ("packed_mud", (142, 107, 80)), ("sandstone", (216, 203, 155)), ("gravel", (130, 125, 122)),
+    ("hay", (190, 160, 40)), ("wheat", (200, 180, 70)), ("farmland", (110, 75, 45)), ("path", (150, 125, 75)),
+    ("sculk", (15, 40, 50)), ("froglight", (190, 225, 160)), ("shroomlight", (240, 145, 70)), ("jack_o", (215, 140, 30)),
+    ("iron", (200, 200, 200)), ("barrel", (130, 95, 55)), ("crafting", (150, 110, 70)), ("lectern", (160, 125, 80)),
+    ("fence", (120, 90, 60)), ("chain", (60, 65, 75)), ("rooted", (145, 105, 75)), ("coarse", (120, 85, 60)),
     ("andesite", (135, 135, 135)), ("tuff", (100, 100, 90)), ("wool", (220, 220, 220)), ("leaves", (60, 120, 50)),
     ("log", (110, 85, 55)), ("planks", (165, 130, 85)),
 ]
 
 
+_DYES = {
+    "white": (234, 236, 236), "light_gray": (142, 142, 135), "gray": (63, 68, 72), "black": (21, 21, 26),
+    "brown": (114, 72, 41), "red": (161, 39, 35), "orange": (240, 118, 20), "yellow": (249, 198, 40),
+    "lime": (112, 185, 26), "green": (85, 110, 28), "cyan": (21, 137, 145), "light_blue": (58, 175, 217),
+    "blue": (53, 57, 157), "purple": (122, 42, 173), "magenta": (190, 69, 180), "pink": (238, 141, 172),
+}
+
+
 def _color(state: str) -> tuple[int, int, int]:
     name = parse_state(state)[0].split(":", 1)[1]
+    # Dyed blocks (concrete, wool, terracotta, glass, carpet) by their colour word.
+    for dye in sorted(_DYES, key=len, reverse=True):
+        if name.startswith(dye + "_") and any(k in name for k in ("concrete", "wool", "terracotta", "glass", "carpet", "candle")):
+            return _DYES[dye]
+    # Otherwise the longest matching keyword wins ("stone_bricks" before "brick").
+    best = None
     for key, rgb in _COLORS:
-        if key in name:
-            return rgb
+        if key in name and (best is None or len(key) > len(best[0])):
+            best = (key, rgb)
+    if best:
+        return best[1]
     h = zlib.crc32(name.encode())
     return (90 + h % 120, 90 + (h >> 8) % 120, 90 + (h >> 16) % 120)
 

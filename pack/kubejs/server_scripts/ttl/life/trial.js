@@ -17,7 +17,9 @@ const TtlTrial = {
     return TtlTrials.DEFS[wish]
   },
 
-  // Arena blocks, rebuilt whenever ARENA_VERSION changes. Chunks are force-loaded only while building.
+  // Arenas are structures (blueprints/trial_<wish>.py → ttl:trial_<wish>), rebuilt whenever ARENA_VERSION
+  // changes. The box is cleared first: a structure leaves the blocks it does not list untouched.
+  // Chunks are force-loaded only while building.
   buildArenas(server) {
     if (server.persistentData.getInt('ttl.arenas.version') === TtlTrials.ARENA_VERSION) return
     var self = this
@@ -31,13 +33,8 @@ const TtlTrial = {
         var d = self.def(wish)
         var o = TtlTrials.origin(wish)
         var fy = o.y + (d.floorY || 0)
-        var fill = (x1, y1, z1, x2, y2, z2, block, mode) => self.run(server,
-          `fill ${o.x + x1} ${o.y + y1} ${o.z + z1} ${o.x + x2} ${o.y + y2} ${o.z + z2} ${block}${mode ? ' ' + mode : ''}`)
-        self.run(server, `fill ${o.x - 16} ${fy - 1} ${o.z - 16} ${o.x + 16} ${o.y + 14} ${o.z + 16} minecraft:air`)
-        self.run(server, `fill ${o.x - 16} ${fy} ${o.z - 16} ${o.x + 16} ${o.y + 14} ${o.z + 16} minecraft:barrier hollow`)
-        self.run(server, `fill ${o.x - 15} ${fy} ${o.z - 15} ${o.x + 15} ${fy} ${o.z + 15} ${d.floor}`)
-        ;[[-8, -8], [8, -8], [-8, 8], [8, 8], [0, 0]].forEach(c => self.run(server, `setblock ${o.x + c[0]} ${fy} ${o.z + c[1]} minecraft:sea_lantern`))
-        if (d.build) d.build({ fill: fill })
+        self.run(server, `fill ${o.x - 16} ${fy - 1} ${o.z - 16} ${o.x + 16} ${o.y + 16} ${o.z + 16} minecraft:air`)
+        self.run(server, `place template ttl:trial_${wish} ${o.x - 16} ${fy} ${o.z - 16}`)
         self.run(server, `forceload remove ${o.x - 16} ${o.z - 16} ${o.x + 16} ${o.z + 16}`)
       })
       server.persistentData.putInt('ttl.arenas.version', TtlTrials.ARENA_VERSION)

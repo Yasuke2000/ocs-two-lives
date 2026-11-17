@@ -1,14 +1,16 @@
-# Every trial arena exists: one signature block per arena (chunks force-loaded for the check). Expect 10x Test passed.
+# Every trial arena is placed from its structure (ttl:trial_<wish>): one signature block per arena
+# (chunks force-loaded for the check). Expect 11x Test passed.
 execute in ttl:spirit_corridor run forceload add 984 -16 1916 16
 @sleep 2
-execute in ttl:spirit_corridor if block 1000 64 1 minecraft:polished_andesite
-execute in ttl:spirit_corridor if block 1106 64 0 minecraft:crying_obsidian
+execute in ttl:spirit_corridor if block 1000 64 -12 minecraft:chiseled_stone_bricks
+execute in ttl:spirit_corridor if block 1100 64 0 minecraft:obsidian
 execute in ttl:spirit_corridor if block 1200 64 0 minecraft:hay_block
-execute in ttl:spirit_corridor if block 1300 65 0 minecraft:lectern
-execute in ttl:spirit_corridor if block 1401 64 0 minecraft:coarse_dirt
+execute in ttl:spirit_corridor if block 1300 65 -1 minecraft:lectern
+execute in ttl:spirit_corridor if block 1400 64 0 minecraft:jack_o_lantern
 execute in ttl:spirit_corridor if block 1500 64 13 minecraft:gold_block
 execute in ttl:spirit_corridor if block 1600 64 14 minecraft:emerald_block
 execute in ttl:spirit_corridor if block 1700 65 0 minecraft:crafting_table
 execute in ttl:spirit_corridor if block 1808 65 11 minecraft:oak_fence_gate
-execute in ttl:spirit_corridor if block 1901 64 0 minecraft:cobblestone
+execute in ttl:spirit_corridor if block 1812 65 10 minecraft:water_cauldron
+execute in ttl:spirit_corridor if block 1900 64 8 minecraft:mossy_cobblestone
 execute in ttl:spirit_corridor run forceload remove 984 -16 1916 16

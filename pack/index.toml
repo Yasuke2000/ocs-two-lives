@@ -1157,8 +1157,52 @@ file = "kubejs/data/ttl/dimension_type/spirit_corridor.json"
 hash = "fcfd6e4ad7382eaf7953ca7f0b05e63b1eb25b77a203972bf58a5992388bafa1"
 
 [[files]]
+file = "kubejs/data/ttl/structure/mortal_spawn.nbt"
+hash = "b6d440694a4f9f3b75bd0b16351610520035ba6e12a36c365041e7252d594726"
+
+[[files]]
 file = "kubejs/data/ttl/structure/spirit_corridor_hall.nbt"
 hash = "f930e459f15166e975facb5d85c9ddf165dbb333d6911ca5aa54f03e30139067"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_creation.nbt"
+hash = "6676bb62ece1dd5c9a1b568f3d8796ed67a6ed2b76f3d1d20bba14db20c12009"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_deceit.nbt"
+hash = "070c8b33bb22f5c9671976f4d4de2442467eceafc62639b02a9330aa21911cb4"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_dominion.nbt"
+hash = "e04a452dc87d6008397105affd9edaa6a583670c78bb05e2c17cb02bbe822c43"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_freedom.nbt"
+hash = "2b9e2f090212e035c78e3b2d6ef5b955ef20014b6705b1fa1f8934636f2ca891"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_hunger.nbt"
+hash = "218f8b212acbe580dfb4c0918f8d4ac893c3520a87baa5f423e7c78109b42be0"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_knowledge.nbt"
+hash = "23f266ec276035c53000291da47e29da36da9002262c4b1d8818dc7922f3d5fe"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_protection.nbt"
+hash = "4c24cb1c4081ed1a5ad91148d6845c7992bb3f200bf2ea5af0cdcbf28e662221"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_strength.nbt"
+hash = "9d0732c5b15808d6be3d87114d56201a9fee7621bd2d2b83d0b267d6eab52eba"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_survival.nbt"
+hash = "afde05224fbe0caf36b76b332e9ea92598bf5f869a1e60584968d7b6e505189d"
+
+[[files]]
+file = "kubejs/data/ttl/structure/trial_vengeance.nbt"
+hash = "9f92291a755f345c07d7b3dcac65bf9547c056a9726f2817bd898578b6eddba1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/boot.js"
@@ -1166,7 +1210,7 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "63bb72890e04f3ce241a28cc0b7c438b7c3a72754390489fc1dcffe9905c49df"
+hash = "2acff774939b671640c13055501d70ada63de43f4e1582f5a030971f4ffe5a26"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -1197,20 +1241,24 @@ file = "kubejs/server_scripts/ttl/life/join.js"
 hash = "1210faea2e1927d31a7590773165265b9dcb21f10b44423d8519462d99cb2f41"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"
+hash = "5be234dc9994795c9a20b10ce5cb58c5081b31adcb087be3bf584e698679de28"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
 hash = "9592ba87b7cb8e1f6896effb2c0d1c321e115cdfc18178f6eafc546f9dfc0e41"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
-hash = "1ba700c438b5c8b74c42879bb6315b4ee38559d4e1205175c7ef6968de64b68f"
+hash = "431df14c2f5faa3faef67439c3a36284123ec0bdf0fd003ec944f3af32181a34"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
-hash = "823a307b01f9c587246c1366049770675afac947edc9d2490d994b3bf5e695a0"
+hash = "3cd98457a57f3ab34d89b40e8c852c742c26a6057d51e7d0473ba9084a088300"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial_defs.js"
-hash = "5605becb5ff7a5278793564c1407c748463044ac7f0ea47f158d91ecc6d95736"
+hash = "fce0c6155ff31fc12d72ab67315d4a8d7ea7942d8466eccc667b9d176d5149aa"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"

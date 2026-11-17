@@ -1,0 +1,3 @@
+# Wayfarer's Rest exists in the Mortal Realm and Life 1 arrives there. Expect "Mortal spawn: 0.5 <y> 5.5"
+# (an error line means it was never placed: check the log for "mortal spawn").
+ttl spawn

@@ -3,6 +3,7 @@
 //           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
 //           /ttl grant <player> <skill> (through the registry, caps apply)
 //           /ttl build <name> (place blueprints/<name>.py with its corner at your feet)
+//           /ttl spawn (where Life 1 starts: Wayfarer's Rest in the Mortal Realm)
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
   var life = TtlLife
@@ -149,6 +150,15 @@ ServerEvents.commandRegistry(event => {
         console.info(`[ttl] ${player.username} placed blueprint ${name}`)
         return 1
       }))))
+    .then(Commands.literal('spawn')
+      .requires(src => src.hasPermission(2))
+      .executes(logged(ctx => {
+        var data = ctx.source.getServer().persistentData
+        var spawn = String(data.getString('ttl.mortal.spawn'))
+        if (!spawn) throw 'the mortal spawn is not placed (see the server log)'
+        ctx.source.sendSystemMessage(Text.of(`Mortal spawn: ${spawn} in ${life.MORTAL} (version ${data.getInt('ttl.mortal.version')})`))
+        return 1
+      })))
     .then(Commands.literal('registry')
       .requires(src => src.hasPermission(2))
       .executes(logged(registryList))
