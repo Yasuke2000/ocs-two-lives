@@ -42,7 +42,11 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "e87090cb13e3716f0d1f11a85838ed319bfc43727bbe197f7197b10a444a451c"
+hash = "95b4f9358a737347614795e6ab593f653606032b2fa21f9000cced40ab5f7ea3"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/generated/data.js"
+hash = "878c10ae29c33d9aab1ccd5319459d497647b5ca542f5facf9ceed10e0fac544"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
@@ -50,7 +54,7 @@ hash = "1336c660acdbbf45d795651882fe740da983c99c3e4e9d9c887df615c7d55bd1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "f69591d27042210d22152b94d53ac1f2b176c7b8a33200c8d6b0ce2253b06080"
+hash = "38962cd3b8ec005c10c861bf1a7548c08cd7aff13c153cca87f7f4ee92b1c16f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -58,7 +62,7 @@ hash = "7167dd4af16033e3c5313b41220f2e897456e85505535332109b42a554c6df64"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
-hash = "8f96e165b461f55767bdf222f24fcd3dc693b3735e4d119d2e5618ab8ef218c4"
+hash = "190ba11fca65bebfe3ffb64fc5f4cdbee89d3a38edf757ee3968d92bbc77e853"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
@@ -86,7 +90,7 @@ hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "a40aeb00a99538754c759aa07cea47f39d7614249afea8acea00727978139a27"
+hash = "ecb34d17a0395928d7a4c8a5113538550c5f780537a17240ceb0d2a064c3d691"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"

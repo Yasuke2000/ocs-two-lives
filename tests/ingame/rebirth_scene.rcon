@@ -1,0 +1,16 @@
+# Life 2 rebirth through Tensura's reincarnation menu (the Great Sage scene on a real client).
+# `ttlrebirth submit` confirms offer 0 as if clicked. Expect: "Test passed" for the open menu check is not
+# possible over RCON, so check the log for "[ttl] rebirth: menu opened" and "chose", then phase=life2 with
+# a knowledge unique and the race of offer 0 (always slime: Slime is offer 0).
+ttlbot spawn TtlBotScene
+@sleep 2
+kill TtlBotScene
+execute as TtlBotScene run ttl wish knowledge
+execute as TtlBotScene run ttl rebirth
+@sleep 1
+ttl inspect TtlBotScene
+ttlrebirth submit TtlBotScene 0
+@sleep 2
+ttl inspect TtlBotScene
+ttl reset TtlBotScene
+ttlbot remove TtlBotScene

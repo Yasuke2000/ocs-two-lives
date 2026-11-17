@@ -70,7 +70,7 @@ public final class Rebirth {
         MinecraftServer server = serverPlayer.getServer();
         // Next tick: the menu click that called setRace is still being handled.
         server.execute(() -> server.getCommands().performPrefixedCommand(
-                server.createCommandSourceStack().withSuppressedOutput(), "ttl reborn " + name + " " + id));
+                server.createCommandSourceStack().withSuppressedOutput(), "ttl reborn " + name + " \"" + id + "\""));
     }
 
     public static void registerCommands(RegisterCommandsEvent event) {

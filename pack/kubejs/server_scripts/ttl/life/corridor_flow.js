@@ -7,7 +7,7 @@
 // Without a passed trial the unique is drawn at random from the wish's pool.
 const TtlCorridor = {
   KEYS: ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.trial.done', 'ttl.trial.passed',
-    'ttl.trial.token', 'ttl.trial.ready', 'ttl.trial.wave', 'ttl.trial.q', 'ttl.trial.correct', 'ttl.trial.strikes'],
+    'ttl.raceSet', 'ttl.trial.token', 'ttl.trial.ready', 'ttl.trial.wave', 'ttl.trial.q', 'ttl.trial.correct', 'ttl.trial.strikes'],
 
   title(id) {
     var path = String(id).replace(/^.*:/, '')
@@ -95,6 +95,7 @@ const TtlCorridor = {
     if (step === 'wish') this.showWishes(server, player)
     if (step === 'race') this.showRaces(server, player)
     if (step === 'unique') this.showUniques(server, player)
+    if (step === 'rebirth') this.startRebirth(server, player)
     if (step === 'trial' && player.persistentData.getString('ttl.wish') === 'knowledge') TtlTrials.DEFS.knowledge.showQuestion(server, player)
   },
 
@@ -133,19 +134,20 @@ const TtlCorridor = {
     var offers = String(data.getString('ttl.offers')).split(',')
     var icons = this.RACE_ICONS
     var slots = [11, 13, 15]
-    var items = offers.map((r, i) => ({
-      slot: slots[i], item: icons[r] || 'minecraft:paper', name: this.title(r), color: '#7FDBFF',
-      lore: [`Be reborn as a ${this.title(r)}.`], command: `ttl choose ${r}`
-    }))
+    var items = [{
+      slot: 13, item: 'minecraft:end_crystal', name: 'Begin your reincarnation', color: '#C9A0FF',
+      lore: ['The world offers you:'].concat(offers.map(r => `  ${this.title(r)}`)).concat(['', 'Choose your new body in the', 'reincarnation ceremony.']),
+      command: 'ttl rebirth'
+    }]
     var trial = TtlTrials.DEFS[String(data.getString('ttl.wish'))]
-    var hint = 'Choose your new body.'
+    var hint = 'Begin your reincarnation.'
     if (trial && !data.getBoolean('ttl.trial.done')) {
       items.push({
         slot: 22, item: 'minecraft:nether_star', name: `Face the ${trial.title}`, color: '#FF5555',
         lore: this.wrap(trial.intro, 34).concat([`${trial.limit} seconds.`, '', 'Win: choose your skill yourself.', 'Lose: fate chooses it.']),
         command: 'ttl trial'
       })
-      hint = 'Choose your new body, or face your Trial first.'
+      hint = 'Begin your reincarnation, or face your Trial first.'
     }
     this.menu(server, player, 'Choose your new body', 3, items, hint)
   },
@@ -182,7 +184,7 @@ const TtlCorridor = {
     data.putString('ttl.race', race)
     var pool = TtlWishes.get(data.getString('ttl.wish')).pool
     if (data.getBoolean('ttl.trial.passed')) {
-      var options = TtlRegistry.draw(server, pool, 3)
+      var options = TtlRegistry.draw(server, pool, 3, player.username)
       if (options.length > 0) {
         data.putString('ttl.uniqueOptions', options.join(','))
         data.putString('ttl.step', 'unique')
@@ -191,7 +193,40 @@ const TtlCorridor = {
         return null
       }
     }
-    var drawn = TtlRegistry.draw(server, pool, 1)
+    var drawn = TtlRegistry.draw(server, pool, 1, player.username)
+    this.rebirth(server, player, drawn.length > 0 ? drawn[0] : null)
+    return null
+  },
+
+  // Opens Tensura's reincarnation menu (the Great Sage addon plays its scene over it) showing only this
+  // player's offers. ttl-portals calls `/ttl reborn` when a race is confirmed.
+  startRebirth(server, player) {
+    var data = player.persistentData
+    var step = String(data.getString('ttl.step'))
+    if (step !== 'race' && step !== 'rebirth') return 'You cannot be reborn right now.'
+    data.putString('ttl.step', 'rebirth')
+    server.runCommandSilent(`ttlrebirth open ${player.username} ${String(data.getString('ttl.offers'))}`)
+    return null
+  },
+
+  reborn(server, player, raceId) {
+    var data = player.persistentData
+    if (TtlLife.phase(player) !== 'corridor' || String(data.getString('ttl.step')) !== 'rebirth') return 'not waiting for a rebirth'
+    var race = String(raceId).replace(/^.*:/, '')
+    data.putString('ttl.race', race)
+    data.putBoolean('ttl.raceSet', true)
+    var pool = TtlWishes.get(String(data.getString('ttl.wish'))).pool
+    if (data.getBoolean('ttl.trial.passed')) {
+      var options = TtlRegistry.draw(server, pool, 3, player.username)
+      if (options.length > 0) {
+        data.putString('ttl.uniqueOptions', options.join(','))
+        data.putString('ttl.step', 'unique')
+        this.say(server, player.username, 'kouho_teiji')
+        this.showUniques(server, player)
+        return null
+      }
+    }
+    var drawn = TtlRegistry.draw(server, pool, 1, player.username)
     this.rebirth(server, player, drawn.length > 0 ? drawn[0] : null)
     return null
   },
@@ -202,6 +237,7 @@ const TtlCorridor = {
     var options = data.getString('ttl.uniqueOptions').split(',')
     var skill = `tensura:${path}`
     if (options.indexOf(skill) < 0) return `Not one of your options: ${options.map(s => this.title(s)).join(', ')}`
+    // The race is already set when the reincarnation menu chose it.
     this.rebirth(server, player, skill)
     return null
   },
@@ -210,7 +246,8 @@ const TtlCorridor = {
     var data = player.persistentData
     var name = player.username
     var race = data.getString('ttl.race')
-    server.runCommandSilent(`quietly tensura edit race ${name} set tensura:${race}`)
+    // Set by the reincarnation menu already when the rebirth went through the Great Sage scene.
+    if (!data.getBoolean('ttl.raceSet')) server.runCommandSilent(`quietly tensura edit race ${name} set tensura:${race}`)
     // The Great Sage addon announces the granted skill itself (overlay + name clip).
     if (!(skill && TtlRegistry.grant(server, player, skill))) {
       // Every unique in the wish's pool is taken: reborn without one rather than breaking the cap.

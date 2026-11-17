@@ -1,6 +1,7 @@
 // Players:  /ttl menu (reopen choices) · /ttl wish <id> · /ttl trial · /ttl answer <word> · /ttl choose <race> · /ttl unique <skill> · /ttl status
 // Ops:      /ttl inspect <player> (answers over RCON) · /ttl reset <player> (back to a fresh Life 1)
 //           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
+//           /ttl grant <player> <skill> (through the registry: caps apply, Legendary refused)
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
   var life = TtlLife
@@ -76,16 +77,17 @@ ServerEvents.commandRegistry(event => {
   }
 
   var registryList = ctx => {
-    var held = TtlRegistry.held(ctx.source.getServer())
-    ctx.source.sendSystemMessage(Text.of(`Held uniques: ${held.length ? held.join(', ') : 'none'}`))
+    var holders = TtlRegistry.holders(ctx.source.getServer())
+    var lines = Object.keys(holders).sort().map(id => `${id} ${holders[id].length}/${TtlRegistry.capOf(id)}: ${holders[id].join(', ')}`)
+    ctx.source.sendSystemMessage(Text.of(lines.length ? 'Held uniques:' : 'Held uniques: none'))
+    lines.forEach(line => ctx.source.sendSystemMessage(Text.of(line)))
     return 1
   }
 
   var registryFree = ctx => {
     var server = ctx.source.getServer()
     var skill = `tensura:${word(ctx, 'skill')}`
-    var held = TtlRegistry.held(server).filter(id => id !== skill)
-    server.persistentData.putString('ttl.reg.held', held.join(','))
+    TtlRegistry.free(server, skill)
     console.info(`[ttl] registry: ${skill} released by an admin`)
     ctx.source.sendSystemMessage(Text.of(`Released ${skill}`))
     return 1
@@ -105,6 +107,18 @@ ServerEvents.commandRegistry(event => {
     .then(Commands.literal('answer')
       .then(Commands.argument('word', Arguments.STRING.create(event))
         .executes(step((server, player, ctx) => TtlTrial.answer(server, player, word(ctx, 'word'))))))
+    .then(Commands.literal('rebirth')
+      .executes(step((server, player) => TtlCorridor.startRebirth(server, player))))
+    // Called by ttl-portals when the reincarnation menu (Great Sage scene) confirms a race.
+    .then(Commands.literal('reborn')
+      .requires(src => src.hasPermission(2))
+      .then(Commands.argument('target', Arguments.PLAYER.create(event))
+        .then(Commands.argument('race', Arguments.STRING.create(event)).executes(logged(ctx => {
+          var target = Arguments.PLAYER.getResult(ctx, 'target')
+          var error = TtlCorridor.reborn(ctx.source.getServer(), target, String(Arguments.STRING.getResult(ctx, 'race')))
+          if (error) console.warn(`[ttl] reborn ${target.username}: ${error}`)
+          return error ? 0 : 1
+        })))))
     .then(Commands.literal('choose')
       .then(Commands.argument('race', Arguments.STRING.create(event))
         .executes(step((server, player, ctx) => TtlCorridor.choose(server, player, word(ctx, 'race'))))))
@@ -115,6 +129,16 @@ ServerEvents.commandRegistry(event => {
     .then(Commands.literal('inspect')
       .requires(src => src.hasPermission(2))
       .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(inspect))))
+    .then(Commands.literal('grant')
+      .requires(src => src.hasPermission(2))
+      .then(Commands.argument('target', Arguments.PLAYER.create(event))
+        .then(Commands.argument('skill', Arguments.STRING.create(event)).executes(logged(ctx => {
+          var target = Arguments.PLAYER.getResult(ctx, 'target')
+          var skill = `tensura:${word(ctx, 'skill')}`
+          var ok = TtlRegistry.grant(ctx.source.getServer(), target, skill)
+          ctx.source.sendSystemMessage(Text.of(ok ? `Granted ${skill} to ${target.username}` : `Refused ${skill} for ${target.username}`))
+          return ok ? 1 : 0
+        })))))
     .then(Commands.literal('registry')
       .requires(src => src.hasPermission(2))
       .executes(logged(registryList))

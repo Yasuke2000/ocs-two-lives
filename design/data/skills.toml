@@ -1,0 +1,27 @@
+# Unique skill rarities and how many players may hold the same unique at once.
+# Edit, then run `python tools/gen_data.py` (validate.py checks the generated file is up to date).
+# IDs are Tensura skill paths (tensura:<id>); they must exist in Tensura's startingSkills list.
+
+[caps]
+legendary = 1   # exactly one holder on the server; never granted automatically (won by absorption, Phase 2)
+rare = 3
+common = 5
+
+[legendary]
+skills = ["predator", "great_sage", "creator", "envy", "greed", "lust", "pride", "sloth", "wrath"]
+
+[rare]
+# Combat and magic uniques.
+skills = [
+  "absolute_severance", "berserk", "berserker", "bewilder", "chosen_one", "commander", "degenerate",
+  "engorger", "falsifier", "fighter", "fusionist", "infinity_prison", "martial_master", "merciless",
+  "murderer", "oppressor", "reaper", "reflector", "reverser", "royal_beast", "severer", "shadow_striker",
+  "sniper", "spearhead", "suppressor", "unyielding", "usurper", "villain",
+]
+
+[common]
+# Utility uniques.
+skills = [
+  "analyst", "chef", "cook", "gourmand", "gourmet", "guardian", "healer", "mathematician", "musician",
+  "observer", "researcher", "seeker", "seer", "survivor", "thrower", "traveler", "tuner",
+]

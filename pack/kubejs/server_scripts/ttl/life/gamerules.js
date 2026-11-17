@@ -1,8 +1,10 @@
 // Tensura must not hand out a unique at first spawn (Life 1 is skill-less), and a unique has one holder.
 ServerEvents.loaded(event => {
   event.server.runCommandSilent('gamerule noUniqueStart true')
-  event.server.runCommandSilent('gamerule trulyUnique true')
-  // The Great Sage addon's own reincarnation scene replaces Tensura's start menu and grants uniques from
-  // drawn wishes at first join, i.e. in Life 1. The Corridor owns rebirth until that scene is wired in.
-  event.server.runCommandSilent('gamerule sageReincarnation false')
+  // Duplicates are allowed up to a cap per rarity; the registry (registry.js) enforces it, not Tensura.
+  event.server.runCommandSilent('gamerule trulyUnique false')
+  // The Great Sage addon's reincarnation scene plays over Tensura's reincarnation menu, which ttl-portals
+  // only opens for the Life 2 rebirth (Life 1 never gets the menu). noUniqueStart keeps Tensura and the
+  // scene from granting a unique; the registry grants it from the Last Wish afterwards.
+  event.server.runCommandSilent('gamerule sageReincarnation true')
 })

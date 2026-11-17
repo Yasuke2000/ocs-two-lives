@@ -51,7 +51,13 @@ def check_index_fresh() -> None:
         errors.append("pack/index.toml was stale — refreshed it, commit the change")
 
 
-for check in (check_json, check_js, check_mods, check_index_fresh):
+def check_generated() -> None:
+    r = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "gen_data.py"), "--check"], capture_output=True, text=True)
+    if r.returncode != 0:
+        errors.append(r.stdout.strip() or r.stderr.strip())
+
+
+for check in (check_json, check_js, check_mods, check_generated, check_index_fresh):
     check()
 
 for e in errors:
