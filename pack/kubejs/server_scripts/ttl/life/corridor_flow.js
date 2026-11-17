@@ -114,6 +114,7 @@ const TtlCorridor = {
       // Every unique in the wish's pool is taken: reborn without one rather than breaking the cap.
       this.voice(server, name, 'Your wish echoes, but no free skill answers it. You are reborn without one.')
     }
+    server.runCommandSilent(`clear ${name}`)
     player.stages.remove('ttl.corridor')
     player.stages.add('ttl.life2')
     this.KEYS.forEach(k => data.remove(k))

@@ -13,7 +13,7 @@ case "${1:-}" in
   follow)  k logs -f deploy/mc --tail=50 ;;
   restart) k rollout restart deploy/mc && k rollout status deploy/mc --timeout=25m ;;
   rcon)    rcon "${2:?usage: server.sh rcon \"<command>\"}" ;;
-  reload)  rcon "kubejs reload server_scripts" && rcon "reload" ;;
+  reload)  rcon "reload" ;;
   # raw.githubusercontent.com edges can serve a stale pack.toml for minutes, so a plain restart may
   # install an old pack. Restart until the installed pack hash matches the local pack/pack.toml.
   deploy)

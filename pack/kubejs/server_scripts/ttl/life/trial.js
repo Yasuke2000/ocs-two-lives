@@ -1,7 +1,8 @@
 // priority: 85
 // Trial of the Soul: an optional fight in the Corridor hall. Three waves within three minutes on loan
 // gear; win and you choose your unique from 3 options of your wish, lose (or "die") and fate draws one.
-// One trial at a time: the hall is shared.
+// One trial at a time: the hall is shared. Waves are tracked by counting live tagged mobs every second:
+// EntityEvents.death did not fire for mob deaths in testing (only for players), so no death hooks here.
 const TtlTrial = {
   TAG: 'ttl_trial',
   TIME_LIMIT: 3600,
@@ -27,7 +28,7 @@ const TtlTrial = {
     var token = String(Date.now())
     server.persistentData.putString('ttl.trial.player', name)
     server.persistentData.putString('ttl.trial.token', token)
-    server.persistentData.putInt('ttl.trial.wave', 0)
+    server.persistentData.putInt('ttl.trial.wave', -1)
     data.putString('ttl.step', 'trial')
 
     server.runCommandSilent(`clear ${name}`)
@@ -45,6 +46,7 @@ const TtlTrial = {
     console.info(`[ttl] ${name} started the Trial of the Soul`)
 
     server.scheduleInTicks(60, () => this.spawnWave(server, 0))
+    this.watch(server, token)
     server.scheduleInTicks(this.TIME_LIMIT, () => {
       if (server.persistentData.getString('ttl.trial.token') === token) this.finish(server, name, false, 'Time ran out.')
     })
@@ -58,8 +60,7 @@ const TtlTrial = {
     wave.forEach(group => {
       for (var i = 0; i < group[1]; i++) {
         var pos = this.SPAWNS[spot++ % this.SPAWNS.length]
-        // NeoForgeData is what entity.persistentData reads; KubeJS's entity.tags are type tags, not /tag.
-        var nbt = { Tags: [this.TAG], PersistenceRequired: true, NeoForgeData: { ttl_trial: true } }
+        var nbt = { Tags: [this.TAG], PersistenceRequired: true }
         if (group[2]) nbt.CustomName = JSON.stringify({ text: group[2], color: 'dark_red' })
         // JSON.stringify gives valid SNBT for this shape (strings and booleans only).
         this.run(server, `summon ${group[0]} ${pos[0]} ${pos[1]} ${pos[2]} ${JSON.stringify(nbt)}`)
@@ -67,24 +68,35 @@ const TtlTrial = {
       }
     })
     server.persistentData.putInt('ttl.trial.wave', index)
-    server.persistentData.putInt('ttl.trial.left', count)
+    console.info(`[ttl] trial ${server.persistentData.getString('ttl.trial.player')}: wave ${index + 1} (${count} mobs)`)
     var name = server.persistentData.getString('ttl.trial.player')
     server.runCommandSilent(`title ${name} actionbar {"text":"Wave ${index + 1} of ${this.WAVES.length}","color":"red"}`)
   },
 
-  onMobDeath(server) {
-    var name = server.persistentData.getString('ttl.trial.player')
-    if (!name) return
-    var left = server.persistentData.getInt('ttl.trial.left') - 1
-    server.persistentData.putInt('ttl.trial.left', left)
-    console.info(`[ttl] trial ${name}: wave ${server.persistentData.getInt('ttl.trial.wave') + 1}, ${left} left`)
-    if (left > 0) return
-    var next = server.persistentData.getInt('ttl.trial.wave') + 1
-    if (next < this.WAVES.length) {
-      server.scheduleInTicks(40, () => this.spawnWave(server, next))
-    } else {
-      this.finish(server, name, true, 'Your soul has proven itself.')
-    }
+  alive(server) {
+    var count = 0
+    var tag = this.TAG
+    server.getLevel(TtlLife.CORRIDOR).getEntities().forEach(e => {
+      if (e.isAlive() && e.getTags().contains(tag)) count++
+    })
+    return count
+  },
+
+  // Once a second while this trial (token) runs: when a wave is cleared, send the next or end it.
+  watch(server, token) {
+    server.scheduleInTicks(20, () => {
+      if (server.persistentData.getString('ttl.trial.token') !== token) return
+      var wave = server.persistentData.getInt('ttl.trial.wave')
+      if (wave >= 0 && this.alive(server) === 0) {
+        if (wave + 1 < this.WAVES.length) {
+          this.spawnWave(server, wave + 1)
+        } else {
+          this.finish(server, server.persistentData.getString('ttl.trial.player'), true, 'Your soul has proven itself.')
+          return
+        }
+      }
+      this.watch(server, token)
+    })
   },
 
   onPlayerDeath(server, player) {
@@ -97,6 +109,8 @@ const TtlTrial = {
     server.persistentData.remove('ttl.trial.player')
     server.persistentData.remove('ttl.trial.token')
     this.run(server, `kill @e[tag=${this.TAG},distance=0..]`)
+    // Mob drops and loan gear must not be carried into Life 2.
+    this.run(server, 'kill @e[type=minecraft:item,distance=0..]')
     var player = server.getPlayerList().getPlayerByName(name)
     console.info(`[ttl] ${name} ${passed ? 'passed' : 'failed'} the Trial of the Soul (${why})`)
     if (!player) return
@@ -111,12 +125,6 @@ const TtlTrial = {
     TtlCorridor.showRaces(server, player)
   }
 }
-
-EntityEvents.death(event => {
-  var entity = event.entity
-  if (entity.isPlayer()) return
-  if (entity.persistentData.getBoolean('ttl_trial')) TtlTrial.onMobDeath(event.server)
-})
 
 // A restart mid-trial must not leave the hall locked.
 ServerEvents.loaded(event => {
