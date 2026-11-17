@@ -1579,3 +1579,8 @@ metafile = true
 file = "mods/ttl-portals.pw.toml"
 hash = "a6c04842234753f0eaca9556089a9ccfa92647e6943496dbb5cbffd16d40af98"
 metafile = true
+
+[[files]]
+file = "mods/worldedit.pw.toml"
+hash = "de999f6cc4c2f344e324b4f331fa9767844c31463c6e8066fcd67b613338ab8c"
+metafile = true

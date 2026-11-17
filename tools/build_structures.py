@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Turn every blueprints/<name>.py into a structure file and preview images.
+"""Turn every blueprints/<name>.py (code) or <name>.schem (polished in game) into a structure + previews.
 
 Writes pack/kubejs/data/ttl/structure/<name>.nbt (place in game: `/ttl build <name>`) and
 docs/previews/<name>-iso.png + <name>-top.png for review.
@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from blueprint import Blueprint  # noqa: E402
+from blueprint import Blueprint, from_schem  # noqa: E402
 import nbt  # noqa: E402
 
 BLUEPRINTS = ROOT / "blueprints"
@@ -22,6 +22,8 @@ PREVIEWS = ROOT / "docs" / "previews"
 
 
 def load(path: Path) -> Blueprint:
+    if path.suffix == ".schem":
+        return from_schem(path.stem, path)
     spec = importlib.util.spec_from_file_location(f"blueprint_{path.stem}", path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -33,7 +35,10 @@ def load(path: Path) -> Blueprint:
 def main() -> None:
     check = "--check" in sys.argv
     names = [a for a in sys.argv[1:] if not a.startswith("--")]
-    files = sorted(BLUEPRINTS.glob("*.py"))
+    # A .schem (polished in game, see tools/import_schem.py) wins over a .py of the same name.
+    by_name = {p.stem: p for p in sorted(BLUEPRINTS.glob("*.py"))}
+    by_name.update({p.stem: p for p in sorted(BLUEPRINTS.glob("*.schem"))})
+    files = [by_name[n] for n in sorted(by_name)]
     if names:
         files = [f for f in files if f.stem in names]
     stale = []

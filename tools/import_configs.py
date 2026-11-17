@@ -25,7 +25,7 @@ NUL = bytes([0])
 SKIP = [
     re.compile(p) for p in (
         r"(^|/)[^/]*client[^/]*$",   # *-client.toml, *_client.json, ...
-        r"^jei/", r"^spark/", r"^chunky/",
+        r"^jei/", r"^spark/", r"^chunky/", r"^worldedit/(schematics|sessions)/",
         r"\.(db|sqlite)(-.*)?$", r"-(wal|shm)$",
         r"^fml\.toml$", r"\.(log|lock|bak|tmp)$", r"(^|/)\.", r"cache",
     )

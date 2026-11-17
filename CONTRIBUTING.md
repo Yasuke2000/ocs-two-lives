@@ -40,6 +40,7 @@ Using Claude Code? Open the repo folder; [CLAUDE.md](CLAUDE.md) and `.claude/` (
 | The Java mod (`ttl-portals`) | `mod/src/` | `python tools/release_mod.py` (maintainers) |
 | Server settings (view distance, memory, …) | not in this repo — see [docs/server.md](docs/server.md) | ask David |
 | A build (hall, arena, village…) | `blueprints/<name>.py` (Python: `fill`, `box`, `disc`, `pillar`, `around`) | `python tools/build_structures.py` → check `docs/previews/<name>-iso.png`; in game `/ttl build <name>` |
+| Polish a build in game | WorldEdit (ops): `/ttl build <name>`, edit, select its exact box, `//copy`, `//schem save <name>` | `python tools/import_schem.py <name>` → `blueprints/<name>.schem` (wins over the `.py`) + new structure and previews |
 | Bot tests | `tests/ingame/*.rcon` | run by the server after each deploy |
 
 ## Rules (short version of CLAUDE.md)

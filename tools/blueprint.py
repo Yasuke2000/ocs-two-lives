@@ -30,6 +30,36 @@ def parse_state(state: str) -> tuple[str, dict]:
     return m.group(1), props
 
 
+def from_schem(name: str, path: Path) -> "Blueprint":
+    """Load a WorldEdit Sponge schematic (v2 or v3, what `//schem save` writes) as a Blueprint.
+
+    Air is kept, so placing the build also clears what was removed in game. Block entity contents
+    (chest items, sign text) are not carried over.
+    """
+    import nbt
+    root = nbt.read_gzip(path)
+    schem = root.get("Schematic", root)  # v3 nests everything under "Schematic"
+    w, h, l = schem["Width"], schem["Height"], schem["Length"]
+    blocks = schem.get("Blocks", schem)  # v3: Blocks{Palette, Data}; v2: Palette + BlockData at the top
+    palette = {index: state for state, index in blocks["Palette"].items()}
+    data = blocks.get("Data", blocks.get("BlockData"))
+    bp = Blueprint(name, (w, h, l))
+    i = pos = 0
+    while pos < len(data):  # varint-encoded palette indexes, x fastest, then z, then y
+        value = shift = 0
+        while True:
+            byte = data[pos]
+            pos += 1
+            value |= (byte & 0x7F) << shift
+            if not byte & 0x80:
+                break
+            shift += 7
+        x, z, y = i % w, (i // w) % l, i // (w * l)
+        bp.blocks[(x, y, z)] = palette[value]
+        i += 1
+    return bp
+
+
 class Blueprint:
     def __init__(self, name: str, size: tuple[int, int, int]):
         self.name = name
