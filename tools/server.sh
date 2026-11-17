@@ -10,8 +10,10 @@ plain() { sed 's/\[[0-9;]*m//g'; }
 # Real players online (test bots excluded), comma-separated; empty when nobody is playing.
 humans() {
   local all bots
-  all=$(rcon "list" | plain | sed -n 's/.*online: *//p' | tr -d ' ')
-  bots=$(rcon "ttlbot list" | plain | sed -n 's/^Test bots: *//p' | tr -d ' ')
+  all=$(rcon "list" | plain | sed -n 's/.*online: *//p' | tr -d ' 
+')
+  bots=$(rcon "ttlbot list" | plain | sed -n 's/^Test bots: *//p' | tr -d ' 
+')
   tr ',' '
 ' <<<"$all" | grep -vxF -f <(tr ',' '
 ' <<<"$bots") | grep -v '^$' | paste -sd, - || true
@@ -62,7 +64,8 @@ case "${1:-}" in
       if grep -qE 'Unknown or incomplete|Incorrect argument|An unexpected error|ttl: ' <<<"$out"; then verdict="command error"; fi
       if [[ $name == trial_* ]]; then
         bot=$(grep -m1 -oE 'ttlbot spawn [A-Za-z0-9_]+' "$f" | cut -d' ' -f3)
-        result=$(k exec deploy/mc -- sh -c "grep -E '\[ttl\] $bot (passed|failed) the' /data/logs/latest.log | tail -1" | grep -oE 'passed|failed')
+        # Single quotes survive the ssh hop: the pattern reaches grep in the pod intact.
+        result=$(k exec deploy/mc -- grep -E "'$bot (passed|failed) the'" /data/logs/latest.log | tail -1 | grep -oE 'passed|failed' || true)
         want=passed; [[ $name == *_fail ]] && want=failed
         [ "$result" = "$want" ] || verdict="expected $want, got ${result:-nothing}"
       fi
