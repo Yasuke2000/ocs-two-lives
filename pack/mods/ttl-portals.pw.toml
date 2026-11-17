@@ -1,8 +1,8 @@
 name = "OCS Two Lives Portals"
-filename = "ttl-portals-0.7.1.jar"
+filename = "ttl-portals-0.8.0.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Yasuke2000/ocs-two-lives/releases/download/mod-v0.7.1/ttl-portals-0.7.1.jar"
+url = "https://github.com/Yasuke2000/ocs-two-lives/releases/download/mod-v0.8.0/ttl-portals-0.8.0.jar"
 hash-format = "sha256"
-hash = "287fe71b236ea66b6bb63f67da9457dfc3842a77b0daf563f3cccea244587d82"
+hash = "877c82c05f2fc24dafcd55ffc14eb9803995aa74c6bcaa111789f1f58d080aff"

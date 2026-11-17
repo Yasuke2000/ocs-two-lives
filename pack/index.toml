@@ -1697,7 +1697,7 @@ metafile = true
 
 [[files]]
 file = "mods/ttl-portals.pw.toml"
-hash = "34ad799d52fcd584d01256bcd92d0c0141a6d0df84d0ee1305bf1906268c520e"
+hash = "7b44dc9e2910890f804eb93652c361a2713f610f4c61a53d84cb4a58b0012c10"
 metafile = true
 
 [[files]]
