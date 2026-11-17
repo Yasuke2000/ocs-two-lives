@@ -51,7 +51,7 @@ through before building it.
 | A build to make or improve | *Build request* form (paste reference images) | `build` |
 | World doesn't match the lore | *World / lore fix* form (coordinates + source) | `lore` |
 
-New issues are posted to Discord. David triages them (labels, priority, who takes it); take one by
+Every issue lands on the board [OCS Two Lives](https://github.com/users/Yasuke2000/projects/1) (Triage → To do → In progress → Done) and is posted to Discord. David triages them (labels, priority, who takes it); take one by
 assigning yourself and saying so in the issue.
 
 ## What to edit where
