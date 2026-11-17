@@ -9,16 +9,15 @@ live file on every start. Files already in pack/config are kept unless --overwri
 Usage: import_configs.py [--overwrite] [--dry-run]
 """
 import io
-import os
 import re
-import subprocess
 import sys
 import tarfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import cluster  # noqa: E402
 TARGET = ROOT / "pack" / "config"
-NODE = os.environ.get("TTL_NODE", "root@100.109.28.21")
 NUL = bytes([0])
 
 # Client-only, machine-local or runtime data: never ship these from the server.
@@ -34,9 +33,10 @@ MAX_BYTES = 512 * 1024
 
 
 def fetch() -> tarfile.TarFile:
-    cmd = ["ssh", "-n", "-o", "ConnectTimeout=10", "-o", "LogLevel=ERROR", NODE,
-           "k3s kubectl -n ocs-two-lives exec deploy/mc -- tar -C /data -cf - config"]
-    data = subprocess.run(cmd, capture_output=True, check=True).stdout
+    result = cluster.mc("tar -C /data -cf - config")
+    if result.returncode != 0:
+        raise SystemExit(f"could not read the server's config: {result.stderr.decode(errors='replace').strip()}")
+    data = result.stdout
     return tarfile.open(fileobj=io.BytesIO(data))
 
 

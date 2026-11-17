@@ -1,6 +1,7 @@
 // After ttl-portals regenerated dimensions (WorldReset.java, marker <world>/ttl-reset.txt) it runs
-// `/ttl worldreset <ids>`: Wayfarer's Rest and the Tensura world spawn are placed again, and players whose
-// position belongs to the old terrain are moved to the new spawn on their next login.
+// `/ttl worldreset <ids>` (comma-separated; a greedy argument, plain strings reject `:` and `,`): Wayfarer's
+// Rest and the Tensura world spawn are placed again, and players whose position belongs to the old terrain are
+// moved to the new spawn on their next login.
 const TtlWorldReset = {
   apply(server, ids) {
     var data = server.persistentData
@@ -61,9 +62,9 @@ ServerEvents.commandRegistry(event => {
   event.register(Commands.literal('ttl')
     .then(Commands.literal('worldreset')
       .requires(src => src.hasPermission(2))
-      .then(Commands.argument('ids', Arguments.STRING.create(event)).executes(ctx => {
+      .then(Commands.argument('ids', Arguments.GREEDY_STRING.create(event)).executes(ctx => {
         try {
-          TtlWorldReset.apply(ctx.source.getServer(), String(Arguments.STRING.getResult(ctx, 'ids')).split(','))
+          TtlWorldReset.apply(ctx.source.getServer(), String(Arguments.GREEDY_STRING.getResult(ctx, 'ids')).split(','))
           return 1
         } catch (e) {
           console.error(`[ttl] world reset failed: ${e}`)

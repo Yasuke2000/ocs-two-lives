@@ -1330,7 +1330,7 @@ hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/world_reset.js"
-hash = "5205a92d257cac57c9b64d11d2ca93f003868010c64e9c9643c867a266aba395"
+hash = "a2192bec1a72f2e76fee75332530fe95afba22effe02f906f9e72e573c37dbfb"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/manas.js"

@@ -8,13 +8,13 @@ blueprints/<blueprint>.py) and rebuilds the structure + previews. Commit the .sc
 previews; anything placing that structure (e.g. the Corridor hall) uses the new version.
 """
 import argparse
-import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-NODE = os.environ.get("TTL_NODE", "root@100.109.28.21")
+sys.path.insert(0, str(ROOT / "tools"))
+import cluster  # noqa: E402
 SCHEMATICS = "/data/config/worldedit/schematics"
 
 
@@ -24,9 +24,7 @@ def main() -> None:
     ap.add_argument("--as", dest="target", help="blueprint name in the repo (default: same)")
     args = ap.parse_args()
     target = args.target or args.name
-    cmd = ["ssh", "-n", "-o", "ConnectTimeout=10", "-o", "LogLevel=ERROR", NODE,
-           f"k3s kubectl -n ocs-two-lives exec deploy/mc -- cat {SCHEMATICS}/{args.name}.schem"]
-    result = subprocess.run(cmd, capture_output=True)
+    result = cluster.mc(f"cat {SCHEMATICS}/{args.name}.schem")
     if result.returncode != 0 or not result.stdout:
         sys.exit(f"could not read {SCHEMATICS}/{args.name}.schem on the server: {result.stderr.decode(errors='replace').strip()}")
     dest = ROOT / "blueprints" / f"{target}.schem"

@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
-# Operate the homelab staging server (K3s node3, namespace ocs-two-lives) over SSH.
+# Operate the homelab staging server (K3s node3, namespace ocs-two-lives).
 set -euo pipefail
 
 NODE="${TTL_NODE:-root@100.109.28.21}"
 NS=ocs-two-lives
-# Inside the cluster (the ttl-ops auto-deployer) kubectl talks to the API directly; elsewhere via SSH.
-# rq quotes one argument for that path: the SSH hop goes through a remote shell, kubectl does not.
+KUBECONFIG_TTL="${TTL_KUBECONFIG:-$HOME/.kube/ocs-two-lives.yaml}"
+KUBECTL=$(command -v kubectl || echo "/c/Program Files/Docker/Docker/resources/bin/kubectl.exe")
+# kubectl talks to the API directly inside the cluster (ttl-ops) and with the namespace key on a PC
+# (ServiceAccount ttl-operator: no SSH, so no Tailscale SSH re-checks); otherwise via SSH to the node.
+# rq quotes one argument for the SSH path: that hop goes through a remote shell, kubectl does not.
 if [ -n "${TTL_IN_CLUSTER:-}" ]; then
   k() { kubectl -n "$NS" "$@"; }
   rq() { printf '%s' "$1"; }
+elif [ -f "$KUBECONFIG_TTL" ]; then
+  k() { "$KUBECTL" --kubeconfig "$KUBECONFIG_TTL" -n "$NS" "$@"; }
+  rq() { printf '%s' "$1"; }
+  TTL_DIRECT=1
 else
   k() { ssh -n -o ConnectTimeout=10 -o LogLevel=ERROR "$NODE" "k3s kubectl -n $NS $*"; }
   rq() { printf '%q' "$1"; }
@@ -49,8 +56,8 @@ case "${1:-}" in
   place) rcon "execute in ${3:?dimension} run place template ttl:${2:?name} ${4:?x} ${5:?y} ${6:?z}" ;;
   push-scripts)
     pod=$(k get pods -l app=mc -o name | head -1 | cut -d/ -f2)
-    tar -C "$(dirname "$0")/../pack" -cf - kubejs | if [ -n "${TTL_IN_CLUSTER:-}" ]; then
-      kubectl -n "$NS" exec -i "$pod" -- tar -C /data -xf -
+    tar -C "$(dirname "$0")/../pack" -cf - kubejs | if [ -n "${TTL_IN_CLUSTER:-}${TTL_DIRECT:-}" ]; then
+      k exec -i "$pod" -- tar -C /data -xf -
     else
       ssh -o LogLevel=ERROR "$NODE" "k3s kubectl -n $NS exec -i $pod -- tar -C /data -xf -"
     fi

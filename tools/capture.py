@@ -6,30 +6,27 @@ Runs /ttlcapture on the server, copies ttl-captures/<name>.nbt to blueprints/<na
 over a .schem or .py of the same name) and rebuilds the structure + previews. Place it again with
 `tools/server.sh place <name> <dimension> <x> <y> <z>` or `/ttl build <name>`.
 """
-import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-NODE = os.environ.get("TTL_NODE", "root@100.109.28.21")
+sys.path.insert(0, str(ROOT / "tools"))
+import cluster  # noqa: E402
 
 
-def ssh(command: str) -> subprocess.CompletedProcess:
-    return subprocess.run(["ssh", "-n", "-o", "ConnectTimeout=10", "-o", "LogLevel=ERROR", NODE,
-                           f"k3s kubectl -n ocs-two-lives exec deploy/mc -- {command}"], capture_output=True)
 
 
 def main() -> None:
     if len(sys.argv) != 9:
         sys.exit(__doc__)
     name, dim, *coords = sys.argv[1:]
-    out = ssh(f"rcon-cli 'execute in {dim} run ttlcapture {name} {' '.join(coords)}'")
+    out = cluster.mc(f"rcon-cli 'execute in {dim} run ttlcapture {name} {' '.join(coords)}'")
     message = out.stdout.decode(errors="replace").strip()
     print(message)
     if "Captured" not in message:
         sys.exit("capture failed")
-    data = ssh(f"cat /data/ttl-captures/{name}.nbt").stdout
+    data = cluster.mc(f"cat /data/ttl-captures/{name}.nbt").stdout
     dest = ROOT / "blueprints" / f"{name}.nbt"
     dest.write_bytes(data)
     print(f"saved {dest.relative_to(ROOT)} ({len(data)} bytes)")

@@ -23,3 +23,10 @@ run and the commit gets a ✅/❌ "ttl staging" status. Players online are never
 
 **Bug reports:** `/bug <text>` in game. Reports become GitHub issues (labels `bug`, `from-game`,
 `triage`) once the server has a token; until then they are saved on the server in `ttl-reports/`.
+
+## Access from a PC without SSH
+
+`tools/server.sh` and the Python tools (`capture.py`, `import_configs.py`, `import_schem.py`, via `tools/cluster.py`)
+use `~/.kube/ocs-two-lives.yaml` when it exists: kubectl straight to the K3s API over Tailscale with the
+ServiceAccount `ttl-operator`, which can only reach this namespace (pods, exec, logs, restarts). No SSH means no
+Tailscale SSH re-checks. Without the file they fall back to SSH to the node. Ask David for the key; never commit it.
