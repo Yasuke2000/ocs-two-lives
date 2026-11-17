@@ -28,17 +28,30 @@ public final class CanonGrid {
     static final int BLUR = 3;             // box blur radius (cells), applied twice
     public static final double CONT_MIN = -1.0, CONT_MAX = COAST + LAND_RISE;
 
-    public record Region(String name, Double erosion, Double temperature, Double vegetation, double strength) {
+    /**
+     * One nation: climate knobs, the biome palette for ordinary land ({@code biomes}, null = TerraBlender/vanilla
+     * choice), optionally a palette that replaces mountain peaks, and the arrival banner texts (null = default).
+     */
+    public record Region(String name, Double erosion, Double temperature, Double vegetation, double strength,
+                         CanonPalette biomes, boolean replacePeaks, CanonPalette peaks, String bannerTitle, String bannerSubtitle) {
+        public Region(String name, Double erosion, Double temperature, Double vegetation, double strength) {
+            this(name, erosion, temperature, vegetation, strength, null, false, null, null, null);
+        }
+
         Double knob(int channel) {
             return channel == EROSION ? erosion : channel == TEMPERATURE ? temperature : vegetation;
         }
     }
+
+    /** Sea cells within this many blocks of land belong to the nearest nation (coast wiggle reaches ~90 blocks). */
+    static final double TERRITORIAL_WATERS = 128;
 
     final int w, h, originCol, originRow;
     final char[] cells;
     final float[] signed;     // + inland, - at sea; 0 on the coastline
     final float[] river;      // 1 on '~'
     final float[] riverDepth; // continentalness target * river
+    final char[] owner;       // nation letter per cell: itself, nearest nation for '~' and near-coast '.', 0 otherwise
     final float[][] climateWeight = new float[3][], climateValue = new float[3][]; // blurred strength, blurred strength*knob
     final double landX0, landZ0, landX1, landZ1, ring, blend;
     final Map<Character, Region> regions;
@@ -79,6 +92,12 @@ public final class CanonGrid {
         float[] toWater = distance(water, null);
         int[] nearestNation = new int[n];
         distance(nation, nearestNation);
+
+        owner = new char[n];
+        for (int i = 0; i < n; i++) {
+            if (nation[i]) owner[i] = cells[i];
+            else if (nearestNation[i] >= 0 && (water[i] || toLand[i] <= TERRITORIAL_WATERS)) owner[i] = cells[nearestNation[i]];
+        }
 
         signed = new float[n];
         river = new float[n];
@@ -152,6 +171,33 @@ public final class CanonGrid {
     /** Grid character at a block position; '.' outside the grid. */
     public char charAt(int blockX, int blockZ) {
         return cell(Math.floorDiv(blockX, 16) + originCol, Math.floorDiv(blockZ, 16) + originRow);
+    }
+
+    /** Nation owning a block column without dithering (0 = none): for banners and commands. */
+    public char ownerCell(int blockX, int blockZ) {
+        int x = Math.floorDiv(blockX, 16) + originCol, z = Math.floorDiv(blockZ, 16) + originRow;
+        return x < 0 || z < 0 || x >= w || z >= h ? 0 : owner[z * w + x];
+    }
+
+    /** Nation owning a block column for biome purposes: the lookup point is dithered so borders are not chunk lines. */
+    public char ownerAt(int blockX, int blockZ, long seed) {
+        double bx = CanonPalette.borderX(seed, blockX, blockZ), bz = CanonPalette.borderZ(seed, blockX, blockZ);
+        int x = Math.floorDiv((int) Math.floor(bx), 16) + originCol, z = Math.floorDiv((int) Math.floor(bz), 16) + originRow;
+        return x < 0 || z < 0 || x >= w || z >= h ? 0 : owner[z * w + x];
+    }
+
+    /** Bilinear share of river/lake cells around a block column (1 in the middle of a lake). */
+    public double riverWeight(int blockX, int blockZ) {
+        return sample(river, blockX / 16.0 + originCol - 0.5, blockZ / 16.0 + originRow - 0.5, false);
+    }
+
+    /** The region of a letter, or null. */
+    public Region region(char c) {
+        return regions.get(c);
+    }
+
+    public Map<Character, Region> regionMap() {
+        return regions;
     }
 
     public String regionName(char c) {
@@ -280,13 +326,16 @@ public final class CanonGrid {
     /** Self-check: {@code java -cp build/classes/java/main com.yasuke.ttl.world.CanonGrid [canon_map.txt]}. */
     public static void main(String[] args) throws IOException {
         Map<Character, Region> regions = new HashMap<>();
-        regions.put('A', new Region("Alpha", -0.9, 0.8, null, 1.0));
+        regions.put('A', new Region("Alpha", -0.9, 0.8, null, 1.0,
+                new CanonPalette(new String[] {"t:forest", "t:jungle"}, new int[] {3, 1}), false, null, null, null));
+        regions.put('B', new Region("Beta", null, null, null, 1.0,
+                new CanonPalette(new String[] {"t:desert"}, new int[] {1}), true, null, null, null));
         List<String> lines = new ArrayList<>();
         lines.add("# synthetic test map");
         lines.add("# origin 20 15  (cell 20,15 starts at block 0,0)");
         for (int z = 0; z < 30; z++) {
             StringBuilder row = new StringBuilder();
-            for (int x = 0; x < 40; x++) row.append(z == 15 && x >= 5 && x < 35 ? '~' : x >= 5 && x < 35 && z >= 5 && z < 25 ? 'A' : '.');
+            for (int x = 0; x < 40; x++) row.append(z == 15 && x >= 5 && x < 35 ? '~' : x >= 28 && x < 35 && z >= 5 && z < 15 ? 'B' : x >= 5 && x < 35 && z >= 5 && z < 25 ? 'A' : '.');
             lines.add(row.toString());
         }
         CanonGrid g = parse(lines, regions, 1600, 800);
@@ -308,6 +357,7 @@ public final class CanonGrid {
         double farClimate = g.climate(TEMPERATURE, -16 * 15 - 3000, 0, 0.1);
         check(farClimate == 0.1, "vanilla climate beyond the ring: " + farClimate);
         System.out.println("synthetic: " + g.describe());
+        paletteChecks(g);
 
         if (args.length > 0) {
             CanonGrid real = load(Path.of(args[0]), regions, 1600, 800);
@@ -323,6 +373,69 @@ public final class CanonGrid {
             System.out.printf("at 0,0: '%c' continents %.3f%n", real.charAt(0, 0), real.continents(0, 0, 0));
         }
         System.out.println("canon self-check passed");
+    }
+
+    /** Palette layout: owner lookup, dithered borders, weights, patch size, determinism. */
+    private static void paletteChecks(CanonGrid g) {
+        long seed = 12345L;
+        check(g.ownerCell(0, -80) == 'A' && g.ownerAt(0, -80, seed) == 'A', "owner inland");
+        check(g.ownerCell(8, 8) == 'A', "river cell belongs to the nearest nation: " + (int) g.ownerCell(8, 8));
+        check(g.ownerCell(-16 * 15 - 40, -80) == 'A', "coastal water belongs to the nation");
+        check(g.ownerCell(-16 * 15 - 600, -80) == 0 && g.ownerAt(-16 * 15 - 600, -80, seed) == 0, "open sea has no owner");
+        check(g.riverWeight(8, 8) > 0.5 && g.riverWeight(0, -80) == 0, "river weight");
+
+        // The A|B border sits on the cell line x = 8 * 16 = 128; the dithered switch must not be one straight line.
+        java.util.Set<Integer> switches = new java.util.HashSet<>();
+        for (int z = -150; z < -20; z += 4) {
+            int last = -1;
+            for (int x = 40; x < 220; x += 4) {
+                char c = g.ownerAt(x, z, seed);
+                if (c == 'B') {
+                    last = x;
+                    break;
+                }
+            }
+            check(last > 128 - 40 && last < 128 + 40, "border stays near its cell line: " + last + " at z " + z);
+            switches.add(last);
+        }
+        check(switches.size() >= 4, "border is dithered, not a chunk line: " + switches);
+
+        CanonPalette a = g.region('A').biomes();
+        int[] counts = new int[2];
+        java.util.Set<Long> patches = new java.util.HashSet<>();
+        for (int z = 0; z < 200; z++)
+            for (int x = 0; x < 200; x++) {
+                long p = CanonPalette.patch(seed, x * 997, z * 991);
+                if (patches.add(p)) counts[a.pick(CanonPalette.mix(p ^ ('A' * 0x632BE59BD9B4E019L)))]++;
+            }
+        double share = counts[0] / (double) (counts[0] + counts[1]);
+        check(patches.size() > 1000 && Math.abs(share - 0.75) < 0.05, "weights 3:1 -> " + share + " over " + patches.size() + " patches");
+
+        int changes = 0, len = 40000;
+        long prev = CanonPalette.patch(seed, 0, 777);
+        for (int x = 4; x < len; x += 4) {
+            long p = CanonPalette.patch(seed, x, 777);
+            if (p != prev) changes++;
+            prev = p;
+        }
+        double run = len / (double) Math.max(1, changes);
+        check(run > 150 && run < 500, "mean patch run " + run + " blocks");
+
+        check(a.pickAt(seed, 'A', false, 1000, 2000) == a.pickAt(seed, 'A', false, 1000, 2000), "deterministic");
+        int differ = 0;
+        for (int i = 0; i < 64; i++) if (CanonPalette.patch(seed, i * 600, 0) != CanonPalette.patch(seed + 1, i * 600, 0)) differ++;
+        check(differ > 48, "the seed changes the layout: " + differ);
+        CanonPalette filtered = a.filter(id -> !id.equals("t:jungle"));
+        check(filtered.size() == 1 && filtered.pick(Long.MAX_VALUE) == 0 && a.filter(id -> false) == null, "filter drops unknown ids");
+        RegionTitles.Tracker t = new RegionTitles.Tracker();
+        boolean shownA = false;
+        for (char c : "AAA".toCharArray()) shownA |= t.observe(c);
+        check(shownA && t.shown == 'A', "banner after 3 checks");
+        int flips = 0;
+        for (char c : "BABABAB~BABA".toCharArray()) if (t.observe(c)) flips++;
+        check(flips == 0 && t.shown == 'A', "no banner spam along a border");
+        check(!t.observe('B') && !t.observe('~') && !t.observe('B') && t.observe('B') && t.shown == 'B', "river ignored, then B confirmed");
+        System.out.printf("palette: border switch x %s, weights %.3f, mean patch %.0f blocks%n", switches, share, run);
     }
 
     private static void check(boolean ok, String what) {

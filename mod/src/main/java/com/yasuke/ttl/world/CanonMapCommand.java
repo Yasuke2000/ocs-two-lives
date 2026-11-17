@@ -6,10 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.DensityFunction;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.NoiseRouter;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -46,9 +50,19 @@ public final class CanonMapCommand {
                 .append(channel("vegetation", router.vegetation(), point));
         double cont = router.continents().compute(point);
         out.append("\n  band: ").append(cont < -1.05 ? "mushroom" : cont < -0.455 ? "deep ocean" : cont < -0.19 ? "ocean" : cont < -0.11 ? "coast" : "inland");
-        level.getChunkSource().getGenerator().getBiomeSource()
-                .getNoiseBiome(QuartPos.fromBlock(x), QuartPos.fromBlock(64), QuartPos.fromBlock(z), random.sampler())
-                .unwrapKey().ifPresent(key -> out.append(", biome at y64: ").append(key.location()));
+        ChunkGenerator generator = level.getChunkSource().getGenerator();
+        int surface = generator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, level, random);
+        int qx = QuartPos.fromBlock(x), qy = QuartPos.fromBlock(surface), qz = QuartPos.fromBlock(z);
+        if (generator.getBiomeSource() instanceof CanonBiomes canon) {
+            StringBuilder why = new StringBuilder();
+            Holder<Biome> biome = canon.select(qx, qy, qz, random.sampler(), why);
+            out.append("\n  canon biome at surface y").append(surface).append(": ")
+                    .append(biome.unwrapKey().map(key -> key.location().toString()).orElse("?")).append(" (").append(why).append(')');
+        } else {
+            generator.getBiomeSource().getNoiseBiome(qx, qy, qz, random.sampler()).unwrapKey()
+                    .ifPresent(key -> out.append(", biome at surface y").append(surface).append(": ").append(key.location())
+                            .append(" (biome source is not ttl:canon_biomes)"));
+        }
         String text = out.toString();
         ctx.getSource().sendSuccess(() -> Component.literal(text), false);
         return 1;

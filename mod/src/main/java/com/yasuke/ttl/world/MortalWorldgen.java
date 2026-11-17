@@ -35,6 +35,7 @@ public final class MortalWorldgen {
 
     static {
         BIOME_SOURCES.register("vanilla_multi_noise", () -> VanillaMultiNoise.CODEC);
+        BIOME_SOURCES.register("canon_biomes", () -> CanonBiomes.CODEC); // the Tensura world's per-nation biomes
     }
 
     private MortalWorldgen() {}
