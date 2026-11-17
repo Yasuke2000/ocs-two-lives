@@ -16,6 +16,21 @@ PlayerEvents.loggedIn(event => {
     return
   }
 
+  // A restart during the Trial ends it; count it as failed rather than leave the player stuck.
+  if (phase === 'corridor' && player.persistentData.getString('ttl.step') === 'trial') {
+    player.persistentData.putBoolean('ttl.trial.done', true)
+    player.persistentData.putBoolean('ttl.trial.passed', false)
+    player.persistentData.putString('ttl.step', 'race')
+    server.runCommandSilent(`clear ${player.username}`)
+  }
+  if (phase === 'corridor') server.scheduleInTicks(40, () => TtlCorridor.voice(server, player.username, 'Your soul is still waiting between lives.'))
+  if (phase === 'corridor') server.scheduleInTicks(41, () => {
+    const step = player.persistentData.getString('ttl.step')
+    if (step === 'wish') TtlCorridor.showWishes(server, player)
+    if (step === 'race') TtlCorridor.showRaces(server, player)
+    if (step === 'unique') TtlCorridor.showUniques(server, player)
+  })
+
   const dim = life.dimensionOf(player)
   if (phase === 'corridor' && dim !== life.CORRIDOR) server.scheduleInTicks(20, () => life.toCorridor(server, player))
   if (phase === 'life1' && !life.isMortal(dim)) server.scheduleInTicks(20, () => life.toMortal(server, player))

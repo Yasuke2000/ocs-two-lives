@@ -34,15 +34,19 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "074f37f978d1a35e414f8b546ba93256d4f3877d5a80b4321eb80aca98db9e00"
+hash = "f2edf80ade5c9830de690a11f9b3ee7162f755e95297d2f6c9a4a3579e911be5"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
 hash = "0459e86bb8c94463ae167701d6afd9be1a2667e8d39fc387b81db2306c95770a"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
+hash = "e5085a28eb35e5c9a410ae9fda1578c8cb7893a14811c9c104e2dfda48f7c57d"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
-hash = "a8087c8f6e547d123d4dffe297ef56cd392bd812aa0e5946e1d317c86adc8b54"
+hash = "63cde8f6bd3b405115a1a1641a8241e0c67ea7093ec35b83593a75facbd3b467"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -50,7 +54,7 @@ hash = "d3de53ed1ebf78f00ce61e828b5d64168fe039c114e1ac88a6c484fa3acb02dc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
-hash = "03b127fcde88b86749090e790d5cdb61919a8af80f773e84919fbf46736b5b79"
+hash = "a6d1bba8a6b6eac8fcf217373f4ac8ce1bdcfea7f7623b290d76685dad9a64af"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
@@ -58,11 +62,19 @@ hash = "a0019d7bbbb67f9a90d63f7350e6a9108f5dbf8a907219cfe1e30522cabfe6fa"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
-hash = "e988677d37f94cd58bab8ee6684f2bc64dbcbc77c1e7f031895e142990fad67a"
+hash = "b365dec7ac77858e2bfda915037574f27692efe18079abc2a07bb2fc494f713b"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/trial.js"
+hash = "ee2864c3e2e9668b3a3754a594aa84d26aef8f6469c4b8c1a6efc54344a7ec5f"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/wishes.js"
+hash = "ef72816e19e24e89e86d3a04162936f4005e81ce584c0422e9a6562fa02e5a0b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "a34cdaa631867383f9f4a9c4725970029b24c5367ad66cf64f934e6f000d0541"
+hash = "2470e89f2987a8b33c41d535058f7500d649d35256627d47a94d22524cbe19af"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"
@@ -421,5 +433,5 @@ metafile = true
 
 [[files]]
 file = "mods/ttl-portals.pw.toml"
-hash = "8b4384af9410863ba404284d0d028416057ec5c3791c5b693b77acd3e271c4ed"
+hash = "8d169f2affb8112b87c198dff9df0a39c54df7f6129ba9e671ed82e99c309d3e"
 metafile = true

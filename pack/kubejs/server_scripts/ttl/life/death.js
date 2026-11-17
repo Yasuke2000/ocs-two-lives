@@ -14,7 +14,8 @@ EntityEvents.death('minecraft:player', event => {
   player.resetFallDistance()
 
   if (phase === 'corridor') {
-    // Void or /kill inside the Corridor: just put them back in the hall.
+    // Void, /kill or a lost Trial fight inside the Corridor: back to the hall, Trial failed if running.
+    TtlTrial.onPlayerDeath(server, player)
     server.scheduleInTicks(1, () => life.toCorridor(server, player))
     return event.cancel()
   }
@@ -22,9 +23,7 @@ EntityEvents.death('minecraft:player', event => {
   // Swap the stage now: void damage can fire another death before the tp next tick.
   player.stages.remove('ttl.life1')
   player.stages.add('ttl.corridor')
-  const offers = life.rollOffers()
-  player.persistentData.putString('ttl.offers', offers.join(','))
-  console.info(`[ttl] ${player.username} died in Life 1 (${event.source.getMsgId()}), offers: ${offers.join(', ')}`)
+  console.info(`[ttl] ${player.username} died in Life 1 (${event.source.getMsgId()})`)
 
   server.scheduleInTicks(1, () => {
     const name = player.username
@@ -32,16 +31,8 @@ EntityEvents.death('minecraft:player', event => {
     life.toCorridor(server, player)
     server.runCommandSilent(`gamemode adventure ${name}`)
     server.runCommandSilent(`title ${name} title {"text":"Your first life has ended","color":"dark_red"}`)
-    server.runCommandSilent(`title ${name} subtitle {"text":"The Voice of the World offers you a new body","color":"gray"}`)
-    const buttons = offers.map(race => ({
-      text: `[${race.charAt(0).toUpperCase()}${race.slice(1)}]`,
-      color: 'aqua',
-      clickEvent: { action: 'run_command', value: `/ttl choose ${race}` },
-      hoverEvent: { action: 'show_text', contents: `Reincarnate as ${race}` }
-    }))
-    const line = [{ text: '[Voice of the World] Choose your new race: ', color: 'gold' }]
-    buttons.forEach(b => line.push(b, ' '))
-    server.runCommandSilent(`tellraw ${name} ${JSON.stringify(line)}`)
+    server.runCommandSilent(`title ${name} subtitle {"text":"The Voice of the World is listening","color":"gray"}`)
+    TtlCorridor.begin(server, player)
   })
   return event.cancel()
 })

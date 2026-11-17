@@ -39,7 +39,7 @@ const TtlLife = {
     server.runCommandSilent(`execute in ${this.OVERWORLD} run spreadplayers ${spawn.getX()} ${spawn.getZ()} 0 32 false ${player.username}`)
   },
 
-  // Slime stays in every offer (master plan §3); two more are drawn from the pool.
+  // Slime stays in every offer (master plan §3); two more are drawn from the pool. Read by TtlCorridor.
   rollOffers() {
     const pool = this.RACES.slice()
     const offers = ['slime']

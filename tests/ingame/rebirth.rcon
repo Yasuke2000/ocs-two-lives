@@ -1,0 +1,16 @@
+# End-to-end Two Lives flow with a test bot (no Trial). Expect, in order: bot in ttl:mortal_realm with
+# phase=life1; after the kill phase=corridor step=wish in ttl:spirit_corridor; step=race with wish=knowledge;
+# then phase=life2 in minecraft:overworld with a tensura: unique in ttl.uniques. Slime is always offered.
+ttlbot spawn TtlBotRebirth
+neoforge tps
+ttl inspect TtlBotRebirth
+kill TtlBotRebirth
+neoforge tps
+ttl inspect TtlBotRebirth
+execute as TtlBotRebirth run ttl wish knowledge
+ttl inspect TtlBotRebirth
+execute as TtlBotRebirth run ttl choose slime
+neoforge tps
+ttl inspect TtlBotRebirth
+ttl reset TtlBotRebirth
+ttlbot remove TtlBotRebirth

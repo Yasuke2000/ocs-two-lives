@@ -38,7 +38,7 @@ Decisions: `design/decisions.md` (append, never rewrite history).
 | --- | --- | --- |
 | Player persistentData | `ttl.life`, `ttl.l1.start`, `ttl.l1.days` | Which life, Life 1 timing |
 | Player persistentData | `ttl.karma.{valor,order,chaos,craft,faith,longevity}`, `ttl.karma.score`, `ttl.tier` | Raw karma, score, rebirth tier |
-| Player persistentData | `ttl.offers`, `ttl.trial.passed` | Race offers (blocks forged `/ttl choose`), trial result |
+| Player persistentData | `ttl.step`, `ttl.wish`, `ttl.offers`, `ttl.race`, `ttl.uniqueOptions`, `ttl.trial.done`, `ttl.trial.passed` | Corridor flow (`life/corridor_flow.js`): step, Last Wish, race offers, Trial result |
 | Player persistentData | `ttl.uniques`, `ttl.cd.absorb`, `ttl.lastSeen`, `ttl.titles` | Owned uniques mirror, absorb cooldown, last login, titles |
 | Server persistentData | `ttl.reg.skills.<id>`, `ttl.reg.legendarySlots` | Holders, rarity, history per unique; slots used this era |
 | Server persistentData | `ttl.season`, `ttl.reincarnations`, `ttl.wars.active`, `ttl.council` | Era, rebirth history, war mirror, council |
@@ -71,6 +71,8 @@ the Homelab repo (`Yasuke2000/Homelab`, branch `master`, `apps/ocs-two-lives/`) 
 1. `python tools/validate.py` (JSON/JS/SNBT syntax, packwiz index fresh, forbidden mods absent).
 2. Push, restart or reload, then `tools/server.sh logs | python tools/logscan.py` — zero new `[ttl]` errors.
 3. Run the matching `tests/ingame/<feature>.rcon` with `tools/server.sh test <feature>`.
+4. Player flows: spawn a test player with `/ttlbot spawn <name>`, drive it with `execute as <name> run ...`,
+   read its state with `/ttl inspect <name>`, then `/ttlbot remove <name>`. Bots don't move on their own.
 
 ## Done means
 
