@@ -20,14 +20,39 @@ Using Claude Code? Open the repo folder; [CLAUDE.md](CLAUDE.md) and `.claude/` (
 
 ## The workflow
 
-1. `git switch -c <short-name>` — one branch per change.
-2. Edit (see the table below).
-3. `python tools/validate.py` — must say `validation passed` (it also regenerates the pack index and
+Nothing reaches `main` (and so the server) without David's approval: `main` is protected, every pull
+request needs a green `validate` check **and** an approving review from a code owner
+([`.github/CODEOWNERS`](.github/CODEOWNERS)).
+
+1. Pick or open an issue (see *Reporting issues* below) so others know what you are doing; assign yourself.
+2. `git switch -c <short-name>` — one branch per change (never commit to `main` directly).
+3. Edit (see the table below).
+4. `python tools/validate.py` — must say `validation passed` (it also regenerates the pack index and
    checks generated files; commit what it changed).
-4. Push and open a pull request; fill in the checklist.
-5. After review and merge to `main`, the test server picks it up automatically when nobody is online,
-   runs all bot tests and marks the commit ✅ or ❌ ("ttl staging" status on GitHub).
-6. Test it in game. Problems? `/bug <what happened>` in game files an issue with all the details.
+5. Push the branch and open a pull request (`gh pr create --fill` or the GitHub button). Link the issue
+   (`Closes #12`), fill in the checklist. GitHub asks David for a review automatically.
+6. David reviews: approve, or *request changes* (push more commits to the same branch; they show up in
+   the PR). Approved + green `validate` → **Squash and merge**.
+7. After the merge the test server picks it up when nobody is online, runs all bot tests and marks the
+   commit ✅ or ❌ ("ttl staging" on GitHub; also posted in Discord #logging-and-server-notifactions).
+8. Test it in game. Problems? `/bug <what happened>`.
+
+Small, focused PRs get reviewed fastest. Unsure about an idea? Open an *Idea* issue first and talk it
+through before building it.
+
+## Reporting issues
+
+| What | How | Lands as |
+|---|---|---|
+| Something broke while playing | in game: `/bug <what happened>` (adds your position, life, inventory and log) | issue with `bug`, `from-game`, `triage` |
+| Bug you found outside the game | GitHub → Issues → New → *Bug* | `bug` |
+| Balance (too hard/easy, numbers) | *Balance* form | `balance` |
+| Feature, quest or system idea | *Idea* form | `idea` |
+| A build to make or improve | *Build request* form (paste reference images) | `build` |
+| World doesn't match the lore | *World / lore fix* form (coordinates + source) | `lore` |
+
+New issues are posted to Discord. David triages them (labels, priority, who takes it); take one by
+assigning yourself and saying so in the issue.
 
 ## What to edit where
 

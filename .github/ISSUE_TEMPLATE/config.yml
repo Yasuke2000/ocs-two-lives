@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Bug in game? Use /bug
+    url: https://github.com/Yasuke2000/ocs-two-lives/blob/main/TESTERS.md
+    about: "In game, type /bug <what happened>: it files an issue here with your position, life, inventory and the server log attached."
+  - name: How to contribute
+    url: https://github.com/Yasuke2000/ocs-two-lives/blob/main/CONTRIBUTING.md
+    about: Branches, pull requests, approval and what to edit where.

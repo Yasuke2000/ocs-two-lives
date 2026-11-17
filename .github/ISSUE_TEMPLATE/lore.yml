@@ -1,0 +1,15 @@
+name: World / lore fix
+description: Something in the world doesn't match the Tensura lore (map, biomes, names, races, skills)
+labels: [lore]
+body:
+  - type: input
+    id: where
+    attributes: { label: Where, description: "Coordinates and world (F3), or the nation/feature", placeholder: "-311 68 153, Tensura world, Jura" }
+    validations: { required: true }
+  - type: textarea
+    id: wrong
+    attributes: { label: What is wrong and what it should be }
+    validations: { required: true }
+  - type: input
+    id: source
+    attributes: { label: Source, description: "Wiki page, volume/episode, map", placeholder: "https://tensura.fandom.com/wiki/..." }

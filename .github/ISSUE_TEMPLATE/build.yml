@@ -1,0 +1,15 @@
+name: Build request
+description: A place to build or improve (a city, a landmark, an arena, a village)
+labels: [build]
+body:
+  - type: input
+    id: place
+    attributes: { label: Place, description: "Which build, and where (nation, coordinates, or 'new')", placeholder: "Tempest (early), around 0 0 in the Tensura world" }
+    validations: { required: true }
+  - type: textarea
+    id: look
+    attributes: { label: What it should look like, description: "Describe it. Link references (wiki pages, anime scenes, screenshots); paste images straight in here." }
+    validations: { required: true }
+  - type: textarea
+    id: function
+    attributes: { label: What it is for in the game, description: "Spawn, quest hub, boss arena, decoration… Anything scripts need (a lectern, a start pad)?" }
