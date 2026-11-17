@@ -9,7 +9,8 @@ const TtlLife = {
   MORTAL_DIMS: ['ttl:mortal_realm', 'ttl:mortal_nether', 'ttl:mortal_end'],
   CORRIDOR: 'ttl:spirit_corridor',
   OVERWORLD: 'minecraft:overworld',
-  // Phase 0 offer pool (reincarnationRaces from Tensura's config). Karma tiers replace this in Phase 1.
+  // Phase 0 offer pool (reincarnationRaces from Tensura's config). Karma v1 tiers replace it (karma/karma.js);
+  // it stays as the fallback when karma fails.
   RACES: ['human', 'elf', 'dwarf', 'merfolk', 'beastfolk', 'harpy', 'goblin', 'lizardman', 'orc', 'wight', 'ghoul'],
 
   phase(player) {
@@ -58,7 +59,15 @@ const TtlLife = {
   },
 
   // Slime stays in every offer (master plan §3); two more are drawn from the pool. Read by TtlCorridor.
-  rollOffers() {
+  rollOffers(player) {
+    // Karma v1: the Life 1 tier decides the pool and how many races are offered.
+    if (player) {
+      try {
+        return TtlKarma.offers(player)
+      } catch (e) {
+        console.error(`[ttl] karma offers failed for ${player.username}, using the Phase 0 pool: ${e}`)
+      }
+    }
     var pool = this.RACES.slice()
     var offers = ['slime']
     while (offers.length < 3 && pool.length > 0) {

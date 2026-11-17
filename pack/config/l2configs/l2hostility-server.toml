@@ -1,3 +1,5 @@
+# OCS Two Lives: tuned for the life loop (see also pack/kubejs/data/l2hostility/l2hostility_config/difficulty/ttl_two_lives.json,
+# which sets per-dimension levels and Life 1 level caps). Changed values below are marked 'Two Lives:'.
 enableEntitySpecificDatapack = true
 enableStructureSpecificDatapack = true
 enableEquipmentDatapack = true
@@ -19,10 +21,14 @@ enableEquipmentDatapack = true
 	drownedTridentChancePerLevel = 0.005
 	# Default: 10
 	# Range: 0 ~ 1000
-	dimensionFactor = 10
+	# Two Lives: 10 -> 3. Every dimension a player has visited adds this to their L2H level; the life loop forces
+	# Mortal Realm/Nether/End + Spirit Corridor, so 10 gave ~+30-40 levels for story progress, not player power.
+	dimensionFactor = 3
 	# Default: 0.003
 	# Range: 0.0 ~ 1000.0
-	distanceFactor = 0.003
+	# Two Lives: 0.003 -> 0.006. Mob level bonus per block from x=0,z=0 (not world spawn) in every dimension:
+	# ~0 at Wayfarer's Rest, +6 at 1000 blocks, +18 at 3000, so the Mortal Realm gets harder outward.
+	distanceFactor = 0.006
 	#Not applicable to mobs with minimum level.
 	# Default: 1.0
 	# Range: 0.0 ~ 1.0

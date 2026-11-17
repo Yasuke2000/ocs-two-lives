@@ -49,14 +49,33 @@ const TtlRegistry = {
     })
   },
 
-  // Up to n distinct grantable uniques from `pool`, in random order.
-  draw(server, pool, n, name) {
+  // Up to n distinct grantable uniques from `pool`, in random order. Optional `weights` by rarity
+  // ({common: 1, rare: 2}; a missing rarity weighs 1) makes some likelier — used by the karma tiers only.
+  // Without it every unique is equally likely. Legendary stays excluded either way (available()).
+  draw(server, pool, n, name, weights) {
     var free = this.available(server, pool, name)
     var out = []
     while (out.length < n && free.length > 0) {
-      out.push(free.splice(Math.floor(Math.random() * free.length), 1)[0])
+      var i = weights ? this.weightedIndex(free, weights) : Math.floor(Math.random() * free.length)
+      out.push(free.splice(i, 1)[0])
     }
     return out
+  },
+
+  weightedIndex(list, weights) {
+    var self = this
+    var w = list.map(id => {
+      var x = weights[self.rarityOf(id)]
+      return x === undefined ? 1 : Math.max(0, Number(x))
+    })
+    var total = w.reduce((a, b) => a + b, 0)
+    if (total <= 0) return Math.floor(Math.random() * list.length)
+    var r = Math.random() * total
+    for (var i = 0; i < w.length; i++) {
+      r -= w[i]
+      if (r < 0) return i
+    }
+    return list.length - 1
   },
 
   grant(server, player, skill) {

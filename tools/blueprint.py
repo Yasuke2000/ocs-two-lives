@@ -165,7 +165,15 @@ _COLORS = [
     ("fence", (120, 90, 60)), ("chain", (60, 65, 75)), ("rooted", (145, 105, 75)), ("coarse", (120, 85, 60)),
     ("andesite", (135, 135, 135)), ("tuff", (100, 100, 90)), ("wool", (220, 220, 220)), ("leaves", (60, 120, 50)),
     ("log", (110, 85, 55)), ("planks", (165, 130, 85)),
+    ("terracotta", (152, 94, 67)), ("dripstone", (134, 107, 92)), ("brass", (205, 160, 70)),
+    ("cogwheel", (160, 125, 80)), ("shaft", (140, 140, 140)),
 ]
+
+# Dyed terracotta is much duller than its dye colour.
+_TERRACOTTA = {
+    "white": (210, 178, 161), "light_gray": (135, 107, 98), "yellow": (186, 133, 35), "orange": (161, 83, 37),
+    "brown": (77, 51, 36), "red": (143, 61, 47),
+}
 
 
 _DYES = {
@@ -180,6 +188,8 @@ def _color(state: str) -> tuple[int, int, int]:
     name = parse_state(state)[0].split(":", 1)[1]
     # Dyed blocks (concrete, wool, terracotta, glass, carpet) by their colour word.
     for dye in sorted(_DYES, key=len, reverse=True):
+        if name == dye + "_terracotta" and dye in _TERRACOTTA:
+            return _TERRACOTTA[dye]
         if name.startswith(dye + "_") and any(k in name for k in ("concrete", "wool", "terracotta", "glass", "carpet", "candle")):
             return _DYES[dye]
     # Otherwise the longest matching keyword wins ("stone_bricks" before "brick").

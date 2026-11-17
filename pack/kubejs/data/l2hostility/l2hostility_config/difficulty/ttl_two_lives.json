@@ -1,0 +1,92 @@
+{
+  "_comment": [
+    "L2 Hostility difficulty for the Two Lives dimensions (merged with the jar's overworld/nether/end files; keys do not collide).",
+    "Mob level = round((dim base + biome base + distanceFactor * blocks from 0,0 + section bonus + scale * player level + gauss * variation) * factor), then capped by maxLevel.",
+    "Before this file every ttl:* dimension fell back to defaultLevelBase/Var/Scale (20 / 16 / 1.5): level 20 +-16 at random plus 1.5x the player level, which is how Trial mobs one-shot people.",
+    "levelMap: per-dimension base. levelDefaultTraits: one catch-all entity config per dimension (no 'entities' = applies to every mob without its own L2H entity config) for the level cap, trait count and damage scale.",
+    "Mobs with a global L2H entity config (bosses.json: ender_dragon, wither, warden, elder_guardian, piglin_brute) keep that config instead of the catch-all."
+  ],
+  "levelMap": {
+    "ttl:mortal_realm": {
+      "min": 0,
+      "base": 0,
+      "variation": 3.0,
+      "scale": 0.5,
+      "apply_chance": 1.0,
+      "trait_chance": 0.5,
+      "suppression": 0.3
+    },
+    "ttl:mortal_nether": {
+      "min": 0,
+      "base": 10,
+      "variation": 4.0,
+      "scale": 0.6,
+      "apply_chance": 1.0,
+      "trait_chance": 0.6,
+      "suppression": 0.25
+    },
+    "ttl:mortal_end": {
+      "min": 0,
+      "base": 20,
+      "variation": 4.0,
+      "scale": 0.7,
+      "apply_chance": 1.0,
+      "trait_chance": 0.7,
+      "suppression": 0.2
+    },
+    "ttl:spirit_corridor": {
+      "min": 0,
+      "base": 0,
+      "variation": 0.0,
+      "scale": 0.0,
+      "apply_chance": 0.0,
+      "trait_chance": 0.0,
+      "suppression": 0.0
+    }
+  },
+  "biomeMap": {},
+  "levelDefaultTraits": {
+    "ttl:mortal_realm": [
+      {
+        "_comment": "Life 1 overworld: level cap 40 (only the cheap level-20/40 traits can roll), max 2 traits, half the per-level damage bonus so early mobs never one-shot a Human.",
+        "difficulty": { "min": 0, "base": 0, "variation": 0.0, "scale": 0.0, "apply_chance": 1.0, "trait_chance": 1.0, "suppression": 0.0 },
+        "maxLevel": 40,
+        "maxTraitCount": 2,
+        "attackScale": 0.5,
+        "healthScale": 1.0
+      }
+    ],
+    "ttl:mortal_nether": [
+      {
+        "_comment": "Life 1 nether: level cap 50, max 3 traits, half the per-level damage bonus.",
+        "difficulty": { "min": 0, "base": 0, "variation": 0.0, "scale": 0.0, "apply_chance": 1.0, "trait_chance": 1.0, "suppression": 0.0 },
+        "maxLevel": 50,
+        "maxTraitCount": 3,
+        "attackScale": 0.5,
+        "healthScale": 1.0
+      }
+    ],
+    "ttl:mortal_end": [
+      {
+        "_comment": "Life 1 end: level cap 60, max 3 traits, half the per-level damage bonus.",
+        "difficulty": { "min": 0, "base": 0, "variation": 0.0, "scale": 0.0, "apply_chance": 1.0, "trait_chance": 1.0, "suppression": 0.0 },
+        "maxLevel": 60,
+        "maxTraitCount": 3,
+        "attackScale": 0.5,
+        "healthScale": 1.0
+      }
+    ],
+    "ttl:spirit_corridor": [
+      {
+        "_comment": "Trials of the Soul: no L2H at all, trials.toml is the balance. apply_chance 0 already stops leveling; cap 1, no random traits and zero damage/health scaling are the backstop for the curio cases that force 'full chance' (Curse of Pride, Abyssal Thorn).",
+        "difficulty": { "min": 0, "base": 0, "variation": 0.0, "scale": 0.0, "apply_chance": 0.0, "trait_chance": 0.0, "suppression": 0.0 },
+        "maxLevel": 1,
+        "maxTraitCount": 1,
+        "presetTraitsOnly": true,
+        "attackScale": 0.0,
+        "healthScale": 0.0
+      }
+    ]
+  },
+  "structureDefaultTraits": {}
+}

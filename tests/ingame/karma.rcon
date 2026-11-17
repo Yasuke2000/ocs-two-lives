@@ -1,0 +1,119 @@
+# Karma v1 (design/data/karma.toml, karma/*.js). Each bot fakes its Life 1 deeds with `ttl karma <bot> set`
+# (counted from the bot's Life 1 start, so scores left over from earlier runs don't count), dies, and the
+# Corridor must judge it and roll offers for its tier. `ttl karma <bot> expect <field> <value>` prints
+# "ttl: ..." when the value is wrong, which `server.sh test-all` counts as a failure.
+# Expect in the log: "[ttl] karma: TtlBotKarmaU judged underdog", "...H judged elite", "...L judged legendary",
+# "...N judged elite" (no boss, so no Legend), "...D judged normal (dark)".
+ttlbot spawn TtlBotKarmaU
+ttlbot spawn TtlBotKarmaH
+ttlbot spawn TtlBotKarmaL
+ttlbot spawn TtlBotKarmaN
+ttlbot spawn TtlBotKarmaD
+@sleep 2
+# A fresh Life 1 has done nothing yet: the live preview says underdog.
+ttl karma TtlBotKarmaU
+ttl karma TtlBotKarmaU expect tier underdog
+ttl karma TtlBotKarmaU expect phase life1
+# Hero: 10 hours, the Nether, trade, diamonds, enchanting, advancements — no boss.
+ttl karma TtlBotKarmaH set play_time 720000
+ttl karma TtlBotKarmaH set mob_kills 300
+ttl karma TtlBotKarmaH set far 3000
+ttl karma TtlBotKarmaH set nether 1
+ttl karma TtlBotKarmaH set trades 60
+ttl karma TtlBotKarmaH set deepslate_diamond_ore 30
+ttl karma TtlBotKarmaH set enchants 15
+ttl karma TtlBotKarmaH set advancements 35
+ttl karma TtlBotKarmaH expect tier elite
+# Legend: a long life with the Ender Dragon and the Wither.
+ttl karma TtlBotKarmaL set play_time 900000
+ttl karma TtlBotKarmaL set mob_kills 800
+ttl karma TtlBotKarmaL set far 6000
+ttl karma TtlBotKarmaL set nether 1
+ttl karma TtlBotKarmaL set end 1
+ttl karma TtlBotKarmaL set ender_dragon 1
+ttl karma TtlBotKarmaL set wither 1
+ttl karma TtlBotKarmaL set trades 200
+ttl karma TtlBotKarmaL set raids_won 2
+ttl karma TtlBotKarmaL set deepslate_diamond_ore 60
+ttl karma TtlBotKarmaL set ancient_debris 10
+ttl karma TtlBotKarmaL set enchants 50
+ttl karma TtlBotKarmaL set advancements 60
+ttl karma TtlBotKarmaL expect tier legendary
+ttl karma TtlBotKarmaL expect bosses 2
+# The same life without a boss stays a Hero (min_bosses = 1).
+ttl karma TtlBotKarmaN set play_time 900000
+ttl karma TtlBotKarmaN set mob_kills 800
+ttl karma TtlBotKarmaN set far 6000
+ttl karma TtlBotKarmaN set nether 1
+ttl karma TtlBotKarmaN set end 1
+ttl karma TtlBotKarmaN set trades 200
+ttl karma TtlBotKarmaN set raids_won 2
+ttl karma TtlBotKarmaN set deepslate_diamond_ore 60
+ttl karma TtlBotKarmaN set ancient_debris 10
+ttl karma TtlBotKarmaN set enchants 50
+ttl karma TtlBotKarmaN set advancements 60
+ttl karma TtlBotKarmaN expect tier elite
+ttl karma TtlBotKarmaN expect bosses 0
+# Dark: a few hours and eight villagers murdered.
+ttl karma TtlBotKarmaD set play_time 216000
+ttl karma TtlBotKarmaD set mob_kills 60
+ttl karma TtlBotKarmaD set villagers 8
+ttl karma TtlBotKarmaD set advancements 10
+ttl karma TtlBotKarmaD expect tier normal
+ttl karma TtlBotKarmaD expect dark true
+# Death: the verdict is stored and the offers follow the tier (Slime + 1 / 3 / 4 for underdog / hero / legend).
+kill TtlBotKarmaU
+kill TtlBotKarmaH
+kill TtlBotKarmaL
+kill TtlBotKarmaN
+kill TtlBotKarmaD
+@sleep 1
+ttl inspect TtlBotKarmaH
+ttl karma TtlBotKarmaH
+ttl karma TtlBotKarmaU expect phase corridor
+ttl karma TtlBotKarmaU expect tier underdog
+ttl karma TtlBotKarmaU expect offers 2
+ttl karma TtlBotKarmaH expect tier elite
+ttl karma TtlBotKarmaH expect offers 4
+ttl karma TtlBotKarmaL expect tier legendary
+ttl karma TtlBotKarmaL expect offers 5
+ttl karma TtlBotKarmaN expect offers 4
+ttl karma TtlBotKarmaD expect dark true
+ttl karma TtlBotKarmaD expect offers 3
+ttl karma TtlBotKarmaD expect darkoffer true
+# Uniques: a Hero picks 1 of 3 without the Trial; an underdog gets a random one and is reborn at once.
+execute as TtlBotKarmaH run ttl wish knowledge
+execute as TtlBotKarmaH run ttl choose slime
+ttl karma TtlBotKarmaH expect step unique
+execute as TtlBotKarmaU run ttl wish knowledge
+execute as TtlBotKarmaU run ttl choose slime
+ttl karma TtlBotKarmaU expect phase life2
+ttl karma TtlBotKarmaU expect bonus 0
+# Unique odds by tier (karma.toml weights). The Protection pool mixes 3 Common + 2 Rare; with every unique free
+# the rare share is ~18% (underdog 3:1 common), ~57% (hero 1:2) and ~73% (legend 1:4). "ttl: ..." when off by > 10 points.
+ttl karma TtlBotKarmaU odds protection
+ttl karma TtlBotKarmaN odds protection
+ttl karma TtlBotKarmaL odds protection
+# A Legend picks 1 of 3 and is reborn carrying one bonus non-unique skill (karma.toml bonus_skills, Voice line).
+execute as TtlBotKarmaL run ttl wish knowledge
+execute as TtlBotKarmaL run ttl choose slime
+ttl karma TtlBotKarmaL expect step unique
+ttl karma TtlBotKarmaL pick
+ttl karma TtlBotKarmaL expect phase life2
+ttl karma TtlBotKarmaL expect bonus 1
+ttl inspect TtlBotKarmaL
+# Karma survives the rebirth; /ttl reset starts a new Life 1 with a clean slate.
+ttl karma TtlBotKarmaU expect tier underdog
+ttl reset TtlBotKarmaH
+ttl karma TtlBotKarmaH expect phase life1
+ttl karma TtlBotKarmaH expect tier underdog
+ttl reset TtlBotKarmaU
+ttl reset TtlBotKarmaL
+ttl karma TtlBotKarmaL expect bonus 0
+ttl reset TtlBotKarmaN
+ttl reset TtlBotKarmaD
+ttlbot remove TtlBotKarmaU
+ttlbot remove TtlBotKarmaH
+ttlbot remove TtlBotKarmaL
+ttlbot remove TtlBotKarmaN
+ttlbot remove TtlBotKarmaD

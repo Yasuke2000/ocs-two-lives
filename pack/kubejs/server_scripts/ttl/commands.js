@@ -5,6 +5,7 @@
 //           /ttl grant <player> <skill> (through the registry, caps apply)
 //           /ttl build <name> (place blueprints/<name>.py with its corner at your feet)
 //           /ttl spawn (where Life 1 starts: Wayfarer's Rest in the Mortal Realm)
+// Karma:    /ttl life (players) · /ttl karma <player> [set <stat> <n> | expect <field> <value>] — karma/commands.js
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
   var life = TtlLife
@@ -44,7 +45,8 @@ ServerEvents.commandRegistry(event => {
     var fields = ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.uniques', 'ttl.killer']
       .map(k => `${k}=${data.getString(k)}`)
       .concat([`ttl.trial.done=${data.getBoolean('ttl.trial.done')}`, `ttl.trial.passed=${data.getBoolean('ttl.trial.passed')}`,
-        `strikes=${data.getInt('ttl.trial.strikes')}`, `correct=${data.getInt('ttl.trial.correct')}`, `food=${target.getFoodData().getFoodLevel()}`])
+        `strikes=${data.getInt('ttl.trial.strikes')}`, `correct=${data.getInt('ttl.trial.correct')}`, `food=${target.getFoodData().getFoodLevel()}`,
+        TtlKarma.brief(ctx.source.getServer(), target)])
     var pos = `${Math.floor(target.getX())},${Math.floor(target.getY())},${Math.floor(target.getZ())}`
     var line = `${target.username}: phase=${life.phase(target)} dim=${life.dimensionOf(target)} pos=${pos} ${fields.join(' ')}`
     ctx.source.sendSystemMessage(Text.of(line))
@@ -72,6 +74,8 @@ ServerEvents.commandRegistry(event => {
     server.runCommandSilent(`quietly clear ${name}`)
     server.runCommandSilent(`quietly gamemode survival ${name}`)
     target.stages.add('ttl.life1')
+    // Karma v1: a fresh Life 1 forgets the old verdict and starts counting again.
+    TtlKarma.startLife(server, target)
     TtlLife.makeHuman(server, target)
     life.toMortal(server, target)
     console.info(`[ttl] ${name} reset to Life 1`)

@@ -74,13 +74,15 @@ const TtlCorridor = {
     var data = player.persistentData
     this.KEYS.forEach(k => data.remove(k))
     data.putString('ttl.step', 'wish')
-    data.putString('ttl.offers', TtlLife.rollOffers().join(','))
+    data.putString('ttl.offers', TtlLife.rollOffers(player).join(','))
     var name = player.username
     this.say(server, name, 'shibou_kakunin')
     server.scheduleInTicks(50, () => this.say(server, name, 'tamashii_hosoku'))
-    server.scheduleInTicks(100, () => this.say(server, name, 'saigo_no_negai'))
-    // The wish menu opens once the death lines have played.
-    server.scheduleInTicks(110, () => this.showStep(server, player))
+    // Karma v1: the world judges the life that ended (karma/view.js), then asks for the last wish.
+    server.scheduleInTicks(100, () => TtlKarmaView.judge(server, player))
+    server.scheduleInTicks(150, () => this.say(server, name, 'saigo_no_negai'))
+    // The Life screen opens once the death lines have played; its button leads on to the wish menu.
+    server.scheduleInTicks(160, () => { if (String(data.getString('ttl.step')) === 'wish') TtlKarmaView.showLife(server, player) })
   },
 
   // A screen opened while the client is still loading the new dimension gets closed by the loading
@@ -136,7 +138,7 @@ const TtlCorridor = {
     var slots = [11, 13, 15]
     var items = [{
       slot: 13, item: 'minecraft:end_crystal', name: 'Begin your reincarnation', color: '#C9A0FF',
-      lore: ['The world offers you:'].concat(offers.map(r => `  ${this.title(r)}`)).concat(['', 'Choose your new body in the', 'reincarnation ceremony.']),
+      lore: [TtlKarmaView.verdict(player), 'The world offers you:'].concat(offers.map(r => `  ${this.title(r)}`)).concat(['', 'Choose your new body in the', 'reincarnation ceremony.']),
       command: 'ttl rebirth'
     }]
     var trial = TtlTrials.DEFS[String(data.getString('ttl.wish'))]
@@ -183,8 +185,10 @@ const TtlCorridor = {
     if (offers.indexOf(race) < 0) return `Not one of your offers: ${offers.join(', ')}`
     data.putString('ttl.race', race)
     var pool = TtlWishes.get(data.getString('ttl.wish')).pool
-    if (data.getBoolean('ttl.trial.passed')) {
-      var options = TtlRegistry.draw(server, pool, 3, player.username)
+    // A passed Trial gives 1 of 3; Karma v1 lets high tiers choose without it (TtlKarma.uniqueChoices).
+    var picks = data.getBoolean('ttl.trial.passed') ? 3 : TtlKarma.uniqueChoices(player)
+    if (picks > 1) {
+      var options = TtlRegistry.draw(server, pool, picks, player.username, TtlKarma.drawWeights(player))
       if (options.length > 0) {
         data.putString('ttl.uniqueOptions', options.join(','))
         data.putString('ttl.step', 'unique')
@@ -193,7 +197,7 @@ const TtlCorridor = {
         return null
       }
     }
-    var drawn = TtlRegistry.draw(server, pool, 1, player.username)
+    var drawn = TtlRegistry.draw(server, pool, 1, player.username, TtlKarma.drawWeights(player))
     this.rebirth(server, player, drawn.length > 0 ? drawn[0] : null)
     return null
   },
@@ -216,8 +220,10 @@ const TtlCorridor = {
     data.putString('ttl.race', race)
     data.putBoolean('ttl.raceSet', true)
     var pool = TtlWishes.get(String(data.getString('ttl.wish'))).pool
-    if (data.getBoolean('ttl.trial.passed')) {
-      var options = TtlRegistry.draw(server, pool, 3, player.username)
+    // A passed Trial gives 1 of 3; Karma v1 lets high tiers choose without it (TtlKarma.uniqueChoices).
+    var picks = data.getBoolean('ttl.trial.passed') ? 3 : TtlKarma.uniqueChoices(player)
+    if (picks > 1) {
+      var options = TtlRegistry.draw(server, pool, picks, player.username, TtlKarma.drawWeights(player))
       if (options.length > 0) {
         data.putString('ttl.uniqueOptions', options.join(','))
         data.putString('ttl.step', 'unique')
@@ -226,7 +232,7 @@ const TtlCorridor = {
         return null
       }
     }
-    var drawn = TtlRegistry.draw(server, pool, 1, player.username)
+    var drawn = TtlRegistry.draw(server, pool, 1, player.username, TtlKarma.drawWeights(player))
     this.rebirth(server, player, drawn.length > 0 ? drawn[0] : null)
     return null
   },
@@ -253,6 +259,8 @@ const TtlCorridor = {
       // Every unique in the wish's pool is taken: reborn without one rather than breaking the cap.
       this.voice(server, name, 'Your wish echoes, but no free skill answers it. You are reborn without one.')
     }
+    // Karma v1: a Legend's soul also carries a non-unique skill (karma.toml bonus_skills).
+    TtlKarma.grantBonus(server, player)
     server.runCommandSilent(`quietly clear ${name}`)
     player.stages.remove('ttl.corridor')
     player.stages.add('ttl.life2')

@@ -13,7 +13,7 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
       player's offers; no race menu in Life 1)
 - [x] The scene's own wishes (up to 3 skills, `ReincarnationGrants.apply`) stay on top of the Last Wish; the registry
       reconcile records them or swaps an over-cap one for a free unique of the same rarity
-- [ ] Karma v1 + tiers → race offers (`server_scripts/ttl/karma/`)
+- [x] Karma v1 + tiers → race offers, unique choice and odds, Legend bonus (`server_scripts/ttl/karma/`, `design/data/karma.toml`, `/ttl life`)
 - [x] Skill registry v1: rarities + caps in `design/data/skills.toml` (Legendary 3, Rare 3, Common 5),
       duplicates allowed, Legendary never drawn at rebirth, `/ttl grant`, `/ttl registry`
 - [x] Legendaries removed from Tensura's reincarnation pools and Great Sage's wish pool (configs)
@@ -23,7 +23,7 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
       within 5 min; design/manas-integration.md §5)
 - [x] Revoke one skill at a time (`revoke <p> all` also wipes intrinsics/resistances)
 - [x] `/bug <text>` with full player/server state; saved on the server, GitHub issue once the token exists
-- [ ] Discord alerts (crash, TPS, deploy, tests) — needs the Discord webhook secret
+- [x] Discord alerts (crash, server down/up, deploy, tests) from ttl-ops; TPS alerts still to do
 - [ ] Daily off-site backups (restic CronJob) — needs a backup target
 - [ ] Chunky + DH re-test on the existing world, then pregenerate
 - [ ] Voice of the World NPC in the hall (Easy NPC)
@@ -49,6 +49,9 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 - [x] Real builds: the ten Trial arenas (`blueprints/trial_*.py`, shared `_arena.py`, `ARENA_VERSION` 2) and
       Wayfarer's Rest, the Mortal Realm spawn (`blueprints/mortal_spawn.py`, `life/mortal_spawn.js`, `/ttl spawn`)
 - [x] Build gallery `docs/previews/README.md`, generated with the previews
+
+- [x] Canon Tensura continent worldgen (`ttl:canon_map`), Mortal Realm free of Tensura worldgen, Dwargon
+- [ ] Pregeneration of both worlds on the owner's PC (same seed and pack, Chunky), upload region files
 
 ## Sprint 3 — content
 - [ ] Mortal Realm filters (`ttl:mortal_banned`), Iron Tyrant boss, quest generator + chapters 0–1

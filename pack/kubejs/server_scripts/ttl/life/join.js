@@ -6,7 +6,8 @@ PlayerEvents.loggedIn(event => {
 
   if (phase === null) {
     player.stages.add('ttl.life1')
-    player.persistentData.putLong('ttl.l1.start', Date.now())
+    // Stamps ttl.l1.start and snapshots the karma stats (karma/karma.js).
+    TtlKarma.startLife(server, player)
     // The login tp lands before the client finishes joining unless it waits a moment.
     server.scheduleInTicks(20, () => {
       life.makeHuman(server, player)

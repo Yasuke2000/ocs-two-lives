@@ -1,0 +1,40 @@
+{
+  "_doc": [
+    "The canon continent of the Tensura world (Life 2). canon_map.txt holds one character per chunk; this file says what each character is.",
+    "Climate knobs steer Minecraft's own biome choice (multi-noise parameters, -1..1); null keeps the vanilla value there:",
+    "  temperature: < -0.45 frozen, -0.45..-0.15 cold, -0.15..0.2 temperate, 0.2..0.55 warm, > 0.55 hot",
+    "  vegetation (humidity): < -0.35 arid, ... , > 0.3 lush (forests, jungle)",
+    "  erosion: < -0.78 high peaks, -0.78..-0.38 mountains and hills, ... , > 0.55 flat plains",
+    "  strength: 0..1, how strongly the knobs win over vanilla's own noise (1 = the whole nation one climate)",
+    "ring: open sea around the continent (blocks) before the free, non-canon lands; blend: blocks over which the sea fades into them.",
+    "seeds and origin are points on the reference map (tools/canon_map.py), only used when the grid is regenerated.",
+    "Changes only affect chunks that are not generated yet."
+  ],
+  "reference": { "width": 2800 },
+  "origin": [1792, 1141],
+  "ring": 1600,
+  "blend": 800,
+  "regions": {
+    "D": { "name": "Armed Nation of Dwargon", "colour": [209, 204, 59], "seeds": [[1819, 756]], "temperature": -0.25, "vegetation": null, "erosion": -0.9, "strength": 0.85 },
+    "J": { "name": "Jura-Tempest Federation", "colour": [228, 114, 210], "seeds": [[1987, 1232]], "temperature": 0.05, "vegetation": 0.45, "erosion": 0.15, "strength": 0.7 },
+    "E": { "name": "Eastern Empire", "colour": [135, 217, 68], "seeds": [[2380, 588]], "temperature": 0.1, "vegetation": 0.0, "erosion": 0.45, "strength": 0.6 },
+    "I": { "name": "Ice Continent", "colour": [211, 165, 73], "seeds": [[1540, 210]], "temperature": -0.95, "vegetation": null, "erosion": -0.4, "strength": 0.95 },
+    "V": { "name": "Holy Void of Damargania", "colour": [224, 204, 165], "seeds": [[461, 1316]], "temperature": 0.85, "vegetation": -0.8, "erosion": 0.3, "strength": 0.9 },
+    "L": { "name": "Holy Empire of Lubelius", "colour": [229, 154, 107], "seeds": [[923, 840], [1290, 760]], "temperature": -0.1, "vegetation": 0.1, "erosion": -0.35, "strength": 0.6 },
+    "G": { "name": "Kingdom of Englassia", "colour": [209, 167, 71], "seeds": [[1232, 1148]], "temperature": 0.0, "vegetation": 0.0, "erosion": 0.5, "strength": 0.5 },
+    "F": { "name": "Kingdom of Falmuth", "colour": [129, 215, 66], "seeds": [[1512, 909]], "temperature": 0.1, "vegetation": -0.1, "erosion": 0.6, "strength": 0.5 },
+    "P": { "name": "Land of Puppets Jistav", "colour": [215, 165, 70], "seeds": [[2520, 1120]], "temperature": 0.3, "vegetation": -0.25, "erosion": 0.1, "strength": 0.6 },
+    "M": { "name": "Milim's Domain", "colour": [226, 205, 164], "seeds": [[2464, 1330]], "temperature": 0.75, "vegetation": -0.55, "erosion": 0.0, "strength": 0.8 },
+    "B": { "name": "Beast Kingdom of Eurazania", "colour": [135, 220, 69], "seeds": [[2100, 1344]], "temperature": 0.6, "vegetation": 0.05, "erosion": 0.4, "strength": 0.7 },
+    "H": { "name": "Harpy Queendom of Fulbrosia", "colour": [221, 150, 104], "seeds": [[1847, 1610]], "temperature": 0.45, "vegetation": 0.6, "erosion": -0.5, "strength": 0.7 },
+    "S": { "name": "Sorcerous Empire of Sarion", "colour": [203, 201, 55], "seeds": [[1400, 1484]], "temperature": 0.2, "vegetation": 0.4, "erosion": 0.3, "strength": 0.6 },
+    "U": { "name": "Ulgracia", "colour": [212, 173, 83], "seeds": [[1582, 1540]], "temperature": 0.25, "vegetation": 0.2, "erosion": 0.3, "strength": 0.5 },
+    "O": { "name": "Morgdahl", "colour": [150, 70, 175], "seeds": [[1064, 1330]], "temperature": 0.15, "vegetation": 0.1, "erosion": 0.4, "strength": 0.4 },
+    "N": { "name": "Nostraille", "colour": [224, 154, 108], "seeds": [[1204, 1288]], "temperature": 0.1, "vegetation": 0.0, "erosion": 0.4, "strength": 0.4 },
+    "Y": { "name": "Yuzalgh", "colour": [190, 80, 140], "seeds": [[1484, 1288]], "temperature": 0.15, "vegetation": 0.1, "erosion": 0.4, "strength": 0.4 },
+    "Q": { "name": "Yggdonia", "colour": [226, 160, 110], "seeds": [[1547, 1205]], "temperature": 0.1, "vegetation": 0.2, "erosion": 0.4, "strength": 0.4 },
+    "R": { "name": "Kingdom of Blumund", "colour": [226, 170, 69], "seeds": [[1610, 1148]], "temperature": 0.05, "vegetation": 0.15, "erosion": 0.45, "strength": 0.4 },
+    "A": { "name": "Raja", "colour": [135, 218, 68], "seeds": [[1596, 1281]], "temperature": 0.3, "vegetation": 0.1, "erosion": 0.4, "strength": 0.4 },
+    "X": { "name": "El Dorado", "colour": [225, 218, 66], "seeds": [[979, 1819]], "temperature": 0.7, "vegetation": 0.6, "erosion": 0.1, "strength": 0.8 }
+  }
+}

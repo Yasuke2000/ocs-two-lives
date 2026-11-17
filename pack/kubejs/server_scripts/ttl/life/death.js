@@ -29,6 +29,9 @@ EntityEvents.death('minecraft:player', event => {
     player.persistentData.putString('ttl.killer', '')
   }
 
+  // Karma v1: judge the life that just ended before the Corridor rolls the race offers.
+  TtlKarma.close(server, player)
+
   // Swap the stage now: void damage can fire another death before the tp next tick.
   player.stages.remove('ttl.life1')
   player.stages.add('ttl.corridor')

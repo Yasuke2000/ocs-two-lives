@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "30e000d56d889bc006ff5a5beb8da8aabb0980e016ba41f88edee9410f126e7b"
+hash = "b769611f3a066ac990dd4c9fdeaa7ef44550d3a94c9e026678d886f898444ae5"
 
 [[files]]
 file = "config/alltheleaks.json"
@@ -810,7 +810,7 @@ hash = "39c299d15b33187d1b6e3e8efece13553e96498adab24dd6ac8aca67b2b05b51"
 
 [[files]]
 file = "config/l2configs/l2hostility-server.toml"
-hash = "ad04c2cebb770b56056bfaec879c5049102a497d6719efd36eaaacffc70d0b87"
+hash = "017a93bca02d3c054f93899031319022296b17e3b99c41e090d7648c7d1128f0"
 
 [[files]]
 file = "config/l2configs/l2library-server.toml"
@@ -1129,12 +1129,48 @@ file = "config/towns_and_towers/structure_rarity_new.json5"
 hash = "fe4ca0974aca38b27c94e3f1dc092f1688b54f27d9eaa728d61c6ccae4ca1313"
 
 [[files]]
+file = "config/ttl/canon_map.txt"
+hash = "ae2dbc80a28c9481c6c1c94c4e2abaa4ef92ba91016d390c29566538fac17917"
+
+[[files]]
+file = "config/ttl/canon_regions.json"
+hash = "2800cfd48b67efacf4a59b9edb9bf67aac675d8fc9f5b7bc76c8b16f7418600e"
+
+[[files]]
 file = "config/vanilla_structures/placement_structure_config.json5"
 hash = "10fad560389f96ec7cb04966a0948b7fe5ba126559194fc81d7e53b8fd73c7ad"
 
 [[files]]
 file = "config/vanilla_structures/toggle_structure_config.json5"
 hash = "a50b4ca77d21ae105e68560c1af694125ea06360374c82e87f4da54b7ecfa51d"
+
+[[files]]
+file = "kubejs/data/l2hostility/l2hostility_config/difficulty/ttl_two_lives.json"
+hash = "9e10fd1bb99b6b40151748bd4080523cf60238723a50ff643e4119d99c7687aa"
+
+[[files]]
+file = "kubejs/data/l2hostility/tags/entity_type/blacklist.json"
+hash = "fd67c26d4944e52b8c328b8b24f88a16cf67ac4cd5fbe43879cff4eff1f596ab"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/density_function/overworld/continents.json"
+hash = "e2c227f02a7ebcaa737cba37f7b6b280ad31c688c086a1a2a73bcbe13a9797e5"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/density_function/overworld/erosion.json"
+hash = "1cf4668bbb0f24f73300f66bf2c16a070b4304f0f93e07bb1d548edf3a0008fd"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/noise_settings/overworld.json"
+hash = "cb31a8f62f314fd763dafca5b7ab3adf52b7d6e8b78e527dab7ac3d1146d947c"
+
+[[files]]
+file = "kubejs/data/tensura/worldgen/biome/underworld_red_sands.json"
+hash = "2613ebb79f4c9e28263893f745e842b9be6e9ac3261822df2d60cc57265405d6"
+
+[[files]]
+file = "kubejs/data/tensura/worldgen/biome/underworld_sands.json"
+hash = "e4ba5679db94a46839bf0d7a65d97281cdf3b020d88422e1976e8b9c433058d7"
 
 [[files]]
 file = "kubejs/data/ttl/dimension/mortal_end.json"
@@ -1146,7 +1182,7 @@ hash = "7cadba283bc297fd39fe33613a6e11837e1f3861779745d9cbe198f62225f322"
 
 [[files]]
 file = "kubejs/data/ttl/dimension/mortal_realm.json"
-hash = "f41f42df83af39a7eede44181452d2ecc0f1cc425cadf322e048d24eb7857b5d"
+hash = "c59d4ab56395b36589974c692d172d71e14460640bf3834fc2ccadfebf511771"
 
 [[files]]
 file = "kubejs/data/ttl/dimension/spirit_corridor.json"
@@ -1155,6 +1191,10 @@ hash = "c3f3bea3b74c38f083bc5db9b14590123e6c1bad3534920f878cc07878cda6e8"
 [[files]]
 file = "kubejs/data/ttl/dimension_type/spirit_corridor.json"
 hash = "fcfd6e4ad7382eaf7953ca7f0b05e63b1eb25b77a203972bf58a5992388bafa1"
+
+[[files]]
+file = "kubejs/data/ttl/structure/dwargon.nbt"
+hash = "91c7e1edb5ee8af034f61c759c805446c6aaa57d8c57ed3d7330ad810c423701"
 
 [[files]]
 file = "kubejs/data/ttl/structure/mortal_spawn.nbt"
@@ -1210,7 +1250,7 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "62f624b8ae2a0d6248f2eb932d71af8d0206b9cc57c4682b9be12f7c9ee45cd7"
+hash = "ed0483c13133b6e2134929162601a536521cc5bc5f4471f5596472ac56563a7d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -1218,7 +1258,27 @@ hash = "47bceba500faacdca062ff50f9770545555be1956cd8e0c9d7c7f4c0408a328d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "46ed42a1cbdf5b003beada0ca30439c616d0d5604c5ab3df1c18e286da6cd3ae"
+hash = "0c4d583825c9c7792614979ee72015dcf06f29be1de0786c7a5cf7df0585b263"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/karma/commands.js"
+hash = "dfe0f8b1f705f2dc774c997222e78659166914ef27227648d05cc2b909bf716a"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/karma/karma.js"
+hash = "304e303d7db2db627937de538925c4fe2aa3c5f7c6e0eab64890644459aa0da0"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/karma/tracking.js"
+hash = "989c3f3f38e2ec7ed669d9952f0aae7bd7267223680606d62346794b4947cf83"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/karma/view.js"
+hash = "6c70d9441199251a2031c8d5298fd6fce406653d4e85103117713d639c9c3a08"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/confine.js"
+hash = "75872660c86bb48493c7603654accdb8f8e9d41c24d503b7f82fe9ea59a0d06b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
@@ -1226,11 +1286,15 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "cb9fdd4017400d654e02e6ec33807faf639fb25ab7111756e45f8e1fc9b43187"
+hash = "5a520a66a3eeff7898daef4a57d4928e6f8e30f2a684ddda35f6222edced7968"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
-hash = "7167dd4af16033e3c5313b41220f2e897456e85505535332109b42a554c6df64"
+hash = "ebb70ad87749ea1367ebc733db1142f78b666b70ce46eb55c52da1485707be73"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/dwargon.js"
+hash = "63f4821c3101c115faccafc466afd9c77067a9310c82dfcbc78f1e13644de0ce"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -1238,7 +1302,7 @@ hash = "dc4013c1f337c4901486ef8d5e6f2a0e13077eb66b44683cdc67364ac7617695"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
-hash = "1210faea2e1927d31a7590773165265b9dcb21f10b44423d8519462d99cb2f41"
+hash = "4bdf579c3227f19e7c44fac80b6385693df9588fc3ae31625a75ba58cff68560"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"
@@ -1250,7 +1314,7 @@ hash = "9592ba87b7cb8e1f6896effb2c0d1c321e115cdfc18178f6eafc546f9dfc0e41"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
-hash = "431df14c2f5faa3faef67439c3a36284123ec0bdf0fd003ec944f3af32181a34"
+hash = "b3f11454357f95fa07c75f8698140f62e20670e7fe7e0e5549293ea81928c780"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
@@ -1265,12 +1329,16 @@ file = "kubejs/server_scripts/ttl/life/wishes.js"
 hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/world_reset.js"
+hash = "5205a92d257cac57c9b64d11d2ca93f003868010c64e9c9643c867a266aba395"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/manas.js"
 hash = "0b57ffb3648edea38cbbb04cae19252647b5ea1294c6954c8f3629af66004470"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "fbec6e29a8d920b681ff295794c21b29076177964c9877751717d313fd53b3f9"
+hash = "900cba17fdc40c3191b46a6c8347cbc9d04acf05f724bc1c604850ded6b2f180"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"

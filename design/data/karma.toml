@@ -1,0 +1,423 @@
+# Karma v1: what a player did in Life 1 decides their rebirth tier (design/master-plan.md §2–3).
+# Scripts: pack/kubejs/server_scripts/ttl/karma/ (karma.js scores, tracking.js records, view.js shows).
+# Edit, then run `python tools/gen_data.py`. Check a change with `/ttl karma <player>` (a live preview for
+# Life 1 players) and the bot test tests/ingame/karma.rcon (`tools/server.sh test karma`).
+#
+# How the score works
+#   1. Every stat below is counted from the moment Life 1 starts until the Life 1 death (start snapshot,
+#      difference at death). Vanilla statistics are read through scoreboard objectives `ttl.s.<key>` with
+#      the stat as criterion: the game keeps those up to date itself.
+#   2. Each stat adds  weight × value / per  to its axis ("raw karma").
+#   3. Each axis scores  100 × ln(1 + raw / k)  — the log curve means grinding one thing gives less and less.
+#   4. Total score = Σ (axis score × axis weight) + best_axis_bonus × the best (weighted) axis score.
+#   5. The tier is the highest one below whose min_score, min_days and min_bosses are all met.
+#   6. A soul is Dark when the chaos axis is high enough (see [dark]); that adds dark races to its offers.
+# Changing a stat's criterion resets that stat for players who are mid-Life 1 (the objective is recreated).
+
+best_axis_bonus = 0.5      # rewards having one thing you were really good at
+default_tier = "normal"    # souls with no Life 1 record (died before karma existed, or reset into the Corridor)
+track_seconds = 20         # how often tracked stats (distance, Nether/End visits) are sampled
+ticks_per_day = 24000      # one Minecraft day of play (20 minutes); "days survived" = Life 1 play time / this
+
+# ---- Axes --------------------------------------------------------------------------------------------
+# k      = raw karma at which the axis scores ~69 (100 × ln 2); raise k to make an axis harder to fill.
+# weight = how much the axis counts in the total (0 = shown but not counted).
+[axes.valor]       # fighting: kills, kinds of foe, bosses, daring trips
+k = 100
+weight = 1.0
+[axes.order]       # good deeds for others: trade, defend villages, tend animals
+k = 40
+weight = 1.0
+[axes.chaos]       # dark deeds: killing villagers, golems, traders, players; starting raids
+k = 40
+weight = 0.5       # the dark path climbs tiers too (Demon Lord path), but slower than good deeds
+[axes.craft]       # making things: mining, smithing, anvils
+k = 40
+weight = 1.0
+[axes.faith]       # learning: enchanting, brewing, advancements
+k = 40
+weight = 1.0
+[axes.longevity]   # staying alive
+k = 60
+weight = 1.0
+
+# ---- Stats -------------------------------------------------------------------------------------------
+# key       = short id: objective `ttl.s.<key>`, `/ttl karma <p> set <key> <n>`, and the record in persistentData
+# criterion = vanilla stat criterion (minecraft.custom:…, minecraft.killed:…, minecraft.mined:…)
+#   or track = one of far | nether | end | advancements (sampled by karma/tracking.js, no scoreboard)
+# axis, weight, per = what one unit is worth (see the top); per defaults to 1
+# group, label     = where the Life screen shows it (stats with the same label are added together)
+# format           = days (ticks shown as days + hours) | blocks | visited (yes/no); plain count otherwise
+# major            = a great boss: counts toward a tier's min_bosses
+
+[[stats]]
+key = "play_time"
+criterion = "minecraft.custom:minecraft.play_time"
+axis = "longevity"
+weight = 10              # 10 raw per day survived
+per = 24000
+group = "life"
+label = "Days survived"
+format = "days"
+
+[[stats]]
+key = "far"
+track = "far"            # farthest distance from Wayfarer's Rest reached in the Mortal Realm
+axis = "valor"
+weight = 1               # 1 raw per 100 blocks
+per = 100
+group = "life"
+label = "Farthest from home"
+format = "blocks"
+
+[[stats]]
+key = "nether"
+track = "nether"         # set once the player is seen in ttl:mortal_nether
+axis = "valor"
+weight = 20
+group = "life"
+label = "Walked the Mortal Nether"
+format = "visited"
+
+[[stats]]
+key = "end"
+track = "end"            # set once the player is seen in ttl:mortal_end
+axis = "valor"
+weight = 30
+group = "life"
+label = "Reached the Mortal End"
+format = "visited"
+
+[[stats]]
+key = "mob_kills"
+criterion = "minecraft.custom:minecraft.mob_kills"
+axis = "valor"
+weight = 0.2             # 500 kills = 100 raw; kinds of foe (below) count more than numbers
+group = "battle"
+label = "Creatures slain"
+
+# Bosses. Killed stats go to whoever dealt the killing blow.
+[[stats]]
+key = "ender_dragon"
+criterion = "minecraft.killed:minecraft.ender_dragon"
+axis = "valor"
+weight = 120
+group = "bosses"
+label = "Ender Dragon"
+major = true
+
+[[stats]]
+key = "wither"
+criterion = "minecraft.killed:minecraft.wither"
+axis = "valor"
+weight = 100
+group = "bosses"
+label = "Wither"
+major = true
+
+[[stats]]
+key = "warden"
+criterion = "minecraft.killed:minecraft.warden"
+axis = "valor"
+weight = 100
+group = "bosses"
+label = "Warden"
+major = true
+
+[[stats]]
+key = "elder_guardian"
+criterion = "minecraft.killed:minecraft.elder_guardian"
+axis = "valor"
+weight = 50
+group = "bosses"
+label = "Elder Guardian"
+major = true
+
+[[stats]]
+key = "evoker"
+criterion = "minecraft.killed:minecraft.evoker"
+axis = "valor"
+weight = 10
+group = "bosses"
+label = "Evokers"
+
+[[stats]]
+key = "ravager"
+criterion = "minecraft.killed:minecraft.ravager"
+axis = "valor"
+weight = 10
+group = "bosses"
+label = "Ravagers"
+
+# Good deeds.
+[[stats]]
+key = "trades"
+criterion = "minecraft.custom:minecraft.traded_with_villager"
+axis = "order"
+weight = 1
+group = "good"
+label = "Trades with villagers"
+
+[[stats]]
+key = "raids_won"
+criterion = "minecraft.custom:minecraft.raid_win"
+axis = "order"
+weight = 30
+group = "good"
+label = "Raids defeated"
+
+[[stats]]
+key = "animals_bred"
+criterion = "minecraft.custom:minecraft.animals_bred"
+axis = "order"
+weight = 0.5
+group = "good"
+label = "Animals bred"
+
+# Craft and lore.
+[[stats]]
+key = "diamond_ore"
+criterion = "minecraft.mined:minecraft.diamond_ore"
+axis = "craft"
+weight = 2
+group = "craft"
+label = "Diamonds mined"
+
+[[stats]]
+key = "deepslate_diamond_ore"
+criterion = "minecraft.mined:minecraft.deepslate_diamond_ore"
+axis = "craft"
+weight = 2
+group = "craft"
+label = "Diamonds mined"
+
+[[stats]]
+key = "ancient_debris"
+criterion = "minecraft.mined:minecraft.ancient_debris"
+axis = "craft"
+weight = 5
+group = "craft"
+label = "Ancient debris mined"
+
+[[stats]]
+key = "anvil"
+criterion = "minecraft.custom:minecraft.interact_with_anvil"
+axis = "craft"
+weight = 1
+group = "craft"
+label = "Anvil work"
+
+[[stats]]
+key = "smithing"
+criterion = "minecraft.custom:minecraft.interact_with_smithing_table"
+axis = "craft"
+weight = 2
+group = "craft"
+label = "Smithing"
+
+[[stats]]
+key = "enchants"
+criterion = "minecraft.custom:minecraft.enchant_item"
+axis = "faith"
+weight = 2
+group = "craft"
+label = "Items enchanted"
+
+[[stats]]
+key = "brewing"
+criterion = "minecraft.custom:minecraft.interact_with_brewingstand"
+axis = "faith"
+weight = 0.5
+group = "craft"
+label = "Brewing"
+
+[[stats]]
+key = "advancements"
+track = "advancements"   # advancements with a display (no recipe unlocks) earned during Life 1
+axis = "faith"
+weight = 2
+group = "craft"
+label = "Advancements"
+
+# Dark deeds.
+[[stats]]
+key = "villagers"
+criterion = "minecraft.killed:minecraft.villager"
+axis = "chaos"
+weight = 10
+group = "dark"
+label = "Villagers slain"
+
+[[stats]]
+key = "iron_golems"
+criterion = "minecraft.killed:minecraft.iron_golem"
+axis = "chaos"
+weight = 8
+group = "dark"
+label = "Iron golems slain"
+
+[[stats]]
+key = "traders"
+criterion = "minecraft.killed:minecraft.wandering_trader"
+axis = "chaos"
+weight = 8
+group = "dark"
+label = "Wandering traders slain"
+
+[[stats]]
+key = "player_kills"
+criterion = "minecraft.custom:minecraft.player_kills"
+axis = "chaos"
+weight = 25
+group = "dark"
+label = "Players slain"
+
+[[stats]]
+key = "raids_started"
+criterion = "minecraft.custom:minecraft.raid_trigger"
+axis = "chaos"
+weight = 3
+group = "dark"
+label = "Raids brought on a village"
+
+# ---- Kinds of foe ------------------------------------------------------------------------------------
+# One objective per mob (`ttl.s.kill.<path>`); each kind slain at least once in Life 1 is worth
+# weight_per_kind on `axis` (the master plan's "only distinct mob types count", against mob farms).
+[hostiles]
+axis = "valor"
+weight_per_kind = 4
+group = "battle"
+label = "Kinds of foe"
+ids = [
+  "minecraft:zombie", "minecraft:zombie_villager", "minecraft:husk", "minecraft:drowned", "minecraft:skeleton",
+  "minecraft:stray", "minecraft:bogged", "minecraft:spider", "minecraft:cave_spider", "minecraft:creeper",
+  "minecraft:enderman", "minecraft:witch", "minecraft:slime", "minecraft:phantom", "minecraft:pillager",
+  "minecraft:vindicator", "minecraft:vex", "minecraft:guardian", "minecraft:silverfish", "minecraft:endermite",
+  "minecraft:blaze", "minecraft:ghast", "minecraft:magma_cube", "minecraft:wither_skeleton", "minecraft:piglin_brute",
+  "minecraft:hoglin", "minecraft:zoglin", "minecraft:shulker", "minecraft:breeze",
+]
+
+# ---- Tiers -------------------------------------------------------------------------------------------
+# Lowest first. Race offers are cumulative: a tier offers its own `races` plus every lower tier's.
+# Slime is always offered on top (the canon underdog); `offers` is the total count including Slime.
+# guaranteed     = how many offers are drawn from this tier's own races first (so a Hero always sees a hero race)
+# unique_choices = 1: the unique is drawn at random (unless the Trial is passed: then 1 of 3);
+#                  3: pick 1 of 3 without the Trial. Max 3. Uniques always go through registry.js; Legendary
+#                  uniques are never drawn at rebirth, whatever the tier.
+# weights        = how likely each unique rarity is in this tier's draws (random draw, the 3 choices, and
+#                  the Trial's 3 choices): {common, rare}; 0 = never while another rarity is free. Only matters
+#                  when the Last Wish's pool mixes rarities (skills.toml decides which unique is which).
+# bonus_skills   = non-unique Tensura skills (extra/common, NOT uniques: they skip the registry) of which
+#                  `bonus_count` are granted at rebirth with a Voice line. Ids from the Tensura jar's tags
+#                  data/tensura/tags/manascore_skill/skills/extra_skills.json and common_skills.json.
+# Race ids are Tensura's (pack/config/tensura/reincarnation_config.toml: reincarnationRaces and
+# reincarnationRacesMastered). Never add an id that is not in Tensura's race registry.
+[[tiers]]
+id = "underdog"
+title = "Wanderer"
+item = "minecraft:dead_bush"
+min_score = 0
+races = ["goblin"]
+offers = 2
+guaranteed = 0
+unique_choices = 1
+weights = { common = 3, rare = 1 }   # an underdog's soul leans to utility uniques
+
+[[tiers]]
+id = "normal"
+title = "Survivor"
+item = "minecraft:iron_ingot"
+min_score = 100
+min_days = 2             # about 40 minutes of Life 1
+races = ["human", "elf", "dwarf", "merfolk", "lizardman", "wight", "ghoul"]
+offers = 3
+guaranteed = 0
+unique_choices = 1
+weights = { common = 1, rare = 1 }
+
+[[tiers]]
+id = "elite"
+title = "Hero"
+item = "minecraft:diamond"
+min_score = 600
+min_days = 7
+races = ["ogre", "harpy", "beastfolk", "giant"]
+offers = 4
+guaranteed = 1
+unique_choices = 3
+weights = { common = 1, rare = 2 }
+
+[[tiers]]
+id = "legendary"
+title = "Legend"
+item = "minecraft:nether_star"
+min_score = 1000
+min_days = 30            # about 10 hours of Life 1
+min_bosses = 1           # at least one `major` boss slain
+races = ["hobgoblin", "dragonewt", "high_orc", "vampire", "lesser_daemon"]
+offers = 5
+guaranteed = 2
+unique_choices = 3
+weights = { common = 1, rare = 4 }
+announce = true          # the Voice of the World tells everyone online
+bonus_count = 1
+bonus_skills = [
+  "tensura:magic_sense", "tensura:thought_acceleration", "tensura:strengthen_body", "tensura:danger_sense",
+  "tensura:analytical_appraisal", "tensura:steel_strength", "tensura:self_regeneration",
+]
+
+# ---- Dark path ---------------------------------------------------------------------------------------
+# A soul is Dark when its chaos axis scores at least min_score AND at least as much as `must_beat`
+# (good deeds can outweigh a few bad ones). Dark souls keep their tier, get `prefix` before its title,
+# and their offers draw `guaranteed` races from the dark lists (this tier's list first, then lower tiers').
+# Dark races join the pool on top of the tier's normal races; nothing is taken away.
+[dark]
+min_score = 60           # ~ 4 villagers, or 2 players
+must_beat = "order"
+prefix = "Fallen"
+item = "minecraft:wither_rose"
+guaranteed = 1
+
+[dark.races]
+underdog = ["orc"]
+normal = ["ghoul", "wight"]
+elite = ["high_orc", "lesser_daemon"]
+legendary = ["vampire"]
+
+# ---- Life screen -------------------------------------------------------------------------------------
+# Shown in the Spirit Corridor right after death (and with /ttl life): one item per group.
+[[groups]]
+id = "life"
+title = "Your life"
+item = "minecraft:clock"
+empty = "It was over almost before it began."
+
+[[groups]]
+id = "battle"
+title = "Battle"
+item = "minecraft:iron_sword"
+empty = "You never raised a blade."
+
+[[groups]]
+id = "bosses"
+title = "Great foes"
+item = "minecraft:dragon_head"
+empty = "No great foe fell to you."
+
+[[groups]]
+id = "good"
+title = "Good deeds"
+item = "minecraft:emerald"
+empty = "You did little for others."
+
+[[groups]]
+id = "craft"
+title = "Craft and lore"
+item = "minecraft:enchanted_book"
+empty = "You made and learned little."
+
+[[groups]]
+id = "dark"
+title = "Dark deeds"
+item = "minecraft:wither_rose"
+empty = "Your hands are clean."

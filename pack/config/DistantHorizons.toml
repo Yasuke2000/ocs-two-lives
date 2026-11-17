@@ -818,7 +818,8 @@ _version = 5
 	[common.multiThreading]
 		#
 		# How many threads should be used by Distant Horizons?
-		numberOfThreads = 8
+		# OCS: 4 (was 8). The server pod has 2 guaranteed cores; 8 DH threads starved the game.
+		numberOfThreads = 4
 		#
 		# A value between 1.0 and 0.0 that represents the percentage 
 		# of time each thread can run before going idle. 
@@ -826,7 +827,8 @@ _version = 5
 		# This can be used to reduce CPU usage if the thread count 
 		# is already set to 1 for the given option, or more finely 
 		# tune CPU performance.
-		threadRunTimeRatio = "1.0"
+		# OCS: 0.75 (was 1.0), leaves the server thread breathing room while LODs generate.
+		threadRunTimeRatio = "0.75"
 		#
 		# What Java thread priority should DH's primary thread pools run with? 
 		# 
@@ -941,14 +943,17 @@ _version = 5
 	# Prefix of the level keys sent to the clients.
 	# If the mod is running behind a proxy, each backend should use a unique value.
 	# If this value is empty, level key will be based on the server's seed hash.
-	levelKeyPrefix = ""
+	# OCS: bump after a world reset (WorldReset.java) so clients drop LODs of the old terrain.
+	levelKeyPrefix = "ttl-w2"
 	#
 	# How many LOD generation requests per second should a client send? 
 	# Also limits the number of client requests allowed to stay in the server's queue.
-	generationRequestRateLimit = 20
+	# OCS: 8 (was 20) per player; far terrain fills in slower but the server keeps up.
+	generationRequestRateLimit = 8
 	#
 	# Defines the distance allowed to generate around the player.
-	maxGenerationRequestDistance = 4096
+	# OCS: 2048 (was 4096); beyond that, pregenerate instead (docs/server.md).
+	maxGenerationRequestDistance = 2048
 	#
 	# If true, clients will receive real-time LOD updates for chunks outside the client's render distance.
 	enableRealTimeUpdates = true
