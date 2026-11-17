@@ -1070,7 +1070,7 @@ hash = "499d188162ddcf7fcf450cdcdc96bd41ac582501ecad5ed4a74dd9ed6b01990a"
 
 [[files]]
 file = "config/tombstone-common.toml"
-hash = "5110e2bb8f454983d21c61f59fb3d2abacf33bca5e42a5840ca879bf5492157d"
+hash = "bacdb96c17382c19ef24cbc5c7e9bdc5cc26e0e9622cf98588791966be39eb44"
 
 [[files]]
 file = "config/tombstone-server.toml"
@@ -1167,6 +1167,10 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
 hash = "63bb72890e04f3ce241a28cc0b7c438b7c3a72754390489fc1dcffe9905c49df"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
+hash = "47bceba500faacdca062ff50f9770545555be1956cd8e0c9d7c7f4c0408a328d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"

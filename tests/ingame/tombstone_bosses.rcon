@@ -1,0 +1,10 @@
+# Issue #3: Tensura/NEB bosses are no longer excluded from Tombstone's receptacles; the mimic still is.
+# Expect "Test failed" for the orc lord and Veldora (not in tombstone:unhandled_tamable), "Test passed"
+# for the mimic. Summoned in the Spirit Corridor hall (the Mortal Realm blocks Tensura mobs).
+execute in ttl:spirit_corridor run summon tensura:orc_lord 0 66 6 {NoAI:1b,Tags:["ttltomb","ttltomb_orc"]}
+execute in ttl:spirit_corridor run summon tensura_neb:veldora 0 66 -6 {NoAI:1b,Tags:["ttltomb","ttltomb_veldora"]}
+execute in ttl:spirit_corridor run summon artifacts:mimic 6 66 0 {NoAI:1b,Tags:["ttltomb","ttltomb_mimic"]}
+execute in ttl:spirit_corridor positioned 0 66 0 if entity @e[tag=ttltomb_orc,type=#tombstone:unhandled_tamable,distance=..20]
+execute in ttl:spirit_corridor positioned 0 66 0 if entity @e[tag=ttltomb_veldora,type=#tombstone:unhandled_tamable,distance=..20]
+execute in ttl:spirit_corridor positioned 0 66 0 if entity @e[tag=ttltomb_mimic,type=#tombstone:unhandled_tamable,distance=..20]
+execute in ttl:spirit_corridor positioned 0 66 0 run kill @e[tag=ttltomb,distance=..20]

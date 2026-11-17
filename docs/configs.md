@@ -9,7 +9,7 @@ Gameplay numbers of our own systems are in `design/data/*.toml`, not here.
 
 - `tensura/reincarnation_config.toml` — Human-only first spawn; Legendaries removed from the reincarnation skill pools
 - `greatsage-common.toml` — Legendaries excluded from Great Sage's reincarnation wishes; no reincarnation error chance
-- `tombstone-common.toml` — No graves in the Mortal dimensions and the Spirit Corridor; Tensura/NEB bosses can't be caught in a Familiar Receptacle
+- `tombstone-common.toml` — No graves in the Mortal dimensions and the Spirit Corridor
 - `DistantHorizons.toml` — Chat warnings and the auto-updater off
 - `enhancedcelestials2core/translations.json` — Translation prompt off
 
