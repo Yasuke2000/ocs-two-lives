@@ -6,6 +6,7 @@
   "mixins": [
     "EndPortalBlockMixin",
     "NetherPortalBlockMixin",
+    "ServerCommonPacketListenerImplMixin",
     "ServerLevelMixin"
   ],
   "injectors": {
