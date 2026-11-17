@@ -4,7 +4,7 @@ license = "MIT"
 
 [[mods]]
 modId = "ttl"
-version = "0.2.2"
+version = "0.3.0"
 displayName = "OCS Two Lives: Portals"
 description = '''
 Links the Mortal Realm (Life 1) to its own Nether and End, so Life 1 never reaches the Tensura world's

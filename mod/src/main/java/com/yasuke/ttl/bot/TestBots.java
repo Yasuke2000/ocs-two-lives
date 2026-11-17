@@ -16,6 +16,7 @@ import net.minecraft.server.network.CommonListenerCookie;
 import net.minecraft.world.level.storage.LevelResource;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -27,7 +28,7 @@ import java.util.stream.Collectors;
 /**
  * Staging-only test players: a real ServerPlayer on a dead connection, so login, death, stages and
  * every script hook run exactly as for a person. Drive them with {@code execute as <bot> run ...}.
- * Bots skip the whitelist and don't tick movement, so they never walk, fall or use portals by themselves.
+ * Bots skip the whitelist and never move by themselves (no client input), but they do tick (see onServerTick).
  * Every spawn starts from a fresh player file: a bot never respawns, so a saved dead bot stays dead.
  */
 public final class TestBots {
@@ -52,6 +53,16 @@ public final class TestBots {
      */
     public static void onChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
         if (event.getEntity() instanceof ServerPlayer player && isBot(player)) player.hasChangedDimension();
+    }
+
+    /**
+     * A real player's doTick runs from its packet listener, which only ticks for connections the server
+     * owns. Bots run it here, so timers, effects, hunger, fire and spawn protection work as for a person.
+     */
+    public static void onServerTick(ServerTickEvent.Post event) {
+        for (ServerPlayer player : event.getServer().getPlayerList().getPlayers()) {
+            if (isBot(player)) player.doTick();
+        }
     }
 
     public static boolean isBot(ServerPlayer player) {

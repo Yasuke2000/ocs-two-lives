@@ -11,5 +11,6 @@ public final class TtlPortals {
     public TtlPortals() {
         NeoForge.EVENT_BUS.addListener(TestBots::registerCommands);
         NeoForge.EVENT_BUS.addListener(TestBots::onChangedDimension);
+        NeoForge.EVENT_BUS.addListener(TestBots::onServerTick);
     }
 }
