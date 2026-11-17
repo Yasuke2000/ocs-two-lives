@@ -1,8 +1,60 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/tensura/reincarnation_config.toml"
+hash = "ab4d84553df4168e5350722249dfa158c6e378b618661dfab6e81ab92f8770cc"
+
+[[files]]
+file = "config/tombstone-common.toml"
+hash = "93cdff6594fe5ea0c690564579114b68a75dbac04d3d3c9991a5762e880931e8"
+
+[[files]]
+file = "kubejs/data/ttl/dimension/mortal_realm.json"
+hash = "f41f42df83af39a7eede44181452d2ecc0f1cc425cadf322e048d24eb7857b5d"
+
+[[files]]
+file = "kubejs/data/ttl/dimension/spirit_corridor.json"
+hash = "c3f3bea3b74c38f083bc5db9b14590123e6c1bad3534920f878cc07878cda6e8"
+
+[[files]]
+file = "kubejs/data/ttl/dimension_type/spirit_corridor.json"
+hash = "fcfd6e4ad7382eaf7953ca7f0b05e63b1eb25b77a203972bf58a5992388bafa1"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/boot.js"
 hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/commands.js"
+hash = "fa0aba864bb9bc09c9006957187eb2dfa0e5a1c11c88c585d2ab742d935a7208"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/corridor.js"
+hash = "501601b57e0d58baff1d056302ed5280a399a86e0a4d33cbe25130fc711af02e"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/death.js"
+hash = "2985c5df594e7d3a82ed45fa98ed1fb47b36d27b14a64b55617c169d716a9cee"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/gamerules.js"
+hash = "d3de53ed1ebf78f00ce61e828b5d64168fe039c114e1ac88a6c484fa3acb02dc"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/join.js"
+hash = "aee84454376ef08ce348d9b68c26f5de57a762e0f00ccfb295bb129831803721"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
+hash = "d264ef7caad17d68e57f0f44125979a653ce26f0bb39e9516e0af8dd7d2f3e65"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/state.js"
+hash = "2a1051e74904fde43b8aa5657426d063b781297aa2f35f64b3771d3c50e02439"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/registry.js"
+hash = "c484775cdbfca6eefb5a0f4b976a80cf6ef60a0456d098b437d3141e535c4cbb"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"
@@ -95,6 +147,11 @@ hash = "d025359648bc99d4eec57a159fe07ba3638c519a7b568b414041fe15fb196066"
 metafile = true
 
 [[files]]
+file = "mods/distanthorizons.pw.toml"
+hash = "0c20fea3407ed0db85b4b171f1820a24987f2659946fadd30bae044205041b09"
+metafile = true
+
+[[files]]
 file = "mods/dynamic-fps.pw.toml"
 hash = "ae6fd52d8bdcbeca5bbe6db840f22f92c1928fe0fda22017b19612b9b00a245a"
 metafile = true
@@ -115,8 +172,13 @@ hash = "3a4b6822857e04e5e7d0ca6f148b1cdba804b5dc940e29b39aa3a3af8a29bab8"
 metafile = true
 
 [[files]]
-file = "mods/enhanced-celestials.pw.toml"
-hash = "e50f87650e3a5becf3cd1772e8053a8bc04c48859a6fa814e75e6c71eaa87e6c"
+file = "mods/enhanced-celestials-2-core.pw.toml"
+hash = "d8f6c0e0e7c3477ce3f193f7e6cf6e1512b1bb3239c119b3cc0866f18ac6a16c"
+metafile = true
+
+[[files]]
+file = "mods/enhanced-celestials-2-default-lunar-events.pw.toml"
+hash = "631b478954b07af5f974eac7a56bb7fb9cea2454fda79a1d3b8cfff0f5db27cf"
 metafile = true
 
 [[files]]
@@ -157,6 +219,11 @@ metafile = true
 [[files]]
 file = "mods/geckolib.pw.toml"
 hash = "35779b39ddc06059ec483b33de2ecfdc3adb95c0a49e69b6701fb0024827e2f5"
+metafile = true
+
+[[files]]
+file = "mods/great-sage.pw.toml"
+hash = "e17dc28090283a5171c9b34eb70fefd26c65ccb5d5896825837f8db1df0da506"
 metafile = true
 
 [[files]]
@@ -282,6 +349,11 @@ metafile = true
 [[files]]
 file = "mods/smartbrainlib.pw.toml"
 hash = "6e7ce9c2aee5bb72d2698eb89035c9b2458d20daa0782e1a03cfba7a6647621e"
+metafile = true
+
+[[files]]
+file = "mods/sodium-extra.pw.toml"
+hash = "7ece7b8e65ac74bc1c705a3e25948ce5772c26ddf148514f29d90920ca1c3866"
 metafile = true
 
 [[files]]

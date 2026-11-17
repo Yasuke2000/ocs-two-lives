@@ -1,0 +1,8 @@
+# Phase 0 two-lives smoke test (no player needed). Expect: both dimensions answer, gamerules true,
+# and the corridor floor exists at 0 64 0. The death flow itself is tested in game: die in the
+# Mortal Realm → Corridor with offers → /ttl choose <race> → Tensura overworld.
+execute in ttl:mortal_realm run time query gametime
+execute in ttl:spirit_corridor run time query gametime
+gamerule noUniqueStart
+gamerule trulyUnique
+execute in ttl:spirit_corridor if block 0 64 0 minecraft:sea_lantern run say corridor hall ok
