@@ -1,5 +1,6 @@
 name: World / lore fix
 description: Something in the world doesn't match the Tensura lore (map, biomes, names, races, skills)
+projects: ["Yasuke2000/1"]
 labels: [lore]
 body:
   - type: input

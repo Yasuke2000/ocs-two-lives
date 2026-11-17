@@ -1,5 +1,6 @@
 name: Idea
 description: A feature, quest, build or system idea
+projects: ["Yasuke2000/1"]
 labels: [idea]
 body:
   - type: textarea

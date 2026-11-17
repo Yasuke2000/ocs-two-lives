@@ -1,5 +1,6 @@
 name: Balance / config change
 description: A number or setting should be different
+projects: ["Yasuke2000/1"]
 labels: [balance]
 body:
   - type: input

@@ -1,5 +1,6 @@
 name: Build request
 description: A place to build or improve (a city, a landmark, an arena, a village)
+projects: ["Yasuke2000/1"]
 labels: [build]
 body:
   - type: input
