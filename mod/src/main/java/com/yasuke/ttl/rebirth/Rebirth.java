@@ -48,6 +48,11 @@ public final class Rebirth {
         clientOffers = List.copyOf(races);
     }
 
+    /** Client side: our Life 2 rebirth menu is open (offers received, race not yet set). */
+    public static boolean rebirthOnClient() {
+        return !clientOffers.isEmpty();
+    }
+
     /** Race ids this menu's player must see, or null to keep Tensura's configured lists. */
     @Nullable
     public static List<String> offersFor(Player player) {

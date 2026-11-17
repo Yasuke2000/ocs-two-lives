@@ -14,6 +14,10 @@ public final class TtlDimensions {
 
     private TtlDimensions() {}
 
+    public static boolean isMortal(ResourceKey<Level> dimension) {
+        return dimension.equals(MORTAL_REALM) || dimension.equals(MORTAL_NETHER) || dimension.equals(MORTAL_END);
+    }
+
     /** Target of a Nether portal used in {@code from}, or null to keep vanilla behaviour. */
     @Nullable
     public static ResourceKey<Level> netherPortalTarget(ResourceKey<Level> from) {

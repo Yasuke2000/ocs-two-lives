@@ -4,12 +4,17 @@
   "package": "com.yasuke.ttl.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ChunkGeneratorStructureStateAccessor",
     "EndPortalBlockMixin",
     "NetherPortalBlockMixin",
+    "PlacedFeatureMixin",
     "ReincarnationMenuMixin",
     "ServerCommonPacketListenerImplMixin",
     "ServerLevelMixin",
     "ServerPlayerMixin"
+  ],
+  "client": [
+    "client.GreatSageSceneMixin"
   ],
   "injectors": {
     "defaultRequire": 1
