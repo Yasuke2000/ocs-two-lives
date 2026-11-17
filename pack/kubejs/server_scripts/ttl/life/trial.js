@@ -17,14 +17,14 @@ const TtlTrial = {
   },
 
   start(server, player) {
-    const data = player.persistentData
+    var data = player.persistentData
     if (data.getString('ttl.step') !== 'race') return 'Make your wish first.'
     if (data.getBoolean('ttl.trial.done')) return 'Your soul has already been tested.'
-    const busy = server.persistentData.getString('ttl.trial.player')
+    var busy = server.persistentData.getString('ttl.trial.player')
     if (busy) return `${busy} is facing the Trial right now. Wait for them to finish.`
 
-    const name = player.username
-    const token = String(Date.now())
+    var name = player.username
+    var token = String(Date.now())
     server.persistentData.putString('ttl.trial.player', name)
     server.persistentData.putString('ttl.trial.token', token)
     server.persistentData.putInt('ttl.trial.wave', 0)
@@ -52,13 +52,14 @@ const TtlTrial = {
   },
 
   spawnWave(server, index) {
-    const wave = this.WAVES[index]
-    let count = 0
-    let spot = 0
+    var wave = this.WAVES[index]
+    var count = 0
+    var spot = 0
     wave.forEach(group => {
-      for (let i = 0; i < group[1]; i++) {
-        const pos = this.SPAWNS[spot++ % this.SPAWNS.length]
-        const nbt = { Tags: [this.TAG], PersistenceRequired: true }
+      for (var i = 0; i < group[1]; i++) {
+        var pos = this.SPAWNS[spot++ % this.SPAWNS.length]
+        // NeoForgeData is what entity.persistentData reads; KubeJS's entity.tags are type tags, not /tag.
+        var nbt = { Tags: [this.TAG], PersistenceRequired: true, NeoForgeData: { ttl_trial: true } }
         if (group[2]) nbt.CustomName = JSON.stringify({ text: group[2], color: 'dark_red' })
         // JSON.stringify gives valid SNBT for this shape (strings and booleans only).
         this.run(server, `summon ${group[0]} ${pos[0]} ${pos[1]} ${pos[2]} ${JSON.stringify(nbt)}`)
@@ -67,17 +68,17 @@ const TtlTrial = {
     })
     server.persistentData.putInt('ttl.trial.wave', index)
     server.persistentData.putInt('ttl.trial.left', count)
-    const name = server.persistentData.getString('ttl.trial.player')
+    var name = server.persistentData.getString('ttl.trial.player')
     server.runCommandSilent(`title ${name} actionbar {"text":"Wave ${index + 1} of ${this.WAVES.length}","color":"red"}`)
   },
 
   onMobDeath(server) {
-    const name = server.persistentData.getString('ttl.trial.player')
+    var name = server.persistentData.getString('ttl.trial.player')
     if (!name) return
-    const left = server.persistentData.getInt('ttl.trial.left') - 1
+    var left = server.persistentData.getInt('ttl.trial.left') - 1
     server.persistentData.putInt('ttl.trial.left', left)
     if (left > 0) return
-    const next = server.persistentData.getInt('ttl.trial.wave') + 1
+    var next = server.persistentData.getInt('ttl.trial.wave') + 1
     if (next < this.WAVES.length) {
       server.scheduleInTicks(40, () => this.spawnWave(server, next))
     } else {
@@ -95,10 +96,10 @@ const TtlTrial = {
     server.persistentData.remove('ttl.trial.player')
     server.persistentData.remove('ttl.trial.token')
     this.run(server, `kill @e[tag=${this.TAG},distance=0..]`)
-    const player = server.getPlayerList().getPlayerByName(name)
+    var player = server.getPlayerList().getPlayerByName(name)
     console.info(`[ttl] ${name} ${passed ? 'passed' : 'failed'} the Trial of the Soul (${why})`)
     if (!player) return
-    const data = player.persistentData
+    var data = player.persistentData
     data.putBoolean('ttl.trial.done', true)
     data.putBoolean('ttl.trial.passed', passed)
     data.putString('ttl.step', 'race')
@@ -111,9 +112,9 @@ const TtlTrial = {
 }
 
 EntityEvents.death(event => {
-  const entity = event.entity
+  var entity = event.entity
   if (entity.isPlayer()) return
-  if (entity.tags.contains(TtlTrial.TAG)) TtlTrial.onMobDeath(event.server)
+  if (entity.persistentData.getBoolean('ttl_trial')) TtlTrial.onMobDeath(event.server)
 })
 
 // A restart mid-trial must not leave the hall locked.

@@ -2,10 +2,10 @@
 // Cancelling (instead of letting the player respawn) keeps XP, advancements and Tensura data intact
 // and skips Tensura's own death penalty.
 EntityEvents.death('minecraft:player', event => {
-  const player = event.entity
-  const server = event.server
-  const life = TtlLife
-  const phase = life.phase(player)
+  var player = event.entity
+  var server = event.server
+  var life = TtlLife
+  var phase = life.phase(player)
   if (phase !== 'life1' && phase !== 'corridor') return
 
   player.setHealth(player.getMaxHealth())
@@ -26,7 +26,7 @@ EntityEvents.death('minecraft:player', event => {
   console.info(`[ttl] ${player.username} died in Life 1 (${String(event.source)})`)
 
   server.scheduleInTicks(1, () => {
-    const name = player.username
+    var name = player.username
     server.runCommandSilent(`clear ${name}`)
     life.toCorridor(server, player)
     server.runCommandSilent(`gamemode adventure ${name}`)

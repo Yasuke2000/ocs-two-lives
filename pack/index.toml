@@ -34,19 +34,19 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "c7eb606ccf7d02e418c19e5ff98e3dbd153e7c31cf573e745163b90a1724301a"
+hash = "74428152962fd1a3c7869510f2484f1448f52b9c0df529e8b00580ee283a630f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
-hash = "0459e86bb8c94463ae167701d6afd9be1a2667e8d39fc387b81db2306c95770a"
+hash = "1336c660acdbbf45d795651882fe740da983c99c3e4e9d9c887df615c7d55bd1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "e5085a28eb35e5c9a410ae9fda1578c8cb7893a14811c9c104e2dfda48f7c57d"
+hash = "f342134b61122edf31772c517aea9fcb555ac1ac821ec38db5712dce3ad29f0e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
-hash = "a6c262155d500acdfbd82fbf652a5a0183b70e65a843cf0274df6e995b047531"
+hash = "e5660c54438ab49488d8049d794f790bc58629d79dc9a8ca06ce3cd5ec430749"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -54,27 +54,27 @@ hash = "d3de53ed1ebf78f00ce61e828b5d64168fe039c114e1ac88a6c484fa3acb02dc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
-hash = "b0e9144ae39c2f72d688be9293358884ad307d5d36e96e8245cd40979c96d09d"
+hash = "c65c352478e57f80ea1984b528995d0763b5f31e16dd035bb46a6cd97ab46ba2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
-hash = "a0019d7bbbb67f9a90d63f7350e6a9108f5dbf8a907219cfe1e30522cabfe6fa"
+hash = "9592ba87b7cb8e1f6896effb2c0d1c321e115cdfc18178f6eafc546f9dfc0e41"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
-hash = "e8567af127e29e307ed42fefd738797858c44f16d971e1c28c40ea578df2974e"
+hash = "3dbdc117a82becdb392add7c80cfdad7a2cfb9d75095b996a347cb1f030c1eb3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
-hash = "983823ab4d3a65c21e42795d41eeea034f98a6787c76d727eb31cfa578ce93fa"
+hash = "a7a3892316192dd47b526f54bec7e8a50e950ffb42faabba4568cd95ccc962c5"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"
-hash = "ef72816e19e24e89e86d3a04162936f4005e81ce584c0422e9a6562fa02e5a0b"
+hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "2470e89f2987a8b33c41d535058f7500d649d35256627d47a94d22524cbe19af"
+hash = "8b31c2b31f079dbb9908e0f743ab0c026ddb0c543fd95a2a9ffd14ec445a1e82"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"

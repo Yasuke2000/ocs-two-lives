@@ -38,7 +38,7 @@ const TtlWishes = {
   ],
 
   get(id) {
-    for (let i = 0; i < this.LIST.length; i++) {
+    for (var i = 0; i < this.LIST.length; i++) {
       if (this.LIST[i].id === id) return this.LIST[i]
     }
     return null

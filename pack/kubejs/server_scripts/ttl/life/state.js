@@ -1,5 +1,6 @@
 // priority: 100
 // Shared Two Lives helpers. Server scripts share one scope (KubeJS forbids writing to `global` there).
+// Inside functions these scripts use `var`: Rhino throws "redeclaration of var" on block-scoped const/let.
 // The life is tracked with stages (ttl.life1 / ttl.corridor / ttl.life2) because stages survive
 // Life 2 deaths; offers live in persistentData.
 const TtlLife = {
@@ -35,11 +36,10 @@ const TtlLife = {
   },
 
   toOverworld(server, player) {
-    let x = 0
-    let z = 0
+    var x = 0
+    var z = 0
     try {
-      // Not `spawn`: server scripts share one scope and Rhino rejects the redeclaration.
-      const worldSpawn = server.overworld().getSharedSpawnPos()
+      var worldSpawn = server.overworld().getSharedSpawnPos()
       x = worldSpawn.getX()
       z = worldSpawn.getZ()
     } catch (e) {
@@ -50,8 +50,8 @@ const TtlLife = {
 
   // Slime stays in every offer (master plan §3); two more are drawn from the pool. Read by TtlCorridor.
   rollOffers() {
-    const pool = this.RACES.slice()
-    const offers = ['slime']
+    var pool = this.RACES.slice()
+    var offers = ['slime']
     while (offers.length < 3 && pool.length > 0) {
       offers.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0])
     }

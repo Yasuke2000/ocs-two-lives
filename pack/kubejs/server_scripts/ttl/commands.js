@@ -1,45 +1,51 @@
 // Players:  /ttl wish <id> · /ttl trial · /ttl choose <race> · /ttl unique <skill> · /ttl status
 // Ops:      /ttl inspect <player> (answers over RCON) · /ttl reset <player> (back to a fresh Life 1)
 ServerEvents.commandRegistry(event => {
-  const { commands: Commands, arguments: Arguments } = event
-  const life = TtlLife
+  var { commands: Commands, arguments: Arguments } = event
+  var life = TtlLife
 
   // Corridor steps return an error message, or null when the step went through.
-  const step = fn => ctx => {
-    const player = ctx.source.getPlayerOrException()
+  var step = fn => ctx => {
+    var player = ctx.source.getPlayerOrException()
     if (life.phase(player) !== 'corridor') {
       player.tell(Text.red('This only works in the Spirit Corridor.'))
       return 0
     }
-    const error = fn(ctx.source.getServer(), player, ctx)
+    var error
+    try {
+      error = fn(ctx.source.getServer(), player, ctx)
+    } catch (e) {
+      console.error(`[ttl] ${player.username}: corridor step failed: ${e}`)
+      error = 'Something went wrong. Tell an admin.'
+    }
     if (error) {
       player.tell(Text.red(error))
       return 0
     }
     return 1
   }
-  const word = (ctx, name) => String(Arguments.STRING.getResult(ctx, name)).toLowerCase()
+  var word = (ctx, name) => String(Arguments.STRING.getResult(ctx, name)).toLowerCase()
 
-  const status = ctx => {
-    const player = ctx.source.getPlayerOrException()
-    const step = player.persistentData.getString('ttl.step')
+  var status = ctx => {
+    var player = ctx.source.getPlayerOrException()
+    var step = player.persistentData.getString('ttl.step')
     player.tell(Text.gold(`Life: ${life.phase(player) || 'none'}${step ? ` (${step})` : ''}`))
     return 1
   }
 
-  const inspect = ctx => {
-    const target = Arguments.PLAYER.getResult(ctx, 'target')
-    const data = target.persistentData
-    const fields = ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.uniques']
+  var inspect = ctx => {
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var data = target.persistentData
+    var fields = ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.uniques']
       .map(k => `${k}=${data.getString(k)}`)
       .concat([`ttl.trial.done=${data.getBoolean('ttl.trial.done')}`, `ttl.trial.passed=${data.getBoolean('ttl.trial.passed')}`])
-    const line = `${target.username}: phase=${life.phase(target)} dim=${life.dimensionOf(target)} ${fields.join(' ')}`
+    var line = `${target.username}: phase=${life.phase(target)} dim=${life.dimensionOf(target)} ${fields.join(' ')}`
     ctx.source.sendSystemMessage(Text.of(line))
     return 1
   }
 
   // Brigadier swallows script errors as "An unexpected error occurred"; log the real cause.
-  const logged = fn => ctx => {
+  var logged = fn => ctx => {
     try {
       return fn(ctx)
     } catch (e) {
@@ -49,10 +55,10 @@ ServerEvents.commandRegistry(event => {
     }
   }
 
-  const reset = ctx => {
-    const server = ctx.source.getServer()
-    const target = Arguments.PLAYER.getResult(ctx, 'target')
-    const name = target.username
+  var reset = ctx => {
+    var server = ctx.source.getServer()
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var name = target.username
     ;['ttl.life1', 'ttl.corridor', 'ttl.life2'].forEach(s => target.stages.remove(s))
     TtlCorridor.KEYS.forEach(k => target.persistentData.remove(k))
     server.runCommandSilent(`tensura reset ${name} race`)

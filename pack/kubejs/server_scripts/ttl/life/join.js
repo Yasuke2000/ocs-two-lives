@@ -1,8 +1,8 @@
 // New players start Life 1 in the Mortal Realm; returning players are put back where their life belongs.
 PlayerEvents.loggedIn(event => {
-  const { player, server } = event
-  const life = TtlLife
-  const phase = life.phase(player)
+  var { player, server } = event
+  var life = TtlLife
+  var phase = life.phase(player)
 
   if (phase === null) {
     player.stages.add('ttl.life1')
@@ -25,21 +25,21 @@ PlayerEvents.loggedIn(event => {
   }
   if (phase === 'corridor') server.scheduleInTicks(40, () => TtlCorridor.voice(server, player.username, 'Your soul is still waiting between lives.'))
   if (phase === 'corridor') server.scheduleInTicks(41, () => {
-    const step = player.persistentData.getString('ttl.step')
+    var step = player.persistentData.getString('ttl.step')
     if (step === 'wish') TtlCorridor.showWishes(server, player)
     if (step === 'race') TtlCorridor.showRaces(server, player)
     if (step === 'unique') TtlCorridor.showUniques(server, player)
   })
 
-  const dim = life.dimensionOf(player)
+  var dim = life.dimensionOf(player)
   if (phase === 'corridor' && dim !== life.CORRIDOR) server.scheduleInTicks(20, () => life.toCorridor(server, player))
   if (phase === 'life1' && !life.isMortal(dim)) server.scheduleInTicks(20, () => life.toMortal(server, player))
 })
 
 // Fallback if a Life 1 death slipped past death.js: the respawn lands in the Corridor anyway.
 PlayerEvents.respawned(event => {
-  const { player, server } = event
-  const phase = TtlLife.phase(player)
+  var { player, server } = event
+  var phase = TtlLife.phase(player)
   if (phase === 'life1' || phase === 'corridor') {
     server.scheduleInTicks(1, () => TtlLife.toCorridor(server, player))
   }

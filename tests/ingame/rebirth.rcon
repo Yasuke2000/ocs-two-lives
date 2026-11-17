@@ -12,7 +12,7 @@ ttl inspect TtlBotRebirth
 execute as TtlBotRebirth run ttl choose slime
 neoforge tps
 ttl inspect TtlBotRebirth
-tensura get ability list TtlBotRebirth
+tensura get ability list skill TtlBotRebirth
 ttl reset TtlBotRebirth
 ttl inspect TtlBotRebirth
 ttlbot remove TtlBotRebirth

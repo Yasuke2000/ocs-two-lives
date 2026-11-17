@@ -1,9 +1,9 @@
 // Builds the Spirit Corridor hall once: a lit quartz floor inside a barrier box, chunks kept loaded
 // so the tp target always exists. Replace with a real build later; the flag stops a rebuild over it.
 ServerEvents.loaded(event => {
-  const server = event.server
+  var server = event.server
   if (server.persistentData.getBoolean('ttl.corridor.built')) return
-  const run = cmd => server.runCommandSilent(`execute in ${TtlLife.CORRIDOR} run ${cmd}`)
+  var run = cmd => server.runCommandSilent(`execute in ${TtlLife.CORRIDOR} run ${cmd}`)
   run('forceload add -12 -12 12 12')
   // forceload takes effect on the next tick; filling before that hits unloaded chunks.
   server.scheduleInTicks(40, () => {

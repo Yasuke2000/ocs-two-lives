@@ -10,21 +10,21 @@ const TtlRegistry = {
   ],
 
   held(server) {
-    const raw = server.persistentData.getString('ttl.reg.held')
+    var raw = server.persistentData.getString('ttl.reg.held')
     return raw ? raw.split(',') : []
   },
 
   // Free uniques from `pool`: not Legendary, not held by anyone.
   available(server, pool) {
-    const held = this.held(server)
-    const legendary = this.LEGENDARY
+    var held = this.held(server)
+    var legendary = this.LEGENDARY
     return pool.filter(id => legendary.indexOf(id) < 0 && held.indexOf(id) < 0)
   },
 
   // Up to n distinct free uniques from `pool`, in random order.
   draw(server, pool, n) {
-    const free = this.available(server, pool)
-    const out = []
+    var free = this.available(server, pool)
+    var out = []
     while (out.length < n && free.length > 0) {
       out.push(free.splice(Math.floor(Math.random() * free.length), 1)[0])
     }
@@ -37,7 +37,7 @@ const TtlRegistry = {
       return false
     }
     server.runCommandSilent(`tensura edit ability grant ${player.username} ${skill}`)
-    const held = this.held(server)
+    var held = this.held(server)
     held.push(skill)
     server.persistentData.putString('ttl.reg.held', held.join(','))
     player.persistentData.putString('ttl.uniques', skill)
@@ -47,9 +47,9 @@ const TtlRegistry = {
 
   revokeAll(server, player) {
     server.runCommandSilent(`tensura reset ${player.username} skill`)
-    const mine = player.persistentData.getString('ttl.uniques')
+    var mine = player.persistentData.getString('ttl.uniques')
     if (mine) {
-      const held = this.held(server).filter(id => id !== mine)
+      var held = this.held(server).filter(id => id !== mine)
       server.persistentData.putString('ttl.reg.held', held.join(','))
       player.persistentData.remove('ttl.uniques')
     }
