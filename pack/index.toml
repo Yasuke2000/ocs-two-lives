@@ -1210,7 +1210,7 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "2acff774939b671640c13055501d70ada63de43f4e1582f5a030971f4ffe5a26"
+hash = "62f624b8ae2a0d6248f2eb932d71af8d0206b9cc57c4682b9be12f7c9ee45cd7"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -1226,7 +1226,7 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "38962cd3b8ec005c10c861bf1a7548c08cd7aff13c153cca87f7f4ee92b1c16f"
+hash = "cb9fdd4017400d654e02e6ec33807faf639fb25ab7111756e45f8e1fc9b43187"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -1265,8 +1265,12 @@ file = "kubejs/server_scripts/ttl/life/wishes.js"
 hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/manas.js"
+hash = "0b57ffb3648edea38cbbb04cae19252647b5ea1294c6954c8f3629af66004470"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "a9faba7937afae8e99e12ae29cf62de0a45658e6dd516986b92bfe8555d21a9c"
+hash = "fbec6e29a8d920b681ff295794c21b29076177964c9877751717d313fd53b3f9"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"

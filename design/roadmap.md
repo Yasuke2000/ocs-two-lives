@@ -11,16 +11,17 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 - [x] Voice of the World through the Great Sage addon (`/greatsage worldvoice`, recorded clips) at every Corridor step
 - [x] Great Sage reincarnation scene as the Life 2 rebirth (ttl-portals opens Tensura's menu with the
       player's offers; no race menu in Life 1)
-- [ ] Decide how the scene's own wishes (up to 3 skills, `ReincarnationGrants.apply`) and our Last Wish
-      combine: keep both, or open the menu race-only (needs an in-game test)
+- [x] The scene's own wishes (up to 3 skills, `ReincarnationGrants.apply`) stay on top of the Last Wish; the registry
+      reconcile records them or swaps an over-cap one for a free unique of the same rarity
 - [ ] Karma v1 + tiers → race offers (`server_scripts/ttl/karma/`)
 - [x] Skill registry v1: rarities + caps in `design/data/skills.toml` (Legendary 3, Rare 3, Common 5),
       duplicates allowed, Legendary never drawn at rebirth, `/ttl grant`, `/ttl registry`
 - [x] Legendaries removed from Tensura's reincarnation pools and Great Sage's wish pool (configs)
-- [ ] Registry reconcile from ManasCore storage (`SkillAPI.getSkillsFrom(p).getLearnedSkills()`, mastery ≥ 0)
-      + veto/notify hooks on `SkillEvents.UNLOCK_SKILL`, `TensuraSkillEvents.SKILL_PLUNDER`, `RaceEvents.SET_RACE`
-      in ttl-portals (design/manas-integration.md §5)
-- [ ] Revoke one skill at a time (`revoke <p> all` also wipes intrinsics/resistances)
+- [x] Registry reconcile from ManasCore storage (`SkillAPI.getSkillsFrom(p).getLearnedSkills()`, mastery ≥ 0)
+      (`manas.js`, `/ttl reconcile`)
+- [ ] Veto hooks on `SkillEvents.UNLOCK_SKILL`, `TensuraSkillEvents.SKILL_PLUNDER` in ttl-portals (instant instead of
+      within 5 min; design/manas-integration.md §5)
+- [x] Revoke one skill at a time (`revoke <p> all` also wipes intrinsics/resistances)
 - [x] `/bug <text>` with full player/server state; saved on the server, GitHub issue once the token exists
 - [ ] Discord alerts (crash, TPS, deploy, tests) — needs the Discord webhook secret
 - [ ] Daily off-site backups (restic CronJob) — needs a backup target
@@ -35,7 +36,7 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 - [x] Local mod build + release (`mod/gradlew`, `tools/release_mod.py`), no Actions for mod builds
 - [x] Auto-deploy + tests from `main` on the homelab (`ttl-ops`, only while nobody is online), GitHub commit status "ttl staging"
 - [x] `CONTRIBUTING.md`, issue/PR templates, labels, `docs/server.md`
-- [ ] Branch protection on `main` (PR + validate required)
+- [x] Branch protection on `main` (PR + validate required, owner bypass)
 - [ ] Collaborators: Lancelot Boden (already added); others' GitHub + Minecraft names
 
 ## Sprint 2 — building and visuals

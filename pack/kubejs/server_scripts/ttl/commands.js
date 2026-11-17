@@ -1,6 +1,7 @@
 // Players:  /ttl menu (reopen choices) · /ttl wish <id> · /ttl trial · /ttl answer <word> · /ttl choose <race> · /ttl unique <skill> · /ttl status
 // Ops:      /ttl inspect <player> (answers over RCON) · /ttl reset <player> (back to a fresh Life 1)
 //           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
+//           /ttl reconcile <player> (match the registry to the uniques they really hold; also runs every 5 min)
 //           /ttl grant <player> <skill> (through the registry, caps apply)
 //           /ttl build <name> (place blueprints/<name>.py with its corner at your feet)
 //           /ttl spawn (where Life 1 starts: Wayfarer's Rest in the Mortal Realm)
@@ -148,6 +149,15 @@ ServerEvents.commandRegistry(event => {
         var name = word(ctx, 'name')
         ctx.source.getServer().runCommandSilent(`execute as ${player.username} at @s run place template ttl:${name} ~ ~ ~`)
         console.info(`[ttl] ${player.username} placed blueprint ${name}`)
+        return 1
+      }))))
+    .then(Commands.literal('reconcile')
+      .requires(src => src.hasPermission(2))
+      .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(ctx => {
+        var target = Arguments.PLAYER.getResult(ctx, 'target')
+        TtlRegistry.reconcile(ctx.source.getServer(), target)
+        var held = String(target.persistentData.getString('ttl.uniques'))
+        ctx.source.sendSystemMessage(Text.of(`${target.username} holds: ${held || 'no uniques'}`))
         return 1
       }))))
     .then(Commands.literal('spawn')

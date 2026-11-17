@@ -1,0 +1,30 @@
+# Uniques gained outside the registry (as the Great Sage scene's wishes are). Expect:
+# - berserker (Rare, cap 3) via the registry for A, B, C; D gets it straight from Tensura → reconcile takes it
+#   back and D holds another Rare instead ("TtlBotRecD holds: tensura:<some other rare>").
+# - E gets seeker (Common) straight from Tensura → reconcile records it ("TtlBotRecE holds: tensura:seeker").
+# - `ttl registry` lists berserker 3/3 and seeker 1/5.
+ttlbot spawn TtlBotRecA
+ttlbot spawn TtlBotRecB
+ttlbot spawn TtlBotRecC
+ttlbot spawn TtlBotRecD
+ttlbot spawn TtlBotRecE
+@sleep 4
+ttl grant TtlBotRecA berserker
+ttl grant TtlBotRecB berserker
+ttl grant TtlBotRecC berserker
+tensura edit ability grant TtlBotRecD tensura:berserker
+tensura edit ability grant TtlBotRecE tensura:seeker
+ttl reconcile TtlBotRecD
+ttl reconcile TtlBotRecE
+ttl registry
+ttl reset TtlBotRecA
+ttl reset TtlBotRecB
+ttl reset TtlBotRecC
+ttl reset TtlBotRecD
+ttl reset TtlBotRecE
+ttl registry
+ttlbot remove TtlBotRecA
+ttlbot remove TtlBotRecB
+ttlbot remove TtlBotRecC
+ttlbot remove TtlBotRecD
+ttlbot remove TtlBotRecE

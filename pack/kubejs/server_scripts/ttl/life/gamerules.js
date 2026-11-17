@@ -5,7 +5,8 @@ ServerEvents.loaded(event => {
   event.server.runCommandSilent('gamerule trulyUnique false')
   // The Great Sage addon's reincarnation scene plays over Tensura's reincarnation menu, which ttl-portals
   // only opens for the Life 2 rebirth (Life 1 never gets the menu). noUniqueStart stops Tensura's own
-  // unique, but the scene's wishes still grant skills (design/manas-integration.md §3.1); Legendaries
-  // are kept out of its pool by pack/config/greatsage-common.toml (reincarnationExcludedSkills).
+  // unique, but the scene's wishes still grant skills (design/manas-integration.md §3.1), on purpose:
+  // registry.js reconciles them against the caps. Legendaries are kept out of its pool by
+  // pack/config/greatsage-common.toml (reincarnationExcludedSkills).
   event.server.runCommandSilent('gamerule sageReincarnation true')
 })

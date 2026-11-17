@@ -262,6 +262,8 @@ const TtlCorridor = {
     TtlLife.toOverworld(server, player)
     this.say(server, name, 'tensei_kanryou')
     server.scheduleInTicks(60, () => this.say(server, name, 'me_o_akete'))
+    // The Great Sage scene grants its own wishes as the menu closes; record them (or take back what breaks a cap).
+    server.scheduleInTicks(100, () => TtlRegistry.reconcile(server, player))
     server.runCommandSilent(`tellraw @a ${JSON.stringify([
       { text: '[Voice of the World] ', color: 'gold' },
       { text: `${name} has been reborn as a ${this.title(race)}.`, color: 'yellow' }
