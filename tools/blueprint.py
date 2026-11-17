@@ -30,6 +30,21 @@ def parse_state(state: str) -> tuple[str, dict]:
     return m.group(1), props
 
 
+def from_structure(name: str, path: Path) -> "Blueprint":
+    """Load a vanilla structure file (what /ttlcapture and structure blocks save) as a Blueprint."""
+    import nbt
+    root = nbt.read_gzip(path)
+    states = []
+    for entry in root["palette"]:
+        props = entry.get("Properties") or {}
+        states.append(entry["Name"] + ("[" + ",".join(f"{k}={v}" for k, v in sorted(props.items())) + "]" if props else ""))
+    bp = Blueprint(name, tuple(root["size"]))
+    for block in root["blocks"]:
+        x, y, z = block["pos"]
+        bp.blocks[(x, y, z)] = states[block["state"]]
+    return bp
+
+
 def from_schem(name: str, path: Path) -> "Blueprint":
     """Load a WorldEdit Sponge schematic (v2 or v3, what `//schem save` writes) as a Blueprint.
 

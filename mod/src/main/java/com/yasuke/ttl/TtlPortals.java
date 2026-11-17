@@ -1,6 +1,7 @@
 package com.yasuke.ttl;
 
 import com.yasuke.ttl.bot.TestBots;
+import com.yasuke.ttl.build.Capture;
 import com.yasuke.ttl.rebirth.Rebirth;
 import com.yasuke.ttl.rebirth.RebirthOffersPayload;
 import com.yasuke.ttl.report.BugReports;
@@ -18,6 +19,7 @@ public final class TtlPortals {
         modBus.addListener(RebirthOffersPayload::register);
         NeoForge.EVENT_BUS.addListener(Rebirth::registerCommands);
         NeoForge.EVENT_BUS.addListener(BugReports::registerCommands);
+        NeoForge.EVENT_BUS.addListener(Capture::registerCommands);
         NeoForge.EVENT_BUS.addListener(TestBots::registerCommands);
         NeoForge.EVENT_BUS.addListener(TestBots::onChangedDimension);
         NeoForge.EVENT_BUS.addListener(TestBots::onServerTick);

@@ -45,6 +45,8 @@ case "${1:-}" in
   reload)  rcon "reload" ;;
   # Staging shortcut for KubeJS-only edits: copy pack/kubejs into the server and /reload (seconds).
   # The next restart installs git's version again, so push the change too.
+  # Place a structure from the pack anywhere, no player needed: place <name> <dimension> <x> <y> <z>
+  place) rcon "execute in ${3:?dimension} run place template ttl:${2:?name} ${4:?x} ${5:?y} ${6:?z}" ;;
   push-scripts)
     pod=$(k get pods -l app=mc -o name | head -1 | cut -d/ -f2)
     tar -C "$(dirname "$0")/../pack" -cf - kubejs | if [ -n "${TTL_IN_CLUSTER:-}" ]; then
@@ -93,5 +95,5 @@ case "${1:-}" in
     echo "$fails failing"
     [ "$fails" -eq 0 ] ;;
   who) humans ;;
-  *) echo "usage: server.sh status|logs [n]|follow|restart|deploy [--force]|rcon \"<cmd>\"|reload|push-scripts|test <name>|test-all|who" >&2; exit 2 ;;
+  *) echo "usage: server.sh status|logs [n]|follow|restart|deploy [--force]|rcon \"<cmd>\"|reload|push-scripts|place <name> <dim> <x> <y> <z>|test <name>|test-all|who" >&2; exit 2 ;;
 esac
