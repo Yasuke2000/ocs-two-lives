@@ -1082,7 +1082,7 @@ hash = "499d188162ddcf7fcf450cdcdc96bd41ac582501ecad5ed4a74dd9ed6b01990a"
 
 [[files]]
 file = "config/tombstone-common.toml"
-hash = "dca75933aa25e6c95878bc12c43d900fc55dc9a197a1be42f6ae7a1f9ba5e35e"
+hash = "bacdb96c17382c19ef24cbc5c7e9bdc5cc26e0e9622cf98588791966be39eb44"
 
 [[files]]
 file = "config/tombstone-server.toml"
