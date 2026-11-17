@@ -39,6 +39,7 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 
 ## Sprint 2 — building and visuals
 - [x] `blueprints/` DSL (`tools/blueprint.py`) → `tools/build_structures.py` → structure .nbt + isometric/top previews (`docs/previews/`), stdlib only; `/ttl build <name>`
+- [x] Capture any world region back into a blueprint without a player: `/ttlcapture` (mod 0.7.0) + `tools/capture.py`; place anywhere with `server.sh place` (proven: place → capture → 3605/3605 identical)
 - [x] WorldEdit round trip: WorldEdit 7.3.8 in the pack, `//schem save` → `tools/import_schem.py` → `blueprints/<name>.schem` → structure + previews (Sponge v2/v3 reader, stdlib)
 - [ ] `tools/pixelize.py` (AI concept → 16×16 / 64×64), review gallery
 - [ ] Custom screens/title screen in the Great Sage visual style
