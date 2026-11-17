@@ -4,6 +4,8 @@ ttlbot spawn TtlBotPro
 kill TtlBotPro
 execute as TtlBotPro run ttl wish protection
 execute as TtlBotPro run ttl trial
+# The bot stands still and can't fight back: keep it alive so the test checks the trial, not the bot.
+effect give TtlBotPro minecraft:resistance 200 255 true
 @sleep 3
 ttl inspect TtlBotPro
 effect give @e[tag=ttl_ward] minecraft:resistance 120 255 true

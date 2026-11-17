@@ -4,6 +4,8 @@ ttlbot spawn TtlBotStr
 kill TtlBotStr
 execute as TtlBotStr run ttl wish strength
 execute as TtlBotStr run ttl trial
+# The bot stands still and can't fight back: keep it alive so the test checks the trial, not the bot.
+effect give TtlBotStr minecraft:resistance 200 255 true
 @sleep 3
 ttl inspect TtlBotStr
 @sleep 3
