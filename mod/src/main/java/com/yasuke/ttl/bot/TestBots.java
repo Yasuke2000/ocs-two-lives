@@ -58,10 +58,14 @@ public final class TestBots {
     /**
      * A real player's doTick runs from its packet listener, which only ticks for connections the server
      * owns. Bots run it here, so timers, effects, hunger, fire and spawn protection work as for a person.
+     * Tensura's ReincarnationMenu makes a new player invulnerable until the client closes the race menu,
+     * which a bot never does, so bots drop that flag every tick.
      */
     public static void onServerTick(ServerTickEvent.Post event) {
         for (ServerPlayer player : event.getServer().getPlayerList().getPlayers()) {
-            if (isBot(player)) player.doTick();
+            if (!isBot(player)) continue;
+            if (player.isInvulnerable()) player.setInvulnerable(false);
+            player.doTick();
         }
     }
 
