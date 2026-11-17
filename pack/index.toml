@@ -1174,7 +1174,7 @@ hash = "070c8b33bb22f5c9671976f4d4de2442467eceafc62639b02a9330aa21911cb4"
 
 [[files]]
 file = "kubejs/data/ttl/structure/trial_dominion.nbt"
-hash = "e04a452dc87d6008397105affd9edaa6a583670c78bb05e2c17cb02bbe822c43"
+hash = "f9c26d1ad0d4cbaf8304bc9fd3f3c5f195e28bccf93afd4b021d958ff3b4445a"
 
 [[files]]
 file = "kubejs/data/ttl/structure/trial_freedom.nbt"
@@ -1258,7 +1258,7 @@ hash = "3cd98457a57f3ab34d89b40e8c852c742c26a6057d51e7d0473ba9084a088300"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial_defs.js"
-hash = "fce0c6155ff31fc12d72ab67315d4a8d7ea7942d8466eccc667b9d176d5149aa"
+hash = "cee4a39aa7e804261276f34abcbcc2234236b5279a247537dafe4df149a9f361"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"

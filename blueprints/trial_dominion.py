@@ -24,3 +24,17 @@ def build(bp):
     # A lookout for the one who rules them.
     bp.fill(3, 1, 26, 6, 3, 29, "minecraft:dark_oak_planks")
     bp.fill(3, 4, 26, 6, 4, 29, "minecraft:dark_oak_slab[type=bottom]")
+    # Shade trees, hay and flowers, clear of the herd's start, the path and the pen.
+    for dx, dz in ((11, -9), (1, 12)):
+        x, z = at(dx, dz)
+        bp.disc(x, 4, z, 2.5, "minecraft:oak_leaves[persistent=true]")
+        bp.disc(x, 5, z, 1.5, "minecraft:oak_leaves[persistent=true]")
+        bp.set(x, 6, z, "minecraft:oak_leaves[persistent=true]")
+        bp.pillar(x, z, 1, 5, "minecraft:oak_log[axis=y]")
+    for dx, dz in ((4, -13), (5, -13), (-13, 4)):
+        x, z = at(dx, dz)
+        bp.set(x, 1, z, "minecraft:hay_block[axis=x]")
+    flowers = ["minecraft:dandelion", "minecraft:poppy", "minecraft:oxeye_daisy", "minecraft:azure_bluet"]
+    for i, (dx, dz) in enumerate(((3, -4), (4, -5), (-3, 9), (6, 2), (-12, 1), (12, 3), (-4, -2), (9, -3))):
+        x, z = at(dx, dz)
+        bp.set(x, 1, z, flowers[i % len(flowers)])

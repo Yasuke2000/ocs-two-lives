@@ -32,9 +32,10 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 ## Collaboration (coworkers can see and change everything)
 - [x] All server mod configs in `pack/config/` (283 files, client-only excluded) + `docs/configs.md` index
 - [x] ManasCore/Tensura/addon integration guide (`design/manas-integration.md`)
-- [ ] Local mod build + release (`mod/gradlew`, `tools/release_mod.py`), no Actions for mod builds
-- [ ] Auto-deploy + tests from `main` on the homelab (`ttl-ops`), GitHub commit status — needs the token
-- [ ] `CONTRIBUTING.md`, issue/PR templates, labels, branch protection, `docs/server.md`
+- [x] Local mod build + release (`mod/gradlew`, `tools/release_mod.py`), no Actions for mod builds
+- [x] Auto-deploy + tests from `main` on the homelab (`ttl-ops`, only while nobody is online), GitHub commit status "ttl staging"
+- [x] `CONTRIBUTING.md`, issue/PR templates, labels, `docs/server.md`
+- [ ] Branch protection on `main` (PR + validate required)
 - [ ] Collaborators: Lancelot Boden (already added); others' GitHub + Minecraft names
 
 ## Sprint 2 — building and visuals
@@ -44,7 +45,9 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 - [ ] `tools/pixelize.py` (AI concept → 16×16 / 64×64), review gallery
 - [ ] Custom screens/title screen in the Great Sage visual style
 - [x] Corridor hall v2 as a blueprint (`blueprints/spirit_corridor_hall.py`)
-- [ ] Real builds: Trial arenas (bump `ARENA_VERSION`), Mortal Realm spawn
+- [x] Real builds: the ten Trial arenas (`blueprints/trial_*.py`, shared `_arena.py`, `ARENA_VERSION` 2) and
+      Wayfarer's Rest, the Mortal Realm spawn (`blueprints/mortal_spawn.py`, `life/mortal_spawn.js`, `/ttl spawn`)
+- [x] Build gallery `docs/previews/README.md`, generated with the previews
 
 ## Sprint 3 — content
 - [ ] Mortal Realm filters (`ttl:mortal_banned`), Iron Tyrant boss, quest generator + chapters 0–1

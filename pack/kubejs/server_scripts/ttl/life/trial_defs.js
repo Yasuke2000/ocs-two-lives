@@ -10,7 +10,7 @@
 // entity tags/isAlive); mob deaths are counted, never hooked (EntityEvents.death skips mobs here).
 const TtlTrials = {
   ORDER: ['strength', 'vengeance', 'protection', 'knowledge', 'hunger', 'freedom', 'deceit', 'creation', 'dominion', 'survival'],
-  ARENA_VERSION: 2,
+  ARENA_VERSION: 3,
 
   origin(wish) {
     return { x: 1000 + 100 * this.ORDER.indexOf(wish), y: 64, z: 0 }
