@@ -7,7 +7,7 @@
 // Without a passed trial the unique is drawn at random from the wish's pool.
 const TtlCorridor = {
   KEYS: ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.trial.done', 'ttl.trial.passed',
-    'ttl.trial.token', 'ttl.trial.wave', 'ttl.trial.q', 'ttl.trial.correct', 'ttl.trial.strikes'],
+    'ttl.trial.token', 'ttl.trial.ready', 'ttl.trial.wave', 'ttl.trial.q', 'ttl.trial.correct', 'ttl.trial.strikes'],
 
   title(id) {
     var path = String(id).replace(/^.*:/, '')

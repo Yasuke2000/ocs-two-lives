@@ -42,7 +42,7 @@ hash = "1336c660acdbbf45d795651882fe740da983c99c3e4e9d9c887df615c7d55bd1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "64d2aa49752f02b0d44347824657b432bfcf1f1253bc54f402be045f4857e9bf"
+hash = "71d2569dd24ed22e7dd86ddc65da23dba7092bf3cd03fe6f0063b283a43a3c85"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -66,11 +66,11 @@ hash = "3dbdc117a82becdb392add7c80cfdad7a2cfb9d75095b996a347cb1f030c1eb3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
-hash = "57ce007ff0c649b876ff6e29f6bac49892dfe49c924f3e514fca19706ad8786c"
+hash = "79c8607a9bf845127e9838fd02f904b48c77864a97344b77e1eaabbc9888ad88"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial_defs.js"
-hash = "1782892003e6d89ccdc5dd3e63165059c8485a563575c19d46c8d0fc40e8047c"
+hash = "e461775bf934c90d2a999cc924686d5c7875bd03ce3b7c46e21cd76484a7576c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"

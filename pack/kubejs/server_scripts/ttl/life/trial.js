@@ -68,6 +68,7 @@ const TtlTrial = {
     var token = String(Date.now())
     server.persistentData.putString(this.lockKey(wish), name)
     data.putString('ttl.trial.token', token)
+    data.putBoolean('ttl.trial.ready', false)
     data.putString('ttl.step', 'trial')
 
     var o = TtlTrials.origin(wish)
@@ -90,6 +91,7 @@ const TtlTrial = {
       } catch (e) {
         console.error(`[ttl] trial ${wish} setup failed for ${name}: ${e}`)
       }
+      data.putBoolean('ttl.trial.ready', true)
     })
     this.watch(server, name, wish, token, 0)
     return null
@@ -112,7 +114,9 @@ const TtlTrial = {
       }
       var result = null
       try {
-        result = d.tick ? d.tick(this.context(server, player, wish, elapsed)) : null
+        // Checks like "is the ward alive" are meaningless before setup has summoned anything.
+        var ready = player.persistentData.getBoolean('ttl.trial.ready')
+        result = ready && d.tick ? d.tick(this.context(server, player, wish, elapsed)) : null
       } catch (e) {
         console.error(`[ttl] trial ${wish} tick failed for ${name}: ${e}`)
       }

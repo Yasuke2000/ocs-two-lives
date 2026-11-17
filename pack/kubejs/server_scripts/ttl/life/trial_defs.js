@@ -57,7 +57,6 @@ const TtlTrials = {
       },
       tick(ctx) {
         var wave = ctx.data.getInt('ttl.trial.wave')
-        if (ctx.seconds < 3) return null
         if (wave >= 0 && TtlTrials.count(ctx, 'ttl_trial') > 0) return null
         if (wave + 1 >= this.WAVES.length) return 'pass'
         var spots = [[10, 10], [-10, 10], [10, -2], [-10, -2], [0, 12]]
