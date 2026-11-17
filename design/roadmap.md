@@ -26,7 +26,10 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 - [x] Discord alerts (crash, server down/up, deploy, tests) from ttl-ops; TPS alerts still to do
 - [ ] Daily off-site backups (restic CronJob) — needs a backup target
 - [ ] Chunky + DH re-test on the existing world, then pregenerate
-- [ ] Voice of the World NPC in the hall (Easy NPC)
+- [x] Voice of the World NPC in the hall: a glowing allay (not Easy NPC: a vanilla entity kept by `life/voice_npc.js`,
+      right-click handled in ttl-portals `guide/VoiceNpc.java` → `/ttl talk`: the current Corridor step, else the guide)
+- [x] Guide pop-up for new players in the Great Sage style (ttl-portals `guide/`, text in `design/data/guide.toml`):
+      `/ttl guide`, once on the first join, on the first arrival in the Corridor and at the start of Life 2
 - [x] Trial knobs in `design/data/trials.toml` (limits, gear, waves, questions, radii, counts)
 - [ ] Singleplayer check (owner, needs a client)
 
@@ -44,7 +47,7 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 - [x] Capture any world region back into a blueprint without a player: `/ttlcapture` (mod 0.7.0) + `tools/capture.py`; place anywhere with `server.sh place` (proven: place → capture → 3605/3605 identical)
 - [x] WorldEdit round trip: WorldEdit 7.3.8 in the pack, `//schem save` → `tools/import_schem.py` → `blueprints/<name>.schem` → structure + previews (Sponge v2/v3 reader, stdlib)
 - [ ] `tools/pixelize.py` (AI concept → 16×16 / 64×64), review gallery
-- [ ] Custom screens/title screen in the Great Sage visual style
+- [ ] Custom screens/title screen in the Great Sage visual style (first one done: the guide, `guide/client/GuideScreen.java`)
 - [x] Corridor hall v2 as a blueprint (`blueprints/spirit_corridor_hall.py`)
 - [x] Real builds: the ten Trial arenas (`blueprints/trial_*.py`, shared `_arena.py`, `ARENA_VERSION` 2) and
       Wayfarer's Rest, the Mortal Realm spawn (`blueprints/mortal_spawn.py`, `life/mortal_spawn.js`, `/ttl spawn`)

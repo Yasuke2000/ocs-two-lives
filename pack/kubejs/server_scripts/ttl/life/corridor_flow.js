@@ -81,8 +81,12 @@ const TtlCorridor = {
     // Karma v1: the world judges the life that ended (karma/view.js), then asks for the last wish.
     server.scheduleInTicks(100, () => TtlKarmaView.judge(server, player))
     server.scheduleInTicks(150, () => this.say(server, name, 'saigo_no_negai'))
-    // The Life screen opens once the death lines have played; its button leads on to the wish menu.
-    server.scheduleInTicks(160, () => { if (String(data.getString('ttl.step')) === 'wish') TtlKarmaView.showLife(server, player) })
+    // The Life screen opens once the death lines have played; its button leads on to the wish menu. On the
+    // first death the short Corridor guide (guide.js) comes first and opens the Life screen when it is closed.
+    server.scheduleInTicks(160, () => {
+      if (String(data.getString('ttl.step')) !== 'wish') return
+      if (!TtlGuide.once(server, player, 'corridor', 'ttl life')) TtlKarmaView.showLife(server, player)
+    })
   },
 
   // A screen opened while the client is still loading the new dimension gets closed by the loading
@@ -270,6 +274,8 @@ const TtlCorridor = {
     TtlLife.toOverworld(server, player)
     this.say(server, name, 'tensei_kanryou')
     server.scheduleInTicks(60, () => this.say(server, name, 'me_o_akete'))
+    // The first Life 2 opens with a short guide (guide.js); it waits on the client until the ceremony has closed.
+    server.scheduleInTicks(120, () => TtlGuide.once(server, player, 'life2', ''))
     // The Great Sage scene grants its own wishes as the menu closes; record them (or take back what breaks a cap).
     server.scheduleInTicks(100, () => TtlRegistry.reconcile(server, player))
     server.runCommandSilent(`tellraw @a ${JSON.stringify([
@@ -277,5 +283,6 @@ const TtlCorridor = {
       { text: `${name} has been reborn as a ${this.title(race)}.`, color: 'yellow' }
     ])}`)
     console.info(`[ttl] ${name} reborn as ${race} with ${skill || 'no unique'}`)
+    TtlDiscord.reborn(server, name, this.title(race))
   }
 }

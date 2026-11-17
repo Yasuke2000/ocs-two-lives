@@ -26,6 +26,18 @@ def check_skills(skills: dict) -> None:
             seen[skill] = rarity
 
 
+def check_guide(guide: dict) -> None:
+    # life/guide.js opens these sets by name; the guide screen needs a title and a body on every page.
+    for name in ("main", "corridor", "life2"):
+        pages = guide.get(name)
+        if not isinstance(pages, list) or not pages:
+            raise SystemExit(f"guide.toml: [[{name}]] pages missing")
+    for name, pages in guide.items():
+        for i, page in enumerate(pages, 1):
+            if not str(page.get("title", "")).strip() or not str(page.get("body", "")).strip():
+                raise SystemExit(f"guide.toml: {name} page {i} needs a title and a body")
+
+
 def render() -> str:
     data = {}
     for path in sorted(SOURCES.glob("*.toml")):
@@ -33,6 +45,8 @@ def render() -> str:
             data[path.stem] = tomllib.load(f)
     if "skills" in data:
         check_skills(data["skills"])
+    if "guide" in data:
+        check_guide(data["guide"])
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     return (
         "// priority: 200\n"

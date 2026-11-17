@@ -1,0 +1,19 @@
+# Quest book (design/quests/*.toml → tools/gen_quests.py → pack/config/ftbquests/quests/) and the Life 1 extras
+# in kubejs/server_scripts/ttl/quests/. `ttl quests ...` prints "ttl: ..." on any failure, which
+# `server.sh test-all` counts as a failure.
+# Expect in the log: no "[ttl] quests" errors; the bot hears "One day and one night." once.
+# 1. Every generated chapter and quest is loaded by FTB Quests.
+ttl quests check
+# 2. A fresh Life 1 gets the Wayfarer's Primer and no backlog of whispers.
+ttlbot spawn TtlBotQuests
+@sleep 8
+ttl quests tick TtlBotQuests
+ttl quests expect TtlBotQuests primer yes
+# 3. Surviving the first day earns exactly one whisper.
+ttl karma TtlBotQuests set play_time 24000
+ttl quests tick TtlBotQuests
+ttl quests expect TtlBotQuests said day1
+# 4. FTB Quests accepts the bot: complete and reset the first quest ("Only Once", id from generated/quests.js).
+ftbquests change_progress TtlBotQuests complete D0382544FBB449E8
+ftbquests change_progress TtlBotQuests reset D0382544FBB449E8
+ttlbot remove TtlBotQuests

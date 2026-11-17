@@ -14,6 +14,8 @@ PlayerEvents.loggedIn(event => {
       life.toMortal(server, player)
       TtlCorridor.say(server, player.username, 'hajimari')
       player.tell(Text.gold('You are human, and you only live once here. Die, and your soul moves on.'))
+      // The guide (guide.js) once the start line has played; the client holds it until the world has loaded.
+      server.scheduleInTicks(80, () => TtlGuide.once(server, player, 'main', ''))
     })
     console.info(`[ttl] ${player.username} started Life 1`)
     return

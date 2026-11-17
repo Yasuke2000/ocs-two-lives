@@ -1,30 +1,38 @@
-"""The Armed Nation of Dwargon: the dwarf kingdom inside a pale sandstone mountain.
+"""The Armed Nation of Dwargon: the dwarf kingdom in a great cavern inside a pale sandstone mountain.
 
-SIZE (112, 76, 124); the gate faces south (+z). The mountain is part of the build (a rough, stepped
-sandstone and terracotta massif with grass on its lower terraces and two spurs flanking the gate), so it
-sits on any hill; outside the mountain and the approach the corners are left empty and terrain stays.
-A dirt road runs north from the south edge (z 123) into a ravine to the white gate wall (back z 88,
-front face z 91, towers out to z 95 and up to y 29, yellow banners with the red emblem). Gate opening:
-x 53-59, y 4-11 (arch to y 13). Arrival point: blueprint (56, 4, 104) on the road, facing north.
-A tunnel (z 78-90) leads into the cavern city: floor blocks at y 3 (you walk at y 4), cavern z 14-84,
-vault up to y 43 with a canyon-like skylight crack over the main street. South street (z 68-82) of
-stone and timber houses (2-4 storeys, lit windows, shop signs), lamps strung across the street, homes
-with balconies carved into the cavern walls, a round plaza (centre 56, 54) with a cogwheel fountain and
-market stalls, a forge hall (west) and a Create workshop (east), the forge street (z 34-43), then a
-great stair to the royal terrace (floor y 7) and King Gazel's hall (z 16-27) with the throne. Chimneys
-smoke (campfires on hay). Every spawnable spot inside has block light (checked when this builds).
+Lore notes and sources: design/lore/dwargon.md. SIZE (148, 92, 168), saved as three z slabs dwargon_0..2
+(z 0-55, 56-111, 112-167; PARTS) placed side by side by life/dwargon.js. The gate faces south (+z). The
+mountain is part of the build (stepped sandstone/terracotta massif, grass on its lower terraces, two spurs
+flanking the gate); outside the mountain and the approach the corners are left empty and terrain stays.
+Grounding: outputs() writes generated/dwargon_footprint.js (lowest block per column, open-sky columns),
+which dwargon.js uses to fill the ground under the build and clear hills off the road (see there).
+Outer road: from the south edge (z 167) past a checkpoint arch (z 160) and a road tower with a banner
+(z 148-152, west), then fenced queue lanes for the gate inspection (z 114-125) between two guard booths, to
+the white gate wall (back z 104, front face z 107, towers out to z 111 and up to y 29, yellow banners with
+the red emblem). Gate opening x 71-77, y 4-11 (arch to y 13). Arrival point: blueprint (74, 4, 120) on the
+road, facing north. A tunnel (z 94-106) leads into the cavern city: floor blocks at y 3 (you walk at y 4),
+cavern z 14-100, about 44 wide on the streets and 63 at the plaza, vault up to y 53 with a canyon-like
+skylight crack over the main street. Levels: the street (y 4), the royal terrace (y 8), wall homes on
+balconies at y 18, 24 and 32 reached by ladders up stone props from the back alleys behind the houses, and
+plank bridges hung on chains across the canyon street at y 24 linking facing homes. South street (z 68-94)
+of stone and timber houses (2-4 storeys, lit windows, shop signs) including the Night Butterflies cabaret
+(pink, west, z 83), lamps strung across the street; a round plaza (centre 74, 54, radius 17) with a
+cogwheel fountain and twelve market stalls, a forge hall (west) and a Create workshop (east); the forge
+street (z 34-43) with Kaijin's smithy (west, z 34); then a great stair to the royal terrace (floor y 7) and
+King Gazel's hall (z 16-27) with the throne. Chimneys smoke (campfires on hay). Every spawnable spot inside
+has block light (checked when this builds).
 """
 import math
 
 from _dwargon_lib import AIR, dark_spots, fbm2, noise2, noise3, rnd
 
-SIZE = (112, 76, 124)
+SIZE = (148, 92, 168)
 SX, SY, SZ = SIZE
 G = 3           # ground / city floor layer
-CX = 56         # street centre line (x)
+CX = 74         # street centre line (x)
 PLAZA_Z = 54    # plaza centre (z)
-CAV_N, CAV_S = 14, 84
-GATE_Z = 88     # back of the gate wall (front face at GATE_Z + 3)
+CAV_N, CAV_S = 14, 100
+GATE_Z = 104    # back of the gate wall (front face at GATE_Z + 3)
 
 
 def M(name: str) -> str:
@@ -34,30 +42,30 @@ def M(name: str) -> str:
 # --- the mountain -----------------------------------------------------------------------------------
 def heights() -> dict:
     """Top layer of the mountain per column: a rounded massif, steeper to north and south, terraced."""
-    cx, cz, hx, hz, r = 55.5, 52.0, 50.0, 48.0, 34.0
+    cx, cz, hx, hz, r = CX - 0.5, 60.0, 66.0, 56.0, 38.0
     H = {}
     for x in range(SX):
         for z in range(SZ):
             qx, qz = abs(x - cx) - (hx - r), abs(z - cz) - (hz - r)
             out = math.hypot(max(qx, 0), max(qz, 0)) + min(max(qx, qz), 0) - r
             t = -out + (fbm2(x, z, 18, 1) - 0.5) * 16
-            t = min(t, x + 0.5, SX - 0.5 - x, z + 0.5, 101 - z)  # stay inside the box, clear of the road
+            t = min(t, x + 0.5, SX - 0.5 - x, z + 0.5, GATE_Z + 13 - z)  # stay inside the box, clear of the road
             if t <= 0:
                 continue
-            slope = 1.5 + 1.3 * fbm2(x, z, 20, 2) + 2.2 * min(1.0, abs(z - cz) / 46) ** 2
-            ridge = math.exp(-((x - CX) / 32) ** 2)  # highest along the city's axis
-            cap = 30 + 30 * ridge + 26 * (fbm2(x, z, 24, 3) - 0.4)
+            slope = 1.5 + 1.3 * fbm2(x, z, 20, 2) + 2.2 * min(1.0, abs(z - cz) / 54) ** 2
+            ridge = math.exp(-((x - CX) / 42) ** 2)  # highest along the city's axis
+            cap = 38 + 38 * ridge + 28 * (fbm2(x, z, 24, 3) - 0.4)
             raw = min(cap, t * slope)
             top = G + 3 * math.floor(raw / 3 + 0.45 * noise2(x, z, 6, 4))
             if top > G:
                 H[(x, z)] = min(top, SY - 2)
     # Two rocky spurs reaching south on either side of the gate, so it sits deep in a ravine.
-    for xs in (CX - 33, CX + 33):
-        for x in range(xs - 16, xs + 17):
-            for z in range(78, 114):
+    for xs in (CX - 40, CX + 40):
+        for x in range(xs - 20, xs + 21):
+            for z in range(GATE_Z - 10, GATE_Z + 26):
                 if not 0 <= x < SX:
                     continue
-                bump = 40 * math.exp(-((x - xs) / 8) ** 2 - ((z - 90) / 10) ** 2) * (0.75 + 0.5 * noise2(x, z, 5, 5))
+                bump = 48 * math.exp(-((x - xs) / 10) ** 2 - ((z - GATE_Z - 2) / 11) ** 2) * (0.75 + 0.5 * noise2(x, z, 5, 5))
                 top = G + 3 * math.floor(bump / 3 + 0.45 * noise2(x, z, 6, 4))
                 if top > H.get((x, z), G):
                     H[(x, z)] = top
@@ -65,17 +73,17 @@ def heights() -> dict:
 
 
 def cav_top(z: float) -> float:
-    return 40.0 if z >= 40 else 40 - (40 - z) * 0.55
+    return 50.0 if z >= 40 else 50 - (40 - z) * 0.7
 
 
 def cav_base(z: float) -> float:
     e = min(z - CAV_N, CAV_S - z)
     if e < 0:
         return -1
-    base = 17.0
+    base = 22.0
     dz = z - PLAZA_Z
     if abs(dz) < 18:
-        base = max(base, math.sqrt(324 - dz * dz) * 1.35)
+        base = max(base, math.sqrt(324 - dz * dz) * 1.75)
     if e < 6:
         base *= math.sqrt(1 - ((6 - e) / 6.5) ** 2)
     return base
@@ -99,11 +107,11 @@ def cave_set(H: dict) -> set:
     """Cavern, entrance tunnel and the skylight crack above the street and plaza."""
     out = set()
     for z in range(CAV_N, CAV_S + 1):
-        for h in range(1, 44):
+        for h in range(1, 54):
             hw, he = cav_half(z, h, 0), cav_half(z, h, 1)
             if hw < 0 and he < 0:
                 continue
-            for x in range(CX - 30, CX + 31):
+            for x in range(CX - 44, CX + 45):
                 dx = x - CX
                 if (dx <= 0 and -dx <= hw) or (dx > 0 and dx <= he):
                     out.add((x, G + h, z))
@@ -114,9 +122,9 @@ def cave_set(H: dict) -> set:
                 out.add((x, G + h, z))
     for (x, z), top in H.items():
         crack = False
-        if 26 <= z <= 80:
+        if 26 <= z <= CAV_S - 4:
             mid = CX + (noise2(0, z, 12, 50) - 0.5) * 4
-            crack = abs(x - mid) <= 7 + 6 * noise2(1, z, 7, 51)
+            crack = abs(x - mid) <= 8 + 7 * noise2(1, z, 7, 51)
         if math.hypot(x - CX, z - PLAZA_Z) <= 16 + 4 * (noise2(x, z, 4, 52) - 0.5):
             crack = True
         if crack:
@@ -129,7 +137,7 @@ def in_cleft(x: int, y: int, z: int) -> bool:
     start = GATE_Z if y <= G + 21 else GATE_Z - int(noise2(x, y, 4, 61) * 3)
     if z < start:
         return False
-    hw = 21 + max(0, z - GATE_Z) * 0.5 + (y - G) * 0.22 + (noise2(y, z, 5, 60) - 0.5) * 3
+    hw = 24 + max(0, z - GATE_Z) * 0.5 + (y - G) * 0.22 + (noise2(y, z, 5, 60) - 0.5) * 3
     return abs(x - CX) <= hw
 
 
@@ -158,6 +166,8 @@ class City:
         self.bp = bp
         self.rock: set = set()      # natural mountain blocks (re-texturable, glow-replaceable)
         self.outside: set = set()   # open-air spots outside (normal terrain rules, not light-checked)
+        self.homes: dict = {}       # (west, z0, y0) -> facade distance of each wall dwelling
+        self.ladders = 0
 
     def put(self, x, y, z, state):
         self.bp.set(x, y, z, state)
@@ -247,7 +257,7 @@ def floor_mat(x, z) -> str:
 # --- the approach and the gate -------------------------------------------------------------------
 def approach(c: City, H: dict):
     bp = c.bp
-    for x in range(CX - 34, CX + 35):
+    for x in range(CX - 44, CX + 45):
         for z in range(GATE_Z, SZ):
             mountain = (x, z) in H
             open_floor = mountain and bp.blocks.get((x, G + 1, z)) == AIR
@@ -259,7 +269,7 @@ def approach(c: City, H: dict):
             v = noise2(x, z, 4, 70)
             bp.set(x, G, z, M("coarse_dirt") if v < 0.18 else M("grass_block"))
             c.rock.discard((x, G, z))
-            top = max(G + 8, H.get((x, z), 0))
+            top = max(G + 16, H.get((x, z), 0))
             for y in range(G + 1, min(top, SY - 1) + 1):
                 if (x, y, z) not in bp.blocks or not mountain:
                     bp.set(x, y, z, AIR)
@@ -272,14 +282,14 @@ def approach(c: City, H: dict):
                     bp.set(x, G + 1, z, [M("poppy"), M("dandelion"), M("cornflower"), M("oxeye_daisy")][int(r * 100) % 4])
     # Road from the south edge to the gate, with an apron in front of the gate.
     for z in range(GATE_Z + 3, SZ):
-        mid = CX if z < 100 else CX + round((noise2(0, z, 10, 72) - 0.5) * 4)
+        mid = CX if z < GATE_Z + 12 else CX + round((noise2(0, z, 10, 72) - 0.5) * 4)
         for x in range(mid - 3, mid + 4):
             edge = abs(x - mid) == 3
             if edge and rnd(x, G, z, 73) < 0.5:
                 continue
             bp.set(x, G, z, M("coarse_dirt") if edge else M("dirt_path"))
             bp.set(x, G + 1, z, AIR)
-        if z % 9 == 4 and z > 98:  # lamp posts along the road, alternating sides
+        if z % 9 == 4 and z > GATE_Z + 10:  # lamp posts along the road, alternating sides
             px = mid - 5 if (z // 9) % 2 else mid + 5
             bp.set(px, G, z, M("cobblestone"))
             for y in range(G + 1, G + 4):
@@ -290,14 +300,16 @@ def approach(c: City, H: dict):
             bp.set(x, G, z, M("polished_andesite") if (x + z) % 2 else M("stone_bricks"))
             bp.set(x, G + 1, z, AIR)
     # A few boulders and bushes beside the road.
-    for i, (bx, bz) in enumerate(((CX - 14, 106), (CX + 15, 111), (CX - 22, 117), (CX + 9, 120), (CX - 9, 99))):
+    for i, (bx, bz) in enumerate(((CX - 14, GATE_Z + 18), (CX + 15, GATE_Z + 23), (CX - 22, GATE_Z + 29), (CX + 9, GATE_Z + 32), (CX - 9, GATE_Z + 11),
+                                     (CX + 24, GATE_Z + 41), (CX - 30, GATE_Z + 47), (CX + 12, GATE_Z + 58))):
         if (bx, bz) in H:
             continue
         for dx in (0, 1):
             for dz in (0, 1):
                 bp.set(bx + dx, G + 1, bz + dz, M("sandstone") if (dx + dz + i) % 3 else M("stone"))
         bp.set(bx, G + 2, bz, M("smooth_sandstone"))
-    for i, (bx, bz) in enumerate(((CX - 18, 101), (CX + 20, 104), (CX + 13, 117), (CX - 27, 110), (CX + 26, 119))):
+    for i, (bx, bz) in enumerate(((CX - 18, GATE_Z + 13), (CX + 20, GATE_Z + 16), (CX + 13, GATE_Z + 29), (CX - 27, GATE_Z + 22), (CX + 26, GATE_Z + 31),
+                                     (CX - 16, GATE_Z + 39), (CX + 32, GATE_Z + 52), (CX - 24, GATE_Z + 58), (CX + 18, GATE_Z + 45))):
         if (bx, bz) in H:
             continue
         for dx, dz, dy in ((0, 0, 1), (1, 0, 1), (0, 1, 1), (-1, 0, 1), (0, -1, 1), (0, 0, 2)):
@@ -409,6 +421,9 @@ STYLES = [
          roof="spruce", door="dark_oak_door", pane="orange_stained_glass_pane"),
     dict(base="tuff_bricks", infill="white_terracotta", post="dark_oak_log", beam="stripped_dark_oak_log",
          roof="mud_brick", door="spruce_door", pane="yellow_stained_glass_pane"),
+    # The elf cabaret (Night Butterflies): plastered front, pink and purple light.
+    dict(base="polished_deepslate", infill="pink_terracotta", post="stripped_cherry_log", beam="cherry_log",
+         roof="deepslate_tile", door="cherry_door", pane="magenta_stained_glass_pane"),
 ]
 
 
@@ -498,19 +513,12 @@ def house(c: City, west: bool, z0: int, w: int, storeys: int, style: int, chimne
             c.put(X(d - 2), y, cz, M("bricks"))
         c.put(X(d - 2), ytop - 1, cz, M("hay_block[axis=y]"))
         c.put(X(d - 2), ytop, cz, M("campfire[facing=north,lit=true,signal_fire=true]"))
-    # Close any gap between the house and the cavern wall.
-    for u in range(d, d + 12):
-        for z in range(z0 - 1, z1 + 2):
-            for y in range(G + 1, top + w // 2 + 2):
-                if c.air(X(u), y, z):
-                    c.put(X(u), y, z, cave_mat(X(u), y, z))
-                    c.rock.add((X(u), y, z))
 
 
 def dwellings(c: City):
     """Homes carved into the cavern walls above the street: a facade, a lit room, a balcony on a bracket."""
-    spots = [(z0, y0) for z0 in range(31, 80, 7) for y0 in (G + 20, G + 27)]
-    spots += [(z0, G + 14) for z0 in (40, 64)]
+    spots = [(z0, y0) for z0 in range(31, CAV_S - 4, 7) for y0 in (G + 20, G + 28)]
+    spots += [(z0, G + 14) for z0 in (40, 64, 78, 92)]
     for west in (True, False):
         sgn = -1 if west else 1
         for i, (z0, y0) in enumerate(spots):
@@ -520,15 +528,15 @@ def dwellings(c: City):
             for z in range(z0, z1 + 1):
                 for y in range(y0, y0 + 5):
                     d = 0
-                    while d < 30 and c.air(CX + sgn * d, y, z):
+                    while d < 46 and c.air(CX + sgn * d, y, z):
                         d += 1
-                    if d >= 30 or (CX + sgn * d, y, z) not in c.rock:
+                    if d >= 46 or (CX + sgn * d, y, z) not in c.rock:
                         near = -1
                         break
                     near = d if near is None else min(near, d)
                 if near == -1:
                     break
-            if near is None or near < 9:
+            if near is None or near < 17:
                 continue
 
             def X(u):
@@ -566,6 +574,21 @@ def dwellings(c: City):
                 c.put(X(-1), y0 + 3, z1, M(f"dark_oak_wall_hanging_sign[facing=north]"))
             for p in [(X(u), y, z) for u in range(0, 6) for y in range(y0, y0 + 5) for z in range(z0, z1 + 1)]:
                 c.rock.discard(p)
+            c.homes[(west, z0, y0)] = near
+            # A ladder up a stone-brick prop from the back alley, beside the balcony.
+            for zl, zin in ((z0 - 1, z0), (z1 + 1, z1)):
+                xs, xp = X(-2), X(-1)
+                floor = c.get(xs, G, zl)
+                if floor in (None, AIR) or not all(c.air(xs, y, zl) for y in range(G + 1, y0 + 2)):
+                    continue
+                for y in range(G + 1, y0 + 2):
+                    if c.air(xp, y, zl):
+                        c.put(xp, y, zl, M("stone_bricks"))
+                        c.rock.discard((xp, y, zl))
+                    c.put(xs, y, zl, M(f"ladder[facing={out}]"))
+                c.put(xs, y0 + 1, zin, AIR)
+                c.ladders += 1
+                break
 
 
 def lamp_post(c: City, x, z, height=3):
@@ -607,25 +630,27 @@ def string_lights(c: City, z, y, drops=(-4, 0, 4)):
 def streets(c: City):
     # South street (gate to plaza) and the forge street (plaza to the royal terrace).
     rows = [
-        (True, [(68, 5, 3, 0, True, True), (73, 5, 4, 1, False, True), (78, 5, 2, 2, True, False)]),
-        (False, [(68, 4, 3, 3, False, True), (72, 6, 4, 0, True, False), (78, 5, 3, 1, False, True)]),
+        (True, [(68, 5, 3, 0, True, True), (73, 5, 4, 1, False, True), (78, 5, 2, 2, True, False),
+                (83, 6, 3, 4, True, True), (89, 5, 4, 3, False, True)]),
+        (False, [(68, 4, 3, 3, False, True), (72, 6, 4, 0, True, False), (78, 5, 3, 1, False, True),
+                 (83, 5, 2, 2, True, True), (88, 6, 3, 0, True, False)]),
         (True, [(34, 5, 3, 2, True, True), (39, 5, 2, 3, True, False)]),
         (False, [(34, 5, 2, 1, True, True), (39, 5, 3, 2, False, True)]),
     ]
     for west, houses in rows:
         for z0, w, storeys, style, chim, sign in houses:
             house(c, west, z0, w, storeys, style, chimney=chim, sign=sign)
-    for z in range(36, 84, 6):
+    for z in range(36, CAV_S - 2, 6):
         lamp_post(c, CX - 5 if z % 12 else CX + 5, z)
-    for z in (37, 42, 70, 76, 81):
+    for z in (37, 42, 67, 71, 80, 84, 92):
         string_lights(c, z, G + 21 if z > 60 else G + 19)
 
 
 def plaza(c: City):
-    for x in range(CX - 13, CX + 14):
-        for z in range(PLAZA_Z - 13, PLAZA_Z + 14):
+    for x in range(CX - 17, CX + 18):
+        for z in range(PLAZA_Z - 17, PLAZA_Z + 18):
             d = math.hypot(x - CX, z - PLAZA_Z)
-            if d > 13.3 or not c.air(x, G + 1, z):
+            if d > 17.3 or not c.air(x, G + 1, z):
                 continue
             ring = int(d) % 4
             state = M("chiseled_stone_bricks") if ring == 0 and d > 4 else M("stone_bricks") if ring == 2 else M("polished_andesite")
@@ -646,11 +671,13 @@ def plaza(c: City):
     c.put(CX, G + 8, PLAZA_Z, "create:shaft[axis=y]")
     for x, z in c.bp.around(CX, PLAZA_Z, 6, 4, start_deg=45):
         lamp_post(c, x, z)
-    for x, z in c.bp.around(CX, PLAZA_Z, 12, 8, start_deg=22.5):
+    for x, z in c.bp.around(CX, PLAZA_Z, 15, 10, start_deg=18):
         lamp_post(c, x, z, 4)
     # Market stalls.
-    awnings = [("red_wool", "white_wool"), ("yellow_wool", "red_wool"), ("blue_wool", "white_wool"), ("green_wool", "yellow_wool")]
-    for i, (sx, sz) in enumerate(c.bp.around(CX, PLAZA_Z, 9, 4, start_deg=0)):
+    awnings = [("red_wool", "white_wool"), ("yellow_wool", "red_wool"), ("blue_wool", "white_wool"),
+               ("green_wool", "yellow_wool"), ("orange_wool", "white_wool"), ("purple_wool", "yellow_wool")] * 2
+    stalls = list(c.bp.around(CX, PLAZA_Z, 9, 4, start_deg=0)) + list(c.bp.around(CX, PLAZA_Z, 12, 8, start_deg=22.5))
+    for i, (sx, sz) in enumerate(stalls):
         for dx in (-1, 0, 1):
             for dz in (-1, 0, 1):
                 if abs(dx) == 1 and abs(dz) == 1:
@@ -660,13 +687,13 @@ def plaza(c: City):
         c.put(sx, G + 1, sz, M("barrel[facing=up]"))
         c.put(sx + (1 if i % 2 else 0), G + 1, sz + (0 if i % 2 else 1), M("composter") if i % 2 else M("barrel[facing=up]"))
     # Lamps hanging from the vault around the skylight.
-    for x, z in c.bp.around(CX, PLAZA_Z, 15, 8, start_deg=0):
-        hang(c, x, z, G + 16)
+    for x, z in c.bp.around(CX, PLAZA_Z, 19, 12, start_deg=0):
+        hang(c, x, z, G + 18)
 
 
 def forge_hall(c: City):
     """West of the plaza: an open-fronted forge with three smoking chimneys and cogs on its face."""
-    x1, x2, z1, z2 = CX - 23, CX - 11, PLAZA_Z - 8, PLAZA_Z + 8
+    x1, x2, z1, z2 = CX - 28, CX - 16, PLAZA_Z - 8, PLAZA_Z + 8
     wall, trim = M("polished_blackstone_bricks"), M("stone_bricks")
     for x in range(x1, x2 + 1):
         for z in range(z1, z2 + 1):
@@ -713,7 +740,7 @@ def forge_hall(c: City):
 
 def workshop(c: City):
     """East of the plaza: the engineers' workshop, all casings, shafts and cogwheels."""
-    x1, x2, z1, z2 = CX + 11, CX + 23, PLAZA_Z - 8, PLAZA_Z + 8
+    x1, x2, z1, z2 = CX + 16, CX + 28, PLAZA_Z - 8, PLAZA_Z + 8
     for x in range(x1, x2 + 1):
         for z in range(z1, z2 + 1):
             c.put(x, G, z, M("polished_andesite"))
@@ -770,7 +797,7 @@ def royal(c: City):
     """The royal terrace and King Gazel's hall at the back of the cavern."""
     TZ = 29          # front edge of the terrace
     T = G + 4        # terrace floor layer
-    for x in range(CX - 30, CX + 31):
+    for x in range(CX - 44, CX + 45):
         for z in range(CAV_N, TZ + 1):
             if not c.air(x, G + 1, z):
                 continue
@@ -874,6 +901,101 @@ def tunnel(c: City):
             c.put(x, G, z, M("polished_andesite") if abs(x - CX) < 3 else M("stone_bricks"))
 
 
+def road_mid(z: int) -> int:
+    return CX if z < GATE_Z + 12 else CX + round((noise2(0, z, 10, 72) - 0.5) * 4)
+
+
+def kaijin_smithy(c: City):
+    """Kaijin's smithy: the first house of the forge street (west), its ground floor a working forge."""
+    X = lambda u: CX - 8 - u
+    c.put(X(2), G + 1, 35, M("anvil[facing=north]"))
+    c.put(X(2), G + 1, 37, M("lava_cauldron"))
+    c.put(X(5), G + 1, 37, M("blast_furnace[facing=east,lit=true]"))
+    c.put(X(4), G + 1, 35, M("smithing_table"))
+    c.put(X(-1), G + 3, 35, M("dark_oak_wall_hanging_sign[facing=north]"))
+    c.put(X(-1), G + 1, 37, M("barrel[facing=up]"))
+    c.put(X(-1), G + 1, 35, M("grindstone[face=floor,facing=east]"))
+
+
+def bridges(c: City):
+    """Plank bridges across the canyon street, hung on chains, linking facing wall homes at G + 20."""
+    n = 0
+    for (west, z0, y0), near in sorted(c.homes.items()):
+        if not west or y0 != G + 20 or (z0 - 31) // 7 % 2 or (False, z0, y0) not in c.homes:
+            continue
+        xw, xe = CX - near + 2, CX + c.homes[(False, z0, y0)] - 2
+        zm = z0 + 2
+        for x in range(xw + 1, xe):
+            for z in (zm - 1, zm, zm + 1):
+                if c.air(x, y0, z):
+                    c.put(x, y0, z, M("spruce_slab[type=top]"))
+            for z in (zm - 1, zm + 1):
+                if c.air(x, y0 + 1, z):
+                    c.put(x, y0 + 1, z, M("spruce_fence"))
+            if (x - xw) % 7 == 3:
+                for z in (zm - 1, zm + 1):
+                    hang(c, x, z, y0 + 2, lantern=False)
+        for x in (xw, xe):
+            c.put(x, y0 + 1, zm, AIR)
+        n += 1
+    c.bridges = n
+
+
+def outpost(c: City):
+    """The outer road: travellers queue in fenced lanes for the gate inspection, guard booths, a road
+    tower with a banner and a checkpoint arch where the road leaves the mountain."""
+    for z in range(GATE_Z + 10, GATE_Z + 22):  # queue lanes: in (west) and out (east)
+        c.put(CX, G + 1, z, M("spruce_fence"))
+        if z % 4 == 0:
+            c.put(CX, G + 2, z, M("lantern[hanging=false]"))
+    for sgn in (-1, 1):  # inspection booths beside the apron
+        bx = CX + sgn * 8
+        for x in (bx, bx + sgn, bx + 2 * sgn):
+            for z in range(GATE_Z + 11, GATE_Z + 14):
+                for y in range(G + 1, G + 4):
+                    edge = x == bx + 2 * sgn or z in (GATE_Z + 11, GATE_Z + 13)
+                    c.put(x, y, z, M("stone_bricks") if edge else AIR)
+                c.put(x, G + 4, z, M("stone_brick_slab[type=bottom]"))
+        c.put(bx + sgn, G + 1, GATE_Z + 12, M("lectern[facing=" + ("east" if sgn < 0 else "west") + "]"))
+        c.put(bx + sgn, G + 3, GATE_Z + 12, M("lantern[hanging=true]"))
+    # Road tower, west of the road.
+    gz = GATE_Z + 44
+    mid = road_mid(gz + 2)
+    x1, x2 = mid - 11, mid - 7
+    for x in range(x1, x2 + 1):
+        for z in range(gz, gz + 5):
+            c.put(x, G, z, M("stone_bricks"))
+            for y in range(G + 1, G + 13):
+                edge = x in (x1, x2) or z in (gz, gz + 4)
+                corner = x in (x1, x2) and z in (gz, gz + 4)
+                state = M("polished_andesite") if corner else M("stone_bricks") if edge else AIR
+                c.put(x, y, z, M("stone_bricks") if y == G + 12 else state)
+            if (x in (x1, x2) or z in (gz, gz + 4)) and (x + z) % 2 == 0:
+                c.put(x, G + 13, z, M("stone_brick_wall"))
+    for y in (G + 1, G + 2):
+        c.put(x2, y, gz + 2, AIR)
+    for y in range(G + 1, G + 13):
+        c.put(x1 + 1, y, gz + 2, M("ladder[facing=east]"))
+    c.put(x1 + 2, G + 3, gz + 1, M("lantern[hanging=true]"))
+    for x, z in ((x1, gz), (x2, gz + 4), (x1, gz + 4), (x2, gz)):
+        c.put(x, G + 14, z, M("lantern[hanging=false]"))
+    for y in range(G + 6, G + 10, 3):
+        c.put(x2, y, gz + 2, M("black_stained_glass_pane"))
+    banner(c, lambda i, r: (x2 + 1, G + 11 - r, gz + 1 + i), 3, 7, "z")
+    # Checkpoint arch over the road.
+    cz = GATE_Z + 56
+    mid = road_mid(cz)
+    for x in (mid - 5, mid + 5):
+        for y in range(G + 1, G + 9):
+            c.put(x, y, cz, M("stone_bricks") if y < G + 8 else M("chiseled_stone_bricks"))
+        c.put(x, G + 11, cz, M("lantern[hanging=false]"))
+    for x in range(mid - 5, mid + 6):
+        c.put(x, G + 9, cz, M("polished_andesite"))
+        if x % 2 == 0:
+            c.put(x, G + 10, cz, M("stone_brick_wall"))
+    banner(c, lambda i, r: (mid - 2 + i, G + 8 - r, cz), 5, 5, "x")
+
+
 def light_city(c: City):
     """Place glowing stones (in rock) or lanterns until no spawnable spot in the city is dark."""
     bp = c.bp
@@ -904,10 +1026,25 @@ def build(bp):
     tunnel(c)
     royal(c)
     streets(c)
+    kaijin_smithy(c)
     plaza(c)
     forge_hall(c)
     workshop(c)
     dwellings(c)
+    bridges(c)
+    outpost(c)
     light_city(c)
+    bp.stats = dict(homes=len(c.homes), ladders=c.ladders, bridges=c.bridges)
     if c.breaches:
         print(f"dwargon: warning, {c.breaches} cavern blocks break the mountain surface")
+
+
+ARRIVAL = (CX, G + 1, GATE_Z + 16)
+PARTS = [0, 56, 112]  # z offsets of the slabs dwargon_0..2 (each a separate structure file)
+
+
+def outputs(bp) -> dict:
+    from _dwargon_footprint import footprint
+    probes = [(road_mid(z) + dx, z) for z in range(GATE_Z + 6, SZ - 1, 4) for dx in (-8, 0, 8)]
+    text = footprint(bp, probes, ARRIVAL, PARTS)
+    return {"pack/kubejs/server_scripts/ttl/generated/dwargon_footprint.js": text}

@@ -9,4 +9,8 @@ ServerEvents.loaded(event => {
   // registry.js reconciles them against the caps. Legendaries are kept out of its pool by
   // pack/config/greatsage-common.toml (reincarnationExcludedSkills).
   event.server.runCommandSilent('gamerule sageReincarnation true')
+  // Tensura's own Life 2 resets (Reset Counter: bosses, evolution, awakening): each reset earns a bonus unique,
+  // and skills are locked per reset (owner's choice). Bonus uniques still pass the registry reconcile (caps).
+  event.server.runCommandSilent('gamerule resetCounterBonusUnique 1')
+  event.server.runCommandSilent('gamerule resetPerSkillLock 1')
 })

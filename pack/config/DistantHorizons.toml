@@ -974,11 +974,14 @@ _version = 5
 	#
 	# Maximum per-player speed for uploading LODs to the clients, in KB/s.
 	# Value of 0 disables the limit.
-	playerBandwidthLimit = 500
+	# OCS: 150 KB/s (was 500). LOD bursts of ~5 Mbit/s saturated the home upload: playit measured 6.7% loss
+	# from the server to the tunnel. LODs arrive slower, gameplay packets stop dropping.
+	playerBandwidthLimit = 150
 	#
 	# Maximum global speed for uploading LODs to the clients, in KB/s.
 	# Value of 0 disables the limit.
-	globalBandwidthLimit = 0
+	# OCS: 400 KB/s (~3.2 Mbit/s) for everyone together (was unlimited), for the same reason.
+	globalBandwidthLimit = 400
 	#
 	# Enables adaptive transfer speed based on client performance.
 	# If true, DH will automatically adjust transfer rate to minimize connection lag.

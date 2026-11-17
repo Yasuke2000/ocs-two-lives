@@ -17,6 +17,7 @@ CURATED = {
     "tombstone-common.toml": "No graves in the Mortal dimensions and the Spirit Corridor",
     "DistantHorizons.toml": "Chat warnings and the auto-updater off",
     "enhancedcelestials2core/translations.json": "Translation prompt off",
+    "simple-discord-link/simple-discord-link.toml": "Discord bot: token and channel from `${CFG_...}` env placeholders, tellraw relay off, test bots filtered",
 }
 
 

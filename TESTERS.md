@@ -41,6 +41,14 @@ Alles staat dan al juist: de Minecraft-versie, NeoForge, het geheugen, de mod-in
 
 Staat hij er niet? Klik **Add Server** en vul als adres `molecule-threefold.tun.ply.gg` in, zonder poortnummer.
 
+## Nieuw op de server?
+
+Bij je eerste login opent er vanzelf een **gids**: hoe je twee levens werken, wat karma is en welke commando's je nodig hebt. Blader met **Next** en **Previous** (of de pijltjestoetsen) en sluit met **Close**. Later nog eens lezen? Typ `/ttl guide`.
+
+- `/ttl life` toont je karma en wat het volgende niveau vraagt.
+- `/ttl menu` opent je keuze in de Spirit Corridor opnieuw. Je kan daar ook rechtsklikken op de **Voice of the World**, de gloeiende geest in de hal.
+- `/bug <wat er gebeurde>` stuurt meteen een melding naar de ontwikkelaars.
+
 ## Hoe het spel werkt (testversie)
 
 1. **Leven 1:** je start als gewone mens in de **Mortal Realm**, een wereld zonder Tensura-monsters en zonder skills. Je hebt maar één leven.

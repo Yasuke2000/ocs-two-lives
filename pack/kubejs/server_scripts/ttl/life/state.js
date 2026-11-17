@@ -45,7 +45,14 @@ const TtlLife = {
     server.runCommandSilent(`execute in ${this.CORRIDOR} run tp ${player.username} 0.5 65 0.5 0 0`)
   },
 
+  // Life 2 begins on Tempest's green, facing its signpost (life/tempest.js stores the arrival point); before
+  // Tempest is placed, spread around the world spawn instead.
   toOverworld(server, player) {
+    var arrival = String(server.persistentData.getString('ttl.tempest.arrival'))
+    if (arrival) {
+      server.runCommandSilent(`execute in ${this.OVERWORLD} run tp ${player.username} ${arrival} 180 0`)
+      return
+    }
     var x = 0
     var z = 0
     try {

@@ -49,3 +49,88 @@ Restore (David, Longhorn UI → Backup):
 4. Scale back to 1, re-enable auto-sync, check `tools/server.sh logs`.
 Only part of the world broken (one dimension)? Restore just that folder (`world-ttl/dimensions/<ns>/<id>` or
 the overworld's `region`) from the restored volume; everything else stays.
+
+## Discord bot
+
+The bot is the server-side mod **Simple Discord Link** (`sdlink` 3.4.5 + CraterLib, config
+`pack/config/simple-discord-link/simple-discord-link.toml`). It runs inside the Minecraft server, so there is
+no separate bot service. What it does in `#minecraft`:
+
+| Feature | How |
+|---|---|
+| Chat bridge | game chat → `#minecraft`; Discord messages show in game as `[Discord] name: text` |
+| Game events | joins, leaves, deaths and advancements (these two follow the `showDeathMessages` / `announceAdvancements` gamerules), server online / offline |
+| Story events | `pack/kubejs/server_scripts/ttl/discord.js`: Life 1 death ("X died in their first life"), rebirth ("X was reborn as a Slime"), Legend verdicts, kills of `major` bosses from `design/data/karma.toml` |
+| Status | bot status "N/15 souls in the world", channel topic, slash commands `/playerlist`, `/status`, `/help` |
+| Account linking (optional) | in game `/discordverify` gives a code; in Discord `/verify <code>` (or DM the code to the bot) |
+
+Test bots (`TtlBot…`) never reach Discord. A Life 1 death shows twice on purpose: the normal death line
+(what killed you) and the story line. Scripts post with `TtlDiscord.post(server, text)`; without the mod or a
+token every post is silently dropped.
+
+### Creating the bot (once)
+
+The token is the bot's password. It never goes into git, an issue, a PR or a Discord channel: whoever creates
+the bot sends it to David privately, and David puts it into the Kubernetes secret. Leaked? Reset it (step 3)
+and update the secret.
+
+1. <https://discord.com/developers/applications> → **New Application**. Name it e.g. "Voice of the World"
+   (no "Discord" in the name, Discord refuses that for bots).
+2. **Installation**: untick *User Install*, keep *Guild Install*, *Install Link* = None.
+3. **Bot**: **Reset Token** → copy the token (shown once). Untick **Public Bot**. Under *Privileged Gateway
+   Intents* enable **MESSAGE CONTENT INTENT** (reading chat) and **SERVER MEMBERS INTENT** (account linking).
+4. **OAuth2 → URL Generator**: scopes **bot** and **applications.commands**; bot permissions **View Channels**,
+   **Send Messages**, **Send Messages in Threads**, **Embed Links**, **Attach Files**, **Read Message History**,
+   **Add Reactions**, **Use External Emojis**, **Manage Channels** (only for the automatic channel topic) and
+   **Manage Webhooks** (only needed if webhook mode is turned on later; it is off). Open the generated URL,
+   pick our Discord server, **Authorize**. (sdlink also prints a ready-made invite link at the top of the server
+   log once it has a token.)
+5. In Discord create the text channel **#minecraft** and make sure the bot's role can see it, send messages and
+   manage it (topic).
+6. Discord **User Settings → Advanced → Developer Mode** on; right-click **#minecraft → Copy Channel ID**.
+
+### Putting it on the server (David)
+
+The config ships placeholders that the itzg image fills in from the environment on every start, after the
+packwiz install (`REPLACE_ENV_VARIABLES`); sdlink then encrypts the token in the server's copy.
+
+| Placeholder | Env var | Comes from |
+|---|---|---|
+| `botConfig.botToken` | `CFG_DISCORD_TOKEN` | secret `discord-bot`, key `token` (exists; the bot is the application "MInecraft server") |
+| `channelsAndWebhooks.channels.chatChannelID` | `CFG_DISCORD_CHANNEL` | the `#minecraft` channel ID (step 6), a plain value in the Deployment; not secret |
+
+The secret also holds `application-id`; sdlink does not need it. (The secret named `discord` is the ttl-ops
+webhook, unrelated.) Env for the `mc` container in the Homelab repo (`apps/ocs-two-lives/`):
+
+```yaml
+- name: REPLACE_ENV_VARIABLES
+  value: "TRUE"
+- name: REPLACE_ENV_PATHS          # only scan the configs, not the whole world folder
+  value: /data/config
+- name: CFG_DISCORD_TOKEN
+  valueFrom: { secretKeyRef: { name: discord-bot, key: token } }
+- name: CFG_DISCORD_CHANNEL
+  value: "<#minecraft channel ID>" # "0" until #minecraft exists: the bot logs in but posts nowhere
+```
+
+Check: `tools/server.sh logs | grep -i -E "sdlink|discord"` shows the bot logging in, and "The server is
+online." appears in `#minecraft`.
+
+**The placeholders are used up on the first start**: sdlink rewrites the server's copy (encrypted token,
+channel ID filled in), so a later change of either env var does nothing on its own. After changing the token
+or the channel ID, or when the server started with sdlink before the env existed ("Failed to connect to
+discord" in the log), delete the server's copy and restart; packwiz puts the template back and the image
+fills it in again:
+
+```sh
+k3s kubectl -n ocs-two-lives exec deploy/mc -- rm /data/config/simple-discord-link/simple-discord-link.toml
+tools/server.sh restart
+```
+
+### Options (config PR, no secret needed)
+
+- Separate channel for events: put its ID in `channelsAndWebhooks.channels.eventsChannelID` (`"0"` = `#minecraft`).
+- In-game `/discord` invite command: set `botConfig.invite.inviteLink`.
+- Linking required for everyone (Discord-based whitelist): `accessControl.enabled = true`. Everyone, staff
+  included, must then `/discordverify` before they can play; test that the `TtlBot` test players still join.
+- Run Minecraft commands from Discord: `[minecraftCommands]`, off.

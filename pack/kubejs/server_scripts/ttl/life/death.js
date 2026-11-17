@@ -36,6 +36,7 @@ EntityEvents.death('minecraft:player', event => {
   player.stages.remove('ttl.life1')
   player.stages.add('ttl.corridor')
   console.info(`[ttl] ${player.username} died in Life 1 (${String(event.source)})`)
+  TtlDiscord.life1Death(server, player.username)
 
   server.scheduleInTicks(1, () => {
     var name = player.username

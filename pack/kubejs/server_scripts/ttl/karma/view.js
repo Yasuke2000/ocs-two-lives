@@ -81,6 +81,7 @@ const TtlKarmaView = {
         { text: '[Voice of the World] ', color: 'gold' },
         { text: `The soul of ${name} enters the Spirit Corridor, judged ${this.title(v)}.`, color: 'yellow' }
       ])}`)
+      TtlDiscord.legend(server, name, this.title(v))
     }
   },
 

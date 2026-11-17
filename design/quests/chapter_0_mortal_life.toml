@@ -1,0 +1,583 @@
+# Chapter 0 — A Mortal Life (Life 1, the Mortal Realm). Generated into FTB Quests by tools/gen_quests.py.
+# Format and rules: design/quests.md. Edit, then `python tools/gen_quests.py` and commit the generated files.
+#
+# Life 1 has NO Tensura content: only minecraft: items in tasks and rewards (the generator refuses others),
+# rewards stay modest (food, torches, a few useful items, XP). Every quest says in `karma` how the deed
+# counts for the next life (design/data/karma.toml is the source of truth; keep these lines in step with it).
+# Vanilla advancements that test a dimension (enter_the_nether, enter_the_end) never fire in ttl:mortal_*;
+# use `dimension` tasks for those. Structure, kill, item, stat and most advancements work everywhere.
+#
+# Layout: `lane` is the row (negative = above the main line); the column is the deepest dependency + 1
+# unless `col` is given. Two quests on the same spot is an error.
+
+[chapter]
+key = "mortal_life"
+title = "A Mortal Life"
+subtitle = "You only live once here. What you do decides who you become."
+icon = "minecraft:clock"
+order = 0
+life = 1
+text = """
+Every player lives twice. This is the first life: a plain human in the Mortal Realm.
+When you die, the Voice of the World judges what you did. Your karma decides which races
+and skills are offered to your soul in the Tensura world.
+"""
+
+# ---- Main line: from the first night to the Mortal End --------------------------------------------------
+
+[[quests]]
+key = "only_once"
+title = "Only Once"
+subtitle = "Wayfarer's Rest"
+icon = "minecraft:totem_of_undying"
+lane = 0
+col = 0
+shape = "gear"
+size = 1.5
+text = """
+You wake at Wayfarer's Rest, a human like any other. There is no respawn in this realm:
+the first death ends this life, and your soul moves on to the Spirit Corridor.
+Nothing you carry survives that crossing. What survives is what you did.
+"""
+karma = "Every deed in this book feeds one of six karma axes: Valor, Order, Craft, Faith, Longevity, and the dark one, Chaos. Ask the Voice with /ttl guide."
+tasks = [{ type = "stage", stage = "ttl.life1" }]
+rewards = [{ type = "item", item = "minecraft:bread", count = 4 }]
+
+[[quests]]
+key = "stone_age"
+title = "Wood and Stone"
+icon = "minecraft:stone_pickaxe"
+deps = ["only_once"]
+lane = 0
+text = "Punch a tree, make a crafting table, and trade your wooden tools for stone ones before night falls."
+karma = "Small steps, but every advancement you earn in Life 1 adds Faith karma."
+tasks = [{ type = "item", item = "minecraft:stone_pickaxe" }]
+rewards = [{ type = "item", item = "minecraft:torch", count = 16 }]
+
+[[quests]]
+key = "first_night"
+title = "The First Night"
+icon = "minecraft:red_bed"
+deps = ["stone_age"]
+lane = 0
+text = """
+Survive one full day and night (20 minutes of play).
+Dig in, wall up, light it up. The dark is where most first lives end.
+"""
+karma = "Longevity: every day survived counts. A soul needs at least 2 days to be judged a Survivor, 7 for a Hero, 30 for a Legend."
+tasks = [{ type = "stat", stat = "minecraft:play_time", value = 24000, title = "Survive 1 day" }]
+rewards = [{ type = "item", item = "minecraft:cooked_beef", count = 6 }, { type = "xp", xp = 25 }]
+
+[[quests]]
+key = "shelter"
+title = "A Roof and a Bed"
+icon = "minecraft:white_bed"
+deps = ["first_night"]
+lane = 1
+text = "Sleep in a bed. It sets nothing here (there is no respawn), but skipping the night is the safest way to live long."
+karma = "Longevity grows with time alive, not with time awake: nights you skip are nights you survive."
+tasks = [{ type = "advancement", advancement = "minecraft:adventure/sleep_in_bed" }]
+rewards = [{ type = "item", item = "minecraft:lantern", count = 2 }]
+
+[[quests]]
+key = "iron_age"
+title = "Iron Age"
+icon = "minecraft:iron_pickaxe"
+deps = ["first_night"]
+lane = 0
+text = "Smelt iron and make an iron pickaxe. Now diamonds, and the Nether, are within reach."
+karma = "Craft: mining diamonds and ancient debris, smithing and anvil work all add Craft karma."
+tasks = [{ type = "item", item = "minecraft:iron_pickaxe" }]
+rewards = [{ type = "item", item = "minecraft:iron_ingot", count = 4 }, { type = "xp", xp = 30 }]
+
+[[quests]]
+key = "village"
+title = "People of the Realm"
+icon = "minecraft:bell"
+deps = ["iron_age"]
+lane = 2
+text = "Find a village. Its people are the only other mortals here besides your fellow players."
+karma = "Order rises when you help them (trade, defend, breed their animals). Killing villagers, golems or traders is the gravest Chaos deed."
+tasks = [{ type = "structure", structure = "#minecraft:village" }]
+rewards = [{ type = "item", item = "minecraft:emerald", count = 3 }]
+
+[[quests]]
+key = "first_trade"
+title = "A Fair Deal"
+icon = "minecraft:emerald"
+deps = ["village"]
+lane = 2
+text = "Trade with a villager."
+karma = "Order: every trade adds Order karma. Souls with strong Order lean towards Blumund and the Church in the next life."
+tasks = [{ type = "advancement", advancement = "minecraft:adventure/trade" }]
+rewards = [{ type = "item", item = "minecraft:emerald", count = 4 }, { type = "xp", xp = 30 }]
+
+[[quests]]
+key = "diamonds"
+title = "Diamonds"
+icon = "minecraft:diamond"
+deps = ["iron_age"]
+lane = 0
+text = "Mine diamonds. Deepslate diamonds count as much as the shallow kind."
+karma = "Craft: every diamond you mine adds Craft karma (2 per ore)."
+tasks = [{ type = "item", item = "minecraft:diamond", count = 3 }]
+rewards = [{ type = "item", item = "minecraft:golden_apple" }, { type = "xp", xp = 50 }]
+
+[[quests]]
+key = "enchanting"
+title = "Words of Power"
+icon = "minecraft:enchanting_table"
+deps = ["diamonds"]
+lane = 1
+text = "Build an enchanting table and enchant something."
+karma = "Faith: every enchantment adds Faith karma. Faith souls lean towards Elves, spirits and sage-type skills."
+tasks = [{ type = "advancement", advancement = "minecraft:story/enchant_item" }]
+rewards = [{ type = "item", item = "minecraft:lapis_lazuli", count = 16 }, { type = "xp", xp = 50 }]
+
+[[quests]]
+key = "mortal_nether"
+title = "The Mortal Nether"
+icon = "minecraft:obsidian"
+deps = ["diamonds"]
+lane = 0
+text = """
+Build a Nether portal and step through. It leads to the Mortal Nether, which belongs to this life only.
+Bring fire resistance if you can, and never dig straight down.
+"""
+karma = "Valor: walking the Mortal Nether adds 20 Valor karma, once."
+tasks = [{ type = "dimension", dimension = "ttl:mortal_nether" }]
+rewards = [{ type = "item", item = "minecraft:golden_carrot", count = 8 }, { type = "xp", xp = 50 }]
+
+[[quests]]
+key = "fortress"
+title = "Fortress"
+icon = "minecraft:nether_bricks"
+deps = ["mortal_nether"]
+lane = 0
+text = "Find a Nether fortress. Blazes and wither skeletons guard it."
+karma = "Valor: each new kind of foe you slay adds 4 Valor karma, so fortress dwellers are worth hunting."
+tasks = [{ type = "structure", structure = "minecraft:fortress" }]
+rewards = [{ type = "item", item = "minecraft:fire_charge", count = 4 }]
+
+[[quests]]
+key = "blaze_rods"
+title = "Blaze Rods"
+icon = "minecraft:blaze_rod"
+deps = ["fortress"]
+lane = 0
+text = "Collect blaze rods: you need them for brewing stands and Eyes of Ender."
+karma = "Valor for the blazes you slay; Faith later, when you brew with them."
+tasks = [{ type = "item", item = "minecraft:blaze_rod", count = 6 }]
+rewards = [{ type = "item", item = "minecraft:ender_pearl", count = 2 }, { type = "xp", xp = 60 }]
+
+[[quests]]
+key = "eyes_of_ender"
+title = "Eyes of Ender"
+icon = "minecraft:ender_eye"
+deps = ["blaze_rods"]
+lane = 0
+text = "Craft Eyes of Ender. Throw one and follow it to the stronghold."
+karma = "Each step towards the End is a step towards a Legend's soul: a Legend needs at least one great foe slain."
+tasks = [{ type = "item", item = "minecraft:ender_eye", count = 12 }]
+rewards = [{ type = "item", item = "minecraft:cooked_porkchop", count = 8 }]
+
+[[quests]]
+key = "stronghold"
+title = "The Stronghold"
+icon = "minecraft:end_portal_frame"
+deps = ["eyes_of_ender"]
+lane = 0
+text = "Find the stronghold and its portal room."
+karma = "Exploring far from Wayfarer's Rest adds Valor karma (1 per 100 blocks of your farthest trip)."
+tasks = [{ type = "structure", structure = "minecraft:stronghold" }]
+rewards = [{ type = "xp", xp = 80 }]
+
+[[quests]]
+key = "mortal_end"
+title = "The Mortal End"
+icon = "minecraft:end_stone"
+deps = ["stronghold"]
+lane = 0
+text = "Light the portal and enter the Mortal End. Its dragon waits; there is no way back up but victory or death."
+karma = "Valor: reaching the Mortal End adds 30 Valor karma, once."
+tasks = [{ type = "dimension", dimension = "ttl:mortal_end" }]
+rewards = [{ type = "item", item = "minecraft:golden_apple", count = 2 }]
+
+[[quests]]
+key = "dragon"
+title = "The Mortal Dragon"
+icon = "minecraft:dragon_head"
+deps = ["mortal_end"]
+lane = 0
+shape = "gear"
+size = 1.5
+text = """
+Slay the dragon of the Mortal End. The killing blow is what counts.
+Whatever happens next, this deed follows your soul into the next life.
+"""
+karma = "Valor +120 and a great foe: the Legend tier needs at least one great foe slain, with 1000 karma and 30 days lived."
+tasks = [{ type = "kill", entity = "minecraft:ender_dragon" }]
+rewards = [{ type = "item", item = "minecraft:experience_bottle", count = 16 }]
+
+# ---- Valor: foes and great foes (lanes above the main line) -----------------------------------------------
+
+[[quests]]
+key = "know_your_enemy"
+title = "Know Your Enemy"
+icon = "minecraft:iron_sword"
+deps = ["first_night"]
+lane = -1
+text = "Slay one of each of the common night stalkers."
+karma = "Valor: kinds of foe count far more than numbers: each kind slain once adds 4 Valor karma; mob farms add almost nothing."
+tasks = [
+  { type = "kill", entity = "minecraft:zombie" },
+  { type = "kill", entity = "minecraft:skeleton" },
+  { type = "kill", entity = "minecraft:spider" },
+  { type = "kill", entity = "minecraft:creeper" },
+]
+rewards = [{ type = "item", item = "minecraft:arrow", count = 16 }, { type = "xp", xp = 30 }]
+
+[[quests]]
+key = "strange_foes"
+title = "Strange Foes"
+icon = "minecraft:ender_pearl"
+deps = ["know_your_enemy"]
+lane = -1
+text = "Slay the rarer things of the Overworld: an enderman, a witch and a phantom."
+karma = "Valor: three more kinds of foe, 4 Valor karma each."
+tasks = [
+  { type = "kill", entity = "minecraft:enderman" },
+  { type = "kill", entity = "minecraft:witch" },
+  { type = "kill", entity = "minecraft:phantom" },
+]
+rewards = [{ type = "item", item = "minecraft:shield" }, { type = "xp", xp = 40 }]
+
+[[quests]]
+key = "illagers"
+title = "Illagers"
+icon = "minecraft:crossbow"
+deps = ["strange_foes"]
+lane = -1
+text = "Slay a pillager and a vindicator. Their outposts and mansions hide in the wild."
+karma = "Valor: two more kinds of foe. Evokers and ravagers count as minor bosses (+10 each)."
+tasks = [
+  { type = "kill", entity = "minecraft:pillager" },
+  { type = "kill", entity = "minecraft:vindicator" },
+]
+rewards = [{ type = "item", item = "minecraft:cooked_mutton", count = 8 }, { type = "xp", xp = 40 }]
+
+[[quests]]
+key = "nether_foes"
+title = "Fire and Bone"
+icon = "minecraft:wither_skeleton_skull"
+deps = ["fortress"]
+lane = -1
+text = "Slay the Nether's own: a blaze, a ghast, a wither skeleton and a magma cube."
+karma = "Valor: four kinds of foe, 4 Valor karma each."
+tasks = [
+  { type = "kill", entity = "minecraft:blaze" },
+  { type = "kill", entity = "minecraft:ghast" },
+  { type = "kill", entity = "minecraft:wither_skeleton" },
+  { type = "kill", entity = "minecraft:magma_cube" },
+]
+rewards = [{ type = "item", item = "minecraft:golden_apple" }, { type = "xp", xp = 60 }]
+
+[[quests]]
+key = "elder_guardian"
+title = "The Drowned Temple"
+icon = "minecraft:prismarine_shard"
+deps = ["strange_foes"]
+lane = -2
+optional = true
+text = "Find an ocean monument and slay its Elder Guardian. Bring milk, doors or a lot of air."
+karma = "Valor +50 and a great foe: it counts towards the Legend tier."
+tasks = [
+  { type = "structure", structure = "minecraft:monument" },
+  { type = "kill", entity = "minecraft:elder_guardian" },
+]
+rewards = [{ type = "item", item = "minecraft:sponge", count = 4 }, { type = "xp", xp = 100 }]
+
+[[quests]]
+key = "wither"
+title = "The Wither"
+icon = "minecraft:nether_star"
+deps = ["nether_foes"]
+lane = -2
+optional = true
+text = "Gather three wither skeleton skulls, summon the Wither far from anyone's home and slay it."
+karma = "Valor +100 and a great foe: it counts towards the Legend tier."
+tasks = [{ type = "kill", entity = "minecraft:wither" }]
+rewards = [{ type = "item", item = "minecraft:experience_bottle", count = 16 }]
+
+[[quests]]
+key = "warden"
+title = "The Deep Dark"
+icon = "minecraft:sculk_shrieker"
+deps = ["strange_foes"]
+lane = -3
+optional = true
+text = "Find an ancient city. Slaying the Warden is the bravest, most foolish thing a mortal can do here; sneaking away is wise."
+karma = "Valor +100 and a great foe, if you live. Most souls that try go to the Corridor early."
+tasks = [
+  { type = "structure", structure = "minecraft:ancient_city" },
+  { type = "kill", entity = "minecraft:warden" },
+]
+rewards = [{ type = "item", item = "minecraft:echo_shard", count = 2 }, { type = "xp", xp = 150 }]
+
+[[quests]]
+key = "trial_chambers"
+title = "Trial Chambers"
+icon = "minecraft:trial_key"
+deps = ["iron_age"]
+lane = -2
+text = "Find trial chambers beneath the ground and slay a breeze."
+karma = "Valor: the breeze is one more kind of foe."
+tasks = [
+  { type = "structure", structure = "minecraft:trial_chambers" },
+  { type = "kill", entity = "minecraft:breeze" },
+]
+rewards = [{ type = "item", item = "minecraft:wind_charge", count = 8 }, { type = "xp", xp = 50 }]
+
+# ---- Longevity (lane -5): the days the tiers ask for -----------------------------------------------------
+
+[[quests]]
+key = "days_2"
+title = "Two Days"
+icon = "minecraft:clock"
+deps = ["first_night"]
+lane = -5
+text = "Stay alive for 2 days (about 40 minutes of play)."
+karma = "Longevity: 2 days is the least a soul needs to be judged a Survivor."
+tasks = [{ type = "stat", stat = "minecraft:play_time", value = 48000, title = "Survive 2 days" }]
+rewards = [{ type = "item", item = "minecraft:baked_potato", count = 8 }]
+
+[[quests]]
+key = "days_7"
+title = "A Week"
+icon = "minecraft:clock"
+deps = ["days_2"]
+lane = -5
+text = "Stay alive for 7 days (about 2 hours and 20 minutes of play)."
+karma = "Longevity: 7 days is the least a soul needs to be judged a Hero."
+tasks = [{ type = "stat", stat = "minecraft:play_time", value = 168000, title = "Survive 7 days" }]
+rewards = [{ type = "item", item = "minecraft:golden_carrot", count = 8 }, { type = "xp", xp = 50 }]
+
+[[quests]]
+key = "days_15"
+title = "Half a Moon"
+icon = "minecraft:clock"
+deps = ["days_7"]
+lane = -5
+text = "Stay alive for 15 days (5 hours of play)."
+karma = "Longevity: the longer you live, the more the axis gives, but less with every day (the curve flattens)."
+tasks = [{ type = "stat", stat = "minecraft:play_time", value = 360000, title = "Survive 15 days" }]
+rewards = [{ type = "item", item = "minecraft:golden_apple" }, { type = "xp", xp = 80 }]
+
+[[quests]]
+key = "days_30"
+title = "A Full Life"
+icon = "minecraft:clock"
+deps = ["days_15"]
+lane = -5
+text = "Stay alive for 30 days (10 hours of play)."
+karma = "Longevity: 30 days is the least a soul needs to be judged a Legend."
+tasks = [{ type = "stat", stat = "minecraft:play_time", value = 720000, title = "Survive 30 days" }]
+rewards = [{ type = "item", item = "minecraft:experience_bottle", count = 16 }]
+
+# ---- Order: good deeds for others (lanes below the main line) ---------------------------------------------
+
+[[quests]]
+key = "regular_customer"
+title = "A Known Face"
+icon = "minecraft:emerald_block"
+deps = ["first_trade"]
+lane = 2
+text = "Trade with villagers 25 times."
+karma = "Order: 1 karma per trade. The log curve means the first trades count the most."
+tasks = [{ type = "stat", stat = "minecraft:traded_with_villager", value = 25, title = "25 trades" }]
+rewards = [{ type = "item", item = "minecraft:emerald", count = 6 }, { type = "xp", xp = 40 }]
+
+[[quests]]
+key = "shepherd"
+title = "Shepherd"
+icon = "minecraft:wheat"
+deps = ["village"]
+lane = 3
+text = "Breed 10 animals."
+karma = "Order: tending animals adds a little Order karma."
+tasks = [{ type = "stat", stat = "minecraft:animals_bred", value = 10, title = "Breed 10 animals" }]
+rewards = [{ type = "item", item = "minecraft:lead", count = 2 }, { type = "item", item = "minecraft:name_tag" }]
+
+[[quests]]
+key = "hired_help"
+title = "Hired Help"
+icon = "minecraft:carved_pumpkin"
+deps = ["village"]
+lane = 4
+text = "Build an iron golem to guard a village."
+karma = "Order and Faith: an advancement, and a village that can defend itself. Killing a golem is a Chaos deed."
+tasks = [{ type = "advancement", advancement = "minecraft:adventure/summon_iron_golem" }]
+rewards = [{ type = "item", item = "minecraft:poppy", count = 1 }, { type = "xp", xp = 40 }]
+
+[[quests]]
+key = "zombie_doctor"
+title = "Zombie Doctor"
+icon = "minecraft:golden_apple"
+deps = ["first_trade"]
+lane = 3
+optional = true
+text = "Cure a zombie villager: weakness, then a golden apple."
+karma = "Faith for the advancement, and one more villager alive to trade with (Order)."
+tasks = [{ type = "advancement", advancement = "minecraft:story/cure_zombie_villager" }]
+rewards = [{ type = "item", item = "minecraft:emerald", count = 8 }]
+
+[[quests]]
+key = "hero_of_the_village"
+title = "Hero of the Village"
+icon = "minecraft:white_banner"
+deps = ["regular_customer"]
+lane = 2
+text = """
+Defend a village from a raid and win.
+Careful: walking into a village with Bad Omen BRINGS the raid on it, which counts as a dark deed.
+"""
+karma = "Order +30 for every raid won; Chaos +3 for every raid you started. Win what you start."
+tasks = [{ type = "advancement", advancement = "minecraft:adventure/hero_of_the_village" }]
+rewards = [{ type = "item", item = "minecraft:totem_of_undying" }]
+
+[[quests]]
+key = "darkness"
+title = "The Other Road"
+icon = "minecraft:wither_rose"
+deps = ["village"]
+lane = 5
+optional = true
+text = """
+A word of warning, not a task. Slaying villagers, iron golems, wandering traders or other players,
+and starting raids, are dark deeds. A soul whose Chaos outweighs its Order is reborn Fallen,
+and dark races (orcs, ghouls, daemons, vampires) join its offers. Nothing is ever taken away,
+but the Voice of the World remembers.
+"""
+karma = "Chaos counts half towards the tier: the dark path climbs, but slower than good deeds."
+tasks = [{ type = "checkmark", title = "I understand" }]
+rewards = []
+
+# ---- Craft (lane 6–7) ------------------------------------------------------------------------------------
+
+[[quests]]
+key = "suit_up"
+title = "Suit Up"
+icon = "minecraft:iron_chestplate"
+deps = ["iron_age"]
+lane = 6
+text = "Craft a piece of iron armour."
+karma = "Faith for the advancement; Craft grows with the work behind it."
+tasks = [{ type = "advancement", advancement = "minecraft:story/obtain_armor" }]
+rewards = [{ type = "item", item = "minecraft:iron_ingot", count = 6 }]
+
+[[quests]]
+key = "anvil"
+title = "Hammer and Anvil"
+icon = "minecraft:anvil"
+deps = ["suit_up"]
+lane = 6
+text = "Use an anvil 5 times: repair, combine, name."
+karma = "Craft: every use of an anvil adds Craft karma. Craft souls lean towards Dwarves and craft skills."
+tasks = [{ type = "stat", stat = "minecraft:interact_with_anvil", value = 5, title = "Use an anvil 5 times" }]
+rewards = [{ type = "item", item = "minecraft:experience_bottle", count = 4 }]
+
+[[quests]]
+key = "shiny_gear"
+title = "Cover Me with Diamonds"
+icon = "minecraft:diamond_chestplate"
+deps = ["diamonds", "suit_up"]
+lane = 7
+text = "Craft diamond armour."
+karma = "Faith for the advancement; the diamonds you mined already counted as Craft."
+tasks = [{ type = "advancement", advancement = "minecraft:story/shiny_gear" }]
+rewards = [{ type = "item", item = "minecraft:diamond", count = 1 }, { type = "xp", xp = 50 }]
+
+[[quests]]
+key = "netherite"
+title = "Ancient Debris"
+icon = "minecraft:netherite_ingot"
+deps = ["mortal_nether", "anvil"]
+lane = 6
+text = "Mine ancient debris in the Mortal Nether and forge a netherite ingot."
+karma = "Craft: every block of ancient debris adds 5 Craft karma."
+tasks = [{ type = "item", item = "minecraft:netherite_ingot" }]
+rewards = [{ type = "item", item = "minecraft:gold_ingot", count = 8 }, { type = "xp", xp = 80 }]
+
+[[quests]]
+key = "smithing"
+title = "The Smith's Art"
+icon = "minecraft:smithing_table"
+deps = ["netherite"]
+lane = 6
+text = "Work a smithing table 5 times: netherite upgrades, armour trims."
+karma = "Craft: every use of a smithing table adds 2 Craft karma."
+tasks = [{ type = "stat", stat = "minecraft:interact_with_smithing_table", value = 5, title = "Use a smithing table 5 times" }]
+rewards = [{ type = "item", item = "minecraft:netherite_upgrade_smithing_template" }]
+
+# ---- Faith: learning and the wide world (lane 8–9) -------------------------------------------------------
+
+[[quests]]
+key = "library"
+title = "A Proper Library"
+icon = "minecraft:bookshelf"
+deps = ["enchanting"]
+lane = 8
+text = "Gather 15 bookshelves to enchant at the highest level."
+karma = "Faith: the more you enchant, the more Faith; 15 shelves make every enchantment count."
+tasks = [{ type = "item", item = "minecraft:bookshelf", count = 15 }]
+rewards = [{ type = "item", item = "minecraft:lapis_lazuli", count = 32 }]
+
+[[quests]]
+key = "scholar"
+title = "Scholar"
+icon = "minecraft:enchanted_book"
+deps = ["library"]
+lane = 8
+text = "Enchant 10 items."
+karma = "Faith: 2 karma per enchantment."
+tasks = [{ type = "stat", stat = "minecraft:enchant_item", value = 10, title = "Enchant 10 items" }]
+rewards = [{ type = "item", item = "minecraft:experience_bottle", count = 8 }]
+
+[[quests]]
+key = "brewing"
+title = "Local Brewery"
+icon = "minecraft:brewing_stand"
+deps = ["blaze_rods"]
+lane = 8
+text = "Brew a potion."
+karma = "Faith: every use of a brewing stand adds a little Faith karma."
+tasks = [{ type = "advancement", advancement = "minecraft:nether/brew_potion" }]
+rewards = [{ type = "item", item = "minecraft:nether_wart", count = 8 }, { type = "item", item = "minecraft:glass_bottle", count = 6 }]
+
+[[quests]]
+key = "wide_world"
+title = "The Wide World"
+icon = "minecraft:filled_map"
+deps = ["first_night"]
+lane = 9
+text = "Travel far: stand in a desert, a jungle, snowy plains and badlands. The Mortal Realm has large biomes; plan the trip."
+karma = "Valor for distance (1 per 100 blocks from Wayfarer's Rest at your farthest) and Faith for the advancements on the way."
+tasks = [
+  { type = "biome", biome = "minecraft:desert" },
+  { type = "biome", biome = "minecraft:jungle" },
+  { type = "biome", biome = "minecraft:snowy_plains" },
+  { type = "biome", biome = "minecraft:badlands" },
+]
+rewards = [{ type = "item", item = "minecraft:compass" }, { type = "item", item = "minecraft:cooked_salmon", count = 8 }]
+
+[[quests]]
+key = "far_shores"
+title = "Far Shores"
+icon = "minecraft:red_mushroom_block"
+deps = ["wide_world"]
+lane = 9
+optional = true
+text = "Find a mushroom island, the rarest land in the realm."
+karma = "Valor for the distance travelled; a long road is a brave road."
+tasks = [{ type = "biome", biome = "minecraft:mushroom_fields" }]
+rewards = [{ type = "item", item = "minecraft:mushroom_stew", count = 1 }, { type = "xp", xp = 60 }]

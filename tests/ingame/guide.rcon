@@ -1,0 +1,44 @@
+# The guide pop-up (design/data/guide.toml → life/guide.js → ttl-portals /ttlguide) and the Voice of the World
+# NPC in the Spirit Corridor (life/voice_npc.js). Bots have no client, so /ttlguide records the set it would have
+# shown and `ttlguide check <bot> <set>` prints "ttl: ..." when that was not the last one.
+# Expect in the log: "[ttl] TtlBotGuide died in Life 1", "[ttl] TtlBotGuide reborn as slime".
+ttlbot spawn TtlBotGuide
+@sleep 2
+ttl reset TtlBotGuide
+ttl guideforget TtlBotGuide
+# The NPC stands in the hall (summoned again within 30 s if it goes missing).
+ttl npc
+# /ttl guide for players, and the NPC's right-click (/ttl talk) outside the Corridor: the main guide.
+execute as TtlBotGuide run ttl guide life2
+ttlguide check TtlBotGuide life2
+execute as TtlBotGuide run ttl talk
+ttlguide check TtlBotGuide main
+# A raw /ttlguide with its own pages.
+ttlguide TtlBotGuide {"set":"rcon","then":"ttl life","pages":[{"title":"Test","lines":["# Heading","- a `command`","*gold*"]},{"title":"Two","body":"line 1\nline 2"}]}
+ttlguide check TtlBotGuide rcon
+# First death: after the Voice lines (8 s) the short Corridor guide comes instead of the Life screen.
+kill TtlBotGuide
+@sleep 10
+ttl karma TtlBotGuide expect phase corridor
+ttlguide check TtlBotGuide corridor
+# The NPC in the Corridor reopens the current step (the Last Wish menu) and shows no guide.
+execute as TtlBotGuide run ttl talk
+ttlguide check TtlBotGuide corridor
+ttl karma TtlBotGuide expect step wish
+# Rebirth (a Wanderer gets a random unique and is reborn at once): the Life 2 guide follows.
+execute as TtlBotGuide run ttl wish knowledge
+execute as TtlBotGuide run ttl choose slime
+ttl karma TtlBotGuide expect phase life2
+@sleep 8
+ttlguide check TtlBotGuide life2
+# Outside the Corridor the NPC shows the main guide again.
+execute as TtlBotGuide run ttl talk
+ttlguide check TtlBotGuide main
+# Once only: a second Life 1 death skips the Corridor guide (the Life screen opens directly).
+ttl reset TtlBotGuide
+kill TtlBotGuide
+@sleep 10
+ttl karma TtlBotGuide expect step wish
+ttlguide check TtlBotGuide main
+ttl reset TtlBotGuide
+ttlbot remove TtlBotGuide

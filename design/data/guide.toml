@@ -1,0 +1,122 @@
+# The guide pop-up: page sets shown in the guide screen (ttl-portals guide/GuideScreen, opened by `/ttlguide`).
+# Edit, then run `python tools/gen_data.py`; the scripts read it as TtlData.guide (life/guide.js).
+#   main     /ttl guide, the Voice of the World NPC outside the Corridor, and once on a player's first join
+#   corridor once when the soul first reaches the Spirit Corridor (closing it opens the Life screen)
+#   life2    once when Life 2 begins
+# Each page: title + body. Body lines:
+#   "# text"  a cyan heading          "- text"  a bullet          empty line  a small gap
+#   `text`    a command (mint)        *text*    emphasis (gold)
+# Long lines wrap by themselves; a page that is too long scrolls. Keep pages short: players read them once.
+
+[[main]]
+title = "Welcome to Two Lives"
+body = """
+Every soul here lives *twice*.
+
+- *Life 1:* you are a plain human in the *Mortal Realm*, a world without monsters of legend and without skills. You only live once there.
+- *The Spirit Corridor:* when you die, your soul is judged and you choose what comes next.
+- *Life 2:* you are reborn in the world of Tensura, with a new body and a Unique Skill.
+
+How you live your first life decides how strong your second one begins.
+"""
+
+[[main]]
+title = "Life 1: the Mortal Realm"
+body = """
+You start at *Wayfarer's Rest*. From here the Mortal Realm is yours to explore: it has its own Nether and End.
+
+- There is no second try: Life 1 ends with your first death.
+- When it ends you lose your items, but you keep your XP and advancements.
+- Take your time. A long, full life is worth more than a quick one.
+"""
+
+[[main]]
+title = "Your deeds are judged"
+body = """
+The world remembers what you do in Life 1. This is your *karma*:
+
+- how long you survive
+- the foes you slay, and above all the great bosses
+- good deeds: trading, defending villages, tending animals
+- mining, smithing, enchanting, brewing and advancements
+
+# Tiers
+*Wanderer*, *Survivor*, *Hero* and *Legend*. A higher tier offers more races at rebirth, and a Hero or Legend chooses their Unique Skill instead of leaving it to fate. A Legend also carries an extra skill.
+
+# The dark path
+Killing villagers, golems, traders or players, or starting raids, stains your soul. A *Fallen* soul is offered dark races.
+
+Type `/ttl life` at any time to see your karma and what the next tier needs.
+"""
+
+[[main]]
+title = "Death and the Spirit Corridor"
+body = """
+When Life 1 ends, the Voice of the World judges your life and your soul arrives in the *Spirit Corridor*.
+
+- *Last Wish:* pick one of ten wishes (Strength, Knowledge, Protection, ...). Your wish decides which Unique Skills can be yours.
+- *Trial of the Soul* (optional): every wish has its own trial. Win and you pick your skill from three; lose and fate picks it.
+- *Rebirth:* the Great Sage's reincarnation ceremony. Choose your new race from your offers (Slime is always one of them).
+- *Unique Skill:* chosen by you or drawn by fate, then you wake up in Life 2.
+
+Lost a menu? Type `/ttl menu`, or talk to the *Voice of the World* in the hall.
+"""
+
+[[main]]
+title = "Life 2: the world of Tensura"
+body = """
+You are reborn on the Tensura continent, in *Tempest* in the *Forest of Jura*. The dwarven kingdom of *Dwargon* lies to the north.
+
+- Your new race and Unique Skill are yours now. Some Unique Skills only a few souls can hold at once.
+- Fight, grow stronger and evolve. Death in Life 2 is not the end: you come back.
+"""
+
+[[main]]
+title = "Useful commands"
+body = """
+- `/ttl guide` opens this guide again
+- `/ttl life` shows your karma and your tier
+- `/ttl status` tells you which life you are in
+- `/ttl menu` reopens your choices in the Spirit Corridor
+- `/bug <what happened>` sends a report to the developers, with everything they need to look into it
+
+Found something odd? Use `/bug` right away, while it is fresh. Good luck, and live well.
+"""
+
+[[corridor]]
+title = "The Spirit Corridor"
+body = """
+Your first life is over. Your soul waits here, between lives.
+
+- When you close this guide, the world shows you *the life you lived*. Its button leads on.
+- Make your *Last Wish*. It decides which Unique Skills can be yours.
+- Then begin your *reincarnation*, or face your *Trial of the Soul* first: win it and you choose your skill yourself.
+"""
+
+[[corridor]]
+title = "Lost?"
+body = """
+- `/ttl menu` reopens your current choice.
+- Or right-click the *Voice of the World* in the hall.
+- `/ttl life` shows how your life was judged.
+
+Nothing here can hurt you. Take your time.
+"""
+
+[[life2]]
+title = "Life 2 begins"
+body = """
+Open your eyes. You are reborn in the world of Tensura, in *Tempest* in the *Forest of Jura*. *Dwargon* lies to the north.
+
+- Your new race and Unique Skill are yours now. Learn what they can do.
+- Fight, grow stronger and evolve.
+- Death is no longer the end: in Life 2 you come back.
+"""
+
+[[life2]]
+title = "Need help?"
+body = """
+- `/ttl guide` opens the full guide
+- `/ttl status` tells you which life you are in
+- `/bug <what happened>` sends a report to the developers
+"""

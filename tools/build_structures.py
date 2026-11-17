@@ -33,7 +33,25 @@ def load(path: Path) -> Blueprint:
     spec.loader.exec_module(module)
     bp = Blueprint(path.stem, module.SIZE)
     module.build(bp)
+    # Optional: PARTS = z offsets to split a big build into <name>_<i>.nbt slabs (placed one by one, less
+    # lag, smaller files); outputs(bp) -> {repo-relative path: text} for generated data such as footprints.
+    bp.parts = getattr(module, "PARTS", None)
+    bp.outputs = module.outputs(bp) if hasattr(module, "outputs") else {}
     return bp
+
+
+def structures(bp: Blueprint) -> dict:
+    """Structure name -> NBT dict: the whole build, or one slab per PARTS z offset."""
+    if not getattr(bp, "parts", None):
+        return {bp.name: bp.to_structure()}
+    sx, sy, sz = bp.size
+    out = {}
+    bounds = list(bp.parts) + [sz]
+    for i, (z0, z1) in enumerate(zip(bounds, bounds[1:])):
+        part = Blueprint(f"{bp.name}_{i}", (sx, sy, z1 - z0))
+        part.blocks = {(x, y, z - z0): s for (x, y, z), s in bp.blocks.items() if z0 <= z < z1}
+        out[part.name] = part.to_structure()
+    return out
 
 
 def summary(path: Path) -> str:
@@ -77,18 +95,31 @@ def main() -> None:
         files = [f for f in files if f.stem in names]
     for path in files:
         bp = load(path)
-        target = STRUCTURES / f"{bp.name}.nbt"
         if check:
-            with tempfile.TemporaryDirectory() as tmp:
-                fresh = Path(tmp) / "x.nbt"
-                nbt.write_gzip(fresh, bp.to_structure())
-                if not target.exists() or target.read_bytes() != fresh.read_bytes():
-                    stale.append(bp.name)
+            for name, data in structures(bp).items():
+                target = STRUCTURES / f"{name}.nbt"
+                with tempfile.TemporaryDirectory() as tmp:
+                    fresh = Path(tmp) / "x.nbt"
+                    nbt.write_gzip(fresh, data)
+                    if not target.exists() or target.read_bytes() != fresh.read_bytes():
+                        stale.append(name)
+            for rel, text in getattr(bp, "outputs", {}).items():
+                out = ROOT / rel
+                if not out.exists() or out.read_text(encoding="utf-8") != text:
+                    stale.append(rel)
             continue
         STRUCTURES.mkdir(parents=True, exist_ok=True)
-        nbt.write_gzip(target, bp.to_structure())
+        for name, data in structures(bp).items():
+            target = STRUCTURES / f"{name}.nbt"
+            nbt.write_gzip(target, data)
+            print(f"{name}: {len(data['blocks'])} blocks, size {tuple(data['size'])}, "
+                  f"{target.stat().st_size // 1024} KB -> {target.relative_to(ROOT)}")
+        for rel, text in getattr(bp, "outputs", {}).items():
+            out = ROOT / rel
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(text, encoding="utf-8", newline="\n")
+            print(f"{bp.name}: wrote {rel} ({len(text) // 1024} KB)")
         bp.render(PREVIEWS / f"{bp.name}-iso.png", PREVIEWS / f"{bp.name}-top.png")
-        print(f"{bp.name}: {len(bp.blocks)} blocks, size {bp.size} -> {target.relative_to(ROOT)}")
     if stale:
         print("FAIL structures out of date: " + ", ".join(stale) + " (run python tools/build_structures.py)")
         sys.exit(1)

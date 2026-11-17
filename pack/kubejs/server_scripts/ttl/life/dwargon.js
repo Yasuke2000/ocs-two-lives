@@ -1,30 +1,82 @@
-// Places the Armed Nation of Dwargon (blueprints/dwargon.py → structure ttl:dwargon) in the Tensura world, in
-// the southern mountains of Dwargon on the canon map (pack/config/ttl/canon_map.txt), its gate facing Jura and
-// world spawn. Bump TTL_DWARGON_VERSION after changing the blueprint; a world reset of the overworld places it
-// again on the new terrain (world_reset.js).
-const TTL_DWARGON_VERSION = 1
+// Places the Armed Nation of Dwargon (blueprints/dwargon.py → structures ttl:dwargon_0..n, one z slab each) in
+// the Tensura world, in the southern mountains of Dwargon on the canon map (pack/config/ttl/canon_map.txt), its
+// gate facing Jura and world spawn. Bump TTL_DWARGON_VERSION after changing the blueprint; a world reset of the
+// overworld places it again on the new terrain (world_reset.js).
+//
+// Grounding (TtlDwargonFootprint, generated/dwargon_footprint.js, written by tools/build_structures.py):
+// 1. forceload the box + margin, wait 10 s for generation;
+// 2. read the real ground per column (heightmaps) BEFORE placing; the base layer is chosen so the road in
+//    front of the gate sits at the median ground height of the approach probes;
+// 3. place the slabs, one every 2 ticks;
+// 4. clear terrain above the open-sky columns (road, ravine, skylight crack) and cut 1:1 slopes round them;
+// 5. fill the gap under every footprint column down to the ground (nothing floats), plus a 1:1 talus skirt
+//    round the edges, in banded sandstone like the mountain; FILLS_PER_TICK one-column fills per tick.
+const TTL_DWARGON_VERSION = 2
 
 const TtlDwargon = {
-  // The arrival point in front of the gate; the blueprint's arrival is (56, 4, 104) and it is 112 x 124 wide.
-  GATE: { x: 160, z: -900 },
-  ARRIVAL: [56, 4, 104],
-  SIZE: [112, 76, 124],
+  // The arrival point in front of the gate; its blueprint coordinates are TtlDwargonFootprint.arrival.
+  // At the foot of the Canaat Mountains (lore: the city fills a hollow at their base), ~270 blocks inside
+  // Dwargon's southern border at the 14,000-block scale, facing the highway to Tempest.
+  GATE: { x: 435, z: -1000 },
   PROBE: 'ttl_dwargon_probe',
+  FILLS_PER_TICK: 150,
+  FALLBACK_DEPTH: 48,
+  BANDED: 12,
+  BANDS: ['smooth_sandstone', 'sandstone', 'smooth_sandstone', 'white_terracotta', 'sandstone',
+    'smooth_sandstone', 'terracotta', 'smooth_sandstone', 'sandstone', 'white_terracotta'],
 
   run(server, cmd) {
-    server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} run ${cmd}`)
+    return server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} run ${cmd}`)
   },
 
+  // Blueprint corner (x0, z0) in the world, and the worked area (box + margin, inclusive).
   box() {
-    var x0 = this.GATE.x - this.ARRIVAL[0]
-    var z0 = this.GATE.z - this.ARRIVAL[2]
-    return { x0: x0, z0: z0, x1: x0 + this.SIZE[0], z1: z0 + this.SIZE[2] }
+    var f = TtlDwargonFootprint
+    var x0 = this.GATE.x - f.arrival[0]
+    var z0 = this.GATE.z - f.arrival[2]
+    var m = f.margin
+    return { x0: x0, z0: z0, ax0: x0 - m, az0: z0 - m, ax1: x0 + f.size[0] + m - 1, az1: z0 + f.size[2] + m - 1 }
   },
 
-  surfaceY(server) {
-    server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} positioned ${this.GATE.x} 0 ${this.GATE.z} positioned over motion_blocking_no_leaves run summon minecraft:marker ~ ~ ~ {Tags:["${this.PROBE}"]}`)
-    var y = null
+  // forceload takes at most 256 chunks per command: add/remove the area in strips of 4 chunk rows.
+  forceload(server, mode) {
+    var b = this.box()
+    for (var z = b.az0; z <= b.az1; z += 64) {
+      this.run(server, `forceload ${mode} ${b.ax0} ${z} ${b.ax1} ${Math.min(z + 63, b.az1)}`)
+    }
+  },
+
+  decode(rle, n) {
+    var out = new Array(n)
+    var i = 0
+    for (var k = 0; k < rle.length; k += 2) {
+      for (var c = 0; c < rle[k + 1]; c++) out[i++] = rle[k]
+    }
+    return out
+  },
+
+  // Heightmaps (first free y above the ground) through Java; null when that fails, then marker probes and
+  // fixed-depth `replace air` fills are used instead.
+  heightmaps(server) {
+    try {
+      var Types = Java.loadClass('net.minecraft.world.level.levelgen.Heightmap$Types')
+      var level = server.getLevel(TtlLife.OVERWORLD)
+      var hm = {
+        ground: (x, z) => level.getHeight(Types.MOTION_BLOCKING_NO_LEAVES, x, z),
+        top: (x, z) => level.getHeight(Types.MOTION_BLOCKING, x, z)
+      }
+      hm.ground(this.GATE.x, this.GATE.z)
+      return hm
+    } catch (e) {
+      console.warn(`[ttl] dwargon: heightmaps unavailable (${e}); using marker probes and fixed depths`)
+      return null
+    }
+  },
+
+  markerY(server, x, z) {
     var probe = this.PROBE
+    this.run(server, `positioned ${x} 0 ${z} positioned over motion_blocking_no_leaves run summon minecraft:marker ~ ~ ~ {Tags:["${probe}"]}`)
+    var y = null
     server.getLevel(TtlLife.OVERWORLD).getEntities().forEach(e => {
       if (e.getTags().contains(probe)) y = Math.floor(e.getY())
     })
@@ -32,34 +84,153 @@ const TtlDwargon = {
     return y
   },
 
-  place(server) {
-    var y = this.surfaceY(server)
-    if (y === null) {
-      console.warn('[ttl] dwargon: no surface found at the gate; not placed')
-      return false
-    }
+  // Base layer: arrival y (one above the road block) at the median ground height of the approach probes.
+  chooseBase(server, hm) {
+    var f = TtlDwargonFootprint
     var b = this.box()
-    // The arrival point (blueprint y 4) stands on the measured surface.
-    var base = y - this.ARRIVAL[1]
-    this.run(server, `place template ttl:dwargon ${b.x0} ${base} ${b.z0}`)
-    server.persistentData.putInt('ttl.dwargon.version', TTL_DWARGON_VERSION)
-    server.persistentData.putString('ttl.dwargon.gate', `${this.GATE.x + 0.5} ${y} ${this.GATE.z + 0.5}`)
-    console.info(`[ttl] dwargon placed: corner ${b.x0} ${base} ${b.z0}, gate at ${this.GATE.x} ${y} ${this.GATE.z} (version ${TTL_DWARGON_VERSION})`)
-    return true
+    var ys = []
+    for (var i = 0; i < f.probes.length; i++) {
+      var x = b.x0 + f.probes[i][0]
+      var z = b.z0 + f.probes[i][1]
+      var y = hm ? hm.ground(x, z) : this.markerY(server, x, z)
+      if (y !== null && y > -64) ys.push(y)
+    }
+    if (ys.length === 0) return null
+    ys.sort((a, c) => a - c)
+    var median = ys[Math.floor(ys.length / 2)]
+    console.info(`[ttl] dwargon: approach ground ${ys[0]}..${ys[ys.length - 1]} over ${ys.length} probes, median ${median}`)
+    return median - f.arrival[1]
   },
 
-  // forceload generates the 8 x 8 chunks first; mountains take a while, so placement waits 10 s.
-  schedule(server) {
+  hash(x, z) {
+    // Small multipliers keep every product exact in doubles (no Math.imul needed in Rhino).
+    var n = ((x * 73856) ^ (z * 19349)) | 0
+    n = ((n ^ (n >>> 13)) * 5741) | 0
+    return ((n ^ (n >>> 16)) >>> 0) / 4294967296
+  },
+
+  // Banded rock like the mountain's strata: one fill per 4-block band of the column.
+  // Only the top BANDED blocks are banded; deeper gaps get one sandstone fill (keeps the command count down).
+  rockCommands(x, z, y1, y2, base, replaceAir, out) {
+    var off = Math.floor(this.hash(x >> 3, z >> 3) * 4)
+    var streak = this.hash(x, z) < 0.07 ? (this.hash(z, x) < 0.5 ? 'stone' : 'andesite') : null
+    var bands = this.BANDS
+    var tail = replaceAir ? ' replace minecraft:air' : ''
+    var y = y1
+    if (y2 - y1 >= this.BANDED) {
+      out.push(`fill ${x} ${y1} ${z} ${x} ${y2 - this.BANDED} ${z} minecraft:${streak || 'sandstone'}${tail}`)
+      y = y2 - this.BANDED + 1
+    }
+    while (y <= y2) {
+      var band = Math.floor((y - base + off) / 4)
+      var end = Math.min(y2, base - off + band * 4 + 3)
+      var mat = streak || bands[((band % bands.length) + bands.length) % bands.length]
+      out.push(`fill ${x} ${y} ${z} ${x} ${end} ${z} minecraft:${mat}${tail}`)
+      y = end + 1
+    }
+  },
+
+  // Every terrain command, worked out from the heightmaps as they were before the structure went in.
+  terrainCommands(hm, base) {
+    var f = TtlDwargonFootprint
     var b = this.box()
+    var n = f.grid[0] * f.grid[1]
+    var fill = this.decode(f.fill, n)
+    var clear = this.decode(f.clear, n)
+    var clears = []
+    var fills = []
+    for (var gz = 0; gz < f.grid[1]; gz++) {
+      for (var gx = 0; gx < f.grid[0]; gx++) {
+        var i = gz * f.grid[0] + gx
+        var x = b.ax0 + gx
+        var z = b.az0 + gz
+        if (clear[i] !== f.none) {
+          var c1 = base + clear[i]
+          var c2 = hm ? hm.top(x, z) - 1 : c1 + this.FALLBACK_DEPTH
+          if (c2 >= c1) clears.push(`fill ${x} ${c1} ${z} ${x} ${c2} ${z} minecraft:air`)
+        }
+        if (fill[i] !== f.none) {
+          var f2 = base + fill[i] - 1
+          var f1 = hm ? hm.ground(x, z) : f2 - this.FALLBACK_DEPTH
+          if (f2 >= f1) this.rockCommands(x, z, f1, f2, base, !hm, fills)
+        }
+      }
+    }
+    return clears.concat(fills)
+  },
+
+  runBatched(server, cmds, done) {
     var self = this
-    this.run(server, `forceload add ${b.x0} ${b.z0} ${b.x1} ${b.z1}`)
-    server.scheduleInTicks(200, () => {
+    var i = 0
+    var step = () => {
       try {
-        self.place(server)
+        var end = Math.min(cmds.length, i + self.FILLS_PER_TICK)
+        for (; i < end; i++) self.run(server, cmds[i])
+      } catch (e) {
+        console.error(`[ttl] dwargon terrain step failed at ${i}: ${e}`)
+        done(false)
+        return
+      }
+      if (i < cmds.length) server.scheduleInTicks(1, step)
+      else done(true)
+    }
+    step()
+  },
+
+  place(server, done) {
+    var f = TtlDwargonFootprint
+    var b = this.box()
+    var hm = this.heightmaps(server)
+    var base = this.chooseBase(server, hm)
+    if (base === null) {
+      console.warn('[ttl] dwargon: no ground found at the approach; not placed')
+      done(false)
+      return
+    }
+    var cmds = this.terrainCommands(hm, base)
+    var self = this
+    var part = 0
+    var placeNext = () => {
+      try {
+        if (part < f.parts.length) {
+          var name = f.parts.length > 1 ? `ttl:dwargon_${part}` : 'ttl:dwargon'
+          var r = self.run(server, `place template ${name} ${b.x0} ${base} ${b.z0 + f.parts[part]}`)
+          if (r === 0) console.warn(`[ttl] dwargon: place template ${name} reported failure`)
+          part++
+          server.scheduleInTicks(2, placeNext)
+          return
+        }
+      } catch (e) {
+        console.error(`[ttl] dwargon placement failed at slab ${part}: ${e}`)
+        done(false)
+        return
+      }
+      console.info(`[ttl] dwargon: ${f.parts.length} slab(s) placed, ${cmds.length} terrain commands (${self.FILLS_PER_TICK}/tick)`)
+      self.runBatched(server, cmds, ok => {
+        var gy = base + f.arrival[1]
+        if (ok) {
+          server.persistentData.putInt('ttl.dwargon.version', TTL_DWARGON_VERSION)
+          server.persistentData.putInt('ttl.dwargon.base', base)
+          server.persistentData.putString('ttl.dwargon.gate', `${self.GATE.x + 0.5} ${gy} ${self.GATE.z + 0.5}`)
+        }
+        console.info(`[ttl] dwargon placed: corner ${b.x0} ${base} ${b.z0}, gate at ${self.GATE.x} ${gy} ${self.GATE.z} (version ${TTL_DWARGON_VERSION}, terrain ${ok ? 'done' : 'FAILED'})`)
+        done(ok)
+      })
+    }
+    placeNext()
+  },
+
+  schedule(server) {
+    var self = this
+    this.forceload(server, 'add')
+    server.scheduleInTicks(200, () => {
+      var finish = () => self.forceload(server, 'remove')
+      try {
+        self.place(server, finish)
       } catch (e) {
         console.error(`[ttl] dwargon placement failed: ${e}`)
+        finish()
       }
-      self.run(server, `forceload remove ${b.x0} ${b.z0} ${b.x1} ${b.z1}`)
     })
   }
 }
