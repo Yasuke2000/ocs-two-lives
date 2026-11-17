@@ -34,7 +34,7 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "3967cca408e9cb843460f91786eb4b20d3e4e851d4380770798b78d6b6a06f7f"
+hash = "f8ab16a3d1ccd6a1fcec8ae435bb4f8f419efcda3bcda9738d313824ea59d8e7"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
@@ -42,11 +42,11 @@ hash = "1336c660acdbbf45d795651882fe740da983c99c3e4e9d9c887df615c7d55bd1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "cbbb9ab3e696983d7603f3d8d831e29256c40c93dbe5901eb4581bc1a0ca0b74"
+hash = "64d2aa49752f02b0d44347824657b432bfcf1f1253bc54f402be045f4857e9bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
-hash = "e5660c54438ab49488d8049d794f790bc58629d79dc9a8ca06ce3cd5ec430749"
+hash = "a72f93f8a552ef5bac49265dae1cbce01ec203c730ca80399a4bb1a6144645a1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -66,7 +66,11 @@ hash = "3dbdc117a82becdb392add7c80cfdad7a2cfb9d75095b996a347cb1f030c1eb3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
-hash = "506f501f75163b69bdafce2f2da406ae329caa2fb7640b60817fa61c17273e1c"
+hash = "fca63d414803143f6a1b600201a4f50d54d9ad74e5d807345e0d948a12133e50"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/trial_defs.js"
+hash = "3814c3599eb8e95880eaab6b891a1028220aa88fa958b6a3ec0a26d9c4840090"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"
@@ -433,5 +437,5 @@ metafile = true
 
 [[files]]
 file = "mods/ttl-portals.pw.toml"
-hash = "26777a963d78f7bea491d047f51b0030be36bc947e803da9fa1429e9834cee47"
+hash = "b1af6c810eab23fd7959e638c3f3ee3da498d343b99c516d0a20eebde67ad991"
 metafile = true

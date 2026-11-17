@@ -1,0 +1,15 @@
+# Trial of Survival with a test bot. Resistance V and Fire Resistance keep the bot alive; expect passed=true after 120 s.
+ttlbot spawn TtlBotSur
+@sleep 2
+kill TtlBotSur
+execute as TtlBotSur run ttl wish survival
+execute as TtlBotSur run ttl trial
+@sleep 2
+ttl inspect TtlBotSur
+effect give TtlBotSur minecraft:resistance 130 255 true
+effect give TtlBotSur minecraft:fire_resistance 130 0 true
+@sleep 121
+@sleep 2
+ttl inspect TtlBotSur
+ttl reset TtlBotSur
+ttlbot remove TtlBotSur

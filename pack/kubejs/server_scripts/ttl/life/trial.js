@@ -1,133 +1,169 @@
 // priority: 85
-// Trial of the Soul: an optional fight in the Corridor hall. Three waves within three minutes on loan
-// gear; win and you choose your unique from 3 options of your wish, lose (or "die") and fate draws one.
-// One trial at a time: the hall is shared. Waves are tracked by counting live tagged mobs every second:
-// EntityEvents.death did not fire for mob deaths in testing (only for players), so no death hooks here.
+// Trial of the Soul runner. The trial is chosen by the player's Last Wish (TtlTrials in trial_defs.js).
+// One player per arena at a time; different arenas run side by side. A watcher runs once a second while
+// the trial's token is current: time limit, the trial's own tick, and the pass/fail result.
 const TtlTrial = {
   TAG: 'ttl_trial',
-  TIME_LIMIT: 3600,
-  WAVES: [
-    [['minecraft:zombie', 3]],
-    [['minecraft:skeleton', 2], ['minecraft:spider', 2]],
-    [['minecraft:vindicator', 1, 'Echo of Your Last Breath'], ['minecraft:husk', 2]]
-  ],
-  SPAWNS: [[8, 65, 8], [-8, 65, 8], [8, 65, -8], [-8, 65, -8], [0, 65, 9]],
 
   run(server, cmd) {
     server.runCommandSilent(`execute in ${TtlLife.CORRIDOR} run ${cmd}`)
+  },
+
+  lockKey(wish) {
+    return `ttl.trial.lock.${wish}`
+  },
+
+  def(wish) {
+    return TtlTrials.DEFS[wish]
+  },
+
+  // Arena blocks, rebuilt whenever ARENA_VERSION changes. Chunks are force-loaded only while building.
+  buildArenas(server) {
+    if (server.persistentData.getInt('ttl.arenas.version') === TtlTrials.ARENA_VERSION) return
+    var self = this
+    TtlTrials.ORDER.forEach(wish => {
+      var o = TtlTrials.origin(wish)
+      self.run(server, `forceload add ${o.x - 16} ${o.z - 16} ${o.x + 16} ${o.z + 16}`)
+    })
+    // forceload takes effect on the next tick; filling before that hits unloaded chunks.
+    server.scheduleInTicks(40, () => {
+      TtlTrials.ORDER.forEach(wish => {
+        var d = self.def(wish)
+        var o = TtlTrials.origin(wish)
+        var fy = o.y + (d.floorY || 0)
+        var fill = (x1, y1, z1, x2, y2, z2, block, mode) => self.run(server,
+          `fill ${o.x + x1} ${o.y + y1} ${o.z + z1} ${o.x + x2} ${o.y + y2} ${o.z + z2} ${block}${mode ? ' ' + mode : ''}`)
+        self.run(server, `fill ${o.x - 16} ${fy - 1} ${o.z - 16} ${o.x + 16} ${o.y + 14} ${o.z + 16} minecraft:air`)
+        self.run(server, `fill ${o.x - 16} ${fy} ${o.z - 16} ${o.x + 16} ${o.y + 14} ${o.z + 16} minecraft:barrier hollow`)
+        self.run(server, `fill ${o.x - 15} ${fy} ${o.z - 15} ${o.x + 15} ${fy} ${o.z + 15} ${d.floor}`)
+        ;[[-8, -8], [8, -8], [-8, 8], [8, 8], [0, 0]].forEach(c => self.run(server, `setblock ${o.x + c[0]} ${fy} ${o.z + c[1]} minecraft:sea_lantern`))
+        if (d.build) d.build({ fill: fill })
+        self.run(server, `forceload remove ${o.x - 16} ${o.z - 16} ${o.x + 16} ${o.z + 16}`)
+      })
+      server.persistentData.putInt('ttl.arenas.version', TtlTrials.ARENA_VERSION)
+      console.info(`[ttl] trial arenas built (version ${TtlTrials.ARENA_VERSION})`)
+    })
+  },
+
+  context(server, player, wish, seconds) {
+    var self = this
+    return {
+      server: server, player: player, name: player.username, o: TtlTrials.origin(wish), wish: wish, seconds: seconds,
+      data: player.persistentData,
+      run: cmd => self.run(server, cmd)
+    }
   },
 
   start(server, player) {
     var data = player.persistentData
     if (data.getString('ttl.step') !== 'race') return 'Make your wish first.'
     if (data.getBoolean('ttl.trial.done')) return 'Your soul has already been tested.'
-    var busy = server.persistentData.getString('ttl.trial.player')
-    if (busy) return `${busy} is facing the Trial right now. Wait for them to finish.`
+    var wish = String(data.getString('ttl.wish'))
+    var d = this.def(wish)
+    if (!d) return `No trial answers the wish "${wish}".`
+    var busy = server.persistentData.getString(this.lockKey(wish))
+    if (busy) return `${busy} is facing this trial right now. Wait for them to finish.`
 
     var name = player.username
     var token = String(Date.now())
-    server.persistentData.putString('ttl.trial.player', name)
-    server.persistentData.putString('ttl.trial.token', token)
-    server.persistentData.putInt('ttl.trial.wave', -1)
+    server.persistentData.putString(this.lockKey(wish), name)
+    data.putString('ttl.trial.token', token)
     data.putString('ttl.step', 'trial')
 
+    var o = TtlTrials.origin(wish)
     server.runCommandSilent(`clear ${name}`)
-    server.runCommandSilent(`item replace entity ${name} weapon.mainhand with minecraft:iron_sword`)
-    server.runCommandSilent(`item replace entity ${name} weapon.offhand with minecraft:shield`)
-    server.runCommandSilent(`item replace entity ${name} armor.head with minecraft:iron_helmet`)
-    server.runCommandSilent(`item replace entity ${name} armor.chest with minecraft:iron_chestplate`)
-    server.runCommandSilent(`item replace entity ${name} armor.legs with minecraft:iron_leggings`)
-    server.runCommandSilent(`item replace entity ${name} armor.feet with minecraft:iron_boots`)
-    server.runCommandSilent(`give ${name} minecraft:cooked_beef 8`)
+    d.gear.forEach(g => server.runCommandSilent(`give ${name} minecraft:${g}`))
     player.setHealth(player.getMaxHealth())
-    TtlLife.toCorridor(server, player)
-    server.runCommandSilent(`title ${name} title {"text":"Trial of the Soul","color":"red"}`)
-    server.runCommandSilent(`title ${name} subtitle {"text":"Three waves. Three minutes.","color":"gray"}`)
-    console.info(`[ttl] ${name} started the Trial of the Soul`)
+    this.run(server, `tp ${name} ${o.x + d.start[0] + 0.5} ${o.y + d.start[1]} ${o.z + d.start[2] + 0.5} 0 0`)
+    server.runCommandSilent(`title ${name} title ${TtlTrials.named(d.title, 'red')}`)
+    server.runCommandSilent(`title ${name} subtitle ${TtlTrials.named(d.intro, 'gray')}`)
+    TtlCorridor.voice(server, name, `${d.title}: ${d.intro} (${d.limit} seconds)`)
+    console.info(`[ttl] ${name} started the ${d.title}`)
 
-    server.scheduleInTicks(60, () => this.spawnWave(server, 0))
-    this.watch(server, token)
-    server.scheduleInTicks(this.TIME_LIMIT, () => {
-      if (server.persistentData.getString('ttl.trial.token') === token) this.finish(server, name, false, 'Time ran out.')
+    // Mobs need the player's chunk loaded: set up a moment after the teleport.
+    server.scheduleInTicks(10, () => {
+      if (data.getString('ttl.trial.token') !== token) return
+      try {
+        if (d.setup) d.setup(this.context(server, player, wish, 0))
+      } catch (e) {
+        console.error(`[ttl] trial ${wish} setup failed for ${name}: ${e}`)
+      }
     })
+    this.watch(server, name, wish, token, 0)
     return null
   },
 
-  spawnWave(server, index) {
-    var wave = this.WAVES[index]
-    var count = 0
-    var spot = 0
-    wave.forEach(group => {
-      for (var i = 0; i < group[1]; i++) {
-        var pos = this.SPAWNS[spot++ % this.SPAWNS.length]
-        var nbt = { Tags: [this.TAG], PersistenceRequired: true }
-        if (group[2]) nbt.CustomName = JSON.stringify({ text: group[2], color: 'dark_red' })
-        // JSON.stringify gives valid SNBT for this shape (strings and booleans only).
-        this.run(server, `summon ${group[0]} ${pos[0]} ${pos[1]} ${pos[2]} ${JSON.stringify(nbt)}`)
-        count++
-      }
-    })
-    server.persistentData.putInt('ttl.trial.wave', index)
-    console.info(`[ttl] trial ${server.persistentData.getString('ttl.trial.player')}: wave ${index + 1} (${count} mobs)`)
-    var name = server.persistentData.getString('ttl.trial.player')
-    server.runCommandSilent(`title ${name} actionbar {"text":"Wave ${index + 1} of ${this.WAVES.length}","color":"red"}`)
-  },
-
-  alive(server) {
-    var count = 0
-    var tag = this.TAG
-    server.getLevel(TtlLife.CORRIDOR).getEntities().forEach(e => {
-      if (e.isAlive() && e.getTags().contains(tag)) count++
-    })
-    return count
-  },
-
-  // Once a second while this trial (token) runs: when a wave is cleared, send the next or end it.
-  watch(server, token) {
+  watch(server, name, wish, token, seconds) {
     server.scheduleInTicks(20, () => {
-      if (server.persistentData.getString('ttl.trial.token') !== token) return
-      var wave = server.persistentData.getInt('ttl.trial.wave')
-      if (wave >= 0 && this.alive(server) === 0) {
-        if (wave + 1 < this.WAVES.length) {
-          this.spawnWave(server, wave + 1)
-        } else {
-          this.finish(server, server.persistentData.getString('ttl.trial.player'), true, 'Your soul has proven itself.')
-          return
-        }
+      var player = server.getPlayerList().getPlayerByName(name)
+      if (!player) {
+        server.persistentData.remove(this.lockKey(wish))
+        return
       }
-      this.watch(server, token)
+      if (player.persistentData.getString('ttl.trial.token') !== token) return
+      var d = this.def(wish)
+      var elapsed = seconds + 1
+      if (elapsed >= d.limit) {
+        this.finish(server, player, wish, !!d.passOnTimeout, d.passOnTimeout ? 'You endured.' : 'Time ran out.')
+        return
+      }
+      var result = null
+      try {
+        result = d.tick ? d.tick(this.context(server, player, wish, elapsed)) : null
+      } catch (e) {
+        console.error(`[ttl] trial ${wish} tick failed for ${name}: ${e}`)
+      }
+      if (result === 'pass') return this.finish(server, player, wish, true, 'Your soul has proven itself.')
+      if (result === 'fail') return this.finish(server, player, wish, false, 'Your soul faltered.')
+      if (elapsed % 30 === 0) server.runCommandSilent(`title ${name} actionbar {"text":"${d.limit - elapsed} seconds left","color":"gray"}`)
+      this.watch(server, name, wish, token, elapsed)
     })
   },
 
   onPlayerDeath(server, player) {
-    if (server.persistentData.getString('ttl.trial.player') === player.username) {
-      this.finish(server, player.username, false, 'Your soul faltered.')
-    }
+    var data = player.persistentData
+    if (data.getString('ttl.step') !== 'trial') return
+    this.finish(server, player, String(data.getString('ttl.wish')), false, 'Your soul faltered.')
   },
 
-  finish(server, name, passed, why) {
-    server.persistentData.remove('ttl.trial.player')
-    server.persistentData.remove('ttl.trial.token')
-    this.run(server, `kill @e[tag=${this.TAG},distance=0..]`)
-    // Mob drops and loan gear must not be carried into Life 2.
-    this.run(server, 'kill @e[type=minecraft:item,distance=0..]')
-    var player = server.getPlayerList().getPlayerByName(name)
-    console.info(`[ttl] ${name} ${passed ? 'passed' : 'failed'} the Trial of the Soul (${why})`)
-    if (!player) return
+  // Called by /ttl answer during the Trial of Knowledge.
+  answer(server, player, word) {
     var data = player.persistentData
+    if (data.getString('ttl.step') !== 'trial' || data.getString('ttl.wish') !== 'knowledge') return 'There is no question to answer.'
+    return TtlTrials.DEFS.knowledge.answer(server, player, word)
+  },
+
+  finish(server, player, wish, passed, why) {
+    var name = player.username
+    var o = TtlTrials.origin(wish)
+    var data = player.persistentData
+    server.persistentData.remove(this.lockKey(wish))
+    data.remove('ttl.trial.token')
+    var box = `x=${o.x - 17},y=${o.y - 10},z=${o.z - 17},dx=34,dy=30,dz=34`
+    this.run(server, `kill @e[tag=${this.TAG},${box}]`)
+    // Mob drops and loan gear must not be carried into Life 2; hazards must not outlive the trial.
+    this.run(server, `kill @e[type=minecraft:item,${box}]`)
+    this.run(server, `kill @e[type=minecraft:falling_block,${box}]`)
+    ;['minecraft:anvil', 'minecraft:chipped_anvil', 'minecraft:damaged_anvil', 'minecraft:fire'].forEach(b =>
+      this.run(server, `fill ${o.x - 15} ${o.y + 1} ${o.z - 15} ${o.x + 15} ${o.y + 6} ${o.z + 15} minecraft:air replace ${b}`))
+    console.info(`[ttl] ${name} ${passed ? 'passed' : 'failed'} the ${this.def(wish).title} (${why})`)
     data.putBoolean('ttl.trial.done', true)
     data.putBoolean('ttl.trial.passed', passed)
     data.putString('ttl.step', 'race')
     server.runCommandSilent(`clear ${name}`)
+    server.runCommandSilent(`effect clear ${name}`)
     player.setHealth(player.getMaxHealth())
+    player.getFoodData().setFoodLevel(20)
+    player.clearFire()
     TtlLife.toCorridor(server, player)
     TtlCorridor.voice(server, name, passed ? `${why} You may choose your skill.` : `${why} Fate will choose your skill.`)
     TtlCorridor.showRaces(server, player)
   }
 }
 
-// A restart mid-trial must not leave the hall locked.
 ServerEvents.loaded(event => {
-  event.server.persistentData.remove('ttl.trial.player')
-  event.server.persistentData.remove('ttl.trial.token')
+  var server = event.server
+  // A restart mid-trial must not leave arenas locked; join.js fails the interrupted player's trial.
+  TtlTrials.ORDER.forEach(wish => server.persistentData.remove(TtlTrial.lockKey(wish)))
+  TtlTrial.buildArenas(server)
 })

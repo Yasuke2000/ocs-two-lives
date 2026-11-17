@@ -20,6 +20,14 @@ EntityEvents.death('minecraft:player', event => {
     return event.cancel()
   }
 
+  // The Trial of Vengeance brings back whatever killed you.
+  try {
+    var killer = event.source.getEntity()
+    player.persistentData.putString('ttl.killer', killer ? String(killer.type) : '')
+  } catch (e) {
+    player.persistentData.putString('ttl.killer', '')
+  }
+
   // Swap the stage now: void damage can fire another death before the tp next tick.
   player.stages.remove('ttl.life1')
   player.stages.add('ttl.corridor')

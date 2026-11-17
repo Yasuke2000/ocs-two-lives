@@ -1,0 +1,14 @@
+# Trial of Protection with a test bot. The ward gets Resistance V so it survives without help; expect passed=true after 90 s.
+ttlbot spawn TtlBotPro
+@sleep 2
+kill TtlBotPro
+execute as TtlBotPro run ttl wish protection
+execute as TtlBotPro run ttl trial
+@sleep 2
+ttl inspect TtlBotPro
+effect give @e[tag=ttl_ward] minecraft:resistance 120 255 true
+@sleep 92
+@sleep 2
+ttl inspect TtlBotPro
+ttl reset TtlBotPro
+ttlbot remove TtlBotPro

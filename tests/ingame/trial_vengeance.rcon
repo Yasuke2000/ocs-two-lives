@@ -1,0 +1,17 @@
+# Trial of Vengeance with a test bot: a zombie kills the bot in Life 1, so the nemesis must be a zombie.
+# Expect ttl.killer=minecraft:zombie, a zombie named "The One Who Killed You", then passed=true once it dies.
+ttlbot spawn TtlBotVen
+@sleep 4
+execute as TtlBotVen at @s run summon minecraft:zombie ~ ~ ~2 {NoAI:1b,Tags:["ttlkiller"]}
+damage TtlBotVen 1000 minecraft:mob_attack by @e[tag=ttlkiller,limit=1]
+kill @e[tag=ttlkiller]
+execute as TtlBotVen run ttl wish vengeance
+execute as TtlBotVen run ttl trial
+@sleep 2
+ttl inspect TtlBotVen
+execute in ttl:spirit_corridor if entity @e[type=minecraft:zombie,tag=ttl_nemesis,x=1100,y=60,z=0,distance=..30]
+kill @e[tag=ttl_nemesis]
+@sleep 2
+ttl inspect TtlBotVen
+ttl reset TtlBotVen
+ttlbot remove TtlBotVen

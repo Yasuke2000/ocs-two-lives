@@ -1,0 +1,17 @@
+# Trial of Knowledge with a test bot. All five answers right: expect correct=5, passed=true.
+ttlbot spawn TtlBotKno
+@sleep 2
+kill TtlBotKno
+execute as TtlBotKno run ttl wish knowledge
+execute as TtlBotKno run ttl trial
+@sleep 2
+ttl inspect TtlBotKno
+execute as TtlBotKno run ttl answer slime
+execute as TtlBotKno run ttl answer great_sage
+execute as TtlBotKno run ttl answer magicules
+execute as TtlBotKno run ttl answer hero
+execute as TtlBotKno run ttl answer footsteps
+@sleep 2
+ttl inspect TtlBotKno
+ttl reset TtlBotKno
+ttlbot remove TtlBotKno

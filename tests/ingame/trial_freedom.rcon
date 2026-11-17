@@ -1,0 +1,16 @@
+# Trial of Freedom with a test bot. Dropped into the pit: back at the start (z about -13); then on the gold: passed=true.
+ttlbot spawn TtlBotFre
+@sleep 2
+kill TtlBotFre
+execute as TtlBotFre run ttl wish freedom
+execute as TtlBotFre run ttl trial
+@sleep 2
+ttl inspect TtlBotFre
+execute in ttl:spirit_corridor run tp TtlBotFre 1500.5 59 0.5
+@sleep 2
+ttl inspect TtlBotFre
+execute in ttl:spirit_corridor run tp TtlBotFre 1500.5 65 13.5
+@sleep 2
+ttl inspect TtlBotFre
+ttl reset TtlBotFre
+ttlbot remove TtlBotFre

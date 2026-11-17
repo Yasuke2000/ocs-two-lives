@@ -1,4 +1,4 @@
-// Players:  /ttl wish <id> · /ttl trial · /ttl choose <race> · /ttl unique <skill> · /ttl status
+// Players:  /ttl wish <id> · /ttl trial · /ttl answer <word> · /ttl choose <race> · /ttl unique <skill> · /ttl status
 // Ops:      /ttl inspect <player> (answers over RCON) · /ttl reset <player> (back to a fresh Life 1)
 //           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
 ServerEvents.commandRegistry(event => {
@@ -37,10 +37,12 @@ ServerEvents.commandRegistry(event => {
   var inspect = ctx => {
     var target = Arguments.PLAYER.getResult(ctx, 'target')
     var data = target.persistentData
-    var fields = ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.uniques']
+    var fields = ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.uniques', 'ttl.killer']
       .map(k => `${k}=${data.getString(k)}`)
-      .concat([`ttl.trial.done=${data.getBoolean('ttl.trial.done')}`, `ttl.trial.passed=${data.getBoolean('ttl.trial.passed')}`])
-    var line = `${target.username}: phase=${life.phase(target)} dim=${life.dimensionOf(target)} ${fields.join(' ')}`
+      .concat([`ttl.trial.done=${data.getBoolean('ttl.trial.done')}`, `ttl.trial.passed=${data.getBoolean('ttl.trial.passed')}`,
+        `strikes=${data.getInt('ttl.trial.strikes')}`, `correct=${data.getInt('ttl.trial.correct')}`, `food=${target.getFoodData().getFoodLevel()}`])
+    var pos = `${Math.floor(target.getX())},${Math.floor(target.getY())},${Math.floor(target.getZ())}`
+    var line = `${target.username}: phase=${life.phase(target)} dim=${life.dimensionOf(target)} pos=${pos} ${fields.join(' ')}`
     ctx.source.sendSystemMessage(Text.of(line))
     return 1
   }
@@ -95,6 +97,9 @@ ServerEvents.commandRegistry(event => {
         .executes(step((server, player, ctx) => TtlCorridor.wish(server, player, word(ctx, 'id'))))))
     .then(Commands.literal('trial')
       .executes(step((server, player) => TtlTrial.start(server, player))))
+    .then(Commands.literal('answer')
+      .then(Commands.argument('word', Arguments.STRING.create(event))
+        .executes(step((server, player, ctx) => TtlTrial.answer(server, player, word(ctx, 'word'))))))
     .then(Commands.literal('choose')
       .then(Commands.argument('race', Arguments.STRING.create(event))
         .executes(step((server, player, ctx) => TtlCorridor.choose(server, player, word(ctx, 'race'))))))

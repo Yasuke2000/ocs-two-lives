@@ -1,0 +1,13 @@
+# Trial of Protection with a test bot. Fail path: the ward dies, expect passed=false at once.
+ttlbot spawn TtlBotProF
+@sleep 2
+kill TtlBotProF
+execute as TtlBotProF run ttl wish protection
+execute as TtlBotProF run ttl trial
+@sleep 2
+ttl inspect TtlBotProF
+kill @e[tag=ttl_ward]
+@sleep 2
+ttl inspect TtlBotProF
+ttl reset TtlBotProF
+ttlbot remove TtlBotProF

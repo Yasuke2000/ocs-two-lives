@@ -1,0 +1,17 @@
+# Trial of Knowledge with a test bot. Two wrong answers: expect correct=3, passed=false.
+ttlbot spawn TtlBotKnoF
+@sleep 2
+kill TtlBotKnoF
+execute as TtlBotKnoF run ttl wish knowledge
+execute as TtlBotKnoF run ttl trial
+@sleep 2
+ttl inspect TtlBotKnoF
+execute as TtlBotKnoF run ttl answer slime
+execute as TtlBotKnoF run ttl answer predator
+execute as TtlBotKnoF run ttl answer magicules
+execute as TtlBotKnoF run ttl answer church
+execute as TtlBotKnoF run ttl answer footsteps
+@sleep 2
+ttl inspect TtlBotKnoF
+ttl reset TtlBotKnoF
+ttlbot remove TtlBotKnoF

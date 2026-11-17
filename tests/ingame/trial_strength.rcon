@@ -1,0 +1,20 @@
+# Trial of Strength with a test bot. Expect 4 waves in the log, then ttl.trial.passed=true.
+ttlbot spawn TtlBotStr
+@sleep 2
+kill TtlBotStr
+execute as TtlBotStr run ttl wish strength
+execute as TtlBotStr run ttl trial
+@sleep 2
+ttl inspect TtlBotStr
+@sleep 3
+execute in ttl:spirit_corridor run kill @e[tag=ttl_trial,x=1000,y=60,z=0,distance=..30]
+@sleep 2
+execute in ttl:spirit_corridor run kill @e[tag=ttl_trial,x=1000,y=60,z=0,distance=..30]
+@sleep 2
+execute in ttl:spirit_corridor run kill @e[tag=ttl_trial,x=1000,y=60,z=0,distance=..30]
+@sleep 2
+execute in ttl:spirit_corridor run kill @e[tag=ttl_trial,x=1000,y=60,z=0,distance=..30]
+@sleep 2
+ttl inspect TtlBotStr
+ttl reset TtlBotStr
+ttlbot remove TtlBotStr

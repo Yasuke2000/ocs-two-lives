@@ -6,7 +6,8 @@
 //   unique → trial passed: pick 1 of 3 uniques        (/ttl unique <skill>)
 // Without a passed trial the unique is drawn at random from the wish's pool.
 const TtlCorridor = {
-  KEYS: ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.trial.done', 'ttl.trial.passed'],
+  KEYS: ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.trial.done', 'ttl.trial.passed',
+    'ttl.trial.token', 'ttl.trial.wave', 'ttl.trial.q', 'ttl.trial.correct', 'ttl.trial.strikes'],
 
   title(id) {
     var path = String(id).replace(/^.*:/, '')
@@ -47,9 +48,10 @@ const TtlCorridor = {
     var offers = data.getString('ttl.offers').split(',')
     this.buttons(server, player.username, 'Choose the body you will be reborn in:',
       offers.map(r => ({ label: this.title(r), command: `/ttl choose ${r}`, hover: `Reincarnate as ${this.title(r)}` })))
-    if (!data.getBoolean('ttl.trial.done')) {
+    var trial = TtlTrials.DEFS[String(data.getString('ttl.wish'))]
+    if (trial && !data.getBoolean('ttl.trial.done')) {
       this.buttons(server, player.username, 'Or prove your soul first, and choose your skill yourself:',
-        [{ label: 'Face the Trial of the Soul', color: 'red', command: '/ttl trial', hover: 'Three waves, three minutes. Fail and fate decides.' }])
+        [{ label: `Face the ${trial.title}`, color: 'red', command: '/ttl trial', hover: `${trial.intro} (${trial.limit} s). Fail and fate decides.` }])
     }
   },
 
@@ -118,6 +120,7 @@ const TtlCorridor = {
     player.stages.remove('ttl.corridor')
     player.stages.add('ttl.life2')
     this.KEYS.forEach(k => data.remove(k))
+    data.remove('ttl.killer')
     server.runCommandSilent(`gamemode survival ${name}`)
     TtlLife.toOverworld(server, player)
     server.runCommandSilent(`tellraw @a ${JSON.stringify([

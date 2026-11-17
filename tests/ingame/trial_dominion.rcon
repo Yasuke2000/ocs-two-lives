@@ -1,0 +1,13 @@
+# Trial of Dominion with a test bot. Three cows moved into the pen: passed=true.
+ttlbot spawn TtlBotDom
+@sleep 2
+kill TtlBotDom
+execute as TtlBotDom run ttl wish dominion
+execute as TtlBotDom run ttl trial
+@sleep 2
+ttl inspect TtlBotDom
+execute in ttl:spirit_corridor run tp @e[tag=ttl_herd,limit=3] 1811.5 65 11.5
+@sleep 2
+ttl inspect TtlBotDom
+ttl reset TtlBotDom
+ttlbot remove TtlBotDom

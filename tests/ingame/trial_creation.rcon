@@ -1,0 +1,13 @@
+# Trial of Creation with a test bot. A lantern in the inventory: passed=true.
+ttlbot spawn TtlBotCre
+@sleep 2
+kill TtlBotCre
+execute as TtlBotCre run ttl wish creation
+execute as TtlBotCre run ttl trial
+@sleep 2
+ttl inspect TtlBotCre
+give TtlBotCre minecraft:lantern
+@sleep 2
+ttl inspect TtlBotCre
+ttl reset TtlBotCre
+ttlbot remove TtlBotCre

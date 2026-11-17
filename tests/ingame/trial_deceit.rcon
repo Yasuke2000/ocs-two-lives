@@ -1,0 +1,16 @@
+# Trial of Deceit with a test bot. Upright next to a Watcher: strikes=1 and back at the start; then on the emerald exit: passed=true.
+ttlbot spawn TtlBotDec
+@sleep 2
+kill TtlBotDec
+execute as TtlBotDec run ttl wish deceit
+execute as TtlBotDec run ttl trial
+@sleep 2
+ttl inspect TtlBotDec
+execute in ttl:spirit_corridor run tp TtlBotDec 1600.5 65 -4.5
+@sleep 2
+ttl inspect TtlBotDec
+execute in ttl:spirit_corridor run tp TtlBotDec 1600.5 65 14.5
+@sleep 2
+ttl inspect TtlBotDec
+ttl reset TtlBotDec
+ttlbot remove TtlBotDec
