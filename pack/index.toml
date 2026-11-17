@@ -5,16 +5,1148 @@ file = "config/DistantHorizons.toml"
 hash = "30e000d56d889bc006ff5a5beb8da8aabb0980e016ba41f88edee9410f126e7b"
 
 [[files]]
+file = "config/alltheleaks.json"
+hash = "2437057bda7e53d91e7a8c400da308a8d848fbdcc80ed845a9c8dbdabd071482"
+
+[[files]]
+file = "config/artifacts/general.toml"
+hash = "f262c61f4f63bfd3c3e2fa5ed30176b9d447755725ff0dfe08b84df26faca607"
+
+[[files]]
+file = "config/artifacts/items.toml"
+hash = "ba1c03720d57a53b8122041a017e6780539813ec7cbb2040bdc7bcbfcf3a6882"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.attack_burning_duration.json"
+hash = "2b35471191429cb7b18be98f70f23a3ea36ddf0d984a5a3f6a492ce3b3a1dba5"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.drinking_speed.json"
+hash = "ea105c9bb954b8cc9e60749b9a304a1ff80fa0c80873099c569e94c6ea5d6c67"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.eating_speed.json"
+hash = "ea105c9bb954b8cc9e60749b9a304a1ff80fa0c80873099c569e94c6ea5d6c67"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.flatulence.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.invincibility_ticks.json"
+hash = "f2b86540287515290388f49a96e00e5e9ae90abe7332b9beeb44870d0e30c206"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.mount_speed.json"
+hash = "c568f31255bb84ce497127463bdeaa91d597a4336320d84bf669e630ccf169ea"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.movement_speed_on_snow.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.slip_resistance.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.sprinting_speed.json"
+hash = "c568f31255bb84ce497127463bdeaa91d597a4336320d84bf669e630ccf169ea"
+
+[[files]]
+file = "config/attributefix/artifacts/generic.sprinting_step_height.json"
+hash = "93b4adf5c49377098f3767e46dea7ab8228ad0edd2d0f59904ff9e12a429e8c0"
+
+[[files]]
+file = "config/attributefix/artifacts/player.entity_experience.json"
+hash = "137e8a8052b2264bc1c881b91b97011e4c33726819f4c434753ad5480ee3d19f"
+
+[[files]]
+file = "config/attributefix/artifacts/player.villager_reputation.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/irons_lib/armor_pierce.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/irons_lib/arrow_damage.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/irons_lib/crit_damage.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/irons_lib/dodge_chance.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/irons_lib/experience_gained.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/irons_lib/healing_received.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/irons_lib/mining_speed.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/irons_lib/projectile_damage.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/blood_magic_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/blood_spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/cast_time_reduction.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/casting_movespeed.json"
+hash = "6217856e9bb2355a468bbe03fe24bc97bae91f8deb54e9df42f8a4021cde99e6"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/cooldown_reduction.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/eldritch_magic_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/eldritch_spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/ender_magic_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/ender_spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/evocation_magic_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/evocation_spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/fire_magic_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/fire_spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/holy_magic_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/holy_spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/ice_magic_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/ice_spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/lightning_magic_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/lightning_spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/mana_regen.json"
+hash = "6217856e9bb2355a468bbe03fe24bc97bae91f8deb54e9df42f8a4021cde99e6"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/max_mana.json"
+hash = "d93c8a68daea4dc0cd38d7b9a29e28cc16536332528edff278fdceeeb5a636e2"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/nature_magic_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/nature_spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/spell_power.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/spell_resist.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/irons_spellbooks/summon_damage.json"
+hash = "3e05221436880d09fbac95dfc9cde9d2225e8cfdb81ea0c4a41a453934acf938"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/bow_strength.json"
+hash = "6a50a28a3820a8085fb2d43b0b3ba718ff8d9e0df9800e855d540c3c7a82d862"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/crit_damage.json"
+hash = "6a50a28a3820a8085fb2d43b0b3ba718ff8d9e0df9800e855d540c3c7a82d862"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/crit_rate.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/damage_absorption.json"
+hash = "fead7637d9e24d53ba947a7260fdbb1b8d7da59e0d46a480e2a5fb9bf2d4aeb1"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/damage_reduction.json"
+hash = "68512ba5fb38958b90a6d612a2d002d7ddfc965e609d27776f1918efc8c989bc"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/explosion_damage.json"
+hash = "6a50a28a3820a8085fb2d43b0b3ba718ff8d9e0df9800e855d540c3c7a82d862"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/fire_damage.json"
+hash = "6a50a28a3820a8085fb2d43b0b3ba718ff8d9e0df9800e855d540c3c7a82d862"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/freezing_damage.json"
+hash = "6a50a28a3820a8085fb2d43b0b3ba718ff8d9e0df9800e855d540c3c7a82d862"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/lightning_damage.json"
+hash = "6a50a28a3820a8085fb2d43b0b3ba718ff8d9e0df9800e855d540c3c7a82d862"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/magic_damage.json"
+hash = "6a50a28a3820a8085fb2d43b0b3ba718ff8d9e0df9800e855d540c3c7a82d862"
+
+[[files]]
+file = "config/attributefix/l2damagetracker/regen.json"
+hash = "6a50a28a3820a8085fb2d43b0b3ba718ff8d9e0df9800e855d540c3c7a82d862"
+
+[[files]]
+file = "config/attributefix/l2hostility/extra_difficulty.json"
+hash = "487f467b01c27f2a09baed20062a8ee186104a3f36132eb53697dab2cda1bddf"
+
+[[files]]
+file = "config/attributefix/manascore_attribute/critical_attack_chance.json"
+hash = "6217856e9bb2355a468bbe03fe24bc97bae91f8deb54e9df42f8a4021cde99e6"
+
+[[files]]
+file = "config/attributefix/manascore_attribute/critical_damage_multiplier.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/manascore_attribute/glide_speed_multiplier.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/manascore_attribute/lava_speed_multiplier.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/manascore_attribute/swim_speed_multiplier.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.armor.json"
+hash = "b6aa33f20fbc7bb14c930dfcfd93591f37f2ccf12df0b6da9551f7a6fad1e439"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.armor_toughness.json"
+hash = "b6aa33f20fbc7bb14c930dfcfd93591f37f2ccf12df0b6da9551f7a6fad1e439"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.attack_damage.json"
+hash = "b6aa33f20fbc7bb14c930dfcfd93591f37f2ccf12df0b6da9551f7a6fad1e439"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.attack_knockback.json"
+hash = "b6aa33f20fbc7bb14c930dfcfd93591f37f2ccf12df0b6da9551f7a6fad1e439"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.attack_speed.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.burning_time.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.explosion_knockback_resistance.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.fall_damage_multiplier.json"
+hash = "6217856e9bb2355a468bbe03fe24bc97bae91f8deb54e9df42f8a4021cde99e6"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.flying_speed.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.follow_range.json"
+hash = "43aa2701d17e26c045533a5b0500fa8c0639d4e62adcccd389ba3426378a80c0"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.gravity.json"
+hash = "84207d0866413a367d92222bd193912a418615f5eb9da342057bafec30173a79"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.jump_strength.json"
+hash = "220b18479d9b6497fc95e3b2ffcca5014d93eca33153fab8f343151c9a553bde"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.knockback_resistance.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.luck.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.max_absorption.json"
+hash = "43aa2701d17e26c045533a5b0500fa8c0639d4e62adcccd389ba3426378a80c0"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.max_health.json"
+hash = "9d0ae1c8fda340e80aac17df9999ec1e9c7396a2327f63a40ea8006991201305"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.movement_efficiency.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.movement_speed.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.oxygen_bonus.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.safe_fall_distance.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.scale.json"
+hash = "1b7ad066cede2a3f345046666a88895c04e4aca871f987a55daaa25d2963c4b7"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.step_height.json"
+hash = "93b4adf5c49377098f3767e46dea7ab8228ad0edd2d0f59904ff9e12a429e8c0"
+
+[[files]]
+file = "config/attributefix/minecraft/generic.water_movement_efficiency.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/minecraft/player.block_break_speed.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/minecraft/player.block_interaction_range.json"
+hash = "137e8a8052b2264bc1c881b91b97011e4c33726819f4c434753ad5480ee3d19f"
+
+[[files]]
+file = "config/attributefix/minecraft/player.entity_interaction_range.json"
+hash = "137e8a8052b2264bc1c881b91b97011e4c33726819f4c434753ad5480ee3d19f"
+
+[[files]]
+file = "config/attributefix/minecraft/player.mining_efficiency.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/minecraft/player.sneaking_speed.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/minecraft/player.submerged_mining_speed.json"
+hash = "f874427dd6754eff702ef41fd35649493094ddd0c79e01623a2cc9ccfe8ce8d7"
+
+[[files]]
+file = "config/attributefix/minecraft/player.sweeping_damage_ratio.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/minecraft/zombie.spawn_reinforcements.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/neoforge/nametag_distance.json"
+hash = "137e8a8052b2264bc1c881b91b97011e4c33726819f4c434753ad5480ee3d19f"
+
+[[files]]
+file = "config/attributefix/neoforge/swim_speed.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/ability_learning_gain.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/ability_mastery_gain.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/analysis_distance.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/analysis_level.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/aura_gain.json"
+hash = "93b4adf5c49377098f3767e46dea7ab8228ad0edd2d0f59904ff9e12a429e8c0"
+
+[[files]]
+file = "config/attributefix/tensura/aura_regeneration_multiplier.json"
+hash = "b46b4b52beb494dfad1d4d587095b7c9b9270cae0fed8f2387c4a5d055e10cd8"
+
+[[files]]
+file = "config/attributefix/tensura/chant_speed.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/dark_vision.json"
+hash = "84207d0866413a367d92222bd193912a418615f5eb9da342057bafec30173a79"
+
+[[files]]
+file = "config/attributefix/tensura/darkness_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/darkness_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/darkness_resistance.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/dodge_invulnerability.json"
+hash = "93b4adf5c49377098f3767e46dea7ab8228ad0edd2d0f59904ff9e12a429e8c0"
+
+[[files]]
+file = "config/attributefix/tensura/dodge_negate_chance.json"
+hash = "6217856e9bb2355a468bbe03fe24bc97bae91f8deb54e9df42f8a4021cde99e6"
+
+[[files]]
+file = "config/attributefix/tensura/dodge_strength.json"
+hash = "6217856e9bb2355a468bbe03fe24bc97bae91f8deb54e9df42f8a4021cde99e6"
+
+[[files]]
+file = "config/attributefix/tensura/earth_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/earth_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/earth_resistance.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/flame_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/flame_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/flame_resistance.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/gravity_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/gravity_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/heat_sense_radius.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/height_multiplier.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/illusion_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/lava_capacity.json"
+hash = "ef36e99d589fc0e7c9c86a3de4acf021ffbc530d8c33ffce39da1325ea7f9c21"
+
+[[files]]
+file = "config/attributefix/tensura/law_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/light_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/light_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/light_resistance.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/lightning_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/lightning_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/limited_spiritual_max_aura.json"
+hash = "ef36e99d589fc0e7c9c86a3de4acf021ffbc530d8c33ffce39da1325ea7f9c21"
+
+[[files]]
+file = "config/attributefix/tensura/limited_spiritual_max_magicule.json"
+hash = "ef36e99d589fc0e7c9c86a3de4acf021ffbc530d8c33ffce39da1325ea7f9c21"
+
+[[files]]
+file = "config/attributefix/tensura/magic_barrier.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/magic_cost_multiplier.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/magic_interference.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/magic_resistance.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/magicule_gain.json"
+hash = "93b4adf5c49377098f3767e46dea7ab8228ad0edd2d0f59904ff9e12a429e8c0"
+
+[[files]]
+file = "config/attributefix/tensura/magicule_regeneration_multiplier.json"
+hash = "b46b4b52beb494dfad1d4d587095b7c9b9270cae0fed8f2387c4a5d055e10cd8"
+
+[[files]]
+file = "config/attributefix/tensura/max_aura.json"
+hash = "8bab2f9e7d0cb58848c56feb22daef11bf596b40c027592386ace0f91dd78f7e"
+
+[[files]]
+file = "config/attributefix/tensura/max_magicule.json"
+hash = "8bab2f9e7d0cb58848c56feb22daef11bf596b40c027592386ace0f91dd78f7e"
+
+[[files]]
+file = "config/attributefix/tensura/max_spiritual_health.json"
+hash = "b46b4b52beb494dfad1d4d587095b7c9b9270cae0fed8f2387c4a5d055e10cd8"
+
+[[files]]
+file = "config/attributefix/tensura/melee_dodge_chance.json"
+hash = "6217856e9bb2355a468bbe03fe24bc97bae91f8deb54e9df42f8a4021cde99e6"
+
+[[files]]
+file = "config/attributefix/tensura/multilayer_barrier.json"
+hash = "d93c8a68daea4dc0cd38d7b9a29e28cc16536332528edff278fdceeeb5a636e2"
+
+[[files]]
+file = "config/attributefix/tensura/physical_barrier.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/physical_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/presence_concealment.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/presence_sense.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/presence_sense_radius.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/projectile_dodge_chance.json"
+hash = "6217856e9bb2355a468bbe03fe24bc97bae91f8deb54e9df42f8a4021cde99e6"
+
+[[files]]
+file = "config/attributefix/tensura/resistance_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/sound_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/space_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/space_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/space_resistance.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/spiritual_health_regeneration.json"
+hash = "b46b4b52beb494dfad1d4d587095b7c9b9270cae0fed8f2387c4a5d055e10cd8"
+
+[[files]]
+file = "config/attributefix/tensura/view_zoom.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/warp_shot.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/water_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/water_capacity.json"
+hash = "171d57e3b0d164a9942705ebc1dbbc3c0ca4996c704dfe93d6bcc71e63a16829"
+
+[[files]]
+file = "config/attributefix/tensura/water_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/water_resistance.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/attributefix/tensura/width_multiplier.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/wind_boost.json"
+hash = "6b9b3d0281e3d07f12580d39983e2ac2eac90f30c739d743b84d55024c3651ed"
+
+[[files]]
+file = "config/attributefix/tensura/wind_resist_degradation.json"
+hash = "17ef1233e3020b53a3835793bc771c00114af5b167f57cb03506098dbc49e535"
+
+[[files]]
+file = "config/attributefix/tensura/wind_resistance.json"
+hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
+
+[[files]]
+file = "config/cervlogger/config.properties"
+hash = "6ea911dc19053a04fc1e1b5cdd35aefe5effe1e0def5b7713f00913bdf59be4e"
+
+[[files]]
+file = "config/cervlogger/database.db"
+hash = "b75e93ba702c4925f6396e538624eae3b48a9583bd5131da2fa5f1f032f05dba"
+
+[[files]]
+file = "config/cervlogger/database.db-shm"
+hash = "2c756435a086a8f982022cf0b36ade98d86ec2e1590be0e9eca7a1c2864280ae"
+
+[[files]]
+file = "config/cervlogger/database.db-wal"
+hash = "1c97b8f61bb37cd85b10de7ca42d496affee5eee3c44685251e2fd0ffb92b7b9"
+
+[[files]]
+file = "config/create-common.toml"
+hash = "1c632f62c30f4e1223669267196d2ff1a2c03e400bf565ff4fe81e20c7cd2bdf"
+
+[[files]]
+file = "config/create-server.toml"
+hash = "f1a3edd31cdcf2b602b7d51d1fe8ba5e88d6403580ba382ba4cbfab1ecb3a365"
+
+[[files]]
+file = "config/cristellib/auto_config_settings.json5"
+hash = "799173b66094a241753f41af672ddf22921ca206cb88f1966d31960c89c3f99a"
+
+[[files]]
+file = "config/cristellib/built_in_packs.json5"
+hash = "76120cb769b1303ffdbd30a197e01e69692a9c111eb818a3b5a5272925343364"
+
+[[files]]
+file = "config/cristellib/irons_spellbooks/structure_placement_config.json5"
+hash = "604e3cdba3aeb339f502dfbd678d465757cc1b7872a81c336b09dcd2ef5f2ed0"
+
+[[files]]
+file = "config/cristellib/irons_spellbooks/structure_toggle_config.json5"
+hash = "6c11a82d5a3442fdff0e5a150c329818566061126e346f6ad6ce3a93fdd7b30d"
+
+[[files]]
+file = "config/cristellib/tensura/structure_placement_config.json5"
+hash = "680720f323c5f9c316790e8d0754443dcdb3174f8ddd4ea576e7c26ec0c36567"
+
+[[files]]
+file = "config/cristellib/tensura/structure_toggle_config.json5"
+hash = "36c4475a305794db986ae1bce39c3d2c15d73f48591c3383516a08cc4b0f0d40"
+
+[[files]]
+file = "config/cristellib/tombstone/structure_placement_config.json5"
+hash = "91b4060e1374f12f46cb5587f8b01fc64de86d8f2b855988ffc91ad0b65d3f8d"
+
+[[files]]
+file = "config/cristellib/tombstone/structure_toggle_config.json5"
+hash = "c99f6a233f3922f8d581c6caf42f0796f3f97feaec963add7f8728e50fcc9b98"
+
+[[files]]
+file = "config/curios-common.toml"
+hash = "16c71790deac2bbdea0099e39cdf8eb47b3dd7ef6337b69ba9fce793a1bf9674"
+
+[[files]]
+file = "config/curios-server.toml"
+hash = "3c34cf9f7918c6a9ec15b14a87aa4570a751c1688f8ac01cb2e9acfb9392a734"
+
+[[files]]
+file = "config/easy_npc/dialog_options.cfg"
+hash = "c7eaf8dabd41ce2855d7954052cb6e427fafbf6f1b6da35a31d84954dfaa166b"
+
+[[files]]
+file = "config/easy_npc/npc_base.cfg"
+hash = "3f871a556a9f1d11baa6e86e46240e22d98ae364f3112f44678571a677d5abd0"
+
+[[files]]
+file = "config/easy_npc/remote_texture.cfg"
+hash = "4394b0cb0865a0c2a3ac5fc6a2674cc0733c2fc96de3c25866707dedfed5ae09"
+
+[[files]]
+file = "config/easy_npc/render_entity_type_support.cfg"
+hash = "27ed04caa1cd9b584ced94c1d72148aa6410245d1fa807ada2a5af04f7f5cd3c"
+
+[[files]]
+file = "config/easy_npc/security.cfg"
+hash = "f826678fd23fc8912280b6c4970223b84173db74dff271fac68fb6838f4e02a0"
+
+[[files]]
+file = "config/easy_npc/spawner_type.cfg"
+hash = "8f84610731e5fcdc28da93a24eb857f736bb551488b64e6457a7ad973e4da8fe"
+
+[[files]]
+file = "config/easy_npc/storage.cfg"
+hash = "7c28732c7fd8233b1297c2db1c8de67f8b3855a60995106d55230d4e9d1de072"
+
+[[files]]
+file = "config/enhancedcelestials2core/mixins.properties"
+hash = "36b0d118a1924aa3f2436fa16cc46a366c9a7f138765ae86caec05977be98bd5"
+
+[[files]]
 file = "config/enhancedcelestials2core/translations.json"
 hash = "4e2513fbfedf8d27de69cefe14b100313aa9b635d845c1fae6c60af02f0d8080"
 
 [[files]]
+file = "config/ferritecore-mixin.toml"
+hash = "b6c85cb392f799ed932ffe8d6051f48a283a0df3f8674acf4f8d89341836e686"
+
+[[files]]
+file = "config/ftbchunks-world.snbt"
+hash = "ec7dbb3f040fa7d7152e27029d6f0dafff07006f0ad74fc72a7129dbcb04ac35"
+
+[[files]]
+file = "config/ftbteams-server.snbt"
+hash = "9bd37cc28e98715609164df1cf0320a92ed64ee25640844664246956bbfe03ae"
+
+[[files]]
+file = "config/ftbxmodcompat.snbt"
+hash = "3b6427170b35ebab424fcc3ee4b11ccf2c1bab56d52f035c648c36afcd30aa72"
+
+[[files]]
+file = "config/greatsage-common.toml"
+hash = "1bd6c9878a6a68c6d14d62da801186869ddb271f0dc5ce7e4d290fa98f7fd490"
+
+[[files]]
+file = "config/irons_spellbooks-server.toml"
+hash = "d03bccc6ba88c41354e7050111dd029f315ce42873b48c5a811218b06e4c5717"
+
+[[files]]
+file = "config/irons_spellbooks_spell_config/global_config.json"
+hash = "7a8fd5e37e183cccd59a72a4af0b9e1fe1b4d930cd034b2f11da7307a8741580"
+
+[[files]]
+file = "config/irons_spellbooks_spell_config/irons_spellbooks/example.txt"
+hash = "ab1ec0e18de10d085f0d75e37949cd5f2a1b2f6a40819dc3c6ae06e24c5ae392"
+
+[[files]]
+file = "config/jade/server-plugin-overrides.json"
+hash = "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+
+[[files]]
+file = "config/jade/sort-order.json"
+hash = "29f606171f26a5a1ac35ac8a71855fe2c97208167b9b386ca929629daa8d3447"
+
+[[files]]
+file = "config/l2configs/l2complements-common.toml"
+hash = "dc145c2c0939b4e3bfad9dc983ca805b64b55046446d30495e15c5e3cb9e6635"
+
+[[files]]
+file = "config/l2configs/l2complements-server.toml"
+hash = "b0d66f7e974f4a1aa9441647cd54a1c0f02b9cac575de0d9a51cedd9e746b87a"
+
+[[files]]
+file = "config/l2configs/l2damagetracker-server.toml"
+hash = "39c299d15b33187d1b6e3e8efece13553e96498adab24dd6ac8aca67b2b05b51"
+
+[[files]]
+file = "config/l2configs/l2hostility-server.toml"
+hash = "ad04c2cebb770b56056bfaec879c5049102a497d6719efd36eaaacffc70d0b87"
+
+[[files]]
+file = "config/l2configs/l2library-server.toml"
+hash = "557ef11f5f52949909527811104f47e668524b97371012548da0db12c142e370"
+
+[[files]]
+file = "config/l2configs/l2menustacker-server.toml"
+hash = "6b02fa046df9c22831ea28a48cdae01ea25733df1e78a92504dcfb60a03b6fc7"
+
+[[files]]
+file = "config/l2configs/pandora-server.toml"
+hash = "1e15df3add8a04de72276ab6827bc1ec242b5eae961780cec6fe1024a59dad19"
+
+[[files]]
+file = "config/lithium.properties"
+hash = "6cf6f83720071fd1657c8e79b357caf68d40f410ae123e5f922483eb1d1d25be"
+
+[[files]]
+file = "config/modernfix-common.toml"
+hash = "ee24e2b1bc100942a1c605f996255742cd6a5bb3662877aa906bc301100ccf27"
+
+[[files]]
+file = "config/modernfix-mixins.properties"
+hash = "cda1de84880f439d9c8a025861a483d51972e76b8a5a6a253dd0196aec821ac5"
+
+[[files]]
+file = "config/neoforge-common.toml"
+hash = "0f6d56b78517db000f8326f434f10c3c6ebcb5504fe632123e8e740df397805b"
+
+[[files]]
+file = "config/neoforge-server.toml"
+hash = "0f1415d7fef6d7f6194275501d500b633dd3310aea40d64128edd1b096372f60"
+
+[[files]]
+file = "config/neruina.json5"
+hash = "bfa343775801d4708d39e86b5fa4893a18185f190f2799a8b6ad828e96027073"
+
+[[files]]
+file = "config/occultism-server.toml"
+hash = "d99a671505d492a37cd4bfd8a867c76a01bb34f6b101f2d8e8ce8388a2f272d2"
+
+[[files]]
+file = "config/occultism-startup.toml"
+hash = "b4094254eafafe113401e63970319b247c87a22cc767418002249208ae9ee9f1"
+
+[[files]]
+file = "config/relics.yaml"
+hash = "3a06e656323ddfd8221469c3aebf0849e65638aa886d71ceb4cbf9e023b9787d"
+
+[[files]]
+file = "config/sophisticatedbackpacks-common.toml"
+hash = "ce60ba4ebdbb1ba959f3ee6be206f84f2221b8dc436140c92cda412ef33f10e6"
+
+[[files]]
+file = "config/sophisticatedbackpacks-server.toml"
+hash = "4fb3500263d6d3275f2a5aee5df8c1cec6442bec3e92e6ac63f41b690ff2501d"
+
+[[files]]
+file = "config/sophisticatedcore-common.toml"
+hash = "bd72a14b13eb8f7a8345683eafe77bb6d82a337fbb4de6c752959c46b0753941"
+
+[[files]]
+file = "config/sophisticatedstorage-common.toml"
+hash = "8df2f88d3cfab410e346ca6109d701fa38df0d5ccbcb5ca63287c291652cff2e"
+
+[[files]]
+file = "config/sophisticatedstorage-server.toml"
+hash = "5cc01b304b0a57991241f1108c802c8706d367c9d4160ebdfd8edb9558c64863"
+
+[[files]]
+file = "config/tensura/ability/ability_config.toml"
+hash = "ac294db59201c61925709b25a38fa754cdc92970dbf8bd60bd86420cb8eff69b"
+
+[[files]]
+file = "config/tensura/ability/battlewill_config.toml"
+hash = "61e7377278654bafaebdafb1c648c7b2d82b3ee38385cb48975df0ae317ea17f"
+
+[[files]]
+file = "config/tensura/ability/magic/aspectual_config.toml"
+hash = "15de3add3f6a03bb16437437718005ac9feb59ae8e887bfdb8a2ee71c04e8940"
+
+[[files]]
+file = "config/tensura/ability/magic/spiritual_config.toml"
+hash = "f423f8ff772e4cdf406d0f110d374ee7f249b1b15f2d14006b5930decbfa7668"
+
+[[files]]
+file = "config/tensura/ability/magic/summoning_config.toml"
+hash = "40e8f2eb6975ca1f8542bdd439630cea0fb47df76ed91b9160a7739667995a24"
+
+[[files]]
+file = "config/tensura/ability/magic_config.toml"
+hash = "32a72338a4498d5229f17ae12a100a1c1da2d2fddd1d1b1b78f9d5b1b0be850b"
+
+[[files]]
+file = "config/tensura/ability/skill/common_config.toml"
+hash = "f85e4206cf570cb6ef60189b8c32f545084388faa63366eb282201c49a88e222"
+
+[[files]]
+file = "config/tensura/ability/skill/extra_config.toml"
+hash = "02db775786ce3445d9f7f93d6c391c981ac33e30b154e5b9f6b465e367acac8b"
+
+[[files]]
+file = "config/tensura/ability/skill/intrinsic_config.toml"
+hash = "11ef632a7b3600551ce161175cd6562615ed700cb271e8245c98b2b37499493f"
+
+[[files]]
+file = "config/tensura/ability/skill/resistance_config.toml"
+hash = "aaa92307b8b264b713f332aafddb4337e78fd567f28fa168e7cd4bdb3f36be06"
+
+[[files]]
+file = "config/tensura/ability/skill/unique_config.toml"
+hash = "b8023db767e1ba07e258f2390e7729c24a5087437f1d09547a91e90df4848c7e"
+
+[[files]]
+file = "config/tensura/ability/skill_config.toml"
+hash = "f6c77f5ab0c5f284cfce266f23f2dc7a83198fe2c3898a6c09e33e6388748b06"
+
+[[files]]
+file = "config/tensura/area_magicule_config.toml"
+hash = "4d6dd62f28139986036a0ba04e5e3880a93c53f0f8d99b455b0c5e54921d1fa3"
+
+[[files]]
+file = "config/tensura/block_config.toml"
+hash = "a65d32febe3ee2406d1cf9d9eba3bbc531fce1b916c749d1a02493ceacf6e7ca"
+
+[[files]]
+file = "config/tensura/client/hud_config.toml"
+hash = "461b469fce38896d02e68f327d80a2507c58d2d91218b75ea12e55b9ac08a299"
+
+[[files]]
+file = "config/tensura/client/menu_config.toml"
+hash = "2d544bd304d42fc554fd16dc7fed576a3420c9dfede2bfe5de0161bbefd141e3"
+
+[[files]]
+file = "config/tensura/client/misc_config.toml"
+hash = "e95d3a3824d564239395382a8552a66aba5f605fdea3dbf25b10ced427d35cc2"
+
+[[files]]
+file = "config/tensura/enchantment_config.toml"
+hash = "09a167920ef7e07e989b8b986f3f51006cf850c4e1f61d1a8cc18ba9db60eb92"
+
+[[files]]
+file = "config/tensura/energy_config.toml"
+hash = "afcc9ed3f88e450e53d53d969be5fbf565f68d638014ac7efdee03d438c31750"
+
+[[files]]
+file = "config/tensura/entity/attribute_config.toml"
+hash = "254588b68c2b94a2d6842b2dc41f31146f968867f9949051ffb8b68553d38b41"
+
+[[files]]
+file = "config/tensura/entity/daemon_config.toml"
+hash = "da7f155978896140b138df8699f061b26a0d8f2603754c9c956edd95d0356fc8"
+
+[[files]]
+file = "config/tensura/entity/effect_config.toml"
+hash = "4512084c8fdd32501c125a6bb6f23f1fb71b4b1452341683a8d6811f0ed76cd4"
+
+[[files]]
+file = "config/tensura/entity/entity_config.toml"
+hash = "29d731bcf4da7a952017301730027b7df0f3d8d064431cc3ea915a8e508a482f"
+
+[[files]]
+file = "config/tensura/entity/player_config.toml"
+hash = "4dd1a545441510a22a61e07223555c2656652fdc7db67ad8fad75731731a602f"
+
+[[files]]
+file = "config/tensura/entity/projectile_config.toml"
+hash = "d0f81d8e3d804476e1a148b0ea9877aceba29da8a8c3c7cd507d6917cf1da5e0"
+
+[[files]]
+file = "config/tensura/entity/spawn_rate_config.toml"
+hash = "460a02e7f9d059f513a36cbd32e8a2ca417eec89cd6a05aa20342b0d9d0aedf6"
+
+[[files]]
+file = "config/tensura/ftb_config.toml"
+hash = "177b150662a74265bdfdb0d881987a90ec86311ed43819b8791b1afdd11ce8f1"
+
+[[files]]
+file = "config/tensura/iron_spell_config.toml"
+hash = "1eba1d0e03aeb7d9cfe7e2fa5c398db6569e874449ac4f6cb14ebb06c9817d4c"
+
+[[files]]
+file = "config/tensura/neb_config.toml"
+hash = "2fdbb4cf24ff00da92a1593dee13094fea23c58b5ed5e181cba3f0e5490a13d4"
+
+[[files]]
+file = "config/tensura/race/beastfolk_config.toml"
+hash = "335602c3ce33db2f2c8a408c537195b156453c42ce39f2e50ab5daa09d718e44"
+
+[[files]]
+file = "config/tensura/race/daemon_config.toml"
+hash = "cd44a50002a2b684334cf52d0e88083f80fedfd8b919c52c81a837d89366b077"
+
+[[files]]
+file = "config/tensura/race/dwarf_config.toml"
+hash = "18551ac2c49b9c484cbf380329bec51f495de94567d02f83eedda02e123ccace"
+
+[[files]]
+file = "config/tensura/race/elf_config.toml"
+hash = "48fe88abc764725511b1c7cfe827089030daea03d6d6213e7cfa5cbeb657c195"
+
+[[files]]
+file = "config/tensura/race/giant_config.toml"
+hash = "70b35c7a02604afadd3f697935cf20c465cf8deb5632285fd24433ab222c6a9d"
+
+[[files]]
+file = "config/tensura/race/goblin_config.toml"
+hash = "59e811b4da904e440d03ebfc54a079792b0626459ab8e8c88393d53c68d8bab9"
+
+[[files]]
+file = "config/tensura/race/harpy_config.toml"
+hash = "bc99136fd6bab094c11b0f0a67cbb1db19054c916a6efa352e03f301f6fa5ca9"
+
+[[files]]
+file = "config/tensura/race/human_config.toml"
+hash = "cd1e2832ad739b4e4157856db15a2f8b6f8dd75298c5684a5910b4a634dfb3e0"
+
+[[files]]
+file = "config/tensura/race/lizardman_config.toml"
+hash = "489fe1997f415ab863e212da621b6e2260a9bd2f105df497114a507cdaa4aeab"
+
+[[files]]
+file = "config/tensura/race/merfolk_config.toml"
+hash = "1f6a5464984c3f4a7918d0b03dbb4d79bf38401154af8cce5f0edcda7a800053"
+
+[[files]]
+file = "config/tensura/race/ogre_config.toml"
+hash = "d9d529a66c69608eb6473ada0121752d01601c3d63b225e35d7425b3dc8057cf"
+
+[[files]]
+file = "config/tensura/race/orc_config.toml"
+hash = "17d3b0e207ddbcdaea46cba4122c69a1b7735d92bba7cc078aa1761cf06d5586"
+
+[[files]]
+file = "config/tensura/race/race_config.toml"
+hash = "800df38b0d72302eedab1520a04e543ddb11e1ac2d84e15c0147f9e349df5a6c"
+
+[[files]]
+file = "config/tensura/race/slime_config.toml"
+hash = "6714609c589123ecb2fd93b0009bdab0e5f048a1c78527aa16984493e67f387b"
+
+[[files]]
+file = "config/tensura/race/vampire_config.toml"
+hash = "2cdddc545dc2d779db020703e5506fc21c1bae6b2d3abdcc36fff1d5ceb3bf29"
+
+[[files]]
+file = "config/tensura/race/wight_config.toml"
+hash = "ab50a4ab5d500ed584122b22af9d9258c8fd61e889cdaa3671a5bdc7ecfced41"
+
+[[files]]
 file = "config/tensura/reincarnation_config.toml"
-hash = "ab4d84553df4168e5350722249dfa158c6e378b618661dfab6e81ab92f8770cc"
+hash = "59669d1d7fe6b8f0f59a7ddee3cc0ad7088f0733ebef46a079074a05587e99b2"
+
+[[files]]
+file = "config/terrablender.toml"
+hash = "499d188162ddcf7fcf450cdcdc96bd41ac582501ecad5ed4a74dd9ed6b01990a"
 
 [[files]]
 file = "config/tombstone-common.toml"
 hash = "dca75933aa25e6c95878bc12c43d900fc55dc9a197a1be42f6ae7a1f9ba5e35e"
+
+[[files]]
+file = "config/tombstone-server.toml"
+hash = "c3b886d463c52aea5dddf278435270bcc817a91c15c1435daf9b4814e0b500e2"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-pool-abandoned_grave.json"
+hash = "ef13b6c06376cdeced96a66005b9df33baf304ba3cf5c6bc25abc5a5a9631ae0"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-pool-archaeology.json"
+hash = "5e4a9d4f0c7a23c0f53b03787bb72a24e3cdf46986821826a7ec36cbe2628b17"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-pool-cat_morning.json"
+hash = "e1d2a8abbc4844994f632e32087e50eff38e9811433df18e504cc6f6d9679fa4"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-pool-chest_treasure.json"
+hash = "b995aea4eec3ea13ad1652ea3fe5b6106e66faa5a9267ca8a9cf50d59c47c560"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-pool-lost_treasure.json"
+hash = "90e92fdb2592438409baf4ee6b177a35e4bf85b06458adc50c53acb2dd8f3185"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-pool-seeker_rod.json"
+hash = "9a4ea792b6befda58cf505456b140494cc8682e2e0d607e0be440fb274d5bba0"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-pool-sniffer_digging.json"
+hash = "f8c3b3bdff731ceb4409f34002e05f596853e83403bb49d5b70d803c0d2a2804"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-pool-undead_boss.json"
+hash = "a54e32b9b8219e080e159dd991c434803ac3dc2a0058a7c77f180cae04ce09a9"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-pool-undead_mob.json"
+hash = "3a4897fa8f813051ab2262bd366402b90fb5d8490ce6628b50e2407d34c185b2"
+
+[[files]]
+file = "config/tombstone/loottables/tombstone-table-chest_treasure.json"
+hash = "846197bb6127559d2a15d776426be65e0391d1afebc36fdf5736ae011533329e"
+
+[[files]]
+file = "config/tombstone/version.info"
+hash = "3b41fa7923a23457556a4b3fb21c9ca31210200090c9a67532fe704284cdbedb"
+
+[[files]]
+file = "config/towns_and_towers/structure_enable_or_disable_new.json5"
+hash = "7c70e7df82d014a87dcb2defcf45d9654a22362283c7efe1f81f3b3c04290709"
+
+[[files]]
+file = "config/towns_and_towers/structure_rarity_new.json5"
+hash = "fe4ca0974aca38b27c94e3f1dc092f1688b54f27d9eaa728d61c6ccae4ca1313"
+
+[[files]]
+file = "config/vanilla_structures/placement_structure_config.json5"
+hash = "10fad560389f96ec7cb04966a0948b7fe5ba126559194fc81d7e53b8fd73c7ad"
+
+[[files]]
+file = "config/vanilla_structures/toggle_structure_config.json5"
+hash = "a50b4ca77d21ae105e68560c1af694125ea06360374c82e87f4da54b7ecfa51d"
 
 [[files]]
 file = "kubejs/data/ttl/dimension/mortal_end.json"
@@ -46,7 +1178,7 @@ hash = "95b4f9358a737347614795e6ab593f653606032b2fa21f9000cced40ab5f7ea3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "878c10ae29c33d9aab1ccd5319459d497647b5ca542f5facf9ceed10e0fac544"
+hash = "9ac76149a274cbe17135ef52e2bc2440151553ff802813318e31d2c5a2e2967d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
@@ -62,7 +1194,7 @@ hash = "7167dd4af16033e3c5313b41220f2e897456e85505535332109b42a554c6df64"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
-hash = "190ba11fca65bebfe3ffb64fc5f4cdbee89d3a38edf757ee3968d92bbc77e853"
+hash = "c87a7de062a2cbc75e4956ef87d4b3ea3a172b6c8a0a8154f9b6a11f4c9973ef"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
@@ -90,7 +1222,7 @@ hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "ecb34d17a0395928d7a4c8a5113538550c5f780537a17240ceb0d2a064c3d691"
+hash = "a9faba7937afae8e99e12ae29cf62de0a45658e6dd516986b92bfe8555d21a9c"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"

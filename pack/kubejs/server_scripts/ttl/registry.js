@@ -1,7 +1,8 @@
 // priority: 90
 // Golden rule 1: every unique-skill grant or revoke goes through here.
-// Uniques may be shared up to a cap per rarity (design/data/skills.toml → TtlData.skills); Legendary
-// uniques have one holder and are never granted automatically. Tensura's trulyUnique is off for this.
+// Uniques may be shared up to a cap per rarity (design/data/skills.toml → TtlData.skills). Legendary
+// uniques are never drawn for a rebirth; they are only granted on purpose (admin, Legendary tier,
+// absorption), up to their cap. Tensura's trulyUnique is off for this.
 // Holders live in server persistentData `ttl.reg.holders` as JSON {skill: [player, ...]}.
 // Phase 1 adds a reconcile loop for skills gained outside the registry (Tensura, Great Sage wishes).
 const TtlRegistry = {
@@ -26,12 +27,13 @@ const TtlRegistry = {
     server.persistentData.putString('ttl.reg.holders', JSON.stringify(holders))
   },
 
-  // Uniques from `pool` that `name` could receive now: not Legendary, under their cap, not already theirs.
-  available(server, pool, name) {
+  // Uniques from `pool` that `name` could receive now: under their cap and not already theirs.
+  // Legendary only when `allowLegendary` (deliberate grants, never rebirth draws).
+  available(server, pool, name, allowLegendary) {
     var holders = this.holders(server)
     var self = this
     return pool.filter(id => {
-      if (self.rarityOf(id) === 'legendary') return false
+      if (!allowLegendary && self.rarityOf(id) === 'legendary') return false
       var list = holders[id] || []
       return list.indexOf(name) < 0 && list.length < self.capOf(id)
     })
@@ -49,8 +51,8 @@ const TtlRegistry = {
 
   grant(server, player, skill) {
     var name = player.username
-    if (this.available(server, [skill], name).length === 0) {
-      console.warn(`[ttl] registry: refused ${skill} for ${name} (${this.rarityOf(skill)}, cap reached or held)`)
+    if (this.available(server, [skill], name, true).length === 0) {
+      console.warn(`[ttl] registry: refused ${skill} for ${name} (${this.rarityOf(skill)}, cap ${this.capOf(skill)} reached or already held)`)
       return false
     }
     server.runCommandSilent(`quietly tensura edit ability grant ${name} ${skill}`)

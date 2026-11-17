@@ -52,9 +52,10 @@ def check_index_fresh() -> None:
 
 
 def check_generated() -> None:
-    r = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "gen_data.py"), "--check"], capture_output=True, text=True)
-    if r.returncode != 0:
-        errors.append(r.stdout.strip() or r.stderr.strip())
+    for tool in ("gen_data.py", "config_index.py"):
+        r = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / tool), "--check"], capture_output=True, text=True)
+        if r.returncode != 0:
+            errors.append(r.stdout.strip() or r.stderr.strip())
 
 
 for check in (check_json, check_js, check_mods, check_generated, check_index_fresh):

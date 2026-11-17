@@ -4,7 +4,7 @@ const TtlData = {
   "skills": {
     "caps": {
       "common": 5,
-      "legendary": 1,
+      "legendary": 3,
       "rare": 3
     },
     "common": {

@@ -1,6 +1,6 @@
-# Registry caps (design/data/skills.toml): berserker is Rare (cap 3), great_sage is Legendary (never granted).
-# Expect: three "Granted tensura:berserker", then "Refused" for the fourth bot and for great_sage, and
-# `ttl registry` listing tensura:berserker 3/3.
+# Registry caps (design/data/skills.toml): berserker is Rare (cap 3), great_sage is Legendary (cap 3,
+# granted only on purpose). Expect: berserker granted to A, B, C and refused for D; great_sage granted to
+# A, B, C and refused for D; `ttl registry` lists both at 3/3.
 ttlbot spawn TtlBotRegA
 ttlbot spawn TtlBotRegB
 ttlbot spawn TtlBotRegC
@@ -10,6 +10,9 @@ ttl grant TtlBotRegA berserker
 ttl grant TtlBotRegB berserker
 ttl grant TtlBotRegC berserker
 ttl grant TtlBotRegD berserker
+ttl grant TtlBotRegA great_sage
+ttl grant TtlBotRegB great_sage
+ttl grant TtlBotRegC great_sage
 ttl grant TtlBotRegD great_sage
 ttl registry
 ttl reset TtlBotRegA

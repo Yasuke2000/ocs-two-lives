@@ -9,16 +9,33 @@ Plan: owner's plan file "pure-hugging-finch" (Sprints 1–4). Tick items here as
 - [x] Corridor choices on screen (`/ttlmenu`), `/ttl menu`, Knowledge questions as a menu
 - [x] Reset no longer rerolls skills; Life 1 starts as Human without Tensura's race menu
 - [x] Voice of the World through the Great Sage addon (`/greatsage worldvoice`, recorded clips) at every Corridor step
-- [ ] Great Sage reincarnation scene as the rebirth UI (decision pending; `sageReincarnation` off until then)
+- [x] Great Sage reincarnation scene as the Life 2 rebirth (ttl-portals opens Tensura's menu with the
+      player's offers; no race menu in Life 1)
+- [ ] Decide how the scene's own wishes (up to 3 skills, `ReincarnationGrants.apply`) and our Last Wish
+      combine: keep both, or open the menu race-only (needs an in-game test)
 - [ ] Karma v1 + tiers → race offers (`server_scripts/ttl/karma/`)
-- [ ] Skill registry v1: rarities in `design/skills.yaml`, Legendary slots, 10-min reconcile
-- [ ] `/ttl bug <text>` → Discord `#bugs` — needs the Discord webhook secret
+- [x] Skill registry v1: rarities + caps in `design/data/skills.toml` (Legendary 3, Rare 3, Common 5),
+      duplicates allowed, Legendary never drawn at rebirth, `/ttl grant`, `/ttl registry`
+- [x] Legendaries removed from Tensura's reincarnation pools and Great Sage's wish pool (configs)
+- [ ] Registry reconcile from ManasCore storage (`SkillAPI.getSkillsFrom(p).getLearnedSkills()`, mastery ≥ 0)
+      + veto/notify hooks on `SkillEvents.UNLOCK_SKILL`, `TensuraSkillEvents.SKILL_PLUNDER`, `RaceEvents.SET_RACE`
+      in ttl-portals (design/manas-integration.md §5)
+- [ ] Revoke one skill at a time (`revoke <p> all` also wipes intrinsics/resistances)
+- [x] `/bug <text>` with full player/server state; saved on the server, GitHub issue once the token exists
 - [ ] Discord alerts (crash, TPS, deploy, tests) — needs the Discord webhook secret
 - [ ] Daily off-site backups (restic CronJob) — needs a backup target
 - [ ] Chunky + DH re-test on the existing world, then pregenerate
 - [ ] Voice of the World NPC in the hall (Easy NPC)
 - [ ] Trial knobs in `design/trials.yaml`
 - [ ] Singleplayer check (owner, needs a client)
+
+## Collaboration (coworkers can see and change everything)
+- [x] All server mod configs in `pack/config/` (283 files, client-only excluded) + `docs/configs.md` index
+- [x] ManasCore/Tensura/addon integration guide (`design/manas-integration.md`)
+- [ ] Local mod build + release (`mod/gradlew`, `tools/release_mod.py`), no Actions for mod builds
+- [ ] Auto-deploy + tests from `main` on the homelab (`ttl-ops`), GitHub commit status — needs the token
+- [ ] `CONTRIBUTING.md`, issue/PR templates, labels, branch protection, `docs/server.md`
+- [ ] Collaborators: Lancelot Boden (already added); others' GitHub + Minecraft names
 
 ## Sprint 2 — building and visuals
 - [ ] `blueprints/` DSL → `tools/build_structures.py` → structure .nbt; `tools/render_structure.py` previews; `/ttl build`
