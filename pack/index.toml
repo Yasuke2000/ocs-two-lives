@@ -418,3 +418,8 @@ metafile = true
 file = "mods/towns-and-towers.pw.toml"
 hash = "a9afe82b3d1b4975dd9f8b3272898450aeb29365678b3779059977301f88c101"
 metafile = true
+
+[[files]]
+file = "mods/ttl-portals.pw.toml"
+hash = "8b4384af9410863ba404284d0d028416057ec5c3791c5b693b77acd3e271c4ed"
+metafile = true
