@@ -1,4 +1,4 @@
-// Players:  /ttl wish <id> · /ttl trial · /ttl answer <word> · /ttl choose <race> · /ttl unique <skill> · /ttl status
+// Players:  /ttl menu (reopen choices) · /ttl wish <id> · /ttl trial · /ttl answer <word> · /ttl choose <race> · /ttl unique <skill> · /ttl status
 // Ops:      /ttl inspect <player> (answers over RCON) · /ttl reset <player> (back to a fresh Life 1)
 //           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
 ServerEvents.commandRegistry(event => {
@@ -64,11 +64,11 @@ ServerEvents.commandRegistry(event => {
     var name = target.username
     ;['ttl.life1', 'ttl.corridor', 'ttl.life2'].forEach(s => target.stages.remove(s))
     TtlCorridor.KEYS.forEach(k => target.persistentData.remove(k))
-    server.runCommandSilent(`tensura reset ${name} race`)
     TtlRegistry.revokeAll(server, target)
-    server.runCommandSilent(`clear ${name}`)
-    server.runCommandSilent(`gamemode survival ${name}`)
+    server.runCommandSilent(`quietly clear ${name}`)
+    server.runCommandSilent(`quietly gamemode survival ${name}`)
     target.stages.add('ttl.life1')
+    TtlLife.makeHuman(server, target)
     life.toMortal(server, target)
     console.info(`[ttl] ${name} reset to Life 1`)
     ctx.source.sendSystemMessage(Text.of(`${name} reset to Life 1`))
@@ -97,6 +97,11 @@ ServerEvents.commandRegistry(event => {
         .executes(step((server, player, ctx) => TtlCorridor.wish(server, player, word(ctx, 'id'))))))
     .then(Commands.literal('trial')
       .executes(step((server, player) => TtlTrial.start(server, player))))
+    .then(Commands.literal('menu')
+      .executes(step((server, player) => {
+        TtlCorridor.showStep(server, player)
+        return null
+      })))
     .then(Commands.literal('answer')
       .then(Commands.argument('word', Arguments.STRING.create(event))
         .executes(step((server, player, ctx) => TtlTrial.answer(server, player, word(ctx, 'word'))))))

@@ -19,6 +19,12 @@ const TtlLife = {
     return null
   },
 
+  // Life 1 is always Human. Setting it skips Tensura's one-option race menu (`tensura reset race` would
+  // reopen that menu, which also keeps the player invulnerable until it is closed).
+  makeHuman(server, player) {
+    server.runCommandSilent(`quietly tensura edit race ${player.username} set tensura:human`)
+  },
+
   isMortal(dimension) {
     return this.MORTAL_DIMS.indexOf(String(dimension)) >= 0
   },

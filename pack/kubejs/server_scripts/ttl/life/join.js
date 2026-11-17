@@ -9,6 +9,7 @@ PlayerEvents.loggedIn(event => {
     player.persistentData.putLong('ttl.l1.start', Date.now())
     // The login tp lands before the client finishes joining unless it waits a moment.
     server.scheduleInTicks(20, () => {
+      life.makeHuman(server, player)
       life.toMortal(server, player)
       player.tell(Text.gold('You are human, and you only live once here. Die, and your soul moves on.'))
     })
@@ -21,15 +22,10 @@ PlayerEvents.loggedIn(event => {
     player.persistentData.putBoolean('ttl.trial.done', true)
     player.persistentData.putBoolean('ttl.trial.passed', false)
     player.persistentData.putString('ttl.step', 'race')
-    server.runCommandSilent(`clear ${player.username}`)
+    server.runCommandSilent(`quietly clear ${player.username}`)
   }
   if (phase === 'corridor') server.scheduleInTicks(40, () => TtlCorridor.voice(server, player.username, 'Your soul is still waiting between lives.'))
-  if (phase === 'corridor') server.scheduleInTicks(41, () => {
-    var step = player.persistentData.getString('ttl.step')
-    if (step === 'wish') TtlCorridor.showWishes(server, player)
-    if (step === 'race') TtlCorridor.showRaces(server, player)
-    if (step === 'unique') TtlCorridor.showUniques(server, player)
-  })
+  if (phase === 'corridor') TtlCorridor.showLater(server, player)
 
   var dim = life.dimensionOf(player)
   if (phase === 'corridor' && dim !== life.CORRIDOR) server.scheduleInTicks(20, () => life.toCorridor(server, player))

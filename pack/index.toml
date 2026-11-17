@@ -1,6 +1,14 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/DistantHorizons.toml"
+hash = "30e000d56d889bc006ff5a5beb8da8aabb0980e016ba41f88edee9410f126e7b"
+
+[[files]]
+file = "config/enhancedcelestials2core/translations.json"
+hash = "4e2513fbfedf8d27de69cefe14b100313aa9b635d845c1fae6c60af02f0d8080"
+
+[[files]]
 file = "config/tensura/reincarnation_config.toml"
 hash = "ab4d84553df4168e5350722249dfa158c6e378b618661dfab6e81ab92f8770cc"
 
@@ -34,7 +42,7 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "f8ab16a3d1ccd6a1fcec8ae435bb4f8f419efcda3bcda9738d313824ea59d8e7"
+hash = "e87090cb13e3716f0d1f11a85838ed319bfc43727bbe197f7197b10a444a451c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor.js"
@@ -42,11 +50,11 @@ hash = "1336c660acdbbf45d795651882fe740da983c99c3e4e9d9c887df615c7d55bd1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "71d2569dd24ed22e7dd86ddc65da23dba7092bf3cd03fe6f0063b283a43a3c85"
+hash = "3ab87455179a8ad9b768e85702cbd301c50a3aa38c16a4b7cf367d0fb64394e2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
-hash = "b9196b562dcace325395b27c74feb73854c7a96b76c64b0f2fb6d2bc418e14fa"
+hash = "5b9d4a44dc17a1cea326ba0457aa897d933714db2da5713f1a99b4263db2cd0c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -54,7 +62,7 @@ hash = "d3de53ed1ebf78f00ce61e828b5d64168fe039c114e1ac88a6c484fa3acb02dc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/join.js"
-hash = "c65c352478e57f80ea1984b528995d0763b5f31e16dd035bb46a6cd97ab46ba2"
+hash = "3b7e0c271fe298603dee5896851865f793dfc8803531e4a6cd1618d6819da054"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
@@ -62,15 +70,15 @@ hash = "9592ba87b7cb8e1f6896effb2c0d1c321e115cdfc18178f6eafc546f9dfc0e41"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
-hash = "3dbdc117a82becdb392add7c80cfdad7a2cfb9d75095b996a347cb1f030c1eb3"
+hash = "1ba700c438b5c8b74c42879bb6315b4ee38559d4e1205175c7ef6968de64b68f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
-hash = "79c8607a9bf845127e9838fd02f904b48c77864a97344b77e1eaabbc9888ad88"
+hash = "9d83ccd29d599d2725d520b235f7f0ce27cb0ce47d9b924def55838451072fcc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial_defs.js"
-hash = "e461775bf934c90d2a999cc924686d5c7875bd03ce3b7c46e21cd76484a7576c"
+hash = "5605becb5ff7a5278793564c1407c748463044ac7f0ea47f158d91ecc6d95736"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"
@@ -78,7 +86,7 @@ hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "8b31c2b31f079dbb9908e0f743ab0c026ddb0c543fd95a2a9ffd14ec445a1e82"
+hash = "a40aeb00a99538754c759aa07cea47f39d7614249afea8acea00727978139a27"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"
@@ -437,5 +445,5 @@ metafile = true
 
 [[files]]
 file = "mods/ttl-portals.pw.toml"
-hash = "86f9a5637ac80c2a9a432a62aec5caafb02424cc1bb8040590431deaec1828f3"
+hash = "79b40f098f4b0b719a891fec7f2aa5030b661023225bbb421dc23fc092f28e90"
 metafile = true

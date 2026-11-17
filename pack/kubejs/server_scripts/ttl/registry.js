@@ -36,7 +36,7 @@ const TtlRegistry = {
       console.warn(`[ttl] registry: refused ${skill} for ${player.username} (legendary or held)`)
       return false
     }
-    server.runCommandSilent(`tensura edit ability grant ${player.username} ${skill}`)
+    server.runCommandSilent(`quietly tensura edit ability grant ${player.username} ${skill}`)
     var held = this.held(server)
     held.push(skill)
     server.persistentData.putString('ttl.reg.held', held.join(','))
@@ -46,7 +46,8 @@ const TtlRegistry = {
   },
 
   revokeAll(server, player) {
-    server.runCommandSilent(`tensura reset ${player.username} skill`)
+    // Not `tensura reset <p> skill`: that rerolls a new random unique.
+    server.runCommandSilent(`quietly tensura edit ability revoke ${player.username} all`)
     var mine = player.persistentData.getString('ttl.uniques')
     if (mine) {
       var held = this.held(server).filter(id => id !== mine)

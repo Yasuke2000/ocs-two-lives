@@ -29,36 +29,114 @@ const TtlCorridor = {
     server.runCommandSilent(`tellraw ${name} ${JSON.stringify(line)}`)
   },
 
+  // Splits text into tooltip lines of about `width` characters.
+  wrap(text, width) {
+    var lines = []
+    var line = ''
+    String(text).split(' ').forEach(word => {
+      if (line && (line + ' ' + word).length > width) {
+        lines.push(line)
+        line = word
+      } else {
+        line = line ? `${line} ${word}` : word
+      }
+    })
+    if (line) lines.push(line)
+    return lines
+  },
+
+  // On-screen choice menu (ttl-portals /ttlmenu: a chest screen whose items are buttons). One short chat
+  // line reopens it, in case the player closes the screen.
+  menu(server, player, title, rows, items, reopenHint) {
+    var spec = { title: title, rows: rows, items: items }
+    server.runCommandSilent(`ttlmenu ${player.username} ${JSON.stringify(spec)}`)
+    if (reopenHint) this.buttons(server, player.username, reopenHint, [{ label: 'Open', command: '/ttl menu', hover: 'Reopen the choices' }])
+  },
+
   // Entry point from death.js.
   begin(server, player) {
     var data = player.persistentData
     this.KEYS.forEach(k => data.remove(k))
     data.putString('ttl.step', 'wish')
     data.putString('ttl.offers', TtlLife.rollOffers().join(','))
-    this.showWishes(server, player)
+    this.showLater(server, player)
+  },
+
+  // A screen opened while the client is still loading the new dimension gets closed by the loading
+  // screen, so menus wait two seconds after a teleport.
+  showLater(server, player) {
+    server.scheduleInTicks(40, () => this.showStep(server, player))
+  },
+
+  // Reopens whatever the current Corridor step needs (/ttl menu, login, after a trial).
+  showStep(server, player) {
+    var step = String(player.persistentData.getString('ttl.step'))
+    if (step === 'wish') this.showWishes(server, player)
+    if (step === 'race') this.showRaces(server, player)
+    if (step === 'unique') this.showUniques(server, player)
+    if (step === 'trial' && player.persistentData.getString('ttl.wish') === 'knowledge') TtlTrials.DEFS.knowledge.showQuestion(server, player)
+  },
+
+  WISH_ICONS: {
+    strength: 'minecraft:iron_sword', knowledge: 'minecraft:book', protection: 'minecraft:shield',
+    hunger: 'minecraft:cooked_beef', freedom: 'minecraft:feather', creation: 'minecraft:crafting_table',
+    vengeance: 'minecraft:redstone', deceit: 'minecraft:ender_eye', dominion: 'minecraft:golden_helmet',
+    survival: 'minecraft:totem_of_undying'
+  },
+  RACE_ICONS: {
+    slime: 'minecraft:slime_ball', human: 'minecraft:bread', elf: 'minecraft:oak_sapling', dwarf: 'minecraft:iron_pickaxe',
+    merfolk: 'minecraft:prismarine_shard', beastfolk: 'minecraft:bone', harpy: 'minecraft:feather',
+    goblin: 'minecraft:emerald', lizardman: 'minecraft:turtle_scute', orc: 'minecraft:porkchop',
+    wight: 'minecraft:bone_block', ghoul: 'minecraft:rotten_flesh'
   },
 
   showWishes(server, player) {
-    this.buttons(server, player.username, 'Your body is gone. What did your soul wish for, at the very end?',
-      TtlWishes.LIST.map(w => ({ label: w.label, command: `/ttl wish ${w.id}`, hover: `"${w.wish}"` })))
+    var slots = [2, 3, 4, 5, 6, 11, 12, 13, 14, 15]
+    var icons = this.WISH_ICONS
+    var self = this
+    var items = TtlWishes.LIST.map((w, i) => {
+      var trial = TtlTrials.DEFS[w.id]
+      var skills = w.pool.map(id => self.title(id)).join(', ')
+      return {
+        slot: slots[i], item: icons[w.id] || 'minecraft:paper', name: w.label, color: '#FFD966',
+        lore: [`"${w.wish}"`, ''].concat(self.wrap(`Skills: ${skills}`, 34))
+          .concat(trial ? ['', `Trial: ${trial.title}`] : []),
+        command: `ttl wish ${w.id}`
+      }
+    })
+    this.menu(server, player, 'What did your soul wish for?', 3, items, 'Make your last wish.')
   },
 
   showRaces(server, player) {
     var data = player.persistentData
-    var offers = data.getString('ttl.offers').split(',')
-    this.buttons(server, player.username, 'Choose the body you will be reborn in:',
-      offers.map(r => ({ label: this.title(r), command: `/ttl choose ${r}`, hover: `Reincarnate as ${this.title(r)}` })))
+    var offers = String(data.getString('ttl.offers')).split(',')
+    var icons = this.RACE_ICONS
+    var slots = [11, 13, 15]
+    var items = offers.map((r, i) => ({
+      slot: slots[i], item: icons[r] || 'minecraft:paper', name: this.title(r), color: '#7FDBFF',
+      lore: [`Be reborn as a ${this.title(r)}.`], command: `ttl choose ${r}`
+    }))
     var trial = TtlTrials.DEFS[String(data.getString('ttl.wish'))]
+    var hint = 'Choose your new body.'
     if (trial && !data.getBoolean('ttl.trial.done')) {
-      this.buttons(server, player.username, 'Or prove your soul first, and choose your skill yourself:',
-        [{ label: `Face the ${trial.title}`, color: 'red', command: '/ttl trial', hover: `${trial.intro} (${trial.limit} s). Fail and fate decides.` }])
+      items.push({
+        slot: 22, item: 'minecraft:nether_star', name: `Face the ${trial.title}`, color: '#FF5555',
+        lore: this.wrap(trial.intro, 34).concat([`${trial.limit} seconds.`, '', 'Win: choose your skill yourself.', 'Lose: fate chooses it.']),
+        command: 'ttl trial'
+      })
+      hint = 'Choose your new body, or face your Trial first.'
     }
+    this.menu(server, player, 'Choose your new body', 3, items, hint)
   },
 
   showUniques(server, player) {
-    var options = player.persistentData.getString('ttl.uniqueOptions').split(',')
-    this.buttons(server, player.username, 'Your soul has proven itself. Choose what it becomes:',
-      options.map(s => ({ label: this.title(s), color: 'light_purple', command: `/ttl unique ${String(s).replace(/^.*:/, '')}`, hover: s })))
+    var options = String(player.persistentData.getString('ttl.uniqueOptions')).split(',')
+    var slots = [11, 13, 15]
+    var items = options.map((s, i) => ({
+      slot: slots[i], item: 'minecraft:enchanted_book', name: this.title(s), color: '#D98CFF',
+      lore: ['Unique Skill'], command: `ttl unique ${String(s).replace(/^.*:/, '')}`
+    }))
+    this.menu(server, player, 'Choose your Unique Skill', 3, items, 'Choose your Unique Skill.')
   },
 
   wish(server, player, id) {
@@ -109,19 +187,19 @@ const TtlCorridor = {
     var data = player.persistentData
     var name = player.username
     var race = data.getString('ttl.race')
-    server.runCommandSilent(`tensura edit race ${name} set tensura:${race}`)
+    server.runCommandSilent(`quietly tensura edit race ${name} set tensura:${race}`)
     if (skill && TtlRegistry.grant(server, player, skill)) {
       this.voice(server, name, `Confirmed. Unique Skill [${this.title(skill)}] acquired.`)
     } else {
       // Every unique in the wish's pool is taken: reborn without one rather than breaking the cap.
       this.voice(server, name, 'Your wish echoes, but no free skill answers it. You are reborn without one.')
     }
-    server.runCommandSilent(`clear ${name}`)
+    server.runCommandSilent(`quietly clear ${name}`)
     player.stages.remove('ttl.corridor')
     player.stages.add('ttl.life2')
     this.KEYS.forEach(k => data.remove(k))
     data.remove('ttl.killer')
-    server.runCommandSilent(`gamemode survival ${name}`)
+    server.runCommandSilent(`quietly gamemode survival ${name}`)
     TtlLife.toOverworld(server, player)
     server.runCommandSilent(`tellraw @a ${JSON.stringify([
       { text: '[Voice of the World] ', color: 'gold' },

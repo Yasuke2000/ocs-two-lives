@@ -74,8 +74,8 @@ const TtlTrial = {
     var o = TtlTrials.origin(wish)
     // Keep the arena loaded for the whole trial: mobs summoned into a chunk that is still loading vanish.
     this.run(server, `forceload add ${o.x - 16} ${o.z - 16} ${o.x + 16} ${o.z + 16}`)
-    server.runCommandSilent(`clear ${name}`)
-    d.gear.forEach(g => server.runCommandSilent(`give ${name} minecraft:${g}`))
+    server.runCommandSilent(`quietly clear ${name}`)
+    d.gear.forEach(g => server.runCommandSilent(`quietly give ${name} minecraft:${g}`))
     player.setHealth(player.getMaxHealth())
     this.run(server, `tp ${name} ${o.x + d.start[0] + 0.5} ${o.y + d.start[1]} ${o.z + d.start[2] + 0.5} 0 0`)
     server.runCommandSilent(`title ${name} title ${TtlTrials.named(d.title, 'red')}`)
@@ -163,14 +163,14 @@ const TtlTrial = {
     data.putBoolean('ttl.trial.done', true)
     data.putBoolean('ttl.trial.passed', passed)
     data.putString('ttl.step', 'race')
-    server.runCommandSilent(`clear ${name}`)
-    server.runCommandSilent(`effect clear ${name}`)
+    server.runCommandSilent(`quietly clear ${name}`)
+    server.runCommandSilent(`quietly effect clear ${name}`)
     player.setHealth(player.getMaxHealth())
     player.getFoodData().setFoodLevel(20)
     player.clearFire()
     TtlLife.toCorridor(server, player)
     TtlCorridor.voice(server, name, passed ? `${why} You may choose your skill.` : `${why} Fate will choose your skill.`)
-    TtlCorridor.showRaces(server, player)
+    TtlCorridor.showLater(server, player)
   }
 }
 

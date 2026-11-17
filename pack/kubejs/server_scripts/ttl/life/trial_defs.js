@@ -149,14 +149,19 @@ const TtlTrials = {
       setup(ctx) {
         ctx.data.putInt('ttl.trial.q', 0)
         ctx.data.putInt('ttl.trial.correct', 0)
-        this.ask(ctx.server, ctx.name, 0)
+        this.showQuestion(ctx.server, ctx.player)
       },
-      ask(server, name, i) {
+      // The question is the menu title (short) and the tooltip of every answer (full text).
+      showQuestion(server, player) {
+        var i = player.persistentData.getInt('ttl.trial.q')
+        if (i >= this.QUESTIONS.length) return
         var question = this.QUESTIONS[i]
-        TtlCorridor.voice(server, name, `Question ${i + 1} of ${this.QUESTIONS.length}: ${question.q}`)
-        TtlCorridor.buttons(server, name, 'Your answer:', question.options.map(o => ({
-          label: TtlCorridor.title(o), command: `/ttl answer ${o}`, hover: 'Answer'
-        })))
+        TtlCorridor.voice(server, player.username, `Question ${i + 1} of ${this.QUESTIONS.length}: ${question.q}`)
+        var slots = [11, 13, 15]
+        var lore = TtlCorridor.wrap(question.q, 34)
+        TtlCorridor.menu(server, player, `Question ${i + 1} of ${this.QUESTIONS.length}`, 3, question.options.map((o, k) => ({
+          slot: slots[k], item: 'minecraft:paper', name: TtlCorridor.title(o), color: '#FFFFFF', lore: lore, command: `ttl answer ${o}`
+        })), 'Answer the Voice.')
       },
       // Called by /ttl answer. Returns an error message or null.
       answer(server, player, word) {
@@ -165,7 +170,7 @@ const TtlTrials = {
         if (i >= this.QUESTIONS.length) return 'No question is waiting.'
         if (word === this.QUESTIONS[i].a) data.putInt('ttl.trial.correct', data.getInt('ttl.trial.correct') + 1)
         data.putInt('ttl.trial.q', i + 1)
-        if (i + 1 < this.QUESTIONS.length) this.ask(server, player.username, i + 1)
+        if (i + 1 < this.QUESTIONS.length) this.showQuestion(server, player)
         return null
       },
       tick(ctx) {
@@ -305,7 +310,7 @@ const TtlTrials = {
         if (ctx.seconds % 8 !== 4) return null
         var n = ctx.name
         var hazard = Math.floor(ctx.seconds / 8) % 3
-        if (hazard === 0) ctx.server.runCommandSilent(`effect give ${n} minecraft:poison 5 0`)
+        if (hazard === 0) ctx.server.runCommandSilent(`quietly effect give ${n} minecraft:poison 5 0`)
         if (hazard === 1) ctx.run(`execute at ${n} run summon minecraft:falling_block ~ ~9 ~ {BlockState:{Name:"minecraft:anvil"},Time:1,DropItem:0b,HurtEntities:1b,FallHurtMax:6,FallHurtAmount:1.0f}`)
         if (hazard === 2) ctx.run(`execute at ${n} run setblock ~ ~ ~ minecraft:fire`)
         return null
