@@ -4,7 +4,7 @@ ttlbot spawn TtlBotFre
 kill TtlBotFre
 execute as TtlBotFre run ttl wish freedom
 execute as TtlBotFre run ttl trial
-@sleep 2
+@sleep 3
 ttl inspect TtlBotFre
 execute in ttl:spirit_corridor run tp TtlBotFre 1500.5 59 0.5
 @sleep 2

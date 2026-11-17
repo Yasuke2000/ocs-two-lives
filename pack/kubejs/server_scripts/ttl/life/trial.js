@@ -71,6 +71,8 @@ const TtlTrial = {
     data.putString('ttl.step', 'trial')
 
     var o = TtlTrials.origin(wish)
+    // Keep the arena loaded for the whole trial: mobs summoned into a chunk that is still loading vanish.
+    this.run(server, `forceload add ${o.x - 16} ${o.z - 16} ${o.x + 16} ${o.z + 16}`)
     server.runCommandSilent(`clear ${name}`)
     d.gear.forEach(g => server.runCommandSilent(`give ${name} minecraft:${g}`))
     player.setHealth(player.getMaxHealth())
@@ -80,8 +82,8 @@ const TtlTrial = {
     TtlCorridor.voice(server, name, `${d.title}: ${d.intro} (${d.limit} seconds)`)
     console.info(`[ttl] ${name} started the ${d.title}`)
 
-    // Mobs need the player's chunk loaded: set up a moment after the teleport.
-    server.scheduleInTicks(10, () => {
+    // forceload takes effect on the next tick; give the chunks time before summoning into them.
+    server.scheduleInTicks(40, () => {
       if (data.getString('ttl.trial.token') !== token) return
       try {
         if (d.setup) d.setup(this.context(server, player, wish, 0))
@@ -98,6 +100,7 @@ const TtlTrial = {
       var player = server.getPlayerList().getPlayerByName(name)
       if (!player) {
         server.persistentData.remove(this.lockKey(wish))
+        this.cleanup(server, wish)
         return
       }
       if (player.persistentData.getString('ttl.trial.token') !== token) return
@@ -133,19 +136,25 @@ const TtlTrial = {
     return TtlTrials.DEFS.knowledge.answer(server, player, word)
   },
 
-  finish(server, player, wish, passed, why) {
-    var name = player.username
+  // Empties the arena: trial mobs, drops, loan gear on the floor, anvils and fire. Releases the forceload.
+  cleanup(server, wish) {
     var o = TtlTrials.origin(wish)
-    var data = player.persistentData
-    server.persistentData.remove(this.lockKey(wish))
-    data.remove('ttl.trial.token')
     var box = `x=${o.x - 17},y=${o.y - 10},z=${o.z - 17},dx=34,dy=30,dz=34`
     this.run(server, `kill @e[tag=${this.TAG},${box}]`)
-    // Mob drops and loan gear must not be carried into Life 2; hazards must not outlive the trial.
     this.run(server, `kill @e[type=minecraft:item,${box}]`)
     this.run(server, `kill @e[type=minecraft:falling_block,${box}]`)
     ;['minecraft:anvil', 'minecraft:chipped_anvil', 'minecraft:damaged_anvil', 'minecraft:fire'].forEach(b =>
       this.run(server, `fill ${o.x - 15} ${o.y + 1} ${o.z - 15} ${o.x + 15} ${o.y + 6} ${o.z + 15} minecraft:air replace ${b}`))
+    this.run(server, `forceload remove ${o.x - 16} ${o.z - 16} ${o.x + 16} ${o.z + 16}`)
+  },
+
+  finish(server, player, wish, passed, why) {
+    var name = player.username
+    var data = player.persistentData
+    server.persistentData.remove(this.lockKey(wish))
+    data.remove('ttl.trial.token')
+    // Mob drops and loan gear must not be carried into Life 2; hazards must not outlive the trial.
+    this.cleanup(server, wish)
     console.info(`[ttl] ${name} ${passed ? 'passed' : 'failed'} the ${this.def(wish).title} (${why})`)
     data.putBoolean('ttl.trial.done', true)
     data.putBoolean('ttl.trial.passed', passed)

@@ -4,7 +4,7 @@ ttlbot spawn TtlBotProF
 kill TtlBotProF
 execute as TtlBotProF run ttl wish protection
 execute as TtlBotProF run ttl trial
-@sleep 2
+@sleep 3
 ttl inspect TtlBotProF
 kill @e[tag=ttl_ward]
 @sleep 2

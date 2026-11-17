@@ -4,7 +4,7 @@ ttlbot spawn TtlBotSur
 kill TtlBotSur
 execute as TtlBotSur run ttl wish survival
 execute as TtlBotSur run ttl trial
-@sleep 2
+@sleep 3
 ttl inspect TtlBotSur
 effect give TtlBotSur minecraft:resistance 130 255 true
 effect give TtlBotSur minecraft:fire_resistance 130 0 true

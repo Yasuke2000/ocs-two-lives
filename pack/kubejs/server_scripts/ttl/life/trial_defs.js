@@ -218,12 +218,14 @@ const TtlTrials = {
       title: 'Trial of Deceit', intro: 'Reach the emerald exit unseen. Watchers see anyone who walks upright near them: sneak.', limit: 150,
       floor: 'minecraft:deepslate_tiles', start: [0, 1, -14], gear: [],
       RADIUS: 7.5,
+      // Watcher rows (z): the start (z -14) is out of sight of the first row, the exit is checked first.
+      ROWS: [-4, 3, 10],
       build(b) {
         b.fill(-1, 0, 13, 1, 0, 15, 'minecraft:emerald_block')
       },
       setup(ctx) {
         ctx.data.putInt('ttl.trial.strikes', 0)
-        ;[-7, 0, 7].forEach(z => [-8, 0, 8].forEach(x => TtlTrials.mob(ctx, 'minecraft:evoker', x, z, {
+        this.ROWS.forEach(z => [-8, 0, 8].forEach(x => TtlTrials.mob(ctx, 'minecraft:evoker', x, z, {
           NoAI: true, Invulnerable: true, Silent: true,
           CustomName: TtlTrials.named('Watcher', 'gray'), Tags: ['ttl_trial', 'ttl_watcher']
         })))
@@ -236,7 +238,7 @@ const TtlTrials = {
         if (p.isShiftKeyDown()) return null
         var seen = false
         var r = this.RADIUS
-        ;[-7, 0, 7].forEach(wz => [-8, 0, 8].forEach(wx => {
+        this.ROWS.forEach(wz => [-8, 0, 8].forEach(wx => {
           if (Math.sqrt((dx - wx) * (dx - wx) + (dz - wz) * (dz - wz)) <= r) seen = true
         }))
         if (!seen) return null

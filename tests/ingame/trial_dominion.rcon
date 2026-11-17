@@ -4,7 +4,7 @@ ttlbot spawn TtlBotDom
 kill TtlBotDom
 execute as TtlBotDom run ttl wish dominion
 execute as TtlBotDom run ttl trial
-@sleep 2
+@sleep 3
 ttl inspect TtlBotDom
 execute in ttl:spirit_corridor run tp @e[tag=ttl_herd,limit=3] 1811.5 65 11.5
 @sleep 2

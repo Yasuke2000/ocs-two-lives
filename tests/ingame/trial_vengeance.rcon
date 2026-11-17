@@ -7,7 +7,7 @@ damage TtlBotVen 1000 minecraft:mob_attack by @e[tag=ttlkiller,limit=1]
 kill @e[tag=ttlkiller]
 execute as TtlBotVen run ttl wish vengeance
 execute as TtlBotVen run ttl trial
-@sleep 2
+@sleep 3
 ttl inspect TtlBotVen
 execute in ttl:spirit_corridor if entity @e[type=minecraft:zombie,tag=ttl_nemesis,x=1100,y=60,z=0,distance=..30]
 kill @e[tag=ttl_nemesis]

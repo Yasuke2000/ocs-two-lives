@@ -4,7 +4,7 @@ ttlbot spawn TtlBotPro
 kill TtlBotPro
 execute as TtlBotPro run ttl wish protection
 execute as TtlBotPro run ttl trial
-@sleep 2
+@sleep 3
 ttl inspect TtlBotPro
 effect give @e[tag=ttl_ward] minecraft:resistance 120 255 true
 @sleep 92

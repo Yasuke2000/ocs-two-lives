@@ -4,7 +4,7 @@ ttlbot spawn TtlBotCre
 kill TtlBotCre
 execute as TtlBotCre run ttl wish creation
 execute as TtlBotCre run ttl trial
-@sleep 2
+@sleep 3
 ttl inspect TtlBotCre
 give TtlBotCre minecraft:lantern
 @sleep 2

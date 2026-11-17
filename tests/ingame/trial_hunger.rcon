@@ -4,7 +4,7 @@ ttlbot spawn TtlBotHun
 kill TtlBotHun
 execute as TtlBotHun run ttl wish hunger
 execute as TtlBotHun run ttl trial
-@sleep 2
+@sleep 3
 ttl inspect TtlBotHun
 effect give TtlBotHun minecraft:saturation 2 20 true
 @sleep 2

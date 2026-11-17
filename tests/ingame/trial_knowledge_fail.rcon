@@ -4,7 +4,7 @@ ttlbot spawn TtlBotKnoF
 kill TtlBotKnoF
 execute as TtlBotKnoF run ttl wish knowledge
 execute as TtlBotKnoF run ttl trial
-@sleep 2
+@sleep 3
 ttl inspect TtlBotKnoF
 execute as TtlBotKnoF run ttl answer slime
 execute as TtlBotKnoF run ttl answer predator
