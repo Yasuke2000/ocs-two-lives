@@ -20,9 +20,13 @@ execute as TtlBotTrial run ttl choose slime
 ttl inspect TtlBotTrial
 # Not an option (great_sage is Legendary): must be refused, the bot stays at step=unique.
 execute as TtlBotTrial run ttl unique great_sage
-execute as TtlBotTrial run ttl unique observer
+# The 3 options are random; try the whole knowledge pool, only the first offered one goes through.
+execute as TtlBotTrial run ttl unique analyst
 execute as TtlBotTrial run ttl unique researcher
 execute as TtlBotTrial run ttl unique mathematician
+execute as TtlBotTrial run ttl unique observer
+execute as TtlBotTrial run ttl unique seer
+execute as TtlBotTrial run ttl unique seeker
 ttl inspect TtlBotTrial
 ttl registry
 ttl reset TtlBotTrial
