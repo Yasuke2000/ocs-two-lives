@@ -1,12 +1,16 @@
 # Golden City of El Dorado — Leon’s audience court
 
-Leon Cromwell rules the south-western continent from the Golden City. The pack’s geography research links its wealth to precious metals from a volcano. Those are the reasons for the copper and gold visible from the southern road. The sources give us no floor plan for an audience court. [Continent research, section X](world.md#x-el-dorado-黄金郷エルドラド) · [Golden City of El Dorado](https://tensura.fandom.com/wiki/Golden_City_of_El_Dorado) · [Web novel continuity](https://tensura.fandom.com/wiki/WN:El_Dorado)
+## What the sources show
 
-## Our interpretation
+In episode 87, Laplace and his companions pose as eastern merchants to meet Leon in **Golden City El Dorado**. The episode synopsis names the place. The wide shot shows three visitors facing broad white stairs with a red runner edged in gold. Gold balustrades flank the ascent. Leon's high-backed throne has a pointed outline and purple-red upholstery against tall pale wall panels. A second view shows the thick gilded armrests. In another still Leon stands under glazed ribs beside climbing roses and an ornate mirror; the image does not establish how that space connects to the audience hall. [Episode 87 synopsis](https://www.ten-sura.com/anime/tensura/story/no92) · [Wide audience view](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no92/img1.jpg) · [Throne detail](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no92/img5.jpg) · [Glazed garden](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no92/img3.jpg)
 
-From the road, two gold-tipped obelisks frame the entrance to an octagonal audience hall. A sun mosaic marks the crossing where short bridges lead west and east across the reflecting pools. Both arcades have white columns, corbelled openings and low, dark green hipped roofs. Trees shade their outer ends. The sun motif and court layout are our interpretation.
+The Japanese series encyclopedia's geography entry describes a six-pointed city on magically levelled land, with streets spiralling upward towards a white royal castle. The city plan forms a layered defensive spell. The entry cites the volume 13.5 setting guide (p. 210) and light novel volume 18 (pp. 123–125); those passages were consulted through the encyclopedia. The pack atlas places the continent to the south-west and links its wealth to a volcano. The volcano and its mines lie beyond this build. [Japanese encyclopedia, 黄金郷](https://ja.wikipedia.org/wiki/転生したらスライムだった件#黄金郷) · [Continent research, section X](world.md#x-el-dorado-黄金郷エルドラド)
 
-The hall’s roof catches the light like a cut stone. Eight copper ribs divide bands of amber and orange glass above a ring of tall windows. Inside, two rows of benches face north towards a stepped blackstone dais. Gold rises behind the ruler’s seat in the same pointed silhouette as the obelisks outside.
+## The court and our interpretation
+
+Two gold-tipped obelisks frame the southern road. At the crossing between the reflecting pools, two triangles in the paving form a six-pointed star as a small reminder of the city plan. Short bridges lead west and east to arcades with white columns and dark green hipped roofs. The approach, pools and trees are our interpretation.
+
+Inside the white-walled hall, a red and gold aisle climbs five shallow steps to the throne. White stone flanks the runner, and low gold rails follow the outside edges. A peaked gold frame rises behind the purple backrest. These are the features taken from the audience shot. Our interpretation supplies the dimensions, the upper lantern of amber glass and copper, the benches, and the octagonal footprint. The surrounding spiral streets and their defences are outside the palace precinct.
 
 ## Scale and placement
 
@@ -14,6 +18,6 @@ The blueprint is **81 × 39 × 83** blocks (x, y, z). The obelisk approach at lo
 
 ## Reference and reuse
 
-- The account of the capital and volcano above comes from the pack’s cited lore research. The linked Fandom pages returned HTTP 402 on recheck. The political fan map supplies the region and approximate seat.
+- The atlas also cites the English Tensura Wiki and a separate web-novel continuity entry. Both returned HTTP 402 on recheck. The political fan map supplies the region and approximate seat. [Golden City of El Dorado](https://tensura.fandom.com/wiki/Golden_City_of_El_Dorado) · [Web novel continuity](https://tensura.fandom.com/wiki/WN:El_Dorado)
 - We checked the repo’s Demon Lord seats, the Gazel throne room and goblin assets, and the structure inventories of Tensura, Iron’s Spells ’n Spellbooks and Towns and Towers for a named Leon or El Dorado piece. The palace geometry is original, drawn with the pack’s building and lighting helpers.
 - A community search turned up Pine991178’s *Pine’s Peru*. Its “El Dorado Chamber” gallery shows a gold deposit in a cavern, a different setting. The project lists All Rights Reserved. We used the screenshot for comparison only. [Project and gallery](https://modrinth.com/mod/pines-peru)

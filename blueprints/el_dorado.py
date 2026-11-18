@@ -1,12 +1,13 @@
 """Golden City of El Dorado — Leon Cromwell's audience court.
 
 SIZE (81, 39, 83), south approach anchor (40, 4, 74), PARTS split at z 28 and 56.
-The fan-map record in design/lore/world.md and its Golden City / WN:El Dorado sources identify
-Leon's seat and the continent's precious metals. The copper-ribbed amber lantern above the throne,
-stepped octagonal hall, shaded galleries and reflecting canals are our interpretation. Materials:
-cut and smooth sandstone, polished blackstone, waxed cut copper, gold, amber glass and glowstone.
+Episode 87 (design/lore/el_dorado.md) shows a high gilded throne and a red runner up broad pale
+steps. The light novel's white central castle and six-pointed city plan inform the quartz walls and
+paving motif. The amber lantern roof, galleries and reflecting canals are our interpretation.
+Materials: quartz, sandstone, polished blackstone, gold, waxed copper, coloured glass and wool.
 """
 from _lords_lib import M, clear, fill, fill_air, light_pass, rect_ring, stair
+from _sites_lib import line
 from _town_lib import lantern_floor
 
 SIZE = (81, 39, 83)
@@ -15,6 +16,7 @@ G = 3
 CX, CZ = 40, 25
 STONE = M("smooth_sandstone")
 ASHLAR = M("cut_sandstone")
+WHITE = M("smooth_quartz")
 DARK = M("polished_blackstone")
 GOLD = M("gold_block")
 COPPER = M("waxed_cut_copper")
@@ -37,15 +39,15 @@ def hall(bp):
             bp.set(x, G, z, DARK if r in (19, 20) else ASHLAR)
             if r <= 17:
                 block = GOLD if r in (8, 15) or (abs(dx) == abs(dz) and r <= 8) else STONE
-                bp.set(x, G, z, block)
+                bp.set(x, G, z, block if block == GOLD else WHITE)
             if r in (16, 17):
                 for y in range(4, 17):
                     window = (abs(dx) in (4, 5, 6) or abs(dz) in (4, 5, 6)) and 8 <= y <= 13
-                    bp.set(x, y, z, GLASS if window else (GOLD if y in (6, 15) else ASHLAR))
+                    bp.set(x, y, z, GLASS if window else (GOLD if y in (6, 15) else WHITE))
             # Broad overhanging octagonal eaves below the faceted lantern roof.
             if r <= 19:
-                bp.set(x, 16, z, DARK)
-                bp.set(x, 17, z, GOLD if r == 19 else COPPER)
+                bp.set(x, 16, z, WHITE)
+                bp.set(x, 17, z, GOLD if r == 19 else WHITE)
             if r <= 15:
                 for y in range(18, 22):
                     if r == 15:
@@ -64,18 +66,36 @@ def hall(bp):
     # High triple-recessed portal, open through both wall layers.
     for half, top in ((4, 9), (3, 11), (2, 12)):
         clear(bp, CX - half, 4, 40, CX + half, top, 43)
-    # North dais, backed by a dark sunburst against the amber clerestory.
-    fill(bp, 35, 4, 11, 45, 4, 16, DARK)
-    fill(bp, 35, 4, 17, 45, 4, 17, stair("polished_blackstone", "north"))
-    fill(bp, 37, 5, 12, 43, 5, 14, COPPER)
-    fill(bp, 37, 5, 15, 43, 5, 15, stair("cut_copper", "north"))
-    for x in range(36, 45):
-        h = 10 - abs(CX - x)
-        fill(bp, x, 6, 12, x, h, 12, GOLD)
-    bp.set(40, 6, 13, stair("polished_blackstone", "north"))
+    # Episode 87: the delegation ascends a broad red-and-gold stair to a high-backed throne.
+    fill(bp, 31, 4, 11, 49, 8, 17, WHITE)
+    fill(bp, 37, 8, 11, 43, 8, 17, M("red_wool"))
+    for step in range(5):
+        z, y = 26 - 2 * step, 4 + step
+        fill(bp, 31, 4, z-1, 49, y, z, WHITE)
+        for x in range(31, 50):
+            offset = abs(x - CX)
+            surface = M("red_wool") if offset <= 3 else GOLD if offset == 4 else WHITE
+            tread = "red_nether_brick" if offset <= 3 else "smooth_sandstone" if offset == 4 else "smooth_quartz"
+            bp.set(x, y, z-1, surface)
+            bp.set(x, y, z, stair(tread, "north"))
+        for x in (31, 49):
+            bp.set(x, y+1, z-1, LAMP if step in (0, 2, 4) else GOLD)
+            bp.set(x, y+1, z, stair("smooth_sandstone", "north"))
+    fill(bp, 37, G, 27, 43, G, 39, M("red_wool"))
+    for x in (36, 44):
+        fill(bp, x, G, 27, x, G, 39, GOLD)
+
+    # Royal upholstery rises inside a pointed gold frame; the side posts carry the arms.
+    for dx in range(-2, 3):
+        top = 15 - abs(dx)
+        x = CX + dx
+        fill(bp, x, 9, 12, x, top, 12, GOLD)
+        if abs(dx) < 2:
+            fill(bp, x, 9, 12, x, top-1, 12, M("purple_wool"))
+    fill(bp, 39, 9, 13, 41, 9, 14, M("crimson_planks"))
     for x in (38, 42):
-        bp.set(x, 6, 13, LAMP)
-    for z in (20, 28, 36):
+        fill(bp, x, 9, 13, x, 10, 14, GOLD)
+    for z in (29, 36):
         for x in (32, 48):
             fill(bp, x-1, 4, z, x+1, 4, z, stair("sandstone", "north"))
             bp.set(x, G, z+2, LAMP)
@@ -133,17 +153,17 @@ def build(bp):
             floor = M("grass_block")
             if 6 <= x <= 74 and 28 <= z <= 72 or abs(x-CX) <= 5 and z >= 41:
                 floor = DARK if x in (34, 46) else STONE
-            if z in (45, 59, 73) and abs(x-CX) < 6:
+            if z in (45, 73) and abs(x-CX) < 6:
                 floor = GOLD
             if x % 12 == 4 and z % 12 == 4:
                 floor = LAMP
             bp.set(x, G, z, floor)
-    # An eight-rayed sun marks the crossing between the pools, visible from the portal.
-    for dx in range(-5, 6):
-        for dz in range(-5, 6):
-            distance = abs(dx) + abs(dz)
-            if distance == 5 or distance <= 2 or (distance <= 4 and dx * dz == 0):
-                bp.set(CX + dx, G, 59 + dz, GOLD if distance < 5 else DARK)
+    # A small paving inlay recalls the city's six points within the single palace precinct.
+    for tip in (-1, 1):
+        triangle = [(CX, 59 + 6*tip), (CX-5, 59 - 3*tip), (CX+5, 59 - 3*tip)]
+        for a, b in zip(triangle, triangle[1:] + triangle[:1]):
+            for x, z in line(*a, *b):
+                bp.set(x, G, z, GOLD)
     gardens(bp)
     hall(bp)
     for x0 in (7, 65):

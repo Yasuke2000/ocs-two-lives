@@ -2,10 +2,10 @@
 
 SIZE (81, 60, 91), anchor (40, 4, 83) on the south processional road facing north.
 Three z slabs place a giant-scale threshold, an open shaft with internal galleries,
-and a freestanding crown. Sources: design/lore/heaven_tower.md, the Damargania
-fan-map placement in design/lore/world.md, and the Tensura Wiki entries for Heaven
-Tower and Dagruel. Our interpretation uses cut sandstone, rust-orange
-terracotta, polished deepslate and ochre lamps. The crown is purely architectural.
+and a freestanding crown. The tower and its protected surroundings follow Fuse,
+light novel vol. 18 ch. 2 and vol. 19 interlude/ch. 2. See design/lore/heaven_tower.md
+for publisher sources. Our interpretation uses cut sandstone, rust-orange terracotta,
+polished deepslate and ochre lamps. A paved boundary marks the refuge in the sand.
 """
 from _dwargon_lib import AIR, rnd
 from _lords_lib import M, fill, fill_air, light_pass
@@ -38,6 +38,10 @@ def terrain(bp):
             if seam in (3, 4) and grain > 0.55:
                 surface = M("terracotta")
             road = abs(dx) <= 6 and dz >= 0
+            # The Holy Void shelters the ground near the tower. Let the red seams
+            # stop at an octagonal curb, visible from each of the upper galleries.
+            if octagon(dx, dz, 31):
+                surface = PALE if octagon(dx, dz, 30) else RED
             if octagon(dx, dz, 25) or road:
                 surface = PALE if grain > 0.74 else CUT
             if abs(dx) + abs(dz) in (6, 12) or dx == 0 and abs(dz) < 12:
@@ -133,6 +137,14 @@ def build(bp):
                         material = RED if y in (8, 18, 32, 43) else PALE
                         bp.set(CX + sign * d, y, CZ + side, material)
                         bp.set(CX + side, y, CZ + sign * d, material)
+    # Waist-high bollards carry the refuge boundary across the four diagonal faces.
+    # The south road stays open for the procession.
+    for dx in (-23, 23):
+        for dz in (-23, 23):
+            x, z = CX + dx, CZ + dz
+            fill(bp, x - 1, 4, z - 1, x + 1, 4, z + 1, RED)
+            bp.set(x, 5, z, RUNE)
+            bp.set(x, 6, z, LAMP)
     processional_gate(bp)
     # East of the atrium, a ladder gives all gallery floors a common landing.
     fill(bp, CX + 5, 4, CZ - 3, CX + 5, 49, CZ - 3, DARK)
@@ -145,6 +157,6 @@ def build(bp):
                 fill(bp, CX + dx, 49, z, CX + dx, h, z, DARK)
             bp.set(CX + dx, h, z, LAMP if dx == 0 else RUNE)
             bp.set(CX + dx, h + 1, z, RED)
-    light_pass(bp, lambda x, y, z: octagon(x - CX, z - CZ, 25) or
+    light_pass(bp, lambda x, y, z: octagon(x - CX, z - CZ, 31) or
                (abs(x - CX) <= 14 and z >= CZ + 19), 4,
                lambda x, y, z: lantern_floor(), label="heaven_tower")

@@ -1,13 +1,15 @@
 """Ballachia, the former Orthrus exchange and the road the freed elves take east.
 
 SIZE (76, 38, 66), two z slabs at 0 and 33. Anchor (38, 4, 41) on the forecourt.
-The long brick-roofed hall is open to the south under a timber arcade. A slate belfry
-marks the east end. A broken chain is set into the yard paving between the hall,
-a small lodging house and a cart shed. Materials are brick, spruce, dark oak, calcite,
-stone bricks and iron. Manga chapter 108 and anime episode 65 give the Ballachia
-episode, while the architecture is our interpretation (design/lore/ballachia.md).
+Three ribbed blue domes, an arched porch and a tracery window rise over a south-facing arcade.
+The form and illuminated windows follow the episode 65 Ballachia establishing shot. A broken chain in the yard paving connects the hall, lodging house and cart shed.
+Materials include blue terracotta, deepslate, brick, spruce, dark oak, calcite,
+stone bricks, warm lantern glass and iron. Manga chapter 108 gives the rescue and escort.
+The use of this facade for the yard is our interpretation (design/lore/ballachia.md).
 """
-from _lords_lib import light_pass
+from math import isqrt
+
+from _lords_lib import disc_cells, light_pass
 from _town_lib import M, Town, lantern_floor, lantern_hung, log, slab, stair
 
 SIZE = (76, 38, 66)
@@ -24,10 +26,16 @@ def exchange(t):
         for z in (7, 22):
             t.fill(x, F, z, x, 12, z, log("stripped_dark_oak_log"))
         t.fill(x, 11, 7, x, 11, 22, log("dark_oak_log", "z"))
-        t.fill(x, F, 27, x, 9, 27, log("dark_oak_log"))
-        t.put(x, F, 27, M("stone_bricks"))
+        t.fill(x, F + 1, 27, x, 8, 27, M("stone_brick_wall"))
+        t.put(x, F, 27, M("polished_andesite"))
+        t.put(x, 9, 27, M("chiseled_stone_bricks"))
         if x < 58:
             t.clear(x + 1, F, 22, x + 7, 9, 22)
+            # Tall lit windows flank the opening from the exchange onto the colonnade.
+            for jamb in (x + 1, x + 7):
+                t.fill(jamb, F, 22, jamb, F, 22, M("stone_bricks"))
+                t.fill(jamb, F + 1, 22, jamb, 9, 22, M("yellow_stained_glass"))
+                t.put(jamb, 8, 21, M("ochre_froglight"))
             t.fill(x + 3, 7, 7, x + 5, 9, 7, M("glass"))
             t.fill(x + 3, 10, 7, x + 5, 10, 7, log("dark_oak_log", "x"))
             for z in range(8, 16):
@@ -37,15 +45,17 @@ def exchange(t):
             t.put(x, 9, 15, lantern_hung())
     for z in (7, 22):
         t.fill(10, 12, z, 58, 12, z, log("dark_oak_log", "x"))
-    t.gable(10, 7, 58, 22, 13, "brick", "x", M("calcite"))
+    t.gable(10, 7, 58, 22, 13, "slate", "x", M("calcite"))
     # Three loading dormers bring daylight into the long hall from the south.
-    for x in (18, 34, 50):
+    for x in (14, 30, 54):
         t.ring(x - 2, 17, x + 2, 22, 14, 17, M("calcite"))
-        t.fill(x - 1, 15, 22, x + 1, 16, 22, M("light_blue_stained_glass"))
+        t.fill(x - 1, 15, 22, x + 1, 17, 22, M("yellow_stained_glass"))
+        t.fill(x, 15, 22, x, 17, 22, M("polished_andesite"))
         for side in (x - 2, x + 2):
             t.fill(side, 14, 22, side, 17, 22, log("dark_oak_log"))
         t.gable(x - 2, 17, x + 2, 22, 18, "slate", "z", M("calcite"))
         t.fill(x - 1, 14, 19, x + 1, 17, 21, M("air"))
+        t.put(x - 1, 16, 21, M("ochre_froglight"))
     # A separate, shallower lean-to keeps the arcade open in front of the taller roof.
     for z in range(23, 29):
         t.fill(9, 12 - (z - 23) // 2, z, 59, 12 - (z - 23) // 2, z,
@@ -73,8 +83,56 @@ def bell_tower(t):
     t.put(64, 22, 23, M("bell[attachment=ceiling,facing=south]"))
     for y in (8, 13):
         t.fill(63, y, 27, 65, y + 2, 27, M("light_blue_stained_glass"))
-    t.hip(60, 19, 68, 27, 26, "slate")
-    t.put(64, 32, 23, M("lightning_rod[facing=up]"))
+    dome(t, 64, 23, 26, (5, 5, 4, 4, 3, 2))
+
+
+def dome(t, cx, cz, base, radii):
+    # Dark blue panels rise between stone ribs; the steps tighten toward the finial.
+    for dy, radius in enumerate(radii):
+        for x, z in disc_cells(cx, cz, radius):
+            rib = x == cx or z == cz
+            t.put(x, base + dy, z, M("polished_deepslate" if rib else "blue_terracotta"))
+    top = base + len(radii)
+    t.put(cx, top, cz, M("deepslate_brick_wall"))
+    t.put(cx, top + 1, cz, M("lightning_rod[facing=up]"))
+
+
+def roofline(t):
+    for cx, radius, base, radii in ((43, 6, 25, (7, 7, 6, 6, 5, 4, 2)),
+                                    (21, 3, 24, (4, 4, 3, 2))):
+        for y in range(14, base):
+            for x, z in disc_cells(cx, 14, radius):
+                state = "stone_bricks"
+                if base - 4 <= y <= base - 2 and x % 2 != z % 2:
+                    state = "ochre_froglight"
+                t.put(x, y, z, M(state))
+        dome(t, cx, 14, base, radii)
+    for x in (11, 33, 57):
+        t.fill(x, 15, 10, x + 1, 24, 11, M("stone_bricks"))
+        t.fill(x, 25, 10, x + 1, 25, 11, slab("stone_brick"))
+    # The luminous wheel sits in a raised square gable above the west end.
+    t.fill(7, F, 12, 13, 26, 17, M("stone_bricks"))
+    for dx in range(-2, 3):
+        for dy in range(-2, 3):
+            if dx * dx + dy * dy > 5:
+                continue
+            pane = "yellow_stained_glass" if abs(dx) != abs(dy) else "polished_andesite"
+            t.put(10 + dx, 22 + dy, 17, M(pane))
+            t.put(10 + dx, 22 + dy, 16, M("ochre_froglight"))
+    t.gable(7, 12, 13, 17, 27, "slate", "z", M("stone_bricks"))
+
+
+def porch(t):
+    # The semicircular hood spans the walking route; each pier stands outside the opening.
+    for dx in range(-7, 8):
+        top = 11 + isqrt(49 - dx * dx)
+        inner = 11 + isqrt(25 - dx * dx) if abs(dx) <= 5 else F - 1
+        bottom = inner + 1
+        t.fill(34 + dx, bottom, 27, 34 + dx, top, 29, M("stone_bricks"))
+        t.put(34 + dx, top, 29, M("polished_andesite"))
+    t.clear(33, F, 22, 35, 9, 27)
+    for x in (27, 28, 40, 41):
+        t.put(x, F, 29, M("chiseled_stone_bricks"))
 
 
 def coach_shed(t):
@@ -96,6 +154,12 @@ def coach_shed(t):
         t.fill(64, F + 1, z, 66, F + 1, z, slab("dark_oak", "top"))
     t.put(58, F + 2, 49, M("barrel[facing=east]"))
     t.put(59, F + 2, 49, M("hay_block[axis=x]"))
+    # The travel scene shows a curved canopy stretched over wooden hoops.
+    for x in range(57, 64):
+        hoop = x in (57, 60, 63)
+        for z in (47, 51):
+            t.fill(x, F + 2, z, x, F + 3, z, log("spruce_log") if hoop else M("white_wool"))
+        t.fill(x, F + 4, 48, x, F + 4, 50, log("spruce_log", "z") if hoop else M("white_wool"))
 
 
 def build(bp):
@@ -108,6 +172,8 @@ def build(bp):
     t.pave(54, 40, 69, 48, "cobble")
     exchange(t)
     bell_tower(t)
+    roofline(t)
+    porch(t)
     coach_shed(t)
     t.house(5, 45, 19, 55, "n", 1, roof="slate", furnish=False)
     for x in (8, 12, 16):

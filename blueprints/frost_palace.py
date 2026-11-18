@@ -1,8 +1,9 @@
 """Guy Crimson's Frost Palace entrance, seen from the Ice Continent. SIZE (85, 51, 69);
 anchor (42, 4, 65) on the south approach, looking north. Three z slabs. The white masonry
 shows through Velzard's ice. A causeway crosses a frozen cleft to a pointed gate, guarded
-by two faceted towers. Packed ice, blue ice, quartz, snow, red glass and sea lanterns.
-References: Fuse, light novel vol. 16, epilogue; Tensura Wiki, Frost Palace and Ice
+by two faceted towers and sweeping ice horns. Packed ice, blue ice, quartz, snow,
+violet glass and sea lanterns. References: anime episode 42 "The Demon Lords" (Leon's
+walk through the palace); Fuse, light novel vol. 16, epilogue; Tensura Wiki, Frost Palace and Ice
 Continent; the pack's political map. Sources and architectural interpretation in
 design/lore/frost_palace.md.
 """
@@ -39,7 +40,7 @@ def snowfield(bp):
 def shard(bp, x, z, base, radius, height, lean):
     for i in range(height):
         r = max(0, math.ceil(radius * (1 - i / (height - 1))))
-        mid = x + round(lean * i / (height - 1))
+        mid = x + round(lean * (i / (height - 1)) ** 1.5)
         for dx in range(-r, r + 1):
             for dz in range(-r + abs(dx), r - abs(dx) + 1):
                 face = BLUE if dx < 0 else ICE
@@ -92,11 +93,10 @@ def vestibule(bp):
             edge = abs(dx)
             fill(bp, x, 3, z, x, 7, z, STONE)
             if edge < 10:
-                bp.set(x, 7, z, BLUE if edge == 7 else STONE)
+                # Leon walks between blue pinstripes on a reflective panelled floor.
+                bp.set(x, 7, z, BLUE if edge == 7 or z in (13, 27) else ICE)
                 if edge == 7 and z % 6 == 1:
                     bp.set(x, 7, z, LAMP)
-                if edge <= 2 and z < 32:
-                    bp.set(x, 7, z, M("red_wool"))
             ceiling = 31 - edge
             if edge >= 10:
                 fill(bp, x, 8, z, x, ceiling, z, ICE)
@@ -114,10 +114,18 @@ def vestibule(bp):
             for x in (C - 9, C + 9):
                 fill(bp, x, 8, z, x, 22, z, PILLAR)
                 bp.set(x, 12, z, LAMP)
-    # The crimson lozenge sits in a second, glazed pointed arch above the gate.
+    # Crystal clusters grow below the windows of the passage, leaving the axial route open.
+    for sign in (-1, 1):
+        for z in (10, 17, 24, 31):
+            shard(bp, C + sign * 9, z, 8, 1, 4, -sign)
+    # The arch picks up the violet of the reception hall's elevated lights.
     for dx in range(-3, 4):
         for dy in range(-3 + abs(dx), 4 - abs(dx)):
-            bp.set(C + dx, 28 + dy, 35, M("red_stained_glass") if abs(dx) + abs(dy) < 2 else STONE)
+            if abs(dx) + abs(dy) < 2:
+                bp.set(C + dx, 28 + dy, 34, LAMP)
+                bp.set(C + dx, 28 + dy, 35, M("purple_stained_glass"))
+            else:
+                bp.set(C + dx, 28 + dy, 35, STONE)
     # A small snow terrace receives visitors passing the northern arch.
     for z in range(0, 7):
         y = min(7, 3 + z)
@@ -164,11 +172,11 @@ def build(bp):
     for sign in (-1, 1):
         spire(bp, C + sign * 17, 26, 6, 30, 49)
         spire(bp, C + sign * 15, 10, 4, 21, 35)
-        # Splayed crystals lean away from the central gate on the windward shore.
-        for dx, z, r, height, lean in ((31, 28, 4, 18, 4), (25, 34, 3, 14, 3),
-                                        (34, 35, 2, 9, 2), (29, 55, 3, 10, 2),
-                                        (20, 59, 2, 6, 1)):
-            shard(bp, C + sign * dx, z, 3, r, height, sign * lean)
+        # The establishing shot frames the castle between curving blades of ice.
+        for dx, z, r, height, lean in ((34, 28, 4, 22, 8), (27, 34, 3, 14, 4),
+                                        (36, 35, 2, 10, 3), (28, 55, 4, 19, 8),
+                                        (19, 59, 2, 8, 3)):
+            shard(bp, C + sign * dx, z, 3, r, height, -sign * lean)
     light_pass(bp, lambda x, y, z: abs(x - C) <= 10 and 6 <= z <= 35 and y < 31 - abs(x - C),
                8, lambda x, y, z: M("lantern[hanging=false]"), label="frost_palace")
     # The placer clears above the highest solid block in each column. Keep explicit air
