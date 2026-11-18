@@ -757,6 +757,98 @@ file = "config/easy_npc/npc_base.cfg"
 hash = "3f871a556a9f1d11baa6e86e46240e22d98ae364f3112f44678571a677d5abd0"
 
 [[files]]
+file = "config/easy_npc/preset/ttl_cast_benimaru.npc.snbt"
+hash = "9ee2fedd92c1801f786a01b28fa11c555a1bd72711c55a8ea498b429ed5c3574"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_dagruel.npc.snbt"
+hash = "1aeaafdc6f150f27ae7fe4ee0de6f942c484d4f7c59c16a42b9e7eaa01205111"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_dold.npc.snbt"
+hash = "539642976da2c1134f5fef0aee97e5a595d7629a552cba2e3c81de4dbbaf350b"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_edmaris.npc.snbt"
+hash = "fc813fc703e9bd2f532a9a0c447fdb5fdc44c63285d396ef9b21e627b3096640"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_elen.npc.snbt"
+hash = "2ecb5f0952ba4f6ac17c0ef686bb4cc35280e9806b05c68ebd3dbf1530f801c7"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_frey.npc.snbt"
+hash = "a31cec22c79f4723ac8c87c91da6b64b1dbde029bfd3b788a9db84b1251ad1b3"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_garm.npc.snbt"
+hash = "6e3bd57efed263acf1fb3a671f2bc28a223bc1d124a58255ac7650b15f569da3"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_gido.npc.snbt"
+hash = "7c14bbca15f0f658c6a48b5355b304673da2f3048080b5a9ac10fb2e8fd41d83"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_guy.npc.snbt"
+hash = "0a837e9751f6ffc54f90f67a1877650182729356a06056cb7dc0df5357cf7530"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_hakurou.npc.snbt"
+hash = "728915cfa4d8f9244723944dc06dcc93f707bf10028a7ea7c3b098565d98ea07"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_kabal.npc.snbt"
+hash = "d98783f8213f11c11e23c6bbc6181b8f7383eb5993110b3af8839d5c0083280a"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_kaijin.npc.snbt"
+hash = "a9eefa5551e4835baf8d326923390dca28d2fa105758e0152bd7df54eed40c7a"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_leon.npc.snbt"
+hash = "941b1219d18272519f8985d123439133c269fc48ef53170397a6d2b1feaa8ea7"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_mildo.npc.snbt"
+hash = "97718e2edd896195af10735deaae3a8ac5a401bc7b13b6282d3047ca68ff2546"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_milim.npc.snbt"
+hash = "59034aaac94d132d06414bccce2c59ce6c65d7270a8af55fcb7b80d55db893c4"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_outcast_contact.npc.snbt"
+hash = "4df9229ed2a272cdf2409f860d6a0a89eb1507f487c55c47ea89eb991086d7ce"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_ramiris.npc.snbt"
+hash = "5ebefb9321e03489b3d4df2b5f81e905f92ad8a9880e772a6be4a583fc7695ba"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_razen.npc.snbt"
+hash = "22048b0ed9ed9f052d724efe18f6d7270d02a57d74ff009beccbe9cbf5f69720"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_shion.npc.snbt"
+hash = "4189badba1a70c8217b8ad6a045a53580bd7a662859af3e80825e097c05de5e8"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_shuna.npc.snbt"
+hash = "18bd2b23c8a402d7ad8e5b1955a1363d45e071f2edf7470b8a01616366680a9e"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_souei.npc.snbt"
+hash = "b770de3c855803ca91da840caccde9ab0134768bf2b245a6673c7e2af6d4509d"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_treyni.npc.snbt"
+hash = "e1547988e225c5826340582e381ba35cda33d41ec21ebf515a51695b345360a9"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_cast_yuuki.npc.snbt"
+hash = "4076cd0c672f55895821f41d1bc91e161e15513e71708ecbfcb6a9015b6a2297"
+
+[[files]]
 file = "config/easy_npc/preset/ttl_guild_fuze.npc.snbt"
 hash = "e2763b0fdc774df40eac20e95e8f63de816ef92684f559eebf572c2137e7310a"
 
@@ -1634,7 +1726,7 @@ hash = "69eb3e68a4c4f0351c25d254a39550479336ed5ee73810f8cc3f1a6f16cb75d4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/guild_npcs.js"
-hash = "46866d8324202c084beaed1731143b3a976c92f2483bc87157359983a7b953b7"
+hash = "dbecd08b94591090a3d7bced123ebe17011791c9cce5135e90999670899a8536"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/merit.js"
@@ -1670,7 +1762,7 @@ hash = "33b3cab039c79101a45c6c088518853ab3627934336c06f0f969ce0f5729fe2b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "0f8b2cba1b3d55585182474782e16a3b77112ac0768c4d9ceafaa9955d39eb38"
+hash = "944c814e20259d4cfcdd4ba992454a2b52e7b17f2ed6c8c72ce371774abbe210"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1859,6 +1951,10 @@ hash = "4597ab49e946b0a0ef86e956c0e1f22efaf100e8dc938ff05eafea853006957b"
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/rep.js"
 hash = "6e511f1710c95a7223ac95f7cf3992d9f1f3f5986932c3703b5ebb7dfee0fcc2"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/story/cast.js"
+hash = "fa1bbd388955887e05c99011cf03aec0b1f6afb460d9419b9af4471740b409fc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/commands.js"
