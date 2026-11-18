@@ -1,0 +1,22 @@
+# #4: Life 1 is always Human; the Character Reset Scroll (Life 2 only) offers the normal races.
+# Expect no "ttl:" failure lines. The scroll's own menu list (startingRaces) is checked offline by tests/test_reset_races.py.
+ttlbot spawn TtlBotRace
+@sleep 4
+execute as TtlBotRace run ttl reset TtlBotRace
+@sleep 2
+ttl racelock TtlBotRace expect tensura:human
+# A Life 1 soul that somehow became an elf is set back to Human (the 5 second loop, or this manual run if it came first).
+tensura edit race TtlBotRace set tensura:elf
+@sleep 1
+ttl racelock TtlBotRace enforce
+@sleep 1
+ttl racelock TtlBotRace expect tensura:human
+# The Character Reset Scroll itself is banned in the Mortal Realm: it moves into the soul stash, never stays on the body.
+ttl stash TtlBotRace clear
+give TtlBotRace tensura:character_reset_scroll 1
+ttl stash TtlBotRace sweep
+ttl stash TtlBotRace expect banned 0
+ttl stash TtlBotRace expect stash 1
+ttl stash TtlBotRace clear
+ttl reset TtlBotRace
+ttlbot remove TtlBotRace

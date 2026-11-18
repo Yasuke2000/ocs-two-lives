@@ -159,7 +159,7 @@ const TtlTrials = {
           ['minecraft:cooked_porkchop', 1, -6, -13], ['minecraft:carrot', 2, 13, 0], ['minecraft:carrot', 2, -13, 0]]
         food.forEach(f => TtlTrials.item(ctx, f[0], f[1], f[2], f[3]))
         var spots = [[8, 8], [-8, -8], [8, -8], [-8, 8]]
-        for (var i = 0; i < this.spiders; i++) TtlTrials.mob(ctx, 'minecraft:spider', spots[i % 4][0], spots[i % 4][1])
+        for (var i = 0; i < this.husks; i++) TtlTrials.mob(ctx, 'minecraft:husk', spots[i % 4][0], spots[i % 4][1])
       },
       tick(ctx) {
         return ctx.player.getFoodData().getFoodLevel() >= 20 ? 'pass' : null

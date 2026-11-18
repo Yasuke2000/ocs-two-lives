@@ -415,6 +415,194 @@ const TtlData = {
         "where": {
           "dim": "tensura:labyrinth"
         }
+      },
+      {
+        "absorb_duel": false,
+        "box": {
+          "from": [
+            11,
+            1,
+            1
+          ],
+          "to": [
+            46,
+            24,
+            49
+          ]
+        },
+        "challenge": {
+          "boss": "",
+          "max_mobs": 16,
+          "per_player": 0.5,
+          "waves": [
+            {
+              "mobs": [
+                {
+                  "count": 3,
+                  "entity": "tensura:beast_gnome"
+                },
+                {
+                  "count": 2,
+                  "entity": "tensura:bone_golem"
+                }
+              ]
+            },
+            {
+              "mobs": [
+                {
+                  "count": 2,
+                  "entity": "tensura:armorsaurus"
+                },
+                {
+                  "count": 1,
+                  "entity": "tensura:war_gnome"
+                }
+              ]
+            },
+            {
+              "mobs": [
+                {
+                  "count": 2,
+                  "entity": "tensura:war_gnome"
+                },
+                {
+                  "count": 2,
+                  "entity": "tensura:bone_golem"
+                }
+              ]
+            }
+          ]
+        },
+        "challenge_cooldown_minutes": 30,
+        "cooldown_minutes": {
+          "challenge": 720,
+          "duel": 60,
+          "party": 120
+        },
+        "id": "dwarven",
+        "loot": {
+          "challenge": {
+            "clear": {
+              "coins": {
+                "gold": 3
+              },
+              "items": [
+                {
+                  "count": 2,
+                  "item": "tensura:medium_quality_magic_crystal"
+                }
+              ],
+              "rolls": 2,
+              "table": "tensura:chests/dwarf_royal_tower",
+              "xp": 15
+            },
+            "fail": {
+              "coins": {
+                "silver": 2
+              }
+            },
+            "partial": {
+              "coins": {
+                "silver": 12
+              },
+              "rolls": 1,
+              "table": "tensura:chests/dwarf_royal_tower",
+              "xp": 5
+            }
+          },
+          "duel": {
+            "draw": {
+              "coins": {
+                "silver": 4
+              }
+            },
+            "lose": {
+              "coins": {
+                "silver": 2
+              }
+            },
+            "win": {
+              "coins": {
+                "silver": 8
+              },
+              "rolls": 1,
+              "table": "tensura:chests/dwarf_royal_tower",
+              "xp": 5
+            }
+          },
+          "party": {
+            "draw": {
+              "coins": {
+                "silver": 5
+              }
+            },
+            "lose": {
+              "coins": {
+                "silver": 3
+              }
+            },
+            "win": {
+              "coins": {
+                "silver": 10
+              },
+              "rolls": 1,
+              "table": "tensura:chests/dwarf_royal_tower",
+              "xp": 5
+            }
+          }
+        },
+        "minutes": {
+          "challenge": 15,
+          "duel": 5,
+          "party": 10
+        },
+        "mob_spots": [
+          [
+            30,
+            1,
+            25
+          ],
+          [
+            20,
+            1,
+            25
+          ],
+          [
+            40,
+            1,
+            25
+          ],
+          [
+            30,
+            1,
+            11
+          ],
+          [
+            30,
+            1,
+            39
+          ]
+        ],
+        "modes": [
+          "duel",
+          "party",
+          "challenge"
+        ],
+        "quiet_colossus": false,
+        "spawn_a": [
+          15,
+          1,
+          25
+        ],
+        "spawn_b": [
+          43,
+          1,
+          25
+        ],
+        "title": "the Dwarven Arena",
+        "where": {
+          "build": "dwarven_arena"
+        }
       }
     ],
     "rules": {
@@ -2052,6 +2240,30 @@ const TtlData = {
       "version": 2,
       "x": 370,
       "z": -2402
+    },
+    {
+      "anchor": [
+        3,
+        1,
+        25
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "margin": 6,
+      "max_wet": 0.1,
+      "name": "dwarven_arena",
+      "notes": "Gazel's fight hall as a Life 2 arena venue, entered through a door in the west wall. Source: Tensura 2.0.1.5 dwarf_village/building/dwarf_arena (our adaptation, see the blueprint docstring and design/lore/dwarven_arena.md).",
+      "search": 16,
+      "size": [
+        75,
+        26,
+        51
+      ],
+      "title": "The Dwarven Arena",
+      "version": 1,
+      "x": 40,
+      "z": -850
     },
     {
       "anchor": [
@@ -8916,8 +9128,8 @@ const TtlData = {
       "gear": [
         "wooden_sword"
       ],
+      "husks": 2,
       "limit": 90,
-      "spiders": 2,
       "start_food": 4
     },
     "knowledge": {
@@ -9009,7 +9221,7 @@ const TtlData = {
             3
           ],
           [
-            "minecraft:spider",
+            "minecraft:stray",
             2
           ]
         ],
@@ -9049,8 +9261,6 @@ const TtlData = {
         "minecraft:drowned",
         "minecraft:skeleton",
         "minecraft:stray",
-        "minecraft:spider",
-        "minecraft:cave_spider",
         "minecraft:vindicator",
         "minecraft:pillager",
         "minecraft:witch",
