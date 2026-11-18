@@ -154,7 +154,8 @@ ttl karma TtlBotKarmaF sample
 ttl karma TtlBotKarmaF expect active 400
 ttl karma TtlBotKarmaF sample
 ttl karma TtlBotKarmaF expect active 400
-execute as TtlBotKarmaF at @s run tp @s ~ ~2 ~
+# Sideways: a bot teleported up falls back to where it was before the sample runs.
+execute as TtlBotKarmaF at @s run tp @s ~3 ~ ~
 ttl karma TtlBotKarmaF sample
 ttl karma TtlBotKarmaF expect active 800
 ttl karma TtlBotKarmaF sample
