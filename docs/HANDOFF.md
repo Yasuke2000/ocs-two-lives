@@ -1,7 +1,7 @@
 # Handoff — current state of the work (update this when you stop)
 
-Last update: 18/11/2026 ~13:30 (Brussels), by Claude (day run for Yasuke: codex-integ merged, test fixes recovered,
-tests kept out of Discord).
+Last update: 18/11/2026 ~14:10 (Brussels), by Claude (day run for Yasuke: codex-integ merged, test fixes recovered,
+tests kept out of Discord, **`bash tools/server.sh test-all` = 0 failing on main `061a1a2`**).
 
 ## Today (18/11, day)
 
@@ -31,12 +31,16 @@ tests kept out of Discord).
   blumund, englassia, laura, marris, treyni_shrine, clayman_castle, dragons_nest, forgotten_dragon_city, lubelius, sealed_cave,
   spirit_dwelling all **100.00 %**; spirit_gate 99.96 % (55 mismatched of 129,960); dwargon v5 99.99 % (42 of 797,912);
   mortal_spawn v2 (Wayfarer's Rest) 99.92 % (19 of 23,867). All above the 98 % mark.
+- `8ac1124` arrival grace never swallows `/kill` / the void and only holds in Life 2 (`ttl reset` drops the stamp) → ttl-ops
+  **1 failing** (arrival: alive but shoved 9 blocks by the mobs it can no longer be hurt by) → `061a1a2` arrival.rcon: after 10 s
+  only `alive` + `near 32`. **Full `test-all` run from this PC on `061a1a2`: 0 failing** (ttl-ops does not re-run for a
+  tests-only commit, its last status is the 1 failing of `8ac1124`; the next pack change will show green).
 - Staging state after the runs: `/ttl era reset` done (era 1), legendcap reset, cooldowns cleared, no bosses out, events ended,
   war flags cleared, mute off, no nation; registry holds only ultimate_Yasuke_'s chosen_one + usurper (a real player).
 
 ## Next steps (in order)
 
-1. Watch the ttl-ops verdict of the last push (`gh api repos/Yasuke2000/ocs-two-lives/commits/<sha>/status`); expected 0 failing.
+1. Main is green (`test-all` 0 failing, 18/11 14:05). The next pack change gets a ttl-ops run; expect ✅.
    If Tailscale SSH asks for a check again, run `ssh root@100.109.28.21` in a terminal and open the printed link.
 2. Builds: all verified today (above); only `spirit_gate` has 55 real mismatches worth a look (`verify_build.py spirit_gate minecraft:overworld -246 68 106`).
 3. Before launch: the list below once more on the final pack (era reset etc. were run today, ~13:10).
