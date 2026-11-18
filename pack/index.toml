@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "32ed266e389c60e792ef0ce221dc79bf91c48697dd108e8a42e4f6f22db10e9b"
+hash = "8e5d04a475cd843c1d284a8b0f1378154ff040d3a6c6d854e0ea658c0f10ef90"
 
 [[files]]
 file = "config/alltheleaks.json"
