@@ -1873,10 +1873,6 @@ file = "kubejs/data/tensura/worldgen/biome/underworld_sands.json"
 hash = "e4ba5679db94a46839bf0d7a65d97281cdf3b020d88422e1976e8b9c433058d7"
 
 [[files]]
-file = "kubejs/data/ttl/advancement/events/blood_moon_kill.json"
-hash = "28ff2d21623236f115b3b2b0d4b4e2454eef0e637845e12d085d7fec56fa3817"
-
-[[files]]
 file = "kubejs/data/ttl/dimension/mortal_end.json"
 hash = "529d15ff4e0efb331d02993b2f3ef7e219b07e1a67fce23b367fc1529254cb90"
 
@@ -1911,10 +1907,6 @@ hash = "645a33abf28bc4978257fe0b56ca6e324f970c33494d8300974e70f8f0f05cb3"
 [[files]]
 file = "kubejs/data/ttl/dimension_type/walpurgis.json"
 hash = "c7b3804802470817f34e5ef5440f618f044fb10547aa2c3e829f66499be97b25"
-
-[[files]]
-file = "kubejs/data/ttl/function/events/rearm_blood_moon_kill.mcfunction"
-hash = "60741c50e62100a6213ea67521195819fb9fbd9beb5560e44e357a9c4a2b2273"
 
 [[files]]
 file = "kubejs/data/ttl/neoforge/biome_modifier/more_goats.json"
@@ -2478,7 +2470,7 @@ hash = "cf04740e16e34d52b86eb952f460f23b2db04620861fb6660f234a83cd4d35e3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/arena/arenas.js"
-hash = "cb8997ed666728c593f8f604a536e3b267394bf710510c268ea636171c7011cf"
+hash = "941c70f12a0c020d14292a943202a300904b3fd333fd4ad5ccea3a3fcf61ad9a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/arena/commands.js"
@@ -2494,7 +2486,7 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/boss.js"
-hash = "8307d0a2eaee69244505b2597c5d53758bded7437a6c2b702b82222155ab951c"
+hash = "494d973ff15cbc1fb47893391535ff7979f23026dd7f5eb94418f95f13984edd"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/commands.js"
@@ -2574,7 +2566,7 @@ hash = "ad5c52dd198cf8583629c86fd7860627d1a499c8e86ad08ec5e6230db322a77f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/calamity.js"
-hash = "f7363d43e8ef7994fb2c8567a9ee02a9a5fb81e1c1fcb5323318d3062b983868"
+hash = "e95d7a28e857f9cf8f813315039dfcd81c3d7d99c26dfdaaff0d902ed84edfaf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/commands.js"
@@ -2590,11 +2582,11 @@ hash = "ddcdf8644b4ef0c57a77ad1bdb4c1041e59dffb16a0f561020cd88595541bc1b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/moon.js"
-hash = "ed4ca43ee31af4a3f604262615ec90e65aed05c9cbc39b82eaeb581792ad1ee6"
+hash = "6c30b8bfee27db20cfdb528f7de7efdc980a34ad12fd3547f18d1a65f2919e96"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/storm.js"
-hash = "18ebbdaf0898b4c6ae7ccfeee29e8e808372efd5507c66fb27f62b4f0c7b621f"
+hash = "aba724b81546b1b73b253460418b272ac2ee350f2ba0761423c847bd4900585a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
@@ -2602,7 +2594,7 @@ hash = "fdcfa356f92dada4297541bd3f0610aeb011203100187f3643f572b71b98f757"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "857f8e6f4cbfd079853c9535ea55bef433a843c868f89e0bfe325643d64a894e"
+hash = "e83b0e3c2a5ca794892ebba63c446f8d8e4bb33269a46b7f41dbd7f5e4655526"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2842,7 +2834,7 @@ hash = "fa1bbd388955887e05c99011cf03aec0b1f6afb460d9419b9af4471740b409fc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/commands.js"
-hash = "457cc79be8a59ae3d42e3f3a37ee735fab2b37f69dcb56cae14167f02d57daa6"
+hash = "d404c0d07aabf4031bc89a1248ff0168d99eebbf645574076da5bca3f5409b51"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/story.js"

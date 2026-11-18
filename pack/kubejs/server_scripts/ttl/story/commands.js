@@ -74,7 +74,20 @@ ServerEvents.commandRegistry(event => {
   var fight = target => ctx => {
     var p = target ? who(ctx) : ctx.source.getPlayerOrException()
     var err = TtlStory.fight(server(ctx), p, word(ctx, 'boss'), { force: target })
-    if (err) return refuse(ctx, err)
+    if (err) {
+      // Put in the arena queue (bosses/boss.js, WP-W2) is an answer, not a failure: no "ttl:" line for test-all.
+      var queued = false
+      try {
+        queued = typeof TtlBoss !== 'undefined' && !!TtlBoss.queueEntry(server(ctx), word(ctx, 'boss'), TtlBoss.partyKey(server(ctx), p).id)
+      } catch (e) {
+        queued = false
+      }
+      if (!queued) return refuse(ctx, err)
+      var asker = ctx.source.getPlayer()
+      if (asker) asker.tell(Text.yellow(err))
+      else say(ctx, `story ${p.username}: in line for ${word(ctx, 'boss')}: ${err}`)
+      return 1
+    }
     say(ctx, `story ${p.username}: ${word(ctx, 'boss')} is being summoned`)
     return 1
   }
@@ -220,6 +233,34 @@ ServerEvents.commandRegistry(event => {
           .then(playerArg().requires(ops).executes(logged(fight(true))))))
       .then(Commands.literal('flip').executes(logged(flip)))
       .then(Commands.literal('capstone').executes(logged(capstone)))
+      // Test hooks: keep the server-wide unlocked-boss list as it was around a test that completes acts (an Act VII by a
+      // test bot would otherwise unlock Veldora for everyone on staging). mark keeps the first snapshot until restore.
+      .then(Commands.literal('testunlock').requires(ops)
+        .then(Commands.literal('mark').executes(logged(ctx => {
+          var d = server(ctx).persistentData
+          if (!d.contains(`${TtlStory.UNLOCKED}.testmark`)) d.putString(`${TtlStory.UNLOCKED}.testmark`, JSON.stringify(TtlStory.unlocked(server(ctx))))
+          say(ctx, 'story: unlocked bosses marked')
+          return 1
+        })))
+        .then(Commands.literal('restore').executes(logged(ctx => {
+          var d = server(ctx).persistentData
+          var key = `${TtlStory.UNLOCKED}.testmark`
+          if (d.contains(key)) {
+            d.putString(TtlStory.UNLOCKED, String(d.getString(key)))
+            d.remove(key)
+          }
+          say(ctx, `story: unlocked bosses restored (${TtlStory.unlocked(server(ctx)).join(', ') || 'none'})`)
+          return 1
+        })))
+        // Repair: drop one boss a test bot unlocked before the mark/restore hooks existed.
+        .then(Commands.literal('drop').then(strArg('boss').executes(logged(ctx => {
+          var id = word(ctx, 'boss')
+          var list = TtlStory.unlocked(server(ctx)).filter(b => b !== id)
+          server(ctx).persistentData.putString(TtlStory.UNLOCKED, JSON.stringify(list))
+          console.info(`[ttl] story: ${id} dropped from the unlocked bosses by an op`)
+          say(ctx, `story: unlocked bosses now ${list.join(', ') || 'none'}`)
+          return 1
+        })))))
       .then(Commands.literal('act').requires(ops)
         .then(playerArg().then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(act)))))
       .then(Commands.literal('flag').requires(ops)

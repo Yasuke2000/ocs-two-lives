@@ -3,6 +3,7 @@
 # `server.sh test-all` counts as a failure.
 # Expect in the log: no "[ttl] quests" errors; the bot hears "One day and one night." once.
 # 1. Every generated chapter and quest is loaded by FTB Quests.
+ttl story testunlock mark
 ttl quests check
 # 2. A fresh Life 1 gets the Wayfarer's Primer and no backlog of whispers.
 ttlbot spawn TtlBotQuests
@@ -334,3 +335,4 @@ ftbquests change_progress TtlBotSagaD reset 676B3C0CD67BEA89
 ftbquests change_progress TtlBotSagaD reset 02A3FEA70DEBED1B
 ttl reset TtlBotSagaD
 ttlbot remove TtlBotSagaD
+ttl story testunlock restore

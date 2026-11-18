@@ -592,7 +592,7 @@ const TtlArenas = {
     var s = g.at(a.mob_spots[0])
     var summoner = this.byId(server, m.by)
     if (!summoner) this.standing(m, 'a').forEach(u => { if (!summoner) summoner = TtlArenas.byId(server, u) })
-    var err = TtlBoss.summon(server, id, { x: s[0], y: s[1], z: s[2], dim: g.dim, by: `arena:${a.id}`, summoner: summoner })
+    var err = TtlBoss.summon(server, id, { x: s[0], y: s[1], z: s[2], dim: g.dim, by: `arena:${a.id}`, summoner: summoner, anywhere: true })
     if (err) return err
     m.phase = 'boss'
     m.boss = { id: id, at: Date.now() }
@@ -727,6 +727,7 @@ const TtlArenas = {
       var err = this.summonBoss(server, m, a, g)
       if (err) {
         this.tell(server, m, `The last foe does not come (${err}).`, 'red')
+        console.info(`[ttl] arena: ${a.id} challenge boss refused: ${err}`)
         return this.settle(server, m, a, g, { rank: 'partial' })
       }
       return true

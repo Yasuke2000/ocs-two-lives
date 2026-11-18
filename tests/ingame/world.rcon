@@ -57,17 +57,15 @@ ttl world expect counts.reached.2 3
 ttl world expect milestone act2_reached yes
 ttl story expect TtlBotWorldA stage ttl.world.act2 yes
 ttl story expect TtlBotWorldC stage ttl.world.act2 yes
-# A fourth soul gets the world's stages at login (it logs in again as a Life 2 soul).
+# A fourth soul gets the world's stages at login. A test bot comes back with fresh data after `ttlbot remove`/`spawn`
+# (Life 1 again), so the login is the same call the PlayerEvents.loggedIn handler makes: `ttl world sync`.
 ttlbot spawn TtlBotWorldD
 @sleep 2
 ttl reset TtlBotWorldD
 kubejs stages add TtlBotWorldD ttl.life2
 ttl world forget TtlBotWorldD
 ttl story expect TtlBotWorldD stage ttl.world.act2 no
-ttlbot remove TtlBotWorldD
-@sleep 2
-ttlbot spawn TtlBotWorldD
-@sleep 3
+ttl world sync TtlBotWorldD
 ttl story expect TtlBotWorldD stage ttl.world.act2 yes
 ttl world expect counts.souls 4
 # Balance and tide: -40 raises the dark tide (tide_at 25) with its unlocks, mood and stage; back to ~0 it ebbs.

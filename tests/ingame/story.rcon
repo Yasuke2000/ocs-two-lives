@@ -11,6 +11,7 @@
 # "turned from dark to light", "TtlBotStoryB killed gazel_dwargo: {"dwargon":-60} flag regicide".
 # Also check in game (not asserted): the Oath menu (two items; Fallen soul sees the dark one first), `ttl story talk rigurd`
 # chat lines and buttons, the #story Discord lines (bots never post).
+ttl story testunlock mark
 ttlbot spawn TtlBotStoryA
 ttlbot spawn TtlBotStoryB
 @sleep 2
@@ -151,3 +152,4 @@ ttl reset TtlBotStoryA
 ttl reset TtlBotStoryB
 ttlbot remove TtlBotStoryA
 ttlbot remove TtlBotStoryB
+ttl story testunlock restore

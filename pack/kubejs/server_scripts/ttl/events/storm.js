@@ -38,7 +38,7 @@ EntityEvents.beforeHurt('minecraft:player', event => {
 
 LootJS.modifiers(event => {
   var def = TtlEvents.get('magicule_storm')
-  event.addTypeModifier(LootType.ENTITY)
+  event.addTableModifier(LootType.ENTITY)
     .matchPlayerCustom(p => TtlLife.phase(p) === 'life2')
     .matchEntityCustom(e => e.isMonster() && TtlStorm.contains(e))
     .randomChance(def.crystal_chance)

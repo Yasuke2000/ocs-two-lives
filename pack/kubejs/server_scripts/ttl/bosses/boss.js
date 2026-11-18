@@ -714,7 +714,8 @@ const TtlBoss = {
     if (typeof pos === 'string') return { error: pos }
     if (TtlLife.isMortal(pos.dim)) return { error: 'bosses do not exist in the Mortal Realm' }
     if (!server.getLevel(pos.dim)) return { error: `unknown dimension ${pos.dim}` }
-    if (this.outside(pos.dim, pos.x, pos.z)) return { error: `${pos.x} ${pos.z} is outside the continent: the mod's own spawns rule there` }
+    // opts.anywhere: an arena box (arena/arenas.js) is organised combat wherever the arena stands, so the line does not apply.
+    if (!opts.anywhere && this.outside(pos.dim, pos.x, pos.z)) return { error: `${pos.x} ${pos.z} is outside the continent: the mod's own spawns rule there` }
     var akey = this.arenaKey(pos)
     var list = this.instances(server)
     if (opts.wild) {

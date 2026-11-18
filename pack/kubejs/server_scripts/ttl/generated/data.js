@@ -1414,7 +1414,7 @@ const TtlData = {
       "margin": 8,
       "max_wet": 0.05,
       "name": "amrita",
-      "search": 32,
+      "search": 128,
       "size": [
         69,
         32,

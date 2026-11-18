@@ -7,6 +7,8 @@ gamemode creative TtlBotEventPack
 ttl events setup TtlBotEventPack 100 6
 execute in minecraft:overworld run tp TtlBotEventPack 0 160 0
 ttl events expect registered magicule_storm true
+# A storm the director started on its own (the bots count as Life 2 players) would make the capture read 2: end all first.
+ttl events end
 ttl events expect rule epGainMultiplier capture
 ttl events fire magicule_storm
 ttl events expect rule epGainMultiplier 2

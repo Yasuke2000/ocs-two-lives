@@ -53,12 +53,20 @@ TtlEvents.register({
   poll(server, ctx) { TtlMoon.poll(server, ctx) }
 })
 
-// A displayless repeatable vanilla kill advancement supplies exact player attribution, including projectiles.
-// Its reward function rearms the criterion; normal advancement karma only counts entries with a display.
-PlayerEvents.advancement('ttl:events/blood_moon_kill', event => {
-  var p = event.player
-  if (TtlLife.phase(p) !== 'life1' || TtlLife.dimensionOf(p) !== TtlLife.MORTAL) return
-  if (TtlMoon.countsKills(p.server)) {
-    TtlCmd.run(p.server, `scoreboard players add ${p.username} ttl.s.blood_moon_kills 1`)
+// A Life 1 soul's kill of a hostile mob in the Mortal Realm during the Blood Moon counts once (source.actual: the player
+// behind a projectile too). Not the displayless kill advancement of PR #21: KubeJS's PlayerEvents.advancement never fired
+// for it in game (18/11/2026: granted by command, no count), so the death event is the one path.
+EntityEvents.death(event => {
+  try {
+    var victim = event.entity
+    if (!victim || victim.isPlayer() || !victim.isMonster()) return
+    var p = event.source.actual
+    if (!p || !p.isPlayer()) return
+    if (TtlLife.phase(p) !== 'life1' || TtlLife.dimensionOf(p) !== TtlLife.MORTAL) return
+    if (TtlMoon.countsKills(p.server)) {
+      TtlCmd.run(p.server, `scoreboard players add ${p.username} ttl.s.blood_moon_kills 1`)
+    }
+  } catch (e) {
+    console.error(`[ttl] events: Blood Moon kill count failed: ${e}`)
   }
 })
