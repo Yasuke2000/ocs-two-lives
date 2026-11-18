@@ -640,6 +640,20 @@ const TtlEvents = {
   // {key, name} of the canon region at a block column, or null (no grid, open sea, uncharted). Coastal water
   // belongs to its nation (ownerCell), like RegionTitles.regionAt.
   regionAt(x, z) {
+    // The chronicle's owner lookup first (world/chronicle.js): it resolves lake and river water to the region around it
+    // (Charybdis's arena on Lake Siss), where the char compare below never matched ('.' read back as a number).
+    try {
+      if (typeof TtlWorld !== 'undefined' && typeof TtlWorld.ownerAt === 'function') {
+        var owner = String(TtlWorld.ownerAt(Math.floor(x), Math.floor(z)) || '')
+        var g = this.grid()
+        if (owner && g) {
+          var name = String(g.regionName(owner.charAt(0)) || '')
+          if (name) return { key: owner.charAt(0), name: name }
+        }
+      }
+    } catch (e) {
+      console.warn(`[ttl] events: chronicle region lookup failed, using the grid: ${e}`)
+    }
     var grid = this.grid()
     if (!grid) return null
     try {

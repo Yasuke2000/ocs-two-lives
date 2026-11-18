@@ -2602,7 +2602,7 @@ hash = "86cf66756a3b206ae63db99fd72555b5165ed475cf86919f27ebe5b3496606f2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/director.js"
-hash = "e6cfddc857fb6ba645544a3828fb6a60ee447ded88a9339857272ccf550645f3"
+hash = "07ac0046ce3e9a229e1a7603f7adcf8c00030dd8ad66e878f40e4c9eb84a8bec"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/favor.js"
@@ -2866,7 +2866,7 @@ hash = "c68e4b045512b041fbc4aa57bba2ba6fef1c0d626cad304a5ee42bd67cc65989"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/places.js"
-hash = "b24facb9eed888698acc3ed0be7671ab41c42c57f6570f8ebb681bc3b3e289ff"
+hash = "43bd0294897addc64a25c7c0fa76c021fe065cddb855efcc3cc51bcab7632a89"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/side.js"
@@ -2894,7 +2894,7 @@ hash = "972043a158de1198ac0569b0789b6a98c4f0001f68297e43dff063dbda3b5499"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/domain_commands.js"
-hash = "220cacc723e50bdb3bea0d9564eaff4b503898b8f0835c39bbb069cf24d94911"
+hash = "9bd3c2ed771384e906149dd6a9c0b51d70302fba5a175628c098fe876d7c1f5a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/domains.js"

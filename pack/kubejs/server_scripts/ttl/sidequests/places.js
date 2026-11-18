@@ -40,7 +40,7 @@ const TtlSidePlaces = {
 
   onContinent(x, z) {
     try {
-      if (typeof TtlWorld !== 'undefined' && typeof TtlWorld.onContinent === 'function') return !!TtlWorld.onContinent(x, z)
+      if (typeof TtlWorld !== 'undefined' && typeof TtlWorld.onContinent === 'function') return !!TtlWorld.onContinent(this.OVERWORLD, x, z)
     } catch (e) {
       // fall through to the grid
     }
@@ -203,16 +203,30 @@ const TtlSideNpc = {
     }
   },
 
+  // ServerLevel.getEntity(UUID) through Rhino's overload syntax found nothing in game (18/11/2026: a live escort client
+  // read as missing), so the level's entities are scanned when it does not answer.
   byUuid(server, dim, id) {
     if (!id) return null
+    var level = null
     try {
+      level = server.getLevel(dim || TtlSidePlaces.OVERWORLD)
       var U = Java.loadClass('java.util.UUID')
-      var level = server.getLevel(dim || TtlSidePlaces.OVERWORLD)
       var e = level['getEntity(java.util.UUID)'](U.fromString(String(id)))
-      return e || null
+      if (e) return e
+    } catch (x) {
+      // scan below
+    }
+    if (!level) return null
+    var found = null
+    var self = this
+    try {
+      level.getEntities().forEach(x => {
+        if (!found && self.uuidOf(x) === String(id)) found = x
+      })
     } catch (x) {
       return null
     }
+    return found
   },
 
   cmd(server, e, rest) {
