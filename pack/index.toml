@@ -929,12 +929,20 @@ file = "config/ftbquests/quests/chapters/tempest_rises.snbt"
 hash = "f612ec5136ecfb355f6b11afa46b92cc96b6419b54224644cdc3296c36298abe"
 
 [[files]]
+file = "config/ftbquests/quests/chapters/two_hundred_thousand.snbt"
+hash = "56e4477d630e16f57573fcbebb285ce9bb4552fbbe3c5045c63fc8f124265852"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/whirlpool.snbt"
+hash = "339a8b2f2ed28ef0bb6908eb82630726411b822dd57b18f6912723f55f3a2acf"
+
+[[files]]
 file = "config/ftbquests/quests/data.snbt"
 hash = "fa792420b8546bafa3673aa2aac7dc21cac295c6038694d0b45c9b50ef692304"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "4524734dea6aaf7787e4955b7c2ffdf2061037782316864dbfd86dd48e9abd9a"
+hash = "dd696e8b5a6cc011df27337b0c8aab29375ab66cb42d7eca904f099fac5228ae"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
@@ -1930,7 +1938,7 @@ hash = "05d5e9afad43e2f2a5a9d6fffb768b3ad7e2aa2dbfe5858c4e4277ab0dba8e99"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "7787941df3fb766ad1e5a866ce202a3a43989a8414cd2085284d70dd7b3f32ba"
+hash = "357fad91d5a46bac122de88a1dba1bc64ec3799de22dcb77174f108bec3e9804"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1942,7 +1950,7 @@ hash = "be431726c5095293051c1560bcaaa5c8d12f054860fa2beae60017d5ffa0aaa8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
-hash = "922b70c5ea352f299e36c3593c9b62e9608d46369dbfdce4a8e544d80e012fcc"
+hash = "1b66f8083032fbc211c1e6417dd02fd2ec4cd940a50fdb4fbf11c93837929e97"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/spirit_dwelling.js"

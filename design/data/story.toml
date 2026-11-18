@@ -105,6 +105,14 @@ line = ""
 [flag.atonement]            # opens the Atonement twist (see [flip.atonement])
 line = ""
 
+[flag.orcs_joined]          # chapter 9, light lane: the surviving orcs are fed at the camp and join Tempest (our interpretation of anime ep. 15)
+path = "light"
+line = "spared the orcs of the Horde, and they joined Tempest."
+
+[flag.horde_leader]         # chapter 9, dark lane: the Orc Lord is devoured and the Horde follows the soul who did it
+path = "dark"
+line = "devoured the Orc Lord and now leads the Orc Horde."
+
 # ---------------------------------------------------------------------------------------------------------------------
 # The seven acts. `chapters` = FTB Quests chapter numbers of the act. `light_rep` / `dark_rep` are applied to the soul's
 # path when the act is completed (act 1 is completed by the Oath itself, which carries its own deltas). `renown` goes
@@ -140,7 +148,7 @@ key = "orc_war"
 title = "The Orc War"
 chapters = [4, 9]
 light_rep = { lizardmen = 20, tempest = 10 }
-dark_rep = { orc_horde = 40 }
+dark_rep = { orc_horde = 40, lizardmen = -20 }   # the caverns raid of chapter 9 (the doc fixes Horde +40; lizardmen -20 is ours)
 renown = 10
 story_line = "finished Act III: the Orc War is decided."
 unlock_bosses = ["orc_lord", "orc_disaster"]
@@ -518,6 +526,16 @@ text = "Rimuru's people, right? He is my friend! Which makes you almost my frien
 path = "dark"
 act = 2
 text = "You smell of a different road. I do not care which side you are on, as long as it is fun. Do not make it boring."
+
+[[npc.talk]]
+path = "light"
+act = 4
+text = "Hey, Rimuru's friend! Something big is swimming in that lake and it is not Rimuru. Do you want me to hit it? I will, if you ask nicely. Bring honey."
+
+[[npc.talk]]
+path = "dark"
+act = 4
+text = "There is a lake monster and somebody has been poking it. I can smell who. Do not ask me to help; I like it when you stay interesting."
 
 [[npc]]
 id = "yuuki"

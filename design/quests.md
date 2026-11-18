@@ -142,6 +142,23 @@ the reward `ttl story act {p} 2` records Act II and applies its lane deltas (lig
 fight" reward cannot be claimed again: if it fails (cooldown, the King already out) the same fight starts from `/ttl story fight gazel_dwargo` or Gazel's
 dialog button. Reward `ttl story ...` commands use `{p}`, not `@p`: `@p` is the nearest player and could pick a party member standing at the same spot.
 
+**9. Two Hundred Thousand** (Life 2, Act III, 16 quests, WP-S7). After chapter 8's finale and chapter 4's marsh (cross-chapter `deps`: `kings_test/act_two`,
+`orc_lord/hold_the_line`, `orc_lord/ep_10000`): The War Council (stage `ttl.story.act2` + the council longhouse), then two lanes of seven quests. Light "defend the
+alliance" (`path = "light"`): Gabiru's Pride (hand in low potions at the caverns) -> The Great Clash (15 orcs on the battlefield) -> Face the Orc Lord (claim = `ttl story fight
+orc_lord`, radius 40 at the camp) -> Geld Falls (stage `ttl.defeated.orc_lord`) -> The One Who Devours All (claim = `ttl story fight orc_disaster`) -> The Disaster Falls ->
+Spare the Orcs (24 baked potatoes; the claim sets the flag `orcs_joined`). Dark "devour the king" (`path = "dark"`): The Horde's Welcome (the camp) -> Raid the Caverns (12
+`tensura:lizardman`) -> Take the Horde (the Orc Lord fight) -> Devour the King (the kill; flag `horde_leader`) -> The Champion Turns (the Disaster fight) -> The Champion Falls ->
+The Horde Kneels (32 rotten flesh). Finale The Orc War (`min_deps = 1`): `ttl story act {p} 3` (light: Lizardmen +20, Tempest +10; dark: Orc Horde +40, Lizardmen -20).
+The fight-start quests use radius 40 because `ttl story fight` needs the soul within 96 blocks of the arena and the camp landmark can sit up to 64 blocks from its nominal spot.
+
+**10. The Whirlpool** (Life 2, Act IV, 14 quests, WP-S7). After chapter 9's finale: A Calamity Stirs (stage `ttl.story.act3` + the green) -> A Match for the Sea (20,000 EP),
+an optional pilgrimage to Treyni's shrine (about 2,000 blocks east), then two lanes of five. Light (`path = "light"`): Honey for a Demon Lord (hand in 8 honey bottles in Milim's
+domain, the City of the Forgotten Dragon, about 2,500 blocks east) -> The Shore Camp (6 low potions on the lake's western shore) -> Face the Whirlpool (claim = `ttl story fight
+charybdis`, radius 60 around the arena centre 635, 145) -> The Whirlpool Calamity (stage `ttl.defeated.charybdis`) -> The Victory Feast (Tempest green). Dark (`path = "dark"`): The
+Unsigned Letter (Outcast contact) -> The Harlequins' Toll (3 silver coins at the shore) -> Wake the Calamity (claim = the fight plus the flag `charybdis_woke`) -> Survive the
+Whirlpool (the kill) -> The Puppet's Pay (Outcast contact). Finale Calamity (`min_deps = 1`): `ttl story act {p} 4` (light Tempest +15; dark Outcast +20). Phobio is the
+Wikipedia spelling of the beast prince (the design briefs write Fobio); he is text only (no mod has him).
+
 Known limit: quest progress carries to Life 2 (master plan D4), so a Life 1 quest left open can still be finished
 in Life 2. Karma is closed at death, so this only hands out the small vanilla reward.
 
@@ -218,6 +235,24 @@ Chapters 7-8 (WP-S6, 18/11/2026; places and ids verified against Tensura 2.0.1.5
   and acts from `design/data/story.toml` (`honour_duel`, `regicide`, act 2). The mod's own advancement `tensura:hero_king` ("Defeat Gazel Dwargo") exists but
   only fires for an untamed Gazel, so the quests read `ttl.defeated.gazel_dwargo` (set by `bosses/boss.js` for every credited winner) instead.
 - Places: Tempest offsets from `blueprints/tempest.py`, Dwargon from `blueprints/dwargon.py` (see the headers of chapters 2, 3, 7, 8).
+
+Chapters 9-10 (WP-S7, 18/11/2026; ids verified against Tensura 2.0.1.5 `assets/tensura/lang/en_us.json`, places against `design/data/landmarks.toml`, `design/builds/*.toml` and `design/data/bosses.toml`):
+- Canon beats: *That Time I Got Reincarnated as a Slime* season 1 (Wikipedia episode list, checked 18/11/2026): ep. 10 "The Orc Lord" (the ogres become kijin, Gelmud behind the horde), ep. 11
+  "Gabiru Is Here!" (Gobta beats Gabiru; Treyni asks Rimuru to end the Orc Lord), ep. 12 "The Gears Spin Out of Control" (the Starved skill; Gabiru takes the chieftain's seat), ep. 13 "The
+  Great Clash", ep. 14 "The One Who Devours All" (Geld devours Gelmud and becomes the Orc Disaster; the orcs are freed from Starved), ep. 15 "The Jura Forest Alliance" (lizardmen, goblins
+  and orcs; Gabiru exiled), ep. 16 "Demon Lord Milim Attacks" (honey, friendship), ep. 17 "The Gathering" (Vesta's full potions; Clayman sends the harlequin Tear), ep. 18 "Evil Creeps Closer"
+  (Tear and Footman persuade Phobio to let Charybdis possess him; the seal breaks), ep. 19 "Charybdis" (the megalodons and Charybdis; Milim ends it and spares Phobio; Carrion's pact; the
+  harlequins exposed), ep. 20 "Yuuki Kagurazaka" (the victory celebration) - https://en.wikipedia.org/wiki/That_Time_I_Got_Reincarnated_as_a_Slime_season_1 . Light novel: the English volume list
+  has volume 3, chapter 5 "Charybdis" (https://en.wikipedia.org/wiki/List_of_That_Time_I_Got_Reincarnated_as_a_Slime_volumes); the Orc Lord arc's novel volume was not verified (that page
+  lists the Orc Disaster in manga volume 5, chapter 23), so the quest texts cite the anime only.
+- Our interpretation, flagged in the quest texts: the Horde's and the Outcast Society's agents on the dark road, the raid on the caverns, the spared orcs joining Tempest as a quest outcome (the
+  anime has them join after the war), the lake shore as the place the party faces Charybdis, the unsigned letter (Yuuki's hand is our guess), the harlequins' toll, and the quests'
+  hand-ins. Gabiru has no entity: the dark lane's raid kills ordinary `tensura:lizardman` mobs; a Gabiru proxy boss (owner decision O3) is a separate `[[boss]]` entry in `bosses.toml`, not built here.
+- Ids: entities `orc`, `lizardman`, bosses `orc_lord`, `orc_disaster`, `charybdis` (bosses.toml); items `low_potion`, `silver_coin`, `bronze_coin`, `charybdis_scale` (icon only). `entity.tensura.megalodon`
+  also exists (the anime's escort of Charybdis) but no quest uses it: where it spawns was not verified.
+- Places: Tempest offsets from chapter 2; the orc camp, battlefield, caverns from chapter 4; the Charybdis arena (635, 145, radius 96) from `bosses.toml` - canon_map.txt shows the forest (J) giving way
+  to marsh (W) and lake (`~`) on that row from x about 430 to 600, so it is the lake's western reach at the forest edge; Milim's domain is the build `forgotten_dragon_city` (anchored 2510, 575, Milim at
+  blueprint 60, 25, so about 2510, 482; the survey may move it up to 96 blocks) and Treyni's shrine the build `treyni_shrine` (1988, -223). The architecture doc's 1780, 684 for Milim predates the 14,000-block map.
 
 Quest-line ideas:
 - Hardcore / staged packs: Araxer's Staged Survival (8 gated chapters,

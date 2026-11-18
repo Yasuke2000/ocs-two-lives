@@ -79,3 +79,92 @@ ttl reset TtlBotLaneL
 ttl reset TtlBotLaneD
 ttlbot remove TtlBotLaneL
 ttlbot remove TtlBotLaneD
+# 6. Story chapters 9 (Two Hundred Thousand, Act III) and 10 (The Whirlpool, Act IV): both lanes end to end (WP-S7, design/quests.md).
+# Like section 5: a quest is completed through FTB (`ftbquests change_progress`; the invisible command rewards run: the lane flags), the
+# claimed command rewards run as the bot (`ttl story act|fight`). `ttl quests check` above already proves every chapter-9/10 quest
+# loaded, including the cross-chapter `deps` on kings_test/act_two and orc_lord/hold_the_line + ep_10000 (an unresolved dependency is
+# dropped silently by FTB Quests, so a quest missing from the check is the symptom). NOT asserted here, verify in game: a dark soul
+# never sees the light lane (and the reverse), the fight-start claims from the camp / the lake shore (the radius-40 and radius-60
+# locations and the 96-block rule of `ttl story fight`), the hand-ins, that Milim's domain location matches the placed build.
+# ids are from generated/quests.js: two_hundred_thousand/spare_orcs 26F513965BD87791, devour_king 71484AC8A112CDDE,
+# whirlpool/wake_calamity 59F4870034DD1420.
+# L: the light lane. Oath, Act II, "Spare the Orcs" (flag orcs_joined), Act III (lizardmen +20, tempest +10), Act IV (tempest +15).
+ttlbot spawn TtlBotWarL
+ttlbot spawn TtlBotWarD
+@sleep 2
+ttl reset TtlBotWarL
+ttl reset TtlBotWarD
+kubejs stages add TtlBotWarL ttl.life2
+kubejs stages add TtlBotWarD ttl.life2
+ftbquests change_progress TtlBotWarL reset 26F513965BD87791
+ftbquests change_progress TtlBotWarL reset 71484AC8A112CDDE
+ftbquests change_progress TtlBotWarL reset 59F4870034DD1420
+ftbquests change_progress TtlBotWarD reset 26F513965BD87791
+ftbquests change_progress TtlBotWarD reset 71484AC8A112CDDE
+ftbquests change_progress TtlBotWarD reset 59F4870034DD1420
+execute as TtlBotWarL run ttl story oath light
+ttl story expect TtlBotWarL path light
+ttl story act TtlBotWarL 2
+ttl story expect TtlBotWarL flag orcs_joined no
+ftbquests change_progress TtlBotWarL complete 26F513965BD87791
+@sleep 2
+ttl story expect TtlBotWarL flag orcs_joined yes
+ttl story expect TtlBotWarL stage ttl.story.orcs_joined yes
+ttl story expect TtlBotWarL flag horde_leader no
+ttl story expect TtlBotWarL act 3 no
+ttl story act TtlBotWarL 3
+ttl story expect TtlBotWarL act 3 yes
+ttl story expect TtlBotWarL stage ttl.story.act3 yes
+ttl rep expect TtlBotWarL lizardmen value 20
+ttl rep expect TtlBotWarL tempest value 30
+ttl story expect TtlBotWarL unlocked orc_lord yes
+ttl story expect TtlBotWarL unlocked orc_disaster yes
+ttl story expect TtlBotWarL act 4 no
+ttl story act TtlBotWarL 4
+ttl story expect TtlBotWarL act 4 yes
+ttl rep expect TtlBotWarL tempest value 45
+ttl story expect TtlBotWarL unlocked charybdis yes
+# L: the Disaster answers only a soul that beat the Orc Lord (its `requires`); the story fight starts both bosses from anywhere for ops.
+ttl boss cooldown clear all
+ttl boss expect TtlBotWarL gate orc_disaster no
+kubejs stages add TtlBotWarL ttl.defeated.orc_lord
+ttl boss expect TtlBotWarL gate orc_disaster yes
+ttl boss expect TtlBotWarL gate charybdis yes
+ttl story fight orc_disaster TtlBotWarL
+@sleep 3
+ttl boss expect TtlBotWarL active orc_disaster yes
+ttl boss abort orc_disaster
+ttl story fight charybdis TtlBotWarL
+@sleep 3
+ttl boss expect TtlBotWarL active charybdis yes
+ttl boss abort charybdis
+@sleep 1
+ttl boss expect TtlBotWarL active orc_disaster no
+ttl boss expect TtlBotWarL active charybdis no
+ttl boss cooldown clear all
+# D: the dark lane. "Devour the King" (flag horde_leader), "Wake the Calamity" (flag charybdis_woke), Act III (orc_horde +40 on top of the
+# Oath's 15, lizardmen -20), Act IV (outcast +20 on top of 20 + 10).
+execute as TtlBotWarD run ttl story oath dark
+ttl story expect TtlBotWarD path dark
+ttl story act TtlBotWarD 2
+ftbquests change_progress TtlBotWarD complete 71484AC8A112CDDE
+ftbquests change_progress TtlBotWarD complete 59F4870034DD1420
+@sleep 2
+ttl story expect TtlBotWarD flag horde_leader yes
+ttl story expect TtlBotWarD stage ttl.story.horde_leader yes
+ttl story expect TtlBotWarD flag charybdis_woke yes
+ttl story expect TtlBotWarD flag orcs_joined no
+ttl story act TtlBotWarD 3
+ttl story expect TtlBotWarD act 3 yes
+ttl rep expect TtlBotWarD orc_horde value 55
+ttl rep expect TtlBotWarD lizardmen value -20
+ttl story act TtlBotWarD 4
+ttl story expect TtlBotWarD act 4 yes
+ttl rep expect TtlBotWarD outcast value 50
+ftbquests change_progress TtlBotWarL reset 26F513965BD87791
+ftbquests change_progress TtlBotWarD reset 71484AC8A112CDDE
+ftbquests change_progress TtlBotWarD reset 59F4870034DD1420
+ttl reset TtlBotWarL
+ttl reset TtlBotWarD
+ttlbot remove TtlBotWarL
+ttlbot remove TtlBotWarD
