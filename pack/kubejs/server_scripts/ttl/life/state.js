@@ -100,3 +100,17 @@ const TtlLife = {
     return offers
   }
 }
+
+// A command with its result. `server.runCommandSilent` returns nothing in KubeJS 2101 (in game 18/11/2026), so code
+// that needs the result (a success check, a count, a gamerule value) runs it through the dispatcher: the result of
+// the command (booleans 1/0), 0 when it fails or does not parse. The output is suppressed.
+const TtlCmd = {
+  run(server, cmd) {
+    try {
+      var src = server.createCommandSourceStack().withSuppressedOutput()
+      return Number(server.getCommands().getDispatcher()['execute(java.lang.String,java.lang.Object)'](String(cmd), src))
+    } catch (e) {
+      return 0
+    }
+  }
+}

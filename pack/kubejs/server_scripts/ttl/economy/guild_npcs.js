@@ -107,7 +107,7 @@ const TtlGuildNpc = {
   },
 
   isLoaded(server, pos) {
-    return server.runCommandSilent(`execute in ${pos.dim} if loaded ${pos.x} ${pos.y} ${pos.z}`) > 0
+    return TtlCmd.run(server, `execute in ${pos.dim} if loaded ${Math.floor(pos.x)} ${Math.floor(pos.y)} ${Math.floor(pos.z)}`) > 0
   },
 
   hasTag(e, tag) {
@@ -150,13 +150,13 @@ const TtlGuildNpc = {
   // would leave a record that Easy NPC may restore.
   remove(server, e) {
     var id = this.uuidOf(e)
-    if (id && server.runCommandSilent(`easy_npc delete ${id}`) > 0) return
+    if (id && TtlCmd.run(server, `easy_npc delete ${id}`) > 0) return
     e.discard()
   },
 
   // Spawns one NPC at the spot and tags the new entity (the nearest Easy NPC without a guild tag). True on success.
   spawn(server, spot, pos) {
-    var r = server.runCommandSilent(`execute in ${pos.dim} run easy_npc preset import_new custom ${this.presetOf(spot)} ${pos.x} ${pos.y} ${pos.z}`)
+    var r = TtlCmd.run(server, `execute in ${pos.dim} run easy_npc preset import_new custom ${this.presetOf(spot)} ${pos.x} ${pos.y} ${pos.z}`)
     if (!(r > 0)) {
       console.error(`[ttl] guild npc: importing ${this.presetOf(spot)} at ${pos.dim} ${pos.x} ${pos.y} ${pos.z} failed (result ${r}); is the preset in config/easy_npc/preset and does the log say why?`)
       return false

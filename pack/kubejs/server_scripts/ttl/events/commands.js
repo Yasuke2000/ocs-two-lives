@@ -190,13 +190,7 @@ ServerEvents.commandRegistry(event => {
     if (field === 'scheduled') return truth(ctx, `${a} scheduled`, TtlEvents.scheduled(server, a), bool(b))
     if (field === 'registered') return truth(ctx, `${a} registered`, TtlEvents.registered(a), bool(b))
     if (field === 'rule') {
-      // runCommandSilent returns nothing in KubeJS 2101; the dispatcher returns the query's result (booleans 1/0).
-      var r
-      try {
-        r = server.getCommands().getDispatcher()['execute(java.lang.String,java.lang.Object)'](`gamerule ${a}`, server.createCommandSourceStack().withSuppressedOutput())
-      } catch (e) {
-        throw `cannot read gamerule ${a}: ${e}`
-      }
+      var r = TtlCmd.run(server, `gamerule ${a}`)
       var want = b === 'true' ? '1' : b === 'false' ? '0' : b
       return truth(ctx, `gamerule ${a}`, String(r), want)
     }
