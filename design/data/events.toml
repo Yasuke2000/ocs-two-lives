@@ -1,0 +1,113 @@
+# World events and World's Favor (events/*.js → TtlData.events). Edit, then run `python tools/gen_data.py`.
+# Design: design/architecture/sprint3-4.md S6. Times are Europe/Brussels wall clock. The director is a one-minute loop;
+# everything here is a knob, nothing is hard-coded in the scripts.
+#
+# An [[event]] here gives an event its schedule, announcement and declarative action. Behaviour that needs code
+# (a storm's region, a Blood Moon's mob surge) is added by another script with TtlEvents.register({id: ..., start(), end()})
+# (events/director.js has the API); a registered object is merged over the [[event]] with the same id, or stands alone
+# (manual only) when no [[event]] exists.
+
+[director]
+loop_ticks = 1200            # scheduler loop (1 min)
+poll_ticks = 100             # `poll()` hooks of registered events (e.g. the lunar-state fallback of Blood Moon)
+window_hours = 6             # a due event may start this late (restart catch-up, caps, failed start) before it is skipped
+retry_minutes = 10           # between attempts inside that window
+min_gap_minutes = 30         # between two scheduled, capped events (so two storms/moons never stack their announcements)
+max_per_day = 3              # scheduled, capped events per Brussels day
+max_active = 3               # timed events running at once
+story = true                 # post each announced event to Discord #story (guarded; bots and missing sdlink post nothing)
+
+# ---------------------------------------------------------------------------------------------------------------------
+# [[event]] keys
+#   id               [a-z0-9_]+, unique
+#   label            name used in logs and /ttl events
+#   every            { days = n } at `at_hour`, or { hours = n } from the previous start; no `every` = manual only
+#   at_hour          0-23, Brussels (days schedules); jitter_hours adds 0..n random hours to every start;
+#                    delay_days postpones the very first start
+#   duration_minutes 0 = instant (nothing stays active); otherwise the event ends itself after this long
+#   scope            region | world | player   (what the event touches; the code decides the details)
+#   audience         all | life1 | life2       (who sees the announcement; default all)
+#   capped           false = exempt from min_gap/max_per_day and not counted (test events, Favor)
+#   window_hours     overrides [director] window_hours for this event
+#   announce         title, subtitle, chat ({player} {region} {minutes} {label} are filled in), clip (Great Sage world
+#                    voice clip, optional), sound (played to the audience), color (chat), end_chat (line when it ends),
+#                    story (Discord #story line; empty = none; {player} goes out bold)
+#   action           favor = true | boss = "<boss id>" (TtlBoss.summon, WP2) | gamerule = { rule = value } with the
+#                    values it restores to in `restore` (every rule needs one; two events changing one rule are
+#                    handled: the later one wins while both run, the last to end restores)
+# ---------------------------------------------------------------------------------------------------------------------
+
+[[event]]
+id = "favor"
+label = "World's Favor"
+every = { days = 7 }
+at_hour = 19
+duration_minutes = 0
+scope = "player"
+capped = false
+window_hours = 24            # keep looking for an eligible player online for the rest of the day
+announce = { title = "World's Favor", subtitle = "The world has turned its gaze upon {player}", chat = "The world has turned its gaze upon {player}. A blessing awaits them.", sound = "minecraft:ui.toast.challenge_complete", color = "gold", story = "The world has turned its gaze upon {player}: a blessing of the World's Favor awaits." }
+action = { favor = true }
+
+# Sample event for the director test (tests/ingame/events.rcon) and the template for new ones: manual only, silent in
+# Discord, changes one harmless vanilla rule for two minutes through the declarative `gamerule` action.
+[[event]]
+id = "omen"
+label = "Test omen"
+duration_minutes = 2
+scope = "world"
+capped = false
+announce = { title = "A quiet omen", subtitle = "Test event", chat = "A quiet omen passes over the world (director test event).", end_chat = "The omen fades.", sound = "minecraft:block.bell.use", color = "gray", story = "" }
+action = { gamerule = { spectatorsGenerateChunks = false }, restore = { spectatorsGenerateChunks = true } }
+
+# ---------------------------------------------------------------------------------------------------------------------
+# World's Favor: weekly, one struggling but active Life 2 player picks 1 of `offer_count` blessings drawn from `choices`.
+# Eligible = online, Life 2, at least `min_hours` played this week (ttl.play.week, counted in Life 2 only), no Favor in
+# the last `cooldown_days`, no open offer, a linked Discord account when `require_discord` (skipped when the Discord
+# bridge is missing, and for test bots). Among the eligible, the winner comes from the lowest `bottom_pct` percent by
+# EP (at least one player); an unanswered offer lapses after `offer_hours` and does not shorten the cooldown.
+# ---------------------------------------------------------------------------------------------------------------------
+
+[favor]
+bottom_pct = 25
+min_hours = 5
+cooldown_days = 30
+require_discord = true
+offer_hours = 48
+offer_count = 3
+choices = ["ep_surge", "common_unique", "resistance", "protection", "relic"]
+
+# EP gained: gain_pct percent of the current EP, at least gain_min (`tensura edit stat <p> ep current add`).
+[favor.choice.ep_surge]
+label = "Surge of Existence"
+lore = "Your existence swells. A burst of EP, in proportion to what you already have."
+icon = "minecraft:experience_bottle"
+gain_pct = 20
+gain_min = 100
+
+# One Common unique skill nobody holds beyond its cap, drawn and granted through the registry (golden rule 1).
+[favor.choice.common_unique]
+label = "A Gift of Skill"
+lore = "The world grants you a Common unique skill."
+icon = "minecraft:enchanted_book"
+
+# One resistance you do not have yet, at random from this list (`tensura edit ability grant`; ids from the Tensura jar).
+[favor.choice.resistance]
+label = "Mantle of Resistance"
+lore = "The world teaches your body to endure: one random resistance."
+icon = "minecraft:iron_chestplate"
+skills = ["tensura:physical_attack_resistance", "tensura:pierce_resistance", "tensura:flame_attack_resistance", "tensura:cold_resistance", "tensura:electricity_resistance", "tensura:poison_resistance", "tensura:paralysis_resistance", "tensura:magic_resistance"]
+
+# Timed protection (cleared by death): vanilla effects.
+[favor.choice.protection]
+label = "The World's Protection"
+lore = "Two hours of Resistance II and Absorption. Cleared if you die."
+icon = "minecraft:shield"
+effects = [{ id = "minecraft:resistance", seconds = 7200, amplifier = 1 }, { id = "minecraft:absorption", seconds = 7200, amplifier = 2 }]
+
+# Items. Placeholder for a real named relic (owner decision pending): a Full Potion and magic crystals.
+[favor.choice.relic]
+label = "A Relic of the Age"
+lore = "A cache of rare Tensura goods: a Full Potion and high-quality magic crystals."
+icon = "minecraft:chest"
+items = [{ id = "tensura:full_potion", count = 1 }, { id = "tensura:high_quality_magic_crystal", count = 4 }]

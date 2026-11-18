@@ -54,6 +54,79 @@ Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a tp command), `/t
 (places again; the old copy stays). Change a landmark or bump its `version` in the TOML, then
 `python tools/gen_data.py`.
 
+## Permissions (LuckPerms)
+
+LuckPerms 5.4.140 (server-side only; `pack/config/luckperms/luckperms.conf`). Groups live in LuckPerms' own
+database (H2 file next to the config, on the world volume), not in git, because the pack folder is rewritten from
+git at every start. The layout is kept as commands in `pack/config/luckperms/ttl-groups.txt`:
+
+| Group | Weight | Inherits | For | Adds |
+|---|---|---|---|---|
+| `default` | 0 | | every player | nothing (vanilla level-0 commands already work) |
+| `linked` | 10 | default | Minecraft account linked to Discord (`/verify`) | nothing yet: a hook for perks and claim limits |
+| `modder` | 50 | linked | pack contributors, builders, trusted testers | `worldedit.*`, `minecraft.command.` gamemode, tp, teleport, time, weather, give, effect, summon, setblock, fill, clone, kill |
+| `staff` | 100 | modder | owner and moderators | kick, ban, ban-ip, pardon, pardon-ip, whitelist, gamerule, reload, save-all, difficulty, `luckperms.*` |
+
+Apply (once after the first start with the mod, and after every change of the file; safe to repeat, "already
+exists" lines are normal) from the repo root, one RCON call per line:
+
+```sh
+grep -vE '^\s*(#|$)' pack/config/luckperms/ttl-groups.txt | while IFS= read -r c; do tools/server.sh rcon "$c"; done
+```
+
+Put a player in a group: `lp user <name> parent add <group>` (and `parent remove`). Nothing links the Discord roles of
+the same name to these groups: sdlink does not set LuckPerms groups, so for now an op runs the command (a later
+`discord/roles.js` step can run it when it syncs roles).
+
+**Limits, read before trusting a group:**
+- `/ttl`, `/ttlbot` and `/tensura edit` check vanilla op level 2 (`hasPermission(2)`), not a permission node. A group
+  does not give or take them away; keep staff and modders who need them opped. Moving them to a node (for example
+  `ttl.admin`) is a code change in `commands.js`.
+- The `minecraft.command.*` and `worldedit.*` nodes depend on LuckPerms' command hook on NeoForge 21.1.266. Not
+  verified here: check with `lp user <name> permission check <node>` and by running the command as that user.
+- FTB XMod Compat reads LuckPerms (`ftbxmodcompat.snbt` `permission_selector = "default"`), so FTB Chunks'
+  `ftbchunks.max_claimed` and `ftbchunks.max_force_loaded` can be set per group with
+  `lp group <g> meta set ftbchunks.max_claimed <n>`. Not used yet; the limits in `ftbchunks-world.snbt` apply.
+- Staff `/lp` and `/tensura edit` commands should reach the staff log (`ops/cmdlog.js`, prefixes `ttl`,
+  `tensura edit`, `lp`, `ftbchunks admin`); LuckPerms also notifies online staff of every change (`log-notify`).
+
+## Web map (BlueMap)
+
+BlueMap 5.7 (server-side only) renders two maps and serves them on port **8100**. Config: `pack/config/bluemap/`
+(`core.conf`, `webserver.conf`, `webapp.conf`, `plugin.conf`, `storages/file.conf`; the two files in `maps/` are
+generated).
+
+| Map | Dimension | Area | Markers |
+|---|---|---|---|
+| `tensura` (Life 2) | `minecraft:overworld` of `world-ttl` | canon continent + 1,000 blocks of sea (x -10,088..5,912, z -6,680..5,448) | 22 region labels (shown when zoomed out), 43 canon landmarks |
+| `mortal_realm` (Life 1) | `ttl:mortal_realm` | 3,000-block square around Wayfarer's Rest | Wayfarer's Rest |
+
+The Spirit Corridor, Mortal Nether and Mortal End are not mapped. `python tools/gen_map.py` rewrites the two map
+files from `canon_regions.json` and `canon_map.txt` (`--check` tells if they are stale); the knobs (world name, sea
+padding, Mortal radius, marker distances) are constants at the top of the script. Tempest and the Dwargon gate are
+pinned at their built positions (0, 0) and (435, -1000) in `BUILT_AT`; the reference-map pixels would put them
+about 100 and 490 blocks away. Live markers (nation claims, wars, events) are not written: they need BlueMap's
+MarkerAPI from a script and are unverified.
+
+**Before it works (owner decisions):**
+1. `accept-download` in `core.conf` is **false**. BlueMap needs a Minecraft client jar (Mojang EULA) for vanilla
+   textures; until the owner sets it to true it logs a notice and renders nothing.
+2. The map is public if its address is: no login. It shows terrain and builds (bases included, on an open-PvP
+   server) but not player positions (`plugin.conf`: `live-player-markers: false`). Decide who gets the link; use
+   the tunnel's access control if it should not be public. The Kubernetes Service and tunnel route are in the
+   Homelab repo (`apps/ocs-two-lives/`): a Service for port 8100 and a tunnel route to it.
+
+**Load:** one render thread at low priority (`render-thread-count: 1`), inside the game's JVM (7 GB heap, pod limit
+10 GiB): watch `neoforge tps` and the pod memory during the first full render, which can take hours and a few GB
+of tiles in `/data/bluemap/web/maps` for a fully explored continent. Render only while few people are online if
+TPS drops (`bluemap stop` / `bluemap start`, `bluemap freeze <map>`); `bluemap` alone shows the state.
+Tiles of chunks Distant Horizons or pregeneration created count as explored; `min-inhabited-time` in a map file
+would skip them, at the price of leaving unvisited canon terrain out.
+
+Not verified without the server: the `render-mask` box keys and marker `min-distance`/`max-distance` units, that
+`world: "world-ttl"` plus the dimension ids `minecraft:overworld` and `ttl:mortal_realm` resolve on NeoForge, and
+that custom-block textures of Tensura render. Look at `tools/server.sh logs | grep -i bluemap` after the first start.
+
 ## Backups and restore
 
 The world volume (`mc-data`, Longhorn) is in Longhorn's `default` recurring-job group: a snapshot every night

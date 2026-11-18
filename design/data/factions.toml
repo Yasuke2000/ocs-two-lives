@@ -1,0 +1,173 @@
+# Factions and reputation (design/architecture/sprint3-4.md S3). Scripts: pack/kubejs/server_scripts/ttl/rep/
+# (rep.js = the API other systems call, guards.js = what a kill costs, commands.js = /ttl rep).
+# Edit, then run `python tools/gen_data.py` (it checks every entry). Test: tests/ingame/factions.rcon.
+#
+# Reputation is an integer per player and faction, from `min` to `max`. Its band decides:
+#   - the stage ttl.faction.<id>.<band> (exactly one per faction; FTB Quests `stage` tasks gate on it),
+#   - the scoreboard mirror ttl.rep.<id> (the raw number, for Easy NPC conditions and quests "at least n"),
+#   - guards (rules.guard_attack_at) and shops (rules.shop_refuse_at), read through TtlRep.guardsHostile / shopOpen.
+# A band starts at its threshold: value >= friendly is Friendly, value <= hostile is Hostile, Neutral is in between.
+#
+# Where it comes from (other packages call TtlRep.add): karma and race at rebirth (the [faction.seed] tables
+# below), faction quests, bosses, bounties, merit. Where it goes: kill_penalty (guards.js) and decay_per_week.
+
+[rules]
+min = -100
+max = 100
+guard_attack_at = "hostile"     # guards turn on a player whose band is this or lower
+shop_refuse_at = "hostile"      # shops refuse a player whose band is this or lower ("below Unfriendly"); raise to "unfriendly" for a gentler gradient
+decay_days = 7                  # decay_per_week is applied once per this many real days
+log_size = 200                  # entries kept in the server ring ttl.rep.log (/ttl rep log)
+# Tensura keeps its own scalar `reputation` (-100..100, hostile at -50: PlayerConfig$Reputation) for its dwarf
+# trades and guards. The faction with tensura_mirror = true has its value written into it on every change.
+# Our hostile threshold below equals Tensura's -50, so Dwargon's guards and shops agree with ours.
+seed_axis_cap = 100             # an axis score counts up to this much of its seed (axis score / cap, at most 1)
+
+# Default band thresholds; a faction may override them with its own bands = { ... }.
+[bands]
+hostile = -50
+unfriendly = -20
+friendly = 20
+honored = 50
+exalted = 80
+
+# Renown: one number for "how much is this soul worth to the world", derived from what the server already tracks and
+# recomputed on demand (TtlRep.renown), every 5 minutes and at login; never stored as the truth. Not money: coins stay
+# Tensura coins. The nations package values a nation as the sum of its members' renown plus holdings. Mirrors:
+# scoreboard ttl.renown and player persistentData ttl.renown. Life 1 souls have none (0).
+#   total = tier[Life 1 karma tier] + Σ boss[stage held] + Σ stage[stage held] + Σ band[band with each faction]
+#           + Σ unique[rarity of each unique held through the registry] + bonus (TtlRep.addRenown: quests, merit, staff)
+# Result is never below renown.min.
+[renown]
+min = 0
+tier = { underdog = 0, normal = 5, elite = 15, legendary = 30 }   # ids of karma.toml tiers
+boss = { "ttl.boss.t1" = 10, "ttl.boss.t2" = 20, "ttl.boss.t3" = 40, "ttl.boss.t4" = 80 }
+stage = {}                                                          # any other stage worth points, "ttl.x" = n
+band = { hostile = -5, unfriendly = -2, neutral = 0, friendly = 3, honored = 8, exalted = 15 }   # per faction
+unique = { common = 4, rare = 10, legendary = 25 }                  # skills.toml rarities
+
+# Fields of a faction:
+#   id            lowercase id, used in stages, scoreboards and commands
+#   title         shown to players
+#   region        canon region letter (pack/config/ttl/canon_regions.json) whose ground this faction owns;
+#                 killing its NPCs or other players there costs reputation. Omit for a faction with no land.
+#   capital       canon landmark name (canon_regions.json), shown in /ttl rep
+#   hidden        true: only listed once the player's value is not 0
+#   tensura_mirror  true: mirror into Tensura's own reputation scalar
+#   npc_tags      entity tags (/tag <npc> add ttl.npc.dwargon) that mark an Easy NPC or mob as this faction's
+#   npc_types     entity types that are always this faction's NPCs, wherever they stand
+#   kill_penalty  { npc = n, player = n }: points lost for killing one of its NPCs / a player on its ground
+#   decay_per_week  points per decay_days that drift back toward 0 (positive and negative)
+#   [faction.seed]  starting reputation at rebirth: race = { <race id> = n }, axis = { <karma axis> = n } (n at
+#                   full axis score; scaled by axis score / rules.seed_axis_cap), dark = n when the soul is Dark
+#                   (karma chaos path). All matching entries add up, then the sum is clamped.
+
+[[faction]]
+id = "tempest"
+title = "Jura-Tempest Federation"
+region = "J"
+capital = "Tempest (Rimuru, capital of the Federation)"
+tensura_mirror = false
+npc_tags = ["ttl.npc.tempest"]
+npc_types = []
+kill_penalty = { npc = 15, player = 5 }
+decay_per_week = 1
+[faction.seed]
+race = { slime = 20, goblin = 20, ogre = 10, hobgoblin = 10, lizardman = 5 }
+axis = {}
+
+[[faction]]
+id = "dwargon"
+title = "Armed Nation of Dwargon"
+region = "D"
+capital = "Dwargo (Dwargon cavern capital)"
+tensura_mirror = true
+npc_tags = ["ttl.npc.dwargon"]
+npc_types = ["tensura:dwarf"]
+kill_penalty = { npc = 15, player = 5 }
+decay_per_week = 2
+[faction.seed]
+race = { dwarf = 20 }
+axis = { craft = 10 }
+
+[[faction]]
+id = "blumund"
+title = "Kingdom of Blumund"
+region = "R"
+capital = "Blumund capital (Londo)"
+tensura_mirror = false
+npc_tags = ["ttl.npc.blumund"]
+npc_types = []
+kill_penalty = { npc = 15, player = 5 }
+decay_per_week = 2
+[faction.seed]
+race = { human = 10 }
+axis = { order = 15 }
+
+[[faction]]
+id = "falmuth"
+title = "Kingdom of Falmuth"
+region = "F"
+capital = "Marris (Falmuth capital)"
+tensura_mirror = false
+npc_tags = ["ttl.npc.falmuth"]
+npc_types = ["tensura:falmuth_knight"]
+kill_penalty = { npc = 15, player = 5 }
+decay_per_week = 2
+[faction.seed]
+race = { human = 10, orc = -10, goblin = -10 }
+axis = { valor = 10 }
+
+[[faction]]
+id = "holy_church"
+title = "Western Holy Church"
+region = "L"
+capital = "Holy City Lubelius (Lune)"
+tensura_mirror = false
+npc_tags = ["ttl.npc.holy_church"]
+npc_types = []
+kill_penalty = { npc = 20, player = 5 }
+decay_per_week = 1
+[faction.seed]
+race = { human = 10, elf = 5, orc = -15, high_orc = -20, ghoul = -25, wight = -25, vampire = -40, lesser_daemon = -40 }
+axis = { order = 10, faith = 10 }
+
+[[faction]]
+id = "orc_horde"
+title = "Orc Horde"
+region = "V"
+npc_tags = ["ttl.npc.orc_horde"]
+npc_types = []
+kill_penalty = { npc = 15, player = 5 }
+decay_per_week = 2
+[faction.seed]
+race = { orc = 20, high_orc = 30, ghoul = 5 }
+axis = { chaos = 15 }
+
+[[faction]]
+id = "lizardmen"
+title = "Lizardmen of Lake Siss"
+region = "W"
+capital = "Lizardmen's caverns (Gabiru, Avalos)"
+tensura_mirror = false
+npc_tags = ["ttl.npc.lizardmen"]
+npc_types = []
+kill_penalty = { npc = 15, player = 5 }
+decay_per_week = 2
+[faction.seed]
+race = { lizardman = 20, dragonewt = 5 }
+axis = {}
+
+[[faction]]
+id = "outcast"
+title = "Outcast Society"
+hidden = true
+tensura_mirror = false
+npc_tags = ["ttl.npc.outcast"]
+npc_types = []
+kill_penalty = { npc = 10, player = 0 }
+decay_per_week = 0
+[faction.seed]
+race = {}
+axis = {}
+dark = 20

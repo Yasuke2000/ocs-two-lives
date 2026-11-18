@@ -1,0 +1,75 @@
+# Event director and World's Favor (events/*.js, design/data/events.toml). Every `ttl events expect ...` prints
+# "ttl: ..." when it does not hold, which `server.sh test-all` counts as a failure.
+# Expect in the log: "[ttl] events: omen started [manual]" / "omen ended (manual)", "[ttl] events: omen started (2 min)"
+# (the scheduler pass), "[ttl] favor: TtlBotEvB is offered ...", "[ttl] favor: TtlBotEvB received tensura:...", and
+# "[ttl] events: favor started for TtlBotEvA". Test bots never reach Discord (no #story line is posted for them).
+ttlbot spawn TtlBotEvA
+ttlbot spawn TtlBotEvB
+ttlbot spawn TtlBotEvC
+@sleep 3
+ttl events
+# Sample event "omen": manual only; its declarative action turns spectatorsGenerateChunks off while it runs.
+ttl events expect registered omen false
+ttl events expect scheduled omen false
+ttl events expect active none
+ttl events expect rule spectatorsGenerateChunks true
+ttl events fire omen
+ttl events expect active omen
+ttl events expect count 1
+ttl events expect rule spectatorsGenerateChunks false
+ttl events end omen
+ttl events expect active none
+ttl events expect rule spectatorsGenerateChunks true
+# The scheduler: `due` makes the event due, one pass starts it (omen is exempt from the daily cap), `end` without an id ends all.
+ttl events due omen
+ttl events tick
+ttl events expect active omen
+ttl events expect scheduled omen false
+ttl events end
+ttl events expect active none
+ttl events expect rule spectatorsGenerateChunks true
+ttl events next
+# Mute: chat lines off for one player, titles stay.
+execute as TtlBotEvA run ttl events mute
+ttl events expect muted TtlBotEvA true
+execute as TtlBotEvA run ttl events mute
+ttl events expect muted TtlBotEvA false
+# World's Favor: A has 100 EP and 6 h, B 50 EP and 6 h, C 20 EP but only 1 h (not active enough). B is the lowest eligible.
+ttl events clear TtlBotEvA
+ttl events clear TtlBotEvB
+ttl events clear TtlBotEvC
+ttl events setup TtlBotEvA 100 6
+ttl events setup TtlBotEvB 50 6
+ttl events setup TtlBotEvC 20 1
+ttl events fire favor
+ttl events expect winner TtlBotEvB
+ttl events expect offer TtlBotEvB true
+ttl events expect offer TtlBotEvA false
+ttl events expect offer TtlBotEvC false
+ttl events expect cooldown TtlBotEvB true
+# The offer is 3 random blessings; pin it so the pick below is deterministic, then choose a Common unique (registry).
+ttl events offerset TtlBotEvB ep_surge,common_unique,protection
+# A blessing that is not on offer is refused and nothing is consumed.
+execute as TtlBotEvB run ttl favor choose relic
+ttl events expect offer TtlBotEvB true
+execute as TtlBotEvB run ttl favor choose common_unique
+ttl events expect unique TtlBotEvB true
+ttl events expect offer TtlBotEvB false
+ttl registry expect pending TtlBotEvB 0
+# B is on cooldown and C is not active enough: A is next.
+ttl events fire favor
+ttl events expect winner TtlBotEvA
+ttl events expect offer TtlBotEvA true
+execute as TtlBotEvA run ttl favor choose ep_surge
+ttl events expect offer TtlBotEvA false
+ttl inspect TtlBotEvB
+# Cleanup.
+ttl events clear TtlBotEvA
+ttl events clear TtlBotEvB
+ttl events clear TtlBotEvC
+ttl reset TtlBotEvA
+ttl reset TtlBotEvB
+ttl reset TtlBotEvC
+ttlbot remove TtlBotEvA
+ttlbot remove TtlBotEvB
+ttlbot remove TtlBotEvC

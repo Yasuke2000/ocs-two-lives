@@ -1,4 +1,4 @@
 {
   "replace": false,
-  "values": ["minecraft:ender_dragon", "minecraft:wither", "minecraft:allay"]
+  "values": ["minecraft:ender_dragon", "minecraft:wither", "minecraft:allay", "#ttl:boss"]
 }
