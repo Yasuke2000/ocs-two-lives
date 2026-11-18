@@ -21,10 +21,10 @@ GUILD = {
         slim=False,
         colors=dict(s="#d99f76", h="#302a28", e="#484147", c="#843e49", t="#344465",
                     b="#382f35", a="#deb264", w="#e7dfd3", g="#b7aa9f", d="#59313b",
-                    k="#393339", u="#a47766", l="#ad545c", n="#716051"),
+                    k="#393339", u="#a47766", l="#ad545c", n="#716051", z="#855d50"),
         faces={
-            "head.front": """hhhnhhhh hnhhhhhg hhshssgg hssussgs swesweus ssssussu suusssus sushhsus""",
-            "head.right": """hhnhnhhh hhhhhhhh hhhhhhhh hhgghhhs hhgggsus hhggssus hhgsssss hhususss""",
+            "head.front": """hhhnhhhh hnhhzhhg hhshszgg hnnsszng swesswes ssssuszs ussssusz susnusus""",
+            "head.right": """hhnhnhhh hhhhhhhh hhhhhhhh hhnhhhhs hhhnnsus hhhnssus hhnsssss hhususss""",
             "head.left": """hhhnhhhh hhnhhhhg hhhhhhgg hhhhgghg sssggggg susgghhg susshhhh ssushhhh""",
             "hat.front": """..h.hh.. .hhnnhh. hh..h..g h......g ........ ........ ........ ........""",
             "body.front": """clwwwwlc clgwwglc cdcwwcdc clcwgwlc cllwwllc cldwgdlc ccdwwdcc cdkkkkdc ckkggkkc ckkgkkkc cldwwdlc clwwwwlc""",
@@ -39,11 +39,13 @@ GUILD = {
         slim=False,
         scale=0.8,
         colors=dict(s="#d9a17b", h="#79563f", e="#463521", c="#574054", t="#302933",
-                    b="#704634", a="#b4ac71", w="#ede0c7", d="#382936", r="#934e47",
+                    b="#704634", a="#9ea477", w="#ede0c7", d="#382936", r="#934e47",
                     m="#677978", i="#afc8bc", f="#b08a61", k="#453628", p="#695046"),
         faces={
             "head.front": """rrrrrrkr rmiirmir rmimrmim fhhsfhhs fwesswef shfsshfs hfhhhffh ffhhhffh""",
             "head.back": """rrkrrrkr rrrrkrrr rkkrrrkr mmmmmmmm hhfhfhfh fhfhfhff fhhhffhh hffffhhh""",
+            "head.right": """krrrkrrr rrrkrrrr rkrrrrkr kkkkkkkm fhhhssfs hffsssfs fhffshfh ffhhhffh""",
+            "head.left": """rrrkrrrk rrrrkrrr rkkrrrrr mkkkkkkk sfshhhff sfsssffh hfhsffhf hffhhhff""",
             "head.top": """rrkkrrrr rrkkkkrr rrkrrkrr rkkrrrkr rkrrkrrr rrrkrrkr rrrrkrrr krrrrkrr""",
             "hat.front": """..rrrr.. .mi..mi. .mm..mm. ........ ........ ........ .ff..ff. .ffhhff.""",
             "hat.back": """..rrk... ..rrrk.. ....rr.. ........ ........ ........ ........ ........""",
@@ -61,11 +63,11 @@ GUILD = {
                     b="#555156", a="#ceab69", w="#e3dcc6", d="#53412e", g="#999ba4",
                     k="#393237", p="#a77c4d", f="#cdaa6a", u="#bd855c"),
         faces={
-            "head.front": """hffhhffh hffhffhh hfssshfh hsssssff hweswefh hsssussf hfsssufh hfsssshf""",
+            "head.front": """hffhhffh hffhffhh hfssshfh hsssssff hweswefh hsssussf hfsuusuf hfudduhf""",
             "head.back": """hhfhffhh hfhffhhf hfhhfhhf fhfhhfhf fhfhfhhf hhfhffhf hhfhffhf fhffhhfh""",
             "hat.front": """..fhh... .fh..hf. .h....f. h......h f......h h......f h......f f......h""",
             "body.front": """ccassacc ccaaaaac ccadadac caaaadac cdaaaaac cdpaapdc ccddapcc ccwpddcc cccwpddc kppppppk wfwwwwwf ppwppwpp""",
-            "body.back": """cchfffcc cchhhfcc ccffhfcc ccffhfcc cchfhhcc cddhffcc ccpddccc cccpddcc ccccpddc kppppppk wfwwwwwf pppwwppp""",
+            "body.back": """cchfffcc cchhhfcc ccchhfcc cccccccc ccdccccc cddccccc ccpddccc cccpddcc ccccpddc kppppppk wfwwwwwf pppwwppp""",
             "jacket.front": """.......c g......c gg...... ........ .d...... ..d..... ...a.... ....dd.. ........ ........ w..w...w ........""",
             "right_arm.front": """ggwg ggww kgwg gggg kggg aaaa cccc bbbb ggkg gggg kggk bbbb""",
             "left_arm.front": """cccc cccc cckc cccc cccc aaaa cccc bbbb gkgk gggg gkkg bbbb""",
@@ -82,7 +84,7 @@ GUILD = {
             "head.back": """hffhhhfh fhhffhhf hhfhffhh fhhhfhff hffhhfhf ffhhffhh hffhffhh fhhhfhhf""",
             "hat.front": """.a...... aa...... .aa..... aaf..... .a.....f .......h f......f .f....h.""",
             "body.front": """hccssccf cddwwddc ccsssscc cccccccc cdccccdc dcddddcd wccccccw wwwccwww wwwwwwww kkggkkkk pwwppwwp pppppppp""",
-            "body.back": """hfhffhfh chhfhhfc chfhffhc cffhhfhc cchffhcc cchhhfcc wdccccdw wwwwwwww wwwwwwww kkkgkkkk ppwwwwpp pppdpppp""",
+            "body.back": """hfhffhfh fchffhcf ccfccfcc cccccccc cdcddcdc dccddccd wdccccdw wwwwwwww wwwwwwww kkkgkkkk ppwwwwpp pppdpppp""",
             "jacket.front": """f......f hf....fh ........ ........ c......c .d....d. ..d..d.. ........ ........ ...gg... ........ .p....p.""",
             "right_arm.front": """cdd ccc ccc wcc www ccc dcc cdc www kkk sss ssu""",
             "left_arm.front": """ddc ccc ccc ccw www ccc ccd cdc www kkk sss uss""",
@@ -95,8 +97,10 @@ GUILD = {
                     b="#503c2f", a="#964c43", w="#dacfb5", g="#8caa71", d="#493a32",
                     f="#af9771", k="#39363c", u="#af7458"),
         faces={
-            "head.front": """hffhhffh fhhffhfh aaaaaaaa aaaaaaaa swesswes sussussu sssuuuss usshhssu""",
+            "head.front": """hffhhffh fhhffhfh aaaaaaaa aaaaaaaa swesswes sussussu sssuussu uhuhuhsu""",
             "head.back": """hffhhfhf fhhfhhfh aaaaaaaa aaadaaaa hhffhfhf fhfhfhhf hhfhffhh hffhfhfh""",
+            "head.right": """hffhhfhf fhhfhfhf aaaaaaaa aaadaaaa hhffhsss hfhsssus hhssusss hhussssu""",
+            "head.left": """fhfhhffh hfhfhfhf aaaaaaaa aaaaadaa ssshhffh sussfhfh sssusshh usssushh""",
             "hat.front": """..h.f... .fhfhh.. a......a ........ ........ ........ ........ ........""",
             "hat.back": """........ ........ aaa..aaa ....a... ...aa... ....a... ....aa.. ........""",
             "body.front": """cggssggc ccggggcc cdcggcdc ccddgdcc cccddccc cddcdccc cccddccc cdddcdcc cccccccc wwwwwwww bbggbbbb tcwttttt""",
@@ -186,7 +190,7 @@ KIJIN = {
         slim=True,
         colors=dict(s="#f1c4aa", h="#e9a0b9", e="#a3345b", c="#faf3e7", t="#dd4a44",
                     b="#eee7e4", a="#992c48", k="#4c3545", r="#fbd1dd", d="#b86b8a",
-                    w="#fffdee", f="#b83239", g="#c9b5c7"),
+                    w="#fffdee", f="#b83239", g="#c9b5c7", p="#5c234c", m="#c54b88"),
         faces={
             "hat.top": "........ ........ ........ ........ ........ ........ .w....w. .ww..ww.",
             "head.front": """
@@ -199,8 +203,8 @@ KIJIN = {
             """,
             "body.front": """
                 hdssssdh hhcwwchh hhrcachh hccccach
-                hccaccca ccaaccac cwaaawwc cccaffcc
-                aaafaaaa fffaffff ttfftttt tfttttft
+                hccaccca ccacacac cpmpmmpc cpmppmpc
+                appmmppa fffaffff ttfftttt tfttttft
             """,
             "body.back": """
                 dhrhhhrd hrrhrdhd hrhdhrhh hrdhhrrh
@@ -214,7 +218,7 @@ KIJIN = {
             "jacket.front": """
                 ........ ........ ..a..... ...a....
                 ....a... .....a.. ........ ........
-                ..a..a.. ...aa... ..a..a.. .a....a.
+                ........ ...aa... ..a..a.. .a....a.
             """,
             "right_arm.front": """
                 cgc ccg ccc ccc acc cac cca ccc cgc aaa cgc sss
@@ -235,8 +239,8 @@ KIJIN = {
     "shion": dict(
         slim=True,
         colors=dict(s="#edc2ac", h="#ab85cc", e="#654495", c="#4e365f", t="#604579",
-                    b="#302c36", a="#c8ab64", k="#342840", r="#d6b2e9", d="#785b98",
-                    w="#faf1e8", f="#332b42", v="#785787"),
+                    b="#302c36", a="#e0d9d8", k="#342840", r="#d6b2e9", d="#785b98",
+                    w="#faf1e8", f="#332b42", v="#785787", g="#c5cb93"),
         faces={
             "head.front": """
                 hrrhhrrh hrhhhhrh rhhsdhhh hhssshrh
@@ -247,9 +251,9 @@ KIJIN = {
                 h......h h......h d......h .......d
             """,
             "body.front": """
-                vhssssrv cvssssvc cvssssvc ccvssvcc
-                ccvsvccc cccvcccc cccvcccc cccacacc
-                cccvcccc cccacacc ccfccfcc cfcffcfc
+                vghsshgv cvgssgvc cvssssvc ccvssvcc
+                ccvsvccc cccvcccc cccacccc cccvcccc
+                cccvcccc ccaccacc ccfccfcc cfcffcfc
             """,
             "body.back": """
                 ccchhrhc ccchrrhc ccchrhdc ccchrhdc
@@ -262,8 +266,8 @@ KIJIN = {
             """,
             "jacket.front": """
                 .v....v. ..v..v.. ..v..v.. ...vv...
-                ...v.... ........ ........ ...a.a..
-                ........ ...a.a.. ........ ........
+                ...v.... ........ ...a.... ........
+                ........ ..a..a.. ........ ........
             """,
             "right_arm.front": """
                 vcc cvc ccc ccc ccf ccf ccc ccc ccc cfc sss sss
@@ -339,15 +343,15 @@ KIJIN = {
                     w="#fffaf0", f="#b9bbae", g="#726d39"),
         faces={
             "head.front": """
-                hdhrhhrh rhhrhhrr hhshhshh hdddssdh
-                hesssseh dssssdsh sdshhsds sshhhsss
+                hdhrhhrh rhhsshrr hhssdsdh hddssddh
+                hwessewh dssddssh ssskksss ssshhsss
             """,
             "hat.front": """
-                ..r..r.. ..d..d.. .h....r. .d....d.
-                .dd..dd. ........ ..h..h.. ...h....
+                ........ .r....r. .d....d. ........
+                ........ ........ ........ ...rh...
             """,
             "body.front": """
-                agssssga aagssgaa caagaaac ccaagacc
+                agshhrga aagshhaa caagahac ccaagacc
                 cccgaccc ccgacccc cgacccfc cgccccfc
                 cccccfcc cffccfcc fffffffc ccccfccc
             """,
@@ -388,13 +392,13 @@ KIJIN = {
 TEMPEST = {
     "treyni": dict(
         slim=True,
-        colors=dict(s="#ffe1cb", h="#9acc92", e="#528c57", c="#bbefdd",
-                    t="#8ed8cd", b="#8cd2c5", a="#669d70", w="#f0fff5", d="#71b1a6"),
+        colors=dict(s="#ffe1cb", h="#9acc92", e="#438d94", c="#bbefdd",
+                    t="#8ed8cd", b="#8cd2c5", a="#669d70", w="#f0fff5", d="#71b1a6", j="#b53f4e"),
         faces={
             "head.front": """hhhhhhhh hhhhhwhh hhwhhhsh hhshhssh hwessewh hssssssh hssssssh hhsssshh""",
             "hat.front": """..ahh... .ah..wh. .h.....h h....... ........ ........ ........ ........""",
             "hat.back": """hhwhhhwh hhwhhhwh hhhwhhhh hhhwhhwh hhwhhhwh hwhhhwhh hwhhhhhh hhwhhwhh""",
-            "body.front": """wwssssww cwsssswc cwwsswwc cccwwccc dccccccd ddccccdd cddccddc ccddddcc aaacccaa ccaacacc ccwcaaac cdwccwcd""",
+            "body.front": """wwassaww wwsaasww cwjwwjwc cccwwccc dccccccd ddccccdd cddccddc ccddddcc aaacccaa ccaacacc ccwcaaac cdwccwcd""",
             "body.back": """hhwhhwhh hhwhhwhh hhwhhhwh hhwhhwhh hhhwhhwh hhwhhwhh chhhhdhc cchhchcc aacccaaa ccaaaccc cdwccwdc cdwccwdd""",
             "jacket.front": """........ ........ ........ ........ ........ ........ ........ ......a. ....aa.. ..aa.... .a.a.... a.......""",
             "right_arm.front": """www cww ccs wcs wss wss dws sss ass sas sss sss""",
@@ -406,7 +410,7 @@ TEMPEST = {
         slim=True,
         colors=dict(s="#ffdec7", h="#ef93ad", e="#46a9d4", c="#29243a",
                     t="#373046", b="#8e354a", a="#c59a53", w="#f1eef5",
-                    p="#bc617f", v="#76618d", r="#c34b56"),
+                    p="#bc617f", v="#76618d", r="#c34b56", g="#68bf84", l="#e7dced"),
         faces={
             "jacket.back": "hp....ph ph....hp hp....ph ph....hp hp....ph hp....ph .h....h. .p....p. ........ ........ ........ ........",
             "hat.right": ".....phh ....phhp ....aaah ....hphh ....phhp .....php .....hph ......hp",
@@ -414,21 +418,21 @@ TEMPEST = {
             "head.front": """phhhphhh hhhhhhph hshhhshh hsshsssh swessews ssssssss sssppsss shsssshs""",
             "hat.front": """phh..hhp hh....hh h.....ph h......h ........ ........ ........ ........""",
             "hat.back": """phhhhhhp aahhhhaa phhhhhhp hphhhhph ph....hp ph....hp hp....ph ph....hp""",
-            "body.front": """ccassacc ccccaccc vccaccvv wwccccww cwwccwwc sscwwcss sssccsss ssssssss ssssssss vccssccv cvvaavvc tttvvttt""",
+            "body.front": """ccassacc ccwsrwcc cllwwllc wllwwllw vllvvllv ssccccss ssssssss ssssssss ssssssss vccssccv cvvaavvc tttvvttt""",
             "body.back": """pccccccp hpccccph hpvccvph hpswwsph phswsshp phsssshp hpssssph .pssssp. ssssssss vccssccv ccvvvvcc tttvvttt""",
-            "right_arm.front": """acc vcc ccc vwc sss sss sss aas sas ccc vcc ccc""",
-            "left_arm.front": """cca ccv ccc cwv sss sss sss saa sas ccc ccv ccc""",
+            "right_arm.front": """ggc ggc acc aav sss sss cca cac acc cav cca ccc""",
+            "left_arm.front": """ccv ccv cca vaa sss sss acc cac cca vac acc ccc""",
             "right_leg.front": """tttt cvvc ssss saas aswa ssss ssss rrrs brrb brbb brbb bbbr""",
             "left_leg.front": """tttt cvvc wwww pppp wwww pppp wwww rrrr brrb bbrb bbrb rbbb""",
         }),
     "yuuki": dict(
         slim=False,
-        colors=dict(s="#efcaaa", h="#383234", e="#514438", c="#f2f0e9",
-                    t="#e3e1db", b="#343439", a="#504f6e", w="#fffdf4", d="#c8c7c4", k="#544744"),
+        colors=dict(s="#efcaaa", h="#383234", e="#945635", c="#f2f0e9",
+                    t="#e3e1db", b="#343439", a="#424263", w="#fffdf4", d="#c8c7c4", k="#544744", m="#cd9f87"),
         faces={
-            "head.front": """hhkhhhkh hhhkhhhh khhhhkhh hshhhshh .weshesh ssssssss ssskksss hssssssh""",
+            "head.front": """hhkhhhkh hhhkhhhh khhhhkhh hshshshh hwessewh ssssssss sssmssss hssssssh""",
             "hat.front": """..hhkh.. .hh..hk. h.h...hh ..h..h.. ........ ........ ........ ........""",
-            "body.front": """ccwsswcc ccwwwwcc cccwwccc cccwwccc ccaaaacc ccccccac ccccccac ccccccac ccccccac ccccccac ccccccac ddcccdad""",
+            "body.front": """ccwsswcc ccwwwwcc cdwsswdc cccwwccc ccaaaacc cccccacc cccccacc cccccdcc cccccccc cccccccc cccccccc ddcccdcd""",
             "body.back": """ccwddwcc ccwwwwcc cccccccc wccccccw wccccccw wccccccw cccccccc cccccccc cccccccc cccdcccc cccdcccc ddddcddd""",
             "right_arm.front": """cwcc cwcc cwcc cwcc cccc cccc cccc cdcc cdcc dada ssss ssss""",
             "left_arm.front": """ccwc ccwc ccwc ccwc cccc cccc cccc ccdc ccdc adad ssss ssss""",
@@ -439,13 +443,13 @@ TEMPEST = {
         slim=False,
         colors=dict(s="#8d9b66", h="#c4bdca", e="#3f362c", c="#413a3a",
                     t="#96734d", b="#58483a", a="#e7d9b3", d="#747079",
-                    l="#a8a2a5", w="#f5edda", k="#6b774a"),
+                    l="#a8a2a5", w="#f5edda", k="#6b774a", n="#4c543e"),
         faces={
             "head.back": "hhhhlhhh hhlhhhlh llhhhllh khhlhhsk skhhksss sskkssss ssssssss ssssssss",
             "head.right": "hhlhhhhh lhhhhllh hhhlhhks khhhksss skkssskk ssksksks ssksssss ssssssss",
             "head.left": "hhhhhlhh hllhhhhl skhhlhhh ssskhhhk kkssskks skskskss ssssskss ssssssss",
-            "head.front": """hhlhhhlh hhhshhhh hskssksk skksskks swessews skskksks skwsswks sskkkkss""",
-            "hat.front": """hh.hhlhh .hh..hh. h......h ........ ........ ........ ........ ........""",
+            "head.front": """hhlhhhlh hssksssh skskksss snksskns snekkens sksnnsks skwkkwks sskssksk""",
+            "hat.front": """hh.hhlhh .h....h. h......h ........ ........ ........ ........ ........""",
             "body.front": """aassssaa caskksac cadlldac cadlldac cadlldac cadlldac cadlldac cadlldac caattaac cattatac caabbaac caatttac""",
             "body.back": """aaassaaa caaaaaac cccccccc cccccccc dccccccd cdccccdc cdccccdc ccdccdcc ccdccdcc cccccccc cccccccc aaaaaaaa""",
             "right_arm.front": """cccc ccdc ccdc ccdc cccc cccc aaaa awaa tttt btbt ssks ssss""",
@@ -457,13 +461,13 @@ TEMPEST = {
         slim=False,
         colors=dict(s="#a2ad72", h="#ccc0d2", e="#383737", c="#5a4437",
                     t="#af925e", b="#413a34", a="#e1cfa9", w="#fff8e9",
-                    v="#99919f", k="#79824f", r="#864f42"),
+                    v="#99919f", k="#79824f", r="#864f42", n="#a19572", d="#81765c"),
         faces={
             "head.back": "ssvhvhss svhhhhvs svhvhvss ssvhvsss sssvssss ssssssss ssssssss ssssssss",
             "head.top": "ssvhvhss svhhhhvs svhvvhvs sshhhvss svhhhvvs svhhhhvs svhvhvhs shhhhhhs",
             "head.left": "hhhhvsss vhvhvsss shvvssss ssvssssk ssssskks sskkksss ssssssss ssssssss",
             "head.right": "sssvhhhh sssvhvhv ssssvvhs kssssvss skksssss ssskkkss ssssssss ssssssss",
-            "head.front": """hhvhhhhh vhhvhshh skssskss swesswes swesswes ssskksss sswrrwss skssssks""",
+            "head.front": """hhvhhhhh vhhvhshh skssssks swessews swwnnwws sssndsss sswrrwss skssssks""",
             "hat.front": """..h.hh.. .vh.hhv. .h....h. ........ ........ ........ ........ ........""",
             "body.front": """aaassaaa caawwaac cawwwwac cawwwwac cawwwwac cawwwwac cawwwwac cawwwwac cawwwwac caarraac catbbtac aatbttaa""",
             "body.back": """aaassaaa ccaaaacc cccccccc ccvccvcc ccccvcvc cccccccc ccvccccc cccccccc cccccccc ccaaaaac aatbbtaa aattbtaa""",
@@ -768,9 +772,9 @@ WALPURGIS = {
             "head.front": """whwhhwhw hwhhwhwh hwhhdhwh hssddssh sdewweds sssddsss sdssssds ssddddss""",
             "hat.front": """w.h.wh.h hhwhhwhw .wh..wh. .h....h. ........ ........ ........ ........""",
             "hat.back": """hw.hw.wh whwhwhwh hwhhwhhh hddhhdhh .h.hd.h. ..h..h.. ........ ........""",
-            "body.front": """cassssac cassssac casdssac cakssaac casdaadc casaaadc caaaadac caaadacc awwawwaa waawaawa awawawaw cawawawc""",
+            "body.front": """cassssac casessac cessesac caeesaac caesaadc casaaadc caaaadac caaadacc awwawwaa waawaawa awawawaw cawawawc""",
             "body.back": """ccdccdcc cccddccc cccccccc dccccccd cdccccdc cddccddc ccdccdcc cccccccc awwawwaa waawaawa awawawaw cawawawc""",
-            "jacket.front": """a....... wa...... aw...... .aw..... ..aw.... ...a.... ........ ........ ........ ........ ........ ........""",
+            "jacket.front": """a....... w....... a....... a....... ........ ........ ........ ........ ........ ........ ........ ........""",
             "right_arm.front": """aaww waaa ddaw awaa aaww ccca ccss ssss awaw waaw sssd ssds""",
             "right_sleeve.front": """w... ww.. aww. .a.. ww.. .ww. ..a. .... .... .... .... ....""",
             "right_sleeve.right": """...w ..ww .wwa ..a. ..ww .ww. .a.. .... .... .... .... ....""",
@@ -783,7 +787,7 @@ WALPURGIS = {
         colors=dict(s="#bbb7b1", h="#d4cfd0", e="#67636b", c="#938284", t="#77757b",
                     b="#aaa18c", a="#b6b3b2", w="#e0dbd2", d="#928f97", k="#77767e"),
         faces={
-            "head.front": """hhwhhwhh hwhddhwh whdssdhw hdssssdh hwessewh hssssssh hssddssh hdssssdh""",
+            "head.front": """hhwhhwhh hwhddhwh whdssdhw hdseksdh hwessewh hssssssh hssddssh hdssssdh""",
             "hat.front": """hwh..hwh wh....hw h......h h......h h......h h......h h......h .h....h.""",
             "body.front": """kksssskk dkkkkkkd ssdkkdss ssssssss cssssssc ccsssscc ccdssdcc cccddccc ccdccdcc cdccccdc dccccccd sdccccds""",
             "body.back": """ahhddhha whhhhhhw awhhhhwa hawddwah whawdahw hwhwwhwh ahwhhwha dahwwhad cdahhadc ccdwwdcc sccddccs ssccccss""",
@@ -802,10 +806,10 @@ WALPURGIS = {
         colors=dict(s="#b9b1a5", h="#9a8684", e="#5b575a", c="#676972", t="#77737a",
                     b="#b9b7b2", a="#998781", w="#d8cfc0", d="#858185", k="#aea09d"),
         faces={
-            "head.front": """hhkhkhhk hkhhhkhh hhshhhsh hssehssh swehsews hsssdssh hssddssh hssssssh""",
+            "head.front": """hhkhkhhk hkhhhkhh hhshhhsh hwedsewh hesssseh hsessesh hssddssh hssssssh""",
             "hat.front": """h.kh..hh hk.hhkk. .h.h.hh. ..h..h.h .....h.. ........ ........ ........""",
             "hat.back": """hkhhkhhk khhkhhkh hhhkhkhh hkhhhkhk hhkhkhhh hkhhhkhh khhkhhkh hhhkhhkh""",
-            "body.front": """kcssssck ccdwwdcc ccwsswcc cdwdwddc cdwwwwdc csdssdsc cssddssc cssssssc sssddsss bbwwwwbb aakaaakk kaakaaak""",
+            "body.front": """kcssssck ccdwwdcc ccwdwdcc ccdwdwcc ccwdwdcc csdssdsc cssddssc cssssssc sssddsss bbwwwwbb aakaaakk kaakaaak""",
             "body.back": """chkhhkhc chhkhhhc chkhhkhc cdhkhhdc cdchhcdc ccchhccc ccchcccc cccdccdc cccccccc bbwwwwbb aakaaakk kaakaaak""",
             "jacket.front": """cc....cc .c....c. .cd..dc. ..c..c.. .c....c. c......c ........ ........ ........ ........ ......ak ......ka""",
             "jacket.back": """........ ........ ........ ........ ........ ........ ........ ........ ........ ........ k......k .kk..kk.""",
@@ -825,9 +829,9 @@ WALPURGIS = {
             "head.top": "fhhhhlhh hllhhllh hlhlhllh hlhhhlhl lhhhlhhl hhlhlhhl lhlhhlhl lhhlhlhl",
             "hat.front": ".lhhlhh. lh..h.hl h...h..h h......h l......l h......h f......f ........",
             "hat.back": ".hl..h.. .hl..lh. .hh..lh. .hh..hh. ..h...h. .fh..ff. .ff...f. ..f.....",
-            "body.front": "dvvwwvvd cdlwwldc cdlwwldc cdlgggdc cdlffldc cdvggvdc cdvgfvdc cdvggvdc clgffglc clgddglc lggddggl ggdttdgg",
+            "body.front": "gvvwwvvg gdlwwldg cdlwwldc cdlgggdc cdlffldc cdvggvdc cdvgfvdc cdvggvdc clgffglc clgddglc lggddggl ggdttdgg",
             "body.back": "ddhhhhdd clhhhlhc cdhhhlhc cdfhfhfc cddhffdc cddffddc cdddcddc cdcddcdc cdcddcdc cdcdcdcc cdcddcdc ddcddcdd",
-            "jacket.front": ".d.vv.d. ..wwww.. ..wllw.. ...ww... ..v..v.. ..v..v.. ........ ........ .v....v. .v....v. v......v v......v",
+            "jacket.front": "gl.vv.lg .lwwwwl. ..wllw.. ...ww... ..v..v.. ..v..v.. ........ ........ .v....v. .v....v. v......v v......v",
             "jacket.back": ".d....d. ..d..d.. ........ d......d dc....cd dc....cd dc....cd dc....cd dc....cd dc....cd dd....dd dd....dd",
             "right_arm.front": "ccdc cdcc ccdc cddc cddc cddc cdcc ggvg gvvg kkkk ssss sfsf",
             "left_arm.front": "cdcc ccdc cdcc cddc cddc cddc ccdc gvgg gvvg kkkk ssss fsfs",
@@ -845,7 +849,7 @@ WALPURGIS = {
             "hat.front": ".l..lh.. ..lhlh.l lh.h..h. .h.....l h......h f......h ........ ........",
             "hat.right": "..lh..l. .lh.hl.. .hhl.... ..lh.... .hl..... .lh..... .hf..... hf......",
             "hat.left": ".l..hl.. ..lh.hl. ....lhh. ....hl.. .....lh. .....hl. .....fh. ......fh",
-            "body.front": "hsskkssh lssssssl fssccssf sccccccs cdccccdc cdccccdc ccdccdcc ccdccdcc gvccccvg dgvvvvgd ckdggdkc dcckkccd",
+            "body.front": "hsskkssh lssdvssl fssdwdsf sccvvccs cdwccwdc cdccccdc ccdccdcc ccdccdcc gvccccvg dgvvvvgd ckdggdkc dcckkccd",
             "body.back": "hsssccsh hccccsch cccccccc cdccccdc ccdccdcc cccddccc cccddccc ccdccdcc gccccccg dgccccgd ckdggdkc dcckkccd",
             "jacket.back": "w......w lw....wl lvw..wvl .lvwwvl. ..vwwv.. ...vv... ..wvvw.. .wvvvvw. wvvllvvw vlv..vlv lw....wl w......w",
             "right_arm.back": "ccss ccss ccss csss csss ccss csss ssss csss ccss cccc kkkk",
@@ -868,7 +872,7 @@ WALPURGIS = {
             "head.back": "dhdhhdhd hdhhhdhh hdhhhdhd hhhdhhhd dddhhhdh fdhddhdf sfhffhfs ssfssffs",
             "hat.front": ".h...dh. hh..hd.. .d..h..h ........ ........ ........ ........ ........",
             "hat.back": ".h.dhh.. h.dh.h.d .dhh..dh ...hd.h. ..d...dh ....h... ........ ........",
-            "body.front": "wssffssw wslsslsw vslsslsv vsffsfsv vffssffv vssffsww wsfssvwc wvffvwcv cvvwwcvc cwwccvvc ggvgvggv gffggffg",
+            "body.front": "wssffssw wsdssdsw vdlssldv vsffsfsv vffssffv vssffsww wsfssvwc wvffvwcv cvvwwcvc cwwccvvc ggvgvggv gffggffg",
             "body.back": "wssffssw wlsffslw vssffssv cvfssfvc cvcffcvv vcvcvvcv vvcvvcvc cvwvcvcc vwvcwcvv wvcvvcwc ggvggvgg gffggffg",
             "jacket.front": "w......w w......w ........ ........ .......w ......w. .....w.. ....w... ...w.... ..w..... .l..l..l .f..f..f",
             "right_arm.front": "slss llss ssff sffs ddds kkdk dddk vccv vvcc cvvc ssss sffl",
