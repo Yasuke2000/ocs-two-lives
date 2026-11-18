@@ -1,9 +1,41 @@
 # Handoff — current state of the work (update this when you stop)
 
-Last update: 18/11/2026 ~07:35 (Brussels), by Claude (night run for Yasuke, who wants a stable pack + a
-report at 08:30).
+Last update: 18/11/2026 ~13:30 (Brussels), by Claude (day run for Yasuke: codex-integ merged, test fixes recovered,
+tests kept out of Discord).
 
-## Live / merged on main tonight
+## Today (18/11, day)
+
+- `dd85654` **codex-integ merged into main** (ChatGPT PRs #6–#9, closed as merged): 5 canon builds (el_dorado, frost_palace,
+  sacred_mountain, ballachia, heaven_tower), 28 NPC skins, Wayfarer's Rest 39×39 v2, world-audit repairs with version bumps
+  that re-place 13 builds. Deployed to staging 11:20 (`deploy --force`; Belgiancandyman was online and got kicked). Boot clean.
+- `849a1f2` **tests stay out of Discord**: `TtlDiscord.post` drops every line while `ttl.discord.muted` is set
+  (`tools/server.sh test|test-all` set `/ttl discord mute on|off` around the run) or while any test bot is online.
+  `/ttl era reset` (era 1, silent), `/ttl boss cooldown clear <id|all>`.
+- `3e7c05c` **the morning's test fixes recovered from `git stash`** (the earlier session verified them green per test on staging
+  10:46–11:08 but never committed): `/ttl as <player> <command>` (`TtlCmd.runAs`) for FTB party commands of bots, nation
+  extra claims through the dispatcher, `ttl absorb expect <player> ...`, Easy NPC remove discards, Carrion two-hit kills,
+  `era testmark|testrestore|next silent|set`, Fuze tested in Blumund, cast without the presets check. The stash was applied
+  wholesale (then dropped); see the decisions.md rows of 18/11/2026.
+- **Not verified as a full `test-all` by me**: Tailscale SSH to the node went into *check mode* at ~11:40 ("Tailscale SSH requires an
+  additional check. To authenticate, visit: https://login.tailscale.com/a/…"); nobody but Yasuke can approve that in a browser.
+  Until then every `tools/server.sh` call hangs. ttl-ops (in-cluster) still deploys and tests every push: its verdict is the
+  commit status "ttl staging" on GitHub and the message in Discord #server-log (`gh api repos/Yasuke2000/ocs-two-lives/commits/<sha>/status`).
+  ttl-ops results today: `901bef1` 9 failing (absorb, bosses, cast, guild, guild_npcs, nations, party, story, wild), `dd85654` 9 failing
+  (same code; my `/reload` landed in the middle of its absorb test), `3e7c05c` → see the status.
+
+## Next steps (in order)
+
+1. Yasuke: run `ssh root@100.109.28.21` once in a terminal and open the printed login.tailscale.com link (check mode); then
+   `bash tools/server.sh test-all` → fix what is left (`bash tools/server.sh test <name>`; `push-scripts` for KubeJS-only edits).
+   Note `guild.rcon` was in the 9 but its output was not among the morning's green runs: look at it first.
+2. `python tools/verify_build.py <name> --log --min 98` for the new/re-placed builds (el_dorado, frost_palace, sacred_mountain,
+   ballachia, heaven_tower, blumund, englassia, laura, marris, treyni_shrine, clayman_castle, dragons_nest,
+   forgotten_dragon_city, lubelius, sealed_cave, spirit_gate, dwargon; `mortal_spawn --dimension ttl:mortal_realm`,
+   `spirit_dwelling --dimension ttl:spirit_domain`) after their `[ttl] <name> placed` lines.
+3. `/ttl era reset` on staging (the era is ~20 from test runs), then the Before-launch list below.
+4. Pregenerate the continent with Distant Horizons; BlueMap; wave B leftovers (WP8 event pack, WP10 boss payouts, WP11 Discord roles).
+
+## Live / merged on main (night 17–18/11)
 
 - Newcomer magicule-poison deaths fixed (Life 1 and corridor souls protected; Tempest green sheltered 56 blocks).
 - Jura forest rings (mod 0.8.2): safe rim (Life 2 arrival + world spawn at 271 -624 on the road to Dwargon),
@@ -19,41 +51,6 @@ report at 08:30).
   marris, englassia, lubelius, clayman_castle, forgotten_dragon_city, laura (+ test_hut in the corridor).
 - Quests ch. 2–6 (129 quests total). Discord rebuilt (START / MINECRAFT / COMMUNITY / DEVELOPMENT / STAFF,
   how-to pinned first in every channel, EN + NL).
-
-## In progress / next steps (in order)
-
-1. **Tests green after deploy of `263db25`** (LuckPerms removed). Fixed on main (pushed to staging with
-   `push-scripts`, ~05:50): swallowed `event.cancel()`, `runCommandSilent` has no result (`TtlCmd.run`), economy
-   balance (Lightman's holder does not see inventory coins), Favor ids, test argument/setup mistakes; see the
-   decisions.md rows of 18/11/2026 at the end. **Still failing until step 2**: every Life 2 bot dies of magicule
-   poison 1 s after rebirth, because the arrival (259 63 -608) stands in `tensura:ancient_forest` chunks generated
-   before the ring worldgen (`/ttlmap` says rim, the stored chunk biome says ancient_forest). That breaks arrival
-   and, depending on timing, carryover, guide, soul, spirit_domain (all pass with the bots sheltered).
-   After a restart the scripts' `ServerEvents.loaded` loops (spirit domain gate) run the new code; a `/reload` keeps
-   the old loop running.
-2. **Overworld reset: done 06:10.** Tempest, Dwargon, the 7 landmarks and all 13 canon builds are placed on
-   staging (`/ttl build list`, `/ttl landmark list`).
-3. **Builds verified 1:1: done ~07:30** (all on staging, scripts pushed with `push-scripts`, commits local on main).
-   Every build ≥ 99.93 %: tempest 99.96, dwargon 99.98, mortal_spawn 100, spirit_dwelling 100, test_hut 100,
-   blumund/clayman_castle/englassia/laura/treyni_shrine/forgotten_dragon_city/sealed_cave/dragons_nest/marris 100.00,
-   lubelius 99.99, spirit_gate 100 (verify_build now counts left-out properties as defaults; Lubelius' 97.16 % was
-   only `quartz_pillar` vs `[axis=y]`). Fixes: survey takes water as a cost (`max_wet`), wet columns filled from the
-   bed, two slab passes (wheat/doors/beds no longer pop), stale 10,000-width x/z of Clayman and the Forgotten Dragon
-   City corrected, blueprint fixes (town-lib bed facing, Laura hut ladders, Englassia planters, fountain lantern,
-   Treyni bluets/lantern), Tempest's south-east rim no longer sits on a lake (tempest.js fills from the bed; the live
-   world got a one-off `fill ... replace water`, 4,480 blocks). Floating check: no build floats (Sealed Cave has one
-   enclosed natural cave pocket under its north edge, 5 blocks below the walking level).
-   Left: tiny game-made leftovers (Tempest crops/lanterns from its single-pass placer, Dwargon 147 `air -> water` at
-   y 156 near 430 -1069 and 18 lanterns, Lubelius 5 path -> dirt, a lone Marris bed head, Dragon's Nest snow layers);
-   the Forgotten Dragon City stands 299 blocks north of its landmark because the real terrain there is lakes.
-4. **Pregenerate the continent** with Distant Horizons (Chunky is banned): `dh pregen start minecraft:overworld
-   -2088 -616 <chunkRadius>` (continent ≈ 14,000 × 10,000 blocks), status with `dh pregen status`; then BlueMap
-   renders (`bluemap` commands; web port 8100 needs a k8s Service + tunnel route — snippet in docs/server.md).
-5. **Story, characters and parties** — design: `design/architecture/story-characters.md` (Fable), then its work
-   packages: canon character roster (Tensura entities first, Easy NPC + online skins for the rest), overarching
-   questline with good/evil branches, FTB Teams parties, per-boss fixed spawn + condition + rare wild spawn.
-6. Wave B of sprint3-4.md: WP4 nations (cap 5 members, claims Life 2 only), WP6 Legendary absorption
-   (routes: duel, war, bequest, awakening), WP8 event pack, WP10 boss payouts, WP11 Discord story/roles.
 
 ## Before launch (state the tests leave behind)
 
