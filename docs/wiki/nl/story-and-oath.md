@@ -17,10 +17,10 @@ De hoofdstuknummers bevatten ook zijpaden. De lijnen tussen de quests wijzen je 
 | III · The Orc War | Na **The Orc Lord** ga je verder in hoofdstuk 9, **Two Hundred Thousand**. Verdedig de hagedismensen en voed de overlevende orcs, of plunder de grotten en leid de Horde. |
 | IV · Calamity | Breng in hoofdstuk 10, **The Whirlpool**, honing naar Milim en verdedig Lake Siss. Op Dark maak je Charybdis wakker voor Clayman en moet je het zelf opnemen tegen het monster. |
 | V · The Holy Knight | Hoofdstuk 11, **Mask and Blade**, volgt Shizu, Ifrit en de strijd met Falmuth. Verdedig Tempest of trek met Falmuth ten strijde. |
-| VI · Walpurgis | In hoofdstuk 12, **Walpurgis**, bezoek je Claymans hof. Oefen met Carrion en zoek de zegen van Luminous, of keer je tegen Clayman en neem zijn zetel in. |
+| VI · Walpurgis | In hoofdstuk 12, **Walpurgis**, volg je de oproep voor de raad naar Claymans kasteel en de Walpurgis-zaal. Oefen met Carrion en zoek de zegen van Luminous, of keer je tegen Clayman en neem zijn zetel in. |
 | VII · Harvest Festival | Hoofdstuk 13, **Harvest Festival**, brengt beide routes terug naar Veldora. Op Light volg je het slot van het True Hero-verhaal en op Dark dat van de Demon Lord. |
 
-Voor de laatste ontwakingsquest moet je in Tensura zelf **True Hero** of **True Demon Lord** zijn geworden, passend bij je pad. Lever de taak in nadat je bent ontwaakt. Met `/ttl absorb free` kun je apart nagaan of er een Legendary beschikbaar is.
+Voor de laatste ontwakingsquest moet je in Tensura zelf **True Hero** of **True Demon Lord** zijn geworden, passend bij je pad. Lever de taak in nadat je bent ontwaakt. Met `/ttl absorb free` kun je apart nagaan of er een Legendary beschikbaar is. Heeft je groep de quest afgerond voordat jij ontwaakte? Gebruik `/ttl story capstone` zodra je zelf aan de voorwaarden voor de finale voldoet.
 
 Vraagt een quest om een baas uit te dagen? Ga eerst naar de genoemde locatie en activeer daar het gevecht. Blijft een latere quest gesloten, open die dan om de voorwaarden te bekijken. Een ander partylid kan verder zijn dan jij.
 

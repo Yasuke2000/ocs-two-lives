@@ -17,10 +17,10 @@ The chapter numbers also include side activities. Follow the quest connections t
 | III · The Orc War | After **The Orc Lord**, follow chapter 9, **Two Hundred Thousand**. Defend the lizardmen and feed the surviving orcs, or raid the caverns and lead the Horde. |
 | IV · Calamity | In chapter 10, **The Whirlpool**, bring Milim honey and defend Lake Siss, or wake Charybdis for Clayman and face what you unleashed. |
 | V · The Holy Knight | Chapter 11, **Mask and Blade**, follows Shizu, Ifrit and the crisis with Falmuth. Choose whether to defend Tempest or march with Falmuth. |
-| VI · Walpurgis | In chapter 12, **Walpurgis**, enter Clayman's court. Spar with Carrion and seek Luminous's blessing, or turn against Clayman to take his seat. |
+| VI · Walpurgis | In chapter 12, **Walpurgis**, follow the council summons to Clayman's castle and the Walpurgis Hall. Spar with Carrion and seek Luminous's blessing, or turn against Clayman to take his seat. |
 | VII · Harvest Festival | Chapter 13, **Harvest Festival**, brings both roads back to Veldora. The Light finale follows the True Hero story. The Dark finale follows the Demon Lord story. |
 
-For the final awakening quest you need the matching **True Hero** or **True Demon Lord** awakening in Tensura itself. Submit the task after awakening. You can check for an available Legendary separately with `/ttl absorb free`.
+For the final awakening quest you need the matching **True Hero** or **True Demon Lord** awakening in Tensura itself. Submit the task after awakening. You can check for an available Legendary separately with `/ttl absorb free`. If your party finished the quest before you awakened, use `/ttl story capstone` once you meet your own finale requirements.
 
 When a quest asks you to face a boss, go to the place it names before claiming the fight. If a later quest stays locked, open it and check its prerequisites. A party member's progress can differ from yours.
 
