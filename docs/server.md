@@ -79,10 +79,18 @@ MarkerAPI from a script and are unverified.
 **Before it works (owner decisions):**
 1. `accept-download` in `core.conf` is **true** (owner, 18/11/2026): BlueMap downloads the Minecraft client jar
    (Mojang EULA) for vanilla textures.
-2. The map is public if its address is: no login. It shows terrain and builds (bases included, on an open-PvP
-   server) but not player positions (`plugin.conf`: `live-player-markers: false`). Decide who gets the link; use
-   the tunnel's access control if it should not be public. The Kubernetes Service and tunnel route are in the
-   Homelab repo (`apps/ocs-two-lives/`): a Service for port 8100 and a tunnel route to it.
+2. The map is **public** (owner, 18/11/2026) at **https://map.daviddelporte.com**, no login. It shows terrain and
+   builds (bases included, on an open-PvP server) but not player positions (`plugin.conf`:
+   `live-player-markers: false`; keep it off). Route: Cloudflare → the homelab's cloudflared tunnel → Service
+   `mc-bluemap` (ClusterIP, port 80 → 8100 on the mc pod) in namespace `ocs-two-lives`; the namespace's
+   NetworkPolicy admits port 8100 only from the cloudflared namespace. Service and policy are in the Homelab repo
+   (`apps/ocs-two-lives/manifests/server.yaml`, `network-policies.yaml`). The tunnel is managed in Cloudflare, not
+   in git, so Yasuke adds once (Homelab `docs/cloudflared-tunnel.md`): a proxied CNAME `map` →
+   `<tunnel id>.cfargotunnel.com`, and a tunnel ingress rule `map.daviddelporte.com` →
+   `http://mc-bluemap.ocs-two-lives.svc.cluster.local:80` **before** the `*.daviddelporte.com` wildcard (without
+   it the host lands on the wildcard's app, not the map). The mc container does not declare `containerPort: 8100`
+   yet: that would change the pod template and restart the server; it is only informational and comes with the
+   next change that restarts the server anyway.
 
 **Load:** one render thread at low priority (`render-thread-count: 1`), inside the game's JVM (7 GB heap, pod limit
 10 GiB): watch `neoforge tps` and the pod memory during the first full render, which can take hours and a few GB
@@ -94,6 +102,35 @@ would skip them, at the price of leaving unvisited canon terrain out.
 Not verified without the server: the `render-mask` box keys and marker `min-distance`/`max-distance` units, that
 `world: "world-ttl"` plus the dimension ids `minecraft:overworld` and `ttl:mortal_realm` resolve on NeoForge, and
 that custom-block textures of Tensura render. Look at `tools/server.sh logs | grep -i bluemap` after the first start.
+
+## Night pregeneration (Distant Horizons)
+
+The Tensura continent is pregenerated **at night** (owner decision 18/11/2026) by ttl-ops (Homelab repo,
+`apps/ocs-two-lives/manifests/ops.yaml`, function `night_pregen`), with Distant Horizons' own generator.
+**Chunky stays banned**: DH 3.3.3 crashes every server start with it (`design/decisions.md`, 18/11/2026).
+
+| | |
+|---|---|
+| When | 23:00–07:00 Europe/Brussels (summer time computed in the script), once nobody has been online for 5 minutes (test bots don't count: the same "humans online" check as deploys, `tools/server.sh who`) |
+| What | `dh config generation.chunkMode INTERNAL_SERVER` (real chunks, saved to the region files, structures included), `dh config common.threadPreset BALANCED`, then `dh pregen start minecraft:overworld -2088 -616 450` (centre of the canon continent; 450 chunks = 7,200 blocks, the continent is about 14,000 × 10,100 blocks) |
+| Pause | `dh pregen stop` as soon as a human joins, at 07:00, before a deploy and before the bot tests, and when `/data` is 85 % full. The daytime settings are put back (`generation.chunkMode FEATURES`, `threading.numberOfThreads 4`, `threading.threadRunTimeRatio 0.75`, as in `pack/config/DistantHorizons.toml`) |
+| Resume | DH keeps no pregen state over a stop or a restart: the next start walks the same spiral from the centre and skips the sections it already generated, so stop + start works as pause + resume (the % climbs fast through the done part) |
+| Discord (#server-log, the ttl-ops webhook) | started (once a night), paused (why, with progress; no player names), progress once an hour, complete, disk full, crash |
+| Safety | a server crash while it runs stops it for the rest of the night; so do 3 runs that end on their own |
+| Done | at ≥ 99 % it writes `/data/ttl-pregen.done` (the spec) and stops for good. Delete that file to pregenerate again, e.g. after an overworld reset |
+
+`dh pregen status` answers `Generated radius: <r> / 450 chunks (<n> cps, <p>%), ETA: <t>` while it runs and
+`Pregen is not running` otherwise; DH also logs progress in the server console. Knobs are env vars on the ttl-ops
+Deployment: `PREGEN_ENABLED` (`0` = ttl-ops leaves DH alone, for a manual pregen), `PREGEN_DIM`, `PREGEN_X`,
+`PREGEN_Z`, `PREGEN_RADIUS`, `PREGEN_THREADS`, `PREGEN_MAX_DISK`.
+
+Watch during the first nights: TPS and pod memory (INTERNAL_SERVER loads real chunks in the game's JVM; heap 8G,
+limit 12Gi), the size of `world-ttl` on the 30 Gi volume (a fully generated continent is several GB of region
+files plus the DH database and BlueMap tiles), and the Longhorn backup size. BlueMap renders the new chunks too.
+
+Not verified on the server yet: that `common.threadPreset` (a client-side entry in DH 3.3.3) can be set on a
+dedicated server, that the status line keeps that wording and a `.` decimal on the server's locale, and how fast it
+goes. Command syntax, the config key names and the status/stop messages are taken from the DH 3.3.3 jar.
 
 ## Life 2 arrival and the Jura rings
 
