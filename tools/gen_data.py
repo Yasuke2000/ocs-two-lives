@@ -28,6 +28,33 @@ def check_skills(skills: dict) -> None:
             if skill in seen:
                 raise SystemExit(f"skills.toml: {skill} is both {seen[skill]} and {rarity}")
             seen[skill] = rarity
+    legendary = skills.get("legendary", {})
+    for key in ("max_holders", "slots_per_era"):
+        value = legendary.get(key)
+        if not isinstance(value, int) or isinstance(value, bool) or value < 0:
+            raise SystemExit(f"skills.toml: legendary.{key} must be an integer >= 0")
+    for route in skills.get("transfer", {}).get("routes", []):
+        if not re.fullmatch(r"[a-z0-9_]+", str(route)):
+            raise SystemExit(f"skills.toml: transfer.routes has a bad route {route!r}")
+    absorb = skills.get("absorb", {})
+    for skill in absorb.get("skills", []):
+        if not re.fullmatch(r"[a-z0-9_]+", skill):
+            raise SystemExit(f"skills.toml: absorb.skills has a bad id {skill!r}")
+    core = skills.get("core", {})
+    for rarity, weight in core.get("weights", {}).items():
+        if rarity not in ("rare", "common"):
+            raise SystemExit(f"skills.toml: core.weights.{rarity}: a Skill Core never holds that rarity (rare, common only)")
+        if not isinstance(weight, (int, float)) or weight < 0:
+            raise SystemExit(f"skills.toml: core.weights.{rarity} must be a number >= 0")
+    if not any(core.get("weights", {}).get(r, 1) > 0 for r in ("rare", "common")):
+        raise SystemExit("skills.toml: core.weights must leave at least one rarity above 0")
+    era_ids = set()
+    for title in skills.get("era", {}).get("titles", []):
+        if not re.fullmatch(r"[a-z0-9_]+", str(title.get("id", ""))) or not str(title.get("name", "")).strip():
+            raise SystemExit(f"skills.toml: era.titles needs an id [a-z0-9_] and a name: {title}")
+        if title["id"] in era_ids:
+            raise SystemExit(f"skills.toml: era title id {title['id']} twice")
+        era_ids.add(title["id"])
 
 
 def check_guide(guide: dict) -> None:

@@ -1,0 +1,107 @@
+# Registry v2: the Legendary ceiling, per-era slots, transfer routes, eras, Skill Core open.
+# Run on staging with NO other Legendary holder online or recorded (the counts below are server-wide); it advances the
+# era twice. Shipped knobs (design/data/skills.toml [legendary]): max_holders = 10 (the Ten Great Demon Lords),
+# slots_per_era = 0 (no per-era throttle). `ttl registry legendcap <max> <slots>` replaces both until `legendcap reset`,
+# so three bots can hit the ceiling (3) and the per-era slots (2).
+# `registry legend` is the grant a rebirth Legend pick makes (opts.slot: spends a per-era slot); `ttl grant` is the admin
+# grant (no slot, but the ceiling applies to it too). A second Legendary for an existing holder adds no holder.
+# transfer(from, to, skill, route): at the ceiling it works when the receiver is already a holder or the giver stops
+# being one; it never spends a slot; the route (duel, war, bequest, awakening, staff ...) lands in the history.
+# A giver who is offline loses the record at once and the skill at their next login (berserker via TtlBotLegF).
+ttlbot spawn TtlBotLegA
+ttlbot spawn TtlBotLegB
+ttlbot spawn TtlBotLegC
+ttlbot spawn TtlBotLegD
+ttlbot spawn TtlBotLegE
+ttlbot spawn TtlBotLegF
+@sleep 2
+ttl registry legendcap 3 2
+ttl era next
+ttl era expect slots 0
+ttl era expect free 2
+ttl registry legend TtlBotLegA great_sage
+ttl registry legend TtlBotLegB predator
+ttl era expect slots 2
+ttl era expect free 0
+ttl registry expect holders 2
+ttl registry slots
+# No slot left: the pick is refused; the admin grant is not (third holder, at the ceiling).
+ttl registry legend TtlBotLegC creator
+ttl registry expect holds TtlBotLegC creator false
+ttl grant TtlBotLegC creator
+ttl registry expect holds TtlBotLegC creator true
+ttl registry expect holders 3
+ttl era expect slots 2
+# At the ceiling a fourth player gets nothing Legendary, not even from an admin; holders may collect more.
+ttl grant TtlBotLegD envy
+ttl registry expect holds TtlBotLegD envy false
+ttl grant TtlBotLegB great_sage
+ttl grant TtlBotLegC great_sage
+ttl registry expect count great_sage 3
+ttl registry expect holders 3
+# Transfer at the ceiling: A (whose only Legendary it is) gives great_sage to D by duel; still 3 holders, no slot spent.
+ttl registry transfer TtlBotLegA TtlBotLegD great_sage duel
+ttl registry expect holds TtlBotLegA great_sage false
+ttl registry expect holds TtlBotLegD great_sage true
+ttl registry expect has TtlBotLegA great_sage false
+ttl registry expect has TtlBotLegD great_sage true
+ttl registry expect count great_sage 3
+ttl registry expect holders 3
+ttl registry expect last TtlBotLegD great_sage transfer
+ttl registry expect moved TtlBotLegA TtlBotLegD great_sage
+ttl registry expect routed TtlBotLegD great_sage duel
+ttl era expect slots 2
+ttl registry history great_sage
+# Refused: B keeps predator, so great_sage to A would make a fourth holder; D already holds it; A no longer does.
+ttl registry transfer TtlBotLegB TtlBotLegA great_sage war
+ttl registry transfer TtlBotLegB TtlBotLegD great_sage war
+ttl registry transfer TtlBotLegA TtlBotLegB great_sage war
+ttl registry expect holds TtlBotLegB great_sage true
+ttl registry expect holds TtlBotLegA great_sage false
+ttl registry expect count great_sage 3
+# Between holders any route works; the default route is staff.
+ttl registry transfer TtlBotLegB TtlBotLegC predator bequest
+ttl registry expect routed TtlBotLegC predator bequest
+ttl registry transfer TtlBotLegC TtlBotLegB predator
+ttl registry expect routed TtlBotLegB predator staff
+# Offline giver (Rare, berserker): F holds it, goes offline; the record moves to A at once, by war.
+ttl grant TtlBotLegF berserker
+ttlbot remove TtlBotLegF
+@sleep 1
+ttl registry transfer TtlBotLegF TtlBotLegA berserker war
+ttl registry expect holds TtlBotLegA berserker true
+ttl registry expect has TtlBotLegA berserker true
+ttl registry expect moved TtlBotLegF TtlBotLegA berserker
+ttl registry expect routed TtlBotLegA berserker war
+# Era titles, then the next era: slots free again, era titles cleared (ceiling raised for the rest).
+ttl registry legendcap 10 2
+ttl era title TtlBotLegE champion
+ttl era expect titles TtlBotLegE 1
+ttl era next
+ttl era expect slots 0
+ttl era expect free 2
+ttl era expect titles TtlBotLegE 0
+ttl registry legend TtlBotLegE wrath
+ttl era expect slots 1
+ttl registry expect holds TtlBotLegE wrath true
+# Skill Cores never hold a Legendary and give E one more unique (wrath + the core's).
+ttl core odds TtlBotLegE
+ttl core open TtlBotLegE
+ttl core expect TtlBotLegE 2
+ttl era
+# Clean up: back to the shipped knobs; resets free every record (F is respawned so its pending take-back is settled).
+ttl registry legendcap reset
+ttlbot spawn TtlBotLegF
+@sleep 3
+ttl reset TtlBotLegA
+ttl reset TtlBotLegB
+ttl reset TtlBotLegC
+ttl reset TtlBotLegD
+ttl reset TtlBotLegE
+ttl reset TtlBotLegF
+ttlbot remove TtlBotLegA
+ttlbot remove TtlBotLegB
+ttlbot remove TtlBotLegC
+ttlbot remove TtlBotLegD
+ttlbot remove TtlBotLegE
+ttlbot remove TtlBotLegF

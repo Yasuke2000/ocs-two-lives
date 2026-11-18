@@ -683,6 +683,17 @@ const TtlData = {
     "tags": []
   },
   "skills": {
+    "absorb": {
+      "cooldown_hours": 72,
+      "min_ep_ratio": 0.5,
+      "skills": [
+        "predator",
+        "gluttony",
+        "starved",
+        "gourmet",
+        "engorger"
+      ]
+    },
     "caps": {
       "common": 5,
       "legendary": 3,
@@ -709,7 +720,32 @@ const TtlData = {
         "tuner"
       ]
     },
+    "core": {
+      "item": "ttl:skill_core",
+      "require_item": true,
+      "weights": {
+        "common": 1,
+        "rare": 3
+      }
+    },
+    "era": {
+      "titles": [
+        {
+          "id": "champion",
+          "name": "Champion of the Era"
+        },
+        {
+          "id": "conqueror",
+          "name": "Conqueror of the Era"
+        },
+        {
+          "id": "sage",
+          "name": "Sage of the Era"
+        }
+      ]
+    },
     "legendary": {
+      "max_holders": 10,
       "skills": [
         "predator",
         "great_sage",
@@ -720,7 +756,8 @@ const TtlData = {
         "pride",
         "sloth",
         "wrath"
-      ]
+      ],
+      "slots_per_era": 0
     },
     "rare": {
       "skills": [
@@ -762,6 +799,15 @@ const TtlData = {
       "history_max": 200,
       "inactive_days": 30,
       "max_name_lookups": 20
+    },
+    "transfer": {
+      "routes": [
+        "duel",
+        "war",
+        "bequest",
+        "awakening",
+        "staff"
+      ]
     }
   },
   "trials": {

@@ -18,6 +18,41 @@ max_name_lookups = 20   # offline player names resolved through the server's use
 
 [legendary]
 skills = ["predator", "great_sage", "creator", "envy", "greed", "lust", "pride", "sloth", "wrath"]
+# Owner decision 18/11/2026 (replaces the flat "2 per era"): at most this many DIFFERENT players hold a Legendary
+# unique at once, on the whole server, the Ten Great Demon Lords. TtlRegistry enforces it on every grant (admin
+# included), on available/draw and on transfer; a second Legendary for an existing holder adds no holder, and a holder
+# who loses their last Legendary (absorbed, inactive 30 days, reset) frees a place. 0 = no ceiling.
+max_holders = 10
+# Optional extra throttle per era on NEW Legendary holders that arrive through a rebirth Legend pick (`grant` with
+# opts.slot); eras reset it (`/ttl era next`). Never above max_holders. 0 = no per-era throttle (the default).
+slots_per_era = 0
+
+# How a unique may change hands (TtlRegistry.transfer(server, from, to, skill, route, reason)); the route is recorded in
+# ttl.reg.history. Other packages add routes here; an unlisted route still works but logs a warning.
+[transfer]
+routes = ["duel", "war", "bequest", "awakening", "staff"]
+
+# Absorption (absorb/absorb.js, a later package) reads this; the registry only offers transfer().
+[absorb]
+skills = ["predator", "gluttony", "starved", "gourmet", "engorger"]   # uniques whose holder may absorb
+min_ep_ratio = 0.5      # victim EP must be at least this share of the killer's
+cooldown_hours = 72     # per killer between absorptions
+# The Legendary ceiling is [legendary] max_holders; the inactivity window is [registry] inactive_days. A transfer by
+# absorption uses route "duel" (v1) or "war" (v2).
+
+# Skill Cores (boss drops from T3): /ttl core open draws one Rare or Common unique, never a Legendary one.
+[core]
+item = "ttl:skill_core"     # what /ttl core open consumes (the item is defined by the boss package)
+require_item = true         # false: players may open without the item (testing only)
+weights = { rare = 3, common = 1 }   # draw weight per rarity; every skill of the rarity weighs the same
+
+# Eras (era/era.js): `/ttl era next` bumps ttl.season and clears these era titles; permanent titles stay.
+[era]
+titles = [
+  { id = "champion", name = "Champion of the Era" },
+  { id = "conqueror", name = "Conqueror of the Era" },
+  { id = "sage", name = "Sage of the Era" },
+]
 
 [rare]
 # Combat and magic uniques.
