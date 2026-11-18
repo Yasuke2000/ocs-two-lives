@@ -97,3 +97,9 @@ Offline: validate passes, 49 unit tests OK, all structures rebuilt. In game afte
   tags unverified), non-op players cannot break Wayfarer's Rest but can use doors, beds and the bell.
 - canon_map.txt is not regenerated for the audit's Ameld outlet (needs the political plate,
   `python tools/canon_map.py <plate.png>`); the H palette change and the outlet only reach ungenerated chunks.
+
+## Canon landmarks, WP8 and WP11 awaiting staging
+
+Eleven surveyed landmarks have placements and sourced previews. After the overworld placement queue drains, run `world_landmarks.rcon`, then `python tools/verify_build.py <name> --log --min 98` for each name in that file. Walk the approaches and check night lighting and terrain joins. The Ulgr trail interprets the mapped park; the existing spirit-domain travel route stays in Jura.
+
+Run `events_pack.rcon`, `ops.rcon`, `story.rcon`, `nations.rcon`, `bosses.rcon` and `legendary.rcon` through the muted runner. Observe a naturally forecast EC2 Blood Moon, storm loot and damage across a region boundary, restoration of the server-wide EP multiplier, and Charybdis roaming from its announced start. With linked, consenting real players after tests, verify staff delivery and redaction, six distinct story transitions, nation role colour and permissions, and removal after leaving or dissolution. A real Discord guild and live server are required for these checks.

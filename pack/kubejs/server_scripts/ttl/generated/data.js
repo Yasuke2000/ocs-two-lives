@@ -922,6 +922,30 @@ const TtlData = {
   "builds": [
     {
       "anchor": [
+        34,
+        16,
+        68
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Amrita (Jistav capital)",
+      "margin": 8,
+      "max_wet": 0.05,
+      "name": "amrita",
+      "search": 32,
+      "size": [
+        69,
+        32,
+        75
+      ],
+      "title": "Amrita — Buried Gallery of Jistav",
+      "version": 1,
+      "x": 3552,
+      "z": -703
+    },
+    {
+      "anchor": [
         38,
         4,
         41
@@ -996,6 +1020,31 @@ const TtlData = {
     },
     {
       "anchor": [
+        42,
+        4,
+        72
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Coleus",
+      "margin": 10,
+      "max_wet": 0.1,
+      "name": "coleus",
+      "notes": "Royal stair and oasis beneath Herbaria's hilltop palace. The fan map places independent Coleus at the Damargania border.",
+      "search": 48,
+      "size": [
+        85,
+        47,
+        79
+      ],
+      "title": "Coleus — The Palace of Herbaria",
+      "version": 1,
+      "x": -4151,
+      "z": 370
+    },
+    {
+      "anchor": [
         36,
         9,
         62
@@ -1041,6 +1090,30 @@ const TtlData = {
       "version": 1,
       "x": -4808,
       "z": 3240
+    },
+    {
+      "anchor": [
+        37,
+        4,
+        67
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Elmine (Sarion capital in the Divine Tree)",
+      "margin": 8,
+      "max_wet": 0.05,
+      "name": "elmine",
+      "search": 32,
+      "size": [
+        75,
+        60,
+        75
+      ],
+      "title": "Elmine — Terrace of the Divine Tree",
+      "version": 1,
+      "x": -1471,
+      "z": 1629
     },
     {
       "anchor": [
@@ -1118,6 +1191,30 @@ const TtlData = {
     },
     {
       "anchor": [
+        44,
+        5,
+        78
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Great Holy Mountain (Velgrynd)",
+      "margin": 12,
+      "max_wet": 0.08,
+      "name": "great_holy_mountain",
+      "search": 48,
+      "size": [
+        89,
+        52,
+        85
+      ],
+      "title": "Scorching God Mountain — Velgrynd’s sanctuary",
+      "version": 1,
+      "x": 2386,
+      "z": -2511
+    },
+    {
+      "anchor": [
         40,
         4,
         83
@@ -1140,6 +1237,31 @@ const TtlData = {
       "version": 1,
       "x": -7507,
       "z": 245
+    },
+    {
+      "anchor": [
+        36,
+        4,
+        64
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Jia (Fulbrosia capital, Frey)",
+      "margin": 12,
+      "max_wet": 0.05,
+      "name": "jia",
+      "notes": "Harpy flight galleries above a mountain stair. The surveyed court is a single district of Jia.",
+      "search": 96,
+      "size": [
+        73,
+        40,
+        69
+      ],
+      "title": "Jia — Frey's Landing Court",
+      "version": 1,
+      "x": 349,
+      "z": 1819
     },
     {
       "anchor": [
@@ -1216,6 +1338,106 @@ const TtlData = {
     },
     {
       "anchor": [
+        50,
+        5,
+        51
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Morgdahl",
+      "margin": 10,
+      "max_wet": 0.08,
+      "name": "morgdahl",
+      "notes": "A western timber yard with a contained millrace. The local industry is the pack's interpretation.",
+      "search": 96,
+      "size": [
+        69,
+        31,
+        61
+      ],
+      "title": "Morgdahl — The Timber Landing",
+      "version": 1,
+      "x": -4009,
+      "z": 1002
+    },
+    {
+      "anchor": [
+        42,
+        5,
+        66
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Nasca (Eastern Empire capital)",
+      "margin": 12,
+      "max_wet": 0.1,
+      "name": "nasca",
+      "notes": "South processional entrance and north audience pavilion. The court is our interpretation of the imperial capital.",
+      "search": 96,
+      "size": [
+        85,
+        42,
+        79
+      ],
+      "title": "Nasca — Imperial audience court",
+      "version": 1,
+      "x": 2631,
+      "z": -2059
+    },
+    {
+      "anchor": [
+        36,
+        5,
+        43
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Nostraille",
+      "margin": 12,
+      "max_wet": 0.08,
+      "name": "nostraille",
+      "notes": "The open market hall serves the quiet western hill kingdom. Enter from the southern cloth yard.",
+      "search": 32,
+      "size": [
+        72,
+        33,
+        64
+      ],
+      "title": "Nostraille — The Wool Hall",
+      "version": 1,
+      "x": -2560,
+      "z": 360
+    },
+    {
+      "anchor": [
+        36,
+        6,
+        49
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Raja",
+      "margin": 12,
+      "max_wet": 0.08,
+      "name": "raja",
+      "notes": "Walk north from the inlet landing to the winding frame and the exhausted gold mine in the bank.",
+      "search": 48,
+      "size": [
+        80,
+        37,
+        70
+      ],
+      "title": "Raja — The Old Lakeside Workings",
+      "version": 1,
+      "x": -1084,
+      "z": 763
+    },
+    {
+      "anchor": [
         40,
         4,
         76
@@ -1262,6 +1484,31 @@ const TtlData = {
       "version": 2,
       "x": -256,
       "z": -343
+    },
+    {
+      "anchor": [
+        36,
+        5,
+        52
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Siltrosso",
+      "margin": 12,
+      "max_wet": 0.1,
+      "name": "siltrosso",
+      "notes": "An original Rosso audience court in the small western kingdom. Its territory is folded into G on the pack grid.",
+      "search": 96,
+      "size": [
+        73,
+        37,
+        65
+      ],
+      "title": "Siltrosso — The Rosso counting court",
+      "version": 1,
+      "x": -2026,
+      "z": -921
     },
     {
       "anchor": [
@@ -1360,6 +1607,31 @@ const TtlData = {
       "version": 3,
       "x": 1988,
       "z": -223
+    },
+    {
+      "anchor": [
+        30,
+        4,
+        31
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Galut / Ulgr Nature Park (Ulgracia)",
+      "margin": 10,
+      "max_wet": 0.05,
+      "name": "ulgr_nature_park",
+      "notes": "The northern park named on the map. The woodland vault marks the story entrance and the Jura gate handles travel.",
+      "search": 64,
+      "size": [
+        71,
+        28,
+        65
+      ],
+      "title": "Ulgr Nature Park — The Spirit Trail",
+      "version": 1,
+      "x": -1171,
+      "z": 2152
     }
   ],
   "carryover": {
@@ -1415,6 +1687,7 @@ const TtlData = {
     },
     "guild": "1572376519551090728",
     "limits": {
+      "nation_roles": 20,
       "recap_lines": 8,
       "top_lines": 5
     },
@@ -1425,6 +1698,7 @@ const TtlData = {
       "life1": "1572399930268586046",
       "life2": "1572399931564757162",
       "linked": "1572399928888787015",
+      "nation_prefix": "Nation · ",
       "survivor": "1572399933703589948",
       "wanderer": "1572399932613070989"
     },
@@ -2214,6 +2488,78 @@ const TtlData = {
         "id": "omen",
         "label": "Test omen",
         "scope": "world"
+      },
+      {
+        "action": {
+          "gamerule": {
+            "epGainMultiplier": 2
+          },
+          "restore": {
+            "epGainMultiplier": "previous_int"
+          }
+        },
+        "announce": {
+          "chat": "Magicules surge across {region} for {minutes} minutes. Monsters here strike harder and may drop magic crystals. Kill EP uses a server-wide multiplier of 2.",
+          "color": "aqua",
+          "end_chat": "The magicule storm over {region} has passed.",
+          "sound": "minecraft:entity.lightning_bolt.thunder",
+          "story": "A magicule storm has gathered over {region}.",
+          "subtitle": "{region}",
+          "title": "Magicule Storm"
+        },
+        "at_hour": 18,
+        "audience": "life2",
+        "crystal": "tensura:low_quality_magic_crystal",
+        "crystal_chance": 0.25,
+        "damage_multiplier": 1.35,
+        "duration_minutes": 60,
+        "every": {
+          "days": 4
+        },
+        "id": "magicule_storm",
+        "jitter_hours": 3,
+        "label": "Magicule Storm",
+        "scope": "region"
+      },
+      {
+        "announce": {
+          "chat": "Monsters gather beneath the red moon. Mortal souls earn extra Valor for fighting hostile creatures.",
+          "color": "dark_red",
+          "end_chat": "The Blood Moon has faded.",
+          "sound": "minecraft:entity.wolf.growl",
+          "story": "A Blood Moon rises over the two lives.",
+          "subtitle": "A red moon rises",
+          "title": "Blood Moon"
+        },
+        "duration_minutes": 30,
+        "id": "blood_moon",
+        "label": "Blood Moon",
+        "lunar_events": [
+          "enhancedcelestials2defaultlunarevents:blood_moon",
+          "enhancedcelestials2defaultlunarevents:super_blood_moon"
+        ],
+        "scope": "world"
+      },
+      {
+        "announce": {
+          "chat": "{boss} has begun roaming {region} from x {x}, z {z}.",
+          "color": "red",
+          "sound": "minecraft:entity.ender_dragon.growl",
+          "story": "{boss} is roaming {region} from x {x}, z {z}.",
+          "subtitle": "{boss}",
+          "title": "Calamity Rising"
+        },
+        "at_hour": 20,
+        "audience": "life2",
+        "boss_id": "charybdis",
+        "delay_days": 2,
+        "duration_minutes": 0,
+        "every": {
+          "days": 7
+        },
+        "id": "calamity_rising",
+        "label": "Calamity Rising",
+        "scope": "world"
       }
     ],
     "favor": {
@@ -2978,6 +3324,15 @@ const TtlData = {
         "key": "raids_started",
         "label": "Raids brought on a village",
         "weight": 3
+      },
+      {
+        "axis": "valor",
+        "capped": true,
+        "criterion": "dummy",
+        "group": "battle",
+        "key": "blood_moon_kills",
+        "label": "Blood Moon foes defeated",
+        "weight": 2
       }
     ],
     "ticks_per_day": 24000,
@@ -4113,6 +4468,17 @@ const TtlData = {
         "z": 44
       }
     ]
+  },
+  "ops": {
+    "cmdlog": {
+      "capacity": 500,
+      "prefixes": [
+        "ttl",
+        "tensura edit",
+        "lp",
+        "ftbchunks admin"
+      ]
+    }
   },
   "skills": {
     "absorb": {
