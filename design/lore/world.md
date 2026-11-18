@@ -49,9 +49,15 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   - Hidden ogre village (the Kijin homeland, burned by the orcs): [2060, 965] → (1045, -685), north-eastern hills
     *(placement unverified)*.
   - Treyni's grove, the dryad sanctuary: [2150, 1100] → (1395, -160), east of the Ameld.
-- **Biomes.** dark_forest 4, tensura:ancient_forest 3 (labyrinth trees), forest 3 and birch 2 (goblin villages),
-  old_growth_birch 2, flower_forest 1, plains 1 (clearings), swamp 1. Peaks are replaced by stony_peaks and
-  windswept_forest so the forest never gets snowy peaks. Erosion goes to 0.3 for rolling ground.
+- **Biomes (rings, 18/11/2026).** Veldora's leaked magicule soaks the forest, so the biome depends on the
+  distance from the border and from Tempest (`zones` in `canon_regions.json`; Tensura's area magicule per biome:
+  every unlisted biome 500, dark_forest +1,500, tensura:ancient_forest +19,500). **Rim** (safe): within 280 +- 50
+  blocks of Jura's border, forest 4, birch 3, old_growth_birch 2, flower_forest 2, plains 2, swamp 1; the Life 2
+  arrival is here, on the road to the Dwargon gate (`design/data/arrival.toml`). **Core**: within 200 +- 50 blocks
+  of Tempest, ancient_forest 6, dark_forest 3 (labyrinth trees). **Middle**: everything between, dark_forest 7,
+  ancient_forest 2. Ring edges are ragged fringes of whole patches. Peaks are replaced by stony_peaks and
+  windswept_forest so the forest never gets snowy peaks (both are safe biomes). Erosion goes to 0.3 for rolling
+  ground. Before this the palette was one random mix (dark_forest 4, ancient_forest 3, forest 3 ...) everywhere.
 - Sources: https://tensura.fandom.com/wiki/Great_Jura_Forest, https://tensura.fandom.com/wiki/Lake_Siss,
   https://tensura.fandom.com/wiki/Great_Ameld_River, https://tensura.fandom.com/wiki/Orc_War,
   https://tensura.fandom.com/wiki/Sealed_Cave, https://tensura.fandom.com/wiki/Jura-Tempest_Federation

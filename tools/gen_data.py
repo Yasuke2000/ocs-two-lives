@@ -298,6 +298,25 @@ def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = N
         raise SystemExit("bosses.toml: kubejs/data/ttl/tags/entity_type/boss.json does not list exactly the [[boss]] entities")
 
 
+def check_arrival(arrival: dict) -> None:
+    # life/arrival.js grounds [life2] at x, z and TtlLife.toOverworld teleports there; a wrong type would only
+    # show up as a bad `tp` at the first rebirth.
+    spot = arrival.get("life2")
+    if not isinstance(spot, dict):
+        raise SystemExit("arrival.toml: [life2] missing")
+    for key in ("x", "z", "yaw"):
+        if not isinstance(spot.get(key), (int, float)) or isinstance(spot.get(key), bool):
+            raise SystemExit(f"arrival.toml: life2.{key} must be a number")
+    if not -180 <= spot["yaw"] <= 360:
+        raise SystemExit("arrival.toml: life2.yaw is a Minecraft yaw in degrees (-180..360)")
+    for key, top in (("search", 48), ("version", 1_000_000)):
+        if not isinstance(spot.get(key), int) or isinstance(spot.get(key), bool) or not 0 <= spot[key] <= top or (key == "version" and spot[key] < 1):
+            raise SystemExit(f"arrival.toml: life2.{key} must be a whole number" + (" from 0 to 48" if key == "search" else " from 1"))
+    canon = json.loads(CANON.read_text(encoding="utf-8"))
+    if abs(spot["x"]) > canon["width"] or abs(spot["z"]) > canon["width"]:
+        raise SystemExit(f"arrival.toml: life2 x/z ({spot['x']}, {spot['z']}) lies outside the {canon['width']}-block continent")
+
+
 def settlement_box(script: str, anchor: str, footprint: str) -> tuple[int, int, int, int]:
     """World box (x0, z0, x1, z1, margin included) of Tempest or Dwargon, as their scripts compute it."""
     m = re.search(anchor + r":\s*\{\s*x:\s*(-?\d+),\s*z:\s*(-?\d+)", (SCRIPTS / "life" / script).read_text(encoding="utf-8"))
@@ -506,6 +525,8 @@ def render() -> str:
         check_mortal_banned(data["mortal_banned"])
     if "events" in data:
         check_events(data["events"])
+    if "arrival" in data:
+        check_arrival(data["arrival"])
     if "landmarks" in data:
         check_landmarks(data["landmarks"])
     if "carryover" in data:

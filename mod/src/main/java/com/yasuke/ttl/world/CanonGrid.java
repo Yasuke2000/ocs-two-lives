@@ -30,12 +30,19 @@ public final class CanonGrid {
 
     /**
      * One nation: climate knobs, the biome palette for ordinary land ({@code biomes}, null = TerraBlender/vanilla
-     * choice), optionally a palette that replaces mountain peaks, and the arrival banner texts (null = default).
+     * choice), optionally a palette that replaces mountain peaks, the arrival banner texts (null = default) and
+     * optionally {@link CanonZones} (distance rings that replace the single land palette).
      */
     public record Region(String name, Double erosion, Double temperature, Double vegetation, double strength,
-                         CanonPalette biomes, boolean replacePeaks, CanonPalette peaks, String bannerTitle, String bannerSubtitle) {
+                         CanonPalette biomes, boolean replacePeaks, CanonPalette peaks, String bannerTitle, String bannerSubtitle,
+                         CanonZones zones) {
+        public Region(String name, Double erosion, Double temperature, Double vegetation, double strength,
+                      CanonPalette biomes, boolean replacePeaks, CanonPalette peaks, String bannerTitle, String bannerSubtitle) {
+            this(name, erosion, temperature, vegetation, strength, biomes, replacePeaks, peaks, bannerTitle, bannerSubtitle, null);
+        }
+
         public Region(String name, Double erosion, Double temperature, Double vegetation, double strength) {
-            this(name, erosion, temperature, vegetation, strength, null, false, null, null, null);
+            this(name, erosion, temperature, vegetation, strength, null, false, null, null, null, null);
         }
 
         Double knob(int channel) {
@@ -52,6 +59,7 @@ public final class CanonGrid {
     final float[] river;      // 1 on '~'
     final float[] riverDepth; // continentalness target * river
     final char[] owner;       // nation letter per cell: itself, nearest nation for '~' and near-coast '.', 0 otherwise
+    final Map<Character, float[]> zoneDepth = new HashMap<>(); // per nation with depth rings: blocks inside its border, per cell
     final float[][] climateWeight = new float[3][], climateValue = new float[3][]; // blurred strength, blurred strength*knob
     final double landX0, landZ0, landX1, landZ1, ring, blend;
     final Map<Character, Region> regions;
@@ -97,6 +105,26 @@ public final class CanonGrid {
         for (int i = 0; i < n; i++) {
             if (nation[i]) owner[i] = cells[i];
             else if (nearestNation[i] >= 0 && (water[i] || toLand[i] <= TERRITORIAL_WATERS)) owner[i] = cells[nearestNation[i]];
+        }
+
+        for (Map.Entry<Character, Region> e : regions.entrySet()) {
+            CanonZones zones = e.getValue().zones();
+            if (zones == null || !zones.usesDepth()) continue;
+            // Border = any cell that is neither the nation nor one of the zones' interior characters (rivers, say).
+            boolean[] border = new boolean[n];
+            boolean any = false;
+            for (int i = 0; i < n; i++) {
+                border[i] = cells[i] != e.getKey() && zones.interior().indexOf(cells[i]) < 0;
+                any |= border[i];
+            }
+            float[] depth = new float[n];
+            if (any) {
+                depth = distance(border, null);
+                for (int i = 0; i < n; i++) depth[i] -= 8; // cell centre to the cell edge
+            } else {
+                Arrays.fill(depth, 1e6f);
+            }
+            zoneDepth.put(e.getKey(), depth);
         }
 
         signed = new float[n];
@@ -184,6 +212,38 @@ public final class CanonGrid {
         double bx = CanonPalette.borderX(seed, blockX, blockZ), bz = CanonPalette.borderZ(seed, blockX, blockZ);
         int x = Math.floorDiv((int) Math.floor(bx), 16) + originCol, z = Math.floorDiv((int) Math.floor(bz), 16) + originRow;
         return x < 0 || z < 0 || x >= w || z >= h ? 0 : owner[z * w + x];
+    }
+
+    /** Blocks inside the border of a nation with depth rings, at a (dithered) point; 0 at or beyond the border. */
+    public double depthBelowBorder(char owner, double x, double z) {
+        float[] depth = zoneDepth.get(owner);
+        if (depth == null) return 0;
+        return Math.max(0, sample(depth, x / 16.0 + originCol - 0.5, z / 16.0 + originRow - 0.5, false));
+    }
+
+    /**
+     * Ring of a nation's {@link CanonZones} for a block column: the index into its rings, or -1 when the nation has
+     * none. {@code patchHash} is {@link CanonPalette#patch} of the same column. Allocation-free.
+     */
+    public int zoneAt(char owner, int blockX, int blockZ, long seed, long patchHash) {
+        Region region = regions.get(owner);
+        CanonZones zones = region == null ? null : region.zones();
+        if (zones == null) return -1;
+        double x = CanonPalette.borderX(seed, blockX, blockZ), z = CanonPalette.borderZ(seed, blockX, blockZ);
+        return zones.ringFor(x, z, zones.usesDepth() ? depthBelowBorder(owner, x, z) : 0, patchHash);
+    }
+
+    /** Human-readable ring of a block column for the debug commands, or null when its nation has no zones. */
+    public String zoneInfo(char owner, int blockX, int blockZ, long seed) {
+        Region region = regions.get(owner);
+        CanonZones zones = region == null ? null : region.zones();
+        if (zones == null) return null;
+        long patch = CanonPalette.patch(seed, blockX, blockZ);
+        double x = CanonPalette.borderX(seed, blockX, blockZ), z = CanonPalette.borderZ(seed, blockX, blockZ);
+        double depth = zones.usesDepth() ? depthBelowBorder(owner, x, z) : 0;
+        int ring = zones.ringFor(x, z, depth, patch);
+        return String.format("ring '%s' (%d of %d): %.0f blocks from the centre, %.0f inside the border, patch shift %+.0f of +-%.0f",
+                zones.ring(ring).name(), ring + 1, zones.size(), Math.hypot(x - zones.centreX(), z - zones.centreZ()), depth, zones.jitter(patch), zones.fade());
     }
 
     /** Bilinear share of river/lake cells around a block column (1 in the middle of a lake). */
@@ -323,7 +383,11 @@ public final class CanonGrid {
                 w, h, originCol, originRow, landX0, landX1, landZ0, landZ1, ring, blend);
     }
 
-    /** Self-check: {@code java -cp build/classes/java/main com.yasuke.ttl.world.CanonGrid [canon_map.txt]}. */
+    /**
+     * Self-check: {@code java -cp build/classes/java/main com.yasuke.ttl.world.CanonGrid [canon_map.txt
+     * [canon_regions.json [arrival-x arrival-z]]]}. The JSON (needs Gson on the class path, like the build's) also
+     * checks Jura's real zones against the real map, and the Life 2 arrival point when it is given.
+     */
     public static void main(String[] args) throws IOException {
         Map<Character, Region> regions = new HashMap<>();
         regions.put('A', new Region("Alpha", -0.9, 0.8, null, 1.0,
@@ -372,7 +436,130 @@ public final class CanonGrid {
             System.out.printf("cells by band: deep ocean %d, ocean %d, coast %d, inland %d%n", counts[0], counts[1], counts[2], counts[3]);
             System.out.printf("at 0,0: '%c' continents %.3f%n", real.charAt(0, 0), real.continents(0, 0, 0));
         }
+        zoneChecks();
+        if (args.length > 1) {
+            int[] arrival = args.length > 3 ? new int[] {Integer.parseInt(args[2]), Integer.parseInt(args[3])} : null;
+            realZoneChecks(args[0], args[1], arrival);
+        }
         System.out.println("canon self-check passed");
+    }
+
+    /** Synthetic zoned nation Z: a 35x40-chunk block (x -320..+240, z +-320) with core radius 80, rim depth 90, fade 30. */
+    private static void zoneChecks() {
+        CanonPalette core = new CanonPalette(new String[] {"t:core"}, new int[] {1});
+        CanonPalette rim = new CanonPalette(new String[] {"t:rim"}, new int[] {1});
+        CanonPalette middle = new CanonPalette(new String[] {"t:middle"}, new int[] {1});
+        CanonZones zones = new CanonZones(0, 0, 30, "~", new CanonZones.Ring[] {
+                new CanonZones.Ring("core", 80, 0, core), new CanonZones.Ring("rim", 0, 90, rim), new CanonZones.Ring("middle", 0, 0, middle)});
+        Map<Character, Region> regions = new HashMap<>();
+        regions.put('Z', new Region("Zeta", null, null, null, 1.0, middle, false, null, null, null, zones));
+        regions.put('A', new Region("Alpha", null, null, null, 1.0, middle, false, null, null, null));
+        List<String> lines = new ArrayList<>();
+        lines.add("# origin 25 25");
+        for (int z = 0; z < 50; z++) {
+            StringBuilder row = new StringBuilder();
+            for (int x = 0; x < 50; x++) row.append(x >= 5 && x < 45 && z >= 5 && z < 45 ? (x >= 40 ? 'A' : 'Z') : '.');
+            lines.add(row.toString());
+        }
+        CanonGrid g = parse(lines, regions, 1600, 800);
+        check(g.zoneAt('A', 0, 0, 1, 1) == -1 && g.zoneAt('?', 0, 0, 1, 1) == -1, "no zones, no ring");
+        // Z spans x -320..+240 (A takes x >= 240), so its border is 240 blocks east of the centre at the A side too.
+        double centreDepth = g.depthBelowBorder('Z', 0, 0);
+        check(Math.abs(centreDepth - 240) < 1, "depth at the centre: " + centreDepth);
+        int[] fringe = new int[3];
+        for (long seed = 1; seed <= 300; seed++) {
+            for (int k = 0; k < 6; k++) {
+                int dz = -250 + 83 * k + (int) (seed % 7);
+                check(g.zoneAt('Z', 0, 0, seed, CanonPalette.patch(seed, 0, 0)) == 0, "the centre is core (seed " + seed + ")");
+                // r 150 > 80 + fade + dither, depth 170 - fade - dither > 90: middle for every patch.
+                check(g.zoneAt('Z', -150, 0, seed, CanonPalette.patch(seed, -150, 0)) == 2, "outside the core, deep: middle (seed " + seed + ")");
+                // depth 30 + fade + dither < 90: rim for every patch.
+                check(g.zoneAt('Z', -290, dz % 100, seed, CanonPalette.patch(seed, -290, dz % 100)) == 1, "at the border: rim (seed " + seed + ")");
+                fringe[g.zoneAt('Z', -230, dz % 100, seed, CanonPalette.patch(seed, -230, dz % 100))]++; // depth ~90: the fringe
+            }
+        }
+        check(fringe[1] > 300 && fringe[2] > 300 && fringe[0] == 0, "the rim edge is a ragged fringe, not a line: " + java.util.Arrays.toString(fringe));
+        long p = CanonPalette.patch(7, -150, 5);
+        check(g.zoneAt('Z', -150, 5, 7, p) == g.zoneAt('Z', -150, 5, 7, p), "deterministic");
+        String info = g.zoneInfo('Z', -290, 0, 7);
+        check(info != null && info.startsWith("ring 'rim' (2 of 3)") && g.zoneInfo('A', 0, 0, 7) == null, "debug text: " + info);
+        System.out.printf("zones: at depth ~90 the rim and the middle mix %s (core, rim, middle) over 1800 samples%n", java.util.Arrays.toString(fringe));
+        try {
+            new CanonZones(0, 0, 10, "~", new CanonZones.Ring[] {new CanonZones.Ring("a", 0, 0, rim), new CanonZones.Ring("b", 0, 0, rim)});
+            check(false, "a ring without a test in front of the last one must be rejected");
+        } catch (IllegalArgumentException expected) {
+            // fine
+        }
+    }
+
+    /** Jura's real rings on the real map: safe rim along the whole border, core at Tempest, arrival point safe. */
+    private static void realZoneChecks(String mapFile, String regionsFile, int[] arrival) throws IOException {
+        com.google.gson.JsonObject json = com.google.gson.JsonParser.parseString(Files.readString(Path.of(regionsFile), StandardCharsets.UTF_8)).getAsJsonObject();
+        List<String> warnings = new ArrayList<>();
+        Map<Character, Region> real = CanonConfig.regions(json, warnings::add);
+        check(warnings.isEmpty(), "canon_regions.json parses cleanly: " + warnings);
+        CanonGrid g = load(Path.of(mapFile), real, json.get("ring").getAsDouble(), json.get("blend").getAsDouble());
+        Region j = g.region('J');
+        check(j != null && j.zones() != null, "J has zones");
+        CanonZones zones = j.zones();
+        double rimDepth = zones.ring(1).depth(), coreRadius = zones.ring(0).radius(), fade = zones.fade();
+        double sure = rimDepth - fade - 2 * CanonPalette.BORDER_WARP - 2 * CanonPalette.BORDER_FINE; // depth that is rim for every patch
+        long seed = 99L;
+        check(g.ownerAt(0, 0, seed) == 'J', "Tempest is in J");
+        for (long s = 1; s <= 200; s++) check(g.zoneAt('J', 0, 0, s, CanonPalette.patch(s, 0, 0)) == 0, "Tempest is core (seed " + s + ")");
+
+        int dirs = 72, measured = 0;
+        double[] rimThickness = new double[dirs], middleThickness = new double[dirs];
+        for (int k = 0; k < dirs; k++) {
+            double a = 2 * Math.PI * k / dirs, dx = Math.cos(a), dz = Math.sin(a);
+            double rimStart = -1, edge = -1;
+            for (double r = 0; r < 6000; r += 8) {
+                double x = r * dx, z = r * dz;
+                char c = g.charAt((int) Math.floor(x), (int) Math.floor(z));
+                if (c != 'J' && c != '~' && c != 'W') {
+                    edge = r;
+                    break;
+                }
+                if (rimStart < 0 && g.depthBelowBorder('J', x, z) < rimDepth) rimStart = r;
+            }
+            if (edge < 0 || rimStart < 0) continue; // the ray meets no border within 6000 blocks
+            rimThickness[measured] = edge - rimStart;
+            middleThickness[measured] = rimStart - coreRadius;
+            measured++;
+        }
+        double[] rt = java.util.Arrays.copyOf(rimThickness, measured), mt = java.util.Arrays.copyOf(middleThickness, measured);
+        java.util.Arrays.sort(rt);
+        java.util.Arrays.sort(mt);
+        System.out.printf("jura rings (%d rays from Tempest, nominal): rim along the ray min %.0f median %.0f p90 %.0f; dark middle min %.0f median %.0f max %.0f blocks%n",
+                measured, rt[0], rt[measured / 2], rt[measured * 9 / 10], mt[0], mt[measured / 2], mt[measured - 1]);
+        check(rt[0] >= rimDepth - 16, "the rim is at least its depth wide along every ray: " + rt[0]);
+        check(mt[0] >= 100, "a dark middle of at least 100 blocks on every side: " + mt[0]);
+
+        int checked = 0;
+        for (int z = -3000; z < 3000; z += 53) {
+            for (int x = -3000; x < 3000; x += 59) {
+                if (g.ownerCell(x, z) != 'J' || Math.hypot(x, z) <= coreRadius + fade + 60 || g.depthBelowBorder('J', x, z) > sure) continue;
+                for (long s = 1; s <= 20; s++) check(g.zoneAt('J', x, z, s, CanonPalette.patch(s, x, z)) == 1, "the outer band is rim at " + x + "," + z);
+                checked++;
+            }
+        }
+        check(checked > 500, "enough border columns sampled: " + checked);
+        System.out.println("jura: " + checked + " sampled columns within " + (int) sure + " blocks of the border are rim for every patch");
+
+        if (arrival != null) {
+            int x = arrival[0], z = arrival[1];
+            check(g.ownerCell(x, z) == 'J', "arrival is in Jura");
+            for (int dz = -128; dz <= 128; dz += 16)
+                for (int dx = -128; dx <= 128; dx += 16)
+                    check("~.W".indexOf(g.charAt(x + dx, z + dz)) < 0, "no water within 128 blocks of the arrival: '" + g.charAt(x + dx, z + dz) + "' at " + (x + dx) + "," + (z + dz));
+            double depth = g.depthBelowBorder('J', x, z);
+            check(depth + 68 <= sure, "the arrival and 48 blocks around it are inside the guaranteed rim band: depth " + depth + " (limit " + (sure - 68) + ")");
+            for (long s = 1; s <= 500; s++)
+                for (int dz = -48; dz <= 48; dz += 16)
+                    for (int dx = -48; dx <= 48; dx += 16)
+                        check(g.zoneAt('J', x + dx, z + dz, s, CanonPalette.patch(s, x + dx, z + dz)) == 1, "rim around the arrival (seed " + s + ")");
+            System.out.printf("arrival %d,%d: Jura, %.0f blocks inside the border, %.0f from Tempest, rim for 500 seeds within 48 blocks%n", x, z, depth, Math.hypot(x, z));
+        }
     }
 
     /** Palette layout: owner lookup, dithered borders, weights, patch size, determinism. */

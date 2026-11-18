@@ -127,6 +127,17 @@ Not verified without the server: the `render-mask` box keys and marker `min-dist
 `world: "world-ttl"` plus the dimension ids `minecraft:overworld` and `ttl:mortal_realm` resolve on NeoForge, and
 that custom-block textures of Tensura render. Look at `tools/server.sh logs | grep -i bluemap` after the first start.
 
+## Life 2 arrival and the Jura rings
+
+**Life 2 arrival and the Jura rings** (`design/data/arrival.toml`, `life/arrival.js`, J `zones` in
+`canon_regions.json`): Jura's biomes form rings (safe rim along the border, dark-forest middle, ancient-forest core
+around Tempest) because Tensura gives dark_forest +1,500 and ancient_forest +19,500 area magicule. Souls are reborn
+on the rim, on the road to the Dwargon gate; that point is also the world spawn (and so the respawn point of a Life 2
+soul). The log says `[ttl] arrival grounded at X Y Z` about 20 s after the first start with it. Ops: `/ttl arrival`
+(where it is), `/ttlmap <x> <z>` and `/ttlregion <player>` (name the ring and the patch shift). Only chunks that are
+not generated yet follow the rings; after changing them on a live world use a world reset of the overworld.
+Magicule poison is refused for everyone who is not in Life 2 (`life/mortal_immunity.js`).
+
 ## Backups and restore
 
 The world volume (`mc-data`, Longhorn) is in Longhorn's `default` recurring-job group: a snapshot every night

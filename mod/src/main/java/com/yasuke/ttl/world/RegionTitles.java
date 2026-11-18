@@ -14,6 +14,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -28,7 +29,8 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
  * Anime-style arrival banners in the Tensura world (minecraft:overworld): entering a nation of the canon map
  * shows its name (gold) and {@code banner_subtitle} (gray) from canon_regions.json with a soft chime; leaving the
  * land shows "The Open Sea", passing the ring "Uncharted Lands". Checked once a second per player; a new region
- * must hold for {@link #CONFIRM} checks so walking along a border doesn't spam. {@code /ttlregion <player>} reports.
+ * must hold for {@link #CONFIRM} checks so walking along a border doesn't spam. {@code /ttlregion <player>} reports, including
+ * the distance ring (zone) of a nation that has them.
  */
 @EventBusSubscriber(modid = TtlPortals.MOD_ID)
 public final class RegionTitles {
@@ -149,6 +151,9 @@ public final class RegionTitles {
             char key = regionAt(grid, player.getBlockX(), player.getBlockZ());
             out.append(key == '~' ? "river/lake (keeps the previous banner)" : title(grid, key) + " / " + subtitle(grid, key))
                     .append(", cell '").append(grid.charAt(player.getBlockX(), player.getBlockZ())).append('\'');
+            long seed = ((ServerLevel) player.level()).getSeed();
+            String ring = grid.zoneInfo(grid.ownerAt(player.getBlockX(), player.getBlockZ(), seed), player.getBlockX(), player.getBlockZ(), seed);
+            if (ring != null) out.append(", zone ").append(ring);
             Tracker tracker = TRACKERS.get(player.getUUID());
             if (tracker != null) {
                 out.append(", banner shown: ").append(tracker.shown == NONE ? "none yet" : title(grid, tracker.shown));

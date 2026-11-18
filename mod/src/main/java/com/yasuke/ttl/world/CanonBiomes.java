@@ -49,7 +49,8 @@ import org.slf4j.Logger;
  * water, shores, rivers, mushroom fields and cave biomes, and for peaks/slopes unless the nation sets
  * {@code replace_peaks}; ocean picked inside a canon lake ('~') becomes river. Any other land inside a nation
  * (letter at the dithered block, nearest nation for '~' and coastal water) takes a palette biome, laid out in
- * patches of roughly 200-500 blocks by {@link CanonPalette#patch}. Everywhere else (the open sea, the free lands
+ * patches of roughly 200-500 blocks by {@link CanonPalette#patch}; a nation with {@link CanonZones} takes the palette of
+ * its distance ring (Jura: a safe rim, a dark-forest middle, an ancient-forest core) instead. Everywhere else (the open sea, the free lands
  * beyond the ring, nations without a palette) it behaves like the normal overworld: TerraBlender's positional
  * lookup when TerraBlender is installed, vanilla otherwise. Missing or broken data means exactly that everywhere.
  *
@@ -148,8 +149,20 @@ public final class CanonBiomes extends BiomeSource {
         }
         CanonPalette pick = peaks && palette.peaks != null ? palette.peaks : palette.land;
         Holder<Biome>[] holders = peaks && palette.peaks != null ? palette.peakHolders : palette.landHolders;
-        Holder<Biome> chosen = holders[pick.pickAt(seed, owner, peaks, bx, bz)];
-        if (why != null) why.append("palette of ").append(palette.name).append(peaks ? " (peaks)" : "").append(", vanilla would be ")
+        long patch = CanonPalette.patch(seed, bx, bz);
+        String ring = null;
+        if (palette.rings != null && !(peaks && palette.peaks != null)) {
+            // Distance rings (zones): the ring's own palette, laid out in the same patches as everywhere else.
+            int index = grid.zoneAt(owner, bx, bz, seed, patch);
+            if (index >= 0 && palette.rings[index] != null) {
+                pick = palette.rings[index];
+                holders = palette.ringHolders[index];
+            }
+            if (why != null) ring = grid.zoneInfo(owner, bx, bz, seed);
+        }
+        Holder<Biome> chosen = holders[pick.pickPatch(owner, peaks, patch)];
+        if (why != null) why.append("palette of ").append(palette.name).append(peaks ? " (peaks)" : "")
+                .append(ring == null ? "" : ", " + ring).append(", vanilla would be ")
                 .append(vanilla.unwrapKey().map(k -> k.location().toString()).orElse("?"));
         return chosen;
     }
@@ -173,8 +186,10 @@ public final class CanonBiomes extends BiomeSource {
 
     // ---- palette data, resolved once per biome source ----
 
+    /** {@code rings}/{@code ringHolders} follow the nation's {@link CanonZones} (null = none); an entry is null when none of its biomes exist, then {@code land} is used. */
     private record RegionPalette(String name, CanonPalette land, Holder<Biome>[] landHolders, boolean replacePeaks,
-                                 @Nullable CanonPalette peaks, @Nullable Holder<Biome>[] peakHolders) {}
+                                 @Nullable CanonPalette peaks, @Nullable Holder<Biome>[] peakHolders,
+                                 @Nullable CanonPalette[] rings, @Nullable Holder<Biome>[][] ringHolders) {}
 
     private static final class Resolved {
         @Nullable final CanonGrid grid;
@@ -229,8 +244,19 @@ public final class CanonBiomes extends BiomeSource {
                 if (land == null) continue;
                 CanonPalette peaks = region.peaks() == null ? null : known(region.peaks(), unknown);
                 Holder<Biome>[] landHolders = holders(land, r), peakHolders = peaks == null ? null : holders(peaks, r);
-                r.regions[c] = new RegionPalette(region.name(), land, landHolders, region.replacePeaks(), peaks, peakHolders);
-                nations.add(c + "=" + land.size() + (region.replacePeaks() ? "+peaks" : ""));
+                CanonZones zones = region.zones();
+                CanonPalette[] rings = null;
+                Holder<Biome>[][] ringHolders = null;
+                if (zones != null) {
+                    rings = new CanonPalette[zones.size()];
+                    ringHolders = newHolderGrid(zones.size());
+                    for (int i = 0; i < rings.length; i++) {
+                        rings[i] = known(zones.ring(i).biomes(), unknown);
+                        if (rings[i] != null) ringHolders[i] = holders(rings[i], r);
+                    }
+                }
+                r.regions[c] = new RegionPalette(region.name(), land, landHolders, region.replacePeaks(), peaks, peakHolders, rings, ringHolders);
+                nations.add(c + "=" + land.size() + (region.replacePeaks() ? "+peaks" : "") + (zones == null ? "" : "+" + zones.size() + "rings"));
             }
             if (!unknown.isEmpty()) LOGGER.warn("[ttl] canon biomes: unknown biome ids skipped: {}", unknown);
             LOGGER.info("[ttl] canon biomes: palettes for {} nations {}", nations.size(), nations);
@@ -253,6 +279,11 @@ public final class CanonBiomes extends BiomeSource {
     private Optional<? extends Holder<Biome>> lookup(String id) {
         ResourceLocation location = ResourceLocation.tryParse(id);
         return location == null ? Optional.empty() : biomes.get(ResourceKey.create(Registries.BIOME, location));
+    }
+
+    @SuppressWarnings("unchecked")
+    private static Holder<Biome>[][] newHolderGrid(int rings) {
+        return new Holder[rings][];
     }
 
     @SuppressWarnings("unchecked")
