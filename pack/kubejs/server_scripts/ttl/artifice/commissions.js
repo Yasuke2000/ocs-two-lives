@@ -242,7 +242,7 @@ const TtlCommission = {
       }
     })
     if (rw.schematic) {
-      server.runCommandSilent(`give ${player.username} ${rw.schematic}`)
+      TtlCmd.run(server, `give ${player.username} ${rw.schematic}`)
       player.tell(Text.gold(`Workshop: the client adds a schematic to your pay: ${this.pretty(rw.schematic)}.`))
     }
     var tierPts = ((TtlArtifice.conf().points || {}).commission || [])[Number(c.tier) - 1]

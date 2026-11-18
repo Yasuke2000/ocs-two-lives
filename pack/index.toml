@@ -2490,15 +2490,15 @@ hash = "5170c5a133dad2588b266a79a68860a842f240728afc8d6207c1e350b86e72e3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/artifice/artifice.js"
-hash = "226219eb72379214e119fbd62a4252580677e98911b7f0d1c5e23ad1e8b36704"
+hash = "7fbd9667aeacc5bdda0d845f104723594a0fd61f0e2b852f922707a23174a974"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/artifice/commands.js"
-hash = "fe21c470fa13dd4048c488667baf7657d30fede795a48d434789b963d9453e2c"
+hash = "6b1c5c7fe296bdc1a6cba4aa3351318c7fc21ed897e6aac226dc04abd79dfa6f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/artifice/commissions.js"
-hash = "3d53f364be1c5a0dbf202ae22e782c656755823e089f23c9be0eabffdd04d7c4"
+hash = "e3519295bc3d24ec6bd3c66d4df7e64c7a5566093c2b7895dc030f2661e168c0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/artifice/recipes.js"
@@ -2506,7 +2506,7 @@ hash = "eeda9829a5b2dc96867b716576a49a8543df1a567cb5386e16d7c0aea6fd993a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/artifice/workshop.js"
-hash = "f675dee6c3c4e472e70982ed581bc191d07a2964d6b3e074c8bc00f45447d7a6"
+hash = "5f00ee97c9f6aa9d7f76c42102e9405923f91c3d7d62d6d1b9b849e510f18134"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/boot.js"
@@ -2806,11 +2806,11 @@ hash = "0192aae603f13b742dfbbada8e326200919b256bf0a1e57f897d174a22a5e98e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/necro/legion.js"
-hash = "8cf48e4e1760dc3fef6fbe55e92c5649d77bd0de79ad25a7deea9d9618a3e059"
+hash = "c57198f6933c2a9c47b4b2210fc5e106a863d4f0f094469cd6bf1cf7eaa73e75"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/necro/legion_commands.js"
-hash = "a665e1560bedef6c7307fac5ddb3249316a490d1b95965bb15646a2eac2216a9"
+hash = "ca7ddc70889e042bff2d3c55ee38ec87c15ca2cd7d16ba5fc9379288eb102807"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/necro/necro.js"

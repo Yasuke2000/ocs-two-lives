@@ -99,6 +99,8 @@ ttl sidequest expect TtlBotSideA count 0
 # Ambient adventurers: Tempest's green fills one adventurer per check while a player stands there, never past its cap (3).
 ttl adventurers clear tempest_green
 ttl sidequest goto TtlBotSideA tempest_green
+# A test bot does not always keep the chunks around it loaded (populate answered "unloaded" on the ttl-ops runs).
+execute at TtlBotSideA run forceload add ~ ~
 @sleep 3
 ttl adventurers expect tempest_green count 0
 ttl adventurers populate tempest_green
@@ -111,5 +113,6 @@ ttl adventurers sweep
 ttl adventurers expect tempest_green count 3
 ttl adventurers clear tempest_green
 ttl adventurers expect tempest_green count 0
+execute at TtlBotSideA run forceload remove ~ ~
 ttl sidequest reset TtlBotSideA
 ttlbot remove TtlBotSideA

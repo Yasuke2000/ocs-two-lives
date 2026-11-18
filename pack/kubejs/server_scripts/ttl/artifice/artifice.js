@@ -356,7 +356,7 @@ const TtlArtifice = {
     if (bench) s.workshop = { x: bench.x, y: bench.y, z: bench.z, dim: TtlLife.dimensionOf(player) }
     this.write(player, s)
     var item = String((this.conf().charter || {}).item || 'ttl:artificer_charter')
-    server.runCommandSilent(`give ${player.username} ${item}`)
+    TtlCmd.run(server, `give ${player.username} ${item}`)
     this.promoted(server, player, 1)
     this.refresh(server, player, s)
     this.chronicle(server, 'artifice_charter', player, {})
@@ -565,7 +565,8 @@ const TtlArtifice = {
         if (TtlLife.phase(p) !== 'life2') return
         var uid = TtlLife.uuid(p)
         var menu = p.containerMenu
-        var cls = menu ? String(menu.getClass().getName()) : ''
+        // Rhino refuses getClass(); a menu without its own toString prints as <class name>@<hash>.
+        var cls = menu ? String(menu).split('@')[0] : ''
         var kind = self.BENCH_MENU.test(cls) ? 'bench' : self.KILN_MENU.test(cls) ? 'kiln' : ''
         var m = self.mem[uid]
         if (m && (!kind || m.cid !== Number(menu.containerId))) {

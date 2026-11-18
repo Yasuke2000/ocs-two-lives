@@ -61,7 +61,7 @@ const TtlWorkshop = {
 
   take(server, player, table) {
     Object.keys(table || {}).forEach(id => {
-      server.runCommandSilent(`clear ${player.username} ${id} ${Number(table[id])}`)
+      TtlCmd.run(server, `clear ${player.username} ${id} ${Number(table[id])}`)
     })
   },
 
@@ -156,7 +156,7 @@ const TtlWorkshop = {
     var r = this.recipe(id)
     this.take(server, player, r.inputs)
     if (r.coins) TtlEcon.charge(server, player, r.coins, `workshop:${r.id}`)
-    server.runCommandSilent(`give ${player.username} ${r.output} ${Number(r.count)}`)
+    TtlCmd.run(server, `give ${player.username} ${r.output} ${Number(r.count)}`)
     if (r.road) {
       var parts = String(r.road).split('.')
       var road = parts.pop()
@@ -191,7 +191,7 @@ const TtlWorkshop = {
     var hand = player.getMainHandItem()
     if (!TtlArtifice.setTag(hand, TtlArtifice.CURSED, TtlLife.uuid(player))) throw 'the curse did not take (item components unavailable)'
     TtlArtifice.addLore(hand, String(conf.lore || 'Cursed'), 'red')
-    server.runCommandSilent(`clear ${player.username} ${conf.item || 'ttl:cursed_whetstone'} 1`)
+    TtlCmd.run(server, `clear ${player.username} ${conf.item || 'ttl:cursed_whetstone'} 1`)
     var res = TtlRoads.pay(server, player, { id: 'artifice.engrave', road: 'dark', reason: 'cursed whetstone' })
     console.info(`[ttl] artifice: ${player.username} cursed ${hand.id} (roads ok=${res.ok})`)
     player.tell(Text.red('The whetstone screams on the edge. The blade drinks the ash and wants more.'))
@@ -221,7 +221,7 @@ const TtlWorkshop = {
     var sch = this.conf().schematics || {}
     if (!TtlEcon.charge(server, player, sch.buy_price, 'schematic')) throw `needs ${TtlEcon.text(sch.buy_price)}`
     var id = this.randomSchematic()
-    server.runCommandSilent(`give ${player.username} ${id}`)
+    TtlCmd.run(server, `give ${player.username} ${id}`)
     TtlRoads.pay(server, player, { id: 'artifice.schematic', road: 'good', reason: 'bought a schematic' })
     console.info(`[ttl] artifice: ${player.username} bought ${id}`)
     player.tell(Text.green(`Workshop: the smithy sells you a ${TtlCommission.pretty(id)}. Read it to learn it.`))
@@ -299,7 +299,7 @@ const TtlWorkshop = {
     s.stole = Date.now()
     TtlArtifice.write(player, s)
     var id = this.randomSchematic()
-    server.runCommandSilent(`give ${player.username} ${id}`)
+    TtlCmd.run(server, `give ${player.username} ${id}`)
     var res = TtlRoads.pay(server, player, { id: 'artifice.schematic', road: 'dark', reason: 'stole a schematic' })
     console.info(`[ttl] artifice: ${player.username} stole ${id} from the Dwargon smithy (roads ok=${res.ok})`)
     player.tell(Text.red(`You slip away with a ${TtlCommission.pretty(id)}. Dwargon will not forget it.`))

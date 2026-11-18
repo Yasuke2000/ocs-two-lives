@@ -163,7 +163,6 @@ ttl necro expect TtlBotRankC rank4req no
 ttl necro test TtlBotRankA reset
 ttl necro test TtlBotRankB reset
 ttl necro test TtlBotRankC reset
-ttl necro expect TtlBotRankA rank 0
 ttl necro legion test TtlBotRankA reset
 ttl roads test TtlBotRankA reset
 ttl roads test TtlBotRankB reset
@@ -175,6 +174,9 @@ execute in minecraft:overworld run forceload remove 4590 4590 4620 4610
 ttl reset TtlBotRankA
 ttl reset TtlBotRankB
 ttl reset TtlBotRankC
+# After `ttl reset` (human again): A's wight race no longer makes it a necromancer, so its rank reads 0.
+ttl necro test TtlBotRankA reset
+ttl necro expect TtlBotRankA rank 0
 ttlbot remove TtlBotRankA
 ttlbot remove TtlBotRankB
 ttlbot remove TtlBotRankC

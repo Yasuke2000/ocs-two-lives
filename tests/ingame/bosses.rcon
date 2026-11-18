@@ -244,6 +244,8 @@ ttl boss expect TtlBotInsC queued gazel_dwargo no
 ttl boss expect TtlBotInsC ready gazel_dwargo yes
 ttl boss expect TtlBotInsA busy gazel_dwargo yes
 ttl boss expect TtlBotInsC busy gazel_dwargo no
+# C fights it at the throne room: a boss with no player in range is lost after a moment ("lost without a fight").
+execute in minecraft:overworld positioned 435 0 -1106 positioned over motion_blocking_no_leaves run tp TtlBotInsC ~ ~ ~
 ttl story fight gazel_dwargo TtlBotInsC
 @sleep 4
 ttl boss expect TtlBotInsC active gazel_dwargo yes

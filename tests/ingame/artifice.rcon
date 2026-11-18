@@ -68,7 +68,9 @@ ttl rep expect TtlBotArtA tempest value 2
 ttl artifice expect TtlBotArtA try_take_patrol_blades already done today
 # made_by: an item the soul did not make does not count until it carries its stamp.
 ttl artifice commission test TtlBotArtA garm_plate
-give TtlBotArtA tensura:low_magisteel_chestplate
+# Into the main hand (the stamp and the chisel act on it): `give` lands in the first free slot, which after the patrol
+# blades' turn-in is not the selected one.
+item replace entity TtlBotArtA weapon.mainhand with tensura:low_magisteel_chestplate
 ttl artifice expect TtlBotArtA ready_garm_plate no
 ttl artifice expect TtlBotArtA made_by none
 ttl artifice test TtlBotArtA stamp
@@ -98,9 +100,11 @@ ttl roads expect TtlBotArtA count_artifice.engrave.grey 1
 execute as TtlBotArtA run ttl artifice commission turnin
 ttl artifice expect TtlBotArtA done_garm_plate yes
 ttl artifice expect TtlBotArtA points 47
+# The turn-in's coins may land in the emptied main-hand slot: empty it for the next check.
+item replace entity TtlBotArtA weapon.mainhand with minecraft:air
 ttl artifice expect TtlBotArtA try_engrave_tensura.swift hold the item to engrave in your main hand
 # 5. The dark road: a Cursed Whetstone made at the Bone Altar curses any blade at once and pays the five costs.
-give TtlBotArtA tensura:low_magisteel_sword
+item replace entity TtlBotArtA weapon.mainhand with tensura:low_magisteel_sword
 give TtlBotArtA ttl:soul_ash
 give TtlBotArtA irons_spellbooks:arcane_essence
 ttl artifice expect TtlBotArtA try_make_cursed_whetstone ok
@@ -116,6 +120,8 @@ ttl rep expect TtlBotArtA holy_church value -3
 ttl artifice expect TtlBotArtA try_curse needs a Cursed Whetstone
 # 6. Stolen schematics: only in the Dwargon smithy at night (test hook `anywhere`: no place/night rule, 2 s channel).
 ttl artifice expect TtlBotArtA try_steal only inside the Dwargon smithy
+# From a neutral 0 (the garm plate paid Dwargon +2 above).
+ttl rep set TtlBotArtA dwargon 0
 ttl artifice test TtlBotArtA anywhere
 ttl artifice expect TtlBotArtA try_steal ok
 execute as TtlBotArtA run ttl artifice steal

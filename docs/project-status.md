@@ -2,29 +2,29 @@
 
 Living page for contributors: how we work, what we measure, the feel we aim for, and what is actually built.
 **Update it whenever something lands on `main`** (agents: as part of every merge). Owner: **Yasuke**.
-Last update: 18/11/2026.
+Last update: 18/11/2026 (evening, after merging PRs #19–#33).
 
 ## Where we are
 
-**Phase: end of Sprint 3–4, before launch.** All core systems are built and on `main`; staging has been green on the
-full in-game suite (47/47 on 18/11 at commit `061a1a2`; the suite has grown since). Next: the World State waves
-(`design/architecture/world-state.md`), then a **playtest with ~5 real players** (Life 1 → Life 2 end to end).
+**Phase: before launch.** All core systems plus World State wave A (W1–W3), side content and the first player paths
+(Necromancer, Artificer, moral choices) are on `main`. Staging: see the In-game row below. Next: the remaining World
+State waves (`design/architecture/world-state.md`), then a **playtest with ~5 real players** (Life 1 → Life 2 end to end).
 Launch only after the playtests, after the "Before launch" checklist in `docs/server.md`.
 
 ## Metrics (source: `origin/main`, 18/11/2026)
 
 | Metric | Value | How to measure |
 | --- | --- | --- |
-| In-game bot tests | 50 test files (47/47 green on the last full run) | `bash tools/server.sh test-all` |
-| Offline unit tests | 92 green | `python -m unittest discover -s tests` |
+| In-game bot tests | 67 test files (__INGAME__) | `bash tools/server.sh test-all` |
+| Offline unit tests | 148 green | `python -m unittest discover -s tests` |
 | Validation | must say "validation passed" | `python tools/validate.py` |
-| Builds verified 1:1 in the world | 20 builds + 7 Tensura landmarks, all ≥ 99.9 % | `python tools/verify_build.py <name> --log` |
-| Quests | 304 in 21 chapters, one connected web | `python tools/quest_graph.py --check` |
+| Builds verified 1:1 in the world | 20 builds + 7 Tensura landmarks, all ≥ 99.9 % (37 build manifests; the 11 new canon landmarks, Walpurgis Hall and 6 Mortal Realm waypoints still to verify) | `python tools/verify_build.py <name> --log` |
+| Quests | 398 in 28 chapters, one connected web | `python tools/quest_graph.py --check` |
 | Canon cast | 38 NPC spots, 28 original skins | `design/data/npcs.toml`, `/ttl cast verify all` |
 | Mods | 77 | `pack/mods/*.pw.toml` |
-| KubeJS server scripts | 80 | `pack/kubejs/server_scripts/ttl/` |
-| Data files (TOML → generated JS) | 16 | `design/data/*.toml` → `tools/gen_data.py` |
-| Logged decisions | 154 | `design/decisions.md` |
+| KubeJS server scripts | 104 | `pack/kubejs/server_scripts/ttl/` |
+| Data files (TOML → generated JS) | 25 | `design/data/*.toml` → `tools/gen_data.py` |
+| Logged decisions | 222 | `design/decisions.md` |
 
 ## Vibes (design pillars)
 
@@ -82,14 +82,20 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - Generic build placer (`design/builds/*.toml`): surveys the canon spot, fits terrain, re-places on version bump.
 
 **Story, quests, characters**
-- The Oath (light or dark, party-level), 7 acts, one path flip per life; story chapters 7–10 with equal light and
-  dark lanes (Crossroads, The King's Test, the Orc War, Charybdis); 304 quests total in one connected web.
+- The Oath (light or dark, party-level), 7 acts, one path flip per life; story chapters 7–13 with equal light and
+  dark lanes (Crossroads, The King's Test, the Orc War, Charybdis, Mask and Blade, Walpurgis, the Harvest Festival);
+  side chapters 20–23 (47 side jobs: escort, delivery, travel, fetch, cull); 398 quests total in one connected web.
+- Side content: ambient adventurers in the towns, hireable Easy NPC companions.
+- Player paths (`/ttl paths`): the two roads (slow good, fast dark, Life 2 karma ledger), the Necromancer (Bone Altar,
+  legion, Death Knights, player-built tombs, four ranks, the Church's Sense and the exorcist licence), the Artificer
+  (Workshop Bench, charter, maker's stamp, commissions, four ranks), moral-choice scenes (4 events).
 - Canon cast: mod entities as statues where they exist (Gazel, Shizu, Hinata, Folgen, Luminous, Carrion…), Easy
   NPCs with original skins for the rest (Benimaru, Shuna, Shion, Kaijin, Milim, Fuze…), story talk on right-click.
 
 **Bosses and combat**
-- Boss framework: 20+ canon bosses with fixed lairs, gates and rare wild sightings; Shizu and Rimuru at Tempest.
-- Arenas (PR #19): the Walpurgis Hall in its own dimension (10 thrones) and Ramiris's Labyrinth (Tensura's own hall).
+- Boss framework: 20+ canon bosses with fixed lairs, gates and rare wild sightings; per-party cooldowns, an arena
+  queue, echoes of fallen bosses, wild and story fights apart (WP-W2).
+- Arenas: the Walpurgis Hall in its own dimension (10 thrones, the council NPCs) and Ramiris's Labyrinth.
 - Legendary absorption: duel, war, bequest, awakening; duel damage liability in public places.
 
 **Social and economy**
@@ -99,21 +105,26 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
   (receptionists F–C, Fuze B–S).
 
 **Ops and community**
-- ttl-ops CD + tests, Discord bot (account linking, roles, Hall of Souls, leaderboard, `#patch-notes`), BlueMap
-  (public map; DNS + tunnel route pending), world events director + World's Favor.
+- ttl-ops CD + tests, Discord bot (account linking, roles incl. nation roles, Hall of Souls, leaderboard,
+  `#patch-notes`, `#roadmap`, `#suggestions`, staff command audit), BlueMap (public map; DNS + tunnel route pending),
+  world events director (World's Favor, Magicule Storm, Blood Moon, Calamity Rising).
+- World Chronicle (WP-W1: the world's counts, milestones, balance and tide), the continent line (outside it the mods
+  run as shipped), protected canon domains with respawning residents and the Eurazania faction (WP-W3).
+- 11 canon landmarks (Elmine … Raja); Tempest growth rings and 6 Mortal Realm waypoints drawn (not placed yet).
 
 ## In progress
 
-- World State wave A (`design/architecture/world-state.md`): World Chronicle + continent boundary (WP-W1), boss
-  instancing with per-party cooldowns and queues (WP-W2). Then W3 (protected canon domains, respawning NPCs),
-  W4 (PvP only in quests, arenas and wars), and waves B–D (Tempest growth, catch-up, raid groups, radiant quests,
-  the immersive Orc Lord, usurping/vassalising canon nations).
-- Open PRs: #18 (ChatGPT: canon landmarks, world events, Discord nation roles), #19 (arenas) — being reviewed/merged.
-- ChatGPT tasks: story chapters 11–13, Dutch localisation, player wiki.
+- World State: W4 (PvP only in quests, arenas and wars) and waves B–D (Tempest growth phases, catch-up, raid groups,
+  radiant quests, the immersive Orc Lord, usurping/vassalising canon nations).
+- Paths: Artificer constructs (WP-A2), moral choices 4.5–4.12 (WP-C2), Priest/Exorcist next.
+- Not yet verified in game: the 11 canon landmarks with `verify_build.py`, Walpurgis Hall, the Mortal Realm
+  waypoints (`test mortal_waypoints`), real-player Discord role and staff-audit behaviour.
 
 ## Open decisions and known issues
 
 - BlueMap public URL needs a Cloudflare DNS record + tunnel route (Yasuke).
+- Owner question: does `tensura:boss_area` count as inside the continent? Today (W1 default) it does not, so the
+  mod's bosses spawn there as shipped.
 - Untested with real players: skins rendering, duels/wars between players, shops and wallets, the Labyrinth hall.
 - Before launch: run the reset checklist in `docs/server.md` (era, test registry holders, test story/party/nation records).
 

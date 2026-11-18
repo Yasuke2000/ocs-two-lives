@@ -342,7 +342,7 @@ ServerEvents.commandRegistry(event => {
     var p = target(ctx)
     var srv = server(ctx)
     var id = rl(ctx, 'item')
-    srv.runCommandSilent(`give ${p.username} ${id}`)
+    TtlCmd.run(srv, `give ${p.username} ${id}`)
     TtlArtifice.made(srv, p, id, 1, kind)
     say(ctx, `artifice ${p.username}: ${kind} made ${id}`)
     return 1

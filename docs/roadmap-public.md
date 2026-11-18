@@ -16,68 +16,58 @@ Rules for this file:
 - `{#name}` becomes a clickable channel mention. Refer to the owner as Yasuke. "Live" lists only what a player can
   try on the server today, with how to try it.
 
-Last update: 18/11/2026.
+Last update: 18/11/2026 (evening).
 
 ---
 
 ## 🟢 Live: test this / Live: test dit
-**EN** On the test server now. Try it and tell us in {#suggestions} or with `/bug <text>` in game.
-- **Life 1**: one hardcore human life in the Mortal Realm, no Tensura. Start at Wayfarer's Rest; `/ttl life` shows your karma.
-- **Death and rebirth**: the Spirit Corridor (Last Wish, Trial, Great Sage). Lost a choice? `/ttl menu`
-- **Life 2**: the canon continent: Tempest, Dwargon, Blumund and more. You arrive on Jura's rim; the forest core is deadly for weak souls.
-- **Quests**: 304 quests in one connected book.
-- **Story**: `/ttl story oath` (light or dark, for your party), chapters up to Charybdis.
-- **Parties and nations**: an FTB party (max 5), then `/ttl nation found <name>`.
-- **Economy**: coins, player shops, guild jobs with `/ttl guild board`.
-- **Bosses**: 20+ canon bosses in their lairs, sometimes in the wild.
-- **Arenas (new)**: `/ttl arena list`, then `/ttl arena join <arena>`.
-**NL** Nu op de testserver. Probeer het en zeg het ons in {#suggestions} of met `/bug <tekst>` in het spel.
-- **Life 1**: één hardcore mensenleven in het Mortal Realm, zonder Tensura. Start in Wayfarer's Rest; `/ttl life` toont je karma.
-- **Dood en wedergeboorte**: de Spirit Corridor (Last Wish, Trial, Great Sage). Keuze kwijt? `/ttl menu`
-- **Life 2**: het canon continent: Tempest, Dwargon, Blumund en meer. Je komt aan op de rand van Jura; het hart van het woud is dodelijk voor zwakke zielen.
-- **Quests**: 304 quests in één verbonden boek.
-- **Verhaal**: `/ttl story oath` (licht of donker, voor je party), hoofdstukken tot Charybdis.
-- **Party's en naties**: een FTB-party (max 5), dan `/ttl nation found <naam>`.
-- **Economie**: munten, spelerswinkels, gildeklussen met `/ttl guild board`.
-- **Bosses**: 20+ canon bosses in hun schuilplaats, soms in het wild.
-- **Arena's (nieuw)**: `/ttl arena list`, dan `/ttl arena join <arena>`.
+**EN** On the test server now. Tell us in {#suggestions} or with `/bug <text>` in game.
+- **Two lives**: a hardcore human Life 1 (`/ttl life`), then the Spirit Corridor (`/ttl menu`).
+- **Life 2**: the canon continent, 11 new landmarks; Tempest and Dwargon are protected.
+- **Story**: `/ttl story oath`, acts I to VII (Walpurgis, the Harvest Festival). 398 quests in one book.
+- **Side jobs and companions (new)**: `/ttl sidequest offers` in a town, `/ttl companion hire`.
+- **Paths (new)**: `/ttl paths`: the Necromancer (Bone Altar, `/ttl necro status`) and the Artificer (`/ttl artifice`).
+- **Hard choices (new)** in the wilds: `/ttl choice`.
+- **Bosses**: your party gets its own fight and cooldown, with a queue. Arenas: `/ttl arena list`.
+- **World**: it changes as souls move on (`/ttl world where`); storms, Blood Moons.
+**NL** Nu op de testserver. Zeg het ons in {#suggestions} of met `/bug <tekst>` in het spel.
+- **Twee levens**: een hardcore mensenleven (`/ttl life`), dan de Spirit Corridor (`/ttl menu`).
+- **Life 2**: het canon continent, 11 nieuwe plekken; Tempest en Dwargon zijn beschermd.
+- **Verhaal**: `/ttl story oath`, akte I tot VII (Walpurgis, het Oogstfeest). 398 quests in één boek.
+- **Klusjes en gezellen (nieuw)**: `/ttl sidequest offers` in een stad, `/ttl companion hire`.
+- **Paden (nieuw)**: `/ttl paths`: de Necromancer (Bone Altar, `/ttl necro status`) en de Artificer (`/ttl artifice`).
+- **Moeilijke keuzes (nieuw)** in de wildernis: `/ttl choice`.
+- **Bosses**: je party krijgt een eigen gevecht en cooldown, met een wachtrij. Arena's: `/ttl arena list`.
+- **Wereld**: verandert naarmate zielen verder komen (`/ttl world where`); stormen, Bloedmanen.
 
 ---
 
 ## 🛠 Being built / In de maak
 **EN** What the team is working on now: not on the server yet, or not finished.
-- **World Chronicle**: the world changes for everyone as souls move through the story.
-- **Fair boss fights**: every party gets its own fight and cooldown, with a queue, instead of one fight for the whole server.
-- **Continent edge**: a clear border of the canon continent; outside it the mods play as usual.
-- **More canon landmarks, world events and nation roles on Discord** (in review).
-- **Story chapters 11 to 13.**
-- **Dutch translation** of the pack's own texts, and a **player wiki**.
+- **Tempest grows**: the town and capital rings are drawn, the switch between phases is next.
+- **Mortal Realm destinations**: six new places to travel to in Life 1 (ferry, keep, market, mine, shrine, tower).
+- **More paths**: Artificer golems, more moral choices, the Priest/Exorcist after the Necromancer.
+- **Dutch translation** of the pack's own texts, and the **player wiki** going online.
 - **Public web map** (BlueMap): the map runs, the public link is coming.
-- **Crossroads of conscience**: hard choices in the wilds (a sick village, hostages, a starving orc band, a monster that wants a name). Help slowly, or take the dark shortcut and pay for it.
+- **Faction banners** you can weave on a loom, and map markers.
 **NL** Waar het team nu aan werkt: nog niet op de server, of nog niet af.
-- **World Chronicle**: de wereld verandert voor iedereen naarmate zielen verder komen in het verhaal.
-- **Eerlijke bossgevechten**: elke party krijgt een eigen gevecht en cooldown, met een wachtrij, in plaats van één gevecht voor de hele server.
-- **Rand van het continent**: een duidelijke grens van het canon continent; daarbuiten werken de mods zoals gewoonlijk.
-- **Meer canon plekken, wereldevents en natierollen op Discord** (in review).
-- **Verhaalhoofdstukken 11 tot 13.**
-- **Nederlandse vertaling** van de eigen teksten van de pack, en een **spelerswiki**.
+- **Tempest groeit**: de ringen voor stad en hoofdstad zijn getekend, de overgang tussen de fases komt nu.
+- **Bestemmingen in het Mortal Realm**: zes nieuwe plekken in Life 1 (veerpont, burcht, markt, mijn, heiligdom, toren).
+- **Meer paden**: golems voor de Artificer, meer morele keuzes, de Priester/Exorcist na de Necromancer.
+- **Nederlandse vertaling** van de eigen teksten van de pack, en de **spelerswiki** online.
 - **Publieke webkaart** (BlueMap): de kaart draait, de publieke link komt eraan.
-- **Kruispunten van het geweten**: moeilijke keuzes in de wildernis (een ziek dorp, gijzelaars, een uitgehongerde orkbende, een monster dat een naam wil). Help langzaam, of neem de duistere kortere weg en betaal ervoor.
+- **Factiebanieren** om op een weefgetouw te maken, en kaartmarkeringen.
 
 ---
 
 ## 🗺️ Planned / Gepland
 **EN** Decided, not started yet. The order can change: good ideas in {#suggestions} can move up.
-- **Protected canon places**: Tempest, Dwargon and the other canon builds can't be griefed; their residents come back.
-- **Tempest grows** in phases as the server progresses.
 - **Catch-up** for late joiners, and **raid groups** so light and dark souls can fight one boss together.
 - **Radiant quests** and an **Orc Lord invasion** to defend (or join).
 - **Politics**: fairer nation wars, taking over or vassalising canon nations.
 - **PvP**: a proposal to keep PvP to quests, arenas and declared wars (today it is open everywhere, Life 1 too).
 - **Playtest with about 5 players** (Life 1 to Life 2), then the **launch**.
 **NL** Beslist, nog niet gestart. De volgorde kan veranderen: goede ideeën in {#suggestions} kunnen voorgaan.
-- **Beschermde canon plekken**: Tempest, Dwargon en de andere canon builds kan je niet griefen; hun bewoners komen terug.
-- **Tempest groeit** in fases naarmate de server vordert.
 - **Inhalen** voor wie later begint, en **raidgroepen** zodat lichte en donkere zielen samen één boss kunnen bevechten.
 - **Radiant quests** en een **invasie van de Orc Lord** om te verdedigen (of om mee te doen).
 - **Politiek**: eerlijkere oorlogen tussen naties, canon naties overnemen of tot vazal maken.

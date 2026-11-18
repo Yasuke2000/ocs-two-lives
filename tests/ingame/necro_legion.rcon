@@ -13,6 +13,9 @@ ttl reset TtlBotNecroB
 ttl necro legion test TtlBotNecroA reset
 ttl necro legion test TtlBotNecroB reset
 ttl necro legion test TtlBotNecroA servercap -1
+# The platform at 4400 lies outside the canon continent, where only the soul's own karma is paid (R11): the test
+# counts it as inside (the Church's Sense hook, necro.js), so the roads pay rep, balance and renown in full.
+ttl necro test TtlBotNecroA continent 1
 ttl roads test TtlBotNecroA reset
 # Life 1: nothing answers.
 ttl necro legion expect TtlBotNecroA try_raise_dust life2only
@@ -143,6 +146,7 @@ ttl necro legion expect TtlBotNecroA entities 0
 execute in minecraft:overworld run fill 4390 151 4390 4420 156 4410 minecraft:air
 execute in minecraft:overworld run forceload remove 4390 4390 4420 4410
 ttl roads test TtlBotNecroA reset
+ttl necro test TtlBotNecroA continent 0
 ttl reset TtlBotNecroA
 ttl reset TtlBotNecroB
 ttlbot remove TtlBotNecroA

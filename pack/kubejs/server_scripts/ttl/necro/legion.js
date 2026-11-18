@@ -527,7 +527,10 @@ const TtlLegion = {
     var opts = { system: 'necro', act: act, road: road, pos: pos, dim: dim, reason: `necro ${act} ${road}` }
     var inside = true
     try {
-      if (typeof TtlWorld !== 'undefined' && typeof TtlWorld.onContinent === 'function') inside = !!TtlWorld.onContinent(dim, pos.x, pos.z)
+      // The same test hook as the Church's Sense (necro/necro.js ttl.necro.testinside: 1 inside, 2 outside).
+      var t = Number(player.persistentData.getInt('ttl.necro.testinside'))
+      if (t === 1 || t === 2) inside = t === 1
+      else if (typeof TtlWorld !== 'undefined' && typeof TtlWorld.onContinent === 'function') inside = !!TtlWorld.onContinent(dim, pos.x, pos.z)
     } catch (e) {
       console.warn(`[ttl] legion: continent check failed, the full road is paid: ${e}`)
     }

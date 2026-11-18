@@ -106,6 +106,8 @@ const TtlLegionCmd = {
     TtlLegion.saveQueue(server, TtlLegion.queue(server).filter(j => j.o !== uuid))
     p.persistentData.remove(TtlLegion.VICTIMS)
     p.persistentData.remove(TtlLegion.TESTRANK)
+    // The day's rested grave markers are not kept per soul: a test run within 24 h of the last one would read "rested".
+    server.persistentData.remove(TtlLegion.RESTED)
   }
 }
 

@@ -1,5 +1,37 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 18/11 night — PRs #18–#33 merged into main, staging at 62/67 then fixes pushed (merge-and-test run, Claude)
+
+**Merged** (`--no-ff`, GitHub shows them merged): #19 arenas, #21 codex/life2-saga-wiki (it supersedes #18, which is
+closed with a comment), #22 world-w1, #23 world-w2, #27 sidequests, #25 roadmap-suggestions, #20 project-status,
+#26 codex/tempest-realm-heraldry, #29 world-w3, #28 paths-n0n1, #30 paths-a1, #31 paths-n2, #32 paths-n3, #33 paths-c1.
+Conflict rules as before: decisions.md keeps every row; generated files took main's side and were regenerated
+(gen_data, gen_quests, gen_npcs, config_index, previews gallery, packwiz refresh); gen_data validators of both sides kept.
+Combined by hand: boss.js (W2's instancing + #21's `event` summon option + W1's `TtlChronicle.bossKill` in `finish` +
+the story-transport announce with W2's echo suffix); factions.toml `stage` keeps both path rank-4 rows; CLAUDE.md data
+schema lists `ttl.boss.lastkill`, `ttl.boss.arena`, `ttl.boss.queue` (docs/server.md too).
+**Review changes**: #21/#18 staff command audit (`ops/cmdlog.js`) records only player and RCON commands (it hooked every
+command the scripts dispatch); #26 accepted as is (Tempest rings and Mortal waypoints are built but not placed by a
+phase switch); world.toml gains `light_deed 1`, `dark_deed -1.5`, `rest 1` (O-C2) for roads.js; `/ttl reset` clears the
+Artificer; `/ttl paths` describes the real Artificer and the Crossroads.
+**Fixes from the ttl-ops runs** (details: decisions.md rows of 18/11 night): claim lookups (KubeJS shadows
+`ServerLevel.dimension()`), arena/Walpurgis yaw, arena exemption from duel liability, Walpurgis council NPCs moved into
+the hall, Blood Moon kills on `EntityEvents.death`, LootJS `addTableModifier`, Amrita search 128, calamity region lookup
+through `TtlWorld.ownerAt`, sidequest `byUuid` scan + continent signature, domains testbreak, artifice `getClass` and
+synchronous give/clear, legion test hook, `ttl story testunlock mark|restore|drop` (quests.rcon's Act VII bot had unlocked
+Veldora for everyone on staging; dropped with `drop veldora`), plus test fixes (world sync, events_pack end-all, bosses
+queue answer and Gazel position, sidequests forceload, artifice main hand, necro_ranks cleanup order).
+**Test results**: ttl-ops on `a78843b` = 62/67 (artifice, bosses, necro_legion, necro_ranks, sidequests failing); after the
+fixes artifice, necro_legion, necro_ranks and sidequests passed one by one on staging (push-scripts), bosses still showed
+`ttl discord expect TtlBotBoss boss 1` = 0 after a reload (check on the fresh boot). The commit after this one gets a full
+ttl-ops run: read `kubectl --kubeconfig ~/.kube/ocs-two-lives.yaml -n ocs-two-lives logs deploy/ttl-ops --tail=60`.
+**Open / owner**: does `tensura:boss_area` count as inside the continent? W1's default (`world.toml [continent]
+inside_dimensions` = labyrinth, spirit_domain, hell) says no, so the mod's bosses spawn there as shipped; left as is until
+Yasuke answers. **Not verified in game**: the 11 canon landmarks with `verify_build.py` (all placed except Amrita, now
+surveying 128 blocks), Walpurgis Hall build, Mortal Realm waypoints (`test mortal_waypoints`), Discord nation roles and
+staff audit with real accounts, the council NPCs at the Walpurgis thrones. A local stray: an older copy of
+design/architecture/world-state.md was uncommitted in the main checkout; PR #22's version (a superset) is on main.
+
 ## 18/11 night — branch `paths-c1` (PR open, depends on #28, now on main): WP-C1 moral-choice scenes
 
 Engine `pack/kubejs/server_scripts/ttl/choices/engine.js` (`TtlChoices.register/spawn/resolve/take`, director poll
