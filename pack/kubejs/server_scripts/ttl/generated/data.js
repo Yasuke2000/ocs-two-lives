@@ -4283,8 +4283,12 @@ const TtlData = {
         "title": "Two roads"
       },
       {
-        "body": "# The Necromancer\nRaise the dead and keep them. Tensura's own magic (*Create Lesser Undead*, tomes, the Spellbinding Table) and your race (Wight, Ghoul) are the start.\n\n- *Bone Altar:* the heart of a necromancer's work. Raise legionnaires there.\n- *Bone dust* from monsters is the honest road. *Soul ash* from people is the dark one: stronger undead, and the Holy Church takes note.\n- *Your tomb:* build it yourself around your Bone Altar. The world recognises it and lets it grow from Crypt to Great Tomb.\n- The Church's licence lets a careful necromancer walk in the light.\n\n*Being built:* the rite, the legion and the tomb are coming. The Bone Altar block already exists.\n",
+        "body": "# The Necromancer\nRaise the dead and keep them. Tensura's own magic (*Create Lesser Undead*, tomes, the Spellbinding Table) and your race (Wight, Ghoul) are the start.\n\n- *Bone Altar:* the heart of a necromancer's work. Raise legionnaires there.\n- *Bone dust* from monsters is the honest road. *Soul ash* from people is the dark one: stronger undead, and the Holy Church takes note.\n- *Your tomb:* build it yourself around your Bone Altar. The world recognises it and lets it grow from Crypt to Great Tomb.\n- The Church's licence lets a careful necromancer walk in the light.\n\n*Live:* the Bone Altar, the legion and the tomb (next page). *Being built:* the Rite that makes you a necromancer, ranks and the licence.\n",
         "title": "The dead and the law"
+      },
+      {
+        "body": "# The legion\nCraft a *Bone Altar* (bone blocks, a candle, rotten flesh, cobbled deepslate), place it and right-click it.\n\n- `/ttl necro raise skeleton` (4 bone dust) or `/ttl necro raise skeleton ash` (1 soul ash: stronger, the dark road)\n- `/ttl necro stow` puts your dead to sleep in the tomb; `/ttl necro rouse` wakes them at the altar\n- `/ttl necro recall`, `/ttl necro stand all on`, `/ttl necro legion`\n- Name them the Tensura way: named dead count for your nation's army (`/ttl necro muster`).\n- *Death Knights* (rank 3): full high magisteel gear and 32 bone dust, or a soul ash and a corpse you made yourself. A fallen knight never rises again.\n- Your dead never strike a soul outside an arena, a war or a quest that allows it.\n\n# The tomb\nBuild a closed room around the altar. Grave lanterns make it a *Crypt*; graves, a throne skull, blackstone and a magic engine a *Mausoleum*; a labyrinth engine and more of everything a *Great Tomb*. `/ttl necro sanctum` tells you what is missing.\n",
+        "title": "Your legion and your tomb"
       },
       {
         "body": "# The Artificer\nKaijin's forge in Tempest and the smithies of Dwargon teach the craft. Tensura's Smithing Bench, Kiln and schematics are the start.\n\n- *Workshop Bench:* a Smithing Bench ringed by four low-quality magic crystals. Right-click it for the Workshop.\n- *The charter:* three schematics (learned or carried) at a Workshop Bench. `/ttl artifice charter`\n- *Ranks:* Journeyman, Artisan, Master Artificer, Grand Artificer. Points come from commissions and from what you make.\n- *Your mark:* what you make at the Smithing Bench carries your name. Commissions want your own work.\n\n`/ttl artifice` opens the Workshop anywhere. *Being built:* golems, the Warden and the workshop boards.\n",
@@ -5234,6 +5238,242 @@ const TtlData = {
       "build_value": 10,
       "chunk_value": 1,
       "coins_per_value": 100
+    }
+  },
+  "necro": {
+    "ash": {
+      "ash_chance": 0.25,
+      "ash_entities": [
+        "#tensura:human_like",
+        "tensura:goblin",
+        "tensura:orc",
+        "tensura:lizardman",
+        "tensura:dwarf",
+        "tensura:falmuth_knight"
+      ],
+      "corpse_days": 7,
+      "corpse_max": 3,
+      "curse_effect": "tensura:curse",
+      "curse_mult": 2.0,
+      "dust_chance": 0.5,
+      "dust_count": 2,
+      "dust_entities": [
+        "#tensura:hostile_monster"
+      ],
+      "npc_tag": "ttl.npc",
+      "player_scope": [
+        "arena",
+        "war"
+      ],
+      "victim_hours": 24
+    },
+    "knight": {
+      "ash_cost": 1,
+      "dark": {
+        "attack": 2.0,
+        "hp": 4.0,
+        "strength": 0
+      },
+      "dust_cost": 32,
+      "gear": [
+        "tensura:high_magisteel_helmet",
+        "tensura:high_magisteel_chestplate",
+        "tensura:high_magisteel_leggings",
+        "tensura:high_magisteel_boots",
+        "tensura:high_magisteel_sword"
+      ],
+      "gear_drops": false,
+      "grey": {
+        "attack": 1.5,
+        "hp": 3.0,
+        "strength": -1
+      },
+      "kind": "skeleton",
+      "max": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "rank": 3,
+      "title": "{name}, Death Knight"
+    },
+    "legion": {
+      "altar_reach": 6,
+      "altars_per_soul": 3,
+      "armed_rank": 2,
+      "army_named_only": true,
+      "ash_cost": 1,
+      "ash_mult": 1.5,
+      "burn_in_sunlight": false,
+      "caps": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "dormant_cap": 12,
+      "dust_cost": 4,
+      "kinds": {
+        "skeleton": "tensura:skeleton",
+        "zombie": "tensura:zombie"
+      },
+      "loop_seconds": 10,
+      "lost_sweeps": 2,
+      "min_rank": 1,
+      "muster_caps": [
+        0,
+        2,
+        4,
+        6,
+        10
+      ],
+      "muster_hours": 24,
+      "muster_radius": 32,
+      "offline_days": 7,
+      "points": {
+        "knight": 1,
+        "named": 3,
+        "raise": 1,
+        "rest": 2,
+        "tomb": 10
+      },
+      "queue_per_soul": 3,
+      "recall_radius": 64,
+      "server_cap": 60,
+      "stow_radius": 16,
+      "sweep_minutes": 5
+    },
+    "rest": {
+      "marker_hours": 24,
+      "per_day": 3,
+      "radius": 3
+    },
+    "sanctum": {
+      "air": [
+        "minecraft:air",
+        "minecraft:cave_air"
+      ],
+      "bare_niches": 2,
+      "cache_minutes": 10,
+      "cooldown_seconds": 5,
+      "max_air": 3000,
+      "scan_height": 10,
+      "scan_radius": 16,
+      "tier": [
+        {
+          "id": "crypt",
+          "min_air": 60,
+          "name": "Crypt",
+          "need": [
+            {
+              "label": "grave lanterns",
+              "match": [
+                "ttl:grave_lantern"
+              ],
+              "n": 4
+            }
+          ],
+          "niches": 6,
+          "rank": 1
+        },
+        {
+          "id": "mausoleum",
+          "min_air": 250,
+          "name": "Mausoleum",
+          "need": [
+            {
+              "label": "grave lanterns",
+              "match": [
+                "ttl:grave_lantern"
+              ],
+              "n": 8
+            },
+            {
+              "label": "graves (niches)",
+              "match": [
+                "ttl:grave_marker"
+              ],
+              "n": 6
+            },
+            {
+              "label": "a throne skull",
+              "match": [
+                "minecraft:skeleton_skull",
+                "minecraft:skeleton_wall_skull",
+                "minecraft:wither_skeleton_skull",
+                "minecraft:wither_skeleton_wall_skull"
+              ],
+              "n": 1
+            },
+            {
+              "label": "blackstone",
+              "match": [
+                "minecraft:*blackstone*"
+              ],
+              "n": 12
+            },
+            {
+              "label": "a magic engine",
+              "match": [
+                "tensura:*_magic_engine"
+              ],
+              "n": 1
+            }
+          ],
+          "niches": 12,
+          "rank": 3
+        },
+        {
+          "id": "great_tomb",
+          "min_air": 700,
+          "name": "Great Tomb",
+          "need": [
+            {
+              "label": "grave lanterns",
+              "match": [
+                "ttl:grave_lantern"
+              ],
+              "n": 16
+            },
+            {
+              "label": "graves (niches)",
+              "match": [
+                "ttl:grave_marker"
+              ],
+              "n": 12
+            },
+            {
+              "label": "a throne skull",
+              "match": [
+                "minecraft:skeleton_skull",
+                "minecraft:skeleton_wall_skull",
+                "minecraft:wither_skeleton_skull",
+                "minecraft:wither_skeleton_wall_skull"
+              ],
+              "n": 1
+            },
+            {
+              "label": "blackstone",
+              "match": [
+                "minecraft:*blackstone*"
+              ],
+              "n": 32
+            },
+            {
+              "label": "a labyrinth magic engine",
+              "match": [
+                "tensura:*labyrinth_bricks_magic_engine"
+              ],
+              "n": 1
+            }
+          ],
+          "niches": 12,
+          "rank": 4
+        }
+      ]
     }
   },
   "npcs": {

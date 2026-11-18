@@ -1,0 +1,149 @@
+# The necromancer's legion (WP-N2: necro/legion.js, necro/legion_commands.js, design/data/necro.toml). `ttl necro legion
+# expect`, `ttl roads expect` and `ttl rep expect` print "ttl: ..." when wrong, which `server.sh test-all` counts as a failure.
+# A is the necromancer at a Bone Altar on a platform far from every NPC; B is a second Life 2 soul (the PvP victim and the
+# corpse). The rank is a test hook (WP-N3's Rite is not needed). Expect in the log: "[ttl] legion: TtlBotNecroA raised #<n>
+# skeleton (dust)", "... raised Death Knight #<n> (ash, corpse of TtlBotNecroB)", "... #<n> of TtlBotNecroA fell (death)".
+# Verify in game (first run): `owner_set` (Tensura's permanent owner took), `named` after `tensura edit owner ... name set`.
+ttlbot spawn TtlBotNecroA
+ttlbot spawn TtlBotNecroB
+@sleep 3
+ttl reset TtlBotNecroA
+ttl reset TtlBotNecroB
+@sleep 3
+ttl necro legion test TtlBotNecroA reset
+ttl necro legion test TtlBotNecroB reset
+ttl necro legion test TtlBotNecroA servercap -1
+ttl roads test TtlBotNecroA reset
+# Life 1: nothing answers.
+ttl necro legion expect TtlBotNecroA try_raise_dust life2only
+ttl roads test TtlBotNecroA life2
+ttl roads test TtlBotNecroB life2
+gamemode creative TtlBotNecroA
+gamemode creative TtlBotNecroB
+execute in minecraft:overworld run forceload add 4390 4390 4420 4410
+execute in minecraft:overworld run fill 4390 150 4390 4420 150 4410 minecraft:stone
+execute in minecraft:overworld run fill 4390 151 4390 4420 156 4410 minecraft:air
+execute in minecraft:overworld run setblock 4400 151 4400 ttl:bone_altar
+execute in minecraft:overworld run tp TtlBotNecroA 4402 151 4400
+execute in minecraft:overworld run tp TtlBotNecroB 4410 151 4400
+@sleep 1
+# 1. No altar of one's own, then no rank: refused with the right reason.
+ttl necro legion test TtlBotNecroA rank 1
+ttl necro legion expect TtlBotNecroA try_raise_dust noaltar
+ttl necro legion altar TtlBotNecroA 4400 151 4400
+ttl necro legion expect TtlBotNecroA altars 1
+ttl necro legion test TtlBotNecroA rank 0
+ttl necro legion expect TtlBotNecroA try_raise_dust norank
+ttl necro legion test TtlBotNecroA rank 1
+ttl necro legion expect TtlBotNecroA try_raise_dust nodust
+# 2. The grey road: 4 bone dust a legionnaire, Tensura's own undead with a permanent owner; rank 1 holds 2 awake.
+give TtlBotNecroA ttl:bone_dust 12
+ttl necro legion expect TtlBotNecroA try_raise_dust ok
+execute as TtlBotNecroA run ttl necro raise skeleton dust
+ttl necro legion expect TtlBotNecroA last ok
+ttl necro legion expect TtlBotNecroA awake 1
+ttl necro legion expect TtlBotNecroA entities 1
+ttl necro legion expect TtlBotNecroA owner_set 1
+ttl necro legion expect TtlBotNecroA points 1
+ttl roads expect TtlBotNecroA count_necro.raise.grey 1
+ttl roads expect TtlBotNecroA chaos2 0
+execute as TtlBotNecroA run ttl necro raise zombie
+ttl necro legion expect TtlBotNecroA awake 2
+ttl necro legion expect TtlBotNecroA dust 4
+ttl necro legion expect TtlBotNecroA try_raise_dust cap
+execute as TtlBotNecroA run ttl necro raise skeleton dust
+ttl necro legion expect TtlBotNecroA last cap
+ttl necro legion expect TtlBotNecroA awake 2
+# 3. Sleep: NBT into the record, no entity left; wake: back at the altar, still bound.
+execute as TtlBotNecroA run ttl necro stow all
+ttl necro legion expect TtlBotNecroA awake 0
+ttl necro legion expect TtlBotNecroA dormant 2
+ttl necro legion expect TtlBotNecroA entities 0
+execute as TtlBotNecroA run ttl necro rouse all
+ttl necro legion expect TtlBotNecroA awake 2
+ttl necro legion expect TtlBotNecroA dormant 0
+ttl necro legion expect TtlBotNecroA entities 2
+ttl necro legion expect TtlBotNecroA owner_set 2
+# 4. Naming is Tensura's own (here its op command): a named legionnaire counts for the army.
+ttl necro legion expect TtlBotNecroA named 0
+execute in minecraft:overworld positioned 4400 152 4400 run tensura edit owner @e[tag=ttl.legion,limit=1,sort=nearest] name set Bonesworth
+ttl necro legion expect TtlBotNecroA named 1
+execute as TtlBotNecroA run ttl necro muster
+ttl necro legion expect TtlBotNecroA army 1
+ttl necro legion expect TtlBotNecroA muster no
+ttl necro legion expect TtlBotNecroA cap 2
+# 5. The dark road: soul ash, x1.5, and the five costs through TtlRoads (karma, the Church).
+ttl necro legion test TtlBotNecroA rank 2
+ttl rep set TtlBotNecroA holy_church 0
+give TtlBotNecroA ttl:soul_ash 1
+execute as TtlBotNecroA run ttl necro raise skeleton ash Ashborn
+ttl necro legion expect TtlBotNecroA awake 3
+ttl roads expect TtlBotNecroA count_necro.raise.dark 1
+ttl roads expect TtlBotNecroA chaos2 3
+ttl rep expect TtlBotNecroA holy_church value -3
+ttl necro legion expect TtlBotNecroA ash 0
+# 6. The PvP owner rule: outside arenas, wars and PvP quests the dead never hurt a soul.
+ttl necro legion pvp TtlBotNecroA TtlBotNecroB
+ttl necro legion expect TtlBotNecroA pvp_TtlBotNecroB refused
+# 7. Soul ash from a player kill (O-N4): once per victim per 24 h; the kill leaves a corpse for a Death Knight (O-N6).
+ttl necro legion test TtlBotNecroA rank 3
+give TtlBotNecroA tensura:high_magisteel_helmet
+give TtlBotNecroA tensura:high_magisteel_chestplate
+give TtlBotNecroA tensura:high_magisteel_leggings
+give TtlBotNecroA tensura:high_magisteel_boots
+give TtlBotNecroA tensura:high_magisteel_sword
+ttl necro legion expect TtlBotNecroA try_knight_ash noash
+ttl necro legion corpse TtlBotNecroA TtlBotNecroB arena
+ttl necro legion expect TtlBotNecroA ash 1
+ttl necro legion expect TtlBotNecroA corpses 1
+ttl necro legion corpse TtlBotNecroA TtlBotNecroB arena
+ttl necro legion expect TtlBotNecroA ash 1
+ttl necro legion expect TtlBotNecroA try_knight_ash ok
+execute as TtlBotNecroA run ttl necro knight Alberto ash
+ttl necro legion expect TtlBotNecroA last ok
+ttl necro legion expect TtlBotNecroA knights 1
+ttl necro legion expect TtlBotNecroA corpses 0
+ttl necro legion expect TtlBotNecroA awake 4
+ttl roads expect TtlBotNecroA count_necro.knight.dark 1
+# rank 3 holds one knight
+ttl necro legion expect TtlBotNecroA try_knight_dust knightcap
+# 8. A fallen knight never rises again.
+kill @e[tag=ttl.knight]
+@sleep 2
+ttl necro legion sweep
+ttl necro legion expect TtlBotNecroA knights 0
+ttl necro legion expect TtlBotNecroA fallen 1
+ttl necro legion expect TtlBotNecroA awake 3
+ttl necro legion expect TtlBotNecroA try_rouse_fallen fallen
+# 9. The server cap (O-N3): above it a raise waits in the queue and rises when another sleeps.
+ttl necro legion test TtlBotNecroA servercapnow
+give TtlBotNecroA ttl:bone_dust 4
+execute as TtlBotNecroA run ttl necro raise zombie dust
+ttl necro legion expect TtlBotNecroA last queued
+ttl necro legion expect TtlBotNecroA queue 1
+ttl necro legion expect TtlBotNecroA awake 3
+# a bare altar has 2 niches: two of the three lie down, and the queued zombie rises at once
+execute as TtlBotNecroA run ttl necro stow all
+@sleep 1
+ttl necro legion expect TtlBotNecroA queue 0
+ttl necro legion expect TtlBotNecroA awake 2
+ttl necro legion expect TtlBotNecroA dormant 2
+ttl necro legion info TtlBotNecroA
+# 10. The Keeper's road: a grave marker laid to rest pays the good road once a day per marker.
+execute in minecraft:overworld run setblock 4403 151 4402 ttl:grave_marker
+ttl necro legion expect TtlBotNecroA try_rest ok
+execute as TtlBotNecroA run ttl necro rest
+ttl roads expect TtlBotNecroA count_necro.rest.good 1
+ttl necro legion expect TtlBotNecroA try_rest rested
+# Clean up.
+ttl necro legion test TtlBotNecroA servercap -1
+ttl necro legion test TtlBotNecroA reset
+ttl necro legion test TtlBotNecroB reset
+ttl necro legion expect TtlBotNecroA entities 0
+execute in minecraft:overworld run fill 4390 151 4390 4420 156 4410 minecraft:air
+execute in minecraft:overworld run forceload remove 4390 4390 4420 4410
+ttl roads test TtlBotNecroA reset
+ttl reset TtlBotNecroA
+ttl reset TtlBotNecroB
+ttlbot remove TtlBotNecroA
+ttlbot remove TtlBotNecroB

@@ -1528,6 +1528,7 @@ EntityEvents.afterHurt(event => {
     if (!e.getTags().contains('ttl.boss')) return
     var attacker = event.source.actual
     if (attacker && attacker.isPlayer()) TtlBoss.noteHit(e, attacker, Number(event.damage) || 0)
+    else if (attacker && typeof TtlLegion !== 'undefined') { var master = TtlLegion.ownerPlayer(e.server, attacker); if (master) TtlBoss.noteHit(e, master, Number(event.damage) || 0) }
   } catch (err) {
     console.error(`[ttl] boss: hit tracking failed: ${err}`)
   }

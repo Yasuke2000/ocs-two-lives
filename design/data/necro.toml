@@ -1,0 +1,129 @@
+# The necromancer (design/architecture/paths-necro-artificer.md §2; owner decisions 18/11/2026). Edit, then run
+# `python tools/gen_data.py`. Scripts: necro/legion.js (TtlLegion), necro/sanctum.js (TtlSanctum),
+# necro/legion_commands.js. Tests: tools/server.sh test necro_legion, necro_sanctum.
+#
+# R12: a system is not a chapter. Nothing here may name a story, Oath-path or boss-ladder stage (tools/validate.py fails);
+# the gates are the necromancer's own rank (WP-N3's TtlNecro.rank, stages ttl.necro.rank<n>), items and EP.
+# R13: the dust road is grey (roads.toml necro.raise / necro.knight grey), the ash road is the dark shortcut (dark).
+# WP-N3 adds [[rank]] and [church] to this file; WP-N2 owns [legion], [ash], [knight], [rest] and [sanctum].
+
+# ---- the legion (§2.3, O-N3) ----------------------------------------------------------------------------------------
+[legion]
+min_rank = 1                    # the Rite (WP-N3) makes rank 1; below it no raising
+caps = [0, 2, 4, 6, 8]          # awake legionnaires per soul by rank 0..4 (O-N3)
+muster_caps = [0, 2, 4, 6, 10]  # the same while the soul's war muster holds (O-N3: 10 for the Overlord when mustered)
+muster_hours = 24               # how long a muster (/ttl necro muster, a nation at war) holds
+muster_radius = 32              # army: named awake legionnaires within this many blocks of the soul count
+army_named_only = true          # only Tensura-NAMED legionnaires count for the army (world-state §6.5)
+server_cap = 60                 # awake undead of every soul together (O-N3); above it raise/rouse wait in the queue
+queue_per_soul = 3              # queued raises/rouses a soul may have at once
+dormant_cap = 12                # sanctum_cap: sleeping legionnaires per soul, whatever the tomb (§2.3)
+altars_per_soul = 3             # Bone Altars one soul may own
+altar_reach = 6                 # raise/stow/rouse/knight need one of your altars within this many blocks
+stow_radius = 16                # stow takes your awake legionnaires within this many blocks of you
+recall_radius = 64              # recall teleports your loaded legionnaires within this many blocks
+armed_rank = 2                  # below this rank a legionnaire rises without gear (Bonecaller arms them)
+burn_in_sunlight = false        # Tensura's own BurnInSunlight field (default false on the entity); Overlord's undead do not burn
+offline_days = 7                # a legionnaire whose owner is away this long is put to sleep by the sweep (§6)
+loop_seconds = 10               # the queue
+sweep_minutes = 5               # positions, names, offline stow, lost legionnaires
+lost_sweeps = 2                 # an awake legionnaire missing from its loaded chunk this many sweeps in a row has fallen
+kinds = { skeleton = "tensura:skeleton", zombie = "tensura:zombie" }   # verified in the jar (UndeadHumanoidEntity)
+dust_cost = 4                   # bone dust per raise (the grey road)
+ash_cost = 1                    # soul ash per raise (the dark road)
+ash_mult = 1.5                  # an ash-raised legionnaire's max health and attack (base) multiplier
+
+[legion.points]                 # paid through TtlNecro.addPoints (WP-N3: rank points, weekly cap there)
+raise = 1
+named = 3
+knight = 1
+rest = 2
+tomb = 10                       # a sanctum tier recognised for the first time, per tier and soul
+
+# ---- soul ash and bone dust (§2.3, O-N4) --------------------------------------------------------------------------
+[ash]
+ash_chance = 0.25               # a necromancer's kill of a humanoid (ash_entities) drops 1 soul ash
+curse_mult = 2.0                # ... doubled while the victim carries Tensura's curse effect
+curse_effect = "tensura:curse"
+ash_entities = ["#tensura:human_like", "tensura:goblin", "tensura:orc", "tensura:lizardman", "tensura:dwarf", "tensura:falmuth_knight"]
+dust_chance = 0.5               # a necromancer's kill of a monster (dust_entities) drops bone dust
+dust_count = 2
+dust_entities = ["#tensura:hostile_monster"]
+# O-N4: soul ash from PLAYER kills only in an arena or a nation war, once per victim per 24 h, and never from test bots
+player_scope = ["arena", "war"]
+victim_hours = 24
+corpse_days = 7                 # a player or story-NPC kill also leaves a corpse credit for a Death Knight (O-N6)
+corpse_max = 3
+npc_tag = "ttl.npc"             # story and guild NPCs: a necromancer's kill of one is a corpse too
+
+# ---- Death Knights (§2.3, O-N6) -----------------------------------------------------------------------------------
+[knight]
+rank = 3                        # Death Marshal
+max = [0, 0, 0, 1, 2]           # per rank 0..4
+kind = "skeleton"
+gear = ["tensura:high_magisteel_helmet", "tensura:high_magisteel_chestplate", "tensura:high_magisteel_leggings", "tensura:high_magisteel_boots", "tensura:high_magisteel_sword"]
+gear_drops = false              # the knight's gear never drops (it was paid for the knight)
+dust_cost = 32                  # the grey knight: no corpse
+ash_cost = 1                    # the dark knight: one soul ash AND one corpse credit of your own kill
+dark = { hp = 4.0, attack = 2.0, strength = 0 }    # strength = effect amplifier (0 = Strength I), -1 = none
+grey = { hp = 3.0, attack = 1.5, strength = -1 }
+title = "{name}, Death Knight"
+
+# ---- the Keeper's road (§2.6) -------------------------------------------------------------------------------------
+[rest]
+radius = 3                      # a ttl:grave_marker within this many blocks
+marker_hours = 24               # one marker rests once a day
+per_day = 3                     # a soul lays the dead to rest at most this often a day
+
+# ---- the sanctum: a tomb the player builds (owner decision 18/11/2026, O-N2 changed) --------------------------------
+# The Bone Altar is the core. On demand (/ttl necro sanctum, the altar menu, stow) the script floods the air from the
+# altar: the room is ENCLOSED when the flood never leaves the scan box. Every non-air block the flood touches (walls,
+# floor, furniture) is counted once. A tier holds when its air volume and every `need` hold; the best tier whose `rank`
+# the owner has wins (a bigger tomb than your rank shows as locked). Results are cached `cache_minutes`.
+# `match` entries are block ids, `*` is a wildcard. Niches = how many legionnaires may sleep there (cap dormant_cap).
+[sanctum]
+scan_radius = 16                # horizontal blocks from the altar
+scan_height = 10                # vertical blocks from the altar
+max_air = 3000                  # a flood larger than this is not a room
+air = ["minecraft:air", "minecraft:cave_air"]
+cache_minutes = 10
+cooldown_seconds = 5            # per soul between forced checks
+bare_niches = 2                 # an altar without a recognised tomb
+
+[[sanctum.tier]]
+id = "crypt"
+name = "Crypt"
+rank = 1
+min_air = 60
+niches = 6
+need = [
+  { label = "grave lanterns", match = ["ttl:grave_lantern"], n = 4 },
+]
+
+[[sanctum.tier]]
+id = "mausoleum"
+name = "Mausoleum"
+rank = 3
+min_air = 250
+niches = 12
+need = [
+  { label = "grave lanterns", match = ["ttl:grave_lantern"], n = 8 },
+  { label = "graves (niches)", match = ["ttl:grave_marker"], n = 6 },
+  { label = "a throne skull", match = ["minecraft:skeleton_skull", "minecraft:skeleton_wall_skull", "minecraft:wither_skeleton_skull", "minecraft:wither_skeleton_wall_skull"], n = 1 },
+  { label = "blackstone", match = ["minecraft:*blackstone*"], n = 12 },
+  { label = "a magic engine", match = ["tensura:*_magic_engine"], n = 1 },
+]
+
+[[sanctum.tier]]
+id = "great_tomb"
+name = "Great Tomb"
+rank = 4
+min_air = 700
+niches = 12
+need = [
+  { label = "grave lanterns", match = ["ttl:grave_lantern"], n = 16 },
+  { label = "graves (niches)", match = ["ttl:grave_marker"], n = 12 },
+  { label = "a throne skull", match = ["minecraft:skeleton_skull", "minecraft:skeleton_wall_skull", "minecraft:wither_skeleton_skull", "minecraft:wither_skeleton_wall_skull"], n = 1 },
+  { label = "blackstone", match = ["minecraft:*blackstone*"], n = 32 },
+  { label = "a labyrinth magic engine", match = ["tensura:*labyrinth_bricks_magic_engine"], n = 1 },
+]
