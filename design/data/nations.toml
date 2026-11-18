@@ -31,7 +31,7 @@ min_members = 2
 # Founding needs this stage (a boss tier; the Orc Lord of the first story act is ttl.boss.t1).
 charter_stage = "ttl.boss.t1"
 # The charter fee, a coin table (a SINK in the economy counters, TtlEcon.charge). Money is Tensura's coins.
-# economy.toml [sinks].charter should say the same (gen_data.py warns when they differ; it is what `ttl econ` shows).
+# This is the only place the fee is set: gen_data.py derives economy.toml [sinks].charter from it (TtlEcon.fee, `ttl econ`).
 charter_cost = { gold = 50 }
 # Name rule: letters, digits, space, apostrophe and hyphen.
 name_min = 3

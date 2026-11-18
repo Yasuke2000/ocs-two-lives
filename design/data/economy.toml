@@ -517,7 +517,8 @@ reward = { coins = { gold = 9 }, rep = { blumund = 6 } }
 # Sinks. `charge(player, 'name')` in economy/sinks.js (TtlEcon.fee) reads these; the callers are the other work
 # packages: nations (charter, upkeep), bosses (altar), registry (Skill Core identification).
 [sinks]
-charter = { gold = 50 }
+# charter is not set here: gen_data.py derives it from nations.toml rules.charter_cost (the one source), so
+# TtlEcon.fee('charter') still works.
 upkeep_per_chunk_week = { silver = 1 }
 altar = { silver = 5 }
 core_identify = { gold = 2 }

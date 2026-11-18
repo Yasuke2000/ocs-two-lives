@@ -7,7 +7,7 @@
 //              the two (lethal = false: turned into a defeat, nobody dies) or a real death inside it ends the duel; the
 //              loser's Legendary goes to the winner (needs an absorber unique, EP gate, cooldown), Rare/Common are copied.
 //   war        a holder who falls in an official war between nations loses their Legendary to the killer (a real death).
-//              "At war" comes from TtlNations.atWar(server, killer, victim) (WP4, called only when it exists) and from
+//              "At war" comes from TtlNations.atWar(server, keyA, keyB) on the two souls' nations (TtlNations.of; WP4, only when it exists) and from
 //              staff flags (/ttl absorb war <a> <b>).
 //   bequest    a holder hands a unique on voluntarily: /ttl absorb bequest <p> <skill>, accepted with /ttl absorb accept <p>.
 //   awakening  a True Demon Lord / True Hero (Tensura's own flags) may CLAIM a free Legendary (/ttl absorb free|claim) or
@@ -237,7 +237,12 @@ const TtlAbsorb = {
     if (!conf.enabled) return false
     if (conf.own.use_nations !== false) {
       try {
-        if (typeof TtlNations !== 'undefined' && TtlNations && typeof TtlNations.atWar === 'function' && TtlNations.atWar(server, killer, victim)) return true
+        // TtlNations.atWar takes two nation keys (FTB team ids), not players: a soul in no nation is never at official war.
+        if (typeof TtlNations !== 'undefined' && TtlNations && typeof TtlNations.atWar === 'function' && typeof TtlNations.of === 'function') {
+          var na = TtlNations.of(server, killer)
+          var nb = TtlNations.of(server, victim)
+          if (na && nb && na.key !== nb.key && TtlNations.atWar(server, na.key, nb.key)) return true
+        }
       } catch (e) {
         console.warn(`[ttl] absorb: the nations war check failed: ${e}`)
       }

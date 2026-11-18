@@ -10,6 +10,8 @@
 //   owed, upkeepWeek, ally_to: [teamId], wars: [{with, declared, active_at}], renown: {uuid: n}}}
 //   owner      the party owner's UUID (kept in step with FTB by the poll)
 //   home       faction id of the region where the charter was signed ('' when none), homeRegion its canon letter
+//   path       the party's story Oath path at founding ('light' | 'dark' | ''), read through TtlParty.partyPath (party/party.js);
+//              the nation and the story party are the same FTB team, so the key is the same id in ttl.story.parties
 //   rank       rank id from nations.toml, value the last computed value (the leaderboard reads it)
 //   treasury   bronze coins in the nation's chest of coins; owed = unpaid upkeep (bronze)
 //   ally_to    the nations THIS nation has offered an alliance; two nations are allied when both list each other
@@ -442,9 +444,18 @@ const TtlNations = {
       console.warn(`[ttl] nations: home region of ${name} unreadable: ${e}`)
     }
     if (!TtlEcon.charge(server, player, r.charter_cost, `charter:${name}`)) throw `the charter costs ${TtlEcon.text(r.charter_cost)}`
+    var path = ''
+    try {
+      if (typeof TtlParty !== 'undefined' && typeof TtlParty.info === 'function' && typeof TtlParty.partyPath === 'function') {
+        var pp = TtlParty.partyPath(server, TtlParty.info(server, player), null)
+        path = pp ? String(pp.path) : ''
+      }
+    } catch (e) {
+      console.warn(`[ttl] nations: story path of ${name} unreadable: ${e}`)
+    }
     var all = this.all(server)
     var rec = {
-      name: name, owner: TtlLife.uuid(player), founded: Date.now(), home: faction ? String(faction.id) : '', homeRegion: String(region),
+      name: name, owner: TtlLife.uuid(player), founded: Date.now(), home: faction ? String(faction.id) : '', homeRegion: String(region), path: path,
       rank: String(this.ranks()[0].id), value: 0, treasury: 0, owed: 0, upkeepWeek: '', ally_to: [], wars: [], renown: {}
     }
     all[key] = rec
@@ -691,7 +702,7 @@ const TtlNations = {
     var owner = this.nameOfId(server, this.juuid(rec.owner))
     out.push(`  members (${this.memberIdsOf(team).length}/${this.rules().member_cap}): ${this.names(server, key).join(', ')} · owner ${owner}`)
     var home = rec.home && typeof TtlRep !== 'undefined' ? TtlRep.title(rec.home) : 'the wilds'
-    out.push(`  home: ${home}`)
+    out.push(`  home: ${home}${rec.path ? ` · path ${rec.path}` : ''}`)
     var claims = TtlNationClaims.count(team)
     var max = TtlNationClaims.max(team)
     out.push(`  land: ${claims} chunks claimed${max >= 0 ? ` of ${max}` : ''} (each member brings ${TtlNationClaims.allowance(rank)})`)

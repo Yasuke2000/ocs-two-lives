@@ -846,7 +846,7 @@ hash = "4524734dea6aaf7787e4955b7c2ffdf2061037782316864dbfd86dd48e9abd9a"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
-hash = "7c8b6969db69d39e0354fdfda95c4d36913cd33acbc4a730b42868c015c41150"
+hash = "c30690cd8c6fcf49511aabdbd3240dcb049bb4ed303c5299f6cf467e1f349f5c"
 
 [[files]]
 file = "config/ftbxmodcompat.snbt"
@@ -1554,7 +1554,7 @@ hash = "9f92291a755f345c07d7b3dcac65bf9547c056a9726f2817bd898578b6eddba1"
 
 [[files]]
 file = "kubejs/data/ttl/tags/entity_type/boss.json"
-hash = "3dc6e0cb19579f536e78e045219cfecb182d46ce6cef87617c8fa85db0b774a9"
+hash = "6b3c92aa04cda2a907c70a961f4250db80cf09dccc119ef52b78ca9446f29e84"
 
 [[files]]
 file = "kubejs/data/ttl/tags/item/soulbound.json"
@@ -1563,6 +1563,10 @@ hash = "d2ab0b48cd7d2e520f05cbc33b264fe7709d69e142074a3b629706b52d5cbf23"
 [[files]]
 file = "kubejs/data/ttl/worldgen/biome/spirit_domain.json"
 hash = "8d35a813f8f5178bb5e2a0c5f0c0938126b647fd054cd98620d9ac9e2996b38a"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/absorb/absorb.js"
+hash = "470d65f107e54dfa705d894cfe8aaa6480d256c8db3a9e85623ecaf11e5baa8b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/access.js"
@@ -1574,19 +1578,23 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/boss.js"
-hash = "2c7b7bca5462d54533af890b51a5f94bd07f050088eb49c4e723458f9ddbef1b"
+hash = "d5190bd9921560a0f5a9acea64afae9fcb08c51d42fa35a255d4fff046614fa9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/commands.js"
-hash = "cbdf1231fdcc5f1a441d55b1406bc15f3c837409fc3f9199856844202db5bbc4"
+hash = "7d7d7e5c02482f18754de4c4869192bf2981b1c580ff02e505ba2417eb48c4bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/loot.js"
 hash = "30147905f6fbdfd1b721ef36020695aee453c2b1d12ea37c41e40ccefdf6e1e4"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/bosses/wild.js"
+hash = "cf1345c2cf1e0a605dd345783970b6b8098834200c5586375b9e05a2c07ffbf7"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "e03a5b21dda0a553fb150761960b84a0443efd7e1b71bffe9440482a248174aa"
+hash = "c3b9f2d1ddb9b71f959fcb8c1b486064c19fe04788159a3f87816ab3b12e0d78"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -1662,7 +1670,7 @@ hash = "33b3cab039c79101a45c6c088518853ab3627934336c06f0f969ce0f5729fe2b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "41cead4291488d06e24bffd537c652217098a4312e9575603a2c65029bf4532e"
+hash = "0f8b2cba1b3d55585182474782e16a3b77112ac0768c4d9ceafaa9955d39eb38"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1726,7 +1734,7 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "f8ef2518350f8717c1c9ce1a6b61b78524aeb642af85f457309e294aea7f8d5b"
+hash = "db636c9d80a9ab818daf058af72c22cf040cc68ba7220173999f7a517077da0c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -1738,7 +1746,7 @@ hash = "d66e8222f8349e9921b888d26e5d0bfb0688d97d0faacc522ad5b8c5bc64656d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
-hash = "7067dc7f7689c7a8e7e50c322952c1e0852d38bdc5d577ca2a6a9bda0e293b08"
+hash = "1868626097386a971ec1f54d4b1b8386b19ba1a1b40a4d29ec9161c5fc46823d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/guide.js"
@@ -1794,7 +1802,7 @@ hash = "3bddc065b4efb3cc4addeafd823bf7b2f68f6e5910c6d1f0c397b4f0474d048a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"
-hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
+hash = "63b90a9c199668c971c2465617cb1b7c3cb61459251bf16bd687a98f5b0b724f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/world_reset.js"
@@ -1814,7 +1822,15 @@ hash = "7d9a1144acbe85af1d5c4e0f0963154c58fedc6ff62e64bf67460e26b7792131"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/nations/nations.js"
-hash = "0fe696a68a2b7e8c758fcb5e85114c65f7e4da03b82abb4a87a3551c5c38e6c5"
+hash = "6e419ecfefe7d1b01ea9b0382dfcd00092839ec0edbcd2600135be9183c22fe9"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/party/commands.js"
+hash = "653f2492b56195fbb75d456c10bdcdc8e7d843d686b6775326b6bb894925554f"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/party/party.js"
+hash = "7a096a646c101024df9a56937a5cea9b5a2c0d5b0a33e9f933c0afd4cb57e1ff"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/quests/check.js"
@@ -1843,6 +1859,14 @@ hash = "4597ab49e946b0a0ef86e956c0e1f22efaf100e8dc938ff05eafea853006957b"
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/rep.js"
 hash = "6e511f1710c95a7223ac95f7cf3992d9f1f3f5986932c3703b5ebb7dfee0fcc2"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/story/commands.js"
+hash = "ce3b05cb44b254e7ce88f3b3e33e59a45e4178b0b11fb3c02e2d9eca713481cc"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/story/story.js"
+hash = "0bee9e54d457f401ccf8854f8d8e30009f192485494b6febe267b85fc675afc6"
 
 [[files]]
 file = "kubejs/startup_scripts/ttl/items.js"

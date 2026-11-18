@@ -817,10 +817,8 @@ def check_nations(nat: dict, data: dict) -> None:
     coins = data.get("economy", {}).get("coins", {}).get("chain")
     if coins:
         coin_table("nations.toml: rules.charter_cost", r.get("charter_cost"), coins)
-        sink = data["economy"].get("sinks", {}).get("charter")
-        if sink != r["charter_cost"]:
-            print(f"warn: nations.toml rules.charter_cost {r['charter_cost']} differs from economy.toml sinks.charter {sink}",
-                  file=sys.stderr)
+        if data["economy"].get("sinks", {}).get("charter") != r["charter_cost"]:
+            raise SystemExit("economy.toml [sinks].charter must not be set by hand: nations.toml rules.charter_cost is the only source")
     for k in ("chunk_value", "build_value", "coins_per_value"):
         if not is_int(v.get(k)) or v[k] < (1 if k == "coins_per_value" else 0):
             raise SystemExit(f"nations.toml: value.{k} must be an integer (coins_per_value >= 1)")
@@ -1085,6 +1083,12 @@ def render() -> dict[Path, str]:
     for path in sorted(SOURCES.glob("*.toml")):
         with path.open("rb") as f:
             data[path.stem] = tomllib.load(f)
+    # One source for the charter fee: nations.toml rules.charter_cost. economy.toml [sinks].charter is derived from it so
+    # TtlEcon.fee('charter') and `ttl econ expect <p> fee_charter` keep working without a second number to keep in step.
+    if "economy" in data and "nations" in data:
+        if "charter" in data["economy"].get("sinks", {}):
+            raise SystemExit("economy.toml: remove [sinks].charter, nations.toml rules.charter_cost is the only source")
+        data["economy"]["sinks"]["charter"] = data["nations"]["rules"]["charter_cost"]
     if "skills" in data:
         check_skills(data["skills"])
     if "guide" in data:
