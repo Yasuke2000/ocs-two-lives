@@ -18,7 +18,9 @@ Go to the named site in the Tensura overworld and use `/ttl story fight <id>`. T
 | 3 | City of Laura · Clayman's Castle | `carrion` at Laura · `clayman` at the castle. A named stand-in portrays Clayman. |
 | 4 | Lubelius · Sealed Cave | `luminous_valentine` in Lubelius after Hinata · `veldora` at the cave after Charybdis |
 
-The Elemental Colossus (`elemental_colossus`) is a tier-4 **wild-only** fight. If a fixed encounter is already active or on its shared cooldown, try another boss or return later. [World map](world-map.md)
+The tier-4 Elemental Colossus (`elemental_colossus`) can appear in the wild in Damargania. For a deliberate encounter, enter `/ttl arena join labyrinth challenge`, start the match and clear the waves in Ramiris’s Labyrinth. The Walpurgis challenge ends with Clayman. The normal shared boss cooldown applies to these last foes. [Arenas and rewards](arenas.md)
+
+If a fixed encounter is already active or on its shared cooldown, try another boss or return later. [World map](world-map.md)
 
 ## Rare wild encounters
 

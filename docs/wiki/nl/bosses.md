@@ -18,7 +18,9 @@ Reis naar de aangegeven plek in de bovenwereld van Tensura en gebruik `/ttl stor
 | 3 | Stad Laura · kasteel van Clayman | `carrion` in Laura · `clayman` bij het kasteel. Een mob met Claymans naam vertolkt zijn rol. |
 | 4 | Lubelius · Sealed Cave | `luminous_valentine` in Lubelius nadat je Hinata hebt verslagen · `veldora` bij de grot nadat je Charybdis hebt verslagen |
 
-De Elemental Colossus (`elemental_colossus`) is een baas van rang 4 die **alleen in het wild** verschijnt. Loopt een vast gevecht al of is de gezamenlijke wachttijd nog niet voorbij, kies dan een andere baas of kom later terug. [Wereldkaart](world-map.md)
+De Elemental Colossus (`elemental_colossus`, rang 4) kan in het wild verschijnen in Damargania. Je kunt hem ook gericht opzoeken als laatste tegenstander van de uitdaging in Ramiris’ Labyrinth. Gebruik `/ttl arena join labyrinth challenge`, start de wedstrijd en versla de golven. In de Walpurgis-zaal eindigt de uitdaging met Clayman. Voor deze eindbazen geldt de gewone gedeelde wachttijd. [Arena’s en beloningen](arenas.md)
+
+Loopt een vast gevecht al of is de gezamenlijke wachttijd nog niet voorbij, kies dan een andere baas of kom later terug. [Wereldkaart](world-map.md)
 
 ## Zeldzame ontmoetingen in het wild
 
