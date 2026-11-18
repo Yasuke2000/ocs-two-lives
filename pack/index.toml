@@ -1377,8 +1377,12 @@ file = "kubejs/server_scripts/ttl/discord/roles.js"
 hash = "b7041324b5ef261db171a75b0d949daa71508a0c0cfb9c776fafe590337a3510"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/era/era.js"
+hash = "342d48a6acb72ce3cddbb970efe8e6255c63bbe2983279b82da0365ac80a008e"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "7f3646e5d685c3507184ca5a7a463017ed2229393a280c53090bc5b254558119"
+hash = "cd6e3baec98011db5053f15dc31d2debbe53026d7a27c44e9e1cae7c623fffb4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1514,7 +1518,7 @@ hash = "dbdcf85a6979080cb90d351ff461afb055c38d282b1ad4a15e0c51f4dbac534d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "921721749c4ff733b9a776588426c5146440503e4a98570c3ba75786ed7446bb"
+hash = "1312728df18dd5f675c1f07eb0ff054afc898d7991a5773507cf8055897bcaf3"
 
 [[files]]
 file = "kubejs/startup_scripts/ttl/items.js"

@@ -3,6 +3,11 @@
 // Uniques may be shared up to a cap per rarity (design/data/skills.toml → TtlData.skills). Legendary
 // uniques are never drawn for a rebirth; they are only granted on purpose (admin, Legendary tier,
 // absorption), up to their cap. Tensura's trulyUnique is off for this.
+// Registry v2 (Sprint 3-4, S5): at most `max_holders` (10, the Ten Great Demon Lords) different players hold a
+// Legendary unique at once, enforced on grant, available/draw and transfer; an optional per-era throttle
+// (`slots_per_era`, 0 = off) limits NEW Legendary holders from rebirth picks (grant with opts.slot). transfer()
+// moves a holder's unique to someone else by a named route (duel, war, bequest, awakening, staff ...);
+// openCore() draws a Skill Core's unique. Admin grants and transfers never use a slot, but obey the global ceiling.
 //
 // Server persistentData (all JSON strings; one NBT string may not exceed 64 KB, so the history is trimmed by size):
 //   ttl.reg.holders   {skill: [uuid, ...]}   who holds what. Keyed by player UUID, so a name change loses nothing.
@@ -12,8 +17,13 @@
 //   ttl.reg.seen      {uuid: millis}         last time each holder was online (return to pool, skills.toml [registry])
 //   ttl.reg.returned  {uuid: [skill, ...]}   records returned to the pool while the player was away; the skill itself
 //                     is taken from the player by reconcile() on their next login
-//   ttl.reg.history   [{t, e, s, u, n, r}]   append-only transfer log, capped (skills.toml history_max):
-//                     time, event (grant | revoke | return), skill, uuid, name then, reason
+//   ttl.reg.taken     {uuid: {skill: reason}} why a skill is waiting to be taken from an offline player (a transfer):
+//                     reconcile() words its Voice line after it. Always together with an entry in ttl.reg.returned
+//   ttl.reg.history   [{t, e, s, u, n, r, f?, fn?, v?}] append-only transfer log, capped (skills.toml history_max):
+//                     time, event (grant | revoke | return | transfer), skill, uuid, name then, reason; a transfer
+//                     is one entry for the receiver (u, n) with the giver in f / fn and the route in v
+//   ttl.reg.legendarySlots {era: used}       Legendary slots spent per era; the era number is ttl.season (era/era.js).
+//                     Keyed by era, so a new era starts with all slots free without any reset
 // Uniques gained outside the registry (the Great Sage scene's wishes, Tensura's own Reset Counter bonus unique,
 // admin commands) are caught by reconcile(), which reads what players really hold through TtlManas.
 // Callers may still pass a player NAME where a holder is asked for (available/draw): resolve() maps it to a UUID.
@@ -30,6 +40,89 @@ const TtlRegistry = {
       announce: r.announce || ['rare', 'legendary'],
       lookups: r.max_name_lookups ? Number(r.max_name_lookups) : 20
     }
+  },
+
+  // ---- eras and Legendary slots ----------------------------------------------------------------------
+
+  // The current era: server `ttl.season` (era/era.js bumps it); 1 until anything has set it.
+  era(server) {
+    var n = Number(server.persistentData.getInt('ttl.season'))
+    return n > 0 ? n : 1
+  },
+
+  // Test hook (/ttl registry legendcap): {max, slots} replacing the two TOML knobs until `legendcap reset`.
+  testCaps(server) {
+    return this.load(server, 'ttl.reg.testcaps', null)
+  },
+
+  // The global ceiling (owner decision: the Ten Great Demon Lords): at most this many DIFFERENT players hold a
+  // Legendary unique at once, whatever the era. skills.toml [legendary] max_holders; 0 = no ceiling.
+  maxHolders(server) {
+    var o = this.testCaps(server)
+    if (o && o.max !== undefined) return Number(o.max)
+    var n = Number((TtlData.skills.legendary || {}).max_holders)
+    return n >= 0 ? n : 10
+  },
+
+  // Optional per-era throttle on NEW Legendary holders from rebirth picks (skills.toml [legendary] slots_per_era);
+  // 0 = none, and it can never exceed the global ceiling. Returns 0 for "no throttle".
+  slotsPerEra(server) {
+    var o = this.testCaps(server)
+    var n = o && o.slots !== undefined ? Number(o.slots) : Number((TtlData.skills.legendary || {}).slots_per_era)
+    if (!(n > 0)) return 0
+    var max = this.maxHolders(server)
+    return max > 0 ? Math.min(n, max) : n
+  },
+
+  slotLedger(server) {
+    return this.load(server, 'ttl.reg.legendarySlots', {})
+  },
+
+  slotsUsed(server) {
+    return Number(this.slotLedger(server)[String(this.era(server))] || 0)
+  },
+
+  // Slots left this era; -1 when there is no per-era throttle.
+  slotsLeft(server) {
+    var per = this.slotsPerEra(server)
+    return per > 0 ? Math.max(0, per - this.slotsUsed(server)) : -1
+  },
+
+  // Different players holding any Legendary unique, from a records map ({skill: [id]}).
+  legendaryHoldersIn(recs) {
+    var ids = {}
+    Object.keys(recs).forEach(skill => {
+      if (this.rarityOf(skill) === 'legendary') recs[skill].forEach(id => { ids[id] = true })
+    })
+    return Object.keys(ids)
+  },
+
+  legendaryHolders(server) {
+    return this.legendaryHoldersIn(this.records(server))
+  },
+
+  // May `id` hold a Legendary unique under the global ceiling? Yes when they already hold one (a second Legendary
+  // adds no new holder) or when fewer than max_holders players do.
+  canHoldLegendary(server, id, recs) {
+    var max = this.maxHolders(server)
+    if (!(max > 0)) return true
+    var holders = this.legendaryHoldersIn(recs || this.records(server))
+    return holders.indexOf(id) >= 0 || holders.length < max
+  },
+
+  // Is a Legendary slot free this era? (Rebirth Legend picks.) Always true without a per-era throttle.
+  legendarySlotFree(server) {
+    return this.slotsPerEra(server) === 0 || this.slotsLeft(server) > 0
+  },
+
+  // Spends one slot of the current era; returns how many are used now. Eras more than nine back leave the ledger.
+  useSlot(server) {
+    var ledger = this.slotLedger(server)
+    var era = this.era(server)
+    ledger[String(era)] = Number(ledger[String(era)] || 0) + 1
+    Object.keys(ledger).forEach(k => { if (Number(k) < era - 9) delete ledger[k] })
+    this.store(server, 'ttl.reg.legendarySlots', ledger)
+    return ledger[String(era)]
   },
 
   rarityOf(skill) {
@@ -83,6 +176,10 @@ const TtlRegistry = {
 
   returned(server) {
     return this.load(server, 'ttl.reg.returned', {})
+  },
+
+  taken(server) {
+    return this.load(server, 'ttl.reg.taken', {})
   },
 
   history(server) {
@@ -257,30 +354,35 @@ const TtlRegistry = {
 
   // Appends to the transfer log (capped by count and by size) and, for a Rare or Legendary unique, tells everyone.
   // `quiet` skips the announcement (admin clean-ups, a skill taken back that never had a record).
-  log(server, event, skill, id, reason, quiet) {
+  log(server, event, skill, id, reason, quiet, extra) {
     var name = this.nameOf(server, id)
     var list = this.history(server)
-    list.push({ t: Date.now(), e: event, s: String(skill), u: String(id), n: name, r: String(reason || '') })
+    var entry = { t: Date.now(), e: event, s: String(skill), u: String(id), n: name, r: String(reason || '') }
+    if (extra) Object.keys(extra).forEach(k => { entry[k] = extra[k] })
+    list.push(entry)
     var max = this.conf().historyMax
     if (list.length > max) list = list.slice(list.length - max)
     while (list.length > 1 && JSON.stringify(list).length > this.MAX_JSON) list.shift()
     this.store(server, 'ttl.reg.history', list)
     console.info(`[ttl] registry history: ${event} ${skill} ${name} (${reason || '-'})`)
-    if (!quiet) this.announce(server, event, skill, name)
+    if (!quiet) this.announce(server, event, skill, name, extra && extra.fn)
   },
 
   // Voice of the World: a Rare or Legendary unique found or lost a holder. Test bots stay silent.
-  announce(server, event, skill, name) {
+  // For a transfer `name` is the receiver and `from` the giver.
+  announce(server, event, skill, name, from) {
     try {
       var rarity = this.rarityOf(skill)
-      if (this.conf().announce.indexOf(rarity) < 0 || this.isBot(name)) return
+      if (this.conf().announce.indexOf(rarity) < 0 || this.isBot(name) || (from && this.isBot(from))) return
       var title = TtlCorridor.title(skill)
       var kind = rarity === 'legendary' ? 'Legendary' : 'Rare'
       var text = event === 'grant'
         ? `${name} has become a holder of the ${kind} unique skill ${title}.`
-        : event === 'return'
-          ? `${name} has been away too long. The ${kind} unique skill ${title} returns to the world.`
-          : `${name} no longer holds the ${kind} unique skill ${title}. It returns to the world.`
+        : event === 'transfer'
+          ? `The ${kind} unique skill ${title} passes from ${from} to ${name}.`
+          : event === 'return'
+            ? `${name} has been away too long. The ${kind} unique skill ${title} returns to the world.`
+            : `${name} no longer holds the ${kind} unique skill ${title}. It returns to the world.`
       server.runCommandSilent(`tellraw @a ${JSON.stringify([
         { text: '[Voice of the World] ', color: 'gold' },
         { text: text, color: rarity === 'legendary' ? 'light_purple' : 'yellow' }
@@ -295,19 +397,21 @@ const TtlRegistry = {
     var want = skill ? `tensura:${String(skill).replace(/^.*:/, '')}` : null
     var list = this.history(server).filter(h => !want || h.s === want)
     var shown = limit && list.length > limit ? list.slice(list.length - limit) : list
-    return shown.map(h => `${new Date(h.t).toISOString().slice(0, 16).replace('T', ' ')} ${h.e} ${h.s} ${this.nameOf(server, h.u)}${h.r ? ` (${h.r})` : ''}`)
+    return shown.map(h => `${new Date(h.t).toISOString().slice(0, 16).replace('T', ' ')} ${h.e} ${h.s} ${this.nameOf(server, h.u)}${h.f ? ` from ${this.nameOf(server, h.f)}` : ''}${h.v ? ` [${h.v}]` : ''}${h.r ? ` (${h.r})` : ''}`)
   },
 
   // ---- grants, draws, revokes ------------------------------------------------------------------------
 
   // Uniques from `pool` that `who` (name or UUID) could receive now: under their cap and not already theirs.
-  // Legendary only when `allowLegendary` (deliberate grants, never rebirth draws).
+  // Legendary only when `allowLegendary` (deliberate grants, never rebirth draws, so draw() cannot hand one out),
+  // and then only while the global ceiling leaves room for `who` as a Legendary holder (canHoldLegendary).
   available(server, pool, who, allowLegendary) {
     var recs = this.records(server)
     var id = this.resolve(server, who)
     var self = this
+    var room = allowLegendary ? this.canHoldLegendary(server, id, recs) : false
     return pool.filter(skill => {
-      if (!allowLegendary && self.rarityOf(skill) === 'legendary') return false
+      if (self.rarityOf(skill) === 'legendary' && !(allowLegendary && room)) return false
       var list = recs[skill] || []
       return list.indexOf(id) < 0 && list.length < self.capOf(skill)
     })
@@ -342,10 +446,21 @@ const TtlRegistry = {
     return list.length - 1
   },
 
-  grant(server, player, skill, reason) {
+  // `opts.slot` (Legendary only): a NEW Legendary holder from a rebirth pick; needs a free slot this era and spends it.
+  // Admin grants leave it out and may exceed the slots (the per-skill cap still applies).
+  grant(server, player, skill, reason, opts) {
     var name = player.username
     var id = this.uid(player)
+    var slot = !!(opts && opts.slot) && this.rarityOf(skill) === 'legendary'
     this.migrate(server, false)
+    if (this.rarityOf(skill) === 'legendary' && !this.canHoldLegendary(server, id)) {
+      console.warn(`[ttl] registry: refused ${skill} for ${name}: ${this.legendaryHolders(server).length}/${this.maxHolders(server)} Legendary holders already`)
+      return false
+    }
+    if (slot && !this.legendarySlotFree(server)) {
+      console.warn(`[ttl] registry: refused ${skill} for ${name}: no Legendary slot left in era ${this.era(server)} (${this.slotsUsed(server)}/${this.slotsPerEra(server)})`)
+      return false
+    }
     if (this.available(server, [skill], id, true).length === 0) {
       console.warn(`[ttl] registry: refused ${skill} for ${name} (${this.rarityOf(skill)}, cap ${this.capOf(skill)} reached or already held)`)
       return false
@@ -364,7 +479,8 @@ const TtlRegistry = {
     this.touch(server, player)
     this.remember(server, player)
     console.info(`[ttl] registry: ${skill} -> ${name} (${recs[skill].length}/${this.capOf(skill)})`)
-    this.log(server, 'grant', skill, id, reason || 'granted through the registry')
+    var used = slot ? this.useSlot(server) : 0
+    this.log(server, 'grant', skill, id, `${reason || 'granted through the registry'}${slot ? ` (Legendary slot ${used}/${this.slotsPerEra(server) || 'unlimited'}, era ${this.era(server)})` : ''}`)
     return true
   },
 
@@ -418,11 +534,19 @@ const TtlRegistry = {
       var giveBack = back[id]
       delete back[id]
       this.store(server, 'ttl.reg.returned', back)
+      var whyAll = this.taken(server)
+      var why = whyAll[id] || {}
+      if (whyAll[id]) {
+        delete whyAll[id]
+        this.store(server, 'ttl.reg.taken', whyAll)
+      }
       giveBack.forEach(skill => {
         if (actual.indexOf(skill) < 0) return
         server.runCommandSilent(`quietly tensura edit ability revoke ${name} ${skill}`)
         actual = actual.filter(s => s !== skill)
-        TtlCorridor.voice(server, name, `You were away too long. ${TtlCorridor.title(skill)} has returned to the world.`)
+        TtlCorridor.voice(server, name, why[skill]
+          ? `${TtlCorridor.title(skill)} was taken from you (${why[skill]}).`
+          : `You were away too long. ${TtlCorridor.title(skill)} has returned to the world.`)
         console.info(`[ttl] registry: took ${skill} back from ${name}, returned to the pool while away`)
       })
     }
@@ -517,6 +641,124 @@ const TtlRegistry = {
     this.touchOnline(server)
     this.migrate(server, false)
     this.sweep(server)
+  },
+
+  // ---- transfer and Skill Cores ----------------------------------------------------------------------
+
+  // `who` as a holder: a player object, or a name / UUID. {id, player}; player is null while they are offline.
+  party(server, who) {
+    if (who && who.username !== undefined) return { id: this.uid(who), player: who }
+    var id = this.resolve(server, who)
+    var found = null
+    server.getPlayerList().getPlayers().forEach(p => { if (this.uid(p) === id) found = p })
+    return { id: id, player: found }
+  },
+
+  // Moves one unique from a holder to another player (absorption, an admin fix): revoke + grant in one step, ONE
+  // history entry (`transfer`: the receiver in u/n, the giver in f/fn, the route in v), the Voice line and a #story
+  // line for Rare and Legendary. `route` says HOW it moved and is free-form so several routes can coexist (skills.toml
+  // [transfer] routes lists the known ones: duel, war, bequest, awakening, staff; an unknown one is logged but
+  // accepted; none given = "staff"). A 5-argument call (the former `reason`) is read as the route. `from` may be offline (a combat-logger): their record moves at once and the skill is taken from them
+  // at their next login (ttl.reg.returned + ttl.reg.taken, settled by reconcile). `to` must be online. It never
+  // spends a Legendary slot and never changes how many hold the skill, so the per-skill cap cannot refuse it. The
+  // global Legendary ceiling can: a Legendary may not go to a player who is not yet a Legendary holder when that
+  // would put more than max_holders players over it (a giver who loses their last Legendary frees their place).
+  // False (logged) when `from` is not a recorded holder, `to` already holds it, they are the same soul, or the
+  // ceiling forbids it.
+  transfer(server, from, to, skill, route, reason) {
+    this.migrate(server, false)
+    var src = this.party(server, from)
+    var dst = this.party(server, to)
+    var way = String(route || 'staff').toLowerCase().replace(/[^a-z0-9_]/g, '_')
+    if ((TtlData.skills.transfer || {}).routes && TtlData.skills.transfer.routes.indexOf(way) < 0) {
+      console.warn(`[ttl] registry: transfer route ${way} is not listed in skills.toml [transfer] routes`)
+    }
+    var why = reason ? `${way}: ${reason}` : way
+    var recs = this.records(server)
+    var list = recs[skill] || []
+    var refuse = text => {
+      console.warn(`[ttl] registry: refused transfer of ${skill} from ${src.id} to ${dst.id}: ${text}`)
+      return false
+    }
+    if (!dst.player) return refuse('the receiver is not online')
+    if (src.id === dst.id) return refuse('giver and receiver are the same player')
+    if (list.indexOf(src.id) < 0) return refuse('the giver is not a recorded holder')
+    if (list.indexOf(dst.id) >= 0) return refuse('the receiver already holds it')
+    if (this.rarityOf(skill) === 'legendary' && !this.canHoldLegendary(server, dst.id, recs)) {
+      // The receiver is a new Legendary holder at the ceiling: allowed only if the giver stops being one.
+      var stays = this.heldBy(recs, src.id).filter(sk => sk !== skill && this.rarityOf(sk) === 'legendary').length > 0
+      if (stays) return refuse(`${this.legendaryHolders(server).length}/${this.maxHolders(server)} Legendary holders already`)
+    }
+    var fromName = this.nameOf(server, src.id)
+    if (src.player) {
+      server.runCommandSilent(`quietly tensura edit ability revoke ${src.player.username} ${skill}`)
+    } else {
+      var waiting = this.returned(server)
+      if ((waiting[src.id] || []).indexOf(skill) < 0) waiting[src.id] = (waiting[src.id] || []).concat([skill])
+      this.store(server, 'ttl.reg.returned', waiting)
+      var taken = this.taken(server)
+      taken[src.id] = taken[src.id] || {}
+      taken[src.id][skill] = why
+      this.store(server, 'ttl.reg.taken', taken)
+    }
+    server.runCommandSilent(`quietly tensura edit ability grant ${dst.player.username} ${skill}`)
+    recs[skill] = list.filter(n => n !== src.id).concat([dst.id])
+    this.save(server, recs)
+    // A skill that was waiting to be taken from the receiver and is theirs again is no longer waiting.
+    var mine = this.returned(server)
+    if (mine[dst.id] && mine[dst.id].indexOf(skill) >= 0) {
+      mine[dst.id] = mine[dst.id].filter(s => s !== skill)
+      if (mine[dst.id].length === 0) delete mine[dst.id]
+      this.store(server, 'ttl.reg.returned', mine)
+    }
+    this.touch(server, dst.player)
+    this.remember(server, dst.player)
+    if (src.player) this.remember(server, src.player)
+    console.info(`[ttl] registry: ${skill} ${fromName} -> ${dst.player.username} (${why})`)
+    this.log(server, 'transfer', skill, dst.id, why, false, { f: src.id, fn: fromName, v: way })
+    this.story(server, skill, fromName, String(dst.player.username))
+    return true
+  },
+
+  // #story line for a transfer of a Rare or Legendary unique, through TtlDiscord when it is there (one post per event).
+  story(server, skill, fromName, toName) {
+    try {
+      if (typeof TtlDiscord === 'undefined') return
+      var rarity = this.rarityOf(skill)
+      if (this.conf().announce.indexOf(rarity) < 0 || this.isBot(fromName) || this.isBot(toName)) return
+      var kind = rarity === 'legendary' ? 'Legendary' : 'Rare'
+      TtlDiscord.post(server, `The ${kind} unique skill ${TtlCorridor.title(skill)} passes from ${TtlDiscord.name(fromName)} to ${TtlDiscord.name(toName)}.`)
+    } catch (e) {
+      console.warn(`[ttl] registry: story line for the transfer failed: ${e}`)
+    }
+  },
+
+  // Every Rare and Common unique (never Legendary): what a Skill Core can hold.
+  corePool() {
+    return ['rare', 'common'].reduce((all, r) => all.concat(TtlData.skills[r].skills.map(p => `tensura:${p}`)), [])
+  },
+
+  coreWeights() {
+    return (TtlData.skills.core || {}).weights || { rare: 3, common: 1 }
+  },
+
+  // The unique an opening Skill Core would give this player: one weighted draw (skills.toml [core] weights) from the
+  // Rare and Common uniques they do not hold and that are under their cap. Null when nothing is free. Grants nothing.
+  coreDraw(server, player) {
+    var picked = this.draw(server, this.corePool(), 1, this.uid(player), this.coreWeights())
+    return picked.length > 0 ? picked[0] : null
+  },
+
+  // Opens a Skill Core: draw + grant. The skill, or null (nothing free, or the grant was refused).
+  openCore(server, player, reason) {
+    var skill = this.coreDraw(server, player)
+    if (!skill) return null
+    return this.grant(server, player, skill, reason || 'opened a Skill Core') ? skill : null
+  },
+
+  // Name the Legendary/absorption package expects for the return-to-pool sweep.
+  returnInactive(server) {
+    return this.sweep(server)
   },
 
   // Admin: drop every record of `skill` (its holders left or were reset by hand).
