@@ -1,5 +1,16 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 18/11 night — branch `paths-c1` (PR open, depends on #28, now on main): WP-C1 moral-choice scenes
+
+Engine `pack/kubejs/server_scripts/ttl/choices/engine.js` (`TtlChoices.register/spawn/resolve/take`, director poll
+`choice_scenes`), scenes 4.1-4.4 in `choices/events_c1.js` (sick village, bandit hostages, starving band, wounded monster
+that wants a name), `/ttl choice` in `choices/commands.js`, data `design/data/choices.toml` (checked by
+`gen_data.check_choices`, unit test `tests/test_choices_data.py`), guide page "Crossroads of conscience", roadmap line.
+Offline: validate.py passed, unit tests OK. **Not run in game yet**: `bash tools/server.sh test choices`; watch for
+`[ttl] choices` errors. WP-C2 adds 4.5-4.12 as `choices/events_c2.js` with `TtlChoices.register` (API in the engine header).
+Verify in game: Tensura naming/Dominate set IExistence name/permanent/temporary owner on a NoAI beast; `tensura:orc` bandits
+fight and the captain's `attribute` takes; `tensura edit stat <p> ep current add`; ManasCore `getLearnedSkills` sees
+Predator/Gluttony/Starved; `getEntitiesWithin(new AABB(...))` from Rhino; food detection (`DataComponents.FOOD`).
 ## 18/11 evening — branch `sidequests` (PR open, not merged): side quests, ambient adventurers, companions
 
 Isekai side content for Life 2 (design: `design/quests.md` "Side quests", decisions.md rows of 18/11/2026):

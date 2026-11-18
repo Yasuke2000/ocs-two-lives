@@ -1,0 +1,258 @@
+# Moral-choice world events: "Crossroads of conscience" (design/architecture/paths-necro-artificer.md §4, rules R11-R14,
+# owner decisions O-C1/O-C2 of 18/11/2026; WP-C1 = the engine + events 4.1-4.4, WP-C2 adds 4.5-4.12).
+# Scripts: choices/engine.js (TtlChoices), choices/events_c1.js (the four scenes), choices/commands.js (/ttl choice).
+# Edit, then run `python tools/gen_data.py` (check_choices validates this file). Test: `tools/server.sh test choices`.
+#
+# A SCENE is a small, temporary situation the world puts near a Life 2 soul on the canon continent (R11; never in Life 1,
+# never in a protected domain, a canon build or a safe zone). Every scene has a slow good (or grey) route and a faster dark
+# shortcut; every route pays through TtlRoads.pay (roads/roads.js) as the choice `choice.<id>`, so the dark one always costs
+# the same five things: karma (Life 2 ledger), world balance, reputation, renown if witnessed (R14), a #story line the
+# first time. R12: no stage of the story, the Oath path or a boss gates a scene or a route (tools/validate.py fails on one).
+#
+# [engine]   O-C1: max_active scenes server-wide, one per canon region; a scene left alone for ttl_minutes ends the NEUTRAL
+#            way (people die, bandits leave) and the chronicle counts it unresolved; first come per scene, and every soul
+#            within credit_radius at the resolution is credited and pays the route IF IT TOOK PART (hit, healed, fed, freed,
+#            took the route); the others only hear what happened.
+# [balance]  O-C2: a dark route weighs world.toml [balance.weights] dark_deed (-1.5) per note; at most dark_cap balance
+#            points a soul a day (the karma, reputation and renown are still paid).
+# [scale]    a count `{ base, per_player }` becomes base + per_player x (Life 2 souls online - 1), at most base x max_mult;
+#            coin rewards scale by the same factor.
+#
+# [[choice]] (one per event)
+#   id, label            the event id ([a-z0-9_]+) and its name; `fair` = the honest route id
+#   weight               natural-roll weight; weight_if = { tide = { light|dark = x }, milestone = { <world milestone> = x } }
+#                        multiplies it (a dark tide shows more hostages, a light one more healing; never a gate, R12)
+#   intro / neutral      what a soul hears when it comes near; the line when nobody acted in time ({region} = the canon region)
+#   count                spawn counts { <role> = { base = n, per_player = n } }
+#   knobs                event-specific numbers the scene script reads (documented per event)
+#   [[choice.route]]     id, road (good | grey | dark), label (the button or the hint), how = "menu" (a button that takes the
+#                        route at once: /ttl choice take) or "deed" (the scene detects it: healing, killing, feeding, naming),
+#                        need = [...] for menu routes (any one suffices: "necro" a necromancer (TtlLegion rank 1+),
+#                        "skill:<tensura skill id>", "coins:<bronze>"), result (the line the soul reads), flag (a chronicle
+#                        flag noted for every credited soul), reward = { coins = { <coin> = n } } per credited soul,
+#                        [choice.route.costs] = a roads.toml route table (chaos/order/craft/faith, balance, times, rep, victim,
+#                        renown, witnessed_only, story, extra). `victim` lands on the scene's home faction.
+
+[engine]
+enabled = true            # natural rolls; /ttl choice spawn works either way
+max_active = 3            # O-C1: open scenes server-wide
+ttl_minutes = 30          # O-C1: then the neutral outcome
+credit_radius = 48        # O-C1: the boss credit rule
+witness_radius = 32       # R14
+notice_radius = 24        # a soul this close hears the scene and its choices (once)
+roll_minutes = 5          # a natural roll every n minutes while a Life 2 soul is on the continent
+chance = 0.06             # per roll with one Life 2 soul online
+per_player = 0.3          # + chance x per_player for every further Life 2 soul online
+max_chance = 0.3
+min_gap_minutes = 15      # between two natural scenes
+min_distance = 32         # a natural scene appears this far from the soul it was rolled for ...
+max_distance = 64         # ... and no farther
+scene_radius = 12         # the footprint: no domain, canon build or safe zone may touch it
+linger_seconds = 20       # after the resolution, before the scene's entities and blocks are cleared
+repeat_days = 7           # the same soul resolving the same event again within this many days ...
+repeat_mult = 0.5         # ... gets this share of the coin reward (the guild's anti-farm rule)
+
+[balance]
+dark_cap = 5              # O-C2: balance points a soul's dark routes may move the world a day
+
+[scale]
+max_mult = 3
+
+# ---- 4.1 the sick village (the owner's example) -------------------------------------------------------------------
+# knobs: start_health (of 20), cure_at (health that counts as cured), salve_heal (health one Hipokute Salve gives, right-
+# click a villager with it), heal_reach (blocks: the soul nearest a villager whose health rose is the healer),
+# ash_each (soul ash the release yields per villager; a necromancer with a Bone Altar and room raises them at once)
+[[choice]]
+id = "sick_village"
+label = "The sick village"
+fair = "heal"
+weight = 1.0
+weight_if = { tide = { light = 1.3, dark = 1.2 } }
+intro = "A camp of villagers lies sick with a grey fever. They are too weak to stand."
+neutral = "Nobody came. The sick of {region} did not live to see help."
+count = { villagers = { base = 6, per_player = 2 } }
+knobs = { start_health = 6, cure_at = 16, salve_heal = 5, heal_reach = 8, ash_each = 2 }
+
+[[choice.route]]
+id = "heal"
+road = "good"
+how = "deed"
+label = "Heal them: two Hipokute Salves each (right-click), a healing spell or a splash potion of healing"
+result = "The fever breaks. A Blumund caravan takes the villagers home."
+flag = "village_healed"
+reward = { coins = { silver = 3 } }
+[choice.route.costs]
+order = 1
+balance = "light_deed"
+rep = { blumund = 8, tempest = 4 }
+renown = 3
+
+[[choice.route]]
+id = "release"
+road = "dark"
+how = "menu"
+label = "Release them (necromancy)"
+need = ["necro", "skill:tensura:create_lesser_undead", "skill:tensura:create_greater_undead"]
+result = "They die without pain, and their souls are yours."
+[choice.route.costs]
+chaos = 6
+balance = "dark_deed"
+times = 2
+rep = { blumund = -15, holy_church = -10 }
+renown = -5
+story = "The plague village of {region} did not recover."
+extra = { sense = 10 }
+
+# ---- 4.2 bandit hostages -------------------------------------------------------------------------------------------
+# knobs: captain_health, ash_each (per hostage on the dark route), loot_silver
+# (the camp's coin, dark route), homes (the hostages' home faction is picked from these; `victim` costs land there)
+[[choice]]
+id = "bandit_hostages"
+label = "Bandit hostages"
+fair = "rescue"
+weight = 1.0
+weight_if = { tide = { dark = 1.5 } }
+intro = "Orc bandits hold villagers bound in their camp. The captain names a price."
+neutral = "The bandits broke camp and took their hostages with them, somewhere in {region}."
+count = { bandits = { base = 6, per_player = 3 }, hostages = { base = 3, per_player = 1 } }
+knobs = { captain_health = 60, ash_each = 1, loot_silver = 8, homes = ["blumund", "falmuth"] }
+
+[[choice.route]]
+id = "rescue"
+road = "good"
+how = "deed"
+label = "Rescue them: clear the camp, then cut each hostage's bonds (right-click)"
+result = "The hostages are free and make for home."
+reward = { coins = { silver = 5 } }
+[choice.route.costs]
+order = 1
+balance = "light_deed"
+victim = 6
+renown = 2
+
+[[choice.route]]
+id = "pay"
+road = "grey"
+how = "menu"
+label = "Pay the captain"
+need = ["coins:500"]
+result = "The captain counts the gold and lets them go. The Horde grows fat on it."
+[choice.route.costs]
+balance = "none"
+rep = { orc_horde = 5 }
+
+[[choice.route]]
+id = "take"
+road = "dark"
+how = "menu"
+label = "Kill the hostages and loot the camp"
+result = "The captain laughs and lets you take what you like."
+[choice.route.costs]
+chaos = 9
+balance = "dark_deed"
+times = 3
+victim = -20
+renown = -6
+story = "Hostages were butchered in a bandit camp in {region}."
+extra = { sense = 6 }
+
+# ---- 4.3 the starving band (the Orc Lord's famine, world-state.md §6.7) -------------------------------------------------
+# knobs: food_each (food items per orc into the Offering Bowl, right-click it with food), ep_mult (an absorber's EP: the
+# band's own EP x this, through Tensura's stat command), ep_fallback (EP per orc when Tensura's storage is unreadable)
+[[choice]]
+id = "starving_band"
+label = "The starving band"
+fair = "feed"
+weight = 0.6
+weight_if = { milestone = { horde_seen = 3 }, tide = { dark = 1.2 } }
+intro = "A band of orcs kneels at a field, starving. They do not raise their weapons. Someone has set out a bowl."
+neutral = "The starving band wandered off into {region}. Not all of them will see the spring."
+count = { orcs = { base = 5, per_player = 1 } }
+knobs = { food_each = 6, ep_mult = 2, ep_fallback = 2000 }
+
+[[choice.route]]
+id = "feed"
+road = "good"
+how = "deed"
+label = "Feed them: fill the Offering Bowl with food (right-click it)"
+result = "The orcs eat, bow, and leave in peace. The Horde will remember."
+flag = "orcs_fed"
+reward = { coins = { silver = 2 } }
+[choice.route.costs]
+order = 1
+balance = "light_deed"
+rep = { tempest = 5, orc_horde = 10 }
+renown = 1
+
+[[choice.route]]
+id = "devour"
+road = "dark"
+how = "deed"
+label = "Cut them down"
+result = "The band dies where it knelt."
+[choice.route.costs]
+chaos = 4
+balance = "dark_deed"
+rep = { orc_horde = -10 }
+renown = -2
+story = "A starving orc band was slaughtered in {region}."
+
+[[choice.route]]
+id = "absorb"
+road = "grey"
+how = "menu"
+label = "Devour them whole (Predator, Gluttony or Starved)"
+need = ["skill:tensura:predator", "skill:tensura:gluttony", "skill:tensura:starved"]
+result = "Your skill swallows the band. Their strength is yours."
+[choice.route.costs]
+balance = "none"           # Tensura's own mechanic is not punished twice (design §4.3)
+
+# ---- 4.4 a wounded monster wants a name -------------------------------------------------------------------------------
+# knobs: start_pct (health share at the start), healed_pct (health share that counts as healed), salve_heal, ash_slay (soul
+# ash a necromancer takes from the bones), types (the beast is one of these Tensura entities)
+[[choice]]
+id = "wants_name"
+label = "A wounded monster wants a name"
+fair = "name"
+weight = 0.8
+weight_if = { tide = { light = 1.2 } }
+intro = "A wounded monster lies in the grass. It does not flee. It looks at you as if it wanted something: a name."
+neutral = "The wounded monster limped away into {region}, nameless."
+count = { beast = { base = 1, per_player = 0 } }
+knobs = { start_pct = 0.1, healed_pct = 0.5, salve_heal = 8, ash_slay = 1, types = ["tensura:direwolf", "tensura:blade_tiger", "tensura:horned_bear"] }
+
+[[choice.route]]
+id = "name"
+road = "good"
+how = "deed"
+label = "Heal it, then give it a name (Tensura naming: it becomes your subordinate)"
+result = "A Name Is Given. The monster rises, yours by its own choice."
+flag = "named_wild"
+[choice.route.costs]
+order = 1
+balance = "light_deed"
+renown = 3
+
+[[choice.route]]
+id = "bind"
+road = "dark"
+how = "deed"
+label = "Bind it by force (Dominate) without a name"
+result = "The monster obeys. It did not choose to."
+[choice.route.costs]
+chaos = 2
+balance = "dark_deed"
+renown = -2
+story = "A wounded monster in {region} was bound by force."
+
+[[choice.route]]
+id = "slay"
+road = "dark"
+how = "deed"
+label = "Kill it for the trophy"
+result = "The monster dies. A necromancer could use its bones."
+[choice.route.costs]
+chaos = 2
+balance = "dark_deed"
+renown = -2
+story = "A wounded monster that asked for a name was killed in {region}."
