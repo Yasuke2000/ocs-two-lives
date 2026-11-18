@@ -1,7 +1,8 @@
 # Life 2 arrival (life/arrival.js, design/data/arrival.toml). Expect: "Arrival: x y z (grounded) ..." (271.5 y -623.5
 # once grounded, about 20 s after start; a "provisional" line only on a fresh world), then a reborn bot lands within
 # 3 blocks of it, on Jura's safe rim and not in Tempest, and is still alive 10 s later (area magicule there is 500;
-# the forest ahead is lethal for a fresh soul). Any "ttl: ..." line is a failure. Check the biome too:
+# the forest ahead is lethal for a fresh soul; the arrival grace of arrival.toml keeps the rim's Blade Tigers and Barghests
+# from killing it, but they still shove it: after 10 s it only has to be within 32 blocks). Any "ttl: ..." line is a failure. Check the biome too:
 # `ttlmap 271 -624` must say ring 'rim'.
 ttl arrival
 ttlbot spawn TtlBotArrival
@@ -14,6 +15,6 @@ ttl inspect TtlBotArrival
 ttl arrival expect TtlBotArrival near 3
 @sleep 10
 ttl arrival expect TtlBotArrival alive
-ttl arrival expect TtlBotArrival near 3
+ttl arrival expect TtlBotArrival near 32
 ttl reset TtlBotArrival
 ttlbot remove TtlBotArrival
