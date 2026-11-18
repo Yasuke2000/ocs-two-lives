@@ -22,6 +22,9 @@ execute as TtlBotSpirit run ttl wish knowledge
 execute as TtlBotSpirit run ttl choose slime
 @sleep 3
 ttl karma TtlBotSpirit expect phase life2
+# The gate stands in the dangerous Jura forest (owner decision: deadly for a fresh soul; a Direwolf killed the bot there
+# on 18/11/2026), and this test is about the gates, not survival: creative keeps the bot alive (removed below).
+gamemode creative TtlBotSpirit
 ttl spiritdomain expect TtlBotSpirit out
 ttl spiritdomain tp TtlBotSpirit
 @sleep 2
@@ -36,6 +39,7 @@ ttl spiritdomain expect TtlBotSpirit in
 ttl spiritdomain walk TtlBotSpirit back
 @sleep 5
 ttl spiritdomain expect TtlBotSpirit out
+gamemode survival TtlBotSpirit
 ttl reset TtlBotSpiritL1
 ttl reset TtlBotSpirit
 ttlbot remove TtlBotSpiritL1
