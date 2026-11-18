@@ -126,33 +126,58 @@ const TtlEcon = {
     return total
   },
 
-  balance(player) {
+  // Ops diagnostics (`/ttl econ expect <p> source ?` prints it): which money source answers and what it sees.
+  probe(player) {
     var h = this.handler(player)
-    if (h) {
-      try {
-        var all = h.getStoredMoney().allValues()
-        var total = 0
-        for (var i = 0; i < all.size(); i++) total += Number(all.get(i).getCoreValue())
-        return total
-      } catch (e) {
-        this.warnOnce(`reading the stored money failed (${e})`)
-      }
+    var out = [`inventory=${this.inventoryBalance(player)}`]
+    if (!h) return out.concat(['handler=none']).join(' ')
+    out.push(`handler=${h}`)
+    try {
+      var view = h.getStoredMoney()
+      out.push(`view=${view}`)
+      var all = view.allValues()
+      out.push(`values=${all.size()}`)
+      for (var i = 0; i < all.size(); i++) out.push(`[${all.get(i)} core=${all.get(i).getCoreValue()}]`)
+    } catch (e) {
+      out.push(`stored failed: ${e}`)
     }
-    return this.inventoryBalance(player)
+    try {
+      out.push(`canTake1=${h.extractMoney(this.api().coin.fromNumber(this.CHAIN, 1), true)}`)
+    } catch (e) {
+      out.push(`simulate failed: ${e}`)
+    }
+    return out.join(' ')
+  },
+
+  // What Lightman's player holder reports (the equipped wallet, and inventory coins where it counts them); -1 when
+  // its API is unreachable.
+  handlerBalance(player) {
+    var h = this.handler(player)
+    if (!h) return -1
+    try {
+      var all = h.getStoredMoney().allValues()
+      var total = 0
+      for (var i = 0; i < all.size(); i++) total += Number(all.get(i).getCoreValue())
+      return total
+    } catch (e) {
+      this.warnOnce(`reading the stored money failed (${e})`)
+      return -1
+    }
+  },
+
+  // Lightman's holder does not always see coins in the inventory (in game 18/11/2026: 25 bronze carried, its view
+  // empty), so the inventory is counted by us and added unless the holder already sees at least as much.
+  balance(player) {
+    var inv = this.inventoryBalance(player)
+    var lc = this.handlerBalance(player)
+    if (lc < 0) return inv
+    return lc >= inv ? lc : lc + inv
   },
 
   canPay(player, x) {
     var n = this.amount(x)
     if (n <= 0) return true
-    var h = this.handler(player)
-    if (h) {
-      try {
-        return h.extractMoney(this.api().coin.fromNumber(this.CHAIN, n), true).isEmpty()
-      } catch (e) {
-        this.warnOnce(`simulated extract failed (${e})`)
-      }
-    }
-    return this.inventoryBalance(player) >= n
+    return this.balance(player) >= n
   },
 
   give(server, player, n) {
@@ -163,27 +188,29 @@ const TtlEcon = {
     })
   },
 
+  // Inventory coins first (always reachable by command; the change comes back as coins), the rest through Lightman's
+  // holder (the wallet).
   charge(server, player, x, why) {
     var n = this.amount(x)
     if (n <= 0) return true
     if (!this.canPay(player, n)) return false
-    var done = false
-    var h = this.handler(player)
-    if (h) {
-      try {
-        var left = h.extractMoney(this.api().coin.fromNumber(this.CHAIN, n), false)
-        done = left.isEmpty()
-        if (!done) console.error(`[ttl] econ: ${player.username} paid only part of ${n} (${left}) for ${why}`)
-      } catch (e) {
-        this.warnOnce(`extract failed (${e})`)
-      }
-    }
-    if (!done) {
-      // Inventory fallback: take every coin, hand back the change.
-      var have = this.inventoryBalance(player)
-      var self = this
+    var self = this
+    var inv = this.inventoryBalance(player)
+    var rest = n
+    if (inv > 0) {
+      var take = Math.min(inv, n)
       this.chain().forEach(coin => server.runCommandSilent(`clear ${player.username} ${self.item(coin)}`))
-      this.give(server, player, have - n)
+      this.give(server, player, inv - take)
+      rest = n - take
+    }
+    if (rest > 0) {
+      var h = this.handler(player)
+      try {
+        var left = h.extractMoney(this.api().coin.fromNumber(this.CHAIN, rest), false)
+        if (!left.isEmpty()) console.error(`[ttl] econ: ${player.username} paid only part of ${n} (${left} missing) for ${why}`)
+      } catch (e) {
+        console.error(`[ttl] econ: ${player.username} wallet charge of ${rest} for ${why} failed: ${e}`)
+      }
     }
     this.note(server, 'sink', n, why)
     return true

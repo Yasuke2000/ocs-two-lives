@@ -31,7 +31,8 @@
 //        fields: total, week, works (how many Public Works chunks they keep), builder (true/false)
 //   /ttl econ                             this week's faucet / sink counters (bronze) and the last weeks
 //   /ttl econ give <player> <bronze> | take <player> <bronze>
-//   /ttl econ expect <player> <field> <value>   fields: balance, faucet, sink, fee_<name> (bronze), can_<bronze> (true/false)
+//   /ttl econ expect <player> <field> <value>   fields: balance, faucet, sink, fee_<name> (bronze), can_<bronze> (true/false),
+//                                         source (diagnostics: what the inventory and Lightman's holder see)
 // Every `expect` answers "ttl: ..." when the value is wrong, which `server.sh test-all` counts as a failure.
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
@@ -287,7 +288,7 @@ ServerEvents.commandRegistry(event => {
     if (can) return String(TtlEcon.canPay(p, Number(can[1])))
     var fee = /^fee_(.+)$/.exec(field)
     if (fee) return String(TtlEcon.fee(fee[1]))
-    var all = { balance: () => String(TtlEcon.balance(p)), faucet: () => String(data.faucet), sink: () => String(data.sink) }
+    var all = { balance: () => String(TtlEcon.balance(p)), source: () => TtlEcon.probe(p), faucet: () => String(data.faucet), sink: () => String(data.sink) }
     if (!(field in all)) throw `unknown field ${field} (one of ${Object.keys(all).join(', ')}, fee_<name>, can_<bronze>)`
     return all[field]()
   }
