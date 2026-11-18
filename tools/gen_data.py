@@ -209,6 +209,93 @@ def check_factions(fac: dict, karma: dict | None) -> None:
         raise SystemExit(f"factions.toml: only one faction can mirror into Tensura's reputation, found {', '.join(mirrors)}")
 
 
+def check_bosses(bosses: dict, landmarks: dict | None) -> None:
+    # bosses/boss.js summons these; a typo would fail only when a quest or altar summons the boss.
+    ident = r"[a-z0-9_.-]+:[a-z0-9_/.-]+"
+    names = {lm["name"] for lm in (landmarks or {}).get("landmark", [])}
+    fw = bosses.get("framework", {})
+    for key, kind in (("block_natural", bool), ("untame", bool), ("idle_minutes", int), ("presence_secs", int)):
+        if not isinstance(fw.get(key), kind):
+            raise SystemExit(f"bosses.toml: [framework] {key} must be a {kind.__name__}")
+    if not isinstance(fw.get("bindable"), list):
+        raise SystemExit("bosses.toml: [framework] bindable must be a list (use [] for none)")
+    if not isinstance(fw.get("natural_allow"), list):
+        raise SystemExit("bosses.toml: [framework] natural_allow must be a list (use [] for none)")
+    all_ids = [b.get("id") for b in bosses.get("boss", [])]
+    for key in ("bindable", "natural_allow"):
+        for bid in fw[key]:
+            if bid not in all_ids:
+                raise SystemExit(f"bosses.toml: [framework] {key} names unknown boss {bid!r}")
+    ids, entities = set(), set()
+    for b in bosses.get("boss", []):
+        bid = b.get("id", "")
+        where = f"bosses.toml: boss {bid or '?'}"
+        if not re.fullmatch(r"[a-z0-9_]+", bid) or bid in ids:
+            raise SystemExit(f"{where}: id must be unique [a-z0-9_]")
+        ids.add(bid)
+        if not re.fullmatch(ident, str(b.get("entity", ""))) or b["entity"] in entities:
+            raise SystemExit(f"{where}: entity must be a unique namespaced id")
+        entities.add(b["entity"])
+        if bid != b["entity"].split(":", 1)[1]:
+            raise SystemExit(f"{where}: id must equal the entity path ({b['entity'].split(':', 1)[1]}); "
+                             f"the stage ttl.defeated.<id> is read by compat/tombstone_bosses.js")
+        for req in b.get("requires", []):
+            if req not in all_ids or req == bid:
+                raise SystemExit(f"{where}: requires names an unknown boss or itself: {req!r}")
+        if b.get("tier") not in (1, 2, 3, 4):
+            raise SystemExit(f"{where}: tier must be 1..4")
+        if not str(b.get("title", "")).strip() or re.search(r"['\\\"]", b["title"]):
+            raise SystemExit(f"{where}: title is empty or contains a quote or backslash")
+        arena = b.get("arena")
+        if arena is not None:
+            if "landmark" in arena:
+                if arena["landmark"] not in names:
+                    raise SystemExit(f"{where}: arena landmark {arena['landmark']!r} not in landmarks.toml")
+            elif not all(isinstance(arena.get(k), int) for k in "xz") or not isinstance(arena.get("y", 0), int):
+                raise SystemExit(f"{where}: arena needs a landmark or integer x and z (y optional)")
+            elif "radius" in arena and (not isinstance(arena["radius"], int) or not 4 <= arena["radius"] <= 256):
+                raise SystemExit(f"{where}: arena radius must be an integer 4..256")
+            if "landmark" in arena and "radius" in arena:
+                raise SystemExit(f"{where}: a landmark arena cannot have a radius (give x and z)")
+        for key in ("hp_mult", "per_player_mult"):
+            if not isinstance(b.get(key), (int, float)) or b[key] < (1 if key == "hp_mult" else 0):
+                raise SystemExit(f"{where}: {key} must be a number (hp_mult >= 1, per_player_mult >= 0)")
+        if not isinstance(b.get("range"), int) or not 8 <= b["range"] <= 128:
+            raise SystemExit(f"{where}: range must be an integer 8..128")
+        if not isinstance(b.get("cooldown_hours"), (int, float)) or b["cooldown_hours"] < 0:
+            raise SystemExit(f"{where}: cooldown_hours must be >= 0")
+        last = 1.0
+        for ph in b.get("phases", []):
+            if not isinstance(ph.get("at_hp"), (int, float)) or not 0 < ph["at_hp"] < last:
+                raise SystemExit(f"{where}: phases need at_hp between 0 and 1, strictly descending")
+            last = ph["at_hp"]
+            if not str(ph.get("say", "")).strip():
+                raise SystemExit(f"{where}: every phase needs a say line")
+            if ("minions" in ph) != ("count" in ph):
+                raise SystemExit(f"{where}: a phase gives both minions and count, or neither")
+            if "minions" in ph and (not re.fullmatch(ident, ph["minions"]) or not isinstance(ph["count"], int)
+                                    or not 1 <= ph["count"] <= 12 or ph["minions"] in entities):
+                raise SystemExit(f"{where}: minions must be a namespaced id (not a boss), count 1..12")
+            if "enrage" in ph and (not isinstance(ph["enrage"], int) or not 0 <= ph["enrage"] <= 5):
+                raise SystemExit(f"{where}: enrage must be a strength amplifier 0..5")
+        rw = b.get("rewards", {})
+        for f, n in rw.get("rep", {}).items():
+            if not re.fullmatch(r"[a-z0-9_]+", f) or not isinstance(n, int):
+                raise SystemExit(f"{where}: rewards.rep wants faction = integer")
+        for coin, n in rw.get("coins", {}).items():
+            if coin not in ("bronze", "silver", "gold", "stellar_gold") or not isinstance(n, int) or n < 1:
+                raise SystemExit(f"{where}: rewards.coins wants bronze|silver|gold|stellar_gold = positive integer")
+        if rw.get("core") and b["tier"] < 3:
+            raise SystemExit(f"{where}: Skill Cores drop from tier 3 and up only")
+        for d in b.get("drops", []):
+            if not re.fullmatch(ident, str(d.get("item", ""))) or not isinstance(d.get("count"), int)                     or not 0 < d.get("chance", 0) <= 1:
+                raise SystemExit(f"{where}: drops need item, integer count and chance in (0, 1]")
+    # The entity tag the datapack side uses (kubejs/data/ttl/tags/entity_type/boss.json) lists exactly these bosses.
+    tag = json.loads((ROOT / "pack" / "kubejs" / "data" / "ttl" / "tags" / "entity_type" / "boss.json").read_text(encoding="utf-8"))
+    if set(tag["values"]) != entities:
+        raise SystemExit("bosses.toml: kubejs/data/ttl/tags/entity_type/boss.json does not list exactly the [[boss]] entities")
+
+
 def settlement_box(script: str, anchor: str, footprint: str) -> tuple[int, int, int, int]:
     """World box (x0, z0, x1, z1, margin included) of Tempest or Dwargon, as their scripts compute it."""
     m = re.search(anchor + r":\s*\{\s*x:\s*(-?\d+),\s*z:\s*(-?\d+)", (SCRIPTS / "life" / script).read_text(encoding="utf-8"))
@@ -275,6 +362,8 @@ def render() -> str:
         check_carryover(data["carryover"], data.get("karma"))
     if "factions" in data:
         check_factions(data["factions"], data.get("karma"))
+    if "bosses" in data:
+        check_bosses(data["bosses"], data.get("landmarks"))
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     return (
         "// priority: 200\n"

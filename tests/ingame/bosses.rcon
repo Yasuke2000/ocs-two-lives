@@ -1,0 +1,61 @@
+# Boss framework (bosses/boss.js, design/data/bosses.toml, S2 in design/architecture/sprint3-4.md). Every `ttl boss expect`
+# prints "ttl: ..." when it does not hold (counted as a failure by `server.sh test-all`); `execute if entity` prints
+# "Test passed" / "Test failed". The lines marked FAILS below are expected to say "Test failed".
+# Part 1 runs in the Spirit Corridor hall (the Mortal Realm blocks Tensura mobs; a Life 1 bot may stand there).
+# Expect in the log: "[ttl] boss: orc_lord summoned (hp ×..., 1 player)", "[ttl] boss: orc_lord awake ...",
+# "[ttl] boss: orc_lord phase 1 at 60% health", "[ttl] boss: orc_lord defeated by TtlBotBoss (no kill credit: ...)".
+ttlbot spawn TtlBotBoss
+@sleep 2
+gamemode creative TtlBotBoss
+ttl boss reset TtlBotBoss
+execute in ttl:spirit_corridor run tp TtlBotBoss 0.5 65 0.5
+ttl boss list
+ttl boss expect TtlBotBoss stage t1 no
+ttl boss expect TtlBotBoss kills orc_lord 0
+ttl boss expect TtlBotBoss active orc_lord no
+# Summon at explicit coordinates in the dimension the command runs in; the entity appears once its chunk is loaded.
+execute in ttl:spirit_corridor run ttl boss summon orc_lord 0 66 8
+@sleep 3
+ttl boss expect TtlBotBoss active orc_lord yes
+execute in ttl:spirit_corridor if entity @e[tag=ttl.boss,tag=ttl.bossid.orc_lord,limit=1]
+# Scaled: Health above the vanilla value (compare with `data get entity <an unscaled tensura:orc_lord> Health`); the bot
+# stands within range, so the boss has woken (NoAI:0b).
+execute in ttl:spirit_corridor run data get entity @e[tag=ttl.boss,limit=1] Health
+execute in ttl:spirit_corridor run data get entity @e[tag=ttl.boss,limit=1] NoAI
+# Phase 1 (60%): drop the boss to 1 health; the horde must appear and carry the minion tag.
+execute in ttl:spirit_corridor run data modify entity @e[tag=ttl.boss,limit=1] Health set value 1.0f
+@sleep 3
+execute in ttl:spirit_corridor if entity @e[tag=ttl.boss.minion]
+# A /kill has no player behind it, so the boss dies without kill credit and the fighters in range share the reward.
+execute in ttl:spirit_corridor run kill @e[tag=ttl.boss,tag=ttl.bossid.orc_lord]
+@sleep 3
+ttl boss expect TtlBotBoss stage t1 yes
+ttl boss expect TtlBotBoss defeated orc_lord yes
+ttl boss expect TtlBotBoss kills orc_lord 1
+ttl boss expect TtlBotBoss active orc_lord no
+ttl boss expect TtlBotBoss cooldown orc_lord yes
+# Boss and minions are gone: FAILS (Test failed) for both.
+execute in ttl:spirit_corridor if entity @e[tag=ttl.boss]
+execute in ttl:spirit_corridor if entity @e[tag=ttl.boss.minion]
+# Gating: Rimuru Tempest needs the stage ttl.defeated.shizu in the summoner.
+ttl boss expect TtlBotBoss gate rimuru_ogre_fight no
+kubejs stages add TtlBotBoss ttl.defeated.shizu
+ttl boss expect TtlBotBoss gate rimuru_ogre_fight yes
+ttl boss expect TtlBotBoss gate shizu yes
+ttl boss reset TtlBotBoss
+ttl boss expect TtlBotBoss stage t1 no
+ttl boss expect TtlBotBoss defeated shizu no
+# Part 2: the Tempest arena (Overworld 0 0, radius 48). No players there, so Shizu stays asleep until aborted.
+ttl boss summon shizu
+@sleep 4
+ttl boss expect TtlBotBoss active shizu yes
+execute in minecraft:overworld if entity @e[tag=ttl.boss,tag=ttl.bossid.shizu]
+ttl boss list
+ttl boss abort shizu
+@sleep 2
+ttl boss expect TtlBotBoss active shizu no
+# Gone again: FAILS (Test failed).
+execute in minecraft:overworld if entity @e[tag=ttl.boss,tag=ttl.bossid.shizu]
+# Refused outside the arena by design (prints "ttl: Shizu ... can only be summoned within 48 blocks"), so not run here:
+#   execute in minecraft:overworld run ttl boss summon shizu 500 70 500
+ttlbot remove TtlBotBoss

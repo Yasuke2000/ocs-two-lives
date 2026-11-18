@@ -10,6 +10,8 @@
 // ovh.corail.tombstone.api.event.CaptureSoulEvent(owner, creature). Cancelling it makes the boss die normally.
 // KubeJS reaches that event through NativeEvents.onEvent. Kills are read from the owner's vanilla statistics
 // (Stats.ENTITY_KILLED), which also covers kills from before this script existed.
+// Bosses summoned by the boss framework (bosses/boss.js, tag ttl.boss) are never bindable on top of that, unless
+// their id is in bosses.toml [framework] bindable (refusal() below); the mode only governs other instances.
 const TtlBosses = {
   FLAG_TAG: 'c:capturing_not_supported',
   MODES: ['defeated', 'allow_list', 'any', 'none'],
@@ -77,6 +79,18 @@ const TtlBosses = {
 
   // The reason a bind is refused, or '' when it may go ahead.
   refusal(player, creature) {
+    // A boss summoned by the boss framework (bosses/boss.js, tag ttl.boss) is never bindable, whatever the mode says,
+    // unless bosses.toml [framework] bindable lists its id; the mode below then applies as usual.
+    var tags = creature.getTags()
+    if (tags.contains('ttl.boss')) {
+      var bindable = ((TtlData.bosses && TtlData.bosses.framework) || {}).bindable || []
+      var allowed = false
+      tags.forEach(t => {
+        var tag = String(t)
+        if (tag.indexOf('ttl.bossid.') === 0 && bindable.indexOf(tag.substring(11)) >= 0) allowed = true
+      })
+      if (!allowed) return 'a summoned boss cannot be bound'
+    }
     var mode = this.mode()
     if (mode === 'any' || mode === 'none') return ''
     var api = this.api()
