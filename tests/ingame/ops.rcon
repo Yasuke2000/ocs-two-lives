@@ -1,0 +1,9 @@
+# Muted by server.sh. Read back the same durable staff-command record that would feed #server-log.
+ttlbot spawn TtlBotOps
+@sleep 2
+ttl rep set TtlBotOps dwargon 10
+ttl ops expect cmdlog last "ttl rep set"
+# Both the subject and reputation arguments must have been omitted. Reading the log leaves it unchanged.
+ttl ops expect cmdlog last "ttl rep set"
+ttl rep set TtlBotOps dwargon 0
+ttlbot remove TtlBotOps

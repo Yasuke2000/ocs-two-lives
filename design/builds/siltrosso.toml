@@ -1,0 +1,12 @@
+name = "siltrosso"
+title = "Siltrosso — The Rosso counting court"
+landmark = "Siltrosso"
+anchor = [36, 5, 52]
+ground = "survey"
+search = 96
+max_wet = 0.1
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+margin = 12
+notes = "An original Rosso audience court in the small western kingdom. Its territory is folded into G on the pack grid."

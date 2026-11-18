@@ -457,3 +457,12 @@ id = "dark"
 title = "Dark deeds"
 item = "minecraft:wither_rose"
 empty = "Your hands are clean."
+
+[[stats]]
+key = "blood_moon_kills"
+criterion = "dummy"      # events/moon.js awards qualifying Life 1 hostile kills during the Blood Moon
+axis = "valor"
+weight = 2
+group = "battle"
+label = "Blood Moon foes defeated"
+capped = true

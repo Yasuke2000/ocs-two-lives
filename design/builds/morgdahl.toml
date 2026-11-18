@@ -1,0 +1,10 @@
+name = "morgdahl"
+title = "Morgdahl — The Timber Landing"
+landmark = "Morgdahl"
+anchor = [50, 5, 51]
+ground = "survey"
+search = 96
+max_wet = 0.08
+margin = 10
+version = 1
+notes = "A western timber yard with a contained millrace. The local industry is the pack's interpretation."

@@ -1,0 +1,52 @@
+# Run on the test world with tools/server.sh test events_pack (Discord muted by the runner).
+ttlbot spawn TtlBotEventPack
+@sleep 3
+ttl reset TtlBotEventPack
+gamemode creative TtlBotEventPack
+# A registered regional storm chooses the only occupied Life 2 region, and does not leak into another dimension.
+ttl events setup TtlBotEventPack 100 6
+execute in minecraft:overworld run tp TtlBotEventPack 0 160 0
+ttl events expect registered magicule_storm true
+ttl events expect rule epGainMultiplier capture
+ttl events fire magicule_storm
+ttl events expect rule epGainMultiplier 2
+ttl events expect active magicule_storm
+ttl events expect storm TtlBotEventPack true
+execute in ttl:mortal_realm run tp TtlBotEventPack 0 160 0
+ttl events expect storm TtlBotEventPack false
+ttl events end magicule_storm
+ttl events expect rule epGainMultiplier captured
+execute in minecraft:overworld run tp TtlBotEventPack 0 160 0
+ttl events expect storm TtlBotEventPack false
+# Exercise two real player-attributed kills in one night and an uncredited kill after the end.
+# Manual fire leaves the EC2 forecast and the server's day/time intact.
+ttl reset TtlBotEventPack
+gamemode creative TtlBotEventPack
+execute in ttl:mortal_realm run tp TtlBotEventPack 0 160 0
+ttl karma TtlBotEventPack set blood_moon_kills 0
+ttl events expect registered blood_moon true
+ttl events fire blood_moon
+ttl events expect active blood_moon
+execute at TtlBotEventPack run summon minecraft:zombie ~2 ~ ~ {NoAI:1b,Health:1f,Tags:["ttl.test.moon"]}
+execute at TtlBotEventPack run damage @e[tag=ttl.test.moon,limit=1,sort=nearest] 100 minecraft:player_attack by TtlBotEventPack
+@sleep 2
+execute at TtlBotEventPack run summon minecraft:zombie ~2 ~ ~ {NoAI:1b,Health:1f,Tags:["ttl.test.moon"]}
+execute at TtlBotEventPack run damage @e[tag=ttl.test.moon,limit=1,sort=nearest] 100 minecraft:player_attack by TtlBotEventPack
+ttl events expect bloodkills TtlBotEventPack 2
+ttl events end blood_moon
+@sleep 2
+execute at TtlBotEventPack run summon minecraft:zombie ~2 ~ ~ {NoAI:1b,Health:1f,Tags:["ttl.test.moon"]}
+execute at TtlBotEventPack run damage @e[tag=ttl.test.moon,limit=1,sort=nearest] 100 minecraft:player_attack by TtlBotEventPack
+ttl events expect bloodkills TtlBotEventPack 2
+# Calamity summons the configured boss through its normal arena; abort leaves no cooldown or raid behind.
+ttl events setup TtlBotEventPack 100 6
+ttl boss cooldown clear charybdis
+ttl events expect registered calamity_rising true
+ttl events fire calamity_rising
+@sleep 6
+ttl boss expect TtlBotEventPack active charybdis yes
+ttl events expect calamity charybdis true
+ttl boss abort charybdis
+ttl boss expect TtlBotEventPack active charybdis no
+ttl reset TtlBotEventPack
+ttlbot remove TtlBotEventPack

@@ -15,7 +15,7 @@
 //          /ttl events clear <player>   test hook: forget a player's Favor offer, cooldown and play week
 //          /ttl events expect <field> ...   test assertion, prints "ttl: ..." when it does not hold
 //            active <id|none> · count <n> (active events) · scheduled <id> <true|false> · registered <id> <true|false>
-//            rule <gamerule> <value> (0/1 for booleans) · winner <player> (latest Favor pick)
+//            rule <gamerule> <value|capture|captured> (0/1 for booleans) · winner <player> (latest Favor pick)
 //            offer|cooldown|unique|muted <player> <true|false>
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
@@ -171,7 +171,9 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var capturedRules = Object.create(null)
   var expect = ctx => {
+    ops(ctx)
     var server = ctx.source.getServer()
     var field = arg(ctx, 'field')
     var a = arg(ctx, 'a')
@@ -190,12 +192,36 @@ ServerEvents.commandRegistry(event => {
     if (field === 'scheduled') return truth(ctx, `${a} scheduled`, TtlEvents.scheduled(server, a), bool(b))
     if (field === 'registered') return truth(ctx, `${a} registered`, TtlEvents.registered(a), bool(b))
     if (field === 'rule') {
+      if (!TtlEvents.RULE.test(a)) throw 'invalid gamerule name'
       var r = TtlCmd.run(server, `gamerule ${a}`)
+      if (b === 'capture') {
+        capturedRules[a] = String(r)
+        say(ctx, `events: captured gamerule ${a} = ${r}`)
+        return 1
+      }
+      if (b === 'captured') {
+        if (capturedRules[a] === undefined) throw `no baseline captured for gamerule ${a}`
+        var baseline = capturedRules[a]
+        delete capturedRules[a]
+        return truth(ctx, `restored gamerule ${a}`, String(r), baseline)
+      }
       var want = b === 'true' ? '1' : b === 'false' ? '0' : b
       return truth(ctx, `gamerule ${a}`, String(r), want)
     }
+    if (field === 'calamity') {
+      var bosses = TtlBoss.load(server)
+      var roaming = Object.keys(bosses).some(key => {
+        var boss = bosses[key]
+        if (boss.id !== a || boss.event !== 'calamity_rising' || !boss.wild || boss.rad !== undefined) return false
+        var start = TtlEvents.regionAt(boss.fx, boss.fz)
+        return !!start && start.name === boss.region
+      })
+      return truth(ctx, `${a} roaming from its announced region`, roaming, bool(b))
+    }
     if (field === 'winner') return truth(ctx, 'the latest Favor winner', String(server.persistentData.getString('ttl.favor.winner')), a)
     var p = online(ctx, a)
+    if (field === 'storm') return truth(ctx, `${p.username} inside the storm`, TtlStorm.contains(p), bool(b))
+    if (field === 'bloodkills') return truth(ctx, `${p.username} Blood Moon kills`, String(TtlKarma.deeds(server, p).blood_moon_kills), b)
     if (field === 'offer') return truth(ctx, `${p.username} having an open Favor offer`, TtlFavor.hasOffer(p), bool(b))
     if (field === 'cooldown') return truth(ctx, `${p.username} being on Favor cooldown`, TtlFavor.onCooldown(server, p), bool(b))
     if (field === 'unique') return truth(ctx, `${p.username} holding a unique`, String(p.persistentData.getString('ttl.uniques')) !== '', bool(b))

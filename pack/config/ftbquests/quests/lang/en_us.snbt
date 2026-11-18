@@ -60,11 +60,26 @@
 		"Hunger kills more first lives than any skeleton does. Learn to feed yourself from a patch of dirt and a few animals and you will outlast a dozen mortals who rely on luck. This is the slow road to a long life."
 	]
 	chapter.45616B685860E3E6.title: "Seed and Stock"
+	chapter.46F0CD335D2E1F1F.chapter_subtitle: [
+		"At the cave, an old promise comes due."
+		"Years ago a slime promised to find a way out of Unlimited Imprisonment. Veldora remembers the promise. Take the road back to the cave where Rimuru first met Veldora, then decide what the return of a Storm Dragon means for the people who have followed you."
+	]
+	chapter.46F0CD335D2E1F1F.title: "Harvest Festival"
+	chapter.4880167E72BCBA5A.chapter_subtitle: [
+		"Clayman has asked the Demon Lords for a judgment."
+		"Frey, Guy, Leon and Dagruel stand around the ten thrones in the Walpurgis Hall. Clayman’s castle in Jistav is where you will confront him after the hearing. Someone who has seen Carrion alive can put a hole in Clayman’s account before he finishes speaking."
+	]
+	chapter.4880167E72BCBA5A.title: "Walpurgis"
 	chapter.49DCD771BA645C79.chapter_subtitle: [
 		"A camp of goblins, a few dwarves and six new kijin. Help them build a town."
 		"It is the days just after the ogres were named. Tempest is still a building site: tents beside the first timber houses, Kaijin's forge smoking on the west road, Shuna's looms in the east, a palisade begun only on one side. Everything you carry in can become part of the town."
 	]
 	chapter.49DCD771BA645C79.title: "Tempest Rises"
+	chapter.5CB6C7D7438302D3.chapter_subtitle: [
+		"A traveler’s mask returns with a warning."
+		"Blumund remembers Shizu as a traveling companion. The Western Holy Church remembers her as a teacher. When the news from Tempest reaches both places, those memories lead you to opposite sides of a barricade."
+	]
+	chapter.5CB6C7D7438302D3.title: "Mask and Blade"
 	chapter.60737BD25048CC9D.chapter_subtitle: [
 		"Small jobs that come back every day."
 		"Every day there is wood to cut, mobs to clear and ground to cover. These quests reset a day after you claim them, for as long as you live, in either life. The rewards are small: food, a few torches and some experience."
@@ -136,6 +151,12 @@
 		"&6Next life:&r Longevity: every day survived counts. A soul needs at least 2 days to be judged a Survivor, 7 for a Hero, 30 for a Legend."
 	]
 	quest.01E277329C034ED2.title: "The First Night"
+	quest.02A3FEA70DEBED1B.quest_desc: [
+		"Edmaris and Razen receive you in Marris. Stand in the palace district and supply eight sheets of paper for the march orders. Taking the warrant records your part in Falmuth’s campaign. The alliance with the Church and your signature on the orders are part of the pack’s dark route."
+		""
+		"&7&o“Our interpretation: Razen leaves space on the warrant for a signature from someone who knows the forest roads.”&r"
+	]
+	quest.02A3FEA70DEBED1B.title: "The Royal Warrant"
 	quest.02B959E613FF1864.quest_desc: [
 		"Slay one of each of the common night stalkers."
 		""
@@ -195,6 +216,12 @@
 		"Direwolves hunt the forest. In the story they became Tempest Wolves after their pack lost to a slime. Prove you could have stood that night."
 	]
 	quest.057458900C12E9B2.title: "The Direwolf Pack"
+	quest.05A2C85E0CCC264F.quest_desc: [
+		"Bring Hinata’s testimony to Luminous in Lubelius. Reach the placed cathedral district and use /ttl story fight luminous_valentine. She answers a soul who has faced Hinata. In our telling, enduring her trial earns a blessing witnessed by the Church. If you already carry a Hero Egg, Luminous is on Tensura’s hero-boss list. During combat a qualifying unowned foe must have at least 400,000 maximum EP and less than half its health when you use /evolve hero."
+		""
+		"&7&o“Our interpretation: a knight leaves a lamp burning on the altar until the visitor comes back from the trial.”&r"
+	]
+	quest.05A2C85E0CCC264F.title: "The White Altar"
 	quest.05F41C817DFF715C.quest_desc: [
 		"Reincarnation complete. Your new body, race and skill were shaped by the life you lived before. Check yourself: /ttl life shows what your first life earned."
 	]
@@ -319,6 +346,14 @@
 	]
 	quest.0C9933D5EB683ACC.quest_subtitle: "Wander"
 	quest.0C9933D5EB683ACC.title: "Into the Dark Forest"
+	quest.0D4D0DF9B4020101.quest_desc: [
+		"At x −400, z −60 on the Blumund road, use /ttl story fight hinata_sakaguchi. Hinata once learned from Shizu. She believes she has found the monster responsible for her teacher’s death. Behind you, Tempest’s defenders are losing their magic to another barrier."
+		""
+		"A credited victory over Hinata costs 30 Holy Church reputation. That cost applies to either oath."
+		""
+		"&7&o“Hinata was Shizu’s pupil. The news of her teacher’s death reached her before Rimuru could give his account.”&r"
+	]
+	quest.0D4D0DF9B4020101.title: "The Road Inside the Barrier"
 	quest.0D910C4529DD06CC.quest_desc: [
 		"Reach 20,000 EP. In the story, a single naming lifted goblins and wolves far beyond their kin."
 	]
@@ -459,10 +494,24 @@
 	]
 	quest.1585311527965ABC.quest_subtitle: "Act III"
 	quest.1585311527965ABC.title: "The Orc War"
+	quest.16275F334E658FCF.quest_desc: [
+		"At the Sealed Cave, near x −256, z −343, stand by its placed entrance and claim the trial. Veldora answers someone who helped defeat Charybdis. If the encounter is cooling down, return later and use /ttl story fight veldora. In the anime Raphael analyzes the prison and Rimuru releases his friend. The trial is our version of that return."
+		""
+		"&7&o“Unlimited Imprisonment was the first problem Rimuru promised to solve for a friend.”&r"
+	]
+	quest.16275F334E658FCF.title: "The Prison Opens"
 	quest.16C682117AAF591D.quest_desc: [
 		"Canon says three days by wolf and two months on foot, and the road north has no inns. Pack food, a good pickaxe and torches before you leave the forest: 16 cooked beef, an iron pickaxe and 32 torches in your inventory."
 	]
 	quest.16C682117AAF591D.title: "Provisions for the Road"
+	quest.1703B5D161F5AD7F.quest_desc: [
+		"Draw the last line under your name. The dragon has returned, the council has its answer, and the people of the forest will remember which road you took. Close Act VII to record your title, reputation and renown."
+		""
+		"Each soul needs Act VI, personal credit for Veldora and the witness of their oath (Luminous on light, Clayman on dark), and their own matching Tensura awakening. If a teammate closes the book first, finish your own remaining deeds and use /ttl story capstone to record your ending."
+		""
+		"&7&o“Our interpretation: the clerk who took down your first oath leaves the last page for your own signature.”&r"
+	]
+	quest.1703B5D161F5AD7F.title: "The Seventh Entry"
 	quest.176D0BD7DFECF684.quest_desc: [
 		"Trade with a villager."
 		""
@@ -505,6 +554,12 @@
 		"&6Next life:&r Faith for the advancement (+2). It is also the road to chapter 0's Mortal Nether (+20 Valor)."
 	]
 	quest.181ABFB92A6CF8C1.title: "Cooled by Water"
+	quest.184E6192DA97A29C.quest_desc: [
+		"Back in Jistav, demand Clayman’s seat for yourself. Claim the fight reward at the placed castle’s entrance. Retry there with /ttl story fight clayman when a previous encounter has ended. His named arch-daemon proxy carries the encounter credit. A wild arch daemon elsewhere cannot settle the account."
+		""
+		"&7&o“When Clayman’s supporters failed him at Walpurgis, he drew on souls he had taken for one last attempt to awaken.”&r"
+	]
+	quest.184E6192DA97A29C.title: "Turn the Seal Against Its Owner"
 	quest.184ED3B4C58EB59C.quest_desc: [
 		"Before the ogres and before the Orc Lord, the Orc Horde was only rumour on the wind. Its buyers pay for strength they can use: direwolf pelts and proof that you do not flinch (our interpretation, foreshadowing the Orc War, anime season 1, episode 10)."
 		""
@@ -631,6 +686,12 @@
 		"Schematics teach smiths to make katana, swords and armour; the schematic is used up and the recipe stays. Craft a smithing bench to work from. If you already built one for Kaijin in Tempest, the same bench counts."
 	]
 	quest.1E5B98A6CFF7815D.title: "A Smith's Bench"
+	quest.1ECB5979C243CC5A.quest_desc: [
+		"Go to Tempest’s south gate near x 0, z 40 and use /ttl story fight folgen. In this telling the field commander leads Falmuth’s attack. The people behind the gate need the road held long enough to get the wounded indoors."
+		""
+		"&7&o“On the Blumund road one barrier closed around Rimuru. At home another stripped Tempest’s defenders of their strength.”&r"
+	]
+	quest.1ECB5979C243CC5A.title: "Folgen at the South Gate"
 	quest.1F70B3D16096430C.quest_desc: [
 		"Tempest's allies gathered at the water while Vesta's full potions came off the bench (anime season 1, episode 17). A shore camp has to be fed and mended before anything rises out of the lake."
 		""
@@ -818,6 +879,20 @@
 		"&6Next life:&r Valor for the ground covered, Faith for any advancement on the way."
 	]
 	quest.28F253E6D9F16E29.title: "The Green Lands"
+	quest.293738D2D62B204D.quest_desc: [
+		"Stand with Shizu until your party earns credit for her encounter. Before she met Rimuru she tried to keep Ifrit’s flames from hurting the people around her. Her companions will carry that account back to Blumund. The separate Ifrit battle is our staging of the possession."
+		""
+		"&7&o“Shizu and Rimuru came from the same world. For a moment she could see the Japan she never grew old enough to know.”&r"
+	]
+	quest.293738D2D62B204D.title: "Shizu’s Last Request"
+	quest.29429F8A06E27248.quest_desc: [
+		"Find Kabal, Elen and Gido at Blumund’s guild in Londo. Kabal had hired a fourth adventurer for their journey into the forest. Elen remembers the mask. Gido remembers the flames. Together they can give you a name: Shizu."
+		""
+		"Their account begins this act as a recollection. In the anime they travel with Shizu long before Charybdis rises."
+		""
+		"&7&o“At the guild table, the three adventurers still leave room for Shizu when they tell the story.”&r"
+	]
+	quest.29429F8A06E27248.title: "Three Places at the Guild Table"
 	quest.295AA61F9C55A114.quest_desc: [
 		"Craft a piece of iron armour."
 		""
@@ -841,6 +916,12 @@
 		"&6Next life:&r Not scored directly."
 	]
 	quest.2AFA8C648E4A5880.title: "A Crystal Cave"
+	quest.2B15187EE73E8DC2.quest_desc: [
+		"Enter the result in the guild ledger. On the light path the Holy Church grants 10 reputation. On the dark path Falmuth grants 30 and Tempest deducts 40. Your record of the individual battles stands alongside this settlement."
+		""
+		"&7&o“After the attack, Rimuru had to decide whom to hold responsible while the smoke still hung over the town.”&r"
+	]
+	quest.2B15187EE73E8DC2.title: "The Names on the Warrant"
 	quest.2C15A112C215C57B.quest_desc: [
 		"Mine thirty-two nether quartz from the wastes. It makes comparators, daylight sensors and the whitest blocks the Realm has."
 		""
@@ -849,6 +930,12 @@
 		"&6Next life:&r Not scored directly."
 	]
 	quest.2C15A112C215C57B.title: "White Stone, Red Hell"
+	quest.2C2F392B713291D0.quest_desc: [
+		"A rumor has Carrion dead. Ride to Laura, find his throne and ask him yourself. Beside the placed city plaza, use /ttl story fight carrion. Bring four loaves to the delegation. Your spar is the condition of Carrion’s alliance in this version of the council story."
+		""
+		"&7&o“The rumor of Carrion’s death gave Clayman a story to sell. A living witness could undo it.”&r"
+	]
+	quest.2C2F392B713291D0.title: "The Lion’s Own Account"
 	quest.2C81A67626C6E40E.quest_desc: [
 		"Keep fighting. Resistances finish forming after enough punishment, and then a wolf's bite or a spider's fang is shrugged off. Learn Physical Attack Resistance fully."
 	]
@@ -884,6 +971,12 @@
 		"&6Next life:&r Valor for the ground covered."
 	]
 	quest.2DB50F1703D405E4.title: "The High Country"
+	quest.2E27F99E981345B5.quest_desc: [
+		"Clayman hands you the seal he means to press into Eurazania’s treaty. At Laura’s placed plaza use /ttl story fight carrion. Returning with a credited victory is how you keep your place at the council table."
+		""
+		"&7&o“Our interpretation: Clayman entrusts you with his seal because a debt collected in his name will still belong to him.”&r"
+	]
+	quest.2E27F99E981345B5.title: "Collect the Lion’s Debt"
 	quest.2F2C876EEE6CAF98.quest_desc: [
 		"A hearth, windows, a full storeroom, a well, a wall and beds for guests. This is a homestead. Tick it off when you are proud of it: it counts as one of the ways of life that The Ledger (chapter 0j) adds up."
 		""
@@ -928,10 +1021,22 @@
 		"&6Next life:&r Chaos counts half towards the tier: the dark path climbs, but slower than good deeds."
 	]
 	quest.315BB043D91F9146.title: "The Other Road"
+	quest.316FA29488561884.quest_desc: [
+		"Submit this task after Tensura recognizes your own True Hero awakening. With a Hero Egg, use /evolve hero during a qualifying fight. For example, challenge Luminous again, exchange a hit, and use the command after she falls below half health if her maximum EP is at least 400,000. Your oath and Luminous’s trial are part of this story; the mod checks the awakening itself. The Seventh Entry records your personal title. Use /ttl absorb free to see any Legendary your awakening may claim."
+		""
+		"&7&o“Our interpretation: Luminous’s witness gives the Church a reason to recognize the soul who returned from the cave.”&r"
+	]
+	quest.316FA29488561884.title: "True Hero"
 	quest.3192ECC2F5206C40.quest_desc: [
 		"The first thing the slime learned to do was to see without eyes: Magic Sense reads the magicules around you. Learn it (any way the world allows). Skills are never handed out by this book."
 	]
 	quest.3192ECC2F5206C40.title: "Magic Sense"
+	quest.3280B1362135A862.quest_desc: [
+		"Optional. Use /ttl story fight rimuru_ogre_fight at Tempest’s green if you accept the standard boss encounter and its 40-point reputation cost. You can finish the act without touching your sword."
+		""
+		"&7&o“Our interpretation: Rimuru offers the match in person. The village sees only who drew steel on the green.”&r"
+	]
+	quest.3280B1362135A862.title: "An Invitation to Spar"
 	quest.32DDE3E79622B19D.quest_desc: [
 		"Plant carrots and potatoes (villages grow them, zombies carry them) and bring in sixteen of each."
 		""
@@ -1435,6 +1540,12 @@
 		"&6Next life:&r Faith for the advancement (+2)."
 	]
 	quest.5532E5E94F18A457.title: "You Need a Mint"
+	quest.5547ED09793466EB.quest_desc: [
+		"Enter the Walpurgis Hall. If you hold a Legendary or an invitation, walk through the gate on Clayman’s throne dais in Jistav. Any Life 2 player can also use /ttl arena join walpurgis when the Banquet Floor lobby is free. A solo booking brings you into the hall immediately. Wait for the visit to register before using /ttl arena leave to return. You do not need to start a match. In the council chamber, look for Frey, Guy, Leon and Dagruel on the carpet around the table. Their Act VI dialogue opens after the judgment."
+		""
+		"&7&o“In Walpurgis, Guy makes Clayman answer for his accusation in front of the other Demon Lords.”&r"
+	]
+	quest.5547ED09793466EB.title: "Four Witnesses to Walpurgis"
 	quest.5557926F5E401552.quest_desc: [
 		"You killed the Mortal Dragon, lived thirty days, finished five ways of life and walked back to the bell. When this life ends, and it will, the Voice of the World will read what the world remembers: the great foe, the days, the deeds. This is the shape of a Legend. It is yours whether the Voice calls it so or not."
 		""
@@ -1526,6 +1637,12 @@
 		"Halfway up the road, inside the dwarves' border, stands a village of stone and spruce with copper roofs: smithy, library and market in one. It is the first sign that you have left the forest behind."
 	]
 	quest.5AC90B7245A5B5DC.title: "A Dwarven Waystation"
+	quest.5B4ED5D772DCDF7D.quest_desc: [
+		"Follow the invasion road to Tempest’s green and use /ttl story fight rimuru_ogre_fight. This is the challenge you accepted at court. A credited victory costs 40 Tempest reputation, in addition to the political cost of closing the act on the dark path."
+		""
+		"&7&o“Our interpretation: the seal of Falmuth still hangs from your belt when you reach the village green.”&r"
+	]
+	quest.5B4ED5D772DCDF7D.title: "The Slime Must Fall"
 	quest.5BE93F04F60FB5AA.quest_desc: [
 		"Craft a wooden pickaxe, a wooden axe and a wooden sword. Soft tools, but they are enough to reach stone."
 		""
@@ -1549,6 +1666,12 @@
 	]
 	quest.5C6CEA9703648161.quest_subtitle: "The deeds milestone"
 	quest.5C6CEA9703648161.title: "A Good Name"
+	quest.5CC1ABCBFB22E216.quest_desc: [
+		"Clayman wants Lubelius to recognize his claim. Submit four sheets of paper for his written demand and carry it to Luminous at her cathedral and use /ttl story fight luminous_valentine near the placed anchor. Having faced Hinata opens this encounter. Clayman never gave such an order in the anime."
+		""
+		"&7&o“Our interpretation: the cathedral clerk folds your demand twice and carries it down into the queen’s crypt.”&r"
+	]
+	quest.5CC1ABCBFB22E216.title: "A Witness from the Crypt"
 	quest.5CCC0C26065B405A.quest_desc: [
 		"Stand on the marsh battlefield where two hundred thousand orcs met the forest alliance."
 	]
@@ -1592,6 +1715,12 @@
 	]
 	quest.5DDBDC9CF595C24E.quest_subtitle: "The light road"
 	quest.5DDBDC9CF595C24E.title: "Gabiru's Pride"
+	quest.5E231DDC374F3C74.quest_desc: [
+		"At the placed castle’s entrance, claim the fight reward. If the boss is already out or resting, retry with /ttl story fight clayman from the same spot. The Marionette Master wears the form of an arch daemon in this pack. A named boss victory is the proof that the council accepts."
+		""
+		"&7&o“Clayman believed he controlled Milim. She had been playing her part to uncover his scheme.”&r"
+	]
+	quest.5E231DDC374F3C74.title: "Break the Marionette’s Strings"
 	quest.5E6EA0308CD76328.quest_desc: [
 		"Walk back to Wayfarer's Rest and stand at the bell where you began. See who is still there, and who has come in since."
 		""
@@ -1713,6 +1842,12 @@
 		"&6Next life:&r Not scored."
 	]
 	quest.64018361CB47A52B.title: "Arrows for the Guard"
+	quest.641D39B5FFE38B84.quest_desc: [
+		"Clayman’s place is empty. In the anime Carrion and Frey also step down and the surviving lords take the name Octagram. In your record the settlement follows your oath. Close the council minutes to record Act VI."
+		""
+		"&7&o“Rimuru joins a council of eight after Clayman’s death and the departure of Carrion and Frey.”&r"
+	]
+	quest.641D39B5FFE38B84.title: "Who Remains at the Table?"
 	quest.64380F006D6AFF5B.quest_desc: [
 		"Find a woodland mansion deep in a dark forest. It is the deadliest building in the Realm and holds a Totem of Undying for those who return."
 		""
@@ -1734,6 +1869,12 @@
 	]
 	quest.64E84EC2992F8D82.quest_subtitle: "Gather"
 	quest.64E84EC2992F8D82.title: "A Day's Stone"
+	quest.65041EE098BCB8F3.quest_desc: [
+		"Optional. Enter the Dwelling of the Spirits through the forest gate. Beside the arrival anchor in the Spirit Domain, use /ttl story fight rimuru_clone. Ramiris’s test is an echo of your power in this telling. The same sanctuary also hosts Sylphide, Undine and Akash for those who want further trials."
+		""
+		"&7&o“Our interpretation: Ramiris has kept an echo for visitors who would rather test their strength away from the council.”&r"
+	]
+	quest.65041EE098BCB8F3.title: "The Echo on Ramiris’s Dais"
 	quest.654329C1B385D470.quest_desc: [
 		"Craft a cartography table and a filled map of your surroundings. Extend it as you walk; a map the size of a day's journey costs a little paper."
 		""
@@ -1772,6 +1913,12 @@
 	]
 	quest.66CC4813FDE91493.quest_subtitle: "The farming milestone"
 	quest.66CC4813FDE91493.title: "Harvest Home"
+	quest.676B3C0CD67BEA89.quest_desc: [
+		"Optional. Return to Tempest with twelve loaves, eight lengths of white wool and four iron ingots. Submit all three parcels to earn Atonement. If you still have your one change of oath, /ttl story flip lets you return to the light road. Turning is your decision."
+		""
+		"&7&o“Our interpretation: one bundle goes to the kitchens, one to the bedsides and one to the smith repairing the ward.”&r"
+	]
+	quest.676B3C0CD67BEA89.title: "Three Parcels for the Wounded"
 	quest.6786C757A8E0F60A.quest_desc: [
 		"Kaijin's trade secret: iron and magic ore melted together in a kiln make magisteel, a metal that carries magicules. A kiln is expensive (blast furnace, cauldron, obsidian and a netherite ingot), so this one is for the dedicated."
 	]
@@ -1791,6 +1938,12 @@
 	]
 	quest.68F504149DB6ABF0.quest_subtitle: "The dark road"
 	quest.68F504149DB6ABF0.title: "The Unsigned Letter"
+	quest.69545381BC70765B.quest_desc: [
+		"Light the way out with two lanterns. You have seen Luminous’s judgment and survived the Storm Dragon. Offer the dragon a place at Tempest’s table and let him leave the cave freely."
+		""
+		"&7&o“Our interpretation: the second lantern is for a traveler who has spent centuries with no road out.”&r"
+	]
+	quest.69545381BC70765B.title: "An Open Door"
 	quest.69634DC941547E1C.quest_desc: [
 		"Behind the gate a long tunnel climbs into the mountain, then opens on a cavern city: lit windows, shop signs, lamps strung across the street and bridges high above. Walk the south street."
 	]
@@ -1806,6 +1959,12 @@
 		"In the story the Orc Lord devoured the majin Gelmud, the schemer who had named him, and evolved into the Orc Disaster, a calamity-class monster. An epilogue for the very strong: defeat an Orc Disaster."
 	]
 	quest.6A14E30FE7F5E819.title: "Eat or Be Eaten"
+	quest.6A7380989AA654B4.quest_desc: [
+		"Leave eight loaves and four lengths of white wool at Tempest for the living and the dead. You have the names of the people who fell; you can carry their anger without taking the enemy’s souls for a harvest. This refusal is the light oath’s answer in our story."
+		""
+		"&7&o“Our interpretation: a cook lays out one bowl too many and knows exactly whose it was.”&r"
+	]
+	quest.6A7380989AA654B4.title: "An Empty Place at Supper"
 	quest.6AA6AC10181F3F11.quest_desc: [
 		"Build an iron golem to guard a village."
 		""
@@ -1831,6 +1990,12 @@
 		"East of the plaza the engineers keep their workshop, a hall of casings, shafts and turning cogs. Dwargon is the first place on this continent that runs machines. Look inside."
 	]
 	quest.6CF85FBDB2D29F4C.title: "The Engineers' Workshop"
+	quest.6D9F1AE27AB34E17.quest_desc: [
+		"Rimuru wants to know what you will do once the gate is secure. Bring him your reserve of four iron ingots for hinges and latches. If you choose the optional spar, the boss core charges 40 Tempest reputation for a victory over Rimuru. Handing in the iron closes this road in peace."
+		""
+		"&7&o“Our interpretation: the blacksmith waiting beside Rimuru has a list of doors whose latches were broken in the attack.”&r"
+	]
+	quest.6D9F1AE27AB34E17.title: "Steel Laid Down"
 	quest.6DAB90333F617B16.quest_desc: [
 		"Gather hipokute grass, the magicule-rich herb the slime turned into full potions. Healing in this world starts here."
 	]
@@ -1886,6 +2051,12 @@
 		"&6Next life:&r Not scored directly: kills are Valor, and the first kind of every foe counts the most."
 	]
 	quest.7088AFEA47B54D28.title: "Something to Hold the Night Off"
+	quest.70C3089B60AC26D9.quest_desc: [
+		"Submit this task after Tensura recognizes your own True Demon Lord awakening. Once you hold a Demon Lord Seed and the soul requirement is met, use /evolve demonLord and let the Harvest Festival finish. The Seventh Entry records your personal Demon Lord title. Use /ttl absorb free for your available Legendary claims; a skill still needs a free registry place."
+		""
+		"&7&o“Rimuru’s Harvest Festival brought a deep sleep while the Voice of the World announced his evolution.”&r"
+	]
+	quest.70C3089B60AC26D9.title: "True Demon Lord"
 	quest.70EB5B4005F7C8E2.quest_desc: [
 		"Mine thirty-two netherrack and lay a short road away from your portal. Never walk blind: the floor here ends in lava as often as in rock."
 		""
@@ -1940,6 +2111,12 @@
 		"&6Next life:&r Valor: reaching the Mortal End adds 30 Valor karma, once."
 	]
 	quest.7307AB7291AA44FF.title: "The Mortal End"
+	quest.75DF64954F2CDD53.quest_desc: [
+		"Bring two chains to the site of the old seal. You seized Clayman’s seat and now want the Storm Dragon’s return to stand as a warning to anyone who contests it. The oath of service is our dark ending."
+		""
+		"&7&o“Our interpretation: a claimant to Clayman’s seat brings the old prison’s chain to court as a sign of authority.”&r"
+	]
+	quest.75DF64954F2CDD53.title: "The Dragon’s Bond"
 	quest.778998349EB8E5BE.quest_desc: [
 		"Find an elytra in an end ship above an end city: the one thing in the End that is a gift, not a threat."
 		""
@@ -1959,6 +2136,18 @@
 	]
 	quest.77B55FED87C57904.quest_subtitle: "A long road east (optional)"
 	quest.77B55FED87C57904.title: "Treyni's Warning"
+	quest.77FAE029ED2DC6B6.quest_desc: [
+		"At the placed Marris plaza challenge the three summoned fighters in any order. Use /ttl story fight followed by kyoya_tachibana, shogo_taguchi or kirara_mizutani. In the anime the three bring violence to Tempest. Here Razen tests you against them before he entrusts you with the march."
+		""
+		"&7&o“Kyoya, Shogo and Kirara were all summoned from another world. Their service to Falmuth brought them into Tempest together.”&r"
+	]
+	quest.77FAE029ED2DC6B6.title: "The King’s Otherworlders"
+	quest.78846A03E53B8DFC.quest_desc: [
+		"Ifrit is fought on the same green. If you claimed the previous reward elsewhere, go to the green and use /ttl story fight ifrit. The fire spirit answers a soul who has personally received credit for Shizu."
+		""
+		"&7&o“Leon summoned a child and gave a greater fire spirit a home inside her. Shizu bore the consequences for years.”&r"
+	]
+	quest.78846A03E53B8DFC.title: "The Fire Left Behind"
 	quest.78E241CB36B19CE3.quest_desc: [
 		"Smelt iron and make an iron pickaxe. Now diamonds, and the Nether, are within reach."
 		""
@@ -2014,6 +2203,12 @@
 		"Five hundred goblins eat a lot, and Shion's cooking is not a plan. The raised store on stilts in the north-east of the town keeps rats and beasts out. Hand in 32 wheat and 16 cooked porkchops to start the winter stock."
 	]
 	quest.7BB9FFA852D08BF6.title: "Fill the Food Store"
+	quest.7BCBBE00B167FB50.quest_desc: [
+		"Return to Tempest’s green. When the mask comes away, the fire spirit inside Shizu threatens the village she has been trying to protect. Claim the encounter here. If it is already underway or on cooldown, return to the green and use /ttl story fight shizu."
+		""
+		"&7&o“The mask was the one thing Shizu carried that could quiet the fire within her.”&r"
+	]
+	quest.7BCBBE00B167FB50.title: "The Woman Behind the Mask"
 	quest.7C0600E97AB2B3FD.quest_desc: [
 		"The forest is full of monsters with magicules of their own. Hunt a horned rabbit and a giant ant."
 	]
@@ -2025,6 +2220,12 @@
 	]
 	quest.7C37E329D60483D7.quest_subtitle: "Rigurd's table"
 	quest.7C37E329D60483D7.title: "A Seat at the Fire"
+	quest.7C3E97663B656FB9.quest_desc: [
+		"Face Veldora and earn party credit. The arena reads the position of the placed cave, which can differ from the center of the search area. Once the dragon’s trial is over, your oath determines what you will ask of him."
+		""
+		"&7&o“Tempest held a feast to welcome Veldora back. For the Jura Forest the news traveled farther than any invitation.”&r"
+	]
+	quest.7C3E97663B656FB9.title: "The Storm Dragon Returns"
 	quest.7C5E6C3E343092F0.quest_desc: [
 		"Travellers queue in fenced lanes between two guard booths while the dwarf guards check what they carry. Rimuru's first visit ended in a scuffle by this gate and a night in a cell. Behave better: wait in the queue in front of the white wall."
 	]
@@ -2085,15 +2286,19 @@
 	task.0115BA7420C399EC.title: "Defeat an Orc Lord"
 	task.02034A12C6521724.title: "Before the throne"
 	task.041C77726FDC891F.title: "The lake shore"
+	task.04D35BB1D70BA4E7.title: "Return to the placed castle"
 	task.05168D3419679E35.title: "Close Act III"
+	task.05F084AF7B6754F0.title: "Carry the witness of Luminous"
 	task.063051C7D7133F39.title: "The market plaza"
 	task.065DAEAEB65FB0F1.title: "100 trades"
 	task.06C2B82B2FC09DFD.title: "Bee Our Guest"
 	task.07A570FA6CF65356.title: "Stand with the lizardmen"
+	task.07CB9273D6D16F65.title: "Receive credit for Clayman’s defeat"
 	task.080DAF8063385BBC.title: "Hand in 8 white wool"
 	task.0839BD76D8D6D603.title: "Defeat Charybdis"
 	task.0983B151684D1279.title: "Reach 6,000 EP"
 	task.09F56FEAD1E8A2E0.title: "Act III is behind you"
+	task.0AA1977D67EC465F.title: "Attend the court of Marris"
 	task.0AAFC15D7FE4A908.title: "The bell at Wayfarer's Rest"
 	task.0AC681BD967CE9C5.title: "Old goblin village"
 	task.0BB19A71F91AA826.title: "Lizardmen's caverns"
@@ -2101,40 +2306,54 @@
 	task.0D1463E16423959A.title: "The lizardmen's caverns"
 	task.0DFDD3C3D878F57C.title: "Learn Wind Cutter"
 	task.0E89027720808D84.title: "Use a smithing table 5 times"
+	task.0EFAAD40DFFF3188.title: "Defeat Ifrit at Tempest"
 	task.0FA0085B5F5E7E3A.title: "The village green"
 	task.0FD940179FF540EB.title: "The crossroads at the south gate"
 	task.0FDE011CBE35FB64.title: "The lake shore"
+	task.104B8021F4B0D46F.title: "Close Act VI"
 	task.10A9B0D9FDB07716.title: "Close Act II"
 	task.10CC2F1B73E2BFF4.title: "Defeat Gazel Dwargo"
 	task.11FF2505E0F7C414.title: "Lake Siss"
 	task.127791122F8563BC.title: "Round of the town"
 	task.12A127FAEF3CA336.title: "Win 3 raids"
 	task.14622E57FD07FB48.title: "The lizardmen's caverns"
+	task.161E54C84D9E8838.title: "Complete Act V"
 	task.1759663838EF5C18.title: "Kaijin's forge"
 	task.17D592EE573097E0.title: "Ring a bell"
 	task.1879B97090F0AE42.title: "Use a cartography table"
 	task.1941063E33D88146.title: "The goblins' campfire"
+	task.1AF1B3941AB0C2A6.title: "Complete Veldora’s trial"
 	task.1B39AC2E365FAE6E.title: "Act II is behind you"
 	task.1C3EE7D08EE03270.title: "Reach 100,000 EP"
 	task.1CA4EFBFAE517063.title: "In the orc camp"
 	task.1CFB2D4CF08DE204.title: "The plaza"
+	task.1E0A8B8B75EA0EE6.title: "Earn Luminous’s blessing in her trial"
 	task.1E4A998DF8D59E82.title: "At the throne"
+	task.1EA77D442047F6F3.title: "Hold the seat taken from Clayman"
 	task.1EC1ABA15F8E90FF.title: "I have lived"
 	task.1F2F4BB4E76CDC16.title: "The dwarf village on the road"
+	task.1F403695AF9845CE.title: "Defeat Kirara"
 	task.1F5FFE1BE6B3BDE0.title: "The forge street"
+	task.1F9ACE25D4B1C257.title: "Complete Act VI"
 	task.1FAF096CC2C890E1.title: "Reach 20,000 EP"
+	task.1FE8E4CBC11567AE.title: "Find the Sealed Cave"
 	task.207858EC747FB41A.title: "The south street"
+	task.21E4F6F3D4B57378.title: "Break Carrion’s resistance at Laura"
 	task.2234CA3D4DD600F1.title: "Kaijin's smithy"
+	task.23E11058E4BB1C3A.title: "Submit your True Hero awakening"
 	task.241D99215A6233C1.title: "The forge hall"
 	task.262CF52F0CDAA3D0.title: "Obtain a gold coin"
 	task.26316E4395EA7E52.title: "Shuna's weaving hut"
 	task.26BE7BED85C68AD1.title: "The orc camp"
+	task.2728E3BC1FBF8951.title: "Complete Act IV"
 	task.273A002575A42E8F.title: "Reach 1,000 EP"
 	task.27E02ABB634586BC.title: "This is home"
 	task.282D0E51F568C73B.title: "The village green"
 	task.28CC04BFB74B238D.title: "Smelt or find a silver ingot"
+	task.2A159AD1736C8263.title: "Defeat Rimuru at Tempest"
 	task.2A628644BD864405.title: "Close Act I"
 	task.2A6E537C92A3D4F3.title: "On the shore"
+	task.2AE43221C471AC1C.title: "Return to the green"
 	task.2AE6D3268926D1AB.title: "Reach 3,000 EP"
 	task.2AE9FF4F367986E8.title: "Survive 15 days"
 	task.2B292CFA3D6EDC1E.title: "On the shore"
@@ -2146,11 +2365,16 @@
 	task.2E164C0ACED1E71D.title: "The orc camp"
 	task.2EACD8B0D25F6159.title: "Complete a trade and obtain coins"
 	task.2EF6869AEBD1585F.title: "Reach 5,000 EP"
+	task.2FFBEA11E0F5408E.title: "Defeat Folgen at the south gate"
+	task.300F46E986B0B4B9.title: "Submit your True Demon Lord awakening"
 	task.307965B503E3F83D.title: "Dwargon's gate"
+	task.3140DD490584B46F.title: "Enter the Walpurgis Hall"
 	task.325ED61CA789A439.title: "The council longhouse"
 	task.335FC08F52AECE75.title: "The marsh battlefield"
+	task.33DE8FAF7949FE99.title: "Return to the placed castle"
 	task.353147E45578B0A5.title: "Use a brewing stand 10 times"
 	task.359F470293C5ED4E.title: "The lizardmen's stilt village"
+	task.36009B944484BA8D.title: "Receive credit for the Shizu encounter"
 	task.37ACDE9D55EB665D.title: "The town stands"
 	task.380DE35F0DA7E8B4.title: "The lizardmen's caverns"
 	task.38A8072C68EE074E.title: "The council longhouse"
@@ -2158,23 +2382,30 @@
 	task.3A16348A1B5A0804.title: "Remote Getaway"
 	task.3A6CFE2A4A6A25C1.title: "Hot Stuff"
 	task.3A92CBA9FB0EFA1B.title: "In the orc camp"
+	task.3B38E52602C59FD2.title: "Complete Rimuru’s encounter"
 	task.3C4E9D5D14BDF532.title: "Kaijin's smithy"
 	task.3CE536226AD58D80.title: "Survive 7 days"
 	task.3D4FA01442F6EF0C.title: "The forge hall"
 	task.3D513969F063F68B.title: "Survive 30 days"
 	task.3DEDBA02BAD925B9.title: "I am ready"
 	task.3F2C65D92781373D.title: "Hand in 16 bread"
+	task.3F49007C0261E989.title: "Stand against Hinata Sakaguchi"
 	task.405D1883802C8096.title: "The checkpoint arch"
 	task.41C475618C602386.title: "Rigurd's chief hut"
 	task.45F254081D437D19.title: "The village knows me"
 	task.47B864ADE645E832.title: "The Outcast contact on the south road"
 	task.483F9861A28A4C20.title: "Defeat Gazel Dwargo in the honour duel"
 	task.48477394DCAE8FD1.title: "Monster Hunter"
+	task.4A90A866DC6F3D7A.title: "Spar with Carrion at Laura"
+	task.4AB5ABCD3FAA12DC.title: "Defeat the Mimic Echo"
 	task.4BD6582419A09CED.title: "The throne room"
+	task.4C39D8F614F3EB6F.title: "Reach Tempest’s relief station"
 	task.4C90030DC29DA12C.title: "The engineers' workshop"
 	task.4E723D68430BC01A.title: "Visit Tempest"
 	task.4EAD38AC6EB13C67.title: "Defeat an Orc Disaster"
+	task.500F72A271CD0E5A.title: "Visit Londo’s guild district"
 	task.50B139248A2F40A8.title: "Crafting a New Look"
+	task.510BF0133677FD39.title: "Close Act V"
 	task.51C5196F8016FEF4.title: "Defeat the Orc Disaster"
 	task.51E225B8DD652D74.title: "The engineers' workshop"
 	task.51E546A20C95FCC4.title: "Use a loom 3 times"
@@ -2205,6 +2436,7 @@
 	task.65C872A22AD97F93.title: "Survive 1 day"
 	task.66B3DE5D9BA3FBB2.title: "The village green"
 	task.66F5AD58E82DDD19.title: "The barn is full"
+	task.6720D738B4AAC762.title: "Face Luminous in Lubelius"
 	task.6856FA45C1528580.title: "The Outcast contact on the south road"
 	task.694CDA4A53EC025F.title: "Use a schematic"
 	task.6AC3E5510622E1A7.title: "Reach 10,000 EP"
@@ -2213,6 +2445,8 @@
 	task.6CBA12AF598F21BA.title: "I have walked in fire"
 	task.6D59A41BF81C98C2.title: "Stand in a dark forest"
 	task.6E966A6D3E4133A0.title: "Act I is behind you"
+	task.6EEEBCFEBE072D0B.title: "Hold credit for the Whirlpool Calamity"
+	task.6EFDF0EBE3FC7AFA.title: "Defeat Shogo"
 	task.6F1501F3111BE507.title: "I have walked the Realm"
 	task.6FD269D0F066EC23.title: "Close Act IV"
 	task.70A037A68C4D45B0.title: "Use an anvil 5 times"
@@ -2223,8 +2457,10 @@
 	task.71834F52D8EF1C77.title: "Ice Bucket Challenge"
 	task.72165E762F368345.title: "I have learned a trade"
 	task.7241F3E5D9BAE48C.title: "Breed 30 animals"
+	task.727D5C44B19E17BB.title: "Return to Tempest’s green"
 	task.731FA88A52846154.title: "Oh Shiny"
 	task.73535967E5F856A5.title: "Use a lectern"
+	task.7373E6D4A7D08777.title: "Close Act VII"
 	task.739C0C4660E84210.title: "The royal terrace"
 	task.73ACE4CC851EC01C.title: "Stand in a river biome"
 	task.73B53B68CAA0C2A9.title: "The orc camp"
@@ -2244,8 +2480,10 @@
 	task.798EAAEA6091EF8B.title: "The old goblin village"
 	task.79E6D41847D1E679.title: "On the battlefield"
 	task.7ACD4CF3695BBD2B.title: "The burned ogre village"
+	task.7AE14A67985D723A.title: "Defeat Kyoya"
 	task.7B4249AE3E2796F6.title: "Reach 10,000 EP"
 	task.7C94E65510949CC0.title: "Hand in 32 torches"
 	task.7E51A3FA6A85122A.title: "The south gate"
+	task.7E7251007E5FE150.title: "Meet Rimuru at the green"
 	task.7FFFB5C681F9B5D6.title: "Hand in 32 arrows"
 }

@@ -1,0 +1,320 @@
+# Life 2 saga. Canon references and playable adaptations are documented in design/quests.md.
+[chapter]
+key = "mask_and_blade"
+title = "Mask and Blade"
+subtitle = "A traveler’s mask returns with a warning."
+icon = "minecraft:iron_sword"
+order = 11
+life = 2
+hide_until_deps_complete = true
+text = "Blumund remembers Shizu as a traveling companion. The Western Holy Church remembers her as a teacher. When the news from Tempest reaches both places, those memories lead you to opposite sides of a barricade."
+
+[[quests]]
+key = "three_witnesses"
+lore = "At the guild table, the three adventurers still leave room for Shizu when they tell the story."
+title = "Three Places at the Guild Table"
+icon = "minecraft:map"
+deps = ["whirlpool/act_four"]
+lane = 0
+col = 0
+text = """
+Find Kabal, Elen and Gido at Blumund’s guild in Londo. Kabal had hired a fourth adventurer for their journey
+into the forest. Elen remembers the mask. Gido remembers the flames. Together they can give you a name:
+Shizu.
+
+Their account begins this act as a recollection. In the anime they travel with Shizu long before Charybdis
+rises.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.story.act4", title = "Complete Act IV" },
+  { type = "location", dimension = "minecraft:overworld", at = [-1024, -120], radius = 140, title = "Visit Londo’s guild district" },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "mask_at_tempest"
+lore = "The mask was the one thing Shizu carried that could quiet the fire within her."
+title = "The Woman Behind the Mask"
+icon = "minecraft:campfire"
+deps = ["three_witnesses"]
+lane = 0
+col = 1
+text = """
+Return to Tempest’s green. When the mask comes away, the fire spirit inside Shizu threatens the village she
+has been trying to protect. Claim the encounter here. If it is already underway or on cooldown, return to
+the green and use /ttl story fight shizu.
+"""
+tasks = [
+  { type = "location", dimension = "minecraft:overworld", at = [0, 0], radius = 20, title = "Return to Tempest’s green" },
+]
+rewards = [
+  { type = "command", command = "ttl story fight shizu", permission_level = 0 },
+]
+
+[[quests]]
+key = "shizus_wish"
+lore = "Shizu and Rimuru came from the same world. For a moment she could see the Japan she never grew old enough to know."
+title = "Shizu’s Last Request"
+icon = "minecraft:poppy"
+deps = ["mask_at_tempest"]
+lane = 0
+col = 2
+text = """
+Stand with Shizu until your party earns credit for her encounter. Before she met Rimuru she tried to keep
+Ifrit’s flames from hurting the people around her. Her companions will carry that account back to Blumund.
+The separate Ifrit battle is our staging of the possession.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.shizu", title = "Receive credit for the Shizu encounter" },
+]
+rewards = [
+  { type = "command", command = "ttl story fight ifrit", permission_level = 0 },
+  { type = "xp", xp = 100 },
+]
+
+[[quests]]
+key = "ifrit"
+lore = "Leon summoned a child and gave a greater fire spirit a home inside her. Shizu bore the consequences for years."
+title = "The Fire Left Behind"
+icon = "minecraft:blaze_powder"
+deps = ["shizus_wish"]
+lane = 0
+col = 3
+text = """
+Ifrit is fought on the same green. If you claimed the previous reward elsewhere, go to the green and use
+/ttl story fight ifrit. The fire spirit answers a soul who has personally received credit for Shizu.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.ifrit", title = "Defeat Ifrit at Tempest" },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "holy_field"
+lore = "Hinata was Shizu’s pupil. The news of her teacher’s death reached her before Rimuru could give his account."
+title = "The Road Inside the Barrier"
+icon = "minecraft:iron_sword"
+deps = ["ifrit"]
+lane = 0
+col = 4
+text = """
+At x −400, z −60 on the Blumund road, use /ttl story fight hinata_sakaguchi. Hinata once learned from Shizu.
+She believes she has found the monster responsible for her teacher’s death. Behind you, Tempest’s defenders
+are losing their magic to another barrier.
+
+A credited victory over Hinata costs 30 Holy Church reputation. That cost applies to either oath.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.hinata_sakaguchi", title = "Stand against Hinata Sakaguchi" },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "south_gate"
+lore = "On the Blumund road one barrier closed around Rimuru. At home another stripped Tempest’s defenders of their strength."
+title = "Folgen at the South Gate"
+icon = "minecraft:shield"
+deps = ["holy_field"]
+lane = -1
+col = 5
+path = "light"
+text = """
+Go to Tempest’s south gate near x 0, z 40 and use /ttl story fight folgen. In this telling the field
+commander leads Falmuth’s attack. The people behind the gate need the road held long enough to get the
+wounded indoors.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.folgen", title = "Defeat Folgen at the south gate" },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "keep_roll"
+lore = "Our interpretation: a cook lays out one bowl too many and knows exactly whose it was."
+title = "An Empty Place at Supper"
+icon = "minecraft:bread"
+deps = ["south_gate"]
+lane = -1
+col = 6
+path = "light"
+text = """
+Leave eight loaves and four lengths of white wool at Tempest for the living and the dead. You have the names
+of the people who fell; you can carry their anger without taking the enemy’s souls for a harvest. This
+refusal is the light oath’s answer in our story.
+"""
+tasks = [
+  { type = "location", dimension = "minecraft:overworld", at = [0, -7], radius = 16, title = "Return to the green" },
+  { type = "item", item = "minecraft:bread", count = 8, consume = true },
+  { type = "item", item = "minecraft:white_wool", count = 4, consume = true },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "light_rimuru"
+lore = "Our interpretation: the blacksmith waiting beside Rimuru has a list of doors whose latches were broken in the attack."
+title = "Steel Laid Down"
+icon = "minecraft:iron_ingot"
+deps = ["keep_roll"]
+lane = -1
+col = 7
+path = "light"
+text = """
+Rimuru wants to know what you will do once the gate is secure. Bring him your reserve of four iron ingots
+for hinges and latches. If you choose the optional spar, the boss core charges 40 Tempest reputation for a
+victory over Rimuru. Handing in the iron closes this road in peace.
+"""
+tasks = [
+  { type = "item", item = "minecraft:iron_ingot", count = 4, consume = true },
+  { type = "location", dimension = "minecraft:overworld", at = [0, 0], radius = 20, title = "Meet Rimuru at the green" },
+]
+rewards = [
+  { type = "xp", xp = 140 },
+]
+
+[[quests]]
+key = "royal_warrant"
+lore = "Our interpretation: Razen leaves space on the warrant for a signature from someone who knows the forest roads."
+title = "The Royal Warrant"
+icon = "minecraft:paper"
+deps = ["holy_field"]
+lane = 1
+col = 5
+path = "dark"
+text = """
+Edmaris and Razen receive you in Marris. Stand in the palace district and supply eight sheets of paper for
+the march orders. Taking the warrant records your part in Falmuth’s campaign. The alliance with the Church
+and your signature on the orders are part of the pack’s dark route.
+"""
+tasks = [
+  { type = "location", dimension = "minecraft:overworld", at = [-1286, -1040], radius = 145, title = "Attend the court of Marris" },
+  { type = "item", item = "minecraft:paper", count = 8, consume = true },
+]
+rewards = [
+  { type = "command", command = "ttl story flag {p} falmuth_march", auto = "invisible", silent = true },
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "three_summoned"
+lore = "Kyoya, Shogo and Kirara were all summoned from another world. Their service to Falmuth brought them into Tempest together."
+title = "The King’s Otherworlders"
+icon = "minecraft:iron_sword"
+deps = ["royal_warrant"]
+lane = 1
+col = 6
+path = "dark"
+text = """
+At the placed Marris plaza challenge the three summoned fighters in any order. Use /ttl story fight followed
+by kyoya_tachibana, shogo_taguchi or kirara_mizutani. In the anime the three bring violence to Tempest. Here
+Razen tests you against them before he entrusts you with the march.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.kyoya_tachibana", title = "Defeat Kyoya" },
+  { type = "stage", stage = "ttl.defeated.shogo_taguchi", title = "Defeat Shogo" },
+  { type = "stage", stage = "ttl.defeated.kirara_mizutani", title = "Defeat Kirara" },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "dark_rimuru"
+lore = "Our interpretation: the seal of Falmuth still hangs from your belt when you reach the village green."
+title = "The Slime Must Fall"
+icon = "minecraft:diamond_sword"
+deps = ["three_summoned"]
+lane = 1
+col = 7
+path = "dark"
+text = """
+Follow the invasion road to Tempest’s green and use /ttl story fight rimuru_ogre_fight. This is the
+challenge you accepted at court. A credited victory costs 40 Tempest reputation, in addition to the
+political cost of closing the act on the dark path.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.rimuru_ogre_fight", title = "Defeat Rimuru at Tempest" },
+]
+rewards = [
+  { type = "xp", xp = 140 },
+]
+
+[[quests]]
+key = "spar"
+lore = "Our interpretation: Rimuru offers the match in person. The village sees only who drew steel on the green."
+title = "An Invitation to Spar"
+icon = "minecraft:wooden_sword"
+deps = ["light_rimuru"]
+lane = -2
+col = 8
+path = "light"
+optional = true
+text = """
+Optional. Use /ttl story fight rimuru_ogre_fight at Tempest’s green if you accept the standard boss
+encounter and its 40-point reputation cost. You can finish the act without touching your sword.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.rimuru_ogre_fight", title = "Complete Rimuru’s encounter" },
+]
+rewards = [
+  { type = "xp", xp = 100 },
+]
+
+[[quests]]
+key = "atonement"
+lore = "Our interpretation: one bundle goes to the kitchens, one to the bedsides and one to the smith repairing the ward."
+title = "Three Parcels for the Wounded"
+icon = "minecraft:white_wool"
+deps = ["royal_warrant"]
+lane = 2
+col = 8
+path = "dark"
+optional = true
+text = """
+Optional. Return to Tempest with twelve loaves, eight lengths of white wool and four iron ingots. Submit all
+three parcels to earn Atonement. If you still have your one change of oath, /ttl story flip lets you return
+to the light road. Turning is your decision.
+"""
+tasks = [
+  { type = "location", dimension = "minecraft:overworld", at = [0, -7], radius = 16, title = "Reach Tempest’s relief station" },
+  { type = "item", item = "minecraft:bread", count = 12, consume = true },
+  { type = "item", item = "minecraft:white_wool", count = 8, consume = true },
+  { type = "item", item = "minecraft:iron_ingot", count = 4, consume = true },
+]
+rewards = [
+  { type = "command", command = "ttl story flag {p} atonement", auto = "invisible", silent = true },
+  { type = "xp", xp = 100 },
+]
+
+[[quests]]
+key = "act_five"
+lore = "After the attack, Rimuru had to decide whom to hold responsible while the smoke still hung over the town."
+title = "The Names on the Warrant"
+icon = "minecraft:writable_book"
+deps = ["light_rimuru", "dark_rimuru"]
+lane = 0
+col = 8
+min_deps = 1
+shape = "gear"
+size = 1.5
+text = """
+Enter the result in the guild ledger. On the light path the Holy Church grants 10 reputation. On the dark
+path Falmuth grants 30 and Tempest deducts 40. Your record of the individual battles stands alongside this
+settlement.
+"""
+tasks = [
+  { type = "checkmark", title = "Close Act V" },
+]
+rewards = [
+  { type = "command", command = "ttl story act {p} 5", auto = "invisible", silent = true },
+  { type = "xp", xp = 180 },
+]

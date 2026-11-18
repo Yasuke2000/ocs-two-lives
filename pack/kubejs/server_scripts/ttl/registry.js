@@ -728,9 +728,9 @@ const TtlRegistry = {
     try {
       if (typeof TtlDiscord === 'undefined') return
       var rarity = this.rarityOf(skill)
-      if (this.conf().announce.indexOf(rarity) < 0 || this.isBot(fromName) || this.isBot(toName)) return
+      if (this.conf().announce.indexOf(rarity) < 0) return
       var kind = rarity === 'legendary' ? 'Legendary' : 'Rare'
-      TtlDiscord.post(server, `The ${kind} unique skill ${TtlCorridor.title(skill)} passes from ${TtlDiscord.name(fromName)} to ${TtlDiscord.name(toName)}.`)
+      TtlDiscordStory.post(server, rarity + '_transfer', [fromName, toName], `The ${kind} unique skill ${TtlCorridor.title(skill)} passes from ${TtlDiscord.name(fromName)} to ${TtlDiscord.name(toName)}.`)
     } catch (e) {
       console.warn(`[ttl] registry: story line for the transfer failed: ${e}`)
     }

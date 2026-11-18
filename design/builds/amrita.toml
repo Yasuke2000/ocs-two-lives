@@ -1,0 +1,11 @@
+name = "amrita"
+title = "Amrita — Buried Gallery of Jistav"
+landmark = "Amrita (Jistav capital)"
+anchor = [34, 16, 68]
+ground = "survey"
+search = 32
+margin = 8
+max_wet = 0.05
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true

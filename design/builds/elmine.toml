@@ -1,0 +1,11 @@
+name = "elmine"
+title = "Elmine — Terrace of the Divine Tree"
+landmark = "Elmine (Sarion capital in the Divine Tree)"
+anchor = [37, 4, 67]
+ground = "survey"
+search = 32
+margin = 8
+max_wet = 0.05
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true

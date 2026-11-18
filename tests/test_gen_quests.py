@@ -116,6 +116,18 @@ class StageTaskTests(unittest.TestCase):
                 render({"a.toml": one_quest(f'tasks = [{{ type = "stage", stage = "{bad}" }}]')})
 
 
+class AwakeningTaskTests(unittest.TestCase):
+    def test_capstones_read_native_status_in_life_two(self):
+        for status in ("HERO", "DEMON_LORD"):
+            task, _ = gen_quests.build_task({"life": 2}, "capstone", {"type": "awakening", "status": status}, "AB")
+            self.assertEqual(task, {"type": "tensura_ftb:awakening", "status": status, "id": "AB"})
+
+    def test_capstones_reject_invalid_status_and_mortal_chapters(self):
+        for life, status in ((2, "HERO_EGG"), (2, None), (1, "HERO"), ("both", "DEMON_LORD")):
+            with self.subTest(life=life, status=status), self.assertRaises(gen_quests.QuestError):
+                gen_quests.build_task({"life": life}, "capstone", {"type": "awakening", "status": status}, "AB")
+
+
 class StageRewardTests(unittest.TestCase):
     def reward(self, toml: str) -> str:
         return chapter_text(render({"a.toml": one_quest(
@@ -461,6 +473,27 @@ class QuestWebTests(unittest.TestCase):
         self.assertIn(("crossroads", "forest_awakens"), kt)
         self.assertIn(("kings_test", "act_two"), self.ancestors("orc_lord", "envoy"))
         self.assertIn(("orc_lord", "orc_lord_kill"), self.ancestors("reborn", "orc_war"))
+
+    def test_each_oath_can_finish_the_last_three_acts(self):
+        sources = [tomllib.loads(src.read_text(encoding="utf-8"))
+                   for src in gen_quests.SOURCES.glob("*.toml")]
+        oath = {(data["chapter"]["key"], q["key"]): q.get("path")
+                for data in sources for q in data["quests"]}
+        for data in sources:
+            if data["chapter"]["key"] in ("mask_and_blade", "puppet_master", "harvest_festival"):
+                for quest in data["quests"]:
+                    self.assertTrue(quest.get("lore", "").strip(), quest["key"])
+        for path, other in (("light", "dark"), ("dark", "light")):
+            available = {k: q for k, q in self.quests.items() if oath[k] != other}
+            reached = quest_graph.unlockable(available)
+            for chapter in ("mask_and_blade", "puppet_master", "harvest_festival"):
+                with self.subTest(chapter=chapter, path=path):
+                    keys = {k for k in self.quests if k[0] == chapter}
+                    lane = {k for k in keys if oath[k] == path}
+                    opposite = {k for k in keys if oath[k] == other}
+                    self.assertTrue(lane)
+                    self.assertEqual(len(lane), len(opposite))
+                    self.assertLessEqual(keys - opposite, reached)
 
     def test_dailies_unlock_at_sensible_points(self):
         for k, q in self.quests.items():

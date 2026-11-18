@@ -418,7 +418,14 @@ const TtlEvents = {
         if (!this.RULE.test(r) || !this.VALUE.test(String(a.gamerule[r]))) throw `${def.id}: bad gamerule ${r}`
         if (restore[r] === undefined || !this.VALUE.test(String(restore[r]))) throw `${def.id}: gamerule ${r} needs a restore value`
         rules[r] = String(a.gamerule[r])
-        back[r] = String(restore[r])
+        if (restore[r] === 'previous_int') {
+          // Preserve the pre-event integer across a restart and overlapping changes to the same rule.
+          var live = this.read(server, 'ttl.events.active', {})
+          var prior = Object.keys(live).map(id => live[id]).find(e => e.gr && e.gr[r] !== undefined)
+          back[r] = prior ? prior.gr[r] : String(TtlCmd.run(server, `gamerule ${r}`))
+        } else {
+          back[r] = String(restore[r])
+        }
       })
       ctx.rules = rules
       ctx.restore = back
@@ -479,6 +486,7 @@ const TtlEvents = {
 
   // Server (re)started with events still active: re-assert their rules in start order, then the events' own hooks.
   boot(server) {
+    this.expire(server, Date.now())
     var self = this
     var active = this.read(server, 'ttl.events.active', {})
     var ids = Object.keys(active).sort((a, b) => active[a].s - active[b].s)

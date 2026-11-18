@@ -1,0 +1,11 @@
+name = "coleus"
+title = "Coleus — The Palace of Herbaria"
+landmark = "Coleus"
+anchor = [42, 4, 72]
+ground = "survey"
+search = 48
+max_wet = 0.10
+margin = 10
+version = 1
+clear_above = true
+notes = "Royal stair and oasis beneath Herbaria's hilltop palace. The fan map places independent Coleus at the Damargania border."

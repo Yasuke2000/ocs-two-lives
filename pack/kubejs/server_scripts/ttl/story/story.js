@@ -37,6 +37,7 @@ const TtlStory = {
   K_ACTS: 'ttl.story.acts',
   K_FLAGS: 'ttl.story.flags',
   K_PENDING: 'ttl.story.pending',
+  K_CAPSTONE: 'ttl.story.capstonePending',
   PARTIES: 'ttl.story.parties',
   LOG: 'ttl.story.log',
   UNLOCKED: 'ttl.story.unlocked',
@@ -168,10 +169,12 @@ const TtlStory = {
   },
 
   // One #story line per story event (Discord); never for test bots.
-  post(server, player, text) {
+  post(server, player, text, moment) {
     try {
-      if (!text || typeof TtlDiscord === 'undefined' || TtlDiscord.isBot(player.username)) return
-      TtlDiscord.post(server, `${TtlDiscord.name(player.username)} ${text}`)
+      if (!text || typeof TtlDiscord === 'undefined') return
+      var line = `${TtlDiscord.name(player.username)} ${text}`
+      if (moment) TtlDiscordStory.post(server, moment, [player.username], line)
+      else if (!TtlDiscord.isBot(player.username)) TtlDiscord.post(server, line)
     } catch (e) {
       console.warn(`[ttl] story: #story post failed: ${e}`)
     }
@@ -344,8 +347,9 @@ const TtlStory = {
       parties[info.id] = { path: lane, oathBy: swearer, at: Date.now() }
       server.persistentData.putString(this.PARTIES, JSON.stringify(parties))
     }
-    var cfg = oath[lane]
-    this.post(server, player, `${cfg.line}${sworn > 1 ? ` (${sworn - 1} party member${sworn > 2 ? 's' : ''} swore with them.)` : ''}`)
+    var line = choice === 'unaligned' ? 'chose to walk unaligned at the crossroads of Tempest.' : oath[lane].line
+    if (sworn > 1) line += ` (${sworn - 1} party member${sworn > 2 ? 's' : ''} swore with them.)`
+    this.post(server, player, line, 'oath_' + choice)
     return null
   },
 
@@ -410,7 +414,24 @@ const TtlStory = {
     if (!this.isLife2(player)) return 'The story is told in the world of Tensura.'
     var path = this.path(player)
     if (!path) return 'Swear the Oath first.'
-    if (this.hasAct(player, n)) return `act ${n} is already done`
+    if (this.hasAct(player, n)) return n === 7 ? null : `act ${n} is already done`
+    // FTB can run the final command for every teammate when only one has awakened.
+    // Remember that this soul received the quest reward, so they can retry it after awakening.
+    if (n === 7) {
+      player.persistentData.putBoolean(this.K_CAPSTONE, true)
+      if (!this.hasAct(player, 6)) return 'Finish Act VI, then use /ttl story capstone.'
+      var witness = path === 'light' ? 'luminous_valentine' : 'clayman'
+      if (!player.stages.has('ttl.defeated.veldora') || !player.stages.has(`ttl.defeated.${witness}`)) {
+        return `Earn personal fight credit for Veldora and ${TtlBoss.def(witness).title}, then use /ttl story capstone.`
+      }
+      var kind = path === 'light' ? 'true_hero' : 'true_demon_lord'
+      if (TtlAbsorb.awakeFlags(player).indexOf(kind) < 0) {
+        return `Complete your own ${path === 'light' ? 'True Hero' : 'True Demon Lord'} awakening, then use /ttl story capstone.`
+      }
+      var error = this.flag(server, player, path === 'light' ? 'hero' : 'demon_lord')
+      if (error) return error
+      player.persistentData.remove(this.K_CAPSTONE)
+    }
     if (this.rules().sequential_acts && n > 1 && !opts.force && !this.hasAct(player, n - 1)) return `finish act ${n - 1} first`
     var acts = this.actsOf(player)
     acts[String(n)] = Date.now()
@@ -430,7 +451,7 @@ const TtlStory = {
     this.note(server, player, `completed act ${n} (${def.key}, ${path})${added.length ? `, unlocked ${added.join(',')}` : ''}`)
     if (!opts.quiet) {
       player.tell(Text.gold(`Act ${n} complete: ${def.title}.`))
-      this.post(server, player, def.story_line)
+      this.post(server, player, def.story_line, 'act')
     }
     return null
   },
@@ -600,7 +621,7 @@ const TtlStory = {
 
   clear(server, player) {
     var d = player.persistentData
-    ;[this.K_PATH, this.K_OATH, this.K_FLIPS, this.K_ACTS, this.K_FLAGS, this.K_PENDING].forEach(k => d.remove(k))
+    ;[this.K_PATH, this.K_OATH, this.K_FLIPS, this.K_ACTS, this.K_FLAGS, this.K_PENDING, this.K_CAPSTONE].forEach(k => d.remove(k))
     this.syncScoreboard(server, player)
     // The titles this system gave belong to the story that is being erased.
     var mine = ['Marked', 'Repentant', 'True Hero', 'Demon Lord', String(this.conf().oath.unaligned_title)]

@@ -50,6 +50,7 @@ const TtlDiscord = {
       if (bots > 0) return `${bots} test bot(s) online`
     } catch (e) {
       console.warn(`[ttl] discord: mute check failed: ${e}`)
+      return 'mute state unavailable'
     }
     return null
   },

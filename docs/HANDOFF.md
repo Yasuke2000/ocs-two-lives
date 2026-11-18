@@ -124,3 +124,10 @@ Offline: validate passes, 49 unit tests OK, all structures rebuilt. In game afte
   tags unverified), non-op players cannot break Wayfarer's Rest but can use doors, beds and the bell.
 - canon_map.txt is not regenerated for the audit's Ameld outlet (needs the political plate,
   `python tools/canon_map.py <plate.png>`); the H palette change and the outlet only reach ungenerated chunks.
+
+## Eleven landmarks, world events, Discord, and story acts V–VII
+
+- On staging, wait for the survey queue. Run `world_landmarks.rcon` and `python tools/verify_build.py <name> --log --min 98` on elmine, nasca, jia, amrita, siltrosso, ulgr_nature_park, great_holy_mountain, coleus, morgdahl, nostraille and raja. Walk each approach from the wild and check the transition to its skirt.
+- Run `events_pack.rcon`, then observe a natural Enhanced Celestials Blood Moon, regional storm drops and roaming Charybdis. Check a storm ending across a restart with a non-default EP multiplier.
+- Run the muted ops, nations, bosses, story and legendary scenarios. With real linked accounts on staging, check nation role colour and cleanup, one-line story delivery and staff command redaction.
+- Run `quests.rcon` and play acts V–VII in the FTB book on both oaths. Check claim context, party credit, castle visit radius, native True Hero and True Demon Lord recognition and each finale. Check the Walpurgis visit and castle encounter separately, including a player without a Legendary or capstone title. In an FTB party with one awakened member, confirm that the others can earn their titles later via `/ttl story capstone`. Wiki publishing is a separate owner action.

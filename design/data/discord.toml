@@ -14,6 +14,7 @@ staff = "1572376593744269503"          # #server-log (staff-only; ops notices an
 # Server Settings → Roles, or Discord refuses the change (logged once as "[ttl] discord roles: ...").
 # Keys: life1/life2 = the life, then one key per karma tier title (lower case) from karma.toml, plus fallen.
 [roles]
+nation_prefix = "Nation · "             # label for a zero-permission role created by the bot per charter
 linked = "1572399928888787015"         # given by sdlink itself on /verify; listed for the docs only
 life1 = "1572399930268586046"          # Life 1 and the Spirit Corridor
 life2 = "1572399931564757162"
@@ -31,5 +32,6 @@ recap_hour = 20                        # local hour (CET/CEST)
 awaken_ticks = 100                     # Great Sage awakenings poll (True Hero / True Demon Lord / Harvest Festival)
 
 [limits]
+nation_roles = 20                      # oldest charters first; a dissolved nation frees its slot
 recap_lines = 8                        # entries per section in the weekly recap
 top_lines = 5                          # entries per section in the leaderboard and /ttl top
