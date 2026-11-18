@@ -110,7 +110,7 @@ def exposed(blocks, x, y, z) -> bool:
     return False
 
 
-def light_up(bp, candidates, add_light, limit: int = 400) -> int:
+def light_up(bp, candidates, add_light, limit: int = 400, spread: int = 6) -> int:
     """Re-run the block-light check and call add_light(x, y, z) on each dark spot until none is left.
 
     Returns the number of lights added. Raises if the loop does not converge (a spot that cannot be lit).
@@ -123,7 +123,7 @@ def light_up(bp, candidates, add_light, limit: int = 400) -> int:
         # Light the darkest area first, one source per cluster (a source reaches ~14 blocks).
         done = set()
         for (x, y, z) in spots:
-            if any(abs(x - a) + abs(z - b) < 6 and abs(y - c) < 6 for a, b, c in done):
+            if any(abs(x - a) + abs(z - b) < spread and abs(y - c) < 6 for a, b, c in done):
                 continue
             add_light(x, y, z)
             done.add((x, y, z))

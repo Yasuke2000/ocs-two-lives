@@ -1,0 +1,15 @@
+# The Dwelling of the Spirits itself (blueprints/spirit_dwelling.py): a floating glade in the dimension
+# ttl:spirit_domain (kubejs/data/ttl/dimension/spirit_domain.json). Fixed ground in a void dimension: the walking level
+# (anchor y 41) lands on y 64. life/spirit_domain.js sends souls to the anchor and back through the return arch.
+name = "spirit_dwelling"
+title = "The Dwelling of the Spirits"
+x = 0
+z = 0
+anchor = [44, 41, 66]
+ground = "fixed"
+y = 64
+dimension = "ttl:spirit_domain"
+version = 1
+clear_above = false
+margin = 0
+notes = "Glade, colonnade and summoning grotto with the pedestal of light (Rimuru took Shizu's pupils there to call their spirits, light novel vol. 4 ch. 50). Appearance is our interpretation."

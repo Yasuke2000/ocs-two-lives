@@ -37,7 +37,7 @@
 	# Range: 0 ~ 100
 	percent_loss_on_death = 0
 	#Graveless Dimensions
-	no_grave_dimension = ["ttl:mortal_realm", "ttl:mortal_nether", "ttl:mortal_end", "ttl:spirit_corridor"]
+	no_grave_dimension = ["ttl:mortal_realm", "ttl:mortal_nether", "ttl:mortal_end", "ttl:spirit_corridor", "ttl:spirit_domain"]
 
 #Options related to player's alignment
 [alignment]
