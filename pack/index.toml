@@ -1397,8 +1397,20 @@ file = "kubejs/server_scripts/ttl/era/era.js"
 hash = "342d48a6acb72ce3cddbb970efe8e6255c63bbe2983279b82da0365ac80a008e"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/events/commands.js"
+hash = "fb388f85c13182f3e3ae1f2697a963f95925a18b6fb15e76e85176a8860d7f73"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/events/director.js"
+hash = "e5ce548d787bc1f8a12210e59fbeffd2ccc549fc07acd7230dd9536100207a2a"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/events/favor.js"
+hash = "fe296d21277faa9b88eee89fd88bf088e84a8ee0fe6e287377ad60e2569d6c7c"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "c554d98c17f8296f2aeddbe471939479f23337d83356a6efc60f954c0ad4c56d"
+hash = "51cfa1b4023b14ebd2085060424db721147bf5e4bc838306269f6ee5d5267338"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"

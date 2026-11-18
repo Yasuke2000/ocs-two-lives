@@ -345,6 +345,76 @@ def check_landmarks(landmarks: dict) -> None:
                                  f"needs {landmarks['keepout'] + lm['reach']} (keepout + reach)")
 
 
+def check_events(events: dict) -> None:
+    # events/director.js schedules these, events/favor.js reads [favor]; a typo would silently drop an event or a blessing.
+    ident, rule, value = r"[a-z0-9_]+", r"[A-Za-z][A-Za-z0-9_]*", r"[A-Za-z0-9_.-]+"
+    sound = r"[a-z0-9_.-]+:[a-z0-9_/.-]+"
+    seen = set()
+    for ev in events.get("event", []):
+        eid = ev.get("id", "")
+        where = f"events.toml: {eid or '?'}"
+        if not re.fullmatch(ident, str(eid)) or eid in seen:
+            raise SystemExit(f"{where}: id must be unique [a-z0-9_]")
+        seen.add(eid)
+        every = ev.get("every")
+        if every is not None:
+            if not isinstance(every, dict) or set(every) not in ({"days"}, {"hours"}) or not isinstance(next(iter(every.values())), int) or next(iter(every.values())) < 1:
+                raise SystemExit(f"{where}: every must be {{ days = n }} or {{ hours = n }} (n >= 1)")
+            if "days" in every and not (isinstance(ev.get("at_hour"), int) and 0 <= ev["at_hour"] <= 23):
+                raise SystemExit(f"{where}: a days schedule needs at_hour 0-23")
+            if "days" in every and ev.get("at_hour", 0) + ev.get("jitter_hours", 0) >= 24:
+                raise SystemExit(f"{where}: at_hour + jitter_hours must stay below 24")
+        if not isinstance(ev.get("duration_minutes", 0), int) or ev.get("duration_minutes", 0) < 0:
+            raise SystemExit(f"{where}: duration_minutes must be an integer >= 0")
+        if ev.get("scope") not in ("region", "world", "player"):
+            raise SystemExit(f"{where}: scope must be region, world or player")
+        if ev.get("audience", "all") not in ("all", "life1", "life2"):
+            raise SystemExit(f"{where}: audience must be all, life1 or life2")
+        ann = ev.get("announce")
+        if not isinstance(ann, dict) or not str(ann.get("title", "")).strip() or not str(ann.get("chat", "")).strip():
+            raise SystemExit(f"{where}: announce needs a title and a chat line")
+        if ann.get("sound") and not re.fullmatch(sound, ann["sound"]):
+            raise SystemExit(f"{where}: announce.sound must be a namespaced sound id")
+        act = ev.get("action", {})
+        if not isinstance(act, dict) or not set(act) <= {"favor", "boss", "gamerule", "restore"}:
+            raise SystemExit(f"{where}: action keys are favor, boss, gamerule, restore")
+        rules = act.get("gamerule", {})
+        for key, val in rules.items():
+            if not re.fullmatch(rule, key) or not re.fullmatch(value, str(val).lower() if isinstance(val, bool) else str(val)):
+                raise SystemExit(f"{where}: gamerule {key} = {val!r} is not a valid rule/value")
+            if key not in act.get("restore", {}):
+                raise SystemExit(f"{where}: gamerule {key} needs a restore value")
+        if "restore" in act and not rules:
+            raise SystemExit(f"{where}: restore without a gamerule")
+    director = events.get("director", {})
+    for key in ("loop_ticks", "poll_ticks", "window_hours", "retry_minutes", "min_gap_minutes", "max_per_day", "max_active"):
+        if not isinstance(director.get(key), int) or director[key] < 1:
+            raise SystemExit(f"events.toml: [director] {key} must be a positive integer")
+    favor = events.get("favor", {})
+    for key, lo, hi in (("bottom_pct", 1, 100), ("min_hours", 0, 168), ("cooldown_days", 0, 3650), ("offer_hours", 1, 720), ("offer_count", 1, 5)):
+        if not isinstance(favor.get(key), int) or not lo <= favor[key] <= hi:
+            raise SystemExit(f"events.toml: [favor] {key} must be an integer {lo}-{hi}")
+    choices = favor.get("choices", [])
+    blessings = favor.get("choice", {})
+    if not choices or len(set(choices)) != len(choices):
+        raise SystemExit("events.toml: [favor] choices must list each blessing once")
+    for cid in choices:
+        b = blessings.get(cid)
+        if not b or not str(b.get("label", "")).strip() or not re.fullmatch(sound, str(b.get("icon", ""))):
+            raise SystemExit(f"events.toml: [favor.choice.{cid}] needs a label and an icon (namespaced item id)")
+    if len(choices) < favor.get("offer_count", 0):
+        raise SystemExit("events.toml: [favor] offer_count exceeds the number of choices")
+    for sk in blessings.get("resistance", {}).get("skills", []):
+        if not re.fullmatch(sound, sk):
+            raise SystemExit(f"events.toml: resistance skill {sk!r} is not a namespaced id")
+    for e in blessings.get("protection", {}).get("effects", []):
+        if not re.fullmatch(sound, str(e.get("id", ""))) or not isinstance(e.get("seconds"), int) or e["seconds"] < 1:
+            raise SystemExit("events.toml: protection effects need a namespaced id and seconds >= 1")
+    for i in blessings.get("relic", {}).get("items", []):
+        if not re.fullmatch(sound, str(i.get("id", ""))) or not isinstance(i.get("count", 1), int) or i.get("count", 1) < 1:
+            raise SystemExit("events.toml: relic items need a namespaced id and count >= 1")
+
+
 def render() -> str:
     data = {}
     for path in sorted(SOURCES.glob("*.toml")):
@@ -356,6 +426,8 @@ def render() -> str:
         check_guide(data["guide"])
     if "mortal_banned" in data:
         check_mortal_banned(data["mortal_banned"])
+    if "events" in data:
+        check_events(data["events"])
     if "landmarks" in data:
         check_landmarks(data["landmarks"])
     if "carryover" in data:
