@@ -58,6 +58,37 @@ def check_mortal_banned(banned: dict) -> None:
             raise SystemExit(f"mortal_banned.toml: {key} lists an entry twice")
 
 
+def check_carryover(carry: dict, karma: dict | None) -> None:
+    # life/carryover.js reads these by name; a tier or axis typo would silently give nobody a book or an echo.
+    for key in ("lore_unjudged", "lore_judged"):
+        lines = carry.get("gem", {}).get(key)
+        if not isinstance(lines, list) or not lines or not all(isinstance(t, str) and t.strip() for t in lines):
+            raise SystemExit(f"carryover.toml: gem.{key} must be a non-empty list of lines")
+    life2 = carry["gem"].get("life2", {})
+    if not isinstance(life2.get("cooldown_minutes"), int) or life2["cooldown_minutes"] < 0:
+        raise SystemExit("carryover.toml: gem.life2.cooldown_minutes must be a whole number >= 0")
+    book = carry.get("book", {})
+    for key in ("min_axis_score", "max_level"):
+        if not isinstance(book.get(key), int) or book[key] < 1:
+            raise SystemExit(f"carryover.toml: book.{key} must be a whole number >= 1")
+    if not isinstance(book.get("lore"), list):
+        raise SystemExit("carryover.toml: book.lore must be a list (use [] for none)")
+    if karma is None:
+        return
+    tiers = [t["id"] for t in karma["tiers"]]
+    for tier, echo in life2.get("tiers", {}).items():
+        if tier not in tiers:
+            raise SystemExit(f"carryover.toml: gem.life2.tiers.{tier} is not a tier in karma.toml ({', '.join(tiers)})")
+    for tier in tiers:
+        echo = life2.get("tiers", {}).get(tier)
+        if not echo or not isinstance(echo.get("seconds"), int) or echo["seconds"] < 1                 or not isinstance(echo.get("amplifier"), int) or not 0 <= echo["amplifier"] <= 4:
+            raise SystemExit(f"carryover.toml: gem.life2.tiers.{tier} needs seconds >= 1 and amplifier 0-4")
+    if book.get("min_tier") not in tiers:
+        raise SystemExit(f"carryover.toml: book.min_tier {book.get('min_tier')!r} is not a tier in karma.toml ({', '.join(tiers)})")
+    if book.get("axis") not in karma["axes"]:
+        raise SystemExit(f"carryover.toml: book.axis {book.get('axis')!r} is not an axis in karma.toml ({', '.join(karma['axes'])})")
+
+
 def settlement_box(script: str, anchor: str, footprint: str) -> tuple[int, int, int, int]:
     """World box (x0, z0, x1, z1, margin included) of Tempest or Dwargon, as their scripts compute it."""
     m = re.search(anchor + r":\s*\{\s*x:\s*(-?\d+),\s*z:\s*(-?\d+)", (SCRIPTS / "life" / script).read_text(encoding="utf-8"))
@@ -120,6 +151,8 @@ def render() -> str:
         check_mortal_banned(data["mortal_banned"])
     if "landmarks" in data:
         check_landmarks(data["landmarks"])
+    if "carryover" in data:
+        check_carryover(data["carryover"], data.get("karma"))
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     return (
         "// priority: 200\n"

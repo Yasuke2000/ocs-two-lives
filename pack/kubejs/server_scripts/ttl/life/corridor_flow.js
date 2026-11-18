@@ -272,6 +272,8 @@ const TtlCorridor = {
     } catch (e) {
       console.error(`[ttl] ${name}: carryover restore failed: ${e}`)
     }
+    // Soul Gem with the Life 1 verdict, Remembered Enchantment (life/carryover.js).
+    try { if (typeof TtlSoul !== 'undefined') TtlSoul.restore(server, player) } catch (e) { console.error(`[ttl] ${name}: soul restore failed: ${e}`) }
     player.stages.remove('ttl.corridor')
     player.stages.add('ttl.life2')
     this.KEYS.forEach(k => data.remove(k))

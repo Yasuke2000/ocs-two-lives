@@ -1,0 +1,54 @@
+# Soul carryover items (design/master-plan.md §4, design/architecture/sprint3-4.md S1).
+# Scripts: pack/kubejs/server_scripts/ttl/life/carryover.js (this file), life/mortal_banned.js (the strip itself),
+# pack/kubejs/startup_scripts/ttl/items.js (the Soul Gem item). Edit, then run `python tools/gen_data.py`.
+# Check with `/ttl soul <player>` and the bot tests `tools/server.sh test soul` and `tools/server.sh test carryover`.
+#
+# What a soul keeps, in short:
+#   - The SOUL GEM (`ttl:soul_gem`, tag `ttl:soulbound`, a Curios charm): every soul gets exactly one on its first Life 1
+#     login. In Life 1 it is inert and cannot be thrown away. At rebirth it is re-issued with the Life 1 verdict as its
+#     lore, and in Life 2 a right-click gives a short "echo of the first life" buff, once per cooldown.
+#   - The REMEMBERED ENCHANTMENT: a Craft-heavy Hero (or better) is reborn with one enchanted book, the best enchantment
+#     it had on it, in its inventory, ender chest or Curios at the Life 1 death, at a lower level.
+# Placeholders in lore lines: {title} tier title ("Fallen Hero"), {score}, {days} Life 1 days, {axis} strongest axis.
+
+[gem]
+# Lore of a gem that has not been judged yet (Life 1, or a soul with no Life 1 record).
+lore_unjudged = [
+  "A vessel for your soul.",
+  "It is still unwritten: live your first life.",
+  "Soulbound. It cannot be thrown away in Life 1.",
+]
+# Lore after the rebirth (re-issued by life/carryover.js with the verdict).
+lore_judged = [
+  "Your first life: {title}",
+  "Score {score}, {days} days lived, strongest in {axis}.",
+  "Soulbound. Right-click in Life 2 for an echo of your first life.",
+]
+
+# Right-click in Life 2: the echo gives Regeneration and Resistance for `seconds` at `amplifier` (0 = level I). It
+# is a small panic button, not a second life: one use per `cooldown_minutes` (real time), and a better soul gets a longer
+# and stronger echo. Every tier id must exist in karma.toml.
+[gem.life2]
+cooldown_minutes = 20
+[gem.life2.tiers.underdog]
+seconds = 8
+amplifier = 0
+[gem.life2.tiers.normal]
+seconds = 12
+amplifier = 0
+[gem.life2.tiers.elite]
+seconds = 20
+amplifier = 1
+[gem.life2.tiers.legendary]
+seconds = 30
+amplifier = 1
+
+[book]
+# A soul gets the book when its tier is at least `min_tier` AND its `axis` (the unweighted score from karma.toml) is
+# at least `min_axis_score` and is its strongest axis.
+min_tier = "elite"
+axis = "craft"
+min_axis_score = 150
+# The remembered enchantment comes back at this level at most (Sharpness V in Life 1 returns as Sharpness III).
+max_level = 3
+lore = ["Remembered from your first life."]

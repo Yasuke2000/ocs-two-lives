@@ -43,6 +43,8 @@ EntityEvents.death('minecraft:player', event => {
     // Life 1 items must not reach Life 2: soulbound stacks are kept, banned ones stashed, the ender chest and Curios
     // slots emptied (life/mortal_banned.js). A failure must never trap the soul in Life 1.
     try {
+      // The soul remembers its best enchantment while it is still on the body (life/carryover.js).
+      try { if (typeof TtlSoul !== 'undefined') TtlSoul.lifeEnds(server, player) } catch (e) { console.error(`[ttl] ${name}: soul memory failed: ${e}`) }
       TtlStash.lifeEnds(server, player)
     } catch (e) {
       console.error(`[ttl] ${name}: Life 1 strip failed: ${e}`)

@@ -26,6 +26,50 @@ const TtlData = {
       "mode": "defeated"
     }
   },
+  "carryover": {
+    "book": {
+      "axis": "craft",
+      "lore": [
+        "Remembered from your first life."
+      ],
+      "max_level": 3,
+      "min_axis_score": 150,
+      "min_tier": "elite"
+    },
+    "gem": {
+      "life2": {
+        "cooldown_minutes": 20,
+        "tiers": {
+          "elite": {
+            "amplifier": 1,
+            "seconds": 20
+          },
+          "legendary": {
+            "amplifier": 1,
+            "seconds": 30
+          },
+          "normal": {
+            "amplifier": 0,
+            "seconds": 12
+          },
+          "underdog": {
+            "amplifier": 0,
+            "seconds": 8
+          }
+        }
+      },
+      "lore_judged": [
+        "Your first life: {title}",
+        "Score {score}, {days} days lived, strongest in {axis}.",
+        "Soulbound. Right-click in Life 2 for an echo of your first life."
+      ],
+      "lore_unjudged": [
+        "A vessel for your soul.",
+        "It is still unwritten: live your first life.",
+        "Soulbound. It cannot be thrown away in Life 1."
+      ]
+    }
+  },
   "discord": {
     "channels": {
       "feedback": "1572396138865230004",
@@ -93,6 +137,10 @@ const TtlData = {
       {
         "body": "When Life 1 ends, the Voice of the World judges your life and your soul arrives in the *Spirit Corridor*.\n\n- *Last Wish:* pick one of ten wishes (Strength, Knowledge, Protection, ...). Your wish decides which Unique Skills can be yours.\n- *Trial of the Soul* (optional): every wish has its own trial. Win and you pick your skill from three; lose and fate picks it.\n- *Rebirth:* the Great Sage's reincarnation ceremony. Choose your new race from your offers (Slime is always one of them).\n- *Unique Skill:* chosen by you or drawn by fate, then you wake up in Life 2.\n\nLost a menu? Type `/ttl menu`, or talk to the *Voice of the World* in the hall.\n",
         "title": "Death and the Spirit Corridor"
+      },
+      {
+        "body": "When Life 1 ends, your body's belongings do not come with you: inventory, armour, ender chest and backpacks are left behind. Your soul keeps:\n\n- your levels, advancements, karma and quest progress\n- your *Soul Gem*: every soul starts with one. It cannot be thrown away in Life 1. In Life 2, right-click it for a short echo of your first life (a few seconds of Regeneration and Resistance, then it rests for a while)\n- a *Remembered Enchantment*: a Hero or Legend whose strongest side was *Craft* is reborn with one enchanted book, the best enchantment they carried, at a lower level\n\nItems from Tensura that you carried into the Mortal Realm are put away safely and come back at rebirth.\n",
+        "title": "What your soul keeps"
       },
       {
         "body": "You are reborn on the Tensura continent, in *Tempest* in the *Forest of Jura*. The dwarven kingdom of *Dwargon* lies to the north.\n\n- Your new race and Unique Skill are yours now. Some Unique Skills only a few souls can hold at once.\n- Fight, grow stronger and evolve. Death in Life 2 is not the end: you come back.\n",
