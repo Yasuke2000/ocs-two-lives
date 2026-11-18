@@ -17,6 +17,9 @@ CURATED = {
     "tombstone-common.toml": "No graves in the Mortal dimensions and the Spirit Corridor",
     "DistantHorizons.toml": "Chat warnings and the auto-updater off",
     "enhancedcelestials2core/translations.json": "Translation prompt off",
+    "lightmanscurrency/MasterCoinList.json": "Money = Tensura's four coins (10:1 steps), own ATM exchange buttons; Lightman's own coins are not money",
+    "lightmanscurrency-common.txt": "No Lightman's coin loot, minting, banker/cashier villagers or village houses",
+    "lightmanscurrency-server.txt": "Bank accounts and network traders refused in the Mortal dimensions; 5% auction fee",
     "simple-discord-link/simple-discord-link.toml": "Discord bot: token and channel from `${CFG_...}` env placeholders, tellraw relay off, test bots filtered",
 }
 

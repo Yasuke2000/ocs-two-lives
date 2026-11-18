@@ -346,6 +346,82 @@ def check_landmarks(landmarks: dict) -> None:
                 raise SystemExit(f"{where}: ({lm['x']}, {lm['z']}) is {gap:.0f} blocks from {label}, "
                                  f"needs {landmarks['keepout'] + lm['reach']} (keepout + reach)")
 
+MASTER_COIN_LIST = ROOT / "pack" / "config" / "lightmanscurrency" / "MasterCoinList.json"
+
+
+def coin_table(where: str, table, coins: list) -> None:
+    if not isinstance(table, dict) or not table:
+        raise SystemExit(f"{where}: must be a non-empty coin table like {{ silver = 3 }}")
+    for coin, n in table.items():
+        if coin not in coins or not isinstance(n, int) or isinstance(n, bool) or n < 1:
+            raise SystemExit(f"{where}: {coin} = {n!r} (coins are {', '.join(coins)}; amounts are positive integers)")
+
+
+def check_economy(eco: dict, data: dict) -> None:
+    # economy/*.js read the coin chain, bounties and fees from here; the Lightman's Currency config must agree with
+    # the coin chain, or the shops, ATMs and bounty payouts would count different money.
+    coins = eco["coins"]["chain"]
+    items, rates = eco["coins"]["item"], eco["coins"]["rate"]
+    if set(items) != set(coins) or set(rates) != set(coins[1:]):
+        raise SystemExit("economy.toml: [coins.item] needs every coin and [coins.rate] every coin but the first")
+    for coin in coins:
+        if not re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", items[coin]):
+            raise SystemExit(f"economy.toml: coins.item.{coin} {items[coin]!r} is not a namespaced id")
+        if coin in rates and (not isinstance(rates[coin], int) or rates[coin] < 2):
+            raise SystemExit(f"economy.toml: coins.rate.{coin} must be an integer >= 2")
+    if MASTER_COIN_LIST.exists():
+        main = [c for c in json.loads(MASTER_COIN_LIST.read_text(encoding="utf-8"))["Chains"] if c["chain"] == "main"]
+        if len(main) != 1:
+            raise SystemExit("MasterCoinList.json: needs exactly one chain named main")
+        core = main[0]["CoreChain"]
+        want = [(items[c], None if i == 0 else rates[c]) for i, c in enumerate(coins)]
+        have = [(e["Coin"], e.get("exchangeRate")) for e in core]
+        if want != have:
+            raise SystemExit(f"economy.toml [coins] and MasterCoinList.json main CoreChain disagree: {want} vs {have}")
+    ranks = [r["id"] for r in eco["rank"]]
+    if not ranks or eco["rank"][0]["points"] != 0 or len(set(ranks)) != len(ranks) or             [r["points"] for r in eco["rank"]] != sorted(r["points"] for r in eco["rank"]):
+        raise SystemExit("economy.toml: [[rank]] ids must be unique and points ascending from 0")
+    if eco["guild"].get("announce_rank") not in ranks:
+        raise SystemExit("economy.toml: guild.announce_rank is not a rank id")
+    landmarks = {lm["name"] for lm in data.get("landmarks", {}).get("landmark", [])}
+    factions = {f["id"] for f in data.get("factions", {}).get("faction", [])}
+    seen, per = set(), {"daily": 0, "weekly": 0}
+    for b in eco["bounty"]:
+        where = f"economy.toml: bounty {b.get('id', '?')}"
+        if not re.fullmatch(r"[a-z0-9_]+", b.get("id", "")) or b["id"] in seen:
+            raise SystemExit(f"{where}: id must be unique [a-z0-9_]")
+        seen.add(b["id"])
+        if b.get("kind") not in ("kill", "deliver", "visit") or b.get("period") not in per:
+            raise SystemExit(f"{where}: kind is kill|deliver|visit and period daily|weekly")
+        if b.get("min_rank") not in ranks:
+            raise SystemExit(f"{where}: min_rank is not a rank id")
+        if not all(isinstance(b.get(k), int) and b[k] >= 0 for k in ("count", "points", "weight")) or b["count"] < 1:
+            raise SystemExit(f"{where}: count >= 1, points and weight >= 0 (integers)")
+        if b["kind"] == "visit":
+            if landmarks and b["target"] not in landmarks:
+                raise SystemExit(f"{where}: target {b['target']!r} is not a landmark in landmarks.toml")
+        elif not re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", b.get("target", "")):
+            raise SystemExit(f"{where}: target must be a namespaced id")
+        if "region" in b and (b["kind"] != "kill" or (factions and b["region"] not in factions)):
+            raise SystemExit(f"{where}: region is a faction id and only for kill bounties")
+        coin_table(f"{where} reward.coins", b.get("reward", {}).get("coins"), coins)
+        for f, n in b["reward"].get("rep", {}).items():
+            if (factions and f not in factions) or not isinstance(n, int) or n < 1:
+                raise SystemExit(f"{where}: reward.rep.{f} = {n!r} (a faction id and a positive integer)")
+        if b["weight"] > 0:
+            per[b["period"]] += 1
+    first = ranks[0]
+    for period, n in (("daily", eco["guild"]["daily"]), ("weekly", eco["guild"]["weekly"])):
+        pool = [b for b in eco["bounty"] if b["period"] == period and b["weight"] > 0]
+        if len(pool) < n or (period == "daily" and not any(b["min_rank"] == first for b in pool)):
+            raise SystemExit(f"economy.toml: needs >= {n} {period} bounties with weight > 0 "
+                             f"(daily ones need at least one for rank {first})")
+    for name, table in eco["sinks"].items():
+        coin_table(f"economy.toml: sinks.{name}", table, coins)
+    for block in eco["merit"]["blocks"]:
+        if not re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", block):
+            raise SystemExit(f"economy.toml: merit block {block!r} is not a namespaced id")
+
 
 def check_events(events: dict) -> None:
     # events/director.js schedules these, events/favor.js reads [favor]; a typo would silently drop an event or a blessing.
@@ -438,6 +514,8 @@ def render() -> str:
         check_factions(data["factions"], data.get("karma"))
     if "bosses" in data:
         check_bosses(data["bosses"], data.get("landmarks"), data.get("factions"))
+    if "economy" in data:
+        check_economy(data["economy"], data)
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     return (
         "// priority: 200\n"

@@ -477,6 +477,545 @@ const TtlData = {
       "role_sync_minutes": 5
     }
   },
+  "economy": {
+    "bounty": [
+      {
+        "count": 8,
+        "id": "rabbit_cull",
+        "kind": "kill",
+        "min_rank": "F",
+        "period": "daily",
+        "points": 1,
+        "reward": {
+          "coins": {
+            "silver": 2
+          },
+          "rep": {
+            "blumund": 1
+          }
+        },
+        "target": "tensura:horned_rabbit",
+        "title": "Cull the Horned Rabbits",
+        "weight": 10
+      },
+      {
+        "count": 15,
+        "id": "zombie_sweep",
+        "kind": "kill",
+        "min_rank": "F",
+        "period": "daily",
+        "points": 1,
+        "reward": {
+          "coins": {
+            "silver": 2
+          },
+          "rep": {
+            "blumund": 1
+          }
+        },
+        "target": "minecraft:zombie",
+        "title": "Sweep the Night Shamblers",
+        "weight": 10
+      },
+      {
+        "count": 12,
+        "id": "skeleton_sweep",
+        "kind": "kill",
+        "min_rank": "F",
+        "period": "daily",
+        "points": 1,
+        "reward": {
+          "coins": {
+            "silver": 2
+          },
+          "rep": {
+            "blumund": 1
+          }
+        },
+        "target": "minecraft:skeleton",
+        "title": "Quiet the Bone Archers",
+        "weight": 8
+      },
+      {
+        "count": 4,
+        "id": "direwolf_hunt",
+        "kind": "kill",
+        "min_rank": "E",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 5
+          },
+          "rep": {
+            "blumund": 1
+          }
+        },
+        "target": "tensura:direwolf",
+        "title": "Thin the Direwolf Pack",
+        "weight": 8
+      },
+      {
+        "count": 6,
+        "id": "ant_nest",
+        "kind": "kill",
+        "min_rank": "E",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 4
+          },
+          "rep": {
+            "blumund": 1
+          }
+        },
+        "target": "tensura:giant_ant",
+        "title": "Clear the Giant Ants",
+        "weight": 8
+      },
+      {
+        "count": 6,
+        "id": "bat_swarm",
+        "kind": "kill",
+        "min_rank": "E",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 3
+          },
+          "rep": {
+            "blumund": 1
+          }
+        },
+        "target": "tensura:giant_bat",
+        "title": "Drive off the Giant Bats",
+        "weight": 6
+      },
+      {
+        "count": 8,
+        "id": "creeper_ward",
+        "kind": "kill",
+        "min_rank": "E",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 3
+          },
+          "rep": {
+            "blumund": 1
+          }
+        },
+        "target": "minecraft:creeper",
+        "title": "Ward the Roads from Creepers",
+        "weight": 6
+      },
+      {
+        "count": 5,
+        "id": "spider_web",
+        "kind": "kill",
+        "min_rank": "D",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 6
+          },
+          "rep": {
+            "blumund": 2
+          }
+        },
+        "target": "tensura:black_spider",
+        "title": "Burn out the Black Spiders",
+        "weight": 6
+      },
+      {
+        "count": 16,
+        "id": "iron_order",
+        "kind": "deliver",
+        "min_rank": "F",
+        "period": "daily",
+        "points": 1,
+        "reward": {
+          "coins": {
+            "silver": 3
+          },
+          "rep": {
+            "dwargon": 1
+          }
+        },
+        "target": "minecraft:iron_ingot",
+        "title": "Iron for the Smiths",
+        "weight": 8
+      },
+      {
+        "count": 12,
+        "id": "leather_order",
+        "kind": "deliver",
+        "min_rank": "F",
+        "period": "daily",
+        "points": 1,
+        "reward": {
+          "coins": {
+            "silver": 2
+          },
+          "rep": {
+            "dwargon": 1
+          }
+        },
+        "target": "minecraft:leather",
+        "title": "Leather for the Tanners",
+        "weight": 8
+      },
+      {
+        "count": 16,
+        "id": "ration_order",
+        "kind": "deliver",
+        "min_rank": "F",
+        "period": "daily",
+        "points": 1,
+        "reward": {
+          "coins": {
+            "silver": 2
+          },
+          "rep": {
+            "tempest": 1
+          }
+        },
+        "target": "minecraft:cooked_beef",
+        "title": "Rations for the Camp",
+        "weight": 8
+      },
+      {
+        "count": 6,
+        "id": "ore_shards",
+        "kind": "deliver",
+        "min_rank": "E",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 8
+          },
+          "rep": {
+            "dwargon": 2
+          }
+        },
+        "target": "tensura:magic_ore_shard",
+        "title": "Magic Ore for the Dwarven Forges",
+        "weight": 6
+      },
+      {
+        "count": 1,
+        "id": "visit_goblins",
+        "kind": "visit",
+        "min_rank": "F",
+        "period": "daily",
+        "points": 1,
+        "reward": {
+          "coins": {
+            "silver": 2
+          },
+          "rep": {
+            "tempest": 1
+          }
+        },
+        "target": "goblin_village",
+        "title": "Check on the Goblin Village",
+        "weight": 6
+      },
+      {
+        "count": 1,
+        "id": "visit_dwarves",
+        "kind": "visit",
+        "min_rank": "E",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 3
+          },
+          "rep": {
+            "dwargon": 1
+          }
+        },
+        "target": "dwarf_village",
+        "title": "Scout the Dwarven Road",
+        "weight": 6
+      },
+      {
+        "count": 1,
+        "id": "visit_treyni",
+        "kind": "visit",
+        "min_rank": "D",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 5
+          },
+          "rep": {
+            "tempest": 1
+          }
+        },
+        "target": "treyni_grove",
+        "title": "Report from Treyni's Grove",
+        "weight": 5
+      },
+      {
+        "count": 20,
+        "id": "week_direwolves",
+        "kind": "kill",
+        "min_rank": "D",
+        "period": "weekly",
+        "points": 5,
+        "reward": {
+          "coins": {
+            "gold": 1
+          },
+          "rep": {
+            "blumund": 3
+          }
+        },
+        "target": "tensura:direwolf",
+        "title": "The Great Direwolf Cull",
+        "weight": 8
+      },
+      {
+        "count": 25,
+        "id": "week_spiders",
+        "kind": "kill",
+        "min_rank": "C",
+        "period": "weekly",
+        "points": 6,
+        "reward": {
+          "coins": {
+            "gold": 2
+          },
+          "rep": {
+            "blumund": 4
+          }
+        },
+        "target": "tensura:black_spider",
+        "title": "Eradicate the Black Spider Nest",
+        "weight": 6
+      },
+      {
+        "count": 10,
+        "id": "week_caterpillars",
+        "kind": "kill",
+        "min_rank": "C",
+        "period": "weekly",
+        "points": 6,
+        "reward": {
+          "coins": {
+            "gold": 2
+          },
+          "rep": {
+            "blumund": 4
+          }
+        },
+        "target": "tensura:hell_caterpillar",
+        "title": "Hell Caterpillar Purge",
+        "weight": 5
+      },
+      {
+        "count": 15,
+        "id": "week_blazes",
+        "kind": "kill",
+        "min_rank": "C",
+        "period": "weekly",
+        "points": 6,
+        "reward": {
+          "coins": {
+            "gold": 2
+          }
+        },
+        "target": "minecraft:blaze",
+        "title": "Blaze Bounty",
+        "weight": 5
+      },
+      {
+        "count": 4,
+        "id": "week_magisteel",
+        "kind": "deliver",
+        "min_rank": "C",
+        "period": "weekly",
+        "points": 6,
+        "reward": {
+          "coins": {
+            "gold": 2
+          },
+          "rep": {
+            "dwargon": 3
+          }
+        },
+        "target": "tensura:low_magisteel_ingot",
+        "title": "Low Magisteel for Dwargon",
+        "weight": 6
+      },
+      {
+        "count": 6,
+        "id": "week_diamonds",
+        "kind": "deliver",
+        "min_rank": "D",
+        "period": "weekly",
+        "points": 5,
+        "reward": {
+          "coins": {
+            "gold": 1,
+            "silver": 5
+          },
+          "rep": {
+            "blumund": 2
+          }
+        },
+        "target": "minecraft:diamond",
+        "title": "Diamonds for the Guild Vault",
+        "weight": 6
+      },
+      {
+        "count": 1,
+        "id": "week_lizardmen",
+        "kind": "visit",
+        "min_rank": "D",
+        "period": "weekly",
+        "points": 5,
+        "reward": {
+          "coins": {
+            "gold": 1
+          },
+          "rep": {
+            "lizardmen": 2
+          }
+        },
+        "target": "lizardmen_caverns",
+        "title": "Survey the Lizardmen Caverns",
+        "weight": 6
+      },
+      {
+        "count": 1,
+        "id": "week_orc_camp",
+        "kind": "visit",
+        "min_rank": "C",
+        "period": "weekly",
+        "points": 6,
+        "reward": {
+          "coins": {
+            "gold": 2
+          },
+          "rep": {
+            "blumund": 2
+          }
+        },
+        "target": "orc_camp",
+        "title": "Scout the Orc War Battlefield",
+        "weight": 5
+      }
+    ],
+    "coins": {
+      "chain": [
+        "bronze",
+        "silver",
+        "gold",
+        "stellar"
+      ],
+      "item": {
+        "bronze": "tensura:bronze_coin",
+        "gold": "tensura:gold_coin",
+        "silver": "tensura:silver_coin",
+        "stellar": "tensura:stellar_gold_coin"
+      },
+      "rate": {
+        "gold": 10,
+        "silver": 10,
+        "stellar": 10
+      }
+    },
+    "guild": {
+      "announce_rank": "B",
+      "daily": 3,
+      "max_active": 3,
+      "poll_ticks": 100,
+      "visit_radius": 48,
+      "weekly": 2
+    },
+    "merit": {
+      "blocks": [
+        "minecraft:stone_bricks",
+        "minecraft:stone_brick_slab",
+        "minecraft:stone_brick_stairs",
+        "minecraft:stone_brick_wall",
+        "minecraft:cobblestone_wall",
+        "minecraft:lantern",
+        "minecraft:oak_fence",
+        "minecraft:oak_fence_gate",
+        "minecraft:smooth_stone_slab",
+        "minecraft:bell",
+        "minecraft:barrel",
+        "minecraft:composter"
+      ],
+      "builder_at": 500,
+      "chunk_weekly_cap": 100,
+      "per_block": 1,
+      "rep_per_100": 1,
+      "weekly_cap": 200,
+      "works_per_player": 4
+    },
+    "rank": [
+      {
+        "id": "F",
+        "points": 0,
+        "title": "Rookie"
+      },
+      {
+        "id": "E",
+        "points": 10,
+        "title": "Novice"
+      },
+      {
+        "id": "D",
+        "points": 30,
+        "title": "Adventurer"
+      },
+      {
+        "id": "C",
+        "points": 70,
+        "title": "Veteran"
+      },
+      {
+        "id": "B",
+        "points": 140,
+        "title": "Elite"
+      },
+      {
+        "id": "A",
+        "points": 250,
+        "title": "Champion"
+      },
+      {
+        "id": "S",
+        "points": 400,
+        "title": "Free Guild Legend"
+      }
+    ],
+    "sinks": {
+      "altar": {
+        "silver": 5
+      },
+      "charter": {
+        "gold": 50
+      },
+      "core_identify": {
+        "gold": 2
+      },
+      "upkeep_per_chunk_week": {
+        "silver": 1
+      }
+    }
+  },
   "events": {
     "director": {
       "loop_ticks": 1200,
@@ -1492,7 +2031,8 @@ const TtlData = {
     "namespaces": [
       "tensura",
       "tensura_neb",
-      "greatsage"
+      "greatsage",
+      "lightmanscurrency"
     ],
     "tags": []
   },

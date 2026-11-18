@@ -1,0 +1,14 @@
+# Seed for config/lightmanscurrency-server.txt (Lightman's Currency 1.21-2.3.0.6); see lightmanscurrency-common.txt.
+# Life 1 has no money: bank accounts and network traders are refused in the three Mortal dimensions (the Mortal
+# Realm, its Nether and its End), and economy/ bans the whole mod there through design/data/mortal_banned.toml.
+
+[machine_protection]
+quarantinedDimensions=[ttl:mortal_realm,ttl:mortal_nether,ttl:mortal_end]
+
+# 5% of every Auction House sale goes to the server (a sink; `storeFeeInServerTax` is on by default).
+[auction_house]
+auctionFeeRate=5
+
+# No free money from sitting on a balance.
+[bank_accounts]
+interest=0.0

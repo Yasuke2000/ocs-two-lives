@@ -14,5 +14,7 @@ OCS Tensura: Two Lives is a free, non-commercial fan modpack. Nothing here is so
   installed mod at runtime instead.
 - **Great Sage** addon, **ManasCore**, and every other mod in `pack/mods/` — by their respective authors, under
   their own licences; the pack only links to them (packwiz), it does not redistribute their jars.
+- **Lightman's Currency** — by Lightman314 (Apache-2.0 on Modrinth). Our Mana Ledger (ATM block, pocket item and card)
+  textures in `pack/kubejs/assets/lightmanscurrency/` are palette recolours of the mod's own textures.
 - Map references: fan-made Tensura world maps (political and illustrated); our grid in `pack/config/ttl/` is our own
   trace, the reference images are not in the repo.

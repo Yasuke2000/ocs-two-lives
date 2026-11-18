@@ -1,0 +1,30 @@
+# Seed for config/lightmanscurrency-common.txt (Lightman's Currency 1.21-2.3.0.6). Only the options we change are
+# listed; the mod writes the full file with every default on its first start and keeps unlisted options at their default.
+# Why (design/decisions.md 18/11/2026): the money is Tensura's coins (MasterCoinList.json), so everything that would
+# hand out or mint Lightman's own coins is off, and the guild (economy/guild.js) is the only faucet.
+
+[crafting.coin_mint]
+canCraftCoinMint=false
+canMint=false
+canMelt=false
+
+[villagers]
+piglinsBarterCoins=false
+addCustomWanderingTrades=false
+addBanker=false
+addCashier=false
+
+[loot.entities]
+enabled=false
+
+[loot.chests]
+enabled=false
+
+[structures]
+villageHouses=false
+ancientCity=false
+
+[events]
+chocolate=false
+startingRewards=false
+lootReplacements=false

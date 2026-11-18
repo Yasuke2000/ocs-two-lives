@@ -889,6 +889,18 @@ file = "config/l2configs/pandora-server.toml"
 hash = "1e15df3add8a04de72276ab6827bc1ec242b5eae961780cec6fe1024a59dad19"
 
 [[files]]
+file = "config/lightmanscurrency-common.txt"
+hash = "28a05b2ce7a1179973887f5b77cda290faff9e31ad288b87bac8197cf73cb566"
+
+[[files]]
+file = "config/lightmanscurrency-server.txt"
+hash = "7b8a82c65237ee8691b75614f22e6c4a63739d770832a6fa095e425f8321da77"
+
+[[files]]
+file = "config/lightmanscurrency/MasterCoinList.json"
+hash = "0b77a5551f2ad0ee0e521a127270297214fe7faaa406789f802d761436c15492"
+
+[[files]]
 file = "config/lithium.properties"
 hash = "6cf6f83720071fd1657c8e79b357caf68d40f410ae123e5f922483eb1d1d25be"
 
@@ -1229,6 +1241,22 @@ file = "datapacks/ttl-overrides/pack.mcmeta"
 hash = "9bdd411abe7b7eea66a5bd1f546787907738ef87ee1f1dccadb344bbf1b77023"
 
 [[files]]
+file = "kubejs/assets/lightmanscurrency/lang/en_us.json"
+hash = "3bbc1c06624b85c5e6c0ce0f6761f2bc4ff397c2a9b68d6b9e9a868a61fbd5a7"
+
+[[files]]
+file = "kubejs/assets/lightmanscurrency/textures/block/atm.png"
+hash = "6c18bc665abeedd5dc1ac1cff78e9a4c528ec5ce4673d78d0aaeb69ebf2dc881"
+
+[[files]]
+file = "kubejs/assets/lightmanscurrency/textures/item/atm_card.png"
+hash = "844f56dd75cc8fcc923eca0aeb7baac86b79c97358816f66a12216bb0ad3519a"
+
+[[files]]
+file = "kubejs/assets/lightmanscurrency/textures/item/portable_atm.png"
+hash = "3c5b60b173828b2f41c0b8a14448e86ad316237d7430b4fff0b2826354aeb9a7"
+
+[[files]]
 file = "kubejs/assets/ttl/textures/item/skill_core.png"
 hash = "5c73e3f832714ad31fdb9c6453bb2c30142854d151e54c10f4d687fa5c9ff188"
 
@@ -1433,6 +1461,26 @@ file = "kubejs/server_scripts/ttl/discord/roles.js"
 hash = "b7041324b5ef261db171a75b0d949daa71508a0c0cfb9c776fafe590337a3510"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/economy/commands.js"
+hash = "14578b2f576c540ade5d9160336d6cfcfe505938660162c0d5c067ee4bb2bf5c"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/economy/guild.js"
+hash = "0b3d1b9eb4cd459ce26726f29d1b50d0fbe23b99efd2eadea1a4232e7b9a2e89"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/economy/merit.js"
+hash = "3eebe65b71a10a278272b12ccdb0df3d90f24ad3f57b18515c435a614b65edf1"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/economy/recipes.js"
+hash = "0c61b3d7904d155cc2e6ca514f8b0e5b14f3644c9eb4cc248afbc06974ea3dce"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/economy/sinks.js"
+hash = "9ec242d90c555730980e7a8800352645dfc22e4044c7793699f110d8f6e65519"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/era/era.js"
 hash = "342d48a6acb72ce3cddbb970efe8e6255c63bbe2983279b82da0365ac80a008e"
 
@@ -1450,7 +1498,7 @@ hash = "fe296d21277faa9b88eee89fd88bf088e84a8ee0fe6e287377ad60e2569d6c7c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "51cfa1b4023b14ebd2085060424db721147bf5e4bc838306269f6ee5d5267338"
+hash = "568228bd5e20a4cb47e32db928de29ea881af22c3c12710f54486e2c2b315a8a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1498,7 +1546,7 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "7a7ec7138b358305059cedcee2671f938d8cb63997f9dc6b4504856c7c4ae642"
+hash = "f8ef2518350f8717c1c9ce1a6b61b78524aeb642af85f457309e294aea7f8d5b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -1530,7 +1578,7 @@ hash = "a387a538f9b72117e9e10530cf947ac32bff9779ca8f5bfa7a3d426573256444"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_immunity.js"
-hash = "3c70b1d23787e707c51dee587650d5ebf90a02586488c0b6e52cc2e8a8dc44fe"
+hash = "949a3601910c8ba5c69415222ff89a95008d4b017ff6fb1a8ade2787c76007c4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"
@@ -1538,7 +1586,7 @@ hash = "5be234dc9994795c9a20b10ce5cb58c5081b31adcb087be3bf584e698679de28"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
-hash = "e4a734c840bedd2b3f692f6dc7d13e95ef6b195e219f2d06424467f774086760"
+hash = "4a972dc31918971f0782fe49de5d284121a8bf42cc7fa91fc69091a55bd24dd9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
@@ -1586,7 +1634,7 @@ hash = "dbdcf85a6979080cb90d351ff461afb055c38d282b1ad4a15e0c51f4dbac534d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "1312728df18dd5f675c1f07eb0ff054afc898d7991a5773507cf8055897bcaf3"
+hash = "8fcbab1e540b6874a7a438a4e6859b84b25b9a6ee8c01b8ff6f2433348ed5c4d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/commands.js"
@@ -1822,6 +1870,11 @@ metafile = true
 [[files]]
 file = "mods/l2library.pw.toml"
 hash = "2b8d7b374452719fd2590becfeed14004c5567dddf1561bccb00be096f6184de"
+metafile = true
+
+[[files]]
+file = "mods/lightmans-currency.pw.toml"
+hash = "fd7402b385c133630eea8f1ab08dd64983e996f10df850791144cbfb2093e37d"
 metafile = true
 
 [[files]]
