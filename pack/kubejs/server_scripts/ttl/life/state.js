@@ -112,5 +112,18 @@ const TtlCmd = {
     } catch (e) {
       return 0
     }
+  },
+
+  // The same as `player` typed it. `execute as <p> run ...` is no substitute for player-only commands: Brigadier checks
+  // `requires` while parsing, against the ORIGINAL source (RCON, the server), so FTB Teams' `party create|invite|join|
+  // leave` (requires: a player with / without a party) never parse that way. Returns {result, error}.
+  runAs(player, cmd) {
+    try {
+      var src = player.createCommandSourceStack().withSuppressedOutput()
+      var server = player.getServer()
+      return { result: Number(server.getCommands().getDispatcher()['execute(java.lang.String,java.lang.Object)'](String(cmd), src)), error: '' }
+    } catch (e) {
+      return { result: 0, error: String(e) }
+    }
   }
 }

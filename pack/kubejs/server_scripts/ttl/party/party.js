@@ -205,7 +205,7 @@ const TtlParty = {
     for (var i = 0; i < all.length; i++) {
       if (this.uid(all[i]) === info.owner) owner = all[i]
     }
-    if (owner) TtlCmd.run(server, `execute as ${owner.username} run ftbteams party kick ${player.username}`)
+    if (owner) TtlCmd.runAs(owner, `ftbteams party kick ${player.username}`)
     return gone()
   },
 

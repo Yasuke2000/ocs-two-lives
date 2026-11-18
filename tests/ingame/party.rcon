@@ -1,7 +1,8 @@
 # Party layer (party/party.js, party/commands.js, config/ftbteams-server.snbt; WP-S2 of design/architecture/story-characters.md).
 # Real FTB Teams parties between test bots (a bot is a real ServerPlayer, so FTB made it a personal team at login).
 # Every `ttl party expect`, `ttl story expect` and `ttl rep expect` prints "ttl: ..." when it does not hold. FTB's own commands
-# print nothing with that prefix, so each FTB step is proved by an `expect` after it.
+# print nothing with that prefix, so each FTB step is proved by an `expect` after it. FTB's commands run as the bot typed them
+# (`ttl as <bot> ftbteams ...`): `execute as` cannot, Brigadier checks FTB's player-only `requires` against RCON while parsing.
 # A swears the Oath for the party; the lock (a pass every 3 s) takes a dark soul out again (C), makes an undecided joiner swear
 # the party's Oath (D, E), and FTB's max_party_size (5) refuses the sixth member (F).
 # Bots do not move: nothing here depends on distance. Parties are FTB world data, so the end (and the start, in case an older run
@@ -16,12 +17,12 @@ ttlbot spawn TtlBotPrtyD
 ttlbot spawn TtlBotPrtyE
 ttlbot spawn TtlBotPrtyF
 @sleep 2
-execute as TtlBotPrtyF run ftbteams party leave
-execute as TtlBotPrtyE run ftbteams party leave
-execute as TtlBotPrtyD run ftbteams party leave
-execute as TtlBotPrtyC run ftbteams party leave
-execute as TtlBotPrtyB run ftbteams party leave
-execute as TtlBotPrtyA run ftbteams party leave
+ttl as TtlBotPrtyF ftbteams party leave
+ttl as TtlBotPrtyE ftbteams party leave
+ttl as TtlBotPrtyD ftbteams party leave
+ttl as TtlBotPrtyC ftbteams party leave
+ttl as TtlBotPrtyB ftbteams party leave
+ttl as TtlBotPrtyA ftbteams party leave
 ttl reset TtlBotPrtyA
 ttl reset TtlBotPrtyB
 ttl reset TtlBotPrtyC
@@ -44,12 +45,12 @@ ttl party expect TtlBotPrtyA owner yes
 ttl party expect TtlBotPrtyA boss 0
 execute as TtlBotPrtyA run ttl party
 # A leads a party; B joins it (an invitation is needed).
-execute as TtlBotPrtyA run ftbteams party create PrtyTest
+ttl as TtlBotPrtyA ftbteams party create PrtyTest
 ttl party expect TtlBotPrtyA in yes
 ttl party expect TtlBotPrtyA owner yes
 ttl party expect TtlBotPrtyA members 1
-execute as TtlBotPrtyA run ftbteams party invite TtlBotPrtyB
-execute as TtlBotPrtyB run ftbteams party join @a[name=TtlBotPrtyA]
+ttl as TtlBotPrtyA ftbteams party invite TtlBotPrtyB
+ttl as TtlBotPrtyB ftbteams party join TtlBotPrtyA
 ttl party expect TtlBotPrtyB in yes
 ttl party expect TtlBotPrtyB owner no
 ttl party expect TtlBotPrtyB same TtlBotPrtyA yes
@@ -71,16 +72,16 @@ ttl rep expect TtlBotPrtyB tempest value 20
 ttl party expect TtlBotPrtyA path light
 # C swore the dark Oath: invited and joined, it is turned away again within a few seconds and keeps its own path.
 ttl story set TtlBotPrtyC dark
-execute as TtlBotPrtyA run ftbteams party invite TtlBotPrtyC
-execute as TtlBotPrtyC run ftbteams party join @a[name=TtlBotPrtyA]
+ttl as TtlBotPrtyA ftbteams party invite TtlBotPrtyC
+ttl as TtlBotPrtyC ftbteams party join TtlBotPrtyA
 @sleep 7
 ttl party expect TtlBotPrtyC in no
 ttl party expect TtlBotPrtyA total 2
 ttl story expect TtlBotPrtyC path dark
 ttl story expect TtlBotPrtyC stage ttl.path.dark yes
 # D has not sworn: the lock gives it the party's Oath (light), Act I included.
-execute as TtlBotPrtyA run ftbteams party invite TtlBotPrtyD
-execute as TtlBotPrtyD run ftbteams party join @a[name=TtlBotPrtyA]
+ttl as TtlBotPrtyA ftbteams party invite TtlBotPrtyD
+ttl as TtlBotPrtyD ftbteams party join TtlBotPrtyA
 @sleep 7
 ttl party expect TtlBotPrtyD in yes
 ttl story expect TtlBotPrtyD path light
@@ -89,15 +90,15 @@ ttl story expect TtlBotPrtyD act 1 yes
 ttl rep expect TtlBotPrtyD tempest value 20
 ttl party expect TtlBotPrtyA total 3
 # E the same. The party is four.
-execute as TtlBotPrtyA run ftbteams party invite TtlBotPrtyE
-execute as TtlBotPrtyE run ftbteams party join @a[name=TtlBotPrtyA]
+ttl as TtlBotPrtyA ftbteams party invite TtlBotPrtyE
+ttl as TtlBotPrtyE ftbteams party join TtlBotPrtyA
 @sleep 7
 ttl story expect TtlBotPrtyE path light
 ttl party expect TtlBotPrtyA members 4
 # C turned light (state only, no deltas) is welcome: the fifth member fills the cap.
 ttl story set TtlBotPrtyC light
-execute as TtlBotPrtyA run ftbteams party invite TtlBotPrtyC
-execute as TtlBotPrtyC run ftbteams party join @a[name=TtlBotPrtyA]
+ttl as TtlBotPrtyA ftbteams party invite TtlBotPrtyC
+ttl as TtlBotPrtyC ftbteams party join TtlBotPrtyA
 @sleep 7
 ttl party expect TtlBotPrtyC in yes
 ttl story expect TtlBotPrtyC path light
@@ -105,23 +106,23 @@ ttl party expect TtlBotPrtyA members 5
 ttl party expect TtlBotPrtyA total 5
 ttl party expect TtlBotPrtyA boss 5
 # Cap 5: FTB refuses the sixth (invite or join), so F stays out.
-execute as TtlBotPrtyA run ftbteams party invite TtlBotPrtyF
-execute as TtlBotPrtyF run ftbteams party join @a[name=TtlBotPrtyA]
+ttl as TtlBotPrtyA ftbteams party invite TtlBotPrtyF
+ttl as TtlBotPrtyF ftbteams party join TtlBotPrtyA
 @sleep 4
 ttl party expect TtlBotPrtyF in no
 ttl party expect TtlBotPrtyA total 5
 execute as TtlBotPrtyA run ttl party
 # Leaving keeps the soul's path and the party shrinks.
-execute as TtlBotPrtyB run ftbteams party leave
+ttl as TtlBotPrtyB ftbteams party leave
 ttl party expect TtlBotPrtyB in no
 ttl party expect TtlBotPrtyB members 1
 ttl story expect TtlBotPrtyB path light
 ttl party expect TtlBotPrtyA total 4
 # Clean up: members first, the leader last (a party disappears with its last member).
-execute as TtlBotPrtyC run ftbteams party leave
-execute as TtlBotPrtyD run ftbteams party leave
-execute as TtlBotPrtyE run ftbteams party leave
-execute as TtlBotPrtyA run ftbteams party leave
+ttl as TtlBotPrtyC ftbteams party leave
+ttl as TtlBotPrtyD ftbteams party leave
+ttl as TtlBotPrtyE ftbteams party leave
+ttl as TtlBotPrtyA ftbteams party leave
 ttl party expect TtlBotPrtyA in no
 ttl party expect TtlBotPrtyD in no
 ttl party poll
@@ -142,4 +143,3 @@ ttlbot remove TtlBotPrtyC
 ttlbot remove TtlBotPrtyD
 ttlbot remove TtlBotPrtyE
 ttlbot remove TtlBotPrtyF
-ttl

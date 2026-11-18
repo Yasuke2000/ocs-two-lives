@@ -10,7 +10,7 @@
 //       /ttl boss testparty set <a> <b> [c]   test hook: these players are one party for boss credit (test bots then count); `clear` ends it
 //       /ttl boss abort [id]            remove a summoned boss (or all) without rewards
 //       /ttl boss reset <player>        forget the player's boss stages (ttl.boss.t1-t4, ttl.defeated.<id>) and kill counts
-//       /ttl boss cooldown clear <id|all>   forget the last defeat of that boss (or every boss): it may be summoned at once (test cleanup)
+//       /ttl boss cooldown clear <id|all>   forget when the boss last fell (its cooldown ends now; tests leave no cooldown behind)
 //       /ttl boss expect <player> stage <t1|t2|t3|t4|none> <yes|no>   test assertion: prints "ttl: ..." when it does not hold
 //       /ttl boss expect <player> defeated <id> <yes|no>              the stage ttl.defeated.<id>
 //       /ttl boss expect <player> kills <id> <n>
@@ -87,17 +87,6 @@ ServerEvents.commandRegistry(event => {
     var id = withId ? arg(ctx, 'id').toLowerCase() : ''
     var n = TtlBoss.abort(server, id)
     say(ctx, `boss: removed ${n} ${id || 'boss'}${n === 1 ? '' : 'es'} without rewards`)
-    return 1
-  }
-
-  var cooldownClear = ctx => {
-    var server = ctx.source.getServer()
-    var id = arg(ctx, 'id').toLowerCase()
-    var defs = id === 'all' ? TtlBoss.defs() : [TtlBoss.def(id)]
-    if (!defs[0]) throw `unknown boss ${id}`
-    defs.forEach(def => server.persistentData.remove(`ttl.boss.last.${def.id}`))
-    console.info(`[ttl] boss: cooldown cleared for ${id}`)
-    say(ctx, `boss: cooldown cleared for ${id}`)
     return 1
   }
 
@@ -274,7 +263,16 @@ ServerEvents.commandRegistry(event => {
         .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(reset))))
       .then(Commands.literal('cooldown')
         .then(Commands.literal('clear')
-          .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(cooldownClear)))))
+          .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(ctx => {
+            var server = ctx.source.getServer()
+            var id = String(Arguments.STRING.getResult(ctx, 'id')).toLowerCase()
+            var ids = id === 'all' ? TtlBoss.defs().map(d => d.id) : [id]
+            if (id !== 'all' && !TtlBoss.def(id)) throw `unknown boss ${id}`
+            ids.forEach(b => server.persistentData.remove(`ttl.boss.last.${b}`))
+            console.info(`[ttl] boss: cooldown cleared for ${id}`)
+            ctx.source.sendSystemMessage(Text.of(`boss: cooldown cleared for ${id}`))
+            return 1
+          })))))
       .then(Commands.literal('expect')
         .then(Commands.argument('target', Arguments.PLAYER.create(event))
           .then(Commands.argument('field', Arguments.STRING.create(event))

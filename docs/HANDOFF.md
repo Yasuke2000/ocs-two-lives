@@ -55,6 +55,17 @@ report at 08:30).
 6. Wave B of sprint3-4.md: WP4 nations (cap 5 members, claims Life 2 only), WP6 Legendary absorption
    (routes: duel, war, bequest, awakening), WP8 event pack, WP10 boss payouts, WP11 Discord story/roles.
 
+## Before launch (state the tests leave behind)
+
+Full table and the ops commands: docs/server.md "Before launch: what the tests leave behind". Short form, nobody online:
+1. `bash tools/server.sh test-all` green on the final pack; wait for the ttl-ops run to finish.
+2. `/ttl era reset` · `/ttl registry legendcap reset` · `/ttl boss abort` · `/ttl boss cooldown clear all` · `/ttl boss testparty clear`
+   · `/ttl events end` · `/ttl absorb war clear` · `/ttl guild roll` · `/ttl discord mute off` · `/ttl party poll` · `/ttl nation sync`.
+3. `/ttlbot list` none, `/list` nobody, `/ttl registry` no holder, `/ttl nation top` empty, `/ttl era` = era 1, log clean.
+4. Only by hand with the server down, if wanted: bot playerdata, bot FTB personal teams, bot scoreboard rows, `test_hut`.
+Tests never post to Discord any more (`server.sh test|test-all` mute + the bots-online rule in discord.js; `legendary`/`absorb`
+advance the era silently and restore it with `era testmark`/`testrestore`).
+
 ## Open owner questions
 
 - Gluttony: Common (now) or Legendary?.

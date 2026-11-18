@@ -154,7 +154,7 @@ ServerEvents.commandRegistry(event => {
     else if (what === 'nolife2') TtlNations.stage(p, 'ttl.life2', false)
     else if (what === 'boss1') TtlNations.stage(p, stage, true)
     else if (what === 'noboss1') TtlNations.stage(p, stage, false)
-    else if (what === 'leaveparty') server(ctx).runCommandSilent(`execute as ${p.username} run ftbteams party leave`)
+    else if (what === 'leaveparty') TtlCmd.runAs(p, "ftbteams party leave")
     else if (what === 'drop') {
       var team = TtlNations.partyOf(p)
       var all = TtlNations.all(s)

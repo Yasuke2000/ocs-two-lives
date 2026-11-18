@@ -19,9 +19,10 @@ kubejs stages add TtlBotCastA ttl.life2
 kubejs stages add TtlBotCastB ttl.life2
 ttl story set TtlBotCastA light
 ttl story set TtlBotCastB dark
-# ---- data: every kind and hook talks with a story.toml character; the presets are on the server ----
+# ---- data: every kind and hook talks with a story.toml character ----
+# The preset files are checked offline (validate.py runs gen_npcs.py --check); in game KubeJS' class filter denies
+# java.io.File, so `ttl guild npc expect presets` can only answer n/a. The count_* lines below prove the imports worked.
 ttl cast expect talk_ids_known true
-ttl guild npc expect presets true
 # ---- what the cast says depends on the soul (picks, not chat: `ttl story expect <player> talk <npc> <entry>`) ----
 # Benimaru: entry 1 = act 1 for everyone, light act 2 = entry 2 once the Oath is done; the soul is still at act 1 here.
 ttl story expect TtlBotCastA talk benimaru 1

@@ -1,6 +1,7 @@
 # Registry v2: the Legendary ceiling, per-era slots, transfer routes, eras, Skill Core open.
 # Run on staging with NO other Legendary holder online or recorded (the counts below are server-wide); it advances the
-# era twice. Shipped knobs (design/data/skills.toml [legendary]): max_holders = 10 (the Ten Great Demon Lords),
+# era twice, silently, and puts the era state back at the end (`era testmark` / `era testrestore`): test runs never
+# reach Discord #story. Shipped knobs (design/data/skills.toml [legendary]): max_holders = 10 (the Ten Great Demon Lords),
 # slots_per_era = 0 (no per-era throttle). `ttl registry legendcap <max> <slots>` replaces both until `legendcap reset`,
 # so three bots can hit the ceiling (3) and the per-era slots (2).
 # `registry legend` is the grant a rebirth Legend pick makes (opts.slot: spends a per-era slot); `ttl grant` is the admin
@@ -16,7 +17,8 @@ ttlbot spawn TtlBotLegE
 ttlbot spawn TtlBotLegF
 @sleep 2
 ttl registry legendcap 3 2
-ttl era next
+ttl era testmark
+ttl era next silent
 ttl era expect slots 0
 ttl era expect free 2
 ttl registry legend TtlBotLegA great_sage
@@ -77,7 +79,7 @@ ttl registry expect routed TtlBotLegA berserker war
 ttl registry legendcap 10 2
 ttl era title TtlBotLegE champion
 ttl era expect titles TtlBotLegE 1
-ttl era next
+ttl era next silent
 ttl era expect slots 0
 ttl era expect free 2
 ttl era expect titles TtlBotLegE 0
@@ -91,6 +93,7 @@ ttl core expect TtlBotLegE 2
 ttl era
 # Clean up: back to the shipped knobs; resets free every record (F is respawned so its pending take-back is settled).
 ttl registry legendcap reset
+ttl era testrestore
 ttlbot spawn TtlBotLegF
 @sleep 3
 ttl reset TtlBotLegA

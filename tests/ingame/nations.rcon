@@ -4,8 +4,8 @@
 # Needs the economy (`ttl econ give|expect`) and the reputation package (`ttl rep bonus`). Numbers: charter 50 gold = 5000
 # bronze, base 4 chunks a soul + 10 a nation member (+2 at Village), party cap 5 (ftbteams-server.snbt), claims only in the
 # overworld (ftbchunks-world.snbt whitelist). The bots keep their FTB party and data between runs, so everything is reset first.
-# Parties are FTB's own: `execute as <bot> run ftbteams party create|invite|join` (verify in game that `join` takes the party's
-# name; the FTB Teams jar has `join <team>`, `invite <players>`, `leave`).
+# Parties are FTB's own, run as the bot typed them: `ttl as <bot> ftbteams party create|invite|join|leave` (`execute as` cannot:
+# Brigadier checks FTB's player-only `requires` against RCON while parsing). `join` takes the inviter's name, not the party's.
 # A, B: nation 1 (A owner). C: a Life 1 bot (cannot claim in the Mortal Realm). D, E: nation 2 (D owner). F: the sixth.
 # Expect in the log: "[ttl] nations: TtlBotNatA founded TtlBotLand", "[ttl] nations: TtlBotNatA extra claim chunks 0 -> 6",
 # "[ttl] nations: TtlBotLand is now a Village", and no "[ttl] nations command failed" / "nations: ... failed".
@@ -39,8 +39,6 @@ ttl nation test TtlBotNatD clearextra
 ttl nation test TtlBotNatE clearextra
 clear TtlBotNatA
 clear TtlBotNatD
-execute in minecraft:overworld run tp TtlBotNatA 100 100 100
-execute in minecraft:overworld run tp TtlBotNatD 300 100 100
 ttl nation sync
 ttl nation expect TtlBotNatA member no
 ttl nation expect TtlBotNatA life2 no
@@ -49,11 +47,14 @@ ttl nation expect TtlBotNatA extra 0
 ttl nation expect TtlBotNatA try_found_TtlBotLand life2only
 ttl nation test TtlBotNatA life2
 ttl nation test TtlBotNatB life2
+# Into the overworld only now: a Life 1 soul there is sent back to the Mortal Realm at once (life/confine.js).
+execute in minecraft:overworld run tp TtlBotNatA 100 100 100
+execute in minecraft:overworld run tp TtlBotNatB 102 100 100
 ttl nation expect TtlBotNatA try_found_TtlBotLand noparty
-execute as TtlBotNatA run ftbteams party create TtlBotNatParty
+ttl as TtlBotNatA ftbteams party create TtlBotNatParty
 ttl nation expect TtlBotNatA try_found_TtlBotLand members
-execute as TtlBotNatA run ftbteams party invite TtlBotNatB
-execute as TtlBotNatB run ftbteams party join TtlBotNatParty
+ttl as TtlBotNatA ftbteams party invite TtlBotNatB
+ttl as TtlBotNatB ftbteams party join TtlBotNatA
 ttl nation expect TtlBotNatB try_found_TtlBotLand notowner
 ttl nation expect TtlBotNatA try_found_TtlBotLand stage
 ttl nation test TtlBotNatA boss1
@@ -120,11 +121,12 @@ ttl nation expect TtlBotNatA owed 10
 # Nation 2 (D owner, E member) for diplomacy.
 ttl nation test TtlBotNatD life2
 ttl nation test TtlBotNatE life2
+execute in minecraft:overworld run tp TtlBotNatD 300 100 100
 ttl nation test TtlBotNatD boss1
 ttl econ give TtlBotNatD 5000
-execute as TtlBotNatD run ftbteams party create TtlBotNatParty2
-execute as TtlBotNatD run ftbteams party invite TtlBotNatE
-execute as TtlBotNatE run ftbteams party join TtlBotNatParty2
+ttl as TtlBotNatD ftbteams party create TtlBotNatParty2
+ttl as TtlBotNatD ftbteams party invite TtlBotNatE
+ttl as TtlBotNatE ftbteams party join TtlBotNatD
 ttl nation expect TtlBotNatD try_found_TtlBotLandTwo ok
 ttl nation expect TtlBotNatA members 2
 ttl nation expect TtlBotNatD members 2
@@ -158,15 +160,15 @@ ttl nation expect TtlBotNatE rankstage_hamlet no
 # Cap 5: C, D, E join party 1 (five members), the sixth cannot (FTB Teams max_party_size). Nobody's nation rank changes size.
 ttl nation test TtlBotNatE leaveparty
 ttl nation test TtlBotNatD leaveparty
-execute as TtlBotNatA run ftbteams party invite TtlBotNatC
-execute as TtlBotNatC run ftbteams party join TtlBotNatParty
-execute as TtlBotNatA run ftbteams party invite TtlBotNatD
-execute as TtlBotNatD run ftbteams party join TtlBotNatParty
-execute as TtlBotNatA run ftbteams party invite TtlBotNatE
-execute as TtlBotNatE run ftbteams party join TtlBotNatParty
+ttl as TtlBotNatA ftbteams party invite TtlBotNatC
+ttl as TtlBotNatC ftbteams party join TtlBotNatA
+ttl as TtlBotNatA ftbteams party invite TtlBotNatD
+ttl as TtlBotNatD ftbteams party join TtlBotNatA
+ttl as TtlBotNatA ftbteams party invite TtlBotNatE
+ttl as TtlBotNatE ftbteams party join TtlBotNatA
 ttl nation expect TtlBotNatA members 5
-execute as TtlBotNatA run ftbteams party invite TtlBotNatF
-execute as TtlBotNatF run ftbteams party join TtlBotNatParty
+ttl as TtlBotNatA ftbteams party invite TtlBotNatF
+ttl as TtlBotNatF ftbteams party join TtlBotNatA
 ttl nation expect TtlBotNatA members 5
 ttl nation expect TtlBotNatF member no
 # Members who join are part of the nation; the limit is 5 x (4 base + 8 extra), and one who leaves loses stages and extra chunks.

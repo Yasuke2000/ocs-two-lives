@@ -1,5 +1,6 @@
 // Players:  /ttl menu (reopen choices) · /ttl wish <id> · /ttl trial · /ttl answer <word> · /ttl choose <race> · /ttl unique <skill> · /ttl status
 // Ops:      /ttl inspect <player> (answers over RCON) · /ttl reset <player> (back to a fresh Life 1)
+//           /ttl as <player> <command> (test hook: run a command as the player typed it, e.g. FTB party commands)
 //           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
 //           /ttl registry history [skill] (the newest 20 transfers: grants, revokes, returns to the pool)
 //           /ttl registry sweep (return to pool now: holders inactive for skills.toml [registry] inactive_days) · migrate (name → UUID records)
@@ -320,5 +321,19 @@ ServerEvents.commandRegistry(event => {
           .then(playerArg().then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(expectPending)))))))
     .then(Commands.literal('reset')
       .requires(src => src.hasPermission(2))
-      .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(reset)))))
+      .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(reset))))
+    // Test hook: run a command as the player typed it (TtlCmd.runAs), e.g. FTB Teams party commands for test bots.
+    // Prints the result; a refusal is not an error here (the tests check the outcome with their own expects).
+    .then(Commands.literal('as')
+      .requires(src => src.hasPermission(2))
+      .then(Commands.argument('target', Arguments.PLAYER.create(event))
+        .then(Commands.argument('command', Arguments.GREEDY_STRING.create(event)).executes(logged(ctx => {
+          var target = Arguments.PLAYER.getResult(ctx, 'target')
+          var cmd = String(Arguments.GREEDY_STRING.getResult(ctx, 'command')).replace(/^\//, '')
+          var r = TtlCmd.runAs(target, cmd)
+          // The parse error text ("Incorrect argument ...") goes to the log only: test-all counts it as a failure.
+          if (r.error) console.info(`[ttl] as ${target.username}: /${cmd} not run: ${r.error}`)
+          ctx.source.sendSystemMessage(Text.of(`as ${target.username}: /${cmd} -> ${r.error ? 'not run (see the log)' : r.result}`))
+          return r.result > 0 ? 1 : 0
+        }))))))
 })

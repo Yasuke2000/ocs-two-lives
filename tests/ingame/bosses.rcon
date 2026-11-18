@@ -98,7 +98,8 @@ ttlbot remove TtlBotBoss
 # A deals the killing blow; B and C only stand there (not contributors: they were in range for a few seconds, not 15).
 # Without a party B and C get nothing. With the test party A + B + C (`ttl boss testparty`, a real FTB party team behaves the
 # same) all three get the stage, kill and coins, A keeps its own Skill Core and exactly one of B / C gets the party core
-# (core_per_party = 1). Expect in the log: "[ttl] boss: carrion party credit for TtlBotPtyB (party of TtlBotPtyA, Skill Core)".
+# (core_per_party = 1). Carrion shrugs off the first lethal blow and is invulnerable for ~4 s after it (Tensura's own
+# mechanic, measured on staging 18/11/2026), so every kill below is two hits 5 s apart. Expect in the log: "[ttl] boss: carrion party credit for TtlBotPtyB (party of TtlBotPtyA, Skill Core)".
 ttlbot spawn TtlBotPtyA
 ttlbot spawn TtlBotPtyB
 ttlbot spawn TtlBotPtyC
@@ -123,6 +124,8 @@ execute in ttl:spirit_corridor run ttl boss summon carrion 0 66 8
 @sleep 3
 ttl boss expect TtlBotPtyA active carrion yes
 execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
+@sleep 5
+execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
 @sleep 3
 ttl boss expect TtlBotPtyA active carrion no
 ttl boss expect TtlBotPtyA stage t3 yes
@@ -139,6 +142,8 @@ clear TtlBotPtyA ttl:skill_core
 ttl boss testparty set TtlBotPtyA TtlBotPtyB TtlBotPtyC
 execute in ttl:spirit_corridor run ttl boss summon carrion 0 66 8
 @sleep 3
+execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
+@sleep 5
 execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
 @sleep 3
 ttl boss expect TtlBotPtyA stage t3 yes
@@ -159,8 +164,9 @@ clear TtlBotPtyC ttl:skill_core
 kubejs stages remove TtlBotPtyA ttl.life2
 kubejs stages remove TtlBotPtyB ttl.life2
 kubejs stages remove TtlBotPtyC ttl.life2
-# The kills above put orc_lord and carrion on their 24 h cooldown: forget that, so the next run (or a player) is not refused.
-ttl boss cooldown clear all
+# No cooldown left behind: story.rcon and wild.rcon summon / roll the Orc Lord after this test.
+ttl boss cooldown clear orc_lord
+ttl boss cooldown clear carrion
 ttlbot remove TtlBotPtyA
 ttlbot remove TtlBotPtyB
 ttlbot remove TtlBotPtyC

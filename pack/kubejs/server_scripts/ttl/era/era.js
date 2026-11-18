@@ -8,10 +8,14 @@
 //   ttl.era.started  string millis  when it began
 //   ttl.era.titles   {uuid: [id]}   era titles earned in the current era
 //   ttl.era.archive  [{era, ended, titles: {uuid: [id]}}]   finished eras, newest last, capped at 20
+//   ttl.era.testmark {season, started, titles, archive, slots}  test hook: the era state `era testmark` saved
+// Era changes reach chat and Discord #story only when a person makes them: `silent`, `set`, `reset`, `testrestore` and
+// any change while the test ceiling (`registry legendcap`) is in force post nothing (test runs stay out of #story).
 // Commands (Brigadier merges them into the /ttl tree, as karma/commands.js does):
 //   Players: /ttl era (era, Legendary slots) · /ttl core open (opens a Skill Core from the inventory; Life 2 only)
-//   Ops:     /ttl era next · /ttl era reset (back to era 1, silent: no chat, no Discord; test cleanup) · /ttl era title <player> <id>
-//            /ttl registry slots
+//   Ops:     /ttl era next [silent] · /ttl era set <n> [silent] · /ttl era reset (back to era 1, silent; clears the
+//            Legendary slot ledger, era titles and archive) · /ttl era testmark | testrestore (test hooks: save the era
+//            state, put it back silently) · /ttl era title <player> <id> · /ttl registry slots
 //            /ttl registry transfer <from> <to> <skill> [route] (route: duel, war, bequest, awakening, staff ...; default staff)
 //            /ttl registry legend <player> <skill> (grant that uses a per-era slot, as a rebirth Legend pick does)
 //            /ttl registry legendcap <max> <slots> | reset (test hook: replaces max_holders / slots_per_era)
@@ -77,8 +81,78 @@ const TtlEra = {
     return (this.titles(server)[party.id] || []).length
   },
 
+  MARK: 'ttl.era.testmark',
+
+  // Test runs never announce: an explicit silent change, or any change while the test ceiling is in force.
+  quiet(server, silent) {
+    return !!silent || TtlRegistry.testCaps(server) !== null
+  },
+
+  announce(server, text) {
+    try {
+      server.runCommandSilent(`tellraw @a ${JSON.stringify([
+        { text: '[Voice of the World] ', color: 'gold' },
+        { text: text, color: 'light_purple' }
+      ])}`)
+      if (typeof TtlDiscord !== 'undefined') TtlDiscord.post(server, text)
+    } catch (e) {
+      console.warn(`[ttl] era: announcement failed: ${e}`)
+    }
+  },
+
+  // Corrects the era number (no archive entry, titles kept). Slots are keyed by era, so that era's ledger applies.
+  set(server, n, silent) {
+    var old = this.number(server)
+    server.persistentData.putInt('ttl.season', n)
+    server.persistentData.putString('ttl.era.started', String(Date.now()))
+    var quiet = this.quiet(server, silent)
+    console.info(`[ttl] era: set from ${old} to ${n}${quiet ? ' (silent)' : ''}; ${this.slotText(server)}`)
+    if (!quiet) this.announce(server, `The world now counts Era ${n}.`)
+    return n
+  },
+
+  // Back to era 1 before a launch: the slot ledger, era titles, archive and any test mark go; always silent.
+  reset(server) {
+    var old = this.number(server)
+    server.persistentData.putInt('ttl.season', 1)
+    server.persistentData.putString('ttl.era.started', String(Date.now()))
+    ;['ttl.era.titles', 'ttl.era.archive', 'ttl.reg.legendarySlots', this.MARK].forEach(k => server.persistentData.remove(k))
+    console.info(`[ttl] era: reset from era ${old} to era 1 (slot ledger, era titles and archive cleared)`)
+    return 1
+  },
+
+  testMark(server) {
+    var d = server.persistentData
+    var mark = {
+      season: this.number(server),
+      started: String(d.getString('ttl.era.started')),
+      titles: String(d.getString('ttl.era.titles')),
+      archive: String(d.getString('ttl.era.archive')),
+      slots: String(d.getString('ttl.reg.legendarySlots'))
+    }
+    d.putString(this.MARK, JSON.stringify(mark))
+    console.info(`[ttl] era: test mark at era ${mark.season}`)
+    return mark.season
+  },
+
+  // Puts the marked era state back exactly (slot ledger included) and drops the mark; 0 when there is no mark.
+  testRestore(server) {
+    var d = server.persistentData
+    var mark = TtlRegistry.load(server, this.MARK, null)
+    if (!mark) return 0
+    d.putInt('ttl.season', Number(mark.season))
+    var put = (k, v) => { if (v) d.putString(k, v); else d.remove(k) }
+    put('ttl.era.started', mark.started)
+    put('ttl.era.titles', mark.titles)
+    put('ttl.era.archive', mark.archive)
+    put('ttl.reg.legendarySlots', mark.slots)
+    d.remove(this.MARK)
+    console.info(`[ttl] era: test state restored to era ${mark.season}`)
+    return Number(mark.season)
+  },
+
   // Starts the next era; returns its number. Slots need no reset (the registry keys them by era).
-  next(server, reason) {
+  next(server, reason, silent) {
     var old = this.number(server)
     var list = this.archive(server)
     list.push({ era: old, ended: Date.now(), titles: this.titles(server) })
@@ -89,30 +163,10 @@ const TtlEra = {
     var now = old + 1
     server.persistentData.putInt('ttl.season', now)
     server.persistentData.putString('ttl.era.started', String(Date.now()))
-    console.info(`[ttl] era: era ${old} ended, era ${now} begins (${reason || 'admin'}); ${this.slotText(server)}`)
-    try {
-      server.runCommandSilent(`tellraw @a ${JSON.stringify([
-        { text: '[Voice of the World] ', color: 'gold' },
-        { text: `Era ${old} is over. Era ${now} begins.`, color: 'light_purple' }
-      ])}`)
-      if (typeof TtlDiscord !== 'undefined') TtlDiscord.post(server, `Era ${old} is over. Era ${now} begins.`)
-    } catch (e) {
-      console.warn(`[ttl] era: announcement failed: ${e}`)
-    }
+    var quiet = this.quiet(server, silent)
+    console.info(`[ttl] era: era ${old} ended, era ${now} begins (${reason || 'admin'}${quiet ? ', silent' : ''}); ${this.slotText(server)}`)
+    if (!quiet) this.announce(server, `Era ${old} is over. Era ${now} begins.`)
     return now
-  },
-
-  // Back to era 1 as on a first start, without any announcement: the era titles, the archive and the per-era
-  // Legendary slot ledger are cleared. Tests (legendary.rcon) advance the era; this undoes that before launch.
-  reset(server, reason) {
-    var old = this.number(server)
-    server.persistentData.putInt('ttl.season', 1)
-    server.persistentData.putString('ttl.era.started', String(Date.now()))
-    server.persistentData.remove('ttl.era.titles')
-    server.persistentData.remove('ttl.era.archive')
-    server.persistentData.remove('ttl.reg.legendarySlots')
-    console.info(`[ttl] era: reset from era ${old} to era 1 (${reason || 'admin'}, silent)`)
-    return 1
   },
 
   slotText(server) {
@@ -192,16 +246,31 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
-  var eraNext = ctx => {
-    var n = TtlEra.next(ctx.source.getServer(), 'admin')
-    say(ctx, `Era ${n} begins`)
+  var eraNext = silent => ctx => {
+    var n = TtlEra.next(ctx.source.getServer(), 'admin', silent)
+    say(ctx, `Era ${n} begins${silent ? ' (silent)' : ''}`)
     return 1
   }
-
-  var eraReset = ctx => {
-    TtlEra.reset(ctx.source.getServer(), 'admin')
-    say(ctx, `Era 1 begins again (silent)`)
+  var eraSet = silent => ctx => {
+    var n = num(ctx, 'n')
+    if (n < 1) throw `an era number starts at 1, got ${n}`
+    TtlEra.set(ctx.source.getServer(), n, silent)
+    say(ctx, `The era is now ${n}${silent ? ' (silent)' : ''}`)
     return 1
+  }
+  var eraReset = ctx => {
+    TtlEra.reset(ctx.source.getServer())
+    say(ctx, `Era reset: era 1, Legendary slot ledger, era titles and archive cleared`)
+    return 1
+  }
+  var eraMark = ctx => {
+    say(ctx, `Era state marked at era ${TtlEra.testMark(ctx.source.getServer())}`)
+    return 1
+  }
+  var eraRestore = ctx => {
+    var n = TtlEra.testRestore(ctx.source.getServer())
+    say(ctx, n ? `Era state restored to era ${n}` : 'No era mark to restore')
+    return n ? 1 : 0
   }
 
   var eraTitle = ctx => {
@@ -326,8 +395,14 @@ ServerEvents.commandRegistry(event => {
   event.register(Commands.literal('ttl')
     .then(Commands.literal('era')
       .executes(logged(eraStatus))
-      .then(Commands.literal('next').requires(op).executes(logged(eraNext)))
+      .then(Commands.literal('next').requires(op).executes(logged(eraNext(false)))
+        .then(Commands.literal('silent').executes(logged(eraNext(true)))))
+      .then(Commands.literal('set').requires(op)
+        .then(intArg('n').executes(logged(eraSet(false)))
+          .then(Commands.literal('silent').executes(logged(eraSet(true))))))
       .then(Commands.literal('reset').requires(op).executes(logged(eraReset)))
+      .then(Commands.literal('testmark').requires(op).executes(logged(eraMark)))
+      .then(Commands.literal('testrestore').requires(op).executes(logged(eraRestore)))
       .then(Commands.literal('title').requires(op)
         .then(playerArg('target').then(stringArg('id').executes(logged(eraTitle)))))
       .then(Commands.literal('expect').requires(op)

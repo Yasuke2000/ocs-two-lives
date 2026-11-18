@@ -726,8 +726,14 @@ ServerEvents.commandRegistry(event => {
     var kind = TtlAbsorb.KIND_WORD[field]
     return check(ctx, `${p.username} used ${field}`, yn(TtlAbsorb.claimed(p).indexOf(kind) >= 0), word(ctx, 'value'))
   })
-  var valueExpect = field => Commands.literal(field).then(playerArg('target').then(stringArg('value').executes(expectPlayer(field))))
-  var numberExpect = field => Commands.literal(field).then(playerArg('target').then(intArg('n').executes(expectPlayer(field))))
+  // `ttl absorb expect <player> <field> <value>` (player first, as the tests and sprint3-4.md write it).
+  var expectTarget = playerArg('target')
+  ;['cooldown', 'echo', 'absorber', 'combat', 'lord', 'hero'].forEach(field => {
+    expectTarget = expectTarget.then(Commands.literal(field).then(stringArg('value').executes(expectPlayer(field))))
+  })
+  ;['options', 'kinds', 'claimable'].forEach(field => {
+    expectTarget = expectTarget.then(Commands.literal(field).then(intArg('n').executes(expectPlayer(field))))
+  })
 
   event.register(Commands.literal('ttl')
     .then(Commands.literal('absorb')
@@ -758,13 +764,5 @@ ServerEvents.commandRegistry(event => {
           check(ctx, 'live pacts', TtlAbsorb.live(server(ctx)).length, num(ctx, 'n'))))))
         .then(Commands.literal('wars').then(intArg('n').executes(logged(ctx =>
           check(ctx, 'staff war flags', TtlAbsorb.wars(server(ctx)).length, num(ctx, 'n'))))))
-        .then(valueExpect('cooldown'))
-        .then(valueExpect('echo'))
-        .then(valueExpect('absorber'))
-        .then(valueExpect('combat'))
-        .then(valueExpect('lord'))
-        .then(valueExpect('hero'))
-        .then(numberExpect('options'))
-        .then(numberExpect('kinds'))
-        .then(numberExpect('claimable')))))
+        .then(expectTarget))))
 })

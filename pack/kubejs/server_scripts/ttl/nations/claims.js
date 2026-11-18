@@ -115,14 +115,17 @@ const TtlNationClaims = {
       player.persistentData.putInt('ttl.nation.extra', want)
       return want
     }
-    server.runCommandSilent(`ftbchunks admin extra_claim_chunks ${player.username} set ${want}`)
+    // Through the dispatcher (TtlCmd.run), not runCommandSilent: reading FTB right after a runCommandSilent still saw the
+    // old value, so `ttl.nation.extra` kept 0 while FTB had 8 and leaving the nation never took the 8 back (in game 18/11/2026).
+    TtlCmd.run(server, `ftbchunks admin extra_claim_chunks ${player.username} set ${want}`)
     var now = this.extraOf(player)
     if (now !== want) {
       console.warn(`[ttl] nations: extra claim chunks of ${player.username} should be ${want} but FTB Chunks says ${now}`)
     } else {
       console.info(`[ttl] nations: ${player.username} extra claim chunks ${have} -> ${want}`)
     }
-    player.persistentData.putInt('ttl.nation.extra', now >= 0 ? now : want)
+    // What we asked for, so clearMember takes it back later even when FTB had not caught up yet.
+    player.persistentData.putInt('ttl.nation.extra', Math.max(want, now))
     return want
   }
 }

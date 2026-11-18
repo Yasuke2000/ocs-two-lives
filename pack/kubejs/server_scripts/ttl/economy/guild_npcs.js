@@ -183,11 +183,12 @@ const TtlGuildNpc = {
   },
 
   // Easy NPC keeps its own record of an NPC (storage, backups): `/easy_npc delete` forgets it for good, a bare discard
-  // would leave a record that Easy NPC may restore.
+  // would leave a record that Easy NPC may restore. Easy NPC removes the entity a tick later, so it is discarded here too
+  // (a count right after a removal must not see it).
   remove(server, e) {
     var id = this.uuidOf(e)
-    if (id && String(e.type).startsWith('easy_npc:') && TtlCmd.run(server, `easy_npc delete ${id}`) > 0) return
-    e.discard()
+    if (id && String(e.type).startsWith('easy_npc:')) TtlCmd.run(server, `easy_npc delete ${id}`)
+    if (e.isAlive()) e.discard()
   },
 
   // Spawns one NPC at the spot and tags the new entity (the nearest Easy NPC without a guild tag). True on success.

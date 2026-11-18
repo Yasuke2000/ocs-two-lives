@@ -159,6 +159,41 @@ A player who walks into a placed build for the first time (per version) sees its
 `tools/server.sh test builds` (`test_hut`, a 5x5 hut in the Spirit Corridor; delete `design/builds/test_hut.toml`
 and `blueprints/test_hut.py` when the placer is trusted).
 
+## Before launch: what the tests leave behind
+
+`tools/server.sh test-all` runs every `tests/ingame/*.rcon` against the live world; the bots are removed at the end,
+but a few server-wide facts are changed by the tests and stay. None of it is visible to players except the era,
+and all of it is harmless for a test world; go through this list once on the world that players start on.
+Tests never post to Discord: `server.sh test|test-all` sets `/ttl discord mute on` for the run (and `off` after it),
+and `TtlDiscord.post` also drops every line while a test bot is online. `/ttl discord mute status` tells which.
+Era changes themselves announce nothing while the test ceiling (`registry legendcap`) is in force or when run `silent`.
+
+| Left behind by | What | Undo |
+|---|---|---|
+| `legendary`, `absorb` | The era: both tests save the era state first (`/ttl era testmark`), advance it silently (`era next silent`) and put it back at the end (`era testrestore`); a run that broke off leaves the era advanced and the mark (`ttl.era.testmark`) behind | `/ttl era testrestore`, or `/ttl era reset` (back to era 1, silent, clears titles, archive, the slot ledger and the mark); `/ttl era set <n> silent` corrects the number alone |
+| `legendary`, `absorb` | `ttl.reg.testcaps` (Legendary ceiling for tests) if a run broke off before `legendcap reset` | `/ttl registry legendcap reset` |
+| `legendary`, `absorb`, `registry*`, `events` | Registry history (`/ttl registry history <skill>`), names and last-seen entries for bot UUIDs; the holder records themselves are freed by `ttl reset <bot>` | `/ttl reconcile <player>` for a stale holder; the history ring is capped and bots do not count anywhere |
+| `bosses`, `story`, `wild` | Boss cooldowns (`ttl.boss.last.<id>`): cleared by `bosses.rcon` itself; a run that broke off leaves them | `/ttl boss cooldown clear all`; `/ttl boss abort` removes a boss left out; `/ttl boss testparty clear` |
+| `bosses`, `karma`, `guild` | Scoreboard entries for bot names (`ttl.b.*`, `ttl.k.*`, `ttl.g.*`, `ttl.bounty`, `ttl.rep.*`) | `scoreboard players reset TtlBot*` is not supported by name pattern: `scoreboard players reset <bot>` per name, or ignore (bots never show) |
+| `story`, `party`, `rep`, `nations` | Story event ring (`ttl.story.log`), reputation ring log (`ttl.rep.log`) with bot entries; `ttl.story.parties` / `ttl.party.roster` rows for bot FTB teams | Rings are capped and bot rows never post; `/ttl party poll` and `/ttl nation sync` re-read FTB Teams (bot rows stay keyed by team id, harmless) |
+| `party`, `nations` | FTB Teams: a personal team per bot that ever joined (FTB Teams world data); every test party is left by its members at the end, a run that broke off leaves `PrtyTest` / `TtlBotNatParty*` | `ftbteams party leave` as the bot (spawn it again with `/ttlbot spawn <name>`) or remove the bot's team from the FTB Teams data while the server is down |
+| `nations` | A nation record (`ttl.nations`) if the run broke off before `dissolve`; 100 bonus renown on NatA/NatB if it broke off before the last lines; a claimed chunk at 100 100 | `/ttl nation test <bot> drop`, `ttl rep bonus <bot> -100`, `ftbchunks unclaim` as the bot |
+| `guild`, `guild_npcs` | Today's bounty board is re-rolled (`ttl.guild.board`) and the posted contracts (`iron_order`, `rabbit_cull`, `fz_ender_watch`) are on it | `/ttl guild roll` once more before launch, or let the daily roll replace it |
+| `events` | Event director state: `ttl.events.last/next/day` (omen fired, the daily count), World's Favor cooldowns on bots only | `/ttl events end`; the daily count resets at midnight |
+| `builds` | `test_hut` in the Spirit Corridor (2500 64 0) | Harmless (players never reach x 2500); delete `design/builds/test_hut.toml` to stop placing it |
+| `cast`, `guild_npcs` | The real NPCs (kept on purpose); forceloads are removed at the end of each test | `execute in minecraft:overworld run forceload remove all` only if a run broke off |
+| `spirit_domain`, `arenas`, `trial_*` | Forceloaded chunks around the arenas (removed by the tests) | `forceload remove all` in that dimension if a run broke off |
+| every test | Player files of the bots (`world-ttl/playerdata/`, `usercache.json`, `ttl.*` persistentData with test hooks such as `ttl.absorb.epfake`) | Harmless; delete the TtlBot* entries while the server is down if the world must be pristine |
+| every test | `ttl.discord.muted` stays on when `server.sh test` is killed half way | `/ttl discord mute off` |
+
+Checklist before the players' first login (all as ops, in this order, nobody online):
+1. `bash tools/server.sh test-all` is green (0 failing) on the final pack, then wait for the ttl-ops run to finish.
+2. `/ttl era reset`, `/ttl registry legendcap reset`, `/ttl boss abort`, `/ttl boss cooldown clear all`, `/ttl boss testparty clear`,
+   `/ttl events end`, `/ttl absorb war clear`, `/ttl guild roll`, `/ttl discord mute off`, `/ttl party poll`, `/ttl nation sync`.
+3. `/ttlbot list` says none; `/list` says nobody; `/ttl registry` lists no holder; `/ttl nation top` is empty; `/ttl era` says era 1.
+4. `tools/server.sh logs 2000 | grep -E "ERROR.*KubeJS|\[ttl\].*failed"` is empty.
+5. Decide whether the stale bot files (playerdata, FTB personal teams, scoreboard rows) go: only by hand, with the server down.
+
 ## Backups and restore
 
 The world volume (`mc-data`, Longhorn) is in Longhorn's `default` recurring-job group: a snapshot every night

@@ -14,6 +14,9 @@ kubejs stages add TtlBotWildA ttl.life2
 ttl boss reset TtlBotWildA
 ttl boss abort
 @sleep 2
+# A boss killed shortly before (bosses.rcon) is on cooldown and blocks its wild roll.
+ttl boss cooldown clear orc_lord
+ttl boss cooldown clear shizu
 ttl events expect registered wild_boss true
 ttl events expect scheduled wild_boss false
 ttl boss wild

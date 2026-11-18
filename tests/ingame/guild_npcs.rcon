@@ -5,8 +5,8 @@
 # presets from config/easy_npc/preset and `ttl` in config/easy_npc/security.cfg executeAsUserCommandAllowList.ALL.
 # Bot A is a Life 2 soul (test hook), bot B stays in Life 1. A bot standing at a spot loads its chunk.
 # Expect in the log: "[ttl] guild npc: receptionist_tempest (receptionist) spawned at ...", "... had 2 copies, 1 removed",
-# and no "[ttl] guild npc: importing ... failed" or "economy command failed". If Blumund (builds-west1) is placed too,
-# its spots (fuze_blumund, receptionist_blumund_1/2) take over: run the Blumund block below.
+# and no "[ttl] guild npc: importing ... failed" or "economy command failed". Needs Blumund placed too (its spots
+# fuze_blumund, receptionist_blumund_1/2 take over from the Tempest Fuze stand-in).
 ttlbot spawn TtlBotNpcA
 ttlbot spawn TtlBotNpcB
 @sleep 2
@@ -60,30 +60,29 @@ ttl guild npc spawn receptionist_tempest
 ttl guild npc expect count_receptionist_tempest 2
 ttl guild npc ensure receptionist_tempest
 ttl guild npc expect count_receptionist_tempest 1
-ttl guild npc goto TtlBotNpcA fuze_tempest
+# Fuze: Blumund is placed (on staging and at launch every canon build is), so he stands in Blumund's guild hall and the
+# Tempest stand-in spot is inactive (`unless_build = "blumund"`). Blumund's spots are force-loaded like Tempest's.
+execute in minecraft:overworld run forceload add -1003 -187 -994 -171
+ttl guild npc goto TtlBotNpcA fuze_blumund
 @sleep 4
-ttl guild npc remove fuze_tempest
+ttl guild npc remove fuze_blumund
+ttl guild npc ensure fuze_blumund
+ttl guild npc expect count_fuze_blumund 1
+ttl guild npc expect tags_fuze_blumund ok
+ttl guild npc spawn fuze_blumund
+ttl guild npc ensure fuze_blumund
+ttl guild npc expect count_fuze_blumund 1
 ttl guild npc ensure fuze_tempest
-ttl guild npc expect count_fuze_tempest 1
-ttl guild npc expect tags_fuze_tempest ok
-ttl guild npc spawn fuze_tempest
-ttl guild npc ensure fuze_tempest
-ttl guild npc expect count_fuze_tempest 1
+ttl guild npc expect count_fuze_tempest 0
 # By kind: one Fuze, and one receptionist per enabled spot of the receptionist kind (tag ttl.npc.receptionist.<n>).
+ttl guild npc ensure
 ttl guild npc expect count_fuze 1
-# Blumund block (only while Blumund is placed; the Tempest Fuze stand-in is then inactive and `count_fuze` counts the
-# Blumund one): uncomment to run it on a server that has the build.
-# ttl guild npc goto TtlBotNpcA fuze_blumund
-# @sleep 4
-# ttl guild npc ensure
-# ttl guild npc expect count_fuze_blumund 1
-# ttl guild npc expect count_fuze_tempest 0
-# ttl guild npc expect count_fuze 1
-# ttl guild npc expect count_receptionist_blumund_1 1
-# ttl guild npc expect count_receptionist_blumund_2 1
+ttl guild npc expect count_receptionist_blumund_1 1
+ttl guild npc expect count_receptionist_blumund_2 1
 # Clean up: the NPCs stay (they are the real ones); only the bots go.
 ttl guild reset TtlBotNpcA
 ttl guild npc ensure
 execute in minecraft:overworld run forceload remove 3 -19 8 -16
+execute in minecraft:overworld run forceload remove -1003 -187 -994 -171
 ttlbot remove TtlBotNpcA
 ttlbot remove TtlBotNpcB
