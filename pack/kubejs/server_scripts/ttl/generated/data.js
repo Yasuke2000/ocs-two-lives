@@ -2780,6 +2780,508 @@ const TtlData = {
       ]
     }
   },
+  "story": {
+    "act": [
+      {
+        "chapters": [
+          1,
+          2,
+          7
+        ],
+        "dark_rep": {},
+        "id": 1,
+        "key": "forest_awakens",
+        "light_rep": {},
+        "renown": 5,
+        "story_line": "took an Oath at Tempest, and Act I of the story begins.",
+        "title": "The Forest Awakens",
+        "unlock_bosses": [
+          "supermassive_slime"
+        ]
+      },
+      {
+        "chapters": [
+          3,
+          8
+        ],
+        "dark_rep": {
+          "dwargon": -20,
+          "outcast": 10
+        },
+        "id": 2,
+        "key": "armed_nation",
+        "light_rep": {
+          "dwargon": 15
+        },
+        "renown": 5,
+        "story_line": "finished Act II: the Armed Nation of Dwargon has taken the measure of them.",
+        "title": "The Armed Nation",
+        "unlock_bosses": [
+          "gazel_dwargo"
+        ]
+      },
+      {
+        "chapters": [
+          4,
+          9
+        ],
+        "dark_rep": {
+          "orc_horde": 40
+        },
+        "id": 3,
+        "key": "orc_war",
+        "light_rep": {
+          "lizardmen": 20,
+          "tempest": 10
+        },
+        "renown": 10,
+        "story_line": "finished Act III: the Orc War is decided.",
+        "title": "The Orc War",
+        "unlock_bosses": [
+          "orc_lord",
+          "orc_disaster"
+        ]
+      },
+      {
+        "chapters": [
+          10
+        ],
+        "dark_rep": {
+          "outcast": 20
+        },
+        "id": 4,
+        "key": "calamity",
+        "light_rep": {
+          "tempest": 15
+        },
+        "renown": 15,
+        "story_line": "finished Act IV: the calamity over Lake Siss has passed.",
+        "title": "Calamity",
+        "unlock_bosses": [
+          "charybdis"
+        ]
+      },
+      {
+        "chapters": [
+          11
+        ],
+        "dark_rep": {
+          "falmuth": 30,
+          "tempest": -40
+        },
+        "id": 5,
+        "key": "holy_knight",
+        "light_rep": {
+          "holy_church": 10
+        },
+        "renown": 20,
+        "story_line": "finished Act V: the mask has fallen and the blades have crossed.",
+        "title": "The Holy Knight",
+        "unlock_bosses": [
+          "shizu",
+          "ifrit",
+          "hinata_sakaguchi",
+          "rimuru_ogre_fight"
+        ]
+      },
+      {
+        "chapters": [
+          12
+        ],
+        "dark_rep": {
+          "orc_horde": 10,
+          "outcast": 15
+        },
+        "id": 6,
+        "key": "walpurgis",
+        "light_rep": {
+          "holy_church": 5,
+          "tempest": 10
+        },
+        "renown": 30,
+        "story_line": "finished Act VI: the Walpurgis council has met.",
+        "title": "Walpurgis",
+        "unlock_bosses": [
+          "carrion",
+          "luminous_valentine",
+          "rimuru_clone"
+        ]
+      },
+      {
+        "chapters": [
+          13
+        ],
+        "dark_rep": {
+          "outcast": 20
+        },
+        "id": 7,
+        "key": "harvest_festival",
+        "light_rep": {
+          "blumund": 10,
+          "tempest": 10
+        },
+        "renown": 50,
+        "story_line": "finished Act VII: the harvest festival is over and nothing is the same.",
+        "title": "Demon Lord or True Hero",
+        "unlock_bosses": [
+          "veldora"
+        ]
+      }
+    ],
+    "flag": {
+      "atonement": {
+        "line": ""
+      },
+      "charybdis_woke": {
+        "line": ""
+      },
+      "demon_lord": {
+        "line": "has risen as a Demon Lord.",
+        "path": "dark",
+        "renown": 60,
+        "title": "Demon Lord"
+      },
+      "falmuth_march": {
+        "line": ""
+      },
+      "hero": {
+        "line": "has become a True Hero.",
+        "path": "light",
+        "renown": 60,
+        "title": "True Hero"
+      },
+      "honour_duel": {
+        "line": ""
+      },
+      "regicide": {
+        "line": "",
+        "title": ""
+      },
+      "unaligned": {
+        "line": ""
+      }
+    },
+    "flip": {
+      "atonement": {
+        "line": "atoned and turned back to the light.",
+        "rep": {},
+        "requires_any": [
+          "atonement"
+        ],
+        "say": "Atonement: you turn from the Outcast road. What was done stays done, but Tempest listens again.",
+        "set": {
+          "tempest": 0
+        },
+        "title": "Repentant"
+      },
+      "corruption": {
+        "line": "was corrupted and turned to the dark.",
+        "rep": {
+          "outcast": 10,
+          "tempest": -10
+        },
+        "requires_any": [
+          "regicide",
+          "charybdis_woke",
+          "falmuth_march"
+        ],
+        "say": "Corruption: the deed you did cannot be undone, and the dark road opens to you.",
+        "set": {},
+        "title": "Marked"
+      },
+      "max": 1
+    },
+    "kill_rep": {
+      "gazel_dwargo": {
+        "flag": "regicide",
+        "rep": {
+          "dwargon": -60
+        },
+        "unless_flag": "honour_duel"
+      },
+      "hinata_sakaguchi": {
+        "rep": {
+          "holy_church": -30
+        }
+      },
+      "rimuru_ogre_fight": {
+        "rep": {
+          "tempest": -40
+        }
+      }
+    },
+    "legendary": {
+      "dark": [
+        "predator",
+        "wrath",
+        "pride",
+        "greed",
+        "lust",
+        "envy",
+        "sloth"
+      ],
+      "light": [
+        "great_sage",
+        "creator"
+      ]
+    },
+    "npc": [
+      {
+        "color": "gold",
+        "id": "rigurd",
+        "name": "Rigurd",
+        "talk": [
+          {
+            "act": 1,
+            "buttons": [
+              {
+                "command": "ttl story oath",
+                "label": "Take the Oath"
+              }
+            ],
+            "text": "Welcome to Tempest, stranger. We goblins have little, but we remember who stood with us. When you are ready to say where you stand, there is a crossroads waiting."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "You swore at the crossroads and Tempest has not forgotten it. My people owe you a seat at the fire. There is work, if you want it."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "I know that mark. I will not turn you out of Tempest, but do not look to me for help. Go to the Outcast who waits by the road."
+          }
+        ]
+      },
+      {
+        "color": "green",
+        "id": "gobta",
+        "name": "Gobta",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Hey, are you new? I am Gobta! The strongest goblin in the forest, no question. Do not ask Rigurd, he is jealous."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "You swore the Oath? Then you are with us. Come on, I will show you the best spot to sit and do nothing while others work."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "Oh, that mark? Cool. I do not care. Want to see me wrestle a direwolf? Do not tell Rigurd."
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "id": "benimaru",
+        "name": "Benimaru",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A new face. Tempest is small, but it is ours. Prove you are no threat and you will be welcome."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "The war council is open to those who stand with Tempest. When the horde moves, we will need every blade."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "You carry the Outcasts' mark. I will watch you, and so will my guard. Do not give me a reason."
+          }
+        ]
+      },
+      {
+        "color": "light_purple",
+        "id": "shuna",
+        "name": "Shuna",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Welcome. If you have cloth or herbs to spare, the weaving hut can always use them."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "I will weave for anyone who is kind to my people. For you, it depends on what you do next."
+          },
+          {
+            "act": 2,
+            "at_most": "hostile",
+            "faction": "tempest",
+            "path": "dark",
+            "text": "I am sorry. I cannot weave for you while Tempest holds you in such low regard."
+          }
+        ]
+      },
+      {
+        "color": "dark_purple",
+        "id": "shion",
+        "name": "Shion",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Halt. State your business. Lord Rimuru's house is not open to just anyone."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "Stand with Tempest and you may pass. Lord Rimuru's safety is my business, and so are his friends."
+          },
+          {
+            "act": 2,
+            "at_most": "hostile",
+            "faction": "tempest",
+            "path": "dark",
+            "text": "You will go no further. One more step toward Lord Rimuru and I will not be gentle."
+          }
+        ]
+      },
+      {
+        "color": "white",
+        "id": "hakurou",
+        "name": "Hakurou",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Hm. Your stance is sloppy. Come back when you can stand for an hour and I will show you what a sword is for."
+          },
+          {
+            "act": 2,
+            "text": "The Oath sits on your shoulders, I see. A true blade is measured by what it protects. Train your abilities, and I will watch."
+          }
+        ]
+      },
+      {
+        "color": "gold",
+        "id": "kaijin",
+        "name": "Kaijin",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A dwarf forges, a human wields. Bring me good ore and I will tell you which of the two of us is the better smith."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "I hear the Outcasts pay well for plans of the Dwargon forges. I did not say that. Do not repeat it."
+          }
+        ]
+      },
+      {
+        "color": "dark_green",
+        "id": "treyni",
+        "name": "Treyni",
+        "talk": [
+          {
+            "act": 1,
+            "text": "The forest breathes with an unrest I cannot name. Be careful what you wake."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "The trees remember what the Oath means. Beware the lake: a calamity stirs in its depths."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "I warned you. The trees will say no more to you."
+          }
+        ]
+      },
+      {
+        "color": "dark_red",
+        "id": "gazel",
+        "name": "Gazel Dwargo",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A king receives those who bring worth to his hall. Show me yours."
+          },
+          {
+            "act": 2,
+            "buttons": [
+              {
+                "command": "ttl story fight gazel_dwargo",
+                "label": "Challenge the King"
+              }
+            ],
+            "path": "light",
+            "text": "You stand with the free peoples. Then let us test that: face me in an honour duel, and nothing will be held against you."
+          },
+          {
+            "act": 2,
+            "buttons": [
+              {
+                "command": "ttl story fight gazel_dwargo",
+                "label": "Take the throne"
+              }
+            ],
+            "path": "dark",
+            "text": "I know what road you walk. A king does not bow to it. If you want my seat, you will have to take it."
+          }
+        ]
+      },
+      {
+        "color": "dark_gray",
+        "id": "outcast_contact",
+        "name": "The Outcast",
+        "talk": [
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "So you have chosen. Good. The Society does not forget those who walk with it, and the Horde has plans for a strong blade."
+          },
+          {
+            "act": 1,
+            "text": "Nothing to say to someone who has not chosen yet. Come back when you have."
+          }
+        ]
+      }
+    ],
+    "oath": {
+      "dark": {
+        "item": "minecraft:soul_lantern",
+        "label": "Walk the Outcast road",
+        "line": "swore the Oath of the Dark at the crossroads of Tempest.",
+        "lore": "The Outcast Society marks you and the Orc Horde watches with interest. Tempest will cool toward you, but the roads the good folk never see are open.",
+        "remembers": "Your soul remembers.",
+        "rep": {
+          "orc_horde": 15,
+          "outcast": 20,
+          "tempest": -20
+        },
+        "say": "You have taken the Oath of the Dark. The Outcasts have marked you.",
+        "title": "Marked"
+      },
+      "light": {
+        "fallen_title": "Repentant",
+        "item": "minecraft:lantern",
+        "label": "Stand with Tempest",
+        "line": "swore the Oath of the Light at the crossroads of Tempest.",
+        "lore": "Rigurd's trust is yours: the forest folk hold you as one of their own. Tempest and its friends will open their doors, and the Orc Horde and the Outcasts will not.",
+        "rep": {
+          "tempest": 20
+        },
+        "say": "You have taken the Oath of the Light. Tempest remembers who stood with it.",
+        "title": ""
+      },
+      "menu_title": "The Oath",
+      "require_stage": "",
+      "unaligned_for_legend": false,
+      "unaligned_title": "Unaligned"
+    },
+    "rules": {
+      "fight_near": 96,
+      "log_size": 200,
+      "party_oath": true,
+      "sequential_acts": true
+    }
+  },
   "trials": {
     "creation": {
       "gear": [],
