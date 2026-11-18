@@ -22,9 +22,12 @@ ttl spiritdomain tp TtlBotSpirit
 @sleep 2
 ttl spiritdomain expect TtlBotSpirit in
 # back through the return arch (the real trigger), then in again by the gate's doorway
-@sleep 5
+ttl spiritdomain walk TtlBotSpirit back
+@sleep 5
 ttl spiritdomain expect TtlBotSpirit out
-@sleep 5
+ttl spiritdomain walk TtlBotSpirit gate
+@sleep 5
 ttl spiritdomain expect TtlBotSpirit in
-@sleep 5
+ttl spiritdomain walk TtlBotSpirit back
+@sleep 5
 ttl spiritdomain expect TtlBotSpirit out
