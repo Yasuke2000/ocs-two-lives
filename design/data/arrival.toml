@@ -16,6 +16,8 @@
 #             time; it falls back to the plain surface at x, z when nothing fits. Keep it <= 48 (the self-check
 #             covers the rim 48 blocks around the point).
 #   version = bump to ground the arrival (and the world spawn) again on the next start.
+#   grace_seconds = seconds after the rebirth during which the soul takes no damage (life/mortal_immunity.js): Blade
+#             Tigers and Barghests roam the rim and killed fresh souls 2–6 s after landing. 0 = off.
 
 [life2]
 x = 271
@@ -23,3 +25,4 @@ z = -624
 yaw = -156
 search = 40
 version = 1
+grace_seconds = 20

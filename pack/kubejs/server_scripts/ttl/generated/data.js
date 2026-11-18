@@ -3,6 +3,7 @@
 const TtlData = {
   "arrival": {
     "life2": {
+      "grace_seconds": 20,
       "search": 40,
       "version": 1,
       "x": 271,
@@ -933,7 +934,7 @@ const TtlData = {
       "max_wet": 0.1,
       "name": "ballachia",
       "notes": "Former Orthrus exchange on the eastbound road, after Masayuki's visit. See design/lore/ballachia.md.",
-      "search": 32,
+      "search": 128,
       "size": [
         76,
         38,

@@ -355,6 +355,8 @@ const TtlCorridor = {
       { text: `${name} has been reborn as a ${this.title(race)}.`, color: 'yellow' }
     ])}`)
     console.info(`[ttl] ${name} reborn as ${race} with ${skill || 'no unique'}`)
+    // The arrival grace (life/mortal_immunity.js, arrival.toml grace_seconds) counts from here.
+    player.persistentData.putString('ttl.l2.arrived', String(Date.now()))
     TtlDiscord.reborn(server, name, this.title(race))
     if (legend && granted) {
       try {

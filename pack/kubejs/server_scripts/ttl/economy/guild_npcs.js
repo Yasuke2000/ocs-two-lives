@@ -29,6 +29,9 @@ const TtlGuildNpc = {
   STATE: 'ttl.npc.state',
   ANY: 'ttl.npc',
   last: {},
+  // The periodic check waits until this time (ms): a test-hook `spawn` holds it, so the extra copy is still there for
+  // the `count` expect that follows (the check ran in between on staging 18/11/2026 and removed it first).
+  holdUntil: 0,
   warned: {},
 
   conf() {
@@ -398,7 +401,7 @@ ServerEvents.loaded(event => {
   var every = Math.max(100, Number(TtlGuildNpc.conf().settings.check_ticks))
   var check = () => {
     try {
-      TtlGuildNpc.ensureAll(server)
+      if (Date.now() >= TtlGuildNpc.holdUntil) TtlGuildNpc.ensureAll(server)
     } catch (e) {
       console.error(`[ttl] guild npc check failed: ${e}`)
     }
@@ -452,8 +455,9 @@ ServerEvents.commandRegistry(event => {
     var sp = spotOf(ctx)
     var pos = TtlGuildNpc.resolve(server(ctx), sp)
     if (!pos) throw `${sp.id}: its anchor ${sp.anchor} is not placed yet`
+    TtlGuildNpc.holdUntil = Date.now() + 15000
     if (!TtlGuildNpc.spawn(server(ctx), sp, pos)) throw `${sp.id}: spawning failed (see the log)`
-    say(ctx, `guild npc ${sp.id}: extra copy spawned`)
+    say(ctx, `guild npc ${sp.id}: extra copy spawned (the periodic check waits 15 s)`)
     return 1
   }
 

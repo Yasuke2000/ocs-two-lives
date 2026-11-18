@@ -1894,7 +1894,7 @@ hash = "69eb3e68a4c4f0351c25d254a39550479336ed5ee73810f8cc3f1a6f16cb75d4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/guild_npcs.js"
-hash = "09e944aa8fcd89cd6b3004e521ba9af9b9b39d1d5055aa503d8343c70fe8a141"
+hash = "752270164b64fb53142460910fed8dd6be771834730ba4626ca1a3e9ca45147d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/merit.js"
@@ -1930,7 +1930,7 @@ hash = "05d5e9afad43e2f2a5a9d6fffb768b3ad7e2aa2dbfe5858c4e4277ab0dba8e99"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "ee5dd355f8bd6d57e76e92544abf3f47b6ac964b136fe4213334eb480512fd6b"
+hash = "7787941df3fb766ad1e5a866ce202a3a43989a8414cd2085284d70dd7b3f32ba"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1998,7 +1998,7 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "db636c9d80a9ab818daf058af72c22cf040cc68ba7220173999f7a517077da0c"
+hash = "2678ff17401922774c6da86c5ec4260975ec4601d9cb1cce2a2eb79bc80bed4d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -2030,7 +2030,7 @@ hash = "a387a538f9b72117e9e10530cf947ac32bff9779ca8f5bfa7a3d426573256444"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_immunity.js"
-hash = "7af6f69bb90c32fa2824c4b08a26d9a56cc3adc5452666bffde3a7f194e95131"
+hash = "31ce1a75fe7b93fb52a965309ac203c8c487e0b837e18f66706051ea12ec60e2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"

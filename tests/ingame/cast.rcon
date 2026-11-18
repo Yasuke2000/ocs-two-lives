@@ -90,3 +90,5 @@ ttl cast unload
 execute in minecraft:overworld run forceload remove 16 -48 31 -28
 ttl reset TtlBotCastA
 ttl reset TtlBotCastB
+ttlbot remove TtlBotCastA
+ttlbot remove TtlBotCastB

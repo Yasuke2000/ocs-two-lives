@@ -36,7 +36,7 @@ Decisions: `design/decisions.md` (append, never rewrite history).
 
 | Where | Keys | Holds |
 | --- | --- | --- |
-| Player persistentData | `ttl.life`, `ttl.l1.start`, `ttl.l1.days` | Which life, Life 1 timing |
+| Player persistentData | `ttl.life`, `ttl.l1.start`, `ttl.l1.days`, `ttl.l2.arrived` | Which life, Life 1 timing, rebirth time (arrival grace, `life/mortal_immunity.js`) |
 | Player persistentData | `ttl.karma.{valor,order,chaos,craft,faith,longevity}`, `ttl.karma.score`, `ttl.tier` | Raw karma, score, rebirth tier |
 | Player persistentData | `ttl.step`, `ttl.wish`, `ttl.offers`, `ttl.race`, `ttl.uniqueOptions`, `ttl.trial.done`, `ttl.trial.passed` | Corridor flow (`life/corridor_flow.js`): step, Last Wish, race offers, Trial result |
 | Player persistentData | `ttl.stash`, `ttl.soul.keep`, `ttl.stash.told` | Life 1 death strip (`life/mortal_banned.js`): banned items stashed, soulbound stacks kept, "told" flag |

@@ -33,12 +33,27 @@ const TtlMortalImmunity = {
 
   poison(text) {
     return String(text).indexOf('magicule_poison') >= 0
+  },
+
+  // Arrival grace: for `grace_seconds` (arrival.toml, default 20) after the rebirth a Life 2 soul takes no damage at all.
+  // Blade Tigers and Barghests roam the safe rim too, and a fresh soul with 50 magicules died 2–6 s after landing
+  // (staging 18/11/2026). The soul is still a target; it only has time to walk away. 0 turns the grace off.
+  inGrace(player) {
+    var at = Number(String(player.persistentData.getString('ttl.l2.arrived')) || 0)
+    if (!at) return false
+    var cfg = (TtlData.arrival || {}).life2 || {}
+    var secs = cfg.grace_seconds === undefined ? 20 : Number(cfg.grace_seconds)
+    return Date.now() - at < secs * 1000
   }
 }
 
 EntityEvents.beforeHurt(event => {
   var entity = event.entity
   if (!entity.isPlayer()) return
+  if (TtlMortalImmunity.inGrace(entity)) {
+    event.cancel()
+    return
+  }
   if (!TtlMortalImmunity.refused(event.source)) return
   if (TtlMortalImmunity.sheltered(entity, TtlMortalImmunity.poison(event.source))) event.cancel()
 })
