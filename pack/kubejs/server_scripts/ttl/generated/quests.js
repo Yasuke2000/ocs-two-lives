@@ -28,6 +28,23 @@ const TtlQuestIds = {
       "workshop": "6CF85FBDB2D29F4C"
     }
   },
+  "crossroads": {
+    "id": "6789349801D8665A",
+    "quests": {
+      "cave_altar": "1167BEB1B24E76ED",
+      "crossroads": "3D14EC5F5890B8B5",
+      "cull_wolves": "184ED3B4C58EB59C",
+      "fire_seat": "7C37E329D60483D7",
+      "forest_awakens": "04FB0C80CDC310C0",
+      "gobta_boast": "43D60C8C4DC653A7",
+      "horde_envoy": "157D58DC52006FFD",
+      "outcast_mark": "3E147C63E6EEBB67",
+      "outcast_toll": "7A6426F393DE80CB",
+      "rigurd_trust": "7D48E319627565BE",
+      "slime_down": "37100E5E69336D70",
+      "wolf_friend": "571629DA10EF5830"
+    }
+  },
   "daily_deeds": {
     "id": "60737BD25048CC9D",
     "quests": {
@@ -51,6 +68,25 @@ const TtlQuestIds = {
       "jura_patrol": "4895991B15F57CD2",
       "jura_rabbits": "556EA88DAE9171BE",
       "jura_wolves": "4C0E3BFFAE3E50CA"
+    }
+  },
+  "kings_test": {
+    "id": "36D8E5C05627FA49",
+    "quests": {
+      "act_two": "6DDF459E16D36563",
+      "broker_whisper": "619B66622F524091",
+      "challenge_king": "53C77B16D89F8A29",
+      "ep_10000": "51BB29F904813A27",
+      "honour_duel": "520F289E26CD8D14",
+      "honour_terms": "5CE177F176862D46",
+      "kaijin_word": "44C48A307109F375",
+      "kings_summons": "22BF60FD6B9D6839",
+      "outcast_spoils": "287D2F8E30D91857",
+      "regicide": "6A02570FD1A84087",
+      "smiths_pact": "23B0B39D449831F2",
+      "steal_plans": "26A6D1053EDA56FF",
+      "take_throne": "7D4B44AC33270DB2",
+      "word_to_tempest": "4D84DCDECB3CCFDC"
     }
   },
   "mortal_life": {

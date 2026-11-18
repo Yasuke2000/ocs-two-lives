@@ -1,23 +1,45 @@
-# Guild NPCs (Easy NPC): Fuze and the guild receptionists. Two consumers:
-#   python tools/gen_npcs.py   writes one Easy NPC preset per [[kind]] to pack/config/easy_npc/preset/ttl_guild_<id>.npc.snbt
-#                              (dialog, buttons, look); the buttons run the player's own `/ttl guild ...` commands.
+# NPCs of the world: the Free Guild (Fuze, the receptionists) and the story cast (Tempest's kijin and dwarves, the guild trio,
+# Milim, Treyni, the courts of Falmuth, the Walpurgis council, the statues of mod characters). Three consumers:
+#   python tools/gen_npcs.py   writes one Easy NPC preset per [[kind]] (not for statues) to pack/config/easy_npc/preset/:
+#                              ttl_guild_<id>.npc.snbt for the guild kinds (buttons run the player's own `/ttl guild ...`),
+#                              ttl_cast_<id>.npc.snbt for `talk` kinds (button "Talk" runs `/ttl story talk <talk>`).
 #   economy/guild_npcs.js      reads [settings] and [[spot]] (as TtlData.npcs, via tools/gen_data.py) and keeps exactly one
-#                              NPC per enabled spot, tagged `tag` (and `ttl.npc`).
-# Edit, then run `python tools/gen_data.py` and `python tools/gen_npcs.py`. Dialog text is English; @initiator is the
-# player's name (Easy NPC placeholder).
+#                              NPC per enabled spot, tagged `tag` (and `ttl.npc`). A statue kind is spawned as a mod entity.
+#   story/cast.js              statues (the NBT of a tame NoAI entity), the right-click on a statue or a hooked entity, and the
+#                              `/ttl cast ...` staff commands.
+# Edit, then run `python tools/gen_data.py` and `python tools/gen_npcs.py` (`--spots` also checks every spot against the
+# structure files of its build). Dialog text is English; @initiator is the player's name (Easy NPC placeholder).
 #
 # Who gives what is decided in economy.toml: `giver = "fuze"` bounties (rank [guild].fuze_min_rank and up) are Fuze's,
-# everything else is the desk's. The buttons below pass that giver to the guild commands.
+# everything else is the desk's. The buttons below pass that giver to the guild commands. What a cast member SAYS is in
+# story.toml ([[npc]] with the same id as `talk`).
+#
+# Kind fields: id, name, name_color (#RRGGBB), description (preset browser), then one of
+#   giver = "desk"|"fuze"      a guild NPC (dialog table below)
+#   talk = "<story npc id>"    a story NPC: model = "humanoid"|"humanoid_slim" (default humanoid), skin = <built-in variant of
+#                              that model>, [kind.dialog] title / text (the intro the NPC shows) / talk / leave (optional)
+#   statue = "<entity id>"     with talk: the mod's own entity as a tame NoAI statue (rule R1: a mod character is never rebuilt
+#                              as an Easy NPC); right-click = `/ttl story talk <talk>`, shift + right-click = the mod's own menu
+# Skin: our own PNG pack/kubejs/assets/ttl/textures/entity/npc/<kind id>.png (64x64) is used automatically as soon as it
+# exists (gen_npcs.py writes SkinData RESOURCE_LOCATION into the preset, the built-in `skin` stays the fallback look).
 
 [settings]
 # Bump to replace every NPC with a fresh one from the current preset on the next check (also what to do after a
-# dialog or look change: the NPC already in the world keeps the dialog it was spawned with).
+# dialog, look or statue change: the NPC already in the world keeps the dialog it was spawned with).
 rev = 1
-# The spots are checked this many ticks apart, and once this many ticks after the server has started.
-check_ticks = 600
+# The spots are checked this many ticks apart, and once this many ticks after the server has started. A spot whose build is
+# not placed or whose chunk is not loaded costs one command; the NPC of a far town appears within this time of a player's arrival.
+check_ticks = 200
 start_delay_ticks = 200
 # Easy NPC `custom` presets live in config/easy_npc/preset; the preset id is `easy_npc:preset/<file name>`.
 preset_prefix = "ttl_guild_"
+cast_prefix = "ttl_cast_"
+# Right-clicking a statue or a hooked entity (story/cast.js) talks once per this many milliseconds (the game sends the click
+# for both hands).
+interact_cooldown_ms = 600
+# true: a player who sneaks keeps the entity's own right-click (Tensura's tame menu, the goblin's trade screen) so staff can
+# still reach it.
+sneak_bypass = true
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Kinds. `skin` is one of Easy NPC's own built-in humanoid variants (textures ship inside the mod, nothing is copied
@@ -154,3 +176,797 @@ x = 8
 y = 0
 z = -19
 yaw = 90
+
+# =====================================================================================================================
+# THE STORY CAST (WP-S4, design/architecture/story-characters.md §1.2 and §6.2)
+#
+# Rule R1: a character that a mod has as an entity is NOT rebuilt as an Easy NPC. Hinata, Luminous, Carrion, Folgen, Kyoya,
+# Shogo and Kirara stand as tame NoAI statues of Tensura's / NEB's own entity (the throne Gazel pattern of life/dwargon.js),
+# Gazel himself and the goblins of Tempest keep their entities and only get a right-click hook (see [[hook]] at the end).
+# Everyone else is an Easy NPC with a Talk button. What they say is in story.toml.
+#
+# Provisional looks: Easy NPC's built-in variants, chosen for the role (the preset browser shows each). The drawn skins go in
+# pack/kubejs/assets/ttl/textures/entity/npc/<kind id>.png and replace them without any change here.
+# Placement (references: design/lore/*.md, blueprints/*.py; checked by `python tools/gen_npcs.py --spots`):
+#   Tempest (anchor tempest, offsets from the arrival point = blueprint 45, 5, 57): Benimaru and Shion in the council longhouse
+#   area, Shuna in the weaving hut, Souei on the lookout tower, Hakurou on the green by the fire, Kaijin at his forge, Garm and
+#   Dold in the workshop house, Mildo at the building site.
+#   The Outcast (dark path contact of chapters 7 and 8) stands on Tempest's south road at world 0, 52 (anchor world, surface).
+#   Blumund: the guild hall floor (Kabal, Elen, Gido), with stand-ins in Tempest's longhouse until Blumund is placed.
+#   Treyni at her shrine, Milim before her throne in the City of the Forgotten Dragon, Yuuki in the Englassia guild hall,
+#   Edmaris and Razen on the throne dais of Marris with Folgen and the three otherworlders in the hall, Hinata in the Hall of
+#   the Holy Knights and Luminous on the choir in Lubelius, Carrion on the lion throne dais of Laura, the Walpurgis council
+#   (Frey, Guy, Leon, Dagruel) in Clayman's throne hall, Ramiris in her glade.
+# Not placed: Gabiru (the lizardmen caverns have no build; a `surface` spot at their landmark would do it), Rimuru/Veldora/Shizu
+# (fights only).
+
+[[kind]]
+id = "benimaru"
+name = "Benimaru"
+name_color = "#E4002B"
+skin = "KNIGHT_02"
+talk = "benimaru"
+description = "Benimaru, war leader of Tempest's kijin (story NPC)."
+[kind.dialog]
+text = "A red-haired kijin in a plain dark coat looks you over, one hand resting on his sword."
+
+[[kind]]
+id = "shuna"
+name = "Shuna"
+name_color = "#F4A6C8"
+model = "humanoid_slim"
+skin = "MAGE_01"
+talk = "shuna"
+description = "Shuna, who weaves and brews for Tempest (story NPC)."
+[kind.dialog]
+text = "Shuna looks up from her loom and smiles, gently, as if you had come at exactly the right moment."
+
+[[kind]]
+id = "shion"
+name = "Shion"
+name_color = "#7B3FA0"
+model = "humanoid_slim"
+skin = "KAWORRU"
+talk = "shion"
+description = "Shion, Rimuru's bodyguard and secretary (story NPC)."
+[kind.dialog]
+text = "Shion stands at the door of Rimuru's house, arms folded, and does not move aside."
+
+[[kind]]
+id = "souei"
+name = "Souei"
+name_color = "#2F5F8F"
+skin = "KAI"
+talk = "souei"
+description = "Souei, Tempest's scout (story NPC)."
+[kind.dialog]
+text = "Souei watches the forest from the lookout. He does not seem to have heard you climb the ladder."
+
+[[kind]]
+id = "hakurou"
+name = "Hakurou"
+name_color = "#E8E8E8"
+skin = "PROFESSOR_01"
+talk = "hakurou"
+description = "Hakurou, the old swordmaster who trains Tempest's riders (story NPC)."
+[kind.dialog]
+text = "An old kijin with white hair sits by the fire, a wooden sword across his knees."
+
+[[kind]]
+id = "kaijin"
+name = "Kaijin"
+name_color = "#FDC300"
+skin = "FARMER_01"
+talk = "kaijin"
+description = "Kaijin, the dwarven master smith exiled from Dwargon (story NPC)."
+[kind.dialog]
+text = "Kaijin wipes soot from his hands. Behind him the forge roars; the anvil is still warm."
+
+[[kind]]
+id = "garm"
+name = "Garm"
+name_color = "#C9A227"
+skin = "KNIGHT_01"
+talk = "garm"
+description = "Garm, the eldest of the dwarf brothers, an armourer (story NPC)."
+[kind.dialog]
+text = "Garm turns a half-finished breastplate in his hands, checking the seams by touch."
+
+[[kind]]
+id = "dold"
+name = "Dold"
+name_color = "#E0B040"
+skin = "STEVE"
+talk = "dold"
+description = "Dold, the dwarf brother who makes jewellery and small things (story NPC)."
+[kind.dialog]
+text = "Dold is sorting small clasps and rings into a tray, humming something out of tune."
+
+[[kind]]
+id = "mildo"
+name = "Mildo"
+name_color = "#A0A0A0"
+skin = "ZURI"
+talk = "mildo"
+description = "Mildo, the youngest dwarf brother, Tempest's architect (story NPC)."
+[kind.dialog]
+text = "Mildo is measuring a post twice. He glances at you, then back at the post."
+
+[[kind]]
+id = "outcast_contact"
+name = "The Outcast"
+name_color = "#6B6B6B"
+skin = "NOOR"
+talk = "outcast_contact"
+description = "The Outcast Society's hooded contact on Tempest's south road (story NPC, the dark path)."
+[kind.dialog]
+text = "A hooded figure leans against a roadside post, as if waiting for exactly you."
+
+[[kind]]
+id = "kabal"
+name = "Kabal"
+name_color = "#C0392B"
+skin = "KNIGHT_01"
+talk = "kabal"
+description = "Kabal, a rank B swordsman of the Free Guild (story NPC)."
+[kind.dialog]
+text = "Kabal is leaning on the guild hall's table, a mug in one hand and a scarred sword at his hip."
+
+[[kind]]
+id = "elen"
+name = "Elen"
+name_color = "#3498DB"
+model = "humanoid_slim"
+skin = "ZURI"
+talk = "elen"
+description = "Elen, a mage of the Free Guild (story NPC)."
+[kind.dialog]
+text = "Elen glances at you over a spellbook, then closes it."
+
+[[kind]]
+id = "gido"
+name = "Gido"
+name_color = "#27AE60"
+skin = "FARMER_01"
+talk = "gido"
+description = "Gido, the Free Guild's shield bearer (story NPC)."
+[kind.dialog]
+text = "Gido is the biggest man in the hall and also the quietest one."
+
+[[kind]]
+id = "treyni"
+name = "Treyni"
+name_color = "#2E8B57"
+model = "humanoid_slim"
+skin = "EFE"
+talk = "treyni"
+description = "Treyni, the dryad who keeps the Great Jura Forest (story NPC)."
+[kind.dialog]
+text = "Treyni stands in the moss, quite still, with leaves in her hair that are not part of any tree you can see."
+
+[[kind]]
+id = "milim"
+name = "Milim Nava"
+name_color = "#FF69B4"
+model = "humanoid_slim"
+skin = "SUNNY"
+talk = "milim"
+description = "Milim Nava, the Dragonoid Demon Lord (story NPC; never a fight)."
+[kind.dialog]
+text = "A small girl sits on a bone throne with her legs swinging. Everyone in the room is careful not to look bored."
+
+[[kind]]
+id = "yuuki"
+name = "Yuuki Kagurazaka"
+name_color = "#4A4A5E"
+skin = "JAYJASONBO"
+talk = "yuuki"
+description = "Yuuki Kagurazaka, Grandmaster of the Free Guild (story NPC)."
+[kind.dialog]
+text = "A young man with a mask pushed up on his forehead reads reports at the end of the hall, smiling at none of them."
+
+[[kind]]
+id = "edmaris"
+name = "King Edmaris"
+name_color = "#1D71B8"
+skin = "KNIGHT_02"
+talk = "edmaris"
+description = "Edmaris, King of Falmuth (story NPC)."
+[kind.dialog]
+text = "King Edmaris looks down from the dais of his throne room without getting up."
+
+[[kind]]
+id = "razen"
+name = "Razen"
+name_color = "#34495E"
+skin = "ARI"
+talk = "razen"
+description = "Razen, King Edmaris' advisor (story NPC)."
+[kind.dialog]
+text = "A lean man in court dress stands one step behind the king, listening to everything."
+
+[[kind]]
+id = "frey"
+name = "Frey"
+name_color = "#5DADE2"
+model = "humanoid_slim"
+skin = "MAKENA"
+talk = "frey"
+description = "Frey, the Sky Queen, a Walpurgis Demon Lord (story NPC)."
+[kind.dialog]
+text = "A winged woman sits very straight at the council table and does not seem to need a chair."
+
+[[kind]]
+id = "guy"
+name = "Guy Crimson"
+name_color = "#B03A2E"
+skin = "ARI"
+talk = "guy"
+description = "Guy Crimson, the oldest Demon Lord (story NPC)."
+[kind.dialog]
+text = "A man with crimson hair and a bored face lounges at the council table, as if he had seen all of this before."
+
+[[kind]]
+id = "leon"
+name = "Leon Cromwell"
+name_color = "#F1C40F"
+skin = "SUNNY"
+talk = "leon"
+description = "Leon Cromwell, the Golden Demon Lord (story NPC)."
+[kind.dialog]
+text = "A golden-haired demon lord sits at the council table and keeps his eyes on the door."
+
+[[kind]]
+id = "dagruel"
+name = "Dagruel"
+name_color = "#6E8B3D"
+skin = "KNIGHT_02"
+talk = "dagruel"
+description = "Dagruel, the Earth Demon Lord of the Barren Lands (story NPC)."
+[kind.dialog]
+text = "A giant of a man sits very still at the council table, listening to the stone under it."
+
+[[kind]]
+id = "ramiris"
+name = "Ramiris"
+name_color = "#009FE3"
+model = "humanoid_slim"
+skin = "NOOR"
+talk = "ramiris"
+description = "Ramiris, the smallest Demon Lord and mistress of the Labyrinth (story NPC)."
+[kind.dialog]
+text = "A tiny winged girl hovers at the height of your face, beaming."
+
+# Statues. `statue` = the entity id (verified in the jars: assets/<mod>/lang entity.* keys). Tame, NoAI, invulnerable, silent
+# and persistent (story/cast.js STATUE_NBT), so a Tensura or NEB entity that is a boss elsewhere never starts a fight here.
+
+[[kind]]
+id = "hinata_statue"
+name = "Hinata Sakaguchi"
+name_color = "#009FE3"
+statue = "tensura:hinata_sakaguchi"
+talk = "hinata"
+description = "Hinata Sakaguchi, the Holy Knight, as a statue in Lubelius (the fight is a boss, bosses.toml)."
+
+[[kind]]
+id = "luminous_statue"
+name = "Luminous Valentine"
+name_color = "#8E44AD"
+statue = "tensura_neb:luminous_valentine"
+talk = "luminous"
+description = "Luminous Valentine, patron of the Western Holy Church, as a statue in Lubelius' cathedral."
+
+[[kind]]
+id = "carrion_statue"
+name = "Carrion"
+name_color = "#E5A823"
+statue = "tensura_neb:carrion"
+talk = "carrion"
+description = "Carrion, the lion king, on his throne dais in Laura."
+
+[[kind]]
+id = "folgen_statue"
+name = "Folgen"
+name_color = "#C0392B"
+statue = "tensura:folgen"
+talk = "folgen"
+description = "Folgen, Falmuth's field commander, at the king's side in Marris."
+
+[[kind]]
+id = "kyoya_statue"
+name = "Kyoya Tachibana"
+name_color = "#2E86C1"
+statue = "tensura:kyoya_tachibana"
+talk = "kyoya"
+description = "Kyoya Tachibana, a summoned otherworlder in Falmuth's service."
+
+[[kind]]
+id = "shogo_statue"
+name = "Shogo Taguchi"
+name_color = "#7F8C8D"
+statue = "tensura:shogo_taguchi"
+talk = "shogo"
+description = "Shogo Taguchi, a summoned otherworlder in Falmuth's service."
+
+[[kind]]
+id = "kirara_statue"
+name = "Kirara Mizutani"
+name_color = "#3498DB"
+statue = "tensura:kirara_mizutani"
+talk = "kirara"
+description = "Kirara Mizutani, a summoned otherworlder in Falmuth's service."
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Cast spots. Blueprint coordinates, y = the walking layer (the block layer the NPC stands in). Tempest offsets are blueprint
+# coordinates minus the arrival point (45, 5, 57). Every build / Tempest spot was checked against its structure file (--spots).
+# `surface = true` (anchor world only): y is not known in advance; the NPC stands on the highest solid block at x, z once that
+# chunk is loaded (y is then only a placeholder for the loaded check).
+
+# Tempest (blueprints/tempest.py). The longhouse is x 35-55, z 33-42 (long table z 36-39, Rimuru's dais x 36-37, door south at
+# x 44-46); Rimuru's house x 41-49, z 22-28 with its door at (45, 28); the weaving hut x 63-72, z 44-52 (door west at (63, 48));
+# the forge x 13-25, z 40-50 (anvil 18, 45); the workshop house x 14-23, z 29-36; the lookout tower x 13-17, z 13-17 (platform
+# y 14, you stand at y 15); the building site south-west.
+[[spot]]
+id = "benimaru_tempest"
+kind = "benimaru"
+tag = "ttl.npc.benimaru"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = -1
+y = 0
+z = -22
+yaw = 0
+
+[[spot]]
+id = "shion_tempest"
+kind = "shion"
+tag = "ttl.npc.shion"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = 0
+y = 0
+z = -27
+yaw = 0
+
+[[spot]]
+id = "shuna_tempest"
+kind = "shuna"
+tag = "ttl.npc.shuna"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = 22
+y = 0
+z = -8
+yaw = 90
+
+[[spot]]
+id = "souei_tempest"
+kind = "souei"
+tag = "ttl.npc.souei"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = -29
+y = 10
+z = -43
+yaw = 0
+
+[[spot]]
+id = "hakurou_tempest"
+kind = "hakurou"
+tag = "ttl.npc.hakurou"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = 2
+y = 0
+z = -5
+yaw = 135
+
+[[spot]]
+id = "kaijin_tempest"
+kind = "kaijin"
+tag = "ttl.npc.kaijin"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = -26
+y = 0
+z = -12
+yaw = 90
+
+[[spot]]
+id = "garm_tempest"
+kind = "garm"
+tag = "ttl.npc.garm"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = -28
+y = 0
+z = -24
+yaw = 0
+
+[[spot]]
+id = "dold_tempest"
+kind = "dold"
+tag = "ttl.npc.dold"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = -24
+y = 0
+z = -24
+yaw = 0
+
+[[spot]]
+id = "mildo_tempest"
+kind = "mildo"
+tag = "ttl.npc.mildo"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = -17
+y = 0
+z = 9
+yaw = 0
+
+# The Outcast: chapters 7 and 8 (WP-S6) send the dark path to him on Tempest's south road at world 0, 52 (the Crossroads is the
+# south gate at 0, 23). He faces north, toward the village.
+[[spot]]
+id = "outcast_road"
+kind = "outcast_contact"
+tag = "ttl.npc.outcast_contact"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "world"
+surface = true
+x = 0
+y = 64
+z = 52
+yaw = 180
+
+# Blumund's guild hall (blueprints/blumund.py): the public side of the hall, x 94-101, z 57-79, door in the west wall at
+# (93, 67-68). The trio stands in the aisle facing the door; until Blumund is placed the stand-ins wait in Tempest's longhouse
+# (unless_build, the same tag, so there is still exactly one of each).
+[[spot]]
+id = "kabal_blumund"
+kind = "kabal"
+tag = "ttl.npc.kabal"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "blumund"
+x = 99
+y = 5
+z = 66
+yaw = 90
+
+[[spot]]
+id = "elen_blumund"
+kind = "elen"
+tag = "ttl.npc.elen"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "blumund"
+x = 99
+y = 5
+z = 68
+yaw = 90
+
+[[spot]]
+id = "gido_blumund"
+kind = "gido"
+tag = "ttl.npc.gido"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "blumund"
+x = 99
+y = 5
+z = 70
+yaw = 90
+
+[[spot]]
+id = "kabal_tempest"
+kind = "kabal"
+tag = "ttl.npc.kabal"
+enabled = true
+unless_build = "blumund"
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = -5
+y = 0
+z = -16
+yaw = 0
+
+[[spot]]
+id = "elen_tempest"
+kind = "elen"
+tag = "ttl.npc.elen"
+enabled = true
+unless_build = "blumund"
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = -3
+y = 0
+z = -16
+yaw = 0
+
+[[spot]]
+id = "gido_tempest"
+kind = "gido"
+tag = "ttl.npc.gido"
+enabled = true
+unless_build = "blumund"
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = -1
+y = 0
+z = -16
+yaw = 0
+
+# Treyni's shrine (blueprints/treyni_shrine.py): the dais centre is (16, 5, 16), the three sisters' seats stand on its east side;
+# Treyni stands in front of the middle seat facing the living gate in the west.
+[[spot]]
+id = "treyni_shrine"
+kind = "treyni"
+tag = "ttl.npc.treyni"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "treyni_shrine"
+x = 20
+y = 5
+z = 16
+yaw = 90
+
+# City of the Forgotten Dragon (blueprints/forgotten_dragon_city.py): Milim's bone throne on the dais at the back of the
+# distribution hall (z 22-25, throne at z 22-23); she stands on the dais in front of it.
+[[spot]]
+id = "milim_forgotten_dragon_city"
+kind = "milim"
+tag = "ttl.npc.milim"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "forgotten_dragon_city"
+x = 60
+y = 6
+z = 25
+yaw = 0
+
+# Englassia (blueprints/englassia.py): the Free Guild headquarters, hall x 93-121, z 75-89, reception counter at x 100; the
+# Grandmaster stands at the far end of the red carpet.
+[[spot]]
+id = "yuuki_englassia"
+kind = "yuuki"
+tag = "ttl.npc.yuuki"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "englassia"
+x = 118
+y = 5
+z = 82
+yaw = 90
+
+# Marris (blueprints/marris.py): throne seat (68, 6, 10) on the dais x 62-74, z 9-11 (walk y 6); the hall floor is walk y 5,
+# the carpet runs at x 67-69. The otherworlders flank the carpet.
+[[spot]]
+id = "edmaris_marris"
+kind = "edmaris"
+tag = "ttl.npc.edmaris"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "marris"
+x = 68
+y = 6
+z = 11
+yaw = 0
+
+[[spot]]
+id = "razen_marris"
+kind = "razen"
+tag = "ttl.npc.razen"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "marris"
+x = 65
+y = 6
+z = 11
+yaw = 0
+
+[[spot]]
+id = "folgen_marris"
+kind = "folgen_statue"
+tag = "ttl.npc.folgen_statue"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "marris"
+x = 71
+y = 6
+z = 11
+yaw = 0
+
+[[spot]]
+id = "kyoya_marris"
+kind = "kyoya_statue"
+tag = "ttl.npc.kyoya_statue"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "marris"
+x = 64
+y = 5
+z = 15
+yaw = -90
+
+[[spot]]
+id = "shogo_marris"
+kind = "shogo_statue"
+tag = "ttl.npc.shogo_statue"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "marris"
+x = 72
+y = 5
+z = 15
+yaw = 90
+
+[[spot]]
+id = "kirara_marris"
+kind = "kirara_statue"
+tag = "ttl.npc.kirara_statue"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "marris"
+x = 64
+y = 5
+z = 19
+yaw = -90
+
+# Lubelius (blueprints/lubelius.py): the Hall of the Holy Knights x 93-111, z 68-100 (door in the west wall at z 82-86, table
+# rows at z 71 75 79 ..., aisles at z 73 77 81 85 ...): Hinata's statue at the east end of the z 85 aisle looks down the hall to
+# the door. The cathedral's choir: raised quartz dais x 52-68, z 17-24 (altar x 58-62, z 18-19): Luminous stands before it.
+[[spot]]
+id = "hinata_lubelius"
+kind = "hinata_statue"
+tag = "ttl.npc.hinata_statue"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "lubelius"
+x = 108
+y = 5
+z = 85
+yaw = 90
+
+[[spot]]
+id = "luminous_lubelius"
+kind = "luminous_statue"
+tag = "ttl.npc.luminous_statue"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "lubelius"
+x = 60
+y = 6
+z = 23
+yaw = 0
+
+# Laura (blueprints/laura.py): the palace hall x 44-68, z 10-44 on the terrace (walk y 8); the lion throne stands on the
+# two-tier dais at the north end (z 11-14); Carrion stands on its lower tier in front of the throne.
+[[spot]]
+id = "carrion_laura"
+kind = "carrion_statue"
+tag = "ttl.npc.carrion_statue"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "laura"
+x = 56
+y = 9
+z = 14
+yaw = 0
+
+# Clayman's castle (blueprints/clayman_castle.py): the throne hall x 42-66, z 36-46 (walk y 8), purple carpet x 52-56; the
+# Walpurgis council stands in two pairs facing the carpet. Their lines wait for act 6 (story.toml).
+[[spot]]
+id = "frey_clayman"
+kind = "frey"
+tag = "ttl.npc.frey"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "clayman_castle"
+x = 50
+y = 8
+z = 42
+yaw = -90
+
+[[spot]]
+id = "guy_clayman"
+kind = "guy"
+tag = "ttl.npc.guy"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "clayman_castle"
+x = 50
+y = 8
+z = 45
+yaw = -90
+
+[[spot]]
+id = "leon_clayman"
+kind = "leon"
+tag = "ttl.npc.leon"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "clayman_castle"
+x = 58
+y = 8
+z = 42
+yaw = 90
+
+[[spot]]
+id = "dagruel_clayman"
+kind = "dagruel"
+tag = "ttl.npc.dagruel"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "clayman_castle"
+x = 58
+y = 8
+z = 45
+yaw = 90
+
+# The Dwelling of the Spirits (blueprints/spirit_dwelling.py, dimension ttl:spirit_domain, walk y 41): Ramiris on the dais
+# east of the glass lid over the shaft.
+[[spot]]
+id = "ramiris_spirit_dwelling"
+kind = "ramiris"
+tag = "ttl.npc.ramiris"
+enabled = true
+dim = "ttl:spirit_domain"
+anchor = "build"
+build = "spirit_dwelling"
+x = 50
+y = 41
+z = 44
+yaw = 90
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Hooks: a right-click on an entity that already exists and is not ours to spawn answers with `/ttl story talk <talk>`
+# (story/cast.js; sneaking keeps the entity's own menu). `tag` = a tag on the entity, `name` (optional) = its custom name.
+# The goblins of Tempest are summoned by life/tempest.js with the tag ttl_tempest_resident and their canon names; the throne
+# Gazel of life/dwargon.js has the tag ttl_gazel and is the one the story talks to (the boss Gazel is a separate entity).
+
+[[hook]]
+id = "gazel_throne"
+tag = "ttl_gazel"
+talk = "gazel"
+
+[[hook]]
+id = "rigurd"
+tag = "ttl_tempest_resident"
+name = "Rigurd"
+talk = "rigurd"
+
+[[hook]]
+id = "gobta"
+tag = "ttl_tempest_resident"
+name = "Gobta"
+talk = "gobta"

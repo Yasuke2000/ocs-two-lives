@@ -1,0 +1,84 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Story",
+    created:1790000000000L,
+    description:"Milim Nava, the Dragonoid Demon Lord (story NPC; never a fight).",
+    entityTypeId:"easy_npc:humanoid_slim",
+    modified:1790000000000L,
+    name:"Milim Nava",
+    variantType:"SUNNY",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#FF69B4","text":"Milim Nava"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl story talk milim",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_talk",
+              Name:"Talk"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Goodbye"
+            }
+          ],
+          Label:"default",
+          Name:"Milim Nava",
+          Priority:5,
+          Texts:[
+            {
+              Text:"A small girl sits on a bone throne with her legs swinging. Everyone in the room is careful not to look bored."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;1842751070,-1984211826,-1283064677,689870902],
+    VariantType:"SUNNY",
+    id:"easy_npc:humanoid_slim"
+  }
+}

@@ -15,9 +15,16 @@
 // last defeat). Player: stage `ttl.boss.t<tier>`, `ttl.boss.kills` JSON {id: n}, `ttl.boss.core.owed` (Skill Cores
 // not yet handed out because the item does not exist yet).
 // Record: {id, dim, x, y, z, started, state idle|fight, base (vanilla max hp), n (players at last scaling), phase
-// (phases done), hit/near/names (uuid maps: damage dealers, polls in range, display names), seen (objective values
-// at the last poll), last (uuids in range at the last poll), gone (polls without the entity), idle (millis since
-// nobody came), fx/fz (forceloaded block position), bar}.
+// (phases done), hit/near/names (uuid maps: damage dealers, polls in range, display names), dmg (uuid -> damage dealt),
+// seen (objective values at the last poll), last (uuids in range at the last poll), gone (polls without the entity),
+// idle (millis since nobody came), fx/fz (forceloaded block position), wild (true: rolled by bosses/wild.js), duel
+// (true: an honour duel, no kill_rep), party {teamId: [uuids]} (rosters frozen the first time a member stood near the
+// boss) and pt {uuid: teamId} (what each player was seen as), bar}.
+// Party credit (finish): the party members of everyone credited who were in that frozen roster, are online, Life 2 and
+// within party_credit_range x range share the kill (no Skill Core beyond core_per_party), so a party that stands around
+// cannot farm cores and one invited after the wake or the kill gets nothing. The party is an FTB Teams party team.
+// Summoning (opts): {summoner} checked against `requires` + `spawn.stages`; {skipGate, skipCooldown} (force = both, ops);
+// {wild: true} (bosses/wild.js: no arena bound, announced by TtlWild); {duel: true}; {x, y, z, dim}; {at}; {by}; {region}.
 // Never bindable as a Tombstone familiar: compat/tombstone_bosses.js refuses any entity with the ttl.boss tag.
 const TtlBoss = {
   POLL: 20,
@@ -29,19 +36,27 @@ const TtlBoss = {
   NATURAL: /natural|chunk_generation|structure|spawner|patrol|reinforcement|jockey/i,
   // In-memory only: damage dealers seen since the last poll per instance, summons waiting for their chunk, bars made.
   hits: {},
+  dmg: {},
   pending: {},
   bars: {},
+  teamApi: undefined,
 
   // ---- data -------------------------------------------------------------------------------------------------
 
   conf() {
     var f = (TtlData.bosses && TtlData.bosses.framework) || {}
+    var w = (TtlData.bosses && TtlData.bosses.wild) || {}
+    var idle = f.idle_minutes === undefined ? 30 : Number(f.idle_minutes)
     return {
       blockNatural: f.block_natural !== false,
-      naturalAllow: f.natural_allow || [],
-      idleMs: (f.idle_minutes === undefined ? 30 : Number(f.idle_minutes)) * 60000,
+      idleMs: idle * 60000,
+      wildIdleMs: (w.idle_minutes === undefined ? idle : Number(w.idle_minutes)) * 60000,
       presence: f.presence_secs === undefined ? 15 : Number(f.presence_secs),
-      untame: f.untame !== false
+      untame: f.untame !== false,
+      partyRange: f.party_credit_range === undefined ? 2 : Number(f.party_credit_range),
+      corePerParty: f.core_per_party === undefined ? 1 : Number(f.core_per_party),
+      proxies: f.proxy_bosses !== false,
+      wildMult: w.rewards_mult === undefined ? 1 : Number(w.rewards_mult)
     }
   },
 
@@ -163,22 +178,44 @@ const TtlBoss = {
 
   // ---- summoning --------------------------------------------------------------------------------------------
 
-  // Where a boss goes: explicit opts.x/y/z first, then the definition's arena, then opts.at (the caller's position).
-  // Returns {dim, x, y?, z} (no y = the surface there) or an error string.
-  arenaOf(def, opts) {
-    var a = def.arena
-    var centre = null
-    if (a && a.landmark) {
+  // The place of an arena table: a landmark (landmarks.toml), a build (the anchor where it was placed, else the canon
+  // x/z of design/builds; a fixed-ground build keeps its walking level) or x/z. Returns {dim, x, y?, z} or an error string.
+  centreOf(server, a) {
+    if (a.landmark) {
       var lms = (TtlData.landmarks && TtlData.landmarks.landmark) || []
       for (var i = 0; i < lms.length; i++) {
-        if (lms[i].name === a.landmark) centre = { dim: TtlLife.OVERWORLD, x: lms[i].x, z: lms[i].z }
+        if (lms[i].name === a.landmark) return { dim: TtlLife.OVERWORLD, x: lms[i].x, z: lms[i].z }
       }
-      if (!centre) return `arena landmark ${a.landmark} is not in landmarks.toml`
-    } else if (a && a.x !== undefined) {
-      centre = { dim: a.dim || TtlLife.OVERWORLD, x: a.x, y: a.y, z: a.z }
+      return `arena landmark ${a.landmark} is not in landmarks.toml`
+    }
+    if (a.build) {
+      var bs = (TtlData.builds || []).filter(b => b.name === a.build)
+      if (bs.length === 0) return `arena build ${a.build} is not in design/builds`
+      var b = bs[0]
+      var at = String(server.persistentData.getString(`ttl.build.${a.build}.at`) || '')
+      if (at) {
+        var p = at.split(' ').map(Number)
+        return { dim: b.dimension, x: p[0], y: p[1], z: p[2] }
+      }
+      return { dim: b.dimension, x: b.x, y: b.ground === 'fixed' ? b.y : undefined, z: b.z }
+    }
+    if (a.x !== undefined) return { dim: a.dim || TtlLife.OVERWORLD, x: a.x, y: a.y, z: a.z }
+    return null
+  },
+
+  // Where a boss goes: explicit opts.x/y/z first, then the encounter's place (spawn.at, else the arena), then opts.at
+  // (the caller's position). Returns {dim, x, y?, z} (no y = the surface there) or an error string. A wild summon
+  // (opts.wild) goes where it is told and is never leashed to the arena.
+  arenaOf(server, def, opts) {
+    var a = (def.spawn && def.spawn.at) || def.arena
+    var centre = null
+    if (a) {
+      centre = this.centreOf(server, a)
+      if (typeof centre === 'string') return centre
     }
     if (opts.x !== undefined) {
-      var want = { dim: opts.dim, x: Math.floor(opts.x), y: Math.floor(opts.y), z: Math.floor(opts.z) }
+      var want = { dim: opts.dim, x: Math.floor(opts.x), y: opts.y === undefined ? undefined : Math.floor(opts.y), z: Math.floor(opts.z) }
+      if (opts.wild) return want
       // A bound arena (radius) only accepts a summon inside it: the encounter happens there, nowhere else.
       if (a && a.radius !== undefined) {
         var dx = want.x - centre.x
@@ -198,47 +235,55 @@ const TtlBoss = {
     return `${def.id} has no arena: give coordinates, or summon it from a player`
   },
 
-  // A boss with `requires` (ids of bosses that must have been beaten first) only answers a summoner who has the stage
-  // ttl.defeated.<id> for each; opts.force (ops) skips it. Returns an error string or ''.
+  // A boss with `requires` (ids of bosses that must have been beaten first) and/or `spawn.stages` (stages) only answers a
+  // summoner who holds all of them; opts.force or opts.skipGate (ops, the wild roll) skips it. Never a story path: anyone
+  // may fight any boss. Returns an error string or ''.
   gate(def, opts) {
     var req = def.requires || []
-    if (req.length === 0 || opts.force) return ''
+    var stages = (def.spawn && def.spawn.stages) || []
+    if ((req.length === 0 && stages.length === 0) || opts.force || opts.skipGate) return ''
     var who = opts.summoner
-    if (!who) return `${def.title} needs a summoner who has defeated ${req.join(', ')}`
+    if (!who) return `${def.title} needs a summoner who has defeated ${req.concat(stages).join(', ')}`
     for (var i = 0; i < req.length; i++) {
       if (!who.stages.has(`ttl.defeated.${req[i]}`)) {
         var other = this.def(req[i])
         return `${def.title} only answers someone who has defeated ${other ? other.title : req[i]}`
       }
     }
+    for (var j = 0; j < stages.length; j++) {
+      if (!who.stages.has(stages[j])) return `${def.title} only answers someone who holds ${stages[j]}`
+    }
     return ''
   },
 
-  // Summons a boss. opts: {summoner: player} (checked against `requires`; quests and altars pass it), {x, y, z, dim} (explicit spot), {at: {dim, x, y, z}} (fallback spot), {force: true} (skip the
-  // cooldown, ops only), {by: name} (who asked, for the log). Returns an error string, or null when the summon is
-  // under way: the entity appears once its chunk is loaded (a second or two), and the log says "summoned".
+  // Summons a boss; see the header for opts. {force: true} = skipGate + skipCooldown (ops). Returns an error string, or null
+  // when the summon is under way: the entity appears once its chunk is loaded (a second or two), and the log says "summoned".
   summon(server, id, opts) {
     opts = opts || {}
     var def = this.def(id)
     if (!def) return `unknown boss ${id} (one of ${this.defs().map(d => d.id).join(', ')})`
+    if (def.proxy && !this.conf().proxies) return `${def.title} is a proxy boss and proxy_bosses is off in bosses.toml`
     var active = this.load(server)
     for (var k in active) {
       if (active[k].id === id) return `${def.title} is already out there`
     }
     if (this.pending[id]) return `${def.title} is already being summoned`
-    if (!opts.force) {
+    if (!opts.force && !opts.skipCooldown) {
       var left = this.cooldownLeft(server, def)
       if (left > 0) return `${def.title} cannot be summoned for another ${Math.ceil(left / 60000)} minutes`
     }
     var gate = this.gate(def, opts)
     if (gate) return gate
-    var pos = this.arenaOf(def, opts)
+    var pos = this.arenaOf(server, def, opts)
     if (typeof pos === 'string') return pos
     if (TtlLife.isMortal(pos.dim)) return 'bosses do not exist in the Mortal Realm'
     if (!server.getLevel(pos.dim)) return `unknown dimension ${pos.dim}`
     var seq = Number(server.persistentData.getInt('ttl.boss.seq')) + 1
     server.persistentData.putInt('ttl.boss.seq', seq)
-    var ctx = { id: id, key: `k${seq}`, dim: pos.dim, x: pos.x, y: pos.y, z: pos.z, by: opts.by || '', tries: 0, arena: pos.arena }
+    var ctx = {
+      id: id, key: `k${seq}`, dim: pos.dim, x: pos.x, y: pos.y, z: pos.z, by: opts.by || '', tries: 0, arena: pos.arena,
+      wild: !!opts.wild, duel: !!opts.duel, region: opts.region || '', near: opts.near || ''
+    }
     this.pending[id] = true
     this.run(server, pos.dim, `forceload add ${pos.x} ${pos.z}`)
     console.info(`[ttl] boss: summoning ${id} at ${pos.dim} ${pos.x} ${pos.y === undefined ? 'surface' : pos.y} ${pos.z}${ctx.by ? ` (asked by ${ctx.by})` : ''}`)
@@ -286,8 +331,10 @@ const TtlBoss = {
     var rec = {
       id: def.id, dim: ctx.dim, x: e.getX(), y: e.getY(), z: e.getZ(), started: now, state: 'idle',
       base: Math.round(e.getMaxHealth()), n: 0, phase: 0, hit: {}, near: {}, names: {}, seen: {}, last: [],
-      gone: 0, idle: now, fx: ctx.x, fz: ctx.z, by: ctx.by
+      gone: 0, idle: now, fx: ctx.x, fz: ctx.z, by: ctx.by, dmg: {}, party: {}, pt: {}
     }
+    if (ctx.wild) rec.wild = true
+    if (ctx.duel) rec.duel = true
     if (ctx.arena) {
       // Leash: a boss of a bound arena that is pulled away is put back (see fight()).
       rec.ax = ctx.arena.x
@@ -303,7 +350,16 @@ const TtlBoss = {
     delete this.pending[def.id]
     this.ensureBar(server, ctx.key, rec, def)
     var n = Math.max(1, near.length)
-    console.info(`[ttl] boss: ${def.id} summoned (hp ×${mult}, ${n} player${n === 1 ? '' : 's'})`)
+    console.info(`[ttl] boss: ${def.id} summoned${ctx.wild ? ' (wild)' : ''} (hp ×${mult}, ${n} player${n === 1 ? '' : 's'})`)
+    if (ctx.wild) {
+      // A wild boss is announced by bosses/wild.js (title, chat, Discord #story), not as an ordinary summon.
+      try {
+        TtlWild.announce(server, def, ctx)
+      } catch (err) {
+        console.error(`[ttl] boss: announcing wild ${def.id} failed: ${err}`)
+      }
+      return
+    }
     var title = def.title
     this.players(server).forEach(p => p.tell(Text.gold(`${title} has been summoned.`)))
   },
@@ -338,11 +394,111 @@ const TtlBoss = {
     return key
   },
 
-  noteHit(e, attacker) {
+  noteHit(e, attacker, damage) {
     var key = this.keyOf(e)
     if (!key) return
     if (!this.hits[key]) this.hits[key] = {}
-    this.hits[key][this.uid(attacker)] = String(attacker.username)
+    var u = this.uid(attacker)
+    this.hits[key][u] = String(attacker.username)
+    if (!this.dmg[key]) this.dmg[key] = {}
+    this.dmg[key][u] = (this.dmg[key][u] || 0) + (damage > 0 ? damage : 0)
+  },
+
+  // Folds the damage seen since the last poll into the record.
+  foldHits(key, rec) {
+    if (this.hits[key]) {
+      for (var u in this.hits[key]) {
+        rec.hit[u] = true
+        rec.names[u] = this.hits[key][u]
+      }
+      delete this.hits[key]
+    }
+    if (this.dmg[key]) {
+      rec.dmg = rec.dmg || {}
+      for (var d in this.dmg[key]) rec.dmg[d] = (rec.dmg[d] || 0) + this.dmg[key][d]
+      delete this.dmg[key]
+    }
+  },
+
+  // ---- parties ----------------------------------------------------------------------------------------------------
+
+  // The party a player is in: {id, members: [lowercase uuids]} or null. The FTB Teams party team (a player's own solo team
+  // is not a party). Test hook: server `ttl.boss.testparty` = JSON {members: [uuids]} (`/ttl boss testparty`) makes those
+  // players one party and lets test bots count for it; without a hook bots never share party credit.
+  partyOf(server, player) {
+    var u = this.uid(player)
+    var fake = this.testParty(server)
+    if (fake) return fake.members.indexOf(u) >= 0 ? { id: 'test', members: fake.members } : null
+    // The party layer (party/party.js) is the one reader of FTB Teams; the direct read below only runs without it.
+    if (typeof TtlParty !== 'undefined' && typeof TtlParty.partyOf === 'function') {
+      try {
+        var mine = TtlParty.partyOf(server, player)
+        return mine ? { id: mine.id, members: mine.members } : null
+      } catch (e) {
+        console.warn(`[ttl] boss: the party layer failed for ${player.username}: ${e}`)
+        return null
+      }
+    }
+    var cls = this.ftb()
+    if (!cls) return null
+    try {
+      var api = cls.api()
+      if (!api.isManagerLoaded()) return null
+      var opt = api.getManager().getTeamForPlayer(player)
+      if (!opt.isPresent()) return null
+      var team = opt.get()
+      if (!team.isPartyTeam()) return null
+      var members = []
+      team.getMembers().forEach(m => members.push(String(m).toLowerCase()))
+      return { id: String(team.getId()), members: members }
+    } catch (e) {
+      console.warn(`[ttl] boss: reading the FTB party of ${player.username} failed: ${e}`)
+      return null
+    }
+  },
+
+  ftb() {
+    if (this.teamApi === undefined) {
+      try {
+        this.teamApi = Java.loadClass('dev.ftb.mods.ftbteams.api.FTBTeamsAPI')
+      } catch (e) {
+        this.teamApi = null
+        console.warn(`[ttl] boss: FTB Teams API not available, no party credit: ${e}`)
+      }
+    }
+    return this.teamApi
+  },
+
+  testParty(server) {
+    var raw = String(server.persistentData.getString('ttl.boss.testparty') || '')
+    if (!raw) return null
+    try {
+      var p = JSON.parse(raw)
+      return p && p.members && p.members.length ? p : null
+    } catch (e) {
+      return null
+    }
+  },
+
+  isBot(server, p) {
+    try {
+      return typeof TtlDiscord !== 'undefined' && TtlDiscord.isBot(String(p.username))
+    } catch (e) {
+      return false
+    }
+  },
+
+  // First time a player stands near the boss, freeze the roster of their party (see the header).
+  snapParty(server, rec, near) {
+    rec.party = rec.party || {}
+    rec.pt = rec.pt || {}
+    near.forEach(p => {
+      var u = this.uid(p)
+      if (rec.pt[u] !== undefined) return
+      var team = this.partyOf(server, p)
+      rec.pt[u] = team ? team.id : ''
+      if (team && !rec.party[team.id]) rec.party[team.id] = team.members
+    })
   },
 
   // ---- boss bar -----------------------------------------------------------------------------------------------
@@ -421,23 +577,19 @@ const TtlBoss = {
     var near = this.near(players, rec, def)
     var cfg = this.conf()
     rec.last = near.map(p => this.uid(p))
-    if (this.hits[key]) {
-      for (var u in this.hits[key]) {
-        rec.hit[u] = true
-        rec.names[u] = this.hits[key][u]
-      }
-      delete this.hits[key]
-    }
+    this.foldHits(key, rec)
     near.forEach(p => {
       var u = this.uid(p)
       rec.near[u] = (rec.near[u] || 0) + 1
       rec.names[u] = String(p.username)
     })
+    this.snapParty(server, rec, near)
     if (rec.state === 'idle') {
+      var idleMs = rec.wild ? cfg.wildIdleMs : cfg.idleMs
       if (near.length > 0) {
         this.wake(server, key, rec, def, e, near)
-      } else if (now - rec.idle > cfg.idleMs) {
-        console.info(`[ttl] boss: ${def.id} removed, nobody came within ${cfg.idleMs / 60000} minutes`)
+      } else if (now - rec.idle > idleMs) {
+        console.info(`[ttl] boss: ${def.id} removed, nobody came within ${idleMs / 60000} minutes${rec.wild ? ' (wild)' : ''}`)
         this.cleanup(server, key, rec, true)
         return 'done'
       }
@@ -502,13 +654,15 @@ const TtlBoss = {
     server.runCommandSilent(`bossbar remove ${this.barId(key)}`)
     delete this.bars[key]
     delete this.hits[key]
+    delete this.dmg[key]
     // Leave the chunk loaded a moment so the death loot and experience are placed.
     server.scheduleInTicks(100, () => this.run(server, rec.dim, `forceload remove ${rec.fx} ${rec.fz}`))
   },
 
   // The boss is dead (or gone). Winners: whoever the kill objective credits; whoever hit it, or stood in range for
   // presence_secs, and is within range now; and, when no player is credited with the kill, everybody in range at the
-  // last poll. Nobody qualifying means the boss was lost without a fight: no reward, no cooldown.
+  // last poll. Their party members (see partyExtras) share the kill. Nobody qualifying means the boss was lost without a
+  // fight: no reward, no cooldown.
   finish(server, key, rec, def, players) {
     var byId = {}
     players.forEach(p => { byId[this.uid(p)] = p })
@@ -522,9 +676,7 @@ const TtlBoss = {
         killers++
       }
     })
-    if (this.hits[key]) {
-      for (var h in this.hits[key]) rec.hit[h] = true
-    }
+    this.foldHits(key, rec)
     var presence = this.conf().presence
     for (var u1 in rec.hit) {
       if (byId[u1] && inRange(byId[u1])) winners[u1] = byId[u1]
@@ -547,19 +699,69 @@ const TtlBoss = {
       return
     }
     server.persistentData.putString(`ttl.boss.last.${def.id}`, String(Date.now()))
+    var mult = rec.wild ? this.conf().wildMult : 1
     for (var w2 in winners) {
       try {
-        this.reward(server, def, winners[w2])
+        this.reward(server, def, winners[w2], { mult: mult, duel: rec.duel })
       } catch (e) {
         console.error(`[ttl] boss: rewarding ${winners[w2].username} for ${def.id} failed: ${e}`)
       }
     }
-    console.info(`[ttl] boss: ${def.id} defeated by ${names.join(', ')}${killers > 0 ? '' : ' (no kill credit: shared by everyone in the fight)'}`)
+    var shared = this.partyExtras(server, rec, def, winners, byId)
+    shared.forEach(x => {
+      try {
+        this.reward(server, def, x.p, { mult: mult, duel: rec.duel, core: x.core, party: true })
+        names.push(String(x.p.username))
+        console.info(`[ttl] boss: ${def.id} party credit for ${x.p.username} (party of ${x.via}${x.core ? ', Skill Core' : ''})`)
+      } catch (e) {
+        console.error(`[ttl] boss: party credit for ${x.p.username} (${def.id}) failed: ${e}`)
+      }
+    })
+    console.info(`[ttl] boss: ${def.id} defeated by ${names.join(', ')}${killers > 0 ? '' : ' (no kill credit: shared by everyone in the fight)'}${rec.wild ? ' (wild)' : ''}`)
     this.announce(server, def, names)
   },
 
-  // Stage, kill count, rep, coins and Skill Core for one winner. WP10 (bosses/rewards.js) may later replace the payout.
-  reward(server, def, p) {
+  // Party members who share the kill without being contributors themselves: in the roster frozen when their party first
+  // stood near the boss (and so was the credited member), online, Life 2, not a spectator, in the boss's dimension and
+  // within party_credit_range x range. Test bots count only while a `testparty` is set. At most core_per_party of each
+  // party also get a Skill Core (the most damage dealt, then the longest in range). Returns [{p, core, via}].
+  partyExtras(server, rec, def, winners, byId) {
+    var cfg = this.conf()
+    var out = {}
+    var seenParty = {}
+    var reach = def.range * cfg.partyRange
+    var testing = !!this.testParty(server)
+    var wantCore = !!(def.rewards && def.rewards.core)
+    for (var w in winners) {
+      var team = this.partyOf(server, winners[w])
+      if (!team || !rec.party || !rec.party[team.id] || rec.party[team.id].indexOf(w) < 0) continue
+      var picked = []
+      rec.party[team.id].forEach(u => {
+        var p = byId[u]
+        if (winners[u] || out[u] || !p || seenParty[u]) return
+        if (p.isSpectator() || TtlLife.phase(p) !== 'life2') return
+        if (!testing && this.isBot(server, p)) return
+        if (this.distance(p, rec.dim, rec.x, rec.y, rec.z) > reach) return
+        seenParty[u] = true
+        picked.push({ u: u, p: p, via: String(winners[w].username) })
+      })
+      var dmg = rec.dmg || {}
+      var near = rec.near || {}
+      picked.sort((a, b) => (dmg[b.u] || 0) - (dmg[a.u] || 0) || (near[b.u] || 0) - (near[a.u] || 0))
+      picked.forEach((x, i) => {
+        x.core = wantCore && i < cfg.corePerParty
+        out[x.u] = x
+      })
+    }
+    return Object.keys(out).map(u => out[u])
+  },
+
+  // Stage, kill count, rep, coins and Skill Core for one credited player, plus the boss's kill_rep (a regicide costs
+  // Dwargon rep, light or dark). opts: {mult} (wild rewards_mult on rep and coins, never the core), {core: false} (a
+  // party member without a core), {duel} (no kill_rep), {party}. WP10 (bosses/rewards.js) may later replace the payout.
+  reward(server, def, p, opts) {
+    opts = opts || {}
+    var mult = opts.mult === undefined ? 1 : opts.mult
     var name = String(p.username)
     p.stages.add(`ttl.boss.t${def.tier}`)
     // Also the convention compat/tombstone_bosses.js and `requires` read: ttl.defeated.<boss id>.
@@ -574,11 +776,37 @@ const TtlBoss = {
     p.persistentData.putString('ttl.boss.kills', JSON.stringify(kills))
     var r = def.rewards || {}
     var rep = r.rep || {}
-    Object.keys(rep).forEach(f => server.runCommandSilent(`ttl rep add ${name} ${f} ${rep[f]}`))
+    Object.keys(rep).forEach(f => {
+      var n = Math.round(rep[f] * mult)
+      if (n !== 0) server.runCommandSilent(`ttl rep add ${name} ${f} ${n}`)
+    })
     var coins = r.coins || {}
-    Object.keys(coins).forEach(c => server.runCommandSilent(`give ${name} tensura:${c}_coin ${coins[c]}`))
-    if (r.core) this.giveCore(server, p, def)
-    p.tell(Text.gold(`You defeated ${def.title}.`))
+    Object.keys(coins).forEach(c => {
+      var n = Math.round(coins[c] * mult)
+      if (n >= 1) server.runCommandSilent(`give ${name} tensura:${c}_coin ${n}`)
+    })
+    if (r.core && opts.core !== false) this.giveCore(server, p, def)
+    if (!opts.duel) this.killRep(server, def, p)
+    p.tell(Text.gold(opts.party ? `You share your party's victory over ${def.title}.` : `You defeated ${def.title}.`))
+  },
+
+  // bosses.toml kill_rep: { faction = n, flag, unless_flag }. With the story core loaded TtlStory.onBossKill applies all of
+  // it (rep, flag, the honour-duel exemption) and this applies nothing, so nothing is paid twice; without it only the rep.
+  killRep(server, def, p) {
+    var kr = def.kill_rep
+    if (!kr) return
+    var name = String(p.username)
+    if (typeof TtlStory !== 'undefined' && typeof TtlStory.onBossKill === 'function') {
+      try {
+        TtlStory.onBossKill(server, p, def.id)
+      } catch (e) {
+        console.error(`[ttl] boss: story kill cost of ${def.id} for ${name} failed: ${e}`)
+      }
+      return
+    }
+    Object.keys(kr).forEach(f => {
+      if (f !== 'flag' && f !== 'unless_flag') server.runCommandSilent(`ttl rep add ${name} ${f} ${kr[f]}`)
+    })
   },
 
   // ttl:skill_core is registered in startup_scripts/ttl/items.js; if the item is ever missing the core is owed and
@@ -686,7 +914,7 @@ EntityEvents.afterHurt(event => {
     if (e.isPlayer()) return
     if (!e.getTags().contains('ttl.boss')) return
     var attacker = event.source.actual
-    if (attacker && attacker.isPlayer()) TtlBoss.noteHit(e, attacker)
+    if (attacker && attacker.isPlayer()) TtlBoss.noteHit(e, attacker, Number(event.damage) || 0)
   } catch (err) {
     console.error(`[ttl] boss: hit tracking failed: ${err}`)
   }
@@ -703,8 +931,9 @@ try {
       var id = String(entity.type)
       var def = TtlBoss.byEntity(id)
       if (!def) return
-      // Wild spawns of these stay (Shizu); a summoned instance is spawned by command and tagged afterwards.
-      if (TtlBoss.conf().naturalAllow.indexOf(def.id) >= 0) return
+      // A proxy boss stands on an ordinary mob (Clayman on the arch daemon): that mob keeps spawning by itself. Every real
+      // boss entity is wild-rolled by bosses/wild.js instead (Shizu included), so nothing is exempt any more.
+      if (def.proxy) return
       var type = String(event.type)
       blocked = TtlBoss.NATURAL.test(type)
       console.info(`[ttl] boss: ${id} spawn type=${type}: ${blocked ? 'blocked' : 'allowed'}`)

@@ -1,0 +1,84 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Story",
+    created:1790000000000L,
+    description:"Guy Crimson, the oldest Demon Lord (story NPC).",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Guy Crimson",
+    variantType:"ARI",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#B03A2E","text":"Guy Crimson"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl story talk guy",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_talk",
+              Name:"Talk"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Goodbye"
+            }
+          ],
+          Label:"default",
+          Name:"Guy Crimson",
+          Priority:5,
+          Texts:[
+            {
+              Text:"A man with crimson hair and a bored face lounges at the council table, as if he had seen all of this before."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-341444187,-1570287199,-1722457948,1814496172],
+    VariantType:"ARI",
+    id:"easy_npc:humanoid"
+  }
+}

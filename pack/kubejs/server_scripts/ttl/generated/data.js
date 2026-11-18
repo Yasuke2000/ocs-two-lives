@@ -43,8 +43,19 @@ const TtlData = {
             "tempest": 5
           }
         },
+        "spawn": {
+          "kind": "altar"
+        },
         "tier": 1,
-        "title": "Geld, the Orc Lord"
+        "title": "Geld, the Orc Lord",
+        "wild": {
+          "chance_per_day": 0.03,
+          "regions": [
+            "J",
+            "W",
+            "V"
+          ]
+        }
       },
       {
         "cooldown_hours": 24,
@@ -69,8 +80,20 @@ const TtlData = {
             "tempest": 5
           }
         },
+        "spawn": {
+          "at": {
+            "build": "sealed_cave"
+          },
+          "kind": "altar"
+        },
         "tier": 1,
-        "title": "The Supermassive Slime"
+        "title": "The Supermassive Slime",
+        "wild": {
+          "chance_per_day": 0.03,
+          "regions": [
+            "J"
+          ]
+        }
       },
       {
         "cooldown_hours": 48,
@@ -91,13 +114,31 @@ const TtlData = {
           }
         ],
         "range": 56,
+        "requires": [
+          "shizu"
+        ],
         "rewards": {
           "coins": {
             "gold": 3
           }
         },
+        "spawn": {
+          "at": {
+            "radius": 48,
+            "x": 0,
+            "z": 0
+          },
+          "kind": "quest"
+        },
         "tier": 2,
-        "title": "Ifrit, the Flame Spirit"
+        "title": "Ifrit, the Flame Spirit",
+        "wild": {
+          "chance_per_day": 0.01,
+          "regions": [
+            "M",
+            "E"
+          ]
+        }
       },
       {
         "cooldown_hours": 48,
@@ -119,6 +160,9 @@ const TtlData = {
           }
         ],
         "range": 56,
+        "requires": [
+          "orc_lord"
+        ],
         "rewards": {
           "coins": {
             "gold": 3
@@ -127,8 +171,23 @@ const TtlData = {
             "tempest": 8
           }
         },
+        "spawn": {
+          "at": {
+            "radius": 64,
+            "x": 1106,
+            "z": 539
+          },
+          "kind": "quest"
+        },
         "tier": 2,
-        "title": "The Orc Disaster"
+        "title": "The Orc Disaster",
+        "wild": {
+          "chance_per_day": 0.01,
+          "regions": [
+            "W",
+            "V"
+          ]
+        }
       },
       {
         "cooldown_hours": 48,
@@ -149,161 +208,160 @@ const TtlData = {
             "gold": 3
           }
         },
+        "spawn": {
+          "at": {
+            "build": "spirit_dwelling"
+          },
+          "kind": "altar"
+        },
         "tier": 2,
-        "title": "Mimic Echo"
+        "title": "Mimic Echo",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "J"
+          ],
+          "weather": "thunder"
+        }
       },
       {
-        "cooldown_hours": 72,
-        "entity": "tensura:charybdis",
-        "hp_mult": 4.0,
-        "id": "charybdis",
-        "per_player_mult": 1.0,
-        "phases": [
-          {
-            "at_hp": 0.6,
-            "enrage": 1,
-            "say": "The sea turns against you."
-          },
-          {
-            "at_hp": 0.3,
-            "enrage": 2,
-            "say": "Charybdis thrashes in a final rage."
-          }
-        ],
-        "range": 64,
-        "rewards": {
-          "coins": {
-            "gold": 10
-          },
-          "core": true
-        },
-        "tier": 3,
-        "title": "Charybdis, the Whirlpool Calamity"
-      },
-      {
-        "cooldown_hours": 72,
-        "entity": "tensura:gazel_dwargo",
-        "hp_mult": 4.0,
-        "id": "gazel_dwargo",
-        "per_player_mult": 1.0,
+        "cooldown_hours": 48,
+        "entity": "tensura:folgen",
+        "hp_mult": 3.0,
+        "id": "folgen",
+        "per_player_mult": 0.75,
         "phases": [
           {
             "at_hp": 0.5,
             "enrage": 1,
-            "say": "The Dwarf King draws his full strength."
+            "say": "Folgen stops holding his men back."
           }
         ],
-        "range": 64,
+        "range": 56,
         "rewards": {
           "coins": {
-            "gold": 10
-          },
-          "core": true
+            "gold": 3
+          }
         },
-        "tier": 3,
-        "title": "Gazel Dwargo, the Dwarf King"
+        "spawn": {
+          "at": {
+            "radius": 48,
+            "x": 0,
+            "z": 40
+          },
+          "kind": "event"
+        },
+        "tier": 2,
+        "title": "Folgen, Field Commander of Falmuth",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "F",
+            "R"
+          ]
+        }
       },
       {
-        "cooldown_hours": 72,
-        "entity": "tensura:hinata_sakaguchi",
-        "hp_mult": 4.0,
-        "id": "hinata_sakaguchi",
-        "per_player_mult": 1.0,
+        "cooldown_hours": 48,
+        "entity": "tensura:kyoya_tachibana",
+        "hp_mult": 3.0,
+        "id": "kyoya_tachibana",
+        "per_player_mult": 0.75,
         "phases": [
           {
             "at_hp": 0.5,
             "enrage": 1,
-            "say": "Hinata stops holding back."
+            "say": "Kyoya fights in earnest."
           }
         ],
-        "range": 64,
+        "range": 56,
         "rewards": {
           "coins": {
-            "gold": 10
-          },
-          "core": true
+            "gold": 3
+          }
         },
-        "tier": 3,
-        "title": "Hinata Sakaguchi, the Saint"
+        "spawn": {
+          "at": {
+            "build": "marris"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Kyoya Tachibana",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "F"
+          ]
+        }
       },
       {
-        "cooldown_hours": 72,
-        "entity": "tensura_neb:carrion",
-        "hp_mult": 4.0,
-        "id": "carrion",
-        "per_player_mult": 1.0,
+        "cooldown_hours": 48,
+        "entity": "tensura:shogo_taguchi",
+        "hp_mult": 3.0,
+        "id": "shogo_taguchi",
+        "per_player_mult": 0.75,
         "phases": [
           {
             "at_hp": 0.5,
             "enrage": 1,
-            "say": "Carrion's roar shakes the ground."
+            "say": "Shogo stops testing you."
           }
         ],
-        "range": 64,
+        "range": 56,
         "rewards": {
           "coins": {
-            "gold": 10
-          },
-          "core": true
+            "gold": 3
+          }
         },
-        "tier": 3,
-        "title": "Carrion, the Beast Lord"
+        "spawn": {
+          "at": {
+            "build": "marris"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Shogo Taguchi",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "F"
+          ]
+        }
       },
       {
-        "cooldown_hours": 96,
-        "entity": "tensura_neb:luminous_valentine",
-        "hp_mult": 6.0,
-        "id": "luminous_valentine",
-        "per_player_mult": 1.5,
+        "cooldown_hours": 48,
+        "entity": "tensura:kirara_mizutani",
+        "hp_mult": 3.0,
+        "id": "kirara_mizutani",
+        "per_player_mult": 0.75,
         "phases": [
           {
-            "at_hp": 0.7,
+            "at_hp": 0.5,
             "enrage": 1,
-            "say": "Luminous's aura grows heavy."
-          },
-          {
-            "at_hp": 0.35,
-            "enrage": 2,
-            "say": "Luminous no longer pretends to be gentle."
+            "say": "Kirara's patience runs out."
           }
         ],
-        "range": 72,
+        "range": 56,
         "rewards": {
           "coins": {
-            "gold": 25
-          },
-          "core": true
-        },
-        "tier": 4,
-        "title": "Luminous Valentine, the Demon Lord"
-      },
-      {
-        "cooldown_hours": 96,
-        "entity": "tensura_neb:veldora",
-        "hp_mult": 6.0,
-        "id": "veldora",
-        "per_player_mult": 1.5,
-        "phases": [
-          {
-            "at_hp": 0.7,
-            "enrage": 1,
-            "say": "Storm clouds gather over the arena."
-          },
-          {
-            "at_hp": 0.35,
-            "enrage": 2,
-            "say": "Veldora's power is unleashed."
+            "gold": 3
           }
-        ],
-        "range": 72,
-        "rewards": {
-          "coins": {
-            "gold": 25
-          },
-          "core": true
         },
-        "tier": 4,
-        "title": "Veldora, the Storm Dragon"
+        "spawn": {
+          "at": {
+            "build": "marris"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Kirara Mizutani",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "F"
+          ]
+        }
       },
       {
         "arena": {
@@ -337,8 +395,271 @@ const TtlData = {
             "tempest": 10
           }
         },
+        "spawn": {
+          "kind": "quest"
+        },
         "tier": 2,
-        "title": "Shizu, the Flame Tyrant"
+        "title": "Shizu, the Flame Tyrant",
+        "wild": {
+          "chance_per_day": 0.01,
+          "regions": [
+            "J"
+          ]
+        }
+      },
+      {
+        "cooldown_hours": 48,
+        "entity": "tensura:sylphide",
+        "hp_mult": 3.0,
+        "id": "sylphide",
+        "per_player_mult": 0.75,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "The wind answers Sylphide."
+          }
+        ],
+        "range": 56,
+        "rewards": {
+          "coins": {
+            "gold": 3
+          }
+        },
+        "spawn": {
+          "at": {
+            "build": "spirit_dwelling"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Sylphide, the Wind Spirit"
+      },
+      {
+        "cooldown_hours": 48,
+        "entity": "tensura:undine",
+        "hp_mult": 3.0,
+        "id": "undine",
+        "per_player_mult": 0.75,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "The water rises around Undine."
+          }
+        ],
+        "range": 56,
+        "rewards": {
+          "coins": {
+            "gold": 3
+          }
+        },
+        "spawn": {
+          "at": {
+            "build": "spirit_dwelling"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Undine, the Water Spirit"
+      },
+      {
+        "cooldown_hours": 48,
+        "entity": "tensura:akash",
+        "hp_mult": 3.0,
+        "id": "akash",
+        "per_player_mult": 0.75,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "Akash's presence presses down on the glade."
+          }
+        ],
+        "range": 56,
+        "rewards": {
+          "coins": {
+            "gold": 3
+          }
+        },
+        "spawn": {
+          "at": {
+            "build": "spirit_dwelling"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Akash, the Greater Spirit"
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura:charybdis",
+        "hp_mult": 4.0,
+        "id": "charybdis",
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.6,
+            "enrage": 1,
+            "say": "The sea turns against you."
+          },
+          {
+            "at_hp": 0.3,
+            "enrage": 2,
+            "say": "Charybdis thrashes in a final rage."
+          }
+        ],
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "radius": 96,
+            "x": 635,
+            "z": 145
+          },
+          "kind": "quest"
+        },
+        "tier": 3,
+        "title": "Charybdis, the Whirlpool Calamity",
+        "wild": {
+          "chance_per_day": 0.003,
+          "regions": [
+            "W",
+            "J"
+          ],
+          "surface": "water"
+        }
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura:gazel_dwargo",
+        "hp_mult": 4.0,
+        "id": "gazel_dwargo",
+        "kill_rep": {
+          "dwargon": -60,
+          "flag": "regicide",
+          "unless_flag": "honour_duel"
+        },
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "The Dwarf King draws his full strength."
+          }
+        ],
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "radius": 40,
+            "x": 435,
+            "z": -1106
+          },
+          "kind": "statue"
+        },
+        "tier": 3,
+        "title": "Gazel Dwargo, the Dwarf King",
+        "wild": {
+          "chance_per_day": 0.0,
+          "regions": [
+            "D"
+          ]
+        }
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura:hinata_sakaguchi",
+        "hp_mult": 4.0,
+        "id": "hinata_sakaguchi",
+        "kill_rep": {
+          "holy_church": -30
+        },
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "Hinata stops holding back."
+          }
+        ],
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "radius": 48,
+            "x": -400,
+            "z": -60
+          },
+          "kind": "quest",
+          "stages": [
+            "ttl.defeated.shizu"
+          ]
+        },
+        "tier": 3,
+        "title": "Hinata Sakaguchi, the Saint",
+        "wild": {
+          "chance_per_day": 0.005,
+          "path_mult": {
+            "dark": 3
+          },
+          "regions": [
+            "F",
+            "R",
+            "G",
+            "L"
+          ]
+        }
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura_neb:carrion",
+        "hp_mult": 4.0,
+        "id": "carrion",
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "Carrion's roar shakes the ground."
+          }
+        ],
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "build": "laura"
+          },
+          "kind": "altar"
+        },
+        "tier": 3,
+        "title": "Carrion, the Beast Lord",
+        "wild": {
+          "chance_per_day": 0.003,
+          "regions": [
+            "B"
+          ]
+        }
       },
       {
         "arena": {
@@ -350,6 +671,9 @@ const TtlData = {
         "entity": "tensura_neb:rimuru_ogre_fight",
         "hp_mult": 4.0,
         "id": "rimuru_ogre_fight",
+        "kill_rep": {
+          "tempest": -40
+        },
         "per_player_mult": 1.0,
         "phases": [
           {
@@ -373,8 +697,174 @@ const TtlData = {
           },
           "core": true
         },
+        "spawn": {
+          "kind": "quest"
+        },
         "tier": 3,
         "title": "Rimuru Tempest"
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura:arch_daemon",
+        "hp_mult": 4.0,
+        "id": "clayman",
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.6,
+            "enrage": 1,
+            "say": "The Marionette Master pulls his strings tighter."
+          },
+          {
+            "at_hp": 0.3,
+            "enrage": 2,
+            "say": "Clayman drops the mask and fights for his seat."
+          }
+        ],
+        "proxy": true,
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "build": "clayman_castle"
+          },
+          "kind": "altar"
+        },
+        "tier": 3,
+        "title": "Clayman, the Marionette Master",
+        "wild": {
+          "chance_per_day": 0.002,
+          "regions": [
+            "P"
+          ]
+        }
+      },
+      {
+        "cooldown_hours": 96,
+        "entity": "tensura_neb:luminous_valentine",
+        "hp_mult": 6.0,
+        "id": "luminous_valentine",
+        "per_player_mult": 1.5,
+        "phases": [
+          {
+            "at_hp": 0.7,
+            "enrage": 1,
+            "say": "Luminous's aura grows heavy."
+          },
+          {
+            "at_hp": 0.35,
+            "enrage": 2,
+            "say": "Luminous no longer pretends to be gentle."
+          }
+        ],
+        "range": 72,
+        "requires": [
+          "hinata_sakaguchi"
+        ],
+        "rewards": {
+          "coins": {
+            "gold": 25
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "build": "lubelius"
+          },
+          "kind": "altar"
+        },
+        "tier": 4,
+        "title": "Luminous Valentine, the Demon Lord",
+        "wild": {
+          "chance_per_day": 0.001,
+          "regions": [
+            "L"
+          ],
+          "time": "night"
+        }
+      },
+      {
+        "cooldown_hours": 96,
+        "entity": "tensura_neb:veldora",
+        "hp_mult": 6.0,
+        "id": "veldora",
+        "per_player_mult": 1.5,
+        "phases": [
+          {
+            "at_hp": 0.7,
+            "enrage": 1,
+            "say": "Storm clouds gather over the arena."
+          },
+          {
+            "at_hp": 0.35,
+            "enrage": 2,
+            "say": "Veldora's power is unleashed."
+          }
+        ],
+        "range": 72,
+        "requires": [
+          "charybdis"
+        ],
+        "rewards": {
+          "coins": {
+            "gold": 25
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "build": "sealed_cave"
+          },
+          "kind": "altar"
+        },
+        "tier": 4,
+        "title": "Veldora, the Storm Dragon",
+        "wild": {
+          "chance_per_day": 0.001,
+          "regions": [
+            "J"
+          ],
+          "weather": "thunder"
+        }
+      },
+      {
+        "cooldown_hours": 96,
+        "entity": "tensura:elemental_colossus",
+        "hp_mult": 6.0,
+        "id": "elemental_colossus",
+        "per_player_mult": 1.5,
+        "phases": [
+          {
+            "at_hp": 0.6,
+            "enrage": 1,
+            "say": "The Colossus grinds forward."
+          },
+          {
+            "at_hp": 0.3,
+            "enrage": 2,
+            "say": "The Colossus shakes the ground with every step."
+          }
+        ],
+        "range": 72,
+        "rewards": {
+          "coins": {
+            "gold": 25
+          },
+          "core": true
+        },
+        "tier": 4,
+        "title": "The Elemental Colossus",
+        "wild": {
+          "chance_per_day": 0.002,
+          "regions": [
+            "V"
+          ]
+        }
       }
     ],
     "framework": {
@@ -382,11 +872,11 @@ const TtlData = {
         "shizu"
       ],
       "block_natural": true,
+      "core_per_party": 1,
       "idle_minutes": 30,
-      "natural_allow": [
-        "shizu"
-      ],
+      "party_credit_range": 2.0,
       "presence_secs": 15,
+      "proxy_bosses": true,
       "untame": true
     },
     "tombstone": {
@@ -410,6 +900,22 @@ const TtlData = {
         "tensura_neb:luminous_valentine"
       ],
       "mode": "defeated"
+    },
+    "wild": {
+      "announce": true,
+      "distance": [
+        64,
+        160
+      ],
+      "enabled": true,
+      "idle_minutes": 30,
+      "ignore_requires": true,
+      "life2_only": true,
+      "max_active": 1,
+      "max_per_day": 2,
+      "min_gap_hours": 6,
+      "require_players": 1,
+      "rewards_mult": 1.0
     }
   },
   "builds": [
@@ -2547,7 +3053,87 @@ const TtlData = {
     ],
     "tags": []
   },
+  "nations": {
+    "diplomacy": {
+      "war_notice_hours": 24
+    },
+    "rank": [
+      {
+        "chunks": 0,
+        "id": "hamlet",
+        "title": "Hamlet",
+        "value": 0
+      },
+      {
+        "chunks": 2,
+        "id": "village",
+        "title": "Village",
+        "value": 150
+      },
+      {
+        "chunks": 4,
+        "id": "town",
+        "title": "Town",
+        "value": 400
+      },
+      {
+        "chunks": 6,
+        "id": "city",
+        "title": "City",
+        "value": 900
+      },
+      {
+        "chunks": 8,
+        "id": "kingdom",
+        "title": "Kingdom",
+        "value": 2000
+      }
+    ],
+    "rules": {
+      "base_chunks": 4,
+      "charter_cost": {
+        "gold": 50
+      },
+      "charter_stage": "ttl.boss.t1",
+      "chunks_per_member": 10,
+      "home_rep": 10,
+      "member_cap": 5,
+      "min_members": 2,
+      "name_max": 24,
+      "name_min": 3,
+      "poll_ticks": 100,
+      "value_ticks": 6000
+    },
+    "treasury": {
+      "enabled": true,
+      "upkeep": true
+    },
+    "value": {
+      "build_value": 10,
+      "chunk_value": 1,
+      "coins_per_value": 100
+    }
+  },
   "npcs": {
+    "hook": [
+      {
+        "id": "gazel_throne",
+        "tag": "ttl_gazel",
+        "talk": "gazel"
+      },
+      {
+        "id": "rigurd",
+        "name": "Rigurd",
+        "tag": "ttl_tempest_resident",
+        "talk": "rigurd"
+      },
+      {
+        "id": "gobta",
+        "name": "Gobta",
+        "tag": "ttl_tempest_resident",
+        "talk": "gobta"
+      }
+    ],
     "kind": [
       {
         "description": "Fuze, guildmaster of the Free Guild's Blumund branch: high-rank contracts (rank B and up).",
@@ -2590,12 +3176,331 @@ const TtlData = {
         "name": "Guild Receptionist",
         "name_color": "#009FE3",
         "skin": "SECURITY_01"
+      },
+      {
+        "description": "Benimaru, war leader of Tempest's kijin (story NPC).",
+        "dialog": {
+          "text": "A red-haired kijin in a plain dark coat looks you over, one hand resting on his sword."
+        },
+        "id": "benimaru",
+        "name": "Benimaru",
+        "name_color": "#E4002B",
+        "skin": "KNIGHT_02",
+        "talk": "benimaru"
+      },
+      {
+        "description": "Shuna, who weaves and brews for Tempest (story NPC).",
+        "dialog": {
+          "text": "Shuna looks up from her loom and smiles, gently, as if you had come at exactly the right moment."
+        },
+        "id": "shuna",
+        "model": "humanoid_slim",
+        "name": "Shuna",
+        "name_color": "#F4A6C8",
+        "skin": "MAGE_01",
+        "talk": "shuna"
+      },
+      {
+        "description": "Shion, Rimuru's bodyguard and secretary (story NPC).",
+        "dialog": {
+          "text": "Shion stands at the door of Rimuru's house, arms folded, and does not move aside."
+        },
+        "id": "shion",
+        "model": "humanoid_slim",
+        "name": "Shion",
+        "name_color": "#7B3FA0",
+        "skin": "KAWORRU",
+        "talk": "shion"
+      },
+      {
+        "description": "Souei, Tempest's scout (story NPC).",
+        "dialog": {
+          "text": "Souei watches the forest from the lookout. He does not seem to have heard you climb the ladder."
+        },
+        "id": "souei",
+        "name": "Souei",
+        "name_color": "#2F5F8F",
+        "skin": "KAI",
+        "talk": "souei"
+      },
+      {
+        "description": "Hakurou, the old swordmaster who trains Tempest's riders (story NPC).",
+        "dialog": {
+          "text": "An old kijin with white hair sits by the fire, a wooden sword across his knees."
+        },
+        "id": "hakurou",
+        "name": "Hakurou",
+        "name_color": "#E8E8E8",
+        "skin": "PROFESSOR_01",
+        "talk": "hakurou"
+      },
+      {
+        "description": "Kaijin, the dwarven master smith exiled from Dwargon (story NPC).",
+        "dialog": {
+          "text": "Kaijin wipes soot from his hands. Behind him the forge roars; the anvil is still warm."
+        },
+        "id": "kaijin",
+        "name": "Kaijin",
+        "name_color": "#FDC300",
+        "skin": "FARMER_01",
+        "talk": "kaijin"
+      },
+      {
+        "description": "Garm, the eldest of the dwarf brothers, an armourer (story NPC).",
+        "dialog": {
+          "text": "Garm turns a half-finished breastplate in his hands, checking the seams by touch."
+        },
+        "id": "garm",
+        "name": "Garm",
+        "name_color": "#C9A227",
+        "skin": "KNIGHT_01",
+        "talk": "garm"
+      },
+      {
+        "description": "Dold, the dwarf brother who makes jewellery and small things (story NPC).",
+        "dialog": {
+          "text": "Dold is sorting small clasps and rings into a tray, humming something out of tune."
+        },
+        "id": "dold",
+        "name": "Dold",
+        "name_color": "#E0B040",
+        "skin": "STEVE",
+        "talk": "dold"
+      },
+      {
+        "description": "Mildo, the youngest dwarf brother, Tempest's architect (story NPC).",
+        "dialog": {
+          "text": "Mildo is measuring a post twice. He glances at you, then back at the post."
+        },
+        "id": "mildo",
+        "name": "Mildo",
+        "name_color": "#A0A0A0",
+        "skin": "ZURI",
+        "talk": "mildo"
+      },
+      {
+        "description": "The Outcast Society's hooded contact on Tempest's south road (story NPC, the dark path).",
+        "dialog": {
+          "text": "A hooded figure leans against a roadside post, as if waiting for exactly you."
+        },
+        "id": "outcast_contact",
+        "name": "The Outcast",
+        "name_color": "#6B6B6B",
+        "skin": "NOOR",
+        "talk": "outcast_contact"
+      },
+      {
+        "description": "Kabal, a rank B swordsman of the Free Guild (story NPC).",
+        "dialog": {
+          "text": "Kabal is leaning on the guild hall's table, a mug in one hand and a scarred sword at his hip."
+        },
+        "id": "kabal",
+        "name": "Kabal",
+        "name_color": "#C0392B",
+        "skin": "KNIGHT_01",
+        "talk": "kabal"
+      },
+      {
+        "description": "Elen, a mage of the Free Guild (story NPC).",
+        "dialog": {
+          "text": "Elen glances at you over a spellbook, then closes it."
+        },
+        "id": "elen",
+        "model": "humanoid_slim",
+        "name": "Elen",
+        "name_color": "#3498DB",
+        "skin": "ZURI",
+        "talk": "elen"
+      },
+      {
+        "description": "Gido, the Free Guild's shield bearer (story NPC).",
+        "dialog": {
+          "text": "Gido is the biggest man in the hall and also the quietest one."
+        },
+        "id": "gido",
+        "name": "Gido",
+        "name_color": "#27AE60",
+        "skin": "FARMER_01",
+        "talk": "gido"
+      },
+      {
+        "description": "Treyni, the dryad who keeps the Great Jura Forest (story NPC).",
+        "dialog": {
+          "text": "Treyni stands in the moss, quite still, with leaves in her hair that are not part of any tree you can see."
+        },
+        "id": "treyni",
+        "model": "humanoid_slim",
+        "name": "Treyni",
+        "name_color": "#2E8B57",
+        "skin": "EFE",
+        "talk": "treyni"
+      },
+      {
+        "description": "Milim Nava, the Dragonoid Demon Lord (story NPC; never a fight).",
+        "dialog": {
+          "text": "A small girl sits on a bone throne with her legs swinging. Everyone in the room is careful not to look bored."
+        },
+        "id": "milim",
+        "model": "humanoid_slim",
+        "name": "Milim Nava",
+        "name_color": "#FF69B4",
+        "skin": "SUNNY",
+        "talk": "milim"
+      },
+      {
+        "description": "Yuuki Kagurazaka, Grandmaster of the Free Guild (story NPC).",
+        "dialog": {
+          "text": "A young man with a mask pushed up on his forehead reads reports at the end of the hall, smiling at none of them."
+        },
+        "id": "yuuki",
+        "name": "Yuuki Kagurazaka",
+        "name_color": "#4A4A5E",
+        "skin": "JAYJASONBO",
+        "talk": "yuuki"
+      },
+      {
+        "description": "Edmaris, King of Falmuth (story NPC).",
+        "dialog": {
+          "text": "King Edmaris looks down from the dais of his throne room without getting up."
+        },
+        "id": "edmaris",
+        "name": "King Edmaris",
+        "name_color": "#1D71B8",
+        "skin": "KNIGHT_02",
+        "talk": "edmaris"
+      },
+      {
+        "description": "Razen, King Edmaris' advisor (story NPC).",
+        "dialog": {
+          "text": "A lean man in court dress stands one step behind the king, listening to everything."
+        },
+        "id": "razen",
+        "name": "Razen",
+        "name_color": "#34495E",
+        "skin": "ARI",
+        "talk": "razen"
+      },
+      {
+        "description": "Frey, the Sky Queen, a Walpurgis Demon Lord (story NPC).",
+        "dialog": {
+          "text": "A winged woman sits very straight at the council table and does not seem to need a chair."
+        },
+        "id": "frey",
+        "model": "humanoid_slim",
+        "name": "Frey",
+        "name_color": "#5DADE2",
+        "skin": "MAKENA",
+        "talk": "frey"
+      },
+      {
+        "description": "Guy Crimson, the oldest Demon Lord (story NPC).",
+        "dialog": {
+          "text": "A man with crimson hair and a bored face lounges at the council table, as if he had seen all of this before."
+        },
+        "id": "guy",
+        "name": "Guy Crimson",
+        "name_color": "#B03A2E",
+        "skin": "ARI",
+        "talk": "guy"
+      },
+      {
+        "description": "Leon Cromwell, the Golden Demon Lord (story NPC).",
+        "dialog": {
+          "text": "A golden-haired demon lord sits at the council table and keeps his eyes on the door."
+        },
+        "id": "leon",
+        "name": "Leon Cromwell",
+        "name_color": "#F1C40F",
+        "skin": "SUNNY",
+        "talk": "leon"
+      },
+      {
+        "description": "Dagruel, the Earth Demon Lord of the Barren Lands (story NPC).",
+        "dialog": {
+          "text": "A giant of a man sits very still at the council table, listening to the stone under it."
+        },
+        "id": "dagruel",
+        "name": "Dagruel",
+        "name_color": "#6E8B3D",
+        "skin": "KNIGHT_02",
+        "talk": "dagruel"
+      },
+      {
+        "description": "Ramiris, the smallest Demon Lord and mistress of the Labyrinth (story NPC).",
+        "dialog": {
+          "text": "A tiny winged girl hovers at the height of your face, beaming."
+        },
+        "id": "ramiris",
+        "model": "humanoid_slim",
+        "name": "Ramiris",
+        "name_color": "#009FE3",
+        "skin": "NOOR",
+        "talk": "ramiris"
+      },
+      {
+        "description": "Hinata Sakaguchi, the Holy Knight, as a statue in Lubelius (the fight is a boss, bosses.toml).",
+        "id": "hinata_statue",
+        "name": "Hinata Sakaguchi",
+        "name_color": "#009FE3",
+        "statue": "tensura:hinata_sakaguchi",
+        "talk": "hinata"
+      },
+      {
+        "description": "Luminous Valentine, patron of the Western Holy Church, as a statue in Lubelius' cathedral.",
+        "id": "luminous_statue",
+        "name": "Luminous Valentine",
+        "name_color": "#8E44AD",
+        "statue": "tensura_neb:luminous_valentine",
+        "talk": "luminous"
+      },
+      {
+        "description": "Carrion, the lion king, on his throne dais in Laura.",
+        "id": "carrion_statue",
+        "name": "Carrion",
+        "name_color": "#E5A823",
+        "statue": "tensura_neb:carrion",
+        "talk": "carrion"
+      },
+      {
+        "description": "Folgen, Falmuth's field commander, at the king's side in Marris.",
+        "id": "folgen_statue",
+        "name": "Folgen",
+        "name_color": "#C0392B",
+        "statue": "tensura:folgen",
+        "talk": "folgen"
+      },
+      {
+        "description": "Kyoya Tachibana, a summoned otherworlder in Falmuth's service.",
+        "id": "kyoya_statue",
+        "name": "Kyoya Tachibana",
+        "name_color": "#2E86C1",
+        "statue": "tensura:kyoya_tachibana",
+        "talk": "kyoya"
+      },
+      {
+        "description": "Shogo Taguchi, a summoned otherworlder in Falmuth's service.",
+        "id": "shogo_statue",
+        "name": "Shogo Taguchi",
+        "name_color": "#7F8C8D",
+        "statue": "tensura:shogo_taguchi",
+        "talk": "shogo"
+      },
+      {
+        "description": "Kirara Mizutani, a summoned otherworlder in Falmuth's service.",
+        "id": "kirara_statue",
+        "name": "Kirara Mizutani",
+        "name_color": "#3498DB",
+        "statue": "tensura:kirara_mizutani",
+        "talk": "kirara"
       }
     ],
     "settings": {
-      "check_ticks": 600,
+      "cast_prefix": "ttl_cast_",
+      "check_ticks": 200,
+      "interact_cooldown_ms": 600,
       "preset_prefix": "ttl_guild_",
       "rev": 1,
+      "sneak_bypass": true,
       "start_delay_ticks": 200
     },
     "spot": [
@@ -2662,20 +3567,495 @@ const TtlData = {
         "y": 0,
         "yaw": 90,
         "z": -19
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "benimaru_tempest",
+        "kind": "benimaru",
+        "tag": "ttl.npc.benimaru",
+        "x": -1,
+        "y": 0,
+        "yaw": 0,
+        "z": -22
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "shion_tempest",
+        "kind": "shion",
+        "tag": "ttl.npc.shion",
+        "x": 0,
+        "y": 0,
+        "yaw": 0,
+        "z": -27
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "shuna_tempest",
+        "kind": "shuna",
+        "tag": "ttl.npc.shuna",
+        "x": 22,
+        "y": 0,
+        "yaw": 90,
+        "z": -8
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "souei_tempest",
+        "kind": "souei",
+        "tag": "ttl.npc.souei",
+        "x": -29,
+        "y": 10,
+        "yaw": 0,
+        "z": -43
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "hakurou_tempest",
+        "kind": "hakurou",
+        "tag": "ttl.npc.hakurou",
+        "x": 2,
+        "y": 0,
+        "yaw": 135,
+        "z": -5
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "kaijin_tempest",
+        "kind": "kaijin",
+        "tag": "ttl.npc.kaijin",
+        "x": -26,
+        "y": 0,
+        "yaw": 90,
+        "z": -12
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "garm_tempest",
+        "kind": "garm",
+        "tag": "ttl.npc.garm",
+        "x": -28,
+        "y": 0,
+        "yaw": 0,
+        "z": -24
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "dold_tempest",
+        "kind": "dold",
+        "tag": "ttl.npc.dold",
+        "x": -24,
+        "y": 0,
+        "yaw": 0,
+        "z": -24
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "mildo_tempest",
+        "kind": "mildo",
+        "tag": "ttl.npc.mildo",
+        "x": -17,
+        "y": 0,
+        "yaw": 0,
+        "z": 9
+      },
+      {
+        "anchor": "world",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "outcast_road",
+        "kind": "outcast_contact",
+        "surface": true,
+        "tag": "ttl.npc.outcast_contact",
+        "x": 0,
+        "y": 64,
+        "yaw": 180,
+        "z": 52
+      },
+      {
+        "anchor": "build",
+        "build": "blumund",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "kabal_blumund",
+        "kind": "kabal",
+        "tag": "ttl.npc.kabal",
+        "x": 99,
+        "y": 5,
+        "yaw": 90,
+        "z": 66
+      },
+      {
+        "anchor": "build",
+        "build": "blumund",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "elen_blumund",
+        "kind": "elen",
+        "tag": "ttl.npc.elen",
+        "x": 99,
+        "y": 5,
+        "yaw": 90,
+        "z": 68
+      },
+      {
+        "anchor": "build",
+        "build": "blumund",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "gido_blumund",
+        "kind": "gido",
+        "tag": "ttl.npc.gido",
+        "x": 99,
+        "y": 5,
+        "yaw": 90,
+        "z": 70
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "kabal_tempest",
+        "kind": "kabal",
+        "tag": "ttl.npc.kabal",
+        "unless_build": "blumund",
+        "x": -5,
+        "y": 0,
+        "yaw": 0,
+        "z": -16
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "elen_tempest",
+        "kind": "elen",
+        "tag": "ttl.npc.elen",
+        "unless_build": "blumund",
+        "x": -3,
+        "y": 0,
+        "yaw": 0,
+        "z": -16
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "gido_tempest",
+        "kind": "gido",
+        "tag": "ttl.npc.gido",
+        "unless_build": "blumund",
+        "x": -1,
+        "y": 0,
+        "yaw": 0,
+        "z": -16
+      },
+      {
+        "anchor": "build",
+        "build": "treyni_shrine",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "treyni_shrine",
+        "kind": "treyni",
+        "tag": "ttl.npc.treyni",
+        "x": 20,
+        "y": 5,
+        "yaw": 90,
+        "z": 16
+      },
+      {
+        "anchor": "build",
+        "build": "forgotten_dragon_city",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "milim_forgotten_dragon_city",
+        "kind": "milim",
+        "tag": "ttl.npc.milim",
+        "x": 60,
+        "y": 6,
+        "yaw": 0,
+        "z": 25
+      },
+      {
+        "anchor": "build",
+        "build": "englassia",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "yuuki_englassia",
+        "kind": "yuuki",
+        "tag": "ttl.npc.yuuki",
+        "x": 118,
+        "y": 5,
+        "yaw": 90,
+        "z": 82
+      },
+      {
+        "anchor": "build",
+        "build": "marris",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "edmaris_marris",
+        "kind": "edmaris",
+        "tag": "ttl.npc.edmaris",
+        "x": 68,
+        "y": 6,
+        "yaw": 0,
+        "z": 11
+      },
+      {
+        "anchor": "build",
+        "build": "marris",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "razen_marris",
+        "kind": "razen",
+        "tag": "ttl.npc.razen",
+        "x": 65,
+        "y": 6,
+        "yaw": 0,
+        "z": 11
+      },
+      {
+        "anchor": "build",
+        "build": "marris",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "folgen_marris",
+        "kind": "folgen_statue",
+        "tag": "ttl.npc.folgen_statue",
+        "x": 71,
+        "y": 6,
+        "yaw": 0,
+        "z": 11
+      },
+      {
+        "anchor": "build",
+        "build": "marris",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "kyoya_marris",
+        "kind": "kyoya_statue",
+        "tag": "ttl.npc.kyoya_statue",
+        "x": 64,
+        "y": 5,
+        "yaw": -90,
+        "z": 15
+      },
+      {
+        "anchor": "build",
+        "build": "marris",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "shogo_marris",
+        "kind": "shogo_statue",
+        "tag": "ttl.npc.shogo_statue",
+        "x": 72,
+        "y": 5,
+        "yaw": 90,
+        "z": 15
+      },
+      {
+        "anchor": "build",
+        "build": "marris",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "kirara_marris",
+        "kind": "kirara_statue",
+        "tag": "ttl.npc.kirara_statue",
+        "x": 64,
+        "y": 5,
+        "yaw": -90,
+        "z": 19
+      },
+      {
+        "anchor": "build",
+        "build": "lubelius",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "hinata_lubelius",
+        "kind": "hinata_statue",
+        "tag": "ttl.npc.hinata_statue",
+        "x": 108,
+        "y": 5,
+        "yaw": 90,
+        "z": 85
+      },
+      {
+        "anchor": "build",
+        "build": "lubelius",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "luminous_lubelius",
+        "kind": "luminous_statue",
+        "tag": "ttl.npc.luminous_statue",
+        "x": 60,
+        "y": 6,
+        "yaw": 0,
+        "z": 23
+      },
+      {
+        "anchor": "build",
+        "build": "laura",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "carrion_laura",
+        "kind": "carrion_statue",
+        "tag": "ttl.npc.carrion_statue",
+        "x": 56,
+        "y": 9,
+        "yaw": 0,
+        "z": 14
+      },
+      {
+        "anchor": "build",
+        "build": "clayman_castle",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "frey_clayman",
+        "kind": "frey",
+        "tag": "ttl.npc.frey",
+        "x": 50,
+        "y": 8,
+        "yaw": -90,
+        "z": 42
+      },
+      {
+        "anchor": "build",
+        "build": "clayman_castle",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "guy_clayman",
+        "kind": "guy",
+        "tag": "ttl.npc.guy",
+        "x": 50,
+        "y": 8,
+        "yaw": -90,
+        "z": 45
+      },
+      {
+        "anchor": "build",
+        "build": "clayman_castle",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "leon_clayman",
+        "kind": "leon",
+        "tag": "ttl.npc.leon",
+        "x": 58,
+        "y": 8,
+        "yaw": 90,
+        "z": 42
+      },
+      {
+        "anchor": "build",
+        "build": "clayman_castle",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "dagruel_clayman",
+        "kind": "dagruel",
+        "tag": "ttl.npc.dagruel",
+        "x": 58,
+        "y": 8,
+        "yaw": 90,
+        "z": 45
+      },
+      {
+        "anchor": "build",
+        "build": "spirit_dwelling",
+        "dim": "ttl:spirit_domain",
+        "enabled": true,
+        "id": "ramiris_spirit_dwelling",
+        "kind": "ramiris",
+        "tag": "ttl.npc.ramiris",
+        "x": 50,
+        "y": 41,
+        "yaw": 90,
+        "z": 44
       }
     ]
   },
   "skills": {
     "absorb": {
+      "awakening": {
+        "challenge": true,
+        "claim": true,
+        "claim_skills": {
+          "true_demon_lord": [
+            "envy",
+            "greed",
+            "lust",
+            "pride",
+            "sloth",
+            "wrath"
+          ],
+          "true_hero": [
+            "great_sage",
+            "creator"
+          ]
+        },
+        "copies": false,
+        "enabled": true,
+        "legendary": true,
+        "lethal": false,
+        "max_ep_ratio": 1.0,
+        "min_ep_ratio": 0.5,
+        "requires_absorber": false,
+        "spend_slot": true
+      },
+      "bequest": {
+        "enabled": true,
+        "legendary_only": false
+      },
+      "combat_log_seconds": 30,
       "cooldown_hours": 72,
+      "copies_per_kill": 1,
+      "duel": {
+        "copies": true,
+        "dimensions": [
+          "tensura:labyrinth"
+        ],
+        "enabled": true,
+        "legendary": true,
+        "lethal": false,
+        "requires_absorber": true
+      },
+      "legendary_per_kill": 1,
+      "max_ep_ratio": 0,
       "min_ep_ratio": 0.5,
+      "offer_minutes": 5,
+      "pact_minutes": 15,
       "skills": [
         "predator",
         "gluttony",
         "starved",
         "gourmet",
         "engorger"
-      ]
+      ],
+      "war": {
+        "copies": false,
+        "enabled": true,
+        "legendary": true,
+        "min_ep_ratio": 0,
+        "requires_absorber": false,
+        "staff_flags": true,
+        "use_nations": true
+      }
     },
     "caps": {
       "common": 5,
@@ -2725,6 +4105,13 @@ const TtlData = {
           "id": "sage",
           "name": "Sage of the Era"
         }
+      ]
+    },
+    "legend_pick": {
+      "allow_dark": true,
+      "enabled": true,
+      "tiers": [
+        "legendary"
       ]
     },
     "legendary": {
@@ -2791,6 +4178,896 @@ const TtlData = {
         "awakening",
         "staff"
       ]
+    }
+  },
+  "story": {
+    "act": [
+      {
+        "chapters": [
+          1,
+          2,
+          7
+        ],
+        "dark_rep": {},
+        "id": 1,
+        "key": "forest_awakens",
+        "light_rep": {},
+        "renown": 5,
+        "story_line": "took an Oath at Tempest, and Act I of the story begins.",
+        "title": "The Forest Awakens",
+        "unlock_bosses": [
+          "supermassive_slime"
+        ]
+      },
+      {
+        "chapters": [
+          3,
+          8
+        ],
+        "dark_rep": {
+          "dwargon": -20,
+          "outcast": 10
+        },
+        "id": 2,
+        "key": "armed_nation",
+        "light_rep": {
+          "dwargon": 15
+        },
+        "renown": 5,
+        "story_line": "finished Act II: the Armed Nation of Dwargon has taken the measure of them.",
+        "title": "The Armed Nation",
+        "unlock_bosses": [
+          "gazel_dwargo"
+        ]
+      },
+      {
+        "chapters": [
+          4,
+          9
+        ],
+        "dark_rep": {
+          "orc_horde": 40
+        },
+        "id": 3,
+        "key": "orc_war",
+        "light_rep": {
+          "lizardmen": 20,
+          "tempest": 10
+        },
+        "renown": 10,
+        "story_line": "finished Act III: the Orc War is decided.",
+        "title": "The Orc War",
+        "unlock_bosses": [
+          "orc_lord",
+          "orc_disaster"
+        ]
+      },
+      {
+        "chapters": [
+          10
+        ],
+        "dark_rep": {
+          "outcast": 20
+        },
+        "id": 4,
+        "key": "calamity",
+        "light_rep": {
+          "tempest": 15
+        },
+        "renown": 15,
+        "story_line": "finished Act IV: the calamity over Lake Siss has passed.",
+        "title": "Calamity",
+        "unlock_bosses": [
+          "charybdis"
+        ]
+      },
+      {
+        "chapters": [
+          11
+        ],
+        "dark_rep": {
+          "falmuth": 30,
+          "tempest": -40
+        },
+        "id": 5,
+        "key": "holy_knight",
+        "light_rep": {
+          "holy_church": 10
+        },
+        "renown": 20,
+        "story_line": "finished Act V: the mask has fallen and the blades have crossed.",
+        "title": "The Holy Knight",
+        "unlock_bosses": [
+          "shizu",
+          "ifrit",
+          "hinata_sakaguchi",
+          "rimuru_ogre_fight",
+          "folgen",
+          "kyoya_tachibana",
+          "shogo_taguchi",
+          "kirara_mizutani"
+        ]
+      },
+      {
+        "chapters": [
+          12
+        ],
+        "dark_rep": {
+          "orc_horde": 10,
+          "outcast": 15
+        },
+        "id": 6,
+        "key": "walpurgis",
+        "light_rep": {
+          "holy_church": 5,
+          "tempest": 10
+        },
+        "renown": 30,
+        "story_line": "finished Act VI: the Walpurgis council has met.",
+        "title": "Walpurgis",
+        "unlock_bosses": [
+          "carrion",
+          "luminous_valentine",
+          "rimuru_clone",
+          "clayman"
+        ]
+      },
+      {
+        "chapters": [
+          13
+        ],
+        "dark_rep": {
+          "outcast": 20
+        },
+        "id": 7,
+        "key": "harvest_festival",
+        "light_rep": {
+          "blumund": 10,
+          "tempest": 10
+        },
+        "renown": 50,
+        "story_line": "finished Act VII: the harvest festival is over and nothing is the same.",
+        "title": "Demon Lord or True Hero",
+        "unlock_bosses": [
+          "veldora"
+        ]
+      }
+    ],
+    "flag": {
+      "atonement": {
+        "line": ""
+      },
+      "charybdis_woke": {
+        "line": ""
+      },
+      "demon_lord": {
+        "line": "has risen as a Demon Lord.",
+        "path": "dark",
+        "renown": 60,
+        "title": "Demon Lord"
+      },
+      "falmuth_march": {
+        "line": ""
+      },
+      "hero": {
+        "line": "has become a True Hero.",
+        "path": "light",
+        "renown": 60,
+        "title": "True Hero"
+      },
+      "honour_duel": {
+        "line": ""
+      },
+      "regicide": {
+        "line": "",
+        "title": ""
+      },
+      "unaligned": {
+        "line": ""
+      }
+    },
+    "flip": {
+      "atonement": {
+        "line": "atoned and turned back to the light.",
+        "rep": {},
+        "requires_any": [
+          "atonement"
+        ],
+        "say": "Atonement: you turn from the Outcast road. What was done stays done, but Tempest listens again.",
+        "set": {
+          "tempest": 0
+        },
+        "title": "Repentant"
+      },
+      "corruption": {
+        "line": "was corrupted and turned to the dark.",
+        "rep": {
+          "outcast": 10,
+          "tempest": -10
+        },
+        "requires_any": [
+          "regicide",
+          "charybdis_woke",
+          "falmuth_march"
+        ],
+        "say": "Corruption: the deed you did cannot be undone, and the dark road opens to you.",
+        "set": {},
+        "title": "Marked"
+      },
+      "max": 1
+    },
+    "legendary": {
+      "dark": [
+        "predator",
+        "wrath",
+        "pride",
+        "greed",
+        "lust",
+        "envy",
+        "sloth"
+      ],
+      "light": [
+        "great_sage",
+        "creator"
+      ]
+    },
+    "npc": [
+      {
+        "color": "gold",
+        "id": "rigurd",
+        "name": "Rigurd",
+        "talk": [
+          {
+            "act": 1,
+            "buttons": [
+              {
+                "command": "ttl story oath",
+                "label": "Take the Oath"
+              }
+            ],
+            "text": "Welcome to Tempest, stranger. We goblins have little, but we remember who stood with us. When you are ready to say where you stand, there is a crossroads waiting."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "You swore at the crossroads and Tempest has not forgotten it. My people owe you a seat at the fire. There is work, if you want it."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "I know that mark. I will not turn you out of Tempest, but do not look to me for help. Go to the Outcast who waits by the road."
+          }
+        ]
+      },
+      {
+        "color": "green",
+        "id": "gobta",
+        "name": "Gobta",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Hey, are you new? I am Gobta! The strongest goblin in the forest, no question. Do not ask Rigurd, he is jealous."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "You swore the Oath? Then you are with us. Come on, I will show you the best spot to sit and do nothing while others work."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "Oh, that mark? Cool. I do not care. Want to see me wrestle a direwolf? Do not tell Rigurd."
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "id": "benimaru",
+        "name": "Benimaru",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A new face. Tempest is small, but it is ours. Prove you are no threat and you will be welcome."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "The war council is open to those who stand with Tempest. When the horde moves, we will need every blade."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "You carry the Outcasts' mark. I will watch you, and so will my guard. Do not give me a reason."
+          }
+        ]
+      },
+      {
+        "color": "light_purple",
+        "id": "shuna",
+        "name": "Shuna",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Welcome. If you have cloth or herbs to spare, the weaving hut can always use them."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "I will weave for anyone who is kind to my people. For you, it depends on what you do next."
+          },
+          {
+            "act": 2,
+            "at_most": "hostile",
+            "faction": "tempest",
+            "path": "dark",
+            "text": "I am sorry. I cannot weave for you while Tempest holds you in such low regard."
+          }
+        ]
+      },
+      {
+        "color": "dark_purple",
+        "id": "shion",
+        "name": "Shion",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Halt. State your business. Lord Rimuru's house is not open to just anyone."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "Stand with Tempest and you may pass. Lord Rimuru's safety is my business, and so are his friends."
+          },
+          {
+            "act": 2,
+            "at_most": "hostile",
+            "faction": "tempest",
+            "path": "dark",
+            "text": "You will go no further. One more step toward Lord Rimuru and I will not be gentle."
+          }
+        ]
+      },
+      {
+        "color": "white",
+        "id": "hakurou",
+        "name": "Hakurou",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Hm. Your stance is sloppy. Come back when you can stand for an hour and I will show you what a sword is for."
+          },
+          {
+            "act": 2,
+            "text": "The Oath sits on your shoulders, I see. A true blade is measured by what it protects. Train your abilities, and I will watch."
+          }
+        ]
+      },
+      {
+        "color": "gold",
+        "id": "kaijin",
+        "name": "Kaijin",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A dwarf forges, a human wields. Bring me good ore and I will tell you which of the two of us is the better smith."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "I hear the Outcasts pay well for plans of the Dwargon forges. I did not say that. Do not repeat it."
+          }
+        ]
+      },
+      {
+        "color": "dark_green",
+        "id": "treyni",
+        "name": "Treyni",
+        "talk": [
+          {
+            "act": 1,
+            "text": "The forest breathes with an unrest I cannot name. Be careful what you wake."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "The trees remember what the Oath means. Beware the lake: a calamity stirs in its depths."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "I warned you. The trees will say no more to you."
+          }
+        ]
+      },
+      {
+        "color": "dark_red",
+        "id": "gazel",
+        "name": "Gazel Dwargo",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A king receives those who bring worth to his hall. Show me yours."
+          },
+          {
+            "act": 2,
+            "buttons": [
+              {
+                "command": "ttl story fight gazel_dwargo",
+                "label": "Challenge the King"
+              }
+            ],
+            "path": "light",
+            "text": "You stand with the free peoples. Then let us test that: face me in an honour duel, and nothing will be held against you."
+          },
+          {
+            "act": 2,
+            "buttons": [
+              {
+                "command": "ttl story fight gazel_dwargo",
+                "label": "Take the throne"
+              }
+            ],
+            "path": "dark",
+            "text": "I know what road you walk. A king does not bow to it. If you want my seat, you will have to take it."
+          }
+        ]
+      },
+      {
+        "color": "dark_gray",
+        "id": "outcast_contact",
+        "name": "The Outcast",
+        "talk": [
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "So you have chosen. Good. The Society does not forget those who walk with it, and the Horde has plans for a strong blade."
+          },
+          {
+            "act": 1,
+            "text": "Nothing to say to someone who has not chosen yet. Come back when you have."
+          }
+        ]
+      },
+      {
+        "color": "dark_aqua",
+        "id": "souei",
+        "name": "Souei",
+        "talk": [
+          {
+            "act": 1,
+            "text": "I saw you before you saw the village. The forest tells me who walks it. Stay on the paths and we will not have to talk again."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "You swore for Tempest. Good. I have places that need eyes, and not everyone can be trusted to look quietly."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "The mark on you is known to me. I have not decided what it means. Until I do, I will be the shadow you do not see."
+          }
+        ]
+      },
+      {
+        "color": "gold",
+        "id": "garm",
+        "name": "Garm",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Armour is a promise: it holds so you can come home. Bring me hides and metal, and I will keep that promise for you."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "Kaijin says to keep my mouth shut around people with your mark. I am only an armourer. I mend what is brought to me."
+          }
+        ]
+      },
+      {
+        "color": "yellow",
+        "id": "dold",
+        "name": "Dold",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Rings, clasps, little things that make a hard life nicer. Do not tell my brothers I enjoy it more than the big forging."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "A friend of Tempest? Then I will make you something worth wearing. Bring gold, and a reason."
+          }
+        ]
+      },
+      {
+        "color": "gray",
+        "id": "mildo",
+        "name": "Mildo",
+        "talk": [
+          {
+            "act": 1,
+            "text": "..."
+          },
+          {
+            "act": 2,
+            "text": "Houses first. Then roads. Then walls. Do not walk through the frame, it is not finished."
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "id": "kabal",
+        "name": "Kabal",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Another new face in the guild hall. I am Kabal, rank B, and I have been doing this long enough to give advice for free: do not take the jobs that pay too well."
+          },
+          {
+            "act": 5,
+            "text": "You want to hear about the masked woman? Sit down, then. Elen, Gido, help me remember it right."
+          }
+        ]
+      },
+      {
+        "color": "aqua",
+        "id": "elen",
+        "name": "Elen",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Mana does not care how brave you are, only how careful. Keep that in mind and you will outlive most of this hall."
+          },
+          {
+            "act": 5,
+            "text": "She did not look like a monster. That is what I remember. She looked tired, and very far from home."
+          }
+        ]
+      },
+      {
+        "color": "green",
+        "id": "gido",
+        "name": "Gido",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Heh. Somebody has to stand in front. If you want the job, learn to take a hit before you learn to give one."
+          },
+          {
+            "act": 5,
+            "text": "Kabal tells it better than I do, but I will say this much: I would not have raised a blade at her if I had known."
+          }
+        ]
+      },
+      {
+        "color": "light_purple",
+        "id": "milim",
+        "name": "Milim Nava",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Hm? You are one of those small ones. Fine! I am Milim, I am very strong, and I am bored. Do not waste my time!"
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "Rimuru's people, right? He is my friend! Which makes you almost my friend. Keep it up and I might even remember your name."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "You smell of a different road. I do not care which side you are on, as long as it is fun. Do not make it boring."
+          }
+        ]
+      },
+      {
+        "color": "yellow",
+        "id": "yuuki",
+        "name": "Yuuki Kagurazaka",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Welcome to the Free Guild's headquarters. I am the Grandmaster. People take that more seriously than I do, which is useful."
+          },
+          {
+            "act": 5,
+            "path": "light",
+            "text": "Hinata hates being used as a favour, so I would not mention my name when you meet her. Pass her my regards anyway."
+          },
+          {
+            "act": 5,
+            "path": "dark",
+            "text": "A letter finds the right hands sometimes. I never wrote it, of course. But if I had, I would say: wake what sleeps, and see who flinches."
+          }
+        ]
+      },
+      {
+        "color": "blue",
+        "id": "edmaris",
+        "name": "King Edmaris",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A commoner in my throne room. State your business quickly; the kingdom of Falmuth is a busy kingdom."
+          },
+          {
+            "act": 5,
+            "path": "light",
+            "text": "You stand with the monsters of Tempest. I give you one chance to leave their side. You will not get a second."
+          },
+          {
+            "act": 5,
+            "path": "dark",
+            "text": "I hear you have no love for that slime. Then we are not enemies. Razen will tell you what Falmuth needs done."
+          }
+        ]
+      },
+      {
+        "color": "dark_blue",
+        "id": "razen",
+        "name": "Razen",
+        "talk": [
+          {
+            "act": 1,
+            "text": "The king has no time for you. I have even less. If you have something to say, say it to the guards."
+          },
+          {
+            "act": 5,
+            "path": "dark",
+            "text": "Falmuth rewards loyalty. March with us against Tempest and the king will remember your name, and so will I."
+          }
+        ]
+      },
+      {
+        "color": "aqua",
+        "id": "frey",
+        "name": "Frey",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Hmph. A visitor. I rule the skies, and I am not in a mood for greetings. Say what you came to say, or go."
+          },
+          {
+            "act": 6,
+            "text": "So the council meets and the lesser ones listen at the door. Remember it: this is a table where words can start wars."
+          }
+        ]
+      },
+      {
+        "color": "dark_red",
+        "id": "guy",
+        "name": "Guy Crimson",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Hm. You have a little spark in you. Do not let it go out before I can see what it does."
+          },
+          {
+            "act": 6,
+            "text": "Walpurgis is a pastime for those who have lived too long. Watch closely, small one. Someone at this table is about to overreach."
+          }
+        ]
+      },
+      {
+        "color": "yellow",
+        "id": "leon",
+        "name": "Leon Cromwell",
+        "talk": [
+          {
+            "act": 1,
+            "text": "You look lost. This is not a place for tourists."
+          },
+          {
+            "act": 6,
+            "text": "I have little patience for this council. But if you bring me a reason to stay, I might."
+          }
+        ]
+      },
+      {
+        "color": "dark_green",
+        "id": "dagruel",
+        "name": "Dagruel",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Hm. You walk lightly, small one. The earth notices. So do I."
+          },
+          {
+            "act": 6,
+            "text": "A council needs someone who listens. I have listened for a long time. Speak, and I will tell you if it is worth hearing."
+          }
+        ]
+      },
+      {
+        "color": "aqua",
+        "id": "ramiris",
+        "name": "Ramiris",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Oh! A visitor in my glade. I am Ramiris, the smallest and cleverest Demon Lord. Do not tell anyone I said smallest."
+          },
+          {
+            "act": 2,
+            "path": "light",
+            "text": "The spirits like you. They are whispering. That is a good sign. Come back when you have more stories."
+          },
+          {
+            "act": 2,
+            "path": "dark",
+            "text": "The spirits are quiet around you. That is... interesting. I will not say more. But I will keep watching."
+          }
+        ]
+      },
+      {
+        "color": "white",
+        "id": "hinata",
+        "name": "Hinata Sakaguchi",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A statue of the Holy Knight stands in her hall, and the knights say she watches whoever walks past. They polish it every morning."
+          },
+          {
+            "act": 5,
+            "path": "light",
+            "text": "The Knight remembers the ones who faced her blade without lying. Meet her on the road, and she will listen."
+          },
+          {
+            "act": 5,
+            "path": "dark",
+            "text": "The knights go quiet when they see your mark. The statue seems to look a little longer at you than at anyone else."
+          }
+        ]
+      },
+      {
+        "color": "dark_purple",
+        "id": "luminous",
+        "name": "Luminous Valentine",
+        "talk": [
+          {
+            "act": 1,
+            "text": "The Church's patron saint stands above the altar. Pilgrims light candles for a protector they have never seen awake."
+          },
+          {
+            "act": 6,
+            "path": "light",
+            "text": "Those who were blessed by the Holy Knight are known here. The patron will receive them, when the time comes."
+          },
+          {
+            "act": 6,
+            "path": "dark",
+            "text": "The candles flicker when you stand close. Whatever sleeps in the crypt below knows you are here."
+          }
+        ]
+      },
+      {
+        "color": "gold",
+        "id": "carrion",
+        "name": "Carrion",
+        "talk": [
+          {
+            "act": 1,
+            "text": "The lion king sits his throne as if it were made for him. You have the feeling he is deciding whether you are prey."
+          },
+          {
+            "act": 6,
+            "path": "light",
+            "text": "A friend of Tempest, then. Laura was rebuilt with Tempest's help, and a lion does not forget a debt. We will spar, you and I."
+          },
+          {
+            "act": 6,
+            "path": "dark",
+            "text": "Clayman's reach is long, even here. I know who sent you. Prove you are more than a puppet, or leave."
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "id": "folgen",
+        "name": "Folgen",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A knight of Falmuth stands at the king's right hand, hand on his sword, watching the door."
+          },
+          {
+            "act": 5,
+            "text": "Falmuth's field commander does not talk to the likes of you. His eyes say enough: when the horn sounds, he rides south."
+          }
+        ]
+      },
+      {
+        "color": "dark_aqua",
+        "id": "kyoya",
+        "name": "Kyoya Tachibana",
+        "talk": [
+          {
+            "act": 1,
+            "text": "One of the summoned ones, in Falmuth's service. He leans against a pillar as if the whole court bored him."
+          },
+          {
+            "act": 5,
+            "path": "light",
+            "text": "He watches you from under half-closed lids. If you have to cross blades with Falmuth's otherworlders, he will want to go first."
+          },
+          {
+            "act": 5,
+            "path": "dark",
+            "text": "He looks you over and grins. A blade on the same side as his, for now. Do not mistake that for friendship."
+          }
+        ]
+      },
+      {
+        "color": "gray",
+        "id": "shogo",
+        "name": "Shogo Taguchi",
+        "talk": [
+          {
+            "act": 1,
+            "text": "Another of the summoned. He studies you the way a duelist studies a floor before a fight."
+          },
+          {
+            "act": 5,
+            "text": "Falmuth's otherworlders do not offer names to strangers. He lets his hand rest on his hilt instead."
+          }
+        ]
+      },
+      {
+        "color": "blue",
+        "id": "kirara",
+        "name": "Kirara Mizutani",
+        "talk": [
+          {
+            "act": 1,
+            "text": "A summoned girl in Falmuth's court, perfectly polite, perfectly watchful, her hand never far from her wand."
+          },
+          {
+            "act": 5,
+            "text": "She curtsies, which does not mean she is on your side. Falmuth's otherworlders are loyal to the crown that feeds them."
+          }
+        ]
+      }
+    ],
+    "oath": {
+      "dark": {
+        "item": "minecraft:soul_lantern",
+        "label": "Walk the Outcast road",
+        "line": "swore the Oath of the Dark at the crossroads of Tempest.",
+        "lore": "The Outcast Society marks you and the Orc Horde watches with interest. Tempest will cool toward you, but the roads the good folk never see are open.",
+        "remembers": "Your soul remembers.",
+        "rep": {
+          "orc_horde": 15,
+          "outcast": 20,
+          "tempest": -20
+        },
+        "say": "You have taken the Oath of the Dark. The Outcasts have marked you.",
+        "title": "Marked"
+      },
+      "light": {
+        "fallen_title": "Repentant",
+        "item": "minecraft:lantern",
+        "label": "Stand with Tempest",
+        "line": "swore the Oath of the Light at the crossroads of Tempest.",
+        "lore": "Rigurd's trust is yours: the forest folk hold you as one of their own. Tempest and its friends will open their doors, and the Orc Horde and the Outcasts will not.",
+        "rep": {
+          "tempest": 20
+        },
+        "say": "You have taken the Oath of the Light. Tempest remembers who stood with it.",
+        "title": ""
+      },
+      "menu_title": "The Oath",
+      "require_stage": "",
+      "unaligned_for_legend": false,
+      "unaligned_title": "Unaligned"
+    },
+    "rules": {
+      "fight_near": 96,
+      "log_size": 200,
+      "party_oath": true,
+      "sequential_acts": true
     }
   },
   "trials": {
