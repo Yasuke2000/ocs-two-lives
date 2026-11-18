@@ -42,6 +42,9 @@ execute as TtlBotNpcA run ttl guild board desk
 execute as TtlBotNpcA run ttl guild board fuze
 # ---- placement: exactly one of each ----
 ttl guild npc list
+# A bot that was teleported within one dimension does not make its new chunk entity-ticking (it sends no movement
+# packets; in game 18/11/2026), so the two Tempest spots are force-loaded for the test (removed again at the end).
+execute in minecraft:overworld run forceload add 3 -19 8 -16
 ttl guild npc goto TtlBotNpcA receptionist_tempest
 @sleep 4
 ttl guild npc remove receptionist_tempest
@@ -81,5 +84,6 @@ ttl guild npc expect count_fuze 1
 # Clean up: the NPCs stay (they are the real ones); only the bots go.
 ttl guild reset TtlBotNpcA
 ttl guild npc ensure
+execute in minecraft:overworld run forceload remove 3 -19 8 -16
 ttlbot remove TtlBotNpcA
 ttlbot remove TtlBotNpcB
