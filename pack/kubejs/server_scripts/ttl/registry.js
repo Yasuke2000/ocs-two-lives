@@ -367,6 +367,7 @@ const TtlRegistry = {
     if (list.length > max) list = list.slice(list.length - max)
     while (list.length > 1 && JSON.stringify(list).length > this.MAX_JSON) list.shift()
     this.store(server, 'ttl.reg.history', list)
+    try { if (typeof TtlChronicle !== 'undefined' && this.rarityOf(skill) === 'legendary') TtlChronicle.note(server, 'legendary', null, { event: String(event), skill: String(skill), name: String(name) }) } catch (e) { console.error(`[ttl] registry: chronicle note failed: ${e}`) }
     console.info(`[ttl] registry history: ${event} ${skill} ${name} (${reason || '-'})`)
     if (!quiet) this.announce(server, event, skill, name, extra && extra.fn)
   },

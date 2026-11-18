@@ -5469,5 +5469,248 @@ const TtlData = {
       "limit": 120,
       "nemesis_health": 60
     }
+  },
+  "world": {
+    "balance": {
+      "decay_per_week": 2,
+      "tide_at": 25,
+      "tide_end": 10,
+      "weights": {
+        "act_dark": -1,
+        "act_light": 1,
+        "atonement": 3,
+        "charybdis_woke": -2,
+        "corruption": -3,
+        "demon_lord": -10,
+        "hero": 10,
+        "honour_duel": 1,
+        "oath_dark": -2,
+        "oath_light": 2,
+        "radiant_dark": -0.2,
+        "radiant_light": 0.2,
+        "raid_defended": 2,
+        "raid_sacked": -3,
+        "regicide": -3,
+        "uprising_put_down": 2,
+        "uprising_won": -3
+      }
+    },
+    "chronicle": {
+      "active_window_days": 30,
+      "archive_max": 10,
+      "discord": true,
+      "first_story": "{names} are the first souls of this world to defeat {boss}.",
+      "kill_kinds": [
+        "horde_band"
+      ],
+      "log_size": 300,
+      "max_json": 60000,
+      "pending_factions": [
+        "eurazania"
+      ],
+      "sync_ticks": 6000,
+      "voice_per_login": 3
+    },
+    "continent": {
+      "cache_max": 4096,
+      "fallback_inside": true,
+      "inside_dimensions": [
+        "tensura:labyrinth",
+        "ttl:spirit_domain",
+        "tensura:hell"
+      ],
+      "outside_counts": true,
+      "overworld": "minecraft:overworld"
+    },
+    "milestone": [
+      {
+        "effects": {
+          "stage": "ttl.world.act2",
+          "story": "The Armed Nation has taken the measure of the newcomers: Act II is written into the world."
+        },
+        "id": "act2_reached",
+        "when": {
+          "acts": {
+            "act": 2
+          }
+        }
+      },
+      {
+        "effects": {
+          "stage": "ttl.world.milestone.horde_seen",
+          "story": "Starving orcs have been seen on the roads of Jura."
+        },
+        "id": "horde_seen",
+        "when": {
+          "kills": {
+            "horde_band": 1
+          }
+        }
+      },
+      {
+        "effects": {
+          "phase": {
+            "tempest": "town"
+          },
+          "stage": "ttl.world.phase.tempest.town",
+          "story": "Tempest has grown into a town.",
+          "title": "Tempest grows",
+          "unlock_events": [
+            "horde_raid"
+          ],
+          "voice": "Tempest has grown into a town. Roads, walls, a market: the world remembers who stood here."
+        },
+        "id": "tempest_town",
+        "when": {
+          "acts": {
+            "act": 3
+          }
+        }
+      },
+      {
+        "effects": {
+          "conflict": "falmuth",
+          "stage": "ttl.world.act5",
+          "unlock_events": [
+            "falmuth_invasion_repeat",
+            "holy_hunt"
+          ]
+        },
+        "id": "act5_reached",
+        "when": {
+          "acts": {
+            "act": 5
+          }
+        }
+      },
+      {
+        "effects": {
+          "phase": {
+            "tempest": "city"
+          },
+          "stage": "ttl.world.phase.tempest.city",
+          "story": "Tempest is a city. The council of the Jura-Tempest Federation sits in its own hall.",
+          "unlock_events": [
+            "walpurgis_monthly"
+          ]
+        },
+        "id": "tempest_city",
+        "when": {
+          "acts": {
+            "act": 6
+          }
+        }
+      },
+      {
+        "effects": {
+          "conflict": "eurazania",
+          "story": "Walpurgis has met. Eurazania's throne is in play."
+        },
+        "id": "walpurgis_held",
+        "when": {
+          "acts": {
+            "act": 6
+          },
+          "kills": {
+            "clayman": 1
+          }
+        }
+      },
+      {
+        "effects": {
+          "mood": {
+            "holy_church": -1
+          },
+          "stage": "ttl.world.milestone.first_demon_lord",
+          "unlock_events": [
+            "harvest_festival"
+          ]
+        },
+        "id": "first_demon_lord",
+        "when": {
+          "flags": {
+            "demon_lord": 1
+          }
+        }
+      },
+      {
+        "effects": {
+          "mood": {
+            "holy_church": 1
+          },
+          "stage": "ttl.world.milestone.first_true_hero",
+          "unlock_events": [
+            "hero_ascension"
+          ]
+        },
+        "id": "first_true_hero",
+        "when": {
+          "flags": {
+            "hero": 1
+          }
+        }
+      },
+      {
+        "effects": {
+          "conflict": "dwargon",
+          "mood": {
+            "dwargon": 1
+          },
+          "story": "Dwargon and Tempest exchange envoys.",
+          "unlock_events": [
+            "dwarven_caravan"
+          ]
+        },
+        "id": "dwargon_pact",
+        "when": {
+          "flags": {
+            "honour_duel": 3
+          },
+          "radiant": {
+            "dwargon": 20
+          }
+        }
+      }
+    ],
+    "places": {
+      "tempest": [
+        "village",
+        "town",
+        "city"
+      ]
+    },
+    "rule": {
+      "modes": [
+        "vassal",
+        "usurper"
+      ]
+    },
+    "threshold": {
+      "pct": 25,
+      "souls": 3
+    },
+    "tide": {
+      "dark": {
+        "end_story": "The dark tide over Jura ebbs.",
+        "mood": {
+          "tempest": -1
+        },
+        "story": "A dark tide rises over Jura.",
+        "unlock_events": [
+          "horde_raid",
+          "holy_hunt"
+        ]
+      },
+      "light": {
+        "end_story": "The light over Jura wavers; the Outcasts breathe again.",
+        "mood": {
+          "outcast": -1
+        },
+        "story": "The light holds Jura. The Outcasts stir in the shadows.",
+        "unlock_events": [
+          "outcast_uprising"
+        ]
+      }
+    }
   }
 }

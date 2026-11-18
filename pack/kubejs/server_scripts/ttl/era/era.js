@@ -163,6 +163,7 @@ const TtlEra = {
     var now = old + 1
     server.persistentData.putInt('ttl.season', now)
     server.persistentData.putString('ttl.era.started', String(Date.now()))
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.archive(server, old, now) } catch (e) { console.error(`[ttl] era: archiving the world chronicle failed: ${e}`) }
     var quiet = this.quiet(server, silent)
     console.info(`[ttl] era: era ${old} ended, era ${now} begins (${reason || 'admin'}${quiet ? ', silent' : ''}); ${this.slotText(server)}`)
     if (!quiet) this.announce(server, `Era ${old} is over. Era ${now} begins.`)
