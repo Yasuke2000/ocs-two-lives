@@ -3,7 +3,7 @@
 ## 18/11 night — PRs #18–#33 merged into main; ttl-ops on `bae23df`: **67/67 green** (merge-and-test run, Claude)
 
 Last step: the maker's-stamp lore line fix (`withColor` overload, artifice.js) came after the green run; `test artifice`
-was green with it via push-scripts, and ttl-ops runs the full suite on that commit (check its verdict first).
+was green with it via push-scripts, and ttl-ops on `66941f0` is **67/67 green** as well (log clean of KubeJS errors).
 
 **Merged** (`--no-ff`, GitHub shows them merged): #19 arenas, #21 codex/life2-saga-wiki (it supersedes #18, which is
 closed with a comment), #22 world-w1, #23 world-w2, #27 sidequests, #25 roadmap-suggestions, #20 project-status,
