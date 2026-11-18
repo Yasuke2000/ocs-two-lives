@@ -1,5 +1,21 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 18/11 afternoon — six PRs merged into main (`7898d90`), ttl-ops run pending
+
+Merged with `--no-ff` in this order: #15 ocs-bluemap-pregen, #11 polish, #13 lore-pass, #17 rules-pass, #16 quests-web, #14 story-s7
+(GitHub closed all six as merged). Conflict calls: decisions.md keeps every row; generated files (data.js, quests.js, FTB SNBT,
+en_us.snbt, index.toml, pack.toml, docs/configs.md) took main's side and were regenerated (gen_data, gen_npcs, gen_quests, config_index,
+packwiz refresh; `quest_graph.py --check` passes: 21 chapters, 304 quests). Deliberate overlaps: chapter 10's Milim/dragon-city location
+now points at the lore-pass build (survey start 2340 905 v3 -> centre 2340 830, radius 140; the old v2 copy at 2510 575 is still in the
+staging world); chapter 9's entry dropped the redundant `kings_test/act_two` (orc_lord/envoy already needs it in #16's web) and
+`whirlpool/ep_20000` joins the EP ladder through `reborn/ep_20000` (tests/test_story_chapters_9_10.py adjusted). quests.rcon: the web
+section is 6, the chapter 9-10 section is 7. Verified offline: `validate.py` passed on every merge commit, 92 unit tests OK.
+**Not yet verified in game**: ttl-ops deploys `7898d90` when nobody is online and runs test-all (last green run was on `2863fe1`); new
+tests to watch: duel_liability, wayfarer_guard, tempest_pass2, quests sections 6-7, registry/absorb/guild_npcs/nations. Dwargon v6
+and Tempest v3 re-place on that boot. Still open: PR #19 `arenas` (merge after this run; wire `absorb/liability.js` to treat
+`TtlArenas.inArena(level, pos)` as exempt, guarded with a typeof check; optionally move the Walpurgis council NPC spots to the new
+hall) and PR #18 (not reviewed here).
+
 Last update: 18/11/2026 ~14:10 (Brussels), by Claude (day run for Yasuke: codex-integ merged, test fixes recovered,
 tests kept out of Discord, **`bash tools/server.sh test-all` = 0 failing on main `061a1a2`**).
 
