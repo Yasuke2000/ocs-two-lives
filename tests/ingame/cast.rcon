@@ -1,0 +1,91 @@
+# The story cast (WP-S4: design/data/npcs.toml, economy/guild_npcs.js, story/cast.js; talk words in story.toml).
+# `ttl cast ...`, `ttl guild npc expect ...` and `ttl story expect ...` print "ttl: ..." when something does not hold, which
+# `server.sh test-all` counts as a failure. A spot whose build is not placed on the server is SKIPPED (the line `cast verify all:
+# N ok, M skipped` tells how many were), so the test is green on a world with only Tempest and meaningful on a full one.
+# Needs Easy NPC with the presets from config/easy_npc/preset and `ttl` in security.cfg executeAsUserCommandAllowList.ALL.
+# Bot A is a Life 2 soul on the light path, bot B on the dark path.
+# Expect in the log: "[ttl] guild npc: benimaru_tempest (benimaru) spawned at ...", and no "[ttl] guild npc: importing ...
+# failed", "[ttl] cast: summoning ... failed", "cast command failed" or "right-click handling failed".
+# Also check in game (not asserted): right-click Benimaru -> dialog with a Talk button -> the chat line; right-click a statue
+# (Hinata in Lubelius) -> the same chat line, no Tensura menu; shift + right-click -> Tensura's own interaction; Rigurd and
+# Gobta (goblins in Tempest's north-east quarter) talk instead of opening the trade screen; the statues face the way their
+# spot says and stand still; a drawn skin in assets/ttl/textures/entity/npc/<kind>.png shows on the NPC after gen_npcs.py.
+ttlbot spawn TtlBotCastA
+ttlbot spawn TtlBotCastB
+@sleep 2
+ttl reset TtlBotCastA
+ttl reset TtlBotCastB
+kubejs stages add TtlBotCastA ttl.life2
+kubejs stages add TtlBotCastB ttl.life2
+ttl story set TtlBotCastA light
+ttl story set TtlBotCastB dark
+# ---- data: every kind and hook talks with a story.toml character; the presets are on the server ----
+ttl cast expect talk_ids_known true
+ttl guild npc expect presets true
+# ---- what the cast says depends on the soul (picks, not chat: `ttl story expect <player> talk <npc> <entry>`) ----
+# Benimaru: entry 1 = act 1 for everyone, light act 2 = entry 2 once the Oath is done; the soul is still at act 1 here.
+ttl story expect TtlBotCastA talk benimaru 1
+ttl story expect TtlBotCastA talk hinata 1
+ttl story expect TtlBotCastB talk outcast_contact 2
+execute as TtlBotCastA run ttl story talk benimaru
+execute as TtlBotCastA run ttl story talk hinata
+execute as TtlBotCastA run ttl story talk gazel
+# ---- placement: force-load every placed spot, let the check run, then verify ----
+ttl cast load
+execute in minecraft:overworld run forceload add 16 -48 31 -28
+@sleep 8
+ttl guild npc ensure
+@sleep 2
+ttl guild npc ensure
+ttl cast verify all
+# Exactly one of the Tempest cast (the Tempest spots exist wherever Tempest is placed, which this test needs).
+ttl guild npc expect count_benimaru_tempest 1
+ttl guild npc expect count_shion_tempest 1
+ttl guild npc expect count_souei_tempest 1
+ttl guild npc expect tags_benimaru_tempest ok
+ttl guild npc expect type_benimaru_tempest easy_npc:humanoid
+ttl guild npc expect type_shuna_tempest easy_npc:humanoid_slim
+ttl guild npc expect invulnerable_benimaru_tempest true
+ttl guild npc expect talk_benimaru_tempest benimaru
+ttl guild npc expect name_benimaru_tempest Benimaru
+# The Outcast of the south road stands on the surface at world 0, 52 (surface spot).
+ttl guild npc expect count_outcast_road 1
+ttl guild npc expect talk_outcast_road outcast_contact
+# Idempotent, and an extra copy is removed again by the next check (guild_npcs.rcon proves the same for the guild).
+ttl guild npc ensure benimaru_tempest
+ttl guild npc expect count_benimaru_tempest 1
+ttl guild npc spawn benimaru_tempest
+ttl guild npc expect count_benimaru_tempest 2
+ttl guild npc ensure benimaru_tempest
+ttl guild npc expect count_benimaru_tempest 1
+# Kind counts (every Easy NPC kind of the cast and the statues).
+ttl guild npc expect count_benimaru 1
+ttl guild npc expect count_kabal 1
+# ---- the right-click: hooks on existing entities and the statues (skipped when nothing is loaded there) ----
+# The goblins of Tempest talk as Rigurd and Gobta; Gazel's throne statue (Dwargon) as Gazel.
+ttl cast interact TtlBotCastA rigurd rigurd
+ttl cast interact TtlBotCastA gobta gobta
+ttl cast interact TtlBotCastA gazel_throne gazel
+# Statues of the mod characters (type, NoAI, invulnerable and the talk tag are part of `cast verify all` above): a right-click
+# answers with the story character.
+ttl cast interact TtlBotCastA hinata_lubelius hinata
+ttl cast interact TtlBotCastA luminous_lubelius luminous
+ttl cast interact TtlBotCastA carrion_laura carrion
+ttl cast interact TtlBotCastA folgen_marris folgen
+ttl cast interact TtlBotCastA kyoya_marris kyoya
+ttl cast interact TtlBotCastB hinata_lubelius hinata
+# Easy NPCs of the far towns answer through their Talk button; the id they are wired to is checked.
+ttl cast interact TtlBotCastA treyni_shrine treyni
+ttl cast interact TtlBotCastA milim_forgotten_dragon_city milim
+ttl cast interact TtlBotCastA edmaris_marris edmaris
+ttl cast interact TtlBotCastA yuuki_englassia yuuki
+ttl cast interact TtlBotCastA frey_clayman frey
+ttl cast interact TtlBotCastA ramiris_spirit_dwelling ramiris
+# ---- a stand-in: the guild trio waits in Tempest's longhouse until Blumund is placed, then Blumund's spots take over ----
+# (`cast verify all` above already counted exactly one of each: a stand-in and its Blumund spot share the tag.)
+ttl guild npc expect count_gido 1
+# ---- clean up ----
+ttl cast unload
+execute in minecraft:overworld run forceload remove 16 -48 31 -28
+ttl reset TtlBotCastA
+ttl reset TtlBotCastB
