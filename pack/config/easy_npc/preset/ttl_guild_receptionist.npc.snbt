@@ -5,10 +5,10 @@
     category:"Guild",
     created:1790000000000L,
     description:"A Free Guild receptionist: the desk board (rank F to C), hand-ins and rank.",
-    entityTypeId:"easy_npc:humanoid",
+    entityTypeId:"easy_npc:humanoid_slim",
     modified:1790000000000L,
     name:"Guild Receptionist",
-    variantType:"SECURITY_01",
+    variantType:"ALEX",
     version:"1.0.0"
   },
   data:{
@@ -221,7 +221,11 @@
     },
     PersistenceRequired:1b,
     PresetUUID:[I;-97405085,1644257119,-1377905819,1785128906],
-    VariantType:"SECURITY_01",
-    id:"easy_npc:humanoid"
+    VariantType:"ALEX",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/receptionist.png",
+      Type:"RESOURCE_LOCATION"
+    },
+    id:"easy_npc:humanoid_slim"
   }
 }

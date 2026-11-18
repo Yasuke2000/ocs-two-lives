@@ -5,7 +5,7 @@
     category:"Story",
     created:1790000000000L,
     description:"Frey, the Sky Queen, a Walpurgis Demon Lord (story NPC).",
-    entityTypeId:"easy_npc:humanoid_slim",
+    entityTypeId:"easy_npc:humanoid",
     modified:1790000000000L,
     name:"Frey",
     variantType:"MAKENA",
@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-1868753642,-1280615949,-1314769877,1807677496],
     VariantType:"MAKENA",
-    id:"easy_npc:humanoid_slim"
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/frey.png",
+      Type:"RESOURCE_LOCATION"
+    },
+    id:"easy_npc:humanoid"
   }
 }

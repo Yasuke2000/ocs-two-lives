@@ -5,8 +5,7 @@ branch hall. Geography and placement are in [world.md](world.md) §R. Read this 
 
 **Research note (18/11/2026).** tensura.fandom.com returns HTTP 402 to direct fetches, so the facts below come from
 Wikipedia's character list and search-engine extracts of the wiki and episode reviews. Canon gives **no architecture
-description** of Blumund's capital; everything about how it looks is *our interpretation*. The capital's name is
-*unverified*: the fan map labels it "Londo" and world.md keeps that as the landmark name.
+description** of Blumund's capital; everything about how it looks is *our interpretation*. The fan map and the Tensura Wiki both identify the capital as Londo. [Kingdom of Blumund](https://tensura.fandom.com/wiki/Kingdom_of_Blumund)
 
 ## Facts the build follows
 

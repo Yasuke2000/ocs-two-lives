@@ -134,14 +134,29 @@ def build(bp):
             blocks[(x, G, z)] = M("stone_bricks") if rnd(x, 0, z, 41) < 0.5 else M("cobblestone")
     for z in (49, 55, 61):
         for x in (C - 3, C + 3):
-            put(bp, x, F, z, M("cobblestone_wall[east=false,north=false,south=false,up=true,waterlogged=false,west=false]"))
+            put(bp, x, F, z, M("cobblestone_wall[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"))
             put(bp, x, F + 1, z, M("soul_lantern[hanging=false]"))
 
-    cands = [(x, y, z) for x in range(SX) for z in range(SZ) for y in range(G - 3, G + 4)
-             if math.hypot(x - C, z - C) <= 21 or (abs(x - C) <= 4 and z >= 46)]
+    # The bowl drops three blocks below G. Anchor the roost rims, hoard,
+    # approach and perch to its actual floor before checking the light below.
+    for x in range(C - 21, C + 22):
+        for z in range(C - 21, C + 22):
+            if math.hypot(x - C, z - C) > R:
+                continue
+            for y in range(G + 1, G - 3, -1):
+                if blocks.get((x, y, z), AIR) != AIR and blocks.get((x, y - 1, z)) == AIR:
+                    blocks[(x, y - 1, z)] = M("stone") if math.hypot(x - C, z - C) < 4 else M("coarse_dirt")
+
+    cands = [(x, y, z) for x in range(SX) for z in range(SZ)
+             if math.hypot(x - C, z - C) <= 25.5 or (abs(x - C) <= 4 and z >= 46)
+             for y in range(G - 3, SY - 1)]
 
     def add_light(x, y, z):
-        put(bp, x, y, z, M("cobblestone_wall[east=false,north=false,south=false,up=true,waterlogged=false,west=false]"))
+        if y > G + 3:
+            # Flush lights keep the rib, perch and wall tops climbable.
+            put(bp, x, y - 1, z, LANTERN)
+            return
+        put(bp, x, y, z, M("cobblestone_wall[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"))
         put(bp, x, y + 1, z, M("soul_lantern[hanging=false]"))
 
     light_up(bp, cands, add_light, spread=9)

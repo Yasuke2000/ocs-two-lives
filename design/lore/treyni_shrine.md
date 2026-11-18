@@ -4,7 +4,7 @@ Build: `blueprints/treyni_shrine.py` (33 x 22 x 33, anchor (16, 5, 16) = the cen
 at world about (1988, -223): the canon landmark "Treyni's grove (Dryad sanctuary)" (ref [2150, 1100] -> (1950, -223), east of
 the Great Ameld) plus 38 blocks east. The ancient tree is Tensura's own `tensura:ancient_forest/tree` placed by
 `life/landmarks.js` (landmark `treyni_grove`, up to 39 x 42 x 41 blocks, spot surveyed within 64 blocks of the nominal one), so
-the shrine's TOML only sets an offset; the generic placer keeps 24 blocks clear of placed landmarks.
+the shrine's survey starts 38 blocks east and searches up to 132 blocks. The placer checks the actual tree position, its 48-block reach, the shrine box and margin, and a 24-block separation. The shrine's final direction from the tree depends on the dry land it finds.
 
 ## Canon
 
@@ -17,9 +17,11 @@ the shrine's TOML only sets an offset; the generic placer keeps 24 blocks clear 
 
 ## What we built (all our interpretation)
 
-A round mossy dais with a ring of green runes, a young azalea tree (a seedling of the ancient tree) at its heart, three
+A round mossy dais with a ring of green runes, a young azalea tree (a seedling of the ancient tree) four blocks north of the arrival stone, three
 seats for the three sisters each with a potted sapling, four log posts with lanterns and vines, and a living gate of two
-bent oak logs on the west side facing the ancient tree. Lit with lanterns, froglight and a shroomlight in the crown.
+bent oak logs on the west side. A chain fixes its hanging lantern to the arch. The east-side seats face inward, with the higher side of each stair at the rear. Lit with lanterns, froglight and a shroomlight in the crown.
+
+Treyni’s official character art shows her surrounded by curling greenery. The three-sister relationship and her guardianship are described in her Japanese character entry. The dais and seedling are original. [Official Treyni art](https://www.ten-sura.com/character/treyni) · [Dryad sisters](https://ja.wikipedia.org/wiki/転生したらスライムだった件#トレイニー)
 
 ## Sources
 

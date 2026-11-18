@@ -921,6 +921,31 @@ const TtlData = {
   "builds": [
     {
       "anchor": [
+        38,
+        4,
+        41
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Ballachia",
+      "margin": 12,
+      "max_wet": 0.1,
+      "name": "ballachia",
+      "notes": "Former Orthrus exchange on the eastbound road, after Masayuki's visit. See design/lore/ballachia.md.",
+      "search": 32,
+      "size": [
+        76,
+        38,
+        66
+      ],
+      "title": "Ballachia — The Freed Travellers' Yard",
+      "version": 1,
+      "x": -1384,
+      "z": -212
+    },
+    {
+      "anchor": [
         62,
         5,
         72
@@ -939,7 +964,7 @@ const TtlData = {
         116
       ],
       "title": "Blumund — Londo",
-      "version": 2,
+      "version": 3,
       "x": -1024,
       "z": -120
     },
@@ -964,7 +989,7 @@ const TtlData = {
         109
       ],
       "title": "Clayman's Castle — the Puppet Nation of Jistav",
-      "version": 1,
+      "version": 2,
       "x": 3693,
       "z": -959
     },
@@ -989,9 +1014,32 @@ const TtlData = {
         73
       ],
       "title": "The Dragon's Nest",
-      "version": 1,
+      "version": 2,
       "x": 370,
       "z": -2402
+    },
+    {
+      "anchor": [
+        40,
+        4,
+        74
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "margin": 16,
+      "max_wet": 0.1,
+      "name": "el_dorado",
+      "search": 48,
+      "size": [
+        81,
+        39,
+        83
+      ],
+      "title": "Golden City of El Dorado — Leon’s Audience Court",
+      "version": 1,
+      "x": -4808,
+      "z": 3240
     },
     {
       "anchor": [
@@ -1013,7 +1061,7 @@ const TtlData = {
         112
       ],
       "title": "Englassia — Lura",
-      "version": 2,
+      "version": 3,
       "x": -2626,
       "z": -300
     },
@@ -1038,9 +1086,59 @@ const TtlData = {
         125
       ],
       "title": "City of the Forgotten Dragon — Milim's domain",
-      "version": 1,
+      "version": 2,
       "x": 2510,
       "z": 575
+    },
+    {
+      "anchor": [
+        42,
+        4,
+        65
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Frost Palace (Guy Crimson)",
+      "margin": 8,
+      "max_wet": 0.1,
+      "name": "frost_palace",
+      "notes": "A causeway into the White Ice Palace. The current map paints the full survey envelope as Ice Continent (I). See design/lore/frost_palace.md.",
+      "search": 48,
+      "size": [
+        85,
+        51,
+        69
+      ],
+      "title": "The Frost Palace — Guy Crimson's gate",
+      "version": 1,
+      "x": -2435,
+      "z": -4314
+    },
+    {
+      "anchor": [
+        40,
+        4,
+        83
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Heaven Tower (Dagruel, Damargania)",
+      "margin": 16,
+      "max_wet": 0.1,
+      "name": "heaven_tower",
+      "notes": "Dagruel's tower and processional road in the Desert of Death. See design/lore/heaven_tower.md.",
+      "search": 48,
+      "size": [
+        81,
+        60,
+        91
+      ],
+      "title": "Heaven Tower — Holy Void of Damargania",
+      "version": 1,
+      "x": -7507,
+      "z": 245
     },
     {
       "anchor": [
@@ -1063,7 +1161,7 @@ const TtlData = {
         113
       ],
       "title": "Laura — capital of the Beast Kingdom of Eurazania",
-      "version": 2,
+      "version": 3,
       "x": 1689,
       "z": 1302
     },
@@ -1087,7 +1185,7 @@ const TtlData = {
         120
       ],
       "title": "Holy City Lubelius — Lune",
-      "version": 1,
+      "version": 2,
       "x": -3977,
       "z": -659
     },
@@ -1111,9 +1209,33 @@ const TtlData = {
         112
       ],
       "title": "Marris — Falmuth",
-      "version": 2,
+      "version": 3,
       "x": -1286,
       "z": -1040
+    },
+    {
+      "anchor": [
+        40,
+        4,
+        76
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Sacred Mountain (Inner Sanctum, Luminous)",
+      "margin": 16,
+      "max_wet": 0.1,
+      "name": "sacred_mountain",
+      "search": 48,
+      "size": [
+        81,
+        57,
+        81
+      ],
+      "title": "Sacred Mountain — the seal of the Inner Sanctum",
+      "version": 1,
+      "x": -4423,
+      "z": -1286
     },
     {
       "anchor": [
@@ -1136,7 +1258,7 @@ const TtlData = {
         88
       ],
       "title": "The Sealed Cave: Veldora's prison, Rimuru's birthplace",
-      "version": 1,
+      "version": 2,
       "x": -256,
       "z": -343
     },
@@ -1152,7 +1274,7 @@ const TtlData = {
       "margin": 0,
       "max_wet": 0.1,
       "name": "spirit_dwelling",
-      "notes": "Glade, colonnade and summoning grotto with the pedestal of light (Rimuru took Shizu's pupils there to call their spirits, light novel vol. 4 ch. 50). Appearance is our interpretation.",
+      "notes": "Glade, colonnade and summoning grotto with the pedestal of light (Rimuru took Shizu's pupils there to call their spirits, light novel vol. 4; anime episodes 22–23). Appearance is our interpretation.",
       "search": 48,
       "size": [
         89,
@@ -1160,7 +1282,7 @@ const TtlData = {
         89
       ],
       "title": "The Dwelling of the Spirits",
-      "version": 1,
+      "version": 2,
       "x": 0,
       "y": 64,
       "z": 0
@@ -1177,7 +1299,7 @@ const TtlData = {
       "margin": 8,
       "max_wet": 0.1,
       "name": "spirit_gate",
-      "notes": "Canon puts the Dwelling inside Ramiris's labyrinth in Tempest's territory but gives no map position; this spot (about 250 blocks south-west of Tempest, in the Jura forest) is our interpretation.",
+      "notes": "Pack access point about 250 blocks southwest of Tempest in Jura. The early-story entrance visited by Rimuru and the children is in Ulg Nature Park, Ulgracia; see design/lore/spirit_domain.md.",
       "search": 64,
       "size": [
         57,
@@ -1185,7 +1307,7 @@ const TtlData = {
         57
       ],
       "title": "The gate to the Dwelling of the Spirits",
-      "version": 1,
+      "version": 2,
       "x": -210,
       "z": 130
     },
@@ -1227,14 +1349,14 @@ const TtlData = {
       "max_wet": 0.1,
       "name": "treyni_shrine",
       "notes": "Small mossy dais with a young azalea tree and three seats for the dryad sisters; our interpretation (design/lore/treyni_shrine.md).",
-      "search": 48,
+      "search": 132,
       "size": [
         33,
         22,
         33
       ],
       "title": "Treyni's shrine",
-      "version": 2,
+      "version": 3,
       "x": 1988,
       "z": -223
     }
@@ -3173,9 +3295,10 @@ const TtlData = {
         },
         "giver": "desk",
         "id": "receptionist",
+        "model": "humanoid_slim",
         "name": "Guild Receptionist",
         "name_color": "#009FE3",
-        "skin": "SECURITY_01"
+        "skin": "ALEX"
       },
       {
         "description": "Benimaru, war leader of Tempest's kijin (story NPC).",
@@ -3386,7 +3509,7 @@ const TtlData = {
           "text": "A winged woman sits very straight at the council table and does not seem to need a chair."
         },
         "id": "frey",
-        "model": "humanoid_slim",
+        "model": "humanoid",
         "name": "Frey",
         "name_color": "#5DADE2",
         "skin": "MAKENA",
@@ -3431,7 +3554,7 @@ const TtlData = {
           "text": "A tiny winged girl hovers at the height of your face, beaming."
         },
         "id": "ramiris",
-        "model": "humanoid_slim",
+        "model": "humanoid",
         "name": "Ramiris",
         "name_color": "#009FE3",
         "skin": "NOOR",
@@ -3499,7 +3622,7 @@ const TtlData = {
       "check_ticks": 200,
       "interact_cooldown_ms": 600,
       "preset_prefix": "ttl_guild_",
-      "rev": 1,
+      "rev": 2,
       "sneak_bypass": true,
       "start_delay_ticks": 200
     },

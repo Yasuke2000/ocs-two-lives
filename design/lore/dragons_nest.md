@@ -18,12 +18,13 @@ Dwargon's region D).
 A roosting bowl woven of spruce and dark-oak trunks lined with hay, ringed by a jagged wall of blackstone, stone, tuff and
 bone-white calcite with a south gap and eight broken spires carrying soul lanterns; three smaller roosts for young; scattered
 bones, a rib cage, scorch marks of blackstone and basalt; a low hoard of gold, raw gold and amethyst; a central perch of stacked
-rock with a sea lantern; snow everywhere. A stepped approach leads to the gap.
+rock with a sea lantern; snow everywhere. A five-block stone path leads to the gap. The perch and hoard rest on the bowl floor; flush lamps keep the higher rib and rim surfaces lit.
 
 ## Unverified / risks
 
-- The survey radius is 32 blocks: on a very sharp summit the placer may find no flat spot (it also rejects ice); raise `search`
-  or use `ground = "fixed"` if it fails (`/ttl build place dragons_nest`).
+- The survey examines dry ground within 32 blocks. It scores flatter candidates more highly and rejects ice, water and lava. It does not select the highest elevation or enforce a maximum slope. Check the actual summit height, approach and skirt in game.
+
+The official map describes Dwargon as a mining and manufacturing nation. Its entry gives no plan for a dragon roost. The pack’s specific summit placement follows its traced map and the geography notes in region D. [Official map, Dwargon](https://www.ten-sura.com/map/#A-30) · [Pack geography](world.md)
 
 ## Sources
 

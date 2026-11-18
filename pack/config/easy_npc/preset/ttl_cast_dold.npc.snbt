@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-434413552,-1022274060,-2024101938,957308838],
     VariantType:"STEVE",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/dold.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

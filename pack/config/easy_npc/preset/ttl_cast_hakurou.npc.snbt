@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-295535957,321409726,-1897027725,729340522],
     VariantType:"PROFESSOR_01",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/hakurou.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

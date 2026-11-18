@@ -14,6 +14,6 @@ anchor = [60, 5, 118]
 ground = "survey"
 search = 96
 dimension = "minecraft:overworld"
-version = 1
+version = 2
 clear_above = true
 notes = "Dragon-skull temple gate, rib-arch avenue, granaries and thatch huts; blueprints/forgotten_dragon_city.py, lore in design/lore/forgotten_dragon_city.md."

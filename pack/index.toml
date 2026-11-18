@@ -758,63 +758,63 @@ hash = "3f871a556a9f1d11baa6e86e46240e22d98ae364f3112f44678571a677d5abd0"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_benimaru.npc.snbt"
-hash = "9ee2fedd92c1801f786a01b28fa11c555a1bd72711c55a8ea498b429ed5c3574"
+hash = "7decca34f709245c3344a83a2c4778cb5b36b5eae8024980b084c03241f8b9a5"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_dagruel.npc.snbt"
-hash = "1aeaafdc6f150f27ae7fe4ee0de6f942c484d4f7c59c16a42b9e7eaa01205111"
+hash = "faece0792d57bd70ddb70ab53f126f11035437761fe9d87ef4cc5acbaaa53ee7"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_dold.npc.snbt"
-hash = "539642976da2c1134f5fef0aee97e5a595d7629a552cba2e3c81de4dbbaf350b"
+hash = "75eff7417def68d2ade53816ddfbf687dc4990cf01efa050bb4fefb25b9d852a"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_edmaris.npc.snbt"
-hash = "fc813fc703e9bd2f532a9a0c447fdb5fdc44c63285d396ef9b21e627b3096640"
+hash = "aa3eb9ebac61ccc622043a575be0dcb19f3f288a85d8f12debe169e42b1dccd4"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_elen.npc.snbt"
-hash = "2ecb5f0952ba4f6ac17c0ef686bb4cc35280e9806b05c68ebd3dbf1530f801c7"
+hash = "d191261df9f49db4b2cfd6f76261614fcea56edf5c4bf4f1e03f3f39395118ab"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_frey.npc.snbt"
-hash = "a31cec22c79f4723ac8c87c91da6b64b1dbde029bfd3b788a9db84b1251ad1b3"
+hash = "3009e7fa4261a98e3f039d492c49a9ec922d83728cd45348132a08d531184946"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_garm.npc.snbt"
-hash = "6e3bd57efed263acf1fb3a671f2bc28a223bc1d124a58255ac7650b15f569da3"
+hash = "e029a5dbb2c5de0cc3424c26dd135565dbab63411cc3cafe41b1d7a4ff4f3ae2"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_gido.npc.snbt"
-hash = "7c14bbca15f0f658c6a48b5355b304673da2f3048080b5a9ac10fb2e8fd41d83"
+hash = "c3f6309b3d551072a74f61f121078c7bedc8938b194bf3cb604dbe34aa965218"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_guy.npc.snbt"
-hash = "0a837e9751f6ffc54f90f67a1877650182729356a06056cb7dc0df5357cf7530"
+hash = "5651ed42d68eaa723b3eefeb5c592e13376927e99b1d79d7bf5da328a6fbdaa3"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_hakurou.npc.snbt"
-hash = "728915cfa4d8f9244723944dc06dcc93f707bf10028a7ea7c3b098565d98ea07"
+hash = "7b7b57f75ac7ebc5a17d89b141aa839f0a4e696c28dfb79579a15b887cf4b0ed"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_kabal.npc.snbt"
-hash = "d98783f8213f11c11e23c6bbc6181b8f7383eb5993110b3af8839d5c0083280a"
+hash = "f2b86635725a1ea2ea70818ea9e5c7af60f8683eea862de3c0ed685fd90d3488"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_kaijin.npc.snbt"
-hash = "a9eefa5551e4835baf8d326923390dca28d2fa105758e0152bd7df54eed40c7a"
+hash = "00e51caf706f8653311b2533cdf5101bcf528307b5f2a44283fa6c89b5f991e8"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_leon.npc.snbt"
-hash = "941b1219d18272519f8985d123439133c269fc48ef53170397a6d2b1feaa8ea7"
+hash = "4181cf319480c6ac8c92773a644ab4d0cb6fee8e5dfa30efda210e3e1761596c"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_mildo.npc.snbt"
-hash = "97718e2edd896195af10735deaae3a8ac5a401bc7b13b6282d3047ca68ff2546"
+hash = "6106b6e9b075592589436cafa2cb44a48890af482c3678651fc4d23ab590748e"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_milim.npc.snbt"
-hash = "59034aaac94d132d06414bccce2c59ce6c65d7270a8af55fcb7b80d55db893c4"
+hash = "16f6c5a72d13a285b56f78e2ef80b2b1a485410988ef71935680a8af6bf20f87"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_outcast_contact.npc.snbt"
@@ -822,39 +822,39 @@ hash = "4df9229ed2a272cdf2409f860d6a0a89eb1507f487c55c47ea89eb991086d7ce"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_ramiris.npc.snbt"
-hash = "5ebefb9321e03489b3d4df2b5f81e905f92ad8a9880e772a6be4a583fc7695ba"
+hash = "696f1c76c103955acd6c94070f609abd391ad32d8bebf8486374211113f1cae7"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_razen.npc.snbt"
-hash = "22048b0ed9ed9f052d724efe18f6d7270d02a57d74ff009beccbe9cbf5f69720"
+hash = "f19a23670b4ece8ee0288de51144a8823b661921d28d14f27bd3d843ef20b6eb"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_shion.npc.snbt"
-hash = "4189badba1a70c8217b8ad6a045a53580bd7a662859af3e80825e097c05de5e8"
+hash = "ed6a1f428962d5941ae2ec50a013c13fc88c0fce44ab37a022b11a330373876f"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_shuna.npc.snbt"
-hash = "18bd2b23c8a402d7ad8e5b1955a1363d45e071f2edf7470b8a01616366680a9e"
+hash = "76b19f1d7ae40e6019a77190e251ddec9a4550b2776d970528a17f5c76e95427"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_souei.npc.snbt"
-hash = "b770de3c855803ca91da840caccde9ab0134768bf2b245a6673c7e2af6d4509d"
+hash = "c7b8d301d0f6a9e0c8164e4f89f7a01ab794852f6bc7b6d422c9984d05cb444c"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_treyni.npc.snbt"
-hash = "e1547988e225c5826340582e381ba35cda33d41ec21ebf515a51695b345360a9"
+hash = "3d8b533897a29d957a2f70c44f39becf9025f0cbd9cb75b8b679410d081b9196"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_yuuki.npc.snbt"
-hash = "4076cd0c672f55895821f41d1bc91e161e15513e71708ecbfcb6a9015b6a2297"
+hash = "ce158080e8779b54584a5f3e85c852da7ea51d691ca40b707b134ff130c0cdce"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_guild_fuze.npc.snbt"
-hash = "e2763b0fdc774df40eac20e95e8f63de816ef92684f559eebf572c2137e7310a"
+hash = "a23f41a997a4575e92b9782222c9aad4fc65eb91b2aed0e092c364a0b0a3ead5"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_guild_receptionist.npc.snbt"
-hash = "5541820b7d3f24bfd919a59125213245924a036018b50de0959863e345b12234"
+hash = "e7cfd2e786d4cb57b2dee66ae9047e1113e22d8e16361914807fd63bedeafa7b"
 
 [[files]]
 file = "config/easy_npc/remote_texture.cfg"
@@ -1322,7 +1322,7 @@ hash = "19558c53e35282b9062ca492ba6a65290a40812d1a3d0c8fd2197832e7ecface"
 
 [[files]]
 file = "config/ttl/canon_regions.json"
-hash = "bd1c76bb27f390118cf5152365ecd082b7ecc903676ee0e66140ade2573eca1c"
+hash = "8aafbd22bc7de6897eb2b3a30b6faf88719a566657812e0c84847fbd03a2f65b"
 
 [[files]]
 file = "config/vanilla_structures/placement_structure_config.json5"
@@ -1351,6 +1351,118 @@ hash = "844f56dd75cc8fcc923eca0aeb7baac86b79c97358816f66a12216bb0ad3519a"
 [[files]]
 file = "kubejs/assets/lightmanscurrency/textures/item/portable_atm.png"
 hash = "3c5b60b173828b2f41c0b8a14448e86ad316237d7430b4fff0b2826354aeb9a7"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/benimaru.png"
+hash = "36bf3fae2e9b0b0b2d4d2b14aa1bd127c6e9d1aee0b597d2204f5bfeb6a95098"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/carrion.png"
+hash = "b1042cfbf6c6ed4fe30ea6ea7fed8199b32553b12364a5def2a827968a3da302"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/dagruel.png"
+hash = "9c1bdd86c2ccfc99a33d5360a63422ffe60e42a72717031bae8f363b4d15f10d"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/dold.png"
+hash = "2edb3edf21a0670755fd0d59aef3f11168c22f7146e2a51ad603080f4dd81022"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/edmaris.png"
+hash = "d2cbe0cdf8775de23a90073c6983754cefa85acf2be024a05d8d9bbf5d2f443f"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/elen.png"
+hash = "8e09b6817e13403f9f830702315a816bda0cc08ab2985e5e3c94d82288590d90"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/frey.png"
+hash = "4411d5e9642cdf37091ba741ec9f20e2e04bbdaac34ffb3ddc2dbbed99f19d1f"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/fuze.png"
+hash = "3827a98dd6510c756efc7fa57af59e6139429d9b32401c0177000a13b48da7aa"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/garm.png"
+hash = "9ff7d3425816b6253193eedd5f6171ecbcce02189ecebcff6a0e8d6cf1b40d65"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/gido.png"
+hash = "a079ba5e0db727d49d831068ff848e40db7de4723618176be36997a485d56765"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/gobta.png"
+hash = "f001eff289a278888d7e9a5858772e2a0bd6e2f0eb046fde9781c79301e88290"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/guy.png"
+hash = "11f610de9b21eb275768966087139072f7bb8a77d1515a0956d72f6ffabea436"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/hakurou.png"
+hash = "f944948fdcc39b42cf9045f9fcfbd985d38f49e180e2b3263a87fecb4602b950"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/kabal.png"
+hash = "5df086661fec2470e88ebc07880041c18041c0a8034b1dd8871ab10616429287"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/kaijin.png"
+hash = "a88b1e4b9ed917d6c5f3adcbc87b163f689566245ec620165e9b58306b8442cb"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/leon.png"
+hash = "92ef3f433d72271ac47d978bb89460dc895ab1410ce2d5ad16dc4fe52693deab"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/louis.png"
+hash = "6729adb0d42e83babf50796817aaf5f0c477622e02b36fd373225c0ddec5a54f"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/mildo.png"
+hash = "401652723bb7ff9f3ba74a4bedfb2ce9f18a7c16daf8107b5e806468d05d8173"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/milim.png"
+hash = "5156aae6f035796de67092e8619c480b26f19408827e85491ef592f7aa838c7a"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/ramiris.png"
+hash = "99ef89e24940174debf6cc9abda02f825b0ad789f8f533f561625d8d010b283a"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/razen.png"
+hash = "20c8741de95449487f10e76d53e5ff29a25f101458b2253adcbccb2238e94745"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/receptionist.png"
+hash = "0dd45ba51f2625922b8312d5c8a0da51165340f965c3b2a1a31343db818eca9b"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/rigurd.png"
+hash = "60a13b12fae8f6200b6371d46aa0ee9cc4cc1c3cf1d43113ddf9eb8c947660e2"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/shion.png"
+hash = "abd3dbe70846274c28574aa451a2f905d91a39dbc9d3d7dce216a10ef7dea40e"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/shuna.png"
+hash = "dfb4d608a16348dd467645691e0ea373a855585c3a593b2c9d40f3f7e7ecb48a"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/souei.png"
+hash = "e26ce0d63181eb6e767ce70e0c4e08dabfa1f85f80ff75617b161ba28aaefdd6"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/treyni.png"
+hash = "67beb65dfd7fed2b7abd98273fc03f54fb53d92aa1749cd7cc501ae82150ca78"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/yuuki.png"
+hash = "e140a32299ea0cade85b7da1f2a8db1b7cd145d1f4c07a65f62e9a1205dff534"
 
 [[files]]
 file = "kubejs/assets/ttl/textures/item/skill_core.png"
@@ -1429,16 +1541,24 @@ file = "kubejs/data/ttl/neoforge/biome_modifier/more_goats.json"
 hash = "59baaef5cdba9314e7c01d4ebff848e82ed8da1d429230ff71191e37ccaad56d"
 
 [[files]]
+file = "kubejs/data/ttl/structure/ballachia_0.nbt"
+hash = "3c6a95e11dfac11f878751531da508897659bc96df95352505d20d9c2c1ab116"
+
+[[files]]
+file = "kubejs/data/ttl/structure/ballachia_1.nbt"
+hash = "7ad3ed83fbd0a799a20ba7c46e4b2f6fec2c1559e6389d082c71f0187b8be624"
+
+[[files]]
 file = "kubejs/data/ttl/structure/blumund_0.nbt"
-hash = "42a196df74c2666824b6b737aee1e8bbf7f2cafa1e8faec475e67d1faf356f12"
+hash = "a48ac8f7886af5f3876931b7d61a8e42e161b6a9f7d95c4ef4b794dbf79ddfe3"
 
 [[files]]
 file = "kubejs/data/ttl/structure/blumund_1.nbt"
-hash = "dbb08b67d3ac1954fcc7ba0679589896a1e08c57236d8b7a85eb9b14740f906a"
+hash = "cadbeed844edb7408709f63d9d5f2392e95bc3fc5c0f1a4c68a476bb867d2e13"
 
 [[files]]
 file = "kubejs/data/ttl/structure/blumund_2.nbt"
-hash = "8bdfbfb43bbd2bc374e2285cc87870ad0ce0347d3ab0feb91fe6fc3b9b53b069"
+hash = "5110213c30ea755ed5c42ce5304f80fef485d7ce1b42c317757b00dcd107dc57"
 
 [[files]]
 file = "kubejs/data/ttl/structure/clayman_castle_0.nbt"
@@ -1446,63 +1566,99 @@ hash = "a7fbdaec04d5bfbc5e8ade0e962c3509ab6b2c23c8923e108e9c304f2e3d7afd"
 
 [[files]]
 file = "kubejs/data/ttl/structure/clayman_castle_1.nbt"
-hash = "a9cf4886eb73758187c28a2a31d511ab4c6a93e0e6e70c880795ea2be3934829"
+hash = "01b831cfa0f8929b36211aa480d47842dc9737e83be11b3fb59d97e8771dd603"
 
 [[files]]
 file = "kubejs/data/ttl/structure/clayman_castle_2.nbt"
-hash = "423e3fcbd510f0ac692f41f98354a101dfb2f4e7308f2632459ed11d9a2458d4"
+hash = "2fda5b4d222f170e03e758f9c94a2f67485a30cbdbc901b2cbf92d8093b59c89"
 
 [[files]]
 file = "kubejs/data/ttl/structure/clayman_castle_3.nbt"
-hash = "cf1852b7e56f38e534c89fa35d60643241179cd144f2ffdfa4e3d7fc880a4267"
+hash = "c2d7226053e038122cb744f957e764c252b2f443e1580754df316d0756f9b697"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dragons_nest_0.nbt"
-hash = "d45573e9ba2a314bbb400f1d0d84a06c94f0783ba244fb1db1fcd588a1e50be5"
+hash = "6ddf588c23ceaca90c862a15b87795436ad6bea391b3b970807d75febc318033"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dragons_nest_1.nbt"
-hash = "56ffa28047a629a21e5516077799ba3cda23bdb411000c1e28d8a75f6cc543fd"
+hash = "ce66b4e1e87890da08df057b464d545b3965191756d62a1de23ba41b0995da58"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_0.nbt"
-hash = "33135e734f2e5f5df266b66d9938c55604ae8488addb225cd42f63399e6e673f"
+hash = "e27539ca7e13f8fd440fa3416db5678475c38a318a3414a2586efa8a022c512e"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_1.nbt"
-hash = "fbed73b2859fd4a756e8e534e126de1b8dcae0c23d5c81ab759252a97d660ee5"
+hash = "52b6e8d155b1624ed6f963b39d9ed764fc62dbc76b4fbc5922ee8c3bedf49831"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_2.nbt"
-hash = "98d7e5536467fd5952d936aeccc9aac6f8a4a812d591dc3eeccf98aa04f46854"
+hash = "b2821ec441f0a515659d5e0572c5aaa25cd17f7dba7b27ac63dbb65114f77b0d"
+
+[[files]]
+file = "kubejs/data/ttl/structure/el_dorado_0.nbt"
+hash = "b328c98b5b0c6c4d0204b36e5478664ee35fbf52f2be7f7d68e9a89b9fc59dab"
+
+[[files]]
+file = "kubejs/data/ttl/structure/el_dorado_1.nbt"
+hash = "1dab865fe23bf32fcd36936d784aeee1991889dfb25713b70d5c6ad63a8fdd14"
+
+[[files]]
+file = "kubejs/data/ttl/structure/el_dorado_2.nbt"
+hash = "e7778f80992b2698c0bab856ee42cd367ab15284c9e46830cb89a0f46b201e9a"
 
 [[files]]
 file = "kubejs/data/ttl/structure/englassia_0.nbt"
-hash = "fdad85102e9a28b93b797607cad98ce845b6e17933e885702ec4c3c8bcb8b92a"
+hash = "b14e96a8ca95569dc63e6e78d417a6ae04fca56439ef240355ff87f33fa0020b"
 
 [[files]]
 file = "kubejs/data/ttl/structure/englassia_1.nbt"
-hash = "c69021b4129a11d03243619d4970e633b185ae010d1ba999f1b8835313360661"
+hash = "c3faf59321a3c0fc988aafd8c5dded4d970014101aa18d99771f45431c6cdd1a"
 
 [[files]]
 file = "kubejs/data/ttl/structure/englassia_2.nbt"
-hash = "227f046396ba2480905645b9d324398576ef919ec95c2c64d1fca52c073e0107"
+hash = "55242d2499286147b260a76fc6635eb1e697869e07f00646d520aa7f538b24ef"
 
 [[files]]
 file = "kubejs/data/ttl/structure/forgotten_dragon_city_0.nbt"
-hash = "4c307ea2820b066b1ac4dc458bed3608278eefc7c6cb797f48d41335c46cf2ac"
+hash = "493324c038836b30caa3e7d33a5091f628734e92892bdf48426e43b6f88b32f4"
 
 [[files]]
 file = "kubejs/data/ttl/structure/forgotten_dragon_city_1.nbt"
-hash = "44d8b61dcdb5bc36fe8fc7dc380bf5f228cd36651c190d581f26c193c94cda62"
+hash = "3920d98a193043a83e7b2398e6dc247784248e030158df6664924b82153c9396"
 
 [[files]]
 file = "kubejs/data/ttl/structure/forgotten_dragon_city_2.nbt"
-hash = "6bba2b93ef7f0ee95aa1ff0d40dfa6225ab15fb9d31842ccff64b14dbeba3bf6"
+hash = "aed2a254469c07f060ecd2da49e6cff53572b173844ba6e3d5c2215bc4d80c25"
 
 [[files]]
 file = "kubejs/data/ttl/structure/forgotten_dragon_city_3.nbt"
-hash = "920882ae67f4bc8c4dcea48faf9ca83f6aedbdc7d386347d95dc7ecea0198813"
+hash = "42d4258a59dfe2fb4ee6689ffbe8607a9f775446bc7d004d403f26df7d9c1f05"
+
+[[files]]
+file = "kubejs/data/ttl/structure/frost_palace_0.nbt"
+hash = "92ecfb3bce53585d6071403b45e2384fa1f0a59d8fe396294e07a5e4cac905a4"
+
+[[files]]
+file = "kubejs/data/ttl/structure/frost_palace_1.nbt"
+hash = "019429266c8efb506efc37a6e629b155c534879985c35673dd963fa2ffb8f3aa"
+
+[[files]]
+file = "kubejs/data/ttl/structure/frost_palace_2.nbt"
+hash = "8275198de04bf8604f8e6cc098c6a0e61e1e8c396d2e941630909ad6fddce9fb"
+
+[[files]]
+file = "kubejs/data/ttl/structure/heaven_tower_0.nbt"
+hash = "843d73744addb9ec378e141d73fa7379434fe2bdccb61ded670e1f8a83dd7ffd"
+
+[[files]]
+file = "kubejs/data/ttl/structure/heaven_tower_1.nbt"
+hash = "a1b0c6b0fc7a9001524c6b091768551ec239a997c636f6588c4a0ce45a3df39e"
+
+[[files]]
+file = "kubejs/data/ttl/structure/heaven_tower_2.nbt"
+hash = "565ee6c2215c1c12c915fced9c540c959c87b1edd1078b074e5ef3c19f937caa"
 
 [[files]]
 file = "kubejs/data/ttl/structure/laura_0.nbt"
@@ -1510,7 +1666,7 @@ hash = "78cba9bb83f3ac69b9ec5dcabcc2001d5a384d127f62d78e456250050ca3d5e3"
 
 [[files]]
 file = "kubejs/data/ttl/structure/laura_1.nbt"
-hash = "33eb7b66f01f1b2b3294ce05769de2fd2e6047e490bb655093ad063007e713f9"
+hash = "a0f7a9b869b8472768fa5347d98e7cb9488a150f5e6d8c24800e1d9fd1718ec1"
 
 [[files]]
 file = "kubejs/data/ttl/structure/laura_2.nbt"
@@ -1522,31 +1678,43 @@ hash = "7436ca3a60f6100469759954034b99059844c24d0f68c9b0aa1398d6e0c841ed"
 
 [[files]]
 file = "kubejs/data/ttl/structure/lubelius_0.nbt"
-hash = "66907a497e6c014e5f947f29ad4101126104f5f418360466a4079a3da1e6c432"
+hash = "4fa41564a39f31ed5b6bf6ba7bbb25832439d85b7d079d50296a5347892c15b7"
 
 [[files]]
 file = "kubejs/data/ttl/structure/lubelius_1.nbt"
-hash = "e7aec5392e2459f4e60a4d081571e69db12d39cbb24d394391f207de1a5e6b39"
+hash = "5aeebfeb3ac99571f230eec829910903517298778b710df2b623adcdf03cd709"
 
 [[files]]
 file = "kubejs/data/ttl/structure/lubelius_2.nbt"
-hash = "55fe1875ed39f0c15568c46f53504046ecda499e0f0d89af46b3ec493d5e89e4"
+hash = "2bb962f56185c5e2f58ccbf66d360d38229bd8888284952016a8888c64a58af8"
 
 [[files]]
 file = "kubejs/data/ttl/structure/marris_0.nbt"
-hash = "f861c8b973af98521189395d40a3108782723a1141cb6323097cee5b8ce34cdb"
+hash = "5177c5857c22d6feb7c5b33d5cfcd4ada4c016553dd4ee6e570e154a02cffebb"
 
 [[files]]
 file = "kubejs/data/ttl/structure/marris_1.nbt"
-hash = "37d33ce82c257d5677ab21aa682331ca5ec45a98fcf4ac938b7d8192954efbab"
+hash = "fcc5ba9837188ee105e8e55f578b4a1ad71b0e66c86090b4148ea51b93a4ed14"
 
 [[files]]
 file = "kubejs/data/ttl/structure/marris_2.nbt"
-hash = "9ffbe1adb25404e6b865d31dfa2ec086ba20d5804f554d0532ce76f6daa3df48"
+hash = "bd9bed47931321af356c1a61ecfbdb55077f4adc8485636ee04fe6f8baef931e"
 
 [[files]]
 file = "kubejs/data/ttl/structure/mortal_spawn.nbt"
-hash = "b6d440694a4f9f3b75bd0b16351610520035ba6e12a36c365041e7252d594726"
+hash = "65b5db9be59fa610cf6c295521786f6e261aadbb436ae37f7fff1ad81b451454"
+
+[[files]]
+file = "kubejs/data/ttl/structure/sacred_mountain_0.nbt"
+hash = "eff5f5a73c9a4f564c7feb796108f2bac965fa67f3535e615bbc72c236ac8366"
+
+[[files]]
+file = "kubejs/data/ttl/structure/sacred_mountain_1.nbt"
+hash = "c030c946dd3083b0de53a91a6eea5333274c0d5eb60411f3c2ccce8175642fdb"
+
+[[files]]
+file = "kubejs/data/ttl/structure/sacred_mountain_2.nbt"
+hash = "306d8bfc999bc7e64322ead99f2834c5e91ee607bac08910481698ae19def76f"
 
 [[files]]
 file = "kubejs/data/ttl/structure/sealed_cave_0.nbt"
@@ -1558,7 +1726,7 @@ hash = "7af3ca61bff38eab970fa71bd93b78a0937e162a9b2e9a25f409cba746e09260"
 
 [[files]]
 file = "kubejs/data/ttl/structure/sealed_cave_2.nbt"
-hash = "c946694a6f447eb06204f4a2b178fb54500be3d951e48d3aac5211a6fbb72bb4"
+hash = "f89feb7c7893a4601720641755e3f425955cdf59bd04ff38f79e574566491e3d"
 
 [[files]]
 file = "kubejs/data/ttl/structure/spirit_corridor_hall.nbt"
@@ -1570,15 +1738,15 @@ hash = "7a4663a2618634687b6c2bc2d2ef57724571ec04960674b6ff2a868ae6522bef"
 
 [[files]]
 file = "kubejs/data/ttl/structure/spirit_dwelling_1.nbt"
-hash = "9803dfd99d85660fd171ba79928848471d5c740d6654c9fe9a6b6ff3807d897a"
+hash = "ef1377dcfbd6864f706274698c4e5c049ec680780ef58751340603ce171944c5"
 
 [[files]]
 file = "kubejs/data/ttl/structure/spirit_dwelling_2.nbt"
-hash = "6d9fc614d59c65326475cae1cce2d8ee4533abdc2a4b71ca809d27dd78328ac7"
+hash = "04139df4918d480e1a6a69e3c8826b67d08a164ef8ed913fcb4d1bf1ddc1db7d"
 
 [[files]]
 file = "kubejs/data/ttl/structure/spirit_gate.nbt"
-hash = "bc24602fe225db252feab569393f2a633f6312d347888aaaf1f037f424db8c01"
+hash = "fa1a67df2552438b949970fcb7b321d3c52d5fddce34c51f459a377acdfbd44a"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_0.nbt"
@@ -1602,7 +1770,7 @@ hash = "7c8dba2c92b753de7b1599f2d2a7ee4f108be48f363cdf93cb96fbfd99168c9d"
 
 [[files]]
 file = "kubejs/data/ttl/structure/treyni_shrine.nbt"
-hash = "422d33b08d9f8471a1bcdafa603129469edeaad7872335aba83513b056eaafa4"
+hash = "fd4b8760dc562eb92f12c6e1d6b61d459b9d2c2b3b2e8bf1e1d0906316b8ac81"
 
 [[files]]
 file = "kubejs/data/ttl/structure/trial_creation.nbt"
@@ -1758,15 +1926,19 @@ hash = "ddcdf8644b4ef0c57a77ad1bdb4c1041e59dffb16a0f561020cd88595541bc1b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
-hash = "33b3cab039c79101a45c6c088518853ab3627934336c06f0f969ce0f5729fe2b"
+hash = "05d5e9afad43e2f2a5a9d6fffb768b3ad7e2aa2dbfe5858c4e4277ab0dba8e99"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "dbcf2710a038c592015793c811e1f2f49c3cb4b65169e28f73266ee3bee1ea0e"
+hash = "ee5dd355f8bd6d57e76e92544abf3f47b6ac964b136fe4213334eb480512fd6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
 hash = "3f8cccb21b922a8ccdb6cc6c4e3e5bfeba5dac91fc20903b3d381ecfec0c16e9"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
+hash = "be431726c5095293051c1560bcaaa5c8d12f054860fa2beae60017d5ffa0aaa8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
@@ -1834,7 +2006,7 @@ hash = "b439e7faa512766d89afa38225fbb6efeb37b99c56316f26034322d38d7d4f6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "d66e8222f8349e9921b888d26e5d0bfb0688d97d0faacc522ad5b8c5bc64656d"
+hash = "104fb5a5f650bd87a2011dca4bf21d2c9c925a8e196f065448e8ab897d0d68c8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -1862,7 +2034,7 @@ hash = "7af6f69bb90c32fa2824c4b08a26d9a56cc3adc5452666bffde3a7f194e95131"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"
-hash = "5be234dc9994795c9a20b10ce5cb58c5081b31adcb087be3bf584e698679de28"
+hash = "7b3a866ba182e96b6e300e89f496a68198b81f225b9e123890b9526569574512"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"

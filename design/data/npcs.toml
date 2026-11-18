@@ -26,7 +26,7 @@
 [settings]
 # Bump to replace every NPC with a fresh one from the current preset on the next check (also what to do after a
 # dialog, look or statue change: the NPC already in the world keeps the dialog it was spawned with).
-rev = 1
+rev = 2
 # The spots are checked this many ticks apart, and once this many ticks after the server has started. A spot whose build is
 # not placed or whose chunk is not loaded costs one command; the NPC of a far town appears within this time of a player's arrival.
 check_ticks = 200
@@ -43,9 +43,11 @@ sneak_bypass = true
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Kinds. `skin` is one of Easy NPC's own built-in humanoid variants (textures ship inside the mod, nothing is copied
-# into the pack): KNIGHT_01 = dark hair, rugged brown leather and cloth (closest to Fuze: black hair, stubble, a
-# veteran's plain gear); SECURITY_01 = blue uniform, hat and gold badge (a guild clerk). Fuze's scar and grey streaks
-# have no preset skin: drop an own PNG into the pack and point `skin` at it later (see docs in decisions.md).
+# into the pack). It is only the fallback look: every Easy NPC kind below has its own 64x64 PNG
+# (pack/kubejs/assets/ttl/textures/entity/npc/<kind id>.png, drawn by tools/gen_skins.py), which gen_npcs.py writes into
+# the preset as SkinData RESOURCE_LOCATION. `model` must match the arm width the PNG is drawn with (gen_skins.py `slim`).
+# carrion.png, louis.png, rigurd.png and gobta.png have no Easy NPC kind (Carrion and Luminous are mod-entity statues,
+# Rigurd and Gobta are hooked goblins of Tempest); they ship for later use.
 
 [[kind]]
 id = "fuze"
@@ -73,7 +75,9 @@ back = "Back"
 id = "receptionist"
 name = "Guild Receptionist"
 name_color = "#009FE3"
-skin = "SECURITY_01"
+# The PNG skin (pack/kubejs/assets/ttl/textures/entity/npc/receptionist.png) is drawn with slim arms.
+model = "humanoid_slim"
+skin = "ALEX"
 giver = "desk"
 description = "A Free Guild receptionist: the desk board (rank F to C), hand-ins and rank."
 
@@ -389,7 +393,8 @@ text = "A lean man in court dress stands one step behind the king, listening to 
 id = "frey"
 name = "Frey"
 name_color = "#5DADE2"
-model = "humanoid_slim"
+# A stone council statue: the PNG skin is drawn with classic arms.
+model = "humanoid"
 skin = "MAKENA"
 talk = "frey"
 description = "Frey, the Sky Queen, a Walpurgis Demon Lord (story NPC)."
@@ -430,7 +435,8 @@ text = "A giant of a man sits very still at the council table, listening to the 
 id = "ramiris"
 name = "Ramiris"
 name_color = "#009FE3"
-model = "humanoid_slim"
+# A stone council statue: the PNG skin is drawn with classic arms.
+model = "humanoid"
 skin = "NOOR"
 talk = "ramiris"
 description = "Ramiris, the smallest Demon Lord and mistress of the Labyrinth (story NPC)."

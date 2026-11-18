@@ -115,7 +115,7 @@ class Town:
     def lamp(self, x, z, h=3, post="stone_brick_wall", y0=None):
         y0 = self.F if y0 is None else y0
         for y in range(y0, y0 + h):
-            self.put(x, y, z, M(f"{post}[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"))
+            self.put(x, y, z, M(post))
         self.put(x, y0 + h, z, lantern_floor())
 
     # -- ground ----------------------------------------------------------------------------------

@@ -400,8 +400,8 @@ def academy(s):
     s.gable(HX0, HZ0, HX1, HZ1, F + 13, COPPER, axis="x", wall=STONE, cap=COPPER, over=1)
     s.air(HX0 + 1, F, HZ0 + 1, HX1 - 1, F + 12, HZ1 - 1)
     # open the hall into the wings, at ground level, through the shared end walls
-    s.air(44, F, 20, 44, F + 4, 24)
-    s.air(84, F, 20, 84, F + 4, 24)
+    s.air(43, F, 20, 44, F + 4, 24)
+    s.air(84, F, 20, 85, F + 4, 24)
     # tower: hollow shaft from the ground over the entrance bay
     TX0, TX1, TZ0, TZ1 = 58, 70, 18, 30
     s.air(TX0, F, TZ0, TX1, F + 13, TZ1)

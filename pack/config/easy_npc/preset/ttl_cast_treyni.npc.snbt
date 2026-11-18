@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;643691029,1829919777,-1333278056,-2138182943],
     VariantType:"EFE",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/treyni.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid_slim"
   }
 }

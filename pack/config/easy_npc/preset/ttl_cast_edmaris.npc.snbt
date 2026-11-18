@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-1879974222,995121309,-2124301647,301875909],
     VariantType:"KNIGHT_02",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/edmaris.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

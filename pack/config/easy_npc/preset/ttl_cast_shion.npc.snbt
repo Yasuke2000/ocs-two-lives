@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;451223376,-2129636026,-1493121209,-501536366],
     VariantType:"KAWORRU",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/shion.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid_slim"
   }
 }

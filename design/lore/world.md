@@ -11,9 +11,7 @@ light novel, manga and anime. Items marked *(unverified)* could not be checked a
 own choice. Two maps were used: the political fan map (`17.png`, 2800x2050, source of the grid and of every `ref`
 coordinate) and an illustrated terrain map (`16.png`, Dragon's Nest, Sealed Cave, volcanoes, the Divine Tree).
 
-Coordinates: `ref` = pixel on the political map. World ≈ (ref − origin [1792, 1141]) × width / 2570, about 5.45 blocks at the
-current width 14,000 (`canon_regions.json` `width`). **The world positions listed below were worked out at the old
-10,000 width (3.89 blocks per pixel): multiply them by 1.4**, or convert the `ref` (tools/gen_data.py `ref_to_world`). World positions below are rounded to about 10 blocks.
+The current continent is 14,000 blocks across. For each map pixel, `tools/gen_data.py:ref_to_world` rounds each component of `(ref − [1792, 1141]) × 14000 / 2570` to a block. A build can override that point with an explicit anchor. The second plate of Tinseluwu's map reproduces the shipped grid byte for byte. [Political map](https://i.redd.it/q1p4ksudqyah1.png) · [Cartographer's notes on speculative borders](https://www.reddit.com/r/TenseiSlime/comments/1um7i81/i_created_a_bunch_of_tensura_political_maps/) · [World audit and annotated map](../../docs/audits/world-audit-2026-11.md)
 
 ## Continent overview
 
@@ -38,18 +36,18 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   River comes down from the Canaat foothills, feeds Lake Siss and splits the forest into a western half and an
   eastern, dryad-governed half before it flows south-east to the sea through Milim's lands.
 - **Landmarks** (ref → world):
-  - Tempest, the capital: [1790, 1122] → (-10, -70).
-  - Sealed Cave (Veldora, Rimuru's birthplace; later a hipokute farm and dungeon): [1745, 1078] → (-180, -245),
+  - Tempest, the capital: [1790, 1122] → (-11, -104).
+  - Sealed Cave (Veldora, Rimuru's birthplace; later a hipokute farm and dungeon): [1745, 1078] → (-256, -343),
     north-west of Tempest. The illustrated map puts the cave west of the lake.
-  - Old goblin village (Rigurd's tribe): [1762, 1098] → (-115, -165).
-  - Lake Siss: [1955, 1178] → (635, 145). On the political map it is about 570 x 200 blocks.
-  - Lizardmen's caverns (Gabiru, Avalos): [1962, 1214] → (660, 285), on the south shore.
-  - Orc War battlefield (Lake Siss marsh): [1995, 1240] → (790, 385). Geld's horde marched north along the Ameld
+  - Old goblin village (Rigurd's tribe): [1762, 1098] → (-163, -234).
+  - Lake Siss: [1955, 1178] → (888, 202). Its painted ellipse at this scale is about 851 × 314 blocks before the irregular shore and river connections.
+  - Lizardmen's caverns (Gabiru, Avalos): [1962, 1214] → (926, 398), on the south shore.
+  - Orc War battlefield (Lake Siss marsh): [1995, 1240] → (1106, 539). Geld's horde marched north along the Ameld
     to the lake.
-  - Source of the Great Ameld River: [2037, 938] → (955, -790).
-  - Hidden ogre village (the Kijin homeland, burned by the orcs): [2060, 965] → (1045, -685), north-eastern hills
+  - Source of the Great Ameld River: [2037, 938] → (1335, -1106).
+  - Hidden ogre village (the Kijin homeland, burned by the orcs): [2060, 965] → (1460, -959), north-eastern hills
     *(placement unverified)*.
-  - Treyni's grove, the dryad sanctuary: [2150, 1100] → (1395, -160), east of the Ameld.
+  - Treyni's grove, the dryad sanctuary: [2150, 1100] → (1950, -223), east of the Ameld.
 - **Biomes (rings, 18/11/2026).** Veldora's leaked magicule soaks the forest, so the biome depends on the
   distance from the border and from Tempest (`zones` in `canon_regions.json`; Tensura's area magicule per biome:
   every unlisted biome 500, dark_forest +1,500, tensura:ancient_forest +19,500). **Rim** (safe): within 280 +- 50
@@ -63,14 +61,13 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   https://tensura.fandom.com/wiki/Great_Ameld_River, https://tensura.fandom.com/wiki/Orc_War,
   https://tensura.fandom.com/wiki/Sealed_Cave, https://tensura.fandom.com/wiki/Jura-Tempest_Federation
 
-### W: Lizardmen's Marsh of Lake Siss (シス湖 — 蜥蜴人族の湿地帯), new and not painted yet
+### W: Lizardmen's Marsh of Lake Siss (シス湖 — 蜥蜴人族の湿地帯), painted wetland
 
 - **Lore.** A large expanse of marsh and limestone formations on the shores of Lake Siss. Its caverns form a natural
   labyrinth that is the lizardmen's fortress and seat of government. The lizardmen live off the lake's fish.
 - **Terrain.** Flat wetland with mangrove_swamp 4 and swamp 4. Mangrove is the only biome where Tensura places its
   surface lizardman villages, and swamp holds its underground ones. Erosion 0.75 keeps it flat.
-- **Grid.** Paint `W` as a ring 6–12 chunks wide around the lake (see the grid fixes below). The region is defined
-  with empty `seeds`, so `canon_map.py` ignores it.
+- **Grid.** The lake paint pass adds the marsh after the country flood. The shipped raster contains 1,412 W cells. Its empty seed list is intentional.
 
 ### D: Armed Nation of Dwargon (武装国家ドワルゴン)
 
@@ -83,9 +80,9 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   −0.9) so the city's base still has valleys while the core stays alpine. Vanilla keeps choosing the peaks:
   jagged and frozen peaks at temperature −0.3.
 - **Landmarks:**
-  - Dwargo, the cavern capital: [1869, 836] → (300, -1185).
-  - Main gate, facing Jura: [1872, 868] → (310, -1060).
-  - Dragon's Nest: [1860, 700] → (265, -1715).
+  - Dwargo, the cavern capital: [1869, 836] → (419, -1661).
+  - Main gate, facing Jura: [1872, 868] → (436, -1487).
+  - Dragon's Nest: [1860, 700] → (370, -2402).
 - **Biomes.** meadow 3 (dwarf villages), grove 2, windswept_hills 2, windswept_forest 2, snowy_slopes 2,
   old_growth_spruce_taiga 1, taiga 1, windswept_gravelly_hills 1.
 - **Distances.** The trip from the goblin village to Dwargon takes about two months on foot and three days on
@@ -101,8 +98,8 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
 - **Terrain.** Broad temperate lowland of plains, forest and taiga. The illustrated map shows a volcano (the Holy
   Mountain), an inland lake by the capital and forest in the south-east.
 - **Landmarks:**
-  - Nasca: [2275, 763] → (1880, -1470).
-  - Great Holy Mountain: [2230, 680] → (1705, -1795).
+  - Nasca: [2275, 763] → (2631, -2059).
+  - Great Holy Mountain: [2230, 680] → (2386, -2511).
 - **Biomes.** plains 3, forest 2, taiga 2, birch 1, meadow 1, sunflower_plains 1, windswept_hills 1,
   old_growth_pine_taiga 1.
 - Sources: https://tensura.fandom.com/wiki/Magic_Continent, https://tensura.fandom.com/wiki/Central_World
@@ -116,8 +113,8 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   The illustrated map draws mountains. Temperature is retuned 0.3 → 0.0 (it sits between the cold Empire and
   Jura) and erosion to −0.3 for hills.
 - **Landmarks:**
-  - Amrita: [2444, 1012] → (2535, -500).
-  - Clayman's Castle: [2470, 965] → (2635, -685) *(position unverified)*.
+  - Amrita: [2444, 1012] → (3552, -703).
+  - Clayman's Castle: [2470, 965] → (3693, -959) *(position unverified)*.
 - **Biomes.** dark_forest 3, taiga 2, windswept_hills 2, tensura:miasmic_plains 2, old_growth_spruce_taiga 1,
   swamp 1.
 - Sources: https://tensura.fandom.com/wiki/Puppet_Nation_of_Jistav, https://tensura.fandom.com/wiki/Amrita,
@@ -132,8 +129,8 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
 - **Terrain.** Dry, rugged savanna and badland plateaus with a river valley and a lake by the capital.
   Erosion is −0.1 for broken plateaus.
 - **Landmarks:**
-  - City of the Forgotten Dragon: [2244, 1295] → (1760, 600).
-  - Mouth of the Great Ameld River: [2420, 1340] → (2445, 775).
+  - City of the Forgotten Dragon: [2244, 1295] → (2462, 839).
+  - Mouth of the Great Ameld River: [2434, 1384] → (3497, 1324), at the seaward end of the eastern channel. The audit adds a final paint waypoint so the lower reach connects locally to this coast on regeneration.
 - **Biomes.** savanna 2, badlands 2, savanna_plateau 2, wooded_badlands 1, windswept_savanna 1,
   tensura:barren_land 1, desert 1.
 - Sources: https://tensura.fandom.com/wiki/City_of_the_Forgotten_Dragon, https://tensura.fandom.com/wiki/Magic_Continent
@@ -145,7 +142,7 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   build the new one, Laura.
 - **Terrain.** Tropical savanna and open jungle with farmland. Peaks are replaced by stony_peaks and
   windswept_savanna instead of vanilla badlands.
-- **Landmark.** Laura: [2102, 1380] → (1205, 930).
+- **Landmark.** Laura: [2102, 1380] → (1689, 1302).
 - **Biomes.** sparse_jungle 3, savanna 3, jungle 2, plains 1, bamboo_jungle 1, savanna_plateau 1.
 - Sources: https://tensura.fandom.com/wiki/Beast_Kingdom_of_Eurazania, https://tensura.fandom.com/wiki/Carrion
 
@@ -153,12 +150,9 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
 
 - **Lore.** Frey's sky kingdom of harpies, south of Jura and west of Eurazania. The country sits on top of a
   mountain range on Jura's border, and its capital is Jia.
-- **Terrain.** A high, windswept mountain spine with pine forest on the illustrated map. Temperature drops 0.45 →
-  0.3 and vegetation 0.6 → 0.3 (the old values bred jungle), and erosion is −0.6 for mountains. Vanilla stony
-  peaks fit.
-- **Landmark.** Jia: [1856, 1475] → (250, 1300).
-- **Biomes.** windswept_hills 3, windswept_forest 2, meadow 2, old_growth_pine_taiga 2, sparse_jungle 1,
-  savanna_plateau 1.
+- **Terrain.** A high, windswept mountain spine with pine forest on the illustrated map. The cold highland setting uses temperature −0.30, vegetation +0.30 and erosion −0.60. Vanilla terrain noise still determines where a ridge forms. [Official map, Fulbrosia](https://www.ten-sura.com/map/#A-140)
+- **Landmark.** Jia: [1856, 1475] → (349, 1819).
+- **Biomes.** windswept_hills 3, windswept_forest 2, meadow 2, old_growth_pine_taiga 2, grove 1, snowy_slopes 1.
 - Sources: https://tensura.fandom.com/wiki/Harpy_Queendom_of_Fulbrosia, https://tensura.fandom.com/wiki/Frey
 
 ### S: Sorcerous Dynasty of Sarion (魔導王朝サリオン)
@@ -168,7 +162,7 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   surviving holy relics made by Veldanava.
 - **Terrain.** Lush, magical old-growth forest with flower meadows. Ancient forest gives the giant trees, and the
   Divine Tree itself should be a custom build at Elmine.
-- **Landmark.** Elmine and the Divine Tree: [1522, 1440] → (-1050, 1165).
+- **Landmark.** Elmine and the Divine Tree: [1522, 1440] → (-1471, 1629).
 - **Biomes.** tensura:ancient_forest 3, forest 2, flower_forest 2, birch 2, old_growth_birch 2, cherry_grove 1,
   plains 1.
 - Sources: https://tensura.fandom.com/wiki/Sorcerous_Dynasty_of_Sarion, https://tensura.fandom.com/wiki/Divine_Tree,
@@ -179,7 +173,7 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
 - **Lore.** A republic south of Sarion and near Jura that lives from trade with Sarion and from farming. Its
   citizens are elemental magic users, and citizenship requires a spirit-contract ceremony. Its capital is Galut.
 - **Terrain.** Gentle farmland and flower country.
-- **Landmark.** Galut / Ulgr Nature Park: [1577, 1536] → (-835, 1535). The fan map's dot is "Ulgr Nature Park",
+- **Landmark.** Galut / Ulgr Nature Park: [1577, 1536] → (-1171, 2152). The fan map's dot is "Ulgr Nature Park",
   so Galut's exact site is *unverified*.
 - **Biomes.** plains 3, flower_forest 2, sunflower_plains 1, forest 1, meadow 1, cherry_grove 1.
 - Source: https://tensura.fandom.com/wiki/Republic_of_Ulgracia
@@ -189,7 +183,7 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
 - **Lore.** A small kingdom on the Jura border, next to Falmuth (later Farmenas) and the Federation. It is home to
   Fuze's Free Guild branch and the adventurers Kabal, Eren and Gido, and it is Tempest's first human partner.
 - **Terrain.** Mixed farmland and forest that turns into Jura's woods on the east side.
-- **Landmark.** Blumund's capital (Londo on the fan map): [1604, 1119] → (-730, -85). The canon capital name is
+- **Landmark.** Blumund's capital (Londo on the fan map): [1604, 1119] → (-1024, -120). The canon capital name is
   *unverified*.
 - **Biomes.** plains 3, forest 3, birch 2, flower_forest 1, sunflower_plains 1.
 - Source: https://tensura.fandom.com/wiki/Kingdom_of_Blumund
@@ -201,8 +195,8 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   borders the forest, and Count Muller's march lies on the Blumund border.
 - **Terrain.** Plains and farmland with forested hills, rising to mountains on the Dwargon side.
 - **Landmarks:**
-  - Marris: [1556, 950] → (-920, -745).
-  - Ballachia: [1538, 1102] → (-990, -150). On the fan map it is a city-state that the grid merged into Falmuth.
+  - Marris: [1556, 950] → (-1286, -1040).
+  - Ballachia: [1538, 1102] → (-1384, -212). On the fan map it is a city-state that the grid merged into Falmuth.
 - **Biomes.** plains 3, forest 2, birch 1, sunflower_plains 1, meadow 1, windswept_hills 1, taiga 1.
 - Sources: https://tensura.fandom.com/wiki/Kingdom_of_Falmuth, https://tensura.fandom.com/wiki/Kingdom_of_Farmenas,
   https://tensura.fandom.com/wiki/Tempest_Holy_War
@@ -214,8 +208,8 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   the town of Guratol.
 - **Terrain.** The illustrated map's "Western Nations": green lowland plains with a lake.
 - **Landmarks:**
-  - Royal capital (Lura on the fan map), with the Freedom Academy and the Free Guild HQ: [1310, 1086] → (-1875, -215).
-  - Siltrosso: [1420, 972] → (-1445, -655).
+  - Royal capital (Lura on the fan map), with the Freedom Academy and the Free Guild HQ: [1310, 1086] → (-2626, -300).
+  - Siltrosso: [1420, 972] → (-2026, -921).
 - **Biomes.** plains 4, forest 2, sunflower_plains 1, flower_forest 1, birch 1, meadow 1.
 - Sources: https://tensura.fandom.com/wiki/Kingdom_of_Englassia,
   https://tensura.fandom.com/wiki/Extra:_Rimuru's_Glamorous_Life_as_a_Teacher,_Part_2
@@ -229,8 +223,8 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
 - **Terrain.** Highland country: alpine meadows and forest below one dominant holy mountain. The illustrated map
   draws a cathedral among mountains. Erosion is −0.4 and the region is cool.
 - **Landmarks:**
-  - Holy City (Lune on the fan map): [1062, 1020] → (-2840, -470).
-  - Sacred Mountain: [980, 905] → (-3160, -920).
+  - Holy City (Lune on the fan map): [1062, 1020] → (-3977, -659).
+  - Sacred Mountain: [980, 905] → (-4423, -1286).
 - **Biomes.** meadow 3, forest 2, plains 2, taiga 1, windswept_forest 1, flower_forest 1 (Luminous's rose
   gardens), grove 1.
 - Sources: https://tensura.fandom.com/wiki/Holy_Empire_of_Lubelius, https://tensura.fandom.com/wiki/WN:Holy_City_Lubelius,
@@ -242,7 +236,7 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   once bountiful land, made uninhabitable and still magicule-contaminated by the ancient seven-day battle between
   Guy and Milim. Its capital is the Heaven Tower.
 - **Terrain.** A flat, inhospitable sand sea with badland breaks. Erosion goes to 0.5 for flatness.
-- **Landmark.** Heaven Tower: [414, 1186] → (-5360, 175).
+- **Landmark.** Heaven Tower: [414, 1186] → (-7507, 245).
 - **Biomes.** tensura:desert_of_death 4, tensura:barren_land 3, desert 2 (orc villages), badlands 1,
   eroded_badlands 1.
 - Sources: https://tensura.fandom.com/wiki/Holy_Void_of_Damargania, https://tensura.fandom.com/wiki/Dagruel,
@@ -253,7 +247,7 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
 - **Lore.** Guy Crimson's frozen northern continent, with his Frost Palace (White Ice Palace). The illustrated map
   calls it the "Tundral Waste" and shows a great rift and ice-floe islands.
 - **Terrain.** Snowfields, ice spikes and frozen peaks.
-- **Landmark.** Frost Palace: [1345, 349] → (-1740, -3080).
+- **Landmark.** Frost Palace: [1345, 349] → (-2435, -4314).
 - **Biomes.** snowy_plains 3, ice_spikes 2, snowy_slopes 2, snowy_taiga 1, grove 1.
 - Sources: https://tensura.fandom.com/wiki/Ice_Continent, https://tensura.fandom.com/wiki/Frost_Palace,
   https://tensura.fandom.com/wiki/Guy_Crimson
@@ -266,31 +260,28 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   because vanilla badlands carry extra gold ore, and vanilla badlands peaks stay because they suit a gold
   country.
 - **Landmarks:**
-  - Golden City: [910, 1736] → (-3430, 2315).
-  - Central volcano: [860, 1690] → (-3625, 2135).
+  - Golden City: [910, 1736] → (-4805, 3241).
+  - Central volcano: [860, 1690] → (-5077, 2991).
 - **Biomes.** sparse_jungle 2, jungle 2, savanna 2, wooded_badlands 2, badlands 1, bamboo_jungle 1,
   windswept_savanna 1.
 - Sources: https://tensura.fandom.com/wiki/Golden_City_of_El_Dorado, https://tensura.fandom.com/wiki/WN:El_Dorado
 
 ### O, N, Y, Q, A: small Western Nations (Morgdahl, Nostraille, Yuzalgh, Yggdonia, Raja)
 
-These five come from the fan political map. Only Raja is likely canon (a small Western Nations state); I could not
-verify the other names in any source, so treat them as fan additions that fill the "Western Nations" band. Their
-subtitles are English epithets, not Japanese names.
+The anime map seen at the Western Council supports the west-to-east sequence Morgdahl, Nostraille, Yuzalgh and Yggdonia. The fan cartographer identifies Raja's exact position as speculative. The English epithets and local biome palettes are pack choices. [Council map comparison](https://www.reddit.com/r/TenseiSlime/comments/1suz7yb/new_countries/) · [Cartographer’s account](https://www.reddit.com/r/TenseiSlime/comments/1um7i81/i_created_a_bunch_of_tensura_political_maps/)
 
 | Grid | Name | Landmark (ref → world) | Palette |
 | --- | --- | --- | --- |
-| O | Morgdahl, the south-coast river mouth | [1056, 1325] → (-2865, 715); Sainte Malukshure [1242, 1378]; Coleus [1030, 1209] | plains 3, forest 2, birch 1, swamp 1, savanna 1 |
-| N | Nostraille, hill kingdom | [1322, 1207] → (-1830, 255); Ghastone, Rostia | plains 2, meadow 2, forest 2, windswept_hills 1 |
-| Y | Yuzalgh, lakeside kingdom | [1448, 1200] → (-1340, 230) | forest 2, plains 2, birch 2, flower_forest 1 |
-| Q | Yggdonia, birch realm (59 chunks) | [1550, 1174] → (-940, 130) | old_growth_birch 2, birch 2, flower_forest 1 |
-| A | Raja, hills and old mines | [1593, 1281] → (-775, 545); Filtwood [1597, 1254] | plains 2, forest 1, meadow 1, windswept_hills 1 |
+| O | Morgdahl, the south-coast river mouth | [1056, 1325] → (-4009, 1002); Sainte Malukshure [1242, 1378]; Coleus [1030, 1209] | plains 3, forest 2, birch 1, swamp 1, savanna 1 |
+| N | Nostraille, hill kingdom | [1322, 1207] → (-2560, 360); Ghastone, Rostia | plains 2, meadow 2, forest 2, windswept_hills 1 |
+| Y | Yuzalgh, lakeside kingdom | [1448, 1200] → (-1874, 321) | forest 2, plains 2, birch 2, flower_forest 1 |
+| Q | Yggdonia, birch realm (135 chunks) | [1548, 1174] → (-1329, 180) | old_growth_birch 2, birch 2, flower_forest 1 |
+| A | Raja, hills and old mines | [1593, 1281] → (-1084, 763); Filtwood [1597, 1254] | plains 2, forest 1, meadow 1, windswept_hills 1 |
 
 ## Tempest (early): for the build team
 
 This is the moment right after the ogres joined and were named Benimaru, Shuna, Shion, Souei, Hakurou and Kurobe.
-It covers the anime's episodes 9–11 and light novel volume 1, before the Orc Lord war. Canon details come from the
-LN, manga and anime. Where they differ, the anime look is used because players know it best.
+The build depicts the village before the Orc Lord war, after the ogres arrive in episodes 9–11. Volume 2 covers the ogres and the Orc Lord conflict. The blueprint follows the anime for visual details. [Fuse, light novel volume 2](https://yenpress.com/titles/9781975301118-that-time-i-got-reincarnated-as-a-slime-vol-2-light-novel)
 
 **Who is there.** Rimuru and Ranga with the direwolves (now Tempest Wolves). Rigurd, the goblin lord, and the
 named hobgoblins: Rigur, Gobta and the goblin riders. About 500 goblins, after the neighbouring tribes joined. The
@@ -325,18 +316,17 @@ The anime shows a riverbank by the village; the LN states that water access drov
 unverified*. Lake Siss is not next to the town: it is the lizardmen's lake, far off in the centre of the forest,
 which needed an envoy (Gabiru) and an army march to reach.
 
-**Distances in the build** (from `landmarks`):
+**Distances from the built Tempest arrival (0, 0).** Distances are straight lines before the terrain survey. Canon travel times describe journeys on the fictional continent.
 
-| From | To | Distance | Note |
-| --- | --- | --- | --- |
-| Tempest [1790, 1122] → (-10, -70) | Sealed Cave [1745, 1078] → (-180, -245) | about 250 blocks, NW | In canon a short trip: Rimuru goes back on foot for hipokute grass |
-| Tempest | Old goblin village (-115, -165) | about 140 blocks | Between the town and the cave |
-| Tempest | Lake Siss (635, 145) | about 680 blocks, E | The lizardmen's marsh |
-| Tempest | Dwargon gate (310, -1060) | about 1,040 blocks, N | Canon: three days by wolf, two months on foot |
-| Tempest | Blumund capital (-730, -85) | about 720 blocks, W | |
+| Destination | World x, z | Distance in blocks |
+| --- | --- | ---: |
+| Sealed Cave | (-256, -343) | 428 |
+| Old goblin village | (-163, -234) | 285 |
+| Lake Siss | (888, 202) | 911 |
+| Built Dwargon gate | (435, -1000) | 1,091 |
+| Blumund capital | (-1024, -120) | 1,031 |
 
-The build should keep Tempest within about 64 blocks of world (0, 0). The landmark ref [1790, 1122] is the
-map's city dot, about 70 blocks north of the grid origin.
+The map’s Tempest dot projects to (−11, −104). The settlement script fixes the village arrival at (0, 0).
 
 ## Scale
 
@@ -345,31 +335,11 @@ Canon scale cannot be reproduced. Two months on foot from the goblin village to 
 and millions of blocks in Minecraft. Every playable scale is a compression, so the question is gameplay
 density.
 
-Scale until 18/11/2026 (the owner then chose 14,000, about 5.45 blocks per pixel; see the table): 10,000 blocks across the land, about 3.89 blocks per reference pixel. That puts Jura at about
-2,860 x 2,270 blocks (12,900 chunks), Dwargon at 2,000 x 1,420, and the whole grid at 626 x 452 chunks plus the
-1,600-block sea ring, about 0.5 M chunks to pregenerate.
+The owner selected a 14,000-block land width. The committed grid spans 876 × 633 chunks (14,016 × 10,128 blocks including the last cells), before the 1,600-block outer sea ring. Jura occupies 22,577 chunks within a 4,032 × 3,168-block rectangle. Dwargon occupies 13,831 chunks within 2,816 × 2,032 blocks. These surface areas and travel distances are design measurements.
 
-| Width | Tempest → Dwargon | Jura | Grid + ring (chunks) | Verdict |
-| --- | --- | --- | --- | --- |
-| 8,000 | about 830 | 2,290 x 1,820 | about 0.36 M | Too tight: western micro-states shrink to 10 chunks or fewer |
-| **10,000 (now)** | **about 1,040** | **2,860 x 2,270** | **about 0.5 M** | **Keep** |
-| 12,000 | about 1,250 | 3,440 x 2,730 | about 0.7 M | Only if playtests show Jura crowded |
-| 16,000 | about 1,660 | 4,580 x 3,630 | about 1.1 M | Too heavy, and too empty for about 10 players |
+## Historical grid proposals (10,000-block prototype)
 
-**Recommendation: keep 10,000.**
-
-1. Jura, where every Life 2 player is reborn, already offers about 3.3 M square blocks (12,900 chunks). That is room for Tempest,
-   the cave, Lake Siss, the goblin and lizardmen settlements, and dozens of player bases.
-2. A walk to Dwargon of about 1,000 blocks (about 4 minutes on foot, 2 on a horse) feels like a journey without
-   becoming a chore. Tensura flight and Spatial Motion shorten it further for strong players.
-3. The cost stays at about 0.5 M chunks. 12,000 nearly doubles pregeneration and Distant Horizons LOD data, and
-   10+ players will not fill the extra land.
-4. The real problem is not size but missing water: the lake and river fixes below matter more than scale.
-
-If more room around Tempest is wanted later, enlarge Jura in the grid (pull Blumund and Falmuth back by about 10
-chunks) rather than scaling the whole continent.
-
-## Grid issues (canon_map.txt) for the grid owner
+These are the original survey notes, retained for provenance. Lake Siss, its W ring and two Ameld polylines were subsequently painted. Coordinates and proposed country changes in this section belong to that prototype. For current hydrography, names and border measurements, use the [November world audit](../../docs/audits/world-audit-2026-11.md).
 
 1. **Lake Siss is missing.** The fan map's "Jura-Tempest Federation" label is printed over the lake, so the flood
    turned it into land. Only scattered `~` cells remain around chunks x 40–60, z −12..3. Paint a solid lake of

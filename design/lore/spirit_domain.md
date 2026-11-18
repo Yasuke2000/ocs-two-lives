@@ -8,14 +8,8 @@ Entrance logic: `pack/kubejs/server_scripts/ttl/life/spirit_domain.js`. Test: `t
 
 ## Canon
 
-- The Dwelling of the Spirits (Dwelling of the Elementals) is a labyrinth connected to the Elemental Realm, where fairies and
-  elementals live; Ramiris's Unique Skill Small World created it. Light novel volume 4, chapter 50.
-- Rimuru takes Shizu's former pupils there to stabilise their energy: in the deepest part the children stand on a pedestal
-  bathed in light and call spirits (Kenya becomes the host of an elemental of light; Chloe's case is different). The anime
-  shows a magical cavern like Veldora's cave.
-- Ramiris's labyrinth ("the Dungeon") is in Tempest's territory in the Great Jura Forest; the dryads later live in it.
-- **Where on the map: canon gives no coordinate.** Our interpretation: a gate in the Jura forest about 250 blocks
-  south-west of Tempest (between Tempest and Blumund), well away from the Sealed Cave.
+- In the children's story, the entrance is in **Ulg Nature Park in the far north of the Republic of Ulgracia**. The official map names the park and the country in adjacent entries. Volume 4 and anime episodes 22–23 cover Rimuru's visit with Shizu’s pupils. Stills in episode 22 show a dark, stone-built chamber and Ramiris’s guardian. In episode 23 the children take turns at the pedestal, and Chloe receives a different kind of presence. [Official map, country](https://www.ten-sura.com/map/#A-72) · [Official map, park](https://www.ten-sura.com/map/#A-73) · [Episode 22](https://www.ten-sura.com/anime/tensura/story/no22) · [Episode 23](https://www.ten-sura.com/anime/tensura/story/no23)
+- Ramiris later establishes a dungeon in Tempest. The pack gives Life 2 players access to its separate spirit dimension from the **Jura gateway at (−210, 130)**. That gameplay placement is recorded in the decision log. The canon grid also has a distinct “Galut / Ulgr Nature Park (Ulgracia)” landmark. [Ramiris chronology](https://ja.wikipedia.org/wiki/転生したらスライムだった件#ラミリス) · [Pack decisions](../decisions.md) · [Mapped landmarks](../../pack/config/ttl/canon_regions.json)
 
 ## What we built (our interpretation of appearance)
 
@@ -27,9 +21,7 @@ Entrance logic: `pack/kubejs/server_scripts/ttl/life/spirit_domain.js`. Test: `t
   dais of labyrinth stone, a broken colonnade, a glass lid over a shaft, and a stair down into the grotto: a dome with a
   summoning circle in the floor and, in the middle, a pedestal (a vanilla beacon on an iron base) whose light climbs through
   the shaft to the sky. The return arch is south of the arrival point. An invisible barrier runs along the island's rim.
-- No Tensura warp pad or labyrinth portal block is used (they run mod logic); `tensura:labyrinth_bricks`, `labyrinth_stone`,
-  `cream_labyrinth_bricks` and `labyrinth_praying_path` are used as plain decoration. *Unverified in game:* that these four
-  have no side effects, and how the beacon behaves in a void dimension.
+- The trail's pale centreline is carved stone. Tensura 2.0.1.5's praying path runs a server-side block-entity tick for crouching players. Both structures use passive paving so the pack’s doorway script controls access. The grotto stair descends north and rises south to the glade.
 
 ## Dimension
 
@@ -42,5 +34,5 @@ Corridor, which belongs to the Life 1 to 2 flow. Graves are off there (tombstone
 
 - https://tensura.fandom.com/wiki/Dwelling_of_the_Elementals (via search extract), https://tensura.fandom.com/wiki/Elemental_Realm,
   https://tensura.fandom.com/wiki/Ramiris
-- Visual references only: Tensura `labyrinth_tree` and `ruin/warp` structures, the mod `t_and_t` village `modded/waystone_*`
-  (a gate-like shrine), Iron's Spells `ice_spider_den/cavern/circle_henge`.
+- Visual references only: Tensura `labyrinth_tree` and `ruin/warp` structures, the mod `t_and_t` village `modded/waystones/waystone_default`
+  (a gate-like shrine), Iron's Spells `ice_spider_den/cavern/cavern_extension/circle_henge`.

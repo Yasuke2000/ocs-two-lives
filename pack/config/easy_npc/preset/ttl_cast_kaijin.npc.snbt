@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;1566455129,-958833463,-1337922618,-1204369876],
     VariantType:"FARMER_01",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/kaijin.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }
