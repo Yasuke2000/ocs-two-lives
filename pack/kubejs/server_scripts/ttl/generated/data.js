@@ -43,8 +43,19 @@ const TtlData = {
             "tempest": 5
           }
         },
+        "spawn": {
+          "kind": "altar"
+        },
         "tier": 1,
-        "title": "Geld, the Orc Lord"
+        "title": "Geld, the Orc Lord",
+        "wild": {
+          "chance_per_day": 0.03,
+          "regions": [
+            "J",
+            "W",
+            "V"
+          ]
+        }
       },
       {
         "cooldown_hours": 24,
@@ -69,8 +80,20 @@ const TtlData = {
             "tempest": 5
           }
         },
+        "spawn": {
+          "at": {
+            "build": "sealed_cave"
+          },
+          "kind": "altar"
+        },
         "tier": 1,
-        "title": "The Supermassive Slime"
+        "title": "The Supermassive Slime",
+        "wild": {
+          "chance_per_day": 0.03,
+          "regions": [
+            "J"
+          ]
+        }
       },
       {
         "cooldown_hours": 48,
@@ -91,13 +114,31 @@ const TtlData = {
           }
         ],
         "range": 56,
+        "requires": [
+          "shizu"
+        ],
         "rewards": {
           "coins": {
             "gold": 3
           }
         },
+        "spawn": {
+          "at": {
+            "radius": 48,
+            "x": 0,
+            "z": 0
+          },
+          "kind": "quest"
+        },
         "tier": 2,
-        "title": "Ifrit, the Flame Spirit"
+        "title": "Ifrit, the Flame Spirit",
+        "wild": {
+          "chance_per_day": 0.01,
+          "regions": [
+            "M",
+            "E"
+          ]
+        }
       },
       {
         "cooldown_hours": 48,
@@ -119,6 +160,9 @@ const TtlData = {
           }
         ],
         "range": 56,
+        "requires": [
+          "orc_lord"
+        ],
         "rewards": {
           "coins": {
             "gold": 3
@@ -127,8 +171,23 @@ const TtlData = {
             "tempest": 8
           }
         },
+        "spawn": {
+          "at": {
+            "radius": 64,
+            "x": 1106,
+            "z": 539
+          },
+          "kind": "quest"
+        },
         "tier": 2,
-        "title": "The Orc Disaster"
+        "title": "The Orc Disaster",
+        "wild": {
+          "chance_per_day": 0.01,
+          "regions": [
+            "W",
+            "V"
+          ]
+        }
       },
       {
         "cooldown_hours": 48,
@@ -149,161 +208,160 @@ const TtlData = {
             "gold": 3
           }
         },
+        "spawn": {
+          "at": {
+            "build": "spirit_dwelling"
+          },
+          "kind": "altar"
+        },
         "tier": 2,
-        "title": "Mimic Echo"
+        "title": "Mimic Echo",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "J"
+          ],
+          "weather": "thunder"
+        }
       },
       {
-        "cooldown_hours": 72,
-        "entity": "tensura:charybdis",
-        "hp_mult": 4.0,
-        "id": "charybdis",
-        "per_player_mult": 1.0,
-        "phases": [
-          {
-            "at_hp": 0.6,
-            "enrage": 1,
-            "say": "The sea turns against you."
-          },
-          {
-            "at_hp": 0.3,
-            "enrage": 2,
-            "say": "Charybdis thrashes in a final rage."
-          }
-        ],
-        "range": 64,
-        "rewards": {
-          "coins": {
-            "gold": 10
-          },
-          "core": true
-        },
-        "tier": 3,
-        "title": "Charybdis, the Whirlpool Calamity"
-      },
-      {
-        "cooldown_hours": 72,
-        "entity": "tensura:gazel_dwargo",
-        "hp_mult": 4.0,
-        "id": "gazel_dwargo",
-        "per_player_mult": 1.0,
+        "cooldown_hours": 48,
+        "entity": "tensura:folgen",
+        "hp_mult": 3.0,
+        "id": "folgen",
+        "per_player_mult": 0.75,
         "phases": [
           {
             "at_hp": 0.5,
             "enrage": 1,
-            "say": "The Dwarf King draws his full strength."
+            "say": "Folgen stops holding his men back."
           }
         ],
-        "range": 64,
+        "range": 56,
         "rewards": {
           "coins": {
-            "gold": 10
-          },
-          "core": true
+            "gold": 3
+          }
         },
-        "tier": 3,
-        "title": "Gazel Dwargo, the Dwarf King"
+        "spawn": {
+          "at": {
+            "radius": 48,
+            "x": 0,
+            "z": 40
+          },
+          "kind": "event"
+        },
+        "tier": 2,
+        "title": "Folgen, Field Commander of Falmuth",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "F",
+            "R"
+          ]
+        }
       },
       {
-        "cooldown_hours": 72,
-        "entity": "tensura:hinata_sakaguchi",
-        "hp_mult": 4.0,
-        "id": "hinata_sakaguchi",
-        "per_player_mult": 1.0,
+        "cooldown_hours": 48,
+        "entity": "tensura:kyoya_tachibana",
+        "hp_mult": 3.0,
+        "id": "kyoya_tachibana",
+        "per_player_mult": 0.75,
         "phases": [
           {
             "at_hp": 0.5,
             "enrage": 1,
-            "say": "Hinata stops holding back."
+            "say": "Kyoya fights in earnest."
           }
         ],
-        "range": 64,
+        "range": 56,
         "rewards": {
           "coins": {
-            "gold": 10
-          },
-          "core": true
+            "gold": 3
+          }
         },
-        "tier": 3,
-        "title": "Hinata Sakaguchi, the Saint"
+        "spawn": {
+          "at": {
+            "build": "marris"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Kyoya Tachibana",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "F"
+          ]
+        }
       },
       {
-        "cooldown_hours": 72,
-        "entity": "tensura_neb:carrion",
-        "hp_mult": 4.0,
-        "id": "carrion",
-        "per_player_mult": 1.0,
+        "cooldown_hours": 48,
+        "entity": "tensura:shogo_taguchi",
+        "hp_mult": 3.0,
+        "id": "shogo_taguchi",
+        "per_player_mult": 0.75,
         "phases": [
           {
             "at_hp": 0.5,
             "enrage": 1,
-            "say": "Carrion's roar shakes the ground."
+            "say": "Shogo stops testing you."
           }
         ],
-        "range": 64,
+        "range": 56,
         "rewards": {
           "coins": {
-            "gold": 10
-          },
-          "core": true
+            "gold": 3
+          }
         },
-        "tier": 3,
-        "title": "Carrion, the Beast Lord"
+        "spawn": {
+          "at": {
+            "build": "marris"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Shogo Taguchi",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "F"
+          ]
+        }
       },
       {
-        "cooldown_hours": 96,
-        "entity": "tensura_neb:luminous_valentine",
-        "hp_mult": 6.0,
-        "id": "luminous_valentine",
-        "per_player_mult": 1.5,
+        "cooldown_hours": 48,
+        "entity": "tensura:kirara_mizutani",
+        "hp_mult": 3.0,
+        "id": "kirara_mizutani",
+        "per_player_mult": 0.75,
         "phases": [
           {
-            "at_hp": 0.7,
+            "at_hp": 0.5,
             "enrage": 1,
-            "say": "Luminous's aura grows heavy."
-          },
-          {
-            "at_hp": 0.35,
-            "enrage": 2,
-            "say": "Luminous no longer pretends to be gentle."
+            "say": "Kirara's patience runs out."
           }
         ],
-        "range": 72,
+        "range": 56,
         "rewards": {
           "coins": {
-            "gold": 25
-          },
-          "core": true
-        },
-        "tier": 4,
-        "title": "Luminous Valentine, the Demon Lord"
-      },
-      {
-        "cooldown_hours": 96,
-        "entity": "tensura_neb:veldora",
-        "hp_mult": 6.0,
-        "id": "veldora",
-        "per_player_mult": 1.5,
-        "phases": [
-          {
-            "at_hp": 0.7,
-            "enrage": 1,
-            "say": "Storm clouds gather over the arena."
-          },
-          {
-            "at_hp": 0.35,
-            "enrage": 2,
-            "say": "Veldora's power is unleashed."
+            "gold": 3
           }
-        ],
-        "range": 72,
-        "rewards": {
-          "coins": {
-            "gold": 25
-          },
-          "core": true
         },
-        "tier": 4,
-        "title": "Veldora, the Storm Dragon"
+        "spawn": {
+          "at": {
+            "build": "marris"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Kirara Mizutani",
+        "wild": {
+          "chance_per_day": 0.005,
+          "regions": [
+            "F"
+          ]
+        }
       },
       {
         "arena": {
@@ -337,8 +395,270 @@ const TtlData = {
             "tempest": 10
           }
         },
+        "spawn": {
+          "kind": "quest"
+        },
         "tier": 2,
-        "title": "Shizu, the Flame Tyrant"
+        "title": "Shizu, the Flame Tyrant",
+        "wild": {
+          "chance_per_day": 0.01,
+          "regions": [
+            "J"
+          ]
+        }
+      },
+      {
+        "cooldown_hours": 48,
+        "entity": "tensura:sylphide",
+        "hp_mult": 3.0,
+        "id": "sylphide",
+        "per_player_mult": 0.75,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "The wind answers Sylphide."
+          }
+        ],
+        "range": 56,
+        "rewards": {
+          "coins": {
+            "gold": 3
+          }
+        },
+        "spawn": {
+          "at": {
+            "build": "spirit_dwelling"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Sylphide, the Wind Spirit"
+      },
+      {
+        "cooldown_hours": 48,
+        "entity": "tensura:undine",
+        "hp_mult": 3.0,
+        "id": "undine",
+        "per_player_mult": 0.75,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "The water rises around Undine."
+          }
+        ],
+        "range": 56,
+        "rewards": {
+          "coins": {
+            "gold": 3
+          }
+        },
+        "spawn": {
+          "at": {
+            "build": "spirit_dwelling"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Undine, the Water Spirit"
+      },
+      {
+        "cooldown_hours": 48,
+        "entity": "tensura:akash",
+        "hp_mult": 3.0,
+        "id": "akash",
+        "per_player_mult": 0.75,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "Akash's presence presses down on the glade."
+          }
+        ],
+        "range": 56,
+        "rewards": {
+          "coins": {
+            "gold": 3
+          }
+        },
+        "spawn": {
+          "at": {
+            "build": "spirit_dwelling"
+          },
+          "kind": "altar"
+        },
+        "tier": 2,
+        "title": "Akash, the Greater Spirit"
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura:charybdis",
+        "hp_mult": 4.0,
+        "id": "charybdis",
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.6,
+            "enrage": 1,
+            "say": "The sea turns against you."
+          },
+          {
+            "at_hp": 0.3,
+            "enrage": 2,
+            "say": "Charybdis thrashes in a final rage."
+          }
+        ],
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "radius": 96,
+            "x": 635,
+            "z": 145
+          },
+          "kind": "quest"
+        },
+        "tier": 3,
+        "title": "Charybdis, the Whirlpool Calamity",
+        "wild": {
+          "chance_per_day": 0.003,
+          "regions": [
+            "W",
+            "J"
+          ],
+          "surface": "water"
+        }
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura:gazel_dwargo",
+        "hp_mult": 4.0,
+        "id": "gazel_dwargo",
+        "kill_rep": {
+          "dwargon": -60,
+          "flag": "regicide"
+        },
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "The Dwarf King draws his full strength."
+          }
+        ],
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "radius": 40,
+            "x": 435,
+            "z": -1106
+          },
+          "kind": "statue"
+        },
+        "tier": 3,
+        "title": "Gazel Dwargo, the Dwarf King",
+        "wild": {
+          "chance_per_day": 0.0,
+          "regions": [
+            "D"
+          ]
+        }
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura:hinata_sakaguchi",
+        "hp_mult": 4.0,
+        "id": "hinata_sakaguchi",
+        "kill_rep": {
+          "holy_church": -30
+        },
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "Hinata stops holding back."
+          }
+        ],
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "radius": 48,
+            "x": -400,
+            "z": -60
+          },
+          "kind": "quest",
+          "stages": [
+            "ttl.defeated.shizu"
+          ]
+        },
+        "tier": 3,
+        "title": "Hinata Sakaguchi, the Saint",
+        "wild": {
+          "chance_per_day": 0.005,
+          "path_mult": {
+            "dark": 3
+          },
+          "regions": [
+            "F",
+            "R",
+            "G",
+            "L"
+          ]
+        }
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura_neb:carrion",
+        "hp_mult": 4.0,
+        "id": "carrion",
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.5,
+            "enrage": 1,
+            "say": "Carrion's roar shakes the ground."
+          }
+        ],
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "build": "laura"
+          },
+          "kind": "altar"
+        },
+        "tier": 3,
+        "title": "Carrion, the Beast Lord",
+        "wild": {
+          "chance_per_day": 0.003,
+          "regions": [
+            "B"
+          ]
+        }
       },
       {
         "arena": {
@@ -350,6 +670,9 @@ const TtlData = {
         "entity": "tensura_neb:rimuru_ogre_fight",
         "hp_mult": 4.0,
         "id": "rimuru_ogre_fight",
+        "kill_rep": {
+          "tempest": -40
+        },
         "per_player_mult": 1.0,
         "phases": [
           {
@@ -373,8 +696,174 @@ const TtlData = {
           },
           "core": true
         },
+        "spawn": {
+          "kind": "quest"
+        },
         "tier": 3,
         "title": "Rimuru Tempest"
+      },
+      {
+        "cooldown_hours": 72,
+        "entity": "tensura:arch_daemon",
+        "hp_mult": 4.0,
+        "id": "clayman",
+        "per_player_mult": 1.0,
+        "phases": [
+          {
+            "at_hp": 0.6,
+            "enrage": 1,
+            "say": "The Marionette Master pulls his strings tighter."
+          },
+          {
+            "at_hp": 0.3,
+            "enrage": 2,
+            "say": "Clayman drops the mask and fights for his seat."
+          }
+        ],
+        "proxy": true,
+        "range": 64,
+        "rewards": {
+          "coins": {
+            "gold": 10
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "build": "clayman_castle"
+          },
+          "kind": "altar"
+        },
+        "tier": 3,
+        "title": "Clayman, the Marionette Master",
+        "wild": {
+          "chance_per_day": 0.002,
+          "regions": [
+            "P"
+          ]
+        }
+      },
+      {
+        "cooldown_hours": 96,
+        "entity": "tensura_neb:luminous_valentine",
+        "hp_mult": 6.0,
+        "id": "luminous_valentine",
+        "per_player_mult": 1.5,
+        "phases": [
+          {
+            "at_hp": 0.7,
+            "enrage": 1,
+            "say": "Luminous's aura grows heavy."
+          },
+          {
+            "at_hp": 0.35,
+            "enrage": 2,
+            "say": "Luminous no longer pretends to be gentle."
+          }
+        ],
+        "range": 72,
+        "requires": [
+          "hinata_sakaguchi"
+        ],
+        "rewards": {
+          "coins": {
+            "gold": 25
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "build": "lubelius"
+          },
+          "kind": "altar"
+        },
+        "tier": 4,
+        "title": "Luminous Valentine, the Demon Lord",
+        "wild": {
+          "chance_per_day": 0.001,
+          "regions": [
+            "L"
+          ],
+          "time": "night"
+        }
+      },
+      {
+        "cooldown_hours": 96,
+        "entity": "tensura_neb:veldora",
+        "hp_mult": 6.0,
+        "id": "veldora",
+        "per_player_mult": 1.5,
+        "phases": [
+          {
+            "at_hp": 0.7,
+            "enrage": 1,
+            "say": "Storm clouds gather over the arena."
+          },
+          {
+            "at_hp": 0.35,
+            "enrage": 2,
+            "say": "Veldora's power is unleashed."
+          }
+        ],
+        "range": 72,
+        "requires": [
+          "charybdis"
+        ],
+        "rewards": {
+          "coins": {
+            "gold": 25
+          },
+          "core": true
+        },
+        "spawn": {
+          "at": {
+            "build": "sealed_cave"
+          },
+          "kind": "altar"
+        },
+        "tier": 4,
+        "title": "Veldora, the Storm Dragon",
+        "wild": {
+          "chance_per_day": 0.001,
+          "regions": [
+            "J"
+          ],
+          "weather": "thunder"
+        }
+      },
+      {
+        "cooldown_hours": 96,
+        "entity": "tensura:elemental_colossus",
+        "hp_mult": 6.0,
+        "id": "elemental_colossus",
+        "per_player_mult": 1.5,
+        "phases": [
+          {
+            "at_hp": 0.6,
+            "enrage": 1,
+            "say": "The Colossus grinds forward."
+          },
+          {
+            "at_hp": 0.3,
+            "enrage": 2,
+            "say": "The Colossus shakes the ground with every step."
+          }
+        ],
+        "range": 72,
+        "rewards": {
+          "coins": {
+            "gold": 25
+          },
+          "core": true
+        },
+        "tier": 4,
+        "title": "The Elemental Colossus",
+        "wild": {
+          "chance_per_day": 0.002,
+          "regions": [
+            "V"
+          ]
+        }
       }
     ],
     "framework": {
@@ -382,11 +871,11 @@ const TtlData = {
         "shizu"
       ],
       "block_natural": true,
+      "core_per_party": 1,
       "idle_minutes": 30,
-      "natural_allow": [
-        "shizu"
-      ],
+      "party_credit_range": 2.0,
       "presence_secs": 15,
+      "proxy_bosses": true,
       "untame": true
     },
     "tombstone": {
@@ -410,6 +899,22 @@ const TtlData = {
         "tensura_neb:luminous_valentine"
       ],
       "mode": "defeated"
+    },
+    "wild": {
+      "announce": true,
+      "distance": [
+        64,
+        160
+      ],
+      "enabled": true,
+      "idle_minutes": 30,
+      "ignore_requires": true,
+      "life2_only": true,
+      "max_active": 1,
+      "max_per_day": 2,
+      "min_gap_hours": 6,
+      "require_players": 1,
+      "rewards_mult": 1.0
     }
   },
   "builds": [

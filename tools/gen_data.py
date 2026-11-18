@@ -220,24 +220,106 @@ def check_factions(fac: dict, karma: dict | None) -> None:
         raise SystemExit(f"factions.toml: only one faction can mirror into Tensura's reputation, found {', '.join(mirrors)}")
 
 
+def is_num(v) -> bool:
+    return isinstance(v, (int, float)) and not isinstance(v, bool)
+
+
+def check_arena(where: str, label: str, a: dict, landmarks: set, builds: set, allow_build: bool) -> None:
+    """An arena / spawn.at table: landmark, build (spawn.at only) or x/z (+ y, dim, radius)."""
+    ident = r"[a-z0-9_.-]+:[a-z0-9_/.-]+"
+    if not isinstance(a, dict):
+        raise SystemExit(f"{where}: {label} must be a table")
+    if "landmark" in a:
+        if a["landmark"] not in landmarks:
+            raise SystemExit(f"{where}: {label} landmark {a['landmark']!r} not in landmarks.toml")
+        if set(a) - {"landmark"}:
+            raise SystemExit(f"{where}: a landmark {label} cannot have a radius (give x and z)")
+    elif "build" in a:
+        if not allow_build:
+            raise SystemExit(f"{where}: {label} build is only allowed in spawn.at")
+        if a["build"] not in builds:
+            raise SystemExit(f"{where}: {label} build {a['build']!r} is not in design/builds")
+        if set(a) - {"build"}:
+            raise SystemExit(f"{where}: a build {label} takes no other field")
+    else:
+        if not all(isinstance(a.get(k), int) for k in "xz") or not isinstance(a.get("y", 0), int):
+            raise SystemExit(f"{where}: {label} needs a landmark, a build or integer x and z (y optional)")
+        if "radius" in a and (not isinstance(a["radius"], int) or not 4 <= a["radius"] <= 256):
+            raise SystemExit(f"{where}: {label} radius must be an integer 4..256")
+        if "dim" in a and not re.fullmatch(ident, str(a["dim"])):
+            raise SystemExit(f"{where}: {label} dim must be a namespaced id")
+        if set(a) - {"x", "y", "z", "dim", "radius"}:
+            raise SystemExit(f"{where}: {label} knows x, y, z, dim and radius only")
+
+
+def check_wild_knobs(w: dict | None) -> None:
+    if not isinstance(w, dict):
+        raise SystemExit("bosses.toml: the [wild] table is missing")
+    for key in ("enabled", "ignore_requires", "announce", "life2_only"):
+        if not isinstance(w.get(key), bool):
+            raise SystemExit(f"bosses.toml: [wild] {key} must be true or false")
+    for key in ("max_active", "max_per_day", "require_players", "idle_minutes"):
+        if not isinstance(w.get(key), int) or isinstance(w[key], bool) or w[key] < (1 if key in ("require_players", "idle_minutes") else 0):
+            raise SystemExit(f"bosses.toml: [wild] {key} must be an integer ({'1' if key in ('require_players', 'idle_minutes') else '0'} or more)")
+    if not is_num(w.get("min_gap_hours")) or w["min_gap_hours"] < 0:
+        raise SystemExit("bosses.toml: [wild] min_gap_hours must be a number 0 or more")
+    if not is_num(w.get("rewards_mult")) or not 0 <= w["rewards_mult"] <= 5:
+        raise SystemExit("bosses.toml: [wild] rewards_mult must be a number 0..5")
+    d = w.get("distance")
+    if not (isinstance(d, list) and len(d) == 2 and all(isinstance(v, int) and not isinstance(v, bool) for v in d)
+            and 16 <= d[0] < d[1] <= 256):
+        raise SystemExit("bosses.toml: [wild] distance must be [min, max] integers, 16 <= min < max <= 256")
+
+
+def check_wild(where: str, w: dict, letters: set, boss: dict) -> None:
+    known = {"chance_per_day", "regions", "path_mult", "weather", "time", "biomes", "surface", "cooldown_hours", "cap"}
+    if not isinstance(w, dict) or set(w) - known:
+        raise SystemExit(f"{where}: wild is a table with {', '.join(sorted(known))} only")
+    if not is_num(w.get("chance_per_day")) or not 0 <= w["chance_per_day"] <= 0.25:
+        raise SystemExit(f"{where}: wild.chance_per_day must be a number 0..0.25 (a fraction per day; 0.01 = 1 %)")
+    regions = w.get("regions")
+    if not (isinstance(regions, list) and regions and all(isinstance(r, str) and r in letters for r in regions)):
+        raise SystemExit(f"{where}: wild.regions must be a non-empty list of canon region letters ({''.join(sorted(letters))})")
+    pm = w.get("path_mult", {})
+    if not isinstance(pm, dict) or set(pm) - {"light", "dark"} or not all(is_num(v) and 0 <= v <= 10 for v in pm.values()):
+        raise SystemExit(f"{where}: wild.path_mult is {{ light = n, dark = n }} with n 0..10")
+    for key, allowed in (("weather", ("any", "thunder", "rain")), ("time", ("any", "night", "day")), ("surface", ("land", "water", "any"))):
+        if w.get(key, allowed[0] if key != "surface" else "land") not in allowed:
+            raise SystemExit(f"{where}: wild.{key} must be one of {', '.join(allowed)}")
+    biomes = w.get("biomes", [])
+    if not isinstance(biomes, list) or not all(isinstance(x, str) and re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", x) for x in biomes):
+        raise SystemExit(f"{where}: wild.biomes must be a list of biome ids")
+    if "cooldown_hours" in w and (not is_num(w["cooldown_hours"]) or w["cooldown_hours"] < 0):
+        raise SystemExit(f"{where}: wild.cooldown_hours must be a number 0 or more")
+    if "cap" in w and (not isinstance(w["cap"], int) or isinstance(w["cap"], bool) or w["cap"] < 1):
+        raise SystemExit(f"{where}: wild.cap must be an integer 1 or more")
+
 def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = None) -> None:
     # bosses/boss.js summons these; a typo would fail only when a quest or altar summons the boss.
     ident = r"[a-z0-9_.-]+:[a-z0-9_/.-]+"
     names = {lm["name"] for lm in (landmarks or {}).get("landmark", [])}
     fw = bosses.get("framework", {})
-    for key, kind in (("block_natural", bool), ("untame", bool), ("idle_minutes", int), ("presence_secs", int)):
-        if not isinstance(fw.get(key), kind):
+    for key, kind in (("block_natural", bool), ("untame", bool), ("proxy_bosses", bool), ("idle_minutes", int),
+                      ("presence_secs", int), ("core_per_party", int)):
+        if not isinstance(fw.get(key), kind) or (kind is int and isinstance(fw.get(key), bool)):
             raise SystemExit(f"bosses.toml: [framework] {key} must be a {kind.__name__}")
+    if fw["core_per_party"] < 0:
+        raise SystemExit("bosses.toml: [framework] core_per_party must be 0 or more")
+    if not is_num(fw.get("party_credit_range")) or not 1 <= fw["party_credit_range"] <= 8:
+        raise SystemExit("bosses.toml: [framework] party_credit_range must be a number 1..8 (x the boss range)")
+    if "natural_allow" in fw:
+        raise SystemExit("bosses.toml: [framework] natural_allow was removed: give the boss a [boss.wild] table instead")
     if not isinstance(fw.get("bindable"), list):
         raise SystemExit("bosses.toml: [framework] bindable must be a list (use [] for none)")
-    if not isinstance(fw.get("natural_allow"), list):
-        raise SystemExit("bosses.toml: [framework] natural_allow must be a list (use [] for none)")
     all_ids = [b.get("id") for b in bosses.get("boss", [])]
-    for key in ("bindable", "natural_allow"):
-        for bid in fw[key]:
-            if bid not in all_ids:
-                raise SystemExit(f"bosses.toml: [framework] {key} names unknown boss {bid!r}")
-    ids, entities = set(), set()
+    for bid in fw["bindable"]:
+        if bid not in all_ids:
+            raise SystemExit(f"bosses.toml: [framework] bindable names unknown boss {bid!r}")
+    canon = json.loads(CANON.read_text(encoding="utf-8"))
+    letters = set(canon["regions"])
+    build_names = {f.stem for f in BUILDS.glob("*.toml") if not f.name.startswith("_")} if BUILDS.exists() else set()
+    check_wild_knobs(bosses.get("wild"))
+    ids, entities, proxies = set(), set(), set()
     for b in bosses.get("boss", []):
         bid = b.get("id", "")
         where = f"bosses.toml: boss {bid or '?'}"
@@ -247,8 +329,12 @@ def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = N
         if not re.fullmatch(ident, str(b.get("entity", ""))) or b["entity"] in entities:
             raise SystemExit(f"{where}: entity must be a unique namespaced id")
         entities.add(b["entity"])
-        if bid != b["entity"].split(":", 1)[1]:
-            raise SystemExit(f"{where}: id must equal the entity path ({b['entity'].split(':', 1)[1]}); "
+        if "proxy" in b and not isinstance(b["proxy"], bool):
+            raise SystemExit(f"{where}: proxy must be true or false")
+        if b.get("proxy"):
+            proxies.add(b["entity"])
+        elif bid != b["entity"].split(":", 1)[1]:
+            raise SystemExit(f"{where}: id must equal the entity path ({b['entity'].split(':', 1)[1]}) unless proxy = true; "
                              f"the stage ttl.defeated.<id> is read by compat/tombstone_bosses.js")
         for req in b.get("requires", []):
             if req not in all_ids or req == bid:
@@ -259,15 +345,36 @@ def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = N
             raise SystemExit(f"{where}: title is empty or contains a quote or backslash")
         arena = b.get("arena")
         if arena is not None:
-            if "landmark" in arena:
-                if arena["landmark"] not in names:
-                    raise SystemExit(f"{where}: arena landmark {arena['landmark']!r} not in landmarks.toml")
-            elif not all(isinstance(arena.get(k), int) for k in "xz") or not isinstance(arena.get("y", 0), int):
-                raise SystemExit(f"{where}: arena needs a landmark or integer x and z (y optional)")
-            elif "radius" in arena and (not isinstance(arena["radius"], int) or not 4 <= arena["radius"] <= 256):
-                raise SystemExit(f"{where}: arena radius must be an integer 4..256")
-            if "landmark" in arena and "radius" in arena:
-                raise SystemExit(f"{where}: a landmark arena cannot have a radius (give x and z)")
+            check_arena(where, "arena", arena, names, build_names, allow_build=False)
+        spawn = b.get("spawn")
+        if spawn is not None:
+            if set(spawn) - {"kind", "at", "stages"}:
+                raise SystemExit(f"{where}: spawn knows kind, at and stages only")
+            if spawn.get("kind") not in ("quest", "altar", "statue", "event"):
+                raise SystemExit(f"{where}: spawn.kind must be quest, altar, statue or event")
+            if "at" in spawn:
+                check_arena(where, "spawn.at", spawn["at"], names, build_names, allow_build=True)
+            elif arena is None:
+                raise SystemExit(f"{where}: spawn needs `at` or an `arena`: every boss has a definite place")
+            stages = spawn.get("stages", [])
+            if not isinstance(stages, list) or not all(isinstance(x, str) and re.fullmatch(r"ttl\.[a-z0-9_.]+", x) for x in stages):
+                raise SystemExit(f"{where}: spawn.stages must be a list of ttl.* stage names")
+            if any(x.startswith("ttl.path.") for x in stages):
+                raise SystemExit(f"{where}: spawn.stages never names a ttl.path.* stage: anyone may fight any boss")
+        wild = b.get("wild")
+        if wild is not None:
+            check_wild(where, wild, letters, b)
+        if spawn is None and arena is None and not (wild and wild.get("chance_per_day", 0) > 0):
+            raise SystemExit(f"{where}: needs a `spawn` (or `arena`) for its fixed place, or a wild chance above 0 if it is wild-only")
+        kr = b.get("kill_rep", {})
+        for f, n in kr.items():
+            if f == "flag":
+                if not isinstance(n, str) or not re.fullmatch(r"[a-z0-9_]+", n):
+                    raise SystemExit(f"{where}: kill_rep.flag must be a [a-z0-9_] story flag")
+            elif not isinstance(n, int) or isinstance(n, bool) or not -100 <= n <= 100:
+                raise SystemExit(f"{where}: kill_rep.{f} must be an integer -100..100")
+            elif factions is not None and f not in {x["id"] for x in factions.get("faction", [])}:
+                raise SystemExit(f"{where}: kill_rep names faction {f!r}, which is not in factions.toml")
         for key in ("hp_mult", "per_player_mult"):
             if not isinstance(b.get(key), (int, float)) or b[key] < (1 if key == "hp_mult" else 0):
                 raise SystemExit(f"{where}: {key} must be a number (hp_mult >= 1, per_player_mult >= 0)")
@@ -305,8 +412,9 @@ def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = N
                 raise SystemExit(f"{where}: drops need item, integer count and chance in (0, 1]")
     # The entity tag the datapack side uses (kubejs/data/ttl/tags/entity_type/boss.json) lists exactly these bosses.
     tag = json.loads((ROOT / "pack" / "kubejs" / "data" / "ttl" / "tags" / "entity_type" / "boss.json").read_text(encoding="utf-8"))
-    if set(tag["values"]) != entities:
-        raise SystemExit("bosses.toml: kubejs/data/ttl/tags/entity_type/boss.json does not list exactly the [[boss]] entities")
+    if set(tag["values"]) != entities - proxies:
+        raise SystemExit("bosses.toml: kubejs/data/ttl/tags/entity_type/boss.json does not list exactly the [[boss]] entities "
+                         "(proxy = true bosses stay out of it: their mob also spawns on its own)")
 
 
 def check_arrival(arrival: dict) -> None:

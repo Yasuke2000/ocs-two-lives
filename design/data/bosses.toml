@@ -32,44 +32,82 @@ ids = [
   "tensura_neb:rimuru_ogre_fight", "tensura_neb:rimuru_clone", "tensura_neb:carrion", "tensura_neb:luminous_valentine",
 ]
 
-# ---- Boss framework (bosses/boss.js) -------------------------------------------------------------------------------
-# A boss is summoned (a quest, an altar NPC, `/ttl boss summon <id> [x y z]`), never natural: with block_natural a boss
-# entity that Minecraft spawns by itself (natural, chunk generation, spawner, structure piece) is cancelled.
+# ---- Boss framework (bosses/boss.js, bosses/wild.js) ---------------------------------------------------------------
+# Every boss has a DEFINITE place and condition (`spawn`: a quest, altar, statue or event summons it at a fixed spot) AND a
+# very rare wild spawn (`wild`: a per-day chance while a Life 2 player is in one of its regions). Anyone may fight any
+# boss: `spawn.stages` / `requires` only say what the SUMMONER must have done, never which path they walk, and a wild
+# boss answers everyone (design/architecture/story-characters.md section 5).
+# A boss is summoned (a quest, an altar NPC, `/ttl boss summon <id> [x y z]`, the wild roll), never natural: with block_natural
+# a boss entity that Minecraft spawns by itself (natural, chunk generation, spawner, structure piece) is cancelled. Shizu
+# no longer has an exemption: she rolls like everyone else (her [boss.wild] below).
 # A summoned boss waits with NoAI until a player comes within `range`, then wakes, scales and shows a boss bar.
 # Everything that hit it, killed it, or stood within `range` for presence_secs, and is within `range` of the boss when
-# it dies, gets the stage `ttl.boss.t<tier>`, the rewards and a kill on its record.
+# it dies, gets the stage `ttl.boss.t<tier>`, the rewards and a kill on its record. Their party members get the same
+# (not the Skill Core, see party_credit_range and core_per_party).
 # Summoned bosses are never bindable as a Tombstone familiar (see compat/tombstone_bosses.js), whatever [tombstone] says.
 #
 # [framework] knobs
-#   block_natural = cancel natural spawns of the entities below (true/false)
-#   idle_minutes  = a summoned boss that nobody walks up to is removed after this long
-#   presence_secs = seconds within `range` that count as a contribution without a recorded hit (0 = hits and kills only)
-#   untame        = strip an `Owner` from a boss every second (naming/taming it must not work)
-#   natural_allow = boss ids exempt from block_natural: the entity still spawns by itself in the wild (Shizu, owner
-#                   decision 18/11/2026); only the summoned, tagged instance is a framework boss
-#   bindable      = boss ids whose summoned instance may still be bound as a Tombstone familiar, subject to [tombstone]
-#                   (empty = none: a summoned boss can never be bound)
-
-[framework]
-block_natural = true
-natural_allow = ["shizu"]
-bindable = ["shizu"]
-idle_minutes = 30
-presence_secs = 15
-untame = true
-
+#   block_natural      = cancel natural spawns of the entities below (true/false)
+#   idle_minutes       = a summoned boss that nobody walks up to is removed after this long
+#   presence_secs      = seconds within `range` that count as a contribution without a recorded hit (0 = hits and kills only)
+#   untame             = strip an `Owner` from a boss every second (naming/taming it must not work)
+#   bindable           = boss ids whose summoned instance may still be bound as a Tombstone familiar, subject to [tombstone]
+#                        (empty = none: a summoned boss can never be bound)
+#   party_credit_range = party members of a credited fighter share the kill if they are within this many x `range` of the
+#                        boss at its death, online, Life 2, and were in the party when it was first seen near the boss
+#                        (a snapshot, so inviting someone after the wake or the kill gains nothing). They get the stage,
+#                        kill count, rep and coins. FTB Teams party teams (one party object, also the future nation).
+#   core_per_party     = Skill Cores for party members who are NOT contributors themselves: at most this many per party per
+#                        kill (the most damage / presence first). Contributors always get their own core (tier 3+).
+#   proxy_bosses       = false switches every `proxy = true` boss off (summon refused, no wild roll). Owner decision O3
+#                        (recommendation: on): a character no mod ships (Clayman) is a lore-named proxy on a mob entity.
+#
+# [wild] knobs (bosses/wild.js; one poll of the event director, events/director.js, owns the timing)
+#   enabled         = the wild roll on/off (`/ttl boss wild roll` still works for ops)
+#   max_active      = wild bosses alive at once (bosses summoned by a quest or altar are not counted)
+#   max_per_day     = wild starts per Brussels day, min_gap_hours between two starts
+#   require_players = Life 2 players inside a boss's listed regions before its roll counts (each one rolls separately)
+#   distance        = [min, max] blocks from the chosen player, on the surface (a loaded chunk, no water unless the boss says)
+#   idle_minutes    = a wild boss nobody comes to is removed after this long (default: the framework idle_minutes)
+#   ignore_requires = a wild boss answers everyone: skips `requires` and `spawn.stages` (the boss cooldown still applies)
+#   rewards_mult    = multiplies the rep and coins of a wild kill (the Skill Core never)
+#   announce        = title + chat line to Life 2 players and a Discord #story line when a wild boss appears
+#   life2_only      = only Life 2 players count for the roll (and never a test bot)
+#
 # [[boss]] fields
 #   id        = short id used by commands and keys, [a-z0-9_]; equals the entity path (the stage ttl.defeated.<id> is
-#               what compat/tombstone_bosses.js reads)
+#               what compat/tombstone_bosses.js reads), except a `proxy` boss, which is named for its character
 #   entity    = the entity type (read from the jars; one boss per entity, because kills are read per entity from the
 #               scoreboard objective ttl.b.<id> with criterion minecraft.killed:<entity>)
+#   proxy     = true: the entity is an ordinary mob that stands in for a character no mod ships. It is exempt from
+#               block_natural and from the #ttl:boss tag (its mob keeps spawning and keeps L2Hostility traits).
 #   tier      = 1..4, gives the stage ttl.boss.t<tier>
 #   title     = lore name: custom name and boss bar (no quotes or backslashes)
-#   arena     = where it is summoned: { landmark = "<name in landmarks.toml>" } (surface at that landmark, Overworld),
-#               or { x, z } (+ optional y = else the surface, dim = default minecraft:overworld, radius = bound arena:
-#               summons outside it are refused and a boss pulled further than 2 x radius is put back).
+#   arena     = where it is summoned by default: { landmark = "<name in landmarks.toml>" } (surface at that landmark,
+#               Overworld), or { x, z } (+ optional y = else the surface, dim = default minecraft:overworld, radius = bound
+#               arena: summons outside it are refused and a boss pulled further than 2 x radius is put back).
 #               Without an arena it is summoned where the command or altar says (`/ttl boss summon <id> <x y z>`,
 #               or at the player who runs it).
+#   spawn     = { kind, at, stages }: the fixed encounter. kind = quest (a quest command reward or `/ttl story fight <id>`
+#               calls TtlBoss.summon with the player), altar (an NPC or statue dialog calls it), statue (attacking a tame
+#               statue swaps it for the boss: Gazel), event (the event director or a script, e.g. the Falmuth invasion).
+#               at = the arena of this encounter, same shapes as `arena` plus { build = "<design/builds name>" }: the anchor
+#               of the placed build (its recorded position, else the canon x/z), no radius. Default: `arena`.
+#               stages = stages the SUMMONER must hold in addition to `requires` (never ttl.path.*: anyone may fight).
+#               A boss with neither `spawn` nor `arena` is wild-only (and needs a `wild`).
+#   wild      = { chance_per_day, regions, path_mult, weather, time, biomes, surface, cooldown_hours, cap }
+#               chance_per_day = probability that a day of one player's presence in a listed region produces one start
+#                         (rolled each poll as chance x elapsed minutes / 1440); 0 = never (the knob stays)
+#               regions = canon region letters (canon_regions.json) the player AND the spot must be in
+#               path_mult = { light = n, dark = n }: multiplier on the chance of a player on that story path (stage
+#                         ttl.path.<x>); default 1
+#               weather = any | thunder | rain, time = any | night | day, biomes = ids the spot must be in (empty = any)
+#               surface = land (default: dry ground) | water (a lake or sea surface) | any
+#               cooldown_hours = minimum hours between two wild starts of this boss (default: only the boss cooldown)
+#               cap = wild starts of this boss per day (default 1)
+#   kill_rep  = { <faction> = n, flag = "<story flag>" } applied to everyone credited with the kill, on top of rewards (a
+#               regicide costs rep even for a light player). A summon with opts.duel = true (an honour duel) skips it. The
+#               flag goes through TtlStory.flag(server, player, flag) when the story core is loaded.
 #   requires  = boss ids that the summoner must have defeated (stage ttl.defeated.<id>); ops bypass it
 #   hp_mult, per_player_mult = max health = vanilla x (hp_mult + per_player_mult x (players within range - 1)).
 #               Minecraft clamps a max health attribute at 1024: check Health in game for the big ones.
@@ -79,6 +117,34 @@ untame = true
 #               rep goes through `/ttl rep add <player> <faction> <n>` (rep/rep.js, S3: silent until that exists)
 #   drops     = [{ item, count, chance }] extra loot on top of the entity's own table (bosses/loot.js, LootJS)
 #   cooldown_hours = a summon through TtlBoss.summon is refused this long after the last defeat (ops bypass it)
+#
+# Wild odds are the owner-decision O7 starting values (T1 3 %/day ... T4 0.1 %/day, Hinata x3 for dark-path players); tune
+# them after two weeks of #story data. Spirits of the Dwelling, Gazel and Rimuru have no wild spawn (chance 0 or no table).
+
+[framework]
+block_natural = true
+bindable = ["shizu"]
+idle_minutes = 30
+presence_secs = 15
+untame = true
+party_credit_range = 2.0
+core_per_party = 1
+proxy_bosses = true
+
+[wild]
+enabled = true
+max_active = 1
+max_per_day = 2
+min_gap_hours = 6
+require_players = 1
+distance = [64, 160]
+idle_minutes = 30
+ignore_requires = true
+rewards_mult = 1.0
+announce = true
+life2_only = true
+
+# ---- Tier 1 -------------------------------------------------------------------------------------------------------
 
 [[boss]]
 id = "orc_lord"
@@ -86,6 +152,8 @@ entity = "tensura:orc_lord"
 tier = 1
 title = "Geld, the Orc Lord"
 arena = { landmark = "orc_camp" }
+spawn = { kind = "altar" }
+wild = { chance_per_day = 0.03, regions = ["J", "W", "V"] }
 hp_mult = 2.0
 per_player_mult = 0.5
 range = 48
@@ -101,6 +169,8 @@ id = "supermassive_slime"
 entity = "tensura:supermassive_slime"
 tier = 1
 title = "The Supermassive Slime"
+spawn = { kind = "altar", at = { build = "sealed_cave" } }
+wild = { chance_per_day = 0.03, regions = ["J"] }
 hp_mult = 2.0
 per_player_mult = 0.5
 range = 48
@@ -110,11 +180,18 @@ phases = [
 ]
 rewards = { rep = { tempest = 5 }, coins = { silver = 10 } }
 
+# ---- Tier 2 -------------------------------------------------------------------------------------------------------
+
+# Ifrit comes after Shizu: the story ends her fight by calling him (events/story hook); ops and quests may summon him
+# inside Tempest's green once the summoner has beaten Shizu.
 [[boss]]
 id = "ifrit"
 entity = "tensura:ifrit"
 tier = 2
 title = "Ifrit, the Flame Spirit"
+requires = ["shizu"]
+spawn = { kind = "quest", at = { x = 0, z = 0, radius = 48 } }
+wild = { chance_per_day = 0.01, regions = ["M", "E"] }
 hp_mult = 3.0
 per_player_mult = 0.75
 range = 56
@@ -130,6 +207,9 @@ id = "orc_disaster"
 entity = "tensura:orc_disaster"
 tier = 2
 title = "The Orc Disaster"
+requires = ["orc_lord"]
+spawn = { kind = "quest", at = { x = 1106, z = 539, radius = 64 } }
+wild = { chance_per_day = 0.01, regions = ["W", "V"] }
 hp_mult = 3.0
 per_player_mult = 0.75
 range = 56
@@ -145,6 +225,8 @@ id = "rimuru_clone"
 entity = "tensura_neb:rimuru_clone"
 tier = 2
 title = "Mimic Echo"
+spawn = { kind = "altar", at = { build = "spirit_dwelling" } }
+wild = { chance_per_day = 0.005, regions = ["J"], weather = "thunder" }
 hp_mult = 3.0
 per_player_mult = 0.75
 range = 56
@@ -154,11 +236,156 @@ phases = [
 ]
 rewards = { coins = { gold = 3 } }
 
+# Falmuth's field commander: he leads the invasion at Tempest's south gate (events/invasion.js, WP-S8).
+[[boss]]
+id = "folgen"
+entity = "tensura:folgen"
+tier = 2
+title = "Folgen, Field Commander of Falmuth"
+spawn = { kind = "event", at = { x = 0, z = 40, radius = 48 } }
+wild = { chance_per_day = 0.005, regions = ["F", "R"] }
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "Folgen stops holding his men back." },
+]
+rewards = { coins = { gold = 3 } }
+
+# The three otherworlders of Marris' parade ground (their fixed place: the Marris build).
+[[boss]]
+id = "kyoya_tachibana"
+entity = "tensura:kyoya_tachibana"
+tier = 2
+title = "Kyoya Tachibana"
+spawn = { kind = "altar", at = { build = "marris" } }
+wild = { chance_per_day = 0.005, regions = ["F"] }
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "Kyoya fights in earnest." },
+]
+rewards = { coins = { gold = 3 } }
+
+[[boss]]
+id = "shogo_taguchi"
+entity = "tensura:shogo_taguchi"
+tier = 2
+title = "Shogo Taguchi"
+spawn = { kind = "altar", at = { build = "marris" } }
+wild = { chance_per_day = 0.005, regions = ["F"] }
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "Shogo stops testing you." },
+]
+rewards = { coins = { gold = 3 } }
+
+[[boss]]
+id = "kirara_mizutani"
+entity = "tensura:kirara_mizutani"
+tier = 2
+title = "Kirara Mizutani"
+spawn = { kind = "altar", at = { build = "marris" } }
+wild = { chance_per_day = 0.005, regions = ["F"] }
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "Kirara's patience runs out." },
+]
+rewards = { coins = { gold = 3 } }
+
+# ---- Jura forest story bosses: both fights happen AT TEMPEST (Overworld, village centre 0 0 = TtlTempest.LANDMARK in
+# life/tempest.js; move arena x/z together with it). Players reach Tempest through the dangerous magicule of the forest,
+# so getting there is part of the challenge. `radius` binds the arena: a summon is refused outside it (ops included,
+# unless they give coordinates inside it), and a boss pulled further than 2 x radius is put back.
+# Shizu first; Rimuru only answers a summoner who holds the stage ttl.defeated.shizu (`requires`; ops bypass it).
+# Both are non-tamable like every framework boss; see [framework] bindable and the Tombstone note in decisions.md.
+# Shizu is also the one boss that used to spawn by itself in the wild (natural_allow, removed): the same 1 %/day in Jura now
+# goes through the wild roll, so credit, caps and the announcement are ours.
+
+[[boss]]
+id = "shizu"
+entity = "tensura:shizu"
+tier = 2
+title = "Shizu, the Flame Tyrant"
+arena = { x = 0, z = 0, radius = 48 }
+spawn = { kind = "quest" }
+wild = { chance_per_day = 0.01, regions = ["J"] }
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.6, enrage = 1, say = "Flames gather around Shizu." },
+  { at_hp = 0.3, enrage = 2, say = "Shizu's mask slips; the Flame Tyrant fights for her life." },
+]
+rewards = { rep = { tempest = 10 }, coins = { gold = 3 } }
+
+# The Dwelling's greater spirits: Ramiris' guardians, one pedestal each (chapter 12 side quest). No wild spawn.
+[[boss]]
+id = "sylphide"
+entity = "tensura:sylphide"
+tier = 2
+title = "Sylphide, the Wind Spirit"
+spawn = { kind = "altar", at = { build = "spirit_dwelling" } }
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "The wind answers Sylphide." },
+]
+rewards = { coins = { gold = 3 } }
+
+[[boss]]
+id = "undine"
+entity = "tensura:undine"
+tier = 2
+title = "Undine, the Water Spirit"
+spawn = { kind = "altar", at = { build = "spirit_dwelling" } }
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "The water rises around Undine." },
+]
+rewards = { coins = { gold = 3 } }
+
+[[boss]]
+id = "akash"
+entity = "tensura:akash"
+tier = 2
+title = "Akash, the Greater Spirit"
+spawn = { kind = "altar", at = { build = "spirit_dwelling" } }
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "Akash's presence presses down on the glade." },
+]
+rewards = { coins = { gold = 3 } }
+
+# ---- Tier 3 -------------------------------------------------------------------------------------------------------
+
+# Over Lake Siss: the ritual at the shore summons it over the water (the surface at the arena centre), and in the wild it
+# only ever rises from a lake or sea.
 [[boss]]
 id = "charybdis"
 entity = "tensura:charybdis"
 tier = 3
 title = "Charybdis, the Whirlpool Calamity"
+spawn = { kind = "quest", at = { x = 635, z = 145, radius = 96 } }
+wild = { chance_per_day = 0.003, regions = ["W", "J"], surface = "water" }
 hp_mult = 4.0
 per_player_mult = 1.0
 range = 64
@@ -169,12 +396,17 @@ phases = [
 ]
 rewards = { coins = { gold = 10 }, core = true }
 
-# Separate from the throne Gazel of life/dwargon.js (that one has its own tag and is not a boss fight).
+# Separate from the throne Gazel of life/dwargon.js (that one has its own tag and is not a boss fight). A king does not
+# wander: no wild spawn (chance 0, the knob stays). Regicide costs Dwargon rep, even for a light player; the honour duel
+# of the story (a summon with opts.duel) does not.
 [[boss]]
 id = "gazel_dwargo"
 entity = "tensura:gazel_dwargo"
 tier = 3
 title = "Gazel Dwargo, the Dwarf King"
+spawn = { kind = "statue", at = { x = 435, z = -1106, radius = 40 } }
+wild = { chance_per_day = 0.0, regions = ["D"] }
+kill_rep = { dwargon = -60, flag = "regicide" }
 hp_mult = 4.0
 per_player_mult = 1.0
 range = 64
@@ -184,11 +416,16 @@ phases = [
 ]
 rewards = { coins = { gold = 10 }, core = true }
 
+# The ambush on the Blumund road (owner decision O9: a fixed road spot, y = the surface; verify the terrain in game).
+# She hunts dark-path souls: x3 wild chance for them.
 [[boss]]
 id = "hinata_sakaguchi"
 entity = "tensura:hinata_sakaguchi"
 tier = 3
 title = "Hinata Sakaguchi, the Saint"
+spawn = { kind = "quest", at = { x = -400, z = -60, radius = 48 }, stages = ["ttl.defeated.shizu"] }
+wild = { chance_per_day = 0.005, regions = ["F", "R", "G", "L"], path_mult = { dark = 3 } }
+kill_rep = { holy_church = -30 }
 hp_mult = 4.0
 per_player_mult = 1.0
 range = 64
@@ -203,6 +440,8 @@ id = "carrion"
 entity = "tensura_neb:carrion"
 tier = 3
 title = "Carrion, the Beast Lord"
+spawn = { kind = "altar", at = { build = "laura" } }
+wild = { chance_per_day = 0.003, regions = ["B"] }
 hp_mult = 4.0
 per_player_mult = 1.0
 range = 64
@@ -213,10 +452,56 @@ phases = [
 rewards = { coins = { gold = 10 }, core = true }
 
 [[boss]]
+id = "rimuru_ogre_fight"
+entity = "tensura_neb:rimuru_ogre_fight"
+tier = 3
+title = "Rimuru Tempest"
+arena = { x = 0, z = 0, radius = 48 }
+spawn = { kind = "quest" }
+requires = ["shizu"]
+kill_rep = { tempest = -40 }
+hp_mult = 4.0
+per_player_mult = 1.0
+range = 64
+cooldown_hours = 72
+phases = [
+  { at_hp = 0.6, enrage = 1, say = "Rimuru stops testing you." },
+  { at_hp = 0.3, enrage = 2, say = "The slime's true power rolls over Tempest." },
+]
+rewards = { coins = { gold = 15 }, core = true }
+
+# Clayman has no entity in any mod: a PROXY on Tensura's arch daemon, lore-named (owner decision O3, recommendation:
+# proxy now; `proxy_bosses = false` removes him). The mob keeps spawning in the wild and keeps its L2Hostility traits.
+[[boss]]
+id = "clayman"
+entity = "tensura:arch_daemon"
+proxy = true
+tier = 3
+title = "Clayman, the Marionette Master"
+spawn = { kind = "altar", at = { build = "clayman_castle" } }
+wild = { chance_per_day = 0.002, regions = ["P"] }
+hp_mult = 4.0
+per_player_mult = 1.0
+range = 64
+cooldown_hours = 72
+phases = [
+  { at_hp = 0.6, enrage = 1, say = "The Marionette Master pulls his strings tighter." },
+  { at_hp = 0.3, enrage = 2, say = "Clayman drops the mask and fights for his seat." },
+]
+rewards = { coins = { gold = 10 }, core = true }
+
+# ---- Tier 4 -------------------------------------------------------------------------------------------------------
+
+# The vampire queen sleeps in her cathedral crypt; she only answers someone who has beaten the Saint, and wanders
+# only at night.
+[[boss]]
 id = "luminous_valentine"
 entity = "tensura_neb:luminous_valentine"
 tier = 4
 title = "Luminous Valentine, the Demon Lord"
+requires = ["hinata_sakaguchi"]
+spawn = { kind = "altar", at = { build = "lubelius" } }
+wild = { chance_per_day = 0.001, regions = ["L"], time = "night" }
 hp_mult = 6.0
 per_player_mult = 1.5
 range = 72
@@ -227,11 +512,15 @@ phases = [
 ]
 rewards = { coins = { gold = 25 }, core = true }
 
+# Veldora answers a summoner who has beaten Charybdis, in the sealed chamber; in the wild only under a thunderstorm.
 [[boss]]
 id = "veldora"
 entity = "tensura_neb:veldora"
 tier = 4
 title = "Veldora, the Storm Dragon"
+requires = ["charybdis"]
+spawn = { kind = "altar", at = { build = "sealed_cave" } }
+wild = { chance_per_day = 0.001, regions = ["J"], weather = "thunder" }
 hp_mult = 6.0
 per_player_mult = 1.5
 range = 72
@@ -242,42 +531,19 @@ phases = [
 ]
 rewards = { coins = { gold = 25 }, core = true }
 
-# ---- Jura forest story bosses: both fights happen AT TEMPEST (Overworld, village centre 0 0 = TtlTempest.LANDMARK in
-# life/tempest.js; move arena x/z together with it). Players reach Tempest through the dangerous magicule of the forest,
-# so getting there is part of the challenge. `radius` binds the arena: a summon is refused outside it (ops included,
-# unless they give coordinates inside it), and a boss pulled further than 2 x radius is put back.
-# Shizu first; Rimuru only answers a summoner who holds the stage ttl.defeated.shizu (`requires`; ops bypass it).
-# Both are non-tamable like every framework boss; see [framework] bindable and the Tombstone note in decisions.md.
-
+# Wild only for now: Damargania has no build yet, so the colossus has no fixed place (a stand-in for Dagruel, later).
 [[boss]]
-id = "shizu"
-entity = "tensura:shizu"
-tier = 2
-title = "Shizu, the Flame Tyrant"
-arena = { x = 0, z = 0, radius = 48 }
-hp_mult = 3.0
-per_player_mult = 0.75
-range = 56
-cooldown_hours = 48
+id = "elemental_colossus"
+entity = "tensura:elemental_colossus"
+tier = 4
+title = "The Elemental Colossus"
+wild = { chance_per_day = 0.002, regions = ["V"] }
+hp_mult = 6.0
+per_player_mult = 1.5
+range = 72
+cooldown_hours = 96
 phases = [
-  { at_hp = 0.6, enrage = 1, say = "Flames gather around Shizu." },
-  { at_hp = 0.3, enrage = 2, say = "Shizu's mask slips; the Flame Tyrant fights for her life." },
+  { at_hp = 0.6, enrage = 1, say = "The Colossus grinds forward." },
+  { at_hp = 0.3, enrage = 2, say = "The Colossus shakes the ground with every step." },
 ]
-rewards = { rep = { tempest = 10 }, coins = { gold = 3 } }
-
-[[boss]]
-id = "rimuru_ogre_fight"
-entity = "tensura_neb:rimuru_ogre_fight"
-tier = 3
-title = "Rimuru Tempest"
-arena = { x = 0, z = 0, radius = 48 }
-requires = ["shizu"]
-hp_mult = 4.0
-per_player_mult = 1.0
-range = 64
-cooldown_hours = 72
-phases = [
-  { at_hp = 0.6, enrage = 1, say = "Rimuru stops testing you." },
-  { at_hp = 0.3, enrage = 2, say = "The slime's true power rolls over Tempest." },
-]
-rewards = { coins = { gold = 15 }, core = true }
+rewards = { coins = { gold = 25 }, core = true }

@@ -1546,7 +1546,7 @@ hash = "9f92291a755f345c07d7b3dcac65bf9547c056a9726f2817bd898578b6eddba1"
 
 [[files]]
 file = "kubejs/data/ttl/tags/entity_type/boss.json"
-hash = "3dc6e0cb19579f536e78e045219cfecb182d46ce6cef87617c8fa85db0b774a9"
+hash = "6b3c92aa04cda2a907c70a961f4250db80cf09dccc119ef52b78ca9446f29e84"
 
 [[files]]
 file = "kubejs/data/ttl/tags/item/soulbound.json"
@@ -1566,15 +1566,19 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/boss.js"
-hash = "678e56e0ad202abb60b1ff81a3034ce169895080b948082d4c051528c4b8ded9"
+hash = "6711d358b46f2d89304e6c77b291ce773331eba7bceb02cb2372246c702a973a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/commands.js"
-hash = "cbdf1231fdcc5f1a441d55b1406bc15f3c837409fc3f9199856844202db5bbc4"
+hash = "7d7d7e5c02482f18754de4c4869192bf2981b1c580ff02e505ba2417eb48c4bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/loot.js"
 hash = "30147905f6fbdfd1b721ef36020695aee453c2b1d12ea37c41e40ccefdf6e1e4"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/bosses/wild.js"
+hash = "cf1345c2cf1e0a605dd345783970b6b8098834200c5586375b9e05a2c07ffbf7"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
@@ -1610,15 +1614,15 @@ hash = "b7041324b5ef261db171a75b0d949daa71508a0c0cfb9c776fafe590337a3510"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/commands.js"
-hash = "16e6e22d85bec4202702f58c1818197a37e69b2b22539c51c08108c26b5c3837"
+hash = "d4f625cc780bc5bb38f8a44406e81d4d17bdc2a7f634ac54af2507f8d5ff586b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/guild.js"
-hash = "bdc78c5bd59c514f66c38299aa609071741fcc9a2763240ff60317622810ab05"
+hash = "69eb3e68a4c4f0351c25d254a39550479336ed5ee73810f8cc3f1a6f16cb75d4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/guild_npcs.js"
-hash = "4f0d91f7db9958017a095cf13bb026911a07e295a21915f212d128475383c4dc"
+hash = "46866d8324202c084beaed1731143b3a976c92f2483bc87157359983a7b953b7"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/merit.js"
@@ -1630,7 +1634,7 @@ hash = "0c61b3d7904d155cc2e6ca514f8b0e5b14f3644c9eb4cc248afbc06974ea3dce"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/sinks.js"
-hash = "9ec242d90c555730980e7a8800352645dfc22e4044c7793699f110d8f6e65519"
+hash = "01896f2aad3bc265bbb3274ab0730e264125115e429e55c8a7adda618077c417"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/era/era.js"
@@ -1638,7 +1642,7 @@ hash = "342d48a6acb72ce3cddbb970efe8e6255c63bbe2983279b82da0365ac80a008e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/commands.js"
-hash = "fb388f85c13182f3e3ae1f2697a963f95925a18b6fb15e76e85176a8860d7f73"
+hash = "e6b92f8f6f53713a4c4176e1fa5c3a74936581e8145798ed331c5314bd8620f3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/director.js"
@@ -1646,7 +1650,7 @@ hash = "d48dd7e6f031a354aec8fdf7179b425ad8ecd818c0ea8796b8046546ae06cfb4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/favor.js"
-hash = "fe296d21277faa9b88eee89fd88bf088e84a8ee0fe6e287377ad60e2569d6c7c"
+hash = "ddcdf8644b4ef0c57a77ad1bdb4c1041e59dffb16a0f561020cd88595541bc1b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
@@ -1654,7 +1658,7 @@ hash = "33b3cab039c79101a45c6c088518853ab3627934336c06f0f969ce0f5729fe2b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "7eb57d4810fdeb770958e3d8217db65720c7b0489104e84cde8e41fb2b6451fe"
+hash = "d76533d86f4fa14ad40299ee12155b860aadb9c0e51b872fbb1e593190324312"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1706,7 +1710,7 @@ hash = "f5408adfa24c27c774257123c2004bc873efc16f0524f48986f559d4f56658a0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
-hash = "a4f318e1b9bd4fbb6d741b7c49a30afc84d2aa511b5d1fee53e6869c09a707bc"
+hash = "d21971f53ed2f5793a0c9f2fd476a6d5e220189af493d1e43b62b5296517664b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/confine.js"
@@ -1766,7 +1770,7 @@ hash = "3c81ea0edb2252fd3ca90e97faed38a95da4fa20342e45a567489df1fff9e083"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
-hash = "3d9e81ceadd4b1a0550ff78cd2ac51e610166fc22c4368e38b18d27877613c84"
+hash = "2133bb9669706222519500765965d808f2fa444e75b8a64cb35ea39512bf6a87"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/tempest.js"
