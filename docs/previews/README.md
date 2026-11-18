@@ -83,7 +83,7 @@ Marris: capital of the Kingdom of Falmuth (later Farmenas) with the royal castle
 
 ## mortal_spawn
 
-Wayfarer's Rest: where every new soul starts Life 1 in the Mortal Realm (a humble human hamlet square). Placed by life/mortal_spawn.js centred on the surface at 0, 0. Layers 0-5 are a foundation (retaining wall around an earth core) so it sits on any terrain; layer 6 is the plaza; layers 7-21 are cleared so hills don't bury it. Players arrive south of the shrine, at blueprint (14, 7, 19).
+Wayfarer's Rest, a human coaching yard in the Mortal Realm, SIZE 39 x 22 x 39. The anchor at local (14, 6, 14) is the ground under the shrine at world x/z 0/0. Arrival is local (14, 7, 19), world (0.5, stored walking Y, 5.5), facing north. Spruce and oak framing, plaster, fieldstone, packed earth and planted verges. Sources and the inventory of visual references are in design/lore/mortal_spawn.md.
 
 ![mortal_spawn](mortal_spawn-iso.png) ![mortal_spawn from above](mortal_spawn-top.png)
 

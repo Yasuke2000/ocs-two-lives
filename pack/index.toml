@@ -1702,7 +1702,7 @@ hash = "9ffbe1adb25404e6b865d31dfa2ec086ba20d5804f554d0532ce76f6daa3df48"
 
 [[files]]
 file = "kubejs/data/ttl/structure/mortal_spawn.nbt"
-hash = "b6d440694a4f9f3b75bd0b16351610520035ba6e12a36c365041e7252d594726"
+hash = "65b5db9be59fa610cf6c295521786f6e261aadbb436ae37f7fff1ad81b451454"
 
 [[files]]
 file = "kubejs/data/ttl/structure/sacred_mountain_0.nbt"
@@ -1937,6 +1937,10 @@ file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
 hash = "3f8cccb21b922a8ccdb6cc6c4e3e5bfeba5dac91fc20903b3d381ecfec0c16e9"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
+hash = "be431726c5095293051c1560bcaaa5c8d12f054860fa2beae60017d5ffa0aaa8"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
 hash = "922b70c5ea352f299e36c3593c9b62e9608d46369dbfdce4a8e544d80e012fcc"
 
@@ -2030,7 +2034,7 @@ hash = "7af6f69bb90c32fa2824c4b08a26d9a56cc3adc5452666bffde3a7f194e95131"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"
-hash = "5be234dc9994795c9a20b10ce5cb58c5081b31adcb087be3bf584e698679de28"
+hash = "7b3a866ba182e96b6e300e89f496a68198b81f225b9e123890b9526569574512"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
