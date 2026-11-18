@@ -5,9 +5,8 @@ of: material sets with stairs and slabs, walls with window bays, gable and hip r
 columns, arches, doors, lamps, trees, a fountain, plus a block-light fixer that adds lanterns until no
 spawnable spot in the plot is dark (same rule as tempest.py, via _dwargon_lib.dark_spots).
 
-Stairs: `facing` is the DOWNHILL direction of the stair (a roof slope falling north uses facing north).
-Everything above the ground layer that is not placed stays air; the placer clears the box above the ground
-layer (clear_above in design/builds/<name>.toml), so no explicit air is stored.
+A bottom stair rises toward its facing direction. Only explicit air clears an interior position during
+template placement. The terrain fitter clears above the highest solid block in each occupied column.
 """
 import math
 
