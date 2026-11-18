@@ -12,7 +12,7 @@ The geography entry describes Eurazania’s agriculture, the loss of its capital
 | --- | --- | --- |
 | Eurazania is an agricultural kingdom with fertile soil, a tropical climate and famous fruit | Orchards of jungle trees with cocoa on the trunks, melon and berry rows, a fruit market with eight stalls, palms and jungle trees | [world.md](world.md) §B (fandom: Beast_Kingdom_of_Eurazania) |
 | Milim destroyed the old capital; Tempest helped build the new one, Laura | A young stone wall with towers and a gate (the lesson of the attack), Tempest light-blue banners on the gate and beside the throne | [world.md](world.md) §B |
-| Carrion is a lion beastman, King of the Beastmen *(unverified details)* | A lion's head in the great hall's south gable, totem pillars with lion caps, a lion throne with a hide rug | memory of the light novel and anime |
+| Carrion is a lion beastman and the Beast Master of Eurazania | A lion's head in the great hall's south gable, totem pillars with lion caps, a lion throne with a hide rug | [Japanese Wikipedia, Carrion](https://ja.wikipedia.org/wiki/転生したらスライムだった件#カリオン) |
 | A nation of beastmen, not a refined court *(our interpretation)* | A timber longhouse-style hall with a tall thatch roof, stilt houses with ladders | — |
 
 ## Layout in short (blueprint coordinates, south = +z)

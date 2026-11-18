@@ -373,6 +373,8 @@ def interior():
             for y in range(PY + 1, W + i):
                 put(bp, x, y, z, M("deepslate_bricks"))
             put(bp, x, W + i, z, stair("deepslate_brick", "north"))
+            # The south-west keep turret crosses the lowest two treads.
+            clear(bp, x, W + i + 1, z, x, W + i + 2, z)
     for z in range(50, KZ1 - 1):
         put(bp, KX0 + 4, 20, z, M("iron_bars"))
         put(bp, KX0 + 4, 21, z, AIR)
