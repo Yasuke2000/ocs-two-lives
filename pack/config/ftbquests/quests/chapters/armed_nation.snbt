@@ -14,7 +14,10 @@
 	quest_links: [ ]
 	quests: [
 		{
-			dependencies: [ ]
+			dependencies: [
+				"04FB0C80CDC310C0"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:cooked_beef"
@@ -439,6 +442,7 @@
 				id: "tensura:gold_coin"
 			}
 			id: "7DB517E89CB02955"
+			optional: true
 			rewards: [
 				{
 					count: 2

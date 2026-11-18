@@ -270,6 +270,7 @@
 		{
 			dependencies: [
 				"7C0600E97AB2B3FD"
+				"28B77958A89D5BEA"
 			]
 			hide_until_deps_complete: true
 			icon: {
@@ -336,6 +337,7 @@
 		{
 			dependencies: [
 				"7084AFF4A1F3AAC4"
+				"358E4EA8FE88E607"
 			]
 			hide_until_deps_complete: true
 			icon: {
@@ -530,6 +532,7 @@
 		{
 			dependencies: [
 				"63A6DD3BF5669ACE"
+				"60F244EA243A900D"
 			]
 			hide_until_deps_complete: true
 			icon: {

@@ -14,7 +14,10 @@
 	quest_links: [ ]
 	quests: [
 		{
-			dependencies: [ ]
+			dependencies: [
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:campfire"

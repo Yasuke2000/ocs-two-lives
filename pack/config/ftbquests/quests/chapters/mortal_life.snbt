@@ -10,7 +10,7 @@
 	}
 	id: "3DD6FBE383605A48"
 	images: [ ]
-	order_index: 0
+	order_index: -11
 	quest_links: [ ]
 	quests: [
 		{
@@ -47,6 +47,7 @@
 		{
 			dependencies: [
 				"50382544FBB449E8"
+				"5BE93F04F60FB5AA"
 			]
 			icon: {
 				count: 1

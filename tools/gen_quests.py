@@ -33,7 +33,7 @@ TASK_TYPES = {"item", "kill", "dimension", "structure", "biome", "advancement", 
 # namespaces below and `command` rewards are screened for skill/race words (see build_reward).
 REWARD_TYPES = {"item", "xp", "xp_levels", "stage", "command"}
 QUEST_KEYS = {"key", "title", "subtitle", "icon", "deps", "min_deps", "lane", "col", "text", "karma", "tasks", "rewards",
-              "optional", "shape", "size", "hide_until_deps_complete", "repeatable", "cooldown", "path", "path_hidden"}
+              "optional", "shape", "size", "hide_until_deps_complete", "repeatable", "cooldown", "path", "path_hidden", "lore"}
 PATHS = ("light", "dark")  # story lanes (design/architecture/story-characters.md §3): stages ttl.path.light / ttl.path.dark
 STAGE_RE = re.compile(r"^ttl(\.[a-z0-9_]+)+$")
 # Stages a reward may set or clear. Everything else (ttl.life*, ttl.tier.*, ttl.race.*, ttl.boss.*, ttl.faction.*,
@@ -44,6 +44,10 @@ AUTO_CLAIM = ("default", "disabled", "enabled", "no_toast", "invisible")  # Rewa
 COMMAND_FORBIDDEN = {"skill", "skills", "race", "races", "evolve", "evolution", "awaken", "awakening", "unique",
                      "uniques", "legendary", "registry", "op", "deop", "stop"}
 COMMAND_LEVEL = 2  # /ttl subcommands are op-gated (hasPermission(2)); the reward runs as the player, elevated to this level
+# Mods other than vanilla whose items a Life 1 (or "both") chapter may name: not Tensura content, not in
+# design/data/mortal_banned.toml, enabled in config/sophisticatedcore-common.toml. Add a namespace here only after
+# checking that file; the generator refuses everything else (tensura, tensura_neb, greatsage, lightmanscurrency, ...).
+LIFE1_NAMESPACES = ("minecraft", "sophisticatedbackpacks", "sophisticatedstorage")
 LIVES = {1, 2, "both"}  # "both": shared by Life 1 and Life 2, so vanilla-only like Life 1
 SHAPES = {"circle", "square", "rsquare", "diamond", "pentagon", "hexagon", "octagon", "heart", "gear"}
 
@@ -110,8 +114,9 @@ def vanilla_only(chapter: dict) -> bool:
 
 
 def check_life_item(chapter: dict, where: str, item: str) -> None:
-    if vanilla_only(chapter) and not item.startswith("minecraft:"):
-        raise QuestError(f"{where}: Life 1 (and shared 'both' chapters) have no modded content, {item} is not allowed (minecraft: only)")
+    if vanilla_only(chapter) and item.partition(":")[0] not in LIFE1_NAMESPACES:
+        raise QuestError(f"{where}: Life 1 (and shared 'both' chapters) have no Tensura content, {item} is not allowed "
+                         f"(namespaces allowed: {', '.join(LIFE1_NAMESPACES)})")
 
 
 def check_stage(where: str, stage: str) -> None:
@@ -376,6 +381,9 @@ def build_chapter(src: Path, data: dict, lang: dict, index: dict | None = None) 
         if q.get("subtitle"):
             lang[f"quest.{qq}.quest_subtitle"] = q["subtitle"]
         desc = text_lines(q.get("text", ""))
+        if q.get("lore"):
+            # A line of in-world voice under the task text (grey italics), so every quest says what it means in the Realm.
+            desc += ["", "&7&o“" + " ".join(q["lore"].split()) + "”&r"]
         if q.get("karma"):
             label = "Next life" if ch.get("life") == 1 else "Why it matters"  # "both" chapters: karma lines unused
             desc += ["", f"&6{label}:&r {q['karma'].strip()}"]

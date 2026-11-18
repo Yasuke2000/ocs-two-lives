@@ -38,6 +38,7 @@ Kaijin was judged, and where every smith in the world wants to work.
 key = "road_supplies"
 title = "Provisions for the Road"
 icon = "minecraft:cooked_beef"
+deps = ["crossroads/forest_awakens"]
 lane = 0
 col = 0
 shape = "gear"
@@ -192,6 +193,7 @@ icon = "tensura:gold_coin"
 deps = ["trade_goods"]
 lane = -1
 col = 7
+optional = true
 text = """
 Small coins buy bread; a gold coin buys a sword. Earn your first gold coin in trade with the dwarves.
 """

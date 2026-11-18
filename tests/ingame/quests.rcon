@@ -79,3 +79,47 @@ ttl reset TtlBotLaneL
 ttl reset TtlBotLaneD
 ttlbot remove TtlBotLaneL
 ttlbot remove TtlBotLaneD
+# 6. The quest web (design/quests.md "The web", WP quests-web): the entry points of the ten new Life 1 chapters and of the quests the web
+# re-wired (Life 2 story order, dailies) are accepted by FTB Quests. `ttl quests check` (step 1) already proves every generated quest loaded,
+# including every cross-chapter dep (an unresolved one is dropped silently, so a quest missing from the check is the symptom); the offline test
+# tests/test_gen_quests.py (QuestWebTests) proves the graph itself (every quest unlockable, one connected web, Life 1 converging on its finale,
+# Life 2 order). There is no command that reads quest visibility, so what a player SEES (the new Life 1 chapters unlocking one after another, the
+# nether and end chapters hidden until the portal and the stronghold quests are done, dailies appearing after the first night or the first visit to
+# Tempest) is NOT asserted here: verify in game. ids are from generated/quests.js.
+# first_days/bare_hands 283DBEA71CB9C9E6, first_days/ready_for_road 522F16F19507224C, homestead/hearth 219098709232BE9A,
+# fields/first_seeds 0BA57A81D13A7783, delving/coal_seam 0B48B9D221810B49, roads_ruins/long_walker 40A33D79BFA6EAAC, folk/ring_bell 1D03190909C19A0D,
+# arts/scribe 443CA0DC588BEC52, nether_road/first_footing 70EB5B4005F7C8E2, end_road/apples_of_gold 177FAA70EB81D656,
+# a_life_that_counts/ledger 51BE6D1FFA78B4AF, a_life_that_counts/legend 5557926F5E401552, reborn/tempest 27035168A6DEED93,
+# tempest_rises/join_town 63A48763F37F8D6C, armed_nation/road_supplies 16C682117AAF591D, orc_lord/envoy 72ED01B72020F604,
+# daily_deeds/hunt_zombies 33FCE563EA7EA5CF, daily_jura/jura_patrol 4895991B15F57CD2.
+ttlbot spawn TtlBotWeb
+@sleep 2
+ttl reset TtlBotWeb
+kubejs stages add TtlBotWeb ttl.life1
+ftbquests change_progress TtlBotWeb reset 283DBEA71CB9C9E6
+ftbquests change_progress TtlBotWeb reset 522F16F19507224C
+ftbquests change_progress TtlBotWeb reset 219098709232BE9A
+ftbquests change_progress TtlBotWeb reset 0BA57A81D13A7783
+ftbquests change_progress TtlBotWeb reset 0B48B9D221810B49
+ftbquests change_progress TtlBotWeb reset 40A33D79BFA6EAAC
+ftbquests change_progress TtlBotWeb reset 1D03190909C19A0D
+ftbquests change_progress TtlBotWeb reset 443CA0DC588BEC52
+ftbquests change_progress TtlBotWeb reset 70EB5B4005F7C8E2
+ftbquests change_progress TtlBotWeb reset 177FAA70EB81D656
+ftbquests change_progress TtlBotWeb reset 51BE6D1FFA78B4AF
+ftbquests change_progress TtlBotWeb reset 5557926F5E401552
+ftbquests change_progress TtlBotWeb reset 27035168A6DEED93
+ftbquests change_progress TtlBotWeb reset 63A48763F37F8D6C
+ftbquests change_progress TtlBotWeb reset 16C682117AAF591D
+ftbquests change_progress TtlBotWeb reset 72ED01B72020F604
+ftbquests change_progress TtlBotWeb reset 33FCE563EA7EA5CF
+ftbquests change_progress TtlBotWeb reset 4895991B15F57CD2
+# Complete a few of them the way a player would (force-completing skips the dependency check, as for the story chapters above), then clear them.
+ftbquests change_progress TtlBotWeb complete 283DBEA71CB9C9E6
+ftbquests change_progress TtlBotWeb complete 522F16F19507224C
+ftbquests change_progress TtlBotWeb complete 5557926F5E401552
+ftbquests change_progress TtlBotWeb reset 283DBEA71CB9C9E6
+ftbquests change_progress TtlBotWeb reset 522F16F19507224C
+ftbquests change_progress TtlBotWeb reset 5557926F5E401552
+ttl reset TtlBotWeb
+ttlbot remove TtlBotWeb

@@ -15,7 +15,10 @@
 	quests: [
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"7C0600E97AB2B3FD"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:rabbit_stew"
@@ -51,7 +54,10 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"7C0600E97AB2B3FD"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:iron_sword"
@@ -87,7 +93,10 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"057458900C12E9B2"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:bone"
@@ -123,7 +132,10 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"6DAB90333F617B16"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "tensura:hipokute_grass"
@@ -163,7 +175,10 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"48B3E8CACE86A277"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "tensura:magic_ore_shard"
@@ -203,7 +218,10 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"63A48763F37F8D6C"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:lantern"

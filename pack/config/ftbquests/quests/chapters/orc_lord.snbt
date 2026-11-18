@@ -14,7 +14,10 @@
 	quest_links: [ ]
 	quests: [
 		{
-			dependencies: [ ]
+			dependencies: [
+				"6DDF459E16D36563"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:mangrove_roots"
@@ -424,6 +427,7 @@
 		{
 			dependencies: [
 				"7797476042AAC217"
+				"0D910C4529DD06CC"
 			]
 			hide_until_deps_complete: true
 			icon: {

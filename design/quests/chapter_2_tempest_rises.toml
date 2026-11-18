@@ -37,6 +37,7 @@ key = "join_town"
 title = "A Town on Open Ground"
 subtitle = "The village green"
 icon = "minecraft:campfire"
+deps = ["reborn/tempest"]
 lane = 0
 col = 0
 shape = "gear"
@@ -355,7 +356,8 @@ shape = "gear"
 size = 1.5
 text = """
 The houses have doors, the store is full, the forge is lit and the looms run. The first night raid broke on
-the palisade. Rimuru calls it a town. The road north to Dwargon, and east to Lake Siss, is open now.
+the palisade. Rimuru calls it a town, and a town is asked where it stands: the road south of the gate splits
+in two (the Crossroads chapter). The road north to Dwargon, and east to Lake Siss, opens after that.
 This is a milestone: tick it off when you are ready to look beyond the forest.
 """
 tasks = [{ type = "checkmark", title = "The town stands" }]

@@ -35,6 +35,7 @@ key = "envoy"
 title = "The Stilt Village"
 subtitle = "Gabiru's envoy"
 icon = "minecraft:mangrove_roots"
+deps = ["kings_test/act_two"]
 lane = 0
 col = 0
 shape = "gear"
@@ -189,7 +190,7 @@ rewards = [{ type = "item", item = "tensura:silver_coin", count = 2 }, { type = 
 key = "ep_50000"
 title = "A Walking Calamity"
 icon = "minecraft:nether_star"
-deps = ["ep_10000"]
+deps = ["ep_10000", "reborn/ep_20000"]
 lane = 1
 col = 4
 optional = true

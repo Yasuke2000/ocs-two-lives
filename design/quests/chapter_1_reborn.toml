@@ -111,7 +111,7 @@ rewards = [{ type = "item", item = "minecraft:cooked_beef", count = 8 }, { type 
 key = "ep_5000"
 title = "Existence Points"
 icon = "minecraft:experience_bottle"
-deps = ["first_hunt"]
+deps = ["first_hunt", "tempest_rises/ep_3000"]
 lane = 2
 text = """
 Your strength in this world is measured in EP (existence points): magicules plus aura.
@@ -138,7 +138,7 @@ rewards = [{ type = "xp", xp = 80 }]
 key = "ep_20000"
 title = "A Named Monster's Strength"
 icon = "minecraft:nether_star"
-deps = ["ep_5000"]
+deps = ["ep_5000", "armed_nation/ep_6000"]
 lane = 2
 text = "Reach 20,000 EP. In the story, a single naming lifted goblins and wolves far beyond their kin."
 tasks = [{ type = "ep", value = 20000, title = "Reach 20,000 EP" }]
@@ -191,7 +191,7 @@ rewards = [{ type = "item", item = "tensura:low_potion", count = 2 }, { type = "
 key = "orc_war"
 title = "Where the Orc Lord Fell"
 icon = "minecraft:iron_axe"
-deps = ["lizardmen"]
+deps = ["lizardmen", "orc_lord/orc_lord_kill"]
 lane = 5
 optional = true
 text = "Stand on the marsh battlefield where two hundred thousand orcs met the forest alliance."
