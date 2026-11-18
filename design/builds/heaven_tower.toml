@@ -1,0 +1,12 @@
+name = "heaven_tower"
+title = "Heaven Tower — Holy Void of Damargania"
+landmark = "Heaven Tower (Dagruel, Damargania)"
+anchor = [40, 4, 83]
+ground = "survey"
+search = 48
+dimension = "minecraft:overworld"
+version = 1
+# The buried south road bed meets the cut/fill slope at the anchor grade.
+clear_above = true
+margin = 16
+notes = "Dagruel's tower and processional road in the Desert of Death. See design/lore/heaven_tower.md."

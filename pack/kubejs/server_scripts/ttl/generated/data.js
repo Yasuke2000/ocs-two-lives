@@ -921,6 +921,31 @@ const TtlData = {
   "builds": [
     {
       "anchor": [
+        38,
+        4,
+        41
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Ballachia",
+      "margin": 12,
+      "max_wet": 0.1,
+      "name": "ballachia",
+      "notes": "Former Orthrus exchange on the eastbound road, after Masayuki's visit. See design/lore/ballachia.md.",
+      "search": 32,
+      "size": [
+        76,
+        38,
+        66
+      ],
+      "title": "Ballachia — The Freed Travellers' Yard",
+      "version": 1,
+      "x": -1384,
+      "z": -212
+    },
+    {
+      "anchor": [
         62,
         5,
         72
@@ -995,6 +1020,29 @@ const TtlData = {
     },
     {
       "anchor": [
+        40,
+        4,
+        74
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "margin": 16,
+      "max_wet": 0.1,
+      "name": "el_dorado",
+      "search": 48,
+      "size": [
+        81,
+        39,
+        83
+      ],
+      "title": "Golden City of El Dorado — Leon’s Audience Court",
+      "version": 1,
+      "x": -4808,
+      "z": 3240
+    },
+    {
+      "anchor": [
         64,
         5,
         92
@@ -1041,6 +1089,56 @@ const TtlData = {
       "version": 1,
       "x": 2510,
       "z": 575
+    },
+    {
+      "anchor": [
+        42,
+        4,
+        65
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Frost Palace (Guy Crimson)",
+      "margin": 8,
+      "max_wet": 0.1,
+      "name": "frost_palace",
+      "notes": "A causeway into the White Ice Palace. The current map paints the full survey envelope as Ice Continent (I). See design/lore/frost_palace.md.",
+      "search": 48,
+      "size": [
+        85,
+        51,
+        69
+      ],
+      "title": "The Frost Palace — Guy Crimson's gate",
+      "version": 1,
+      "x": -2435,
+      "z": -4314
+    },
+    {
+      "anchor": [
+        40,
+        4,
+        83
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Heaven Tower (Dagruel, Damargania)",
+      "margin": 16,
+      "max_wet": 0.1,
+      "name": "heaven_tower",
+      "notes": "Dagruel's tower and processional road in the Desert of Death. See design/lore/heaven_tower.md.",
+      "search": 48,
+      "size": [
+        81,
+        60,
+        91
+      ],
+      "title": "Heaven Tower — Holy Void of Damargania",
+      "version": 1,
+      "x": -7507,
+      "z": 245
     },
     {
       "anchor": [
@@ -1114,6 +1212,30 @@ const TtlData = {
       "version": 2,
       "x": -1286,
       "z": -1040
+    },
+    {
+      "anchor": [
+        40,
+        4,
+        76
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Sacred Mountain (Inner Sanctum, Luminous)",
+      "margin": 16,
+      "max_wet": 0.1,
+      "name": "sacred_mountain",
+      "search": 48,
+      "size": [
+        81,
+        57,
+        81
+      ],
+      "title": "Sacred Mountain — the seal of the Inner Sanctum",
+      "version": 1,
+      "x": -4423,
+      "z": -1286
     },
     {
       "anchor": [

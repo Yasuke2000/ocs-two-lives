@@ -1541,6 +1541,14 @@ file = "kubejs/data/ttl/neoforge/biome_modifier/more_goats.json"
 hash = "59baaef5cdba9314e7c01d4ebff848e82ed8da1d429230ff71191e37ccaad56d"
 
 [[files]]
+file = "kubejs/data/ttl/structure/ballachia_0.nbt"
+hash = "57c13dd6c1473372b7387fb1e81aa2fad9da665cdd0875777ecd9700339ff009"
+
+[[files]]
+file = "kubejs/data/ttl/structure/ballachia_1.nbt"
+hash = "2f999361d1f76b82e2905868afb3be10d518860ee9d957ce7bbf0e19d2ca744d"
+
+[[files]]
 file = "kubejs/data/ttl/structure/blumund_0.nbt"
 hash = "42a196df74c2666824b6b737aee1e8bbf7f2cafa1e8faec475e67d1faf356f12"
 
@@ -1589,6 +1597,18 @@ file = "kubejs/data/ttl/structure/dwargon_2.nbt"
 hash = "98d7e5536467fd5952d936aeccc9aac6f8a4a812d591dc3eeccf98aa04f46854"
 
 [[files]]
+file = "kubejs/data/ttl/structure/el_dorado_0.nbt"
+hash = "b328c98b5b0c6c4d0204b36e5478664ee35fbf52f2be7f7d68e9a89b9fc59dab"
+
+[[files]]
+file = "kubejs/data/ttl/structure/el_dorado_1.nbt"
+hash = "1dab865fe23bf32fcd36936d784aeee1991889dfb25713b70d5c6ad63a8fdd14"
+
+[[files]]
+file = "kubejs/data/ttl/structure/el_dorado_2.nbt"
+hash = "e7778f80992b2698c0bab856ee42cd367ab15284c9e46830cb89a0f46b201e9a"
+
+[[files]]
 file = "kubejs/data/ttl/structure/englassia_0.nbt"
 hash = "fdad85102e9a28b93b797607cad98ce845b6e17933e885702ec4c3c8bcb8b92a"
 
@@ -1615,6 +1635,30 @@ hash = "6bba2b93ef7f0ee95aa1ff0d40dfa6225ab15fb9d31842ccff64b14dbeba3bf6"
 [[files]]
 file = "kubejs/data/ttl/structure/forgotten_dragon_city_3.nbt"
 hash = "920882ae67f4bc8c4dcea48faf9ca83f6aedbdc7d386347d95dc7ecea0198813"
+
+[[files]]
+file = "kubejs/data/ttl/structure/frost_palace_0.nbt"
+hash = "92ecfb3bce53585d6071403b45e2384fa1f0a59d8fe396294e07a5e4cac905a4"
+
+[[files]]
+file = "kubejs/data/ttl/structure/frost_palace_1.nbt"
+hash = "019429266c8efb506efc37a6e629b155c534879985c35673dd963fa2ffb8f3aa"
+
+[[files]]
+file = "kubejs/data/ttl/structure/frost_palace_2.nbt"
+hash = "8275198de04bf8604f8e6cc098c6a0e61e1e8c396d2e941630909ad6fddce9fb"
+
+[[files]]
+file = "kubejs/data/ttl/structure/heaven_tower_0.nbt"
+hash = "843d73744addb9ec378e141d73fa7379434fe2bdccb61ded670e1f8a83dd7ffd"
+
+[[files]]
+file = "kubejs/data/ttl/structure/heaven_tower_1.nbt"
+hash = "a1b0c6b0fc7a9001524c6b091768551ec239a997c636f6588c4a0ce45a3df39e"
+
+[[files]]
+file = "kubejs/data/ttl/structure/heaven_tower_2.nbt"
+hash = "565ee6c2215c1c12c915fced9c540c959c87b1edd1078b074e5ef3c19f937caa"
 
 [[files]]
 file = "kubejs/data/ttl/structure/laura_0.nbt"
@@ -1659,6 +1703,18 @@ hash = "9ffbe1adb25404e6b865d31dfa2ec086ba20d5804f554d0532ce76f6daa3df48"
 [[files]]
 file = "kubejs/data/ttl/structure/mortal_spawn.nbt"
 hash = "b6d440694a4f9f3b75bd0b16351610520035ba6e12a36c365041e7252d594726"
+
+[[files]]
+file = "kubejs/data/ttl/structure/sacred_mountain_0.nbt"
+hash = "eff5f5a73c9a4f564c7feb796108f2bac965fa67f3535e615bbc72c236ac8366"
+
+[[files]]
+file = "kubejs/data/ttl/structure/sacred_mountain_1.nbt"
+hash = "c030c946dd3083b0de53a91a6eea5333274c0d5eb60411f3c2ccce8175642fdb"
+
+[[files]]
+file = "kubejs/data/ttl/structure/sacred_mountain_2.nbt"
+hash = "306d8bfc999bc7e64322ead99f2834c5e91ee607bac08910481698ae19def76f"
 
 [[files]]
 file = "kubejs/data/ttl/structure/sealed_cave_0.nbt"
@@ -1870,11 +1926,11 @@ hash = "ddcdf8644b4ef0c57a77ad1bdb4c1041e59dffb16a0f561020cd88595541bc1b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
-hash = "33b3cab039c79101a45c6c088518853ab3627934336c06f0f969ce0f5729fe2b"
+hash = "4e0d29ae70d955e410a394cd0ef31df0bb431f277d7f607dc58bacd3a56ef278"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "96f1f147fafbb02600a85c0efdc773236b17b0be54a6229bac973ac7298321d3"
+hash = "24d442c7a77361645b0abac841fa6d7efaa63344e4e484412c11650940441b90"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
