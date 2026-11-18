@@ -212,3 +212,78 @@ ttl reset TtlBotWarL
 ttl reset TtlBotWarD
 ttlbot remove TtlBotWarL
 ttlbot remove TtlBotWarD
+
+# 8. Force-complete only the named nodes to exercise the real FTB auto-rewards on each oath.
+# This checks flag/act routing and sequential handoff. Native awakening submission and real raids require gameplay.
+ttlbot spawn TtlBotSagaL
+@sleep 2
+ttl reset TtlBotSagaL
+kubejs stages add TtlBotSagaL ttl.life2
+execute as TtlBotSagaL run ttl story oath light
+ftbquests change_progress TtlBotSagaL reset 2B15187EE73E8DC2
+ftbquests change_progress TtlBotSagaL reset 641D39B5FFE38B84
+ftbquests change_progress TtlBotSagaL reset 316FA29488561884
+ftbquests change_progress TtlBotSagaL reset 1703B5D161F5AD7F
+ttl story act TtlBotSagaL 2
+ttl story act TtlBotSagaL 3
+ttl story act TtlBotSagaL 4
+ftbquests change_progress TtlBotSagaL complete 2B15187EE73E8DC2
+@sleep 2
+ttl story expect TtlBotSagaL act 5 yes
+ftbquests change_progress TtlBotSagaL complete 641D39B5FFE38B84
+@sleep 2
+ttl story expect TtlBotSagaL act 6 yes
+ftbquests change_progress TtlBotSagaL complete 316FA29488561884
+@sleep 2
+ttl story expect TtlBotSagaL flag hero yes
+ftbquests change_progress TtlBotSagaL complete 1703B5D161F5AD7F
+@sleep 2
+ttl story expect TtlBotSagaL act 7 yes
+ttl story expect TtlBotSagaL flag demon_lord no
+ftbquests change_progress TtlBotSagaL reset 1703B5D161F5AD7F
+ftbquests change_progress TtlBotSagaL reset 316FA29488561884
+ftbquests change_progress TtlBotSagaL reset 641D39B5FFE38B84
+ftbquests change_progress TtlBotSagaL reset 2B15187EE73E8DC2
+ttl reset TtlBotSagaL
+ttlbot remove TtlBotSagaL
+ttlbot spawn TtlBotSagaD
+@sleep 2
+ttl reset TtlBotSagaD
+kubejs stages add TtlBotSagaD ttl.life2
+execute as TtlBotSagaD run ttl story oath dark
+ftbquests change_progress TtlBotSagaD reset 02A3FEA70DEBED1B
+ftbquests change_progress TtlBotSagaD reset 676B3C0CD67BEA89
+ftbquests change_progress TtlBotSagaD reset 2B15187EE73E8DC2
+ftbquests change_progress TtlBotSagaD reset 641D39B5FFE38B84
+ftbquests change_progress TtlBotSagaD reset 70C3089B60AC26D9
+ftbquests change_progress TtlBotSagaD reset 1703B5D161F5AD7F
+ttl story act TtlBotSagaD 2
+ttl story act TtlBotSagaD 3
+ttl story act TtlBotSagaD 4
+ftbquests change_progress TtlBotSagaD complete 02A3FEA70DEBED1B
+@sleep 2
+ttl story expect TtlBotSagaD flag falmuth_march yes
+ftbquests change_progress TtlBotSagaD complete 676B3C0CD67BEA89
+@sleep 2
+ttl story expect TtlBotSagaD flag atonement yes
+ftbquests change_progress TtlBotSagaD complete 2B15187EE73E8DC2
+@sleep 2
+ttl story expect TtlBotSagaD act 5 yes
+ftbquests change_progress TtlBotSagaD complete 641D39B5FFE38B84
+@sleep 2
+ttl story expect TtlBotSagaD act 6 yes
+ftbquests change_progress TtlBotSagaD complete 70C3089B60AC26D9
+@sleep 2
+ttl story expect TtlBotSagaD flag demon_lord yes
+ftbquests change_progress TtlBotSagaD complete 1703B5D161F5AD7F
+@sleep 2
+ttl story expect TtlBotSagaD act 7 yes
+ttl story expect TtlBotSagaD flag hero no
+ftbquests change_progress TtlBotSagaD reset 1703B5D161F5AD7F
+ftbquests change_progress TtlBotSagaD reset 70C3089B60AC26D9
+ftbquests change_progress TtlBotSagaD reset 641D39B5FFE38B84
+ftbquests change_progress TtlBotSagaD reset 2B15187EE73E8DC2
+ftbquests change_progress TtlBotSagaD reset 676B3C0CD67BEA89
+ftbquests change_progress TtlBotSagaD reset 02A3FEA70DEBED1B
+ttl reset TtlBotSagaD
+ttlbot remove TtlBotSagaD

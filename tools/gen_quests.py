@@ -28,7 +28,7 @@ FILE_VERSION = 13  # BaseQuestFile.VERSION in ftb-quests-neoforge-2101.1.39
 SPACING = 1.5      # grid units between quests
 
 TASK_TYPES = {"item", "kill", "dimension", "structure", "biome", "advancement", "stat", "stage", "checkmark",
-              "location", "xp", "ep", "ability"}
+              "location", "xp", "ep", "ability", "awakening"}
 # never skill/race/awakening rewards (manas-integration.md §5(d)): `stage` rewards only touch the story/quest stage
 # namespaces below and `command` rewards are screened for skill/race words (see build_reward).
 REWARD_TYPES = {"item", "xp", "xp_levels", "stage", "command"}
@@ -128,7 +128,7 @@ def build_task(chapter: dict, where: str, t: dict, tid: str) -> tuple[dict, str 
     kind = t.get("type")
     if kind not in TASK_TYPES:
         raise QuestError(f"{where}: unknown task type {kind!r} (one of {sorted(TASK_TYPES)})")
-    if vanilla_only(chapter) and kind in ("ep", "ability"):
+    if vanilla_only(chapter) and kind in ("ep", "ability", "awakening"):
         raise QuestError(f"{where}: Tensura task {kind!r} in a Life 1 / shared chapter")
     out: dict = {"id": tid}
     if kind == "item":
@@ -163,6 +163,11 @@ def build_task(chapter: dict, where: str, t: dict, tid: str) -> tuple[dict, str 
                    position=IntArray([x - r, -64, z - r]), size=IntArray([2 * r + 1, 384, 2 * r + 1]))
     elif kind == "ep":
         out.update(type="tensura_ftb:existence_value", existence=t.get("existence", "EP"), value=int(t["value"]))
+    elif kind == "awakening":
+        status = t.get("status")
+        if status not in ("HERO", "DEMON_LORD"):
+            raise QuestError(f"{where}: a capstone requires awakening status HERO or DEMON_LORD")
+        out.update(type="tensura_ftb:awakening", status=status)
     elif kind == "ability":
         if t.get("status", "LEARNT") not in ("AVAILABLE", "LEARNT", "MASTERED"):
             raise QuestError(f"{where}: ability status must be AVAILABLE, LEARNT or MASTERED")

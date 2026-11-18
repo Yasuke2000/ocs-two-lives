@@ -1,0 +1,165 @@
+# Life 2 saga. Canon references and playable adaptations are documented in design/quests.md.
+[chapter]
+key = "harvest_festival"
+title = "Harvest Festival"
+subtitle = "At the cave, an old promise comes due."
+icon = "minecraft:dragon_breath"
+order = 13
+life = 2
+hide_until_deps_complete = true
+text = "Years ago a slime promised to find a way out of Unlimited Imprisonment. Veldora remembers the promise. Take the road back to the cave where Rimuru first met Veldora, then decide what the return of a Storm Dragon means for the people who have followed you."
+
+[[quests]]
+key = "prison"
+lore = "Unlimited Imprisonment was the first problem Rimuru promised to solve for a friend."
+title = "The Prison Opens"
+icon = "minecraft:chain"
+deps = ["puppet_master/act_six"]
+lane = 0
+col = 0
+text = """
+At the Sealed Cave, near x −256, z −343, stand by its placed entrance and claim the trial. Veldora answers
+someone who helped defeat Charybdis. If the encounter is cooling down, return later and use /ttl story fight
+veldora. In the anime Raphael analyzes the prison and Rimuru releases his friend. The trial is our version
+of that return.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.story.act6", title = "Complete Act VI" },
+  { type = "stage", stage = "ttl.defeated.charybdis", title = "Hold credit for the Whirlpool Calamity" },
+  { type = "location", dimension = "minecraft:overworld", at = [-256, -343], radius = 150, title = "Find the Sealed Cave" },
+]
+rewards = [
+  { type = "command", command = "ttl story fight veldora", permission_level = 0 },
+]
+
+[[quests]]
+key = "storm_dragon"
+lore = "Tempest held a feast to welcome Veldora back. For the Jura Forest the news traveled farther than any invitation."
+title = "The Storm Dragon Returns"
+icon = "minecraft:lightning_rod"
+deps = ["prison"]
+lane = 0
+col = 1
+text = """
+Face Veldora and earn party credit. The arena reads the position of the placed cave, which can differ from
+the center of the search area. Once the dragon’s trial is over, your oath determines what you will ask of
+him.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.veldora", title = "Complete Veldora’s trial" },
+]
+rewards = [
+  { type = "xp", xp = 200 },
+]
+
+[[quests]]
+key = "free_friend"
+lore = "Our interpretation: the second lantern is for a traveler who has spent centuries with no road out."
+title = "An Open Door"
+icon = "minecraft:lantern"
+deps = ["storm_dragon"]
+lane = -1
+col = 2
+path = "light"
+text = """
+Light the way out with two lanterns. You have seen Luminous’s judgment and survived the Storm Dragon. Offer
+the dragon a place at Tempest’s table and let him leave the cave freely.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.luminous_valentine", title = "Carry the witness of Luminous" },
+  { type = "item", item = "minecraft:lantern", count = 2, consume = true },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "true_hero"
+lore = "Our interpretation: Luminous’s witness gives the Church a reason to recognize the soul who returned from the cave."
+title = "True Hero"
+icon = "minecraft:nether_star"
+deps = ["free_friend"]
+lane = -1
+col = 3
+path = "light"
+text = """
+Submit this task after Tensura recognizes your own True Hero awakening. With a Hero Egg, use /evolve hero
+during a qualifying fight. For example, challenge Luminous again, exchange a hit, and use the command after
+she falls below half health if her maximum EP is at least 400,000. Your oath and Luminous’s trial are part
+of this story; the mod checks the awakening itself. On completion the story records the True Hero title. Use
+/ttl absorb free to see any Legendary your awakening may claim.
+"""
+tasks = [
+  { type = "awakening", status = "HERO", title = "Submit your True Hero awakening" },
+]
+rewards = [
+  { type = "command", command = "ttl story flag {p} hero", auto = "invisible", silent = true },
+  { type = "xp", xp = 300 },
+]
+
+[[quests]]
+key = "bind_dragon"
+lore = "Our interpretation: a claimant to Clayman’s seat brings the old prison’s chain to court as a sign of authority."
+title = "The Dragon’s Bond"
+icon = "minecraft:chain"
+deps = ["storm_dragon"]
+lane = 1
+col = 2
+path = "dark"
+text = """
+Bring two chains to the site of the old seal. You seized Clayman’s seat and now want the Storm Dragon’s
+return to stand as a warning to anyone who contests it. The oath of service is our dark ending.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.clayman", title = "Hold the seat taken from Clayman" },
+  { type = "item", item = "minecraft:chain", count = 2, consume = true },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "true_demon_lord"
+lore = "Rimuru’s Harvest Festival brought a deep sleep while the Voice of the World announced his evolution."
+title = "True Demon Lord"
+icon = "minecraft:nether_star"
+deps = ["bind_dragon"]
+lane = 1
+col = 3
+path = "dark"
+text = """
+Submit this task after Tensura recognizes your own True Demon Lord awakening. Once you hold a Demon Lord
+Seed and the soul requirement is met, use /evolve demonLord and let the Harvest Festival finish. On
+completion the story records the Demon Lord title. Use /ttl absorb free for your available Legendary claims;
+a skill still needs a free registry place.
+"""
+tasks = [
+  { type = "awakening", status = "DEMON_LORD", title = "Submit your True Demon Lord awakening" },
+]
+rewards = [
+  { type = "command", command = "ttl story flag {p} demon_lord", auto = "invisible", silent = true },
+  { type = "xp", xp = 300 },
+]
+
+[[quests]]
+key = "act_seven"
+lore = "Our interpretation: the clerk who took down your first oath leaves the last page for your own signature."
+title = "The Seventh Entry"
+icon = "minecraft:writable_book"
+deps = ["true_hero", "true_demon_lord"]
+lane = 0
+col = 4
+min_deps = 1
+shape = "gear"
+size = 1.5
+text = """
+Draw the last line under your name. The dragon has returned, the council has its answer, and the people of
+the forest will remember which road you took. Close Act VII to settle your oath’s reputation and renown.
+"""
+tasks = [
+  { type = "checkmark", title = "Close Act VII" },
+]
+rewards = [
+  { type = "command", command = "ttl story act {p} 7", auto = "invisible", silent = true },
+  { type = "xp", xp = 240 },
+]

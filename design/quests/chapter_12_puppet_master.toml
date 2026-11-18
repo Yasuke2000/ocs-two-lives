@@ -1,0 +1,206 @@
+# Life 2 saga. Canon references and playable adaptations are documented in design/quests.md.
+[chapter]
+key = "puppet_master"
+title = "Walpurgis"
+subtitle = "Clayman has asked the Demon Lords for a judgment."
+icon = "minecraft:string"
+order = 12
+life = 2
+hide_until_deps_complete = true
+text = "Frey, Guy, Leon and Dagruel wait along the carpet in Clayman’s throne hall. In this telling the castle hosts the council scene. Someone who has seen Carrion alive can put a hole in Clayman’s account before he finishes speaking."
+
+[[quests]]
+key = "council"
+lore = "In Walpurgis, Guy makes Clayman answer for his accusation in front of the other Demon Lords."
+title = "Four Witnesses to Walpurgis"
+icon = "minecraft:ender_eye"
+deps = ["mask_and_blade/act_five"]
+lane = 0
+col = 0
+text = """
+Travel to Clayman’s castle in Jistav. Its survey starts near x 3693, z −959. Inside the throne hall, Frey,
+Guy, Leon and Dagruel stand in two pairs. Read their responses with the Talk interaction or /ttl story talk
+guy. You can complete the visit whichever witness you hear first.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.story.act5", title = "Complete Act V" },
+  { type = "location", dimension = "minecraft:overworld", at = [3693, -959], radius = 225, title = "Visit Clayman’s castle district" },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "beast_treaty"
+lore = "The rumor of Carrion’s death gave Clayman a story to sell. A living witness could undo it."
+title = "The Lion’s Own Account"
+icon = "minecraft:gold_ingot"
+deps = ["council"]
+lane = -1
+col = 1
+path = "light"
+text = """
+A rumor has Carrion dead. Ride to Laura, find his throne and ask him yourself. Beside the placed city plaza,
+use /ttl story fight carrion. Bring four loaves to the delegation. Your spar is the condition of Carrion’s
+alliance in this version of the council story.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.carrion", title = "Spar with Carrion at Laura" },
+  { type = "item", item = "minecraft:bread", count = 4, consume = true },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "white_altar"
+lore = "Our interpretation: a knight leaves a lamp burning on the altar until the visitor comes back from the trial."
+title = "The White Altar"
+icon = "minecraft:quartz"
+deps = ["beast_treaty"]
+lane = -1
+col = 2
+path = "light"
+text = """
+Bring Hinata’s testimony to Luminous in Lubelius. Reach the placed cathedral district and use /ttl story
+fight luminous_valentine. She answers a soul who has faced Hinata. In our telling, enduring her trial earns
+a blessing witnessed by the Church. If you already carry a Hero Egg, Luminous is on Tensura’s hero-boss
+list. During combat a qualifying unowned foe must have at least 400,000 maximum EP and less than half its
+health when you use /evolve hero.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.luminous_valentine", title = "Earn Luminous’s blessing in her trial" },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "break_strings"
+lore = "Clayman believed he controlled Milim. She had been playing her part to uncover his scheme."
+title = "Break the Marionette’s Strings"
+icon = "minecraft:shears"
+deps = ["white_altar"]
+lane = -1
+col = 3
+path = "light"
+text = """
+At the placed castle’s entrance, claim the fight reward. If the boss is already out or resting, retry with /ttl story fight clayman from the same spot. The Marionette Master wears the form of an
+arch daemon in this pack. A named boss victory is the proof that the council accepts.
+"""
+tasks = [
+  { type = "location", dimension = "minecraft:overworld", at = [3693, -959], radius = 225, title = "Return to the placed castle" },
+]
+rewards = [
+  { type = "command", command = "ttl story fight clayman", permission_level = 0 },
+  { type = "xp", xp = 150 },
+]
+
+[[quests]]
+key = "collect_debt"
+lore = "Our interpretation: Clayman entrusts you with his seal because a debt collected in his name will still belong to him."
+title = "Collect the Lion’s Debt"
+icon = "minecraft:gold_nugget"
+deps = ["council"]
+lane = 1
+col = 1
+path = "dark"
+text = """
+Clayman hands you the seal he means to press into Eurazania’s treaty. At Laura’s placed plaza use /ttl story
+fight carrion. Returning with a credited victory is how you keep your place at the council table.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.carrion", title = "Break Carrion’s resistance at Laura" },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "crypt_witness"
+lore = "Our interpretation: the cathedral clerk folds your demand twice and carries it down into the queen’s crypt."
+title = "A Witness from the Crypt"
+icon = "minecraft:redstone"
+deps = ["collect_debt"]
+lane = 1
+col = 2
+path = "dark"
+text = """
+Clayman wants Lubelius to recognize his claim. Submit four sheets of paper for his written demand and carry
+it to Luminous at her cathedral and use /ttl story fight luminous_valentine near the placed anchor. Having
+faced Hinata opens this encounter. Clayman never gave such an order in the anime.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.luminous_valentine", title = "Face Luminous in Lubelius" },
+  { type = "item", item = "minecraft:paper", count = 4, consume = true },
+]
+rewards = [
+  { type = "xp", xp = 90 },
+]
+
+[[quests]]
+key = "take_seat"
+lore = "When Clayman’s supporters failed him at Walpurgis, he drew on souls he had taken for one last attempt to awaken."
+title = "Turn the Seal Against Its Owner"
+icon = "minecraft:golden_sword"
+deps = ["crypt_witness"]
+lane = 1
+col = 3
+path = "dark"
+text = """
+Back in Jistav, demand Clayman’s seat for yourself. Claim the fight reward at the placed castle’s entrance. Retry there with /ttl story fight clayman when a previous encounter has ended. His named
+arch-daemon proxy carries the encounter credit. A wild arch daemon elsewhere cannot settle the account.
+"""
+tasks = [
+  { type = "location", dimension = "minecraft:overworld", at = [3693, -959], radius = 225, title = "Return to the placed castle" },
+]
+rewards = [
+  { type = "command", command = "ttl story fight clayman", permission_level = 0 },
+  { type = "xp", xp = 150 },
+]
+
+[[quests]]
+key = "spirit_echo"
+lore = "Our interpretation: Ramiris has kept an echo for visitors who would rather test their strength away from the council."
+title = "The Echo on Ramiris’s Dais"
+icon = "minecraft:amethyst_shard"
+deps = ["council"]
+lane = 2
+col = 2
+optional = true
+text = """
+Optional. Enter the Dwelling of the Spirits through the forest gate. Beside the arrival anchor in the Spirit
+Domain, use /ttl story fight rimuru_clone. Ramiris’s test is an echo of your power in this telling. The same
+sanctuary also hosts Sylphide, Undine and Akash for those who want further trials.
+"""
+tasks = [
+  { type = "dimension", dimension = "ttl:spirit_domain" },
+  { type = "stage", stage = "ttl.defeated.rimuru_clone", title = "Defeat the Mimic Echo" },
+]
+rewards = [
+  { type = "xp", xp = 160 },
+]
+
+[[quests]]
+key = "act_six"
+lore = "Rimuru joins a council of eight after Clayman’s death and the departure of Carrion and Frey."
+title = "Who Remains at the Table?"
+icon = "minecraft:purple_banner"
+deps = ["break_strings", "take_seat"]
+lane = 0
+col = 4
+min_deps = 1
+shape = "gear"
+size = 1.5
+text = """
+Clayman’s place is empty. In the anime Carrion and Frey also step down and the surviving lords take the name
+Octagram. In your record the settlement follows your oath. Close the council minutes to record Act VI.
+"""
+tasks = [
+  { type = "stage", stage = "ttl.defeated.clayman", title = "Receive credit for Clayman’s defeat" },
+  { type = "checkmark", title = "Close Act VI" },
+]
+rewards = [
+  { type = "command", command = "ttl story act {p} 6", auto = "invisible", silent = true },
+  { type = "xp", xp = 200 },
+]
