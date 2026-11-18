@@ -281,8 +281,7 @@ The anime map seen at the Western Council supports the west-to-east sequence Mor
 ## Tempest (early): for the build team
 
 This is the moment right after the ogres joined and were named Benimaru, Shuna, Shion, Souei, Hakurou and Kurobe.
-It covers the anime's episodes 9–11 and light novel volume 1, before the Orc Lord war. Canon details come from the
-LN, manga and anime. Where they differ, the anime look is used because players know it best.
+The build depicts the village before the Orc Lord war, after the ogres arrive in episodes 9–11. Volume 2 covers the ogres and the Orc Lord conflict. The blueprint follows the anime for visual details. [Fuse, light novel volume 2](https://yenpress.com/titles/9781975301118-that-time-i-got-reincarnated-as-a-slime-vol-2-light-novel)
 
 **Who is there.** Rimuru and Ranga with the direwolves (now Tempest Wolves). Rigurd, the goblin lord, and the
 named hobgoblins: Rigur, Gobta and the goblin riders. About 500 goblins, after the neighbouring tribes joined. The
