@@ -419,3 +419,74 @@ Setup notes:
   (e.g. `neoforge tps`) show only the first.
 - Ops in game: `/ttl recap preview | now`, `/ttl discordroles <player> [dry | expect <keys>]`, `/ttl staff status | registry`.
   Test: `tests/ingame/discord.rcon`.
+
+## Roadmap and suggestions
+
+Two Discord channels show players what is going on and let them propose things; the team decides on GitHub and
+Yasuke has the final word.
+
+**`#roadmap`** (📌 START, read-only): three bot messages, **Live: test this** (with how to try each feature in game),
+**Being built** and **Planned**, in English and Dutch. The source is [`roadmap-public.md`](roadmap-public.md), derived
+from `docs/project-status.md` and `design/roadmap.md`. Whenever a feature changes status for players, edit the file
+and post it (the script edits the three messages in place and never posts them again; it finds them by their first
+line, or by position after a heading was renamed):
+
+```sh
+bash tools/post_roadmap.sh docs/roadmap-public.md --dry-run      # offline: prints the three messages and their length
+ssh -o LogLevel=ERROR root@100.109.28.21 'cat > /tmp/roadmap-public.md' < docs/roadmap-public.md
+ssh -o LogLevel=ERROR root@100.109.28.21 'bash -s -- /tmp/roadmap-public.md' < tools/post_roadmap.sh
+```
+
+**`#suggestions`** (💬 COMMUNITY, a forum): one post per suggestion, with a type tag (Idea, Bug, Balance, Lore,
+Quality of life) and 👍 as the default reaction (the vote). The status tags (Under review, Planned, In progress, Done,
+Declined) are moderated: only staff and the bot set them. Layout, tags and the pinned how-to come from
+`tools/discord_setup.sh` (`docs/discord-guides.md`). Within about 5 minutes **ttl-ops** turns every new post into a
+**public** GitHub issue (title = post title; body = the first message, the author's Discord display name and a link to
+the post; labels `suggestion` + the type label), replies with the link and sets **Under review**.
+
+### How the team decides (labels on the issue)
+
+The issue's labels and its open/closed state drive Discord, not the board columns (the cluster's tokens have no
+access to the project board). New suggestions also show up in `#server-log` (new-issue notice) and, with auto-add
+on, in the board's Triage column. Triage them like any issue, then set **one** status label:
+
+| On the GitHub issue | The post on Discord |
+| --- | --- |
+| nothing yet (new) | **Under review** + a reply with the issue link |
+| label `status:planned`: we want it (board: To do; add it to "Planned" in `roadmap-public.md` if players will notice) | **Planned** + reply |
+| label `status:in-progress`: someone builds it (assign them; board: In progress; roadmap "Being built") | **In progress** + reply |
+| label `status:done` or **close as completed** (a PR with `Closes #n` does this when merged) | **Done** + reply pointing to `#patch-notes` |
+| label `status:declined` and **close as "not planned"** (or as duplicate), with a short comment saying why | **Declined** + reply with the link; a closed one is **archived** |
+| reopened, or the status labels removed | **Under review** again |
+
+Several status labels: declined wins over done, done over in progress, in progress over planned. A status tag
+changed by hand on Discord is put back to the issue's status on the next pass, so change the label instead. When a
+suggestion goes live, also move it to "Live" in `roadmap-public.md` and write the patch notes.
+
+**Project board:** the issue forms add their issues to the board (`projects: ["Yasuke2000/1"]`), but that only
+works for issues made in the web form, and the cluster's fine-grained tokens cannot add items to a user project.
+So the board must add them itself: **Yasuke**, in the board's settings → Workflows → **Auto-add to project**, pick
+the repo `ocs-two-lives` with the filter `is:issue label:suggestion` (or `is:issue` for every issue) and enable it.
+The "Item closed" workflow (→ Done) keeps the board in step with closing.
+
+### Operations
+
+The sync is `sync_suggestions` in ttl-ops' `loop.sh`, running `suggestions.sh` from the same ConfigMap (Homelab repo,
+`apps/ocs-two-lives/manifests/ops.yaml`) every `SUGGEST_EVERY` seconds (300); `SUGGEST_ENABLED: "0"` switches it off.
+Tokens: secret `discord-bot` (key `token`) and `bug-reports` (key `token`, a fine-grained token with issues + labels on
+this repo), mounted as files and read only by `suggestions.sh`. It keeps no state of its own: the post ↔ issue link
+is the marker `<!-- ttl-suggestion thread=<post id> -->` in the issue body (found through the `suggestion` label, the
+bot's link reply is the fallback), and what was announced is the post's status tag. Missing labels are created.
+Limits per pass: at most 10 new issues (`SUGGEST_MAX_NEW`), 1 s between Discord writes (429 waits for `retry_after`),
+2 s between GitHub writes; a GitHub rate limit ends the pass. It writes to `#server-log` only on errors (the same
+errors at most once per 6 hours). Pinned posts (the how-to) are skipped. The bot needs Manage Threads (tags, pin,
+archive) on top of the rights in "Discord bot".
+
+```sh
+# a pass by hand that writes nothing (with the kubeconfig: tools/cluster.py or kubectl --kubeconfig ~/.kube/ocs-two-lives.yaml)
+kubectl -n ocs-two-lives exec deploy/ttl-ops -- env SUGGEST_DRY_RUN=1 bash /scripts/suggestions.sh
+# one post only (tests): SUGGEST_ONLY_THREAD=<post id>
+```
+
+Privacy: a suggestion is public on GitHub with the author's Discord display name (the forum's guidelines say so). A
+removal request is handled like the others in "Data we keep": delete the issue and the post.

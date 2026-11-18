@@ -53,6 +53,9 @@ Yasuke in anything players or contributors read). Players talk on Discord; the s
    `python -m unittest discover -s tests`, `node --check` on changed JS.
 4. After a deploy: `bash tools/server.sh test-all` must say "0 failing"; `bash tools/server.sh logs 2000 | grep -E "ERROR.*KubeJS|\[ttl\].*failed"` clean.
 5. Update `docs/HANDOFF.md` when you stop: what you did, what is verified, what is next.
+6. When a feature changes status for players (planned → being built → live on the server), update
+   `docs/roadmap-public.md` (EN + NL, "Live" says how to try it) and post it with `tools/post_roadmap.sh`
+   (edits the three `#roadmap` messages in place; `docs/server.md`, "Roadmap and suggestions").
 
 Server access (`tools/server.sh`) needs SSH to the homelab node over Tailscale or the kubeconfig in
 `~/.kube/ocs-two-lives.yaml`; without that, work offline (validate + unit tests) and leave in-game checks

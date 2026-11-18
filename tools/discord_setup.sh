@@ -4,6 +4,9 @@
 #   - the old default channels (#algemeen, voice "Algemeen") and their categories are removed
 #   - every channel starts with ONE pinned "How to use this channel / Hoe gebruik je dit kanaal" message
 #     (English, then Dutch), followed by the real content (welcome guide, rules, contribute flow...)
+#   - the forum #suggestions (type 15): tags, default reaction and guidelines; its how-to is the guidelines text plus
+#     a pinned, locked first post. The roadmap content of #roadmap is posted by tools/post_roadmap.sh, the sync of
+#     suggestions to GitHub issues runs in ttl-ops (Homelab repo); docs/server.md "Roadmap and suggestions".
 #   - roles are only checked (order: bot above the game roles, modder above Linked), never changed
 # Existing channels are reused (renamed / moved / re-permissioned), so their ids, webhooks and the ids the game
 # uses (design/data/discord.toml, sdlink) stay valid. New ones are created; ids are printed at the end.
@@ -19,7 +22,7 @@
 #   ssh -o LogLevel=ERROR root@100.109.28.21 'bash -s -- --wipe' < tools/discord_setup.sh       # rebuild, clears messages
 #   bash tools/discord_setup.sh --export-docs > docs/discord-guides.md
 # Needs bash 4, curl and jq (all on the node). The bot needs Administrator, or Manage Channels + Manage Roles +
-# Manage Messages (+ Pin Messages).
+# Manage Messages + Manage Threads (+ Pin Messages).
 set -u
 
 G=1572376519551090728
@@ -34,8 +37,10 @@ read_txt() { IFS= read -r -d '' "$1" || true; }
 
 # ---------------------------------------------------------------------------------------------
 # Layout. Category lines:  key|name|old name (renamed when found)
-# Channel lines:           key|name|old name|type (0 text, 2 voice)|category key|mode
+# Channel lines:           key|name|old name|type (0 text, 2 voice, 15 forum)|category key|mode
 # Modes: rw = everyone writes; ro = members read and react, only the bot posts; staff = modder role + bot only.
+# #roadmap sits in START, not COMMUNITY: like #patch-notes it is read-only reference that a new player should find
+# first ("what can I test, what is coming"); the place to answer it, the #suggestions forum, is in COMMUNITY.
 # ---------------------------------------------------------------------------------------------
 CATS=(
   "start|📌 START|📢 Info"
@@ -49,12 +54,14 @@ CHANS=(
   "rules-and-info|rules-and-info||0|start|ro"
   "announcements|announcements||0|start|ro"
   "patch-notes|patch-notes||0|start|ro"
+  "roadmap|roadmap||0|start|ro"
   "minecraft|minecraft||0|minecraft|rw"
   "story|story||0|minecraft|ro"
   "leaderboard|leaderboard||0|minecraft|ro"
   "screenshots|screenshots||0|minecraft|rw"
   "chat|chat||0|community|rw"
   "ideas-and-feedback|ideas-and-feedback||0|community|rw"
+  "suggestions|suggestions||15|community|rw"
   "voice|Voice||2|community|rw"
   "contribute|contribute||0|development|rw"
   "dev-chat|dev-chat||0|development|rw"
@@ -66,6 +73,23 @@ OBSOLETE_VOICE="Algemeen"
 OBSOLETE_CATS="Tekstkanalen|Spraakkanalen"
 # Permission bits: SEND_MESSAGES + create public/private threads + send in threads (denied in read-only channels).
 RO_DENY=$(( 2048 + (1<<35) + (1<<36) + (1<<38) ))
+# The #suggestions forum: tags as "name|emoji|moderated". Moderated (1) = only staff and the bot can set it: the status
+# tags, which ttl-ops sets from the GitHub issue's labels (its suggestions sync matches these names: keep them in step).
+# Existing tags keep their ids (matched by name), so tags already on posts survive a re-run.
+FORUM_TAGS=(
+  "Idea|💡|0"
+  "Bug|🐛|0"
+  "Balance|⚖️|0"
+  "Lore|📜|0"
+  "Quality of life|✨|0"
+  "Under review|🔍|1"
+  "Planned|📅|1"
+  "In progress|🛠️|1"
+  "Done|✅|1"
+  "Declined|❌|1"
+)
+FORUM_REACTION="👍"                  # default reaction on every post: the up-vote
+FORUM_POST='How to use this channel / Hoe gebruik je dit kanaal'   # title of the pinned, locked first post
 
 # ---------------------------------------------------------------------------------------------
 # Texts. {#name} becomes a clickable channel mention in Discord (and plain #name in the docs).
@@ -108,6 +132,7 @@ read_txt MAP_EN <<'EOF'
 - {#rules-and-info}: the rules, the roles and useful links
 - {#announcements}: news, updates and maintenance
 - {#patch-notes}: what changed in every update of the pack and server, newest at the bottom
+- {#roadmap}: what you can test now, what is being built and what is planned
 **🎮 MINECRAFT**
 - {#minecraft}: live bridge with the game: what you type here shows up in game, and the other way round
 - {#story}: deaths, rebirths, Legends and the weekly Hall of Souls
@@ -115,7 +140,8 @@ read_txt MAP_EN <<'EOF'
 - {#screenshots}: your best builds and moments
 **💬 COMMUNITY**
 - {#chat}: talk about anything, outside the game
-- {#ideas-and-feedback}: ideas, feedback and `?bugreport <text>` (linked players)
+- {#ideas-and-feedback}: feedback and `?bugreport <text>` (linked players)
+- {#suggestions}: one post per idea; each becomes a GitHub issue the team decides on
 - {#voice}: voice chat
 **🛠 DEVELOPMENT**
 - {#contribute}: how to help improve the pack
@@ -130,6 +156,7 @@ read_txt MAP_NL <<'EOF'
 - {#rules-and-info}: de regels, de rollen en handige links
 - {#announcements}: nieuws, updates en onderhoud
 - {#patch-notes}: wat er veranderd is in elke update van de pack en de server, nieuwste onderaan
+- {#roadmap}: wat je nu kan testen, wat in de maak is en wat gepland is
 **🎮 MINECRAFT**
 - {#minecraft}: live koppeling met de game: wat je hier typt zie je in het spel, en omgekeerd
 - {#story}: sterfgevallen, wedergeboortes, Legends en het wekelijkse Hall of Souls
@@ -137,7 +164,8 @@ read_txt MAP_NL <<'EOF'
 - {#screenshots}: je mooiste builds en momenten
 **💬 COMMUNITY**
 - {#chat}: babbelen over alles, buiten het spel
-- {#ideas-and-feedback}: ideeën, feedback en `?bugreport <tekst>` (gekoppelde spelers)
+- {#ideas-and-feedback}: feedback en `?bugreport <tekst>` (gekoppelde spelers)
+- {#suggestions}: één post per idee; elk wordt een GitHub-issue waarover het team beslist
 - {#voice}: voice chat
 **🛠 DEVELOPMENT**
 - {#contribute}: hoe je kan helpen om de pack te verbeteren
@@ -203,7 +231,7 @@ read_txt CONTRIB_EN <<'EOF'
 **Want to help? Here is how**
 **Where:** the GitHub repo <https://github.com/Yasuke2000/ocs-two-lives> (public). All open work is on the project board: <https://github.com/users/Yasuke2000/projects/1> (Triage, To do, In progress, Done).
 **Report or suggest (no coding needed)**
-- In game: `/bug <what happened>` (adds your position, life and log lines). In Discord: `?bugreport <text>` in {#ideas-and-feedback}. Both become a **public** GitHub issue, so keep private info out.
+- In game: `/bug <what happened>` (adds your position, life and log lines). In Discord: `?bugreport <text>` in {#ideas-and-feedback}, or a post in {#suggestions} for ideas. All become a **public** GitHub issue, so keep private info out.
 - On GitHub: Issues, New issue, then pick a form: Bug, Idea, Balance, Build request or World / lore fix.
 **Change something yourself**
 1. Ask Yasuke for collaborator access to the repo.
@@ -219,7 +247,7 @@ read_txt CONTRIB_NL <<'EOF'
 **Wil je meehelpen? Zo werkt het**
 **Waar:** de GitHub-repo <https://github.com/Yasuke2000/ocs-two-lives> (publiek). Al het openstaande werk staat op het projectbord: <https://github.com/users/Yasuke2000/projects/1> (Triage, To do, In progress, Done).
 **Melden of voorstellen (zonder te programmeren)**
-- In het spel: `/bug <wat er gebeurde>` (voegt je positie, leven en logregels toe). In Discord: `?bugreport <tekst>` in {#ideas-and-feedback}. Beide worden een **publiek** GitHub-issue, zet er dus geen privégegevens in.
+- In het spel: `/bug <wat er gebeurde>` (voegt je positie, leven en logregels toe). In Discord: `?bugreport <tekst>` in {#ideas-and-feedback}, of een post in {#suggestions} voor ideeën. Alles wordt een **publiek** GitHub-issue, zet er dus geen privégegevens in.
 - Op GitHub: Issues, New issue, en kies een formulier: Bug, Idea, Balance, Build request of World / lore fix.
 **Zelf iets aanpassen**
 1. Vraag Yasuke om collaborator-toegang tot de repo.
@@ -294,10 +322,27 @@ Chatten met mensen in het spel zelf doe je in {#minecraft}, niet hier. Lees ook 
 EOF
 
 read_txt G_ideas_and_feedback <<'EOF'
-**EN** Post ideas and feedback here, one topic per message. Found a bug? Linked players type `?bugreport <what happened>`: it becomes a **public** GitHub issue.
-Good ideas end up as issues on the project board. Want to build them yourself? See {#contribute}.
-**NL** Post hier ideeën en feedback, één onderwerp per bericht. Bug gevonden? Gekoppelde spelers typen `?bugreport <wat er gebeurde>`: dat wordt een **publiek** GitHub-issue.
-Goede ideeën worden issues op het projectbord. Zelf aan de slag? Kijk in {#contribute}.
+**EN** Feedback and quick thoughts here, one topic per message. Found a bug? Linked players type `?bugreport <what happened>`: it becomes a **public** GitHub issue.
+An idea you want the team to decide on? Make it a post in {#suggestions}: it is tracked on GitHub and you see its status. Want to build it yourself? See {#contribute}.
+**NL** Feedback en snelle gedachten hier, één onderwerp per bericht. Bug gevonden? Gekoppelde spelers typen `?bugreport <wat er gebeurde>`: dat wordt een **publiek** GitHub-issue.
+Een idee waarover het team moet beslissen? Maak er een post van in {#suggestions}: het wordt opgevolgd op GitHub en je ziet de status. Zelf aan de slag? Kijk in {#contribute}.
+EOF
+
+read_txt G_roadmap <<'EOF'
+**EN** What you can test on the server now, what is being built and what is planned. The bot keeps the three messages below up to date: it edits them when plans change, so this channel never fills up. Read-only.
+Try the "Live" list in game and tell us what you think in {#suggestions}. What changed in each update is in {#patch-notes}.
+**NL** Wat je nu op de server kan testen, wat in de maak is en wat gepland is. De bot houdt de drie berichten hieronder bij: hij past ze aan als de plannen veranderen, dus dit kanaal loopt nooit vol. Alleen-lezen.
+Probeer de lijst "Live" in het spel en laat in {#suggestions} weten wat je ervan vindt. Wat er per update veranderd is, staat in {#patch-notes}.
+EOF
+
+# The forum's how-to is both its guidelines (shown above the posts) and its pinned, locked first post.
+read_txt G_suggestions <<'EOF'
+**EN** One suggestion per post: an idea, a bug, a balance change, a lore fix or a quality-of-life wish. Click **New Post**, give it a clear title, explain what and why, and pick a tag (Idea, Bug, Balance, Lore, Quality of life). Search first: if it already exists, 👍 that post and add to it.
+Within a few minutes the bot turns your post into a **public** GitHub issue (the title, your text and your Discord name) and replies with the link, so keep private information out. The team decides on GitHub and the status tag follows: Under review, Planned, In progress, Done, or Declined (then the post is closed).
+Bugs in game: `/bug <text>` adds your position and logs. What is coming already: {#roadmap}.
+**NL** Eén voorstel per post: een idee, een bug, een balansaanpassing, een lore-fix of een quality-of-life-wens. Klik op **New Post**, geef een duidelijke titel, leg uit wat en waarom, en kies een tag (Idea, Bug, Balance, Lore, Quality of life). Zoek eerst: bestaat het al, geef die post dan een 👍 en vul hem aan.
+Binnen enkele minuten maakt de bot van je post een **publiek** GitHub-issue (de titel, je tekst en je Discord-naam) en antwoordt met de link, zet er dus geen privégegevens in. Het team beslist op GitHub en de statustag volgt: Under review, Planned, In progress, Done, of Declined (dan wordt de post gesloten).
+Bugs in het spel: `/bug <tekst>` voegt je positie en logs toe. Wat er al aankomt: {#roadmap}.
 EOF
 
 read_txt G_voice <<'EOF'
@@ -335,7 +380,8 @@ TOPIC_story='Deaths, rebirths, Legends and the weekly Hall of Souls (Sundays 20:
 TOPIC_leaderboard='Live standings, updated about every 10 minutes (in game: /ttl top). Read-only. | Live klassement, ongeveer elke 10 minuten bijgewerkt (in het spel: /ttl top). Alleen-lezen.'
 TOPIC_screenshots='Your best builds and moments. | Je mooiste builds en momenten.'
 TOPIC_chat='General off-game chat: say hi, find people to play with. The in-game chat is #minecraft. | Algemene babbel buiten het spel: zeg hallo, zoek medespelers. De chat met het spel is #minecraft.'
-TOPIC_ideas_and_feedback='Ideas and feedback; linked players can report bugs with ?bugreport followed by your text. | Ideeën en feedback; gekoppelde spelers melden bugs met ?bugreport gevolgd door je tekst.'
+TOPIC_ideas_and_feedback='Feedback; linked players report bugs with ?bugreport followed by your text. Ideas to decide on: #suggestions. | Feedback; gekoppelde spelers melden bugs met ?bugreport gevolgd door je tekst. Ideeën om over te beslissen: #suggestions.'
+TOPIC_roadmap='Live (test this), being built and planned, kept up to date by the bot. Read-only. | Live (test dit), in de maak en gepland, bijgehouden door de bot. Alleen-lezen.'
 TOPIC_contribute="How to help: GitHub issues, project board, pull requests. Nothing is merged without Yasuke's approval. | Zo help je mee: GitHub-issues, projectbord, pull requests. Niets gaat live zonder goedkeuring van Yasuke."
 TOPIC_dev_chat='For people working on the pack and mod (repo, tools, scripts, PRs). Open to everyone. | Voor wie aan de pack en de mod werkt (repo, tools, scripts, PRs). Open voor iedereen.'
 TOPIC_server_log='Staff only: server notices (deploys, tests, crashes, up/down, GitHub). | Alleen staff: servermeldingen (deploys, tests, crashes, aan/uit, GitHub).'
@@ -387,6 +433,7 @@ mode_text() {
   case $1 in
     ro) echo "read-only (the bot posts, members react)";;
     staff) echo "staff only (modder role + bot)";;
+    forum) echo "everyone: new posts and replies (status tags: staff and the bot)";;
     *) echo "everyone";;
   esac
 }
@@ -426,9 +473,14 @@ EOF
     for i in "${!CK[@]}"; do
       [ "${CC[$i]}" = "${KK[$ci]}" ] || continue
       v="TOPIC_$(key "${CK[$i]}")"; tp=${!v:-}; tp=${tp// | / / }
-      [ "${CT[$i]}" = 2 ] && nm="voice \`${CN[$i]}\`" || nm="\`#${CN[$i]}\`"
+      md=${CM[$i]}
+      case ${CT[$i]} in
+        2) nm="voice \`${CN[$i]}\`";;
+        15) nm="forum \`#${CN[$i]}\`"; md=forum; tp='(guidelines: the pinned how-to below)';;
+        *) nm="\`#${CN[$i]}\`";;
+      esac
       [ "${CK[$i]}" = minecraft ] && tp='(maintained by the bot: player count and uptime)'
-      printf '%s | %s | %s | %s\n' "${KN[$ci]}" "$nm" "$(mode_text "${CM[$i]}")" "$tp"
+      printf '%s | %s | %s | %s\n' "${KN[$ci]}" "$nm" "$(mode_text "$md")" "$tp"
     done
   done
   cat <<EOF
@@ -451,6 +503,14 @@ EOF
   printf '## #contribute: pinned how-to messages (after the pinned how-to)\n\n### English\n\n'; blk "$CONTRIB_EN"
   printf '### Nederlands\n\n'; blk "$CONTRIB_NL"
   printf '## #patch-notes: one post per update\n\nThe content of #patch-notes is not in this script: every update is a file in `docs/patch-notes/` (English then Dutch, player-facing) that `tools/post_patch_notes.sh <file>` posts as bot messages (idempotent: a message whose first line already exists is skipped).\n\n'
+  printf '## #roadmap: three bot messages (Live, Being built, Planned)\n\nThe content of #roadmap is not in this script either: it is `docs/roadmap-public.md` (three sections, English then Dutch), which `tools/post_roadmap.sh <file>` keeps as exactly one bot message per section below the pinned how-to. It edits them in place and never posts them again; the messages are found by their first line (or, after a rename, by their position). Update the file when a feature changes status, then run the script (`docs/server.md`, "Roadmap and suggestions").\n\n'
+  printf '## #suggestions: forum tags, reaction and the pinned post\n\nA forum channel: every post is one suggestion. Its guidelines (shown above the posts) and its pinned, locked first post "%s" are the same how-to text (below). Default reaction: %s (the up-vote). Tags (moderated ones can only be set by staff and the bot):\n\nTag | Emoji | Who sets it\n---|---|---\n' "$FORUM_POST" "$FORUM_REACTION"
+  for line in "${FORUM_TAGS[@]}"; do
+    IFS='|' read -r tn te tm <<<"$line"
+    [ "$tm" = 1 ] && tw="staff and the bot (status, follows the GitHub labels)" || tw="the author (type)"
+    printf '%s | %s | %s\n' "$tn" "$te" "$tw"
+  done
+  printf '\nttl-ops (Homelab repo, `apps/ocs-two-lives/manifests/ops.yaml`, `suggestions.sh`) turns every new post into a public GitHub issue with the label `suggestion` plus a type label, replies with the link and sets **Under review**; later it follows the issue'"'"'s `status:*` labels and closing (see `docs/server.md`, "Roadmap and suggestions").\n\n'
   printf '## Pinned how-to per channel\n\nThe first message of every channel, pinned: the heading line, then EN, then NL, in one message.\n\n'
   for i in "${!CK[@]}"; do printf '### #%s\n\n' "${CN[$i]}"; blk "$(guide_text "${CK[$i]}")"; done
   exit 0
@@ -528,14 +588,27 @@ ensure_obj() {
   ENSURED_ID=$id
   same=$(jq -r --arg i "$id" --argjson d "$want" '
     [.[]|select(.id==$i)][0] as $c
-    | ($d|to_entries|map(select(.key!="permission_overwrites"))|all(.[]; ($c[.key] // "") == (.value // ""))) as $plain
+    | ($d|to_entries|map(select(.key!="permission_overwrites" and .key!="available_tags"))|all(.[]; ($c[.key] // "") == (.value // ""))) as $plain
     | (($c.permission_overwrites|map({id,type,allow:(.allow|tostring),deny:(.deny|tostring)})|sort_by(.id))
        == ($d.permission_overwrites|map({id,type,allow:(.allow|tostring),deny:(.deny|tostring)})|sort_by(.id))) as $ow
-    | ($plain and $ow)' "$W/channels.json")
+    | (($d.available_tags == null) or ((($c.available_tags // [])|map({name, moderated, emoji_name}))
+       == ($d.available_tags|map({name, moderated, emoji_name})))) as $tags
+    | ($plain and $ow and $tags)' "$W/channels.json")
   if [ "$same" = true ]; then echo "$label: already as wanted ($id)"; return; fi
   echo "$want" > "$W/patch.json"
   api PATCH "/channels/$id" "$W/patch.json"
   if [ "$CODE" = 200 ]; then echo "$label: updated ($id)"; else fail "update $label"; fi
+}
+
+# forum_tags_json FORUM_ID|"" -> the wanted available_tags, with the id of an existing tag of the same name
+forum_tags_json() {
+  local line n e m
+  for line in "${FORUM_TAGS[@]}"; do IFS='|' read -r n e m <<<"$line"; printf '%s\t%s\t%s\n' "$n" "$e" "$m"; done \
+    | jq -R -s --arg i "${1:-}" --slurpfile c "$W/channels.json" '
+        ([$c[0][]|select(.id==$i)][0].available_tags // []) as $cur
+        | split("\n") | map(select(length>0)|split("\t"))
+        | map(.[0] as $n | {name:$n, emoji_id:null, emoji_name:.[1], moderated:(.[2]=="1")}
+              + ([$cur[]|select(.name==$n)][0] // {} | if .id then {id} else {} end))'
 }
 
 # ---------------------------------------------------------------------------------------------
@@ -557,6 +630,11 @@ for i in "${!CK[@]}"; do
   want=$(jq -n --arg n "${CN[$i]}" --arg p "${CATID[${CC[$i]}]:-}" --argjson ow "$(ow_json "${CM[$i]}")" \
     '{name:$n, permission_overwrites:$ow} + (if $p!="" then {parent_id:$p} else {} end)')
   if [ "${CT[$i]}" = 0 ] && [ "$key" != minecraft ]; then want=$(echo "$want" | jq --arg t "$topic" '. + {topic:$t}'); fi
+  if [ "${CT[$i]}" = 15 ]; then   # forum: the guidelines are the how-to; tags keep their ids (matched by name)
+    want=$(echo "$want" | jq --arg t "$(render "$(guide_text "$key")" link)" --argjson tags "$(forum_tags_json "$id")" \
+      --arg r "$FORUM_REACTION" '. + {topic:$t, available_tags:$tags, default_reaction_emoji:{emoji_id:null, emoji_name:$r},
+        default_sort_order:0, default_forum_layout:1}')
+  fi
   ensure_obj "#${CN[$i]}" "$id" "${CT[$i]}" "$want"
   [ -n "$ENSURED_ID" ] && CID[$key]=$ENSURED_ID
 done
@@ -676,10 +754,54 @@ ensure_msg() {
   echo "  $label: $act"
 }
 
+# ensure_forum_post FORUM TEXT: the forum's how-to as its first post, pinned (thread flag 2) and locked (only staff and
+# the bot can reply). Found again by title + author; the text is edited in place. A forum has no message stream, so
+# "first" means: no other post is older than this one.
+ensure_forum_post() {
+  local ch=$1 text=$2 tid act="" flags locked arch len older
+  # Any failure to list or read the posts stops here: guessing "not found" would post a second how-to.
+  api GET "/guilds/$G/threads/active"
+  [ "$CODE" = 200 ] && jq --arg p "$ch" '[.threads[]|select(.parent_id==$p)]' "$W/out" > "$W/th1.json" || { fail "list forum posts"; return; }
+  api GET "/channels/$ch/threads/archived/public?limit=100"
+  [ "$CODE" = 200 ] && jq '.threads // []' "$W/out" > "$W/th2.json" || { fail "list archived forum posts"; return; }
+  jq -s 'add|unique_by(.id)' "$W/th1.json" "$W/th2.json" > "$W/threads.json" \
+    && jq --arg b "$BOT" --arg n "$FORUM_POST" '[.[]|select(.owner_id==$b and .name==$n)]|sort_by((.id|length), .id)|first // empty' \
+      "$W/threads.json" > "$W/post.json" || { fail "find the forum how-to"; return; }
+  tid=$(jq -r '.id // empty' "$W/post.json")
+  len=$(jq -n --arg c "$text" '$c|length'); if [ "$len" -gt 2000 ]; then echo "FAILED forum how-to: text is $len chars (> 2000)"; FAILS=$((FAILS+1)); return; fi
+  if [ -z "$tid" ]; then
+    jq -n --arg n "$FORUM_POST" --arg c "$text" '{name:$n, auto_archive_duration:10080, message:{content:$c, allowed_mentions:{parse:[]}}}' > "$W/body.json"
+    api POST "/channels/$ch/threads" "$W/body.json"
+    if [ "$CODE" = 201 ] || [ "$CODE" = 200 ]; then cp "$W/out" "$W/post.json"; tid=$(jq -r .id "$W/post.json"); act="posted ($tid)"
+    else fail "post forum how-to"; return; fi
+  else
+    arch=$(jq -r '.thread_metadata.archived // false' "$W/post.json")
+    api GET "/channels/$tid/messages/$tid"   # a forum post's first message has the thread's id
+    if [ "$CODE" = 200 ] && [ "$(jq -r .content "$W/out")" = "$text" ]; then act="unchanged ($tid)"
+    else
+      if [ "$arch" = true ]; then echo '{"archived":false}' > "$W/patch.json"; api PATCH "/channels/$tid" "$W/patch.json"; fi
+      body "$text"; api PATCH "/channels/$tid/messages/$tid" "$W/body.json"
+      if [ "$CODE" = 200 ]; then act="edited ($tid)"; else fail "edit forum how-to"; return; fi
+    fi
+  fi
+  api GET "/channels/$tid"; [ "$CODE" = 200 ] && cp "$W/out" "$W/post.json"
+  flags=$(jq -r '.flags // 0' "$W/post.json"); locked=$(jq -r '.thread_metadata.locked // false' "$W/post.json")
+  arch=$(jq -r '.thread_metadata.archived // false' "$W/post.json")
+  if [ $(( flags & 2 )) = 0 ] || [ "$locked" != true ] || [ "$arch" = true ]; then
+    jq -n --argjson f $(( flags | 2 )) '{flags:$f, locked:true, archived:false}' > "$W/patch.json"
+    api PATCH "/channels/$tid" "$W/patch.json"
+    if [ "$CODE" = 200 ]; then act="$act, pinned and locked"; else act="$act, PIN/LOCK FAILED: HTTP $CODE $(errtext)"; FAILS=$((FAILS+1)); fi
+  else act="$act, already pinned and locked"; fi
+  echo "  how-to post: $act"
+  older=$(jq -r --arg t "$tid" '[.[]|select([(.id|length), .id] < [($t|length), $t])]|length' "$W/threads.json")
+  [ "$older" = 0 ] || warn "#suggestions: $older post(s) are older than the how-to post (it is pinned, so it still shows first)"
+}
+
 for i in "${!CK[@]}"; do
   key=${CK[$i]}; ch=${CID[$key]:-}
   [ -n "$ch" ] || { echo "#${CN[$i]}: not found, skipped"; continue; }
   echo "#${CN[$i]} ($ch)"
+  if [ "${CT[$i]}" = 15 ]; then ensure_forum_post "$ch" "$(render "$(guide_text "$key")" link)"; continue; fi
   find_msg "$ch" "$HEAD"; how=$(jq -r '.id // empty' "$W/found.json")
   api GET "/channels/$ch/messages?after=0&limit=1"
   first=""; [ "$CODE" = 200 ] && first=$(jq -r '.[0].id // empty' "$W/out")
