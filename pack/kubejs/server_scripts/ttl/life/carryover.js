@@ -160,6 +160,14 @@ const TtlSoul = {
     }
   },
 
+  // `/ttl reset`: a fresh Life 1 owes nothing to an old soul. Also drops the stash and kept soulbound stacks.
+  clear(player) {
+    var data = player.persistentData
+    var keys = [this.FLAG, this.BOOK, this.USED]
+    if (typeof TtlStash !== 'undefined') keys.push(TtlStash.BANNED, TtlStash.KEEP, TtlStash.TOLD)
+    keys.forEach(k => data.remove(k))
+  },
+
   waitMs(player) {
     return this.conf().gem.life2.cooldown_minutes * 60000 - (Date.now() - (Number(player.persistentData.getString(this.USED)) || 0))
   },

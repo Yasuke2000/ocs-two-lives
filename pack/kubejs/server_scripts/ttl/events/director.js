@@ -396,9 +396,13 @@ const TtlEvents = {
     var a = def.action || {}
     if (a.boss) {
       if (typeof TtlBoss === 'undefined' || typeof TtlBoss.summon !== 'function') throw `${def.id}: action.boss needs TtlBoss.summon (boss core, WP2)`
-      var boss = TtlBoss.summon(server, String(a.boss), ctx)
-      if (boss === false) return false
-      if (boss && typeof boss === 'object') out = this.merge(out, boss)
+      // TtlBoss.summon returns an error string when it refuses and null when the summon is under way; the boss core
+      // checks its own cooldown, which only a manual (ops) start bypasses.
+      var refusal = TtlBoss.summon(server, String(a.boss), { by: `event ${def.id}`, force: !!ctx.manual })
+      if (refusal) {
+        console.warn(`[ttl] events: ${def.id}: boss ${a.boss} not summoned: ${refusal}`)
+        return false
+      }
     }
     if (a.favor) {
       if (typeof TtlFavor === 'undefined') throw `${def.id}: action.favor needs events/favor.js`

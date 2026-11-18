@@ -1229,6 +1229,10 @@ file = "datapacks/ttl-overrides/pack.mcmeta"
 hash = "9bdd411abe7b7eea66a5bd1f546787907738ef87ee1f1dccadb344bbf1b77023"
 
 [[files]]
+file = "kubejs/assets/ttl/textures/item/skill_core.png"
+hash = "5c73e3f832714ad31fdb9c6453bb2c30142854d151e54c10f4d687fa5c9ff188"
+
+[[files]]
 file = "kubejs/assets/ttl/textures/item/soul_gem.png"
 hash = "5c73e3f832714ad31fdb9c6453bb2c30142854d151e54c10f4d687fa5c9ff188"
 
@@ -1238,7 +1242,7 @@ hash = "9e10fd1bb99b6b40151748bd4080523cf60238723a50ff643e4119d99c7687aa"
 
 [[files]]
 file = "kubejs/data/l2hostility/tags/entity_type/blacklist.json"
-hash = "fb8bf1be7e1604b3d28869be2ef0ffdc69eee743688b7bf326250bee31270fb3"
+hash = "f50bc55031ac415e7185ae62373e77aa3a88ed686513691615e6114b858f2772"
 
 [[files]]
 file = "kubejs/data/minecraft/dimension/overworld.json"
@@ -1386,7 +1390,7 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/boss.js"
-hash = "5618e59ba8f44b0222141c4e3e638e11986b8369d883032a389536668fecb4a5"
+hash = "678e56e0ad202abb60b1ff81a3034ce169895080b948082d4c051528c4b8ded9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/commands.js"
@@ -1398,7 +1402,7 @@ hash = "30147905f6fbdfd1b721ef36020695aee453c2b1d12ea37c41e40ccefdf6e1e4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "1629dc0b56af141293be0e2c4f7b1aa70c94253cb0df7036dd7a9228cc459cb0"
+hash = "e03a5b21dda0a553fb150761960b84a0443efd7e1b71bffe9440482a248174aa"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -1438,7 +1442,7 @@ hash = "fb388f85c13182f3e3ae1f2697a963f95925a18b6fb15e76e85176a8860d7f73"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/director.js"
-hash = "e5ce548d787bc1f8a12210e59fbeffd2ccc549fc07acd7230dd9536100207a2a"
+hash = "d48dd7e6f031a354aec8fdf7179b425ad8ecd818c0ea8796b8046546ae06cfb4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/favor.js"
@@ -1482,7 +1486,7 @@ hash = "89fbb4abaa38e3c87582c19c5336d0f0b6967f7f652574ea18eb77bcd4cbf972"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
-hash = "496d5354c7822db52bc84b81eba54e0052829733d10da963055e9b1240dcef59"
+hash = "a4f318e1b9bd4fbb6d741b7c49a30afc84d2aa511b5d1fee53e6869c09a707bc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/confine.js"
@@ -1594,11 +1598,11 @@ hash = "4597ab49e946b0a0ef86e956c0e1f22efaf100e8dc938ff05eafea853006957b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/rep.js"
-hash = "f75489af1ab5e203e72c7517a9c5cc6fc42d434c4bcd4813b5d0fa5aa3106247"
+hash = "6e511f1710c95a7223ac95f7cf3992d9f1f3f5986932c3703b5ebb7dfee0fcc2"
 
 [[files]]
 file = "kubejs/startup_scripts/ttl/items.js"
-hash = "9bfb6f809d1422fc6faa5e0c59d256ffd1689b1562573bda298847cefa6ab4cd"
+hash = "daaf705d444a13e8d393002268da008f920152c904165d53cb29fcf66a9314bf"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"

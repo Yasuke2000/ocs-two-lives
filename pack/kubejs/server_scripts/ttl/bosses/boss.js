@@ -581,7 +581,8 @@ const TtlBoss = {
     p.tell(Text.gold(`You defeated ${def.title}.`))
   },
 
-  // The Skill Core item belongs to Sprint 4 (WP1/WP5); until it exists the core is owed and counted on the player.
+  // ttl:skill_core is registered in startup_scripts/ttl/items.js; if the item is ever missing the core is owed and
+  // counted on the player (`ttl.boss.core.owed`) and paid at the next login by payOwed.
   giveCore(server, p, def) {
     var exists = false
     try {
@@ -596,6 +597,22 @@ const TtlBoss = {
     var owed = p.persistentData.getInt('ttl.boss.core.owed') + 1
     p.persistentData.putInt('ttl.boss.core.owed', owed)
     console.warn(`[ttl] boss: ttl:skill_core does not exist yet, ${p.username} is owed ${owed} Skill Core(s) (${def.id})`)
+  },
+
+  payOwed(server, p) {
+    var owed = p.persistentData.getInt('ttl.boss.core.owed')
+    if (owed <= 0) return
+    var exists = false
+    try {
+      exists = !!Item.exists('ttl:skill_core')
+    } catch (e) {
+      exists = false
+    }
+    if (!exists) return
+    p.persistentData.putInt('ttl.boss.core.owed', 0)
+    server.runCommandSilent(`give ${p.username} ttl:skill_core ${owed}`)
+    p.tell(Text.gold(`You are handed ${owed} Skill Core(s) owed from earlier victories.`))
+    console.info(`[ttl] boss: paid ${owed} owed Skill Core(s) to ${p.username}`)
   },
 
   announce(server, def, names) {
@@ -643,6 +660,23 @@ ServerEvents.loaded(event => {
     loop()
   })
   loop()
+})
+
+// Skill Cores owed from before the item existed are paid at login.
+PlayerEvents.loggedIn(event => {
+  try {
+    var p = event.player
+    var server = event.server
+    server.scheduleInTicks(100, () => {
+      try {
+        TtlBoss.payOwed(server, p)
+      } catch (err) {
+        console.error(`[ttl] boss: paying owed cores failed: ${err}`)
+      }
+    })
+  } catch (err) {
+    console.error(`[ttl] boss: owed core login hook failed: ${err}`)
+  }
 })
 
 // Damage dealers are recorded here; the poll turns them into contributors.

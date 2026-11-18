@@ -81,6 +81,13 @@ ServerEvents.commandRegistry(event => {
     TtlKarma.startLife(server, target)
     TtlLife.makeHuman(server, target)
     life.toMortal(server, target)
+    // Soul carryover (WP1) and reputation (WP3) belong to the old soul; guarded so a missing script cannot break a reset.
+    try {
+      if (typeof TtlSoul !== 'undefined' && typeof TtlSoul.clear === 'function') TtlSoul.clear(target)
+      if (typeof TtlRep !== 'undefined' && typeof TtlRep.clear === 'function') TtlRep.clear(server, target)
+    } catch (e) {
+      console.error(`[ttl] reset of soul/reputation data for ${name} failed: ${e}`)
+    }
     console.info(`[ttl] ${name} reset to Life 1`)
     ctx.source.sendSystemMessage(Text.of(`${name} reset to Life 1`))
     return 1

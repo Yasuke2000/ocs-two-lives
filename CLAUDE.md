@@ -15,6 +15,8 @@ Decisions: `design/decisions.md` (append, never rewrite history).
 | ManasCore | 4.0.0.2 | Modrinth |
 | KubeJS / Rhino | 2101.7.2-build.381 / 2101.2.7-build.85 | Modrinth |
 | FTB Library / Teams / Chunks / Quests | 2101.1.40 / .12 / .24 / .39 | CurseForge |
+| LuckPerms (server-only) | 5.4.140 | Modrinth `Vebnzrzj` |
+| BlueMap (server-only) | 5.7 | Modrinth `swbUV1cr` |
 | Server image | itzg/minecraft-server:2026.7.1-java21 | Homelab repo |
 
 `pack/mods/*.pw.toml` is the real source of truth; update this table when a pin changes.
@@ -38,8 +40,14 @@ Decisions: `design/decisions.md` (append, never rewrite history).
 | Player persistentData | `ttl.life`, `ttl.l1.start`, `ttl.l1.days` | Which life, Life 1 timing |
 | Player persistentData | `ttl.karma.{valor,order,chaos,craft,faith,longevity}`, `ttl.karma.score`, `ttl.tier` | Raw karma, score, rebirth tier |
 | Player persistentData | `ttl.step`, `ttl.wish`, `ttl.offers`, `ttl.race`, `ttl.uniqueOptions`, `ttl.trial.done`, `ttl.trial.passed` | Corridor flow (`life/corridor_flow.js`): step, Last Wish, race offers, Trial result |
+| Player persistentData | `ttl.stash`, `ttl.soul.keep`, `ttl.stash.told` | Life 1 death strip (`life/mortal_banned.js`): banned items stashed, soulbound stacks kept, "told" flag |
+| Player persistentData | `ttl.soul.gem`, `ttl.soul.book`, `ttl.soul.gemUse` | Soul carryover (`life/carryover.js`): gem issued once, remembered enchantment `<id>\|<level>`, last gem echo (ms) |
+| Player persistentData | `ttl.rep` (JSON `{faction: n}`), `ttl.renown`, `ttl.renown.bonus`, `ttl.rep.exalted`, `ttl.rep.decayAt` | Reputation truth, renown mirror and bonus, exalted log, decay clock (`rep/rep.js`) |
+| Player persistentData | `ttl.boss.kills`, `ttl.boss.core.owed` | Boss kill counts (JSON), Skill Cores owed (paid at login) |
 | Player persistentData | `ttl.uniques`, `ttl.cd.absorb`, `ttl.lastSeen`, `ttl.titles` | Owned uniques mirror, absorb cooldown, last login, titles |
 | Server persistentData | `ttl.reg.skills.<id>`, `ttl.reg.legendarySlots` | Holders, rarity, history per unique; slots used this era |
+| Server persistentData | `ttl.reg.holders` (by UUID), `ttl.reg.names`, `ttl.reg.seen`, `ttl.reg.history`, `ttl.reg.returned`, `ttl.reg.taken`, `ttl.reg.testcaps`, `ttl.era.started`, `ttl.era.titles`, `ttl.era.archive` | Registry v2: holders, last seen, transfer log, pending returns, era titles and archive |
+| Server persistentData | `ttl.rep.log`, `ttl.boss.active`, `ttl.boss.seq`, `ttl.events.active/last/next/day/hold/muted/loop` | Reputation ring log, live bosses and counter, event director state |
 | Server persistentData | `ttl.season`, `ttl.reincarnations`, `ttl.wars.active`, `ttl.council` | Era, rebirth history, war mirror, council |
 | Scoreboards | `ttl.k.*`, `ttl.karma`, `ttl.rep.<faction>`, `ttl.pick`, `ttl.bounty` | Display + Easy NPC conditions |
 | Stages | `ttl.life1/2`, `ttl.tier.*`, `ttl.race.*`, `ttl.nation.*`, `ttl.boss.t1–t4`, `ttl.faction.<f>.<band>` | Quest gating |

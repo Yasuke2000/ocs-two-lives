@@ -209,7 +209,7 @@ def check_factions(fac: dict, karma: dict | None) -> None:
         raise SystemExit(f"factions.toml: only one faction can mirror into Tensura's reputation, found {', '.join(mirrors)}")
 
 
-def check_bosses(bosses: dict, landmarks: dict | None) -> None:
+def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = None) -> None:
     # bosses/boss.js summons these; a typo would fail only when a quest or altar summons the boss.
     ident = r"[a-z0-9_.-]+:[a-z0-9_/.-]+"
     names = {lm["name"] for lm in (landmarks or {}).get("landmark", [])}
@@ -282,6 +282,8 @@ def check_bosses(bosses: dict, landmarks: dict | None) -> None:
         for f, n in rw.get("rep", {}).items():
             if not re.fullmatch(r"[a-z0-9_]+", f) or not isinstance(n, int):
                 raise SystemExit(f"{where}: rewards.rep wants faction = integer")
+            if factions is not None and f not in {x["id"] for x in factions.get("faction", [])}:
+                raise SystemExit(f"{where}: rewards.rep names faction {f!r}, which is not in factions.toml")
         for coin, n in rw.get("coins", {}).items():
             if coin not in ("bronze", "silver", "gold", "stellar_gold") or not isinstance(n, int) or n < 1:
                 raise SystemExit(f"{where}: rewards.coins wants bronze|silver|gold|stellar_gold = positive integer")
@@ -435,7 +437,7 @@ def render() -> str:
     if "factions" in data:
         check_factions(data["factions"], data.get("karma"))
     if "bosses" in data:
-        check_bosses(data["bosses"], data.get("landmarks"))
+        check_bosses(data["bosses"], data.get("landmarks"), data.get("factions"))
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     return (
         "// priority: 200\n"

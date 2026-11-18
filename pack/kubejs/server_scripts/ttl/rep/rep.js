@@ -123,6 +123,14 @@ const TtlRep = {
     player.persistentData.putString(this.KEY, JSON.stringify(map))
   },
 
+  // `/ttl reset`: forget every reputation, the renown bonus and the decay clock, then rewrite the mirrors at zero
+  // (scoreboards, band stages, Tensura's reputation scalar).
+  clear(server, player) {
+    var data = player.persistentData
+    ;[this.KEY, 'ttl.renown', 'ttl.renown.bonus', 'ttl.rep.exalted', 'ttl.rep.decayAt'].forEach(k => data.remove(k))
+    this.sync(server, player, true)
+  },
+
   get(player, f) {
     if (!this.faction(f)) return 0
     var v = Number(this.read(player)[f])

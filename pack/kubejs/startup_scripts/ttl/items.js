@@ -4,6 +4,9 @@
 // ttl:soul_gem: the soulbound keepsake of life/carryover.js. A Curios charm (default item tag curios:charm); the tag
 // ttl:soulbound is in data/ttl/tags/item/soulbound.json. The texture is a placeholder:
 // assets/ttl/textures/item/soul_gem.png, to be replaced by final art.
+//
+// ttl:skill_core: dropped by tier 3+ bosses (bosses/boss.js), opened with `/ttl core open` (era/era.js). Placeholder
+// texture (a copy of soul_gem.png), final art by a human.
 StartupEvents.registry('item', event => {
   var gem = event.create('ttl:soul_gem')
     .displayName('Soul Gem')
@@ -20,4 +23,13 @@ StartupEvents.registry('item', event => {
   }
   optional('rarity', () => gem.rarity('uncommon'))
   optional('curios tag', () => gem.tag('curios:charm'))
+
+  var core = event.create('ttl:skill_core')
+    .displayName('Skill Core')
+    .texture('ttl:item/skill_core')
+  try {
+    core.rarity('rare')
+  } catch (e) {
+    console.warn(`[ttl] items: skill_core rarity skipped: ${e}`)
+  }
 })
