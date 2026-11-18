@@ -29,6 +29,8 @@ const TtlCmdLog = {
     var rows = this.entries(server)
     rows.push({at: Date.now(), actor: actor, path: path})
     server.persistentData.putString(this.key, JSON.stringify(rows.slice(-cfg.capacity)))
+    // The runner issues "mute on" before the mute has taken effect in this pre-execution hook.
+    if (path === 'ttl discord mute' || path.startsWith('ttl discord mute ')) return
     if (TtlDiscord.isBot(actor) || TtlDiscord.muted(server)) return
     var staff = TtlSdlink.channel('staff')
     if (staff) staff.sendMessage('Staff command • ' + actor + ' • `/' + path + '`').queue()

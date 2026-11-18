@@ -2222,7 +2222,7 @@ hash = "a19993f99bdf32b7976ed0097050bb9272aa836aebde550de71aaf8a5472a3da"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/ops/cmdlog.js"
-hash = "b43fef8573dfcf8cbee15a7f3d18ee28be8a377da8376daddf45cf00775a3676"
+hash = "0c8327d3e263f550a6ac0a5eb5c4e048f1c5bcd77052bf2863ef1f6a570f891d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/party/commands.js"
