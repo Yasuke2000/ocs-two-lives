@@ -3221,15 +3221,70 @@ const TtlData = {
   },
   "skills": {
     "absorb": {
+      "awakening": {
+        "challenge": true,
+        "claim": true,
+        "claim_skills": {
+          "true_demon_lord": [
+            "envy",
+            "greed",
+            "lust",
+            "pride",
+            "sloth",
+            "wrath"
+          ],
+          "true_hero": [
+            "great_sage",
+            "creator"
+          ]
+        },
+        "copies": false,
+        "enabled": true,
+        "legendary": true,
+        "lethal": false,
+        "max_ep_ratio": 1.0,
+        "min_ep_ratio": 0.5,
+        "requires_absorber": false,
+        "spend_slot": true
+      },
+      "bequest": {
+        "enabled": true,
+        "legendary_only": false
+      },
+      "combat_log_seconds": 30,
       "cooldown_hours": 72,
+      "copies_per_kill": 1,
+      "duel": {
+        "copies": true,
+        "dimensions": [
+          "tensura:labyrinth"
+        ],
+        "enabled": true,
+        "legendary": true,
+        "lethal": false,
+        "requires_absorber": true
+      },
+      "legendary_per_kill": 1,
+      "max_ep_ratio": 0,
       "min_ep_ratio": 0.5,
+      "offer_minutes": 5,
+      "pact_minutes": 15,
       "skills": [
         "predator",
         "gluttony",
         "starved",
         "gourmet",
         "engorger"
-      ]
+      ],
+      "war": {
+        "copies": false,
+        "enabled": true,
+        "legendary": true,
+        "min_ep_ratio": 0,
+        "requires_absorber": false,
+        "staff_flags": true,
+        "use_nations": true
+      }
     },
     "caps": {
       "common": 5,
@@ -3279,6 +3334,13 @@ const TtlData = {
           "id": "sage",
           "name": "Sage of the Era"
         }
+      ]
+    },
+    "legend_pick": {
+      "allow_dark": true,
+      "enabled": true,
+      "tiers": [
+        "legendary"
       ]
     },
     "legendary": {

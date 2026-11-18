@@ -51,6 +51,10 @@ def check_skills(skills: dict) -> None:
     for skill in absorb.get("skills", []):
         if not re.fullmatch(r"[a-z0-9_]+", skill):
             raise SystemExit(f"skills.toml: absorb.skills has a bad id {skill!r}")
+    check_absorb(skills, absorb)
+    pick = skills.get("legend_pick", {})
+    if not isinstance(pick.get("tiers", []), list) or not all(isinstance(t, str) for t in pick.get("tiers", [])):
+        raise SystemExit("skills.toml: legend_pick.tiers must be a list of karma tier ids")
     core = skills.get("core", {})
     for rarity, weight in core.get("weights", {}).items():
         if rarity not in ("rare", "common"):
@@ -66,6 +70,50 @@ def check_skills(skills: dict) -> None:
         if title["id"] in era_ids:
             raise SystemExit(f"skills.toml: era title id {title['id']} twice")
         era_ids.add(title["id"])
+
+
+def check_absorb(skills: dict, absorb: dict) -> None:
+    # absorb/absorb.js reads these by name; a typo would silently turn a route or a ratio off.
+    def number(where: str, table: dict, key: str, whole: bool = False) -> None:
+        if key not in table:
+            return
+        v = table[key]
+        if isinstance(v, bool) or not isinstance(v, (int, float)) or v < 0 or (whole and int(v) != v):
+            raise SystemExit(f"skills.toml: {where}.{key} must be a number >= 0{' (whole)' if whole else ''}")
+
+    for key in ("min_ep_ratio", "max_ep_ratio", "cooldown_hours", "offer_minutes", "pact_minutes", "combat_log_seconds"):
+        number("absorb", absorb, key)
+    for key in ("legendary_per_kill", "copies_per_kill"):
+        number("absorb", absorb, key, True)
+    known = set(skills.get("transfer", {}).get("routes", []))
+    legendary = set(skills["legendary"]["skills"])
+    for route in ("duel", "war", "bequest", "awakening"):
+        conf = absorb.get(route)
+        if conf is None:
+            continue
+        if not isinstance(conf, dict):
+            raise SystemExit(f"skills.toml: absorb.{route} must be a table")
+        if route not in known:
+            raise SystemExit(f"skills.toml: absorb.{route} is not listed in transfer.routes")
+        for key in ("enabled", "requires_absorber", "legendary", "copies", "lethal", "use_nations", "staff_flags",
+                    "legendary_only", "claim", "challenge", "spend_slot"):
+            if key in conf and not isinstance(conf[key], bool):
+                raise SystemExit(f"skills.toml: absorb.{route}.{key} must be true or false")
+        for key in ("min_ep_ratio", "max_ep_ratio", "cooldown_hours", "legendary_per_kill", "copies_per_kill"):
+            number(f"absorb.{route}", conf, key)
+        dims = conf.get("dimensions", [])
+        if not isinstance(dims, list) or not all(isinstance(d, str) and re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", d) for d in dims):
+            raise SystemExit(f"skills.toml: absorb.{route}.dimensions must be a list of dimension ids like tensura:labyrinth")
+        low, high = conf.get("min_ep_ratio", absorb.get("min_ep_ratio", 0)), conf.get("max_ep_ratio", absorb.get("max_ep_ratio", 0))
+        if high and low > high:
+            raise SystemExit(f"skills.toml: absorb.{route}: min_ep_ratio {low} is above max_ep_ratio {high}")
+    claims = absorb.get("awakening", {}).get("claim_skills", {})
+    for kind, names in claims.items():
+        if kind not in ("true_demon_lord", "true_hero"):
+            raise SystemExit(f"skills.toml: absorb.awakening.claim_skills.{kind}: unknown kind (true_demon_lord, true_hero)")
+        for name in names:
+            if name not in legendary:
+                raise SystemExit(f"skills.toml: absorb.awakening.claim_skills.{kind} lists {name}, which is not a Legendary unique")
 
 
 def check_guide(guide: dict) -> None:
