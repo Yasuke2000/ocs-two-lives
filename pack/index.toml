@@ -2014,7 +2014,7 @@ hash = "30147905f6fbdfd1b721ef36020695aee453c2b1d12ea37c41e40ccefdf6e1e4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/wild.js"
-hash = "cf1345c2cf1e0a605dd345783970b6b8098834200c5586375b9e05a2c07ffbf7"
+hash = "21a1053f1fc19d225ac665f59c5a323f43c3f4d13c2b7a9f06572461e5dd70fb"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
@@ -2094,7 +2094,7 @@ hash = "cde66cea94a420fc19e6ac38e00e8bd48fa311b18ed41891462cc3d640c8d94a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "f71135ca5c1fe34233d066e8cb14ee9dc226b73d912ae54d8b139e63ce6f1827"
+hash = "7a6b3550ed02d2643d38ad3158fdc2c07d61f1b43f917ea74ec36817fd35bffb"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2261,12 +2261,20 @@ file = "kubejs/server_scripts/ttl/nations/upkeep_debuff.js"
 hash = "3af470d23a62ec719540ae440c112f870b0bee2d1b0267086bbed323fa28e545"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/necro/commands.js"
+hash = "0192aae603f13b742dfbbada8e326200919b256bf0a1e57f897d174a22a5e98e"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/necro/legion.js"
-hash = "b09856953108c874b29f123ea3b6fe12fef4e3dd70fdeb77daeb50b2f65e6c7f"
+hash = "8cf48e4e1760dc3fef6fbe55e92c5649d77bd0de79ad25a7deea9d9618a3e059"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/necro/legion_commands.js"
-hash = "af6aaf1e312a153268779f2b66cc0a18749a018d2061c870d448052d63563a60"
+hash = "a665e1560bedef6c7307fac5ddb3249316a490d1b95965bb15646a2eac2216a9"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/necro/necro.js"
+hash = "b6914481434c4a4f02599929434a8db7486c1c447fd1fa8bbb17027f057d029a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/necro/recipes.js"
@@ -2274,7 +2282,7 @@ hash = "780595f85b0d0fff9f749f2ea7ec2f5c7f437d1576fc57e028d0c8b53e02b379"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/necro/sanctum.js"
-hash = "852b6283cf8e211b3c2423382da5b970ca51749252426672e7a26560fe68b63c"
+hash = "78615e9178ab97ac28bddd83fa86318b1e3ff8538eec054441627b63b24b975c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/party/commands.js"
@@ -2306,7 +2314,7 @@ hash = "ded36354cbe3caf26b9b71d5fb67e6addbcad6f59027994ae27cce101be7b699"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/guards.js"
-hash = "4597ab49e946b0a0ef86e956c0e1f22efaf100e8dc938ff05eafea853006957b"
+hash = "9e0329a626a468d4beda3adeff5c7e5666e8415dfe09889c280f707b7e496b48"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/rep.js"

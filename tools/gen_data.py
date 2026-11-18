@@ -234,7 +234,7 @@ def check_roads(roads: dict, factions: dict | None, karma: dict | None) -> None:
 NECRO_KINDS = {"tensura:skeleton", "tensura:zombie"}   # UndeadHumanoidEntity, verified in tensura-neoforge-2.0.1.5
 
 
-def check_necro(necro: dict, roads: dict | None) -> None:
+def check_necro(necro: dict, roads: dict | None, factions: dict | None = None, bosses: dict | None = None) -> None:
     # necro/legion.js and necro/sanctum.js (WP-N2) read these by name; WP-N3 adds [[rank]] and [church] to the same file.
     for key in ("legion", "ash", "knight", "rest", "sanctum"):
         if not isinstance(necro.get(key), dict):
@@ -322,6 +322,110 @@ def check_necro(necro: dict, roads: dict | None) -> None:
         for cid in ("necro.raise", "necro.knight", "necro.rest"):
             if cid not in {str(c.get("id")) for c in roads.get("choice", [])}:
                 raise SystemExit(f"necro.toml: the legion pays {cid} through TtlRoads, roads.toml has no such choice")
+    check_necro_ranks(necro, factions, bosses)
+
+
+NECRO_BANDS = ("hostile", "unfriendly", "neutral", "friendly", "honored", "exalted")
+NS_ID = r"[a-z0-9_.-]+:[a-z0-9_/.-]+"
+
+
+def check_necro_ranks(necro: dict, factions: dict | None = None, bosses: dict | None = None) -> None:
+    # necro/necro.js (WP-N3) reads these by name: entry roads, the Rite, the rank ladder, the Church's Sense, the Hunt
+    # and the licence. O-N5: Marked 20, Hunt 50, decay 5 a week; licence at Honored + 14 clean days.
+    for key in ("points", "entry", "rite", "rank", "church", "hunt", "licence"):
+        if key not in necro:
+            raise SystemExit(f"necro.toml: [{key}] missing (WP-N3)")
+
+    def ids(where: str, v, allow_empty: bool = False) -> list:
+        if not (isinstance(v, list) and (v or allow_empty) and all(isinstance(x, str) and re.fullmatch(NS_ID, x) for x in v)):
+            raise SystemExit(f"necro.toml: {where} must be a list of namespaced ids")
+        return v
+
+    def pos_int(where: str, v, zero: bool = False) -> int:
+        if not (isinstance(v, int) and not isinstance(v, bool) and (v >= 0 if zero else v > 0)):
+            raise SystemExit(f"necro.toml: {where} must be an int {'>= 0' if zero else '> 0'}")
+        return v
+
+    pos_int("[points] weekly_cap", necro["points"].get("weekly_cap"))
+    for k, v in necro["points"].items():
+        pos_int(f"[points] {k}", v, True)
+    ids("[entry] races", necro["entry"].get("races"), True)
+    ids("[entry] skills", necro["entry"].get("skills"), True)
+    rite = necro["rite"]
+    ids("[rite] spells", rite.get("spells"))
+    ids("[rite] iron_spells", rite.get("iron_spells"), True)
+    pos_int("[rite] ash", rite.get("ash"))
+    pos_int("[rite] dust", rite.get("dust"), True)
+    if not isinstance(rite.get("aspirant_drops"), bool):
+        raise SystemExit("necro.toml: [rite] aspirant_drops must be true or false")
+
+    ranks = necro["rank"]
+    if not (isinstance(ranks, list) and [r.get("rank") for r in ranks] == [1, 2, 3, 4]):
+        raise SystemExit("necro.toml: [[rank]] must be ranks 1, 2, 3, 4 in order (Gravebinder .. Overlord)")
+    last = -1
+    for r in ranks:
+        where = f"necro.toml: rank {r['rank']}"
+        if not (isinstance(r.get("title"), str) and r["title"].strip()):
+            raise SystemExit(f"{where}: title missing")
+        pts = r.get("points")
+        if not (isinstance(pts, int) and pts >= 0 and pts > last):
+            raise SystemExit(f"{where}: points must be an int that grows with the rank")
+        last = pts
+        need = r.get("needs_any")
+        if need is not None:
+            if not (isinstance(need, dict) and set(need) <= {"races", "skills"} and need):
+                raise SystemExit(f"{where}: needs_any holds races and/or skills")
+            for k, v in need.items():
+                ids(f"rank {r['rank']} needs_any.{k}", v)
+    if ranks[0]["points"] != 0:
+        raise SystemExit("necro.toml: rank 1 comes from a way in (race, skill, the Rite), its points must be 0")
+    if ranks[3].get("needs_any") is None:
+        raise SystemExit("necro.toml: rank 4 (Overlord) needs Wight King, Vampire or Mortal Fear (needs_any, §2.2)")
+
+    ch = necro["church"]
+    marked, hunt = pos_int("[church] marked_at", ch.get("marked_at")), pos_int("[church] hunt_at", ch.get("hunt_at"))
+    if not marked < hunt <= pos_int("[church] max_sense", ch.get("max_sense")):
+        raise SystemExit("necro.toml: [church] marked_at < hunt_at <= max_sense")
+    for k in ("decay_per_week", "band_min", "band_radius", "loop_seconds"):
+        pos_int(f"[church] {k}", ch.get(k))
+    for k in ("marked_mult", "hunt_mult"):
+        if not (is_num(ch.get(k)) and ch[k] >= 1):
+            raise SystemExit(f"necro.toml: [church] {k} must be a number >= 1")
+    if not (isinstance(ch.get("marked_rep"), int) and ch["marked_rep"] <= 0):
+        raise SystemExit("necro.toml: [church] marked_rep must be an int <= 0")
+    hu = necro["hunt"]
+    if not (isinstance(hu.get("event"), str) and re.fullmatch(r"[a-z0-9_]+", hu["event"])):
+        raise SystemExit("necro.toml: [hunt] event must be a director event id")
+    for k in ("hours", "rearm_hours", "survive_minutes"):
+        pos_int(f"[hunt] {k}", hu.get(k))
+    if hu["survive_minutes"] > hu["hours"] * 60:
+        raise SystemExit("necro.toml: [hunt] survive_minutes must fit in the Hunt")
+    if "{soul}" not in str(hu.get("announce", "")):
+        raise SystemExit("necro.toml: [hunt] announce must name {soul}")
+    li = necro["licence"]
+    if li.get("band") not in NECRO_BANDS:
+        raise SystemExit(f"necro.toml: [licence] band must be one of {', '.join(NECRO_BANDS)}")
+    pos_int("[licence] clean_days", li.get("clean_days"))
+    if not (isinstance(li.get("min_rank"), int) and 0 <= li["min_rank"] <= 4):
+        raise SystemExit("necro.toml: [licence] min_rank must be 0..4")
+    if li.get("place") not in ("region", "anywhere"):
+        raise SystemExit("necro.toml: [licence] place must be region or anywhere")
+    if not (isinstance(li.get("item"), str) and re.fullmatch(NS_ID, li["item"])):
+        raise SystemExit("necro.toml: [licence] item must be an item id")
+    if not (isinstance(li.get("revoke_rep"), int) and li["revoke_rep"] <= 0):
+        raise SystemExit("necro.toml: [licence] revoke_rep must be an int <= 0 (a dark act revokes the licence)")
+
+    if factions is not None:
+        fids = {str(f["id"]) for f in factions.get("faction", [])}
+        want = [ch.get("faction")] + list(ch.get("band_factions") or []) + list((hu.get("survive_rep") or {}).keys())
+        for f in want:
+            if f not in fids:
+                raise SystemExit(f"necro.toml: faction {f!r} is not in factions.toml")
+    if bosses is not None:
+        bids = {str(b.get("id")) for b in bosses.get("boss", [])}
+        for b in ch.get("hunter_bosses") or []:
+            if b not in bids:
+                raise SystemExit(f"necro.toml: [church] hunter_bosses {b!r} is not a bosses.toml id")
 
 
 def check_carryover(carry: dict, karma: dict | None) -> None:
@@ -1464,7 +1568,7 @@ def render() -> dict[Path, str]:
     if "roads" in data:
         check_roads(data["roads"], data.get("factions"), data.get("karma"))
     if "necro" in data:
-        check_necro(data["necro"], data.get("roads"))
+        check_necro(data["necro"], data.get("roads"), data.get("factions"), data.get("bosses"))
     if "events" in data:
         check_events(data["events"])
     if "arrival" in data:

@@ -1,0 +1,180 @@
+# Necromancer ranks, the Rite, the Church's Sense, the Holy Hunt and the licence (WP-N3: necro/necro.js, necro/commands.js,
+# design/data/necro.toml [points] [entry] [rite] [[rank]] [church] [hunt] [licence]). `ttl necro expect`, `ttl rep expect`
+# and `ttl roads expect` print "ttl: ..." when wrong, which `server.sh test-all` counts as a failure.
+# A walks the Rite and the whole ladder; B enters by a master's spell (create_greater_undead), C by race (ghoul).
+# Expect in the log: "[ttl] necro: TtlBotRankA performed the Rite", "... rank 3 -> 4 (Overlord)", "... is Marked",
+# "the Holy Hunt is on TtlBotRankA", "... survived the Hunt", "... is a Licensed Exorcist", "... licence revoked",
+# "TtlBotRankB became a necromancer by skill", "TtlBotRankC became a necromancer by race".
+# Verify in game (first run): `spells 1` after `tensura edit ability grant` (mastery >= 0 for a granted magic), the race
+# read after `tensura edit race`, the stub holy_hunt firing through the director.
+ttlbot spawn TtlBotRankA
+ttlbot spawn TtlBotRankB
+ttlbot spawn TtlBotRankC
+@sleep 3
+ttl reset TtlBotRankA
+ttl reset TtlBotRankB
+ttl reset TtlBotRankC
+@sleep 3
+ttl necro test TtlBotRankA reset
+ttl necro test TtlBotRankB reset
+ttl necro test TtlBotRankC reset
+ttl necro legion test TtlBotRankA reset
+ttl roads test TtlBotRankA reset
+# Life 1: no rite.
+ttl necro expect TtlBotRankA try_rite life2only
+ttl roads test TtlBotRankA life2
+ttl roads test TtlBotRankB life2
+ttl roads test TtlBotRankC life2
+ttl necro test TtlBotRankA continent 1
+gamemode creative TtlBotRankA
+gamemode creative TtlBotRankB
+gamemode creative TtlBotRankC
+execute in minecraft:overworld run forceload add 4590 4590 4620 4610
+execute in minecraft:overworld run fill 4590 150 4590 4620 150 4610 minecraft:stone
+execute in minecraft:overworld run fill 4590 151 4590 4620 156 4610 minecraft:air
+execute in minecraft:overworld run setblock 4600 151 4600 ttl:bone_altar
+execute in minecraft:overworld run tp TtlBotRankA 4602 151 4600
+execute in minecraft:overworld run tp TtlBotRankB 4610 151 4604
+execute in minecraft:overworld run tp TtlBotRankC 4614 151 4604
+@sleep 1
+# 1. The Rite: an altar of one's own, a spell of the dead, then the reagent.
+ttl necro expect TtlBotRankA rank 0
+ttl necro expect TtlBotRankA entry none
+ttl necro expect TtlBotRankA try_rite noaltar
+ttl necro legion altar TtlBotRankA 4600 151 4600
+ttl necro expect TtlBotRankA try_rite nospell
+ttl necro expect TtlBotRankA aspirant no
+tensura edit ability grant TtlBotRankA tensura:create_lesser_undead
+ttl necro expect TtlBotRankA spells 1
+ttl necro expect TtlBotRankA aspirant yes
+ttl necro expect TtlBotRankA entry none
+ttl necro expect TtlBotRankA try_rite noreagent
+give TtlBotRankA ttl:soul_ash 10
+ttl necro expect TtlBotRankA try_rite ok
+execute as TtlBotRankA run ttl necro rite
+ttl necro expect TtlBotRankA rank 1
+ttl necro expect TtlBotRankA entry rite
+ttl necro expect TtlBotRankA title Gravebinder
+ttl necro expect TtlBotRankA stage_rank1 yes
+ttl necro expect TtlBotRankA stage_rank2 no
+ttl necro expect TtlBotRankA try_rite already
+ttl necro legion expect TtlBotRankA ash 0
+ttl necro legion expect TtlBotRankA rank 1
+# 2. Points and the weekly cap (60).
+ttl necro test TtlBotRankA week
+ttl necro points TtlBotRankA add 70
+ttl necro expect TtlBotRankA points 60
+ttl necro expect TtlBotRankA week 60
+ttl necro expect TtlBotRankA rank 2
+ttl necro expect TtlBotRankA title Bonecaller
+ttl necro points TtlBotRankA add 5
+ttl necro expect TtlBotRankA points 60
+ttl necro points TtlBotRankA set 120
+ttl necro expect TtlBotRankA rank 3
+ttl necro expect TtlBotRankA stage_rank3 yes
+# 3. Overlord: 400 points AND Wight King, Vampire or Mortal Fear.
+ttl necro points TtlBotRankA set 400
+ttl necro expect TtlBotRankA rank4req no
+ttl necro expect TtlBotRankA rank 3
+tensura edit race TtlBotRankA set tensura:wight_king
+@sleep 1
+ttl necro expect TtlBotRankA race tensura:wight_king
+ttl necro expect TtlBotRankA rank4req yes
+ttl necro expect TtlBotRankA rank 4
+ttl necro expect TtlBotRankA title Overlord
+ttl necro expect TtlBotRankA stage_rank4 yes
+ttl necro legion expect TtlBotRankA rank 4
+ttl necro legion expect TtlBotRankA cap 8
+ttl rep expect TtlBotRankA renown stages 10
+# 4. The Church's Sense: a dark road adds it (roads.toml extra.sense), Marked at 20, Hunt at 50.
+ttl rep set TtlBotRankA holy_church 0
+ttl rep set TtlBotRankA outcast 0
+ttl necro expect TtlBotRankA sense 0
+ttl necro expect TtlBotRankA eye unnoticed
+ttl roads pay TtlBotRankA necro raise dark
+ttl necro expect TtlBotRankA sense 3
+ttl necro expect TtlBotRankA marked no
+ttl necro expect TtlBotRankA wildmult_hinata_sakaguchi 1
+ttl necro sense TtlBotRankA set 20
+ttl necro expect TtlBotRankA marked yes
+ttl necro expect TtlBotRankA stage_marked yes
+ttl necro expect TtlBotRankA bounty yes
+ttl necro expect TtlBotRankA wildmult_hinata_sakaguchi 3
+ttl necro expect TtlBotRankA wildmult_shizu 1
+ttl necro expect TtlBotRankA guards_holy_church yes
+ttl necro expect TtlBotRankA hunted no
+ttl rep expect TtlBotRankA holy_church value -13
+ttl necro sense TtlBotRankA set 50
+ttl necro expect TtlBotRankA hunted yes
+ttl necro expect TtlBotRankA stage_hunted yes
+ttl necro expect TtlBotRankA wildmult_hinata_sakaguchi 5
+ttl rep expect TtlBotRankA holy_church value -23
+# 5. Outlast the Hunt: 120 online minutes → Unbroken, outcast +15.
+ttl necro expect TtlBotRankA unbroken no
+ttl necro test TtlBotRankA huntmins 120
+ttl necro expect TtlBotRankA unbroken yes
+ttl necro expect TtlBotRankA stage_title.unbroken yes
+ttl rep expect TtlBotRankA outcast value 15
+ttl necro hunt TtlBotRankA end
+ttl necro expect TtlBotRankA hunted no
+ttl necro expect TtlBotRankA hunts 1
+ttl necro expect TtlBotRankA wildmult_hinata_sakaguchi 3
+# 6. The licence: zero Sense for 14 days, Honored, in the Church's lands.
+ttl necro sense TtlBotRankA set 0
+ttl necro expect TtlBotRankA marked no
+ttl necro expect TtlBotRankA bounty no
+ttl necro expect TtlBotRankA guards_holy_church no
+ttl necro expect TtlBotRankA try_licence clean
+ttl necro test TtlBotRankA clean 14
+ttl necro expect TtlBotRankA try_licence band
+ttl rep set TtlBotRankA holy_church 60
+ttl necro expect TtlBotRankA try_licence place
+ttl necro test TtlBotRankA place 1
+ttl necro expect TtlBotRankA try_licence ok
+execute as TtlBotRankA run ttl necro licence
+ttl necro expect TtlBotRankA licensed yes
+ttl necro expect TtlBotRankA stage_licensed yes
+ttl necro expect TtlBotRankA licence_item 1
+ttl rep expect TtlBotRankA holy_church value 65
+# 7. A single dark act revokes it: the route's -3, the revocation's -20, the paper is taken.
+ttl roads pay TtlBotRankA necro raise dark
+ttl necro expect TtlBotRankA licensed no
+ttl necro expect TtlBotRankA licence_item 0
+ttl necro expect TtlBotRankA sense 3
+ttl rep expect TtlBotRankA holy_church value 42
+# 8. Outside the canon continent the Church senses nothing (R11).
+ttl necro test TtlBotRankA continent 2
+ttl necro sense TtlBotRankA set 0
+ttl roads pay TtlBotRankA necro raise dark
+ttl necro expect TtlBotRankA sense 0
+ttl necro test TtlBotRankA continent 0
+# 9. The other ways in: a master's spell (B), a race of the dead (C).
+ttl necro expect TtlBotRankB entry none
+tensura edit ability grant TtlBotRankB tensura:create_greater_undead
+ttl necro expect TtlBotRankB entry skill
+ttl necro expect TtlBotRankB rank 1
+ttl necro expect TtlBotRankC entry none
+tensura edit race TtlBotRankC set tensura:ghoul
+@sleep 1
+ttl necro expect TtlBotRankC entry race
+ttl necro expect TtlBotRankC rank 1
+ttl necro expect TtlBotRankC rank4req no
+# Clean up.
+ttl necro test TtlBotRankA reset
+ttl necro test TtlBotRankB reset
+ttl necro test TtlBotRankC reset
+ttl necro expect TtlBotRankA rank 0
+ttl necro legion test TtlBotRankA reset
+ttl roads test TtlBotRankA reset
+ttl roads test TtlBotRankB reset
+ttl roads test TtlBotRankC reset
+tensura edit ability revoke TtlBotRankA tensura:create_lesser_undead
+tensura edit ability revoke TtlBotRankB tensura:create_greater_undead
+execute in minecraft:overworld run fill 4590 151 4590 4620 156 4610 minecraft:air
+execute in minecraft:overworld run forceload remove 4590 4590 4620 4610
+ttl reset TtlBotRankA
+ttl reset TtlBotRankB
+ttl reset TtlBotRankC
+ttlbot remove TtlBotRankA
+ttlbot remove TtlBotRankB
+ttlbot remove TtlBotRankC

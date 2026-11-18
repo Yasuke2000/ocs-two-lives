@@ -42,7 +42,7 @@ exalted = 80
 min = 0
 tier = { underdog = 0, normal = 5, elite = 15, legendary = 30 }   # ids of karma.toml tiers
 boss = { "ttl.boss.t1" = 10, "ttl.boss.t2" = 20, "ttl.boss.t3" = 40, "ttl.boss.t4" = 80 }
-stage = {}                                                          # any other stage worth points, "ttl.x" = n
+stage = { "ttl.necro.rank4" = 10 }                                  # any other stage worth points, "ttl.x" = n (necro: the Overlord, §3.5)
 band = { hostile = -5, unfriendly = -2, neutral = 0, friendly = 3, honored = 8, exalted = 15 }   # per faction
 unique = { common = 4, rare = 10, legendary = 25 }                  # skills.toml rarities
 

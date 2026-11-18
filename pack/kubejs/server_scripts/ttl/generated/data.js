@@ -3021,7 +3021,9 @@ const TtlData = {
         "ttl.boss.t4": 80
       },
       "min": 0,
-      "stage": {},
+      "stage": {
+        "ttl.necro.rank4": 10
+      },
       "tier": {
         "elite": 15,
         "legendary": 30,
@@ -3105,7 +3107,7 @@ const TtlData = {
     ],
     "paths": [
       {
-        "body": "A path is a craft you take up in your second life. No chapter, Oath or boss locks it: you can start the day you arrive.\n\n- *Necromancer:* the dead and the law (next page).\n- *Artificer:* the workshop (page after).\n- Quest chapters and NPCs may *teach* a path; they never lock it.\n\nSome of it is still being built. What is not live yet says so.\n",
+        "body": "A path is a craft you take up in your second life. No chapter, Oath or boss locks it: you can start the day you arrive.\n\n- *Necromancer:* the dead and the law (next pages).\n- *Artificer:* the workshop (after the necromancer).\n- Quest chapters and NPCs may *teach* a path; they never lock it.\n\nSome of it is still being built. What is not live yet says so.\n",
         "title": "Paths: open to every soul"
       },
       {
@@ -3113,8 +3115,16 @@ const TtlData = {
         "title": "Two roads"
       },
       {
-        "body": "# The Necromancer\nRaise the dead and keep them. Tensura's own magic (*Create Lesser Undead*, tomes, the Spellbinding Table) and your race (Wight, Ghoul) are the start.\n\n- *Bone Altar:* the heart of a necromancer's work. Raise legionnaires there.\n- *Bone dust* from monsters is the honest road. *Soul ash* from people is the dark one: stronger undead, and the Holy Church takes note.\n- *Your tomb:* build it yourself around your Bone Altar. The world recognises it and lets it grow from Crypt to Great Tomb.\n- The Church's licence lets a careful necromancer walk in the light.\n\n*Live:* the Bone Altar, the legion and the tomb (next page). *Being built:* the Rite that makes you a necromancer, ranks and the licence.\n",
+        "body": "# The Necromancer\nRaise the dead and keep them. Three ways in, no chapter needed:\n\n- *Your race:* Wights and Ghouls (and what they become) already walk with the dead.\n- *A master's spell:* *Create Greater Undead* or *Mortal Fear* learned.\n- *The Rite:* learn a spell of the dead (*Create Lesser Undead* from a tome or the Spellbinding Table, or Iron's *Raise Dead*), then `/ttl necro rite` at your Bone Altar with 10 soul ash or 40 bone dust. Once you know the spell, your kills already leave ash and dust.\n\n- *Bone dust* from monsters is the honest road. *Soul ash* from people is the dark one: stronger undead, and the Holy Church takes note.\n- `/ttl necro` shows who you are among the dead.\n",
         "title": "The dead and the law"
+      },
+      {
+        "body": "# Ranks\nRaising, naming, tombs and laying the dead to rest earn rank points (at most 60 a week). `/ttl necro rank`\n\n- *Gravebinder* (any way in): two dead awake, a Crypt\n- *Bonecaller* (30): four, armed\n- *Death Marshal* (120): six, a Death Knight, a Mausoleum\n- *Overlord* (400 and Wight King, Vampire or Mortal Fear): eight, two knights, a Great Tomb\n\n# The Church's Sense\nEvery dark deed on the continent tells the Holy Church a little more about you. It forgets slowly, a few points a week.\n\n- *Marked:* a bounty on your head, Church guards attack on sight, Hinata Sakaguchi hunts the wilds near you more often. `/ttl necro bounties`\n- *The Holy Hunt:* for a day the whole world hears your name. Stay alive two hours and the dark remembers you as *Unbroken*.\n",
+        "title": "Ranks and the Church"
+      },
+      {
+        "body": "# Adalmann's road\nAdalmann was a saint of the Western Holy Church until it sent him to die. Rimuru made him the keeper of a Labyrinth floor, a Wight King who guards instead of hunting. *(our interpretation)*\n\nA necromancer can walk in the light the same way:\n\n- Raise only from bone dust, lay the restless to rest (`/ttl necro rest` at a grave marker).\n- Be *Honored* with the Holy Church and give it *14 days* without a dark deed.\n- `/ttl necro licence` in the Church's lands: the title *Licensed Exorcist* and the paper to prove it.\n\nA licensed soul earns the Church's thanks for every grave laid to rest, and the Church does not count a dust legion as an armed band. *One* dark deed tears the licence up.\n",
+        "title": "The Licensed Exorcist"
       },
       {
         "body": "# The legion\nCraft a *Bone Altar* (bone blocks, a candle, rotten flesh, cobbled deepslate), place it and right-click it.\n\n- `/ttl necro raise skeleton` (4 bone dust) or `/ttl necro raise skeleton ash` (1 soul ash: stronger, the dark road)\n- `/ttl necro stow` puts your dead to sleep in the tomb; `/ttl necro rouse` wakes them at the altar\n- `/ttl necro recall`, `/ttl necro stand all on`, `/ttl necro legion`\n- Name them the Tensura way: named dead count for your nation's army (`/ttl necro muster`).\n- *Death Knights* (rank 3): full high magisteel gear and 32 bone dust, or a soul ash and a corpse you made yourself. A fallen knight never rises again.\n- Your dead never strike a soul outside an arena, a war or a quest that allows it.\n\n# The tomb\nBuild a closed room around the altar. Grave lanterns make it a *Crypt*; graves, a throne skull, blackstone and a magic engine a *Mausoleum*; a labyrinth engine and more of everything a *Great Tomb*. `/ttl necro sanctum` tells you what is missing.\n",
@@ -3836,6 +3846,57 @@ const TtlData = {
       ],
       "victim_hours": 24
     },
+    "church": {
+      "band_factions": [
+        "blumund",
+        "falmuth",
+        "holy_church"
+      ],
+      "band_min": 3,
+      "band_radius": 48,
+      "decay_per_week": 5,
+      "faction": "holy_church",
+      "hunt_at": 50,
+      "hunt_mult": 5.0,
+      "hunter_bosses": [
+        "hinata_sakaguchi"
+      ],
+      "loop_seconds": 60,
+      "marked_at": 20,
+      "marked_mult": 3.0,
+      "marked_rep": -10,
+      "max_sense": 100
+    },
+    "entry": {
+      "races": [
+        "tensura:wight",
+        "tensura:wight_king",
+        "tensura:spirit_skeleton",
+        "tensura:divine_skeleton",
+        "tensura:ghoul",
+        "tensura:vampire",
+        "tensura:vampire_lord",
+        "tensura:vampire_overcomer",
+        "tensura:divine_vampire"
+      ],
+      "skills": [
+        "tensura:create_greater_undead",
+        "tensura:mortal_fear"
+      ]
+    },
+    "hunt": {
+      "announce": "The Holy Church has named {soul} an abomination. The Hunt is on.",
+      "discord": true,
+      "event": "holy_hunt",
+      "hours": 24,
+      "rearm_hours": 72,
+      "rep": -10,
+      "survive_minutes": 120,
+      "survive_rep": {
+        "outcast": 15
+      },
+      "survive_title": "Unbroken"
+    },
     "knight": {
       "ash_cost": 1,
       "dark": {
@@ -3915,10 +3976,77 @@ const TtlData = {
       "stow_radius": 16,
       "sweep_minutes": 5
     },
+    "licence": {
+      "band": "honored",
+      "clean_days": 14,
+      "grant_rep": 5,
+      "item": "ttl:exorcist_licence",
+      "min_rank": 1,
+      "npc_radius": 8,
+      "place": "region",
+      "rest_rep": 1,
+      "revoke_rep": -20,
+      "title": "Licensed Exorcist"
+    },
+    "points": {
+      "boss": 5,
+      "choice": 5,
+      "weekly_cap": 60
+    },
+    "rank": [
+      {
+        "points": 0,
+        "rank": 1,
+        "title": "Gravebinder"
+      },
+      {
+        "points": 30,
+        "rank": 2,
+        "title": "Bonecaller"
+      },
+      {
+        "points": 120,
+        "rank": 3,
+        "title": "Death Marshal"
+      },
+      {
+        "needs_any": {
+          "races": [
+            "tensura:wight_king",
+            "tensura:spirit_skeleton",
+            "tensura:divine_skeleton",
+            "tensura:vampire",
+            "tensura:vampire_lord",
+            "tensura:vampire_overcomer",
+            "tensura:divine_vampire"
+          ],
+          "skills": [
+            "tensura:mortal_fear"
+          ]
+        },
+        "points": 400,
+        "rank": 4,
+        "title": "Overlord"
+      }
+    ],
     "rest": {
       "marker_hours": 24,
       "per_day": 3,
       "radius": 3
+    },
+    "rite": {
+      "ash": 10,
+      "aspirant_drops": true,
+      "dust": 40,
+      "iron_spells": [
+        "irons_spellbooks:raise_dead"
+      ],
+      "spells": [
+        "tensura:create_lesser_undead",
+        "tensura:create_greater_undead",
+        "tensura:curse",
+        "tensura:curse_bind"
+      ]
     },
     "sanctum": {
       "air": [
