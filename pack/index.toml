@@ -1345,6 +1345,10 @@ file = "kubejs/assets/lightmanscurrency/textures/block/atm.png"
 hash = "6c18bc665abeedd5dc1ac1cff78e9a4c528ec5ce4673d78d0aaeb69ebf2dc881"
 
 [[files]]
+file = "kubejs/assets/lightmanscurrency/textures/gui/container/atm.png"
+hash = "a6e46690d215bfd844e7fd36d177ec63e8dd44da83cfdec0b08ccd316a273eee"
+
+[[files]]
 file = "kubejs/assets/lightmanscurrency/textures/item/atm_card.png"
 hash = "844f56dd75cc8fcc923eca0aeb7baac86b79c97358816f66a12216bb0ad3519a"
 
@@ -1466,11 +1470,11 @@ hash = "e140a32299ea0cade85b7da1f2a8db1b7cd145d1f4c07a65f62e9a1205dff534"
 
 [[files]]
 file = "kubejs/assets/ttl/textures/item/skill_core.png"
-hash = "5c73e3f832714ad31fdb9c6453bb2c30142854d151e54c10f4d687fa5c9ff188"
+hash = "03c180b3025d2179e9715c1fbfc2388ff9a3ac6c52aa1191f389446eb1c09d3b"
 
 [[files]]
 file = "kubejs/assets/ttl/textures/item/soul_gem.png"
-hash = "5c73e3f832714ad31fdb9c6453bb2c30142854d151e54c10f4d687fa5c9ff188"
+hash = "254c642f04768df0a086f0e262c2dcf2411e67ad7dbadff9f4afbf03e27cd7df"
 
 [[files]]
 file = "kubejs/data/l2hostility/l2hostility_config/difficulty/ttl_two_lives.json"
@@ -1586,11 +1590,11 @@ hash = "ce66b4e1e87890da08df057b464d545b3965191756d62a1de23ba41b0995da58"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_0.nbt"
-hash = "e27539ca7e13f8fd440fa3416db5678475c38a318a3414a2586efa8a022c512e"
+hash = "895214ab8b11521e676a2989f73e3b3a1990197d4a1a12d55ddc69bc14ef6371"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_1.nbt"
-hash = "52b6e8d155b1624ed6f963b39d9ed764fc62dbc76b4fbc5922ee8c3bedf49831"
+hash = "f607944fac6838f08b933aecac2f6a514266c31d794c19487424541d54b9ca8b"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_2.nbt"
@@ -2006,7 +2010,7 @@ hash = "b439e7faa512766d89afa38225fbb6efeb37b99c56316f26034322d38d7d4f6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "104fb5a5f650bd87a2011dca4bf21d2c9c925a8e196f065448e8ab897d0d68c8"
+hash = "b512f88c2d399e3004f6de7db6d6ad9f4a0b132a82857729491eb31fb573a240"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -2034,7 +2038,7 @@ hash = "74fd29ede83aa7876e4006fb0820b178ed84a50f4ccacf4e3a5bc901aaa7f42d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"
-hash = "7b3a866ba182e96b6e300e89f496a68198b81f225b9e123890b9526569574512"
+hash = "a3b1caae2417a2488a3f80ed7dabe525bcc4cae3d74496a0c6e15a305e0d288b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
@@ -2050,7 +2054,7 @@ hash = "685ffbc46d46a5debf5571fc115bf2a86812a1f0efce7182ae51f9d85f402334"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/tempest.js"
-hash = "537f2b59c06944cf41f35768c102ca66e49be6bdb486c28281e96b418a2e09ff"
+hash = "17b2b4f560794f2763b850cc1e3e8c396a873ea0a988daa2ff5b731e7eb7f9fe"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
@@ -2138,7 +2142,7 @@ hash = "0bee9e54d457f401ccf8854f8d8e30009f192485494b6febe267b85fc675afc6"
 
 [[files]]
 file = "kubejs/startup_scripts/ttl/items.js"
-hash = "daaf705d444a13e8d393002268da008f920152c904165d53cb29fcf66a9314bf"
+hash = "f12d545c45a732778eca74b4c042af1954103cdffed8c145ca587d829254a49f"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"

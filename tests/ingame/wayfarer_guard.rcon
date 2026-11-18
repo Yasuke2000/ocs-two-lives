@@ -1,0 +1,16 @@
+# Wayfarer's Rest is protected against non-op players (life/mortal_spawn.js, KubeJS: no FTB Chunks claim exists in the Mortal
+# Realm, claims are Life-2-only). `ttl wayfarer expect <player> <x> <dy> <z> protected|open` asks the function the break and
+# place events use; dy is relative to the plaza feet (plaza floor = -1), x/z are Mortal Realm coordinates (bell roof at 0 0).
+# Needs the spawn placed (`ttl spawn` prints it). The real events and explosions are on the "verify in game" list: bots do not break blocks.
+ttlbot spawn TtlBotWayfarer
+@sleep 2
+# the plaza, under the bell roof, the shrine side: refused
+ttl wayfarer expect TtlBotWayfarer 0 -1 5 protected
+ttl wayfarer expect TtlBotWayfarer 0 -1 0 protected
+ttl wayfarer expect TtlBotWayfarer 0 3 0 protected
+# beyond the 39 x 39 box, far above the 22 blocks of height, below the foundations, an empty corner column: free
+ttl wayfarer expect TtlBotWayfarer 60 -1 5 open
+ttl wayfarer expect TtlBotWayfarer 0 40 5 open
+ttl wayfarer expect TtlBotWayfarer 0 -12 5 open
+ttl wayfarer expect TtlBotWayfarer 24 -1 -14 open
+ttlbot remove TtlBotWayfarer

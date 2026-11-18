@@ -12,6 +12,8 @@
 //    logs, leaves and plants, so trees do not count as ground; the base layer is chosen so the village ground
 //    sits at the median terrain height of the probes across the clearing;
 // 3. place the slabs, one every 2 ticks (the box holds air above the ground layer: trees and hills in it go);
+//    after the terrain fit (4, 5) the slabs are placed a second time on the finished ground (crops and lanterns that
+//    popped in the first pass), before the signs and loot tables (3b);
 // 4. clear terrain above the box, and cut 1:1 slopes into hills round it (only where the terrain itself rises
 //    above the slope, so the surrounding forest stays standing);
 // 5. fill the gap under every box column down to the terrain (dirt, stone deeper down), plus a 1:1 earth
@@ -22,7 +24,7 @@
 //    on Tensura's own goblin spawn points: hobgoblins (EvoState 1; every goblin evolved when Rimuru named them),
 //    persistent, tagged RESIDENT. Residents from an earlier version are removed first, so each version spawns
 //    them once.
-const TTL_TEMPEST_VERSION = 2
+const TTL_TEMPEST_VERSION = 3
 
 const TtlTempest = {
   // World position of the arrival point; its blueprint coordinates are TtlTempestFootprint.arrival.
@@ -246,47 +248,75 @@ const TtlTempest = {
     }
     var cmds = this.terrainCommands(hm, base)
     var self = this
-    var part = 0
-    var placeNext = () => {
-      try {
-        if (part < f.parts.length) {
-          var name = f.parts.length > 1 ? `ttl:tempest_${part}` : 'ttl:tempest'
-          var r = self.run(server, `place template ${name} ${b.x0} ${base} ${b.z0 + f.parts[part]}`)
-          if (r === 0) console.warn(`[ttl] tempest: place template ${name} reported failure`)
-          part++
-          server.scheduleInTicks(2, placeNext)
+    // All slabs, one every 2 ticks, then next(ok).
+    var placeSlabs = next => {
+      var part = 0
+      var step = () => {
+        try {
+          if (part < f.parts.length) {
+            var name = f.parts.length > 1 ? `ttl:tempest_${part}` : 'ttl:tempest'
+            var r = self.run(server, `place template ${name} ${b.x0} ${base} ${b.z0 + f.parts[part]}`)
+            if (r === 0) console.warn(`[ttl] tempest: place template ${name} reported failure`)
+            part++
+            server.scheduleInTicks(2, step)
+            return
+          }
+        } catch (e) {
+          console.error(`[ttl] tempest placement failed at slab ${part}: ${e}`)
+          next(false)
           return
         }
-      } catch (e) {
-        console.error(`[ttl] tempest placement failed at slab ${part}: ${e}`)
+        next(true)
+      }
+      step()
+    }
+    // Two passes (as life/builds.js): in the first, blocks that need support (crops, lanterns, doors, beds, ladders)
+    // are judged against the old terrain and the trees not cleared yet, and some pop (~120 crops, a few lanterns);
+    // the second, after the terrain fit, sets them again on finished ground. It only rewrites the positions the
+    // structure defines, which the terrain fit never touches. It must come before signs() and extras(): re-placing a
+    // sign or a chest would wipe the text and the LootTable written to it.
+    placeSlabs(placed => {
+      if (!placed) {
         done(false)
         return
       }
       console.info(`[ttl] tempest: ${f.parts.length} slab(s) placed, ${cmds.length} terrain commands (${self.FILLS_PER_TICK}/tick)`)
       self.runBatched(server, cmds, ok => {
-        var gy = base + f.arrival[1]
-        try {
-          self.signs(server, gy)
-          // The Life 2 arrival (life/arrival.js) owns the world spawn when one is configured.
-          if (!(typeof TtlArrival !== 'undefined' && TtlArrival.active())) self.run(server, `setworldspawn ${self.LANDMARK.x} ${gy} ${self.LANDMARK.z}`)
-        } catch (e) {
-          console.warn(`[ttl] tempest: signs or world spawn failed: ${e}`)
+        if (!ok) {
+          self.finish(server, b, base, false, 1, done)
+          return
         }
-        try {
-          self.extras(server, base)
-        } catch (e) {
-          console.warn(`[ttl] tempest: loot tables or residents failed: ${e}`)
-        }
-        if (ok) {
-          server.persistentData.putInt('ttl.tempest.version', TTL_TEMPEST_VERSION)
-          server.persistentData.putInt('ttl.tempest.base', base)
-          server.persistentData.putString('ttl.tempest.arrival', `${self.LANDMARK.x + 0.5} ${gy} ${self.LANDMARK.z + 0.5}`)
-        }
-        console.info(`[ttl] tempest placed: corner ${b.x0} ${base} ${b.z0}, arrival at ${self.LANDMARK.x} ${gy} ${self.LANDMARK.z} (version ${TTL_TEMPEST_VERSION}, terrain ${ok ? 'done' : 'FAILED'})`)
-        done(ok)
+        placeSlabs(again => {
+          if (again) self.finish(server, b, base, true, 2, done)
+          else done(false)
+        })
       })
+    })
+  },
+
+  finish(server, b, base, ok, passes, done) {
+    var f = TtlTempestFootprint
+    var gy = base + f.arrival[1]
+    try {
+      this.signs(server, gy)
+      // The Life 2 arrival (life/arrival.js) owns the world spawn when one is configured.
+      if (!(typeof TtlArrival !== 'undefined' && TtlArrival.active())) this.run(server, `setworldspawn ${this.LANDMARK.x} ${gy} ${this.LANDMARK.z}`)
+    } catch (e) {
+      console.warn(`[ttl] tempest: signs or world spawn failed: ${e}`)
     }
-    placeNext()
+    try {
+      this.extras(server, base)
+    } catch (e) {
+      console.warn(`[ttl] tempest: loot tables or residents failed: ${e}`)
+    }
+    if (ok) {
+      server.persistentData.putInt('ttl.tempest.version', TTL_TEMPEST_VERSION)
+      server.persistentData.putInt('ttl.tempest.base', base)
+      server.persistentData.putInt('ttl.tempest.passes', passes)
+      server.persistentData.putString('ttl.tempest.arrival', `${this.LANDMARK.x + 0.5} ${gy} ${this.LANDMARK.z + 0.5}`)
+    }
+    console.info(`[ttl] tempest placed: corner ${b.x0} ${base} ${b.z0}, arrival at ${this.LANDMARK.x} ${gy} ${this.LANDMARK.z} (version ${TTL_TEMPEST_VERSION}, terrain ${ok ? 'done' : 'FAILED'}, ${passes} slab pass(es))`)
+    done(ok)
   },
 
   schedule(server) {
@@ -308,4 +338,54 @@ ServerEvents.loaded(event => {
   var server = event.server
   if (server.persistentData.getInt('ttl.tempest.version') === TTL_TEMPEST_VERSION) return
   TtlTempest.schedule(server)
+})
+
+// Test hooks (tests/ingame/tempest_pass2.rcon): /ttl tempest expect passes <n> | crops <min>. Read-only.
+ServerEvents.commandRegistry(event => {
+  var { commands: Commands, arguments: Arguments } = event
+  var fail = (ctx, line) => {
+    ctx.source.sendSystemMessage(Text.red(`ttl: ${line}`))
+    return 0
+  }
+  // Crops standing in the village's field: the structure holds 120 (wheat, carrots, potatoes, beetroots), all on
+  // farmland at one level a few blocks above the base layer; a popped crop leaves air.
+  var countCrops = server => {
+    var level = server.getLevel(TtlLife.OVERWORLD)
+    var b = TtlTempest.box()
+    var base = server.persistentData.getInt('ttl.tempest.base')
+    var ids = ['minecraft:wheat', 'minecraft:carrots', 'minecraft:potatoes', 'minecraft:beetroots']
+    var n = 0
+    for (var y = base + 3; y <= base + 8; y++) {
+      for (var x = b.x0; x < b.x0 + TtlTempestFootprint.size[0]; x++) {
+        for (var z = b.z0; z < b.z0 + TtlTempestFootprint.size[2]; z++) {
+          if (ids.indexOf(String(level.getBlock(x, y, z).id)) >= 0) n++
+        }
+      }
+    }
+    return n
+  }
+  event.register(Commands.literal('ttl')
+    .then(Commands.literal('tempest')
+      .requires(src => src.hasPermission(2))
+      .then(Commands.literal('expect')
+        .then(Commands.literal('passes')
+          .then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(ctx => {
+            var server = ctx.source.getServer()
+            var want = Arguments.INTEGER.getResult(ctx, 'n')
+            var v = server.persistentData.getInt('ttl.tempest.version')
+            var got = server.persistentData.getInt('ttl.tempest.passes')
+            if (v !== TTL_TEMPEST_VERSION) return fail(ctx, `expected tempest placed at version ${TTL_TEMPEST_VERSION}, it is ${v || 'not placed'}`)
+            if (got !== want) return fail(ctx, `expected ${want} slab pass(es) when tempest was placed, recorded ${got} (placed by an older script; /ttl world reset or a version bump places it again)`)
+            ctx.source.sendSystemMessage(Text.of(`tempest: placed with ${got} slab passes as expected`))
+            return 1
+          })))
+        .then(Commands.literal('crops')
+          .then(Commands.argument('min', Arguments.INTEGER.create(event)).executes(ctx => {
+            var server = ctx.source.getServer()
+            var min = Arguments.INTEGER.getResult(ctx, 'min')
+            var n = countCrops(server)
+            if (n < min) return fail(ctx, `expected at least ${min} crops in Tempest's field, found ${n}`)
+            ctx.source.sendSystemMessage(Text.of(`tempest: ${n} crops standing`))
+            return 1
+          }))))))
 })

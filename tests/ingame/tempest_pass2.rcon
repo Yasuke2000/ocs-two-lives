@@ -1,0 +1,7 @@
+# Tempest's second slab pass (life/tempest.js): after the terrain fit the slabs are placed again, so crops and lanterns that
+# popped in the first pass stand. Needs the placer to have run (it records version and passes ~1 min after a start).
+# `expect passes 2` fails when Tempest was placed by a script without the second pass (the TTL_TEMPEST_VERSION bump places it
+# again). `expect crops 100`: the village field holds 120 crops (32 wheat, 32 carrots, 32 potatoes, 24 beetroots);
+# before the second pass tools/verify_build.py found them all popped (wheat -> air ...).
+ttl tempest expect passes 2
+ttl tempest expect crops 100
