@@ -2526,7 +2526,7 @@ hash = "fdcfa356f92dada4297541bd3f0610aeb011203100187f3643f572b71b98f757"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "bf79c66d9d2cb4bb16980f1b3b21f50ef7ff486feb46cdb07194d5957161c785"
+hash = "0bbc9f1ca7262181a19c1a82fdaa23413c82b32d0dba327872ebe62e369afc4c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2650,7 +2650,7 @@ hash = "685ffbc46d46a5debf5571fc115bf2a86812a1f0efce7182ae51f9d85f402334"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/tempest.js"
-hash = "17b2b4f560794f2763b850cc1e3e8c396a873ea0a988daa2ff5b731e7eb7f9fe"
+hash = "ff921e6b0a03f8b2500eb77769f9db9c0b96a271de8bce41a003e3c16207075d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
@@ -2771,6 +2771,14 @@ hash = "77d1cfcde382e3dc78e64b4a2920f51bfc1b28143923cfc363a6e7bd425316e1"
 [[files]]
 file = "kubejs/server_scripts/ttl/world/commands.js"
 hash = "972043a158de1198ac0569b0789b6a98c4f0001f68297e43dff063dbda3b5499"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/world/domain_commands.js"
+hash = "220cacc723e50bdb3bea0d9564eaff4b503898b8f0835c39bbb069cf24d94911"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/world/domains.js"
+hash = "6519393bb49238a07c860af3da91e0b30748442e08dfca2f650fdeae33aeeaad"
 
 [[files]]
 file = "kubejs/startup_scripts/ttl/items.js"

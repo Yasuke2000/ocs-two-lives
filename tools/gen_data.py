@@ -1448,6 +1448,169 @@ def check_builds() -> tuple[list[dict], dict]:
     return builds, footprints
 
 
+DOMAIN_RULES = {"enabled", "capital_radius", "member_edit", "conflict_edit", "staff_level", "unowned_builds", "unowned_skip",
+                "use_items", "use_suffixes", "use_exempt", "warn_seconds", "refresh_seconds", "invulnerable",
+                "respawn_minutes", "respawn_check_ticks", "confirm_checks"}
+SETTLEMENTS = {"tempest": ("tempest.js", "LANDMARK", "tempest_footprint.js"),
+               "dwargon": ("dwargon.js", "GATE", "dwargon_footprint.js")}
+
+
+def check_domains(fac: dict, data: dict, builds: list[dict]) -> None:
+    # world/domains.js reads these (design/architecture/world-state.md §6.6, WP-W3). A wrong name would leave a canon build
+    # unprotected without a word, a domain off the continent would guard nothing, and two domains on one build would make
+    # the second faction's members and rulers silently powerless there. Writes domain.center (the nominal capital centre).
+    rules = fac.get("domains")
+    if not isinstance(rules, dict):
+        raise SystemExit("factions.toml: needs a [domains] table")
+    unknown = set(rules) - DOMAIN_RULES
+    if unknown:
+        raise SystemExit(f"factions.toml: [domains] unknown keys {sorted(unknown)}")
+    scopes = ("none", "land", "all")
+    for key in ("enabled", "unowned_builds"):
+        if not isinstance(rules.get(key), bool):
+            raise SystemExit(f"factions.toml: [domains] {key} must be true or false")
+    for key, lo, hi in (("capital_radius", 16, 1024), ("staff_level", 0, 4), ("warn_seconds", 0, 60),
+                        ("refresh_seconds", 1, 300), ("respawn_check_ticks", 20, 6000), ("confirm_checks", 1, 10)):
+        if not is_int(rules.get(key)) or not lo <= rules[key] <= hi:
+            raise SystemExit(f"factions.toml: [domains] {key} must be an integer {lo}-{hi}")
+    if not is_num(rules.get("respawn_minutes")) or not 0 <= rules["respawn_minutes"] <= 1440:
+        raise SystemExit("factions.toml: [domains] respawn_minutes must be a number 0-1440")
+    for key in ("member_edit", "conflict_edit"):
+        if rules.get(key) not in scopes:
+            raise SystemExit(f"factions.toml: [domains] {key} must be one of {', '.join(scopes)}")
+    if rules.get("invulnerable") not in ("named", "all", "none"):
+        raise SystemExit("factions.toml: [domains] invulnerable must be named, all or none")
+    for key in ("use_items", "use_exempt"):
+        for item in rules.get(key, []):
+            if not re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", str(item)):
+                raise SystemExit(f"factions.toml: [domains] {key} {item!r} is not a namespaced item id")
+    if not all(isinstance(s, str) and re.fullmatch(r"[a-z0-9_]+", s) for s in rules.get("use_suffixes", [])):
+        raise SystemExit("factions.toml: [domains] use_suffixes must be [a-z0-9_] strings")
+
+    world = data.get("world", {})
+    inside = set(world.get("continent", {}).get("inside_dimensions", []))
+    if "tensura:boss_area" in inside:
+        raise SystemExit("world.toml: tensura:boss_area must stay outside the story rules (owner decision 18/11/2026): "
+                         "remove it from [continent] inside_dimensions")
+    overworld = world.get("continent", {}).get("overworld", "minecraft:overworld")
+    modes = set(world.get("rule", {}).get("modes", ["vassal", "usurper"]))
+    canon = json.loads(CANON.read_text(encoding="utf-8"))
+    refs = {lm["name"]: lm["ref"] for lm in canon["landmarks"]}
+    by_build = {b["name"]: b for b in builds}
+    landmarks = {lm["name"]: lm for lm in data.get("landmarks", {}).get("landmark", [])}
+    bosses = {b.get("id") for b in data.get("bosses", {}).get("boss", [])}
+    npcs = data.get("npcs", {})
+    statues = {h.get("id") for h in npcs.get("hook", [])} | {s.get("id") for s in npcs.get("spot", [])}
+    for name in rules.get("unowned_skip", []):
+        if name not in by_build:
+            raise SystemExit(f"factions.toml: [domains] unowned_skip {name!r} is not a design/builds name")
+
+    def settlement_center(name: str) -> tuple[int, int]:
+        x0, z0, x1, z1 = settlement_box(*SETTLEMENTS[name])
+        return round((x0 + x1) / 2), round((z0 + z1) / 2)
+
+    def where_of(name: str) -> tuple[str, int, int]:
+        """(dimension, x, z) of a build or settlement by name."""
+        if name in SETTLEMENTS:
+            return (overworld, *settlement_center(name))
+        b = by_build[name]
+        return b["dimension"], b["x"], b["z"]
+
+    def on_continent(dim: str, x: int, z: int) -> bool:
+        if dim in inside:
+            return True
+        return dim == overworld and canon_char(x, z) not in (None, ".")
+
+    # The Life 2 arrival must stay free ground: newcomers gather and build there. A landmark may land up to 64 blocks off
+    # its nominal spot (life/landmarks.js OFFSETS), so its square is widened by that much.
+    arrival = data.get("arrival", {}).get("life2")
+
+    def covers_arrival(cx: int, cz: int, r: int) -> bool:
+        return bool(arrival) and abs(arrival["x"] - cx) <= r and abs(arrival["z"] - cz) <= r
+
+    owner: dict[str, str] = {}
+    for f in fac["faction"]:
+        fid = f["id"]
+        where = f"factions.toml: {fid}"
+        territory = f.get("territory", "domain")
+        if territory not in ("domain", "region"):
+            raise SystemExit(f"{where}: territory must be domain or region")
+        if territory == "region" and "region" not in f:
+            raise SystemExit(f"{where}: territory = \"region\" needs a region letter")
+        d = f.get("domain")
+        if d is not None:
+            if not isinstance(d, dict) or set(d) - {"capital", "capital_radius", "builds", "landmarks"}:
+                raise SystemExit(f"{where}: domain keys are capital, capital_radius, builds, landmarks")
+            if "region" not in f:
+                raise SystemExit(f"{where}: a domain needs the faction's canon region")
+            if "capital_radius" in d and (not is_int(d["capital_radius"]) or not 16 <= d["capital_radius"] <= 1024):
+                raise SystemExit(f"{where}: domain capital_radius must be an integer 16-1024")
+            cap = d.get("capital")
+            if cap is None:
+                if f.get("capital") not in refs:
+                    raise SystemExit(f"{where}: a domain without capital needs the faction's canon capital")
+                center = ref_to_world(canon, refs[f["capital"]])
+            elif cap in SETTLEMENTS:
+                center = settlement_center(cap)
+            elif isinstance(cap, str) and cap.startswith("build:"):
+                b = by_build.get(cap[6:])
+                if not b or b["dimension"] != overworld:
+                    raise SystemExit(f"{where}: domain capital {cap!r} must name an overworld design/builds build")
+                center = (b["x"], b["z"])
+            elif isinstance(cap, str) and cap.startswith("landmark:"):
+                lm = landmarks.get(cap[9:])
+                if not lm:
+                    raise SystemExit(f"{where}: domain capital {cap!r} names no landmarks.toml landmark")
+                center = (lm["x"], lm["z"])
+            else:
+                raise SystemExit(f"{where}: domain capital must be tempest, dwargon, build:<name> or landmark:<name>")
+            if not on_continent(overworld, *center):
+                raise SystemExit(f"{where}: the domain's capital {center} is not on the canon continent")
+            d["center"] = list(center)
+            if covers_arrival(center[0], center[1], d.get("capital_radius", rules["capital_radius"])):
+                raise SystemExit(f"{where}: the domain's capital square covers the Life 2 arrival ({arrival['x']}, {arrival['z']})")
+            for name in d.get("builds", []):
+                if name not in by_build and name not in SETTLEMENTS:
+                    raise SystemExit(f"{where}: domain build {name!r} is not a design/builds name, tempest or dwargon")
+                dim, x, z = where_of(name)
+                if not on_continent(dim, x, z):
+                    raise SystemExit(f"{where}: domain build {name!r} ({dim} {x} {z}) is not on the canon continent")
+                if name in owner:
+                    raise SystemExit(f"{where}: build {name!r} is already in the domain of {owner[name]}")
+                owner[name] = fid
+                ch = canon_char(x, z) if dim == overworld else None
+                if ch not in (None, "~", f["region"]):
+                    print(f"warn: {where}: domain build {name} stands in canon region {ch}, not {f['region']}", file=sys.stderr)
+            for name in d.get("landmarks", []):
+                lm = landmarks.get(name)
+                if not lm:
+                    raise SystemExit(f"{where}: domain landmark {name!r} is not a landmarks.toml name")
+                if not on_continent(overworld, lm["x"], lm["z"]):
+                    raise SystemExit(f"{where}: domain landmark {name!r} is not on the canon continent")
+                if covers_arrival(lm["x"], lm["z"], lm["reach"] + 64):
+                    raise SystemExit(f"{where}: domain landmark {name!r} (reach {lm['reach']}, may move 64) can cover the "
+                                     f"Life 2 arrival ({arrival['x']}, {arrival['z']})")
+                key = "landmark:" + name
+                if key in owner:
+                    raise SystemExit(f"{where}: landmark {name!r} is already in the domain of {owner[key]}")
+                owner[key] = fid
+        t = f.get("throne")
+        if t is not None:
+            if not isinstance(t, dict) or set(t) - {"boss", "statue", "seat", "roads"} or "boss" not in t or "seat" not in t:
+                raise SystemExit(f"{where}: throne = {{ boss, seat, statue (optional), roads (optional) }}")
+            if d is None:
+                raise SystemExit(f"{where}: a throne needs a domain")
+            if t["boss"] not in bosses:
+                raise SystemExit(f"{where}: throne boss {t['boss']!r} is not a bosses.toml [[boss]]")
+            if "statue" in t and t["statue"] not in statues:
+                raise SystemExit(f"{where}: throne statue {t['statue']!r} is not an npcs.toml [[hook]] or [[spot]] id")
+            if t["seat"] not in d.get("builds", []):
+                raise SystemExit(f"{where}: throne seat {t['seat']!r} must be one of the domain's builds")
+            roads = t.get("roads", sorted(modes))
+            if not roads or not set(roads) <= modes:
+                raise SystemExit(f"{where}: throne roads must be a non-empty subset of world.toml [rule] modes ({', '.join(sorted(modes))})")
+
+
 def render() -> dict[Path, str]:
     data = {}
     for path in sorted(SOURCES.glob("*.toml")):
@@ -1491,6 +1654,8 @@ def render() -> dict[Path, str]:
         from sidequests_check import check_sidequests  # noqa: E402 (tools/ is on sys.path above)
         check_sidequests(data["sidequests"], data)
     data["builds"], footprints = check_builds()
+    if "factions" in data:
+        check_domains(data["factions"], data, data["builds"])
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     grids = json.dumps(footprints, separators=(",", ":"), sort_keys=True)
     return {

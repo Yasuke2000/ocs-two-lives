@@ -1,0 +1,81 @@
+# Canon domains and respawning residents (world/domains.js, world/domain_commands.js, design/data/factions.toml [domains] and
+# per-faction `domain`; WP-W3 of design/architecture/world-state.md §6.6). Every `ttl domain expect` / `testbreak` / `testdoor`
+# and `ttl cast expect` prints "ttl: ..." when it does not hold.
+# `ttl world testmark` keeps the real chronicle out of it (the conflict opened here lives in the blank test world).
+# Needs Tempest placed (life/tempest.js, version 3): the green at 0 -7, Rigurd's hut at 25 -39, an unnamed goblin
+# (goblin_3) at 23 -29. The chunks round them are force-loaded so entities tick.
+# testbreak/testdoor run the game's own path (ServerPlayerGameMode.destroyBlock / useItemOn -> BlockEvents.broken /
+# rightClicked), on a block they put on the surface and clear again.
+# Expect in the log: "[ttl] domains: resident rigurd (Rigurd) came back at 25 ... (anchor, invulnerable)" and
+# "[ttl] domains: resident goblin_3 came back at 23 ...".
+# Verify in game (not asserted): a non-op player placing a block / pouring water / lighting fire in Tempest gets the red
+# "... protects ...: you cannot ... here." line; TNT on Tempest's green leaves the blocks; a chest in Tempest opens.
+ttl world testmark
+ttlbot spawn TtlBotDomA
+@sleep 2
+ttl reset TtlBotDomA
+kubejs stages add TtlBotDomA ttl.life2
+clear TtlBotDomA
+deop TtlBotDomA
+execute in minecraft:overworld run forceload add -16 -48 47 0
+execute in minecraft:overworld positioned 0 0 -7 positioned over motion_blocking_no_leaves run tp TtlBotDomA ~ ~ ~
+@sleep 3
+# Where the domains lie: Tempest round 0 0, Dwargon round its gate, nothing far beyond the ring (outside the continent),
+# nothing on the open continent between them.
+ttl domain expect at 0 0 tempest
+ttl domain expect at 200 200 tempest
+ttl domain expect at 434 -1036 dwargon
+ttl domain expect at 9000 0 none
+ttl domain expect at 600 0 none
+ttl domain check 0 -7
+ttl domain list
+# A non-member, non-op soul: no edits in Tempest, free outside the continent and on unprotected land.
+ttl domain expect TtlBotDomA edit 0 -7 no
+ttl domain expect TtlBotDomA edit 200 200 no
+ttl domain expect TtlBotDomA edit 9000 0 yes
+ttl domain expect TtlBotDomA edit 600 0 yes
+ttl domain testbreak TtlBotDomA 3 -9 kept
+# The door still opens for the same soul (block guard, not adventure mode).
+ttl domain testdoor TtlBotDomA 5 -9 opens
+# A member edits the capital's open land, not the canon build (the village box).
+kubejs stages add TtlBotDomA ttl.faction.tempest.member
+ttl domain expect TtlBotDomA edit 200 200 yes
+ttl domain expect TtlBotDomA edit 0 -7 no
+kubejs stages remove TtlBotDomA ttl.faction.tempest.member
+# The ruling nation (WP-W16 writes the stage) edits the whole domain.
+kubejs stages add TtlBotDomA ttl.faction.tempest.ruler
+ttl domain expect TtlBotDomA edit 0 -7 yes
+kubejs stages remove TtlBotDomA ttl.faction.tempest.ruler
+# The world opens a conflict over the faction: the guard is lifted (conflict_edit = all); closed again, it holds.
+ttl world conflict open tempest
+ttl domain expect TtlBotDomA edit 0 -7 yes
+ttl domain testbreak TtlBotDomA 3 -9 broken
+ttl world conflict close tempest
+ttl domain expect TtlBotDomA edit 0 -7 no
+ttl domain testbreak TtlBotDomA 3 -9 kept
+# Residents: Rigurd is an Invulnerable anchor and comes back within two checks of a kill (respawn_check_ticks 100).
+ttl domain respawn
+ttl domain residents
+ttl domain expect resident rigurd alive
+ttl domain expect invulnerable rigurd yes
+ttl cast expect hook_rigurd found
+kill @e[type=tensura:goblin,tag=ttl.resident.rigurd]
+@sleep 1
+ttl domain expect resident rigurd missing
+@sleep 15
+ttl domain expect resident rigurd alive
+ttl domain expect invulnerable rigurd yes
+ttl cast expect hook_rigurd found
+# An unnamed resident stays killable and comes back after the (test) delay.
+ttl domain expect invulnerable goblin_3 no
+ttl domain testdelay 5
+kill @e[type=tensura:goblin,tag=ttl.resident.goblin_3]
+@sleep 1
+ttl domain expect resident goblin_3 missing
+@sleep 15
+ttl domain expect resident goblin_3 alive
+ttl domain testdelay reset
+# Clean up.
+execute in minecraft:overworld run forceload remove -16 -48 47 0
+ttlbot remove TtlBotDomA
+ttl world testrestore

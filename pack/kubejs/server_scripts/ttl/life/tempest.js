@@ -23,7 +23,7 @@
 //    carry blocks only) and summon the goblin quarter's residents (TtlTempestExtras, generated/tempest_extras.js)
 //    on Tensura's own goblin spawn points: hobgoblins (EvoState 1; every goblin evolved when Rimuru named them),
 //    persistent, tagged RESIDENT. Residents from an earlier version are removed first, so each version spawns
-//    them once.
+//    them once; world/domains.js then tags them and keeps them (anchors Invulnerable, the rest respawned after death).
 const TTL_TEMPEST_VERSION = 3
 
 const TtlTempest = {
@@ -234,6 +234,8 @@ const TtlTempest = {
         `{PersistenceRequired:1b,EvoState:1,Tags:["${this.RESIDENT}"]${name}}`) > 0 ? 1 : 0
     }
     console.info(`[ttl] tempest: ${e.loot.length} loot containers, ${n}/${e.residents.length} goblin residents`)
+    // WP-W3: residents get their ttl.resident/ttl.npc.tempest tags (anchors Invulnerable) and the respawn loop's fresh start.
+    try { if (typeof TtlDomains !== 'undefined') TtlDomains.residentsPlaced(server) } catch (err) { console.error(`[ttl] tempest: resident hand-off to domains failed: ${err}`) }
   },
 
   place(server, done) {
