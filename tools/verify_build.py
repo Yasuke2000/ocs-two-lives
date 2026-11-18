@@ -58,6 +58,14 @@ IGNORED_BY_SUFFIX = {
 GROWS = ("wheat", "carrots", "potatoes", "beetroots", "_stem", "sweet_berry_bush", "cocoa", "nether_wart",
          "kelp", "cave_vines", "bamboo", "sugar_cane", "cactus", "twisting_vines", "weeping_vines", "torchflower_crop",
          "pitcher_crop", "chorus_flower")
+# Default values of properties a structure state may leave out (the block is placed in its default state):
+# pillars and logs stand upright, stairs/trapdoors/slabs sit at the bottom, doors and tall plants start with the
+# lower half, containers and doors are closed, vines and other multiface blocks have no faces unless listed.
+DEFAULTS = {"axis": {"y"}, "half": {"bottom", "lower"}, "type": {"bottom", "single", "normal"},
+            "open": {"false"}, "has_book": {"false"}, "signal_fire": {"false"}, "occupied": {"false"},
+            "hanging": {"false"}, "hinge": {"left"}, "unstable": {"false"}, "rotation": {"0"},
+            "north": {"false"}, "south": {"false"}, "east": {"false"}, "west": {"false"}, "up": {"false"},
+            "down": {"false"}}
 # Blocks the world swaps by itself: grass dies under cover and spreads onto dirt, farmland dries out.
 SOFT = [{"minecraft:grass_block", "minecraft:dirt"}, {"minecraft:farmland", "minecraft:dirt"},
         {"minecraft:air", "minecraft:cave_air", "minecraft:void_air"}]
@@ -124,6 +132,20 @@ def normalize(state: str) -> str:
     return name + ("[" + ",".join(f"{k}={v}" for k, v in sorted(kept.items())) + "]" if kept else "")
 
 
+def default_equal(want: str, got: str) -> bool:
+    """`got` is `want` with the properties the structure left out filled in with their defaults.
+
+    Our blueprints write states without default properties (`quartz_pillar`, `oak_stairs[facing=north]`); the block
+    goes in as its default state and a capture lists every property (`quartz_pillar[axis=y]`, `half=bottom`).
+    Only a value in DEFAULTS counts, so `oak_log` -> `oak_log[axis=x]` is still a mismatch.
+    """
+    wn, wp = split(normalize(want))
+    gn, gp = split(normalize(got))
+    if wn != gn or any(gp.get(k) != v for k, v in wp.items()):
+        return False
+    return all(v in DEFAULTS.get(k, ()) for k, v in gp.items() if k not in wp)
+
+
 def soft_equal(a: str, b: str) -> bool:
     na, nb = split(a)[0], split(b)[0]
     return any(na in group and nb in group for group in SOFT)
@@ -137,7 +159,7 @@ def compare(expected: dict, actual: dict) -> dict:
         got = actual.get(pos, "(not captured)")
         if got == want:
             exact += 1
-        elif got != "(not captured)" and normalize(got) == normalize(want):
+        elif got != "(not captured)" and (normalize(got) == normalize(want) or default_equal(want, got)):
             adjusted += 1
         elif got != "(not captured)" and soft_equal(got, want):
             soft += 1

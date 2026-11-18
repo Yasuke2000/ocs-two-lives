@@ -96,6 +96,28 @@ class CompareTests(unittest.TestCase):
         self.assertIn("facing=north", want)
         self.assertIn("facing=south", got)
 
+    def test_left_out_properties_are_their_defaults(self):
+        expected = {
+            (0, 0, 0): "minecraft:quartz_pillar",
+            (1, 0, 0): "minecraft:stone_brick_stairs[facing=north]",
+            (2, 0, 0): "minecraft:vine[west=true]",
+            (3, 0, 0): "minecraft:barrel[facing=up]",
+            (4, 0, 0): "minecraft:oak_log",
+            (5, 0, 0): "minecraft:stone_brick_stairs[facing=north]",
+        }
+        actual = {
+            (0, 0, 0): "minecraft:quartz_pillar[axis=y]",
+            (1, 0, 0): "minecraft:stone_brick_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+            (2, 0, 0): "minecraft:vine[east=false,north=false,south=false,up=false,west=true]",
+            (3, 0, 0): "minecraft:barrel[facing=up,open=false]",
+            # not defaults: a log on its side and an upside-down stair are real differences
+            (4, 0, 0): "minecraft:oak_log[axis=x]",
+            (5, 0, 0): "minecraft:stone_brick_stairs[facing=north,half=top,shape=straight,waterlogged=false]",
+        }
+        r = vb.compare(expected, actual)
+        self.assertEqual(r["adjusted"], 4)
+        self.assertEqual(r["mismatched"], 2)
+
     def test_positions_outside_the_blueprint_do_not_count(self):
         # Tempest defines its whole box (air included); a sparse build leaves the rest to the world.
         expected = {(0, 0, 0): "minecraft:stone", (1, 0, 0): "minecraft:air"}
