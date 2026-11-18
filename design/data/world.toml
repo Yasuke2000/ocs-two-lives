@@ -14,9 +14,9 @@ voice_per_login = 3          # Voice lines of milestones a soul has not heard ye
 first_story = "{names} are the first souls of this world to defeat {boss}."   # #story line for a world first ({names}, {boss}); "" = none
 # Kill ids that are not a [[boss]] of bosses.toml but may be noted as a kill (WP-W14's famine bands) and counted by a milestone.
 kill_kinds = ["horde_band"]
-# Factions a milestone names before factions.toml defines them (Eurazania, Carrion's throne: WP-W3/WP-W16). gen_data warns,
-# the scripts carry the conflict/mood as data; nothing reads it until the faction exists.
-pending_factions = ["eurazania"]
+# Factions a milestone names before factions.toml defines them. gen_data accepts them; the scripts carry the conflict/mood as
+# data and nothing reads it until the faction exists. Empty since WP-W3 added Eurazania to factions.toml.
+pending_factions = []
 
 [continent]                  # §2.0 (R11); the test itself is the canon grid's ownerCell(x, z) != 0, these name the exceptions
 overworld = "minecraft:overworld"

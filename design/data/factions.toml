@@ -46,6 +46,33 @@ stage = {}                                                          # any other 
 band = { hostile = -5, unfriendly = -2, neutral = 0, friendly = 3, honored = 8, exalted = 15 }   # per faction
 unique = { common = 4, rare = 10, legendary = 25 }                  # skills.toml rarities
 
+# Canon domains (world/domains.js; design/architecture/world-state.md §6.6, H1, H4; WP-W3). A block guard, not adventure
+# mode: inside a domain on the canon continent a player who may not edit there cannot break or place blocks, use the items
+# below on blocks, and explosions spare its blocks. Doors, chests, crafting stations and NPC dialogue keep working.
+# Outside the continent (the ring, the free lands, tensura:boss_area and every dimension world.toml does not call inside)
+# nothing here applies. Who may edit: ops (staff_level), the ruling nation of the faction (WP-W16), members as member_edit
+# allows, everyone as conflict_edit allows while the world chronicle has a conflict over the faction open.
+[domains]
+enabled = true
+capital_radius = 256            # default square round a capital (blocks each way); Tempest's 192x192 growth square fits inside
+member_edit = "land"            # faction members (stage ttl.faction.<f>.member): none | land (the capital square outside its
+                                # canon builds and landmarks; WP-W16 narrows it to Public Works) | all
+conflict_edit = "all"           # while TtlChronicle.conflict(<f>) is open: none | land | all (owner: protected UNTIL a conflict)
+staff_level = 2                 # permission level that is never stopped
+unowned_builds = true           # canon builds no faction lists are protected too (no members, never lifted): closes H4
+unowned_skip = []               # build names left open anyway
+use_items = ["minecraft:flint_and_steel", "minecraft:fire_charge", "minecraft:bone_meal", "minecraft:shears"]
+use_suffixes = ["bucket", "_axe", "_hoe", "_shovel"]   # item ids ending so (fluids, stripping, tilling, paths)
+use_exempt = ["minecraft:milk_bucket"]
+warn_seconds = 5                # the "you cannot ... here" line, at most once per this many seconds per player
+refresh_seconds = 10            # the domain list (placed builds and landmarks) is re-read this often
+# Residents (H1, R9): Tempest's goblins come back. Anchors (canon characters) are Invulnerable and come back at the second
+# check that finds them gone; the others stay killable (kill_penalty.npc) and come back respawn_minutes after.
+invulnerable = "named"          # named (Rigurd, Rigur, Gobta, Haruna) | all | none
+respawn_minutes = 5
+respawn_check_ticks = 100       # the resident check (only residents whose chunk is loaded are judged)
+confirm_checks = 2              # checks in a row that must find a resident gone before it is summoned again
+
 # Fields of a faction:
 #   id            lowercase id, used in stages, scoreboards and commands
 #   title         shown to players
@@ -61,6 +88,18 @@ unique = { common = 4, rare = 10, legendary = 25 }                  # skills.tom
 #   [faction.seed]  starting reputation at rebirth: race = { <race id> = n }, axis = { <karma axis> = n } (n at
 #                   full axis score; scaled by axis score / rules.seed_axis_cap), dark = n when the soul is Dark
 #                   (karma chaos path). All matching entries add up, then the sum is clamped.
+#   territory     "domain" (default): only the domain below is protected; "region": the faction's whole canon letter
+#                 is (the knob for a land that should be sealed; owner decision O-W15: none ships so)
+#   domain        the canon nation's PROTECTED land (world/domains.js, design/architecture/world-state.md §6.6), on the canon
+#                 continent only: { capital = "tempest" | "dwargon" (the settlement) | "build:<name>" | "landmark:<name>" (the
+#                 placed one), or omitted (the faction's canon `capital`); capital_radius = n (a square of n blocks round the
+#                 capital, default [domains] capital_radius); builds = [design/builds names, "tempest", "dwargon"]; landmarks =
+#                 [landmarks.toml names] }. gen_data writes the nominal centre as domain.center. A build or landmark belongs
+#                 to one domain at most.
+#   throne        the ruler fight and the seated anchor of a canon throne (WP-W16 walks the road to it): { boss = <bosses.toml
+#                 id>, statue = <npcs.toml [[hook]] or [[spot]] id>, seat = <build name, "tempest" or "dwargon">, roads =
+#                 [world.toml [rule] modes] (default all; Tempest is vassal-only: it is the players' own capital) }. Omitted
+#                 where the throne needs a lore-named proxy boss first (Blumund, Falmuth: O-W18, WP-W16).
 
 [[faction]]
 id = "tempest"
@@ -72,6 +111,9 @@ npc_tags = ["ttl.npc.tempest"]
 npc_types = []
 kill_penalty = { npc = 15, player = 5 }
 decay_per_week = 1
+territory = "domain"
+domain = { capital = "tempest", builds = ["tempest", "sealed_cave", "spirit_gate", "treyni_shrine"], landmarks = ["goblin_village", "treyni_grove", "ogre_village_ruin"] }
+throne = { boss = "rimuru_ogre_fight", seat = "tempest", roads = ["vassal"] }
 [faction.seed]
 race = { slime = 20, goblin = 20, ogre = 10, hobgoblin = 10, lizardman = 5 }
 axis = {}
@@ -86,6 +128,11 @@ npc_tags = ["ttl.npc.dwargon"]
 npc_types = ["tensura:dwarf"]
 kill_penalty = { npc = 15, player = 5 }
 decay_per_week = 2
+territory = "domain"
+# Not the dwarf village on the Dwarven Road: its reach square (116) comes within a block of the Life 2 arrival (271, -624),
+# where newcomers must be able to gather and build (gen_data refuses a domain over the arrival).
+domain = { capital = "dwargon", builds = ["dwargon"] }
+throne = { boss = "gazel_dwargo", statue = "gazel_throne", seat = "dwargon" }
 [faction.seed]
 race = { dwarf = 20 }
 axis = { craft = 10 }
@@ -100,6 +147,8 @@ npc_tags = ["ttl.npc.blumund"]
 npc_types = []
 kill_penalty = { npc = 15, player = 5 }
 decay_per_week = 2
+territory = "domain"
+domain = { capital = "build:blumund", builds = ["blumund"] }
 [faction.seed]
 race = { human = 10 }
 axis = { order = 15 }
@@ -114,6 +163,8 @@ npc_tags = ["ttl.npc.falmuth"]
 npc_types = ["tensura:falmuth_knight"]
 kill_penalty = { npc = 15, player = 5 }
 decay_per_week = 2
+territory = "domain"
+domain = { capital = "build:marris", builds = ["marris"] }
 [faction.seed]
 race = { human = 10, orc = -10, goblin = -10 }
 axis = { valor = 10 }
@@ -128,6 +179,9 @@ npc_tags = ["ttl.npc.holy_church"]
 npc_types = []
 kill_penalty = { npc = 20, player = 5 }
 decay_per_week = 1
+territory = "domain"
+domain = { capital = "build:lubelius", builds = ["lubelius", "sacred_mountain"] }
+throne = { boss = "luminous_valentine", statue = "luminous_lubelius", seat = "lubelius" }
 [faction.seed]
 race = { human = 10, elf = 5, orc = -15, high_orc = -20, ghoul = -25, wight = -25, vampire = -40, lesser_daemon = -40 }
 axis = { order = 10, faith = 10 }
@@ -154,9 +208,35 @@ npc_tags = ["ttl.npc.lizardmen"]
 npc_types = []
 kill_penalty = { npc = 15, player = 5 }
 decay_per_week = 2
+territory = "domain"
+# 128, not 256: the Orc War battlefield (orc_camp, 1106 539) stays outside; it is the horde's ground (WP-W14).
+domain = { capital = "landmark:lizardmen_caverns", capital_radius = 128, landmarks = ["lizardmen_village", "lizardmen_caverns"] }
 [faction.seed]
 race = { lizardman = 20, dragonewt = 5 }
 axis = {}
+
+# Eurazania (獣王国ユーラザニア), the Beast Kingdom: Carrion the Beast Master's realm of beastmen south of Jura,
+# an agricultural, tropical land famous for its fruit, whose people honour strength (design/lore/world.md §B, laura.md;
+# tensura.fandom.com/wiki/Beast_Kingdom_of_Eurazania and /wiki/Carrion). Clayman's Walpurgis scheme set Milim on it and
+# its old capital fell; Tempest helped raise the new one, Laura (the `laura` build). Seeds: beastfolk souls start
+# Friendly (as dwarves with Dwargon) and the valor axis counts (our interpretation: Carrion and his Three Beastketeers
+# respect strength). Its throne is Carrion's; the walpurgis_held milestone (world.toml) opens the conflict over it.
+[[faction]]
+id = "eurazania"
+title = "Beast Kingdom of Eurazania"
+region = "B"
+capital = "Laura (Eurazania capital, rebuilt)"
+tensura_mirror = false
+npc_tags = ["ttl.npc.eurazania"]
+npc_types = []
+kill_penalty = { npc = 15, player = 5 }
+decay_per_week = 2
+territory = "domain"
+domain = { capital = "build:laura", builds = ["laura"] }
+throne = { boss = "carrion", statue = "carrion_laura", seat = "laura" }
+[faction.seed]
+race = { beastfolk = 20 }
+axis = { valor = 10 }
 
 [[faction]]
 id = "outcast"

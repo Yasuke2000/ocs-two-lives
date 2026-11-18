@@ -3155,10 +3155,58 @@ const TtlData = {
       "hostile": -50,
       "unfriendly": -20
     },
+    "domains": {
+      "capital_radius": 256,
+      "confirm_checks": 2,
+      "conflict_edit": "all",
+      "enabled": true,
+      "invulnerable": "named",
+      "member_edit": "land",
+      "refresh_seconds": 10,
+      "respawn_check_ticks": 100,
+      "respawn_minutes": 5,
+      "staff_level": 2,
+      "unowned_builds": true,
+      "unowned_skip": [],
+      "use_exempt": [
+        "minecraft:milk_bucket"
+      ],
+      "use_items": [
+        "minecraft:flint_and_steel",
+        "minecraft:fire_charge",
+        "minecraft:bone_meal",
+        "minecraft:shears"
+      ],
+      "use_suffixes": [
+        "bucket",
+        "_axe",
+        "_hoe",
+        "_shovel"
+      ],
+      "warn_seconds": 5
+    },
     "faction": [
       {
         "capital": "Tempest (Rimuru, capital of the Federation)",
         "decay_per_week": 1,
+        "domain": {
+          "builds": [
+            "tempest",
+            "sealed_cave",
+            "spirit_gate",
+            "treyni_shrine"
+          ],
+          "capital": "tempest",
+          "center": [
+            0,
+            -12
+          ],
+          "landmarks": [
+            "goblin_village",
+            "treyni_grove",
+            "ogre_village_ruin"
+          ]
+        },
         "id": "tempest",
         "kill_penalty": {
           "npc": 15,
@@ -3180,11 +3228,29 @@ const TtlData = {
           }
         },
         "tensura_mirror": false,
+        "territory": "domain",
+        "throne": {
+          "boss": "rimuru_ogre_fight",
+          "roads": [
+            "vassal"
+          ],
+          "seat": "tempest"
+        },
         "title": "Jura-Tempest Federation"
       },
       {
         "capital": "Dwargo (Dwargon cavern capital)",
         "decay_per_week": 2,
+        "domain": {
+          "builds": [
+            "dwargon"
+          ],
+          "capital": "dwargon",
+          "center": [
+            434,
+            -1036
+          ]
+        },
         "id": "dwargon",
         "kill_penalty": {
           "npc": 15,
@@ -3206,11 +3272,27 @@ const TtlData = {
           }
         },
         "tensura_mirror": true,
+        "territory": "domain",
+        "throne": {
+          "boss": "gazel_dwargo",
+          "seat": "dwargon",
+          "statue": "gazel_throne"
+        },
         "title": "Armed Nation of Dwargon"
       },
       {
         "capital": "Blumund capital (Londo)",
         "decay_per_week": 2,
+        "domain": {
+          "builds": [
+            "blumund"
+          ],
+          "capital": "build:blumund",
+          "center": [
+            -1024,
+            -120
+          ]
+        },
         "id": "blumund",
         "kill_penalty": {
           "npc": 15,
@@ -3230,11 +3312,22 @@ const TtlData = {
           }
         },
         "tensura_mirror": false,
+        "territory": "domain",
         "title": "Kingdom of Blumund"
       },
       {
         "capital": "Marris (Falmuth capital)",
         "decay_per_week": 2,
+        "domain": {
+          "builds": [
+            "marris"
+          ],
+          "capital": "build:marris",
+          "center": [
+            -1286,
+            -1040
+          ]
+        },
         "id": "falmuth",
         "kill_penalty": {
           "npc": 15,
@@ -3258,11 +3351,23 @@ const TtlData = {
           }
         },
         "tensura_mirror": false,
+        "territory": "domain",
         "title": "Kingdom of Falmuth"
       },
       {
         "capital": "Holy City Lubelius (Lune)",
         "decay_per_week": 1,
+        "domain": {
+          "builds": [
+            "lubelius",
+            "sacred_mountain"
+          ],
+          "capital": "build:lubelius",
+          "center": [
+            -3977,
+            -659
+          ]
+        },
         "id": "holy_church",
         "kill_penalty": {
           "npc": 20,
@@ -3290,6 +3395,12 @@ const TtlData = {
           }
         },
         "tensura_mirror": false,
+        "territory": "domain",
+        "throne": {
+          "boss": "luminous_valentine",
+          "seat": "lubelius",
+          "statue": "luminous_lubelius"
+        },
         "title": "Western Holy Church"
       },
       {
@@ -3319,6 +3430,18 @@ const TtlData = {
       {
         "capital": "Lizardmen's caverns (Gabiru, Avalos)",
         "decay_per_week": 2,
+        "domain": {
+          "capital": "landmark:lizardmen_caverns",
+          "capital_radius": 128,
+          "center": [
+            926,
+            398
+          ],
+          "landmarks": [
+            "lizardmen_village",
+            "lizardmen_caverns"
+          ]
+        },
         "id": "lizardmen",
         "kill_penalty": {
           "npc": 15,
@@ -3337,7 +3460,48 @@ const TtlData = {
           }
         },
         "tensura_mirror": false,
+        "territory": "domain",
         "title": "Lizardmen of Lake Siss"
+      },
+      {
+        "capital": "Laura (Eurazania capital, rebuilt)",
+        "decay_per_week": 2,
+        "domain": {
+          "builds": [
+            "laura"
+          ],
+          "capital": "build:laura",
+          "center": [
+            1689,
+            1302
+          ]
+        },
+        "id": "eurazania",
+        "kill_penalty": {
+          "npc": 15,
+          "player": 5
+        },
+        "npc_tags": [
+          "ttl.npc.eurazania"
+        ],
+        "npc_types": [],
+        "region": "B",
+        "seed": {
+          "axis": {
+            "valor": 10
+          },
+          "race": {
+            "beastfolk": 20
+          }
+        },
+        "tensura_mirror": false,
+        "territory": "domain",
+        "throne": {
+          "boss": "carrion",
+          "seat": "laura",
+          "statue": "carrion_laura"
+        },
+        "title": "Beast Kingdom of Eurazania"
       },
       {
         "decay_per_week": 0,
@@ -6377,9 +6541,7 @@ const TtlData = {
       ],
       "log_size": 300,
       "max_json": 60000,
-      "pending_factions": [
-        "eurazania"
-      ],
+      "pending_factions": [],
       "sync_ticks": 6000,
       "voice_per_login": 3
     },
