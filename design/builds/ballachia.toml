@@ -1,0 +1,10 @@
+name = "ballachia"
+title = "Ballachia — The Freed Travellers' Yard"
+landmark = "Ballachia"
+anchor = [38, 4, 41]
+ground = "survey"
+search = 32
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+notes = "Former Orthrus exchange on the eastbound road, after Masayuki's visit. See design/lore/ballachia.md."

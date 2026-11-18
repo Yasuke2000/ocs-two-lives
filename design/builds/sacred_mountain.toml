@@ -1,0 +1,10 @@
+name = "sacred_mountain"
+title = "Sacred Mountain — the seal of the Inner Sanctum"
+landmark = "Sacred Mountain (Inner Sanctum, Luminous)"
+anchor = [40, 4, 76]
+ground = "survey"
+search = 48
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+margin = 8

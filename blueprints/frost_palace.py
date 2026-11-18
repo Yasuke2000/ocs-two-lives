@@ -1,0 +1,181 @@
+"""Guy Crimson's Frost Palace entrance, seen from the Ice Continent. SIZE (85, 51, 69);
+anchor (42, 4, 65) on the south approach, looking north. Three z slabs. The white masonry
+shows through Velzard's ice. A causeway crosses a frozen cleft to a pointed gate, guarded
+by two faceted towers. Packed ice, blue ice, quartz, snow, red glass and sea lanterns.
+References: Fuse, light novel vol. 16, epilogue; Tensura Wiki, Frost Palace and Ice
+Continent; the pack's political map. Sources and architectural interpretation in
+design/lore/frost_palace.md.
+"""
+import math
+
+import blueprint
+from _dwargon_lib import AIR
+from _lords_lib import M, fill, fill_air, light_pass, stair
+
+SIZE = (85, 51, 69)
+PARTS = [0, 23, 46]
+C = 42
+
+ICE = M("packed_ice")
+BLUE = M("blue_ice")
+SNOW = M("snow_block")
+STONE = M("smooth_quartz")
+PILLAR = M("quartz_pillar[axis=y]")
+GLASS = M("light_blue_stained_glass")
+LAMP = M("sea_lantern")
+
+
+def snowfield(bp):
+    for x in range(SIZE[0]):
+        for z in range(SIZE[2]):
+            # A wind-cut cleft bends beneath the bridge. Its blue seam is visible through the arches.
+            offset = z - 46 - round(3 * math.sin(x / 9))
+            surface = 1 if abs(offset) <= 4 else 2 if abs(offset) <= 7 else 3
+            material = BLUE if abs(offset) <= 1 else ICE if abs(offset) <= 6 else SNOW
+            fill(bp, x, 0, z, x, surface, z, ICE)
+            bp.set(x, surface, z, material)
+
+
+def shard(bp, x, z, base, radius, height, lean):
+    for i in range(height):
+        r = max(0, math.ceil(radius * (1 - i / (height - 1))))
+        mid = x + round(lean * i / (height - 1))
+        for dx in range(-r, r + 1):
+            for dz in range(-r + abs(dx), r - abs(dx) + 1):
+                face = BLUE if dx < 0 else ICE
+                if dx == 0 and dz >= 0:
+                    face = GLASS
+                bp.set(mid + dx, base + i, z + dz, face)
+
+
+def crossing(bp):
+    for z in range(32, 69):
+        deck = min(7, max(3, 66 - z))
+        for x in range(C - 7, C + 8):
+            edge = abs(x - C)
+            # Pairs of piers carry three open spans. The solid path at the ends meets the snow.
+            if z < 37 or z >= 58 or z in (42, 43, 50, 51) and edge >= 5:
+                fill(bp, x, 2, z, x, deck - 1, z, ICE)
+            material = STONE
+            if 59 < z < 63 or edge == 7:
+                material = M("quartz_bricks")
+            if 59 <= z <= 62:
+                material = stair("quartz", "north")
+            if edge == 5 and z < 59:
+                material = LAMP if z % 6 == 0 else BLUE
+            bp.set(x, deck, z, material)
+            if edge == 7 and 36 <= z <= 58:
+                bp.set(x, deck + 1, z, M("quartz_slab[type=bottom]"))
+                if z in (36, 43, 51, 58):
+                    bp.set(x, deck + 1, z, STONE)
+                    bp.set(x, deck + 2, z, LAMP)
+                    bp.set(x, deck + 3, z, M("quartz_slab[type=bottom]"))
+
+    # A compass cut into the bridge marks the centre of the frozen channel.
+    for dx in range(-4, 5):
+        for dz in range(-4, 5):
+            if dx == 0 or dz == 0 or abs(dx) == abs(dz) and abs(dx) <= 2:
+                bp.set(C + dx, 7, 47 + dz, LAMP if dx == dz == 0 else BLUE)
+
+
+def lintel_height(dx):
+    return 25 - abs(dx) if abs(dx) < 8 else 7
+
+
+def vestibule(bp):
+    # A pointed barrel vault spans the north-south audience approach. Repeated ribs are
+    # carried down to the floor; the narrow bay between each pair holds a lancet window.
+    for z in range(6, 36):
+        rib = z in (6, 13, 20, 27, 34, 35)
+        for dx in range(-12, 13):
+            x = C + dx
+            edge = abs(dx)
+            fill(bp, x, 3, z, x, 7, z, STONE)
+            if edge < 10:
+                bp.set(x, 7, z, BLUE if edge == 7 else STONE)
+                if edge == 7 and z % 6 == 1:
+                    bp.set(x, 7, z, LAMP)
+                if edge <= 2 and z < 32:
+                    bp.set(x, 7, z, M("red_wool"))
+            ceiling = 31 - edge
+            if edge >= 10:
+                fill(bp, x, 8, z, x, ceiling, z, ICE)
+                if not rib:
+                    fill(bp, x, 11, z, x, 16 - abs((z - 6) % 7 - 3), z, GLASS)
+            bp.set(x, ceiling, z, STONE if rib else GLASS)
+            if rib:
+                bp.set(x, ceiling - 1, z, PILLAR if edge >= 9 else STONE)
+            if z in (6, 34, 35):
+                # Masonry above and around the pointed doorway on both ends.
+                for y in range(lintel_height(dx) + 1, ceiling + 1):
+                    material = STONE if y <= lintel_height(dx) + 2 or edge >= 10 else ICE
+                    bp.set(x, y, z, material)
+        if rib:
+            for x in (C - 9, C + 9):
+                fill(bp, x, 8, z, x, 22, z, PILLAR)
+                bp.set(x, 12, z, LAMP)
+    # The crimson lozenge sits in a second, glazed pointed arch above the gate.
+    for dx in range(-3, 4):
+        for dy in range(-3 + abs(dx), 4 - abs(dx)):
+            bp.set(C + dx, 28 + dy, 35, M("red_stained_glass") if abs(dx) + abs(dy) < 2 else STONE)
+    # A small snow terrace receives visitors passing the northern arch.
+    for z in range(0, 7):
+        y = min(7, 3 + z)
+        for dx in range(-8, 9):
+            fill(bp, C + dx, 2, z, C + dx, y - 1, z, ICE)
+            bp.set(C + dx, y, z, stair("quartz", "south") if 1 <= z <= 4 else STONE)
+
+
+def spire(bp, cx, cz, radius, shoulder, tip):
+    # The octagonal stone core breaks through the ice on its eight corners. Staggered
+    # horizontal ledges read as stone courses behind the long blue facets.
+    for y in range(3, tip + 1):
+        if y < shoulder:
+            r = radius + int(y in (7, shoulder - 2, shoulder - 1))
+        else:
+            r = math.ceil((radius + 1) * (tip - y) / (tip - shoulder))
+        for dx in range(-r, r + 1):
+            for dz in range(-r, r + 1):
+                if abs(dx) + abs(dz) > r + r // 2:
+                    continue
+                if y < shoulder:
+                    state = ICE
+                    if y in (7, shoulder - 2, shoulder - 1) or abs(dx) + abs(dz) >= r + r // 2:
+                        state = STONE
+                    if (dx == 0 or dz == 0) and 12 <= y < shoulder - 3:
+                        state = LAMP if y % 6 == 0 else GLASS
+                else:
+                    state = BLUE if dx < 0 else ICE
+                    if dx == 0 or dz == 0:
+                        state = STONE
+                bp.set(cx + dx, y, cz + dz, state)
+    bp.set(cx, tip, cz, LAMP)
+
+
+def build(bp):
+    # Keep ice recognisable in this repo's schematic renderer.
+    for key, rgb in (("packed_ice", (164, 198, 240)), ("blue_ice", (105, 150, 219))):
+        if not any(existing == key for existing, _ in blueprint._COLORS):
+            blueprint._COLORS.append((key, rgb))
+    fill_air(bp, 0)
+    snowfield(bp)
+    crossing(bp)
+    vestibule(bp)
+    for sign in (-1, 1):
+        spire(bp, C + sign * 17, 26, 6, 30, 49)
+        spire(bp, C + sign * 15, 10, 4, 21, 35)
+        # Splayed crystals lean away from the central gate on the windward shore.
+        for dx, z, r, height, lean in ((31, 28, 4, 18, 4), (25, 34, 3, 14, 3),
+                                        (34, 35, 2, 9, 2), (29, 55, 3, 10, 2),
+                                        (20, 59, 2, 6, 1)):
+            shard(bp, C + sign * dx, z, 3, r, height, sign * lean)
+    light_pass(bp, lambda x, y, z: abs(x - C) <= 10 and 6 <= z <= 35 and y < 31 - abs(x - C),
+               8, lambda x, y, z: M("lantern[hanging=false]"), label="frost_palace")
+    # The placer clears above the highest solid block in each column. Keep explicit air
+    # under arches and vaults so terrain cannot fill them; omit the sky from the slabs.
+    for x in range(SIZE[0]):
+        for z in range(SIZE[2]):
+            for y in reversed(range(SIZE[1])):
+                if bp.blocks[x, y, z] != AIR:
+                    break
+                del bp.blocks[x, y, z]
