@@ -116,6 +116,11 @@ Use the story transitions to enter these dimensions. The Spirit Gate in the over
 | Spirit Corridor hall (`spirit_corridor_hall`) | `ttl:spirit_corridor` | 0.5, 0.5 | Arrival at Y 65 |
 | The Dwelling of the Spirits (`spirit_dwelling`) | `ttl:spirit_domain` | 0, 0 | Fixed anchor at Y 64 |
 | Test hut (`test_hut`) | `ttl:spirit_corridor` | 2500, 0 | Fixed anchor at Y 64 |
+| Walpurgis Hall (`walpurgis_hall`) | `ttl:walpurgis` | 0, 0 | Fixed arrival at Y 64 beside the council chamber |
+| Walpurgis Banquet Floor (`walpurgis`) | `ttl:walpurgis` | 52, -39 | Fighting floor centre at Y 61, radius 17 |
+| Ramiris’s Labyrinth (`labyrinth`) | `tensura:labyrinth` | 16, 537 | Colossus hall centre at Y 38, fighting radius 38 |
+
+**Walpurgis and the Labyrinth.** In Life 2, the throne dais in Clayman’s Castle opens the way to Walpurgis Hall for Legendary skill holders, players with the Demon Lord or True Hero story stage, invited guests and fighters booked for Walpurgis. The Banquet Floor is beside the council chamber. A Labyrinth match takes you directly to Ramiris’s Colossus hall once the room has generated. [Matches and entry](arenas.md) · [Arena settings](../../../design/data/arenas.toml)
 
 All ten Trial of the Soul arenas are in **`ttl:spirit_corridor`**. Each row gives the arena centre. Your Last Wish sends you to its own starting tile inside the corresponding arena. [Trial definitions](../../../pack/kubejs/server_scripts/ttl/life/trial_defs.js)
 

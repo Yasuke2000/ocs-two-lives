@@ -116,6 +116,11 @@ Via de verhaallijn kom je in deze dimensies. Zodra de Woonplaats van de Geesten 
 | Hal van de Geestencorridor (`spirit_corridor_hall`) | `ttl:spirit_corridor` | 0.5, 0.5 | Aankomst op Y 65 |
 | Woonplaats van de Geesten (`spirit_dwelling`) | `ttl:spirit_domain` | 0, 0 | Vast anker op Y 64 |
 | Testhut (`test_hut`) | `ttl:spirit_corridor` | 2500, 0 | Vast anker op Y 64 |
+| Walpurgishal (`walpurgis_hall`) | `ttl:walpurgis` | 0, 0 | Vaste aankomstplek op Y 64, bij de raadszaal |
+| Banketvloer van Walpurgis (`walpurgis`) | `ttl:walpurgis` | 52, -39 | Midden van de gevechtsvloer op Y 61, straal 17 |
+| Labyrint van Ramiris (`labyrinth`) | `tensura:labyrinth` | 16, 537 | Midden van de Colossushal op Y 38, gevechtsstraal 38 |
+
+**Walpurgis en het Labyrint.** In Leven 2 geeft de troonverhoging in Claymans kasteel toegang tot de Walpurgishal voor wie een legendarische skill, de verhaalstatus Demon Lord of True Hero, een geldige uitnodiging of een geboekte Walpurgis-wedstrijd heeft. De banketvloer ligt naast de raadszaal. Voor een wedstrijd in het Labyrint word je rechtstreeks naar Ramiris’ Colossushal gebracht zodra de zaal is gegenereerd. [Wedstrijden en deelname](arenas.md) · [Arena-instellingen](../../../design/data/arenas.toml)
 
 Alle tien zielenproeven vinden plaats in **`ttl:spirit_corridor`**. Elke rij geeft het midden van een arena. Je Laatste Wens bepaalt naar welk startvak in de bijbehorende arena je wordt gestuurd. [Instellingen van de proeven](../../../pack/kubejs/server_scripts/ttl/life/trial_defs.js)
 
