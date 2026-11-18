@@ -7,7 +7,7 @@ outside the south gate, facing north.
 Our interpretation of a place canon only says that Milim destroyed the old capital and Tempest helped build the new
 one: a tropical timber-and-stone town inside a young stone wall (the lesson of the attack; Tempest blue
 banners on the gate). From the south: the gate (opening x 52-60, two round towers with thatch cones, four corner
-towers), a stone avenue (x 52-60) north to the fruit market plaza (centre 56, 66, radius 13: a fountain, twelve
+towers), a stone avenue (x 52-60) north to the fruit market plaza (centre 56, 66, radius 13: a fountain, eight
 canopied stalls of melons and berries), then the Beast King's palace on a stone terrace (x 28-84, z 4-48, top
 y 7): a great gabled hall of stripped jungle timber and bamboo with a thatch roof to y 32 (hall x 44-68, z 10-44,
 walls to y 14), a lion's head (Carrion is a lion beastman) in the south gable, a colonnade of totem pillars, and
@@ -95,10 +95,10 @@ def terrace():
     for x in range(51, 62):
         put(bp, x, PW, 48, AIR)
     # lamp posts on the terrace corners and along the front
-    for x in range(32, 82, 8):
-        for k in range(1, 4):
+    for x in (32, 40, 48, 64, 72, 80):
+        for k in range(3):
             put(bp, x, PW + k, 46, M("stone_brick_wall"))
-        put(bp, x, PW + 4, 46, LANTERN)
+        put(bp, x, PW + 3, 46, LANTERN)
     # garden pool behind the hall (north)
     for x in range(50, 63):
         for z in range(6, 9):
@@ -355,8 +355,10 @@ def stilt_house(hx, hz, face):
     for y in (F + 4, F + 5):
         put(bp, door[0], y, door[1], AIR)
     # a ladder from the ground to the door sill, on the outside
-    lad = {"n": (door[0], door[1] - 1, "south"), "s": (door[0], door[1] + 1, "north"),
-           "e": (door[0] + 1, door[1], "west"), "w": (door[0] - 1, door[1], "east")}[face]
+    lad = {"n": (door[0], door[1] - 1, "north"), "s": (door[0], door[1] + 1, "south"),
+           "e": (door[0] + 1, door[1], "east"), "w": (door[0] - 1, door[1], "west")}[face]
+    for y in range(F, F + 3):
+        put(bp, door[0], y, door[1], M("jungle_log[axis=y]"))
     for y in range(F, F + 4):
         put(bp, lad[0], y, lad[1], f"minecraft:ladder[facing={lad[2]}]")
     gable_z(x0 - 1, x0 + 5, z0 - 1, z0 + 5, F + 7, tstairs, THATCH)

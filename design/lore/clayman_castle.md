@@ -4,9 +4,7 @@ The build reference for the seat of the Demon Lord Clayman, "Crazy Pierrot", in 
 (anime season 2, the Walpurgis arc; light novel vol. 6–7). Geography and placement are in [world.md](world.md) §P,
 the placement contract in `design/builds/clayman_castle.toml`. Read this before changing the blueprint.
 
-**Research note (18/11/2026).** tensura.fandom.com returns HTTP 402 to direct fetches and fetching its mirrors was
-not allowed, so the canon below comes from search-engine extracts of episode reviews and from world.md. Canon barely
-describes the castle's looks; almost everything visual is *our interpretation* and marked so.
+The official anime episode *Adalman, the Index Finger* follows Shuna’s party to Clayman’s stronghold. Jistav’s capital Amrita is an underground ancient ruin with magical defences. This landmark depicts the castle approach and keep. The moat, roofline, pierrot masks and throne-room plan are our interpretation. [Official episode gallery](https://www.ten-sura.com/anime/tensura/story/no48) · [Japanese Wikipedia, Jistav](https://ja.wikipedia.org/wiki/転生したらスライムだった件#ジスターヴ)
 
 ## Facts the build follows
 

@@ -3,9 +3,7 @@
 The build reference for Milim Nava's capital. Geography and placement are in [world.md](world.md) §M, the placement
 contract in `design/builds/forgotten_dragon_city.toml`. Read this before changing the blueprint.
 
-**Research note (18/11/2026).** tensura.fandom.com returns HTTP 402 to direct fetches and fetching its mirrors was
-not allowed, so the facts below come from search-engine extracts of the wiki pages and from world.md. Canon says what
-the city is and how it is run, not what it looks like: the architecture is *our interpretation*.
+The geography entry names Milim’s territory, its central temple, the priests’ redistribution of what residents produce, and a population below 100,000. This is the basis for the distribution hall and granaries. The skull gate, rib arches and stepped temple are our interpretation. [Japanese Wikipedia, City of the Forgotten Dragon](https://ja.wikipedia.org/wiki/転生したらスライムだった件#竜の都)
 
 ## Facts the build follows
 

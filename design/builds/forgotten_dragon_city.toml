@@ -1,14 +1,14 @@
 name = "forgotten_dragon_city"
 title = "City of the Forgotten Dragon — Milim's domain"
 landmark = "City of the Forgotten Dragon (Milim)"
-# The landmark pixel converts to (1760, 600), on the western edge of Milim's land with Jura and the Ameld river in
-# the box. Moved 104 blocks south-east, where the box is 97% Milim's land and no water.
-x = 1780
-z = 684
+# The current political-map dot (2462, 839) is on the Ameld. Survey the dry Milim bank.
+x = 2502
+z = 607
 anchor = [60, 5, 118]
 ground = "survey"
-search = 64
+search = 32
+margin = 10
 dimension = "minecraft:overworld"
-version = 1
+version = 2
 clear_above = true
 notes = "Dragon-skull temple gate, rib-arch avenue, granaries and thatch huts; blueprints/forgotten_dragon_city.py, lore in design/lore/forgotten_dragon_city.md."
