@@ -774,7 +774,7 @@ hash = "aa3eb9ebac61ccc622043a575be0dcb19f3f288a85d8f12debe169e42b1dccd4"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_elen.npc.snbt"
-hash = "d191261df9f49db4b2cfd6f76261614fcea56edf5c4bf4f1e03f3f39395118ab"
+hash = "b99cadb7652df81d992420abde135f70f2bd90bb25e783a8da6600354b4f773b"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_frey.npc.snbt"
@@ -826,7 +826,7 @@ hash = "696f1c76c103955acd6c94070f609abd391ad32d8bebf8486374211113f1cae7"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_razen.npc.snbt"
-hash = "f19a23670b4ece8ee0288de51144a8823b661921d28d14f27bd3d843ef20b6eb"
+hash = "39c2da96b8a17eb7553adbb8012445982a62000cd32970aa00af95df22999c91"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_shion.npc.snbt"
@@ -846,11 +846,11 @@ hash = "3d8b533897a29d957a2f70c44f39becf9025f0cbd9cb75b8b679410d081b9196"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_yuuki.npc.snbt"
-hash = "ce158080e8779b54584a5f3e85c852da7ea51d691ca40b707b134ff130c0cdce"
+hash = "013fdcfb2ebe262d650552adaa60f3fdaabfe1cac28dcce4b877cced722acea6"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_guild_fuze.npc.snbt"
-hash = "a23f41a997a4575e92b9782222c9aad4fc65eb91b2aed0e092c364a0b0a3ead5"
+hash = "75c197c3d64bcabc5c647db902cca09fd1bc9638edbb9fae71947b64ff6dcaf6"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_guild_receptionist.npc.snbt"
@@ -934,7 +934,7 @@ hash = "fa792420b8546bafa3673aa2aac7dc21cac295c6038694d0b45c9b50ef692304"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "4524734dea6aaf7787e4955b7c2ffdf2061037782316864dbfd86dd48e9abd9a"
+hash = "420df74a8a349abaf8dea67f4d66fe8cbf2a98a2f3d26ca36fb1385bf1aca2e6"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
@@ -1322,7 +1322,7 @@ hash = "19558c53e35282b9062ca492ba6a65290a40812d1a3d0c8fd2197832e7ecface"
 
 [[files]]
 file = "config/ttl/canon_regions.json"
-hash = "8aafbd22bc7de6897eb2b3a30b6faf88719a566657812e0c84847fbd03a2f65b"
+hash = "a49d1234cbe245cdcbd6d4355b8463fb8805129731d831f0c736bad7234d64b9"
 
 [[files]]
 file = "config/vanilla_structures/placement_structure_config.json5"
@@ -1914,7 +1914,7 @@ hash = "01896f2aad3bc265bbb3274ab0730e264125115e429e55c8a7adda618077c417"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/era/era.js"
-hash = "b621a8ad0b14174c868b703d01224dd52910afa118951ff22f3eefaaca6f84dc"
+hash = "3f2b4a45586352f4f8d5a1b2005f0f2b4569b1af00817c7353e495991774b4e6"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/commands.js"
@@ -1934,7 +1934,7 @@ hash = "05d5e9afad43e2f2a5a9d6fffb768b3ad7e2aa2dbfe5858c4e4277ab0dba8e99"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "7787941df3fb766ad1e5a866ce202a3a43989a8414cd2085284d70dd7b3f32ba"
+hash = "c8edd035f144050d15b8865de6e93b9ab633279608c81575cab4cae4e15145dc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1978,7 +1978,7 @@ hash = "281b4f7c25f63bc8f01a351d4d7f292ba8ca1d99ef58698727424f879f3f62a1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/karma/view.js"
-hash = "89fbb4abaa38e3c87582c19c5336d0f0b6967f7f652574ea18eb77bcd4cbf972"
+hash = "f9958b7230e3b0f97e2c2e893322d5fb6a79eda96c0515d2ba8beeb0c6cc77c7"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/arrival.js"
@@ -2002,7 +2002,7 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "517710114437c098b23a0e4ac50b628c41b79b9466dd65aa824ad82a9543d4de"
+hash = "a6abe95ed443464912899ac5eda6b8054541cd149984e582069f87d97512930d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -2058,7 +2058,7 @@ hash = "17b2b4f560794f2763b850cc1e3e8c396a873ea0a988daa2ff5b731e7eb7f9fe"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
-hash = "3cd98457a57f3ab34d89b40e8c852c742c26a6057d51e7d0473ba9084a088300"
+hash = "de0161d3637cdb8fc81ab059afe9a6dc1acc74e6c185d509e270863097d4f9ee"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial_defs.js"
@@ -2114,7 +2114,7 @@ hash = "dbdcf85a6979080cb90d351ff461afb055c38d282b1ad4a15e0c51f4dbac534d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "8fcbab1e540b6874a7a438a4e6859b84b25b9a6ee8c01b8ff6f2433348ed5c4d"
+hash = "4295ef3096f3a190d04cf5045508f67f10b8f259f7398e6a6e70dcf349ba95d1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/commands.js"
@@ -2126,7 +2126,7 @@ hash = "4597ab49e946b0a0ef86e956c0e1f22efaf100e8dc938ff05eafea853006957b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/rep.js"
-hash = "6e511f1710c95a7223ac95f7cf3992d9f1f3f5986932c3703b5ebb7dfee0fcc2"
+hash = "b8ac1d302ba37a4eb0e250cd5aa38bd52dd8ad70b83e18cb811eaa7f29ce13ef"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/cast.js"

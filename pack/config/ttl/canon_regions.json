@@ -286,7 +286,7 @@
       ]
     },
     "P": {
-      "name": "Land of Puppets Jistav",
+      "name": "Puppet Nation of Jistav",
       "colour": [
         215,
         165,
@@ -344,22 +344,26 @@
         ]
       ],
       "temperature": 0.6,
-      "vegetation": -0.4,
+      "vegetation": -0.2,
       "erosion": -0.1,
       "strength": 0.8,
       "banner_subtitle": "ミリム領 — 忘れられた竜の都",
       "biomes": [
         [
           "minecraft:savanna",
-          2
-        ],
-        [
-          "minecraft:badlands",
-          2
+          3
         ],
         [
           "minecraft:savanna_plateau",
           2
+        ],
+        [
+          "minecraft:plains",
+          2
+        ],
+        [
+          "minecraft:badlands",
+          1
         ],
         [
           "minecraft:wooded_badlands",
@@ -370,11 +374,7 @@
           1
         ],
         [
-          "tensura:barren_land",
-          1
-        ],
-        [
-          "minecraft:desert",
+          "minecraft:sunflower_plains",
           1
         ]
       ]
@@ -481,7 +481,7 @@
       ]
     },
     "S": {
-      "name": "Sorcerous Empire of Sarion",
+      "name": "Sorcerous Dynasty of Sarion",
       "colour": [
         203,
         201,
@@ -530,7 +530,7 @@
       ]
     },
     "U": {
-      "name": "Ulgracia",
+      "name": "Republic of Ulgracia",
       "colour": [
         212,
         173,

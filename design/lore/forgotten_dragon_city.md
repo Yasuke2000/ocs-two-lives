@@ -1,20 +1,42 @@
 # City of the Forgotten Dragon: lore behind blueprints/forgotten_dragon_city.py
 
-The build reference for Milim Nava's capital. Geography and placement are in [world.md](world.md) §M, the placement
-contract in `design/builds/forgotten_dragon_city.toml`. Read this before changing the blueprint.
+The build reference for Milim Nava's capital (忘れられた竜の都). Geography and placement are in [world.md](world.md) §M,
+the placement contract in `design/builds/forgotten_dragon_city.toml`. Read this before changing the blueprint.
 
-The geography entry names Milim’s territory, its central temple, the priests’ redistribution of what residents produce, and a population below 100,000. This is the basis for the distribution hall and granaries. The skull gate, rib arches and stepped temple are our interpretation. [Japanese Wikipedia, City of the Forgotten Dragon](https://ja.wikipedia.org/wiki/転生したらスライムだった件#竜の都)
+**Research note (18/11/2026, lore pass).** tensura.fandom.com refuses direct fetches (HTTP 402; its BreezeWiki and
+antifandom mirrors sit behind a bot wall), so the wiki facts below come from search-engine extracts of the pages named
+under each row, plus the Japanese Wikipedia article and anibase character pages. Items marked *(our interpretation)*
+are ours. The full findings of the pass are in [lore-pass-2026-11.md](lore-pass-2026-11.md).
 
-## Facts the build follows
+## Where it is (canon)
+
+| Fact | Source |
+| --- | --- |
+| The city is "Milim Nava's domain, sitting south of Jura Forest and east of the Beast Kingdom of Eurazania" | [Fandom: City_of_the_Forgotten_Dragon](https://tensura.fandom.com/wiki/City_of_the_Forgotten_Dragon) (search extract) |
+| The Great Ameld River "flows all the way from the base of the Great Canaat Mountains into the southern ocean" and "feeds … the fertile plains that make up Milim Nava's territory on the southern edge of the continent" | [Fandom: Great_Ameld_River](https://tensura.fandom.com/wiki/Great_Ameld_River) (mirror extract) |
+| Milim's territory lies "at the eastern edge of the continent"; the temple in the capital "doubles as Milim Nava's castle" | [anibase, Middray](https://anibase.net/en/character/mOvy5/Middray), [anibase, Milim Nava](https://anibase.net/en/character/4dZxB/Milim-Nava) |
+| Milim "忘れられた竜の都に居城を持ち、民から信仰の対象として崇められている" (has her castle in the City of the Forgotten Dragon and is worshipped by its people) | [Japanese Wikipedia, ミリム・ナーヴァ](https://ja.wikipedia.org/wiki/転生したらスライムだった件) |
+| After Walpurgis Clayman's Jistav is jointly ruled by Rimuru and Milim; Carrion's Eurazania becomes her vassal state | world.md §P, Japanese Wikipedia (カリオン: Milim's vassal and commander) |
+
+On our map that puts the capital in region M, south of Jura, east of Eurazania (B) and south-west of Jistav (P). The
+landmark pixel [2244, 1295] converts to (2462, 839), inside the painted lake; the build surveys from (2340, 905) on the
+lake's western shore and the Ameld's south bank (see the toml for the reasoning).
+
+## What it is (canon)
 
 | Fact | How the build shows it | Source |
 | --- | --- | --- |
-| The city is Milim Nava's domain; fewer than 100,000 dragonewt citizens, managed by the Dragon Faithful | A town of round huts and open granaries, no walls and no barracks; a priests' pavilion on the temple | [Fandom: City_of_the_Forgotten_Dragon (search extract)](https://tensura.fandom.com/wiki/City_of_the_Forgotten_Dragon) |
-| No government; the system revolves around a Central Temple that distributes goods | The Central Temple (stepped pyramid) with a distribution hall (counter, barrels, hay) and two granaries on the avenue | same |
-| A primitive commune of those who worship Milim ("Dragon's Village") | Mud-brick huts with thatch cone roofs (Tensura thatch), campfires, dry wheat plots, a pond | [Fandom: Magic_Continent (search extract)](https://tensura.fandom.com/wiki/Magic_Continent) |
-| The domain is poor and underdeveloped until Tempest helps; dry, rugged savanna and badlands by a lake and the Great Ameld River | Savanna acacias, coarse dirt and packed mud, plain materials; no Tempest tech (a later version could add some) | [world.md](world.md) §M |
-| It is an old city: one source calls it the former capital of the Forgotten Dragon | The "forgotten dragon" is a dead ancient dragon whose skull is the temple gate and whose ribs arch over the avenue *(our interpretation)* | [Quote the Anime, Milim Nava](https://quotetheanime.com/reincarnated-as-a-slime/milim-nava/) |
-| Milim is the Demon Lord of the place and uses it as her base | A bone-and-pink-terracotta throne at the back of the distribution hall, pink banners (her hair colour, *our choice*) | [Fandom: Milim_Nava (search extract)](https://tensura.fandom.com/wiki/Milim_Nava) |
+| Milim's domain; fewer than 100,000 citizens, dragonewts, called "Dragon's Village" in the nation table | A town of round huts and open granaries, no walls and no barracks | [Fandom: Magic_Continent](https://tensura.fandom.com/wiki/Magic_Continent), [City_of_the_Forgotten_Dragon](https://tensura.fandom.com/wiki/City_of_the_Forgotten_Dragon) |
+| No government: the Dragon Faithful run daily life as worshippers of Milim; the economy runs through the **Central Temple**, where crops and goods are gathered and "handed out evenly by the head priest"; Middray holds the right to set the contributions, Hermes is his equal in strength | The Central Temple (stepped pyramid) with a distribution hall (counter, barrels, hay) and two granaries on the avenue; a priests' pavilion on the summit | [Fandom: Dragon_Faithful](https://tensura.fandom.com/wiki/Dragon_Faithful), [anibase, Hermes](https://anibase.net/en/character/moQMD/Hermes) |
+| The temple is Milim's castle | Milim's throne on the dais at the back of the temple hall (the Milim NPC stands before it, `npcs.toml`) | anibase (above), Japanese Wikipedia |
+| Milim took the dragonewts in and protected them; they built the city in her honour | Pink banners at the gate and by the throne (her colour, *our choice*) | [Fandom: Milim_Nava](https://tensura.fandom.com/wiki/Milim_Nava) |
+| A flock of wyverns lives in the city | **Not built yet** (idea: a wyvern roost on the temple's upper tiers) | [Fandom: Wyvern](https://tensura.fandom.com/wiki/Wyvern) |
+| The land is primitive and poor until Tempest develops it; a commune, not a kingdom | Mud-brick huts with thatch cone roofs (Tensura thatch), campfires, wheat plots, animal pens, a pond; no Tempest technology | world.md §M; light novel vol. 7–8 (Tempest's aid to Milim's domain) |
+| River-fed plains, warm south | Savanna acacias, coarse dirt and packed mud; the region palette gives savanna and plains round it | [Fandom: Great_Ameld_River](https://tensura.fandom.com/wiki/Great_Ameld_River) |
+| "Forgotten Dragon": the name most likely recalls the dragon that was Milim's friend, whose death drove her awakening (anime season 4 "Milim's Friend", light novel vol. 13 flashback) | The city grew inside the bones of a dead ancient dragon: skull gate, rib arches over the avenue *(our interpretation, a resonance, not a sourced fact)* | [Milim's Friend, season 4 episode 11](https://www.animeoshi.com/anime/that-time-i-got-reincarnated-as-a-slime-season-4/episode/11) |
+
+Canon gives no floor plan or architecture for the city; the stepped temple, the skull and ribs, the bone throne and
+the layout below are *our interpretation*.
 
 ## Layout in short (blueprint coordinates, south = +z)
 

@@ -33,12 +33,22 @@ const TtlCorridor = {
     server.runCommandSilent(`greatsage worldvoice ${name} ${clip} ${jp} ${en}`)
   },
 
+  // Canon register of the Voice (Great Sage): every line opens with a one-word header, 《告。》 Notice for a statement,
+  // Report, Answer, Confirmed, Warning where a caller says so. A line that already carries one is left alone;
+  // a question put to the soul (the Trial of Knowledge) is not a notice.
+  HEADERS: /^(Notice|Report|Answer|Confirmed|Warning|Question)\b/,
+
+  canon(text) {
+    var t = String(text)
+    return this.HEADERS.test(t) ? t : `Notice. ${t}`
+  },
+
   voice(server, name, text) {
-    server.runCommandSilent(`tellraw ${name} ${JSON.stringify([{ text: '[Voice of the World] ', color: 'gold' }, { text: text, color: 'yellow' }])}`)
+    server.runCommandSilent(`tellraw ${name} ${JSON.stringify([{ text: '[Voice of the World] ', color: 'gold' }, { text: this.canon(text), color: 'yellow' }])}`)
   },
 
   buttons(server, name, intro, items) {
-    var line = [{ text: `[Voice of the World] ${intro} `, color: 'gold' }]
+    var line = [{ text: `[Voice of the World] ${this.canon(intro)} `, color: 'gold' }]
     items.forEach(item => line.push({
       text: `[${item.label}]`,
       color: item.color || 'aqua',
@@ -353,7 +363,7 @@ const TtlCorridor = {
     server.scheduleInTicks(100, () => TtlRegistry.reconcile(server, player))
     server.runCommandSilent(`tellraw @a ${JSON.stringify([
       { text: '[Voice of the World] ', color: 'gold' },
-      { text: `${name} has been reborn as a ${this.title(race)}.`, color: 'yellow' }
+      { text: `Notice. ${name} has been reborn as a ${this.title(race)}.`, color: 'yellow' }
     ])}`)
     console.info(`[ttl] ${name} reborn as ${race} with ${skill || 'no unique'}`)
     // The arrival grace (life/mortal_immunity.js, arrival.toml grace_seconds) counts from here.

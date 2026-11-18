@@ -4,10 +4,10 @@
     author:"OCS Two Lives",
     category:"Story",
     created:1790000000000L,
-    description:"Elen, a mage of the Free Guild (story NPC).",
+    description:"Eren, a mage of the Free Guild (story NPC).",
     entityTypeId:"easy_npc:humanoid_slim",
     modified:1790000000000L,
-    name:"Elen",
+    name:"Eren",
     variantType:"ZURI",
     version:"1.0.0"
   },
@@ -21,7 +21,7 @@
         ]
       }
     },
-    CustomName:'{"color":"#3498DB","text":"Elen"}',
+    CustomName:'{"color":"#3498DB","text":"Eren"}',
     CustomNameVisible:1b,
     DialogData:{
       DialogDataSet:[
@@ -53,11 +53,11 @@
             }
           ],
           Label:"default",
-          Name:"Elen",
+          Name:"Eren",
           Priority:5,
           Texts:[
             {
-              Text:"Elen glances at you over a spellbook, then closes it."
+              Text:"Eren glances at you over a spellbook, then closes it."
             }
           ]
         }

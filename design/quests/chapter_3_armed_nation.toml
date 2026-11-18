@@ -145,7 +145,7 @@ deps = ["forge_street"]
 lane = 0
 col = 7
 text = """
-The first house on the west side of the forge street was Kaijin's before King Gazel exiled him on a false charge.
+The first house on the west side of the forge street was Kaijin's before King Gazel exiled him after a sham trial.
 His anvil, his blast furnace and his lava cauldron are still where he left them. Stand in his forge.
 """
 tasks = [{ type = "location", dimension = "minecraft:overworld", at = [423, -1084], radius = 8, title = "Kaijin's smithy" }]

@@ -5,6 +5,14 @@ tests kept out of Discord, **`bash tools/server.sh test-all` = 0 failing on main
 
 ## Today (18/11, day)
 
+- **Lore pass (branch `lore-pass`, PR open):** `design/lore/lore-pass-2026-11.md` lists every finding and change. The City of the
+  Forgotten Dragon moves to survey start (2340, 905), version 3 (the v2 copy at 2510 575 stays in the staging world until that
+  terrain is reset: the placer never removes an old version); region M palette and three region names changed (ungenerated chunks
+  only); `TtlCorridor.canon()` gives every Voice of the World line the canon "Notice." header; NPC dialog rev 3 (Fuze/Yuuki/Razen/Eren
+  intros). **Not verified in game** (no server access from the lore pass): the new survey spot (watch the `[ttl] builds` log line for
+  how far it drifted and the water share), the Milim NPC standing before the throne at the new spot, the "Notice." prefix in chat
+  during a corridor run (`test guide`, `test arrival`, `test story`).
+
 - `dd85654` **codex-integ merged into main** (ChatGPT PRs #6–#9, closed as merged): 5 canon builds (el_dorado, frost_palace,
   sacred_mountain, ballachia, heaven_tower), 28 NPC skins, Wayfarer's Rest 39×39 v2, world-audit repairs with version bumps
   that re-place 13 builds. Deployed to staging 11:20 (`deploy --force`; Belgiancandyman was online and got kicked). Boot clean.

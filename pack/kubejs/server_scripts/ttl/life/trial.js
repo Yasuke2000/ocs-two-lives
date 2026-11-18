@@ -78,7 +78,7 @@ const TtlTrial = {
     server.runCommandSilent(`title ${name} title ${TtlTrials.named(d.title, 'red')}`)
     server.runCommandSilent(`title ${name} subtitle ${TtlTrials.named(d.intro, 'gray')}`)
     TtlCorridor.say(server, name, 'kono_michi_wa_kewashii')
-    TtlCorridor.voice(server, name, `${d.title}: ${d.intro} (${d.limit} seconds)`)
+    TtlCorridor.voice(server, name, `Notice. ${d.title}: ${d.intro} (${d.limit} seconds)`)
     console.info(`[ttl] ${name} started the ${d.title}`)
 
     // forceload takes effect on the next tick; give the chunks time before summoning into them.

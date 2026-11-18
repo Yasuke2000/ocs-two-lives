@@ -388,7 +388,7 @@ const TtlRegistry = {
             : `${name} no longer holds the ${kind} unique skill ${title}. It returns to the world.`
       server.runCommandSilent(`tellraw @a ${JSON.stringify([
         { text: '[Voice of the World] ', color: 'gold' },
-        { text: text, color: rarity === 'legendary' ? 'light_purple' : 'yellow' }
+        { text: `Notice. ${text}`, color: rarity === 'legendary' ? 'light_purple' : 'yellow' }
       ])}`)
     } catch (e) {
       console.warn(`[ttl] registry: announcement failed: ${e}`)

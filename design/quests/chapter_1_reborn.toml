@@ -4,9 +4,9 @@
 # Rewards stay modest and NEVER grant skills: no tensura_ftb ability / random_ability / race / awakening rewards
 # (design/manas-integration.md §5(d); the generator has no such reward types). Tasks may use the Tensura
 # task types `ep` (tensura_ftb:existence_value) and `ability` (tensura_ftb:ability, status LEARNT).
-# Places are canon landmarks (pack/config/ttl/canon_regions.json, `landmarks`), converted at ~3.89 blocks per
-# reference pixel with world 0,0 = origin; Tempest itself is placed at 0,0 (life/tempest.js) and Dwargon's gate at
-# 310,-1060 (life/dwargon.js). If those move, update the `at` coordinates here and regenerate.
+# Places are canon landmarks (pack/config/ttl/canon_regions.json, `landmarks`), converted at about 5.45 blocks per
+# reference pixel (14,000-block width) with world 0,0 = origin; Tempest itself is placed at 0,0 (life/tempest.js) and
+# Dwargon's gate at 435,-1000 (life/dwargon.js). If those move, update the `at` coordinates here and regenerate.
 # Every quest after the first stays hidden until its dependencies are done: the story unfolds as you play.
 
 [chapter]
@@ -46,7 +46,7 @@ deps = ["eyes_open"]
 lane = 0
 text = """
 Walk the streets of early Tempest, the town Rimuru built for goblins and direwolves.
-Monsters and humans live side by side here; behave like a guest.
+Goblins, wolves, dwarves and kijin live side by side here; behave like a guest.
 """
 tasks = [{ type = "location", dimension = "minecraft:overworld", at = [0, 0], radius = 64, title = "Visit Tempest" }]
 rewards = [{ type = "item", item = "tensura:bronze_coin", count = 5 }]
@@ -57,7 +57,7 @@ title = "Rigurd's Tribe"
 icon = "minecraft:campfire"
 deps = ["tempest"]
 lane = -1
-text = "Find the old goblin village west of Tempest, where Rigurd's tribe hid from the direwolves before the slime came."
+text = "Find the old goblin village north-west of Tempest, where Rigurd's tribe hid from the direwolves before the slime came."
 tasks = [{ type = "location", dimension = "minecraft:overworld", at = [-164, -234], radius = 64, title = "Old goblin village" }]
 rewards = [{ type = "item", item = "minecraft:cooked_chicken", count = 8 }]
 

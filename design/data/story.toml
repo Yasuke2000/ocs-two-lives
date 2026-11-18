@@ -241,7 +241,7 @@ color = "green"
 
 [[npc.talk]]
 act = 1
-text = "Hey, are you new? I am Gobta! The strongest goblin in the forest, no question. Do not ask Rigurd, he is jealous."
+text = "Oh, are you new? I am Gobta! The strongest goblin in the forest, no question. Do not ask Rigurd, he is jealous."
 
 [[npc.talk]]
 path = "light"
@@ -251,7 +251,7 @@ text = "You swore the Oath? Then you are with us. Come on, I will show you the b
 [[npc.talk]]
 path = "dark"
 act = 2
-text = "Oh, that mark? Cool. I do not care. Want to see me wrestle a direwolf? Do not tell Rigurd."
+text = "Oh, that mark? Huh. I do not care. Want to see me wrestle a direwolf? Do not tell Rigurd."
 
 [[npc]]
 id = "benimaru"
@@ -353,7 +353,7 @@ text = "The forest breathes with an unrest I cannot name. Be careful what you wa
 [[npc.talk]]
 path = "light"
 act = 2
-text = "The trees remember what the Oath means. Beware the lake: a calamity stirs in its depths."
+text = "The trees remember what the Oath means. Beware the lake: a calamity is gathering above its waters."
 
 [[npc.talk]]
 path = "dark"
@@ -472,11 +472,11 @@ text = "Another new face in the guild hall. I am Kabal, rank B, and I have been 
 
 [[npc.talk]]
 act = 5
-text = "You want to hear about the masked woman? Sit down, then. Elen, Gido, help me remember it right."
+text = "You want to hear about the masked woman? Sit down, then. Eren, Gido, help me remember it right."
 
 [[npc]]
 id = "elen"
-name = "Elen"
+name = "Eren"
 color = "aqua"
 
 [[npc.talk]]
@@ -507,12 +507,12 @@ color = "light_purple"
 
 [[npc.talk]]
 act = 1
-text = "Hm? You are one of those small ones. Fine! I am Milim, I am very strong, and I am bored. Do not waste my time!"
+text = "Hm? You are one of the small ones. Fine! I am Milim Nava, the strongest Demon Lord there is, and I am bored. Make it interesting, or do not waste my time!"
 
 [[npc.talk]]
 path = "light"
 act = 2
-text = "Rimuru's people, right? He is my friend! Which makes you almost my friend. Keep it up and I might even remember your name."
+text = "Rimuru's people, right? Rimuru is my best friend! Which makes you almost my friend. Keep it up and I might even remember your name."
 
 [[npc.talk]]
 path = "dark"
@@ -545,7 +545,7 @@ color = "blue"
 
 [[npc.talk]]
 act = 1
-text = "A commoner in my throne room. State your business quickly; the kingdom of Falmuth is a busy kingdom."
+text = "A commoner in my throne room. Speak quickly; Falmuth has richer guests waiting at the door."
 
 [[npc.talk]]
 path = "light"
@@ -604,7 +604,7 @@ color = "yellow"
 
 [[npc.talk]]
 act = 1
-text = "You look lost. This is not a place for tourists."
+text = "You look lost. This hall is no place for the idle. State your business, or leave."
 
 [[npc.talk]]
 act = 6
@@ -668,7 +668,7 @@ color = "dark_purple"
 
 [[npc.talk]]
 act = 1
-text = "The Church's patron saint stands above the altar. Pilgrims light candles for a protector they have never seen awake."
+text = "The Church's god stands above the altar, carved in white: Luminous, whom the faithful pray to and have never seen awake."
 
 [[npc.talk]]
 path = "light"

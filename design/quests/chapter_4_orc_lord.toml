@@ -163,8 +163,8 @@ lane = 0
 col = 8
 optional = true
 text = """
-In the story the Orc Lord devoured the dead of the battlefield and rose again as the Orc Disaster, a catastrophe-class
-monster. An epilogue for the very strong: defeat an Orc Disaster.
+In the story the Orc Lord devoured the majin Gelmud, the schemer who had named him, and evolved into the Orc Disaster,
+a calamity-class monster. An epilogue for the very strong: defeat an Orc Disaster.
 """
 tasks = [{ type = "advancement", advancement = "tensura:eat_or_be_eaten", title = "Defeat an Orc Disaster" }]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 8 }, { type = "xp", xp = 400 }]
