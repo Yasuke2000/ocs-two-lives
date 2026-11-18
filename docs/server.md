@@ -109,8 +109,8 @@ about 100 and 490 blocks away. Live markers (nation claims, wars, events) are no
 MarkerAPI from a script and are unverified.
 
 **Before it works (owner decisions):**
-1. `accept-download` in `core.conf` is **false**. BlueMap needs a Minecraft client jar (Mojang EULA) for vanilla
-   textures; until the owner sets it to true it logs a notice and renders nothing.
+1. `accept-download` in `core.conf` is **true** (owner, 18/11/2026): BlueMap downloads the Minecraft client jar
+   (Mojang EULA) for vanilla textures.
 2. The map is public if its address is: no login. It shows terrain and builds (bases included, on an open-PvP
    server) but not player positions (`plugin.conf`: `live-player-markers: false`). Decide who gets the link; use
    the tunnel's access control if it should not be public. The Kubernetes Service and tunnel route are in the

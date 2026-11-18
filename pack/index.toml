@@ -670,7 +670,7 @@ hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
 
 [[files]]
 file = "config/bluemap/core.conf"
-hash = "8d37b461f966252268859182770e12bb68f4b5d0204119eaba6a63f11cef7836"
+hash = "816aa48c7a5fea3862e3cc43d0b352cad166783556128222e004fb3ba1f8ed55"
 
 [[files]]
 file = "config/bluemap/maps/mortal_realm.conf"
