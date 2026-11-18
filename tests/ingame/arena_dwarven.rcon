@@ -1,0 +1,81 @@
+# The Dwarven Arena (#5; design/builds/dwarven_arena.toml, blueprints/dwarven_arena.py, arena "dwarven" of arenas.toml).
+# The structure is placed at a test corner in the overworld (21000 200 21000, far from every build), the arena is moved
+# there (`ttl arena testat`), so the test needs neither the real placement nor its terrain. Expect 7x Test passed for the
+# block checks and no "ttl: expected ..." line. Blueprint offsets: forecourt x 0-5, door x 6 (y 1-3, z 24-26), alcove x 7-10
+# (the royal warp pads stood there: now air), pit floor y 0 (you stand at y 1), spawn A 15 1 25, spawn B 43 1 25.
+# Not asserted (verify in game): the real placement by the survey, the look from outside, the door and forecourt, the
+# gallery on the dais, loot, the teleport back, the waves' mobs (tensura:armorsaurus, war_gnome, beast_gnome, bone_golem).
+ttlbot spawn TtlBotDwA
+ttlbot spawn TtlBotDwB
+@sleep 2
+ttl arena reset
+ttl arena testmode on
+ttl arena clear TtlBotDwA
+ttl arena clear TtlBotDwB
+kubejs stages add TtlBotDwA ttl.life2
+kubejs stages add TtlBotDwB ttl.life2
+execute in minecraft:overworld run forceload add 20992 20992 21088 21056
+@sleep 2
+execute in minecraft:overworld run fill 21000 200 21000 21074 225 21050 minecraft:air
+execute in minecraft:overworld run place template ttl:dwarven_arena 21000 200 21000
+@sleep 4
+# Forecourt paving, the open door, a cell where a royal warp pad stood, the standing spots and their floor.
+execute in minecraft:overworld if block 21003 200 21025 minecraft:stone_bricks
+execute in minecraft:overworld if block 21006 201 21025 minecraft:air
+execute in minecraft:overworld if block 21008 201 21025 minecraft:air
+execute in minecraft:overworld if block 21015 201 21025 minecraft:air
+execute in minecraft:overworld if block 21043 201 21025 minecraft:air
+# The glass shell is gone (export x 2 y 10 z 25 was black stained glass), the hall's wall is not (export x 5 y 10 z 24).
+execute in minecraft:overworld unless block 21008 209 21025 minecraft:black_stained_glass
+execute in minecraft:overworld unless block 21011 209 21024 minecraft:air
+execute in minecraft:overworld run ttl arena testat dwarven 21000 200 21000
+ttl arena list
+
+# ---- duel: A opens, B joins, A wins ----------------------------------------------------------------------------------
+execute as TtlBotDwA run ttl arena join dwarven duel
+execute as TtlBotDwB run ttl arena join dwarven
+ttl arena expect arena dwarven state lobby
+ttl arena expect arena dwarven players 2
+ttl arena expect player TtlBotDwA inarena yes
+execute as TtlBotDwA run ttl arena start
+@sleep 7
+ttl arena expect arena dwarven state fight
+ttl arena defeat TtlBotDwB TtlBotDwA
+@sleep 2
+ttl arena expect arena dwarven result a
+ttl arena expect player TtlBotDwA wins 1
+ttl arena expect player TtlBotDwB losses 1
+@sleep 6
+ttl arena expect arena dwarven state free
+
+# ---- challenge: waves only (no boss), clear when the third wave is down -----------------------------------------------
+execute as TtlBotDwA run ttl arena join dwarven challenge
+ttl arena expect arena dwarven mode challenge
+execute as TtlBotDwA run ttl arena start
+@sleep 7
+ttl arena expect arena dwarven state fight
+ttl arena expect arena dwarven phase waves
+ttl arena expect arena dwarven wave 1
+ttl arena wave dwarven clear
+@sleep 2
+ttl arena expect arena dwarven wave 2
+ttl arena wave dwarven clear
+@sleep 2
+ttl arena expect arena dwarven wave 3
+ttl arena wave dwarven clear
+@sleep 4
+ttl arena expect arena dwarven result clear
+ttl arena expect player TtlBotDwA clears 1
+@sleep 6
+ttl arena expect arena dwarven state free
+
+# ---- clean up --------------------------------------------------------------------------------------------------------
+ttl arena reset
+execute in minecraft:overworld run fill 21000 200 21000 21074 225 21050 minecraft:air
+execute in minecraft:overworld run forceload remove 20992 20992 21088 21056
+ttl arena clear TtlBotDwA
+ttl arena clear TtlBotDwB
+kubejs stages remove TtlBotDwA ttl.life2
+kubejs stages remove TtlBotDwB ttl.life2
+ttlbot remove TtlBotDwA
+ttlbot remove TtlBotDwB

@@ -224,3 +224,69 @@ items = [{ item = "tensura:medium_quality_magic_crystal", count = 1 }]
 xp = 5
 [arena.loot.challenge.fail]
 coins = { silver = 2 }
+
+# The Dwarven Arena (issue #5, build dwarven_arena, blueprints/dwarven_arena.py): Yasuke's dwarf_arena export, Gazel
+# Dwargo's fight hall, as a venue in the Dwargon region beside the dwarf village. The boss pit is the arena: you fight on
+# the stone floor between the pillar rows (floor at y 0, fighters stand at y 1; the box ends where the stairs rise to the
+# throne dais, which is the spectators' gallery; a fighter who climbs there is out). The door in the west wall opens into
+# the forecourt. There is no Dwargo and no warp pad in the build, so this is duel, party and a challenge of waves only
+# (`boss` empty): Dwargon's guard of golems and gnomes, the hall's own foes. Loot is Dwargon's royal tower table (iron and
+# gold, spears, the Dwargon banner pattern). Box and spots are blueprint offsets (export x + 6, y - 1).
+[[arena]]
+id = "dwarven"
+title = "the Dwarven Arena"
+where = { build = "dwarven_arena" }
+box = { from = [11, 1, 1], to = [46, 24, 49] }
+spawn_a = [15, 1, 25]
+spawn_b = [43, 1, 25]
+mob_spots = [[30, 1, 25], [20, 1, 25], [40, 1, 25], [30, 1, 11], [30, 1, 39]]
+absorb_duel = false
+quiet_colossus = false
+modes = ["duel", "party", "challenge"]
+minutes = { duel = 5, party = 10, challenge = 15 }
+cooldown_minutes = { duel = 60, party = 120, challenge = 720 }
+challenge_cooldown_minutes = 30
+
+[arena.challenge]
+per_player = 0.5
+max_mobs = 16
+boss = ""
+waves = [
+  { mobs = [{ entity = "tensura:beast_gnome", count = 3 }, { entity = "tensura:bone_golem", count = 2 }] },
+  { mobs = [{ entity = "tensura:armorsaurus", count = 2 }, { entity = "tensura:war_gnome", count = 1 }] },
+  { mobs = [{ entity = "tensura:war_gnome", count = 2 }, { entity = "tensura:bone_golem", count = 2 }] },
+]
+
+[arena.loot.duel.win]
+coins = { silver = 8 }
+table = "tensura:chests/dwarf_royal_tower"
+rolls = 1
+xp = 5
+[arena.loot.duel.lose]
+coins = { silver = 2 }
+[arena.loot.duel.draw]
+coins = { silver = 4 }
+
+[arena.loot.party.win]
+coins = { silver = 10 }
+table = "tensura:chests/dwarf_royal_tower"
+rolls = 1
+xp = 5
+[arena.loot.party.lose]
+coins = { silver = 3 }
+[arena.loot.party.draw]
+coins = { silver = 5 }
+
+[arena.loot.challenge.clear]
+coins = { gold = 3 }
+items = [{ item = "tensura:medium_quality_magic_crystal", count = 2 }]
+table = "tensura:chests/dwarf_royal_tower"
+rolls = 2
+xp = 15
+[arena.loot.challenge.partial]
+coins = { silver = 12 }
+table = "tensura:chests/dwarf_royal_tower"
+rolls = 1
+xp = 5
+[arena.loot.challenge.fail]
+coins = { silver = 2 }

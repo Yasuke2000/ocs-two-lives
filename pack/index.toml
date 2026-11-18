@@ -1478,7 +1478,7 @@ hash = "ab50a4ab5d500ed584122b22af9d9258c8fd61e889cdaa3671a5bdc7ecfced41"
 
 [[files]]
 file = "config/tensura/reincarnation_config.toml"
-hash = "59669d1d7fe6b8f0f59a7ddee3cc0ad7088f0733ebef46a079074a05587e99b2"
+hash = "da74b9507464104c5dd26eeaffa0600f7ff4298c3dcdc3d7524e5aca6e7b9013"
 
 [[files]]
 file = "config/terrablender.toml"
@@ -1999,6 +1999,10 @@ hash = "f607944fac6838f08b933aecac2f6a514266c31d794c19487424541d54b9ca8b"
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_2.nbt"
 hash = "b2821ec441f0a515659d5e0572c5aaa25cd17f7dba7b27ac63dbb65114f77b0d"
+
+[[files]]
+file = "kubejs/data/ttl/structure/dwarven_arena.nbt"
+hash = "78e5403398e521b0faf880e5b9d5ea01c19dfe61edf905757208b3529f870d5a"
 
 [[files]]
 file = "kubejs/data/ttl/structure/el_dorado_0.nbt"
@@ -2630,11 +2634,11 @@ hash = "aba724b81546b1b73b253460418b272ac2ee350f2ba0761423c847bd4900585a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
-hash = "fdcfa356f92dada4297541bd3f0610aeb011203100187f3643f572b71b98f757"
+hash = "fc83cba4436266c4f5e7efdb16e6dff287f8fd013554ed4cb5bd0c861e8fc06c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "050fe8f859fcbdf6d8d53a5182a1a7401331f7bf07d29880d586fbd2787223ef"
+hash = "b8a6390c797852c3bf075899e52079405d11ca33bdee4809461b018f5b03eced"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2749,6 +2753,10 @@ file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
 hash = "4a972dc31918971f0782fe49de5d284121a8bf42cc7fa91fc69091a55bd24dd9"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/race_lock.js"
+hash = "1bafd26113ed71a0718e56ca7776c3547bb24dc73ddde6f39a28739721954ca3"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/spirit_domain.js"
 hash = "c8c74608bf38c6664b0c937edd67c94c37756cef0668c949838c4af138c11167"
 
@@ -2762,11 +2770,11 @@ hash = "ff921e6b0a03f8b2500eb77769f9db9c0b96a271de8bce41a003e3c16207075d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
-hash = "de0161d3637cdb8fc81ab059afe9a6dc1acc74e6c185d509e270863097d4f9ee"
+hash = "15bec7ccf909a0dbc9557aedfdee7e2bc8a9ec4e8ac0f41cf2642c81406b5aa8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial_defs.js"
-hash = "cbae3b498ac6fdccf6a18b2065187ae7d884d6231e115eb3359f24af5da0bbf1"
+hash = "dd5159eff19a2f9f513697faf53248bd2a3086f8c0e8915fbf720296469c6057"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/voice_npc.js"
