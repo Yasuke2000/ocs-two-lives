@@ -15,12 +15,17 @@
 	quests: [
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"01E277329C034ED2"
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:rotten_flesh"
 			}
 			id: "33FCE563EA7EA5CF"
+			min_required_dependencies: 1
 			repeat_cooldown: 86400
 			rewards: [
 				{
@@ -51,12 +56,17 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"01E277329C034ED2"
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:bone"
 			}
 			id: "6E5B3A4C9692E518"
+			min_required_dependencies: 1
 			repeat_cooldown: 86400
 			rewards: [
 				{
@@ -87,12 +97,17 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"01E277329C034ED2"
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:spider_eye"
 			}
 			id: "1D3D81B3B457597B"
+			min_required_dependencies: 1
 			repeat_cooldown: 86400
 			rewards: [
 				{
@@ -123,12 +138,17 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"01E277329C034ED2"
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:oak_log"
 			}
 			id: "654B3760F245A721"
+			min_required_dependencies: 1
 			repeat_cooldown: 86400
 			rewards: [
 				{
@@ -163,12 +183,17 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"01E277329C034ED2"
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:cobblestone"
 			}
 			id: "64E84EC2992F8D82"
+			min_required_dependencies: 1
 			repeat_cooldown: 86400
 			rewards: [
 				{
@@ -203,12 +228,17 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"01E277329C034ED2"
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:coal"
 			}
 			id: "1C877BA54AD9295D"
+			min_required_dependencies: 1
 			repeat_cooldown: 86400
 			rewards: [
 				{
@@ -243,12 +273,17 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"01E277329C034ED2"
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:wheat"
 			}
 			id: "0421C6ABC740C8F8"
+			min_required_dependencies: 1
 			repeat_cooldown: 86400
 			rewards: [
 				{
@@ -283,12 +318,17 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"01E277329C034ED2"
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:dark_oak_sapling"
 			}
 			id: "0C9933D5EB683ACC"
+			min_required_dependencies: 1
 			repeat_cooldown: 86400
 			rewards: [
 				{
@@ -318,12 +358,17 @@
 		}
 		{
 			can_repeat: true
-			dependencies: [ ]
+			dependencies: [
+				"01E277329C034ED2"
+				"27035168A6DEED93"
+			]
+			hide_until_deps_complete: true
 			icon: {
 				count: 1
 				id: "minecraft:fishing_rod"
 			}
 			id: "0E507B0734BAF632"
+			min_required_dependencies: 1
 			repeat_cooldown: 86400
 			rewards: [
 				{

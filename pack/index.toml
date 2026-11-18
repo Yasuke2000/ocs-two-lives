@@ -893,40 +893,80 @@ file = "config/ftbchunks-world.snbt"
 hash = "c6da17dedd636e6d74dabcb6a3287d3c33ee77c403c94f84c2a70c3a80de50f0"
 
 [[files]]
+file = "config/ftbquests/quests/chapters/a_life_that_counts.snbt"
+hash = "719429b36de548e95fab73fdd4180674351fdd656467e3185cc5b77be79c2d4a"
+
+[[files]]
 file = "config/ftbquests/quests/chapters/armed_nation.snbt"
-hash = "5d7907a052b65651fbf1e13a4fbc4c8c65397ffb317893ccdd0578f6ba3001a9"
+hash = "9f22464cfb7ff7388ba28bf1675a208a6b214f040e8cecdbbd5cc62a68003ed4"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/arts.snbt"
+hash = "a7bc0a75bd2489803ff223448b755359e8aff2a33cd3d9d38de57590f0657ab1"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/crossroads.snbt"
-hash = "0cdb393a0dae6aba8f88c9cecd93de7d67d414ba836595dc7baca6c71d76bea2"
+hash = "afafae4fc982e34d634b27b8b6bee1c82cc3ef6bcf621c7347b18dbb1aa39d63"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/daily_deeds.snbt"
-hash = "e897e6fb9d48f09432b8623465910f8dda3e8df42218f185e13dd81c14bd73fb"
+hash = "8f8c68fd141e126e3bc285f77d3592a5e4401206829a23bf11ce85bd6b2fe092"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/daily_jura.snbt"
-hash = "b02d7960c34bc7b4e82cfa2642374e3f4ec072ebb08ad99777c7a94544530c0d"
+hash = "ee1e8da13bc31779f3a81dc40e93e32090a166364373e2606768816e512baa56"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/delving.snbt"
+hash = "9d5e0529f769ca57900136d4d2c0e1ee16e82d1e866297065c5490dd8b54bc29"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/end_road.snbt"
+hash = "fd2df85f1dfc80ff1bab6fe5c1663488618b8793fb36af2e65bf25d9257e76b4"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/fields.snbt"
+hash = "f13e392025c4d122518555d63e7ff751a3d52002371bb7ccbe0b3cea3d8ea76b"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/first_days.snbt"
+hash = "1b84305969e0dd504d4bdb2714c25027f3f306bf799a94814e2de7f5d4df55a6"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/folk.snbt"
+hash = "079e1b88e7825cac34865eb73679916b054d26b05ebcb955bf9503a9a70563d0"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/homestead.snbt"
+hash = "cc4ce834e136768f328454884d35d042cad3627ebf3e56fee52dbb92cbd42459"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/kings_test.snbt"
-hash = "b833513a9ef84ed87c4d16ab417872096b4abb1c6129c75eb799e07f10c3f992"
+hash = "fcde772337cb37ea4448e5838b38259eb376191da2f837c3e63768495b7ac957"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mortal_life.snbt"
-hash = "9429e4d44679f030eeb7d11583304e68d7772ae40910b3f4e94205995aa13151"
+hash = "7e1664bcaf900d6a4d73df3d43a75ffb81b436ede641dd5f013a97eb347e3384"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/nether_road.snbt"
+hash = "2cd2bffe56234cbda0d2013e06b437f2d3a12b6255262f58aa469909101354e1"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/orc_lord.snbt"
-hash = "198bdbfb2e9c08e4326a6d32223c7274f7abba37e7cd233958f6ffe2c4f3c265"
+hash = "1d2a0fb9a295f27e5987c79e35d9e06906768ded8a87fd813691f754a289ad2f"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/reborn.snbt"
-hash = "f00e9db73c22d69839f0b4ad3e58e56ac3caf50dae7ef48bab84e796667c6d90"
+hash = "7662e0fbb2ed0ca2df4300b292961381d14baec572094f4ac8b5afe5fcb4ef73"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/roads_ruins.snbt"
+hash = "afab704c612852beb3175ac4e3c1d30b504b9317db16d23e34268483cff11f2e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tempest_rises.snbt"
-hash = "f612ec5136ecfb355f6b11afa46b92cc96b6419b54224644cdc3296c36298abe"
+hash = "eab52fc37864e20a5062427c4f6dded2c70b643ae447b497f378473fcb00a4ed"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
@@ -934,7 +974,7 @@ hash = "fa792420b8546bafa3673aa2aac7dc21cac295c6038694d0b45c9b50ef692304"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "4524734dea6aaf7787e4955b7c2ffdf2061037782316864dbfd86dd48e9abd9a"
+hash = "3e9d8fed5d478f1e28648f9d4322c976fc20c4bff2b0f6781f9c1ba2658408c2"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
@@ -1942,7 +1982,7 @@ hash = "be431726c5095293051c1560bcaaa5c8d12f054860fa2beae60017d5ffa0aaa8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
-hash = "922b70c5ea352f299e36c3593c9b62e9608d46369dbfdce4a8e544d80e012fcc"
+hash = "07904349ee353f06d000a03e22821d284fa6d7ff389235660c2a6004946a4a11"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/spirit_dwelling.js"

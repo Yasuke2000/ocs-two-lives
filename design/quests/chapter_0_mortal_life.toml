@@ -7,6 +7,10 @@
 # Vanilla advancements that test a dimension (enter_the_nether, enter_the_end) never fire in ttl:mortal_*;
 # use `dimension` tasks for those. Structure, kill, item, stat and most advancements work everywhere.
 #
+# The Life 1 web (design/quests.md "The web"): this chapter is the spine. Ten chapters hang off it (first_days, homestead, fields,
+# delving, roads_ruins, folk, arts, nether_road, end_road, a_life_that_counts: files chapter_0a ... chapter_0j). They sit at orders
+# -10..-1 and this chapter at -11, so the whole of Life 1 comes before the Life 2 chapters without renumbering them.
+#
 # Layout: `lane` is the row (negative = above the main line); the column is the deepest dependency + 1
 # unless `col` is given. Two quests on the same spot is an error.
 
@@ -15,7 +19,7 @@ key = "mortal_life"
 title = "A Mortal Life"
 subtitle = "You only live once here. What you do decides who you become."
 icon = "minecraft:clock"
-order = 0
+order = -11
 life = 1
 text = """
 Every player lives twice. This is the first life: a plain human in the Mortal Realm.
@@ -47,7 +51,7 @@ rewards = [{ type = "item", item = "minecraft:bread", count = 4 }]
 key = "stone_age"
 title = "Wood and Stone"
 icon = "minecraft:stone_pickaxe"
-deps = ["only_once"]
+deps = ["only_once", "first_days/wooden_tools"]
 lane = 0
 text = "Punch a tree, make a crafting table, and trade your wooden tools for stone ones before night falls."
 karma = "Small steps, but every advancement you earn in Life 1 adds Faith karma."

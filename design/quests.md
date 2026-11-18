@@ -23,8 +23,8 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | `key` | lowercase id; also the chapter file name |
 | `title`, `subtitle`, `text` | shown on the chapter (text: blank line = new paragraph) |
 | `icon` | item id |
-| `order` | position in the chapter list (unique) |
-| `life` | `1` = Life 1: only `minecraft:` items/entities, no Tensura tasks (enforced); `2` = Life 2; `"both"` = shared by both lives, so the same vanilla-only rules as `1` (enforced) |
+| `order` | position in the chapter list (unique integer; FTB sorts by it, negative works). The Life 1 chapters use -11 (A Mortal Life) to -1 so that they sit before the Life 2 chapters without renumbering them; chapters added for later acts take 9 and up |
+| `life` | `1` = Life 1: items and entities from `minecraft:` and the two Sophisticated storage mods only (`LIFE1_NAMESPACES` in the generator, checked against `design/data/mortal_banned.toml`), no Tensura tasks (enforced); `2` = Life 2; `"both"` = shared by both lives, so the same rules as `1` (enforced) |
 | `hide_until_deps_complete` | quests stay hidden until their dependencies are done (story chapters) |
 
 ### Quest (`[[quests]]`)
@@ -41,6 +41,7 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | `repeatable`, `cooldown` | FTB Quests `can_repeat` / `repeat_cooldown`: once every reward is claimed the quest resets; `cooldown` is in seconds (86400 = daily) and needs `repeatable`. A repeatable quest may not have a plain item task: use `consume = true` (below) or it completes again at once |
 | `text` | description (blank line = new paragraph; `&6` colour codes work) |
 | `karma` | Life 1: appended as "Next life: …" — how the deed counts for the rebirth (keep in step with `design/data/karma.toml`) |
+| `lore` | one line in the Realm's own voice, shown in grey italics between the text and the karma line (every quest of chapters 0a-0j has one) |
 | `tasks` | list, see below |
 | `rewards` | `item` (`item`, `count`), `xp` (`xp` points), `xp_levels`, `stage`, `command` (the last two: Story extensions). Nothing else: quests never grant skills, races or evolutions (`design/manas-integration.md` §5(d)) |
 
@@ -80,7 +81,261 @@ contain `/`.
 | `command` | `command`, `permission_level = 2`, `silent = false`, `feedback = ""`, `as_player = true` | FTB `command` reward. Runs as the claiming player (it always does: `CommandReward.claim` uses the player's command source; `as_player = false` does not exist and is refused). `permission_level` only raises that source's level; `/ttl ...` subcommands need op level 2, hence the default 2 (use 0 for a plain command). FTB expands `{p}` `{x}` `{y}` `{z}` `{chapter}` `{quest}` `{team}` `{team_id}` `{member_count}` `{online_member_count}` and then runs `String.format`, so `%` is refused. Commands mentioning skill, race, evolve, awaken, unique, legendary, registry, op, deop or stop are refused (rule: quests never grant those). Not auto-claimed: the player presses the claim button |
 | any | `auto = "default" \| "disabled" \| "enabled" \| "no_toast" \| "invisible"` | FTB `RewardAutoClaim`; `default` is the book's `default_autoclaim_rewards` (disabled) |
 
+## The web (quest-book connectivity)
+
+One book, one web: every chapter hangs on another through cross-chapter `deps`, every quest can be unlocked, and the only two ways in are
+Only Once (Life 1) and Open Your Eyes (Life 2). `python tools/quest_graph.py` prints the chapter map below from the TOML and
+`python tools/quest_graph.py --check` (run by `validate.py`; the same checks are in `tests/test_gen_quests.py`, `QuestWebTests`) fails on a quest that can
+never unlock (its dependencies loop, or fewer than `min_deps` of them are unlockable), a quest with no dependency that is not one of the two entries, or a
+chapter outside the web.
+
+```mermaid
+flowchart LR
+  subgraph Life_1["Life 1"]
+    mortal_life["A Mortal Life<br/>44 quests"]
+    first_days["Bare Hands<br/>11 quests"]
+    homestead["Hearth and Home<br/>11 quests"]
+    fields["Seed and Stock<br/>16 quests"]
+    delving["Down the Shaft<br/>14 quests"]
+    roads_ruins["The Long Road<br/>13 quests"]
+    folk["Folk of the Realm<br/>8 quests"]
+    arts["Hand and Cauldron<br/>10 quests"]
+    nether_road["Beneath the Burning Sky<br/>13 quests"]
+    end_road["The Dragon's Eve<br/>12 quests"]
+    a_life_that_counts["A Life That Counts<br/>11 quests"]
+  end
+  subgraph Both_lives["Both lives"]
+    daily_deeds["Daily Deeds<br/>9 quests"]
+  end
+  subgraph Life_2["Life 2"]
+    reborn["Reborn<br/>15 quests"]
+    tempest_rises["Tempest Rises<br/>21 quests"]
+    armed_nation["The Armed Nation<br/>21 quests"]
+    orc_lord["The Orc Lord<br/>13 quests"]
+    daily_jura["Daily Deeds: Jura<br/>6 quests"]
+    crossroads["Crossroads<br/>12 quests"]
+    kings_test["The King's Test<br/>14 quests"]
+  end
+  armed_nation -->|"throne to kings_summons (+1)"| kings_test
+  armed_nation -->|"ep_6000 to ep_20000"| reborn
+  arts -->|"master_hands to ledger"| a_life_that_counts
+  crossroads -->|"forest_awakens to road_supplies"| armed_nation
+  crossroads -->|"forest_awakens to kings_summons"| kings_test
+  delving -->|"deep_delver to ledger"| a_life_that_counts
+  end_road -->|"dragons_eve to ledger"| a_life_that_counts
+  fields -->|"breed_pairs to keeper_of_herds (+1)"| a_life_that_counts
+  fields -->|"wool_work to heraldry"| arts
+  first_days -->|"ready_for_road to ledger"| a_life_that_counts
+  first_days -->|"ready_for_road to first_seeds"| fields
+  first_days -->|"ready_for_road to hearth"| homestead
+  first_days -->|"wooden_tools to stone_age"| mortal_life
+  folk -->|"friend_of_hamlet to ledger"| a_life_that_counts
+  homestead -->|"home_fires to ledger"| a_life_that_counts
+  kings_test -->|"act_two to envoy"| orc_lord
+  mortal_life -->|"village to bread_for_hungry (+7)"| a_life_that_counts
+  mortal_life -->|"enchanting to scribe (+3)"| arts
+  mortal_life -->|"first_night to hunt_zombies (+8)"| daily_deeds
+  mortal_life -->|"stone_age to coal_seam (+2)"| delving
+  mortal_life -->|"eyes_of_ender to apples_of_gold (+3)"| end_road
+  mortal_life -->|"village to root_garden (+2)"| fields
+  mortal_life -->|"only_once to bare_hands"| first_days
+  mortal_life -->|"village to ring_bell (+2)"| folk
+  mortal_life -->|"iron_age to yard_well (+2)"| homestead
+  mortal_life -->|"mortal_nether to first_footing (+2)"| nether_road
+  mortal_life -->|"first_night to long_walker (+1)"| roads_ruins
+  nether_road -->|"hellwalker to ledger"| a_life_that_counts
+  orc_lord -->|"orc_lord_kill to orc_war"| reborn
+  reborn -->|"sealed_cave to cave_altar"| crossroads
+  reborn -->|"tempest to hunt_zombies (+8)"| daily_deeds
+  reborn -->|"first_hunt to jura_rabbits (+4)"| daily_jura
+  reborn -->|"ep_20000 to ep_50000"| orc_lord
+  reborn -->|"tempest to join_town"| tempest_rises
+  roads_ruins -->|"cartographers_pride to ledger"| a_life_that_counts
+  tempest_rises -->|"tempest_stands to crossroads"| crossroads
+  tempest_rises -->|"join_town to jura_patrol"| daily_jura
+  tempest_rises -->|"ep_3000 to ep_5000"| reborn
+```
+
+### Life 1: a spine and ten chapters that converge
+
+Chapter 0 (A Mortal Life) is the spine, Only Once to the Mortal Dragon. Ten chapters hang off it; each ends in a capstone milestone (gear shape) and
+all of them feed "The Ledger" (any five of nine, `min_deps = 5`), which with the Mortal Dragon, "A Full Life" (30 days) and "Come Home" opens the finale
+"A Life That Counted". Dashed lines are `min_deps` joins (only some of the dependencies are needed).
+
+```mermaid
+flowchart TD
+  only_once([Only Once]) --> bare_hands
+  subgraph first_days["0a Bare Hands"]
+    bare_hands --> workbench --> wooden_tools --> cobble_pile --> furnace --> charcoal --> torchlight
+    workbench --> first_chest
+    wooden_tools --> first_weapons --> first_kill
+    torchlight --> ready_for_road
+    first_chest --> ready_for_road
+    first_kill --> ready_for_road
+  end
+  subgraph spine["0 A Mortal Life (the spine)"]
+    stone_age([Wood and Stone]) --> first_night([The First Night]) --> iron_age([Iron Age]) --> diamonds([Diamonds]) --> mortal_nether([The Mortal Nether]) --> fortress([Fortress]) --> blaze_rods([Blaze Rods]) --> eyes_of_ender([Eyes of Ender]) --> stronghold([Stronghold]) --> mortal_end([The Mortal End]) --> dragon{{The Mortal Dragon}}
+    first_night --> days_2([Two Days]) --> days_7([A Week]) --> days_15([Half a Moon]) --> days_30([A Full Life])
+    iron_age --> village([People of the Realm])
+    diamonds --> enchanting([Words of Power])
+    blaze_rods --> brewing([Local Brewery])
+  end
+  wooden_tools --> stone_age
+  only_once --> stone_age
+  ready_for_road --> hearth
+  ready_for_road --> first_seeds
+  subgraph homestead["0b Hearth and Home"]
+    hearth --> windows --> decorate --> lamplighter
+    hearth --> storeroom
+    windows --> yard_well --> stone_wall
+    decorate --> guest_beds
+    lamplighter --> home_fires
+    stone_wall --> home_fires
+    guest_beds --> home_fires
+    storeroom --> better_chest --> home_fires
+  end
+  iron_age --> yard_well
+  subgraph fields["0c Seed and Stock"]
+    first_seeds --> first_harvest --> bake_bread --> smokehouse --> larder --> harvest_home
+    first_seeds --> tame_friend --> harvest_home
+    first_seeds --> angler --> harvest_home
+    first_harvest --> hen_house --> harvest_home
+  end
+  village --> root_garden --> larder
+  subgraph delving["0d Down the Shaft"]
+    coal_seam --> copper_find --> iron_hoard --> gold_streak --> redstone_dust --> deepslate_depths --> deep_delver
+    coal_seam --> old_shafts --> rail_line --> deep_delver
+    iron_hoard --> lava_bucket --> obsidian_forge --> deep_delver
+    deepslate_depths --> geode --> spyglass --> deep_delver
+  end
+  stone_age --> coal_seam
+  iron_age --> iron_hoard
+  subgraph roads["0e The Long Road"]
+    long_walker --> green_lands --> high_country --> cartographers_pride
+    long_walker --> coast --> wrecks_and_ruins --> cartographers_pride
+    high_country --> outpost --> cartographers_pride
+    long_walker --> ruined_portal --> cartographers_pride
+  end
+  first_night --> long_walker
+  subgraph folk["0f Folk of the Realm"]
+    ring_bell --> talk_around --> emerald_purse --> master_trader --> friend_of_hamlet
+    ring_bell --> give_work --> friend_of_hamlet
+  end
+  village --> ring_bell
+  subgraph arts["0g Hand and Cauldron"]
+    scribe --> heraldry --> master_hands
+    scribe --> cartographer --> master_hands
+    scribe --> mason_saw --> master_hands
+    brew_often --> powder_store --> bitter_brew --> master_hands
+  end
+  enchanting --> scribe
+  brewing --> brew_often
+  subgraph nether["0h Beneath the Burning Sky (hidden until the portal)"]
+    first_footing --> soul_valley --> bastion --> gilded_deal --> hellwalker
+    first_footing --> fungal_forests --> pork_of_the_nether --> hellwalker
+    bastion --> pork_of_the_nether
+    first_footing --> quartz_vein --> glowstone_cluster --> brewing_goods --> hellwalker
+  end
+  mortal_nether --> first_footing
+  subgraph end_road["0i The Dragon's Eve (hidden until Eyes of Ender)"]
+    apples_of_gold --> bowmaker --> full_plate --> dragons_eve
+    apples_of_gold --> enderman_guard --> dragons_eve
+    apples_of_gold --> pillar_blocks --> dragons_eve
+    dragons_eve --> end_gateway --> end_city --> shulker_hunt
+  end
+  eyes_of_ender --> apples_of_gold
+  dragon --> end_gateway
+  subgraph life["0j A Life That Counts"]
+    bread_for_hungry --> light_for_watch --> keep_the_peace --> good_name
+    bread_for_hungry --> arrows_for_guard --> good_name
+    bread_for_hungry --> wool_for_cold --> good_name
+    keeper_of_herds --> good_name
+    good_name --> come_home --> legend
+    ledger --> legend
+  end
+  village --> bread_for_hungry
+  ready_for_road & home_fires & harvest_home & deep_delver & cartographers_pride & friend_of_hamlet & master_hands & hellwalker & dragons_eve -.-> ledger
+  dragon --> legend
+  days_30 --> legend
+```
+
+(The diagram shows the main lines; optional quests and the smaller joins are in the TOML. Run the tool for the full chapter map.)
+
+Rules the web follows:
+- **Entry**: each new chapter starts at the spine quest that makes it make sense (Wood and Stone opens the mines, the village opens trade and deeds, the portal opens the Nether
+  chapter, Eyes of Ender opens the End checklist). The Nether and End chapters are `hide_until_deps_complete`: they stay a blank page until then.
+- **The spine is never gated by a side chapter**, with one exception that cannot hurt: Wood and Stone needs the wooden tools of chapter 0a (you cannot have a stone pickaxe without them).
+  FTB Quests only advances a task while the quest's dependencies are done, so a side-chapter dependency in front of `mortal_end` or `dragon` would stop the portal visit or the
+  dragon kill from counting. "The Dragon's Eve" is therefore a checklist, not a gate.
+- **Capstones** (gear shape) are checkmarks. `min_deps` joins keep the heavy ones (the Ledger needs five of nine; Deep Delver, Cartographer's Pride, Harvest Home, Hellwalker,
+  Master of Hand and Cauldron and A Good Name each skip their hardest branch) from becoming a chore list.
+- **Leaves**: optional quests, and a few non-optional ones that nothing depends on (the daily and Jura jobs, repeatable by design), end with their own reward. Every non-optional
+  Life 1 quest leads to the finale (`QuestWebTests`).
+- **Life 1 to Life 2** is the soul, not a dependency: dying is the normal way out of Life 1, and a quest an unfinished Life 1 player has not completed must not block Life 2.
+  `reborn/eyes_open` is a stage task (`ttl.life2`) and the book's second entry.
+
+### Life 2: the story order
+
+```mermaid
+flowchart TD
+  eyes_open([Open Your Eyes]) --> r_tempest[Reborn: Town of Monsters] --> r_hunt[Reborn: Monsters of Jura] --> ep5000
+  r_tempest --> join_town
+  subgraph ch2["2 Tempest Rises (Act I)"]
+    join_town --> rigurd --> gobta --> council --> name_mob --> tempest_stands{{Tempest Stands}}
+    join_town --> build[timber, doors, food store, forge, cloth] --> tempest_stands
+    gobta --> wolves[Night of the Direwolves] --> pests --> tempest_stands
+    wolves --> ep1000 --> ep3000 --> tempest_stands
+  end
+  ep3000 --> ep5000[Reborn: 5,000 EP] --> ep20000[Reborn: 20,000 EP]
+  subgraph ch7["7 Crossroads (Act I, the Oath)"]
+    crossroads --> light[light lane] --> forest_awakens{{The Forest Awakens}}
+    crossroads --> dark[dark lane] -.-> forest_awakens
+  end
+  tempest_stands --> crossroads
+  subgraph ch3["3 The Armed Nation (Act II)"]
+    road_supplies --> dwargon[waystation, arch, gate, street, plaza, forge street] --> kaijin_smithy --> throne{{Audience with King Gazel}}
+    dwargon --> ep6000 --> throne
+    dwargon --> forge_hall
+  end
+  forest_awakens --> road_supplies
+  ep6000 --> ep20000
+  subgraph ch8["8 The King's Test (Act II)"]
+    kings_summons --> kaijin_word --> ep10k[10,000 EP] --> lanes[honour duel or regicide or steal] --> act_two{{The Armed Nation}}
+  end
+  throne --> kings_summons
+  forest_awakens --> kings_summons
+  forge_hall -.-> lanes
+  subgraph ch4["4 The Orc Lord (Act III)"]
+    envoy --> rations --> caverns --> alliance --> scout_camp --> orc_hunt --> hold_the_line --> orc_lord_kill{{The Orc Lord}}
+    caverns --> ep_10000 --> orc_lord_kill
+    ep_10000 --> ep_50000
+  end
+  act_two --> envoy
+  ep20000 --> ep_50000
+  orc_lord_kill --> orc_war[Reborn: where the Orc Lord fell]
+  subgraph dailies["Dailies"]
+    daily_deeds["5 Daily Deeds (both lives)"]
+    daily_jura["6 Daily Deeds: Jura"]
+  end
+  r_tempest -.-> daily_deeds
+  l1_first_night[Life 1: The First Night] -.-> daily_deeds
+  r_hunt --> daily_jura
+  join_town --> daily_jura
+```
+
+Why this order (it differs from the chapter numbers, on purpose): the story core already fixes it. `story.toml` maps the acts to chapters (Act I = 1, 2, 7; Act II = 3, 8; Act III = 4, 9),
+acts complete in sequence, the Crossroads text ends "the next chapter is the road to the Dwarf King", and chapter 8 needs both the audience (3) and Act I (7). So Crossroads follows Tempest Rises,
+the Armed Nation follows Act I, the Orc Lord follows the King's Test, and chapters 9 and up (not written yet) follow the Orc Lord. If Yasuke prefers Dwargon and the Orc Lord straight after Tempest
+Rises, it is one dependency each: `armed_nation/road_supplies` and `orc_lord/envoy` (chapter 2's old finale text said both roads were open). The dailies unlock at the first
+night (Life 1) or the first visit to Tempest (Life 2), whichever a soul meets first (`min_deps = 1`); each Jura job unlocks with the chapter 1 or 2 quest that teaches it.
+The EP ladder is ordered across chapters: 1,000 and 3,000 (chapter 2), 5,000 (chapter 1), 6,000 (chapter 3), 10,000 (chapters 4 and 8), 20,000 (chapter 1), 50,000 (chapter 4).
+
 ## Chapters
+
+Cross-chapter links of the quests-web work package (18/11/2026), in the Life 2 chapters (see "The web"): Tempest Rises starts at Reborn's Town of Monsters (`reborn/tempest`);
+Crossroads follows Tempest Stands (unchanged); The Armed Nation starts after The Forest Awakens (`crossroads/forest_awakens`); The King's Test is unchanged (audience plus Act I) and its dark "Steal the
+Schematics" now also needs the forge hall visit (`armed_nation/forge_hall`); The Orc Lord starts after the King's Test (`kings_test/act_two`); Reborn's 5,000 / 20,000 EP and Where the Orc Lord Fell wait for
+the EP quests and the Orc Lord kill of the later chapters, and The Cave Stirs (chapter 7) needs Reborn's Sealed Cave; chapter 4's 50,000 EP needs Reborn's 20,000; `armed_nation/gold_coin` is optional.
 
 **0. A Mortal Life** (Life 1, 44 quests). Main line: Only Once (stage `ttl.life1`) → Wood and Stone → The First
 Night → Iron Age → Diamonds → The Mortal Nether → Fortress → Blaze Rods → Eyes of Ender → The Stronghold →
@@ -88,7 +343,33 @@ The Mortal End → The Mortal Dragon. Branches mirror the karma axes: Valor (kin
 trial chambers; optional great foes Elder Guardian, Wither, Warden), Longevity (2 / 7 / 15 / 30 days = the tier
 day gates), Order (village, trading, breeding, iron golem, zombie doctor, raid; "The Other Road" explains Chaos),
 Craft (armour, anvil, diamond gear, netherite, smithing), Faith (enchanting, library, scholar, brewing, biomes).
-Every quest ends with a "Next life:" line. Rewards are small vanilla items and XP.
+Every quest ends with a "Next life:" line. Rewards are small vanilla items and XP. Web: Wood and Stone also needs the wooden tools of chapter 0a; the finale chain (0j) continues after the Mortal Dragon.
+
+**Life 1 expansion, chapters 0a-0j** (119 quests, `design/quests/chapter_0a_*.toml` ... `chapter_0j_*.toml`, orders -10 to -1; quests-web work package). A grounded
+mortal-medieval world: vanilla items, entities, advancements, biomes, structures and statistics, plus the two Sophisticated storage mods (a pedlar's backpack and a better chest in chapter 0b;
+both are in the pack, not in `mortal_banned.toml`). No Tensura content, no skills, no uniques; rewards are bread, torches, coal, arrows, a few emeralds, XP bottles, at most a golden apple or a diamond.
+Every quest has a `lore` line and an honest `karma` line: many deeds are not scored by the karma engine (farming, cooking, building a house), and the line says so instead of pretending; the ones that are
+scored say which axis (design/data/karma.toml). Item tasks are generic results (a chest, glass panes, a smoker) because the large biomes decide which trees you have; no quest asks for a specific
+potion (an item task cannot tell one potion from another), a depth (there is no Y-level task) or a mob farm.
+
+| Chapter | Quests | What it teaches | Enters from | Capstone |
+| --- | --- | --- | --- | --- |
+| 0a Bare Hands (`first_days`) | 11 | log to table to tools, stone, furnace, charcoal, torches, a chest, a bow, first blood | Only Once | Ready for the Road |
+| 0b Hearth and Home (`homestead`) | 11 | hearth, windows, storeroom, backpack, decoration, well, lanterns, a wall, guest beds | Ready for the Road | Home Fires |
+| 0c Seed and Stock (`fields`) | 16 | seeds, wheat, bread, root crops, pumpkins, hens, a pet, fishing, milk, wool, cake, bees, smokehouse, larder | Ready for the Road | Harvest Home |
+| 0d Down the Shaft (`delving`) | 14 | coal, copper, mineshaft, iron, rails, gold, redstone and lapis, deepslate, geode, spyglass, lava, obsidian, underground biomes | Wood and Stone | Deep Delver |
+| 0e The Long Road (`roads_ruins`) | 13 | walking, biome tours, ruined portal, temples, witch hut and igloo, trail ruins, wrecks, buried treasure, outposts, mansion | The First Night | Cartographer's Pride |
+| 0f Folk of the Realm (`folk`) | 8 | the bell, talking to villagers, job sites, an emerald purse, a hundred trades, other villages, lightning rods | People of the Realm | Friend of the Hamlet |
+| 0g Hand and Cauldron (`arts`) | 10 | paper and books, the lectern, banners, maps, the stonecutter, brewing, reagents, armour trims | Words of Power (and Local Brewery) | Master of Hand and Cauldron |
+| 0h Beneath the Burning Sky (`nether_road`) | 13 | netherrack roads, fungus forests, soul sand, basalt, bastions, piglin bartering, hoglins, striders, quartz, glowstone, ghast tears | The Mortal Nether (hidden until) | Hellwalker |
+| 0i The Dragon's Eve (`end_road`) | 12 | golden apples, pumpkin and bucket against endermen, arrows, blocks, full armour; after the dragon the gateway, end city, shulkers, chorus, elytra | Eyes of Ender (hidden until) | The Dragon's Eve |
+| 0j A Life That Counts (`a_life_that_counts`) | 11 | hand-ins of bread, torches, arrows and wool for a village, keeping the peace, herds, raids, coming home; the finale | People of the Realm | The Ledger, A Life That Counted |
+
+"A Life That Counted" (finale) needs the Mortal Dragon, "A Full Life" (30 days), The Ledger (any five of nine capstones) and "Come Home" (stand at Wayfarer's Rest, `ttl:mortal_realm` 0, 0): it mirrors the
+Legend tier (a great foe, 30 days, enough karma), but only the karma engine decides the tier, at death. The hand-ins of chapter 0j are `consume = true` and honest that the book cannot see a gift:
+they are not Order karma. Exploration quests say that the Mortal Realm uses the large-biomes preset, so biomes are four times as wide.
+Unverified in game: that the Mortal End has the vanilla outer islands and end cities for the post-dragon quests (they are optional), that a bastion generates in the Mortal Nether (it uses the vanilla Nether
+noise settings and biome preset, so it should), and the exact structure frequency under large biomes.
 
 **1. Reborn** (Life 2 opening, 15 quests, revealed step by step). Open Your Eyes (stage `ttl.life2`) → The Town
 of Monsters (Tempest, 0,0) → Rigurd's Tribe (old goblin village) → The Direwolf Pack; The Sealed Cave →
@@ -119,9 +400,9 @@ alliance (checkmark: no state to read) → scout the orc camp (1106,539) → kil
 (advancement `tensura:eat_or_be_eaten`, defeat an Orc Disaster). EP 10,000 gates the finale; 50,000 and 100,000 are optional.
 Optional ruin of the Kijin village (1460,-959, position unverified).
 
-**5. Daily Deeds** (shared by both lives, 9 repeatable quests, 24 h cooldown): kill zombies, skeletons, spiders; hand in
+**5. Daily Deeds** (shared by both lives, 9 repeatable quests, 24 h cooldown, hidden until Life 1's The First Night or Life 2's Town of Monsters, `min_deps = 1`): kill zombies, skeletons, spiders; hand in
 logs, cobblestone, coal, wheat; stand in a dark forest or river biome. Vanilla only, rewards are food, arrows, torches and XP.
-**6. Daily Deeds: Jura** (Life 2, 6 repeatable quests): kill horned rabbits, giant ants, direwolves; hand in hipokute grass
+**6. Daily Deeds: Jura** (Life 2, 6 repeatable quests, each unlocked by the quest that teaches it): kill horned rabbits, giant ants, direwolves; hand in hipokute grass
 and magic ore shards; patrol Tempest. Rewards: bronze coins, a low potion, food, XP.
 
 **7. Crossroads** (Life 2, Act I of the story, 12 quests, WP-S6). Spine: Crossroads (stand at Tempest's south gate; the reward
@@ -218,6 +499,27 @@ Chapters 7-8 (WP-S6, 18/11/2026; places and ids verified against Tensura 2.0.1.5
   and acts from `design/data/story.toml` (`honour_duel`, `regicide`, act 2). The mod's own advancement `tensura:hero_king` ("Defeat Gazel Dwargo") exists but
   only fires for an untamed Gazel, so the quests read `ttl.defeated.gazel_dwargo` (set by `bosses/boss.js` for every credited winner) instead.
 - Places: Tempest offsets from `blueprints/tempest.py`, Dwargon from `blueprints/dwargon.py` (see the headers of chapters 2, 3, 7, 8).
+
+The web and the Life 1 expansion (18/11/2026, quests-web work package). Web searches turned up few chapter-by-chapter outlines of other packs' quest books (most of them live
+in each pack's own `config/ftbquests` files), so only the structural ideas below were taken from them; the quests themselves are our own, built on vanilla's advancement tree and statistics:
+- Prominence II: a short opening "getting started" chapter that hands out starter gear before the long main story, and a quest book that is optional but there from the first minute (what 0a Bare Hands copies:
+  small, fast, rewarding) - https://jangro.com/2023/10/04/prominence-ii-2-fabric-minecraft-1-20-1-getting-started and the fan reference https://prominence-2.duckdns.org/references/quest-rewards (a fan source: verify before relying on it).
+- Vault Hunters (wiki "Your First Vault"): an explicit preparation checklist before the hard place (a water bucket, iron before diamond, a shulker box for the loot, reward for entering) - https://wiki.vaulthunters.gg/Your_First_Vault
+  (0i The Dragon's Eve is a checklist, not a gate, for the same reason that page lists what to bring and does not forbid going without it).
+- RLCraft early-game advice (light the base so nothing spawns, clear a cave before you light it, expect to die): https://rlcraft.wiki.gg/wiki/Early_Game_Tips_and_Tricks and https://progameguides.com/minecraft/rlcraft-beginners-guide-tips-and-crafting/
+  (0a and 0b: torches, hearth, walls; the honest karma lines say that survival keeps you alive and days alive are Longevity).
+- Life in the Village 3 (a low-tech, town-and-exploration vanilla+ pack; a reviewer notes that its early quests have good descriptions and the later ones fewer): https://www.curseforge.com/minecraft/modpacks/life-in-the-village-3
+  (0b, 0c, 0f and 0j: village and homestead chapters, description-led quests, a calm tone; every new quest has a text, a lore line and a karma line so the book does not thin out late).
+- Better Minecraft (the original is an exploration-first pack with only a short set of starter quests): https://jangro.com/2023/01/17/better-minecraft-fabric-1-19-2-getting-started (0e The Long Road: a short guide, then "go and look").
+- Dawncraft and its community patch Better DawnCraft (chapters of quests that unlock gear, skills and village interactions; the patch adds 100+ quests): https://www.modpackindex.com/modpack/60940/better-dawncraft (the idea of many modest quests in themed chapters).
+- Existing sources of this file still apply (Araxer's Staged Survival, One Heart Start, Monktech 2: a main line, optional branches, hidden reveals).
+
+Facts checked against the game files (not taken from the web): vanilla advancement ids, structure ids and structure tags (`#minecraft:village`, `mineshaft`, `shipwreck`, `ocean_ruin`, `ruined_portal`), biome ids, custom statistic ids and item and entity names come
+from the 1.21.1 client data jar (`client-1.21.1-20240808.144430-extra.jar`: `data/minecraft/advancement`, `worldgen/structure`, `tags/worldgen/structure`, `worldgen/biome`, `assets/minecraft/lang/en_us.json`);
+the Sophisticated Backpacks / Storage items (`sophisticatedbackpacks:backpack`, `sophisticatedstorage:chest`) come from their jars' recipes and `pack/config/sophisticatedcore-common.toml` (`enabledItems`); that the Mortal Nether uses the
+vanilla Nether noise settings and multi-noise preset comes from `pack/kubejs/data/ttl/dimension/mortal_nether.json`; the Realm's spawn (0, 0 in `ttl:mortal_realm`) from `design/lore/mortal_spawn.md`; FTB Quests sorts chapters by `order_index`
+with `Comparator.comparingInt` (`BaseQuestFile.readDataFull`, `javap`), so negative orders are fine.
+Our interpretation (flagged in the quest lines): all lore lines, the honest "not scored" karma lines, the Ledger / Legend finale (mirrors the Legend tier of `karma.toml`), and the Life 2 chapter order (the story core's act mapping rather than the chapter numbers).
 
 Quest-line ideas:
 - Hardcore / staged packs: Araxer's Staged Survival (8 gated chapters,

@@ -1,11 +1,14 @@
 """Offline tests for tools/gen_quests.py (no server): python -I -m unittest discover -s tests
 
 Covers the story extensions (WP-S5): `path`, `stage` / `command` rewards, `team_stage`, cross-chapter `deps`, `min_deps`,
-and that the existing chapters still generate byte-identical. The last class checks every emitted FTB Quests field name
+and that the existing chapters still generate byte-identical. Also the quest web (quests-web work package): the `lore` field,
+the Life 1 mod namespaces, and the audit in tools/quest_graph.py over the real book (every quest unlockable, one connected web,
+Life 1 converging on its finale, the Life 2 story order, the dailies unlocking). The last class checks every emitted FTB Quests field name
 against the FTB Quests jar when it is available (skipped otherwise)."""
 import os
 import sys
 import tempfile
+import tomllib
 import unittest
 import zipfile
 from pathlib import Path
@@ -14,6 +17,7 @@ from unittest import mock
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import gen_quests  # noqa: E402
+import quest_graph  # noqa: E402
 
 CH_A = """
 [chapter]
@@ -289,6 +293,187 @@ tasks = [{ type = "checkmark" }]
     def test_chapter_key_used_twice(self):
         with self.assertRaises(gen_quests.QuestError):
             render({"a.toml": CH_A, "b.toml": CH_A.replace("order = 1", "order = 2")})
+
+
+class LoreTests(unittest.TestCase):
+    def test_lore_is_a_grey_italic_quoted_paragraph_between_text_and_karma(self):
+        files = render({"a.toml": one_quest(
+            'text = "Task line."\nlore = "A line   of voice."\nkarma = "Honest."\ntasks = [{ type = "checkmark" }]', life=1)})
+        lang = files[gen_quests.TARGET / "lang" / "en_us.snbt"]
+        i, j, k = lang.index("Task line."), lang.index("&7&o“A line of voice.”&r"), lang.index("Honest.")
+        self.assertTrue(i < j < k)
+
+    def test_no_lore_no_change(self):
+        files = render({"a.toml": one_quest('text = "T."\ntasks = [{ type = "checkmark" }]', life=1)})
+        self.assertNotIn("&7&o", files[gen_quests.TARGET / "lang" / "en_us.snbt"])
+
+
+class Life1NamespaceTests(unittest.TestCase):
+    def solo(self, item: str, chapter_life="1"):
+        return render({"a.toml": one_quest(
+            f'tasks = [{{ type = "item", item = "{item}" }}]\nrewards = [{{ type = "item", item = "{item}" }}]', life=chapter_life)})
+
+    def test_vanilla_and_the_sophisticated_storage_mods_are_allowed_in_life_1(self):
+        for item in ("minecraft:chest", "sophisticatedbackpacks:backpack", "sophisticatedstorage:chest"):
+            with self.subTest(item=item):
+                self.solo(item)
+
+    def test_tensura_and_other_mods_are_refused_in_life_1_and_shared_chapters(self):
+        for item in ("tensura:bronze_coin", "tensura_neb:night_rose", "greatsage:venuzdonoa", "lightmanscurrency:coin_gold", "create:cogwheel"):
+            with self.subTest(item=item), self.assertRaises(gen_quests.QuestError):
+                self.solo(item)
+        with self.assertRaises(gen_quests.QuestError):
+            self.solo("tensura:bronze_coin", chapter_life='"both"')
+
+    def test_life_2_is_unrestricted(self):
+        self.solo("tensura:bronze_coin", chapter_life="2")
+
+    def test_allowed_namespaces_are_not_banned_in_the_mortal_realm(self):
+        banned = tomllib.loads((ROOT / "design" / "data" / "mortal_banned.toml").read_text(encoding="utf-8"))["namespaces"]
+        self.assertEqual(set(banned) & set(gen_quests.LIFE1_NAMESPACES), set())
+
+
+class QuestGraphUnitTests(unittest.TestCase):
+    """quest_graph on tiny synthetic books."""
+
+    def book(self, **chapters):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        for name, text in chapters.items():
+            Path(tmp.name, f"{name}.toml").write_text(text, encoding="utf-8")
+        return quest_graph.load(Path(tmp.name))
+
+    def test_orphan_root_and_split_web_are_reported(self):
+        chapters, quests = self.book(a=CH_A, b=CH_B.replace('deps = ["alpha/second"]', 'deps = []'))
+        with mock.patch.object(quest_graph, "ROOTS", {("alpha", "start")}):
+            bad = quest_graph.problems(chapters, quests)
+        self.assertTrue(any("beta/oath has no dependency" in b for b in bad), bad)
+        self.assertTrue(any("not one web" in b for b in bad), bad)
+
+    def test_a_clean_book_has_no_problems(self):
+        chapters, quests = self.book(a=CH_A, b=CH_B)
+        with mock.patch.object(quest_graph, "ROOTS", {("alpha", "start")}):
+            self.assertEqual(quest_graph.problems(chapters, quests), [])
+
+    def test_min_deps_unlock_counts_unlockable_dependencies(self):
+        loop = """
+[[quests]]
+key = "never"
+title = "Never"
+deps = ["never2"]
+tasks = [{ type = "checkmark" }]
+
+[[quests]]
+key = "never2"
+title = "Never 2"
+deps = ["never"]
+tasks = [{ type = "checkmark" }]
+
+[[quests]]
+key = "either"
+title = "Either"
+deps = ["start", "never"]
+min_deps = 1
+tasks = [{ type = "checkmark" }]
+
+[[quests]]
+key = "both"
+title = "Both"
+deps = ["start", "never"]
+tasks = [{ type = "checkmark" }]
+"""
+        # `never` and `never2` loop (the generator refuses that; quest_graph only reports it): they never unlock
+        chapters, quests = self.book(a=CH_A + loop)
+        unlock = quest_graph.unlockable(quests)
+        self.assertIn(("alpha", "either"), unlock)
+        self.assertNotIn(("alpha", "both"), unlock)
+        self.assertNotIn(("alpha", "never"), unlock)
+
+
+class QuestWebTests(unittest.TestCase):
+    """The real book: design/quests.md "The web"."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.chapters, cls.quests = quest_graph.load()
+
+    def ancestors(self, chapter: str, key: str) -> set:
+        seen, todo = set(), [(chapter, key)]
+        while todo:
+            for d in self.quests[todo.pop()]["deps"]:
+                if d not in seen:
+                    seen.add(d)
+                    todo.append(d)
+        return seen
+
+    def test_no_problems(self):
+        self.assertEqual(quest_graph.problems(self.chapters, self.quests), [])
+
+    def test_only_two_entries_into_the_book(self):
+        roots = {k for k, q in self.quests.items() if not q["deps"]}
+        self.assertEqual(roots, {("mortal_life", "only_once"), ("reborn", "eyes_open")})
+
+    def test_every_quest_can_be_unlocked(self):
+        self.assertEqual(quest_graph.unlockable(self.quests), set(self.quests))
+
+    def test_chapters_are_one_connected_web(self):
+        self.assertEqual(len(quest_graph.components(self.chapters, quest_graph.chapter_edges(self.quests))), 1)
+
+    def test_life_1_chapters_hang_off_the_spine_and_converge_on_the_finale(self):
+        life1 = [c for c, ch in self.chapters.items() if ch.get("life") == 1]
+        self.assertEqual(len(life1), 11)
+        legend = self.ancestors("a_life_that_counts", "legend")
+        for needed in (("mortal_life", "dragon"), ("mortal_life", "days_30"), ("mortal_life", "only_once"), ("a_life_that_counts", "ledger")):
+            self.assertIn(needed, legend)
+        for capstone in ("first_days/ready_for_road", "homestead/home_fires", "fields/harvest_home", "delving/deep_delver",
+                         "roads_ruins/cartographers_pride", "folk/friend_of_hamlet", "arts/master_hands", "nether_road/hellwalker",
+                         "end_road/dragons_eve"):
+            self.assertIn(tuple(capstone.split("/")), legend)
+        # every non-optional Life 1 quest leads somewhere: into the finale
+        stray = [f"{c}/{k}" for (c, k), q in self.quests.items()
+                 if q["life"] == 1 and not q["optional"] and (c, k) not in legend and (c, k) != ("a_life_that_counts", "legend")]
+        self.assertEqual(stray, [])
+
+    def test_life_1_chapters_sit_before_every_other_chapter_in_the_book(self):
+        orders = {c: ch["order"] for c, ch in self.chapters.items()}
+        last1 = max(o for c, o in orders.items() if self.chapters[c].get("life") == 1)
+        first_other = min(o for c, o in orders.items() if self.chapters[c].get("life") != 1)
+        self.assertLess(last1, first_other)
+        self.assertEqual(min(orders, key=orders.get), "mortal_life")
+
+    def test_life_1_has_many_quests_each_with_lore_and_karma(self):
+        new = [(c, k) for (c, k), q in self.quests.items() if q["life"] == 1 and c != "mortal_life"]
+        self.assertGreaterEqual(len(new), 80)
+        self.assertLessEqual(len(new), 120)
+        missing = []
+        for src in sorted(gen_quests.SOURCES.glob("chapter_0[a-z]_*.toml")):
+            data = tomllib.loads(src.read_text(encoding="utf-8"))
+            missing += [f"{src.name}:{q['key']}" for q in data["quests"] if not q.get("lore") or not q.get("karma")]
+        self.assertEqual(missing, [])
+
+    def test_life_2_story_order(self):
+        # rebirth -> Tempest Rises -> Crossroads (Act I) -> Armed Nation -> King's Test (Act II) -> Orc Lord (Act III)
+        self.assertIn(("reborn", "tempest"), self.ancestors("tempest_rises", "join_town"))
+        self.assertIn(("tempest_rises", "tempest_stands"), self.ancestors("crossroads", "crossroads"))
+        self.assertIn(("crossroads", "forest_awakens"), self.ancestors("armed_nation", "road_supplies"))
+        kt = self.ancestors("kings_test", "act_two")
+        self.assertIn(("armed_nation", "throne"), kt)
+        self.assertIn(("crossroads", "forest_awakens"), kt)
+        self.assertIn(("kings_test", "act_two"), self.ancestors("orc_lord", "envoy"))
+        self.assertIn(("orc_lord", "orc_lord_kill"), self.ancestors("reborn", "orc_war"))
+
+    def test_dailies_unlock_at_sensible_points(self):
+        for k, q in self.quests.items():
+            if k[0] == "daily_deeds":
+                self.assertEqual(set(q["deps"]), {("mortal_life", "first_night"), ("reborn", "tempest")})
+                self.assertEqual(q["min"], 1)  # either life's first step opens the shared dailies
+            if k[0] == "daily_jura":
+                self.assertTrue(q["deps"] and all(d[0] in ("reborn", "tempest_rises") for d in q["deps"]), k)
+
+    def test_ep_ladder_is_ordered(self):
+        self.assertIn(("tempest_rises", "ep_3000"), self.ancestors("reborn", "ep_5000"))
+        self.assertIn(("armed_nation", "ep_6000"), self.ancestors("reborn", "ep_20000"))
+        self.assertIn(("reborn", "ep_20000"), self.ancestors("orc_lord", "ep_50000"))
 
 
 FTB_QUESTS_JAR = Path(os.environ.get("FTB_QUESTS_JAR", r"C:\Users\david\AppData\Roaming\PrismLauncher\instances\OCs\minecraft\mods\ftb-quests-neoforge-2101.1.39.jar"))

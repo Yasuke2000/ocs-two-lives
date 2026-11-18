@@ -3,7 +3,8 @@
 #
 # The Life 2 companion of chapter 5: the same repeat rules (`repeatable`, `cooldown` in seconds, item tasks as hand-ins),
 # with Tensura monsters and items. Rewards stay small: food, bronze coins and a low potion; never skills, races or
-# awakenings. The patrol is a location check on Tempest's centre (0, 0, radius 64, as chapter 1's town visit).
+# awakenings. Each job unlocks with the chapter 1 / 2 quest that teaches it (rabbits and ants after Monsters of Jura, wolves after The Direwolf
+# Pack, herbs after Hipokute Herbs, ore after Magic Ore, the patrol after the village green). The patrol is a location check on Tempest's centre (0, 0, radius 64, as chapter 1's town visit).
 
 [chapter]
 key = "daily_jura"
@@ -12,6 +13,7 @@ subtitle = "Chores of the forest, repeated every day."
 icon = "tensura:bronze_coin"
 order = 6
 life = 2
+hide_until_deps_complete = true
 text = """
 Tempest never runs out of work. These jobs reset a day after you claim them; the town pays in bronze coins
 and the odd potion.
@@ -22,6 +24,7 @@ key = "jura_rabbits"
 title = "Horned Rabbit Stew"
 subtitle = "Hunt"
 icon = "minecraft:rabbit_stew"
+deps = ["reborn/first_hunt"]
 lane = -1
 col = 0
 repeatable = true
@@ -35,6 +38,7 @@ key = "jura_ants"
 title = "Ants in the Fields"
 subtitle = "Hunt"
 icon = "minecraft:iron_sword"
+deps = ["reborn/first_hunt"]
 lane = -1
 col = 1
 repeatable = true
@@ -48,6 +52,7 @@ key = "jura_wolves"
 title = "Wolves at the Edge"
 subtitle = "Hunt"
 icon = "minecraft:bone"
+deps = ["reborn/direwolves"]
 lane = -1
 col = 2
 repeatable = true
@@ -61,6 +66,7 @@ key = "jura_herbs"
 title = "Herbs for the Infirmary"
 subtitle = "Gather"
 icon = "tensura:hipokute_grass"
+deps = ["reborn/hipokute"]
 lane = 0
 col = 0
 repeatable = true
@@ -74,6 +80,7 @@ key = "jura_ore"
 title = "Shards for Kaijin"
 subtitle = "Gather"
 icon = "tensura:magic_ore_shard"
+deps = ["reborn/magic_ore"]
 lane = 0
 col = 1
 repeatable = true
@@ -87,6 +94,7 @@ key = "jura_patrol"
 title = "Round of the Town"
 subtitle = "Wander"
 icon = "minecraft:lantern"
+deps = ["tempest_rises/join_town"]
 lane = 1
 col = 0
 repeatable = true

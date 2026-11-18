@@ -556,6 +556,7 @@
 		{
 			dependencies: [
 				"3D14EC5F5890B8B5"
+				"7070BCCFF604CC3C"
 			]
 			hide_until_deps_complete: true
 			icon: {
