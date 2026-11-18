@@ -12,8 +12,8 @@
     "  centre: [x, z] world blocks for radius tests (Tempest = 0, 0). interior: cell characters that are not the region's border for depth tests (default \"~\"; J adds W, the Lake Siss marsh, so the lake shore is not an outer edge). fade: every patch shifts all ring tests by a random amount in [-fade, fade] blocks (on top of the border dither), so ring edges are ragged fringes of whole patches.",
     "  rings: tried in listed order, the first test that passes wins, the last ring has no test. Each ring has a name, 'biomes' (like the region's own) and one test: radius (blocks from the centre) or depth (blocks inside the region's border, to the nearest non-region, non-interior cell). The region's plain 'biomes' stays as the fallback if zones are broken (for J: the safe rim list). Peaks keep their own palette.",
     "  J on the 14,000-block map: the border is 650-950 blocks from Tempest on the Blumund (west), Falmuth (north-west) and Dwargon (north) sides and 1,100-3,000 blocks elsewhere, so rings are measured from the border (rim, depth 280 +- 50: 200-350 blocks deep along the whole border, the 'safe outer edge') and from Tempest (core, radius 200 +- 50, about the inner third of the narrowest 650 blocks); the dark-forest middle is everything between: about 190 blocks wide toward Blumund, 290-420 toward Dwargon and Falmuth, 650+ south and east. Life 2 arrives on the rim (design/data/arrival.toml). Check after editing: java -cp mod/build/classes/java/main:<gson jar> com.yasuke.ttl.world.CanonGrid pack/config/ttl/canon_map.txt pack/config/ttl/canon_regions.json <arrival x> <arrival z>. Terrain that is already generated keeps its biomes; only new chunks follow the rings (/ttlmap <x> <z> and /ttlregion <player> name the ring).",
-    "W (Lizardmen's Marsh) is defined but not painted in canon_map.txt yet (empty seeds, so canon_map.py ignores it): paint it as a ring of marsh around Lake Siss.",
-    "landmarks: named places in reference-map pixel coordinates (the 2800x2050 political fan map, same space as seeds and origin); a tool converts them to world coordinates (about 3.89 blocks per reference pixel at --width 10000; world 0,0 = origin).",
+    "The Lake Siss paint pass adds the W marsh ring after the political trace; W intentionally has no flood seeds.",
+    "landmarks: named places in reference-map pixel coordinates (the 2800x2050 political fan map, same space as seeds and origin); a tool converts them to world coordinates (about 5.447 blocks per reference pixel at width 14000; world 0,0 = origin).",
     "ring: open sea around the continent (blocks) before the free, non-canon lands; blend: blocks over which the sea fades into them.",
     "seeds and origin are points on the reference map (tools/canon_map.py), only used when the grid is regenerated.",
     "Changes only affect chunks that are not generated yet.",
@@ -448,7 +448,7 @@
           1610
         ]
       ],
-      "temperature": 0.3,
+      "temperature": -0.3,
       "vegetation": 0.3,
       "erosion": -0.6,
       "strength": 0.75,
@@ -471,11 +471,11 @@
           2
         ],
         [
-          "minecraft:sparse_jungle",
+          "minecraft:grove",
           1
         ],
         [
-          "minecraft:savanna_plateau",
+          "minecraft:snowy_slopes",
           1
         ]
       ]
@@ -1140,8 +1140,8 @@
       "name": "Great Ameld River mouth",
       "kind": "river",
       "ref": [
-        2420,
-        1340
+        2434,
+        1384
       ]
     },
     {
@@ -1292,7 +1292,7 @@
       "name": "Yggdonia",
       "kind": "capital",
       "ref": [
-        1550,
+        1548,
         1174
       ]
     },
@@ -1484,6 +1484,10 @@
         [
           2445,
           775
+        ],
+        [
+          2498,
+          946
         ]
       ]
     },
