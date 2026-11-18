@@ -10,6 +10,10 @@ ttl walpurgis where
 ttlbot spawn TtlBotWalA
 ttlbot spawn TtlBotWalB
 @sleep 2
+# Creative: a Life 2 bot at world spawn has no arrival grace, and the rim's mobs (a Barghest on the ttl-ops run of
+# 5de8ed4) can kill it between the teleport and the check.
+gamemode creative TtlBotWalA
+gamemode creative TtlBotWalB
 kubejs stages add TtlBotWalA ttl.life2
 ttl walpurgis uninvite TtlBotWalA
 ttl walpurgis uninvite TtlBotWalB
@@ -37,5 +41,7 @@ kubejs stages remove TtlBotWalA ttl.story.hero
 ttl walpurgis expect TtlBotWalA allowed no
 ttl walpurgis uninvite TtlBotWalB
 kubejs stages remove TtlBotWalA ttl.life2
+gamemode survival TtlBotWalA
+gamemode survival TtlBotWalB
 ttlbot remove TtlBotWalA
 ttlbot remove TtlBotWalB
