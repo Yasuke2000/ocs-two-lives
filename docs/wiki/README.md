@@ -1,0 +1,6 @@
+# Publishing the player guide
+
+The [language chooser](index.md) leads to the [English](en/index.md) and [Nederlandse](nl/index.md) editions. Update both editions in the main repository and publish a reviewed revision.
+
+- **GitHub Pages.** In **Settings → Pages**, choose **Deploy from a branch**, select the reviewed branch and the `/docs` folder. The guide will be under `/ocs-two-lives/wiki/` on the default project site. For a player-only site, copy `docs/wiki/` to the root of a separate publishing branch. Copy linked images and point links outside the published tree back to the reviewed GitHub revision. [Pages publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+- **GitHub Wiki.** Enable **Wikis** in repository settings, initialise the first page and clone `https://github.com/Yasuke2000/ocs-two-lives.wiki.git`. Export the chooser as `Home.md` and the language pages with distinct names such as `EN-karma.md` and `NL-karma.md`. Update the links to those wiki titles and link out-of-tree references to the reviewed repository revision. Preview both language indexes and topic switches before committing and pushing to the wiki repository. [Editing wiki pages locally](https://docs.github.com/en/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)

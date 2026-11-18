@@ -7,6 +7,8 @@ Status: **Phase 0 (prototype)** — not playable yet.
 
 **Testers: volg [TESTERS.md](TESTERS.md)** (stap-voor-stap, Nederlands).
 
+[Player guide in English](docs/wiki/en/index.md) · [Spelersgids in het Nederlands](docs/wiki/nl/index.md)
+
 ## Install (Prism Launcher)
 
 Add Instance → Import → paste
