@@ -21,7 +21,7 @@ through `TtlWorld.ownerAt`, sidequest `byUuid` scan + continent signature, domai
 synchronous give/clear, legion test hook, `ttl story testunlock mark|restore|drop` (quests.rcon's Act VII bot had unlocked
 Veldora for everyone on staging; dropped with `drop veldora`), plus test fixes (world sync, events_pack end-all, bosses
 queue answer and Gazel position, sidequests forceload, artifice main hand, necro_ranks cleanup order).
-**Test results**: ttl-ops on `d1e0c09` = 66/67 (only sidequests: the ambient loop spawned an adventurer during the count; fixed with `ttl adventurers hold`, next run below). Before that: ttl-ops on `a78843b` = 62/67 (artifice, bosses, necro_legion, necro_ranks, sidequests failing); after the
+**Test results**: ttl-ops on `d1e0c09` = 66/67 (only sidequests: the ambient loop spawned an adventurer during the count; fixed with `ttl adventurers hold`; the run of 8a151d4 still failed it on the escort (a client whose chunk unloaded read as fallen) and on clearing an unloaded green, both fixed in the next commit). Before that: ttl-ops on `a78843b` = 62/67 (artifice, bosses, necro_legion, necro_ranks, sidequests failing); after the
 fixes artifice, necro_legion, necro_ranks and sidequests passed one by one on staging (push-scripts), bosses still showed
 `ttl discord expect TtlBotBoss boss 1` = 0 after a reload (check on the fresh boot). The commit after this one gets a full
 ttl-ops run: read `kubectl --kubeconfig ~/.kube/ocs-two-lives.yaml -n ocs-two-lives logs deploy/ttl-ops --tail=60`.

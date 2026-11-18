@@ -2890,7 +2890,7 @@ hash = "43bd0294897addc64a25c7c0fa76c021fe065cddb855efcc3cc51bcab7632a89"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/side.js"
-hash = "f4f835a2e32b3260624f261b793300d723c43351aa905e712b04f837c5999160"
+hash = "3e29fb479412d19a3c7e75b279cb9f6441c7f041b970b367c1bf68b88b1e3045"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/cast.js"

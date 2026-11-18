@@ -73,6 +73,8 @@ ttl sidequest reset TtlBotSideA
 ttl sidequest start TtlBotSideA merchant_escort
 ttl sidequest expect TtlBotSideA phase merchant_escort wait
 ttl sidequest goto TtlBotSideA rim_camp
+# Bots teleport instead of walking, so the client cannot follow: keep the camp loaded until it is brought along.
+execute at TtlBotSideA run forceload add ~ ~
 @sleep 3
 ttl sidequest poll TtlBotSideA
 ttl sidequest expect TtlBotSideA phase merchant_escort go
@@ -80,6 +82,7 @@ ttl sidequest expect TtlBotSideA client merchant_escort alive
 ttl sidequest goto TtlBotSideA dwarf_road
 @sleep 3
 ttl sidequest bring TtlBotSideA
+execute in minecraft:overworld run forceload remove 285 -612
 ttl sidequest poll TtlBotSideA
 ttl sidequest expect TtlBotSideA done merchant_escort yes
 ttl sidequest expect TtlBotSideA stage merchant_escort yes
@@ -99,11 +102,12 @@ ttl sidequest expect TtlBotSideA count 0
 # Ambient adventurers: Tempest's green fills one adventurer per check while a player stands there, never past its cap (3).
 # The ambient loop would add its own adventurer while the bot stands there: hold it for the counting.
 ttl adventurers hold 120
-ttl adventurers clear tempest_green
 ttl sidequest goto TtlBotSideA tempest_green
 # A test bot does not always keep the chunks around it loaded (populate answered "unloaded" on the ttl-ops runs).
 execute at TtlBotSideA run forceload add ~ ~
 @sleep 3
+# Cleared once the green is loaded: adventurers in an unloaded chunk are not seen by `clear`.
+ttl adventurers clear tempest_green
 ttl adventurers expect tempest_green count 0
 ttl adventurers populate tempest_green
 ttl adventurers expect tempest_green count 1

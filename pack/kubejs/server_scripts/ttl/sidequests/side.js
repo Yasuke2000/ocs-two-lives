@@ -296,7 +296,9 @@ const TtlSide = {
     }
     var client = TtlSideNpc.byUuid(server, st.dim, st.npc)
     if (!client || !client.isAlive()) {
-      if (client || TtlSidePlaces.isLoaded(server, st.dim, st.lx, st.lz)) return `fail:${this.client(def.client).name} has fallen`
+      // Found but dead is a fall; a death is also failed at once by the EntityEvents.death hook below. Not found is only
+      // "away": an entity unloads with its chunk while `execute if loaded` still answers yes (seen 18/11/2026).
+      if (client) return `fail:${this.client(def.client).name} has fallen`
       st.away += ms
       return st.away > Number(S.leash_seconds) * 1000 ? `fail:you left ${this.client(def.client).name} behind` : 'save'
     }
