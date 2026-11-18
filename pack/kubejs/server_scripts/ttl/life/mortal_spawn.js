@@ -6,19 +6,27 @@ const TtlMortalSpawn = {
   margin: 4,
   footprintColumns: null,
 
-  // Ordinary players can still use doors, beds and the bell, walk the roads, and build outside
-  // this particular installation. Protect only its authored columns and vertical extent.
-  protectedBlock(player, block) {
-    if (!player || String(player.type) !== 'minecraft:player' || TtlLife.dimensionOf(player) !== TtlLife.MORTAL) return false
-    var x = block.x + 14, z = block.z + 14
-    if (x < 0 || z < 0 || x >= 39 || z >= 39 || player.hasPermissions(2)) return false
-    var data = player.getServer().persistentData
+  // Is this block part of the installation: inside its 39 x 22 x 39 box and in a column where the template has a block
+  // (the empty corners and the roads stay free to build on)?
+  covers(server, x, y, z) {
+    var gx = x + 14, gz = z + 14
+    if (gx < 0 || gz < 0 || gx >= 39 || gz >= 39) return false
+    var data = server.persistentData
     if (data.getInt('ttl.mortal.version') !== TTL_MORTAL_SPAWN_VERSION) return false
-    var localY = block.y - (data.getInt('ttl.mortal.y') - 7)
+    var localY = y - (data.getInt('ttl.mortal.y') - 7)
     if (localY < 0 || localY >= 22) return false
     var f = TtlMortalSpawnFootprint
     if (!this.footprintColumns) this.footprintColumns = TtlBuilds.decode(f.fill, 39 * 39)
-    return this.footprintColumns[z * 39 + x] !== f.none
+    return this.footprintColumns[gz * 39 + gx] !== f.none
+  },
+
+  // Ordinary players can still use doors, beds and the bell, walk the roads, and build outside
+  // this particular installation. Protect only its authored columns and vertical extent. Ops are exempt.
+  // `dimension` is only for the test hook (/ttl spawn expect): the events pass nothing and the player's own counts.
+  protectedBlock(player, block, dimension) {
+    if (!player || String(player.type) !== 'minecraft:player' || player.hasPermissions(2)) return false
+    if ((dimension || TtlLife.dimensionOf(player)) !== TtlLife.MORTAL) return false
+    return this.covers(player.getServer(), block.x, block.y, block.z)
   },
 
   // Load FULL chunks synchronously on the server thread. The normal short-lived load ticket covers this
@@ -177,4 +185,51 @@ BlockEvents.rightClicked(event => {
       ['minecraft:shears', 'minecraft:bone_meal', 'minecraft:flint_and_steel', 'minecraft:fire_charge'].indexOf(id) >= 0) {
     event.cancel()
   }
+})
+
+// Explosions (a creeper, TNT, a Tensura blast) are not player block breaks: no BlockEvents.broken fires for them, so
+// take the installation's blocks out of the blast. Anything outside it blows up as before; players still take damage.
+LevelEvents.afterExplosion(event => {
+  if (String(event.level.dimension) !== TtlLife.MORTAL) return
+  var server = event.level.getServer()
+  var hit = event.getAffectedBlocks()
+  var keep = []
+  for (var i = 0; i < hit.size(); i++) {
+    var b = hit.get(i)
+    if (TtlMortalSpawn.covers(server, b.x, b.y, b.z)) keep.push(b)
+  }
+  for (var j = 0; j < keep.length; j++) event.removeAffectedBlock(keep[j])
+  if (keep.length > 0) console.info(`[ttl] mortal spawn: ${keep.length} block(s) of Wayfarer's Rest spared from an explosion`)
+})
+
+// Test hook (tests/ingame/wayfarer_guard.rcon): /ttl wayfarer expect <player> <x> <dy> <z> protected|open asks the same
+// function the break/place events use whether that player may change the block at x, (plaza feet y + dy), z in the
+// Mortal Realm. dy is relative to the plaza so the test survives a world reset. Read-only.
+ServerEvents.commandRegistry(event => {
+  var { commands: Commands, arguments: Arguments } = event
+  var num = (ctx, name) => Number(Arguments.INTEGER.getResult(ctx, name))
+  var run = want => ctx => {
+    var server = ctx.source.getServer()
+    var player = Arguments.PLAYER.getResult(ctx, 'player')
+    var base = server.persistentData.getInt('ttl.mortal.y')
+    var at = { x: num(ctx, 'x'), y: base + num(ctx, 'dy'), z: num(ctx, 'z') }
+    var got = TtlMortalSpawn.protectedBlock(player, at, TtlLife.MORTAL)
+    if (got !== want) {
+      ctx.source.sendSystemMessage(Text.red(`ttl: expected ${player.username} to ${want ? 'be refused' : 'be free'} at ${at.x} ${at.y} ${at.z} in Wayfarer's Rest, it is ${got ? 'protected' : 'open'}`))
+      return 0
+    }
+    ctx.source.sendSystemMessage(Text.of(`wayfarer: ${at.x} ${at.y} ${at.z} is ${got ? 'protected' : 'open'} for ${player.username} as expected`))
+    return 1
+  }
+  // <player> <x> <dy> <z> then protected | open
+  var where = Commands.argument('player', Arguments.PLAYER.create(event))
+    .then(Commands.argument('x', Arguments.INTEGER.create(event))
+      .then(Commands.argument('dy', Arguments.INTEGER.create(event))
+        .then(Commands.argument('z', Arguments.INTEGER.create(event))
+          .then(Commands.literal('protected').executes(run(true)))
+          .then(Commands.literal('open').executes(run(false))))))
+  event.register(Commands.literal('ttl')
+    .then(Commands.literal('wayfarer')
+      .requires(src => src.hasPermission(2))
+      .then(Commands.literal('expect').then(where))))
 })

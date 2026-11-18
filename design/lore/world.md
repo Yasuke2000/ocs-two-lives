@@ -339,20 +339,20 @@ The owner selected a 14,000-block land width. The committed grid spans 876 × 63
 
 ## Historical grid proposals (10,000-block prototype)
 
-These are the original survey notes, retained for provenance. Lake Siss, its W ring and two Ameld polylines were subsequently painted. Coordinates and proposed country changes in this section belong to that prototype. For current hydrography, names and border measurements, use the [November world audit](../../docs/audits/world-audit-2026-11.md).
+These are the original survey notes, retained for provenance. Positions are kept at the prototype scale; where one is still used, its 14,000-block equivalent (×1.4 from Tempest at 0, 0, checked against `ref_to_world`) follows in square brackets. Lake Siss, its W ring and two Ameld polylines were subsequently painted. Coordinates and proposed country changes in this section belong to that prototype. For current hydrography, names and border measurements, use the [November world audit](../../docs/audits/world-audit-2026-11.md).
 
 1. **Lake Siss is missing.** The fan map's "Jura-Tempest Federation" label is printed over the lake, so the flood
-   turned it into land. Only scattered `~` cells remain around chunks x 40–60, z −12..3. Paint a solid lake of
-   about 36 x 13 chunks centred on world (635, 145), roughly x 350..930 and z 40..250. Canon calls it "extremely
+   turned it into land. Only scattered `~` cells remain around chunks x 40–60, z −12..3 [14,000 scale: x 56–84, z −17..4]. Paint a solid lake of
+   about 36 x 13 chunks centred on world (635, 145) [(889, 203)], roughly x 350..930 and z 40..250 [x 490..1302, z 56..350]. Canon calls it "extremely
    large", so 40 x 16 would be fine. Then ring it with `W` (Lizardmen's Marsh), 6–12 chunks wide, wider on the
    south shore where the caverns and the Orc War battlefield are.
 2. **The Great Ameld River is broken into fragments.** It should be one continuous channel, 2–3 chunks wide: from
-   the Canaat foothills (world 955, −790, on the Dwargon–Jura border) south into Lake Siss, out of the lake's east
+   the Canaat foothills (world 955, −790 [1337, −1106], on the Dwargon–Jura border) south into Lake Siss, out of the lake's east
    end, then south-east along the Jura–Milim border into Milim's Domain, past the City of the Forgotten Dragon's
-   lake, to the sea at about (2445, 775). Canon says it splits Jura into a western half and an eastern, dryad
+   lake, to the sea at about (2445, 775) [(3423, 1085); the shipped mouth is (3497, 1324)]. Canon says it splits Jura into a western half and an eastern, dryad
    half, and feeds Milim's lands.
 3. **Add a stream near Tempest** if the build wants canon water access: one or two chunks of `~` running past
-   world (0, 0) towards Lake Siss.
+   world (0, 0) towards Lake Siss (the current distance is about 911 blocks, see the table above).
 4. **The western river is missing.** It runs on the fan map from inland Lubelius to the coast at Coleus, along
    the Lubelius/Damargania border. Optional.
 5. **City-states the grid absorbed:** Ballachia (into F), Doran, Filtwood, Coleus, Ghastone, Rostia and Siltrosso

@@ -706,21 +706,25 @@ def plaza(c: City):
             else:
                 state = road_mix(x, z, 32)
             c.put(x, G, z, state)
-    # Fountain: a basin with a column crowned by a great cogwheel.
-    for x in range(CX - 4, CX + 5):
-        for z in range(PLAZA_Z - 4, PLAZA_Z + 5):
+    # Fountain: a basin with a column crowned by a great cogwheel. The water (y G+1) is walled in by a ring of FULL
+    # blocks: stairs, slabs and fences are waterloggable, so water spreads into them and flows on from there
+    # (verify_build found 147 air -> water blocks spreading over the plaza). The stepped stairs/slabs sit outside it.
+    for x in range(CX - 5, CX + 6):
+        for z in range(PLAZA_Z - 5, PLAZA_Z + 6):
             d = math.hypot(x - CX, z - PLAZA_Z)
             if d <= 2.6:
                 c.put(x, G, z, M("stone_bricks"))
                 c.put(x, G + 1, z, M("water"))
-            elif d <= 3.9:
+            elif d <= 3.7:
+                c.put(x, G + 1, z, M("stone_bricks") if rnd(x, G + 1, z, 33) < 0.85 else M("mossy_stone_bricks"))
+            elif d <= 4.7:
                 dx, dz = x - CX, z - PLAZA_Z
                 if abs(abs(dx) - abs(dz)) <= 1 and abs(dx) > 1 and abs(dz) > 1:
                     c.put(x, G + 1, z, M("stone_brick_slab[type=bottom]"))
                 elif abs(dx) > abs(dz):
-                    c.put(x, G + 1, z, M("stone_brick_stairs[facing=" + ("west" if dx > 0 else "east") + "]"))
+                    c.put(x, G + 1, z, M("stone_brick_stairs[facing=" + ("east" if dx > 0 else "west") + "]"))
                 else:
-                    c.put(x, G + 1, z, M("stone_brick_stairs[facing=" + ("north" if dz > 0 else "south") + "]"))
+                    c.put(x, G + 1, z, M("stone_brick_stairs[facing=" + ("south" if dz > 0 else "north") + "]"))
     for y in range(G + 1, G + 6):
         c.put(CX, y, PLAZA_Z, M("chiseled_stone_bricks"))
     c.put(CX, G + 6, PLAZA_Z, M("gold_block"))
