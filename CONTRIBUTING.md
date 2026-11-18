@@ -34,7 +34,7 @@ request needs a green `validate` check **and** an approving review from a code o
 6. Yasuke reviews: approve, or *request changes* (push more commits to the same branch; they show up in
    the PR). Approved + green `validate` → **Squash and merge**.
 7. After the merge the test server picks it up when nobody is online, runs all bot tests and marks the
-   commit ✅ or ❌ ("ttl staging" on GitHub; also posted in Discord #logging-and-server-notifactions).
+   commit ✅ or ❌ ("ttl staging" on GitHub; also posted in Discord #server-log).
 8. Test it in game. Problems? `/bug <what happened>`.
 
 Small, focused PRs get reviewed fastest. Unsure about an idea? Open an *Idea* issue first and talk it

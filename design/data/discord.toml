@@ -8,7 +8,7 @@ guild = "1572376519551090728"          # OCS Tensura
 story = "1572396134649954310"          # sdlink EVENT channel (CUSTOM messages land here)
 leaderboard = "1572401380361240578"    # one message, edited in place (discord/hall.js)
 feedback = "1572396138865230004"       # #ideas-and-feedback (?bugreport)
-staff = "1572376593744269503"          # #logging-and-server-notifactions (staff ?commands)
+staff = "1572376593744269503"          # #server-log (staff-only; ops notices and staff ?commands; renamed from #logging-and-server-notifactions, same id)
 
 # Roles the bot manages (discord/roles.js). The bot's own role must sit ABOVE all of these in
 # Server Settings → Roles, or Discord refuses the change (logged once as "[ttl] discord roles: ...").

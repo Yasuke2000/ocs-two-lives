@@ -262,7 +262,11 @@ scheduled, the "180 days" in the guide is a promise nobody enforces: schedule it
 
 The bot is the server-side mod **Simple Discord Link** (`sdlink` 3.4.5 + CraterLib, config
 `pack/config/simple-discord-link/simple-discord-link.toml`). It runs inside the Minecraft server, so there is
-no separate bot service. What it does in `#minecraft`:
+no separate bot service. What it does in `#minecraft`. The server's layout (categories, channels, permissions, the
+pinned "How to use this channel" message in every channel, the start guide and the rules) is built by
+`tools/discord_setup.sh`; the texts are in [discord-guides.md](discord-guides.md). The game's channel ids are in
+`design/data/discord.toml` and the sdlink config (`CFG_DISCORD_CHANNEL` = `#minecraft`, `CFG_DISCORD_EVENTS` =
+`#story`); the setup script reuses those channels, so a rebuild keeps the ids.
 
 | Feature | How |
 |---|---|
@@ -356,7 +360,7 @@ copy and restarting.
 | Leaderboard | One message in `#leaderboard` that the bot edits: brightest soul ever, longest first life, Legends, great foes slain, most chosen races, souls now in Life 1 / Corridor / Life 2. In game: `/ttl top`. | `hall.js`: all-time records in `ttl.hall.records`, message id in `ttl.hall.lbmsg` (deleted → posted again); edited every 10 min and soon after a story event. |
 | World events | `#story` hears when someone awakens as a **True Demon Lord** or **True Hero**, or starts the **Harvest Festival** (the Great Sage's World Voice events). | `awaken.js` polls Tensura's existence storage (`TensuraStorages.getExistenceFrom`) like the Great Sage does. Naming is not relayed (nothing to poll). |
 | `?bugreport <text>` | Linked members, in `#ideas-and-feedback`: becomes a GitHub issue through the in-game `/bug` (prefixed "from Discord, @name"). Online → filed at once; offline → filed when they next join. | `report.js`; sdlink runs the command under the linked Minecraft name (`chat.useLinkedNames = true`). |
-| Staff `?commands` | `modder` role, in `#ideas-and-feedback` or `#logging-and-server-notifactions`: `?list`, `?neoforge tps`, `?ttl inspect <player>`, `?ttl spawn`, `?ttl staff status`, `?ttl staff registry`, `?ttl recap preview`, `?ttl discordroles <player> [dry]`, plus the member commands. Read-only on purpose: sdlink has no confirm step. | `[minecraftCommands.permissions]` in the sdlink config. |
+| Staff `?commands` | `modder` role, in `#ideas-and-feedback` or `#server-log`: `?list`, `?neoforge tps`, `?ttl inspect <player>`, `?ttl spawn`, `?ttl staff status`, `?ttl staff registry`, `?ttl recap preview`, `?ttl discordroles <player> [dry]`, plus the member commands. Read-only on purpose: sdlink has no confirm step. | `[minecraftCommands.permissions]` in the sdlink config. |
 
 Setup notes:
 
