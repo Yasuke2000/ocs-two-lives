@@ -1,0 +1,13 @@
+# Englassia capital (Lura): Freedom Academy, Free Guild HQ. Blueprint: blueprints/englassia.py (saved as englassia_0..2).
+# Approx. world position (14000 wide): x -2626, z -300, on land of nation G in canon_map.txt.
+# The anchor is the avenue just south of Lura Square's fountain; the road from the south arrives at the gate,
+# blueprint (64, 5, 109), facing north.
+name = "englassia"
+title = "Englassia — Lura"
+landmark = "Englassia capital (Lura): Freedom Academy, Free Guild HQ"
+anchor = [64, 5, 92]
+ground = "survey"
+search = 64
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
