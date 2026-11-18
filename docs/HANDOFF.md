@@ -86,8 +86,9 @@ advance the era silently and restore it with `era testmark`/`testrestore`).
 
 ## Open owner questions
 
-- Gluttony: Common (now) or Legendary?.
-- `fuze_turnin_at_desk` (false: Fuze contracts handed in to Fuze only) · BlueMap public or behind access control.
+- Answered 18/11/2026 (branch `rules-pass`): gluttony Rare; Fuze's contracts at the desk unless `lore = true`; awakening
+  claim once per soul; duels anywhere with damage liability; unpaid upkeep = debuffs. Still open: may a Skill Core draw
+  gluttony (it can now, like the other Rare absorbers)? BlueMap public (answered: public, not yet wired).
 
 ## Offline world audit for Yasuke
 

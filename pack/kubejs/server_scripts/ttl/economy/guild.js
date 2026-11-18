@@ -21,6 +21,7 @@
 // The board keeps one slot list per giver, desk first: desk slots 1-5 are what they always were, Fuze's come after
 // (6, 7). Without a giver the commands behave as before (global slot numbers, everything); with a giver, numbers
 // count inside that giver's list and a bounty of the other giver is refused ("wrong_giver").
+// Hand-in (handsIn, owner 18/11/2026): the desk also takes Fuze's finished contracts unless one has `lore = true`.
 //
 // Entry points (commands in economy/commands.js; an Easy NPC dialog action runs the same ones as the player):
 //   /ttl guild board [giver] | take <slot|id> [giver] | turnin [giver] | abandon <slot|id> | status
@@ -73,6 +74,17 @@ const TtlGuild = {
 
   giverOf(b) {
     return String(b.giver || 'desk')
+  },
+
+  // Who may take a finished bounty back (owner 18/11/2026): 'allowed', 'lore' or 'wrong_giver'. Fuze takes only his
+  // own contracts; the desk, and the plain command that names no giver, takes its own bounties and Fuze's contracts
+  // too (guild.fuze_turnin_at_desk), except a contract with `lore = true`: that one is Fuze's to hear.
+  handsIn(b, giver) {
+    var who = this.giverOf(b)
+    if (giver === 'fuze') return who === 'fuze' ? 'allowed' : 'wrong_giver'
+    if (who === 'desk') return 'allowed'
+    if (b.lore) return 'lore'
+    return this.conf().guild.fuze_turnin_at_desk === false ? 'wrong_giver' : 'allowed'
   },
 
   // 'desk' | 'fuze' | null (no filter); anything else is a typo and must not silently mean "everything".
@@ -417,7 +429,8 @@ const TtlGuild = {
       if (!t.told && self.ready(player, t, b) && b.kind !== 'deliver') {
         t.told = 1
         changed = true
-        player.tell(Text.gold(`Free Guild: "${b.title}" is done. Report to the guild desk (/ttl guild turnin).`))
+        player.tell(Text.gold(b.lore ? `Free Guild: "${b.title}" is done. Report to Fuze himself (/ttl guild turnin fuze).`
+          : `Free Guild: "${b.title}" is done. Report to the guild desk (/ttl guild turnin).`))
       }
     })
     if (changed) this.write(player, g)
@@ -494,8 +507,7 @@ const TtlGuild = {
     }
   },
 
-  // Hands in everything that is ready. Returns the number of bounties completed.
-  // `giver` (optional) limits it to that giver's bounties: Fuze takes his contracts, a receptionist the desk's.
+  // Hands in everything that is ready and that this giver takes (handsIn). Returns the number of bounties completed.
   turnin(server, player, giver) {
     this.requireLife2(player)
     var only = this.requireGiver(giver)
@@ -503,21 +515,28 @@ const TtlGuild = {
     this.prune(server, g)
     var keys = Object.keys(g.taken)
     var count = 0
+    var lore = []
     var self = this
     keys.forEach(key => {
       var t = g.taken[key]
       var b = self.find(t.id)
-      if (!b || (only && self.giverOf(b) !== only) || !self.ready(player, t, b)) return
+      if (!b || !self.ready(player, t, b)) return
+      var rule = self.handsIn(b, only)
+      if (rule === 'lore') lore.push(String(b.title))
+      if (rule !== 'allowed') return
       if (b.kind === 'deliver') server.runCommandSilent(`clear ${player.username} ${b.target} ${b.count}`)
       self.complete(server, player, g, key, b)
       count++
     })
+    var loreLine = lore.length ? `Fuze wants to hear about ${lore.map(t => `"${t}"`).join(', ')} himself: hand it in to him (/ttl guild turnin fuze)` : ''
     if (count === 0) {
       this.write(player, g)
+      if (loreLine) throw loreLine
       throw keys.length === 0 ? 'you have no accepted bounties (/ttl guild board)'
         : only ? `nothing of ${only === 'fuze' ? "Fuze's" : "the desk's"} is ready to hand in here (/ttl guild status)`
           : 'nothing is ready to hand in yet (/ttl guild status)'
     }
+    if (loreLine) player.tell(Text.gold(`Free Guild: ${loreLine}.`))
     return count
   },
 

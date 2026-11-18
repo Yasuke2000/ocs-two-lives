@@ -1938,6 +1938,7 @@ const TtlData = {
         "giver": "fuze",
         "id": "fz_magisteel_shipment",
         "kind": "deliver",
+        "lore": true,
         "min_rank": "B",
         "period": "weekly",
         "points": 9,
@@ -1958,6 +1959,7 @@ const TtlData = {
         "giver": "fuze",
         "id": "fz_ogre_ruin",
         "kind": "visit",
+        "lore": true,
         "min_rank": "B",
         "period": "weekly",
         "points": 8,
@@ -2075,7 +2077,7 @@ const TtlData = {
       "daily": 3,
       "fuze_daily": 0,
       "fuze_min_rank": "B",
-      "fuze_turnin_at_desk": false,
+      "fuze_turnin_at_desk": true,
       "fuze_weekly": 2,
       "max_active": 3,
       "poll_ticks": 100,
@@ -3231,6 +3233,46 @@ const TtlData = {
       "enabled": true,
       "upkeep": true
     },
+    "upkeep": {
+      "debuff": {
+        "crops": [
+          "minecraft:wheat",
+          "minecraft:carrots",
+          "minecraft:potatoes",
+          "minecraft:beetroots",
+          "minecraft:nether_wart",
+          "minecraft:sweet_berry_bush",
+          "minecraft:cocoa",
+          "minecraft:melon_stem",
+          "minecraft:pumpkin_stem",
+          "tensura:hipokute_grass"
+        ],
+        "enabled": true,
+        "resource_blocks": [
+          "minecraft:ancient_debris",
+          "minecraft:melon",
+          "minecraft:pumpkin"
+        ],
+        "resource_suffixes": [
+          "_ore"
+        ],
+        "stage": [
+          {
+            "growth_skip": 0.25,
+            "name": "Neglect",
+            "nothing_chance": 0.05,
+            "yield": 0.75
+          },
+          {
+            "growth_skip": 0.5,
+            "name": "Unrest",
+            "nothing_chance": 0.15,
+            "yield": 0.5
+          }
+        ],
+        "weeks": 2
+      }
+    },
     "value": {
       "build_value": 10,
       "chunk_value": 1,
@@ -4151,15 +4193,44 @@ const TtlData = {
       "copies_per_kill": 1,
       "duel": {
         "copies": true,
-        "dimensions": [
-          "tensura:labyrinth"
-        ],
+        "dimensions": [],
         "enabled": true,
+        "exclude_dimensions": [
+          "ttl:mortal_realm",
+          "ttl:mortal_nether",
+          "ttl:mortal_end",
+          "ttl:spirit_corridor"
+        ],
         "legendary": true,
         "lethal": false,
         "requires_absorber": true
       },
       "legendary_per_kill": 1,
+      "liability": {
+        "enabled": true,
+        "exempt": [],
+        "fee_per_block": {
+          "bronze": 5
+        },
+        "hold_days": 7,
+        "max_blocks": 512,
+        "max_fee": {
+          "gold": 5
+        },
+        "no_drops": true,
+        "places": [
+          "claims",
+          "towns",
+          "builds",
+          "landmarks"
+        ],
+        "restore": true,
+        "restore_per_tick": 32,
+        "routes": [
+          "duel",
+          "awakening"
+        ]
+      },
       "max_ep_ratio": 0,
       "min_ep_ratio": 0.5,
       "offer_minutes": 5,
@@ -4266,6 +4337,7 @@ const TtlData = {
         "falsifier",
         "fighter",
         "fusionist",
+        "gluttony",
         "infinity_prison",
         "martial_master",
         "merciless",

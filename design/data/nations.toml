@@ -91,8 +91,38 @@ chunks = 8
 enabled = true
 # Weekly upkeep per claimed chunk, taken from the treasury on the first check of each ISO week (Monday, UTC). The amount
 # is economy.toml [sinks].upkeep_per_chunk_week (TtlEcon.fee); false here switches the upkeep off. A nation that cannot
-# pay is flagged "in arrears" (shown in /ttl nation; no punishment yet, owner decision open).
+# pay keeps the rest "owed" (shown in /ttl nation); unpaid weeks bring the debuff of [upkeep.debuff] below. A deposit
+# into the treasury pays what is owed at once.
 upkeep = true
+
+# Unpaid upkeep (owner 18/11/2026: society-level debuffs instead of losing claims). Each weekly bill that leaves the
+# nation owing counts one unpaid week; from `weeks` unpaid weeks on the nation is at stage 1, one stage more per further
+# unpaid week (up to the last stage). Paying the debt (any deposit settles `owed` from the treasury at once, so does the
+# next weekly bill) clears it. The effects hold only inside the nation's claimed chunks (nations/upkeep_debuff.js):
+#   yield           share of the drops of a resource block kept (ores = ids ending in `resource_suffixes`, plus
+#                   `resource_blocks`, plus `crops`); a stack is cut to count x yield, rounded at random
+#   nothing_chance  chance that a resource block drops nothing at all
+#   growth_skip     share of a crop's random ticks skipped (slower growth; `crops` are block ids)
+# /ttl nation info shows the stage to every member. enabled = false keeps the old behaviour (owed, nothing else).
+[upkeep.debuff]
+enabled = true
+weeks = 2
+resource_suffixes = ["_ore"]
+resource_blocks = ["minecraft:ancient_debris", "minecraft:melon", "minecraft:pumpkin"]
+crops = ["minecraft:wheat", "minecraft:carrots", "minecraft:potatoes", "minecraft:beetroots", "minecraft:nether_wart",
+  "minecraft:sweet_berry_bush", "minecraft:cocoa", "minecraft:melon_stem", "minecraft:pumpkin_stem", "tensura:hipokute_grass"]
+
+[[upkeep.debuff.stage]]
+name = "Neglect"
+yield = 0.75
+nothing_chance = 0.05
+growth_skip = 0.25
+
+[[upkeep.debuff.stage]]
+name = "Unrest"
+yield = 0.5
+nothing_chance = 0.15
+growth_skip = 0.5
 
 [diplomacy]
 # Alliances are mutual: both owners run /ttl nation ally <the other nation>. A war must be declared this many hours

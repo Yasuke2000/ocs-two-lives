@@ -144,8 +144,8 @@ def build(kind: dict, eco_guild: dict) -> str:
     d = kind["dialog"]
     giver = kind["giver"]
     slots = int(eco_guild["fuze_daily"] + eco_guild["fuze_weekly"]) if giver == "fuze" else int(eco_guild["daily"] + eco_guild["weekly"])
-    # Hand-in: a receptionist also takes Fuze's contracts only when the knob says so.
-    turnin = "/ttl guild turnin" if giver == "desk" and eco_guild.get("fuze_turnin_at_desk") else f"/ttl guild turnin {giver}"
+    # Hand-in per giver; guild.js decides what each one takes (economy.toml fuze_turnin_at_desk + per-contract `lore`).
+    turnin = f"/ttl guild turnin {giver}"
     text = lambda s: s.replace("{max}", str(eco_guild["max_active"]))  # noqa: E731
 
     default = {

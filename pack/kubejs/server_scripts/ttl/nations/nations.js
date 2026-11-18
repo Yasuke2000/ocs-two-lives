@@ -13,7 +13,8 @@
 //   path       the party's story Oath path at founding ('light' | 'dark' | ''), read through TtlParty.partyPath (party/party.js);
 //              the nation and the story party are the same FTB team, so the key is the same id in ttl.story.parties
 //   rank       rank id from nations.toml, value the last computed value (the leaderboard reads it)
-//   treasury   bronze coins in the nation's chest of coins; owed = unpaid upkeep (bronze)
+//   treasury   bronze coins in the nation's chest of coins; owed = unpaid upkeep (bronze), owedWeeks = weekly bills in a
+//              row that left it owing, debuff = the unpaid-upkeep stage (0 none; nations.toml [upkeep.debuff])
 //   ally_to    the nations THIS nation has offered an alliance; two nations are allied when both list each other
 //   wars       declarations seen from this side (both nations carry one); a war counts from active_at
 //   renown     last renown seen per member, so an offline member still counts
@@ -528,7 +529,8 @@ const TtlNations = {
     all[nat.key].treasury = Number(all[nat.key].treasury || 0) + bronze
     this.save(server, all)
     console.info(`[ttl] nations: ${player.username} paid ${bronze} bronze into the treasury of ${all[nat.key].name}`)
-    return Number(all[nat.key].treasury)
+    this.settleOwed(server, nat.key)
+    return Number(this.all(server)[nat.key].treasury)
   },
 
   withdraw(server, player, coin, n) {
@@ -548,8 +550,67 @@ const TtlNations = {
     return Number(all[nat.key].treasury)
   },
 
+  // ---- unpaid upkeep: debuff stages (nations.toml [upkeep.debuff], effects in nations/upkeep_debuff.js) ----------
+
+  debuffConf() {
+    var d = (this.conf().upkeep || {}).debuff
+    return d && d.enabled !== false ? d : null
+  },
+
+  // 0 = none, else 1.. into [[upkeep.debuff.stage]]: from `weeks` unpaid weekly bills on, one stage more per week.
+  debuffStage(rec) {
+    var d = this.debuffConf()
+    if (!d || !(Number(rec.owed || 0) > 0)) return 0
+    var unpaid = Number(rec.owedWeeks || 0)
+    var from = Math.max(1, Number(d.weeks || 1))
+    return unpaid < from ? 0 : Math.min((d.stage || []).length, unpaid - from + 1)
+  },
+
+  debuffDef(stage) {
+    var d = this.debuffConf()
+    return d && stage > 0 ? (d.stage || [])[stage - 1] || null : null
+  },
+
+  // Sets rec.debuff from the debt and tells the nation when the stage changed. The caller saves.
+  applyDebuff(server, key, rec) {
+    var before = Number(rec.debuff || 0)
+    var now = this.debuffStage(rec)
+    rec.debuff = now
+    if (now === before) return
+    try {
+      if (typeof TtlUpkeepDebuff !== 'undefined') TtlUpkeepDebuff.cache = null
+    } catch (e) {
+      // the effects file is optional
+    }
+    var def = this.debuffDef(now)
+    if (def) {
+      this.tell(server, key, `Unpaid upkeep: ${def.name}. Inside your land resources yield ${Math.round(Number(def.yield) * 100)}% and crops grow ${Math.round(Number(def.growth_skip) * 100)}% slower until the debt (${TtlEcon.text(Number(rec.owed))}) is paid: /ttl nation deposit.`)
+    } else {
+      this.tell(server, key, 'The upkeep is paid. Your land recovers.')
+    }
+    console.info(`[ttl] nations: ${rec.name} upkeep debuff ${before} -> ${now} (${rec.owedWeeks || 0} unpaid weeks, owes ${rec.owed || 0})`)
+  },
+
+  // Pays what is owed from the treasury now (after a deposit, or money paid in for duel damage). Clears the debuff
+  // once nothing is owed.
+  settleOwed(server, key) {
+    var all = this.all(server)
+    var rec = all[key]
+    if (!rec || !(Number(rec.owed || 0) > 0)) return
+    var pay = Math.min(Number(rec.treasury || 0), Number(rec.owed))
+    if (pay <= 0) return
+    rec.treasury = Number(rec.treasury || 0) - pay
+    rec.owed = Number(rec.owed) - pay
+    if (rec.owed <= 0) rec.owedWeeks = 0
+    this.applyDebuff(server, key, rec)
+    this.save(server, all)
+    if (typeof TtlEcon !== 'undefined') TtlEcon.note(server, 'sink', pay, 'upkeep:nation')
+    console.info(`[ttl] nations: ${rec.name} paid ${pay} of its upkeep debt, owes ${rec.owed}`)
+  },
+
   // Weekly upkeep: on the first check of each ISO week the nation owes the upkeep per claimed chunk and pays what the
-  // treasury holds; the rest stays in `owed` (no punishment yet). The first check of a new nation only sets the week.
+  // treasury holds; the rest stays in `owed` and counts an unpaid week (owedWeeks) towards the debuff. The first check
+  // of a new nation only sets the week.
   upkeep(server, key) {
     if (!this.conf().treasury.upkeep || typeof TtlEcon === 'undefined') return
     var all = this.all(server)
@@ -576,6 +637,8 @@ const TtlNations = {
     rec.treasury = Number(rec.treasury || 0) - pay
     rec.owed -= pay
     rec.upkeepWeek = week
+    rec.owedWeeks = rec.owed > 0 ? Number(rec.owedWeeks || 0) + 1 : 0
+    this.applyDebuff(server, key, rec)
     this.save(server, all)
     if (pay > 0) TtlEcon.note(server, 'sink', pay, 'upkeep:nation')
     console.info(`[ttl] nations: upkeep of ${rec.name} for week ${week}: ${chunks} chunks, paid ${pay}, owes ${rec.owed}`)
@@ -707,6 +770,13 @@ const TtlNations = {
     var max = TtlNationClaims.max(team)
     out.push(`  land: ${claims} chunks claimed${max >= 0 ? ` of ${max}` : ''} (each member brings ${TtlNationClaims.allowance(rank)})`)
     out.push(`  treasury: ${TtlEcon.text(Number(rec.treasury || 0))}${Number(rec.owed) > 0 ? ` · OWES ${TtlEcon.text(Number(rec.owed))} upkeep` : ''}`)
+    var debuff = this.debuffDef(Number(rec.debuff || 0))
+    if (debuff) {
+      out.push(`  UNPAID UPKEEP: ${debuff.name} (${rec.owedWeeks || 0} weeks unpaid). Inside your land resources yield ${Math.round(Number(debuff.yield) * 100)}%, crops grow ${Math.round(Number(debuff.growth_skip) * 100)}% slower. A deposit pays the debt and lifts it.`)
+    } else if (Number(rec.owed) > 0 && this.debuffConf()) {
+      var left = Math.max(1, Number(this.debuffConf().weeks || 1)) - Number(rec.owedWeeks || 0)
+      if (left > 0) out.push(`  unpaid upkeep: ${left} more unpaid week${left === 1 ? '' : 's'} and your land yields less (pay with /ttl nation deposit).`)
+    }
     var allies = Object.keys(all).filter(k => self.allied(server, key, k)).map(k => all[k].name)
     var offers = (rec.ally_to || []).filter(k => all[k] && allies.indexOf(all[k].name) < 0).map(k => all[k].name)
     out.push(`  allies: ${allies.join(', ') || 'none'}${offers.length ? ` · offered to ${offers.join(', ')}` : ''}`)

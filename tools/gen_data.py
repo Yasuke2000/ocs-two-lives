@@ -107,6 +107,30 @@ def check_absorb(skills: dict, absorb: dict) -> None:
         low, high = conf.get("min_ep_ratio", absorb.get("min_ep_ratio", 0)), conf.get("max_ep_ratio", absorb.get("max_ep_ratio", 0))
         if high and low > high:
             raise SystemExit(f"skills.toml: absorb.{route}: min_ep_ratio {low} is above max_ep_ratio {high}")
+        ex = conf.get("exclude_dimensions", [])
+        if not isinstance(ex, list) or not all(isinstance(d, str) and re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", d) for d in ex):
+            raise SystemExit(f"skills.toml: absorb.{route}.exclude_dimensions must be a list of dimension ids")
+    lia = absorb.get("liability")
+    if lia is not None:
+        if not isinstance(lia, dict):
+            raise SystemExit("skills.toml: absorb.liability must be a table")
+        for key in ("enabled", "restore", "no_drops"):
+            if key in lia and not isinstance(lia[key], bool):
+                raise SystemExit(f"skills.toml: absorb.liability.{key} must be true or false")
+        for key in ("max_blocks", "restore_per_tick", "hold_days"):
+            number("absorb.liability", lia, key, True)
+        for route in lia.get("routes", []):
+            if route not in ("duel", "awakening"):
+                raise SystemExit(f"skills.toml: absorb.liability.routes: {route!r} (duel, awakening: the routes with a pact someone starts)")
+        for place in lia.get("places", []):
+            if place not in ("claims", "towns", "builds", "landmarks"):
+                raise SystemExit(f"skills.toml: absorb.liability.places: {place!r} (claims, towns, builds, landmarks)")
+        if not isinstance(lia.get("exempt", []), list):
+            raise SystemExit("skills.toml: absorb.liability.exempt must be a list of build/landmark names")
+        for key in ("fee_per_block", "max_fee"):
+            table = lia.get(key, {})
+            if not isinstance(table, dict) or not table or not all(c in ("bronze", "silver", "gold", "stellar") and isinstance(n, int) and not isinstance(n, bool) and n >= 0 for c, n in table.items()):
+                raise SystemExit(f"skills.toml: absorb.liability.{key} must be a coin table like {{ bronze = 5 }}")
     claims = absorb.get("awakening", {}).get("claim_skills", {})
     for kind, names in claims.items():
         if kind not in ("true_demon_lord", "true_hero"):
@@ -760,6 +784,10 @@ def check_economy(eco: dict, data: dict) -> None:
         if (giver == "fuze") != (ranks.index(b["min_rank"]) >= ranks.index(fuze_from)):
             raise SystemExit(f"{where}: giver {giver} but min_rank {b['min_rank']} (Fuze gives rank {fuze_from} and up, "
                              f"the desk everything below)")
+        if not isinstance(b.get("lore", False), bool):
+            raise SystemExit(f"{where}: lore is true or false")
+        if b.get("lore") and giver != "fuze":
+            raise SystemExit(f"{where}: lore = true only means something on Fuze's contracts (giver = \"fuze\")")
         if not all(isinstance(b.get(k), int) and b[k] >= 0 for k in ("count", "points", "weight")) or b["count"] < 1:
             raise SystemExit(f"{where}: count >= 1, points and weight >= 0 (integers)")
         if b["kind"] == "visit":
@@ -833,6 +861,26 @@ def check_nations(nat: dict, data: dict) -> None:
         raise SystemExit("nations.toml: treasury.enabled and treasury.upkeep are true or false")
     if not is_int(d.get("war_notice_hours")) or d["war_notice_hours"] < 0:
         raise SystemExit("nations.toml: diplomacy.war_notice_hours must be a non-negative integer")
+    deb = nat.get("upkeep", {}).get("debuff")
+    if deb is not None:
+        # nations/upkeep_debuff.js registers a random-tick listener per crop id: an unknown id must not reach it.
+        if not isinstance(deb.get("enabled"), bool) or not is_int(deb.get("weeks")) or deb["weeks"] < 1:
+            raise SystemExit("nations.toml: upkeep.debuff needs enabled (true/false) and weeks >= 1")
+        for k in ("resource_blocks", "crops"):
+            if not all(isinstance(i, str) and re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", i) for i in deb.get(k, [])):
+                raise SystemExit(f"nations.toml: upkeep.debuff.{k} must be block ids")
+        if not all(isinstance(i, str) and i for i in deb.get("resource_suffixes", [])):
+            raise SystemExit("nations.toml: upkeep.debuff.resource_suffixes must be non-empty strings")
+        stages = deb.get("stage", [])
+        if not stages:
+            raise SystemExit("nations.toml: upkeep.debuff needs at least one [[upkeep.debuff.stage]]")
+        for st in stages:
+            if not st.get("name"):
+                raise SystemExit("nations.toml: every upkeep.debuff.stage needs a name")
+            for k in ("yield", "nothing_chance", "growth_skip"):
+                x = st.get(k)
+                if isinstance(x, bool) or not isinstance(x, (int, float)) or not 0 <= x <= 1:
+                    raise SystemExit(f"nations.toml: upkeep.debuff.stage {st['name']}: {k} must be a number from 0 to 1")
     chunks_cfg = ROOT / "pack" / "config" / "ftbchunks-world.snbt"
     teams_cfg = ROOT / "pack" / "config" / "ftbteams-server.snbt"
     if chunks_cfg.exists() and teams_cfg.exists():

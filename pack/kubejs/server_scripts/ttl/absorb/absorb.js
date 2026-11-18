@@ -3,8 +3,8 @@
 // owns the records, the Legendary ceiling (skills.toml [legendary] max_holders = the Ten Great Demon Lords) and
 // transfer(); this file decides WHEN a transfer happens. Every route is a knob in skills.toml [absorb] / [absorb.<route>].
 //
-//   duel       Labyrinth duel, consensual: /ttl absorb duel <p> + /ttl absorb accept <p> open a pact; the fatal blow between
-//              the two (lethal = false: turned into a defeat, nobody dies) or a real death inside it ends the duel; the
+//   duel       a duel anywhere in Life 2 (owner 18/11/2026; was the Labyrinth only), consensual: /ttl absorb duel <p> +
+//              /ttl absorb accept <p> open a pact; the fatal blow between the two (lethal = false: turned into a defeat, nobody dies) or a real death inside it ends the duel; the
 //              loser's Legendary goes to the winner (needs an absorber unique, EP gate, cooldown), Rare/Common are copied.
 //   war        a holder who falls in an official war between nations loses their Legendary to the killer (a real death).
 //              "At war" comes from TtlNations.atWar(server, keyA, keyB) on the two souls' nations (TtlNations.of; WP4, only when it exists) and from
@@ -13,12 +13,17 @@
 //   awakening  a True Demon Lord / True Hero (Tensura's own flags) may CLAIM a free Legendary (/ttl absorb free|claim) or
 //              CHALLENGE a weaker Legendary holder (/ttl absorb challenge <p>): an open pact that the holder cannot refuse.
 //   Combat logging: logging out within combat_log_seconds of a hit in a duel, challenge or war counts as a defeat.
+//   Damage liability: a duel or challenge started in a public place makes its initiator pay for the blocks it breaks
+//   there (absorb/liability.js, skills.toml [absorb.liability]).
 //   Inactive holders return their uniques to the pool in registry.js (sweep); eras are era/era.js.
 //
 // Server persistentData (JSON strings, TtlRegistry.load/store):
 //   ttl.absorb.pacts  [{k, a, b, an, bn, st, t, u, skill?, kind?}]  k = duel | challenge | bequest, a = challenger/giver,
 //                     b = the other side (UUIDs), st = pending | open, t = made, u = valid until (millis)
 //   ttl.absorb.wars   [[uuidA, uuidB]]  war pairs flagged by staff
+//   ttl.absorb.souls  {uuid: "true_demon_lord,true_hero"}  awakenings a soul has used, server-side so the claim is once
+//                     per SOUL (owner 18/11/2026): neither a Reset Counter rebirth nor a wiped player record refreshes it;
+//                     only a staff full reset (/ttl reset, /ttl absorb clear) does
 // Player persistentData: ttl.cd.absorb (millis, cooldown until), ttl.combat.until / ttl.combat.with (last hit in a pact or
 // war), ttl.absorb.claimed ("true_demon_lord,true_hero": awakenings already used), and test hooks ttl.absorb.epfake and
 // ttl.absorb.awakefake.
@@ -56,6 +61,7 @@ const TtlAbsorb = {
       legendaryPerKill: this.num(pick('legendary_per_kill'), 1),
       copiesPerKill: this.num(pick('copies_per_kill'), 1),
       dimensions: own.dimensions || [],
+      excluded: own.exclude_dimensions || [],
       own: own
     }
   },
@@ -110,14 +116,40 @@ const TtlAbsorb = {
     }
   },
 
+  souls(server) {
+    return TtlRegistry.load(server, 'ttl.absorb.souls', {})
+  },
+
+  // Used awakenings: the player's own copy and the server's soul record together, so losing either one changes nothing.
   claimed(player) {
-    return String(player.persistentData.getString('ttl.absorb.claimed')).split(',').filter(s => s)
+    var list = String(player.persistentData.getString('ttl.absorb.claimed')).split(',').filter(s => s)
+    try {
+      var rec = String(this.souls(player.server)[TtlRegistry.uid(player)] || '').split(',').filter(s => s)
+      rec.forEach(k => { if (list.indexOf(k) < 0) list.push(k) })
+    } catch (e) {
+      console.warn(`[ttl] absorb: could not read the soul record of ${player.username}: ${e}`)
+    }
+    return list
   },
 
   markClaimed(player, kind) {
     var list = this.claimed(player)
     if (list.indexOf(kind) < 0) list.push(kind)
     player.persistentData.putString('ttl.absorb.claimed', list.join(','))
+    var souls = this.souls(player.server)
+    souls[TtlRegistry.uid(player)] = list.join(',')
+    TtlRegistry.store(player.server, 'ttl.absorb.souls', souls)
+  },
+
+  // Staff full reset only (/ttl reset, /ttl absorb clear): the soul may awaken and claim again.
+  forgetClaims(server, player) {
+    player.persistentData.remove('ttl.absorb.claimed')
+    var souls = this.souls(server)
+    var id = TtlRegistry.uid(player)
+    if (souls[id] !== undefined) {
+      delete souls[id]
+      TtlRegistry.store(server, 'ttl.absorb.souls', souls)
+    }
   },
 
   // Awakenings this soul has and has not used yet.
@@ -256,8 +288,20 @@ const TtlAbsorb = {
   },
 
   inDimensions(conf, player) {
+    var dim = TtlLife.dimensionOf(player)
+    if (conf.excluded && conf.excluded.indexOf(dim) >= 0) return false
     if (!conf.dimensions || conf.dimensions.length === 0) return true
-    return conf.dimensions.indexOf(TtlLife.dimensionOf(player)) >= 0
+    return conf.dimensions.indexOf(dim) >= 0
+  },
+
+  // Damage liability of a pact that just opened (absorb/liability.js); '' when it is not in a public place.
+  liability(server, pact, a, b) {
+    try {
+      if (typeof TtlLiability !== 'undefined') return TtlLiability.onOpen(server, pact, a, b)
+    } catch (e) {
+      console.error(`[ttl] absorb: liability check failed: ${e}`)
+    }
+    return ''
   },
 
   // Which route applies when `killer` beats `victim`, or null. opts.anywhere skips the dimension condition (test hook).
@@ -351,6 +395,11 @@ const TtlAbsorb = {
     var res = this.resolve(server, killer, this.subject(victim, !!c.logout), d.route, c)
     if (d.pact) {
       this.dropPact(server, d.pact)
+      try {
+        if (typeof TtlLiability !== 'undefined') TtlLiability.settle(server, TtlLiability.pactKey(d.pact))
+      } catch (e) {
+        console.error(`[ttl] absorb: settling the duel damage failed: ${e}`)
+      }
       if (res.ok && d.route === 'awakening' && d.pact.kind) this.markClaimed(killer, d.pact.kind)
       if (!res.ok) {
         this.voice(server, killer, `The ${d.route} ends without a prize: ${res.why}.`)
@@ -428,11 +477,13 @@ const TtlAbsorb = {
     if (found.k === 'duel') {
       var now = Date.now()
       this.dropPact(server, found)
-      this.addPact(server, { k: 'duel', a: found.a, b: found.b, an: found.an, bn: found.bn, st: 'open', t: now, u: now + this.minutes('pact_minutes', 15) })
+      var open = { k: 'duel', a: found.a, b: found.b, an: found.an, bn: found.bn, st: 'open', t: now, u: now + this.minutes('pact_minutes', 15) }
+      this.addPact(server, open)
       var where = this.route('duel').dimensions
       var line = `The duel between ${found.an} and ${found.bn} is on for ${this.num(this.base().pact_minutes, 15)} minutes${where.length ? ` (${where.join(', ')} only)` : ''}. The fatal blow decides it.`
       this.voice(server, player, line)
       this.voice(server, other, line)
+      this.liability(server, open, other, player)
       return null
     }
     if (found.k === 'bequest') {
@@ -521,10 +572,12 @@ const TtlAbsorb = {
     var busy = this.live(server).some(p => p.k === 'challenge' && p.a === kid)
     if (busy) return 'You have a challenge open already.'
     var now = Date.now()
-    this.addPact(server, { k: 'challenge', a: kid, b: hid, an: String(player.username), bn: String(holder.username), st: 'open', t: now, u: now + this.minutes('pact_minutes', 15), kind: kinds[0] })
+    var pact = { k: 'challenge', a: kid, b: hid, an: String(player.username), bn: String(holder.username), st: 'open', t: now, u: now + this.minutes('pact_minutes', 15), kind: kinds[0] }
+    this.addPact(server, pact)
     var line = `${player.username}, awakened, challenges ${holder.username} for a Legendary skill. It is open for ${this.num(this.base().pact_minutes, 15)} minutes; the fatal blow decides it.`
     this.voice(server, player, line)
     this.voice(server, holder, line)
+    this.liability(server, pact, player, holder)
     return null
   },
 
@@ -547,7 +600,9 @@ const TtlAbsorb = {
   clear(server, player) {
     var id = TtlRegistry.uid(player)
     this.savePacts(server, this.live(server).filter(p => p.a !== id && p.b !== id))
-    ;['ttl.cd.absorb', 'ttl.absorb.claimed', 'ttl.absorb.epfake', 'ttl.absorb.awakefake'].forEach(k => player.persistentData.remove(k))
+    ;['ttl.cd.absorb', 'ttl.absorb.epfake', 'ttl.absorb.awakefake'].forEach(k => player.persistentData.remove(k))
+    this.forgetClaims(server, player)
+    if (typeof TtlLiability !== 'undefined') TtlLiability.cache = null
     this.untag(player)
     this.saveWars(server, this.wars(server).filter(w => w[0] !== id && w[1] !== id))
   },
@@ -703,6 +758,12 @@ ServerEvents.commandRegistry(event => {
     say(ctx, `absorb: ${target.username} awakened as ${list.join(',') || 'nothing'} (test hook)`)
     return 1
   }
+  // Test hook: drop only the player's own copy of the used awakenings, as a Reset Counter that rebuilt the player would.
+  var wipeLocal = ctx => {
+    player(ctx, 'target').persistentData.remove('ttl.absorb.claimed')
+    say(ctx, `absorb: ${player(ctx, 'target').username}'s own awakening record wiped (test hook; the soul record stays)`)
+    return 1
+  }
   var clearOne = ctx => {
     TtlAbsorb.clear(server(ctx), player(ctx, 'target'))
     say(ctx, `absorb: cleared everything of ${player(ctx, 'target').username}`)
@@ -759,6 +820,8 @@ ServerEvents.commandRegistry(event => {
         .then(playerArg('target').then(stringArg('kind').then(stringArg('state').executes(logged(awake))))))
       .then(Commands.literal('clear').requires(op)
         .then(playerArg('target').executes(clearOne)))
+      .then(Commands.literal('testwipe').requires(op)
+        .then(playerArg('target').executes(logged(wipeLocal))))
       .then(Commands.literal('expect').requires(op)
         .then(Commands.literal('pacts').then(intArg('n').executes(logged(ctx =>
           check(ctx, 'live pacts', TtlAbsorb.live(server(ctx)).length, num(ctx, 'n'))))))
