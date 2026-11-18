@@ -1,0 +1,115 @@
+# World Chronicle core and the continent line (world/chronicle.js, world/commands.js, design/data/world.toml; WP-W1 of
+# design/architecture/world-state.md). Every `ttl world expect` / `ttl story expect` prints "ttl: ..." when it does not hold.
+# `ttl world testmark` saves the real world and starts a blank one in which test bots count; `ttl world testrestore` at the
+# end puts the real world back, so this run never moves the server's chronicle (milestones, balance, phases, firsts).
+# `testthreshold 3 0` pins the milestone threshold at 3 souls whatever the active count is.
+# Expect in the log: "[ttl] world: test mark set", "[ttl] world: milestone act2_reached reached", "[ttl] world: tide none -> dark",
+# "[ttl] world: phase tempest village -> town (ops ...)", "... test mark set, the place's hook is skipped", "[ttl] world: test state restored".
+# Verify in game (not asserted): `/ttl world where` on a boat ~200 blocks off the coast reads "outside"; the Voice line
+# "Tempest has grown into a town ..." reaches each bot once; the title "Tempest grows".
+ttl world testmark
+ttl world testthreshold 3 0
+ttl world expect test yes
+ttl world expect threshold 3
+ttl world expect counts.souls 0
+ttl world expect milestone act2_reached no
+# The continent line (R11): Tempest is inside, 9000 0 is beyond the map (open sea / free lands), the Labyrinth counts as
+# inside, the Mortal Realm (Life 1) is never part of it.
+ttl world expect continent 0 0 yes
+ttl world expect continent 435 -1106 yes
+ttl world expect continent 9000 0 no
+ttl world expect continent 0 9000 no
+ttl world expect continentin tensura:labyrinth 9000 0 yes
+ttl world expect continentin ttl:spirit_domain 0 0 yes
+ttl world expect continentin ttl:mortal_realm 0 0 no
+ttl world at 0 0
+ttl world at 9000 0
+ttlbot spawn TtlBotWorldA
+ttlbot spawn TtlBotWorldB
+ttlbot spawn TtlBotWorldC
+@sleep 2
+ttl reset TtlBotWorldA
+ttl reset TtlBotWorldB
+ttl reset TtlBotWorldC
+kubejs stages add TtlBotWorldA ttl.life2
+kubejs stages add TtlBotWorldB ttl.life2
+kubejs stages add TtlBotWorldC ttl.life2
+ttl world forget TtlBotWorldA
+ttl world forget TtlBotWorldB
+ttl world forget TtlBotWorldC
+# Three light Oaths (Act I comes with the Oath): souls and oaths are counted once per soul.
+ttl story oath light TtlBotWorldA
+ttl story oath light TtlBotWorldB
+ttl story oath light TtlBotWorldC
+ttl world expect counts.souls 3
+ttl world expect counts.oaths.light 3
+ttl world expect counts.acts.light.1 3
+# Act II by two souls: below the threshold, nothing is written into the world yet.
+ttl story act TtlBotWorldA 2
+ttl story act TtlBotWorldB 2
+ttl world expect counts.acts.light.2 2
+ttl world expect milestone act2_reached no
+ttl story expect TtlBotWorldA stage ttl.world.act2 no
+# The third soul: the milestone is reached, sticky, and its stage is mirrored on every online Life 2 soul.
+ttl story act TtlBotWorldC 2
+ttl world expect counts.acts.light.2 3
+ttl world expect counts.reached.2 3
+ttl world expect milestone act2_reached yes
+ttl story expect TtlBotWorldA stage ttl.world.act2 yes
+ttl story expect TtlBotWorldC stage ttl.world.act2 yes
+# A fourth soul gets the world's stages at login (it logs in again as a Life 2 soul).
+ttlbot spawn TtlBotWorldD
+@sleep 2
+ttl reset TtlBotWorldD
+kubejs stages add TtlBotWorldD ttl.life2
+ttl world forget TtlBotWorldD
+ttl story expect TtlBotWorldD stage ttl.world.act2 no
+ttlbot remove TtlBotWorldD
+@sleep 2
+ttlbot spawn TtlBotWorldD
+@sleep 3
+ttl story expect TtlBotWorldD stage ttl.world.act2 yes
+ttl world expect counts.souls 4
+# Balance and tide: -40 raises the dark tide (tide_at 25) with its unlocks, mood and stage; back to ~0 it ebbs.
+ttl world balance add -40
+ttl world expect tide dark
+ttl world expect unlocked holy_hunt yes
+ttl world expect mood tempest -1
+ttl story expect TtlBotWorldB stage ttl.world.tide.dark yes
+ttl world balance add 40
+ttl world expect tide none
+ttl world expect unlocked holy_hunt no
+ttl world expect mood tempest 0
+ttl story expect TtlBotWorldB stage ttl.world.tide.dark no
+# A forced milestone: Tempest's phase rises to town (the grow hook is skipped under the test mark and logs it),
+# its unlocks stay (sticky), its stage reaches every soul.
+ttl world expect phase tempest village
+ttl world milestone fire tempest_town
+ttl world expect milestone tempest_town yes
+ttl world expect phase tempest town
+ttl world expect unlocked horde_raid yes
+ttl story expect TtlBotWorldB stage ttl.world.phase.tempest.town yes
+ttl story expect TtlBotWorldD stage ttl.world.phase.tempest.town yes
+# A conflict opens and closes (exact mirror).
+ttl world conflict open dwargon
+ttl world expect conflict dwargon yes
+ttl story expect TtlBotWorldA stage ttl.world.conflict.dwargon yes
+ttl world conflict close dwargon
+ttl world expect conflict dwargon no
+ttl story expect TtlBotWorldA stage ttl.world.conflict.dwargon no
+# A flag milestone with a mood (first Demon Lord: holy_church -1).
+ttl story set TtlBotWorldD dark
+ttl story flag TtlBotWorldD demon_lord
+ttl world expect counts.flags.demon_lord 1
+ttl world expect milestone first_demon_lord yes
+ttl world expect mood holy_church -1
+ttl world
+ttl world log 6
+ttl world export
+# Put the real world back; the bots go.
+ttl world testrestore
+ttl world expect test no
+ttlbot remove TtlBotWorldA
+ttlbot remove TtlBotWorldB
+ttlbot remove TtlBotWorldC
+ttlbot remove TtlBotWorldD

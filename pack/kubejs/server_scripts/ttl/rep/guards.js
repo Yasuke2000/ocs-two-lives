@@ -50,6 +50,8 @@ const TtlRepGuards = {
     }
     if (!killer || !killer.isPlayer() || killer === victim) return
     if (TtlLife.phase(killer) !== 'life2') return
+    // R11: no kill penalty outside the canon continent.
+    try { if (typeof TtlWorld !== 'undefined' && !TtlWorld.onContinent(TtlLife.dimensionOf(victim), victim.x, victim.z)) return } catch (e) { console.error(`[ttl] rep: continent test failed, the penalty applies: ${e}`) }
     var fac = null
     var points = 0
     var what = ''

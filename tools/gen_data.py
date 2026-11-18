@@ -1125,6 +1125,152 @@ def check_events(events: dict) -> None:
             raise SystemExit("events.toml: relic items need a namespaced id and count >= 1")
 
 
+WORLD_WHEN = {"acts", "acts_path", "flags", "kills", "nations", "wars", "armies", "radiant", "balance_at_least",
+              "balance_at_most", "milestone", "era_days", "rule"}
+WORLD_EFFECTS = {"stage", "phase", "unlock_events", "mood", "conflict", "chapter", "title", "voice", "story"}
+
+
+def check_world(world: dict, data: dict) -> None:
+    # world/chronicle.js reads this as TtlData.world; a wrong id would make a milestone that can never be reached, or an
+    # effect that silently names nothing (design/architecture/world-state.md §3).
+    ident, dim = r"[a-z0-9_]+", r"[a-z0-9_.-]+:[a-z0-9_/.-]+"
+    unknown = set(world) - {"chronicle", "continent", "threshold", "places", "rule", "balance", "milestone", "tide"}
+    if unknown:
+        raise SystemExit(f"world.toml: unknown tables {sorted(unknown)}")
+    chron = world.get("chronicle", {})
+    for key, lo, hi in (("log_size", 1, 5000), ("sync_ticks", 200, 72000), ("active_window_days", 1, 365),
+                        ("max_json", 1000, 64000), ("archive_max", 1, 50), ("voice_per_login", 0, 20)):
+        if not is_int(chron.get(key)) or not lo <= chron[key] <= hi:
+            raise SystemExit(f"world.toml: [chronicle] {key} must be an integer {lo}-{hi}")
+    if not isinstance(chron.get("discord"), bool) or not isinstance(chron.get("first_story", ""), str):
+        raise SystemExit("world.toml: [chronicle] discord must be true/false and first_story a string")
+    story = data.get("story", {})
+    flags = set(story.get("flag", {}))
+    acts = {a.get("id") for a in story.get("act", [])}
+    bosses = {b.get("id") for b in data.get("bosses", {}).get("boss", [])}
+    factions = {f.get("id") for f in data.get("factions", {}).get("faction", [])}
+    kill_kinds = chron.get("kill_kinds", [])
+    pending = chron.get("pending_factions", [])
+    for k in kill_kinds:
+        if not re.fullmatch(ident, str(k)) or k in bosses:
+            raise SystemExit(f"world.toml: kill_kinds {k!r} must be an id that is not already a [[boss]]")
+    for f in pending:
+        if not re.fullmatch(ident, str(f)) or f in factions:
+            raise SystemExit(f"world.toml: pending_factions {f!r} must be an id factions.toml does not define yet")
+    known_factions = factions | set(pending)
+    cont = world.get("continent", {})
+    if not re.fullmatch(dim, str(cont.get("overworld", ""))):
+        raise SystemExit("world.toml: [continent] overworld must be a dimension id")
+    for d in cont.get("inside_dimensions", []):
+        if not re.fullmatch(dim, str(d)):
+            raise SystemExit(f"world.toml: [continent] inside_dimensions {d!r} is not a dimension id")
+    for key in ("outside_counts", "fallback_inside"):
+        if not isinstance(cont.get(key), bool):
+            raise SystemExit(f"world.toml: [continent] {key} must be true or false")
+    if not is_int(cont.get("cache_max")) or cont["cache_max"] < 64:
+        raise SystemExit("world.toml: [continent] cache_max must be an integer >= 64")
+    th = world.get("threshold", {})
+    if not is_int(th.get("souls")) or th["souls"] < 1 or not is_int(th.get("pct")) or not 0 <= th["pct"] <= 100:
+        raise SystemExit("world.toml: [threshold] souls must be >= 1 and pct 0-100")
+    places = world.get("places", {})
+    for place, phases in places.items():
+        if not re.fullmatch(ident, place) or not isinstance(phases, list) or len(phases) < 1 or len(set(phases)) != len(phases) \
+                or not all(isinstance(p, str) and re.fullmatch(ident, p) for p in phases):
+            raise SystemExit(f"world.toml: [places] {place} must be a list of distinct phase ids, lowest first")
+    modes = world.get("rule", {}).get("modes", [])
+    if not modes or not all(isinstance(m, str) and re.fullmatch(ident, m) for m in modes) or len(set(modes)) != len(modes):
+        raise SystemExit("world.toml: [rule] modes must be a list of distinct ids")
+    bal = world.get("balance", {})
+    weights = bal.get("weights", {})
+    if not weights or not all(re.fullmatch(ident, k) and is_num(v) for k, v in weights.items()):
+        raise SystemExit("world.toml: [balance] weights must map ids to numbers")
+    if not is_num(bal.get("decay_per_week")) or bal["decay_per_week"] < 0:
+        raise SystemExit("world.toml: [balance] decay_per_week must be a number >= 0")
+    if not is_num(bal.get("tide_at")) or not is_num(bal.get("tide_end")) or not 0 <= bal["tide_end"] < bal["tide_at"] <= 100:
+        raise SystemExit("world.toml: [balance] needs 0 <= tide_end < tide_at <= 100")
+    events = {e.get("id") for e in data.get("events", {}).get("event", [])}
+    later_events: set[str] = set()
+
+    def check_fx(where: str, fx: dict, allowed: set) -> None:
+        if not isinstance(fx, dict) or not fx or not set(fx) <= allowed:
+            raise SystemExit(f"{where}: keys are {', '.join(sorted(allowed))}")
+        if "stage" in fx and not re.fullmatch(r"ttl\.world\.[a-z0-9_.]+", str(fx["stage"])):
+            raise SystemExit(f"{where}: stage must start with ttl.world.")
+        for place, phase in fx.get("phase", {}).items():
+            if phase not in places.get(place, []):
+                raise SystemExit(f"{where}: phase {place} = {phase!r} is not in [places]")
+        for ev in fx.get("unlock_events", []):
+            if not re.fullmatch(ident, str(ev)):
+                raise SystemExit(f"{where}: unlock_events {ev!r} is not an id")
+            if ev not in events:
+                later_events.add(ev)
+        for f, n in fx.get("mood", {}).items():
+            if f not in known_factions or not is_int(n) or n == 0 or not -3 <= n <= 3:
+                raise SystemExit(f"{where}: mood {f} = {n!r} needs a known faction and a band shift -3..3 (not 0)")
+        if "conflict" in fx and fx["conflict"] not in known_factions:
+            raise SystemExit(f"{where}: conflict {fx['conflict']!r} is not a faction")
+        if "chapter" in fx and not re.fullmatch(ident, str(fx["chapter"])):
+            raise SystemExit(f"{where}: chapter must be a world chapter key")
+        for key in ("title", "voice", "story", "end_story"):
+            if key in fx and not str(fx[key]).strip():
+                raise SystemExit(f"{where}: {key} must not be empty")
+
+    def count_table(where: str, table, ids: set, what: str) -> None:
+        if not isinstance(table, dict) or not table:
+            raise SystemExit(f"{where}: needs {{ <{what}> = n }}")
+        for k, n in table.items():
+            if k not in ids or not is_int(n) or n < 1:
+                raise SystemExit(f"{where}: {k} = {n!r} needs a known {what} and n >= 1")
+
+    seen: set[str] = set()
+    for m in world.get("milestone", []):
+        mid = m.get("id", "")
+        where = f"world.toml: milestone {mid or '?'}"
+        if not re.fullmatch(ident, str(mid)) or mid in seen:
+            raise SystemExit(f"{where}: id must be unique [a-z0-9_]")
+        seen.add(mid)
+        if set(m) - {"id", "when", "effects"}:
+            raise SystemExit(f"{where}: keys are id, when, effects")
+        when = m.get("when")
+        if not isinstance(when, dict) or not when or not set(when) <= WORLD_WHEN:
+            raise SystemExit(f"{where}: when keys are {', '.join(sorted(WORLD_WHEN))}")
+        if "acts" in when and (set(when["acts"]) != {"act"} or when["acts"]["act"] not in acts):
+            raise SystemExit(f"{where}: acts = {{ act = n }} with an act of story.toml")
+        if "acts_path" in when:
+            ap = when["acts_path"]
+            if set(ap) != {"act", "path"} or ap["act"] not in acts or ap["path"] not in ("light", "dark"):
+                raise SystemExit(f"{where}: acts_path = {{ act = n, path = light|dark }}")
+        if "flags" in when:
+            count_table(where + " flags", when["flags"], flags, "story flag")
+        if "kills" in when:
+            count_table(where + " kills", when["kills"], bosses | set(kill_kinds), "boss or kill_kinds id")
+        if "radiant" in when:
+            count_table(where + " radiant", when["radiant"], known_factions, "faction")
+        for key in ("nations", "wars", "armies"):
+            if key in when and (not is_int(when[key]) or when[key] < 1):
+                raise SystemExit(f"{where}: {key} must be an integer >= 1")
+        for key in ("balance_at_least", "balance_at_most"):
+            if key in when and (not is_num(when[key]) or not -100 <= when[key] <= 100):
+                raise SystemExit(f"{where}: {key} must be a number -100..100")
+        if "era_days" in when and (not is_int(when["era_days"]) or when["era_days"] < 0):
+            raise SystemExit(f"{where}: era_days must be an integer >= 0")
+        for f, mode in when.get("rule", {}).items():
+            if f not in known_factions or mode not in modes:
+                raise SystemExit(f"{where}: rule {f} = {mode!r} needs a known faction and a [rule] mode")
+        check_fx(where + " effects", m.get("effects"), WORLD_EFFECTS)
+    for m in world.get("milestone", []):
+        ref = m["when"].get("milestone")
+        if ref is not None and (ref not in seen or ref == m["id"]):
+            raise SystemExit(f"world.toml: milestone {m['id']}: milestone = {ref!r} must name another milestone")
+    tide = world.get("tide", {})
+    if set(tide) != {"light", "dark"}:
+        raise SystemExit("world.toml: needs [tide.light] and [tide.dark]")
+    for side, fx in tide.items():
+        check_fx(f"world.toml: [tide.{side}]", fx, {"unlock_events", "mood", "story", "end_story"})
+    if later_events:
+        print(f"warn: world.toml unlocks events events.toml does not define yet: {', '.join(sorted(later_events))}", file=sys.stderr)
+
+
 BUILD_KEYS = {"name", "title", "landmark", "x", "z", "anchor", "ground", "y", "search", "dimension", "version",
               "clear_above", "margin", "max_wet", "notes"}
 
@@ -1325,6 +1471,8 @@ def render() -> dict[Path, str]:
         check_nations(data["nations"], data)
     if "arenas" in data:
         check_arenas(data["arenas"], data.get("bosses"))
+    if "world" in data:
+        check_world(data["world"], data)
     data["builds"], footprints = check_builds()
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     grids = json.dumps(footprints, separators=(",", ":"), sort_keys=True)

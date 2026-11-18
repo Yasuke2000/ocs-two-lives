@@ -373,6 +373,7 @@ const TtlStory = {
     this.addTitle(player, title)
     this.voice(server, player, cfg.say)
     this.note(server, player, `swore the ${choice} Oath (${why})`)
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.note(server, 'oath', player, { path: lane }) } catch (e) { console.error(`[ttl] story: chronicle note (oath) failed: ${e}`) }
     var first = this.act(server, player, 1, { quiet: true })
     if (first) console.warn(`[ttl] story: Act I for ${player.username} after the Oath: ${first}`)
   },
@@ -400,6 +401,7 @@ const TtlStory = {
     this.addTitle(player, cfg.title)
     this.voice(server, player, cfg.say)
     this.note(server, player, `turned from ${have} to ${to}`)
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.note(server, 'flip', player, { kind: have === 'dark' ? 'atonement' : 'corruption', to: to }) } catch (e) { console.error(`[ttl] story: chronicle note (flip) failed: ${e}`) }
     this.post(server, player, cfg.line)
     return null
   },
@@ -449,6 +451,7 @@ const TtlStory = {
     })
     if (added.length) server.persistentData.putString(this.UNLOCKED, JSON.stringify(list))
     this.note(server, player, `completed act ${n} (${def.key}, ${path})${added.length ? `, unlocked ${added.join(',')}` : ''}`)
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.note(server, 'act', player, { act: Number(n), path: path, catchup: !!opts.catchup }) } catch (e) { console.error(`[ttl] story: chronicle note (act) failed: ${e}`) }
     if (!opts.quiet) {
       player.tell(Text.gold(`Act ${n} complete: ${def.title}.`))
       this.post(server, player, def.story_line, 'act')
@@ -472,6 +475,7 @@ const TtlStory = {
     this.renown(server, player, Number(def.renown || 0), `story flag ${id}`)
     this.addTitle(player, def.title)
     this.note(server, player, `flag ${id}`)
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.note(server, 'flag', player, { flag: id }) } catch (e) { console.error(`[ttl] story: chronicle note (flag) failed: ${e}`) }
     if (!opts.quiet && def.title) player.tell(Text.gold(`You are now known as ${def.title}.`))
     this.post(server, player, def.line)
     return null

@@ -724,6 +724,7 @@ const TtlBoss = {
     })
     console.info(`[ttl] boss: ${def.id} defeated by ${names.join(', ')}${killers > 0 ? '' : ' (no kill credit: shared by everyone in the fight)'}${rec.wild ? ' (wild)' : ''}`)
     this.announce(server, def, names)
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.bossKill(server, def.id, rec, names) } catch (e) { console.error(`[ttl] boss: chronicle note for ${def.id} failed: ${e}`) }
   },
 
   // Party members who share the kill without being contributors themselves: in the roster frozen when their party first
@@ -938,6 +939,8 @@ try {
       // A proxy boss stands on an ordinary mob (Clayman on the arch daemon): that mob keeps spawning by itself. Every real
       // boss entity is wild-rolled by bosses/wild.js instead (Shizu included), so nothing is exempt any more.
       if (def.proxy) return
+      // R11: outside the canon continent (the ring, the free lands) the mods spawn their bosses as shipped.
+      try { if (typeof TtlWorld !== 'undefined' && !TtlWorld.onContinent(String(entity.level.dimension), entity.x, entity.z)) return } catch (e) { console.error(`[ttl] boss: continent test failed, the spawn rule applies: ${e}`) }
       var type = String(event.type)
       blocked = TtlBoss.NATURAL.test(type)
       console.info(`[ttl] boss: ${id} spawn type=${type}: ${blocked ? 'blocked' : 'allowed'}`)

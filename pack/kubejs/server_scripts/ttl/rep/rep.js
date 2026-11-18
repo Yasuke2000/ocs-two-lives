@@ -159,12 +159,17 @@ const TtlRep = {
     return this.rank(this.band(player, f)) <= this.rank(band)
   },
 
+  // A world mood (TtlChronicle, design/data/world.toml) shifts the band by whole bands for guards and shops only.
   guardsHostile(player, f) {
-    return this.atMost(player, f, this.rules().guard_attack_at)
+    var shift = 0
+    try { if (typeof TtlChronicle !== 'undefined') shift = TtlChronicle.mood(f, player.getServer()) } catch (e) { console.error(`[ttl] rep: world mood failed: ${e}`) }
+    return this.rank(this.band(player, f)) + shift <= this.rank(this.rules().guard_attack_at)
   },
 
   shopOpen(player, f) {
-    return !this.atMost(player, f, this.rules().shop_refuse_at)
+    var shift = 0
+    try { if (typeof TtlChronicle !== 'undefined') shift = TtlChronicle.mood(f, player.getServer()) } catch (e) { console.error(`[ttl] rep: world mood failed: ${e}`) }
+    return this.rank(this.band(player, f)) + shift > this.rank(this.rules().shop_refuse_at)
   },
 
   // ---- changing --------------------------------------------------------------------------------------------

@@ -331,6 +331,7 @@ const TtlNations = {
   dropRecord(server, all, key, why) {
     var rec = all[key]
     delete all[key]
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.note(server, 'nation_dropped', null, { key: key, name: String(rec.name) }) } catch (e) { console.error(`[ttl] nations: chronicle note failed: ${e}`) }
     Object.keys(all).forEach(k => {
       var o = all[k]
       o.ally_to = (o.ally_to || []).filter(x => x !== key)
@@ -465,6 +466,7 @@ const TtlNations = {
     all[key] = rec
     this.save(server, all)
     this.refreshDiscordRoles(server)
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.note(server, 'nation_found', player, { key: key, name: name }) } catch (e) { console.error(`[ttl] nations: chronicle note failed: ${e}`) }
     console.info(`[ttl] nations: ${player.username} founded ${name} (home ${rec.home || 'none'}, ${this.memberIdsOf(team).length} members)`)
     try {
       TtlDiscordStory.post(server, 'nation', [player.username], `${TtlDiscord.name(player.username)} has founded the nation ${name}${faction ? ` in the lands of the ${faction.title}` : ''}.`, TtlDiscord.isBot(name))
@@ -726,6 +728,7 @@ const TtlNations = {
     all[me.key].ally_to = (all[me.key].ally_to || []).filter(k => k !== other.key)
     all[other.key].ally_to = (all[other.key].ally_to || []).filter(k => k !== me.key)
     this.save(server, all)
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.note(server, 'war_declared', player, { a: me.key, b: other.key }) } catch (e) { console.error(`[ttl] nations: chronicle note failed: ${e}`) }
     var when = hours > 0 ? `in ${hours} hours` : 'now'
     try {
       var targetOwner = TtlRegistry.nameOf(server, other.rec.owner)
@@ -747,6 +750,7 @@ const TtlNations = {
     all[me.key].wars = (all[me.key].wars || []).filter(w => w.with !== other.key)
     all[other.key].wars = (all[other.key].wars || []).filter(w => w.with !== me.key)
     this.save(server, all)
+    try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.note(server, 'war_ended', player, { a: me.key, b: other.key }) } catch (e) { console.error(`[ttl] nations: chronicle note failed: ${e}`) }
     this.tell(server, me.key, `Peace with ${other.rec.name}.`)
     this.tell(server, other.key, `Peace with ${all[me.key].name}.`)
     this.post(server, `Peace between the nations ${all[me.key].name} and ${other.rec.name}.`, all[me.key])

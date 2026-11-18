@@ -1,0 +1,136 @@
+# World Chronicle (design/architecture/world-state.md §2-§3; script: pack/kubejs/server_scripts/ttl/world/chronicle.js).
+# The chronicle counts what souls and parties do into one server record `ttl.world`, reaches sticky milestones at
+# thresholds and hands the world additive effects (stages, phases, event unlocks, faction moods, conflicts).
+# Checked by tools/gen_data.py check_world(); read by the scripts as TtlData.world.
+
+[chronicle]
+log_size = 300               # ring ttl.world.log
+sync_ticks = 6000            # the chronicle sync (counts, decay, tide, milestones, mirrors): every 5 minutes
+active_window_days = 30      # a soul seen this recently is "active" (counts.active30, the pct threshold)
+discord = true               # milestone, tide and first-kill lines go to #story (TtlDiscord mutes them while test bots are online)
+max_json = 60000             # one NBT string holds at most 65,535 bytes: ttl.world and the log stay below this
+archive_max = 10             # ttl.world.archive: one snapshot per finished era
+voice_per_login = 3          # Voice lines of milestones a soul has not heard yet, at most this many per login (the rest are marked heard)
+first_story = "{names} are the first souls of this world to defeat {boss}."   # #story line for a world first ({names}, {boss}); "" = none
+# Kill ids that are not a [[boss]] of bosses.toml but may be noted as a kill (WP-W14's famine bands) and counted by a milestone.
+kill_kinds = ["horde_band"]
+# Factions a milestone names before factions.toml defines them (Eurazania, Carrion's throne: WP-W3/WP-W16). gen_data warns,
+# the scripts carry the conflict/mood as data; nothing reads it until the faction exists.
+pending_factions = ["eurazania"]
+
+[continent]                  # §2.0 (R11); the test itself is the canon grid's ownerCell(x, z) != 0, these name the exceptions
+overworld = "minecraft:overworld"
+inside_dimensions = ["tensura:labyrinth", "ttl:spirit_domain", "tensura:hell"]   # arenas and story places count as inside
+outside_counts = true        # boss-framework kills outside still count in counts.wildKills.outside (never a first)
+fallback_inside = true       # no canon grid (ttl-portals missing): the overworld counts as inside, the rules stay as before the line
+cache_max = 4096             # chunk columns remembered by the test before the cache is cleared
+
+[threshold]                  # souls OR pct of active30, whichever is higher (DECIDED, O-W7); used by `acts` / `acts_path`
+souls = 3
+pct = 25
+
+[places]                     # growth phases per place, lowest first; a milestone only ever raises a phase (R10)
+tempest = ["village", "town", "city"]
+
+[rule]                       # who sits on a canon throne (§6.6; WP-W16 walks the road, WP-W1 stores and mirrors it)
+modes = ["vassal", "usurper"]
+
+[balance]
+decay_per_week = 2           # toward 0
+tide_at = 25                 # |balance| at or beyond this raises a tide
+tide_end = 10                # a tide holds until |balance| falls to this (hysteresis)
+
+[balance.weights]            # per soul and deed, once (the chronicle ledger); flags by flag id, flips by atonement/corruption
+oath_light = 2
+oath_dark = -2
+act_light = 1
+act_dark = -1
+atonement = 3
+corruption = -3
+regicide = -3
+honour_duel = 1
+charybdis_woke = -2
+hero = 10
+demon_lord = -10
+raid_defended = 2
+raid_sacked = -3
+uprising_put_down = 2
+uprising_won = -3
+radiant_light = 0.2
+radiant_dark = -0.2
+
+# Milestones: sticky, additive. `when` keys are ANDed: acts = { act = n } · acts_path = { act = n, path = x } ·
+# flags = { <flag> = n } · kills = { <boss> = n } · nations = n · wars = n · armies = n (nations with a mustered army) ·
+# radiant = { <faction> = n } · balance_at_least / balance_at_most = n · milestone = "<id>" · era_days = n · rule = { <f> = mode }
+# `acts`/`acts_path` count against [threshold]; every other count is the number given (souls for flags and kills).
+# `effects`: stage · phase = { <place> = <phase> } · unlock_events = [ids] · mood = { <faction> = ±bands } · conflict = "<faction>"
+#   (opens that faction's takeover path, §6.6) · chapter = "<world chapter key>" (stage ttl.world.chapter.<key>) · title (on
+#   screen, once) · voice (once per soul) · story (#story)
+[[milestone]]
+id = "act2_reached"
+when = { acts = { act = 2 } }
+effects = { stage = "ttl.world.act2", story = "The Armed Nation has taken the measure of the newcomers: Act II is written into the world." }
+
+[[milestone]]
+id = "horde_seen"
+when = { kills = { horde_band = 1 } }
+effects = { stage = "ttl.world.milestone.horde_seen", story = "Starving orcs have been seen on the roads of Jura." }
+
+[[milestone]]
+id = "tempest_town"
+when = { acts = { act = 3 } }
+[milestone.effects]
+phase = { tempest = "town" }
+stage = "ttl.world.phase.tempest.town"
+unlock_events = ["horde_raid"]
+title = "Tempest grows"
+voice = "Tempest has grown into a town. Roads, walls, a market: the world remembers who stood here."
+story = "Tempest has grown into a town."
+
+[[milestone]]
+id = "act5_reached"
+when = { acts = { act = 5 } }
+effects = { stage = "ttl.world.act5", unlock_events = ["falmuth_invasion_repeat", "holy_hunt"], conflict = "falmuth" }
+
+[[milestone]]
+id = "tempest_city"
+when = { acts = { act = 6 } }
+[milestone.effects]
+phase = { tempest = "city" }
+stage = "ttl.world.phase.tempest.city"
+unlock_events = ["walpurgis_monthly"]
+story = "Tempest is a city. The council of the Jura-Tempest Federation sits in its own hall."
+
+# Walpurgis in canon: Clayman's scheme sets Milim on Carrion's Eurazania — the model of a canon takeover.
+[[milestone]]
+id = "walpurgis_held"
+when = { acts = { act = 6 }, kills = { clayman = 1 } }
+effects = { conflict = "eurazania", story = "Walpurgis has met. Eurazania's throne is in play." }
+
+[[milestone]]
+id = "first_demon_lord"
+when = { flags = { demon_lord = 1 } }
+effects = { stage = "ttl.world.milestone.first_demon_lord", unlock_events = ["harvest_festival"], mood = { holy_church = -1 } }
+
+[[milestone]]
+id = "first_true_hero"
+when = { flags = { hero = 1 } }
+effects = { stage = "ttl.world.milestone.first_true_hero", unlock_events = ["hero_ascension"], mood = { holy_church = 1 } }
+
+[[milestone]]
+id = "dwargon_pact"
+when = { flags = { honour_duel = 3 }, radiant = { dwargon = 20 } }
+effects = { mood = { dwargon = 1 }, unlock_events = ["dwarven_caravan"], conflict = "dwargon", story = "Dwargon and Tempest exchange envoys." }
+
+# Tides: reversible (R10). While a tide holds, its unlock_events and mood are added; they go when it ebbs.
+[tide.dark]
+unlock_events = ["horde_raid", "holy_hunt"]
+mood = { tempest = -1 }
+story = "A dark tide rises over Jura."
+end_story = "The dark tide over Jura ebbs."
+
+[tide.light]
+unlock_events = ["outcast_uprising"]
+mood = { outcast = -1 }
+story = "The light holds Jura. The Outcasts stir in the shadows."
+end_story = "The light over Jura wavers; the Outcasts breathe again."
