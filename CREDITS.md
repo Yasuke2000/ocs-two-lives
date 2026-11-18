@@ -16,3 +16,7 @@ OCS Tensura: Two Lives is a free, non-commercial fan modpack. Nothing here is so
   their own licences; the pack only links to them (packwiz), it does not redistribute their jars.
 - Map references: fan-made Tensura world maps (political and illustrated); our grid in `pack/config/ttl/` is our own
   trace, the reference images are not in the repo.
+- **Blumund and Marris** (`blueprints/blumund.py`, `blueprints/marris.py`, helper `blueprints/_town_lib.py`) are
+  written from scratch as code; no mod structures are copied into them. For visual reference only we looked at the
+  structure files of **Towns and Towers** (CC BY-NC-ND 4.0, "no changes to the mod", so nothing from it is reused),
+  **Iron's Spellbooks** (All Rights Reserved) and Tensura's own dwarf and goblin pieces (already credited above).
