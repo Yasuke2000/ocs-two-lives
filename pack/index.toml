@@ -1185,6 +1185,14 @@ file = "config/vanilla_structures/toggle_structure_config.json5"
 hash = "a50b4ca77d21ae105e68560c1af694125ea06360374c82e87f4da54b7ecfa51d"
 
 [[files]]
+file = "datapacks/ttl-overrides/data/tensura/biome_magicule/ancient_forest.json"
+hash = "2d23487ce5f439b45c3141c9b0152560eae80d8522db248fff7ff2ba654e006a"
+
+[[files]]
+file = "datapacks/ttl-overrides/pack.mcmeta"
+hash = "9bdd411abe7b7eea66a5bd1f546787907738ef87ee1f1dccadb344bbf1b77023"
+
+[[files]]
 file = "kubejs/data/l2hostility/l2hostility_config/difficulty/ttl_two_lives.json"
 hash = "9e10fd1bb99b6b40151748bd4080523cf60238723a50ff643e4119d99c7687aa"
 
@@ -1211,10 +1219,6 @@ hash = "1cf4668bbb0f24f73300f66bf2c16a070b4304f0f93e07bb1d548edf3a0008fd"
 [[files]]
 file = "kubejs/data/minecraft/worldgen/noise_settings/overworld.json"
 hash = "cb31a8f62f314fd763dafca5b7ab3adf52b7d6e8b78e527dab7ac3d1146d947c"
-
-[[files]]
-file = "kubejs/data/tensura/biome_magicule/ancient_forest.json"
-hash = "2d23487ce5f439b45c3141c9b0152560eae80d8522db248fff7ff2ba654e006a"
 
 [[files]]
 file = "kubejs/data/tensura/worldgen/biome/underworld_red_sands.json"

@@ -1,0 +1,6 @@
+{
+  "pack": {
+    "pack_format": 48,
+    "description": "OCS Two Lives: overrides of mod data that must win over mod jars (a world datapack loads above mods; kubejs/data does not)"
+  }
+}
