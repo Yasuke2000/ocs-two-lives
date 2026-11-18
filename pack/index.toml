@@ -838,7 +838,7 @@ hash = "885c6858fe28c0e6475818d93b33e5509bb18ea3b7af185d35f427482a7a294c"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
-hash = "9bd37cc28e98715609164df1cf0320a92ed64ee25640844664246956bbfe03ae"
+hash = "915d9b3febe6c3c5d5e7bb8fb8cb089522390483b093d5f97a9896c31a5bdc04"
 
 [[files]]
 file = "config/ftbxmodcompat.snbt"
@@ -1566,7 +1566,7 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/boss.js"
-hash = "e93fb58e2b2c69d69b57cf83fa4b69be96fb748b12a926a4a936cb77e9c0165d"
+hash = "82715c6d70f9aa067ca33c0806ca584bb374673b4661a2a3128ce872a317bac4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/commands.js"
@@ -1799,6 +1799,14 @@ hash = "970f53d54836bfb7b8afd86e30d6c079b18a7a14becdb6ced02f518fc305048f"
 [[files]]
 file = "kubejs/server_scripts/ttl/manas.js"
 hash = "0b57ffb3648edea38cbbb04cae19252647b5ea1294c6954c8f3629af66004470"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/party/commands.js"
+hash = "025685bed2b32a9db8c51b300a4e95e4b58206b0d0873725e19f7a55726bb0de"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/party/party.js"
+hash = "7d6c8c19321c7d307c022dccbdbe592ae49c55d17040173e4a7b94d0fb877160"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/quests/check.js"

@@ -429,6 +429,16 @@ const TtlBoss = {
     var u = this.uid(player)
     var fake = this.testParty(server)
     if (fake) return fake.members.indexOf(u) >= 0 ? { id: 'test', members: fake.members } : null
+    // The party layer (party/party.js) is the one reader of FTB Teams; the direct read below only runs without it.
+    if (typeof TtlParty !== 'undefined' && typeof TtlParty.partyOf === 'function') {
+      try {
+        var mine = TtlParty.partyOf(server, player)
+        return mine ? { id: mine.id, members: mine.members } : null
+      } catch (e) {
+        console.warn(`[ttl] boss: the party layer failed for ${player.username}: ${e}`)
+        return null
+      }
+    }
     var cls = this.ftb()
     if (!cls) return null
     try {
