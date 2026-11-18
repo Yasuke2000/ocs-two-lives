@@ -1,29 +1,16 @@
 #!/usr/bin/env python3
-"""Write the Easy NPC presets for the NPCs of design/data/npcs.toml: the guild NPCs (Fuze, the receptionists) and the story
-cast (Benimaru, Shuna, ..., WP-S4 of design/architecture/story-characters.md).
+"""Write the Easy NPC presets for the guild NPCs (Fuze, the receptionists) from design/data/npcs.toml.
 
-One file per Easy NPC [[kind]]: pack/config/easy_npc/preset/<prefix><id>.npc.snbt, an Easy NPC 7.19 `custom` preset
-(`/easy_npc preset import_new custom easy_npc:preset/<file name> <x> <y> <z>`); <prefix> is settings.preset_prefix for a guild
-kind and settings.cast_prefix for a story kind. The format follows the presets that ship inside the mod
-(data/easy_npc/default_preset/humanoid/threshold_warden.npc.snbt). Every button runs the PLAYER's own command (action flag
-ExecAsUser, command level 0): `/ttl guild ...` for the guild, `/ttl story talk <id>` for the cast; security.cfg lists `ttl` in
-executeAsUserCommandAllowList.ALL for that. A kind with `statue = "<entity id>"` has no preset: guild_npcs.js and story/cast.js
-spawn that mod entity as a tame statue.
-
-Skins. `skin` is one of Easy NPC's built-in variants of the kind's `model` (humanoid or humanoid_slim; the lists below were read
-from HumanoidSkinVariant / HumanoidSlimSkinVariant in the 7.19 jar). A kind also uses our own PNG when that file exists:
-pack/kubejs/assets/ttl/textures/entity/npc/<kind id>.png (64x64), written into the preset as
-`SkinData:{Type:"RESOURCE_LOCATION",Texture:"ttl:textures/entity/npc/<kind id>.png"}` (SkinDataEntry in the jar reads exactly
-those tags; KubeJS assets ship to every client). `skin = "ttl:textures/entity/npc/<name>.png"` points a kind at another file; the
-built-in variant is then given by `variant`. A PNG that is added later is picked up by the next run of this script.
+One file per [[kind]]: pack/config/easy_npc/preset/<preset_prefix><id>.npc.snbt, an Easy NPC 7.19 `custom` preset
+(`/easy_npc preset import_new custom easy_npc:preset/<file name> <x> <y> <z>`). The format follows the presets that ship
+inside the mod (data/easy_npc/default_preset/humanoid/threshold_warden.npc.snbt). Every button runs the PLAYER's own
+`/ttl guild ...` command (action flag ExecAsUser, command level 0); security.cfg lists `ttl` in
+executeAsUserCommandAllowList.ALL for that.
 
 Usage: gen_npcs.py           write the presets
        gen_npcs.py --check   exit 1 if a preset is stale (used by validate.py)
-       gen_npcs.py --spots   also check every spot against the structure files of its build (slow: reads the .nbt files):
-                             the NPC must stand on a solid block with two free blocks above
 """
 import re
-import struct
 import sys
 import tomllib
 import uuid
@@ -32,19 +19,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "design" / "data"
 TARGET = ROOT / "pack" / "config" / "easy_npc" / "preset"
-ASSETS = ROOT / "pack" / "kubejs" / "assets"
-STRUCTURES = ROOT / "pack" / "kubejs" / "data" / "ttl" / "structure"
 NAMESPACE = uuid.UUID("5d0f6f2a-7c1e-4a55-9a52-0f7e4d2f6b11")  # fixed: the PresetUUID of a kind never changes
 MAX_LABEL = 32  # Easy NPC: MAX_DIALOG_LABEL_LENGTH / MAX_BUTTON_LABEL_LENGTH
-# Built-in skin variants (assets/easy_npc/textures/entity/humanoid*, enums in the 7.19 jar).
-VARIANTS = {
-    "humanoid": ("ALEX", "ARI", "EFE", "KAI", "MAKENA", "NOOR", "STEVE", "SUNNY", "ZURI", "JAYJASONBO", "PROFESSOR_01",
-                 "SECURITY_01", "KNIGHT_01", "KNIGHT_02", "FARMER_01"),
-    "humanoid_slim": ("ALEX", "ARI", "EFE", "KAI", "MAKENA", "NOOR", "STEVE", "SUNNY", "ZURI", "KAWORRU", "MAGE_01"),
-}
-# Where the structure of a build puts the anchors of npcs.toml: Tempest's arrival point, blueprint (45, 5, 57)
-# (blueprints/tempest.py ARRIVAL); a `build` anchor is the blueprint origin itself.
-TEMPEST_ARRIVAL = (45, 5, 57)
 
 
 class Raw(str):
@@ -102,44 +78,6 @@ def preset_uuid(kind_id: str) -> Raw:
     return Raw("[I;" + ",".join(str(p) for p in parts) + "]")
 
 
-def is_resource(skin: str) -> bool:
-    return ":" in skin
-
-
-def variant_of(kind: dict) -> str:
-    """The built-in variant: `skin`, or `variant` when `skin` names a texture of ours."""
-    skin = kind["skin"]
-    return kind["variant"] if is_resource(skin) else skin
-
-
-def texture_of(kind: dict) -> str | None:
-    """The resource location of our own skin PNG for this kind, when that file exists, else None."""
-    skin = kind["skin"]
-    rl = skin if is_resource(skin) else f"ttl:textures/entity/npc/{kind['id']}.png"
-    ns, path = rl.split(":", 1)
-    return rl if (ASSETS / ns / path).is_file() else None
-
-
-def png_size(path: Path) -> tuple[int, int]:
-    head = path.read_bytes()[:24]
-    if head[:8] != b"\x89PNG\r\n\x1a\n" or head[12:16] != b"IHDR":
-        raise SystemExit(f"{path.relative_to(ROOT)} is not a PNG file")
-    return struct.unpack(">II", head[16:24])
-
-
-def entity_id(kind: dict) -> str:
-    return "easy_npc:" + kind.get("model", "humanoid")
-
-
-def look(kind: dict) -> dict:
-    """VariantType, and SkinData too when our own texture exists."""
-    out = {"VariantType": variant_of(kind)}
-    texture = texture_of(kind)
-    if texture:
-        out["SkinData"] = {"Texture": texture, "Type": "RESOURCE_LOCATION"}
-    return out
-
-
 def build(kind: dict, eco_guild: dict) -> str:
     d = kind["dialog"]
     giver = kind["giver"]
@@ -181,8 +119,8 @@ def build(kind: dict, eco_guild: dict) -> str:
         "ObjectiveData": {"ObjectiveDataSet": [{"Type": "LOOK_AT_PLAYER"}, {"Type": "LOOK_AT_RESET"}]},
         "PersistenceRequired": True,
         "PresetUUID": preset_uuid(kind["id"]),
-        **look(kind),
-        "id": entity_id(kind),
+        "VariantType": kind["skin"],
+        "id": "easy_npc:humanoid",
     }
     meta = {
         "access": "PUBLIC",
@@ -190,112 +128,28 @@ def build(kind: dict, eco_guild: dict) -> str:
         "category": "Guild",
         "created": Raw("1790000000000L"),
         "description": kind["description"],
-        "entityTypeId": entity_id(kind),
+        "entityTypeId": "easy_npc:humanoid",
         "modified": Raw("1790000000000L"),
         "name": kind["name"],
-        "variantType": variant_of(kind),
+        "variantType": kind["skin"],
         "version": "1.0.0",
     }
     return snbt({"PresetMetadata": meta, "data": data}) + "\n"
 
 
-def build_talk(kind: dict) -> str:
-    """A story cast preset: one intro dialog with a Talk button (`/ttl story talk <id>`, the words live in story.toml) and Leave."""
-    d = kind.get("dialog", {})
-    default = {
-        "Buttons": [
-            button("button_talk", d.get("talk", "Talk"), command(f"/ttl story talk {kind['talk']}"), CLOSE),
-            button("button_leave", d.get("leave", "Goodbye"), CLOSE),
-        ],
-        "Label": "default",
-        "Name": d.get("title", kind["name"]),
-        "Priority": 5,
-        "Texts": [{"Text": d.get("text", "@initiator.").replace("\n", "\\n")}],
-    }
-    custom_name = '{"color":"%s","text":"%s"}' % (kind["name_color"], kind["name"])
-    data = {
-        "ActionData": {"ActionEventSet": {"ON_INTERACTION": [{"Type": "OPEN_DEFAULT_DIALOG"}]}},
-        "CustomName": Raw("'" + custom_name + "'"),
-        "CustomNameVisible": True,
-        "DialogData": {"DialogDataSet": [default], "Type": "STANDARD"},
-        "EasyNPCVersion": 3,
-        "Invulnerable": True,
-        "ObjectiveData": {"ObjectiveDataSet": [{"Type": "LOOK_AT_PLAYER"}, {"Type": "LOOK_AT_RESET"}]},
-        "PersistenceRequired": True,
-        "PresetUUID": preset_uuid(kind["id"]),
-        **look(kind),
-        "id": entity_id(kind),
-    }
-    meta = {
-        "access": "PUBLIC",
-        "author": "OCS Two Lives",
-        "category": "Story",
-        "created": Raw("1790000000000L"),
-        "description": kind["description"],
-        "entityTypeId": entity_id(kind),
-        "modified": Raw("1790000000000L"),
-        "name": kind["name"],
-        "variantType": variant_of(kind),
-        "version": "1.0.0",
-    }
-    return snbt({"PresetMetadata": meta, "data": data}) + "\n"
-
-
-def check_npcs(npcs: dict, eco: dict, story: dict) -> None:
-    where0 = "npcs.toml"
+def check_npcs(npcs: dict, eco: dict) -> None:
     kinds = {k["id"]: k for k in npcs["kind"]}
-    if len(kinds) != len(npcs["kind"]) or not all(re.fullmatch(r"[a-z][a-z0-9_]*", k) for k in kinds):
-        raise SystemExit(f"{where0}: [[kind]] ids must be unique [a-z0-9_]")
-    talk_ids = {n["id"] for n in story.get("npc", [])}
-    guild_keys = ("board", "take", "turnin", "rank", "leave", "take_title", "take_text", "take_item", "back", "title", "text")
+    if len(kinds) != len(npcs["kind"]):
+        raise SystemExit("npcs.toml: [[kind]] ids must be unique")
     for k in npcs["kind"]:
-        w = f"{where0}: kind {k['id']}"
-        if not re.fullmatch(r"#[0-9A-Fa-f]{6}", k.get("name_color", "")) or not k.get("name") or not k.get("description"):
-            raise SystemExit(f"{w}: name, description and name_color (#RRGGBB) are needed")
-        if "'" in k["name"] or '"' in k["name"]:
-            raise SystemExit(f"{w}: the name goes into a JSON text component: no quotes")
-        if "talk" in k:
-            if k["talk"] not in talk_ids:
-                raise SystemExit(f"{w}: talk = {k['talk']!r} is not an [[npc]] of story.toml ({', '.join(sorted(talk_ids))})")
-            if "giver" in k:
-                raise SystemExit(f"{w}: a story kind (talk) has no giver")
-        elif k.get("giver") not in ("desk", "fuze"):
-            raise SystemExit(f"{w}: giver is desk or fuze (or give the kind a talk id)")
-        if "statue" in k:
-            if "talk" not in k or not re.fullmatch(r"[a-z0-9_]+:[a-z0-9_/]+", k["statue"]):
-                raise SystemExit(f'{w}: statue = "<namespace:entity>" needs a talk id')
-            for key in ("skin", "model", "dialog", "variant", "giver"):
-                if key in k:
-                    raise SystemExit(f"{w}: a statue is a mod entity: no {key}")
-            continue
-        model = k.get("model", "humanoid")
-        if model not in VARIANTS:
-            raise SystemExit(f"{w}: model is {' or '.join(VARIANTS)}")
-        skin = k.get("skin", "")
-        if is_resource(skin):
-            if not re.fullmatch(r"ttl:textures/entity/npc/[a-z0-9_]+\.png", skin):
-                raise SystemExit(f"{w}: a skin texture is ttl:textures/entity/npc/<name>.png")
-            if k.get("variant") not in VARIANTS[model]:
-                raise SystemExit(f"{w}: skin names a texture, so `variant` must be a built-in {model} variant")
-        elif skin not in VARIANTS[model]:
-            raise SystemExit(f"{w}: skin {skin!r} is not a built-in {model} variant ({', '.join(VARIANTS[model])})")
-        elif "variant" in k:
-            raise SystemExit(f"{w}: `variant` only goes with a texture in `skin`")
-        texture = texture_of(k)
-        if texture:
-            path = ASSETS / "ttl" / texture.split(":", 1)[1]
-            if png_size(path) not in ((64, 64), (128, 128)):
-                raise SystemExit(f"{path.relative_to(ROOT)} must be a 64x64 Minecraft skin, is {png_size(path)}")
-        if "talk" not in k:
-            for key in guild_keys:
-                if not k.get("dialog", {}).get(key):
-                    raise SystemExit(f"{w}: dialog.{key} missing")
-        for key in ("talk", "leave"):
-            if len(k.get("dialog", {}).get(key, "")) > MAX_LABEL:
-                raise SystemExit(f"{w}: dialog.{key} is longer than {MAX_LABEL} characters")
+        if k["giver"] not in ("desk", "fuze"):
+            raise SystemExit(f"npcs.toml: kind {k['id']}: giver is desk or fuze")
+        for key in ("board", "take", "turnin", "rank", "leave", "take_title", "take_text", "take_item", "back", "title", "text"):
+            if not k.get("dialog", {}).get(key):
+                raise SystemExit(f"npcs.toml: kind {k['id']}: dialog.{key} missing")
     ids, by_tag = set(), {}
     for s in npcs["spot"]:
-        where = f"{where0}: spot {s.get('id', '?')}"
+        where = f"npcs.toml: spot {s.get('id', '?')}"
         if s["id"] in ids or not s["id"].replace("_", "").isalnum() or not s["id"].islower():
             raise SystemExit(f"{where}: id must be unique [a-z0-9_]")
         ids.add(s["id"])
@@ -307,12 +161,7 @@ def check_npcs(npcs: dict, eco: dict, story: dict) -> None:
         if s["anchor"] not in ("tempest", "world", "build"):
             raise SystemExit(f"{where}: anchor is tempest, world or build")
         if (s["anchor"] == "build") != ("build" in s) or ("build" in s and not re.fullmatch(r"[a-z0-9_]+", s["build"])):
-            raise SystemExit(f'{where}: anchor = "build" needs build = "<name>" (and only then)')
-        for b in (s.get("build"), s.get("unless_build")):
-            if b and not (ROOT / "design" / "builds" / f"{b}.toml").is_file():
-                raise SystemExit(f"{where}: build {b!r} has no design/builds/{b}.toml")
-        if "surface" in s and (s["surface"] is not True or s["anchor"] != "world"):
-            raise SystemExit(f"{where}: surface = true only goes with anchor = \"world\"")
+            raise SystemExit(f"{where}: anchor = \"build\" needs build = \"<name>\" (and only then)")
         if not all(isinstance(s[a], int) for a in ("x", "y", "z", "yaw")):
             raise SystemExit(f"{where}: x, y, z, yaw are integers")
         if s["enabled"]:
@@ -326,130 +175,26 @@ def check_npcs(npcs: dict, eco: dict, story: dict) -> None:
             if "unless_build" in s and not any(m.get("build") == s["unless_build"] for m in main):
                 raise SystemExit(f"npcs.toml: spot {s['id']}: unless_build {s['unless_build']!r} needs a spot with the same "
                                  f"tag anchored to that build")
-    hook_ids = set()
-    for h in npcs.get("hook", []):
-        w = f"{where0}: hook {h.get('id', '?')}"
-        if h.get("id") in hook_ids or not re.fullmatch(r"[a-z][a-z0-9_]*", h.get("id", "")):
-            raise SystemExit(f"{w}: id must be unique [a-z0-9_]")
-        hook_ids.add(h["id"])
-        if not re.fullmatch(r"[A-Za-z0-9_.]+", h.get("tag", "")):
-            raise SystemExit(f"{w}: tag is the entity tag the hook listens to")
-        if h.get("talk") not in talk_ids:
-            raise SystemExit(f"{w}: talk = {h.get('talk')!r} is not an [[npc]] of story.toml")
-    settings = npcs["settings"]
-    if not (isinstance(settings["rev"], int) and settings["check_ticks"] >= 100):
+    if not (isinstance(npcs["settings"]["rev"], int) and npcs["settings"]["check_ticks"] >= 100):
         raise SystemExit("npcs.toml: settings.rev is an integer and check_ticks >= 100")
-    for key in ("preset_prefix", "cast_prefix"):
-        if not re.fullmatch(r"[a-z0-9_]+", settings.get(key, "")):
-            raise SystemExit(f"npcs.toml: settings.{key} is a [a-z0-9_] word")
-    if settings["preset_prefix"] == settings["cast_prefix"]:
-        raise SystemExit("npcs.toml: settings.preset_prefix and settings.cast_prefix must differ")
-    if not (isinstance(settings.get("interact_cooldown_ms"), int) and settings["interact_cooldown_ms"] >= 0):
-        raise SystemExit("npcs.toml: settings.interact_cooldown_ms is a whole number of milliseconds")
-
-
-# ---- spots against the structure files (--spots) -------------------------------------------------------------------------
-
-# Blocks an NPC may stand in: air and things without a collision box.
-PASSABLE = ("air", "carpet", "torch", "lantern", "banner", "flower", "_pot", "sign", "button", "pressure_plate", "rail",
-            "ladder", "vine", "sapling", "short_grass", "tall_grass", "fern", "bush", "tulip", "daisy", "bluet", "candle",
-            "_head", "_skull", "lever", "tripwire", "snow", "moss_carpet", "allium", "cornflower", "dandelion", "poppy",
-            "lily_of_the_valley", "wheat", "carrots", "potatoes", "beetroots")
-
-
-def passable(block: str | None) -> bool:
-    name = block.split("[")[0].removeprefix("minecraft:") if block else "air"
-    return any(p in name for p in PASSABLE)
-
-
-def structure_blocks(name: str) -> dict:
-    """{(x, y, z): block id} of a build's structure files, the z slabs of a PARTS build stacked in order."""
-    sys.path.insert(0, str(ROOT / "tools"))
-    import nbt  # noqa: E402
-    single = STRUCTURES / f"{name}.nbt"
-    files = [single] if single.exists() else []
-    while not single.exists() and (STRUCTURES / f"{name}_{len(files)}.nbt").exists():
-        files.append(STRUCTURES / f"{name}_{len(files)}.nbt")
-    if not files:
-        raise SystemExit(f"no structure {name}.nbt or {name}_0.nbt in {STRUCTURES.relative_to(ROOT)}")
-    out, z0 = {}, 0
-    for path in files:
-        root = nbt.read_gzip(path)
-        palette = root.get("palette") or (root.get("palettes") or [[]])[0]
-        names = [e["Name"] for e in palette]
-        for b in root.get("blocks", []):
-            x, y, z = b["pos"]
-            out[(x, y, z + z0)] = names[b["state"]]
-        z0 += root["size"][2]
-    return out
-
-
-def check_spots(npcs: dict) -> list:
-    """Every build-anchored and Tempest-anchored spot must stand on a solid block with two free blocks above it."""
-    problems, cache = [], {}
-    for s in npcs["spot"]:
-        if s["anchor"] == "world":
-            continue
-        build = "tempest" if s["anchor"] == "tempest" else s["build"]
-        ox, oy, oz = TEMPEST_ARRIVAL if s["anchor"] == "tempest" else (0, 0, 0)
-        x, y, z = ox + s["x"], oy + s["y"], oz + s["z"]
-        if build not in cache:
-            cache[build] = structure_blocks(build)
-        blocks = cache[build]
-        floor, feet, head = blocks.get((x, y - 1, z)), blocks.get((x, y, z)), blocks.get((x, y + 1, z))
-        why = None
-        if floor is None or passable(floor) or "water" in floor or "lava" in floor:
-            why = f"no solid floor under it (blueprint {x} {y - 1} {z} is {floor})"
-        elif not passable(feet) or not passable(head):
-            why = f"is inside a block (blueprint {x} {y} {z} is {feet}, {x} {y + 1} {z} is {head})"
-        if why:
-            problems.append(f"npcs.toml: spot {s['id']} ({build}): {why}")
-    return problems
 
 
 def render() -> dict:
     npcs = tomllib.loads((DATA / "npcs.toml").read_text(encoding="utf-8"))
     eco = tomllib.loads((DATA / "economy.toml").read_text(encoding="utf-8"))
-    story = tomllib.loads((DATA / "story.toml").read_text(encoding="utf-8"))
-    check_npcs(npcs, eco, story)
-    out = {}
-    for k in npcs["kind"]:
-        if "statue" in k:
-            continue
-        if "talk" in k:
-            out[TARGET / f"{npcs['settings']['cast_prefix']}{k['id']}.npc.snbt"] = build_talk(k)
-        else:
-            out[TARGET / f"{npcs['settings']['preset_prefix']}{k['id']}.npc.snbt"] = build(k, eco["guild"])
-    return out
-
-
-def stale_files(files: dict) -> list:
-    """Presets that are missing or differ, and generated presets of kinds that no longer exist."""
-    stale = [p for p, text in files.items() if not p.exists() or p.read_text(encoding="utf-8") != text]
-    ours = [p for p in TARGET.glob("*.npc.snbt") if p.name.startswith(("ttl_guild_", "ttl_cast_"))] if TARGET.is_dir() else []
-    return stale + [p for p in ours if p not in files]
+    check_npcs(npcs, eco)
+    prefix = npcs["settings"]["preset_prefix"]
+    return {TARGET / f"{prefix}{k['id']}.npc.snbt": build(k, eco["guild"]) for k in npcs["kind"]}
 
 
 def main() -> None:
     files = render()
-    problems = []
-    if "--spots" in sys.argv:
-        npcs = tomllib.loads((DATA / "npcs.toml").read_text(encoding="utf-8"))
-        problems = check_spots(npcs)
-        for line in problems:
-            print(f"FAIL {line}")
-        if not problems:
-            print(f"ok: {len(npcs['spot'])} spots (anchor 'world' is not checked) stand on solid ground with room above")
-    if "--check" in sys.argv or "--spots" in sys.argv:
-        stale = stale_files(files)
+    if "--check" in sys.argv:
+        stale = [p for p, text in files.items() if not p.exists() or p.read_text(encoding="utf-8") != text]
         for p in stale:
             print(f"FAIL {p.relative_to(ROOT)} is stale: run python tools/gen_npcs.py")
-        sys.exit(1 if stale or problems else 0)
+        sys.exit(1 if stale else 0)
     TARGET.mkdir(parents=True, exist_ok=True)
-    for p in stale_files(files):
-        if p not in files:
-            p.unlink()
-            print(f"removed {p.relative_to(ROOT)}")
     for p, text in files.items():
         p.write_text(text, encoding="utf-8", newline="\n")
         print(f"wrote {p.relative_to(ROOT)}")

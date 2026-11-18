@@ -5,11 +5,6 @@
 		"In the story the Orc Lord Geld, driven by hunger, led a horde out of the south towards the Great Jura Forest. The lizardmen of Lake Siss met it first and asked the new monster town for help. This is the chapter where Tempest stops being a camp and becomes a power."
 	]
 	chapter.300D34CBDD2EC27E.title: "The Orc Lord"
-	chapter.36D8E5C05627FA49.chapter_subtitle: [
-		"Gazel Dwargo weighs everyone who stands before his throne."
-		"You have knelt before the King. Now he wants to know what kind of strength it was. The Hero King has ruled the Armed Nation for three hundred years and has judged every petitioner himself, a sham trial against a smith included. Whatever road you walk, the throne room is where it is measured."
-	]
-	chapter.36D8E5C05627FA49.title: "The King's Test"
 	chapter.378BD420FE635504.chapter_subtitle: [
 		"Chores of the forest, repeated every day."
 		"Tempest never runs out of work. These jobs reset a day after you claim them; the town pays in bronze coins and the odd potion."
@@ -35,11 +30,6 @@
 		"Every day there is wood to cut, mobs to clear and ground to cover. These quests reset a day after you claim them, for as long as you live, in either life. The rewards are small: food, a few torches and some experience."
 	]
 	chapter.60737BD25048CC9D.title: "Daily Deeds"
-	chapter.6789349801D8665A.chapter_subtitle: [
-		"Tempest stands. Now say where you stand."
-		"The town has walls on one side, a forge, a council and a name that is starting to travel. Everything that grows in the forest has to decide whom it welcomes and what it owes. The goblins call the answer an Oath. The road south of the gate splits in two, one lamp-lit towards Tempest's friends, one dark towards the people nobody else will take in."
-	]
-	chapter.6789349801D8665A.title: "Crossroads"
 	chapter.7BD0671B53FE48F5.chapter_subtitle: [
 		"Your second life begins in the Forest of Jura."
 		"Your soul has crossed. The Forest of Jura, the monster town of Tempest, the dwarves of Dwargon to the north and Lake Siss to the east: this is the world of Tensura, and you are part of it now."
@@ -68,11 +58,6 @@
 	]
 	quest.0421C6ABC740C8F8.quest_subtitle: "Gather"
 	quest.0421C6ABC740C8F8.title: "A Day's Harvest"
-	quest.04FB0C80CDC310C0.quest_desc: [
-		"Act I closes whichever road you took. Goblins and wolves, a dragon's cave behind you and a dwarf kingdom ahead: the forest has noticed you, and so has everyone who watches the forest. The next chapter is the road to the Dwarf King."
-	]
-	quest.04FB0C80CDC310C0.quest_subtitle: "Act I"
-	quest.04FB0C80CDC310C0.title: "The Forest Awakens"
 	quest.057458900C12E9B2.quest_desc: [
 		"Direwolves hunt the forest. In the story they became Tempest Wolves after their pack lost to a slime. Prove you could have stood that night."
 	]
@@ -136,13 +121,6 @@
 		"&6Next life:&r Order rises when you help them (trade, defend, breed their animals). Killing villagers, golems or traders is the gravest Chaos deed."
 	]
 	quest.0FFFE97BBDA23025.title: "People of the Realm"
-	quest.1167BEB1B24E76ED.quest_desc: [
-		"Rimuru was born in the Sealed Cave, where Veldora was held for three hundred years (anime season 1, episode 1). The magicule that leaked out of the seal does not stay quiet (our interpretation): the Supermassive Slime at the altar is what is left of it. Anyone may fight it, whatever road they walk."
-		""
-		"Stand in the cave's antechamber and claim the reward to wake it. It must be started within 96 blocks of the altar."
-	]
-	quest.1167BEB1B24E76ED.quest_subtitle: "Veldora's leftovers (optional)"
-	quest.1167BEB1B24E76ED.title: "The Cave Stirs"
 	quest.12C27DC231767DC2.quest_desc: [
 		"Find the old goblin village west of Tempest, where Rigurd's tribe hid from the direwolves before the slime came."
 	]
@@ -157,13 +135,6 @@
 		"Naming is how Rimuru lifted goblins and wolves far above their kin, and it left him drained for days. A monster only accepts a name when it submits to you (tamed, subdued, or loyal), and you need enough EP to pay for it. The book detects the naming itself, whoever you name."
 	]
 	quest.144A3DF14FC2676F.title: "From Now On, Your Name Is..."
-	quest.157D58DC52006FFD.quest_desc: [
-		"Rigurd's tribe left its old village for Tempest, and the huts in the north-west stand empty. That makes them a fine place to meet someone who should not be seen at a goblin fire: the Horde's envoy (our interpretation). He wants a strong blade, and he already knows yours."
-		""
-		"Walk the abandoned goblin village and wait for him."
-	]
-	quest.157D58DC52006FFD.quest_subtitle: "Empty huts, a waiting stranger"
-	quest.157D58DC52006FFD.title: "The Horde's Envoy"
 	quest.16C682117AAF591D.quest_desc: [
 		"Canon says three days by wolf and two months on foot, and the road north has no inns. Pack food, a good pickaxe and torches before you leave the forest: 16 cooked beef, an iron pickaxe and 32 torches in your inventory."
 	]
@@ -186,13 +157,6 @@
 		"&6Next life:&r Craft: every diamond you mine adds Craft karma (2 per ore)."
 	]
 	quest.1805CB3013712C63.title: "Diamonds"
-	quest.184ED3B4C58EB59C.quest_desc: [
-		"Before the ogres and before the Orc Lord, the Orc Horde was only rumour on the wind. Its buyers pay for strength they can use: direwolf pelts and proof that you do not flinch (our interpretation, foreshadowing the Orc War, anime season 1, episode 10)."
-		""
-		"Kill eight direwolves. Where the light road tames the pack, the dark road thins it."
-	]
-	quest.184ED3B4C58EB59C.quest_subtitle: "Pelts for the Horde"
-	quest.184ED3B4C58EB59C.title: "The Cull"
 	quest.189621086A58B950.quest_desc: [
 		"Find an ocean monument and slay its Elder Guardian. Bring milk, doors or a lot of air."
 		""
@@ -259,20 +223,6 @@
 		"West of the plaza stands the forge hall: three chimneys, copper roofs, cogs on the walls, an open front you can walk into. Dwargon makes weapons here for the whole continent."
 	]
 	quest.21B1F1A48AFB857E.title: "The Great Forge Hall"
-	quest.22BF60FD6B9D6839.quest_desc: [
-		"Gazel sat silent when you knelt, and a king who stays silent is still counting. Word of an Oath sworn in the forest has reached the white gate (Act I is behind you), and the court has noticed who walks its stair."
-		""
-		"Walk back up to the royal terrace, where the guards now step aside."
-	]
-	quest.22BF60FD6B9D6839.quest_subtitle: "Act II begins"
-	quest.22BF60FD6B9D6839.title: "The King Looks Up"
-	quest.23B0B39D449831F2.quest_desc: [
-		"In the story Kaijin leaves Dwargon for Tempest under the King's sentence (anime season 1, episode 5). Here the King, having tested what stands behind Tempest, lets the smiths trade across the border: iron and silver in one direction, finished steel in the other."
-		""
-		"Bring Kaijin the first shipment, sixteen iron ingots and four silver ingots, in his smithy."
-	]
-	quest.23B0B39D449831F2.quest_subtitle: "Kaijin walks free (our interpretation)"
-	quest.23B0B39D449831F2.title: "A Pact of Smiths"
 	quest.24A79CFC701B4EB8.quest_desc: [
 		"Benimaru, Shuna, Shion, Souei, Hakurou and Kurobe sat at this long table when Rimuru named them, and the first plans against the coming trouble were made here. Walk in and take your seat on the benches."
 	]
@@ -289,24 +239,10 @@
 		"&6Next life:&r Each step towards the End is a step towards a Legend's soul: a Legend needs at least one great foe slain."
 	]
 	quest.26616A4D8CE7AC47.title: "Eyes of Ender"
-	quest.26A6D1053EDA56FF.quest_desc: [
-		"The forge hall on the plaza and the engineers' workshop on the east side keep the plans of Dwargon's first technology tier on their walls. Nobody counts the paper in a smith's trash, and nobody guards what everyone already sees. Visit both halls and copy what you can: eight sheets of paper for the broker."
-		""
-		"&6Why it matters:&r Act II costs a dark soul Dwargon -20 and gives Outcast Society +10. The quiet way spends nothing more."
-	]
-	quest.26A6D1053EDA56FF.quest_subtitle: "The quiet way"
-	quest.26A6D1053EDA56FF.title: "Steal the Schematics"
 	quest.27035168A6DEED93.quest_desc: [
 		"Walk the streets of early Tempest, the town Rimuru built for goblins and direwolves. Monsters and humans live side by side here; behave like a guest."
 	]
 	quest.27035168A6DEED93.title: "The Town of Monsters"
-	quest.287D2F8E30D91857.quest_desc: [
-		"Whichever way you took the kingdom's measure, it must be told to someone who pays for it. The Outcast waits where the road forks south of Tempest's gate, and you had better leave Dwargon before the guards remember your face."
-		""
-		"Return to the Outcast contact on the south road."
-	]
-	quest.287D2F8E30D91857.quest_subtitle: "Report to the Outcast"
-	quest.287D2F8E30D91857.title: "The Spoils"
 	quest.28B77958A89D5BEA.quest_desc: [
 		"Reach 3,000 EP (C-Class). A named goblin or wolf is stronger than most travellers; you should not trail behind them."
 	]
@@ -354,11 +290,6 @@
 		"A king does not meet a nobody. Reach 6,000 EP (B-Class): a monster the guards would hesitate to turn away."
 	]
 	quest.358E4EA8FE88E607.title: "B-Class"
-	quest.37100E5E69336D70.quest_desc: [
-		"A slime the size of a house, and it splits when it is hurt. Bring a party, bring fire, and do not stand still."
-	]
-	quest.37100E5E69336D70.quest_subtitle: "Defeat the Supermassive Slime (optional)"
-	quest.37100E5E69336D70.title: "What the Seal Left"
 	quest.3CBF4118CD1C5AF7.quest_desc: [
 		"The houses have doors, the store is full, the forge is lit and the looms run. The first night raid broke on the palisade. Rimuru calls it a town. The road north to Dwargon, and east to Lake Siss, is open now. This is a milestone: tick it off when you are ready to look beyond the forest."
 	]
@@ -370,15 +301,6 @@
 		"&6Next life:&r Valor +120 and a great foe: the Legend tier needs at least one great foe slain, with 1000 karma and 30 days lived."
 	]
 	quest.3D024E08F02CAA7A.title: "The Mortal Dragon"
-	quest.3D14EC5F5890B8B5.quest_desc: [
-		"In the story it began with a name: Rimuru named the goblins and the direwolves, and the naming bound giver and given alike (anime season 1, episodes 2-3). Tempest keeps that idea. Words said at the south gate stay said."
-		""
-		"Stand at the fork south of the gate, then claim the reward: it opens the Oath menu (the same menu opens if you talk to Rigurd, or type /ttl story oath). Two roads: the light one, with Rigurd's folk, or the dark one, with the Outcasts and the Orc Horde. In a party the leader swears and the whole party is bound with them. The choice is not undone by wishing: only a later Atonement or Corruption can turn you, once."
-		""
-		"&6Why it matters:&r the light Oath gives Tempest +20; the dark Oath gives Outcast Society +20 and Orc Horde +15 and costs Tempest 20. Both lanes below are full quest lines of the same size."
-	]
-	quest.3D14EC5F5890B8B5.quest_subtitle: "Swear the Oath"
-	quest.3D14EC5F5890B8B5.title: "Crossroads"
 	quest.3DDBBA44FD7AC19F.quest_desc: [
 		"Find a mushroom island, the rarest land in the realm."
 		""
@@ -389,13 +311,6 @@
 		"Kaijin works from schematics for katana, long swords and spears. Craft a smithing bench (a smithing table, a crafting table, paper and planks) and set it up beside his anvil."
 	]
 	quest.3E112E381ADA60B4.title: "A Bench for the Smiths"
-	quest.3E147C63E6EEBB67.quest_desc: [
-		"Rigurd will not turn you out of Tempest, but he will not help you either: he points down the road. The Outcast Society is the pack's own faction (our interpretation), reincarnators and monsters that every nation rejected. Its contact waits where the road forks, out of the town's lamplight, and never gives a name."
-		""
-		"Go to the fork south of the gate and be seen to come alone."
-	]
-	quest.3E147C63E6EEBB67.quest_subtitle: "The dark road"
-	quest.3E147C63E6EEBB67.title: "The Outcast's Mark"
 	quest.3E7E77BB944CF7E0.quest_desc: [
 		"Orcs eat everything and fear nothing, and they come in numbers. Cut ten of them down at the edge of their camp."
 	]
@@ -436,24 +351,10 @@
 		"Great Sage woke up in Rimuru's head before he knew what it was. Everyone in this world carries abilities, big or small, and the world notices when you first hold one. This quest is done when the world has registered any ability on you."
 	]
 	quest.436E099F7CBD4215.title: "Your First Ability"
-	quest.43D60C8C4DC653A7.quest_desc: [
-		"Gobta has told everyone he is the strongest goblin in the forest. He is also the one who, later on, beats the lizardman Gabiru in a duel (anime season 1, episode 11), so nobody laughs too hard. Today the boast is a horned rabbit, and he wants a witness."
-		""
-		"Kill five horned rabbits where he can hear about it."
-	]
-	quest.43D60C8C4DC653A7.quest_subtitle: "Strongest goblin in the forest"
-	quest.43D60C8C4DC653A7.title: "Gobta's Great Boast"
 	quest.4498A01D17D3F657.quest_desc: [
 		"Rigurd leads the goblins and still lives in the old chief's hut in the goblins' quarter, north-east of the green. He served the tribe through the direwolf years and is the first to say what the town needs."
 	]
 	quest.4498A01D17D3F657.title: "Rigurd the Goblin Lord"
-	quest.44C48A307109F375.quest_desc: [
-		"Kaijin punched a minister, was tried in a court that never gave him a fair hearing, and was exiled with his brothers by the King's own word (anime season 1, episode 5). The smith does not say the King was wrong. He says it was the King's to say, and that a king can be asked again."
-		""
-		"Stand in his old forge and listen to what the hammer says about the man on the throne."
-	]
-	quest.44C48A307109F375.quest_subtitle: "What Kaijin remembers"
-	quest.44C48A307109F375.title: "The Exile's Smithy"
 	quest.44D8D55B843AB1D9.quest_desc: [
 		"Rimuru wants houses raised on stone, not set in the mud. Mildo marks each plot and the goblins carry rock to it. Hand in 64 cobblestone."
 	]
@@ -503,13 +404,6 @@
 	]
 	quest.4C0E3BFFAE3E50CA.quest_subtitle: "Hunt"
 	quest.4C0E3BFFAE3E50CA.title: "Wolves at the Edge"
-	quest.4D84DCDECB3CCFDC.quest_desc: [
-		"Dwargon's word is only worth what is carried back to the people it was given for. The green in Tempest is where Rimuru's council meets, and the stew is better than the King's."
-		""
-		"Take the pact north and stand on the village green."
-	]
-	quest.4D84DCDECB3CCFDC.quest_subtitle: "Carry it home"
-	quest.4D84DCDECB3CCFDC.title: "The King's Word"
 	quest.4FAAF7A1BC9ADF09.quest_desc: [
 		"Punch a tree, make a crafting table, and trade your wooden tools for stone ones before night falls."
 		""
@@ -538,23 +432,6 @@
 		"&6Next life:&r Longevity: 2 days is the least a soul needs to be judged a Survivor."
 	]
 	quest.519D3CA856E8F7CB.title: "Two Days"
-	quest.51BB29F904813A27.quest_desc: [
-		"Gazel is not an opponent for the unprepared: in Tensura's own fight he has the full strength of the Hero King, and he draws more of it when he is hurt. Reach 10,000 EP and carry a plan, whether it is steel, fire or a party."
-	]
-	quest.51BB29F904813A27.quest_subtitle: "10,000 EP"
-	quest.51BB29F904813A27.title: "A King's Equal"
-	quest.520F289E26CD8D14.quest_desc: [
-		"The Hero King is a hard man to beat and a good one to lose to. When he falls, he bows his head, and the court will tell it as a duel and nothing else. No reputation is lost with Dwargon because of it."
-	]
-	quest.520F289E26CD8D14.quest_subtitle: "Defeat Gazel Dwargo"
-	quest.520F289E26CD8D14.title: "The Honour Duel"
-	quest.53C77B16D89F8A29.quest_desc: [
-		"Ready? Gazel will not strike a soul that has not asked. Claim the reward at the throne to start the duel, or use \"Challenge the King\" in his dialog. He draws his full strength at half health, so keep your party close and your healing within reach."
-		""
-		"&6If the call fails&r (the King is already out, or still resting from the last fight: 72 hours), type /ttl story fight gazel_dwargo at the throne."
-	]
-	quest.53C77B16D89F8A29.quest_subtitle: "Begin the duel"
-	quest.53C77B16D89F8A29.title: "Challenge the King"
 	quest.556EA88DAE9171BE.quest_desc: [
 		"Shion's stew needs meat, and horned rabbits are everywhere. Bring down six."
 	]
@@ -564,13 +441,6 @@
 		"The dwarf trainers sell battlewill manuals that teach their own arts. Buy and read one, then practise until the technique is yours: Aura Sword, Instant Move or Violent Break. This quest checks for Aura Sword."
 	]
 	quest.56EB250D2EBACC74.title: "A Dwarven Battlewill Manual"
-	quest.571629DA10EF5830.quest_desc: [
-		"The goblins who fought the direwolves now ride them: after the naming the pack became the Tempest Star Wolves and the goblins became their riders (anime season 1, episode 3). A town that holds the forest needs someone who can talk to the wolves."
-		""
-		"Win a direwolf over (tame one) and show Tempest the road is not only a fight."
-	]
-	quest.571629DA10EF5830.quest_subtitle: "The riders of Tempest"
-	quest.571629DA10EF5830.title: "Hear Me, Direwolves"
 	quest.57DB2952F54CA2BE.quest_desc: [
 		"Stay alive for 15 days (5 hours of play)."
 		""
@@ -601,13 +471,6 @@
 		"Stand on the marsh battlefield where two hundred thousand orcs met the forest alliance."
 	]
 	quest.5CCC0C26065B405A.title: "Where the Orc Lord Fell"
-	quest.5CE177F176862D46.quest_desc: [
-		"Dwargon keeps its word with those who stand with the free peoples. A soul that comes with an open hand gets an open offer: an honour duel, King against petitioner, with nothing held against the one who wins. Tensura's own throne room greets a hero the same way, with a training fight."
-		""
-		"Stand before the throne and accept the terms. The King's word is set down for you at once: your duel costs Dwargon's goodwill nothing, and the word is spent when the duel is fought."
-	]
-	quest.5CE177F176862D46.quest_subtitle: "The light road"
-	quest.5CE177F176862D46.title: "Terms of Honour"
 	quest.5F1A8DCF7C0E73A4.quest_desc: [
 		"Build a Nether portal and step through. It leads to the Mortal Nether, which belongs to this life only. Bring fire resistance if you can, and never dig straight down."
 		""
@@ -639,13 +502,6 @@
 		"Dwarves also trade magic tomes of the basic elemental spells. Buy one and learn Wind Cutter, the first blade the smiths' apprentices pick up."
 	]
 	quest.615D609A3A9097CA.title: "A Dwarven Magic Tome"
-	quest.619B66622F524091.quest_desc: [
-		"The Outcast Society buys what Dwargon will not sell (our interpretation). Kaijin does not say who asked; he only says the Outcasts pay well for plans of the Dwargon forges, and that he did not say it. A third voice in the plaza says more: the King can be taken the hard way, or the quiet one."
-		""
-		"Stand among the stalls of the market plaza and let the broker find you."
-	]
-	quest.619B66622F524091.quest_subtitle: "The dark road"
-	quest.619B66622F524091.title: "A Whisper in the Plaza"
 	quest.623600D6FAEBFE01.quest_desc: [
 		"Silver is the dwarves' favourite plain metal: it holds an enchantment and is the base of mithril. Find silver ore or buy it, and smelt an ingot."
 	]
@@ -683,13 +539,6 @@
 		"Behind the gate a long tunnel climbs into the mountain, then opens on a cavern city: lit windows, shop signs, lamps strung across the street and bridges high above. Walk the south street."
 	]
 	quest.69634DC941547E1C.title: "Through the Tunnel"
-	quest.6A02570FD1A84087.quest_desc: [
-		"Dwargon will not forgive a dead king, and the guards will not look the other way after. Kill the Hero King and the kingdom turns on you."
-		""
-		"&6Why it matters:&r no honour: the kill costs Dwargon -60 (Hostile, guards attack) and sets the flag \"regicide\", which opens the Corruption twist for a light soul too."
-	]
-	quest.6A02570FD1A84087.quest_subtitle: "Defeat Gazel Dwargo"
-	quest.6A02570FD1A84087.title: "Regicide"
 	quest.6A14E30FE7F5E819.quest_desc: [
 		"In the story the Orc Lord devoured the dead of the battlefield and rose again as the Orc Disaster, a catastrophe-class monster. An epilogue for the very strong: defeat an Orc Disaster."
 	]
@@ -723,11 +572,6 @@
 		"Gather hipokute grass, the magicule-rich herb the slime turned into full potions. Healing in this world starts here."
 	]
 	quest.6DAB90333F617B16.title: "Hipokute Herbs"
-	quest.6DDF459E16D36563.quest_desc: [
-		"Act II ends with the King measured, one way or the other. Dwargon will remember what was done in its throne room, and so will everyone who trades with it. Claim the reward to close the act: it records Act II and applies its reputation (light: Dwargon +15; dark: Dwargon -20, Outcast Society +10)."
-	]
-	quest.6DDF459E16D36563.quest_subtitle: "Act II"
-	quest.6DDF459E16D36563.title: "The Armed Nation"
 	quest.6E5B3A4C9692E518.quest_desc: [
 		"Skeletons shoot from the dark and never miss twice. Shut up eight of them."
 	]
@@ -786,13 +630,6 @@
 		"&6Next life:&r Faith: every use of a brewing stand adds a little Faith karma."
 	]
 	quest.7933597AF82AA147.title: "Local Brewery"
-	quest.7A6426F393DE80CB.quest_desc: [
-		"The Society takes in anyone and asks one thing in return: that it stays hidden. A toll keeps the hidden road open and the watchers elsewhere. Pay it in bronze, the one coin every nation accepts without asking where it came from."
-		""
-		"Hand in six bronze coins at the fork."
-	]
-	quest.7A6426F393DE80CB.quest_subtitle: "Silence is paid for"
-	quest.7A6426F393DE80CB.title: "The Society's Toll"
 	quest.7B07802E34A14C2D.quest_desc: [
 		"Dwargon's merchants buy monster leather, ore and crafted goods, and pay in coin. Sell something to a dwarf trader and walk away with coins in your pocket."
 	]
@@ -809,13 +646,6 @@
 		"The forest is full of monsters with magicules of their own. Hunt a horned rabbit and a giant ant."
 	]
 	quest.7C0600E97AB2B3FD.title: "Monsters of Jura"
-	quest.7C37E329D60483D7.quest_desc: [
-		"The goblins' campfire is where the old quarter eats and decides things. To sit there you bring something for the pot; nobody asks what you have done, only whether you came with hands full."
-		""
-		"Stand at the campfire and hand in eight cooked beef."
-	]
-	quest.7C37E329D60483D7.quest_subtitle: "Rigurd's table"
-	quest.7C37E329D60483D7.title: "A Seat at the Fire"
 	quest.7C5E6C3E343092F0.quest_desc: [
 		"Travellers queue in fenced lanes between two guard booths while the dwarf guards check what they carry. Rimuru's first visit ended in a scuffle by this gate and a night in a cell. Behave better: wait in the queue in front of the white wall."
 	]
@@ -828,29 +658,11 @@
 		"A house without a door is only a frame. Hand in six oak doors so the first families can sleep behind walls instead of canvas."
 	]
 	quest.7C8D91299A01DF8D.title: "Doors for the New Houses"
-	quest.7D48E319627565BE.quest_desc: [
-		"Rigurd led the goblins through the direwolf years and still lives in the old chief's hut, north-east of the green. In the story he is the one who says what Tempest needs and keeps his word to the end. A goblin's trust is a seat at his fire."
-		""
-		"Stand at his door: the Oath is only words until someone sees you keep it."
-	]
-	quest.7D48E319627565BE.quest_subtitle: "The light road"
-	quest.7D48E319627565BE.title: "Rigurd's Trust"
-	quest.7D4B44AC33270DB2.quest_desc: [
-		"A king does not bow to the road you walk; if you want his seat you have to take it. Gazel said as much himself."
-		""
-		"Claim the reward at the throne to wake the King, or strike the seated statue (the fight begins either way)."
-		""
-		"&6If the call fails&r (the King is already out, or resting: 72 hours), type /ttl story fight gazel_dwargo at the throne."
-	]
-	quest.7D4B44AC33270DB2.quest_subtitle: "The loud way"
-	quest.7D4B44AC33270DB2.title: "Take the Throne"
 	quest.7DB517E89CB02955.quest_desc: [
 		"Small coins buy bread; a gold coin buys a sword. Earn your first gold coin in trade with the dwarves."
 	]
 	quest.7DB517E89CB02955.title: "My Precious"
 	task.0115BA7420C399EC.title: "Defeat an Orc Lord"
-	task.02034A12C6521724.title: "Before the throne"
-	task.063051C7D7133F39.title: "The market plaza"
 	task.07A570FA6CF65356.title: "Stand with the lizardmen"
 	task.0983B151684D1279.title: "Reach 6,000 EP"
 	task.0AC681BD967CE9C5.title: "Old goblin village"
@@ -858,27 +670,20 @@
 	task.0C138151BF10AF15.title: "Mine a magic ore"
 	task.0DFDD3C3D878F57C.title: "Learn Wind Cutter"
 	task.0E89027720808D84.title: "Use a smithing table 5 times"
-	task.0FD940179FF540EB.title: "The crossroads at the south gate"
-	task.10A9B0D9FDB07716.title: "Close Act II"
-	task.10CC2F1B73E2BFF4.title: "Defeat Gazel Dwargo"
 	task.11FF2505E0F7C414.title: "Lake Siss"
 	task.127791122F8563BC.title: "Round of the town"
 	task.1759663838EF5C18.title: "Kaijin's forge"
-	task.1941063E33D88146.title: "The goblins' campfire"
 	task.1C3EE7D08EE03270.title: "Reach 100,000 EP"
 	task.1CFB2D4CF08DE204.title: "The plaza"
-	task.1E4A998DF8D59E82.title: "At the throne"
 	task.1F2F4BB4E76CDC16.title: "The dwarf village on the road"
 	task.1F5FFE1BE6B3BDE0.title: "The forge street"
 	task.1FAF096CC2C890E1.title: "Reach 20,000 EP"
 	task.207858EC747FB41A.title: "The south street"
-	task.2234CA3D4DD600F1.title: "Kaijin's smithy"
 	task.241D99215A6233C1.title: "The forge hall"
 	task.262CF52F0CDAA3D0.title: "Obtain a gold coin"
 	task.26316E4395EA7E52.title: "Shuna's weaving hut"
 	task.273A002575A42E8F.title: "Reach 1,000 EP"
 	task.28CC04BFB74B238D.title: "Smelt or find a silver ingot"
-	task.2A628644BD864405.title: "Close Act I"
 	task.2AE6D3268926D1AB.title: "Reach 3,000 EP"
 	task.2AE9FF4F367986E8.title: "Survive 15 days"
 	task.2EACD8B0D25F6159.title: "Complete a trade and obtain coins"
@@ -891,52 +696,36 @@
 	task.380DE35F0DA7E8B4.title: "The lizardmen's caverns"
 	task.3C4E9D5D14BDF532.title: "Kaijin's smithy"
 	task.3CE536226AD58D80.title: "Survive 7 days"
-	task.3D4FA01442F6EF0C.title: "The forge hall"
 	task.3D513969F063F68B.title: "Survive 30 days"
 	task.405D1883802C8096.title: "The checkpoint arch"
-	task.41C475618C602386.title: "Rigurd's chief hut"
-	task.483F9861A28A4C20.title: "Defeat Gazel Dwargo in the honour duel"
 	task.4BD6582419A09CED.title: "The throne room"
-	task.4C90030DC29DA12C.title: "The engineers' workshop"
 	task.4E723D68430BC01A.title: "Visit Tempest"
 	task.4EAD38AC6EB13C67.title: "Defeat an Orc Disaster"
 	task.51E225B8DD652D74.title: "The engineers' workshop"
 	task.522C6202F367432B.title: "Name a monster"
 	task.52EBA0F0D80A1CFE.title: "Reach 50,000 EP"
-	task.54CAE864AF2188E6.title: "Defeat the Supermassive Slime"
-	task.57A7CE013047253E.title: "Kaijin's smithy"
-	task.58B6A23EAA193CD0.title: "The Sealed Cave"
 	task.59617B8F0E397AEB.title: "The building site"
 	task.59A48D780299F806.title: "In the queue at the gate"
 	task.5C10DCC57776B9A0.title: "The Sealed Cave"
 	task.5C3AEA5E41D1FD64.title: "I understand"
 	task.5F028AE14A531A30.title: "25 trades"
-	task.5F0DAD5ED3490D05.title: "At the throne"
 	task.6353F26519B81BE6.title: "The goblins' campfire"
 	task.63A16DEBE36C0D68.title: "Survive 2 days"
 	task.63B04FCBF569A58C.title: "The Orc War battlefield"
-	task.64FAC6A3CF96BC4D.title: "The village green"
 	task.65C872A22AD97F93.title: "Survive 1 day"
 	task.66B3DE5D9BA3FBB2.title: "The village green"
 	task.694CDA4A53EC025F.title: "Use a schematic"
-	task.6AC3E5510622E1A7.title: "Reach 10,000 EP"
 	task.6D59A41BF81C98C2.title: "Stand in a dark forest"
-	task.6E966A6D3E4133A0.title: "Act I is behind you"
 	task.70A037A68C4D45B0.title: "Use an anvil 5 times"
 	task.70A4AF5455A9C70B.title: "Enchant 10 items"
-	task.70CF1CC59D31B1EC.title: "Tame a direwolf"
 	task.713E44D7C4D2925C.title: "Make a low magisteel ingot"
-	task.739C0C4660E84210.title: "The royal terrace"
 	task.73ACE4CC851EC01C.title: "Stand in a river biome"
 	task.73B53B68CAA0C2A9.title: "The orc camp"
-	task.752A76D950963894.title: "The Outcast contact on the south road"
 	task.758FBA082B518DE9.title: "Learn Aura Sword"
 	task.7641A6D55CCC6DB5.title: "Resistance begins"
 	task.77817FCE9220F991.title: "Rigurd's hut"
 	task.78978BAD184A54F3.title: "Obtain an ability"
 	task.791641DD14683B36.title: "Breed 10 animals"
-	task.794261E564FBED60.title: "The Outcast contact on the south road"
-	task.798EAAEA6091EF8B.title: "The old goblin village"
 	task.7ACD4CF3695BBD2B.title: "The burned ogre village"
 	task.7B4249AE3E2796F6.title: "Reach 10,000 EP"
 	task.7E51A3FA6A85122A.title: "The south gate"

@@ -2,8 +2,7 @@
 // Last Wish: in the lore a reincarnator's unique is born from their strongest wish at death (Rimuru's
 // dying thoughts gave him Great Sage and Predator). The wish picked in the Corridor sets the pool the
 // unique is drawn from. Skill IDs come from config/tensura/reincarnation_config.toml (startingSkills).
-// `echo` is the Legendary that answers this wish for a Legend soul: corridor_flow.js offers it next to the unique
-// options while the registry has room (skills.toml [legend_pick]); this file never grants it.
+// `echo` is the Legendary that answers this wish once the Legendary tier exists (Phase 1); never granted here.
 const TtlWishes = {
   LIST: [
     { id: 'strength', label: 'Strength', wish: 'Never to be powerless again.',
@@ -43,13 +42,5 @@ const TtlWishes = {
       if (this.LIST[i].id === id) return this.LIST[i]
     }
     return null
-  },
-
-  // The Legendary that answers this wish for a Legend soul (corridor_flow.js legendEcho); null when the wish has none
-  // or the registry does not rate it Legendary any more (skills.toml). Whether there is room for it is the registry's call.
-  echo(id) {
-    var wish = this.get(id)
-    if (!wish || !wish.echo) return null
-    return TtlRegistry.rarityOf(wish.echo) === 'legendary' ? wish.echo : null
   }
 }

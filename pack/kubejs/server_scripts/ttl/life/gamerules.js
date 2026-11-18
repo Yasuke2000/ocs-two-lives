@@ -13,8 +13,4 @@ ServerEvents.loaded(event => {
   // and skills are locked per reset (owner's choice). Bonus uniques still pass the registry reconcile (caps).
   event.server.runCommandSilent('gamerule resetCounterBonusUnique 1')
   event.server.runCommandSilent('gamerule resetPerSkillLock 1')
-  // Absorption is ours (absorb/absorb.js, through the registry): Tensura's own plunder from players (Predator, Gluttony,
-  // Great Sage, Pride ...) must not copy or steal a unique behind the registry's back. It does not stop plunder from
-  // MOBS and bosses (the SKILL_PLUNDER veto stays a roadmap item, design/manas-integration.md, "Keep Legendaries out of every automatic grant path").
-  event.server.runCommandSilent('gamerule skillSteal false')
 })

@@ -4,7 +4,6 @@
 Quests are written in friendly TOML (format: design/quests.md) and turned into FTB Quests 2101 SNBT:
 data.snbt, chapters/<key>.snbt and lang/en_us.snbt (all text lives in the lang file since FTB Quests 2100),
 plus pack/kubejs/server_scripts/ttl/generated/quests.js (quest ids for `/ttl quests check`).
-Story extensions (path lanes, stage/command rewards, cross-chapter deps, team stages): design/quests.md.
 Ids are stable: 16 hex digits of sha256("ttl/<chapter>/<quest>[/task|reward/<n or key>]"), so regenerating never
 resets progress unless a key changes. Stdlib only.
 
@@ -14,7 +13,6 @@ Usage: gen_quests.py            write the files (and delete chapter files no lon
 import hashlib
 import json
 import math
-import re
 import sys
 import tomllib
 from pathlib import Path
@@ -29,21 +27,9 @@ SPACING = 1.5      # grid units between quests
 
 TASK_TYPES = {"item", "kill", "dimension", "structure", "biome", "advancement", "stat", "stage", "checkmark",
               "location", "xp", "ep", "ability"}
-# never skill/race/awakening rewards (manas-integration.md §5(d)): `stage` rewards only touch the story/quest stage
-# namespaces below and `command` rewards are screened for skill/race words (see build_reward).
-REWARD_TYPES = {"item", "xp", "xp_levels", "stage", "command"}
-QUEST_KEYS = {"key", "title", "subtitle", "icon", "deps", "min_deps", "lane", "col", "text", "karma", "tasks", "rewards",
-              "optional", "shape", "size", "hide_until_deps_complete", "repeatable", "cooldown", "path", "path_hidden"}
-PATHS = ("light", "dark")  # story lanes (design/architecture/story-characters.md §3): stages ttl.path.light / ttl.path.dark
-STAGE_RE = re.compile(r"^ttl(\.[a-z0-9_]+)+$")
-# Stages a reward may set or clear. Everything else (ttl.life*, ttl.tier.*, ttl.race.*, ttl.boss.*, ttl.faction.*,
-# ttl.nation.*, ttl.path.*) belongs to the system that owns it; a quest must not hand those out.
-REWARD_STAGE_PREFIXES = ("ttl.story.", "ttl.quest.")
-AUTO_CLAIM = ("default", "disabled", "enabled", "no_toast", "invisible")  # RewardAutoClaim ids
-# Words that mean a command could grant a skill, race, evolution or unique (golden rule 1, manas-integration.md §5(d)).
-COMMAND_FORBIDDEN = {"skill", "skills", "race", "races", "evolve", "evolution", "awaken", "awakening", "unique",
-                     "uniques", "legendary", "registry", "op", "deop", "stop"}
-COMMAND_LEVEL = 2  # /ttl subcommands are op-gated (hasPermission(2)); the reward runs as the player, elevated to this level
+REWARD_TYPES = {"item", "xp", "xp_levels"}  # never skill/race/awakening rewards (manas-integration.md §5(d))
+QUEST_KEYS = {"key", "title", "subtitle", "icon", "deps", "lane", "col", "text", "karma", "tasks", "rewards",
+              "optional", "shape", "size", "hide_until_deps_complete", "repeatable", "cooldown"}
 LIVES = {1, 2, "both"}  # "both": shared by Life 1 and Life 2, so vanilla-only like Life 1
 SHAPES = {"circle", "square", "rsquare", "diamond", "pentagon", "hexagon", "octagon", "heart", "gear"}
 
@@ -114,11 +100,6 @@ def check_life_item(chapter: dict, where: str, item: str) -> None:
         raise QuestError(f"{where}: Life 1 (and shared 'both' chapters) have no modded content, {item} is not allowed (minecraft: only)")
 
 
-def check_stage(where: str, stage: str) -> None:
-    if not isinstance(stage, str) or not STAGE_RE.match(stage):
-        raise QuestError(f"{where}: stage {stage!r} must be a lowercase dotted name in the ttl namespace (ttl.story.act2)")
-
-
 def build_task(chapter: dict, where: str, t: dict, tid: str) -> tuple[dict, str | None]:
     kind = t.get("type")
     if kind not in TASK_TYPES:
@@ -144,9 +125,7 @@ def build_task(chapter: dict, where: str, t: dict, tid: str) -> tuple[dict, str 
     elif kind == "stat":
         out.update(type="stat", stat=t["stat"], value=int(t["value"]))
     elif kind == "stage":
-        check_stage(where, t["stage"])
-        # `team_stage = true`: the stage is read from the FTB team's stages instead of the submitting player's.
-        out.update(type="gamestage", stage=t["stage"], team_stage=bool(t.get("team_stage", False)))
+        out.update(type="gamestage", stage=t["stage"], team_stage=False)
     elif kind == "checkmark":
         out.update(type="checkmark")
     elif kind == "xp":
@@ -170,66 +149,12 @@ def build_reward(chapter: dict, where: str, r: dict, rid: str) -> dict:
     if kind not in REWARD_TYPES:
         raise QuestError(f"{where}: reward type {kind!r} is not allowed (one of {sorted(REWARD_TYPES)}); "
                          "quests never grant skills, races or evolutions")
-    out: dict
     if kind == "item":
         check_life_item(chapter, where, r["item"])
-        out = {"id": rid, "type": "item", "item": stack(r["item"]), "count": int(r.get("count", 1))}
-    elif kind == "xp":
-        out = {"id": rid, "type": "xp", "xp": int(r["xp"])}
-    elif kind == "xp_levels":
-        out = {"id": rid, "type": "xp_levels", "xp_levels": int(r["xp_levels"])}
-    elif kind == "stage":
-        # FTB `gamestage` reward (StageReward): stage, remove, team_reward. Claimed automatically and silently unless
-        # `auto` says otherwise, so a story stage is set the moment the quest completes.
-        stage = r["stage"]
-        check_stage(where, stage)
-        if not stage.startswith(REWARD_STAGE_PREFIXES):
-            raise QuestError(f"{where}: a stage reward may only touch {', '.join(REWARD_STAGE_PREFIXES)}* (got {stage}); "
-                             "other stages belong to the system that owns them (REWARD_STAGE_PREFIXES in gen_quests.py)")
-        out = {"id": rid, "type": "gamestage", "stage": stage, "team_reward": bool(r.get("team", False))}
-        if r.get("remove"):
-            out["remove"] = True
-    else:
-        out = command_reward(where, r, rid)
-    auto = r.get("auto", "invisible" if kind == "stage" else "default")
-    if auto not in AUTO_CLAIM:
-        raise QuestError(f"{where}: reward auto must be one of {list(AUTO_CLAIM)}")
-    if auto != "default":
-        out["auto"] = auto  # FTB: an absent key reads back as `default` (the file's default_autoclaim_rewards)
-    return out
-
-
-def command_reward(where: str, r: dict, rid: str) -> dict:
-    """FTB `command` reward (CommandReward): command, permission_level, silent, feedback_message.
-    The jar always runs it as the claiming player (createCommandSourceStack, so there is no "as player" switch);
-    `permission_level` > 0 only raises the level of that same source. {p} {x} {y} {z} {team} ... are expanded by FTB
-    (CommandReward.PATTERN) and the result goes through String.format, so a literal % cannot be used."""
-    cmd = r.get("command")
-    if not isinstance(cmd, str) or not cmd.strip().lstrip("/").strip():
-        raise QuestError(f"{where}: a command reward needs `command`")
-    cmd = "/" + cmd.strip().lstrip("/").strip()
-    if "%" in cmd:
-        raise QuestError(f"{where}: `%` in a reward command breaks FTB's String.format: {cmd}")
-    if "\n" in cmd or "\r" in cmd:
-        raise QuestError(f"{where}: a reward command is one line")
-    bad = sorted(set(re.findall(r"[a-z0-9_]+", cmd.lower())) & COMMAND_FORBIDDEN)
-    if bad:
-        raise QuestError(f"{where}: reward command mentions {bad}: quests never grant skills, races, evolutions or "
-                         f"uniques and never run op commands ({cmd})")
-    if r.get("as_player", True) is not True:
-        raise QuestError(f"{where}: FTB command rewards always run as the claiming player; `as_player = false` does not exist "
-                         "(use `permission_level` to raise its level)")
-    level = int(r.get("permission_level", COMMAND_LEVEL))
-    if not 0 <= level <= 4:
-        raise QuestError(f"{where}: permission_level must be 0-4")
-    out = {"id": rid, "type": "command", "command": cmd}
-    if level > 0:
-        out["permission_level"] = level
-    if r.get("silent"):
-        out["silent"] = True
-    if r.get("feedback"):
-        out["feedback_message"] = str(r["feedback"])
-    return out
+        return {"id": rid, "type": "item", "item": stack(r["item"]), "count": int(r.get("count", 1))}
+    if kind == "xp":
+        return {"id": rid, "type": "xp", "xp": int(r["xp"])}
+    return {"id": rid, "type": "xp_levels", "xp_levels": int(r["xp_levels"])}
 
 
 def text_lines(s: str) -> list[str]:
@@ -245,14 +170,7 @@ def text_lines(s: str) -> list[str]:
     return out if any(out) else []
 
 
-def split_dep(ckey: str, dep: str) -> tuple[str, str]:
-    """A dependency is a quest key of this chapter, or `<chapter>/<quest>` for a quest of another chapter."""
-    chapter, sep, key = dep.partition("/")
-    return (chapter, key) if sep else (ckey, dep)
-
-
-def build_chapter(src: Path, data: dict, lang: dict, index: dict | None = None) -> tuple[str, dict, dict]:
-    """`index` maps every chapter key to its quest keys (all chapters), so `deps` can point across chapters."""
+def build_chapter(src: Path, data: dict, lang: dict) -> tuple[str, dict, dict]:
     ch = data.get("chapter") or {}
     ckey = ch.get("key")
     if not ckey or not ckey.replace("_", "").isalnum() or ckey != ckey.lower():
@@ -266,11 +184,6 @@ def build_chapter(src: Path, data: dict, lang: dict, index: dict | None = None) 
     if dupes or None in keys:
         raise QuestError(f"{src.name}: every quest needs a unique key (duplicates: {sorted(dupes)})")
     by_key = {q["key"]: q for q in quests}
-    if index is None:
-        index = {ckey: set(by_key)}
-
-    def local_deps(q: dict) -> list[str]:
-        return [k for c, k in (split_dep(ckey, d) for d in q.get("deps", [])) if c == ckey]
 
     cols: dict[str, int] = {}
 
@@ -279,7 +192,7 @@ def build_chapter(src: Path, data: dict, lang: dict, index: dict | None = None) 
             raise QuestError(f"{src.name}: dependency loop through {k}")
         if k not in cols:
             q = by_key[k]
-            deps = local_deps(q)  # a dependency in another chapter does not move this quest on the grid
+            deps = q.get("deps", [])
             cols[k] = q["col"] if "col" in q else (max((col(d, seen + (k,)) for d in deps), default=-1) + 1)
         return cols[k]
 
@@ -291,21 +204,9 @@ def build_chapter(src: Path, data: dict, lang: dict, index: dict | None = None) 
         unknown = set(q) - QUEST_KEYS
         if unknown:
             raise QuestError(f"{where}: unknown field(s) {sorted(unknown)}")
-        if "/" in k:
-            raise QuestError(f"{where}: a quest key cannot contain '/' (it separates chapter and quest in `deps`)")
-        deps_in = q.get("deps", [])
-        if len(set(deps_in)) != len(deps_in):
-            raise QuestError(f"{where}: duplicate dependency in {deps_in}")
-        for d in deps_in:
-            dc, dk = split_dep(ckey, d)
-            if dc not in index or dk not in index[dc]:
-                raise QuestError(f"{where}: unknown dependency {d!r}" + (" (cross-chapter deps are written <chapter>/<quest>)" if dc == ckey else ""))
-            if (dc, dk) == (ckey, k):
-                raise QuestError(f"{where}: depends on itself")
-        if "min_deps" in q and not 1 <= int(q["min_deps"]) <= len(deps_in):
-            raise QuestError(f"{where}: min_deps must be between 1 and the number of deps ({len(deps_in)})")
-        if q.get("path") is not None and q["path"] not in PATHS:
-            raise QuestError(f"{where}: path must be one of {list(PATHS)}")
+        for d in q.get("deps", []):
+            if d not in by_key:
+                raise QuestError(f"{where}: unknown dependency {d!r}")
         if not q.get("tasks"):
             raise QuestError(f"{where}: a quest needs at least one task")
         if not q.get("title"):
@@ -316,12 +217,7 @@ def build_chapter(src: Path, data: dict, lang: dict, index: dict | None = None) 
         spots[spot] = k
         qq = qid(ckey, k)
         tasks = []
-        numbered = list(enumerate(q["tasks"]))
-        if q.get("path"):
-            # Lane quest: the first task is the path stage itself (key "path", so the other tasks keep their ids
-            # whether or not the quest has a path). Tasks are sequential, so nothing else progresses before it.
-            numbered.insert(0, (0, {"type": "stage", "stage": f"ttl.path.{q['path']}", "key": "path"}))
-        for i, t in numbered:
+        for i, t in enumerate(q["tasks"]):
             tid = qid(ckey, k, "task", str(t.get("key", i)))
             task, title = build_task(ch, where, t, tid)
             tasks.append(task)
@@ -333,19 +229,10 @@ def build_chapter(src: Path, data: dict, lang: dict, index: dict | None = None) 
             "id": qq,
             "x": float(spot[0] * SPACING),
             "y": float(spot[1] * SPACING),
-            "dependencies": [qid(*split_dep(ckey, d)) for d in deps_in],
+            "dependencies": [qid(ckey, d) for d in q.get("deps", [])],
             "tasks": tasks,
             "rewards": rewards,
         }
-        if q.get("min_deps"):
-            quest["min_required_dependencies"] = int(q["min_deps"])  # FTB: at least this many deps complete (lane joins)
-        if q.get("path"):
-            quest["require_sequential_tasks"] = True
-            if q.get("path_hidden", True):
-                # FTB: `invisible` + `invisible_until_tasks = 1` shows the quest once the path stage task is done, so a
-                # dark player never sees the light lane. Stage tasks still auto-submit while the quest is invisible.
-                quest["invisible"] = True
-                quest["invisible_until_tasks"] = 1
         if q.get("icon"):
             check_life_item(ch, where, q["icon"])
             quest["icon"] = stack(q["icon"])
@@ -403,47 +290,15 @@ def build_chapter(src: Path, data: dict, lang: dict, index: dict | None = None) 
     return ckey, chapter, ids
 
 
-def check_dependency_loops(sources: list) -> None:
-    graph = {}
-    for src, data in sources:
-        ckey = (data.get("chapter") or {}).get("key")
-        for q in data.get("quests") or []:
-            graph[(ckey, q.get("key"))] = [split_dep(ckey, d) for d in q.get("deps", [])]
-    state: dict = {}
-
-    def visit(node: tuple, trail: tuple) -> None:
-        if state.get(node) == 2 or node not in graph:
-            return
-        if state.get(node) == 1:
-            loop = " -> ".join("/".join(n) for n in trail[trail.index(node):] + (node,))
-            raise QuestError(f"dependency loop: {loop}")
-        state[node] = 1
-        for dep in graph[node]:
-            visit(dep, trail + (node,))
-        state[node] = 2
-
-    for node in graph:
-        visit(node, ())
-
-
 def render() -> dict[Path, str]:
     lang: dict = {"file.0000000000000001.title": "OCS Tensura: Two Lives"}
     files: dict[Path, str] = {}
     ids: dict = {}
     seen_order = {}
-    sources = []
     for src in sorted(SOURCES.glob("*.toml")):
         with src.open("rb") as f:
-            sources.append((src, tomllib.load(f)))
-    index = {}
-    for src, data in sources:
-        ckey = (data.get("chapter") or {}).get("key")
-        if ckey in index:
-            raise QuestError(f"{src.name}: chapter key {ckey} used twice")
-        index[ckey] = {q.get("key") for q in data.get("quests") or []}
-    check_dependency_loops(sources)
-    for src, data in sources:
-        ckey, chapter, cids = build_chapter(src, data, lang, index)
+            data = tomllib.load(f)
+        ckey, chapter, cids = build_chapter(src, data, lang)
         if ckey in ids:
             raise QuestError(f"{src.name}: chapter key {ckey} used twice")
         if chapter["order_index"] in seen_order:

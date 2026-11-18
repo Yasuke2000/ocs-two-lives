@@ -82,23 +82,20 @@
 		# Default: []
 		claim_dimension_blacklist: [ ]
 		
-		# TTL: claims exist only in the Tensura overworld (Life 2); Life 1 lives in ttl:mortal_* (design/data/nations.toml).
 		# Dimension ID's where chunks may be claimed. If non-empty, chunks may be claimed *only* in these dimensions (and the dimension is not in "claim_dimension_blacklist"). Same syntax as for "claim_dimension_blacklist".
 		# Default: []
-		claim_dimension_whitelist: [ "minecraft:overworld" ]
+		claim_dimension_whitelist: [ ]
 		
 		# Hard limit for the number of chunks a team can claim, regardless of how many members. Default of 0 means no hard limit.
 		# Default: 0
 		# Range: 0 ~ 2147483647
 		hard_team_claim_limit: 0
 		
-		# TTL: what every Life 2 soul may claim alone; nation members get more through extra claim chunks (nations/claims.js).
-		# Must equal base_chunks in design/data/nations.toml.
 		# Max claimed chunks.
 		# You can override this with FTB Ranks 'ftbchunks.max_claimed' permission
 		# Default: 500
 		# Range: -∞ ~ +∞
-		max_claimed_chunks: 4
+		max_claimed_chunks: 500
 		
 		# Maximum time (in real-world days) where if no player in a team logs in, the team automatically loses their claims.
 		# Prevents chunks being claimed indefinitely by teams who no longer play.
@@ -107,7 +104,6 @@
 		# Range: 0.0 ~ 3650.0
 		max_idle_days_before_unclaim: 0.0d
 		
-		# TTL: "sum", so a nation of n members may claim n x (chunks_per_member + rank bonus) chunks.
 		# Method by which party claim & force-load limits are calculated.
 		# LARGEST: use the limits of the member with the largest limits
 		# SUM: add up all the members' limits
@@ -115,7 +111,7 @@
 		# AVERAGE: use the average of all members' limits.
 		# Default: "largest"
 		# Valid values: "largest", "owner", "sum", "average"
-		party_limit_mode: "sum"
+		party_limit_mode: "largest"
 	}
 	dev: {
 		# Enable dev commands

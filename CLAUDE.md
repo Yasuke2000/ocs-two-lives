@@ -44,18 +44,12 @@ Decisions: `design/decisions.md` (append, never rewrite history).
 | Player persistentData | `ttl.rep` (JSON `{faction: n}`), `ttl.renown`, `ttl.renown.bonus`, `ttl.rep.exalted`, `ttl.rep.decayAt` | Reputation truth, renown mirror and bonus, exalted log, decay clock (`rep/rep.js`) |
 | Player persistentData | `ttl.boss.kills`, `ttl.boss.core.owed` | Boss kill counts (JSON), Skill Cores owed (paid at login) |
 | Player persistentData | `ttl.uniques`, `ttl.cd.absorb`, `ttl.lastSeen`, `ttl.titles` | Owned uniques mirror, absorb cooldown, last login, titles |
-| Player persistentData | `ttl.story.path`, `ttl.story.oath`, `ttl.story.flips`, `ttl.story.acts`, `ttl.story.flags`, `ttl.story.pending` | Story core (`story/story.js`): Oath path (light/dark), Oath time, Atonement/Corruption count, acts and flags (JSON `{id: epoch}`), path the party layer applies at login |
-| Player persistentData | `ttl.nation.extra`, `ttl.combat.until`, `ttl.combat.with`, `ttl.absorb.claimed` | Nation claim allowance last applied (`nations/claims.js`); last hit in a duel, challenge or war and its opponent (combat-log rule); awakenings already claimed (`absorb/absorb.js`). Test hooks `ttl.absorb.epfake`, `ttl.absorb.awakefake` |
 | Server persistentData | `ttl.reg.skills.<id>`, `ttl.reg.legendarySlots` | Holders, rarity, history per unique; slots used this era |
 | Server persistentData | `ttl.reg.holders` (by UUID), `ttl.reg.names`, `ttl.reg.seen`, `ttl.reg.history`, `ttl.reg.returned`, `ttl.reg.taken`, `ttl.reg.testcaps`, `ttl.era.started`, `ttl.era.titles`, `ttl.era.archive` | Registry v2: holders, last seen, transfer log, pending returns, era titles and archive |
 | Server persistentData | `ttl.rep.log`, `ttl.boss.active`, `ttl.boss.seq`, `ttl.events.active/last/next/day/hold/muted/loop` | Reputation ring log, live bosses and counter, event director state |
 | Server persistentData | `ttl.season`, `ttl.reincarnations`, `ttl.wars.active`, `ttl.council` | Era, rebirth history, war mirror, council |
-| Server persistentData | `ttl.story.parties`, `ttl.story.log`, `ttl.story.unlocked` | Story: Oath path per party (`{teamId: {path, oathBy, at}}`), event ring, boss ids unlocked by completed acts |
-| Server persistentData | `ttl.party.roster`, `ttl.party.loop` | Party layer (`party/party.js`): members the path lock has accepted per FTB team id, poll stamp |
-| Server persistentData | `ttl.nations`, `ttl.nations.loop` | Nations (`nations/nations.js`): JSON `{teamId: {name, owner, home, homeRegion, path, rank, value, treasury, owed, ally_to, wars, renown}}`, never a roster (FTB Teams is the roster); poll stamp. The team id is the same id as in `ttl.story.parties` |
-| Server persistentData | `ttl.absorb.pacts`, `ttl.absorb.wars` | Absorption (`absorb/absorb.js`): open duel/challenge/bequest pacts, staff-flagged war pairs. Nation wars come from `TtlNations.atWar(server, keyA, keyB)` |
-| Scoreboards | `ttl.k.*`, `ttl.karma`, `ttl.rep.<faction>`, `ttl.pick`, `ttl.bounty`, `ttl.path` (0 none, 1 light, 2 dark), `ttl.nation.value` | Display + Easy NPC conditions |
-| Stages | `ttl.life1/2`, `ttl.tier.*`, `ttl.race.*`, `ttl.nation.*` (`member`, `owner`, `rank.<id>`), `ttl.boss.t1–t4`, `ttl.faction.<f>.<band>`, `ttl.path.light/dark`, `ttl.story.act1–7`, `ttl.story.<flag>` | Quest gating |
+| Scoreboards | `ttl.k.*`, `ttl.karma`, `ttl.rep.<faction>`, `ttl.pick`, `ttl.bounty` | Display + Easy NPC conditions |
+| Stages | `ttl.life1/2`, `ttl.tier.*`, `ttl.race.*`, `ttl.nation.*`, `ttl.boss.t1–t4`, `ttl.faction.<f>.<band>` | Quest gating |
 | Item tags | `ttl:soulbound`, `ttl:skill_core`, `ttl:mortal_banned` | Survives rebirth, Skill Cores, banned in Life 1 |
 
 Karma score per axis = `100 × ln(1 + raw / k)`; total = sum + 0.5 × best axis.

@@ -32,74 +32,13 @@ slots_per_era = 0
 [transfer]
 routes = ["duel", "war", "bequest", "awakening", "staff"]
 
-# Rebirth Legend pick (life/corridor_flow.js `legendEcho`): a soul judged `tiers` is offered, next to its normal unique
-# options, the Legendary echo of its Last Wish (life/wishes.js `echo`) while the registry has room for it: the global
-# ceiling ([legendary] max_holders) and, when set, the per-era throttle (slots_per_era). Taking it spends a slot.
-[legend_pick]
-enabled = true
-tiers = ["legendary"]    # karma tier ids (design/data/karma.toml)
-allow_dark = true        # a dark-path Legend gets the echo too
-
-# Absorption and the other ways a Legendary (or any unique) changes hands: absorb/absorb.js. Every move goes through
-# TtlRegistry.transfer / grant, so the ceiling, the caps and the history stay in one place. Each ROUTE is a sub-table
-# that can be switched off; a key set in a route overrides the same key in this table. Routes: duel, war, bequest,
-# awakening (the route names are the [transfer] routes above).
+# Absorption (absorb/absorb.js, a later package) reads this; the registry only offers transfer().
 [absorb]
-skills = ["predator", "gluttony", "starved", "gourmet", "engorger"]   # uniques whose holder is an "absorber"
-min_ep_ratio = 0.5      # victim EP must be at least this share of the killer's (0 = no lower bound)
-max_ep_ratio = 0        # ... and at most this share (0 = no upper bound)
-cooldown_hours = 72     # per killer between absorptions, over all routes
-legendary_per_kill = 1  # Legendary uniques moved (stolen) per absorption
-copies_per_kill = 1     # Rare/Common uniques copied to the killer per absorption (the victim keeps theirs; caps apply)
-offer_minutes = 5       # a duel challenge or a bequest offer stays open this long
-pact_minutes = 15       # an accepted duel, or an awakening challenge, counts this long
-combat_log_seconds = 30 # logging out this soon after a hit in a duel, challenge or war counts as a defeat
-
-# Labyrinth duel: both sides agree (/ttl absorb duel <p>, /ttl absorb accept <p>), then the fatal blow between them ends
-# the duel. lethal = false: the blow is turned into a defeat (nobody dies, as Tensura's labyrinthDeath = false does);
-# true: a real death. dimensions: where the pact counts, empty = anywhere in Life 2.
-[absorb.duel]
-enabled = true
-requires_absorber = true
-legendary = true
-copies = true
-lethal = false
-dimensions = ["tensura:labyrinth"]
-
-# War between nations: a Legendary holder who falls to a soul of a nation at official war with theirs loses it to the
-# killer (a real death). use_nations asks TtlNations.atWar(server, killer, victim) (WP4, nations/nations.js) and is
-# skipped while that is not loaded; staff_flags also counts pairs flagged by ops (/ttl absorb war <a> <b>).
-[absorb.war]
-enabled = true
-use_nations = true
-staff_flags = true
-requires_absorber = false
-legendary = true
-copies = false
-min_ep_ratio = 0        # a war kill has no EP gate
-
-# Bequest: a holder hands a unique on voluntarily (/ttl absorb bequest <p> <skill>, accepted with /ttl absorb accept <p>).
-# A holder who was hit in a duel, challenge or war during the last combat_log_seconds cannot bequeath.
-[absorb.bequest]
-enabled = true
-legendary_only = false  # true: only Legendary uniques may be bequeathed
-
-# Awakening / Harvest Festival: a soul that awakened as a True Demon Lord or True Hero, once per kind, may CLAIM a free
-# Legendary (/ttl absorb free, /ttl absorb claim <skill>) while the registry has room, or CHALLENGE a Legendary holder
-# who is weaker (EP between min_ep_ratio and max_ep_ratio of theirs) with /ttl absorb challenge <p>: a duel the holder
-# does not have to accept, open pact_minutes, ended by the fatal blow (lethal = false: a defeat) or a combat log.
-[absorb.awakening]
-enabled = true
-claim = true
-challenge = true
-spend_slot = true       # a claim counts as a new Legendary holder of the era (per-era throttle, if any)
-requires_absorber = false
-legendary = true
-copies = false
-lethal = false
-min_ep_ratio = 0.5
-max_ep_ratio = 1.0      # "weaker": the holder's EP may not exceed the challenger's
-claim_skills = { true_demon_lord = ["envy", "greed", "lust", "pride", "sloth", "wrath"], true_hero = ["great_sage", "creator"] }
+skills = ["predator", "gluttony", "starved", "gourmet", "engorger"]   # uniques whose holder may absorb
+min_ep_ratio = 0.5      # victim EP must be at least this share of the killer's
+cooldown_hours = 72     # per killer between absorptions
+# The Legendary ceiling is [legendary] max_holders; the inactivity window is [registry] inactive_days. A transfer by
+# absorption uses route "duel" (v1) or "war" (v2).
 
 # Skill Cores (boss drops from T3): /ttl core open draws one Rare or Common unique, never a Legendary one.
 [core]

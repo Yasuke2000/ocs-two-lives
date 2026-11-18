@@ -3,11 +3,7 @@
 // Ops:  /ttl boss summon <id> [x y z]   summon a boss: at x y z in the dimension the command runs in (use `execute in <dim> run`),
 //                                       else at its arena (bosses.toml), else where the player running it stands. Skips the
 //                                       cooldown and `requires`, but a bound arena (radius) still refuses a spot outside it.
-//       /ttl boss list                  every boss: tier, fixed spawn (kind, place, summoner conditions), wild chance, state while one is out
-//       /ttl boss wild                  the wild roll: knobs, today's starts, what is roaming, every boss's chance per day
-//       /ttl boss wild roll <id> [player]   start a wild boss near the player (default: you) now: no chance, region, weather or day cap, but
-//                                       the boss cooldown, max_active and "already out there" still refuse (printed, not an error)
-//       /ttl boss testparty set <a> <b> [c]   test hook: these players are one party for boss credit (test bots then count); `clear` ends it
+//       /ttl boss list                  every boss, with state while one is out
 //       /ttl boss abort [id]            remove a summoned boss (or all) without rewards
 //       /ttl boss reset <player>        forget the player's boss stages (ttl.boss.t1-t4, ttl.defeated.<id>) and kill counts
 //       /ttl boss expect <player> stage <t1|t2|t3|t4|none> <yes|no>   test assertion: prints "ttl: ..." when it does not hold
@@ -15,13 +11,7 @@
 //       /ttl boss expect <player> kills <id> <n>
 //       /ttl boss expect <player> active <id> <yes|no>                whether a summoned boss of that id is out
 //       /ttl boss expect <player> cooldown <id> <yes|no>              whether the id is still on cooldown
-//       /ttl boss expect <player> gate <id> <yes|no>                  whether the player may summon the boss (cooldown ignored; requires + spawn.stages)
-//       /ttl boss expect <player> spawn <id> <kind|none>              the fixed spawn kind (quest, altar, statue, event)
-//       /ttl boss expect <player> wild <id> <yes|no>                  whether an out-there instance of that id came from the wild roll
-//       /ttl boss expect <player> wildblock <id> <yes|no>             whether a manual wild roll of that id is refused right now
-//       /ttl boss expect <player> chance <id> <fraction>              the player's wild chance per day for that boss (with path_mult)
-//       /ttl boss expect <player> wildregion <id> <yes|no>            whether the player stands in one of the boss's wild regions
-//       /ttl boss expect <player> cores <names|-> <n>                 Skill Cores held by the player plus the comma-separated names
+//       /ttl boss expect <player> gate <id> <yes|no>                  whether the player may summon the boss (cooldown ignored)
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
 
@@ -68,15 +58,9 @@ ServerEvents.commandRegistry(event => {
         if (active[k].id === def.id) out.push(`${k} ${active[k].state} at ${active[k].dim} ${Math.floor(active[k].x)} ${Math.floor(active[k].y)} ${Math.floor(active[k].z)}`)
       }
       var cd = Math.ceil(TtlBoss.cooldownLeft(server, def) / 60000)
-      var where = (def.spawn && def.spawn.at) || def.arena
-      var place = ''
-      if (where) {
-        place = where.build ? ` at build ${where.build}` : where.landmark ? ` at landmark ${where.landmark}` : ` at ${where.x} ${where.z}${where.radius !== undefined ? ` r${where.radius}` : ''}`
-      }
-      var kind = def.spawn ? ` ${def.spawn.kind}${place}` : place ? ` arena${place}` : ' wild only'
-      var req = (def.requires || []).concat((def.spawn && def.spawn.stages) || [])
-      var wild = def.wild && Number(def.wild.chance_per_day) > 0 ? ` wild ${Math.round(Number(def.wild.chance_per_day) * 10000) / 100}%/day in ${def.wild.regions.join('')}` : ''
-      say(ctx, `T${def.tier} ${def.id} (${def.entity}${def.proxy ? ', proxy' : ''}) "${def.title}"${kind}${req.length ? ` needs ${req.join(',')}` : ''}${wild}${out.length ? ` OUT: ${out.join('; ')}` : ''}${cd > 0 ? ` cooldown ${cd} min` : ''}`)
+      var arena = def.arena && def.arena.radius !== undefined ? ` arena ${def.arena.x} ${def.arena.z} r${def.arena.radius}` : ''
+      var req = def.requires && def.requires.length ? ` requires ${def.requires.join(',')}` : ''
+      say(ctx, `T${def.tier} ${def.id} (${def.entity}) "${def.title}"${arena}${req}${out.length ? ` OUT: ${out.join('; ')}` : ''}${cd > 0 ? ` cooldown ${cd} min` : ''}`)
     })
     return 1
   }
@@ -97,61 +81,6 @@ ServerEvents.commandRegistry(event => {
     target.persistentData.remove('ttl.boss.core.owed')
     say(ctx, `boss: forgot the boss record of ${target.username}`)
     return 1
-  }
-
-  var wildStatus = ctx => {
-    TtlWild.lines(ctx.source.getServer()).forEach(l => say(ctx, l))
-    return 1
-  }
-
-  // Refusals are printed as plain lines, not "ttl: ..." errors, so a test can provoke one and assert on state afterwards.
-  var wildRoll = withTarget => ctx => {
-    var server = ctx.source.getServer()
-    var id = arg(ctx, 'id').toLowerCase()
-    var def = TtlBoss.def(id)
-    if (!def) throw `unknown boss ${id}`
-    if (!def.wild) throw `${id} has no wild table in bosses.toml`
-    var player = withTarget ? Arguments.PLAYER.getResult(ctx, 'target') : ctx.source.getEntity()
-    if (!player || !player.isPlayer()) throw 'give a player: /ttl boss wild roll <id> <player>'
-    var res = TtlWild.roll(server, def, player, { manual: true, by: String(ctx.source.getTextName()) })
-    if (!res.ok) {
-      say(ctx, `boss wild ${id}: refused: ${res.error}`)
-      return 0
-    }
-    say(ctx, `boss wild ${id}: rolled near ${player.username} at ${res.x} ${res.z}${res.region ? ` in ${res.region}` : ''} (it appears in a second or two; see the log)`)
-    return 1
-  }
-
-  var testParty = ctx => {
-    var server = ctx.source.getServer()
-    var uuids = []
-    var names = ['a', 'b', 'c']
-    for (var i = 0; i < names.length; i++) {
-      try {
-        uuids.push(TtlBoss.uid(Arguments.PLAYER.getResult(ctx, names[i])))
-      } catch (e) {
-        // the optional third player
-      }
-    }
-    server.persistentData.putString('ttl.boss.testparty', JSON.stringify({ members: uuids }))
-    say(ctx, `boss: ${uuids.length} players now share boss credit as one test party`)
-    return 1
-  }
-
-  var testPartyClear = ctx => {
-    ctx.source.getServer().persistentData.remove('ttl.boss.testparty')
-    say(ctx, 'boss: test party cleared')
-    return 1
-  }
-
-  var cores = (server, p) => {
-    var n = 0
-    var inv = p.getInventory()
-    for (var i = 0; i < inv.getContainerSize(); i++) {
-      var stack = inv.getItem(i)
-      if (!stack.isEmpty() && String(stack.id) === 'ttl:skill_core') n += Number(stack.count)
-    }
-    return n
   }
 
   var yesno = v => (v ? 'yes' : 'no')
@@ -185,47 +114,8 @@ ServerEvents.commandRegistry(event => {
       var gated = TtlBoss.def(a)
       if (!gated) throw `unknown boss ${a}`
       got = yesno(!TtlBoss.gate(gated, { summoner: target }))
-    } else if (field === 'spawn') {
-      var sp = TtlBoss.def(a)
-      if (!sp) throw `unknown boss ${a}`
-      got = sp.spawn ? String(sp.spawn.kind) : 'none'
-    } else if (field === 'wild') {
-      var live = TtlBoss.load(server)
-      var wildOut = false
-      for (var k2 in live) {
-        if (live[k2].id === a && live[k2].wild) wildOut = true
-      }
-      got = yesno(wildOut)
-    } else if (field === 'wildblock') {
-      var wd = TtlBoss.def(a)
-      if (!wd) throw `unknown boss ${a}`
-      got = yesno(!!TtlWild.blocker(server, wd, true))
-    } else if (field === 'chance') {
-      var cd2 = TtlBoss.def(a)
-      if (!cd2 || !cd2.wild) throw `${a} has no wild table`
-      var chance = TtlWild.chanceFor(cd2, target)
-      if (Math.abs(chance - Number(b)) > 1e-9) throw `${target.username}: expected chance ${a} = ${b}, got ${chance}`
-      say(ctx, `boss ${target.username}: chance ${a} = ${b} as expected`)
-      return 1
-    } else if (field === 'wildregion') {
-      var rd = TtlBoss.def(a)
-      if (!rd || !rd.wild) throw `${a} has no wild table`
-      var region = TtlWild.regionOf(Math.floor(target.getX()), Math.floor(target.getZ()))
-      got = yesno(!!region && rd.wild.regions.indexOf(region.key) >= 0)
-    } else if (field === 'cores') {
-      var total = cores(server, target)
-      if (a !== '-') {
-        a.split(',').forEach(n => {
-          var other = server.getPlayerList().getPlayerByName(n)
-          if (!other) throw `no player ${n} online`
-          if (String(other.username) !== String(target.username)) total += cores(server, other)
-        })
-      }
-      if (String(total) !== b) throw `${target.username}: expected cores ${a} = ${b}, got ${total}`
-      say(ctx, `boss ${target.username}: cores ${a} = ${b} as expected`)
-      return 1
     } else {
-      throw `unknown field ${field} (stage, defeated, kills, active, cooldown, gate, spawn, wild, wildblock, chance, wildregion or cores)`
+      throw `unknown field ${field} (stage, defeated, kills, active, cooldown or gate)`
     }
     if (got !== b) throw `${target.username}: expected ${field} ${a} = ${b}, got ${got}`
     say(ctx, `boss ${target.username}: ${field} ${a} = ${b} as expected`)
@@ -242,19 +132,6 @@ ServerEvents.commandRegistry(event => {
             .then(Commands.argument('y', Arguments.INTEGER.create(event))
               .then(Commands.argument('z', Arguments.INTEGER.create(event)).executes(logged(summon(true))))))))
       .then(Commands.literal('list').executes(logged(list)))
-      .then(Commands.literal('wild')
-        .executes(logged(wildStatus))
-        .then(Commands.literal('roll')
-          .then(Commands.argument('id', Arguments.STRING.create(event))
-            .executes(logged(wildRoll(false)))
-            .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(wildRoll(true)))))))
-      .then(Commands.literal('testparty')
-        .then(Commands.literal('set')
-          .then(Commands.argument('a', Arguments.PLAYER.create(event))
-            .then(Commands.argument('b', Arguments.PLAYER.create(event))
-              .executes(logged(testParty))
-              .then(Commands.argument('c', Arguments.PLAYER.create(event)).executes(logged(testParty))))))
-        .then(Commands.literal('clear').executes(logged(testPartyClear))))
       .then(Commands.literal('abort')
         .executes(logged(abort(false)))
         .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(abort(true)))))

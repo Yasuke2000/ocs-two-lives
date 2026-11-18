@@ -1,7 +1,6 @@
 # Boss framework (bosses/boss.js, design/data/bosses.toml, S2 in design/architecture/sprint3-4.md). Every `ttl boss expect`
 # prints "ttl: ..." when it does not hold (counted as a failure by `server.sh test-all`); `execute if entity` prints
 # "Test passed" / "Test failed". The lines marked FAILS below are expected to say "Test failed".
-# Parts 3 and 4 (spawn conditions, party credit) are the story-characters WP-S3 additions; tests/ingame/wild.rcon covers the wild roll.
 # Part 1 runs in the Spirit Corridor hall (the Mortal Realm blocks Tensura mobs; a Life 1 bot may stand there).
 # Expect in the log: "[ttl] boss: orc_lord summoned (hp ×..., 1 player)", "[ttl] boss: orc_lord awake ...",
 # "[ttl] boss: orc_lord phase 1 at 60% health", "[ttl] boss: orc_lord defeated by TtlBotBoss (no kill credit: ...)".
@@ -59,104 +58,4 @@ ttl boss expect TtlBotBoss active shizu no
 execute in minecraft:overworld if entity @e[tag=ttl.boss,tag=ttl.bossid.shizu]
 # Refused outside the arena by design (prints "ttl: Shizu ... can only be summoned within 48 blocks"), so not run here:
 #   execute in minecraft:overworld run ttl boss summon shizu 500 70 500
-# Part 3: every boss has a fixed spawn (kind + place) and a condition on the SUMMONER (never a story path). `spawn.stages` and
-# `requires` both gate; a wild-only boss has no fixed spawn.
-ttl boss expect TtlBotBoss spawn orc_lord altar
-ttl boss expect TtlBotBoss spawn shizu quest
-ttl boss expect TtlBotBoss spawn gazel_dwargo statue
-ttl boss expect TtlBotBoss spawn folgen event
-ttl boss expect TtlBotBoss spawn elemental_colossus none
-ttl boss reset TtlBotBoss
-ttl boss expect TtlBotBoss gate hinata_sakaguchi no
-ttl boss expect TtlBotBoss gate ifrit no
-ttl boss expect TtlBotBoss gate orc_disaster no
-ttl boss expect TtlBotBoss gate veldora no
-ttl boss expect TtlBotBoss gate luminous_valentine no
-kubejs stages add TtlBotBoss ttl.defeated.shizu
-ttl boss expect TtlBotBoss gate hinata_sakaguchi yes
-ttl boss expect TtlBotBoss gate ifrit yes
-kubejs stages add TtlBotBoss ttl.defeated.orc_lord
-ttl boss expect TtlBotBoss gate orc_disaster yes
-# A path stage never opens or closes a gate: anyone may fight any boss.
-kubejs stages add TtlBotBoss ttl.path.dark
-ttl boss expect TtlBotBoss gate gazel_dwargo yes
-kubejs stages remove TtlBotBoss ttl.path.dark
-ttl boss reset TtlBotBoss
-# A build is a valid place: Kyoya's fixed spawn is the Marris build (its placed anchor, else the canon x/z, on the surface).
-# Nobody is near, so he stays asleep until aborted. Chunk generation can take a few seconds.
-ttl boss summon kyoya_tachibana
-@sleep 6
-ttl boss expect TtlBotBoss active kyoya_tachibana yes
-ttl boss list
-ttl boss abort kyoya_tachibana
-@sleep 2
-ttl boss expect TtlBotBoss active kyoya_tachibana no
 ttlbot remove TtlBotBoss
-# Part 4: party credit (boss.js finish). Carrion (tier 3, Skill Core) is summoned in the Spirit Corridor next to three Life 2 bots.
-# A deals the killing blow; B and C only stand there (not contributors: they were in range for a few seconds, not 15).
-# Without a party B and C get nothing. With the test party A + B + C (`ttl boss testparty`, a real FTB party team behaves the
-# same) all three get the stage, kill and coins, A keeps its own Skill Core and exactly one of B / C gets the party core
-# (core_per_party = 1). Expect in the log: "[ttl] boss: carrion party credit for TtlBotPtyB (party of TtlBotPtyA, Skill Core)".
-ttlbot spawn TtlBotPtyA
-ttlbot spawn TtlBotPtyB
-ttlbot spawn TtlBotPtyC
-@sleep 2
-gamemode creative TtlBotPtyA
-gamemode creative TtlBotPtyB
-gamemode creative TtlBotPtyC
-kubejs stages add TtlBotPtyA ttl.life2
-kubejs stages add TtlBotPtyB ttl.life2
-kubejs stages add TtlBotPtyC ttl.life2
-ttl boss reset TtlBotPtyA
-ttl boss reset TtlBotPtyB
-ttl boss reset TtlBotPtyC
-clear TtlBotPtyA ttl:skill_core
-clear TtlBotPtyB ttl:skill_core
-clear TtlBotPtyC ttl:skill_core
-ttl boss testparty clear
-execute in ttl:spirit_corridor run tp TtlBotPtyA 0.5 65 0.5
-execute in ttl:spirit_corridor run tp TtlBotPtyB 0.5 65 2.5
-execute in ttl:spirit_corridor run tp TtlBotPtyC 2.5 65 0.5
-execute in ttl:spirit_corridor run ttl boss summon carrion 0 66 8
-@sleep 3
-ttl boss expect TtlBotPtyA active carrion yes
-execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
-@sleep 3
-ttl boss expect TtlBotPtyA active carrion no
-ttl boss expect TtlBotPtyA stage t3 yes
-ttl boss expect TtlBotPtyA kills carrion 1
-ttl boss expect TtlBotPtyA cores - 1
-ttl boss expect TtlBotPtyB stage t3 no
-ttl boss expect TtlBotPtyC stage t3 no
-ttl boss expect TtlBotPtyB cores TtlBotPtyC 0
-# Round 2: the same fight as a party.
-ttl boss reset TtlBotPtyA
-ttl boss reset TtlBotPtyB
-ttl boss reset TtlBotPtyC
-clear TtlBotPtyA ttl:skill_core
-ttl boss testparty set TtlBotPtyA TtlBotPtyB TtlBotPtyC
-execute in ttl:spirit_corridor run ttl boss summon carrion 0 66 8
-@sleep 3
-execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
-@sleep 3
-ttl boss expect TtlBotPtyA stage t3 yes
-ttl boss expect TtlBotPtyB stage t3 yes
-ttl boss expect TtlBotPtyC stage t3 yes
-ttl boss expect TtlBotPtyB defeated carrion yes
-ttl boss expect TtlBotPtyC kills carrion 1
-ttl boss expect TtlBotPtyA cores - 1
-ttl boss expect TtlBotPtyB cores TtlBotPtyC 1
-# A bystander who is NOT in the party (a fourth player outside the test party) would get nothing: covered by round 1.
-ttl boss testparty clear
-ttl boss reset TtlBotPtyA
-ttl boss reset TtlBotPtyB
-ttl boss reset TtlBotPtyC
-clear TtlBotPtyA ttl:skill_core
-clear TtlBotPtyB ttl:skill_core
-clear TtlBotPtyC ttl:skill_core
-kubejs stages remove TtlBotPtyA ttl.life2
-kubejs stages remove TtlBotPtyB ttl.life2
-kubejs stages remove TtlBotPtyC ttl.life2
-ttlbot remove TtlBotPtyA
-ttlbot remove TtlBotPtyB
-ttlbot remove TtlBotPtyC
