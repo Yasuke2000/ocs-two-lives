@@ -1,0 +1,10 @@
+name = "laura"
+title = "Laura — capital of the Beast Kingdom of Eurazania"
+landmark = "Laura (Eurazania capital, rebuilt)"
+anchor = [56, 5, 108]
+ground = "survey"
+search = 64
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+notes = "Walled jungle capital with fruit market, lion-gabled great hall and stilt houses; blueprints/laura.py, lore in design/lore/laura.md."

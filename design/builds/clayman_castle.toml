@@ -1,0 +1,14 @@
+name = "clayman_castle"
+title = "Clayman's Castle — the Puppet Nation of Jistav"
+landmark = "Clayman's Castle"
+# The landmark pixel converts to (2635, -685), which canon_map.txt paints as Jura ('J'), about 290 blocks west of
+# the Jistav border ('P' starts at x 2923 on this row). Moved east onto Jistav land (all 'P' within 96 blocks).
+x = 2930
+z = -685
+anchor = [54, 6, 102]
+ground = "survey"
+search = 64
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+notes = "Dark gothic fortress with moat, curtain wall, keep and pierrot mask; blueprints/clayman_castle.py, lore in design/lore/clayman_castle.md."

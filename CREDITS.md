@@ -25,3 +25,4 @@ OCS Tensura: Two Lives is a free, non-commercial fan modpack. Nothing here is so
   written from scratch as code; no mod structures are copied into them. For visual reference only we looked at the
   structure files of **Towns and Towers** (CC BY-NC-ND 4.0, "no changes to the mod", so nothing from it is reused),
   **Iron's Spellbooks** (All Rights Reserved) and Tensura's own dwarf and goblin pieces (already credited above).
+- **Demon Lord seat builds** (`blueprints/clayman_castle.py`, `forgotten_dragon_city.py`, `laura.py`) are our own code. For massing and palette we looked at structure files of other mods in the pack as visual references only and copied nothing: Iron's Spells 'n Spellbooks (Citadel; "All Rights Reserved") and Towns and Towers (jungle, savanna and temple villages; CC-BY-NC-ND 4.0, no derivatives), plus Tensura's village pieces for the thatch and mud style.
