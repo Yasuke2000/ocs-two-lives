@@ -32,7 +32,9 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | Field | Meaning |
 | --- | --- |
 | `key`, `title`, `subtitle`, `icon` | id (unique in the chapter) and looks |
-| `deps` | keys of quests that must be done first |
+| `deps` | keys of quests that must be done first; `"<chapter>/<quest>"` points at a quest of another chapter (see Story extensions) |
+| `min_deps` | at least this many of `deps` must be done (FTB `min_required_dependencies`), default all: a quest after two lanes uses `min_deps = 1` |
+| `path` | `"light"` or `"dark"`: a story lane quest, see Story extensions |
 | `lane`, `col` | layout: row (negative = above) and column; column defaults to deepest dependency + 1 |
 | `shape`, `size` | `circle` … `gear`; size 1.5 for milestones |
 | `optional` | does not block chapter completion |
@@ -40,17 +42,43 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | `text` | description (blank line = new paragraph; `&6` colour codes work) |
 | `karma` | Life 1: appended as "Next life: …" — how the deed counts for the rebirth (keep in step with `design/data/karma.toml`) |
 | `tasks` | list, see below |
-| `rewards` | `item` (`item`, `count`), `xp` (`xp` points), `xp_levels`. Nothing else: quests never grant skills, races or evolutions (`design/manas-integration.md` §5(d)) |
+| `rewards` | `item` (`item`, `count`), `xp` (`xp` points), `xp_levels`, `stage`, `command` (the last two: Story extensions). Nothing else: quests never grant skills, races or evolutions (`design/manas-integration.md` §5(d)) |
 
 Task types: `item` (item, count; checks the inventory and never consumes unless `consume = true`, which makes it a hand-in submitted in the quest screen), `kill` (entity, count), `dimension`, `structure` (id or `#tag`),
 `biome`, `advancement` (+ optional `criterion`), `stat` (custom stat id, value), `stage` (KubeJS stage, via
-FTB XMod Compat), `checkmark`, `xp`, `location` (dimension, `at = [x, z]`, `radius`: a full-height box),
+FTB XMod Compat; `team_stage = true` reads the FTB team's stages instead of the submitting player's; the name must be `ttl.<…>`), `checkmark`, `xp`, `location` (dimension, `at = [x, z]`, `radius`: a full-height box),
 and Life 2 only: `ep` (`tensura_ftb:existence_value`, default `existence = "EP"`) and `ability`
 (`tensura_ftb:ability`, ability id, status AVAILABLE/LEARNT/MASTERED). Any task may have a `title`.
 
 **Mortal dimensions:** vanilla advancements that test a dimension (`story/enter_the_nether`, `story/enter_the_end`,
 `end/root`…) never fire in `ttl:mortal_nether` / `ttl:mortal_end`. Use `dimension` tasks there. Item, kill,
 structure, biome, stat and most other advancements work in every dimension.
+
+## Story extensions (WP-S5, `design/architecture/story-characters.md` §3, §6.3)
+
+All optional; a chapter that uses none of them generates exactly as before.
+
+**`path = "light" | "dark"`** on a quest makes it a lane quest. The generator adds a first task, a `stage` task on
+`ttl.path.<x>` (task key `path`, so the other tasks keep their ids whether or not the quest has a path), turns on
+`require_sequential_tasks` (nothing else progresses before the path task) and, unless `path_hidden = false`, makes the
+quest `invisible` until that one task is done: a dark player never sees the light lane, and the stage task still
+auto-submits while the quest is hidden. Before the Oath neither lane shows. The stage is per player but quest progress is per
+FTB team, so a party must share one path (WP-S2 locks it); with `path_hidden = false` the lane stays visible and merely
+cannot be finished by the other path.
+
+**Cross-chapter `deps`**: `deps = ["tempest_rises/stands", "local_key"]`. The id hash already includes the chapter key, so
+it is `qid(<chapter>, <quest>)`. The generator checks the target exists (any chapter, any file order) and refuses dependency
+loops across chapters; a cross-chapter dep does not move the quest on the grid (column counts same-chapter deps only). FTB Quests
+resolves dependencies after all chapter files are read, so the chapter order on disk does not matter. A quest key cannot
+contain `/`.
+
+**Rewards**
+
+| Reward | Fields | Notes |
+| --- | --- | --- |
+| `stage` | `stage`, `remove = false`, `team = false`, `auto = "invisible"` | FTB `gamestage` reward. Auto-claimed and silent by default. Only `ttl.story.*` and `ttl.quest.*` may be set or removed (`REWARD_STAGE_PREFIXES`); `ttl.life*`, `ttl.tier.*`, `ttl.race.*`, `ttl.boss.*`, `ttl.faction.*`, `ttl.path.*` belong to other systems. `team = true` writes a team stage (pair it with a `team_stage` task) |
+| `command` | `command`, `permission_level = 2`, `silent = false`, `feedback = ""`, `as_player = true` | FTB `command` reward. Runs as the claiming player (it always does: `CommandReward.claim` uses the player's command source; `as_player = false` does not exist and is refused). `permission_level` only raises that source's level; `/ttl ...` subcommands need op level 2, hence the default 2 (use 0 for a plain command). FTB expands `{p}` `{x}` `{y}` `{z}` `{chapter}` `{quest}` `{team}` `{team_id}` `{member_count}` `{online_member_count}` and then runs `String.format`, so `%` is refused. Commands mentioning skill, race, evolve, awaken, unique, legendary, registry, op, deop or stop are refused (rule: quests never grant those). Not auto-claimed: the player presses the claim button |
+| any | `auto = "default" \| "disabled" \| "enabled" \| "no_toast" \| "invisible"` | FTB `RewardAutoClaim`; `default` is the book's `default_autoclaim_rewards` (disabled) |
 
 ## Chapters
 
@@ -123,6 +151,23 @@ Format (verified against the jars, not only docs):
   third-party description of the 1.21 layout: https://www.curseforge.com/minecraft/mc-mods/quest-lang-files
 - Minecraft Wiki, written book component syntax (1.20.5–1.21.4: pages are JSON text strings) and advancement
   triggers (`changed_dimension` names the vanilla dimension keys).
+
+Story extensions (verified 18/11/2026 against `ftb-quests-neoforge-2101.1.39.jar` with `javap -c`; `tests/test_gen_quests.py`
+re-checks every field name against the jar when it is present):
+- `CommandReward` (`type` string `command`): `writeData`/`readData` keys `command`, `permission_level` (int, 0 omitted),
+  `silent`, `feedback_message` (legacy `elevate_perms` is read as level 2). There is no `player_command` field: `claim()` builds
+  `player.createCommandSourceStack()`, applies `withPermission(level)` only when level > 0, `withSuppressedOutput()` when silent, and runs
+  `performPrefixedCommand`; the `{key}` placeholders (`PATTERN = [{](\w+)}`) are formatted with `String.format`.
+- `StageReward` (`gamestage`): `stage`, `remove`; the common `Reward` keys `team_reward` (boolean, absent = default), `auto`
+  (`RewardAutoClaim` ids default/disabled/enabled/no_toast/invisible; an absent key reads back as `default`, so the generator writes
+  `invisible` explicitly), `exclude_from_claim_all`, `ignore_reward_blocking`, `disable_reward_screen_blur`.
+- `StageTask` (`gamestage`): `stage`, `team_stage`. It auto-submits on the player tick through `TeamData.canStartTasks`, which checks
+  dependencies and cooldown, not visibility, so it completes inside an invisible quest.
+- `Quest`: `invisible` (hidden until completed) with `invisible_until_tasks` (visible once N tasks are done: `Quest.isVisible`),
+  `require_sequential_tasks` (`Task.checkTaskSequence`: a task submits only when the one before it is complete),
+  `min_required_dependencies` (`Quest.checkDependencies`), `dependencies` (ids resolved through `BaseQuestFile.get`).
+- `BaseQuestFile.readDataFull`: every chapter file is read into objects first and `readData` runs afterwards over all of them, so a
+  dependency on a quest in a chapter file that sorts later still resolves (an unresolved dependency would be dropped silently).
 
 Chapters 2-6 (verified 18/11/2026 against Tensura 2.0.1.5 and tensura_ftb 2.0.0.4):
 - Item, block, entity and skill ids come from `assets/tensura/lang/en_us.json` of the Tensura jar; the skills used
