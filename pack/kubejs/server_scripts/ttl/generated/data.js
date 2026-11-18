@@ -415,6 +415,265 @@ const TtlData = {
   "builds": [
     {
       "anchor": [
+        62,
+        5,
+        72
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Blumund capital (Londo)",
+      "margin": 8,
+      "name": "blumund",
+      "search": 64,
+      "size": [
+        124,
+        52,
+        116
+      ],
+      "title": "Blumund — Londo",
+      "version": 1,
+      "x": -1024,
+      "z": -120
+    },
+    {
+      "anchor": [
+        54,
+        6,
+        102
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Clayman's Castle",
+      "margin": 8,
+      "name": "clayman_castle",
+      "notes": "Dark gothic fortress with moat, curtain wall, keep and pierrot mask; blueprints/clayman_castle.py, lore in design/lore/clayman_castle.md.",
+      "search": 64,
+      "size": [
+        109,
+        66,
+        109
+      ],
+      "title": "Clayman's Castle — the Puppet Nation of Jistav",
+      "version": 1,
+      "x": 2930,
+      "z": -685
+    },
+    {
+      "anchor": [
+        36,
+        9,
+        62
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Dragon's Nest (highest peak of the Great Canaat Mountains)",
+      "margin": 8,
+      "name": "dragons_nest",
+      "notes": "Roosting bowl of spruce trunks in a jagged ring wall with eight spires; survey radius kept small so the build stays on the summit.",
+      "search": 32,
+      "size": [
+        73,
+        46,
+        73
+      ],
+      "title": "The Dragon's Nest",
+      "version": 1,
+      "x": 370,
+      "z": -2402
+    },
+    {
+      "anchor": [
+        64,
+        5,
+        92
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Englassia capital (Lura): Freedom Academy, Free Guild HQ",
+      "margin": 8,
+      "name": "englassia",
+      "search": 64,
+      "size": [
+        128,
+        60,
+        112
+      ],
+      "title": "Englassia — Lura",
+      "version": 1,
+      "x": -2626,
+      "z": -300
+    },
+    {
+      "anchor": [
+        60,
+        5,
+        118
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "City of the Forgotten Dragon (Milim)",
+      "margin": 8,
+      "name": "forgotten_dragon_city",
+      "notes": "Dragon-skull temple gate, rib-arch avenue, granaries and thatch huts; blueprints/forgotten_dragon_city.py, lore in design/lore/forgotten_dragon_city.md.",
+      "search": 64,
+      "size": [
+        121,
+        44,
+        125
+      ],
+      "title": "City of the Forgotten Dragon — Milim's domain",
+      "version": 1,
+      "x": 1780,
+      "z": 684
+    },
+    {
+      "anchor": [
+        56,
+        5,
+        108
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Laura (Eurazania capital, rebuilt)",
+      "margin": 8,
+      "name": "laura",
+      "notes": "Walled jungle capital with fruit market, lion-gabled great hall and stilt houses; blueprints/laura.py, lore in design/lore/laura.md.",
+      "search": 64,
+      "size": [
+        113,
+        46,
+        113
+      ],
+      "title": "Laura — capital of the Beast Kingdom of Eurazania",
+      "version": 1,
+      "x": 1689,
+      "z": 1302
+    },
+    {
+      "anchor": [
+        60,
+        5,
+        98
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Holy City Lubelius (Lune)",
+      "margin": 8,
+      "name": "lubelius",
+      "search": 64,
+      "size": [
+        120,
+        64,
+        120
+      ],
+      "title": "Holy City Lubelius — Lune",
+      "version": 1,
+      "x": -3977,
+      "z": -659
+    },
+    {
+      "anchor": [
+        68,
+        5,
+        66
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Marris (Falmuth capital)",
+      "margin": 8,
+      "name": "marris",
+      "search": 64,
+      "size": [
+        136,
+        64,
+        112
+      ],
+      "title": "Marris — Falmuth",
+      "version": 1,
+      "x": -1286,
+      "z": -1040
+    },
+    {
+      "anchor": [
+        44,
+        5,
+        82
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Sealed Cave (Veldora's prison, Rimuru's birthplace)",
+      "margin": 8,
+      "name": "sealed_cave",
+      "notes": "A rocky hill in a forest clearing with the cave mouth in its south face; antechamber with pond and hipokute plot, the sealed chamber with the spent Unlimited Imprisonment seal. Interior is our interpretation; canon gives the location and the facts (design/lore/sealed_cave.md).",
+      "search": 64,
+      "size": [
+        88,
+        50,
+        88
+      ],
+      "title": "The Sealed Cave: Veldora's prison, Rimuru's birthplace",
+      "version": 1,
+      "x": -256,
+      "z": -343
+    },
+    {
+      "anchor": [
+        44,
+        41,
+        66
+      ],
+      "clear_above": false,
+      "dimension": "ttl:spirit_domain",
+      "ground": "fixed",
+      "margin": 0,
+      "name": "spirit_dwelling",
+      "notes": "Glade, colonnade and summoning grotto with the pedestal of light (Rimuru took Shizu's pupils there to call their spirits, light novel vol. 4 ch. 50). Appearance is our interpretation.",
+      "search": 48,
+      "size": [
+        89,
+        64,
+        89
+      ],
+      "title": "The Dwelling of the Spirits",
+      "version": 1,
+      "x": 0,
+      "y": 64,
+      "z": 0
+    },
+    {
+      "anchor": [
+        28,
+        5,
+        24
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "margin": 8,
+      "name": "spirit_gate",
+      "notes": "Canon puts the Dwelling inside Ramiris's labyrinth in Tempest's territory but gives no map position; this spot (about 250 blocks south-west of Tempest, in the Jura forest) is our interpretation.",
+      "search": 64,
+      "size": [
+        57,
+        40,
+        57
+      ],
+      "title": "The gate to the Dwelling of the Spirits",
+      "version": 1,
+      "x": -210,
+      "z": 130
+    },
+    {
+      "anchor": [
         2,
         1,
         2
@@ -435,6 +694,30 @@ const TtlData = {
       "x": 2500,
       "y": 64,
       "z": 0
+    },
+    {
+      "anchor": [
+        16,
+        5,
+        16
+      ],
+      "clear_above": true,
+      "dimension": "minecraft:overworld",
+      "ground": "survey",
+      "landmark": "Treyni's grove (Dryad sanctuary)",
+      "margin": 8,
+      "name": "treyni_shrine",
+      "notes": "Small mossy dais with a young azalea tree and three seats for the dryad sisters; our interpretation (design/lore/treyni_shrine.md).",
+      "search": 48,
+      "size": [
+        33,
+        22,
+        33
+      ],
+      "title": "Treyni's shrine",
+      "version": 1,
+      "x": 1988,
+      "z": -223
     }
   ],
   "carryover": {
