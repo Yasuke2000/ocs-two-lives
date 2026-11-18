@@ -669,6 +669,34 @@ file = "config/attributefix/tensura/wind_resistance.json"
 hash = "6bce4756f23cedf273e963254625fa594a32208f99de05db1abd1e77ec671372"
 
 [[files]]
+file = "config/bluemap/core.conf"
+hash = "8d37b461f966252268859182770e12bb68f4b5d0204119eaba6a63f11cef7836"
+
+[[files]]
+file = "config/bluemap/maps/mortal_realm.conf"
+hash = "563011b9d3431d8c3b00089f91fa1f82af8a70cd9395237fbc55741ac29ab51a"
+
+[[files]]
+file = "config/bluemap/maps/tensura.conf"
+hash = "54bb9024a3826a011d3f79eef12ea5fef42e1e5b208e371e127e9aaafee444c5"
+
+[[files]]
+file = "config/bluemap/plugin.conf"
+hash = "7ec9d644b05649b5fbd85e92ad7a9a27e34b2466bd5d9922ebf0c2d8ac532560"
+
+[[files]]
+file = "config/bluemap/storages/file.conf"
+hash = "71288bc5a1632e1aac8091bfb65fce878d2df8c6a9ebb29a98701bdacd323b5c"
+
+[[files]]
+file = "config/bluemap/webapp.conf"
+hash = "f5109e4b5294ae297616ffdf99d586b3009a96c6dc23a52a12752d076a3078b1"
+
+[[files]]
+file = "config/bluemap/webserver.conf"
+hash = "8d18de511f4a7e98bf782c26e6e14a8fe3575772861bbd078c17bb99076b0d03"
+
+[[files]]
 file = "config/cervlogger/config.properties"
 hash = "6ea911dc19053a04fc1e1b5cdd35aefe5effe1e0def5b7713f00913bdf59be4e"
 
@@ -863,6 +891,14 @@ hash = "1e15df3add8a04de72276ab6827bc1ec242b5eae961780cec6fe1024a59dad19"
 [[files]]
 file = "config/lithium.properties"
 hash = "6cf6f83720071fd1657c8e79b357caf68d40f410ae123e5f922483eb1d1d25be"
+
+[[files]]
+file = "config/luckperms/luckperms.conf"
+hash = "84ebfe1e1500fded45348fbf17f9a297851a4548130509824bf437120061c517"
+
+[[files]]
+file = "config/luckperms/ttl-groups.txt"
+hash = "40889240867f4b353a430bc7842188b1d89eeb7dcaa2618d94e19b4a1a7aba08"
 
 [[files]]
 file = "config/modernfix-common.toml"
@@ -1535,6 +1571,11 @@ hash = "03084ff4f74cedc1b8ac6c85a98842f75956fb4fa811d285d8ca7caa8d54da5d"
 metafile = true
 
 [[files]]
+file = "mods/bluemap.pw.toml"
+hash = "f33a4720ef4f315b6d1f778039e9f7bdb8f5ef1b58a57d565c30fd1d8adee207"
+metafile = true
+
+[[files]]
 file = "mods/bookshelf-lib.pw.toml"
 hash = "68d6016fa3707c434b3aca5db041c7518c70feb53d0183faa2502cc6efd4c827"
 metafile = true
@@ -1727,6 +1768,11 @@ metafile = true
 [[files]]
 file = "mods/lootjs.pw.toml"
 hash = "e42581d8eb65aa947dcbe6edb71b2082e84f31936b01f131758395d88dabc919"
+metafile = true
+
+[[files]]
+file = "mods/luckperms.pw.toml"
+hash = "91e6a0e562023e927ca1c56bdfd5df673609cac23528f768a83afe3674cdd0c0"
 metafile = true
 
 [[files]]
