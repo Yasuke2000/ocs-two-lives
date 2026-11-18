@@ -22,8 +22,15 @@ report at 08:30).
 
 ## In progress / next steps (in order)
 
-1. **Tests green after deploy of `263db25`** (LuckPerms removed). If `tools/server.sh test-all` is not
-   "0 failing": fix scripts/tests (most failures so far came from untested agent code; see decisions.md).
+1. **Tests green after deploy of `263db25`** (LuckPerms removed). Fixed on main (pushed to staging with
+   `push-scripts`, ~05:50): swallowed `event.cancel()`, `runCommandSilent` has no result (`TtlCmd.run`), economy
+   balance (Lightman's holder does not see inventory coins), Favor ids, test argument/setup mistakes; see the
+   decisions.md rows of 18/11/2026 at the end. **Still failing until step 2**: every Life 2 bot dies of magicule
+   poison 1 s after rebirth, because the arrival (259 63 -608) stands in `tensura:ancient_forest` chunks generated
+   before the ring worldgen (`/ttlmap` says rim, the stored chunk biome says ancient_forest). That breaks arrival
+   and, depending on timing, carryover, guide, soul, spirit_domain (all pass with the bots sheltered).
+   After a restart the scripts' `ServerEvents.loaded` loops (spirit domain gate) run the new code; a `/reload` keeps
+   the old loop running.
 2. **Overworld reset** (owner approved): `/ttl worldreset minecraft:overworld` per `docs/server.md`
    (backup is automatic) so the Jura rings apply everywhere; then wait for Tempest, Dwargon, landmarks and
    the canon builds to place (`[ttl] … placed` log lines, `/ttl build list`).
