@@ -1,6 +1,6 @@
 # OCS Tensura: Two Lives — Master Plan
 
-Nov 15, 2026 · @David Delporte
+Nov 15, 2026 · @Yasuke
 
 > **Status 18/11/2026.** This is the original design of 15/11/2026 and it stays the statement of intent. Where the
 > build went another way, the values in the text were changed and the section carries a "Status 18/11/2026" note.

@@ -1233,10 +1233,6 @@ file = "config/vanilla_structures/toggle_structure_config.json5"
 hash = "a50b4ca77d21ae105e68560c1af694125ea06360374c82e87f4da54b7ecfa51d"
 
 [[files]]
-file = "datapacks/ttl-overrides/data/tensura/biome_magicule/ancient_forest.json"
-hash = "2d23487ce5f439b45c3141c9b0152560eae80d8522db248fff7ff2ba654e006a"
-
-[[files]]
 file = "datapacks/ttl-overrides/pack.mcmeta"
 hash = "9bdd411abe7b7eea66a5bd1f546787907738ef87ee1f1dccadb344bbf1b77023"
 
@@ -1506,7 +1502,7 @@ hash = "5217611e5ee162abfc5fe30d46057de1ecfbecb75babbdcb77850f41593277d8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "0f37aa21e99382997c6a9e1da0bd5cd5d321e71f9f066ac0557b8cfc8b8d23c8"
+hash = "545f83614f6ac548d78e93c1f97ae8162b34ce22560c1132d805725e6c910b87"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1594,7 +1590,7 @@ hash = "a387a538f9b72117e9e10530cf947ac32bff9779ca8f5bfa7a3d426573256444"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_immunity.js"
-hash = "7423d8f08ee31d7d1fb7498e6591ffd8e1c43a3d2b1e6c2f533607973437b7af"
+hash = "7af6f69bb90c32fa2824c4b08a26d9a56cc3adc5452666bffde3a7f194e95131"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"

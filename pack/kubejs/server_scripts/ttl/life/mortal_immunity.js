@@ -23,8 +23,8 @@ const TtlMortalImmunity = {
     return TtlLife.isMortal(TtlLife.dimensionOf(player)) || TtlLife.phase(player) !== 'life2'
   },
 
-  // Tempest's green sits in `tensura:ancient_forest` chunks, whose magicule is far above a fresh soul's 50 (also at
-  // the datapack's +1,500): a newcomer died of magicule poison the moment Life 2 began. Inside the same radius that
+  // Tempest's green sits in `tensura:ancient_forest` chunks, whose magicule is far above a fresh soul's 50 (Jura's
+  // core keeps Tensura's real 20,000): a newcomer died of magicule poison the moment Life 2 began. Inside the same radius that
   // keeps hostile mobs away (mortal_spawns.js) the poison is refused too; outside it the world is as dangerous as
   // Tensura makes it.
   sheltered(player, poisonOnly) {

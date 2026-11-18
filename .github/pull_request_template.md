@@ -11,4 +11,4 @@ Closes #
 - [ ] Big decision? Row added to `design/decisions.md`
 - [ ] New behaviour has a bot test in `tests/ingame/` (if it can be tested without a real player)
 
-Merging needs David's approval (code owner) and a green `validate` check.
+Merging needs Yasuke's approval (code owner) and a green `validate` check.
