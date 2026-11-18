@@ -1,0 +1,227 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Guild",
+    created:1790000000000L,
+    description:"A Free Guild receptionist: the desk board (rank F to C), hand-ins and rank.",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Guild Receptionist",
+    variantType:"SECURITY_01",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#009FE3","text":"Guild Receptionist"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild board desk",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_board",
+              Name:"See the board"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild board desk",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Cmd:"take",
+                  Type:"OPEN_NAMED_DIALOG"
+                }
+              ],
+              Label:"button_take",
+              Name:"Take a bounty"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild turnin desk",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_turnin",
+              Name:"Hand in my work"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild status",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_rank",
+              Name:"What is my rank?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Goodbye"
+            }
+          ],
+          Label:"default",
+          Name:"Guild Desk",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Welcome to the Free Guild, @initiator. Jobs are posted fresh every morning, and bigger ones every week.\\n\\nTake what suits you, bring it back done, and I'll see you paid. Rank B and above? Guildmaster Fuze hands those out himself."
+            }
+          ]
+        },
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild take 1 desk",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_slot_1",
+              Name:"Bounty 1"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild take 2 desk",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_slot_2",
+              Name:"Bounty 2"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild take 3 desk",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_slot_3",
+              Name:"Bounty 3"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild take 4 desk",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_slot_4",
+              Name:"Bounty 4"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild take 5 desk",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_slot_5",
+              Name:"Bounty 5"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"default",
+                  Type:"OPEN_NAMED_DIALOG"
+                }
+              ],
+              Label:"button_back",
+              Name:"Back"
+            }
+          ],
+          Label:"take",
+          Name:"Take a Bounty",
+          Priority:-1,
+          Texts:[
+            {
+              Text:"Which one? Use the numbers from the board, @initiator. One of each per day or week, and no more than 3 at a time."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-97405085,1644257119,-1377905819,1785128906],
+    VariantType:"SECURITY_01",
+    id:"easy_npc:humanoid"
+  }
+}

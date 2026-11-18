@@ -1,10 +1,12 @@
 // priority: 60
 // Economy commands (Brigadier merges these into the /ttl tree from commands.js).
 // Players (Life 2; a Life 1 soul gets "ttl: Life 2 only"):
-//   /ttl guild board                      the Free Guild board with your status per bounty
-//   /ttl guild take <slot|id>             accept a bounty (max guild.max_active at once)
-//   /ttl guild turnin                     hand in everything that is ready (kills and visits count by themselves,
-//                                         deliveries are taken from your inventory)
+//   /ttl guild board [giver]              the Free Guild board with your status per bounty; giver desk | fuze shows only
+//                                         that giver's bounties, numbered from 1 (the Easy NPC dialogs use this)
+//   /ttl guild take <slot|id> [giver]     accept a bounty (max guild.max_active at once); with a giver the number counts in
+//                                         that giver's list and a bounty of the other giver is refused
+//   /ttl guild turnin [giver]             hand in everything that is ready (kills and visits count by themselves,
+//                                         deliveries are taken from your inventory); with a giver only that giver's
 //   /ttl guild abandon <slot|id> · status
 //   /ttl merit                            your merit and Public Works chunks
 //   /ttl merit works mark | unmark        the chunk you stand in (Life 2, Tensura overworld)
@@ -15,10 +17,15 @@
 //   /ttl guild test <player> life2        test hook: give a bot the Life 2 stage
 //   /ttl guild reset <player>             test hook: forget the player's guild record (bots keep data between runs)
 //   /ttl guild desk add <x> <y> <z> | remove <x> <y> <z> | list   interim guild desks (Tensura overworld blocks)
+//   /ttl guild npc list | ensure [spot] | spawn <spot> | remove <spot> | goto <player> <spot> | expect <field> <value>
+//        the Easy NPCs (Fuze, receptionists), defined in economy/guild_npcs.js
 //   /ttl guild expect <player> <field> <value>
-//        fields: points, done, rank, active, ready, board (slots on the board), balance (bronze), stage (rank letter of
+//        fields: points, done, rank, active, ready, board (slots on the desk board; board_all, board_fuze, board_desk),
+//        balance (bronze), stage (rank letter of
 //        the one ttl.guild.* stage), accepted_<id>, ready_<id> (true/false), rep_<faction> (needs the reputation package),
-//        refuse_take (what taking slot 1 answers: life2only / allowed, real effect when allowed)
+//        refuse_take (what taking slot 1 answers: life2only / allowed, real effect when allowed),
+//        take_<giver>_<id> (what `take <id> <giver>` answers: wrong_giver / life2only / rank / allowed (real effect) / other: ...),
+//        giver_<id> (desk or fuze)
 //   /ttl merit test <player> <block> [n]  count n (default 1) placed blocks at the player's feet (`stone_bricks` = minecraft:stone_bricks)
 //   /ttl merit reset <player> · /ttl merit expect <player> <field> <value>
 //        fields: total, week, works (how many Public Works chunks they keep), builder (true/false)
@@ -49,22 +56,23 @@ ServerEvents.commandRegistry(event => {
 
   // ---- guild: players ----
 
-  var board = ctx => {
+  // The optional trailing `giver` argument: a run that has none must not read it (getResult throws then).
+  var board = withGiver => ctx => {
     var p = self(ctx)
     TtlGuild.requireLife2(p)
-    TtlGuild.boardLines(server(ctx), p).forEach(l => say(ctx, l))
+    TtlGuild.boardLines(server(ctx), p, withGiver ? str(ctx, 'giver') : null).forEach(l => say(ctx, l))
     return 1
   }
 
-  var take = ctx => {
+  var take = withGiver => ctx => {
     var p = self(ctx)
-    var e = TtlGuild.take(server(ctx), p, str(ctx, 'ref'))
+    var e = TtlGuild.take(server(ctx), p, str(ctx, 'ref'), withGiver ? str(ctx, 'giver') : null)
     say(ctx, `Free Guild: you accepted "${e.b.title}": ${TtlGuild.what(e.b)}. Reward: ${TtlGuild.rewardText(e.b)}.`)
     return 1
   }
 
-  var turnin = ctx => {
-    var n = TtlGuild.turnin(server(ctx), self(ctx))
+  var turnin = withGiver => ctx => {
+    var n = TtlGuild.turnin(server(ctx), self(ctx), withGiver ? str(ctx, 'giver') : null)
     say(ctx, `Free Guild: ${n} bount${n === 1 ? 'y' : 'ies'} handed in.`)
     return 1
   }
@@ -147,6 +155,22 @@ ServerEvents.commandRegistry(event => {
       var b = TtlGuild.find(g.taken[k].id)
       if (b && TtlGuild.ready(p, g.taken[k], b)) readyCount++
     })
+    var giver = /^giver_(.+)$/.exec(field)
+    if (giver) {
+      var gb = TtlGuild.find(giver[1])
+      if (!gb) throw `unknown bounty ${giver[1]}`
+      return TtlGuild.giverOf(gb)
+    }
+    var tg = /^take_(desk|fuze)_(.+)$/.exec(field)
+    if (tg) {
+      try {
+        TtlGuild.take(s, p, tg[2], tg[1])
+        return 'allowed'
+      } catch (e) {
+        var text = String(e)
+        return text === 'wrong_giver' ? 'wrong_giver' : text === 'Life 2 only' ? 'life2only' : /needs guild rank/.test(text) ? 'rank' : `other: ${text}`
+      }
+    }
     var dyn = /^(accepted|ready|rep)_(.+)$/.exec(field)
     if (dyn) {
       if (dyn[1] === 'rep') return typeof TtlRep === 'undefined' ? 'n/a' : String(TtlRep.get(p, dyn[2]))
@@ -160,7 +184,10 @@ ServerEvents.commandRegistry(event => {
       rank: () => String(TtlGuild.rankOf(g).id),
       active: () => String(keys.length),
       ready: () => String(readyCount),
-      board: () => String(TtlGuild.entries(s).length),
+      board: () => String(TtlGuild.entries(s, 'desk').length),
+      board_all: () => String(TtlGuild.entries(s).length),
+      board_desk: () => String(TtlGuild.entries(s, 'desk').length),
+      board_fuze: () => String(TtlGuild.entries(s, 'fuze').length),
       balance: () => String(TtlEcon.balance(p)),
       stage: () => {
         var on = TtlGuild.ranks().filter(r => p.stages.has(`ttl.guild.${String(r.id).toLowerCase()}`)).map(r => String(r.id))
@@ -175,7 +202,7 @@ ServerEvents.commandRegistry(event => {
         }
       }
     }
-    if (!(field in all)) throw `unknown field ${field} (one of ${Object.keys(all).join(', ')}, accepted_<id>, ready_<id>, rep_<faction>)`
+    if (!(field in all)) throw `unknown field ${field} (one of ${Object.keys(all).join(', ')}, accepted_<id>, ready_<id>, rep_<faction>, giver_<id>, take_<giver>_<id>)`
     return all[field]()
   }
 
@@ -286,9 +313,12 @@ ServerEvents.commandRegistry(event => {
 
   event.register(Commands.literal('ttl')
     .then(Commands.literal('guild')
-      .then(Commands.literal('board').executes(logged(board)))
-      .then(Commands.literal('take').then(Commands.argument('ref', Arguments.STRING.create(event)).executes(logged(take))))
-      .then(Commands.literal('turnin').executes(logged(turnin)))
+      .then(Commands.literal('board').executes(logged(board(false)))
+        .then(Commands.argument('giver', Arguments.STRING.create(event)).executes(logged(board(true)))))
+      .then(Commands.literal('take').then(Commands.argument('ref', Arguments.STRING.create(event)).executes(logged(take(false)))
+        .then(Commands.argument('giver', Arguments.STRING.create(event)).executes(logged(take(true))))))
+      .then(Commands.literal('turnin').executes(logged(turnin(false)))
+        .then(Commands.argument('giver', Arguments.STRING.create(event)).executes(logged(turnin(true)))))
       .then(Commands.literal('abandon').then(Commands.argument('ref', Arguments.STRING.create(event)).executes(logged(abandon))))
       .then(Commands.literal('status').executes(logged(status)))
       .then(Commands.literal('roll').requires(ops)

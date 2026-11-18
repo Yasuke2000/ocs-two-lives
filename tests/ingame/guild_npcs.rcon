@@ -1,0 +1,85 @@
+# Guild NPCs (design/data/npcs.toml, economy/guild_npcs.js) and the Fuze / desk split of the bounty board.
+# `ttl guild npc expect <field> <value>` and `ttl guild expect ...` print "ttl: ..." when the value is wrong, which
+# `server.sh test-all` counts as a failure.
+# Needs Tempest placed (the receptionist and the stand-in Fuze stand in its council longhouse) and Easy NPC with the
+# presets from config/easy_npc/preset and `ttl` in config/easy_npc/security.cfg executeAsUserCommandAllowList.ALL.
+# Bot A is a Life 2 soul (test hook), bot B stays in Life 1. A bot standing at a spot loads its chunk.
+# Expect in the log: "[ttl] guild npc: receptionist_tempest (receptionist) spawned at ...", "... had 2 copies, 1 removed",
+# and no "[ttl] guild npc: importing ... failed" or "economy command failed". If Blumund (builds-west1) is placed too,
+# its spots (fuze_blumund, receptionist_blumund_1/2) take over: run the Blumund block below.
+ttlbot spawn TtlBotNpcA
+ttlbot spawn TtlBotNpcB
+@sleep 2
+ttl guild test TtlBotNpcA life2
+ttl guild reset TtlBotNpcA
+# (`ttl guild npc expect presets true` checks that the preset files are on the server; it answers n/a if KubeJS may not read files.)
+# ---- split of the board: Fuze's contracts are only rank B and up, the desk's only below ----
+ttl guild roll
+ttl guild expect TtlBotNpcA board 5
+ttl guild expect TtlBotNpcA board_desk 5
+ttl guild expect TtlBotNpcA board_fuze 2
+ttl guild expect TtlBotNpcA board_all 7
+ttl guild npc expect fuze_board_size 2
+ttl guild npc expect fuze_board_high true
+ttl guild npc expect desk_board_low true
+ttl guild expect TtlBotNpcA giver_rabbit_cull desk
+ttl guild expect TtlBotNpcA giver_fz_ender_watch fuze
+# A rank F soul sees Fuze's contract but cannot take it ("rank"); a desk contract is not Fuze's to give and a Fuze
+# contract is not the desk's ("wrong_giver"); Life 1 is refused whoever asks.
+ttl guild post fz_ender_watch
+ttl guild post rabbit_cull
+ttl guild expect TtlBotNpcA take_fuze_fz_ender_watch rank
+ttl guild expect TtlBotNpcA take_desk_fz_ender_watch wrong_giver
+ttl guild expect TtlBotNpcA take_fuze_rabbit_cull wrong_giver
+ttl guild expect TtlBotNpcB take_fuze_fz_ender_watch life2only
+ttl guild expect TtlBotNpcB take_desk_rabbit_cull life2only
+# The desk lets her take rabbit_cull (a real take, undone at once); her board never shows Fuze's contracts.
+ttl guild expect TtlBotNpcA take_desk_rabbit_cull allowed
+ttl guild expect TtlBotNpcA accepted_rabbit_cull true
+execute as TtlBotNpcA run ttl guild abandon rabbit_cull
+ttl guild expect TtlBotNpcA accepted_rabbit_cull false
+execute as TtlBotNpcA run ttl guild board desk
+execute as TtlBotNpcA run ttl guild board fuze
+# ---- placement: exactly one of each ----
+ttl guild npc list
+ttl guild npc goto TtlBotNpcA receptionist_tempest
+@sleep 4
+ttl guild npc remove receptionist_tempest
+ttl guild npc expect count_receptionist_tempest 0
+ttl guild npc ensure receptionist_tempest
+ttl guild npc expect count_receptionist_tempest 1
+ttl guild npc expect tags_receptionist_tempest ok
+# Idempotent: another check changes nothing.
+ttl guild npc ensure receptionist_tempest
+ttl guild npc expect count_receptionist_tempest 1
+# An extra copy (test hook) is removed again by the next check.
+ttl guild npc spawn receptionist_tempest
+ttl guild npc expect count_receptionist_tempest 2
+ttl guild npc ensure receptionist_tempest
+ttl guild npc expect count_receptionist_tempest 1
+ttl guild npc goto TtlBotNpcA fuze_tempest
+@sleep 4
+ttl guild npc remove fuze_tempest
+ttl guild npc ensure fuze_tempest
+ttl guild npc expect count_fuze_tempest 1
+ttl guild npc expect tags_fuze_tempest ok
+ttl guild npc spawn fuze_tempest
+ttl guild npc ensure fuze_tempest
+ttl guild npc expect count_fuze_tempest 1
+# By kind: one Fuze, and one receptionist per enabled spot of the receptionist kind (tag ttl.npc.receptionist.<n>).
+ttl guild npc expect count_fuze 1
+# Blumund block (only while Blumund is placed; the Tempest Fuze stand-in is then inactive and `count_fuze` counts the
+# Blumund one): uncomment to run it on a server that has the build.
+# ttl guild npc goto TtlBotNpcA fuze_blumund
+# @sleep 4
+# ttl guild npc ensure
+# ttl guild npc expect count_fuze_blumund 1
+# ttl guild npc expect count_fuze_tempest 0
+# ttl guild npc expect count_fuze 1
+# ttl guild npc expect count_receptionist_blumund_1 1
+# ttl guild npc expect count_receptionist_blumund_2 1
+# Clean up: the NPCs stay (they are the real ones); only the bots go.
+ttl guild reset TtlBotNpcA
+ttl guild npc ensure
+ttlbot remove TtlBotNpcA
+ttlbot remove TtlBotNpcB

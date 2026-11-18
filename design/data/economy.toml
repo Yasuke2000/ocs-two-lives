@@ -43,6 +43,17 @@ poll_ticks = 100
 # Rank-ups of this rank and above are announced in #story (TtlDiscord.post).
 announce_rank = "B"
 
+# Who hands out what (design/data/npcs.toml places the NPCs). Fuze, the guild master, gives the high-level
+# contracts: bounties with giver = "fuze" need this rank or better. The guild receptionists (giver = "desk")
+# give everything below it. tools/gen_data.py checks that no bounty crosses the line.
+fuze_min_rank = "B"
+# Fuze's slice of the board: named contracts rolled with the same date / week keys as the desk's. The slots come
+# after the desk's (desk 1-5, Fuze 6 and 7), `/ttl guild board fuze` and `take <n> fuze` count from 1.
+fuze_daily = 0
+fuze_weekly = 2
+# false: finished Fuze contracts are only handed in to Fuze; true: a receptionist takes them too.
+fuze_turnin_at_desk = false
+
 # Guild ranks F to S. `points` are lifetime bounty points (each bounty has its own `points`).
 [[rank]]
 id = "F"
@@ -82,6 +93,7 @@ points = 400
 # Bounties. Fields:
 #   id        unique [a-z0-9_]
 #   title     shown on the board
+#   giver     desk (guild receptionists, the default when missing) | fuze (the guild master, ranks fuze_min_rank and up)
 #   kind      kill | deliver | visit
 #   target    kill: entity id · deliver: item id · visit: a landmark name from landmarks.toml
 #   count     kills or items (1 for a visit)
@@ -98,6 +110,7 @@ points = 400
 [[bounty]]
 id = "rabbit_cull"
 title = "Cull the Horned Rabbits"
+giver = "desk"
 kind = "kill"
 target = "tensura:horned_rabbit"
 count = 8
@@ -110,6 +123,7 @@ reward = { coins = { silver = 2 }, rep = { blumund = 1 } }
 [[bounty]]
 id = "zombie_sweep"
 title = "Sweep the Night Shamblers"
+giver = "desk"
 kind = "kill"
 target = "minecraft:zombie"
 count = 15
@@ -122,6 +136,7 @@ reward = { coins = { silver = 2 }, rep = { blumund = 1 } }
 [[bounty]]
 id = "skeleton_sweep"
 title = "Quiet the Bone Archers"
+giver = "desk"
 kind = "kill"
 target = "minecraft:skeleton"
 count = 12
@@ -134,6 +149,7 @@ reward = { coins = { silver = 2 }, rep = { blumund = 1 } }
 [[bounty]]
 id = "direwolf_hunt"
 title = "Thin the Direwolf Pack"
+giver = "desk"
 kind = "kill"
 target = "tensura:direwolf"
 count = 4
@@ -146,6 +162,7 @@ reward = { coins = { silver = 5 }, rep = { blumund = 1 } }
 [[bounty]]
 id = "ant_nest"
 title = "Clear the Giant Ants"
+giver = "desk"
 kind = "kill"
 target = "tensura:giant_ant"
 count = 6
@@ -158,6 +175,7 @@ reward = { coins = { silver = 4 }, rep = { blumund = 1 } }
 [[bounty]]
 id = "bat_swarm"
 title = "Drive off the Giant Bats"
+giver = "desk"
 kind = "kill"
 target = "tensura:giant_bat"
 count = 6
@@ -170,6 +188,7 @@ reward = { coins = { silver = 3 }, rep = { blumund = 1 } }
 [[bounty]]
 id = "creeper_ward"
 title = "Ward the Roads from Creepers"
+giver = "desk"
 kind = "kill"
 target = "minecraft:creeper"
 count = 8
@@ -182,6 +201,7 @@ reward = { coins = { silver = 3 }, rep = { blumund = 1 } }
 [[bounty]]
 id = "spider_web"
 title = "Burn out the Black Spiders"
+giver = "desk"
 kind = "kill"
 target = "tensura:black_spider"
 count = 5
@@ -194,6 +214,7 @@ reward = { coins = { silver = 6 }, rep = { blumund = 2 } }
 [[bounty]]
 id = "iron_order"
 title = "Iron for the Smiths"
+giver = "desk"
 kind = "deliver"
 target = "minecraft:iron_ingot"
 count = 16
@@ -206,6 +227,7 @@ reward = { coins = { silver = 3 }, rep = { dwargon = 1 } }
 [[bounty]]
 id = "leather_order"
 title = "Leather for the Tanners"
+giver = "desk"
 kind = "deliver"
 target = "minecraft:leather"
 count = 12
@@ -218,6 +240,7 @@ reward = { coins = { silver = 2 }, rep = { dwargon = 1 } }
 [[bounty]]
 id = "ration_order"
 title = "Rations for the Camp"
+giver = "desk"
 kind = "deliver"
 target = "minecraft:cooked_beef"
 count = 16
@@ -230,6 +253,7 @@ reward = { coins = { silver = 2 }, rep = { tempest = 1 } }
 [[bounty]]
 id = "ore_shards"
 title = "Magic Ore for the Dwarven Forges"
+giver = "desk"
 kind = "deliver"
 target = "tensura:magic_ore_shard"
 count = 6
@@ -242,6 +266,7 @@ reward = { coins = { silver = 8 }, rep = { dwargon = 2 } }
 [[bounty]]
 id = "visit_goblins"
 title = "Check on the Goblin Village"
+giver = "desk"
 kind = "visit"
 target = "goblin_village"
 count = 1
@@ -254,6 +279,7 @@ reward = { coins = { silver = 2 }, rep = { tempest = 1 } }
 [[bounty]]
 id = "visit_dwarves"
 title = "Scout the Dwarven Road"
+giver = "desk"
 kind = "visit"
 target = "dwarf_village"
 count = 1
@@ -266,6 +292,7 @@ reward = { coins = { silver = 3 }, rep = { dwargon = 1 } }
 [[bounty]]
 id = "visit_treyni"
 title = "Report from Treyni's Grove"
+giver = "desk"
 kind = "visit"
 target = "treyni_grove"
 count = 1
@@ -278,6 +305,7 @@ reward = { coins = { silver = 5 }, rep = { tempest = 1 } }
 [[bounty]]
 id = "week_direwolves"
 title = "The Great Direwolf Cull"
+giver = "desk"
 kind = "kill"
 target = "tensura:direwolf"
 count = 20
@@ -290,6 +318,7 @@ reward = { coins = { gold = 1 }, rep = { blumund = 3 } }
 [[bounty]]
 id = "week_spiders"
 title = "Eradicate the Black Spider Nest"
+giver = "desk"
 kind = "kill"
 target = "tensura:black_spider"
 count = 25
@@ -302,6 +331,7 @@ reward = { coins = { gold = 2 }, rep = { blumund = 4 } }
 [[bounty]]
 id = "week_caterpillars"
 title = "Hell Caterpillar Purge"
+giver = "desk"
 kind = "kill"
 target = "tensura:hell_caterpillar"
 count = 10
@@ -314,6 +344,7 @@ reward = { coins = { gold = 2 }, rep = { blumund = 4 } }
 [[bounty]]
 id = "week_blazes"
 title = "Blaze Bounty"
+giver = "desk"
 kind = "kill"
 target = "minecraft:blaze"
 count = 15
@@ -326,6 +357,7 @@ reward = { coins = { gold = 2 } }
 [[bounty]]
 id = "week_magisteel"
 title = "Low Magisteel for Dwargon"
+giver = "desk"
 kind = "deliver"
 target = "tensura:low_magisteel_ingot"
 count = 4
@@ -338,6 +370,7 @@ reward = { coins = { gold = 2 }, rep = { dwargon = 3 } }
 [[bounty]]
 id = "week_diamonds"
 title = "Diamonds for the Guild Vault"
+giver = "desk"
 kind = "deliver"
 target = "minecraft:diamond"
 count = 6
@@ -350,6 +383,7 @@ reward = { coins = { gold = 1, silver = 5 }, rep = { blumund = 2 } }
 [[bounty]]
 id = "week_lizardmen"
 title = "Survey the Lizardmen Caverns"
+giver = "desk"
 kind = "visit"
 target = "lizardmen_caverns"
 count = 1
@@ -362,6 +396,7 @@ reward = { coins = { gold = 1 }, rep = { lizardmen = 2 } }
 [[bounty]]
 id = "week_orc_camp"
 title = "Scout the Orc War Battlefield"
+giver = "desk"
 kind = "visit"
 target = "orc_camp"
 count = 1
@@ -370,6 +405,114 @@ min_rank = "C"
 points = 6
 weight = 5
 reward = { coins = { gold = 2 }, rep = { blumund = 2 } }
+
+# Fuze's contracts (giver = "fuze"): weekly, rank B and up, named. Rewards are gold, a step above the desk's weekly
+# ones, because only the few who reached B (140 points) see them. If /ttl econ shows the faucet running hot,
+# lower these first.
+
+[[bounty]]
+id = "fz_caterpillar_plague"
+title = "Contract: The Caterpillar Plague"
+giver = "fuze"
+kind = "kill"
+target = "tensura:hell_caterpillar"
+count = 25
+period = "weekly"
+min_rank = "B"
+points = 9
+weight = 8
+reward = { coins = { gold = 3 }, rep = { blumund = 5 } }
+
+[[bounty]]
+id = "fz_fortress_raid"
+title = "Contract: Fortress Raid"
+giver = "fuze"
+kind = "kill"
+target = "minecraft:wither_skeleton"
+count = 20
+period = "weekly"
+min_rank = "B"
+points = 9
+weight = 6
+reward = { coins = { gold = 3 } }
+
+[[bounty]]
+id = "fz_magisteel_shipment"
+title = "Contract: Magisteel for the Dwarven Crown"
+giver = "fuze"
+kind = "deliver"
+target = "tensura:low_magisteel_ingot"
+count = 16
+period = "weekly"
+min_rank = "B"
+points = 9
+weight = 6
+reward = { coins = { gold = 4 }, rep = { dwargon = 4 } }
+
+[[bounty]]
+id = "fz_ogre_ruin"
+title = "Contract: Ghosts of the Ogre Village"
+giver = "fuze"
+kind = "visit"
+target = "ogre_village_ruin"
+count = 1
+period = "weekly"
+min_rank = "B"
+points = 8
+weight = 6
+reward = { coins = { gold = 3 }, rep = { tempest = 3 } }
+
+[[bounty]]
+id = "fz_ender_watch"
+title = "Contract: The Ender Watch"
+giver = "fuze"
+kind = "kill"
+target = "minecraft:enderman"
+count = 30
+period = "weekly"
+min_rank = "A"
+points = 12
+weight = 6
+reward = { coins = { gold = 5 } }
+
+[[bounty]]
+id = "fz_ravager_herd"
+title = "Contract: Break the Ravager Herd"
+giver = "fuze"
+kind = "kill"
+target = "minecraft:ravager"
+count = 6
+period = "weekly"
+min_rank = "A"
+points = 12
+weight = 5
+reward = { coins = { gold = 5 }, rep = { blumund = 5 } }
+
+[[bounty]]
+id = "fz_diamond_vault"
+title = "Contract: Refill the Guild Vault"
+giver = "fuze"
+kind = "deliver"
+target = "minecraft:diamond"
+count = 24
+period = "weekly"
+min_rank = "A"
+points = 12
+weight = 5
+reward = { coins = { gold = 6 }, rep = { blumund = 3 } }
+
+[[bounty]]
+id = "fz_wither_hunt"
+title = "Legend's Contract: The Withered King"
+giver = "fuze"
+kind = "kill"
+target = "minecraft:wither"
+count = 1
+period = "weekly"
+min_rank = "S"
+points = 20
+weight = 4
+reward = { coins = { gold = 9 }, rep = { blumund = 6 } }
 
 # Sinks. `charge(player, 'name')` in economy/sinks.js (TtlEcon.fee) reads these; the callers are the other work
 # packages: nations (charter, upkeep), bosses (altar), registry (Skill Core identification).

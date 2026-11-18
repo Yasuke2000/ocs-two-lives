@@ -757,6 +757,14 @@ file = "config/easy_npc/npc_base.cfg"
 hash = "3f871a556a9f1d11baa6e86e46240e22d98ae364f3112f44678571a677d5abd0"
 
 [[files]]
+file = "config/easy_npc/preset/ttl_guild_fuze.npc.snbt"
+hash = "e2763b0fdc774df40eac20e95e8f63de816ef92684f559eebf572c2137e7310a"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_guild_receptionist.npc.snbt"
+hash = "5541820b7d3f24bfd919a59125213245924a036018b50de0959863e345b12234"
+
+[[files]]
 file = "config/easy_npc/remote_texture.cfg"
 hash = "4394b0cb0865a0c2a3ac5fc6a2674cc0733c2fc96de3c25866707dedfed5ae09"
 
@@ -766,7 +774,7 @@ hash = "27ed04caa1cd9b584ced94c1d72148aa6410245d1fa807ada2a5af04f7f5cd3c"
 
 [[files]]
 file = "config/easy_npc/security.cfg"
-hash = "f826678fd23fc8912280b6c4970223b84173db74dff271fac68fb6838f4e02a0"
+hash = "b42c9cc807e11bdff1facc381bf4c0d401397278e9b71b087ede456971c40ed9"
 
 [[files]]
 file = "config/easy_npc/spawner_type.cfg"
@@ -1610,11 +1618,15 @@ hash = "b7041324b5ef261db171a75b0d949daa71508a0c0cfb9c776fafe590337a3510"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/commands.js"
-hash = "14578b2f576c540ade5d9160336d6cfcfe505938660162c0d5c067ee4bb2bf5c"
+hash = "16e6e22d85bec4202702f58c1818197a37e69b2b22539c51c08108c26b5c3837"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/guild.js"
-hash = "0b3d1b9eb4cd459ce26726f29d1b50d0fbe23b99efd2eadea1a4232e7b9a2e89"
+hash = "bdc78c5bd59c514f66c38299aa609071741fcc9a2763240ff60317622810ab05"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/economy/guild_npcs.js"
+hash = "4f0d91f7db9958017a095cf13bb026911a07e295a21915f212d128475383c4dc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/merit.js"
@@ -1650,7 +1662,7 @@ hash = "33b3cab039c79101a45c6c088518853ab3627934336c06f0f969ce0f5729fe2b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "440bb13c6514ae9d84dfb8800cb1032d9d16e8db14f4a9898e8e4c19e68dc7a9"
+hash = "7eb57d4810fdeb770958e3d8217db65720c7b0489104e84cde8e41fb2b6451fe"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
