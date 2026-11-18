@@ -16,23 +16,30 @@ tests kept out of Discord).
   extra claims through the dispatcher, `ttl absorb expect <player> ...`, Easy NPC remove discards, Carrion two-hit kills,
   `era testmark|testrestore|next silent|set`, Fuze tested in Blumund, cast without the presets check. The stash was applied
   wholesale (then dropped); see the decisions.md rows of 18/11/2026.
-- **Not verified as a full `test-all` by me**: Tailscale SSH to the node went into *check mode* at ~11:40 ("Tailscale SSH requires an
-  additional check. To authenticate, visit: https://login.tailscale.com/a/…"); nobody but Yasuke can approve that in a browser.
-  Until then every `tools/server.sh` call hangs. ttl-ops (in-cluster) still deploys and tests every push: its verdict is the
-  commit status "ttl staging" on GitHub and the message in Discord #server-log (`gh api repos/Yasuke2000/ocs-two-lives/commits/<sha>/status`).
-  ttl-ops results today: `901bef1` 9 failing (absorb, bosses, cast, guild, guild_npcs, nations, party, story, wild), `dd85654` 9 failing
-  (same code; my `/reload` landed in the middle of its absorb test), `3e7c05c` → see the status.
+- `6609962` **arrival grace + NPC hold + Ballachia 128**: ttl-ops on `3e7c05c` left 3 failing (arrival, guide, guild_npcs):
+  a Blade Tiger and a Barghest killed the fresh bots 2–6 s after landing on the rim (the rim is safe from magicule, not from
+  Tensura's mobs) → `arrival.toml grace_seconds = 20` (life/mortal_immunity.js refuses all damage to a Life 2 soul for 20 s
+  after rebirth; never `/kill`, never in Life 1, `ttl reset` drops the stamp); the periodic NPC check removed the test copy
+  before its expect → a test-hook `guild npc spawn` holds the check 15 s; Ballachia found no dry spot within 32 blocks →
+  `search = 128` (placed 68 blocks from the canon point, 5 % water). ttl-ops on `6609962`: **1 failing** (guide: the grace
+  swallowed the test's `/kill` of a just-reset bot) → fixed in the next commit, `test guide` green via push-scripts.
+- **Tailscale SSH check mode** hit at ~11:40 ("Tailscale SSH requires an additional check. To authenticate, visit:
+  https://login.tailscale.com/a/…"); only Yasuke can approve it in a browser (done ~12:20). Until then every `tools/server.sh`
+  call hangs; ttl-ops keeps deploying and testing every push (verdict: commit status "ttl staging" on GitHub, the names in
+  Discord #server-log, the full table in the ttl-ops pod: `kubectl -n ocs-two-lives exec deploy/ttl-ops -- cat /work/tests.txt`).
+- **Builds verified** (`tools/verify_build.py`, pass mark 98): el_dorado, frost_palace, sacred_mountain, heaven_tower, ballachia,
+  blumund, englassia, laura, marris, treyni_shrine, clayman_castle, dragons_nest, forgotten_dragon_city, lubelius, sealed_cave,
+  spirit_dwelling all **100.00 %**; spirit_gate 99.96 % (55 mismatched of 129,960); dwargon v5 99.99 % (42 of 797,912);
+  mortal_spawn v2 (Wayfarer's Rest) 99.92 % (19 of 23,867). All above the 98 % mark.
+- Staging state after the runs: `/ttl era reset` done (era 1), legendcap reset, cooldowns cleared, no bosses out, events ended,
+  war flags cleared, mute off, no nation; registry holds only ultimate_Yasuke_'s chosen_one + usurper (a real player).
 
 ## Next steps (in order)
 
-1. Yasuke: run `ssh root@100.109.28.21` once in a terminal and open the printed login.tailscale.com link (check mode); then
-   `bash tools/server.sh test-all` → fix what is left (`bash tools/server.sh test <name>`; `push-scripts` for KubeJS-only edits).
-   Note `guild.rcon` was in the 9 but its output was not among the morning's green runs: look at it first.
-2. `python tools/verify_build.py <name> --log --min 98` for the new/re-placed builds (el_dorado, frost_palace, sacred_mountain,
-   ballachia, heaven_tower, blumund, englassia, laura, marris, treyni_shrine, clayman_castle, dragons_nest,
-   forgotten_dragon_city, lubelius, sealed_cave, spirit_gate, dwargon; `mortal_spawn --dimension ttl:mortal_realm`,
-   `spirit_dwelling --dimension ttl:spirit_domain`) after their `[ttl] <name> placed` lines.
-3. `/ttl era reset` on staging (the era is ~20 from test runs), then the Before-launch list below.
+1. Watch the ttl-ops verdict of the last push (`gh api repos/Yasuke2000/ocs-two-lives/commits/<sha>/status`); expected 0 failing.
+   If Tailscale SSH asks for a check again, run `ssh root@100.109.28.21` in a terminal and open the printed link.
+2. Builds: all verified today (above); only `spirit_gate` has 55 real mismatches worth a look (`verify_build.py spirit_gate minecraft:overworld -246 68 106`).
+3. Before launch: the list below once more on the final pack (era reset etc. were run today, ~13:10).
 4. Pregenerate the continent with Distant Horizons; BlueMap; wave B leftovers (WP8 event pack, WP10 boss payouts, WP11 Discord roles).
 
 ## Live / merged on main (night 17–18/11)

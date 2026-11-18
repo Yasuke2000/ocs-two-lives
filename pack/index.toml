@@ -1998,7 +1998,7 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "2678ff17401922774c6da86c5ec4260975ec4601d9cb1cce2a2eb79bc80bed4d"
+hash = "517710114437c098b23a0e4ac50b628c41b79b9466dd65aa824ad82a9543d4de"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -2030,7 +2030,7 @@ hash = "a387a538f9b72117e9e10530cf947ac32bff9779ca8f5bfa7a3d426573256444"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_immunity.js"
-hash = "31ce1a75fe7b93fb52a965309ac203c8c487e0b837e18f66706051ea12ec60e2"
+hash = "74fd29ede83aa7876e4006fb0820b178ed84a50f4ccacf4e3a5bc901aaa7f42d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"

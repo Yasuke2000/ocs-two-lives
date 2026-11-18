@@ -9,7 +9,8 @@
 // (legendEcho, skills.toml [legend_pick]) while the registry has room; taking it spends a Legendary slot.
 const TtlCorridor = {
   KEYS: ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.trial.done', 'ttl.trial.passed',
-    'ttl.raceSet', 'ttl.trial.token', 'ttl.trial.ready', 'ttl.trial.wave', 'ttl.trial.q', 'ttl.trial.correct', 'ttl.trial.strikes'],
+    'ttl.raceSet', 'ttl.trial.token', 'ttl.trial.ready', 'ttl.trial.wave', 'ttl.trial.q', 'ttl.trial.correct', 'ttl.trial.strikes',
+    'ttl.l2.arrived'],
 
   title(id) {
     var path = String(id).replace(/^.*:/, '')

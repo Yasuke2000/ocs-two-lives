@@ -38,9 +38,12 @@ const TtlMortalImmunity = {
   // Arrival grace: for `grace_seconds` (arrival.toml, default 20) after the rebirth a Life 2 soul takes no damage at all.
   // Blade Tigers and Barghests roam the safe rim too, and a fresh soul with 50 magicules died 2–6 s after landing
   // (staging 18/11/2026). The soul is still a target; it only has time to walk away. 0 turns the grace off.
-  inGrace(player) {
+  // Never against /kill (genericKill) or the void, and only in Life 2 (`ttl reset` drops the stamp as well).
+  inGrace(player, source) {
     var at = Number(String(player.persistentData.getString('ttl.l2.arrived')) || 0)
-    if (!at) return false
+    if (!at || TtlLife.phase(player) !== 'life2') return false
+    var text = String(source)
+    if (text.indexOf('genericKill') >= 0 || text.indexOf('outOfWorld') >= 0 || text.indexOf('fellOutOfWorld') >= 0) return false
     var cfg = (TtlData.arrival || {}).life2 || {}
     var secs = cfg.grace_seconds === undefined ? 20 : Number(cfg.grace_seconds)
     return Date.now() - at < secs * 1000
@@ -50,7 +53,7 @@ const TtlMortalImmunity = {
 EntityEvents.beforeHurt(event => {
   var entity = event.entity
   if (!entity.isPlayer()) return
-  if (TtlMortalImmunity.inGrace(entity)) {
+  if (TtlMortalImmunity.inGrace(entity, event.source)) {
     event.cancel()
     return
   }
