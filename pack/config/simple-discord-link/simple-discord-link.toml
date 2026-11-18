@@ -340,7 +340,7 @@
 		roleDenied = "Sorry, but you are not allowed to access this server."
 
 #Execute Minecraft commands in Discord
-# OCS: Discord ?commands, only in #ideas-and-feedback and #logging-and-server-notifactions. sdlink matches a
+# OCS: Discord ?commands, only in #ideas-and-feedback and #server-log. sdlink matches a
 # command against each list with startsWith and then runs it with full permissions, so every entry is an exact,
 # read-only command (or a script command that only does one safe thing): never add stop/op/ban/whitelist/
 # "ttl reset"/"ttl registry" (its prefix also covers "ttl registry free"). There is no confirm step.

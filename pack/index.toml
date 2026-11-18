@@ -898,7 +898,7 @@ hash = "3a06e656323ddfd8221469c3aebf0849e65638aa886d71ceb4cbf9e023b9787d"
 
 [[files]]
 file = "config/simple-discord-link/simple-discord-link.toml"
-hash = "86962ed60a7238129e315e2ebe8e3bf93dab84f88b30be3e785b9767fbfd9b63"
+hash = "09147427f89ee62b0140ec900cbfc10f969f3e111a4c2c774ac4c4bea8765268"
 
 [[files]]
 file = "config/sophisticatedbackpacks-common.toml"
@@ -1374,7 +1374,7 @@ hash = "b7041324b5ef261db171a75b0d949daa71508a0c0cfb9c776fafe590337a3510"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "63103c5386811bdbb2d817b9e3033c93888d93c910419fa38d6907ee19779e19"
+hash = "3dbe889cd5ce4cff5ec24911b58358f69f0d859c0c2d13b874d0a686d9981fca"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1458,7 +1458,7 @@ hash = "5be234dc9994795c9a20b10ce5cb58c5081b31adcb087be3bf584e698679de28"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
-hash = "e4a734c840bedd2b3f692f6dc7d13e95ef6b195e219f2d06424467f774086760"
+hash = "4a972dc31918971f0782fe49de5d284121a8bf42cc7fa91fc69091a55bd24dd9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
@@ -1506,7 +1506,7 @@ hash = "dbdcf85a6979080cb90d351ff461afb055c38d282b1ad4a15e0c51f4dbac534d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "921721749c4ff733b9a776588426c5146440503e4a98570c3ba75786ed7446bb"
+hash = "970c1a7a4cb7b2c268d9abda55316f4a23d5ea5be93f1f54609459ebd7d3d981"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"

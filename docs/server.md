@@ -1,8 +1,8 @@
 # Test server
 
-The staging server runs on David's homelab (Kubernetes, node3) from the `itzg/minecraft-server` image.
+The staging server runs on Yasuke's homelab (Kubernetes, node3) from the `itzg/minecraft-server` image.
 Its settings live in a private infrastructure repo, so they are listed here. To change one, open an
-issue with the label `server` or ask David.
+issue with the label `server` or ask Yasuke.
 
 | Setting | Value |
 |---|---|
@@ -14,7 +14,7 @@ issue with the label `server` or ask David.
 | View / simulation distance | 16 / 8 chunks (Distant Horizons draws further) |
 | Difficulty | hard |
 | PvP | open everywhere, Life 1 included (owner decision 18/11/2026). Another player can end your only first life; killing players darkens karma (`player_kills` is a Chaos stat in `design/data/karma.toml`). The guide says so. |
-| Whitelist | on — send David your Minecraft name |
+| Whitelist | on — send Yasuke your Minecraft name |
 | Spawn protection | off |
 | Flight | allowed (Tensura flight skills and wings; off kicks players mid-air) |
 | Pack | installed from `main` (`pack/pack.toml`) on every restart |
@@ -30,7 +30,7 @@ run and the commit gets a ✅/❌ "ttl staging" status. Players online are never
 `tools/server.sh` and the Python tools (`capture.py`, `verify_build.py`, `import_configs.py`, `import_schem.py`, via `tools/cluster.py`)
 use `~/.kube/ocs-two-lives.yaml` when it exists: kubectl straight to the K3s API over Tailscale with the
 ServiceAccount `ttl-operator`, which can only reach this namespace (pods, exec, logs, restarts). No SSH means no
-Tailscale SSH re-checks. Without the file they fall back to SSH to the node. Ask David for the key; never commit it.
+Tailscale SSH re-checks. Without the file they fall back to SSH to the node. Ask Yasuke for the key; never commit it.
 
 ## Checking placed builds and landmarks
 
@@ -62,7 +62,7 @@ at 03:00 (7 kept), a backup to the NAS (`nfs://10.0.20.14:/volume1/media/longhor
 minutes behind. ttl-ops posts in Discord when the newest completed backup is older than 2 days.
 A world reset (`ttl-reset.txt`) also keeps the old terrain in `world-ttl/ttl-backup/<time>/` on the volume.
 
-Restore (David, Longhorn UI → Backup):
+Restore (Yasuke, Longhorn UI → Backup):
 1. Pick the backup of `pvc-d09ea911-…` → **Restore** to a new volume (e.g. `mc-data-restore`), wait until
    it is healthy.
 2. Nobody online; scale the server down by pausing ArgoCD auto-sync for `ocs-two-lives` and
@@ -77,7 +77,7 @@ the overworld's `region`) from the restored volume; everything else stays.
 
 The server is a friend group, but it is in the EU, so players get the usual rights: to see, correct and delete what we
 hold about them. The players' own summary is the guide page "Privacy: what we keep" (`design/data/guide.toml`,
-`/ttl guide`). David is the contact and decides on requests. The legal basis is legitimate interest (running and
+`/ttl guide`). Yasuke is the contact and decides on requests. The legal basis is legitimate interest (running and
 protecting the server); the Discord link is something a player chooses to do.
 
 | Data | Where | Why | How long |
@@ -92,7 +92,7 @@ protecting the server); the Discord link is something a player chooses to do.
 No bank, payment or identity data is collected. Bug reports and the activity log can show where a player built and
 when they played; they are never shared outside staff, except the GitHub issue described above.
 
-### Purging old data (David / ttl-ops)
+### Purging old data (Yasuke / ttl-ops)
 
 KubeJS cannot delete files, so the purge is a shell snippet. Run it weekly (a ttl-ops job inside the cluster uses
 `kubectl` directly; from a PC use `k3s kubectl` on the node or `tools/server.sh`'s kubeconfig):
@@ -121,7 +121,7 @@ scheduled, the "180 days" in the guide is a promise nobody enforces: schedule it
    GitHub issues titled `[bug] <name>: …` (`gh issue delete <n>`, or edit the issue to remove the table).
 2. **Discord link:** remove the account in sdlink and the `Linked`, Life and tier roles; the player can leave
    the Discord server to end the link. (The sdlink command for this has not been checked here.)
-3. **Activity log:** no per-player delete exists; it ages out at 180 days, or David deletes the rows by hand in the SQLite file.
+3. **Activity log:** no per-player delete exists; it ages out at 180 days, or Yasuke deletes the rows by hand in the SQLite file.
 4. **Game data:** only when the player leaves for good: `/ttl reset <player>` and a player-file delete while the
    server is stopped; backups roll off in about 4 weeks. Builds stay with the world.
 
@@ -129,7 +129,11 @@ scheduled, the "180 days" in the guide is a promise nobody enforces: schedule it
 
 The bot is the server-side mod **Simple Discord Link** (`sdlink` 3.4.5 + CraterLib, config
 `pack/config/simple-discord-link/simple-discord-link.toml`). It runs inside the Minecraft server, so there is
-no separate bot service. What it does in `#minecraft`:
+no separate bot service. What it does in `#minecraft`. The server's layout (categories, channels, permissions, the
+pinned "How to use this channel" message in every channel, the start guide and the rules) is built by
+`tools/discord_setup.sh`; the texts are in [discord-guides.md](discord-guides.md). The game's channel ids are in
+`design/data/discord.toml` and the sdlink config (`CFG_DISCORD_CHANNEL` = `#minecraft`, `CFG_DISCORD_EVENTS` =
+`#story`); the setup script reuses those channels, so a rebuild keeps the ids.
 
 | Feature | How |
 |---|---|
@@ -146,7 +150,7 @@ token every post is silently dropped.
 ### Creating the bot (once)
 
 The token is the bot's password. It never goes into git, an issue, a PR or a Discord channel: whoever creates
-the bot sends it to David privately, and David puts it into the Kubernetes secret. Leaked? Reset it (step 3)
+the bot sends it to Yasuke privately, and Yasuke puts it into the Kubernetes secret. Leaked? Reset it (step 3)
 and update the secret.
 
 1. <https://discord.com/developers/applications> → **New Application**. Name it e.g. "Voice of the World"
@@ -164,7 +168,7 @@ and update the secret.
    manage it (topic).
 6. Discord **User Settings → Advanced → Developer Mode** on; right-click **#minecraft → Copy Channel ID**.
 
-### Putting it on the server (David)
+### Putting it on the server (Yasuke)
 
 The config ships placeholders that the itzg image fills in from the environment on every start, after the
 packwiz install (`REPLACE_ENV_VARIABLES`); sdlink then encrypts the token in the server's copy.
@@ -223,7 +227,7 @@ copy and restarting.
 | Leaderboard | One message in `#leaderboard` that the bot edits: brightest soul ever, longest first life, Legends, great foes slain, most chosen races, souls now in Life 1 / Corridor / Life 2. In game: `/ttl top`. | `hall.js`: all-time records in `ttl.hall.records`, message id in `ttl.hall.lbmsg` (deleted → posted again); edited every 10 min and soon after a story event. |
 | World events | `#story` hears when someone awakens as a **True Demon Lord** or **True Hero**, or starts the **Harvest Festival** (the Great Sage's World Voice events). | `awaken.js` polls Tensura's existence storage (`TensuraStorages.getExistenceFrom`) like the Great Sage does. Naming is not relayed (nothing to poll). |
 | `?bugreport <text>` | Linked members, in `#ideas-and-feedback`: becomes a GitHub issue through the in-game `/bug` (prefixed "from Discord, @name"). Online → filed at once; offline → filed when they next join. | `report.js`; sdlink runs the command under the linked Minecraft name (`chat.useLinkedNames = true`). |
-| Staff `?commands` | `modder` role, in `#ideas-and-feedback` or `#logging-and-server-notifactions`: `?list`, `?neoforge tps`, `?ttl inspect <player>`, `?ttl spawn`, `?ttl staff status`, `?ttl staff registry`, `?ttl recap preview`, `?ttl discordroles <player> [dry]`, plus the member commands. Read-only on purpose: sdlink has no confirm step. | `[minecraftCommands.permissions]` in the sdlink config. |
+| Staff `?commands` | `modder` role, in `#ideas-and-feedback` or `#server-log`: `?list`, `?neoforge tps`, `?ttl inspect <player>`, `?ttl spawn`, `?ttl staff status`, `?ttl staff registry`, `?ttl recap preview`, `?ttl discordroles <player> [dry]`, plus the member commands. Read-only on purpose: sdlink has no confirm step. | `[minecraftCommands.permissions]` in the sdlink config. |
 
 Setup notes:
 

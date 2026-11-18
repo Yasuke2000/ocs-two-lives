@@ -1,28 +1,44 @@
 # Discord guides (OCS Tensura: Two Lives)
 
-The texts of the server's start guide and of the pinned "How to use this channel / Hoe gebruik je dit kanaal"
-message in every channel, in English and Dutch. **Source of truth: `tools/discord_setup.sh`**, which also posts,
-edits and pins them (idempotent; re-run it after changing a text). This file is generated:
+The layout of the server and the texts of its guides, in English and Dutch: the start guide, the rules, the
+contribute flow and the pinned "How to use this channel / Hoe gebruik je dit kanaal" message that starts
+**every** channel (first message, pinned, then the real content). **Source of truth: `tools/discord_setup.sh`**,
+which also builds the layout and posts, edits and pins the messages (idempotent; re-run it after changing a text
+or the layout). This file is generated:
 
 ```sh
 bash tools/discord_setup.sh --export-docs > docs/discord-guides.md
-ssh root@100.109.28.21 'bash -s' < tools/discord_setup.sh      # applies it (token read from the k8s secret, never printed)
+ssh -o LogLevel=ERROR root@100.109.28.21 'bash -s' < tools/discord_setup.sh                # applies it (token read from the k8s secret, never printed)
+ssh -o LogLevel=ERROR root@100.109.28.21 'bash -s -- --wipe' < tools/discord_setup.sh      # first-time rebuild: also clears the messages of channels where the how-to is not first
 ```
 
-`#name` below is a clickable channel mention in Discord. Pinning needs the bot to have *Manage Messages* (or
-*Pin Messages*); without it the script still posts and reports `PIN FAILED`. Messages are limited to 2000 characters.
+`#name` below is a clickable channel mention in Discord. Messages are limited to 2000 characters. Existing channels
+are reused (renamed, moved, re-permissioned) so their ids, webhooks and the ids in `design/data/discord.toml` and the
+sdlink config stay valid; `--wipe` is the only mode that deletes messages. The old default channels (`#algemeen`,
+voice "Algemeen", categories "Tekstkanalen" / "Spraakkanalen") are removed. Roles are only checked, not changed: the
+bot's role must stay above Life 1 ... Fallen, and `modder` above `Linked`.
 
-## Channels the script creates
+## Layout
 
-| Channel | Category | Who can write | Topic |
-|---|---|---|---|
-| `#chat` | Minecraft | everyone | General off-game chat: say hi, find people to play with. The in-game chat is #minecraft. / Algemene babbel buiten het spel: zeg hallo, zoek medespelers. De chat met het spel is #minecraft. |
-| `#contribute` | Development | everyone | How to help: GitHub issues, project board, pull requests. Nothing is merged without Yasuke's approval. / Zo help je mee: GitHub-issues, projectbord, pull requests. Niets gaat live zonder goedkeuring van Yasuke. |
-| `#dev-chat` | Development | everyone | For people working on the pack and mod (repo, tools, scripts, PRs). Open to everyone. / Voor wie aan de pack en de mod werkt (repo, tools, scripts, PRs). Open voor iedereen. |
+Category | Channel | Who can write | Topic
+---|---|---|---
+📌 START | `#welcome` | read-only (the bot posts, members react) | Start here: install with Prism, join, link your Discord with /verify. / Begin hier: installeren met Prism, joinen, je Discord koppelen met /verify.
+📌 START | `#rules-and-info` | read-only (the bot posts, members react) | Rules, roles and useful links. / Regels, rollen en handige links.
+📌 START | `#announcements` | read-only (the bot posts, members react) | News, updates and maintenance. Read-only. / Nieuws, updates en onderhoud. Alleen-lezen.
+🎮 MINECRAFT | `#minecraft` | everyone | (maintained by the bot: player count and uptime)
+🎮 MINECRAFT | `#story` | read-only (the bot posts, members react) | Deaths, rebirths, Legends and the weekly Hall of Souls (Sundays 20:00). Read-only. / Sterfgevallen, wedergeboortes, Legends en de wekelijkse Hall of Souls (zondag 20:00). Alleen-lezen.
+🎮 MINECRAFT | `#leaderboard` | read-only (the bot posts, members react) | Live standings, updated about every 10 minutes (in game: /ttl top). Read-only. / Live klassement, ongeveer elke 10 minuten bijgewerkt (in het spel: /ttl top). Alleen-lezen.
+🎮 MINECRAFT | `#screenshots` | everyone | Your best builds and moments. / Je mooiste builds en momenten.
+💬 COMMUNITY | `#chat` | everyone | General off-game chat: say hi, find people to play with. The in-game chat is #minecraft. / Algemene babbel buiten het spel: zeg hallo, zoek medespelers. De chat met het spel is #minecraft.
+💬 COMMUNITY | `#ideas-and-feedback` | everyone | Ideas and feedback; linked players can report bugs with ?bugreport followed by your text. / Ideeën en feedback; gekoppelde spelers melden bugs met ?bugreport gevolgd door je tekst.
+💬 COMMUNITY | voice `Voice` | everyone | 
+🛠 DEVELOPMENT | `#contribute` | everyone | How to help: GitHub issues, project board, pull requests. Nothing is merged without Yasuke's approval. / Zo help je mee: GitHub-issues, projectbord, pull requests. Niets gaat live zonder goedkeuring van Yasuke.
+🛠 DEVELOPMENT | `#dev-chat` | everyone | For people working on the pack and mod (repo, tools, scripts, PRs). Open to everyone. / Voor wie aan de pack en de mod werkt (repo, tools, scripts, PRs). Open voor iedereen.
+🔒 STAFF | `#server-log` | staff only (modder role + bot) | Staff only: server notices (deploys, tests, crashes, up/down, GitHub). / Alleen staff: servermeldingen (deploys, tests, crashes, aan/uit, GitHub).
 
-`#welcome` topic: Start here: install with Prism, join, link your Discord with /verify. / Begin hier: installeren met Prism, joinen, je Discord koppelen met /verify. `#minecraft`'s topic is maintained by the bot (player count, uptime): leave it.
+Channels hidden from members: `#server-log` is visible to the `modder` role and the bot only.
 
-## #welcome: start guide (four bot messages, edited in place)
+## #welcome: start guide (four bot messages after the pinned how-to)
 
 ### 1. English: welcome and joining
 
@@ -58,55 +74,115 @@ Een Minecraft-modpackserver waar je **twee keer** leeft. Eerst als gewone mens i
 `/ttl guide` de volledige gids · `/ttl life` hoe je leven beoordeeld wordt · `/ttl top` het klassement · `/bug <tekst>` meld een probleem (wordt een publiek GitHub-issue)
 ````
 
-### 3. English: channels and roles
+### 3. English: where to find what
 
 ````
-**Channels and roles**
-**Info**
+**Where to find what**
+**📌 START**
 - #welcome: this start guide
+- #rules-and-info: the rules, the roles and useful links
 - #announcements: news, updates and maintenance
-**Play**
-- #chat: talk about anything, outside the game
+**🎮 MINECRAFT**
 - #minecraft: live bridge with the game: what you type here shows up in game, and the other way round
 - #story: deaths, rebirths, Legends and the weekly Hall of Souls
-- #screenshots: your best builds and moments
 - #leaderboard: live standings (in game: `/ttl top`)
-**Build with us**
+- #screenshots: your best builds and moments
+**💬 COMMUNITY**
+- #chat: talk about anything, outside the game
 - #ideas-and-feedback: ideas, feedback and `?bugreport <text>` (linked players)
+- #Voice: voice chat
+**🛠 DEVELOPMENT**
 - #contribute: how to help improve the pack
 - #dev-chat: talk with the people working on the pack and mod
-**Server**
-- #logging-and-server-notifactions: automatic notices (deploys, server up/down)
-
-**Roles** (automatic once linked): **Linked**; **Life 1** / **Life 2**; **Wanderer**, **Survivor**, **Hero**, **Legend** (karma tier, once your first life is judged); **Fallen** (the dark path).
-**Bot commands:** `/verify <code>`, `/playerlist`, `/status`, `/help`
+Every channel starts with a pinned "How to use this channel" message. Lost? Read that one first.
 ````
 
-### 4. Dutch: kanalen en rollen
+### 4. Dutch: waar vind je wat
 
 ````
-**Kanalen en rollen**
-**Info**
+**Waar vind je wat**
+**📌 START**
 - #welcome: deze startgids
+- #rules-and-info: de regels, de rollen en handige links
 - #announcements: nieuws, updates en onderhoud
-**Spelen**
-- #chat: babbelen over alles, buiten het spel
+**🎮 MINECRAFT**
 - #minecraft: live koppeling met de game: wat je hier typt zie je in het spel, en omgekeerd
 - #story: sterfgevallen, wedergeboortes, Legends en het wekelijkse Hall of Souls
-- #screenshots: je mooiste builds en momenten
 - #leaderboard: het live klassement (in het spel: `/ttl top`)
-**Meebouwen**
+- #screenshots: je mooiste builds en momenten
+**💬 COMMUNITY**
+- #chat: babbelen over alles, buiten het spel
 - #ideas-and-feedback: ideeën, feedback en `?bugreport <tekst>` (gekoppelde spelers)
+- #Voice: voice chat
+**🛠 DEVELOPMENT**
 - #contribute: hoe je kan helpen om de pack te verbeteren
 - #dev-chat: praten met de mensen die aan de pack en de mod werken
-**Server**
-- #logging-and-server-notifactions: automatische meldingen (deploys, server aan/uit)
-
-**Rollen** (automatisch na het koppelen): **Linked**; **Life 1** / **Life 2**; **Wanderer**, **Survivor**, **Hero**, **Legend** (karma-niveau, zodra je eerste leven beoordeeld is); **Fallen** (het donkere pad).
-**Bot-commando's:** `/verify <code>`, `/playerlist`, `/status`, `/help`
+Elk kanaal begint met een vastgepind bericht "Hoe gebruik je dit kanaal". Kwijt? Lees dat eerst.
 ````
 
-## #contribute: extra pinned messages
+## #rules-and-info: rules, roles and links (four bot messages after the pinned how-to)
+
+### Rules (English)
+
+````
+**Server rules**
+1. **Be respectful.** No harassment, hate or discrimination, no spam or advertising. English and Dutch are both fine.
+2. **No cheating, exploits or duping.** Found an exploit? Report it (`/bug` in game) instead of using it.
+3. **PvP is open everywhere, also in Life 1.** Another player can end your only first life, and killing players darkens your karma. That is part of the game; harassing one person over and over is not.
+4. **Do not grief or steal.** Do not break or take what is not yours. The server logs blocks, containers, chat, commands and sessions for at most 180 days so staff can roll back damage and handle reports.
+5. **Keep private information private.** Do not share personal data (yours or someone else's). `/bug` and `?bugreport` become **public** GitHub issues.
+6. **Staff and Yasuke have the final word.** The `modder` role keeps order here. Usually a warning comes first; serious or repeated breaches can lead to a ban. Questions or complaints: ask a staff member or post in #chat.
+````
+
+### Regels (Nederlands)
+
+````
+**Serverregels**
+1. **Wees respectvol.** Geen pesterijen, haat of discriminatie, geen spam of reclame. Engels en Nederlands mogen allebei.
+2. **Niet valsspelen, geen exploits of dupes.** Exploit gevonden? Meld hem (`/bug` in het spel) in plaats van hem te gebruiken.
+3. **PvP staat overal open, ook in Life 1.** Een andere speler kan je enige eerste leven beëindigen, en spelers doden maakt je karma donkerder. Dat hoort bij het spel; één persoon telkens opnieuw lastigvallen niet.
+4. **Geen griefing of diefstal.** Breek of neem niets wat niet van jou is. De server logt blokken, containers, chat, commando's en sessies maximaal 180 dagen, zodat staff schade kan terugdraaien en meldingen kan behandelen.
+5. **Hou privégegevens privé.** Deel geen persoonsgegevens (van jezelf of van een ander). `/bug` en `?bugreport` worden **publieke** GitHub-issues.
+6. **Staff en Yasuke hebben het laatste woord.** De rol `modder` houdt hier de orde. Meestal volgt eerst een waarschuwing; ernstige of herhaalde overtredingen kunnen een ban betekenen. Vragen of klachten: spreek een staflid aan of post in #chat.
+````
+
+### Roles and links (English)
+
+````
+**Roles** (automatic once you are linked)
+- **Linked**: your Discord is linked to your Minecraft account
+- **Life 1** / **Life 2**: which life you are in (Life 1 includes the Spirit Corridor)
+- **Wanderer**, **Survivor**, **Hero**, **Legend**: your karma tier, once your first life is judged
+- **Fallen**: the dark path, shown next to your tier ("Fallen Hero" = Hero + Fallen)
+- **modder**: staff
+**Bot commands:** `/verify <code>`, `/playerlist`, `/status`, `/help`
+**Useful links**
+- Server address: `molecule-threefold.tun.ply.gg`
+- Modpack (Prism Launcher instance): <https://github.com/Yasuke2000/ocs-two-lives/releases/download/prism-instance/OCS-Two-Lives.zip>
+- GitHub repo: <https://github.com/Yasuke2000/ocs-two-lives>
+- Project board (open work): <https://github.com/users/Yasuke2000/projects/1>
+- How to contribute: #contribute
+````
+
+### Rollen en links (Nederlands)
+
+````
+**Rollen** (automatisch zodra je gekoppeld bent)
+- **Linked**: je Discord is gekoppeld aan je Minecraft-account
+- **Life 1** / **Life 2**: in welk leven je zit (Life 1 omvat de Spirit Corridor)
+- **Wanderer**, **Survivor**, **Hero**, **Legend**: je karma-niveau, zodra je eerste leven beoordeeld is
+- **Fallen**: het donkere pad, naast je niveau ("Fallen Hero" = Hero + Fallen)
+- **modder**: staff
+**Bot-commando's:** `/verify <code>`, `/playerlist`, `/status`, `/help`
+**Handige links**
+- Serveradres: `molecule-threefold.tun.ply.gg`
+- Modpack (Prism Launcher-instance): <https://github.com/Yasuke2000/ocs-two-lives/releases/download/prism-instance/OCS-Two-Lives.zip>
+- GitHub-repo: <https://github.com/Yasuke2000/ocs-two-lives>
+- Projectbord (openstaand werk): <https://github.com/users/Yasuke2000/projects/1>
+- Meehelpen: #contribute
+````
+
+## #contribute: pinned how-to messages (after the pinned how-to)
 
 ### English
 
@@ -144,38 +220,38 @@ All details: <https://github.com/Yasuke2000/ocs-two-lives/blob/main/CONTRIBUTING
 Alle details: <https://github.com/Yasuke2000/ocs-two-lives/blob/main/CONTRIBUTING.md>. Vragen? Stel ze in #dev-chat.
 ````
 
-## Pinned guide per channel
+## Pinned how-to per channel
 
-Posted as one message: the heading line, then EN, then NL.
+The first message of every channel, pinned: the heading line, then EN, then NL, in one message.
 
 ### #welcome
 
 ````
 **How to use this channel / Hoe gebruik je dit kanaal**
-**EN** Start here: how to install the pack, join the server and link your Discord account. Read the four messages above, top to bottom.
+**EN** Start here: how to install the pack, join the server and link your Discord account. Read the messages below, top to bottom: the start guide first, then the channel map.
 This channel is read-only: questions go in #chat.
-**NL** Begin hier: hoe je de pack installeert, de server joint en je Discord-account koppelt. Lees de vier berichten hierboven van boven naar onder.
+**NL** Begin hier: hoe je de pack installeert, de server joint en je Discord-account koppelt. Lees de berichten hieronder van boven naar onder: eerst de startgids, dan de kanalenkaart.
 Dit kanaal is alleen-lezen: vragen stel je in #chat.
+````
+
+### #rules-and-info
+
+````
+**How to use this channel / Hoe gebruik je dit kanaal**
+**EN** The server rules, an explanation of the roles and the bot commands, and the useful links (server address, modpack, GitHub). Read-only: questions go in #chat.
+By being here you agree to the rules below.
+**NL** De serverregels, uitleg over de rollen en de botcommando's, en de handige links (serveradres, modpack, GitHub). Alleen-lezen: vragen stel je in #chat.
+Door hier te zijn ga je akkoord met de regels hieronder.
 ````
 
 ### #announcements
 
 ````
 **How to use this channel / Hoe gebruik je dit kanaal**
-**EN** News about updates, new content and maintenance. Read-only.
+**EN** News about updates, new content and maintenance, posted by the server team and the server itself. Read-only.
 Turn on notifications for this channel so you do not miss anything. Want to react? Do it in #chat.
-**NL** Nieuws over updates, nieuwe content en onderhoud. Alleen-lezen.
+**NL** Nieuws over updates, nieuwe content en onderhoud, gepost door het serverteam en de server zelf. Alleen-lezen.
 Zet meldingen aan voor dit kanaal, dan mis je niets. Wil je reageren? Doe dat in #chat.
-````
-
-### #chat
-
-````
-**How to use this channel / Hoe gebruik je dit kanaal**
-**EN** Talk about anything outside the game: say hi, find people to play with, ask questions. English or Dutch, both are fine.
-Chat with the people in the game itself goes in #minecraft, not here.
-**NL** Babbel hier over alles buiten het spel: zeg hallo, zoek medespelers, stel je vragen. Engels of Nederlands, beide mag.
-Chatten met mensen in het spel zelf doe je in #minecraft, niet hier.
 ````
 
 ### #minecraft
@@ -193,9 +269,19 @@ Handig: `/playerlist` (wie is online), `/status`. Praat over andere dingen in #c
 ````
 **How to use this channel / Hoe gebruik je dit kanaal**
 **EN** The bot posts here as it happens: first-life deaths, rebirths, Legends, great foes slain and world events. Every Sunday at 20:00 it adds the Hall of Souls, a recap of the week.
-Read-only: react or talk about it in #chat.
+Read-only: react to a post, or talk about it in #chat.
 **NL** De bot post hier wat er gebeurt: sterfgevallen in een eerste leven, wedergeboortes, Legends, verslagen grote vijanden en wereldgebeurtenissen. Elke zondag om 20:00 volgt de Hall of Souls, een weekoverzicht.
-Alleen-lezen: reageer of praat erover in #chat.
+Alleen-lezen: reageer op een post, of praat erover in #chat.
+````
+
+### #leaderboard
+
+````
+**How to use this channel / Hoe gebruik je dit kanaal**
+**EN** Live standings: brightest soul, longest first life, Legends, great foes slain and souls per life stage. The bot keeps one message below up to date, about every 10 minutes. Read-only.
+In game you get the same with `/ttl top`.
+**NL** Live klassement: helderste ziel, langste eerste leven, Legends, verslagen grote vijanden en zielen per levensfase. De bot houdt één bericht hieronder bij, ongeveer elke 10 minuten. Alleen-lezen.
+In het spel zie je hetzelfde met `/ttl top`.
 ````
 
 ### #screenshots
@@ -206,14 +292,14 @@ Alleen-lezen: reageer of praat erover in #chat.
 **NL** Deel je builds, uitzichten en grappige momenten: voeg gewoon een afbeelding toe (of plak er een). Hou het bij de server, en zeg waar het staat als het een bezoekje waard is.
 ````
 
-### #leaderboard
+### #chat
 
 ````
 **How to use this channel / Hoe gebruik je dit kanaal**
-**EN** Live standings: brightest soul, longest first life, Legends, great foes slain and souls per life stage. The bot updates the message above about every 10 minutes. Read-only.
-In game you get the same with `/ttl top`.
-**NL** Live klassement: helderste ziel, langste eerste leven, Legends, verslagen grote vijanden en zielen per levensfase. De bot past het bericht hierboven ongeveer elke 10 minuten aan. Alleen-lezen.
-In het spel zie je hetzelfde met `/ttl top`.
+**EN** Talk about anything outside the game: say hi, find people to play with, ask questions. English or Dutch, both are fine.
+Chat with the people in the game itself goes in #minecraft, not here. Please read the rules in #rules-and-info.
+**NL** Babbel hier over alles buiten het spel: zeg hallo, zoek medespelers, stel je vragen. Engels of Nederlands, beide mag.
+Chatten met mensen in het spel zelf doe je in #minecraft, niet hier. Lees ook de regels in #rules-and-info.
 ````
 
 ### #ideas-and-feedback
@@ -226,13 +312,21 @@ Good ideas end up as issues on the project board. Want to build them yourself? S
 Goede ideeën worden issues op het projectbord. Zelf aan de slag? Kijk in #contribute.
 ````
 
+### #Voice
+
+````
+**How to use this channel / Hoe gebruik je dit kanaal**
+**EN** Voice channel for the community: hop in to talk while you play. Be respectful, and mute your mic when you are not talking. The text chat of this channel is for voice-related notes only; other talk goes in #chat.
+**NL** Spraakkanaal voor de community: spring erin om te babbelen terwijl je speelt. Wees respectvol en zet je micro uit als je niet praat. De tekstchat van dit kanaal is alleen voor opmerkingen over de voice; andere babbel hoort in #chat.
+````
+
 ### #contribute
 
 ````
 **How to use this channel / Hoe gebruik je dit kanaal**
-**EN** How to help improve the pack: report bugs, suggest ideas, or change things yourself through GitHub. The steps are in the pinned messages below.
+**EN** How to help improve the pack: report bugs, suggest ideas, or change things yourself through GitHub. The steps are in the pinned messages in this channel.
 Everything reaches `main` (and so the server) only after Yasuke's approval. Questions? Ask in #dev-chat.
-**NL** Zo help je de pack te verbeteren: bugs melden, ideeën voorstellen of zelf dingen aanpassen via GitHub. De stappen staan in de vastgepinde berichten hieronder.
+**NL** Zo help je de pack te verbeteren: bugs melden, ideeën voorstellen of zelf dingen aanpassen via GitHub. De stappen staan in de vastgepinde berichten in dit kanaal.
 Alles komt pas op `main` (en dus op de server) na goedkeuring van Yasuke. Vragen? Stel ze in #dev-chat.
 ````
 
@@ -246,19 +340,13 @@ Decisions and tasks belong in a GitHub issue, not only here. Setup help: `CONTRI
 Beslissingen en taken horen in een GitHub-issue, niet alleen hier. Hulp bij de setup: `CONTRIBUTING.md` in de repo, stappen in #contribute.
 ````
 
-### #logging-and-server-notifactions
+### #server-log
 
 ````
 **How to use this channel / Hoe gebruik je dit kanaal**
-**EN** Automatic notices for the server team: deploys, test results, server up/down. Please do not chat here; use #chat.
-**NL** Automatische meldingen voor het serverteam: deploys, testresultaten, server aan/uit. Praat hier liever niet; gebruik #chat.
-````
-
-### #algemeen
-
-````
-**How to use this channel / Hoe gebruik je dit kanaal**
-**EN** This is the old default text channel. General talk now lives in #chat; the game bridge is #minecraft.
-**NL** Dit is het oude standaardkanaal. Algemene babbel gebeurt nu in #chat; de koppeling met de game is #minecraft.
+**EN** Staff only (the `modder` role and the bot). Automatic notices from the server: deploys and test results, crashes, lag, server up/down, new GitHub issues and pull requests. Staff can also run read-only `?commands` here (`?list`, `?neoforge tps`, `?ttl staff status`, ...).
+Please do not chat here; use #chat.
+**NL** Alleen voor staff (de rol `modder` en de bot). Automatische meldingen van de server: deploys en testresultaten, crashes, lag, server aan/uit, nieuwe GitHub-issues en pull requests. Staff kan hier ook alleen-lezen `?commando's` uitvoeren (`?list`, `?neoforge tps`, `?ttl staff status`, ...).
+Praat hier liever niet; gebruik #chat.
 ````
 

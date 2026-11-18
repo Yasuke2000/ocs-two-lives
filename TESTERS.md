@@ -36,7 +36,7 @@ Alles staat dan al juist: de Minecraft-versie, NeoForge, het geheugen, de mod-in
 
 ## 4. Joinen
 
-1. Stuur **David** je **Minecraft-naam**. De server werkt met een whitelist, dus zonder die stap kom je er niet in.
+1. Stuur **Yasuke** je **Minecraft-naam**. De server werkt met een whitelist, dus zonder die stap kom je er niet in.
 2. Ga naar **Multiplayer**. De server **OCS Tensura: Two Lives** staat er al. Dubbelklik erop.
 
 Staat hij er niet? Klik **Add Server** en vul als adres `molecule-threefold.tun.ply.gg` in, zonder poortnummer.
@@ -64,13 +64,13 @@ Met `/ttl status` zie je in welk leven je zit. Ver kijken: Distant Horizons teke
 
 | Probleem | Oplossing |
 | --- | --- |
-| "You are not whitelisted on this server" | Je naam staat nog niet op de whitelist. Stuur je exacte Minecraft-naam naar David. |
+| "You are not whitelisted on this server" | Je naam staat nog niet op de whitelist. Stuur je exacte Minecraft-naam naar Yasuke. |
 | "Mismatched mod list" of "Incompatible mods" | Je pack is verouderd. Sluit Minecraft volledig en start opnieuw via Prism; packwiz werkt hem dan bij. |
 | Het importeren lukt niet | Controleer of je de link volledig hebt geplakt. Lukt het nog steeds niet, volg dan de handmatige installatie hieronder. |
 | Er verschijnt geen downloadvenster, of er komen geen mods bij | Verwijder de instance en importeer opnieuw (stap 2). |
-| Minecraft crasht bij het opstarten | Klik in Prism op de instance en ga naar **Edit → Minecraft Log**. Klik **Upload** en stuur de link naar David. |
+| Minecraft crasht bij het opstarten | Klik in Prism op de instance en ga naar **Edit → Minecraft Log**. Klik **Upload** en stuur de link naar Yasuke. |
 | Spel loopt heel traag of hapert | Zet in de video-instellingen de **Render Distance** op 8. Heb je 32 GB RAM of meer? Zet dan via **Edit → Settings → Java** het geheugen op 8192 MB. |
-| "Can't connect to server" / timeout | Probeer het na een paar minuten opnieuw. De server is soms aan het herstarten voor een update. Blijft het misgaan, verwittig dan David. |
+| "Can't connect to server" / timeout | Probeer het na een paar minuten opnieuw. De server is soms aan het herstarten voor een update. Blijft het misgaan, verwittig dan Yasuke. |
 
 ## Goed om te weten
 

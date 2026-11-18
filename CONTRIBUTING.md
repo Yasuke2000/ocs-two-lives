@@ -8,7 +8,7 @@ Java mod (`mod/`). The test server installs the pack straight from `main`.
 
 | Tool | Why | Get it |
 |---|---|---|
-| Git + a GitHub account with access to this repo | Changes | git-scm.com — ask David to add you as collaborator |
+| Git + a GitHub account with access to this repo | Changes | git-scm.com — ask Yasuke to add you as collaborator |
 | Python 3.11+ | `tools/*.py` (validation, generators) | python.org |
 | packwiz | Mods and the pack index | `go install github.com/packwiz/packwiz@latest` (needs Go) or a release binary |
 | gh (GitHub CLI) | Releases, PRs | cli.github.com, then `gh auth login` |
@@ -20,7 +20,7 @@ Using Claude Code? Open the repo folder; [CLAUDE.md](CLAUDE.md) and `.claude/` (
 
 ## The workflow
 
-Nothing reaches `main` (and so the server) without David's approval: `main` is protected, every pull
+Nothing reaches `main` (and so the server) without Yasuke's approval: `main` is protected, every pull
 request needs a green `validate` check **and** an approving review from a code owner
 ([`.github/CODEOWNERS`](.github/CODEOWNERS)).
 
@@ -30,11 +30,11 @@ request needs a green `validate` check **and** an approving review from a code o
 4. `python tools/validate.py` — must say `validation passed` (it also regenerates the pack index and
    checks generated files; commit what it changed).
 5. Push the branch and open a pull request (`gh pr create --fill` or the GitHub button). Link the issue
-   (`Closes #12`), fill in the checklist. GitHub asks David for a review automatically.
-6. David reviews: approve, or *request changes* (push more commits to the same branch; they show up in
+   (`Closes #12`), fill in the checklist. GitHub asks Yasuke for a review automatically.
+6. Yasuke reviews: approve, or *request changes* (push more commits to the same branch; they show up in
    the PR). Approved + green `validate` → **Squash and merge**.
 7. After the merge the test server picks it up when nobody is online, runs all bot tests and marks the
-   commit ✅ or ❌ ("ttl staging" on GitHub; also posted in Discord #logging-and-server-notifactions).
+   commit ✅ or ❌ ("ttl staging" on GitHub; also posted in Discord #server-log).
 8. Test it in game. Problems? `/bug <what happened>`.
 
 Small, focused PRs get reviewed fastest. Unsure about an idea? Open an *Idea* issue first and talk it
@@ -51,7 +51,7 @@ through before building it.
 | A build to make or improve | *Build request* form (paste reference images) | `build` |
 | World doesn't match the lore | *World / lore fix* form (coordinates + source) | `lore` |
 
-Every issue lands on the board [OCS Two Lives](https://github.com/users/Yasuke2000/projects/1) (Triage → To do → In progress → Done) and is posted to Discord. David triages them (labels, priority, who takes it); take one by
+Every issue lands on the board [OCS Two Lives](https://github.com/users/Yasuke2000/projects/1) (Triage → To do → In progress → Done) and is posted to Discord. Yasuke triages them (labels, priority, who takes it); take one by
 assigning yourself and saying so in the issue.
 
 ## What to edit where
@@ -63,7 +63,7 @@ assigning yourself and saying so in the issue.
 | Two Lives behaviour (life loop, corridor, trials, registry) | `pack/kubejs/server_scripts/ttl/` | read the KubeJS notes in CLAUDE.md first |
 | Add or update a mod | `packwiz mr add <slug>` (or `/add-mod` in Claude Code) | check it has a NeoForge 1.21.1 build |
 | The Java mod (`ttl-portals`) | `mod/src/` | `python tools/release_mod.py` (maintainers) |
-| Server settings (view distance, memory, …) | not in this repo — see [docs/server.md](docs/server.md) | ask David |
+| Server settings (view distance, memory, …) | not in this repo — see [docs/server.md](docs/server.md) | ask Yasuke |
 | A build (hall, arena, village…) | `blueprints/<name>.py` (Python: `fill`, `box`, `disc`, `pillar`, `around`; arenas share `blueprints/_arena.py`) | `python tools/build_structures.py` → check the [build gallery](docs/previews/README.md); in game `/ttl build <name>`. Arenas and the spawn rebuild themselves after you bump `ARENA_VERSION` (`trial_defs.js`) or `TTL_MORTAL_SPAWN_VERSION` (`mortal_spawn.js`) |
 | Bring any build from the world into the repo | build it in game (by hand or WorldEdit), note two opposite corners | `python tools/capture.py <name> <dimension> x1 y1 z1 x2 y2 z2` → `blueprints/<name>.nbt` + structure + previews (no player, no size-48 limit) |
 | Place a build without a player | — | `tools/server.sh place <name> <dimension> x y z` |
@@ -93,6 +93,6 @@ assigning yourself and saying so in the issue.
 The Java mod (`ttl-portals`, `mod/gradle.properties`) counts slowly on purpose:
 - **patch** (0.8.**1**, 0.8.2, …): every normal release — fixes, new content, tweaks. This is the default:
   `python tools/release_mod.py` (same as `--bump patch`).
-- **minor** (0.**9**.0): only when a milestone lands (a finished sprint, or a big new system); agree it with David.
+- **minor** (0.**9**.0): only when a milestone lands (a finished sprint, or a big new system); agree it with Yasuke.
 - **major** (1.0.0): the public launch.
 Pack-only changes (configs, scripts, builds, quests) need no version bump: every merge to `main` is deployed.
