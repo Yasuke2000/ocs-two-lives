@@ -47,7 +47,7 @@ ttl registry expect has TtlBotLegA great_sage false
 ttl registry expect has TtlBotLegD great_sage true
 ttl registry expect count great_sage 3
 ttl registry expect holders 3
-ttl registry expect last TtlBotLegD great_sage transfer
+ttl registry expect last TtlBotLegD transfer great_sage
 ttl registry expect moved TtlBotLegA TtlBotLegD great_sage
 ttl registry expect routed TtlBotLegD great_sage duel
 ttl era expect slots 2
