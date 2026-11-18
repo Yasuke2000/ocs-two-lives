@@ -1,0 +1,144 @@
+# Combat arenas (arena/arenas.js, arena/commands.js, design/data/arenas.toml). Not the trial arenas: those are arenas.rcon.
+# `ttl arena expect ...` prints "ttl: expected ..." when a value is wrong, which `server.sh test-all` counts as a failure.
+# Both arenas are moved to a test spot in the overworld for the run (`ttl arena testat`, glass floors at y 200 far from
+# every build), so the test needs neither the placed Walpurgis Hall (ttl:walpurgis) nor a generated Labyrinth; `ttl arena reset` puts them
+# back. Bots cannot hit each other: `ttl arena defeat <victim> <by>` runs the fatal-blow path of the damage hook, and
+# `ttl arena wave <arena> clear` removes a wave as if it was beaten. `ttl arena testmode on` lifts min_seconds (a 2-second
+# duel would otherwise earn nothing). Discord is muted during test runs (and while a bot is online).
+# Expect in the log: "[ttl] arena: TtlBotArnB is out of walpurgis (defeated)", "walpurgis duel settled: a",
+# "walpurgis party settled: a", "labyrinth wave 3/3", "[ttl] boss: summoning elemental_colossus ... (asked by arena:labyrinth)",
+# "labyrinth challenge settled: partial".
+# Not asserted here (verify in game): the loot in the inventories, the teleport back to where each bot joined from, the
+# skill pact settled by a Labyrinth duel, the real fatal blow, the real Labyrinth hall and the Colossus guard.
+ttlbot spawn TtlBotArnA
+ttlbot spawn TtlBotArnB
+ttlbot spawn TtlBotArnC
+ttlbot spawn TtlBotArnD
+ttlbot spawn TtlBotArnE
+@sleep 2
+ttl arena reset
+ttl arena testmode on
+ttl boss cooldown clear elemental_colossus
+ttl arena clear TtlBotArnA
+ttl arena clear TtlBotArnB
+ttl arena clear TtlBotArnC
+ttl arena clear TtlBotArnD
+ttl arena clear TtlBotArnE
+kubejs stages add TtlBotArnA ttl.life2
+kubejs stages add TtlBotArnB ttl.life2
+kubejs stages add TtlBotArnC ttl.life2
+kubejs stages add TtlBotArnD ttl.life2
+execute in minecraft:overworld run forceload add 20064 20016 20112 20064
+execute in minecraft:overworld run forceload add 20176 19997 20256 20077
+execute in minecraft:overworld run fill 20075 200 20023 20109 200 20057 minecraft:glass
+execute in minecraft:overworld run fill 20176 200 19997 20256 200 20077 minecraft:glass
+execute in minecraft:overworld run ttl arena testat walpurgis 20000 189 20000
+execute in minecraft:overworld run ttl arena testat labyrinth 20200 163 19500
+@sleep 2
+ttl arena list
+
+# ---- duel in the Walpurgis Hall: A opens, B joins, E (not Life 2) is refused --------------------------------------------
+execute as TtlBotArnA run ttl arena join walpurgis duel
+execute as TtlBotArnB run ttl arena join walpurgis
+execute as TtlBotArnE run ttl arena join walpurgis
+ttl arena expect arena walpurgis state lobby
+ttl arena expect arena walpurgis mode duel
+ttl arena expect arena walpurgis players 2
+ttl arena expect player TtlBotArnA inarena yes
+ttl arena expect player TtlBotArnA back yes
+ttl arena expect player TtlBotArnE back no
+execute as TtlBotArnA run ttl arena start
+@sleep 7
+ttl arena expect arena walpurgis state fight
+ttl arena defeat TtlBotArnB TtlBotArnA
+@sleep 2
+ttl arena expect arena walpurgis result a
+ttl arena expect player TtlBotArnA wins 1
+ttl arena expect player TtlBotArnA streak 1
+ttl arena expect player TtlBotArnB losses 1
+ttl arena expect player TtlBotArnA cooldown walpurgis duel yes
+ttl arena expect player TtlBotArnB cooldown walpurgis duel yes
+ttl arena expect player TtlBotArnB inarena no
+@sleep 6
+ttl arena expect arena walpurgis state free
+ttl arena expect player TtlBotArnA inarena no
+ttl arena expect player TtlBotArnA back no
+
+# ---- a lobby left again closes --------------------------------------------------------------------------------------
+execute as TtlBotArnC run ttl arena join walpurgis duel
+ttl arena expect arena walpurgis players 1
+execute as TtlBotArnC run ttl arena leave
+ttl arena expect arena walpurgis state free
+ttl arena expect player TtlBotArnC back no
+
+# ---- party battle in the Walpurgis Hall: A + B against C + D --------------------------------------------------------
+execute as TtlBotArnA run ttl arena join walpurgis party a
+execute as TtlBotArnB run ttl arena join walpurgis party a
+execute as TtlBotArnC run ttl arena join walpurgis party b
+execute as TtlBotArnD run ttl arena join walpurgis party b
+ttl arena expect arena walpurgis mode party
+ttl arena expect arena walpurgis players 4
+execute as TtlBotArnA run ttl arena start
+@sleep 7
+ttl arena expect arena walpurgis state fight
+ttl arena defeat TtlBotArnC TtlBotArnA
+@sleep 2
+ttl arena expect arena walpurgis state fight
+ttl arena defeat TtlBotArnD TtlBotArnB
+@sleep 2
+ttl arena expect arena walpurgis result a
+ttl arena expect player TtlBotArnA wins 2
+ttl arena expect player TtlBotArnA streak 1
+ttl arena expect player TtlBotArnB wins 1
+ttl arena expect player TtlBotArnC losses 1
+ttl arena expect player TtlBotArnD cooldown walpurgis party yes
+@sleep 6
+ttl arena expect arena walpurgis state free
+
+# ---- challenge in Ramiris's Labyrinth (test spot): three waves, then the Elemental Colossus through the boss framework.
+# The boss is aborted, so the challenge ends "partial" (all waves, the boss not felled) once it is gone for 15 s.
+execute as TtlBotArnC run ttl arena join labyrinth challenge
+ttl arena expect arena labyrinth mode challenge
+execute as TtlBotArnC run ttl arena start
+@sleep 7
+ttl arena expect arena labyrinth state fight
+ttl arena expect arena labyrinth phase waves
+ttl arena expect arena labyrinth wave 1
+ttl arena wave labyrinth clear
+@sleep 2
+ttl arena expect arena labyrinth wave 2
+ttl arena wave labyrinth clear
+@sleep 2
+ttl arena expect arena labyrinth wave 3
+ttl arena wave labyrinth clear
+@sleep 4
+ttl arena expect arena labyrinth phase boss
+ttl boss abort elemental_colossus
+@sleep 18
+ttl arena expect arena labyrinth result partial
+ttl arena expect player TtlBotArnC clears 0
+ttl arena expect player TtlBotArnC cooldown labyrinth challenge yes
+@sleep 6
+ttl arena expect arena labyrinth state free
+
+# ---- clean up --------------------------------------------------------------------------------------------------------
+ttl arena reset
+ttl boss cooldown clear elemental_colossus
+execute in minecraft:overworld run fill 20075 200 20023 20109 200 20057 minecraft:air
+execute in minecraft:overworld run fill 20176 200 19997 20256 200 20077 minecraft:air
+execute in minecraft:overworld run forceload remove 20064 20016 20112 20064
+execute in minecraft:overworld run forceload remove 20176 19997 20256 20077
+ttl arena clear TtlBotArnA
+ttl arena clear TtlBotArnB
+ttl arena clear TtlBotArnC
+ttl arena clear TtlBotArnD
+ttl arena clear TtlBotArnE
+kubejs stages remove TtlBotArnA ttl.life2
+kubejs stages remove TtlBotArnB ttl.life2
+kubejs stages remove TtlBotArnC ttl.life2
+kubejs stages remove TtlBotArnD ttl.life2
+ttlbot remove TtlBotArnA
+ttlbot remove TtlBotArnB
+ttlbot remove TtlBotArnC
+ttlbot remove TtlBotArnD
+ttlbot remove TtlBotArnE

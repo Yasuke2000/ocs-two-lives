@@ -827,6 +827,165 @@ def snbt_value(path: Path, key: str) -> str:
     return m.group(1)
 
 
+ARENA_MODES = ("duel", "party", "challenge")
+ARENA_RANKS = {"duel": ("win", "lose", "draw"), "party": ("win", "lose", "draw"), "challenge": ("clear", "partial", "fail")}
+COINS = ("bronze", "silver", "gold", "stellar_gold")
+
+
+def check_arenas(arenas: dict, bosses: dict | None) -> None:
+    """design/data/arenas.toml (arena/arenas.js): rules, and per arena its box, spots, modes, challenge and loot."""
+    ident = r"[a-z0-9_.-]+:[a-z0-9_/.-]+"
+    rules = arenas.get("rules")
+    if not isinstance(rules, dict):
+        raise SystemExit("arenas.toml: the [rules] table is missing")
+    for key in ("life2_only", "friendly_fire"):
+        if not isinstance(rules.get(key), bool):
+            raise SystemExit(f"arenas.toml: [rules] {key} must be true or false")
+    for key, low in (("poll_ticks", 5), ("lobby_minutes", 1), ("countdown_seconds", 0), ("return_seconds", 0),
+                     ("min_seconds", 0), ("max_side", 1), ("party_min_side", 1), ("leave_grace_seconds", 0)):
+        v = rules.get(key)
+        if not isinstance(v, int) or isinstance(v, bool) or v < low:
+            raise SystemExit(f"arenas.toml: [rules] {key} must be a whole number >= {low}")
+    if rules["party_min_side"] > rules["max_side"]:
+        raise SystemExit("arenas.toml: [rules] party_min_side is above max_side")
+    story = rules.get("story", {})
+    if not isinstance(story, dict) or set(story) - {"duel_streak", "party_side", "challenge"}:
+        raise SystemExit("arenas.toml: [rules] story knows duel_streak, party_side and challenge")
+    if story.get("challenge", "clear") not in ARENA_RANKS["challenge"]:
+        raise SystemExit("arenas.toml: [rules] story.challenge must be a challenge rank (clear, partial, fail)")
+    boss_ids = {b.get("id") for b in (bosses or {}).get("boss", [])}
+    build_names = {f.stem for f in BUILDS.glob("*.toml") if not f.name.startswith("_")} if BUILDS.exists() else set()
+    wal = arenas.get("walpurgis")
+    if wal is not None:
+        ww = "arenas.toml: [walpurgis]"
+        if not re.fullmatch(ident, str(wal.get("dim", ""))) or wal.get("hall") not in build_names:
+            raise SystemExit(f"{ww} needs dim (a dimension id) and hall (a design/builds name)")
+        for key in ("life2_only", "allow_legendary", "allow_invited", "invite_by_legendary", "allow_booked", "command_entry"):
+            if not isinstance(wal.get(key), bool):
+                raise SystemExit(f"{ww} {key} must be true or false")
+        if not isinstance(wal.get("allow_stages"), list) or not all(re.fullmatch(r"ttl\.[a-z0-9_.]+", str(s)) for s in wal["allow_stages"]):
+            raise SystemExit(f"{ww} allow_stages must be a list of ttl.* stages")
+        for key in ("invite_hours", "cooldown_seconds", "notice_seconds"):
+            if not isinstance(wal.get(key), int) or isinstance(wal.get(key), bool) or wal[key] < 0:
+                raise SystemExit(f"{ww} {key} must be a whole number >= 0")
+        for key, fields in (("gate", ("from", "to")), ("return", ("at",))):
+            t = wal.get(key)
+            if not isinstance(t, dict) or t.get("build") not in build_names:
+                raise SystemExit(f"{ww} {key} needs build = <a design/builds name>")
+            for f in fields:
+                v = t.get(f)
+                if not (isinstance(v, list) and len(v) == 3 and all(isinstance(n, int) for n in v)):
+                    raise SystemExit(f"{ww} {key}.{f} must be [x, y, z] whole numbers")
+        if any(wal["gate"]["from"][i] > wal["gate"]["to"][i] for i in range(3)):
+            raise SystemExit(f"{ww} gate.from must be the low corner")
+    seen = set()
+    for a in arenas.get("arena", []):
+        aid = a.get("id")
+        where = f"arenas.toml: arena {aid or '?'}"
+        if not isinstance(aid, str) or not re.fullmatch(r"[a-z0-9_]+", aid) or aid in seen:
+            raise SystemExit(f"{where}: id must be [a-z0-9_] and unique")
+        seen.add(aid)
+        title = a.get("title")
+        if not isinstance(title, str) or not title or any(c in title for c in "\\\""):
+            raise SystemExit(f"{where}: title must be text without double quotes or backslashes")
+        w = a.get("where")
+        if not isinstance(w, dict) or len(w) != 1 or not ({"build", "dim"} & set(w)):
+            raise SystemExit(f"{where}: where must be {{ build = <name> }} or {{ dim = <dimension> }}")
+        if "build" in w and w["build"] not in build_names:
+            raise SystemExit(f"{where}: where.build {w['build']!r} is not in design/builds")
+        if "dim" in w and not re.fullmatch(ident, str(w["dim"])):
+            raise SystemExit(f"{where}: where.dim must be a namespaced dimension id")
+
+        def point(label, v):
+            if not (isinstance(v, list) and len(v) == 3 and all(isinstance(n, int) and not isinstance(n, bool) for n in v)):
+                raise SystemExit(f"{where}: {label} must be [x, y, z] whole numbers")
+            return v
+
+        box = a.get("box", {})
+        lo = point("box.from", box.get("from"))
+        hi = point("box.to", box.get("to"))
+        if any(lo[i] > hi[i] for i in range(3)):
+            raise SystemExit(f"{where}: box.from must be the low corner and box.to the high one")
+        rnd = a.get("round")
+        if rnd is not None:
+            c = rnd.get("centre")
+            if not (isinstance(c, list) and len(c) == 2 and all(isinstance(n, int) for n in c)) \
+                    or not isinstance(rnd.get("radius"), int) or rnd["radius"] < 2:
+                raise SystemExit(f"{where}: round = {{ centre = [x, z], radius = r >= 2 }}")
+
+        def inside(label, v):
+            point(label, v)
+            if not all(lo[i] <= v[i] <= hi[i] for i in range(3)):
+                raise SystemExit(f"{where}: {label} {v} is outside the box")
+            if rnd is not None and (v[0] - rnd["centre"][0]) ** 2 + (v[2] - rnd["centre"][1]) ** 2 > rnd["radius"] ** 2:
+                raise SystemExit(f"{where}: {label} {v} is outside the round floor")
+
+        inside("spawn_a", a.get("spawn_a"))
+        inside("spawn_b", a.get("spawn_b"))
+        spots = a.get("mob_spots")
+        if not isinstance(spots, list) or not spots:
+            raise SystemExit(f"{where}: mob_spots must list at least one [x, y, z]")
+        for i, s in enumerate(spots):
+            inside(f"mob_spots[{i}]", s)
+        if "ready" in a:
+            point("ready.at", a["ready"].get("at"))
+        for key in ("absorb_duel", "quiet_colossus"):
+            if not isinstance(a.get(key), bool):
+                raise SystemExit(f"{where}: {key} must be true or false")
+        modes = a.get("modes")
+        if not isinstance(modes, list) or not modes or any(m not in ARENA_MODES for m in modes) or len(set(modes)) != len(modes):
+            raise SystemExit(f"{where}: modes must list some of {', '.join(ARENA_MODES)} (each once)")
+        for table, low in (("minutes", 1), ("cooldown_minutes", 0)):
+            t = a.get(table, {})
+            for m in modes:
+                v = t.get(m)
+                if not isinstance(v, int) or isinstance(v, bool) or v < low:
+                    raise SystemExit(f"{where}: {table}.{m} must be a whole number >= {low}")
+        cc = a.get("challenge_cooldown_minutes", 0)
+        if not isinstance(cc, int) or cc < 0:
+            raise SystemExit(f"{where}: challenge_cooldown_minutes must be a whole number >= 0")
+        if "challenge" in modes:
+            ch = a.get("challenge")
+            if not isinstance(ch, dict) or not isinstance(ch.get("waves"), list) or not ch["waves"]:
+                raise SystemExit(f"{where}: [arena.challenge] needs waves")
+            if not is_num(ch.get("per_player", 0)) or not 0 <= ch.get("per_player", 0) <= 2:
+                raise SystemExit(f"{where}: challenge.per_player must be a number 0..2")
+            if not isinstance(ch.get("max_mobs"), int) or not 1 <= ch["max_mobs"] <= 40:
+                raise SystemExit(f"{where}: challenge.max_mobs must be a whole number 1..40")
+            for i, wave in enumerate(ch["waves"]):
+                mobs = wave.get("mobs") if isinstance(wave, dict) else None
+                if not isinstance(mobs, list) or not mobs:
+                    raise SystemExit(f"{where}: challenge wave {i + 1} needs mobs")
+                for m in mobs:
+                    if not re.fullmatch(ident, str(m.get("entity", ""))) or not isinstance(m.get("count"), int) \
+                            or not 1 <= m["count"] <= 20:
+                        raise SystemExit(f"{where}: challenge wave {i + 1}: each mob needs an entity id and a count 1..20")
+            if ch.get("boss", "") and ch["boss"] not in boss_ids:
+                raise SystemExit(f"{where}: challenge.boss {ch['boss']!r} is not a [[boss]] id in bosses.toml")
+        for m, ranks in a.get("loot", {}).items():
+            if m not in modes:
+                raise SystemExit(f"{where}: loot.{m} is not one of this arena's modes")
+            for rank, r in ranks.items():
+                if rank not in ARENA_RANKS[m]:
+                    raise SystemExit(f"{where}: loot.{m}.{rank}: the ranks of {m} are {', '.join(ARENA_RANKS[m])}")
+                lw = f"{where}: loot.{m}.{rank}"
+                if set(r) - {"coins", "items", "table", "rolls", "xp"}:
+                    raise SystemExit(f"{lw} knows coins, items, table, rolls and xp")
+                for c, n in r.get("coins", {}).items():
+                    if c not in COINS or not isinstance(n, int) or n < 1:
+                        raise SystemExit(f"{lw}: coins.{c}: one of {', '.join(COINS)} with a whole number >= 1")
+                for it in r.get("items", []):
+                    if not re.fullmatch(ident, str(it.get("item", ""))) or not isinstance(it.get("count"), int) \
+                            or not 1 <= it["count"] <= 64:
+                        raise SystemExit(f"{lw}: items need an item id and a count 1..64")
+                if "table" in r and not re.fullmatch(ident, str(r["table"])):
+                    raise SystemExit(f"{lw}: table must be a namespaced loot table id")
+                if not isinstance(r.get("rolls", 1), int) or not 1 <= r.get("rolls", 1) <= 8:
+                    raise SystemExit(f"{lw}: rolls must be a whole number 1..8")
+                if not isinstance(r.get("xp", 0), int) or r.get("xp", 0) < 0:
+                    raise SystemExit(f"{lw}: xp must be a whole number >= 0")
+
+
 def check_nations(nat: dict, data: dict) -> None:
     # nations/*.js read the rules and ranks from here. The two FTB configs implement half of them (party size, the
     # claim dimension, the per-soul and per-party chunk limits); they must agree or the nation rules silently differ
@@ -1164,6 +1323,8 @@ def render() -> dict[Path, str]:
         check_story(data["story"], data.get("factions"), data.get("bosses"), data.get("skills"))
     if "nations" in data:
         check_nations(data["nations"], data)
+    if "arenas" in data:
+        check_arenas(data["arenas"], data.get("bosses"))
     data["builds"], footprints = check_builds()
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     grids = json.dumps(footprints, separators=(",", ":"), sort_keys=True)

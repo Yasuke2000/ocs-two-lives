@@ -219,6 +219,7 @@ Era changes themselves announce nothing while the test ceiling (`registry legend
 | `events` | Event director state: `ttl.events.last/next/day` (omen fired, the daily count), World's Favor cooldowns on bots only | `/ttl events end`; the daily count resets at midnight |
 | `builds` | `test_hut` in the Spirit Corridor (2500 64 0) | Harmless (players never reach x 2500); delete `design/builds/test_hut.toml` to stop placing it |
 | `cast`, `guild_npcs` | The real NPCs (kept on purpose); forceloads are removed at the end of each test | `execute in minecraft:overworld run forceload remove all` only if a run broke off |
+| `arenas2` | Arena test placements, test mode and challenge cooldowns are cleared by `ttl arena reset` at the end; a run that broke off leaves the two arenas at the test spot (overworld x 20000-20256, z 19997-20077, glass at y 200) and the Elemental Colossus cooldown | `/ttl arena reset`, `/ttl boss cooldown clear elemental_colossus`, `fill` the glass with air |
 | `spirit_domain`, `arenas`, `trial_*` | Forceloaded chunks around the arenas (removed by the tests) | `forceload remove all` in that dimension if a run broke off |
 | every test | Player files of the bots (`world-ttl/playerdata/`, `usercache.json`, `ttl.*` persistentData with test hooks such as `ttl.absorb.epfake`) | Harmless; delete the TtlBot* entries while the server is down if the world must be pristine |
 | every test | `ttl.discord.muted` stays on when `server.sh test` is killed half way | `/ttl discord mute off` |

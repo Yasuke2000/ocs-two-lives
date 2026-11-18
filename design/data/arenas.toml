@@ -1,0 +1,226 @@
+# Organised combat arenas (arena/arenas.js, arena/commands.js; owner 18/11/2026: "combat in Walpurgis as well, or the
+# Labyrinth arena from Ramiris, with loot drops"). Edit, then run `python tools/gen_data.py`; the scripts read it as
+# TtlData.arenas. Lore and sources: design/lore/arenas.md.
+#
+# An arena is a fixed box in the world. Inside it a match runs: a DUEL (1 vs 1), a PARTY battle (side a vs side b) or a
+# CHALLENGE (one side against waves of mobs and then a boss summoned through TtlBoss.summon). Only Life 2 souls may join.
+# A blow that would kill a fighter in a running match is turned into a defeat (nobody dies: healed and sent back to where
+# they joined from); a fighter who leaves the box, logs out or types /ttl arena leave is out as well. When one side is
+# out (or the waves and the boss fall, or time runs out) the match is settled: every fighter gets the loot of their rank,
+# unless they are on that arena's loot cooldown. Damage inside an arena box carries no liability
+# (TtlArenas.inArena(level, pos), read by the public-place duel rule).
+# Inside the Labyrinth a duel also settles an open skill pact (/ttl absorb duel + accept): the absorption route "duel"
+# (skills.toml [absorb.duel], dimensions = tensura:labyrinth) counts there when `absorb_duel = true`.
+#
+# [rules]
+#   life2_only        = only Life 2 souls may join (the owner's rule; false only for a test world)
+#   poll_ticks        = how often the referee looks at every match
+#   lobby_minutes     = a lobby nobody starts is closed after this long (everyone goes back)
+#   countdown_seconds = after /ttl arena start: fighters are put on their spots and healed, blows between them do nothing yet
+#   return_seconds    = after the result: how long fighters stay before they are sent back
+#   min_seconds       = a duel or party match shorter than this gives no loot (two friends trading a quick "defeat")
+#   max_side          = fighters per side in a party match and in a challenge (FTB party cap = 5)
+#   party_min_side    = a party battle needs at least this many on each side (fewer = make it a duel)
+#   friendly_fire     = false: blows between fighters of the same side do nothing
+#   leave_grace_seconds = a fighter outside the box for longer than this is out (teleports and knockback)
+#   [rules.story]     = which results go to Discord (muted in tests): duel_streak = a duel win that is the winner's n-th in a
+#                       row, party_side = a party win with at least n fighters a side, challenge = the rank that is notable
+#
+# [[arena]]
+#   id, title         = short id (commands, keys) and the name players read
+#   where             = { build = "<design/builds name>" }: the coordinates below are blueprint offsets of the placed build
+#                       (life/builds.js records its corner); or { dim = "<dimension>" }: world coordinates in that dimension
+#   box               = { from = [x, y, z], to = [x, y, z] } the arena (inclusive); y is where fighters stand and above
+#   round             = optional { centre = [x, z], radius = r }: the floor plan is a circle inside the box
+#   ready             = optional { at = [x, y, z] }: that block must not be air before anyone can join (a generated dimension)
+#   spawn_a, spawn_b  = where each side stands at the start ([x, y, z], inside the box)
+#   mob_spots         = where wave mobs and the boss appear (the boss at the first spot)
+#   absorb_duel       = a fatal blow between two fighters with an open skill pact settles the pact (absorb/absorb.js)
+#   quiet_colossus    = Labyrinth only: mark Tensura's own first Elemental Colossus as spawned (see design/decisions.md)
+#   modes             = which match types the arena offers: duel, party, challenge
+#   minutes           = { duel, party, challenge } a match not settled after this long ends (a draw; a challenge: by
+#                       the waves cleared)
+#   cooldown_minutes  = { duel, party, challenge } loot cooldown per fighter and arena after a rewarded match
+#   challenge_cooldown_minutes = the arena takes no new challenge for this long after one ended
+#   [arena.challenge] waves = [{ mobs = [{ entity, count }] }], per_player = extra share of every count per fighter
+#                       after the first, max_mobs = cap per wave, boss = a [[boss]] id of bosses.toml (its cooldown applies;
+#                       empty = waves only)
+#   [arena.loot.<mode>.<rank>] ranks: duel/party win, lose, draw; challenge clear (all waves and the boss), partial (all
+#                       waves, the boss not felled, or at least half the waves), fail. Each: coins = { bronze|silver|gold|
+#                       stellar_gold = n } (Tensura coins, owner O1), items = [{ item, count }], table = a loot table rolled
+#                       `rolls` times into the inventory (/loot give), xp = levels.
+# Entity, item and loot table ids were read from tensura-neoforge-2.0.1.5.jar (assets/tensura/lang/en_us.json,
+# data/tensura/loot_table/chests/) and vanilla 1.21.1. Inside the Labyrinth Tensura saves every creature from death unless it
+# is in #tensura:can_die_in_labyrinth (spiritual, clones, non_living, elemental_colossus; DeathHandler), so the Labyrinth
+# waves are spirits and golems from that tag; the referee also removes any wave mob on its fatal blow (no drops anywhere).
+
+# [walpurgis] who may enter the Walpurgis Hall outside a match (arena/walpurgis.js; joining a walpurgis match always takes the
+# fighter straight to the Banquet Floor). A soul qualifies when it is in Life 2 (life2_only) AND one of the allow_* holds:
+#   allow_legendary   = holds a Legendary unique (one of the Ten Great Demon Lords' places, skills.toml [legendary])
+#   allow_stages      = holds one of these stages (the Demon Lord / True Hero capstones of the story)
+#   allow_invited     = holds an invitation: /ttl walpurgis invite <player> by an op, or by a Legendary holder when
+#                       invite_by_legendary; valid invite_hours
+#   allow_booked      = is in a lobby or a running match of the walpurgis arena
+#   gate              = the doorway that leads there: blueprint cells (feet) of a placed build, here the dais of Clayman's
+#                       throne (where the Marionette Master left for the banquet); return = where a soul that came in
+#                       another way is put when it walks out through the hall's return arch
+#   command_entry     = /ttl walpurgis go works for a qualified soul anywhere (off: only the gate and the arena)
+#   cooldown_seconds  = between two gate passes; notice_seconds = between two refusal lines
+[walpurgis]
+dim = "ttl:walpurgis"
+hall = "walpurgis_hall"
+life2_only = true
+allow_legendary = true
+allow_stages = ["ttl.story.demon_lord", "ttl.story.hero"]
+allow_invited = true
+invite_hours = 24
+invite_by_legendary = true
+allow_booked = true
+gate = { build = "clayman_castle", from = [49, 9, 36], to = [59, 10, 39] }
+return = { build = "clayman_castle", at = [54, 8, 43] }
+command_entry = false
+cooldown_seconds = 4
+notice_seconds = 20
+
+[rules]
+life2_only = true
+poll_ticks = 20
+lobby_minutes = 5
+countdown_seconds = 5
+return_seconds = 5
+min_seconds = 30
+max_side = 5
+party_min_side = 2
+friendly_fire = false
+leave_grace_seconds = 3
+story = { duel_streak = 3, party_side = 3, challenge = "clear" }
+
+# The Walpurgis Hall: the Banquet Floor beside the Demon Lords' council chamber, in the dimension ttl:walpurgis (build
+# walpurgis_hall, blueprints/walpurgis_hall.py: a round pit, floor radius 17 at y 11, you fight at y 12, three terrace steps
+# for onlookers outside it). Owner 18/11/2026: Walpurgis gets its own dimension; Clayman's Castle stays a story location.
+# A fighter who steps up onto the terraces has left the arena. How souls reach the hall otherwise: [walpurgis] above.
+[[arena]]
+id = "walpurgis"
+title = "the Walpurgis Hall"
+where = { build = "walpurgis_hall" }
+box = { from = [75, 12, 23], to = [109, 30, 57] }
+round = { centre = [92, 40], radius = 17 }
+spawn_a = [92, 12, 27]
+spawn_b = [92, 12, 53]
+mob_spots = [[92, 12, 40], [82, 12, 40], [102, 12, 40], [92, 12, 32], [92, 12, 48]]
+absorb_duel = false
+quiet_colossus = false
+modes = ["duel", "party", "challenge"]
+minutes = { duel = 5, party = 10, challenge = 15 }
+cooldown_minutes = { duel = 60, party = 120, challenge = 720 }
+challenge_cooldown_minutes = 30
+
+# Clayman's defenders: the undead of Jistav (the wight king's army) and his daemons; the Marionette Master himself last.
+[arena.challenge]
+per_player = 0.5
+max_mobs = 16
+boss = "clayman"
+waves = [
+  { mobs = [{ entity = "tensura:skeleton", count = 4 }, { entity = "tensura:zombie", count = 3 }] },
+  { mobs = [{ entity = "tensura:lesser_daemon", count = 3 }, { entity = "tensura:skeleton", count = 2 }] },
+  { mobs = [{ entity = "tensura:greater_daemon", count = 1 }, { entity = "tensura:lesser_daemon", count = 2 }] },
+]
+
+[arena.loot.duel.win]
+coins = { silver = 8 }
+table = "tensura:chests/hell_ruins"
+rolls = 1
+xp = 5
+[arena.loot.duel.lose]
+coins = { silver = 2 }
+[arena.loot.duel.draw]
+coins = { silver = 4 }
+
+[arena.loot.party.win]
+coins = { silver = 10 }
+table = "tensura:chests/hell_ruins"
+rolls = 1
+xp = 5
+[arena.loot.party.lose]
+coins = { silver = 3 }
+[arena.loot.party.draw]
+coins = { silver = 5 }
+
+[arena.loot.challenge.clear]
+coins = { gold = 3 }
+items = [{ item = "tensura:medium_quality_magic_crystal", count = 2 }]
+table = "tensura:chests/hell_ruins"
+rolls = 2
+xp = 15
+[arena.loot.challenge.partial]
+coins = { silver = 12 }
+table = "tensura:chests/hell_ruins"
+rolls = 1
+xp = 5
+[arena.loot.challenge.fail]
+coins = { silver = 2 }
+
+# Ramiris's Labyrinth: the round hall of Tensura's own labyrinth dimension (tensura:labyrinth) where the mod puts its
+# Elemental Colossus (LabyrinthStorage: colossusPos 16 38 537, areaRadius 40; floor of labyrinth bricks at y 37, walls of
+# bedrock at radius ~40, both doors sealed with labyrinth barrier blocks). The mod generates the dimension from its own
+# data (structure/labyrinth/dim/*.ldat) the first time the level loads; `ready` waits for the floor. Fighters are let in
+# by Ramiris's will (a teleport, as she moves people through her Labyrinth), not through the maze.
+[[arena]]
+id = "labyrinth"
+title = "Ramiris's Labyrinth"
+where = { dim = "tensura:labyrinth" }
+box = { from = [-24, 38, 497], to = [56, 100, 577] }
+round = { centre = [16, 537], radius = 38 }
+ready = { at = [16, 37, 537] }
+spawn_a = [16, 38, 512]
+spawn_b = [16, 38, 562]
+mob_spots = [[16, 38, 537], [0, 38, 537], [32, 38, 537], [16, 38, 527], [16, 38, 547]]
+absorb_duel = true
+quiet_colossus = true
+modes = ["duel", "party", "challenge"]
+minutes = { duel = 5, party = 10, challenge = 15 }
+cooldown_minutes = { duel = 60, party = 120, challenge = 720 }
+challenge_cooldown_minutes = 30
+
+# Ramiris's guardians: elemental spirits (Salamander, Gnome, the wind serpent), a bone golem, a war gnome, and the
+# Elemental Colossus she built (canon: Rimuru broke it at Tempest; in the mod it guards this hall).
+[arena.challenge]
+per_player = 0.5
+max_mobs = 16
+boss = "elemental_colossus"
+waves = [
+  { mobs = [{ entity = "tensura:salamander", count = 3 }, { entity = "tensura:beast_gnome", count = 3 }] },
+  { mobs = [{ entity = "tensura:feathered_serpent", count = 2 }, { entity = "tensura:bone_golem", count = 2 }] },
+  { mobs = [{ entity = "tensura:war_gnome", count = 1 }, { entity = "tensura:salamander", count = 2 }] },
+]
+
+[arena.loot.duel.win]
+coins = { silver = 10 }
+items = [{ item = "tensura:low_quality_magic_crystal", count = 2 }]
+xp = 5
+[arena.loot.duel.lose]
+coins = { silver = 2 }
+[arena.loot.duel.draw]
+coins = { silver = 4 }
+
+[arena.loot.party.win]
+coins = { silver = 12 }
+items = [{ item = "tensura:low_quality_magic_crystal", count = 3 }]
+xp = 5
+[arena.loot.party.lose]
+coins = { silver = 3 }
+[arena.loot.party.draw]
+coins = { silver = 5 }
+
+[arena.loot.challenge.clear]
+coins = { gold = 4 }
+items = [{ item = "tensura:high_quality_magic_crystal", count = 1 }, { item = "tensura:medium_quality_magic_crystal", count = 2 }]
+table = "tensura:chests/dwarf_magic_trainer"
+rolls = 2
+xp = 20
+[arena.loot.challenge.partial]
+coins = { silver = 15 }
+items = [{ item = "tensura:medium_quality_magic_crystal", count = 1 }]
+xp = 5
+[arena.loot.challenge.fail]
+coins = { silver = 2 }
