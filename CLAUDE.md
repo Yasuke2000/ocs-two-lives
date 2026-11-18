@@ -15,7 +15,6 @@ Decisions: `design/decisions.md` (append, never rewrite history).
 | ManasCore | 4.0.0.2 | Modrinth |
 | KubeJS / Rhino | 2101.7.2-build.381 / 2101.2.7-build.85 | Modrinth |
 | FTB Library / Teams / Chunks / Quests | 2101.1.40 / .12 / .24 / .39 | CurseForge |
-| LuckPerms (server-only) | 5.4.140 | Modrinth `Vebnzrzj` |
 | BlueMap (server-only) | 5.7 | Modrinth `swbUV1cr` |
 | Server image | itzg/minecraft-server:2026.7.1-java21 | Homelab repo |
 

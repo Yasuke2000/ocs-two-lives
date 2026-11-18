@@ -913,14 +913,6 @@ file = "config/lithium.properties"
 hash = "6cf6f83720071fd1657c8e79b357caf68d40f410ae123e5f922483eb1d1d25be"
 
 [[files]]
-file = "config/luckperms/luckperms.conf"
-hash = "84ebfe1e1500fded45348fbf17f9a297851a4548130509824bf437120061c517"
-
-[[files]]
-file = "config/luckperms/ttl-groups.txt"
-hash = "40889240867f4b353a430bc7842188b1d89eeb7dcaa2618d94e19b4a1a7aba08"
-
-[[files]]
 file = "config/modernfix-common.toml"
 hash = "ee24e2b1bc100942a1c605f996255742cd6a5bb3662877aa906bc301100ccf27"
 
@@ -2069,11 +2061,6 @@ metafile = true
 [[files]]
 file = "mods/lootjs.pw.toml"
 hash = "e42581d8eb65aa947dcbe6edb71b2082e84f31936b01f131758395d88dabc919"
-metafile = true
-
-[[files]]
-file = "mods/luckperms.pw.toml"
-hash = "91e6a0e562023e927ca1c56bdfd5df673609cac23528f768a83afe3674cdd0c0"
 metafile = true
 
 [[files]]

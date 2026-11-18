@@ -1,12 +1,5 @@
-# WP12: LuckPerms and BlueMap are installed and answer. There is no `/ttl ... expect` for them (they are not a
-# ttl system), so this checks that every command parses (a failing command fails the test) and prints the state
-# for the log. Apply pack/config/luckperms/ttl-groups.txt first (docs/server.md "Permissions (LuckPerms)").
-# Read the output: `lp group list` shows default, linked, modder, staff; the three permission checks print
-# "true" for staff and "undefined" for default; `bluemap` shows the maps tensura and mortal_realm (or the
-# "accept-download" notice while that owner decision is still false).
-lp group list
-lp group staff info
-lp group staff permission check minecraft.command.ban
-lp group modder permission check minecraft.command.gamemode
-lp group default permission check minecraft.command.ban
+# WP12: BlueMap is installed and answers. There is no `/ttl ... expect` for it (it is not a ttl system), so this
+# checks that the command parses (a failing command fails the test) and prints the state for the log.
+# Read the output: `bluemap` shows the maps tensura and mortal_realm (or the "accept-download" notice while that
+# owner decision is still false). LuckPerms was removed on 18/11/2026 (it breaks the /ttlbot test players).
 bluemap

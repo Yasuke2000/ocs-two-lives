@@ -54,41 +54,9 @@ Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a tp command), `/t
 (places again; the old copy stays). Change a landmark or bump its `version` in the TOML, then
 `python tools/gen_data.py`.
 
-## Permissions (LuckPerms)
+## Permissions
 
-LuckPerms 5.4.140 (server-side only; `pack/config/luckperms/luckperms.conf`). Groups live in LuckPerms' own
-database (H2 file next to the config, on the world volume), not in git, because the pack folder is rewritten from
-git at every start. The layout is kept as commands in `pack/config/luckperms/ttl-groups.txt`:
-
-| Group | Weight | Inherits | For | Adds |
-|---|---|---|---|---|
-| `default` | 0 | | every player | nothing (vanilla level-0 commands already work) |
-| `linked` | 10 | default | Minecraft account linked to Discord (`/verify`) | nothing yet: a hook for perks and claim limits |
-| `modder` | 50 | linked | pack contributors, builders, trusted testers | `worldedit.*`, `minecraft.command.` gamemode, tp, teleport, time, weather, give, effect, summon, setblock, fill, clone, kill |
-| `staff` | 100 | modder | owner and moderators | kick, ban, ban-ip, pardon, pardon-ip, whitelist, gamerule, reload, save-all, difficulty, `luckperms.*` |
-
-Apply (once after the first start with the mod, and after every change of the file; safe to repeat, "already
-exists" lines are normal) from the repo root, one RCON call per line:
-
-```sh
-grep -vE '^\s*(#|$)' pack/config/luckperms/ttl-groups.txt | while IFS= read -r c; do tools/server.sh rcon "$c"; done
-```
-
-Put a player in a group: `lp user <name> parent add <group>` (and `parent remove`). Nothing links the Discord roles of
-the same name to these groups: sdlink does not set LuckPerms groups, so for now an op runs the command (a later
-`discord/roles.js` step can run it when it syncs roles).
-
-**Limits, read before trusting a group:**
-- `/ttl`, `/ttlbot` and `/tensura edit` check vanilla op level 2 (`hasPermission(2)`), not a permission node. A group
-  does not give or take them away; keep staff and modders who need them opped. Moving them to a node (for example
-  `ttl.admin`) is a code change in `commands.js`.
-- The `minecraft.command.*` and `worldedit.*` nodes depend on LuckPerms' command hook on NeoForge 21.1.266. Not
-  verified here: check with `lp user <name> permission check <node>` and by running the command as that user.
-- FTB XMod Compat reads LuckPerms (`ftbxmodcompat.snbt` `permission_selector = "default"`), so FTB Chunks'
-  `ftbchunks.max_claimed` and `ftbchunks.max_force_loaded` can be set per group with
-  `lp group <g> meta set ftbchunks.max_claimed <n>`. Not used yet; the limits in `ftbchunks-world.snbt` apply.
-- Staff `/lp` and `/tensura edit` commands should reach the staff log (`ops/cmdlog.js`, prefixes `ttl`,
-  `tensura edit`, `lp`, `ftbchunks admin`); LuckPerms also notifies online staff of every change (`log-notify`).
+LuckPerms was removed on 18/11/2026: it breaks the /ttlbot test players; staff commands use vanilla op level 2.
 
 ## Web map (BlueMap)
 
