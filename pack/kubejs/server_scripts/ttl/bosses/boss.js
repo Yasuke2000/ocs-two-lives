@@ -696,6 +696,7 @@ EntityEvents.afterHurt(event => {
 // from a command (spawn type "command"), so they pass. The first line per spawn shows the real spawn type string.
 try {
   EntityEvents.checkSpawn(event => {
+    var blocked = false
     try {
       if (!TtlBoss.conf().blockNatural) return
       var entity = event.entity
@@ -705,12 +706,13 @@ try {
       // Wild spawns of these stay (Shizu); a summoned instance is spawned by command and tagged afterwards.
       if (TtlBoss.conf().naturalAllow.indexOf(def.id) >= 0) return
       var type = String(event.type)
-      var blocked = TtlBoss.NATURAL.test(type)
+      blocked = TtlBoss.NATURAL.test(type)
       console.info(`[ttl] boss: ${id} spawn type=${type}: ${blocked ? 'blocked' : 'allowed'}`)
-      if (blocked) event.cancel()
     } catch (err) {
       console.error(`[ttl] boss: spawn check failed: ${err}`)
     }
+    // event.cancel() exits by throwing (KubeJS EventExit): never inside a try that catches it.
+    if (blocked) event.cancel()
   })
 } catch (e) {
   console.warn(`[ttl] boss: EntityEvents.checkSpawn is not available, natural boss spawns are not blocked (${e})`)

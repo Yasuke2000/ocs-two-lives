@@ -204,14 +204,16 @@ PlayerEvents.loggedIn(event => {
 
 // Soulbound items never leave a Life 1 body (the toss is cancelled and the item goes back to the inventory).
 ItemEvents.dropped(event => {
+  var player = event.player
   try {
-    var player = event.player
     if (!player || TtlLife.phase(player) !== 'life1' || !TtlStash.isSoulbound(event.item)) return
-    event.cancel()
     player.tell(Text.gold('Your soul will not let this go.'))
   } catch (e) {
     console.error(`[ttl] soul: drop check failed: ${e}`)
+    return
   }
+  // event.cancel() exits by throwing (KubeJS EventExit): never inside a try that catches it.
+  event.cancel()
 })
 
 ItemEvents.rightClicked(event => {

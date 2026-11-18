@@ -638,13 +638,15 @@ BlockEvents.rightClicked(event => {
     if (desks.length === 0 || TtlLife.dimensionOf(player) !== TtlLife.OVERWORLD) return
     var b = event.block
     if (desks.indexOf(TtlGuild.deskKey(b.x, b.y, b.z)) < 0) return
-    event.cancel()
     if (TtlLife.phase(player) !== 'life2') {
       player.tell(Text.gray('The Free Guild only takes on souls reborn in the Tensura world.'))
-      return
+    } else {
+      TtlGuild.boardLines(server, player).concat(TtlGuild.statusLines(server, player)).forEach(line => player.tell(Text.of(line)))
     }
-    TtlGuild.boardLines(server, player).concat(TtlGuild.statusLines(server, player)).forEach(line => player.tell(Text.of(line)))
   } catch (e) {
     console.error(`[ttl] guild: desk click failed: ${e}`)
+    return
   }
+  // event.cancel() exits by throwing (KubeJS EventExit): never inside a try that catches it.
+  event.cancel()
 })

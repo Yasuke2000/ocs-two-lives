@@ -126,7 +126,8 @@ ServerEvents.commandRegistry(event => {
     ops(ctx)
     var server = ctx.source.getServer()
     var target = player(ctx, 'target')
-    var ids = arg(ctx, 'ids').split(',').filter(s => s)
+    // Greedy: a plain string argument rejects the commas.
+    var ids = String(Arguments.GREEDY_STRING.getResult(ctx, 'ids')).split(',').map(s => s.trim()).filter(s => s)
     var c = TtlFavor.conf()
     ids.forEach(id => { if (!c.choice[id]) throw `unknown blessing ${id}` })
     TtlFavor.offer(server, target, ids)
@@ -189,8 +190,13 @@ ServerEvents.commandRegistry(event => {
     if (field === 'scheduled') return truth(ctx, `${a} scheduled`, TtlEvents.scheduled(server, a), bool(b))
     if (field === 'registered') return truth(ctx, `${a} registered`, TtlEvents.registered(a), bool(b))
     if (field === 'rule') {
-      var r = server.runCommandSilent(`gamerule ${a}`)
-      if (r === undefined || r === null) throw `cannot read gamerule ${a}`
+      // runCommandSilent returns nothing in KubeJS 2101; the dispatcher returns the query's result (booleans 1/0).
+      var r
+      try {
+        r = server.getCommands().getDispatcher()['execute(java.lang.String,java.lang.Object)'](`gamerule ${a}`, server.createCommandSourceStack().withSuppressedOutput())
+      } catch (e) {
+        throw `cannot read gamerule ${a}: ${e}`
+      }
       var want = b === 'true' ? '1' : b === 'false' ? '0' : b
       return truth(ctx, `gamerule ${a}`, String(r), want)
     }
@@ -225,7 +231,7 @@ ServerEvents.commandRegistry(event => {
           .then(intArg('ep').then(intArg('hours').executes(logged(setup))))))
       .then(Commands.literal('offerset')
         .then(Commands.argument('target', Arguments.PLAYER.create(event))
-          .then(strArg('ids').executes(logged(offerset)))))
+          .then(Commands.argument('ids', Arguments.GREEDY_STRING.create(event)).executes(logged(offerset)))))
       .then(Commands.literal('clear')
         .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(clear))))
       .then(Commands.literal('expect')

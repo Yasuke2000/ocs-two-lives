@@ -154,7 +154,9 @@ const TtlFavor = {
   // ---- blessings -----------------------------------------------------------------------------------------------------
 
   commonPool() {
-    return (typeof TtlData !== 'undefined' && TtlData.skills && TtlData.skills.common && TtlData.skills.common.skills) || []
+    // skills.toml lists bare names; the registry and Tensura's commands want full ids.
+    var names = (typeof TtlData !== 'undefined' && TtlData.skills && TtlData.skills.common && TtlData.skills.common.skills) || []
+    return names.map(p => (String(p).indexOf(':') >= 0 ? String(p) : `tensura:${p}`))
   },
 
   // Blessing ids that can be given to this player right now (a Common unique needs one that is free).

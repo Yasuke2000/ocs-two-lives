@@ -60,6 +60,7 @@ ttl registry expect pending TtlBotEvB 0
 ttl events fire favor
 ttl events expect winner TtlBotEvA
 ttl events expect offer TtlBotEvA true
+ttl events offerset TtlBotEvA ep_surge,relic,protection
 execute as TtlBotEvA run ttl favor choose ep_surge
 ttl events expect offer TtlBotEvA false
 ttl inspect TtlBotEvB
