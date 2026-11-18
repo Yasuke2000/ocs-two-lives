@@ -4422,6 +4422,7 @@ const TtlData = {
           9
         ],
         "dark_rep": {
+          "lizardmen": -20,
           "orc_horde": 40
         },
         "id": 3,
@@ -4553,6 +4554,14 @@ const TtlData = {
       },
       "honour_duel": {
         "line": ""
+      },
+      "horde_leader": {
+        "line": "devoured the Orc Lord and now leads the Orc Horde.",
+        "path": "dark"
+      },
+      "orcs_joined": {
+        "line": "spared the orcs of the Horde, and they joined Tempest.",
+        "path": "light"
       },
       "regicide": {
         "line": "",
@@ -4955,6 +4964,16 @@ const TtlData = {
             "act": 2,
             "path": "dark",
             "text": "You smell of a different road. I do not care which side you are on, as long as it is fun. Do not make it boring."
+          },
+          {
+            "act": 4,
+            "path": "light",
+            "text": "Hey, Rimuru's friend! Something big is swimming in that lake and it is not Rimuru. Do you want me to hit it? I will, if you ask nicely. Bring honey."
+          },
+          {
+            "act": 4,
+            "path": "dark",
+            "text": "There is a lake monster and somebody has been poking it. I can smell who. Do not ask me to help; I like it when you stay interesting."
           }
         ]
       },

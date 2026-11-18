@@ -370,5 +370,45 @@ const TtlQuestIds = {
       "timber": "4B1932600C991DF0",
       "woodcutter": "1901591983305FCD"
     }
+  },
+  "two_hundred_thousand": {
+    "id": "3201C62CEF644AC7",
+    "quests": {
+      "act_three": "1585311527965ABC",
+      "caverns_raid": "1BEAF15E9E6E9890",
+      "champion_falls": "09312D44BD363D3C",
+      "champion_turns": "5DC6BB895E05778A",
+      "devour_king": "71484AC8A112CDDE",
+      "disaster_falls": "0FA1FCD9FEF1FAEC",
+      "face_disaster": "29D5C5EA2B017525",
+      "face_geld": "279E2D0B9F04D34D",
+      "gabiru_pride": "5DDBDC9CF595C24E",
+      "geld_falls": "589B9EDB1263A248",
+      "great_clash": "04D78E4AFF3D25A3",
+      "horde_kneels": "51671CA0A5D6B5A4",
+      "horde_welcome": "6ED182178A90CB23",
+      "spare_orcs": "26F513965BD87791",
+      "take_horde": "1D2BA21736C69E22",
+      "war_council": "726B82305E098613"
+    }
+  },
+  "whirlpool": {
+    "id": "6FBCBA46854DE7E5",
+    "quests": {
+      "act_four": "2838EEA8E8718D5C",
+      "calamity_omen": "4BCFD8327B35499E",
+      "ep_20000": "03D7C7B0E21E79DD",
+      "face_whirlpool": "531A7A2DD9F75DC8",
+      "harlequins_toll": "4D73CAD0D78606DD",
+      "milim_honey": "51FF35F087F1E23D",
+      "puppet_pay": "10D40E81D39D1F69",
+      "shore_camp": "1F70B3D16096430C",
+      "survive_whirlpool": "71CE5C053B3E2572",
+      "treyni_warning": "77B55FED87C57904",
+      "unsigned_letter": "68F504149DB6ABF0",
+      "victory_feast": "336C7509DDEA2416",
+      "wake_calamity": "59F4870034DD1420",
+      "whirlpool_falls": "18A697DC12B0852B"
+    }
   }
 }

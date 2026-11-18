@@ -30,6 +30,11 @@
 		"In the story the Orc Lord Geld, driven by hunger, led a horde out of the south towards the Great Jura Forest. The lizardmen of Lake Siss met it first and asked the new monster town for help. This is the chapter where Tempest stops being a camp and becomes a power."
 	]
 	chapter.300D34CBDD2EC27E.title: "The Orc Lord"
+	chapter.3201C62CEF644AC7.chapter_subtitle: [
+		"The Orc War is decided in the marsh."
+		"The Orc Lord's army is two hundred thousand mouths and one hunger. Chapter 4 held the marsh; this chapter ends the war. Geld is a king who ate his own, and the forest has two answers for him: stand beside the lizardmen and break him, or kneel to the hunger and take his crown. Whatever road you walk, one of you ends the war and the other ends the Horde."
+	]
+	chapter.3201C62CEF644AC7.title: "Two Hundred Thousand"
 	chapter.36D8E5C05627FA49.chapter_subtitle: [
 		"Gazel Dwargo weighs everyone who stands before his throne."
 		"You have knelt before the King. Now he wants to know what kind of strength it was. The Hero King has ruled the Armed Nation for three hundred years and has judged every petitioner himself, a sham trial against a smith included. Whatever road you walk, the throne room is where it is measured."
@@ -80,6 +85,11 @@
 		"The Mortal Realm is a large world made small by habit. Walk it. There are temples in the sand, huts in the swamp, ships in the sea and old trails under the grass, and each is a day's story told by someone who is not coming back."
 	]
 	chapter.6989E856E32A68B2.title: "The Long Road"
+	chapter.6FBCBA46854DE7E5.chapter_subtitle: [
+		"Something old is rising out of Lake Siss."
+		"The Orc War left the forest with a federation and a name that carries. Names carry to Clayman's ears too. A whirlpool calamity sealed far from Jura has been waiting for someone to wake it, and somebody with strings in their fingers has decided that someone will be a beast prince who does not know what he is carrying. Whatever road you walk, Charybdis is coming."
+	]
+	chapter.6FBCBA46854DE7E5.title: "The Whirlpool"
 	chapter.71CE6A68642EC8F2.chapter_subtitle: [
 		"A roof, a fire, a place of your own."
 		"A traveller sleeps wherever the night finds them. A householder sleeps in the same bed every night and wakes in the same room, and that is a kind of long life too. Build somewhere worth coming back to."
@@ -153,6 +163,11 @@
 	]
 	quest.03A66B17ACC87C45.quest_subtitle: "Hunt"
 	quest.03A66B17ACC87C45.title: "Ants in the Fields"
+	quest.03D7C7B0E21E79DD.quest_desc: [
+		"Charybdis is a calamity-class monster, a whirlpool with a body, and in Tensura's own fight it brings water and a swarm with it. Gazel needed 10,000 EP; the sea wants twice that. Reach 20,000 EP and carry a plan, whether it is steel, fire or a party."
+	]
+	quest.03D7C7B0E21E79DD.quest_subtitle: "20,000 EP"
+	quest.03D7C7B0E21E79DD.title: "A Match for the Sea"
 	quest.041B0CE4E1347744.quest_desc: [
 		"Smelt thirty-two iron ingots. Buckets, rails, shields, armour and anvils all take their share."
 		""
@@ -166,6 +181,11 @@
 	]
 	quest.0421C6ABC740C8F8.quest_subtitle: "Gather"
 	quest.0421C6ABC740C8F8.title: "A Day's Harvest"
+	quest.04D78E4AFF3D25A3.quest_desc: [
+		"Rimuru's side reached the marsh in time to save Gabiru's troops and the old chieftain, and broke most of the horde before the king himself came forward (anime season 1, episode 13). Stand on the same ground and cut down fifteen orcs; the rest of the army will not stay to see the rest of them."
+	]
+	quest.04D78E4AFF3D25A3.quest_subtitle: "Break the army"
+	quest.04D78E4AFF3D25A3.title: "The Great Clash"
 	quest.04FB0C80CDC310C0.quest_desc: [
 		"Act I closes whichever road you took. Goblins and wolves, a dragon's cave behind you and a dwarf kingdom ahead: the forest has noticed you, and so has everyone who watches the forest. The next chapter is the road to the Dwarf King."
 	]
@@ -219,6 +239,11 @@
 		"&6Next life:&r Not scored directly."
 	]
 	quest.0852E11640B8614C.title: "A Pile of Stones"
+	quest.09312D44BD363D3C.quest_desc: [
+		"You took the Horde's crown, and the crown turned out to be a mouth. Put it down (anime season 1, episode 14: the Disaster dies and the orcs are freed from Starved). A horde that has lost two kings in one day will do whatever the next strong hand tells it."
+	]
+	quest.09312D44BD363D3C.quest_subtitle: "Defeat the Orc Disaster"
+	quest.09312D44BD363D3C.title: "The Champion Falls"
 	quest.095E9274F41F9EF9.quest_desc: [
 		"Gather 15 bookshelves to enchant at the highest level."
 		""
@@ -325,6 +350,11 @@
 		"&6Next life:&r Longevity, in the only way that counts: the longer you live, the more days you add."
 	]
 	quest.0F6D40AEB406B8B7.title: "Chase the Dark Away"
+	quest.0FA1FCD9FEF1FAEC.quest_desc: [
+		"In the story the orcs are freed from Starved when the Disaster dies (anime season 1, episode 14). The war is decided here: the horde has no king, no hunger driving it, and a very long way to walk home."
+	]
+	quest.0FA1FCD9FEF1FAEC.quest_subtitle: "Defeat the Orc Disaster"
+	quest.0FA1FCD9FEF1FAEC.title: "The Disaster Falls"
 	quest.0FFE83FD7094E6BA.quest_desc: [
 		"Wear a full set of diamond armour, with a diamond sword and a shield. Iron is good, but the End has no patience for good."
 		""
@@ -355,6 +385,13 @@
 		"&6Next life:&r Valor for the walking; Faith for any advancement on the way."
 	]
 	quest.106940F54EF8B23F.title: "Forests of Fungus"
+	quest.10D40E81D39D1F69.quest_desc: [
+		"In the anime Milim finishes Charybdis and Clayman's harlequins are exposed (episode 19); a soul that did Clayman's work and lived is worth more to the Society than one he threw away (our interpretation). The Outcast waits where the road forks south of Tempest's gate and pays in the one coin everybody takes."
+		""
+		"Return to the Outcast contact."
+	]
+	quest.10D40E81D39D1F69.quest_subtitle: "Report to the Outcast"
+	quest.10D40E81D39D1F69.title: "The Puppet's Pay"
 	quest.1167BEB1B24E76ED.quest_desc: [
 		"Rimuru was born in the Sealed Cave, where Veldora was held for three hundred years (anime season 1, episode 1). The magicule that leaked out of the seal does not stay quiet (our interpretation): the Supermassive Slime at the altar is what is left of it. Anyone may fight it, whatever road they walk."
 		""
@@ -415,6 +452,13 @@
 	]
 	quest.157D58DC52006FFD.quest_subtitle: "Empty huts, a waiting stranger"
 	quest.157D58DC52006FFD.title: "The Horde's Envoy"
+	quest.1585311527965ABC.quest_desc: [
+		"The marsh is quiet. In the story the Orc Disaster's death ends the war and the lizardmen, goblins, ogres and orcs of the forest sit down at one table (anime season 1, episode 15). Whichever road you took, the forest knows who was at the front of the war."
+		""
+		"Claim the reward to close the act: it records Act III and applies its reputation (light: Lizardmen +20, Tempest +10; dark: Orc Horde +40, Lizardmen -20). The next chapter is the calamity on the lake."
+	]
+	quest.1585311527965ABC.quest_subtitle: "Act III"
+	quest.1585311527965ABC.title: "The Orc War"
 	quest.16C682117AAF591D.quest_desc: [
 		"Canon says three days by wolf and two months on foot, and the road north has no inns. Pack food, a good pickaxe and torches before you leave the forest: 16 cooked beef, an iron pickaxe and 32 torches in your inventory."
 	]
@@ -474,6 +518,11 @@
 		"&6Next life:&r Valor +50 and a great foe: it counts towards the Legend tier."
 	]
 	quest.189621086A58B950.title: "The Drowned Temple"
+	quest.18A697DC12B0852B.quest_desc: [
+		"In the story Milim ends Charybdis and spares Phobio, the beast prince it possessed (anime season 1, episode 19). Here the ending is yours. When it falls the water goes still."
+	]
+	quest.18A697DC12B0852B.quest_subtitle: "Defeat Charybdis"
+	quest.18A697DC12B0852B.title: "The Whirlpool Calamity"
 	quest.18E68A4477A5FF08.quest_desc: [
 		"Ferment two spider eyes: a spider eye, brown mushroom and sugar make the key ingredient of weakness, slowness and harming."
 		""
@@ -508,6 +557,13 @@
 		"&6Next life:&r Craft: every block of ancient debris adds 5 Craft karma."
 	]
 	quest.1BDC7581ED18FA26.title: "Ancient Debris"
+	quest.1BEAF15E9E6E9890.quest_desc: [
+		"Gabiru has sworn to hold the lake against the orcs, and the Horde knows it (anime season 1, episodes 11-12). A besieged people that is hit from inside its own caverns breaks faster than one that is hit from the marsh. Go to the caverns the lizardmen hold and cut down twelve of them."
+		""
+		"&6Why it matters:&r Act III costs a dark soul the lizardmen's goodwill (Lizardmen -20) and wins the Horde's (Orc Horde +40)."
+	]
+	quest.1BEAF15E9E6E9890.quest_subtitle: "Betray the lizardmen"
+	quest.1BEAF15E9E6E9890.title: "Raid the Caverns"
 	quest.1C3E20B311E1AB34.quest_desc: [
 		"Talk to ten villagers: right-click, listen to the grunt, and look at what they will sell. Every trade begins as a greeting."
 		""
@@ -543,6 +599,15 @@
 		"&6Next life:&r Not scored directly: ringing it for a raid is just a warning, and the raid, if you bring it, is a Chaos deed."
 	]
 	quest.1D03190909C19A0D.title: "Ring the Bell"
+	quest.1D2BA21736C69E22.quest_desc: [
+		"A horde follows hunger, and hunger follows the strongest mouth. Geld is a king because he ate his rivals; the only way to the Horde's crown is to eat him in turn (our interpretation: in the anime the Disaster itself is devoured by Rimuru, episode 14). Anyone may fight him, whatever road they walk."
+		""
+		"Stand in the orc camp itself and claim the reward to start the fight. He summons the horde at 60% health and goes into a frenzy at 30%."
+		""
+		"&6If the call fails&r (the Orc Lord is already out, or resting: 24 hours, or you are more than 96 blocks from the camp's centre), find the camp with /ttl landmark where orc_camp and type /ttl story fight orc_lord there."
+	]
+	quest.1D2BA21736C69E22.quest_subtitle: "Begin the fight"
+	quest.1D2BA21736C69E22.title: "Take the Horde"
 	quest.1D3D81B3B457597B.quest_desc: [
 		"Spiders drop from the ceiling of every cave. Kill six, and keep their string for later."
 	]
@@ -566,6 +631,13 @@
 		"Schematics teach smiths to make katana, swords and armour; the schematic is used up and the recipe stays. Craft a smithing bench to work from. If you already built one for Kaijin in Tempest, the same bench counts."
 	]
 	quest.1E5B98A6CFF7815D.title: "A Smith's Bench"
+	quest.1F70B3D16096430C.quest_desc: [
+		"Tempest's allies gathered at the water while Vesta's full potions came off the bench (anime season 1, episode 17). A shore camp has to be fed and mended before anything rises out of the lake."
+		""
+		"Walk to the lake's western shore, where the forest ends, and hand in six low potions for the line."
+	]
+	quest.1F70B3D16096430C.quest_subtitle: "Potions for the line"
+	quest.1F70B3D16096430C.title: "The Shore Camp"
 	quest.1F7212F6209FDAB3.quest_desc: [
 		"Gobta is the hobgoblin who volunteers first, rides a wolf badly and boasts well. Find him at the goblins' campfire, south of Rigurd's hut."
 	]
@@ -675,6 +747,13 @@
 	]
 	quest.26A6D1053EDA56FF.quest_subtitle: "The quiet way"
 	quest.26A6D1053EDA56FF.title: "Steal the Schematics"
+	quest.26F513965BD87791.quest_desc: [
+		"The orcs that were left were never the enemy: they were starving, and the hunger was a king's skill, not theirs. In the story the freed orcs join the lizardmen and the goblins in the Jura alliance (anime season 1, episode 15). Here the survivors are fed at the camp, and the ones who choose to stay take Tempest's name."
+		""
+		"Stand in the camp and hand in twenty-four baked potatoes. The claim records that the orcs joined Tempest."
+	]
+	quest.26F513965BD87791.quest_subtitle: "They join Tempest (our interpretation)"
+	quest.26F513965BD87791.title: "Spare the Orcs"
 	quest.27035168A6DEED93.quest_desc: [
 		"Walk the streets of early Tempest, the town Rimuru built for goblins and direwolves. Goblins, wolves, dwarves and kijin live side by side here; behave like a guest."
 	]
@@ -687,6 +766,22 @@
 		"&6Next life:&r Not scored directly."
 	]
 	quest.273C7127B5C24215.title: "The Smokehouse"
+	quest.279E2D0B9F04D34D.quest_desc: [
+		"Geld waits at the heart of the horde, and nothing the forest has can stop him except a few who dare to meet him on his own ground (anime season 1, episode 13). The lizardmen hold the marsh while you do. Anyone may fight him, whatever road they walk."
+		""
+		"Stand in the orc camp itself and claim the reward to start the fight. He summons the horde at 60% health and goes into a frenzy at 30%. Bring a party."
+		""
+		"&6If the call fails&r (the Orc Lord is already out, or resting: 24 hours, or you are more than 96 blocks from the camp's centre), find the camp with /ttl landmark where orc_camp and type /ttl story fight orc_lord there."
+	]
+	quest.279E2D0B9F04D34D.quest_subtitle: "Begin the fight"
+	quest.279E2D0B9F04D34D.title: "Face the Orc Lord"
+	quest.2838EEA8E8718D5C.quest_desc: [
+		"The lake is calm again. In the story the victory is celebrated in Tempest, and then Yuuki walks in with a warning about Shizu's students (anime season 1, episode 20). Whichever road you took, the water gave something up: the forest's strongest now know what you are."
+		""
+		"Claim the reward to close the act: it records Act IV and applies its reputation (light: Tempest +15; dark: Outcast Society +20)."
+	]
+	quest.2838EEA8E8718D5C.quest_subtitle: "Act IV"
+	quest.2838EEA8E8718D5C.title: "Calamity"
 	quest.283DBEA71CB9C9E6.quest_desc: [
 		"Punch a tree until it gives, turn the logs into planks and the planks into eight sticks. Nothing here is built without them."
 		""
@@ -729,6 +824,15 @@
 		"&6Next life:&r Faith for the advancement; Craft grows with the work behind it."
 	]
 	quest.295AA61F9C55A114.title: "Suit Up"
+	quest.29D5C5EA2B017525.quest_desc: [
+		"In the story Geld devours his master Gelmud and the dead of the battlefield and rises again as the Orc Disaster, a catastrophe no one in the forest can face alone (anime season 1, episode 14). The war is not won until he is."
+		""
+		"Stand on the battlefield and claim the reward to start the final battle. The Disaster is a harder fight than the Lord: more health, a starving horde behind him, and a frenzy at 30% health."
+		""
+		"&6If the call fails&r (the Disaster is already out, or resting: 48 hours), type /ttl story fight orc_disaster at the battlefield."
+	]
+	quest.29D5C5EA2B017525.quest_subtitle: "Begin the last battle"
+	quest.29D5C5EA2B017525.title: "The One Who Devours All"
 	quest.2AFA8C648E4A5880.quest_desc: [
 		"Crack open an amethyst geode and take eight shards. Do not let it ring: the crystals chime when anyone steps near."
 		""
@@ -844,6 +948,13 @@
 		"&6Next life:&r Not scored directly."
 	]
 	quest.335512BF337D39FE.title: "The Pumpkin and the Pail"
+	quest.336C7509DDEA2416.quest_desc: [
+		"After the battle the town celebrates: Carrion agrees to a non-aggression pact, the harlequins are exposed as Clayman's, and the victory is feasted before Yuuki arrives (anime season 1, episodes 19-20). Everyone who fought is owed a seat at the fire."
+		""
+		"Take eight cooked cod to the green and eat with the people you defended."
+	]
+	quest.336C7509DDEA2416.quest_subtitle: "Tempest celebrates"
+	quest.336C7509DDEA2416.title: "The Victory Feast"
 	quest.33773FD7757DFBC8.quest_desc: [
 		"Gabiru swears to stand with Tempest against the horde. In the story he is proud, and not easy to fight beside: his warriors will hold the lake while the forest's army meets the orcs. The book cannot detect an alliance, so this is a promise you make yourself. Tick it when you stand with them."
 	]
@@ -1131,11 +1242,25 @@
 		"The goblins, the direwolves, the kijin and the lizardmen fought the horde in the marsh together. Stand on the battlefield south-east of the lake and cut down twenty more orcs."
 	]
 	quest.4B97B9BA4541C6C9.title: "Hold the Line"
+	quest.4BCFD8327B35499E.quest_desc: [
+		"The Orc War is behind you and the council longhouse is quieter than it has been in months, which is the sort of quiet Souei does not like. Reports from the lake say the fish have gone and the water has begun to turn. Treyni's warning has come through the trees (our interpretation; in the anime a whirlpool calamity is sealed in the Beast Kingdom's borders and broken loose by Clayman's harlequins, episodes 17-18)."
+		""
+		"Stand on the green and hear what the scouts say before you choose your road."
+	]
+	quest.4BCFD8327B35499E.quest_subtitle: "Act IV begins"
+	quest.4BCFD8327B35499E.title: "A Calamity Stirs"
 	quest.4C0E3BFFAE3E50CA.quest_desc: [
 		"Wild direwolves still prowl the forest edge. Drive off three."
 	]
 	quest.4C0E3BFFAE3E50CA.quest_subtitle: "Hunt"
 	quest.4C0E3BFFAE3E50CA.title: "Wolves at the Edge"
+	quest.4D73CAD0D78606DD.quest_desc: [
+		"Clayman's agents Tear and Footman, the harlequins, are the ones who talk Phobio into carrying the seal and then watch it break (anime season 1, episodes 17-18). They want paying: not for the work, which they enjoy, but for being sure you are the kind of soul who pays."
+		""
+		"Meet them on the lake's western shore and hand in three silver coins."
+	]
+	quest.4D73CAD0D78606DD.quest_subtitle: "Clayman's errand-runners"
+	quest.4D73CAD0D78606DD.title: "The Harlequins' Toll"
 	quest.4D84DCDECB3CCFDC.quest_desc: [
 		"Dwargon's word is only worth what is carried back to the people it was given for. The green in Tempest is where Rimuru's council meets, and the stew is better than the King's."
 		""
@@ -1189,6 +1314,13 @@
 		"&6Next life:&r Not scored directly."
 	]
 	quest.50ED07BC02E5FED6.title: "A Fire in a Box"
+	quest.51671CA0A5D6B5A4.quest_desc: [
+		"A horde that kneels still has to eat. The Horde does not ask for bread: it asks for what the dead leave behind, and for someone who will not run when it is eaten (our interpretation of Starved, anime season 1, episode 12). Hand it over and it follows you."
+		""
+		"Stand in the camp and hand in thirty-two pieces of rotten flesh."
+	]
+	quest.51671CA0A5D6B5A4.quest_subtitle: "Feed the hunger"
+	quest.51671CA0A5D6B5A4.title: "The Horde Kneels"
 	quest.519D3CA856E8F7CB.quest_desc: [
 		"Stay alive for 2 days (about 40 minutes of play)."
 		""
@@ -1217,6 +1349,13 @@
 	]
 	quest.51BE6D1FFA78B4AF.quest_subtitle: "Five ways of life"
 	quest.51BE6D1FFA78B4AF.title: "The Ledger"
+	quest.51FF35F087F1E23D.quest_desc: [
+		"Milim arrived at Tempest like a storm and stayed for the honey: Rimuru calmed the Dragonoid Demon Lord with something sweet and she called him a friend (anime season 1, episode 16). A friend of Tempest is worth a few jars. Take eight bottles of honey to Milim's domain, in the lands to the far south-east (about 2,500 blocks from Tempest), and ask what she thinks of the lake."
+		""
+		"Hand in eight honey bottles in the City of the Forgotten Dragon, where Milim keeps her court."
+	]
+	quest.51FF35F087F1E23D.quest_subtitle: "The light road"
+	quest.51FF35F087F1E23D.title: "Honey for a Demon Lord"
 	quest.520F289E26CD8D14.quest_desc: [
 		"The Hero King is a hard man to beat and a good one to lose to. When he falls, he bows his head, and the court will tell it as a duel and nothing else. No reputation is lost with Dwargon because of it."
 	]
@@ -1239,6 +1378,15 @@
 		"&6Next life:&r Faith for the advancement (+2). Animals you tame are a sort of Order: you are now responsible for them."
 	]
 	quest.52EC32EBD77A5F6A.title: "A Loyal Friend"
+	quest.531A7A2DD9F75DC8.quest_desc: [
+		"In the story Milim hits Charybdis when Rimuru asks (anime season 1, episode 19). In Tempest's world she is on the far side of the map, and the lake is still yours to hold. Anyone may fight Charybdis, whatever road they walk."
+		""
+		"Stand on the shore and claim the reward to bring it up. It rises over the water, summons nothing but waves, and turns furious at 60% and again at 30% of its health. Bring a party, and stay out of the water."
+		""
+		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis on the shore, within 96 blocks of the arena's centre (635, 145)."
+	]
+	quest.531A7A2DD9F75DC8.quest_subtitle: "Begin the fight"
+	quest.531A7A2DD9F75DC8.title: "Face the Whirlpool"
 	quest.5324FB850E375029.quest_desc: [
 		"Breed thirty animals. A herd you keep is food for a village and a reason for other people to stay."
 		""
@@ -1326,6 +1474,11 @@
 		"&6Next life:&r Not scored: the book cannot see a gift, and the Voice scores only what the world records. Do it anyway."
 	]
 	quest.57F95C93A1BA166D.title: "Bread for the Hungry"
+	quest.589B9EDB1263A248.quest_desc: [
+		"A king that ate the strongest of his own to become a calamity (anime season 1, episodes 12-13). When he falls, the horde does not fall with him: it is still starving, and it has still no leader."
+	]
+	quest.589B9EDB1263A248.quest_subtitle: "Defeat the Orc Lord"
+	quest.589B9EDB1263A248.title: "Geld Falls"
 	quest.58AA1E63ACF93062.quest_desc: [
 		"Craft a golden helmet and distract a piglin by dropping a gold ingot in front of it. Piglins ignore anyone in gold armour; a bartering piglin is a sure source of ender pearls."
 		""
@@ -1354,6 +1507,15 @@
 		"&6Next life:&r Valor for the walking."
 	]
 	quest.59A17C1D26897630.title: "The Valley of Souls"
+	quest.59F4870034DD1420.quest_desc: [
+		"In the anime the harlequins persuade Phobio to let Charybdis possess him, and the seal breaks (anime season 1, episode 18). Here the seal breaks because you broke it: Charybdis is Clayman's weapon, and the dark road holds the knife. Anyone may fight Charybdis, whatever road they walk."
+		""
+		"Stand on the shore and claim the reward to bring it up. It rises over the water and turns furious at 60% and again at 30% of its health. The claim also records the story flag \"charybdis_woke\"."
+		""
+		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis on the shore, within 96 blocks of the arena's centre (635, 145)."
+	]
+	quest.59F4870034DD1420.quest_subtitle: "Begin the fight"
+	quest.59F4870034DD1420.title: "Wake the Calamity"
 	quest.5A428C02809011D3.quest_desc: [
 		"Slay the Nether's own: a blaze, a ghast, a wither skeleton and a magma cube."
 		""
@@ -1406,6 +1568,15 @@
 		"&6Next life:&r Valor for the walking."
 	]
 	quest.5D7D7960B5EA0119.title: "The Bones of Something Large"
+	quest.5DC6BB895E05778A.quest_desc: [
+		"A horde with no king eats itself, and a king that eats too much becomes something worse: the Orc Disaster, the catastrophe the Horde called its champion until it turned on the one who had taken its throne (anime season 1, episode 14: Geld devours Gelmud and the dead around him and rises again)."
+		""
+		"Stand on the battlefield and claim the reward to start the fight. More health than the Lord, a starving horde behind it, and a frenzy at 30% health."
+		""
+		"&6If the call fails&r (the Disaster is already out, or resting: 48 hours), type /ttl story fight orc_disaster at the battlefield."
+	]
+	quest.5DC6BB895E05778A.quest_subtitle: "Begin the last battle"
+	quest.5DC6BB895E05778A.title: "The Champion Turns"
 	quest.5DD9D39B70567F80.quest_desc: [
 		"Craft a barrel and four chests. Sort them: food, stone, ore, tools. A house that cannot find its own things is only a heap."
 		""
@@ -1414,6 +1585,13 @@
 		"&6Next life:&r Not scored directly."
 	]
 	quest.5DD9D39B70567F80.title: "A Proper Storeroom"
+	quest.5DDBDC9CF595C24E.quest_desc: [
+		"Gabiru lost a duel to Gobta, took his father's seat when the old chieftain would not wait, and led the lizardmen into the orcs alone (anime season 1, episodes 11-12). His warriors are the ones bleeding at the lake. The pride is his; the wounds belong to everyone."
+		""
+		"Go to the caverns and hand in four low potions for the wounded."
+	]
+	quest.5DDBDC9CF595C24E.quest_subtitle: "The light road"
+	quest.5DDBDC9CF595C24E.title: "Gabiru's Pride"
 	quest.5E6EA0308CD76328.quest_desc: [
 		"Walk back to Wayfarer's Rest and stand at the bell where you began. See who is still there, and who has come in since."
 		""
@@ -1606,6 +1784,13 @@
 		"&6Next life:&r Not scored directly."
 	]
 	quest.67B8853DC7F4D8B5.title: "A Place for Things"
+	quest.68F504149DB6ABF0.quest_desc: [
+		"The Outcast contact has a letter for you and no name for whoever wrote it (our interpretation: the hand is Yuuki Kagurazaka's, the Free Guild's Grandmaster, who appears in anime season 1, episode 20, and Clayman is the one who profits). The letter says that a Demon Lord with a fondness for puppets is gathering a beast prince's grief and a sealed calamity in one place, and that someone has to be standing at the lake when it comes up."
+		""
+		"Go to the fork south of Tempest's gate."
+	]
+	quest.68F504149DB6ABF0.quest_subtitle: "The dark road"
+	quest.68F504149DB6ABF0.title: "The Unsigned Letter"
 	quest.69634DC941547E1C.quest_desc: [
 		"Behind the gate a long tunnel climbs into the mountain, then opens on a cavern city: lit windows, shop signs, lamps strung across the street and bridges high above. Walk the south street."
 	]
@@ -1668,6 +1853,13 @@
 		"&6Next life:&r Valor: pillagers are a kind of foe (+4 for the first, little after). A raid you did not start and won is Order (+30)."
 	]
 	quest.6EC64E409D27BB66.title: "Keep the Peace"
+	quest.6ED182178A90CB23.quest_desc: [
+		"The Horde's envoy you met in the empty goblin huts was only the first word. Geld's army has a masked patron, Gelmud, who feeds the king's hunger with promises (anime season 1, episode 10), and an army that size needs strong blades more than it needs loyalty (our interpretation: the Outcast Society passes yours along)."
+		""
+		"Walk into the orc camp and be seen. Orcs do not make distinctions between hungry and hunted, so keep your sword out."
+	]
+	quest.6ED182178A90CB23.quest_subtitle: "The dark road"
+	quest.6ED182178A90CB23.title: "The Horde's Welcome"
 	quest.6EFF5511B028B9AC.quest_desc: [
 		"Find or buy a smithing schematic and use it. Kaijin's craft starts with a single page."
 	]
@@ -1714,6 +1906,25 @@
 		"&6Next life:&r Valor and a little Faith: it is a journey and a find."
 	]
 	quest.7135883F76B91D2C.title: "X Marks the Sand"
+	quest.71484AC8A112CDDE.quest_desc: [
+		"In the story the hunger does not die with Geld; the Orc Lord's Starved skill drives the horde on (anime season 1, episodes 12 and 14). Here it passes to whoever stands over him. The claim records that you lead the Horde now: the story flag \"horde_leader\" is set, a mark only the dark road can earn."
+		""
+		"&6Why it matters:&r the Horde's goodwill (Orc Horde +40) is paid when Act III closes."
+	]
+	quest.71484AC8A112CDDE.quest_subtitle: "Defeat the Orc Lord"
+	quest.71484AC8A112CDDE.title: "Devour the King"
+	quest.71CE5C053B3E2572.quest_desc: [
+		"You woke it; now it wants you (our interpretation: in the anime it is Milim who ends it, episode 19). A calamity does not distinguish between those who wake it and those it was sent for. Fight it anyway, and make sure that when the water settles you are the one still standing."
+	]
+	quest.71CE5C053B3E2572.quest_subtitle: "Defeat Charybdis"
+	quest.71CE5C053B3E2572.title: "Survive the Whirlpool"
+	quest.726B82305E098613.quest_desc: [
+		"The ogres have become kijin, the lizardmen have begged Tempest for help, and the Orc Lord's name is on every lip (anime season 1, episodes 10-12). Benimaru has laid out the marsh on the council table: two hundred thousand orcs under a king whose skill, Starved, drives the whole horde mad with hunger."
+		""
+		"You have blunted the first wave and carried Act II to Tempest. Walk into the council longhouse and hear the plan before you choose your road."
+	]
+	quest.726B82305E098613.quest_subtitle: "Act III begins"
+	quest.726B82305E098613.title: "The War Council"
 	quest.7289055E6D3B5177.quest_desc: [
 		"Dwarf smiths prize magic ore, iron soaked in magicules over centuries, and mine it deep under the Canaat Mountains. Mine a magic ore yourself and carry eight shards."
 	]
@@ -1741,6 +1952,13 @@
 		"Reach 10,000 EP (A-Class). The orc horde is made of thousands of fighters of B-Class and below; to cross that army you need to stand above it."
 	]
 	quest.7797476042AAC217.title: "A Hazard to Others"
+	quest.77B55FED87C57904.quest_desc: [
+		"Treyni is the dryad who keeps the forest, the one who first asked Rimuru to end the Orc Lord (anime season 1, episode 11). Her shrine is on the far eastern edge of the forest, well beyond the orc camp. She knows the calamity's name and she will say it once."
+		""
+		"The way is long (the shrine is about two thousand blocks east of Tempest). Go to the grove and stand in her shrine."
+	]
+	quest.77B55FED87C57904.quest_subtitle: "A long road east (optional)"
+	quest.77B55FED87C57904.title: "Treyni's Warning"
 	quest.78E241CB36B19CE3.quest_desc: [
 		"Smelt iron and make an iron pickaxe. Now diamonds, and the Nether, are within reach."
 		""
@@ -1866,29 +2084,39 @@
 	task.00B258672264BEA1.title: "Walk 5 km"
 	task.0115BA7420C399EC.title: "Defeat an Orc Lord"
 	task.02034A12C6521724.title: "Before the throne"
+	task.041C77726FDC891F.title: "The lake shore"
+	task.05168D3419679E35.title: "Close Act III"
 	task.063051C7D7133F39.title: "The market plaza"
 	task.065DAEAEB65FB0F1.title: "100 trades"
 	task.06C2B82B2FC09DFD.title: "Bee Our Guest"
 	task.07A570FA6CF65356.title: "Stand with the lizardmen"
 	task.080DAF8063385BBC.title: "Hand in 8 white wool"
+	task.0839BD76D8D6D603.title: "Defeat Charybdis"
 	task.0983B151684D1279.title: "Reach 6,000 EP"
+	task.09F56FEAD1E8A2E0.title: "Act III is behind you"
 	task.0AAFC15D7FE4A908.title: "The bell at Wayfarer's Rest"
 	task.0AC681BD967CE9C5.title: "Old goblin village"
 	task.0BB19A71F91AA826.title: "Lizardmen's caverns"
 	task.0C138151BF10AF15.title: "Mine a magic ore"
+	task.0D1463E16423959A.title: "The lizardmen's caverns"
 	task.0DFDD3C3D878F57C.title: "Learn Wind Cutter"
 	task.0E89027720808D84.title: "Use a smithing table 5 times"
+	task.0FA0085B5F5E7E3A.title: "The village green"
 	task.0FD940179FF540EB.title: "The crossroads at the south gate"
+	task.0FDE011CBE35FB64.title: "The lake shore"
 	task.10A9B0D9FDB07716.title: "Close Act II"
 	task.10CC2F1B73E2BFF4.title: "Defeat Gazel Dwargo"
 	task.11FF2505E0F7C414.title: "Lake Siss"
 	task.127791122F8563BC.title: "Round of the town"
 	task.12A127FAEF3CA336.title: "Win 3 raids"
+	task.14622E57FD07FB48.title: "The lizardmen's caverns"
 	task.1759663838EF5C18.title: "Kaijin's forge"
 	task.17D592EE573097E0.title: "Ring a bell"
 	task.1879B97090F0AE42.title: "Use a cartography table"
 	task.1941063E33D88146.title: "The goblins' campfire"
+	task.1B39AC2E365FAE6E.title: "Act II is behind you"
 	task.1C3EE7D08EE03270.title: "Reach 100,000 EP"
+	task.1CA4EFBFAE517063.title: "In the orc camp"
 	task.1CFB2D4CF08DE204.title: "The plaza"
 	task.1E4A998DF8D59E82.title: "At the throne"
 	task.1EC1ABA15F8E90FF.title: "I have lived"
@@ -1900,15 +2128,22 @@
 	task.241D99215A6233C1.title: "The forge hall"
 	task.262CF52F0CDAA3D0.title: "Obtain a gold coin"
 	task.26316E4395EA7E52.title: "Shuna's weaving hut"
+	task.26BE7BED85C68AD1.title: "The orc camp"
 	task.273A002575A42E8F.title: "Reach 1,000 EP"
 	task.27E02ABB634586BC.title: "This is home"
+	task.282D0E51F568C73B.title: "The village green"
 	task.28CC04BFB74B238D.title: "Smelt or find a silver ingot"
 	task.2A628644BD864405.title: "Close Act I"
+	task.2A6E537C92A3D4F3.title: "On the shore"
 	task.2AE6D3268926D1AB.title: "Reach 3,000 EP"
 	task.2AE9FF4F367986E8.title: "Survive 15 days"
+	task.2B292CFA3D6EDC1E.title: "On the shore"
 	task.2B3C7083647CF215.title: "Eat a slice of cake"
+	task.2CB561EFB9E44122.title: "Defeat the Orc Lord"
 	task.2D669A1507FA4ADC.title: "Use a stonecutter 5 times"
+	task.2D6CA9699822D6C0.title: "The marsh battlefield"
 	task.2D8A954B2AF44E4C.title: "The Parrots and the Bats"
+	task.2E164C0ACED1E71D.title: "The orc camp"
 	task.2EACD8B0D25F6159.title: "Complete a trade and obtain coins"
 	task.2EF6869AEBD1585F.title: "Reach 5,000 EP"
 	task.307965B503E3F83D.title: "Dwargon's gate"
@@ -1918,9 +2153,11 @@
 	task.359F470293C5ED4E.title: "The lizardmen's stilt village"
 	task.37ACDE9D55EB665D.title: "The town stands"
 	task.380DE35F0DA7E8B4.title: "The lizardmen's caverns"
+	task.38A8072C68EE074E.title: "The council longhouse"
 	task.39F56541B15B0CD3.title: "I have been to the bottom"
 	task.3A16348A1B5A0804.title: "Remote Getaway"
 	task.3A6CFE2A4A6A25C1.title: "Hot Stuff"
+	task.3A92CBA9FB0EFA1B.title: "In the orc camp"
 	task.3C4E9D5D14BDF532.title: "Kaijin's smithy"
 	task.3CE536226AD58D80.title: "Survive 7 days"
 	task.3D4FA01442F6EF0C.title: "The forge hall"
@@ -1930,6 +2167,7 @@
 	task.405D1883802C8096.title: "The checkpoint arch"
 	task.41C475618C602386.title: "Rigurd's chief hut"
 	task.45F254081D437D19.title: "The village knows me"
+	task.47B864ADE645E832.title: "The Outcast contact on the south road"
 	task.483F9861A28A4C20.title: "Defeat Gazel Dwargo in the honour duel"
 	task.48477394DCAE8FD1.title: "Monster Hunter"
 	task.4BD6582419A09CED.title: "The throne room"
@@ -1937,20 +2175,25 @@
 	task.4E723D68430BC01A.title: "Visit Tempest"
 	task.4EAD38AC6EB13C67.title: "Defeat an Orc Disaster"
 	task.50B139248A2F40A8.title: "Crafting a New Look"
+	task.51C5196F8016FEF4.title: "Defeat the Orc Disaster"
 	task.51E225B8DD652D74.title: "The engineers' workshop"
 	task.51E546A20C95FCC4.title: "Use a loom 3 times"
 	task.522C6202F367432B.title: "Name a monster"
 	task.52EBA0F0D80A1CFE.title: "Reach 50,000 EP"
+	task.5461AE2277331F7F.title: "Reach 20,000 EP"
 	task.54CAE864AF2188E6.title: "Defeat the Supermassive Slime"
 	task.564AB5C7D3BEFEC0.title: "Talk to 10 villagers"
 	task.57702DD1F3803976.title: "Take Aim"
 	task.57A7CE013047253E.title: "Kaijin's smithy"
+	task.57CD78B3F75BA3AE.title: "Defeat the Orc Disaster"
 	task.58B6A23EAA193CD0.title: "The Sealed Cave"
 	task.59617B8F0E397AEB.title: "The building site"
+	task.599A403FDAEB3604.title: "Defeat Charybdis"
 	task.59A48D780299F806.title: "In the queue at the gate"
 	task.5C10DCC57776B9A0.title: "The Sealed Cave"
 	task.5C2AD0298CD22912.title: "You Need a Mint"
 	task.5C3AEA5E41D1FD64.title: "I understand"
+	task.5EBBA2B88DF562DB.title: "On the battlefield"
 	task.5EC93BC773358845.title: "Surge Protector"
 	task.5F028AE14A531A30.title: "25 trades"
 	task.5F0DAD5ED3490D05.title: "At the throne"
@@ -1962,6 +2205,7 @@
 	task.65C872A22AD97F93.title: "Survive 1 day"
 	task.66B3DE5D9BA3FBB2.title: "The village green"
 	task.66F5AD58E82DDD19.title: "The barn is full"
+	task.6856FA45C1528580.title: "The Outcast contact on the south road"
 	task.694CDA4A53EC025F.title: "Use a schematic"
 	task.6AC3E5510622E1A7.title: "Reach 10,000 EP"
 	task.6C1FCB789CCEEC8F.title: "I am ready for the End"
@@ -1970,8 +2214,10 @@
 	task.6D59A41BF81C98C2.title: "Stand in a dark forest"
 	task.6E966A6D3E4133A0.title: "Act I is behind you"
 	task.6F1501F3111BE507.title: "I have walked the Realm"
+	task.6FD269D0F066EC23.title: "Close Act IV"
 	task.70A037A68C4D45B0.title: "Use an anvil 5 times"
 	task.70A4AF5455A9C70B.title: "Enchant 10 items"
+	task.70B4EF3B282D2277.title: "Treyni's shrine"
 	task.70CF1CC59D31B1EC.title: "Tame a direwolf"
 	task.713E44D7C4D2925C.title: "Make a low magisteel ingot"
 	task.71834F52D8EF1C77.title: "Ice Bucket Challenge"
@@ -1985,14 +2231,18 @@
 	task.752A76D950963894.title: "The Outcast contact on the south road"
 	task.758FBA082B518DE9.title: "Learn Aura Sword"
 	task.7641A6D55CCC6DB5.title: "Resistance begins"
+	task.773AAC4CE2A8C13F.title: "Defeat the Orc Lord"
 	task.77817FCE9220F991.title: "Rigurd's hut"
+	task.7892E51F264ECCAD.title: "The orc camp"
 	task.78978BAD184A54F3.title: "Obtain an ability"
 	task.78A21175C39FD962.title: "Best Friends Forever"
 	task.78C56AF93A2AC03D.title: "I helped"
+	task.78EA8BB2ABD2760E.title: "The City of the Forgotten Dragon"
 	task.791641DD14683B36.title: "Breed 10 animals"
 	task.79260A0646DC3F65.title: "This Boat Has Legs"
 	task.794261E564FBED60.title: "The Outcast contact on the south road"
 	task.798EAAEA6091EF8B.title: "The old goblin village"
+	task.79E6D41847D1E679.title: "On the battlefield"
 	task.7ACD4CF3695BBD2B.title: "The burned ogre village"
 	task.7B4249AE3E2796F6.title: "Reach 10,000 EP"
 	task.7C94E65510949CC0.title: "Hand in 32 torches"
