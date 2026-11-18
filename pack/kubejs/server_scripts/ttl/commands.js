@@ -1,6 +1,9 @@
 // Players:  /ttl menu (reopen choices) · /ttl wish <id> · /ttl trial · /ttl answer <word> · /ttl choose <race> · /ttl unique <skill> · /ttl status
 // Ops:      /ttl inspect <player> (answers over RCON) · /ttl reset <player> (back to a fresh Life 1)
 //           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
+//           /ttl registry history [skill] (the newest 20 transfers: grants, revokes, returns to the pool)
+//           /ttl registry sweep (return to pool now: holders inactive for skills.toml [registry] inactive_days) · migrate (name → UUID records)
+//           /ttl registry seen <player> <days> · legacy <player> (test hooks) · expect count|holds|has|keyed|last|pending ... ("ttl: ..." on failure)
 //           /ttl reconcile <player> (match the registry to the uniques they really hold; also runs every 5 min)
 //           /ttl grant <player> <skill> (through the registry, caps apply)
 //           /ttl build <name> (place blueprints/<name>.py with its corner at your feet)
@@ -100,6 +103,112 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var say = (ctx, line) => ctx.source.sendSystemMessage(Text.of(line))
+
+  var registryHistory = withSkill => ctx => {
+    var skill = withSkill ? word(ctx, 'skill') : null
+    var lines = TtlRegistry.historyLines(ctx.source.getServer(), skill, 20)
+    say(ctx, lines.length ? `Registry history${skill ? ` of ${skill}` : ''} (newest last):` : 'Registry history: nothing yet')
+    lines.forEach(line => say(ctx, line))
+    return 1
+  }
+
+  var registrySweep = ctx => {
+    var n = TtlRegistry.sweep(ctx.source.getServer())
+    say(ctx, `Returned ${n} unique record${n === 1 ? '' : 's'} to the pool`)
+    return 1
+  }
+
+  var registryMigrate = ctx => {
+    var n = TtlRegistry.migrate(ctx.source.getServer(), true)
+    say(ctx, `Migrated ${n} name-keyed record${n === 1 ? '' : 's'} to UUIDs`)
+    return 1
+  }
+
+  var registrySeen = ctx => {
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var days = Number(Arguments.INTEGER.getResult(ctx, 'days'))
+    TtlRegistry.fakeSeen(ctx.source.getServer(), target.username, days)
+    say(ctx, `${target.username} last seen ${days} days ago (test hook)`)
+    return 1
+  }
+
+  var registryLegacy = ctx => {
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var n = TtlRegistry.fakeLegacy(ctx.source.getServer(), target)
+    say(ctx, `${target.username}: ${n} record${n === 1 ? '' : 's'} rewritten as name entries (test hook)`)
+    return 1
+  }
+
+  // Assertions for tests/ingame/registry*.rcon: a failed one throws, which `logged` prints as "ttl: ...".
+  var flag = (ctx, name) => {
+    var v = String(Arguments.STRING.getResult(ctx, name)).toLowerCase()
+    if (v !== 'true' && v !== 'false') throw `${name} must be true or false`
+    return v === 'true'
+  }
+  var expectCount = ctx => {
+    var skill = `tensura:${word(ctx, 'skill')}`
+    var want = Number(Arguments.INTEGER.getResult(ctx, 'n'))
+    var got = (TtlRegistry.records(ctx.source.getServer())[skill] || []).length
+    if (got !== want) throw `expected ${skill} to have ${want} holders, it has ${got}`
+    say(ctx, `registry: ${skill} has ${want} holders as expected`)
+    return 1
+  }
+  var expectHolds = ctx => {
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var skill = `tensura:${word(ctx, 'skill')}`
+    var want = flag(ctx, 'value')
+    var got = (TtlRegistry.records(ctx.source.getServer())[skill] || []).indexOf(TtlRegistry.uid(target)) >= 0
+    if (got !== want) throw `expected the registry to ${want ? '' : 'not '}list ${target.username} for ${skill}`
+    say(ctx, `registry: ${target.username} ${want ? 'is' : 'is not'} a holder of ${skill} as expected`)
+    return 1
+  }
+  var expectHas = ctx => {
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var skill = `tensura:${word(ctx, 'skill')}`
+    var want = flag(ctx, 'value')
+    var actual = TtlManas.uniques(target)
+    if (actual === null) throw 'the Manas bridge cannot read skills'
+    if ((actual.indexOf(skill) >= 0) !== want) throw `expected ${target.username} to ${want ? '' : 'not '}hold ${skill}; holds ${actual.join(', ') || 'no uniques'}`
+    say(ctx, `registry: ${target.username} ${want ? 'holds' : 'does not hold'} ${skill} as expected`)
+    return 1
+  }
+  var expectKeyed = ctx => {
+    var server = ctx.source.getServer()
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var recs = TtlRegistry.records(server)
+    var id = TtlRegistry.uid(target)
+    var legacy = Object.keys(recs).filter(s => recs[s].indexOf(String(target.username)) >= 0)
+    if (legacy.length > 0) throw `${target.username} still has name-keyed records: ${legacy.join(', ')}`
+    if (TtlRegistry.heldBy(recs, id).length === 0) throw `${target.username} has no UUID-keyed records`
+    if (TtlRegistry.nameOf(server, id) !== String(target.username)) throw `the name cache has ${TtlRegistry.nameOf(server, id)} for ${target.username}`
+    say(ctx, `registry: ${target.username} is keyed by ${id} as expected`)
+    return 1
+  }
+  var expectLast = ctx => {
+    var server = ctx.source.getServer()
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var id = TtlRegistry.uid(target)
+    var kind = word(ctx, 'kind')
+    var skill = `tensura:${word(ctx, 'skill')}`
+    var mine = TtlRegistry.history(server).filter(h => h.u === id)
+    var last = mine.length > 0 ? mine[mine.length - 1] : null
+    if (!last || last.e !== kind || last.s !== skill) throw `expected the last history entry of ${target.username} to be ${kind} ${skill}, got ${last ? `${last.e} ${last.s}` : 'none'}`
+    say(ctx, `registry: last entry of ${target.username} is ${kind} ${skill} as expected`)
+    return 1
+  }
+  var expectPending = ctx => {
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var want = Number(Arguments.INTEGER.getResult(ctx, 'n'))
+    var got = (TtlRegistry.returned(ctx.source.getServer())[TtlRegistry.uid(target)] || []).length
+    if (got !== want) throw `expected ${want} returned skills waiting for ${target.username}, found ${got}`
+    say(ctx, `registry: ${want} returned skills waiting for ${target.username} as expected`)
+    return 1
+  }
+  var playerArg = () => Commands.argument('target', Arguments.PLAYER.create(event))
+  var skillArg = () => Commands.argument('skill', Arguments.STRING.create(event))
+  var valueArg = () => Commands.argument('value', Arguments.STRING.create(event))
+
   event.register(Commands.literal('ttl')
     .then(Commands.literal('wish')
       .then(Commands.argument('id', Arguments.STRING.create(event))
@@ -177,7 +286,30 @@ ServerEvents.commandRegistry(event => {
       .requires(src => src.hasPermission(2))
       .executes(logged(registryList))
       .then(Commands.literal('free')
-        .then(Commands.argument('skill', Arguments.STRING.create(event)).executes(logged(registryFree)))))
+        .then(Commands.argument('skill', Arguments.STRING.create(event)).executes(logged(registryFree))))
+      .then(Commands.literal('history')
+        .executes(logged(registryHistory(false)))
+        .then(skillArg().executes(logged(registryHistory(true)))))
+      .then(Commands.literal('sweep').executes(logged(registrySweep)))
+      .then(Commands.literal('migrate').executes(logged(registryMigrate)))
+      .then(Commands.literal('seen')
+        .then(playerArg().then(Commands.argument('days', Arguments.INTEGER.create(event)).executes(logged(registrySeen)))))
+      .then(Commands.literal('legacy')
+        .then(playerArg().executes(logged(registryLegacy))))
+      .then(Commands.literal('expect')
+        .then(Commands.literal('count')
+          .then(skillArg().then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(expectCount)))))
+        .then(Commands.literal('holds')
+          .then(playerArg().then(skillArg().then(valueArg().executes(logged(expectHolds))))))
+        .then(Commands.literal('has')
+          .then(playerArg().then(skillArg().then(valueArg().executes(logged(expectHas))))))
+        .then(Commands.literal('keyed')
+          .then(playerArg().executes(logged(expectKeyed))))
+        .then(Commands.literal('last')
+          .then(playerArg().then(Commands.argument('kind', Arguments.STRING.create(event))
+            .then(skillArg().executes(logged(expectLast))))))
+        .then(Commands.literal('pending')
+          .then(playerArg().then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(expectPending)))))))
     .then(Commands.literal('reset')
       .requires(src => src.hasPermission(2))
       .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(reset)))))

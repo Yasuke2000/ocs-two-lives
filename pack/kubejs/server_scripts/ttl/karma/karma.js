@@ -3,7 +3,9 @@
 // (→ TtlData.karma); the formula is described at the top of that file.
 // Deeds are vanilla statistics read through scoreboard objectives with stat criteria (`ttl.s.<key>`): the game
 // fills those itself, and EntityEvents.death does not fire for mob deaths here. A few values the stats lack
-// (distance, Nether/End visits, advancements) are tracked by tracking.js in player persistentData.
+// (active time, explored ground, Nether/End visits, advancements) are tracked by tracking.js in player persistentData.
+// Anti-farming: longevity is ACTIVE time (idle/AFK is not counted), kills diminish per kind of mob and
+// exploration counts distinct squares walked, see the [activity], [kill_cap] and [explore] tables in karma.toml.
 // Life 1 start (join.js, /ttl reset) snapshots the objectives into `ttl.karma.base`; the Life 1 death
 // (death.js) stores the difference and the verdict in `ttl.karma.life1` (JSON) plus `ttl.karma.<axis>`,
 // `ttl.karma.score`, `ttl.karma.dark`, `ttl.tier`, `ttl.l1.days`, and the stage `ttl.tier.<id>`. Karma
@@ -12,7 +14,9 @@ const TtlKarma = {
   OBJ: 'ttl.s.',
   KILL: 'kill.',
   // Tracked stats → their persistentData key (reset at Life 1 start, so they need no snapshot).
-  TRACKED: { far: 'ttl.l1.far', nether: 'ttl.l1.nether', end: 'ttl.l1.end', advancements: 'ttl.l1.adv' },
+  TRACKED: { active: 'ttl.l1.active', far: 'ttl.l1.far', nether: 'ttl.l1.nether', end: 'ttl.l1.end', advancements: 'ttl.l1.adv' },
+  // Bookkeeping of the tracked stats above (visited squares and today's count), reset with them.
+  TRACK_EXTRA: ['ttl.l1.cells', 'ttl.l1.cellDay', 'ttl.l1.cellsToday'],
   KEYS: ['ttl.karma.base', 'ttl.karma.life1', 'ttl.karma.score', 'ttl.karma.dark', 'ttl.karma.bonus', 'ttl.tier', 'ttl.l1.days'],
 
   conf() {
@@ -118,22 +122,49 @@ const TtlKarma = {
     return out
   },
 
+  // Diminishing returns for n kills of one kind: the first `full` count 1 each, the rest `tail` each, never more
+  // than `max` in all. Without a [kill_cap] table every kill counts.
+  diminish(n, full, tail, max) {
+    if (n <= 0) return 0
+    var e = n <= full ? n : full + (n - full) * tail
+    return e > max ? max : e
+  },
+
   // The verdict for a set of deeds: axis raw karma and scores, total score, days, bosses, tier, dark.
   judge(deeds) {
     var conf = this.conf()
+    var cap = conf.kill_cap
     var raw = {}
     this.axes().forEach(a => { raw[a] = 0 })
     var kinds = 0
     var bosses = 0
+    var typed = 0
+    var effKills = 0
+    var killStat = null
+    var self = this
     this.stats().forEach(s => {
       var v = deeds[s.key] || 0
       if (s.kind) {
         if (v > 0) kinds++
+        typed += v
+        // One effective-kill count per kind of mob: grinding one farm stops paying.
+        effKills += cap ? self.diminish(v, cap.full, cap.tail, cap.max) : v
+        return
+      }
+      if (cap && s.key === cap.stat) {
+        killStat = s
         return
       }
       if (s.major && v > 0) bosses++
-      if (s.axis && raw[s.axis] !== undefined) raw[s.axis] += (s.weight || 0) * v / (s.per || 1)
+      var counted = cap && s.capped ? self.diminish(v, cap.full, cap.tail, cap.max) : v
+      if (s.axis && raw[s.axis] !== undefined) raw[s.axis] += (s.weight || 0) * counted / (s.per || 1)
     })
+    // The total-kills stat: kills of the listed kinds count per kind (above); the rest is one lump with its own knobs.
+    if (killStat) {
+      var other = Math.max(0, (deeds[killStat.key] || 0) - typed)
+      effKills += self.diminish(other, cap.other_full, cap.other_tail, cap.other_max)
+      if (killStat.axis && raw[killStat.axis] !== undefined) raw[killStat.axis] += (killStat.weight || 0) * effKills / (killStat.per || 1)
+    }
     if (raw[conf.hostiles.axis] !== undefined) raw[conf.hostiles.axis] += conf.hostiles.weight_per_kind * kinds
     var axes = {}
     var total = 0
@@ -160,7 +191,7 @@ const TtlKarma = {
       rounded[a] = Math.round(axes[a])
       rawRounded[a] = Math.round(raw[a] * 10) / 10
     })
-    return { score: Math.round(total), axes: rounded, raw: rawRounded, kinds: kinds, bosses: bosses, days: days, tier: tier.id, dark: isDark }
+    return { score: Math.round(total), axes: rounded, raw: rawRounded, kinds: kinds, kills: Math.round(effKills), bosses: bosses, days: days, tier: tier.id, dark: isDark }
   },
 
   // Life 1 start (join.js for new players, /ttl reset): forget the old record, snapshot the objectives.
@@ -173,6 +204,9 @@ const TtlKarma = {
       })
       this.KEYS.concat(this.axes().map(a => `ttl.karma.${a}`)).forEach(k => data.remove(k))
       Object.keys(this.TRACKED).forEach(t => data.remove(this.TRACKED[t]))
+      this.TRACK_EXTRA.forEach(k => data.remove(k))
+      // Present (even at 0) marks a Life 1 that started under the active-time rules; tracking.js seeds older ones.
+      data.putInt(this.TRACKED.active, 0)
       this.tiers().forEach(t => player.stages.remove(`ttl.tier.${t.id}`))
       player.stages.remove('ttl.tier.dark')
       data.putString('ttl.karma.base', JSON.stringify(this.snapshot(server, player)))

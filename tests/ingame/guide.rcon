@@ -5,6 +5,7 @@
 ttlbot spawn TtlBotGuide
 @sleep 2
 ttl reset TtlBotGuide
+@sleep 3
 ttl guideforget TtlBotGuide
 # The NPC stands in the hall (summoned again within 30 s if it goes missing).
 ttl npc
@@ -36,6 +37,8 @@ execute as TtlBotGuide run ttl talk
 ttlguide check TtlBotGuide main
 # Once only: a second Life 1 death skips the Corridor guide (the Life screen opens directly).
 ttl reset TtlBotGuide
+# The reset teleports from the Tensura world to the Mortal Realm; a kill during that switch is lost.
+@sleep 3
 kill TtlBotGuide
 @sleep 10
 ttl karma TtlBotGuide expect step wish

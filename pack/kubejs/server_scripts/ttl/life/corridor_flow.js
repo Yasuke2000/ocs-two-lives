@@ -266,6 +266,12 @@ const TtlCorridor = {
     // Karma v1: a Legend's soul also carries a non-unique skill (karma.toml bonus_skills).
     TtlKarma.grantBonus(server, player)
     server.runCommandSilent(`quietly clear ${name}`)
+    // Carryover (life/mortal_banned.js): ttl:soulbound items and the Mortal Realm soul stash return with the new body.
+    try {
+      TtlStash.restore(server, player)
+    } catch (e) {
+      console.error(`[ttl] ${name}: carryover restore failed: ${e}`)
+    }
     player.stages.remove('ttl.corridor')
     player.stages.add('ttl.life2')
     this.KEYS.forEach(k => data.remove(k))

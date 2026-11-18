@@ -13,6 +13,17 @@ const TtlLife = {
   // it stays as the fallback when karma fails.
   RACES: ['human', 'elf', 'dwarf', 'merfolk', 'beastfolk', 'harpy', 'goblin', 'lizardman', 'orc', 'wight', 'ghoul'],
 
+  // The player's UUID as a string. Rhino can't see Entity.getUUID()/getStringUUID() on players here, so this goes
+  // through KubeJS's own `uuid` property, then the game profile.
+  uuid(player) {
+    try {
+      if (player.uuid) return String(player.uuid)
+    } catch (e) {
+      // fall through
+    }
+    return String(player.getGameProfile().getId())
+  },
+
   phase(player) {
     if (player.stages.has('ttl.life2')) return 'life2'
     if (player.stages.has('ttl.corridor')) return 'corridor'

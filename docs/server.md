@@ -13,6 +13,7 @@ issue with the label `server` or ask David.
 | Max players | 15 |
 | View / simulation distance | 16 / 8 chunks (Distant Horizons draws further) |
 | Difficulty | hard |
+| PvP | open everywhere, Life 1 included (owner decision 18/11/2026). Another player can end your only first life; killing players darkens karma (`player_kills` is a Chaos stat in `design/data/karma.toml`). The guide says so. |
 | Whitelist | on — send David your Minecraft name |
 | Spawn protection | off |
 | Flight | allowed (Tensura flight skills and wings; off kicks players mid-air) |
@@ -71,6 +72,58 @@ Restore (David, Longhorn UI → Backup):
 4. Scale back to 1, re-enable auto-sync, check `tools/server.sh logs`.
 Only part of the world broken (one dimension)? Restore just that folder (`world-ttl/dimensions/<ns>/<id>` or
 the overworld's `region`) from the restored volume; everything else stays.
+
+## Data we keep
+
+The server is a friend group, but it is in the EU, so players get the usual rights: to see, correct and delete what we
+hold about them. The players' own summary is the guide page "Privacy: what we keep" (`design/data/guide.toml`,
+`/ttl guide`). David is the contact and decides on requests. The legal basis is legitimate interest (running and
+protecting the server); the Discord link is something a player chooses to do.
+
+| Data | Where | Why | How long |
+|---|---|---|---|
+| World, player files, statistics, Two Lives progress (life, karma, tier, titles, registry) | `world-ttl` on the `mc-data` volume | The game itself | While the world lives. Deleted data leaves the Longhorn backups after about 4 weeks (7 nightly + 4 Sunday backups, see *Backups*) |
+| `/bug` reports: text, name, dimension, position, health, held item, `/ttl inspect` state, last 30 `[ttl]` and 15 `ERROR` log lines | `/data/ttl-reports/<time>-<name>.md` (`BugReports.java`), and a GitHub issue in the repo set in `TTL_REPORT_REPO` when the token exists | Fixing the bug | Server files: 180 days at most (purge below). GitHub issues: until the player asks; the repo `Yasuke2000/ocs-two-lives` is public, so an issue filed there can be read by anyone |
+| Activity log (CervLogger: blocks, buckets, containers, entity kills, explosions, signs, interactions, **chat, commands, sessions**) | `database.db` (SQLite) of CervLogger | Rollback of griefing, moderation | 180 days at most (purge below). CervLogger only purges by age: it cannot delete one player's rows |
+| Linked account: Minecraft UUID ↔ Discord ID (Simple Discord Link), the `Linked` and Life/tier roles, the nickname | sdlink's account store on the server; roles in Discord | Joining via Discord and the roles | While the player is a member. Unlinking removes it |
+| Chat and story posts in Discord (bridge, weekly Hall of Souls with race, tier, deaths, `#leaderboard`) | Discord (its own retention) | The community | Discord's rules; staff can delete a post |
+| Minecraft's own logs (`logs/`: names, join addresses) | `/data/logs/` | Crash analysis | Minecraft's rotation; we do not purge them ourselves |
+
+No bank, payment or identity data is collected. Bug reports and the activity log can show where a player built and
+when they played; they are never shared outside staff, except the GitHub issue described above.
+
+### Purging old data (David / ttl-ops)
+
+KubeJS cannot delete files, so the purge is a shell snippet. Run it weekly (a ttl-ops job inside the cluster uses
+`kubectl` directly; from a PC use `k3s kubectl` on the node or `tools/server.sh`'s kubeconfig):
+
+```sh
+#!/bin/sh
+# purge-old-data.sh: bug reports and the activity log older than 180 days.
+set -eu
+NS=ocs-two-lives
+# 1. Preview what goes (drop -delete); the reports are written once, so the file time is the report time.
+kubectl -n "$NS" exec deploy/mc -- find /data/ttl-reports -type f -name '*.md' -mtime +180 -print
+# 2. Delete them.
+kubectl -n "$NS" exec deploy/mc -- find /data/ttl-reports -type f -name '*.md' -mtime +180 -delete
+# 3. CervLogger's own purge (same command as /cl purge t:180d in game).
+kubectl -n "$NS" exec deploy/mc -- rcon-cli "cl purge t:180d"
+```
+
+Not yet verified on the server: that `cl purge` accepts the RCON console as its source (try it once with
+`tools/server.sh rcon "cl purge t:180d"` while nobody is online; the purge runs in a background thread and
+reports in the log), and that `find` is present in the image (it is in the itzg Ubuntu base). Until the job is
+scheduled, the "180 days" in the guide is a promise nobody enforces: schedule it.
+
+### Removal requests
+
+1. **Bug reports:** delete the files that carry the player's name (`ls /data/ttl-reports | grep -i <name>`) and the
+   GitHub issues titled `[bug] <name>: …` (`gh issue delete <n>`, or edit the issue to remove the table).
+2. **Discord link:** remove the account in sdlink and the `Linked`, Life and tier roles; the player can leave
+   the Discord server to end the link. (The sdlink command for this has not been checked here.)
+3. **Activity log:** no per-player delete exists; it ages out at 180 days, or David deletes the rows by hand in the SQLite file.
+4. **Game data:** only when the player leaves for good: `/ttl reset <player>` and a player-file delete while the
+   server is stopped; backups roll off in about 4 weeks. Builds stay with the world.
 
 ## Discord bot
 

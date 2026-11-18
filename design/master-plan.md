@@ -2,6 +2,28 @@
 
 Nov 15, 2026 · @David Delporte
 
+> **Status 18/11/2026.** This is the original design of 15/11/2026 and it stays the statement of intent. Where the
+> build went another way, the values in the text were changed and the section carries a "Status 18/11/2026" note.
+> Why: `decisions.md`. What is done: `roadmap.md`. The data schema in force: `CLAUDE.md`. Work is planned in
+> Sprints 1-4 (`roadmap.md`) instead of the Phases below.
+
+| Topic | Plan (15/11) | Now (18/11) |
+| --- | --- | --- |
+| Unique caps | Legendary 1, Rare 1 + 2, Common 1 + 4; `trulyUnique true` | Legendary 3, Rare 3, Common 5 holders (`design/data/skills.toml`); `trulyUnique false` |
+| Rebirth tiers | Underdog / Normal / Elite / Legendary | Wanderer / Survivor / Hero / Legend, plus the Fallen dark path (`design/data/karma.toml`) |
+| Corridor | Voice NPC offers 2-3 races, `/ttl choose` | Last Wish (10 wishes) + Trial of the Soul (10 arenas) + the Great Sage reincarnation ceremony |
+| Life 1 worlds | Mortal Realm | + Mortal Nether and Mortal End (own portals and dragon fight, `ttl-portals` Java mod) |
+| Life 1 finale | "The Iron Tyrant" | The Mortal Dragon (Mortal End); the Iron Tyrant is postponed |
+| Lore map | WorldPainter region, 6-10k blocks | Canon continent from worldgen (`ttl:canon_map`), about 14,000 blocks wide |
+| Discord | Bridge mod + custom sidecar bot; whitelist | Simple Discord Link (`sdlink`) as bridge and bot; joining through Discord account linking |
+| Voice of the World NPC | Easy NPC | A glowing allay (`life/voice_npc.js`) |
+| Quest source | YAML | TOML (`design/quests/*.toml`) |
+| Registry reconcile | Every 10 minutes | Every 5 minutes, on login and after a rebirth |
+| Hosting | Rented 16 GB host, -Xmx12G | Homelab K3s, node3: 7 GB heap in a 10 GiB pod, view distance 16 |
+| Pull requests | - | A code-owner approval is required (supersedes the 17/11 "no approvals" row) |
+| PvP in Life 1 | Off (Q12) | Open (owner decision) |
+| Boss capture | - | Bosses can be bound as a Tombstone familiar only by a player who has slain them (`design/data/bosses.toml`) |
+
 ## Vision and what we keep from OCS
 
 OCS Tensura: Two Lives is a from-scratch rebuild of OCS Tensura RPG (1.19.2 Forge, 114 mods) on Minecraft 1.21.1 NeoForge, for a 10+ player server. Every player lives twice: a hardcore human life in a mortal world, then a reincarnation into the Tensura world shaped by how they lived.
@@ -51,13 +73,13 @@ The base is Minecraft 1.21.1, NeoForge 21.1.x, Tensura: Reincarnated 2.0.1.x, Ku
 | D11 | Ice and Fire | Community Edition, Phase 3 optional only (beta history, heavy) | Default |
 | D12 | Map | FTB Chunks for claims and minimap; BlueMap for the web map | Default |
 | D13 | Excluded | Epic Fight, Better Combat, Tensura: Predation, Elite Tensura as a core | Decided |
-| D14 | Quest source | YAML in the repo, converted to FTB Quests SNBT by script | Decided |
+| D14 | Quest source | TOML in the repo (`design/quests/*.toml`), converted to FTB Quests SNBT by `tools/gen_quests.py` | Decided; was YAML, changed 18/11/2026 |
 | D15 | Pack name | OCS Tensura: Two Lives, published as v3.0 on the existing OCS CurseForge project | Default |
 | D16 | Magic systems | Three at launch, each with a lore home: Tensura native (core), Iron's Spells (bridged to magicules), Occultism (summoning, demon contracts); Ars Nouveau (elven glyph magic) added in a later era | Decided |
 | D17 | Rebirth choice | Each tier unlocks a range of races and unique-skill picks; karma gives an affinity bonus, never a lock | Decided |
 | D18 | Seasons | Yearly eras; the world is never wiped and mod versions stay frozen; new content through KubeJS, datapacks and quests | Decided |
 | D19 | Infrastructure | Public works earn Merit in Life 2 and Order/Craft karma in Life 1 | Decided |
-| D20 | Discord | Chat bridge mod + custom bot that reads KubeJS state exports and sends RCON commands | Decided |
+| D20 | Discord | Simple Discord Link (`sdlink`) as chat bridge, bot and account linking; KubeJS posts and syncs roles through it, no sidecar bot | Decided; was a bridge mod + custom bot, changed 18/11/2026 |
 
 ## Mod list
 
@@ -75,11 +97,11 @@ The MVP is about 90 mods; the full pack lands at 180–230. Every mod must have 
 | World and events | Enhanced Celestials, Towns and Towers, Chunky (pregen) | 1–3 | Celestials, Towns and Towers |
 | Loot and gear | Artifacts, Relics, Curios, custom KubeJS relics | 1 | All three |
 | Storage and QoL | One storage system (Sophisticated Backpacks/Storage), JEI or EMI, Jade, AppleSkin, Corail Tombstone, Controlling, Clumps, AttributeFix | 1 | Tombstone, Controlling, Clumps, AttributeFix |
-| Social | Discord bridge mod (DiscordBridge for NeoForge 1.21.1, or Discord Integration), custom Discord bot (sidecar), Simple Voice Chat, BlueMap | 2 | — |
+| Social | Simple Discord Link (chat bridge, bot, account linking; DiscordBridge and Discord Integration have no usable 1.21.1 NeoForge build), Simple Voice Chat, BlueMap | 2 (Discord done in Sprint 1) | — |
 | Performance | Sodium, Lithium, FerriteCore, ModernFix, AllTheLeaks, Entity Culling, ImmediatelyFast, Dynamic FPS, spark, Neruina (crash guard), one block logger with rollback (CervLogger) | 0 | FerriteCore, ModernFix, Entity Culling |
 | Visual (optional) | Iris + Complementary shaders, off by default | 3 | Shaders |
 | Phase 3 options | Ice and Fire CE, Frontier Cohorts (armies) | 3 | Ice and Fire |
-| Offline tools | MCA Selector (chunk pruning), Blockbench (item models), WorldPainter (lore map) | — | — |
+| Offline tools | MCA Selector (chunk pruning), Blockbench (item models), WorldPainter (not used: the lore map is canon worldgen, see section 6) | — | — |
 
 Why not Mekanism: its developers flagged some 1.21.1 releases as alpha. Immersive Engineering has a stable release line on 1.21.1, is built around a few large multiblocks rather than many small machines, and its revolver and railgun arm the magitech soldier without a separate gun mod. Its last update is about a year old, which suits a frozen-version server: pin 12.4.2 and soak-test it on staging.
 
@@ -91,12 +113,12 @@ Tensura's own mechanics (races, skills, EP, souls, naming, evolution) stay the s
 
 ### 1. Two lives
 
-- **Life 1, the Mortal Realm:** datapack dimension `ttl:mortal_realm`, vanilla-like terrain, no Tensura mobs or items (filtered by KubeJS), everyone Human, Tensura skills toggled off. Hardcore: one death ends the life.
-- **Death:** KubeJS restores health, cancels the death, runs the strip list, scores karma and sends the player to the Spirit Corridor. Fallback if cancel is unreliable: catch lethal damage in the hurt event instead.
-- **Spirit Corridor:** void dimension `ttl:spirit_corridor` with a built hall. The "Voice of the World" NPC offers 2–3 races; the player picks with `/ttl choose`.
-- **Rebirth:** `/tensura edit` sets race and stats, the registry grants an innate unique, reputation is seeded, and the player lands in the lore region.
+- **Life 1, the Mortal Realm:** datapack dimension `ttl:mortal_realm`, vanilla-like terrain, no Tensura mobs or items (filtered by KubeJS), everyone Human, Tensura skills toggled off. Hardcore: one death ends the life. *Status 18/11/2026:* Life 1 also has its own Nether and End (`ttl:mortal_nether`, `ttl:mortal_end`; portals and a separate dragon fight come from the `ttl-portals` Java mod, owner-approved). The Mortal Realm uses a vanilla multi-noise biome source with Tensura structures and features filtered out, and `life/confine.js` keeps Life 1 and Life 2 players in their own worlds. The item filter (`ttl:mortal_banned`) is still open on the roadmap. PvP is open (owner decision; the plan's Q12 recommended off): another player can end your only first life.
+- **Death:** KubeJS restores health, cancels the death, runs the strip list, scores karma and sends the player to the Spirit Corridor. Fallback if cancel is unreliable: catch lethal damage in the hurt event instead. *Status 18/11/2026:* cancelling the death works as designed, the hurt-event fallback was not needed. Carry-over of the ender chest and Curios slots is an open item (`roadmap.md`).
+- **Spirit Corridor:** void dimension `ttl:spirit_corridor` with a built hall. The "Voice of the World" NPC offers 2–3 races; the player picks with `/ttl choose`. *Status 18/11/2026:* the Voice of the World is a glowing allay that points to the current step. The flow is the Life screen (judgement), the **Last Wish** (ten wishes, each a pool of non-Legendary uniques), an optional **Trial of the Soul** (one arena per wish; win and pick 1 of 3 uniques, lose and fate draws), then the rebirth. Choices are on-screen menus (`/ttl menu`); `/ttl choose` stays as the command form.
+- **Rebirth:** `/tensura edit` sets race and stats, the registry grants an innate unique, reputation is seeded, and the player lands in the lore region. *Status 18/11/2026:* the rebirth is the Great Sage reincarnation ceremony (`ttl-portals` opens Tensura's own menu with the player's offers and swallows Escape, so it cannot be declined by accident). The ceremony's own wishes (up to 3 skills) stay on top of the Last Wish unique; the registry reconcile records them or swaps an over-cap one for a free unique of the same rarity. The soul wakes in early Tempest at world 0, 0. Reputation is not seeded yet (factions are Sprint 4).
 - **Life 2:** the Tensura overworld, normal survival with Tensura's own death rules and graves.
-- **Gamerules:** `noUniqueStart true`, `trulyUnique true`; race lists set to Human only for first spawn.
+- **Gamerules:** `noUniqueStart true`, `trulyUnique false`; race lists set to Human only for first spawn. *Status 18/11/2026:* `trulyUnique` was planned on, but it removes every owned unique from the reincarnation pool; the registry caps (section 5) do that job, so it is off.
 
 ### 2. Karma
 
@@ -111,18 +133,24 @@ Tensura's own mechanics (races, skills, EP, souls, naming, evolution) stay the s
 
 Score per axis = 100 × ln(1 + raw / k); total = sum + 0.5 × the best axis. The log curve stops grinding one axis from winning; only distinct mob types and quests count.
 
+*Status 18/11/2026:* built as designed in `server_scripts/ttl/karma/` with every number in `design/data/karma.toml`. Anti-farming went in on top: longevity counts active time only, kills diminish per kind of mob, exploration counts distinct squares on foot with a daily cap. Player kills feed Chaos (`player_kills`) and are possible in Life 1.
+
 ### 3. Rebirth tiers and choice
 
 Every tier unlocks a range and the player chooses freely inside it; higher tiers add stronger starting races and better unique picks. Karma never locks a choice: the race matching the dominant karma axis gets an affinity bonus (a starting resistance skill or a soul relic).
 
-| Tier | Race range (cumulative) | Unique skill | How to get it |
+| Tier (plan name) | Race range (cumulative) | Unique skill | How to get it (`karma.toml`) |
 | --- | --- | --- | --- |
-| Underdog | Slime, Goblin + the Underdog growth quest line | 1 random Common | Low score or died before day 3 |
-| Normal | + Human, Elf, Dwarf, Merfolk, Lizardman, Wight, Ghoul | Pick 1 of 3 Common | Default |
-| Elite | + Ogre, Harpy, Beastfolk, Giant, addon races | Pick 1 of 3 Common or Rare | About the top 15% of scores |
-| Legendary | Any race, including rare addon starting forms | Pick 1 of 3, Legendary allowed if a slot is free | Threshold + Life 1 boss + 30 days + trial + era slot (1 per 10 players) |
+| Wanderer (Underdog) | Goblin, plus Slime (always offered); 2 offers | 1 random, leaning Common | Any score; the starting tier |
+| Survivor (Normal) | + Human, Elf, Dwarf, Merfolk, Lizardman, Wight, Ghoul; 3 offers | 1 random | Score 100 and 2 days lived (about 40 minutes) |
+| Hero (Elite) | + Ogre, Harpy, Beastfolk, Giant; 4 offers, 1 guaranteed from this tier | Pick 1 of 3, leaning Rare | Score 600 and 7 days |
+| Legend (Legendary) | + Hobgoblin, Dragonewt, High Orc, Vampire, Lesser Daemon; 5 offers, 2 guaranteed from this tier | Pick 1 of 3 (never a Legendary unique yet) + 1 bonus Tensura skill; the Voice announces it | Score 1000, 30 days (about 10 hours) and at least one great foe slain |
 
 Slime stays in every pool: it is the canon underdog with the highest ceiling. Unique picks are rolled with a karma bias (Craft rolls more craft uniques). Exact race IDs come from the jar dump; once 20+ players have reincarnated, thresholds switch to percentiles.
+
+**Fallen (the dark path).** A soul is Fallen when its Chaos axis scores at least 60 and at least as much as Order (about 4 villagers or 2 players slain). It keeps its tier, shows "Fallen" before the title (a "Fallen Hero" is a Hero), and gets one guaranteed dark race offer: Orc (Wanderer), Ghoul or Wight (Survivor), High Orc or Lesser Daemon (Hero), Vampire (Legend). Dark races join the pool on top of the normal ones; nothing is taken away.
+
+*Status 18/11/2026:* the four tiers are scored in `karma/karma.js`; the thresholds are absolute for now (the switch to percentiles waits for 20+ rebirths). The plan's Legendary-tier gate (Life 1 boss + trial + era slot, Legendary pick if a slot is free) is not built: Legendary uniques are never drawn at rebirth whatever the tier, and the Legend tier gets the bonus skill instead. The Legendary pick is Sprint 3.
 
 ### 4. Soul carryover
 
@@ -134,13 +162,15 @@ Slime stays in every pool: it is the canon underdog with the highest ceiling. Un
 | Items tagged `ttl:soulbound` (one Soul Gem per player) | Coins and wallet |
 | One "Remembered Enchantment" book per Craft tier | Bases and blocks in the Mortal Realm |
 
+*Status 18/11/2026:* Karma, titles, XP and advancements carry over. The strip list so far clears inventory, armour and offhand; the ender chest and Curios/backpack slots, the Soul Gem and the Remembered Enchantment book are open (`roadmap.md`, `design/architecture/sprint3-4.md` S1).
+
 ### 5. Unique skill economy
 
 | Rarity | Examples | Holders |
 | --- | --- | --- |
-| Legendary | Predator, Great Sage, the sin series, Creator | 1 on the server; steal only |
-| Rare | Most combat and magic uniques | 1 innate + 2 acquired copies |
-| Common | Utility uniques | 1 innate + 4 acquired copies |
+| Legendary | Predator, Great Sage, the sin series, Creator | 3 on the server (was 1); never drawn at rebirth, granted on purpose |
+| Rare | Most combat and magic uniques | 3 holders (the plan: 1 innate + 2 acquired copies) |
+| Common | Utility uniques | 5 holders (the plan: 1 innate + 4 acquired copies) |
 
 Ways to get one:
 
@@ -150,12 +180,14 @@ Ways to get one:
 4. **Skill Cores** from T3+ bosses, **Demon Lord / True Hero awakening**, and **Exalted faction reputation**.
 5. **Return to pool** after 30 days inactive or a character reset.
 
-Every transfer is logged and announced by the Voice of the World. A reconcile loop every 10 minutes reverts any skill change the registry didn't make.
+Every transfer is logged and announced by the Voice of the World. A reconcile loop every 5 minutes (was 10; also on login and 100 ticks after a rebirth) reverts any skill change the registry didn't make.
+
+*Status 18/11/2026:* the registry (`registry.js`, `manas.js`) counts holders against the caps in `design/data/skills.toml`; duplicates are allowed up to the cap. Built: innate unique at rebirth (never Legendary), `/ttl grant`, `/ttl registry`, the reconcile against ManasCore storage. Not built: absorption, apprenticeship, succession, return to pool, the veto hooks that stop plunder instantly instead of within 5 minutes.
 
 ### 6. Lore region and NPC factions
 
-- **Map:** a WorldPainter region of about 6–10k blocks square (Jura Forest, Tempest, Dwargon, Blumund, Falmuth, the Holy Church, Orc lands, Lizardman marsh, Eurazania), ringed by mountains and sea to hide the seam. Random world beyond. Pre-generated, pre-mapped in BlueMap and FTB Chunks waypoints, plus an atlas item at rebirth.
-- **NPCs:** canon characters as Easy NPC (Rimuru, Benimaru, Shion, Rigurd, Gobta, Milim, a sealed Veldora, Gazel's court, Hinata's office, Fuze, Falmuth's king). Tensura's own canon bosses stay encounters. The NEB Rimuru boss becomes a "Mimic Echo" in the story.
+- **Map:** the canon Tensura continent, about 14,000 blocks wide (Jura Forest, Tempest, Dwargon, Blumund, Falmuth, the Holy Church, Orc lands, Lizardman marsh, Eurazania), ringed by open sea; ordinary terrain beyond for free building. Pre-generated, pre-mapped in BlueMap and FTB Chunks waypoints, plus an atlas item at rebirth. *Status 18/11/2026:* generated by worldgen instead of a WorldPainter paint: a grid made with `tools/canon_map.py` from a political map (`pack/config/ttl/canon_map.txt`, `canon_regions.json`) drives the `ttl:canon_map` density function (21 nations, rivers, lakes, a 1,600-block sea ring); world 0, 0 is Tempest. Edited as text, infinite. Built: Early Tempest, Dwargon, six canon landmarks from Tensura's own structures. Open: pregeneration (Chunky, owner's PC), BlueMap, the atlas.
+- **NPCs:** canon characters as Easy NPC (Rimuru, Benimaru, Shion, Rigurd, Gobta, Milim, a sealed Veldora, Gazel's court, Hinata's office, Fuze, Falmuth's king). Tensura's own canon bosses stay encounters. The NEB Rimuru boss becomes a "Mimic Echo" in the story. *Status 18/11/2026:* only the Voice of the World exists as an NPC (an allay, not Easy NPC); the canon cast is still to build.
 - **Outcast Society:** an original hidden faction of rejected reincarnators; its quest line is the pack's own story thread.
 - **Reputation:** per faction, bands from Hostile to Exalted. It changes prices, quest access, guard hostility and war-ally offers. Karma and race seed starting values (Order → Blumund/Church, Chaos → Orc lands, Craft → Dwargon, Slime/Goblin → Tempest).
 - **Armies:** Tensura's own subordinates and naming plus Easy NPC guards. Frontier Cohorts only re-evaluated in Phase 3.
@@ -170,13 +202,15 @@ Every transfer is logged and announced by the Voice of the World. A reconcile lo
 
 | Tier | Encounters | Unlocks |
 | --- | --- | --- |
-| T0 | Life 1 elites (L2 Hostility traits), Mortal Realm final boss (re-themed Ferrous Wroughtnaut, "The Iron Tyrant") | Legendary eligibility |
+| T0 | Life 1 elites (L2 Hostility traits), the Mortal Realm finale: the Mortal End's dragon, "The Mortal Dragon" (the re-themed Ferrous Wroughtnaut "The Iron Tyrant" is postponed) | Legendary eligibility |
 | T1 | Orc Lord, Supermassive Slime, Frostmaw, Born in Chaos bosses | Nation charter, Magisteel |
 | T2 | Ifrit, Orc Disaster, Greater Spirits, NEB Rimuru "Mimic Echo", Cataclysm Ignis and Netherite Monstrosity | Adamantite, Demon Lord Seed |
 | T3 | Charybdis, Gazel Dwargo, Hinata, NEB Carrion, Cataclysm Harbinger and Leviathan | Hihi'Irokane, awakenings, Skill Cores |
 | T4 | NEB Luminous, Cataclysm Maledictus and Ender Guardian as Calamity-class, scheduled world bosses | Council seat, server titles |
 
 Imported bosses get KubeJS scaling (HP × tier multiplier × player count), lore names and boss bars, scripted phases (enrage, minions, magicule drain, elemental resistances), LootJS loot with Tensura materials, and on-kill souls, coins, reputation and quest stages. Bosses are summoned by quests or scheduled events, not natural spawns.
+
+*Status 18/11/2026:* the boss framework is Sprint 4. The Mortal Dragon is Life 1's finale (its fight is saved per dimension by `ttl-portals`; the `dragon` quest in chapter 0). The Iron Tyrant stays on the Sprint 3 list as an optional mid-boss. Capture: the plan says bosses are gated, but `compat/tombstone_bosses.js` first let every Tensura/NEB boss be bound as a Tombstone familiar (issue #3). It is now a knob in `design/data/bosses.toml`: by default only a player who has slain that boss can bind it (`defeated` mode, read from their kill statistics); `allow_list`, `any` and `none` are the alternatives.
 
 ### 9. Economy and events
 
@@ -365,9 +399,11 @@ Arrows show data flowing; every registry change also triggers a Voice of the Wor
 | Stages | `ttl.life1/2`, `ttl.tier.*`, `ttl.race.*`, `ttl.nation.*`, `ttl.dl.*`, `ttl.hero.true`, `ttl.council`, `ttl.boss.t1–t4`, `ttl.faction.<f>.<band>` | Quest gating |
 | Item tags | `ttl:soulbound`, `ttl:skill_core`, `ttl:mortal_banned` | Survives rebirth, Skill Cores, banned in Life 1 |
 
+*Status 18/11/2026:* the schema in force is the table in `CLAUDE.md` (it adds `ttl.step`, `ttl.wish`, `ttl.race`, `ttl.uniqueOptions` and `ttl.trial.done`). Keep that one current; this table is the original.
+
 ## Quest structure
 
-About 560 quests in 19 chapters, written as YAML and generated into FTB Quests. Chapters unlock by stage, so each player sees only what fits their life, race, faction standing and tier.
+About 560 quests in 19 chapters, written as TOML (`design/quests/*.toml`) and generated into FTB Quests (`tools/gen_quests.py`). Chapters unlock by stage, so each player sees only what fits their life, race, faction standing and tier. *Status 18/11/2026:* chapters 0 "A Mortal Life" and 1 "Reborn" are built (`design/quests.md`); the rest is Sprint 3.
 
 | Chapter | Purpose | Quests | Unlocks when | Key rewards |
 | --- | --- | --- | --- | --- |
@@ -383,7 +419,7 @@ About 560 quests in 19 chapters, written as YAML and generated into FTB Quests. 
 | 17. Demon Lord / True Hero | Capstones | 20 | Demon Lord Seed or Hero Egg | Awakening, council seat, unique upgrade roll |
 | 18. Bounties | Repeatable daily loop, main coin faucet | 25 | Always | Coins, reputation |
 
-**Workflow:** design one chapter in YAML (id, title, depends, task, reward), run `/gen-quests` to make SNBT with stable IDs, validate, reload in game, spot-check. Check the generated layout against one quest made by hand in game before generating at scale.
+**Workflow:** design one chapter in TOML (key, title, deps, tasks, rewards), run `python tools/gen_quests.py` to make SNBT with stable IDs, validate, reload in game, spot-check. Check the generated layout against one quest made by hand in game before generating at scale.
 
 ## Server operations, balance and anti-abuse
 
@@ -391,8 +427,8 @@ A live server needs backups, staging and abuse rules from day one, because Life 
 
 **Operations**
 
-- **Hosting:** fast single-core CPU, NVMe, 16 GB plan with -Xmx12G, Java 21, G1 or Generational ZGC flags. View distance 8–10, simulation 6–8.
-- **Backups:** automatic and off-site, with a tested restore; separate snapshots of the skill registry and karma data.
+- **Hosting:** the homelab K3s cluster, node3 (side tier): a pod with 2 guaranteed CPUs and a 10 GiB limit, 7 GB heap, Java 21, Generational ZGC. View distance 16, simulation 8, with Distant Horizons drawing further. *Status 18/11/2026:* the plan asked for a rented high single-core host with a 16 GB plan, -Xmx12G and view distance 8-10 / simulation 6-8 (decisions Q1); revisit before the full ~200-mod pack or more than 10 players, and load-test (MSPT under 40 with 10 players).
+- **Backups:** automatic and off-site, with a tested restore; separate snapshots of the skill registry and karma data. *Status 18/11/2026:* Longhorn snapshots every night and NAS backups every day, with the newest checked by ttl-ops (`docs/server.md`); the off-site copy and the restore drill are open.
 - **Staging server:** every Tensura update runs there first, with an ID diff via `/dump-ids`.
 - **Stability:** daily scheduled restart, auto-restart on crash, crash alerts, spark on standby, world border, pregenerated world.
 - **Permissions:** LuckPerms roles (admin, moderator, builder, player); every admin `/tensura edit` and `/ttl` command is logged.
@@ -423,8 +459,8 @@ A live server needs backups, staging and abuse rules from day one, because Life 
 
 **Discord integration**
 
-- **Chat and verification:** a server-side bridge mod (DiscordBridge for NeoForge 1.21.1, or Discord Integration) for two-way chat, join/leave/death messages and Discord account linking; linking enforces one account per person.
-- **Custom bot, built by Claude Code:** KubeJS writes game state to JSON (leaderboards, nations, wars, Demon Lords, events); the bot posts it and sends RCON commands back.
+- **Chat and verification:** Simple Discord Link (`sdlink`), server side: two-way chat, join/leave/death messages and Discord account linking (`/discordverify`, `/verify`); linking enforces one account per person. *Status 18/11/2026:* linking replaced the manual whitelist; `access.js` admits only whitelist-file players and ops while the bot is offline.
+- **Custom bot, built by Claude Code:** KubeJS writes game state to JSON (leaderboards, nations, wars, Demon Lords, events); the bot posts it and sends RCON commands back. *Status 18/11/2026:* there is no sidecar bot. The scripts post through sdlink (`ttl/discord.js`) and sync roles through its JDA (`ttl/discord/`); see `docs/server.md` "Discord bot".
 - **Channels:** #voice-of-the-world, #wars-and-treaties, #leaderboards (weekly), and a private channel per nation, created automatically.
 - **Roles:** race, nation and title roles synced from the game.
 - **Commands:** /status, /whois, /nation, /events; staff commands for backups, restarts and event triggers.
@@ -444,12 +480,12 @@ A live server needs backups, staging and abuse rules from day one, because Life 
 
 - **Neruina** stops one broken ticking entity from crashing the whole server.
 - **Block logger with rollback:** CervLogger (fallback CoreProtectNeo or modlog). Test rollback against Create contraptions first, since blocks moving inside contraptions are not logged.
-- **Backups:** off-server incremental backups (restic or borg) with `save-off` and `save-all flush` over RCON, plus a monthly restore drill on the test server.
-- **Monitoring:** spark for profiling; TPS and player metrics over RCON into Prometheus, alerts to Discord.
+- **Backups:** off-server incremental backups (restic or borg) with `save-off` and `save-all flush` over RCON, plus a monthly restore drill on the test server. *Status 18/11/2026:* not done; the Longhorn route above replaced it for now. A restic CronJob needs a backup target.
+- **Monitoring:** spark for profiling; TPS and player metrics over RCON into Prometheus, alerts to Discord. *Status 18/11/2026:* ttl-ops sends TPS, crash, server down/up, backup-age and deploy alerts to Discord; there is no Prometheus.
 - **Pinning:** Tensura and its addons frozen on one build after a 2-week soak on staging.
 - **No client anti-cheat:** Tensura movement skills would cause false positives. Instead: KubeJS sanity checks (speed, reach, flight against race), the block logger and staff review.
 - **Client defaults:** a shipped `options.txt` with render distance 8–10, Sodium defaults and pre-resolved keybinds for Tensura skills, the Iron's spell wheel and voice chat.
-- **GDPR (EU-hosted):** a privacy notice, legitimate interest as the basis for logs and anti-cheat, block logs purged after 180 days, export or delete on request for linked Discord IDs.
+- **GDPR (EU-hosted):** a privacy notice, legitimate interest as the basis for logs and anti-cheat, block logs purged after 180 days, export or delete on request for linked Discord IDs. *Status 18/11/2026:* the notice is the guide page "Privacy: what we keep" (`design/data/guide.toml`); what is stored, where and for how long, and how to ask for removal, is in `docs/server.md` "Data we keep". `/bug` reports (`ttl-reports/`) and the CervLogger activity log are purged after 180 days with the shell snippet there; scheduling it is the open step.
 - **Monetization within Minecraft's rules:** cosmetics except capes; donation goals unlock server-wide boosts only, never personal power.
 
 ## Claude Code build plan
@@ -471,7 +507,7 @@ ocs-two-lives/
 │  │  ├─ data/ttl/              # dimensions, loot, tags, structures
 │  │  └─ assets/ttl/            # lang, textures
 │  └─ config/ftbquests/quests/  # GENERATED, never hand-edited
-├─ design/                   # quests/*.yaml, karma, skills, races, factions, bosses, decisions.md, dumps/
+├─ design/                   # quests/*.toml, data/*.toml (karma, skills, trials, guide, bosses), decisions.md, roadmap.md, dumps/
 ├─ tools/                    # server.sh, rcon.py, gen_quests.py, validators, logscan.py
 ├─ server/                   # gitignored test server
 └─ tests/ingame/             # RCON test scripts + expected output
@@ -494,6 +530,8 @@ ocs-two-lives/
 
 ### Phases
 
+*Status 18/11/2026:* the work is run as four **Sprints** (`roadmap.md`) instead of these phases: Sprint 1 the friend playtest (Phase 0 and most of Phase 1: karma, tiers, registry, Corridor, backups, Discord), Sprint 2 building and visuals (blueprints, canon worldgen), Sprint 3 content (Life 1/2 quests, soul carryover, Legendary pick), Sprint 4 politics, bosses and economy (Phase 2). The tables below are kept for the intent and the exit criteria.
+
 | Phase | Weeks | Claude Code builds | Done when |
 | --- | --- | --- | --- |
 | 0. Prototype | 1–2 | packwiz repo with Tensura, KubeJS, FTB suite, Easy NPC; server and RCON tools; ID dump; SkillAPI probe; Life 1 death cancel; both dimensions; `/ttl choose` stub; revoke and plunder tests | Death by zombie, lava, fall and void in the Mortal Realm lands you in the Corridor with XP and advancements, empty inventory, no EP penalty; rebirth gives the right race and one unique |
@@ -508,7 +546,7 @@ ocs-two-lives/
 
 ### Only you can do
 
-- WorldPainter map and merging it into the world.
+- WorldPainter map and merging it into the world (no longer needed: the map is canon worldgen).
 - Building capitals, the Spirit Corridor and Mortal Realm landmarks.
 - Easy NPC skins and the tone of canon dialogue.
 - Real-player death and PvP tests, and balance feel.
@@ -527,6 +565,8 @@ Three things must be proven in Phase 0 before anything else is built; if one fai
 | Warring Nations is young and pins FTB versions | Blocks FTB updates, possible bugs | Pin, keep all Tensura politics in KubeJS, fallback to FTB + KubeJS |
 | Tensura power makes imported bosses trivial | Boss ladder collapses | Tier multipliers tuned with real playtest data |
 | Claude Code invents IDs or APIs | Silent bugs | ID dumps, validation hooks, "never invent IDs" rule |
+
+*Status 18/11/2026:* the three Phase 0 risks were proven in practice. Death cancel works; ManasCore's SkillAPI is readable from KubeJS (the `manas.js` bridge, no Java bridge was needed); plunder bypassing the registry is only caught by the 5-minute reconcile until the veto hooks land (`roadmap.md`).
 
 | New risk | Why it matters | Fallback |
 | --- | --- | --- |
@@ -558,20 +598,20 @@ Everything else is decided. Each question has my recommendation; answer only the
 
 | # | Question | My recommendation | Your answer |
 | --- | --- | --- | --- |
-| 1 | Hosting: your own hardware or a rented host? CPU and RAM? | Rented, high single-core CPU, 16 GB RAM, NVMe |  |
+| 1 | Hosting: your own hardware or a rented host? CPU and RAM? | Rented, high single-core CPU, 16 GB RAM, NVMe | Own hardware: homelab K3s node3 (decisions Q1, 16/11/2026) |
 | 2 | Launch target and player count (launch, after a year)? | Soft launch after Phase 1 with 10–15 testers |  |
 | 3 | Who builds the lore region and capitals? Is Belgiancandy267 in? | Belgiancandy267 on WorldPainter, 1–2 extra builders |  |
 | 4 | Staff: how many admins and moderators? Monitoring in Grafana or only Discord alerts? | 1 admin + 2 moderators, Discord alerts only |  |
 | 5 | Discord: your existing server or a new one for the pack? | A new server just for the pack |  |
-| 6 | Access: public, whitelist, or invite-only? | Whitelist through Discord linking |  |
+| 6 | Access: public, whitelist, or invite-only? | Whitelist through Discord linking | Discord account linking (18/11/2026) |
 | 7 | Donations: cosmetics only, or also server-wide goal boosts? | Both, within Minecraft's rules |  |
-| 8 | Which Tensura build to pin? | Newest 2.0.1.x after a 2-week soak, unless an addon needs older |  |
+| 8 | Which Tensura build to pin? | Newest 2.0.1.x after a 2-week soak, unless an addon needs older | 2.0.1.5 (D1) |
 | 9 | Tensura: Ascension (3× EP chamber)? | Not at launch; maybe later behind an era quest |  |
 | 10 | Extra race addons? | TR Addon (Slime line) + Unique Races at launch; Mysticism later |  |
-| 11 | Life 1: Legendary needs how many in-game days? | 15 days (about 5 hours), to fit 2–6 hours of Life 1 |  |
-| 12 | PvP in the Mortal Realm? | Off |  |
+| 11 | Life 1: Legendary needs how many in-game days? | 15 days (about 5 hours), to fit 2–6 hours of Life 1 | 30 days (about 10 hours) for the Legend tier (`karma.toml`) |
+| 12 | PvP in the Mortal Realm? | Off | Open (owner decision, 18/11/2026) |
 | 13 | Iron's Spells in Life 1? | Off |  |
-| 14 | Life 2 death: graves or keepInventory? | Graves |  |
+| 14 | Life 2 death: graves or keepInventory? | Graves | Graves (Tombstone; off in the Mortal dimensions and the Corridor) |
 | 15 | Can Life 2 players revisit the Mortal Realm? | No, except one quest to visit your own Life 1 grave |  |
 | 16 | Skill absorption: staged duels only at launch, full war/PvP absorption in Phase 2 (72 h cooldown, victim ≥ 50% of killer EP)? | Yes |  |
 | 17 | World's Favor: one per week, or one per 10 active players? | One per 10 active players per week |  |
@@ -579,7 +619,7 @@ Everything else is decided. Each question has my recommendation; answer only the
 | 19 | Grand Architect: one per era server-wide, or one per nation? | Server-wide |  |
 | 20 | Can Life 1 players give likes? | No, Life 2 only |  |
 | 21 | Create kinetic blocks in Public Works Charters? | Allowed for merit; no Builder's Economy refunds within 16 blocks |  |
-| 22 | Lore region size and launch nations? | About 6k × 6k blocks: Tempest, Dwargon, Blumund, Falmuth, Holy Church, Eastern Empire |  |
+| 22 | Lore region size and launch nations? | About 6k × 6k blocks: Tempest, Dwargon, Blumund, Falmuth, Holy Church, Eastern Empire | The canon continent, about 14,000 blocks wide, 21 nations |
 | 23 | Era length? | One year from launch; era features start at the first anniversary |  |
 | 24 | Who makes textures for custom items and relics? | Claude Code placeholders, final art by you or a commissioned artist |  |
 | 25 | Pack name and branding? | OCS Tensura: Two Lives, v3.0 on the existing OCS CurseForge page |  |

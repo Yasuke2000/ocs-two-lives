@@ -104,7 +104,7 @@ const TtlDiscord = {
     server.getPlayerList().getPlayers().forEach(p => {
       var name = p.username
       if (self.isBot(name)) return
-      var id = String(p.getStringUUID())
+      var id = TtlLife.uuid(p)
       var before = seen[id]
       var now = {}
       majors.forEach(s => {

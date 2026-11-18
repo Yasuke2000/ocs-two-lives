@@ -4,7 +4,11 @@
 //          /ttl karma <player> set <stat> <n>          make a Life 1 stat exactly n (bot tests, admin fixes)
 //          /ttl karma <player> expect <field> <value>  test assertion: prints "ttl: ..." when it does not hold
 //            fields: tier, dark, days, bosses, offers (count), darkoffer (true when an offer is a dark race),
-//                    step (Corridor step), phase, bonus (count of karma bonus skills granted)
+//                    step (Corridor step), phase, bonus (count of karma bonus skills granted),
+//                    active (ticks of active time), far (explored "blocks"), cells (squares today), kills (effective kills)
+//          /ttl karma <player> sample                  test hook: one activity sample as if the timer fired (active time, exploration)
+//          /ttl karma <player> act                     test hook: marks the player as having acted since the last sample
+//          /ttl karma <player> explore <x> <z> [<n>]   test hook: visit n (default 1) squares in a row from x z (daily cap applies)
 //          /ttl karma <player> odds <wish>             400 trial draws from the wish's pool with the player's tier
 //                                                      weights; "ttl: ..." when the rare share is off by > 10 points
 //          /ttl karma <player> pick                    test hook: take the first unique option at the unique step
@@ -35,6 +39,7 @@ ServerEvents.commandRegistry(event => {
     say(ctx, `karma ${target.username}${v.preview ? ' (Life 1 preview)' : ''}: tier=${v.tier} (${TtlKarmaView.title(v)}) score=${v.score} dark=${v.dark} days=${v.days} bosses=${v.bosses} kinds=${v.kinds}`)
     say(ctx, `axes: ${TtlKarma.axes().map(a => `${a}=${v.axes[a]} (raw ${v.raw[a]})`).join(' ')}`)
     say(ctx, `deeds: ${Object.keys(deeds).sort().map(k => `${k}=${deeds[k]}`).join(' ') || 'none'}`)
+    say(ctx, `effective kills: ${v.kills}`)
     var offers = String(target.persistentData.getString('ttl.offers'))
     if (offers) say(ctx, `offers: ${offers}`)
     return 1
@@ -66,7 +71,11 @@ ServerEvents.commandRegistry(event => {
       darkoffer: String(list.some(r => darkPool.indexOf(r) >= 0)),
       step: String(target.persistentData.getString('ttl.step')) || 'none',
       phase: String(TtlLife.phase(target)),
-      bonus: String(String(target.persistentData.getString('ttl.karma.bonus')).split(',').filter(s => s).length)
+      bonus: String(String(target.persistentData.getString('ttl.karma.bonus')).split(',').filter(s => s).length),
+      active: String(target.persistentData.getInt(TtlKarma.TRACKED.active)),
+      far: String(target.persistentData.getInt(TtlKarma.TRACKED.far)),
+      cells: String(target.persistentData.getInt('ttl.l1.cellsToday')),
+      kills: String(v ? v.kills : 0)
     }
   }
 
@@ -112,6 +121,30 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var sample = ctx => {
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    if (TtlLife.phase(target) !== 'life1') throw `${target.username} is not in Life 1`
+    TtlKarmaTrack.sample(ctx.source.getServer(), target)
+    say(ctx, `karma ${target.username}: sampled, active=${target.persistentData.getInt(TtlKarma.TRACKED.active)} ticks`)
+    return 1
+  }
+
+  var act = ctx => {
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    TtlKarmaTrack.mark(target)
+    return 1
+  }
+
+  var explore = n => ctx => {
+    var target = Arguments.PLAYER.getResult(ctx, 'target')
+    var x = Number(Arguments.INTEGER.getResult(ctx, 'x'))
+    var z = Number(Arguments.INTEGER.getResult(ctx, 'z'))
+    var count = n ? Number(Arguments.INTEGER.getResult(ctx, 'n')) : 1
+    var counted = TtlKarmaTrack.visitRow(target, x, z, count)
+    say(ctx, `karma ${target.username}: ${counted}/${count} squares counted, far=${target.persistentData.getInt(TtlKarma.TRACKED.far)}`)
+    return 1
+  }
+
   var pick = ctx => {
     var server = ctx.source.getServer()
     var target = Arguments.PLAYER.getResult(ctx, 'target')
@@ -137,6 +170,13 @@ ServerEvents.commandRegistry(event => {
           .then(Commands.argument('stat', Arguments.STRING.create(event))
             .then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(set)))))
         .then(Commands.literal('pick').executes(logged(pick)))
+        .then(Commands.literal('sample').executes(logged(sample)))
+        .then(Commands.literal('act').executes(logged(act)))
+        .then(Commands.literal('explore')
+          .then(Commands.argument('x', Arguments.INTEGER.create(event))
+            .then(Commands.argument('z', Arguments.INTEGER.create(event))
+              .executes(logged(explore(false)))
+              .then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(explore(true)))))))
         .then(Commands.literal('odds')
           .then(Commands.argument('wish', Arguments.STRING.create(event)).executes(logged(odds))))
         .then(Commands.literal('expect')

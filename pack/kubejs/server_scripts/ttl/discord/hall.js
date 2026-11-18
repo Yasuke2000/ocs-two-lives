@@ -77,7 +77,7 @@ const TtlHall = {
       this.push(w.deaths, { n: name, days: rec.days || 0, score: rec.score || 0, title: title })
       if (!r.best || (rec.score || 0) > r.best.score) r.best = { n: name, score: rec.score || 0, title: title }
       if (!r.longest || (rec.days || 0) > r.longest.days) r.longest = { n: name, days: rec.days || 0 }
-      r.souls[String(player.getStringUUID())] = { n: name, phase: 'corridor' }
+      r.souls[TtlLife.uuid(player)] = { n: name, phase: 'corridor' }
     })
   },
 
@@ -87,7 +87,7 @@ const TtlHall = {
     this.update(server, (w, r) => {
       this.push(w.rebirths, { n: name, race: race, title: title })
       r.races[race] = (r.races[race] || 0) + 1
-      r.souls[String(player.getStringUUID())] = { n: name, phase: 'life2' }
+      r.souls[TtlLife.uuid(player)] = { n: name, phase: 'life2' }
     })
   },
 
@@ -119,7 +119,7 @@ const TtlHall = {
     var phase = TtlLife.phase(player)
     if (!phase) return
     var r = this.records(server)
-    var id = String(player.getStringUUID())
+    var id = TtlLife.uuid(player)
     var old = r.souls[id]
     if (old && old.phase === phase && old.n === name) return
     r.souls[id] = { n: name, phase: phase }

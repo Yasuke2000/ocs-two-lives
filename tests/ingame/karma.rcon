@@ -117,3 +117,48 @@ ttlbot remove TtlBotKarmaH
 ttlbot remove TtlBotKarmaL
 ttlbot remove TtlBotKarmaN
 ttlbot remove TtlBotKarmaD
+# Anti-farming (karma.toml [activity], [explore], [kill_cap]). TtlBotKarmaF starts a clean Life 1 (ttl reset).
+# `sample` runs one activity sample as if the 20 s timer fired (400 ticks when the bot was active), `act` marks an
+# action (breaking, placing, using, chat) since the last sample. Bots do not move on their own, so idle samples
+# must add nothing. The timer may sample the bot between two commands (rarely): rerun if `active` is off by 400.
+ttlbot spawn TtlBotKarmaF
+@sleep 2
+ttl reset TtlBotKarmaF
+# Exploration: distinct 64x64 squares, 64 "blocks" each, at most 30 new squares per day.
+ttl karma TtlBotKarmaF expect far 0
+ttl karma TtlBotKarmaF explore 100 100
+ttl karma TtlBotKarmaF expect far 64
+ttl karma TtlBotKarmaF explore 110 120
+ttl karma TtlBotKarmaF expect far 64
+ttl karma TtlBotKarmaF explore 1000 1000
+ttl karma TtlBotKarmaF expect far 128
+ttl karma TtlBotKarmaF explore 5000 5000 40
+ttl karma TtlBotKarmaF expect cells 30
+ttl karma TtlBotKarmaF expect far 1920
+# Kills: 100000 kills of nothing in particular count as 200 (other_max); 400 zombies count as 80 (max per kind).
+ttl karma TtlBotKarmaF set mob_kills 100000
+ttl karma TtlBotKarmaF expect kills 200
+ttl karma TtlBotKarmaF set kill.zombie 400
+ttl karma TtlBotKarmaF set mob_kills 400
+ttl karma TtlBotKarmaF expect kills 80
+ttl karma TtlBotKarmaF set kill.zombie 0
+ttl karma TtlBotKarmaF set mob_kills 50
+ttl karma TtlBotKarmaF expect kills 50
+# Active time: the first sample takes a baseline, an idle sample adds nothing, an action or 2+ blocks moved adds 400.
+ttl karma TtlBotKarmaF set play_time 0
+ttl karma TtlBotKarmaF sample
+ttl karma TtlBotKarmaF sample
+ttl karma TtlBotKarmaF expect active 0
+ttl karma TtlBotKarmaF act
+ttl karma TtlBotKarmaF sample
+ttl karma TtlBotKarmaF expect active 400
+ttl karma TtlBotKarmaF sample
+ttl karma TtlBotKarmaF expect active 400
+execute as TtlBotKarmaF at @s run tp @s ~ ~2 ~
+ttl karma TtlBotKarmaF sample
+ttl karma TtlBotKarmaF expect active 800
+ttl karma TtlBotKarmaF sample
+ttl karma TtlBotKarmaF expect active 800
+ttl reset TtlBotKarmaF
+ttl karma TtlBotKarmaF expect active 0
+ttlbot remove TtlBotKarmaF

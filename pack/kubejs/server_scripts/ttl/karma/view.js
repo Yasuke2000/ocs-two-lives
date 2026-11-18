@@ -23,9 +23,10 @@ const TtlKarmaView = {
     if (s.format === 'days') {
       var days = Math.floor(n / TtlData.karma.ticks_per_day)
       var minutes = Math.floor(n / 1200)
-      return `${days} (${Math.floor(minutes / 60)}h ${minutes % 60}m played)`
+      return `${days} (${Math.floor(minutes / 60)}h ${minutes % 60}m active)`
     }
     if (s.format === 'blocks') return `${n} blocks`
+    if (s.format === 'explored') return `${Math.round(n / TtlData.karma.explore.cell_value)} squares`
     if (s.format === 'visited') return n > 0 ? 'yes' : 'no'
     return `${n}`
   },

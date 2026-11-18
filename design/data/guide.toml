@@ -27,6 +27,7 @@ You start at *Wayfarer's Rest*. From here the Mortal Realm is yours to explore: 
 
 - There is no second try: Life 1 ends with your first death.
 - When it ends you lose your items, but you keep your XP and advancements.
+- Players can fight each other here: another player can end your only first life, and killing a player darkens your karma.
 - Take your time. A long, full life is worth more than a quick one.
 """
 
@@ -81,6 +82,26 @@ body = """
 - `/bug <what happened>` sends a report to the developers, with everything they need to look into it
 
 Found something odd? Use `/bug` right away, while it is fresh. Good luck, and live well.
+"""
+
+[[main]]
+title = "Privacy: what we keep"
+body = """
+This is a server for friends. We keep only what we need to run it, and you can ask to see it or have it removed.
+
+# What is stored
+- *Game data:* your Minecraft name and ID, your player file, statistics and your Two Lives progress (life, karma, tier, titles).
+- *Activity log:* a logger records who placed or broke blocks, opened chests, chatted, ran commands and logged in. It lets us undo griefing.
+- *Bug reports:* your text, your position, health, held item, Two Lives state and the latest server log lines. A report can also be filed as an issue on the project's GitHub page, where others can read it.
+- *Discord link:* if you link your account, your Discord ID is stored next to your Minecraft ID and the bot sets your roles. Chat is shared with Discord, and the weekly recap names your character.
+
+# How long
+- Bug reports and the activity log: 180 days at most.
+- Game data and your link: while you play here. Backups roll off after about a month.
+- GitHub issues: until you ask us to remove them.
+
+# Your choices
+Ask David, in Discord or in game, to show, correct or delete your data, or to unlink your Discord account. Your builds stay with the world.
 """
 
 [[corridor]]

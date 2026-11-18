@@ -1,0 +1,31 @@
+# Items a Life 1 soul may not use in the Mortal Realm (design/master-plan.md §4, owner call: "no bans besides
+# Tensura stuff, but make it easy to add mods to that list"). Script: pack/kubejs/server_scripts/ttl/life/mortal_banned.js.
+# Edit, then run `python tools/gen_data.py`. Check with `/ttl stash <player>` and `tools/server.sh test carryover`.
+#
+# What a ban does, in the Mortal dimensions (ttl:mortal_realm, ttl:mortal_nether, ttl:mortal_end) for Life 1 souls:
+#   - using, placing, picking up and crafting a banned item is refused;
+#   - a banned item that gets onto the body anyway (command, a mod's loot, a trade) is moved into the "soul stash"
+#     within 2 seconds (inventory, ender chest and Curios are all checked). One calm Voice line tells the player once.
+#   - the soul stash is returned in Life 2, at rebirth. Nothing is destroyed.
+# Life 2 is never affected.
+#
+# HOW TO ADD A MOD: put its namespace in `namespaces` (the part before the colon in an item id, e.g. `somemod` for
+# `somemod:magic_ring`). Every item of that mod is then banned, no other change needed. The namespace must be
+# spelled exactly like in the item ids (check with /give autocomplete or JEI).
+# To ban a single item of a mod that stays allowed otherwise, use `items`; to ban a whole group of items that has an
+# item tag (vanilla, a mod's, or your own datapack tag), use `tags`. To let one item through a namespace ban, use `allow`.
+
+# Whole mods. Every mod that adds Tensura items is listed (checked against pack/mods: tensura_neb adds the Night Rose,
+# the White Tiger Azure Dragon Halberd and its boss spawn eggs; greatsage adds Venuzdonoa).
+# Tensura addons without items of their own need no entry: tensura_ftb (quest tasks only) and tensura_iron_spells
+# (it only adds item tags to Tensura items, which `tensura` already covers).
+namespaces = ["tensura", "tensura_neb", "greatsage"]
+
+# Single items, full id: items = ["somemod:magic_ring"]
+items = []
+
+# Item tags, full id without the #: tags = ["c:ingots/netherite"]
+tags = []
+
+# Exceptions to a namespace ban, full item ids: allow = ["tensura:bronze_coin"]
+allow = []

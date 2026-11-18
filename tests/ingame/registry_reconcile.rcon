@@ -28,3 +28,22 @@ ttlbot remove TtlBotRecB
 ttlbot remove TtlBotRecC
 ttlbot remove TtlBotRecD
 ttlbot remove TtlBotRecE
+# Same flow for Tensura's Reset Counter bonus unique (gamerule resetCounterBonusUnique 1): a reset revokes what the
+# player held and grants a bonus unique through Tensura itself, outside the registry. Simulated here: F holds a
+# recorded unique, loses it and gets another one straight from Tensura. Reconcile must drop the old record and
+# record the new one (or take it back and substitute one when its rarity is full), with history lines for both.
+# Expect: `ttl registry expect ...` lines print "registry: ... as expected"; "ttl: ..." means a failure.
+ttlbot spawn TtlBotRecF
+@sleep 4
+ttl grant TtlBotRecF seeker
+ttl registry expect holds TtlBotRecF seeker true
+tensura edit ability revoke TtlBotRecF tensura:seeker
+tensura edit ability grant TtlBotRecF tensura:analyst
+ttl reconcile TtlBotRecF
+ttl registry expect holds TtlBotRecF seeker false
+ttl registry expect holds TtlBotRecF analyst true
+ttl registry expect has TtlBotRecF analyst true
+ttl registry expect last TtlBotRecF grant analyst
+ttl registry history analyst
+ttl reset TtlBotRecF
+ttlbot remove TtlBotRecF

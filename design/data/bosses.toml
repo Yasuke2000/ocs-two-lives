@@ -1,0 +1,33 @@
+# Boss knobs (master plan §8). Edit, then run `python tools/gen_data.py`; the scripts read it as TtlData.bosses.
+# Sections: [tombstone] below (read by compat/tombstone_bosses.js). The Sprint 4 boss framework
+# (design/architecture/sprint3-4.md S2) adds its own `[[boss]]` tables to this file; leave [tombstone] alone.
+#
+# [tombstone]: which bosses may be bound to a Corail Tombstone "Receptacle of Familiar" (issue #3: a boss as an ally).
+# Tombstone binds a tamed creature's soul when the creature takes a lethal hit and its owner carries a receptacle.
+# The script vetoes that bind through Tombstone's CaptureSoulEvent, so a vetoed boss just dies. "Covered" bosses are
+# `ids` below plus everything in the entity tag #c:capturing_not_supported (Tensura, NEB; new boss mods that join
+# the tag are covered automatically).
+#
+#   mode = "defeated"   (default) the owner can bind a covered boss only if they have slain that boss themselves
+#                       (vanilla statistic "killed", killing blow only; counts kills from before this knob existed),
+#                       or staff gave them the stage `ttl.defeated.<boss path>`.
+#          "allow_list" nobody can bind a covered boss, except the ids in `allow`.
+#          "any"        every boss can be bound by anyone (the behaviour before 18/11/2026; undermines boss gating).
+#          "none"       no boss can be bound (Tombstone's own default).
+#   allow = ids that anyone may bind in every mode except "none": story allies like Shizu. Shizu is not in the
+#           excluded tag, so she is bindable with or without this line; it keeps the intent explicit.
+#
+# Trade-off: the stat only credits the killing blow, so a party member who never struck the last hit is refused;
+# staff fix that with `/kubejs stages add <player> ttl.defeated.<path>` (path = id without the namespace). If
+# the veto cannot be registered at start (Tombstone's API changed) the script falls back to "none" and logs it.
+# The ids below were read from #c:capturing_not_supported in tensura 2.0.1.5 and tensura_neb 2.0.0.3.
+
+[tombstone]
+mode = "defeated"
+allow = ["tensura:shizu"]
+ids = [
+  "tensura:akash", "tensura:charybdis", "tensura:elemental_colossus", "tensura:ifrit", "tensura:orc_lord",
+  "tensura:orc_disaster", "tensura:sylphide", "tensura:undine", "tensura:war_gnome", "tensura:gazel_dwargo",
+  "tensura:hinata_sakaguchi",
+  "tensura_neb:rimuru_ogre_fight", "tensura_neb:rimuru_clone", "tensura_neb:carrion", "tensura_neb:luminous_valentine",
+]

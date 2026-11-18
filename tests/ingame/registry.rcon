@@ -1,6 +1,8 @@
 # Registry caps (design/data/skills.toml): berserker is Rare (cap 3), great_sage is Legendary (cap 3,
 # granted only on purpose). Expect: berserker granted to A, B, C and refused for D; great_sage granted to
-# A, B, C and refused for D; `ttl registry` lists both at 3/3.
+# A, B, C and refused for D; `ttl registry` lists both at 3/3. Holders are keyed by UUID: `expect keyed` fails
+# ("ttl: ...") when a record still names the player, and `legacy` + `migrate` rewrites A's records the old
+# way (player name) and migrates them back. Every grant lands in `ttl registry history`.
 ttlbot spawn TtlBotRegA
 ttlbot spawn TtlBotRegB
 ttlbot spawn TtlBotRegC
@@ -15,10 +17,26 @@ ttl grant TtlBotRegB great_sage
 ttl grant TtlBotRegC great_sage
 ttl grant TtlBotRegD great_sage
 ttl registry
+ttl registry expect holds TtlBotRegA berserker true
+ttl registry expect holds TtlBotRegD berserker false
+ttl registry expect holds TtlBotRegD great_sage false
+ttl registry expect has TtlBotRegD berserker false
+ttl registry expect keyed TtlBotRegA
+ttl registry expect last TtlBotRegC great_sage grant
+ttl registry history berserker
+# Records written before UUID keys (the player's name) are migrated at login/start, or by /ttl registry migrate.
+ttl registry legacy TtlBotRegA
+ttl registry migrate
+ttl registry expect keyed TtlBotRegA
+ttl registry expect holds TtlBotRegA berserker true
+# A reset gives the slots back (and logs a revoke).
 ttl reset TtlBotRegA
+ttl registry expect holds TtlBotRegA berserker false
+ttl registry expect last TtlBotRegA revoke great_sage
 ttl reset TtlBotRegB
 ttl reset TtlBotRegC
 ttl reset TtlBotRegD
+ttl registry history
 ttlbot remove TtlBotRegA
 ttlbot remove TtlBotRegB
 ttlbot remove TtlBotRegC

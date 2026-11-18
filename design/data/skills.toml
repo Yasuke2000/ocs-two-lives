@@ -8,6 +8,14 @@ legendary = 3   # never a random rebirth skill; only granted on purpose (admin, 
 rare = 3
 common = 5
 
+# Registry hygiene (pack/kubejs/server_scripts/ttl/registry.js).
+[registry]
+inactive_days = 30      # a holder not online for this many days loses the record (the skill returns to the pool and is
+                        # taken from them on their next login, with a Voice line); 0 turns it off
+history_max = 200       # transfer log entries kept in ttl.reg.history (also trimmed to fit one 64 KB NBT string)
+announce = ["rare", "legendary"]   # rarities whose holder changes the Voice of the World announces to everyone
+max_name_lookups = 20   # offline player names resolved through the server's user cache per migration (start, /ttl registry migrate)
+
 [legendary]
 skills = ["predator", "great_sage", "creator", "envy", "greed", "lust", "pride", "sloth", "wrath"]
 

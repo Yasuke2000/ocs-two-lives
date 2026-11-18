@@ -31,7 +31,7 @@ const TtlDiscordRoles = {
     TtlHall.noteSoul(server, player)
     var guild = TtlSdlink.guild()
     if (!guild) return
-    var id = TtlSdlink.discordId(player.getStringUUID())
+    var id = TtlSdlink.discordId(TtlLife.uuid(player))
     if (!id) return
     var want = {}
     this.desired(player).forEach(k => { want[k] = true })
@@ -120,7 +120,7 @@ ServerEvents.commandRegistry(event => {
         ctx.source.sendSystemMessage(Text.of(`discordroles ${target.username}: ${label} (ok)`))
         return 1
       }
-      var id = TtlSdlink.discordId(target.getStringUUID())
+      var id = TtlSdlink.discordId(TtlLife.uuid(target))
       var link = id ? `discord ${id}` : (TtlSdlink.load() ? 'not linked' : 'sdlink missing')
       if (mode === 'sync') TtlDiscordRoles.sync(server, target)
       ctx.source.sendSystemMessage(Text.of(`discordroles ${target.username}: ${label} [${link}]${mode === 'sync' ? ' synced' : ' (dry run)'}`))

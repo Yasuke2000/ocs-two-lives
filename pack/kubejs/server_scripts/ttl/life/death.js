@@ -40,6 +40,13 @@ EntityEvents.death('minecraft:player', event => {
 
   server.scheduleInTicks(1, () => {
     var name = player.username
+    // Life 1 items must not reach Life 2: soulbound stacks are kept, banned ones stashed, the ender chest and Curios
+    // slots emptied (life/mortal_banned.js). A failure must never trap the soul in Life 1.
+    try {
+      TtlStash.lifeEnds(server, player)
+    } catch (e) {
+      console.error(`[ttl] ${name}: Life 1 strip failed: ${e}`)
+    }
     server.runCommandSilent(`quietly clear ${name}`)
     life.toCorridor(server, player)
     server.runCommandSilent(`quietly gamemode adventure ${name}`)

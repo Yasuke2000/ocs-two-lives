@@ -13,10 +13,19 @@
 #   5. The tier is the highest one below whose min_score, min_days and min_bosses are all met.
 #   6. A soul is Dark when the chaos axis is high enough (see [dark]); that adds dark races to its offers.
 # Changing a stat's criterion resets that stat for players who are mid-Life 1 (the objective is recreated).
+#
+# Anti-farming (the numbers are in [activity], [explore] and [kill_cap] below)
+#   - Longevity counts ACTIVE time only: every track_seconds a sample adds that many seconds if the player moved
+#     on foot, looked around or did something (break/place/use/chat) since the last sample. AFK is not counted.
+#   - Kills are diminishing per kind of mob: the first kill_cap.full of one kind count in full, further ones count
+#     kill_cap.tail each, and one kind never gives more than kill_cap.max. Stats flagged `capped = true` follow
+#     the same curve per stat (raid and golem farms).
+#   - Exploration counts distinct squares of the Mortal Realm entered on foot (no boat, mount or elytra), with a
+#     daily cap, instead of the farthest distance reached.
 
 best_axis_bonus = 0.5      # rewards having one thing you were really good at
 default_tier = "normal"    # souls with no Life 1 record (died before karma existed, or reset into the Corridor)
-track_seconds = 20         # how often tracked stats (distance, Nether/End visits) are sampled
+track_seconds = 20         # how often tracked stats (active time, exploration, Nether/End visits) are sampled
 ticks_per_day = 24000      # one Minecraft day of play (20 minutes); "days survived" = Life 1 play time / this
 
 # ---- Axes --------------------------------------------------------------------------------------------
@@ -41,18 +50,39 @@ weight = 1.0
 k = 60
 weight = 1.0
 
+# ---- Anti-farming knobs ------------------------------------------------------------------------------
+[activity]               # what counts as "active" in one sample (see the play_time stat)
+min_move = 1.5           # blocks walked since the last sample (not riding, swimming or gliding: those drift)
+min_turn = 15            # degrees of looking around since the last sample
+# Any block broken or placed, item used or chat line since the last sample also counts as active.
+
+[explore]                # the `far` stat: distinct squares entered on foot in the Mortal Realm
+cell_size = 64           # blocks; the world is cut into cell_size x cell_size squares
+cell_value = 64          # what a new square adds to `far` ("blocks": 100 of them = 1 raw valor)
+daily_cap = 30           # new squares credited per real day (UTC); one that is over the cap can be earned another day
+
+[kill_cap]               # diminishing returns per kind of mob (valor from `stat`, plus every stat flagged capped)
+stat = "mob_kills"       # the total-kills stat that is split over the kinds in [hostiles]
+full = 30                # the first 30 kills of one kind count 1 each
+tail = 0.15              # every further kill of that kind counts this much
+max = 80                 # one kind never counts for more than this many kills
+other_full = 100         # same three knobs for kills that are in no [hostiles] kind (mostly animals and the rest)
+other_tail = 0.15
+other_max = 200
+
 # ---- Stats -------------------------------------------------------------------------------------------
 # key       = short id: objective `ttl.s.<key>`, `/ttl karma <p> set <key> <n>`, and the record in persistentData
 # criterion = vanilla stat criterion (minecraft.custom:…, minecraft.killed:…, minecraft.mined:…)
-#   or track = one of far | nether | end | advancements (sampled by karma/tracking.js, no scoreboard)
+#   or track = one of active | far | nether | end | advancements (sampled by karma/tracking.js, no scoreboard)
 # axis, weight, per = what one unit is worth (see the top); per defaults to 1
 # group, label     = where the Life screen shows it (stats with the same label are added together)
-# format           = days (ticks shown as days + hours) | blocks | visited (yes/no); plain count otherwise
+# format           = days (ticks shown as days + hours) | blocks | explored (squares) | visited (yes/no); plain count otherwise
 # major            = a great boss: counts toward a tier's min_bosses
+# capped           = kills follow the [kill_cap] curve (diminishing after kill_cap.full)
 
 [[stats]]
 key = "play_time"
-criterion = "minecraft.custom:minecraft.play_time"
+track = "active"         # ticks of ACTIVE play in Life 1 (idle/AFK time does not count, see [activity])
 axis = "longevity"
 weight = 10              # 10 raw per day survived
 per = 24000
@@ -62,13 +92,13 @@ format = "days"
 
 [[stats]]
 key = "far"
-track = "far"            # farthest distance from Wayfarer's Rest reached in the Mortal Realm
+track = "far"            # new squares entered on foot in the Mortal Realm x [explore].cell_value
 axis = "valor"
-weight = 1               # 1 raw per 100 blocks
+weight = 1               # 1 raw per 100 blocks of ground explored
 per = 100
 group = "life"
-label = "Farthest from home"
-format = "blocks"
+label = "Ground explored"
+format = "explored"
 
 [[stats]]
 key = "nether"
@@ -140,6 +170,7 @@ axis = "valor"
 weight = 10
 group = "bosses"
 label = "Evokers"
+capped = true
 
 [[stats]]
 key = "ravager"
@@ -148,6 +179,7 @@ axis = "valor"
 weight = 10
 group = "bosses"
 label = "Ravagers"
+capped = true
 
 # Good deeds.
 [[stats]]
@@ -247,6 +279,7 @@ axis = "chaos"
 weight = 10
 group = "dark"
 label = "Villagers slain"
+capped = true
 
 [[stats]]
 key = "iron_golems"
@@ -255,6 +288,7 @@ axis = "chaos"
 weight = 8
 group = "dark"
 label = "Iron golems slain"
+capped = true
 
 [[stats]]
 key = "traders"
@@ -263,6 +297,7 @@ axis = "chaos"
 weight = 8
 group = "dark"
 label = "Wandering traders slain"
+capped = true
 
 [[stats]]
 key = "player_kills"
@@ -271,6 +306,7 @@ axis = "chaos"
 weight = 25
 group = "dark"
 label = "Players slain"
+capped = true
 
 [[stats]]
 key = "raids_started"

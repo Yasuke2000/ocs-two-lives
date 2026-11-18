@@ -1,0 +1,49 @@
+# Pool hygiene (design/data/skills.toml [registry], master plan §5), all with test bots (TtlBot*: no Voice announcement
+# to everyone, but the personal Voice line and the history are the same). `ttl registry seen <p> <days>` fast-forwards a
+# holder's last-seen; `ttl registry sweep` is the return-to-pool pass without refreshing online players first
+# (the 5-minute cycle refreshes them, so a real holder who is online is never returned).
+# Expect: P (Rare berserker + Common seeker) is 31 days "inactive": both records return to the pool at once
+# (history `return`), P no longer holds either (the bot is online, so reconcile took them back immediately: look for
+# "[ttl] registry: took tensura:berserker back from TtlBotPoolP" in the log), and Q, seen 29 days ago, keeps its seeker.
+ttlbot spawn TtlBotPoolP
+ttlbot spawn TtlBotPoolQ
+@sleep 3
+ttl grant TtlBotPoolP berserker
+ttl grant TtlBotPoolP seeker
+ttl grant TtlBotPoolQ seeker
+ttl registry expect holds TtlBotPoolP berserker true
+ttl registry expect has TtlBotPoolP berserker true
+ttl registry expect keyed TtlBotPoolP
+# Active holders are untouched by a sweep.
+ttl registry sweep
+ttl registry expect holds TtlBotPoolP berserker true
+ttl registry expect holds TtlBotPoolQ seeker true
+# 29 days is still fine, 31 is not (inactive_days = 30).
+ttl registry seen TtlBotPoolQ 29
+ttl registry seen TtlBotPoolP 31
+ttl registry sweep
+ttl registry expect holds TtlBotPoolQ seeker true
+ttl registry expect holds TtlBotPoolP berserker false
+ttl registry expect holds TtlBotPoolP seeker false
+ttl registry expect has TtlBotPoolP berserker false
+ttl registry expect has TtlBotPoolP seeker false
+ttl registry expect pending TtlBotPoolP 0
+ttl registry expect last TtlBotPoolP return seeker
+ttl registry history berserker
+# The slots are free again: Q can take the berserker the returned record gave up (unless others filled it).
+ttl grant TtlBotPoolQ berserker
+ttl registry expect holds TtlBotPoolQ berserker true
+ttl registry expect last TtlBotPoolQ grant berserker
+# Offline: a skill returned while its holder is away stays on them until they log in. Simulated by granting the skill
+# to P outside the registry again (Tensura), returning the record, and letting `reconcile` (= the login) settle it.
+tensura edit ability grant TtlBotPoolP tensura:seeker
+ttl reconcile TtlBotPoolP
+ttl registry expect holds TtlBotPoolP seeker true
+ttl registry seen TtlBotPoolP 40
+ttl registry sweep
+ttl registry expect holds TtlBotPoolP seeker false
+ttl registry expect has TtlBotPoolP seeker false
+ttl reset TtlBotPoolP
+ttl reset TtlBotPoolQ
+ttlbot remove TtlBotPoolP
+ttlbot remove TtlBotPoolQ

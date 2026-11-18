@@ -42,6 +42,22 @@ def check_guide(guide: dict) -> None:
                 raise SystemExit(f"guide.toml: {name} page {i} needs a title and a body")
 
 
+def check_mortal_banned(banned: dict) -> None:
+    # life/mortal_banned.js matches item ids against these lists; a typo would silently ban nothing.
+    patterns = {"namespaces": r"[a-z0-9_.-]+", "items": r"[a-z0-9_.-]+:[a-z0-9_/.-]+",
+                "tags": r"[a-z0-9_.-]+:[a-z0-9_/.-]+", "allow": r"[a-z0-9_.-]+:[a-z0-9_/.-]+"}
+    for key, pattern in patterns.items():
+        values = banned.get(key)
+        if not isinstance(values, list):
+            raise SystemExit(f"mortal_banned.toml: {key} must be a list (use [] for none)")
+        for v in values:
+            if not isinstance(v, str) or not re.fullmatch(pattern, v):
+                raise SystemExit(f"mortal_banned.toml: {key} entry {v!r} is not a valid "
+                                 f"{'namespace, like tensura' if key == 'namespaces' else 'full id, like mod:thing'}")
+        if len(set(values)) != len(values):
+            raise SystemExit(f"mortal_banned.toml: {key} lists an entry twice")
+
+
 def settlement_box(script: str, anchor: str, footprint: str) -> tuple[int, int, int, int]:
     """World box (x0, z0, x1, z1, margin included) of Tempest or Dwargon, as their scripts compute it."""
     m = re.search(anchor + r":\s*\{\s*x:\s*(-?\d+),\s*z:\s*(-?\d+)", (SCRIPTS / "life" / script).read_text(encoding="utf-8"))
@@ -100,6 +116,8 @@ def render() -> str:
         check_skills(data["skills"])
     if "guide" in data:
         check_guide(data["guide"])
+    if "mortal_banned" in data:
+        check_mortal_banned(data["mortal_banned"])
     if "landmarks" in data:
         check_landmarks(data["landmarks"])
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)

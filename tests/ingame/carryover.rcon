@@ -1,0 +1,48 @@
+# Soul carryover (life/mortal_banned.js, design/data/mortal_banned.toml, master plan §4). `ttl stash <bot> expect
+# <field> <n>` prints "ttl: ..." when the count is wrong, which `server.sh test-all` counts as a failure.
+# Setup: a Life 1 bot with 2 ender chest stacks, a backpack in a Curios slot, a soulbound-by-test stick and a Tensura
+# potion (banned in the Mortal Realm). Expect in the log: "[ttl] TtlBotCarry (life 1) had 1 banned stacks, moved to
+# the soul stash", "[ttl] TtlBotCarry Life 1 strip: 1 soulbound kept, 0 banned stashed, ender chest and Curios
+# emptied", "[ttl] TtlBotCarry rebirth: 1 soulbound and 1 stashed stacks returned".
+ttlbot spawn TtlBotCarry
+@sleep 2
+ttl stash TtlBotCarry clear
+ttl stash TtlBotCarry soulbound minecraft:amethyst_shard
+item replace entity TtlBotCarry enderchest.0 with minecraft:diamond 3
+item replace entity TtlBotCarry enderchest.26 with minecraft:emerald 5
+ttl stash TtlBotCarry equip sophisticatedbackpacks:backpack
+give TtlBotCarry minecraft:amethyst_shard 3
+give TtlBotCarry minecraft:bread 4
+ttl stash TtlBotCarry expect ender 2
+ttl stash TtlBotCarry expect curios 1
+ttl stash TtlBotCarry expect soul 1
+# A banned Tensura item is moved into the soul stash (no waiting for the 2 second sweep).
+give TtlBotCarry tensura:low_potion 2
+ttl stash TtlBotCarry expect banned 1
+ttl stash TtlBotCarry sweep
+ttl stash TtlBotCarry expect banned 0
+ttl stash TtlBotCarry expect stash 1
+# Life 1 death: ender chest and Curios are emptied, the soulbound stick is kept, the stash stays.
+kill TtlBotCarry
+@sleep 2
+ttl inspect TtlBotCarry
+ttl stash TtlBotCarry expect ender 0
+ttl stash TtlBotCarry expect curios 0
+ttl stash TtlBotCarry expect kept 1
+ttl stash TtlBotCarry expect stash 1
+ttl stash TtlBotCarry expect soul 0
+# Rebirth returns both: the shard and the potion are on the body, nothing else.
+execute as TtlBotCarry run ttl wish knowledge
+execute as TtlBotCarry run ttl choose slime
+@sleep 1
+ttl inspect TtlBotCarry
+ttl stash TtlBotCarry expect kept 0
+ttl stash TtlBotCarry expect stash 0
+ttl stash TtlBotCarry expect soul 1
+ttl stash TtlBotCarry expect banned 1
+ttl stash TtlBotCarry expect ender 0
+ttl stash TtlBotCarry expect curios 0
+# Life 2 is never swept: the potion stays in the inventory.
+ttl stash TtlBotCarry clear
+ttl reset TtlBotCarry
+ttlbot remove TtlBotCarry

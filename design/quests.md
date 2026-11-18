@@ -24,7 +24,7 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | `title`, `subtitle`, `text` | shown on the chapter (text: blank line = new paragraph) |
 | `icon` | item id |
 | `order` | position in the chapter list (unique) |
-| `life` | `1` = Life 1: only `minecraft:` items/entities, no Tensura tasks (enforced); `2` = Life 2 |
+| `life` | `1` = Life 1: only `minecraft:` items/entities, no Tensura tasks (enforced); `2` = Life 2; `"both"` = shared by both lives, so the same vanilla-only rules as `1` (enforced) |
 | `hide_until_deps_complete` | quests stay hidden until their dependencies are done (story chapters) |
 
 ### Quest (`[[quests]]`)
@@ -36,12 +36,13 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | `lane`, `col` | layout: row (negative = above) and column; column defaults to deepest dependency + 1 |
 | `shape`, `size` | `circle` … `gear`; size 1.5 for milestones |
 | `optional` | does not block chapter completion |
+| `repeatable`, `cooldown` | FTB Quests `can_repeat` / `repeat_cooldown`: once every reward is claimed the quest resets; `cooldown` is in seconds (86400 = daily) and needs `repeatable`. A repeatable quest may not have a plain item task: use `consume = true` (below) or it completes again at once |
 | `text` | description (blank line = new paragraph; `&6` colour codes work) |
 | `karma` | Life 1: appended as "Next life: …" — how the deed counts for the rebirth (keep in step with `design/data/karma.toml`) |
 | `tasks` | list, see below |
 | `rewards` | `item` (`item`, `count`), `xp` (`xp` points), `xp_levels`. Nothing else: quests never grant skills, races or evolutions (`design/manas-integration.md` §5(d)) |
 
-Task types: `item` (item, count; never consumed), `kill` (entity, count), `dimension`, `structure` (id or `#tag`),
+Task types: `item` (item, count; checks the inventory and never consumes unless `consume = true`, which makes it a hand-in submitted in the quest screen), `kill` (entity, count), `dimension`, `structure` (id or `#tag`),
 `biome`, `advancement` (+ optional `criterion`), `stat` (custom stat id, value), `stage` (KubeJS stage, via
 FTB XMod Compat), `checkmark`, `xp`, `location` (dimension, `at = [x, z]`, `radius`: a full-height box),
 and Life 2 only: `ep` (`tensura_ftb:existence_value`, default `existence = "EP"`) and `ability`
@@ -68,6 +69,32 @@ Hipokute Herbs; Monsters of Jura → Existence Points (5,000 EP) → Magic Sense
 Lord Fell (optional). Places come from the canon landmarks (`pack/config/ttl/canon_regions.json`, ~3.89 blocks
 per reference pixel, same conversion that puts Dwargon's gate at 310, -1060). Rewards: food, XP, low potions,
 a few Tensura coins; no skills.
+
+**2. Tempest Rises** (Life 2, 21 quests, revealed step by step). Join the town on the green (0,-7) → Rigurd's hut →
+Gobta's campfire → the council longhouse → naming a monster (advancement `tensura:name_a_mob`). Build and bring:
+oak logs, a woodcutter, cobblestone, oak doors (hand-ins for Mildo), a food store (wheat, porkchops), iron and coal for
+Kaijin's forge with a smithing bench, string and wool for Shuna. Defend: the Night of the Direwolves (kill 6, at the
+south gate) and Pests of the Forest (giant ants, black spiders). Skills and strength: any ability
+(`tensura:real_adventure`), Physical Attack Resistance AVAILABLE then LEARNT, EP 1,000 / 3,000. Finale "Tempest Stands" is a
+checkmark. Positions are real offsets in the Tempest blueprint (blueprint (45, 57) = world 0, 0).
+
+**3. The Armed Nation** (Life 2, 21 quests). Provisions → dwarf village on the road (250,-740, radius 150) → checkpoint
+arch → gate inspection (435,-1005) → tunnel and south street → market plaza (435,-1066) → forge street → Kaijin's smithy
+(423,-1084) → audience at King Gazel's throne (435,-1106; he is a seated invulnerable NPC, so it is a location task).
+Branches: trade (advancements `delightful_trade`, `my_precious`), optional dwarf manual (Aura Sword) and tome (Wind
+Cutter), forge hall, engineers' workshop, smithing bench and schematic, silver → magic ore → low magisteel (needs a
+kiln), EP 6,000 gate to the throne. Positions come from blueprints/dwargon.py (gate arrival (74,120) = world (435,-1000)).
+
+**4. The Orc Lord** (Life 2, 13 quests). Lizardmen's stilt village (700,344) → rations (hand-in) → the caverns (926,398) →
+alliance (checkmark: no state to read) → scout the orc camp (1106,539) → kill 10 orcs → hold the battlefield (20 more)
+→ finale: kill a `tensura:orc_lord` (needs one alive in the camp), then the optional epilogue "Eat or Be Eaten"
+(advancement `tensura:eat_or_be_eaten`, defeat an Orc Disaster). EP 10,000 gates the finale; 50,000 and 100,000 are optional.
+Optional ruin of the Kijin village (1460,-959, position unverified).
+
+**5. Daily Deeds** (shared by both lives, 9 repeatable quests, 24 h cooldown): kill zombies, skeletons, spiders; hand in
+logs, cobblestone, coal, wheat; stand in a dark forest or river biome. Vanilla only, rewards are food, arrows, torches and XP.
+**6. Daily Deeds: Jura** (Life 2, 6 repeatable quests): kill horned rabbits, giant ants, direwolves; hand in hipokute grass
+and magic ore shards; patrol Tempest. Rewards: bronze coins, a low potion, food, XP.
 
 Known limit: quest progress carries to Life 2 (master plan D4), so a Life 1 quest left open can still be finished
 in Life 2. Karma is closed at death, so this only hands out the small vanilla reward.
@@ -96,6 +123,21 @@ Format (verified against the jars, not only docs):
   third-party description of the 1.21 layout: https://www.curseforge.com/minecraft/mc-mods/quest-lang-files
 - Minecraft Wiki, written book component syntax (1.20.5–1.21.4: pages are JSON text strings) and advancement
   triggers (`changed_dimension` names the vanilla dimension keys).
+
+Chapters 2-6 (verified 18/11/2026 against Tensura 2.0.1.5 and tensura_ftb 2.0.0.4):
+- Item, block, entity and skill ids come from `assets/tensura/lang/en_us.json` of the Tensura jar; the skills used
+  (`aura_sword`, `wind_cutter`, `physical_attack_resistance`) are also in its `data/tensura/tags/manascore_skill/skills/`
+  tags (dwarf manual/tome trades, resistances). Advancement ids are `data/tensura/advancement/*.json` (`name_a_mob` fires on
+  `tensura:name`, `real_adventure` on `tensura:ability_obtained`, `eat_or_be_eaten` on killing `tensura:orc_disaster`,
+  `delightful_trade` on `tensura:trade`, `my_precious` on a gold coin in the inventory).
+- `tensura_ftb:ability` (`AbilityTask`, decompiled): AVAILABLE = the player has the skill instance, LEARNT = mastery >= 0,
+  MASTERED = `isMastered`.
+- FTB Quests `Quest.writeData` (`javap`): `can_repeat` (Tristate boolean) and `repeat_cooldown` (int, seconds: `TeamData` multiplies
+  by 1000 ms). Repeat happens in `resetProgressIfRepeatable` when all rewards are claimed.
+- Tempest and Dwargon positions: `blueprints/tempest.py`, `blueprints/dwargon.py`, `life/tempest.js`, `life/dwargon.js`
+  (see the header of each chapter file for the conversion), landmark positions: `design/data/landmarks.toml`.
+- Not verifiable here: whether an orc lord is alive in the orc camp when a player arrives; the exact centre of landmarks
+  that `/place structure` shifts up to 64 blocks (hence the large radii); the Kijin ruin's canon position.
 
 Quest-line ideas:
 - Hardcore / staged packs: Araxer's Staged Survival (8 gated chapters,

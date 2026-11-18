@@ -29,7 +29,8 @@ TASK_TYPES = {"item", "kill", "dimension", "structure", "biome", "advancement", 
               "location", "xp", "ep", "ability"}
 REWARD_TYPES = {"item", "xp", "xp_levels"}  # never skill/race/awakening rewards (manas-integration.md §5(d))
 QUEST_KEYS = {"key", "title", "subtitle", "icon", "deps", "lane", "col", "text", "karma", "tasks", "rewards",
-              "optional", "shape", "size", "hide_until_deps_complete"}
+              "optional", "shape", "size", "hide_until_deps_complete", "repeatable", "cooldown"}
+LIVES = {1, 2, "both"}  # "both": shared by Life 1 and Life 2, so vanilla-only like Life 1
 SHAPES = {"circle", "square", "rsquare", "diamond", "pentagon", "hexagon", "octagon", "heart", "gear"}
 
 
@@ -90,21 +91,26 @@ def stack(item: str, count: int = 1) -> dict:
     return {"id": item, "count": int(count)}
 
 
+def vanilla_only(chapter: dict) -> bool:
+    return chapter.get("life") in (1, "both")
+
+
 def check_life_item(chapter: dict, where: str, item: str) -> None:
-    if chapter.get("life") == 1 and not item.startswith("minecraft:"):
-        raise QuestError(f"{where}: Life 1 has no modded content, {item} is not allowed (minecraft: only)")
+    if vanilla_only(chapter) and not item.startswith("minecraft:"):
+        raise QuestError(f"{where}: Life 1 (and shared 'both' chapters) have no modded content, {item} is not allowed (minecraft: only)")
 
 
 def build_task(chapter: dict, where: str, t: dict, tid: str) -> tuple[dict, str | None]:
     kind = t.get("type")
     if kind not in TASK_TYPES:
         raise QuestError(f"{where}: unknown task type {kind!r} (one of {sorted(TASK_TYPES)})")
-    if chapter.get("life") == 1 and kind in ("ep", "ability"):
-        raise QuestError(f"{where}: Tensura task {kind!r} in a Life 1 chapter")
+    if vanilla_only(chapter) and kind in ("ep", "ability"):
+        raise QuestError(f"{where}: Tensura task {kind!r} in a Life 1 / shared chapter")
     out: dict = {"id": tid}
     if kind == "item":
         check_life_item(chapter, where, t["item"])
-        out.update(type="item", item=stack(t["item"]), count=int(t.get("count", 1)), consume_items=False)
+        # `consume = true` makes it a hand-in (submitted in the quest screen); the default only checks the inventory.
+        out.update(type="item", item=stack(t["item"]), count=int(t.get("count", 1)), consume_items=bool(t.get("consume", False)))
     elif kind == "kill":
         check_life_item(chapter, where, t["entity"])
         out.update(type="kill", entity=t["entity"], value=int(t.get("count", 1)))
@@ -169,6 +175,8 @@ def build_chapter(src: Path, data: dict, lang: dict) -> tuple[str, dict, dict]:
     ckey = ch.get("key")
     if not ckey or not ckey.replace("_", "").isalnum() or ckey != ckey.lower():
         raise QuestError(f"{src.name}: [chapter] needs a lowercase key (letters, digits, _)")
+    if "life" in ch and ch["life"] not in LIVES:
+        raise QuestError(f"{src.name}: [chapter] life must be 1, 2 or \"both\"")
     cid = qid(ckey)
     quests = data.get("quests") or []
     keys = [q.get("key") for q in quests]
@@ -236,6 +244,17 @@ def build_chapter(src: Path, data: dict, lang: dict) -> tuple[str, dict, dict]:
             quest["size"] = float(q["size"])
         if q.get("optional"):
             quest["optional"] = True
+        if q.get("cooldown") and not q.get("repeatable"):
+            raise QuestError(f"{where}: `cooldown` needs `repeatable = true`")
+        if q.get("repeatable"):
+            # FTB Quests: can_repeat resets the quest once all its rewards are claimed; repeat_cooldown is in seconds.
+            # Item tasks of a repeatable quest should be hand-ins (`consume = true`), or they complete again at once.
+            quest["can_repeat"] = True
+            if q.get("cooldown"):
+                quest["repeat_cooldown"] = int(q["cooldown"])
+            for t in q["tasks"]:
+                if t.get("type") == "item" and not t.get("consume"):
+                    raise QuestError(f"{where}: an item task of a repeatable quest needs `consume = true`")
         if q.get("hide_until_deps_complete", ch.get("hide_until_deps_complete", False)) and q.get("deps"):
             quest["hide_until_deps_complete"] = True
         out_quests.append(quest)
@@ -245,7 +264,7 @@ def build_chapter(src: Path, data: dict, lang: dict) -> tuple[str, dict, dict]:
             lang[f"quest.{qq}.quest_subtitle"] = q["subtitle"]
         desc = text_lines(q.get("text", ""))
         if q.get("karma"):
-            label = "Next life" if ch.get("life") == 1 else "Why it matters"
+            label = "Next life" if ch.get("life") == 1 else "Why it matters"  # "both" chapters: karma lines unused
             desc += ["", f"&6{label}:&r {q['karma'].strip()}"]
         if desc and any(desc):
             lang[f"quest.{qq}.quest_desc"] = desc
