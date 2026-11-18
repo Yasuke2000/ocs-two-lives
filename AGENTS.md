@@ -52,7 +52,8 @@ Yasuke in anything players or contributors read). Players talk on Discord; the s
 3. Before pushing: `python tools/validate.py` → "validation passed" (needs `packwiz` on PATH),
    `python -m unittest discover -s tests`, `node --check` on changed JS.
 4. After a deploy: `bash tools/server.sh test-all` must say "0 failing"; `bash tools/server.sh logs 2000 | grep -E "ERROR.*KubeJS|\[ttl\].*failed"` clean.
-5. Update `docs/HANDOFF.md` when you stop: what you did, what is verified, what is next.
+5. Update `docs/HANDOFF.md` when you stop: what you did, what is verified, what is next. When something lands on
+   `main`, also update `docs/project-status.md` (metrics, what is built, in progress).
 
 Server access (`tools/server.sh`) needs SSH to the homelab node over Tailscale or the kubeconfig in
 `~/.kube/ocs-two-lives.yaml`; without that, work offline (validate + unit tests) and leave in-game checks
