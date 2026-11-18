@@ -394,3 +394,365 @@ text = "So you have chosen. Good. The Society does not forget those who walk wit
 [[npc.talk]]
 act = 1
 text = "Nothing to say to someone who has not chosen yet. Come back when you have."
+
+# ---------------------------------------------------------------------------------------------------------------------
+# The rest of the cast (WP-S4; design/data/npcs.toml puts them in the world, this file owns the words). Same entry rules as
+# above. Characters with a mod entity (Hinata, Luminous, Carrion, Folgen, Kyoya, Shogo, Kirara) are tame statues; the others
+# are Easy NPCs. The lines are our own wording of the canon roles in design/architecture/story-characters.md §1.2; a quest
+# chapter that needs a character to say more adds entries here (a later `act` wins).
+
+[[npc]]
+id = "souei"
+name = "Souei"
+color = "dark_aqua"
+
+[[npc.talk]]
+act = 1
+text = "I saw you before you saw the village. The forest tells me who walks it. Stay on the paths and we will not have to talk again."
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "You swore for Tempest. Good. I have places that need eyes, and not everyone can be trusted to look quietly."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "The mark on you is known to me. I have not decided what it means. Until I do, I will be the shadow you do not see."
+
+[[npc]]
+id = "garm"
+name = "Garm"
+color = "gold"
+
+[[npc.talk]]
+act = 1
+text = "Armour is a promise: it holds so you can come home. Bring me hides and metal, and I will keep that promise for you."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "Kaijin says to keep my mouth shut around people with your mark. I am only an armourer. I mend what is brought to me."
+
+[[npc]]
+id = "dold"
+name = "Dold"
+color = "yellow"
+
+[[npc.talk]]
+act = 1
+text = "Rings, clasps, little things that make a hard life nicer. Do not tell my brothers I enjoy it more than the big forging."
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "A friend of Tempest? Then I will make you something worth wearing. Bring gold, and a reason."
+
+[[npc]]
+id = "mildo"
+name = "Mildo"
+color = "gray"
+
+[[npc.talk]]
+act = 1
+text = "..."
+
+[[npc.talk]]
+act = 2
+text = "Houses first. Then roads. Then walls. Do not walk through the frame, it is not finished."
+
+[[npc]]
+id = "kabal"
+name = "Kabal"
+color = "red"
+
+[[npc.talk]]
+act = 1
+text = "Another new face in the guild hall. I am Kabal, rank B, and I have been doing this long enough to give advice for free: do not take the jobs that pay too well."
+
+[[npc.talk]]
+act = 5
+text = "You want to hear about the masked woman? Sit down, then. Elen, Gido, help me remember it right."
+
+[[npc]]
+id = "elen"
+name = "Elen"
+color = "aqua"
+
+[[npc.talk]]
+act = 1
+text = "Mana does not care how brave you are, only how careful. Keep that in mind and you will outlive most of this hall."
+
+[[npc.talk]]
+act = 5
+text = "She did not look like a monster. That is what I remember. She looked tired, and very far from home."
+
+[[npc]]
+id = "gido"
+name = "Gido"
+color = "green"
+
+[[npc.talk]]
+act = 1
+text = "Heh. Somebody has to stand in front. If you want the job, learn to take a hit before you learn to give one."
+
+[[npc.talk]]
+act = 5
+text = "Kabal tells it better than I do, but I will say this much: I would not have raised a blade at her if I had known."
+
+[[npc]]
+id = "milim"
+name = "Milim Nava"
+color = "light_purple"
+
+[[npc.talk]]
+act = 1
+text = "Hm? You are one of those small ones. Fine! I am Milim, I am very strong, and I am bored. Do not waste my time!"
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "Rimuru's people, right? He is my friend! Which makes you almost my friend. Keep it up and I might even remember your name."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "You smell of a different road. I do not care which side you are on, as long as it is fun. Do not make it boring."
+
+[[npc]]
+id = "yuuki"
+name = "Yuuki Kagurazaka"
+color = "yellow"
+
+[[npc.talk]]
+act = 1
+text = "Welcome to the Free Guild's headquarters. I am the Grandmaster. People take that more seriously than I do, which is useful."
+
+[[npc.talk]]
+path = "light"
+act = 5
+text = "Hinata hates being used as a favour, so I would not mention my name when you meet her. Pass her my regards anyway."
+
+[[npc.talk]]
+path = "dark"
+act = 5
+text = "A letter finds the right hands sometimes. I never wrote it, of course. But if I had, I would say: wake what sleeps, and see who flinches."
+
+[[npc]]
+id = "edmaris"
+name = "King Edmaris"
+color = "blue"
+
+[[npc.talk]]
+act = 1
+text = "A commoner in my throne room. State your business quickly; the kingdom of Falmuth is a busy kingdom."
+
+[[npc.talk]]
+path = "light"
+act = 5
+text = "You stand with the monsters of Tempest. I give you one chance to leave their side. You will not get a second."
+
+[[npc.talk]]
+path = "dark"
+act = 5
+text = "I hear you have no love for that slime. Then we are not enemies. Razen will tell you what Falmuth needs done."
+
+[[npc]]
+id = "razen"
+name = "Razen"
+color = "dark_blue"
+
+[[npc.talk]]
+act = 1
+text = "The king has no time for you. I have even less. If you have something to say, say it to the guards."
+
+[[npc.talk]]
+path = "dark"
+act = 5
+text = "Falmuth rewards loyalty. March with us against Tempest and the king will remember your name, and so will I."
+
+[[npc]]
+id = "frey"
+name = "Frey"
+color = "aqua"
+
+[[npc.talk]]
+act = 1
+text = "Hmph. A visitor. I rule the skies, and I am not in a mood for greetings. Say what you came to say, or go."
+
+[[npc.talk]]
+act = 6
+text = "So the council meets and the lesser ones listen at the door. Remember it: this is a table where words can start wars."
+
+[[npc]]
+id = "guy"
+name = "Guy Crimson"
+color = "dark_red"
+
+[[npc.talk]]
+act = 1
+text = "Hm. You have a little spark in you. Do not let it go out before I can see what it does."
+
+[[npc.talk]]
+act = 6
+text = "Walpurgis is a pastime for those who have lived too long. Watch closely, small one. Someone at this table is about to overreach."
+
+[[npc]]
+id = "leon"
+name = "Leon Cromwell"
+color = "yellow"
+
+[[npc.talk]]
+act = 1
+text = "You look lost. This is not a place for tourists."
+
+[[npc.talk]]
+act = 6
+text = "I have little patience for this council. But if you bring me a reason to stay, I might."
+
+[[npc]]
+id = "dagruel"
+name = "Dagruel"
+color = "dark_green"
+
+[[npc.talk]]
+act = 1
+text = "Hm. You walk lightly, small one. The earth notices. So do I."
+
+[[npc.talk]]
+act = 6
+text = "A council needs someone who listens. I have listened for a long time. Speak, and I will tell you if it is worth hearing."
+
+[[npc]]
+id = "ramiris"
+name = "Ramiris"
+color = "aqua"
+
+[[npc.talk]]
+act = 1
+text = "Oh! A visitor in my glade. I am Ramiris, the smallest and cleverest Demon Lord. Do not tell anyone I said smallest."
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "The spirits like you. They are whispering. That is a good sign. Come back when you have more stories."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "The spirits are quiet around you. That is... interesting. I will not say more. But I will keep watching."
+
+[[npc]]
+id = "hinata"
+name = "Hinata Sakaguchi"
+color = "white"
+
+[[npc.talk]]
+act = 1
+text = "A statue of the Holy Knight stands in her hall, and the knights say she watches whoever walks past. They polish it every morning."
+
+[[npc.talk]]
+path = "light"
+act = 5
+text = "The Knight remembers the ones who faced her blade without lying. Meet her on the road, and she will listen."
+
+[[npc.talk]]
+path = "dark"
+act = 5
+text = "The knights go quiet when they see your mark. The statue seems to look a little longer at you than at anyone else."
+
+[[npc]]
+id = "luminous"
+name = "Luminous Valentine"
+color = "dark_purple"
+
+[[npc.talk]]
+act = 1
+text = "The Church's patron saint stands above the altar. Pilgrims light candles for a protector they have never seen awake."
+
+[[npc.talk]]
+path = "light"
+act = 6
+text = "Those who were blessed by the Holy Knight are known here. The patron will receive them, when the time comes."
+
+[[npc.talk]]
+path = "dark"
+act = 6
+text = "The candles flicker when you stand close. Whatever sleeps in the crypt below knows you are here."
+
+[[npc]]
+id = "carrion"
+name = "Carrion"
+color = "gold"
+
+[[npc.talk]]
+act = 1
+text = "The lion king sits his throne as if it were made for him. You have the feeling he is deciding whether you are prey."
+
+[[npc.talk]]
+path = "light"
+act = 6
+text = "A friend of Tempest, then. Laura was rebuilt with Tempest's help, and a lion does not forget a debt. We will spar, you and I."
+
+[[npc.talk]]
+path = "dark"
+act = 6
+text = "Clayman's reach is long, even here. I know who sent you. Prove you are more than a puppet, or leave."
+
+[[npc]]
+id = "folgen"
+name = "Folgen"
+color = "red"
+
+[[npc.talk]]
+act = 1
+text = "A knight of Falmuth stands at the king's right hand, hand on his sword, watching the door."
+
+[[npc.talk]]
+act = 5
+text = "Falmuth's field commander does not talk to the likes of you. His eyes say enough: when the horn sounds, he rides south."
+
+[[npc]]
+id = "kyoya"
+name = "Kyoya Tachibana"
+color = "dark_aqua"
+
+[[npc.talk]]
+act = 1
+text = "One of the summoned ones, in Falmuth's service. He leans against a pillar as if the whole court bored him."
+
+[[npc.talk]]
+path = "light"
+act = 5
+text = "He watches you from under half-closed lids. If you have to cross blades with Falmuth's otherworlders, he will want to go first."
+
+[[npc.talk]]
+path = "dark"
+act = 5
+text = "He looks you over and grins. A blade on the same side as his, for now. Do not mistake that for friendship."
+
+[[npc]]
+id = "shogo"
+name = "Shogo Taguchi"
+color = "gray"
+
+[[npc.talk]]
+act = 1
+text = "Another of the summoned. He studies you the way a duelist studies a floor before a fight."
+
+[[npc.talk]]
+act = 5
+text = "Falmuth's otherworlders do not offer names to strangers. He lets his hand rest on his hilt instead."
+
+[[npc]]
+id = "kirara"
+name = "Kirara Mizutani"
+color = "blue"
+
+[[npc.talk]]
+act = 1
+text = "A summoned girl in Falmuth's court, perfectly polite, perfectly watchful, her hand never far from her wand."
+
+[[npc.talk]]
+act = 5
+text = "She curtsies, which does not mean she is on your side. Falmuth's otherworlders are loyal to the crown that feeds them."
