@@ -145,15 +145,7 @@
 			require_sequential_tasks: true
 			rewards: [
 				{
-					auto: "invisible"
-					command: "/ttl story flag {p} hero"
 					id: "0B245B667D6E5774"
-					permission_level: 2
-					silent: true
-					type: "command"
-				}
-				{
-					id: "7508B3C3035298D2"
 					type: "xp"
 					xp: 300
 				}
@@ -236,15 +228,7 @@
 			require_sequential_tasks: true
 			rewards: [
 				{
-					auto: "invisible"
-					command: "/ttl story flag {p} demon_lord"
 					id: "7F4496C5FF0AE544"
-					permission_level: 2
-					silent: true
-					type: "command"
-				}
-				{
-					id: "070BA40F8F5760E1"
 					type: "xp"
 					xp: 300
 				}

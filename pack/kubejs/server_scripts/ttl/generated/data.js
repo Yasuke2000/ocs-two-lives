@@ -2104,6 +2104,31 @@ const TtlData = {
       "version": 1,
       "x": -1171,
       "z": 2152
+    },
+    {
+      "anchor": [
+        40,
+        15,
+        79
+      ],
+      "clear_above": false,
+      "dimension": "ttl:walpurgis",
+      "ground": "fixed",
+      "margin": 0,
+      "max_wet": 0.1,
+      "name": "walpurgis_hall",
+      "notes": "Council chamber with ten thrones (the Ten Great Demon Lords; canon's council is ten until the Octagram) and the Banquet Floor arena. No canon venue is depicted: the round table, thrones, dome and pit are our interpretation.",
+      "search": 48,
+      "size": [
+        123,
+        44,
+        97
+      ],
+      "title": "The Walpurgis Hall",
+      "version": 1,
+      "x": 0,
+      "y": 64,
+      "z": 0
     }
   ],
   "carryover": {

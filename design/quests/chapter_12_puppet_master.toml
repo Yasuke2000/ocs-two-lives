@@ -7,7 +7,7 @@ icon = "minecraft:string"
 order = 12
 life = 2
 hide_until_deps_complete = true
-text = "Frey, Guy, Leon and Dagruel wait along the carpet in Clayman’s throne hall. In this telling the castle hosts the council scene. Someone who has seen Carrion alive can put a hole in Clayman’s account before he finishes speaking."
+text = "Frey, Guy, Leon and Dagruel stand around the ten thrones in the Walpurgis Hall. Clayman’s castle in Jistav is where you will confront him after the hearing. Someone who has seen Carrion alive can put a hole in Clayman’s account before he finishes speaking."
 
 [[quests]]
 key = "council"
@@ -18,13 +18,15 @@ deps = ["mask_and_blade/act_five"]
 lane = 0
 col = 0
 text = """
-Travel to Clayman’s castle in Jistav. Its survey starts near x 3693, z −959. Inside the throne hall, Frey,
-Guy, Leon and Dagruel stand in two pairs. Read their responses with the Talk interaction or /ttl story talk
-guy. You can complete the visit whichever witness you hear first.
+Enter the Walpurgis Hall. If you hold a Legendary or an invitation, walk through the gate on Clayman’s
+throne dais in Jistav. Any Life 2 player can also use /ttl arena join walpurgis when the Banquet Floor lobby
+is free. A solo booking brings you into the hall immediately. Wait for the visit to register before using
+/ttl arena leave to return. You do not need to start a match. In the council chamber, look for Frey, Guy,
+Leon and Dagruel on the carpet around the table. Their Act VI dialogue opens after the judgment.
 """
 tasks = [
   { type = "stage", stage = "ttl.story.act5", title = "Complete Act V" },
-  { type = "location", dimension = "minecraft:overworld", at = [3693, -959], radius = 225, title = "Visit Clayman’s castle district" },
+  { type = "dimension", dimension = "ttl:walpurgis", title = "Enter the Walpurgis Hall" },
 ]
 rewards = [
   { type = "xp", xp = 90 },

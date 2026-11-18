@@ -99,7 +99,10 @@ ServerEvents.commandRegistry(event => {
     var p = who(ctx)
     var n = Number(Arguments.INTEGER.getResult(ctx, 'n'))
     var err = TtlStory.act(server(ctx), p, n, {})
-    if (err && n === 7) { p.tell(Text.red(err)); return 0 }
+    if (err && n === 7) {
+      p.tell(Text.red(err))
+      return 0
+    }
     if (err) throw err
     say(ctx, `story ${p.username}: act ${n} done`)
     return 1

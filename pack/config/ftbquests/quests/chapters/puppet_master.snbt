@@ -38,12 +38,9 @@
 					type: "gamestage"
 				}
 				{
-					dimension: "minecraft:overworld"
+					dimension: "ttl:walpurgis"
 					id: "3140DD490584B46F"
-					ignore_dimension: false
-					position: [I; 3468, -64, -1184]
-					size: [I; 451, 384, 451]
-					type: "location"
+					type: "dimension"
 				}
 			]
 			x: 0.0d

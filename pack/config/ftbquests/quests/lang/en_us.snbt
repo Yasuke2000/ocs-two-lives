@@ -67,7 +67,7 @@
 	chapter.46F0CD335D2E1F1F.title: "Harvest Festival"
 	chapter.4880167E72BCBA5A.chapter_subtitle: [
 		"Clayman has asked the Demon Lords for a judgment."
-		"Frey, Guy, Leon and Dagruel wait along the carpet in Clayman’s throne hall. In this telling the castle hosts the council scene. Someone who has seen Carrion alive can put a hole in Clayman’s account before he finishes speaking."
+		"Frey, Guy, Leon and Dagruel stand around the ten thrones in the Walpurgis Hall. Clayman’s castle in Jistav is where you will confront him after the hearing. Someone who has seen Carrion alive can put a hole in Clayman’s account before he finishes speaking."
 	]
 	chapter.4880167E72BCBA5A.title: "Walpurgis"
 	chapter.49DCD771BA645C79.chapter_subtitle: [
@@ -505,7 +505,9 @@
 	]
 	quest.16C682117AAF591D.title: "Provisions for the Road"
 	quest.1703B5D161F5AD7F.quest_desc: [
-		"Draw the last line under your name. The dragon has returned, the council has its answer, and the people of the forest will remember which road you took. Close Act VII to settle your oath’s reputation and renown."
+		"Draw the last line under your name. The dragon has returned, the council has its answer, and the people of the forest will remember which road you took. Close Act VII to record your title, reputation and renown."
+		""
+		"Each soul needs Act VI, personal credit for Veldora and the witness of their oath (Luminous on light, Clayman on dark), and their own matching Tensura awakening. If a teammate closes the book first, finish your own remaining deeds and use /ttl story capstone to record your ending."
 		""
 		"&7&o“Our interpretation: the clerk who took down your first oath leaves the last page for your own signature.”&r"
 	]
@@ -1020,7 +1022,7 @@
 	]
 	quest.315BB043D91F9146.title: "The Other Road"
 	quest.316FA29488561884.quest_desc: [
-		"Submit this task after Tensura recognizes your own True Hero awakening. With a Hero Egg, use /evolve hero during a qualifying fight. For example, challenge Luminous again, exchange a hit, and use the command after she falls below half health if her maximum EP is at least 400,000. Your oath and Luminous’s trial are part of this story; the mod checks the awakening itself. On completion the story records the True Hero title. Use /ttl absorb free to see any Legendary your awakening may claim."
+		"Submit this task after Tensura recognizes your own True Hero awakening. With a Hero Egg, use /evolve hero during a qualifying fight. For example, challenge Luminous again, exchange a hit, and use the command after she falls below half health if her maximum EP is at least 400,000. Your oath and Luminous’s trial are part of this story; the mod checks the awakening itself. The Seventh Entry records your personal title. Use /ttl absorb free to see any Legendary your awakening may claim."
 		""
 		"&7&o“Our interpretation: Luminous’s witness gives the Church a reason to recognize the soul who returned from the cave.”&r"
 	]
@@ -1539,7 +1541,7 @@
 	]
 	quest.5532E5E94F18A457.title: "You Need a Mint"
 	quest.5547ED09793466EB.quest_desc: [
-		"Travel to Clayman’s castle in Jistav. Its survey starts near x 3693, z −959. Inside the throne hall, Frey, Guy, Leon and Dagruel stand in two pairs. Read their responses with the Talk interaction or /ttl story talk guy. You can complete the visit whichever witness you hear first."
+		"Enter the Walpurgis Hall. If you hold a Legendary or an invitation, walk through the gate on Clayman’s throne dais in Jistav. Any Life 2 player can also use /ttl arena join walpurgis when the Banquet Floor lobby is free. A solo booking brings you into the hall immediately. Wait for the visit to register before using /ttl arena leave to return. You do not need to start a match. In the council chamber, look for Frey, Guy, Leon and Dagruel on the carpet around the table. Their Act VI dialogue opens after the judgment."
 		""
 		"&7&o“In Walpurgis, Guy makes Clayman answer for his accusation in front of the other Demon Lords.”&r"
 	]
@@ -2050,7 +2052,7 @@
 	]
 	quest.7088AFEA47B54D28.title: "Something to Hold the Night Off"
 	quest.70C3089B60AC26D9.quest_desc: [
-		"Submit this task after Tensura recognizes your own True Demon Lord awakening. Once you hold a Demon Lord Seed and the soul requirement is met, use /evolve demonLord and let the Harvest Festival finish. On completion the story records the Demon Lord title. Use /ttl absorb free for your available Legendary claims; a skill still needs a free registry place."
+		"Submit this task after Tensura recognizes your own True Demon Lord awakening. Once you hold a Demon Lord Seed and the soul requirement is met, use /evolve demonLord and let the Harvest Festival finish. The Seventh Entry records your personal Demon Lord title. Use /ttl absorb free for your available Legendary claims; a skill still needs a free registry place."
 		""
 		"&7&o“Rimuru’s Harvest Festival brought a deep sleep while the Voice of the World announced his evolution.”&r"
 	]
@@ -2366,7 +2368,7 @@
 	task.2FFBEA11E0F5408E.title: "Defeat Folgen at the south gate"
 	task.300F46E986B0B4B9.title: "Submit your True Demon Lord awakening"
 	task.307965B503E3F83D.title: "Dwargon's gate"
-	task.3140DD490584B46F.title: "Visit Clayman’s castle district"
+	task.3140DD490584B46F.title: "Enter the Walpurgis Hall"
 	task.325ED61CA789A439.title: "The council longhouse"
 	task.335FC08F52AECE75.title: "The marsh battlefield"
 	task.33DE8FAF7949FE99.title: "Return to the placed castle"

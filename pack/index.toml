@@ -938,7 +938,7 @@ hash = "079e1b88e7825cac34865eb73679916b054d26b05ebcb955bf9503a9a70563d0"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/harvest_festival.snbt"
-hash = "956e5ac8f48d312fb11584236d528373ded49329ecf3dab3d207a3af66fa51d5"
+hash = "c8e5e190c2f369eeee4af95a3f9a191fcd42e3f275e70a7f401feb937d386dbf"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/homestead.snbt"
@@ -966,7 +966,7 @@ hash = "1d2a0fb9a295f27e5987c79e35d9e06906768ded8a87fd813691f754a289ad2f"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/puppet_master.snbt"
-hash = "285a83ac5255a663971055e634864da3b29676aec91daf875848b469d46b953d"
+hash = "b7da4b3f5a697608c0a8b721a247bcc42827f3f908337dd51a1ac74615e598aa"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/reborn.snbt"
@@ -994,7 +994,7 @@ hash = "fa792420b8546bafa3673aa2aac7dc21cac295c6038694d0b45c9b50ef692304"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "e4fe2b1d2b5901f15c30d76e9636798b268891cbb5b2ed05b239577964cc1eff"
+hash = "cec80b6fc106875004659df21c7b0c0bed6b1b239e3069eaa5d046f8eb57ef1d"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
@@ -1609,6 +1609,10 @@ file = "kubejs/data/ttl/dimension_type/spirit_domain.json"
 hash = "645a33abf28bc4978257fe0b56ca6e324f970c33494d8300974e70f8f0f05cb3"
 
 [[files]]
+file = "kubejs/data/ttl/dimension_type/walpurgis.json"
+hash = "c7b3804802470817f34e5ef5440f618f044fb10547aa2c3e829f66499be97b25"
+
+[[files]]
 file = "kubejs/data/ttl/function/events/rearm_blood_moon_kill.mcfunction"
 hash = "60741c50e62100a6213ea67521195819fb9fbd9beb5560e44e357a9c4a2b2273"
 
@@ -1997,6 +2001,14 @@ file = "kubejs/data/ttl/structure/ulgr_nature_park_1.nbt"
 hash = "9f24121aff7b47d748155f4f22b4b8abfa0eaff9bcbef68bc4c2acf1938a072d"
 
 [[files]]
+file = "kubejs/data/ttl/structure/walpurgis_hall_0.nbt"
+hash = "1e4d2ebd3f307b8a18cc00865d930a195bca62d568fe0ae998756174a01a28fb"
+
+[[files]]
+file = "kubejs/data/ttl/structure/walpurgis_hall_1.nbt"
+hash = "9e5d5edbef2d4c8e576fff390137a99bc46fa0e31f8b91700a0aba2be74f2244"
+
+[[files]]
 file = "kubejs/data/ttl/tags/entity_type/boss.json"
 hash = "6b3c92aa04cda2a907c70a961f4250db80cf09dccc119ef52b78ca9446f29e84"
 
@@ -2146,11 +2158,11 @@ hash = "18ebbdaf0898b4c6ae7ccfeee29e8e808372efd5507c66fb27f62b4f0c7b621f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
-hash = "9612f112ba87ee370570e7ccdddfe061c559c1d3c6c2ab02f97fea6e3b7eab07"
+hash = "b743815f7f0f55301f990c66627818d9f698793a7a9bc68538b6426801315a91"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "77c8fc2408b015eea170e084d7007da7d4c682c7df27383ff02646acd0a14b04"
+hash = "21af1c8c1f5e7b4f86287d14ea022f5426fea50d602f168905097ffa699a6123"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2362,11 +2374,11 @@ hash = "fa1bbd388955887e05c99011cf03aec0b1f6afb460d9419b9af4471740b409fc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/commands.js"
-hash = "ce3b05cb44b254e7ce88f3b3e33e59a45e4178b0b11fb3c02e2d9eca713481cc"
+hash = "457cc79be8a59ae3d42e3f3a37ee735fab2b37f69dcb56cae14167f02d57daa6"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/story.js"
-hash = "e3c97b054d01754b49cc830d9328595348d0990a759764af65893a3794dc537d"
+hash = "b5fd415544ae2ef8eed5681e0c55b46857c3ee20c45e87e19d4478fac6ce75d2"
 
 [[files]]
 file = "kubejs/startup_scripts/ttl/items.js"
