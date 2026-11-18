@@ -798,7 +798,7 @@ hash = "b6c85cb392f799ed932ffe8d6051f48a283a0df3f8674acf4f8d89341836e686"
 
 [[files]]
 file = "config/ftbchunks-world.snbt"
-hash = "ec7dbb3f040fa7d7152e27029d6f0dafff07006f0ad74fc72a7129dbcb04ac35"
+hash = "c6da17dedd636e6d74dabcb6a3287d3c33ee77c403c94f84c2a70c3a80de50f0"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/armed_nation.snbt"
@@ -846,7 +846,7 @@ hash = "4524734dea6aaf7787e4955b7c2ffdf2061037782316864dbfd86dd48e9abd9a"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
-hash = "9bd37cc28e98715609164df1cf0320a92ed64ee25640844664246956bbfe03ae"
+hash = "7c8b6969db69d39e0354fdfda95c4d36913cd33acbc4a730b42868c015c41150"
 
 [[files]]
 file = "config/ftbxmodcompat.snbt"
@@ -1662,7 +1662,7 @@ hash = "33b3cab039c79101a45c6c088518853ab3627934336c06f0f969ce0f5729fe2b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "7eb57d4810fdeb770958e3d8217db65720c7b0489104e84cde8e41fb2b6451fe"
+hash = "41cead4291488d06e24bffd537c652217098a4312e9575603a2c65029bf4532e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1803,6 +1803,18 @@ hash = "970f53d54836bfb7b8afd86e30d6c079b18a7a14becdb6ced02f518fc305048f"
 [[files]]
 file = "kubejs/server_scripts/ttl/manas.js"
 hash = "0b57ffb3648edea38cbbb04cae19252647b5ea1294c6954c8f3629af66004470"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/nations/claims.js"
+hash = "8d98972b025b37c3fa83778a35fee27aa7e55cc1f0527157868ede216f1621cf"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/nations/commands.js"
+hash = "7d9a1144acbe85af1d5c4e0f0963154c58fedc6ff62e64bf67460e26b7792131"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/nations/nations.js"
+hash = "0fe696a68a2b7e8c758fcb5e85114c65f7e4da03b82abb4a87a3551c5c38e6c5"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/quests/check.js"

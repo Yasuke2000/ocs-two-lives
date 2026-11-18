@@ -743,6 +743,65 @@ def check_economy(eco: dict, data: dict) -> None:
             raise SystemExit(f"economy.toml: merit block {block!r} is not a namespaced id")
 
 
+def snbt_value(path: Path, key: str) -> str:
+    # The value of a top-level or nested `key: value` line in an FTB .snbt config (FTB Library writes one per line).
+    m = re.search(rf"^\s*{re.escape(key)}:\s*(.+?)\s*$", path.read_text(encoding="utf-8"), re.M)
+    if not m:
+        raise SystemExit(f"{path.relative_to(ROOT)}: no {key} line")
+    return m.group(1)
+
+
+def check_nations(nat: dict, data: dict) -> None:
+    # nations/*.js read the rules and ranks from here. The two FTB configs implement half of them (party size, the
+    # claim dimension, the per-soul and per-party chunk limits); they must agree or the nation rules silently differ
+    # from what FTB enforces.
+    r, v, d, t = nat["rules"], nat["value"], nat["diplomacy"], nat["treasury"]
+    ints = ("member_cap", "min_members", "name_min", "name_max", "home_rep", "base_chunks", "chunks_per_member", "poll_ticks", "value_ticks")
+    for k in ints:
+        if not is_int(r.get(k)) or r[k] < 0:
+            raise SystemExit(f"nations.toml: rules.{k} must be a non-negative integer")
+    if not 2 <= r["min_members"] <= r["member_cap"] or r["name_min"] < 1 or r["name_min"] > r["name_max"]:
+        raise SystemExit("nations.toml: rules needs 2 <= min_members <= member_cap and 1 <= name_min <= name_max")
+    if r["poll_ticks"] < 20 or r["value_ticks"] < r["poll_ticks"] or r["base_chunks"] < 1 or r["chunks_per_member"] < r["base_chunks"]:
+        raise SystemExit("nations.toml: rules.poll_ticks >= 20, value_ticks >= poll_ticks, base_chunks >= 1, chunks_per_member >= base_chunks")
+    if not re.fullmatch(r"ttl\.[a-z0-9_.]+", r.get("charter_stage", "")):
+        raise SystemExit("nations.toml: rules.charter_stage must be a ttl.* stage")
+    coins = data.get("economy", {}).get("coins", {}).get("chain")
+    if coins:
+        coin_table("nations.toml: rules.charter_cost", r.get("charter_cost"), coins)
+        sink = data["economy"].get("sinks", {}).get("charter")
+        if sink != r["charter_cost"]:
+            print(f"warn: nations.toml rules.charter_cost {r['charter_cost']} differs from economy.toml sinks.charter {sink}",
+                  file=sys.stderr)
+    for k in ("chunk_value", "build_value", "coins_per_value"):
+        if not is_int(v.get(k)) or v[k] < (1 if k == "coins_per_value" else 0):
+            raise SystemExit(f"nations.toml: value.{k} must be an integer (coins_per_value >= 1)")
+    ranks = nat["rank"]
+    ids = [x["id"] for x in ranks]
+    if not ranks or ranks[0]["value"] != 0 or len(set(ids)) != len(ids) or [x["value"] for x in ranks] != sorted(x["value"] for x in ranks):
+        raise SystemExit("nations.toml: [[rank]] ids must be unique and value ascending from 0")
+    for x in ranks:
+        if not re.fullmatch(r"[a-z0-9_]+", x["id"]) or not x.get("title") or not is_int(x.get("chunks")) or x["chunks"] < 0:
+            raise SystemExit(f"nations.toml: rank {x.get('id')!r} needs an [a-z0-9_] id, a title and chunks >= 0")
+    if not isinstance(t.get("enabled"), bool) or not isinstance(t.get("upkeep"), bool):
+        raise SystemExit("nations.toml: treasury.enabled and treasury.upkeep are true or false")
+    if not is_int(d.get("war_notice_hours")) or d["war_notice_hours"] < 0:
+        raise SystemExit("nations.toml: diplomacy.war_notice_hours must be a non-negative integer")
+    chunks_cfg = ROOT / "pack" / "config" / "ftbchunks-world.snbt"
+    teams_cfg = ROOT / "pack" / "config" / "ftbteams-server.snbt"
+    if chunks_cfg.exists() and teams_cfg.exists():
+        if snbt_value(teams_cfg, "max_party_size") != str(r["member_cap"]):
+            raise SystemExit("nations.toml rules.member_cap != max_party_size in pack/config/ftbteams-server.snbt")
+        if snbt_value(chunks_cfg, "max_claimed_chunks") != str(r["base_chunks"]):
+            raise SystemExit("nations.toml rules.base_chunks != max_claimed_chunks in pack/config/ftbchunks-world.snbt")
+        if snbt_value(chunks_cfg, "party_limit_mode") != '"sum"':
+            raise SystemExit('ftbchunks-world.snbt party_limit_mode must be "sum" (a nation claims members x allowance)')
+        wl = snbt_value(chunks_cfg, "claim_dimension_whitelist")
+        if '"minecraft:overworld"' not in wl or "ttl:" in wl:
+            raise SystemExit('ftbchunks-world.snbt claim_dimension_whitelist must list minecraft:overworld and no ttl:* '
+                             "dimension (claims are Life 2 only)")
+
+
 def check_events(events: dict) -> None:
     # events/director.js schedules these, events/favor.js reads [favor]; a typo would silently drop an event or a blessing.
     ident, rule, value = r"[a-z0-9_]+", r"[A-Za-z][A-Za-z0-9_]*", r"[A-Za-z0-9_.-]+"
@@ -1000,6 +1059,8 @@ def render() -> dict[Path, str]:
         check_economy(data["economy"], data)
     if "story" in data:
         check_story(data["story"], data.get("factions"), data.get("bosses"), data.get("skills"))
+    if "nations" in data:
+        check_nations(data["nations"], data)
     data["builds"], footprints = check_builds()
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     grids = json.dumps(footprints, separators=(",", ":"), sort_keys=True)

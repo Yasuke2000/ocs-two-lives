@@ -14,6 +14,7 @@
 	# Range: 0 ~ 2147483647
 	limited_lives: 0
 	
+	# TTL: 5 = the nation member cap and the story party cap (design/data/nations.toml [rules].member_cap).
 	# If >0, teams can contain no more than this number of players.
 	# If 0, there is no limit to team sizes.
 	# Note: if this setting is altered and teams larger than the new value already exist on the server

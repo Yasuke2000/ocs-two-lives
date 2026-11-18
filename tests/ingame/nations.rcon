@@ -1,0 +1,202 @@
+# Nations and land claims (design/data/nations.toml, nations/*.js, FTB Teams + FTB Chunks). `ttl nation expect <bot> <field>
+# <value>` prints "ttl: ..." when it does not hold, which `server.sh test-all` counts as a failure. A refusal is checked
+# with `try_found_<name> <reason>` (runs the real action and answers ok or the reason), never by running the failing command.
+# Needs the economy (`ttl econ give|expect`) and the reputation package (`ttl rep bonus`). Numbers: charter 50 gold = 5000
+# bronze, base 4 chunks a soul + 10 a nation member (+2 at Village), party cap 5 (ftbteams-server.snbt), claims only in the
+# overworld (ftbchunks-world.snbt whitelist). The bots keep their FTB party and data between runs, so everything is reset first.
+# Parties are FTB's own: `execute as <bot> run ftbteams party create|invite|join` (verify in game that `join` takes the party's
+# name; the FTB Teams jar has `join <team>`, `invite <players>`, `leave`).
+# A, B: nation 1 (A owner). C: a Life 1 bot (cannot claim in the Mortal Realm). D, E: nation 2 (D owner). F: the sixth.
+# Expect in the log: "[ttl] nations: TtlBotNatA founded TtlBotLand", "[ttl] nations: TtlBotNatA extra claim chunks 0 -> 6",
+# "[ttl] nations: TtlBotLand is now a Village", and no "[ttl] nations command failed" / "nations: ... failed".
+ttlbot spawn TtlBotNatA
+ttlbot spawn TtlBotNatB
+ttlbot spawn TtlBotNatC
+ttlbot spawn TtlBotNatD
+ttlbot spawn TtlBotNatE
+ttlbot spawn TtlBotNatF
+@sleep 2
+# Clean slate: forget the nations (the parties stay), members leave first, then the owners (an empty party vanishes).
+ttl nation test TtlBotNatA drop
+ttl nation test TtlBotNatD drop
+ttl nation test TtlBotNatB leaveparty
+ttl nation test TtlBotNatC leaveparty
+ttl nation test TtlBotNatE leaveparty
+ttl nation test TtlBotNatF leaveparty
+ttl nation test TtlBotNatA leaveparty
+ttl nation test TtlBotNatD leaveparty
+ttl nation test TtlBotNatA nolife2
+ttl nation test TtlBotNatB nolife2
+ttl nation test TtlBotNatC nolife2
+ttl nation test TtlBotNatD nolife2
+ttl nation test TtlBotNatE nolife2
+ttl nation test TtlBotNatA noboss1
+ttl nation test TtlBotNatD noboss1
+ttl nation test TtlBotNatA clearextra
+ttl nation test TtlBotNatB clearextra
+ttl nation test TtlBotNatC clearextra
+ttl nation test TtlBotNatD clearextra
+ttl nation test TtlBotNatE clearextra
+clear TtlBotNatA
+clear TtlBotNatD
+execute in minecraft:overworld run tp TtlBotNatA 100 100 100
+execute in minecraft:overworld run tp TtlBotNatD 300 100 100
+ttl nation sync
+ttl nation expect TtlBotNatA member no
+ttl nation expect TtlBotNatA life2 no
+ttl nation expect TtlBotNatA extra 0
+# Refusals in order: Life 1 -> no party -> too few members -> no boss stage -> bad name -> too poor -> fine.
+ttl nation expect TtlBotNatA try_found_TtlBotLand life2only
+ttl nation test TtlBotNatA life2
+ttl nation test TtlBotNatB life2
+ttl nation expect TtlBotNatA try_found_TtlBotLand noparty
+execute as TtlBotNatA run ftbteams party create TtlBotNatParty
+ttl nation expect TtlBotNatA try_found_TtlBotLand members
+execute as TtlBotNatA run ftbteams party invite TtlBotNatB
+execute as TtlBotNatB run ftbteams party join TtlBotNatParty
+ttl nation expect TtlBotNatB try_found_TtlBotLand notowner
+ttl nation expect TtlBotNatA try_found_TtlBotLand stage
+ttl nation test TtlBotNatA boss1
+ttl nation expect TtlBotNatA try_found_x name
+ttl econ give TtlBotNatA 4999
+ttl nation expect TtlBotNatA try_found_TtlBotLand fee
+ttl econ give TtlBotNatA 1
+# Founding: the fee is taken (a sink), both members get the stages and the Hamlet allowance (10 - base 4 = 6 extra each).
+ttl nation expect TtlBotNatA try_found_TtlBotLand ok
+ttl econ expect TtlBotNatA balance 0
+ttl nation expect TtlBotNatA try_found_TtlBotLand exists
+ttl nation expect TtlBotNatA member yes
+ttl nation expect TtlBotNatA owner yes
+ttl nation expect TtlBotNatB member yes
+ttl nation expect TtlBotNatB owner no
+ttl nation expect TtlBotNatA name TtlBotLand
+ttl nation expect TtlBotNatA members 2
+ttl nation expect TtlBotNatA rank hamlet
+ttl nation expect TtlBotNatA rankstage_hamlet yes
+ttl nation expect TtlBotNatB rankstage_hamlet yes
+ttl nation expect TtlBotNatB life2 yes
+ttl nation expect TtlBotNatA extra 6
+ttl nation expect TtlBotNatB extra 6
+ttl nation expect TtlBotNatA maxclaims 20
+ttl nation expect TtlBotNatA score_min 0
+execute as TtlBotNatA run ttl nation
+execute as TtlBotNatA run ttl nation top
+# VALUE: members' renown + holdings. 100 bonus renown each lifts the nation to Village (150); the rank adds 2 chunks a member.
+ttl rep bonus TtlBotNatA 100
+ttl rep bonus TtlBotNatB 100
+ttl nation expect TtlBotNatA value_min 200
+ttl nation expect TtlBotNatA rank village
+ttl nation expect TtlBotNatA rankstage_village yes
+ttl nation expect TtlBotNatA rankstage_hamlet no
+ttl nation expect TtlBotNatA extra 8
+ttl nation expect TtlBotNatB extra 8
+ttl nation expect TtlBotNatA maxclaims 24
+execute as TtlBotNatA run ttl nation value
+# Land: claims work in the overworld and count as holdings; a Life 1 bot cannot claim in the Mortal Realm.
+ttl nation expect TtlBotNatA claims 0
+execute as TtlBotNatA run ftbchunks claim
+ttl nation expect TtlBotNatA claims 1
+ttl nation expect TtlBotNatA chunks 1
+execute in ttl:mortal_realm run tp TtlBotNatC 0 100 0
+execute as TtlBotNatC run ftbchunks claim
+ttl nation expect TtlBotNatC claims 0
+# Treasury: anyone pays in, only the owner takes out; deposits and withdrawals are not faucets or sinks.
+ttl econ give TtlBotNatA 300
+execute as TtlBotNatA run ttl nation deposit gold 1
+ttl nation expect TtlBotNatA treasury 100
+ttl econ expect TtlBotNatA balance 200
+ttl nation expect TtlBotNatB try_withdraw_gold_1 notowner
+ttl nation expect TtlBotNatA try_withdraw_gold_5 funds
+ttl nation expect TtlBotNatA try_withdraw_silver_5 ok
+ttl nation expect TtlBotNatA treasury 50
+# Upkeep: 1 silver (10 bronze) a claimed chunk and week, from the treasury; what it cannot pay stays owed.
+ttl nation test TtlBotNatA upkeep
+ttl nation expect TtlBotNatA treasury 40
+ttl nation expect TtlBotNatA owed 0
+execute as TtlBotNatA run ttl nation withdraw silver 4
+ttl nation test TtlBotNatA upkeep
+ttl nation expect TtlBotNatA treasury 0
+ttl nation expect TtlBotNatA owed 10
+# Nation 2 (D owner, E member) for diplomacy.
+ttl nation test TtlBotNatD life2
+ttl nation test TtlBotNatE life2
+ttl nation test TtlBotNatD boss1
+ttl econ give TtlBotNatD 5000
+execute as TtlBotNatD run ftbteams party create TtlBotNatParty2
+execute as TtlBotNatD run ftbteams party invite TtlBotNatE
+execute as TtlBotNatE run ftbteams party join TtlBotNatParty2
+ttl nation expect TtlBotNatD try_found_TtlBotLandTwo ok
+ttl nation expect TtlBotNatA members 2
+ttl nation expect TtlBotNatD members 2
+# An alliance holds when both owners offer it; a war cannot be declared on an ally, and counts after the notice window.
+execute as TtlBotNatA run ttl nation ally TtlBotLandTwo
+ttl nation expect TtlBotNatA ally_TtlBotLandTwo no
+execute as TtlBotNatD run ttl nation ally TtlBotLand
+ttl nation expect TtlBotNatA ally_TtlBotLandTwo yes
+ttl nation expect TtlBotNatD ally_TtlBotLand yes
+ttl nation expect TtlBotNatA try_war_TtlBotLandTwo allied
+execute as TtlBotNatA run ttl nation unally TtlBotLandTwo
+ttl nation expect TtlBotNatA ally_TtlBotLandTwo no
+ttl nation expect TtlBotNatA war_TtlBotLandTwo none
+ttl nation expect TtlBotNatB try_war_TtlBotLandTwo notowner
+ttl nation expect TtlBotNatA try_war_TtlBotLandTwo ok
+ttl nation expect TtlBotNatA war_TtlBotLandTwo pending
+ttl nation expect TtlBotNatD war_TtlBotLand pending
+ttl nation test TtlBotNatA warnow
+ttl nation expect TtlBotNatA war_TtlBotLandTwo active
+ttl nation expect TtlBotNatD war_TtlBotLand active
+execute as TtlBotNatD run ttl nation peace TtlBotLand
+ttl nation expect TtlBotNatA war_TtlBotLandTwo none
+ttl nation expect TtlBotNatD war_TtlBotLand none
+execute as TtlBotNatA run ttl nation info TtlBotLandTwo
+# Dissolving nation 2 gives the owner the (empty) treasury back and clears the stages; the party itself stays until they leave.
+execute as TtlBotNatD run ttl nation dissolve
+ttl nation expect TtlBotNatD member no
+ttl nation expect TtlBotNatE member no
+ttl nation expect TtlBotNatE extra 0
+ttl nation expect TtlBotNatE rankstage_hamlet no
+# Cap 5: C, D, E join party 1 (five members), the sixth cannot (FTB Teams max_party_size). Nobody's nation rank changes size.
+ttl nation test TtlBotNatE leaveparty
+ttl nation test TtlBotNatD leaveparty
+execute as TtlBotNatA run ftbteams party invite TtlBotNatC
+execute as TtlBotNatC run ftbteams party join TtlBotNatParty
+execute as TtlBotNatA run ftbteams party invite TtlBotNatD
+execute as TtlBotNatD run ftbteams party join TtlBotNatParty
+execute as TtlBotNatA run ftbteams party invite TtlBotNatE
+execute as TtlBotNatE run ftbteams party join TtlBotNatParty
+ttl nation expect TtlBotNatA members 5
+execute as TtlBotNatA run ftbteams party invite TtlBotNatF
+execute as TtlBotNatF run ftbteams party join TtlBotNatParty
+ttl nation expect TtlBotNatA members 5
+ttl nation expect TtlBotNatF member no
+# Members who join are part of the nation; the limit is 5 x (4 base + 8 extra), and one who leaves loses stages and extra chunks.
+ttl nation sync
+ttl nation expect TtlBotNatE member yes
+ttl nation expect TtlBotNatE extra 8
+ttl nation expect TtlBotNatA maxclaims 60
+ttl nation test TtlBotNatE leaveparty
+ttl nation sync
+ttl nation expect TtlBotNatE member no
+ttl nation expect TtlBotNatE extra 0
+ttl nation expect TtlBotNatE rankstage_village no
+ttl nation expect TtlBotNatA members 4
+# The owner dissolves: stages and extras go, the claim stays FTB's (unclaim it), the party stays.
+execute as TtlBotNatA run ftbchunks unclaim
+execute as TtlBotNatA run ttl nation dissolve
+ttl nation expect TtlBotNatA member no
+ttl nation expect TtlBotNatB member no
+ttl nation expect TtlBotNatB extra 0
+ttl nation expect TtlBotNatB rankstage_village no
+# Leave the world as we found it (the 100 bonus renown each is taken back; a failed run leaves it, harmless for the _min checks).
+ttl nation test TtlBotNatB leaveparty
+ttl nation test TtlBotNatC leaveparty
+ttl nation test TtlBotNatD leaveparty
+ttl nation test TtlBotNatA leaveparty
+ttl rep bonus TtlBotNatA -100
+ttl rep bonus TtlBotNatB -100
+ttlbot remove TtlBotNatA
+ttlbot remove TtlBotNatB
+ttlbot remove TtlBotNatC
+ttlbot remove TtlBotNatD
+ttlbot remove TtlBotNatE
+ttlbot remove TtlBotNatF
