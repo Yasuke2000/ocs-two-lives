@@ -614,7 +614,7 @@ def dwellings(c: City):
             for z in (z0 + 1, z1 - 1):
                 c.put(X(0), y0 + 2, z, M("orange_stained_glass_pane"))
             c.put(X(3), y0 + 1, zm, M("lantern[hanging=false]"))
-            c.put(X(-2), y0 + 2, z0, M("lantern[hanging=false]"))
+            c.put(X(-2), y0 + 2, z0 + 1, M("lantern[hanging=false]"))  # keep ladder landings clear
             if i % 3 == 0:
                 c.put(X(-1), y0 + 3, z1, M(f"dark_oak_wall_hanging_sign[facing=north]"))
             for p in [(X(u), y, z) for u in range(0, 6) for y in range(y0, y0 + 5) for z in range(z0, z1 + 1)]:
@@ -631,7 +631,9 @@ def dwellings(c: City):
                         c.put(xp, y, zl, M("stone_bricks"))
                         c.rock.discard((xp, y, zl))
                     c.put(xs, y, zl, M(f"ladder[facing={out}]"))
+                # Open the landing and the turn onto the inner balcony lane.
                 c.put(xs, y0 + 1, zin, AIR)
+                c.put(xp, y0 + 1, zin, AIR)
                 c.ladders += 1
                 break
 
@@ -1064,6 +1066,8 @@ def outpost(c: City):
     """The outer road: travellers queue in fenced lanes for the gate inspection, guard booths, a road
     tower with a banner and a checkpoint arch where the road leaves the mountain."""
     for z in range(GATE_Z + 10, GATE_Z + 22):  # queue lanes: in (west) and out (east)
+        if z == ARRIVAL[2]:  # leave a crossover on the advertised arrival column
+            continue
         c.put(CX, G + 1, z, M("spruce_fence"))
         if z % 4 == 0:
             c.put(CX, G + 2, z, M("lantern[hanging=false]"))
@@ -1084,18 +1088,18 @@ def outpost(c: City):
     for x in range(x1, x2 + 1):
         for z in range(gz, gz + 5):
             c.put(x, G, z, M("stone_bricks"))
+            edge = x in (x1, x2) or z in (gz, gz + 4)
+            corner = x in (x1, x2) and z in (gz, gz + 4)
             for y in range(G + 1, G + 13):
-                edge = x in (x1, x2) or z in (gz, gz + 4)
-                corner = x in (x1, x2) and z in (gz, gz + 4)
                 state = M("polished_andesite") if corner else M("stone_bricks") if edge else AIR
                 c.put(x, y, z, M("stone_bricks") if y == G + 12 else state)
-            if (x in (x1, x2) or z in (gz, gz + 4)) and (x + z) % 2 == 0:
+            if corner or (edge and (x + z) % 2 == 0):
                 c.put(x, G + 13, z, M("stone_brick_wall"))
     for y in (G + 1, G + 2):
         c.put(x2, y, gz + 2, AIR)
     for y in range(G + 1, G + 13):
         c.put(x1 + 1, y, gz + 2, M("ladder[facing=east]"))
-    c.put(x1 + 2, G + 3, gz + 1, M("lantern[hanging=true]"))
+    c.put(x1 + 2, G + 11, gz + 1, M("lantern[hanging=true]"))
     for x, z in ((x1, gz), (x2, gz + 4), (x1, gz + 4), (x2, gz)):
         c.put(x, G + 14, z, M("lantern[hanging=false]"))
     for y in range(G + 6, G + 10, 3):
@@ -1110,7 +1114,7 @@ def outpost(c: City):
         c.put(x, G + 11, cz, M("lantern[hanging=false]"))
     for x in range(mid - 5, mid + 6):
         c.put(x, G + 9, cz, M("polished_andesite"))
-        if x % 2 == 0:
+        if x % 2 == 0 or abs(x - mid) == 5:
             c.put(x, G + 10, cz, M("stone_brick_wall"))
     banner(c, lambda i, r: (mid - 2 + i, G + 8 - r, cz), 5, 5, "x")
 

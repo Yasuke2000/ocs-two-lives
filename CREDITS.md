@@ -8,7 +8,7 @@ OCS Tensura: Two Lives is a free, non-commercial fan modpack. Nothing here is so
 - **Tensura: Reincarnated** (the `tensura` mod) — by the ManasMods team. Some builds in this repo use pieces of the
   mod's own structures, kept as reference in `blueprints/assets/` and built into our structures with credit:
   - goblin village pieces (`data/tensura/structure/goblin_village/…`) in early Tempest (`blueprints/tempest.py`);
-  - King Gazel Dwargo's throne room (the mod's boss arena, exported from our own world) in Dwargon
+  - King Gazel Dwargo's throne room (the archived NBT matches the mod’s `dwarf_village/building/dwarf_arena.nbt` byte for byte) in Dwargon
     (`blueprints/dwargon.py`).
   If the authors would rather we didn't include these files, we will remove them and place the pieces from the
   installed mod at runtime instead.
