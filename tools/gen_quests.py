@@ -38,9 +38,10 @@ class QuestError(Exception):
 
 
 def qid(*parts: str) -> str:
-    h = hashlib.sha256("/".join(("ttl",) + parts).encode()).hexdigest()[:16].upper()
-    # 0 and 1 are reserved by FTB Quests (null object, the quest file itself).
-    return h if int(h, 16) > 1 else "F" + h[1:]
+    # FTB Quests parses ids as a signed long: an id with the top bit set (first hex digit 8-F) is rejected and the
+    # object silently dropped, so the top bit is cleared. 0 and 1 are reserved (null object, the quest file itself).
+    v = int(hashlib.sha256("/".join(("ttl",) + parts).encode()).hexdigest()[:16], 16) & 0x7FFFFFFFFFFFFFFF
+    return "%016X" % (v if v > 1 else 0x7FFFFFFFFFFFFFFF)
 
 
 # ---- SNBT writer (FTB Library style: tabs, one key per line, sorted keys) ---------------------------------

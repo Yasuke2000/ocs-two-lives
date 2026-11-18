@@ -18,11 +18,18 @@ plank bridges hung on chains across the canyon street at y 24 linking facing hom
 of stone and timber houses (2-4 storeys, lit windows, shop signs) including the Night Butterflies cabaret
 (pink, west, z 83), lamps strung across the street; a round plaza (centre 74, 54, radius 17) with a
 cogwheel fountain and twelve market stalls, a forge hall (west) and a Create workshop (east); the forge
-street (z 34-43) with Kaijin's smithy (west, z 34); then a great stair to the royal terrace (floor y 7) and
-King Gazel's hall (z 16-27) with the throne. Chimneys smoke (campfires on hay). Every spawnable spot inside
-has block light (checked when this builds).
+street (z 34-43) with Kaijin's smithy (west, z 34); then a great stair (z 30-33) to the royal terrace
+(floor y 7, landing z 28-29) and King Gazel's throne room: Tensura's own Gazel Dwargo boss arena
+(blueprints/assets/gazel_throne.nbt, the dwarf_arena structure), its dais half (arena x 42-68) turned a quarter so
+the throne faces south, at x 49-99, y 1-27, z 0-26 behind a tuff facade with a great door (z 27, x 71-77). The
+arena's black glass shell became deepslate/tuff/stone (sandstone strata where it meets the open slope), the boss
+pit and its warp pads were left out, the bulbs' redstone blocks became rock (bulbs stay lit). Throne seat
+(74, 9, 11); dwargon.js seats Gazel there and restores the canon banner patterns. Chimneys smoke (campfires on
+hay). Every spawnable spot inside has block light (checked when this builds).
 """
+import json
 import math
+from pathlib import Path
 
 from _dwargon_lib import AIR, dark_spots, fbm2, noise2, noise3, rnd
 
@@ -244,14 +251,20 @@ def terrain(c: City):
     return H, cave
 
 
+def road_mix(x, z, seed=30) -> str:
+    """The dwarf villages' road surface: cobblestone, tuff and gravel in about equal parts."""
+    v = rnd(x, G, z, seed)
+    return M("cobblestone") if v < 0.34 else M("tuff") if v < 0.67 else M("gravel")
+
+
 def floor_mat(x, z) -> str:
     dx = x - CX
     v = rnd(x, G, z, 30)
     if abs(dx) <= 7:
         if abs(dx) == 7:
-            return M("polished_deepslate")
-        return M("stone_bricks") if v < 0.45 else M("polished_andesite") if v < 0.8 else M("cobblestone") if v < 0.93 else M("mossy_stone_bricks")
-    return M("cobblestone") if v < 0.4 else M("stone") if v < 0.7 else M("packed_mud") if v < 0.85 else M("andesite")
+            return M("polished_andesite")
+        return road_mix(x, z)
+    return M("cobblestone") if v < 0.4 else M("stone") if v < 0.7 else M("tuff") if v < 0.85 else M("andesite")
 
 
 # --- the approach and the gate -------------------------------------------------------------------
@@ -412,24 +425,44 @@ def gate(c: City):
 
 
 # --- houses -----------------------------------------------------------------------------------------
+# Dwarf-village look (Tensura's dwarf_village pieces, design/lore/dwargon.md): walls of stone and andesite with
+# polished andesite corners on a cobblestone foundation, stripped spruce posts, low roofs of weathered cut
+# copper trimmed with granite, glass panes with open spruce trapdoor shutters, spruce doors.
 STYLES = [
-    dict(base="stone_bricks", infill="packed_mud", post="stripped_dark_oak_log", beam="dark_oak_log",
-         roof="deepslate_tile", door="dark_oak_door", pane="orange_stained_glass_pane"),
-    dict(base="cobblestone", infill="smooth_sandstone", post="stripped_spruce_log", beam="spruce_log",
-         roof="dark_oak", door="spruce_door", pane="yellow_stained_glass_pane"),
-    dict(base="deepslate_bricks", infill="bricks", post="stripped_dark_oak_log", beam="dark_oak_log",
-         roof="spruce", door="dark_oak_door", pane="orange_stained_glass_pane"),
-    dict(base="tuff_bricks", infill="white_terracotta", post="dark_oak_log", beam="stripped_dark_oak_log",
-         roof="mud_brick", door="spruce_door", pane="yellow_stained_glass_pane"),
+    dict(beam="spruce_log", post="stripped_spruce_wood", door="spruce_door", pane="glass_pane", roof="copper"),
+    dict(beam="stripped_spruce_log", post="stripped_spruce_wood", door="spruce_door", pane="glass_pane", roof="copper"),
+    dict(beam="spruce_log", post="stripped_spruce_wood", door="spruce_door", pane="light_gray_stained_glass_pane", roof="copper"),
+    dict(beam="stripped_spruce_log", post="stripped_spruce_wood", door="spruce_door", pane="glass_pane", roof="granite"),
     # The elf cabaret (Night Butterflies): plastered front, pink and purple light.
-    dict(base="polished_deepslate", infill="pink_terracotta", post="stripped_cherry_log", beam="cherry_log",
-         roof="deepslate_tile", door="cherry_door", pane="magenta_stained_glass_pane"),
+    dict(beam="cherry_log", post="stripped_cherry_wood", door="cherry_door", pane="magenta_stained_glass_pane",
+         roof="copper", infill="pink_terracotta", base="polished_deepslate"),
 ]
 
 
-def house(c: City, west: bool, z0: int, w: int, storeys: int, style: int, chimney=False, sign=False, d=8):
-    """A narrow dwarven house on the street: stone ground floor, jettied timber storeys, gable to the street."""
+def village_wall(x, y, z) -> str:
+    """Stone and andesite in about equal parts, a few cracked stone bricks (the dwarf villages' walls)."""
+    v = rnd(x, y, z, 101)
+    return M("stone" if v < 0.46 else "andesite" if v < 0.92 else "cracked_stone_bricks")
+
+
+def copper_deck(x, y, z) -> str:
+    """Weathered cut copper with patches of exposed copper (the patina of the village roofs)."""
+    return M("waxed_exposed_cut_copper" if noise2(x, z, 3, 102 + y) > 0.68 else "waxed_weathered_cut_copper")
+
+
+def shutters(c: City, x, y, zs, out: str):
+    """Open spruce trapdoors folded flat against the wall either side of a window (outside face at x)."""
+    for z in zs:
+        if c.air(x, y, z):
+            c.put(x, y, z, M(f"spruce_trapdoor[facing={out},half=bottom,open=true]"))
+
+
+def house(c: City, west: bool, z0: int, w: int, storeys: int, style: int, chimney=False, sign=False, d=8,
+          smithy=False):
+    """A narrow dwarven house on the street: stone walls on a cobblestone footing, jettied upper storeys of
+    stone between spruce posts and beams, a low copper roof (brick on Kaijin's smithy)."""
     s = STYLES[style % len(STYLES)]
+    wall = (lambda x, y, z: M(s["infill"])) if "infill" in s else village_wall
     xf = CX - 8 if west else CX + 8
     out, inn = ("east", "west") if west else ("west", "east")
 
@@ -441,10 +474,17 @@ def house(c: City, west: bool, z0: int, w: int, storeys: int, style: int, chimne
     # Ground storey.
     for u in range(d):
         for z in range(z0, z1 + 1):
-            c.put(X(u), G, z, M("spruce_planks"))
+            edge = u in (0, d - 1) or z in (z0, z1)
+            c.put(X(u), G, z, M("cobblestone") if edge else M("spruce_planks"))
             for y in range(G + 1, G + 4):
-                edge = u in (0, d - 1) or z in (z0, z1)
-                c.put(X(u), y, z, M(s["base"]) if edge else AIR)
+                if not edge:
+                    c.put(X(u), y, z, AIR)
+                elif u in (0, d - 1) and z in (z0, z1):
+                    c.put(X(u), y, z, M(s.get("base", "polished_andesite")))
+                elif y == G + 1:
+                    c.put(X(u), y, z, M("stone_bricks") if rnd(X(u), y, z, 103) < 0.7 else M("cracked_stone_bricks"))
+                else:
+                    c.put(X(u), y, z, wall(X(u), y, z))
     # Upper storeys, jettied one block over the street.
     for k in range(1, storeys + 1):
         yf = G + 4 * k
@@ -465,52 +505,57 @@ def house(c: City, west: bool, z0: int, w: int, storeys: int, style: int, chimne
                     elif u in (-1, d - 1) and z in (z0, z1):
                         c.put(X(u), y, z, M(s["post"] + "[axis=y]"))
                     else:
-                        c.put(X(u), y, z, M(s["infill"]))
+                        c.put(X(u), y, z, wall(X(u), y, z))
             if k < storeys:
-                for z in range(z0 + 1, z1, 2):
+                wins = list(range(z0 + 1, z1, 2))
+                for z in wins:
                     for y in (yf + 1, yf + 2):
                         c.put(X(-1), y, z, M(s["pane"]))
-    # Gable roof, ridge running back into the rock.
-    roof = M(s["roof"])
-    k = 0
-    while True:
-        za, zb = z0 - 1 + k, z1 + 1 - k
-        y = top + k
-        if za > zb:
-            break
-        for u in range(-2, d):
-            if za == zb:
-                c.put(X(u), y, za, roof + "_slab[type=bottom]")
-            else:
-                c.put(X(u), y, za, roof + "_stairs[facing=south]")
-                c.put(X(u), y, zb, roof + "_stairs[facing=north]")
-                if k >= 1:
-                    for z in range(za + 1, zb):
-                        for uu in range(-1, d - 1):
-                            c.put(X(uu), y, z, AIR)
-                        c.put(X(-1), y, z, M(s["infill"]))
-                        c.put(X(d - 1), y, z, M(s["infill"]))
-        k += 1
+                flank = sorted({z + dz for z in wins for dz in (-1, 1)} - set(wins))
+                shutters(c, X(-2), yf + 2, [z for z in flank if z0 <= z <= z1], out)
+    # Roof: low, as in the villages. A ring of stairs over the eaves, a flat deck, a raised ridge deck.
+    kind = "brick" if smithy else s["roof"]
+    if kind == "copper":
+        stair, slab, deck = M("waxed_weathered_cut_copper_stairs"), M("waxed_weathered_cut_copper_slab"), copper_deck
+    elif kind == "brick":
+        stair, slab, deck = M("brick_stairs"), M("brick_slab"), (lambda x, y, z: M("bricks"))
+    else:  # the flat mottled cap of the small village houses
+        stair, slab = M("polished_granite_stairs"), M("polished_granite_slab")
+        deck = lambda x, y, z: M(("granite", "polished_granite", "mud_bricks", "packed_mud")[int(rnd(x, y, z, 104) * 4)])
+    trim = M("polished_granite_stairs") if kind == "copper" else stair
+    y = top + 1
+    for u in range(-2, d):
+        for z, f in ((z0 - 1, "south"), (z1 + 1, "north")):
+            c.put(X(u), y - 1, z, (trim if u == -2 else stair) + f"[facing={f},half=bottom]")
+        if u >= -1:
+            for z in range(z0, z1 + 1):
+                corner = u in (-1, d - 1) and z in (z0, z1)
+                c.put(X(u), y, z, M("polished_granite") if corner and kind == "copper" else deck(X(u), y, z))
+    for z in range(z0, z1 + 1):
+        c.put(X(-2), y - 1, z, stair + f"[facing={inn},half=bottom]")
     if w >= 5:
-        c.put(X(-1), top + 1, zmid, M(s["pane"]))
-    # Ground floor front: door, windows, sign.
+        for u in range(1, d - 2):
+            for z in range(z0 + 1, z1):
+                c.put(X(u), y + 1, z, slab + "[type=bottom]")
+    # Ground floor front: door, windows with shutters, sign.
     c.put(X(0), G + 1, zmid, M(f"{s['door']}[facing={inn},half=lower,hinge=left,open=false]"))
     c.put(X(0), G + 2, zmid, M(f"{s['door']}[facing={inn},half=upper,hinge=left,open=false]"))
     for z in (z0 + 1, z1 - 1):
         if z != zmid:
             c.put(X(0), G + 2, z, M(s["pane"]))
+            shutters(c, X(-1), G + 2, [zz for zz in (z - 1, z + 1) if z0 <= zz <= z1 and zz != zmid], out)
     if sign:
         c.put(X(-1), G + 3, z1, M("dark_oak_wall_hanging_sign[facing=north]"))
-    # Inside: a lantern per storey, a ladder, and maybe a smoking chimney.
+    # Inside: a lantern per storey, a ladder, and maybe a smoking chimney (cobbled deepslate; brick at the smithy).
     for k in range(storeys):
         c.put(X(d // 2), G + 4 * k + 1, zmid, M("lantern[hanging=false]"))
     for y in range(G + 1, G + 4 * (storeys - 1) + 1):
         c.put(X(d - 2), y, z1 - 1, M(f"ladder[facing={out}]"))
     if chimney:
         cz = z0 + 1
-        ytop = top + w // 2 + 3
+        ytop = top + 5
         for y in range(G + 1, ytop - 1):
-            c.put(X(d - 2), y, cz, M("bricks"))
+            c.put(X(d - 2), y, cz, M("bricks") if smithy else M("cobbled_deepslate"))
         c.put(X(d - 2), ytop - 1, cz, M("hay_block[axis=y]"))
         c.put(X(d - 2), ytop, cz, M("campfire[facing=north,lit=true,signal_fire=true]"))
 
@@ -639,7 +684,7 @@ def streets(c: City):
     ]
     for west, houses in rows:
         for z0, w, storeys, style, chim, sign in houses:
-            house(c, west, z0, w, storeys, style, chimney=chim, sign=sign)
+            house(c, west, z0, w, storeys, style, chimney=chim, sign=sign, smithy=west and z0 == 34)
     for z in range(36, CAV_S - 2, 6):
         lamp_post(c, CX - 5 if z % 12 else CX + 5, z)
     for z in (37, 42, 67, 71, 80, 84, 92):
@@ -652,8 +697,12 @@ def plaza(c: City):
             d = math.hypot(x - CX, z - PLAZA_Z)
             if d > 17.3 or not c.air(x, G + 1, z):
                 continue
-            ring = int(d) % 4
-            state = M("chiseled_stone_bricks") if ring == 0 and d > 4 else M("stone_bricks") if ring == 2 else M("polished_andesite")
+            if abs(x - CX) <= 1 or abs(z - PLAZA_Z) <= 1:
+                state = M("stone_bricks") if rnd(x, G, z, 31) < 0.8 else M("cracked_stone_bricks")
+            elif d > 16.4:
+                state = M("polished_andesite")
+            else:
+                state = road_mix(x, z, 32)
             c.put(x, G, z, state)
     # Fountain: a basin with a column crowned by a great cogwheel.
     for x in range(CX - 4, CX + 5):
@@ -663,7 +712,13 @@ def plaza(c: City):
                 c.put(x, G, z, M("stone_bricks"))
                 c.put(x, G + 1, z, M("water"))
             elif d <= 3.9:
-                c.put(x, G + 1, z, M("polished_andesite"))
+                dx, dz = x - CX, z - PLAZA_Z
+                if abs(abs(dx) - abs(dz)) <= 1 and abs(dx) > 1 and abs(dz) > 1:
+                    c.put(x, G + 1, z, M("stone_brick_slab[type=bottom]"))
+                elif abs(dx) > abs(dz):
+                    c.put(x, G + 1, z, M("stone_brick_stairs[facing=" + ("west" if dx > 0 else "east") + "]"))
+                else:
+                    c.put(x, G + 1, z, M("stone_brick_stairs[facing=" + ("north" if dz > 0 else "south") + "]"))
     for y in range(G + 1, G + 6):
         c.put(CX, y, PLAZA_Z, M("chiseled_stone_bricks"))
     c.put(CX, G + 6, PLAZA_Z, M("gold_block"))
@@ -674,18 +729,22 @@ def plaza(c: City):
     for x, z in c.bp.around(CX, PLAZA_Z, 15, 10, start_deg=18):
         lamp_post(c, x, z, 4)
     # Market stalls.
-    awnings = [("red_wool", "white_wool"), ("yellow_wool", "red_wool"), ("blue_wool", "white_wool"),
-               ("green_wool", "yellow_wool"), ("orange_wool", "white_wool"), ("purple_wool", "yellow_wool")] * 2
+    # As the villages' plaza/shop_1..8: oak fence posts, white awnings striped with one colour, an oak counter
+    # with a trapdoor lid, a chest and a lantern.
+    awnings = [(col + "_wool", "white_wool") for col in ("blue", "green", "orange", "red", "cyan", "pink")] * 2
     stalls = list(c.bp.around(CX, PLAZA_Z, 9, 4, start_deg=0)) + list(c.bp.around(CX, PLAZA_Z, 12, 8, start_deg=22.5))
     for i, (sx, sz) in enumerate(stalls):
         for dx in (-1, 0, 1):
             for dz in (-1, 0, 1):
                 if abs(dx) == 1 and abs(dz) == 1:
-                    c.put(sx + dx, G + 1, sz + dz, M("spruce_fence"))
-                    c.put(sx + dx, G + 2, sz + dz, M("spruce_fence"))
-                c.put(sx + dx, G + 3, sz + dz, M(awnings[i][(dx + dz) % 2]))
-        c.put(sx, G + 1, sz, M("barrel[facing=up]"))
-        c.put(sx + (1 if i % 2 else 0), G + 1, sz + (0 if i % 2 else 1), M("composter") if i % 2 else M("barrel[facing=up]"))
+                    c.put(sx + dx, G + 1, sz + dz, M("oak_fence"))
+                    c.put(sx + dx, G + 2, sz + dz, M("oak_fence"))
+                c.put(sx + dx, G + 3, sz + dz, M(awnings[i][(dx if i % 2 else dz) % 2]))
+        c.put(sx, G + 1, sz, M("oak_planks"))
+        c.put(sx, G + 2, sz, M("lantern[hanging=false]"))
+        ox, oz = (1, 0) if i % 2 else (0, 1)
+        c.put(sx + ox, G + 1, sz + oz, M("oak_trapdoor[facing=north,half=top,open=false]"))
+        c.put(sx - ox, G + 1, sz - oz, M("chest[facing=north,type=single]") if i % 3 else M("barrel[facing=up]"))
     # Lamps hanging from the vault around the skylight.
     for x, z in c.bp.around(CX, PLAZA_Z, 19, 12, start_deg=0):
         hang(c, x, z, G + 18)
@@ -694,24 +753,29 @@ def plaza(c: City):
 def forge_hall(c: City):
     """West of the plaza: an open-fronted forge with three smoking chimneys and cogs on its face."""
     x1, x2, z1, z2 = CX - 28, CX - 16, PLAZA_Z - 8, PLAZA_Z + 8
-    wall, trim = M("polished_blackstone_bricks"), M("stone_bricks")
     for x in range(x1, x2 + 1):
         for z in range(z1, z2 + 1):
-            c.put(x, G, z, M("polished_blackstone"))
+            edge = x in (x1, x2) or z in (z1, z2)
+            corner = x in (x1, x2) and z in (z1, z2)
+            c.put(x, G, z, M("cobblestone") if edge else M("stone_bricks") if rnd(x, G, z, 33) < 0.6 else M("tuff"))
             for y in range(G + 1, G + 11):
-                edge = x in (x1, x2) or z in (z1, z2)
                 if y == G + 10:
-                    c.put(x, y, z, trim)
+                    c.put(x, y, z, copper_deck(x, y, z) if not corner else M("polished_granite"))
+                elif corner:
+                    c.put(x, y, z, M("polished_andesite"))
                 elif edge:
-                    c.put(x, y, z, M("copper_block") if y == G + 5 else wall)
+                    c.put(x, y, z, M("waxed_weathered_cut_copper") if y == G + 5
+                          else M("stone_bricks") if y == G + 1 else village_wall(x, y, z))
                 else:
                     c.put(x, y, z, AIR)
-            if (x in (x1, x2) or z in (z1, z2)) and (x + z) % 2 == 0:
-                c.put(x, G + 11, z, trim)
-    for z in range(z1 + 1, z2):  # arcade
-        if (z - z1) % 4 != 0:
-            for y in range(G + 1, G + 5):
-                c.put(x2, y, z, AIR)
+            if edge and not corner:  # the low copper eave ring
+                f = "east" if x == x1 else "west" if x == x2 else "south" if z == z1 else "north"
+                c.put(x, G + 11, z, M(f"waxed_weathered_cut_copper_stairs[facing={f},half=bottom]"))
+            elif corner:
+                c.put(x, G + 11, z, M("polished_granite_slab[type=bottom]"))
+    for z in range(z1 + 1, z2):  # arcade on stripped spruce piers
+        for y in range(G + 1, G + 5):
+            c.put(x2, y, z, AIR if (z - z1) % 4 != 0 else M("stripped_spruce_wood[axis=y]"))
     for z in range(z1 + 2, z2 - 1, 5):
         c.put(x2 + 1, G + 7, z, "create:large_cogwheel[axis=x]")
         for zz in range(z + 1, min(z + 5, z2 - 1)):
@@ -818,79 +882,131 @@ def royal(c: City):
                 c.put(x, y, z, M("stone_bricks"))
             c.put(x, T + 1, z, M("stone_brick_wall"))
         c.put(x, T + 2, TZ + 4, M("lantern[hanging=false]"))
-    # The hall.
-    x1, x2, z1, z2 = CX - 13, CX + 13, 16, 27
-    wall, pil, gild = M("polished_blackstone_bricks"), M("polished_blackstone"), M("gold_block")
-    for x in range(x1, x2 + 1):
-        for z in range(z1, z2 + 1):
-            for y in range(T + 1, T + 16):
-                edge = x in (x1, x2) or z in (z1, z2)
-                c.put(x, y, z, (gild if y == T + 13 and z == z2 else wall) if edge else AIR)
-            c.put(x, T + 16, z, wall)
-            if (x in (x1, x2) or z in (z1, z2)) and (x + z) % 2 == 0:
-                c.put(x, T + 17, z, pil)
-            c.put(x, T, z, M("polished_deepslate"))
-    for x in (x1, x1 + 4, x1 + 8, x2 - 8, x2 - 4, x2):  # pilasters
-        for y in range(T + 1, T + 17):
-            c.put(x, y, z2 + 1, pil if y != T + 13 else gild)
-        c.put(x, T + 17, z2 + 1, M("lantern[hanging=false]"))
-    for x in (x1 + 2, x1 + 6, x2 - 6, x2 - 2):  # tall windows
-        for y in range(T + 4, T + 11):
-            c.put(x, y, z2, M("yellow_stained_glass_pane"))
-    for y in range(T + 1, T + 11):  # door arch
-        half = 3 if y <= T + 8 else 2 if y == T + 9 else 1
-        for x in range(CX - half, CX + half + 1):
-            c.put(x, y, z2, AIR)
-            c.put(x, y, z2 + 1, AIR)
-    c.put(CX, T + 11, z2 + 1, gild)
-    for x in (CX - 3, CX - 2, CX + 2, CX + 3):
-        c.put(x, T + 10 if abs(x - CX) == 3 else T + 11, z2 + 1, M("gilded_blackstone"))
-    banner(c, lambda i, r: (x1 + 5 + i, T + 14 - r, z2 + 1), 3, 12, "x")
-    banner(c, lambda i, r: (x2 - 7 + i, T + 14 - r, z2 + 1), 3, 12, "x")
-    # Flanking towers.
-    for tx1 in (x1 - 5, x2):
-        for x in range(tx1, tx1 + 6):
-            for z in range(z1 + 1, z2 + 2):
-                for y in range(T + 1, T + 22):
-                    edge = x in (tx1, tx1 + 5) or z in (z1 + 1, z2 + 1)
-                    c.put(x, y, z, (gild if y == T + 13 else wall) if edge else AIR)
-                c.put(x, T + 22, z, wall)
-                if (x in (tx1, tx1 + 5) or z in (z1 + 1, z2 + 1)) and (x + z) % 2 == 0:
-                    c.put(x, T + 23, z, pil)
-        c.put(tx1 + 2, T + 1, z2 + 1, AIR)
-        c.put(tx1 + 2, T + 2, z2 + 1, AIR)
-        c.put(tx1 + 2, T + 1, z2, M("lantern[hanging=false]"))
-        for y in range(T + 6, T + 20, 5):
-            c.put(tx1 + 2, y, z2 + 1, M("yellow_stained_glass_pane"))
-        c.put(tx1 + 2, T + 24, z2 + 1, M("lantern[hanging=false]"))
-    # Throne room.
-    for x in range(x1 + 1, x2):
-        for z in (z1 + 1, z1 + 2):
-            c.put(x, T + 1, z, pil if abs(x - CX) <= 5 else AIR)
-    for z in range(z1 + 3, z2):
-        for x in (CX - 1, CX, CX + 1):
-            c.put(x, T + 1, z, M("red_carpet"))
-    c.put(CX, T + 2, z1 + 1, M("polished_blackstone_stairs[facing=north]"))
-    c.put(CX - 1, T + 2, z1 + 1, gild)
-    c.put(CX + 1, T + 2, z1 + 1, gild)
-    banner(c, lambda i, r: (CX - 2 + i, T + 12 - r, z1 + 1), 5, 9, "x")
-    for x in (CX - 8, CX + 8):
-        for z in (z1 + 3, z1 + 6, z1 + 9):
-            for y in range(T + 1, T + 16):
-                c.put(x, y, z, M("polished_blackstone_bricks") if y % 4 else gild)
-    for x, z in ((CX - 4, 20), (CX + 4, 20), (CX - 4, 24), (CX + 4, 24), (CX, 22), (CX - 11, 22), (CX + 11, 22)):
-        for y in range(T + 12, T + 16):
-            c.put(x, y, z, M("chain[axis=y]"))
-        c.put(x, T + 11, z, M("lantern[hanging=true]"))
-    for x in (CX - 5, CX + 5):
-        c.put(x, T + 2, z1 + 1, M("lantern[hanging=false]"))
-    # Seal behind and beside the hall against the rock.
-    for x in range(x1 - 10, x2 + 11):
-        for z in range(CAV_N - 1, z1 + 1):
-            for y in range(T + 1, T + 26):
-                if c.air(x, y, z):
-                    c.put(x, y, z, cave_mat(x, y, z))
+    throne_room(c, T)
+
+
+# --- King Gazel's throne room: Tensura's own boss arena, carved into the back of the cavern --------------
+THRONE_NBT = Path(__file__).resolve().parent / "assets" / "gazel_throne.nbt"
+AX_CUT = 42          # arena x where the throne dais starts; the boss pit west of it (and its warp pads) is left out
+ROOM_X0, ROOM_Z0 = CX - 25, 0  # arena z 0..50 -> x 49..99; arena x 68..42 -> z 0..26 (throne north, door south)
+ROOM_DY = 1          # arena y 6 (dais floor) -> y 7, the royal terrace floor
+ROOM_FRONT = ROOM_Z0 + 68 - AX_CUT   # z 26, the last row of the room; the facade stands at z 27
+GAZEL_SEAT = (CX + 0.5, 9.5, ROOM_Z0 + 68 - 57 + 0.5)  # the red nether brick throne (arena 57, 8, 25), facing south
+_TURN = {"north": "west", "east": "north", "south": "east", "west": "south"}
+
+
+def _rotate(state: str) -> str:
+    """Arena +x -> -z, arena +z -> +x (a quarter turn): facings, axes, rotations and side connections."""
+    if "[" not in state:
+        return state
+    name, props = state[:-1].split("[", 1)
+    out = []
+    for pair in props.split(","):
+        k, v = pair.split("=")
+        if k == "facing" and v in _TURN:
+            v = _TURN[v]
+        elif k == "axis" and v in ("x", "z"):
+            v = "z" if v == "x" else "x"
+        elif k == "rotation":
+            v = str((int(v) + 12) % 16)
+        elif k in _TURN:
+            k = _TURN[k]
+        out.append(f"{k}={v}")
+    return name + "[" + ",".join(sorted(out)) + "]"
+
+
+def shell_rock(x, y, z, exposed: bool) -> str:
+    """The arena's void-facing glass becomes the mountain: deepslate/tuff/stone, sandstone strata outside."""
+    if exposed:
+        return outer_mat(x, y, z)
+    n = noise3(x, y, z, 5, 81)
+    return M("deepslate" if n < 0.3 else "tuff" if n < 0.5 else "stone" if n < 0.72
+             else "cobbled_deepslate" if n < 0.85 else "andesite")
+
+
+def throne_room(c: City, T: int):
+    """Place the canon Gazel Dwargo throne room (the dais half of Tensura's dwarf_arena) behind the terrace."""
+    import nbt
+    from blueprint import from_structure
+    arena = from_structure("gazel_throne", THRONE_NBT)
+    banners = nbt.read_gzip(THRONE_NBT)
+    sx, sy, sz = arena.size
+    A = arena.blocks
+    # The side stairs down into the (left out) pit become dais floor, level with the terrace.
+    for ax in range(AX_CUT, sx):
+        for az in range(sz):
+            col = [A[(ax, y, az)] for y in range(sy)]
+            if col[6] == AIR or "stairs" in col[6] or "slab" in col[6]:
+                if all(col[y] == AIR for y in range(7, 13)) and col[0] != AIR:
+                    for y in range(1, 7):
+                        if A[(ax, y, az)] == AIR or "stairs" in A[(ax, y, az)] or "slab" in A[(ax, y, az)]:
+                            A[(ax, y, az)] = M("tuff_bricks")
+    H = c.H
+    room = set()
+    for (ax, ay, az), state in A.items():
+        if ax < AX_CUT:
+            continue
+        x, y, z = ROOM_X0 + az, ay + ROOM_DY, ROOM_Z0 + (sx - 1 - ax)
+        name = state.split("[", 1)[0]
+        if name == M("black_stained_glass"):
+            c.put(x, y, z, shell_rock(x, y, z, y > H.get((x, z), 0) - 2))
+            c.rock.add((x, y, z))
+            continue
+        if name == M("redstone_block"):  # powered the ceiling bulbs; they keep their light once lit
+            c.put(x, y, z, shell_rock(x, y, z, False))
+            continue
+        if "copper_bulb" in name:
+            state = state.replace("powered=true", "powered=false")
+        c.put(x, y, z, _rotate(state))
+        room.add((x, y, z))
+    c.banner_patterns = []
+    for b in banners["blocks"]:
+        ax, ay, az = b["pos"]
+        pats = (b.get("nbt") or {}).get("patterns")
+        if ax >= AX_CUT and pats:
+            snbt = "[" + ",".join('{color:"%s",pattern:"%s"}' % (p["color"], p["pattern"]) for p in pats) + "]"
+            c.banner_patterns.append([ROOM_X0 + az, ay + ROOM_DY, ROOM_Z0 + (sx - 1 - ax), snbt])
+    x1, x2 = ROOM_X0, ROOM_X0 + sz - 1
+    top = sy - 1 + ROOM_DY
+    F = ROOM_FRONT + 1
+    # Seal the cavern behind and above the room against the rock (the cavern now ends at the facade).
+    for (x, y, z) in c.cave:
+        if z < F and (x, y, z) not in room and y > G:
+            c.put(x, y, z, cave_mat(x, y, z) if y <= H.get((x, z), 0) - 3 else outer_mat(x, y, z))
+            c.rock.add((x, y, z))
+    # Where the mountain is lower than the room (its north slope), heap rock over it with a falling skirt.
+    for x in range(x1 - 8, x2 + 9):
+        for z in range(0, F):
+            if not 0 <= x < SX:
+                continue
+            d = max(x1 - x, x - x2, 0)
+            want = top + 2 - d - (1 if rnd(x, 0, z, 82) < 0.4 else 0)
+            have = H.get((x, z), -1)
+            for y in range(max(have + 1, 0), want + 1):
+                if c.get(x, y, z) in (None, AIR) and (x, y, z) not in room:
+                    c.put(x, y, z, outer_mat(x, y, z))
                     c.rock.add((x, y, z))
+            if want > have:
+                H[(x, z)] = want
+    # The facade: tuff and deepslate like the room, a great door on the throne axis, banners either side.
+    for x in range(x1, x2 + 1):
+        for y in range(T + 1, top + 1):
+            if c.get(x, y, F) in (None, AIR):
+                band = y - T
+                state = (M("polished_deepslate") if x in (CX - 9, CX + 9, CX - 17, CX + 17)
+                         else M("deepslate_tiles") if band % 6 == 0 else M("tuff_bricks"))
+                c.put(x, y, F, state)
+    for y in range(T + 1, T + 12):
+        half = 3 if y <= T + 9 else 2 if y == T + 10 else 1
+        for x in range(CX - half, CX + half + 1):
+            c.put(x, y, F, AIR)
+    for x in range(CX - 4, CX + 5):
+        c.put(x, T + 12, F, M("chiseled_tuff_bricks") if abs(x - CX) < 4 else M("deepslate_tiles"))
+    c.put(CX, T + 13, F, M("gold_block"))
+    for x in (CX - 4, CX + 4):
+        c.put(x, T + 1, F + 1, M("lantern[hanging=false]"))
+    banner(c, lambda i, r: (CX - 14 + i, T + 14 - r, F + 1), 3, 11, "x")
+    banner(c, lambda i, r: (CX + 12 + i, T + 14 - r, F + 1), 3, 11, "x")
 
 
 def tunnel(c: City):
@@ -915,6 +1031,9 @@ def kaijin_smithy(c: City):
     c.put(X(-1), G + 3, 35, M("dark_oak_wall_hanging_sign[facing=north]"))
     c.put(X(-1), G + 1, 37, M("barrel[facing=up]"))
     c.put(X(-1), G + 1, 35, M("grindstone[face=floor,facing=east]"))
+    c.put(X(3), G + 1, 37, M("magma_block"))
+    c.put(X(4), G + 1, 37, M("coal_block"))
+    c.put(X(4), G + 2, 37, M("raw_iron_block"))
 
 
 def bridges(c: City):
@@ -1020,7 +1139,8 @@ def light_city(c: City):
 
 def build(bp):
     c = City(bp)
-    H, _ = terrain(c)
+    H, cave = terrain(c)
+    c.H, c.cave = H, cave
     approach(c, H)
     gate(c)
     tunnel(c)
@@ -1035,6 +1155,7 @@ def build(bp):
     outpost(c)
     light_city(c)
     bp.stats = dict(homes=len(c.homes), ladders=c.ladders, bridges=c.bridges)
+    bp.banner_patterns = c.banner_patterns
     if c.breaches:
         print(f"dwargon: warning, {c.breaches} cavern blocks break the mountain surface")
 
@@ -1047,4 +1168,8 @@ def outputs(bp) -> dict:
     from _dwargon_footprint import footprint
     probes = [(road_mid(z) + dx, z) for z in range(GATE_Z + 6, SZ - 1, 4) for dx in (-8, 0, 8)]
     text = footprint(bp, probes, ARRIVAL, PARTS)
+    # Block entity data the structure file can't carry: the canon Dwargon banner patterns of the throne room,
+    # and King Gazel's seat (blueprint coordinates; dwargon.js applies both after placing).
+    royal = {"banners": getattr(bp, "banner_patterns", []), "gazel": list(GAZEL_SEAT)}
+    text += "const TtlDwargonRoyal = " + json.dumps(royal, separators=(",", ":")) + "\n"
     return {"pack/kubejs/server_scripts/ttl/generated/dwargon_footprint.js": text}

@@ -6,6 +6,8 @@
 ttl quests check
 # 2. A fresh Life 1 gets the Wayfarer's Primer and no backlog of whispers.
 ttlbot spawn TtlBotQuests
+# A bot left over from an earlier run may already be past Life 1: start it fresh.
+ttl reset TtlBotQuests
 @sleep 8
 ttl quests tick TtlBotQuests
 ttl quests expect TtlBotQuests primer yes
@@ -14,6 +16,6 @@ ttl karma TtlBotQuests set play_time 24000
 ttl quests tick TtlBotQuests
 ttl quests expect TtlBotQuests said day1
 # 4. FTB Quests accepts the bot: complete and reset the first quest ("Only Once", id from generated/quests.js).
-ftbquests change_progress TtlBotQuests complete D0382544FBB449E8
-ftbquests change_progress TtlBotQuests reset D0382544FBB449E8
+ftbquests change_progress TtlBotQuests complete 50382544FBB449E8
+ftbquests change_progress TtlBotQuests reset 50382544FBB449E8
 ttlbot remove TtlBotQuests

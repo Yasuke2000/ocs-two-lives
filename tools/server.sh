@@ -54,6 +54,8 @@ case "${1:-}" in
   # The next restart installs git's version again, so push the change too.
   # Place a structure from the pack anywhere, no player needed: place <name> <dimension> <x> <y> <z>
   place) rcon "execute in ${3:?dimension} run place template ttl:${2:?name} ${4:?x} ${5:?y} ${6:?z}" ;;
+  # Compare a placed build with its structure files: verify <name> (corner from the log) or verify <name> <dim> <x> <y> <z>
+  verify) shift; python -I "$(dirname "$0")/verify_build.py" "${1:?usage: server.sh verify <name> [<dim> <x> <y> <z>]}" "${@:2}" $([ $# -eq 1 ] && echo --log) ;;
   push-scripts)
     pod=$(k get pods -l app=mc -o name | head -1 | cut -d/ -f2)
     tar -C "$(dirname "$0")/../pack" -cf - kubejs | if [ -n "${TTL_IN_CLUSTER:-}${TTL_DIRECT:-}" ]; then
@@ -102,5 +104,5 @@ case "${1:-}" in
     echo "$fails failing"
     [ "$fails" -eq 0 ] ;;
   who) humans ;;
-  *) echo "usage: server.sh status|logs [n]|follow|restart|deploy [--force]|rcon \"<cmd>\"|reload|push-scripts|place <name> <dim> <x> <y> <z>|test <name>|test-all|who" >&2; exit 2 ;;
+  *) echo "usage: server.sh status|logs [n]|follow|restart|deploy [--force]|rcon \"<cmd>\"|reload|push-scripts|place <name> <dim> <x> <y> <z>|verify <name> [<dim> <x> <y> <z>]|test <name>|test-all|who" >&2; exit 2 ;;
 esac

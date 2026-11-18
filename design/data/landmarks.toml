@@ -1,0 +1,95 @@
+# Canon landmarks built from Tensura's own jigsaw structures (with their NPC spawn pieces and loot), placed once
+# in the Tensura world (overworld) by pack/kubejs/server_scripts/ttl/life/landmarks.js and again after an
+# overworld reset. Edit, then run `python tools/gen_data.py` (it fills in x/z from `canon` and checks every entry).
+# Structure ids come from the Tensura jar (data/tensura/worldgen/structure/); never invent one.
+#
+# Every [[landmark]] has:
+#   name      = short id for `/ttl landmark list|place|where <name>` and the persistentData keys
+#   title     = what players and the log call it
+#   structure = the jigsaw structure, placed with vanilla `/place structure` (which skips the biome check)
+#   canon     = the matching landmark name in pack/config/ttl/canon_regions.json; x/z are derived from its
+#               reference-map pixel (world = (ref - origin) x width / 2570) unless x/z are given here
+#   x, z      = optional explicit world position (overrides `canon`), e.g. to put a lake village on the shore
+#   reach     = how far the structure spreads from its start (its max_distance_from_center + one piece);
+#               keeps it `keepout` blocks clear of Tempest and Dwargon, and sets the forceloaded area
+#   surface   = "land" (dry and as flat as possible), "water" (a shore: part lake, part land) or "any"
+#   version   = bump to place this landmark again on the next start (the old copy stays where it was)
+#
+# There is no y: `/place structure` only uses the chunk; the jigsaw projects its start piece onto the generator's
+# surface heightmap itself. It also skips terrain adaptation (beard), so the script tries the nominal spot and
+# up to 16 nearby spots (32 and 64 blocks out) and picks the flattest one that fits `surface`.
+
+keepout = 60
+
+[[landmark]]
+name = "goblin_village"
+title = "Old goblin village (Rigurd's tribe)"
+structure = "tensura:villages/goblin_village/oak"
+canon = "Old goblin village (Rigurd's tribe)"
+reach = 48
+surface = "land"
+version = 1
+notes = "Rigurd's poor village of wooden huts in the Jura forest, north-west of Tempest; goblin spawn pieces."
+
+[[landmark]]
+name = "lizardmen_village"
+title = "Lizardmen's village on Lake Siss"
+structure = "tensura:villages/lizardmen_village/water"
+canon = "Lake Siss"
+x = 700
+z = 344
+reach = 48
+surface = "water"
+version = 1
+notes = "Stilt village on the south-west shore of Lake Siss (canon_map.txt: water from x 656 on row z 336, marsh W south of it). The canon point is mid-lake."
+
+[[landmark]]
+name = "lizardmen_caverns"
+title = "Lizardmen's caverns (Gabiru, Avalos)"
+structure = "tensura:villages/lizardmen_village/underground"
+canon = "Lizardmen's caverns (Gabiru, Avalos)"
+reach = 56
+surface = "land"
+version = 1
+notes = "Underground village (entrance on the surface) in the marsh on the south shore of Lake Siss."
+
+[[landmark]]
+name = "orc_camp"
+title = "Orc camp at the Orc War battlefield"
+structure = "tensura:villages/orc_village"
+canon = "Orc War battlefield (Lake Siss marsh)"
+reach = 40
+surface = "land"
+version = 1
+notes = "Geld's horde camped south-east of Lake Siss; the orc village has an orc lord spawn piece."
+
+[[landmark]]
+name = "dwarf_village"
+title = "Dwarf village on the Dwarven Road"
+structure = "tensura:villages/dwarf_village"
+x = 250
+z = -740
+reach = 116
+surface = "land"
+version = 1
+notes = "Beside the road from Tempest (0, 0) to Dwargon's gate (435, -1000), just inside Dwargon's border (D on canon_map.txt), about 60 blocks west of the straight line."
+
+[[landmark]]
+name = "ogre_village_ruin"
+title = "Burned ruin at the hidden ogre village"
+structure = "tensura:ruin/wizard_tower/burnt"
+canon = "Hidden ogre village (Kijin homeland, burned)"
+reach = 24
+surface = "land"
+version = 1
+notes = "The Kijin homeland the orcs burned; a burnt tower ruin marks the site (canon position unverified)."
+
+[[landmark]]
+name = "treyni_grove"
+title = "Treyni's grove (dryad sanctuary)"
+structure = "tensura:ancient_forest/tree"
+canon = "Treyni's grove (Dryad sanctuary)"
+reach = 48
+surface = "land"
+version = 1
+notes = "A giant ancient-forest tree for the dryad sanctuary east of the Ameld."

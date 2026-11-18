@@ -7,16 +7,30 @@ Life 2 world spawn) by life/tempest.js, which grounds it with generated/tempest_
 rough rounded-square clearing, radius about 38, ringed by our own persistent-leaf forest edge): the
 meeting longhouse (north of the green) where Rimuru holds council, Rimuru's small house behind it, the
 cooking fire and well on the green, Kaijin's open forge and workshop (west road), Shuna's weaving hut
-(east road), a raised food store and old goblin huts and tents (north-east), finished hobgoblin houses,
+(east road), a raised food store, the goblins' old quarter (north-east: Tensura's own goblin village
+pieces, blueprints/assets/goblin_village/, round their campfire behind a skull arch), finished hobgoblin houses,
 a building site (south-west: half-roofed house, timber frame, foundation, scaffolding, log piles,
 sawhorse), a fenced field and herb patch (south-east), a lookout tower (north-west) and a palisade begun
-on the west side with a south gate. Every spawnable spot in the clearing has block light (checked when
-this builds). Visual references and sources: design/lore/tempest.md.
+on the west side with a south gate. Roofs and trim borrow the goblin village palette (Tensura thatch, oak
+logs and fences). Every spawnable spot in the clearing has block light (checked when this builds). Visual references and sources: design/lore/tempest.md.
 """
+import json
 import math
+from pathlib import Path
 
+import blueprint as _blueprint
+import nbt
 from _dwargon_lib import AIR, dark_spots, noise2, rnd
 from _footprint import settlement_footprint
+
+# Tensura's own goblin village pieces (copied from the Tensura 2.0.1.5 jar,
+# data/tensura/structure/goblin_village/<wood>/); style notes in design/lore/tempest.md.
+GOBLIN_PIECES = Path(__file__).resolve().parent / "assets" / "goblin_village"
+GOBLIN_SPAWN = "tensura:goblin_village/goblin_spawn"
+
+# Previews: Tensura thatch is straw-coloured (the renderer has no keyword for it; hash colours come out pink).
+if not any(k == "thatch" for k, _ in _blueprint._COLORS):
+    _blueprint._COLORS.append(("thatch", (196, 164, 84)))
 
 SIZE = (91, 40, 91)
 SX, SY, SZ = SIZE
@@ -34,6 +48,9 @@ def M(name: str) -> str:
 
 
 LEAVES = {k: M(f"{k}_leaves[persistent=true]") for k in ("oak", "birch", "dark_oak", "spruce")}
+THATCH = "tensura:thatch_block"
+THATCH_STAIRS = "tensura:thatch_stairs"
+THATCH_SLAB = "tensura:thatch_slab[type=bottom,waterlogged=false]"
 SUPPORT_BELOW = ("short_grass", "fern", "poppy", "dandelion", "cornflower", "oxeye_daisy", "azure_bluet",
                  "lily_of_the_valley", "wheat", "carrots", "potatoes", "beetroots", "carpet", "_door", "_bed",
                  "scaffolding", "brown_mushroom", "red_mushroom")
@@ -52,10 +69,96 @@ def inside(x, z) -> bool:
     return dist(x, z) <= edge(x, z)
 
 
+_TURN = {"north": "east", "east": "south", "south": "west", "west": "north"}
+
+
+def _rotate_state(state: str, turns: int) -> str:
+    """A block state turned `turns` quarter turns clockwise (seen from above)."""
+    if turns % 4 == 0:
+        return state
+    name, props = _blueprint.parse_state(state)
+    out = dict(props)
+    for _ in range(turns % 4):
+        nxt = dict(out)
+        if nxt.get("facing") in _TURN:
+            nxt["facing"] = _TURN[out["facing"]]
+        if nxt.get("axis") in ("x", "z") and "axis" in out:
+            nxt["axis"] = "z" if out["axis"] == "x" else "x"
+        if "rotation" in out:
+            nxt["rotation"] = str((int(out["rotation"]) + 4) % 16)
+        for side in _TURN:
+            if side in out:
+                nxt[_TURN[side]] = out[side]
+        out = nxt
+    return name + ("[" + ",".join(f"{k}={v}" for k, v in out.items()) + "]" if out else "")
+
+
+def goblin_piece(name: str):
+    """One Tensura goblin village piece: blocks (jigsaws replaced by their final state, structure voids and
+    'keep terrain' cells left out), its containers with loot tables, and the goblin spawn points."""
+    root = nbt.read_gzip(GOBLIN_PIECES / f"{name}.nbt")
+    if root.get("entities"):
+        raise RuntimeError(f"{name}: embedded entities are not carried over")
+    states = []
+    for e in root["palette"]:
+        props = e.get("Properties") or {}
+        states.append(e["Name"] + ("[" + ",".join(f"{k}={v}" for k, v in sorted(props.items())) + "]" if props else ""))
+    blocks, loot, spawns = {}, {}, []
+    for b in root["blocks"]:
+        pos = tuple(b["pos"])
+        state = states[b["state"]]
+        data = b.get("nbt") or {}
+        if state.startswith("minecraft:jigsaw"):
+            if data.get("target") == GOBLIN_SPAWN:
+                spawns.append(pos)
+            state = data.get("final_state", "minecraft:air")
+            if state == "minecraft:structure_void":
+                continue
+        if state.startswith("minecraft:structure_") or state.startswith("minecraft:jigsaw"):
+            continue
+        if "LootTable" in data:
+            loot[pos] = data["LootTable"]
+        blocks[pos] = state
+    return tuple(root["size"]), blocks, loot, spawns
+
+
 class Village:
     def __init__(self, bp):
         self.bp = bp
         self.used: set = set()  # columns taken by buildings and props (no plants, no trees)
+        self.loot: list = []    # [x, y, z, loot table] for containers placed from Tensura pieces
+        self.spawns: list = []  # [x, y, z, piece] where Tensura's goblin village spawns its goblins
+
+    def paste(self, name, x0, z0, turns=0):
+        """Place a Tensura goblin piece with its ground layer (y 0) on our ground layer G, corner (x0, z0),
+        turned `turns` quarter turns clockwise (its entrance, on the north side in the file, then faces
+        east, south, west). Returns the turned footprint (x0, z0, x1, z1)."""
+        (sx, sy, sz), blocks, loot, spawns = goblin_piece(name)
+        w, d = (sx, sz) if turns % 2 == 0 else (sz, sx)
+
+        def turn_xz(x, z):
+            a, b, lx, lz = x, z, sx, sz
+            for _ in range(turns % 4):
+                a, b = lz - 1 - b, a
+                lx, lz = lz, lx
+            return x0 + a, z0 + b
+
+        cols = {(x0 + a, z0 + b) for a in range(w) for b in range(d)}
+        built = {(x, z) for (x, y, z), s in self.bp.blocks.items() if y >= F and s != AIR}
+        clash = [c for c in cols if c in built]
+        if clash:
+            raise RuntimeError(f"tempest: {name} at {x0},{z0} overlaps another build at {sorted(clash)[:4]}")
+        for (x, y, z), state in blocks.items():
+            wx, wz = turn_xz(x, z)
+            self.put(wx, G + y, wz, _rotate_state(state, turns))
+        for (x, y, z), table in loot.items():
+            wx, wz = turn_xz(x, z)
+            self.loot.append([wx, G + y, wz, table])
+        for (x, y, z) in spawns:
+            wx, wz = turn_xz(x, z)
+            self.spawns.append([wx, G + y + 1, wz, name])
+        self.used.update(cols)
+        return x0, z0, x0 + w - 1, z0 + d - 1
 
     def put(self, x, y, z, state):
         self.bp.set(x, y, z, state)
@@ -71,7 +174,7 @@ class Village:
                 for z in range(min(z1, z2), max(z1, z2) + 1):
                     self.put(x, y, z, state)
 
-    def lamp(self, x, z, h=2, fence="spruce_fence"):
+    def lamp(self, x, z, h=2, fence="oak_fence"):
         for y in range(F, F + h):
             self.put(x, y, z, M(fence))
         self.put(x, F + h, z, M("lantern[hanging=false]"))
@@ -124,14 +227,15 @@ def path(v: Village, pts, w=1):
 def gable(v: Village, x0, z0, x1, z1, y0, roof: str, axis: str, wall: str, skip_half=False):
     """Gable roof over the walls x0..x1, z0..z1 starting at layer y0, ridge along `axis` (x or z).
 
-    roof 'thatch' = stepped hay with spruce eaves, 'plank' = spruce stairs, 'dark' = dark oak stairs.
+    roof 'thatch' = Tensura thatch stairs with a thatch-block ridge (as on the goblin village huts),
+    'plank' = spruce stairs, 'dark' = dark oak stairs.
     skip_half leaves the +side slope beyond the middle unroofed (a house still being roofed)."""
     if axis == "x":
         a0, a1, b0, b1 = x0, x1, z0, z1
     else:
         a0, a1, b0, b1 = z0, z1, x0, x1
     lo_face, hi_face = ("south", "north") if axis == "x" else ("east", "west")
-    stair = {"plank": "spruce_stairs", "dark": "dark_oak_stairs", "thatch": "spruce_stairs"}[roof]
+    stair = {"plank": "minecraft:spruce_stairs", "dark": "minecraft:dark_oak_stairs", "thatch": THATCH_STAIRS}[roof]
     mid = (a0 + a1) // 2
     k = 0
     while True:
@@ -143,11 +247,9 @@ def gable(v: Village, x0, z0, x1, z1, y0, roof: str, axis: str, wall: str, skip_
                 if skip_half and b == br and a > mid:
                     continue
                 if bl == br:
-                    state = M("hay_block[axis=%s]" % axis) if roof == "thatch" else M(stair.replace("stairs", "slab") + "[type=bottom]")
-                elif roof == "thatch" and k > 0:
-                    state = M("hay_block[axis=%s]" % axis)
+                    state = THATCH if roof == "thatch" else stair.replace("stairs", "slab") + "[type=bottom,waterlogged=false]"
                 else:
-                    state = M(f"{stair}[facing={face},half=bottom]")
+                    state = f"{stair}[facing={face},half=bottom,shape=straight,waterlogged=false]"
                 x, z = (a, b) if axis == "x" else (b, a)
                 if 0 <= x < SX and 0 <= z < SZ:
                     v.put(x, y, z, state)
@@ -188,7 +290,7 @@ def walls(v: Village, x0, z0, x1, z1, door, wall, post, height=3, windows=True):
     return dx, dz
 
 
-def house(v: Village, x0, z0, x1, z1, door="s", roof="thatch", wall="oak_planks", post="stripped_spruce_log",
+def house(v: Village, x0, z0, x1, z1, door="s", roof="thatch", wall="oak_planks", post="oak_log",
           chimney=False, stage="done", furnish=True):
     w = M(wall)
     axis = "x" if x1 - x0 >= z1 - z0 else "z"
@@ -242,7 +344,7 @@ def sawhorse(v: Village, x, z):
 
 # --- districts ----------------------------------------------------------------------------------------
 def green(v: Village):
-    """The village green: cooking fire with a spit and log benches, the well, the arrival signpost."""
+    """The village green: cooking fire with a spit and slab seats, the well, the arrival signpost."""
     cx, cz = C, 50
     for x in range(cx - 6, cx + 7):
         for z in range(cz - 6, cz + 7):
@@ -250,16 +352,15 @@ def green(v: Village):
                 r = rnd(x, G, z, 5)
                 v.bp.blocks[(x, G, z)] = M("dirt_path") if r < 0.55 else M("coarse_dirt") if r < 0.8 else M("packed_mud")
     v.put(cx, F, cz, M("campfire[lit=true,signal_fire=false,facing=north,waterlogged=false]"))
-    v.put(cx - 1, F, cz, M("spruce_fence"))
-    v.put(cx + 1, F, cz, M("spruce_fence"))
-    v.put(cx - 1, F + 1, cz, M("spruce_fence"))
-    v.put(cx + 1, F + 1, cz, M("spruce_fence"))
+    v.put(cx - 1, F, cz, M("oak_fence"))
+    v.put(cx + 1, F, cz, M("oak_fence"))
+    v.put(cx - 1, F + 1, cz, M("oak_fence"))
+    v.put(cx + 1, F + 1, cz, M("oak_fence"))
     v.put(cx, F + 1, cz, M("chain[axis=x]"))
+    # Seats as round a Tensura goblin campfire (goblin_campfire_oak: single oak slabs on the four sides).
     for d in (-1, 0, 1):
-        v.put(cx + d, F, cz - 3, M("stripped_oak_log[axis=x]"))
-        v.put(cx + d, F, cz + 3, M("stripped_oak_log[axis=x]"))
-        v.put(cx - 3, F, cz + d, M("stripped_oak_log[axis=z]"))
-        v.put(cx + 3, F, cz + d, M("stripped_oak_log[axis=z]"))
+        for x, z in ((cx + d, cz - 3), (cx + d, cz + 3), (cx - 3, cz + d), (cx + 3, cz + d)):
+            v.put(x, F, z, M("oak_slab[type=bottom,waterlogged=false]"))
     v.put(cx + 2, F, cz - 2, M("water_cauldron[level=3]"))
     v.put(cx - 2, F, cz - 2, M("smoker[facing=south,lit=false]"))
     v.put(cx - 2, F, cz + 2, M("barrel[facing=up,open=false]"))
@@ -272,8 +373,8 @@ def green(v: Village):
     for y in (G - 2, G - 1, G, F):
         v.put(wx, y, wz, M("water[level=0]"))
     for dx, dz in ((-1, -1), (1, -1), (-1, 1), (1, 1)):
-        v.put(wx + dx, F + 1, wz + dz, M("spruce_fence"))
-        v.put(wx + dx, F + 2, wz + dz, M("spruce_fence"))
+        v.put(wx + dx, F + 1, wz + dz, M("oak_fence"))
+        v.put(wx + dx, F + 2, wz + dz, M("oak_fence"))
     v.fill(wx - 1, F + 3, wz - 1, wx + 1, F + 3, wz + 1, M("spruce_slab[type=bottom,waterlogged=false]"))
     v.put(wx, F + 2, wz, M("lantern[hanging=true]"))
     # Signpost east of the arrival point (sign texts are written by life/tempest.js after placing).
@@ -480,44 +581,29 @@ def store(v: Village):
     v.put(60, F, 32, M("hay_block[axis=z]"))
     v.put(59, F + 1, 32, M("hay_block[axis=x]"))
     v.put(62, F, 33, M("smoker[facing=south,lit=false]"))
-    for x in (66, 68):
+    for x in (70, 72):
         for y in (F, F + 1):
-            v.put(x, y, 34, M("spruce_fence"))
-    v.put(67, F + 1, 34, M("chain[axis=x]"))
+            v.put(x, y, 35, M("oak_fence"))
+    v.put(71, F + 1, 35, M("chain[axis=x]"))
 
 
-def old_huts(v: Village):
-    """The goblins' original huts and tents (leaves, straw and hides), still lived in."""
-    for i, (cx, cz) in enumerate(((63, 20), (71, 24), (56, 25), (75, 31))):
-        for y, (r, inner) in zip((F, F + 1, F + 2), ((2.3, 1.3), (2.3, 1.3), (1.6, -1))):
-            for x in range(cx - 3, cx + 4):
-                for z in range(cz - 3, cz + 4):
-                    d = math.hypot(x - cx, z - cz)
-                    if d <= r + 0.25 and d > inner + 0.25:
-                        q = rnd(x, y, z, 70 + i)
-                        state = M("hay_block[axis=y]") if q < 0.4 else LEAVES["oak"] if q < 0.75 else M("brown_wool")
-                        v.put(x, y, z, state)
-        v.put(cx, F + 3, cz, M("hay_block[axis=y]"))
-        for y in (F, F + 1):
-            v.put(cx, y, cz + 2, AIR)
-        v.put(cx, F, cz + 3, AIR)
-        v.put(cx, G, cz, M("coarse_dirt"))
-        v.put(cx - 1, F, cz - 1, M("lantern[hanging=false]"))
-        v.put(cx + 1, F, cz - 1, M("brown_carpet"))
-        v.used.update((x, z) for x in range(cx - 3, cx + 4) for z in range(cz - 3, cz + 4))
-    for i, (cx, cz) in enumerate(((66, 29), (79, 39), (52, 18))):
-        wool = ("brown_wool", "green_wool", "light_gray_wool")[i]
-        for z in range(cz - 2, cz + 2):
-            v.put(cx - 2, F, z, M(wool))
-            v.put(cx + 2, F, z, M(wool))
-            v.put(cx - 1, F + 1, z, M(wool))
-            v.put(cx + 1, F + 1, z, M(wool))
-            v.put(cx, F + 2, z, M(wool))
-        v.put(cx, F, cz - 3, M("spruce_fence"))
-        v.put(cx, F + 1, cz - 3, M("spruce_fence"))
-        v.put(cx, F + 2, cz - 3, M("spruce_fence"))
-        v.put(cx, F, cz - 2, M("brown_carpet"))
-        v.put(cx + 1, F, cz - 2, M("lantern[hanging=false]"))
+def goblin_quarter(v: Village):
+    """The goblins' own quarter (north-east): Tensura goblin village pieces placed as they come from the mod,
+    so the old village is still there inside the new town. Rigurd's chief hut faces the goblins' campfire,
+    the sick tent (where Rimuru's potions went) to the west, tents to the east and north-west, the goblins'
+    little watch tower at the forest edge, and their skull arch where the quarter meets the town."""
+    v.paste("goblin_chief_oak", 63, 14, turns=2)          # x63-71 z14-22, door south to the fire
+    v.paste("goblin_campfire_oak", 65, 23)                  # x65-69 z23-29, fire at (67, 27)
+    v.paste("goblin_arch_oak", 66, 30)                      # x66-70 z30-32, skull facing the town
+    v.paste("goblin_medical_tent_birch", 53, 23, turns=1)   # x53-62 z23-29, door east to the fire
+    v.paste("goblin_tent_oak", 72, 21, turns=3)             # x72-75 z21-25, door west to the fire
+    v.paste("goblin_tent_birch", 72, 27, turns=3)           # x72-75 z27-31
+    v.paste("goblin_tent_oak", 57, 16, turns=1)             # x57-60 z16-20, door east to the chief hut
+    v.paste("goblin_tower_oak", 76, 29, turns=3)            # x76-80 z29-32
+    # Light the pieces from inside: hanging lanterns under the thatch, as the town now lights everything.
+    v.put(67, F + 1, 18, M("lantern[hanging=true]"))          # under the chief hut's ceiling slabs
+    for x in (55, 59):
+        v.put(x, F + 2, 26, M("lantern[hanging=true]"))       # under the sick tent's ridge
 
 
 def homes(v: Village):
@@ -685,15 +771,15 @@ def palisade(v: Village):
         if v.get(x, F, z) != AIR:
             continue
         for y in range(F, F + h):
-            v.put(x, y, z, M("spruce_log[axis=y]"))
+            v.put(x, y, z, M("oak_log[axis=y]"))
         if h >= 3:
-            v.put(x, F + h, z, M("spruce_fence"))
+            v.put(x, F + h, z, M("oak_fence"))
     # South gate: two tall posts and a lintel, lanterns hanging under it.
     for x in (gx - 3, gx + 3):
         for y in range(F, F + 6):
-            v.put(x, y, 81, M("stripped_spruce_log[axis=y]"))
+            v.put(x, y, 81, M("oak_log[axis=y]"))
     for x in range(gx - 4, gx + 5):
-        v.put(x, F + 6, 81, M("stripped_spruce_log[axis=x]"))
+        v.put(x, F + 6, 81, M("oak_log[axis=x]"))
     for x in (gx - 2, gx + 2):
         v.put(x, F + 5, 81, M("lantern[hanging=true]"))
     # Where the wall stops: a stack of logs waiting to be raised.
@@ -798,6 +884,18 @@ def plants(v: Village):
                     v.bp.blocks[(x, F, z)] = M("brown_mushroom") if below == M("podzol") else M("lily_of_the_valley")
 
 
+def settle_paths(bp):
+    """Dirt path under a solid block (fences included) turns to dirt as soon as the game updates it; do it here
+    so the previews show what the world will."""
+    soft = ("air", "lantern", "torch", "carpet", "slab", "fence_gate", "sign", "banner", "pane", "chain", "short_grass",
+            "fern", "poppy", "dandelion", "cornflower", "daisy", "bluet", "valley", "mushroom")
+    for (x, y, z), s in list(bp.blocks.items()):
+        if s == M("dirt_path"):
+            above = bp.blocks.get((x, y + 1, z), AIR).split("[", 1)[0]
+            if not any(k in above for k in soft):
+                bp.blocks[(x, y, z)] = M("dirt")
+
+
 def check_support(bp):
     """Blocks that pop off without support: what is under them (or behind, for ladders and wall signs)."""
     bad = []
@@ -823,8 +921,29 @@ def check_support(bp):
         raise RuntimeError(f"tempest: {len(bad)} unsupported blocks, e.g. {bad[:5]}")
 
 
+# Named hobgoblins of early Tempest (all goblins became hobgoblins when Rimuru named them); the rest unnamed.
+RESIDENT_NAMES = {"goblin_chief_oak": ["Rigurd", "Rigur"], "goblin_campfire_oak": ["Gobta", ""],
+                  "goblin_medical_tent_birch": ["Haruna"]}
+
+
+def residents(v: Village) -> list:
+    """Where life/tempest.js puts the goblin residents: Tensura's own goblin spawn points in each piece (the
+    jigsaws that pull in goblin_village/goblin_spawn), at most two per piece, named ones first."""
+    out = []
+    for x, y, z, piece in v.spawns:
+        names = RESIDENT_NAMES.get(piece, [""])
+        n = sum(1 for r in out if r[4] == piece)
+        if n >= max(1, len(names)) or n >= 2:
+            continue
+        if v.get(x, y, z) != AIR or v.get(x, y + 1, z) != AIR:
+            raise RuntimeError(f"tempest: resident spot {x},{y},{z} in {piece} is not free")
+        out.append([x, y, z, names[n] if n < len(names) else "", piece])
+    return out
+
+
 def build(bp):
     v = Village(bp)
+    bp.village = v
     ground(v)
     ax, _, az = ARRIVAL
     path(v, [(45, 90), (45, 50)], 1)            # south gate - green, out through the forest
@@ -833,7 +952,7 @@ def build(bp):
     path(v, [(39, 50), (26, 46)], 1)            # west: forge
     path(v, [(19, 39), (19, 37)], 0)            # forge - workshop
     path(v, [(51, 50), (59, 48)], 1)            # east: weaving hut
-    path(v, [(50, 45), (58, 39), (63, 28), (66, 22)], 0)  # north-east: store, old huts
+    path(v, [(50, 45), (58, 39), (68, 39), (68, 33)], 0)  # north-east: store, goblin quarter arch
     path(v, [(45, 67), (25, 67), (17, 65)], 0)  # building site
     path(v, [(45, 67), (51, 73)], 0)            # field gate
     path(v, [(30, 50), (15, 20)], 0)            # lookout
@@ -844,7 +963,7 @@ def build(bp):
     forge(v)
     weaving(v)
     store(v)
-    old_huts(v)
+    goblin_quarter(v)
     homes(v)
     building_site(v)
     farm(v)
@@ -855,10 +974,19 @@ def build(bp):
     forest_edge(v)
     light(v)
     plants(v)
+    settle_paths(bp)
     check_support(bp)
 
 
 def outputs(bp):
     probes = [(x, z) for x in range(C - 32, C + 33, 8) for z in range(C - 32, C + 33, 8) if dist(x, z) <= R - 3]
+    v = bp.village
+    extras = {"loot": sorted(v.loot), "residents": residents(v)}
+    body = json.dumps(extras, separators=(",", ":"))
     return {"pack/kubejs/server_scripts/ttl/generated/tempest_footprint.js":
-            settlement_footprint(bp, "TtlTempestFootprint", "blueprints/tempest.py", G, probes, ARRIVAL, PARTS)}
+            settlement_footprint(bp, "TtlTempestFootprint", "blueprints/tempest.py", G, probes, ARRIVAL, PARTS),
+            "pack/kubejs/server_scripts/ttl/generated/tempest_extras.js":
+            "// priority: 200\n// GENERATED by tools/build_structures.py from blueprints/tempest.py. Do not edit.\n"
+            "// Blueprint coordinates: containers from Tensura goblin pieces with their loot tables, and the goblin\n"
+            "// residents (Tensura's goblin spawn points) that life/tempest.js summons after placing the village.\n"
+            f"const TtlTempestExtras = {body}\n"}

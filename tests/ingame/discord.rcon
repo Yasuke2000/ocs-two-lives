@@ -1,0 +1,33 @@
+# Discord features without Discord (ttl/discord.js + ttl/discord/*.js). Test bots never reach Discord, so this
+# checks what the scripts compute: role keys (`ttl discordroles <p> expect …` prints "ttl: ..." on a mismatch),
+# the Hall of Souls recap and the standings (bots are never counted: expect no TtlBot name in either), the
+# read-only staff commands, and the ?bugreport refusals.
+# Expect in the log: "[ttl] hall: recap preview" and no "[ttl] discord roles: TtlBot" lines.
+ttlbot spawn TtlBotDiscU
+ttlbot spawn TtlBotDiscD
+@sleep 2
+# A fresh Life 1: only the Life 1 role, no tier yet.
+ttl discordroles TtlBotDiscU expect life1
+ttl discordroles TtlBotDiscU dry
+# Dark path: a few hours and eight villagers murdered → Survivor, plus Fallen once judged.
+ttl karma TtlBotDiscD set play_time 216000
+ttl karma TtlBotDiscD set mob_kills 60
+ttl karma TtlBotDiscD set villagers 8
+ttl karma TtlBotDiscD set advancements 10
+ttl discordroles TtlBotDiscD expect life1
+kill TtlBotDiscU
+kill TtlBotDiscD
+@sleep 1
+# The Corridor still counts as Life 1; the verdict adds the tier role (and Fallen for the dark path).
+ttl discordroles TtlBotDiscU expect life1 wanderer
+ttl discordroles TtlBotDiscD expect life1 survivor fallen
+# Recap and standings render (posting needs the bot: `ttl recap now` is a manual check).
+ttl recap preview
+ttl top
+ttl staff status
+ttl staff registry
+# ?bugreport: RCON has no linked account, and test bots may not report.
+bugreport test report from the rcon suite
+execute as TtlBotDiscU run bugreport test report from a bot
+ttlbot remove TtlBotDiscU
+ttlbot remove TtlBotDiscD

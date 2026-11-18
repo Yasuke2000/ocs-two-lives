@@ -16,13 +16,19 @@
 //    above the slope, so the surrounding forest stays standing);
 // 5. fill the gap under every box column down to the terrain (dirt, stone deeper down), plus a 1:1 earth
 //    skirt topped with grass round the edges; FILLS_PER_TICK one-column fills per tick;
-// 6. set the world spawn on the arrival point and write the signpost texts.
-const TTL_TEMPEST_VERSION = 1
+// 6. set the world spawn on the arrival point and write the signpost texts;
+// 7. give the containers from Tensura's goblin village pieces their Tensura loot tables (the structure files
+//    carry blocks only) and summon the goblin quarter's residents (TtlTempestExtras, generated/tempest_extras.js)
+//    on Tensura's own goblin spawn points: hobgoblins (EvoState 1; every goblin evolved when Rimuru named them),
+//    persistent, tagged RESIDENT. Residents from an earlier version are removed first, so each version spawns
+//    them once.
+const TTL_TEMPEST_VERSION = 2
 
 const TtlTempest = {
   // World position of the arrival point; its blueprint coordinates are TtlTempestFootprint.arrival.
   LANDMARK: { x: 0, z: 0 },
   PROBE: 'ttl_tempest_probe',
+  RESIDENT: 'ttl_tempest_resident',
   FILLS_PER_TICK: 150,
   FALLBACK_DEPTH: 24,
   DELAY_TICKS: 300,
@@ -200,6 +206,25 @@ const TtlTempest = {
     }
   },
 
+  // Loot tables and residents (blueprint coordinates in TtlTempestExtras, placed with corner x0, base, z0).
+  extras(server, base) {
+    var b = this.box()
+    var e = TtlTempestExtras
+    for (var i = 0; i < e.loot.length; i++) {
+      var c = e.loot[i]
+      this.run(server, `data merge block ${b.x0 + c[0]} ${base + c[1]} ${b.z0 + c[2]} {LootTable:"${c[3]}"}`)
+    }
+    this.run(server, `kill @e[type=tensura:goblin,tag=${this.RESIDENT}]`)
+    var n = 0
+    for (var j = 0; j < e.residents.length; j++) {
+      var r = e.residents[j]
+      var name = r[3] ? `,CustomName:'${JSON.stringify(r[3])}'` : ''
+      n += this.run(server, `summon tensura:goblin ${b.x0 + r[0] + 0.5} ${base + r[1]} ${b.z0 + r[2] + 0.5} ` +
+        `{PersistenceRequired:1b,EvoState:1,Tags:["${this.RESIDENT}"]${name}}`) > 0 ? 1 : 0
+    }
+    console.info(`[ttl] tempest: ${e.loot.length} loot containers, ${n}/${e.residents.length} goblin residents`)
+  },
+
   place(server, done) {
     var f = TtlTempestFootprint
     var b = this.box()
@@ -236,6 +261,11 @@ const TtlTempest = {
           self.run(server, `setworldspawn ${self.LANDMARK.x} ${gy} ${self.LANDMARK.z}`)
         } catch (e) {
           console.warn(`[ttl] tempest: signs or world spawn failed: ${e}`)
+        }
+        try {
+          self.extras(server, base)
+        } catch (e) {
+          console.warn(`[ttl] tempest: loot tables or residents failed: ${e}`)
         }
         if (ok) {
           server.persistentData.putInt('ttl.tempest.version', TTL_TEMPEST_VERSION)

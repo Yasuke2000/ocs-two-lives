@@ -26,10 +26,32 @@ run and the commit gets a ✅/❌ "ttl staging" status. Players online are never
 
 ## Access from a PC without SSH
 
-`tools/server.sh` and the Python tools (`capture.py`, `import_configs.py`, `import_schem.py`, via `tools/cluster.py`)
+`tools/server.sh` and the Python tools (`capture.py`, `verify_build.py`, `import_configs.py`, `import_schem.py`, via `tools/cluster.py`)
 use `~/.kube/ocs-two-lives.yaml` when it exists: kubectl straight to the K3s API over Tailscale with the
 ServiceAccount `ttl-operator`, which can only reach this namespace (pods, exec, logs, restarts). No SSH means no
 Tailscale SSH re-checks. Without the file they fall back to SSH to the node. Ask David for the key; never commit it.
+
+## Checking placed builds and landmarks
+
+**Does a build transfer well?** `python tools/verify_build.py <name> --log` (or `tools/server.sh verify <name>`)
+finds the placement line the script logged (`[ttl] tempest placed: corner X Y Z`, `[ttl] dwargon placed: corner …`,
+`mortal spawn placed at y …`), forceloads the box, runs `/ttlcapture` over it, downloads the capture and compares
+it block by block with `pack/kubejs/data/ttl/structure/<name>*.nbt` (slabs `<name>_0..n` stacked along z).
+Give the corner yourself with `verify_build.py <name> <dimension> <x> <y> <z>`. It only counts positions the
+structure defines (explicit air included) and treats what the game changes on its own as a match: fence, wall,
+pane and redstone connections, stair shapes, power, leaf distance, waterlogging, snowy grass, crop growth, fluid
+levels, grass/dirt and air variants. It prints the match %, mismatches per slab and the top mismatching block
+pairs with world coordinates, and exits 1 below `--min` (default 98 %). It does not change the world (it removes
+its capture file and only the forceloads it added). The comparison is unit-tested offline:
+`python -I -m unittest discover -s tests`.
+
+**Canon landmarks** (`design/data/landmarks.toml`, `life/landmarks.js`): Tensura's own structures (goblin,
+lizardmen, orc and dwarf villages, a burnt tower, a giant ancient tree) placed with `/place structure` at
+canon_regions.json landmarks, once, about 45 s after start (one at a time) and again after an overworld reset.
+Log lines: `[ttl] landmark <name> placed: <structure> at X Y Z (…, box …)` or `could not be placed`.
+Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a tp command), `/ttl landmark place <name|all>`
+(places again; the old copy stays). Change a landmark or bump its `version` in the TOML, then
+`python tools/gen_data.py`.
 
 ## Backups and restore
 
@@ -60,7 +82,7 @@ no separate bot service. What it does in `#minecraft`:
 |---|---|
 | Chat bridge | game chat → `#minecraft`; Discord messages show in game as `[Discord] name: text` |
 | Game events | joins, leaves, deaths and advancements (these two follow the `showDeathMessages` / `announceAdvancements` gamerules), server online / offline |
-| Story events | `pack/kubejs/server_scripts/ttl/discord.js`: Life 1 death ("X died in their first life"), rebirth ("X was reborn as a Slime"), Legend verdicts, kills of `major` bosses from `design/data/karma.toml` |
+| Story events | `pack/kubejs/server_scripts/ttl/discord.js`: Life 1 death ("X died in their first life"), rebirth ("X was reborn as a Slime"), Legend verdicts, kills of `major` bosses from `design/data/karma.toml`; awakenings and the weekly Hall of Souls (`ttl/discord/`, see *Game features*) — all in `#story` |
 | Status | bot status "N/15 souls in the world", channel topic, slash commands `/playerlist`, `/status`, `/help` |
 | Account linking (optional) | in game `/discordverify` gives a code; in Discord `/verify <code>` (or DM the code to the bot) |
 
@@ -133,4 +155,32 @@ tools/server.sh restart
 - In-game `/discord` invite command: set `botConfig.invite.inviteLink`.
 - Linking required for everyone (Discord-based whitelist): `accessControl.enabled = true`. Everyone, staff
   included, must then `/discordverify` before they can play; test that the `TtlBot` test players still join.
-- Run Minecraft commands from Discord: `[minecraftCommands]`, off.
+- Run Minecraft commands from Discord: `[minecraftCommands]`, on with a short allow-list (see below).
+
+**Config changes need the reset above**: the server keeps its own rewritten copy of the sdlink config, so a
+merged change to `simple-discord-link.toml` (e.g. the `?command` permissions) only applies after deleting that
+copy and restarting.
+
+### Game features (`ttl/discord/*.js`, ids in `design/data/discord.toml`)
+
+| Feature | What it does | How |
+|---|---|---|
+| Life and karma roles | A linked member has exactly one of **Life 1** (Life 1 and the Spirit Corridor) / **Life 2**, plus, once Life 1 is judged, **Wanderer / Survivor / Hero / Legend**. The dark path adds **Fallen** next to the tier role ("Fallen Hero" = Hero + Fallen). | `roles.js`: on login, Life 1 death, rebirth and every 5 min for everyone online. Minecraft UUID → Discord id from sdlink's account store (`DatabaseManager` / `SDLinkAccount.getDiscordID`), roles through sdlink's JDA (`BotController.INSTANCE.getJDA()` → guild `addRoleToMember` / `removeRoleFromMember`). Only roles in `[roles]` are touched. |
+| Hall of Souls | Weekly recap in `#story`, Sunday 20:00 Brussels: rebirths (race, tier), Life 1 deaths (days, verdict), Legends, great foes slain, awakenings, brightest soul of the week. Never posts twice (the posted date is kept). | `hall.js`, recorded in server persistentData `ttl.hall.week`, posted as an sdlink CUSTOM message. |
+| Leaderboard | One message in `#leaderboard` that the bot edits: brightest soul ever, longest first life, Legends, great foes slain, most chosen races, souls now in Life 1 / Corridor / Life 2. In game: `/ttl top`. | `hall.js`: all-time records in `ttl.hall.records`, message id in `ttl.hall.lbmsg` (deleted → posted again); edited every 10 min and soon after a story event. |
+| World events | `#story` hears when someone awakens as a **True Demon Lord** or **True Hero**, or starts the **Harvest Festival** (the Great Sage's World Voice events). | `awaken.js` polls Tensura's existence storage (`TensuraStorages.getExistenceFrom`) like the Great Sage does. Naming is not relayed (nothing to poll). |
+| `?bugreport <text>` | Linked members, in `#ideas-and-feedback`: becomes a GitHub issue through the in-game `/bug` (prefixed "from Discord, @name"). Online → filed at once; offline → filed when they next join. | `report.js`; sdlink runs the command under the linked Minecraft name (`chat.useLinkedNames = true`). |
+| Staff `?commands` | `modder` role, in `#ideas-and-feedback` or `#logging-and-server-notifactions`: `?list`, `?neoforge tps`, `?ttl inspect <player>`, `?ttl spawn`, `?ttl staff status`, `?ttl staff registry`, `?ttl recap preview`, `?ttl discordroles <player> [dry]`, plus the member commands. Read-only on purpose: sdlink has no confirm step. | `[minecraftCommands.permissions]` in the sdlink config. |
+
+Setup notes:
+
+- **modder role ID**: sdlink only accepts numeric role IDs. Replace the placeholder `role = "1"` in
+  `[[minecraftCommands.permissions]]` with the `modder` role ID (Developer Mode → right-click the role → Copy
+  Role ID), then reset the server's config copy as above.
+- **Role order** (Server Settings → Roles): the bot's role above Life 1 … Fallen (or Discord refuses the change),
+  and `modder` above `Linked` (sdlink uses the member's highest role that has a command list).
+- The bot needs View Channel + Send Messages in `#leaderboard` and `#ideas-and-feedback`, and Manage Roles.
+- sdlink replies to a `?command` with the first message the command sends; commands with several output lines
+  (e.g. `neoforge tps`) show only the first.
+- Ops in game: `/ttl recap preview | now`, `/ttl discordroles <player> [dry | expect <keys>]`, `/ttl staff status | registry`.
+  Test: `tests/ingame/discord.rcon`.

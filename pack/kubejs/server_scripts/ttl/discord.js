@@ -6,6 +6,8 @@
 // sdlink, or while its bot is not logged in (no token), every post is dropped silently.
 // Callers: life/death.js (Life 1 death), life/corridor_flow.js (rebirth), karma/view.js (Legend verdict);
 // boss kills are polled below from the karma stat objectives (karma.toml stats with `major = true`).
+// Each story event is also noted for the weekly Hall of Souls and the #leaderboard (discord/hall.js) and
+// re-syncs the player's Discord roles (discord/roles.js). Ids and timings: design/data/discord.toml.
 const TtlDiscord = {
   BOSS_TICKS: 200,
   api: undefined,
@@ -51,20 +53,47 @@ const TtlDiscord = {
     }
   },
 
+  // The online player with this name, or null.
+  player(server, name) {
+    try {
+      return server.getPlayerList().getPlayerByName(String(name))
+    } catch (e) {
+      return null
+    }
+  },
+
+  // Hall of Souls / leaderboard notes and role syncs never break the story line itself.
+  also(what, fn) {
+    try {
+      fn()
+    } catch (e) {
+      console.warn(`[ttl] discord: ${what} failed: ${e}`)
+    }
+  },
+
   life1Death(server, name) {
     if (this.isBot(name)) return
     this.post(server, `${this.name(name)} died in their first life. Their soul drifts into the Spirit Corridor.`)
+    var p = this.player(server, name)
+    if (!p) return
+    this.also('hall death', () => TtlHall.noteDeath(server, p))
+    server.scheduleInTicks(40, () => this.also('role sync', () => TtlDiscordRoles.sync(server, p)))
   },
 
   reborn(server, name, race) {
     if (this.isBot(name)) return
     var article = /^[aeiou]/i.test(String(race)) ? 'an' : 'a'
     this.post(server, `${this.name(name)} was reborn as ${article} **${race}**.`)
+    var p = this.player(server, name)
+    if (!p) return
+    this.also('hall rebirth', () => TtlHall.noteRebirth(server, p, String(race)))
+    server.scheduleInTicks(40, () => this.also('role sync', () => TtlDiscordRoles.sync(server, p)))
   },
 
   legend(server, name, title) {
     if (this.isBot(name)) return
     this.post(server, `The Voice of the World: the soul of ${this.name(name)} enters the Spirit Corridor, judged **${title}**.`)
+    this.also('hall legend', () => TtlHall.noteLegend(server, String(name), String(title)))
   },
 
   // Boss kills: compares each online player's `major` kill stats with the last sample. A player's first sample
@@ -80,7 +109,10 @@ const TtlDiscord = {
       var now = {}
       majors.forEach(s => {
         now[s.key] = TtlKarma.value(server, p, s)
-        if (before && now[s.key] > (before[s.key] || 0)) self.post(server, `${self.name(name)} slew the ${s.label}!`)
+        if (before && now[s.key] > (before[s.key] || 0)) {
+          self.post(server, `${self.name(name)} slew the ${s.label}!`)
+          self.also('hall boss', () => TtlHall.noteBoss(server, String(name), String(s.label)))
+        }
       })
       seen[id] = now
     })

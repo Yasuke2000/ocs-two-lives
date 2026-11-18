@@ -64,7 +64,7 @@ _SEE_THROUGH = ("air", "glass", "pane", "lantern", "chain", "fence", "door", "si
                 "campfire", "cauldron", "anvil", "ladder", "bars", "torch", "rod", "leaves", "water", "lava",
                 "short_grass", "fern", "poppy", "dandelion", "cornflower", "oxeye", "tulip", "allium",
                 "cogwheel", "shaft", "bell", "grindstone", "button", "azalea", "bush", "_wall", "flower",
-                "candle", "pot")
+                "candle", "pot", "coral", "head")
 
 
 def _name(state: str) -> str:
@@ -81,6 +81,10 @@ def emission(state: str) -> int:
         return 15
     if n in ("torch", "wall_torch", "end_rod"):
         return 14
+    if n.endswith("copper_bulb") and "lit=true" in state:
+        return 4 if "oxidized" in n else 8 if "weathered" in n else 12 if "exposed" in n else 15
+    if n.endswith("candle") and "lit=true" in state:
+        return 3 * int(state.split("candles=", 1)[1][0]) if "candles=" in state else 3
     return 0
 
 

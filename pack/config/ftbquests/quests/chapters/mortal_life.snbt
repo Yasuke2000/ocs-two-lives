@@ -19,11 +19,11 @@
 				count: 1
 				id: "minecraft:totem_of_undying"
 			}
-			id: "D0382544FBB449E8"
+			id: "50382544FBB449E8"
 			rewards: [
 				{
 					count: 4
-					id: "F039843CC3BF79CC"
+					id: "7039843CC3BF79CC"
 					item: {
 						count: 1
 						id: "minecraft:bread"
@@ -35,7 +35,7 @@
 			size: 1.5d
 			tasks: [
 				{
-					id: "D5C7676F532C1673"
+					id: "55C7676F532C1673"
 					stage: "ttl.life1"
 					team_stage: false
 					type: "gamestage"
@@ -46,13 +46,13 @@
 		}
 		{
 			dependencies: [
-				"D0382544FBB449E8"
+				"50382544FBB449E8"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:stone_pickaxe"
 			}
-			id: "CFAAF7A1BC9ADF09"
+			id: "4FAAF7A1BC9ADF09"
 			rewards: [
 				{
 					count: 16
@@ -68,7 +68,7 @@
 				{
 					consume_items: false
 					count: 1
-					id: "CFCA392D5C6D5619"
+					id: "4FCA392D5C6D5619"
 					item: {
 						count: 1
 						id: "minecraft:stone_pickaxe"
@@ -81,7 +81,7 @@
 		}
 		{
 			dependencies: [
-				"CFAAF7A1BC9ADF09"
+				"4FAAF7A1BC9ADF09"
 			]
 			icon: {
 				count: 1
@@ -123,7 +123,7 @@
 				count: 1
 				id: "minecraft:white_bed"
 			}
-			id: "8E220EAEF0608834"
+			id: "0E220EAEF0608834"
 			rewards: [
 				{
 					count: 2
@@ -158,7 +158,7 @@
 			rewards: [
 				{
 					count: 4
-					id: "FC75896180BC9E3A"
+					id: "7C75896180BC9E3A"
 					item: {
 						count: 1
 						id: "minecraft:iron_ingot"
@@ -175,7 +175,7 @@
 				{
 					consume_items: false
 					count: 1
-					id: "8CE99EA01D7A660E"
+					id: "0CE99EA01D7A660E"
 					item: {
 						count: 1
 						id: "minecraft:iron_pickaxe"
@@ -194,7 +194,7 @@
 				count: 1
 				id: "minecraft:bell"
 			}
-			id: "8FFFE97BBDA23025"
+			id: "0FFFE97BBDA23025"
 			rewards: [
 				{
 					count: 3
@@ -208,7 +208,7 @@
 			]
 			tasks: [
 				{
-					id: "9FFDA5E8B1971285"
+					id: "1FFDA5E8B1971285"
 					structure: "#minecraft:village"
 					type: "structure"
 				}
@@ -218,7 +218,7 @@
 		}
 		{
 			dependencies: [
-				"8FFFE97BBDA23025"
+				"0FFFE97BBDA23025"
 			]
 			icon: {
 				count: 1
@@ -236,7 +236,7 @@
 					type: "item"
 				}
 				{
-					id: "99D481AECC4A3765"
+					id: "19D481AECC4A3765"
 					type: "xp"
 					xp: 30
 				}
@@ -245,7 +245,7 @@
 				{
 					advancement: "minecraft:adventure/trade"
 					criterion: ""
-					id: "A1B989FCD6511585"
+					id: "21B989FCD6511585"
 					type: "advancement"
 				}
 			]
@@ -260,7 +260,7 @@
 				count: 1
 				id: "minecraft:diamond"
 			}
-			id: "9805CB3013712C63"
+			id: "1805CB3013712C63"
 			rewards: [
 				{
 					count: 1
@@ -294,7 +294,7 @@
 		}
 		{
 			dependencies: [
-				"9805CB3013712C63"
+				"1805CB3013712C63"
 			]
 			icon: {
 				count: 1
@@ -304,7 +304,7 @@
 			rewards: [
 				{
 					count: 16
-					id: "DEEEB9C1E980AC54"
+					id: "5EEEB9C1E980AC54"
 					item: {
 						count: 1
 						id: "minecraft:lapis_lazuli"
@@ -321,7 +321,7 @@
 				{
 					advancement: "minecraft:story/enchant_item"
 					criterion: ""
-					id: "D8362E53EDF36658"
+					id: "58362E53EDF36658"
 					type: "advancement"
 				}
 			]
@@ -330,17 +330,17 @@
 		}
 		{
 			dependencies: [
-				"9805CB3013712C63"
+				"1805CB3013712C63"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:obsidian"
 			}
-			id: "DF1A8DCF7C0E73A4"
+			id: "5F1A8DCF7C0E73A4"
 			rewards: [
 				{
 					count: 8
-					id: "B80F51AB9854267D"
+					id: "380F51AB9854267D"
 					item: {
 						count: 1
 						id: "minecraft:golden_carrot"
@@ -348,7 +348,7 @@
 					type: "item"
 				}
 				{
-					id: "91D5CAA76B5EA554"
+					id: "11D5CAA76B5EA554"
 					type: "xp"
 					xp: 50
 				}
@@ -365,7 +365,7 @@
 		}
 		{
 			dependencies: [
-				"DF1A8DCF7C0E73A4"
+				"5F1A8DCF7C0E73A4"
 			]
 			icon: {
 				count: 1
@@ -385,7 +385,7 @@
 			]
 			tasks: [
 				{
-					id: "FECAD0EC17513E87"
+					id: "7ECAD0EC17513E87"
 					structure: "minecraft:fortress"
 					type: "structure"
 				}
@@ -401,11 +401,11 @@
 				count: 1
 				id: "minecraft:blaze_rod"
 			}
-			id: "EC4DDD673A2A254A"
+			id: "6C4DDD673A2A254A"
 			rewards: [
 				{
 					count: 2
-					id: "E23A626F0D6D7925"
+					id: "623A626F0D6D7925"
 					item: {
 						count: 1
 						id: "minecraft:ender_pearl"
@@ -413,7 +413,7 @@
 					type: "item"
 				}
 				{
-					id: "BB4648A0A31C8FF9"
+					id: "3B4648A0A31C8FF9"
 					type: "xp"
 					xp: 60
 				}
@@ -422,7 +422,7 @@
 				{
 					consume_items: false
 					count: 6
-					id: "CA0F109A1CBCF6F5"
+					id: "4A0F109A1CBCF6F5"
 					item: {
 						count: 1
 						id: "minecraft:blaze_rod"
@@ -435,13 +435,13 @@
 		}
 		{
 			dependencies: [
-				"EC4DDD673A2A254A"
+				"6C4DDD673A2A254A"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:ender_eye"
 			}
-			id: "A6616A4D8CE7AC47"
+			id: "26616A4D8CE7AC47"
 			rewards: [
 				{
 					count: 8
@@ -457,7 +457,7 @@
 				{
 					consume_items: false
 					count: 12
-					id: "FDBA77BC5A53EE8B"
+					id: "7DBA77BC5A53EE8B"
 					item: {
 						count: 1
 						id: "minecraft:ender_eye"
@@ -470,23 +470,23 @@
 		}
 		{
 			dependencies: [
-				"A6616A4D8CE7AC47"
+				"26616A4D8CE7AC47"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:end_portal_frame"
 			}
-			id: "EF54281B6FBEDD14"
+			id: "6F54281B6FBEDD14"
 			rewards: [
 				{
-					id: "9F70DD8FA5118F53"
+					id: "1F70DD8FA5118F53"
 					type: "xp"
 					xp: 80
 				}
 			]
 			tasks: [
 				{
-					id: "A12FD9125E6C2B15"
+					id: "212FD9125E6C2B15"
 					structure: "minecraft:stronghold"
 					type: "structure"
 				}
@@ -496,17 +496,17 @@
 		}
 		{
 			dependencies: [
-				"EF54281B6FBEDD14"
+				"6F54281B6FBEDD14"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:end_stone"
 			}
-			id: "F307AB7291AA44FF"
+			id: "7307AB7291AA44FF"
 			rewards: [
 				{
 					count: 2
-					id: "86BC8680011497F9"
+					id: "06BC8680011497F9"
 					item: {
 						count: 1
 						id: "minecraft:golden_apple"
@@ -517,7 +517,7 @@
 			tasks: [
 				{
 					dimension: "ttl:mortal_end"
-					id: "89D7F9FA34BE7583"
+					id: "09D7F9FA34BE7583"
 					type: "dimension"
 				}
 			]
@@ -526,7 +526,7 @@
 		}
 		{
 			dependencies: [
-				"F307AB7291AA44FF"
+				"7307AB7291AA44FF"
 			]
 			icon: {
 				count: 1
@@ -565,11 +565,11 @@
 				count: 1
 				id: "minecraft:iron_sword"
 			}
-			id: "82B959E613FF1864"
+			id: "02B959E613FF1864"
 			rewards: [
 				{
 					count: 16
-					id: "BBE346EDC9467E2F"
+					id: "3BE346EDC9467E2F"
 					item: {
 						count: 1
 						id: "minecraft:arrow"
@@ -577,7 +577,7 @@
 					type: "item"
 				}
 				{
-					id: "B6DD41D0192BD52F"
+					id: "36DD41D0192BD52F"
 					type: "xp"
 					xp: 30
 				}
@@ -597,13 +597,13 @@
 				}
 				{
 					entity: "minecraft:spider"
-					id: "DD513CC8B7115DA1"
+					id: "5D513CC8B7115DA1"
 					type: "kill"
 					value: 1
 				}
 				{
 					entity: "minecraft:creeper"
-					id: "9A0E75AED2855A99"
+					id: "1A0E75AED2855A99"
 					type: "kill"
 					value: 1
 				}
@@ -613,7 +613,7 @@
 		}
 		{
 			dependencies: [
-				"82B959E613FF1864"
+				"02B959E613FF1864"
 			]
 			icon: {
 				count: 1
@@ -623,7 +623,7 @@
 			rewards: [
 				{
 					count: 1
-					id: "FECBC1F50AA6999D"
+					id: "7ECBC1F50AA6999D"
 					item: {
 						count: 1
 						id: "minecraft:shield"
@@ -639,7 +639,7 @@
 			tasks: [
 				{
 					entity: "minecraft:enderman"
-					id: "D9B1C813F115F092"
+					id: "59B1C813F115F092"
 					type: "kill"
 					value: 1
 				}
@@ -671,7 +671,7 @@
 			rewards: [
 				{
 					count: 8
-					id: "AC32D6A418287819"
+					id: "2C32D6A418287819"
 					item: {
 						count: 1
 						id: "minecraft:cooked_mutton"
@@ -693,7 +693,7 @@
 				}
 				{
 					entity: "minecraft:vindicator"
-					id: "FF2E311A545136A6"
+					id: "7F2E311A545136A6"
 					type: "kill"
 					value: 1
 				}
@@ -709,11 +709,11 @@
 				count: 1
 				id: "minecraft:wither_skeleton_skull"
 			}
-			id: "DA428C02809011D3"
+			id: "5A428C02809011D3"
 			rewards: [
 				{
 					count: 1
-					id: "B26CBC7710624EB6"
+					id: "326CBC7710624EB6"
 					item: {
 						count: 1
 						id: "minecraft:golden_apple"
@@ -721,7 +721,7 @@
 					type: "item"
 				}
 				{
-					id: "D76BFE7100B195DA"
+					id: "576BFE7100B195DA"
 					type: "xp"
 					xp: 60
 				}
@@ -729,13 +729,13 @@
 			tasks: [
 				{
 					entity: "minecraft:blaze"
-					id: "FBBF9DC1E735FBE0"
+					id: "7BBF9DC1E735FBE0"
 					type: "kill"
 					value: 1
 				}
 				{
 					entity: "minecraft:ghast"
-					id: "AD3AA519AC4907AD"
+					id: "2D3AA519AC4907AD"
 					type: "kill"
 					value: 1
 				}
@@ -747,7 +747,7 @@
 				}
 				{
 					entity: "minecraft:magma_cube"
-					id: "8AE23FCC86981C8B"
+					id: "0AE23FCC86981C8B"
 					type: "kill"
 					value: 1
 				}
@@ -763,12 +763,12 @@
 				count: 1
 				id: "minecraft:prismarine_shard"
 			}
-			id: "989621086A58B950"
+			id: "189621086A58B950"
 			optional: true
 			rewards: [
 				{
 					count: 4
-					id: "A1280AD998B9BD16"
+					id: "21280AD998B9BD16"
 					item: {
 						count: 1
 						id: "minecraft:sponge"
@@ -776,7 +776,7 @@
 					type: "item"
 				}
 				{
-					id: "EC48146356D4A5CA"
+					id: "6C48146356D4A5CA"
 					type: "xp"
 					xp: 100
 				}
@@ -789,7 +789,7 @@
 				}
 				{
 					entity: "minecraft:elder_guardian"
-					id: "8B86753F9CB8A1D9"
+					id: "0B86753F9CB8A1D9"
 					type: "kill"
 					value: 1
 				}
@@ -799,7 +799,7 @@
 		}
 		{
 			dependencies: [
-				"DA428C02809011D3"
+				"5A428C02809011D3"
 			]
 			icon: {
 				count: 1
@@ -810,7 +810,7 @@
 			rewards: [
 				{
 					count: 16
-					id: "E4C34C4FF0935B0D"
+					id: "64C34C4FF0935B0D"
 					item: {
 						count: 1
 						id: "minecraft:experience_bottle"
@@ -821,7 +821,7 @@
 			tasks: [
 				{
 					entity: "minecraft:wither"
-					id: "864A6F19AE15CDC3"
+					id: "064A6F19AE15CDC3"
 					type: "kill"
 					value: 1
 				}
@@ -837,12 +837,12 @@
 				count: 1
 				id: "minecraft:sculk_shrieker"
 			}
-			id: "C6A849AD3B1F41C5"
+			id: "46A849AD3B1F41C5"
 			optional: true
 			rewards: [
 				{
 					count: 2
-					id: "8F2B556A257D3802"
+					id: "0F2B556A257D3802"
 					item: {
 						count: 1
 						id: "minecraft:echo_shard"
@@ -879,7 +879,7 @@
 				count: 1
 				id: "minecraft:trial_key"
 			}
-			id: "AD5BB123175ECA77"
+			id: "2D5BB123175ECA77"
 			rewards: [
 				{
 					count: 8
@@ -891,7 +891,7 @@
 					type: "item"
 				}
 				{
-					id: "D346FAE310D4EA9E"
+					id: "5346FAE310D4EA9E"
 					type: "xp"
 					xp: 50
 				}
@@ -904,7 +904,7 @@
 				}
 				{
 					entity: "minecraft:breeze"
-					id: "C6C8BC68879966F7"
+					id: "46C8BC68879966F7"
 					type: "kill"
 					value: 1
 				}
@@ -951,7 +951,7 @@
 				count: 1
 				id: "minecraft:clock"
 			}
-			id: "E0A6E30719D91FFE"
+			id: "60A6E30719D91FFE"
 			rewards: [
 				{
 					count: 8
@@ -970,7 +970,7 @@
 			]
 			tasks: [
 				{
-					id: "BCE536226AD58D80"
+					id: "3CE536226AD58D80"
 					stat: "minecraft:play_time"
 					type: "stat"
 					value: 168000
@@ -981,17 +981,17 @@
 		}
 		{
 			dependencies: [
-				"E0A6E30719D91FFE"
+				"60A6E30719D91FFE"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:clock"
 			}
-			id: "D7DB2952F54CA2BE"
+			id: "57DB2952F54CA2BE"
 			rewards: [
 				{
 					count: 1
-					id: "CB57B1D313D15C3E"
+					id: "4B57B1D313D15C3E"
 					item: {
 						count: 1
 						id: "minecraft:golden_apple"
@@ -1017,17 +1017,17 @@
 		}
 		{
 			dependencies: [
-				"D7DB2952F54CA2BE"
+				"57DB2952F54CA2BE"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:clock"
 			}
-			id: "9E1AD89FFD572291"
+			id: "1E1AD89FFD572291"
 			rewards: [
 				{
 					count: 16
-					id: "9C6ADDB119540066"
+					id: "1C6ADDB119540066"
 					item: {
 						count: 1
 						id: "minecraft:experience_bottle"
@@ -1037,7 +1037,7 @@
 			]
 			tasks: [
 				{
-					id: "BD513969F063F68B"
+					id: "3D513969F063F68B"
 					stat: "minecraft:play_time"
 					type: "stat"
 					value: 720000
@@ -1073,7 +1073,7 @@
 			]
 			tasks: [
 				{
-					id: "DF028AE14A531A30"
+					id: "5F028AE14A531A30"
 					stat: "minecraft:traded_with_villager"
 					type: "stat"
 					value: 25
@@ -1084,7 +1084,7 @@
 		}
 		{
 			dependencies: [
-				"8FFFE97BBDA23025"
+				"0FFFE97BBDA23025"
 			]
 			icon: {
 				count: 1
@@ -1113,7 +1113,7 @@
 			]
 			tasks: [
 				{
-					id: "F91641DD14683B36"
+					id: "791641DD14683B36"
 					stat: "minecraft:animals_bred"
 					type: "stat"
 					value: 10
@@ -1124,7 +1124,7 @@
 		}
 		{
 			dependencies: [
-				"8FFFE97BBDA23025"
+				"0FFFE97BBDA23025"
 			]
 			icon: {
 				count: 1
@@ -1142,7 +1142,7 @@
 					type: "item"
 				}
 				{
-					id: "8F302A92ABCCEDFC"
+					id: "0F302A92ABCCEDFC"
 					type: "xp"
 					xp: 40
 				}
@@ -1151,7 +1151,7 @@
 				{
 					advancement: "minecraft:adventure/summon_iron_golem"
 					criterion: ""
-					id: "A4720A3A8F165357"
+					id: "24720A3A8F165357"
 					type: "advancement"
 				}
 			]
@@ -1166,7 +1166,7 @@
 				count: 1
 				id: "minecraft:golden_apple"
 			}
-			id: "BF08093E46A35301"
+			id: "3F08093E46A35301"
 			optional: true
 			rewards: [
 				{
@@ -1202,7 +1202,7 @@
 			rewards: [
 				{
 					count: 1
-					id: "880FF4A5C4F7FE2B"
+					id: "080FF4A5C4F7FE2B"
 					item: {
 						count: 1
 						id: "minecraft:totem_of_undying"
@@ -1214,7 +1214,7 @@
 				{
 					advancement: "minecraft:adventure/hero_of_the_village"
 					criterion: ""
-					id: "F626507B7BF25311"
+					id: "7626507B7BF25311"
 					type: "advancement"
 				}
 			]
@@ -1223,18 +1223,18 @@
 		}
 		{
 			dependencies: [
-				"8FFFE97BBDA23025"
+				"0FFFE97BBDA23025"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:wither_rose"
 			}
-			id: "B15BB043D91F9146"
+			id: "315BB043D91F9146"
 			optional: true
 			rewards: [ ]
 			tasks: [
 				{
-					id: "DC3AEA5E41D1FD64"
+					id: "5C3AEA5E41D1FD64"
 					type: "checkmark"
 				}
 			]
@@ -1249,11 +1249,11 @@
 				count: 1
 				id: "minecraft:iron_chestplate"
 			}
-			id: "A95AA61F9C55A114"
+			id: "295AA61F9C55A114"
 			rewards: [
 				{
 					count: 6
-					id: "F9A441C0D0BC7817"
+					id: "79A441C0D0BC7817"
 					item: {
 						count: 1
 						id: "minecraft:iron_ingot"
@@ -1274,17 +1274,17 @@
 		}
 		{
 			dependencies: [
-				"A95AA61F9C55A114"
+				"295AA61F9C55A114"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:anvil"
 			}
-			id: "8A91A668AA132C1A"
+			id: "0A91A668AA132C1A"
 			rewards: [
 				{
 					count: 4
-					id: "A8EA3B4A094EB75E"
+					id: "28EA3B4A094EB75E"
 					item: {
 						count: 1
 						id: "minecraft:experience_bottle"
@@ -1305,8 +1305,8 @@
 		}
 		{
 			dependencies: [
-				"9805CB3013712C63"
-				"A95AA61F9C55A114"
+				"1805CB3013712C63"
+				"295AA61F9C55A114"
 			]
 			icon: {
 				count: 1
@@ -1316,7 +1316,7 @@
 			rewards: [
 				{
 					count: 1
-					id: "CC85A3C98B9BA1E2"
+					id: "4C85A3C98B9BA1E2"
 					item: {
 						count: 1
 						id: "minecraft:diamond"
@@ -1324,7 +1324,7 @@
 					type: "item"
 				}
 				{
-					id: "B9B3C323D20DD82E"
+					id: "39B3C323D20DD82E"
 					type: "xp"
 					xp: 50
 				}
@@ -1333,7 +1333,7 @@
 				{
 					advancement: "minecraft:story/shiny_gear"
 					criterion: ""
-					id: "BB2DBEBBBB2585D0"
+					id: "3B2DBEBBBB2585D0"
 					type: "advancement"
 				}
 			]
@@ -1342,14 +1342,14 @@
 		}
 		{
 			dependencies: [
-				"DF1A8DCF7C0E73A4"
-				"8A91A668AA132C1A"
+				"5F1A8DCF7C0E73A4"
+				"0A91A668AA132C1A"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:netherite_ingot"
 			}
-			id: "9BDC7581ED18FA26"
+			id: "1BDC7581ED18FA26"
 			rewards: [
 				{
 					count: 8
@@ -1383,17 +1383,17 @@
 		}
 		{
 			dependencies: [
-				"9BDC7581ED18FA26"
+				"1BDC7581ED18FA26"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:smithing_table"
 			}
-			id: "E393057B0136AB75"
+			id: "6393057B0136AB75"
 			rewards: [
 				{
 					count: 1
-					id: "B72847F3102236F9"
+					id: "372847F3102236F9"
 					item: {
 						count: 1
 						id: "minecraft:netherite_upgrade_smithing_template"
@@ -1455,7 +1455,7 @@
 				count: 1
 				id: "minecraft:enchanted_book"
 			}
-			id: "9C5D6216B7FD58CF"
+			id: "1C5D6216B7FD58CF"
 			rewards: [
 				{
 					count: 8
@@ -1469,7 +1469,7 @@
 			]
 			tasks: [
 				{
-					id: "F0A4AF5455A9C70B"
+					id: "70A4AF5455A9C70B"
 					stat: "minecraft:enchant_item"
 					type: "stat"
 					value: 10
@@ -1480,7 +1480,7 @@
 		}
 		{
 			dependencies: [
-				"EC4DDD673A2A254A"
+				"6C4DDD673A2A254A"
 			]
 			icon: {
 				count: 1
@@ -1490,7 +1490,7 @@
 			rewards: [
 				{
 					count: 8
-					id: "83BE303B34650B87"
+					id: "03BE303B34650B87"
 					item: {
 						count: 1
 						id: "minecraft:nether_wart"
@@ -1511,7 +1511,7 @@
 				{
 					advancement: "minecraft:nether/brew_potion"
 					criterion: ""
-					id: "84BC6319C0F8B12F"
+					id: "04BC6319C0F8B12F"
 					type: "advancement"
 				}
 			]
@@ -1526,11 +1526,11 @@
 				count: 1
 				id: "minecraft:filled_map"
 			}
-			id: "C7AE71C4AA741918"
+			id: "47AE71C4AA741918"
 			rewards: [
 				{
 					count: 1
-					id: "E96E3AC1B33C82ED"
+					id: "696E3AC1B33C82ED"
 					item: {
 						count: 1
 						id: "minecraft:compass"
@@ -1539,7 +1539,7 @@
 				}
 				{
 					count: 8
-					id: "B6189743978F6FCA"
+					id: "36189743978F6FCA"
 					item: {
 						count: 1
 						id: "minecraft:cooked_salmon"
@@ -1574,18 +1574,18 @@
 		}
 		{
 			dependencies: [
-				"C7AE71C4AA741918"
+				"47AE71C4AA741918"
 			]
 			icon: {
 				count: 1
 				id: "minecraft:red_mushroom_block"
 			}
-			id: "BDDBBA44FD7AC19F"
+			id: "3DDBBA44FD7AC19F"
 			optional: true
 			rewards: [
 				{
 					count: 1
-					id: "FE0402F4E0D41E46"
+					id: "7E0402F4E0D41E46"
 					item: {
 						count: 1
 						id: "minecraft:mushroom_stew"
@@ -1601,7 +1601,7 @@
 			tasks: [
 				{
 					biome: "minecraft:mushroom_fields"
-					id: "970136E468A7FEA4"
+					id: "170136E468A7FEA4"
 					type: "biome"
 				}
 			]

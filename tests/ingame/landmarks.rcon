@@ -1,0 +1,5 @@
+# Canon landmarks (life/landmarks.js, design/data/landmarks.toml): every landmark listed with its state,
+# and where one is. Placement itself runs ~45 s after start; check the log for "[ttl] landmark".
+ttl landmark list
+ttl landmark where goblin_village
+ttl landmark where lizardmen_village

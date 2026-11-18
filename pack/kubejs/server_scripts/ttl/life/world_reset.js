@@ -29,6 +29,7 @@ const TtlWorldReset = {
       TtlDwargon.schedule(server)
       server.persistentData.remove('ttl.tempest.version')
       TtlTempest.schedule(server)
+      TtlLandmarks.reset(server)
     }
     console.info(`[ttl] world reset applied: ${ids.join(', ')}`)
   },

@@ -1,0 +1,35 @@
+# Discord: ids and timings for the scripts in pack/kubejs/server_scripts/ttl/discord/ (TtlData.discord).
+# Edit, then run `python tools/gen_data.py`. Ids are not secret (Developer Mode → right-click → Copy ID).
+# The bot token is never here: see docs/server.md "Discord bot".
+
+guild = "1572376519551090728"          # OCS Tensura
+
+[channels]
+story = "1572396134649954310"          # sdlink EVENT channel (CUSTOM messages land here)
+leaderboard = "1572401380361240578"    # one message, edited in place (discord/hall.js)
+feedback = "1572396138865230004"       # #ideas-and-feedback (?bugreport)
+staff = "1572376593744269503"          # #logging-and-server-notifactions (staff ?commands)
+
+# Roles the bot manages (discord/roles.js). The bot's own role must sit ABOVE all of these in
+# Server Settings → Roles, or Discord refuses the change (logged once as "[ttl] discord roles: ...").
+# Keys: life1/life2 = the life, then one key per karma tier title (lower case) from karma.toml, plus fallen.
+[roles]
+linked = "1572399928888787015"         # given by sdlink itself on /verify; listed for the docs only
+life1 = "1572399930268586046"          # Life 1 and the Spirit Corridor
+life2 = "1572399931564757162"
+wanderer = "1572399932613070989"
+survivor = "1572399933703589948"
+hero = "1572399934911807539"
+legend = "1572399935939281059"
+fallen = "1572399937331925103"         # dark path: given IN ADDITION to the tier role ("Fallen Hero" = Hero + Fallen)
+
+[timing]
+role_sync_minutes = 5                  # online players; also on login, Life 1 death and rebirth
+leaderboard_minutes = 10               # the #leaderboard message is edited this often (sooner after a notable event)
+recap_weekday = 0                      # Hall of Souls recap: 0 = Sunday … 6 = Saturday (Europe/Brussels)
+recap_hour = 20                        # local hour (CET/CEST)
+awaken_ticks = 100                     # Great Sage awakenings poll (True Hero / True Demon Lord / Harvest Festival)
+
+[limits]
+recap_lines = 8                        # entries per section in the weekly recap
+top_lines = 5                          # entries per section in the leaderboard and /ttl top

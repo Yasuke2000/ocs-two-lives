@@ -11,7 +11,12 @@
 // 4. clear terrain above the open-sky columns (road, ravine, skylight crack) and cut 1:1 slopes round them;
 // 5. fill the gap under every footprint column down to the ground (nothing floats), plus a 1:1 talus skirt
 //    round the edges, in banded sandstone like the mountain; FILLS_PER_TICK one-column fills per tick.
-const TTL_DWARGON_VERSION = 2
+// 6. the throne room's banners get their canon Dwargon patterns (TtlDwargonRoyal.banners; structure files built
+//    from code carry no block entity data).
+// King Gazel (TtlDwargonGazel): tensura:gazel_dwargo seated on his throne, checked every 30 s while the throne
+// is loaded and summoned again when missing. He shows a boss bar and wakes on right-click unless tamed, so he
+// gets a dummy Owner (no real player), NoAI, Invulnerable, Silent, PersistenceRequired; Phase 0 = seated.
+const TTL_DWARGON_VERSION = 4
 
 const TtlDwargon = {
   // The arrival point in front of the gate; its blueprint coordinates are TtlDwargonFootprint.arrival.
@@ -208,16 +213,27 @@ const TtlDwargon = {
       console.info(`[ttl] dwargon: ${f.parts.length} slab(s) placed, ${cmds.length} terrain commands (${self.FILLS_PER_TICK}/tick)`)
       self.runBatched(server, cmds, ok => {
         var gy = base + f.arrival[1]
+        if (ok) self.royalBanners(server, b, base)
         if (ok) {
           server.persistentData.putInt('ttl.dwargon.version', TTL_DWARGON_VERSION)
           server.persistentData.putInt('ttl.dwargon.base', base)
           server.persistentData.putString('ttl.dwargon.gate', `${self.GATE.x + 0.5} ${gy} ${self.GATE.z + 0.5}`)
+          TtlDwargonGazel.replace(server)
         }
         console.info(`[ttl] dwargon placed: corner ${b.x0} ${base} ${b.z0}, gate at ${self.GATE.x} ${gy} ${self.GATE.z} (version ${TTL_DWARGON_VERSION}, terrain ${ok ? 'done' : 'FAILED'})`)
         done(ok)
       })
     }
     placeNext()
+  },
+
+  royalBanners(server, b, base) {
+    var n = 0
+    var self = this
+    TtlDwargonRoyal.banners.forEach(e => {
+      if (self.run(server, `data merge block ${b.x0 + e[0]} ${base + e[1]} ${b.z0 + e[2]} {patterns:${e[3]}}`) > 0) n++
+    })
+    console.info(`[ttl] dwargon: ${n}/${TtlDwargonRoyal.banners.length} throne room banners patterned`)
   },
 
   schedule(server) {
@@ -235,8 +251,57 @@ const TtlDwargon = {
   }
 }
 
+const TtlDwargonGazel = {
+  TAG: 'ttl_gazel',
+  NBT: '{NoAI:1b,Invulnerable:1b,Silent:1b,PersistenceRequired:1b,Phase:0,Owner:[I;0,0,0,1],' +
+    'Rotation:[0f,0f],Tags:["ttl_gazel"]}',
+
+  // World position of the seat, or null while Dwargon (this version) is not placed.
+  seat(server) {
+    var pd = server.persistentData
+    if (pd.getInt('ttl.dwargon.version') !== TTL_DWARGON_VERSION) return null
+    var b = TtlDwargon.box()
+    var g = TtlDwargonRoyal.gazel
+    return `${b.x0 + g[0]} ${pd.getInt('ttl.dwargon.base') + g[1]} ${b.z0 + g[2]}`
+  },
+
+  find(server) {
+    var found = []
+    var tag = this.TAG
+    server.getLevel(TtlLife.OVERWORLD).getEntities().forEach(e => {
+      if (e.isAlive() && e.getTags().contains(tag)) found.push(e)
+    })
+    return found
+  },
+
+  // Exactly one Gazel, only while his throne is loaded (never summoned into an unloaded chunk).
+  ensure(server) {
+    var pos = this.seat(server)
+    if (pos === null) return
+    var found = this.find(server)
+    found.slice(1).forEach(e => e.discard())
+    if (found.length > 0) return
+    var r = TtlDwargon.run(server, `execute if loaded ${pos} run summon tensura:gazel_dwargo ${pos} ${this.NBT}`)
+    if (r > 0) console.info(`[ttl] dwargon: King Gazel seated at ${pos}`)
+  },
+
+  replace(server) {
+    this.find(server).forEach(e => e.discard())
+    this.ensure(server)
+  }
+}
+
 ServerEvents.loaded(event => {
   var server = event.server
+  var check = () => {
+    try {
+      TtlDwargonGazel.ensure(server)
+    } catch (e) {
+      console.error(`[ttl] dwargon gazel check failed: ${e}`)
+    }
+    server.scheduleInTicks(600, check)
+  }
+  server.scheduleInTicks(100, check)
   if (server.persistentData.getInt('ttl.dwargon.version') === TTL_DWARGON_VERSION) return
   TtlDwargon.schedule(server)
 })

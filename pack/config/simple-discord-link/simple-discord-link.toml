@@ -10,8 +10,10 @@
 # primitives). Keep general.configVersion at the mod's own value (37 for 3.4.5): a lower number runs sdlink's
 # config migration, which writes a plaintext .old backup. After a sdlink update, compare with a fresh default.
 #
-# Our story events (Life 1 death, rebirth, Legend, boss kills) come from kubejs/server_scripts/ttl/discord.js
-# as CUSTOM messages (messageDestinations.custom). Test bots (TtlBot*) are filtered out ([filtering]).
+# Our story events (Life 1 death, rebirth, Legend, boss kills, awakenings, the weekly Hall of Souls) come from
+# kubejs/server_scripts/ttl/discord.js and ttl/discord/*.js as CUSTOM messages (messageDestinations.custom →
+# #story). Roles and the #leaderboard message go through sdlink's JDA directly (ttl/discord/bridge.js).
+# Test bots (TtlBot*) are filtered out ([filtering]).
 
 #General Mod Config
 [general]
@@ -95,7 +97,9 @@
 #Configure which types of messages are delivered to Minecraft/Discord
 [chat]
 	#Use linked account names in Discord/Minecraft messages, instead of the default ones
-	useLinkedNames = false
+	# OCS: on, so Discord ?commands run under the sender's linked Minecraft name (discord/report.js needs it).
+	# Nicknames already equal Minecraft names (accessControl.changeDiscordNickname), so chat looks the same.
+	useLinkedNames = true
 	#Use linked account avatar in Discord messages, instead of custom avatar
 	useLinkedAvatar = false
 	#Show the discord name, username and role of the user that sent a message in Minecraft when the message is hovered
@@ -336,21 +340,39 @@
 		roleDenied = "Sorry, but you are not allowed to access this server."
 
 #Execute Minecraft commands in Discord
+# OCS: Discord ?commands, only in #ideas-and-feedback and #logging-and-server-notifactions. sdlink matches a
+# command against each list with startsWith and then runs it with full permissions, so every entry is an exact,
+# read-only command (or a script command that only does one safe thing): never add stop/op/ban/whitelist/
+# "ttl reset"/"ttl registry" (its prefix also covers "ttl registry free"). There is no confirm step.
+# Role match: sdlink takes the member's HIGHEST role that has an entry, so "modder" must sit above "Linked" in
+# Server Settings → Roles (its list repeats the Linked commands). A role value must be a numeric ID ("0" would
+# mean everyone). Scripts: kubejs/server_scripts/ttl/discord/report.js, hall.js, roles.js; docs/server.md.
 [minecraftCommands]
 	#Allow executing Minecraft commands from Discord
-	enabled = false
+	enabled = true
 	#Command Prefix. For example ?weather clear
 	prefix = "?"
 	#Should command replies be deleted automatically or not
-	keepReplies = false
+	keepReplies = true
 	#Should the original message that was sent to trigger the command be deleted automatically or not
-	keepOriginal = false
+	keepOriginal = true
 	#Should error messages be sent for invalid, or disallowed commands
 	outputInvalid = true
 	#You can leave this empty, or enter the channel ID's (surrounded by "") of channels where linked commands can be used
-	allowedChannels = []
+	allowedChannels = ["1572396138865230004", "1572376593744269503"]
+
 	#List of command permissions
-	permissions = []
+	# Linked members: ?bugreport <text> (becomes a GitHub issue, see report.js) and ?ttl top (the standings).
+	[[minecraftCommands.permissions]]
+		role = "1572399928888787015"
+		commands = ["bugreport ", "ttl top"]
+		permissionLevel = 0
+
+	# Staff: the "modder" role (sdlink only accepts numeric role IDs here, not names).
+	[[minecraftCommands.permissions]]
+		role = "1572392754799968377"
+		commands = ["bugreport ", "ttl top", "list", "neoforge tps", "ttl inspect ", "ttl spawn", "ttl staff ", "ttl recap preview", "ttl discordroles "]
+		permissionLevel = 0
 
 #Configure message/username filtering for discord messages
 [filtering]
