@@ -4,14 +4,19 @@
 // player stands in one of its regions: each poll rolls chance x elapsed minutes / 1440 per player (x path_mult for the
 // player's story path). A hit picks a surface spot `distance` blocks away (loaded chunk, right surface, inside a listed
 // region, outside Tempest's safe zone and every placed build) and summons the boss through TtlBoss.summon with
-// {wild: true, skipGate: ignore_requires}. The boss cooldown still applies. A wild boss answers everyone and is announced
-// (title, chat, Discord #story); a wild kill pays rep and coins x rewards_mult (boss.js finish).
+// {wild: true, skipGate: ignore_requires}. Wild and story are separate (world-state.md H3, WP-W2): a wild boss never reads
+// or writes the per-party story cooldown, a story fight of the same boss never blocks the roll and a wild one never blocks
+// the story fight; only another wild instance of the same id, max_active and the framework's max_instances do. A wild boss
+// answers everyone and is announced (title, chat, Discord #story); a wild kill pays rep and coins x rewards_mult (boss.js
+// finish) and stamps no cooldown. Only on the continent: the spot must lie in one of the boss's canon regions (outside the
+// coast the mods' own spawns rule, boss.js checkSpawn).
 // The roll is a poll of the event director (events/director.js, no [[event]] entry: it is never scheduled or fired), so one
 // loop owns the timing; it refuses while a timed event with action.boss is active. Caps: max_active wild bosses alive,
-// max_per_day starts per Brussels day, min_gap_hours between starts, per boss `cap` per day and `cooldown_hours`.
+// max_per_day starts per Brussels day, min_gap_hours between starts, per boss `cap` per day and `cooldown_hours` (hours
+// between two wild starts of the boss; default its story cooldown_hours).
 // Server persistentData `ttl.boss.wild` JSON {day, n, last, per: {id: {n, t}}} (starts today, last start, per boss starts
-// today and last start). Ops: `/ttl boss wild roll <id> [player]` (no chance, region or weather; the caps for active bosses and
-// the cooldown still apply; not counted in the day caps) and `/ttl boss wild` (state).
+// today and last start). Ops: `/ttl boss wild roll <id> [player]` (no chance, region, weather or wild cooldown; the caps for
+// active bosses still apply; not counted in the day caps) and `/ttl boss wild` (state).
 const TtlWild = {
   lastPoll: 0,
   hm: undefined,
@@ -90,12 +95,11 @@ const TtlWild = {
   // Why no wild boss may start at all right now, or ''. Manual rolls (ops) skip the schedule rules.
   globalBlock(server, manual, now) {
     var c = this.conf()
-    var active = TtlBoss.load(server)
-    var out = 0
-    for (var k in active) {
-      if (active[k].wild) out++
-    }
+    var list = TtlBoss.instances(server)
+    var out = list.filter(r => r.wild).length
     if (out >= c.maxActive) return `${out} wild boss${out === 1 ? '' : 'es'} already roaming (max_active ${c.maxActive})`
+    var fw = TtlBoss.conf()
+    if (fw.maxInstances > 0 && list.length >= fw.maxInstances) return `${list.length} bosses are out across the world (max_instances ${fw.maxInstances})`
     if (manual) return ''
     if (!c.enabled) return 'wild bosses are switched off'
     try {
@@ -118,20 +122,19 @@ const TtlWild = {
   // Why this boss may not start in the wild right now, or ''.
   bossBlock(server, def, manual, now) {
     if (def.proxy && !TtlBoss.conf().proxies) return `${def.title} is a proxy boss and proxy_bosses is off`
-    var active = TtlBoss.load(server)
-    for (var k in active) {
-      if (active[k].id === def.id) return `${def.title} is already out there`
+    // Only another WILD instance of this boss blocks it: a story fight of the same boss is a different thing.
+    var list = TtlBoss.instances(server)
+    for (var k = 0; k < list.length; k++) {
+      if (list[k].id === def.id && list[k].wild) return `${def.title} is already ${list[k].pending ? 'being summoned' : 'out there'} (wild)`
     }
-    if (TtlBoss.pending[def.id]) return `${def.title} is already being summoned`
-    var left = TtlBoss.cooldownLeft(server, def)
-    if (left > 0) return `${def.title} is on cooldown for another ${Math.ceil(left / 60000)} minutes`
     if (manual) return ''
     var st = this.state(server, now)
     var per = st.per[def.id] || { n: 0, t: 0 }
     var cap = def.wild.cap === undefined ? 1 : Number(def.wild.cap)
     if (per.n >= cap) return `${def.id} already had ${per.n} wild start${per.n === 1 ? '' : 's'} today`
-    if (def.wild.cooldown_hours !== undefined && now - per.t < Number(def.wild.cooldown_hours) * 3600000) {
-      return `${def.id} had a wild start ${Math.round((now - per.t) / 3600000)} hours ago (wild cooldown_hours)`
+    var cdh = def.wild.cooldown_hours !== undefined ? Number(def.wild.cooldown_hours) : Number(def.cooldown_hours) || 0
+    if (per.t && now - per.t < cdh * 3600000) {
+      return `${def.id} had a wild start ${Math.round((now - per.t) / 3600000)} hours ago (wild cooldown ${cdh} h)`
     }
     return ''
   },
@@ -276,6 +279,7 @@ const TtlWild = {
       var z = Math.floor(player.getZ() + Math.sin(ang) * dist)
       var region = this.regionOf(x, z)
       if (!manual && (!region || w.regions.indexOf(region.key) < 0)) continue
+      if (TtlBoss.outside(TtlLife.OVERWORLD, x, z)) continue
       if (this.protectedSpot(server, x, z)) continue
       var s = this.surface(level, x, z)
       if (!s.known) {
@@ -399,11 +403,7 @@ const TtlWild = {
     var now = Date.now()
     var c = this.conf()
     var st = this.state(server, now)
-    var active = TtlBoss.load(server)
-    var out = 0
-    for (var k in active) {
-      if (active[k].wild) out++
-    }
+    var out = TtlBoss.instances(server).filter(r => r.wild).length
     var lines = [`wild: ${c.enabled ? 'on' : 'OFF'}, ${out}/${c.maxActive} roaming, ${st.n}/${c.maxPerDay} starts today, distance ${c.lo}-${c.hi}, gap ${c.gapMs / 3600000} h`]
     var block = this.globalBlock(server, false, now)
     if (block) lines.push(`wild: no start possible now: ${block}`)

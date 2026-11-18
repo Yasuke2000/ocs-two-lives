@@ -3,7 +3,8 @@
 # "boss wild <id>: refused: ..." for a refusal; that is a plain line, not a failure.
 # The natural roll (per-minute chance in a listed region) cannot be asserted in a short test: it is covered by `chance`/`wildregion`
 # here and by the log line "[ttl] boss: wild <id> near <player> in <region>" when it fires for real. A manual roll skips the
-# chance, region, weather and day caps but keeps the boss cooldown, max_active and "already out there".
+# chance, region, weather, day caps and the wild cooldown but keeps max_active, max_instances and "already out there" (wild).
+# Wild and story are separate (WP-W2): a story fight never blocks the roll and the roll never touches a party's cooldown.
 # Expect in the log: "[ttl] boss: wild shizu near TtlBotWildA in ..." (region name, or "uncharted land"), "[ttl] boss: shizu
 # summoned (wild) (hp ...)", "[ttl] events: registered wild_boss" at start-up, and the announce line "A calamity stirs: Shizu, the
 # Flame Tyrant roams ..." in chat for the Life 2 bot. Needs the Tensura world (the Overworld) and the event director (WP7).
@@ -14,7 +15,7 @@ kubejs stages add TtlBotWildA ttl.life2
 ttl boss reset TtlBotWildA
 ttl boss abort
 @sleep 2
-# A boss killed shortly before (bosses.rcon) is on cooldown and blocks its wild roll.
+# Tidy up after bosses.rcon (a story cooldown no longer blocks a wild roll; the clears only leave a known state).
 ttl boss cooldown clear orc_lord
 ttl boss cooldown clear shizu
 ttl events expect registered wild_boss true
@@ -65,10 +66,29 @@ ttl boss summon shizu
 ttl boss expect TtlBotWildA active shizu yes
 ttl boss expect TtlBotWildA wild shizu no
 ttl boss expect TtlBotWildA wildblock orc_lord no
+# A story Shizu at Tempest does not block a wild Shizu (world-state.md H3): the roll starts and both are out at once.
+ttl boss expect TtlBotWildA wildblock shizu no
+ttl boss wild roll shizu TtlBotWildA
+@sleep 6
+ttl boss expect TtlBotWildA wild shizu yes
+ttl boss expect TtlBotWildA story shizu yes
+ttl boss list
 ttl boss abort shizu
 @sleep 2
 # The fixed spawn stays: the summoned Shizu stood at Tempest's arena, the wild one near the bot (the log lines show both).
 ttl boss expect TtlBotWildA active shizu no
+# The continent line (world-state.md §2.0): beyond the canon coast the mods' own spawns rule. Nothing of ours is summoned there
+# (an ops summon is refused), no wild region reaches it, and block_natural does not cancel a natural boss spawn there (the log
+# then says "spawn type=...: allowed (outside the continent)"; a natural spawn cannot be forced in a short test).
+execute in minecraft:overworld run tp TtlBotWildA 9000 120 0
+@sleep 2
+ttl boss expect TtlBotWildA continent here no
+ttl boss expect TtlBotWildA summonhere orc_lord no
+ttl boss expect TtlBotWildA wildregion orc_lord no
+execute in minecraft:overworld run tp TtlBotWildA 600 120 600
+@sleep 2
+ttl boss expect TtlBotWildA continent here yes
+ttl boss expect TtlBotWildA summonhere orc_lord yes
 # Clean up.
 ttl boss abort
 ttl boss reset TtlBotWildA

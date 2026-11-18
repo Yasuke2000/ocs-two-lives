@@ -62,14 +62,36 @@ ids = [
 #   proxy_bosses       = false switches every `proxy = true` boss off (summon refused, no wild roll). Owner decision O3
 #                        (recommendation: on): a character no mod ships (Clayman) is a lore-named proxy on a mob entity.
 #
+# Instancing (design/architecture/world-state.md §7.1, WP-W2; owner decision O-W1: per-party cooldown + arena queue).
+# Nothing here is ever server-wide: one party's kill never locks another party out.
+#   cooldown_scope     = "party": a party (raid group, FTB party, or the soul alone) may not summon a boss again while ANY
+#                        member defeated it in a story fight less than its cooldown_hours ago (per-soul stamps
+#                        ttl.boss.lastkill; offline members count). "server" = the old single server-wide stamp (rollback).
+#   arena_gap_minutes  = after a story defeat its arena rests this long before the next summon (ops skip it)
+#   max_instances      = story + wild bosses alive at once in the whole world (a summon beyond it waits in the queue)
+#   max_per_party      = live story bosses one summoning party may have out at once (refused, not queued)
+#   queue_ttl_minutes  = a busy or resting arena queues the summoner's party (place + ETA); when it frees, the head of the
+#                        line is told and the arena is held for it this long
+#   fight_estimate_minutes = the length of one fight in the ETA a queued party is told (a guess, nothing waits on it)
+#   echo_prefix        = boss bar / name prefix of an ECHO: a fight against a boss the world has already seen fall (the
+#                        chronicle's firsts). Same numbers, framed as a memory; wild bosses are never echoes.
+#   echo_hp_mult       = health multiplier of an echo, only for a party whose highest act is below the boss's act
+#                        (story.toml unlock_bosses)
+# The continent line (world-state.md §2.0, R11, owner decision 18/11/2026): outside the canon continent (the Overworld
+# beyond the coast and its near-coast water) none of this applies: block_natural does not cancel anything there, a
+# summon there is refused ("the mod's own spawns rule there"), and the mods' bosses spawn and die as shipped.
+#
 # [wild] knobs (bosses/wild.js; one poll of the event director, events/director.js, owns the timing)
 #   enabled         = the wild roll on/off (`/ttl boss wild roll` still works for ops)
-#   max_active      = wild bosses alive at once (bosses summoned by a quest or altar are not counted)
+#   max_active      = wild bosses alive at once (bosses summoned by a quest or altar are not counted; [framework]
+#                     max_instances still caps everything)
 #   max_per_day     = wild starts per Brussels day, min_gap_hours between two starts
 #   require_players = Life 2 players inside a boss's listed regions before its roll counts (each one rolls separately)
 #   distance        = [min, max] blocks from the chosen player, on the surface (a loaded chunk, no water unless the boss says)
 #   idle_minutes    = a wild boss nobody comes to is removed after this long (default: the framework idle_minutes)
-#   ignore_requires = a wild boss answers everyone: skips `requires` and `spawn.stages` (the boss cooldown still applies)
+#   ignore_requires = a wild boss answers everyone: skips `requires` and `spawn.stages`. Wild and story are separate: no
+#                     party cooldown is read or stamped, a story fight of the same boss never blocks the roll (and a wild
+#                     one never blocks the story fight)
 #   rewards_mult    = multiplies the rep and coins of a wild kill (the Skill Core never)
 #   announce        = title + chat line to Life 2 players and a Discord #story line when a wild boss appears
 #   life2_only      = only Life 2 players count for the roll (and never a test bot)
@@ -89,8 +111,11 @@ ids = [
 #               Without an arena it is summoned where the command or altar says (`/ttl boss summon <id> <x y z>`,
 #               or at the player who runs it).
 #   spawn     = { kind, at, stages }: the fixed encounter. kind = quest (a quest command reward or `/ttl story fight <id>`
-#               calls TtlBoss.summon with the player), altar (an NPC or statue dialog calls it), statue (attacking a tame
-#               statue swaps it for the boss: Gazel), event (the event director or a script, e.g. the Falmuth invasion).
+#               calls TtlBoss.summon with the player), altar (an NPC or statue dialog calls it), statue (a seated statue
+#               stands for the boss: Gazel), event (the event director or a script, e.g. the Falmuth invasion).
+#               statue = the entity tag of the seated statue (kind = statue only): while a story instance of the boss is
+#               out, the statue steps aside (removed at the summon; its keeper, life/dwargon.js, does not re-seat it until
+#               the fight is over).
 #               at = the arena of this encounter, same shapes as `arena` plus { build = "<design/builds name>" }: the anchor
 #               of the placed build (its recorded position, else the canon x/z), no radius. Default: `arena`.
 #               stages = stages the SUMMONER must hold in addition to `requires` (never ttl.path.*: anyone may fight).
@@ -103,7 +128,7 @@ ids = [
 #                         ttl.path.<x>); default 1
 #               weather = any | thunder | rain, time = any | night | day, biomes = ids the spot must be in (empty = any)
 #               surface = land (default: dry ground) | water (a lake or sea surface) | any
-#               cooldown_hours = minimum hours between two wild starts of this boss (default: only the boss cooldown)
+#               cooldown_hours = minimum hours between two wild starts of this boss (default: its cooldown_hours)
 #               cap = wild starts of this boss per day (default 1)
 #   kill_rep  = { <faction> = n, flag = "<story flag>", unless_flag = "<story flag>" } applied to everyone credited with the
 #               kill, on top of rewards (a regicide costs rep even for a light player). The ONE source of kill costs: with
@@ -118,7 +143,8 @@ ids = [
 #   rewards   = { rep = { <faction> = n }, coins = { bronze|silver|gold|stellar_gold = n }, core = true (tier 3+ only) }
 #               rep goes through `/ttl rep add <player> <faction> <n>` (rep/rep.js, S3: silent until that exists)
 #   drops     = [{ item, count, chance }] extra loot on top of the entity's own table (bosses/loot.js, LootJS)
-#   cooldown_hours = a summon through TtlBoss.summon is refused this long after the last defeat (ops bypass it)
+#   cooldown_hours = a party may not summon the boss again this long after one of its members defeated it in a story
+#               fight (cooldown_scope; ops bypass it). Also the default hours between two wild starts of the boss.
 #
 # Wild odds are the owner-decision O7 starting values (T1 3 %/day ... T4 0.1 %/day, Hinata x3 for dark-path players); tune
 # them after two weeks of #story data. Spirits of the Dwelling, Gazel and Rimuru have no wild spawn (chance 0 or no table).
@@ -132,6 +158,14 @@ untame = true
 party_credit_range = 2.0
 core_per_party = 1
 proxy_bosses = true
+cooldown_scope = "party"
+arena_gap_minutes = 10
+max_instances = 4
+max_per_party = 1
+queue_ttl_minutes = 20
+fight_estimate_minutes = 15
+echo_prefix = "Echo · "
+echo_hp_mult = 0.85
 
 [wild]
 enabled = true
@@ -398,7 +432,8 @@ phases = [
 ]
 rewards = { coins = { gold = 10 }, core = true }
 
-# Separate from the throne Gazel of life/dwargon.js (that one has its own tag and is not a boss fight). A king does not
+# Separate from the throne Gazel of life/dwargon.js (tag ttl_gazel, not a boss fight): he steps aside while this fight is
+# out (spawn.statue) and is seated again by dwargon.js within 30 s of its end. A king does not
 # wander: no wild spawn (chance 0, the knob stays). Regicide costs Dwargon rep, even for a light player; the honour duel
 # of the story (a summon with opts.duel) does not.
 [[boss]]
@@ -406,7 +441,7 @@ id = "gazel_dwargo"
 entity = "tensura:gazel_dwargo"
 tier = 3
 title = "Gazel Dwargo, the Dwarf King"
-spawn = { kind = "statue", at = { x = 435, z = -1106, radius = 40 } }
+spawn = { kind = "statue", at = { x = 435, z = -1106, radius = 40 }, statue = "ttl_gazel" }
 wild = { chance_per_day = 0.0, regions = ["D"] }
 kill_rep = { dwargon = -60, flag = "regicide", unless_flag = "honour_duel" }
 hp_mult = 4.0

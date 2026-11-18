@@ -278,6 +278,8 @@ const TtlDwargonGazel = {
   ensure(server) {
     var pos = this.seat(server)
     if (pos === null) return
+    // WP-W2: the seated king steps aside while his fight (bosses.toml gazel_dwargo, spawn.kind statue) is out.
+    try { if (typeof TtlBoss !== 'undefined' && typeof TtlBoss.statueAside === 'function' && TtlBoss.statueAside(server, 'gazel_dwargo')) { this.find(server).forEach(e => e.discard()); return } } catch (e) { console.error(`[ttl] dwargon: asking the boss framework about Gazel's fight failed: ${e}`) }
     var found = this.find(server)
     found.slice(1).forEach(e => e.discard())
     if (found.length > 0) return

@@ -8,14 +8,27 @@
 //       /ttl boss wild roll <id> [player]   start a wild boss near the player (default: you) now: no chance, region, weather or day cap, but
 //                                       the boss cooldown, max_active and "already out there" still refuse (printed, not an error)
 //       /ttl boss testparty set <a> <b> [c]   test hook: these players are one party for boss credit (test bots then count); `clear` ends it
-//       /ttl boss abort [id]            remove a summoned boss (or all) without rewards
-//       /ttl boss reset <player>        forget the player's boss stages (ttl.boss.t1-t4, ttl.defeated.<id>) and kill counts
-//       /ttl boss cooldown clear <id|all>   forget when the boss last fell (its cooldown ends now; tests leave no cooldown behind)
+//       /ttl boss abort [id]            remove a summoned boss (or all) without rewards (a freed arena goes to the head of its queue)
+//       /ttl boss reset <player>        forget the player's boss stages (ttl.boss.t1-t4, ttl.defeated.<id>), kill counts and cooldown stamps
+//       /ttl boss cooldown clear <id|all>   forget the boss's per-party cooldown stamps (every soul) and its arena gaps (tests leave
+//                                       no cooldown behind)
+//       /ttl boss arena clear <id|all>  forget the arena gaps a boss left and its queue (the party stamps stay)
+//       /ttl boss queue [id]            who waits for which arena (place, party, held or waiting); `queue clear [id]` empties it
+//       /ttl boss testecho set <id> | clear   test hook: the boss counts as already fallen in the world (its fights are echoes)
 //       /ttl boss expect <player> stage <t1|t2|t3|t4|none> <yes|no>   test assertion: prints "ttl: ..." when it does not hold
 //       /ttl boss expect <player> defeated <id> <yes|no>              the stage ttl.defeated.<id>
 //       /ttl boss expect <player> kills <id> <n>
 //       /ttl boss expect <player> active <id> <yes|no>                whether a summoned boss of that id is out
-//       /ttl boss expect <player> cooldown <id> <yes|no>              whether the id is still on cooldown
+//       /ttl boss expect <player> cooldown <id> <yes|no>              whether the player's PARTY is on cooldown for the id (any
+//                                                                     member's stamp; cooldown_scope server: the old global stamp)
+//       /ttl boss expect <player> busy <id> <yes|no>                  whether the boss's arena is busy, settling or held for others
+//       /ttl boss expect <player> queued <id> <yes|no>                whether the player's party waits in the boss's queue
+//       /ttl boss expect <player> ready <id> <yes|no>                 whether the arena is held for the player's party now
+//       /ttl boss expect <player> cansummon <id> <yes|no>             dry run of the player summoning the boss at its arena (every rule)
+//       /ttl boss expect <player> summonhere <id> <yes|no>            dry run of an ops summon at the player's position (continent line)
+//       /ttl boss expect <player> continent here <yes|no>             whether the player stands on the canon continent
+//       /ttl boss expect <player> story <id> <yes|no>                 whether a story (not wild) instance of that id is out
+//       /ttl boss expect <player> echo <id> <yes|no>                  whether an out-there instance of that id is an echo
 //       /ttl boss expect <player> gate <id> <yes|no>                  whether the player may summon the boss (cooldown ignored; requires + spawn.stages)
 //       /ttl boss expect <player> spawn <id> <kind|none>              the fixed spawn kind (quest, altar, statue, event)
 //       /ttl boss expect <player> wild <id> <yes|no>                  whether an out-there instance of that id came from the wild roll
@@ -66,9 +79,12 @@ ServerEvents.commandRegistry(event => {
     TtlBoss.defs().forEach(def => {
       var out = []
       for (var k in active) {
-        if (active[k].id === def.id) out.push(`${k} ${active[k].state} at ${active[k].dim} ${Math.floor(active[k].x)} ${Math.floor(active[k].y)} ${Math.floor(active[k].z)}`)
+        if (active[k].id === def.id) out.push(`${k}${active[k].wild ? ' wild' : ''}${active[k].echo ? ' echo' : ''} ${active[k].state} at ${active[k].dim} ${Math.floor(active[k].x)} ${Math.floor(active[k].y)} ${Math.floor(active[k].z)}`)
       }
       var cd = Math.ceil(TtlBoss.cooldownLeft(server, def) / 60000)
+      var spot = TtlBoss.arenaOf(server, def, {})
+      var gap = typeof spot === 'string' ? 0 : Math.ceil(TtlBoss.arenaGapLeft(server, TtlBoss.arenaKey(spot)) / 60000)
+      var waiting = (TtlBoss.queueLoad(server)[def.id] || []).length
       var where = (def.spawn && def.spawn.at) || def.arena
       var place = ''
       if (where) {
@@ -77,7 +93,7 @@ ServerEvents.commandRegistry(event => {
       var kind = def.spawn ? ` ${def.spawn.kind}${place}` : place ? ` arena${place}` : ' wild only'
       var req = (def.requires || []).concat((def.spawn && def.spawn.stages) || [])
       var wild = def.wild && Number(def.wild.chance_per_day) > 0 ? ` wild ${Math.round(Number(def.wild.chance_per_day) * 10000) / 100}%/day in ${def.wild.regions.join('')}` : ''
-      say(ctx, `T${def.tier} ${def.id} (${def.entity}${def.proxy ? ', proxy' : ''}) "${def.title}"${kind}${req.length ? ` needs ${req.join(',')}` : ''}${wild}${out.length ? ` OUT: ${out.join('; ')}` : ''}${cd > 0 ? ` cooldown ${cd} min` : ''}`)
+      say(ctx, `T${def.tier} ${def.id} (${def.entity}${def.proxy ? ', proxy' : ''}) "${def.title}"${kind}${req.length ? ` needs ${req.join(',')}` : ''}${wild}${out.length ? ` OUT: ${out.join('; ')}` : ''}${cd > 0 ? ` cooldown ${cd} min` : ''}${gap > 0 ? ` arena settles ${gap} min` : ''}${waiting ? ` queue ${waiting}` : ''}`)
     })
     return 1
   }
@@ -96,6 +112,11 @@ ServerEvents.commandRegistry(event => {
     TtlBoss.defs().forEach(def => target.stages.remove(`ttl.defeated.${def.id}`))
     target.persistentData.remove('ttl.boss.kills')
     target.persistentData.remove('ttl.boss.core.owed')
+    target.persistentData.remove('ttl.boss.lastkill')
+    var server = ctx.source.getServer()
+    var stamps = TtlBoss.readJson(server, 'ttl.boss.lastkill', {})
+    delete stamps[TtlBoss.uid(target)]
+    TtlBoss.writeJson(server, 'ttl.boss.lastkill', stamps)
     say(ctx, `boss: forgot the boss record of ${target.username}`)
     return 1
   }
@@ -157,6 +178,65 @@ ServerEvents.commandRegistry(event => {
 
   var yesno = v => (v ? 'yes' : 'no')
 
+  var queueStatus = withId => ctx => {
+    var server = ctx.source.getServer()
+    var only = withId ? arg(ctx, 'id').toLowerCase() : ''
+    var q = TtlBoss.queueLoad(server)
+    var keys = {}
+    Object.keys(q).forEach(id => q[id].forEach(e => { if (!only || id === only) keys[e.akey] = true }))
+    var n = 0
+    Object.keys(keys).forEach(akey => {
+      TtlBoss.queueOf(server, akey).forEach((e, i) => {
+        if (only && e.boss !== only) return
+        var state = e.ready ? `held for ${Math.ceil((e.ready + TtlBoss.conf().queueTtlMs - Date.now()) / 60000)} min` : `waiting ${Math.round((Date.now() - e.at) / 60000)} min`
+        say(ctx, `queue ${akey} #${i + 1}: ${e.boss} for the party of ${e.by} (${e.party}), ${state}`)
+        n++
+      })
+    })
+    if (n === 0) say(ctx, `queue: nobody waits${only ? ` for ${only}` : ''}`)
+    return 1
+  }
+
+  var queueClear = withId => ctx => {
+    var server = ctx.source.getServer()
+    var id = withId ? arg(ctx, 'id').toLowerCase() : ''
+    var q = TtlBoss.queueLoad(server)
+    if (id) delete q[id]
+    else q = {}
+    TtlBoss.queueSave(server, q)
+    console.info(`[ttl] boss: queue cleared${id ? ` for ${id}` : ''}`)
+    say(ctx, `boss: queue cleared${id ? ` for ${id}` : ''}`)
+    return 1
+  }
+
+  var arenaClear = ctx => {
+    var server = ctx.source.getServer()
+    var id = arg(ctx, 'id').toLowerCase()
+    if (id !== 'all' && !TtlBoss.def(id)) throw `unknown boss ${id}`
+    TtlBoss.clearArena(server, id === 'all' ? '' : id)
+    console.info(`[ttl] boss: arena gaps and queue cleared for ${id}`)
+    say(ctx, `boss: arena gaps and queue cleared for ${id}`)
+    return 1
+  }
+
+  var testEcho = ctx => {
+    var server = ctx.source.getServer()
+    var id = arg(ctx, 'id').toLowerCase()
+    if (!TtlBoss.def(id)) throw `unknown boss ${id}`
+    var list = TtlBoss.readJson(server, 'ttl.boss.testecho', [])
+    if (!Array.isArray(list)) list = []
+    if (list.indexOf(id) < 0) list.push(id)
+    TtlBoss.writeJson(server, 'ttl.boss.testecho', list)
+    say(ctx, `boss: ${id} counts as already fallen (test echo)`)
+    return 1
+  }
+
+  var testEchoClear = ctx => {
+    ctx.source.getServer().persistentData.remove('ttl.boss.testecho')
+    say(ctx, 'boss: test echoes cleared')
+    return 1
+  }
+
   var expect = ctx => {
     var server = ctx.source.getServer()
     var target = Arguments.PLAYER.getResult(ctx, 'target')
@@ -181,7 +261,38 @@ ServerEvents.commandRegistry(event => {
     } else if (field === 'cooldown') {
       var def = TtlBoss.def(a)
       if (!def) throw `unknown boss ${a}`
-      got = yesno(TtlBoss.cooldownLeft(server, def) > 0)
+      got = yesno(TtlBoss.cooldownLeft(server, def, target) > 0)
+    } else if (field === 'busy') {
+      var bd = TtlBoss.def(a)
+      if (!bd) throw `unknown boss ${a}`
+      var bpos = TtlBoss.arenaOf(server, bd, {})
+      if (typeof bpos === 'string') throw bpos
+      got = yesno(!!TtlBoss.arenaBlock(server, bd, bpos, TtlBoss.arenaKey(bpos), TtlBoss.partyKey(server, target), false))
+    } else if (field === 'queued' || field === 'ready') {
+      if (!TtlBoss.def(a)) throw `unknown boss ${a}`
+      var qe = TtlBoss.queueEntry(server, a, TtlBoss.partyKey(server, target).id)
+      got = yesno(!!qe && (field === 'ready' ? !!qe.ready : !qe.ready))
+    } else if (field === 'cansummon') {
+      if (!TtlBoss.def(a)) throw `unknown boss ${a}`
+      var dry = TtlBoss.plan(server, a, { summoner: target })
+      if (dry.error) say(ctx, `boss ${target.username}: ${a} would be refused: ${dry.error}`)
+      got = yesno(!dry.error)
+    } else if (field === 'summonhere') {
+      if (!TtlBoss.def(a)) throw `unknown boss ${a}`
+      var here = TtlBoss.plan(server, a, { force: true, dim: String(target.level.dimension), x: Math.floor(target.getX()), y: Math.floor(target.getY()), z: Math.floor(target.getZ()) })
+      if (here.error) say(ctx, `boss ${target.username}: ${a} here would be refused: ${here.error}`)
+      got = yesno(!here.error)
+    } else if (field === 'continent') {
+      if (a !== 'here') throw 'use: expect <player> continent here <yes|no>'
+      got = yesno(TtlBoss.onContinent(String(target.level.dimension), target.getX(), target.getZ()))
+    } else if (field === 'story' || field === 'echo') {
+      var st = TtlBoss.load(server)
+      var hit = false
+      for (var k3 in st) {
+        if (st[k3].id !== a) continue
+        if (field === 'story' ? !st[k3].wild : !!st[k3].echo) hit = true
+      }
+      got = yesno(hit)
     } else if (field === 'gate') {
       var gated = TtlBoss.def(a)
       if (!gated) throw `unknown boss ${a}`
@@ -226,7 +337,7 @@ ServerEvents.commandRegistry(event => {
       say(ctx, `boss ${target.username}: cores ${a} = ${b} as expected`)
       return 1
     } else {
-      throw `unknown field ${field} (stage, defeated, kills, active, cooldown, gate, spawn, wild, wildblock, chance, wildregion or cores)`
+      throw `unknown field ${field} (stage, defeated, kills, active, cooldown, busy, queued, ready, cansummon, summonhere, continent, story, echo, gate, spawn, wild, wildblock, chance, wildregion or cores)`
     }
     if (got !== b) throw `${target.username}: expected ${field} ${a} = ${b}, got ${got}`
     say(ctx, `boss ${target.username}: ${field} ${a} = ${b} as expected`)
@@ -268,11 +379,29 @@ ServerEvents.commandRegistry(event => {
             var id = String(Arguments.STRING.getResult(ctx, 'id')).toLowerCase()
             var ids = id === 'all' ? TtlBoss.defs().map(d => d.id) : [id]
             if (id !== 'all' && !TtlBoss.def(id)) throw `unknown boss ${id}`
-            ids.forEach(b => server.persistentData.remove(`ttl.boss.last.${b}`))
+            ids.forEach(b => {
+              TtlBoss.clearCooldown(server, b)
+              var gaps = TtlBoss.readJson(server, 'ttl.boss.arena', {})
+              Object.keys(gaps).forEach(g => { if (gaps[g].id === b) delete gaps[g] })
+              TtlBoss.writeJson(server, 'ttl.boss.arena', gaps)
+            })
             console.info(`[ttl] boss: cooldown cleared for ${id}`)
             ctx.source.sendSystemMessage(Text.of(`boss: cooldown cleared for ${id}`))
             return 1
           })))))
+      .then(Commands.literal('arena')
+        .then(Commands.literal('clear')
+          .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(arenaClear)))))
+      .then(Commands.literal('queue')
+        .executes(logged(queueStatus(false)))
+        .then(Commands.literal('clear')
+          .executes(logged(queueClear(false)))
+          .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(queueClear(true)))))
+        .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(queueStatus(true)))))
+      .then(Commands.literal('testecho')
+        .then(Commands.literal('set')
+          .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(testEcho))))
+        .then(Commands.literal('clear').executes(logged(testEchoClear))))
       .then(Commands.literal('expect')
         .then(Commands.argument('target', Arguments.PLAYER.create(event))
           .then(Commands.argument('field', Arguments.STRING.create(event))

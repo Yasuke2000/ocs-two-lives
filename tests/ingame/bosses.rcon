@@ -2,6 +2,8 @@
 # prints "ttl: ..." when it does not hold (counted as a failure by `server.sh test-all`); `execute if entity` prints
 # "Test passed" / "Test failed". The lines marked FAILS below are expected to say "Test failed".
 # Parts 3 and 4 (spawn conditions, party credit) are the story-characters WP-S3 additions; tests/ingame/wild.rcon covers the wild roll.
+# Part 5 is WP-W2 (world-state.md §7.1): per-party cooldowns, the arena queue, max_per_party, echoes. The cooldown asserted in
+# Part 1 is now the cooldown of the bot's own party (here: the bot alone), never a server-wide one.
 # Part 1 runs in the Spirit Corridor hall (the Mortal Realm blocks Tensura mobs; a Life 1 bot may stand there).
 # Expect in the log: "[ttl] boss: orc_lord summoned (hp ×..., 1 player)", "[ttl] boss: orc_lord awake ...",
 # "[ttl] boss: orc_lord phase 1 at 60% health", "[ttl] boss: orc_lord defeated by TtlBotBoss (no kill credit: ...)".
@@ -170,3 +172,107 @@ ttl boss cooldown clear carrion
 ttlbot remove TtlBotPtyA
 ttlbot remove TtlBotPtyB
 ttlbot remove TtlBotPtyC
+# Part 5: instancing (WP-W2). A and B (a test party) kill the Orc Lord in the Spirit Corridor; C, elsewhere and in no party, is
+# not locked out by it. Expect in the log: "[ttl] boss: gazel_dwargo queue: the party of TtlBotInsC is number 1 for ...",
+# "[ttl] boss: gazel_dwargo queue: the arena ... is free, held for the party of TtlBotInsC", "[ttl] boss: the statue ttl_gazel
+# steps aside for gazel_dwargo (n removed)" and "[ttl] boss: shizu summoned (an echo) (hp ...)".
+ttlbot spawn TtlBotInsA
+ttlbot spawn TtlBotInsB
+ttlbot spawn TtlBotInsC
+@sleep 2
+gamemode creative TtlBotInsA
+gamemode creative TtlBotInsB
+gamemode creative TtlBotInsC
+kubejs stages add TtlBotInsA ttl.life2
+kubejs stages add TtlBotInsB ttl.life2
+kubejs stages add TtlBotInsC ttl.life2
+ttl boss reset TtlBotInsA
+ttl boss reset TtlBotInsB
+ttl boss reset TtlBotInsC
+ttl boss abort
+ttl boss cooldown clear all
+ttl boss arena clear all
+ttl boss testparty set TtlBotInsA TtlBotInsB
+execute in ttl:spirit_corridor run tp TtlBotInsA 0.5 65 0.5
+execute in ttl:spirit_corridor run tp TtlBotInsB 0.5 65 2.5
+execute in minecraft:overworld run tp TtlBotInsC 600 120 600
+execute in ttl:spirit_corridor run ttl boss summon orc_lord 0 66 8
+@sleep 3
+ttl boss expect TtlBotInsA active orc_lord yes
+execute in ttl:spirit_corridor run kill @e[tag=ttl.boss,tag=ttl.bossid.orc_lord]
+@sleep 3
+ttl boss expect TtlBotInsA defeated orc_lord yes
+ttl boss expect TtlBotInsB defeated orc_lord yes
+# The cooldown is the party's: A and B are on it, C (another party) is not, and nothing server-wide stops C.
+ttl boss expect TtlBotInsA cooldown orc_lord yes
+ttl boss expect TtlBotInsB cooldown orc_lord yes
+ttl boss expect TtlBotInsC cooldown orc_lord no
+ttl boss expect TtlBotInsA cansummon orc_lord no
+ttl boss expect TtlBotInsC cansummon orc_lord yes
+# A party is on cooldown while ANY member is: C joins A and inherits it, leaves and is free again.
+ttl boss testparty set TtlBotInsA TtlBotInsC
+ttl boss expect TtlBotInsC cooldown orc_lord yes
+ttl boss testparty clear
+ttl boss expect TtlBotInsC cooldown orc_lord no
+# C alone starts the story fight at the orc camp (ops form: from anywhere). Nobody stands there, so Geld waits asleep.
+ttl story fight orc_lord TtlBotInsC
+@sleep 4
+ttl boss expect TtlBotInsC active orc_lord yes
+ttl boss expect TtlBotInsC story orc_lord yes
+# max_per_party = 1: C's party already has a boss out, so a second one is refused (not queued).
+ttl boss expect TtlBotInsC cansummon shizu no
+ttl boss abort orc_lord
+@sleep 2
+ttl boss expect TtlBotInsC cansummon shizu yes
+# The arena queue: an ops Gazel holds his throne-room arena; C asks for the same fight and is put in line (a plain refusal line
+# with the place and the ETA, not a "ttl:" failure). The seated king steps aside while the fight is out: the next line FAILS
+# (Test failed) whether Dwargon is placed or not; it would pass only if the statue had stayed.
+ttl boss summon gazel_dwargo
+@sleep 4
+ttl boss expect TtlBotInsC active gazel_dwargo yes
+ttl boss expect TtlBotInsC busy gazel_dwargo yes
+execute in minecraft:overworld if entity @e[tag=ttl_gazel]
+ttl story fight gazel_dwargo TtlBotInsC
+ttl boss expect TtlBotInsC queued gazel_dwargo yes
+ttl boss expect TtlBotInsC ready gazel_dwargo no
+ttl boss queue
+# The arena frees: the head of the line is pinged and the arena is held for it (queue_ttl_minutes); A, not in line, must wait.
+ttl boss abort gazel_dwargo
+@sleep 3
+ttl boss expect TtlBotInsC queued gazel_dwargo no
+ttl boss expect TtlBotInsC ready gazel_dwargo yes
+ttl boss expect TtlBotInsA busy gazel_dwargo yes
+ttl boss expect TtlBotInsC busy gazel_dwargo no
+ttl story fight gazel_dwargo TtlBotInsC
+@sleep 4
+ttl boss expect TtlBotInsC active gazel_dwargo yes
+ttl boss expect TtlBotInsC ready gazel_dwargo no
+ttl boss abort gazel_dwargo
+@sleep 2
+# Echo: a boss the world has seen fall (the chronicle's firsts; here the test hook) is fought as an echo, "Echo · " on its name
+# and boss bar. The ops summon has no summoner, so its health is not lowered (echo_hp_mult is for parties behind in the story).
+ttl boss testecho set shizu
+ttl boss summon shizu
+@sleep 4
+ttl boss expect TtlBotInsC echo shizu yes
+ttl boss expect TtlBotInsC story shizu yes
+ttl boss list
+ttl boss abort shizu
+ttl boss testecho clear
+@sleep 2
+ttl boss expect TtlBotInsC active shizu no
+# Clean up.
+ttl boss abort
+ttl boss queue clear
+ttl boss arena clear all
+ttl boss cooldown clear all
+ttl boss testparty clear
+ttl boss reset TtlBotInsA
+ttl boss reset TtlBotInsB
+ttl boss reset TtlBotInsC
+kubejs stages remove TtlBotInsA ttl.life2
+kubejs stages remove TtlBotInsB ttl.life2
+kubejs stages remove TtlBotInsC ttl.life2
+ttlbot remove TtlBotInsA
+ttlbot remove TtlBotInsB
+ttlbot remove TtlBotInsC
