@@ -15,6 +15,12 @@ Wayfarer's Rest: where every new soul starts Life 1 in the Mortal Realm (a humbl
 
 ![mortal_spawn](mortal_spawn-iso.png) ![mortal_spawn from above](mortal_spawn-top.png)
 
+## sealed_cave
+
+The Sealed Cave: Veldora's prison and Rimuru's birthplace, in the Great Jura Forest (Life 2 canon landmark). SIZE (88, 50, 88). Ground layer y 4 (grass, dirt and stone below), you walk at y 5. A rocky, mossy hill (about 70 blocks across, up to 28 above the ground) rises from a forest clearing with the cave mouth in its south face; everything above the ground layer that is not rock is air, so placement clears trees and hills inside the box. Arrival point: blueprint (44, 5, 82), the path outside the mouth. Inside, south to north (our interpretation of canon's "a big cave"): a winding mouth passage, the antechamber with a cave pond, magic ore in the walls and a small hipokute plot (the cave later became Tempest's hipokute farm under Gabiru; the magicules Veldora's aura soaked into the rock made the grass and the ore grow), a narrow dark passage, and the sealed chamber: a round dome with the spent Unlimited Imprisonment seal. Veldora is already gone (Life 2 starts after Rimuru swallowed him), so the dais is empty: snapped chains, claw gouges in the floor, the circle's runes dim and cracked, the armillary rings of the barrier broken into arcs, six standing stones (two toppled). A small basin by the south wall marks where a slime woke up. The cave is where the magicule of the Jura forest comes from: the chamber is ringed with magic ore and amethyst, and a column of sea lanterns glows in its ceiling. Every spawnable spot inside has block light (checked when this builds). Visual references and sources: design/lore/sealed_cave.md.
+
+![sealed_cave](sealed_cave-iso.png) ![sealed_cave from above](sealed_cave-top.png)
+
 ## spirit_corridor_hall
 
 The Spirit Corridor hall: where a soul waits between lives (master plan §1). A round floating hall in the void. Ten pedestals stand for the ten Last Wishes; a halo hangs above the centre, where souls arrive (structure centre = corridor 0 64 0, so the arrival point (15, 1, 15) stays free). Placed by life/corridor.js at -15 64 -15.
