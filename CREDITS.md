@@ -12,6 +12,9 @@ OCS Tensura: Two Lives is a free, non-commercial fan modpack. Nothing here is so
     (`blueprints/dwargon.py`).
   If the authors would rather we didn't include these files, we will remove them and place the pieces from the
   installed mod at runtime instead.
+- Reference-only (nothing copied): for the Jura/Canaat site builds (`sealed_cave`, `spirit_gate`, `spirit_dwelling`,
+  `treyni_shrine`, `dragons_nest`) we looked at structure NBTs of Tensura, Iron's Spells 'n Spellbooks, Towns and Towers
+  (`t_and_t`) and Tombstone for shapes and palettes only; every block of these builds is our own code.
 - **Great Sage** addon, **ManasCore**, and every other mod in `pack/mods/` — by their respective authors, under
   their own licences; the pack only links to them (packwiz), it does not redistribute their jars.
 - Map references: fan-made Tensura world maps (political and illustrated); our grid in `pack/config/ttl/` is our own

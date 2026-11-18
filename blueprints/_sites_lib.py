@@ -123,7 +123,7 @@ def light_up(bp, candidates, add_light, limit: int = 400, spread: int = 6) -> in
         # Light the darkest area first, one source per cluster (a source reaches ~14 blocks).
         done = set()
         for (x, y, z) in spots:
-            if any(abs(x - a) + abs(z - b) < spread and abs(y - c) < 6 for a, b, c in done):
+            if any(abs(x - a) + abs(z - b) < spread and abs(y - c) < 6 for a, c, b in done):
                 continue
             add_light(x, y, z)
             done.add((x, y, z))
