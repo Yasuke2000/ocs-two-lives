@@ -3,7 +3,8 @@
 SIZE (81, 39, 83), south approach anchor (40, 4, 74), PARTS split at z 28 and 56.
 Episode 87 (design/lore/el_dorado.md) shows a high gilded throne and a red runner up broad pale
 steps. The light novel's white central castle and six-pointed city plan inform the quartz walls and
-paving motif. The amber lantern roof, galleries and reflecting canals are our interpretation.
+paving motif. A glazed arcade bay holds the rose garden’s silver-framed mirror from episode 87.
+The amber lantern roof, court layout and reflecting canals are our interpretation.
 Materials: quartz, sandstone, polished blackstone, gold, waxed copper, coloured glass and wool.
 """
 from _dwargon_lib import AIR, noise2, rnd
@@ -96,6 +97,14 @@ def hall(bp):
     fill(bp, 39, 9, 13, 41, 9, 14, M("crimson_planks"))
     for x in (38, 42):
         fill(bp, x, 9, 13, x, 10, 14, GOLD)
+    # Pointed gold ornaments on pale wall panels flank the seat in the wide audience shot.
+    for centre in (34, 46):
+        for x in range(centre-1, centre+2):
+            face_z = max(z for z in range(6, 15) if octagon(x-CX, z-CZ) >= 16) + 1
+            if x == centre:
+                fill(bp, x, 10, face_z, x, 13, face_z, GOLD)
+            else:
+                bp.set(x, 12, face_z, M("chiseled_quartz_block"))
     for z in (29, 36):
         for x in (32, 48):
             fill(bp, x-1, 4, z, x+1, 4, z, stair("sandstone", "north"))
@@ -120,6 +129,50 @@ def gallery(bp, x0):
              GOLD if k in (0, 4) else M("dark_prismarine"))
     for z in range(33, 65, 6):
         bp.set(x0+4, 11, z, M("lantern[hanging=true]"))
+
+
+def rose_gallery(bp):
+    """A walk-in glazed bay at the north end of the east arcade; the oval faces south."""
+    # Replace just this length of solid hipped roof with one layer of rising glass
+    # between three gilt transverse ribs. Carry the two original lanterns up to it.
+    for z in range(30, 45):
+        for x in range(64, 75):
+            height = 12 + min(x-64, 74-x, 4)
+            clear(bp, x, 12, z, x, 16, z)
+            bp.set(x, height, z, GOLD if z in (30, 37, 44) else M("glass"))
+    for z in (33, 39):
+        fill(bp, 69, 12, z, 69, 15, z, M("chain[axis=y]"))
+
+    # Roses grow from actual soil alongside the pillars. Flowering leaves carry their
+    # colour across the higher trellis; both halves of each vanilla rose bush are present.
+    for x in (66, 72):
+        for z in range(32, 44):
+            bp.set(x, G, z, M("rooted_dirt"))
+            if z % 3 == 0:
+                bp.set(x, G+1, z, M("rose_bush[half=lower]"))
+                bp.set(x, G+2, z, M("rose_bush[half=upper]"))
+        for z in (31, 37, 43):
+            fill(bp, x, 4, z, x, 8, z, M("oak_fence"))
+        fill(bp, x, 9, 31, x, 9, 43, M("flowering_azalea_leaves[persistent=true]"))
+        for z in (32, 36, 38, 42):
+            bp.set(x, 8, z, M("azalea_leaves[persistent=true]"))
+
+    # A blue glass oval with a lavender backing holds its colour when seen in daylight.
+    # Chiselled cheeks and flared white feet suggest the mirror's carved silver frame.
+    for y, radius in ((6, 1), (7, 2), (8, 2), (9, 2), (10, 1), (11, 0)):
+        for dx in range(-radius, radius+1):
+            x = 69 + dx
+            bp.set(x, y, 31, WHITE)
+            if abs(dx) == radius or y == 6:
+                bp.set(x, y, 32, M("chiseled_quartz_block"))
+            else:
+                bp.set(x, y, 31, M("light_blue_terracotta"))
+                glass = "white_stained_glass" if (dx, y) == (-1, 9) else "light_blue_stained_glass"
+                bp.set(x, y, 32, M(glass))
+    bp.set(69, 5, 32, M("quartz_pillar"))
+    fill(bp, 68, 4, 31, 70, 4, 32, WHITE)
+    bp.set(68, 5, 32, stair("quartz", "east"))
+    bp.set(70, 5, 32, stair("quartz", "west"))
 
 
 def gardens(bp):
@@ -215,6 +268,7 @@ def build(bp):
     hall(bp)
     for x0 in (7, 65):
         gallery(bp, x0)
+    rose_gallery(bp)
     # Gold-banded paired obelisks frame the entrance without covering the view.
     for x in (30, 50):
         for y, radius, material in ((4, 2, DARK), (5, 2, ASHLAR), (6, 1, GOLD)):

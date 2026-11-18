@@ -8,7 +8,7 @@ for publisher sources. Our interpretation uses cut sandstone, rust-orange terrac
 polished deepslate and ochre lamps. A paved boundary marks the refuge in the sand.
 """
 from _dwargon_lib import AIR, noise2, rnd
-from _lords_lib import M, fill, light_pass
+from _lords_lib import M, fill, light_pass, slab, stair
 from _town_lib import lantern_floor
 
 SIZE = (81, 60, 91)
@@ -143,6 +143,63 @@ def processional_gate(bp):
             bp.set(x, 6 + height, z, RUNE)
 
 
+def fortress_hall(bp):
+    """Two arcades frame the central floor, leaving a wide aisle below the shaft."""
+    for x in (CX - 9, CX + 9):
+        for z in (CZ - 8, CZ, CZ + 8):
+            fill(bp, x - 1, 4, z - 1, x + 1, 4, z + 1, RED)
+            fill(bp, x, 5, z, x, 17, z, DARK)
+            for y in (6, 14):
+                bp.set(x, y, z, RUNE)
+            for side in (-1, 1):
+                bp.set(x + side, 5, z, PALE)
+                bp.set(x + side, 15, z, RUNE)
+                bp.set(x + side, 16, z, PALE)
+            for dz in range(-4, 5):
+                # The arch rises at mid-span between successive piers.
+                soffit = 15 + min(abs(dz), 3)
+                fill(bp, x, soffit, z + dz, x, 18, z + dz, PALE)
+                bp.set(x, soffit, z + dz, LAMP if abs(dz) == 4 else RED)
+        # Two human-sized seats in each side aisle look across the giant hall.
+        facing = "west" if x < CX else "east"
+        for z in (CZ - 4, CZ + 4):
+            for offset in (-1, 0, 1):
+                bp.set(x + (-4 if x < CX else 4), 4, z + offset, stair("sandstone", facing))
+
+    # A blind doorway on the north wall carries the same outline as the summit
+    # opening. Its dark recess and lit keystone are visible from the south road.
+    wall_z = CZ - 16
+    for dx in range(-5, 6):
+        head = 14 - max(0, abs(dx) - 2)
+        fill(bp, CX + dx, 4, wall_z, CX + dx, head, wall_z, DARK)
+        if abs(dx) >= 4:
+            fill(bp, CX + dx, 4, wall_z + 1, CX + dx, head, wall_z + 1, RUNE)
+        bp.set(CX + dx, head, wall_z + 1, LAMP if dx == 0 else RED)
+        bp.set(CX + dx, head + 1, wall_z + 1, PALE)
+
+
+def watch_porch(bp):
+    """An upper door opens from the first gallery onto a roofed lookout."""
+    inner_z, outer_z = CZ + 13, CZ + 18
+    for dx in range(-3, 4):
+        head = 25 - max(0, abs(dx) - 1)
+        fill(bp, CX + dx, 20, inner_z, CX + dx, head, inner_z + 1, AIR)
+        bp.set(CX + dx, head + 1, inner_z + 2, RUNE)
+    for dx in (-5, 5):
+        x = CX + dx
+        fill(bp, x, 20, outer_z, x, 25, outer_z, DARK)
+        bp.set(x, 20, outer_z, RUNE)
+        bp.set(x, 25, outer_z, RUNE)
+        fill(bp, x, 20, inner_z + 2, x, 20, outer_z - 1, M("sandstone_wall"))
+    fill(bp, CX - 5, 26, inner_z + 1, CX + 5, 26, outer_z, CUT)
+    fill(bp, CX - 5, 26, outer_z + 1, CX + 5, 26, outer_z + 1, RED)
+    fill(bp, CX - 5, 27, outer_z + 1, CX + 5, 27, outer_z + 1, slab("sandstone"))
+    for dx in range(-4, 5):
+        bp.set(CX + dx, 20, outer_z, M("sandstone_wall"))
+    for dx in (-3, 3):
+        bp.set(CX + dx, 26, outer_z - 1, LAMP)
+
+
 def build(bp):
     terrain(bp)
     # Four diminishing drums share one atrium and three walkable ledges.
@@ -168,6 +225,8 @@ def build(bp):
             bp.set(x, 5, z, RUNE)
             bp.set(x, 6, z, LAMP)
     processional_gate(bp)
+    fortress_hall(bp)
+    watch_porch(bp)
     # East of the atrium, a ladder gives all gallery floors a common landing.
     fill(bp, CX + 5, 4, CZ - 3, CX + 5, 49, CZ - 3, DARK)
     fill(bp, CX + 4, 4, CZ - 3, CX + 4, 49, CZ - 3, M("ladder[facing=west]"))

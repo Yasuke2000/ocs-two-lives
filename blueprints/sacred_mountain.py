@@ -2,7 +2,8 @@
 
 SIZE (81, 57, 81), three PARTS along z. Anchor (40, 4, 76) on the southern pilgrim
 road, facing north. Two flights climb to a pointed, gold-bound double seal cut into
-a limestone ridge. Quartz, calcite, gold and light blue glass continue Lune's palette.
+a limestone ridge. Veiled reliefs face seven flush votive lights on the upper court.
+Quartz, calcite, gold and light blue glass continue Lune's palette.
 Sources: design/lore/sacred_mountain.md (the Holy Empire of Lubelius, Fuse's volume 7,
 the project's political fan map and Minecraft Middle-earth's Minas Tirith).
 """
@@ -164,6 +165,47 @@ def gate(s):
         s.put(x, floor+23, 25, "end_rod[facing=up]")
 
 
+def threshold(s):
+    floor = terrace(29)
+    # Shallow hooded figures, cut into the front of the existing gate piers.
+    # Dark backing leaves the white veil legible even from the lower flight.
+    for x in (C-15, C+15):
+        s.fill(x-2, floor+2, 27, x+2, floor+10, 27, "polished_deepslate")
+        s.fill(x-2, floor+1, 28, x+2, floor+1, 30, "chiseled_quartz_block")
+        for dx in (-2, 2):
+            s.fill(x+dx, floor+2, 28, x+dx, floor+10, 28, "quartz_pillar")
+            s.put(x+dx, floor+11, 28, "gold_block")
+        s.fill(x-2, floor+12, 28, x+2, floor+12, 29, "smooth_quartz")
+        s.put(x, floor+11, 28, "sea_lantern")
+        # Pale stole on each side of the robe, folds in front, a blank veil
+        # beneath a gold circlet, and a dark-red clasp below the veil.
+        s.fill(x-1, floor+2, 28, x+1, floor+5, 28, "polished_diorite")
+        s.fill(x, floor+2, 29, x, floor+7, 29, "calcite")
+        for dx in (-1, 1):
+            s.stair(x+dx, floor+2, 29, "n", MARBLE)
+            s.put(x+dx, floor+5, 29, "polished_diorite")
+            s.fill(x+dx, floor+6, 28, x+dx, floor+7, 28, "quartz_pillar")
+        s.put(x, floor+8, 29, "gold_block")
+        s.slab(x, floor+9, 29, MARBLE)
+        s.put(x, floor+5, 30, "crimson_button[face=wall,facing=south,powered=false]")
+    # Seven lights, each set in a gold-edged stone socket flush with the
+    # landing. The central light completes the arc without blocking the aisle.
+    for dx, z in ((-9, 30), (-6, 32), (-3, 34), (0, 35),
+                  (3, 34), (6, 32), (9, 30)):
+        x = C + dx
+        s.put(x, floor, z, "sea_lantern")
+        s.put(x, floor, z-1, "gold_block")
+        s.put(x, floor, z+1, "chiseled_quartz_block")
+    # Two straps per leaf and hand-height bolts break up the dark lower gate.
+    for side in (-1, 1):
+        for dy in (2, 14):
+            for dx in range(5, 9):
+                s.put(C+side*dx, floor+dy, 26, "waxed_exposed_cut_copper")
+            s.put(C+side*8, floor+dy, 27, "polished_blackstone_button[face=wall,facing=south,powered=false]")
+        s.put(C+side*2, floor+2, 26, "chiseled_quartz_block")
+        s.put(C+side*2, floor+2, 27, "polished_blackstone_button[face=wall,facing=south,powered=false]")
+
+
 def build(bp):
     s = Site(bp, G)
     heights = mountain(s)
@@ -172,6 +214,7 @@ def build(bp):
         Site(bp, heights[x, z]).tree(x, z, h=height, leaf="spruce_leaves", log="spruce_log", r=3)
     approach(s)
     gate(s)
+    threshold(s)
     s.light(lambda x, z: True, "sacred_mountain")
     s.check_support("sacred_mountain")
     # The placer clears above each column. Explicit air below an overhang or a

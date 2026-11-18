@@ -1,9 +1,10 @@
 """Guy Crimson's Frost Palace entrance, seen from the Ice Continent. SIZE (85, 51, 69);
 anchor (42, 4, 65) on the south approach, looking north. Three z slabs. The white masonry
 shows through Velzard's ice. A causeway crosses a frozen cleft to a pointed gate, guarded
-by two faceted towers and sweeping ice horns. Packed ice, blue ice, quartz, snow,
-violet glass and sea lanterns. References: anime episode 42 "The Demon Lords" (Leon's
-walk through the palace); Fuse, light novel vol. 16, epilogue; Tensura Wiki, Frost Palace and Ice
+by two faceted towers and sweeping ice horns. Open, carved audience doors stand at
+the end of its lamp-lit passage. Packed ice, blue ice, quartz, snow, violet glass,
+deepslate and sea lanterns. References: anime episode 42 "The Demon Lords" (Leon's
+walk through the palace); Fuse, web novel ch. 78 and light novels vols. 6 and 16; Tensura Wiki, Frost Palace and Ice
 Continent; the pack's political map. Sources and architectural interpretation in
 design/lore/frost_palace.md.
 """
@@ -116,6 +117,41 @@ def lintel_height(dx):
     return 25 - abs(dx) if abs(dx) < 8 else 7
 
 
+def audience_doors(bp):
+    # Leon is admitted through a great carved door. The two heavy leaves stand ajar,
+    # with the hinges against the north arch and the handles facing down the aisle.
+    scroll = (
+        "..xx..", ".x..x.", ".x.x..", "..x...", "...x..", "...xx.",
+        "..x..x", ".x.x.x", ".x..x.", "..xx..", "...x..",
+    )
+    frame = M("polished_deepslate")
+    for sign in (-1, 1):
+        bp.set(C + sign * 3, 7, 6, LAMP)
+        for col in range(6):
+            x = C + sign * (8 - col)
+            z = 7 + col // 2
+            cap = 19 + min(col, 4)
+            fill(bp, x, 8, z, x, cap, z + 1, frame)
+            for y in range(9, cap):
+                state = M("blue_concrete")
+                if col in (0, 5) or y == cap - 1:
+                    state = M("light_blue_terracotta")
+                if y - 10 in range(len(scroll)) and scroll[y - 10][col] == "x":
+                    state = ICE
+                bp.set(x, y, z + 1, state)
+            if col == 4:
+                bp.set(x, 11, z + 2, M("polished_blackstone_button[face=wall,facing=south,powered=false]"))
+        # The source's violet lamps stand high above the reception hall. A small
+        # pair on fluted stems makes the same light visible from the approach.
+        x, z = C + sign * 8, 17
+        fill(bp, x, 8, z, x, 11, z, PILLAR)
+        bp.set(x, 12, z, LAMP)
+        for dx, dz in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+            bp.set(x + dx, 12, z + dz, M("quartz_slab[type=top]"))
+        bp.set(x, 13, z, M("purple_stained_glass"))
+        bp.set(x, 14, z, M("amethyst_cluster[facing=up,waterlogged=false]"))
+
+
 def vestibule(bp):
     # A pointed barrel vault spans the north-south audience approach. Repeated ribs are
     # carried down to the floor; the narrow bay between each pair holds a lancet window.
@@ -169,6 +205,7 @@ def vestibule(bp):
     for dx in range(-2, 3):
         fill(bp, C + dx, 2, 0, C + dx, 3, 0, SNOW)
     bp.set(C + 1, 3, 0, M("gravel"))
+    audience_doors(bp)
 
 
 def spire(bp, cx, cz, radius, shoulder, tip):

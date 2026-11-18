@@ -12,7 +12,7 @@ from math import isqrt
 
 from _dwargon_lib import noise2, rnd
 from _lords_lib import disc_cells, light_pass
-from _town_lib import M, Town, lantern_floor, lantern_hung, log, slab, stair
+from _town_lib import M, Town, lantern_floor, lantern_hung, log, slab, stair, trapdoor
 
 SIZE = (76, 38, 66)
 PARTS = [0, 33]
@@ -72,6 +72,34 @@ def exchange(t):
     for x in (29, 32, 37, 40):
         t.fill(x, F, 10, x, F, 12, slab("spruce", "top"))
         t.fill(x, F + 1, 10, x, F + 1, 12, M("blue_carpet"))
+
+
+def arcade_detail(t):
+    # The establishing shot repeats tall windows, with a round ornament and
+    # a heavy base on each narrow column. Leave the two central bays as entries.
+    for x in (14, 22, 46, 54):
+        t.fill(x - 2, F, 22, x + 2, 10, 22, M("smooth_sandstone"))
+        t.fill(x - 1, 5, 22, x + 1, 8, 22, M("yellow_stained_glass"))
+        t.put(x, 9, 22, M("yellow_stained_glass"))
+        t.fill(x, 6, 21, x, 9, 21, M("ochre_froglight"))
+        t.fill(x, 5, 23, x, 7, 23, M("iron_bars"))
+        t.put(x, 10, 23, M("chiseled_sandstone"))
+        for edge in (x - 2, x + 2):
+            t.fill(edge, 5, 23, edge, 8, 23, M("sandstone_wall"))
+        for z in range(24, 28):
+            t.put(x, 9, z, log("spruce_log", "z"))
+    for x in (*range(11, 26), *range(43, 58)):
+        if x in (18, 50):
+            continue
+        t.put(x, F, 27, M("dark_oak_fence[east=true,west=true]"))
+    for x in (10, 18, 26, 42, 50, 58):
+        t.put(x, 5, 27, M("chiseled_stone_bricks"))
+        t.put(x, 8, 27, M("polished_andesite"))
+        t.put(x - 1, 8, 27, stair("stone_brick", "east", "top"))
+        t.put(x + 1, 8, 27, stair("stone_brick", "west", "top"))
+    # A pale projecting cornice frames the warm wooden soffit below the dormers.
+    for x in (*range(9, 27), *range(42, 60)):
+        t.put(x, 10, 28, slab("stone_brick", "top"))
 
 
 def bell_tower(t):
@@ -154,8 +182,19 @@ def coach_shed(t):
     t.fill(57, F + 1, 48, 63, F + 1, 50, slab("spruce", "top"))
     for z in (48, 50):
         t.fill(64, F + 1, z, 66, F + 1, z, slab("dark_oak", "top"))
-    t.put(58, F + 2, 49, M("barrel[facing=east]"))
-    t.put(59, F + 2, 49, M("hay_block[axis=x]"))
+    # From the rear step the passengers look down a clear aisle toward the
+    # driver's low wooden seat-back and two vertical stays at the east opening.
+    t.put(55, F, 49, stair("spruce", "east"))
+    t.put(56, F, 49, M("spruce_planks"))
+    t.put(56, F + 1, 49, stair("spruce", "east"))
+    for x in (58, 59, 60):
+        t.put(x, F + 2, 48, stair("spruce", "north"))
+    for z in (48, 50):
+        t.put(62, F + 2, z, M("dark_oak_fence"))
+    t.fill(62, F + 3, 48, 62, F + 3, 50, slab("dark_oak"))
+    t.put(63, F + 2, 49, slab("spruce"))
+    for z in (48, 50):
+        t.put(63, F + 2, z, trapdoor("spruce", "east", open_="true"))
     # The travel scene shows a curved canopy stretched over wooden hoops.
     for x in range(57, 64):
         hoop = x in (57, 60, 63)
@@ -228,6 +267,7 @@ def build(bp):
     bell_tower(t)
     roofline(t)
     porch(t)
+    arcade_detail(t)
     coach_shed(t)
     t.house(5, 45, 19, 55, "n", 1, roof="slate", furnish=False)
     for x in (8, 12, 16):

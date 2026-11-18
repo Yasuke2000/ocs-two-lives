@@ -20,6 +20,20 @@ and folded blankets mark its change of use. Two parted chain links in the paving
 from the hall toward a canvas-topped wagon in the cart shed. The eastbound road, small lodging house, carters’
 shelter and memorial are part of our layout.
 
+From the square, look along the arcade at eye level. The establishing shot shows a low
+dark balustrade, narrow posts on broad plinths, bracketed capitals and circular ornaments
+above repeated tall panes. Four of our bays carry three-block-wide amber windows with
+a raised centre pane and projecting mullion. The continuous railing breaks at the
+central entrance. The warm timber ceiling is edged with a stone cornice. The bay width,
+materials and central passage are our interpretation. [Episode 65, Ballachia street-level facade](https://tensura.fandom.com/wiki/File:Episode_65_-_Kingdom_of_Ballachia.png)
+
+A player can board the wagon at local (55, 4, 49) and look east between three hoops at
+the driver's low wooden seat-back. In the episode the backrest has two upright supports,
+and daylight enters the open end above it. We use two fence posts and a dark slab to give
+that detail the right outline. The rear step and passenger bench are our interpretation.
+Chapter 108 supplies the reason for the escort; the wagon fittings follow the anime shot.
+[Production still published by KADOKAWA’s The Television](https://thetv.jp/news/detail/1211892/13401124/) · [Kodansha, chapter 108](https://pocket.shonenmagazine.com/title/00380/episode/378955)
+
 The box is **76 × 38 × 66 blocks** (x, y, z). The south approach joins the east road at local
 (38, 4, 41). The survey starts at **x −1384, z −212**, inside land region F on the current
 14,000-block map. The political fan map marks Ballachia separately. The pack's coarser
