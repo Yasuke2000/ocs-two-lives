@@ -757,6 +757,46 @@ file = "config/easy_npc/npc_base.cfg"
 hash = "3f871a556a9f1d11baa6e86e46240e22d98ae364f3112f44678571a677d5abd0"
 
 [[files]]
+file = "config/easy_npc/preset/ttl_adv_apprentice_mage.npc.snbt"
+hash = "4034e32391d1348b523a0c84e678871fd9e9eaf6929393fe4636da6bd4e66c0e"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_adv_bard.npc.snbt"
+hash = "5b449b950f86cc097199b972c35de225d90dea39536740ad1794f5f17067ea82"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_adv_cleric.npc.snbt"
+hash = "e67fc0f0b3a5e1d823a14072af7a12d574c1fb181a7eddc9620c3932f386a463"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_adv_dwarf_axe.npc.snbt"
+hash = "ecd2910082225cd9de901abdde0f04fe8819d50fa0b5503c909b2c7218a490f6"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_adv_hunter.npc.snbt"
+hash = "a0963130103cffba5d3b2737068a2490aadc13cd2b074288352acc1e95edf72c"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_adv_merchant.npc.snbt"
+hash = "914a34e4014329e7294222d66ad59b990fc0d21122818cae40ac1f219c84e652"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_adv_otherworlder.npc.snbt"
+hash = "b2577a590ba343d1139afea37fb506c34d96a2eac7a211bb82419277395826ec"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_adv_rookie_swordsman.npc.snbt"
+hash = "583932ddf85df021d8cd80c7574e4345f67e4a972feae68a1e1e012acb77217c"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_adv_scout.npc.snbt"
+hash = "a1e099812286c147786703a2ff884a0b8c97cbe9f5cb6679f5051092a08ff3c7"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_adv_veteran_knight.npc.snbt"
+hash = "241c9bcecafa176493a27fc75fc111822628e1dcecf1d6e2c76cf3b38673974d"
+
+[[files]]
 file = "config/easy_npc/preset/ttl_cast_benimaru.npc.snbt"
 hash = "7decca34f709245c3344a83a2c4778cb5b36b5eae8024980b084c03241f8b9a5"
 
@@ -847,6 +887,46 @@ hash = "3d8b533897a29d957a2f70c44f39becf9025f0cbd9cb75b8b679410d081b9196"
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_yuuki.npc.snbt"
 hash = "013fdcfb2ebe262d650552adaa60f3fdaabfe1cac28dcce4b877cced722acea6"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_client_caravan_master.npc.snbt"
+hash = "eeb52d34e6d8a79a41570a0f2e6891fc72cd2c7ae6d1d244c9fec62137da6a39"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_client_grain_carter.npc.snbt"
+hash = "8dd528161c8a562eee7329e5c28bd295e3949b24697f170523de5d1a5c443421"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_client_merchant.npc.snbt"
+hash = "3d0c62beb86cdcaac64b0b5ee1018598bffa95a12c586eff7fbcbcbfadad1898"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_client_missing_rookie.npc.snbt"
+hash = "65cc3afeb0b6e1c39c3ab5a6d4742c92dfe364229474517a516830d859ac81c4"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_client_scholar.npc.snbt"
+hash = "4398bc86b834a8691f992e105207a86a84b6103a6dc5086bed70d28ef4a7d3c3"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_comp_dwarf_axe.npc.snbt"
+hash = "97ce1b0ce860025581ccc12fdc7142c016e171dce8bc89fc87f79edad51e0d0b"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_comp_hunter.npc.snbt"
+hash = "fc92edff3c0b1ce33f49b808952d9ef93c3dad96bf76e81735dac6b88342f7c3"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_comp_rookie_swordsman.npc.snbt"
+hash = "560a04a8f43fed8265582e8b9efd0b60c28871629b2d7440e88625ffaeac4b73"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_comp_scout.npc.snbt"
+hash = "b7f049c21d613777484c5188e44d6753b02096be5fc1775b93beb42bd59f1de3"
+
+[[files]]
+file = "config/easy_npc/preset/ttl_comp_veteran_knight.npc.snbt"
+hash = "f4b7220de17571959fed9242064ef9bbac0b84fa76f3d5ed4bce58e43b0822d6"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_guild_fuze.npc.snbt"
@@ -977,6 +1057,22 @@ file = "config/ftbquests/quests/chapters/roads_ruins.snbt"
 hash = "afab704c612852beb3175ac4e3c1d30b504b9317db16d23e34268483cff11f2e"
 
 [[files]]
+file = "config/ftbquests/quests/chapters/side_dwargon.snbt"
+hash = "cfa0d8a00e14c4ff353f568e396371f598ba36c79eebf7744f310d3bd4ca4e7e"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/side_guild.snbt"
+hash = "d896bb9fbffa2a593c6b2e2f856a1ecaf89f80faa75fd5ffb5745f1ead10f340"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/side_jura.snbt"
+hash = "a599a54ad1135c5318643963d41aeddc12337f918d7ae60dea859e6c3bdcb8e1"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/side_roads.snbt"
+hash = "85276b0489f95cb4d2a0b648fe717810ae4780fa6c99b11a1d1e438b9ee9fec0"
+
+[[files]]
 file = "config/ftbquests/quests/chapters/tempest_rises.snbt"
 hash = "eab52fc37864e20a5062427c4f6dded2c70b643ae447b497f378473fcb00a4ed"
 
@@ -994,7 +1090,7 @@ hash = "fa792420b8546bafa3673aa2aac7dc21cac295c6038694d0b45c9b50ef692304"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "cec80b6fc106875004659df21c7b0c0bed6b1b239e3069eaa5d046f8eb57ef1d"
+hash = "c2f573e7fe679c9b4f85009aed914caeceb3fdcfb53591c9e941feb0f12ab68b"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
@@ -2162,7 +2258,7 @@ hash = "b743815f7f0f55301f990c66627818d9f698793a7a9bc68538b6426801315a91"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "a6925e377902432cf8ab94507c6a813e5299997e8bb16f1e5d2c9bddb6e8baea"
+hash = "0d8cad6cf1c3a3ac9eea1380f6e35c0ecbcb0f1b37bb02a0e410c5eebb16c698"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2174,7 +2270,7 @@ hash = "be431726c5095293051c1560bcaaa5c8d12f054860fa2beae60017d5ffa0aaa8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
-hash = "6f29a234103cc1c67e5498151da0ffd7f7683c71705b5b6ef706c96e068780cc"
+hash = "de66a3f42cb4b92586827dcc7a30c42383e608940b4ac85e61632082a88ba46c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/spirit_dwelling.js"
@@ -2367,6 +2463,26 @@ hash = "d7ef20777c7b6b4b7ab4e3f26e1a9a450f62f7d4834f0f75f6406874322a75f0"
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/rep.js"
 hash = "ca9a3c01be77ec5fafc5fbcbb3468c7a9854ec2d08e824b4012b21ed0a83328b"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/sidequests/adventurers.js"
+hash = "302f95a0a6aeacc76494c8f4bdf2ad43cfbc3858f4326e86eb6b5acb6b63c2bd"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/sidequests/commands.js"
+hash = "74403399d3c30ff337431dc070fe0a5ce1393609fa20fb835424e125dcdb94ac"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/sidequests/companions.js"
+hash = "c68e4b045512b041fbc4aa57bba2ba6fef1c0d626cad304a5ee42bd67cc65989"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/sidequests/places.js"
+hash = "b24facb9eed888698acc3ed0be7671ab41c42c57f6570f8ebb681bc3b3e289ff"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/sidequests/side.js"
+hash = "f4f835a2e32b3260624f261b793300d723c43351aa905e712b04f837c5999160"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/cast.js"

@@ -1,0 +1,117 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"adventurer: Anne, E-rank cleric (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid_slim",
+    modified:1790000000000L,
+    name:"Anne, E-rank cleric",
+    variantType:"ALEX",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_NORMAL:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:20
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Bless you. That will be three bronze. Joking.",
+                "The Church says monsters are evil. The ones in Tempest bake bread.",
+                "Hold still, it only stings for a moment.",
+                "A low potion and a prayer. That's my whole job."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#F2E8CF","text":"Anne, E-rank cleric"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl sidequest offers",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_work",
+              Name:"Heard of any work?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Farewell"
+            }
+          ],
+          Label:"default",
+          Name:"Anne",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Anne, E-rank cleric, looks up. Well met, @initiator."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        },
+        {
+          SpeedModifier:0.5d,
+          Type:"RANDOM_STROLL_AROUND_HOME"
+        },
+        {
+          SpeedModifier:0.6d,
+          Type:"MOVE_BACK_TO_HOME"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;46310172,-92185941,-1760098268,866873877],
+    VariantType:"ALEX",
+    id:"easy_npc:humanoid_slim"
+  }
+}

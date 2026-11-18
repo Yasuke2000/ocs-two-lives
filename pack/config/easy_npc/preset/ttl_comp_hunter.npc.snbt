@@ -1,0 +1,162 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"companion: Hald, C-rank monster hunter (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Hald, C-rank monster hunter",
+    variantType:"SECURITY_01",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_LONG:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:30
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "A horned bear in the north fields. Nobody's paid me to look yet.",
+                "Black spiders nest where the light doesn't reach.",
+                "I sell pelts in Blumund and stories for free.",
+                "The rim is safe. The middle of the forest is not."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ],
+        ON_HURT:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:25
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Ngh!",
+                "That stung.",
+                "Watch my back!"
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#8C5A3C","text":"Hald, C-rank monster hunter"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl companion status",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_status",
+              Name:"How are you holding up?"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl companion dismiss",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_dismiss",
+              Name:"Let us part ways"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Carry on"
+            }
+          ],
+          Label:"default",
+          Name:"Hald",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Hald checks the edge of the blade. Where to, @initiator?"
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:0b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        },
+        {
+          SpeedModifier:0.8d,
+          Type:"MELEE_ATTACK"
+        },
+        {
+          SpeedModifier:0.8d,
+          Type:"ATTACK_MOB_WITHOUT_CREEPER"
+        },
+        {
+          Type:"HURT_BY_TARGET"
+        },
+        {
+          Type:"OWNER_HURT_BY_TARGET"
+        },
+        {
+          Type:"OWNER_HURT_TARGET"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-1443434831,-1241358941,-1708621543,-1960556691],
+    VariantType:"SECURITY_01",
+    id:"easy_npc:humanoid"
+  }
+}

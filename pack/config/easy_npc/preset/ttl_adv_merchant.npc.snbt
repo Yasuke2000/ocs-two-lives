@@ -1,0 +1,117 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"adventurer: Marlo, travelling merchant (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Marlo, travelling merchant",
+    variantType:"ZURI",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_NORMAL:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:20
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Fine wares from Blumund! Finer wares from Dwargon!",
+                "The road to Tempest is good for trade, if you have a guard.",
+                "Everything has a price. Even a slime's favour.",
+                "I never haggle. I negotiate."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#E8C547","text":"Marlo, travelling merchant"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl sidequest offers",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_work",
+              Name:"Heard of any work?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Farewell"
+            }
+          ],
+          Label:"default",
+          Name:"Marlo",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Marlo, travelling merchant, looks up. Well met, @initiator."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        },
+        {
+          SpeedModifier:0.5d,
+          Type:"RANDOM_STROLL_AROUND_HOME"
+        },
+        {
+          SpeedModifier:0.6d,
+          Type:"MOVE_BACK_TO_HOME"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-133302518,1007246375,-1831405081,-890846296],
+    VariantType:"ZURI",
+    id:"easy_npc:humanoid"
+  }
+}

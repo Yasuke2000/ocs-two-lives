@@ -1487,6 +1487,9 @@ def render() -> dict[Path, str]:
         check_arenas(data["arenas"], data.get("bosses"))
     if "world" in data:
         check_world(data["world"], data)
+    if "sidequests" in data:
+        from sidequests_check import check_sidequests  # noqa: E402 (tools/ is on sys.path above)
+        check_sidequests(data["sidequests"], data)
     data["builds"], footprints = check_builds()
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     grids = json.dumps(footprints, separators=(",", ":"), sort_keys=True)

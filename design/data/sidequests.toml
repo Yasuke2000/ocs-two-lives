@@ -1,0 +1,681 @@
+# Side content of Life 2 (sidequests work package, 18/11/2026): the classic isekai side jobs, the adventurers who
+# populate the towns, and the ones you can hire. Four consumers:
+#   python tools/gen_data.py     -> TtlData.sidequests (checked by tools/sidequests_check.py)
+#   python tools/gen_npcs.py     -> one Easy NPC preset per [[adventurer]] (ttl_adv_<id>), per hireable adventurer
+#                                   (ttl_comp_<id>) and per [[client]] (ttl_client_<id>); `--spots` also checks the build
+#                                   anchored [[place]] homes against the structure files
+#   pack/kubejs/server_scripts/ttl/sidequests/*.js   the mechanics (escort, deliver, travel, fetch, cull), the ambient
+#                                   adventurers and the companions
+#   design/quests/chapter_2x_side_*.toml   the authored FTB chapters that start these jobs (command rewards) and pay them
+#                                   (stage tasks ttl.quest.side.<id>)
+# Radiant boards (world-state.md §6.8, a later wave) call TtlSide.start(server, player, kind, params) with the same fields
+# as a [[quest]] below; they never need a row here.
+#
+# Rule R11 (world-state.md §2.0): everything here lives on the canon continent. Places are checked against
+# pack/config/ttl/canon_map.txt by the generator, and the scripts skip a place whose position reads "outside".
+
+[settings]
+# Mechanics poll (escort follow and ambush, delivery, travel, cull sampling, discovery), in ticks.
+poll_ticks = 40
+# Side quests one soul may carry at once.
+max_active = 3
+# `/ttl sidequest take <id>` (the player's own command, the Easy NPC "work" button) needs the giver place within this many blocks.
+take_radius = 24
+# Discovery: a [[place]] with discover = true is "seen" (stage ttl.quest.side.seen.<place>) within this many blocks.
+discover_radius = 32
+# Escort: the client counts as arrived within arrive_radius of the destination; it is lost when the soul stays farther
+# than leash blocks away (or in another dimension) for leash_seconds; the client waiting at `from` appears when the soul
+# comes within appear_radius of it.
+arrive_radius = 10
+leash = 48
+leash_seconds = 60
+appear_radius = 24
+client_hp = 30
+# Ambush waves spawn this far from the client (min, max blocks) and are set on it.
+ambush_distance = [10, 16]
+# Delivery: the parcel counts as handed over within deliver_radius of the recipient place.
+deliver_radius = 8
+# Travel: default arrival radius when a quest names none.
+travel_radius = 24
+
+[companions]
+enabled = true
+# Hired companions per soul at once.
+max_per_soul = 1
+# The party cap of 5 (FTB max_party_size, decisions 18/11/2026) counts the online party members PLUS every companion
+# they have hired: a full party of five hires nobody, a party of four may hire one. A companion never joins the FTB team.
+party_cap = 5
+# Boss credit: companions are never credited (bosses/boss.js counts players only; a companion's last hit counts as "no
+# player credited", which shares the kill among the players in range as before). There is no knob to change that here.
+# A companion farther than this from its owner (same dimension) is brought to them; another dimension: it follows
+# through the next poll.
+teleport_distance = 32
+# A soul that is offline this long loses the companion (contract over, no refund); a shorter absence keeps it (the
+# companion is put away at logout and summoned again at login).
+offline_grace_minutes = 30
+
+[ambient]
+enabled = true
+# A place is checked this often (ticks) and only while a player is within active_range of it and its chunk is loaded;
+# one missing adventurer is spawned per check (the town fills up over a minute), never more than the place's cap.
+check_ticks = 200
+active_range = 96
+# Day/night: from night_start to night_end (day time, 0-24000) adventurers walk to the place's `inn` (when it has one).
+night_start = 13000
+night_end = 23500
+# Bump to replace every ambient adventurer (and companion look) with a fresh one from the current presets.
+rev = 1
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Places. `anchor`:
+#   tempest   x/y/z are offsets from Tempest's arrival point (ttl.tempest.arrival), like npcs.toml
+#   build     x/y/z are blueprint coordinates of `build` (ttl.build.<build>.corner + x/y/z), checked by gen_npcs.py --spots
+#   build_at  the build's own anchor point (ttl.build.<build>.at); no x/y/z
+#   dwargon   x/y/z are blueprint coordinates of blueprints/dwargon.py (corner = TtlDwargon.box(), y = ttl.dwargon.base)
+#   landmark  the placed landmark (ttl.landmark.<landmark>.at, else its planned x/z from landmarks.toml, surface y)
+#   world     absolute x/z, standing on the surface (heightmap) once the chunk is loaded
+# `cap` = ambient adventurers kept there (0 = a quest target only), `kinds` = who may appear, `radius` = their stroll
+# (Easy NPC RANDOM_STROLL_AROUND_HOME wanders about 10 blocks from home whatever this says; `radius` only spreads the
+# spawn on surface places), `inn` = where they go at night (same anchor), `discover` = gives the stage
+# ttl.quest.side.seen.<id> on arrival (travel quests and the book read it), `title` = the name players read.
+
+[[place]]
+id = "blumund_guild"
+title = "the Free Guild hall in Blumund"
+anchor = "build"
+build = "blumund"
+x = 97
+y = 5
+z = 68
+inn = [108, 5, 75]           # the tavern nook under Fuze's mezzanine
+cap = 4
+kinds = ["rookie_swordsman", "veteran_knight", "scout", "cleric", "apprentice_mage", "otherworlder", "bard"]
+discover = true
+
+[[place]]
+id = "englassia_guild"
+title = "the Free Guild headquarters in Englassia"
+anchor = "build"
+build = "englassia"
+x = 108
+y = 5
+z = 82
+cap = 4
+kinds = ["veteran_knight", "scout", "apprentice_mage", "otherworlder", "hunter", "cleric"]
+discover = true
+
+[[place]]
+id = "tempest_green"
+title = "the village green of Tempest"
+anchor = "tempest"
+x = -4
+y = 0
+z = -6
+inn = [6, 0, -17]            # the council longhouse
+cap = 3
+kinds = ["rookie_swordsman", "dwarf_axe", "bard", "merchant", "otherworlder"]
+discover = true
+
+[[place]]
+id = "dwargon_plaza"
+title = "the market plaza of Dwargon"
+anchor = "dwargon"
+x = 84
+y = 4
+z = 54
+cap = 3
+kinds = ["dwarf_axe", "merchant", "veteran_knight", "hunter"]
+discover = true
+
+[[place]]
+id = "marris_plaza"
+title = "the Royal Plaza of Marris"
+anchor = "build"
+build = "marris"
+x = 64
+y = 5
+z = 70
+cap = 2
+kinds = ["veteran_knight", "cleric", "merchant", "otherworlder"]
+discover = true
+
+[[place]]
+id = "ballachia"
+title = "the town of Ballachia"
+anchor = "build"
+build = "ballachia"
+x = 38
+y = 4
+z = 41
+cap = 2
+kinds = ["rookie_swordsman", "merchant", "bard", "scout"]
+discover = true
+
+# Road stops (open ground: the adventurers camp there; surface spawn spread over `radius`).
+[[place]]
+id = "rim_camp"
+title = "the wayfarers' camp on Jura's rim"
+anchor = "world"
+x = 285
+y = 0
+z = -612
+radius = 10
+cap = 2
+kinds = ["rookie_swordsman", "hunter", "merchant", "otherworlder"]
+discover = true
+
+[[place]]
+id = "dwarf_road"
+title = "the dwarf village on the road to Dwargon"
+anchor = "landmark"
+landmark = "dwarf_village"
+radius = 12
+cap = 2
+kinds = ["dwarf_axe", "merchant", "hunter"]
+discover = true
+
+[[place]]
+id = "blumund_road"
+title = "the Blumund road camp at Jura's edge"
+anchor = "world"
+x = -850
+y = 0
+z = -110
+radius = 10
+cap = 2
+kinds = ["rookie_swordsman", "scout", "merchant"]
+discover = true
+
+[[place]]
+id = "englassia_road"
+title = "the Englassia road post"
+anchor = "world"
+x = -1900
+y = 0
+z = -260
+radius = 10
+cap = 1
+kinds = ["veteran_knight", "bard", "merchant"]
+discover = true
+
+# Quest targets without residents.
+[[place]]
+id = "goblin_village"
+title = "the old goblin village"
+anchor = "landmark"
+landmark = "goblin_village"
+cap = 0
+discover = true
+
+[[place]]
+id = "treyni_shrine"
+title = "Treyni's shrine"
+anchor = "build_at"
+build = "treyni_shrine"
+cap = 0
+discover = true
+
+[[place]]
+id = "dragon_city"
+title = "the City of the Forgotten Dragon"
+anchor = "build_at"
+build = "forgotten_dragon_city"
+cap = 0
+discover = true
+
+[[place]]
+id = "lizardmen_caverns"
+title = "the lizardmen's caverns"
+anchor = "landmark"
+landmark = "lizardmen_caverns"
+cap = 0
+discover = true
+
+[[place]]
+id = "old_well"
+title = "the old well on the Blumund road"
+anchor = "world"
+x = -930
+y = 0
+z = -60
+cap = 0
+
+[[place]]
+id = "rookie_camp"
+title = "the abandoned rookie camp"
+anchor = "world"
+x = 140
+y = 0
+z = -420
+cap = 0
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Adventurers. Generic folk of the guilds (never a canon character: those are npcs.toml's story cast). `skin` is an
+# Easy NPC built-in variant of `model` (gen_npcs.py VARIANTS); our own PNG ttl:textures/entity/npc/adv_<id>.png is used
+# when it exists. `lines`: up to 6 short speech-bubble lines, one picked at random now and then (Easy NPC MESSAGE action on
+# ON_INTERVAL_NORMAL with a CHANCE condition; no chat spam). `hire` makes the adventurer recruitable:
+#   fee = coin table (a sink: TtlEcon.charge) · minutes = contract length (real time) · hp · weapon (item id) ·
+#   armor = "" | "leather" | "chainmail" | "iron" · rank = guild rank letter shown in the offer.
+
+[[adventurer]]
+id = "rookie_swordsman"
+name = "Bram"
+title = "F-rank swordsman"
+name_color = "#9BC53D"
+model = "humanoid"
+skin = "FARMER_01"
+lines = [
+  "Three days a rookie and I've already lost a sword to a horned rabbit.",
+  "They say the Free Guild takes anyone. They weren't lying.",
+  "Herb gathering again? I wanted to slay dragons!",
+  "If you see a slime, let me have it. I need the points.",
+  "My mother wanted me to be a baker.",
+]
+[adventurer.hire]
+fee = { silver = 5 }
+minutes = 60
+hp = 24
+weapon = "minecraft:stone_sword"
+armor = "leather"
+rank = "F"
+
+[[adventurer]]
+id = "veteran_knight"
+name = "Olric"
+title = "C-rank knight"
+name_color = "#4F86C6"
+model = "humanoid"
+skin = "KNIGHT_02"
+lines = [
+  "Keep your guard up on the Falmuth road. Bandits like rookies.",
+  "I've seen what a direwolf pack does to a careless caravan.",
+  "Rank C took me eleven years. Don't rush it.",
+  "A shield is worth more than a sharp blade.",
+  "The guildmaster pays fairly. Remember that when the job turns ugly.",
+]
+[adventurer.hire]
+fee = { gold = 2 }
+minutes = 90
+hp = 40
+weapon = "minecraft:iron_sword"
+armor = "iron"
+rank = "C"
+
+[[adventurer]]
+id = "scout"
+name = "Lyra"
+title = "D-rank scout"
+name_color = "#2BB5A0"
+model = "humanoid_slim"
+skin = "EFE"
+lines = [
+  "Footprints never lie. People do.",
+  "The forest goes quiet before something big comes through.",
+  "I map the roads. Somebody has to.",
+  "Ants under the fields again. I hate ants.",
+]
+[adventurer.hire]
+fee = { silver = 15 }
+minutes = 75
+hp = 30
+weapon = "minecraft:iron_sword"
+armor = "leather"
+rank = "D"
+
+[[adventurer]]
+id = "dwarf_axe"
+name = "Borin"
+title = "D-rank axe-hand"
+name_color = "#C8963E"
+model = "humanoid"
+skin = "STEVE"
+lines = [
+  "Dwargon steel, Jura timber. Best trade there is.",
+  "The King's peace holds the forest road. Mostly.",
+  "Bring me ore and I'll show you an edge.",
+  "Never trust a bridge you didn't build.",
+]
+[adventurer.hire]
+fee = { silver = 20 }
+minutes = 75
+hp = 36
+weapon = "minecraft:iron_axe"
+armor = "chainmail"
+rank = "D"
+
+[[adventurer]]
+id = "hunter"
+name = "Hald"
+title = "C-rank monster hunter"
+name_color = "#8C5A3C"
+model = "humanoid"
+skin = "SECURITY_01"
+lines = [
+  "A horned bear in the north fields. Nobody's paid me to look yet.",
+  "Black spiders nest where the light doesn't reach.",
+  "I sell pelts in Blumund and stories for free.",
+  "The rim is safe. The middle of the forest is not.",
+]
+[adventurer.hire]
+fee = { gold = 1, silver = 5 }
+minutes = 90
+hp = 34
+weapon = "minecraft:iron_sword"
+armor = "chainmail"
+rank = "C"
+
+[[adventurer]]
+id = "apprentice_mage"
+name = "Mira"
+title = "E-rank mage"
+name_color = "#B57EDC"
+model = "humanoid_slim"
+skin = "MAGE_01"
+lines = [
+  "Fire Bolt, Fire Bolt, Fire... no, that's a candle.",
+  "Magicules are thick here. I can feel it in my teeth.",
+  "The academy in Englassia takes only the gifted. I'm working on it.",
+  "Never chant near a slime. Long story.",
+]
+
+[[adventurer]]
+id = "cleric"
+name = "Anne"
+title = "E-rank cleric"
+name_color = "#F2E8CF"
+model = "humanoid_slim"
+skin = "ALEX"
+lines = [
+  "Bless you. That will be three bronze. Joking.",
+  "The Church says monsters are evil. The ones in Tempest bake bread.",
+  "Hold still, it only stings for a moment.",
+  "A low potion and a prayer. That's my whole job.",
+]
+
+[[adventurer]]
+id = "otherworlder"
+name = "Sho"
+title = "otherworlder"
+name_color = "#E4572E"
+model = "humanoid"
+skin = "JAYJASONBO"
+lines = [
+  "One truck, one flash of light, and here I am.",
+  "Back home we had vending machines. I miss vending machines.",
+  "Where is my status window? Everybody here has skills but me.",
+  "If one more person says 'reincarnated', I'm going home. Somehow.",
+  "The food is good, at least. The slimes are... friendly?",
+]
+
+[[adventurer]]
+id = "merchant"
+name = "Marlo"
+title = "travelling merchant"
+name_color = "#E8C547"
+model = "humanoid"
+skin = "ZURI"
+lines = [
+  "Fine wares from Blumund! Finer wares from Dwargon!",
+  "The road to Tempest is good for trade, if you have a guard.",
+  "Everything has a price. Even a slime's favour.",
+  "I never haggle. I negotiate.",
+]
+
+[[adventurer]]
+id = "bard"
+name = "Pip"
+title = "wandering bard"
+name_color = "#FF8FAB"
+model = "humanoid"
+skin = "KAI"
+lines = [
+  "Have you heard the ballad of the Storm Dragon's friend?",
+  "A slime who names monsters, a king who smiths... what a time.",
+  "Tip the bard, and the bard sings you brave.",
+  "Every guild hall has a story. Most of them are mine.",
+]
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Escort clients: Easy NPCs that follow the soul (FOLLOW_PLAYER), can be attacked and fail the job when they fall.
+[[client]]
+id = "merchant"
+name = "Merchant Marlo"
+name_color = "#E8C547"
+model = "humanoid"
+skin = "ZURI"
+lines = ["Not so fast, my legs are older than yours!", "Is that a wolf? Tell me that isn't a wolf.", "Almost there. I can smell the forges."]
+
+[[client]]
+id = "caravan_master"
+name = "Caravan Master Durn"
+name_color = "#C8963E"
+model = "humanoid"
+skin = "FARMER_01"
+lines = ["The King's ore goes through, whatever the road says.", "Keep the beasts off the carts!", "Dwarves don't run. We walk fast."]
+
+[[client]]
+id = "missing_rookie"
+name = "Tomas, missing rookie"
+name_color = "#9BC53D"
+model = "humanoid"
+skin = "STEVE"
+lines = ["I thought nobody would come.", "My party ran. I don't blame them.", "Please, just get me back to the camp."]
+
+[[client]]
+id = "scholar"
+name = "Scholar Ilse"
+name_color = "#B57EDC"
+model = "humanoid_slim"
+skin = "MAKENA"
+lines = ["Fascinating, the soil here is soaked in magicules.", "Do slow down, I am writing.", "The academy will want every word of this."]
+
+[[client]]
+id = "grain_carter"
+name = "Carter Wil"
+name_color = "#E3B23C"
+model = "humanoid"
+skin = "SUNNY"
+lines = ["Grain for Ballachia, and not a sack less.", "My cart wheel squeaks. Sorry.", "The guild said you were good. Are you good?"]
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Side quests (the mechanics). `id` is also the stage set on success: ttl.quest.side.<id>. Fields by kind:
+#   all       id, title, kind, giver (place: where `/ttl sidequest take` works; "" = anywhere), text (said on start),
+#             minutes (time limit, 0 = none), repeat_hours (0 = once per soul), requires (stages), reward (optional
+#             payout here: { coins = {...}, rep = {...} }; the authored chapters pay through FTB instead, so it stays empty)
+#   escort    client ([[client]] id), from (place where the client waits; "" = beside the soul), to (place), ambush =
+#             [{ at = 0.0-1.0 of the way, mobs = { "<entity>" = n } }]
+#   deliver   parcel (item name), to (place), pickup (place where the parcel is first collected; "" = given at start)
+#   travel    to (place), radius
+#   fetch     items = { "<item>" = n }, at (place where they are handed in automatically; "" = `/ttl sidequest turnin` anywhere)
+#   cull      entity, count, region (faction id of factions.toml, the kill counts only there) or near (place) + radius
+
+[[quest]]
+id = "goblin_raiders"
+title = "Goblin Raiders of Blumund"
+kind = "cull"
+giver = "blumund_guild"
+entity = "tensura:goblin"
+count = 6
+region = "blumund"
+repeat_hours = 168
+text = "Rogue goblins from beyond the forest are raiding Blumund's farms. Only kills inside Blumund count: Tempest's goblins are not your quarry."
+
+[[quest]]
+id = "lost_ring"
+title = "The Lost Ring"
+kind = "deliver"
+giver = "blumund_guild"
+parcel = "Widow Hanna's Ring"
+pickup = "old_well"
+to = "blumund_guild"
+text = "Widow Hanna dropped her wedding ring by the old well on the Blumund road. Find it and bring it back to the guild."
+
+[[quest]]
+id = "mail_blumund_englassia"
+title = "The Mail Run: Blumund to Englassia"
+kind = "deliver"
+giver = "blumund_guild"
+parcel = "Sealed Guild Letter (to Englassia)"
+to = "englassia_guild"
+minutes = 60
+repeat_hours = 168
+text = "Fuze's report must reach the headquarters in Englassia within the hour. Do not open it."
+
+[[quest]]
+id = "mail_englassia_blumund"
+title = "The Mail Run: Englassia to Blumund"
+kind = "deliver"
+giver = "englassia_guild"
+parcel = "Sealed Guild Letter (to Blumund)"
+to = "blumund_guild"
+minutes = 60
+repeat_hours = 168
+text = "The Grandmaster's answer goes back to Blumund. The clock is running."
+
+[[quest]]
+id = "rescue_rookie"
+title = "The Missing Rookie"
+kind = "escort"
+giver = "rim_camp"
+client = "missing_rookie"
+from = "rookie_camp"
+to = "rim_camp"
+ambush = [{ at = 0.5, mobs = { "tensura:direwolf" = 3 } }]
+text = "A rookie named Tomas never came back from his first hunt. His camp is south of the rim. Bring him home alive."
+
+[[quest]]
+id = "grain_cart"
+title = "Guard the Grain Cart"
+kind = "escort"
+giver = "blumund_guild"
+client = "grain_carter"
+from = "blumund_guild"
+to = "ballachia"
+ambush = [{ at = 0.35, mobs = { "minecraft:pillager" = 2 } }, { at = 0.7, mobs = { "minecraft:pillager" = 3 } }]
+repeat_hours = 168
+text = "Carter Wil drives grain to Ballachia. Bandits know the road better than he does."
+
+[[quest]]
+id = "merchant_escort"
+title = "The Merchant's Escort"
+kind = "escort"
+giver = "rim_camp"
+client = "merchant"
+from = "rim_camp"
+to = "dwarf_road"
+ambush = [{ at = 0.4, mobs = { "tensura:direwolf" = 2 } }, { at = 0.8, mobs = { "tensura:giant_ant" = 3 } }]
+repeat_hours = 72
+text = "Merchant Marlo wants to reach the dwarf village along Jura's rim with his goods intact. Wolves hunt the rim at dusk."
+
+[[quest]]
+id = "dwarf_caravan"
+title = "Protect the Dwarf Caravan"
+kind = "escort"
+giver = "dwargon_plaza"
+client = "caravan_master"
+from = "dwarf_road"
+to = "rim_camp"
+ambush = [{ at = 0.3, mobs = { "tensura:giant_ant" = 3 } }, { at = 0.6, mobs = { "tensura:direwolf" = 3 } }, { at = 0.85, mobs = { "minecraft:zombie" = 4 } }]
+repeat_hours = 168
+text = "Caravan Master Durn brings Dwargon's ore south to Jura's rim. Three times this month the carts were attacked."
+
+[[quest]]
+id = "scholar_escort"
+title = "The Scholar's Road"
+kind = "escort"
+giver = "englassia_guild"
+client = "scholar"
+from = "englassia_road"
+to = "englassia_guild"
+ambush = [{ at = 0.5, mobs = { "minecraft:skeleton" = 3 } }]
+text = "Scholar Ilse of the Freedom Academy waits at the road post with a satchel of notes. See her safely to the headquarters."
+
+[[quest]]
+id = "kaijin_ore"
+title = "Kaijin's Ore for Dwargon"
+kind = "deliver"
+giver = "tempest_green"
+parcel = "Crate of Jura Magic Ore"
+to = "dwargon_plaza"
+text = "Kaijin owes the forge street a crate of Jura ore. He is not welcome there himself; you are."
+
+[[quest]]
+id = "smith_letter"
+title = "The Smith's Letter"
+kind = "deliver"
+giver = "dwargon_plaza"
+parcel = "Letter from the Forge Street"
+to = "tempest_green"
+repeat_hours = 168
+text = "The smiths of Dwargon write to their old friend in Tempest. Carry the letter south."
+
+[[quest]]
+id = "gobta_spear"
+title = "Gobta's Lost Spear"
+kind = "deliver"
+giver = "tempest_green"
+parcel = "Gobta's Spear"
+pickup = "goblin_village"
+to = "tempest_green"
+text = "Gobta left his spear in the old goblin village. Again. Fetch it before Benimaru notices."
+
+[[quest]]
+id = "knights_errand"
+title = "A Knight's Errand"
+kind = "deliver"
+giver = "marris_plaza"
+parcel = "Sealed Dispatch of Falmuth"
+to = "blumund_guild"
+minutes = 90
+repeat_hours = 168
+text = "A Falmuth knight cannot be seen in Blumund this month. You can. Deliver the dispatch to the guild, unopened."
+
+[[quest]]
+id = "dragon_pilgrimage"
+title = "The Dragon-City Pilgrimage"
+kind = "deliver"
+giver = "tempest_green"
+parcel = "Pilgrim's Honey Offering"
+to = "dragon_city"
+text = "Pilgrims say the Demon Lord of the forgotten city loves sweets. Carry an offering of honey to her city, far to the east."
+
+[[quest]]
+id = "rim_patrol"
+title = "Clear the Rim Road"
+kind = "cull"
+giver = "rim_camp"
+entity = "tensura:direwolf"
+count = 5
+near = "rim_camp"
+radius = 128
+repeat_hours = 24
+text = "Wolves keep the wayfarers' camp awake at night. Kill five near the camp."
+
+[[quest]]
+id = "academy_supplies"
+title = "Supplies for the Academy"
+kind = "fetch"
+giver = "englassia_guild"
+items = { "minecraft:book" = 4, "minecraft:paper" = 16 }
+at = "englassia_guild"
+repeat_hours = 168
+text = "The Freedom Academy teaches the otherworlder children of the West. It is always short of books and paper."
+
+[[quest]]
+id = "forge_coal"
+title = "Coal for the Forges"
+kind = "fetch"
+giver = "dwargon_plaza"
+items = { "minecraft:coal" = 32 }
+at = "dwargon_plaza"
+repeat_hours = 24
+text = "The forge street burns coal day and night. Bring thirty-two."
+
+[[quest]]
+id = "road_to_englassia"
+title = "The Road West"
+kind = "travel"
+giver = ""
+to = "englassia_guild"
+radius = 32
+text = "The Free Guild's headquarters stands in Englassia, far to the west of Blumund."

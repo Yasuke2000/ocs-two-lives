@@ -75,6 +75,18 @@
 		"It is the days just after the ogres were named. Tempest is still a building site: tents beside the first timber houses, Kaijin's forge smoking on the west road, Shuna's looms in the east, a palisade begun only on one side. Everything you carry in can become part of the town."
 	]
 	chapter.49DCD771BA645C79.title: "Tempest Rises"
+	chapter.510BD166034B6331.chapter_subtitle: [
+		"Rank F to rank C: odd jobs of the Free Guild."
+		"Every reborn soul ends up at a guild counter sooner or later. The Free Guild takes anyone, pays in coin and asks no questions about where you came from: register, start at rank F with the herbs and the slimes, and work your way up the notice board."
+		""
+		"Jobs marked \"Job:\" are accepted with the claim button; the quest after them completes when the work is done. Lost the thread? /ttl sidequest shows what you carry, and /ttl sidequest take <job> at the giver starts a job again."
+	]
+	chapter.510BD166034B6331.title: "The Notice Board"
+	chapter.5C7AF5F86B9F0412.chapter_subtitle: [
+		"Caravans, coal and letters between Dwargon and the forest."
+		"Between the white gate of Dwargon and the rim of the Jura forest runs a road of caravans, smiths' errands and old friendships. The dwarves pay well and remember who helped them."
+	]
+	chapter.5C7AF5F86B9F0412.title: "The Dwarven Road"
 	chapter.5CB6C7D7438302D3.chapter_subtitle: [
 		"A traveler’s mask returns with a warning."
 		"Blumund remembers Shizu as a traveling companion. The Western Holy Church remembers her as a teacher. When the news from Tempest reaches both places, those memories lead you to opposite sides of a barricade."
@@ -85,6 +97,13 @@
 		"Every day there is wood to cut, mobs to clear and ground to cover. These quests reset a day after you claim them, for as long as you live, in either life. The rewards are small: food, a few torches and some experience."
 	]
 	chapter.60737BD25048CC9D.title: "Daily Deeds"
+	chapter.642BF90BDFEF33CA.chapter_subtitle: [
+		"Errands of the forest, from the rim to Tempest."
+		"The Jura forest is wide, old and full of people who need a hand: wayfarers camped on the rim, merchants who will not walk alone, a goblin who keeps losing his spear, and a smith in Tempest who still owes his old street a crate of ore."
+		""
+		"\"Job:\" quests are taken with the claim button; the quest after them completes when the work is done."
+	]
+	chapter.642BF90BDFEF33CA.title: "Odd Jobs of Jura"
 	chapter.6760C91AB2E49228.chapter_subtitle: [
 		"Day one, with nothing but your hands."
 		"Nobody arrives in the Mortal Realm with a sword. The first hours are small things done in the right order: a log, a table, a fire, a chest, something to hold the dark off. Do them well and the rest of the book is open to you."
@@ -100,6 +119,11 @@
 		"The Mortal Realm is a large world made small by habit. Walk it. There are temples in the sand, huts in the swamp, ships in the sea and old trails under the grass, and each is a day's story told by someone who is not coming back."
 	]
 	chapter.6989E856E32A68B2.title: "The Long Road"
+	chapter.6E95A57160C39301.chapter_subtitle: [
+		"Falmuth's errands and the long roads between kingdoms."
+		"West of the Jura forest the kingdoms of humans trade, scheme and send each other letters they would rather nobody read. An adventurer with a fast horse and a closed mouth never runs out of work here."
+	]
+	chapter.6E95A57160C39301.title: "Roads of the West"
 	chapter.6FBCBA46854DE7E5.chapter_subtitle: [
 		"Something old is rising out of Lake Siss."
 		"The Orc War left the forest with a federation and a name that carries. Names carry to Clayman's ears too. A whirlpool calamity sealed far from Jura has been waiting for someone to wake it, and somebody with strings in their fingers has decided that someone will be a beast prince who does not know what he is carrying. Whatever road you walk, Charybdis is coming."
@@ -145,6 +169,13 @@
 		"&6Next life:&r Craft: each use of a smithing table is +2; Faith for the advancement (+2)."
 	]
 	quest.014697902F2935D2.title: "Make Your Mark"
+	quest.0151D7B3D463D1B8.quest_desc: [
+		"The smiths of the forge street write to their old friend in Tempest. They do not say his name; the whole street knows it."
+		""
+		"&7&o“Exile is a word for kings. Friendship is a word for smiths.”&r"
+	]
+	quest.0151D7B3D463D1B8.quest_subtitle: "Accept"
+	quest.0151D7B3D463D1B8.title: "Job: The Smith's Letter"
 	quest.01E277329C034ED2.quest_desc: [
 		"Survive one full day and night (20 minutes of play). Dig in, wall up, light it up. The dark is where most first lives end."
 		""
@@ -202,6 +233,20 @@
 	]
 	quest.0421C6ABC740C8F8.quest_subtitle: "Gather"
 	quest.0421C6ABC740C8F8.title: "A Day's Harvest"
+	quest.04980D3AB3C0FDAB.quest_desc: [
+		"The forge street burns coal day and night. Bring thirty-two to the plaza."
+		""
+		"&7&o“In Dwargon, a cold forge is a sin.”&r"
+	]
+	quest.04980D3AB3C0FDAB.quest_subtitle: "Accept"
+	quest.04980D3AB3C0FDAB.title: "Job: Coal for the Forges"
+	quest.04BFB470A25B9C3A.quest_desc: [
+		"Where the Jura forest gives way to Blumund's fields, adventurers keep a camp on the road. News from both sides passes through it."
+		""
+		"&7&o“East: monsters who keep the peace. West: humans who keep accounts. The camp keeps both.”&r"
+	]
+	quest.04BFB470A25B9C3A.quest_subtitle: "Travel"
+	quest.04BFB470A25B9C3A.title: "The Blumund Road Camp"
 	quest.04D78E4AFF3D25A3.quest_desc: [
 		"Rimuru's side reached the marsh in time to save Gabiru's troops and the old chieftain, and broke most of the horde before the king himself came forward (anime season 1, episode 13). Stand on the same ground and cut down fifteen orcs; the rest of the army will not stay to see the rest of them."
 	]
@@ -243,12 +288,26 @@
 		"&6Next life:&r Not scored directly: it keeps you in torches, and torches keep you alive."
 	]
 	quest.07264084AF144E8F.title: "Charcoal Burner"
+	quest.073FC58C3B92CF64.quest_desc: [
+		"Bring 4 books and 16 paper to the headquarters in Englassia (handed in when you arrive with them). Taken again each week there: /ttl sidequest take academy_supplies."
+		""
+		"&7&o“A note came back in a child's handwriting: thank you, from class S.”&r"
+	]
+	quest.073FC58C3B92CF64.quest_subtitle: "Fetch"
+	quest.073FC58C3B92CF64.title: "Supplies for the Academy"
 	quest.074E3BFDC57CA159.quest_desc: [
 		"Craft diamond armour."
 		""
 		"&6Next life:&r Faith for the advancement; the diamonds you mined already counted as Craft."
 	]
 	quest.074E3BFDC57CA159.title: "Cover Me with Diamonds"
+	quest.077BAAE3A59A61F7.quest_desc: [
+		"Marris, Falmuth's capital, north-west of Blumund: the richest kingdom of the West, proud of its knights and its summoned otherworlders."
+		""
+		"&7&o“The knights watched you cross the plaza. Falmuth watches everyone who comes from the east.”&r"
+	]
+	quest.077BAAE3A59A61F7.quest_subtitle: "Travel"
+	quest.077BAAE3A59A61F7.title: "The Royal Plaza of Marris"
 	quest.07FC914EC6BBF568.quest_desc: [
 		"You walked the Nether's roads, traded with its piglins, rode a lava sea and came back with its reagents. Few mortals do. Tick it off when you are ready for the End; The Ledger (chapter 0j) counts it as a way of life."
 		""
@@ -271,6 +330,13 @@
 	]
 	quest.09312D44BD363D3C.quest_subtitle: "Defeat the Orc Disaster"
 	quest.09312D44BD363D3C.title: "The Champion Falls"
+	quest.093B7A268E28E99B.quest_desc: [
+		"Carry the sealed letter from Blumund's guild hall to the headquarters in Englassia within 60 minutes. Taken again each week at Blumund's hall: /ttl sidequest take mail_blumund_englassia."
+		""
+		"&7&o“The seal was intact. Mostly.”&r"
+	]
+	quest.093B7A268E28E99B.quest_subtitle: "Deliver"
+	quest.093B7A268E28E99B.title: "The Mail Run: Blumund to Englassia"
 	quest.095E9274F41F9EF9.quest_desc: [
 		"Gather 15 bookshelves to enchant at the highest level."
 		""
@@ -291,6 +357,13 @@
 		"&6Next life:&r Not scored: the same rule as the bread, with the same reason to do it."
 	]
 	quest.0A93A9B14DA30692.title: "Torches for the Night Watch"
+	quest.0B44FDD61FE7FF98.quest_desc: [
+		"Find Tomas at the abandoned rookie camp (he appears when you get close) and lead him back to the wayfarers' camp. The wolves found him first; they will follow."
+		""
+		"&7&o“Tomas went home to his village. He sends a letter to the camp every spring.”&r"
+	]
+	quest.0B44FDD61FE7FF98.quest_subtitle: "Rescue"
+	quest.0B44FDD61FE7FF98.title: "The Missing Rookie"
 	quest.0B48B9D221810B49.quest_desc: [
 		"Mine twenty-four coal. It burns hotter than wood and lights a longer road than charcoal."
 		""
@@ -313,6 +386,13 @@
 		"&6Next life:&r Not scored directly: a fed soul lives longer, and days alive are Longevity."
 	]
 	quest.0BA57A81D13A7783.title: "A Handful of Seed"
+	quest.0BB9C2EF440ADC49.quest_desc: [
+		"Rogue goblins from beyond the forest raid Blumund's outlying farms. Only kills inside Blumund count: the goblins of Tempest are allies, not quarry. Accept the job, then claim the reward to take it."
+		""
+		"&7&o“Goblin slaying: the job every rookie wants, and the one every veteran reads twice.”&r"
+	]
+	quest.0BB9C2EF440ADC49.quest_subtitle: "Accept"
+	quest.0BB9C2EF440ADC49.title: "Job: Goblin Raiders"
 	quest.0BF0F708AB55929D.quest_desc: [
 		"At night the direwolves come out of the forest. Before the slime came, they were the goblins' fear. Stand at the unfinished palisade by the south gate and drive off six of them."
 	]
@@ -377,6 +457,13 @@
 	]
 	quest.0E507B0734BAF632.quest_subtitle: "Wander"
 	quest.0E507B0734BAF632.title: "Down to the River"
+	quest.0EA8A35F5388578E.quest_desc: [
+		"Crossbow bandits rob the merchants between Marris and Blumund. Falmuth's knights are busy elsewhere. Stop six of them."
+		""
+		"&7&o“The bounty was posted in two kingdoms. Only one of them paid on time.”&r"
+	]
+	quest.0EA8A35F5388578E.quest_subtitle: "Hunt"
+	quest.0EA8A35F5388578E.title: "Bandits on the Falmuth Road"
 	quest.0F6D40AEB406B8B7.quest_desc: [
 		"Carry thirty-two torches. Light your door, your path and every cave mouth you enter: monsters cannot spawn where it is bright."
 		""
@@ -456,6 +543,13 @@
 		"&6Next life:&r Faith for the advancement (+2)."
 	]
 	quest.146D12495A6AF61B.title: "A Bucket of Fire"
+	quest.14CDA445458B4303.quest_desc: [
+		"Rigurd's tribe lived here before Tempest: huts of sticks and hide in the forest. It is quieter now."
+		""
+		"&7&o“Scratched into a post: a slime, a crown, and a goblin pointing up at both.”&r"
+	]
+	quest.14CDA445458B4303.quest_subtitle: "Travel"
+	quest.14CDA445458B4303.title: "The Old Goblin Village"
 	quest.14DA7048CD6D4A6B.quest_desc: [
 		"Find a trail ruin: broken walls half-buried in the earth, with cracked clay and mud bricks. Dig carefully and bring a brush."
 		""
@@ -594,6 +688,13 @@
 		"Sawing planks by hand slows a whole town down. Craft a woodcutter (planks and an iron ingot) and bring it to the lumber yard, where the half-built houses wait for boards."
 	]
 	quest.1901591983305FCD.title: "A Woodcutter for the Lumber Yard"
+	quest.192AA5142CA73994.quest_desc: [
+		"Carter Wil drives grain from Blumund's guild hall to Ballachia. Bandits know the road better than he does. He waits for you in the hall."
+		""
+		"&7&o“Escort duty: long walks, short fights, and a cart that never stops squeaking.”&r"
+	]
+	quest.192AA5142CA73994.quest_subtitle: "Accept"
+	quest.192AA5142CA73994.title: "Job: Guard the Grain Cart"
 	quest.1A805F105A11A42A.quest_desc: [
 		"Every kill adds to your EP. Reach 1,000, the point where the world stops treating you as ordinary and calls you D-Class."
 	]
@@ -602,6 +703,20 @@
 		"When the wolves are gone, the ants and spiders crawl in from the undergrowth. Hakurou says a town that cannot watch its own fields does not deserve them. Kill six giant ants and three black spiders."
 	]
 	quest.1A837B4EC88D3394.title: "Pests of the Forest"
+	quest.1B0A15FA1E2A4F8E.quest_desc: [
+		"Kill six goblins while you stand in Blumund's lands. Taken again each week at the guild hall: /ttl sidequest take goblin_raiders."
+		""
+		"&7&o“The farmers paid in turnips. The guild paid in silver. Both were grateful.”&r"
+	]
+	quest.1B0A15FA1E2A4F8E.quest_subtitle: "Cull"
+	quest.1B0A15FA1E2A4F8E.title: "Goblin Raiders of Blumund"
+	quest.1B7E8C3467F0D397.quest_desc: [
+		"Pick the spear up in the old goblin village (it is found when you get there) and bring it back to Tempest's green."
+		""
+		"&7&o“Benimaru noticed. He said nothing. Gobta has polished that spear every day since.”&r"
+	]
+	quest.1B7E8C3467F0D397.quest_subtitle: "Find and return"
+	quest.1B7E8C3467F0D397.title: "Gobta's Lost Spear"
 	quest.1B936E59B637BCED.quest_desc: [
 		"Reach 100,000 EP (Special-A Class): a disaster the world has to plan around."
 	]
@@ -641,6 +756,13 @@
 		"&6Next life:&r Order: each trade is +1, and the first twenty-five trades count the most."
 	]
 	quest.1C7A1C8BD2A8FE30.title: "A Heavy Purse"
+	quest.1C84F2499287E14E.quest_desc: [
+		"Gobta left his spear in the old goblin village. Again. He would very much like it back before Benimaru notices."
+		""
+		"&7&o“Gobta: brave, cheerful, and missing a spear for the third time this season.”&r"
+	]
+	quest.1C84F2499287E14E.quest_subtitle: "Accept"
+	quest.1C84F2499287E14E.title: "Job: Gobta's Lost Spear"
 	quest.1C877BA54AD9295D.quest_desc: [
 		"A cold forge makes no iron. Hand in 12 coal."
 	]
@@ -686,6 +808,13 @@
 		"Schematics teach smiths to make katana, swords and armour; the schematic is used up and the recipe stays. Craft a smithing bench to work from. If you already built one for Kaijin in Tempest, the same bench counts."
 	]
 	quest.1E5B98A6CFF7815D.title: "A Smith's Bench"
+	quest.1E7D098A7387BF0C.quest_desc: [
+		"Three jobs done for the dwarves of the road and the city. The forge street nods when you pass."
+		""
+		"&7&o“A dwarf nod is worth more than an elf's speech.”&r"
+	]
+	quest.1E7D098A7387BF0C.quest_subtitle: "Capstone"
+	quest.1E7D098A7387BF0C.title: "Friend of the Forges"
 	quest.1ECB5979C243CC5A.quest_desc: [
 		"Go to Tempest’s south gate near x 0, z 40 and use /ttl story fight folgen. In this telling the field commander leads Falmuth’s attack. The people behind the gate need the road held long enough to get the wounded indoors."
 		""
@@ -703,6 +832,13 @@
 		"Gobta is the hobgoblin who volunteers first, rides a wolf badly and boasts well. Find him at the goblins' campfire, south of Rigurd's hut."
 	]
 	quest.1F7212F6209FDAB3.title: "Gobta, Wolf Rider"
+	quest.1F86F858807089A6.quest_desc: [
+		"Wolves keep the camp awake at night. The wayfarers chip in for whoever thins them out."
+		""
+		"&7&o“Five wolves less is five nights of sleep more.”&r"
+	]
+	quest.1F86F858807089A6.quest_subtitle: "Accept"
+	quest.1F86F858807089A6.title: "Job: Clear the Rim Road"
 	quest.1F9294FDE0A06C93.quest_desc: [
 		"Put a lightning rod over a villager's house and let a thunderstorm come: a struck villager turns into a witch, but a rod catches the bolt first."
 		""
@@ -711,6 +847,20 @@
 		"&6Next life:&r Faith for the advancement (+2), and Order: a protected village is a better one."
 	]
 	quest.1F9294FDE0A06C93.title: "Surge Protector"
+	quest.1FAE36E0A77AB7A0.quest_desc: [
+		"Dwarven armourers prize giant ant carapace for light plates. Hand in four."
+		""
+		"&7&o“\"Light, hard, and free if you are brave enough,\" said the armourer, who was not.”&r"
+	]
+	quest.1FAE36E0A77AB7A0.quest_subtitle: "Gather"
+	quest.1FAE36E0A77AB7A0.title: "Carapace for the Armourers"
+	quest.20EBD7EC04010F9E.quest_desc: [
+		"Bring 32 coal to Dwargon's market plaza (handed in when you arrive with it). Taken again each day there: /ttl sidequest take forge_coal."
+		""
+		"&7&o“The forges roared. Somewhere a smith grinned without looking up.”&r"
+	]
+	quest.20EBD7EC04010F9E.quest_subtitle: "Fetch"
+	quest.20EBD7EC04010F9E.title: "Coal for the Forges"
 	quest.2132F3CD7B78FC48.quest_desc: [
 		"Fill an iron bucket with water. Dig a well in the yard: water beats fire, feeds crops and breaks a long fall."
 		""
@@ -754,6 +904,13 @@
 	]
 	quest.22BF60FD6B9D6839.quest_subtitle: "Act II begins"
 	quest.22BF60FD6B9D6839.title: "The King Looks Up"
+	quest.22C1B65293722FF5.quest_desc: [
+		"Meet Scholar Ilse at the Englassia road post and see her safely to the headquarters."
+		""
+		"&7&o“Her notes on the magicule soil of the road were published under your name too. Nobody read them.”&r"
+	]
+	quest.22C1B65293722FF5.quest_subtitle: "Escort"
+	quest.22C1B65293722FF5.title: "The Scholar's Road"
 	quest.2327C864EFF03C30.quest_desc: [
 		"Smelt eight copper ingots. It is soft and bright and turns green, but it makes spyglasses, lightning rods and good roofs."
 		""
@@ -781,6 +938,13 @@
 		"Benimaru, Shuna, Shion, Souei, Hakurou and Kurobe sat at this long table when Rimuru named them, and the first plans against the coming trouble were made here. Walk in and take your seat on the benches."
 	]
 	quest.24A79CFC701B4EB8.title: "The Council Longhouse"
+	quest.2534EE4B290867A2.quest_desc: [
+		"The headquarters writes back. Same rules, other direction: the reply goes to Blumund within the hour."
+		""
+		"&7&o“Two guildmasters, one adventurer, and an hour of road in between.”&r"
+	]
+	quest.2534EE4B290867A2.quest_subtitle: "Accept"
+	quest.2534EE4B290867A2.title: "Job: The Grandmaster's Reply"
 	quest.259326FA8E3E9655.quest_desc: [
 		"Slay the rarer things of the Overworld: an enderman, a witch and a phantom."
 		""
@@ -801,6 +965,13 @@
 		"&6Next life:&r Each step towards the End is a step towards a Legend's soul: a Legend needs at least one great foe slain."
 	]
 	quest.26616A4D8CE7AC47.title: "Eyes of Ender"
+	quest.26969AD6A836AA46.quest_desc: [
+		"Walk Carter Wil from the guild hall to Ballachia and keep him alive through two ambushes. Stay close: if you leave him for a minute he turns back. Taken again each week at the hall: /ttl sidequest take grain_cart."
+		""
+		"&7&o“Not a sack lost. Carter Wil told everyone in Ballachia, twice.”&r"
+	]
+	quest.26969AD6A836AA46.quest_subtitle: "Escort"
+	quest.26969AD6A836AA46.title: "Guard the Grain Cart"
 	quest.26A6D1053EDA56FF.quest_desc: [
 		"The forge hall on the plaza and the engineers' workshop on the east side keep the plans of Dwargon's first technology tier on their walls. Nobody counts the paper in a smith's trash, and nobody guards what everyone already sees. Visit both halls and copy what you can: eight sheets of paper for the broker."
 		""
@@ -836,6 +1007,13 @@
 	]
 	quest.279E2D0B9F04D34D.quest_subtitle: "Begin the fight"
 	quest.279E2D0B9F04D34D.title: "Face the Orc Lord"
+	quest.27A1BFDFF4CA46CE.quest_desc: [
+		"Kill five direwolves within about 128 blocks of the wayfarers' camp. Taken again each day at the camp: /ttl sidequest take rim_patrol."
+		""
+		"&7&o“The camp's cook saved you the best bowl. That is how the rim pays its debts.”&r"
+	]
+	quest.27A1BFDFF4CA46CE.quest_subtitle: "Cull"
+	quest.27A1BFDFF4CA46CE.title: "Clear the Rim Road"
 	quest.2838EEA8E8718D5C.quest_desc: [
 		"The lake is calm again. In the story the victory is celebrated in Tempest, and then Yuuki walks in with a warning about Shizu's students (anime season 1, episode 20). Whichever road you took, the water gave something up: the forest's strongest now know what you are."
 		""
@@ -859,10 +1037,24 @@
 	]
 	quest.287D2F8E30D91857.quest_subtitle: "Report to the Outcast"
 	quest.287D2F8E30D91857.title: "The Spoils"
+	quest.28AA589483AF3915.quest_desc: [
+		"Carry the reply from the headquarters in Englassia to Blumund's guild hall within 60 minutes. Taken again each week at the headquarters: /ttl sidequest take mail_englassia_blumund."
+		""
+		"&7&o“Fuze read it, swore, and read it again.”&r"
+	]
+	quest.28AA589483AF3915.quest_subtitle: "Deliver"
+	quest.28AA589483AF3915.title: "The Mail Run: Englassia to Blumund"
 	quest.28B77958A89D5BEA.quest_desc: [
 		"Reach 3,000 EP (C-Class). A named goblin or wolf is stronger than most travellers; you should not trail behind them."
 	]
 	quest.28B77958A89D5BEA.title: "Fit for a Named Pack"
+	quest.28CFF23CFA17AAAB.quest_desc: [
+		"A Falmuth knight cannot be seen in Blumund this month. You can. A sealed dispatch for the guild in Blumund, unopened, within an hour and a half."
+		""
+		"&7&o“Falmuth and Blumund are friends this season. Friends still read each other's mail.”&r"
+	]
+	quest.28CFF23CFA17AAAB.quest_subtitle: "Accept"
+	quest.28CFF23CFA17AAAB.title: "Job: A Knight's Errand"
 	quest.28ECD42F864E39EB.quest_desc: [
 		"Find a ruined portal: a broken frame of obsidian with a chest nearby. Someone started a journey here and did not finish it."
 		""
@@ -908,6 +1100,13 @@
 	]
 	quest.29D5C5EA2B017525.quest_subtitle: "Begin the last battle"
 	quest.29D5C5EA2B017525.title: "The One Who Devours All"
+	quest.2A4A7322AE0917C0.quest_desc: [
+		"Widow Hanna dropped her wedding ring by the old well on the Blumund road, east of the city. She cannot pay much. She asked anyway."
+		""
+		"&7&o“The smallest jobs on the board are the ones people remember you for.”&r"
+	]
+	quest.2A4A7322AE0917C0.quest_subtitle: "Accept"
+	quest.2A4A7322AE0917C0.title: "Job: The Lost Ring"
 	quest.2AFA8C648E4A5880.quest_desc: [
 		"Crack open an amethyst geode and take eight shards. Do not let it ring: the crystals chime when anyone steps near."
 		""
@@ -994,6 +1193,13 @@
 		"&6Next life:&r Faith for the advancement (+2)."
 	]
 	quest.2F5E407CC816055C.title: "Beyond the Island"
+	quest.2FC9FB28AF28814C.quest_desc: [
+		"Pilgrims say the Demon Lord of the forgotten dragon city, far to the east, loves sweets above all things. Someone has to carry the honey offering. It is a long road."
+		""
+		"&7&o“Nobody knows who started the custom. Everybody knows not to arrive empty-handed.”&r"
+	]
+	quest.2FC9FB28AF28814C.quest_subtitle: "Accept"
+	quest.2FC9FB28AF28814C.title: "Job: The Dragon-City Pilgrimage"
 	quest.3050EAF03EB34E0A.quest_desc: [
 		"Gather sixteen cobblestone walls and ring your yard. Zombies cannot jump a wall of this height; creepers, alas, do not care."
 		""
@@ -1031,6 +1237,13 @@
 		"The first thing the slime learned to do was to see without eyes: Magic Sense reads the magicules around you. Learn it (any way the world allows). Skills are never handed out by this book."
 	]
 	quest.3192ECC2F5206C40.title: "Magic Sense"
+	quest.31FAE451B48E9B41.quest_desc: [
+		"Carry the dispatch from Marris's plaza to the Free Guild hall in Blumund within 90 minutes. Taken again each week at the plaza: /ttl sidequest take knights_errand."
+		""
+		"&7&o“Fuze broke the seal in front of you, read one line, and told you to forget you ever carried it.”&r"
+	]
+	quest.31FAE451B48E9B41.quest_subtitle: "Deliver"
+	quest.31FAE451B48E9B41.title: "A Knight's Errand"
 	quest.3280B1362135A862.quest_desc: [
 		"Optional. Use /ttl story fight rimuru_ogre_fight at Tempest’s green if you accept the standard boss encounter and its 40-point reputation cost. You can finish the act without touching your sword."
 		""
@@ -1077,6 +1290,27 @@
 		"&6Next life:&r Valor for the ground covered, Faith for any advancement."
 	]
 	quest.34884FFE5F8393B9.title: "Wrecks and Ruins"
+	quest.34D00D4FD0D457A5.quest_desc: [
+		"A rookie named Tomas never came back from his first hunt. His party says the camp is south of the rim, deeper in the forest where the trees turn dark. Bring him home alive."
+		""
+		"&7&o“Rescue the lost adventurer: the job nobody posts, and everybody takes.”&r"
+	]
+	quest.34D00D4FD0D457A5.quest_subtitle: "Accept"
+	quest.34D00D4FD0D457A5.title: "Job: The Missing Rookie"
+	quest.34EE072F2034D294.quest_desc: [
+		"Carry the letter from Dwargon's plaza to Tempest's green. Taken again each week at the plaza: /ttl sidequest take smith_letter."
+		""
+		"&7&o“Kaijin read it at his forge and laughed until Garm came to see what was wrong.”&r"
+	]
+	quest.34EE072F2034D294.quest_subtitle: "Deliver"
+	quest.34EE072F2034D294.title: "The Smith's Letter"
+	quest.355AD96A045EAE0D.quest_desc: [
+		"A horned bear has been raiding the camp's stores. The hunters want it gone before it learns to open the barrels."
+		""
+		"&7&o“It did learn to open the barrels. That is why they paid.”&r"
+	]
+	quest.355AD96A045EAE0D.quest_subtitle: "Hunt"
+	quest.355AD96A045EAE0D.title: "The Horned Bear"
 	quest.358E4EA8FE88E607.quest_desc: [
 		"A king does not meet a nobody. Reach 6,000 EP (B-Class): a monster the guards would hesitate to turn away."
 	]
@@ -1119,6 +1353,13 @@
 	]
 	quest.384C1793A5436F8A.quest_subtitle: "The preparation milestone"
 	quest.384C1793A5436F8A.title: "The Dragon's Eve"
+	quest.38FC480641D6350F.quest_desc: [
+		"Through the gate, down the south street, under the cavern's vault: the market plaza of Dwargon, with its fountain and its cogwheel."
+		""
+		"&7&o“Everything here is made to last a thousand years, including the prices.”&r"
+	]
+	quest.38FC480641D6350F.quest_subtitle: "Travel"
+	quest.38FC480641D6350F.title: "The Market Plaza"
 	quest.39605C1707E5BD4A.quest_desc: [
 		"Stand on a beach and in the open ocean. Salt air, kelp and a very long way to anywhere else."
 		""
@@ -1184,6 +1425,13 @@
 		"Orcs eat everything and fear nothing, and they come in numbers. Cut ten of them down at the edge of their camp."
 	]
 	quest.3E7E77BB944CF7E0.title: "Pigs on Two Legs"
+	quest.3E952054AC18967B.quest_desc: [
+		"Carry the honey offering to the City of the Forgotten Dragon, about 2,500 blocks east of Tempest."
+		""
+		"&7&o“The offering was accepted. The jar was licked clean before you reached the gate on your way out.”&r"
+	]
+	quest.3E952054AC18967B.quest_subtitle: "Deliver"
+	quest.3E952054AC18967B.title: "The Dragon-City Pilgrimage"
 	quest.3F08093E46A35301.quest_desc: [
 		"Cure a zombie villager: weakness, then a golden apple."
 		""
@@ -1196,6 +1444,13 @@
 		"&6Next life:&r Order: tending animals adds a little Order karma."
 	]
 	quest.3F0BBF3FEC97C135.title: "Shepherd"
+	quest.3F385FB3B428AA1C.quest_desc: [
+		"Halfway between Jura's rim and Dwargon's gate, a dwarf village feeds the caravans and fixes their wheels."
+		""
+		"&7&o“The innkeeper weighed your purse with her eyes and poured you the second-best ale.”&r"
+	]
+	quest.3F385FB3B428AA1C.quest_subtitle: "Travel"
+	quest.3F385FB3B428AA1C.title: "The Village on the Road"
 	quest.3F5B0360B52B7445.quest_desc: [
 		"Rimuru learned his resistances by taking hits, not by studying. After the wolves have bitten you a few times, the world may start to answer: Physical Attack Resistance begins to form. Skills are never handed out by this book."
 	]
@@ -1224,6 +1479,13 @@
 		"East of Tempest lies Lake Siss and its marsh, home of the lizardmen."
 	]
 	quest.41478DC3F02993DE.title: "Lake Siss"
+	quest.41D840952480F245.quest_desc: [
+		"The last post on the road to Lura, where Englassia's patrols turn back."
+		""
+		"&7&o“The patrol sergeant asked where you were from. You said east. He did not ask how far.”&r"
+	]
+	quest.41D840952480F245.quest_subtitle: "Travel"
+	quest.41D840952480F245.title: "The Englassia Road Post"
 	quest.41FB514E83118EA1.quest_desc: [
 		"Find a pillager outpost. Scout it from a distance, clear it from the dark and take what the chest in the top holds."
 		""
@@ -1309,6 +1571,20 @@
 		"&6Next life:&r Valor +100 and a great foe, if you live. Most souls that try go to the Corridor early."
 	]
 	quest.46A849AD3B1F41C5.title: "The Deep Dark"
+	quest.4700E96750331387.quest_desc: [
+		"Giant bats roost in the caves under the trade road and take the night watch's lanterns for prey. Drive off six."
+		""
+		"&7&o“Rank E: when the guild trusts you with things that bite back.”&r"
+	]
+	quest.4700E96750331387.quest_subtitle: "Hunt"
+	quest.4700E96750331387.title: "E-Rank: The Bat Cave"
+	quest.47344390C031C52F.quest_desc: [
+		"Some adventurers in the guild halls and road camps hire out: talk to one and press \"Join my party\". A companion fights beside you for a fee and a set time, never shares party rewards or boss credit, leaves if it falls, and counts toward the party cap of five."
+		""
+		"&7&o“Nobody walks the roads of this world alone for long. Not if they want to keep walking.”&r"
+	]
+	quest.47344390C031C52F.quest_subtitle: "Party"
+	quest.47344390C031C52F.title: "A Sword for Hire"
 	quest.47AE71C4AA741918.quest_desc: [
 		"Travel far: stand in a desert, a jungle, snowy plains and badlands. The Mortal Realm has large biomes; plan the trip."
 		""
@@ -1324,6 +1600,27 @@
 		"Dwarven smiths prize magic ore, iron soaked in magicules over centuries. Bring back a few shards."
 	]
 	quest.48B3E8CACE86A277.title: "Magic Ore"
+	quest.48F8F5F5965DC32F.quest_desc: [
+		"Four kinds of work done for the Free Guild, and the receptionists know your name without looking at the card."
+		""
+		"&7&o“They put your name on the board of regulars. In pencil, but still.”&r"
+	]
+	quest.48F8F5F5965DC32F.quest_subtitle: "Capstone"
+	quest.48F8F5F5965DC32F.title: "A Regular of the Guild"
+	quest.492A3108CC6B8E54.quest_desc: [
+		"A nest of black spiders under the old mill. Burn it out: six spiders."
+		""
+		"&7&o“The board calls it rank D. The survivors call it the day they bought better boots.”&r"
+	]
+	quest.492A3108CC6B8E54.quest_subtitle: "Hunt"
+	quest.492A3108CC6B8E54.title: "D-Rank: The Black Spider Nest"
+	quest.4A578275C6CEFAF1.quest_desc: [
+		"Camp, post, plaza and road: the West has seen your boots."
+		""
+		"&7&o“Somewhere a bard is already getting the details wrong.”&r"
+	]
+	quest.4A578275C6CEFAF1.quest_subtitle: "Capstone"
+	quest.4A578275C6CEFAF1.title: "The Long Roads"
 	quest.4B1932600C991DF0.quest_desc: [
 		"Mildo, the quiet dwarf who surveys and lays out the streets, needs timber for house frames and a lumber yard at the building site in the south-west. Hand in 32 oak logs."
 	]
@@ -1359,6 +1656,13 @@
 	]
 	quest.4C0E3BFFAE3E50CA.quest_subtitle: "Hunt"
 	quest.4C0E3BFFAE3E50CA.title: "Wolves at the Edge"
+	quest.4CD7245217E46493.quest_desc: [
+		"Carry the crate from Tempest's green to the market plaza of Dwargon."
+		""
+		"&7&o“The old smiths opened the crate, went quiet, and drank to Kaijin's name.”&r"
+	]
+	quest.4CD7245217E46493.quest_subtitle: "Deliver"
+	quest.4CD7245217E46493.title: "Kaijin's Ore for Dwargon"
 	quest.4D73CAD0D78606DD.quest_desc: [
 		"Clayman's agents Tear and Footman, the harlequins, are the ones who talk Phobio into carrying the seal and then watch it break (anime season 1, episodes 17-18). They want paying: not for the work, which they enjoy, but for being sure you are the kind of soul who pays."
 		""
@@ -1373,6 +1677,13 @@
 	]
 	quest.4D84DCDECB3CCFDC.quest_subtitle: "Carry it home"
 	quest.4D84DCDECB3CCFDC.title: "The King's Word"
+	quest.4EEF90989EF8A2DA.quest_desc: [
+		"South-east of Tempest, past Lake Siss, the lizardmen keep their caverns. Visitors are tolerated, if they are polite."
+		""
+		"&7&o“A young lizardman with a fine spear told you he would be chief one day. He told everyone.”&r"
+	]
+	quest.4EEF90989EF8A2DA.quest_subtitle: "Travel"
+	quest.4EEF90989EF8A2DA.title: "The Lizardmen's Caverns"
 	quest.4F752FC714E6D62C.quest_desc: [
 		"Craft a stonecutter and use it five times. Stairs, slabs and walls of stone come out of it cleaner and cheaper than by hand."
 		""
@@ -1407,6 +1718,13 @@
 	]
 	quest.50382544FBB449E8.quest_subtitle: "Wayfarer's Rest"
 	quest.50382544FBB449E8.title: "Only Once"
+	quest.5038971436C2EC7B.quest_desc: [
+		"Fuze's report must reach the headquarters in Englassia within the hour. The guild gives you the sealed letter when you take the job; do not open it."
+		""
+		"&7&o“A mail run is a race against the clock, the road and your own curiosity.”&r"
+	]
+	quest.5038971436C2EC7B.quest_subtitle: "Accept"
+	quest.5038971436C2EC7B.title: "Job: The Mail Run"
 	quest.50CBFF631DD567A4.quest_desc: [
 		"Follow the road north through the mountains to the gate of the Armed Nation of Dwargon, where King Gazel rules and the best smiths of the continent work."
 	]
@@ -1627,6 +1945,13 @@
 	]
 	quest.59F4870034DD1420.quest_subtitle: "Begin the fight"
 	quest.59F4870034DD1420.title: "Wake the Calamity"
+	quest.5A18E3FF986BF7B8.quest_desc: [
+		"Merchant Marlo wants to reach the dwarf village on the road to Dwargon along Jura's rim with his goods intact. Wolves and ants hunt the rim at dusk. He waits at the camp."
+		""
+		"&7&o“\"A guard is cheaper than a lost cart,\" said Marlo, and haggled your fee down anyway.”&r"
+	]
+	quest.5A18E3FF986BF7B8.quest_subtitle: "Accept"
+	quest.5A18E3FF986BF7B8.title: "Job: The Merchant's Escort"
 	quest.5A428C02809011D3.quest_desc: [
 		"Slay the Nether's own: a blaze, a ghast, a wither skeleton and a magma cube."
 		""
@@ -1643,6 +1968,13 @@
 		"&7&o“Our interpretation: the seal of Falmuth still hangs from your belt when you reach the village green.”&r"
 	]
 	quest.5B4ED5D772DCDF7D.title: "The Slime Must Fall"
+	quest.5BB572766612178E.quest_desc: [
+		"Search the old well on the Blumund road (the ring is found when you get there), then bring it back to the guild hall."
+		""
+		"&7&o“She wept, and paid you in bread she had baked that morning. It was good bread.”&r"
+	]
+	quest.5BB572766612178E.quest_subtitle: "Find and return"
+	quest.5BB572766612178E.title: "The Lost Ring"
 	quest.5BE93F04F60FB5AA.quest_desc: [
 		"Craft a wooden pickaxe, a wooden axe and a wooden sword. Soft tools, but they are enough to reach stone."
 		""
@@ -1666,6 +1998,13 @@
 	]
 	quest.5C6CEA9703648161.quest_subtitle: "The deeds milestone"
 	quest.5C6CEA9703648161.title: "A Good Name"
+	quest.5CAB1DC1C28B319F.quest_desc: [
+		"The Freedom Academy in Englassia teaches the otherworlder children of the West. It is always short of books and paper."
+		""
+		"&7&o“Children from another world, learning to live in this one. Somebody has to buy the ink.”&r"
+	]
+	quest.5CAB1DC1C28B319F.quest_subtitle: "Accept"
+	quest.5CAB1DC1C28B319F.title: "Job: Supplies for the Academy"
 	quest.5CC1ABCBFB22E216.quest_desc: [
 		"Clayman wants Lubelius to recognize his claim. Submit four sheets of paper for his written demand and carry it to Luminous at her cathedral and use /ttl story fight luminous_valentine near the placed anchor. Having faced Hinata opens this encounter. Clayman never gave such an order in the anime."
 		""
@@ -1729,6 +2068,13 @@
 		"&6Next life:&r Longevity: you stayed alive to come back."
 	]
 	quest.5E6EA0308CD76328.title: "Come Home"
+	quest.5E9327D3B464420E.quest_desc: [
+		"Caravan Master Durn brings Dwargon's ore south to Jura's rim. Three times this month the carts were attacked. He waits at the dwarf village."
+		""
+		"&7&o“\"Dwarves don't run,\" said Durn. \"We walk fast.\"”&r"
+	]
+	quest.5E9327D3B464420E.quest_subtitle: "Accept"
+	quest.5E9327D3B464420E.title: "Job: Protect the Dwarf Caravan"
 	quest.5F1A8DCF7C0E73A4.quest_desc: [
 		"Build a Nether portal and step through. It leads to the Mortal Nether, which belongs to this life only. Bring fire resistance if you can, and never dig straight down."
 		""
@@ -1749,6 +2095,13 @@
 		"&6Next life:&r Longevity: food buys days."
 	]
 	quest.5F709D2F4385C2DB.title: "A Full Larder"
+	quest.5FEC7A14AC40D32F.quest_desc: [
+		"Walk Caravan Master Durn from the dwarf village to the wayfarers' camp on the rim through three ambushes. Taken again each week at Dwargon's plaza: /ttl sidequest take dwarf_caravan."
+		""
+		"&7&o“The King's ore went through. Durn bought the first round; dwarves do not say thank you twice.”&r"
+	]
+	quest.5FEC7A14AC40D32F.quest_subtitle: "Escort"
+	quest.5FEC7A14AC40D32F.title: "Protect the Dwarf Caravan"
 	quest.60226F8162DAD560.quest_desc: [
 		"Slay shulkers for two shulker shells, then craft a shulker box. It holds a stack of everything and keeps it when you drop it."
 		""
@@ -1757,6 +2110,20 @@
 		"&6Next life:&r Valor: shulkers are a new kind of foe (+4)."
 	]
 	quest.60226F8162DAD560.title: "A Box That Bites"
+	quest.603D7332235307E3.quest_desc: [
+		"Wayfarers and rookie adventurers camp on Jura's rim, north of where reborn souls wake: the forest's safe edge. Find the camp."
+		""
+		"&7&o“A fire, a pot, and four strangers arguing about which way Tempest is. You have found the rim.”&r"
+	]
+	quest.603D7332235307E3.quest_subtitle: "Travel"
+	quest.603D7332235307E3.title: "The Wayfarers' Camp"
+	quest.6051673434B4CAFA.quest_desc: [
+		"Knight spiders creep up from the deep mines into the outer tunnels. Kill four."
+		""
+		"&7&o“Armoured, patient, and much larger than the drawings in the guild's bestiary.”&r"
+	]
+	quest.6051673434B4CAFA.quest_subtitle: "Hunt"
+	quest.6051673434B4CAFA.title: "Knight Spiders in the Tunnels"
 	quest.60A6E30719D91FFE.quest_desc: [
 		"Stay alive for 7 days (about 2 hours and 20 minutes of play)."
 		""
@@ -1896,6 +2263,27 @@
 		"&6Next life:&r Not scored directly: kills with them are Valor."
 	]
 	quest.65B824C8927B1E9A.title: "Sixty-Four Arrows"
+	quest.65BC582974E27AFB.quest_desc: [
+		"Kaijin owes the forge street of Dwargon a crate of Jura ore. He was exiled from the dwarf kingdom and is not welcome there himself. You are."
+		""
+		"&7&o“An exiled smith pays his debts. He just needs someone else to carry them.”&r"
+	]
+	quest.65BC582974E27AFB.quest_subtitle: "Accept"
+	quest.65BC582974E27AFB.title: "Job: Kaijin's Ore for Dwargon"
+	quest.65E16A025149E756.quest_desc: [
+		"Walk Merchant Marlo from the wayfarers' camp to the dwarf village along the rim, through two ambushes. Taken again every three days at the camp: /ttl sidequest take merchant_escort."
+		""
+		"&7&o“He sold the dwarves your boots' worth of salt before you had sat down.”&r"
+	]
+	quest.65E16A025149E756.quest_subtitle: "Escort"
+	quest.65E16A025149E756.title: "The Merchant's Escort"
+	quest.65F0215DB3966823.quest_desc: [
+		"The green's cooking fire eats a cart of wood a day. Hand in thirty-two oak logs."
+		""
+		"&7&o“Rigurd thanked you so loudly that the whole green heard. Twice.”&r"
+	]
+	quest.65F0215DB3966823.quest_subtitle: "Gather"
+	quest.65F0215DB3966823.title: "Rigurd's Firewood"
 	quest.661F65069D6D27BB.quest_desc: [
 		"Find a swamp hut and an igloo. One belongs to a witch, one to nobody. The igloo's cellar has a stair behind the bed."
 		""
@@ -1971,6 +2359,13 @@
 		"&6Next life:&r Order and Faith: an advancement, and a village that can defend itself. Killing a golem is a Chaos deed."
 	]
 	quest.6AA6AC10181F3F11.title: "Hired Help"
+	quest.6AA8E6067A8EC212.quest_desc: [
+		"Ballachia sits on the road between Blumund and Englassia. Caravans rest there; so do adventurers."
+		""
+		"&7&o“Every road has a town where the stories get swapped. On this one, it is Ballachia.”&r"
+	]
+	quest.6AA8E6067A8EC212.quest_subtitle: "Travel"
+	quest.6AA8E6067A8EC212.title: "The Town of Ballachia"
 	quest.6BFA5D9C19308004.quest_desc: [
 		"At the back of the cavern, behind the great stair and the royal terrace, sits the third king of Dwargon in his throne room of tuff and deepslate, under red banners. He has ruled for over three hundred years and judges every petitioner himself. He sits there as a silent guardian (he does not speak and does not fight): kneel, then leave."
 	]
@@ -1980,6 +2375,13 @@
 		"Reach 50,000 EP. At this strength a single fighter can turn a skirmish, as the kijin did on the battlefield."
 	]
 	quest.6BFF3AB595F9426A.title: "A Walking Calamity"
+	quest.6C47CF0254A7CCAA.quest_desc: [
+		"Direwolves follow the caravans out of the forest's edge. Kill five before they learn the timetable."
+		""
+		"&7&o“The caravans pay the guild. The guild pays you. The wolves pay for nothing, which is the problem.”&r"
+	]
+	quest.6C47CF0254A7CCAA.quest_subtitle: "Hunt"
+	quest.6C47CF0254A7CCAA.title: "Wolves on the Trade Road"
 	quest.6C4DDD673A2A254A.quest_desc: [
 		"Collect blaze rods: you need them for brewing stands and Eyes of Ender."
 		""
@@ -2057,6 +2459,13 @@
 		"&7&o“Rimuru’s Harvest Festival brought a deep sleep while the Voice of the World announced his evolution.”&r"
 	]
 	quest.70C3089B60AC26D9.title: "True Demon Lord"
+	quest.70C8014139160B5D.quest_desc: [
+		"The Free Guild's Blumund branch stands on the market square of Londo, Blumund's capital, west of the Jura forest. Walk into the hall and become an adventurer: everyone starts at rank F."
+		""
+		"&7&o“A clean registration card, a rank of F, and a receptionist who has seen a hundred heroes walk in and twelve walk out.”&r"
+	]
+	quest.70C8014139160B5D.quest_subtitle: "Rank F"
+	quest.70C8014139160B5D.title: "Register at the Guild"
 	quest.70EB5B4005F7C8E2.quest_desc: [
 		"Mine thirty-two netherrack and lay a short road away from your portal. Never walk blind: the floor here ends in lava as often as in rock."
 		""
@@ -2117,6 +2526,20 @@
 		"&7&o“Our interpretation: a claimant to Clayman’s seat brings the old prison’s chain to court as a sign of authority.”&r"
 	]
 	quest.75DF64954F2CDD53.title: "The Dragon’s Bond"
+	quest.76F9C65685A4E932.quest_desc: [
+		"Slimes clog the irrigation ditches again. Clear ten. (The guild is aware of the slime in Tempest. These are not him.)"
+		""
+		"&7&o“The weakest monster in the world, they say. The guild stopped saying it a while ago.”&r"
+	]
+	quest.76F9C65685A4E932.quest_subtitle: "Hunt"
+	quest.76F9C65685A4E932.title: "F-Rank: Slime Sweep"
+	quest.77273722AD095CD9.quest_desc: [
+		"Hell caterpillars chew through the town's new fields. Kill four before they pupate into something worse."
+		""
+		"&7&o“What a hell caterpillar becomes is a question the farmers would rather not answer.”&r"
+	]
+	quest.77273722AD095CD9.quest_subtitle: "Hunt"
+	quest.77273722AD095CD9.title: "Caterpillar Blight"
 	quest.778998349EB8E5BE.quest_desc: [
 		"Find an elytra in an end ship above an end city: the one thing in the End that is a gift, not a threat."
 		""
@@ -2125,6 +2548,13 @@
 		"&6Next life:&r Not scored directly: but flight does not count as exploration, so the squares you walked still count."
 	]
 	quest.778998349EB8E5BE.title: "A Gift of Wings"
+	quest.778BE2E5AAEB503C.quest_desc: [
+		"The Free Guild's headquarters stands in Lura, Englassia's capital, far to the west past Ballachia. The Grandmaster sits there, and so does the Freedom Academy."
+		""
+		"&7&o“The Grandmaster is young, they say, and came from very far away. Further than Englassia.”&r"
+	]
+	quest.778BE2E5AAEB503C.quest_subtitle: "Travel"
+	quest.778BE2E5AAEB503C.title: "The Road West"
 	quest.7797476042AAC217.quest_desc: [
 		"Reach 10,000 EP (A-Class). The orc horde is made of thousands of fighters of B-Class and below; to cross that army you need to stand above it."
 	]
@@ -2142,6 +2572,13 @@
 		"&7&o“Kyoya, Shogo and Kirara were all summoned from another world. Their service to Falmuth brought them into Tempest together.”&r"
 	]
 	quest.77FAE029ED2DC6B6.title: "The King’s Otherworlders"
+	quest.782264F2B6B57D9D.quest_desc: [
+		"Treyni, the dryad who guards the forest, keeps a shrine far to the east of Tempest. Pilgrims leave flowers; adventurers leave quietly."
+		""
+		"&7&o“The trees leaned in to listen. You chose your words carefully.”&r"
+	]
+	quest.782264F2B6B57D9D.quest_subtitle: "Travel"
+	quest.782264F2B6B57D9D.title: "The Dryad's Shrine"
 	quest.78846A03E53B8DFC.quest_desc: [
 		"Ifrit is fought on the same green. If you claimed the previous reward elsewhere, go to the green and use /ttl story fight ifrit. The fire spirit answers a soul who has personally received credit for Shizu."
 		""
@@ -2168,6 +2605,13 @@
 		"&6Next life:&r Faith for the advancement (+2)."
 	]
 	quest.7979AD4574139B8D.title: "A Ride on the Lava"
+	quest.7A0595B50AA2E99A.quest_desc: [
+		"The guild armourer patches more jerkins than she makes. Hand in twelve leather."
+		""
+		"&7&o“Half the rookies in Blumund wear her patches. The other half did not come back for them.”&r"
+	]
+	quest.7A0595B50AA2E99A.quest_subtitle: "Gather"
+	quest.7A0595B50AA2E99A.title: "Leather for the Guild Armourer"
 	quest.7A6426F393DE80CB.quest_desc: [
 		"The Society takes in anyone and asks one thing in return: that it stays hidden. A toll keeps the hidden road open and the watchers elsewhere. Pay it in bronze, the one coin every nation accepts without asking where it came from."
 		""
@@ -2209,6 +2653,13 @@
 		"&7&o“The mask was the one thing Shizu carried that could quiet the fire within her.”&r"
 	]
 	quest.7BCBBE00B167FB50.title: "The Woman Behind the Mask"
+	quest.7BF2DFDFA8FA836B.quest_desc: [
+		"Adventurers from every country stop on Tempest's green to stare at a town of monsters that bakes bread and keeps the peace."
+		""
+		"&7&o“A goblin offered you tea. A kijin watched you drink it. Welcome to Tempest.”&r"
+	]
+	quest.7BF2DFDFA8FA836B.quest_subtitle: "Travel"
+	quest.7BF2DFDFA8FA836B.title: "The Green of Tempest"
 	quest.7C0600E97AB2B3FD.quest_desc: [
 		"The forest is full of monsters with magicules of their own. Hunt a horned rabbit and a giant ant."
 	]
@@ -2270,6 +2721,20 @@
 	]
 	quest.7D4B44AC33270DB2.quest_subtitle: "The loud way"
 	quest.7D4B44AC33270DB2.title: "Take the Throne"
+	quest.7D80C70C55797B80.quest_desc: [
+		"Four jobs done for the people of the forest. The wayfarers point you out to the rookies."
+		""
+		"&7&o“\"Ask that one,\" they say at the rim. \"That one knows the forest.\"”&r"
+	]
+	quest.7D80C70C55797B80.quest_subtitle: "Capstone"
+	quest.7D80C70C55797B80.title: "Handyman of Jura"
+	quest.7DA333048F9A6710.quest_desc: [
+		"Scholar Ilse of the Freedom Academy waits at the Englassia road post, east of the city, with a satchel of field notes. The skeletons on that road do not care about field notes."
+		""
+		"&7&o“Scholars walk slowly. They are writing.”&r"
+	]
+	quest.7DA333048F9A6710.quest_subtitle: "Accept"
+	quest.7DA333048F9A6710.title: "Job: The Scholar's Road"
 	quest.7DB517E89CB02955.quest_desc: [
 		"Small coins buy bread; a gold coin buys a sword. Earn your first gold coin in trade with the dwarves."
 	]
@@ -2282,9 +2747,17 @@
 		"&6Next life:&r Faith for each advancement (+2 each); Valor for every new kind of foe slain (+4 each)."
 	]
 	quest.7F12E567F376A418.title: "First Blood"
+	quest.7F2B219838965C52.quest_desc: [
+		"The oldest job on any notice board: herbs for the apothecary. Hipokute grass grows where the forest's magicules run thick. Hand in eight."
+		""
+		"&7&o“Every legend in the guild hall started with a basket of weeds.”&r"
+	]
+	quest.7F2B219838965C52.quest_subtitle: "Gather"
+	quest.7F2B219838965C52.title: "F-Rank: Hipokute Gathering"
 	task.00B258672264BEA1.title: "Walk 5 km"
 	task.0115BA7420C399EC.title: "Defeat an Orc Lord"
 	task.02034A12C6521724.title: "Before the throne"
+	task.0262CD470ABDFDBE.title: "The West knows your name"
 	task.041C77726FDC891F.title: "The lake shore"
 	task.04D35BB1D70BA4E7.title: "Return to the placed castle"
 	task.05168D3419679E35.title: "Close Act III"
@@ -2292,15 +2765,21 @@
 	task.063051C7D7133F39.title: "The market plaza"
 	task.065DAEAEB65FB0F1.title: "100 trades"
 	task.06C2B82B2FC09DFD.title: "Bee Our Guest"
+	task.070B24FEF8B39DD6.title: "Accept the job"
 	task.07A570FA6CF65356.title: "Stand with the lizardmen"
 	task.07CB9273D6D16F65.title: "Receive credit for Clayman’s defeat"
 	task.080DAF8063385BBC.title: "Hand in 8 white wool"
 	task.0839BD76D8D6D603.title: "Defeat Charybdis"
+	task.08442555B78B30FF.title: "Accept the job"
 	task.0983B151684D1279.title: "Reach 6,000 EP"
+	task.098AE7D168ED9044.title: "Accept the job"
+	task.09A8DF87BFE56069.title: "Five direwolves near the camp"
 	task.09F56FEAD1E8A2E0.title: "Act III is behind you"
+	task.0A74E1433741B1EB.title: "The forge street knows your name"
 	task.0AA1977D67EC465F.title: "Attend the court of Marris"
 	task.0AAFC15D7FE4A908.title: "The bell at Wayfarer's Rest"
 	task.0AC681BD967CE9C5.title: "Old goblin village"
+	task.0B9231E0943E833C.title: "The letter delivered in time"
 	task.0BB19A71F91AA826.title: "Lizardmen's caverns"
 	task.0C138151BF10AF15.title: "Mine a magic ore"
 	task.0D1463E16423959A.title: "The lizardmen's caverns"
@@ -2316,7 +2795,9 @@
 	task.11FF2505E0F7C414.title: "Lake Siss"
 	task.127791122F8563BC.title: "Round of the town"
 	task.12A127FAEF3CA336.title: "Win 3 raids"
+	task.14426FA58D831A60.title: "Reach the lizardmen's caverns"
 	task.14622E57FD07FB48.title: "The lizardmen's caverns"
+	task.1596C6D9DA79C407.title: "Reach the dwarf village on the road"
 	task.161E54C84D9E8838.title: "Complete Act V"
 	task.1759663838EF5C18.title: "Kaijin's forge"
 	task.17D592EE573097E0.title: "Ring a bell"
@@ -2324,8 +2805,10 @@
 	task.1941063E33D88146.title: "The goblins' campfire"
 	task.1AF1B3941AB0C2A6.title: "Complete Veldora’s trial"
 	task.1B39AC2E365FAE6E.title: "Act II is behind you"
+	task.1BEAD6EF3993D579.title: "Accept the job"
 	task.1C3EE7D08EE03270.title: "Reach 100,000 EP"
 	task.1CA4EFBFAE517063.title: "In the orc camp"
+	task.1CA8315E44FADB34.title: "Reach the Blumund road camp"
 	task.1CFB2D4CF08DE204.title: "The plaza"
 	task.1E0A8B8B75EA0EE6.title: "Earn Luminous’s blessing in her trial"
 	task.1E4A998DF8D59E82.title: "At the throne"
@@ -2337,18 +2820,24 @@
 	task.1F9ACE25D4B1C257.title: "Complete Act VI"
 	task.1FAF096CC2C890E1.title: "Reach 20,000 EP"
 	task.1FE8E4CBC11567AE.title: "Find the Sealed Cave"
+	task.2021EA1CAF3AE994.title: "Accept the job"
 	task.207858EC747FB41A.title: "The south street"
 	task.21E4F6F3D4B57378.title: "Break Carrion’s resistance at Laura"
 	task.2234CA3D4DD600F1.title: "Kaijin's smithy"
 	task.23E11058E4BB1C3A.title: "Submit your True Hero awakening"
 	task.241D99215A6233C1.title: "The forge hall"
+	task.243349F6C68B7330.title: "Reach the wayfarers' camp"
 	task.262CF52F0CDAA3D0.title: "Obtain a gold coin"
 	task.26316E4395EA7E52.title: "Shuna's weaving hut"
 	task.26BE7BED85C68AD1.title: "The orc camp"
+	task.26E9B16F78489DEE.title: "Accept the job"
 	task.2728E3BC1FBF8951.title: "Complete Act IV"
 	task.273A002575A42E8F.title: "Reach 1,000 EP"
+	task.27535A8A74582292.title: "Reach Ballachia"
 	task.27E02ABB634586BC.title: "This is home"
+	task.280CD8F34A1C843B.title: "Marlo reaches the dwarf village alive"
 	task.282D0E51F568C73B.title: "The village green"
+	task.28BB93BF875CC553.title: "The crate delivered to Dwargon's plaza"
 	task.28CC04BFB74B238D.title: "Smelt or find a silver ingot"
 	task.2A159AD1736C8263.title: "Defeat Rimuru at Tempest"
 	task.2A628644BD864405.title: "Close Act I"
@@ -2358,6 +2847,7 @@
 	task.2AE9FF4F367986E8.title: "Survive 15 days"
 	task.2B292CFA3D6EDC1E.title: "On the shore"
 	task.2B3C7083647CF215.title: "Eat a slice of cake"
+	task.2BBC1A6F1C0DE312.title: "Accept the job"
 	task.2CB561EFB9E44122.title: "Defeat the Orc Lord"
 	task.2D669A1507FA4ADC.title: "Use a stonecutter 5 times"
 	task.2D6CA9699822D6C0.title: "The marsh battlefield"
@@ -2367,6 +2857,7 @@
 	task.2EF6869AEBD1585F.title: "Reach 5,000 EP"
 	task.2FFBEA11E0F5408E.title: "Defeat Folgen at the south gate"
 	task.300F46E986B0B4B9.title: "Submit your True Demon Lord awakening"
+	task.304B4FD32A7B8E15.title: "Accept the job"
 	task.307965B503E3F83D.title: "Dwargon's gate"
 	task.3140DD490584B46F.title: "Enter the Walpurgis Hall"
 	task.325ED61CA789A439.title: "The council longhouse"
@@ -2375,6 +2866,7 @@
 	task.353147E45578B0A5.title: "Use a brewing stand 10 times"
 	task.359F470293C5ED4E.title: "The lizardmen's stilt village"
 	task.36009B944484BA8D.title: "Receive credit for the Shizu encounter"
+	task.36075EAB551E21D1.title: "Supplies handed in at the headquarters"
 	task.37ACDE9D55EB665D.title: "The town stands"
 	task.380DE35F0DA7E8B4.title: "The lizardmen's caverns"
 	task.38A8072C68EE074E.title: "The council longhouse"
@@ -2383,16 +2875,25 @@
 	task.3A6CFE2A4A6A25C1.title: "Hot Stuff"
 	task.3A92CBA9FB0EFA1B.title: "In the orc camp"
 	task.3B38E52602C59FD2.title: "Complete Rimuru’s encounter"
+	task.3B7065B99A8A1CEC.title: "Six goblin raiders slain in Blumund"
 	task.3C4E9D5D14BDF532.title: "Kaijin's smithy"
 	task.3CE536226AD58D80.title: "Survive 7 days"
+	task.3CF9E7D9676A7A99.title: "Accept the job"
 	task.3D4FA01442F6EF0C.title: "The forge hall"
 	task.3D513969F063F68B.title: "Survive 30 days"
 	task.3DEDBA02BAD925B9.title: "I am ready"
+	task.3E5BB5A3767B840E.title: "Coal handed in at the plaza"
+	task.3EC6131BFECBA1BF.title: "The letter reaches Tempest"
 	task.3F2C65D92781373D.title: "Hand in 16 bread"
 	task.3F49007C0261E989.title: "Stand against Hinata Sakaguchi"
+	task.3F8E55E93DFB7E00.title: "Stand on the Royal Plaza of Marris"
 	task.405D1883802C8096.title: "The checkpoint arch"
 	task.41C475618C602386.title: "Rigurd's chief hut"
 	task.45F254081D437D19.title: "The village knows me"
+	task.45FF7E5998443FA6.title: "Accept the job"
+	task.4679C65A8B3DA8E7.title: "Durn reaches the rim alive"
+	task.46C27FDEF24F9561.title: "The reply delivered in time"
+	task.478FD1E282295650.title: "Reach Treyni's shrine"
 	task.47B864ADE645E832.title: "The Outcast contact on the south road"
 	task.483F9861A28A4C20.title: "Defeat Gazel Dwargo in the honour duel"
 	task.48477394DCAE8FD1.title: "Monster Hunter"
@@ -2403,7 +2904,9 @@
 	task.4C90030DC29DA12C.title: "The engineers' workshop"
 	task.4E723D68430BC01A.title: "Visit Tempest"
 	task.4EAD38AC6EB13C67.title: "Defeat an Orc Disaster"
+	task.4F566A11BEB23DCE.title: "Accept the job"
 	task.500F72A271CD0E5A.title: "Visit Londo’s guild district"
+	task.50B104CACAB4A729.title: "Accept the job"
 	task.50B139248A2F40A8.title: "Crafting a New Look"
 	task.510BF0133677FD39.title: "Close Act V"
 	task.51C5196F8016FEF4.title: "Defeat the Orc Disaster"
@@ -2417,31 +2920,48 @@
 	task.57702DD1F3803976.title: "Take Aim"
 	task.57A7CE013047253E.title: "Kaijin's smithy"
 	task.57CD78B3F75BA3AE.title: "Defeat the Orc Disaster"
+	task.581272E641DE7CD3.title: "Accept the job"
 	task.58B6A23EAA193CD0.title: "The Sealed Cave"
+	task.58D00811B963F74A.title: "Stand in Dwargon's market plaza"
 	task.59617B8F0E397AEB.title: "The building site"
 	task.599A403FDAEB3604.title: "Defeat Charybdis"
 	task.59A48D780299F806.title: "In the queue at the gate"
+	task.59D07840976684F4.title: "Reach the Englassia road post"
+	task.59F3E0D4E0C71326.title: "The offering reaches the dragon city"
+	task.5AFFE017012DA7D9.title: "The forest knows your name"
+	task.5BBD29C2DAEBA498.title: "Enter the Free Guild hall in Blumund"
 	task.5C10DCC57776B9A0.title: "The Sealed Cave"
 	task.5C2AD0298CD22912.title: "You Need a Mint"
 	task.5C3AEA5E41D1FD64.title: "I understand"
+	task.5C629B59D52616FC.title: "Scholar Ilse reaches the headquarters"
 	task.5EBBA2B88DF562DB.title: "On the battlefield"
 	task.5EC93BC773358845.title: "Surge Protector"
 	task.5F028AE14A531A30.title: "25 trades"
 	task.5F0DAD5ED3490D05.title: "At the throne"
+	task.5F6ED2F7DCBD2C61.title: "Carter Wil reaches Ballachia alive"
+	task.61256BB52698DB58.title: "Accept the job"
+	task.614C1CED895C7F1F.title: "Accept the job"
 	task.62FF97235E921D08.title: "Catch 10 fish"
 	task.6353F26519B81BE6.title: "The goblins' campfire"
+	task.637DD0E85E911435.title: "Hire a companion"
 	task.63A16DEBE36C0D68.title: "Survive 2 days"
 	task.63B04FCBF569A58C.title: "The Orc War battlefield"
 	task.64FAC6A3CF96BC4D.title: "The village green"
+	task.65B897BC0B34C7D5.title: "Return the ring to the guild"
 	task.65C872A22AD97F93.title: "Survive 1 day"
+	task.6653EC970487BB4A.title: "Reach the Free Guild headquarters in Englassia"
 	task.66B3DE5D9BA3FBB2.title: "The village green"
 	task.66F5AD58E82DDD19.title: "The barn is full"
 	task.6720D738B4AAC762.title: "Face Luminous in Lubelius"
+	task.680AD197EF4AB27B.title: "Stand on Tempest's green"
 	task.6856FA45C1528580.title: "The Outcast contact on the south road"
 	task.694CDA4A53EC025F.title: "Use a schematic"
+	task.6A9E7D63F85CD152.title: "Visit the old goblin village"
 	task.6AC3E5510622E1A7.title: "Reach 10,000 EP"
+	task.6B69C767368342C3.title: "Tomas is back at the camp"
 	task.6C1FCB789CCEEC8F.title: "I am ready for the End"
 	task.6C603086A78DDBC5.title: "A life that counted"
+	task.6C60E016846082CD.title: "The guild knows your name"
 	task.6CBA12AF598F21BA.title: "I have walked in fire"
 	task.6D59A41BF81C98C2.title: "Stand in a dark forest"
 	task.6E966A6D3E4133A0.title: "Act I is behind you"
@@ -2454,16 +2974,20 @@
 	task.70B4EF3B282D2277.title: "Treyni's shrine"
 	task.70CF1CC59D31B1EC.title: "Tame a direwolf"
 	task.713E44D7C4D2925C.title: "Make a low magisteel ingot"
+	task.716854EFCA67F7E7.title: "The dispatch reaches Blumund in time"
 	task.71834F52D8EF1C77.title: "Ice Bucket Challenge"
 	task.72165E762F368345.title: "I have learned a trade"
 	task.7241F3E5D9BAE48C.title: "Breed 30 animals"
 	task.727D5C44B19E17BB.title: "Return to Tempest’s green"
 	task.731FA88A52846154.title: "Oh Shiny"
 	task.73535967E5F856A5.title: "Use a lectern"
+	task.735A84B71229E99F.title: "Accept the job"
 	task.7373E6D4A7D08777.title: "Close Act VII"
 	task.739C0C4660E84210.title: "The royal terrace"
+	task.73A1424379F9ADAD.title: "Accept the job"
 	task.73ACE4CC851EC01C.title: "Stand in a river biome"
 	task.73B53B68CAA0C2A9.title: "The orc camp"
+	task.74C719FD41C59D33.title: "The spear is back on the green"
 	task.752A76D950963894.title: "The Outcast contact on the south road"
 	task.758FBA082B518DE9.title: "Learn Aura Sword"
 	task.7641A6D55CCC6DB5.title: "Resistance begins"

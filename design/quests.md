@@ -115,6 +115,12 @@ flowchart LR
     daily_jura["Daily Deeds: Jura<br/>6 quests"]
     crossroads["Crossroads<br/>12 quests"]
     kings_test["The King's Test<br/>14 quests"]
+    two_hundred_thousand["Two Hundred Thousand<br/>16 quests"]
+    whirlpool["The Whirlpool<br/>14 quests"]
+    side_guild["The Notice Board<br/>25 quests"]
+    side_jura["Odd Jobs of Jura<br/>21 quests"]
+    side_dwargon["The Dwarven Road<br/>11 quests"]
+    side_roads["Roads of the West<br/>7 quests"]
   end
   armed_nation -->|"throne to kings_summons (+1)"| kings_test
   armed_nation -->|"ep_6000 to ep_20000"| reborn
@@ -145,15 +151,22 @@ flowchart LR
   mortal_life -->|"first_night to long_walker (+1)"| roads_ruins
   nether_road -->|"hellwalker to ledger"| a_life_that_counts
   orc_lord -->|"orc_lord_kill to orc_war"| reborn
+  orc_lord -->|"hold_the_line to war_council (+1)"| two_hundred_thousand
   reborn -->|"sealed_cave to cave_altar"| crossroads
   reborn -->|"tempest to hunt_zombies (+8)"| daily_deeds
   reborn -->|"first_hunt to jura_rabbits (+4)"| daily_jura
   reborn -->|"ep_20000 to ep_50000"| orc_lord
+  reborn -->|"dwarven_road to dwarf_village (+1)"| side_dwargon
+  reborn -->|"eyes_open to register"| side_guild
+  reborn -->|"eyes_open to rim_camp (+2)"| side_jura
   reborn -->|"tempest to join_town"| tempest_rises
+  reborn -->|"ep_20000 to ep_20000"| whirlpool
   roads_ruins -->|"cartographers_pride to ledger"| a_life_that_counts
+  side_guild -->|"register to blumund_road (+2)"| side_roads
   tempest_rises -->|"tempest_stands to crossroads"| crossroads
   tempest_rises -->|"join_town to jura_patrol"| daily_jura
   tempest_rises -->|"ep_3000 to ep_5000"| reborn
+  two_hundred_thousand -->|"act_three to calamity_omen"| whirlpool
 ```
 
 ### Life 1: a spine and ten chapters that converge
@@ -442,6 +455,79 @@ Wikipedia spelling of the beast prince (the design briefs write Fobio); he is te
 
 Known limit: quest progress carries to Life 2 (master plan D4), so a Life 1 quest left open can still be finished
 in Life 2. Karma is closed at death, so this only hands out the small vanilla reward.
+
+## Side quests (chapters 20-23, sidequests work package, 18/11/2026)
+
+The classic isekai side jobs, in four Life 2 chapters that hang off the web but never gate the story. The mechanics are reusable
+KubeJS (`pack/kubejs/server_scripts/ttl/sidequests/`, data `design/data/sidequests.toml`); the radiant boards of a later wave call
+the same `TtlSide.start(server, player, kind, params)`.
+
+| Chapter | Side jobs (FTB quests) | Enters from | Capstone |
+| --- | --- | --- | --- |
+| 20 The Notice Board (`side_guild`) | 18 (25): registration, F-rank herbs and slimes, E/D-rank bats and spiders, goblin raiders (cull in Blumund only), the lost ring, the Blumund-Englassia mail run and its reply (60 min each), the grain cart escort, the academy's supplies, the scholar's escort, wolves on the trade road, leather, hiring a companion, the road west, Ballachia | `reborn/eyes_open` | A Regular of the Guild (4 of 7) |
+| 21 Odd Jobs of Jura (`side_jura`) | 15 (21): the wayfarers' camp, clear the rim road, the merchant's escort along the rim, the missing rookie, the horned bear, the old goblin village, Tempest's green, Rigurd's firewood, caterpillar blight, Gobta's lost spear, Kaijin's ore for Dwargon, Treyni's shrine, the lizardmen's caverns, the dragon-city pilgrimage | `reborn/eyes_open`, `reborn/tempest`, `reborn/dwarven_road` | Handyman of Jura (4 of 7) |
+| 22 The Dwarven Road (`side_dwargon`) | 8 (11): the village on the road, the market plaza, protect the dwarf caravan, the smith's letter, coal for the forges, carapace for the armourers, knight spiders | `reborn/dwarven_road` | Friend of the Forges (3 of 5) |
+| 23 Roads of the West (`side_roads`) | 6 (7): the Blumund road camp, the Englassia road post, Marris's plaza, a knight's errand, bandits on the Falmuth road | `side_guild/register`, `side_guild/road_west` | The Long Roads (3 of 4) |
+
+47 side jobs in 64 FTB quests; 16 are repeatable (daily, every three days or weekly). Every quest has a `lore` line. Rewards are
+bronze/silver coins, food, low potions and XP, a gold coin on the capstones and the long pilgrimage: never a skill, race or unique.
+
+**How a mechanic quest works.** A "Job:" quest is a checkmark; its claim runs `ttl sidequest start {p} <id>` (the story pattern of
+chapter 8). The quest after it is a stage task on `ttl.quest.side.<id>`, which the mechanic sets on success. A repeatable result
+quest also removes that stage again (an invisible `stage` reward with `remove = true`) and its cooldown equals the job's
+`repeat_hours`; the player takes the job again with `/ttl sidequest take <id>` at its giver place (or the "Heard of any work?"
+button of an adventurer there). Travel quests are stage tasks on `ttl.quest.side.seen.<place>`, which a soul gets by walking up to a
+`discover = true` place; "A Sword for Hire" reads `ttl.quest.side.hired`. `tests/test_sidequests.py` checks every one of these
+references and the repeat rules; `tests/ingame/sidequests.rcon` and `companions.rcon` run the mechanics in game.
+
+| Kind | What the soul does | Fails when |
+| --- | --- | --- |
+| escort | meets the client at `from` (it appears within 24 blocks), walks it to `to`; ambush waves spawn 10-16 blocks from the client at fractions of the way and are set on it | the client dies, or the soul is more than 48 blocks away (or in another dimension) for 60 s |
+| deliver | carries a named parcel (paper with `custom_data {ttl_parcel:<key>}`), given at start or found at `pickup`, to within 8 blocks of `to` | the time limit runs out (mail runs: 60 or 90 min) |
+| travel | reaches `to` | time limit, if any |
+| fetch | brings `items` to `at` (handed in on arrival) or uses `/ttl sidequest turnin` | time limit, if any |
+| cull | kills `count` of `entity` (minecraft.killed objectives) inside a faction `region` or within `radius` of a place | time limit, if any |
+
+**Companions.** Some adventurers hire out ("Join my party"): a coin fee (a sink), a contract of 60-90 minutes, one per soul. They
+are Easy NPCs that follow (FOLLOW_OWNER) and fight (melee, hostile mobs, whatever hits them or their owner), but they are no FTB party
+member, earn no boss credit and count toward the party cap of five (online members + their companions). They leave when the
+contract ends, when they fall, on dismiss, or after 30 minutes offline. Why Easy NPC and not a companion mod: `design/decisions.md`
+(18/11/2026).
+
+**Isekai tropes used** (our interpretation of the genre, not quotes): the adventurers' guild with a registration card and ranks
+from F up, where a rookie starts with herb gathering and slime culls (the guild-rank ladder of countless light novels: e.g. *Konosuba*,
+*Is It Wrong to Try to Pick Up Girls in a Dungeon?*, *Arifureta*); goblin slaying as the classic first "real" job; the lost item for
+a poor client; the merchant or caravan escort with an ambush on the road; the mail run against the clock; rescuing a missing
+rookie; hiring a sword for the road (the mercenary companion); the summoned otherworlder who misses home (the "truck-kun" opening
+the otherworlder jokes about); the bard who sings everyone's deeds wrong. Genre references (searched 18/11/2026): the trope page
+https://tvtropes.org/pmwiki/pmwiki.php/Main/AdventureGuild (mirror https://tropedia.fandom.com/wiki/Adventure_Guild), and for the
+rank ladder with a minimum rank per job, https://www.frank-mitchell.com/posts/adventurers-guild-revisited/ and the *In Another World
+With My Smartphone* fan wiki https://isekai-smartphone.fandom.com/wiki/Adventurer_Guild (a fan source: verify before relying on it).
+
+**Tensura references.** The Free Guild with a branch in Blumund under its guildmaster Fuze, the headquarters in Englassia led by the
+Grandmaster Yuuki Kagurazaka, and the Freedom Academy in Englassia that takes in summoned otherworlder children (Shizu's former
+students, whom Rimuru teaches there), from the light novel and anime season 1 (ep. 6-8 Kabal, Elen and Gido; ep. 20-24 Yuuki, the
+academy and the children; Wikipedia episode list
+https://en.wikipedia.org/wiki/That_Time_I_Got_Reincarnated_as_a_Slime_season_1 , checked 18/11/2026); Kaijin's exile from Dwargon
+(ep. 4-5); Gobta, Rigurd and Benimaru of Tempest; Treyni the dryad; the lizardmen's caverns; Milim's love of honey (ep. 16);
+Falmuth's knights and its summoned otherworlders (season 2). Ranks: canon's guild ranks run roughly F to A with special A; the
+pack's F-S ladder is the existing `economy.toml` one. Our interpretation, flagged in the quest texts: every named minor character
+(Widow Hanna, Tomas, Marlo, Durn, Ilse, Carter Wil and the ambient adventurers Bram, Olric, Lyra, Borin, Hald, Mira, Anne, Sho,
+Pip), the jobs themselves, the honey "pilgrimage" custom, the smiths' letter to Kaijin, the road camps and the old well.
+
+**Places** (`[[place]]`, checked by `gen_npcs.py --spots` against the structure files where they sit in a build): Blumund's guild
+hall floor (blueprint 97, 5, 68; inn: the tavern nook 108, 5, 75), Englassia's headquarters hall (108, 5, 82), Tempest's green
+(arrival offset -4, 0, -6; inn: the council longhouse 6, 0, -17), Dwargon's plaza east of the fountain (84, 4, 54), Marris's Royal
+Plaza (64, 5, 70), Ballachia's square (38, 4, 41), and surface spots checked against `canon_map.txt`: the wayfarers' camp on Jura's
+rim (285, -612), the Blumund road camp (-850, -110), the Englassia road post (-1900, -260), the old well (-930, -60), the abandoned
+rookie camp (140, -420); the dwarf village, the old goblin village and the lizardmen's caverns are landmarks; Treyni's shrine and
+the dragon city are builds.
+
+**Verify in game** (not checkable offline): Easy NPC's FOLLOW_PLAYER / FOLLOW_OWNER from `/easy_npc objective <uuid> set follow ...`
+on an imported preset; companions actually striking with the held weapon; vanilla and Tensura ambush mobs accepting `setTarget`
+on an Easy NPC; the speech bubbles (MESSAGE action T = 4) and their frequency; RANDOM_STROLL_AROUND_HOME inside the guild halls
+(doors); the inn walk at night; the `clear <p> <item>[custom_data] 0` parcel count; that the surface road spots are dry land and
+not inside a tree; whether `tensura:horned_bear` and `tensura:knight_spider` spawn where the quests send souls.
 
 ## Life 1 extras (`pack/kubejs/server_scripts/ttl/quests/`)
 

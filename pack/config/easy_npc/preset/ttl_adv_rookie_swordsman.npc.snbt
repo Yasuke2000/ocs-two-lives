@@ -1,0 +1,133 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"adventurer: Bram, F-rank swordsman (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Bram, F-rank swordsman",
+    variantType:"FARMER_01",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_NORMAL:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:20
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Three days a rookie and I've already lost a sword to a horned rabbit.",
+                "They say the Free Guild takes anyone. They weren't lying.",
+                "Herb gathering again? I wanted to slay dragons!",
+                "If you see a slime, let me have it. I need the points.",
+                "My mother wanted me to be a baker."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#9BC53D","text":"Bram, F-rank swordsman"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl companion hire",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_hire",
+              Name:"Join my party"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl sidequest offers",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_work",
+              Name:"Heard of any work?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Farewell"
+            }
+          ],
+          Label:"default",
+          Name:"Bram",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Bram, F-rank swordsman, looks up. Well met, @initiator.\\n\\nFor hire: rank F, 60 minutes of company for a fee."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        },
+        {
+          SpeedModifier:0.5d,
+          Type:"RANDOM_STROLL_AROUND_HOME"
+        },
+        {
+          SpeedModifier:0.6d,
+          Type:"MOVE_BACK_TO_HOME"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-2063819489,-1845864148,-1963667524,-130559566],
+    VariantType:"FARMER_01",
+    id:"easy_npc:humanoid"
+  }
+}

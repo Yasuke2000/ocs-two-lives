@@ -1,0 +1,121 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"client: Merchant Marlo (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Merchant Marlo",
+    variantType:"ZURI",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_NORMAL:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:25
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Not so fast, my legs are older than yours!",
+                "Is that a wolf? Tell me that isn't a wolf.",
+                "Almost there. I can smell the forges."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ],
+        ON_HURT:[
+          {
+            Msg:{
+              T:4b,
+              Texts:[
+                "Help!",
+                "Get it off me!",
+                "I am hit!"
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#E8C547","text":"Merchant Marlo"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl sidequest status",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_status",
+              Name:"How far is it?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Stay close"
+            }
+          ],
+          Label:"default",
+          Name:"Merchant Marlo",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Merchant Marlo grips the strap of a pack. Lead on, @initiator. I will keep up."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:0b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-1949694672,949706287,-1198513662,1736060717],
+    VariantType:"ZURI",
+    id:"easy_npc:humanoid"
+  }
+}

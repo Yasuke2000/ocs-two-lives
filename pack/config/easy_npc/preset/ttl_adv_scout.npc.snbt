@@ -1,0 +1,132 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"adventurer: Lyra, D-rank scout (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid_slim",
+    modified:1790000000000L,
+    name:"Lyra, D-rank scout",
+    variantType:"EFE",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_NORMAL:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:20
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Footprints never lie. People do.",
+                "The forest goes quiet before something big comes through.",
+                "I map the roads. Somebody has to.",
+                "Ants under the fields again. I hate ants."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#2BB5A0","text":"Lyra, D-rank scout"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl companion hire",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_hire",
+              Name:"Join my party"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl sidequest offers",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_work",
+              Name:"Heard of any work?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Farewell"
+            }
+          ],
+          Label:"default",
+          Name:"Lyra",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Lyra, D-rank scout, looks up. Well met, @initiator.\\n\\nFor hire: rank D, 75 minutes of company for a fee."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        },
+        {
+          SpeedModifier:0.5d,
+          Type:"RANDOM_STROLL_AROUND_HOME"
+        },
+        {
+          SpeedModifier:0.6d,
+          Type:"MOVE_BACK_TO_HOME"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-1507554256,744249846,-1083261731,-634521281],
+    VariantType:"EFE",
+    id:"easy_npc:humanoid_slim"
+  }
+}
