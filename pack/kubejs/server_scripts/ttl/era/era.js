@@ -92,7 +92,7 @@ const TtlEra = {
     try {
       server.runCommandSilent(`tellraw @a ${JSON.stringify([
         { text: '[Voice of the World] ', color: 'gold' },
-        { text: text, color: 'light_purple' }
+        { text: TtlCorridor.canon(text), color: 'light_purple' }
       ])}`)
       if (typeof TtlDiscord !== 'undefined') TtlDiscord.post(server, text)
     } catch (e) {

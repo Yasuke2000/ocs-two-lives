@@ -26,7 +26,7 @@
 [settings]
 # Bump to replace every NPC with a fresh one from the current preset on the next check (also what to do after a
 # dialog, look or statue change: the NPC already in the world keeps the dialog it was spawned with).
-rev = 2
+rev = 3
 # The spots are checked this many ticks apart, and once this many ticks after the server has started. A spot whose build is
 # not placed or whose chunk is not loaded costs one command; the NPC of a far town appears within this time of a player's arrival.
 check_ticks = 200
@@ -60,7 +60,7 @@ description = "Fuze, guildmaster of the Free Guild's Blumund branch: high-rank c
 
 [kind.dialog]
 title = "Guildmaster Fuze"
-text = "Hm. @initiator. Another soul with a sword and a dream.\n\nI run the Free Guild's Blumund branch, and between Falmuth's grudges and Rimuru's surprises, the real work lands on my desk. The clerks handle the small jobs. The contracts I hand out, rank B and up, are the ones that bury careless adventurers.\n\nWell? Here for work, or just to stare at the scar?"
+text = "Hm. @initiator. Another soul with a sword and a dream.\n\nI run the Free Guild's Blumund branch, and between Falmuth's grudges and Rimuru's surprises, the real work lands on my desk. The clerks handle the small jobs. The contracts I hand out, rank B and up, are the ones that bury careless adventurers.\n\nWell? Here for work, or just to stare at the paperwork?"
 board = "Show me the contracts"
 take = "I'll take a contract"
 turnin = "Contract finished"
@@ -196,7 +196,7 @@ yaw = 90
 #   area, Shuna in the weaving hut, Souei on the lookout tower, Hakurou on the green by the fire, Kaijin at his forge, Garm and
 #   Dold in the workshop house, Mildo at the building site.
 #   The Outcast (dark path contact of chapters 7 and 8) stands on Tempest's south road at world 0, 52 (anchor world, surface).
-#   Blumund: the guild hall floor (Kabal, Elen, Gido), with stand-ins in Tempest's longhouse until Blumund is placed.
+#   Blumund: the guild hall floor (Kabal, Eren, Gido), with stand-ins in Tempest's longhouse until Blumund is placed.
 #   Treyni at her shrine, Milim before her throne in the City of the Forgotten Dragon, Yuuki in the Englassia guild hall,
 #   Edmaris and Razen on the throne dais of Marris with Folgen and the three otherworlders in the hall, Hinata in the Hall of
 #   the Holy Knights and Luminous on the choir in Lubelius, Carrion on the lion throne dais of Laura, the Walpurgis council
@@ -318,14 +318,14 @@ text = "Kabal is leaning on the guild hall's table, a mug in one hand and a scar
 
 [[kind]]
 id = "elen"
-name = "Elen"
+name = "Eren"
 name_color = "#3498DB"
 model = "humanoid_slim"
 skin = "ZURI"
 talk = "elen"
-description = "Elen, a mage of the Free Guild (story NPC)."
+description = "Eren, a mage of the Free Guild (story NPC)."
 [kind.dialog]
-text = "Elen glances at you over a spellbook, then closes it."
+text = "Eren glances at you over a spellbook, then closes it."
 
 [[kind]]
 id = "gido"
@@ -367,7 +367,7 @@ skin = "JAYJASONBO"
 talk = "yuuki"
 description = "Yuuki Kagurazaka, Grandmaster of the Free Guild (story NPC)."
 [kind.dialog]
-text = "A young man with a mask pushed up on his forehead reads reports at the end of the hall, smiling at none of them."
+text = "A young man who looks far too young for his office reads reports at the end of the hall, smiling at none of them."
 
 [[kind]]
 id = "edmaris"
@@ -387,7 +387,7 @@ skin = "ARI"
 talk = "razen"
 description = "Razen, King Edmaris' advisor (story NPC)."
 [kind.dialog]
-text = "A lean man in court dress stands one step behind the king, listening to everything."
+text = "An old man in court dress stands one step behind the king, listening to everything."
 
 [[kind]]
 id = "frey"

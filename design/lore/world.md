@@ -122,18 +122,30 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
 
 ### M: Milim's Domain (ミリム領 — 忘れられた竜の都)
 
-- **Lore.** The south-eastern lands of Milim Nava. Her capital is the City of the Forgotten Dragon, run by the
-  Dragon Faithful and peopled by dragonewts, with no army beyond its priest-warriors. It lies south of Jura and
-  east of Eurazania. The domain is poor and underdeveloped until Tempest helps it, and the Great Ameld River
-  crosses it on the way to the sea.
-- **Terrain.** Dry, rugged savanna and badland plateaus with a river valley and a lake by the capital.
-  Erosion is −0.1 for broken plateaus.
+- **Lore.** The south-eastern lands of Milim Nava, on the southern edge of the continent. Her capital is the City
+  of the Forgotten Dragon ("Dragon's Village" on the wiki's nation table, fewer than 100,000 dragonewts), run by the
+  Dragon Faithful: there is no government, the head priest Middray and the priest Hermes gather what the people
+  produce at the Central Temple and hand it out evenly, and the temple is also Milim's own castle. A flock of
+  wyverns lives in the city. The wiki places the domain **south of the Jura Forest and east of the Beast Kingdom
+  of Eurazania**; its plains are fed by the Great Ameld River, which runs from the Canaat foothills to the southern
+  ocean. The domain is primitive and poor until Tempest develops it (light novel vol. 7–8). After Walpurgis the
+  Puppet Nation of Jistav (north-east) is ruled jointly with Rimuru, so Milim's land touches Jura, Eurazania and
+  Jistav.
+- **Terrain.** River-fed savanna and open plains between broken plateaus; the fan map draws a lake and the
+  Ameld's lower reach by the capital. Erosion is −0.1 for the plateaus. (Lore pass 18/11/2026: desert and
+  `tensura:barren_land` dropped from the palette and `plains` added, since the wiki calls the land fertile
+  river plains, not desert; vegetation −0.4 → −0.2.)
 - **Landmarks:**
-  - City of the Forgotten Dragon: [2244, 1295] → (2462, 839).
+  - City of the Forgotten Dragon: [2244, 1295] → (2462, 839). That pixel converts into the painted lake, so the
+    build surveys from (2340, 905), 170 blocks south-west on the lake's western shore and the Ameld's south bank:
+    still south of Jura, 200 blocks east of Eurazania's border, inside M (`design/builds/forgotten_dragon_city.toml`).
   - Mouth of the Great Ameld River: [2434, 1384] → (3497, 1324), at the seaward end of the eastern channel. The audit adds a final paint waypoint so the lower reach connects locally to this coast on regeneration.
-- **Biomes.** savanna 2, badlands 2, savanna_plateau 2, wooded_badlands 1, windswept_savanna 1,
-  tensura:barren_land 1, desert 1.
-- Sources: https://tensura.fandom.com/wiki/City_of_the_Forgotten_Dragon, https://tensura.fandom.com/wiki/Magic_Continent
+- **Biomes.** savanna 3, savanna_plateau 2, plains 2, badlands 1, wooded_badlands 1, windswept_savanna 1,
+  sunflower_plains 1.
+- Sources: https://tensura.fandom.com/wiki/City_of_the_Forgotten_Dragon, https://tensura.fandom.com/wiki/Dragon_Faithful,
+  https://tensura.fandom.com/wiki/Great_Ameld_River, https://tensura.fandom.com/wiki/Wyvern,
+  https://tensura.fandom.com/wiki/Magic_Continent (all via search extracts, 18/11/2026; the lore pass is in
+  [lore-pass-2026-11.md](lore-pass-2026-11.md))
 
 ### B: Beast Kingdom of Eurazania (獣王国ユーラザニア)
 
@@ -155,7 +167,7 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
 - **Biomes.** windswept_hills 3, windswept_forest 2, meadow 2, old_growth_pine_taiga 2, grove 1, snowy_slopes 1.
 - Sources: https://tensura.fandom.com/wiki/Harpy_Queendom_of_Fulbrosia, https://tensura.fandom.com/wiki/Frey
 
-### S: Sorcerous Dynasty of Sarion (魔導王朝サリオン)
+### S: Sorcerous Dynasty of Sarion (魔導王朝サリオン) — `name` fixed from "Sorcerous Empire" 18/11/2026
 
 - **Lore.** Emperor Elmesia's elven empire of 13 vassal kingdoms on Jura's southern border. Its capital, Elmine,
   is built into and on the **Divine Tree**, a colossal tree as tall as the highest mountains and one of two

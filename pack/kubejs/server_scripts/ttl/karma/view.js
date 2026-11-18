@@ -68,7 +68,7 @@ const TtlKarmaView = {
     var tier = TtlKarma.tiers()[TtlKarma.tierIndex(v.tier)]
     var deeds = v.deeds || {}
     var bosses = TtlKarma.stats().filter(s => s.major && deeds[s.key] > 0).map(s => s.label)
-    var lived = v.days > 0 ? `You lived ${this.plural(v.days, 'day', 'days')}` : 'You lived less than a day'
+    var lived = v.days > 0 ? `Report. You lived ${this.plural(v.days, 'day', 'days')}` : 'Report. You lived less than a day'
     var kills = deeds.mob_kills || 0
     var text = kills > 0 ? `${lived} and slew ${this.plural(kills, 'creature', 'creatures')}` : lived
     if (bosses.length > 0) text += `${kills > 0 ? ', the' : ' and slew the'} ${bosses.join(' and the ')}${kills > 0 ? ' among them' : ''}`
@@ -80,7 +80,7 @@ const TtlKarmaView = {
     if (tier && tier.announce) {
       server.runCommandSilent(`tellraw @a ${JSON.stringify([
         { text: '[Voice of the World] ', color: 'gold' },
-        { text: `The soul of ${name} enters the Spirit Corridor, judged ${this.title(v)}.`, color: 'yellow' }
+        { text: `Notice. The soul of ${name} enters the Spirit Corridor, judged ${this.title(v)}.`, color: 'yellow' }
       ])}`)
       TtlDiscord.legend(server, name, this.title(v))
     }

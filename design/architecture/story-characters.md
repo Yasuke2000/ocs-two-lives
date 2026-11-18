@@ -76,9 +76,9 @@ cooldown 48 h`) unless noted.
 | Kaijin (+Garm, Dold, Mildo) | Easy NPC humanoid (dwarf scale `ScaleY 0.8`) | Tempest forge / Dwargon smithy (423, −1084) | Forge hand-ins, Gazel audience | "Steal the forge schematics" (dark ch.8) | none |
 | Treyni | Easy NPC humanoid_slim | Treyni shrine (1988, −223) | Dryad quests, Charybdis warning | Warns, then silent | none |
 | Gabiru | `tensura:lizardman` named statue + hook | Lizardmen caverns (926, 398) | Comic ally | Enemy: proxy boss "Gabiru" on `tensura:lizardman` T1 (dark ch.9) | proxy |
-| Milim Nava | Easy NPC humanoid_slim | City of the Forgotten Dragon (1780, 684) | Friend; Charybdis scene; Walpurgis seat | Clayman's "controlled" Milim: talks, never fights | **none** (unbeatable by design) |
+| Milim Nava | Easy NPC humanoid_slim | City of the Forgotten Dragon (build spot 2340, 905) | Friend; Charybdis scene; Walpurgis seat | Clayman's "controlled" Milim: talks, never fights | **none** (unbeatable by design) |
 | Fuze | exists (`npcs.toml`) | Blumund guild hall | Contracts + Act III intel | Same (the Guild trades with anyone above Hostile) | none |
-| Kabal, Elen, Gido | Easy NPC ×3 | Blumund guild hall floor | Shizu's story (ch.11 opener) | Same | none |
+| Kabal, Eren, Gido | Easy NPC ×3 | Blumund guild hall floor | Shizu's story (ch.11 opener) | Same | none |
 | Yuuki Kagurazaka | Easy NPC humanoid | Englassia Free Guild HQ (−2626, −300) | Grandmaster: Hinata quests | Secret employer of the dark path (Act VI) | none (later era) |
 | King Edmaris + Razen | Easy NPC ×2 | Marris royal castle | Enemy court (talk: ultimatum) | Quest givers of the Falmuth route (ch.11) | Razen fight = **O4** |
 | Luminous (human guise "Louis") | Easy NPC humanoid | Lubelius cathedral | Church patron dialog | Same | fight is the NEB entity (§1.1) |

@@ -144,7 +144,7 @@
 	quest.1167BEB1B24E76ED.quest_subtitle: "Veldora's leftovers (optional)"
 	quest.1167BEB1B24E76ED.title: "The Cave Stirs"
 	quest.12C27DC231767DC2.quest_desc: [
-		"Find the old goblin village west of Tempest, where Rigurd's tribe hid from the direwolves before the slime came."
+		"Find the old goblin village north-west of Tempest, where Rigurd's tribe hid from the direwolves before the slime came."
 	]
 	quest.12C27DC231767DC2.title: "Rigurd's Tribe"
 	quest.1351A538F40C5424.quest_desc: [
@@ -297,7 +297,7 @@
 	quest.26A6D1053EDA56FF.quest_subtitle: "The quiet way"
 	quest.26A6D1053EDA56FF.title: "Steal the Schematics"
 	quest.27035168A6DEED93.quest_desc: [
-		"Walk the streets of early Tempest, the town Rimuru built for goblins and direwolves. Monsters and humans live side by side here; behave like a guest."
+		"Walk the streets of early Tempest, the town Rimuru built for goblins and direwolves. Goblins, wolves, dwarves and kijin live side by side here; behave like a guest."
 	]
 	quest.27035168A6DEED93.title: "The Town of Monsters"
 	quest.287D2F8E30D91857.quest_desc: [
@@ -328,7 +328,7 @@
 	]
 	quest.2D5BB123175ECA77.title: "Trial Chambers"
 	quest.30E565DAB9906323.quest_desc: [
-		"The first house on the west side of the forge street was Kaijin's before King Gazel exiled him on a false charge. His anvil, his blast furnace and his lava cauldron are still where he left them. Stand in his forge."
+		"The first house on the west side of the forge street was Kaijin's before King Gazel exiled him after a sham trial. His anvil, his blast furnace and his lava cauldron are still where he left them. Stand in his forge."
 	]
 	quest.30E565DAB9906323.title: "Kaijin's Old Smithy"
 	quest.315BB043D91F9146.quest_desc: [
@@ -565,7 +565,7 @@
 	]
 	quest.56EB250D2EBACC74.title: "A Dwarven Battlewill Manual"
 	quest.571629DA10EF5830.quest_desc: [
-		"The goblins who fought the direwolves now ride them: after the naming the pack became the Tempest Star Wolves and the goblins became their riders (anime season 1, episode 3). A town that holds the forest needs someone who can talk to the wolves."
+		"The goblins who fought the direwolves now ride them: after the naming the pack became the Tempest Wolves and the goblins became their riders (anime season 1, episode 3). A town that holds the forest needs someone who can talk to the wolves."
 		""
 		"Win a direwolf over (tame one) and show Tempest the road is not only a fight."
 	]
@@ -691,7 +691,7 @@
 	quest.6A02570FD1A84087.quest_subtitle: "Defeat Gazel Dwargo"
 	quest.6A02570FD1A84087.title: "Regicide"
 	quest.6A14E30FE7F5E819.quest_desc: [
-		"In the story the Orc Lord devoured the dead of the battlefield and rose again as the Orc Disaster, a catastrophe-class monster. An epilogue for the very strong: defeat an Orc Disaster."
+		"In the story the Orc Lord devoured the majin Gelmud, the schemer who had named him, and evolved into the Orc Disaster, a calamity-class monster. An epilogue for the very strong: defeat an Orc Disaster."
 	]
 	quest.6A14E30FE7F5E819.title: "Eat or Be Eaten"
 	quest.6AA6AC10181F3F11.quest_desc: [

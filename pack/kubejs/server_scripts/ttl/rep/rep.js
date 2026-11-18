@@ -288,7 +288,7 @@ const TtlRep = {
       var name = String(player.username)
       server.runCommandSilent(`tellraw @a ${JSON.stringify([
         { text: '[Voice of the World] ', color: 'gold' },
-        { text: `${name} is now Exalted with ${this.title(f)}.`, color: 'yellow' }
+        { text: `Notice. ${name} is now Exalted with ${this.title(f)}.`, color: 'yellow' }
       ])}`)
       if (!TtlDiscord.isBot(name)) TtlDiscord.post(server, `${TtlDiscord.name(name)} is now Exalted with the ${this.title(f)}.`)
     } catch (e) {

@@ -1080,16 +1080,16 @@ const TtlData = {
       "max_wet": 0.1,
       "name": "forgotten_dragon_city",
       "notes": "Dragon-skull temple gate, rib-arch avenue, granaries and thatch huts; blueprints/forgotten_dragon_city.py, lore in design/lore/forgotten_dragon_city.md.",
-      "search": 96,
+      "search": 128,
       "size": [
         121,
         44,
         125
       ],
       "title": "City of the Forgotten Dragon — Milim's domain",
-      "version": 2,
-      "x": 2510,
-      "z": 575
+      "version": 3,
+      "x": 2340,
+      "z": 905
     },
     {
       "anchor": [
@@ -2558,7 +2558,7 @@ const TtlData = {
     ],
     "life2": [
       {
-        "body": "Open your eyes. You are reborn in the world of Tensura, in *Tempest* in the *Forest of Jura*. *Dwargon* lies to the north.\n\n- Your new race and Unique Skill are yours now. Learn what they can do.\n- Fight, grow stronger and evolve.\n- Death is no longer the end: in Life 2 you come back.\n",
+        "body": "Open your eyes. You are reborn in the world of Tensura, at the edge of the *Forest of Jura*, on the road between *Tempest* (south-west) and *Dwargon* (north-east). The forest is deadlier the closer you get to Tempest.\n\n- Your new race and Unique Skill are yours now. Learn what they can do.\n- Fight, grow stronger and evolve.\n- Death is no longer the end: in Life 2 you come back.\n",
         "title": "Life 2 begins"
       },
       {
@@ -2588,7 +2588,7 @@ const TtlData = {
         "title": "What your soul keeps"
       },
       {
-        "body": "You are reborn on the Tensura continent, in *Tempest* in the *Forest of Jura*. The dwarven kingdom of *Dwargon* lies to the north.\n\n- Your new race and Unique Skill are yours now. Some Unique Skills only a few souls can hold at once.\n- Fight, grow stronger and evolve. Death in Life 2 is not the end: you come back.\n",
+        "body": "You are reborn on the Tensura continent, at the safe edge of the *Forest of Jura*, on the road between *Tempest* (south-west, deep in the forest) and the dwarven kingdom of *Dwargon* (north-east, behind its white gate).\n\n- The forest grows deadlier towards Tempest: Veldora's magicule soaks it. Grow stronger before you walk in.\n\n- Your new race and Unique Skill are yours now. Some Unique Skills only a few souls can hold at once.\n- Fight, grow stronger and evolve. Death in Life 2 is not the end: you come back.\n",
         "title": "Life 2: the world of Tensura"
       },
       {
@@ -3269,7 +3269,7 @@ const TtlData = {
           "take_item": "Contract {n}",
           "take_text": "Name the number. A contract taken is a contract owed, @initiator. I don't pay twice for the same failure, and I don't carry people who quit.",
           "take_title": "Contracts",
-          "text": "Hm. @initiator. Another soul with a sword and a dream.\n\nI run the Free Guild's Blumund branch, and between Falmuth's grudges and Rimuru's surprises, the real work lands on my desk. The clerks handle the small jobs. The contracts I hand out, rank B and up, are the ones that bury careless adventurers.\n\nWell? Here for work, or just to stare at the scar?",
+          "text": "Hm. @initiator. Another soul with a sword and a dream.\n\nI run the Free Guild's Blumund branch, and between Falmuth's grudges and Rimuru's surprises, the real work lands on my desk. The clerks handle the small jobs. The contracts I hand out, rank B and up, are the ones that bury careless adventurers.\n\nWell? Here for work, or just to stare at the paperwork?",
           "title": "Guildmaster Fuze",
           "turnin": "Contract finished"
         },
@@ -3425,13 +3425,13 @@ const TtlData = {
         "talk": "kabal"
       },
       {
-        "description": "Elen, a mage of the Free Guild (story NPC).",
+        "description": "Eren, a mage of the Free Guild (story NPC).",
         "dialog": {
-          "text": "Elen glances at you over a spellbook, then closes it."
+          "text": "Eren glances at you over a spellbook, then closes it."
         },
         "id": "elen",
         "model": "humanoid_slim",
-        "name": "Elen",
+        "name": "Eren",
         "name_color": "#3498DB",
         "skin": "ZURI",
         "talk": "elen"
@@ -3474,7 +3474,7 @@ const TtlData = {
       {
         "description": "Yuuki Kagurazaka, Grandmaster of the Free Guild (story NPC).",
         "dialog": {
-          "text": "A young man with a mask pushed up on his forehead reads reports at the end of the hall, smiling at none of them."
+          "text": "A young man who looks far too young for his office reads reports at the end of the hall, smiling at none of them."
         },
         "id": "yuuki",
         "name": "Yuuki Kagurazaka",
@@ -3496,7 +3496,7 @@ const TtlData = {
       {
         "description": "Razen, King Edmaris' advisor (story NPC).",
         "dialog": {
-          "text": "A lean man in court dress stands one step behind the king, listening to everything."
+          "text": "An old man in court dress stands one step behind the king, listening to everything."
         },
         "id": "razen",
         "name": "Razen",
@@ -3623,7 +3623,7 @@ const TtlData = {
       "check_ticks": 200,
       "interact_cooldown_ms": 600,
       "preset_prefix": "ttl_guild_",
-      "rev": 2,
+      "rev": 3,
       "sneak_bypass": true,
       "start_delay_ticks": 200
     },
@@ -4570,7 +4570,7 @@ const TtlData = {
         "talk": [
           {
             "act": 1,
-            "text": "Hey, are you new? I am Gobta! The strongest goblin in the forest, no question. Do not ask Rigurd, he is jealous."
+            "text": "Oh, are you new? I am Gobta! The strongest goblin in the forest, no question. Do not ask Rigurd, he is jealous."
           },
           {
             "act": 2,
@@ -4580,7 +4580,7 @@ const TtlData = {
           {
             "act": 2,
             "path": "dark",
-            "text": "Oh, that mark? Cool. I do not care. Want to see me wrestle a direwolf? Do not tell Rigurd."
+            "text": "Oh, that mark? Huh. I do not care. Want to see me wrestle a direwolf? Do not tell Rigurd."
           }
         ]
       },
@@ -4694,7 +4694,7 @@ const TtlData = {
           {
             "act": 2,
             "path": "light",
-            "text": "The trees remember what the Oath means. Beware the lake: a calamity stirs in its depths."
+            "text": "The trees remember what the Oath means. Beware the lake: a calamity is gathering above its waters."
           },
           {
             "act": 2,
@@ -4831,14 +4831,14 @@ const TtlData = {
           },
           {
             "act": 5,
-            "text": "You want to hear about the masked woman? Sit down, then. Elen, Gido, help me remember it right."
+            "text": "You want to hear about the masked woman? Sit down, then. Eren, Gido, help me remember it right."
           }
         ]
       },
       {
         "color": "aqua",
         "id": "elen",
-        "name": "Elen",
+        "name": "Eren",
         "talk": [
           {
             "act": 1,
@@ -4872,12 +4872,12 @@ const TtlData = {
         "talk": [
           {
             "act": 1,
-            "text": "Hm? You are one of those small ones. Fine! I am Milim, I am very strong, and I am bored. Do not waste my time!"
+            "text": "Hm? You are one of the small ones. Fine! I am Milim Nava, the strongest Demon Lord there is, and I am bored. Make it interesting, or do not waste my time!"
           },
           {
             "act": 2,
             "path": "light",
-            "text": "Rimuru's people, right? He is my friend! Which makes you almost my friend. Keep it up and I might even remember your name."
+            "text": "Rimuru's people, right? Rimuru is my best friend! Which makes you almost my friend. Keep it up and I might even remember your name."
           },
           {
             "act": 2,
@@ -4914,7 +4914,7 @@ const TtlData = {
         "talk": [
           {
             "act": 1,
-            "text": "A commoner in my throne room. State your business quickly; the kingdom of Falmuth is a busy kingdom."
+            "text": "A commoner in my throne room. Speak quickly; Falmuth has richer guests waiting at the door."
           },
           {
             "act": 5,
@@ -4981,7 +4981,7 @@ const TtlData = {
         "talk": [
           {
             "act": 1,
-            "text": "You look lost. This is not a place for tourists."
+            "text": "You look lost. This hall is no place for the idle. State your business, or leave."
           },
           {
             "act": 6,
@@ -5053,7 +5053,7 @@ const TtlData = {
         "talk": [
           {
             "act": 1,
-            "text": "The Church's patron saint stands above the altar. Pilgrims light candles for a protector they have never seen awake."
+            "text": "The Church's god stands above the altar, carved in white: Luminous, whom the faithful pray to and have never seen awake."
           },
           {
             "act": 6,
