@@ -57,3 +57,7 @@ Yasuke in anything players or contributors read). Players talk on Discord; the s
 Server access (`tools/server.sh`) needs SSH to the homelab node over Tailscale or the kubeconfig in
 `~/.kube/ocs-two-lives.yaml`; without that, work offline (validate + unit tests) and leave in-game checks
 for someone with access, listed in `docs/HANDOFF.md`.
+
+Public roadmap: when a feature changes status for players (planned → being built → live on the server), update
+`docs/roadmap-public.md` (EN + NL; "Live" says how to try it) and post it with `tools/post_roadmap.sh` (it edits
+the three `#roadmap` messages in place; `docs/server.md`, "Roadmap and suggestions").

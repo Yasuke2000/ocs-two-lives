@@ -26,12 +26,14 @@ Category | Channel | Who can write | Topic
 📌 START | `#rules-and-info` | read-only (the bot posts, members react) | Rules, roles and useful links. / Regels, rollen en handige links.
 📌 START | `#announcements` | read-only (the bot posts, members react) | News, updates and maintenance. Read-only. / Nieuws, updates en onderhoud. Alleen-lezen.
 📌 START | `#patch-notes` | read-only (the bot posts, members react) | What changed in every update, newest at the bottom. Read-only. / Wat er veranderd is in elke update, nieuwste onderaan. Alleen-lezen.
+📌 START | `#roadmap` | read-only (the bot posts, members react) | Live (test this), being built and planned, kept up to date by the bot. Read-only. / Live (test dit), in de maak en gepland, bijgehouden door de bot. Alleen-lezen.
 🎮 MINECRAFT | `#minecraft` | everyone | (maintained by the bot: player count and uptime)
 🎮 MINECRAFT | `#story` | read-only (the bot posts, members react) | Deaths, rebirths, Legends and the weekly Hall of Souls (Sundays 20:00). Read-only. / Sterfgevallen, wedergeboortes, Legends en de wekelijkse Hall of Souls (zondag 20:00). Alleen-lezen.
 🎮 MINECRAFT | `#leaderboard` | read-only (the bot posts, members react) | Live standings, updated about every 10 minutes (in game: /ttl top). Read-only. / Live klassement, ongeveer elke 10 minuten bijgewerkt (in het spel: /ttl top). Alleen-lezen.
 🎮 MINECRAFT | `#screenshots` | everyone | Your best builds and moments. / Je mooiste builds en momenten.
 💬 COMMUNITY | `#chat` | everyone | General off-game chat: say hi, find people to play with. The in-game chat is #minecraft. / Algemene babbel buiten het spel: zeg hallo, zoek medespelers. De chat met het spel is #minecraft.
-💬 COMMUNITY | `#ideas-and-feedback` | everyone | Ideas and feedback; linked players can report bugs with ?bugreport followed by your text. / Ideeën en feedback; gekoppelde spelers melden bugs met ?bugreport gevolgd door je tekst.
+💬 COMMUNITY | `#ideas-and-feedback` | everyone | Feedback; linked players report bugs with ?bugreport followed by your text. Ideas to decide on: #suggestions. / Feedback; gekoppelde spelers melden bugs met ?bugreport gevolgd door je tekst. Ideeën om over te beslissen: #suggestions.
+💬 COMMUNITY | forum `#suggestions` | everyone: new posts and replies (status tags: staff and the bot) | (guidelines: the pinned how-to below)
 💬 COMMUNITY | voice `Voice` | everyone | 
 🛠 DEVELOPMENT | `#contribute` | everyone | How to help: GitHub issues, project board, pull requests. Nothing is merged without Yasuke's approval. / Zo help je mee: GitHub-issues, projectbord, pull requests. Niets gaat live zonder goedkeuring van Yasuke.
 🛠 DEVELOPMENT | `#dev-chat` | everyone | For people working on the pack and mod (repo, tools, scripts, PRs). Open to everyone. / Voor wie aan de pack en de mod werkt (repo, tools, scripts, PRs). Open voor iedereen.
@@ -84,6 +86,7 @@ Een Minecraft-modpackserver waar je **twee keer** leeft. Eerst als gewone mens i
 - #rules-and-info: the rules, the roles and useful links
 - #announcements: news, updates and maintenance
 - #patch-notes: what changed in every update of the pack and server, newest at the bottom
+- #roadmap: what you can test now, what is being built and what is planned
 **🎮 MINECRAFT**
 - #minecraft: live bridge with the game: what you type here shows up in game, and the other way round
 - #story: deaths, rebirths, Legends and the weekly Hall of Souls
@@ -91,7 +94,8 @@ Een Minecraft-modpackserver waar je **twee keer** leeft. Eerst als gewone mens i
 - #screenshots: your best builds and moments
 **💬 COMMUNITY**
 - #chat: talk about anything, outside the game
-- #ideas-and-feedback: ideas, feedback and `?bugreport <text>` (linked players)
+- #ideas-and-feedback: feedback and `?bugreport <text>` (linked players)
+- #suggestions: one post per idea; each becomes a GitHub issue the team decides on
 - #Voice: voice chat
 **🛠 DEVELOPMENT**
 - #contribute: how to help improve the pack
@@ -108,6 +112,7 @@ Every channel starts with a pinned "How to use this channel" message. Lost? Read
 - #rules-and-info: de regels, de rollen en handige links
 - #announcements: nieuws, updates en onderhoud
 - #patch-notes: wat er veranderd is in elke update van de pack en de server, nieuwste onderaan
+- #roadmap: wat je nu kan testen, wat in de maak is en wat gepland is
 **🎮 MINECRAFT**
 - #minecraft: live koppeling met de game: wat je hier typt zie je in het spel, en omgekeerd
 - #story: sterfgevallen, wedergeboortes, Legends en het wekelijkse Hall of Souls
@@ -115,7 +120,8 @@ Every channel starts with a pinned "How to use this channel" message. Lost? Read
 - #screenshots: je mooiste builds en momenten
 **💬 COMMUNITY**
 - #chat: babbelen over alles, buiten het spel
-- #ideas-and-feedback: ideeën, feedback en `?bugreport <tekst>` (gekoppelde spelers)
+- #ideas-and-feedback: feedback en `?bugreport <tekst>` (gekoppelde spelers)
+- #suggestions: één post per idee; elk wordt een GitHub-issue waarover het team beslist
 - #Voice: voice chat
 **🛠 DEVELOPMENT**
 - #contribute: hoe je kan helpen om de pack te verbeteren
@@ -195,7 +201,7 @@ Elk kanaal begint met een vastgepind bericht "Hoe gebruik je dit kanaal". Kwijt?
 **Want to help? Here is how**
 **Where:** the GitHub repo <https://github.com/Yasuke2000/ocs-two-lives> (public). All open work is on the project board: <https://github.com/users/Yasuke2000/projects/1> (Triage, To do, In progress, Done).
 **Report or suggest (no coding needed)**
-- In game: `/bug <what happened>` (adds your position, life and log lines). In Discord: `?bugreport <text>` in #ideas-and-feedback. Both become a **public** GitHub issue, so keep private info out.
+- In game: `/bug <what happened>` (adds your position, life and log lines). In Discord: `?bugreport <text>` in #ideas-and-feedback, or a post in #suggestions for ideas. All become a **public** GitHub issue, so keep private info out.
 - On GitHub: Issues, New issue, then pick a form: Bug, Idea, Balance, Build request or World / lore fix.
 **Change something yourself**
 1. Ask Yasuke for collaborator access to the repo.
@@ -213,7 +219,7 @@ All details: <https://github.com/Yasuke2000/ocs-two-lives/blob/main/CONTRIBUTING
 **Wil je meehelpen? Zo werkt het**
 **Waar:** de GitHub-repo <https://github.com/Yasuke2000/ocs-two-lives> (publiek). Al het openstaande werk staat op het projectbord: <https://github.com/users/Yasuke2000/projects/1> (Triage, To do, In progress, Done).
 **Melden of voorstellen (zonder te programmeren)**
-- In het spel: `/bug <wat er gebeurde>` (voegt je positie, leven en logregels toe). In Discord: `?bugreport <tekst>` in #ideas-and-feedback. Beide worden een **publiek** GitHub-issue, zet er dus geen privégegevens in.
+- In het spel: `/bug <wat er gebeurde>` (voegt je positie, leven en logregels toe). In Discord: `?bugreport <tekst>` in #ideas-and-feedback, of een post in #suggestions voor ideeën. Alles wordt een **publiek** GitHub-issue, zet er dus geen privégegevens in.
 - Op GitHub: Issues, New issue, en kies een formulier: Bug, Idea, Balance, Build request of World / lore fix.
 **Zelf iets aanpassen**
 1. Vraag Yasuke om collaborator-toegang tot de repo.
@@ -228,6 +234,29 @@ Alle details: <https://github.com/Yasuke2000/ocs-two-lives/blob/main/CONTRIBUTIN
 ## #patch-notes: one post per update
 
 The content of #patch-notes is not in this script: every update is a file in `docs/patch-notes/` (English then Dutch, player-facing) that `tools/post_patch_notes.sh <file>` posts as bot messages (idempotent: a message whose first line already exists is skipped).
+
+## #roadmap: three bot messages (Live, Being built, Planned)
+
+The content of #roadmap is not in this script either: it is `docs/roadmap-public.md` (three sections, English then Dutch), which `tools/post_roadmap.sh <file>` keeps as exactly one bot message per section below the pinned how-to. It edits them in place and never posts them again; the messages are found by their first line (or, after a rename, by their position). Update the file when a feature changes status, then run the script (`docs/server.md`, "Roadmap and suggestions").
+
+## #suggestions: forum tags, reaction and the pinned post
+
+A forum channel: every post is one suggestion. Its guidelines (shown above the posts) and its pinned, locked first post "How to use this channel / Hoe gebruik je dit kanaal" are the same how-to text (below). Default reaction: 👍 (the up-vote). Tags (moderated ones can only be set by staff and the bot):
+
+Tag | Emoji | Who sets it
+---|---|---
+Idea | 💡 | the author (type)
+Bug | 🐛 | the author (type)
+Balance | ⚖️ | the author (type)
+Lore | 📜 | the author (type)
+Quality of life | ✨ | the author (type)
+Under review | 🔍 | staff and the bot (status, follows the GitHub labels)
+Planned | 📅 | staff and the bot (status, follows the GitHub labels)
+In progress | 🛠️ | staff and the bot (status, follows the GitHub labels)
+Done | ✅ | staff and the bot (status, follows the GitHub labels)
+Declined | ❌ | staff and the bot (status, follows the GitHub labels)
+
+ttl-ops (Homelab repo, `apps/ocs-two-lives/manifests/ops.yaml`, `suggestions.sh`) turns every new post into a public GitHub issue with the label `suggestion` plus a type label, replies with the link and sets **Under review**; later it follows the issue's `status:*` labels and closing (see `docs/server.md`, "Roadmap and suggestions").
 
 ## Pinned how-to per channel
 
@@ -271,6 +300,16 @@ Zet meldingen aan voor dit kanaal, dan mis je niets. Wil je reageren? Doe dat in
 Questions go in #chat. Found a bug? Type `/bug <what happened>` in game, or post in #ideas-and-feedback.
 **NL** Elke update van de pack en de server staat hier, nieuwste onderaan: nieuwe content, fixes en veranderingen die je in het spel merkt. Alleen-lezen: reageer met een emoji als je iets leuk vindt.
 Vragen stel je in #chat. Bug gevonden? Typ `/bug <wat er gebeurde>` in het spel, of post in #ideas-and-feedback.
+````
+
+### #roadmap
+
+````
+**How to use this channel / Hoe gebruik je dit kanaal**
+**EN** What you can test on the server now, what is being built and what is planned. The bot keeps the three messages below up to date: it edits them when plans change, so this channel never fills up. Read-only.
+Try the "Live" list in game and tell us what you think in #suggestions. What changed in each update is in #patch-notes.
+**NL** Wat je nu op de server kan testen, wat in de maak is en wat gepland is. De bot houdt de drie berichten hieronder bij: hij past ze aan als de plannen veranderen, dus dit kanaal loopt nooit vol. Alleen-lezen.
+Probeer de lijst "Live" in het spel en laat in #suggestions weten wat je ervan vindt. Wat er per update veranderd is, staat in #patch-notes.
 ````
 
 ### #minecraft
@@ -325,10 +364,22 @@ Chatten met mensen in het spel zelf doe je in #minecraft, niet hier. Lees ook de
 
 ````
 **How to use this channel / Hoe gebruik je dit kanaal**
-**EN** Post ideas and feedback here, one topic per message. Found a bug? Linked players type `?bugreport <what happened>`: it becomes a **public** GitHub issue.
-Good ideas end up as issues on the project board. Want to build them yourself? See #contribute.
-**NL** Post hier ideeën en feedback, één onderwerp per bericht. Bug gevonden? Gekoppelde spelers typen `?bugreport <wat er gebeurde>`: dat wordt een **publiek** GitHub-issue.
-Goede ideeën worden issues op het projectbord. Zelf aan de slag? Kijk in #contribute.
+**EN** Feedback and quick thoughts here, one topic per message. Found a bug? Linked players type `?bugreport <what happened>`: it becomes a **public** GitHub issue.
+An idea you want the team to decide on? Make it a post in #suggestions: it is tracked on GitHub and you see its status. Want to build it yourself? See #contribute.
+**NL** Feedback en snelle gedachten hier, één onderwerp per bericht. Bug gevonden? Gekoppelde spelers typen `?bugreport <wat er gebeurde>`: dat wordt een **publiek** GitHub-issue.
+Een idee waarover het team moet beslissen? Maak er een post van in #suggestions: het wordt opgevolgd op GitHub en je ziet de status. Zelf aan de slag? Kijk in #contribute.
+````
+
+### #suggestions
+
+````
+**How to use this channel / Hoe gebruik je dit kanaal**
+**EN** One suggestion per post: an idea, a bug, a balance change, a lore fix or a quality-of-life wish. Click **New Post**, give it a clear title, explain what and why, and pick a tag (Idea, Bug, Balance, Lore, Quality of life). Search first: if it already exists, 👍 that post and add to it.
+Within a few minutes the bot turns your post into a **public** GitHub issue (the title, your text and your Discord name) and replies with the link, so keep private information out. The team decides on GitHub and the status tag follows: Under review, Planned, In progress, Done, or Declined (then the post is closed).
+Bugs in game: `/bug <text>` adds your position and logs. What is coming already: #roadmap.
+**NL** Eén voorstel per post: een idee, een bug, een balansaanpassing, een lore-fix of een quality-of-life-wens. Klik op **New Post**, geef een duidelijke titel, leg uit wat en waarom, en kies een tag (Idea, Bug, Balance, Lore, Quality of life). Zoek eerst: bestaat het al, geef die post dan een 👍 en vul hem aan.
+Binnen enkele minuten maakt de bot van je post een **publiek** GitHub-issue (de titel, je tekst en je Discord-naam) en antwoordt met de link, zet er dus geen privégegevens in. Het team beslist op GitHub en de statustag volgt: Under review, Planned, In progress, Done, of Declined (dan wordt de post gesloten).
+Bugs in het spel: `/bug <tekst>` voegt je positie en logs toe. Wat er al aankomt: #roadmap.
 ````
 
 ### #Voice

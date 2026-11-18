@@ -9,6 +9,17 @@ Isekai side content for Life 2 (design: `design/quests.md` "Side quests", decisi
 unit tests OK (tests/test_sidequests.py). **Not run in game yet**: `bash tools/server.sh test sidequests` and `test companions`
 after the merge (needs Tempest, Dwargon, Blumund and Englassia placed); watch for `[ttl] side` / `[ttl] companion` /
 `[ttl] adventurers` errors. Radiant boards (WP-W13/W15) should call `TtlSide.start(server, player, kind, params)` and `TtlSide.listen`.
+## 18/11 late afternoon — public roadmap + #suggestions (branch `roadmap-suggestions`, Homelab `ttl-ops-suggestions`)
+
+Live on Discord already (made by the scripts of this branch, idempotent re-runs verified): `#roadmap` (START,
+1572640872615518290) with its pinned how-to and the three sections of `docs/roadmap-public.md`; the forum
+`#suggestions` (COMMUNITY, 1572640884049055874) with tags, 👍 reaction, guidelines and the pinned, locked how-to post;
+updated how-tos/maps in #welcome, #ideas-and-feedback, #contribute. GitHub labels `suggestion`, `quality-of-life`,
+`status:planned|in-progress|done|declined` exist. The sync (`suggestions.sh` in ttl-ops) was tested by hand on the node
+against a bot-made test post (issue #24: created, Under review → Planned → Declined + archived, idempotent re-runs),
+then the post and the issue were deleted. **Not live until the Homelab PR is merged** (ArgoCD restarts ttl-ops).
+Open: Yasuke enables the board's "Auto-add to project" workflow (`docs/server.md`, "Roadmap and suggestions"); after
+PR #20, `docs/project-status.md` can point to `#roadmap`. Keep `docs/roadmap-public.md` in step with project-status.
 
 ## 18/11 afternoon — six PRs merged into main (`7898d90`), ttl-ops run pending
 
