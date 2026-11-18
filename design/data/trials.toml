@@ -3,7 +3,8 @@
 # Edit, then run `python tools/gen_data.py`. Every trial has:
 #   limit = seconds before the trial ends (survive-type trials pass then, the others fail)
 #   gear  = items lent for the trial (`give` arguments without the minecraft: prefix), taken back afterwards
-# Mob ids are full ids (minecraft:zombie). Bot tests in tests/ingame/trial_*.rcon play these trials:
+# Mob ids are full ids (minecraft:zombie). Never put wall-climbers (spider, cave_spider, tensura:black_spider) in a pool:
+# they walk up the arena walls and the barrier cage (#12). TtlTrial.guard also pulls any trial mob back to the floor. Bot tests in tests/ingame/trial_*.rcon play these trials:
 # run `tools/server.sh test-all` (or let ttl-ops do it after merging) when you change them.
 
 [strength]
@@ -12,7 +13,7 @@ gear = ["iron_sword", "shield", "iron_helmet", "iron_chestplate", "iron_leggings
 # Each wave is a list of [mob, count] or [mob, count, name]; the next wave comes when the last is dead.
 waves = [
   [["minecraft:zombie", 4]],
-  [["minecraft:skeleton", 3], ["minecraft:spider", 2]],
+  [["minecraft:skeleton", 3], ["minecraft:stray", 2]],
   [["minecraft:husk", 3], ["minecraft:vindicator", 1]],
   [["minecraft:vindicator", 2, "Echo of Your Last Breath"], ["minecraft:skeleton", 2]],
 ]
@@ -24,7 +25,7 @@ nemesis_health = 60
 # Killers that make a fair duel; anything else (creepers, players, the void) sends `fallback`.
 duelists = [
   "minecraft:zombie", "minecraft:husk", "minecraft:drowned", "minecraft:skeleton", "minecraft:stray",
-  "minecraft:spider", "minecraft:cave_spider", "minecraft:vindicator", "minecraft:pillager", "minecraft:witch",
+  "minecraft:vindicator", "minecraft:pillager", "minecraft:witch",
   "minecraft:enderman", "minecraft:piglin_brute", "minecraft:wither_skeleton", "minecraft:blaze", "minecraft:zombified_piglin",
 ]
 fallback = "minecraft:vindicator"
@@ -55,7 +56,7 @@ questions = [
 limit = 90
 gear = ["wooden_sword"]
 start_food = 4      # hunger bar at the start (20 = full); the trial passes at 20
-spiders = 2
+husks = 2           # husks (their bite adds hunger); never wall-climbers, see the note at the top
 
 [freedom]
 limit = 150

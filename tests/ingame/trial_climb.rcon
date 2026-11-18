@@ -1,0 +1,26 @@
+# #12: a trial mob that climbs the walls / barrier cage, or leaves the arena, is put back on the floor (TtlTrial.guard).
+# Hunger arena origin 1200 64 0. Expect 4x Test passed (2 probes pulled down, the floor probe untouched, no spider in the pools).
+ttlbot spawn TtlBotClm
+@sleep 2
+kill TtlBotClm
+execute as TtlBotClm run ttl wish hunger
+execute as TtlBotClm run ttl trial
+@sleep 3
+execute in ttl:spirit_corridor run summon minecraft:spider 1200.5 72 0.5 {Tags:["ttl_trial","ttl_probe_wall"],NoAI:1b,NoGravity:1b,Silent:1b,PersistenceRequired:1b}
+execute in ttl:spirit_corridor run summon minecraft:spider 1200.5 70 -12.5 {Tags:["ttl_trial","ttl_probe_floor"],NoAI:1b,NoGravity:1b,Silent:1b,PersistenceRequired:1b}
+execute in ttl:spirit_corridor run summon minecraft:zombie 1218.5 65 0.5 {Tags:["ttl_trial","ttl_probe_out"],NoAI:1b,NoGravity:1b,Silent:1b,PersistenceRequired:1b}
+execute in ttl:spirit_corridor run summon minecraft:zombie 1200.5 65 3.5 {Tags:["ttl_trial","ttl_probe_ok"],NoAI:1b,NoGravity:1b,Silent:1b,PersistenceRequired:1b}
+@sleep 1
+execute in ttl:spirit_corridor if entity @e[tag=ttl_probe_wall,x=1199,y=64,z=-1,dx=3,dy=2,dz=3]
+execute in ttl:spirit_corridor if entity @e[tag=ttl_probe_floor,x=1199,y=64,z=-14,dx=3,dy=2,dz=3]
+execute in ttl:spirit_corridor if entity @e[tag=ttl_probe_out,x=1199,y=64,z=-1,dx=3,dy=2,dz=3]
+execute in ttl:spirit_corridor if entity @e[tag=ttl_probe_ok,x=1199,y=65,z=2,dx=3,dy=1,dz=3]
+execute in ttl:spirit_corridor run kill @e[tag=ttl_probe_wall]
+execute in ttl:spirit_corridor run kill @e[tag=ttl_probe_floor]
+execute in ttl:spirit_corridor run kill @e[tag=ttl_probe_out]
+execute in ttl:spirit_corridor run kill @e[tag=ttl_probe_ok]
+effect give TtlBotClm minecraft:saturation 2 20 true
+@sleep 2
+ttl inspect TtlBotClm
+ttl reset TtlBotClm
+ttlbot remove TtlBotClm

@@ -42,6 +42,24 @@ const TtlTrial = {
     })
   },
 
+  // Fast loop (every 5 ticks while the trial's token is current): a trial mob that climbs the walls or the barrier
+  // cage (#12: wall-climbers, or anything that jumps) or ends up outside the arena goes back to the floor.
+  // Selectors, not entity getters: the box is the arena's own, so a neighbouring arena (100 blocks away) is never touched.
+  // y starts at floor+5: a mob standing on the floor (even an enderman, 2.9 tall) never reaches it.
+  guard(server, wish, token, name) {
+    server.scheduleInTicks(5, () => {
+      var player = server.getPlayerList().getPlayerByName(name)
+      if (!player || player.persistentData.getString('ttl.trial.token') !== token) return
+      var o = TtlTrials.origin(wish)
+      var d = this.def(wish)
+      var fy = o.y + (d.floorY || 0)
+      var region = `x=${o.x - 40},y=${fy - 20},z=${o.z - 40},dx=80,dy=70,dz=80`
+      this.run(server, `execute as @e[tag=${this.TAG},${region}] at @s if entity @s[x=${o.x - 17},y=${fy + 5},z=${o.z - 17},dx=34,dy=40,dz=34] run tp @s ~ ${fy + 1} ~`)
+      this.run(server, `execute as @e[tag=${this.TAG},${region}] at @s unless entity @s[x=${o.x - 16},y=${fy - 4},z=${o.z - 16},dx=33,dy=40,dz=33] run tp @s ${o.x + 0.5} ${fy + 1} ${o.z + 0.5}`)
+      this.guard(server, wish, token, name)
+    })
+  },
+
   context(server, player, wish, seconds) {
     var self = this
     return {
@@ -92,6 +110,7 @@ const TtlTrial = {
       data.putBoolean('ttl.trial.ready', true)
     })
     this.watch(server, name, wish, token, 0)
+    this.guard(server, wish, token, name)
     return null
   },
 
