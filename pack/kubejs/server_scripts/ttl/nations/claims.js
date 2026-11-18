@@ -18,9 +18,12 @@
 //   TtlNationClaims.allowance(rank)          chunks one member brings at that rank: chunks_per_member + rank bonus
 //   TtlNationClaims.apply(server, player, rank)   give the player the extra their nation rank calls for (null rank = none)
 //   TtlNationClaims.extraOf(player)          the extra FTB Chunks reports for the player (-1 when unreachable)
+//   TtlNationClaims.teamAt(server, dim, x, z)  the FTB team id that claimed the chunk at block x/z, or '' (absorb/liability.js,
+//                                            nations/upkeep_debuff.js)
 const TtlNationClaims = {
   mgr: undefined,
   warned: false,
+  dimPos: undefined,
 
   conf() {
     return TtlData.nations
@@ -87,6 +90,25 @@ const TtlNationClaims = {
     } catch (e) {
       console.warn(`[ttl] nations: counting builds failed: ${e}`)
       return 0
+    }
+  },
+
+  // A hash lookup in FTB Chunks' own map (ClaimedChunkManager.getChunk, verified with javap on 2101.1.24); cheap enough for
+  // block events. ChunkDimPos(ResourceKey, int, int) is the only 3-argument constructor, so Rhino picks it unambiguously.
+  teamAt(server, dim, x, z) {
+    if (this.dimPos === null) return ''
+    try {
+      var m = this.manager()
+      if (!m) return ''
+      if (this.dimPos === undefined) this.dimPos = Java.loadClass('dev.ftb.mods.ftblibrary.math.ChunkDimPos')
+      var level = server.getLevel(String(dim))
+      if (!level) return ''
+      var c = m.getChunk(new this.dimPos(level.dimension(), Math.floor(Number(x)) >> 4, Math.floor(Number(z)) >> 4))
+      return c ? String(c.getTeamData().getTeam().getId()) : ''
+    } catch (e) {
+      if (!this.warned) console.warn(`[ttl] nations: reading the claim at ${dim} ${x} ${z} failed (${e})`)
+      this.warned = true
+      return ''
     }
   },
 

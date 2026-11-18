@@ -24,6 +24,16 @@ ttl guild npc expect fuze_board_high true
 ttl guild npc expect desk_board_low true
 ttl guild expect TtlBotNpcA giver_rabbit_cull desk
 ttl guild expect TtlBotNpcA giver_fz_ender_watch fuze
+# Hand-in (owner 18/11/2026): the desk (and the plain `turnin`) takes Fuze's finished contracts too, except a contract
+# with a lore implication (economy.toml `lore = true`: the ogre village, the Dwarven Crown's magisteel), which only Fuze
+# takes; Fuze never takes the desk's bounties. The rule only, no hand-in happens here.
+ttl guild expect TtlBotNpcA turnin_desk_fz_ender_watch allowed
+ttl guild expect TtlBotNpcA turnin_any_fz_ender_watch allowed
+ttl guild expect TtlBotNpcA turnin_desk_fz_ogre_ruin lore
+ttl guild expect TtlBotNpcA turnin_any_fz_magisteel_shipment lore
+ttl guild expect TtlBotNpcA turnin_fuze_fz_ogre_ruin allowed
+ttl guild expect TtlBotNpcA turnin_fuze_rabbit_cull wrong_giver
+ttl guild expect TtlBotNpcA turnin_desk_rabbit_cull allowed
 # A rank F soul sees Fuze's contract but cannot take it ("rank"); a desk contract is not Fuze's to give and a Fuze
 # contract is not the desk's ("wrong_giver"); Life 1 is refused whoever asks.
 ttl guild post fz_ender_watch

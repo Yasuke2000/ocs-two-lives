@@ -118,6 +118,28 @@ execute as TtlBotNatA run ttl nation withdraw silver 4
 ttl nation test TtlBotNatA upkeep
 ttl nation expect TtlBotNatA treasury 0
 ttl nation expect TtlBotNatA owed 10
+# Unpaid upkeep (owner 18/11/2026, nations.toml [upkeep.debuff], weeks = 2): one unpaid week is only a warning; the
+# second puts the nation at stage 1 (Neglect) inside its land, where A stands on the claimed chunk. A deposit pays the
+# debt from the treasury at once and lifts it (the claims are never taken).
+ttl nation expect TtlBotNatA owedweeks 1
+ttl nation expect TtlBotNatA debuff 0
+ttl nation expect TtlBotNatA debuff_here 0
+ttl nation test TtlBotNatA upkeep
+ttl nation expect TtlBotNatA owed 20
+ttl nation expect TtlBotNatA owedweeks 2
+ttl nation expect TtlBotNatA debuff 1
+ttl nation expect TtlBotNatA debuff_here 1
+ttl nation expect TtlBotNatA yield_here 0.75
+ttl nation expect TtlBotNatA growth_here 0.25
+ttl nation expect TtlBotNatA claims 1
+execute as TtlBotNatA run ttl nation info
+execute as TtlBotNatA run ttl nation deposit gold 1
+ttl nation expect TtlBotNatA owed 0
+ttl nation expect TtlBotNatA treasury 80
+ttl nation expect TtlBotNatA owedweeks 0
+ttl nation expect TtlBotNatA debuff 0
+ttl nation expect TtlBotNatA debuff_here 0
+ttl nation expect TtlBotNatA yield_here 1
 # Nation 2 (D owner, E member) for diplomacy.
 ttl nation test TtlBotNatD life2
 ttl nation test TtlBotNatE life2

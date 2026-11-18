@@ -1,0 +1,68 @@
+# Duels anywhere + damage liability (absorb/liability.js, skills.toml [absorb.duel] / [absorb.liability]; owner 18/11/2026).
+# `ttl liability expect ...` and `ttl econ expect ...` print "ttl: ..." when a value is wrong. A `ttl absorb simulate` line
+# prints "absorb simulate: refused (...)" on purpose (these bots hold no uniques): it only ends the duel, through the same
+# code path as the fatal blow, and settles the damage.
+# Place: the Spirit Corridor, because it is void-safe for bots and holds the one build placed for tests (test_hut, corner
+# 2498 63 -2, placed by builds.rcon, which runs first); the corridor spawn platform (0, 0) is in no build's box = "the
+# wild". (A real duel in the corridor would not move a skill: exclude_dimensions; `simulate` skips that on purpose.)
+# Inside the hut the block two above the bot's head (2499 66 -1) is interior air; the test puts stone there, "breaks" it
+# with the test hook (`ttl liability testbreak`, the BlockEvents.broken path) and expects it back after settling.
+# Expect in the log: "[ttl] liability: TtlBotLiA vs TtlBotLiB opened in Test hut; TtlBotLiA is liable" and
+# "[ttl] liability: TtlBotLiA charged 5 of 5 bronze for 1 blocks in Test hut (no nation)".
+ttlbot spawn TtlBotLiA
+ttlbot spawn TtlBotLiB
+@sleep 2
+ttl build expect test_hut placed
+ttl absorb clear TtlBotLiA
+ttl absorb clear TtlBotLiB
+ttl liability clear
+kubejs stages add TtlBotLiA ttl.life2
+kubejs stages add TtlBotLiB ttl.life2
+clear TtlBotLiA
+execute in ttl:spirit_corridor run forceload add 2496 -4 2504 4
+# The wild: a duel there is nobody's business, nothing is recorded.
+execute in ttl:spirit_corridor run tp TtlBotLiA 0.5 65 0.5
+execute in ttl:spirit_corridor run tp TtlBotLiB 1.5 65 0.5
+@sleep 1
+ttl liability expect public TtlBotLiA no
+execute as TtlBotLiA run ttl absorb duel TtlBotLiB
+execute as TtlBotLiB run ttl absorb accept TtlBotLiA
+ttl absorb expect pacts 1
+ttl liability expect liable TtlBotLiA no
+ttl absorb simulate TtlBotLiA TtlBotLiB duel
+ttl absorb expect pacts 0
+# A public place (a placed build): A challenges B inside the test hut, so A is liable for what the fight breaks there.
+execute in ttl:spirit_corridor run tp TtlBotLiA 2499.5 64 -0.5
+execute in ttl:spirit_corridor run tp TtlBotLiB 2501.5 64 0.5
+@sleep 1
+ttl liability where TtlBotLiA
+ttl liability expect public TtlBotLiA yes
+execute as TtlBotLiA run ttl absorb duel TtlBotLiB
+execute as TtlBotLiB run ttl absorb accept TtlBotLiA
+ttl liability expect liable TtlBotLiA yes
+ttl liability expect liable TtlBotLiB yes
+execute in ttl:spirit_corridor run setblock 2499 66 -1 minecraft:stone
+ttl liability testbreak TtlBotLiA
+ttl liability expect changes 1
+ttl liability expect above TtlBotLiA air
+# The duel ends: the initiator A pays 5 bronze for the one block (a sink: the hut is no nation's land) and the block is
+# put back on the next tick.
+ttl econ give TtlBotLiA 100
+ttl absorb simulate TtlBotLiA TtlBotLiB duel
+ttl absorb expect pacts 0
+ttl liability expect changes 0
+ttl liability expect liable TtlBotLiA no
+ttl econ expect TtlBotLiA balance 95
+@sleep 1
+ttl liability expect above TtlBotLiA stone
+# Clean up.
+execute in ttl:spirit_corridor run setblock 2499 66 -1 minecraft:air
+execute in ttl:spirit_corridor run forceload remove 2496 -4 2504 4
+clear TtlBotLiA
+ttl liability clear
+ttl absorb clear TtlBotLiA
+ttl absorb clear TtlBotLiB
+kubejs stages remove TtlBotLiA ttl.life2
+kubejs stages remove TtlBotLiB ttl.life2
+ttlbot remove TtlBotLiA
+ttlbot remove TtlBotLiB

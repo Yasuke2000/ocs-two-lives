@@ -37,6 +37,18 @@ ttl reset TtlBotRegB
 ttl reset TtlBotRegC
 ttl reset TtlBotRegD
 ttl registry history
+# gluttony is Rare (owner 18/11/2026): cap 3, so D is refused (as Common it would have been the 4th of 5).
+ttl registry expect rarity gluttony rare
+ttl grant TtlBotRegA gluttony
+ttl grant TtlBotRegB gluttony
+ttl grant TtlBotRegC gluttony
+ttl grant TtlBotRegD gluttony
+ttl registry expect count gluttony 3
+ttl registry expect holds TtlBotRegD gluttony false
+ttl reset TtlBotRegA
+ttl reset TtlBotRegB
+ttl reset TtlBotRegC
+ttl registry expect count gluttony 0
 ttlbot remove TtlBotRegA
 ttlbot remove TtlBotRegB
 ttlbot remove TtlBotRegC

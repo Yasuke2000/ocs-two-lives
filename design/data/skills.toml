@@ -55,16 +55,39 @@ offer_minutes = 5       # a duel challenge or a bequest offer stays open this lo
 pact_minutes = 15       # an accepted duel, or an awakening challenge, counts this long
 combat_log_seconds = 30 # logging out this soon after a hit in a duel, challenge or war counts as a defeat
 
-# Labyrinth duel: both sides agree (/ttl absorb duel <p>, /ttl absorb accept <p>), then the fatal blow between them ends
+# Duel: both sides agree (/ttl absorb duel <p>, /ttl absorb accept <p>), then the fatal blow between them ends
 # the duel. lethal = false: the blow is turned into a defeat (nobody dies, as Tensura's labyrinthDeath = false does);
-# true: a real death. dimensions: where the pact counts, empty = anywhere in Life 2.
+# true: a real death. dimensions: where the pact counts, empty = anywhere in Life 2 (owner 18/11/2026: duels anywhere;
+# was ["tensura:labyrinth"]); exclude_dimensions: never there (Life 1's realm and the Spirit Corridor). A duel started in
+# a public place makes its initiator liable for the damage: [absorb.liability] below.
 [absorb.duel]
 enabled = true
 requires_absorber = true
 legendary = true
 copies = true
 lethal = false
-dimensions = ["tensura:labyrinth"]
+dimensions = []
+exclude_dimensions = ["ttl:mortal_realm", "ttl:mortal_nether", "ttl:mortal_end", "ttl:spirit_corridor"]
+
+# Damage liability (absorb/liability.js; owner 18/11/2026). A duel (or an awakening challenge) whose initiator or opponent
+# stands in a public place when it opens is "liable": while it lasts, every block either duellist breaks or places, or
+# blows up, inside a public place is recorded, and when it ends the INITIATOR pays fee_per_block per block (at most
+# max_fee, as far as they can) through the economy. The share for blocks on a nation's land goes to that nation's
+# treasury; the rest is a sink. Public places (`places`): claims = chunks claimed by a team that is neither duellist's,
+# towns = Tempest and Dwargon, builds = every placed canon build's box, landmarks = every placed landmark's reach. The
+# wild is never public. exempt = build/landmark names (or "tempest", "dwargon") that are not public (arenas).
+[absorb.liability]
+enabled = true
+routes = ["duel", "awakening"]
+places = ["claims", "towns", "builds", "landmarks"]
+exempt = []
+fee_per_block = { bronze = 5 }
+max_fee = { gold = 5 }
+max_blocks = 512        # changes recorded per duel; the rest is neither charged nor restored
+restore = true          # put the recorded blocks back after paying (a broken block only where the spot is still air)
+restore_per_tick = 32
+no_drops = true         # with restore: a recorded broken block drops nothing, so a public build cannot be farmed
+hold_days = 7           # an initiator who is offline when the duel ends pays at their next login, up to this long
 
 # War between nations: a Legendary holder who falls to a soul of a nation at official war with theirs loses it to the
 # killer (a real death). use_nations asks TtlNations.atWar(server, killer, victim) (WP4, nations/nations.js) and is
@@ -116,10 +139,10 @@ titles = [
 ]
 
 [rare]
-# Combat and magic uniques.
+# Combat and magic uniques. gluttony: owner decision 18/11/2026 (was an unlisted skill, so Common by default).
 skills = [
   "absolute_severance", "berserk", "berserker", "bewilder", "chosen_one", "commander", "degenerate",
-  "engorger", "falsifier", "fighter", "fusionist", "infinity_prison", "martial_master", "merciless",
+  "engorger", "falsifier", "fighter", "fusionist", "gluttony", "infinity_prison", "martial_master", "merciless",
   "murderer", "oppressor", "reaper", "reflector", "reverser", "royal_beast", "severer", "shadow_striker",
   "sniper", "spearhead", "suppressor", "unyielding", "usurper", "villain",
 ]

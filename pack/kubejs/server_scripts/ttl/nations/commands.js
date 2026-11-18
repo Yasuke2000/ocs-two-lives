@@ -272,6 +272,14 @@ ServerEvents.commandRegistry(event => {
     if (field === 'builds') return String(parts().builds)
     if (field === 'treasury') return String(Number(rec.treasury || 0))
     if (field === 'owed') return String(Number(rec.owed || 0))
+    if (field === 'owedweeks') return String(Number(rec.owedWeeks || 0))
+    if (field === 'debuff') return String(Number(rec.debuff || 0))
+    if (field === 'debuff_here' || field === 'yield_here' || field === 'growth_here') {
+      var here = typeof TtlUpkeepDebuff !== 'undefined' ? TtlUpkeepDebuff.at(s, TtlLife.dimensionOf(p), Number(p.x), Number(p.z)) : null
+      if (field === 'debuff_here') return String(here ? here.stage : 0)
+      if (field === 'yield_here') return String(here ? Number(here.def.yield) : 1)
+      return String(here ? Number(here.def.growth_skip) : 0)
+    }
     throw `unknown nation field ${field}`
   }
 

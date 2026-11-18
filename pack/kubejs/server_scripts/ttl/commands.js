@@ -4,7 +4,7 @@
 //           /ttl registry · /ttl registry free <skill> (release a unique whose holder is gone)
 //           /ttl registry history [skill] (the newest 20 transfers: grants, revokes, returns to the pool)
 //           /ttl registry sweep (return to pool now: holders inactive for skills.toml [registry] inactive_days) · migrate (name → UUID records)
-//           /ttl registry seen <player> <days> · legacy <player> (test hooks) · expect count|holds|has|keyed|last|pending ... ("ttl: ..." on failure)
+//           /ttl registry seen <player> <days> · legacy <player> (test hooks) · expect count|holds|has|keyed|last|pending|rarity ... ("ttl: ..." on failure)
 //           /ttl reconcile <player> (match the registry to the uniques they really hold; also runs every 5 min)
 //           /ttl grant <player> <skill> (through the registry, caps apply)
 //           /ttl build <name> (place blueprints/<name>.py with its corner at your feet)
@@ -87,6 +87,8 @@ ServerEvents.commandRegistry(event => {
       if (typeof TtlSoul !== 'undefined' && typeof TtlSoul.clear === 'function') TtlSoul.clear(target)
       if (typeof TtlRep !== 'undefined' && typeof TtlRep.clear === 'function') TtlRep.clear(server, target)
       if (typeof TtlStory !== 'undefined' && typeof TtlStory.clear === 'function') TtlStory.clear(server, target)
+      // A staff full reset is the one thing that gives a soul its awakening claim back (absorb/absorb.js ttl.absorb.souls).
+      if (typeof TtlAbsorb !== 'undefined' && typeof TtlAbsorb.clear === 'function') TtlAbsorb.clear(server, target)
     } catch (e) {
       console.error(`[ttl] reset of soul/reputation data for ${name} failed: ${e}`)
     }
@@ -214,6 +216,14 @@ ServerEvents.commandRegistry(event => {
     say(ctx, `registry: ${want} returned skills waiting for ${target.username} as expected`)
     return 1
   }
+  var expectRarity = ctx => {
+    var skill = `tensura:${word(ctx, 'skill')}`
+    var want = word(ctx, 'value')
+    var got = TtlRegistry.rarityOf(skill)
+    if (got !== want) throw `expected ${skill} to be ${want}, it is ${got} (cap ${TtlRegistry.capOf(skill)})`
+    say(ctx, `registry: ${skill} is ${want} (cap ${TtlRegistry.capOf(skill)}) as expected`)
+    return 1
+  }
   var playerArg = () => Commands.argument('target', Arguments.PLAYER.create(event))
   var skillArg = () => Commands.argument('skill', Arguments.STRING.create(event))
   var valueArg = () => Commands.argument('value', Arguments.STRING.create(event))
@@ -318,7 +328,9 @@ ServerEvents.commandRegistry(event => {
           .then(playerArg().then(Commands.argument('kind', Arguments.STRING.create(event))
             .then(skillArg().executes(logged(expectLast))))))
         .then(Commands.literal('pending')
-          .then(playerArg().then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(expectPending)))))))
+          .then(playerArg().then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(expectPending)))))
+        .then(Commands.literal('rarity')
+          .then(skillArg().then(valueArg().executes(logged(expectRarity)))))))
     .then(Commands.literal('reset')
       .requires(src => src.hasPermission(2))
       .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(reset))))

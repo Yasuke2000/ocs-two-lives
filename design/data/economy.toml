@@ -51,8 +51,10 @@ fuze_min_rank = "B"
 # after the desk's (desk 1-5, Fuze 6 and 7), `/ttl guild board fuze` and `take <n> fuze` count from 1.
 fuze_daily = 0
 fuze_weekly = 2
-# false: finished Fuze contracts are only handed in to Fuze; true: a receptionist takes them too.
-fuze_turnin_at_desk = false
+# Owner rule 18/11/2026: true = a receptionist (and the plain `/ttl guild turnin`) also takes Fuze's finished contracts,
+# EXCEPT the ones with `lore = true` (they carry a story implication, so only Fuze takes them: `/ttl guild turnin fuze`,
+# his dialog button). false = every Fuze contract goes back to Fuze. Fuze himself never takes the desk's bounties.
+fuze_turnin_at_desk = true
 
 # Guild ranks F to S. `points` are lifetime bounty points (each bounty has its own `points`).
 [[rank]]
@@ -104,6 +106,8 @@ points = 400
 #   points    guild points
 #   weight    relative chance when the board is rolled
 #   reward    { coins = { silver = 3 }, rep = { blumund = 1 } }; rep factions are factions.toml ids
+#   lore      optional, Fuze's contracts only (default false): true = the contract has a lore implication, so it is
+#             handed in to Fuze himself, never at a guild desk (guild.fuze_turnin_at_desk)
 # Entity ids were read from the Tensura 2.0.1.5 lang file; whether each one spawns in the world is not checked here
 # ("verify in game"): a bounty whose mob never appears simply stays unfinished, retire it by setting weight = 0.
 
@@ -440,6 +444,7 @@ reward = { coins = { gold = 3 } }
 id = "fz_magisteel_shipment"
 title = "Contract: Magisteel for the Dwarven Crown"
 giver = "fuze"
+lore = true             # Kaijin's trade secret for Gazel's crown (chapter 3): Fuze reports it to Dwargon himself
 kind = "deliver"
 target = "tensura:low_magisteel_ingot"
 count = 16
@@ -453,6 +458,7 @@ reward = { coins = { gold = 4 }, rep = { dwargon = 4 } }
 id = "fz_ogre_ruin"
 title = "Contract: Ghosts of the Ogre Village"
 giver = "fuze"
+lore = true             # the Kijin homeland the orcs burned (chapter 4, Orc Lord): what was seen there goes to Fuze only
 kind = "visit"
 target = "ogre_village_ruin"
 count = 1

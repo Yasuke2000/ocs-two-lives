@@ -194,6 +194,18 @@ ttl absorb simulate TtlBotAbY TtlBotAbV awakening
 ttl absorb expect pacts 0
 ttl absorb expect TtlBotAbY lord yes
 ttl absorb expect TtlBotAbY cooldown yes
+# Once per soul (owner 18/11/2026): a Reset Counter rebirth (Tensura's own reset) and a rebuilt player record do not
+# give the awakenings back (server record ttl.absorb.souls); only the staff full reset /ttl reset does.
+tensura reset TtlBotAbY awakening
+ttl absorb testwipe TtlBotAbY
+ttl absorb expect TtlBotAbY hero yes
+ttl absorb expect TtlBotAbY lord yes
+ttl absorb expect TtlBotAbY kinds 0
+ttl absorb expect TtlBotAbY claimable 0
+ttl reset TtlBotAbY
+ttl absorb expect TtlBotAbY hero no
+ttl absorb expect TtlBotAbY lord no
+kubejs stages add TtlBotAbY ttl.life2
 
 # Clean up: back to the shipped knobs; resets free every record.
 ttl absorb war clear

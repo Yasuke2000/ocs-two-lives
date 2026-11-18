@@ -25,7 +25,7 @@
 //        the one ttl.guild.* stage), accepted_<id>, ready_<id> (true/false), rep_<faction> (needs the reputation package),
 //        refuse_take (what taking slot 1 answers: life2only / allowed, real effect when allowed),
 //        take_<giver>_<id> (what `take <id> <giver>` answers: wrong_giver / life2only / rank / allowed (real effect) / other: ...),
-//        giver_<id> (desk or fuze)
+//        giver_<id> (desk or fuze), turnin_<desk|fuze|any>_<id> (who takes it back: allowed / lore / wrong_giver; no effect)
 //   /ttl merit test <player> <block> [n]  count n (default 1) placed blocks at the player's feet (`stone_bricks` = minecraft:stone_bricks)
 //   /ttl merit reset <player> · /ttl merit expect <player> <field> <value>
 //        fields: total, week, works (how many Public Works chunks they keep), builder (true/false)
@@ -161,6 +161,12 @@ ServerEvents.commandRegistry(event => {
       var gb = TtlGuild.find(giver[1])
       if (!gb) throw `unknown bounty ${giver[1]}`
       return TtlGuild.giverOf(gb)
+    }
+    var ti = /^turnin_(desk|fuze|any)_(.+)$/.exec(field)
+    if (ti) {
+      var tb = TtlGuild.find(ti[2])
+      if (!tb) throw `unknown bounty ${ti[2]}`
+      return TtlGuild.handsIn(tb, ti[1] === 'any' ? null : ti[1])
     }
     var tg = /^take_(desk|fuze)_(.+)$/.exec(field)
     if (tg) {
