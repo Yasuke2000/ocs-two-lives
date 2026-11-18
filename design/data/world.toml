@@ -58,6 +58,9 @@ uprising_put_down = 2
 uprising_won = -3
 radiant_light = 0.2
 radiant_dark = -0.2
+light_deed = 1               # roads/roads.js: a good route of a two-roads choice (owner O-C2: choice_good +1)
+dark_deed = -1.5             # roads/roads.js: a dark route (owner O-C2: choice_dark -1.5; the day cap is roads.toml's)
+rest = 1                     # roads/roads.js: necro.rest, laying the dead to rest (a light deed)
 
 # Milestones: sticky, additive. `when` keys are ANDed: acts = { act = n } · acts_path = { act = n, path = x } ·
 # flags = { <flag> = n } · kills = { <boss> = n } · nations = n · wars = n · armies = n (nations with a mustered army) ·

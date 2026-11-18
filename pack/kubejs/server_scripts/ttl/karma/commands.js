@@ -5,7 +5,9 @@
 //          /ttl karma <player> expect <field> <value>  test assertion: prints "ttl: ..." when it does not hold
 //            fields: tier, dark, days, bosses, offers (count), darkoffer (true when an offer is a dark race),
 //                    step (Corridor step), phase, bonus (count of karma bonus skills granted),
-//                    active (ticks of active time), far (explored "blocks"), cells (squares today), kills (effective kills)
+//                    active (ticks of active time), far (explored "blocks"), cells (squares today), kills (effective kills),
+//                    chaos2/order2/craft2/faith2 (the Life 2 ledger, roads/roads.js), carried_<axis> (what the stored verdict
+//                    carried from the previous Life 2, 0 when nothing)
 //          /ttl karma <player> sample                  test hook: one activity sample as if the timer fired (active time, exploration)
 //          /ttl karma <player> act                     test hook: marks the player as having acted since the last sample
 //          /ttl karma <player> explore <x> <z> [<n>]   test hook: visit n (default 1) squares in a row from x z (daily cap applies)
@@ -62,7 +64,7 @@ ServerEvents.commandRegistry(event => {
     var list = offers ? offers.split(',') : []
     var tier = v ? v.tier : TtlData.karma.default_tier
     var darkPool = TtlKarma.darkPool(tier)
-    return {
+    var out = {
       tier: tier,
       dark: String(!!(v && v.dark)),
       days: String(v ? v.days : 0),
@@ -77,6 +79,16 @@ ServerEvents.commandRegistry(event => {
       cells: String(target.persistentData.getInt('ttl.l1.cellsToday')),
       kills: String(v ? v.kills : 0)
     }
+    // The Life 2 ledger (roads/roads.js), when the roads package is loaded.
+    if (typeof TtlRoads !== 'undefined') {
+      var led = TtlRoads.ledger(target)
+      var rec = TtlKarma.record(target)
+      Object.keys(led).forEach(a => {
+        out[`${a}2`] = String(led[a])
+        out[`carried_${a}`] = String(rec && rec.carry && rec.carry[a] ? Math.round(rec.carry[a] * 10) / 10 : 0)
+      })
+    }
+    return out
   }
 
   var expect = ctx => {

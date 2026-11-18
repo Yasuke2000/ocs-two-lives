@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "ttl:soul_ash",
+    "ttl:bone_dust",
+    "ttl:soul_remnant",
+    "ttl:hipokute_salve",
+    "ttl:engraving_chisel",
+    "ttl:cursed_whetstone",
+    "ttl:warden_core",
+    "ttl:artificer_charter",
+    "ttl:exorcist_licence",
+    "ttl:bone_altar",
+    "ttl:workshop_bench",
+    "ttl:grave_lantern",
+    "ttl:grave_marker",
+    "ttl:offering_bowl",
+    "ttl:cracked_dam",
+    "ttl:rubble",
+    "ttl:dragon_egg_cradle"
+  ]
+}

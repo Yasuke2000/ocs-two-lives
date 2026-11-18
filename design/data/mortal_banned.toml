@@ -21,13 +21,26 @@
 # (it only adds item tags to Tensura items, which `tensura` already covers).
 # lightmanscurrency: Life 1 has no money (its coins are Tensura's, and bank accounts and network traders are also refused
 # in the Mortal dimensions by config/lightmanscurrency-server.txt); the Mana Ledger and shops are Life 2 things.
-namespaces = ["tensura", "tensura_neb", "greatsage", "lightmanscurrency"]
+# occultism (O-N1, owner 18/11/2026, design/architecture/paths-necro-artificer.md §0.2): its rituals (possess_skeleton,
+# wild_hunt, resurrect_mob, familiars, spirits) are Life 2 things; banning the namespace takes chalk, rituals and every
+# Occultism item out of Life 1.
+namespaces = ["tensura", "tensura_neb", "greatsage", "lightmanscurrency", "occultism"]
 
 # Single items, full id: items = ["somemod:magic_ring"]
 items = []
 
 # Item tags, full id without the #: tags = ["c:ingots/netherite"]
-tags = []
+# ttl:paths: the necromancer's and artificer's items and blocks (soul ash, Bone Altar, Workshop Bench, ...;
+# data/ttl/tags/item/paths.json). Life 1 stays mortal: the paths open in Life 2.
+tags = ["ttl:paths"]
 
 # Exceptions to a namespace ban, full item ids: allow = ["tensura:bronze_coin"]
 allow = []
+
+# Iron's Spells 'n Spellbooks schools whose CASTS are refused in the Mortal dimensions (O-N1): Iron's posts a cancellable
+# SpellPreCastEvent before every player cast (scrolls and spellbooks alike), life/mortal_banned.js cancels it for these
+# schools. Blood (raise_dead, devour, sacrifice, ...) and eldritch are the necromancer's and the abyss's magic. The rest
+# of Iron's stays usable in Life 1, and what a soul learns there carries over (D4). Empty list = no veto.
+# Fallback if the veto cannot be registered (the log says "[ttl] stash: Iron's spell veto NOT registered"): put
+# "irons_spellbooks" into `namespaces` (the master plan's Q13 "Iron's in Life 1: off").
+spell_schools = ["irons_spellbooks:blood", "irons_spellbooks:eldritch"]

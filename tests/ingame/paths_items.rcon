@@ -1,0 +1,73 @@
+# Path items and blocks (WP-N0: startup_scripts/ttl/items.js + blocks.js, item tag ttl:paths, mortal_banned.toml tags).
+# `ttl roads items|block ...` and `ttl stash ... expect ...` print "ttl: ..." when wrong, which `server.sh test-all` counts
+# as a failure. The R12 data check (a planted ttl.story.act2 in necro.toml fails validate.py) is the unit test
+# tests/test_r12.py. Expect in the log: "[ttl] stash: TtlBotPaths (life 1) had <n> banned stacks, moved to the soul stash"
+# (17 in all, over one or two sweeps).
+ttlbot spawn TtlBotPaths
+@sleep 3
+ttl reset TtlBotPaths
+@sleep 3
+ttl stash TtlBotPaths clear
+# Every id is registered (items and block items).
+ttl roads items
+# Life 1 stays mortal: in the Mortal Realm every path item goes to the soul stash.
+give TtlBotPaths ttl:soul_ash 4
+give TtlBotPaths ttl:bone_dust 4
+give TtlBotPaths ttl:soul_remnant
+give TtlBotPaths ttl:hipokute_salve
+give TtlBotPaths ttl:engraving_chisel
+give TtlBotPaths ttl:cursed_whetstone
+give TtlBotPaths ttl:warden_core
+give TtlBotPaths ttl:artificer_charter
+give TtlBotPaths ttl:exorcist_licence
+give TtlBotPaths ttl:bone_altar
+give TtlBotPaths ttl:workshop_bench
+give TtlBotPaths ttl:grave_lantern
+give TtlBotPaths ttl:grave_marker
+give TtlBotPaths ttl:offering_bowl
+give TtlBotPaths ttl:cracked_dam
+give TtlBotPaths ttl:rubble
+give TtlBotPaths ttl:dragon_egg_cradle
+@sleep 3
+ttl stash TtlBotPaths expect banned 0
+ttl stash TtlBotPaths expect stash 17
+ttl stash TtlBotPaths clear
+# Life 2: the same items stay on the body, and the blocks place. A platform far from every NPC (forceloaded).
+ttl roads test TtlBotPaths life2
+execute in minecraft:overworld run forceload add 4200 4200 4210 4204
+execute in minecraft:overworld run fill 4198 150 4198 4212 150 4206 minecraft:stone
+execute in minecraft:overworld run fill 4198 151 4198 4212 154 4206 minecraft:air
+execute in minecraft:overworld run tp TtlBotPaths 4200 151 4200
+@sleep 1
+give TtlBotPaths ttl:soul_ash 4
+give TtlBotPaths ttl:bone_dust 4
+give TtlBotPaths ttl:soul_remnant
+give TtlBotPaths ttl:hipokute_salve
+give TtlBotPaths ttl:engraving_chisel
+give TtlBotPaths ttl:cursed_whetstone
+give TtlBotPaths ttl:warden_core
+give TtlBotPaths ttl:artificer_charter
+give TtlBotPaths ttl:exorcist_licence
+give TtlBotPaths ttl:bone_altar
+give TtlBotPaths ttl:workshop_bench
+give TtlBotPaths ttl:grave_lantern
+give TtlBotPaths ttl:grave_marker
+give TtlBotPaths ttl:offering_bowl
+give TtlBotPaths ttl:cracked_dam
+give TtlBotPaths ttl:rubble
+give TtlBotPaths ttl:dragon_egg_cradle
+@sleep 3
+ttl roads items TtlBotPaths
+execute in minecraft:overworld run setblock 4202 151 4200 ttl:bone_altar
+execute in minecraft:overworld run setblock 4204 151 4200 ttl:workshop_bench
+execute in minecraft:overworld run setblock 4206 151 4200 ttl:grave_lantern
+execute in minecraft:overworld run ttl roads block 4202 151 4200 ttl:bone_altar
+execute in minecraft:overworld run ttl roads block 4204 151 4200 ttl:workshop_bench
+execute in minecraft:overworld run ttl roads block 4206 151 4200 ttl:grave_lantern
+# Discoverability: /ttl paths opens the guide's paths pages (bots record the set instead of showing it).
+execute as TtlBotPaths run ttl paths
+ttlguide check TtlBotPaths paths
+execute in minecraft:overworld run fill 4198 151 4198 4212 154 4206 minecraft:air
+execute in minecraft:overworld run forceload remove 4200 4200 4210 4204
+ttl reset TtlBotPaths
+ttlbot remove TtlBotPaths

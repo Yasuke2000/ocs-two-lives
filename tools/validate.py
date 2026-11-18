@@ -4,13 +4,49 @@ import re
 import shutil
 import subprocess
 import sys
+import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PACK = ROOT / "pack"
 FORBIDDEN = re.compile(r"epic.?fight|better.?combat|predation|mekanism", re.I)
 
+# R12 (design/architecture/paths-necro-artificer.md §0): a system is not a chapter. No stage of the story, the Oath path or
+# the boss ladder may appear in the data of a standalone system: not as a value, not as a key. Comments may name them.
+R12_FILES = ("necro.toml", "artifice.toml", "choices.toml", "roads.toml")
+R12_STAGE = re.compile(r"(?<![a-z0-9_.])ttl\.(story|path|boss)(\.|$)")
+
 errors: list[str] = []
+
+
+def r12_violations(paths) -> list[str]:
+    """Every story/path/boss stage id found in the parsed TOML of these system data files, as 'file: where = id'."""
+    found: list[str] = []
+
+    def walk(name: str, where: str, v) -> None:
+        if isinstance(v, dict):
+            for k, x in v.items():
+                if R12_STAGE.search(str(k)):
+                    found.append(f"{name}: key {where}{k}")
+                walk(name, f"{where}{k}.", x)
+        elif isinstance(v, list):
+            for i, x in enumerate(v):
+                walk(name, f"{where}{i}.", x)
+        elif isinstance(v, str) and R12_STAGE.search(v):
+            found.append(f"{name}: {where.rstrip('.')} = {v!r}")
+
+    for p in paths:
+        p = Path(p)
+        if not p.exists():
+            continue
+        with p.open("rb") as f:
+            walk(p.name, "", tomllib.load(f))
+    return found
+
+
+def check_r12() -> None:
+    for v in r12_violations(ROOT / "design" / "data" / n for n in R12_FILES):
+        errors.append(f"R12 a system is not a chapter: {v} (gate on EP, items, rank points, faction bands or nation rank instead)")
 
 
 def check_json() -> None:
@@ -77,10 +113,14 @@ def check_generated() -> None:
             errors.append(r.stdout.strip() or r.stderr.strip())
 
 
-for check in (check_json, check_js, check_mods, check_config_text, check_generated, check_index_fresh):
-    check()
+def main() -> int:
+    for check in (check_json, check_js, check_mods, check_config_text, check_r12, check_generated, check_index_fresh):
+        check()
+    for e in errors:
+        print(f"FAIL {e}")
+    print("validation passed" if not errors else f"{len(errors)} problem(s)")
+    return 1 if errors else 0
 
-for e in errors:
-    print(f"FAIL {e}")
-print("validation passed" if not errors else f"{len(errors)} problem(s)")
-sys.exit(1 if errors else 0)
+
+if __name__ == "__main__":
+    sys.exit(main())

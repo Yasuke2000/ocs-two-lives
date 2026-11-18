@@ -166,6 +166,69 @@ def check_mortal_banned(banned: dict) -> None:
                                  f"{'namespace, like tensura' if key == 'namespaces' else 'full id, like mod:thing'}")
         if len(set(values)) != len(values):
             raise SystemExit(f"mortal_banned.toml: {key} lists an entry twice")
+    # Iron's schools whose casts are vetoed in the Mortal dimensions (life/mortal_banned.js, SpellPreCastEvent).
+    schools = banned.get("spell_schools", [])
+    if not isinstance(schools, list) or any(not isinstance(v, str) or not re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", v) for v in schools):
+        raise SystemExit("mortal_banned.toml: spell_schools must be a list of school ids, like irons_spellbooks:blood")
+
+
+ROAD_FIELDS = {"chaos", "order", "craft", "faith", "balance", "weight", "times", "rep", "victim", "renown",
+               "witnessed_only", "story", "extra"}
+
+
+def check_roads(roads: dict, factions: dict | None, karma: dict | None) -> None:
+    # roads/roads.js (TtlRoads) pays these; a typo in a faction or an axis would silently cost nothing.
+    for key in ("witness", "karma2", "balance", "discord", "defaults"):
+        if not isinstance(roads.get(key), dict):
+            raise SystemExit(f"roads.toml: [{key}] missing")
+    if not (isinstance(roads["witness"].get("radius"), int) and roads["witness"]["radius"] > 0):
+        raise SystemExit("roads.toml: [witness] radius must be a positive int")
+    axes = roads["karma2"].get("axes")
+    known_axes = set((karma or {}).get("axes", {}).keys())
+    if not isinstance(axes, list) or not axes or (known_axes and not set(axes) <= known_axes):
+        raise SystemExit(f"roads.toml: [karma2] axes must be karma.toml axes ({', '.join(sorted(known_axes))})")
+    if not is_num(roads["karma2"].get("mult")) or roads["karma2"]["mult"] < 0:
+        raise SystemExit("roads.toml: [karma2] mult must be a number >= 0")
+    for k in ("dark_cap_per_day", "light_cap_per_day"):
+        if not isinstance(roads["balance"].get(k), int) or roads["balance"][k] < 0:
+            raise SystemExit(f"roads.toml: [balance] {k} must be an int >= 0")
+    facs = {f["id"] for f in (factions or {}).get("faction", [])}
+    seen = set()
+    for c in roads.get("choice", []):
+        cid = str(c.get("id", ""))
+        if not re.fullmatch(r"[a-z0-9_]+\.[a-z0-9_]+", cid):
+            raise SystemExit(f"roads.toml: choice id {cid!r} must be <system>.<act> (lowercase)")
+        if cid in seen:
+            raise SystemExit(f"roads.toml: choice {cid} defined twice")
+        seen.add(cid)
+        routes = [r for r in ("good", "grey", "dark") if r in c]
+        if not routes:
+            raise SystemExit(f"roads.toml: choice {cid} has no route (good, grey or dark)")
+        if c.get("fair") not in routes:
+            raise SystemExit(f"roads.toml: choice {cid} fair = {c.get('fair')!r} must name one of its routes {routes}")
+        for r in routes:
+            route = c[r]
+            where = f"roads.toml: choice {cid} route {r}"
+            unknown = set(route) - ROAD_FIELDS
+            if unknown:
+                raise SystemExit(f"{where}: unknown field(s) {sorted(unknown)} (known: {sorted(ROAD_FIELDS)})")
+            for ax in ("chaos", "order", "craft", "faith"):
+                if ax in route and (not isinstance(route[ax], int) or ax not in axes):
+                    raise SystemExit(f"{where}: {ax} must be an int and a [karma2] axis")
+            if route.get("balance", "none") not in ("dark_deed", "light_deed", "none"):
+                raise SystemExit(f"{where}: balance must be dark_deed, light_deed or none")
+            if r == "dark" and route.get("balance") == "light_deed":
+                raise SystemExit(f"{where}: a dark route cannot note a light deed")
+            for f, n in (route.get("rep") or {}).items():
+                if facs and f not in facs:
+                    raise SystemExit(f"{where}: unknown faction {f}")
+                if not isinstance(n, int):
+                    raise SystemExit(f"{where}: rep.{f} must be an int")
+            for k in ("victim", "renown", "times"):
+                if k in route and not isinstance(route[k], int):
+                    raise SystemExit(f"{where}: {k} must be an int")
+            if r == "dark" and int(route.get("chaos", 0)) <= 0:
+                raise SystemExit(f"{where}: a dark route always costs karma (chaos > 0, rule R13)")
 
 
 def check_carryover(carry: dict, karma: dict | None) -> None:
@@ -1628,6 +1691,8 @@ def render() -> dict[Path, str]:
         check_guide(data["guide"])
     if "mortal_banned" in data:
         check_mortal_banned(data["mortal_banned"])
+    if "roads" in data:
+        check_roads(data["roads"], data.get("factions"), data.get("karma"))
     if "events" in data:
         check_events(data["events"])
     if "arrival" in data:
