@@ -131,7 +131,7 @@ const TtlWalpurgis = {
     var to = this.hallAt(server)
     var name = player.username
     if (TtlLife.dimensionOf(player) !== this.dim()) {
-      var line = [TtlLife.dimensionOf(player), Number(player.getX()).toFixed(2), Number(player.getY()).toFixed(2), Number(player.getZ()).toFixed(2), Number(player.getYRot()).toFixed(1), Number(player.getXRot()).toFixed(1)].join(' ')
+      var line = [TtlLife.dimensionOf(player), Number(player.getX()).toFixed(2), Number(player.getY()).toFixed(2), Number(player.getZ()).toFixed(2), Number(player.yaw || 0).toFixed(1), Number(player.pitch || 0).toFixed(1)].join(' ')
       player.persistentData.putString('ttl.walpurgis.back', line)
     }
     server.runCommandSilent(`execute in ${this.dim()} run tp ${name} ${to[0] + 0.5} ${to[1]} ${to[2] + 0.5} ${TtlWalpurgisHall.arrival_yaw} 0`)

@@ -93,13 +93,14 @@ ttl nation expect TtlBotNatA extra 8
 ttl nation expect TtlBotNatB extra 8
 ttl nation expect TtlBotNatA maxclaims 24
 execute as TtlBotNatA run ttl nation value
-# Land: claims work in the overworld and count as holdings; a Life 1 bot cannot claim in the Mortal Realm.
+# Land: claims work in the overworld and count as holdings; a Life 1 bot cannot claim in the Mortal Realm. `at` the bot:
+# without it the claim lands on the RCON source position (world spawn), not under the bot.
 ttl nation expect TtlBotNatA claims 0
-execute as TtlBotNatA run ftbchunks claim
+execute as TtlBotNatA at TtlBotNatA run ftbchunks claim
 ttl nation expect TtlBotNatA claims 1
 ttl nation expect TtlBotNatA chunks 1
 execute in ttl:mortal_realm run tp TtlBotNatC 0 100 0
-execute as TtlBotNatC run ftbchunks claim
+execute as TtlBotNatC at TtlBotNatC run ftbchunks claim
 ttl nation expect TtlBotNatC claims 0
 # Treasury: anyone pays in, only the owner takes out; deposits and withdrawals are not faucets or sinks.
 ttl econ give TtlBotNatA 300
@@ -205,7 +206,7 @@ ttl nation expect TtlBotNatE extra 0
 ttl nation expect TtlBotNatE rankstage_village no
 ttl nation expect TtlBotNatA members 4
 # The owner dissolves: stages and extras go, the claim stays FTB's (unclaim it), the party stays.
-execute as TtlBotNatA run ftbchunks unclaim
+execute as TtlBotNatA at TtlBotNatA run ftbchunks unclaim
 execute as TtlBotNatA run ttl nation dissolve
 ttl nation expect TtlBotNatA member no
 ttl nation expect TtlBotNatB member no

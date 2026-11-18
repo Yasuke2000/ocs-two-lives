@@ -296,7 +296,7 @@ const TtlArenas = {
 
   keepBack(p) {
     if (String(p.persistentData.getString('ttl.arena.back') || '')) return
-    var line = [TtlLife.dimensionOf(p), Number(p.getX()).toFixed(2), Number(p.getY()).toFixed(2), Number(p.getZ()).toFixed(2), Number(p.getYRot()).toFixed(1), Number(p.getXRot()).toFixed(1)].join(' ')
+    var line = [TtlLife.dimensionOf(p), Number(p.getX()).toFixed(2), Number(p.getY()).toFixed(2), Number(p.getZ()).toFixed(2), Number(p.yaw || 0).toFixed(1), Number(p.pitch || 0).toFixed(1)].join(' ')
     p.persistentData.putString('ttl.arena.back', line)
   },
 

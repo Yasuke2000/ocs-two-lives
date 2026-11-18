@@ -1910,7 +1910,7 @@ hash = "cf04740e16e34d52b86eb952f460f23b2db04620861fb6660f234a83cd4d35e3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/arena/arenas.js"
-hash = "62efe9031d3fc77a3885d93b3254c8d928fde9b9ad8db91fb3c69f892c1b3e27"
+hash = "cb8997ed666728c593f8f604a536e3b267394bf710510c268ea636171c7011cf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/arena/commands.js"
@@ -1918,7 +1918,7 @@ hash = "a5eefb2205d04457eadeac3e1cf619d9081141d5409eff4d8a2bf3b93b00e900"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/arena/walpurgis.js"
-hash = "35aefe0f57c8abe8bf3f1a954a0210e6da9e6ae46d3cd3a02b11a2d2fe3f54a1"
+hash = "5170c5a133dad2588b266a79a68860a842f240728afc8d6207c1e350b86e72e3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/boot.js"
