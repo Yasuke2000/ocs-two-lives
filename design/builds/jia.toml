@@ -1,0 +1,10 @@
+name = "jia"
+title = "Jia — Frey's Landing Court"
+landmark = "Jia (Fulbrosia capital, Frey)"
+anchor = [36, 4, 64]
+ground = "survey"
+search = 96
+max_wet = 0.05
+margin = 12
+version = 1
+notes = "Harpy flight galleries above a mountain stair. The surveyed court is a single district of Jia."

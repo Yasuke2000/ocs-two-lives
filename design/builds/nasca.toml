@@ -1,0 +1,12 @@
+name = "nasca"
+title = "Nasca — Imperial audience court"
+landmark = "Nasca (Eastern Empire capital)"
+anchor = [42, 5, 66]
+ground = "survey"
+search = 96
+max_wet = 0.1
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+margin = 12
+notes = "South processional entrance and north audience pavilion. The court is our interpretation of the imperial capital."

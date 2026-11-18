@@ -1,0 +1,12 @@
+name = "nostraille"
+title = "Nostraille — The Wool Hall"
+landmark = "Nostraille"
+anchor = [36, 5, 43]
+ground = "survey"
+search = 32
+max_wet = 0.08
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+margin = 12
+notes = "The open market hall serves the quiet western hill kingdom. Enter from the southern cloth yard."

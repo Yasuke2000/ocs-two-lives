@@ -1,0 +1,13 @@
+# Run after the overworld startup placement queue finishes. Check the recorded survey results for
+# the eleven additions; use verify_build.py <name> --log for an independent block-by-block capture.
+ttl build expect elmine placed
+ttl build expect nasca placed
+ttl build expect jia placed
+ttl build expect amrita placed
+ttl build expect siltrosso placed
+ttl build expect ulgr_nature_park placed
+ttl build expect great_holy_mountain placed
+ttl build expect coleus placed
+ttl build expect morgdahl placed
+ttl build expect nostraille placed
+ttl build expect raja placed
