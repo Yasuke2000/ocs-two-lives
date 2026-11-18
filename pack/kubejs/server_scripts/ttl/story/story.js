@@ -21,8 +21,8 @@
 //   TtlStory.hasFlag(player, id), TtlStory.actsDone(player) (highest completed act), TtlStory.currentAct(player)
 //   TtlStory.talk(server, player, npcId)       prints what that NPC says to this soul now (the entry rules are in story.toml)
 //   TtlStory.fight(server, player, bossId)     start a boss fight from the story: near the arena, through TtlBoss.summon
-//   TtlStory.onBossKill(server, player, id)    the reputation / flag cost of killing that boss ([kill_rep]); boss.js `finish` calls
-//                                              it for every winner with one guarded line (WP-S3)
+//   TtlStory.onBossKill(server, player, id)    the reputation / flag cost of killing that boss (kill_rep in bosses.toml); boss.js
+//                                              `reward` (called by `finish` for every winner) calls it, guarded (WP-S3)
 //   TtlStory.syncScoreboard(server, player)    rewrite scoreboard and stages from the stored truth (login, reset)
 //   TtlStory.clear(server, player)             forget all story state (`/ttl reset`, `/ttl story reset`)
 //   TtlStory.unlocked(server)                  boss ids unlocked by completed acts (server-wide)
@@ -469,19 +469,29 @@ const TtlStory = {
 
   // ---- bosses ----------------------------------------------------------------------------------------------
 
-  // The cost of one kill ([kill_rep]); returns a short text of what changed (empty: nothing).
+  // The cost of one kill: the boss's `kill_rep` in bosses.toml (the only source; boss.js `reward` calls this for every
+  // credited winner and applies nothing itself while the story core is loaded). Returns a short text of what changed
+  // (empty: nothing).
   onBossKill(server, player, bossId) {
-    var kill = this.conf().kill_rep[bossId]
-    if (!kill || !this.isLife2(player)) return ''
+    var def = typeof TtlBoss !== 'undefined' && typeof TtlBoss.def === 'function' ? TtlBoss.def(bossId) : null
+    var kill = def && def.kill_rep
+    if (!kill) return ''
     if (kill.unless_flag && this.hasFlag(player, kill.unless_flag)) {
       this.unflag(server, player, kill.unless_flag)
       this.note(server, player, `killed ${bossId} under ${kill.unless_flag}: no cost`)
       return `no cost (${kill.unless_flag})`
     }
-    this.rep(server, player, kill.rep, `story kill ${bossId}`)
-    if (kill.flag) this.flag(server, player, kill.flag, { anyPath: true })
-    this.note(server, player, `killed ${bossId}: ${JSON.stringify(kill.rep)}${kill.flag ? ` flag ${kill.flag}` : ''}`)
-    return JSON.stringify(kill.rep)
+    var rep = {}
+    Object.keys(kill).forEach(f => {
+      if (f !== 'flag' && f !== 'unless_flag') rep[f] = kill[f]
+    })
+    this.rep(server, player, rep, `story kill ${bossId}`)
+    if (kill.flag) {
+      var err = this.flag(server, player, kill.flag, { anyPath: true })
+      if (err) console.warn(`[ttl] story: kill flag ${kill.flag} for ${player.username} (${bossId}): ${err}`)
+    }
+    this.note(server, player, `killed ${bossId}: ${JSON.stringify(rep)}${kill.flag ? ` flag ${kill.flag}` : ''}`)
+    return JSON.stringify(rep)
   },
 
   // `/ttl story fight <id>`: a soul in Life 2 standing near the boss's arena starts the fight (cooldown and `requires` are
@@ -495,7 +505,7 @@ const TtlStory = {
     var dim = String(player.level.dimension)
     var here = { dim: dim, x: player.getX(), y: player.getY(), z: player.getZ() }
     var near = Number(this.rules().fight_near)
-    var spot = TtlBoss.arenaOf(def, {})
+    var spot = TtlBoss.arenaOf(server, def, {})
     if (typeof spot === 'string' && !opts.force) return `${def.title} has no place to be fought from a command: ${spot}`
     if (typeof spot !== 'string' && !opts.force) {
       var dx = here.x - spot.x

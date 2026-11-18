@@ -542,7 +542,8 @@ const TtlData = {
         "id": "gazel_dwargo",
         "kill_rep": {
           "dwargon": -60,
-          "flag": "regicide"
+          "flag": "regicide",
+          "unless_flag": "honour_duel"
         },
         "per_player_mult": 1.0,
         "phases": [
@@ -3386,7 +3387,11 @@ const TtlData = {
           "shizu",
           "ifrit",
           "hinata_sakaguchi",
-          "rimuru_ogre_fight"
+          "rimuru_ogre_fight",
+          "folgen",
+          "kyoya_tachibana",
+          "shogo_taguchi",
+          "kirara_mizutani"
         ]
       },
       {
@@ -3409,7 +3414,8 @@ const TtlData = {
         "unlock_bosses": [
           "carrion",
           "luminous_valentine",
-          "rimuru_clone"
+          "rimuru_clone",
+          "clayman"
         ]
       },
       {
@@ -3495,25 +3501,6 @@ const TtlData = {
         "title": "Marked"
       },
       "max": 1
-    },
-    "kill_rep": {
-      "gazel_dwargo": {
-        "flag": "regicide",
-        "rep": {
-          "dwargon": -60
-        },
-        "unless_flag": "honour_duel"
-      },
-      "hinata_sakaguchi": {
-        "rep": {
-          "holy_church": -30
-        }
-      },
-      "rimuru_ogre_fight": {
-        "rep": {
-          "tempest": -40
-        }
-      }
     },
     "legendary": {
       "dark": [

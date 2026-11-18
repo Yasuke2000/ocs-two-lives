@@ -368,9 +368,9 @@ def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = N
             raise SystemExit(f"{where}: needs a `spawn` (or `arena`) for its fixed place, or a wild chance above 0 if it is wild-only")
         kr = b.get("kill_rep", {})
         for f, n in kr.items():
-            if f == "flag":
+            if f in ("flag", "unless_flag"):
                 if not isinstance(n, str) or not re.fullmatch(r"[a-z0-9_]+", n):
-                    raise SystemExit(f"{where}: kill_rep.flag must be a [a-z0-9_] story flag")
+                    raise SystemExit(f"{where}: kill_rep.{f} must be a [a-z0-9_] story flag")
             elif not isinstance(n, int) or isinstance(n, bool) or not -100 <= n <= 100:
                 raise SystemExit(f"{where}: kill_rep.{f} must be an integer -100..100")
             elif factions is not None and f not in {x["id"] for x in factions.get("faction", [])}:
@@ -523,13 +523,13 @@ def check_story(story: dict, factions: dict | None, bosses: dict | None, skills:
                 raise SystemExit(f"{where}: boss {b} is unlocked by two acts")
             unlocked.add(b)
 
-    for bid, kill in story.get("kill_rep", {}).items():
-        if boss_ids is not None and bid not in boss_ids:
-            raise SystemExit(f"{where}: kill_rep.{bid} is not a boss in bosses.toml")
-        rep_table(f"kill_rep.{bid}.rep", kill.get("rep"))
+    if "kill_rep" in story:
+        raise SystemExit(f"{where}: [kill_rep] moved to bosses.toml (a kill_rep per [[boss]]): one source of kill costs")
+    # The kill costs live in bosses.toml (check_bosses validates their shape); the flags they name must exist here.
+    for b in (bosses or {}).get("boss", []):
         for key in ("flag", "unless_flag"):
-            if key in kill:
-                flag_ref(f"kill_rep.{bid}.{key}", kill[key])
+            if key in b.get("kill_rep", {}):
+                flag_ref(f"bosses.toml boss {b['id']} kill_rep.{key}", b["kill_rep"][key])
 
     legendary = story.get("legendary", {})
     allowed = set(skills["legendary"]["skills"]) if skills else None

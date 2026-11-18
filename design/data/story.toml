@@ -111,8 +111,6 @@ line = ""
 # through TtlRep.addRenown once. `unlock_bosses` is added to the server set ttl.story.unlocked (the event director may pick
 # from it). Fights are NOT gated by acts (owner: anyone may fight on any path). The rep numbers are our interpretation:
 # the doc fixes the Oath, Gazel -60, Horde +40 and the Act V swing; the rest is a starting point to tune.
-# TODO when WP-S3/S8/S9 add their bosses (folgen, kyoya_tachibana, shogo_taguchi, kirara_mizutani, the Clayman proxy):
-# list them in the act that unlocks them (Act V: folgen, kyoya, shogo, kirara; Act VI: the Clayman proxy).
 
 [[act]]
 id = 1
@@ -167,7 +165,7 @@ light_rep = { holy_church = 10 }
 dark_rep = { tempest = -40, falmuth = 30 }
 renown = 20
 story_line = "finished Act V: the mask has fallen and the blades have crossed."
-unlock_bosses = ["shizu", "ifrit", "hinata_sakaguchi", "rimuru_ogre_fight"]
+unlock_bosses = ["shizu", "ifrit", "hinata_sakaguchi", "rimuru_ogre_fight", "folgen", "kyoya_tachibana", "shogo_taguchi", "kirara_mizutani"]
 
 [[act]]
 id = 6
@@ -178,7 +176,7 @@ light_rep = { tempest = 10, holy_church = 5 }
 dark_rep = { outcast = 15, orc_horde = 10 }
 renown = 30
 story_line = "finished Act VI: the Walpurgis council has met."
-unlock_bosses = ["carrion", "luminous_valentine", "rimuru_clone"]
+unlock_bosses = ["carrion", "luminous_valentine", "rimuru_clone", "clayman"]
 
 [[act]]
 id = 7
@@ -192,20 +190,10 @@ story_line = "finished Act VII: the harvest festival is over and nothing is the 
 unlock_bosses = ["veldora"]
 
 # ---------------------------------------------------------------------------------------------------------------------
-# What a boss kill costs, on top of the boss's own rewards in bosses.toml, whatever the path (bosses/boss.js `finish`
-# calls TtlStory.onBossKill for every winner). `unless_flag`: a soul holding that flag pays nothing and loses the flag
-# (the honour duel). `flag` is set on a paid kill.
-
-[kill_rep.gazel_dwargo]
-rep = { dwargon = -60 }
-flag = "regicide"
-unless_flag = "honour_duel"
-
-[kill_rep.hinata_sakaguchi]
-rep = { holy_church = -30 }
-
-[kill_rep.rimuru_ogre_fight]
-rep = { tempest = -40 }
+# What a boss kill costs lives in bosses.toml (`kill_rep = { <faction> = n, flag = "<flag>", unless_flag = "<flag>" }` per
+# boss): bosses/boss.js `finish` hands every credited winner to TtlStory.onBossKill, which reads it, applies the rep, sets
+# `flag` on a paid kill and, for a soul that holds `unless_flag`, charges nothing and spends that flag (the honour duel).
+# The flag ids must be [flag.*] tables above (check_story).
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Legendary pools for the Act VII capstone (WP-S9: TtlRegistry.draw with allowLegendary and the max_holders ceiling of

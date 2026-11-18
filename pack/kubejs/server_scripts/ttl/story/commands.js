@@ -13,7 +13,7 @@
 //          /ttl story flag <player> <flag>         set a story flag; unflag removes it
 //          /ttl story set <player> <light|dark|none>   exact path without any deltas (fixing / test hook)
 //          /ttl story reset <player>               forget all story state
-//          /ttl story killrep <player> <boss>      apply that boss's kill cost ([kill_rep]) as boss.js finish will (test hook)
+//          /ttl story killrep <player> <boss>      apply that boss's kill cost (kill_rep in bosses.toml) as boss.js finish will (test hook)
 //          /ttl story expect <player> <field> <a> [<b>]   test assertion: prints "ttl: ..." when it does not hold
 //            path <light|dark|none> · score <0|1|2> (scoreboard ttl.path) · stage <name> <yes|no> · act <n> <yes|no>
 //            acts <highest done> · flag <id> <yes|no> · flips <n> · unlocked <boss> <yes|no> · title <name> <yes|no>
@@ -123,7 +123,9 @@ ServerEvents.commandRegistry(event => {
   var killrep = ctx => {
     var p = who(ctx)
     var boss = word(ctx, 'boss')
-    if (!TtlData.story.kill_rep[boss]) throw `${boss} has no [kill_rep] entry`
+    var bossDef = TtlBoss.def(boss)
+    if (!bossDef) throw `unknown boss ${boss}`
+    if (!bossDef.kill_rep) throw `${boss} has no kill_rep in bosses.toml`
     say(ctx, `story ${p.username}: killing ${boss} costs ${TtlStory.onBossKill(server(ctx), p, boss) || 'nothing'}`)
     return 1
   }

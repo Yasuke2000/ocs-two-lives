@@ -105,9 +105,11 @@ ids = [
 #               surface = land (default: dry ground) | water (a lake or sea surface) | any
 #               cooldown_hours = minimum hours between two wild starts of this boss (default: only the boss cooldown)
 #               cap = wild starts of this boss per day (default 1)
-#   kill_rep  = { <faction> = n, flag = "<story flag>" } applied to everyone credited with the kill, on top of rewards (a
-#               regicide costs rep even for a light player). A summon with opts.duel = true (an honour duel) skips it. The
-#               flag goes through TtlStory.flag(server, player, flag) when the story core is loaded.
+#   kill_rep  = { <faction> = n, flag = "<story flag>", unless_flag = "<story flag>" } applied to everyone credited with the
+#               kill, on top of rewards (a regicide costs rep even for a light player). The ONE source of kill costs: with
+#               the story core loaded, boss.js hands each winner to TtlStory.onBossKill (rep, flag set on a paid kill; a
+#               soul holding unless_flag pays nothing and loses that flag: the honour duel); without it boss.js applies
+#               the rep alone. A summon with opts.duel = true (an ops honour duel) skips it altogether.
 #   requires  = boss ids that the summoner must have defeated (stage ttl.defeated.<id>); ops bypass it
 #   hp_mult, per_player_mult = max health = vanilla x (hp_mult + per_player_mult x (players within range - 1)).
 #               Minecraft clamps a max health attribute at 1024: check Health in game for the big ones.
@@ -406,7 +408,7 @@ tier = 3
 title = "Gazel Dwargo, the Dwarf King"
 spawn = { kind = "statue", at = { x = 435, z = -1106, radius = 40 } }
 wild = { chance_per_day = 0.0, regions = ["D"] }
-kill_rep = { dwargon = -60, flag = "regicide" }
+kill_rep = { dwargon = -60, flag = "regicide", unless_flag = "honour_duel" }
 hp_mult = 4.0
 per_player_mult = 1.0
 range = 64

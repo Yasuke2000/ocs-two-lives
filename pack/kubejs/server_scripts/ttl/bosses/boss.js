@@ -780,22 +780,23 @@ const TtlBoss = {
     p.tell(Text.gold(opts.party ? `You share your party's victory over ${def.title}.` : `You defeated ${def.title}.`))
   },
 
-  // bosses.toml kill_rep: { faction = n, flag = "story flag" }. The flag goes to the story core when it is loaded
-  // (TtlStory.flag(server, player, flag)); the rep goes through the same command as the rewards.
+  // bosses.toml kill_rep: { faction = n, flag, unless_flag }. With the story core loaded TtlStory.onBossKill applies all of
+  // it (rep, flag, the honour-duel exemption) and this applies nothing, so nothing is paid twice; without it only the rep.
   killRep(server, def, p) {
     var kr = def.kill_rep
     if (!kr) return
     var name = String(p.username)
-    Object.keys(kr).forEach(f => {
-      if (f !== 'flag') server.runCommandSilent(`ttl rep add ${name} ${f} ${kr[f]}`)
-    })
-    if (kr.flag) {
+    if (typeof TtlStory !== 'undefined' && typeof TtlStory.onBossKill === 'function') {
       try {
-        if (typeof TtlStory !== 'undefined' && typeof TtlStory.flag === 'function') TtlStory.flag(server, p, kr.flag)
+        TtlStory.onBossKill(server, p, def.id)
       } catch (e) {
-        console.error(`[ttl] boss: story flag ${kr.flag} for ${name} failed: ${e}`)
+        console.error(`[ttl] boss: story kill cost of ${def.id} for ${name} failed: ${e}`)
       }
+      return
     }
+    Object.keys(kr).forEach(f => {
+      if (f !== 'flag' && f !== 'unless_flag') server.runCommandSilent(`ttl rep add ${name} ${f} ${kr[f]}`)
+    })
   },
 
   // ttl:skill_core is registered in startup_scripts/ttl/items.js; if the item is ever missing the core is owed and
