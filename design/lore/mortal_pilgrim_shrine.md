@@ -1,0 +1,9 @@
+# Pilgrims’ Hill
+
+Three low lantern stones mark the climb from the southern track. Between them, six cobblestone risers rise over a grassy knoll. The roofed oak shelter at the top has two inward-facing benches, a stone tablet and a bell hanging from its front beam. An approaching traveller can ring it before entering. The shelter belongs to the Mortal Realm's human roads. Its dedication and carving are our interpretation.
+
+The extended pilgrimage begins under a timber rest shelter at local (31, 4, 57). The branching gravel lane leads to three carved waystations and an orchard inside low stone walls. Follow the long western track north for the original summit, or take the eastern lane across the full site. The two template slabs meet at local z 35.
+
+The 69 × 26 × 70 template uses local (19, 4, 37) as its arrival. The survey starts at world (440, 570) in the Mortal Realm, allows a 64-block search and blends the knoll's base into an eight-block margin. The summit floor is at local y 9. Its two lanterns share the crossbeam with the bell. The structure grants no boon or inventory reward. The actual approach grade depends on the terrain selected by the survey.
+
+Wayfarer’s Rest supplied the local precedent for roofed timber shelters and roadside bells. The vanilla 1.21.1 template `minecraft:village/plains/houses/plains_temple_3` is an 11 × 7 × 7 village building with oak stairs, planks, logs and white terracotta. Its modest timber scale informed the shelter. Existing Jura and Lubelius shrines have their own Life 2 faiths and settings. This site uses original geometry and only vanilla blocks. No third-party template or artwork was imported. [Wayfarer’s Rest](../../blueprints/mortal_spawn.py) · [Shrine blueprint](../../blueprints/mortal_pilgrim_shrine.py) · [Placement](../builds/mortal_pilgrim_shrine.toml)

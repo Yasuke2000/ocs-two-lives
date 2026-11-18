@@ -1844,6 +1844,150 @@ const TtlData = {
     },
     {
       "anchor": [
+        10,
+        5,
+        35
+      ],
+      "clear_above": true,
+      "dimension": "ttl:mortal_realm",
+      "ground": "survey",
+      "margin": 8,
+      "max_wet": 0.1,
+      "name": "mortal_ferry",
+      "notes": "Toll counter and moored chain punt on a template-lined watercourse. See design/lore/mortal_ferry.md.",
+      "search": 96,
+      "size": [
+        79,
+        16,
+        77
+      ],
+      "title": "River Ferry and Toll House",
+      "version": 1,
+      "x": 840,
+      "z": -230
+    },
+    {
+      "anchor": [
+        36,
+        4,
+        63
+      ],
+      "clear_above": true,
+      "dimension": "ttl:mortal_realm",
+      "ground": "survey",
+      "margin": 8,
+      "max_wet": 0.1,
+      "name": "mortal_keep",
+      "notes": "Southern gate and roofless watch block. See design/lore/mortal_keep.md.",
+      "search": 96,
+      "size": [
+        75,
+        22,
+        73
+      ],
+      "title": "Ruined Border Keep",
+      "version": 1,
+      "x": -670,
+      "z": -520
+    },
+    {
+      "anchor": [
+        24,
+        4,
+        36
+      ],
+      "clear_above": true,
+      "dimension": "ttl:mortal_realm",
+      "ground": "survey",
+      "margin": 8,
+      "max_wet": 0.1,
+      "name": "mortal_market",
+      "notes": "Roadside market with two homes, a bell arcade and four vanilla job sites.",
+      "search": 64,
+      "size": [
+        73,
+        25,
+        69
+      ],
+      "title": "The Folk Market",
+      "version": 1,
+      "x": 180,
+      "z": -780
+    },
+    {
+      "anchor": [
+        23,
+        4,
+        35
+      ],
+      "clear_above": true,
+      "dimension": "ttl:mortal_realm",
+      "ground": "survey",
+      "margin": 8,
+      "max_wet": 0.1,
+      "name": "mortal_mine",
+      "notes": "Walk from the southern haul road to the old rockfall and east tool recess.",
+      "search": 64,
+      "size": [
+        73,
+        24,
+        68
+      ],
+      "title": "The Abandoned Adit",
+      "version": 1,
+      "x": -1040,
+      "z": 240
+    },
+    {
+      "anchor": [
+        19,
+        4,
+        37
+      ],
+      "clear_above": true,
+      "dimension": "ttl:mortal_realm",
+      "ground": "survey",
+      "margin": 8,
+      "max_wet": 0.1,
+      "name": "mortal_pilgrim_shrine",
+      "notes": "Approach the Mortal Realm's timber bell shelter from the south.",
+      "search": 64,
+      "size": [
+        69,
+        26,
+        70
+      ],
+      "title": "Pilgrims' Hill",
+      "version": 1,
+      "x": 440,
+      "z": 570
+    },
+    {
+      "anchor": [
+        37,
+        4,
+        67
+      ],
+      "clear_above": true,
+      "dimension": "ttl:mortal_realm",
+      "ground": "survey",
+      "margin": 8,
+      "max_wet": 0.1,
+      "name": "mortal_tower",
+      "notes": "Stone tower with an occupied top-floor study and herb garden. See design/lore/mortal_tower.md.",
+      "search": 96,
+      "size": [
+        71,
+        34,
+        73
+      ],
+      "title": "Hermit's Tower",
+      "version": 1,
+      "x": -300,
+      "z": 1030
+    },
+    {
+      "anchor": [
         42,
         5,
         66
@@ -3452,6 +3596,250 @@ const TtlData = {
       {
         "body": "This is a server for friends. We keep only what we need to run it, and you can ask to see it or have it removed.\n\n# What is stored\n- *Game data:* your Minecraft name and ID, your player file, statistics and your Two Lives progress (life, karma, tier, titles).\n- *Activity log:* a logger records who placed or broke blocks, opened chests, chatted, ran commands and logged in. It lets us undo griefing.\n- *Bug reports:* your text, your position, health, held item, Two Lives state and the latest server log lines. A report can also be filed as an issue on the project's GitHub page, where others can read it.\n- *Discord link:* if you link your account, your Discord ID is stored next to your Minecraft ID and the bot sets your roles. Chat is shared with Discord, and the weekly recap names your character.\n\n# How long\n- Bug reports and the activity log: 180 days at most.\n- Game data and your link: while you play here. Backups roll off after about a month.\n- GitHub issues: until you ask us to remove them.\n\n# Your choices\nAsk Yasuke, in Discord or in game, to show, correct or delete your data, or to unlink your Discord account. Your builds stay with the world.\n",
         "title": "Privacy: what we keep"
+      }
+    ]
+  },
+  "heraldry": {
+    "faction": [
+      {
+        "base": "blue",
+        "give": "/give @s minecraft:blue_banner[minecraft:banner_patterns=[{pattern:\"minecraft:circle\",color:\"light_blue\"},{pattern:\"minecraft:flow\",color:\"yellow\"}]] 1",
+        "id": "tempest",
+        "layers": [
+          {
+            "color": "light_blue",
+            "pattern": "minecraft:circle"
+          },
+          {
+            "color": "yellow",
+            "pattern": "minecraft:flow"
+          }
+        ],
+        "motif": "An ascending gold spiral and a pale storm eye",
+        "palette": [
+          "#173a62",
+          "#276aa1",
+          "#83dcdf",
+          "#ffe498"
+        ],
+        "title": "Gale over Jura"
+      },
+      {
+        "base": "yellow",
+        "give": "/give @s minecraft:yellow_banner[minecraft:banner_patterns=[{pattern:\"minecraft:stripe_middle\",color:\"red\"},{pattern:\"minecraft:triangle_bottom\",color:\"yellow\"},{pattern:\"minecraft:stripe_bottom\",color:\"red\"},{pattern:\"minecraft:border\",color:\"red\"}]] 1",
+        "id": "dwargon",
+        "layers": [
+          {
+            "color": "red",
+            "pattern": "minecraft:stripe_middle"
+          },
+          {
+            "color": "yellow",
+            "pattern": "minecraft:triangle_bottom"
+          },
+          {
+            "color": "red",
+            "pattern": "minecraft:stripe_bottom"
+          },
+          {
+            "color": "red",
+            "pattern": "minecraft:border"
+          }
+        ],
+        "motif": "A dark red anvil under a struck spark",
+        "palette": [
+          "#a56832",
+          "#deac51",
+          "#893c39",
+          "#fff1bd"
+        ],
+        "title": "The royal forge"
+      },
+      {
+        "base": "red",
+        "give": "/give @s minecraft:red_banner[minecraft:banner_patterns=[{pattern:\"minecraft:stripe_center\",color:\"yellow\"},{pattern:\"minecraft:rhombus\",color:\"yellow\"},{pattern:\"minecraft:stripe_top\",color:\"red\"},{pattern:\"minecraft:triangles_top\",color:\"yellow\"}]] 1",
+        "id": "blumund",
+        "layers": [
+          {
+            "color": "yellow",
+            "pattern": "minecraft:stripe_center"
+          },
+          {
+            "color": "yellow",
+            "pattern": "minecraft:rhombus"
+          },
+          {
+            "color": "red",
+            "pattern": "minecraft:stripe_top"
+          },
+          {
+            "color": "yellow",
+            "pattern": "minecraft:triangles_top"
+          }
+        ],
+        "motif": "A single golden ear on a red field",
+        "palette": [
+          "#8d3445",
+          "#b54243",
+          "#e9aa53",
+          "#fff0b2"
+        ],
+        "title": "The border harvest"
+      },
+      {
+        "base": "blue",
+        "give": "/give @s minecraft:blue_banner[minecraft:banner_patterns=[{pattern:\"minecraft:bricks\",color:\"white\"},{pattern:\"minecraft:circle\",color:\"blue\"},{pattern:\"minecraft:stripe_top\",color:\"white\"},{pattern:\"minecraft:triangles_top\",color:\"yellow\"}]] 1",
+        "id": "falmuth",
+        "layers": [
+          {
+            "color": "white",
+            "pattern": "minecraft:bricks"
+          },
+          {
+            "color": "blue",
+            "pattern": "minecraft:circle"
+          },
+          {
+            "color": "white",
+            "pattern": "minecraft:stripe_top"
+          },
+          {
+            "color": "yellow",
+            "pattern": "minecraft:triangles_top"
+          }
+        ],
+        "motif": "A crowned stone bridge above the trade road",
+        "palette": [
+          "#283c67",
+          "#486c99",
+          "#b5d1dc",
+          "#fff0ad"
+        ],
+        "title": "The royal bridge"
+      },
+      {
+        "base": "white",
+        "give": "/give @s minecraft:white_banner[minecraft:banner_patterns=[{pattern:\"minecraft:straight_cross\",color:\"yellow\"},{pattern:\"minecraft:circle\",color:\"light_blue\"},{pattern:\"minecraft:rhombus\",color:\"yellow\"},{pattern:\"minecraft:border\",color:\"white\"}]] 1",
+        "id": "holy_church",
+        "layers": [
+          {
+            "color": "yellow",
+            "pattern": "minecraft:straight_cross"
+          },
+          {
+            "color": "light_blue",
+            "pattern": "minecraft:circle"
+          },
+          {
+            "color": "yellow",
+            "pattern": "minecraft:rhombus"
+          },
+          {
+            "color": "white",
+            "pattern": "minecraft:border"
+          }
+        ],
+        "motif": "A gold cross with a blue centre on pearl cloth",
+        "palette": [
+          "#8b6226",
+          "#e8e1cb",
+          "#daad42",
+          "#fff7da"
+        ],
+        "title": "Light of Luminism"
+      },
+      {
+        "base": "black",
+        "give": "/give @s minecraft:black_banner[minecraft:banner_patterns=[{pattern:\"minecraft:triangle_top\",color:\"red\"},{pattern:\"minecraft:triangles_bottom\",color:\"white\"},{pattern:\"minecraft:triangle_bottom\",color:\"black\"},{pattern:\"minecraft:stripe_top\",color:\"orange\"}]] 1",
+        "id": "orc_horde",
+        "layers": [
+          {
+            "color": "red",
+            "pattern": "minecraft:triangle_top"
+          },
+          {
+            "color": "white",
+            "pattern": "minecraft:triangles_bottom"
+          },
+          {
+            "color": "black",
+            "pattern": "minecraft:triangle_bottom"
+          },
+          {
+            "color": "orange",
+            "pattern": "minecraft:stripe_top"
+          }
+        ],
+        "motif": "Two ivory tusks against a rust-red snout",
+        "palette": [
+          "#482c35",
+          "#703f32",
+          "#bd6043",
+          "#f9dfab"
+        ],
+        "title": "The tusks"
+      },
+      {
+        "base": "cyan",
+        "give": "/give @s minecraft:cyan_banner[minecraft:banner_patterns=[{pattern:\"minecraft:small_stripes\",color:\"green\"},{pattern:\"minecraft:half_horizontal_bottom\",color:\"cyan\"},{pattern:\"minecraft:stripe_bottom\",color:\"light_blue\"},{pattern:\"minecraft:triangle_top\",color:\"lime\"}]] 1",
+        "id": "lizardmen",
+        "layers": [
+          {
+            "color": "green",
+            "pattern": "minecraft:small_stripes"
+          },
+          {
+            "color": "cyan",
+            "pattern": "minecraft:half_horizontal_bottom"
+          },
+          {
+            "color": "light_blue",
+            "pattern": "minecraft:stripe_bottom"
+          },
+          {
+            "color": "lime",
+            "pattern": "minecraft:triangle_top"
+          }
+        ],
+        "motif": "Three green reeds rise above a forked turquoise wave",
+        "palette": [
+          "#17565b",
+          "#22717b",
+          "#61ba86",
+          "#dbefad"
+        ],
+        "title": "Reeds of Siss"
+      },
+      {
+        "base": "purple",
+        "give": "/give @s minecraft:purple_banner[minecraft:banner_patterns=[{pattern:\"minecraft:rhombus\",color:\"white\"},{pattern:\"minecraft:circle\",color:\"purple\"},{pattern:\"minecraft:stripe_downright\",color:\"black\"},{pattern:\"minecraft:border\",color:\"magenta\"}]] 1",
+        "id": "outcast",
+        "layers": [
+          {
+            "color": "white",
+            "pattern": "minecraft:rhombus"
+          },
+          {
+            "color": "purple",
+            "pattern": "minecraft:circle"
+          },
+          {
+            "color": "black",
+            "pattern": "minecraft:stripe_downright"
+          },
+          {
+            "color": "magenta",
+            "pattern": "minecraft:border"
+          }
+        ],
+        "motif": "A pale star broken by a dark diagonal",
+        "palette": [
+          "#453050",
+          "#704674",
+          "#c98aa5",
+          "#f4d6b7"
+        ],
+        "title": "The broken star"
       }
     ]
   },

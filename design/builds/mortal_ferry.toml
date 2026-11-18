@@ -1,0 +1,13 @@
+name = "mortal_ferry"
+title = "River Ferry and Toll House"
+dimension = "ttl:mortal_realm"
+x = 840
+z = -230
+anchor = [10, 5, 35]
+ground = "survey"
+search = 96
+max_wet = 0.1
+margin = 8
+clear_above = true
+version = 1
+notes = "Toll counter and moored chain punt on a template-lined watercourse. See design/lore/mortal_ferry.md."

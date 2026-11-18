@@ -117,11 +117,47 @@ Morgdahl, a timber landing and water-powered mill yard in the western realm. SIZ
 
 ![morgdahl](morgdahl-iso.png) ![morgdahl from above](morgdahl-top.png)
 
+## mortal_ferry
+
+Ferry and Toll House. SIZE 79 x 16 x 77; anchor (10, 5, 35) on the western towpath. A lined water cut links two reed beds. Oak, spruce, gravel, clay and fieldstone. Reedham's chain ferry supplies the crossing principle; arrangements and banks are original. See design/lore/mortal_ferry.md for the references and survey contract.
+
+![mortal_ferry](mortal_ferry-iso.png) ![mortal_ferry from above](mortal_ferry-top.png)
+
+## mortal_keep
+
+Ruined Border Keep. SIZE 75 x 22 x 73; anchor (36, 4, 63) on the southern approach. Fieldstone and cracked brick curtain, oak repairs and a roofless watch block. Norham Castle's surviving keep and inner ward are the historical reference. See design/lore/mortal_keep.md for the jar inventory and placement notes.
+
+![mortal_keep](mortal_keep-iso.png) ![mortal_keep from above](mortal_keep-top.png)
+
+## mortal_market
+
+Mortal market square for Folk of the Realm. SIZE (73, 25, 69), anchor (24, 4, 36) on the southern approach. Two timber houses, a tiled bell arcade and cloth stalls enclose a cobbled square. A loom, composter, grindstone and lectern are present. A weigh house, cattle yard and orchard extend along the east and south lanes. PARTS start at z 0 and 35. Original plan inspired by vanilla village meetings. See design/lore/mortal_market.md.
+
+![mortal_market](mortal_market-iso.png) ![mortal_market from above](mortal_market-top.png)
+
+## mortal_mine
+
+An abandoned hillside adit in the Mortal Realm. SIZE (73, 24, 68), anchor (23, 4, 35) at the south yard. The single-level rail enters a stone slope and ends at a deliberate collapse. Oak pit props, a tool recess and a winding wheel survive. A siding leads east to a stepped quarry and the sorting shed. PARTS start at z 0 and 35. Original layout, references in design/lore/mortal_mine.md.
+
+![mortal_mine](mortal_mine-iso.png) ![mortal_mine from above](mortal_mine-top.png)
+
+## mortal_pilgrim_shrine
+
+Pilgrims' Hill, an original roadside shrine in the Mortal Realm. SIZE (69, 26, 70). Anchor (19, 4, 37) on the south approach. Cobblestone steps rise through grass and exposed andesite to an oak shelter with a steep spruce roof, benches and a small bell. The lower track passes a roofed rest bench, three wayside stations and a walled orchard. PARTS start at z 0 and 35. References and local setting in design/lore/mortal_pilgrim_shrine.md.
+
+![mortal_pilgrim_shrine](mortal_pilgrim_shrine-iso.png) ![mortal_pilgrim_shrine from above](mortal_pilgrim_shrine-top.png)
+
 ## mortal_spawn
 
 Wayfarer's Rest, a human coaching yard in the Mortal Realm, SIZE 39 x 22 x 39. The anchor at local (14, 6, 14) is the ground under the shrine at world x/z 0/0. Arrival is local (14, 7, 19), world (0.5, stored walking Y, 5.5), facing north. Spruce and oak framing, plaster, fieldstone, packed earth and planted verges. Sources and the inventory of visual references are in design/lore/mortal_spawn.md.
 
 ![mortal_spawn](mortal_spawn-iso.png) ![mortal_spawn from above](mortal_spawn-top.png)
+
+## mortal_tower
+
+Hermit's Tower. SIZE 71 x 34 x 73; anchor (37, 4, 67) on the garden path. A tapered stone tower with a timber reading room and a steep four-sided slate roof. Border peel towers inspired the stacked, compact plan. Our interpretation and the reference inventory are in design/lore/mortal_tower.md.
+
+![mortal_tower](mortal_tower-iso.png) ![mortal_tower from above](mortal_tower-top.png)
 
 ## nasca
 
@@ -182,6 +218,18 @@ The gate to the Dwelling of the Spirits: the sealed entrance in the Great Jura F
 Tempest (early): the hobgoblin village in a clearing of the Forest of Jura, just after the ogres joined. SIZE (91, 40, 91), centre column (45, 45). Ground layer y 4 (grass, dirt paths; dirt below), you walk at y 5; everything above is air so placement clears the forest and hills in the box. Arrival point: blueprint (45, 5, 57) on the south edge of the village green, with a signpost east of it; placed at world 0, 0 (the Life 2 world spawn) by life/tempest.js, which grounds it with generated/tempest_footprint.js. Village (a rough rounded-square clearing, radius about 38, ringed by our own persistent-leaf forest edge): the meeting longhouse (north of the green) where Rimuru holds council, Rimuru's small house behind it, the cooking fire and well on the green, Kaijin's open forge and workshop (west road), Shuna's weaving hut (east road), a raised food store, the goblins' old quarter (north-east: Tensura's own goblin village pieces, blueprints/assets/goblin_village/, round their campfire behind a skull arch), finished hobgoblin houses, a building site (south-west: half-roofed house, timber frame, foundation, scaffolding, log piles, sawhorse), a fenced field and herb patch (south-east), a lookout tower (north-west) and a palisade begun on the west side with a south gate. Roofs and trim borrow the goblin village palette (Tensura thatch, oak logs and fences). Every spawnable spot in the clearing has block light (checked when this builds). Visual references and sources: design/lore/tempest.md.
 
 ![tempest](tempest-iso.png) ![tempest from above](tempest-top.png)
+
+## tempest_city
+
+The City of Rimuru after the Founder's Festival. SIZE 191 x 40 x 191; arrival (95,5,95). Every inherited district and quest anchor keeps its world position. Four radial roads lead onto a new promenade around the town. The northern audience palace, screened baths, eastern guild, southern festival theatre and Ramiris's tournament-and-dungeon entrance are accessible on foot. The entrance is architectural, without a teleport. White plaster, dark beams, sea-green tile and slate. Ramiris's gate incorporates the three shades of Tensura labyrinth brick, verified in the pinned jar. All new architecture is original geometry. References: official anime episode 61 (ten-sura.com/anime/tensura/story/no65, hot springs), 62 (no66, dungeon beneath the arena), 63 (no67, Rimuru's audience), and 71 (no76, public dungeon trial). Crunchyroll's Festival Eve depicts the reception. The district plan, small guild and theatre are our interpretation. The runtime template is just the new ring. draw_phase() also draws the town for full-city review.
+
+![tempest_city](tempest_city-iso.png) ![tempest_city from above](tempest_city-top.png)
+
+## tempest_town
+
+Phase two of Tempest, the trade town in Jura. SIZE 137 × 40 × 137; ARRIVAL (68,5,68) at world 0,0. A five-block road leaves the old village's south gate and branches to Blumund (west) and Dwargon (north). Stone aprons, timber yards, shared kitchens, a working dye house and a council court ring the established village. Ochre froglights, furnace fires and lanterns light the ring at night. Original geometry using vanilla timber, Tensura thatch and a working Tensura woodcutter; the already-placed 91-square village is never written. The optional draw_phase overview composes the existing village and the new cloth-and-iron town. References: https://www.ten-sura.com/map/#A-112 and https://www.ten-sura.com/anime/tensura/story/no16 (regional settlement after the Orc Disaster); the street plan and building designs are our interpretation.
+
+![tempest_town](tempest_town-iso.png) ![tempest_town from above](tempest_town-top.png)
 
 ## test_hut
 

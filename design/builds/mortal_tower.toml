@@ -1,0 +1,13 @@
+name = "mortal_tower"
+title = "Hermit's Tower"
+dimension = "ttl:mortal_realm"
+x = -300
+z = 1030
+anchor = [37, 4, 67]
+ground = "survey"
+search = 96
+max_wet = 0.1
+margin = 8
+clear_above = true
+version = 1
+notes = "Stone tower with an occupied top-floor study and herb garden. See design/lore/mortal_tower.md."

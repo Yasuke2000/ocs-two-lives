@@ -667,3 +667,16 @@ Quest-line ideas:
 **Placement and costs.** The fixed arena coordinates come from `bosses.toml`. Locations tied to structures use the 14,000-block survey origins and allowances for the 64–160-block searches. Actual fights resolve the placed build through `TtlBoss.arenaOf`; calling a fight from beyond the 96-block approach yields the actual center. Chapter 11’s optional Atonement submits 12 bread, eight white wool and four iron ingots for the existing flag. The vote to change oath remains a player action, `/ttl story flip`. Light Act V’s +10 Church reputation and dark Act V’s −40 Tempest/+30 Falmuth are separate from boss kill reputation. Both paths receive equivalent quest XP at corresponding required and optional nodes.
 
 FTB Quests 2101.1.39 writes a successful boolean task to `TeamData` and auto-claims an individual reward for each online teammate. Its command reward consumes the claim even when the invoked command refuses. The story therefore remembers a pending Act VII reward per soul until that player meets the personal conditions. An unfinished team cannot open the retry by typing the player command.
+
+## Waypoints for future Mortal Realm quests
+
+These six survey centres are measured from Wayfarer’s Rest at (0, 0) in `ttl:mortal_realm`. Use the placed build’s recorded position for a future visit objective. A seed can move the entrance away from its survey centre. The sites add destinations to explore during Life 1. Existing vanilla village, mineshaft, trading and structure tasks still use their original criteria.
+
+| Destination | Survey x, z | Possible connection |
+| --- | --- | --- |
+| [Ruined border keep](lore/mortal_keep.md) | −670, −520 | Trace the remains of the border road in Roads and Ruins. |
+| [Ferry and toll house](lore/mortal_ferry.md) | 840, −230 | Find the landing, then follow the old freight route. |
+| [Hermit’s tower](lore/mortal_tower.md) | −300, 1030 | A waypoint for a traveller taking the southern road. |
+| [Pilgrim shrine](lore/mortal_pilgrim_shrine.md) | 440, 570 | Walk the hill approach on a pilgrimage from the Rest. |
+| [Abandoned mine entrance](lore/mortal_mine.md) | −1040, 240 | Explore the workings before hunting for a naturally generated mineshaft in Delving. |
+| [Market town square](lore/mortal_market.md) | 180, −780 | The bell and workstations suit People of the Realm and Folk of the Realm. Villager trades depend on living villagers. |

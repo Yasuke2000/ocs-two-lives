@@ -1,0 +1,13 @@
+name = "mortal_keep"
+title = "Ruined Border Keep"
+dimension = "ttl:mortal_realm"
+x = -670
+z = -520
+anchor = [36, 4, 63]
+ground = "survey"
+search = 96
+max_wet = 0.1
+margin = 8
+clear_above = true
+version = 1
+notes = "Southern gate and roofless watch block. See design/lore/mortal_keep.md."

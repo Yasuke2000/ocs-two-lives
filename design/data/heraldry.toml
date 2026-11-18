@@ -1,0 +1,112 @@
+# Original pack designs. Layers run from the coloured cloth outward in loom order.
+# One English dye name and one vanilla pattern id per layer. See design/lore/heraldry.md.
+
+[[faction]]
+id = "tempest"
+title = "Gale over Jura"
+motif = "An ascending gold spiral and a pale storm eye"
+palette = ["#173a62", "#276aa1", "#83dcdf", "#ffe498"]
+base = "blue"
+layers = [
+  { pattern = "minecraft:circle", color = "light_blue" },
+  { pattern = "minecraft:flow", color = "yellow" },
+]
+give = '/give @s minecraft:blue_banner[minecraft:banner_patterns=[{pattern:"minecraft:circle",color:"light_blue"},{pattern:"minecraft:flow",color:"yellow"}]] 1'
+
+[[faction]]
+id = "dwargon"
+title = "The royal forge"
+motif = "A dark red anvil under a struck spark"
+palette = ["#a56832", "#deac51", "#893c39", "#fff1bd"]
+base = "yellow"
+layers = [
+  { pattern = "minecraft:stripe_middle", color = "red" },
+  { pattern = "minecraft:triangle_bottom", color = "yellow" },
+  { pattern = "minecraft:stripe_bottom", color = "red" },
+  { pattern = "minecraft:border", color = "red" },
+]
+give = '/give @s minecraft:yellow_banner[minecraft:banner_patterns=[{pattern:"minecraft:stripe_middle",color:"red"},{pattern:"minecraft:triangle_bottom",color:"yellow"},{pattern:"minecraft:stripe_bottom",color:"red"},{pattern:"minecraft:border",color:"red"}]] 1'
+
+[[faction]]
+id = "blumund"
+title = "The border harvest"
+motif = "A single golden ear on a red field"
+palette = ["#8d3445", "#b54243", "#e9aa53", "#fff0b2"]
+base = "red"
+layers = [
+  { pattern = "minecraft:stripe_center", color = "yellow" },
+  { pattern = "minecraft:rhombus", color = "yellow" },
+  { pattern = "minecraft:stripe_top", color = "red" },
+  { pattern = "minecraft:triangles_top", color = "yellow" },
+]
+give = '/give @s minecraft:red_banner[minecraft:banner_patterns=[{pattern:"minecraft:stripe_center",color:"yellow"},{pattern:"minecraft:rhombus",color:"yellow"},{pattern:"minecraft:stripe_top",color:"red"},{pattern:"minecraft:triangles_top",color:"yellow"}]] 1'
+
+[[faction]]
+id = "falmuth"
+title = "The royal bridge"
+motif = "A crowned stone bridge above the trade road"
+palette = ["#283c67", "#486c99", "#b5d1dc", "#fff0ad"]
+base = "blue"
+layers = [
+  { pattern = "minecraft:bricks", color = "white" },
+  { pattern = "minecraft:circle", color = "blue" },
+  { pattern = "minecraft:stripe_top", color = "white" },
+  { pattern = "minecraft:triangles_top", color = "yellow" },
+]
+give = '/give @s minecraft:blue_banner[minecraft:banner_patterns=[{pattern:"minecraft:bricks",color:"white"},{pattern:"minecraft:circle",color:"blue"},{pattern:"minecraft:stripe_top",color:"white"},{pattern:"minecraft:triangles_top",color:"yellow"}]] 1'
+
+[[faction]]
+id = "holy_church"
+title = "Light of Luminism"
+motif = "A gold cross with a blue centre on pearl cloth"
+palette = ["#8b6226", "#e8e1cb", "#daad42", "#fff7da"]
+base = "white"
+layers = [
+  { pattern = "minecraft:straight_cross", color = "yellow" },
+  { pattern = "minecraft:circle", color = "light_blue" },
+  { pattern = "minecraft:rhombus", color = "yellow" },
+  { pattern = "minecraft:border", color = "white" },
+]
+give = '/give @s minecraft:white_banner[minecraft:banner_patterns=[{pattern:"minecraft:straight_cross",color:"yellow"},{pattern:"minecraft:circle",color:"light_blue"},{pattern:"minecraft:rhombus",color:"yellow"},{pattern:"minecraft:border",color:"white"}]] 1'
+
+[[faction]]
+id = "orc_horde"
+title = "The tusks"
+motif = "Two ivory tusks against a rust-red snout"
+palette = ["#482c35", "#703f32", "#bd6043", "#f9dfab"]
+base = "black"
+layers = [
+  { pattern = "minecraft:triangle_top", color = "red" },
+  { pattern = "minecraft:triangles_bottom", color = "white" },
+  { pattern = "minecraft:triangle_bottom", color = "black" },
+  { pattern = "minecraft:stripe_top", color = "orange" },
+]
+give = '/give @s minecraft:black_banner[minecraft:banner_patterns=[{pattern:"minecraft:triangle_top",color:"red"},{pattern:"minecraft:triangles_bottom",color:"white"},{pattern:"minecraft:triangle_bottom",color:"black"},{pattern:"minecraft:stripe_top",color:"orange"}]] 1'
+
+[[faction]]
+id = "lizardmen"
+title = "Reeds of Siss"
+motif = "Three green reeds rise above a forked turquoise wave"
+palette = ["#17565b", "#22717b", "#61ba86", "#dbefad"]
+base = "cyan"
+layers = [
+  { pattern = "minecraft:small_stripes", color = "green" },
+  { pattern = "minecraft:half_horizontal_bottom", color = "cyan" },
+  { pattern = "minecraft:stripe_bottom", color = "light_blue" },
+  { pattern = "minecraft:triangle_top", color = "lime" },
+]
+give = '/give @s minecraft:cyan_banner[minecraft:banner_patterns=[{pattern:"minecraft:small_stripes",color:"green"},{pattern:"minecraft:half_horizontal_bottom",color:"cyan"},{pattern:"minecraft:stripe_bottom",color:"light_blue"},{pattern:"minecraft:triangle_top",color:"lime"}]] 1'
+
+[[faction]]
+id = "outcast"
+title = "The broken star"
+motif = "A pale star broken by a dark diagonal"
+palette = ["#453050", "#704674", "#c98aa5", "#f4d6b7"]
+base = "purple"
+layers = [
+  { pattern = "minecraft:rhombus", color = "white" },
+  { pattern = "minecraft:circle", color = "purple" },
+  { pattern = "minecraft:stripe_downright", color = "black" },
+  { pattern = "minecraft:border", color = "magenta" },
+]
+give = '/give @s minecraft:purple_banner[minecraft:banner_patterns=[{pattern:"minecraft:rhombus",color:"white"},{pattern:"minecraft:circle",color:"purple"},{pattern:"minecraft:stripe_downright",color:"black"},{pattern:"minecraft:border",color:"magenta"}]] 1'

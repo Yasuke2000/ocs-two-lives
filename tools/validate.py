@@ -54,8 +54,19 @@ def check_index_fresh() -> None:
 def check_config_text() -> None:
     # Some mods keep a database in config/ (CervLogger's SQLite); shipping one overwrites and corrupts
     # the live file on every server start.
+    markers = PACK / "config/bluemap/web/assets/ttl"
     for p in (PACK / "config").rglob("*"):
-        if p.is_file() and bytes([0]) in p.read_bytes()[:4096]:
+        if not p.is_file():
+            continue
+        data = p.read_bytes()
+        if p.parent == markers and p.suffix == ".png":
+            served = PACK / "bluemap/web/assets/ttl" / p.name
+            # PNG signature, 13-byte IHDR and 32 x 32 dimensions in network byte order.
+            header = bytes.fromhex("89504e470d0a1a0a 0000000d 49484452 00000020 00000020")
+            if not data.startswith(header) or not served.is_file() or data != served.read_bytes():
+                errors.append(f"invalid BlueMap marker or mismatched webroot copy: {p.name}")
+            continue
+        if bytes([0]) in data[:4096]:
             errors.append(f"binary file in pack/config (a mod database?): {p.relative_to(ROOT)}")
 
 

@@ -1,0 +1,13 @@
+name = "mortal_mine"
+title = "The Abandoned Adit"
+x = -1040
+z = 240
+anchor = [23, 4, 35]
+ground = "survey"
+search = 64
+max_wet = 0.1
+dimension = "ttl:mortal_realm"
+version = 1
+clear_above = true
+margin = 8
+notes = "Walk from the southern haul road to the old rockfall and east tool recess."
