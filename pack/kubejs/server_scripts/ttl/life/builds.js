@@ -12,14 +12,16 @@
 // 2. where: the spot recorded by an earlier placement of this build (a version bump puts the new version over the
 //    old one at the same corner) or, with ground = "fixed", x/z at y; with ground = "survey" the flattest dry spot
 //    within `search` blocks of x/z: candidates on a grid, samples over the build's own columns (heightmaps, trees
-//    and plants skipped); any water, lava or ice sample rules a candidate out, so does a keepout (Tempest, Dwargon,
-//    placed landmarks and builds, KEEPOUT blocks); score = 2 x mean deviation from the median ground height + half
-//    the p10..p90 spread + distance/16 (lower is better); the anchor's y is that median;
+//    and plants skipped); a lava or void sample rules a candidate out, so does more than `max_wet` of the samples
+//    over water or ice, or a keepout (Tempest, Dwargon, placed landmarks and builds, KEEPOUT blocks); score = 2 x
+//    mean deviation from the median ground height + half the p10..p90 spread + distance/16 + WET_COST x the water
+//    share (lower is better); the anchor's y is that median;
 // 3. read the real terrain per column BEFORE placing, then place the slabs, one every 2 ticks;
 // 4. terrain fit (clear_above for step b): a) under every column of the box that has blocks: fill the gap between
-//    the terrain and the column's lowest block (dirt, stone deeper down), so nothing floats; b) above the column's
+//    the terrain (the bed, under water) and the column's lowest block (dirt, stone deeper down), so nothing floats; b) above the column's
 //    highest block: clear trees and hills up to the sky; c) round the box a 1:1 skirt (`margin` columns) falling
 //    away from the ground layer (the block under the anchor) and a 1:1 cut into hills, grass (sand, red sand) on top;
+// 4b. place the slabs a second time on the finished ground (supported blocks that popped in the first pass);
 // 5. record the placement and log `[ttl] <name> placed: corner X Y Z, anchor at x y z (version N, terrain done)`;
 //    tools/verify_build.py reads the corner from that line (non-overworld builds: --dimension <dim>).
 // A column that is void (no terrain at all, e.g. the Spirit Corridor) is left alone: ground = "fixed" builds
@@ -35,8 +37,9 @@ const TtlBuilds = {
   KEEPOUT: 24, // blocks kept clear of other placed things
   NOT_GROUND: ['_log', '_wood', '_leaves', '_stem', 'mushroom_block', 'vine', 'bamboo', 'short_grass', 'tall_grass',
     'fern', 'bush', 'snow', 'moss_carpet', 'azalea', 'dripleaf', 'hanging_roots', 'cocoa', 'bee_nest', 'lily_pad'],
-  WET: ['minecraft:water', 'minecraft:lava', 'minecraft:seagrass', 'minecraft:tall_seagrass', 'minecraft:kelp',
+  WET: ['minecraft:water', 'minecraft:seagrass', 'minecraft:tall_seagrass', 'minecraft:kelp',
     'minecraft:kelp_plant', 'minecraft:bubble_column', 'minecraft:ice', 'minecraft:frosted_ice'],
+  WET_COST: 20, // score per wet fraction: 10 % water under the build costs as much as 32 blocks of distance
   queue: [],
   busy: false,
   waits: 0,
@@ -127,9 +130,10 @@ const TtlBuilds = {
     }
   },
 
-  // Heightmaps through Java. ground = first free y above the terrain (trees and plants skipped), top = first free
-  // y above everything that blocks motion (leaves included); both null in a void column. wet = water, lava or ice
-  // on top. null when Java is unavailable (the build then waits for a fix).
+  // Heightmaps through Java. ground = first free y above the terrain (trees and plants skipped; on water the water
+  // surface), floor = the same under the water (the bed of a river or pond), top = first free y above everything
+  // that blocks motion (leaves included); all null in a void column. wet = water or ice on top, lava = lava on top.
+  // null when Java is unavailable (the build then waits for a fix).
   heightmaps(server, b) {
     try {
       var Types = Java.loadClass('net.minecraft.world.level.levelgen.Heightmap$Types')
@@ -137,27 +141,37 @@ const TtlBuilds = {
       var skip = this.NOT_GROUND
       var wet = this.WET
       var minY = level.getMinBuildHeight()
+      var block = (x, y, z) => String(level.getBlock(x, y, z).id)
+      var surface = (x, z) => {
+        var y = level.getHeight(Types.MOTION_BLOCKING_NO_LEAVES, x, z)
+        return y > minY ? block(x, y - 1, z) : ''
+      }
+      var ground = (x, z) => {
+        var y = level.getHeight(Types.MOTION_BLOCKING_NO_LEAVES, x, z)
+        if (y <= minY) return null
+        for (var n = 0; n < 40 && y > minY + 1; n++) {
+          var id = block(x, y - 1, z)
+          if (id !== 'minecraft:air' && !skip.some(k => id.indexOf(k) >= 0)) break
+          y--
+        }
+        return y
+      }
       var hm = {
         minY: minY,
         top: (x, z) => {
           var y = level.getHeight(Types.MOTION_BLOCKING, x, z)
           return y <= minY ? null : y
         },
-        ground: (x, z) => {
-          var y = level.getHeight(Types.MOTION_BLOCKING_NO_LEAVES, x, z)
-          if (y <= minY) return null
-          for (var n = 0; n < 40 && y > minY + 1; n++) {
-            var id = String(level.getBlock(x, y - 1, z).id)
-            if (id !== 'minecraft:air' && !skip.some(k => id.indexOf(k) >= 0)) break
-            y--
-          }
+        ground: ground,
+        floor: (x, z) => {
+          var y = ground(x, z)
+          if (y === null) return null
+          for (var n = 0; n < 64 && y > minY + 1 && wet.indexOf(block(x, y - 1, z)) >= 0; n++) y--
           return y
         },
-        wet: (x, z) => {
-          var y = level.getHeight(Types.MOTION_BLOCKING_NO_LEAVES, x, z)
-          return y > minY && wet.indexOf(String(level.getBlock(x, y - 1, z).id)) >= 0
-        },
-        block: (x, y, z) => String(level.getBlock(x, y, z).id)
+        wet: (x, z) => wet.indexOf(surface(x, z)) >= 0,
+        lava: (x, z) => surface(x, z) === 'minecraft:lava',
+        block: block
       }
       hm.ground(b.x, b.z)
       return hm
@@ -225,13 +239,17 @@ const TtlBuilds = {
       var k = x + ',' + z
       var s = cache[k]
       if (s === undefined) {
-        s = { y: hm.ground(x, z), wet: hm.wet(x, z) }
+        s = { y: hm.ground(x, z), wet: hm.wet(x, z), lava: hm.lava(x, z) }
         cache[k] = s
       }
       return s
     }
+    // Water is a cost, not a veto: on a 120-block box nearly every candidate has a stream or a pond somewhere, and
+    // the terrain fit fills wet columns from their bed. Lava and void columns still rule a candidate out.
+    var maxWet = b.max_wet === undefined ? 0.1 : b.max_wet
+    var leastWet = null
     var best = null
-    var seen = { total: 0, keepout: 0, wet: 0, void: 0 }
+    var seen = { total: 0, keepout: 0, wet: 0, lava: 0, void: 0 }
     for (var kz = -kmax; kz <= kmax; kz++) {
       for (var kx = -kmax; kx <= kmax; kx++) {
         var dx = kx * step
@@ -247,14 +265,24 @@ const TtlBuilds = {
         }
         var ys = []
         var bad = null
+        var wetN = 0
         for (var i = 0; i < cols.length && bad === null; i++) {
           var s = sample(x0 + cols[i][0], z0 + cols[i][1])
-          if (s.wet) bad = 'wet'
+          if (s.lava) bad = 'lava'
           else if (s.y === null) bad = 'void'
-          else ys.push(s.y)
+          else {
+            if (s.wet) wetN++
+            ys.push(s.y)
+          }
         }
         if (bad !== null) {
           seen[bad]++
+          continue
+        }
+        var wetFrac = wetN / cols.length
+        if (leastWet === null || wetFrac < leastWet) leastWet = wetFrac
+        if (wetFrac > maxWet) {
+          seen.wet++
           continue
         }
         ys.sort((p, q) => p - q)
@@ -262,15 +290,22 @@ const TtlBuilds = {
         var mad = ys.reduce((t, y) => t + Math.abs(y - median), 0) / ys.length
         var spread = ys[Math.floor(ys.length * 0.9)] - ys[Math.floor(ys.length * 0.1)]
         var dist = Math.sqrt(dx * dx + dz * dz)
-        var score = 2 * mad + 0.5 * spread + dist / 16
+        var score = 2 * mad + 0.5 * spread + dist / 16 + this.WET_COST * wetFrac
         if (best === null || score < best.score) {
-          best = { x: b.x + dx, z: b.z + dz, y: median, score: score, mad: mad, spread: spread, dist: dist }
+          best = { x: b.x + dx, z: b.z + dz, y: median, score: score, mad: mad, spread: spread, dist: dist, wet: wetFrac }
         }
       }
     }
+    var pct = v => `${Math.round(v * 100)} %`
     console.info(`[ttl] build ${b.name}: surveyed ${seen.total} spots within ${b.search} of ${b.x} ${b.z} ` +
-      `(${seen.keepout} in a keepout, ${seen.wet} wet, ${seen.void} without ground)` +
-      (best ? `; best at ${best.x} ${best.z}, ground ${best.y}, mean deviation ${best.mad.toFixed(1)}, spread ${best.spread}` : ''))
+      `(${seen.keepout} in a keepout, ${seen.wet} over ${pct(maxWet)} water, ${seen.lava} lava, ${seen.void} without ground` +
+      (leastWet === null ? '' : `; least water ${pct(leastWet)}`) + ')' +
+      (best ? `; best at ${best.x} ${best.z}, ${best.dist.toFixed(0)} blocks from the canon point, ground ${best.y}, ` +
+        `mean deviation ${best.mad.toFixed(1)}, spread ${best.spread}, water ${pct(best.wet)}` : ''))
+    if (best === null) {
+      best = { none: `no spot within ${b.search} blocks of ${b.x} ${b.z} with at most ${pct(maxWet)} water, ` +
+        `no lava and clear of other builds` + (leastWet === null ? '' : ` (least water seen ${pct(leastWet)})`) }
+    }
     return best
   },
 
@@ -316,6 +351,8 @@ const TtlBuilds = {
         var z = geo.z0 + gz
         var ground = hm.ground(x, z)
         if (ground === null) continue
+        // Earth goes in from the bed of a stream or pond, not from its surface: no dirt bridges over water.
+        var floor = hm.floor(x, z)
         var inBox = gx >= 0 && gz >= 0 && gx < sx && gz < sz
         if (inBox) {
           var i = gz * sx + gx
@@ -324,13 +361,13 @@ const TtlBuilds = {
             var c2 = hm.top(x, z) - 1
             if (c2 >= c1) clears.push(`fill ${x} ${c1} ${z} ${x} ${c2} ${z} minecraft:air`)
           }
-          if (low[i] !== f.none && geo.base + low[i] - 1 >= ground) this.earthCommands(x, z, ground, geo.base + low[i] - 1, false, mat, fills)
+          if (low[i] !== f.none && geo.base + low[i] - 1 >= floor) this.earthCommands(x, z, floor, geo.base + low[i] - 1, false, mat, fills)
         } else {
           var d = Math.ceil(Math.sqrt(Math.pow(Math.max(0, -gx, gx - sx + 1), 2) + Math.pow(Math.max(0, -gz, gz - sz + 1), 2)))
           if (b.clear_above && ground - 1 >= geo.base + g + 1 + d) {
             clears.push(`fill ${x} ${geo.base + g + 1 + d} ${z} ${x} ${hm.top(x, z) - 1} ${z} minecraft:air`)
           }
-          if (geo.base + g - d >= ground) this.earthCommands(x, z, ground, geo.base + g - d, true, mat, fills)
+          if (geo.base + g - d >= floor) this.earthCommands(x, z, floor, geo.base + g - d, true, mat, fills)
         }
       }
     }
@@ -392,46 +429,70 @@ const TtlBuilds = {
       how = 'fixed ground'
     } else if (!at) {
       var best = this.survey(server, b, f, hm)
-      if (best === null) {
-        this.failed(server, b, `no dry, flat, free spot within ${b.search} blocks of ${b.x} ${b.z}`)
+      if (best.none) {
+        this.failed(server, b, best.none)
         done(false)
         return
       }
       at = { x: best.x, y: best.y, z: best.z }
-      how = `surveyed, ${best.dist.toFixed(0)} blocks from the canon point`
+      how = `surveyed, ${best.dist.toFixed(0)} blocks from the canon point, ${Math.round(best.wet * 100)} % water`
     }
     var geo = this.geometry(b, at)
     var cmds = this.terrainCommands(b, f, hm, geo, this.materials(hm, at))
     var self = this
-    var part = 0
-    var placeNext = () => {
-      try {
-        if (part < f.slabs.length) {
-          var r = self.run(server, b, `place template ${f.slabs[part]} ${geo.x0} ${geo.base} ${geo.z0 + f.parts[part]}`)
-          if (r === 0) console.warn(`[ttl] build ${b.name}: place template ${f.slabs[part]} reported failure`)
-          part++
-          server.scheduleInTicks(2, placeNext)
+    // All slabs, one every 2 ticks, then next(ok).
+    var placeSlabs = next => {
+      var part = 0
+      var step = () => {
+        try {
+          if (part < f.slabs.length) {
+            var r = self.run(server, b, `place template ${f.slabs[part]} ${geo.x0} ${geo.base} ${geo.z0 + f.parts[part]}`)
+            if (r === 0) console.warn(`[ttl] build ${b.name}: place template ${f.slabs[part]} reported failure`)
+            part++
+            server.scheduleInTicks(2, step)
+            return
+          }
+        } catch (e) {
+          self.failed(server, b, `placement failed at slab ${part}: ${e}`)
+          next(false)
           return
         }
+        next(true)
+      }
+      step()
+    }
+    var finish = ok => {
+      try {
+        if (ok) self.record(server, b, f, at, geo)
+        else self.failed(server, b, 'terrain fit failed')
+        console.info(`[ttl] ${b.name} placed: corner ${geo.x0} ${geo.base} ${geo.z0}, anchor at ${at.x} ${at.y} ${at.z} ` +
+          `(version ${b.version}, ${how}, terrain ${ok ? 'done' : 'FAILED'})`)
       } catch (e) {
-        self.failed(server, b, `placement failed at slab ${part}: ${e}`)
+        console.error(`[ttl] build ${b.name}: recording the placement failed: ${e}`)
+      }
+      done(ok)
+    }
+    // Two passes. In the first, blocks that need support (beds, doors, ladders, lanterns, crops that need light or sky)
+    // are judged against the old terrain and the trees not cleared yet, and some pop; the second pass, after the
+    // terrain fit, sets them again on finished ground. It only rewrites the positions the structure defines, which
+    // the terrain fit never touches (it works below a column's lowest and above its highest block).
+    placeSlabs(placed => {
+      if (!placed) {
         done(false)
         return
       }
       console.info(`[ttl] build ${b.name}: ${f.slabs.length} slab(s) placed, ${cmds.length} terrain commands (${self.FILLS_PER_TICK}/tick)`)
       self.runBatched(server, b, cmds, ok => {
-        try {
-          if (ok) self.record(server, b, f, at, geo)
-          else self.failed(server, b, 'terrain fit failed')
-          console.info(`[ttl] ${b.name} placed: corner ${geo.x0} ${geo.base} ${geo.z0}, anchor at ${at.x} ${at.y} ${at.z} ` +
-            `(version ${b.version}, ${how}, terrain ${ok ? 'done' : 'FAILED'})`)
-        } catch (e) {
-          console.error(`[ttl] build ${b.name}: recording the placement failed: ${e}`)
+        if (!ok) {
+          finish(false)
+          return
         }
-        done(ok)
+        placeSlabs(again => {
+          if (again) finish(true)
+          else done(false)
+        })
       })
-    }
-    placeNext()
+    })
   },
 
   // Tempest and Dwargon (they record their version when done; waited for at most 15 retries, 10 s each) and the

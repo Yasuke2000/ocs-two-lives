@@ -542,7 +542,7 @@ def check_events(events: dict) -> None:
 
 
 BUILD_KEYS = {"name", "title", "landmark", "x", "z", "anchor", "ground", "y", "search", "dimension", "version",
-              "clear_above", "margin", "notes"}
+              "clear_above", "margin", "max_wet", "notes"}
 
 
 def is_int(v) -> bool:
@@ -653,6 +653,9 @@ def check_builds() -> tuple[list[dict], dict]:
         b["search"] = b.get("search", 48)
         if not is_int(b["search"]) or not 0 <= b["search"] <= 192:
             raise SystemExit(f"{where}: search must be an integer 0..192")
+        b["max_wet"] = b.get("max_wet", 0.1)
+        if isinstance(b["max_wet"], bool) or not isinstance(b["max_wet"], (int, float)) or not 0 <= b["max_wet"] <= 0.5:
+            raise SystemExit(f"{where}: max_wet must be a fraction 0..0.5 (share of the build's columns over water)")
 
         # Where: x/z win, else the canon landmark's reference pixel.
         if ("x" in b) != ("z" in b):

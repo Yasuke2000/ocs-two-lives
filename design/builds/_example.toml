@@ -27,7 +27,7 @@ landmark = "Blumund capital (Londo)"
 # at y - 1 is the ground layer (y must be 1 or more). The placer puts this point on x, z and the surveyed or fixed y.
 anchor = [45, 5, 57]
 
-# "survey" (default): the flattest dry land (no water, lava or ice) within `search` blocks of x/z, terrain-fitted.
+# "survey" (default): the flattest dry land (little water, see max_wet; no lava) within `search` blocks of x/z, terrain-fitted.
 # "fixed": exactly x/z at the world y below (flat dimensions, tests); needs y.
 ground = "survey"
 # y = 64
@@ -35,6 +35,11 @@ ground = "survey"
 # Survey radius in blocks, 0..192 (default 48). The area worked on is box + margin + search all round, up to
 # 1000 blocks wide. Big builds find a flat spot more easily with a larger radius, but then drift off the canon point.
 search = 48
+
+# Default 0.1, 0..0.5: the share of the build's columns that may stand over water or ice (a stream, a pond). A big
+# box nearly always crosses some water; the survey scores it (10 % water costs as much as 32 blocks of distance) and
+# the terrain fit fills those columns from the bed up. More than this share rules a spot out; lava always does.
+max_wet = 0.1
 
 # Dimension id (default "minecraft:overworld": the Tensura world). A world reset of that dimension places the
 # build again (survey again, on the new terrain).

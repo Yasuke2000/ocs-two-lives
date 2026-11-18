@@ -129,14 +129,18 @@ A build is placed once: `ttl.build.<name>.version` in the server's persistentDat
 
 **Where.** `ground = "fixed"`: x/z at world `y`. `ground = "survey"` (default): the flattest dry spot within
 `search` blocks of x/z. Candidates lie on a grid (4 to 16 blocks apart); every column of the build is sampled
-(heightmaps, trees and plants skipped); a spot with any water, lava or ice, or within 24 blocks of Tempest,
-Dwargon, a placed landmark or another build, is out; the rest are scored by 2 x the mean deviation from the median
-ground height + half the p10-p90 spread + distance/16, and the anchor goes on the median. The log line
-`[ttl] build <name>: surveyed N spots ... best at X Z` says what was found.
+(heightmaps, trees and plants skipped); a spot with any lava or void, more than `max_wet` (default 10 %) of its
+columns over water or ice, or within 24 blocks of Tempest, Dwargon, a placed landmark or another build, is out; the
+rest are scored by 2 x the mean deviation from the median ground height + half the p10-p90 spread + distance/16 +
+20 x the water share, and the anchor goes on the median. (Water is a cost, not a veto: a 120-block box nearly always
+crosses a stream or pond, and the terrain fit fills those columns from the bed.) The log line
+`[ttl] build <name>: surveyed N spots ... least water P %; best at X Z, D blocks from the canon point ...` says what
+was found; when nothing qualifies, the least water seen tells whether to raise `search` or `max_wet`. The canon map
+(`canon_map.txt`) does not predict real lakes: Milim's land round the Forgotten Dragon landmark is lakes at sea level.
 
 **Terrain.** Like Tempest and Dwargon: the real terrain is read before placing; under every column that has blocks
-the gap down to the terrain is filled (dirt, stone deeper down; sand or red sand over sandstone in a desert), so
-nothing floats; with `clear_above` everything above the highest block of the column (trees, hills) is cleared; round
+the gap down to the terrain is filled (dirt, stone deeper down; sand or red sand over sandstone in a desert; over a
+stream or pond from its bed, so no dirt bridges over water), so nothing floats; with `clear_above` everything above the highest block of the column (trees, hills) is cleared; round
 the box `margin` columns get a 1:1 earth skirt (grass on top) and a 1:1 cut into hills. Void columns (the Spirit
 Corridor) are left alone. Put explicit air into the blueprint wherever the inside must stay open: the placer only
 fills under the lowest and clears above the highest block of a column.
