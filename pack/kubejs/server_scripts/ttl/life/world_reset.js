@@ -31,6 +31,11 @@ const TtlWorldReset = {
       TtlTempest.schedule(server)
       TtlLandmarks.reset(server)
     }
+    try {
+      if (typeof TtlBuilds !== 'undefined') TtlBuilds.reset(server, ids)
+    } catch (e) {
+      console.error(`[ttl] world reset: canon builds not rescheduled: ${e}`)
+    }
     console.info(`[ttl] world reset applied: ${ids.join(', ')}`)
   },
 

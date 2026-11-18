@@ -1,0 +1,13 @@
+# Test hut for the generic build placer (see design/builds/_example.toml for every field and
+# tests/ingame/builds.rcon). Fixed ground in the Spirit Corridor, far from the trial arenas (x 1000..1900).
+# Not a canon location: delete this file and blueprints/test_hut.py when the placer is trusted.
+name = "test_hut"
+title = "Test hut"
+x = 2500
+z = 0
+anchor = [2, 1, 2]
+ground = "fixed"
+y = 64
+dimension = "ttl:spirit_corridor"
+version = 1
+clear_above = true

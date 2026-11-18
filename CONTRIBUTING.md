@@ -69,6 +69,7 @@ assigning yourself and saying so in the issue.
 | Place a build without a player | — | `tools/server.sh place <name> <dimension> x y z` |
 | Check a placed build matches its blueprint | — | `python tools/verify_build.py <name> --log` (corner from the placement log line) or `… <name> <dimension> x y z`: captures the box on the server and compares block by block (game-made changes such as fence connections and stair shapes ignored); also `tools/server.sh verify <name>`. See [docs/server.md](docs/server.md) |
 | A canon landmark built from a Tensura structure (goblin, lizardmen, orc, dwarf village…) | `design/data/landmarks.toml` (structure id from the Tensura jar, canon landmark or x/z, `version`) | `python tools/gen_data.py`; placed by `life/landmarks.js`, check with `/ttl landmark list` |
+| A build on its canon spot (the generic placer) | `design/builds/<name>.toml` next to `blueprints/<name>.py` (landmark or x/z, anchor, `ground`, `search`, `version`; see `design/builds/_example.toml`) | `python tools/build_structures.py <name>` then `python tools/gen_data.py`; placed by `life/builds.js`, check with `/ttl build list`; see docs/server.md "Canon builds" |
 | Polish a build in game | WorldEdit (ops): `/ttl build <name>`, edit, select its exact box, `//copy`, `//schem save <name>` | `python tools/import_schem.py <name>` → `blueprints/<name>.schem` (wins over the `.py`) + new structure and previews |
 | Bot tests | `tests/ingame/*.rcon` | run by the server after each deploy |
 

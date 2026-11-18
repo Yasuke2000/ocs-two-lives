@@ -54,6 +54,55 @@ Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a tp command), `/t
 (places again; the old copy stays). Change a landmark or bump its `version` in the TOML, then
 `python tools/gen_data.py`.
 
+## Canon builds
+
+Our own builds on canon spots (a town square, a gate, a hall: `blueprints/<name>.py`) are placed by
+`pack/kubejs/server_scripts/ttl/life/builds.js` from one file each, `design/builds/<name>.toml`
+(`_example.toml` documents every field; files starting with `_` are ignored). `python tools/gen_data.py` reads
+them, turns `landmark = "<name in canon_regions.json>"` into world x/z (the same `(ref - origin) x width / 2570`
+as the landmarks), checks the structure files and the anchor (it fails on an unknown landmark, a missing
+structure or an anchor outside the structure) and writes `TtlData.builds` plus the per-column ground data of the
+structure files (`generated/builds.js`).
+
+**When.** About 90 s after start, one build at a time with a 5 s gap, after Tempest, Dwargon and the landmarks.
+A build is placed once: `ttl.build.<name>.version` in the server's persistentData holds the placed `version`.
+- **Version.** Bump `version` in the TOML and regenerate: the next start places the new version over the old one
+  at the same corner (blocks of the old version that the new one does not overwrite stay). Changing x/z, `ground`,
+  `y`, `dimension` or `anchor` instead surveys a new spot and leaves the old copy where it was.
+- **World reset.** `life/world_reset.js` calls `TtlBuilds.reset(server, ids)` (the same signal as
+  `TtlLandmarks.reset`): every build whose `dimension` is among the reset ones loses its record and is placed again
+  on the new terrain, with a new survey.
+- **Failure.** A build that cannot be placed (no dry spot, heightmaps missing, a command error) logs an error and is
+  tried again on the next start, 3 starts in a row at most; `/ttl build place <name>` tries again at once.
+
+**Where.** `ground = "fixed"`: x/z at world `y`. `ground = "survey"` (default): the flattest dry spot within
+`search` blocks of x/z. Candidates lie on a grid (4 to 16 blocks apart); every column of the build is sampled
+(heightmaps, trees and plants skipped); a spot with any water, lava or ice, or within 24 blocks of Tempest,
+Dwargon, a placed landmark or another build, is out; the rest are scored by 2 x the mean deviation from the median
+ground height + half the p10-p90 spread + distance/16, and the anchor goes on the median. The log line
+`[ttl] build <name>: surveyed N spots ... best at X Z` says what was found.
+
+**Terrain.** Like Tempest and Dwargon: the real terrain is read before placing; under every column that has blocks
+the gap down to the terrain is filled (dirt, stone deeper down; sand or red sand over sandstone in a desert), so
+nothing floats; with `clear_above` everything above the highest block of the column (trees, hills) is cleared; round
+the box `margin` columns get a 1:1 earth skirt (grass on top) and a 1:1 cut into hills. Void columns (the Spirit
+Corridor) are left alone. Put explicit air into the blueprint wherever the inside must stay open: the placer only
+fills under the lowest and clears above the highest block of a column.
+
+**Log lines.** One per build when done, the format `tools/verify_build.py <name> --log` reads:
+`[ttl] <name> placed: corner X Y Z, anchor at x y z (version N, <how>, terrain done)` (`terrain FAILED` when a
+terrain command failed: not recorded, tried again). `corner` is the structure's 0,0,0 (for slabs: of the first
+one). Builds outside the overworld: `verify_build.py <name> --log --dimension <dim>`. Failures:
+`[ttl] build <name>: not placed (<why>)`.
+
+**Ops** (permission 2): `/ttl build list` (state of every build), `/ttl build where <name>` (spot, worked area, a
+tp command), `/ttl build place <name|all>` (builds that are not at their current version yet),
+`/ttl build place <name|all> force` (again, at the recorded spot), `/ttl build expect <name> placed` (prints
+`ttl: ...` when the placed version is not the TOML's). `/ttl build <blueprint>` (a build at your feet) still works.
+A player who walks into a placed build for the first time (per version) sees its `title`. Test:
+`tools/server.sh test builds` (`test_hut`, a 5x5 hut in the Spirit Corridor; delete `design/builds/test_hut.toml`
+and `blueprints/test_hut.py` when the placer is trusted).
+
 ## Backups and restore
 
 The world volume (`mc-data`, Longhorn) is in Longhorn's `default` recurring-job group: a snapshot every night

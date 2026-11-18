@@ -1,0 +1,23 @@
+# Canon builds (life/builds.js, design/builds/*.toml): `ttl build list` shows every build, `place ... force`
+# places test_hut (a 5x5 hut, ground = "fixed" at y 64 in ttl:spirit_corridor x 2500 z 0, far from the arenas)
+# at its recorded spot, `expect placed` prints "ttl: ..." when it is not. The anchor (2, 1, 2) is world
+# 2500 64 0, so the corner is 2498 63 -2: floor y 63, door gap in the south wall (z 2), roof y 67, lantern 2500 66 0.
+# After a restart the hut stands without any of this (it is placed once, ~90 s after start). The log line is
+# "[ttl] test_hut placed: corner 2498 63 -2"; `tools/server.sh verify test_hut ttl:spirit_corridor 2498 63 -2` compares it block by block.
+ttl build list
+ttl build place test_hut force
+@sleep 8
+ttl build expect test_hut placed
+ttl build where test_hut
+execute in ttl:spirit_corridor run forceload add 2496 -16 2512 16
+@sleep 2
+execute in ttl:spirit_corridor if block 2500 63 0 minecraft:stone_bricks
+execute in ttl:spirit_corridor if block 2498 64 -2 minecraft:oak_log
+execute in ttl:spirit_corridor if block 2502 65 0 minecraft:oak_planks
+execute in ttl:spirit_corridor if block 2500 64 2 minecraft:air
+execute in ttl:spirit_corridor if block 2500 66 0 minecraft:lantern
+execute in ttl:spirit_corridor if block 2500 67 0 minecraft:spruce_planks
+execute in ttl:spirit_corridor run forceload remove 2496 -16 2512 16
+# Placing the same version again without force is refused ("already placed"), nothing changes.
+ttl build place test_hut
+ttl build expect test_hut placed

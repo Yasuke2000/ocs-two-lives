@@ -27,6 +27,12 @@ Tempest (early): the hobgoblin village in a clearing of the Forest of Jura, just
 
 ![tempest](tempest-iso.png) ![tempest from above](tempest-top.png)
 
+## test_hut
+
+Test hut: a 5x5 stone hut for the generic build placer (life/builds.js, tests/ingame/builds.rcon). Placed by design/builds/test_hut.toml in the Spirit Corridor dimension far from the trial arenas (flat void, ground = "fixed"), so the test needs no terrain. Layer 0 is the floor (ground layer), layers 1-3 the walls with a door gap in the south wall, layer 4 the roof. Anchor (the doorstep inside): blueprint (2, 1, 2). Not a canon location: delete design/builds/test_hut.toml (and this file) once the placer is trusted.
+
+![test_hut](test_hut-iso.png) ![test_hut from above](test_hut-top.png)
+
 ## trial_creation
 
 Trial of Creation: a workshop. The crafting table at (0, 0); parts are dropped around (+-10..13); start (0, -6). No anvils or fire here: the trial cleanup clears those.

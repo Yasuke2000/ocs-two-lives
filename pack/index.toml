@@ -1289,6 +1289,10 @@ file = "kubejs/data/ttl/structure/tempest_3.nbt"
 hash = "d973dd05184de376b8953bc0e9a52d656f3a263658aced4a8957656d8c72ffe3"
 
 [[files]]
+file = "kubejs/data/ttl/structure/test_hut.nbt"
+hash = "7c8dba2c92b753de7b1599f2d2a7ee4f108be48f363cdf93cb96fbfd99168c9d"
+
+[[files]]
 file = "kubejs/data/ttl/structure/trial_creation.nbt"
 hash = "6676bb62ece1dd5c9a1b568f3d8796ed67a6ed2b76f3d1d20bba14db20c12009"
 
@@ -1373,8 +1377,12 @@ file = "kubejs/server_scripts/ttl/discord/roles.js"
 hash = "b7041324b5ef261db171a75b0d949daa71508a0c0cfb9c776fafe590337a3510"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/generated/builds.js"
+hash = "5217611e5ee162abfc5fe30d46057de1ecfbecb75babbdcb77850f41593277d8"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "63103c5386811bdbb2d817b9e3033c93888d93c910419fa38d6907ee19779e19"
+hash = "d2b5a49c77be627f91e2fc6b0142dc9d2fcb7769b4a62ebe49c42c88a51af72e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1409,6 +1417,10 @@ file = "kubejs/server_scripts/ttl/karma/view.js"
 hash = "89fbb4abaa38e3c87582c19c5336d0f0b6967f7f652574ea18eb77bcd4cbf972"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/builds.js"
+hash = "f5408adfa24c27c774257123c2004bc873efc16f0524f48986f559d4f56658a0"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/confine.js"
 hash = "75872660c86bb48493c7603654accdb8f8e9d41c24d503b7f82fe9ea59a0d06b"
 
@@ -1418,7 +1430,7 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "741c31e11a8dcf0b20e0dec7bad45103c809da35ae86df90ccc477532c899daf"
+hash = "c3452b3ff2fb669e12b6ba42d7f5d1399c3f25058bff631a3d5bd1c9e3f0d89b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -1450,7 +1462,7 @@ hash = "a387a538f9b72117e9e10530cf947ac32bff9779ca8f5bfa7a3d426573256444"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_immunity.js"
-hash = "3c70b1d23787e707c51dee587650d5ebf90a02586488c0b6e52cc2e8a8dc44fe"
+hash = "949a3601910c8ba5c69415222ff89a95008d4b017ff6fb1a8ade2787c76007c4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawn.js"
@@ -1458,7 +1470,7 @@ hash = "5be234dc9994795c9a20b10ce5cb58c5081b31adcb087be3bf584e698679de28"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
-hash = "e4a734c840bedd2b3f692f6dc7d13e95ef6b195e219f2d06424467f774086760"
+hash = "4a972dc31918971f0782fe49de5d284121a8bf42cc7fa91fc69091a55bd24dd9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/state.js"
@@ -1486,7 +1498,7 @@ hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/world_reset.js"
-hash = "1cad980fe2a74a30ffce36a26081509b8403c55c5270cf9c62f3184c1927b7ba"
+hash = "663341a2c9c2b664d7556fbca10f3d4d01dc0d6d804d21071efab7dda4ed444d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/manas.js"
@@ -1506,7 +1518,7 @@ hash = "dbdcf85a6979080cb90d351ff461afb055c38d282b1ad4a15e0c51f4dbac534d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "921721749c4ff733b9a776588426c5146440503e4a98570c3ba75786ed7446bb"
+hash = "970c1a7a4cb7b2c268d9abda55316f4a23d5ea5be93f1f54609459ebd7d3d981"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"
