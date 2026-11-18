@@ -1222,7 +1222,7 @@ hash = "19558c53e35282b9062ca492ba6a65290a40812d1a3d0c8fd2197832e7ecface"
 
 [[files]]
 file = "config/ttl/canon_regions.json"
-hash = "7882c68727f1d0d214edf94eda1d5b8829120840017a793d7f5ae92f82dcf3e2"
+hash = "bd1c76bb27f390118cf5152365ecd082b7ecc903676ee0e66140ade2573eca1c"
 
 [[files]]
 file = "config/vanilla_structures/placement_structure_config.json5"
@@ -1334,11 +1334,11 @@ hash = "42a196df74c2666824b6b737aee1e8bbf7f2cafa1e8faec475e67d1faf356f12"
 
 [[files]]
 file = "kubejs/data/ttl/structure/blumund_1.nbt"
-hash = "464df6ff5053164c909484ca2037f169fae318d0283ba5f94a3c61ed85c3a6d9"
+hash = "dbb08b67d3ac1954fcc7ba0679589896a1e08c57236d8b7a85eb9b14740f906a"
 
 [[files]]
 file = "kubejs/data/ttl/structure/blumund_2.nbt"
-hash = "fa336063353c3f4f0b33dc1932b3e7a2b051247a07562f3d0c9c1a5106236069"
+hash = "8bdfbfb43bbd2bc374e2285cc87870ad0ce0347d3ab0feb91fe6fc3b9b53b069"
 
 [[files]]
 file = "kubejs/data/ttl/structure/clayman_castle_0.nbt"
@@ -1386,7 +1386,7 @@ hash = "c69021b4129a11d03243619d4970e633b185ae010d1ba999f1b8835313360661"
 
 [[files]]
 file = "kubejs/data/ttl/structure/englassia_2.nbt"
-hash = "aeafb9e1d18fbdbb53ae17bb35808a30c8deee925f2db0f47d76ec7b758ab385"
+hash = "227f046396ba2480905645b9d324398576ef919ec95c2c64d1fca52c073e0107"
 
 [[files]]
 file = "kubejs/data/ttl/structure/forgotten_dragon_city_0.nbt"
@@ -1406,7 +1406,7 @@ hash = "920882ae67f4bc8c4dcea48faf9ca83f6aedbdc7d386347d95dc7ecea0198813"
 
 [[files]]
 file = "kubejs/data/ttl/structure/laura_0.nbt"
-hash = "0255363ba4f71ff0e1b165a856e38780de86edc317c351155ae7164094920f99"
+hash = "78cba9bb83f3ac69b9ec5dcabcc2001d5a384d127f62d78e456250050ca3d5e3"
 
 [[files]]
 file = "kubejs/data/ttl/structure/laura_1.nbt"
@@ -1414,11 +1414,11 @@ hash = "33eb7b66f01f1b2b3294ce05769de2fd2e6047e490bb655093ad063007e713f9"
 
 [[files]]
 file = "kubejs/data/ttl/structure/laura_2.nbt"
-hash = "769cae28c7bdea0f14a3c8ee77e10c39bd4b907be7e17e38dbc342f24133bdbe"
+hash = "5be3e79cb7a0bf55dd8dfb7b4354fc7478593cf3e7cacc67f8164021a0150918"
 
 [[files]]
 file = "kubejs/data/ttl/structure/laura_3.nbt"
-hash = "78a450e214255b7ca1d34adb8f0b450bd17f32125ef9448d061269190fb68270"
+hash = "7436ca3a60f6100469759954034b99059844c24d0f68c9b0aa1398d6e0c841ed"
 
 [[files]]
 file = "kubejs/data/ttl/structure/lubelius_0.nbt"
@@ -1434,15 +1434,15 @@ hash = "55fe1875ed39f0c15568c46f53504046ecda499e0f0d89af46b3ec493d5e89e4"
 
 [[files]]
 file = "kubejs/data/ttl/structure/marris_0.nbt"
-hash = "6d2c9e342bf3b3b2189555ed9cc6ca7859cef1552c8dc0171ce955da85e47118"
+hash = "f861c8b973af98521189395d40a3108782723a1141cb6323097cee5b8ce34cdb"
 
 [[files]]
 file = "kubejs/data/ttl/structure/marris_1.nbt"
-hash = "c6857ce746fe735f5bf974393105db7360917093092c9352b7a16766a0426bd7"
+hash = "37d33ce82c257d5677ab21aa682331ca5ec45a98fcf4ac938b7d8192954efbab"
 
 [[files]]
 file = "kubejs/data/ttl/structure/marris_2.nbt"
-hash = "40f93539ecab22dd46cd2a207e069618dd47a97e3f78433b6c8927c00449a9dd"
+hash = "9ffbe1adb25404e6b865d31dfa2ec086ba20d5804f554d0532ce76f6daa3df48"
 
 [[files]]
 file = "kubejs/data/ttl/structure/mortal_spawn.nbt"
@@ -1502,7 +1502,7 @@ hash = "7c8dba2c92b753de7b1599f2d2a7ee4f108be48f363cdf93cb96fbfd99168c9d"
 
 [[files]]
 file = "kubejs/data/ttl/structure/treyni_shrine.nbt"
-hash = "5ddc70f63ccd13839760dc232ba244a7c33f817838839d774df89029b6b544e4"
+hash = "422d33b08d9f8471a1bcdafa603129469edeaad7872335aba83513b056eaafa4"
 
 [[files]]
 file = "kubejs/data/ttl/structure/trial_creation.nbt"
@@ -1654,7 +1654,7 @@ hash = "33b3cab039c79101a45c6c088518853ab3627934336c06f0f969ce0f5729fe2b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "7eb57d4810fdeb770958e3d8217db65720c7b0489104e84cde8e41fb2b6451fe"
+hash = "a92d2a8e3411c1660e1b8ad3339ddcbce71901e985e9c52c33317372d3295538"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1702,7 +1702,7 @@ hash = "193614bf022a405a3d9405c406d0eee3cfaebc308ea0e6f6716a88838509c35c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
-hash = "f5408adfa24c27c774257123c2004bc873efc16f0524f48986f559d4f56658a0"
+hash = "68b16d2d3a1de921217561f105698fdc7a2d965864eb03fcde227d2a182f0c8d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
@@ -1770,7 +1770,7 @@ hash = "2133bb9669706222519500765965d808f2fa444e75b8a64cb35ea39512bf6a87"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/tempest.js"
-hash = "75fc9394d8cacfe7eae002d9b07db5e8046c2eb60568867f05fe3eb27875f0f7"
+hash = "537f2b59c06944cf41f35768c102ca66e49be6bdb486c28281e96b418a2e09ff"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"

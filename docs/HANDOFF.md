@@ -1,6 +1,6 @@
 # Handoff — current state of the work (update this when you stop)
 
-Last update: 18/11/2026 ~03:50 (Brussels), by Claude (night run for Yasuke, who wants a stable pack + a
+Last update: 18/11/2026 ~07:35 (Brussels), by Claude (night run for Yasuke, who wants a stable pack + a
 report at 08:30).
 
 ## Live / merged on main tonight
@@ -31,11 +31,21 @@ report at 08:30).
    and, depending on timing, carryover, guide, soul, spirit_domain (all pass with the bots sheltered).
    After a restart the scripts' `ServerEvents.loaded` loops (spirit domain gate) run the new code; a `/reload` keeps
    the old loop running.
-2. **Overworld reset** (owner approved): `/ttl worldreset minecraft:overworld` per `docs/server.md`
-   (backup is automatic) so the Jura rings apply everywhere; then wait for Tempest, Dwargon, landmarks and
-   the canon builds to place (`[ttl] … placed` log lines, `/ttl build list`).
-3. **Verify every build 1:1**: `python tools/verify_build.py <name> --log` (≥ 98 %) for tempest, dwargon and
-   each `design/builds/*.toml`; fix and bump `version` where it fails.
+2. **Overworld reset: done 06:10.** Tempest, Dwargon, the 7 landmarks and all 13 canon builds are placed on
+   staging (`/ttl build list`, `/ttl landmark list`).
+3. **Builds verified 1:1: done ~07:30** (all on staging, scripts pushed with `push-scripts`, commits local on main).
+   Every build ≥ 99.93 %: tempest 99.96, dwargon 99.98, mortal_spawn 100, spirit_dwelling 100, test_hut 100,
+   blumund/clayman_castle/englassia/laura/treyni_shrine/forgotten_dragon_city/sealed_cave/dragons_nest/marris 100.00,
+   lubelius 99.99, spirit_gate 100 (verify_build now counts left-out properties as defaults; Lubelius' 97.16 % was
+   only `quartz_pillar` vs `[axis=y]`). Fixes: survey takes water as a cost (`max_wet`), wet columns filled from the
+   bed, two slab passes (wheat/doors/beds no longer pop), stale 10,000-width x/z of Clayman and the Forgotten Dragon
+   City corrected, blueprint fixes (town-lib bed facing, Laura hut ladders, Englassia planters, fountain lantern,
+   Treyni bluets/lantern), Tempest's south-east rim no longer sits on a lake (tempest.js fills from the bed; the live
+   world got a one-off `fill ... replace water`, 4,480 blocks). Floating check: no build floats (Sealed Cave has one
+   enclosed natural cave pocket under its north edge, 5 blocks below the walking level).
+   Left: tiny game-made leftovers (Tempest crops/lanterns from its single-pass placer, Dwargon 147 `air -> water` at
+   y 156 near 430 -1069 and 18 lanterns, Lubelius 5 path -> dirt, a lone Marris bed head, Dragon's Nest snow layers);
+   the Forgotten Dragon City stands 299 blocks north of its landmark because the real terrain there is lakes.
 4. **Pregenerate the continent** with Distant Horizons (Chunky is banned): `dh pregen start minecraft:overworld
    -2088 -616 <chunkRadius>` (continent ≈ 14,000 × 10,000 blocks), status with `dh pregen status`; then BlueMap
    renders (`bluemap` commands; web port 8100 needs a k8s Service + tunnel route — snippet in docs/server.md).

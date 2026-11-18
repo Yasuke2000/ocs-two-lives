@@ -80,6 +80,8 @@ const TtlTempest = {
       var Types = Java.loadClass('net.minecraft.world.level.levelgen.Heightmap$Types')
       var level = server.getLevel(TtlLife.OVERWORLD)
       var skip = this.NOT_GROUND
+      var wet = ['minecraft:water', 'minecraft:seagrass', 'minecraft:tall_seagrass', 'minecraft:kelp', 'minecraft:kelp_plant',
+        'minecraft:bubble_column']
       var hm = {
         top: (x, z) => level.getHeight(Types.MOTION_BLOCKING, x, z),
         ground: (x, z) => {
@@ -89,6 +91,13 @@ const TtlTempest = {
             if (id !== 'minecraft:air' && !skip.some(k => id.indexOf(k) >= 0)) break
             y--
           }
+          return y
+        },
+        // The same under water: the bed of the lake south-east of Tempest, so the earth fill does not stop at the
+        // water surface and leave the town's rim sitting on water.
+        floor: (x, z) => {
+          var y = hm.ground(x, z)
+          for (var n = 0; n < 64 && y > -63 && wet.indexOf(String(level.getBlock(x, y - 1, z).id)) >= 0; n++) y--
           return y
         }
       }
@@ -169,7 +178,7 @@ const TtlTempest = {
         }
         if (fill[i] !== f.none) {
           var f2 = base + fill[i] - 1
-          var f1 = hm ? ground : f2 - this.FALLBACK_DEPTH
+          var f1 = hm ? hm.floor(x, z) : f2 - this.FALLBACK_DEPTH
           if (f2 >= f1 && (inBox || hm)) this.earthCommands(x, z, f1, f2, !inBox, !hm, fills)
         }
       }
