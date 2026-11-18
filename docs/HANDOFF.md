@@ -63,3 +63,18 @@ report at 08:30).
 ## Offline world audit for Yasuke
 
 The [November audit](audits/world-audit-2026-11.md) compares 22 territory masks, 43 map pins, 14 canon templates and seven runtime jigsaws. El Dorado and Frost Palace already project onto X and I land. The audit includes source changes for 12 version-2 survey/fixed builds, bespoke Dwargon v5, a dry dragon-city placement, one river outlet and Fulbrosia's climate. Templates, generated scripts, map raster and packwiz metadata must be regenerated together. Validate this regenerated pack before deployment. Check old corners for duplicate structures and player edits before placing new versions. The report lists the coordinates for `/ttlmap`, the dimensions for the 98% template check, remaining jigsaw/command-result issues and the structure assets whose redistribution permission needs confirmation.
+
+## Codex PRs integrated on branch `codex-integ` (#7 skins, #6 five landmarks, #9 Wayfarer's Rest, #8 world audit)
+
+Offline: validate passes, 49 unit tests OK, all structures rebuilt. In game after it lands on main:
+- `python tools/verify_build.py <name> --log --min 98` for the new builds el_dorado, frost_palace, sacred_mountain,
+  ballachia, heaven_tower; the re-placed blumund, englassia, laura, marris, treyni_shrine (v3), clayman_castle,
+  dragons_nest, forgotten_dragon_city, lubelius, sealed_cave, spirit_gate (v2), dwargon (v5), mortal_spawn (v2,
+  `--dimension ttl:mortal_realm`), spirit_dwelling (v2, `--dimension ttl:spirit_domain`).
+- Tests: mortal_spawn, rebirth, guide, two_lives (arrival 0.5 y 5.5 unchanged), builds, landmarks, cast and
+  guild_npcs (npcs.toml rev 2 respawns every NPC with its PNG skin; receptionist is now humanoid_slim, Frey and
+  Ramiris humanoid), spirit_domain, arrival.
+- Look: the RESOURCE_LOCATION skins actually render (unverified), Kaijin's 0.8 scale is not set (Easy NPC scale
+  tags unverified), non-op players cannot break Wayfarer's Rest but can use doors, beds and the bell.
+- canon_map.txt is not regenerated for the audit's Ameld outlet (needs the political plate,
+  `python tools/canon_map.py <plate.png>`); the H palette change and the outlet only reach ungenerated chunks.
