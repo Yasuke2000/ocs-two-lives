@@ -1,0 +1,17 @@
+# The Walpurgis Hall (blueprints/walpurgis_hall.py, lore in design/lore/arenas.md): the Demon Lords' council chamber with
+# ten thrones round a table, and the Banquet Floor beside it (the arena "walpurgis" of design/data/arenas.toml), on a
+# floating island in its own dimension ttl:walpurgis (kubejs/data/ttl/dimension/walpurgis.json). Fixed ground in a void
+# dimension, like the Dwelling of the Spirits: the walking level (anchor y 15) lands on y 64. arena/walpurgis.js sends
+# invited souls to the anchor and back through the return arch.
+name = "walpurgis_hall"
+title = "The Walpurgis Hall"
+x = 0
+z = 0
+anchor = [40, 15, 79]
+ground = "fixed"
+y = 64
+dimension = "ttl:walpurgis"
+version = 1
+clear_above = false
+margin = 0
+notes = "Council chamber with ten thrones (the Ten Great Demon Lords; canon's council is ten until the Octagram) and the Banquet Floor arena. No canon venue is depicted: the round table, thrones, dome and pit are our interpretation."

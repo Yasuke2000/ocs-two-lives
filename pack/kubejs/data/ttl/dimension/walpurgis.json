@@ -1,0 +1,13 @@
+{
+  "type": "ttl:walpurgis",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "ttl:walpurgis",
+      "layers": [],
+      "lakes": false,
+      "features": false,
+      "structure_overrides": []
+    }
+  }
+}

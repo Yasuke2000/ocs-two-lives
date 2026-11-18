@@ -1,0 +1,41 @@
+# The Walpurgis Hall (arena/walpurgis.js, build walpurgis_hall in ttl:walpurgis, design/data/arenas.toml [walpurgis]).
+# Needs the placer to have run (~1 min after start): `ttl walpurgis where` must list the hall as placed (the gate on Clayman's
+# throne dais needs clayman_castle too; it is not walked here). Each `expect` throws "ttl: expected ..." on a wrong answer.
+# A soul enters by condition: Life 2 AND (a Legendary unique, a capstone stage ttl.story.hero / demon_lord, an invitation, or
+# a booked walpurgis match). Bots hold no Legendary unique, so the invitation and the stage are the routes tested.
+# The sleep after the entry outlasts the 4 second gate cooldown, so the return arch answers.
+# Expect in the log: "[ttl] walpurgis: TtlBotWalA invited by an op", "TtlBotWalA entered the hall", "TtlBotWalA left the hall".
+# Verify in game: the gate on Clayman's throne dais (walk onto it with and without an invitation), the Voice lines.
+ttl walpurgis where
+ttlbot spawn TtlBotWalA
+ttlbot spawn TtlBotWalB
+@sleep 2
+kubejs stages add TtlBotWalA ttl.life2
+ttl walpurgis uninvite TtlBotWalA
+ttl walpurgis uninvite TtlBotWalB
+@sleep 6
+ttl walpurgis expect TtlBotWalA allowed no
+ttl walpurgis expect TtlBotWalB allowed no
+ttl walpurgis invite TtlBotWalA 1
+ttl walpurgis invite TtlBotWalB 1
+ttl walpurgis expect TtlBotWalA allowed yes
+# B is not in Life 2: an invitation does not open the hall to it.
+ttl walpurgis expect TtlBotWalB allowed no
+ttl walpurgis expect TtlBotWalA out
+ttl walpurgis tp TtlBotWalA
+@sleep 2
+ttl walpurgis expect TtlBotWalA in
+@sleep 5
+ttl walpurgis walk TtlBotWalA back
+@sleep 2
+ttl walpurgis expect TtlBotWalA out
+ttl walpurgis uninvite TtlBotWalA
+ttl walpurgis expect TtlBotWalA allowed no
+kubejs stages add TtlBotWalA ttl.story.hero
+ttl walpurgis expect TtlBotWalA allowed yes
+kubejs stages remove TtlBotWalA ttl.story.hero
+ttl walpurgis expect TtlBotWalA allowed no
+ttl walpurgis uninvite TtlBotWalB
+kubejs stages remove TtlBotWalA ttl.life2
+ttlbot remove TtlBotWalA
+ttlbot remove TtlBotWalB
