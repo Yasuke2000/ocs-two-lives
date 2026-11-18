@@ -1,0 +1,216 @@
+# Legend pick + absorption routes (absorb/absorb.js, life/corridor_flow.js Legend branch, design/data/skills.toml
+# [legend_pick] / [absorb]). `ttl absorb expect ...` and `ttl registry expect ...` print "ttl: ..." when a value is wrong,
+# which `server.sh test-all` counts as a failure. A `ttl absorb simulate` line prints "absorb simulate: refused (...)" on
+# purpose when a route must say no; the registry expects after it carry the assertion.
+# Run on staging with NO other Legendary holder online or recorded (the ceiling counts are server-wide); it advances the
+# era once. `ttl registry legendcap <max> <slots>` replaces max_holders / slots_per_era until `legendcap reset`.
+# The Life 2 bots here are bots with the stage ttl.life2 (test hook). The hooks themselves (the fatal blow inside a pact, a
+# real kill in a war, a combat log) need two real players and stay on the "verify in game" list; `ttl absorb simulate`
+# runs the same code path (the route must be in force: a pact for duel and awakening, a war flag for war).
+# `ttl absorb ep <p> <n>` fakes a bot's EP; `ttl absorb awake <p> lord|hero on|off` fakes a Tensura awakening flag.
+ttlbot spawn TtlBotAbL
+ttlbot spawn TtlBotAbM
+ttlbot spawn TtlBotAbK
+ttlbot spawn TtlBotAbV
+ttlbot spawn TtlBotAbX
+ttlbot spawn TtlBotAbY
+@sleep 2
+ttl registry legendcap 10 0
+ttl era next
+
+# ---- Legend pick ----------------------------------------------------------------------------------------------------
+# AbL and AbM live a Legend life (boss + long play), die, wish for Strength (echo: Wrath) and choose Slime. The unique step
+# then offers 3 drawn skills plus the Legendary echo. With the ceiling at 1 (the owner's Ten Great Demon Lords, cut down for
+# the test) AbL takes the echo and AbM, the second Legend soul, is no longer offered it.
+ttl karma TtlBotAbL set play_time 900000
+ttl karma TtlBotAbL set mob_kills 800
+ttl karma TtlBotAbL set far 6000
+ttl karma TtlBotAbL set nether 1
+ttl karma TtlBotAbL set end 1
+ttl karma TtlBotAbL set ender_dragon 1
+ttl karma TtlBotAbL set wither 1
+ttl karma TtlBotAbL set trades 200
+ttl karma TtlBotAbL set raids_won 2
+ttl karma TtlBotAbL set deepslate_diamond_ore 60
+ttl karma TtlBotAbL set ancient_debris 10
+ttl karma TtlBotAbL set enchants 50
+ttl karma TtlBotAbL set advancements 60
+ttl karma TtlBotAbL expect tier legendary
+ttl karma TtlBotAbM set play_time 900000
+ttl karma TtlBotAbM set mob_kills 800
+ttl karma TtlBotAbM set far 6000
+ttl karma TtlBotAbM set nether 1
+ttl karma TtlBotAbM set end 1
+ttl karma TtlBotAbM set ender_dragon 1
+ttl karma TtlBotAbM set wither 1
+ttl karma TtlBotAbM set trades 200
+ttl karma TtlBotAbM set raids_won 2
+ttl karma TtlBotAbM set deepslate_diamond_ore 60
+ttl karma TtlBotAbM set ancient_debris 10
+ttl karma TtlBotAbM set enchants 50
+ttl karma TtlBotAbM set advancements 60
+ttl karma TtlBotAbM expect tier legendary
+kill TtlBotAbL
+kill TtlBotAbM
+@sleep 1
+ttl karma TtlBotAbL expect step wish
+execute as TtlBotAbL run ttl wish strength
+execute as TtlBotAbL run ttl choose slime
+ttl karma TtlBotAbL expect step unique
+ttl absorb expect TtlBotAbL echo yes
+ttl absorb expect TtlBotAbL options 4
+ttl registry legendcap 1 0
+ttl absorb expect TtlBotAbM echo no
+execute as TtlBotAbL run ttl unique wrath
+ttl registry expect holds TtlBotAbL wrath true
+ttl registry expect holders 1
+ttl era expect slots 1
+ttl registry expect last TtlBotAbL grant wrath
+execute as TtlBotAbM run ttl wish strength
+execute as TtlBotAbM run ttl choose slime
+ttl absorb expect TtlBotAbM echo no
+ttl absorb expect TtlBotAbM options 3
+# Room again (ceiling 10) but the per-era throttle is used up (1 slot, 1 used): still no echo for a Legend soul.
+ttl registry legendcap 10 1
+ttl era expect free 0
+ttl reset TtlBotAbM
+ttl registry legendcap 10 0
+ttl reset TtlBotAbL
+ttl registry expect holds TtlBotAbL wrath false
+
+# ---- Absorption: the bots are Life 2 souls -------------------------------------------------------------------------
+kubejs stages add TtlBotAbK ttl.life2
+kubejs stages add TtlBotAbV ttl.life2
+kubejs stages add TtlBotAbX ttl.life2
+kubejs stages add TtlBotAbY ttl.life2
+ttl absorb clear TtlBotAbK
+ttl absorb clear TtlBotAbV
+ttl absorb clear TtlBotAbX
+ttl absorb clear TtlBotAbY
+ttl absorb war clear
+ttl grant TtlBotAbK predator
+ttl grant TtlBotAbV great_sage
+ttl grant TtlBotAbV berserker
+ttl absorb expect TtlBotAbK absorber yes
+ttl absorb expect TtlBotAbV absorber no
+# Duel (consensual): no pact, no duel.
+ttl absorb simulate TtlBotAbK TtlBotAbV duel
+ttl registry expect holds TtlBotAbV great_sage true
+execute as TtlBotAbK run ttl absorb duel TtlBotAbV
+ttl absorb expect pacts 1
+ttl absorb simulate TtlBotAbK TtlBotAbV duel
+ttl registry expect holds TtlBotAbV great_sage true
+execute as TtlBotAbV run ttl absorb accept TtlBotAbK
+# EP gate: a victim under half the killer's EP is not worth absorbing; the duel is over all the same.
+ttl absorb ep TtlBotAbK 1000
+ttl absorb ep TtlBotAbV 100
+ttl absorb simulate TtlBotAbK TtlBotAbV duel
+ttl registry expect holds TtlBotAbV great_sage true
+ttl registry expect holds TtlBotAbK great_sage false
+ttl absorb expect pacts 0
+ttl absorb expect TtlBotAbK cooldown no
+# Equal footing: the Legendary is stolen, the Rare is copied, the 72 h cooldown starts.
+execute as TtlBotAbK run ttl absorb duel TtlBotAbV
+execute as TtlBotAbV run ttl absorb accept TtlBotAbK
+ttl absorb ep TtlBotAbV 800
+ttl absorb simulate TtlBotAbK TtlBotAbV duel
+ttl registry expect holds TtlBotAbK great_sage true
+ttl registry expect holds TtlBotAbV great_sage false
+ttl registry expect holds TtlBotAbK berserker true
+ttl registry expect holds TtlBotAbV berserker true
+ttl registry expect moved TtlBotAbV TtlBotAbK great_sage
+ttl registry expect routed TtlBotAbK great_sage duel
+ttl absorb expect TtlBotAbK cooldown yes
+# Cooldown: the next absorption is refused.
+ttl grant TtlBotAbV envy
+execute as TtlBotAbK run ttl absorb duel TtlBotAbV
+execute as TtlBotAbV run ttl absorb accept TtlBotAbK
+ttl absorb simulate TtlBotAbK TtlBotAbV duel
+ttl registry expect holds TtlBotAbV envy true
+# The winner needs an absorbing unique: V (none) beats K and takes nothing.
+ttl absorb clear TtlBotAbK
+execute as TtlBotAbV run ttl absorb duel TtlBotAbK
+execute as TtlBotAbK run ttl absorb accept TtlBotAbV
+ttl absorb simulate TtlBotAbV TtlBotAbK duel
+ttl registry expect holds TtlBotAbK great_sage true
+ttl absorb expect TtlBotAbV cooldown no
+ttl absorb clear TtlBotAbK
+ttl absorb clear TtlBotAbV
+# A declined duel leaves nothing open.
+execute as TtlBotAbK run ttl absorb duel TtlBotAbV
+execute as TtlBotAbV run ttl absorb decline TtlBotAbK
+ttl absorb expect pacts 0
+
+# War between nations: no EP gate, no absorber needed, Legendary only (a real death in game). A staff flag stands in for WP4.
+ttl grant TtlBotAbX greed
+ttl grant TtlBotAbX fighter
+ttl absorb simulate TtlBotAbY TtlBotAbX war
+ttl registry expect holds TtlBotAbX greed true
+ttl absorb war TtlBotAbX TtlBotAbY
+ttl absorb expect wars 1
+ttl absorb ep TtlBotAbY 5
+ttl absorb ep TtlBotAbX 9999
+ttl absorb simulate TtlBotAbY TtlBotAbX war
+ttl registry expect holds TtlBotAbY greed true
+ttl registry expect holds TtlBotAbX greed false
+ttl registry expect holds TtlBotAbY fighter false
+ttl registry expect routed TtlBotAbY greed war
+ttl absorb war clear
+ttl absorb expect wars 0
+ttl absorb clear TtlBotAbX
+ttl absorb clear TtlBotAbY
+
+# Bequest: the holder passes a unique on voluntarily; the receiver has to accept.
+ttl grant TtlBotAbV analyst
+execute as TtlBotAbV run ttl absorb bequest TtlBotAbK analyst
+ttl registry expect holds TtlBotAbV analyst true
+execute as TtlBotAbK run ttl absorb accept TtlBotAbV
+ttl registry expect holds TtlBotAbK analyst true
+ttl registry expect holds TtlBotAbV analyst false
+ttl registry expect routed TtlBotAbK analyst bequest
+# What you do not hold cannot be bequeathed.
+execute as TtlBotAbV run ttl absorb bequest TtlBotAbK analyst
+ttl absorb expect pacts 0
+
+# Awakening: a True Hero claims a free Legendary of its kind, once; a True Demon Lord challenges a weaker holder.
+ttl absorb expect TtlBotAbY claimable 0
+ttl absorb awake TtlBotAbY hero on
+ttl absorb expect TtlBotAbY kinds 1
+execute as TtlBotAbY run ttl absorb claim wrath
+ttl registry expect holds TtlBotAbY wrath false
+execute as TtlBotAbY run ttl absorb claim creator
+ttl registry expect holds TtlBotAbY creator true
+ttl absorb expect TtlBotAbY hero yes
+ttl absorb expect TtlBotAbY kinds 0
+ttl absorb awake TtlBotAbY lord on
+ttl absorb expect TtlBotAbY kinds 1
+ttl absorb ep TtlBotAbY 1000
+ttl absorb ep TtlBotAbV 900
+execute as TtlBotAbY run ttl absorb challenge TtlBotAbV
+ttl absorb expect pacts 1
+ttl absorb simulate TtlBotAbY TtlBotAbV awakening
+ttl absorb expect pacts 0
+ttl absorb expect TtlBotAbY lord yes
+ttl absorb expect TtlBotAbY cooldown yes
+
+# Clean up: back to the shipped knobs; resets free every record.
+ttl absorb war clear
+ttl registry legendcap reset
+ttl absorb clear TtlBotAbK
+ttl absorb clear TtlBotAbV
+ttl absorb clear TtlBotAbX
+ttl absorb clear TtlBotAbY
+ttl reset TtlBotAbK
+ttl reset TtlBotAbV
+ttl reset TtlBotAbX
+ttl reset TtlBotAbY
+kubejs stages remove TtlBotAbK ttl.life2
+kubejs stages remove TtlBotAbV ttl.life2
+kubejs stages remove TtlBotAbX ttl.life2
+kubejs stages remove TtlBotAbY ttl.life2
+ttlbot remove TtlBotAbL
+ttlbot remove TtlBotAbM
+ttlbot remove TtlBotAbK
+ttlbot remove TtlBotAbV
+ttlbot remove TtlBotAbX
+ttlbot remove TtlBotAbY

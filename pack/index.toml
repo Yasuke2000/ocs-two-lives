@@ -1557,6 +1557,10 @@ file = "kubejs/data/ttl/worldgen/biome/spirit_domain.json"
 hash = "8d35a813f8f5178bb5e2a0c5f0c0938126b647fd054cd98620d9ac9e2996b38a"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/absorb/absorb.js"
+hash = "2b918a33ddf215bf7426ec06f5d62938768aacb066560b7d170f6f97e8c26b67"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/access.js"
 hash = "cf04740e16e34d52b86eb952f460f23b2db04620861fb6660f234a83cd4d35e3"
 
@@ -1654,7 +1658,7 @@ hash = "33b3cab039c79101a45c6c088518853ab3627934336c06f0f969ce0f5729fe2b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "7eb57d4810fdeb770958e3d8217db65720c7b0489104e84cde8e41fb2b6451fe"
+hash = "45f849f7d2369969112244e46cfb43b48509520d022370495eef63577b0734ea"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1718,7 +1722,7 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "f8ef2518350f8717c1c9ce1a6b61b78524aeb642af85f457309e294aea7f8d5b"
+hash = "db636c9d80a9ab818daf058af72c22cf040cc68ba7220173999f7a517077da0c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -1730,7 +1734,7 @@ hash = "d66e8222f8349e9921b888d26e5d0bfb0688d97d0faacc522ad5b8c5bc64656d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
-hash = "7067dc7f7689c7a8e7e50c322952c1e0852d38bdc5d577ca2a6a9bda0e293b08"
+hash = "1868626097386a971ec1f54d4b1b8386b19ba1a1b40a4d29ec9161c5fc46823d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/guide.js"
@@ -1786,7 +1790,7 @@ hash = "3bddc065b4efb3cc4addeafd823bf7b2f68f6e5910c6d1f0c397b4f0474d048a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/wishes.js"
-hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
+hash = "63b90a9c199668c971c2465617cb1b7c3cb61459251bf16bd687a98f5b0b724f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/world_reset.js"

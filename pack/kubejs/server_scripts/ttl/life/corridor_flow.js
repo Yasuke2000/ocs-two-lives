@@ -5,6 +5,8 @@
 //   trial  → Trial of the Soul running                (trial.js)
 //   unique → trial passed: pick 1 of 3 uniques        (/ttl unique <skill>)
 // Without a passed trial the unique is drawn at random from the wish's pool.
+// Legend branch (S5): a soul judged Legend is offered, besides its drawn options, the Legendary echo of its wish
+// (legendEcho, skills.toml [legend_pick]) while the registry has room; taking it spends a Legendary slot.
 const TtlCorridor = {
   KEYS: ['ttl.step', 'ttl.wish', 'ttl.offers', 'ttl.race', 'ttl.uniqueOptions', 'ttl.trial.done', 'ttl.trial.passed',
     'ttl.raceSet', 'ttl.trial.token', 'ttl.trial.ready', 'ttl.trial.wave', 'ttl.trial.q', 'ttl.trial.correct', 'ttl.trial.strikes'],
@@ -89,6 +91,27 @@ const TtlCorridor = {
     })
   },
 
+  // The Legend branch of the unique step: the Legendary echo of this soul's Last Wish, or null. Offered only to the
+  // karma tiers in skills.toml [legend_pick] tiers, while the global ceiling and the era slot leave room for this
+  // soul (a place for a NEW Legendary holder) and the skill is under its cap. Checked again when it is chosen
+  // (unique), because the room can go in between.
+  legendEcho(server, player) {
+    try {
+      var conf = TtlData.skills.legend_pick || {}
+      if (conf.enabled === false) return null
+      if ((conf.tiers || ['legendary']).indexOf(String(TtlKarma.tierOf(player).id)) < 0) return null
+      if (conf.allow_dark === false && TtlKarma.isDark(player)) return null
+      var echo = TtlWishes.echo(String(player.persistentData.getString('ttl.wish')))
+      if (!echo) return null
+      if (!TtlRegistry.legendarySlotFree(server)) return null
+      if (TtlRegistry.available(server, [echo], TtlRegistry.uid(player), true).length === 0) return null
+      return echo
+    } catch (e) {
+      console.error(`[ttl] ${player.username}: Legend echo check failed: ${e}`)
+      return null
+    }
+  },
+
   // A screen opened while the client is still loading the new dimension gets closed by the loading
   // screen, so menus wait two seconds after a teleport.
   showLater(server, player) {
@@ -122,12 +145,16 @@ const TtlCorridor = {
     var slots = [2, 3, 4, 5, 6, 11, 12, 13, 14, 15]
     var icons = this.WISH_ICONS
     var self = this
+    // A Legend soul sees the Legendary echo each wish may answer with (legendEcho decides at the unique step).
+    var legend = ((TtlData.skills.legend_pick || {}).tiers || ['legendary']).indexOf(String(TtlKarma.tierOf(player).id)) >= 0
+    var echoLine = w => (legend && TtlWishes.echo(w.id)) ? ['', `Legend echo: ${self.title(TtlWishes.echo(w.id))}`] : []
     var items = TtlWishes.LIST.map((w, i) => {
       var trial = TtlTrials.DEFS[w.id]
       var skills = w.pool.map(id => self.title(id)).join(', ')
       return {
         slot: slots[i], item: icons[w.id] || 'minecraft:paper', name: w.label, color: '#FFD966',
         lore: [`"${w.wish}"`, ''].concat(self.wrap(`Skills: ${skills}`, 34))
+          .concat(echoLine(w))
           .concat(trial ? ['', `Trial: ${trial.title}`] : []),
         command: `ttl wish ${w.id}`
       }
@@ -160,11 +187,21 @@ const TtlCorridor = {
 
   showUniques(server, player) {
     var options = String(player.persistentData.getString('ttl.uniqueOptions')).split(',')
-    var slots = [11, 13, 15]
-    var items = options.map((s, i) => ({
-      slot: slots[i], item: 'minecraft:enchanted_book', name: this.title(s), color: '#D98CFF',
-      lore: ['Unique Skill'], command: `ttl unique ${String(s).replace(/^.*:/, '')}`
-    }))
+    var slots = options.length > 3 ? [10, 12, 14, 16] : [11, 13, 15]
+    var self = this
+    var items = options.map((s, i) => {
+      if (TtlRegistry.rarityOf(s) === 'legendary') {
+        return {
+          slot: slots[i], item: 'minecraft:nether_star', name: `Echo: ${self.title(s)}`, color: '#FFD966',
+          lore: ['Legendary Unique Skill', ''].concat(self.wrap('The echo of your Last Wish. Only a Legend soul hears it, and only while the world has room for one more.', 34)),
+          command: `ttl unique ${String(s).replace(/^.*:/, '')}`
+        }
+      }
+      return {
+        slot: slots[i], item: 'minecraft:enchanted_book', name: self.title(s), color: '#D98CFF',
+        lore: ['Unique Skill'], command: `ttl unique ${String(s).replace(/^.*:/, '')}`
+      }
+    })
     this.menu(server, player, 'Choose your Unique Skill', 3, items, 'Choose your Unique Skill.')
   },
 
@@ -193,6 +230,8 @@ const TtlCorridor = {
     var picks = data.getBoolean('ttl.trial.passed') ? 3 : TtlKarma.uniqueChoices(player)
     if (picks > 1) {
       var options = TtlRegistry.draw(server, pool, picks, player.username, TtlKarma.drawWeights(player))
+      var echo = this.legendEcho(server, player)
+      if (echo) options.push(echo)
       if (options.length > 0) {
         data.putString('ttl.uniqueOptions', options.join(','))
         data.putString('ttl.step', 'unique')
@@ -228,6 +267,8 @@ const TtlCorridor = {
     var picks = data.getBoolean('ttl.trial.passed') ? 3 : TtlKarma.uniqueChoices(player)
     if (picks > 1) {
       var options = TtlRegistry.draw(server, pool, picks, player.username, TtlKarma.drawWeights(player))
+      var echo = this.legendEcho(server, player)
+      if (echo) options.push(echo)
       if (options.length > 0) {
         data.putString('ttl.uniqueOptions', options.join(','))
         data.putString('ttl.step', 'unique')
@@ -247,6 +288,18 @@ const TtlCorridor = {
     var options = data.getString('ttl.uniqueOptions').split(',')
     var skill = `tensura:${path}`
     if (options.indexOf(skill) < 0) return `Not one of your options: ${options.map(s => this.title(s)).join(', ')}`
+    if (TtlRegistry.rarityOf(skill) === 'legendary' && this.legendEcho(server, player) !== skill) {
+      // Another soul took the last place while the menu was open: the echo fades, the other options stay.
+      var rest = options.filter(s => s !== skill)
+      data.putString('ttl.uniqueOptions', rest.join(','))
+      if (rest.length === 0) {
+        this.rebirth(server, player, null)
+        return null
+      }
+      this.voice(server, player.username, `The echo of ${this.title(skill)} fades: the world has no room for another Legend. Choose among the rest.`)
+      this.showUniques(server, player)
+      return null
+    }
     // The race is already set when the reincarnation menu chose it.
     this.rebirth(server, player, skill)
     return null
@@ -259,7 +312,12 @@ const TtlCorridor = {
     // Set by the reincarnation menu already when the rebirth went through the Great Sage scene.
     if (!data.getBoolean('ttl.raceSet')) server.runCommandSilent(`quietly tensura edit race ${name} set tensura:${race}`)
     // The Great Sage addon announces the granted skill itself (overlay + name clip).
-    if (!(skill && TtlRegistry.grant(server, player, skill))) {
+    var legend = !!skill && TtlRegistry.rarityOf(skill) === 'legendary'
+    // A Legend pick is a NEW Legendary holder: it spends a slot of this era (registry.grant opts.slot).
+    var granted = !!skill && (legend
+      ? TtlRegistry.grant(server, player, skill, 'Legend pick: the echo of a Last Wish', { slot: true })
+      : TtlRegistry.grant(server, player, skill))
+    if (!granted) {
       // Every unique in the wish's pool is taken: reborn without one rather than breaking the cap.
       this.voice(server, name, 'Your wish echoes, but no free skill answers it. You are reborn without one.')
     }
@@ -298,5 +356,12 @@ const TtlCorridor = {
     ])}`)
     console.info(`[ttl] ${name} reborn as ${race} with ${skill || 'no unique'}`)
     TtlDiscord.reborn(server, name, this.title(race))
+    if (legend && granted) {
+      try {
+        if (!TtlDiscord.isBot(name)) TtlDiscord.post(server, `The Voice of the World: a Legend answers its wish. ${TtlDiscord.name(name)} carries the Legendary unique skill **${this.title(skill)}**.`)
+      } catch (e) {
+        console.error(`[ttl] ${name}: Legend story line failed: ${e}`)
+      }
+    }
   }
 }
