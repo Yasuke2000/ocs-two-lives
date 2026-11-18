@@ -805,12 +805,20 @@ file = "config/ftbquests/quests/chapters/armed_nation.snbt"
 hash = "5d7907a052b65651fbf1e13a4fbc4c8c65397ffb317893ccdd0578f6ba3001a9"
 
 [[files]]
+file = "config/ftbquests/quests/chapters/crossroads.snbt"
+hash = "0cdb393a0dae6aba8f88c9cecd93de7d67d414ba836595dc7baca6c71d76bea2"
+
+[[files]]
 file = "config/ftbquests/quests/chapters/daily_deeds.snbt"
 hash = "e897e6fb9d48f09432b8623465910f8dda3e8df42218f185e13dd81c14bd73fb"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/daily_jura.snbt"
 hash = "b02d7960c34bc7b4e82cfa2642374e3f4ec072ebb08ad99777c7a94544530c0d"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kings_test.snbt"
+hash = "b833513a9ef84ed87c4d16ab417872096b4abb1c6129c75eb799e07f10c3f992"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mortal_life.snbt"
@@ -834,7 +842,7 @@ hash = "fa792420b8546bafa3673aa2aac7dc21cac295c6038694d0b45c9b50ef692304"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "885c6858fe28c0e6475818d93b33e5509bb18ea3b7af185d35f427482a7a294c"
+hash = "4524734dea6aaf7787e4955b7c2ffdf2061037782316864dbfd86dd48e9abd9a"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
@@ -1662,7 +1670,7 @@ hash = "3f8cccb21b922a8ccdb6cc6c4e3e5bfeba5dac91fc20903b3d381ecfec0c16e9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
-hash = "dd6156e43b23ab2f8f9a80daeb350e276dec6a6e70423824c2e2510ffa9ac8e6"
+hash = "922b70c5ea352f299e36c3593c9b62e9608d46369dbfdce4a8e544d80e012fcc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/spirit_dwelling.js"

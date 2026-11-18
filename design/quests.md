@@ -124,6 +124,24 @@ logs, cobblestone, coal, wheat; stand in a dark forest or river biome. Vanilla o
 **6. Daily Deeds: Jura** (Life 2, 6 repeatable quests): kill horned rabbits, giant ants, direwolves; hand in hipokute grass
 and magic ore shards; patrol Tempest. Rewards: bronze coins, a low potion, food, XP.
 
+**7. Crossroads** (Life 2, Act I of the story, 12 quests, WP-S6). Spine: Crossroads (stand at Tempest's south gate; the reward
+`ttl story oath` opens the Oath menu) → two lanes of four quests → The Forest Awakens (`min_deps = 1`). Light lane "Rigurd's Trust"
+(`path = "light"`): Rigurd's hut → Gobta's Great Boast (5 horned rabbits) → Hear Me, Direwolves (advancement) → A Seat at the Fire (hand in 8
+cooked beef). Dark lane "The Outcast's Mark" (`path = "dark"`): the Outcast contact on the south road → The Cull (8 direwolves) → The Society's
+Toll (6 bronze coins) → The Horde's Envoy (old goblin village). Optional side pair at the Sealed Cave: the claim button starts the Supermassive Slime
+(`ttl story fight`), then a stage task on `ttl.defeated.supermassive_slime`. The Oath itself, its reputation deltas and Act I belong to the
+story core; the chapter never sets a path.
+
+**8. The King's Test** (Life 2, Act II, 14 quests, WP-S6). After chapter 3's audience and chapter 7's finale (cross-chapter `deps`): The King Looks Up
+(stage task `ttl.story.act1` + the royal terrace) → The Exile's Smithy → A King's Equal (10,000 EP), then two lanes of five quests. Light "honour duel":
+Terms of Honour (reward `ttl story flag {p} honour_duel`, auto-claimed so it cannot be skipped) → Challenge the King (claim = `ttl story fight
+gazel_dwargo`) → The Honour Duel (stage `ttl.defeated.gazel_dwargo`; the flag makes the kill free and is spent by it) → A Pact of Smiths (hand-ins at Kaijin's
+smithy) → The King's Word (Tempest green). Dark, one join (`min_deps = 1`): Steal the Schematics (forge hall, engineers' workshop, 8 paper) **or** Take the
+Throne → Regicide (same fight, no flag: Dwargon -60, flag `regicide`), then The Spoils at the Outcast contact. Finale The Armed Nation (`min_deps = 1`):
+the reward `ttl story act {p} 2` records Act II and applies its lane deltas (light Dwargon +15; dark Dwargon -20, Outcast +10). A claimed "start the
+fight" reward cannot be claimed again: if it fails (cooldown, the King already out) the same fight starts from `/ttl story fight gazel_dwargo` or Gazel's
+dialog button. Reward `ttl story ...` commands use `{p}`, not `@p`: `@p` is the nearest player and could pick a party member standing at the same spot.
+
 Known limit: quest progress carries to Life 2 (master plan D4), so a Life 1 quest left open can still be finished
 in Life 2. Karma is closed at death, so this only hands out the small vanilla reward.
 
@@ -183,6 +201,23 @@ Chapters 2-6 (verified 18/11/2026 against Tensura 2.0.1.5 and tensura_ftb 2.0.0.
   (see the header of each chapter file for the conversion), landmark positions: `design/data/landmarks.toml`.
 - Not verifiable here: whether an orc lord is alive in the orc camp when a player arrives; the exact centre of landmarks
   that `/place structure` shifts up to 64 blocks (hence the large radii); the Kijin ruin's canon position.
+
+Chapters 7-8 (WP-S6, 18/11/2026; places and ids verified against Tensura 2.0.1.5, the story core and `bosses.toml`):
+- Canon beats: *That Time I Got Reincarnated as a Slime* season 1 (Wikipedia episode list, checked 18/11/2026): ep. 1 "The Storm Dragon, Veldora" (the Sealed
+  Cave), ep. 2-3 "Meeting the Goblins" and "Battle at the Goblin Village" (the goblins and direwolves named and evolved: Rigurd's trust, the riders on the
+  Tempest Star Wolves), ep. 4 "In the Kingdom of the Dwarves" (Kaijin), ep. 5 "Hero King, Gazel Dwargo" (Kaijin's trial and exile; Gazel sends a ninja after
+  Rimuru), ep. 10-11 (the Orc Lord's shadow, Gabiru and Gobta's duel) -
+  https://en.wikipedia.org/wiki/That_Time_I_Got_Reincarnated_as_a_Slime_season_1 . Light novel volume numbers were not verified: the quest texts cite the
+  anime only.
+- Our interpretation, flagged in the quest texts: the Outcast Society (the pack's own faction, master plan D7), the Horde's envoy before the Orc War, the Supermassive
+  Slime as Veldora's leftover magicule, the honour duel (inspired by the mod's own throne-room line "Oh? You want to have a training fight?", lang
+  `tensura.message.dwarf.king.greet.positive_start`), the pact between the smiths, the Outcast contact's spot on the south road (0, 52) and the Outcast interest in
+  Dwargon's forge plans.
+- Ids from the Tensura jar (lang and `data/tensura/advancement`): items `goblin_club`, `bronze_coin`, `silver_coin`, `silver_ingot`, `horned_rabbit_spawn_egg`; entities
+  `horned_rabbit`, `direwolf`; advancement `hear_me_direwolves`. Boss ids come from `design/data/bosses.toml` (`supermassive_slime`, `gazel_dwargo`), flags
+  and acts from `design/data/story.toml` (`honour_duel`, `regicide`, act 2). The mod's own advancement `tensura:hero_king` ("Defeat Gazel Dwargo") exists but
+  only fires for an untamed Gazel, so the quests read `ttl.defeated.gazel_dwargo` (set by `bosses/boss.js` for every credited winner) instead.
+- Places: Tempest offsets from `blueprints/tempest.py`, Dwargon from `blueprints/dwargon.py` (see the headers of chapters 2, 3, 7, 8).
 
 Quest-line ideas:
 - Hardcore / staged packs: Araxer's Staged Survival (8 gated chapters,
