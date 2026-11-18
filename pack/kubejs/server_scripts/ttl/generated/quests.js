@@ -187,6 +187,18 @@ const TtlQuestIds = {
       "talk_around": "1C3E20B311E1AB34"
     }
   },
+  "harvest_festival": {
+    "id": "46F0CD335D2E1F1F",
+    "quests": {
+      "act_seven": "1703B5D161F5AD7F",
+      "bind_dragon": "75DF64954F2CDD53",
+      "free_friend": "69545381BC70765B",
+      "prison": "16275F334E658FCF",
+      "storm_dragon": "7C3E97663B656FB9",
+      "true_demon_lord": "70C3089B60AC26D9",
+      "true_hero": "316FA29488561884"
+    }
+  },
   "homestead": {
     "id": "71CE6A68642EC8F2",
     "quests": {
@@ -220,6 +232,25 @@ const TtlQuestIds = {
       "steal_plans": "26A6D1053EDA56FF",
       "take_throne": "7D4B44AC33270DB2",
       "word_to_tempest": "4D84DCDECB3CCFDC"
+    }
+  },
+  "mask_and_blade": {
+    "id": "5CB6C7D7438302D3",
+    "quests": {
+      "act_five": "2B15187EE73E8DC2",
+      "atonement": "676B3C0CD67BEA89",
+      "dark_rimuru": "5B4ED5D772DCDF7D",
+      "holy_field": "0D4D0DF9B4020101",
+      "ifrit": "78846A03E53B8DFC",
+      "keep_roll": "6A7380989AA654B4",
+      "light_rimuru": "6D9F1AE27AB34E17",
+      "mask_at_tempest": "7BCBBE00B167FB50",
+      "royal_warrant": "02A3FEA70DEBED1B",
+      "shizus_wish": "293738D2D62B204D",
+      "south_gate": "1ECB5979C243CC5A",
+      "spar": "3280B1362135A862",
+      "three_summoned": "77FAE029ED2DC6B6",
+      "three_witnesses": "29429F8A06E27248"
     }
   },
   "mortal_life": {
@@ -305,6 +336,20 @@ const TtlQuestIds = {
       "orc_lord_kill": "60F244EA243A900D",
       "rations": "18F996B57F79B262",
       "scout_camp": "7C636164D8F4EF8B"
+    }
+  },
+  "puppet_master": {
+    "id": "4880167E72BCBA5A",
+    "quests": {
+      "act_six": "641D39B5FFE38B84",
+      "beast_treaty": "2C2F392B713291D0",
+      "break_strings": "5E231DDC374F3C74",
+      "collect_debt": "2E27F99E981345B5",
+      "council": "5547ED09793466EB",
+      "crypt_witness": "5CC1ABCBFB22E216",
+      "spirit_echo": "65041EE098BCB8F3",
+      "take_seat": "184E6192DA97A29C",
+      "white_altar": "05A2C85E0CCC264F"
     }
   },
   "reborn": {
