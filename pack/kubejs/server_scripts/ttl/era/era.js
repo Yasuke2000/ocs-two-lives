@@ -10,7 +10,8 @@
 //   ttl.era.archive  [{era, ended, titles: {uuid: [id]}}]   finished eras, newest last, capped at 20
 // Commands (Brigadier merges them into the /ttl tree, as karma/commands.js does):
 //   Players: /ttl era (era, Legendary slots) · /ttl core open (opens a Skill Core from the inventory; Life 2 only)
-//   Ops:     /ttl era next · /ttl era title <player> <id> · /ttl registry slots
+//   Ops:     /ttl era next · /ttl era reset (back to era 1, silent: no chat, no Discord; test cleanup) · /ttl era title <player> <id>
+//            /ttl registry slots
 //            /ttl registry transfer <from> <to> <skill> [route] (route: duel, war, bequest, awakening, staff ...; default staff)
 //            /ttl registry legend <player> <skill> (grant that uses a per-era slot, as a rebirth Legend pick does)
 //            /ttl registry legendcap <max> <slots> | reset (test hook: replaces max_holders / slots_per_era)
@@ -101,6 +102,19 @@ const TtlEra = {
     return now
   },
 
+  // Back to era 1 as on a first start, without any announcement: the era titles, the archive and the per-era
+  // Legendary slot ledger are cleared. Tests (legendary.rcon) advance the era; this undoes that before launch.
+  reset(server, reason) {
+    var old = this.number(server)
+    server.persistentData.putInt('ttl.season', 1)
+    server.persistentData.putString('ttl.era.started', String(Date.now()))
+    server.persistentData.remove('ttl.era.titles')
+    server.persistentData.remove('ttl.era.archive')
+    server.persistentData.remove('ttl.reg.legendarySlots')
+    console.info(`[ttl] era: reset from era ${old} to era 1 (${reason || 'admin'}, silent)`)
+    return 1
+  },
+
   slotText(server) {
     var per = TtlRegistry.slotsPerEra(server)
     return per > 0 ? `Legendary slots ${TtlRegistry.slotsUsed(server)}/${per} used` : 'no per-era Legendary slots'
@@ -181,6 +195,12 @@ ServerEvents.commandRegistry(event => {
   var eraNext = ctx => {
     var n = TtlEra.next(ctx.source.getServer(), 'admin')
     say(ctx, `Era ${n} begins`)
+    return 1
+  }
+
+  var eraReset = ctx => {
+    TtlEra.reset(ctx.source.getServer(), 'admin')
+    say(ctx, `Era 1 begins again (silent)`)
     return 1
   }
 
@@ -307,6 +327,7 @@ ServerEvents.commandRegistry(event => {
     .then(Commands.literal('era')
       .executes(logged(eraStatus))
       .then(Commands.literal('next').requires(op).executes(logged(eraNext)))
+      .then(Commands.literal('reset').requires(op).executes(logged(eraReset)))
       .then(Commands.literal('title').requires(op)
         .then(playerArg('target').then(stringArg('id').executes(logged(eraTitle)))))
       .then(Commands.literal('expect').requires(op)

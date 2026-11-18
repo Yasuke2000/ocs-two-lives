@@ -9,6 +9,8 @@ ttlbot spawn TtlBotBoss
 @sleep 2
 gamemode creative TtlBotBoss
 ttl boss reset TtlBotBoss
+ttl boss abort
+ttl boss cooldown clear all
 execute in ttl:spirit_corridor run tp TtlBotBoss 0.5 65 0.5
 ttl boss list
 ttl boss expect TtlBotBoss stage t1 no
@@ -157,6 +159,8 @@ clear TtlBotPtyC ttl:skill_core
 kubejs stages remove TtlBotPtyA ttl.life2
 kubejs stages remove TtlBotPtyB ttl.life2
 kubejs stages remove TtlBotPtyC ttl.life2
+# The kills above put orc_lord and carrion on their 24 h cooldown: forget that, so the next run (or a player) is not refused.
+ttl boss cooldown clear all
 ttlbot remove TtlBotPtyA
 ttlbot remove TtlBotPtyB
 ttlbot remove TtlBotPtyC

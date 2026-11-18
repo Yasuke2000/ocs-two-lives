@@ -39,9 +39,29 @@ const TtlDiscord = {
     return '**' + escaped + '**'
   },
 
+  // Test runs never reach Discord: `tools/server.sh test|test-all` sets `ttl.discord.muted` (`/ttl discord mute on|off`)
+  // around every run, and while a test bot is online every post is dropped as well (era changes, wild bosses, nation
+  // wars and event lines have no player to check `isBot` on). Dropped lines stay in the log for the test to read.
+  muted(server) {
+    try {
+      if (server.persistentData.getBoolean('ttl.discord.muted')) return 'muted'
+      var bots = 0
+      server.getPlayerList().getPlayers().forEach(p => { if (TtlDiscord.isBot(p.username)) bots++ })
+      if (bots > 0) return `${bots} test bot(s) online`
+    } catch (e) {
+      console.warn(`[ttl] discord: mute check failed: ${e}`)
+    }
+    return null
+  },
+
   post(server, text) {
     var api = this.load()
     if (!api) return false
+    var why = this.muted(server)
+    if (why) {
+      console.info(`[ttl] discord: dropped (${why}): ${String(text)}`)
+      return false
+    }
     try {
       var bot = api.Bot.INSTANCE
       if (!bot || !bot.isBotReady()) return false
@@ -132,4 +152,38 @@ ServerEvents.loaded(event => {
     loop()
   })
   loop()
+})
+
+// /ttl discord mute on|off|status (ops): the test mute, set by tools/server.sh around every test run.
+ServerEvents.commandRegistry(event => {
+  var { commands: Commands } = event
+  var op = src => src.hasPermission(2)
+  var logged = fn => ctx => {
+    try {
+      return fn(ctx)
+    } catch (e) {
+      console.error(`[ttl] discord command failed: ${e}`)
+      ctx.source.sendSystemMessage(Text.red(`ttl: ${e}`))
+      return 0
+    }
+  }
+  var setMute = on => ctx => {
+    var server = ctx.source.getServer()
+    server.persistentData.putBoolean('ttl.discord.muted', on)
+    console.info(`[ttl] discord: posts ${on ? 'muted' : 'unmuted'} (test mute)`)
+    ctx.source.sendSystemMessage(Text.of(`Discord posts ${on ? 'muted' : 'unmuted'}`))
+    return 1
+  }
+  var status = ctx => {
+    var why = TtlDiscord.muted(ctx.source.getServer())
+    ctx.source.sendSystemMessage(Text.of(why ? `Discord posts are dropped: ${why}` : 'Discord posts go out'))
+    return 1
+  }
+  event.register(Commands.literal('ttl')
+    .then(Commands.literal('discord').requires(op)
+      .then(Commands.literal('mute')
+        .executes(logged(status))
+        .then(Commands.literal('on').executes(logged(setMute(true))))
+        .then(Commands.literal('off').executes(logged(setMute(false))))
+        .then(Commands.literal('status').executes(logged(status))))))
 })

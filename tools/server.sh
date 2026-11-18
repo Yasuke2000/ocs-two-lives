@@ -81,11 +81,17 @@ case "${1:-}" in
       sleep 60
     done
     exit 1 ;;
-  test) run_test "$(dirname "$0")/../tests/ingame/${2:?usage: server.sh test <name>}.rcon" ;;
+  # Tests never post to Discord (#story, #events): the mute is set for the run and lifted after it, and
+  # discord.js drops every post while a test bot is online as well.
+  test)
+    rcon "ttl discord mute on" >/dev/null
+    run_test "$(dirname "$0")/../tests/ingame/${2:?usage: server.sh test <name>}.rcon"
+    rcon "ttl discord mute off" >/dev/null ;;
   # Every tests/ingame/*.rcon. A test fails on command errors, or when a trial test ends the other way
   # than its name says (`*_fail` must fail, every other trial test must pass). Takes ~6 minutes.
   test-all)
     fails=0
+    rcon "ttl discord mute on" >/dev/null
     for f in "$(dirname "$0")"/../tests/ingame/*.rcon; do
       name=$(basename "$f" .rcon)
       out=$(run_test "$f" 2>&1 | plain)
@@ -101,6 +107,7 @@ case "${1:-}" in
       printf '%-24s %s
 ' "$name" "$verdict"
     done
+    rcon "ttl discord mute off" >/dev/null
     echo "$fails failing"
     [ "$fails" -eq 0 ] ;;
   who) humans ;;

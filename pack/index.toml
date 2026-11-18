@@ -1842,7 +1842,7 @@ hash = "d5190bd9921560a0f5a9acea64afae9fcb08c51d42fa35a255d4fff046614fa9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/commands.js"
-hash = "7d7d7e5c02482f18754de4c4869192bf2981b1c580ff02e505ba2417eb48c4bf"
+hash = "2e437f4d9ab61e388f39e06f8427e37bcd3eee8a5be69b8e5699ead578943b33"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/loot.js"
@@ -1862,7 +1862,7 @@ hash = "84b457ac27666625797ae5710823d12c2473920b3f16ad2106fe262e18c2182f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/discord.js"
-hash = "6a9f099447dd0c0643f07a35c2f119916e914d46f4c7052d1a11987d490744f6"
+hash = "6b0ce346ca61b6278205f550943e02adaaa97eaca85a0e2aaa86f38d4cc2aa08"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/discord/awaken.js"
@@ -1910,7 +1910,7 @@ hash = "01896f2aad3bc265bbb3274ab0730e264125115e429e55c8a7adda618077c417"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/era/era.js"
-hash = "342d48a6acb72ce3cddbb970efe8e6255c63bbe2983279b82da0365ac80a008e"
+hash = "beed5631db16ecae9c570de4163bf62d0e781e55867ee07600d68b62467a8e1a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/commands.js"
