@@ -56,6 +56,258 @@ const TtlData = {
       "role_sync_minutes": 5
     }
   },
+  "factions": {
+    "bands": {
+      "exalted": 80,
+      "friendly": 20,
+      "honored": 50,
+      "hostile": -50,
+      "unfriendly": -20
+    },
+    "faction": [
+      {
+        "capital": "Tempest (Rimuru, capital of the Federation)",
+        "decay_per_week": 1,
+        "id": "tempest",
+        "kill_penalty": {
+          "npc": 15,
+          "player": 5
+        },
+        "npc_tags": [
+          "ttl.npc.tempest"
+        ],
+        "npc_types": [],
+        "region": "J",
+        "seed": {
+          "axis": {},
+          "race": {
+            "goblin": 20,
+            "hobgoblin": 10,
+            "lizardman": 5,
+            "ogre": 10,
+            "slime": 20
+          }
+        },
+        "tensura_mirror": false,
+        "title": "Jura-Tempest Federation"
+      },
+      {
+        "capital": "Dwargo (Dwargon cavern capital)",
+        "decay_per_week": 2,
+        "id": "dwargon",
+        "kill_penalty": {
+          "npc": 15,
+          "player": 5
+        },
+        "npc_tags": [
+          "ttl.npc.dwargon"
+        ],
+        "npc_types": [
+          "tensura:dwarf"
+        ],
+        "region": "D",
+        "seed": {
+          "axis": {
+            "craft": 10
+          },
+          "race": {
+            "dwarf": 20
+          }
+        },
+        "tensura_mirror": true,
+        "title": "Armed Nation of Dwargon"
+      },
+      {
+        "capital": "Blumund capital (Londo)",
+        "decay_per_week": 2,
+        "id": "blumund",
+        "kill_penalty": {
+          "npc": 15,
+          "player": 5
+        },
+        "npc_tags": [
+          "ttl.npc.blumund"
+        ],
+        "npc_types": [],
+        "region": "R",
+        "seed": {
+          "axis": {
+            "order": 15
+          },
+          "race": {
+            "human": 10
+          }
+        },
+        "tensura_mirror": false,
+        "title": "Kingdom of Blumund"
+      },
+      {
+        "capital": "Marris (Falmuth capital)",
+        "decay_per_week": 2,
+        "id": "falmuth",
+        "kill_penalty": {
+          "npc": 15,
+          "player": 5
+        },
+        "npc_tags": [
+          "ttl.npc.falmuth"
+        ],
+        "npc_types": [
+          "tensura:falmuth_knight"
+        ],
+        "region": "F",
+        "seed": {
+          "axis": {
+            "valor": 10
+          },
+          "race": {
+            "goblin": -10,
+            "human": 10,
+            "orc": -10
+          }
+        },
+        "tensura_mirror": false,
+        "title": "Kingdom of Falmuth"
+      },
+      {
+        "capital": "Holy City Lubelius (Lune)",
+        "decay_per_week": 1,
+        "id": "holy_church",
+        "kill_penalty": {
+          "npc": 20,
+          "player": 5
+        },
+        "npc_tags": [
+          "ttl.npc.holy_church"
+        ],
+        "npc_types": [],
+        "region": "L",
+        "seed": {
+          "axis": {
+            "faith": 10,
+            "order": 10
+          },
+          "race": {
+            "elf": 5,
+            "ghoul": -25,
+            "high_orc": -20,
+            "human": 10,
+            "lesser_daemon": -40,
+            "orc": -15,
+            "vampire": -40,
+            "wight": -25
+          }
+        },
+        "tensura_mirror": false,
+        "title": "Western Holy Church"
+      },
+      {
+        "decay_per_week": 2,
+        "id": "orc_horde",
+        "kill_penalty": {
+          "npc": 15,
+          "player": 5
+        },
+        "npc_tags": [
+          "ttl.npc.orc_horde"
+        ],
+        "npc_types": [],
+        "region": "V",
+        "seed": {
+          "axis": {
+            "chaos": 15
+          },
+          "race": {
+            "ghoul": 5,
+            "high_orc": 30,
+            "orc": 20
+          }
+        },
+        "title": "Orc Horde"
+      },
+      {
+        "capital": "Lizardmen's caverns (Gabiru, Avalos)",
+        "decay_per_week": 2,
+        "id": "lizardmen",
+        "kill_penalty": {
+          "npc": 15,
+          "player": 5
+        },
+        "npc_tags": [
+          "ttl.npc.lizardmen"
+        ],
+        "npc_types": [],
+        "region": "W",
+        "seed": {
+          "axis": {},
+          "race": {
+            "dragonewt": 5,
+            "lizardman": 20
+          }
+        },
+        "tensura_mirror": false,
+        "title": "Lizardmen of Lake Siss"
+      },
+      {
+        "decay_per_week": 0,
+        "hidden": true,
+        "id": "outcast",
+        "kill_penalty": {
+          "npc": 10,
+          "player": 0
+        },
+        "npc_tags": [
+          "ttl.npc.outcast"
+        ],
+        "npc_types": [],
+        "seed": {
+          "axis": {},
+          "dark": 20,
+          "race": {}
+        },
+        "tensura_mirror": false,
+        "title": "Outcast Society"
+      }
+    ],
+    "renown": {
+      "band": {
+        "exalted": 15,
+        "friendly": 3,
+        "honored": 8,
+        "hostile": -5,
+        "neutral": 0,
+        "unfriendly": -2
+      },
+      "boss": {
+        "ttl.boss.t1": 10,
+        "ttl.boss.t2": 20,
+        "ttl.boss.t3": 40,
+        "ttl.boss.t4": 80
+      },
+      "min": 0,
+      "stage": {},
+      "tier": {
+        "elite": 15,
+        "legendary": 30,
+        "normal": 5,
+        "underdog": 0
+      },
+      "unique": {
+        "common": 4,
+        "legendary": 25,
+        "rare": 10
+      }
+    },
+    "rules": {
+      "decay_days": 7,
+      "guard_attack_at": "hostile",
+      "log_size": 200,
+      "max": 100,
+      "min": -100,
+      "seed_axis_cap": 100,
+      "shop_refuse_at": "hostile"
+    }
+  },
   "guide": {
     "corridor": [
       {

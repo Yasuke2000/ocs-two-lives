@@ -1,0 +1,126 @@
+# Factions and reputation (design/data/factions.toml, rep/*.js). `ttl rep expect <bot> <faction> <field> <value>`
+# prints "ttl: ..." when it does not hold, which `server.sh test-all` counts as a failure.
+# A: Craft-heavy soul, reborn as a dwarf -> Dwargon friendly (dwarf 20 + craft 10); a -80 slap makes it Hostile and
+#    the stages follow (only one band stage at a time); clamping at +-100; decay toward 0.
+# B: a Dark soul reborn as an orc -> Orc Horde friendly or better, the hidden Outcast Society at 20.
+# C: the real rebirth flow as a slime -> Tempest friendly (slime 20), everything else neutral; Exalted is announced once.
+# Renown (a worth score from tier, bosses, reputation bands, uniques, bonus): `ttl rep renown`, `expect <bot> renown ...`.
+# Expect in the log: "[ttl] rep: TtlBotRepA dwargon -80 -> -50 (command)" and the seed lines "seed dwarf: dwargon=30".
+# Also check in game (not asserted here): `tensura get stat TtlBotRepA reputation` follows Dwargon (mirror), and
+# an Easy NPC tagged ttl.npc.dwargon killed by a Life 2 player costs 15 (guards.js, see its header).
+ttlbot spawn TtlBotRepA
+ttlbot spawn TtlBotRepB
+ttlbot spawn TtlBotRepC
+@sleep 2
+# A: 20 ancient debris x 5 = 100 raw Craft karma (score > 100), then death.
+ttl karma TtlBotRepA set ancient_debris 20
+kill TtlBotRepA
+# B: a short life that ended in eight murdered villagers (karma.rcon: dark = true).
+ttl karma TtlBotRepB set play_time 216000
+ttl karma TtlBotRepB set mob_kills 60
+ttl karma TtlBotRepB set villagers 8
+ttl karma TtlBotRepB set advancements 10
+ttl karma TtlBotRepB expect dark true
+kill TtlBotRepB
+@sleep 1
+ttl karma TtlBotRepA expect phase corridor
+ttl karma TtlBotRepB expect phase corridor
+# A: seeding as a dwarf.
+ttl rep seed TtlBotRepA dwarf
+ttl rep list TtlBotRepA
+ttl rep expect TtlBotRepA dwargon value 30
+ttl rep expect TtlBotRepA dwargon band friendly
+ttl rep expect TtlBotRepA dwargon stage friendly
+ttl rep expect TtlBotRepA dwargon nostage neutral
+ttl rep expect TtlBotRepA dwargon nostage hostile
+ttl rep expect TtlBotRepA dwargon score 30
+ttl rep expect TtlBotRepA tempest band neutral
+ttl rep expect TtlBotRepA tempest stage neutral
+ttl rep expect TtlBotRepA falmuth value 0
+# A: a -80 slap: Hostile, and only the hostile stage is left.
+ttl rep add TtlBotRepA dwargon -80
+ttl rep expect TtlBotRepA dwargon value -50
+ttl rep expect TtlBotRepA dwargon band hostile
+ttl rep expect TtlBotRepA dwargon stage hostile
+ttl rep expect TtlBotRepA dwargon nostage friendly
+ttl rep expect TtlBotRepA dwargon score -50
+# A: band edges (friendly >= 20, honored >= 50, exalted >= 80, unfriendly <= -20) and the clamp.
+ttl rep set TtlBotRepA dwargon -20
+ttl rep expect TtlBotRepA dwargon band unfriendly
+ttl rep set TtlBotRepA dwargon -19
+ttl rep expect TtlBotRepA dwargon band neutral
+ttl rep set TtlBotRepA dwargon 20
+ttl rep expect TtlBotRepA dwargon band friendly
+ttl rep set TtlBotRepA dwargon 50
+ttl rep expect TtlBotRepA dwargon band honored
+ttl rep set TtlBotRepA dwargon 80
+ttl rep expect TtlBotRepA dwargon band exalted
+ttl rep add TtlBotRepA dwargon 500
+ttl rep expect TtlBotRepA dwargon value 100
+ttl rep add TtlBotRepA dwargon -900
+ttl rep expect TtlBotRepA dwargon value -100
+ttl rep expect TtlBotRepA dwargon stage hostile
+# A: one decay step is 2 points toward 0 for Dwargon; it never crosses 0.
+ttl rep set TtlBotRepA dwargon 30
+ttl rep decay TtlBotRepA 1
+ttl rep expect TtlBotRepA dwargon value 28
+ttl rep set TtlBotRepA blumund -1
+ttl rep decay TtlBotRepA 1
+ttl rep expect TtlBotRepA blumund value 0
+# B: seeded as an orc: Orc Horde (orc 20 + Chaos 15 x score/100, score >= 60) and the hidden Outcast Society.
+ttl rep seed TtlBotRepB orc
+ttl rep list TtlBotRepB
+ttl rep expect TtlBotRepB orc_horde min 29
+ttl rep expect TtlBotRepB orc_horde stage friendly
+ttl rep expect TtlBotRepB outcast value 20
+ttl rep expect TtlBotRepB outcast stage friendly
+ttl rep expect TtlBotRepB dwargon value 0
+# C: the rebirth hook. A fresh soul is offered Slime; as a slime it starts Tempest friendly.
+ttl rep expect TtlBotRepC tempest value 0
+kill TtlBotRepC
+@sleep 1
+execute as TtlBotRepC run ttl wish knowledge
+execute as TtlBotRepC run ttl choose slime
+ttl karma TtlBotRepC expect phase life2
+ttl rep expect TtlBotRepC tempest value 20
+ttl rep expect TtlBotRepC tempest band friendly
+ttl rep expect TtlBotRepC tempest stage friendly
+ttl rep expect TtlBotRepC dwargon value 0
+ttl rep expect TtlBotRepC outcast value 0
+ttl rep expect TtlBotRepC holy_church band neutral
+# C: reaching Exalted announces it once (Voice line in chat; bots never reach Discord).
+ttl rep set TtlBotRepC tempest 90
+ttl rep expect TtlBotRepC tempest band exalted
+ttl rep expect TtlBotRepC tempest stage exalted
+ttl rep set TtlBotRepC tempest 10
+ttl rep set TtlBotRepC tempest 90
+ttl rep log 8
+# C: renown (factions.toml [renown]): a fresh underdog soul has tier 0, Tempest friendly is +3, no boss yet.
+# The unique it was drawn adds an unknown amount (rarity), so only the parts and lower bounds are asserted.
+ttl rep renown TtlBotRepC
+ttl rep expect TtlBotRepC renown tier 0
+ttl rep expect TtlBotRepC renown rep 15
+ttl rep expect TtlBotRepC renown bosses 0
+ttl rep expect TtlBotRepC renown bonus 0
+# Tempest is exalted here (+15, set above). Bonus renown (quests, merit) and a boss stage (+10 for ttl.boss.t1) add up.
+ttl rep bonus TtlBotRepC 7
+ttl rep expect TtlBotRepC renown bonus 7
+kubejs stages add TtlBotRepC ttl.boss.t1
+ttl rep expect TtlBotRepC renown bosses 10
+ttl rep expect TtlBotRepC renown min 32
+kubejs stages remove TtlBotRepC ttl.boss.t1
+ttl rep expect TtlBotRepC renown bosses 0
+ttl rep bonus TtlBotRepC -7
+ttl rep expect TtlBotRepC renown bonus 0
+# Souls still in the Spirit Corridor have no bosses or uniques yet: A's renown has no bonus and no stage points.
+ttl rep expect TtlBotRepA renown bonus 0
+ttl rep expect TtlBotRepA renown uniques 0
+# The player's own view works too.
+execute as TtlBotRepC run ttl rep
+execute as TtlBotRepC run ttl rep renown
+ttl reset TtlBotRepA
+ttl reset TtlBotRepB
+ttl reset TtlBotRepC
+ttlbot remove TtlBotRepA
+ttlbot remove TtlBotRepB
+ttlbot remove TtlBotRepC

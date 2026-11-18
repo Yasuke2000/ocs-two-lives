@@ -265,6 +265,8 @@ const TtlCorridor = {
     }
     // Karma v1: a Legend's soul also carries a non-unique skill (karma.toml bonus_skills).
     TtlKarma.grantBonus(server, player)
+    // Reputation (rep/rep.js): faction standing seeded from the race and the Life 1 karma just judged.
+    try { if (typeof TtlRep !== 'undefined') TtlRep.seed(server, player, race) } catch (e) { console.error(`[ttl] ${name}: reputation seed failed: ${e}`) }
     server.runCommandSilent(`quietly clear ${name}`)
     // Carryover (life/mortal_banned.js): ttl:soulbound items and the Mortal Realm soul stash return with the new body.
     try {

@@ -58,6 +58,99 @@ def check_mortal_banned(banned: dict) -> None:
             raise SystemExit(f"mortal_banned.toml: {key} lists an entry twice")
 
 
+def check_factions(fac: dict, karma: dict | None) -> None:
+    # rep/rep.js reads these by name; a typo in a band, region, race or axis would silently seed or gate nothing.
+    canon = json.loads(CANON.read_text(encoding="utf-8"))
+    landmarks = {lm["name"] for lm in canon["landmarks"]}
+    order = ("hostile", "unfriendly", "friendly", "honored", "exalted")
+    rules = fac["rules"]
+    lo, hi = rules["min"], rules["max"]
+    if not (isinstance(lo, int) and isinstance(hi, int) and lo < 0 < hi):
+        raise SystemExit("factions.toml: rules.min must be negative and rules.max positive integers")
+    for key in ("guard_attack_at", "shop_refuse_at"):
+        if rules[key] not in ("hostile", "unfriendly"):
+            raise SystemExit(f"factions.toml: rules.{key} must be hostile or unfriendly")
+    for key in ("decay_days", "log_size", "seed_axis_cap"):
+        if not isinstance(rules[key], int) or rules[key] < 1:
+            raise SystemExit(f"factions.toml: rules.{key} must be a positive integer")
+
+    def check_bands(where: str, bands: dict) -> None:
+        if sorted(bands) != sorted(order):
+            raise SystemExit(f"{where}: needs exactly {', '.join(order)}")
+        values = [bands[b] for b in order]
+        if any(not isinstance(v, int) for v in values) or values != sorted(set(values)):
+            raise SystemExit(f"{where}: thresholds must be strictly increasing integers")
+        if not (lo <= values[0] < 0 < values[2] and values[-1] <= hi):
+            raise SystemExit(f"{where}: hostile/unfriendly must be below 0, friendly and up above 0, all within min..max")
+
+    check_bands("factions.toml [bands]", fac["bands"])
+    axes = set(karma["axes"]) if karma else None
+    seen = set()
+    for f in fac["faction"]:
+        fid = f.get("id", "")
+        where = f"factions.toml: {fid or '?'}"
+        if not re.fullmatch(r"[a-z][a-z_]*", fid) or fid in seen:
+            raise SystemExit(f"{where}: id must be unique [a-z_]")
+        seen.add(fid)
+        if not str(f.get("title", "")).strip():
+            raise SystemExit(f"{where}: needs a title")
+        if "region" in f and f["region"] not in canon["regions"]:
+            raise SystemExit(f"{where}: region {f['region']!r} is not a key of canon_regions.json")
+        if "capital" in f and f["capital"] not in landmarks:
+            raise SystemExit(f"{where}: capital {f['capital']!r} is not a canon landmark")
+        if "bands" in f:
+            check_bands(where + " bands", f["bands"])
+        for tag in f.get("npc_tags", []):
+            if not re.fullmatch(r"[a-z0-9_.]+", tag):
+                raise SystemExit(f"{where}: npc tag {tag!r} must be [a-z0-9_.] (vanilla entity tags)")
+        for t in f.get("npc_types", []):
+            if not re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", t):
+                raise SystemExit(f"{where}: npc type {t!r} must be a namespaced entity id")
+        kp = f.get("kill_penalty", {})
+        if sorted(kp) != ["npc", "player"] or any(not isinstance(v, int) or v < 0 for v in kp.values()):
+            raise SystemExit(f"{where}: kill_penalty needs npc and player, non-negative integers")
+        if not isinstance(f.get("decay_per_week"), int) or f["decay_per_week"] < 0:
+            raise SystemExit(f"{where}: decay_per_week must be a non-negative integer")
+        seed = f.get("seed", {})
+        for race, n in seed.get("race", {}).items():
+            if not re.fullmatch(r"[a-z_]+", race) or not isinstance(n, int) or not lo <= n <= hi:
+                raise SystemExit(f"{where}: seed race {race!r} = {n!r} must be a race id and an integer within min..max")
+        for axis, n in seed.get("axis", {}).items():
+            if axes is not None and axis not in axes:
+                raise SystemExit(f"{where}: seed axis {axis!r} is not a karma axis ({', '.join(sorted(axes))})")
+            if not isinstance(n, int) or not lo <= n <= hi:
+                raise SystemExit(f"{where}: seed axis {axis!r} must be an integer within min..max")
+        if "dark" in seed and (not isinstance(seed["dark"], int) or not lo <= seed["dark"] <= hi):
+            raise SystemExit(f"{where}: seed dark must be an integer within min..max")
+    ren = fac["renown"]
+    if not isinstance(ren.get("min"), int):
+        raise SystemExit("factions.toml: renown.min must be an integer")
+    tiers = {t["id"] for t in karma["tiers"]} if karma else None
+    wanted = {"tier": tiers, "band": {"hostile", "unfriendly", "neutral", "friendly", "honored", "exalted"},
+              "unique": {"common", "rare", "legendary"}}
+    for table, keys in wanted.items():
+        values = ren.get(table)
+        if not isinstance(values, dict):
+            raise SystemExit(f"factions.toml: [renown] {table} must be a table")
+        for key, n in values.items():
+            if keys is not None and key not in keys:
+                raise SystemExit(f"factions.toml: renown.{table} has unknown key {key!r} (one of {', '.join(sorted(keys))})")
+            if not isinstance(n, int):
+                raise SystemExit(f"factions.toml: renown.{table}.{key} must be an integer")
+        if keys is not None and set(values) != keys:
+            raise SystemExit(f"factions.toml: renown.{table} must list every one of {', '.join(sorted(keys))}")
+    for table in ("boss", "stage"):
+        values = ren.get(table)
+        if not isinstance(values, dict):
+            raise SystemExit(f"factions.toml: [renown] {table} must be a table")
+        for key, n in values.items():
+            if not re.fullmatch(r"ttl\.[a-z0-9_.]+", key) or not isinstance(n, int):
+                raise SystemExit(f"factions.toml: renown.{table} entry {key!r} must be a ttl.* stage and an integer")
+    mirrors = [f["id"] for f in fac["faction"] if f.get("tensura_mirror")]
+    if len(mirrors) > 1:
+        raise SystemExit(f"factions.toml: only one faction can mirror into Tensura's reputation, found {', '.join(mirrors)}")
+
+
 def settlement_box(script: str, anchor: str, footprint: str) -> tuple[int, int, int, int]:
     """World box (x0, z0, x1, z1, margin included) of Tempest or Dwargon, as their scripts compute it."""
     m = re.search(anchor + r":\s*\{\s*x:\s*(-?\d+),\s*z:\s*(-?\d+)", (SCRIPTS / "life" / script).read_text(encoding="utf-8"))
@@ -120,6 +213,8 @@ def render() -> str:
         check_mortal_banned(data["mortal_banned"])
     if "landmarks" in data:
         check_landmarks(data["landmarks"])
+    if "factions" in data:
+        check_factions(data["factions"], data.get("karma"))
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     return (
         "// priority: 200\n"
