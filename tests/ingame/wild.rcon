@@ -1,0 +1,73 @@
+# Wild bosses (bosses/wild.js, `wild` tables in design/data/bosses.toml, story-characters.md section 5). Every `ttl boss expect`
+# prints "ttl: ..." when it does not hold (counted as a failure by `server.sh test-all`). `ttl boss wild roll` prints
+# "boss wild <id>: refused: ..." for a refusal; that is a plain line, not a failure.
+# The natural roll (per-minute chance in a listed region) cannot be asserted in a short test: it is covered by `chance`/`wildregion`
+# here and by the log line "[ttl] boss: wild <id> near <player> in <region>" when it fires for real. A manual roll skips the
+# chance, region, weather and day caps but keeps the boss cooldown, max_active and "already out there".
+# Expect in the log: "[ttl] boss: wild shizu near TtlBotWildA in ..." (region name, or "uncharted land"), "[ttl] boss: shizu
+# summoned (wild) (hp ...)", "[ttl] events: registered wild_boss" at start-up, and the announce line "A calamity stirs: Shizu, the
+# Flame Tyrant roams ..." in chat for the Life 2 bot. Needs the Tensura world (the Overworld) and the event director (WP7).
+ttlbot spawn TtlBotWildA
+@sleep 2
+gamemode creative TtlBotWildA
+kubejs stages add TtlBotWildA ttl.life2
+ttl boss reset TtlBotWildA
+ttl boss abort
+@sleep 2
+ttl events expect registered wild_boss true
+ttl events expect scheduled wild_boss false
+ttl boss wild
+# Odds: the O7 starting values; the path multiplier is per boss (Hinata x3 for dark-path souls, nobody else).
+ttl boss expect TtlBotWildA chance orc_lord 0.03
+ttl boss expect TtlBotWildA chance shizu 0.01
+ttl boss expect TtlBotWildA chance hinata_sakaguchi 0.005
+ttl boss expect TtlBotWildA chance gazel_dwargo 0
+kubejs stages add TtlBotWildA ttl.path.dark
+ttl boss expect TtlBotWildA chance hinata_sakaguchi 0.015
+ttl boss expect TtlBotWildA chance shizu 0.01
+kubejs stages remove TtlBotWildA ttl.path.dark
+kubejs stages add TtlBotWildA ttl.path.light
+ttl boss expect TtlBotWildA chance hinata_sakaguchi 0.005
+kubejs stages remove TtlBotWildA ttl.path.light
+# Regions: Tempest's green (0 0) is Jura ('J'): Shizu and the Orc Lord roam there, Hinata does not.
+execute in minecraft:overworld run tp TtlBotWildA 0 100 0
+@sleep 1
+ttl boss expect TtlBotWildA wildregion shizu yes
+ttl boss expect TtlBotWildA wildregion orc_lord yes
+ttl boss expect TtlBotWildA wildregion hinata_sakaguchi no
+# A manual roll near the bot: far from Tempest, so the safe-zone margin does not refuse the spot.
+execute in minecraft:overworld run tp TtlBotWildA 600 120 600
+@sleep 1
+ttl boss expect TtlBotWildA active shizu no
+ttl boss expect TtlBotWildA wildblock shizu no
+ttl boss wild roll shizu TtlBotWildA
+@sleep 6
+ttl boss expect TtlBotWildA active shizu yes
+ttl boss expect TtlBotWildA wild shizu yes
+execute in minecraft:overworld if entity @e[tag=ttl.boss,tag=ttl.bossid.shizu]
+ttl boss list
+# max_active = 1: a second wild boss is refused while one roams, and the same boss is "already out there".
+ttl boss expect TtlBotWildA wildblock orc_lord yes
+ttl boss expect TtlBotWildA wildblock shizu yes
+ttl boss wild roll orc_lord TtlBotWildA
+ttl boss expect TtlBotWildA active orc_lord no
+ttl boss wild
+ttl boss abort shizu
+@sleep 2
+ttl boss expect TtlBotWildA active shizu no
+ttl boss expect TtlBotWildA wildblock orc_lord no
+# A summoned (quest or altar) boss is not a wild one and does not use up max_active.
+ttl boss summon shizu
+@sleep 4
+ttl boss expect TtlBotWildA active shizu yes
+ttl boss expect TtlBotWildA wild shizu no
+ttl boss expect TtlBotWildA wildblock orc_lord no
+ttl boss abort shizu
+@sleep 2
+# The fixed spawn stays: the summoned Shizu stood at Tempest's arena, the wild one near the bot (the log lines show both).
+ttl boss expect TtlBotWildA active shizu no
+# Clean up.
+ttl boss abort
+ttl boss reset TtlBotWildA
+kubejs stages remove TtlBotWildA ttl.life2
+ttlbot remove TtlBotWildA
