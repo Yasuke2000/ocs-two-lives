@@ -1,0 +1,10 @@
+name = "ulgr_nature_park"
+title = "Ulgr Nature Park — The Spirit Trail"
+landmark = "Galut / Ulgr Nature Park (Ulgracia)"
+anchor = [30, 4, 31]
+ground = "survey"
+search = 64
+max_wet = 0.05
+margin = 10
+version = 1
+notes = "The northern park named on the map. The woodland vault marks the story entrance and the Jura gate handles travel."

@@ -1,0 +1,15 @@
+# Siltrosso — The Rosso counting court
+
+A stone balance set into the paving marks the centre of the court. A visitor entering between the south gateposts passes a clerk's office on either side. Their doors face inward. Across the square, five arches admit visitors to a larger audience house. Its roofed loggia shelters the queue. Inside, a west stair leads to the book gallery behind the desks. Two chimneys and a slate dormer distinguish the house from the two lower tiled offices. Short rose walks flank the court.
+
+## Canon and interpretation
+
+Granbell's official profile says that he founded the Kingdom of Siltrosso, turned back a threat from the north and headed the Rosso family that exercised power behind the western nations. Mariabell's official profile describes her as the precocious granddaughter he trusted. Her novel character entry describes the financial knowledge with which she sought to control this world. Together these sources suggested an audience house with public and private business close together. [Granbell, official anime profile](https://www.ten-sura.com/character/granville) · [Mariabell, official anime profile](https://www.ten-sura.com/character/maribel) · [Novel character sources, Mariabell](https://ja.wikipedia.org/wiki/転生したらスライムだった件#マリアベル)
+
+The counting court itself, its ledger gallery, colours, scale mosaic and rose planting are **our interpretation**. Neither the scales nor the roses are presented as the family crest. The political map represents Siltrosso as its own small territory near Englassia. Its pin falls on G in the pack's coarser grid. [Pack map audit, point 15](../../docs/audits/world-audit-2026-11.md) · [Political reference plate](https://i.redd.it/q1p4ksudqyah1.png)
+
+## Building and placement
+
+The template is **73 × 37 × 65 blocks** (x, y, z). The entrance at local **(36, 5, 52)** anchors the survey at **(−2026, −921)**. The plots of the offices begin at (10, 35) and (47, 35). The gallery stair begins inside the house at (19–21, 5, 21). Three slabs start at z 0, 22 and 44. The nominal box crosses the mapped coast. A 96-block survey with a 10% wet limit includes entirely dry grid footprints, including one 32 blocks south. The loaded world's shore and terrain decide the actual site. Check the approach and the skirt on the coastal side after placement. [Blueprint](../../blueprints/siltrosso.py) · [Placement manifest](../builds/siltrosso.toml)
+
+The court uses the pack's existing town helpers, with original house, gallery, loggia and garden geometry. Lightman's Currency includes a much smaller village banker house (`lightmanscurrency:village/houses/plains_banker`, packaged under Apache 2.0). It was checked alongside Ballachia's post-raid exchange and the community medieval town hall previously researched for that build. The town hall page was inaccessible during this pass and no reuse permission was established. No external geometry or artwork was imported. [Lightman's Currency](https://github.com/Lightman314/LightmansCurrency) · [Ballachia reference notes](ballachia.md) · [Das_Felixle, Medieval Town Hall](https://www.planetminecraft.com/project/medieval-town-hall-2471489/)

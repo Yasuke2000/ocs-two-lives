@@ -1,0 +1,11 @@
+# The Wool Hall of Nostraille
+
+Under the hall’s two ridges, carts can pass between the stone piers. A beam balance hangs over the central aisle and graded fleeces are stacked along the north side. The three south gables face the street. Across it, lengths of russet and undyed cloth hang from open tenter frames. The walking anchor is local (36, 5, 43) in a 72 × 33 × 64 template, at the Nostraille landmark near world (−2560, 360).
+
+Nostraille appears among the small western states on the Council map. The Council itself meets in Englesia. The pack calls Nostraille a quiet hill kingdom. The sources establish geography and give no architecture or wool industry for the capital. **Our interpretation** gives this farming country a covered wool hall and a yard where cloth can dry under tension. [Council map comparison](https://www.reddit.com/r/TenseiSlime/comments/1suz7yb/new_countries/) · [Episode 76 preview](https://www.oricon-group.com/news/8380/) · [Pack geography](world.md)
+
+The survey may move the anchor up to 32 blocks along either axis within Nostraille. It tolerates up to 8% wet samples to accommodate small streams. Near the limit of the search, part of the construction skirt can extend into the neighbouring G region.
+
+The five open bays, central columns and repeated gables draw on the 1627 market hall at Chipping Campden. Its record describes a stone roof and semicircular arches. Here stepped sandstone arches carry the eaves and lanterns hang from the exposed timbers above the weighing floor. The balance, fleeces, drying frames and paths were laid out for this site. [National Trust building record](https://heritagerecords.nationaltrust.org.uk/HBSMR/MonRecord.aspx?uid=MNA138013)
+
+The pack’s town library supplies masonry, roof and lighting helpers. Existing Blumund and Marris blueprints, repository assets, installed structure inventories and the community Tensura map were checked. The jar inventory has no named Nostraille structure. Towns and Towers’ Romanian birch-forest meeting point measures 21 × 30 × 34, but its plan was not imported. The community map served as a geographic comparison. All block placements are original and no external schematic was imported. [Community map, Lerfing](https://www.planetminecraft.com/project/tensura-map/)

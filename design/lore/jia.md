@@ -1,0 +1,9 @@
+# Jia — Frey’s Landing Court
+
+From the southern trail, a broad stone stair climbs through the exposed ribs of a mountain spur. At its head, six quartz columns carry a canopy of overlapping copper flight feathers. Two long landing galleries extend beyond the rock on ribbed timber supports. The sheltered audience seat faces the stair. The open gallery tips give a harpy a straight flight path to the deck.
+
+The official glossary describes Frey’s Fulbrosia as a harpy country in a cold, high mountain region. Tinseluwu’s political plate labels the capital Jia and supplies the position used by the pack. The gallery, seat, colours and feather construction are **our interpretation** of what a reception court serving both flying residents and visitors on foot might look like. [Official Fulbrosia entry](https://www.ten-sura.com/map/#A-140) · [Fan cartography and author’s notes](https://www.reddit.com/r/TenseiSlime/comments/1um7i81/i_created_a_bunch_of_tensura_political_maps/) · [Pack map audit, landmark 43](../../docs/audits/world-audit-2026-11.md)
+
+The template spans **73 × 40 × 69 blocks** (east–west × height × north–south). Local **(36, 4, 64)** is the foot of the stair. Its survey starts at world **(349, 1819)**, on H land. The 12-block rise to the gallery is built into the template so it remains walkable when the survey picks a ridge shoulder. The exact sky backdrop and exposure depend on the generated terrain.
+
+All architecture and landscaping are original. We used the project’s settlement, noise and lighting helpers. The pinned pack’s structure inventory and the existing city and Demon Lord seat blueprints supplied no Jia court. The local goblin village and Gazel throne assets belong to different places. No external NBT, character art or community schematic is included.

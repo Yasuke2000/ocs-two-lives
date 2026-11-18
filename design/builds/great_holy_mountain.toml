@@ -1,0 +1,9 @@
+name = "great_holy_mountain"
+title = "Scorching God Mountain — Velgrynd’s sanctuary"
+landmark = "Great Holy Mountain (Velgrynd)"
+anchor = [44, 5, 78]
+ground = "survey"
+search = 48
+max_wet = 0.08
+margin = 12
+version = 1

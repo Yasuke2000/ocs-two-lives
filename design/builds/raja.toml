@@ -1,0 +1,12 @@
+name = "raja"
+title = "Raja — The Old Lakeside Workings"
+landmark = "Raja"
+anchor = [36, 6, 49]
+ground = "survey"
+search = 48
+max_wet = 0.08
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+margin = 12
+notes = "Walk north from the inlet landing to the winding frame and the exhausted gold mine in the bank."
