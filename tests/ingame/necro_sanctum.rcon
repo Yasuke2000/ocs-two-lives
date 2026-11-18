@@ -1,0 +1,69 @@
+# The player-built tomb (owner decision 18/11/2026; WP-N2: necro/sanctum.js, design/data/necro.toml [sanctum]). A small tomb
+# is scripted here block by block, the way a player would build it, and recognised from its Bone Altar: Crypt, open (a hole
+# in the wall), Crypt again, then a Mausoleum that stays locked until the soul's rank allows it. `ttl necro legion expect`
+# prints "ttl: ..." when wrong. Expect in the log: "[ttl] sanctum: minecraft:overworld|4505|151|4505 is crypt (ok, ...)".
+ttlbot spawn TtlBotTombA
+@sleep 3
+ttl reset TtlBotTombA
+@sleep 3
+ttl necro legion test TtlBotTombA reset
+ttl roads test TtlBotTombA life2
+gamemode creative TtlBotTombA
+execute in minecraft:overworld run forceload add 4485 4485 4525 4525
+# open air all round (a leak must reach the scan box's edge), a platform, then an 11 x 7 x 11 hollow vault: 9 x 5 x 9 air
+execute in minecraft:overworld run fill 4485 148 4485 4525 166 4525 minecraft:air
+execute in minecraft:overworld run fill 4485 149 4485 4525 149 4525 minecraft:stone
+execute in minecraft:overworld run fill 4500 150 4500 4510 156 4510 minecraft:stone_bricks hollow
+execute in minecraft:overworld run setblock 4505 151 4505 ttl:bone_altar
+execute in minecraft:overworld run tp TtlBotTombA 4503 151 4505
+@sleep 1
+ttl necro legion test TtlBotTombA rank 1
+ttl necro legion altar TtlBotTombA 4505 151 4505
+# 1. A closed room without lanterns is not a tomb yet.
+ttl necro legion expect TtlBotTombA sanctum none
+ttl necro legion expect TtlBotTombA sanctum_why short
+ttl necro legion expect TtlBotTombA niches 2
+# 2. Four grave lanterns: a Crypt (6 niches).
+execute in minecraft:overworld run setblock 4501 151 4501 ttl:grave_lantern
+execute in minecraft:overworld run setblock 4509 151 4501 ttl:grave_lantern
+execute in minecraft:overworld run setblock 4501 151 4509 ttl:grave_lantern
+execute in minecraft:overworld run setblock 4509 151 4509 ttl:grave_lantern
+ttl necro legion sanctum TtlBotTombA
+ttl necro legion expect TtlBotTombA sanctum crypt
+ttl necro legion expect TtlBotTombA niches 6
+ttl necro legion expect TtlBotTombA points 10
+# 3. A hole in the wall: the air leaks out, no tomb. Closed again: a Crypt.
+execute in minecraft:overworld run setblock 4510 153 4505 minecraft:air
+ttl necro legion expect TtlBotTombA sanctum none
+ttl necro legion expect TtlBotTombA sanctum_why open
+execute in minecraft:overworld run setblock 4510 153 4505 minecraft:stone_bricks
+ttl necro legion expect TtlBotTombA sanctum crypt
+# 4. A Mausoleum's build (8 lanterns, 6 graves, a throne skull, a blackstone floor, a magic engine) at rank 1: locked.
+execute in minecraft:overworld run setblock 4505 151 4501 ttl:grave_lantern
+execute in minecraft:overworld run setblock 4505 151 4509 ttl:grave_lantern
+execute in minecraft:overworld run setblock 4501 151 4505 ttl:grave_lantern
+execute in minecraft:overworld run setblock 4509 151 4505 ttl:grave_lantern
+execute in minecraft:overworld run fill 4502 151 4509 4504 151 4509 ttl:grave_marker
+execute in minecraft:overworld run fill 4506 151 4509 4508 151 4509 ttl:grave_marker
+execute in minecraft:overworld run setblock 4505 151 4507 minecraft:skeleton_skull
+execute in minecraft:overworld run setblock 4508 151 4502 tensura:stone_bricks_magic_engine
+execute in minecraft:overworld run fill 4501 150 4501 4509 150 4509 minecraft:polished_blackstone
+ttl necro legion expect TtlBotTombA sanctum crypt
+ttl necro legion expect TtlBotTombA sanctum_locked mausoleum
+# 5. Rank 3 (Death Marshal): a Mausoleum, 12 niches.
+ttl necro legion test TtlBotTombA rank 3
+ttl necro legion sanctum TtlBotTombA
+ttl necro legion expect TtlBotTombA sanctum mausoleum
+ttl necro legion expect TtlBotTombA niches 12
+ttl necro legion expect TtlBotTombA sanctum_locked none
+ttl necro legion expect TtlBotTombA points 20
+# 6. Breaking the altar forgets the tomb.
+execute in minecraft:overworld run setblock 4505 151 4505 minecraft:air destroy
+ttl necro legion expect TtlBotTombA altars 0
+# Clean up.
+execute in minecraft:overworld run fill 4485 148 4485 4525 166 4525 minecraft:air
+execute in minecraft:overworld run forceload remove 4485 4485 4525 4525
+ttl necro legion test TtlBotTombA reset
+ttl roads test TtlBotTombA reset
+ttl reset TtlBotTombA
+ttlbot remove TtlBotTombA

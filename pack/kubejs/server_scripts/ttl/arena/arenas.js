@@ -518,6 +518,7 @@ const TtlArenas = {
       }
     }
     if (attacker) attacker.tell(TtlArenas.text(`You defeat ${victim.username}.`, 'green'))
+    try { if (attacker && typeof TtlLegion !== 'undefined') TtlLegion.onPlayerKill(server, attacker, victim, 'arena', false) } catch (e) { console.error(`[ttl] arena: the necromancer's corpse failed: ${e}`) }
     this.out(server, m, this.uid(victim), 'defeated')
     this.save(server)
   },

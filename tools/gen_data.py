@@ -231,6 +231,99 @@ def check_roads(roads: dict, factions: dict | None, karma: dict | None) -> None:
                 raise SystemExit(f"{where}: a dark route always costs karma (chaos > 0, rule R13)")
 
 
+NECRO_KINDS = {"tensura:skeleton", "tensura:zombie"}   # UndeadHumanoidEntity, verified in tensura-neoforge-2.0.1.5
+
+
+def check_necro(necro: dict, roads: dict | None) -> None:
+    # necro/legion.js and necro/sanctum.js (WP-N2) read these by name; WP-N3 adds [[rank]] and [church] to the same file.
+    for key in ("legion", "ash", "knight", "rest", "sanctum"):
+        if not isinstance(necro.get(key), dict):
+            raise SystemExit(f"necro.toml: [{key}] missing")
+    lg = necro["legion"]
+
+    def ranks(where: str, v, length: int = 5) -> list:
+        if not (isinstance(v, list) and len(v) == length and all(isinstance(x, int) and x >= 0 for x in v)):
+            raise SystemExit(f"necro.toml: {where} must be {length} ints >= 0 (rank 0..4)")
+        if any(b < a for a, b in zip(v, v[1:])):
+            raise SystemExit(f"necro.toml: {where} must not shrink with rank")
+        return v
+
+    caps = ranks("[legion] caps", lg.get("caps"))
+    muster = ranks("[legion] muster_caps", lg.get("muster_caps"))
+    if any(m < c for c, m in zip(caps, muster)):
+        raise SystemExit("necro.toml: [legion] muster_caps must be >= caps at every rank")
+    for k in ("min_rank", "muster_hours", "muster_radius", "server_cap", "queue_per_soul", "dormant_cap", "altars_per_soul",
+              "altar_reach", "stow_radius", "recall_radius", "armed_rank", "offline_days", "loop_seconds", "sweep_minutes",
+              "lost_sweeps", "dust_cost", "ash_cost"):
+        if not (isinstance(lg.get(k), int) and lg[k] > 0):
+            raise SystemExit(f"necro.toml: [legion] {k} must be a positive int")
+    if not (is_num(lg.get("ash_mult")) and lg["ash_mult"] >= 1):
+        raise SystemExit("necro.toml: [legion] ash_mult must be a number >= 1 (the dark road is never weaker)")
+    kinds = lg.get("kinds")
+    if not (isinstance(kinds, dict) and kinds and set(kinds.values()) <= NECRO_KINDS):
+        raise SystemExit(f"necro.toml: [legion] kinds must map names to {sorted(NECRO_KINDS)}")
+    for k, v in (lg.get("points") or {}).items():
+        if not (isinstance(v, int) and v >= 0):
+            raise SystemExit(f"necro.toml: [legion.points] {k} must be an int >= 0")
+
+    a = necro["ash"]
+    for k in ("ash_chance", "dust_chance"):
+        if not (is_num(a.get(k)) and 0 <= a[k] <= 1):
+            raise SystemExit(f"necro.toml: [ash] {k} must be between 0 and 1")
+    for k in ("ash_entities", "dust_entities"):
+        if not (isinstance(a.get(k), list) and all(isinstance(x, str) and re.fullmatch(r"#?[a-z0-9_.-]+:[a-z0-9_/.-]+", x) for x in a[k])):
+            raise SystemExit(f"necro.toml: [ash] {k} must be entity ids or #tags")
+    if not set(a.get("player_scope", [])) <= {"arena", "war"}:
+        raise SystemExit("necro.toml: [ash] player_scope may only hold arena and war (O-N4)")
+    for k in ("dust_count", "victim_hours", "corpse_days", "corpse_max"):
+        if not (isinstance(a.get(k), int) and a[k] > 0):
+            raise SystemExit(f"necro.toml: [ash] {k} must be a positive int")
+
+    kn = necro["knight"]
+    ranks("[knight] max", kn.get("max"))
+    if kn.get("kind") not in kinds:
+        raise SystemExit("necro.toml: [knight] kind must be a [legion] kinds name")
+    if not (isinstance(kn.get("gear"), list) and 1 <= len(kn["gear"]) <= 5):
+        raise SystemExit("necro.toml: [knight] gear must list 1-5 items (head, chest, legs, feet, main hand)")
+    for road in ("dark", "grey"):
+        st = kn.get(road) or {}
+        if not (is_num(st.get("hp")) and is_num(st.get("attack")) and isinstance(st.get("strength"), int)):
+            raise SystemExit(f"necro.toml: [knight] {road} needs hp, attack (numbers) and strength (int, -1 = none)")
+    if "{name}" not in str(kn.get("title", "")):
+        raise SystemExit("necro.toml: [knight] title must contain {name}")
+
+    sc = necro["sanctum"]
+    for k in ("scan_radius", "scan_height", "max_air", "cache_minutes", "cooldown_seconds", "bare_niches"):
+        if not (isinstance(sc.get(k), int) and sc[k] > 0):
+            raise SystemExit(f"necro.toml: [sanctum] {k} must be a positive int")
+    tiers = sc.get("tier") or []
+    if not tiers:
+        raise SystemExit("necro.toml: [[sanctum.tier]] missing (owner 18/11/2026: tombs are recognised by tier)")
+    ids, last_rank, last_air = set(), 0, 0
+    for t in tiers:
+        tid = str(t.get("id", ""))
+        where = f"necro.toml: sanctum tier {tid}"
+        if not re.fullmatch(r"[a-z_]+", tid) or tid in ids or tid == "none":
+            raise SystemExit(f"{where}: id must be unique, lowercase and not 'none'")
+        ids.add(tid)
+        if not (isinstance(t.get("rank"), int) and 1 <= t["rank"] <= 4 and t["rank"] >= last_rank):
+            raise SystemExit(f"{where}: rank must be 1..4 and never below the tier before it")
+        if not (isinstance(t.get("min_air"), int) and t["min_air"] > last_air and t["min_air"] <= sc["max_air"]):
+            raise SystemExit(f"{where}: min_air must grow from tier to tier and stay <= [sanctum] max_air")
+        if not (isinstance(t.get("niches"), int) and 0 < t["niches"] <= lg["dormant_cap"]):
+            raise SystemExit(f"{where}: niches must be 1..[legion] dormant_cap")
+        last_rank, last_air = t["rank"], t["min_air"]
+        for n in t.get("need") or []:
+            if not (isinstance(n.get("label"), str) and isinstance(n.get("n"), int) and n["n"] > 0
+                    and isinstance(n.get("match"), list) and n["match"]
+                    and all(isinstance(m, str) and re.fullmatch(r"[a-z0-9_*.-]+:[a-z0-9_/*.-]+", m) for m in n["match"])):
+                raise SystemExit(f"{where}: every need is {{label, match = [block ids, * wildcards], n > 0}}")
+    if roads is not None:
+        for cid in ("necro.raise", "necro.knight", "necro.rest"):
+            if cid not in {str(c.get("id")) for c in roads.get("choice", [])}:
+                raise SystemExit(f"necro.toml: the legion pays {cid} through TtlRoads, roads.toml has no such choice")
+
+
 def check_carryover(carry: dict, karma: dict | None) -> None:
     # life/carryover.js reads these by name; a tier or axis typo would silently give nobody a book or an echo.
     for key in ("lore_unjudged", "lore_judged"):
@@ -1370,6 +1463,8 @@ def render() -> dict[Path, str]:
         check_mortal_banned(data["mortal_banned"])
     if "roads" in data:
         check_roads(data["roads"], data.get("factions"), data.get("karma"))
+    if "necro" in data:
+        check_necro(data["necro"], data.get("roads"))
     if "events" in data:
         check_events(data["events"])
     if "arrival" in data:

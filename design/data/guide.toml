@@ -210,7 +210,24 @@ Raise the dead and keep them. Tensura's own magic (*Create Lesser Undead*, tomes
 - *Your tomb:* build it yourself around your Bone Altar. The world recognises it and lets it grow from Crypt to Great Tomb.
 - The Church's licence lets a careful necromancer walk in the light.
 
-*Being built:* the rite, the legion and the tomb are coming. The Bone Altar block already exists.
+*Live:* the Bone Altar, the legion and the tomb (next page). *Being built:* the Rite that makes you a necromancer, ranks and the licence.
+"""
+
+[[paths]]
+title = "Your legion and your tomb"
+body = """
+# The legion
+Craft a *Bone Altar* (bone blocks, a candle, rotten flesh, cobbled deepslate), place it and right-click it.
+
+- `/ttl necro raise skeleton` (4 bone dust) or `/ttl necro raise skeleton ash` (1 soul ash: stronger, the dark road)
+- `/ttl necro stow` puts your dead to sleep in the tomb; `/ttl necro rouse` wakes them at the altar
+- `/ttl necro recall`, `/ttl necro stand all on`, `/ttl necro legion`
+- Name them the Tensura way: named dead count for your nation's army (`/ttl necro muster`).
+- *Death Knights* (rank 3): full high magisteel gear and 32 bone dust, or a soul ash and a corpse you made yourself. A fallen knight never rises again.
+- Your dead never strike a soul outside an arena, a war or a quest that allows it.
+
+# The tomb
+Build a closed room around the altar. Grave lanterns make it a *Crypt*; graves, a throne skull, blackstone and a magic engine a *Mausoleum*; a labyrinth engine and more of everything a *Great Tomb*. `/ttl necro sanctum` tells you what is missing.
 """
 
 [[paths]]
