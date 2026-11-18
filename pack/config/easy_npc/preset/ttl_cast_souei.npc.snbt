@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-660898143,530142586,-1778335534,392369246],
     VariantType:"KAI",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/souei.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

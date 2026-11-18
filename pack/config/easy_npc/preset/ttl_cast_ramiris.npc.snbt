@@ -5,7 +5,7 @@
     category:"Story",
     created:1790000000000L,
     description:"Ramiris, the smallest Demon Lord and mistress of the Labyrinth (story NPC).",
-    entityTypeId:"easy_npc:humanoid_slim",
+    entityTypeId:"easy_npc:humanoid",
     modified:1790000000000L,
     name:"Ramiris",
     variantType:"NOOR",
@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;287836586,-1718460962,-2119774053,-1395074416],
     VariantType:"NOOR",
-    id:"easy_npc:humanoid_slim"
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/ramiris.png",
+      Type:"RESOURCE_LOCATION"
+    },
+    id:"easy_npc:humanoid"
   }
 }

@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;1754041101,-1088857613,-1592412746,643959969],
     VariantType:"MAGE_01",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/shuna.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid_slim"
   }
 }

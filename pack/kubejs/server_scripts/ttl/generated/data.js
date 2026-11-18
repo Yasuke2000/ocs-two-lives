@@ -3173,9 +3173,10 @@ const TtlData = {
         },
         "giver": "desk",
         "id": "receptionist",
+        "model": "humanoid_slim",
         "name": "Guild Receptionist",
         "name_color": "#009FE3",
-        "skin": "SECURITY_01"
+        "skin": "ALEX"
       },
       {
         "description": "Benimaru, war leader of Tempest's kijin (story NPC).",
@@ -3386,7 +3387,7 @@ const TtlData = {
           "text": "A winged woman sits very straight at the council table and does not seem to need a chair."
         },
         "id": "frey",
-        "model": "humanoid_slim",
+        "model": "humanoid",
         "name": "Frey",
         "name_color": "#5DADE2",
         "skin": "MAKENA",
@@ -3431,7 +3432,7 @@ const TtlData = {
           "text": "A tiny winged girl hovers at the height of your face, beaming."
         },
         "id": "ramiris",
-        "model": "humanoid_slim",
+        "model": "humanoid",
         "name": "Ramiris",
         "name_color": "#009FE3",
         "skin": "NOOR",
@@ -3499,7 +3500,7 @@ const TtlData = {
       "check_ticks": 200,
       "interact_cooldown_ms": 600,
       "preset_prefix": "ttl_guild_",
-      "rev": 1,
+      "rev": 2,
       "sneak_bypass": true,
       "start_delay_ticks": 200
     },

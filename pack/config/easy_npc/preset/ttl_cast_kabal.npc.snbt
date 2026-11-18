@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;105294843,-1128441160,-1198608557,39779368],
     VariantType:"KNIGHT_01",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/kabal.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

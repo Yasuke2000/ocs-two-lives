@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-341444187,-1570287199,-1722457948,1814496172],
     VariantType:"ARI",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/guy.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

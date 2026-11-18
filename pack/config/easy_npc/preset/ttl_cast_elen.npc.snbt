@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;148391386,-534751483,-1204419252,677064282],
     VariantType:"ZURI",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/elen.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid_slim"
   }
 }

@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-1617679759,-943369959,-2051708293,-1639329105],
     VariantType:"FARMER_01",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/gido.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

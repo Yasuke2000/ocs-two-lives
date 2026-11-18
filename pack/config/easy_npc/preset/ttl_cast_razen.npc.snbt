@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;1738228914,1905155118,-1786749535,1296554604],
     VariantType:"ARI",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/razen.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

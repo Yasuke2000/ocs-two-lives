@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;1415445799,474895108,-1463587789,-1426421892],
     VariantType:"ZURI",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/mildo.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }
