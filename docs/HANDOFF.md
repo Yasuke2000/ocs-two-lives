@@ -44,7 +44,9 @@ tests kept out of Discord, **`bash tools/server.sh test-all` = 0 failing on main
    If Tailscale SSH asks for a check again, run `ssh root@100.109.28.21` in a terminal and open the printed link.
 2. Builds: all verified today (above); only `spirit_gate` has 55 real mismatches worth a look (`verify_build.py spirit_gate minecraft:overworld -246 68 106`).
 3. Before launch: the list below once more on the final pack (era reset etc. were run today, ~13:10).
-4. Pregenerate the continent with Distant Horizons; BlueMap; wave B leftovers (WP8 event pack, WP10 boss payouts, WP11 Discord roles).
+4. Night pregeneration (ttl-ops `night_pregen`) and the public BlueMap route are in Homelab PR branch
+   `ocs-bluemap-pregen` (docs/server.md); after merge: Yasuke adds the `map` DNS record + tunnel rule, then watch the
+   first night (TPS, memory, disk). Wave B leftovers (WP8 event pack, WP10 boss payouts, WP11 Discord roles).
 
 ## Live / merged on main (night 17–18/11)
 
