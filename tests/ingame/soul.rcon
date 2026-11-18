@@ -1,0 +1,124 @@
+# Soul carryover items (life/carryover.js, design/data/carryover.toml, master plan §4, sprint3-4.md S1). The strip of
+# the ender chest and Curios is covered by carryover.rcon; this test is about what a soul gets: the Soul Gem and the
+# Remembered Enchantment. `ttl soul expect <bot> <field> <value>` (and `... has <item> <value>`) print "ttl: ..." when
+# wrong, which `server.sh test-all` counts as a failure. Bots fake their Life 1 deeds with `ttl karma <bot> set`.
+# Bots: C = Craft-heavy Hero (gets the book), H = Hero whose best side is not Craft (no book), N = Wanderer.
+# Expect in the log: "[ttl] soul: TtlBotSoulC Life 1 death,
+# best enchantment minecraft:sharpness 5", "[ttl] soul: TtlBotSoulC remembers minecraft:sharpness 3",
+# "[ttl] soul: TtlBotSoulH Life 1 death, best enchantment minecraft:sharpness 4" and no "remembers" line for H and N,
+# "[ttl] soul: TtlBotSoulC gem echo (20s, level 2)".
+ttlbot spawn TtlBotSoulC
+ttlbot spawn TtlBotSoulH
+ttlbot spawn TtlBotSoulN
+@sleep 4
+ttl soul TtlBotSoulC clear
+ttl soul TtlBotSoulH clear
+ttl soul TtlBotSoulN clear
+# Every Life 1 soul holds exactly one Soul Gem (the login hook, or `give` when the bot was too quick for it).
+ttl soul TtlBotSoulC give
+ttl soul TtlBotSoulH give
+ttl soul TtlBotSoulN give
+ttl soul TtlBotSoulC give
+ttl soul expect TtlBotSoulC gem 1
+ttl soul expect TtlBotSoulC flag yes
+ttl soul expect TtlBotSoulC memory no
+ttl soul expect TtlBotSoulC has soul_gem yes
+# The echo is dormant in Life 1 (a refusal would print "ttl: ..." here, so the hook is not called): no cooldown yet.
+ttl soul expect TtlBotSoulC cooling no
+# C: an enchanted book in the ender chest, a diamond in a backpack-less Curios slot, a diamond on the body.
+item replace entity TtlBotSoulC enderchest.0 with minecraft:enchanted_book[minecraft:stored_enchantments={levels:{"minecraft:sharpness":5,"minecraft:unbreaking":3}}]
+ttl stash TtlBotSoulC equip minecraft:diamond
+give TtlBotSoulC minecraft:diamond 2
+give TtlBotSoulC minecraft:diamond_pickaxe[minecraft:enchantments={levels:{"minecraft:efficiency":4,"minecraft:binding_curse":1}}]
+ttl soul expect TtlBotSoulC ender 1
+ttl soul expect TtlBotSoulC curios 1
+ttl soul expect TtlBotSoulC has diamond yes
+# C is a Hero whose Craft axis is by far its strongest: a month of play, 400 + 400 diamonds, ancient debris, anvils.
+ttl karma TtlBotSoulC set play_time 720000
+ttl karma TtlBotSoulC set diamond_ore 400
+ttl karma TtlBotSoulC set deepslate_diamond_ore 400
+ttl karma TtlBotSoulC set ancient_debris 200
+ttl karma TtlBotSoulC set anvil 600
+ttl karma TtlBotSoulC set smithing 300
+ttl karma TtlBotSoulC expect tier elite
+# H is a Hero through fighting, trading and learning; its Craft axis is weak (and a sword is its best enchantment).
+ttl karma TtlBotSoulH set play_time 720000
+ttl karma TtlBotSoulH set mob_kills 300
+ttl karma TtlBotSoulH set far 3000
+ttl karma TtlBotSoulH set nether 1
+ttl karma TtlBotSoulH set trades 60
+ttl karma TtlBotSoulH set deepslate_diamond_ore 30
+ttl karma TtlBotSoulH set enchants 15
+ttl karma TtlBotSoulH set advancements 35
+ttl karma TtlBotSoulH expect tier elite
+give TtlBotSoulH minecraft:diamond_sword[minecraft:enchantments={levels:{"minecraft:sharpness":4}}]
+give TtlBotSoulH minecraft:diamond 2
+# N is a fresh Wanderer with an enchanted tool: it remembers it, but a Wanderer earns no book.
+give TtlBotSoulN minecraft:iron_pickaxe[minecraft:enchantments={levels:{"minecraft:efficiency":3}}]
+# The soulbound gem cannot be thrown away in Life 1: the drop is cancelled (verify by hand: Q on the gem).
+# Life 1 death: the gem is kept by the soulbound tag, the best enchantment is remembered, the body is stripped.
+kill TtlBotSoulC
+kill TtlBotSoulH
+kill TtlBotSoulN
+@sleep 2
+ttl inspect TtlBotSoulC
+ttl soul TtlBotSoulC
+ttl stash TtlBotSoulC expect kept 1
+ttl soul expect TtlBotSoulC gem 0
+ttl soul expect TtlBotSoulC ender empty
+ttl soul expect TtlBotSoulC curios empty
+ttl soul expect TtlBotSoulC has diamond no
+ttl soul expect TtlBotSoulC memory yes
+ttl soul expect TtlBotSoulC book no
+ttl soul expect TtlBotSoulH memory yes
+ttl soul expect TtlBotSoulN memory yes
+ttl soul expect TtlBotSoulN gem 0
+# Rebirth. C and H are Heroes (pick 1 of 3 uniques), N a Wanderer who is reborn at once.
+execute as TtlBotSoulC run ttl wish knowledge
+execute as TtlBotSoulC run ttl choose slime
+execute as TtlBotSoulH run ttl wish knowledge
+execute as TtlBotSoulH run ttl choose slime
+execute as TtlBotSoulN run ttl wish knowledge
+execute as TtlBotSoulN run ttl choose slime
+ttl karma TtlBotSoulC expect step unique
+ttl karma TtlBotSoulC pick
+ttl karma TtlBotSoulH expect step unique
+ttl karma TtlBotSoulH pick
+@sleep 1
+ttl karma TtlBotSoulC expect phase life2
+ttl karma TtlBotSoulH expect phase life2
+ttl karma TtlBotSoulN expect phase life2
+ttl inspect TtlBotSoulC
+ttl soul TtlBotSoulC
+# Everyone holds exactly one (re-issued) Soul Gem, nothing else of the old body, and the memory is used up.
+ttl soul expect TtlBotSoulC gem 1
+ttl soul expect TtlBotSoulH gem 1
+ttl soul expect TtlBotSoulN gem 1
+ttl soul expect TtlBotSoulC memory no
+ttl soul expect TtlBotSoulH memory no
+ttl soul expect TtlBotSoulN memory no
+ttl soul expect TtlBotSoulC has diamond no
+ttl soul expect TtlBotSoulC has diamond_pickaxe no
+ttl soul expect TtlBotSoulC ender empty
+ttl soul expect TtlBotSoulC curios empty
+ttl soul expect TtlBotSoulH has diamond_sword no
+# Only the Craft-heavy Hero is reborn with the Remembered Enchantment (Sharpness V remembered as Sharpness III).
+ttl soul expect TtlBotSoulC book 1
+ttl soul expect TtlBotSoulC has enchanted_book yes
+ttl soul expect TtlBotSoulH book no
+ttl soul expect TtlBotSoulH has enchanted_book no
+ttl soul expect TtlBotSoulN book no
+# Life 2: the gem's echo works once, then it rests (the second `use` would print "ttl: ..." so only the state is checked).
+ttl soul expect TtlBotSoulC cooling no
+ttl soul TtlBotSoulC use
+ttl soul expect TtlBotSoulC cooling yes
+# Cleanup
+ttl soul TtlBotSoulC clear
+ttl soul TtlBotSoulH clear
+ttl soul TtlBotSoulN clear
+ttl reset TtlBotSoulC
+ttl reset TtlBotSoulH
+ttl reset TtlBotSoulN
+ttlbot remove TtlBotSoulC
+ttlbot remove TtlBotSoulH
+ttlbot remove TtlBotSoulN

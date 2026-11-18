@@ -64,6 +64,18 @@ Lost a menu? Type `/ttl menu`, or talk to the *Voice of the World* in the hall.
 """
 
 [[main]]
+title = "What your soul keeps"
+body = """
+When Life 1 ends, your body's belongings do not come with you: inventory, armour, ender chest and backpacks are left behind. Your soul keeps:
+
+- your levels, advancements, karma and quest progress
+- your *Soul Gem*: every soul starts with one. It cannot be thrown away in Life 1. In Life 2, right-click it for a short echo of your first life (a few seconds of Regeneration and Resistance, then it rests for a while)
+- a *Remembered Enchantment*: a Hero or Legend whose strongest side was *Craft* is reborn with one enchanted book, the best enchantment they carried, at a lower level
+
+Items from Tensura that you carried into the Mortal Realm are put away safely and come back at rebirth.
+"""
+
+[[main]]
 title = "Life 2: the world of Tensura"
 body = """
 You are reborn on the Tensura continent, in *Tempest* in the *Forest of Jura*. The dwarven kingdom of *Dwargon* lies to the north.
