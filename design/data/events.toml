@@ -34,7 +34,8 @@ story = true                 # post each announced event to Discord #story (guar
 #                    story (Discord #story line; empty = none; {player} goes out bold)
 #   action           favor = true | boss = "<boss id>" (TtlBoss.summon, WP2) | gamerule = { rule = value } with the
 #                    values it restores to in `restore` (every rule needs one; two events changing one rule are
-#                    handled: the later one wins while both run, the last to end restores)
+#                    handled: the later one wins while both run, the last to end restores). Use previous_int to
+#                    snapshot an integer rule's actual server value when the event starts
 # ---------------------------------------------------------------------------------------------------------------------
 
 [[event]]
@@ -111,3 +112,40 @@ label = "A Relic of the Age"
 lore = "A cache of rare Tensura goods: a Full Potion and high-quality magic crystals."
 icon = "minecraft:chest"
 items = [{ id = "tensura:full_potion", count = 1 }, { id = "tensura:high_quality_magic_crystal", count = 4 }]
+
+# WP8. Storm damage and crystal drops are regional. Tensura exposes a single server-wide EP gain rule.
+[[event]]
+id = "magicule_storm"
+label = "Magicule Storm"
+every = { days = 4 }
+at_hour = 18
+jitter_hours = 3
+duration_minutes = 60
+scope = "region"
+audience = "life2"
+damage_multiplier = 1.35
+crystal = "tensura:low_quality_magic_crystal"
+crystal_chance = 0.25
+action = { gamerule = { epGainMultiplier = 2 }, restore = { epGainMultiplier = "previous_int" } }
+announce = { title = "Magicule Storm", subtitle = "{region}", chat = "Magicules surge across {region} for {minutes} minutes. Monsters here strike harder and may drop magic crystals. Kill EP uses a server-wide multiplier of 2.", end_chat = "The magicule storm over {region} has passed.", sound = "minecraft:entity.lightning_bolt.thunder", color = "aqua", story = "A magicule storm has gathered over {region}." }
+
+[[event]]
+id = "blood_moon"
+label = "Blood Moon"
+# Enhanced Celestials controls the night. The duration is a fail-safe if its forecast disappears.
+duration_minutes = 30
+scope = "world"
+lunar_events = ["enhancedcelestials2defaultlunarevents:blood_moon", "enhancedcelestials2defaultlunarevents:super_blood_moon"]
+announce = { title = "Blood Moon", subtitle = "A red moon rises", chat = "Monsters gather beneath the red moon. Mortal souls earn extra Valor for fighting hostile creatures.", end_chat = "The Blood Moon has faded.", sound = "minecraft:entity.wolf.growl", color = "dark_red", story = "A Blood Moon rises over the two lives." }
+
+[[event]]
+id = "calamity_rising"
+label = "Calamity Rising"
+every = { days = 7 }
+at_hour = 20
+delay_days = 2
+duration_minutes = 0
+scope = "world"
+audience = "life2"
+boss_id = "charybdis"
+announce = { title = "Calamity Rising", subtitle = "{boss}", chat = "{boss} has begun roaming {region} from x {x}, z {z}.", sound = "minecraft:entity.ender_dragon.growl", color = "red", story = "{boss} is roaming {region} from x {x}, z {z}." }

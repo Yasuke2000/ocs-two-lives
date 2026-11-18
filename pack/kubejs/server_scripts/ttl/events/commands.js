@@ -194,8 +194,20 @@ ServerEvents.commandRegistry(event => {
       var want = b === 'true' ? '1' : b === 'false' ? '0' : b
       return truth(ctx, `gamerule ${a}`, String(r), want)
     }
+    if (field === 'calamity') {
+      var bosses = TtlBoss.load(server)
+      var roaming = Object.keys(bosses).some(key => {
+        var boss = bosses[key]
+        if (boss.id !== a || boss.event !== 'calamity_rising' || !boss.wild || boss.rad !== undefined) return false
+        var start = TtlEvents.regionAt(boss.fx, boss.fz)
+        return !!start && start.name === boss.region
+      })
+      return truth(ctx, `${a} roaming from its announced region`, roaming, bool(b))
+    }
     if (field === 'winner') return truth(ctx, 'the latest Favor winner', String(server.persistentData.getString('ttl.favor.winner')), a)
     var p = online(ctx, a)
+    if (field === 'storm') return truth(ctx, `${p.username} inside the storm`, TtlStorm.contains(p), bool(b))
+    if (field === 'bloodkills') return truth(ctx, `${p.username} Blood Moon kills`, String(TtlKarma.deeds(server, p).blood_moon_kills), b)
     if (field === 'offer') return truth(ctx, `${p.username} having an open Favor offer`, TtlFavor.hasOffer(p), bool(b))
     if (field === 'cooldown') return truth(ctx, `${p.username} being on Favor cooldown`, TtlFavor.onCooldown(server, p), bool(b))
     if (field === 'unique') return truth(ctx, `${p.username} holding a unique`, String(p.persistentData.getString('ttl.uniques')) !== '', bool(b))

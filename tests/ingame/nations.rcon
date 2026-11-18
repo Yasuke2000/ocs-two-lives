@@ -66,7 +66,9 @@ ttl econ give TtlBotNatA 1
 ttl nation expect TtlBotNatA try_found_TtlBotLand ok
 ttl econ expect TtlBotNatA balance 0
 ttl nation expect TtlBotNatA try_found_TtlBotLand exists
+ttl discord expect TtlBotNatA nation 1
 ttl nation expect TtlBotNatA member yes
+ttl discordroles TtlBotNatA dry expect nation
 ttl nation expect TtlBotNatA owner yes
 ttl nation expect TtlBotNatB member yes
 ttl nation expect TtlBotNatB owner no
@@ -163,8 +165,10 @@ execute as TtlBotNatA run ttl nation unally TtlBotLandTwo
 ttl nation expect TtlBotNatA ally_TtlBotLandTwo no
 ttl nation expect TtlBotNatA war_TtlBotLandTwo none
 ttl nation expect TtlBotNatB try_war_TtlBotLandTwo notowner
+ttl discord expect TtlBotNatA war 0
 ttl nation expect TtlBotNatA try_war_TtlBotLandTwo ok
 ttl nation expect TtlBotNatA war_TtlBotLandTwo pending
+ttl discord expect TtlBotNatA war 1
 ttl nation expect TtlBotNatD war_TtlBotLand pending
 ttl nation test TtlBotNatA warnow
 ttl nation expect TtlBotNatA war_TtlBotLandTwo active
