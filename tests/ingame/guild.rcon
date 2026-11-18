@@ -1,0 +1,77 @@
+# Free Guild, coins, sinks and merit-lite (design/data/economy.toml, economy/*.js). `ttl guild|merit|econ expect <bot>
+# <field> <value>` print "ttl: ..." when the value is wrong, which `server.sh test-all` counts as a failure.
+# Bot A is a Life 2 soul (test hook: stage ttl.life2); bot B stays in Life 1 and must be refused.
+# Coin amounts are in bronze (1 silver = 10, 1 gold = 100). The bots keep their data between runs, so every record is
+# reset first. Needs the reputation package (WP3: `ttl rep set|expect`) and, for the coin counts, Lightman's Currency
+# or the inventory fallback (economy/sinks.js logs "[ttl] econ: ..." once when it falls back).
+# Expect in the log: "[ttl] guild board <date>" after the roll, "[ttl] guild: TtlBotGuildA completed iron_order: 30 bronze",
+# "... completed rabbit_cull: 20 bronze", and no "[ttl] economy command failed".
+ttlbot spawn TtlBotGuildA
+ttlbot spawn TtlBotGuildB
+@sleep 2
+ttl guild test TtlBotGuildA life2
+ttl guild reset TtlBotGuildA
+ttl merit reset TtlBotGuildA
+ttl rep set TtlBotGuildA dwargon 0
+clear TtlBotGuildA
+execute in minecraft:overworld run tp TtlBotGuildA 100 100 100
+# The board: 3 daily + 2 weekly, one daily slot for rank F; a Life 1 soul is refused (answers life2only, no side effects).
+ttl guild roll
+ttl guild expect TtlBotGuildA board 5
+ttl guild expect TtlBotGuildB refuse_take life2only
+ttl guild expect TtlBotGuildA rank F
+ttl guild expect TtlBotGuildA stage none
+# Deliver bounty: not ready until the 16 iron ingots are in the inventory; hand-in takes them and pays 3 silver.
+ttl guild post iron_order
+execute as TtlBotGuildA run ttl guild take iron_order
+ttl guild expect TtlBotGuildA accepted_iron_order true
+ttl guild expect TtlBotGuildA ready_iron_order false
+give TtlBotGuildA minecraft:iron_ingot 16
+ttl guild expect TtlBotGuildA ready_iron_order true
+execute as TtlBotGuildA run ttl guild turnin
+ttl guild expect TtlBotGuildA done 1
+ttl guild expect TtlBotGuildA points 1
+ttl guild expect TtlBotGuildA balance 30
+ttl guild expect TtlBotGuildA stage F
+ttl guild expect TtlBotGuildA ready_iron_order false
+ttl rep expect TtlBotGuildA dwargon value 1
+# Kill bounty: eight rabbit kills (faked on the objective), sampled, handed in for 2 silver. A bounty can be done once a day.
+ttl guild post rabbit_cull
+execute as TtlBotGuildA run ttl guild take rabbit_cull
+scoreboard players add TtlBotGuildA ttl.g.tensura_horned_rabbit 8
+ttl guild sample TtlBotGuildA
+ttl guild expect TtlBotGuildA ready_rabbit_cull true
+execute as TtlBotGuildA run ttl guild turnin
+ttl guild expect TtlBotGuildA done 2
+ttl guild expect TtlBotGuildA points 2
+ttl guild expect TtlBotGuildA balance 50
+# Sinks: a fee is charged from the carried coins and the change comes back; a poor player is refused.
+ttl econ expect TtlBotGuildA fee_charter 5000
+ttl econ expect TtlBotGuildA can_50 true
+ttl econ expect TtlBotGuildA can_51 false
+ttl econ take TtlBotGuildA 25
+ttl econ expect TtlBotGuildA balance 25
+ttl econ give TtlBotGuildA 5
+ttl econ expect TtlBotGuildA balance 30
+ttl econ
+# Merit-lite: 100 merit in a marked Public Works chunk (cap 100 a week per chunk), then nothing more; the Builder title is
+# 500 merit away. Other blocks and unmarked chunks earn nothing.
+ttl merit test TtlBotGuildA stone_bricks 3
+ttl merit expect TtlBotGuildA total 0
+execute as TtlBotGuildA run ttl merit works mark
+ttl merit expect TtlBotGuildA works 1
+ttl merit test TtlBotGuildA dirt 5
+ttl merit expect TtlBotGuildA total 0
+ttl merit test TtlBotGuildA stone_bricks 100
+ttl merit expect TtlBotGuildA total 100
+ttl merit test TtlBotGuildA stone_bricks 5
+ttl merit expect TtlBotGuildA total 100
+ttl merit expect TtlBotGuildA builder false
+execute as TtlBotGuildA run ttl merit works unmark
+ttl merit expect TtlBotGuildA works 0
+# Clean up.
+ttl guild reset TtlBotGuildA
+ttl merit reset TtlBotGuildA
+clear TtlBotGuildA
+ttlbot remove TtlBotGuildA
+ttlbot remove TtlBotGuildB

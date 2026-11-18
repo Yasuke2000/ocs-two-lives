@@ -1,0 +1,397 @@
+# Economy: coins, the Adventurer's Guild, sinks and merit-lite (design/architecture/sprint3-4.md S7, owner decision
+# 18/11/2026: Lightman's Currency for player shops and bank accounts, with Tensura's own coins as the currency).
+# Edit, then run `python tools/gen_data.py`; the scripts in pack/kubejs/server_scripts/ttl/economy/ read it as
+# TtlData.economy. gen_data.py also checks this file against pack/config/lightmanscurrency/MasterCoinList.json.
+#
+# Money amounts anywhere in this file are written as coin tables, e.g. { silver = 3, bronze = 5 }. The worth of a
+# coin is the product of the rates below, so with the defaults 1 silver = 10 bronze, 1 gold = 100 bronze and
+# 1 stellar = 1,000 bronze. Lightman's Currency counts in the same unit ("core value" = bronze).
+#
+# Faucet / sink balance (master plan §9: sinks >= 80% of faucets per active player per week). A player who clears the
+# whole board earns about 3 x 3 silver a day + 2 x 1-2 gold a week, i.e. roughly 9 gold-equivalents (900 bronze) a
+# week; the sinks below (charter, upkeep, altar, Skill Core, auction fee) are tuned against that. `/ttl econ`
+# prints the real weekly faucet/sink counters; retune here when they drift.
+
+[coins]
+# Smallest first. Item ids were read from the Tensura 2.0.1.5 jar (assets/tensura/models/item, tags/item/coins.json).
+chain = ["bronze", "silver", "gold", "stellar"]
+
+[coins.item]
+bronze = "tensura:bronze_coin"
+silver = "tensura:silver_coin"
+gold = "tensura:gold_coin"
+stellar = "tensura:stellar_gold_coin"
+
+# How many of the previous coin make one of this one. Must equal `exchangeRate` in MasterCoinList.json (checked).
+# Tensura itself defines no exchange rate for its coins, so this is our own choice.
+[coins.rate]
+silver = 10
+gold = 10
+stellar = 10
+
+[guild]
+# Fuze's Free Guild. The board is global and rolls by UTC date (daily) and by ISO week starting Monday (weekly).
+daily = 3
+weekly = 2
+# A player may hold this many accepted bounties at once.
+max_active = 3
+# A "visit" bounty counts when the player is within this many blocks of the landmark (x/z from landmarks.toml).
+visit_radius = 48
+# Kill and visit progress is sampled this often (ticks). Kills come from `minecraft.killed:` objectives
+# (EntityEvents.death is unreliable for mobs here), so a kill counts for the faction region the player is in at the sample.
+poll_ticks = 100
+# Rank-ups of this rank and above are announced in #story (TtlDiscord.post).
+announce_rank = "B"
+
+# Guild ranks F to S. `points` are lifetime bounty points (each bounty has its own `points`).
+[[rank]]
+id = "F"
+title = "Rookie"
+points = 0
+
+[[rank]]
+id = "E"
+title = "Novice"
+points = 10
+
+[[rank]]
+id = "D"
+title = "Adventurer"
+points = 30
+
+[[rank]]
+id = "C"
+title = "Veteran"
+points = 70
+
+[[rank]]
+id = "B"
+title = "Elite"
+points = 140
+
+[[rank]]
+id = "A"
+title = "Champion"
+points = 250
+
+[[rank]]
+id = "S"
+title = "Free Guild Legend"
+points = 400
+
+# Bounties. Fields:
+#   id        unique [a-z0-9_]
+#   title     shown on the board
+#   kind      kill | deliver | visit
+#   target    kill: entity id · deliver: item id · visit: a landmark name from landmarks.toml
+#   count     kills or items (1 for a visit)
+#   period    daily | weekly
+#   min_rank  guild rank needed to accept it
+#   region    optional, kill only: faction id (factions.toml); the kill only counts while the player is in that
+#             faction's canon region
+#   points    guild points
+#   weight    relative chance when the board is rolled
+#   reward    { coins = { silver = 3 }, rep = { blumund = 1 } }; rep factions are factions.toml ids
+# Entity ids were read from the Tensura 2.0.1.5 lang file; whether each one spawns in the world is not checked here
+# ("verify in game"): a bounty whose mob never appears simply stays unfinished, retire it by setting weight = 0.
+
+[[bounty]]
+id = "rabbit_cull"
+title = "Cull the Horned Rabbits"
+kind = "kill"
+target = "tensura:horned_rabbit"
+count = 8
+period = "daily"
+min_rank = "F"
+points = 1
+weight = 10
+reward = { coins = { silver = 2 }, rep = { blumund = 1 } }
+
+[[bounty]]
+id = "zombie_sweep"
+title = "Sweep the Night Shamblers"
+kind = "kill"
+target = "minecraft:zombie"
+count = 15
+period = "daily"
+min_rank = "F"
+points = 1
+weight = 10
+reward = { coins = { silver = 2 }, rep = { blumund = 1 } }
+
+[[bounty]]
+id = "skeleton_sweep"
+title = "Quiet the Bone Archers"
+kind = "kill"
+target = "minecraft:skeleton"
+count = 12
+period = "daily"
+min_rank = "F"
+points = 1
+weight = 8
+reward = { coins = { silver = 2 }, rep = { blumund = 1 } }
+
+[[bounty]]
+id = "direwolf_hunt"
+title = "Thin the Direwolf Pack"
+kind = "kill"
+target = "tensura:direwolf"
+count = 4
+period = "daily"
+min_rank = "E"
+points = 2
+weight = 8
+reward = { coins = { silver = 5 }, rep = { blumund = 1 } }
+
+[[bounty]]
+id = "ant_nest"
+title = "Clear the Giant Ants"
+kind = "kill"
+target = "tensura:giant_ant"
+count = 6
+period = "daily"
+min_rank = "E"
+points = 2
+weight = 8
+reward = { coins = { silver = 4 }, rep = { blumund = 1 } }
+
+[[bounty]]
+id = "bat_swarm"
+title = "Drive off the Giant Bats"
+kind = "kill"
+target = "tensura:giant_bat"
+count = 6
+period = "daily"
+min_rank = "E"
+points = 2
+weight = 6
+reward = { coins = { silver = 3 }, rep = { blumund = 1 } }
+
+[[bounty]]
+id = "creeper_ward"
+title = "Ward the Roads from Creepers"
+kind = "kill"
+target = "minecraft:creeper"
+count = 8
+period = "daily"
+min_rank = "E"
+points = 2
+weight = 6
+reward = { coins = { silver = 3 }, rep = { blumund = 1 } }
+
+[[bounty]]
+id = "spider_web"
+title = "Burn out the Black Spiders"
+kind = "kill"
+target = "tensura:black_spider"
+count = 5
+period = "daily"
+min_rank = "D"
+points = 2
+weight = 6
+reward = { coins = { silver = 6 }, rep = { blumund = 2 } }
+
+[[bounty]]
+id = "iron_order"
+title = "Iron for the Smiths"
+kind = "deliver"
+target = "minecraft:iron_ingot"
+count = 16
+period = "daily"
+min_rank = "F"
+points = 1
+weight = 8
+reward = { coins = { silver = 3 }, rep = { dwargon = 1 } }
+
+[[bounty]]
+id = "leather_order"
+title = "Leather for the Tanners"
+kind = "deliver"
+target = "minecraft:leather"
+count = 12
+period = "daily"
+min_rank = "F"
+points = 1
+weight = 8
+reward = { coins = { silver = 2 }, rep = { dwargon = 1 } }
+
+[[bounty]]
+id = "ration_order"
+title = "Rations for the Camp"
+kind = "deliver"
+target = "minecraft:cooked_beef"
+count = 16
+period = "daily"
+min_rank = "F"
+points = 1
+weight = 8
+reward = { coins = { silver = 2 }, rep = { tempest = 1 } }
+
+[[bounty]]
+id = "ore_shards"
+title = "Magic Ore for the Dwarven Forges"
+kind = "deliver"
+target = "tensura:magic_ore_shard"
+count = 6
+period = "daily"
+min_rank = "E"
+points = 2
+weight = 6
+reward = { coins = { silver = 8 }, rep = { dwargon = 2 } }
+
+[[bounty]]
+id = "visit_goblins"
+title = "Check on the Goblin Village"
+kind = "visit"
+target = "goblin_village"
+count = 1
+period = "daily"
+min_rank = "F"
+points = 1
+weight = 6
+reward = { coins = { silver = 2 }, rep = { tempest = 1 } }
+
+[[bounty]]
+id = "visit_dwarves"
+title = "Scout the Dwarven Road"
+kind = "visit"
+target = "dwarf_village"
+count = 1
+period = "daily"
+min_rank = "E"
+points = 2
+weight = 6
+reward = { coins = { silver = 3 }, rep = { dwargon = 1 } }
+
+[[bounty]]
+id = "visit_treyni"
+title = "Report from Treyni's Grove"
+kind = "visit"
+target = "treyni_grove"
+count = 1
+period = "daily"
+min_rank = "D"
+points = 2
+weight = 5
+reward = { coins = { silver = 5 }, rep = { tempest = 1 } }
+
+[[bounty]]
+id = "week_direwolves"
+title = "The Great Direwolf Cull"
+kind = "kill"
+target = "tensura:direwolf"
+count = 20
+period = "weekly"
+min_rank = "D"
+points = 5
+weight = 8
+reward = { coins = { gold = 1 }, rep = { blumund = 3 } }
+
+[[bounty]]
+id = "week_spiders"
+title = "Eradicate the Black Spider Nest"
+kind = "kill"
+target = "tensura:black_spider"
+count = 25
+period = "weekly"
+min_rank = "C"
+points = 6
+weight = 6
+reward = { coins = { gold = 2 }, rep = { blumund = 4 } }
+
+[[bounty]]
+id = "week_caterpillars"
+title = "Hell Caterpillar Purge"
+kind = "kill"
+target = "tensura:hell_caterpillar"
+count = 10
+period = "weekly"
+min_rank = "C"
+points = 6
+weight = 5
+reward = { coins = { gold = 2 }, rep = { blumund = 4 } }
+
+[[bounty]]
+id = "week_blazes"
+title = "Blaze Bounty"
+kind = "kill"
+target = "minecraft:blaze"
+count = 15
+period = "weekly"
+min_rank = "C"
+points = 6
+weight = 5
+reward = { coins = { gold = 2 } }
+
+[[bounty]]
+id = "week_magisteel"
+title = "Low Magisteel for Dwargon"
+kind = "deliver"
+target = "tensura:low_magisteel_ingot"
+count = 4
+period = "weekly"
+min_rank = "C"
+points = 6
+weight = 6
+reward = { coins = { gold = 2 }, rep = { dwargon = 3 } }
+
+[[bounty]]
+id = "week_diamonds"
+title = "Diamonds for the Guild Vault"
+kind = "deliver"
+target = "minecraft:diamond"
+count = 6
+period = "weekly"
+min_rank = "D"
+points = 5
+weight = 6
+reward = { coins = { gold = 1, silver = 5 }, rep = { blumund = 2 } }
+
+[[bounty]]
+id = "week_lizardmen"
+title = "Survey the Lizardmen Caverns"
+kind = "visit"
+target = "lizardmen_caverns"
+count = 1
+period = "weekly"
+min_rank = "D"
+points = 5
+weight = 6
+reward = { coins = { gold = 1 }, rep = { lizardmen = 2 } }
+
+[[bounty]]
+id = "week_orc_camp"
+title = "Scout the Orc War Battlefield"
+kind = "visit"
+target = "orc_camp"
+count = 1
+period = "weekly"
+min_rank = "C"
+points = 6
+weight = 5
+reward = { coins = { gold = 2 }, rep = { blumund = 2 } }
+
+# Sinks. `charge(player, 'name')` in economy/sinks.js (TtlEcon.fee) reads these; the callers are the other work
+# packages: nations (charter, upkeep), bosses (altar), registry (Skill Core identification).
+[sinks]
+charter = { gold = 50 }
+upkeep_per_chunk_week = { silver = 1 }
+altar = { silver = 5 }
+core_identify = { gold = 2 }
+
+# Merit-lite (O5): placing infrastructure blocks inside a Public Works chunk earns merit; 100 merit = rep_per_100 rep
+# with the faction whose canon region the chunk lies in, and total merit >= builder_at gives the Builder title.
+# Public Works chunks are marked with /ttl merit works mark (the chunk you stand in) until the nations package
+# (S4) has a claim API to read them from; per-week caps keep marking a random chunk from paying much.
+[merit]
+per_block = 1
+weekly_cap = 200
+chunk_weekly_cap = 100
+rep_per_100 = 1
+builder_at = 500
+works_per_player = 4
+blocks = [
+  "minecraft:stone_bricks", "minecraft:stone_brick_slab", "minecraft:stone_brick_stairs", "minecraft:stone_brick_wall",
+  "minecraft:cobblestone_wall", "minecraft:lantern", "minecraft:oak_fence", "minecraft:oak_fence_gate",
+  "minecraft:smooth_stone_slab", "minecraft:bell", "minecraft:barrel", "minecraft:composter",
+]

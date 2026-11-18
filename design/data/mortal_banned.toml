@@ -19,7 +19,9 @@
 # the White Tiger Azure Dragon Halberd and its boss spawn eggs; greatsage adds Venuzdonoa).
 # Tensura addons without items of their own need no entry: tensura_ftb (quest tasks only) and tensura_iron_spells
 # (it only adds item tags to Tensura items, which `tensura` already covers).
-namespaces = ["tensura", "tensura_neb", "greatsage"]
+# lightmanscurrency: Life 1 has no money (its coins are Tensura's, and bank accounts and network traders are also refused
+# in the Mortal dimensions by config/lightmanscurrency-server.txt); the Mana Ledger and shops are Life 2 things.
+namespaces = ["tensura", "tensura_neb", "greatsage", "lightmanscurrency"]
 
 # Single items, full id: items = ["somemod:magic_ring"]
 items = []

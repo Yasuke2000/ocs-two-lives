@@ -1,0 +1,305 @@
+{
+  "Chains": [
+    {
+      "chain": "main",
+      "name": {
+        "text": "Tensura Coins"
+      },
+      "displayType": "lightmanscurrency:coin",
+      "InputType": "DEFAULT",
+      "CoreChain": [
+        {
+          "Coin": "tensura:bronze_coin",
+          "initial": "b",
+          "plural": "Bronze Coins"
+        },
+        {
+          "Coin": "tensura:silver_coin",
+          "exchangeRate": 10,
+          "initial": "s",
+          "plural": "Silver Coins"
+        },
+        {
+          "Coin": "tensura:gold_coin",
+          "exchangeRate": 10,
+          "initial": "g",
+          "plural": "Gold Coins"
+        },
+        {
+          "Coin": "tensura:stellar_gold_coin",
+          "exchangeRate": 10,
+          "initial": "x",
+          "plural": "Stellar Gold Coins"
+        }
+      ],
+      "ATMData": {
+        "ExchangeButtons": [
+          {
+            "x": 5,
+            "y": 34,
+            "width": 60,
+            "height": 18,
+            "command": "exchangeAllUp",
+            "icons": [
+              {
+                "type": "lightmanscurrency:item",
+                "x": -2,
+                "y": 1,
+                "item": "tensura:bronze_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 10,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 12,
+                "y": 1,
+                "item": "tensura:silver_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 24,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 26,
+                "y": 1,
+                "item": "tensura:gold_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 38,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 40,
+                "y": 1,
+                "item": "tensura:stellar_gold_coin"
+              }
+            ]
+          },
+          {
+            "x": 111,
+            "y": 34,
+            "width": 60,
+            "height": 18,
+            "command": "exchangeAllDown",
+            "icons": [
+              {
+                "type": "lightmanscurrency:item",
+                "x": -2,
+                "y": 1,
+                "item": "tensura:stellar_gold_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 10,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 12,
+                "y": 1,
+                "item": "tensura:gold_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 24,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 26,
+                "y": 1,
+                "item": "tensura:silver_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 38,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 40,
+                "y": 1,
+                "item": "tensura:bronze_coin"
+              }
+            ]
+          },
+          {
+            "x": 6,
+            "y": 61,
+            "width": 26,
+            "height": 18,
+            "command": "exchangeDown-tensura:silver_coin",
+            "icons": [
+              {
+                "type": "lightmanscurrency:item",
+                "x": -2,
+                "y": 1,
+                "item": "tensura:silver_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 10,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 12,
+                "y": 1,
+                "item": "tensura:bronze_coin"
+              }
+            ]
+          },
+          {
+            "x": 6,
+            "y": 88,
+            "width": 26,
+            "height": 18,
+            "command": "exchangeUp-tensura:bronze_coin",
+            "icons": [
+              {
+                "type": "lightmanscurrency:item",
+                "x": -2,
+                "y": 1,
+                "item": "tensura:bronze_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 10,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 12,
+                "y": 1,
+                "item": "tensura:silver_coin"
+              }
+            ]
+          },
+          {
+            "x": 41,
+            "y": 61,
+            "width": 26,
+            "height": 18,
+            "command": "exchangeDown-tensura:gold_coin",
+            "icons": [
+              {
+                "type": "lightmanscurrency:item",
+                "x": -2,
+                "y": 1,
+                "item": "tensura:gold_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 10,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 12,
+                "y": 1,
+                "item": "tensura:silver_coin"
+              }
+            ]
+          },
+          {
+            "x": 41,
+            "y": 88,
+            "width": 26,
+            "height": 18,
+            "command": "exchangeUp-tensura:silver_coin",
+            "icons": [
+              {
+                "type": "lightmanscurrency:item",
+                "x": -2,
+                "y": 1,
+                "item": "tensura:silver_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 10,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 12,
+                "y": 1,
+                "item": "tensura:gold_coin"
+              }
+            ]
+          },
+          {
+            "x": 75,
+            "y": 61,
+            "width": 26,
+            "height": 18,
+            "command": "exchangeDown-tensura:stellar_gold_coin",
+            "icons": [
+              {
+                "type": "lightmanscurrency:item",
+                "x": -2,
+                "y": 1,
+                "item": "tensura:stellar_gold_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 10,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 12,
+                "y": 1,
+                "item": "tensura:gold_coin"
+              }
+            ]
+          },
+          {
+            "x": 75,
+            "y": 88,
+            "width": 26,
+            "height": 18,
+            "command": "exchangeUp-tensura:gold_coin",
+            "icons": [
+              {
+                "type": "lightmanscurrency:item",
+                "x": -2,
+                "y": 1,
+                "item": "tensura:gold_coin"
+              },
+              {
+                "type": "lightmanscurrency:small_arrow",
+                "x": 10,
+                "y": 6,
+                "direction": "RIGHT"
+              },
+              {
+                "type": "lightmanscurrency:item",
+                "x": 12,
+                "y": 1,
+                "item": "tensura:stellar_gold_coin"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
