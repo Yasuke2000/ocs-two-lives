@@ -483,6 +483,510 @@ const TtlData = {
       "z": -624
     }
   },
+  "artifice": {
+    "bench": {
+      "block": "ttl:workshop_bench",
+      "reach": 4,
+      "recipe": {
+        "center": "tensura:smithing_bench",
+        "ring": "tensura:low_quality_magic_crystal"
+      }
+    },
+    "charter": {
+      "item": "ttl:artificer_charter",
+      "schematic_tag": "tensura:schematics",
+      "schematics": 3
+    },
+    "commission": [
+      {
+        "count": 1,
+        "giver": "kaijin",
+        "id": "patrol_blades",
+        "item": "tensura:low_magisteel_long_sword",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "silver": 3
+          },
+          "rep": {
+            "tempest": 2
+          }
+        },
+        "tier": 1,
+        "title": "Blades for the hobgoblin patrols",
+        "weight": 10
+      },
+      {
+        "count": 2,
+        "giver": "kaijin",
+        "id": "wall_spears",
+        "item": "tensura:low_magisteel_spear",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "silver": 4
+          },
+          "rep": {
+            "tempest": 2
+          }
+        },
+        "tier": 1,
+        "title": "Spears for Tempest's wall",
+        "weight": 10
+      },
+      {
+        "count": 1,
+        "giver": "smithy",
+        "id": "miners_picks",
+        "item": "tensura:low_magisteel_pickaxe",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "silver": 3
+          },
+          "rep": {
+            "dwargon": 2
+          }
+        },
+        "tier": 1,
+        "title": "Picks for the Dwargon mines",
+        "weight": 10
+      },
+      {
+        "count": 1,
+        "giver": "smithy",
+        "id": "garm_plate",
+        "item": "tensura:low_magisteel_chestplate",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "silver": 5
+          },
+          "rep": {
+            "dwargon": 2
+          }
+        },
+        "tier": 1,
+        "title": "A breastplate for Garm to judge",
+        "weight": 8
+      },
+      {
+        "count": 8,
+        "giver": "kaijin",
+        "id": "kiln_stock",
+        "item": "tensura:low_magisteel_ingot",
+        "made_by": false,
+        "reward": {
+          "coins": {
+            "silver": 4
+          },
+          "rep": {
+            "tempest": 1
+          }
+        },
+        "tier": 1,
+        "title": "Magisteel stock for the forge",
+        "weight": 6
+      },
+      {
+        "count": 1,
+        "giver": "kaijin",
+        "id": "kurobe_katana",
+        "item": "tensura:high_magisteel_katana",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "gold": 1
+          },
+          "rep": {
+            "tempest": 3
+          }
+        },
+        "tier": 2,
+        "title": "A katana Kurobe would sign",
+        "weight": 10
+      },
+      {
+        "count": 1,
+        "giver": "smithy",
+        "id": "guard_cuirass",
+        "item": "tensura:high_magisteel_chestplate",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "gold": 1
+          },
+          "rep": {
+            "dwargon": 3
+          }
+        },
+        "tier": 2,
+        "title": "A cuirass for the King's guard",
+        "weight": 10
+      },
+      {
+        "count": 1,
+        "giver": "kaijin",
+        "id": "mithril_spear",
+        "item": "tensura:mithril_spear",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "gold": 1,
+            "silver": 5
+          },
+          "rep": {
+            "tempest": 3
+          }
+        },
+        "tier": 2,
+        "title": "A mithril spear for a scout",
+        "weight": 8
+      },
+      {
+        "count": 4,
+        "giver": "smithy",
+        "id": "mithril_stock",
+        "item": "tensura:mithril_ingot",
+        "made_by": false,
+        "reward": {
+          "coins": {
+            "gold": 1
+          },
+          "rep": {
+            "dwargon": 2
+          }
+        },
+        "tier": 2,
+        "title": "Mithril bars for Dold's workshop",
+        "weight": 6
+      },
+      {
+        "count": 1,
+        "giver": "smithy",
+        "id": "pure_blade",
+        "item": "tensura:pure_magisteel_long_sword",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "gold": 3
+          },
+          "rep": {
+            "dwargon": 4
+          },
+          "schematic": "tensura:adamantite_gear_schematic"
+        },
+        "tier": 3,
+        "title": "A pure magisteel blade for the Armed Nation",
+        "weight": 10
+      },
+      {
+        "count": 1,
+        "giver": "kaijin",
+        "id": "orichalcum_plate",
+        "item": "tensura:orichalcum_chestplate",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "gold": 3
+          },
+          "rep": {
+            "tempest": 4
+          }
+        },
+        "tier": 3,
+        "title": "Orichalcum plate for Tempest's captains",
+        "weight": 10
+      },
+      {
+        "count": 1,
+        "giver": "smithy",
+        "id": "adamant_great_sword",
+        "item": "tensura:adamantite_great_sword",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "gold": 6
+          },
+          "rep": {
+            "dwargon": 5
+          },
+          "schematic": "tensura:hihiirokane_gear_schematic"
+        },
+        "tier": 4,
+        "title": "An adamantite great sword for Gazel's hall",
+        "weight": 10
+      },
+      {
+        "count": 1,
+        "giver": "kaijin",
+        "id": "hihiirokane_tachi",
+        "item": "tensura:hihiirokane_tachi",
+        "made_by": true,
+        "reward": {
+          "coins": {
+            "gold": 10
+          },
+          "rep": {
+            "tempest": 6
+          }
+        },
+        "tier": 4,
+        "title": "A hihi'irokane tachi worthy of a Name",
+        "weight": 10
+      }
+    ],
+    "commissions": {
+      "announce_tier": 4,
+      "board": 2
+    },
+    "construct": {},
+    "curse": {
+      "chance": 0.1,
+      "effects": [
+        {
+          "amplifier": 0,
+          "id": "tensura:fear",
+          "seconds": 5
+        },
+        {
+          "amplifier": 0,
+          "id": "minecraft:wither",
+          "seconds": 5
+        }
+      ],
+      "item": "ttl:cursed_whetstone",
+      "lore": "Cursed: whetted with soul ash"
+    },
+    "engrave": {
+      "chisel": "ttl:engraving_chisel"
+    },
+    "engraving": [
+      {
+        "cost": {
+          "coins": {
+            "silver": 5
+          },
+          "items": {
+            "tensura:low_quality_magic_crystal": 2
+          }
+        },
+        "id": "tensura:sturdy",
+        "rank": 2
+      },
+      {
+        "cost": {
+          "coins": {
+            "silver": 5
+          },
+          "items": {
+            "tensura:low_quality_magic_crystal": 2
+          }
+        },
+        "id": "tensura:swift",
+        "rank": 2
+      },
+      {
+        "cost": {
+          "coins": {
+            "gold": 1
+          },
+          "items": {
+            "tensura:medium_quality_magic_crystal": 2
+          }
+        },
+        "id": "tensura:magic_weapon",
+        "rank": 3
+      },
+      {
+        "cost": {
+          "coins": {
+            "gold": 1
+          },
+          "items": {
+            "tensura:medium_quality_magic_crystal": 2
+          }
+        },
+        "id": "tensura:crushing",
+        "rank": 3
+      },
+      {
+        "cost": {
+          "coins": {
+            "gold": 3
+          },
+          "items": {
+            "tensura:high_quality_magic_crystal": 2
+          }
+        },
+        "id": "tensura:severance",
+        "rank": 4
+      }
+    ],
+    "made_by": {
+      "lore": "Made by {name}",
+      "poll_ticks": 5
+    },
+    "points": {
+      "commission": [
+        5,
+        10,
+        15,
+        20
+      ],
+      "construct": 3,
+      "craft": {
+        "adamantite": 3,
+        "high_magisteel": 1,
+        "hihiirokane": 4,
+        "low_magisteel": 1,
+        "mithril": 2,
+        "orichalcum": 2,
+        "pure_magisteel": 2
+      },
+      "craft_weekly_cap": 20,
+      "engine": 5,
+      "engine_commons_mult": 3,
+      "engrave": 2,
+      "event": 5,
+      "metal_first_server": 10,
+      "metal_first_soul": 3,
+      "weekly_cap": 60
+    },
+    "rank": [
+      {
+        "constructs": 1,
+        "engrave": false,
+        "id": 1,
+        "muster": 1,
+        "points": 0,
+        "renown": 1,
+        "tier": 1,
+        "title": "Journeyman"
+      },
+      {
+        "constructs": 2,
+        "engrave": true,
+        "id": 2,
+        "muster": 2,
+        "points": 40,
+        "renown": 2,
+        "tier": 2,
+        "title": "Artisan"
+      },
+      {
+        "constructs": 3,
+        "engrave": true,
+        "id": 3,
+        "muster": 3,
+        "points": 150,
+        "renown": 5,
+        "tier": 3,
+        "title": "Master Artificer"
+      },
+      {
+        "announce": true,
+        "constructs": 4,
+        "engrave": true,
+        "era_title": "grand_artificer",
+        "id": 4,
+        "muster": 6,
+        "points": 500,
+        "renown": 0,
+        "requires_any": {
+          "bands": {
+            "dwargon": "exalted"
+          },
+          "skills": [
+            "tensura:godly_craftsman",
+            "tensura:researcher"
+          ]
+        },
+        "tier": 4,
+        "title": "Grand Artificer"
+      }
+    ],
+    "recipe": [
+      {
+        "count": 1,
+        "id": "engraving_chisel",
+        "inputs": {
+          "irons_spellbooks:arcane_essence": 1,
+          "tensura:pure_magisteel_ingot": 1
+        },
+        "output": "ttl:engraving_chisel",
+        "rank": 2,
+        "station": "bench"
+      },
+      {
+        "count": 1,
+        "id": "cursed_whetstone",
+        "inputs": {
+          "irons_spellbooks:arcane_essence": 1,
+          "ttl:soul_ash": 1
+        },
+        "output": "ttl:cursed_whetstone",
+        "rank": 0,
+        "station": "altar"
+      },
+      {
+        "count": 1,
+        "id": "warden_core",
+        "inputs": {
+          "tensura:adamantite_bone_golem": 1,
+          "tensura:stone_bricks_magic_engine": 1,
+          "tensura:warp_core": 1
+        },
+        "output": "ttl:warden_core",
+        "rank": 4,
+        "station": "bench"
+      }
+    ],
+    "schematics": {
+      "buy_band": {
+        "dwargon": "friendly"
+      },
+      "buy_price": {
+        "gold": 20
+      },
+      "gated": {
+        "tensura:adamantite_gear_schematic": {
+          "boss_tier": 2,
+          "chance": 0.25
+        },
+        "tensura:hihiirokane_gear_schematic": {
+          "boss_tier": 3,
+          "chance": 0.25
+        }
+      },
+      "pool": [
+        "tensura:low_magisteel_gear_schematic",
+        "tensura:high_magisteel_gear_schematic",
+        "tensura:mithril_gear_schematic",
+        "tensura:japanese_sword_schematic",
+        "tensura:great_sword_schematic",
+        "tensura:spear_schematic",
+        "tensura:kunai_schematic",
+        "tensura:shield_schematic",
+        "tensura:magic_staff_schematic",
+        "tensura:hunting_knife_schematic"
+      ]
+    },
+    "steal": {
+      "channel_seconds": 30,
+      "cooldown_hours": 24,
+      "move_tolerance": 2,
+      "night": [
+        13000,
+        23000
+      ],
+      "radius": 48,
+      "smithy": {
+        "x": 423,
+        "z": -1084
+      }
+    }
+  },
   "bosses": {
     "boss": [
       {
@@ -2594,7 +3098,8 @@ const TtlData = {
         "minecraft:smooth_stone_slab",
         "minecraft:bell",
         "minecraft:barrel",
-        "minecraft:composter"
+        "minecraft:composter",
+        "ttl:workshop_bench"
       ],
       "builder_at": 500,
       "chunk_weekly_cap": 100,
@@ -3021,7 +3526,9 @@ const TtlData = {
         "ttl.boss.t4": 80
       },
       "min": 0,
-      "stage": {},
+      "stage": {
+        "ttl.artifice.rank4": 10
+      },
       "tier": {
         "elite": 15,
         "legendary": 30,
@@ -3117,8 +3624,16 @@ const TtlData = {
         "title": "The dead and the law"
       },
       {
-        "body": "# The Artificer\nKaijin's forge in Tempest and the smithies of Dwargon teach the craft. Tensura's Smithing Bench, Kiln and schematics are the start.\n\n- *Workshop Bench:* your own workshop and your charter.\n- *Commissions* from the workshops pay coin, reputation and new recipes.\n- *Golems* of magisteel and stranger metals serve you, and count for your nation's army.\n- The dark road: stolen schematics, cursed blades, golems a daemon has taken.\n\n*Being built:* the charter, ranks and commissions are coming. The Workshop Bench block already exists.\n",
+        "body": "# The Artificer\nKaijin's forge in Tempest and the smithies of Dwargon teach the craft. Tensura's Smithing Bench, Kiln and schematics are the start.\n\n- *Workshop Bench:* a Smithing Bench ringed by four low-quality magic crystals. Right-click it for the Workshop.\n- *The charter:* three schematics (learned or carried) at a Workshop Bench. `/ttl artifice charter`\n- *Ranks:* Journeyman, Artisan, Master Artificer, Grand Artificer. Points come from commissions and from what you make.\n- *Your mark:* what you make at the Smithing Bench carries your name. Commissions want your own work.\n\n`/ttl artifice` opens the Workshop anywhere. *Being built:* golems, the Warden and the workshop boards.\n",
         "title": "The workshop"
+      },
+      {
+        "body": "# Commissions\nA daily board of contracts from Kaijin and the Dwargon smithy. Higher ranks take harder work.\n\n- `/ttl artifice commissions` to see and take them, `/ttl artifice commission turnin` to deliver.\n- Pay: coin, reputation, points, and now and then a rare schematic.\n\n# Engravings\nFrom Artisan on, an *Engraving Chisel* (made in the Workshop) engraves your own work with Tensura's engravings. `/ttl artifice engrave`\n\n# Rare metals\nAdamantite and hihi'irokane gear needs their schematics. They come from great foes and master commissions, not from the ingot alone.\n",
+        "title": "Commissions and engravings"
+      },
+      {
+        "body": "Every craft has a faster way. It is never free.\n\n- *Cursed Whetstone:* soul ash and arcane essence at a Bone Altar. It curses any blade at once, no rank needed: its hits spread fear and wither.\n- *Stolen schematics:* the Dwargon smithy, at night, a steady hand. Dwargon will remember.\n\nBoth cost your soul's karma, tip the world toward darkness, anger those you wronged and cost renown if anyone sees. The honest road: buy a schematic from Dwargon (`/ttl artifice schematic buy`), and engrave with the chisel.\n",
+        "title": "The workshop's dark road"
       }
     ]
   },

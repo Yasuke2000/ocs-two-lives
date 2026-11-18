@@ -1,0 +1,153 @@
+# The Artificer core (WP-A1: artifice/*.js, design/data/artifice.toml, the mithril bridge in economy/recipes.js).
+# `ttl artifice expect`, `ttl roads expect` and `ttl rep expect` print "ttl: ..." when wrong, which `server.sh test-all`
+# counts as a failure. A refused player action answers "Workshop: ..." (not a failure); refusals are asserted with the
+# try_* fields instead. A is a Life 2 soul on a platform far from every NPC (a Workshop Bench and a Bone Altar beside it);
+# B stays in Life 1. Bots never claim the server's first-metal chronicle (TtlArtifice.isBot).
+# Expect in the log: "[ttl] artifice: N Smithing Bench products can carry a maker's stamp" (N > 0) at the recipe reload,
+# "[ttl] artifice: TtlBotArtA delivered patrol_blades: 30 bronze, +5 points", "... took artifice.engrave dark ...",
+# "... stole tensura:..._schematic from the Dwargon smithy", and no "[ttl] artifice command failed".
+ttlbot spawn TtlBotArtA
+ttlbot spawn TtlBotArtB
+@sleep 3
+ttl artifice test TtlBotArtA reset
+ttl artifice test TtlBotArtB reset
+ttl roads test TtlBotArtA reset
+ttl guild reset TtlBotArtA
+ttl rep set TtlBotArtA dwargon 0
+ttl rep set TtlBotArtA tempest 0
+ttl rep set TtlBotArtA holy_church 0
+clear TtlBotArtA
+ttl artifice test TtlBotArtA life2
+ttl artifice test TtlBotArtB life1
+execute in minecraft:overworld run forceload add 4090 4090 4110 4110
+execute in minecraft:overworld run fill 4094 150 4094 4106 150 4106 minecraft:stone
+execute in minecraft:overworld run fill 4094 151 4094 4106 154 4106 minecraft:air
+execute in minecraft:overworld run tp TtlBotArtA 4100 151 4100
+execute in minecraft:overworld run setblock 4102 151 4100 ttl:workshop_bench
+execute in minecraft:overworld run setblock 4098 151 4100 ttl:bone_altar
+@sleep 1
+# 0. What the reload registered: the Workshop Bench recipe, the two mithril kiln recipes, the Smithing Bench products.
+ttl artifice expect TtlBotArtA recipe_ttl.workshop_bench yes
+ttl artifice expect TtlBotArtA recipe_ttl.irons_mithril_melting yes
+ttl artifice expect TtlBotArtA recipe_ttl.irons_mithril_mixing yes
+ttl artifice expect TtlBotArtA smith_products yes
+# 1. The charter: Life 2 only, three schematics (learned or carried), at a Workshop Bench.
+ttl artifice expect TtlBotArtB try_charter life2only
+ttl artifice expect TtlBotArtA rank 0
+ttl artifice expect TtlBotArtA try_take_patrol_blades needs the artificer charter (/ttl artifice charter at a Workshop Bench)
+give TtlBotArtA tensura:iron_gear_schematic
+give TtlBotArtA tensura:long_sword_schematic
+give TtlBotArtA tensura:spear_schematic
+ttl artifice expect TtlBotArtA try_charter ok
+execute as TtlBotArtA run ttl artifice charter
+ttl artifice expect TtlBotArtA rank 1
+ttl artifice expect TtlBotArtA title Journeyman
+ttl artifice expect TtlBotArtA stage_rank1 yes
+ttl artifice expect TtlBotArtA has_ttl.artificer_charter 1
+ttl artifice expect TtlBotArtA constructs 1
+ttl artifice expect TtlBotArtA try_charter already chartered
+clear TtlBotArtA
+# 2. Made at the Smithing Bench (the bench code path): stamped, 1 craft point + 3 for this soul's first low magisteel.
+ttl artifice test TtlBotArtA craft tensura:low_magisteel_long_sword
+ttl artifice expect TtlBotArtA stamped 1
+ttl artifice expect TtlBotArtA made_by mine
+ttl artifice expect TtlBotArtA metal_low_magisteel yes
+ttl artifice expect TtlBotArtA points 4
+ttl artifice expect TtlBotArtA craft 1
+# 3. A commission (tier 1, made_by): delivered for 3 silver, Tempest +2, 5 points; once a day.
+ttl artifice expect TtlBotArtA try_take_kurobe_katana needs rank 2 (Artisan)
+ttl artifice commission test TtlBotArtA patrol_blades
+ttl artifice expect TtlBotArtA jobs 1
+ttl artifice expect TtlBotArtA ready_patrol_blades yes
+execute as TtlBotArtA run ttl artifice commission turnin
+ttl artifice expect TtlBotArtA jobs 0
+ttl artifice expect TtlBotArtA done_patrol_blades yes
+ttl artifice expect TtlBotArtA last_coins 30
+ttl artifice expect TtlBotArtA points 9
+ttl rep expect TtlBotArtA tempest value 2
+ttl artifice expect TtlBotArtA try_take_patrol_blades already done today
+# made_by: an item the soul did not make does not count until it carries its stamp.
+ttl artifice commission test TtlBotArtA garm_plate
+give TtlBotArtA tensura:low_magisteel_chestplate
+ttl artifice expect TtlBotArtA ready_garm_plate no
+ttl artifice expect TtlBotArtA made_by none
+ttl artifice test TtlBotArtA stamp
+ttl artifice expect TtlBotArtA ready_garm_plate yes
+# 4. Rank 2 (40 points): the Engraving Chisel (a workshop recipe), then an engraving on the soul's own work.
+ttl artifice expect TtlBotArtA try_make_engraving_chisel needs rank 2 (Artisan)
+ttl artifice points TtlBotArtA set 40
+ttl artifice expect TtlBotArtA rank 2
+ttl artifice expect TtlBotArtA title Artisan
+ttl artifice expect TtlBotArtA stage_rank2 yes
+give TtlBotArtA tensura:pure_magisteel_ingot
+give TtlBotArtA irons_spellbooks:arcane_essence
+ttl artifice expect TtlBotArtA try_make_engraving_chisel ok
+execute as TtlBotArtA run ttl artifice make engraving_chisel
+ttl artifice expect TtlBotArtA has_ttl.engraving_chisel 1
+ttl artifice expect TtlBotArtA unlocked_engraving_chisel yes
+give TtlBotArtA tensura:low_quality_magic_crystal 2
+give TtlBotArtA tensura:silver_coin 5
+ttl artifice expect TtlBotArtA try_engrave_tensura.magic_weapon Magic Weapon needs rank 3
+ttl artifice expect TtlBotArtA try_engrave_tensura.sturdy ok
+execute as TtlBotArtA run ttl artifice engrave tensura:sturdy
+ttl artifice expect TtlBotArtA enchant_tensura.sturdy 1
+ttl artifice expect TtlBotArtA has_tensura.low_quality_magic_crystal 0
+ttl artifice expect TtlBotArtA points 42
+ttl roads expect TtlBotArtA count_artifice.engrave.grey 1
+# The engraved plate is still the soul's own work: deliver it (Dwargon +2, 5 points).
+execute as TtlBotArtA run ttl artifice commission turnin
+ttl artifice expect TtlBotArtA done_garm_plate yes
+ttl artifice expect TtlBotArtA points 47
+ttl artifice expect TtlBotArtA try_engrave_tensura.swift hold the item to engrave in your main hand
+# 5. The dark road: a Cursed Whetstone made at the Bone Altar curses any blade at once and pays the five costs.
+give TtlBotArtA tensura:low_magisteel_sword
+give TtlBotArtA ttl:soul_ash
+give TtlBotArtA irons_spellbooks:arcane_essence
+ttl artifice expect TtlBotArtA try_make_cursed_whetstone ok
+execute as TtlBotArtA run ttl artifice make cursed_whetstone
+ttl artifice expect TtlBotArtA has_ttl.cursed_whetstone 1
+ttl artifice expect TtlBotArtA try_curse ok
+execute as TtlBotArtA run ttl artifice curse
+ttl artifice expect TtlBotArtA cursed yes
+ttl artifice expect TtlBotArtA has_ttl.cursed_whetstone 0
+ttl roads expect TtlBotArtA count_artifice.engrave.dark 1
+ttl roads expect TtlBotArtA chaos2 3
+ttl rep expect TtlBotArtA holy_church value -3
+ttl artifice expect TtlBotArtA try_curse needs a Cursed Whetstone
+# 6. Stolen schematics: only in the Dwargon smithy at night (test hook `anywhere`: no place/night rule, 2 s channel).
+ttl artifice expect TtlBotArtA try_steal only inside the Dwargon smithy
+ttl artifice test TtlBotArtA anywhere
+ttl artifice expect TtlBotArtA try_steal ok
+execute as TtlBotArtA run ttl artifice steal
+@sleep 4
+ttl rep expect TtlBotArtA dwargon value -20
+ttl roads expect TtlBotArtA count_artifice.schematic.dark 1
+ttl roads expect TtlBotArtA chaos2 6
+ttl artifice expect TtlBotArtA try_steal the smithy is still on guard (24 h)
+ttl artifice test TtlBotArtA strict
+# The honest road: buy one (20 gold, Dwargon friendly), Dwargon +2.
+ttl artifice expect TtlBotArtA try_buy dwargon must be friendly
+ttl rep set TtlBotArtA dwargon 30
+give TtlBotArtA tensura:gold_coin 20
+ttl artifice expect TtlBotArtA try_buy ok
+execute as TtlBotArtA run ttl artifice schematic buy
+ttl roads expect TtlBotArtA count_artifice.schematic.good 1
+ttl rep expect TtlBotArtA dwargon value 32
+# 7. Grand Artificer needs 500 points AND a craft unique or Dwargon exalted; the rank never skips that.
+ttl artifice points TtlBotArtA set 500
+ttl artifice expect TtlBotArtA rank 3
+ttl artifice expect TtlBotArtA title Master Artificer
+ttl rep set TtlBotArtA dwargon 90
+ttl artifice refresh TtlBotArtA
+ttl artifice expect TtlBotArtA rank 4
+ttl artifice expect TtlBotArtA stage_rank4 yes
+ttl artifice expect TtlBotArtA constructs 4
+ttl artifice expect TtlBotArtA muster 6
+# Cleanup.
+ttl artifice test TtlBotArtA reset
+ttl artifice test TtlBotArtA strict
+execute in minecraft:overworld run setblock 4102 151 4100 minecraft:air
+execute in minecraft:overworld run setblock 4098 151 4100 minecraft:air
+execute in minecraft:overworld run forceload remove 4090 4090 4110 4110
+ttlbot remove TtlBotArtA
+ttlbot remove TtlBotArtB

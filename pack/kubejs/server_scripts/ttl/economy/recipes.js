@@ -20,3 +20,34 @@ ServerEvents.recipes(event => {
     C: 'tensura:low_quality_magic_crystal'
   }).id('ttl:mana_ledger')
 })
+
+// The two mithrils (design/architecture/paths-necro-artificer.md §3.4; WP-A1): tensura:mithril_ingot and Iron's
+// irons_spellbooks:mithril_ingot are different items. Tensura's kiln reconciles them both ways at 1:1 so neither mod's
+// content is orphaned: Iron's ingot melts into the same molten magisteel + silver as Tensura's (tensura:kiln_melting,
+// the numbers of data/tensura/recipe/melting/mithril_ingot.json), and that melt can be mixed into Iron's ingot as well as
+// Tensura's (tensura:kiln_mixing; the kiln's mixing screen pages between recipes with the same inputs). JEI shows both.
+ServerEvents.recipes(event => {
+  var ids = ['tensura:mithril_ingot', 'irons_spellbooks:mithril_ingot']
+  var missing = ids.filter(id => !Item.exists(id))
+  if (missing.length > 0) {
+    console.error(`[ttl] economy: mithril bridge skipped, unknown items: ${missing.join(', ')}`)
+    return
+  }
+  event.custom({
+    type: 'tensura:kiln_melting',
+    input: { item: 'irons_spellbooks:mithril_ingot' },
+    primary: 'tensura:magisteel',
+    primary_count: 20,
+    secondary: 'tensura:silver',
+    secondary_count: 4,
+    smeltTick: 300
+  }).id('ttl:irons_mithril_melting')
+  event.custom({
+    type: 'tensura:kiln_mixing',
+    left: 'tensura:silver',
+    left_count: 4,
+    right: 'tensura:magisteel',
+    right_count: 20,
+    output: { count: 1, id: 'irons_spellbooks:mithril_ingot' }
+  }).id('ttl:irons_mithril_mixing')
+})

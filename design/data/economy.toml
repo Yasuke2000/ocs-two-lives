@@ -544,4 +544,5 @@ blocks = [
   "minecraft:stone_bricks", "minecraft:stone_brick_slab", "minecraft:stone_brick_stairs", "minecraft:stone_brick_wall",
   "minecraft:cobblestone_wall", "minecraft:lantern", "minecraft:oak_fence", "minecraft:oak_fence_gate",
   "minecraft:smooth_stone_slab", "minecraft:bell", "minecraft:barrel", "minecraft:composter",
+  "ttl:workshop_bench",   # a public workshop (paths §3.5, WP-A1)
 ]
