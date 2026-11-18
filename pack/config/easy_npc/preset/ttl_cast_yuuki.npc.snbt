@@ -1,0 +1,84 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Story",
+    created:1790000000000L,
+    description:"Yuuki Kagurazaka, Grandmaster of the Free Guild (story NPC).",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Yuuki Kagurazaka",
+    variantType:"JAYJASONBO",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#4A4A5E","text":"Yuuki Kagurazaka"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl story talk yuuki",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_talk",
+              Name:"Talk"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Goodbye"
+            }
+          ],
+          Label:"default",
+          Name:"Yuuki Kagurazaka",
+          Priority:5,
+          Texts:[
+            {
+              Text:"A young man with a mask pushed up on his forehead reads reports at the end of the hall, smiling at none of them."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-270042675,-364750776,-2097996859,688439137],
+    VariantType:"JAYJASONBO",
+    id:"easy_npc:humanoid"
+  }
+}

@@ -1,22 +1,27 @@
 // priority: 50
-// The Free Guild's Easy NPCs: Fuze (the guild master, high-rank contracts) and the guild receptionists (the desk).
+// The world's NPCs: the Free Guild's Easy NPCs (Fuze, the guild master with the high-rank contracts, and the receptionists of
+// the desk) and, since WP-S4, the story cast (Benimaru, Treyni, Milim, ... and the statues of mod characters).
 // Spots, settings and who is who come from design/data/npcs.toml (TtlData.npcs); the NPCs' look and dialogs are Easy NPC
-// presets generated from the same file (tools/gen_npcs.py -> config/easy_npc/preset/ttl_guild_<kind>.npc.snbt). Their
-// buttons run the player's own `/ttl guild board|take|turnin|status` (economy/commands.js), so every rule (Life 2 only,
-// rank, giver) lives in guild.js and not in the dialog.
+// presets generated from the same file (tools/gen_npcs.py -> config/easy_npc/preset/ttl_guild_<kind>.npc.snbt for the guild,
+// ttl_cast_<kind>.npc.snbt for the cast). The guild buttons run the player's own `/ttl guild board|take|turnin|status`
+// (economy/commands.js), so every rule (Life 2 only, rank, giver) lives in guild.js and not in the dialog; a cast button runs
+// `/ttl story talk <id>` (story/story.js). A kind with `statue = "<entity id>"` is not an Easy NPC: story/cast.js spawns that
+// mod entity as a tame NoAI statue (TtlCast.spawnStatue) and the same checks keep exactly one per spot.
 //
 // Placement. Every active spot keeps exactly one NPC, found again by tags: `ttl.npc` (any guild NPC), the spot's own
 // `tag` (`ttl.npc.fuze`, `ttl.npc.receptionist.<n>`) and `ttl.npc.spot.<id>`. A spot is checked on start (after
 // start_delay_ticks) and every check_ticks, and only while its chunk is loaded, so nothing is spawned into a chunk that
 // may already hold the NPC:
 //   - none found           -> spawn one: `/easy_npc preset import_new custom easy_npc:preset/ttl_guild_<kind>.npc.snbt x y z`
+//                             (a statue: `summon <entity> x y z {tame NoAI NBT}`)
 //   - more than one found  -> the extras are deleted (`/easy_npc delete <uuid>`)
 //   - the spot's signature (kind, position, yaw, settings.rev) differs from the one stored when it was spawned
 //                          -> the old NPC is deleted and a fresh one spawned (this is how a moved spot or a bumped
 //                             rev replaces an NPC that still has the old dialog)
 //   - spot not active      -> its NPC is deleted (disabled, or a Tempest stand-in once its build is placed:
 //                             `unless_build`; a spot anchored to a build (`anchor = "build"`) waits for
-//                             `ttl.build.<name>.corner` from life/builds.js and stands at corner + blueprint offset)
+//                             `ttl.build.<name>.corner` from life/builds.js and stands at corner + blueprint offset; a world spot with
+//                             `surface = true` stands on the highest solid block at x, z once that chunk is loaded)
 // Server persistentData `ttl.npc.state` = {<spot id>: {sig}}.
 //
 // Staff: /ttl guild npc list | ensure [spot] | spawn <spot> | remove <spot> | goto <player> <spot> | expect <field> <value>
@@ -42,8 +47,27 @@ const TtlGuildNpc = {
     return null
   },
 
+  kinds() {
+    return this.conf().kind
+  },
+
+  // The [[kind]] of a spot (guild NPC, story Easy NPC or statue).
+  kindOf(spot) {
+    var all = this.kinds()
+    for (var i = 0; i < all.length; i++) {
+      if (String(all[i].id) === String(spot.kind)) return all[i]
+    }
+    return null
+  },
+
+  isStatue(kind) {
+    return !!(kind && kind.statue)
+  },
+
   presetOf(spot) {
-    return `easy_npc:preset/${this.conf().settings.preset_prefix}${spot.kind}.npc.snbt`
+    var kind = this.kindOf(spot)
+    var s = this.conf().settings
+    return `easy_npc:preset/${kind && kind.talk ? s.cast_prefix : s.preset_prefix}${spot.kind}.npc.snbt`
   },
 
   spotTag(spot) {
@@ -99,7 +123,19 @@ const TtlGuildNpc = {
       x += 0.5
       z += 0.5
     }
-    return { dim: String(spot.dim), x: x, y: y, z: z, yaw: Number(spot.yaw) }
+    return { dim: String(spot.dim), x: x, y: y, z: z, yaw: Number(spot.yaw), surface: spot.surface === true }
+  },
+
+  // The y of the highest solid block's top at x, z (trees skipped) in a LOADED chunk, or null. Used for `surface` spots.
+  surfaceY(server, pos) {
+    try {
+      var Types = Java.loadClass('net.minecraft.world.level.levelgen.Heightmap$Types')
+      var level = server.getLevel(pos.dim)
+      return Number(level.getHeight(Types.MOTION_BLOCKING_NO_LEAVES, Math.floor(pos.x), Math.floor(pos.z)))
+    } catch (e) {
+      console.error(`[ttl] guild npc: reading the surface at ${pos.x} ${pos.z} failed: ${e}`)
+      return null
+    }
   },
 
   signature(spot, pos) {
@@ -150,12 +186,20 @@ const TtlGuildNpc = {
   // would leave a record that Easy NPC may restore.
   remove(server, e) {
     var id = this.uuidOf(e)
-    if (id && TtlCmd.run(server, `easy_npc delete ${id}`) > 0) return
+    if (id && String(e.type).startsWith('easy_npc:') && TtlCmd.run(server, `easy_npc delete ${id}`) > 0) return
     e.discard()
   },
 
   // Spawns one NPC at the spot and tags the new entity (the nearest Easy NPC without a guild tag). True on success.
   spawn(server, spot, pos) {
+    var kind = this.kindOf(spot)
+    if (this.isStatue(kind)) {
+      if (typeof TtlCast === 'undefined') {
+        console.error(`[ttl] guild npc: ${spot.id} is a statue but story/cast.js is not loaded`)
+        return false
+      }
+      return TtlCast.spawnStatue(server, spot, kind, pos)
+    }
     var r = TtlCmd.run(server, `execute in ${pos.dim} run easy_npc preset import_new custom ${this.presetOf(spot)} ${pos.x} ${pos.y} ${pos.z}`)
     if (!(r > 0)) {
       console.error(`[ttl] guild npc: importing ${this.presetOf(spot)} at ${pos.dim} ${pos.x} ${pos.y} ${pos.z} failed (result ${r}); is the preset in config/easy_npc/preset and does the log say why?`)
@@ -195,13 +239,13 @@ const TtlGuildNpc = {
   ensureSpot(server, spot) {
     var id = String(spot.id)
     var st = this.state(server)
-    var found = this.find(server, String(spot.dim), this.spotTag(spot))
     var out
     if (!this.active(server, spot)) {
-      if (found.length > 0) {
+      var stale = this.find(server, String(spot.dim), this.spotTag(spot))
+      if (stale.length > 0) {
         var self0 = this
-        found.forEach(e => self0.remove(server, e))
-        console.info(`[ttl] guild npc: ${id} is ${spot.enabled === true ? 'replaced by its build' : 'disabled'}, ${found.length} removed`)
+        stale.forEach(e => self0.remove(server, e))
+        console.info(`[ttl] guild npc: ${id} is ${spot.enabled === true ? 'replaced by its build' : 'disabled'}, ${stale.length} removed`)
       }
       if (st[id]) {
         delete st[id]
@@ -223,6 +267,15 @@ const TtlGuildNpc = {
       this.last[id] = 'unloaded'
       return 'unloaded'
     }
+    if (pos.surface) {
+      var sy = this.surfaceY(server, pos)
+      if (sy === null) {
+        this.last[id] = 'pending'
+        return 'pending'
+      }
+      pos.y = sy
+    }
+    var found = this.find(server, String(spot.dim), this.spotTag(spot))
     var sig = this.signature(spot, pos)
     var rec = st[id]
     var self = this
@@ -286,6 +339,34 @@ const TtlGuildNpc = {
     }
     var st = /^state_(.+)$/.exec(field)
     if (st) return String(this.last[st[1]] || 'unchecked')
+    // What stands at a spot: type_<spot> (entity id), invulnerable_<spot>, noai_<spot> (n/a when not a mob), name_<spot>, talk_<spot>
+    // (the story npc id its kind talks with). Each answers 'none' when no entity is loaded there.
+    var info = /^(type|invulnerable|noai|name|talk)_(.+)$/.exec(field)
+    if (info) {
+      var isp = this.spot(info[2])
+      if (!isp) throw `unknown spot ${info[2]}`
+      if (info[1] === 'talk') {
+        var ik = this.kindOf(isp)
+        return String(ik && ik.talk ? ik.talk : 'none')
+      }
+      var ents = this.find(server, String(isp.dim), this.spotTag(isp))
+      if (ents.length === 0) return 'none'
+      var ent = ents[0]
+      if (info[1] === 'type') return String(ent.type)
+      if (info[1] === 'invulnerable') return String(!!ent.isInvulnerable())
+      if (info[1] === 'noai') {
+        try {
+          return String(!!ent.isNoAi())
+        } catch (x) {
+          return 'n/a'
+        }
+      }
+      try {
+        return String(ent.getCustomName().getString())
+      } catch (x2) {
+        return 'none'
+      }
+    }
     var min = this.rankIndex(TtlGuild.conf().guild.fuze_min_rank)
     var all = {
       spots: () => String(self.spots().filter(s => self.active(server, s)).length),
@@ -298,8 +379,9 @@ const TtlGuildNpc = {
       presets: () => {
         try {
           var File = Java.loadClass('java.io.File')
-          var prefix = String(self.conf().settings.preset_prefix)
-          return String(TtlData.npcs.kind.every(k => new File(`config/easy_npc/preset/${prefix}${k.id}.npc.snbt`).exists()))
+          var cfg = self.conf().settings
+          return String(TtlData.npcs.kind.filter(k => !k.statue).every(k =>
+            new File(`config/easy_npc/preset/${k.talk ? cfg.cast_prefix : cfg.preset_prefix}${k.id}.npc.snbt`).exists()))
         } catch (e) {
           return 'n/a'
         }

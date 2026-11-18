@@ -19,3 +19,63 @@ ttl quests expect TtlBotQuests said day1
 ftbquests change_progress TtlBotQuests complete 50382544FBB449E8
 ftbquests change_progress TtlBotQuests reset 50382544FBB449E8
 ttlbot remove TtlBotQuests
+# 5. Story chapters 7 (Crossroads) and 8 (The King's Test): tools/gen_quests.py story extensions in use (design/quests.md, WP-S6).
+# `ttl quests check` above already proves that every chapter-7/8 quest loaded, including the cross-chapter `deps`
+# (FTB Quests drops an unresolved dependency silently, so a quest missing from the check is the symptom).
+# There is no command that claims a reward or reads quest visibility, so the flows below do what the book does: complete the quest
+# through FTB (`ftbquests change_progress`, which auto-claims the invisible rewards: the honour flag) and run the claimed command
+# reward as the bot (`ttl story oath|act|fight`, the same commands the reward lines run). NOT asserted here, verify in game:
+# a dark soul never sees the light lane (and the reverse), the Oath menu opens from the Crossroads reward, a party shares the lane.
+# ids are from generated/quests.js: crossroads/crossroads 3D14EC5F5890B8B5, kings_test/honour_terms 5CE177F176862D46,
+# kings_test/regicide 6A02570FD1A84087, kings_test/act_two 6DDF459E16D36563.
+# L: the light lane. The Oath (the Crossroads reward), then "Terms of Honour" sets honour_duel by itself, the kill then costs nothing.
+ttlbot spawn TtlBotLaneL
+ttlbot spawn TtlBotLaneD
+@sleep 2
+ttl reset TtlBotLaneL
+ttl reset TtlBotLaneD
+kubejs stages add TtlBotLaneL ttl.life2
+kubejs stages add TtlBotLaneD ttl.life2
+ftbquests change_progress TtlBotLaneL reset 3D14EC5F5890B8B5
+ftbquests change_progress TtlBotLaneL reset 5CE177F176862D46
+ftbquests change_progress TtlBotLaneD reset 3D14EC5F5890B8B5
+ftbquests change_progress TtlBotLaneD reset 6A02570FD1A84087
+ftbquests change_progress TtlBotLaneL complete 3D14EC5F5890B8B5
+execute as TtlBotLaneL run ttl story oath light
+ttl story expect TtlBotLaneL path light
+ttl story expect TtlBotLaneL stage ttl.path.light yes
+ttl story expect TtlBotLaneL stage ttl.story.act1 yes
+ttl story expect TtlBotLaneL flag honour_duel no
+ftbquests change_progress TtlBotLaneL complete 5CE177F176862D46
+@sleep 2
+ttl story expect TtlBotLaneL flag honour_duel yes
+ttl story expect TtlBotLaneL stage ttl.story.honour_duel yes
+ttl story killrep TtlBotLaneL gazel_dwargo
+ttl story expect TtlBotLaneL flag honour_duel no
+ttl story expect TtlBotLaneL flag regicide no
+ttl rep expect TtlBotLaneL dwargon value 0
+ttl story act TtlBotLaneL 2
+ttl story expect TtlBotLaneL act 2 yes
+ttl rep expect TtlBotLaneL dwargon value 15
+# D: the dark lane. Regicide (no honour flag): Dwargon -60 and the flag, then Act II by the finale's reward (-20 more, Outcast +10).
+ftbquests change_progress TtlBotLaneD complete 3D14EC5F5890B8B5
+execute as TtlBotLaneD run ttl story oath dark
+ttl story expect TtlBotLaneD path dark
+ttl story expect TtlBotLaneD stage ttl.path.dark yes
+ttl story expect TtlBotLaneD flag honour_duel no
+ttl story killrep TtlBotLaneD gazel_dwargo
+ttl story expect TtlBotLaneD flag regicide yes
+ttl rep expect TtlBotLaneD dwargon value -60
+ftbquests change_progress TtlBotLaneD complete 6A02570FD1A84087
+ttl story act TtlBotLaneD 2
+ttl story expect TtlBotLaneD act 2 yes
+ttl rep expect TtlBotLaneD dwargon value -80
+ttl story expect TtlBotLaneD flag honour_duel no
+ftbquests change_progress TtlBotLaneL reset 3D14EC5F5890B8B5
+ftbquests change_progress TtlBotLaneL reset 5CE177F176862D46
+ftbquests change_progress TtlBotLaneD reset 3D14EC5F5890B8B5
+ftbquests change_progress TtlBotLaneD reset 6A02570FD1A84087
+ttl reset TtlBotLaneL
+ttl reset TtlBotLaneD
+ttlbot remove TtlBotLaneL
+ttlbot remove TtlBotLaneD

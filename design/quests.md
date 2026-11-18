@@ -32,7 +32,9 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | Field | Meaning |
 | --- | --- |
 | `key`, `title`, `subtitle`, `icon` | id (unique in the chapter) and looks |
-| `deps` | keys of quests that must be done first |
+| `deps` | keys of quests that must be done first; `"<chapter>/<quest>"` points at a quest of another chapter (see Story extensions) |
+| `min_deps` | at least this many of `deps` must be done (FTB `min_required_dependencies`), default all: a quest after two lanes uses `min_deps = 1` |
+| `path` | `"light"` or `"dark"`: a story lane quest, see Story extensions |
 | `lane`, `col` | layout: row (negative = above) and column; column defaults to deepest dependency + 1 |
 | `shape`, `size` | `circle` … `gear`; size 1.5 for milestones |
 | `optional` | does not block chapter completion |
@@ -40,17 +42,43 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | `text` | description (blank line = new paragraph; `&6` colour codes work) |
 | `karma` | Life 1: appended as "Next life: …" — how the deed counts for the rebirth (keep in step with `design/data/karma.toml`) |
 | `tasks` | list, see below |
-| `rewards` | `item` (`item`, `count`), `xp` (`xp` points), `xp_levels`. Nothing else: quests never grant skills, races or evolutions (`design/manas-integration.md` §5(d)) |
+| `rewards` | `item` (`item`, `count`), `xp` (`xp` points), `xp_levels`, `stage`, `command` (the last two: Story extensions). Nothing else: quests never grant skills, races or evolutions (`design/manas-integration.md` §5(d)) |
 
 Task types: `item` (item, count; checks the inventory and never consumes unless `consume = true`, which makes it a hand-in submitted in the quest screen), `kill` (entity, count), `dimension`, `structure` (id or `#tag`),
 `biome`, `advancement` (+ optional `criterion`), `stat` (custom stat id, value), `stage` (KubeJS stage, via
-FTB XMod Compat), `checkmark`, `xp`, `location` (dimension, `at = [x, z]`, `radius`: a full-height box),
+FTB XMod Compat; `team_stage = true` reads the FTB team's stages instead of the submitting player's; the name must be `ttl.<…>`), `checkmark`, `xp`, `location` (dimension, `at = [x, z]`, `radius`: a full-height box),
 and Life 2 only: `ep` (`tensura_ftb:existence_value`, default `existence = "EP"`) and `ability`
 (`tensura_ftb:ability`, ability id, status AVAILABLE/LEARNT/MASTERED). Any task may have a `title`.
 
 **Mortal dimensions:** vanilla advancements that test a dimension (`story/enter_the_nether`, `story/enter_the_end`,
 `end/root`…) never fire in `ttl:mortal_nether` / `ttl:mortal_end`. Use `dimension` tasks there. Item, kill,
 structure, biome, stat and most other advancements work in every dimension.
+
+## Story extensions (WP-S5, `design/architecture/story-characters.md` §3, §6.3)
+
+All optional; a chapter that uses none of them generates exactly as before.
+
+**`path = "light" | "dark"`** on a quest makes it a lane quest. The generator adds a first task, a `stage` task on
+`ttl.path.<x>` (task key `path`, so the other tasks keep their ids whether or not the quest has a path), turns on
+`require_sequential_tasks` (nothing else progresses before the path task) and, unless `path_hidden = false`, makes the
+quest `invisible` until that one task is done: a dark player never sees the light lane, and the stage task still
+auto-submits while the quest is hidden. Before the Oath neither lane shows. The stage is per player but quest progress is per
+FTB team, so a party must share one path (WP-S2 locks it); with `path_hidden = false` the lane stays visible and merely
+cannot be finished by the other path.
+
+**Cross-chapter `deps`**: `deps = ["tempest_rises/stands", "local_key"]`. The id hash already includes the chapter key, so
+it is `qid(<chapter>, <quest>)`. The generator checks the target exists (any chapter, any file order) and refuses dependency
+loops across chapters; a cross-chapter dep does not move the quest on the grid (column counts same-chapter deps only). FTB Quests
+resolves dependencies after all chapter files are read, so the chapter order on disk does not matter. A quest key cannot
+contain `/`.
+
+**Rewards**
+
+| Reward | Fields | Notes |
+| --- | --- | --- |
+| `stage` | `stage`, `remove = false`, `team = false`, `auto = "invisible"` | FTB `gamestage` reward. Auto-claimed and silent by default. Only `ttl.story.*` and `ttl.quest.*` may be set or removed (`REWARD_STAGE_PREFIXES`); `ttl.life*`, `ttl.tier.*`, `ttl.race.*`, `ttl.boss.*`, `ttl.faction.*`, `ttl.path.*` belong to other systems. `team = true` writes a team stage (pair it with a `team_stage` task) |
+| `command` | `command`, `permission_level = 2`, `silent = false`, `feedback = ""`, `as_player = true` | FTB `command` reward. Runs as the claiming player (it always does: `CommandReward.claim` uses the player's command source; `as_player = false` does not exist and is refused). `permission_level` only raises that source's level; `/ttl ...` subcommands need op level 2, hence the default 2 (use 0 for a plain command). FTB expands `{p}` `{x}` `{y}` `{z}` `{chapter}` `{quest}` `{team}` `{team_id}` `{member_count}` `{online_member_count}` and then runs `String.format`, so `%` is refused. Commands mentioning skill, race, evolve, awaken, unique, legendary, registry, op, deop or stop are refused (rule: quests never grant those). Not auto-claimed: the player presses the claim button |
+| any | `auto = "default" \| "disabled" \| "enabled" \| "no_toast" \| "invisible"` | FTB `RewardAutoClaim`; `default` is the book's `default_autoclaim_rewards` (disabled) |
 
 ## Chapters
 
@@ -96,6 +124,24 @@ logs, cobblestone, coal, wheat; stand in a dark forest or river biome. Vanilla o
 **6. Daily Deeds: Jura** (Life 2, 6 repeatable quests): kill horned rabbits, giant ants, direwolves; hand in hipokute grass
 and magic ore shards; patrol Tempest. Rewards: bronze coins, a low potion, food, XP.
 
+**7. Crossroads** (Life 2, Act I of the story, 12 quests, WP-S6). Spine: Crossroads (stand at Tempest's south gate; the reward
+`ttl story oath` opens the Oath menu) → two lanes of four quests → The Forest Awakens (`min_deps = 1`). Light lane "Rigurd's Trust"
+(`path = "light"`): Rigurd's hut → Gobta's Great Boast (5 horned rabbits) → Hear Me, Direwolves (advancement) → A Seat at the Fire (hand in 8
+cooked beef). Dark lane "The Outcast's Mark" (`path = "dark"`): the Outcast contact on the south road → The Cull (8 direwolves) → The Society's
+Toll (6 bronze coins) → The Horde's Envoy (old goblin village). Optional side pair at the Sealed Cave: the claim button starts the Supermassive Slime
+(`ttl story fight`), then a stage task on `ttl.defeated.supermassive_slime`. The Oath itself, its reputation deltas and Act I belong to the
+story core; the chapter never sets a path.
+
+**8. The King's Test** (Life 2, Act II, 14 quests, WP-S6). After chapter 3's audience and chapter 7's finale (cross-chapter `deps`): The King Looks Up
+(stage task `ttl.story.act1` + the royal terrace) → The Exile's Smithy → A King's Equal (10,000 EP), then two lanes of five quests. Light "honour duel":
+Terms of Honour (reward `ttl story flag {p} honour_duel`, auto-claimed so it cannot be skipped) → Challenge the King (claim = `ttl story fight
+gazel_dwargo`) → The Honour Duel (stage `ttl.defeated.gazel_dwargo`; the flag makes the kill free and is spent by it) → A Pact of Smiths (hand-ins at Kaijin's
+smithy) → The King's Word (Tempest green). Dark, one join (`min_deps = 1`): Steal the Schematics (forge hall, engineers' workshop, 8 paper) **or** Take the
+Throne → Regicide (same fight, no flag: Dwargon -60, flag `regicide`), then The Spoils at the Outcast contact. Finale The Armed Nation (`min_deps = 1`):
+the reward `ttl story act {p} 2` records Act II and applies its lane deltas (light Dwargon +15; dark Dwargon -20, Outcast +10). A claimed "start the
+fight" reward cannot be claimed again: if it fails (cooldown, the King already out) the same fight starts from `/ttl story fight gazel_dwargo` or Gazel's
+dialog button. Reward `ttl story ...` commands use `{p}`, not `@p`: `@p` is the nearest player and could pick a party member standing at the same spot.
+
 Known limit: quest progress carries to Life 2 (master plan D4), so a Life 1 quest left open can still be finished
 in Life 2. Karma is closed at death, so this only hands out the small vanilla reward.
 
@@ -124,6 +170,23 @@ Format (verified against the jars, not only docs):
 - Minecraft Wiki, written book component syntax (1.20.5–1.21.4: pages are JSON text strings) and advancement
   triggers (`changed_dimension` names the vanilla dimension keys).
 
+Story extensions (verified 18/11/2026 against `ftb-quests-neoforge-2101.1.39.jar` with `javap -c`; `tests/test_gen_quests.py`
+re-checks every field name against the jar when it is present):
+- `CommandReward` (`type` string `command`): `writeData`/`readData` keys `command`, `permission_level` (int, 0 omitted),
+  `silent`, `feedback_message` (legacy `elevate_perms` is read as level 2). There is no `player_command` field: `claim()` builds
+  `player.createCommandSourceStack()`, applies `withPermission(level)` only when level > 0, `withSuppressedOutput()` when silent, and runs
+  `performPrefixedCommand`; the `{key}` placeholders (`PATTERN = [{](\w+)}`) are formatted with `String.format`.
+- `StageReward` (`gamestage`): `stage`, `remove`; the common `Reward` keys `team_reward` (boolean, absent = default), `auto`
+  (`RewardAutoClaim` ids default/disabled/enabled/no_toast/invisible; an absent key reads back as `default`, so the generator writes
+  `invisible` explicitly), `exclude_from_claim_all`, `ignore_reward_blocking`, `disable_reward_screen_blur`.
+- `StageTask` (`gamestage`): `stage`, `team_stage`. It auto-submits on the player tick through `TeamData.canStartTasks`, which checks
+  dependencies and cooldown, not visibility, so it completes inside an invisible quest.
+- `Quest`: `invisible` (hidden until completed) with `invisible_until_tasks` (visible once N tasks are done: `Quest.isVisible`),
+  `require_sequential_tasks` (`Task.checkTaskSequence`: a task submits only when the one before it is complete),
+  `min_required_dependencies` (`Quest.checkDependencies`), `dependencies` (ids resolved through `BaseQuestFile.get`).
+- `BaseQuestFile.readDataFull`: every chapter file is read into objects first and `readData` runs afterwards over all of them, so a
+  dependency on a quest in a chapter file that sorts later still resolves (an unresolved dependency would be dropped silently).
+
 Chapters 2-6 (verified 18/11/2026 against Tensura 2.0.1.5 and tensura_ftb 2.0.0.4):
 - Item, block, entity and skill ids come from `assets/tensura/lang/en_us.json` of the Tensura jar; the skills used
   (`aura_sword`, `wind_cutter`, `physical_attack_resistance`) are also in its `data/tensura/tags/manascore_skill/skills/`
@@ -138,6 +201,23 @@ Chapters 2-6 (verified 18/11/2026 against Tensura 2.0.1.5 and tensura_ftb 2.0.0.
   (see the header of each chapter file for the conversion), landmark positions: `design/data/landmarks.toml`.
 - Not verifiable here: whether an orc lord is alive in the orc camp when a player arrives; the exact centre of landmarks
   that `/place structure` shifts up to 64 blocks (hence the large radii); the Kijin ruin's canon position.
+
+Chapters 7-8 (WP-S6, 18/11/2026; places and ids verified against Tensura 2.0.1.5, the story core and `bosses.toml`):
+- Canon beats: *That Time I Got Reincarnated as a Slime* season 1 (Wikipedia episode list, checked 18/11/2026): ep. 1 "The Storm Dragon, Veldora" (the Sealed
+  Cave), ep. 2-3 "Meeting the Goblins" and "Battle at the Goblin Village" (the goblins and direwolves named and evolved: Rigurd's trust, the riders on the
+  Tempest Star Wolves), ep. 4 "In the Kingdom of the Dwarves" (Kaijin), ep. 5 "Hero King, Gazel Dwargo" (Kaijin's trial and exile; Gazel sends a ninja after
+  Rimuru), ep. 10-11 (the Orc Lord's shadow, Gabiru and Gobta's duel) -
+  https://en.wikipedia.org/wiki/That_Time_I_Got_Reincarnated_as_a_Slime_season_1 . Light novel volume numbers were not verified: the quest texts cite the
+  anime only.
+- Our interpretation, flagged in the quest texts: the Outcast Society (the pack's own faction, master plan D7), the Horde's envoy before the Orc War, the Supermassive
+  Slime as Veldora's leftover magicule, the honour duel (inspired by the mod's own throne-room line "Oh? You want to have a training fight?", lang
+  `tensura.message.dwarf.king.greet.positive_start`), the pact between the smiths, the Outcast contact's spot on the south road (0, 52) and the Outcast interest in
+  Dwargon's forge plans.
+- Ids from the Tensura jar (lang and `data/tensura/advancement`): items `goblin_club`, `bronze_coin`, `silver_coin`, `silver_ingot`, `horned_rabbit_spawn_egg`; entities
+  `horned_rabbit`, `direwolf`; advancement `hear_me_direwolves`. Boss ids come from `design/data/bosses.toml` (`supermassive_slime`, `gazel_dwargo`), flags
+  and acts from `design/data/story.toml` (`honour_duel`, `regicide`, act 2). The mod's own advancement `tensura:hero_king` ("Defeat Gazel Dwargo") exists but
+  only fires for an untamed Gazel, so the quests read `ttl.defeated.gazel_dwargo` (set by `bosses/boss.js` for every credited winner) instead.
+- Places: Tempest offsets from `blueprints/tempest.py`, Dwargon from `blueprints/dwargon.py` (see the headers of chapters 2, 3, 7, 8).
 
 Quest-line ideas:
 - Hardcore / staged packs: Araxer's Staged Survival (8 gated chapters,

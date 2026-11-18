@@ -1,0 +1,100 @@
+# Player nations and land claims (design/architecture/sprint3-4.md S4; owner decisions 18/11/2026). Scripts:
+# pack/kubejs/server_scripts/ttl/nations/ (nations.js = the API, claims.js = land, commands.js = /ttl nation).
+# Edit, then run `python tools/gen_data.py` (it checks every entry, and that the two FTB configs below agree).
+# Test: tests/ingame/nations.rcon.
+#
+# A nation is an FTB TEAMS PARTY that paid its charter. The party stays the one object of the whole pack (quests,
+# story path and boss credit live on it too, design/architecture/story-characters.md §4), so a nation is a record
+# keyed by the party's team id; it never keeps a roster of its own. Joining, leaving, kicks and disbands are FTB's
+# commands; the nation follows through FTB's join/leave events and a roster poll (poll_ticks).
+#
+# VALUE. People have renown (TtlRep.renown, design/data/factions.toml [renown]). A nation's value is
+#     sum of its members' renown
+#   + claimed chunks   x chunk_value
+#   + builds           x build_value    (a build = one Public Works chunk, /ttl merit works mark, inside the nation's claims)
+#   + treasury         / coins_per_value (the treasury is counted in bronze coins, 100 bronze = 1 gold)
+# Ranks come from the value. A rank raises the land every member brings.
+#
+# LAND. Claims exist only in the Tensura overworld: pack/config/ftbchunks-world.snbt has
+# claim_dimension_whitelist = ["minecraft:overworld"], and Life 1 is confined to ttl:mortal_*, so the Life 2 rule
+# needs no code (owner decision O6). The claim limit of a party is the SUM of its members' limits
+# (party_limit_mode = "sum"). Every Life 2 soul has base_chunks (= max_claimed_chunks in that file); a nation member
+# gets chunks_per_member + the rank's bonus instead, topped up by an FTB "extra claim chunks" value that
+# nations/claims.js sets through `ftbchunks admin extra_claim_chunks`.
+
+[rules]
+# Members a nation can hold. Must equal max_party_size in pack/config/ftbteams-server.snbt (checked); the party size is
+# enforced by FTB Teams itself, so a sixth player cannot join the party at all.
+member_cap = 5
+# Founding needs this many party members, the owner included.
+min_members = 2
+# Founding needs this stage (a boss tier; the Orc Lord of the first story act is ttl.boss.t1).
+charter_stage = "ttl.boss.t1"
+# The charter fee, a coin table (a SINK in the economy counters, TtlEcon.charge). Money is Tensura's coins.
+# This is the only place the fee is set: gen_data.py derives economy.toml [sinks].charter from it (TtlEcon.fee, `ttl econ`).
+charter_cost = { gold = 50 }
+# Name rule: letters, digits, space, apostrophe and hyphen.
+name_min = 3
+name_max = 24
+# Reputation every member who is online at founding gets with the faction of the home region (TtlRep.add). 0 = off.
+home_rep = 10
+# Chunks every Life 2 soul may claim on their own (must equal max_claimed_chunks in ftbchunks-world.snbt; checked).
+base_chunks = 4
+# Chunks every nation member brings, before the rank bonus. Total limit = members x (chunks_per_member + bonus).
+chunks_per_member = 10
+# How often the roster is reconciled with FTB Teams (ticks; 100 = 5 s): stages, claim allowance, disbanded parties. A poll
+# is used instead of FTB's join/leave events (design/architecture/sprint3-4.md S4 allows it): a JS listener on an
+# Architectury event is unverified in KubeJS 2101 and would run inside FTB's own party code.
+poll_ticks = 100
+# How often value, rank, upkeep and the Discord rank announcements are recomputed (ticks; 6000 = 5 min).
+value_ticks = 6000
+
+[value]
+chunk_value = 1
+build_value = 10
+coins_per_value = 100          # bronze coins that count as 1 value in the treasury
+
+# Nation ranks, by value. `chunks` = extra chunks per member at this rank (see LAND above). The first rank has value 0.
+[[rank]]
+id = "hamlet"
+title = "Hamlet"
+value = 0
+chunks = 0
+
+[[rank]]
+id = "village"
+title = "Village"
+value = 150
+chunks = 2
+
+[[rank]]
+id = "town"
+title = "Town"
+value = 400
+chunks = 4
+
+[[rank]]
+id = "city"
+title = "City"
+value = 900
+chunks = 6
+
+[[rank]]
+id = "kingdom"
+title = "Kingdom"
+value = 2000
+chunks = 8
+
+[treasury]
+# Anyone in the nation can pay in; only the owner can take out. Deposits and withdrawals are transfers, not faucets or
+# sinks: the economy counters are corrected (economy/sinks.js TtlEcon.note) so the weekly 80% sink target stays honest.
+enabled = true
+# Weekly upkeep per claimed chunk, taken from the treasury on the first check of each ISO week (Monday, UTC). The amount
+# is economy.toml [sinks].upkeep_per_chunk_week (TtlEcon.fee); false here switches the upkeep off. A nation that cannot
+# pay is flagged "in arrears" (shown in /ttl nation; no punishment yet, owner decision open).
+upkeep = true
+
+[diplomacy]
+# Alliances are mutual: both owners run /ttl nation ally <the other nation>. A war must be declared this many hours
+# before it counts (TtlNations.atWar); until then it is "pending". Allies cannot go to war with each other.
+war_notice_hours = 24
