@@ -188,7 +188,9 @@ ServerEvents.loaded(event => {
   var every = Math.max(100, Number(TtlAdventurers.conf().check_ticks))
   var loop = () => server.scheduleInTicks(every, () => {
     try {
-      if (TtlAdventurers.conf().enabled) {
+      // `ttl adventurers hold <s>` (test hook): no ambient spawns until then, so a test counts only its own populate calls.
+      var held = Number(server.persistentData.getLong('ttl.adventurers.hold')) > Date.now()
+      if (TtlAdventurers.conf().enabled && !held) {
         TtlAdventurers.populateAll(server)
         TtlAdventurers.sweeps++
         // Once a minute at the default 200-tick check.

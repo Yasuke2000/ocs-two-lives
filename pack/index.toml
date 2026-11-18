@@ -2874,11 +2874,11 @@ hash = "12e82ddb0bcf9c97b26eff8b1df6cc86dfbe2b0e1c374b68ab14639bdf3652e2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/adventurers.js"
-hash = "302f95a0a6aeacc76494c8f4bdf2ad43cfbc3858f4326e86eb6b5acb6b63c2bd"
+hash = "8cb8574421e68b700f259cb3ad4a07fb879273c426f4f224b88dfa35156fcc41"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/commands.js"
-hash = "74403399d3c30ff337431dc070fe0a5ce1393609fa20fb835424e125dcdb94ac"
+hash = "eb61e0232c321cb59dbe60a708de1c4bfab359cfd8173367f1dcadb6e7d1be40"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/companions.js"

@@ -21,6 +21,7 @@
 //          /ttl companion grant <player> <kind> [minutes] | clear <player> | expect <player> <field> <value>
 //            count <0|1> · kind <id|none> · alive yes|no · can_hire <kind>:<yes|off|life|max|cap|kind|fee>
 //          /ttl adventurers list | populate [place] | sweep | clear [place] | expect <place> count <n>
+//          /ttl adventurers hold <seconds>         test hook: the ambient loop spawns nothing for that long (0 = release)
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
 
@@ -371,6 +372,14 @@ ServerEvents.commandRegistry(event => {
       .then(Commands.literal('list').executes(logged(advList)))
       .then(Commands.literal('populate').executes(logged(advPopulate(false))).then(strArg('place').executes(logged(advPopulate(true)))))
       .then(Commands.literal('sweep').executes(logged(advSweep)))
+      .then(Commands.literal('hold').then(Commands.argument('seconds', Arguments.INTEGER.create(event)).executes(logged(ctx => {
+        var sec = Number(Arguments.INTEGER.getResult(ctx, 'seconds'))
+        var d = server(ctx).persistentData
+        if (sec > 0) d.putLong('ttl.adventurers.hold', Date.now() + sec * 1000)
+        else d.remove('ttl.adventurers.hold')
+        say(ctx, `adventurers: ambient spawns ${sec > 0 ? `held for ${sec} s` : 'released'}`)
+        return 1
+      }))))
       .then(Commands.literal('clear').executes(logged(advClear(false))).then(strArg('place').executes(logged(advClear(true)))))
       .then(Commands.literal('expect').then(strArg('place').then(strArg('field').then(strArg('value').executes(logged(advExpect))))))))
 })
