@@ -2526,7 +2526,7 @@ hash = "30147905f6fbdfd1b721ef36020695aee453c2b1d12ea37c41e40ccefdf6e1e4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/wild.js"
-hash = "306c8e1a6ae7e8d832f2c4607f371d37276320ed78a7696ee6e494ca1009b038"
+hash = "482959d16a7af69c0ca6aeb703f894e2a6f776446f5a7f76008bb5d5bb559dcd"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
@@ -2622,7 +2622,7 @@ hash = "fdcfa356f92dada4297541bd3f0610aeb011203100187f3643f572b71b98f757"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "a3dd7a7b1a894d409f32b0f7c74f3750aed391bff19a49174520178b012d13bf"
+hash = "ab70e4e35b30b3ebd9a9889fcd28c61dc2b369996d07d660ddcc05f7b1996470"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2789,12 +2789,20 @@ file = "kubejs/server_scripts/ttl/nations/upkeep_debuff.js"
 hash = "3af470d23a62ec719540ae440c112f870b0bee2d1b0267086bbed323fa28e545"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/necro/commands.js"
+hash = "0192aae603f13b742dfbbada8e326200919b256bf0a1e57f897d174a22a5e98e"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/necro/legion.js"
-hash = "e235bbab718549a138411c0d641fcd98b0734eadc1ec429e856e2f64a9672daf"
+hash = "8cf48e4e1760dc3fef6fbe55e92c5649d77bd0de79ad25a7deea9d9618a3e059"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/necro/legion_commands.js"
 hash = "a665e1560bedef6c7307fac5ddb3249316a490d1b95965bb15646a2eac2216a9"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/necro/necro.js"
+hash = "b6914481434c4a4f02599929434a8db7486c1c447fd1fa8bbb17027f057d029a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/necro/recipes.js"
@@ -2838,7 +2846,7 @@ hash = "ded36354cbe3caf26b9b71d5fb67e6addbcad6f59027994ae27cce101be7b699"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/guards.js"
-hash = "d7ef20777c7b6b4b7ab4e3f26e1a9a450f62f7d4834f0f75f6406874322a75f0"
+hash = "b725127be99318ce45cf0f5165a222c54bdcc0c73a3a403ae33e3ae6cfcbb0d2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/rep.js"

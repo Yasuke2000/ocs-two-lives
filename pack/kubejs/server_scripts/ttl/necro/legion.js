@@ -1170,7 +1170,7 @@ const TtlLegion = {
     var server = this.lootGet(ctx, ['getServer', 'server']) || victim.getServer()
     var killer = this.lootGet(ctx, ['getKillerPlayer', 'killerPlayer'])
     if (!killer) killer = this.killerOf(server, this.lootGet(ctx, ['getAttackingEntity', 'attackingEntity']))
-    if (!this.isNecro(killer)) return
+    if (!this.isNecro(killer) && !(typeof TtlNecro !== 'undefined' && TtlNecro.aspirant(killer))) return
     var a = this.part('ash')
     if (kind === 'ash') {
       var chance = this.num(a, 'ash_chance', 0.25) * (this.cursed(victim) ? this.num(a, 'curse_mult', 2) : 1)
@@ -1437,6 +1437,7 @@ const TtlLegion = {
       { label: 'Legion', command: '/ttl necro legion', color: 'aqua', hover: 'List your legion' },
       { label: 'Tomb', command: '/ttl necro sanctum', color: 'aqua', hover: 'What your tomb is, and what it needs to grow' }
     ]
+    if (rank < this.num(this.conf(), 'min_rank', 1) && typeof TtlNecro !== 'undefined') items.unshift({ label: 'The Rite', command: '/ttl necro rite', color: 'dark_red', hover: 'A spell of the dead + soul ash or bone dust: become a necromancer' })
     try {
       TtlCorridor.buttons(server, player.username, head, items)
     } catch (e) {

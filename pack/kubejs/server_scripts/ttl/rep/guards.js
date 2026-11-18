@@ -83,7 +83,7 @@ const TtlRepGuards = {
       for (var i = 0; i < all.length; i++) {
         var id = String(all[i].id)
         if (tags.indexOf(`ttl.guard.${id}`) < 0) continue
-        if (!TtlRep.guardsHostile(player, id)) return
+        if (!TtlRep.guardsHostile(player, id) && !(typeof TtlNecro !== 'undefined' && TtlNecro.guardsHostile(player, id))) return
         try {
           e.setTarget(player)
         } catch (err) {

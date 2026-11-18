@@ -3,8 +3,8 @@
 #   main     /ttl guide, the Voice of the World NPC outside the Corridor, and once on a player's first join
 #   corridor once when the soul first reaches the Spirit Corridor (closing it opens the Life screen)
 #   life2    once when Life 2 begins
-#   paths    /ttl paths and /ttl guide paths: the player paths (design/architecture/paths-necro-artificer.md). STUBS until the
-#            paths' work packages land (WP-N2/N3 necromancer, WP-A1 artificer, WP-C1 choices): keep them honest about
+#   paths    /ttl paths and /ttl guide paths: the player paths (design/architecture/paths-necro-artificer.md). The
+#            necromancer is live (WP-N2/N3); the artificer (WP-A1) and the choices (WP-C1) are stubs: keep them honest about
 #            what is live. Rule (owner 18/11/2026): every path must be easy to find in game.
 # Each page: title + body. Body lines:
 #   "# text"  a cyan heading          "- text"  a bullet          empty line  a small gap
@@ -175,8 +175,8 @@ title = "Paths: open to every soul"
 body = """
 A path is a craft you take up in your second life. No chapter, Oath or boss locks it: you can start the day you arrive.
 
-- *Necromancer:* the dead and the law (next page).
-- *Artificer:* the workshop (page after).
+- *Necromancer:* the dead and the law (next pages).
+- *Artificer:* the workshop (after the necromancer).
 - Quest chapters and NPCs may *teach* a path; they never lock it.
 
 Some of it is still being built. What is not live yet says so.
@@ -203,14 +203,47 @@ Nobody watches the wilds at night. Your soul always does. `/ttl roads` shows the
 title = "The dead and the law"
 body = """
 # The Necromancer
-Raise the dead and keep them. Tensura's own magic (*Create Lesser Undead*, tomes, the Spellbinding Table) and your race (Wight, Ghoul) are the start.
+Raise the dead and keep them. Three ways in, no chapter needed:
 
-- *Bone Altar:* the heart of a necromancer's work. Raise legionnaires there.
+- *Your race:* Wights and Ghouls (and what they become) already walk with the dead.
+- *A master's spell:* *Create Greater Undead* or *Mortal Fear* learned.
+- *The Rite:* learn a spell of the dead (*Create Lesser Undead* from a tome or the Spellbinding Table, or Iron's *Raise Dead*), then `/ttl necro rite` at your Bone Altar with 10 soul ash or 40 bone dust. Once you know the spell, your kills already leave ash and dust.
+
 - *Bone dust* from monsters is the honest road. *Soul ash* from people is the dark one: stronger undead, and the Holy Church takes note.
-- *Your tomb:* build it yourself around your Bone Altar. The world recognises it and lets it grow from Crypt to Great Tomb.
-- The Church's licence lets a careful necromancer walk in the light.
+- `/ttl necro` shows who you are among the dead.
+"""
 
-*Live:* the Bone Altar, the legion and the tomb (next page). *Being built:* the Rite that makes you a necromancer, ranks and the licence.
+[[paths]]
+title = "Ranks and the Church"
+body = """
+# Ranks
+Raising, naming, tombs and laying the dead to rest earn rank points (at most 60 a week). `/ttl necro rank`
+
+- *Gravebinder* (any way in): two dead awake, a Crypt
+- *Bonecaller* (30): four, armed
+- *Death Marshal* (120): six, a Death Knight, a Mausoleum
+- *Overlord* (400 and Wight King, Vampire or Mortal Fear): eight, two knights, a Great Tomb
+
+# The Church's Sense
+Every dark deed on the continent tells the Holy Church a little more about you. It forgets slowly, a few points a week.
+
+- *Marked:* a bounty on your head, Church guards attack on sight, Hinata Sakaguchi hunts the wilds near you more often. `/ttl necro bounties`
+- *The Holy Hunt:* for a day the whole world hears your name. Stay alive two hours and the dark remembers you as *Unbroken*.
+"""
+
+[[paths]]
+title = "The Licensed Exorcist"
+body = """
+# Adalmann's road
+Adalmann was a saint of the Western Holy Church until it sent him to die. Rimuru made him the keeper of a Labyrinth floor, a Wight King who guards instead of hunting. *(our interpretation)*
+
+A necromancer can walk in the light the same way:
+
+- Raise only from bone dust, lay the restless to rest (`/ttl necro rest` at a grave marker).
+- Be *Honored* with the Holy Church and give it *14 days* without a dark deed.
+- `/ttl necro licence` in the Church's lands: the title *Licensed Exorcist* and the paper to prove it.
+
+A licensed soul earns the Church's thanks for every grave laid to rest, and the Church does not count a dust legion as an armed band. *One* dark deed tears the licence up.
 """
 
 [[paths]]

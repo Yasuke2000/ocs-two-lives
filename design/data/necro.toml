@@ -1,11 +1,13 @@
 # The necromancer (design/architecture/paths-necro-artificer.md §2; owner decisions 18/11/2026). Edit, then run
 # `python tools/gen_data.py`. Scripts: necro/legion.js (TtlLegion), necro/sanctum.js (TtlSanctum),
-# necro/legion_commands.js. Tests: tools/server.sh test necro_legion, necro_sanctum.
+# necro/legion_commands.js, necro/necro.js (TtlNecro), necro/commands.js. Tests: tools/server.sh test necro_legion,
+# necro_sanctum, necro_ranks.
 #
 # R12: a system is not a chapter. Nothing here may name a story, Oath-path or boss-ladder stage (tools/validate.py fails);
-# the gates are the necromancer's own rank (WP-N3's TtlNecro.rank, stages ttl.necro.rank<n>), items and EP.
+# the gates are the necromancer's own rank (TtlNecro.rank, stages ttl.necro.rank<n>), items, races, skills and EP.
 # R13: the dust road is grey (roads.toml necro.raise / necro.knight grey), the ash road is the dark shortcut (dark).
-# WP-N3 adds [[rank]] and [church] to this file; WP-N2 owns [legion], [ash], [knight], [rest] and [sanctum].
+# WP-N2 owns [legion], [ash], [knight], [rest] and [sanctum]; WP-N3 owns [points], [entry], [rite], [[rank]], [church],
+# [hunt] and [licence].
 
 # ---- the legion (§2.3, O-N3) ----------------------------------------------------------------------------------------
 [legion]
@@ -127,3 +129,102 @@ need = [
   { label = "blackstone", match = ["minecraft:*blackstone*"], n = 32 },
   { label = "a labyrinth magic engine", match = ["tensura:*labyrinth_bricks_magic_engine"], n = 1 },
 ]
+
+# ==== WP-N3: entry, ranks, the Church (necro/necro.js = TtlNecro, necro/commands.js; test necro_ranks) ===============
+# The necromancer's own state lives on the player (`ttl.necro`, JSON): entry, rank, points, the Church's Sense, the Hunt,
+# the licence. Stages ttl.necro.rank1..4 (cumulative: rank 3 holds rank1-3), ttl.necro.marked, ttl.necro.hunted,
+# ttl.necro.licensed; scoreboard ttl.necro (the rank). R12: only EP, races, skills, items, points and faction bands gate.
+
+# ---- rank points (§2.2) ---------------------------------------------------------------------------------------------
+[points]
+weekly_cap = 60                 # points a soul may earn per week (anti-farm, the guild pattern); ops `points set` ignores it
+choice = 5                      # a moral-choice event resolved through necromancy, either road (WP-C1 calls addPoints)
+boss = 5                        # a legion kill of a boss-tier target (boss credit hook, when it pays)
+
+# ---- the three ways in (§2.1) ---------------------------------------------------------------------------------------
+# Race and skill roads open the necromancer's layer by themselves (checked at login and every [church] loop_seconds);
+# the Rite is the road for everyone else. Ids verified in tensura-neoforge-2.0.1.5 (lang tensura.race.*, race/wight,
+# race/vampire, tags/manascore_skill/skills/necromancy_magic.json) and irons_spellbooks-1.21.1-3.16.3.
+[entry]
+races = ["tensura:wight", "tensura:wight_king", "tensura:spirit_skeleton", "tensura:divine_skeleton",
+         "tensura:ghoul", "tensura:vampire", "tensura:vampire_lord", "tensura:vampire_overcomer", "tensura:divine_vampire"]
+skills = ["tensura:create_greater_undead", "tensura:mortal_fear"]   # a master of the craft needs no rite
+
+[rite]
+spells = ["tensura:create_lesser_undead", "tensura:create_greater_undead", "tensura:curse", "tensura:curse_bind"]  # #tensura:necromancy_magic
+iron_spells = ["irons_spellbooks:raise_dead"]   # in a spell book (equipped or carried) or a scroll in the inventory
+ash = 10                        # soul ash for the Rite ...
+dust = 40                       # ... or bone dust (the grey way in; 0 = ash only)
+aspirant_drops = true           # a Life 2 soul that knows a rite spell gets soul ash / bone dust drops before the Rite
+
+# ---- ranks (§2.2): points from the system's own acts; rank 1 = any way in -----------------------------------------
+# [rank.needs_any]: at least one of the races (the current race) or skills (learned) — Tensura's own EP 200,000 curve
+# (§6 "Overlord snowball"). An evolution past Wight King / Vampire still counts.
+[[rank]]
+rank = 1
+title = "Gravebinder"
+points = 0
+
+[[rank]]
+rank = 2
+title = "Bonecaller"
+points = 30
+
+[[rank]]
+rank = 3
+title = "Death Marshal"
+points = 120
+
+[[rank]]
+rank = 4
+title = "Overlord"
+points = 400
+[rank.needs_any]
+races = ["tensura:wight_king", "tensura:spirit_skeleton", "tensura:divine_skeleton", "tensura:vampire",
+         "tensura:vampire_lord", "tensura:vampire_overcomer", "tensura:divine_vampire"]
+skills = ["tensura:mortal_fear"]
+
+# ---- the Church's Sense (§2.5, O-N5) --------------------------------------------------------------------------------
+# A dark route of TtlRoads whose route table carries `extra = { sense = n }` (roads.toml necro.raise / necro.knight dark,
+# choice events) adds n, on the canon continent only (R11, TtlWorld.onContinent). Sense decays decay_per_week, one point
+# at a time. At marked_at the soul is Marked (bounty list, Church guards hostile, Hinata's wild odds x marked_mult); at
+# hunt_at the Holy Hunt starts on the soul ([hunt]).
+[church]
+faction = "holy_church"
+marked_at = 20
+hunt_at = 50
+decay_per_week = 5
+max_sense = 100
+marked_rep = -10                # once per marking: the Church names you
+hunter_bosses = ["hinata_sakaguchi"]   # bosses.toml ids whose wild roll reads TtlNecro.wildMult (bosses/wild.js)
+marked_mult = 3.0               # Hinata's wild chance for a Marked soul
+hunt_mult = 5.0                 # ... while the Hunt is on the soul (world-state §6.1 holy_hunt: x5)
+band_factions = ["blumund", "falmuth", "holy_church"]   # guards hostile inside their region to an armed band ...
+band_min = 3                    # ... of this many of the soul's loaded legionnaires ...
+band_radius = 48                # ... within this many blocks (a licensed soul's dust legion is no band to the Church)
+loop_seconds = 60               # decay, marks, the Hunt clock, race/skill entry and the rank-4 check
+
+# ---- the Holy Hunt on a soul (§2.5; the director's `holy_hunt` is WP-W9's, this is the hook) -----------------------------
+[hunt]
+event = "holy_hunt"             # TtlEvents id fired with vars {target, soul, by}; a stub is registered when nobody has one
+hours = 24
+rearm_hours = 72                # a soul still at hunt_at after a Hunt is hunted again this long after the last one ended
+rep = -10                       # holy_church, once per Hunt
+survive_minutes = 120           # online minutes without dying: the soul is Unbroken
+survive_rep = { outcast = 15 }
+survive_title = "Unbroken"
+announce = "The Holy Church has named {soul} an abomination. The Hunt is on."
+discord = true
+
+# ---- the grey licence: the Licensed Exorcist (§2.5, §2.6, O-N5; Adalmann's road) ------------------------------------
+[licence]
+band = "honored"                # with [church] faction
+clean_days = 14                 # days with zero Sense
+min_rank = 1
+place = "region"                # in the Holy Church's canon region, or within npc_radius of an NPC with its npc_tags
+npc_radius = 8
+item = "ttl:exorcist_licence"   # the paper (WP-N0); the stage ttl.necro.licensed is the truth
+title = "Licensed Exorcist"
+grant_rep = 5
+revoke_rep = -20                # a single dark act on the continent revokes the licence
+rest_rep = 1                    # extra holy_church reputation for each grave a licensed soul lays to rest

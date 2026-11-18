@@ -161,6 +161,7 @@ const TtlWild = {
     var pm = def.wild.path_mult || {}
     var path = this.pathOf(p)
     var mult = path && pm[path] !== undefined ? Number(pm[path]) : 1
+    try { if (typeof TtlNecro !== 'undefined') mult *= Number(TtlNecro.wildMult(def, p)) || 1 } catch (e) { console.error(`[ttl] boss: necro wild multiplier failed: ${e}`) }
     return Number(def.wild.chance_per_day) * mult
   },
 
