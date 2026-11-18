@@ -1,8 +1,8 @@
 [Races]
 	#List of races that can be selected through the Race Selection Menu.
-	startingRaces = ["tensura:human"]
+	startingRaces = ["tensura:human", "tensura:elf", "tensura:dwarf", "tensura:merfolk", "tensura:beastfolk", "tensura:harpy", "tensura:goblin", "tensura:lizardman", "tensura:orc", "tensura:slime", "tensura:wight", "tensura:ghoul"]
 	#List of races that can be obtained through picking the "Random" option in the Race Selection Menu.
-	randomRaces = ["tensura:human"]
+	randomRaces = ["tensura:human", "tensura:elf", "tensura:dwarf", "tensura:merfolk", "tensura:beastfolk", "tensura:harpy", "tensura:goblin", "tensura:lizardman", "tensura:orc", "tensura:slime", "tensura:wight", "tensura:ghoul"]
 	#List of races that can be selected after casting the Aspectual magic [Reincarnation].
 	reincarnationRaces = ["tensura:human", "tensura:elf", "tensura:dwarf", "tensura:merfolk", "tensura:beastfolk", "tensura:harpy", "tensura:goblin", "tensura:lizardman", "tensura:orc", "tensura:slime", "tensura:wight", "tensura:ghoul"]
 	#List of races that can be obtained through picking the "Random" option in the Race Selection Menu after casting the Aspectual magic [Reincarnation].
