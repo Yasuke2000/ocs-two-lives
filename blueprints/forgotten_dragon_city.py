@@ -205,6 +205,7 @@ def hall():
             for y in range(F, G + 9):
                 bp.set(x, y, z, M("bone_block[axis=y]") if y % 3 else M("chiseled_sandstone"))
         for x in (56, 64):
+            bp.set(x, G + 8, z, M("chain[axis=y]"))
             bp.set(x, G + 7, z, M("chain[axis=y]"))
             bp.set(x, G + 6, z, LANTERN_H)
     # carpet aisle in pink, a counter where the Faithful hand out food, stacks of goods
@@ -298,7 +299,7 @@ def granary(x0, x1, z0, z1):
                 bp.set(x, y, z, M("bone_block[axis=y]") if y == F + 1 else M("sandstone_wall") if y == F else M("cut_sandstone"))
     # gable roof of thatch over the x extent
     w = x1 - x0 + 1
-    for k in range((w + 1) // 2):
+    for k in range((w + 3) // 2):
         xl, xr = x0 - 1 + k, x1 + 1 - k
         y = F + 4 + k
         for z in range(z0 - 1, z1 + 2):
@@ -314,6 +315,7 @@ def granary(x0, x1, z0, z1):
     for z in range(z0 + 3, z1 - 2):
         bp.set((x0 + x1) // 2, F, z, M("smooth_sandstone_slab[type=top]"))
     for z in (z0 + 4, z1 - 4):
+        fill(bp, x0, F + 4, z, x1, F + 4, z, M("stripped_acacia_log[axis=x]"))
         bp.set((x0 + x1) // 2, F + 3, z, M("chain[axis=y]"))
         bp.set((x0 + x1) // 2, F + 2, z, LANTERN_H)
 
@@ -354,6 +356,7 @@ def pen(x0, z0, x1, z1):
     for z in range(z0, z1 + 1):
         for x in (x0, x1):
             put(bp, x, F, z, M("acacia_fence"))
+    put(bp, (x0 + x1) // 2, F, z1, M("acacia_fence_gate[facing=south]"))
 
 
 def field(x0, z0, x1, z1):

@@ -5,7 +5,7 @@ anchor = [68, 5, 66]                   # Royal Plaza, just south of the fountain
 ground = "survey"
 search = 64
 dimension = "minecraft:overworld"
-version = 2
+version = 3
 clear_above = true
 # Saved as three z slabs marris_0..2 (z 0-37, 38-75, 76-111), box 136 x 64 x 112; the great gate faces south (+z).
 # Arrival on the royal road: blueprint (68, 5, 106), facing north.

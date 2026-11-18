@@ -964,7 +964,7 @@ const TtlData = {
         116
       ],
       "title": "Blumund — Londo",
-      "version": 2,
+      "version": 3,
       "x": -1024,
       "z": -120
     },
@@ -989,7 +989,7 @@ const TtlData = {
         109
       ],
       "title": "Clayman's Castle — the Puppet Nation of Jistav",
-      "version": 1,
+      "version": 2,
       "x": 3693,
       "z": -959
     },
@@ -1014,7 +1014,7 @@ const TtlData = {
         73
       ],
       "title": "The Dragon's Nest",
-      "version": 1,
+      "version": 2,
       "x": 370,
       "z": -2402
     },
@@ -1061,7 +1061,7 @@ const TtlData = {
         112
       ],
       "title": "Englassia — Lura",
-      "version": 2,
+      "version": 3,
       "x": -2626,
       "z": -300
     },
@@ -1086,7 +1086,7 @@ const TtlData = {
         125
       ],
       "title": "City of the Forgotten Dragon — Milim's domain",
-      "version": 1,
+      "version": 2,
       "x": 2510,
       "z": 575
     },
@@ -1161,7 +1161,7 @@ const TtlData = {
         113
       ],
       "title": "Laura — capital of the Beast Kingdom of Eurazania",
-      "version": 2,
+      "version": 3,
       "x": 1689,
       "z": 1302
     },
@@ -1185,7 +1185,7 @@ const TtlData = {
         120
       ],
       "title": "Holy City Lubelius — Lune",
-      "version": 1,
+      "version": 2,
       "x": -3977,
       "z": -659
     },
@@ -1209,7 +1209,7 @@ const TtlData = {
         112
       ],
       "title": "Marris — Falmuth",
-      "version": 2,
+      "version": 3,
       "x": -1286,
       "z": -1040
     },
@@ -1258,7 +1258,7 @@ const TtlData = {
         88
       ],
       "title": "The Sealed Cave: Veldora's prison, Rimuru's birthplace",
-      "version": 1,
+      "version": 2,
       "x": -256,
       "z": -343
     },
@@ -1274,7 +1274,7 @@ const TtlData = {
       "margin": 0,
       "max_wet": 0.1,
       "name": "spirit_dwelling",
-      "notes": "Glade, colonnade and summoning grotto with the pedestal of light (Rimuru took Shizu's pupils there to call their spirits, light novel vol. 4 ch. 50). Appearance is our interpretation.",
+      "notes": "Glade, colonnade and summoning grotto with the pedestal of light (Rimuru took Shizu's pupils there to call their spirits, light novel vol. 4; anime episodes 22–23). Appearance is our interpretation.",
       "search": 48,
       "size": [
         89,
@@ -1282,7 +1282,7 @@ const TtlData = {
         89
       ],
       "title": "The Dwelling of the Spirits",
-      "version": 1,
+      "version": 2,
       "x": 0,
       "y": 64,
       "z": 0
@@ -1299,7 +1299,7 @@ const TtlData = {
       "margin": 8,
       "max_wet": 0.1,
       "name": "spirit_gate",
-      "notes": "Canon puts the Dwelling inside Ramiris's labyrinth in Tempest's territory but gives no map position; this spot (about 250 blocks south-west of Tempest, in the Jura forest) is our interpretation.",
+      "notes": "Pack access point about 250 blocks southwest of Tempest in Jura. The early-story entrance visited by Rimuru and the children is in Ulg Nature Park, Ulgracia; see design/lore/spirit_domain.md.",
       "search": 64,
       "size": [
         57,
@@ -1307,7 +1307,7 @@ const TtlData = {
         57
       ],
       "title": "The gate to the Dwelling of the Spirits",
-      "version": 1,
+      "version": 2,
       "x": -210,
       "z": 130
     },
@@ -1349,14 +1349,14 @@ const TtlData = {
       "max_wet": 0.1,
       "name": "treyni_shrine",
       "notes": "Small mossy dais with a young azalea tree and three seats for the dryad sisters; our interpretation (design/lore/treyni_shrine.md).",
-      "search": 48,
+      "search": 132,
       "size": [
         33,
         22,
         33
       ],
       "title": "Treyni's shrine",
-      "version": 2,
+      "version": 3,
       "x": 1988,
       "z": -223
     }

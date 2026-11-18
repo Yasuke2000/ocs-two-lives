@@ -10,6 +10,6 @@ anchor = [54, 6, 102]
 ground = "survey"
 search = 160
 dimension = "minecraft:overworld"
-version = 1
+version = 2
 clear_above = true
 notes = "Dark gothic fortress with moat, curtain wall, keep and pierrot mask; blueprints/clayman_castle.py, lore in design/lore/clayman_castle.md."

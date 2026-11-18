@@ -57,5 +57,9 @@ report at 08:30).
 
 ## Open owner questions
 
-- Gluttony: Common (now) or Legendary? · El Dorado / Frost Palace need explicit x/z (landmarks are at sea).
+- Gluttony: Common (now) or Legendary?.
 - `fuze_turnin_at_desk` (false: Fuze contracts handed in to Fuze only) · BlueMap public or behind access control.
+
+## Offline world audit for Yasuke
+
+The [November audit](audits/world-audit-2026-11.md) compares 22 territory masks, 43 map pins, 14 canon templates and seven runtime jigsaws. El Dorado and Frost Palace already project onto X and I land. The audit includes source changes for 12 version-2 survey/fixed builds, bespoke Dwargon v5, a dry dragon-city placement, one river outlet and Fulbrosia's climate. Templates, generated scripts, map raster and packwiz metadata must be regenerated together. Validate this regenerated pack before deployment. Check old corners for duplicate structures and player edits before placing new versions. The report lists the coordinates for `/ttlmap`, the dimensions for the 98% template check, remaining jigsaw/command-result issues and the structure assets whose redistribution permission needs confirmation.

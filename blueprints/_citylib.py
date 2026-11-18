@@ -5,9 +5,8 @@ of: material sets with stairs and slabs, walls with window bays, gable and hip r
 columns, arches, doors, lamps, trees, a fountain, plus a block-light fixer that adds lanterns until no
 spawnable spot in the plot is dark (same rule as tempest.py, via _dwargon_lib.dark_spots).
 
-Stairs: `facing` is the DOWNHILL direction of the stair (a roof slope falling north uses facing north).
-Everything above the ground layer that is not placed stays air; the placer clears the box above the ground
-layer (clear_above in design/builds/<name>.toml), so no explicit air is stored.
+A bottom stair rises toward its facing direction. Only explicit air clears an interior position during
+template placement. The terrain fitter clears above the highest solid block in each occupied column.
 """
 import math
 
@@ -246,9 +245,9 @@ class Site:
         for s_ in range(steps):
             for w in range(width):
                 if axis == "z":
-                    xx, zz, face = x + w, z0 + s_ * direction, ("n" if direction == 1 else "s")
+                    xx, zz, face = x + w, z0 + s_ * direction, ("s" if direction == 1 else "n")
                 else:
-                    xx, zz, face = z0 + s_ * direction, x + w, ("w" if direction == 1 else "e")
+                    xx, zz, face = z0 + s_ * direction, x + w, ("e" if direction == 1 else "w")
                 for yy in range(base_y, y0 + s_):
                     self.put(xx, yy, zz, m.block)
                 self.stair(xx, y0 + s_, zz, face, m)
@@ -272,7 +271,7 @@ class Site:
                     if not plot(x, z):
                         continue
                     for y in range(F, min(self.SY, top.get((x, z), self.G) + 4)):
-                        if (x, y, z) not in full:
+                        if full.get((x, y, z), AIR) == AIR:
                             full[(x, y, z)] = AIR
                             cands.append((x, y, z))
             spots = dark_spots(full, bp.size, cands)
@@ -285,7 +284,7 @@ class Site:
                 gap = 11 if open_sky else 6
                 if any(abs(x - a) + abs(y - b) + abs(z - c) <= gap for a, b, c in placed):
                     continue
-                if bp.blocks.get((x, y, z)) is not None:
+                if bp.blocks.get((x, y, z), AIR) != AIR:
                     continue
                 below = bp.blocks[(x, y - 1, z)]
                 if y == F and open_sky and below.startswith(("minecraft:grass_block", "minecraft:dirt", "minecraft:stone_bricks", "minecraft:polished", "minecraft:quartz", "minecraft:smooth", "minecraft:calcite", "minecraft:cobbled", "minecraft:gravel", "minecraft:andesite")):

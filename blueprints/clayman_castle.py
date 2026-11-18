@@ -154,11 +154,10 @@ def gatehouse():
             put(bp, x, W + 4, z, SOUL)
     for x in range(C - 3, C + 4):
         bp.set(x, 6, C + 44, stair("polished_blackstone_brick", "north"))
-        bp.set(x, 6, C + 45, M("polished_blackstone_bricks"))
-        bp.set(x, 5, C + 45, M("polished_blackstone_bricks"))
+        bp.set(x, 5, C + 45, stair("polished_blackstone_brick", "north"))
     for x in range(C - 3, C + 4):
         bp.set(x, G, C + 44, M("polished_blackstone_bricks"))
-        bp.set(x, G, C + 45, M("polished_blackstone_bricks"))
+        bp.set(x, PY, C + 40, M("sea_lantern") if abs(x - C) == 2 else M("polished_blackstone_bricks"))
     # approach road to the south edge (gravel and cobbled deepslate)
     for z in range(C + 46, SZ):
         for x in range(C - 2, C + 3):
@@ -374,6 +373,8 @@ def interior():
             for y in range(PY + 1, W + i):
                 put(bp, x, y, z, M("deepslate_bricks"))
             put(bp, x, W + i, z, stair("deepslate_brick", "north"))
+            # The south-west keep turret crosses the lowest two treads.
+            clear(bp, x, W + i + 1, z, x, W + i + 2, z)
     for z in range(50, KZ1 - 1):
         put(bp, KX0 + 4, 20, z, M("iron_bars"))
         put(bp, KX0 + 4, 21, z, AIR)
@@ -418,7 +419,7 @@ def interior():
     pixel_art(bp, C - 4, 27, 36, MASK, MASK_PAL, flip=False)
     # marionette controllers: chains from the vault to an iron crossbar, three chains down ending in soul lanterns
     for cx, cz in ((C - 8, 42), (C + 8, 42), (C, 44)):
-        for y in range(23, 29):
+        for y in range(23, ROOF):
             put(bp, cx, y, cz, M("chain[axis=y]"))
         for dx in (-2, -1, 0, 1, 2):
             put(bp, cx + dx, 22, cz, M("iron_bars"))
@@ -479,6 +480,9 @@ def build(b):
 
 
 def gatehouse_after():
+    # The projecting base course meets the bridge at z=89. Cut it flush with the deck.
+    for x in range(C - 3, C + 4):
+        bp.set(x, W, C + 35, AIR)
     # re-open the gate passage and keep door (towers and walls were drawn after the first cut)
     for z in range(C + 32, C + 35):
         for x in range(C - 3, C + 4):

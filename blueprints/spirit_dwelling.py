@@ -37,7 +37,7 @@ LAB = "tensura:labyrinth_bricks"
 LAB_STONE = "tensura:labyrinth_stone"
 CREAM = "tensura:cream_labyrinth_bricks"
 LANTERN = M("sea_lantern")
-WALL = "minecraft:mossy_stone_brick_wall[east=false,north=false,south=false,up=true,waterlogged=false,west=false]"
+WALL = "minecraft:mossy_stone_brick_wall[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"
 
 ELEMENTS = {
     "fire": (M("red_nether_bricks"), M("orange_stained_glass"), M("shroomlight")),
@@ -198,33 +198,13 @@ def build(bp):
     for (x, z), (r, rn, yb) in cols.items():
         if blocks.get((x, G, z)) != M("grass_block[snowy=false]") or blocks.get((x, F, z)) != AIR:
             continue
-        if math.hypot(x - CX, z - CZ) < 11.5 or (40 <= x <= 48 and z >= 58):
+        if math.hypot(x - CX, z - CZ) < 11.5 or (40 <= x <= 48 and z >= 53):
             continue
         rr = rnd(x, 5, z, 41)
         if rr < 0.05:
             blocks[(x, F, z)] = M(FLOWERS[int(rnd(x, 6, z, 42) * len(FLOWERS))])
         elif rr < 0.22:
             blocks[(x, F, z)] = M("short_grass") if rr < 0.17 else M("fern")
-
-    # --- the way down: a stair on the south side into the grotto ------------------------------------------------------
-    for i in range(9):
-        z = 61 - i
-        y = G - i
-        for x in range(42, 47):
-            blocks[(x, y, z)] = M("stone_brick_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]")
-            for yy in range(y + 1, (G if i <= 4 else y + 3) + 1):  # open trench down to y + 4, then a covered stair
-                blocks[(x, yy, z)] = AIR
-        for x in (41, 47):
-            for yy in range(y, (G + 2 if i <= 4 else y + 4)):
-                blocks[(x, yy, z)] = LAB if (yy + z) % 3 else CREAM
-        if i > 4:
-            for x in range(41, 48):
-                for yy in range(y + 4, G + 1):
-                    blocks[(x, yy, z)] = M("stone_bricks") if rnd(x, yy, z, 51) < 0.7 else M("mossy_stone_bricks")
-    for x in (41, 47):  # gateposts at the top of the stair
-        for y in range(F, F + 3):
-            blocks[(x, y, 62)] = LAB_STONE
-        blocks[(x, F + 3, 62)] = M("lantern[hanging=false]")
 
     # --- the grotto: dome, floor, summoning circle, pedestal ----------------------------------------------------------
     floor = 31
@@ -306,6 +286,29 @@ def build(bp):
                     break
                 blocks[(x, yy, z)] = (M("cave_vines[age=20,berries=true]") if k == n - 1 else M("cave_vines_plant[berries=true]"))
 
+    # --- the way down: a stair on the south side into the grotto ------------------------------------------------------
+    for i in range(9):
+        z = 61 - i
+        y = G - i
+        for x in range(42, 47):
+            for yy in range(floor + 1, y):
+                if blocks.get((x, yy, z)) == AIR:
+                    blocks[(x, yy, z)] = LAB
+            blocks[(x, y, z)] = M("stone_brick_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]")
+            for yy in range(y + 1, (G if i <= 4 else y + 3) + 1):  # open trench down to y + 4, then a covered stair
+                blocks[(x, yy, z)] = AIR
+        for x in (41, 47):
+            for yy in range(y, (G + 2 if i <= 4 else y + 4)):
+                blocks[(x, yy, z)] = LAB if (yy + z) % 3 else CREAM
+        if i > 4:
+            for x in range(41, 48):
+                for yy in range(y + 4, G + 1):
+                    blocks[(x, yy, z)] = M("stone_bricks") if rnd(x, yy, z, 51) < 0.7 else M("mossy_stone_bricks")
+    for x in (41, 47):  # gateposts at the top of the stair
+        for y in range(F, F + 3):
+            blocks[(x, y, 62)] = LAB_STONE
+        blocks[(x, F + 3, 62)] = M("lantern[hanging=false]")
+
     # --- the return gate: an arch to the south ---------------------------------------------------------------------------
     gz0, gz1 = 71, 75
     for x0 in (38, 48):
@@ -324,7 +327,7 @@ def build(bp):
         for z in range(gz0, gz1 + 1):
             blocks[(x, G, z)] = M("smooth_stone") if (x + z) % 2 else M("polished_andesite")
     for z in range(gz0, gz1 + 1):
-        blocks[(44, G, z)] = "tensura:labyrinth_praying_path"
+        blocks[(44, G, z)] = M("chiseled_stone_bricks")
     for dx in range(-2, 3):
         blocks[(44 + dx, F + 11, 73)] = M("amethyst_block") if abs(dx) < 2 else LAB
     blocks[(44, F + 12, 73)] = LANTERN
@@ -335,7 +338,7 @@ def build(bp):
         blocks[(40 + 2 * i + 1, F + 11, 71)] = ELEMENTS[name][2]
     # path from the arrival point to the arch and to the stair
     for z in range(62, 71):
-        blocks[(44, G, z)] = "tensura:labyrinth_praying_path" if z % 2 else LAB_STONE
+        blocks[(44, G, z)] = M("chiseled_stone_bricks") if z % 2 else LAB_STONE
         for x in (43, 45):
             if blocks.get((x, G, z)) == M("grass_block[snowy=false]"):
                 blocks[(x, G, z)] = M("coarse_dirt") if rnd(x, 0, z, 81) < 0.6 else M("mossy_stone_bricks")
