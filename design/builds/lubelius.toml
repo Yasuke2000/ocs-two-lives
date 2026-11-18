@@ -1,0 +1,13 @@
+# Holy City Lubelius (Lune): the cathedral district. Blueprint: blueprints/lubelius.py (saved as lubelius_0..2).
+# Approx. world position (14000 wide): x -3977, z -659, on land of nation L in canon_map.txt.
+# The anchor is on the Holy Square south of the fountain; the road from the south arrives at the Holy Gate,
+# blueprint (60, 5, 114), facing north.
+name = "lubelius"
+title = "Holy City Lubelius — Lune"
+landmark = "Holy City Lubelius (Lune)"
+anchor = [60, 5, 98]
+ground = "survey"
+search = 64
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
