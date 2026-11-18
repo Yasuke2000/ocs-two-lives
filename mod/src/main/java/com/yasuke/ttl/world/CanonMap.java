@@ -1,7 +1,5 @@
 package com.yasuke.ttl.world;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
@@ -12,9 +10,6 @@ import com.yasuke.ttl.TtlPortals;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.util.KeyDispatchDataCodec;
@@ -139,20 +134,7 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
         Path dir = FMLPaths.CONFIGDIR.get().resolve("ttl");
         try {
             JsonObject json = JsonParser.parseString(Files.readString(dir.resolve("canon_regions.json"), StandardCharsets.UTF_8)).getAsJsonObject();
-            Map<Character, CanonGrid.Region> regions = new HashMap<>();
-            JsonObject regionsJson = json.getAsJsonObject("regions");
-            if (regionsJson != null) {
-                for (Map.Entry<String, JsonElement> e : regionsJson.entrySet()) {
-                    if (e.getKey().length() != 1 || !e.getValue().isJsonObject()) continue;
-                    JsonObject r = e.getValue().getAsJsonObject();
-                    String name = r.has("name") ? r.get("name").getAsString() : e.getKey();
-                    regions.put(e.getKey().charAt(0), new CanonGrid.Region(name,
-                            knob(r, "erosion"), knob(r, "temperature"), knob(r, "vegetation"),
-                            r.has("strength") ? Math.max(0, Math.min(1, r.get("strength").getAsDouble())) : 1,
-                            palette(r, "biomes", name), r.has("replace_peaks") && r.get("replace_peaks").getAsBoolean(),
-                            palette(r, "peaks", name), text(r, "banner_title"), text(r, "banner_subtitle")));
-                }
-            }
+            Map<Character, CanonGrid.Region> regions = CanonConfig.regions(json, msg -> LOGGER.warn("[ttl] {}", msg));
             double ring = json.has("ring") ? json.get("ring").getAsDouble() : 1600;
             double blend = json.has("blend") ? json.get("blend").getAsDouble() : 800;
             long start = System.nanoTime();
@@ -163,43 +145,5 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
             LOGGER.warn("[ttl] canon map not loaded from {} ({}); the Tensura world generates vanilla terrain", dir, e.toString());
             return MISSING;
         }
-    }
-
-    /** {@code [[id, weight], ...]}; malformed entries are skipped with a warning, null when none is usable. */
-    @Nullable
-    private static CanonPalette palette(JsonObject r, String key, String region) {
-        JsonElement v = r.get(key);
-        if (v == null || v.isJsonNull()) return null;
-        if (!v.isJsonArray()) {
-            LOGGER.warn("[ttl] canon region {}: '{}' is not a list of [id, weight]", region, key);
-            return null;
-        }
-        List<String> ids = new ArrayList<>();
-        List<Integer> weights = new ArrayList<>();
-        for (JsonElement entry : v.getAsJsonArray()) {
-            try {
-                JsonArray pair = entry.getAsJsonArray();
-                String id = pair.get(0).getAsString();
-                int weight = pair.size() > 1 ? pair.get(1).getAsInt() : 1;
-                if (weight <= 0 || id.isBlank()) throw new IllegalArgumentException("weight " + weight);
-                ids.add(id);
-                weights.add(weight);
-            } catch (RuntimeException ex) {
-                LOGGER.warn("[ttl] canon region {}: skipping {} entry {} ({})", region, key, entry, ex.toString());
-            }
-        }
-        return ids.isEmpty() ? null : new CanonPalette(ids.toArray(String[]::new), weights.stream().mapToInt(Integer::intValue).toArray());
-    }
-
-    @Nullable
-    private static String text(JsonObject r, String key) {
-        JsonElement v = r.get(key);
-        return v == null || v.isJsonNull() || !v.isJsonPrimitive() ? null : v.getAsString();
-    }
-
-    @Nullable
-    private static Double knob(JsonObject r, String key) {
-        JsonElement v = r.get(key);
-        return v == null || v.isJsonNull() ? null : v.getAsDouble();
     }
 }

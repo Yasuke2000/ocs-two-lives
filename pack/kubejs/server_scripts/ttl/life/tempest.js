@@ -258,7 +258,8 @@ const TtlTempest = {
         var gy = base + f.arrival[1]
         try {
           self.signs(server, gy)
-          self.run(server, `setworldspawn ${self.LANDMARK.x} ${gy} ${self.LANDMARK.z}`)
+          // The Life 2 arrival (life/arrival.js) owns the world spawn when one is configured.
+          if (!(typeof TtlArrival !== 'undefined' && TtlArrival.active())) self.run(server, `setworldspawn ${self.LANDMARK.x} ${gy} ${self.LANDMARK.z}`)
         } catch (e) {
           console.warn(`[ttl] tempest: signs or world spawn failed: ${e}`)
         }

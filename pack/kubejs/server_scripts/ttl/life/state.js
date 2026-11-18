@@ -56,9 +56,15 @@ const TtlLife = {
     server.runCommandSilent(`execute in ${this.CORRIDOR} run tp ${player.username} 0.5 65 0.5 0 0`)
   },
 
-  // Life 2 begins on Tempest's green, facing its signpost (life/tempest.js stores the arrival point); before
-  // Tempest is placed, spread around the world spawn instead.
+  // Life 2 begins on the safe rim of the Jura forest (life/arrival.js, design/data/arrival.toml), far from Tempest's
+  // magicule-soaked core. Without a configured arrival: Tempest's green, facing its signpost (life/tempest.js stores
+  // that point); before Tempest is placed, spread around the world spawn instead.
   toOverworld(server, player) {
+    try {
+      if (typeof TtlArrival !== 'undefined' && TtlArrival.send(server, player)) return
+    } catch (e) {
+      console.error(`[ttl] arrival teleport failed for ${player.username}, using Tempest's green: ${e}`)
+    }
     var arrival = String(server.persistentData.getString('ttl.tempest.arrival'))
     if (arrival) {
       server.runCommandSilent(`execute in ${this.OVERWORLD} run tp ${player.username} ${arrival} 180 0`)

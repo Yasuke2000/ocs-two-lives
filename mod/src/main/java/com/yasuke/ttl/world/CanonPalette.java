@@ -72,8 +72,12 @@ public final class CanonPalette {
 
     /** The palette entry at a block column for a nation letter (separate stream for the peaks palette). */
     public int pickAt(long seed, char region, boolean peaks, int blockX, int blockZ) {
-        long h = mix(patch(seed, blockX, blockZ) ^ (region * 0x632BE59BD9B4E019L) ^ (peaks ? SALT_PEAKS : 0));
-        return pick(h);
+        return pickPatch(region, peaks, patch(seed, blockX, blockZ));
+    }
+
+    /** {@link #pickAt} for a patch id the caller already has (zoned nations need it for the ring as well). */
+    public int pickPatch(char region, boolean peaks, long patchHash) {
+        return pick(mix(patchHash ^ (region * 0x632BE59BD9B4E019L) ^ (peaks ? SALT_PEAKS : 0)));
     }
 
     // ---- noise ----

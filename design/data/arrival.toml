@@ -1,0 +1,25 @@
+# Where Life 2 souls arrive in the Tensura world (minecraft:overworld). Edit, then run `python tools/gen_data.py`;
+# the scripts read it as TtlData.arrival (life/arrival.js, used by TtlLife.toOverworld in life/state.js).
+#
+# Veldora's leaked magicule soaks the Jura forest, so a weak newcomer must not appear in (or stroll to) Tempest,
+# where the Shizu and Rimuru fights will happen. Jura's biomes form rings (pack/config/ttl/canon_regions.json,
+# J "zones"): a safe rim (forest/birch/plains, 500 area magicule) along the whole border, a dark-forest middle
+# (2,000) and an ancient-forest core (20,000) around Tempest. Souls arrive on the rim, on the road that runs
+# from Tempest to the Dwargon gate (life/dwargon.js GATE 435, -1000), 80 blocks inside Jura's northern border.
+# A world reset places the arrival again on the new terrain; the old Tempest green stays a fallback until then.
+#
+#   x, z    = world position (blocks). Must lie in the rim, away from water: the canon-grid self-check
+#             (`java -cp mod/build/classes/java/main com.yasuke.ttl.world.CanonGrid pack/config/ttl/canon_map.txt
+#             pack/config/ttl/canon_regions.json <x> <z>`, Gson on the class path) verifies it.
+#   yaw     = facing in degrees (Minecraft yaw: 0 south, 90 west, 180/-180 north, -90 east). Here: toward the gate.
+#   search  = blocks around x, z in which the script looks for open, level, natural ground (a clearing) the first
+#             time; it falls back to the plain surface at x, z when nothing fits. Keep it <= 48 (the self-check
+#             covers the rim 48 blocks around the point).
+#   version = bump to ground the arrival (and the world spawn) again on the next start.
+
+[life2]
+x = 271
+z = -624
+yaw = -156
+search = 40
+version = 1
