@@ -58,6 +58,10 @@ ttl registry history great_sage
 ttl registry transfer TtlBotLegB TtlBotLegA great_sage war
 ttl registry transfer TtlBotLegB TtlBotLegD great_sage war
 ttl registry transfer TtlBotLegA TtlBotLegB great_sage war
+# The three refused transfers above produce no line. The successful move counted once for each party.
+ttl discord expect TtlBotLegA legendary_transfer 1
+ttl discord expect TtlBotLegB legendary_transfer 0
+ttl discord expect TtlBotLegD legendary_transfer 1
 ttl registry expect holds TtlBotLegB great_sage true
 ttl registry expect holds TtlBotLegA great_sage false
 ttl registry expect count great_sage 3

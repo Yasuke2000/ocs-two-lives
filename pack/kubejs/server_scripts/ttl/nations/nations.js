@@ -359,7 +359,10 @@ const TtlNations = {
         changed = true
       }
     })
-    if (changed) this.save(server, all)
+    if (changed) {
+      this.save(server, all)
+      this.refreshDiscordRoles(server)
+    }
     server.getPlayerList().getPlayers().forEach(p => {
       try {
         self.syncPlayer(server, p, all)
@@ -460,17 +463,30 @@ const TtlNations = {
     }
     all[key] = rec
     this.save(server, all)
+    this.refreshDiscordRoles(server)
     console.info(`[ttl] nations: ${player.username} founded ${name} (home ${rec.home || 'none'}, ${this.memberIdsOf(team).length} members)`)
+    try {
+      TtlDiscordStory.post(server, 'nation', [player.username], `${TtlDiscord.name(player.username)} has founded the nation ${name}${faction ? ` in the lands of the ${faction.title}` : ''}.`, TtlDiscord.isBot(name))
+    } catch (e) {
+      console.warn(`[ttl] nations: founding story post failed: ${e}`)
+    }
     try {
       this.seedHome(server, team, rec)
       this.value(server, key)
       this.syncAll(server)
       this.tell(server, key, `${name} is founded. Home region: ${faction ? faction.title : 'the wilds'}.`)
-      this.post(server, `${TtlDiscord.name(player.username)} has founded the nation ${name}${faction ? ` in the lands of the ${faction.title}` : ''}.`, rec)
     } catch (e) {
       console.error(`[ttl] nations: finishing the founding of ${name} failed: ${e}`)
     }
     return rec
+  },
+
+  refreshDiscordRoles(server) {
+    try {
+      TtlDiscordRoles.syncNations(server)
+    } catch (e) {
+      TtlSdlink.warn('nation role sync', e)
+    }
   },
 
   // Every member online at founding starts with rules.home_rep with the faction of the home region.
@@ -491,6 +507,7 @@ const TtlNations = {
     var back = Number(n.rec.treasury || 0)
     this.dropRecord(server, all, n.key, `dissolved by ${player.username}`)
     this.save(server, all)
+    this.refreshDiscordRoles(server)
     if (back > 0) {
       TtlEcon.pay(server, player, back, 'treasury:refund')
       TtlEcon.note(server, 'faucet', -back, 'treasury:refund')
@@ -647,9 +664,15 @@ const TtlNations = {
     all[other.key].ally_to = (all[other.key].ally_to || []).filter(k => k !== me.key)
     this.save(server, all)
     var when = hours > 0 ? `in ${hours} hours` : 'now'
+    try {
+      var targetOwner = TtlRegistry.nameOf(server, other.rec.owner)
+      TtlDiscordStory.post(server, 'war', [player.username, targetOwner], `The nation ${all[me.key].name} has declared war on ${other.rec.name}. It begins ${when}.`,
+        TtlDiscord.isBot(all[me.key].name) || TtlDiscord.isBot(other.rec.name))
+    } catch (e) {
+      console.warn(`[ttl] nations: war story post failed: ${e}`)
+    }
     this.tell(server, me.key, `War on ${other.rec.name} is declared; it begins ${when}.`)
     this.tell(server, other.key, `${all[me.key].name} has declared war on you; it begins ${when}.`)
-    this.post(server, `The nation ${all[me.key].name} has declared war on ${other.rec.name}. It begins ${when}.`, all[me.key])
     return hours
   },
 

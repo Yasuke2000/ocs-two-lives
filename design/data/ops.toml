@@ -1,0 +1,4 @@
+# Staff audit records the parsed literal route only. Brigadier argument values may contain private data.
+[cmdlog]
+prefixes = ["ttl", "tensura edit", "lp", "ftbchunks admin"]
+capacity = 500

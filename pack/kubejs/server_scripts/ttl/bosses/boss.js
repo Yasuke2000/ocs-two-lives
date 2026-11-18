@@ -282,7 +282,7 @@ const TtlBoss = {
     server.persistentData.putInt('ttl.boss.seq', seq)
     var ctx = {
       id: id, key: `k${seq}`, dim: pos.dim, x: pos.x, y: pos.y, z: pos.z, by: opts.by || '', tries: 0, arena: pos.arena,
-      wild: !!opts.wild, duel: !!opts.duel, region: opts.region || '', near: opts.near || ''
+      event: opts.event || '', wild: !!opts.wild, duel: !!opts.duel, region: opts.region || '', near: opts.near || ''
     }
     this.pending[id] = true
     this.run(server, pos.dim, `forceload add ${pos.x} ${pos.z}`)
@@ -334,6 +334,10 @@ const TtlBoss = {
       gone: 0, idle: now, fx: ctx.x, fz: ctx.z, by: ctx.by, dmg: {}, party: {}, pt: {}
     }
     if (ctx.wild) rec.wild = true
+    if (ctx.event) {
+      rec.event = ctx.event
+      rec.region = ctx.region
+    }
     if (ctx.duel) rec.duel = true
     if (ctx.arena) {
       // Leash: a boss of a bound arena that is pulled away is put back (see fight()).
@@ -351,6 +355,7 @@ const TtlBoss = {
     this.ensureBar(server, ctx.key, rec, def)
     var n = Math.max(1, near.length)
     console.info(`[ttl] boss: ${def.id} summoned${ctx.wild ? ' (wild)' : ''} (hp ×${mult}, ${n} player${n === 1 ? '' : 's'})`)
+    if (ctx.event) return // the event director owns titles, muted chat and the Discord story
     if (ctx.wild) {
       // A wild boss is announced by bosses/wild.js (title, chat, Discord #story), not as an ordinary summon.
       try {
@@ -849,8 +854,7 @@ const TtlBoss = {
     try {
       if (typeof TtlDiscord === 'undefined') return
       var humans = names.filter(n => !TtlDiscord.isBot(n))
-      if (humans.length === 0) return
-      TtlDiscord.post(server, `${humans.map(n => TtlDiscord.name(n)).join(', ')} defeated **${def.title}**!`)
+      TtlDiscordStory.post(server, 'boss', names, `${names.map(n => TtlDiscord.name(n)).join(', ')} defeated **${def.title}**!`)
       humans.forEach(n => TtlDiscord.also('hall boss', () => TtlHall.noteBoss(server, n, def.title)))
     } catch (e) {
       console.warn(`[ttl] boss: Discord post failed: ${e}`)

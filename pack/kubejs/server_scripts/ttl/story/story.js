@@ -168,10 +168,12 @@ const TtlStory = {
   },
 
   // One #story line per story event (Discord); never for test bots.
-  post(server, player, text) {
+  post(server, player, text, moment) {
     try {
-      if (!text || typeof TtlDiscord === 'undefined' || TtlDiscord.isBot(player.username)) return
-      TtlDiscord.post(server, `${TtlDiscord.name(player.username)} ${text}`)
+      if (!text || typeof TtlDiscord === 'undefined') return
+      var line = `${TtlDiscord.name(player.username)} ${text}`
+      if (moment) TtlDiscordStory.post(server, moment, [player.username], line)
+      else if (!TtlDiscord.isBot(player.username)) TtlDiscord.post(server, line)
     } catch (e) {
       console.warn(`[ttl] story: #story post failed: ${e}`)
     }
@@ -344,8 +346,9 @@ const TtlStory = {
       parties[info.id] = { path: lane, oathBy: swearer, at: Date.now() }
       server.persistentData.putString(this.PARTIES, JSON.stringify(parties))
     }
-    var cfg = oath[lane]
-    this.post(server, player, `${cfg.line}${sworn > 1 ? ` (${sworn - 1} party member${sworn > 2 ? 's' : ''} swore with them.)` : ''}`)
+    var line = choice === 'unaligned' ? 'chose to walk unaligned at the crossroads of Tempest.' : oath[lane].line
+    if (sworn > 1) line += ` (${sworn - 1} party member${sworn > 2 ? 's' : ''} swore with them.)`
+    this.post(server, player, line, 'oath_' + choice)
     return null
   },
 
@@ -430,7 +433,7 @@ const TtlStory = {
     this.note(server, player, `completed act ${n} (${def.key}, ${path})${added.length ? `, unlocked ${added.join(',')}` : ''}`)
     if (!opts.quiet) {
       player.tell(Text.gold(`Act ${n} complete: ${def.title}.`))
-      this.post(server, player, def.story_line)
+      this.post(server, player, def.story_line, 'act')
     }
     return null
   },

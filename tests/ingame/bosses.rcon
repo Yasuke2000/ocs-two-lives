@@ -35,6 +35,7 @@ execute in ttl:spirit_corridor run kill @e[tag=ttl.boss,tag=ttl.bossid.orc_lord]
 ttl boss expect TtlBotBoss stage t1 yes
 ttl boss expect TtlBotBoss defeated orc_lord yes
 ttl boss expect TtlBotBoss kills orc_lord 1
+ttl discord expect TtlBotBoss boss 1
 ttl boss expect TtlBotBoss active orc_lord no
 ttl boss expect TtlBotBoss cooldown orc_lord yes
 # Boss and minions are gone: FAILS (Test failed) for both.
