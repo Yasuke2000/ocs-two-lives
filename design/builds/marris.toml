@@ -1,11 +1,11 @@
 name = "marris"
 title = "Marris — Falmuth"
-landmark = "Marris (Falmuth capital)"  # world about (-920, -745), region F; verified land in canon_map.txt
+landmark = "Marris (Falmuth capital)"  # world (-1286, -1040), region F; verified land in canon_map.txt
 anchor = [68, 5, 66]                   # Royal Plaza, just south of the fountain monument (68, 5, 57)
 ground = "survey"
 search = 64
 dimension = "minecraft:overworld"
-version = 1
+version = 2
 clear_above = true
 # Saved as three z slabs marris_0..2 (z 0-37, 38-75, 76-111), box 136 x 64 x 112; the great gate faces south (+z).
 # Arrival on the royal road: blueprint (68, 5, 106), facing north.

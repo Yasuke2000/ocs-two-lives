@@ -5,9 +5,8 @@ Western Holy Church presence. Geography and placement are in [world.md](world.md
 blueprint.
 
 **Research note (18/11/2026).** tensura.fandom.com returns HTTP 402 to direct fetches. Facts come from Wikipedia's
-character list and search extracts. Canon text gives no description of the capital's buildings, and the Wikipedia
-list has **no entry for Marris**: the name comes from world.md (the fan map) and is *unverified*. Everything about
-how the city looks is *our interpretation*.
+character list and search extracts. The Tensura Wiki identifies Marris as the capital of both Falmuth and Farmenas. The palace,
+cathedral and plaza layouts are *our interpretation*. [Kingdom of Falmuth](https://tensura.fandom.com/wiki/Kingdom_of_Falmuth) · [Kingdom of Farmenas](https://tensura.fandom.com/wiki/Kingdom_of_Farmenas)
 
 ## Facts the build follows
 

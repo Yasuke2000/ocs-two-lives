@@ -183,10 +183,11 @@ def church(t: Town):
     for x in range(x0 + 1, x0 + 3):
         for z in range(56, 63):
             t.put(x, F + 1, z, M("quartz_slab[type=bottom,waterlogged=false]"))
-    t.put(x0 + 2, F + 2, 59, M("quartz_slab[type=bottom,waterlogged=false]"))
+    t.put(x0 + 2, F + 2, 59, M("quartz_block"))
     t.put(x0 + 2, F + 1, 59, M("quartz_block"))
     t.put(x0 + 2, F + 3, 59, M("candle[candles=3,lit=true,waterlogged=false]"))
     for z in (56, 62):
+        t.put(x0 + 2, F + 1, z, M("quartz_block"))
         t.put(x0 + 2, F + 2, z, M("candle[candles=2,lit=true,waterlogged=false]"))
     for z in range(57, 62):
         t.put(x0 + 1, F + 6, z, M("gold_block") if z == 59 else M("blue_wool"))

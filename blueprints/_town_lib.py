@@ -115,7 +115,7 @@ class Town:
     def lamp(self, x, z, h=3, post="stone_brick_wall", y0=None):
         y0 = self.F if y0 is None else y0
         for y in range(y0, y0 + h):
-            self.put(x, y, z, M(f"{post}[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"))
+            self.put(x, y, z, M(post))
         self.put(x, y0 + h, z, lantern_floor())
 
     # -- ground ----------------------------------------------------------------------------------
@@ -330,8 +330,8 @@ class Town:
         bx, bz = (x1 - 1, z0 + 1) if door_side != "n" else (x1 - 1, z1 - 2)
         if storeys > 1:
             y = F + storey_h
-            facing = "south" if door_side != "n" else "north"
-            zz = bz + (1 if facing == "south" else -1)
+            facing = "north" if door_side != "n" else "south"
+            zz = bz + (1 if facing == "north" else -1)
             if self.get(bx, y, bz) == AIR and self.get(bx, y, zz) == AIR:
                 self.put(bx, y, bz, bed("red", facing, "head"))
                 self.put(bx, y, zz, bed("red", facing, "foot"))

@@ -9,5 +9,5 @@ anchor = [64, 5, 92]
 ground = "survey"
 search = 64
 dimension = "minecraft:overworld"
-version = 1
+version = 2
 clear_above = true
