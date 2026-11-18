@@ -1039,7 +1039,8 @@ const TtlData = {
             "x": 435,
             "z": -1106
           },
-          "kind": "statue"
+          "kind": "statue",
+          "statue": "ttl_gazel"
         },
         "tier": 3,
         "title": "Gazel Dwargo, the Dwarf King",
@@ -1341,15 +1342,23 @@ const TtlData = {
       }
     ],
     "framework": {
+      "arena_gap_minutes": 10,
       "bindable": [
         "shizu"
       ],
       "block_natural": true,
+      "cooldown_scope": "party",
       "core_per_party": 1,
+      "echo_hp_mult": 0.85,
+      "echo_prefix": "Echo · ",
+      "fight_estimate_minutes": 15,
       "idle_minutes": 30,
+      "max_instances": 4,
+      "max_per_party": 1,
       "party_credit_range": 2.0,
       "presence_secs": 15,
       "proxy_bosses": true,
+      "queue_ttl_minutes": 20,
       "untame": true
     },
     "tombstone": {

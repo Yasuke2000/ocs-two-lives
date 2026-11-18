@@ -381,6 +381,18 @@ def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = N
         raise SystemExit("bosses.toml: [framework] party_credit_range must be a number 1..8 (x the boss range)")
     if "natural_allow" in fw:
         raise SystemExit("bosses.toml: [framework] natural_allow was removed: give the boss a [boss.wild] table instead")
+    # WP-W2 instancing knobs (world-state.md §7.1).
+    if fw.get("cooldown_scope", "party") not in ("party", "server"):
+        raise SystemExit("bosses.toml: [framework] cooldown_scope must be party or server")
+    for key, lo in (("arena_gap_minutes", 0), ("max_instances", 1), ("max_per_party", 1), ("queue_ttl_minutes", 1),
+                    ("fight_estimate_minutes", 1)):
+        v = fw.get(key)
+        if v is not None and (not isinstance(v, int) or isinstance(v, bool) or v < lo):
+            raise SystemExit(f"bosses.toml: [framework] {key} must be an integer {lo} or more")
+    if "echo_prefix" in fw and (not isinstance(fw["echo_prefix"], str) or re.search(r"['\\\"]", fw["echo_prefix"])):
+        raise SystemExit("bosses.toml: [framework] echo_prefix must be text without quotes or backslashes")
+    if "echo_hp_mult" in fw and (not is_num(fw["echo_hp_mult"]) or not 0.25 <= fw["echo_hp_mult"] <= 1):
+        raise SystemExit("bosses.toml: [framework] echo_hp_mult must be a number 0.25..1")
     if not isinstance(fw.get("bindable"), list):
         raise SystemExit("bosses.toml: [framework] bindable must be a list (use [] for none)")
     all_ids = [b.get("id") for b in bosses.get("boss", [])]
@@ -420,10 +432,12 @@ def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = N
             check_arena(where, "arena", arena, names, build_names, allow_build=False)
         spawn = b.get("spawn")
         if spawn is not None:
-            if set(spawn) - {"kind", "at", "stages"}:
-                raise SystemExit(f"{where}: spawn knows kind, at and stages only")
+            if set(spawn) - {"kind", "at", "stages", "statue"}:
+                raise SystemExit(f"{where}: spawn knows kind, at, stages and statue only")
             if spawn.get("kind") not in ("quest", "altar", "statue", "event"):
                 raise SystemExit(f"{where}: spawn.kind must be quest, altar, statue or event")
+            if "statue" in spawn and (spawn["kind"] != "statue" or not re.fullmatch(r"[a-z0-9_.]+", str(spawn["statue"]))):
+                raise SystemExit(f"{where}: spawn.statue (the seated statue's entity tag) needs kind = statue and a [a-z0-9_.] tag")
             if "at" in spawn:
                 check_arena(where, "spawn.at", spawn["at"], names, build_names, allow_build=True)
             elif arena is None:

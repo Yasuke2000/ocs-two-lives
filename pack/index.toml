@@ -2054,11 +2054,11 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/boss.js"
-hash = "076b9fc04afdf7b4b71a7d7f6dc8747e00328671fe30525af3493a432b789fb0"
+hash = "8307d0a2eaee69244505b2597c5d53758bded7437a6c2b702b82222155ab951c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/commands.js"
-hash = "47b75568311532b3bae3db911e2f51a2c03297866283929dbb75fef0e8fafb8c"
+hash = "dd9b17a3381604dd1078826be8c67099c03f5e5daf1bdbe2474a3f0997d53c4b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/loot.js"
@@ -2066,7 +2066,7 @@ hash = "30147905f6fbdfd1b721ef36020695aee453c2b1d12ea37c41e40ccefdf6e1e4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/wild.js"
-hash = "cf1345c2cf1e0a605dd345783970b6b8098834200c5586375b9e05a2c07ffbf7"
+hash = "306c8e1a6ae7e8d832f2c4607f371d37276320ed78a7696ee6e494ca1009b038"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
@@ -2162,7 +2162,7 @@ hash = "b743815f7f0f55301f990c66627818d9f698793a7a9bc68538b6426801315a91"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "7d763d42ffea098f043fcca47d27f9881a530d579f21b6b9bb0484ce3595232e"
+hash = "a6925e377902432cf8ab94507c6a813e5299997e8bb16f1e5d2c9bddb6e8baea"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2242,7 +2242,7 @@ hash = "b439e7faa512766d89afa38225fbb6efeb37b99c56316f26034322d38d7d4f6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "b512f88c2d399e3004f6de7db6d6ad9f4a0b132a82857729491eb31fb573a240"
+hash = "6d784132179f81320d936cd9966efe6d6f3248923544ff5a89a35250ea0a7495"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"

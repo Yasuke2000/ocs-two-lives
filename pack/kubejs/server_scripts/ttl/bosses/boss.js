@@ -11,20 +11,37 @@
 // objective ttl.b.<id> (criterion minecraft.killed:<entity>, same trick as discord.js checkBosses) rose since the
 // previous poll. A boss that died to something else (/kill, lava) rewards whoever stood in the fight.
 //
-// Server persistentData: `ttl.boss.active` JSON {key: record}, `ttl.boss.seq`, `ttl.boss.last.<id>` (millis of the
-// last defeat). Player: stage `ttl.boss.t<tier>`, `ttl.boss.kills` JSON {id: n}, `ttl.boss.core.owed` (Skill Cores
-// not yet handed out because the item does not exist yet).
+// Server persistentData: `ttl.boss.active` JSON {key: record}, `ttl.boss.seq`, `ttl.boss.lastkill` JSON {uuid: {id: millis}}
+// (mirror of the per-soul defeat stamps, so offline party members still count), `ttl.boss.arena` JSON {arenaKey: {t, id}}
+// (last defeat per arena: arena_gap_minutes), `ttl.boss.queue` JSON {bossId: [{party, members, by, at, akey, ready}]}.
+// `ttl.boss.last.<id>` (the old server-wide stamp) is only written with cooldown_scope = "server" (the rollback knob); in
+// party scope it is turned into an arena gap once at boot and removed. Player: stage `ttl.boss.t<tier>`, `ttl.boss.kills`
+// JSON {id: n}, `ttl.boss.lastkill` JSON {id: millis} (story kills only), `ttl.boss.core.owed` (Skill Cores not yet handed
+// out because the item does not exist yet).
 // Record: {id, dim, x, y, z, started, state idle|fight, base (vanilla max hp), n (players at last scaling), phase
 // (phases done), hit/near/names (uuid maps: damage dealers, polls in range, display names), dmg (uuid -> damage dealt),
 // seen (objective values at the last poll), last (uuids in range at the last poll), gone (polls without the entity),
-// idle (millis since nobody came), fx/fz (forceloaded block position), wild (true: rolled by bosses/wild.js), duel
-// (true: an honour duel, no kill_rep), party {teamId: [uuids]} (rosters frozen the first time a member stood near the
-// boss) and pt {uuid: teamId} (what each player was seen as), bar}.
+// idle (millis of the last poll with a player in range), fx/fz (forceloaded block position), wild (true: rolled by
+// bosses/wild.js), duel (true: an honour duel, no kill_rep), party {teamId: [uuids]} (rosters frozen the first time a member
+// stood near the boss) and pt {uuid: teamId} (what each player was seen as), akey (arena key), owner (party key of the
+// summoner, '' for ops/events/wild), echo (true: a replay of a boss the world has already seen fall), ehp (echo health
+// multiplier), awake (true: summoned without the NoAI wait), bar}.
 // Party credit (finish): the party members of everyone credited who were in that frozen roster, are online, Life 2 and
 // within party_credit_range x range share the kill (no Skill Core beyond core_per_party), so a party that stands around
-// cannot farm cores and one invited after the wake or the kill gets nothing. The party is an FTB Teams party team.
-// Summoning (opts): {summoner} checked against `requires` + `spawn.stages`; {skipGate, skipCooldown} (force = both, ops);
-// {wild: true} (bosses/wild.js: no arena bound, announced by TtlWild); {duel: true}; {x, y, z, dim}; {at}; {by}; {region}.
+// cannot farm cores and one invited after the wake or the kill gets nothing. The party is a raid group (TtlRaid.groupOf),
+// else an FTB Teams party team.
+// Instancing (design/architecture/world-state.md §7.1, WP-W2): the cooldown is PER PARTY (a party is on cooldown for a boss
+// while any member's ttl.boss.lastkill[id] is inside cooldown_hours), an arena holds one story fight at a time (a busy or
+// settling arena queues the summoner's party: place, ETA, a ping when it frees, then queue_ttl_minutes to summon),
+// max_instances bosses live at once, max_per_party per summoning party. Wild bosses never lock an arena and are never
+// locked out by a story fight of the same id. The continent line (§2.0, R11): in the Overworld, outside the canon
+// continent, nothing of this applies: a summon is refused there and the mods' own spawns rule (block_natural is off).
+// Summoning (opts): {summoner} checked against `requires` + `spawn.stages` and used for the party; {skipGate, skipCooldown}
+// (force = both and also skips the arena gap, queue reservations and the instance caps, ops); {wild: true} (bosses/wild.js:
+// no arena bound, announced by TtlWild); {duel: true}; {awake: true} (no NoAI wait: the boss moves at once, the March of
+// the Horde); {echo: true|false} (overrides the chronicle's firsts); {x, y, z, dim}; {at}; {by}; {region}.
+// A `spawn.kind = "statue"` boss with `spawn.statue = "<tag>"`: the seated statue (an entity with that tag) steps aside
+// while a story instance is live (discarded at the summon; its keeper asks TtlBoss.statueAside before re-seating it).
 // Never bindable as a Tombstone familiar: compat/tombstone_bosses.js refuses any entity with the ttl.boss tag.
 const TtlBoss = {
   POLL: 20,
@@ -37,11 +54,23 @@ const TtlBoss = {
   // In-memory only: damage dealers seen since the last poll per instance, summons waiting for their chunk, bars made.
   hits: {},
   dmg: {},
+  // Summons waiting for their chunk: {instanceKey: {id, wild, akey, owner, dim, x, z}}.
   pending: {},
   bars: {},
   teamApi: undefined,
+  // Continent test fallback (used while world/chronicle.js is not loaded): the canon grid and a per-chunk-column cache.
+  grid: null,
+  gridWarned: false,
+  worldWarned: false,
+  contCache: {},
+  contN: 0,
 
   // ---- data -------------------------------------------------------------------------------------------------
+
+  num(v, dflt) {
+    var n = Number(v)
+    return v !== undefined && v !== null && v !== '' && isFinite(n) ? n : dflt
+  },
 
   conf() {
     var f = (TtlData.bosses && TtlData.bosses.framework) || {}
@@ -56,8 +85,21 @@ const TtlBoss = {
       partyRange: f.party_credit_range === undefined ? 2 : Number(f.party_credit_range),
       corePerParty: f.core_per_party === undefined ? 1 : Number(f.core_per_party),
       proxies: f.proxy_bosses !== false,
-      wildMult: w.rewards_mult === undefined ? 1 : Number(w.rewards_mult)
+      wildMult: w.rewards_mult === undefined ? 1 : Number(w.rewards_mult),
+      scope: f.cooldown_scope === 'server' ? 'server' : 'party',
+      gapMs: this.num(f.arena_gap_minutes, 10) * 60000,
+      maxInstances: this.num(f.max_instances, 4),
+      maxPerParty: this.num(f.max_per_party, 1),
+      queueTtlMs: this.num(f.queue_ttl_minutes, 20) * 60000,
+      fightMin: this.num(f.fight_estimate_minutes, 15),
+      echoPrefix: f.echo_prefix === undefined ? 'Echo · ' : String(f.echo_prefix),
+      echoHp: this.num(f.echo_hp_mult, 0.85)
     }
+  },
+
+  // Display title of an instance (the echo prefix on a replay).
+  titleOf(def, echo) {
+    return echo ? `${this.conf().echoPrefix}${def.title}` : def.title
   },
 
   defs() {
@@ -114,14 +156,418 @@ const TtlBoss = {
     return Math.sqrt(dx * dx + dy * dy + dz * dz)
   },
 
+  readJson(server, key, dflt) {
+    var raw = String(server.persistentData.getString(key) || '')
+    if (!raw) return dflt
+    try {
+      var v = JSON.parse(raw)
+      return v && typeof v === 'object' ? v : dflt
+    } catch (e) {
+      console.warn(`[ttl] boss: ${key} is not valid JSON, starting empty (${e})`)
+      return dflt
+    }
+  },
+
+  writeJson(server, key, v) {
+    server.persistentData.putString(key, JSON.stringify(v))
+  },
+
+  // The old server-wide stamp; only cooldown_scope = "server" reads or writes it.
   lastDefeat(server, id) {
     return Number(String(server.persistentData.getString(`ttl.boss.last.${id}`)) || 0)
   },
 
-  // Milliseconds of cooldown left for this boss (0 when free).
-  cooldownLeft(server, def) {
-    var left = this.lastDefeat(server, def.id) + def.cooldown_hours * 3600000 - Date.now()
+  // ---- the continent line (world-state.md §2.0, R11) ---------------------------------------------------------------
+
+  canonGrid() {
+    if (this.grid) return this.grid
+    try {
+      this.grid = Java.loadClass('com.yasuke.ttl.world.CanonMap').grid() || null
+    } catch (e) {
+      if (!this.gridWarned) console.warn(`[ttl] boss: the canon grid is not available, every spot counts as the continent: ${e}`)
+      this.gridWarned = true
+      this.grid = null
+    }
+    return this.grid
+  },
+
+  // True on the canon continent (its land, rivers and near-coast water), in every dimension but the Overworld, and when
+  // the test cannot be made. world/chronicle.js (TtlWorld.onContinent, WP-W1) is the one owner of the rule; the grid read
+  // below is the same test (ownerCell != 0) for as long as that file is not loaded.
+  onContinent(dim, x, z) {
+    dim = String(dim)
+    if (typeof TtlWorld !== 'undefined' && typeof TtlWorld.onContinent === 'function') {
+      try {
+        return !!TtlWorld.onContinent(dim, x, z)
+      } catch (e) {
+        if (!this.worldWarned) console.warn(`[ttl] boss: TtlWorld.onContinent failed, using the grid: ${e}`)
+        this.worldWarned = true
+      }
+    }
+    if (dim !== TtlLife.OVERWORLD) return true
+    var bx = Math.floor(x)
+    var bz = Math.floor(z)
+    var key = `${bx >> 4},${bz >> 4}`
+    if (this.contCache[key] !== undefined) return this.contCache[key]
+    var g = this.canonGrid()
+    if (!g) return true
+    var inside = true
+    try {
+      var c = g.ownerCell(bx, bz)
+      var code = typeof c === 'number' ? c : String(c).length > 0 ? String(c).charCodeAt(0) : 0
+      inside = code !== 0 && code !== 48
+    } catch (e) {
+      console.warn(`[ttl] boss: reading the canon grid at ${bx} ${bz} failed: ${e}`)
+      return true
+    }
+    if (this.contN > 4096) {
+      this.contCache = {}
+      this.contN = 0
+    }
+    this.contCache[key] = inside
+    this.contN++
+    return inside
+  },
+
+  // The story rules end at the coast: only the Overworld beyond the continent is "outside" (the Labyrinth, the Spirit
+  // Domain, Hell and the test halls are always inside).
+  outside(dim, x, z) {
+    return String(dim) === TtlLife.OVERWORLD && !this.onContinent(dim, x, z)
+  },
+
+  // ---- per-party cooldown ------------------------------------------------------------------------------------------
+
+  // {id, members: [lowercase uuids]} of the summoner: their raid group or party, else the soul alone ('solo:<uuid>').
+  partyKey(server, player) {
+    var team = this.partyOf(server, player)
+    if (team) return { id: String(team.id), members: team.members }
+    var u = this.uid(player)
+    return { id: `solo:${u}`, members: [u] }
+  },
+
+  // A credited story kill: stamped on the soul (ttl.boss.lastkill) and in the server mirror (offline members still count).
+  stampKill(server, p, id, now) {
+    var mine = {}
+    try {
+      mine = JSON.parse(String(p.persistentData.getString('ttl.boss.lastkill')) || '{}')
+    } catch (e) {
+      mine = {}
+    }
+    mine[id] = now
+    p.persistentData.putString('ttl.boss.lastkill', JSON.stringify(mine))
+    var all = this.readJson(server, 'ttl.boss.lastkill', {})
+    var u = this.uid(p)
+    all[u] = all[u] || {}
+    all[u][id] = now
+    // Stamps older than the longest cooldown can never matter again.
+    var keep = 0
+    this.defs().forEach(d => { keep = Math.max(keep, Number(d.cooldown_hours) || 0) })
+    var cut = now - keep * 3600000
+    Object.keys(all).forEach(m => {
+      Object.keys(all[m]).forEach(b => { if (all[m][b] < cut) delete all[m][b] })
+      if (Object.keys(all[m]).length === 0) delete all[m]
+    })
+    this.writeJson(server, 'ttl.boss.lastkill', all)
+  },
+
+  // Milliseconds of cooldown left for this party (any member's stamp counts). The server mirror is the truth: it covers
+  // offline members, and `cooldown clear` reaches it while an offline soul's own copy cannot be reached.
+  partyCooldownLeft(server, def, party) {
+    var all = this.readJson(server, 'ttl.boss.lastkill', {})
+    var best = 0
+    party.members.forEach(u => {
+      var t = all[u] && all[u][def.id] ? Number(all[u][def.id]) : 0
+      if (t > best) best = t
+    })
+    var left = best + def.cooldown_hours * 3600000 - Date.now()
     return left > 0 ? left : 0
+  },
+
+  // Milliseconds of cooldown left for this boss: per party of `player` (cooldown_scope party), else the server stamp.
+  cooldownLeft(server, def, player) {
+    if (this.conf().scope === 'server') {
+      var left = this.lastDefeat(server, def.id) + def.cooldown_hours * 3600000 - Date.now()
+      return left > 0 ? left : 0
+    }
+    if (!player) return 0
+    return this.partyCooldownLeft(server, def, this.partyKey(server, player))
+  },
+
+  onlineByUid(server, u) {
+    var found = null
+    var self = this
+    server.getPlayerList().getPlayers().forEach(p => {
+      if (!found && self.uid(p) === u) found = p
+    })
+    return found
+  },
+
+  // Forget the story cooldown of a boss for everyone (ops, tests): the mirror, every online soul's stamp, the old server stamp.
+  clearCooldown(server, id) {
+    var all = this.readJson(server, 'ttl.boss.lastkill', {})
+    Object.keys(all).forEach(u => {
+      delete all[u][id]
+      if (Object.keys(all[u]).length === 0) delete all[u]
+    })
+    this.writeJson(server, 'ttl.boss.lastkill', all)
+    server.getPlayerList().getPlayers().forEach(p => {
+      try {
+        var mine = JSON.parse(String(p.persistentData.getString('ttl.boss.lastkill')) || '{}')
+        if (mine[id] === undefined) return
+        delete mine[id]
+        p.persistentData.putString('ttl.boss.lastkill', JSON.stringify(mine))
+      } catch (e) {
+        p.persistentData.remove('ttl.boss.lastkill')
+      }
+    })
+    server.persistentData.remove(`ttl.boss.last.${id}`)
+  },
+
+  // Forget the arena gaps left by a boss (id '' = every boss) and its queue (ops, tests).
+  clearArena(server, id) {
+    var gaps = this.readJson(server, 'ttl.boss.arena', {})
+    Object.keys(gaps).forEach(k => { if (!id || gaps[k].id === id) delete gaps[k] })
+    this.writeJson(server, 'ttl.boss.arena', gaps)
+    var q = this.queueLoad(server)
+    if (id) delete q[id]
+    else q = {}
+    this.queueSave(server, q)
+  },
+
+  // ---- arenas and the queue ----------------------------------------------------------------------------------------
+
+  // The arena of a summon position: a bound arena's centre, else the summon spot itself ('<dim>@<x>,<z>').
+  arenaKey(pos) {
+    if (pos.arena) return `${pos.dim}@${pos.arena.x},${pos.arena.z}`
+    return `${pos.dim}@${Math.floor(pos.x)},${Math.floor(pos.z)}`
+  },
+
+  recKey(rec) {
+    return rec.akey || `${rec.dim}@${Math.floor(rec.fx)},${Math.floor(rec.fz)}`
+  },
+
+  // Milliseconds the arena still settles after its last defeat (arena_gap_minutes).
+  arenaGapLeft(server, akey) {
+    var gaps = this.readJson(server, 'ttl.boss.arena', {})
+    var g = gaps[akey]
+    if (!g) return 0
+    var left = Number(g.t) + this.conf().gapMs - Date.now()
+    return left > 0 ? left : 0
+  },
+
+  // Live and pending instances: [{key, id, wild, akey, owner, dim, x, z, pending}].
+  instances(server) {
+    var out = []
+    var active = this.load(server)
+    for (var k in active) {
+      var r = active[k]
+      out.push({ key: k, id: r.id, wild: !!r.wild, akey: this.recKey(r), owner: r.owner || '', dim: r.dim, x: r.fx, z: r.fz, pending: false })
+    }
+    for (var p in this.pending) {
+      var q = this.pending[p]
+      out.push({ key: p, id: q.id, wild: !!q.wild, akey: q.akey, owner: q.owner || '', dim: q.dim, x: q.x, z: q.z, pending: true })
+    }
+    return out
+  },
+
+  // Why a story fight of `def` cannot start in this arena now, or null: {code: busy|gap|reserved|waiting|full, msg}.
+  // Wild instances never lock an arena. `party` (may be null) is the summoner's party key; force skips all but `busy`.
+  arenaBlock(server, def, pos, akey, party, force) {
+    var c = this.conf()
+    var list = this.instances(server)
+    for (var i = 0; i < list.length; i++) {
+      var r = list[i]
+      if (r.wild) continue
+      var other = this.def(r.id)
+      var reach = Math.max(def.range, other ? other.range : def.range)
+      var near = r.dim === pos.dim && (r.x - pos.x) * (r.x - pos.x) + (r.z - pos.z) * (r.z - pos.z) < reach * reach
+      if (r.akey === akey || near) {
+        var t = other ? other.title : r.id
+        return { code: 'busy', msg: `${t} is ${r.pending ? 'being summoned' : 'being fought'} in that arena right now` }
+      }
+    }
+    if (force) return null
+    if (c.maxInstances > 0 && list.length >= c.maxInstances) {
+      return { code: 'full', msg: `${list.length} bosses are out across the world (max_instances ${c.maxInstances})` }
+    }
+    var gap = this.arenaGapLeft(server, akey)
+    if (gap > 0) return { code: 'gap', msg: `the arena is still settling after the last fight (${Math.ceil(gap / 60000)} minutes)` }
+    var mine = party ? party.id : ''
+    var line = this.queueOf(server, akey)
+    for (var j = 0; j < line.length; j++) {
+      if (line[j].party === mine) break
+      if (line[j].ready) return { code: 'reserved', msg: `the arena is held for the party of ${line[j].by} (${Math.ceil((line[j].ready + c.queueTtlMs - Date.now()) / 60000)} minutes)` }
+      return { code: 'waiting', msg: `the party of ${line[j].by} is waiting for that arena` }
+    }
+    return null
+  },
+
+  queueLoad(server) {
+    return this.readJson(server, 'ttl.boss.queue', {})
+  },
+
+  queueSave(server, q) {
+    Object.keys(q).forEach(id => { if (!q[id] || q[id].length === 0) delete q[id] })
+    if (Object.keys(q).length === 0) server.persistentData.remove('ttl.boss.queue')
+    else this.writeJson(server, 'ttl.boss.queue', q)
+  },
+
+  // Everyone waiting for one arena, any boss: reservations first, then by time of asking. [{boss, party, by, at, ready, ...}]
+  queueOf(server, akey) {
+    var q = this.queueLoad(server)
+    var out = []
+    Object.keys(q).forEach(id => q[id].forEach(e => {
+      if (e.akey !== akey) return
+      var row = { boss: id }
+      for (var f in e) row[f] = e[f]
+      out.push(row)
+    }))
+    out.sort((a, b) => (b.ready ? 1 : 0) - (a.ready ? 1 : 0) || a.at - b.at)
+    return out
+  },
+
+  // The entry of a party in the queue of a boss, or null.
+  queueEntry(server, bossId, partyId) {
+    var list = this.queueLoad(server)[bossId] || []
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].party === partyId) return list[i]
+    }
+    return null
+  },
+
+  // Puts the party in line (once per boss) and returns {place, eta} (eta in minutes, a rough guess).
+  enqueue(server, def, akey, party, by) {
+    var q = this.queueLoad(server)
+    var list = q[def.id] || []
+    var have = false
+    list.forEach(e => { if (e.party === party.id) have = true })
+    if (!have) list.push({ party: party.id, members: party.members, by: by, at: Date.now(), akey: akey, ready: 0 })
+    q[def.id] = list
+    this.queueSave(server, q)
+    var line = this.queueOf(server, akey)
+    var place = 1
+    for (var i = 0; i < line.length; i++) {
+      if (line[i].boss === def.id && line[i].party === party.id) {
+        place = i + 1
+        break
+      }
+    }
+    var c = this.conf()
+    var eta = Math.ceil(this.arenaGapLeft(server, akey) / 60000) + place * (c.fightMin + c.gapMs / 60000)
+    if (!have) console.info(`[ttl] boss: ${def.id} queue: the party of ${by} is number ${place} for ${akey}`)
+    return { place: place, eta: Math.round(eta) }
+  },
+
+  queueRemove(server, bossId, partyId) {
+    var q = this.queueLoad(server)
+    if (!q[bossId]) return
+    q[bossId] = q[bossId].filter(e => e.party !== partyId)
+    this.queueSave(server, q)
+  },
+
+  // Each poll: drop reservations past queue_ttl_minutes and parties with nobody online, and hand a free arena to the head
+  // of its line (a ping; they have queue_ttl_minutes to summon).
+  queueTick(server) {
+    var q = this.queueLoad(server)
+    var ids = Object.keys(q)
+    if (ids.length === 0) return
+    var c = this.conf()
+    var now = Date.now()
+    var self = this
+    var online = {}
+    server.getPlayerList().getPlayers().forEach(p => { online[self.uid(p)] = p })
+    var changed = false
+    ids.forEach(id => {
+      q[id] = q[id].filter(e => {
+        var here = (e.members || []).some(u => online[u])
+        if (e.ready && now - e.ready > c.queueTtlMs) {
+          self.tellParty(e, online, `Your turn at the arena of ${self.def(id) ? self.def(id).title : id} has passed.`)
+          console.info(`[ttl] boss: ${id} queue: the party of ${e.by} let its turn pass`)
+          changed = true
+          return false
+        }
+        if (!here) {
+          changed = true
+          return false
+        }
+        return true
+      })
+    })
+    if (changed) this.queueSave(server, q)
+    var keys = {}
+    ids.forEach(id => (q[id] || []).forEach(e => { keys[e.akey] = true }))
+    Object.keys(keys).forEach(akey => {
+      var line = self.queueOf(server, akey)
+      if (line.length === 0 || line[0].ready) return
+      var head = line[0]
+      var def = self.def(head.boss)
+      if (!def) return
+      var parts = akey.split('@')
+      var xz = (parts[1] || '0,0').split(',').map(Number)
+      if (self.arenaBlock(server, def, { dim: parts[0], x: xz[0], z: xz[1] }, akey, { id: head.party }, false)) return
+      var all = self.queueLoad(server)
+      var row = all[head.boss] || []
+      row.forEach(e => { if (e.party === head.party) e.ready = now })
+      self.queueSave(server, all)
+      self.tellParty(head, online, `The arena of ${def.title} is free. You have ${Math.round(c.queueTtlMs / 60000)} minutes to start the fight.`)
+      console.info(`[ttl] boss: ${def.id} queue: the arena ${akey} is free, held for the party of ${head.by}`)
+    })
+  },
+
+  tellParty(entry, online, line) {
+    var members = entry.members || []
+    members.forEach(u => {
+      if (online[u]) online[u].tell(Text.gold(line))
+    })
+  },
+
+  // A statue boss (spawn.kind = statue) has a story instance live or on the way: its seated statue stays away.
+  statueAside(server, id) {
+    var list = this.instances(server)
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].id === id && !list[i].wild) return true
+    }
+    return false
+  },
+
+  // ---- echoes ------------------------------------------------------------------------------------------------------
+
+  // The world has seen this boss fall (the chronicle's firsts; test hook: server ttl.boss.testecho = JSON [ids]).
+  hasFirst(server, id) {
+    try {
+      if (typeof TtlChronicle !== 'undefined' && typeof TtlChronicle.view === 'function') {
+        var v = TtlChronicle.view(server)
+        if (v && v.firsts && v.firsts[id]) return true
+      }
+    } catch (e) {
+      console.warn(`[ttl] boss: reading the chronicle's firsts failed: ${e}`)
+    }
+    var w = this.readJson(server, 'ttl.world', {})
+    if (w.firsts && w.firsts[id]) return true
+    var t = this.readJson(server, 'ttl.boss.testecho', [])
+    return Array.isArray(t) && t.indexOf(id) >= 0
+  },
+
+  // The act whose completion unlocks the boss (story.toml unlock_bosses), 0 when none.
+  actOf(id) {
+    var acts = (TtlData.story && TtlData.story.act) || []
+    for (var i = 0; i < acts.length; i++) {
+      if ((acts[i].unlock_bosses || []).indexOf(id) >= 0) return Number(acts[i].id)
+    }
+    return 0
+  },
+
+  // Echo health: echo_hp_mult only for a party whose highest act (online members) is below the boss's act.
+  echoHp(server, def, party) {
+    var act = this.actOf(def.id)
+    if (!party || act === 0 || typeof TtlStory === 'undefined' || typeof TtlStory.actsDone !== 'function') return 1
+    var best = 0
+    var self = this
+    party.members.forEach(u => {
+      var p = self.onlineByUid(server, u)
+      if (p) best = Math.max(best, Number(TtlStory.actsDone(p)) || 0)
+    })
+    return best < act ? this.conf().echoHp : 1
   },
 
   // ---- scoreboard kills -------------------------------------------------------------------------------------
@@ -256,51 +702,108 @@ const TtlBoss = {
     return ''
   },
 
-  // Summons a boss; see the header for opts. {force: true} = skipGate + skipCooldown (ops). Returns an error string, or null
-  // when the summon is under way: the entity appears once its chunk is loaded (a second or two), and the log says "summoned".
-  summon(server, id, opts) {
+  // Every check of a summon without doing it: {error, queue: true when the summoner's party may wait in line} or
+  // {def, pos, akey, party, echo, ehp}. Used by summon() and the dry-run test assertions.
+  plan(server, id, opts) {
     opts = opts || {}
+    var c = this.conf()
     var def = this.def(id)
-    if (!def) return `unknown boss ${id} (one of ${this.defs().map(d => d.id).join(', ')})`
-    if (def.proxy && !this.conf().proxies) return `${def.title} is a proxy boss and proxy_bosses is off in bosses.toml`
-    var active = this.load(server)
-    for (var k in active) {
-      if (active[k].id === id) return `${def.title} is already out there`
-    }
-    if (this.pending[id]) return `${def.title} is already being summoned`
-    if (!opts.force && !opts.skipCooldown) {
-      var left = this.cooldownLeft(server, def)
-      if (left > 0) return `${def.title} cannot be summoned for another ${Math.ceil(left / 60000)} minutes`
+    if (!def) return { error: `unknown boss ${id} (one of ${this.defs().map(d => d.id).join(', ')})` }
+    if (def.proxy && !c.proxies) return { error: `${def.title} is a proxy boss and proxy_bosses is off in bosses.toml` }
+    var pos = this.arenaOf(server, def, opts)
+    if (typeof pos === 'string') return { error: pos }
+    if (TtlLife.isMortal(pos.dim)) return { error: 'bosses do not exist in the Mortal Realm' }
+    if (!server.getLevel(pos.dim)) return { error: `unknown dimension ${pos.dim}` }
+    if (this.outside(pos.dim, pos.x, pos.z)) return { error: `${pos.x} ${pos.z} is outside the continent: the mod's own spawns rule there` }
+    var akey = this.arenaKey(pos)
+    var list = this.instances(server)
+    if (opts.wild) {
+      // A wild boss is its own thing: one wild instance per id, never blocked by (and never blocking) a story fight.
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].id === id && list[i].wild) return { error: `${def.title} is already out there` }
+      }
+      if (c.maxInstances > 0 && list.length >= c.maxInstances) return { error: `${list.length} bosses are out across the world (max_instances ${c.maxInstances})` }
+      return { def: def, pos: pos, akey: akey, party: null, echo: false, ehp: 1 }
     }
     var gate = this.gate(def, opts)
-    if (gate) return gate
-    var pos = this.arenaOf(server, def, opts)
-    if (typeof pos === 'string') return pos
-    if (TtlLife.isMortal(pos.dim)) return 'bosses do not exist in the Mortal Realm'
-    if (!server.getLevel(pos.dim)) return `unknown dimension ${pos.dim}`
+    if (gate) return { error: gate }
+    var party = opts.summoner ? this.partyKey(server, opts.summoner) : null
+    if (!opts.force && !opts.skipCooldown) {
+      var left = c.scope === 'server' ? this.cooldownLeft(server, def) : party ? this.partyCooldownLeft(server, def, party) : 0
+      if (left > 0) {
+        return { error: c.scope === 'server' ? `${def.title} cannot be summoned for another ${Math.ceil(left / 60000)} minutes`
+          : `Your party has fought ${def.title} too recently: another ${Math.ceil(left / 60000)} minutes` }
+      }
+    }
+    if (!opts.force && party && c.maxPerParty > 0) {
+      var mine = list.filter(r => r.owner === party.id && !r.wild)
+      if (mine.length >= c.maxPerParty) {
+        var od = this.def(mine[0].id)
+        return { error: `Your party already has ${od ? od.title : mine[0].id} out: finish that fight first` }
+      }
+    }
+    var block = this.arenaBlock(server, def, pos, akey, party, !!opts.force)
+    if (block) return { error: `${def.title} cannot be summoned now: ${block.msg}`, queue: !!party, akey: akey, def: def, party: party }
+    var echo = opts.echo === undefined ? this.hasFirst(server, id) : !!opts.echo
+    return { def: def, pos: pos, akey: akey, party: party, echo: echo, ehp: echo ? this.echoHp(server, def, party) : 1 }
+  },
+
+  // Summons a boss; see the header for opts. {force: true} = skipGate + skipCooldown (ops). Returns an error string, or null
+  // when the summon is under way: the entity appears once its chunk is loaded (a second or two), and the log says "summoned".
+  // A summoner whose arena is busy is put in its queue (the returned line says the place and the ETA).
+  summon(server, id, opts) {
+    opts = opts || {}
+    var plan = this.plan(server, id, opts)
+    if (plan.error) {
+      if (plan.queue && opts.summoner) {
+        var q = this.enqueue(server, plan.def, plan.akey, plan.party, opts.by || String(opts.summoner.username))
+        return `${plan.error}. Your party is number ${q.place} in line (about ${q.eta} minutes); you will be told when the arena is yours.`
+      }
+      return plan.error
+    }
+    var def = plan.def
+    var pos = plan.pos
+    if (plan.party) this.queueRemove(server, id, plan.party.id)
     var seq = Number(server.persistentData.getInt('ttl.boss.seq')) + 1
     server.persistentData.putInt('ttl.boss.seq', seq)
     var ctx = {
       id: id, key: `k${seq}`, dim: pos.dim, x: pos.x, y: pos.y, z: pos.z, by: opts.by || '', tries: 0, arena: pos.arena,
-      event: opts.event || '', wild: !!opts.wild, duel: !!opts.duel, region: opts.region || '', near: opts.near || ''
+      event: opts.event || '', wild: !!opts.wild, duel: !!opts.duel, region: opts.region || '', near: opts.near || '', akey: plan.akey,
+      owner: plan.party ? plan.party.id : '', echo: plan.echo, ehp: plan.ehp, awake: !!opts.awake
     }
-    this.pending[id] = true
+    this.pending[ctx.key] = { id: id, wild: ctx.wild, akey: ctx.akey, owner: ctx.owner, dim: pos.dim, x: pos.x, z: pos.z }
     this.run(server, pos.dim, `forceload add ${pos.x} ${pos.z}`)
-    console.info(`[ttl] boss: summoning ${id} at ${pos.dim} ${pos.x} ${pos.y === undefined ? 'surface' : pos.y} ${pos.z}${ctx.by ? ` (asked by ${ctx.by})` : ''}`)
+    console.info(`[ttl] boss: summoning ${id} at ${pos.dim} ${pos.x} ${pos.y === undefined ? 'surface' : pos.y} ${pos.z}${ctx.by ? ` (asked by ${ctx.by})` : ''}${ctx.echo ? ' (an echo)' : ''}${ctx.awake ? ' (awake)' : ''}`)
     server.scheduleInTicks(20, () => this.attempt(server, ctx))
     return null
   },
 
-  nbt(def, key) {
-    var name = JSON.stringify({ text: def.title, color: this.COLORS[def.tier] || 'gold' })
-    return `{NoAI:1b,PersistenceRequired:1b,CustomNameVisible:1b,CustomName:'${name}',Tags:["ttl.boss","ttl.bossid.${def.id}","ttl.boss.${key}"]}`
+  nbt(def, ctx) {
+    var name = JSON.stringify({ text: this.titleOf(def, ctx.echo), color: this.COLORS[def.tier] || 'gold' })
+    return `{NoAI:${ctx.awake ? 0 : 1}b,PersistenceRequired:1b,CustomNameVisible:1b,CustomName:'${name}',Tags:["ttl.boss","ttl.bossid.${def.id}","ttl.boss.${ctx.key}"]}`
+  },
+
+  // The seated statue of a statue boss steps aside (is discarded) while its story instance is live.
+  statueStepsAside(server, def, ctx) {
+    var tag = def.spawn && def.spawn.kind === 'statue' ? def.spawn.statue : ''
+    if (!tag || ctx.wild) return
+    var level = server.getLevel(ctx.dim)
+    if (!level) return
+    var n = 0
+    level.getEntities().forEach(e => {
+      if (e.getTags().contains(tag) && !e.getTags().contains(this.TAG)) {
+        e.discard()
+        n++
+      }
+    })
+    console.info(`[ttl] boss: the statue ${tag} steps aside for ${def.id} (${n} removed)`)
   },
 
   // One try at spawning: the chunk may still be loading after the forceload, so it retries for ~10 seconds.
   attempt(server, ctx) {
     try {
       var def = this.def(ctx.id)
-      var nbt = this.nbt(def, ctx.key)
+      var nbt = this.nbt(def, ctx)
       // A retry after a try whose entity find() could not see must not leave a second boss behind.
       if (ctx.tries > 0) this.run(server, ctx.dim, `kill @e[tag=ttl.boss.${ctx.key}]`)
       if (ctx.y === undefined) {
@@ -322,7 +825,7 @@ const TtlBoss = {
     } catch (e) {
       console.error(`[ttl] boss: summoning ${ctx.id} failed: ${e}`)
     }
-    delete this.pending[ctx.id]
+    delete this.pending[ctx.key]
     this.run(server, ctx.dim, `forceload remove ${ctx.x} ${ctx.z}`)
   },
 
@@ -331,7 +834,8 @@ const TtlBoss = {
     var rec = {
       id: def.id, dim: ctx.dim, x: e.getX(), y: e.getY(), z: e.getZ(), started: now, state: 'idle',
       base: Math.round(e.getMaxHealth()), n: 0, phase: 0, hit: {}, near: {}, names: {}, seen: {}, last: [],
-      gone: 0, idle: now, fx: ctx.x, fz: ctx.z, by: ctx.by, dmg: {}, party: {}, pt: {}
+      gone: 0, idle: now, fx: ctx.x, fz: ctx.z, by: ctx.by, dmg: {}, party: {}, pt: {}, akey: ctx.akey || '',
+      owner: ctx.owner || ''
     }
     if (ctx.wild) rec.wild = true
     if (ctx.event) {
@@ -339,6 +843,15 @@ const TtlBoss = {
       rec.region = ctx.region
     }
     if (ctx.duel) rec.duel = true
+    if (ctx.echo) {
+      rec.echo = true
+      rec.ehp = ctx.ehp || 1
+    }
+    if (ctx.awake) {
+      // Summoned awake (the March of the Horde): no NoAI wait, the fight runs from the first poll.
+      rec.awake = true
+      rec.state = 'fight'
+    }
     if (ctx.arena) {
       // Leash: a boss of a bound arena that is pulled away is put back (see fight()).
       rec.ax = ctx.arena.x
@@ -351,10 +864,15 @@ const TtlBoss = {
     var active = this.load(server)
     active[ctx.key] = rec
     this.save(server, active)
-    delete this.pending[def.id]
+    delete this.pending[ctx.key]
     this.ensureBar(server, ctx.key, rec, def)
+    try {
+      this.statueStepsAside(server, def, ctx)
+    } catch (err) {
+      console.error(`[ttl] boss: the statue of ${def.id} could not step aside: ${err}`)
+    }
     var n = Math.max(1, near.length)
-    console.info(`[ttl] boss: ${def.id} summoned${ctx.wild ? ' (wild)' : ''} (hp ×${mult}, ${n} player${n === 1 ? '' : 's'})`)
+    console.info(`[ttl] boss: ${def.id} summoned${ctx.wild ? ' (wild)' : ''}${ctx.echo ? ' (an echo)' : ''}${ctx.awake ? ' (awake)' : ''} (hp ×${mult}, ${n} player${n === 1 ? '' : 's'})`)
     if (ctx.event) return // the event director owns titles, muted chat and the Discord story
     if (ctx.wild) {
       // A wild boss is announced by bosses/wild.js (title, chat, Discord #story), not as an ordinary summon.
@@ -365,8 +883,9 @@ const TtlBoss = {
       }
       return
     }
-    var title = def.title
-    this.players(server).forEach(p => p.tell(Text.gold(`${title} has been summoned.`)))
+    var title = this.titleOf(def, rec.echo)
+    var line = rec.awake ? `${title} has arrived.` : `${title} has been summoned.`
+    this.players(server).forEach(p => p.tell(Text.gold(line)))
   },
 
   // Players of the list within the boss's range.
@@ -375,11 +894,11 @@ const TtlBoss = {
     return players.filter(p => !p.isSpectator() && self.distance(p, rec.dim, rec.x, rec.y, rec.z) <= def.range)
   },
 
-  // Max health = vanilla x (hp_mult + per_player_mult x (n - 1)), n at least 1. Keeps the health fraction (a boss that
-  // already took a hit keeps its wound when a second player arrives). Returns the multiplier.
+  // Max health = vanilla x (hp_mult + per_player_mult x (n - 1)) x the echo multiplier, n at least 1. Keeps the health
+  // fraction (a boss that already took a hit keeps its wound when a second player arrives). Returns the multiplier.
   scale(server, rec, def, e, n) {
     n = Math.max(1, n)
-    var mult = Math.round((def.hp_mult + def.per_player_mult * (n - 1)) * 100) / 100
+    var mult = Math.round((def.hp_mult + def.per_player_mult * (n - 1)) * (rec.ehp || 1) * 100) / 100
     var frac = e.getMaxHealth() > 0 ? e.getHealth() / e.getMaxHealth() : 1
     var hp = Math.max(rec.base, Math.round(rec.base * mult))
     this.exec(server, rec.dim, `as @e[tag=ttl.boss.${this.keyOf(e)},limit=1] run attribute @s minecraft:generic.max_health base set ${hp}`)
@@ -432,6 +951,20 @@ const TtlBoss = {
   // players one party and lets test bots count for it; without a hook bots never share party credit.
   partyOf(server, player) {
     var u = this.uid(player)
+    // A raid group (party/raid.js, WP-W7) comes first: light and dark friends fight as one roster. Contract:
+    // TtlRaid.groupOf(server, player) -> {id, members: [uuids]} or null.
+    if (typeof TtlRaid !== 'undefined' && typeof TtlRaid.groupOf === 'function') {
+      try {
+        var raid = TtlRaid.groupOf(server, player)
+        if (raid && raid.members && raid.members.length) {
+          var rm = []
+          raid.members.forEach(m => rm.push(String(m).toLowerCase()))
+          return { id: `raid:${raid.id}`, members: rm }
+        }
+      } catch (e) {
+        console.warn(`[ttl] boss: the raid layer failed for ${player.username}: ${e}`)
+      }
+    }
     var fake = this.testParty(server)
     if (fake) return fake.members.indexOf(u) >= 0 ? { id: 'test', members: fake.members } : null
     // The party layer (party/party.js) is the one reader of FTB Teams; the direct read below only runs without it.
@@ -515,7 +1048,7 @@ const TtlBoss = {
   ensureBar(server, key, rec, def) {
     if (this.bars[key]) return
     var id = this.barId(key)
-    var text = JSON.stringify({ text: def.title, color: this.COLORS[def.tier] || 'gold' })
+    var text = JSON.stringify({ text: this.titleOf(def, rec.echo), color: this.COLORS[def.tier] || 'gold' })
     // `bossbar add` fails when the bar survived a restart; the sets below then simply reuse it.
     server.runCommandSilent(`bossbar add ${id} ${text}`)
     server.runCommandSilent(`bossbar set ${id} color ${this.BAR_COLORS[def.tier] || 'red'}`)
@@ -534,6 +1067,11 @@ const TtlBoss = {
   // ---- the poll -----------------------------------------------------------------------------------------------
 
   tick(server) {
+    try {
+      this.queueTick(server)
+    } catch (e) {
+      console.error(`[ttl] boss: queue poll failed: ${e}`)
+    }
     var active = this.load(server)
     var keys = Object.keys(active)
     if (keys.length === 0) return
@@ -599,6 +1137,14 @@ const TtlBoss = {
         return 'done'
       }
     } else {
+      // A fight everybody walked away from frees its arena after idle_minutes (it would hold the queue forever).
+      if (near.length > 0) {
+        rec.idle = now
+      } else if (now - rec.idle > (rec.wild ? cfg.wildIdleMs : cfg.idleMs)) {
+        console.info(`[ttl] boss: ${def.id} removed, the fight was left for ${Math.round((now - rec.idle) / 60000)} minutes${rec.wild ? ' (wild)' : ''}`)
+        this.cleanup(server, key, rec, true)
+        return 'done'
+      }
       this.fight(server, key, rec, def, e, near, cfg)
     }
     // Baseline for kill credit: the objective values while the boss is still alive.
@@ -609,6 +1155,7 @@ const TtlBoss = {
 
   wake(server, key, rec, def, e, near) {
     rec.state = 'fight'
+    rec.idle = Date.now()
     this.scale(server, rec, def, e, near.length)
     this.exec(server, rec.dim, `as @e[tag=ttl.boss.${key},limit=1] run data merge entity @s {NoAI:0b}`)
     near.forEach(p => p.tell(Text.gold(`${def.title} awakens.`)))
@@ -703,8 +1250,26 @@ const TtlBoss = {
       console.info(`[ttl] boss: ${def.id} lost without a fight (no player in range, nothing rewarded)`)
       return
     }
-    server.persistentData.putString(`ttl.boss.last.${def.id}`, String(Date.now()))
-    var mult = rec.wild ? this.conf().wildMult : 1
+    var now = Date.now()
+    var cfgEnd = this.conf()
+    if (!rec.wild) {
+      // A story kill settles its arena for arena_gap_minutes; the cooldown is stamped on every credited soul below.
+      var gaps = this.readJson(server, 'ttl.boss.arena', {})
+      Object.keys(gaps).forEach(g => { if (now - Number(gaps[g].t) > Math.max(cfgEnd.gapMs, 3600000)) delete gaps[g] })
+      gaps[this.recKey(rec)] = { t: now, id: def.id }
+      this.writeJson(server, 'ttl.boss.arena', gaps)
+      if (cfgEnd.scope === 'server') server.persistentData.putString(`ttl.boss.last.${def.id}`, String(now))
+    }
+    var stamp = p => {
+      if (rec.wild) return
+      try {
+        this.stampKill(server, p, def.id, now)
+      } catch (e) {
+        console.error(`[ttl] boss: stamping the ${def.id} cooldown on ${p.username} failed: ${e}`)
+      }
+    }
+    for (var w1 in winners) stamp(winners[w1])
+    var mult = rec.wild ? cfgEnd.wildMult : 1
     for (var w2 in winners) {
       try {
         this.reward(server, def, winners[w2], { mult: mult, duel: rec.duel })
@@ -714,6 +1279,7 @@ const TtlBoss = {
     }
     var shared = this.partyExtras(server, rec, def, winners, byId)
     shared.forEach(x => {
+      stamp(x.p)
       try {
         this.reward(server, def, x.p, { mult: mult, duel: rec.duel, core: x.core, party: true })
         names.push(String(x.p.username))
@@ -722,8 +1288,8 @@ const TtlBoss = {
         console.error(`[ttl] boss: party credit for ${x.p.username} (${def.id}) failed: ${e}`)
       }
     })
-    console.info(`[ttl] boss: ${def.id} defeated by ${names.join(', ')}${killers > 0 ? '' : ' (no kill credit: shared by everyone in the fight)'}${rec.wild ? ' (wild)' : ''}`)
-    this.announce(server, def, names)
+    console.info(`[ttl] boss: ${def.id} defeated by ${names.join(', ')}${killers > 0 ? '' : ' (no kill credit: shared by everyone in the fight)'}${rec.wild ? ' (wild)' : ''}${rec.echo ? ' (an echo)' : ''}`)
+    this.announce(server, def, names, rec.echo)
     try { if (typeof TtlChronicle !== 'undefined') TtlChronicle.bossKill(server, def.id, rec, names) } catch (e) { console.error(`[ttl] boss: chronicle note for ${def.id} failed: ${e}`) }
   },
 
@@ -849,13 +1415,13 @@ const TtlBoss = {
     console.info(`[ttl] boss: paid ${owed} owed Skill Core(s) to ${p.username}`)
   },
 
-  announce(server, def, names) {
-    var line = `${def.title} has fallen to ${names.join(', ')}.`
+  announce(server, def, names, echo) {
+    var line = `${this.titleOf(def, echo)} has fallen to ${names.join(', ')}.`
     this.players(server).forEach(p => p.tell(Text.gold(line)))
     try {
       if (typeof TtlDiscord === 'undefined') return
       var humans = names.filter(n => !TtlDiscord.isBot(n))
-      TtlDiscordStory.post(server, 'boss', names, `${names.map(n => TtlDiscord.name(n)).join(', ')} defeated **${def.title}**!`)
+      TtlDiscordStory.post(server, 'boss', names, `${names.map(n => TtlDiscord.name(n)).join(', ')} defeated **${def.title}**!${echo ? ' (an echo)' : ''}`)
       humans.forEach(n => TtlDiscord.also('hall boss', () => TtlHall.noteBoss(server, n, def.title)))
     } catch (e) {
       console.warn(`[ttl] boss: Discord post failed: ${e}`)
@@ -873,7 +1439,43 @@ const TtlBoss = {
       n++
     }
     this.save(server, active)
+    // A freed arena goes to the head of its line at once.
+    this.queueTick(server)
     return n
+  },
+
+  // Once per boot (cooldown_scope party): the old server-wide stamps ttl.boss.last.<id> become one arena gap at the boss's
+  // own arena and are removed; records from before WP-W2 get an arena key and an empty owner.
+  migrate(server) {
+    if (this.conf().scope === 'server') return
+    var gaps = this.readJson(server, 'ttl.boss.arena', {})
+    var moved = 0
+    var self = this
+    this.defs().forEach(def => {
+      var t = self.lastDefeat(server, def.id)
+      if (!t) return
+      var pos = self.arenaOf(server, def, {})
+      if (typeof pos !== 'string') {
+        var k = self.arenaKey(pos)
+        if (!gaps[k] || gaps[k].t < t) gaps[k] = { t: t, id: def.id }
+      }
+      server.persistentData.remove(`ttl.boss.last.${def.id}`)
+      moved++
+    })
+    if (moved > 0) {
+      this.writeJson(server, 'ttl.boss.arena', gaps)
+      console.info(`[ttl] boss: ${moved} server-wide cooldown stamp(s) turned into arena gaps (cooldowns are per party now)`)
+    }
+    var active = this.load(server)
+    var fixed = 0
+    for (var key in active) {
+      if (active[key].akey === undefined) {
+        active[key].akey = this.recKey(active[key])
+        active[key].owner = ''
+        fixed++
+      }
+    }
+    if (fixed > 0) this.save(server, active)
   }
 }
 
@@ -883,6 +1485,11 @@ ServerEvents.loaded(event => {
     TtlBoss.ensureObjectives(server)
   } catch (e) {
     console.error(`[ttl] boss: creating the kill objectives failed: ${e}`)
+  }
+  try {
+    TtlBoss.migrate(server)
+  } catch (e) {
+    console.error(`[ttl] boss: migrating the old cooldown stamps failed: ${e}`)
   }
   var loop = () => server.scheduleInTicks(TtlBoss.POLL, () => {
     try {
@@ -925,8 +1532,10 @@ EntityEvents.afterHurt(event => {
   }
 })
 
-// Never natural: a boss entity that Minecraft spawns by itself is cancelled. Summons carry the ttl.boss tag and come
-// from a command (spawn type "command"), so they pass. The first line per spawn shows the real spawn type string.
+// Never natural ON THE CONTINENT: a boss entity that Minecraft spawns by itself there is cancelled. Summons carry the
+// ttl.boss tag and come from a command (spawn type "command"), so they pass. Outside the continent (the Overworld beyond
+// the canon coast, world-state.md §2.0) the mods' own spawns rule: nothing is cancelled. The line per spawn shows the real
+// spawn type string.
 try {
   EntityEvents.checkSpawn(event => {
     var blocked = false
@@ -942,8 +1551,17 @@ try {
       // R11: outside the canon continent (the ring, the free lands) the mods spawn their bosses as shipped.
       try { if (typeof TtlWorld !== 'undefined' && !TtlWorld.onContinent(String(entity.level.dimension), entity.x, entity.z)) return } catch (e) { console.error(`[ttl] boss: continent test failed, the spawn rule applies: ${e}`) }
       var type = String(event.type)
-      blocked = TtlBoss.NATURAL.test(type)
-      console.info(`[ttl] boss: ${id} spawn type=${type}: ${blocked ? 'blocked' : 'allowed'}`)
+      if (!TtlBoss.NATURAL.test(type)) {
+        console.info(`[ttl] boss: ${id} spawn type=${type}: allowed`)
+        return
+      }
+      var lvl = entity.level || event.level
+      if (lvl && TtlBoss.outside(String(lvl.dimension), entity.getX(), entity.getZ())) {
+        console.info(`[ttl] boss: ${id} spawn type=${type}: allowed (outside the continent)`)
+        return
+      }
+      blocked = true
+      console.info(`[ttl] boss: ${id} spawn type=${type}: blocked`)
     } catch (err) {
       console.error(`[ttl] boss: spawn check failed: ${err}`)
     }
