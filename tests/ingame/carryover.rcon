@@ -16,9 +16,8 @@ give TtlBotCarry minecraft:bread 4
 ttl stash TtlBotCarry expect ender 2
 ttl stash TtlBotCarry expect curios 1
 ttl stash TtlBotCarry expect soul 1
-# A banned Tensura item is moved into the soul stash (no waiting for the 2 second sweep).
+# A banned Tensura item is moved into the soul stash (the manual sweep, or the 2 second loop if it ran first).
 give TtlBotCarry tensura:low_potion 2
-ttl stash TtlBotCarry expect banned 1
 ttl stash TtlBotCarry sweep
 ttl stash TtlBotCarry expect banned 0
 ttl stash TtlBotCarry expect stash 1

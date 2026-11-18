@@ -10,7 +10,9 @@ const TtlSafeSpawns = {
 
   hostile(entity) {
     try {
-      return String(entity.getType().getCategory()) === 'MONSTER'
+      // entity.getType() is the id string in KubeJS (no getCategory); isMonster() is the Enemy check. The old
+      // category test threw, was swallowed here, and so no hostile mob was ever refused.
+      return !!entity.isMonster()
     } catch (e) {
       return false
     }

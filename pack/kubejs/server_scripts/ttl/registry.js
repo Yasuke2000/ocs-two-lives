@@ -118,7 +118,10 @@ const TtlRegistry = {
   // cache does not know may be looked up at Mojang, so callers keep the number of calls small.
   lookup(server, name) {
     try {
-      var found = server.getProfileCache().get(String(name))
+      // GameProfileCache has get(String) and get(UUID); Rhino picks the UUID one for a JS string and the
+      // conversion throws a plain IllegalArgumentException that no JS catch sees. Name the overload.
+      var cache = server.getProfileCache()
+      var found = cache['get(java.lang.String)'](String(name))
       if (found && found.isPresent()) return String(found.get().getId()).toLowerCase()
     } catch (e) {
       console.warn(`[ttl] registry: profile cache lookup of ${name} failed: ${e}`)

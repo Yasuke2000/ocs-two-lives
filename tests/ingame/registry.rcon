@@ -22,7 +22,7 @@ ttl registry expect holds TtlBotRegD berserker false
 ttl registry expect holds TtlBotRegD great_sage false
 ttl registry expect has TtlBotRegD berserker false
 ttl registry expect keyed TtlBotRegA
-ttl registry expect last TtlBotRegC great_sage grant
+ttl registry expect last TtlBotRegC grant great_sage
 ttl registry history berserker
 # Records written before UUID keys (the player's name) are migrated at login/start, or by /ttl registry migrate.
 ttl registry legacy TtlBotRegA
