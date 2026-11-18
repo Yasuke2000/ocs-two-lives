@@ -1,0 +1,13 @@
+name = "mortal_pilgrim_shrine"
+title = "Pilgrims' Hill"
+x = 440
+z = 570
+anchor = [19, 4, 37]
+ground = "survey"
+search = 64
+max_wet = 0.1
+dimension = "ttl:mortal_realm"
+version = 1
+clear_above = true
+margin = 8
+notes = "Approach the Mortal Realm's timber bell shelter from the south."

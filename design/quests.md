@@ -567,3 +567,16 @@ Quest-line ideas:
   full potions, Rigurd's goblins and the direwolf night, the trip to Dwargon (Kaijin, King Gazel), magic ore,
   Lake Siss, the lizardmen (Avalos, Gabiru) and the Orc Lord war. Places from `design/lore/` and
   `pack/config/ttl/canon_regions.json`.
+
+## Waypoints for future Mortal Realm quests
+
+These six survey centres are measured from Wayfarer’s Rest at (0, 0) in `ttl:mortal_realm`. Use the placed build’s recorded position for a future visit objective. A seed can move the entrance away from its survey centre. The sites add destinations to explore during Life 1. Existing vanilla village, mineshaft, trading and structure tasks still use their original criteria.
+
+| Destination | Survey x, z | Possible connection |
+| --- | --- | --- |
+| [Ruined border keep](lore/mortal_keep.md) | −670, −520 | Trace the remains of the border road in Roads and Ruins. |
+| [Ferry and toll house](lore/mortal_ferry.md) | 840, −230 | Find the landing, then follow the old freight route. |
+| [Hermit’s tower](lore/mortal_tower.md) | −300, 1030 | A waypoint for a traveller taking the southern road. |
+| [Pilgrim shrine](lore/mortal_pilgrim_shrine.md) | 440, 570 | Walk the hill approach on a pilgrimage from the Rest. |
+| [Abandoned mine entrance](lore/mortal_mine.md) | −1040, 240 | Explore the workings before hunting for a naturally generated mineshaft in Delving. |
+| [Market town square](lore/mortal_market.md) | 180, −780 | The bell and workstations suit People of the Realm and Folk of the Realm. Villager trades depend on living villagers. |

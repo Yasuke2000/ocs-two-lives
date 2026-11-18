@@ -1,0 +1,13 @@
+name = "mortal_market"
+title = "The Folk Market"
+x = 180
+z = -780
+anchor = [24, 4, 36]
+ground = "survey"
+search = 64
+max_wet = 0.1
+dimension = "ttl:mortal_realm"
+version = 1
+clear_above = true
+margin = 8
+notes = "Roadside market with two homes, a bell arcade and four vanilla job sites."

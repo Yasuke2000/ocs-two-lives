@@ -1,0 +1,14 @@
+# After the automatic survey queue finishes on a new or reset Mortal Realm, check its recorded results.
+# Each "where" line prints the live corner for the separate 98% block comparison.
+ttl build expect mortal_keep placed
+ttl build where mortal_keep
+ttl build expect mortal_ferry placed
+ttl build where mortal_ferry
+ttl build expect mortal_tower placed
+ttl build where mortal_tower
+ttl build expect mortal_pilgrim_shrine placed
+ttl build where mortal_pilgrim_shrine
+ttl build expect mortal_mine placed
+ttl build where mortal_mine
+ttl build expect mortal_market placed
+ttl build where mortal_market
