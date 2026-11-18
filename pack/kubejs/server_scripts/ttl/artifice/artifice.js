@@ -414,7 +414,7 @@ const TtlArtifice = {
     if (!j) return false
     try {
       var lore = stack.get(j.DC.LORE) || j.ItemLore.EMPTY
-      var style = j.Style.EMPTY.withItalic(false).withColor(color === 'red' ? j.ChatFormatting.DARK_RED : j.ChatFormatting.GRAY)
+      var style = j.Style.EMPTY.withItalic(false)['withColor(net.minecraft.ChatFormatting)'](color === 'red' ? j.ChatFormatting.DARK_RED : j.ChatFormatting.GRAY)
       stack.set(j.DC.LORE, lore.withLineAdded(j.Component.literal(String(text)).setStyle(style)))
       return true
     } catch (e) {

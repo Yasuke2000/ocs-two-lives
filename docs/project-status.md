@@ -15,7 +15,7 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 
 | Metric | Value | How to measure |
 | --- | --- | --- |
-| In-game bot tests | 67 test files (__INGAME__) | `bash tools/server.sh test-all` |
+| In-game bot tests | 67 test files (67/67 green, ttl-ops on `bae23df`, 18/11 ~22:30) | `bash tools/server.sh test-all` |
 | Offline unit tests | 148 green | `python -m unittest discover -s tests` |
 | Validation | must say "validation passed" | `python tools/validate.py` |
 | Builds verified 1:1 in the world | 20 builds + 7 Tensura landmarks, all ≥ 99.9 % (37 build manifests; the 11 new canon landmarks, Walpurgis Hall and 6 Mortal Realm waypoints still to verify) | `python tools/verify_build.py <name> --log` |

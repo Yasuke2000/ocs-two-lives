@@ -1,6 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
-## 18/11 night — PRs #18–#33 merged into main, staging at 62/67 then fixes pushed (merge-and-test run, Claude)
+## 18/11 night — PRs #18–#33 merged into main; ttl-ops on `bae23df`: **67/67 green** (merge-and-test run, Claude)
+
+Last step: the maker's-stamp lore line fix (`withColor` overload, artifice.js) came after the green run; `test artifice`
+was green with it via push-scripts, and ttl-ops runs the full suite on that commit (check its verdict first).
 
 **Merged** (`--no-ff`, GitHub shows them merged): #19 arenas, #21 codex/life2-saga-wiki (it supersedes #18, which is
 closed with a comment), #22 world-w1, #23 world-w2, #27 sidequests, #25 roadmap-suggestions, #20 project-status,
@@ -21,7 +24,7 @@ through `TtlWorld.ownerAt`, sidequest `byUuid` scan + continent signature, domai
 synchronous give/clear, legion test hook, `ttl story testunlock mark|restore|drop` (quests.rcon's Act VII bot had unlocked
 Veldora for everyone on staging; dropped with `drop veldora`), plus test fixes (world sync, events_pack end-all, bosses
 queue answer and Gazel position, sidequests forceload, artifice main hand, necro_ranks cleanup order).
-**Test results**: ttl-ops on `d1e0c09` = 66/67 (only sidequests: the ambient loop spawned an adventurer during the count; fixed with `ttl adventurers hold`; the run of 8a151d4 still failed it on the escort (a client whose chunk unloaded read as fallen) and on clearing an unloaded green, both fixed in the next commit). Before that: ttl-ops on `a78843b` = 62/67 (artifice, bosses, necro_legion, necro_ranks, sidequests failing); after the
+**Test results**: ttl-ops on `d1e0c09` = 66/67 (only sidequests: the ambient loop spawned an adventurer during the count; fixed with `ttl adventurers hold`; the run of 8a151d4 still failed it on the escort (a client whose chunk unloaded read as fallen) and on clearing an unloaded green, both fixed in `bae23df`, whose ttl-ops run was 67/67 green). Before that: ttl-ops on `a78843b` = 62/67 (artifice, bosses, necro_legion, necro_ranks, sidequests failing); after the
 fixes artifice, necro_legion, necro_ranks and sidequests passed one by one on staging (push-scripts), bosses still showed
 `ttl discord expect TtlBotBoss boss 1` = 0 after a reload (check on the fresh boot). The commit after this one gets a full
 ttl-ops run: read `kubectl --kubeconfig ~/.kube/ocs-two-lives.yaml -n ocs-two-lives logs deploy/ttl-ops --tail=60`.

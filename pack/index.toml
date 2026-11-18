@@ -2490,7 +2490,7 @@ hash = "5170c5a133dad2588b266a79a68860a842f240728afc8d6207c1e350b86e72e3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/artifice/artifice.js"
-hash = "7fbd9667aeacc5bdda0d845f104723594a0fd61f0e2b852f922707a23174a974"
+hash = "c01e65c05cd8355f953c9848daaf35f55c62ff3ca2cdfaf60d1938044afe9ab2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/artifice/commands.js"
