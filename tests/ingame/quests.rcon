@@ -19,3 +19,16 @@ ttl quests expect TtlBotQuests said day1
 ftbquests change_progress TtlBotQuests complete 50382544FBB449E8
 ftbquests change_progress TtlBotQuests reset 50382544FBB449E8
 ttlbot remove TtlBotQuests
+# 5. Story extensions (tools/gen_quests.py: `path` lanes, `stage`/`command` rewards, cross-chapter `deps`;
+# design/quests.md). Step 1 is the minimum: FTB Quests drops an unresolved dependency silently, so a missing quest in
+# `ttl quests check` is the symptom. The behaviour itself needs the first chapter that uses the features (WP-S6, chapter 7)
+# and WP-S1's `ttl story` commands, so it is left as a template (replace <ids> from generated/quests.js, and the
+# `ttl story` syntax with WP-S1's, then drop the leading "# "):
+#   ttlbot spawn TtlBotLane
+#   ttl reset TtlBotLane
+#   @sleep 8
+#   # claiming the Oath quest's command reward runs `ttl story oath ...` as the bot (permission_level 2), which sets the path
+#   ftbquests change_progress TtlBotLane complete <oath quest id>
+#   ttl story expect TtlBotLane path dark
+#   # the light lane quest never completes for a dark bot (its first task is the stage ttl.path.light)
+#   ttlbot remove TtlBotLane
