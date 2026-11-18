@@ -309,6 +309,170 @@ def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = N
         raise SystemExit("bosses.toml: kubejs/data/ttl/tags/entity_type/boss.json does not list exactly the [[boss]] entities")
 
 
+def check_story(story: dict, factions: dict | None, bosses: dict | None, skills: dict | None) -> None:
+    # story/story.js reads these by name; a typo in a faction, boss, flag or skill id would only show up when a soul
+    # swears the Oath, finishes an act or talks to an NPC.
+    where = "story.toml"
+    fac_ids = {f["id"] for f in factions["faction"]} if factions else None
+    boss_ids = {b["id"] for b in bosses["boss"]} if bosses else None
+    bounds = (factions["rules"]["min"], factions["rules"]["max"]) if factions else (-100, 100)
+    bands = ("hostile", "unfriendly", "neutral", "friendly", "honored", "exalted")
+    ident = r"[a-z][a-z0-9_]*"
+
+    def rep_table(label: str, table) -> None:
+        if not isinstance(table, dict):
+            raise SystemExit(f"{where}: {label} must be a table of faction = integer")
+        for f, n in table.items():
+            if fac_ids is not None and f not in fac_ids:
+                raise SystemExit(f"{where}: {label} names the unknown faction {f!r} ({', '.join(sorted(fac_ids))})")
+            if not is_int(n) or not bounds[0] <= n <= bounds[1]:
+                raise SystemExit(f"{where}: {label}.{f} must be an integer within {bounds[0]}..{bounds[1]}")
+
+    def text(label: str, value, required: bool = True) -> None:
+        if not isinstance(value, str) or (required and not value.strip()):
+            raise SystemExit(f"{where}: {label} needs text")
+
+    rules = story.get("rules", {})
+    for key in ("fight_near", "log_size"):
+        if not is_int(rules.get(key)) or rules[key] < 1:
+            raise SystemExit(f"{where}: rules.{key} must be a positive integer")
+    for key in ("sequential_acts", "party_oath"):
+        if not isinstance(rules.get(key), bool):
+            raise SystemExit(f"{where}: rules.{key} must be true or false")
+
+    flags = story.get("flag", {})
+    for fid, flag in flags.items():
+        if not re.fullmatch(ident, fid) or re.fullmatch(r"act\d*", fid):
+            raise SystemExit(f"{where}: flag id {fid!r} must be [a-z_] and not act<N> (that is the act stage)")
+        if flag.get("path", "light") not in ("light", "dark"):
+            raise SystemExit(f"{where}: flag {fid} path must be light or dark")
+        if not is_int(flag.get("renown", 0)) or flag.get("renown", 0) < 0:
+            raise SystemExit(f"{where}: flag {fid} renown must be an integer >= 0")
+        text(f"flag {fid} title", flag.get("title", ""), False)
+        text(f"flag {fid} line", flag.get("line", ""), False)
+        rep_table(f"flag {fid} rep", flag.get("rep", {}))
+
+    def flag_ref(label: str, fid) -> None:
+        if fid not in flags:
+            raise SystemExit(f"{where}: {label} names the unknown flag {fid!r} (a [flag.*] table)")
+
+    oath = story.get("oath", {})
+    if not isinstance(oath.get("unaligned_for_legend"), bool):
+        raise SystemExit(f"{where}: oath.unaligned_for_legend must be true or false")
+    for key in ("menu_title", "unaligned_title"):
+        text(f"oath.{key}", oath.get(key))
+    if not re.fullmatch(r"([a-z0-9_.]+)?", str(oath.get("require_stage", ""))):
+        raise SystemExit(f"{where}: oath.require_stage must be a stage name or empty")
+    for lane in ("light", "dark"):
+        cfg = oath.get(lane)
+        if not isinstance(cfg, dict):
+            raise SystemExit(f"{where}: [oath.{lane}] missing")
+        for key in ("label", "lore", "say", "line"):
+            text(f"oath.{lane}.{key}", cfg.get(key))
+        if not re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", str(cfg.get("item", ""))):
+            raise SystemExit(f"{where}: oath.{lane}.item must be a namespaced item id")
+        rep_table(f"oath.{lane}.rep", cfg.get("rep", {}))
+    text("oath.light.fallen_title", oath["light"].get("fallen_title", ""), False)
+    text("oath.dark.remembers", oath["dark"].get("remembers"))
+
+    flip = story.get("flip", {})
+    if not is_int(flip.get("max")) or flip["max"] < 0:
+        raise SystemExit(f"{where}: flip.max must be an integer >= 0")
+    for name in ("atonement", "corruption"):
+        cfg = flip.get(name)
+        if not isinstance(cfg, dict):
+            raise SystemExit(f"{where}: [flip.{name}] missing")
+        if not cfg.get("requires_any"):
+            raise SystemExit(f"{where}: flip.{name}.requires_any needs at least one flag")
+        for fid in cfg["requires_any"]:
+            flag_ref(f"flip.{name}.requires_any", fid)
+        rep_table(f"flip.{name}.set", cfg.get("set", {}))
+        rep_table(f"flip.{name}.rep", cfg.get("rep", {}))
+        text(f"flip.{name}.say", cfg.get("say"))
+        text(f"flip.{name}.line", cfg.get("line"))
+        text(f"flip.{name}.title", cfg.get("title", ""), False)
+
+    acts = story.get("act", [])
+    if not acts or [a.get("id") for a in acts] != list(range(1, len(acts) + 1)):
+        raise SystemExit(f"{where}: [[act]] ids must run 1, 2, 3, ... in order")
+    unlocked = set()
+    for a in acts:
+        label = f"act {a['id']}"
+        if not re.fullmatch(ident, str(a.get("key", ""))):
+            raise SystemExit(f"{where}: {label} key must be [a-z_]")
+        text(f"{label} title", a.get("title"))
+        text(f"{label} story_line", a.get("story_line"))
+        if not a.get("chapters") or any(not is_int(c) or c < 0 for c in a["chapters"]):
+            raise SystemExit(f"{where}: {label} chapters must be a non-empty list of chapter numbers")
+        if not is_int(a.get("renown")) or a["renown"] < 0:
+            raise SystemExit(f"{where}: {label} renown must be an integer >= 0")
+        rep_table(f"{label} light_rep", a.get("light_rep"))
+        rep_table(f"{label} dark_rep", a.get("dark_rep"))
+        for b in a.get("unlock_bosses", []):
+            if boss_ids is not None and b not in boss_ids:
+                raise SystemExit(f"{where}: {label} unlock_bosses names the unknown boss {b!r}")
+            if b in unlocked:
+                raise SystemExit(f"{where}: boss {b} is unlocked by two acts")
+            unlocked.add(b)
+
+    for bid, kill in story.get("kill_rep", {}).items():
+        if boss_ids is not None and bid not in boss_ids:
+            raise SystemExit(f"{where}: kill_rep.{bid} is not a boss in bosses.toml")
+        rep_table(f"kill_rep.{bid}.rep", kill.get("rep"))
+        for key in ("flag", "unless_flag"):
+            if key in kill:
+                flag_ref(f"kill_rep.{bid}.{key}", kill[key])
+
+    legendary = story.get("legendary", {})
+    allowed = set(skills["legendary"]["skills"]) if skills else None
+    for lane in ("light", "dark"):
+        pool = legendary.get(lane)
+        if not isinstance(pool, list) or not pool:
+            raise SystemExit(f"{where}: legendary.{lane} must be a non-empty list of skill ids")
+        for skill in pool:
+            if allowed is not None and skill not in allowed:
+                raise SystemExit(f"{where}: legendary.{lane} has {skill!r}, which is not a skills.toml [legendary] skill")
+    if set(legendary["light"]) & set(legendary["dark"]):
+        raise SystemExit(f"{where}: a Legendary skill cannot be in both pools")
+
+    seen = set()
+    for npc in story.get("npc", []):
+        nid = npc.get("id", "")
+        label = f"npc {nid or '?'}"
+        if not re.fullmatch(ident, nid) or nid in seen:
+            raise SystemExit(f"{where}: {label}: id must be unique [a-z_]")
+        seen.add(nid)
+        text(f"{label} name", npc.get("name"))
+        talk = npc.get("talk", [])
+        if not talk:
+            raise SystemExit(f"{where}: {label} needs at least one [[npc.talk]]")
+        for i, t in enumerate(talk, 1):
+            tl = f"{label} talk {i}"
+            text(f"{tl} text", t.get("text"))
+            if t.get("path", "any") not in ("light", "dark", "any"):
+                raise SystemExit(f"{where}: {tl}: path must be light, dark or any")
+            for key in ("act", "until_act"):
+                if key in t and (not is_int(t[key]) or not 1 <= t[key] <= len(acts)):
+                    raise SystemExit(f"{where}: {tl}: {key} must be an act number 1..{len(acts)}")
+            if t.get("until_act", len(acts)) < t.get("act", 1):
+                raise SystemExit(f"{where}: {tl}: until_act is before act")
+            if ("faction" in t) != (("at_most" in t) or ("at_least" in t)):
+                raise SystemExit(f"{where}: {tl}: faction needs at_most or at_least (and the other way round)")
+            if "faction" in t and fac_ids is not None and t["faction"] not in fac_ids:
+                raise SystemExit(f"{where}: {tl}: unknown faction {t['faction']!r}")
+            for key in ("at_most", "at_least"):
+                if key in t and t[key] not in bands:
+                    raise SystemExit(f"{where}: {tl}: {key} must be one of {', '.join(bands)}")
+            for b in t.get("buttons", []):
+                cmd = str(b.get("command", ""))
+                if not str(b.get("label", "")).strip() or not re.fullmatch(r"ttl [a-z0-9_ ]+", cmd):
+                    raise SystemExit(f"{where}: {tl}: a button needs a label and a plain `ttl ...` command, got {cmd!r}")
+                if cmd.startswith("ttl story fight "):
+                    fight_id = cmd.split()[-1]
+                    if boss_ids is not None and fight_id not in boss_ids:
+                        raise SystemExit(f"{where}: {tl}: button fights the unknown boss {fight_id!r}")
+
+
 def check_arrival(arrival: dict) -> None:
     # life/arrival.js grounds [life2] at x, z and TtlLife.toOverworld teleports there; a wrong type would only
     # show up as a bad `tp` at the first rebirth.
@@ -726,6 +890,8 @@ def render() -> dict[Path, str]:
         check_bosses(data["bosses"], data.get("landmarks"), data.get("factions"))
     if "economy" in data:
         check_economy(data["economy"], data)
+    if "story" in data:
+        check_story(data["story"], data.get("factions"), data.get("bosses"), data.get("skills"))
     data["builds"], footprints = check_builds()
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     grids = json.dumps(footprints, separators=(",", ":"), sort_keys=True)

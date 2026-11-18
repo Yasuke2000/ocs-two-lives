@@ -1,0 +1,408 @@
+# The overarching story: the Oath, seven acts, flags, boss kill costs, the Legendary pools and what the cast says
+# (design/architecture/story-characters.md §2, §3, §6.1). Scripts: pack/kubejs/server_scripts/ttl/story/ (story.js = the
+# API, commands.js = /ttl story). Edit, then run `python tools/gen_data.py` (check_story validates every entry).
+# Test: tests/ingame/story.rcon.
+#
+# Every number below is a knob. Where the architecture doc left an owner decision open (§8) this file holds the doc's
+# recommendation; the owner (Yasuke) changes the single line named in the comment.
+#
+# State (the scripts keep it, quests read it):
+#   player persistentData  ttl.story.path (light|dark), .oath (epoch ms), .flips, .acts {act: epoch}, .flags {flag: epoch}, .pending
+#   stages                 ttl.path.light | ttl.path.dark (exactly one after the Oath), ttl.story.act<N> (act done),
+#                          ttl.story.<flag> (flag set)
+#   scoreboard ttl.path    0 none, 1 light, 2 dark
+#   server persistentData  ttl.story.parties {teamId: {path, oathBy, at}}, ttl.story.log (ring), ttl.story.unlocked [boss ids]
+# Reputation deltas go through TtlRep.add, renown through TtlRep.addRenown (once per act and flag), uniques never.
+
+[rules]
+sequential_acts = true      # an act can only be completed after the one before it (ops can still set the state with `/ttl story set`)
+fight_near = 96             # blocks from a boss arena's centre a player must stand within to start its fight with `/ttl story fight`
+log_size = 200              # entries kept in the server ring ttl.story.log
+party_oath = true           # the party leader's Oath is applied to every online party member (needs the party layer, WP-S2)
+
+[oath]
+menu_title = "The Oath"
+require_stage = ""          # a stage the soul must hold before the Oath can be sworn ("" = no gate; the chapter 7 quest is the gate in play)
+# O5 (Unaligned Oath for Legend-tier souls): the recommendation is NO. true adds a third choice "Walk alone" for souls with
+# the stage ttl.tier.legendary; it counts as the light path for every gate and gives the title below.
+unaligned_for_legend = false
+unaligned_title = "Unaligned"
+
+[oath.light]
+item = "minecraft:lantern"
+label = "Stand with Tempest"
+lore = "Rigurd's trust is yours: the forest folk hold you as one of their own. Tempest and its friends will open their doors, and the Orc Horde and the Outcasts will not."
+say = "You have taken the Oath of the Light. Tempest remembers who stood with it."
+rep = { tempest = 20 }
+title = ""
+fallen_title = "Repentant"  # a Fallen soul (stage ttl.tier.dark) who swears the light Oath
+line = "swore the Oath of the Light at the crossroads of Tempest."
+
+[oath.dark]
+item = "minecraft:soul_lantern"
+label = "Walk the Outcast road"
+lore = "The Outcast Society marks you and the Orc Horde watches with interest. Tempest will cool toward you, but the roads the good folk never see are open."
+say = "You have taken the Oath of the Dark. The Outcasts have marked you."
+rep = { outcast = 20, orc_horde = 15, tempest = -20 }
+title = "Marked"
+remembers = "Your soul remembers."   # first line of the dark choice for a Fallen soul (stage ttl.tier.dark)
+line = "swore the Oath of the Dark at the crossroads of Tempest."
+
+# One reversible twist per soul (`max`). Atonement (dark to light) and Corruption (light to dark) swap the path stages
+# and apply the deltas below; they are opened by flags the quests set. `requires_any` = at least one of these flags.
+[flip]
+max = 1
+
+[flip.atonement]
+requires_any = ["atonement"]                 # set by the Act V quest once its three hand-ins are done (WP-S8)
+set = { tempest = 0 }                        # reputation set to an exact value before `rep` is added
+rep = {}
+title = "Repentant"
+say = "Atonement: you turn from the Outcast road. What was done stays done, but Tempest listens again."
+line = "atoned and turned back to the light."
+
+[flip.corruption]
+requires_any = ["regicide", "charybdis_woke", "falmuth_march"]
+set = {}
+rep = { outcast = 10, tempest = -10 }
+title = "Marked"
+say = "Corruption: the deed you did cannot be undone, and the dark road opens to you."
+line = "was corrupted and turned to the dark."
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Flags: facts about the story. `path` (optional) = only a soul on that path can earn it. A flag may carry renown (once),
+# a title, a reputation delta and a #story line. They are set by quests (`ttl story flag @p <id>`), bosses (kill_rep below)
+# and the capstone (WP-S9).
+
+[flag.hero]
+path = "light"
+renown = 60
+title = "True Hero"
+line = "has become a True Hero."
+
+[flag.demon_lord]
+path = "dark"
+renown = 60
+title = "Demon Lord"
+line = "has risen as a Demon Lord."
+
+[flag.regicide]
+title = ""
+line = ""
+
+[flag.charybdis_woke]
+line = ""
+
+[flag.falmuth_march]
+line = ""
+
+[flag.honour_duel]          # set before the Gazel duel of the light lane: the kill costs no reputation and is not a regicide
+line = ""
+
+[flag.unaligned]            # set by the Unaligned Oath (O5, off by default)
+line = ""
+
+[flag.atonement]            # opens the Atonement twist (see [flip.atonement])
+line = ""
+
+# ---------------------------------------------------------------------------------------------------------------------
+# The seven acts. `chapters` = FTB Quests chapter numbers of the act. `light_rep` / `dark_rep` are applied to the soul's
+# path when the act is completed (act 1 is completed by the Oath itself, which carries its own deltas). `renown` goes
+# through TtlRep.addRenown once. `unlock_bosses` is added to the server set ttl.story.unlocked (the event director may pick
+# from it). Fights are NOT gated by acts (owner: anyone may fight on any path). The rep numbers are our interpretation:
+# the doc fixes the Oath, Gazel -60, Horde +40 and the Act V swing; the rest is a starting point to tune.
+# TODO when WP-S3/S8/S9 add their bosses (folgen, kyoya_tachibana, shogo_taguchi, kirara_mizutani, the Clayman proxy):
+# list them in the act that unlocks them (Act V: folgen, kyoya, shogo, kirara; Act VI: the Clayman proxy).
+
+[[act]]
+id = 1
+key = "forest_awakens"
+title = "The Forest Awakens"
+chapters = [1, 2, 7]
+light_rep = {}
+dark_rep = {}
+renown = 5
+story_line = "took an Oath at Tempest, and Act I of the story begins."
+unlock_bosses = ["supermassive_slime"]
+
+[[act]]
+id = 2
+key = "armed_nation"
+title = "The Armed Nation"
+chapters = [3, 8]
+light_rep = { dwargon = 15 }
+dark_rep = { dwargon = -20, outcast = 10 }
+renown = 5
+story_line = "finished Act II: the Armed Nation of Dwargon has taken the measure of them."
+unlock_bosses = ["gazel_dwargo"]
+
+[[act]]
+id = 3
+key = "orc_war"
+title = "The Orc War"
+chapters = [4, 9]
+light_rep = { lizardmen = 20, tempest = 10 }
+dark_rep = { orc_horde = 40 }
+renown = 10
+story_line = "finished Act III: the Orc War is decided."
+unlock_bosses = ["orc_lord", "orc_disaster"]
+
+[[act]]
+id = 4
+key = "calamity"
+title = "Calamity"
+chapters = [10]
+light_rep = { tempest = 15 }
+dark_rep = { outcast = 20 }
+renown = 15
+story_line = "finished Act IV: the calamity over Lake Siss has passed."
+unlock_bosses = ["charybdis"]
+
+[[act]]
+id = 5
+key = "holy_knight"
+title = "The Holy Knight"
+chapters = [11]
+light_rep = { holy_church = 10 }
+dark_rep = { tempest = -40, falmuth = 30 }
+renown = 20
+story_line = "finished Act V: the mask has fallen and the blades have crossed."
+unlock_bosses = ["shizu", "ifrit", "hinata_sakaguchi", "rimuru_ogre_fight"]
+
+[[act]]
+id = 6
+key = "walpurgis"
+title = "Walpurgis"
+chapters = [12]
+light_rep = { tempest = 10, holy_church = 5 }
+dark_rep = { outcast = 15, orc_horde = 10 }
+renown = 30
+story_line = "finished Act VI: the Walpurgis council has met."
+unlock_bosses = ["carrion", "luminous_valentine", "rimuru_clone"]
+
+[[act]]
+id = 7
+key = "harvest_festival"
+title = "Demon Lord or True Hero"
+chapters = [13]
+light_rep = { tempest = 10, blumund = 10 }
+dark_rep = { outcast = 20 }
+renown = 50
+story_line = "finished Act VII: the harvest festival is over and nothing is the same."
+unlock_bosses = ["veldora"]
+
+# ---------------------------------------------------------------------------------------------------------------------
+# What a boss kill costs, on top of the boss's own rewards in bosses.toml, whatever the path (bosses/boss.js `finish`
+# calls TtlStory.onBossKill for every winner). `unless_flag`: a soul holding that flag pays nothing and loses the flag
+# (the honour duel). `flag` is set on a paid kill.
+
+[kill_rep.gazel_dwargo]
+rep = { dwargon = -60 }
+flag = "regicide"
+unless_flag = "honour_duel"
+
+[kill_rep.hinata_sakaguchi]
+rep = { holy_church = -30 }
+
+[kill_rep.rimuru_ogre_fight]
+rep = { tempest = -40 }
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Legendary pools for the Act VII capstone (WP-S9: TtlRegistry.draw with allowLegendary and the max_holders ceiling of
+# skills.toml; a full roster means a Skill Core and a title instead). O6 recommendation: light = Great Sage / Creator,
+# dark = Predator and the sins. Ids must be skills.toml [legendary] skills.
+
+[legendary]
+light = ["great_sage", "creator"]
+dark = ["predator", "wrath", "pride", "greed", "lust", "envy", "sloth"]
+
+# ---------------------------------------------------------------------------------------------------------------------
+# The cast. `/ttl story talk <id>` picks ONE entry for the soul that asks (a Life 2 player) and prints it with its buttons.
+# NPC entities and Easy NPC dialogs call that command (WP-S4); this file owns the words.
+#   path        light | dark | any (default any); the soul's Oath path (a soul with no Oath only gets `any` entries)
+#   act         the act the soul is in, from this act on: completed acts + 1, so 1 before the Oath and 2 right after it
+#   until_act   optional: stops applying after this act
+#   faction + at_most | at_least   optional condition on the soul's reputation band with that faction
+# The best matching entry wins: a path-specific one over `any`, then the higher `act`, then one with a faction condition,
+# then the later one in the file. `buttons` run player commands (`ttl ...` only, no chains).
+
+[[npc]]
+id = "rigurd"
+name = "Rigurd"
+color = "gold"
+
+[[npc.talk]]
+act = 1
+text = "Welcome to Tempest, stranger. We goblins have little, but we remember who stood with us. When you are ready to say where you stand, there is a crossroads waiting."
+buttons = [{ label = "Take the Oath", command = "ttl story oath" }]
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "You swore at the crossroads and Tempest has not forgotten it. My people owe you a seat at the fire. There is work, if you want it."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "I know that mark. I will not turn you out of Tempest, but do not look to me for help. Go to the Outcast who waits by the road."
+
+[[npc]]
+id = "gobta"
+name = "Gobta"
+color = "green"
+
+[[npc.talk]]
+act = 1
+text = "Hey, are you new? I am Gobta! The strongest goblin in the forest, no question. Do not ask Rigurd, he is jealous."
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "You swore the Oath? Then you are with us. Come on, I will show you the best spot to sit and do nothing while others work."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "Oh, that mark? Cool. I do not care. Want to see me wrestle a direwolf? Do not tell Rigurd."
+
+[[npc]]
+id = "benimaru"
+name = "Benimaru"
+color = "red"
+
+[[npc.talk]]
+act = 1
+text = "A new face. Tempest is small, but it is ours. Prove you are no threat and you will be welcome."
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "The war council is open to those who stand with Tempest. When the horde moves, we will need every blade."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "You carry the Outcasts' mark. I will watch you, and so will my guard. Do not give me a reason."
+
+[[npc]]
+id = "shuna"
+name = "Shuna"
+color = "light_purple"
+
+[[npc.talk]]
+act = 1
+text = "Welcome. If you have cloth or herbs to spare, the weaving hut can always use them."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "I will weave for anyone who is kind to my people. For you, it depends on what you do next."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+faction = "tempest"
+at_most = "hostile"
+text = "I am sorry. I cannot weave for you while Tempest holds you in such low regard."
+
+[[npc]]
+id = "shion"
+name = "Shion"
+color = "dark_purple"
+
+[[npc.talk]]
+act = 1
+text = "Halt. State your business. Lord Rimuru's house is not open to just anyone."
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "Stand with Tempest and you may pass. Lord Rimuru's safety is my business, and so are his friends."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+faction = "tempest"
+at_most = "hostile"
+text = "You will go no further. One more step toward Lord Rimuru and I will not be gentle."
+
+[[npc]]
+id = "hakurou"
+name = "Hakurou"
+color = "white"
+
+[[npc.talk]]
+act = 1
+text = "Hm. Your stance is sloppy. Come back when you can stand for an hour and I will show you what a sword is for."
+
+[[npc.talk]]
+act = 2
+text = "The Oath sits on your shoulders, I see. A true blade is measured by what it protects. Train your abilities, and I will watch."
+
+[[npc]]
+id = "kaijin"
+name = "Kaijin"
+color = "gold"
+
+[[npc.talk]]
+act = 1
+text = "A dwarf forges, a human wields. Bring me good ore and I will tell you which of the two of us is the better smith."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "I hear the Outcasts pay well for plans of the Dwargon forges. I did not say that. Do not repeat it."
+
+[[npc]]
+id = "treyni"
+name = "Treyni"
+color = "dark_green"
+
+[[npc.talk]]
+act = 1
+text = "The forest breathes with an unrest I cannot name. Be careful what you wake."
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "The trees remember what the Oath means. Beware the lake: a calamity stirs in its depths."
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "I warned you. The trees will say no more to you."
+
+[[npc]]
+id = "gazel"
+name = "Gazel Dwargo"
+color = "dark_red"
+
+[[npc.talk]]
+act = 1
+text = "A king receives those who bring worth to his hall. Show me yours."
+
+[[npc.talk]]
+path = "light"
+act = 2
+text = "You stand with the free peoples. Then let us test that: face me in an honour duel, and nothing will be held against you."
+buttons = [{ label = "Challenge the King", command = "ttl story fight gazel_dwargo" }]
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "I know what road you walk. A king does not bow to it. If you want my seat, you will have to take it."
+buttons = [{ label = "Take the throne", command = "ttl story fight gazel_dwargo" }]
+
+[[npc]]
+id = "outcast_contact"
+name = "The Outcast"
+color = "dark_gray"
+
+[[npc.talk]]
+path = "dark"
+act = 2
+text = "So you have chosen. Good. The Society does not forget those who walk with it, and the Horde has plans for a strong blade."
+
+[[npc.talk]]
+act = 1
+text = "Nothing to say to someone who has not chosen yet. Come back when you have."
