@@ -1,0 +1,17 @@
+# Dryad altar beside Treyni's ancient tree (blueprints/treyni_shrine.py, design/lore/treyni_shrine.md). The tree itself is
+# the landmark treyni_grove (design/data/landmarks.toml, tensura:ancient_forest/tree, about 40 x 42 blocks across, surveyed up
+# to 64 blocks from its nominal spot). x/z are the landmark's world spot (canon ref [2150, 1100] -> 1950, -223) plus 38 east;
+# the placer keeps 24 blocks clear of placed landmarks, so the shrine ends up beside the tree and not under its crown.
+name = "treyni_shrine"
+title = "Treyni's shrine"
+landmark = "Treyni's grove (Dryad sanctuary)"
+x = 1988
+z = -223
+anchor = [16, 5, 16]
+ground = "survey"
+search = 48
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+margin = 8
+notes = "Small mossy dais with a young azalea tree and three seats for the dryad sisters; our interpretation (design/lore/treyni_shrine.md)."

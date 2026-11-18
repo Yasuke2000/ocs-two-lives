@@ -1,0 +1,33 @@
+# Spirit domain (life/spirit_domain.js, builds spirit_gate + spirit_dwelling, dimension ttl:spirit_domain).
+# Needs the placer to have run (~1 min after start): `ttl spiritdomain where` must list both builds as placed. Each
+# `expect` throws "ttl: expected ..." on a wrong answer, which `server.sh test-all` counts as a failure.
+# 1. A Life 1 bot is refused: it is put in the gate's doorway and the log says "[ttl] spirit domain: refused
+#    TtlBotSpiritL1 (life1)" (confine.js may bounce it to the Mortal Realm afterwards; either way it is not inside).
+# The sleeps after a walk outlast the gate's 4 second cooldown, so the next doorway answers.
+# 2. A Life 2 bot enters by `tp`, and by walking into the doorway, and returns through the arch.
+ttl spiritdomain where
+ttlbot spawn TtlBotSpiritL1
+@sleep 2
+ttl spiritdomain walk TtlBotSpiritL1 gate
+@sleep 2
+ttl spiritdomain expect TtlBotSpiritL1 out
+ttlbot spawn TtlBotSpirit
+@sleep 2
+execute as TtlBotSpirit run ttl wish knowledge
+execute as TtlBotSpirit run ttl choose slime
+@sleep 3
+ttl karma TtlBotSpirit expect phase life2
+ttl spiritdomain expect TtlBotSpirit out
+ttl spiritdomain tp TtlBotSpirit
+@sleep 2
+ttl spiritdomain expect TtlBotSpirit in
+# back through the return arch (the real trigger), then in again by the gate's doorway
+ttl spiritdomain walk TtlBotSpirit back
+@sleep 5
+ttl spiritdomain expect TtlBotSpirit out
+ttl spiritdomain walk TtlBotSpirit gate
+@sleep 5
+ttl spiritdomain expect TtlBotSpirit in
+ttl spiritdomain walk TtlBotSpirit back
+@sleep 5
+ttl spiritdomain expect TtlBotSpirit out

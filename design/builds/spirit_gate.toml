@@ -1,0 +1,14 @@
+# Gate to the Dwelling of the Spirits (blueprints/spirit_gate.py, design/lore/spirit_domain.md). The doorway teleports
+# a Life 2 soul into ttl:spirit_domain (life/spirit_domain.js reads this build's anchor from persistentData).
+name = "spirit_gate"
+title = "The gate to the Dwelling of the Spirits"
+x = -210
+z = 130
+anchor = [28, 5, 24]
+ground = "survey"
+search = 64
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+margin = 8
+notes = "Canon puts the Dwelling inside Ramiris's labyrinth in Tempest's territory but gives no map position; this spot (about 250 blocks south-west of Tempest, in the Jura forest) is our interpretation."

@@ -1,0 +1,13 @@
+# The Dragon's Nest on the highest peak of the Great Canaat Mountains (blueprints/dragons_nest.py,
+# design/lore/dragons_nest.md). Canon names the place and its height only; the nest itself is our interpretation.
+name = "dragons_nest"
+title = "The Dragon's Nest"
+landmark = "Dragon's Nest (highest peak of the Great Canaat Mountains)"
+anchor = [36, 9, 62]
+ground = "survey"
+search = 32
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+margin = 8
+notes = "Roosting bowl of spruce trunks in a jagged ring wall with eight spires; survey radius kept small so the build stays on the summit."

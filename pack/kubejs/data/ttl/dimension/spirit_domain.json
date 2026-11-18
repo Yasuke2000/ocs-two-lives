@@ -1,0 +1,13 @@
+{
+  "type": "ttl:spirit_domain",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "ttl:spirit_domain",
+      "layers": [],
+      "lakes": false,
+      "features": false,
+      "structure_overrides": []
+    }
+  }
+}
