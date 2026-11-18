@@ -3061,6 +3061,10 @@ const TtlData = {
         "title": "Life 2 begins"
       },
       {
+        "body": "Whatever your race or Oath, you may take up a *path*: a craft of your own beside the story.\n\n- *Necromancer:* raise and keep an undead legion, build your own tomb.\n- *Artificer:* forge, engrave and build golems, take commissions.\n\nEvery path has a slow, honest road and a fast, dark one. `/ttl paths` tells you more.\n",
+        "title": "Paths you can walk"
+      },
+      {
         "body": "- `/ttl guide` opens the full guide\n- `/ttl status` tells you which life you are in\n- `/bug <what happened>` sends a report to the developers\n",
         "title": "Need help?"
       }
@@ -3097,6 +3101,24 @@ const TtlData = {
       {
         "body": "This is a server for friends. We keep only what we need to run it, and you can ask to see it or have it removed.\n\n# What is stored\n- *Game data:* your Minecraft name and ID, your player file, statistics and your Two Lives progress (life, karma, tier, titles).\n- *Activity log:* a logger records who placed or broke blocks, opened chests, chatted, ran commands and logged in. It lets us undo griefing.\n- *Bug reports:* your text, your position, health, held item, Two Lives state and the latest server log lines. A report can also be filed as an issue on the project's GitHub page, where others can read it.\n- *Discord link:* if you link your account, your Discord ID is stored next to your Minecraft ID and the bot sets your roles. Chat is shared with Discord, and the weekly recap names your character.\n\n# How long\n- Bug reports and the activity log: 180 days at most.\n- Game data and your link: while you play here. Backups roll off after about a month.\n- GitHub issues: until you ask us to remove them.\n\n# Your choices\nAsk Yasuke, in Discord or in game, to show, correct or delete your data, or to unlink your Discord account. Your builds stay with the world.\n",
         "title": "Privacy: what we keep"
+      }
+    ],
+    "paths": [
+      {
+        "body": "A path is a craft you take up in your second life. No chapter, Oath or boss locks it: you can start the day you arrive.\n\n- *Necromancer:* the dead and the law (next page).\n- *Artificer:* the workshop (page after).\n- Quest chapters and NPCs may *teach* a path; they never lock it.\n\nSome of it is still being built. What is not live yet says so.\n",
+        "title": "Paths: open to every soul"
+      },
+      {
+        "body": "Every path, and every hard choice the world puts in front of you, has two roads.\n\n- *The honest road* (good or grey) is slower. It pays reputation, renown and the trust of the realm.\n- *The dark shortcut* is faster or richer. It always costs the same five things:\n\n- your soul's *karma*, carried into your next life\n- the *balance* of the world, which tips toward darkness\n- *reputation* with those you wronged\n- *renown*, if anyone sees you do it\n- a line in the *chronicle* the first time\n\nNobody watches the wilds at night. Your soul always does. `/ttl roads` shows the roads you took.\n",
+        "title": "Two roads"
+      },
+      {
+        "body": "# The Necromancer\nRaise the dead and keep them. Tensura's own magic (*Create Lesser Undead*, tomes, the Spellbinding Table) and your race (Wight, Ghoul) are the start.\n\n- *Bone Altar:* the heart of a necromancer's work. Raise legionnaires there.\n- *Bone dust* from monsters is the honest road. *Soul ash* from people is the dark one: stronger undead, and the Holy Church takes note.\n- *Your tomb:* build it yourself around your Bone Altar. The world recognises it and lets it grow from Crypt to Great Tomb.\n- The Church's licence lets a careful necromancer walk in the light.\n\n*Being built:* the rite, the legion and the tomb are coming. The Bone Altar block already exists.\n",
+        "title": "The dead and the law"
+      },
+      {
+        "body": "# The Artificer\nKaijin's forge in Tempest and the smithies of Dwargon teach the craft. Tensura's Smithing Bench, Kiln and schematics are the start.\n\n- *Workshop Bench:* your own workshop and your charter.\n- *Commissions* from the workshops pay coin, reputation and new recipes.\n- *Golems* of magisteel and stranger metals serve you, and count for your nation's army.\n- The dark road: stolen schematics, cursed blades, golems a daemon has taken.\n\n*Being built:* the charter, ranks and commissions are coming. The Workshop Bench block already exists.\n",
+        "title": "The workshop"
       }
     ]
   },
@@ -3671,9 +3693,16 @@ const TtlData = {
       "tensura",
       "tensura_neb",
       "greatsage",
-      "lightmanscurrency"
+      "lightmanscurrency",
+      "occultism"
     ],
-    "tags": []
+    "spell_schools": [
+      "irons_spellbooks:blood",
+      "irons_spellbooks:eldritch"
+    ],
+    "tags": [
+      "ttl:paths"
+    ]
   },
   "nations": {
     "diplomacy": {
@@ -4652,6 +4681,144 @@ const TtlData = {
         "z": 44
       }
     ]
+  },
+  "roads": {
+    "balance": {
+      "dark_cap_per_day": 5,
+      "light_cap_per_day": 5
+    },
+    "choice": [
+      {
+        "dark": {
+          "balance": "dark_deed",
+          "chaos": 3,
+          "extra": {
+            "sense": 3
+          },
+          "renown": -1,
+          "rep": {
+            "holy_church": -3
+          },
+          "story": "A soul in {region} has raised the dead with soul ash."
+        },
+        "fair": "grey",
+        "grey": {
+          "balance": "none"
+        },
+        "id": "necro.raise",
+        "label": "Raise a legionnaire at the Bone Altar"
+      },
+      {
+        "dark": {
+          "balance": "dark_deed",
+          "chaos": 3,
+          "extra": {
+            "sense": 5
+          },
+          "renown": -1,
+          "rep": {
+            "holy_church": -3,
+            "orc_horde": 2,
+            "outcast": 2
+          },
+          "story": "In {region} a Death Knight has risen from a corpse."
+        },
+        "fair": "grey",
+        "grey": {
+          "balance": "none"
+        },
+        "id": "necro.knight",
+        "label": "Raise a Death Knight"
+      },
+      {
+        "fair": "good",
+        "good": {
+          "balance": "light_deed",
+          "order": 1,
+          "renown": 1,
+          "rep": {
+            "holy_church": 1
+          },
+          "weight": "rest"
+        },
+        "id": "necro.rest",
+        "label": "Lay the dead to rest"
+      },
+      {
+        "dark": {
+          "balance": "dark_deed",
+          "chaos": 3,
+          "renown": -1,
+          "rep": {
+            "holy_church": -3
+          },
+          "story": "A cursed blade was whetted in {region}."
+        },
+        "fair": "grey",
+        "grey": {
+          "balance": "none"
+        },
+        "id": "artifice.engrave",
+        "label": "Curse a blade with a Cursed Whetstone"
+      },
+      {
+        "dark": {
+          "balance": "dark_deed",
+          "chaos": 3,
+          "renown": -1,
+          "rep": {
+            "dwargon": -20
+          },
+          "story": "Schematics went missing from the Dwargon smithy."
+        },
+        "fair": "good",
+        "good": {
+          "balance": "none",
+          "craft": 1,
+          "rep": {
+            "dwargon": 2
+          }
+        },
+        "id": "artifice.schematic",
+        "label": "Get a Dwargon schematic"
+      },
+      {
+        "dark": {
+          "balance": "dark_deed",
+          "chaos": 3,
+          "renown": -1,
+          "rep": {
+            "holy_church": -3
+          },
+          "story": "A daemon walks in a golem's body in {region}."
+        },
+        "fair": "grey",
+        "grey": {
+          "balance": "none"
+        },
+        "id": "artifice.possess",
+        "label": "Let a daemon possess a golem"
+      }
+    ],
+    "defaults": {
+      "region": "the wilds"
+    },
+    "discord": {
+      "enabled": true
+    },
+    "karma2": {
+      "axes": [
+        "chaos",
+        "order",
+        "craft",
+        "faith"
+      ],
+      "mult": 0.5
+    },
+    "witness": {
+      "npc_tag": "ttl.npc",
+      "radius": 32
+    }
   },
   "skills": {
     "absorb": {

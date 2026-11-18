@@ -1,0 +1,128 @@
+# Two roads (design/architecture/paths-necro-artificer.md §0, rules R12-R14; WP-N1). Script: roads/roads.js (TtlRoads).
+# Edit, then run `python tools/gen_data.py`. Test: `tools/server.sh test roads`.
+#
+# Every player path (necromancer, artificer, later ones) and every moral-choice event offers a GOOD or GREY route (slower,
+# pays reputation, renown, light balance) and a DARK shortcut (faster or richer) whose price is always the same five costs,
+# in this order:
+#   1. karma    the Life 2 soul ledger `ttl.karma2.<axis>` (player persistentData): read by the NEXT Life 1 judgement at
+#               [karma2] mult (karma.js scores Life 1 only, so Life 2 deeds cannot go to `ttl.karma.chaos`)
+#   2. balance  TtlChronicle.note(server, 'dark_deed' | 'light_deed', player, {...}) when the World Chronicle is loaded
+#               (world.toml [balance.weights] dark_deed / light_deed), at most [balance] *_cap_per_day notes a soul a day
+#   3. rep      TtlRep.add per faction in `rep`; `victim` goes to the faction the caller names (the wronged home faction)
+#   4. renown   TtlRep.addRenown; for a dark route only when witnessed (R14: a Life 2 player or an NPC tagged ttl.npc
+#               within [witness] radius blocks), for a good route always unless `witnessed_only = true`
+#   5. discord  one #story line (TtlDiscord.post) the FIRST time a soul takes this route of this choice; `story` is the
+#               line, {region} becomes the canon region (or "the wilds"). Never names the soul.
+# R12: no field here may name a stage `ttl.story.*`, `ttl.path.*` or `ttl.boss.*` (tools/validate.py fails on it).
+# Other packages register more choices at runtime (TtlRoads.register) or pass `costs` to TtlRoads.pay; a moral-choice
+# event (choices.toml, WP-C1) is a choice with id `choice.<event>`.
+#
+# A [[choice]] has an `id` (<system>.<act>), a `label`, up to three route tables [choice.good] [choice.grey] [choice.dark]
+# and `fair` = the route a soul takes when it refuses the shortcut (good or grey). A dark route always has chaos > 0.
+# Route fields (all optional): chaos / order / craft / faith = karma ledger points (ints, may be negative)
+#   balance = "dark_deed" | "light_deed" | "none"   weight = "<world.toml balance.weights key>" (default: the balance kind)
+#   times = n (balance notes for one act, e.g. 2 for "dark_deed x2")   rep = { <faction> = n }   victim = n
+#   renown = n   witnessed_only = true|false   story = "<#story line>"   extra = { ... } (passed to listeners as is, e.g.
+#   the Church's Sense for WP-N3: extra = { sense = 3 })
+
+[witness]
+radius = 32              # R14: blocks around the act
+npc_tag = "ttl.npc"      # the tag every story and guild NPC carries (economy/guild_npcs.js)
+
+[karma2]
+axes = ["chaos", "order", "craft", "faith"]
+mult = 0.5               # a Life 2 ledger point counts this much raw karma in the next Life 1 judgement
+
+[balance]
+dark_cap_per_day = 5     # per soul (O-C2: one soul cannot flip the tide alone); the deed still costs karma, rep, renown
+light_cap_per_day = 5
+
+[discord]
+enabled = true
+
+[defaults]
+region = "the wilds"     # {region} where no canon region is found
+
+# ---- the necromancer (§2) -------------------------------------------------------------------------------------------
+
+[[choice]]
+id = "necro.raise"
+label = "Raise a legionnaire at the Bone Altar"
+fair = "grey"              # the route of a soul that refuses the shortcut (grey: no faction cost, no light)
+[choice.grey]
+balance = "none"
+[choice.dark]
+chaos = 3
+balance = "dark_deed"
+rep = { holy_church = -3 }
+renown = -1
+story = "A soul in {region} has raised the dead with soul ash."
+extra = { sense = 3 }
+
+[[choice]]
+id = "necro.knight"
+label = "Raise a Death Knight"
+fair = "grey"              # the route of a soul that refuses the shortcut (grey: no faction cost, no light)
+[choice.grey]
+balance = "none"
+[choice.dark]
+chaos = 3
+balance = "dark_deed"
+rep = { holy_church = -3, orc_horde = 2, outcast = 2 }
+renown = -1
+story = "In {region} a Death Knight has risen from a corpse."
+extra = { sense = 5 }
+
+[[choice]]
+id = "necro.rest"
+label = "Lay the dead to rest"
+fair = "good"
+[choice.good]
+order = 1
+balance = "light_deed"
+weight = "rest"
+rep = { holy_church = 1 }
+renown = 1
+
+# ---- the artificer (§3) ---------------------------------------------------------------------------------------------
+
+[[choice]]
+id = "artifice.engrave"
+label = "Curse a blade with a Cursed Whetstone"
+fair = "grey"              # the route of a soul that refuses the shortcut (grey: no faction cost, no light)
+[choice.grey]
+balance = "none"
+[choice.dark]
+chaos = 3
+balance = "dark_deed"
+rep = { holy_church = -3 }
+renown = -1
+story = "A cursed blade was whetted in {region}."
+
+[[choice]]
+id = "artifice.schematic"
+label = "Get a Dwargon schematic"
+fair = "good"
+[choice.good]
+craft = 1
+balance = "none"
+rep = { dwargon = 2 }
+[choice.dark]
+chaos = 3
+balance = "dark_deed"
+rep = { dwargon = -20 }
+renown = -1
+story = "Schematics went missing from the Dwargon smithy."
+
+[[choice]]
+id = "artifice.possess"
+label = "Let a daemon possess a golem"
+fair = "grey"              # the route of a soul that refuses the shortcut (grey: no faction cost, no light)
+[choice.grey]
+balance = "none"
+[choice.dark]
+chaos = 3
+balance = "dark_deed"
+rep = { holy_church = -3 }
+renown = -1
+story = "A daemon walks in a golem's body in {region}."

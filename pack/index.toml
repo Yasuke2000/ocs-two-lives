@@ -1405,6 +1405,38 @@ file = "kubejs/assets/lightmanscurrency/textures/item/portable_atm.png"
 hash = "3c5b60b173828b2f41c0b8a14448e86ad316237d7430b4fff0b2826354aeb9a7"
 
 [[files]]
+file = "kubejs/assets/ttl/textures/block/bone_altar.png"
+hash = "68520386b7b68d501501ef49b6507fb40744ec7ad41ee719370188c7dbc1d8bc"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/block/cracked_dam.png"
+hash = "6f5d21d2e7a7a2402a19b89e1fa2ff73e7acd440280ce757c5d3d54b98e708db"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/block/dragon_egg_cradle.png"
+hash = "c8fadad374613d12bf7401653e500f756903d3fb2a07f85a92e4d4b741d8ff34"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/block/grave_lantern.png"
+hash = "63eda258b08246d45f5a2b00ddc11cba29f3611899b58c6baefa7aa413f9f3e5"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/block/grave_marker.png"
+hash = "3c0f3e4a156204db54945eb902ae065973db72c16ecc74313eb8ee960010fa27"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/block/offering_bowl.png"
+hash = "98054a0ba337d32bd0b31b23689f7c42f5992678c5d86eeda28e552a0e16b56f"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/block/rubble.png"
+hash = "8156936012da93c993174117c61685c88e143b4433701be22f7ef2f8b9c74c5b"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/block/workshop_bench.png"
+hash = "66689fc30872f703ca504639356e53c47c80f96f762147713f21520b64ff7532"
+
+[[files]]
 file = "kubejs/assets/ttl/textures/entity/npc/benimaru.png"
 hash = "36bf3fae2e9b0b0b2d4d2b14aa1bd127c6e9d1aee0b597d2204f5bfeb6a95098"
 
@@ -1517,12 +1549,48 @@ file = "kubejs/assets/ttl/textures/entity/npc/yuuki.png"
 hash = "e140a32299ea0cade85b7da1f2a8db1b7cd145d1f4c07a65f62e9a1205dff534"
 
 [[files]]
+file = "kubejs/assets/ttl/textures/item/artificer_charter.png"
+hash = "fdc8899f7688a11607ee69069a66d6622c5bfbe519dcdfaf05539e12839d0e3d"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/item/bone_dust.png"
+hash = "6360bbe7f743f17bd68de8f9dcfcde09bcfcbd7a204a5530e0ede4b4cfa88595"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/item/cursed_whetstone.png"
+hash = "55fcb0bfca239832ad7fc0856313f4e90c325627f4f122cd271790035792c1e9"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/item/engraving_chisel.png"
+hash = "e38aba255cf4cd522a66bb04664e4de40f8bc000f57a879f181669190faab423"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/item/exorcist_licence.png"
+hash = "28c814a6e027ceade84c1111470e72546a67295b08dc51fd6ccbbaf7227eb13a"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/item/hipokute_salve.png"
+hash = "7f918742ca91ca976ded6c39808e227d618cc457d71328416e449addbded8192"
+
+[[files]]
 file = "kubejs/assets/ttl/textures/item/skill_core.png"
 hash = "03c180b3025d2179e9715c1fbfc2388ff9a3ac6c52aa1191f389446eb1c09d3b"
 
 [[files]]
+file = "kubejs/assets/ttl/textures/item/soul_ash.png"
+hash = "631afa27a91860448578491f5c37e936ee617252f121736f5919882bfe775310"
+
+[[files]]
 file = "kubejs/assets/ttl/textures/item/soul_gem.png"
 hash = "254c642f04768df0a086f0e262c2dcf2411e67ad7dbadff9f4afbf03e27cd7df"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/item/soul_remnant.png"
+hash = "4a7b6a2cd8d8b7a109d2e3a5ff0d2660f089104ef037ea2a63a7fe6b043b7dd8"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/item/warden_core.png"
+hash = "b88b29fb7c41ae6d2e62b0e96532f7feed947cd4d17d40aba6c10e1837ba53bf"
 
 [[files]]
 file = "kubejs/data/l2hostility/l2hostility_config/difficulty/ttl_two_lives.json"
@@ -1885,6 +1953,14 @@ file = "kubejs/data/ttl/tags/entity_type/boss.json"
 hash = "6b3c92aa04cda2a907c70a961f4250db80cf09dccc119ef52b78ca9446f29e84"
 
 [[files]]
+file = "kubejs/data/ttl/tags/item/necro_reagents.json"
+hash = "8cc6fe9e56f405fcc575a67f2ac2927327d4969348d3565e494cdf0f41a19e20"
+
+[[files]]
+file = "kubejs/data/ttl/tags/item/paths.json"
+hash = "06cc703d169e923bb97395aa2fe5119979fc3f73b59b48a2805f8a66a05a4473"
+
+[[files]]
 file = "kubejs/data/ttl/tags/item/soulbound.json"
 hash = "d2ab0b48cd7d2e520f05cbc33b264fe7709d69e142074a3b629706b52d5cbf23"
 
@@ -2018,7 +2094,7 @@ hash = "cde66cea94a420fc19e6ac38e00e8bd48fa311b18ed41891462cc3d640c8d94a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "2eb3a010f2723efb2b7483dbfc3fec4f07558ad2f113852d70b8836ff2576177"
+hash = "c636b616c3968d9673086e75f9954a4cf6df271e95ce067fb2ef35a4a0982085"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2054,11 +2130,11 @@ hash = "eb50b392d7d493ef1802c06d8ac0107634de30c54fad0910119ef7478de46ada"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/karma/commands.js"
-hash = "ccef825d7a3323a260afb40224580f55f751ea8e84d034f7c7db86d1f27e79c3"
+hash = "199bf495504e6374d6edec2576d1d4bde7b7ba8bf07e0c0f4479b2f04f33658a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/karma/karma.js"
-hash = "1ac4f994655da90b2bad04b6a308d7a42c9defa11a2182a4a7bc4d536ce3f34c"
+hash = "ec843bb925962685d30b6ecc7ce50a06f9e006d6f45ccaf64f54b67860d0e248"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/karma/tracking.js"
@@ -2118,7 +2194,7 @@ hash = "b6fff8c3cebcbd55a06e891196765a3d71634e40335ea5546ebe6fb2c7bba1bc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_banned.js"
-hash = "a387a538f9b72117e9e10530cf947ac32bff9779ca8f5bfa7a3d426573256444"
+hash = "a8e723defcf3e7e038357a9109482a64958a75ae54ecd783a923f42d05a513b1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_immunity.js"
@@ -2221,6 +2297,14 @@ file = "kubejs/server_scripts/ttl/rep/rep.js"
 hash = "b8ac1d302ba37a4eb0e250cd5aa38bd52dd8ad70b83e18cb811eaa7f29ce13ef"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/roads/commands.js"
+hash = "6cb4c2f89852716d5eeb63308bc4fc40e9d4a7795e0cffe232ab6dbfaa32b3a8"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/roads/roads.js"
+hash = "12e82ddb0bcf9c97b26eff8b1df6cc86dfbe2b0e1c374b68ab14639bdf3652e2"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/story/cast.js"
 hash = "fa1bbd388955887e05c99011cf03aec0b1f6afb460d9419b9af4471740b409fc"
 
@@ -2233,8 +2317,12 @@ file = "kubejs/server_scripts/ttl/story/story.js"
 hash = "0bee9e54d457f401ccf8854f8d8e30009f192485494b6febe267b85fc675afc6"
 
 [[files]]
+file = "kubejs/startup_scripts/ttl/blocks.js"
+hash = "d4b9411e9ac6b0c29c177af254d359344f76c6210566fb91226ad9339e2224b2"
+
+[[files]]
 file = "kubejs/startup_scripts/ttl/items.js"
-hash = "0fc10f448055f96adf55c91d46122b475cbd55a1fb106d300c0f02666ed9d8ce"
+hash = "862f3ac2caf3e43b955a985bc5bb643ef3f990eaff65da79562b726d5997aa24"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"

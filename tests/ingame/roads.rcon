@@ -1,0 +1,114 @@
+# Two roads (WP-N1: roads/roads.js, design/data/roads.toml, the Life 2 karma ledger in karma/karma.js, the O-N1 Life 1 bans
+# in life/mortal_banned.js). `ttl roads expect`, `ttl karma expect`, `ttl rep expect` and `ttl stash ... spell` print
+# "ttl: ..." when wrong, which `server.sh test-all` counts as a failure.
+# A takes routes on a platform far from every NPC; B is the witness (R14: a Life 2 player within 32 blocks); L is a Life 1
+# soul in the Mortal Realm. Discord is muted in tests: expect "[ttl] discord: dropped (...): A soul in ... has raised the
+# dead with soul ash." once, "[ttl] roads: TtlBotRoadsA took necro.raise dark: karma {"chaos":3} ..." and, at the Life 1
+# death, "[ttl] roads: TtlBotRoadsA karma ledger judged and spent". Without the World Chronicle (WP-W1) the pay lines say
+# "(no chronicle)"; the balance cap still counts.
+ttlbot spawn TtlBotRoadsA
+ttlbot spawn TtlBotRoadsB
+ttlbot spawn TtlBotRoadsL
+@sleep 3
+ttl reset TtlBotRoadsA
+ttl reset TtlBotRoadsB
+ttl reset TtlBotRoadsL
+@sleep 3
+ttl roads test TtlBotRoadsA reset
+ttl roads test TtlBotRoadsB reset
+ttl roads test TtlBotRoadsL reset
+ttl stash TtlBotRoadsL clear
+ttl roads list
+# Life 1 never pays (the paths open in Life 2).
+ttl roads expect TtlBotRoadsA try_necro.raise.dark life2only
+# A to Life 2 on the platform; B waits in the Spirit Corridor (shared ground, another dimension: no witness).
+ttl roads test TtlBotRoadsA life2
+ttl roads test TtlBotRoadsB life2
+execute in minecraft:overworld run forceload add 3995 3995 4015 4005
+execute in minecraft:overworld run fill 3995 150 3995 4015 150 4005 minecraft:stone
+execute in minecraft:overworld run fill 3995 151 3995 4015 154 4005 minecraft:air
+execute in minecraft:overworld run tp TtlBotRoadsA 4000 151 4000
+execute in ttl:spirit_corridor run tp TtlBotRoadsB 0.5 65 0.5
+@sleep 1
+ttl roads expect TtlBotRoadsA try_necro.raise.dark ok
+ttl rep set TtlBotRoadsA holy_church 0
+ttl rep set TtlBotRoadsA dwargon 0
+ttl rep set TtlBotRoadsA orc_horde 0
+# 1. A dark shortcut nobody sees: karma, balance, the Church, the first-time chronicle line; no renown.
+ttl roads pay TtlBotRoadsA necro raise dark
+ttl karma TtlBotRoadsA expect chaos2 3
+ttl roads expect TtlBotRoadsA chaos2 3
+ttl rep expect TtlBotRoadsA holy_church value -3
+ttl roads expect TtlBotRoadsA last_witnesses 0
+ttl roads expect TtlBotRoadsA last_renown 0
+ttl roads expect TtlBotRoadsA last_first yes
+ttl roads expect TtlBotRoadsA first_necro.raise.dark yes
+ttl roads expect TtlBotRoadsA tide_dark 1
+# 2. The same with a witness 10 blocks away: renown -1, and no second chronicle line.
+execute in minecraft:overworld run tp TtlBotRoadsB 4010 151 4000
+@sleep 1
+ttl roads witnesses TtlBotRoadsA
+ttl roads pay TtlBotRoadsA necro raise dark
+ttl roads expect TtlBotRoadsA last_witnesses 1
+ttl roads expect TtlBotRoadsA last_renown -1
+ttl roads expect TtlBotRoadsA last_first no
+ttl roads expect TtlBotRoadsA chaos2 6
+ttl rep expect TtlBotRoadsA holy_church value -6
+ttl roads expect TtlBotRoadsA count_necro.raise.dark 2
+# 3. The grey road costs nothing; the good road pays (renown always, the Church, a light deed, order in the ledger).
+ttl roads pay TtlBotRoadsA necro raise grey
+ttl roads expect TtlBotRoadsA chaos2 6
+ttl roads expect TtlBotRoadsA last_renown 0
+ttl roads expect TtlBotRoadsA tide_dark 2
+ttl roads pay TtlBotRoadsA necro rest good
+ttl roads expect TtlBotRoadsA order2 1
+ttl roads expect TtlBotRoadsA last_renown 1
+ttl roads expect TtlBotRoadsA tide_light 1
+ttl rep expect TtlBotRoadsA holy_church value -5
+# 4. The wronged faction: stolen schematics cost Dwargon 20.
+ttl roads pay TtlBotRoadsA artifice schematic dark
+ttl rep expect TtlBotRoadsA dwargon value -20
+# 5. The balance cap: 5 dark notes a soul a day (O-C2); karma and reputation are still paid.
+ttl roads pay TtlBotRoadsA necro knight dark
+ttl roads pay TtlBotRoadsA necro knight dark
+ttl roads expect TtlBotRoadsA tide_dark 5
+ttl roads expect TtlBotRoadsA last_noted 1
+ttl roads pay TtlBotRoadsA necro knight dark
+ttl roads expect TtlBotRoadsA tide_dark 5
+ttl roads expect TtlBotRoadsA last_noted 0
+ttl roads expect TtlBotRoadsA last_rep_orc_horde 6
+ttl roads expect TtlBotRoadsA chaos2 18
+ttl roads info TtlBotRoadsA
+# 6. The ledger is the NEXT life's karma: kept by a reset, judged at x0.5 at the Life 1 death, then spent.
+ttl roads expect TtlBotRoadsA carry_chaos 9
+ttl reset TtlBotRoadsA
+@sleep 3
+ttl karma TtlBotRoadsA expect chaos2 18
+kill TtlBotRoadsA
+@sleep 2
+ttl karma TtlBotRoadsA expect phase corridor
+ttl karma TtlBotRoadsA expect carried_chaos 9
+ttl karma TtlBotRoadsA expect chaos2 0
+# 7. O-N1, Life 1 stays mortal: Occultism (namespace) and the path items (tag ttl:paths) go to the soul stash within 2 s,
+#    and Iron's blood and eldritch casts are refused in the Mortal dimensions only.
+give TtlBotRoadsL occultism:chalk_white
+give TtlBotRoadsL ttl:soul_ash 2
+@sleep 3
+ttl stash TtlBotRoadsL expect banned 0
+ttl stash TtlBotRoadsL expect stash 2
+ttl stash TtlBotRoadsL spell irons_spellbooks:blood yes
+ttl stash TtlBotRoadsL spell irons_spellbooks:eldritch yes
+ttl stash TtlBotRoadsL spell irons_spellbooks:fire no
+ttl stash TtlBotRoadsB spell irons_spellbooks:blood no
+# Clean up.
+execute in minecraft:overworld run forceload remove 3995 3995 4015 4005
+ttl stash TtlBotRoadsL clear
+ttl roads test TtlBotRoadsA reset
+ttl roads test TtlBotRoadsB reset
+ttl roads test TtlBotRoadsL reset
+ttl reset TtlBotRoadsA
+ttl reset TtlBotRoadsB
+ttl reset TtlBotRoadsL
+ttlbot remove TtlBotRoadsA
+ttlbot remove TtlBotRoadsB
+ttlbot remove TtlBotRoadsL

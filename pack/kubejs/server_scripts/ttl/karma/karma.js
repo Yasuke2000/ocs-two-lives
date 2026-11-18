@@ -10,6 +10,9 @@
 // (death.js) stores the difference and the verdict in `ttl.karma.life1` (JSON) plus `ttl.karma.<axis>`,
 // `ttl.karma.score`, `ttl.karma.dark`, `ttl.tier`, `ttl.l1.days`, and the stage `ttl.tier.<id>`. Karma
 // survives the rebirth (the Corridor never clears these keys); only /ttl reset starts it over.
+// Life 2 deeds (the dark shortcuts of the player paths, roads/roads.js) are not scored here: they go to the Life 2 ledger
+// `ttl.karma2.<axis>`, which the NEXT judgement adds to its raw axes at roads.toml [karma2] mult (`carry`, recorded in the
+// verdict) and then spends. /ttl reset keeps the ledger: it is the soul's own, for the next life.
 const TtlKarma = {
   OBJ: 'ttl.s.',
   KILL: 'kill.',
@@ -130,8 +133,19 @@ const TtlKarma = {
     return e > max ? max : e
   },
 
-  // The verdict for a set of deeds: axis raw karma and scores, total score, days, bosses, tier, dark.
-  judge(deeds) {
+  // The Life 2 ledger this judgement adds to the raw axes ({axis: n}), or null (roads/roads.js, guarded).
+  carry(player) {
+    try {
+      return typeof TtlRoads !== 'undefined' ? TtlRoads.carry(player) : null
+    } catch (e) {
+      console.error(`[ttl] karma: reading the Life 2 ledger of ${player.username} failed, not carried: ${e}`)
+      return null
+    }
+  },
+
+  // The verdict for a set of deeds: axis raw karma and scores, total score, days, bosses, tier, dark. `carry` (optional)
+  // is the previous Life 2's ledger, added to the raw axes as it is.
+  judge(deeds, carry) {
     var conf = this.conf()
     var cap = conf.kill_cap
     var raw = {}
@@ -166,6 +180,7 @@ const TtlKarma = {
       if (killStat.axis && raw[killStat.axis] !== undefined) raw[killStat.axis] += (killStat.weight || 0) * effKills / (killStat.per || 1)
     }
     if (raw[conf.hostiles.axis] !== undefined) raw[conf.hostiles.axis] += conf.hostiles.weight_per_kind * kinds
+    if (carry) Object.keys(carry).forEach(a => { if (raw[a] !== undefined) raw[a] += Number(carry[a]) || 0 })
     var axes = {}
     var total = 0
     var best = 0
@@ -191,7 +206,7 @@ const TtlKarma = {
       rounded[a] = Math.round(axes[a])
       rawRounded[a] = Math.round(raw[a] * 10) / 10
     })
-    return { score: Math.round(total), axes: rounded, raw: rawRounded, kinds: kinds, kills: Math.round(effKills), bosses: bosses, days: days, tier: tier.id, dark: isDark }
+    return { score: Math.round(total), axes: rounded, raw: rawRounded, kinds: kinds, kills: Math.round(effKills), bosses: bosses, days: days, tier: tier.id, dark: isDark, carry: carry || null }
   },
 
   // Life 1 start (join.js for new players, /ttl reset): forget the old record, snapshot the objectives.
@@ -222,11 +237,12 @@ const TtlKarma = {
     var data = player.persistentData
     try {
       var deeds = this.deeds(server, player)
-      var verdict = this.judge(deeds)
+      var verdict = this.judge(deeds, this.carry(player))
       var kept = {}
       Object.keys(deeds).forEach(k => { if (deeds[k] > 0) kept[k] = deeds[k] })
       verdict.deeds = kept
       verdict.at = Date.now()
+      if (verdict.carry && typeof TtlRoads !== 'undefined') TtlRoads.spent(player)
       data.putString('ttl.karma.life1', JSON.stringify(verdict))
       Object.keys(verdict.raw).forEach(a => data.putInt(`ttl.karma.${a}`, Math.round(verdict.raw[a])))
       data.putInt('ttl.karma.score', verdict.score)
@@ -255,7 +271,7 @@ const TtlKarma = {
     if (rec) return rec
     if (TtlLife.phase(player) !== 'life1') return null
     var deeds = this.deeds(server, player)
-    var verdict = this.judge(deeds)
+    var verdict = this.judge(deeds, this.carry(player))
     var kept = {}
     Object.keys(deeds).forEach(k => { if (deeds[k] > 0) kept[k] = deeds[k] })
     verdict.deeds = kept

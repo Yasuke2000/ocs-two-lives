@@ -4,6 +4,7 @@
     python tools/gen_item_textures.py            # item textures + the Mana Ledger GUI + previews
     python tools/gen_item_textures.py --no-gui   # items only (no network)
     python tools/gen_item_textures.py --gui-src path/to/atm.png
+    python tools/gen_item_textures.py --no-gui --force-placeholders   # redraw the path placeholders too
 
 Writes:
   pack/kubejs/assets/ttl/textures/item/soul_gem.png      16x16, a faintly glowing soul gem
@@ -14,6 +15,11 @@ Writes:
         release: the file last changed 19/11/2024). It is downloaded with `gh` (or urllib) when --gui-src is absent
         and never committed in its original colours.
   docs/previews/items/*.png                               8x previews (items on a dark and a light slot)
+  pack/kubejs/assets/ttl/textures/item/<id>.png, .../block/<id>.png
+        PLACEHOLDERS for the player paths (design/architecture/paths-necro-artificer.md section 7: soul ash, bone dust,
+        the Bone Altar, the Workshop Bench, ...; see PATH_ITEMS / PATH_BLOCKS below). They are written only when the file
+        is missing (or with --force-placeholders), so an artist's or an image model's replacement is never overwritten:
+        drop a 16x16 PNG with the same name in place and commit it. Block textures are one face used on all six sides.
 
 The palette is the one of lightmanscurrency/textures/block/atm.png (violet stone, gold trim, cyan screen).
 """
@@ -169,6 +175,147 @@ def recolour_gui(src):
     return out
 
 
+# ---------------------------------------------------------------- path placeholders
+# Deliberately simple shapes in each path's colours: bone white / ash grey / grave green for the necromancer, brass and
+# magisteel blue for the artificer, earth tones for the choice-scene blocks. Replace freely (see the module docstring).
+PATH_PAL = {
+    "o": hexc("1c1a22"),  # outline
+    "b": hexc("e8e0c8"),  # bone
+    "B": hexc("b7ab8a"),  # bone shade
+    "a": hexc("6e6a72"),  # ash
+    "A": hexc("3e3a44"),  # ash dark
+    "s": hexc("9fe8ff"),  # soul light
+    "S": hexc("4aa3c8"),  # soul shade
+    "g": hexc("7cff9a"),  # grave flame
+    "G": hexc("2f9a4c"),  # grave flame shade
+    "w": hexc("8a5a32"),  # wood
+    "W": hexc("5c3a1e"),  # wood dark
+    "m": hexc("7aa0d8"),  # magisteel
+    "M": hexc("3c5a8c"),  # magisteel dark
+    "y": hexc("e2b44a"),  # brass
+    "Y": hexc("9a7420"),  # brass dark
+    "p": hexc("efe6cf"),  # parchment
+    "P": hexc("c9b98f"),  # parchment shade
+    "r": hexc("b02a3a"),  # seal red / curse
+    "R": hexc("6a1420"),  # curse dark
+    "h": hexc("9ad86a"),  # herb
+    "k": hexc("8c8c8c"),  # stone
+    "K": hexc("5a5a5a"),  # stone dark
+    "d": hexc("6a8cc8"),  # water
+    "e": hexc("2a1a3a"),  # egg
+    "E": hexc("7a4aa8"),  # egg speckle
+}
+
+PATH_ITEMS = {
+    "soul_ash": [
+        "................", "................", "................", "................",
+        "................", "................", ".......s........", "......oAo.......",
+        ".....oaaAo......", "....oaaaaAo.....", "...oaasaaaAo....", "..oaaaaaaaaAo...",
+        "..oAaaaasaaAo...", "...oooooooooo...", "................", "................"],
+    "bone_dust": [
+        "................", "................", "................", "................",
+        "................", "................", "................", ".......oo.......",
+        "......obBo......", ".....obbbBo.....", "....obbBbbBo....", "...obbbbbbbBo...",
+        "...oBbbbBbbBo...", "....oooooooo....", "................", "................"],
+    "soul_remnant": [
+        "................", "................", "......oooo......", ".....osssso.....",
+        "....ossssSso....", "....osoSsoSo....", "....ossssssSo...", "....osssssSSo...",
+        ".....ossSSSo....", ".....oSsSSo.....", "......oSsSo.....", ".......oSo......",
+        "........oS......", ".........o......", "................", "................"],
+    "hipokute_salve": [
+        "................", "................", "................", ".....oooooo.....",
+        ".....oPPPPo.....", "....oooooooo....", "....ohhhhhho....", "...ohhhhhhhho...",
+        "...ohhhhhhhho...", "...ohhhhhhhho...", "...ohhhhhhhho...", "...ohhhhhhhho...",
+        "....ohhhhhho....", ".....oooooo.....", "................", "................"],
+    "engraving_chisel": [
+        "................", "............oo..", "...........omo..", "..........omMo..",
+        ".........omMo...", "........omMo....", ".......oyYo.....", "......oyYo......",
+        ".....owWo.......", "....owWo........", "...owWo.........", "..owWo..........",
+        "..oWo...........", "..oo............", "................", "................"],
+    "cursed_whetstone": [
+        "................", "................", "................", "................",
+        "................", "...oooooooooo...", "..okkkkkkkkKKo..", "..okrkkkkrkkKo..",
+        "..okkkRkkkkKKo..", "..oKkkkkrkkKKo..", "..oKKKKKKKKKKo..", "...oooooooooo...",
+        "................", "................", "................", "................"],
+    "warden_core": [
+        "................", "......oooo......", ".....oyyyYo.....", "....oyMmmMYo....",
+        "...oyMmsmmMYo...", "...oyMssSmMYo...", "..oyMmsSSmmMYo..", "..oyMmmSmmmMYo..",
+        "..oyMmmmmmmMYo..", "...oyMmmmmMYo...", "...oyMMmmMMYo...", "....oyMMMMYo....",
+        ".....oYYYYo.....", "......oooo......", "................", "................"],
+    "artificer_charter": [
+        "................", "................", "..oooooooooooo..", "..oPppppppppPo..",
+        "...opppppppppo..", "...opWWWWWWppo..", "...oppppppppo...", "...opWWWWWpppo..",
+        "...oppppppppo...", "...opWWWWWWppo..", "...opppppyyyo...", "..oPppppyYYyPo..",
+        "..ooooooyyYooo..", "........oyo.....", "................", "................"],
+    "exorcist_licence": [
+        "................", "................", "..oooooooooooo..", "..oPppppppppPo..",
+        "...oppppyppppo..", "...opppyyypppo..", "...oppppyppppo..", "...oppppyppppo..",
+        "...opWWWWWWppo..", "...oppppppppo...", "...opWWWWWrrro..", "..oPppppprRrPo..",
+        "..ooooooorrroo..", "................", "................", "................"],
+}
+
+PATH_BLOCKS = {
+    "bone_altar": [
+        "oooooooooooooooo", "obbbbbbbbbbbbbBo", "obBBBBBBBBBBBBBo", "oooooooooooooooo",
+        "oaaaobbbbbboaaao", "oaaaobooobboaaao", "oaaaobosobboaaao", "oaaaobooobboaaao",
+        "oaaaobbbbbboaaao", "oaaaoboboboaaaao", "oaaaobbbbbboaaao", "oAAAoooooooaAAAo",
+        "oaaaaaaaaaaaaaao", "oAAAAAAAAAAAAAAo", "oAAAAAAAAAAAAAAo", "oooooooooooooooo"],
+    "workshop_bench": [
+        "oooooooooooooooo", "ommmmmmmmmmmmmMo", "oMMMMMMMMMMMMMMo", "oooooooooooooooo",
+        "owwwwwwwwwwwwwwo", "owWWWWWWWWWWWWwo", "owWyyWWWWWmmWWwo", "owWyyWWWWWmmWWwo",
+        "owWWWWWWWWWWWWwo", "owwwwwwwwwwwwwwo", "oWWWWWWWWWWWWWWo", "oooooooooooooooo",
+        "owo..........owo", "owo..........owo", "oWo..........oWo", "ooo..........ooo"],
+    "grave_lantern": [
+        "................", "......oooo......", ".....oKKKKo.....", "....oooooooo....",
+        "....oK....Ko....", "....oK.gg.Ko....", "....oKgGgg.o....", "....o.gGGgKo....",
+        "....oKgGGg.o....", "....oK.gg.Ko....", "....oK....Ko....", "....oooooooo....",
+        ".....oKKKKo.....", "......oooo......", "................", "................"],
+    "grave_marker": [
+        "kkkkkkkkkkkkkkkk", "kKkkkkkkkkkkkkKk", "kkkkkooooookkkkk", "kkkkokkkkkkokkkk",
+        "kkkokkkKKkkkokkk", "kkkokkKKKKkkokkk", "kkkokkkKKkkkokkk", "kkkokkkKKkkkokkk",
+        "kkkokkkKKkkkokkk", "kkkokkkkkkkkokkk", "kkkokkkkkkkkokkk", "kkkooooooooookkk",
+        "kKkkkkkkkkkkkkKk", "kkkKkkkkkkkKkkkk", "kKkkkkkkkkkkkkKk", "kkkkkkkkkkkkkkkk"],
+    "offering_bowl": [
+        "................", "................", "................", "................",
+        "................", "................", "oooooooooooooooo", "owwhhhhhhhhhhwwo",
+        "owwwwwwwwwwwwwwo", ".owWWWWWWWWWWwo.", "..owWWWWWWWWwo..", "...owwwwwwwwo...",
+        "....oooooooo....", ".....oWWWWo.....", "....oooooooo....", "................"],
+    "cracked_dam": [
+        "kkkkkkkkokkkkkkk", "kKkkkkkkokkkkKkk", "kkkkkkkoKkkkkkkk", "ooooooooKooooooo",
+        "kkkkokkkKkkkkkkk", "kKkkokkkoKkkkkKk", "kkkkokkkkoddkkkk", "kkkkokkkkkodkkkk",
+        "ooooooooooodoooo", "kkkkkkkkokkdkkkk", "kKkkkkkkokkdkkKk", "kkkkkkkkokkkdkkk",
+        "kkkkkkkkokkkkdkk", "ooooooooooooooKo", "kkkkkokkkkkkkkkk", "kKkkkokkkkkkkKkk"],
+    "rubble": [
+        "KkkkoKKkkkokkkKK", "kkkokkkkkkkokkkk", "kKokkKkkKkkkoKkk", "ookkkkkkkkkkkooo",
+        "kkkkKkkoookkkkkK", "kkkkkkoKkkokkkkk", "oKkkkokkkkkokkKo", "kkkkkokkKkkokkkk",
+        "kkKkkkooookkkkkk", "kkkkkkkkkkkkoooo", "ooookkkKkkkokkkk", "kKkkokkkkkkokKkk",
+        "kkkkkokkKkkkokkk", "kkKkkkooooookkkk", "oookkkkkkkkkkkkK", "kkkkkkkKkkkkkkkk"],
+    "dragon_egg_cradle": [
+        "................", "................", "......oooo......", ".....oeEeeo.....",
+        "....oeeeEeeo....", "....oeEeeeeo....", "...oeeeeeEeeo...", "...oeeEeeeeeo...",
+        "...oeeeeeEeeo...", "..owoeeEeeeowWo.", ".owWwoooooowWwo.", "owWwWwWwWwWwWwWo",
+        "oWwWwWwWwWwWwWwo", ".oWwWwWwWwWwWwo.", "..oooooooooooo..", "................"],
+}
+
+
+def path_placeholders(force):
+    """Writes the missing path placeholder PNGs; returns the images (for the preview) and the paths written."""
+    written = []
+    images = []
+    for folder, table in (("item", PATH_ITEMS), ("block", PATH_BLOCKS)):
+        out_dir = ROOT / "pack/kubejs/assets/ttl/textures" / folder
+        out_dir.mkdir(parents=True, exist_ok=True)
+        for name, art in table.items():
+            path = out_dir / f"{name}.png"
+            if path.exists() and not force:
+                images.append(Image.open(path).convert("RGBA"))
+                continue
+            im = render(art, PATH_PAL)
+            im.save(path)
+            images.append(im)
+            written.append(path)
+    return images, written
+
 # ---------------------------------------------------------------- previews
 def preview(images, path, scale=8):
     w = 16 * scale
@@ -189,6 +336,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-gui", action="store_true")
     ap.add_argument("--gui-src")
+    ap.add_argument("--force-placeholders", action="store_true",
+                    help="redraw the path placeholders even where a PNG exists (overwrites replacements)")
     args = ap.parse_args()
 
     gem = render(GEM_ART, GEM, HALO)
@@ -198,6 +347,9 @@ def main():
     core.save(ITEM_DIR / "skill_core.png")
     preview([gem, core], PREVIEW_DIR / "ttl_items.png")
     print("wrote soul_gem.png, skill_core.png")
+    paths, written = path_placeholders(args.force_placeholders)
+    preview(paths, PREVIEW_DIR / "ttl_path_items.png", scale=4)
+    print(f"path placeholders: {len(written)} written, {len(paths) - len(written)} kept")
 
     if args.no_gui:
         return 0

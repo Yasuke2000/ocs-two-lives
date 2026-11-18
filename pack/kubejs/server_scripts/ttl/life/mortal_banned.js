@@ -6,6 +6,11 @@
 //      Tensura mods). Use, placement, pickup and crafting are refused; whatever still gets onto the body is moved into
 //      the "soul stash" (persistentData `ttl.stash`) within 2 seconds, and returned at rebirth.
 // Both stores are compounds of serialized item stacks (ItemStack#save), key s0, s1, ...
+//   3. Iron's Spells casts of the schools in mortal_banned.toml `spell_schools` (blood, eldritch: O-N1) are refused in the
+//      Mortal dimensions: Iron's posts the cancellable io.redspace.ironsspellbooks.api.events.SpellPreCastEvent on the
+//      server before every player cast (AbstractSpell.attemptInitiateCast, read from the 3.16.3 jar), reached here through
+//      NativeEvents.onEvent like Tombstone's CaptureSoulEvent (compat/tombstone_bosses.js). If it cannot be registered
+//      the log says so and the fallback is `irons_spellbooks` in `namespaces`.
 const TtlStash = {
   BANNED: 'ttl.stash',
   KEEP: 'ttl.soul.keep',
@@ -15,6 +20,9 @@ const TtlStash = {
   emptyStack: null,
   lookup: null,
   curiosWarned: false,
+  // True once the SpellPreCastEvent veto is registered (bottom of this file).
+  spellVeto: false,
+  spellToldAt: {},
 
   empty() {
     if (!this.emptyStack) this.emptyStack = Java.loadClass('net.minecraft.world.item.ItemStack').EMPTY
@@ -33,7 +41,8 @@ const TtlStash = {
       namespaces: set(data.namespaces),
       items: set(data.items),
       allow: set(data.allow),
-      tags: (data.tags || []).map(t => String(t))
+      tags: (data.tags || []).map(t => String(t)),
+      schools: set(data.spell_schools)
     }
     return this.lookup
   },
@@ -59,6 +68,39 @@ const TtlStash = {
   isSoulbound(stack) {
     if (stack.isEmpty()) return false
     return this.extraSoulbound.indexOf(String(stack.id)) >= 0 || !!stack.hasTag('ttl:soulbound')
+  },
+
+  // True when a cast of this Iron's school (an id like irons_spellbooks:blood) is refused in this dimension. Any soul in a
+  // Mortal dimension: only Life 1 souls are there (life/confine.js), and the rule is about the place.
+  spellRefused(dimension, school) {
+    return TtlLife.isMortal(String(dimension)) && !!this.rules().schools[String(school)]
+  },
+
+  onSpellPreCast(event) {
+    var refuse = false
+    var player = null
+    var school = ''
+    try {
+      player = event.getEntity()
+      school = String(event.getSchoolType().getId())
+      refuse = !!player && this.spellRefused(TtlLife.dimensionOf(player), school)
+    } catch (e) {
+      console.error(`[ttl] stash: spell veto check failed, the cast goes ahead: ${e}`)
+      return
+    }
+    if (!refuse) return
+    event.setCanceled(true)
+    try {
+      var name = String(player.username)
+      var now = Date.now()
+      if (!this.spellToldAt[name] || now - this.spellToldAt[name] > 60000) {
+        this.spellToldAt[name] = now
+        player.displayClientMessage(Text.gray('This magic does not answer in a mortal world.'), true)
+      }
+      console.info(`[ttl] stash: ${name} cast ${String(event.getSpellId())} (${school}) refused in ${TtlLife.dimensionOf(player)}`)
+    } catch (e) {
+      // the cast is refused either way
+    }
   },
 
   inMortalLife1(player) {
@@ -276,6 +318,8 @@ ServerEvents.loaded(event => {
 //      /ttl stash <player> equip <item>             test hook: put one item into the first free Curios slot
 //      /ttl stash <player> soulbound <item>         test hook: treat that item id as soulbound until the next reload
 //      /ttl stash <player> clear                    empty the soul stash and the kept list (a /ttl reset leaves them)
+//      /ttl stash <player> spell <school> <yes|no>  test assertion: is a cast of that Iron's school refused where the player
+//                                                   stands; also fails when the SpellPreCastEvent veto is not registered
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
 
@@ -343,6 +387,17 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var spell = ctx => {
+    var p = target(ctx)
+    var school = String(Arguments.RESOURCE_LOCATION.getResult(ctx, 'school'))
+    var want = String(Arguments.STRING.getResult(ctx, 'refused')) === 'yes'
+    if (!TtlStash.spellVeto) throw "Iron's SpellPreCastEvent veto is not registered (see the startup log)"
+    var got = TtlStash.spellRefused(TtlLife.dimensionOf(p), school)
+    if (got !== want) throw `${p.username}: a ${school} cast in ${TtlLife.dimensionOf(p)} is ${got ? '' : 'not '}refused, expected ${want ? 'refused' : 'allowed'}`
+    say(ctx, `stash ${p.username}: ${school} ${got ? 'refused' : 'allowed'} in ${TtlLife.dimensionOf(p)} as expected`)
+    return 1
+  }
+
   var clear = ctx => {
     var p = target(ctx)
     p.persistentData.remove(TtlStash.BANNED)
@@ -360,6 +415,9 @@ ServerEvents.commandRegistry(event => {
         .executes(logged(show))
         .then(Commands.literal('sweep').executes(logged(sweep)))
         .then(Commands.literal('clear').executes(logged(clear)))
+        .then(Commands.literal('spell')
+          .then(Commands.argument('school', Arguments.RESOURCE_LOCATION.create(event))
+            .then(Commands.argument('refused', Arguments.STRING.create(event)).executes(logged(spell)))))
         .then(Commands.literal('equip')
           .then(Commands.argument('item', Arguments.RESOURCE_LOCATION.create(event)).executes(logged(equip))))
         .then(Commands.literal('soulbound')
@@ -368,3 +426,13 @@ ServerEvents.commandRegistry(event => {
           .then(Commands.argument('field', Arguments.STRING.create(event))
             .then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(expect))))))))
 })
+
+// Iron's Spells veto (O-N1): see point 3 at the top. Registered once per script load.
+try {
+  var TtlSpellPreCastEvent = Java.loadClass('io.redspace.ironsspellbooks.api.events.SpellPreCastEvent')
+  NativeEvents.onEvent(TtlSpellPreCastEvent, event => TtlStash.onSpellPreCast(event))
+  TtlStash.spellVeto = true
+  console.info("[ttl] stash: Iron's spell veto registered (mortal_banned.toml spell_schools)")
+} catch (e) {
+  console.error(`[ttl] stash: Iron's spell veto NOT registered, blood/eldritch casts stay possible in Life 1 (fallback: irons_spellbooks in mortal_banned.toml namespaces): ${e}`)
+}
