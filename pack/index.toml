@@ -1325,6 +1325,10 @@ file = "kubejs/data/ttl/structure/trial_vengeance.nbt"
 hash = "9f92291a755f345c07d7b3dcac65bf9547c056a9726f2817bd898578b6eddba1"
 
 [[files]]
+file = "kubejs/data/ttl/tags/entity_type/boss.json"
+hash = "3dc6e0cb19579f536e78e045219cfecb182d46ce6cef87617c8fa85db0b774a9"
+
+[[files]]
 file = "kubejs/data/ttl/tags/item/soulbound.json"
 hash = "0c615d27d6e7932dab70603593b0d4b2098f06e605c17c7e8549a677ec84ef94"
 
@@ -1337,12 +1341,24 @@ file = "kubejs/server_scripts/ttl/boot.js"
 hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/bosses/boss.js"
+hash = "95bec8bb776ae536c91a677d268c5c3debd665f8700244b4c426a570f74542cf"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/bosses/commands.js"
+hash = "cbdf1231fdcc5f1a441d55b1406bc15f3c837409fc3f9199856844202db5bbc4"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/bosses/loot.js"
+hash = "30147905f6fbdfd1b721ef36020695aee453c2b1d12ea37c41e40ccefdf6e1e4"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
 hash = "1629dc0b56af141293be0e2c4f7b1aa70c94253cb0df7036dd7a9228cc459cb0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
-hash = "4213eb340d01889251e554d54d99a5c51883dbb7f1f55ff6a0308f8128a358ea"
+hash = "84b457ac27666625797ae5710823d12c2473920b3f16ad2106fe262e18c2182f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/discord.js"
@@ -1370,7 +1386,7 @@ hash = "b7041324b5ef261db171a75b0d949daa71508a0c0cfb9c776fafe590337a3510"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "63103c5386811bdbb2d817b9e3033c93888d93c910419fa38d6907ee19779e19"
+hash = "a7485326107d5330366e17a37ea0b4b9fc9901a01830179d2e0f29018839df7c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"

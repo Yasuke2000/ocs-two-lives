@@ -1,6 +1,6 @@
 # Boss knobs (master plan §8). Edit, then run `python tools/gen_data.py`; the scripts read it as TtlData.bosses.
-# Sections: [tombstone] below (read by compat/tombstone_bosses.js). The Sprint 4 boss framework
-# (design/architecture/sprint3-4.md S2) adds its own `[[boss]]` tables to this file; leave [tombstone] alone.
+# Sections: [tombstone] (read by compat/tombstone_bosses.js), then [framework] and the `[[boss]]` tables at the end of
+# the file (read by bosses/boss.js, loot.js and commands.js: design/architecture/sprint3-4.md S2).
 #
 # [tombstone]: which bosses may be bound to a Corail Tombstone "Receptacle of Familiar" (issue #3: a boss as an ally).
 # Tombstone binds a tamed creature's soul when the creature takes a lethal hit and its owner carries a receptacle.
@@ -31,3 +31,250 @@ ids = [
   "tensura:hinata_sakaguchi",
   "tensura_neb:rimuru_ogre_fight", "tensura_neb:rimuru_clone", "tensura_neb:carrion", "tensura_neb:luminous_valentine",
 ]
+
+# ---- Boss framework (bosses/boss.js) -------------------------------------------------------------------------------
+# A boss is summoned (a quest, an altar NPC, `/ttl boss summon <id> [x y z]`), never natural: with block_natural a boss
+# entity that Minecraft spawns by itself (natural, chunk generation, spawner, structure piece) is cancelled.
+# A summoned boss waits with NoAI until a player comes within `range`, then wakes, scales and shows a boss bar.
+# Everything that hit it, killed it, or stood within `range` for presence_secs, and is within `range` of the boss when
+# it dies, gets the stage `ttl.boss.t<tier>`, the rewards and a kill on its record.
+# Summoned bosses are never bindable as a Tombstone familiar (see compat/tombstone_bosses.js), whatever [tombstone] says.
+#
+# [framework] knobs
+#   block_natural = cancel natural spawns of the entities below (true/false)
+#   idle_minutes  = a summoned boss that nobody walks up to is removed after this long
+#   presence_secs = seconds within `range` that count as a contribution without a recorded hit (0 = hits and kills only)
+#   untame        = strip an `Owner` from a boss every second (naming/taming it must not work)
+#   bindable      = boss ids whose summoned instance may still be bound as a Tombstone familiar, subject to [tombstone]
+#                   (empty = none: a summoned boss can never be bound)
+
+[framework]
+block_natural = true
+bindable = []
+idle_minutes = 30
+presence_secs = 15
+untame = true
+
+# [[boss]] fields
+#   id        = short id used by commands and keys, [a-z0-9_]; equals the entity path (the stage ttl.defeated.<id> is
+#               what compat/tombstone_bosses.js reads)
+#   entity    = the entity type (read from the jars; one boss per entity, because kills are read per entity from the
+#               scoreboard objective ttl.b.<id> with criterion minecraft.killed:<entity>)
+#   tier      = 1..4, gives the stage ttl.boss.t<tier>
+#   title     = lore name: custom name and boss bar (no quotes or backslashes)
+#   arena     = where it is summoned: { landmark = "<name in landmarks.toml>" } (surface at that landmark, Overworld),
+#               or { x, z } (+ optional y = else the surface, dim = default minecraft:overworld, radius = bound arena:
+#               summons outside it are refused and a boss pulled further than 2 x radius is put back).
+#               Without an arena it is summoned where the command or altar says (`/ttl boss summon <id> <x y z>`,
+#               or at the player who runs it).
+#   requires  = boss ids that the summoner must have defeated (stage ttl.defeated.<id>); ops bypass it
+#   hp_mult, per_player_mult = max health = vanilla x (hp_mult + per_player_mult x (players within range - 1)).
+#               Minecraft clamps a max health attribute at 1024: check Health in game for the big ones.
+#   range     = blocks: wakes the boss, scales it, and decides who is "in the fight"
+#   phases    = [{ at_hp = 0.5 (fraction left, descending), say, minions = "<entity>", count, enrage = <strength amp> }]
+#   rewards   = { rep = { <faction> = n }, coins = { bronze|silver|gold|stellar_gold = n }, core = true (tier 3+ only) }
+#               rep goes through `/ttl rep add <player> <faction> <n>` (rep/rep.js, S3: silent until that exists)
+#   drops     = [{ item, count, chance }] extra loot on top of the entity's own table (bosses/loot.js, LootJS)
+#   cooldown_hours = a summon through TtlBoss.summon is refused this long after the last defeat (ops bypass it)
+
+[[boss]]
+id = "orc_lord"
+entity = "tensura:orc_lord"
+tier = 1
+title = "Geld, the Orc Lord"
+arena = { landmark = "orc_camp" }
+hp_mult = 2.0
+per_player_mult = 0.5
+range = 48
+cooldown_hours = 24
+phases = [
+  { at_hp = 0.6, minions = "tensura:orc", count = 4, say = "The horde answers the Orc Lord's roar." },
+  { at_hp = 0.3, enrage = 1, say = "Hunger drives the Orc Lord into a frenzy." },
+]
+rewards = { rep = { tempest = 5 }, coins = { silver = 10 } }
+
+[[boss]]
+id = "supermassive_slime"
+entity = "tensura:supermassive_slime"
+tier = 1
+title = "The Supermassive Slime"
+hp_mult = 2.0
+per_player_mult = 0.5
+range = 48
+cooldown_hours = 24
+phases = [
+  { at_hp = 0.5, minions = "tensura:slime", count = 5, say = "The slime splits into a swarm." },
+]
+rewards = { rep = { tempest = 5 }, coins = { silver = 10 } }
+
+[[boss]]
+id = "ifrit"
+entity = "tensura:ifrit"
+tier = 2
+title = "Ifrit, the Flame Spirit"
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.6, enrage = 1, say = "The air around Ifrit shimmers with heat." },
+  { at_hp = 0.25, enrage = 2, say = "Ifrit burns without restraint." },
+]
+rewards = { coins = { gold = 3 } }
+
+[[boss]]
+id = "orc_disaster"
+entity = "tensura:orc_disaster"
+tier = 2
+title = "The Orc Disaster"
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.6, minions = "tensura:orc", count = 6, say = "A starving horde pours in behind the Disaster." },
+  { at_hp = 0.3, enrage = 1, say = "The Orc Disaster devours everything it can reach." },
+]
+rewards = { rep = { tempest = 8 }, coins = { gold = 3 } }
+
+[[boss]]
+id = "rimuru_clone"
+entity = "tensura_neb:rimuru_clone"
+tier = 2
+title = "Mimic Echo"
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "The echo learns from every blow." },
+]
+rewards = { coins = { gold = 3 } }
+
+[[boss]]
+id = "charybdis"
+entity = "tensura:charybdis"
+tier = 3
+title = "Charybdis, the Whirlpool Calamity"
+hp_mult = 4.0
+per_player_mult = 1.0
+range = 64
+cooldown_hours = 72
+phases = [
+  { at_hp = 0.6, enrage = 1, say = "The sea turns against you." },
+  { at_hp = 0.3, enrage = 2, say = "Charybdis thrashes in a final rage." },
+]
+rewards = { coins = { gold = 10 }, core = true }
+
+# Separate from the throne Gazel of life/dwargon.js (that one has its own tag and is not a boss fight).
+[[boss]]
+id = "gazel_dwargo"
+entity = "tensura:gazel_dwargo"
+tier = 3
+title = "Gazel Dwargo, the Dwarf King"
+hp_mult = 4.0
+per_player_mult = 1.0
+range = 64
+cooldown_hours = 72
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "The Dwarf King draws his full strength." },
+]
+rewards = { coins = { gold = 10 }, core = true }
+
+[[boss]]
+id = "hinata_sakaguchi"
+entity = "tensura:hinata_sakaguchi"
+tier = 3
+title = "Hinata Sakaguchi, the Saint"
+hp_mult = 4.0
+per_player_mult = 1.0
+range = 64
+cooldown_hours = 72
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "Hinata stops holding back." },
+]
+rewards = { coins = { gold = 10 }, core = true }
+
+[[boss]]
+id = "carrion"
+entity = "tensura_neb:carrion"
+tier = 3
+title = "Carrion, the Beast Lord"
+hp_mult = 4.0
+per_player_mult = 1.0
+range = 64
+cooldown_hours = 72
+phases = [
+  { at_hp = 0.5, enrage = 1, say = "Carrion's roar shakes the ground." },
+]
+rewards = { coins = { gold = 10 }, core = true }
+
+[[boss]]
+id = "luminous_valentine"
+entity = "tensura_neb:luminous_valentine"
+tier = 4
+title = "Luminous Valentine, the Demon Lord"
+hp_mult = 6.0
+per_player_mult = 1.5
+range = 72
+cooldown_hours = 96
+phases = [
+  { at_hp = 0.7, enrage = 1, say = "Luminous's aura grows heavy." },
+  { at_hp = 0.35, enrage = 2, say = "Luminous no longer pretends to be gentle." },
+]
+rewards = { coins = { gold = 25 }, core = true }
+
+[[boss]]
+id = "veldora"
+entity = "tensura_neb:veldora"
+tier = 4
+title = "Veldora, the Storm Dragon"
+hp_mult = 6.0
+per_player_mult = 1.5
+range = 72
+cooldown_hours = 96
+phases = [
+  { at_hp = 0.7, enrage = 1, say = "Storm clouds gather over the arena." },
+  { at_hp = 0.35, enrage = 2, say = "Veldora's power is unleashed." },
+]
+rewards = { coins = { gold = 25 }, core = true }
+
+# ---- Jura forest story bosses: both fights happen AT TEMPEST (Overworld, village centre 0 0 = TtlTempest.LANDMARK in
+# life/tempest.js; move arena x/z together with it). Players reach Tempest through the dangerous magicule of the forest,
+# so getting there is part of the challenge. `radius` binds the arena: a summon is refused outside it (ops included,
+# unless they give coordinates inside it), and a boss pulled further than 2 x radius is put back.
+# Shizu first; Rimuru only answers a summoner who holds the stage ttl.defeated.shizu (`requires`; ops bypass it).
+# Both are non-tamable like every framework boss; see [framework] bindable and the Tombstone note in decisions.md.
+
+[[boss]]
+id = "shizu"
+entity = "tensura:shizu"
+tier = 2
+title = "Shizu, the Flame Tyrant"
+arena = { x = 0, z = 0, radius = 48 }
+hp_mult = 3.0
+per_player_mult = 0.75
+range = 56
+cooldown_hours = 48
+phases = [
+  { at_hp = 0.6, enrage = 1, say = "Flames gather around Shizu." },
+  { at_hp = 0.3, enrage = 2, say = "Shizu's mask slips; the Flame Tyrant fights for her life." },
+]
+rewards = { rep = { tempest = 10 }, coins = { gold = 3 } }
+
+[[boss]]
+id = "rimuru_ogre_fight"
+entity = "tensura_neb:rimuru_ogre_fight"
+tier = 3
+title = "Rimuru Tempest"
+arena = { x = 0, z = 0, radius = 48 }
+requires = ["shizu"]
+hp_mult = 4.0
+per_player_mult = 1.0
+range = 64
+cooldown_hours = 72
+phases = [
+  { at_hp = 0.6, enrage = 1, say = "Rimuru stops testing you." },
+  { at_hp = 0.3, enrage = 2, say = "The slime's true power rolls over Tempest." },
+]
+rewards = { coins = { gold = 15 }, core = true }
