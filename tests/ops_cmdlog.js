@@ -44,6 +44,8 @@ issue(literals('ttl', 'life'), false)
 issue([...literals('ttl', 'ops', 'expect', 'cmdlog', 'last'), {text: 'private'}])
 assert.deepEqual(paths(), ['ttl rep set'])
 assert.equal(posts.length, 1)
+issue(literals('ttl', 'discord', 'mute', 'on'))
+assert.equal(posts.length, 1)
 muted = true
 issue(literals('tensura', 'edit'))
 issue(literals('ttl', 'events', 'end'))
