@@ -10,7 +10,7 @@ design/lore/frost_palace.md.
 import math
 
 import blueprint
-from _dwargon_lib import AIR
+from _dwargon_lib import AIR, noise2
 from _lords_lib import M, fill, fill_air, light_pass, stair
 
 SIZE = (85, 51, 69)
@@ -26,15 +26,43 @@ GLASS = M("light_blue_stained_glass")
 LAMP = M("sea_lantern")
 
 
+def shelf_depth(x, z):
+    """Positive inside the wind-cut snow shelf; negative cells receive no new snow."""
+    rim = 1 - (abs(x - C) / 40) ** 2.6 - (abs(z - 33) / 32) ** 2.6
+    return rim + 0.22 * (noise2(x, z, 7, 11) - 0.5)
+
+
 def snowfield(bp):
     for x in range(SIZE[0]):
         for z in range(SIZE[2]):
-            # A wind-cut cleft bends beneath the bridge. Its blue seam is visible through the arches.
-            offset = z - 46 - round(3 * math.sin(x / 9))
-            surface = 1 if abs(offset) <= 4 else 2 if abs(offset) <= 7 else 3
-            material = BLUE if abs(offset) <= 1 else ICE if abs(offset) <= 6 else SNOW
-            fill(bp, x, 0, z, x, surface, z, ICE)
+            depth = shelf_depth(x, z)
+            if depth <= 0:
+                continue
+            # Long, low drifts break up the snow surface. The outer ones settle back
+            # toward survey grade before the hand-built ground gives way to native snow.
+            wind = noise2(x * 0.48 + z * 0.35, z, 5, 37)
+            drift = min(1, depth * 3) * max(0, 5 * wind - 2)
+            shoulder = min(1, depth * 6)
+            surface = 2 + round(shoulder) + int(drift)
+            material = SNOW
+
+            # The shallow cleft pinches out under the snow at both ends. Near the bridge
+            # the blue-ice vein widens into a band of packed ice with low snow banks.
+            taper = max(0, min(1, (x - 10) / 15, (74 - x) / 14))
+            offset = abs(z - 46 - 3 * math.sin(x / 9) - 1.5 * math.sin(x / 4))
+            if taper:
+                surface = min(surface, 3 + int(max(0, offset - 7 * taper) / 2))
+                if offset < 7 * taper:
+                    surface = 3 - round(2 * taper * (1 - offset / (8 * taper)))
+                    material = BLUE if offset < 1.7 * taper else ICE
+            if abs(x - C) <= 8 and (z <= 6 or z >= 59):
+                surface = 3
+            bottom = min(surface - 1, 2 - round(2 * shoulder))
+            fill(bp, x, bottom, z, x, surface - 1, z, ICE if material != SNOW else SNOW)
             bp.set(x, surface, z, material)
+            if material == SNOW and wind > 0.56 and abs(x - C) > 12:
+                layers = 1 + int(drift * 2) % 6
+                bp.set(x, surface + 1, z, M(f"snow[layers={layers}]"))
 
 
 def shard(bp, x, z, base, radius, height, lean):
@@ -52,7 +80,8 @@ def shard(bp, x, z, base, radius, height, lean):
 def crossing(bp):
     for z in range(32, 69):
         deck = min(7, max(3, 66 - z))
-        for x in range(C - 7, C + 8):
+        width = min(7, 69 - z)
+        for x in range(C - width, C + width + 1):
             edge = abs(x - C)
             # Pairs of piers carry three open spans. The solid path at the ends meets the snow.
             if z < 37 or z >= 58 or z in (42, 43, 50, 51) and edge >= 5:
@@ -62,6 +91,10 @@ def crossing(bp):
                 material = M("quartz_bricks")
             if 59 <= z <= 62:
                 material = stair("quartz", "north")
+            if z >= 64:
+                material = ICE if edge < 66 - z else SNOW
+                if (x - C, z) in ((-2, 64), (1, 65), (-1, 66), (0, 68)):
+                    material = M("gravel")
             if edge == 5 and z < 59:
                 material = LAMP if z % 6 == 0 else BLUE
             bp.set(x, deck, z, material)
@@ -127,11 +160,15 @@ def vestibule(bp):
             else:
                 bp.set(C + dx, 28 + dy, 35, STONE)
     # A small snow terrace receives visitors passing the northern arch.
-    for z in range(0, 7):
+    for z in range(1, 7):
         y = min(7, 3 + z)
-        for dx in range(-8, 9):
+        width = min(8, 2 + z)
+        for dx in range(-width, width + 1):
             fill(bp, C + dx, 2, z, C + dx, y - 1, z, ICE)
             bp.set(C + dx, y, z, stair("quartz", "south") if 1 <= z <= 4 else STONE)
+    for dx in range(-2, 3):
+        fill(bp, C + dx, 2, 0, C + dx, 3, 0, SNOW)
+    bp.set(C + 1, 3, 0, M("gravel"))
 
 
 def spire(bp, cx, cz, radius, shoulder, tip):
@@ -179,11 +216,16 @@ def build(bp):
             shard(bp, C + sign * dx, z, 3, r, height, -sign * lean)
     light_pass(bp, lambda x, y, z: abs(x - C) <= 10 and 6 <= z <= 35 and y < 31 - abs(x - C),
                8, lambda x, y, z: M("lantern[hanging=false]"), label="frost_palace")
-    # The placer clears above the highest solid block in each column. Keep explicit air
-    # under arches and vaults so terrain cannot fill them; omit the sky from the slabs.
+    # Explicit air under the structure keeps its passage open. The placer cuts up to
+    # the sky automatically, including above survey grade in empty footprint columns.
     for x in range(SIZE[0]):
         for z in range(SIZE[2]):
             for y in reversed(range(SIZE[1])):
                 if bp.blocks[x, y, z] != AIR:
+                    break
+                del bp.blocks[x, y, z]
+            # A feathered snow lip lies directly on the land; never put air beneath it.
+            for y in range(SIZE[1]):
+                if bp.blocks.get((x, y, z)) != AIR:
                     break
                 del bp.blocks[x, y, z]

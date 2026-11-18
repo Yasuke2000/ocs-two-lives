@@ -8,13 +8,15 @@ The Japanese series encyclopedia's geography entry describes a six-pointed city 
 
 ## The court and our interpretation
 
-Two gold-tipped obelisks frame the southern road. At the crossing between the reflecting pools, two triangles in the paving form a six-pointed star as a small reminder of the city plan. Short bridges lead west and east to arcades with white columns and dark green hipped roofs. The approach, pools and trees are our interpretation.
+Two gold-tipped obelisks frame the southern road. At the crossing between the reflecting pools, two triangles in the paving form a six-pointed star as a small reminder of the city plan. Short bridges lead west and east to arcades with white columns and dark green hipped roofs. The formal paving gives way to a narrow dirt track that bends past the obelisks. Patches of coarse dirt and short grass follow the foot of the arcades and the orchard planters. The approach, pools and trees are our interpretation.
 
 Inside the white-walled hall, a red and gold aisle climbs five shallow steps to the throne. White stone flanks the runner, and low gold rails follow the outside edges. A peaked gold frame rises behind the purple backrest. These are the features taken from the audience shot. Our interpretation supplies the dimensions, the upper lantern of amber glass and copper, the benches, and the octagonal footprint. The surrounding spiral streets and their defences are outside the palace precinct.
 
 ## Scale and placement
 
-The blueprint is **81 × 39 × 83** blocks (x, y, z). The obelisk approach at local **(40, 4, 74)** is anchored at world **x −4808, z 3240** before terrain survey. The three structure slabs start at z 0, 28 and 56. With the 48-block survey radius and 8-block terrain margin, every touched chunk falls inside region X on the checked-in map. The older 10,000-wide coordinate in the lore atlas falls at sea on this map. The current 14,000-wide landmark converts to (−4805, 3241), three blocks east and one south of this explicit anchor. [Placement](../builds/el_dorado.toml) · [Political fan-map trace](../../pack/config/ttl/canon_map.txt)
+The blueprint is **81 × 39 × 83** blocks (x, y, z). The obelisk approach at local **(40, 4, 74)** is anchored at world **x −4808, z 3240** before terrain survey. The three structure slabs start at z 0, 28 and 56. Including the 48-block search radius and 16-block terrain margin, the bounding rectangle is x −4912 through −4704, z 3102 through 3312. All 210 chunks it intersects are marked X. The older 10,000-wide coordinate in the lore atlas falls at sea on this map. The current 14,000-wide landmark converts to (−4805, 3241), three blocks east and one south of this explicit anchor. [Placement](../builds/el_dorado.toml) · [Political fan-map trace](../../pack/config/ttl/canon_map.txt)
+
+The blueprint supplies paving, pool beds and a single surface layer for the irregular turf verge. The placer fills gaps below these surfaces with locally selected earth; the region’s wooded badlands and savanna therefore do not acquire a buried sandstone platform. At the box perimeter, the 16-block margin grades cuts and fills at one block per block of distance. The placer can still trim high ground or tree crowns above the survey height in unbuilt columns inside the box. The final approach slope depends on the in-game survey.
 
 ## Reference and reuse
 

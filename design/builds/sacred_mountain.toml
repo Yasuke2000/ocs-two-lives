@@ -7,4 +7,4 @@ search = 48
 dimension = "minecraft:overworld"
 version = 1
 clear_above = true
-margin = 8
+margin = 16

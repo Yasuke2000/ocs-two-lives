@@ -25,6 +25,13 @@ The box is **76 × 38 × 66 blocks** (x, y, z). The south approach joins the eas
 14,000-block map. The political fan map marks Ballachia separately. The pack's coarser
 grid groups its land with Falmuth. [Map research and original reference coordinates](world.md#f-kingdom-of-falmuth) · [Pack landmark registry](../../pack/config/ttl/canon_regions.json)
 
+Our approach roads lose their kerbs and narrow to coarse-dirt wheel ruts with grass
+between them. Low meadow banks, dotted with daisies and cornflowers, shelter the road
+verges. The west and east exits meet the edge at local z 39, and the south exit at
+local x 38. The placer surveys within 32 blocks and uses a 12-block earthen skirt for
+low ground or a stepped cut into higher slopes. The paving ends inside the box; actual
+road connections and the final grade depend on the surveyed world terrain.
+
 The hall, belfry and yard are original blockwork built with the pack's town and lighting
 helpers. The mod inventories include dwarf and lizardman prisons and a dwarven merchant
 cart in Tensura, as well as Iron's ravager prison. A western civilian yard called for a

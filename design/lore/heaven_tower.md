@@ -12,7 +12,7 @@ Our interpretation also supplies the stepped octagonal silhouette, cut sandstone
 
 ## Placement
 
-The blueprint spans 81 × 60 × 91 blocks (x, y, z). Its anchor is the walking cell (40, 4, 83), looking north from the road. The current fan-map pixel (414, 1186) converts to **x −7507, z 245** on Damargania land (`V`). The terrain survey can move the anchor within 48 blocks. [Placement manifest](../builds/heaven_tower.toml) · [Canon region coordinates](../../pack/config/ttl/canon_regions.json)
+The blueprint spans 81 × 60 × 91 blocks (x, y, z). Its anchor is the walking cell (40, 4, 83), looking north from the road. The current fan-map pixel (414, 1186) converts to **x −7507, z 245** on Damargania land (`V`). The terrain survey can move the anchor within 48 blocks. On the south approach, windblown sand covers first the road borders and then the paving beyond the arrival stone. At the perimeter, sandstone underlies low tongues of sand. The paving disappears before the southern edge, where an eleven-block-wide sand bed remains level with the arrival stone. The placer clears high ground across the surveyed box and uses a sixteen-block margin to cut or fill the approach toward the surrounding desert at one block per block. [Placement manifest](../builds/heaven_tower.toml) · [Canon region coordinates](../../pack/config/ttl/canon_regions.json)
 
 ## Build references
 

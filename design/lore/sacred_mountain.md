@@ -14,6 +14,8 @@ The pack locates the Sacred Mountain northwest of Lune and places the Inner Sanc
 
 The 81 × 57 × 81 block volume (x, y, z) holds a single ascent and its rock face. Starting at blueprint (40, 4, 76), visitors walk north through two lantern-lined flights. The ledges narrow behind the gate and separate into weathered rock shoulders. The exterior door is a solid seal for this landmark. Visitors can stand at the threshold; Hinata opens the cathedral door in the web novel. The rose courts, glass medallion, paired pinnacles and stair layout are our interpretation. Quartz, calcite and gold connect the sanctuary visually to [the cathedral at Lune](lubelius.md).
 
+At the southern boundary the steps reach a level apron. Marble gives way to broken paving, gravel and a narrow earth path at the surveyed walking height. Long grassy spurs flank the stair; the rock rises behind them and thins to an earth lip along the perimeter. The placer fills underneath this lip from the existing ground and permits a one-block rise or fall per block of distance in the 16-block margin. The survey range, footprint and margin together occupy 196 map cells, all land in Lubelius. [Terrain fitting code](../../pack/kubejs/server_scripts/ttl/life/builds.js)
+
 Three 27-block-deep structure slabs join along z. Ground survey can move the approach up to 48 blocks along each horizontal axis. The offline builder checks all spawnable surfaces for block light and checks the support of plants and lanterns. The actual terrain fit, visibility from the path and integrity of the seal after server placement need an in-game visit.
 
 ## Build references and reuse

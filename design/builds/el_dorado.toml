@@ -5,6 +5,7 @@ z = 3240
 anchor = [40, 4, 74]
 ground = "survey"
 search = 48
+margin = 16
 dimension = "minecraft:overworld"
 version = 1
 clear_above = true

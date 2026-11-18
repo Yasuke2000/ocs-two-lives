@@ -9,7 +9,7 @@ the project's political fan map and Minecraft Middle-earth's Minas Tirith).
 from math import hypot
 
 from _citylib import M, Mat, Site
-from _dwargon_lib import noise2
+from _dwargon_lib import noise2, rnd
 
 SIZE = (81, 57, 81)
 PARTS = [0, 27, 54]
@@ -24,35 +24,48 @@ def terrace(z):
 
 def mountain(s):
     # Overlapping rock shoulders taper to individual outcrops on all four edges.
-    summits = [(21, 15, 39, 1.6, 1.85), (47, 15, 49, 1.7, 2),
+    summits = [(21, 18, 39, 1.6, 1.85), (47, 19, 49, 1.7, 2),
                (61, 24, 37, 1.75, 1.55), (15, 39, 23, 1.65, 1.4)]
+    heights = {}
     for x in range(SIZE[0]):
         for z in range(SIZE[2]):
+            noise = noise2(x, z, 5, 271) - 0.5
             relief = max(h - hypot((x - px) * kx, (z - pz) * kz)
                          for px, pz, h, kx, kz in summits)
-            noise = noise2(x, z, 5, 271) - 0.5
-            rise = max(0, int(relief + 5 * noise))
-            rise = min(rise, min(x, z, 80 - x, 80 - z) * 3)
-            # Trim away the rock in front of the entrance and beside the flights.
+            # Long grassy toes run down either side of the stairs. The envelope
+            # flattens the last few blocks where the placer's 1:1 skirt begins.
+            toes = max(6 - hypot((x-17)*0.32, (z-57)*0.32),
+                       8 - hypot((x-65)*0.35, (z-55)*0.34))
+            rise = max(0, relief + 5 * noise, toes + noise)
+            edge = min(x, z, SIZE[0]-1-x, SIZE[2]-1-z)
+            taper = min(1.0, edge / (18 + 7 * noise))
+            rise = int(rise * taper * taper * (3 - 2*taper))
             if z >= 25:
                 rise = min(rise, terrace(z) - G + max(0, abs(x-C) - 16))
-                # The processional road sits in its hillside. Feather earth away
-                # from the retaining walls to leave only their upper courses visible.
                 shoulder = terrace(z) - G - 3 - max(0, abs(x-C) - 13)
                 rise = max(rise, shoulder)
-            for y in range(G + 1, G + rise + 1):
+
+            surface = heights[x, z] = G + rise
+            # A thin earth lip meets the live terrain. The placer supplies any
+            # missing subsoil below the lowest saved block in each column.
+            dirt_skin = rise <= 7 or (rise < 24 and noise > -0.2)
+            bottom = G - min(G, edge)
+            for y in range(bottom, surface + 1):
                 band = (y + int(0.12 * x + 3 * noise)) % 12
                 mat = "calcite" if band == 0 else "diorite" if band <= 3 else "andesite" if band < 7 else "stone"
-                if y == G + rise and rise < 24 and noise > -0.2:
-                    mat = "grass_block"
+                if dirt_skin and y >= surface - 2:
+                    mat = "grass_block" if surface == y else "dirt"
                 s.put(x, y, z, mat)
             if x % 7 == 3 and z % 7 == 3:
-                s.put(x, G+rise, z, "glowstone")
-                s.put(x, G+rise+1, z, "moss_carpet")
+                s.put(x, surface, z, "glowstone")
+                s.put(x, surface+1, z, "moss_carpet")
+            elif dirt_skin and abs(x-C) > 17 and rnd(x, surface, z, 74) < 0.12:
+                s.put(x, surface+1, z, "fern" if noise > 0.15 else "short_grass")
+    return heights
 
 
 def approach(s):
-    for z in range(25, 81):
+    for z in range(25, 74):
         y = terrace(z)
         steps = z in range(63, 70) or z in range(44, 52)
         width = 10 if steps else 15 if z < 63 else 9
@@ -70,16 +83,37 @@ def approach(s):
                 s.put(x, y, z, "chiseled_quartz_block")
             else:
                 s.put(x, y, z, "calcite" if (x//3 + z//3) % 2 else "smooth_quartz")
+    # Worn stones give way to gravel, then a three-block earth track. The
+    # final cross-section lies at the surveyed ground level on the southern edge.
+    for z in range(74, SIZE[2]):
+        width = max(1, 9 - (z-73)*1.2)
+        mid = C + (1 if z >= 76 else 0)
+        for x in range(mid-8, mid+9):
+            dx = abs(x-mid)
+            grain = rnd(x, G, z, 143)
+            if dx > width and (dx > width+1 or grain > 0.35):
+                continue
+            if (z == 74 and dx <= 2) or (z < 78 and grain > (z-72)/6):
+                mat = "andesite" if grain < 0.65 else "calcite"
+            elif grain < 0.25 and z < 80:
+                mat = "gravel"
+            else:
+                mat = "coarse_dirt" if grain < 0.62 else "dirt_path"
+            if s.get(x, G+1, z) == M("moss_carpet"):
+                s.bp.blocks.pop((x, G+1, z))
+            s.put(x, G, z, mat)
     # The two landings have rose parterres inside low marble rims.
     for z in (39, 57):
         y = terrace(z)
+        for x in (C-4, C+4):
+            s.put(x, y, z, "sea_lantern")
         for x in (C-12, C+12):
             s.fill(x-2, y+1, z-3, x+2, y+1, z+3, "smooth_quartz")
             s.fill(x-1, y+1, z-2, x+1, y+1, z+2, "grass_block")
             for dz in (-2, 0, 2):
                 s.put(x, y+2, z+dz, "rose_bush[half=lower]")
                 s.put(x, y+3, z+dz, "rose_bush[half=upper]")
-    for z in (33, 42, 53, 61, 71, 78):
+    for z in (33, 42, 53, 61, 71):
         y = terrace(z)
         for x in (C-8, C+8):
             s.put(x, y+1, z, "chiseled_quartz_block")
@@ -132,11 +166,10 @@ def gate(s):
 
 def build(bp):
     s = Site(bp, G)
-    s.ground(lambda x, z: M("grass_block"), under="stone")
-    mountain(s)
+    heights = mountain(s)
     for x, z, height in ((8, 64, 8), (17, 72, 6), (22, 60, 7), (63, 69, 8),
                          (71, 58, 9), (72, 73, 6)):
-        s.tree(x, z, h=height, leaf="spruce_leaves", log="spruce_log", r=3)
+        Site(bp, heights[x, z]).tree(x, z, h=height, leaf="spruce_leaves", log="spruce_log", r=3)
     approach(s)
     gate(s)
     s.light(lambda x, z: True, "sacred_mountain")

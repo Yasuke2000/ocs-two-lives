@@ -6,7 +6,8 @@ steps. The light novel's white central castle and six-pointed city plan inform t
 paving motif. The amber lantern roof, galleries and reflecting canals are our interpretation.
 Materials: quartz, sandstone, polished blackstone, gold, waxed copper, coloured glass and wool.
 """
-from _lords_lib import M, clear, fill, fill_air, light_pass, rect_ring, stair
+from _dwargon_lib import AIR, noise2, rnd
+from _lords_lib import M, clear, fill, light_pass, rect_ring, stair
 from _sites_lib import line
 from _town_lib import lantern_floor
 
@@ -124,6 +125,7 @@ def gallery(bp, x0):
 def gardens(bp):
     # Paired reflecting pools, each with a transverse bridge connecting an arcade.
     for x0 in (18, 48):
+        fill(bp, x0+1, G-1, 48, x0+13, G-1, 70, ASHLAR)
         rect_ring(bp, x0, 47, x0+14, 71, G, DARK)
         fill(bp, x0+1, G, 48, x0+13, G, 70, M("water[level=0]"))
         for z in range(51, 70, 6):
@@ -145,19 +147,64 @@ def gardens(bp):
                             bp.set(x+i, y, z+j, M("jungle_leaves[persistent=true]"))
 
 
-def build(bp):
-    fill_air(bp, G+1)
-    fill(bp, 0, 0, 0, 80, G-1, 82, M("sandstone"))
-    for x in range(81):
-        for z in range(83):
-            floor = M("grass_block")
-            if 6 <= x <= 74 and 28 <= z <= 72 or abs(x-CX) <= 5 and z >= 41:
+def precinct_distance(x, z):
+    """Horizontal distance outside the hall, paved court, planters and gate plinths."""
+    court = max(6 - x, x - 74, 28 - z, z - 72)
+    hall_edge = octagon(x - CX, z - CZ) - 20
+    trees = max(min(abs(x - 7), abs(x - 73)) - 2, min(abs(z - k) for k in (13, 22, 73)) - 2)
+    plinths = max(min(abs(x - 30), abs(x - 50)), abs(z - 75)) - 2
+    return min(court, hall_edge, trees, plinths)
+
+
+def grounds(bp):
+    """One surveyed surface under the architecture; broken turf shoulders and a worn approach."""
+    lit = set()
+    for x in range(SIZE[0]):
+        for z in range(SIZE[2]):
+            grain = rnd(x, 0, z, 74)
+            distance = precinct_distance(x, z)
+            wear = max(0, z - 74)
+            track_centre = CX + min(max(0, wear - 2), max(0, 8 - wear)) // 2
+            track_edge = abs(x - track_centre) - max(1, 5 - wear * 0.48)
+            on_track = z >= 73 and track_edge <= 0
+            if z >= 73:
+                distance = min(distance, track_edge)
+            verge = 1.5 + 4 * noise2(x, z, 5, 14)
+            if distance > verge:
+                continue
+            # The first column outside the box may be G-1 or G+1 after terrain fitting.
+            # Keep the walking lane at G and let the verge descend on either side.
+            y = G - int(distance > 1.5)
+            if distance > 3.5:
+                y -= 1
+            earth = noise2(x, z, 4, 28)
+            floor = M("coarse_dirt" if earth > 0.64 else "grass_block")
+            court = 6 <= x <= 74 and 28 <= z <= 72
+            if court:
                 floor = DARK if x in (34, 46) else STONE
+            if on_track:
+                if wear < 2 or grain > (wear - 1) / 8 + max(0, track_edge + 1) * 0.3:
+                    floor = STONE
+                else:
+                    floor = M("dirt_path" if track_edge < -0.5 and z < SIZE[2]-1 else "coarse_dirt")
             if z in (45, 73) and abs(x-CX) < 6:
                 floor = GOLD
-            if x % 12 == 4 and z % 12 == 4:
+            if z < 73 and distance <= 0 and x % 12 == 4 and z % 12 == 4:
                 floor = LAMP
-            bp.set(x, G, z, floor)
+            bp.set(x, y, z, floor)
+            # Leave unclaimed columns out of the NBT, including air. The placer can supply
+            # local filler immediately beneath this surface according to its terrain survey.
+            for yy in range(y+1, SIZE[1]):
+                bp.blocks[x, yy, z] = AIR
+            if distance <= 0:
+                lit.add((x, z))
+            elif floor == M("grass_block") and grain < 0.17:
+                bp.set(x, y+1, z, M("short_grass"))
+    return lit
+
+
+def build(bp):
+    lit = grounds(bp)
     # A small paving inlay recalls the city's six points within the single palace precinct.
     for tip in (-1, 1):
         triangle = [(CX, 59 + 6*tip), (CX-5, 59 - 3*tip), (CX+5, 59 - 3*tip)]
@@ -176,4 +223,7 @@ def build(bp):
         fill(bp, x, 12, 75, x, 14, 75, GOLD)
         bp.set(x, 15, 75, LAMP)
         bp.set(x, 16, 75, M("end_rod[facing=up]"))
-    light_pass(bp, lambda x, y, z: True, G+1, lambda x, y, z: lantern_floor(), label="el_dorado")
+    # Low lights in the inner plinth corners leave the whole incoming road unobstructed.
+    for x in (32, 48):
+        bp.set(x, G+1, 77, LAMP)
+    light_pass(bp, lambda x, y, z: (x, z) in lit, 1, lambda x, y, z: lantern_floor(), label="el_dorado")

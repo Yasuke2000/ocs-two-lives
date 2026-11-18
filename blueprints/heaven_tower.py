@@ -7,8 +7,8 @@ light novel vol. 18 ch. 2 and vol. 19 interlude/ch. 2. See design/lore/heaven_to
 for publisher sources. Our interpretation uses cut sandstone, rust-orange terracotta,
 polished deepslate and ochre lamps. A paved boundary marks the refuge in the sand.
 """
-from _dwargon_lib import AIR, rnd
-from _lords_lib import M, fill, fill_air, light_pass
+from _dwargon_lib import AIR, noise2, rnd
+from _lords_lib import M, fill, light_pass
 from _town_lib import lantern_floor
 
 SIZE = (81, 60, 91)
@@ -32,12 +32,28 @@ def terrain(bp):
         for z in range(SIZE[2]):
             dx, dz = x - CX, z - CZ
             grain = rnd(x, 0, z, 9)
-            # Streaks of red hardpan crossing the plain like exposed beds.
-            seam = (2 * x + z + int(4 * rnd(x // 6, 0, z // 6, 12))) % 30
+            drift = noise2(x, z, 6, 35)
+            # Overlapping sand tongues around the court and the two pairs of gate
+            # stones. Omitted columns contain neither solid blocks nor explicit air.
+            court_edge = max(abs(dx), abs(dz), (abs(dx) + abs(dz)) / 1.5) - 31
+            # The dressed paving ends early, but its sand bed meets the outside
+            # 1:1 skirt at the anchor grade along eleven columns of the south edge.
+            apron_width = max(5, 15 - max(0, z - 79))
+            road_edge = max(abs(dx) - apron_width, 63 - z)
+            edge = min(court_edge, road_edge)
+            if edge > 1 + 4 * drift:
+                continue
+            top = G - 1 if edge > 1 + drift else G
+            seam = (2 * x + z + int(7 * drift)) % 30
             surface = M("red_sand") if seam < 3 else M("sand")
             if seam in (3, 4) and grain > 0.55:
                 surface = M("terracotta")
-            road = abs(dx) <= 6 and dz >= 0
+            # Wind gradually buries first the border stones, then the road itself.
+            # One central paving block at the anchor always survives.
+            road_width = max(0, 6 - max(0, z - 76) // 2)
+            intact = z <= 76 or (z <= 83 and abs(dx) <= 1)
+            road = dz >= 0 and abs(dx) <= road_width and (
+                intact or grain > min(1, (z - 76) / 12 + abs(dx) / 16))
             # The Holy Void shelters the ground near the tower. Let the red seams
             # stop at an octagonal curb, visible from each of the upper galleries.
             if octagon(dx, dz, 31):
@@ -52,8 +68,15 @@ def terrain(bp):
                 surface = RED
             if road and abs(dx) == 5 and z % 8 == 0:
                 surface = LAMP
-            fill(bp, x, 0, z, x, G - 1, z, CUT)
-            bp.set(x, G, z, surface)
+            bp.set(x, 0, z, M("sandstone"))
+            for y in range(1, top):
+                bp.set(x, y, z, CUT if court_edge <= 0 else M("sandstone"))
+            bp.set(x, top, z, surface)
+            # Explicit air keeps interiors and covered passages open. The placer
+            # clears above the footprint and trims surrounding hills to the skirt.
+            if edge <= 0:
+                for y in range(top + 1, SIZE[1]):
+                    bp.blocks[x, y, z] = AIR
 
 
 def shell(bp, radius, low, high):
@@ -121,7 +144,6 @@ def processional_gate(bp):
 
 
 def build(bp):
-    fill_air(bp)
     terrain(bp)
     # Four diminishing drums share one atrium and three walkable ledges.
     for radius, low, high in ((18, 4, 18), (14, 20, 32), (11, 34, 43), (8, 45, 47)):

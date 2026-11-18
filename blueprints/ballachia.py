@@ -5,10 +5,12 @@ Three ribbed blue domes, an arched porch and a tracery window rise over a south-
 The form and illuminated windows follow the episode 65 Ballachia establishing shot. A broken chain in the yard paving connects the hall, lodging house and cart shed.
 Materials include blue terracotta, deepslate, brick, spruce, dark oak, calcite,
 stone bricks, warm lantern glass and iron. Manga chapter 108 gives the rescue and escort.
+The three road ends narrow to cart ruts between low meadow banks.
 The use of this facade for the yard is our interpretation (design/lore/ballachia.md).
 """
 from math import isqrt
 
+from _dwargon_lib import noise2, rnd
 from _lords_lib import disc_cells, light_pass
 from _town_lib import M, Town, lantern_floor, lantern_hung, log, slab, stair
 
@@ -162,6 +164,58 @@ def coach_shed(t):
         t.fill(x, F + 4, 48, x, F + 4, 50, log("spruce_log", "z") if hoop else M("white_wool"))
 
 
+def approach_tracks(t):
+    # The paved streets lose their kerbs, then separate into two wheel ruts.
+    # Distance is measured back from each exit so the west and east roads meet
+    # the same three-wide clear band without clipping the paved junction.
+    for side, length in (("west", 9), ("east", 7), ("south", 16)):
+        for distance in range(length):
+            for offset in range(-4, 5):
+                if side == "south":
+                    x, z = 38 + offset, SIZE[2] - 1 - distance
+                else:
+                    x = distance if side == "west" else SIZE[0] - 1 - distance
+                    z = 39 + offset
+                if abs(offset) > 1 + 3 * distance / length:
+                    state = "grass_block"
+                elif abs(offset) == 1:
+                    state = "gravel" if rnd(x, G, z, 1) < distance / length else "coarse_dirt"
+                elif offset == 0 and distance < length / 2:
+                    state = "grass_block" if rnd(x, G, z, 2) < 0.7 else "coarse_dirt"
+                else:
+                    state = "gravel" if rnd(x, G, z, 3) < 0.55 else "coarse_dirt"
+                t.put(x, G, z, M(state))
+
+
+def field_edges(t):
+    # Banks rise on the inside of grassy margins and return to the survey datum
+    # at the rim. Only unsurfaced columns can change, so the cart roads stay level.
+    banks = ((4, 23, 5, 11), (39, 3, 17, 4), (68, 6, 7, 5),
+             (27, 60, 9, 5), (48, 49, 5, 8), (70, 56, 5, 8))
+    for x in range(SIZE[0]):
+        for z in range(SIZE[2]):
+            if (x <= 9 or x >= 69) and 35 <= z <= 43:
+                continue
+            if 33 <= x <= 43 and z >= 48:
+                continue
+            if t.get(x, G, z) != M("grass_block") or (x, z) in t.used:
+                continue
+            bank = max(1 - ((x - cx) / rx)**2 - ((z - cz) / rz)**2
+                       for cx, cz, rx, rz in banks)
+            relief = int(max(0, bank * 2.4 + noise2(x, z, 4, 19) * 0.5))
+            relief = min(relief, x, z, SIZE[0] - 1 - x, SIZE[2] - 1 - z)
+            if relief:
+                t.fill(x, G, z, x, G + relief - 1, z, M("dirt"))
+                t.put(x, G + relief, z, M("grass_block"))
+            meadow = noise2(x, z, 7, 57)
+            draw = rnd(x, G, z, 31)
+            if meadow > 0.38 and draw < 0.19:
+                plant = "short_grass"
+                if meadow > 0.65 and draw < 0.035:
+                    plant = "oxeye_daisy" if meadow > 0.74 else "cornflower"
+                t.put(x, F + relief, z, M(plant))
+
+
 def build(bp):
     t = Town(bp, G)
     t.base_ground()
@@ -199,8 +253,13 @@ def build(bp):
             t.put(x0 + dx, F, z0, M("oak_leaves[persistent=true]"))
             if dx % 3 != 1:
                 t.put(x0 + dx, F, z0 + 1, M("poppy" if dx % 2 else "oxeye_daisy"))
+    approach_tracks(t)
+    field_edges(t)
     # Controlled pools of light along the street keep the pavement motif clear.
     for x in (11, 27, 44, 60):
         t.lamp(x, 30, h=2)
+    # Carters need clear wheel tracks even at night. Keep their lights on the shoulders.
+    for x, z in ((3, 42), (42, 43), (72, 42)):
+        t.lamp(x, z, h=2)
     light_pass(bp, lambda x, y, z: True, F, lambda x, y, z: lantern_floor(), label="ballachia")
     t.check_support()
