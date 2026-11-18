@@ -486,6 +486,7 @@ const TtlEvents = {
 
   // Server (re)started with events still active: re-assert their rules in start order, then the events' own hooks.
   boot(server) {
+    this.expire(server, Date.now())
     var self = this
     var active = this.read(server, 'ttl.events.active', {})
     var ids = Object.keys(active).sort((a, b) => active[a].s - active[b].s)

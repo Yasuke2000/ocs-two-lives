@@ -7,7 +7,7 @@ gamemode creative TtlBotEventPack
 ttl events setup TtlBotEventPack 100 6
 execute in minecraft:overworld run tp TtlBotEventPack 0 160 0
 ttl events expect registered magicule_storm true
-ttl events expect rule epGainMultiplier 1
+ttl events expect rule epGainMultiplier capture
 ttl events fire magicule_storm
 ttl events expect rule epGainMultiplier 2
 ttl events expect active magicule_storm
@@ -15,7 +15,7 @@ ttl events expect storm TtlBotEventPack true
 execute in ttl:mortal_realm run tp TtlBotEventPack 0 160 0
 ttl events expect storm TtlBotEventPack false
 ttl events end magicule_storm
-ttl events expect rule epGainMultiplier 1
+ttl events expect rule epGainMultiplier captured
 execute in minecraft:overworld run tp TtlBotEventPack 0 160 0
 ttl events expect storm TtlBotEventPack false
 # Exercise two real player-attributed kills in one night and an uncredited kill after the end.

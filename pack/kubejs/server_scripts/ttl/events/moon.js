@@ -10,24 +10,37 @@ const TtlMoon = {
   forecast(server) {
     var ec = Java.loadClass('dev.corgitaco.enhancedcelestials2core.EnhancedCelestials')
     var forecast = ec.lunarForecastWorldData(server.getLevel('minecraft:overworld'))
-    if (!forecast.isPresent() || !forecast.get().isEventActive()) return ''
-    var key = forecast.get().currentLunarEventHolder().unwrapKey()
-    return key.isPresent() ? String(key.get().location()) : ''
+    if (!forecast.isPresent()) return null
+    var data = forecast.get()
+    var scheduled = data.currentScheduledLunarEvent()
+    if (!scheduled) return null
+    var key = scheduled.unwrapKey()
+    return { id: key.isPresent() ? String(key.get().location()) : '', visible: data.isEventActive() }
   },
 
   poll(server, ctx) {
     var def = TtlEvents.get('blood_moon')
     var lunar = this.forecast(server)
-    var activeNight = def.lunar_events.indexOf(lunar) >= 0
+    var scheduled = lunar && def.lunar_events.indexOf(lunar.id) >= 0
     // Record a successful start for the whole lunar night, even across reloads or an early ops end.
     var night = this.night(server)
     var data = server.persistentData
     if (ctx) {
-      if (ctx.data.nativeMoon && !activeNight) TtlEvents.end(server, def.id, 'expired')
-    } else if (activeNight && data.getString('ttl.events.bloodNight') !== night &&
+      if (ctx.data.nativeMoon && !scheduled) TtlEvents.end(server, def.id, 'expired')
+    } else if (scheduled && lunar.visible && data.getString('ttl.events.bloodNight') !== night &&
                !TtlEvents.blocked(server, def, Date.now())) {
       TtlEvents.fire(server, def.id, { scheduled: true, vars: { nativeMoon: true } })
     }
+  },
+
+  countsKills(server) {
+    var entry = TtlEvents.read(server, 'ttl.events.active', {}).blood_moon
+    if (!entry || entry.e <= Date.now()) return false
+    if (!entry.d.nativeMoon) return true
+    // Rain masks a native moon. Keep its night stamp and resume credit as soon
+    // as EC2 shows the same moon again, without another start or announcement.
+    var lunar = this.forecast(server)
+    return !!lunar && lunar.visible && TtlEvents.get('blood_moon').lunar_events.indexOf(lunar.id) >= 0
   }
 }
 
@@ -45,7 +58,7 @@ TtlEvents.register({
 PlayerEvents.advancement('ttl:events/blood_moon_kill', event => {
   var p = event.player
   if (TtlLife.phase(p) !== 'life1' || TtlLife.dimensionOf(p) !== TtlLife.MORTAL) return
-  if (TtlEvents.isActive(p.server, 'blood_moon')) {
+  if (TtlMoon.countsKills(p.server)) {
     TtlCmd.run(p.server, `scoreboard players add ${p.username} ttl.s.blood_moon_kills 1`)
   }
 })

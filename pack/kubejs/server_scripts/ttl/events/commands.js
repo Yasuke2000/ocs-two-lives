@@ -15,7 +15,7 @@
 //          /ttl events clear <player>   test hook: forget a player's Favor offer, cooldown and play week
 //          /ttl events expect <field> ...   test assertion, prints "ttl: ..." when it does not hold
 //            active <id|none> · count <n> (active events) · scheduled <id> <true|false> · registered <id> <true|false>
-//            rule <gamerule> <value> (0/1 for booleans) · winner <player> (latest Favor pick)
+//            rule <gamerule> <value|capture|captured> (0/1 for booleans) · winner <player> (latest Favor pick)
 //            offer|cooldown|unique|muted <player> <true|false>
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
@@ -171,7 +171,9 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var capturedRules = Object.create(null)
   var expect = ctx => {
+    ops(ctx)
     var server = ctx.source.getServer()
     var field = arg(ctx, 'field')
     var a = arg(ctx, 'a')
@@ -190,7 +192,19 @@ ServerEvents.commandRegistry(event => {
     if (field === 'scheduled') return truth(ctx, `${a} scheduled`, TtlEvents.scheduled(server, a), bool(b))
     if (field === 'registered') return truth(ctx, `${a} registered`, TtlEvents.registered(a), bool(b))
     if (field === 'rule') {
+      if (!TtlEvents.RULE.test(a)) throw 'invalid gamerule name'
       var r = TtlCmd.run(server, `gamerule ${a}`)
+      if (b === 'capture') {
+        capturedRules[a] = String(r)
+        say(ctx, `events: captured gamerule ${a} = ${r}`)
+        return 1
+      }
+      if (b === 'captured') {
+        if (capturedRules[a] === undefined) throw `no baseline captured for gamerule ${a}`
+        var baseline = capturedRules[a]
+        delete capturedRules[a]
+        return truth(ctx, `restored gamerule ${a}`, String(r), baseline)
+      }
       var want = b === 'true' ? '1' : b === 'false' ? '0' : b
       return truth(ctx, `gamerule ${a}`, String(r), want)
     }
