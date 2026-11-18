@@ -56,6 +56,143 @@ const TtlData = {
       "role_sync_minutes": 5
     }
   },
+  "events": {
+    "director": {
+      "loop_ticks": 1200,
+      "max_active": 3,
+      "max_per_day": 3,
+      "min_gap_minutes": 30,
+      "poll_ticks": 100,
+      "retry_minutes": 10,
+      "story": true,
+      "window_hours": 6
+    },
+    "event": [
+      {
+        "action": {
+          "favor": true
+        },
+        "announce": {
+          "chat": "The world has turned its gaze upon {player}. A blessing awaits them.",
+          "color": "gold",
+          "sound": "minecraft:ui.toast.challenge_complete",
+          "story": "The world has turned its gaze upon {player}: a blessing of the World's Favor awaits.",
+          "subtitle": "The world has turned its gaze upon {player}",
+          "title": "World's Favor"
+        },
+        "at_hour": 19,
+        "capped": false,
+        "duration_minutes": 0,
+        "every": {
+          "days": 7
+        },
+        "id": "favor",
+        "label": "World's Favor",
+        "scope": "player",
+        "window_hours": 24
+      },
+      {
+        "action": {
+          "gamerule": {
+            "spectatorsGenerateChunks": false
+          },
+          "restore": {
+            "spectatorsGenerateChunks": true
+          }
+        },
+        "announce": {
+          "chat": "A quiet omen passes over the world (director test event).",
+          "color": "gray",
+          "end_chat": "The omen fades.",
+          "sound": "minecraft:block.bell.use",
+          "story": "",
+          "subtitle": "Test event",
+          "title": "A quiet omen"
+        },
+        "capped": false,
+        "duration_minutes": 2,
+        "id": "omen",
+        "label": "Test omen",
+        "scope": "world"
+      }
+    ],
+    "favor": {
+      "bottom_pct": 25,
+      "choice": {
+        "common_unique": {
+          "icon": "minecraft:enchanted_book",
+          "label": "A Gift of Skill",
+          "lore": "The world grants you a Common unique skill."
+        },
+        "ep_surge": {
+          "gain_min": 100,
+          "gain_pct": 20,
+          "icon": "minecraft:experience_bottle",
+          "label": "Surge of Existence",
+          "lore": "Your existence swells. A burst of EP, in proportion to what you already have."
+        },
+        "protection": {
+          "effects": [
+            {
+              "amplifier": 1,
+              "id": "minecraft:resistance",
+              "seconds": 7200
+            },
+            {
+              "amplifier": 2,
+              "id": "minecraft:absorption",
+              "seconds": 7200
+            }
+          ],
+          "icon": "minecraft:shield",
+          "label": "The World's Protection",
+          "lore": "Two hours of Resistance II and Absorption. Cleared if you die."
+        },
+        "relic": {
+          "icon": "minecraft:chest",
+          "items": [
+            {
+              "count": 1,
+              "id": "tensura:full_potion"
+            },
+            {
+              "count": 4,
+              "id": "tensura:high_quality_magic_crystal"
+            }
+          ],
+          "label": "A Relic of the Age",
+          "lore": "A cache of rare Tensura goods: a Full Potion and high-quality magic crystals."
+        },
+        "resistance": {
+          "icon": "minecraft:iron_chestplate",
+          "label": "Mantle of Resistance",
+          "lore": "The world teaches your body to endure: one random resistance.",
+          "skills": [
+            "tensura:physical_attack_resistance",
+            "tensura:pierce_resistance",
+            "tensura:flame_attack_resistance",
+            "tensura:cold_resistance",
+            "tensura:electricity_resistance",
+            "tensura:poison_resistance",
+            "tensura:paralysis_resistance",
+            "tensura:magic_resistance"
+          ]
+        }
+      },
+      "choices": [
+        "ep_surge",
+        "common_unique",
+        "resistance",
+        "protection",
+        "relic"
+      ],
+      "cooldown_days": 30,
+      "min_hours": 5,
+      "offer_count": 3,
+      "offer_hours": 48,
+      "require_discord": true
+    }
+  },
   "guide": {
     "corridor": [
       {

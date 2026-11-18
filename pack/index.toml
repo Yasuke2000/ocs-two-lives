@@ -1369,8 +1369,20 @@ file = "kubejs/server_scripts/ttl/discord/roles.js"
 hash = "b7041324b5ef261db171a75b0d949daa71508a0c0cfb9c776fafe590337a3510"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/events/commands.js"
+hash = "fb388f85c13182f3e3ae1f2697a963f95925a18b6fb15e76e85176a8860d7f73"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/events/director.js"
+hash = "f23343b127620b5466d93522ef027aa3436b8204f4d2b70672f44350c6d6fe64"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/events/favor.js"
+hash = "fe296d21277faa9b88eee89fd88bf088e84a8ee0fe6e287377ad60e2569d6c7c"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "63103c5386811bdbb2d817b9e3033c93888d93c910419fa38d6907ee19779e19"
+hash = "cfadc8db3e0436d11a1df7e36b8ace517bfca3a653c9c8674f0ab954d11f710b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
