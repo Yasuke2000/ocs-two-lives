@@ -280,6 +280,8 @@ ServerEvents.commandRegistry(event => {
   var give = ctx => {
     var p = target(ctx)
     if (TtlSoul.gemCount(p) > 0) {
+      // A body that holds a gem has had one issued (`clear` forgets the flag but leaves the gem).
+      p.persistentData.putBoolean(TtlSoul.FLAG, true)
       say(ctx, `soul ${p.username}: already holds a Soul Gem`)
       return 1
     }

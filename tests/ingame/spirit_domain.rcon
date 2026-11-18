@@ -13,6 +13,11 @@ ttl spiritdomain walk TtlBotSpiritL1 gate
 ttl spiritdomain expect TtlBotSpiritL1 out
 ttlbot spawn TtlBotSpirit
 @sleep 2
+# A fresh bot is in Life 1: the reset makes a leftover bot fresh too, the kill sends it to the Corridor.
+ttl reset TtlBotSpirit
+@sleep 3
+kill TtlBotSpirit
+@sleep 2
 execute as TtlBotSpirit run ttl wish knowledge
 execute as TtlBotSpirit run ttl choose slime
 @sleep 3
@@ -31,3 +36,7 @@ ttl spiritdomain expect TtlBotSpirit in
 ttl spiritdomain walk TtlBotSpirit back
 @sleep 5
 ttl spiritdomain expect TtlBotSpirit out
+ttl reset TtlBotSpiritL1
+ttl reset TtlBotSpirit
+ttlbot remove TtlBotSpiritL1
+ttlbot remove TtlBotSpirit

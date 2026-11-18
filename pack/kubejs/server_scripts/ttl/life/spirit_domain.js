@@ -88,7 +88,8 @@ const TtlSpiritDomain = {
   },
 
   check(server, player) {
-    if (player.isSpectator()) return
+    // A dead body stays where it fell until it respawns: don't send it through the gate every cooldown.
+    if (player.isSpectator() || !player.isAlive()) return
     var id = TtlLife.uuid(player)
     if (this.cool[id] && Date.now() - this.cool[id] < this.COOLDOWN_MS) return
     var dim = TtlLife.dimensionOf(player)
