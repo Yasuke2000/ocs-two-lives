@@ -476,20 +476,37 @@ const TtlBuilds = {
     // are judged against the old terrain and the trees not cleared yet, and some pop; the second pass, after the
     // terrain fit, sets them again on finished ground. It only rewrites the positions the structure defines, which
     // the terrain fit never touches (it works below a column's lowest and above its highest block).
-    placeSlabs(placed => {
-      if (!placed) {
-        done(false)
+    // `dry` builds (a gallery cut below the water table): `place template` keeps the water of the old terrain, so every
+    // stair, slab or wall set on a flooded cell comes out waterlogged and keeps feeding a puddle (Amrita, 11 blocks). The
+    // box is drained first. A re-placement over an old copy does not help: its waterlogged blocks still hold water.
+    var drain = []
+    if (b.dry) {
+      var rows = Math.max(1, Math.floor(30000 / (f.size[0] * f.size[1])))
+      for (var dz = 0; dz < f.size[2]; dz += rows) {
+        drain.push(`fill ${geo.x0} ${geo.base} ${geo.z0 + dz} ${geo.x0 + f.size[0] - 1} ${geo.base + f.size[1] - 1} ` +
+          `${geo.z0 + Math.min(f.size[2], dz + rows) - 1} minecraft:air replace minecraft:water`)
+      }
+    }
+    self.runBatched(server, b, drain, drained => {
+      if (!drained) {
+        finish(false)
         return
       }
-      console.info(`[ttl] build ${b.name}: ${f.slabs.length} slab(s) placed, ${cmds.length} terrain commands (${self.FILLS_PER_TICK}/tick)`)
-      self.runBatched(server, b, cmds, ok => {
-        if (!ok) {
-          finish(false)
+      placeSlabs(placed => {
+        if (!placed) {
+          done(false)
           return
         }
-        placeSlabs(again => {
-          if (again) finish(true)
-          else done(false)
+        console.info(`[ttl] build ${b.name}: ${f.slabs.length} slab(s) placed, ${cmds.length} terrain commands (${self.FILLS_PER_TICK}/tick)`)
+        self.runBatched(server, b, cmds, ok => {
+          if (!ok) {
+            finish(false)
+            return
+          }
+          placeSlabs(again => {
+            if (again) finish(true)
+            else done(false)
+          })
         })
       })
     })

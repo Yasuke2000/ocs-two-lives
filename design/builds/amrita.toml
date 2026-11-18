@@ -6,6 +6,9 @@ ground = "survey"
 search = 128
 margin = 8
 max_wet = 0.05
+# The gallery floor lies below the water table (ground - 16): the box is drained before placing, or the stairs and slabs set
+# on flooded cells come out waterlogged and keep feeding a puddle (verify_build found 11 of them, version 1).
+dry = true
 dimension = "minecraft:overworld"
 version = 1
 clear_above = true

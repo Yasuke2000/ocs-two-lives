@@ -2,7 +2,7 @@
 
 Living page for contributors: how we work, what we measure, the feel we aim for, and what is actually built.
 **Update it whenever something lands on `main`** (agents: as part of every merge). Owner: **Yasuke**.
-Last update: 18/11/2026 (evening, after merging PRs #19–#33).
+Last update: 19/11/2026 (after merging PRs #19–#34 and verifying the landmarks).
 
 ## Where we are
 
@@ -11,14 +11,14 @@ Last update: 18/11/2026 (evening, after merging PRs #19–#33).
 State waves (`design/architecture/world-state.md`), then a **playtest with ~5 real players** (Life 1 → Life 2 end to end).
 Launch only after the playtests, after the "Before launch" checklist in `docs/server.md`.
 
-## Metrics (source: `origin/main`, 18/11/2026)
+## Metrics (source: `origin/main`, 19/11/2026)
 
 | Metric | Value | How to measure |
 | --- | --- | --- |
-| In-game bot tests | 67 test files (67/67 green, ttl-ops on `bae23df`, 18/11 ~22:30) | `bash tools/server.sh test-all` |
-| Offline unit tests | 148 green | `python -m unittest discover -s tests` |
+| In-game bot tests | 70 test files (69/70 on ttl-ops `eca49d2`, 19/11: `events` flaked in the full run, green alone; 67/67 on `bae23df`) | `bash tools/server.sh test-all` |
+| Offline unit tests | 157 green | `python -m unittest discover -s tests` |
 | Validation | must say "validation passed" | `python tools/validate.py` |
-| Builds verified 1:1 in the world | 20 builds + 7 Tensura landmarks, all ≥ 99.9 % (37 build manifests; the 11 new canon landmarks, Walpurgis Hall and 6 Mortal Realm waypoints still to verify) | `python tools/verify_build.py <name> --log` |
+| Builds verified 1:1 in the world | 33 builds + 7 Tensura landmarks, all ≥ 99.9 % (38 build manifests; the 11 canon landmarks, Walpurgis Hall and the Dwarven Arena verified 19/11; 6 Mortal Realm waypoints still to verify) | `python tools/verify_build.py <name> --log` |
 | Quests | 398 in 28 chapters, one connected web | `python tools/quest_graph.py --check` |
 | Canon cast | 38 NPC spots, 28 original skins | `design/data/npcs.toml`, `/ttl cast verify all` |
 | Mods | 77 | `pack/mods/*.pw.toml` |
@@ -78,7 +78,9 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - Canon continent worldgen (mod `ttl-portals`), region titles, the Jura rings (safe rim, dark middle, deadly core).
 - Builds (all verified): Tempest, Dwargon, Sealed Cave, Spirit Gate + the Dwelling of the Spirits (own dimension),
   Treyni's shrine, Dragon's Nest, Blumund, Marris, Ballachia, Englassia, Lubelius, Sacred Mountain, Clayman's
-  Castle, City of the Forgotten Dragon, Laura, El Dorado, Frost Palace, Heaven Tower; 7 Tensura landmarks.
+  Castle, City of the Forgotten Dragon, Laura, El Dorado, Frost Palace, Heaven Tower, the 11 canon landmarks (Elmine,
+  Nasca, Jia, Amrita, Siltrosso, Ulgr Nature Park, Great Holy Mountain, Coleus, Morgdahl, Nostraille, Raja), the Walpurgis
+  Hall and the Dwarven Arena; 7 Tensura landmarks.
 - Generic build placer (`design/builds/*.toml`): surveys the canon spot, fits terrain, re-places on version bump.
 
 **Story, quests, characters**
@@ -117,8 +119,8 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - World State: W4 (PvP only in quests, arenas and wars) and waves B–D (Tempest growth phases, catch-up, raid groups,
   radiant quests, the immersive Orc Lord, usurping/vassalising canon nations).
 - Paths: Artificer constructs (WP-A2), moral choices 4.5–4.12 (WP-C2), Priest/Exorcist next.
-- Not yet verified in game: the 11 canon landmarks with `verify_build.py`, Walpurgis Hall, the Mortal Realm
-  waypoints (`test mortal_waypoints`), real-player Discord role and staff-audit behaviour.
+- Not yet verified in game: the Mortal Realm waypoints (`test mortal_waypoints`), real-player Discord role and
+  staff-audit behaviour.
 
 ## Open decisions and known issues
 

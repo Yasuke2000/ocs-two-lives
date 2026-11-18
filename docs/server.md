@@ -182,6 +182,8 @@ the box `margin` columns get a 1:1 earth skirt (grass on top) and a 1:1 cut into
 Corridor) are left alone. Put explicit air into the blueprint wherever the inside must stay open: the placer only
 fills under the lowest and clears above the highest block of a column.
 
+**Dry builds.** `place template` keeps the water of the old terrain: a stair, slab or wall set on a flooded cell comes out waterlogged and feeds a puddle for good. A build cut below the water table sets `dry = true` in its TOML (Amrita) and the placer drains the box (`fill ... air replace minecraft:water`) before the first pass. It cannot repair an old copy (its waterlogged blocks keep their water): `verify_build.py` shows them as `air -> water` inside the build; set those blocks again with `waterlogged=false` and drain the box by hand.
+
 **Log lines.** One per build when done, the format `tools/verify_build.py <name> --log` reads:
 `[ttl] <name> placed: corner X Y Z, anchor at x y z (version N, <how>, terrain done)` (`terrain FAILED` when a
 terrain command failed: not recorded, tried again). `corner` is the structure's 0,0,0 (for slabs: of the first

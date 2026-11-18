@@ -56,6 +56,13 @@ version = 1
 # the blueprint wherever the inside must stay open.
 clear_above = true
 
+# Default false: drain the water out of the box before placing (a build cut deep below the water table). `place template`
+# keeps the old terrain's water, so stairs, slabs and walls on a flooded cell come out waterlogged and feed a puddle for
+# good. Leave it false for builds that stand in or beside water (harbours, pools): their own water blocks are placed after
+# the drain anyway, but undefined cells of a lake in the box would be drained too. A re-placement over an old copy cannot
+# repair waterlogged blocks of version N-1 (they keep their water): fix those by hand.
+dry = false
+
 # Default 8, 0..16: columns round the box that get a 1:1 earth skirt below the ground layer and a 1:1 cut above it.
 margin = 8
 

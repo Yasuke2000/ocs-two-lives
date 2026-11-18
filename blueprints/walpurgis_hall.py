@@ -293,6 +293,7 @@ def arch(blocks):
                 blocks[(x, y, z)] = AIR
             blocks[(x, G, z)] = M("crying_obsidian") if x == ax else M("polished_deepslate")
     for x in (ax - 3, ax + 3):
+        blocks[(x, F + 8, z1 - 1)] = M("chain[axis=y]")
         blocks[(x, F + 7, z1 - 1)] = SOUL_H
     blocks[(ax, F + 11, az + 7)] = M("purple_stained_glass")
     blocks[(ax, F + 12, az + 7)] = SOUL

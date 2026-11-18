@@ -1,5 +1,35 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 — PR #34 merged (issues #12, #4, #5 closed); 12 builds verified in the world (Claude)
+
+**Merged**: PR #34 `fix-issues-12-4-5` (trial climb guard, reset-scroll races + life 1 race lock, Dwarven Arena) with
+`--no-ff` into main (`eca49d2`); GitHub closed #12, #4 and #5 and shows the PR merged. Conflicts: decisions.md (kept every
+row) and pack.toml (regenerated with packwiz refresh); gen_data, gen_quests, gen_npcs, build_structures --check,
+config_index all re-run, validate passed.
+**Tests**: ttl-ops on `eca49d2` = 69/70: only `events` failed (`command error`), the new tests trial_climb, race_lock and
+arena_dwarven passed; `bash tools/server.sh test events` on the same pack passes (no error line), so it is a flake of the
+full run (not reproduced, cause unknown: watch it in the next run). 70 test files, 157 offline unit tests OK.
+**Verified in the world** (`verify_build.py <name> --log --min 98`; none under 98 %): dwarven_arena 100.00, amrita 99.92 (100.00
+after the fix), coleus 99.96, elmine 100.00, great_holy_mountain 100.00, jia 100.00, morgdahl 100.00, nasca 100.00,
+nostraille 100.00, raja 100.00, siltrosso 100.00, ulgr_nature_park 100.00, walpurgis_hall 100.00 (corner given by hand:
+`walpurgis_hall ttl:walpurgis -40 49 -79`, the placer logs no corner line for it). verify_build only compares blocks, so
+floating and wet were checked separately (capture of the columns under the footprint, waterlogged blocks, water on cells
+the blueprint defines as air); the scripts were throw-away, nothing new in the repo.
+**Fixes** (decisions.md row of 19/11):
+- Dwarven Arena was NOT placed (`FAILED 1x`: all 49 candidates inside the dwarf village's keepout, the survey had moved the
+  village to 205 -695). Moved to -30 -850 (toml + lore), placed at -21 160 -883, 100.00 %.
+- Amrita was wet: 11 stairs/slabs on the gallery floor were waterlogged (`place template` keeps the old terrain's water) and fed
+  puddles. New TOML field `dry` (gen_data check, builds.js drains the box before placing, docs/server.md "Dry builds",
+  `_example.toml`); Amrita has `dry = true`, version NOT bumped (a re-placement cannot repair waterlogged blocks); staging
+  repaired by hand (waterlogged=false + drain). A world reset places it dry.
+- Nostraille floated: 149 columns of dirt hung 12 blocks over a lake (terrain fit missed them, cause not found); filled by hand
+  on staging. Not reproducible from the repo, so a world reset may bring it back: re-verify with a column check.
+- Walpurgis Hall version 2: two hanging soul lanterns without support dropped; now on a chain. ttl-ops re-places it when it
+  deploys this commit: re-run `verify_build.py walpurgis_hall ttl:walpurgis -40 49 -79`.
+**Open**: Coleus keeps 21 `air -> water` cells at the lakeside (0.03 %, left); the 6 Mortal Realm waypoints still need
+`test mortal_waypoints` / verify; `tensura:boss_area` question from the entry below; confirm that `events` stays green on the
+run of this commit. Server tip: `push-scripts` from Git Bash on Windows needs `sh -c "tar -C /data -xf -"` (path mangling).
+
 ## 18/11 night — PRs #18–#33 merged into main; ttl-ops on `bae23df`: **67/67 green** (merge-and-test run, Claude)
 
 Last step: the maker's-stamp lore line fix (`withColor` overload, artifice.js) came after the green run; `test artifice`

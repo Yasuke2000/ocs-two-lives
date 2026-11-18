@@ -2442,7 +2442,7 @@ hash = "1e4d2ebd3f307b8a18cc00865d930a195bca62d568fe0ae998756174a01a28fb"
 
 [[files]]
 file = "kubejs/data/ttl/structure/walpurgis_hall_1.nbt"
-hash = "9e5d5edbef2d4c8e576fff390137a99bc46fa0e31f8b91700a0aba2be74f2244"
+hash = "e756e4159db001b6bb3001cc13e826a3c5cd8586efe0cb3483445cdf4afe7c49"
 
 [[files]]
 file = "kubejs/data/ttl/tags/entity_type/boss.json"
@@ -2638,7 +2638,7 @@ hash = "fc83cba4436266c4f5e7efdb16e6dff287f8fd013554ed4cb5bd0c861e8fc06c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "b8a6390c797852c3bf075899e52079405d11ca33bdee4809461b018f5b03eced"
+hash = "31c209dce3658083ca479a9f4e2eb6cbd2b44d78375f135551b92d0a98d1e3c2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2694,7 +2694,7 @@ hash = "193614bf022a405a3d9405c406d0eee3cfaebc308ea0e6f6716a88838509c35c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
-hash = "68b16d2d3a1de921217561f105698fdc7a2d965864eb03fcde227d2a182f0c8d"
+hash = "8c7ec38de653472596bb53d243c56521bc0cb09d9a40be6d2640fcc1c8cee9b4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"

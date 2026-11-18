@@ -1862,7 +1862,7 @@ def check_world(world: dict, data: dict) -> None:
 
 
 BUILD_KEYS = {"name", "title", "landmark", "x", "z", "anchor", "ground", "y", "search", "dimension", "version",
-              "clear_above", "margin", "max_wet", "notes"}
+              "clear_above", "margin", "max_wet", "dry", "notes"}
 
 
 def is_int(v) -> bool:
@@ -1960,6 +1960,9 @@ def check_builds() -> tuple[list[dict], dict]:
         b["clear_above"] = b.get("clear_above", True)
         if not isinstance(b["clear_above"], bool):
             raise SystemExit(f"{where}: clear_above must be true or false")
+        b["dry"] = b.get("dry", False)
+        if not isinstance(b["dry"], bool):
+            raise SystemExit(f"{where}: dry must be true or false")
         b["margin"] = b.get("margin", 8)
         if not is_int(b["margin"]) or not 0 <= b["margin"] <= 16:
             raise SystemExit(f"{where}: margin must be an integer 0..16")

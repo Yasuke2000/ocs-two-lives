@@ -27,8 +27,8 @@ only.
 
 ## Place
 
-Beside the dwarf village on the Dwarven Road (`landmarks.toml dwarf_village`, 250 -740, reach 116), in the Dwargon region
+Beside the dwarf village on the Dwarven Road (`landmarks.toml dwarf_village`, nominal 250 -740, placed at 205 -695 by the survey, reach 116), in the Dwargon region
 (D on `canon_map.txt`) like the village. The placer keeps a 24 block gap from a landmark's reach square, so the arena
-stands at 40 -850 (survey radius 16), west-north-west of the village: outside the Dwargon capital domain (x 179..691,
+stands at -30 -850 (survey radius 16), west-north-west of the village: outside the Dwargon capital domain (x 179..691,
 z -1256..-744) and 200+ blocks from the Life 2 arrival (271 -624). As an unowned canon build it is protected from block
 edits (`factions.toml [domains] unowned_builds`), which is what an arena wants.
