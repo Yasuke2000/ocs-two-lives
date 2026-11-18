@@ -2534,6 +2534,67 @@ const TtlData = {
     ],
     "tags": []
   },
+  "nations": {
+    "diplomacy": {
+      "war_notice_hours": 24
+    },
+    "rank": [
+      {
+        "chunks": 0,
+        "id": "hamlet",
+        "title": "Hamlet",
+        "value": 0
+      },
+      {
+        "chunks": 2,
+        "id": "village",
+        "title": "Village",
+        "value": 150
+      },
+      {
+        "chunks": 4,
+        "id": "town",
+        "title": "Town",
+        "value": 400
+      },
+      {
+        "chunks": 6,
+        "id": "city",
+        "title": "City",
+        "value": 900
+      },
+      {
+        "chunks": 8,
+        "id": "kingdom",
+        "title": "Kingdom",
+        "value": 2000
+      }
+    ],
+    "rules": {
+      "base_chunks": 4,
+      "charter_cost": {
+        "gold": 50
+      },
+      "charter_stage": "ttl.boss.t1",
+      "chunks_per_member": 10,
+      "home_rep": 10,
+      "member_cap": 5,
+      "min_members": 2,
+      "name_max": 24,
+      "name_min": 3,
+      "poll_ticks": 100,
+      "value_ticks": 6000
+    },
+    "treasury": {
+      "enabled": true,
+      "upkeep": true
+    },
+    "value": {
+      "build_value": 10,
+      "chunk_value": 1,
+      "coins_per_value": 100
+    }
+  },
   "npcs": {
     "kind": [
       {
