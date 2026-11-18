@@ -303,3 +303,18 @@ Every craft has a faster way. It is never free.
 
 Both cost your soul's karma, tip the world toward darkness, anger those you wronged and cost renown if anyone sees. The honest road: buy a schematic from Dwargon (`/ttl artifice schematic buy`), and engrave with the chisel.
 """
+
+[[paths]]
+title = "Crossroads of conscience"
+body = """
+Out in the wilds of the continent, the world sometimes puts a hard choice in your path. Your second life only.
+
+- *A sick village:* heal the villagers (Hipokute Salves, healing magic, potions of healing), or a necromancer may release them.
+- *Bandit hostages:* clear the camp and cut their bonds, pay the captain, or take the camp's deal.
+- *A starving orc band:* fill their bowl with food, or cut them down. A Predator may simply eat them.
+- *A wounded monster:* heal it and give it a name, bind it by force, or kill it.
+
+Come close and the choices appear in chat. `/ttl choice` shows them again. The first soul to finish a road decides; everyone nearby who helped shares the reward and the price.
+
+Nobody comes in half an hour? The world decides for you, and it is rarely kind.
+"""

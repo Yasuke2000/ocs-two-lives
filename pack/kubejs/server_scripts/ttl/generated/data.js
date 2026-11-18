@@ -2832,6 +2832,351 @@ const TtlData = {
       ]
     }
   },
+  "choices": {
+    "balance": {
+      "dark_cap": 5
+    },
+    "choice": [
+      {
+        "count": {
+          "villagers": {
+            "base": 6,
+            "per_player": 2
+          }
+        },
+        "fair": "heal",
+        "id": "sick_village",
+        "intro": "A camp of villagers lies sick with a grey fever. They are too weak to stand.",
+        "knobs": {
+          "ash_each": 2,
+          "cure_at": 16,
+          "heal_reach": 8,
+          "salve_heal": 5,
+          "start_health": 6
+        },
+        "label": "The sick village",
+        "neutral": "Nobody came. The sick of {region} did not live to see help.",
+        "route": [
+          {
+            "costs": {
+              "balance": "light_deed",
+              "order": 1,
+              "renown": 3,
+              "rep": {
+                "blumund": 8,
+                "tempest": 4
+              }
+            },
+            "flag": "village_healed",
+            "how": "deed",
+            "id": "heal",
+            "label": "Heal them: two Hipokute Salves each (right-click), a healing spell or a splash potion of healing",
+            "result": "The fever breaks. A Blumund caravan takes the villagers home.",
+            "reward": {
+              "coins": {
+                "silver": 3
+              }
+            },
+            "road": "good"
+          },
+          {
+            "costs": {
+              "balance": "dark_deed",
+              "chaos": 6,
+              "extra": {
+                "sense": 10
+              },
+              "renown": -5,
+              "rep": {
+                "blumund": -15,
+                "holy_church": -10
+              },
+              "story": "The plague village of {region} did not recover.",
+              "times": 2
+            },
+            "how": "menu",
+            "id": "release",
+            "label": "Release them (necromancy)",
+            "need": [
+              "necro",
+              "skill:tensura:create_lesser_undead",
+              "skill:tensura:create_greater_undead"
+            ],
+            "result": "They die without pain, and their souls are yours.",
+            "road": "dark"
+          }
+        ],
+        "weight": 1.0,
+        "weight_if": {
+          "tide": {
+            "dark": 1.2,
+            "light": 1.3
+          }
+        }
+      },
+      {
+        "count": {
+          "bandits": {
+            "base": 6,
+            "per_player": 3
+          },
+          "hostages": {
+            "base": 3,
+            "per_player": 1
+          }
+        },
+        "fair": "rescue",
+        "id": "bandit_hostages",
+        "intro": "Orc bandits hold villagers bound in their camp. The captain names a price.",
+        "knobs": {
+          "ash_each": 1,
+          "captain_health": 60,
+          "homes": [
+            "blumund",
+            "falmuth"
+          ],
+          "loot_silver": 8
+        },
+        "label": "Bandit hostages",
+        "neutral": "The bandits broke camp and took their hostages with them, somewhere in {region}.",
+        "route": [
+          {
+            "costs": {
+              "balance": "light_deed",
+              "order": 1,
+              "renown": 2,
+              "victim": 6
+            },
+            "how": "deed",
+            "id": "rescue",
+            "label": "Rescue them: clear the camp, then cut each hostage's bonds (right-click)",
+            "result": "The hostages are free and make for home.",
+            "reward": {
+              "coins": {
+                "silver": 5
+              }
+            },
+            "road": "good"
+          },
+          {
+            "costs": {
+              "balance": "none",
+              "rep": {
+                "orc_horde": 5
+              }
+            },
+            "how": "menu",
+            "id": "pay",
+            "label": "Pay the captain",
+            "need": [
+              "coins:500"
+            ],
+            "result": "The captain counts the gold and lets them go. The Horde grows fat on it.",
+            "road": "grey"
+          },
+          {
+            "costs": {
+              "balance": "dark_deed",
+              "chaos": 9,
+              "extra": {
+                "sense": 6
+              },
+              "renown": -6,
+              "story": "Hostages were butchered in a bandit camp in {region}.",
+              "times": 3,
+              "victim": -20
+            },
+            "how": "menu",
+            "id": "take",
+            "label": "Kill the hostages and loot the camp",
+            "result": "The captain laughs and lets you take what you like.",
+            "road": "dark"
+          }
+        ],
+        "weight": 1.0,
+        "weight_if": {
+          "tide": {
+            "dark": 1.5
+          }
+        }
+      },
+      {
+        "count": {
+          "orcs": {
+            "base": 5,
+            "per_player": 1
+          }
+        },
+        "fair": "feed",
+        "id": "starving_band",
+        "intro": "A band of orcs kneels at a field, starving. They do not raise their weapons. Someone has set out a bowl.",
+        "knobs": {
+          "ep_fallback": 2000,
+          "ep_mult": 2,
+          "food_each": 6
+        },
+        "label": "The starving band",
+        "neutral": "The starving band wandered off into {region}. Not all of them will see the spring.",
+        "route": [
+          {
+            "costs": {
+              "balance": "light_deed",
+              "order": 1,
+              "renown": 1,
+              "rep": {
+                "orc_horde": 10,
+                "tempest": 5
+              }
+            },
+            "flag": "orcs_fed",
+            "how": "deed",
+            "id": "feed",
+            "label": "Feed them: fill the Offering Bowl with food (right-click it)",
+            "result": "The orcs eat, bow, and leave in peace. The Horde will remember.",
+            "reward": {
+              "coins": {
+                "silver": 2
+              }
+            },
+            "road": "good"
+          },
+          {
+            "costs": {
+              "balance": "dark_deed",
+              "chaos": 4,
+              "renown": -2,
+              "rep": {
+                "orc_horde": -10
+              },
+              "story": "A starving orc band was slaughtered in {region}."
+            },
+            "how": "deed",
+            "id": "devour",
+            "label": "Cut them down",
+            "result": "The band dies where it knelt.",
+            "road": "dark"
+          },
+          {
+            "costs": {
+              "balance": "none"
+            },
+            "how": "menu",
+            "id": "absorb",
+            "label": "Devour them whole (Predator, Gluttony or Starved)",
+            "need": [
+              "skill:tensura:predator",
+              "skill:tensura:gluttony",
+              "skill:tensura:starved"
+            ],
+            "result": "Your skill swallows the band. Their strength is yours.",
+            "road": "grey"
+          }
+        ],
+        "weight": 0.6,
+        "weight_if": {
+          "milestone": {
+            "horde_seen": 3
+          },
+          "tide": {
+            "dark": 1.2
+          }
+        }
+      },
+      {
+        "count": {
+          "beast": {
+            "base": 1,
+            "per_player": 0
+          }
+        },
+        "fair": "name",
+        "id": "wants_name",
+        "intro": "A wounded monster lies in the grass. It does not flee. It looks at you as if it wanted something: a name.",
+        "knobs": {
+          "ash_slay": 1,
+          "healed_pct": 0.5,
+          "salve_heal": 8,
+          "start_pct": 0.1,
+          "types": [
+            "tensura:direwolf",
+            "tensura:blade_tiger",
+            "tensura:horned_bear"
+          ]
+        },
+        "label": "A wounded monster wants a name",
+        "neutral": "The wounded monster limped away into {region}, nameless.",
+        "route": [
+          {
+            "costs": {
+              "balance": "light_deed",
+              "order": 1,
+              "renown": 3
+            },
+            "flag": "named_wild",
+            "how": "deed",
+            "id": "name",
+            "label": "Heal it, then give it a name (Tensura naming: it becomes your subordinate)",
+            "result": "A Name Is Given. The monster rises, yours by its own choice.",
+            "road": "good"
+          },
+          {
+            "costs": {
+              "balance": "dark_deed",
+              "chaos": 2,
+              "renown": -2,
+              "story": "A wounded monster in {region} was bound by force."
+            },
+            "how": "deed",
+            "id": "bind",
+            "label": "Bind it by force (Dominate) without a name",
+            "result": "The monster obeys. It did not choose to.",
+            "road": "dark"
+          },
+          {
+            "costs": {
+              "balance": "dark_deed",
+              "chaos": 2,
+              "renown": -2,
+              "story": "A wounded monster that asked for a name was killed in {region}."
+            },
+            "how": "deed",
+            "id": "slay",
+            "label": "Kill it for the trophy",
+            "result": "The monster dies. A necromancer could use its bones.",
+            "road": "dark"
+          }
+        ],
+        "weight": 0.8,
+        "weight_if": {
+          "tide": {
+            "light": 1.2
+          }
+        }
+      }
+    ],
+    "engine": {
+      "chance": 0.06,
+      "credit_radius": 48,
+      "enabled": true,
+      "linger_seconds": 20,
+      "max_active": 3,
+      "max_chance": 0.3,
+      "max_distance": 64,
+      "min_distance": 32,
+      "min_gap_minutes": 15,
+      "notice_radius": 24,
+      "per_player": 0.3,
+      "repeat_days": 7,
+      "repeat_mult": 0.5,
+      "roll_minutes": 5,
+      "scene_radius": 12,
+      "ttl_minutes": 30,
+      "witness_radius": 32
+    },
+    "scale": {
+      "max_mult": 3
+    }
+  },
   "discord": {
     "channels": {
       "feedback": "1572396138865230004",
@@ -4310,6 +4655,10 @@ const TtlData = {
       {
         "body": "Every craft has a faster way. It is never free.\n\n- *Cursed Whetstone:* soul ash and arcane essence at a Bone Altar. It curses any blade at once, no rank needed: its hits spread fear and wither.\n- *Stolen schematics:* the Dwargon smithy, at night, a steady hand. Dwargon will remember.\n\nBoth cost your soul's karma, tip the world toward darkness, anger those you wronged and cost renown if anyone sees. The honest road: buy a schematic from Dwargon (`/ttl artifice schematic buy`), and engrave with the chisel.\n",
         "title": "The workshop's dark road"
+      },
+      {
+        "body": "Out in the wilds of the continent, the world sometimes puts a hard choice in your path. Your second life only.\n\n- *A sick village:* heal the villagers (Hipokute Salves, healing magic, potions of healing), or a necromancer may release them.\n- *Bandit hostages:* clear the camp and cut their bonds, pay the captain, or take the camp's deal.\n- *A starving orc band:* fill their bowl with food, or cut them down. A Predator may simply eat them.\n- *A wounded monster:* heal it and give it a name, bind it by force, or kill it.\n\nCome close and the choices appear in chat. `/ttl choice` shows them again. The first soul to finish a road decides; everyone nearby who helped shares the reward and the price.\n\nNobody comes in half an hour? The world decides for you, and it is rarely kind.\n",
+        "title": "Crossroads of conscience"
       }
     ]
   },

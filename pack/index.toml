@@ -2529,6 +2529,18 @@ file = "kubejs/server_scripts/ttl/bosses/wild.js"
 hash = "482959d16a7af69c0ca6aeb703f894e2a6f776446f5a7f76008bb5d5bb559dcd"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/choices/commands.js"
+hash = "1db3cec5413abfc7edf3ab66a2838e0dfa2e64cb62c2cd90712100f317364112"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/choices/engine.js"
+hash = "21884a0822cc6ab0c2e6d455910cfe8be3eb8f4e22ab40f5fed274279c25ab13"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/choices/events_c1.js"
+hash = "44c5a0c6a9221e480417711c1e474689396917eefe4a56b473cc84554b0921a2"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
 hash = "373b243bece5854d096f0a28c0af7079590af6ea2b1b1248ef0bbb3cd9d25f3d"
 
@@ -2622,7 +2634,7 @@ hash = "fdcfa356f92dada4297541bd3f0610aeb011203100187f3643f572b71b98f757"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "ab70e4e35b30b3ebd9a9889fcd28c61dc2b369996d07d660ddcc05f7b1996470"
+hash = "050fe8f859fcbdf6d8d53a5182a1a7401331f7bf07d29880d586fbd2787223ef"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2854,7 +2866,7 @@ hash = "ca9a3c01be77ec5fafc5fbcbb3468c7a9854ec2d08e824b4012b21ed0a83328b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/roads/commands.js"
-hash = "e56ce3ac23eb13301323d59685f39332171fe31a7db0c57d33dc98fbf8478636"
+hash = "9a522fd0fa2bd95bf5b148d42b3aa640189fbabb82b69c8ba9f3613ab383f6b9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/roads/roads.js"

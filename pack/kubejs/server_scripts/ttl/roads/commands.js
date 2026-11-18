@@ -70,6 +70,7 @@ const TtlRoadsCmd = {
       'Paths are open to every reborn soul, whatever its Oath or race. Each has a slow good road and a fast dark one.',
       '- Necromancer: raise and keep an undead legion at a Bone Altar; build your own tomb around it.',
       '- Artificer: sign the charter at a Workshop Bench, stamp what you forge and fill the daily commissions to rise four ranks; engrave with a chisel, or take the fast dark road (cursed whetstone, stolen schematics). /ttl artifice',
+      '- Crossroads of conscience: hard choices the world puts in your path in the wilds. /ttl choice when you meet one.',
       'Read more: /ttl guide paths   Your roads so far: /ttl roads'
     ]
   }

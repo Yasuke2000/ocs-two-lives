@@ -53,6 +53,7 @@ Last update: 18/11/2026.
 - **Story chapters 11 to 13.**
 - **Dutch translation** of the pack's own texts, and a **player wiki**.
 - **Public web map** (BlueMap): the map runs, the public link is coming.
+- **Crossroads of conscience**: hard choices in the wilds (a sick village, hostages, a starving orc band, a monster that wants a name). Help slowly, or take the dark shortcut and pay for it.
 **NL** Waar het team nu aan werkt: nog niet op de server, of nog niet af.
 - **World Chronicle**: de wereld verandert voor iedereen naarmate zielen verder komen in het verhaal.
 - **Eerlijke bossgevechten**: elke party krijgt een eigen gevecht en cooldown, met een wachtrij, in plaats van één gevecht voor de hele server.
@@ -61,6 +62,7 @@ Last update: 18/11/2026.
 - **Verhaalhoofdstukken 11 tot 13.**
 - **Nederlandse vertaling** van de eigen teksten van de pack, en een **spelerswiki**.
 - **Publieke webkaart** (BlueMap): de kaart draait, de publieke link komt eraan.
+- **Kruispunten van het geweten**: moeilijke keuzes in de wildernis (een ziek dorp, gijzelaars, een uitgehongerde orkbende, een monster dat een naam wil). Help langzaam, of neem de duistere kortere weg en betaal ervoor.
 
 ---
 

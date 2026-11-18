@@ -615,6 +615,135 @@ def check_necro_ranks(necro: dict, factions: dict | None = None, bosses: dict | 
                 raise SystemExit(f"necro.toml: [church] hunter_bosses {b!r} is not a bosses.toml id")
 
 
+CHOICE_ENGINE_NUMS = ("max_active", "ttl_minutes", "credit_radius", "witness_radius", "notice_radius", "roll_minutes",
+                      "chance", "per_player", "max_chance", "min_gap_minutes", "min_distance", "max_distance",
+                      "scene_radius", "linger_seconds", "repeat_days", "repeat_mult")
+CHOICE_ROUTE_FIELDS = {"id", "road", "how", "label", "need", "result", "flag", "reward", "costs"}
+
+
+def check_choices(ch: dict, data: dict) -> None:
+    # choices/engine.js (TtlChoices) pays every route through TtlRoads.pay with the `costs` table as given: a typo in a
+    # faction, an axis or a coin would silently cost or pay nothing, and a dark route without karma breaks R13.
+    eng = ch.get("engine")
+    if not isinstance(eng, dict):
+        raise SystemExit("choices.toml: [engine] missing")
+    for k in CHOICE_ENGINE_NUMS:
+        if not is_num(eng.get(k)) or eng[k] < 0:
+            raise SystemExit(f"choices.toml: [engine] {k} must be a number >= 0")
+    for k in ("max_active", "ttl_minutes", "credit_radius", "witness_radius", "roll_minutes"):
+        if eng[k] <= 0:
+            raise SystemExit(f"choices.toml: [engine] {k} must be > 0")
+    if eng["min_distance"] > eng["max_distance"]:
+        raise SystemExit("choices.toml: [engine] min_distance > max_distance")
+    if not (0 <= eng["chance"] <= 1 and 0 <= eng["max_chance"] <= 1 and 0 <= eng["repeat_mult"] <= 1):
+        raise SystemExit("choices.toml: [engine] chance, max_chance and repeat_mult are shares between 0 and 1")
+    if not isinstance((ch.get("balance") or {}).get("dark_cap"), (int, float)) or ch["balance"]["dark_cap"] < 0:
+        raise SystemExit("choices.toml: [balance] dark_cap must be a number >= 0")
+    if not is_num((ch.get("scale") or {}).get("max_mult")) or ch["scale"]["max_mult"] < 1:
+        raise SystemExit("choices.toml: [scale] max_mult must be a number >= 1")
+    axes = set(((data.get("roads") or {}).get("karma2") or {}).get("axes") or ["chaos", "order", "craft", "faith"])
+    facs = {f["id"] for f in (data.get("factions") or {}).get("faction", [])}
+    coins = ((data.get("economy") or {}).get("coins") or {}).get("chain") or []
+    milestones = {m.get("id") for m in (data.get("world") or {}).get("milestone", [])}
+    seen = set()
+    for c in ch.get("choice", []):
+        cid = str(c.get("id", ""))
+        where = f"choices.toml: choice {cid}"
+        if not re.fullmatch(r"[a-z0-9_]+", cid):
+            raise SystemExit(f"choices.toml: choice id {cid!r} must be [a-z0-9_]+")
+        if cid in seen:
+            raise SystemExit(f"{where} defined twice")
+        seen.add(cid)
+        for k in ("label", "intro", "neutral"):
+            if not isinstance(c.get(k), str) or not c[k].strip():
+                raise SystemExit(f"{where}: {k} must be a non-empty string")
+        if not is_num(c.get("weight")) or c["weight"] < 0:
+            raise SystemExit(f"{where}: weight must be a number >= 0")
+        wi = c.get("weight_if") or {}
+        if set(wi) - {"tide", "milestone"}:
+            raise SystemExit(f"{where}: weight_if takes tide and milestone only")
+        if set(wi.get("tide") or {}) - {"light", "dark"}:
+            raise SystemExit(f"{where}: weight_if.tide keys are light and dark")
+        for m, x in (wi.get("milestone") or {}).items():
+            if milestones and m not in milestones:
+                raise SystemExit(f"{where}: weight_if.milestone {m} is not a world.toml milestone")
+        for part in (wi.get("tide") or {}, wi.get("milestone") or {}):
+            for k, x in part.items():
+                if not is_num(x) or x < 0:
+                    raise SystemExit(f"{where}: weight_if multiplier {k} must be a number >= 0")
+        count = c.get("count")
+        if not isinstance(count, dict) or not count:
+            raise SystemExit(f"{where}: count = {{ <role> = {{ base, per_player }} }} missing")
+        for role, n in count.items():
+            if not re.fullmatch(r"[a-z0-9_]+", role) or not isinstance(n, dict) \
+                    or not isinstance(n.get("base"), int) or n["base"] < 1 \
+                    or not isinstance(n.get("per_player", 0), int) or n.get("per_player", 0) < 0:
+                raise SystemExit(f"{where}: count.{role} must be {{ base = int >= 1, per_player = int >= 0 }}")
+        for f in (c.get("knobs") or {}).get("homes", []):
+            if facs and f not in facs:
+                raise SystemExit(f"{where}: knobs.homes names unknown faction {f}")
+        routes = c.get("route") or []
+        ids = [r.get("id") for r in routes]
+        if len(ids) < 2 or len(set(ids)) != len(ids):
+            raise SystemExit(f"{where}: needs at least two routes with distinct ids (an honest one and a shortcut)")
+        if c.get("fair") not in ids:
+            raise SystemExit(f"{where}: fair = {c.get('fair')!r} must name one of its routes {ids}")
+        roads = {r.get("road") for r in routes}
+        if not roads & {"good", "grey"} or "dark" not in roads:
+            raise SystemExit(f"{where}: R13 wants a good or grey route and a dark shortcut")
+        for r in routes:
+            rw = f"{where} route {r.get('id')}"
+            if not re.fullmatch(r"[a-z0-9_]+", str(r.get("id", ""))):
+                raise SystemExit(f"{rw}: id must be [a-z0-9_]+")
+            unknown = set(r) - CHOICE_ROUTE_FIELDS
+            if unknown:
+                raise SystemExit(f"{rw}: unknown field(s) {sorted(unknown)} (known: {sorted(CHOICE_ROUTE_FIELDS)})")
+            if r.get("road") not in ("good", "grey", "dark"):
+                raise SystemExit(f"{rw}: road must be good, grey or dark")
+            if r.get("how") not in ("menu", "deed"):
+                raise SystemExit(f"{rw}: how must be menu or deed")
+            for k in ("label", "result"):
+                if not isinstance(r.get(k), str) or not r[k].strip():
+                    raise SystemExit(f"{rw}: {k} must be a non-empty string")
+            for n in r.get("need", []):
+                if not (n == "necro" or re.fullmatch(r"skill:[a-z0-9_]+:[a-z0-9_/]+", n) or re.fullmatch(r"coins:[1-9][0-9]*", n)):
+                    raise SystemExit(f"{rw}: need {n!r} must be necro, skill:<ns>:<id> or coins:<bronze>")
+            if r.get("need") and r["how"] != "menu":
+                raise SystemExit(f"{rw}: need is for menu routes only")
+            if "flag" in r and not re.fullmatch(r"[a-z0-9_]+", str(r["flag"])):
+                raise SystemExit(f"{rw}: flag must be [a-z0-9_]+")
+            if set(r.get("reward") or {}) - {"coins"}:
+                raise SystemExit(f"{rw}: reward takes coins only")
+            if (r.get("reward") or {}).get("coins"):
+                coin_table(f"{rw} reward.coins", r["reward"]["coins"], coins)
+            costs = r.get("costs")
+            if not isinstance(costs, dict):
+                raise SystemExit(f"{rw}: [choice.route.costs] missing (balance = \"none\" for a route that costs nothing)")
+            bad = set(costs) - ROAD_FIELDS
+            if bad:
+                raise SystemExit(f"{rw}: unknown cost field(s) {sorted(bad)} (known: {sorted(ROAD_FIELDS)})")
+            for ax in ("chaos", "order", "craft", "faith"):
+                if ax in costs and (not isinstance(costs[ax], int) or ax not in axes):
+                    raise SystemExit(f"{rw}: {ax} must be an int and a roads.toml [karma2] axis")
+            bal = costs.get("balance", "none")
+            if bal not in ("dark_deed", "light_deed", "none"):
+                raise SystemExit(f"{rw}: balance must be dark_deed, light_deed or none")
+            if r["road"] == "dark" and (bal != "dark_deed" or int(costs.get("chaos", 0)) <= 0):
+                raise SystemExit(f"{rw}: a dark route costs karma and notes a dark deed (rule R13)")
+            if r["road"] != "dark" and (bal == "dark_deed" or int(costs.get("chaos", 0)) > 0):
+                raise SystemExit(f"{rw}: only a dark route costs chaos or notes a dark deed")
+            for f, n in (costs.get("rep") or {}).items():
+                if facs and f not in facs:
+                    raise SystemExit(f"{rw}: unknown faction {f}")
+                if not isinstance(n, int):
+                    raise SystemExit(f"{rw}: rep.{f} must be an int")
+            for k in ("victim", "renown", "times"):
+                if k in costs and not isinstance(costs[k], int):
+                    raise SystemExit(f"{rw}: {k} must be an int")
+            if "victim" in costs and not (c.get("knobs") or {}).get("homes"):
+                raise SystemExit(f"{rw}: victim needs knobs.homes (the factions a scene's victims come from)")
+
+
 def check_carryover(carry: dict, karma: dict | None) -> None:
     # life/carryover.js reads these by name; a tier or axis typo would silently give nobody a book or an echo.
     for key in ("lore_unjudged", "lore_judged"):
@@ -2081,6 +2210,8 @@ def render() -> dict[Path, str]:
         check_artifice(data["artifice"], data)
     if "necro" in data:
         check_necro(data["necro"], data.get("roads"), data.get("factions"), data.get("bosses"))
+    if "choices" in data:
+        check_choices(data["choices"], data)
     if "events" in data:
         check_events(data["events"])
     if "arrival" in data:

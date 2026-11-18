@@ -1,0 +1,207 @@
+# Moral-choice scenes (WP-C1: choices/engine.js, choices/events_c1.js, design/data/choices.toml). `ttl choice expect`,
+# `ttl roads expect`, `ttl karma ... expect` and `ttl rep expect` print "ttl: ..." when wrong, which `server.sh test-all`
+# counts as a failure. A takes the routes; B stands 10 blocks away (a Life 2 witness, R14, and a non-participant inside the
+# 48-block credit radius). The platform at 1500 150 1500 is on the canon continent (Blumund, 'B' in canon_map.txt) and far
+# from every canon build, so no ttl.npc witnesses. Bots never count in the World Chronicle without its test mark, so the
+# balance notes are counted (last_noted, tide_dark) but the world does not move. Discord is muted in tests.
+ttlbot spawn TtlBotChoiceA
+ttlbot spawn TtlBotChoiceB
+@sleep 3
+ttl reset TtlBotChoiceA
+ttl reset TtlBotChoiceB
+@sleep 3
+ttl roads test TtlBotChoiceA reset
+ttl roads test TtlBotChoiceB reset
+ttl choice reset TtlBotChoiceA
+ttl choice reset TtlBotChoiceB
+ttl roads test TtlBotChoiceA life2
+ttl roads test TtlBotChoiceB life2
+gamemode creative TtlBotChoiceA
+gamemode creative TtlBotChoiceB
+execute in minecraft:overworld run forceload add 1440 1480 1560 1520
+execute in minecraft:overworld run fill 1440 150 1480 1560 150 1520 minecraft:stone
+execute in minecraft:overworld run fill 1440 151 1480 1560 156 1520 minecraft:air
+execute in minecraft:overworld run tp TtlBotChoiceA 1500 151 1500
+execute in minecraft:overworld run tp TtlBotChoiceB 1510 151 1500
+@sleep 2
+ttl choice clear
+ttl choice testonline 1
+ttl choice expect world events 4
+ttl choice expect world open 0
+# 1. The sick village, the good road: six villagers (one soul online), healed one by one; A pays, B only saw it.
+ttl rep set TtlBotChoiceA blumund 0
+ttl rep set TtlBotChoiceA tempest 0
+ttl rep set TtlBotChoiceA holy_church 0
+ttl choice spawn sick_village 1500 151 1500
+ttl choice expect scene last n_villagers 6
+ttl choice expect scene last alive_villagers 6
+ttl choice expect scene last state open
+ttl choice expect player TtlBotChoiceA can_last.release no
+ttl choice test TtlBotChoiceA heal last 3
+ttl choice expect scene last prog_cured 3
+ttl choice expect scene last state open
+ttl choice test TtlBotChoiceA heal last 3
+ttl choice expect scene last state good
+ttl choice expect scene last route heal
+ttl choice expect scene last actor TtlBotChoiceA
+ttl choice expect scene last paid_TtlBotChoiceA yes
+ttl choice expect scene last paid_TtlBotChoiceB no
+ttl choice expect scene last saw_TtlBotChoiceB yes
+ttl rep expect TtlBotChoiceA blumund value 8
+ttl rep expect TtlBotChoiceA tempest value 4
+ttl roads expect TtlBotChoiceA order2 1
+ttl roads expect TtlBotChoiceA last_renown 3
+ttl choice expect player TtlBotChoiceA done_sick_village.good 1
+ttl choice expect player TtlBotChoiceA last_route heal
+ttl choice clear
+# 2. The sick village, the dark shortcut: release needs necromancy; it costs the five costs (renown: B saw it).
+ttl rep set TtlBotChoiceA blumund 0
+ttl rep set TtlBotChoiceA holy_church 0
+ttl roads test TtlBotChoiceA reset
+ttl choice spawn sick_village 1500 151 1500
+ttl choice expect player TtlBotChoiceA can_last.release no
+ttl choice test TtlBotChoiceA skill necro
+ttl choice expect player TtlBotChoiceA can_last.release yes
+ttl choice expect player TtlBotChoiceB can_last.release no
+ttl choice act TtlBotChoiceA last release
+ttl choice expect scene last state dark
+ttl choice expect scene last route release
+ttl choice expect scene last prog_released 6
+ttl choice expect scene last alive_villagers 0
+ttl roads expect TtlBotChoiceA chaos2 6
+ttl karma TtlBotChoiceA expect chaos2 6
+ttl rep expect TtlBotChoiceA blumund value -15
+ttl rep expect TtlBotChoiceA holy_church value -10
+ttl roads expect TtlBotChoiceA last_witnesses 1
+ttl roads expect TtlBotChoiceA last_renown -5
+ttl roads expect TtlBotChoiceA first_choice.sick_village.dark yes
+ttl choice expect player TtlBotChoiceA last_noted 2
+ttl choice expect player TtlBotChoiceA tide_dark 3
+ttl choice test TtlBotChoiceA skill none
+ttl choice clear
+# 3. Scale (three souls online: 6 + 2 x 2 villagers, rewards x2), the O-C1 cap of three open scenes, the neutral end.
+ttl choice testonline 3
+ttl choice spawn sick_village 1460 151 1500
+ttl choice expect scene last n_villagers 10
+ttl choice expect scene last mult 2
+ttl choice testonline 1
+ttl choice spawn wants_name 1500 151 1500
+ttl choice spawn starving_band 1540 151 1500
+ttl choice expect world open 3
+ttl choice expect world room 0
+ttl choice resolve last neutral
+ttl choice expect scene last state neutral
+ttl choice expect scene last alive_orcs 0
+ttl choice expect world open 2
+ttl choice expect world room 1
+ttl choice clear
+# 4. Bandit hostages: clear the camp and cut the bonds (good, the hostages' home faction pays), or the dark deal.
+ttl rep set TtlBotChoiceA blumund 0
+ttl rep set TtlBotChoiceA orc_horde 0
+ttl choice spawn bandit_hostages 1500 151 1500
+ttl choice test TtlBotChoiceA home last blumund
+ttl choice expect scene last n_hostages 3
+ttl choice expect scene last n_bandits 6
+ttl choice expect scene last n_captain 1
+ttl choice expect scene last home blumund
+ttl choice expect player TtlBotChoiceA can_last.take yes
+ttl choice expect player TtlBotChoiceA can_last.pay no
+ttl choice test TtlBotChoiceA kill last bandits
+ttl choice expect scene last prog_cleared false
+ttl choice test TtlBotChoiceA kill last captain
+ttl choice expect scene last prog_cleared true
+ttl choice expect player TtlBotChoiceA can_last.take no
+ttl choice test TtlBotChoiceA free last
+ttl choice expect scene last state good
+ttl choice expect scene last route rescue
+ttl rep expect TtlBotChoiceA blumund value 6
+ttl roads expect TtlBotChoiceA last_renown 2
+ttl choice clear
+ttl rep set TtlBotChoiceA blumund 0
+ttl roads test TtlBotChoiceA reset
+ttl choice spawn bandit_hostages 1500 151 1500
+ttl choice test TtlBotChoiceA home last blumund
+ttl choice act TtlBotChoiceA last take
+ttl choice expect scene last state dark
+ttl choice expect scene last prog_killed 3
+ttl roads expect TtlBotChoiceA chaos2 9
+ttl rep expect TtlBotChoiceA blumund value -20
+ttl roads expect TtlBotChoiceA last_renown -6
+# O-C2: 3 balance points were used by the release today, so only one of the three dark notes (1.5 each) fits under 5.
+ttl choice expect player TtlBotChoiceA last_noted 1
+ttl choice expect player TtlBotChoiceA tide_dark 4.5
+ttl choice clear
+# 5. The starving band: feed (good), absorb (grey: Predator is Tensura's own mechanic, no cost), devour (dark).
+ttl rep set TtlBotChoiceA tempest 0
+ttl rep set TtlBotChoiceA orc_horde 0
+ttl choice spawn starving_band 1500 151 1500
+ttl choice expect scene last n_orcs 5
+ttl choice expect scene last prog_need 30
+ttl choice test TtlBotChoiceA feed last 20
+ttl choice expect scene last state open
+ttl choice test TtlBotChoiceA feed last 10
+ttl choice expect scene last state good
+ttl choice expect scene last route feed
+ttl rep expect TtlBotChoiceA orc_horde value 10
+ttl rep expect TtlBotChoiceA tempest value 5
+ttl choice clear
+ttl rep set TtlBotChoiceA orc_horde 0
+ttl choice spawn starving_band 1500 151 1500
+ttl choice expect player TtlBotChoiceA can_last.absorb no
+ttl choice test TtlBotChoiceA skill "tensura:predator"
+ttl choice expect player TtlBotChoiceA can_last.absorb yes
+ttl choice act TtlBotChoiceA last absorb
+ttl choice expect scene last state grey
+ttl choice expect scene last alive_orcs 0
+ttl rep expect TtlBotChoiceA orc_horde value 0
+ttl choice test TtlBotChoiceA skill none
+ttl choice clear
+ttl roads test TtlBotChoiceA reset
+ttl choice spawn starving_band 1500 151 1500
+ttl choice test TtlBotChoiceA kill last orcs
+ttl choice expect scene last state dark
+ttl choice expect scene last route devour
+ttl roads expect TtlBotChoiceA chaos2 4
+ttl rep expect TtlBotChoiceA orc_horde value -10
+ttl choice clear
+# 6. The wounded monster: heal and name (good; it stays as the soul's own), bind by force, or kill it (dark).
+ttl roads test TtlBotChoiceA reset
+ttl choice spawn wants_name 1500 151 1500
+ttl choice expect scene last n_beast 1
+ttl choice test TtlBotChoiceA heal last
+ttl choice expect scene last prog_healed true
+ttl choice expect scene last part_TtlBotChoiceA healed
+ttl choice test TtlBotChoiceA owner last name
+ttl choice expect scene last state good
+ttl choice expect scene last route name
+ttl roads expect TtlBotChoiceA order2 1
+ttl roads expect TtlBotChoiceA last_renown 3
+ttl choice clear
+execute in minecraft:overworld run kill @e[tag=ttl.wants_name]
+ttl choice spawn wants_name 1500 151 1500
+ttl choice test TtlBotChoiceA owner last bind
+ttl choice expect scene last state dark
+ttl choice expect scene last route bind
+ttl roads expect TtlBotChoiceA chaos2 2
+ttl choice clear
+execute in minecraft:overworld run kill @e[tag=ttl.wants_name]
+ttl choice spawn wants_name 1500 151 1500
+ttl choice test TtlBotChoiceA kill last beast
+ttl choice expect scene last state dark
+ttl choice expect scene last route slay
+ttl roads expect TtlBotChoiceA chaos2 4
+ttl choice expect player TtlBotChoiceA done_wants_name.dark 2
+ttl choice clear
+ttl choice expect world active 0
+# Clean up.
+ttl choice testonline 0
+execute in minecraft:overworld run kill @e[tag=ttl.wants_name]
+execute in minecraft:overworld run forceload remove 1440 1480 1560 1520
+ttl choice reset TtlBotChoiceA
+ttl choice reset TtlBotChoiceB
+ttl roads test TtlBotChoiceA reset
+ttl roads test TtlBotChoiceB reset
+ttl reset TtlBotChoiceA
+ttl reset TtlBotChoiceB
+ttlbot remove TtlBotChoiceA
+ttlbot remove TtlBotChoiceB
