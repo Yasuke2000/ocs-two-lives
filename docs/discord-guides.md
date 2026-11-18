@@ -25,6 +25,7 @@ Category | Channel | Who can write | Topic
 📌 START | `#welcome` | read-only (the bot posts, members react) | Start here: install with Prism, join, link your Discord with /verify. / Begin hier: installeren met Prism, joinen, je Discord koppelen met /verify.
 📌 START | `#rules-and-info` | read-only (the bot posts, members react) | Rules, roles and useful links. / Regels, rollen en handige links.
 📌 START | `#announcements` | read-only (the bot posts, members react) | News, updates and maintenance. Read-only. / Nieuws, updates en onderhoud. Alleen-lezen.
+📌 START | `#patch-notes` | read-only (the bot posts, members react) | What changed in every update, newest at the bottom. Read-only. / Wat er veranderd is in elke update, nieuwste onderaan. Alleen-lezen.
 🎮 MINECRAFT | `#minecraft` | everyone | (maintained by the bot: player count and uptime)
 🎮 MINECRAFT | `#story` | read-only (the bot posts, members react) | Deaths, rebirths, Legends and the weekly Hall of Souls (Sundays 20:00). Read-only. / Sterfgevallen, wedergeboortes, Legends en de wekelijkse Hall of Souls (zondag 20:00). Alleen-lezen.
 🎮 MINECRAFT | `#leaderboard` | read-only (the bot posts, members react) | Live standings, updated about every 10 minutes (in game: /ttl top). Read-only. / Live klassement, ongeveer elke 10 minuten bijgewerkt (in het spel: /ttl top). Alleen-lezen.
@@ -82,6 +83,7 @@ Een Minecraft-modpackserver waar je **twee keer** leeft. Eerst als gewone mens i
 - #welcome: this start guide
 - #rules-and-info: the rules, the roles and useful links
 - #announcements: news, updates and maintenance
+- #patch-notes: what changed in every update of the pack and server, newest at the bottom
 **🎮 MINECRAFT**
 - #minecraft: live bridge with the game: what you type here shows up in game, and the other way round
 - #story: deaths, rebirths, Legends and the weekly Hall of Souls
@@ -105,6 +107,7 @@ Every channel starts with a pinned "How to use this channel" message. Lost? Read
 - #welcome: deze startgids
 - #rules-and-info: de regels, de rollen en handige links
 - #announcements: nieuws, updates en onderhoud
+- #patch-notes: wat er veranderd is in elke update van de pack en de server, nieuwste onderaan
 **🎮 MINECRAFT**
 - #minecraft: live koppeling met de game: wat je hier typt zie je in het spel, en omgekeerd
 - #story: sterfgevallen, wedergeboortes, Legends en het wekelijkse Hall of Souls
@@ -161,6 +164,7 @@ Elk kanaal begint met een vastgepind bericht "Hoe gebruik je dit kanaal". Kwijt?
 - Modpack (Prism Launcher instance): <https://github.com/Yasuke2000/ocs-two-lives/releases/download/prism-instance/OCS-Two-Lives.zip>
 - GitHub repo: <https://github.com/Yasuke2000/ocs-two-lives>
 - Project board (open work): <https://github.com/users/Yasuke2000/projects/1>
+- What changed in each update: #patch-notes
 - How to contribute: #contribute
 ````
 
@@ -179,6 +183,7 @@ Elk kanaal begint met een vastgepind bericht "Hoe gebruik je dit kanaal". Kwijt?
 - Modpack (Prism Launcher-instance): <https://github.com/Yasuke2000/ocs-two-lives/releases/download/prism-instance/OCS-Two-Lives.zip>
 - GitHub-repo: <https://github.com/Yasuke2000/ocs-two-lives>
 - Projectbord (openstaand werk): <https://github.com/users/Yasuke2000/projects/1>
+- Wat er veranderd is per update: #patch-notes
 - Meehelpen: #contribute
 ````
 
@@ -220,6 +225,10 @@ All details: <https://github.com/Yasuke2000/ocs-two-lives/blob/main/CONTRIBUTING
 Alle details: <https://github.com/Yasuke2000/ocs-two-lives/blob/main/CONTRIBUTING.md>. Vragen? Stel ze in #dev-chat.
 ````
 
+## #patch-notes: one post per update
+
+The content of #patch-notes is not in this script: every update is a file in `docs/patch-notes/` (English then Dutch, player-facing) that `tools/post_patch_notes.sh <file>` posts as bot messages (idempotent: a message whose first line already exists is skipped).
+
 ## Pinned how-to per channel
 
 The first message of every channel, pinned: the heading line, then EN, then NL, in one message.
@@ -252,6 +261,16 @@ Door hier te zijn ga je akkoord met de regels hieronder.
 Turn on notifications for this channel so you do not miss anything. Want to react? Do it in #chat.
 **NL** Nieuws over updates, nieuwe content en onderhoud, gepost door het serverteam en de server zelf. Alleen-lezen.
 Zet meldingen aan voor dit kanaal, dan mis je niets. Wil je reageren? Doe dat in #chat.
+````
+
+### #patch-notes
+
+````
+**How to use this channel / Hoe gebruik je dit kanaal**
+**EN** Every update of the pack and the server is listed here, newest at the bottom: new content, fixes and changes you will notice in game. Read-only: react to a post if you like it.
+Questions go in #chat. Found a bug? Type `/bug <what happened>` in game, or post in #ideas-and-feedback.
+**NL** Elke update van de pack en de server staat hier, nieuwste onderaan: nieuwe content, fixes en veranderingen die je in het spel merkt. Alleen-lezen: reageer met een emoji als je iets leuk vindt.
+Vragen stel je in #chat. Bug gevonden? Typ `/bug <wat er gebeurde>` in het spel, of post in #ideas-and-feedback.
 ````
 
 ### #minecraft

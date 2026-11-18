@@ -48,6 +48,7 @@ CHANS=(
   "welcome|welcome||0|start|ro"
   "rules-and-info|rules-and-info||0|start|ro"
   "announcements|announcements||0|start|ro"
+  "patch-notes|patch-notes||0|start|ro"
   "minecraft|minecraft||0|minecraft|rw"
   "story|story||0|minecraft|ro"
   "leaderboard|leaderboard||0|minecraft|ro"
@@ -106,6 +107,7 @@ read_txt MAP_EN <<'EOF'
 - {#welcome}: this start guide
 - {#rules-and-info}: the rules, the roles and useful links
 - {#announcements}: news, updates and maintenance
+- {#patch-notes}: what changed in every update of the pack and server, newest at the bottom
 **🎮 MINECRAFT**
 - {#minecraft}: live bridge with the game: what you type here shows up in game, and the other way round
 - {#story}: deaths, rebirths, Legends and the weekly Hall of Souls
@@ -127,6 +129,7 @@ read_txt MAP_NL <<'EOF'
 - {#welcome}: deze startgids
 - {#rules-and-info}: de regels, de rollen en handige links
 - {#announcements}: nieuws, updates en onderhoud
+- {#patch-notes}: wat er veranderd is in elke update van de pack en de server, nieuwste onderaan
 **🎮 MINECRAFT**
 - {#minecraft}: live koppeling met de game: wat je hier typt zie je in het spel, en omgekeerd
 - {#story}: sterfgevallen, wedergeboortes, Legends en het wekelijkse Hall of Souls
@@ -175,6 +178,7 @@ read_txt INFO_EN <<'EOF'
 - Modpack (Prism Launcher instance): <https://github.com/Yasuke2000/ocs-two-lives/releases/download/prism-instance/OCS-Two-Lives.zip>
 - GitHub repo: <https://github.com/Yasuke2000/ocs-two-lives>
 - Project board (open work): <https://github.com/users/Yasuke2000/projects/1>
+- What changed in each update: {#patch-notes}
 - How to contribute: {#contribute}
 EOF
 
@@ -191,6 +195,7 @@ read_txt INFO_NL <<'EOF'
 - Modpack (Prism Launcher-instance): <https://github.com/Yasuke2000/ocs-two-lives/releases/download/prism-instance/OCS-Two-Lives.zip>
 - GitHub-repo: <https://github.com/Yasuke2000/ocs-two-lives>
 - Projectbord (openstaand werk): <https://github.com/users/Yasuke2000/projects/1>
+- Wat er veranderd is per update: {#patch-notes}
 - Meehelpen: {#contribute}
 EOF
 
@@ -246,6 +251,13 @@ read_txt G_announcements <<'EOF'
 Turn on notifications for this channel so you do not miss anything. Want to react? Do it in {#chat}.
 **NL** Nieuws over updates, nieuwe content en onderhoud, gepost door het serverteam en de server zelf. Alleen-lezen.
 Zet meldingen aan voor dit kanaal, dan mis je niets. Wil je reageren? Doe dat in {#chat}.
+EOF
+
+read_txt G_patch_notes <<'EOF'
+**EN** Every update of the pack and the server is listed here, newest at the bottom: new content, fixes and changes you will notice in game. Read-only: react to a post if you like it.
+Questions go in {#chat}. Found a bug? Type `/bug <what happened>` in game, or post in {#ideas-and-feedback}.
+**NL** Elke update van de pack en de server staat hier, nieuwste onderaan: nieuwe content, fixes en veranderingen die je in het spel merkt. Alleen-lezen: reageer met een emoji als je iets leuk vindt.
+Vragen stel je in {#chat}. Bug gevonden? Typ `/bug <wat er gebeurde>` in het spel, of post in {#ideas-and-feedback}.
 EOF
 
 read_txt G_minecraft <<'EOF'
@@ -318,6 +330,7 @@ EOF
 TOPIC_welcome='Start here: install with Prism, join, link your Discord with /verify. | Begin hier: installeren met Prism, joinen, je Discord koppelen met /verify.'
 TOPIC_rules_and_info='Rules, roles and useful links. | Regels, rollen en handige links.'
 TOPIC_announcements='News, updates and maintenance. Read-only. | Nieuws, updates en onderhoud. Alleen-lezen.'
+TOPIC_patch_notes='What changed in every update, newest at the bottom. Read-only. | Wat er veranderd is in elke update, nieuwste onderaan. Alleen-lezen.'
 TOPIC_story='Deaths, rebirths, Legends and the weekly Hall of Souls (Sundays 20:00). Read-only. | Sterfgevallen, wedergeboortes, Legends en de wekelijkse Hall of Souls (zondag 20:00). Alleen-lezen.'
 TOPIC_leaderboard='Live standings, updated about every 10 minutes (in game: /ttl top). Read-only. | Live klassement, ongeveer elke 10 minuten bijgewerkt (in het spel: /ttl top). Alleen-lezen.'
 TOPIC_screenshots='Your best builds and moments. | Je mooiste builds en momenten.'
@@ -437,6 +450,7 @@ EOF
   printf '### Rollen en links (Nederlands)\n\n'; blk "$INFO_NL"
   printf '## #contribute: pinned how-to messages (after the pinned how-to)\n\n### English\n\n'; blk "$CONTRIB_EN"
   printf '### Nederlands\n\n'; blk "$CONTRIB_NL"
+  printf '## #patch-notes: one post per update\n\nThe content of #patch-notes is not in this script: every update is a file in `docs/patch-notes/` (English then Dutch, player-facing) that `tools/post_patch_notes.sh <file>` posts as bot messages (idempotent: a message whose first line already exists is skipped).\n\n'
   printf '## Pinned how-to per channel\n\nThe first message of every channel, pinned: the heading line, then EN, then NL, in one message.\n\n'
   for i in "${!CK[@]}"; do printf '### #%s\n\n' "${CN[$i]}"; blk "$(guide_text "${CK[$i]}")"; done
   exit 0
