@@ -231,6 +231,193 @@ def check_roads(roads: dict, factions: dict | None, karma: dict | None) -> None:
                 raise SystemExit(f"{where}: a dark route always costs karma (chaos > 0, rule R13)")
 
 
+ITEM_ID = re.compile(r"[a-z0-9_.-]+:[a-z0-9_/.-]+")
+
+
+def check_artifice(art: dict, data: dict) -> None:
+    # artifice/*.js reads these by name; a typo in an id, a faction, a band or a road would silently do nothing in game.
+    where = "artifice.toml"
+    facs = {f["id"] for f in data.get("factions", {}).get("faction", [])}
+    bands = {"hostile", "unfriendly", "neutral", "friendly", "honored", "exalted"}
+    coins = data.get("economy", {}).get("coins", {}).get("chain", [])
+    choices = {c["id"]: c for c in data.get("roads", {}).get("choice", [])}
+
+    def item(label: str, v) -> None:
+        if not isinstance(v, str) or not ITEM_ID.fullmatch(v):
+            raise SystemExit(f"{where}: {label} {v!r} is not a full id like mod:thing")
+
+    def rep_table(label: str, rep) -> None:
+        for f, n in (rep or {}).items():
+            if facs and f not in facs:
+                raise SystemExit(f"{where}: {label} names unknown faction {f}")
+            if not is_int(n):
+                raise SystemExit(f"{where}: {label}.{f} must be an int")
+
+    def items_table(label: str, table) -> None:
+        if not isinstance(table, dict) or not table:
+            raise SystemExit(f"{where}: {label} must be a non-empty table {{ \"mod:item\" = n }}")
+        for k, n in table.items():
+            item(label, k)
+            if not is_int(n) or n < 1:
+                raise SystemExit(f"{where}: {label} {k} = {n!r} must be a positive int")
+
+    for key in ("bench", "charter", "points", "made_by", "commissions", "engrave", "curse", "schematics", "steal"):
+        if not isinstance(art.get(key), dict):
+            raise SystemExit(f"{where}: [{key}] missing")
+    item("[bench] block", art["bench"].get("block"))
+    if not is_int(art["bench"].get("reach")) or not 1 <= art["bench"]["reach"] <= 8:
+        raise SystemExit(f"{where}: [bench] reach must be an int 1..8")
+    for k in ("center", "ring"):
+        item(f"[bench] recipe.{k}", (art["bench"].get("recipe") or {}).get(k))
+    if not is_int(art["charter"].get("schematics")) or art["charter"]["schematics"] < 1:
+        raise SystemExit(f"{where}: [charter] schematics must be a positive int")
+    item("[charter] schematic_tag", art["charter"].get("schematic_tag"))
+    item("[charter] item", art["charter"].get("item"))
+
+    ranks = art.get("rank", [])
+    if [r.get("id") for r in ranks] != list(range(1, len(ranks) + 1)) or not ranks:
+        raise SystemExit(f"{where}: [[rank]] ids must be 1, 2, 3 ... in order")
+    last = -1
+    for r in ranks:
+        label = f"rank {r['id']}"
+        if not str(r.get("title", "")).strip():
+            raise SystemExit(f"{where}: {label} needs a title")
+        for k in ("points", "constructs", "muster", "tier", "renown"):
+            if not is_int(r.get(k)) or r[k] < 0:
+                raise SystemExit(f"{where}: {label} {k} must be an int >= 0")
+        if r["points"] <= last:
+            raise SystemExit(f"{where}: {label} points must rise rank by rank")
+        last = r["points"]
+        if not 1 <= r["tier"] <= 4:
+            raise SystemExit(f"{where}: {label} tier must be 1..4")
+        req = r.get("requires_any")
+        if req is not None:
+            for s in req.get("skills", []):
+                item(f"{label} requires_any.skills", s)
+            for f, b in (req.get("bands") or {}).items():
+                if (facs and f not in facs) or b not in bands:
+                    raise SystemExit(f"{where}: {label} requires_any.bands {f} = {b!r} (faction and band must exist)")
+
+    pts = art["points"]
+    for k in ("weekly_cap", "craft_weekly_cap", "engrave", "metal_first_soul", "metal_first_server", "construct", "engine",
+              "engine_commons_mult", "event"):
+        if not is_int(pts.get(k)) or pts[k] < 0:
+            raise SystemExit(f"{where}: [points] {k} must be an int >= 0")
+    if not (isinstance(pts.get("commission"), list) and len(pts["commission"]) == 4 and all(is_int(n) and n >= 0 for n in pts["commission"])):
+        raise SystemExit(f"{where}: [points] commission must list 4 ints (tier 1..4)")
+    metals = pts.get("craft") or {}
+    if not metals or any(not re.fullmatch(r"[a-z_]+", m) or not is_int(n) or n < 0 for m, n in metals.items()):
+        raise SystemExit(f"{where}: [points.craft] must map metal names to ints >= 0")
+    if "{name}" not in str(art["made_by"].get("lore", "")):
+        raise SystemExit(f"{where}: [made_by] lore must contain {{name}}")
+    if not is_int(art["made_by"].get("poll_ticks")) or art["made_by"]["poll_ticks"] < 1:
+        raise SystemExit(f"{where}: [made_by] poll_ticks must be a positive int")
+
+    if not is_int(art["commissions"].get("board")) or art["commissions"]["board"] < 1:
+        raise SystemExit(f"{where}: [commissions] board must be a positive int")
+    seen = set()
+    tiers = set()
+    for c in art.get("commission", []):
+        cid = str(c.get("id", ""))
+        label = f"commission {cid}"
+        if not re.fullmatch(r"[a-z0-9_]+", cid) or cid in seen:
+            raise SystemExit(f"{where}: commission id {cid!r} must be lowercase and unique")
+        seen.add(cid)
+        if not str(c.get("title", "")).strip():
+            raise SystemExit(f"{where}: {label} needs a title")
+        if not is_int(c.get("tier")) or not 1 <= c["tier"] <= 4:
+            raise SystemExit(f"{where}: {label} tier must be 1..4")
+        tiers.add(c["tier"])
+        if c.get("giver") not in ("kaijin", "smithy", "vester"):
+            raise SystemExit(f"{where}: {label} giver must be kaijin, smithy or vester")
+        item(f"{label} item", c.get("item"))
+        if not is_int(c.get("count")) or c["count"] < 1 or not is_int(c.get("weight")) or c["weight"] < 1:
+            raise SystemExit(f"{where}: {label} count and weight must be positive ints")
+        if not isinstance(c.get("made_by"), bool):
+            raise SystemExit(f"{where}: {label} made_by must be true or false")
+        rw = c.get("reward") or {}
+        if coins:
+            coin_table(f"{where}: {label} reward.coins", rw.get("coins"), coins)
+        rep_table(f"{label} reward.rep", rw.get("rep"))
+        if "schematic" in rw:
+            item(f"{label} reward.schematic", rw["schematic"])
+        if "points" in rw and (not is_int(rw["points"]) or rw["points"] < 0):
+            raise SystemExit(f"{where}: {label} reward.points must be an int >= 0")
+    if tiers != {1, 2, 3, 4}:
+        raise SystemExit(f"{where}: every commission tier 1..4 needs at least one [[commission]] (have {sorted(tiers)})")
+
+    item("[engrave] chisel", art["engrave"].get("chisel"))
+    for e in art.get("engraving", []):
+        item("engraving id", e.get("id"))
+        if not is_int(e.get("rank")) or not 1 <= e["rank"] <= len(ranks):
+            raise SystemExit(f"{where}: engraving {e.get('id')} rank must be 1..{len(ranks)}")
+        cost = e.get("cost") or {}
+        if "coins" in cost and coins:
+            coin_table(f"{where}: engraving {e['id']} cost.coins", cost["coins"], coins)
+        if "items" in cost:
+            items_table(f"engraving {e['id']} cost.items", cost["items"])
+    rids = set()
+    for r in art.get("recipe", []):
+        rid = str(r.get("id", ""))
+        if not re.fullmatch(r"[a-z0-9_]+", rid) or rid in rids:
+            raise SystemExit(f"{where}: recipe id {rid!r} must be lowercase and unique")
+        rids.add(rid)
+        if not is_int(r.get("rank")) or not 0 <= r["rank"] <= len(ranks):
+            raise SystemExit(f"{where}: recipe {rid} rank must be 0..{len(ranks)}")
+        if r.get("station") not in ("bench", "altar"):
+            raise SystemExit(f"{where}: recipe {rid} station must be bench or altar")
+        item(f"recipe {rid} output", r.get("output"))
+        if not is_int(r.get("count")) or r["count"] < 1:
+            raise SystemExit(f"{where}: recipe {rid} count must be a positive int")
+        items_table(f"recipe {rid} inputs", r.get("inputs"))
+        if "coins" in r and coins:
+            coin_table(f"{where}: recipe {rid} coins", r["coins"], coins)
+        if "road" in r:
+            cid, _, road = str(r["road"]).rpartition(".")
+            if cid not in choices or road not in choices[cid]:
+                raise SystemExit(f"{where}: recipe {rid} road {r['road']!r} is not a roads.toml choice route")
+
+    cu = art["curse"]
+    item("[curse] item", cu.get("item"))
+    if not is_num(cu.get("chance")) or not 0 < cu["chance"] <= 1:
+        raise SystemExit(f"{where}: [curse] chance must be in (0, 1]")
+    for ef in cu.get("effects", []):
+        item("[curse] effects id", ef.get("id"))
+        if not is_int(ef.get("seconds")) or ef["seconds"] < 1 or not is_int(ef.get("amplifier")) or ef["amplifier"] < 0:
+            raise SystemExit(f"{where}: [curse] effect {ef.get('id')} needs seconds >= 1 and amplifier >= 0")
+
+    sch = art["schematics"]
+    if coins:
+        coin_table(f"{where}: [schematics] buy_price", sch.get("buy_price"), coins)
+    for f, b in (sch.get("buy_band") or {}).items():
+        if (facs and f not in facs) or b not in bands:
+            raise SystemExit(f"{where}: [schematics] buy_band {f} = {b!r} (faction and band must exist)")
+    pool = sch.get("pool") or []
+    if not pool:
+        raise SystemExit(f"{where}: [schematics] pool must list schematics")
+    for s in pool:
+        item("[schematics] pool", s)
+    for s, g in (sch.get("gated") or {}).items():
+        item("[schematics.gated]", s)
+        if s in pool:
+            raise SystemExit(f"{where}: {s} is gated and may not be in the buy/steal pool")
+        if not is_int(g.get("boss_tier")) or not 1 <= g["boss_tier"] <= 4 or not is_num(g.get("chance")) or not 0 < g["chance"] <= 1:
+            raise SystemExit(f"{where}: [schematics.gated] {s} needs boss_tier 1..4 and chance in (0, 1]")
+
+    st = art["steal"]
+    if not (isinstance(st.get("smithy"), dict) and is_int(st["smithy"].get("x")) and is_int(st["smithy"].get("z"))):
+        raise SystemExit(f"{where}: [steal] smithy must be {{ x = n, z = n }}")
+    night = st.get("night")
+    if not (isinstance(night, list) and len(night) == 2 and all(is_int(t) and 0 <= t < 24000 for t in night)):
+        raise SystemExit(f"{where}: [steal] night must be [from, to] day-time ticks 0..23999")
+    for k in ("radius", "channel_seconds", "move_tolerance", "cooldown_hours"):
+        if not is_int(st.get(k)) or st[k] < 1:
+            raise SystemExit(f"{where}: [steal] {k} must be a positive int")
+    for cid in ("artifice.engrave", "artifice.schematic"):
+        if choices and cid not in choices:
+            raise SystemExit(f"{where}: roads.toml must define the choice {cid} (the curse and the stolen schematics pay it)")
+
+
 def check_carryover(carry: dict, karma: dict | None) -> None:
     # life/carryover.js reads these by name; a tier or axis typo would silently give nobody a book or an echo.
     for key in ("lore_unjudged", "lore_judged"):
@@ -1693,6 +1880,8 @@ def render() -> dict[Path, str]:
         check_mortal_banned(data["mortal_banned"])
     if "roads" in data:
         check_roads(data["roads"], data.get("factions"), data.get("karma"))
+    if "artifice" in data:
+        check_artifice(data["artifice"], data)
     if "events" in data:
         check_events(data["events"])
     if "arrival" in data:

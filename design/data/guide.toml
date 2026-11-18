@@ -219,10 +219,37 @@ body = """
 # The Artificer
 Kaijin's forge in Tempest and the smithies of Dwargon teach the craft. Tensura's Smithing Bench, Kiln and schematics are the start.
 
-- *Workshop Bench:* your own workshop and your charter.
-- *Commissions* from the workshops pay coin, reputation and new recipes.
-- *Golems* of magisteel and stranger metals serve you, and count for your nation's army.
-- The dark road: stolen schematics, cursed blades, golems a daemon has taken.
+- *Workshop Bench:* a Smithing Bench ringed by four low-quality magic crystals. Right-click it for the Workshop.
+- *The charter:* three schematics (learned or carried) at a Workshop Bench. `/ttl artifice charter`
+- *Ranks:* Journeyman, Artisan, Master Artificer, Grand Artificer. Points come from commissions and from what you make.
+- *Your mark:* what you make at the Smithing Bench carries your name. Commissions want your own work.
 
-*Being built:* the charter, ranks and commissions are coming. The Workshop Bench block already exists.
+`/ttl artifice` opens the Workshop anywhere. *Being built:* golems, the Warden and the workshop boards.
+"""
+
+[[paths]]
+title = "Commissions and engravings"
+body = """
+# Commissions
+A daily board of contracts from Kaijin and the Dwargon smithy. Higher ranks take harder work.
+
+- `/ttl artifice commissions` to see and take them, `/ttl artifice commission turnin` to deliver.
+- Pay: coin, reputation, points, and now and then a rare schematic.
+
+# Engravings
+From Artisan on, an *Engraving Chisel* (made in the Workshop) engraves your own work with Tensura's engravings. `/ttl artifice engrave`
+
+# Rare metals
+Adamantite and hihi'irokane gear needs their schematics. They come from great foes and master commissions, not from the ingot alone.
+"""
+
+[[paths]]
+title = "The workshop's dark road"
+body = """
+Every craft has a faster way. It is never free.
+
+- *Cursed Whetstone:* soul ash and arcane essence at a Bone Altar. It curses any blade at once, no rank needed: its hits spread fear and wither.
+- *Stolen schematics:* the Dwargon smithy, at night, a steady hand. Dwargon will remember.
+
+Both cost your soul's karma, tip the world toward darkness, anger those you wronged and cost renown if anyone sees. The honest road: buy a schematic from Dwargon (`/ttl artifice schematic buy`), and engrave with the chisel.
 """

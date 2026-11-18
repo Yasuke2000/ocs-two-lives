@@ -1865,6 +1865,14 @@ file = "kubejs/data/minecraft/worldgen/noise_settings/overworld.json"
 hash = "cb31a8f62f314fd763dafca5b7ab3adf52b7d6e8b78e527dab7ac3d1146d947c"
 
 [[files]]
+file = "kubejs/data/tensura/loot_table/advancement_reward/adamantite.json"
+hash = "2ed002c092b78830bb7f790ca10f820c7c43a04841e48e83c06c7fb11253f3f5"
+
+[[files]]
+file = "kubejs/data/tensura/loot_table/advancement_reward/hihiirokane.json"
+hash = "5550a11a94d64b008fb628962b933c2beaacea1962f3411e15b7514a03d8e37e"
+
+[[files]]
 file = "kubejs/data/tensura/worldgen/biome/underworld_red_sands.json"
 hash = "2613ebb79f4c9e28263893f745e842b9be6e9ac3261822df2d60cc57265405d6"
 
@@ -2481,6 +2489,26 @@ file = "kubejs/server_scripts/ttl/arena/walpurgis.js"
 hash = "5170c5a133dad2588b266a79a68860a842f240728afc8d6207c1e350b86e72e3"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/artifice/artifice.js"
+hash = "226219eb72379214e119fbd62a4252580677e98911b7f0d1c5e23ad1e8b36704"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/artifice/commands.js"
+hash = "fe21c470fa13dd4048c488667baf7657d30fede795a48d434789b963d9453e2c"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/artifice/commissions.js"
+hash = "3d53f364be1c5a0dbf202ae22e782c656755823e089f23c9be0eabffdd04d7c4"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/artifice/recipes.js"
+hash = "eeda9829a5b2dc96867b716576a49a8543df1a567cb5386e16d7c0aea6fd993a"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/artifice/workshop.js"
+hash = "f675dee6c3c4e472e70982ed581bc191d07a2964d6b3e074c8bc00f45447d7a6"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/boot.js"
 hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
@@ -2502,7 +2530,7 @@ hash = "306c8e1a6ae7e8d832f2c4607f371d37276320ed78a7696ee6e494ca1009b038"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "b925afd89249f69e59a88956eb9dd13f1f3eb368d0b63344338594cadc613208"
+hash = "373b243bece5854d096f0a28c0af7079590af6ea2b1b1248ef0bbb3cd9d25f3d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -2554,7 +2582,7 @@ hash = "3eebe65b71a10a278272b12ccdb0df3d90f24ad3f57b18515c435a614b65edf1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/recipes.js"
-hash = "0c61b3d7904d155cc2e6ca514f8b0e5b14f3644c9eb4cc248afbc06974ea3dce"
+hash = "b14812d463513a83522772df59f250076e128660db3ee42435b1fe5a1bd43896"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/sinks.js"
@@ -2594,7 +2622,7 @@ hash = "fdcfa356f92dada4297541bd3f0610aeb011203100187f3643f572b71b98f757"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "e83b0e3c2a5ca794892ebba63c446f8d8e4bb33269a46b7f41dbd7f5e4655526"
+hash = "23484b75a62702ee133bf3845f638ddaf1b52eb472d53dc7213abeda58cbe106"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2802,7 +2830,7 @@ hash = "ca9a3c01be77ec5fafc5fbcbb3468c7a9854ec2d08e824b4012b21ed0a83328b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/roads/commands.js"
-hash = "6cb4c2f89852716d5eeb63308bc4fc40e9d4a7795e0cffe232ab6dbfaa32b3a8"
+hash = "e56ce3ac23eb13301323d59685f39332171fe31a7db0c57d33dc98fbf8478636"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/roads/roads.js"

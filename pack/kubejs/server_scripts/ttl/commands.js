@@ -92,6 +92,12 @@ ServerEvents.commandRegistry(event => {
     } catch (e) {
       console.error(`[ttl] reset of soul/reputation data for ${name} failed: ${e}`)
     }
+    // The Artificer (artifice/artifice.js, ttl.artifice): rank, points, stages and scoreboard belong to the old soul too.
+    try {
+      if (typeof TtlArtifice !== 'undefined' && typeof TtlArtifice.clear === 'function') TtlArtifice.clear(server, target)
+    } catch (e) {
+      console.error(`[ttl] reset of the artificer data for ${name} failed: ${e}`)
+    }
     console.info(`[ttl] ${name} reset to Life 1`)
     ctx.source.sendSystemMessage(Text.of(`${name} reset to Life 1`))
     return 1

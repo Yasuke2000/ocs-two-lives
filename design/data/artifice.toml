@@ -1,0 +1,387 @@
+# The Artificer (design/architecture/paths-necro-artificer.md §3; WP-A1 core). Scripts: artifice/artifice.js (TtlArtifice:
+# charter, ranks, points, the maker's stamp), artifice/commissions.js (TtlCommission), artifice/workshop.js (engraving,
+# workshop recipes, the cursed whetstone, schematics), artifice/recipes.js (crafting and kiln recipes, schematic drops),
+# artifice/commands.js. Edit, then run `python tools/gen_data.py` (check_artifice validates this file).
+# Test: `tools/server.sh test artifice`.
+#
+# R12: a system is not a chapter. Nothing here may name a stage of the story, the Oath path or the bosses (validate.py fails
+# on it). Gates allowed: EP (Tensura's own golem ladder), items (schematics), rank points the system pays, faction bands.
+# R13: the honest road (charter, commissions, the engraving chisel, bought schematics) is slower; the dark shortcut (the
+# cursed whetstone, stolen schematics) is faster and pays the five costs of roads.toml (choices artifice.engrave,
+# artifice.schematic). Constructs, the Warden and nation infrastructure are WP-A2 ([construct] below is theirs).
+
+# ---- the Workshop Bench and the charter (§3.1) -----------------------------------------------------------------------
+
+[bench]
+block = "ttl:workshop_bench"
+reach = 4                    # commands that need "at a Workshop Bench" look for one within this many blocks
+# Recipe (artifice/recipes.js): a Tensura Smithing Bench ringed by four low-quality magic crystals.
+recipe = { center = "tensura:smithing_bench", ring = "tensura:low_quality_magic_crystal" }
+
+[charter]
+# `/ttl artifice charter` at a Workshop Bench: rank 1 (Journeyman). Schematics count when the soul has LEARNED them
+# (Tensura keeps known schematics per player; reading one consumes it) or carries the item. Nothing is taken.
+schematics = 3
+schematic_tag = "tensura:schematics"
+item = "ttl:artificer_charter"   # the paper proof (the record ttl.artifice is the truth)
+
+# ---- ranks (§3.2) -----------------------------------------------------------------------------------------------------
+# points   lifetime artifice points needed
+# constructs / muster   golem caps (WP-A2 reads them: TtlArtifice.caps(player))
+# tier     the highest commission tier this rank may take
+# engrave  the engraving chisel works (rank 2+)
+# renown   bonus renown paid once when the rank is reached (rank 4's renown is the stage row in factions.toml [renown])
+# requires_any (rank 4 only): one of these uniques held (TtlManas) OR one of these faction bands
+# era_title  awarded once per era to the first soul that reaches the rank (TtlEra.award; the title row is WP-X1's)
+
+[[rank]]
+id = 1
+title = "Journeyman"
+points = 0
+constructs = 1
+muster = 1
+tier = 1
+engrave = false
+renown = 1
+
+[[rank]]
+id = 2
+title = "Artisan"
+points = 40
+constructs = 2
+muster = 2
+tier = 2
+engrave = true
+renown = 2
+
+[[rank]]
+id = 3
+title = "Master Artificer"
+points = 150
+constructs = 3
+muster = 3
+tier = 3
+engrave = true
+renown = 5
+
+[[rank]]
+id = 4
+title = "Grand Artificer"
+points = 500
+constructs = 4
+muster = 6
+tier = 4
+engrave = true
+renown = 0
+requires_any = { skills = ["tensura:godly_craftsman", "tensura:researcher"], bands = { dwargon = "exalted" } }
+era_title = "grand_artificer"
+announce = true              # one #story line (never for test bots)
+
+# ---- points (§3.2) ----------------------------------------------------------------------------------------------------
+
+[points]
+weekly_cap = 60              # all artifice points of a soul in one ISO week (anti-farm, the guild pattern)
+craft_weekly_cap = 20        # of which at most this many from crafting at the Smithing Bench
+commission = [5, 10, 15, 20] # per commission tier 1..4 (a commission row may override with `points`)
+engrave = 2                  # an engraving with the chisel
+metal_first_soul = 3         # the first time this soul makes a metal (smithing output or a kiln ingot)
+metal_first_server = 10      # the first time anyone on the server does (chronicle firsts.craft.<metal>)
+# Hooks for later packages (TtlArtifice.addPoints(server, p, kind, n?) uses these when n is not given):
+construct = 3                # WP-A2: a construct built
+engine = 5                   # WP-A2: an engine placed in a Public Works chunk
+engine_commons_mult = 3      # WP-A2: x3 in a Commons chunk
+event = 5                    # WP-C1/C2: a moral-choice event resolved with artifice
+
+# Points per item made at the Smithing Bench, by the metal its id starts with (tensura:<metal>_...). Order = tier.
+[points.craft]
+low_magisteel = 1
+high_magisteel = 1
+pure_magisteel = 2
+mithril = 2
+orichalcum = 2
+adamantite = 3
+hihiirokane = 4
+
+# ---- the maker's stamp (§3.5) -----------------------------------------------------------------------------------------
+# Tensura's Smithing Bench and Kiln fire no crafting event (javap 2.0.1.5: the result slot's onTake only takes the
+# ingredients). While a soul has one of them open, a 5-tick poll compares what it carries with what it carried when the
+# screen opened; new Smithing Bench products get item custom data `ttl_made_by` = the soul's UUID (+ `ttl_made_by_name`
+# and a lore line), kiln ingots only count for the metal firsts (they stack, a stamp would split stacks).
+
+[made_by]
+lore = "Made by {name}"
+poll_ticks = 5
+
+# ---- commissions (§3.5) -----------------------------------------------------------------------------------------------
+# Guild-style contracts from the workshops. The board rolls by UTC date: `board` commissions per tier, drawn by weight.
+# A soul takes those of its rank's tier and below; accepted commissions share the Free Guild's max_active
+# (economy.toml [guild]) with its bounties. `made_by = true`: only items carrying this soul's stamp count.
+# Radiant boards (WP-W13/A3) reuse the hand-in through TtlCommission.handIn(server, player, {item, count, made_by}).
+# Row: id, title, tier 1-4, giver (kaijin | smithy | vester: who posts it; the boards of WP-A3), item, count, made_by,
+#      weight, reward = { coins = {coin table}, rep = { faction = n }, schematic = "<item id>" (optional), points = n
+#      (optional, else [points] commission[tier]) }
+
+[commissions]
+board = 2                    # commissions per tier on the daily board
+announce_tier = 4            # finishing a commission of this tier or higher posts one #story line
+
+[[commission]]
+id = "patrol_blades"
+title = "Blades for the hobgoblin patrols"
+tier = 1
+giver = "kaijin"
+item = "tensura:low_magisteel_long_sword"
+count = 1
+made_by = true
+weight = 10
+reward = { coins = { silver = 3 }, rep = { tempest = 2 } }
+
+[[commission]]
+id = "wall_spears"
+title = "Spears for Tempest's wall"
+tier = 1
+giver = "kaijin"
+item = "tensura:low_magisteel_spear"
+count = 2
+made_by = true
+weight = 10
+reward = { coins = { silver = 4 }, rep = { tempest = 2 } }
+
+[[commission]]
+id = "miners_picks"
+title = "Picks for the Dwargon mines"
+tier = 1
+giver = "smithy"
+item = "tensura:low_magisteel_pickaxe"
+count = 1
+made_by = true
+weight = 10
+reward = { coins = { silver = 3 }, rep = { dwargon = 2 } }
+
+[[commission]]
+id = "garm_plate"
+title = "A breastplate for Garm to judge"
+tier = 1
+giver = "smithy"
+item = "tensura:low_magisteel_chestplate"
+count = 1
+made_by = true
+weight = 8
+reward = { coins = { silver = 5 }, rep = { dwargon = 2 } }
+
+[[commission]]
+id = "kiln_stock"
+title = "Magisteel stock for the forge"
+tier = 1
+giver = "kaijin"
+item = "tensura:low_magisteel_ingot"
+count = 8
+made_by = false
+weight = 6
+reward = { coins = { silver = 4 }, rep = { tempest = 1 } }
+
+[[commission]]
+id = "kurobe_katana"
+title = "A katana Kurobe would sign"
+tier = 2
+giver = "kaijin"
+item = "tensura:high_magisteel_katana"
+count = 1
+made_by = true
+weight = 10
+reward = { coins = { gold = 1 }, rep = { tempest = 3 } }
+
+[[commission]]
+id = "guard_cuirass"
+title = "A cuirass for the King's guard"
+tier = 2
+giver = "smithy"
+item = "tensura:high_magisteel_chestplate"
+count = 1
+made_by = true
+weight = 10
+reward = { coins = { gold = 1 }, rep = { dwargon = 3 } }
+
+[[commission]]
+id = "mithril_spear"
+title = "A mithril spear for a scout"
+tier = 2
+giver = "kaijin"
+item = "tensura:mithril_spear"
+count = 1
+made_by = true
+weight = 8
+reward = { coins = { gold = 1, silver = 5 }, rep = { tempest = 3 } }
+
+[[commission]]
+id = "mithril_stock"
+title = "Mithril bars for Dold's workshop"
+tier = 2
+giver = "smithy"
+item = "tensura:mithril_ingot"
+count = 4
+made_by = false
+weight = 6
+reward = { coins = { gold = 1 }, rep = { dwargon = 2 } }
+
+[[commission]]
+id = "pure_blade"
+title = "A pure magisteel blade for the Armed Nation"
+tier = 3
+giver = "smithy"
+item = "tensura:pure_magisteel_long_sword"
+count = 1
+made_by = true
+weight = 10
+reward = { coins = { gold = 3 }, rep = { dwargon = 4 }, schematic = "tensura:adamantite_gear_schematic" }
+
+[[commission]]
+id = "orichalcum_plate"
+title = "Orichalcum plate for Tempest's captains"
+tier = 3
+giver = "kaijin"
+item = "tensura:orichalcum_chestplate"
+count = 1
+made_by = true
+weight = 10
+reward = { coins = { gold = 3 }, rep = { tempest = 4 } }
+
+[[commission]]
+id = "adamant_great_sword"
+title = "An adamantite great sword for Gazel's hall"
+tier = 4
+giver = "smithy"
+item = "tensura:adamantite_great_sword"
+count = 1
+made_by = true
+weight = 10
+reward = { coins = { gold = 6 }, rep = { dwargon = 5 }, schematic = "tensura:hihiirokane_gear_schematic" }
+
+[[commission]]
+id = "hihiirokane_tachi"
+title = "A hihi'irokane tachi worthy of a Name"
+tier = 4
+giver = "kaijin"
+item = "tensura:hihiirokane_tachi"
+count = 1
+made_by = true
+weight = 10
+reward = { coins = { gold = 10 }, rep = { tempest = 6 } }
+
+# ---- engraving (§3.4, the honest road) --------------------------------------------------------------------------------
+# `/ttl artifice engrave <id>` at a Workshop Bench, rank 2+, an Engraving Chisel carried, the item in the main hand must
+# carry the soul's own maker's stamp. Engravings are Tensura's own (data/tensura/enchantment, tag
+# #tensura:engraving_exclusive: one per item); /enchant checks the item and the exclusivity, so a refused engraving costs
+# nothing. Pays roads.toml artifice.engrave grey (no cost, counted) and [points] engrave.
+# Row: id (enchantment id), rank (lowest artifice rank), cost = { coins = {...}, items = { "<id>" = n } }
+
+[engrave]
+chisel = "ttl:engraving_chisel"
+
+[[engraving]]
+id = "tensura:sturdy"
+rank = 2
+cost = { coins = { silver = 5 }, items = { "tensura:low_quality_magic_crystal" = 2 } }
+
+[[engraving]]
+id = "tensura:swift"
+rank = 2
+cost = { coins = { silver = 5 }, items = { "tensura:low_quality_magic_crystal" = 2 } }
+
+[[engraving]]
+id = "tensura:magic_weapon"
+rank = 3
+cost = { coins = { gold = 1 }, items = { "tensura:medium_quality_magic_crystal" = 2 } }
+
+[[engraving]]
+id = "tensura:crushing"
+rank = 3
+cost = { coins = { gold = 1 }, items = { "tensura:medium_quality_magic_crystal" = 2 } }
+
+[[engraving]]
+id = "tensura:severance"
+rank = 4
+cost = { coins = { gold = 3 }, items = { "tensura:high_quality_magic_crystal" = 2 } }
+
+# ---- workshop recipes (§3.6) ------------------------------------------------------------------------------------------
+# Made through the workshop menu (`/ttl artifice make <id>`) at a Workshop Bench: KubeJS recipes cannot be gated per
+# player, so the rank-gated ones live here. Row: id, rank, output, count, inputs = { "<id>" = n }, coins (optional sink),
+# station = "bench" (a Workshop Bench) | "altar" (a ttl:bone_altar, the cross-path dark recipe), road (optional
+# "<choice>.<road>" paid through TtlRoads when made).
+
+[[recipe]]
+id = "engraving_chisel"
+rank = 2
+station = "bench"
+output = "ttl:engraving_chisel"
+count = 1
+inputs = { "tensura:pure_magisteel_ingot" = 1, "irons_spellbooks:arcane_essence" = 1 }
+
+[[recipe]]
+id = "cursed_whetstone"
+rank = 0
+station = "altar"
+output = "ttl:cursed_whetstone"
+count = 1
+inputs = { "ttl:soul_ash" = 1, "irons_spellbooks:arcane_essence" = 1 }
+
+[[recipe]]
+id = "warden_core"
+rank = 4
+station = "bench"
+output = "ttl:warden_core"
+count = 1
+inputs = { "tensura:adamantite_bone_golem" = 1, "tensura:stone_bricks_magic_engine" = 1, "tensura:warp_core" = 1 }
+
+# ---- the cursed whetstone (§3.4, the dark shortcut) -------------------------------------------------------------------
+# `/ttl artifice curse` with a Cursed Whetstone in the inventory and a blade in the main hand: no rank, no stamp needed
+# (that is the shortcut). The blade gets custom data `ttl_cursed` and a lore line; every hit it lands has `chance` to put
+# Tensura's Fear and Wither on the target. Pays roads.toml artifice.engrave dark (the five costs).
+
+[curse]
+item = "ttl:cursed_whetstone"
+lore = "Cursed: whetted with soul ash"
+chance = 0.10
+effects = [
+  { id = "tensura:fear", seconds = 5, amplifier = 0 },
+  { id = "minecraft:wither", seconds = 5, amplifier = 0 },
+]
+
+# ---- schematics (§3.4, O-A2: gate the material by its schematic) ------------------------------------------------------
+# Tensura's Smithing Bench needs every schematic of a recipe LEARNED (javap 2.0.1.5: SmithingSchematicItem.use unlocks it
+# and shrinks the stack; the bench filters recipes by ITensuraPlayer.getKnownSchematics). Schematics are not consumed
+# per craft. Tensura gives the adamantite and hihi'irokane gear schematics as advancement rewards the first time a soul
+# holds such an item; pack/kubejs/data/tensura/loot_table/advancement_reward/{adamantite,hihiirokane}.json empty those, so
+# the schematic comes only from the sources below.
+# [schematics.gated]  schematic → the lowest boss tier whose summoned bosses may drop it (bosses.toml tier), drop chance
+# Commissions above also reward them (pure_blade: adamantite, adamant_great_sword: hihi'irokane).
+
+[schematics]
+buy_price = { gold = 20 }    # the honest road: /ttl artifice schematic buy (Dwargon friendly or better)
+buy_band = { dwargon = "friendly" }
+# The pool both roads draw from (the dwarf trades' schematics, never a gated one).
+pool = [
+  "tensura:low_magisteel_gear_schematic", "tensura:high_magisteel_gear_schematic", "tensura:mithril_gear_schematic",
+  "tensura:japanese_sword_schematic", "tensura:great_sword_schematic", "tensura:spear_schematic", "tensura:kunai_schematic",
+  "tensura:shield_schematic", "tensura:magic_staff_schematic", "tensura:hunting_knife_schematic",
+]
+
+[schematics.gated]
+"tensura:adamantite_gear_schematic" = { boss_tier = 2, chance = 0.25 }
+"tensura:hihiirokane_gear_schematic" = { boss_tier = 3, chance = 0.25 }
+
+# ---- stolen schematics (§3.6, the dark shortcut) ----------------------------------------------------------------------
+# `/ttl artifice steal` near the Dwargon smithy (Garm, Dold and Mildo) at night: stand still `channel_seconds`, then a
+# random schematic of [schematics] pool, and roads.toml artifice.schematic dark (Dwargon -20 and the rest of the five costs;
+# Dwargon's guards turn on a Hostile soul by themselves, rep/guards.js). Once per `cooldown_hours`.
+
+[steal]
+smithy = { x = 423, z = -1084 }
+radius = 48
+night = [13000, 23000]       # day time ticks (mod 24000) that count as night
+channel_seconds = 30
+move_tolerance = 2           # blocks a soul may drift while channelling
+cooldown_hours = 24
+
+# ---- constructs (WP-A2 owns this table) --------------------------------------------------------------------------------
+[construct]
