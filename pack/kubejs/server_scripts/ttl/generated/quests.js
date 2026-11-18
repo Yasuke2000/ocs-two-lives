@@ -345,6 +345,90 @@ const TtlQuestIds = {
       "wrecks_and_ruins": "34884FFE5F8393B9"
     }
   },
+  "side_dwargon": {
+    "id": "5C7AF5F86B9F0412",
+    "quests": {
+      "carapace": "1FAE36E0A77AB7A0",
+      "caravan_job": "5E9327D3B464420E",
+      "coal_job": "04980D3AB3C0FDAB",
+      "dwarf_caravan": "5FEC7A14AC40D32F",
+      "dwarf_village": "3F385FB3B428AA1C",
+      "dwargon_plaza": "38FC480641D6350F",
+      "forge_coal": "20EBD7EC04010F9E",
+      "friend_of_forges": "1E7D098A7387BF0C",
+      "knight_spiders": "6051673434B4CAFA",
+      "letter_job": "0151D7B3D463D1B8",
+      "smith_letter": "34EE072F2034D294"
+    }
+  },
+  "side_guild": {
+    "id": "510BD166034B6331",
+    "quests": {
+      "academy_job": "5CAB1DC1C28B319F",
+      "academy_supplies": "073FC58C3B92CF64",
+      "d_spiders": "492A3108CC6B8E54",
+      "e_bats": "4700E96750331387",
+      "f_herbs": "7F2B219838965C52",
+      "f_slimes": "76F9C65685A4E932",
+      "goblin_raiders": "1B0A15FA1E2A4F8E",
+      "goblin_raiders_job": "0BB9C2EF440ADC49",
+      "grain_cart": "26969AD6A836AA46",
+      "grain_job": "192AA5142CA73994",
+      "guild_regular": "48F8F5F5965DC32F",
+      "hire_companion": "47344390C031C52F",
+      "leather_order": "7A0595B50AA2E99A",
+      "lost_ring": "5BB572766612178E",
+      "lost_ring_job": "2A4A7322AE0917C0",
+      "mail_job": "5038971436C2EC7B",
+      "mail_reply": "28AA589483AF3915",
+      "mail_run": "093B7A268E28E99B",
+      "register": "70C8014139160B5D",
+      "reply_job": "2534EE4B290867A2",
+      "road_west": "778BE2E5AAEB503C",
+      "scholar_job": "7DA333048F9A6710",
+      "scholar_road": "22C1B65293722FF5",
+      "visit_ballachia": "6AA8E6067A8EC212",
+      "wolves_road": "6C47CF0254A7CCAA"
+    }
+  },
+  "side_jura": {
+    "id": "642BF90BDFEF33CA",
+    "quests": {
+      "caterpillars": "77273722AD095CD9",
+      "dragon_pilgrimage": "3E952054AC18967B",
+      "firewood": "65F0215DB3966823",
+      "goblin_village_visit": "14CDA445458B4303",
+      "gobta_job": "1C84F2499287E14E",
+      "gobta_spear": "1B7E8C3467F0D397",
+      "horned_bear": "355AD96A045EAE0D",
+      "jura_handyman": "7D80C70C55797B80",
+      "kaijin_job": "65BC582974E27AFB",
+      "kaijin_ore": "4CD7245217E46493",
+      "lizard_visit": "4EEF90989EF8A2DA",
+      "merchant_escort": "65E16A025149E756",
+      "merchant_job": "5A18E3FF986BF7B8",
+      "pilgrim_job": "2FC9FB28AF28814C",
+      "rescue_rookie": "0B44FDD61FE7FF98",
+      "rim_camp": "603D7332235307E3",
+      "rim_patrol": "27A1BFDFF4CA46CE",
+      "rim_patrol_job": "1F86F858807089A6",
+      "rookie_job": "34D00D4FD0D457A5",
+      "tempest_green": "7BF2DFDFA8FA836B",
+      "treyni_visit": "782264F2B6B57D9D"
+    }
+  },
+  "side_roads": {
+    "id": "6E95A57160C39301",
+    "quests": {
+      "bandits": "0EA8A35F5388578E",
+      "blumund_road": "04BFB470A25B9C3A",
+      "englassia_road": "41D840952480F245",
+      "errand_job": "28CFF23CFA17AAAB",
+      "knights_errand": "31FAE451B48E9B41",
+      "long_roads": "4A578275C6CEFAF1",
+      "marris": "077BAAE3A59A61F7"
+    }
+  },
   "tempest_rises": {
     "id": "49DCD771BA645C79",
     "quests": {

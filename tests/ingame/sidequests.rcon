@@ -1,0 +1,115 @@
+# Side quests (sidequests/side.js, places.js, adventurers.js; data design/data/sidequests.toml). Every `ttl sidequest expect`
+# and `ttl adventurers expect` prints "ttl: ..." when it does not hold, which `server.sh test-all` counts as a failure.
+# One Life 2 bot runs each mechanic once: travel/discovery, deliver (with a parcel), fetch, cull (near a place and inside a
+# faction region), escort (client waits at `from`, follows, arrives; and a client that dies fails the job), then the
+# ambient adventurers of Tempest's green. Bots do not walk: `ttl sidequest goto` stands the bot at a place, `bring` puts
+# its escort client beside it, `poll` runs the mechanics now instead of waiting for the 2-second poll.
+# Needs the staging world's builds (Tempest, Dwargon, Blumund, Englassia placed); a place that is not placed reads "pending"
+# and its section fails, which is the point. Expect in the log: "[ttl] side: TtlBotSideA started smith_letter (deliver)",
+# "... completed smith_letter (done)", "[ttl] side: TtlBotSideA's client merchant (...) for merchant_escort at ...",
+# "[ttl] adventurers: tempest_green spawned <kind>", and no "[ttl] side command failed".
+# Also check in game (not asserted): the parcel's name and lore, the client following the bot's owner on foot (FOLLOW_PLAYER),
+# ambush mobs attacking the client, speech bubbles over the adventurers, adventurers walking to the inn at night.
+ttlbot spawn TtlBotSideA
+@sleep 2
+kubejs stages add TtlBotSideA ttl.life2
+ttl sidequest reset TtlBotSideA
+clear TtlBotSideA
+# R11: the places live on the canon continent; far out in the sea ring nothing counts as "on the continent".
+ttl sidequest expect TtlBotSideA continent 0,0 yes
+ttl sidequest expect TtlBotSideA continent 9000,0 no
+ttl sidequest expect TtlBotSideA place tempest_green resolved
+ttl sidequest expect TtlBotSideA place dwargon_plaza resolved
+ttl sidequest expect TtlBotSideA place rim_camp resolved
+# Travel and discovery: the road west, started like a quest reward would, done on arrival; arriving also discovers the place.
+ttl sidequest start TtlBotSideA road_to_englassia
+ttl sidequest expect TtlBotSideA active road_to_englassia yes
+ttl sidequest goto TtlBotSideA englassia_guild
+@sleep 3
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA done road_to_englassia yes
+ttl sidequest expect TtlBotSideA stage road_to_englassia yes
+ttl sidequest expect TtlBotSideA seen englassia_guild yes
+ttl sidequest expect TtlBotSideA refused road_to_englassia yes
+# Deliver: the smith's letter from Dwargon to Tempest. The parcel is in the inventory at once and taken at the green.
+ttl sidequest goto TtlBotSideA dwargon_plaza
+@sleep 3
+ttl sidequest start TtlBotSideA smith_letter
+ttl sidequest expect TtlBotSideA parcel smith_letter 1
+ttl sidequest goto TtlBotSideA tempest_green
+@sleep 3
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA done smith_letter yes
+ttl sidequest expect TtlBotSideA parcel smith_letter 0
+ttl sidequest expect TtlBotSideA stage smith_letter yes
+# A repeatable job waits for its FTB reward (the stage-remove reward) before it can be taken again.
+ttl sidequest expect TtlBotSideA refused smith_letter yes
+# Fetch: coal handed in automatically at Dwargon's plaza.
+ttl sidequest start TtlBotSideA forge_coal
+give TtlBotSideA minecraft:coal 32
+ttl sidequest goto TtlBotSideA dwargon_plaza
+@sleep 3
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA done forge_coal yes
+# Cull near a place: five direwolf kills (faked on the objective) at the wayfarers' camp.
+ttl sidequest goto TtlBotSideA rim_camp
+@sleep 3
+ttl sidequest start TtlBotSideA rim_patrol
+scoreboard players add TtlBotSideA ttl.sq.tensura_direwolf 5
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA done rim_patrol yes
+# Cull in a region: goblin kills at the rim (Jura) do not count, the same kills in Blumund do.
+ttl sidequest start TtlBotSideA goblin_raiders
+scoreboard players add TtlBotSideA ttl.sq.tensura_goblin 3
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA progress goblin_raiders 0
+ttl sidequest goto TtlBotSideA blumund_guild
+@sleep 3
+scoreboard players add TtlBotSideA ttl.sq.tensura_goblin 6
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA done goblin_raiders yes
+# Escort: Marlo waits at the camp, appears when the bot is there, is brought along to the dwarf village and arrives.
+ttl sidequest reset TtlBotSideA
+ttl sidequest start TtlBotSideA merchant_escort
+ttl sidequest expect TtlBotSideA phase merchant_escort wait
+ttl sidequest goto TtlBotSideA rim_camp
+@sleep 3
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA phase merchant_escort go
+ttl sidequest expect TtlBotSideA client merchant_escort alive
+ttl sidequest goto TtlBotSideA dwarf_road
+@sleep 3
+ttl sidequest bring TtlBotSideA
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA done merchant_escort yes
+ttl sidequest expect TtlBotSideA stage merchant_escort yes
+# Escort failure: the client of a second run dies; the job is gone, not done.
+ttl sidequest reset TtlBotSideA
+ttl sidequest goto TtlBotSideA rim_camp
+@sleep 3
+ttl sidequest start TtlBotSideA merchant_escort
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA client merchant_escort alive
+execute as TtlBotSideA at @s run kill @e[tag=ttl.side.client,distance=..32]
+@sleep 1
+ttl sidequest poll TtlBotSideA
+ttl sidequest expect TtlBotSideA active merchant_escort no
+ttl sidequest expect TtlBotSideA done merchant_escort no
+ttl sidequest expect TtlBotSideA count 0
+# Ambient adventurers: Tempest's green fills one adventurer per check while a player stands there, never past its cap (3).
+ttl adventurers clear tempest_green
+ttl sidequest goto TtlBotSideA tempest_green
+@sleep 3
+ttl adventurers expect tempest_green count 0
+ttl adventurers populate tempest_green
+ttl adventurers expect tempest_green count 1
+ttl adventurers populate tempest_green
+ttl adventurers populate tempest_green
+ttl adventurers populate tempest_green
+ttl adventurers expect tempest_green count 3
+ttl adventurers sweep
+ttl adventurers expect tempest_green count 3
+ttl adventurers clear tempest_green
+ttl adventurers expect tempest_green count 0
+ttl sidequest reset TtlBotSideA
+ttlbot remove TtlBotSideA

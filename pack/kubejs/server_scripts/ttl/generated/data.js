@@ -4653,6 +4653,786 @@ const TtlData = {
       }
     ]
   },
+  "sidequests": {
+    "adventurer": [
+      {
+        "hire": {
+          "armor": "leather",
+          "fee": {
+            "silver": 5
+          },
+          "hp": 24,
+          "minutes": 60,
+          "rank": "F",
+          "weapon": "minecraft:stone_sword"
+        },
+        "id": "rookie_swordsman",
+        "lines": [
+          "Three days a rookie and I've already lost a sword to a horned rabbit.",
+          "They say the Free Guild takes anyone. They weren't lying.",
+          "Herb gathering again? I wanted to slay dragons!",
+          "If you see a slime, let me have it. I need the points.",
+          "My mother wanted me to be a baker."
+        ],
+        "model": "humanoid",
+        "name": "Bram",
+        "name_color": "#9BC53D",
+        "skin": "FARMER_01",
+        "title": "F-rank swordsman"
+      },
+      {
+        "hire": {
+          "armor": "iron",
+          "fee": {
+            "gold": 2
+          },
+          "hp": 40,
+          "minutes": 90,
+          "rank": "C",
+          "weapon": "minecraft:iron_sword"
+        },
+        "id": "veteran_knight",
+        "lines": [
+          "Keep your guard up on the Falmuth road. Bandits like rookies.",
+          "I've seen what a direwolf pack does to a careless caravan.",
+          "Rank C took me eleven years. Don't rush it.",
+          "A shield is worth more than a sharp blade.",
+          "The guildmaster pays fairly. Remember that when the job turns ugly."
+        ],
+        "model": "humanoid",
+        "name": "Olric",
+        "name_color": "#4F86C6",
+        "skin": "KNIGHT_02",
+        "title": "C-rank knight"
+      },
+      {
+        "hire": {
+          "armor": "leather",
+          "fee": {
+            "silver": 15
+          },
+          "hp": 30,
+          "minutes": 75,
+          "rank": "D",
+          "weapon": "minecraft:iron_sword"
+        },
+        "id": "scout",
+        "lines": [
+          "Footprints never lie. People do.",
+          "The forest goes quiet before something big comes through.",
+          "I map the roads. Somebody has to.",
+          "Ants under the fields again. I hate ants."
+        ],
+        "model": "humanoid_slim",
+        "name": "Lyra",
+        "name_color": "#2BB5A0",
+        "skin": "EFE",
+        "title": "D-rank scout"
+      },
+      {
+        "hire": {
+          "armor": "chainmail",
+          "fee": {
+            "silver": 20
+          },
+          "hp": 36,
+          "minutes": 75,
+          "rank": "D",
+          "weapon": "minecraft:iron_axe"
+        },
+        "id": "dwarf_axe",
+        "lines": [
+          "Dwargon steel, Jura timber. Best trade there is.",
+          "The King's peace holds the forest road. Mostly.",
+          "Bring me ore and I'll show you an edge.",
+          "Never trust a bridge you didn't build."
+        ],
+        "model": "humanoid",
+        "name": "Borin",
+        "name_color": "#C8963E",
+        "skin": "STEVE",
+        "title": "D-rank axe-hand"
+      },
+      {
+        "hire": {
+          "armor": "chainmail",
+          "fee": {
+            "gold": 1,
+            "silver": 5
+          },
+          "hp": 34,
+          "minutes": 90,
+          "rank": "C",
+          "weapon": "minecraft:iron_sword"
+        },
+        "id": "hunter",
+        "lines": [
+          "A horned bear in the north fields. Nobody's paid me to look yet.",
+          "Black spiders nest where the light doesn't reach.",
+          "I sell pelts in Blumund and stories for free.",
+          "The rim is safe. The middle of the forest is not."
+        ],
+        "model": "humanoid",
+        "name": "Hald",
+        "name_color": "#8C5A3C",
+        "skin": "SECURITY_01",
+        "title": "C-rank monster hunter"
+      },
+      {
+        "id": "apprentice_mage",
+        "lines": [
+          "Fire Bolt, Fire Bolt, Fire... no, that's a candle.",
+          "Magicules are thick here. I can feel it in my teeth.",
+          "The academy in Englassia takes only the gifted. I'm working on it.",
+          "Never chant near a slime. Long story."
+        ],
+        "model": "humanoid_slim",
+        "name": "Mira",
+        "name_color": "#B57EDC",
+        "skin": "MAGE_01",
+        "title": "E-rank mage"
+      },
+      {
+        "id": "cleric",
+        "lines": [
+          "Bless you. That will be three bronze. Joking.",
+          "The Church says monsters are evil. The ones in Tempest bake bread.",
+          "Hold still, it only stings for a moment.",
+          "A low potion and a prayer. That's my whole job."
+        ],
+        "model": "humanoid_slim",
+        "name": "Anne",
+        "name_color": "#F2E8CF",
+        "skin": "ALEX",
+        "title": "E-rank cleric"
+      },
+      {
+        "id": "otherworlder",
+        "lines": [
+          "One truck, one flash of light, and here I am.",
+          "Back home we had vending machines. I miss vending machines.",
+          "Where is my status window? Everybody here has skills but me.",
+          "If one more person says 'reincarnated', I'm going home. Somehow.",
+          "The food is good, at least. The slimes are... friendly?"
+        ],
+        "model": "humanoid",
+        "name": "Sho",
+        "name_color": "#E4572E",
+        "skin": "JAYJASONBO",
+        "title": "otherworlder"
+      },
+      {
+        "id": "merchant",
+        "lines": [
+          "Fine wares from Blumund! Finer wares from Dwargon!",
+          "The road to Tempest is good for trade, if you have a guard.",
+          "Everything has a price. Even a slime's favour.",
+          "I never haggle. I negotiate."
+        ],
+        "model": "humanoid",
+        "name": "Marlo",
+        "name_color": "#E8C547",
+        "skin": "ZURI",
+        "title": "travelling merchant"
+      },
+      {
+        "id": "bard",
+        "lines": [
+          "Have you heard the ballad of the Storm Dragon's friend?",
+          "A slime who names monsters, a king who smiths... what a time.",
+          "Tip the bard, and the bard sings you brave.",
+          "Every guild hall has a story. Most of them are mine."
+        ],
+        "model": "humanoid",
+        "name": "Pip",
+        "name_color": "#FF8FAB",
+        "skin": "KAI",
+        "title": "wandering bard"
+      }
+    ],
+    "ambient": {
+      "active_range": 96,
+      "check_ticks": 200,
+      "enabled": true,
+      "night_end": 23500,
+      "night_start": 13000,
+      "rev": 1
+    },
+    "client": [
+      {
+        "id": "merchant",
+        "lines": [
+          "Not so fast, my legs are older than yours!",
+          "Is that a wolf? Tell me that isn't a wolf.",
+          "Almost there. I can smell the forges."
+        ],
+        "model": "humanoid",
+        "name": "Merchant Marlo",
+        "name_color": "#E8C547",
+        "skin": "ZURI"
+      },
+      {
+        "id": "caravan_master",
+        "lines": [
+          "The King's ore goes through, whatever the road says.",
+          "Keep the beasts off the carts!",
+          "Dwarves don't run. We walk fast."
+        ],
+        "model": "humanoid",
+        "name": "Caravan Master Durn",
+        "name_color": "#C8963E",
+        "skin": "FARMER_01"
+      },
+      {
+        "id": "missing_rookie",
+        "lines": [
+          "I thought nobody would come.",
+          "My party ran. I don't blame them.",
+          "Please, just get me back to the camp."
+        ],
+        "model": "humanoid",
+        "name": "Tomas, missing rookie",
+        "name_color": "#9BC53D",
+        "skin": "STEVE"
+      },
+      {
+        "id": "scholar",
+        "lines": [
+          "Fascinating, the soil here is soaked in magicules.",
+          "Do slow down, I am writing.",
+          "The academy will want every word of this."
+        ],
+        "model": "humanoid_slim",
+        "name": "Scholar Ilse",
+        "name_color": "#B57EDC",
+        "skin": "MAKENA"
+      },
+      {
+        "id": "grain_carter",
+        "lines": [
+          "Grain for Ballachia, and not a sack less.",
+          "My cart wheel squeaks. Sorry.",
+          "The guild said you were good. Are you good?"
+        ],
+        "model": "humanoid",
+        "name": "Carter Wil",
+        "name_color": "#E3B23C",
+        "skin": "SUNNY"
+      }
+    ],
+    "companions": {
+      "enabled": true,
+      "max_per_soul": 1,
+      "offline_grace_minutes": 30,
+      "party_cap": 5,
+      "teleport_distance": 32
+    },
+    "place": [
+      {
+        "anchor": "build",
+        "build": "blumund",
+        "cap": 4,
+        "discover": true,
+        "id": "blumund_guild",
+        "inn": [
+          108,
+          5,
+          75
+        ],
+        "kinds": [
+          "rookie_swordsman",
+          "veteran_knight",
+          "scout",
+          "cleric",
+          "apprentice_mage",
+          "otherworlder",
+          "bard"
+        ],
+        "title": "the Free Guild hall in Blumund",
+        "x": 97,
+        "y": 5,
+        "z": 68
+      },
+      {
+        "anchor": "build",
+        "build": "englassia",
+        "cap": 4,
+        "discover": true,
+        "id": "englassia_guild",
+        "kinds": [
+          "veteran_knight",
+          "scout",
+          "apprentice_mage",
+          "otherworlder",
+          "hunter",
+          "cleric"
+        ],
+        "title": "the Free Guild headquarters in Englassia",
+        "x": 108,
+        "y": 5,
+        "z": 82
+      },
+      {
+        "anchor": "tempest",
+        "cap": 3,
+        "discover": true,
+        "id": "tempest_green",
+        "inn": [
+          6,
+          0,
+          -17
+        ],
+        "kinds": [
+          "rookie_swordsman",
+          "dwarf_axe",
+          "bard",
+          "merchant",
+          "otherworlder"
+        ],
+        "title": "the village green of Tempest",
+        "x": -4,
+        "y": 0,
+        "z": -6
+      },
+      {
+        "anchor": "dwargon",
+        "cap": 3,
+        "discover": true,
+        "id": "dwargon_plaza",
+        "kinds": [
+          "dwarf_axe",
+          "merchant",
+          "veteran_knight",
+          "hunter"
+        ],
+        "title": "the market plaza of Dwargon",
+        "x": 84,
+        "y": 4,
+        "z": 54
+      },
+      {
+        "anchor": "build",
+        "build": "marris",
+        "cap": 2,
+        "discover": true,
+        "id": "marris_plaza",
+        "kinds": [
+          "veteran_knight",
+          "cleric",
+          "merchant",
+          "otherworlder"
+        ],
+        "title": "the Royal Plaza of Marris",
+        "x": 64,
+        "y": 5,
+        "z": 70
+      },
+      {
+        "anchor": "build",
+        "build": "ballachia",
+        "cap": 2,
+        "discover": true,
+        "id": "ballachia",
+        "kinds": [
+          "rookie_swordsman",
+          "merchant",
+          "bard",
+          "scout"
+        ],
+        "title": "the town of Ballachia",
+        "x": 38,
+        "y": 4,
+        "z": 41
+      },
+      {
+        "anchor": "world",
+        "cap": 2,
+        "discover": true,
+        "id": "rim_camp",
+        "kinds": [
+          "rookie_swordsman",
+          "hunter",
+          "merchant",
+          "otherworlder"
+        ],
+        "radius": 10,
+        "title": "the wayfarers' camp on Jura's rim",
+        "x": 285,
+        "y": 0,
+        "z": -612
+      },
+      {
+        "anchor": "landmark",
+        "cap": 2,
+        "discover": true,
+        "id": "dwarf_road",
+        "kinds": [
+          "dwarf_axe",
+          "merchant",
+          "hunter"
+        ],
+        "landmark": "dwarf_village",
+        "radius": 12,
+        "title": "the dwarf village on the road to Dwargon"
+      },
+      {
+        "anchor": "world",
+        "cap": 2,
+        "discover": true,
+        "id": "blumund_road",
+        "kinds": [
+          "rookie_swordsman",
+          "scout",
+          "merchant"
+        ],
+        "radius": 10,
+        "title": "the Blumund road camp at Jura's edge",
+        "x": -850,
+        "y": 0,
+        "z": -110
+      },
+      {
+        "anchor": "world",
+        "cap": 1,
+        "discover": true,
+        "id": "englassia_road",
+        "kinds": [
+          "veteran_knight",
+          "bard",
+          "merchant"
+        ],
+        "radius": 10,
+        "title": "the Englassia road post",
+        "x": -1900,
+        "y": 0,
+        "z": -260
+      },
+      {
+        "anchor": "landmark",
+        "cap": 0,
+        "discover": true,
+        "id": "goblin_village",
+        "landmark": "goblin_village",
+        "title": "the old goblin village"
+      },
+      {
+        "anchor": "build_at",
+        "build": "treyni_shrine",
+        "cap": 0,
+        "discover": true,
+        "id": "treyni_shrine",
+        "title": "Treyni's shrine"
+      },
+      {
+        "anchor": "build_at",
+        "build": "forgotten_dragon_city",
+        "cap": 0,
+        "discover": true,
+        "id": "dragon_city",
+        "title": "the City of the Forgotten Dragon"
+      },
+      {
+        "anchor": "landmark",
+        "cap": 0,
+        "discover": true,
+        "id": "lizardmen_caverns",
+        "landmark": "lizardmen_caverns",
+        "title": "the lizardmen's caverns"
+      },
+      {
+        "anchor": "world",
+        "cap": 0,
+        "id": "old_well",
+        "title": "the old well on the Blumund road",
+        "x": -930,
+        "y": 0,
+        "z": -60
+      },
+      {
+        "anchor": "world",
+        "cap": 0,
+        "id": "rookie_camp",
+        "title": "the abandoned rookie camp",
+        "x": 140,
+        "y": 0,
+        "z": -420
+      }
+    ],
+    "quest": [
+      {
+        "count": 6,
+        "entity": "tensura:goblin",
+        "giver": "blumund_guild",
+        "id": "goblin_raiders",
+        "kind": "cull",
+        "region": "blumund",
+        "repeat_hours": 168,
+        "text": "Rogue goblins from beyond the forest are raiding Blumund's farms. Only kills inside Blumund count: Tempest's goblins are not your quarry.",
+        "title": "Goblin Raiders of Blumund"
+      },
+      {
+        "giver": "blumund_guild",
+        "id": "lost_ring",
+        "kind": "deliver",
+        "parcel": "Widow Hanna's Ring",
+        "pickup": "old_well",
+        "text": "Widow Hanna dropped her wedding ring by the old well on the Blumund road. Find it and bring it back to the guild.",
+        "title": "The Lost Ring",
+        "to": "blumund_guild"
+      },
+      {
+        "giver": "blumund_guild",
+        "id": "mail_blumund_englassia",
+        "kind": "deliver",
+        "minutes": 60,
+        "parcel": "Sealed Guild Letter (to Englassia)",
+        "repeat_hours": 168,
+        "text": "Fuze's report must reach the headquarters in Englassia within the hour. Do not open it.",
+        "title": "The Mail Run: Blumund to Englassia",
+        "to": "englassia_guild"
+      },
+      {
+        "giver": "englassia_guild",
+        "id": "mail_englassia_blumund",
+        "kind": "deliver",
+        "minutes": 60,
+        "parcel": "Sealed Guild Letter (to Blumund)",
+        "repeat_hours": 168,
+        "text": "The Grandmaster's answer goes back to Blumund. The clock is running.",
+        "title": "The Mail Run: Englassia to Blumund",
+        "to": "blumund_guild"
+      },
+      {
+        "ambush": [
+          {
+            "at": 0.5,
+            "mobs": {
+              "tensura:direwolf": 3
+            }
+          }
+        ],
+        "client": "missing_rookie",
+        "from": "rookie_camp",
+        "giver": "rim_camp",
+        "id": "rescue_rookie",
+        "kind": "escort",
+        "text": "A rookie named Tomas never came back from his first hunt. His camp is south of the rim. Bring him home alive.",
+        "title": "The Missing Rookie",
+        "to": "rim_camp"
+      },
+      {
+        "ambush": [
+          {
+            "at": 0.35,
+            "mobs": {
+              "minecraft:pillager": 2
+            }
+          },
+          {
+            "at": 0.7,
+            "mobs": {
+              "minecraft:pillager": 3
+            }
+          }
+        ],
+        "client": "grain_carter",
+        "from": "blumund_guild",
+        "giver": "blumund_guild",
+        "id": "grain_cart",
+        "kind": "escort",
+        "repeat_hours": 168,
+        "text": "Carter Wil drives grain to Ballachia. Bandits know the road better than he does.",
+        "title": "Guard the Grain Cart",
+        "to": "ballachia"
+      },
+      {
+        "ambush": [
+          {
+            "at": 0.4,
+            "mobs": {
+              "tensura:direwolf": 2
+            }
+          },
+          {
+            "at": 0.8,
+            "mobs": {
+              "tensura:giant_ant": 3
+            }
+          }
+        ],
+        "client": "merchant",
+        "from": "rim_camp",
+        "giver": "rim_camp",
+        "id": "merchant_escort",
+        "kind": "escort",
+        "repeat_hours": 72,
+        "text": "Merchant Marlo wants to reach the dwarf village along Jura's rim with his goods intact. Wolves hunt the rim at dusk.",
+        "title": "The Merchant's Escort",
+        "to": "dwarf_road"
+      },
+      {
+        "ambush": [
+          {
+            "at": 0.3,
+            "mobs": {
+              "tensura:giant_ant": 3
+            }
+          },
+          {
+            "at": 0.6,
+            "mobs": {
+              "tensura:direwolf": 3
+            }
+          },
+          {
+            "at": 0.85,
+            "mobs": {
+              "minecraft:zombie": 4
+            }
+          }
+        ],
+        "client": "caravan_master",
+        "from": "dwarf_road",
+        "giver": "dwargon_plaza",
+        "id": "dwarf_caravan",
+        "kind": "escort",
+        "repeat_hours": 168,
+        "text": "Caravan Master Durn brings Dwargon's ore south to Jura's rim. Three times this month the carts were attacked.",
+        "title": "Protect the Dwarf Caravan",
+        "to": "rim_camp"
+      },
+      {
+        "ambush": [
+          {
+            "at": 0.5,
+            "mobs": {
+              "minecraft:skeleton": 3
+            }
+          }
+        ],
+        "client": "scholar",
+        "from": "englassia_road",
+        "giver": "englassia_guild",
+        "id": "scholar_escort",
+        "kind": "escort",
+        "text": "Scholar Ilse of the Freedom Academy waits at the road post with a satchel of notes. See her safely to the headquarters.",
+        "title": "The Scholar's Road",
+        "to": "englassia_guild"
+      },
+      {
+        "giver": "tempest_green",
+        "id": "kaijin_ore",
+        "kind": "deliver",
+        "parcel": "Crate of Jura Magic Ore",
+        "text": "Kaijin owes the forge street a crate of Jura ore. He is not welcome there himself; you are.",
+        "title": "Kaijin's Ore for Dwargon",
+        "to": "dwargon_plaza"
+      },
+      {
+        "giver": "dwargon_plaza",
+        "id": "smith_letter",
+        "kind": "deliver",
+        "parcel": "Letter from the Forge Street",
+        "repeat_hours": 168,
+        "text": "The smiths of Dwargon write to their old friend in Tempest. Carry the letter south.",
+        "title": "The Smith's Letter",
+        "to": "tempest_green"
+      },
+      {
+        "giver": "tempest_green",
+        "id": "gobta_spear",
+        "kind": "deliver",
+        "parcel": "Gobta's Spear",
+        "pickup": "goblin_village",
+        "text": "Gobta left his spear in the old goblin village. Again. Fetch it before Benimaru notices.",
+        "title": "Gobta's Lost Spear",
+        "to": "tempest_green"
+      },
+      {
+        "giver": "marris_plaza",
+        "id": "knights_errand",
+        "kind": "deliver",
+        "minutes": 90,
+        "parcel": "Sealed Dispatch of Falmuth",
+        "repeat_hours": 168,
+        "text": "A Falmuth knight cannot be seen in Blumund this month. You can. Deliver the dispatch to the guild, unopened.",
+        "title": "A Knight's Errand",
+        "to": "blumund_guild"
+      },
+      {
+        "giver": "tempest_green",
+        "id": "dragon_pilgrimage",
+        "kind": "deliver",
+        "parcel": "Pilgrim's Honey Offering",
+        "text": "Pilgrims say the Demon Lord of the forgotten city loves sweets. Carry an offering of honey to her city, far to the east.",
+        "title": "The Dragon-City Pilgrimage",
+        "to": "dragon_city"
+      },
+      {
+        "count": 5,
+        "entity": "tensura:direwolf",
+        "giver": "rim_camp",
+        "id": "rim_patrol",
+        "kind": "cull",
+        "near": "rim_camp",
+        "radius": 128,
+        "repeat_hours": 24,
+        "text": "Wolves keep the wayfarers' camp awake at night. Kill five near the camp.",
+        "title": "Clear the Rim Road"
+      },
+      {
+        "at": "englassia_guild",
+        "giver": "englassia_guild",
+        "id": "academy_supplies",
+        "items": {
+          "minecraft:book": 4,
+          "minecraft:paper": 16
+        },
+        "kind": "fetch",
+        "repeat_hours": 168,
+        "text": "The Freedom Academy teaches the otherworlder children of the West. It is always short of books and paper.",
+        "title": "Supplies for the Academy"
+      },
+      {
+        "at": "dwargon_plaza",
+        "giver": "dwargon_plaza",
+        "id": "forge_coal",
+        "items": {
+          "minecraft:coal": 32
+        },
+        "kind": "fetch",
+        "repeat_hours": 24,
+        "text": "The forge street burns coal day and night. Bring thirty-two.",
+        "title": "Coal for the Forges"
+      },
+      {
+        "giver": "",
+        "id": "road_to_englassia",
+        "kind": "travel",
+        "radius": 32,
+        "text": "The Free Guild's headquarters stands in Englassia, far to the west of Blumund.",
+        "title": "The Road West",
+        "to": "englassia_guild"
+      }
+    ],
+    "settings": {
+      "ambush_distance": [
+        10,
+        16
+      ],
+      "appear_radius": 24,
+      "arrive_radius": 10,
+      "client_hp": 30,
+      "deliver_radius": 8,
+      "discover_radius": 32,
+      "leash": 48,
+      "leash_seconds": 60,
+      "max_active": 3,
+      "poll_ticks": 40,
+      "take_radius": 24,
+      "travel_radius": 24
+    }
+  },
   "skills": {
     "absorb": {
       "awakening": {

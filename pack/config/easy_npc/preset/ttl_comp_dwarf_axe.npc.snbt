@@ -1,0 +1,162 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"companion: Borin, D-rank axe-hand (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Borin, D-rank axe-hand",
+    variantType:"STEVE",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_LONG:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:30
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Dwargon steel, Jura timber. Best trade there is.",
+                "The King's peace holds the forest road. Mostly.",
+                "Bring me ore and I'll show you an edge.",
+                "Never trust a bridge you didn't build."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ],
+        ON_HURT:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:25
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Ngh!",
+                "That stung.",
+                "Watch my back!"
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#C8963E","text":"Borin, D-rank axe-hand"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl companion status",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_status",
+              Name:"How are you holding up?"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl companion dismiss",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_dismiss",
+              Name:"Let us part ways"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Carry on"
+            }
+          ],
+          Label:"default",
+          Name:"Borin",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Borin checks the edge of the blade. Where to, @initiator?"
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:0b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        },
+        {
+          SpeedModifier:0.8d,
+          Type:"MELEE_ATTACK"
+        },
+        {
+          SpeedModifier:0.8d,
+          Type:"ATTACK_MOB_WITHOUT_CREEPER"
+        },
+        {
+          Type:"HURT_BY_TARGET"
+        },
+        {
+          Type:"OWNER_HURT_BY_TARGET"
+        },
+        {
+          Type:"OWNER_HURT_TARGET"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;1038868543,-2008119,-1608066016,78012902],
+    VariantType:"STEVE",
+    id:"easy_npc:humanoid"
+  }
+}

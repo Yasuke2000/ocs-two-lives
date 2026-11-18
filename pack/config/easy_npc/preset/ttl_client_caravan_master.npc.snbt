@@ -1,0 +1,121 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"client: Caravan Master Durn (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Caravan Master Durn",
+    variantType:"FARMER_01",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_NORMAL:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:25
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "The King's ore goes through, whatever the road says.",
+                "Keep the beasts off the carts!",
+                "Dwarves don't run. We walk fast."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ],
+        ON_HURT:[
+          {
+            Msg:{
+              T:4b,
+              Texts:[
+                "Help!",
+                "Get it off me!",
+                "I am hit!"
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#C8963E","text":"Caravan Master Durn"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl sidequest status",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_status",
+              Name:"How far is it?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Stay close"
+            }
+          ],
+          Label:"default",
+          Name:"Caravan Master Durn",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Caravan Master Durn grips the strap of a pack. Lead on, @initiator. I will keep up."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:0b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;755445694,-806463570,-2098709197,1558389431],
+    VariantType:"FARMER_01",
+    id:"easy_npc:humanoid"
+  }
+}

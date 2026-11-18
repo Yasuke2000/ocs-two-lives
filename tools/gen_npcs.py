@@ -17,11 +17,18 @@ pack/kubejs/assets/ttl/textures/entity/npc/<kind id>.png (64x64), written into t
 those tags; KubeJS assets ship to every client). `skin = "ttl:textures/entity/npc/<name>.png"` points a kind at another file; the
 built-in variant is then given by `variant`. A PNG that is added later is picked up by the next run of this script.
 
+Side content (design/data/sidequests.toml, sidequests work package): one preset per [[adventurer]] (ttl_adv_<id>: strolls
+round its home, speech-bubble lines, Hire / Work / Farewell buttons), per hireable adventurer (ttl_comp_<id>: vulnerable,
+melee, fights what attacks it or its owner; owner and FOLLOW_OWNER are set by sidequests/companions.js after the import)
+and per [[client]] (ttl_client_<id>: an escort client, vulnerable; FOLLOW_PLAYER is set by sidequests/side.js). `--spots`
+also checks the build-, Tempest- and Dwargon-anchored [[place]] homes and inns of that file.
+
 Usage: gen_npcs.py           write the presets
        gen_npcs.py --check   exit 1 if a preset is stale (used by validate.py)
        gen_npcs.py --spots   also check every spot against the structure files of its build (slow: reads the .nbt files):
                              the NPC must stand on a solid block with two free blocks above
 """
+import json
 import re
 import struct
 import sys
@@ -241,6 +248,141 @@ def build_talk(kind: dict) -> str:
     return snbt({"PresetMetadata": meta, "data": data}) + "\n"
 
 
+SIDE_PREFIXES = {"adventurer": "ttl_adv_", "companion": "ttl_comp_", "client": "ttl_client_"}
+
+
+def side_look(kind: dict, own: str) -> dict:
+    """Built-in variant, plus our PNG ttl:textures/entity/npc/<own>.png when it exists."""
+    out = {"VariantType": kind["skin"]}
+    rl = f"ttl:textures/entity/npc/{own}.png"
+    if (ASSETS / "ttl" / rl.split(":", 1)[1]).is_file():
+        out["SkinData"] = {"Texture": rl, "Type": "RESOURCE_LOCATION"}
+    return out
+
+
+def message(texts: list, chance: int | None) -> dict:
+    """An Easy NPC MESSAGE action shown as a speech bubble only (MessageActionData bit 4 of T), one text picked at random."""
+    entry = {"Msg": {"T": Raw("4b"), "Texts": list(texts)}, "Type": "MESSAGE"}
+    if chance is not None:
+        entry = {"ConditionDataSet": {"ConditionDataSet": [{"Type": "CHANCE", "Value": chance}]}, **entry}
+    return entry
+
+
+def side_preset(kind: dict, role: str) -> str:
+    """role: adventurer (ambient, invulnerable), companion (hired, fights) or client (escort, follows the soul)."""
+    own = ("client_" if role == "client" else "adv_") + kind["id"]
+    title = kind.get("title")
+    shown = f"{kind['name']}, {title}" if title and role != "client" else kind["name"]
+    custom_name = json.dumps({"color": kind["name_color"], "text": shown}, separators=(",", ":"))
+    lines = kind["lines"]
+    objectives = [{"Type": "LOOK_AT_PLAYER"}, {"Type": "LOOK_AT_RESET"}, {"Type": "FLOAT"}]
+    events = {"ON_INTERACTION": [{"Type": "OPEN_DEFAULT_DIALOG"}]}
+    if role == "adventurer":
+        hire = kind.get("hire")
+        buttons = []
+        if hire:
+            buttons.append(button("button_hire", "Join my party", command("/ttl companion hire"), CLOSE))
+        buttons += [button("button_work", "Heard of any work?", command("/ttl sidequest offers"), CLOSE),
+                    button("button_leave", "Farewell", CLOSE)]
+        intro = f"{kind['name']}, {title}, looks up. Well met, @initiator."
+        if hire:
+            intro += f"\n\nFor hire: rank {hire['rank']}, {hire['minutes']} minutes of company for a fee."
+        objectives += [{"SpeedModifier": Raw("0.5d"), "Type": "RANDOM_STROLL_AROUND_HOME"},
+                       {"SpeedModifier": Raw("0.6d"), "Type": "MOVE_BACK_TO_HOME"}]
+        events["ON_INTERVAL_NORMAL"] = [message(lines, 20)]
+        invulnerable = True
+    elif role == "companion":
+        buttons = [button("button_status", "How are you holding up?", command("/ttl companion status"), CLOSE),
+                   button("button_dismiss", "Let us part ways", command("/ttl companion dismiss"), CLOSE),
+                   button("button_leave", "Carry on", CLOSE)]
+        intro = f"{kind['name']} checks the edge of the blade. Where to, @initiator?"
+        objectives += [{"SpeedModifier": Raw("0.8d"), "Type": "MELEE_ATTACK"},
+                       {"SpeedModifier": Raw("0.8d"), "Type": "ATTACK_MOB_WITHOUT_CREEPER"},
+                       {"Type": "HURT_BY_TARGET"}, {"Type": "OWNER_HURT_BY_TARGET"}, {"Type": "OWNER_HURT_TARGET"}]
+        events["ON_INTERVAL_LONG"] = [message(lines, 30)]
+        events["ON_HURT"] = [message(["Ngh!", "That stung.", "Watch my back!"], 25)]
+        invulnerable = False
+    else:
+        buttons = [button("button_status", "How far is it?", command("/ttl sidequest status"), CLOSE),
+                   button("button_leave", "Stay close", CLOSE)]
+        intro = f"{kind['name']} grips the strap of a pack. Lead on, @initiator. I will keep up."
+        events["ON_INTERVAL_NORMAL"] = [message(lines, 25)]
+        events["ON_HURT"] = [message(["Help!", "Get it off me!", "I am hit!"], None)]
+        invulnerable = False
+    default = {
+        "Buttons": buttons,
+        "Label": "default",
+        "Name": kind["name"],
+        "Priority": 5,
+        "Texts": [{"Text": intro.replace("\n", "\\n")}],
+    }
+    data = {
+        "ActionData": {"ActionEventSet": events},
+        "CustomName": Raw("'" + custom_name.replace("\\", "\\\\").replace("'", "\\'") + "'"),
+        "CustomNameVisible": True,
+        "DialogData": {"DialogDataSet": [default], "Type": "STANDARD"},
+        "EasyNPCVersion": 3,
+        "Invulnerable": invulnerable,
+        "ObjectiveData": {"ObjectiveDataSet": objectives},
+        "PersistenceRequired": True,
+        "PresetUUID": preset_uuid(f"{role}:{kind['id']}"),
+        **side_look(kind, own),
+        "id": "easy_npc:" + kind.get("model", "humanoid"),
+    }
+    meta = {
+        "access": "PUBLIC",
+        "author": "OCS Two Lives",
+        "category": "Side",
+        "created": Raw("1790000000000L"),
+        "description": f"{role}: {shown} (design/data/sidequests.toml)",
+        "entityTypeId": data["id"],
+        "modified": Raw("1790000000000L"),
+        "name": shown,
+        "variantType": kind["skin"],
+        "version": "1.0.0",
+    }
+    return snbt({"PresetMetadata": meta, "data": data}) + "\n"
+
+
+def render_side() -> dict:
+    path = DATA / "sidequests.toml"
+    if not path.is_file():
+        return {}
+    sq = tomllib.loads(path.read_text(encoding="utf-8"))
+    out = {}
+    for k in sq.get("adventurer", []):
+        out[TARGET / f"{SIDE_PREFIXES['adventurer']}{k['id']}.npc.snbt"] = side_preset(k, "adventurer")
+        if k.get("hire"):
+            out[TARGET / f"{SIDE_PREFIXES['companion']}{k['id']}.npc.snbt"] = side_preset(k, "companion")
+    for k in sq.get("client", []):
+        out[TARGET / f"{SIDE_PREFIXES['client']}{k['id']}.npc.snbt"] = side_preset(k, "client")
+    return out
+
+
+def check_places() -> list:
+    """Homes and inns of sidequests.toml places anchored to a build, Tempest or Dwargon: solid floor, two free blocks."""
+    path = DATA / "sidequests.toml"
+    if not path.is_file():
+        return []
+    sq = tomllib.loads(path.read_text(encoding="utf-8"))
+    problems, cache = [], {}
+    for p in sq.get("place", []):
+        if p["anchor"] not in ("build", "tempest", "dwargon"):
+            continue
+        build = {"tempest": "tempest", "dwargon": "dwargon"}.get(p["anchor"], p.get("build"))
+        ox, oy, oz = TEMPEST_ARRIVAL if p["anchor"] == "tempest" else (0, 0, 0)
+        if build not in cache:
+            cache[build] = structure_blocks(build)
+        blocks = cache[build]
+        spots = [("home", (p["x"], p["y"], p["z"]))] + ([("inn", tuple(p["inn"]))] if "inn" in p else [])
+        for label, (bx, by, bz) in spots:
+            x, y, z = ox + bx, oy + by, oz + bz
+            floor, feet, head = blocks.get((x, y - 1, z)), blocks.get((x, y, z)), blocks.get((x, y + 1, z))
+            if floor is None or passable(floor) or "water" in floor or "lava" in floor or not passable(feet) or not passable(head):
+                problems.append(f"sidequests.toml: place {p['id']} {label} ({build} {x} {y} {z}): floor {floor}, feet {feet}, head {head}")
+    return problems
+
+
 def check_npcs(npcs: dict, eco: dict, story: dict) -> None:
     where0 = "npcs.toml"
     kinds = {k["id"]: k for k in npcs["kind"]}
@@ -420,13 +562,14 @@ def render() -> dict:
             out[TARGET / f"{npcs['settings']['cast_prefix']}{k['id']}.npc.snbt"] = build_talk(k)
         else:
             out[TARGET / f"{npcs['settings']['preset_prefix']}{k['id']}.npc.snbt"] = build(k, eco["guild"])
+    out.update(render_side())
     return out
 
 
 def stale_files(files: dict) -> list:
     """Presets that are missing or differ, and generated presets of kinds that no longer exist."""
     stale = [p for p, text in files.items() if not p.exists() or p.read_text(encoding="utf-8") != text]
-    ours = [p for p in TARGET.glob("*.npc.snbt") if p.name.startswith(("ttl_guild_", "ttl_cast_"))] if TARGET.is_dir() else []
+    ours = [p for p in TARGET.glob("*.npc.snbt") if p.name.startswith(("ttl_guild_", "ttl_cast_") + tuple(SIDE_PREFIXES.values()))] if TARGET.is_dir() else []
     return stale + [p for p in ours if p not in files]
 
 
@@ -435,7 +578,7 @@ def main() -> None:
     problems = []
     if "--spots" in sys.argv:
         npcs = tomllib.loads((DATA / "npcs.toml").read_text(encoding="utf-8"))
-        problems = check_spots(npcs)
+        problems = check_spots(npcs) + check_places()
         for line in problems:
             print(f"FAIL {line}")
         if not problems:

@@ -1,0 +1,133 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"adventurer: Olric, C-rank knight (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Olric, C-rank knight",
+    variantType:"KNIGHT_02",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_NORMAL:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:20
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Keep your guard up on the Falmuth road. Bandits like rookies.",
+                "I've seen what a direwolf pack does to a careless caravan.",
+                "Rank C took me eleven years. Don't rush it.",
+                "A shield is worth more than a sharp blade.",
+                "The guildmaster pays fairly. Remember that when the job turns ugly."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#4F86C6","text":"Olric, C-rank knight"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl companion hire",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_hire",
+              Name:"Join my party"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl sidequest offers",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_work",
+              Name:"Heard of any work?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Farewell"
+            }
+          ],
+          Label:"default",
+          Name:"Olric",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Olric, C-rank knight, looks up. Well met, @initiator.\\n\\nFor hire: rank C, 90 minutes of company for a fee."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        },
+        {
+          SpeedModifier:0.5d,
+          Type:"RANDOM_STROLL_AROUND_HOME"
+        },
+        {
+          SpeedModifier:0.6d,
+          Type:"MOVE_BACK_TO_HOME"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-177786183,-352692542,-2139491690,-1933419283],
+    VariantType:"KNIGHT_02",
+    id:"easy_npc:humanoid"
+  }
+}

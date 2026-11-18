@@ -1,5 +1,15 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 18/11 evening — branch `sidequests` (PR open, not merged): side quests, ambient adventurers, companions
+
+Isekai side content for Life 2 (design: `design/quests.md` "Side quests", decisions.md rows of 18/11/2026):
+`pack/kubejs/server_scripts/ttl/sidequests/` (places.js, side.js, companions.js, adventurers.js, commands.js), data
+`design/data/sidequests.toml` (checked by `tools/sidequests_check.py` from gen_data), presets `ttl_adv_* / ttl_comp_* / ttl_client_*`
+(gen_npcs.py), chapters 20-23 (47 side jobs, 64 FTB quests). Companions are Easy NPC (no new mod). Offline: validate.py passed,
+unit tests OK (tests/test_sidequests.py). **Not run in game yet**: `bash tools/server.sh test sidequests` and `test companions`
+after the merge (needs Tempest, Dwargon, Blumund and Englassia placed); watch for `[ttl] side` / `[ttl] companion` /
+`[ttl] adventurers` errors. Radiant boards (WP-W13/W15) should call `TtlSide.start(server, player, kind, params)` and `TtlSide.listen`.
+
 ## 18/11 afternoon — six PRs merged into main (`7898d90`), ttl-ops run pending
 
 Merged with `--no-ff` in this order: #15 ocs-bluemap-pregen, #11 polish, #13 lore-pass, #17 rules-pass, #16 quests-web, #14 story-s7

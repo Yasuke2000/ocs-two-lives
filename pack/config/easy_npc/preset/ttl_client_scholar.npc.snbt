@@ -1,0 +1,121 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Side",
+    created:1790000000000L,
+    description:"client: Scholar Ilse (design/data/sidequests.toml)",
+    entityTypeId:"easy_npc:humanoid_slim",
+    modified:1790000000000L,
+    name:"Scholar Ilse",
+    variantType:"MAKENA",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ],
+        ON_INTERVAL_NORMAL:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:25
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Fascinating, the soil here is soaked in magicules.",
+                "Do slow down, I am writing.",
+                "The academy will want every word of this."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ],
+        ON_HURT:[
+          {
+            Msg:{
+              T:4b,
+              Texts:[
+                "Help!",
+                "Get it off me!",
+                "I am hit!"
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#B57EDC","text":"Scholar Ilse"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl sidequest status",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_status",
+              Name:"How far is it?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Stay close"
+            }
+          ],
+          Label:"default",
+          Name:"Scholar Ilse",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Scholar Ilse grips the strap of a pack. Lead on, @initiator. I will keep up."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:0b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        },
+        {
+          Type:"FLOAT"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;1500174275,-1247521850,-1676431010,194929],
+    VariantType:"MAKENA",
+    id:"easy_npc:humanoid_slim"
+  }
+}

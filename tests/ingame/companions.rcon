@@ -1,0 +1,82 @@
+# Companions (sidequests/companions.js; [companions] and [[adventurer]].hire in design/data/sidequests.toml). Every
+# `ttl companion expect` prints "ttl: ..." when it does not hold. Bots do not walk, so nothing here depends on following;
+# the party cap uses real FTB parties formed with `ttl as <bot> ftbteams ...` (see party.rcon for why).
+# Rules checked: a Life 1 soul cannot hire; the fee must be payable; one companion per soul; online party members plus their
+# companions plus the new one may be 5 at most (a party of four with one companion hires nobody more); a companion that
+# dies ends the contract; dismiss ends it.
+# Expect in the log: "[ttl] companion: TtlBotCompA granted rookie_swordsman for 30 min (<uuid>)", "... contract ended
+# (fallen in battle)".
+# Also check in game (not asserted): the companion follows its owner (FOLLOW_OWNER) and fights hostile mobs, cannot hurt or
+# be hurt by players, comes back after a relog, and boss credit stays with the players (bosses/boss.js counts players only).
+ttlbot spawn TtlBotCompA
+ttlbot spawn TtlBotCompB
+ttlbot spawn TtlBotCompC
+ttlbot spawn TtlBotCompD
+ttlbot spawn TtlBotCompL
+@sleep 2
+ttl as TtlBotCompD ftbteams party leave
+ttl as TtlBotCompC ftbteams party leave
+ttl as TtlBotCompB ftbteams party leave
+ttl as TtlBotCompA ftbteams party leave
+kubejs stages add TtlBotCompA ttl.life2
+kubejs stages add TtlBotCompB ttl.life2
+kubejs stages add TtlBotCompC ttl.life2
+kubejs stages add TtlBotCompD ttl.life2
+kubejs stages remove TtlBotCompL ttl.life2
+ttl companion clear TtlBotCompA
+ttl companion clear TtlBotCompB
+ttl companion clear TtlBotCompC
+ttl companion clear TtlBotCompD
+clear TtlBotCompA
+clear TtlBotCompB
+ttl sidequest goto TtlBotCompA tempest_green
+ttl sidequest goto TtlBotCompB tempest_green
+ttl sidequest goto TtlBotCompL tempest_green
+@sleep 3
+# Who may hire: Life 1 never; no coins, no companion; 2 gold buys the C-rank knight.
+ttl companion expect TtlBotCompL can_hire rookie_swordsman:life
+ttl companion expect TtlBotCompB can_hire veteran_knight:fee
+give TtlBotCompB tensura:gold_coin 2
+ttl companion expect TtlBotCompB can_hire veteran_knight:yes
+ttl companion expect TtlBotCompB can_hire apprentice_mage:kind
+# A granted companion (test hook: no fee): one per soul.
+ttl companion grant TtlBotCompA rookie_swordsman 30
+ttl companion expect TtlBotCompA count 1
+ttl companion expect TtlBotCompA kind rookie_swordsman
+ttl companion expect TtlBotCompA alive yes
+ttl companion expect TtlBotCompA can_hire scout:max
+# The party cap: A, B, C and D in one party (4) plus A's companion (1) = 5: B may not hire a sixth fighter.
+ttl as TtlBotCompA ftbteams party create CompTest
+ttl as TtlBotCompA ftbteams party invite TtlBotCompB
+ttl as TtlBotCompB ftbteams party join TtlBotCompA
+ttl as TtlBotCompA ftbteams party invite TtlBotCompC
+ttl as TtlBotCompC ftbteams party join TtlBotCompA
+ttl companion expect TtlBotCompB can_hire veteran_knight:yes
+ttl as TtlBotCompA ftbteams party invite TtlBotCompD
+ttl as TtlBotCompD ftbteams party join TtlBotCompA
+ttl companion expect TtlBotCompB can_hire veteran_knight:cap
+# A's companion falls: the contract ends, and B may hire again.
+execute as TtlBotCompA at @s run kill @e[tag=ttl.comp,distance=..16]
+@sleep 1
+ttl sidequest poll TtlBotCompA
+ttl companion expect TtlBotCompA count 0
+ttl companion expect TtlBotCompB can_hire veteran_knight:yes
+# The status line and dismiss (the companion dialog's buttons run these as the player). Hiring from a town adventurer
+# (`/ttl companion hire`, the "Join my party" button) picks the nearest hireable one; the green's kinds are random, so
+# that path is a manual check in game (stand next to a hireable adventurer on the green and press the button).
+execute as TtlBotCompB run ttl companion
+ttl companion grant TtlBotCompB veteran_knight
+ttl companion expect TtlBotCompB kind veteran_knight
+execute as TtlBotCompB run ttl companion dismiss
+ttl companion expect TtlBotCompB count 0
+ttl adventurers clear tempest_green
+ttl as TtlBotCompD ftbteams party leave
+ttl as TtlBotCompC ftbteams party leave
+ttl as TtlBotCompB ftbteams party leave
+ttl as TtlBotCompA ftbteams party leave
+ttl companion clear TtlBotCompA
+ttlbot remove TtlBotCompA
+ttlbot remove TtlBotCompB
+ttlbot remove TtlBotCompC
+ttlbot remove TtlBotCompD
+ttlbot remove TtlBotCompL
