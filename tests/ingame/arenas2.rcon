@@ -45,6 +45,10 @@ ttl arena expect arena walpurgis state lobby
 ttl arena expect arena walpurgis mode duel
 ttl arena expect arena walpurgis players 2
 ttl arena expect player TtlBotArnA inarena yes
+# No duel liability inside an arena box (absorb/liability.js asks TtlArenas.inArena).
+ttl liability expect arena TtlBotArnA yes
+ttl liability expect public TtlBotArnA no
+ttl liability expect arena TtlBotArnE no
 ttl arena expect player TtlBotArnA back yes
 ttl arena expect player TtlBotArnE back no
 execute as TtlBotArnA run ttl arena start

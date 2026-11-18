@@ -101,10 +101,19 @@ const TtlLiability = {
     return typeof TtlNationClaims !== 'undefined' ? TtlNationClaims.teamAt(server, dim, x, z) : ''
   },
 
-  // {label, owner} of the public place at dim x/z, or null for the wild or the duellists' own land (`ex` = their team
-  // ids and UUIDs). owner = the nation key that is paid, '' = a sink.
-  placeAt(server, dim, x, z, ex) {
+  // True inside an arena box (arena/arenas.js): organised combat there never carries liability, even where the arena sits
+  // in a placed build (the Walpurgis Hall). Guarded: the arenas may be absent.
+  inArena(server, dim, x, y, z) {
+    if (y === undefined || typeof TtlArenas === 'undefined' || !TtlArenas.inArena) return false
+    var level = server ? server.getLevel(String(dim)) : null
+    return TtlArenas.inArena(level || String(dim), [Number(x), Number(y), Number(z)]) === true
+  },
+
+  // {label, owner} of the public place at dim x/z (y: the height, for the arena exemption), or null for the wild, an arena
+  // box or the duellists' own land (`ex` = their team ids and UUIDs). owner = the nation key that is paid, '' = a sink.
+  placeAt(server, dim, x, z, ex, y) {
     var c = this.conf()
+    if (this.inArena(server, dim, x, y, z)) return null
     if (c.places.indexOf('claims') >= 0) {
       var team = this.claimTeam(server, String(dim), x, z)
       if (team) {
@@ -147,7 +156,7 @@ const TtlLiability = {
     var ex = this.ownIds([a, b])
     var place = null
     ;[a, b].forEach(p => {
-      if (!place && p) place = this.placeAt(server, TtlLife.dimensionOf(p), Number(p.x), Number(p.z), ex)
+      if (!place && p) place = this.placeAt(server, TtlLife.dimensionOf(p), Number(p.x), Number(p.z), ex, Number(p.y))
     })
     if (!place) return ''
     var list = TtlAbsorb.live(server)
@@ -202,7 +211,7 @@ const TtlLiability = {
     var x = Number(block.x)
     var y = Number(block.y)
     var z = Number(block.z)
-    var place = this.placeAt(server, dim, x, z, e.ex)
+    var place = this.placeAt(server, dim, x, z, e.ex, y)
     if (!place) return false
     var all = this.load(server)
     var rec = all[e.key]
@@ -399,7 +408,7 @@ ServerEvents.commandRegistry(event => {
       // Where a player stands: the public place (and who is paid) or "wild".
       .then(Commands.literal('where').then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(ctx => {
         var p = player(ctx, 'target')
-        var place = TtlLiability.placeAt(ctx.source.getServer(), TtlLife.dimensionOf(p), Number(p.x), Number(p.z), TtlLiability.ownIds([p]))
+        var place = TtlLiability.placeAt(ctx.source.getServer(), TtlLife.dimensionOf(p), Number(p.x), Number(p.z), TtlLiability.ownIds([p]), Number(p.y))
         say(ctx, place ? `${p.username} stands in ${place.label} (${place.owner ? 'paid to nation ' + place.owner : 'a sink'})` : `${p.username} stands in the wild`)
         return 1
       }))))
@@ -431,10 +440,16 @@ ServerEvents.commandRegistry(event => {
             var p = player(ctx, 'target')
             return check(ctx, `${p.username} liable`, TtlLiability.entryFor(ctx.source.getServer(), p) ? 'yes' : 'no', str(ctx, 'value'))
           })))))
+        .then(Commands.literal('arena').then(Commands.argument('target', Arguments.PLAYER.create(event))
+          .then(Commands.argument('value', Arguments.STRING.create(event)).executes(logged(ctx => {
+            var p = player(ctx, 'target')
+            var inside = TtlLiability.inArena(ctx.source.getServer(), TtlLife.dimensionOf(p), Number(p.x), Number(p.y), Number(p.z))
+            return check(ctx, `${p.username} in an arena`, inside ? 'yes' : 'no', str(ctx, 'value'))
+          })))))
         .then(Commands.literal('public').then(Commands.argument('target', Arguments.PLAYER.create(event))
           .then(Commands.argument('value', Arguments.STRING.create(event)).executes(logged(ctx => {
             var p = player(ctx, 'target')
-            var place = TtlLiability.placeAt(ctx.source.getServer(), TtlLife.dimensionOf(p), Number(p.x), Number(p.z), TtlLiability.ownIds([p]))
+            var place = TtlLiability.placeAt(ctx.source.getServer(), TtlLife.dimensionOf(p), Number(p.x), Number(p.z), TtlLiability.ownIds([p]), Number(p.y))
             return check(ctx, `${p.username} in a public place`, place ? 'yes' : 'no', str(ctx, 'value'))
           })))))
         .then(Commands.literal('above').then(Commands.argument('target', Arguments.PLAYER.create(event))

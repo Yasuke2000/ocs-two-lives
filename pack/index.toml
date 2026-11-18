@@ -1902,7 +1902,7 @@ hash = "8ed1e2d2f5350926fb59098a6a15940260fc9b29b45110342099e2ced6099063"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/absorb/liability.js"
-hash = "ecbb5199ad1343768473f4f6a02bb6f3ca5f603566443deeaade420bf6f3ea9b"
+hash = "74b98702bb57b77f73b9424e5218680c9bf606a7fbe7a63951f6f2d57d2df84d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/access.js"
@@ -2018,7 +2018,7 @@ hash = "cde66cea94a420fc19e6ac38e00e8bd48fa311b18ed41891462cc3d640c8d94a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "cbcbd696acb9993c33f6b9af0c6283a7094c8cfda433bcd219b0359f6dafb75b"
+hash = "2eb3a010f2723efb2b7483dbfc3fec4f07558ad2f113852d70b8836ff2576177"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2170,7 +2170,7 @@ hash = "0b57ffb3648edea38cbbb04cae19252647b5ea1294c6954c8f3629af66004470"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/nations/claims.js"
-hash = "f7551f874103c0a2c6c809a4cdd3bddadbf41846ff5b15976c3ccbd84468b16f"
+hash = "b6c8496ec7e19e530b859496d300df019f9658617092d89a59a55ac3ee832d96"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/nations/commands.js"

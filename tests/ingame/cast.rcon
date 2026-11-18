@@ -80,7 +80,7 @@ ttl cast interact TtlBotCastA treyni_shrine treyni
 ttl cast interact TtlBotCastA milim_forgotten_dragon_city milim
 ttl cast interact TtlBotCastA edmaris_marris edmaris
 ttl cast interact TtlBotCastA yuuki_englassia yuuki
-ttl cast interact TtlBotCastA frey_clayman frey
+ttl cast interact TtlBotCastA frey_walpurgis frey
 ttl cast interact TtlBotCastA ramiris_spirit_dwelling ramiris
 # ---- a stand-in: the guild trio waits in Tempest's longhouse until Blumund is placed, then Blumund's spots take over ----
 # (`cast verify all` above already counted exactly one of each: a stand-in and its Blumund spot share the tag.)

@@ -100,10 +100,18 @@ const TtlNationClaims = {
     try {
       var m = this.manager()
       if (!m) return ''
-      if (this.dimPos === undefined) this.dimPos = Java.loadClass('dev.ftb.mods.ftblibrary.math.ChunkDimPos')
-      var level = server.getLevel(String(dim))
-      if (!level) return ''
-      var c = m.getChunk(new this.dimPos(level.dimension(), Math.floor(Number(x)) >> 4, Math.floor(Number(z)) >> 4))
+      if (this.dimPos === undefined) {
+        this.dimPos = Java.loadClass('dev.ftb.mods.ftblibrary.math.ChunkDimPos')
+        this.resKey = Java.loadClass('net.minecraft.resources.ResourceKey')
+        this.dimReg = Java.loadClass('net.minecraft.core.registries.Registries').DIMENSION
+        this.resLoc = Java.loadClass('net.minecraft.resources.ResourceLocation')
+        this.dimKeys = {}
+      }
+      // KubeJS shadows ServerLevel.dimension() with its `dimension` property (a ResourceLocation), so the key is built here.
+      var d = String(dim)
+      var key = this.dimKeys[d]
+      if (!key) key = this.dimKeys[d] = this.resKey.create(this.dimReg, this.resLoc.parse(d))
+      var c = m.getChunk(new this.dimPos(key, Math.floor(Number(x)) >> 4, Math.floor(Number(z)) >> 4))
       return c ? String(c.getTeamData().getTeam().getId()) : ''
     } catch (e) {
       if (!this.warned) console.warn(`[ttl] nations: reading the claim at ${dim} ${x} ${z} failed (${e})`)

@@ -885,59 +885,61 @@ y = 9
 z = 14
 yaw = 0
 
-# Clayman's castle (blueprints/clayman_castle.py): the throne hall x 42-66, z 36-46 (walk y 8), purple carpet x 52-56; the
-# Walpurgis council stands in two pairs facing the carpet. Their lines wait for act 6 (story.toml).
+# The Walpurgis Hall (blueprints/walpurgis_hall.py, dimension ttl:walpurgis, walk y 15): the council stands on the red carpet
+# ring before four of the ten thrones (seats 0 and 9 north, 4 and 5 south of the table centre 40, 36), facing the table.
+# Until 18/11/2026 they stood in Clayman's throne hall; canon's Walpurgis was not held there (decisions.md, arenas).
+# Their lines wait for act 6 (story.toml).
 [[spot]]
-id = "frey_clayman"
+id = "frey_walpurgis"
 kind = "frey"
 tag = "ttl.npc.frey"
 enabled = true
-dim = "minecraft:overworld"
+dim = "ttl:walpurgis"
 anchor = "build"
-build = "clayman_castle"
-x = 50
-y = 8
-z = 42
-yaw = -90
+build = "walpurgis_hall"
+x = 43
+y = 15
+z = 27
+yaw = 18
 
 [[spot]]
-id = "guy_clayman"
+id = "guy_walpurgis"
 kind = "guy"
 tag = "ttl.npc.guy"
 enabled = true
-dim = "minecraft:overworld"
+dim = "ttl:walpurgis"
 anchor = "build"
-build = "clayman_castle"
-x = 50
-y = 8
-z = 45
-yaw = -90
+build = "walpurgis_hall"
+x = 37
+y = 15
+z = 27
+yaw = -18
 
 [[spot]]
-id = "leon_clayman"
+id = "leon_walpurgis"
 kind = "leon"
 tag = "ttl.npc.leon"
 enabled = true
-dim = "minecraft:overworld"
+dim = "ttl:walpurgis"
 anchor = "build"
-build = "clayman_castle"
-x = 58
-y = 8
-z = 42
-yaw = 90
+build = "walpurgis_hall"
+x = 43
+y = 15
+z = 45
+yaw = 162
 
 [[spot]]
-id = "dagruel_clayman"
+id = "dagruel_walpurgis"
 kind = "dagruel"
 tag = "ttl.npc.dagruel"
 enabled = true
-dim = "minecraft:overworld"
+dim = "ttl:walpurgis"
 anchor = "build"
-build = "clayman_castle"
-x = 58
-y = 8
+build = "walpurgis_hall"
+x = 37
+y = 15
 z = 45
-yaw = 90
+yaw = -162
 
 # The Dwelling of the Spirits (blueprints/spirit_dwelling.py, dimension ttl:spirit_domain, walk y 41): Ramiris on the dais
 # east of the glass lid over the shaft.
