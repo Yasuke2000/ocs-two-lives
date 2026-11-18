@@ -1,0 +1,13 @@
+name = "marris"
+title = "Marris — Falmuth"
+landmark = "Marris (Falmuth capital)"  # world about (-920, -745), region F; verified land in canon_map.txt
+anchor = [68, 5, 66]                   # Royal Plaza, just south of the fountain monument (68, 5, 57)
+ground = "survey"
+search = 64
+dimension = "minecraft:overworld"
+version = 1
+clear_above = true
+# Saved as three z slabs marris_0..2 (z 0-37, 38-75, 76-111), box 136 x 64 x 112; the great gate faces south (+z).
+# Arrival on the royal road: blueprint (68, 5, 106), facing north.
+# Western Holy Church door (47, 5, 59), altar (27, 6, 59), bell tower top (49, 32, 47); throne seat (68, 6, 10);
+# castle gate (68, 5, 37); plaza x 24-112, z 38-76.
