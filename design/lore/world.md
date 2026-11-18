@@ -11,8 +11,9 @@ light novel, manga and anime. Items marked *(unverified)* could not be checked a
 own choice. Two maps were used: the political fan map (`17.png`, 2800x2050, source of the grid and of every `ref`
 coordinate) and an illustrated terrain map (`16.png`, Dragon's Nest, Sealed Cave, volcanoes, the Divine Tree).
 
-Coordinates: `ref` = pixel on the political map. World ≈ (ref − origin [1792, 1141]) × 3.89 blocks at the current
-`--width 10000`. World positions below are rounded to about 10 blocks.
+Coordinates: `ref` = pixel on the political map. World ≈ (ref − origin [1792, 1141]) × width / 2570, about 5.45 blocks at the
+current width 14,000 (`canon_regions.json` `width`). **The world positions listed below were worked out at the old
+10,000 width (3.89 blocks per pixel): multiply them by 1.4**, or convert the `ref` (tools/gen_data.py `ref_to_world`). World positions below are rounded to about 10 blocks.
 
 ## Continent overview
 
@@ -344,7 +345,7 @@ Canon scale cannot be reproduced. Two months on foot from the goblin village to 
 and millions of blocks in Minecraft. Every playable scale is a compression, so the question is gameplay
 density.
 
-Current scale: 10,000 blocks across the land, about 3.89 blocks per reference pixel. That puts Jura at about
+Scale until 18/11/2026 (the owner then chose 14,000, about 5.45 blocks per pixel; see the table): 10,000 blocks across the land, about 3.89 blocks per reference pixel. That puts Jura at about
 2,860 x 2,270 blocks (12,900 chunks), Dwargon at 2,000 x 1,420, and the whole grid at 626 x 452 chunks plus the
 1,600-block sea ring, about 0.5 M chunks to pregenerate.
 

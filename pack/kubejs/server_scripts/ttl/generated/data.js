@@ -424,6 +424,7 @@ const TtlData = {
       "ground": "survey",
       "landmark": "Blumund capital (Londo)",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "blumund",
       "search": 64,
       "size": [
@@ -432,7 +433,7 @@ const TtlData = {
         116
       ],
       "title": "Blumund — Londo",
-      "version": 1,
+      "version": 2,
       "x": -1024,
       "z": -120
     },
@@ -447,9 +448,10 @@ const TtlData = {
       "ground": "survey",
       "landmark": "Clayman's Castle",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "clayman_castle",
       "notes": "Dark gothic fortress with moat, curtain wall, keep and pierrot mask; blueprints/clayman_castle.py, lore in design/lore/clayman_castle.md.",
-      "search": 64,
+      "search": 160,
       "size": [
         109,
         66,
@@ -457,8 +459,8 @@ const TtlData = {
       ],
       "title": "Clayman's Castle — the Puppet Nation of Jistav",
       "version": 1,
-      "x": 2930,
-      "z": -685
+      "x": 3693,
+      "z": -959
     },
     {
       "anchor": [
@@ -471,6 +473,7 @@ const TtlData = {
       "ground": "survey",
       "landmark": "Dragon's Nest (highest peak of the Great Canaat Mountains)",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "dragons_nest",
       "notes": "Roosting bowl of spruce trunks in a jagged ring wall with eight spires; survey radius kept small so the build stays on the summit.",
       "search": 32,
@@ -495,6 +498,7 @@ const TtlData = {
       "ground": "survey",
       "landmark": "Englassia capital (Lura): Freedom Academy, Free Guild HQ",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "englassia",
       "search": 64,
       "size": [
@@ -503,7 +507,7 @@ const TtlData = {
         112
       ],
       "title": "Englassia — Lura",
-      "version": 1,
+      "version": 2,
       "x": -2626,
       "z": -300
     },
@@ -518,9 +522,10 @@ const TtlData = {
       "ground": "survey",
       "landmark": "City of the Forgotten Dragon (Milim)",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "forgotten_dragon_city",
       "notes": "Dragon-skull temple gate, rib-arch avenue, granaries and thatch huts; blueprints/forgotten_dragon_city.py, lore in design/lore/forgotten_dragon_city.md.",
-      "search": 64,
+      "search": 96,
       "size": [
         121,
         44,
@@ -528,8 +533,8 @@ const TtlData = {
       ],
       "title": "City of the Forgotten Dragon — Milim's domain",
       "version": 1,
-      "x": 1780,
-      "z": 684
+      "x": 2510,
+      "z": 575
     },
     {
       "anchor": [
@@ -542,6 +547,7 @@ const TtlData = {
       "ground": "survey",
       "landmark": "Laura (Eurazania capital, rebuilt)",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "laura",
       "notes": "Walled jungle capital with fruit market, lion-gabled great hall and stilt houses; blueprints/laura.py, lore in design/lore/laura.md.",
       "search": 64,
@@ -551,7 +557,7 @@ const TtlData = {
         113
       ],
       "title": "Laura — capital of the Beast Kingdom of Eurazania",
-      "version": 1,
+      "version": 2,
       "x": 1689,
       "z": 1302
     },
@@ -566,6 +572,7 @@ const TtlData = {
       "ground": "survey",
       "landmark": "Holy City Lubelius (Lune)",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "lubelius",
       "search": 64,
       "size": [
@@ -589,6 +596,7 @@ const TtlData = {
       "ground": "survey",
       "landmark": "Marris (Falmuth capital)",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "marris",
       "search": 64,
       "size": [
@@ -597,7 +605,7 @@ const TtlData = {
         112
       ],
       "title": "Marris — Falmuth",
-      "version": 1,
+      "version": 2,
       "x": -1286,
       "z": -1040
     },
@@ -612,9 +620,10 @@ const TtlData = {
       "ground": "survey",
       "landmark": "Sealed Cave (Veldora's prison, Rimuru's birthplace)",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "sealed_cave",
       "notes": "A rocky hill in a forest clearing with the cave mouth in its south face; antechamber with pond and hipokute plot, the sealed chamber with the spent Unlimited Imprisonment seal. Interior is our interpretation; canon gives the location and the facts (design/lore/sealed_cave.md).",
-      "search": 64,
+      "search": 128,
       "size": [
         88,
         50,
@@ -635,6 +644,7 @@ const TtlData = {
       "dimension": "ttl:spirit_domain",
       "ground": "fixed",
       "margin": 0,
+      "max_wet": 0.1,
       "name": "spirit_dwelling",
       "notes": "Glade, colonnade and summoning grotto with the pedestal of light (Rimuru took Shizu's pupils there to call their spirits, light novel vol. 4 ch. 50). Appearance is our interpretation.",
       "search": 48,
@@ -659,6 +669,7 @@ const TtlData = {
       "dimension": "minecraft:overworld",
       "ground": "survey",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "spirit_gate",
       "notes": "Canon puts the Dwelling inside Ramiris's labyrinth in Tempest's territory but gives no map position; this spot (about 250 blocks south-west of Tempest, in the Jura forest) is our interpretation.",
       "search": 64,
@@ -682,6 +693,7 @@ const TtlData = {
       "dimension": "ttl:spirit_corridor",
       "ground": "fixed",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "test_hut",
       "search": 48,
       "size": [
@@ -706,6 +718,7 @@ const TtlData = {
       "ground": "survey",
       "landmark": "Treyni's grove (Dryad sanctuary)",
       "margin": 8,
+      "max_wet": 0.1,
       "name": "treyni_shrine",
       "notes": "Small mossy dais with a young azalea tree and three seats for the dryad sisters; our interpretation (design/lore/treyni_shrine.md).",
       "search": 48,
@@ -715,7 +728,7 @@ const TtlData = {
         33
       ],
       "title": "Treyni's shrine",
-      "version": 1,
+      "version": 2,
       "x": 1988,
       "z": -223
     }

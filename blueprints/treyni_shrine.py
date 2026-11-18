@@ -80,7 +80,11 @@ def build(bp):
     for dx in range(-3, 4):
         for dz in range(-3, 4):
             if 1.5 < math.hypot(dx, dz) < 3.2 and blocks.get((C + dx, F, C + dz)) == AIR and rnd(C + dx, 3, C + dz, 7) < 0.6:
-                blocks[(C + dx, F, C + dz)] = M("moss_carpet") if rnd(C + dx, 4, C + dz, 8) < 0.7 else M("azure_bluet")
+                if rnd(C + dx, 4, C + dz, 8) < 0.7:
+                    blocks[(C + dx, F, C + dz)] = M("moss_carpet")
+                else:  # a flower needs soil under it, not the dais's stone bricks
+                    blocks[(C + dx, G, C + dz)] = M("moss_block")
+                    blocks[(C + dx, F, C + dz)] = M("azure_bluet")
 
     # three seats for the three sisters, in a half circle on the east side, each with a potted sapling
     pots = ("potted_azalea_bush", "potted_flowering_azalea_bush", "potted_cherry_sapling")
@@ -113,7 +117,7 @@ def build(bp):
             for dx in (-1, 0, 1):
                 if rnd(gx + dx, F + dy, C + dz, 12) < 0.55 and blocks.get((gx + dx, F + dy, C + dz)) == AIR and dy >= 5 - (1 if abs(dz) > 1 else 0):
                     blocks[(gx + dx, F + dy, C + dz)] = AZ_LEAF if rnd(gx + dx, F + dy, C + dz, 13) < 0.7 else FL_LEAF
-    blocks[(gx, F + 3, C)] = M("lantern[hanging=true]")
+    blocks[(gx, F + 4, C)] = M("lantern[hanging=true]")  # right under the arch log, which is at F + 5 over the middle
     # a stepping path from the gate to the dais
     for x in range(gx + 1, C - 7):
         for z in (C - 1, C, C + 1):

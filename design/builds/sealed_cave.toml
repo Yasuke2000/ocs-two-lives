@@ -4,7 +4,8 @@ title = "The Sealed Cave: Veldora's prison, Rimuru's birthplace"
 landmark = "Sealed Cave (Veldora's prison, Rimuru's birthplace)"
 anchor = [44, 5, 82]
 ground = "survey"
-search = 64
+# The canon point lies on a river (18/11/2026: at least 18 % water everywhere within 64): the survey looks further.
+search = 128
 dimension = "minecraft:overworld"
 version = 1
 clear_above = true

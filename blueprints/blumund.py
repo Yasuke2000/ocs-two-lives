@@ -122,7 +122,7 @@ def fountain(t: Town, cx, cz):
     for y in range(F, F + 4):
         t.put(cx, y, cz, M("stone_brick_wall[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"))
     t.put(cx, F + 4, cz, M("chiseled_stone_bricks"))
-    t.put(cx, F + 5, cz, M("stone_brick_slab[type=bottom,waterlogged=false]"))
+    t.put(cx, F + 5, cz, M("stone_brick_slab[type=top,waterlogged=false]"))  # a bottom slab cannot hold the lantern
     t.put(cx, F + 6, cz, lantern_floor())
     for dx, dz in ((2, 0), (-2, 0), (0, 2), (0, -2)):
         t.put(cx + dx, G, cz + dz, M("water[level=0]"))

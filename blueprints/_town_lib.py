@@ -330,8 +330,9 @@ class Town:
         bx, bz = (x1 - 1, z0 + 1) if door_side != "n" else (x1 - 1, z1 - 2)
         if storeys > 1:
             y = F + storey_h
-            facing = "south" if door_side != "n" else "north"
-            zz = bz + (1 if facing == "south" else -1)
+            # The head lies one block toward `facing` from the foot: head against the back wall, foot toward the room.
+            facing = "north" if door_side != "n" else "south"
+            zz = bz + (1 if facing == "north" else -1)
             if self.get(bx, y, bz) == AIR and self.get(bx, y, zz) == AIR:
                 self.put(bx, y, bz, bed("red", facing, "head"))
                 self.put(bx, y, zz, bed("red", facing, "foot"))

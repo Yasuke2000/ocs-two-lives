@@ -243,6 +243,7 @@ def square(s):
     # planters (rose beds) at the avenue mouth
     for x in (47, 52, 76, 81):
         for dx in range(2):
+            s.put(x + dx, F - 1, 96, "grass_block")
             s.put(x + dx, F, 96, "rose_bush[half=lower]")
             s.put(x + dx, F + 1, 96, "rose_bush[half=upper]")
 

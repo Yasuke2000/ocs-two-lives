@@ -354,9 +354,12 @@ def stilt_house(hx, hz, face):
     door = {"n": (hx, z0), "s": (hx, z0 + 4), "e": (x0 + 4, hz), "w": (x0, hz)}[face]
     for y in (F + 4, F + 5):
         put(bp, door[0], y, door[1], AIR)
-    # a ladder from the ground to the door sill, on the outside
-    lad = {"n": (door[0], door[1] - 1, "south"), "s": (door[0], door[1] + 1, "north"),
-           "e": (door[0] + 1, door[1], "west"), "w": (door[0] - 1, door[1], "east")}[face]
+    # a ladder from the ground to the door sill, on the outside, hung on a post under the door (a ladder hangs on the
+    # block opposite its facing, and the stilts leave the wall open below the floor)
+    lad = {"n": (door[0], door[1] - 1, "north"), "s": (door[0], door[1] + 1, "south"),
+           "e": (door[0] + 1, door[1], "east"), "w": (door[0] - 1, door[1], "west")}[face]
+    for y in range(F, F + 3):
+        put(bp, door[0], y, door[1], M("jungle_log[axis=y]"))
     for y in range(F, F + 4):
         put(bp, lad[0], y, lad[1], f"minecraft:ladder[facing={lad[2]}]")
     gable_z(x0 - 1, x0 + 5, z0 - 1, z0 + 5, F + 7, tstairs, THATCH)
