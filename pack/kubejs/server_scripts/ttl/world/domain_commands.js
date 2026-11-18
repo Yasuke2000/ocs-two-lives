@@ -110,10 +110,11 @@ ServerEvents.commandRegistry(event => {
     TtlCmd.run(s, `execute in ${OW} run setblock ${x} ${y} ${z} minecraft:stone`)
     var BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
     var broke = false
+    var got = ''
     try {
       broke = !!p.gameMode.destroyBlock(new BlockPos(x, y, z))
     } finally {
-      var got = blockAt(s, x, y, z)
+      got = blockAt(s, x, y, z)
       TtlCmd.run(s, `execute in ${OW} run setblock ${x} ${y} ${z} minecraft:air`)
     }
     var outcome = got === 'minecraft:stone' ? 'kept' : 'broken'
