@@ -124,3 +124,9 @@ Offline: validate passes, 49 unit tests OK, all structures rebuilt. In game afte
   tags unverified), non-op players cannot break Wayfarer's Rest but can use doors, beds and the bell.
 - canon_map.txt is not regenerated for the audit's Ameld outlet (needs the political plate,
   `python tools/canon_map.py <plate.png>`); the H palette change and the outlet only reach ungenerated chunks.
+
+## Tempest growth, Mortal Realm destinations, balance and heraldry
+
+- The town and city are additive structure sets with no runtime registration. See [the growth plan](../design/lore/tempest_growth.md) for the world anchor, slab order, preserved core and full comparison. Stage-test the phase switch when it lands, including a previously inhabited village with containers, quest NPCs and the Outcast contact.
+- Wait for all six Mortal surveys, run `tools/server.sh test mortal_waypoints`, then `python tools/verify_build.py <name> --dimension ttl:mortal_realm --log --min 98`. Check the actual terrain joins, ferry water containment, tower climb and market workstations at night. The coordinates listed in the quest notes are survey centres.
+- The [balance audit](audits/balance-2026-11.md) is for Yasuke to review before any tuning. For heraldry, try each banner command as a staging player and retrieve a marker from the BlueMap webroot. The map generator still needs a separate integration.

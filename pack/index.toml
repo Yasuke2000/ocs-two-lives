@@ -1,6 +1,42 @@
 hash-format = "sha256"
 
 [[files]]
+file = "bluemap/web/assets/ttl/arena.png"
+hash = "66c012d7046988a7a5b468deea156901eabb504055ef2b7e187d22d5b5cfa53e"
+
+[[files]]
+file = "bluemap/web/assets/ttl/boss_lair.png"
+hash = "3e42557937643f666184c2c20b1207d6b54cac1c75a6cd5325c5b2417264e0e6"
+
+[[files]]
+file = "bluemap/web/assets/ttl/canon_build.png"
+hash = "7ae7b9c55bfdd785c640c3967e6761c2b14d95cc4574a3fc67d623b664b83fd8"
+
+[[files]]
+file = "bluemap/web/assets/ttl/capital.png"
+hash = "2b71cd7886d3829d54d6374c5034bfa0dc8478b5a1e88c04f697b0f3b8ad88a8"
+
+[[files]]
+file = "bluemap/web/assets/ttl/landmark.png"
+hash = "01c486d1a0eeb95054d7acf27c2208179e954737a4c62e09d5266136e957f8e4"
+
+[[files]]
+file = "bluemap/web/assets/ttl/nation_capital.png"
+hash = "67a0d8b7a683db2de3cc37fdca7e155288aa52a17f259c4e8276d8f0a06debcb"
+
+[[files]]
+file = "bluemap/web/assets/ttl/spirit_gate.png"
+hash = "590bc57a6ed20267d5a691c4809bb0031c9038b192245ba82c24871f1ecfb493"
+
+[[files]]
+file = "bluemap/web/assets/ttl/town.png"
+hash = "eb444bf67509deda8ba6c07892c12d115ee211ac090959273071aeaeb1dc3a37"
+
+[[files]]
+file = "bluemap/web/assets/ttl/walpurgis_gate.png"
+hash = "9a1f3df857d136359709f5e3e977acc57efdbaa3fe6d25920887b65aa52ec1fb"
+
+[[files]]
 file = "config/DistantHorizons.toml"
 hash = "8e5d04a475cd843c1d284a8b0f1378154ff040d3a6c6d854e0ea658c0f10ef90"
 
@@ -687,6 +723,42 @@ hash = "7ec9d644b05649b5fbd85e92ad7a9a27e34b2466bd5d9922ebf0c2d8ac532560"
 [[files]]
 file = "config/bluemap/storages/file.conf"
 hash = "71288bc5a1632e1aac8091bfb65fce878d2df8c6a9ebb29a98701bdacd323b5c"
+
+[[files]]
+file = "config/bluemap/web/assets/ttl/arena.png"
+hash = "66c012d7046988a7a5b468deea156901eabb504055ef2b7e187d22d5b5cfa53e"
+
+[[files]]
+file = "config/bluemap/web/assets/ttl/boss_lair.png"
+hash = "3e42557937643f666184c2c20b1207d6b54cac1c75a6cd5325c5b2417264e0e6"
+
+[[files]]
+file = "config/bluemap/web/assets/ttl/canon_build.png"
+hash = "7ae7b9c55bfdd785c640c3967e6761c2b14d95cc4574a3fc67d623b664b83fd8"
+
+[[files]]
+file = "config/bluemap/web/assets/ttl/capital.png"
+hash = "2b71cd7886d3829d54d6374c5034bfa0dc8478b5a1e88c04f697b0f3b8ad88a8"
+
+[[files]]
+file = "config/bluemap/web/assets/ttl/landmark.png"
+hash = "01c486d1a0eeb95054d7acf27c2208179e954737a4c62e09d5266136e957f8e4"
+
+[[files]]
+file = "config/bluemap/web/assets/ttl/nation_capital.png"
+hash = "67a0d8b7a683db2de3cc37fdca7e155288aa52a17f259c4e8276d8f0a06debcb"
+
+[[files]]
+file = "config/bluemap/web/assets/ttl/spirit_gate.png"
+hash = "590bc57a6ed20267d5a691c4809bb0031c9038b192245ba82c24871f1ecfb493"
+
+[[files]]
+file = "config/bluemap/web/assets/ttl/town.png"
+hash = "eb444bf67509deda8ba6c07892c12d115ee211ac090959273071aeaeb1dc3a37"
+
+[[files]]
+file = "config/bluemap/web/assets/ttl/walpurgis_gate.png"
+hash = "9a1f3df857d136359709f5e3e977acc57efdbaa3fe6d25920887b65aa52ec1fb"
 
 [[files]]
 file = "config/bluemap/webapp.conf"
@@ -1517,6 +1589,70 @@ file = "kubejs/assets/ttl/textures/entity/npc/yuuki.png"
 hash = "e140a32299ea0cade85b7da1f2a8db1b7cd145d1f4c07a65f62e9a1205dff534"
 
 [[files]]
+file = "kubejs/assets/ttl/textures/heraldry/blumund_32.png"
+hash = "b754efe4a237be44ccac0555e3e99f8700351d460043ccc1ab9f7efb4f61470d"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/blumund_64.png"
+hash = "b3d30763164dc0b5b0703aaab7cd08fe559c4f924185cb8a8c8ad1cdbd8c4358"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/dwargon_32.png"
+hash = "4b77fc5dc04a4b971c2508aee081a5b78c11e683c946962185d182450f7875f6"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/dwargon_64.png"
+hash = "31b47adb0f516c1168f61afe1c18ef992a3a02521333cc3dba53b2248fc81210"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/falmuth_32.png"
+hash = "6dcfbb310384dda6ae2691bba642a83eec8985257a47a8aa4b45ec84512a4b8b"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/falmuth_64.png"
+hash = "bbaa33a5c27236bd7def21fe4c8fa3ed40bac92fef3cdcb3f0e1103068ded166"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/holy_church_32.png"
+hash = "78703d0190c8c1282b0288c5fdc5d7e6df5b9f3575b5e107f3748255ff076a44"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/holy_church_64.png"
+hash = "10d9e7c770073573301855ce96cef94d533ff1b11de285e09dc3abe86da8ee0b"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/lizardmen_32.png"
+hash = "6fae2b42d4f785035c986756d217dc5931b0a27b4349a0148dfb2649da0a1f56"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/lizardmen_64.png"
+hash = "126b7b06464c5b7d60818978ca6316f35da97283ad57a84cae82db78666a2fab"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/orc_horde_32.png"
+hash = "ff86413af7a1462fefaf547308f4afb4e119a70640fd2b8d6ff2297e49404c15"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/orc_horde_64.png"
+hash = "f9c80a7eb2f14a8b7aaf962303afad61ffabf859cdf24ff83bf8aa21a3207d7a"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/outcast_32.png"
+hash = "033408e6cfcc8b78957cfd59acd8e8f6f302412629a7875523a8f1c70226e4d7"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/outcast_64.png"
+hash = "f8e21bc38c3f736083b0b044b6e2bf6b0dc3f0d01d9c59a0f1a7b1c4032afa5e"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/tempest_32.png"
+hash = "7bf1dfe892d66055436663bb1c8aee6059df66c03879f7492399719b644cd6df"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/heraldry/tempest_64.png"
+hash = "be3cc04e46c07e535c27131f53c89d0fff782d0b213d8dd36cff05a0d409a1dc"
+
+[[files]]
 file = "kubejs/assets/ttl/textures/item/skill_core.png"
 hash = "03c180b3025d2179e9715c1fbfc2388ff9a3ac6c52aa1191f389446eb1c09d3b"
 
@@ -1761,8 +1897,68 @@ file = "kubejs/data/ttl/structure/marris_2.nbt"
 hash = "bd9bed47931321af356c1a61ecfbdb55077f4adc8485636ee04fe6f8baef931e"
 
 [[files]]
+file = "kubejs/data/ttl/structure/mortal_ferry_0.nbt"
+hash = "bb1ead3c66b4aa6d24b69a2f3eedbc3ee0b00a2afeda022f10f251519d0cfec4"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_ferry_1.nbt"
+hash = "b260b016905cf05f2c8753514388a690ac5419c9f0eab719bfab489453fc8f21"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_ferry_2.nbt"
+hash = "c46d87d2cc4a336e7d89d6d2eb72026ee4f2089ea346508cc94722b90765e865"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_keep_0.nbt"
+hash = "bef350b5ca8b8a5961f4570cca55826e486fe9807452c82dd87c3ece64471482"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_keep_1.nbt"
+hash = "cb820c588a17a38336e562c99b04a7c41566c69e01e2fc87668ff5f829dcd128"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_keep_2.nbt"
+hash = "113e30c79fa19ad722ba17c00200cc3168b552b0ffcbd1144f4511e3f15f3d4f"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_market_0.nbt"
+hash = "e322d2ed14e734322f0a22d899265d2e419bf8b0b4c23618570cc7ff05a26a4f"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_market_1.nbt"
+hash = "63de38004cadf1da5254815cb37730378564801e152b1870c541c23f9b2edb52"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_mine_0.nbt"
+hash = "1f0b1d9d210d2a406ab7549ab3928f73c549df6b53bedf887c8e7674d9418f03"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_mine_1.nbt"
+hash = "4d69fc9c026893b1f73271d68a2c0ce2d178a32f698102409a810ac8dca3e327"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_pilgrim_shrine_0.nbt"
+hash = "ecdfa3709244d55a1af5ba79e84daf457dd1ac5aaf7b392d30fb6efcb8de6524"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_pilgrim_shrine_1.nbt"
+hash = "3645fd4f45ba9f487b609db61d72691ca725b52339cf715cd8da395c16d6ed8b"
+
+[[files]]
 file = "kubejs/data/ttl/structure/mortal_spawn.nbt"
 hash = "65b5db9be59fa610cf6c295521786f6e261aadbb436ae37f7fff1ad81b451454"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_tower_0.nbt"
+hash = "9b91f87cf1fd2f14f41a8893b6639185cea42bd9f280e8335e0cf60e7c9ec793"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_tower_1.nbt"
+hash = "731a98af33903e91451e20919a8d45d68657564e9a4ac89f0a7e9c433aadea98"
+
+[[files]]
+file = "kubejs/data/ttl/structure/mortal_tower_2.nbt"
+hash = "0b2eaf1f2c72b6c2bfb414cd70d3ef4d489a920d641de81f800552ecfd78b9f4"
 
 [[files]]
 file = "kubejs/data/ttl/structure/sacred_mountain_0.nbt"
@@ -1823,6 +2019,78 @@ hash = "746bc34f7373ac3262e807f52f8db2b2e8c7e0321ee5e69499f824b397cdc2a7"
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_3.nbt"
 hash = "d973dd05184de376b8953bc0e9a52d656f3a263658aced4a8957656d8c72ffe3"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_0.nbt"
+hash = "b08a594c26fd32f6158db359336dde24bf3114d5e18118823448ff6c878f7846"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_1.nbt"
+hash = "161bb4636d25992b0eb2df3812dcd86ea74c144726173716083fd20d8ed38ae3"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_10.nbt"
+hash = "8cd06c685e74034f6d5b44d39bc84d83a71a982cf71e3b0c18cf2f3c07a121a6"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_11.nbt"
+hash = "ae9948b1966664c34c6d9e3c26445b273d9ba8cf7051e5a699856939b43a36ae"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_2.nbt"
+hash = "21977fb24569d2decbd3b47cb9fc10501e236d776b47c02eecdf8a866e9f36ec"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_3.nbt"
+hash = "52f1877ded16fc537b5a2d4fc30c281bacc91a7d381cde5dce5b35e753e71650"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_4.nbt"
+hash = "9f72836c5ebf9bce933e949ecaaaf2f52cb1a9d14876b9a3db16b779a4cd6294"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_5.nbt"
+hash = "4b4669cbfb77739557971206771ea622e120f6c3b855b3d3d77cb0eb40dd379b"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_6.nbt"
+hash = "35688c43b1b1ee1a06a4b1cd2cf86fffdff5b3edc0af9eb7b945798b4ac57f95"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_7.nbt"
+hash = "2dd91fffb4387a8a40ea15ad6129b56088007b9b7207cc2325afbd943f0e2f91"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_8.nbt"
+hash = "f4e731f66a49d59bc35feb45ffe443bd80769458f142a31610def0a32dc0190a"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_city_9.nbt"
+hash = "b86126e3a1d51655f1d7dd6d1085b0560de30be076f6cde1cfd4445bd5d8df40"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_town_0.nbt"
+hash = "941f1a2bc7a256f992c9239b20e7f6f3b400340742757bb6f37a012fc9f87d68"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_town_1.nbt"
+hash = "cc4ca5a0a144159f0eab0abdd81a0a3407c8694df7324648f1730a9afbae2406"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_town_2.nbt"
+hash = "31825f42bb52cc9ccecd32e3490a822839cc695280bc39d14935f88fc34337c9"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_town_3.nbt"
+hash = "ebc5d18a3a791f81b58fbc693314bc6d667bce05504eeedf56740e2a2bbc2665"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_town_4.nbt"
+hash = "ebd98bd5cb7cdc4dad29300116d41963dd0354f54d46c348eaeb93339f9b55f2"
+
+[[files]]
+file = "kubejs/data/ttl/structure/tempest_town_5.nbt"
+hash = "ca7dc842b537ff155b220a47d7de3cc28a71fc9ebebe3d4288fe9d6d1a6a9aff"
 
 [[files]]
 file = "kubejs/data/ttl/structure/test_hut.nbt"
@@ -2014,11 +2282,11 @@ hash = "ddcdf8644b4ef0c57a77ad1bdb4c1041e59dffb16a0f561020cd88595541bc1b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
-hash = "cde66cea94a420fc19e6ac38e00e8bd48fa311b18ed41891462cc3d640c8d94a"
+hash = "9a6c98f488260d69126937430394db2c2d0eb564c875d3061530efc71e290a61"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "2eb3a010f2723efb2b7483dbfc3fec4f07558ad2f113852d70b8836ff2576177"
+hash = "dd95c671ad97354f0e0f2855b9a48a11fa0ef66b1f0292d053a5a6a90b2d2a33"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
