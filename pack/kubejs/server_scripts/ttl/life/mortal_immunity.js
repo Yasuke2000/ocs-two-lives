@@ -12,21 +12,36 @@ const TtlMortalImmunity = {
   refused(source) {
     var text = String(source)
     return this.SOURCES.some(s => text.indexOf(s) >= 0)
+  },
+
+  // Tempest's green sits in `tensura:ancient_forest` chunks, whose magicule is far above a fresh soul's 50 (also at
+  // the datapack's +1,500): a newcomer died of magicule poison the moment Life 2 began. Inside the same radius that
+  // keeps hostile mobs away (mortal_spawns.js) the poison is refused too; outside it the world is as dangerous as
+  // Tensura makes it.
+  sheltered(player, poisonOnly) {
+    var dim = TtlLife.dimensionOf(player)
+    if (TtlLife.isMortal(dim)) return true
+    return TtlSafeSpawns.inZone(player) && poisonOnly
+  },
+
+  poison(text) {
+    return String(text).indexOf('magicule_poison') >= 0
   }
 }
 
 EntityEvents.beforeHurt(event => {
   var entity = event.entity
   if (!entity.isPlayer()) return
-  if (!TtlLife.isMortal(entity.level.dimension)) return
-  if (TtlMortalImmunity.refused(event.source)) event.cancel()
+  if (!TtlMortalImmunity.refused(event.source)) return
+  if (TtlMortalImmunity.sheltered(entity, TtlMortalImmunity.poison(event.source))) event.cancel()
 })
 
 ServerEvents.tick(event => {
   if (++TtlMortalImmunity.ticks % 2 !== 0) return
   var server = event.server
   server.getPlayerList().getPlayers().forEach(p => {
-    if (!TtlLife.isMortal(TtlLife.dimensionOf(p))) return
-    TtlMortalImmunity.EFFECTS.forEach(id => server.runCommandSilent(`effect clear ${p.username} ${id}`))
+    var mortal = TtlLife.isMortal(TtlLife.dimensionOf(p))
+    if (!mortal && !TtlSafeSpawns.inZone(p)) return
+    ;(mortal ? TtlMortalImmunity.EFFECTS : ['tensura:magicule_poison']).forEach(id => server.runCommandSilent(`effect clear ${p.username} ${id}`))
   })
 })

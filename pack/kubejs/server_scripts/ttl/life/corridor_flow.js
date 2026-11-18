@@ -267,11 +267,15 @@ const TtlCorridor = {
     TtlKarma.grantBonus(server, player)
     server.runCommandSilent(`quietly clear ${name}`)
     // Carryover (life/mortal_banned.js): ttl:soulbound items and the Mortal Realm soul stash return with the new body.
-    try {
-      TtlStash.restore(server, player)
-    } catch (e) {
-      console.error(`[ttl] ${name}: carryover restore failed: ${e}`)
-    }
+    // Not in this tick: stacks given just before the Corridor to Overworld teleport are gone afterwards (in-game test
+    // carryover, 18/11/2026), so they are handed over once the player has arrived.
+    server.scheduleInTicks(10, () => {
+      try {
+        TtlStash.restore(server, player)
+      } catch (e) {
+        console.error(`[ttl] ${name}: carryover restore failed: ${e}`)
+      }
+    })
     player.stages.remove('ttl.corridor')
     player.stages.add('ttl.life2')
     this.KEYS.forEach(k => data.remove(k))
