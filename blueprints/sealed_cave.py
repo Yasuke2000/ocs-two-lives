@@ -243,8 +243,8 @@ def build(bp):
     for x, z in ((40, 74), (48, 74)):  # weathered stones flanking the mouth
         for y in range(F, F + 4):
             put(bp, x, y, z, M("mossy_cobblestone") if y < F + 3 else M("mossy_stone_bricks"))
-    put(bp, 41, F + 3, 73, M("cobblestone_stairs[facing=east,half=bottom]"))
-    put(bp, 47, F + 3, 73, M("cobblestone_stairs[facing=west,half=bottom]"))
+    put(bp, 41, F + 3, 74, M("cobblestone_stairs[facing=west,half=bottom]"))
+    put(bp, 47, F + 3, 74, M("cobblestone_stairs[facing=east,half=bottom]"))
 
     # --- antechamber furniture --------------------------------------------------------------------------
     for x, z in ((46, 52), (47, 51), (52, 60), (36, 54), (34, 56)):

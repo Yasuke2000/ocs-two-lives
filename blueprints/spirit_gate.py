@@ -11,8 +11,8 @@ stepping into PORTAL (anchor-relative box, exported to generated/spirit_gate.js)
 (life/spirit_domain.js); the blueprint only holds the open doorway and the seal. Nothing here is a Tensura warp pad or
 labyrinth portal block, so no mod logic fires. Every spawnable spot has block light (checked when this builds).
 
-Canon: the Dwelling of the Elementals is reached through Ramiris's labyrinth (light novel vol. 4, ch. 50); where on the
-continent is our interpretation. References and sources: design/lore/spirit_domain.md.
+Canon: Rimuru and the children enter Ramiris's labyrinth through Ulg Nature Park in Ulgracia (anime episodes 22–23).
+This Jura gateway is the pack's Life 2 access point. References and sources: design/lore/spirit_domain.md.
 """
 import json
 import math
@@ -39,7 +39,7 @@ FACE_Z = 16  # the cliff's south face
 LAB = "tensura:labyrinth_bricks"
 LAB_STONE = "tensura:labyrinth_stone"
 CREAM = "tensura:cream_labyrinth_bricks"
-PRAY = "tensura:labyrinth_praying_path"
+PATH_INLAY = M("chiseled_stone_bricks")
 LANTERN = M("sea_lantern")
 
 ELEMENTS = {
@@ -169,7 +169,7 @@ def build(bp):
         for z in range(12, FACE_Z + 4):
             blocks[(x, G, z)] = M("polished_andesite") if (x + z) % 2 else M("smooth_stone")
     for z in range(12, FACE_Z + 4):
-        blocks[(28, G, z)] = PRAY
+        blocks[(28, G, z)] = PATH_INLAY
     # the sealed door: a quartz wall at z 11..12 with the five-element seal
     for x in range(25, 32):
         for y in range(F, F + 8):
@@ -225,7 +225,7 @@ def build(bp):
     for z in range(40, SZ):
         wob = round(1.5 * math.sin(z / 4.0))
         for x in range(27 + wob, 30 + wob):
-            blocks[(x, G, z)] = PRAY if x == 28 + wob else (LAB_STONE if rnd(x, 0, z, 62) < 0.7 else M("mossy_stone_bricks"))
+            blocks[(x, G, z)] = PATH_INLAY if x == 28 + wob else (LAB_STONE if rnd(x, 0, z, 62) < 0.7 else M("mossy_stone_bricks"))
         for x in (26 + wob, 30 + wob):
             if blocks.get((x, G, z)) == M("grass_block[snowy=false]"):
                 blocks[(x, G, z)] = M("coarse_dirt")
@@ -235,7 +235,7 @@ def build(bp):
     # low walls with lanterns along the avenue (every 6 blocks)
     for z in range(44, SZ - 2, 6):
         for x in (24, 32):
-            put(bp, x, F, z, M("mossy_stone_brick_wall[east=false,north=false,south=false,up=true,waterlogged=false,west=false]"))
+            put(bp, x, F, z, M("mossy_stone_brick_wall[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"))
             put(bp, x, F + 1, z, M("lantern[hanging=false]"))
     # a few mossy fallen stones and ferns around
     for i in range(24):
@@ -255,7 +255,7 @@ def build(bp):
              if math.hypot(x - 28, z - 28) <= 15.5 or (26 <= x <= 30 and z >= 28) or (22 <= x <= 34 and 12 <= z <= 19)]
 
     def add_light(x, y, z):
-        put(bp, x, y, z, M("mossy_stone_brick_wall[east=false,north=false,south=false,up=true,waterlogged=false,west=false]"))
+        put(bp, x, y, z, M("mossy_stone_brick_wall[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"))
         put(bp, x, y + 1, z, M("lantern[hanging=false]"))
 
     light_up(bp, cands, add_light, spread=10)

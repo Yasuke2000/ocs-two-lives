@@ -7,10 +7,9 @@ Canon: the dryads (Treyni and her younger sisters Trya and Doris) are spirits th
 Forest and keep it; Treyni became the forest's guardian under Veldora (and later moved with Ramiris to the labyrinth,
 taking a body made from the Great Spirit Tree). The grove's ancient tree is Tensura's own `tensura:ancient_forest/tree`
 (placed by life/landmarks.js, landmark treyni_grove, about 40 x 42 blocks across); this small shrine stands beside it,
-not under its crown (design/builds/treyni_shrine.toml puts it 38 blocks east of the landmark; the placer keeps clear of
-placed landmarks). Our interpretation, nothing here is canon detail: a round mossy dais with a young azalea tree at its
-heart (a seedling of the ancient one), three seats for the three sisters, each with a potted sapling, four log posts with
-lanterns, and a living gate of two bent oak logs on the west side, facing the ancient tree. Every spawnable spot on the
+outside its keepout (design/builds/treyni_shrine.toml starts the survey 38 blocks east of the landmark). Our interpretation, nothing here is canon detail: a round mossy dais with a young azalea tree just north of its
+arrival stone (a seedling of the ancient one), three seats for the three sisters, each with a potted sapling, four log posts with
+lanterns, and a living gate of two bent oak logs on the west side. Every spawnable spot on the
 dais has block light (checked when this builds). Sources: design/lore/treyni_shrine.md.
 """
 import math
@@ -63,31 +62,36 @@ def build(bp):
         x, z = round(C + 6 * math.cos(a)), round(C + 6 * math.sin(a))
         blocks[(x, G, z)] = M("verdant_froglight") if k % 12 == 0 else M("oxidized_cut_copper") if k % 2 else M("mossy_stone_bricks")
 
-    # the seedling: a young azalea tree at the heart (trunk 6, round crown)
+    # the seedling: a young azalea tree just north of the arrival stone (trunk 6, round crown)
+    tx, tz = C, C - 4
     for y in range(F, F + 6):
-        blocks[(C, y, C)] = M("oak_log[axis=y]")
+        blocks[(tx, y, tz)] = M("oak_log[axis=y]")
     for dx in range(-3, 4):
         for dy in range(-2, 3):
             for dz in range(-3, 4):
                 if dx * dx + dz * dz + dy * dy * 1.6 <= 9.5 and (dx, dz) != (0, 0) or (dy > 0 and (dx, dz) == (0, 0) and dy < 3):
                     y = F + 6 + dy
-                    if 0 <= y < SY and blocks.get((C + dx, y, C + dz)) == AIR:
-                        blocks[(C + dx, y, C + dz)] = FL_LEAF if rnd(C + dx, y, C + dz, 6) < 0.4 else AZ_LEAF
+                    if 0 <= y < SY and blocks.get((tx + dx, y, tz + dz)) == AIR:
+                        blocks[(tx + dx, y, tz + dz)] = FL_LEAF if rnd(tx + dx, y, tz + dz, 6) < 0.4 else AZ_LEAF
     for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):  # roots
-        put(bp, C + dx, F, C + dz, M("oak_log[axis=x]") if dx else M("oak_log[axis=z]"))
-    blocks[(C, F + 5, C + 1)] = M("shroomlight")
+        put(bp, tx + dx, F, tz + dz, M("oak_log[axis=x]") if dx else M("oak_log[axis=z]"))
+    blocks[(tx, F + 5, tz + 1)] = M("shroomlight")
     # moss and flowers round the trunk
     for dx in range(-3, 4):
         for dz in range(-3, 4):
-            if 1.5 < math.hypot(dx, dz) < 3.2 and blocks.get((C + dx, F, C + dz)) == AIR and rnd(C + dx, 3, C + dz, 7) < 0.6:
-                blocks[(C + dx, F, C + dz)] = M("moss_carpet") if rnd(C + dx, 4, C + dz, 8) < 0.7 else M("azure_bluet")
+            if 1.5 < math.hypot(dx, dz) < 3.2 and blocks.get((tx + dx, F, tz + dz)) == AIR and rnd(tx + dx, 3, tz + dz, 7) < 0.6:
+                if rnd(tx + dx, 4, tz + dz, 8) < 0.7:
+                    blocks[(tx + dx, F, tz + dz)] = M("moss_carpet")
+                else:
+                    blocks[(tx + dx, G, tz + dz)] = M("moss_block")
+                    blocks[(tx + dx, F, tz + dz)] = M("azure_bluet")
 
     # three seats for the three sisters, in a half circle on the east side, each with a potted sapling
     pots = ("potted_azalea_bush", "potted_flowering_azalea_bush", "potted_cherry_sapling")
     for i, (ang, pot) in enumerate(zip((-45, 0, 45), pots)):
         a = math.radians(ang)
         x, z = round(C + 5.6 * math.cos(a)), round(C + 5.6 * math.sin(a))
-        blocks[(x, F, z)] = M("stone_brick_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]")
+        blocks[(x, F, z)] = M("stone_brick_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]")
         blocks[(x + 1, F, z)] = M("mossy_stone_bricks")
         blocks[(x + 1, F + 1, z)] = M(pot)
     # four log posts with lanterns, vines and moss
@@ -113,6 +117,7 @@ def build(bp):
             for dx in (-1, 0, 1):
                 if rnd(gx + dx, F + dy, C + dz, 12) < 0.55 and blocks.get((gx + dx, F + dy, C + dz)) == AIR and dy >= 5 - (1 if abs(dz) > 1 else 0):
                     blocks[(gx + dx, F + dy, C + dz)] = AZ_LEAF if rnd(gx + dx, F + dy, C + dz, 13) < 0.7 else FL_LEAF
+    blocks[(gx, F + 4, C)] = M("chain[axis=y,waterlogged=false]")
     blocks[(gx, F + 3, C)] = M("lantern[hanging=true]")
     # a stepping path from the gate to the dais
     for x in range(gx + 1, C - 7):
@@ -141,7 +146,7 @@ def build(bp):
     cands = [(x, F, z) for x in range(SX) for z in range(SZ) if math.hypot(x - C, z - C) <= 10 or (x <= C and abs(z - C) <= 2)]
 
     def add_light(x, y, z):
-        put(bp, x, y, z, M("mossy_stone_brick_wall[east=false,north=false,south=false,up=true,waterlogged=false,west=false]"))
+        put(bp, x, y, z, M("mossy_stone_brick_wall[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"))
         put(bp, x, y + 1, z, LANTERN)
 
     light_up(bp, cands, add_light, spread=8)

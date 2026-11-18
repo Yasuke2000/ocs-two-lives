@@ -35,8 +35,7 @@ Canon gives the place, the seal and the magicules; it does not give a floor plan
 
 - https://tensura.fandom.com/wiki/Sealed_Cave (via search extracts; direct fetches are blocked, see `world.md`)
 - https://tensura.fandom.com/wiki/Veldora_Tempest, https://tensura.fandom.com/wiki/Magic_Continent
-- Anime and light novel volume 1 (the cave and the first meeting), recalled and not re-read tonight: a large dark cavern
-  with a glowing ambient light, Veldora bound behind a barrier. **Unverified:** exact dimensions and the barrier's look.
-- Visual references only, nothing copied: the mod structures `irons_spellbooks:ice_spider_den/cavern/circle_henge`
+- Episode 1's synopsis explicitly mentions eating herbs and ore and encountering Veldora after his 300-year imprisonment. Stills 2 and 5 show the dragon's head and the cave’s cool blue-green light. Episode 2 shows Veldora framed against a luminous background. The arch stones and broken glass rings are our interpretation of these scenes. [Official episode 1](https://www.ten-sura.com/anime/tensura/story/no1) · [Official episode 2](https://www.ten-sura.com/anime/tensura/story/no2)
+- Visual references only, nothing copied: the mod structures `irons_spellbooks:ice_spider_den/cavern/cavern_extension/circle_henge`
   (standing stones), `irons_spellbooks:mountain_tower`, and Tensura's `charybdis_cave/charybdis_entrance` and
   `ruin/tower/ruined_wizard_tower` (mossy stone palette, cave mouth shape).
