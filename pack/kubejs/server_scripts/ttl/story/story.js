@@ -37,6 +37,7 @@ const TtlStory = {
   K_ACTS: 'ttl.story.acts',
   K_FLAGS: 'ttl.story.flags',
   K_PENDING: 'ttl.story.pending',
+  K_CAPSTONE: 'ttl.story.capstonePending',
   PARTIES: 'ttl.story.parties',
   LOG: 'ttl.story.log',
   UNLOCKED: 'ttl.story.unlocked',
@@ -413,7 +414,24 @@ const TtlStory = {
     if (!this.isLife2(player)) return 'The story is told in the world of Tensura.'
     var path = this.path(player)
     if (!path) return 'Swear the Oath first.'
-    if (this.hasAct(player, n)) return `act ${n} is already done`
+    if (this.hasAct(player, n)) return n === 7 ? null : `act ${n} is already done`
+    // FTB can run the final command for every teammate when only one has awakened.
+    // Remember that this soul received the quest reward, so they can retry it after awakening.
+    if (n === 7) {
+      player.persistentData.putBoolean(this.K_CAPSTONE, true)
+      if (!this.hasAct(player, 6)) return 'Finish Act VI, then use /ttl story capstone.'
+      var witness = path === 'light' ? 'luminous_valentine' : 'clayman'
+      if (!player.stages.has('ttl.defeated.veldora') || !player.stages.has(`ttl.defeated.${witness}`)) {
+        return `Earn personal fight credit for Veldora and ${TtlBoss.def(witness).title}, then use /ttl story capstone.`
+      }
+      var kind = path === 'light' ? 'true_hero' : 'true_demon_lord'
+      if (TtlAbsorb.awakeFlags(player).indexOf(kind) < 0) {
+        return `Complete your own ${path === 'light' ? 'True Hero' : 'True Demon Lord'} awakening, then use /ttl story capstone.`
+      }
+      var error = this.flag(server, player, path === 'light' ? 'hero' : 'demon_lord')
+      if (error) return error
+      player.persistentData.remove(this.K_CAPSTONE)
+    }
     if (this.rules().sequential_acts && n > 1 && !opts.force && !this.hasAct(player, n - 1)) return `finish act ${n - 1} first`
     var acts = this.actsOf(player)
     acts[String(n)] = Date.now()
@@ -603,7 +621,7 @@ const TtlStory = {
 
   clear(server, player) {
     var d = player.persistentData
-    ;[this.K_PATH, this.K_OATH, this.K_FLIPS, this.K_ACTS, this.K_FLAGS, this.K_PENDING].forEach(k => d.remove(k))
+    ;[this.K_PATH, this.K_OATH, this.K_FLIPS, this.K_ACTS, this.K_FLAGS, this.K_PENDING, this.K_CAPSTONE].forEach(k => d.remove(k))
     this.syncScoreboard(server, player)
     // The titles this system gave belong to the story that is being erased.
     var mine = ['Marked', 'Repentant', 'True Hero', 'Demon Lord', String(this.conf().oath.unaligned_title)]

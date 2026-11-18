@@ -6,6 +6,7 @@
 //          /ttl story talk <npc>                   what that NPC says to you now (what NPC dialog buttons run)
 //          /ttl story fight <boss>                 start a boss fight from the story when you stand near its arena
 //          /ttl story flip                         Atonement or Corruption, once per soul, when a quest has opened it
+//          /ttl story capstone                     retry your personal Act VII after your team finishes the book
 // Ops:     /ttl story status <player>              the same lines for someone else
 //          /ttl story oath <path> <player>         swear for someone (skips the party leader and Legend checks)
 //          /ttl story fight <boss> <player>        start the fight for that player from anywhere
@@ -83,10 +84,22 @@ ServerEvents.commandRegistry(event => {
     return err ? refuse(ctx, err) : 1
   }
 
+  var capstone = ctx => {
+    var p = ctx.source.getPlayerOrException()
+    if (TtlStory.hasAct(p, 7)) {
+      say(ctx, 'Your Act VII is already recorded.')
+      return 1
+    }
+    if (!p.persistentData.getBoolean(TtlStory.K_CAPSTONE)) return refuse(ctx, 'Close The Seventh Entry in your quest book first.')
+    var err = TtlStory.act(server(ctx), p, 7)
+    return err ? refuse(ctx, err) : 1
+  }
+
   var act = ctx => {
     var p = who(ctx)
     var n = Number(Arguments.INTEGER.getResult(ctx, 'n'))
     var err = TtlStory.act(server(ctx), p, n, {})
+    if (err && n === 7) { p.tell(Text.red(err)); return 0 }
     if (err) throw err
     say(ctx, `story ${p.username}: act ${n} done`)
     return 1
@@ -203,6 +216,7 @@ ServerEvents.commandRegistry(event => {
         .then(strArg('boss').executes(logged(fight(false)))
           .then(playerArg().requires(ops).executes(logged(fight(true))))))
       .then(Commands.literal('flip').executes(logged(flip)))
+      .then(Commands.literal('capstone').executes(logged(capstone)))
       .then(Commands.literal('act').requires(ops)
         .then(playerArg().then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(act)))))
       .then(Commands.literal('flag').requires(ops)

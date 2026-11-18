@@ -22,6 +22,7 @@ Typ deze commando’s in de Minecraft-chat. Vervang woorden tussen `< >` door ee
 | `/ttl story oath` | Open de keuze voor je eed als je eraan toe bent. |
 | `/ttl story talk <npc>` | Vraag de dialoog van een verhaalpersonage op. Gebruik de personage-ID uit de quest. |
 | `/ttl story fight <boss>` | Start een beschikbaar gevecht bij de bijbehorende locatie. Probeer `/ttl story fight orc_lord` in het orkkamp. |
+| `/ttl story capstone` | Rond Act VII af als je groep de quest al heeft voltooid en jij inmiddels zelf bent ontwaakt en de vereiste bazen hebt verslagen. |
 | `/ttl rep` | Bekijk je reputatie bij de facties. |
 | `/ttl rep renown` | Bekijk je roem. |
 | `/ttl favor` | Open een lopend aanbod voor een zegening opnieuw. Kies een aangeboden optie met `/ttl favor choose <id>`. |
@@ -44,6 +45,11 @@ Typ deze commando’s in de Minecraft-chat. Vervang woorden tussen `< >` door ee
 | --- | --- |
 | `/ttl guild board` | Bekijk de beschikbare opdrachten. Neem een opdracht van het bord aan met `/ttl guild take <ref>`. |
 | `/ttl guild status` | Bekijk je lopende opdrachten. Gebruik `/ttl guild turnin` om in te leveren of `/ttl guild abandon <ref>` om een opdracht op te geven. |
+| `/ttl arena list` | Bekijk beide arena’s en de huidige wedstrijden. |
+| `/ttl arena join <arena> <mode>` | Kies `labyrinth` of `walpurgis`, dan `duel`, `party` of `challenge`. Bij een groepswedstrijd kun je `a` of `b` toevoegen om een kant te kiezen. |
+| `/ttl arena start` | Start de wedstrijd als je de lobby hebt geopend. Met `/ttl arena leave` stap je uit. |
+| `/ttl walpurgis status` | Controleer of je de raad mag bezoeken. De ingang is het podium van Claymans troon. |
+| `/ttl walpurgis invite <player>` | Nodig als houder van een legendarische unieke vaardigheid een online speler uit voor Walpurgis. |
 | `/ttl absorb duel <player>` | Daag een andere speler in het tweede leven uit voor een duel om vaardigheden. |
 | `/ttl absorb accept <name>` | Accepteer het aanbod van de genoemde speler. Weiger met `/ttl absorb decline <name>`. |
 | `/ttl absorb free` | Bekijk welke legendarische unieke vaardigheden vrij zijn. Als je aan de ontwakingsvoorwaarden voldoet, kun je een beschikbare vaardigheid aanvragen met `/ttl absorb claim <skill>`. |

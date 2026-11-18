@@ -22,6 +22,7 @@ Type these commands in Minecraft chat. Replace text inside `< >` with a name, ID
 | `/ttl story oath` | Open the Oath choice when eligible. |
 | `/ttl story talk <npc>` | Request a story character’s dialogue. Use the character ID from the quest. |
 | `/ttl story fight <boss>` | Start an eligible fixed fight from nearby. Try `/ttl story fight orc_lord` at the orc camp. |
+| `/ttl story capstone` | Finish Act VII after your party has completed the quest and you have earned your own awakening and boss victories. |
 | `/ttl rep` | See your faction standings. |
 | `/ttl rep renown` | Check your renown. |
 | `/ttl favor` | Reopen an outstanding blessing offer. Use `/ttl favor choose <id>` to accept one of its options. |
@@ -44,6 +45,11 @@ Type these commands in Minecraft chat. Replace text inside `< >` with a name, ID
 | --- | --- |
 | `/ttl guild board` | View available contracts. `/ttl guild take <ref>` accepts a listed contract. |
 | `/ttl guild status` | Check accepted work. Use `/ttl guild turnin` when ready, or `/ttl guild abandon <ref>` to give up a contract. |
+| `/ttl arena list` | See both venues and their current matches. |
+| `/ttl arena join <arena> <mode>` | Use `labyrinth` or `walpurgis`, then `duel`, `party` or `challenge`. In a party match, append `a` or `b` to pick a side. |
+| `/ttl arena start` | Start the lobby you opened. Use `/ttl arena leave` to withdraw. |
+| `/ttl walpurgis status` | Check permission to visit the council. Enter from the dais of Clayman’s throne. |
+| `/ttl walpurgis invite <player>` | As a Legendary unique holder, invite an online player to Walpurgis. |
 | `/ttl absorb duel <player>` | Invite another Life 2 player to a skill duel. |
 | `/ttl absorb accept <name>` | Accept the named sender’s offer. Use `/ttl absorb decline <name>` to refuse. |
 | `/ttl absorb free` | See which Legendary uniques are free. An eligible awakened soul can request one with `/ttl absorb claim <skill>`. |

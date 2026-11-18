@@ -86,14 +86,13 @@ text = """
 Submit this task after Tensura recognizes your own True Hero awakening. With a Hero Egg, use /evolve hero
 during a qualifying fight. For example, challenge Luminous again, exchange a hit, and use the command after
 she falls below half health if her maximum EP is at least 400,000. Your oath and Luminous’s trial are part
-of this story; the mod checks the awakening itself. On completion the story records the True Hero title. Use
+of this story; the mod checks the awakening itself. The Seventh Entry records your personal title. Use
 /ttl absorb free to see any Legendary your awakening may claim.
 """
 tasks = [
   { type = "awakening", status = "HERO", title = "Submit your True Hero awakening" },
 ]
 rewards = [
-  { type = "command", command = "ttl story flag {p} hero", auto = "invisible", silent = true },
   { type = "xp", xp = 300 },
 ]
 
@@ -129,15 +128,14 @@ col = 3
 path = "dark"
 text = """
 Submit this task after Tensura recognizes your own True Demon Lord awakening. Once you hold a Demon Lord
-Seed and the soul requirement is met, use /evolve demonLord and let the Harvest Festival finish. On
-completion the story records the Demon Lord title. Use /ttl absorb free for your available Legendary claims;
+Seed and the soul requirement is met, use /evolve demonLord and let the Harvest Festival finish. The Seventh Entry
+records your personal Demon Lord title. Use /ttl absorb free for your available Legendary claims;
 a skill still needs a free registry place.
 """
 tasks = [
   { type = "awakening", status = "DEMON_LORD", title = "Submit your True Demon Lord awakening" },
 ]
 rewards = [
-  { type = "command", command = "ttl story flag {p} demon_lord", auto = "invisible", silent = true },
   { type = "xp", xp = 300 },
 ]
 
@@ -154,7 +152,11 @@ shape = "gear"
 size = 1.5
 text = """
 Draw the last line under your name. The dragon has returned, the council has its answer, and the people of
-the forest will remember which road you took. Close Act VII to settle your oath’s reputation and renown.
+the forest will remember which road you took. Close Act VII to record your title, reputation and renown.
+
+Each soul needs Act VI, personal credit for Veldora and the witness of their oath (Luminous on light,
+Clayman on dark), and their own matching Tensura awakening. If a teammate closes the book first, finish
+your own remaining deeds and use /ttl story capstone to record your ending.
 """
 tasks = [
   { type = "checkmark", title = "Close Act VII" },

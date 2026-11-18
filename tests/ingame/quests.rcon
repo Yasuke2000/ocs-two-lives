@@ -235,10 +235,30 @@ ftbquests change_progress TtlBotSagaL complete 641D39B5FFE38B84
 ttl story expect TtlBotSagaL act 6 yes
 ftbquests change_progress TtlBotSagaL complete 316FA29488561884
 @sleep 2
-ttl story expect TtlBotSagaL flag hero yes
+ttl story expect TtlBotSagaL flag hero no
+ttl absorb clear TtlBotSagaL
+tensura edit awakening TtlBotSagaL hero awakened false
+tensura edit awakening TtlBotSagaL demonLord awakened true
+kubejs stages add TtlBotSagaL ttl.defeated.veldora
+kubejs stages add TtlBotSagaL ttl.defeated.luminous_valentine
+# A teammate can have fulfilled the FTB tasks. The other native awakening never grants this soul's title.
 ftbquests change_progress TtlBotSagaL complete 1703B5D161F5AD7F
 @sleep 2
+ttl story expect TtlBotSagaL act 7 no
+ttl story expect TtlBotSagaL flag hero no
+tensura edit awakening TtlBotSagaL demonLord awakened false
+tensura edit awakening TtlBotSagaL hero awakened true
+kubejs stages remove TtlBotSagaL ttl.defeated.veldora
+execute as TtlBotSagaL run ttl story capstone
+ttl story expect TtlBotSagaL act 7 no
+kubejs stages add TtlBotSagaL ttl.defeated.veldora
+execute as TtlBotSagaL run ttl story capstone
 ttl story expect TtlBotSagaL act 7 yes
+ttl story expect TtlBotSagaL flag hero yes
+execute as TtlBotSagaL run ttl story capstone
+tensura edit awakening TtlBotSagaL hero awakened false
+kubejs stages remove TtlBotSagaL ttl.defeated.veldora
+kubejs stages remove TtlBotSagaL ttl.defeated.luminous_valentine
 ttl story expect TtlBotSagaL flag demon_lord no
 ftbquests change_progress TtlBotSagaL reset 1703B5D161F5AD7F
 ftbquests change_progress TtlBotSagaL reset 316FA29488561884
@@ -274,10 +294,30 @@ ftbquests change_progress TtlBotSagaD complete 641D39B5FFE38B84
 ttl story expect TtlBotSagaD act 6 yes
 ftbquests change_progress TtlBotSagaD complete 70C3089B60AC26D9
 @sleep 2
-ttl story expect TtlBotSagaD flag demon_lord yes
+ttl story expect TtlBotSagaD flag demon_lord no
+ttl absorb clear TtlBotSagaD
+tensura edit awakening TtlBotSagaD demonLord awakened false
+tensura edit awakening TtlBotSagaD hero awakened true
+kubejs stages add TtlBotSagaD ttl.defeated.veldora
+kubejs stages add TtlBotSagaD ttl.defeated.clayman
+# A teammate can have fulfilled the FTB tasks. The other native awakening never grants this soul's title.
 ftbquests change_progress TtlBotSagaD complete 1703B5D161F5AD7F
 @sleep 2
+ttl story expect TtlBotSagaD act 7 no
+ttl story expect TtlBotSagaD flag demon_lord no
+tensura edit awakening TtlBotSagaD hero awakened false
+tensura edit awakening TtlBotSagaD demonLord awakened true
+kubejs stages remove TtlBotSagaD ttl.defeated.veldora
+execute as TtlBotSagaD run ttl story capstone
+ttl story expect TtlBotSagaD act 7 no
+kubejs stages add TtlBotSagaD ttl.defeated.veldora
+execute as TtlBotSagaD run ttl story capstone
 ttl story expect TtlBotSagaD act 7 yes
+ttl story expect TtlBotSagaD flag demon_lord yes
+execute as TtlBotSagaD run ttl story capstone
+tensura edit awakening TtlBotSagaD demonLord awakened false
+kubejs stages remove TtlBotSagaD ttl.defeated.veldora
+kubejs stages remove TtlBotSagaD ttl.defeated.clayman
 ttl story expect TtlBotSagaD flag hero no
 ftbquests change_progress TtlBotSagaD reset 1703B5D161F5AD7F
 ftbquests change_progress TtlBotSagaD reset 70C3089B60AC26D9
