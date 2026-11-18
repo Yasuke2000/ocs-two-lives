@@ -145,6 +145,12 @@ def check_economy(eco: dict, data: dict) -> None:
         raise SystemExit("economy.toml: guild.announce_rank is not a rank id")
     landmarks = {lm["name"] for lm in data.get("landmarks", {}).get("landmark", [])}
     factions = {f["id"] for f in data.get("factions", {}).get("faction", [])}
+    g = eco["guild"]
+    # giver: desk (guild receptionists) or fuze (the guild master); Fuze's bounties are exactly the ones at
+    # fuze_min_rank and above, so a receptionist never has to hand out a contract she may not let anyone accept.
+    fuze_from = g.get("fuze_min_rank", ranks[-1])
+    if fuze_from not in ranks:
+        raise SystemExit("economy.toml: guild.fuze_min_rank is not a rank id")
     seen, per = set(), {"daily": 0, "weekly": 0}
     for b in eco["bounty"]:
         where = f"economy.toml: bounty {b.get('id', '?')}"
@@ -155,6 +161,12 @@ def check_economy(eco: dict, data: dict) -> None:
             raise SystemExit(f"{where}: kind is kill|deliver|visit and period daily|weekly")
         if b.get("min_rank") not in ranks:
             raise SystemExit(f"{where}: min_rank is not a rank id")
+        giver = b.get("giver", "desk")
+        if giver not in ("desk", "fuze"):
+            raise SystemExit(f"{where}: giver is desk or fuze")
+        if (giver == "fuze") != (ranks.index(b["min_rank"]) >= ranks.index(fuze_from)):
+            raise SystemExit(f"{where}: giver {giver} but min_rank {b['min_rank']} (Fuze gives rank {fuze_from} and up, "
+                             f"the desk everything below)")
         if not all(isinstance(b.get(k), int) and b[k] >= 0 for k in ("count", "points", "weight")) or b["count"] < 1:
             raise SystemExit(f"{where}: count >= 1, points and weight >= 0 (integers)")
         if b["kind"] == "visit":
@@ -171,11 +183,14 @@ def check_economy(eco: dict, data: dict) -> None:
         if b["weight"] > 0:
             per[b["period"]] += 1
     first = ranks[0]
-    for period, n in (("daily", eco["guild"]["daily"]), ("weekly", eco["guild"]["weekly"])):
-        pool = [b for b in eco["bounty"] if b["period"] == period and b["weight"] > 0]
-        if len(pool) < n or (period == "daily" and not any(b["min_rank"] == first for b in pool)):
-            raise SystemExit(f"economy.toml: needs >= {n} {period} bounties with weight > 0 "
-                             f"(daily ones need at least one for rank {first})")
+    for giver, period, n in (("desk", "daily", g["daily"]), ("desk", "weekly", g["weekly"]),
+                             ("fuze", "daily", g.get("fuze_daily", 0)), ("fuze", "weekly", g.get("fuze_weekly", 0))):
+        pool = [b for b in eco["bounty"] if b.get("giver", "desk") == giver and b["period"] == period and b["weight"] > 0]
+        if len(pool) < n or (giver == "desk" and period == "daily" and not any(b["min_rank"] == first for b in pool)):
+            raise SystemExit(f"economy.toml: needs >= {n} {giver} {period} bounties with weight > 0 "
+                             f"(the desk's daily ones need at least one for rank {first})")
+    if not isinstance(g.get("fuze_turnin_at_desk", False), bool):
+        raise SystemExit("economy.toml: guild.fuze_turnin_at_desk is true or false")
     for name, table in eco["sinks"].items():
         coin_table(f"economy.toml: sinks.{name}", table, coins)
     for block in eco["merit"]["blocks"]:

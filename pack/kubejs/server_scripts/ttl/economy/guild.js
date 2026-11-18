@@ -16,13 +16,20 @@
 //            Deliveries are checked and taken from the inventory at hand-in.
 //   Rewards  coins (TtlEcon.pay) + reputation (TtlRep.add, only when the reputation package is loaded) + guild points.
 //
-// Entry points (commands in economy/commands.js; an Easy NPC dialog action may run the same ones as the player):
-//   /ttl guild board | take <slot|id> | turnin | abandon <slot|id> | status
-// Interim desks (until Fuze exists as an Easy NPC): a block registered with /ttl guild desk add x y z shows the board
+// Givers (guild_npcs.js places the Easy NPCs): every bounty has a `giver` (default "desk"). Fuze, the guild master,
+// gives the contracts of rank guild.fuze_min_rank and up (giver "fuze"); the guild receptionists ("desk") give the rest.
+// The board keeps one slot list per giver, desk first: desk slots 1-5 are what they always were, Fuze's come after
+// (6, 7). Without a giver the commands behave as before (global slot numbers, everything); with a giver, numbers
+// count inside that giver's list and a bounty of the other giver is refused ("wrong_giver").
+//
+// Entry points (commands in economy/commands.js; an Easy NPC dialog action runs the same ones as the player):
+//   /ttl guild board [giver] | take <slot|id> [giver] | turnin [giver] | abandon <slot|id> | status
+// Interim desks (a block, besides the NPCs): a block registered with /ttl guild desk add x y z shows the board
 // when right-clicked.
 const TtlGuild = {
   KEY: 'ttl.guild',
   BOARD: 'ttl.guild.board',
+  GIVERS: ['desk', 'fuze'],
   DESKS: 'ttl.guild.desks',
   OBJ: 'ttl.g.',
   BOUNTY: 'ttl.bounty',
@@ -62,6 +69,25 @@ const TtlGuild = {
       if (points >= all[i].points) out = i
     }
     return out
+  },
+
+  giverOf(b) {
+    return String(b.giver || 'desk')
+  },
+
+  // 'desk' | 'fuze' | null (no filter); anything else is a typo and must not silently mean "everything".
+  requireGiver(giver) {
+    if (giver === null || giver === undefined || giver === '') return null
+    var g = String(giver)
+    if (this.GIVERS.indexOf(g) < 0) throw `unknown giver ${g} (${this.GIVERS.join(' or ')})`
+    return g
+  },
+
+  // How many daily / weekly slots a giver gets (economy.toml [guild]: daily/weekly for the desk, fuze_* for Fuze).
+  slotsOf(giver, period) {
+    var g = this.conf().guild
+    if (giver === 'fuze') return Number(period === 'daily' ? g.fuze_daily || 0 : g.fuze_weekly || 0)
+    return Number(g[period])
   },
 
   requireLife2(player) {
@@ -133,15 +159,21 @@ const TtlGuild = {
   board(server) {
     var raw = String(server.persistentData.getString(this.BOARD) || '')
     var b = raw ? JSON.parse(raw) : {}
-    return { date: b.date || '', week: b.week || '', daily: b.daily || [], weekly: b.weekly || [] }
+    return {
+      date: b.date || '', week: b.week || '', daily: b.daily || [], weekly: b.weekly || [],
+      // Missing in a board saved before the givers existed: ensure() rolls them once.
+      fuzeDaily: b.fuzeDaily || [], fuzeWeekly: b.fuzeWeekly || [], givers: b.givers || 1
+    }
   },
 
   saveBoard(server, b) {
     server.persistentData.putString(this.BOARD, JSON.stringify(b))
   },
 
-  draw(period, n) {
-    var pool = this.bounties().filter(b => b.period === period && b.weight > 0)
+  draw(period, n, giver) {
+    var who = giver || 'desk'
+    var self = this
+    var pool = this.bounties().filter(b => b.period === period && b.weight > 0 && self.giverOf(b) === who)
     var picked = []
     var first = String(this.ranks()[0].id)
     var take = list => {
@@ -154,7 +186,7 @@ const TtlGuild = {
       }
       return list[list.length - 1]
     }
-    if (period === 'daily' && n > 0) {
+    if (who === 'desk' && period === 'daily' && n > 0) {
       var easy = pool.filter(b => b.min_rank === first)
       if (easy.length > 0) {
         var one = take(easy)
@@ -177,19 +209,25 @@ const TtlGuild = {
     var week = TtlEcon.weekKey()
     var g = this.conf().guild
     var changed = false
-    if (force === 'daily' || force === 'all' || b.date !== today) {
-      b.daily = this.draw('daily', g.daily)
+    // A board saved before the givers existed has no Fuze lists: roll them now, the desk's lists stay.
+    var firstGivers = b.givers < 2
+    if (force === 'daily' || force === 'all' || b.date !== today || firstGivers) {
+      if (force === 'daily' || force === 'all' || b.date !== today) b.daily = this.draw('daily', g.daily, 'desk')
+      b.fuzeDaily = this.draw('daily', this.slotsOf('fuze', 'daily'), 'fuze')
       b.date = today
       changed = true
     }
-    if (force === 'weekly' || force === 'all' || b.week !== week) {
-      b.weekly = this.draw('weekly', g.weekly)
+    if (force === 'weekly' || force === 'all' || b.week !== week || firstGivers) {
+      if (force === 'weekly' || force === 'all' || b.week !== week) b.weekly = this.draw('weekly', g.weekly, 'desk')
+      b.fuzeWeekly = this.draw('weekly', this.slotsOf('fuze', 'weekly'), 'fuze')
       b.week = week
       changed = true
     }
     if (changed) {
+      b.givers = 2
       this.saveBoard(server, b)
-      console.info(`[ttl] guild board ${b.date} (week ${b.week}): daily ${b.daily.join(', ')}; weekly ${b.weekly.join(', ')}`)
+      console.info(`[ttl] guild board ${b.date} (week ${b.week}): daily ${b.daily.join(', ')}; weekly ${b.weekly.join(', ')}; ` +
+        `Fuze daily ${b.fuzeDaily.join(', ') || '-'}; Fuze weekly ${b.fuzeWeekly.join(', ') || '-'}`)
     }
     return b
   },
@@ -199,36 +237,53 @@ const TtlGuild = {
     var bounty = this.find(id)
     if (!bounty) throw `unknown bounty ${id}`
     var b = this.ensure(server)
-    var list = bounty.period === 'daily' ? b.daily : b.weekly
+    var giver = this.giverOf(bounty)
+    var daily = bounty.period === 'daily'
+    var list = giver === 'fuze' ? (daily ? b.fuzeDaily : b.fuzeWeekly) : (daily ? b.daily : b.weekly)
     var at = list.indexOf(bounty.id)
     if (at >= 0) list.splice(at, 1)
     list.unshift(String(bounty.id))
-    list.splice(bounty.period === 'daily' ? this.conf().guild.daily : this.conf().guild.weekly)
+    list.splice(this.slotsOf(giver, bounty.period))
     this.saveBoard(server, b)
     return this.entries(server)
   },
 
-  // [{slot, period, stamp, b}] in slot order.
-  entries(server) {
+  // [{slot, local, giver, period, stamp, b}] in slot order: the desk's daily and weekly bounties, then Fuze's. `slot` is
+  // global; `local` counts inside the giver's list. With `giver` only that giver's entries (their `slot` still global).
+  entries(server, giver) {
     var board = this.board(server)
     var out = []
+    var count = { desk: 0, fuze: 0 }
     var self = this
-    board.daily.forEach(id => {
+    var add = (ids, period, stamp, who) => ids.forEach(id => {
       var b = self.find(id)
-      if (b) out.push({ slot: out.length + 1, period: 'daily', stamp: board.date, b: b })
+      if (!b) return
+      count[who]++
+      out.push({ slot: out.length + 1, local: count[who], giver: who, period: period, stamp: stamp, b: b })
     })
-    board.weekly.forEach(id => {
-      var b = self.find(id)
-      if (b) out.push({ slot: out.length + 1, period: 'weekly', stamp: board.week, b: b })
-    })
-    return out
+    add(board.daily, 'daily', board.date, 'desk')
+    add(board.weekly, 'weekly', board.week, 'desk')
+    add(board.fuzeDaily, 'daily', board.date, 'fuze')
+    add(board.fuzeWeekly, 'weekly', board.week, 'fuze')
+    var only = this.requireGiver(giver)
+    return only ? out.filter(e => e.giver === only) : out
   },
 
-  entry(server, ref) {
+  // `ref` is a slot number (global without a giver, the giver's own count with one) or a bounty id. With a giver a
+  // bounty of the other giver is "wrong_giver", not "no such bounty": the NPC the player talks to is the one who
+  // must hold it.
+  entry(server, ref, giver) {
+    var only = this.requireGiver(giver)
     var list = this.entries(server)
     var text = String(ref)
     for (var i = 0; i < list.length; i++) {
-      if (String(list[i].slot) === text || String(list[i].b.id) === text) return list[i]
+      var e = list[i]
+      var num = only ? String(e.local) : String(e.slot)
+      if (String(e.b.id) === text) {
+        if (only && e.giver !== only) throw 'wrong_giver'
+        return e
+      }
+      if (num === text && (!only || e.giver === only)) return e
     }
     return null
   },
@@ -371,9 +426,9 @@ const TtlGuild = {
 
   // ---- actions (they throw a message for the player when something is not allowed) ----
 
-  take(server, player, ref) {
+  take(server, player, ref, giver) {
     this.requireLife2(player)
-    var e = this.entry(server, ref)
+    var e = this.entry(server, ref, giver)
     if (!e) throw `no such bounty on the board: ${ref}`
     var g = this.read(player)
     this.prune(server, g)
@@ -440,8 +495,10 @@ const TtlGuild = {
   },
 
   // Hands in everything that is ready. Returns the number of bounties completed.
-  turnin(server, player) {
+  // `giver` (optional) limits it to that giver's bounties: Fuze takes his contracts, a receptionist the desk's.
+  turnin(server, player, giver) {
     this.requireLife2(player)
+    var only = this.requireGiver(giver)
     var g = this.read(player)
     this.prune(server, g)
     var keys = Object.keys(g.taken)
@@ -450,14 +507,16 @@ const TtlGuild = {
     keys.forEach(key => {
       var t = g.taken[key]
       var b = self.find(t.id)
-      if (!b || !self.ready(player, t, b)) return
+      if (!b || (only && self.giverOf(b) !== only) || !self.ready(player, t, b)) return
       if (b.kind === 'deliver') server.runCommandSilent(`clear ${player.username} ${b.target} ${b.count}`)
       self.complete(server, player, g, key, b)
       count++
     })
     if (count === 0) {
       this.write(player, g)
-      throw keys.length === 0 ? 'you have no accepted bounties (/ttl guild board)' : 'nothing is ready to hand in yet (/ttl guild status)'
+      throw keys.length === 0 ? 'you have no accepted bounties (/ttl guild board)'
+        : only ? `nothing of ${only === 'fuze' ? "Fuze's" : "the desk's"} is ready to hand in here (/ttl guild status)`
+          : 'nothing is ready to hand in yet (/ttl guild status)'
     }
     return count
   },
@@ -485,15 +544,21 @@ const TtlGuild = {
     return 'open'
   },
 
-  boardLines(server, player) {
+  // `giver` filters the board and numbers the lines inside that giver's list (what `take <n> <giver>` expects).
+  boardLines(server, player, giver) {
+    var only = this.requireGiver(giver)
     var b = this.ensure(server)
     var g = this.read(player)
     this.prune(server, g)
-    var out = [`Free Guild board (daily ${b.date}, week of ${b.week}). Your rank: ${this.rankOf(g).id}. /ttl guild take <number>`]
+    var title = only === 'fuze' ? `Fuze's contracts (rank ${this.conf().guild.fuze_min_rank} and up)`
+      : only === 'desk' ? 'Free Guild desk board' : 'Free Guild board'
+    var out = [`${title} (daily ${b.date}, week of ${b.week}). Your rank: ${this.rankOf(g).id}. /ttl guild take <number>${only ? ' ' + only : ''}`]
     var self = this
-    this.entries(server).forEach(e => {
-      out.push(`${e.slot}. [${e.period}, ${e.b.min_rank}] ${self.what(e.b)} (${e.b.title}): ${self.rewardText(e.b)} · ${self.slotStatus(player, g, e)}`)
+    var list = this.entries(server, only)
+    list.forEach(e => {
+      out.push(`${only ? e.local : e.slot}. [${e.period}, ${e.b.min_rank}] ${self.what(e.b)} (${e.b.title}): ${self.rewardText(e.b)} · ${self.slotStatus(player, g, e)}`)
     })
+    if (list.length === 0) out.push('Nothing is posted here right now.')
     return out
   },
 

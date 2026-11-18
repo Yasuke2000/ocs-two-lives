@@ -1,0 +1,182 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Guild",
+    created:1790000000000L,
+    description:"Fuze, guildmaster of the Free Guild's Blumund branch: high-rank contracts (rank B and up).",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Fuze",
+    variantType:"KNIGHT_01",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Type:"OPEN_DEFAULT_DIALOG"
+          }
+        ]
+      }
+    },
+    CustomName:'{"color":"#FDC300","text":"Fuze"}',
+    CustomNameVisible:1b,
+    DialogData:{
+      DialogDataSet:[
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild board fuze",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_board",
+              Name:"Show me the contracts"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild board fuze",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Cmd:"take",
+                  Type:"OPEN_NAMED_DIALOG"
+                }
+              ],
+              Label:"button_take",
+              Name:"I'll take a contract"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild turnin fuze",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_turnin",
+              Name:"Contract finished"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild status",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_rank",
+              Name:"How do I stand?"
+            },
+            {
+              Actions:[
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_leave",
+              Name:"Never mind"
+            }
+          ],
+          Label:"default",
+          Name:"Guildmaster Fuze",
+          Priority:5,
+          Texts:[
+            {
+              Text:"Hm. @initiator. Another soul with a sword and a dream.\\n\\nI run the Free Guild's Blumund branch, and between Falmuth's grudges and Rimuru's surprises, the real work lands on my desk. The clerks handle the small jobs. The contracts I hand out, rank B and up, are the ones that bury careless adventurers.\\n\\nWell? Here for work, or just to stare at the scar?"
+            }
+          ]
+        },
+        {
+          Buttons:[
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild take 1 fuze",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_slot_1",
+              Name:"Contract 1"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"/ttl guild take 2 fuze",
+                  ExecAsUser:1b,
+                  PermLevel:0,
+                  Type:"COMMAND"
+                },
+                {
+                  Type:"CLOSE_DIALOG"
+                }
+              ],
+              Label:"button_slot_2",
+              Name:"Contract 2"
+            },
+            {
+              Actions:[
+                {
+                  Cmd:"default",
+                  Type:"OPEN_NAMED_DIALOG"
+                }
+              ],
+              Label:"button_back",
+              Name:"Back"
+            }
+          ],
+          Label:"take",
+          Name:"Contracts",
+          Priority:-1,
+          Texts:[
+            {
+              Text:"Name the number. A contract taken is a contract owed, @initiator. I don't pay twice for the same failure, and I don't carry people who quit."
+            }
+          ]
+        }
+      ],
+      Type:"STANDARD"
+    },
+    EasyNPCVersion:3,
+    Invulnerable:1b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;555864542,18568103,-1465003074,-1137433042],
+    VariantType:"KNIGHT_01",
+    id:"easy_npc:humanoid"
+  }
+}

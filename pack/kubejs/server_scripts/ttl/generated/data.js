@@ -60,6 +60,7 @@ const TtlData = {
     "bounty": [
       {
         "count": 8,
+        "giver": "desk",
         "id": "rabbit_cull",
         "kind": "kill",
         "min_rank": "F",
@@ -79,6 +80,7 @@ const TtlData = {
       },
       {
         "count": 15,
+        "giver": "desk",
         "id": "zombie_sweep",
         "kind": "kill",
         "min_rank": "F",
@@ -98,6 +100,7 @@ const TtlData = {
       },
       {
         "count": 12,
+        "giver": "desk",
         "id": "skeleton_sweep",
         "kind": "kill",
         "min_rank": "F",
@@ -117,6 +120,7 @@ const TtlData = {
       },
       {
         "count": 4,
+        "giver": "desk",
         "id": "direwolf_hunt",
         "kind": "kill",
         "min_rank": "E",
@@ -136,6 +140,7 @@ const TtlData = {
       },
       {
         "count": 6,
+        "giver": "desk",
         "id": "ant_nest",
         "kind": "kill",
         "min_rank": "E",
@@ -155,6 +160,7 @@ const TtlData = {
       },
       {
         "count": 6,
+        "giver": "desk",
         "id": "bat_swarm",
         "kind": "kill",
         "min_rank": "E",
@@ -174,6 +180,7 @@ const TtlData = {
       },
       {
         "count": 8,
+        "giver": "desk",
         "id": "creeper_ward",
         "kind": "kill",
         "min_rank": "E",
@@ -193,6 +200,7 @@ const TtlData = {
       },
       {
         "count": 5,
+        "giver": "desk",
         "id": "spider_web",
         "kind": "kill",
         "min_rank": "D",
@@ -212,6 +220,7 @@ const TtlData = {
       },
       {
         "count": 16,
+        "giver": "desk",
         "id": "iron_order",
         "kind": "deliver",
         "min_rank": "F",
@@ -231,6 +240,7 @@ const TtlData = {
       },
       {
         "count": 12,
+        "giver": "desk",
         "id": "leather_order",
         "kind": "deliver",
         "min_rank": "F",
@@ -250,6 +260,7 @@ const TtlData = {
       },
       {
         "count": 16,
+        "giver": "desk",
         "id": "ration_order",
         "kind": "deliver",
         "min_rank": "F",
@@ -269,6 +280,7 @@ const TtlData = {
       },
       {
         "count": 6,
+        "giver": "desk",
         "id": "ore_shards",
         "kind": "deliver",
         "min_rank": "E",
@@ -288,6 +300,7 @@ const TtlData = {
       },
       {
         "count": 1,
+        "giver": "desk",
         "id": "visit_goblins",
         "kind": "visit",
         "min_rank": "F",
@@ -307,6 +320,7 @@ const TtlData = {
       },
       {
         "count": 1,
+        "giver": "desk",
         "id": "visit_dwarves",
         "kind": "visit",
         "min_rank": "E",
@@ -326,6 +340,7 @@ const TtlData = {
       },
       {
         "count": 1,
+        "giver": "desk",
         "id": "visit_treyni",
         "kind": "visit",
         "min_rank": "D",
@@ -345,6 +360,7 @@ const TtlData = {
       },
       {
         "count": 20,
+        "giver": "desk",
         "id": "week_direwolves",
         "kind": "kill",
         "min_rank": "D",
@@ -364,6 +380,7 @@ const TtlData = {
       },
       {
         "count": 25,
+        "giver": "desk",
         "id": "week_spiders",
         "kind": "kill",
         "min_rank": "C",
@@ -383,6 +400,7 @@ const TtlData = {
       },
       {
         "count": 10,
+        "giver": "desk",
         "id": "week_caterpillars",
         "kind": "kill",
         "min_rank": "C",
@@ -402,6 +420,7 @@ const TtlData = {
       },
       {
         "count": 15,
+        "giver": "desk",
         "id": "week_blazes",
         "kind": "kill",
         "min_rank": "C",
@@ -418,6 +437,7 @@ const TtlData = {
       },
       {
         "count": 4,
+        "giver": "desk",
         "id": "week_magisteel",
         "kind": "deliver",
         "min_rank": "C",
@@ -437,6 +457,7 @@ const TtlData = {
       },
       {
         "count": 6,
+        "giver": "desk",
         "id": "week_diamonds",
         "kind": "deliver",
         "min_rank": "D",
@@ -457,6 +478,7 @@ const TtlData = {
       },
       {
         "count": 1,
+        "giver": "desk",
         "id": "week_lizardmen",
         "kind": "visit",
         "min_rank": "D",
@@ -476,6 +498,7 @@ const TtlData = {
       },
       {
         "count": 1,
+        "giver": "desk",
         "id": "week_orc_camp",
         "kind": "visit",
         "min_rank": "C",
@@ -492,6 +515,160 @@ const TtlData = {
         "target": "orc_camp",
         "title": "Scout the Orc War Battlefield",
         "weight": 5
+      },
+      {
+        "count": 25,
+        "giver": "fuze",
+        "id": "fz_caterpillar_plague",
+        "kind": "kill",
+        "min_rank": "B",
+        "period": "weekly",
+        "points": 9,
+        "reward": {
+          "coins": {
+            "gold": 3
+          },
+          "rep": {
+            "blumund": 5
+          }
+        },
+        "target": "tensura:hell_caterpillar",
+        "title": "Contract: The Caterpillar Plague",
+        "weight": 8
+      },
+      {
+        "count": 20,
+        "giver": "fuze",
+        "id": "fz_fortress_raid",
+        "kind": "kill",
+        "min_rank": "B",
+        "period": "weekly",
+        "points": 9,
+        "reward": {
+          "coins": {
+            "gold": 3
+          }
+        },
+        "target": "minecraft:wither_skeleton",
+        "title": "Contract: Fortress Raid",
+        "weight": 6
+      },
+      {
+        "count": 16,
+        "giver": "fuze",
+        "id": "fz_magisteel_shipment",
+        "kind": "deliver",
+        "min_rank": "B",
+        "period": "weekly",
+        "points": 9,
+        "reward": {
+          "coins": {
+            "gold": 4
+          },
+          "rep": {
+            "dwargon": 4
+          }
+        },
+        "target": "tensura:low_magisteel_ingot",
+        "title": "Contract: Magisteel for the Dwarven Crown",
+        "weight": 6
+      },
+      {
+        "count": 1,
+        "giver": "fuze",
+        "id": "fz_ogre_ruin",
+        "kind": "visit",
+        "min_rank": "B",
+        "period": "weekly",
+        "points": 8,
+        "reward": {
+          "coins": {
+            "gold": 3
+          },
+          "rep": {
+            "tempest": 3
+          }
+        },
+        "target": "ogre_village_ruin",
+        "title": "Contract: Ghosts of the Ogre Village",
+        "weight": 6
+      },
+      {
+        "count": 30,
+        "giver": "fuze",
+        "id": "fz_ender_watch",
+        "kind": "kill",
+        "min_rank": "A",
+        "period": "weekly",
+        "points": 12,
+        "reward": {
+          "coins": {
+            "gold": 5
+          }
+        },
+        "target": "minecraft:enderman",
+        "title": "Contract: The Ender Watch",
+        "weight": 6
+      },
+      {
+        "count": 6,
+        "giver": "fuze",
+        "id": "fz_ravager_herd",
+        "kind": "kill",
+        "min_rank": "A",
+        "period": "weekly",
+        "points": 12,
+        "reward": {
+          "coins": {
+            "gold": 5
+          },
+          "rep": {
+            "blumund": 5
+          }
+        },
+        "target": "minecraft:ravager",
+        "title": "Contract: Break the Ravager Herd",
+        "weight": 5
+      },
+      {
+        "count": 24,
+        "giver": "fuze",
+        "id": "fz_diamond_vault",
+        "kind": "deliver",
+        "min_rank": "A",
+        "period": "weekly",
+        "points": 12,
+        "reward": {
+          "coins": {
+            "gold": 6
+          },
+          "rep": {
+            "blumund": 3
+          }
+        },
+        "target": "minecraft:diamond",
+        "title": "Contract: Refill the Guild Vault",
+        "weight": 5
+      },
+      {
+        "count": 1,
+        "giver": "fuze",
+        "id": "fz_wither_hunt",
+        "kind": "kill",
+        "min_rank": "S",
+        "period": "weekly",
+        "points": 20,
+        "reward": {
+          "coins": {
+            "gold": 9
+          },
+          "rep": {
+            "blumund": 6
+          }
+        },
+        "target": "minecraft:wither",
+        "title": "Legend's Contract: The Withered King",
+        "weight": 4
       }
     ],
     "coins": {
@@ -516,6 +693,10 @@ const TtlData = {
     "guild": {
       "announce_rank": "B",
       "daily": 3,
+      "fuze_daily": 0,
+      "fuze_min_rank": "B",
+      "fuze_turnin_at_desk": false,
+      "fuze_weekly": 2,
       "max_active": 3,
       "poll_ticks": 100,
       "visit_radius": 48,
@@ -1221,6 +1402,124 @@ const TtlData = {
       "lightmanscurrency"
     ],
     "tags": []
+  },
+  "npcs": {
+    "kind": [
+      {
+        "description": "Fuze, guildmaster of the Free Guild's Blumund branch: high-rank contracts (rank B and up).",
+        "dialog": {
+          "back": "Back",
+          "board": "Show me the contracts",
+          "leave": "Never mind",
+          "rank": "How do I stand?",
+          "take": "I'll take a contract",
+          "take_item": "Contract {n}",
+          "take_text": "Name the number. A contract taken is a contract owed, @initiator. I don't pay twice for the same failure, and I don't carry people who quit.",
+          "take_title": "Contracts",
+          "text": "Hm. @initiator. Another soul with a sword and a dream.\n\nI run the Free Guild's Blumund branch, and between Falmuth's grudges and Rimuru's surprises, the real work lands on my desk. The clerks handle the small jobs. The contracts I hand out, rank B and up, are the ones that bury careless adventurers.\n\nWell? Here for work, or just to stare at the scar?",
+          "title": "Guildmaster Fuze",
+          "turnin": "Contract finished"
+        },
+        "giver": "fuze",
+        "id": "fuze",
+        "name": "Fuze",
+        "name_color": "#FDC300",
+        "skin": "KNIGHT_01"
+      },
+      {
+        "description": "A Free Guild receptionist: the desk board (rank F to C), hand-ins and rank.",
+        "dialog": {
+          "back": "Back",
+          "board": "See the board",
+          "leave": "Goodbye",
+          "rank": "What is my rank?",
+          "take": "Take a bounty",
+          "take_item": "Bounty {n}",
+          "take_text": "Which one? Use the numbers from the board, @initiator. One of each per day or week, and no more than {max} at a time.",
+          "take_title": "Take a Bounty",
+          "text": "Welcome to the Free Guild, @initiator. Jobs are posted fresh every morning, and bigger ones every week.\n\nTake what suits you, bring it back done, and I'll see you paid. Rank B and above? Guildmaster Fuze hands those out himself.",
+          "title": "Guild Desk",
+          "turnin": "Hand in my work"
+        },
+        "giver": "desk",
+        "id": "receptionist",
+        "name": "Guild Receptionist",
+        "name_color": "#009FE3",
+        "skin": "SECURITY_01"
+      }
+    ],
+    "settings": {
+      "check_ticks": 600,
+      "preset_prefix": "ttl_guild_",
+      "rev": 1,
+      "start_delay_ticks": 200
+    },
+    "spot": [
+      {
+        "anchor": "build",
+        "build": "blumund",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "fuze_blumund",
+        "kind": "fuze",
+        "tag": "ttl.npc.fuze",
+        "x": 107,
+        "y": 11,
+        "yaw": 90,
+        "z": 61
+      },
+      {
+        "anchor": "build",
+        "build": "blumund",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "receptionist_blumund_1",
+        "kind": "receptionist",
+        "tag": "ttl.npc.receptionist.2",
+        "x": 103,
+        "y": 5,
+        "yaw": 90,
+        "z": 68
+      },
+      {
+        "anchor": "build",
+        "build": "blumund",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "receptionist_blumund_2",
+        "kind": "receptionist",
+        "tag": "ttl.npc.receptionist.3",
+        "x": 103,
+        "y": 5,
+        "yaw": 90,
+        "z": 76
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "receptionist_tempest",
+        "kind": "receptionist",
+        "tag": "ttl.npc.receptionist.1",
+        "x": 3,
+        "y": 0,
+        "yaw": 0,
+        "z": -16
+      },
+      {
+        "anchor": "tempest",
+        "dim": "minecraft:overworld",
+        "enabled": true,
+        "id": "fuze_tempest",
+        "kind": "fuze",
+        "tag": "ttl.npc.fuze",
+        "unless_build": "blumund",
+        "x": 8,
+        "y": 0,
+        "yaw": 90,
+        "z": -19
+      }
+    ]
   },
   "skills": {
     "caps": {

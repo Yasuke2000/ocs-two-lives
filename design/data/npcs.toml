@@ -1,0 +1,156 @@
+# Guild NPCs (Easy NPC): Fuze and the guild receptionists. Two consumers:
+#   python tools/gen_npcs.py   writes one Easy NPC preset per [[kind]] to pack/config/easy_npc/preset/ttl_guild_<id>.npc.snbt
+#                              (dialog, buttons, look); the buttons run the player's own `/ttl guild ...` commands.
+#   economy/guild_npcs.js      reads [settings] and [[spot]] (as TtlData.npcs, via tools/gen_data.py) and keeps exactly one
+#                              NPC per enabled spot, tagged `tag` (and `ttl.npc`).
+# Edit, then run `python tools/gen_data.py` and `python tools/gen_npcs.py`. Dialog text is English; @initiator is the
+# player's name (Easy NPC placeholder).
+#
+# Who gives what is decided in economy.toml: `giver = "fuze"` bounties (rank [guild].fuze_min_rank and up) are Fuze's,
+# everything else is the desk's. The buttons below pass that giver to the guild commands.
+
+[settings]
+# Bump to replace every NPC with a fresh one from the current preset on the next check (also what to do after a
+# dialog or look change: the NPC already in the world keeps the dialog it was spawned with).
+rev = 1
+# The spots are checked this many ticks apart, and once this many ticks after the server has started.
+check_ticks = 600
+start_delay_ticks = 200
+# Easy NPC `custom` presets live in config/easy_npc/preset; the preset id is `easy_npc:preset/<file name>`.
+preset_prefix = "ttl_guild_"
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Kinds. `skin` is one of Easy NPC's own built-in humanoid variants (textures ship inside the mod, nothing is copied
+# into the pack): KNIGHT_01 = dark hair, rugged brown leather and cloth (closest to Fuze: black hair, stubble, a
+# veteran's plain gear); SECURITY_01 = blue uniform, hat and gold badge (a guild clerk). Fuze's scar and grey streaks
+# have no preset skin: drop an own PNG into the pack and point `skin` at it later (see docs in decisions.md).
+
+[[kind]]
+id = "fuze"
+name = "Fuze"
+name_color = "#FDC300"
+skin = "KNIGHT_01"
+giver = "fuze"
+# Shown in the preset browser.
+description = "Fuze, guildmaster of the Free Guild's Blumund branch: high-rank contracts (rank B and up)."
+
+[kind.dialog]
+title = "Guildmaster Fuze"
+text = "Hm. @initiator. Another soul with a sword and a dream.\n\nI run the Free Guild's Blumund branch, and between Falmuth's grudges and Rimuru's surprises, the real work lands on my desk. The clerks handle the small jobs. The contracts I hand out, rank B and up, are the ones that bury careless adventurers.\n\nWell? Here for work, or just to stare at the scar?"
+board = "Show me the contracts"
+take = "I'll take a contract"
+turnin = "Contract finished"
+rank = "How do I stand?"
+leave = "Never mind"
+take_title = "Contracts"
+take_text = "Name the number. A contract taken is a contract owed, @initiator. I don't pay twice for the same failure, and I don't carry people who quit."
+take_item = "Contract {n}"
+back = "Back"
+
+[[kind]]
+id = "receptionist"
+name = "Guild Receptionist"
+name_color = "#009FE3"
+skin = "SECURITY_01"
+giver = "desk"
+description = "A Free Guild receptionist: the desk board (rank F to C), hand-ins and rank."
+
+[kind.dialog]
+title = "Guild Desk"
+text = "Welcome to the Free Guild, @initiator. Jobs are posted fresh every morning, and bigger ones every week.\n\nTake what suits you, bring it back done, and I'll see you paid. Rank B and above? Guildmaster Fuze hands those out himself."
+board = "See the board"
+take = "Take a bounty"
+turnin = "Hand in my work"
+rank = "What is my rank?"
+leave = "Goodbye"
+take_title = "Take a Bounty"
+take_text = "Which one? Use the numbers from the board, @initiator. One of each per day or week, and no more than {max} at a time."
+take_item = "Bounty {n}"
+back = "Back"
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Spots. One NPC per enabled spot, found again by `tag` (a receptionist is `ttl.npc.receptionist.<n>`, Fuze
+# `ttl.npc.fuze`); the tag may be shared only by a spot and its Tempest fallback (see unless_build). Position:
+#   anchor = "build"    x/y/z are BLUEPRINT coordinates of the build named in `build`; the world position is that build's
+#                       `ttl.build.<build>.corner` (written by life/builds.js when it places the build: world X Y Z of the
+#                       blueprint's 0,0,0) plus x/y/z. The spot waits until the build is placed. y is the walking layer
+#                       (the block layer the NPC stands in, 5 on a village's ground).
+#   anchor = "tempest"  x/y/z are offsets from Tempest's arrival point (the village green's south edge, stored by
+#                       life/tempest.js as `ttl.tempest.arrival`); the spot waits until Tempest is placed.
+#   anchor = "world"    x/y/z are absolute block coordinates (the NPC stands in the middle of that block).
+# yaw: 0 faces south, 90 west, 180 north, -90 east. dim: the dimension id.
+# unless_build = "<build>": the spot is a stand-in that is only active while that build is NOT placed; once it is,
+# the stand-in's NPC is removed and the spot that is anchored to the build takes over (same tag, so there is still
+# exactly one Fuze).
+
+# Blumund's Free Guild branch hall (blueprints/blumund.py, design/builds/blumund.toml; blueprint coordinates, the
+# hall faces the market square on its west side): the reception counter runs x 102, z 60-78 with the staff behind
+# it at x 103 (lecterns at z 62 66 72 75, cartography tables at z 64 70 74), the staff gate at (102, 5, 79); the
+# quest board is x 94, z 58-64 and the bounty board x 94, z 72-78. Fuze's office is the mezzanine (floor y 10,
+# walk y 11) over x 104-111: his desk is (109, 11, 61) with his chair at (108, 11, 61); he stands in front of it.
+[[spot]]
+id = "fuze_blumund"
+kind = "fuze"
+tag = "ttl.npc.fuze"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "blumund"
+x = 107
+y = 11
+z = 61
+yaw = 90
+
+[[spot]]
+id = "receptionist_blumund_1"
+kind = "receptionist"
+tag = "ttl.npc.receptionist.2"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "blumund"
+x = 103
+y = 5
+z = 68
+yaw = 90
+
+[[spot]]
+id = "receptionist_blumund_2"
+kind = "receptionist"
+tag = "ttl.npc.receptionist.3"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "build"
+build = "blumund"
+x = 103
+y = 5
+z = 76
+yaw = 90
+
+# Tempest's council longhouse (blueprints/tempest.py): door in the south wall at the arrival's x, interior 19 x 8 with
+# the long table in the middle; offsets are blueprint coordinates minus (45, 57). A receptionist stays here for good
+# (Tempest gets its own guild desk in the story); Fuze stands here only until Blumund's hall is placed.
+[[spot]]
+id = "receptionist_tempest"
+kind = "receptionist"
+tag = "ttl.npc.receptionist.1"
+enabled = true
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = 3
+y = 0
+z = -16
+yaw = 0
+
+[[spot]]
+id = "fuze_tempest"
+kind = "fuze"
+tag = "ttl.npc.fuze"
+enabled = true
+unless_build = "blumund"
+dim = "minecraft:overworld"
+anchor = "tempest"
+x = 8
+y = 0
+z = -19
+yaw = 90
