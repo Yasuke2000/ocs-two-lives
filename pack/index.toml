@@ -1361,6 +1361,10 @@ file = "kubejs/data/ttl/structure/tempest_3.nbt"
 hash = "d973dd05184de376b8953bc0e9a52d656f3a263658aced4a8957656d8c72ffe3"
 
 [[files]]
+file = "kubejs/data/ttl/structure/test_hut.nbt"
+hash = "7c8dba2c92b753de7b1599f2d2a7ee4f108be48f363cdf93cb96fbfd99168c9d"
+
+[[files]]
 file = "kubejs/data/ttl/structure/trial_creation.nbt"
 hash = "6676bb62ece1dd5c9a1b568f3d8796ed67a6ed2b76f3d1d20bba14db20c12009"
 
@@ -1497,8 +1501,12 @@ file = "kubejs/server_scripts/ttl/events/favor.js"
 hash = "fe296d21277faa9b88eee89fd88bf088e84a8ee0fe6e287377ad60e2569d6c7c"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/generated/builds.js"
+hash = "5217611e5ee162abfc5fe30d46057de1ecfbecb75babbdcb77850f41593277d8"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "bed55ffe731d3a0815a70d8d7f8c97a5d3c7cac93a51e9bf75fd8e79ff9088cd"
+hash = "0f37aa21e99382997c6a9e1da0bd5cd5d321e71f9f066ac0557b8cfc8b8d23c8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -1535,6 +1543,10 @@ hash = "89fbb4abaa38e3c87582c19c5336d0f0b6967f7f652574ea18eb77bcd4cbf972"
 [[files]]
 file = "kubejs/server_scripts/ttl/life/arrival.js"
 hash = "193614bf022a405a3d9405c406d0eee3cfaebc308ea0e6f6716a88838509c35c"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/builds.js"
+hash = "f5408adfa24c27c774257123c2004bc873efc16f0524f48986f559d4f56658a0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
@@ -1618,7 +1630,7 @@ hash = "922ede69b59edf9448bfc2087aca5c20ecf94fd4cd3f2ef44f2f1eab21611047"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/world_reset.js"
-hash = "26f7df38598efda3fd3bdfdbdff7f43c8d5f7caed9112f1e99bd731296ce1cb0"
+hash = "970f53d54836bfb7b8afd86e30d6c079b18a7a14becdb6ced02f518fc305048f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/manas.js"

@@ -1,0 +1,58 @@
+# Example canon build: every field of design/builds/<name>.toml. Files whose name starts with an underscore are
+# ignored by tools/gen_data.py. A real build is one file per structure: blueprints/<name>.py ->
+# `python tools/build_structures.py <name>` -> design/builds/<name>.toml -> `python tools/gen_data.py` (reads the
+# structure files, converts the landmark to world x/z, checks everything, writes TtlData.builds and the ground
+# footprints in generated/builds.js). life/builds.js places the build in the game; see docs/server.md "Canon builds".
+#
+# gen_data fails on: an unknown field, a landmark name that is not in pack/config/ttl/canon_regions.json
+# (matched exactly), no structure file (<name>.nbt or <name>_0.nbt ...), an anchor outside the structure.
+# It only warns when the spot is sea (or a river) in canon_map.txt, or two builds are < 40 blocks apart.
+
+# Required. Equals the file name and the blueprint / structure name (a-z 0-9 _). Structure ids are
+# ttl:<name>, or ttl:<name>_0, _1, ... for PARTS builds (slabs placed one by one, stacked along z).
+name = "example_town"
+
+# Required. Shown to a player who walks into the build for the first time (a title on screen).
+title = "Example Town — the mayor's square"
+
+# Where: the exact `name` of a landmark in canon_regions.json "landmarks" (reference-map pixels; the world spot is
+# (ref - origin) x width / 2570, the same conversion tools/gen_data.py uses for design/data/landmarks.toml) ...
+landmark = "Blumund capital (Londo)"
+# ... or explicit world x/z. When both are given x/z win (use it to move the build off the exact pixel, e.g. onto
+# land). Give both or neither; one of the two ways is required.
+# x = 3103
+# z = -52
+
+# Required. Blueprint coordinates [x, y, z] of the point that lands on the spot: the walking level, so the block
+# at y - 1 is the ground layer (y must be 1 or more). The placer puts this point on x, z and the surveyed or fixed y.
+anchor = [45, 5, 57]
+
+# "survey" (default): the flattest dry land (no water, lava or ice) within `search` blocks of x/z, terrain-fitted.
+# "fixed": exactly x/z at the world y below (flat dimensions, tests); needs y.
+ground = "survey"
+# y = 64
+
+# Survey radius in blocks, 0..192 (default 48). The area worked on is box + margin + search all round, up to
+# 1000 blocks wide. Big builds find a flat spot more easily with a larger radius, but then drift off the canon point.
+search = 48
+
+# Dimension id (default "minecraft:overworld": the Tensura world). A world reset of that dimension places the
+# build again (survey again, on the new terrain).
+dimension = "minecraft:overworld"
+
+# Default 1. Bump it to place the build again on the next start: the new version goes over the old one at the same
+# corner (blocks of the old version the new one does not overwrite stay). Changing x/z/ground/y/anchor surveys
+# a new spot instead and leaves the old copy where it was.
+version = 1
+
+# Default true: above the highest block of every column of the box (and the cut round it) trees and hills go, up to
+# the sky. false leaves the terrain above the build alone (a cave mouth, a build meant to sit in a hill).
+# Under the build the placer always fills the gap down to the terrain, so nothing floats: put explicit air into
+# the blueprint wherever the inside must stay open.
+clear_above = true
+
+# Default 8, 0..16: columns round the box that get a 1:1 earth skirt below the ground layer and a 1:1 cut above it.
+margin = 8
+
+# Optional free text; not used by the game.
+notes = "What the build is and which canon sources it follows (design/lore/<name>.md)."
