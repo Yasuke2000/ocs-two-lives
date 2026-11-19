@@ -233,7 +233,7 @@ skips it (warning in the log); other dimensions in it are reset as usual.
 import is pre-made terrain, and only the **pregen** waits for the night. The full plan is in the design doc §6.3.
 
 0. **Main is ready.** ttl-portals 0.9.0 is released (`python tools/release_mod.py --bump minor` → `mod-v0.9.0`).
-   `main` carries it together with the Lerfing grid, `sea_level` 64, the noise settings without `ttl:canon_sites`
+   `main` carries it together with the Lerfing grid, `sea_level` 65, the noise settings without `ttl:canon_sites`
    and the anchor table (`generated/anchors.js`, WP-L4), so the placers put Tempest, Dwargon and the builds at
    Lerfing's coordinates. `tools/import_world.sh` reads `main` from GitHub and writes no marker until all of this is
    there, because the restart installs `main` and an older mod ignores the marker. ttl-ops deploys `main` by itself
@@ -321,8 +321,8 @@ uses the same marker. It needs nobody online, but no scale to 0 and no debug pod
 regenerates an existing chunk. Beyond it the generator makes the canon ring: `canon_map.txt` is Lerfing's land mask,
 and the signed distance from it makes deep ocean at the seam (the self-check asserts continentalness < −0.455 along
 all four edges of `lerfing.inner`), held for `ring` blocks from the land's bounding box and blended into vanilla over
-`blend` (2000 / 800 in `canon_regions.json`). `sea_level` is 64 in `noise_settings/overworld.json` (was 63), so the
-generated sea's top water block is y 63 like Lerfing's: no one-block water step along the seam. The per-build `sites`
+`blend` (2000 / 800 in `canon_regions.json`). `sea_level` is 65 in `noise_settings/overworld.json` (was 63), so the
+generated sea's top water block is y 64 like Lerfing's: no one-block water step along the seam. The per-build `sites`
 are gone from the Lerfing grid (the mod treats a missing `sites` key as none), and the noise settings no longer wrap
 `final_density` in `ttl:canon_sites` (the type stays registered, so an older pack still loads with 0.9.0).
 `/ttlmap <x> <z>` inside `lerfing.inner` reports the grid letter and the **stored** biome of the loaded chunk
