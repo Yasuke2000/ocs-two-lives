@@ -11,7 +11,9 @@ const TTL = path.join(__dirname, '..', 'pack', 'kubejs', 'server_scripts', 'ttl'
 const ctx = vm.createContext({
   console: { info () {}, warn () {}, error: (...a) => console.error(...a), log: console.log },
   ServerEvents: { loaded () {}, commandRegistry () {} },
-  TtlLife: { OVERWORLD: 'minecraft:overworld' }
+  TtlLife: { OVERWORLD: 'minecraft:overworld' },
+  // life/state.js: the command's result through the dispatcher (KubeJS 2101's runCommandSilent returns nothing)
+  TtlCmd: { run: (server, c) => server.dispatch(c), attempt: (server, c) => ({ result: server.dispatch(c), error: '' }) }
 })
 for (const f of ['generated/placements.js', 'life/works.js', 'life/forests.js', 'life/trade_roads.js']) {
   vm.runInContext(fs.readFileSync(path.join(TTL, f), 'utf8'), ctx, { filename: f })
@@ -86,12 +88,15 @@ test('the road is about 2 x half + 1 wide and every centre sample is paved', () 
 })
 
 // --- commands on synthetic terrain
-function fakeServer () {
+function fakeServer (result = 1) {
   const cmds = []
-  return { cmds, runCommandSilent (c) { cmds.push(c.replace(/^execute in \S+ run /, '')); return 1 } }
+  const record = c => cmds.push(c.replace(/^execute in \S+ run /, ''))
+  // runCommandSilent as in KubeJS 2101: no result
+  return { cmds, runCommandSilent (c) { record(c) }, dispatch (c) { record(c); return result } }
 }
 function fakeHm (ground, opts = {}) {
   return {
+    block: (x, y, z) => (opts.block ? opts.block(x, y, z) : 'minecraft:air'),
     ground: (x, z) => ground(x, z),
     floor: (x, z) => (opts.bed ? opts.bed(x, z) : ground(x, z)),
     wet: (x, z) => (opts.wet ? opts.wet(x, z) : false),
@@ -154,6 +159,19 @@ test('a giant is planted with its roots 5 under the lowest ground, never on sand
   assert.equal(F.giant(fakeServer(), fakeHm((x) => (x > g[1] ? 80 : 70)), p, rules, g), 'slope')
   assert.equal(F.giant(fakeServer(), fakeHm(() => 70), p, { kept: [{ x0: b.x1, z0: b.z1, x1: b.x1 + 5, z1: b.z1 + 5 }], lanes: [] }, g), 'kept')
   assert.equal(F.giant(fakeServer(), fakeHm(() => 70), p, { kept: [], lanes: [{ half: 4, seg: [g[1] - 20, g[2], g[1] + 20, g[2]] }] }, g), 'lane')
+  assert.equal(F.giant(fakeServer(0), fakeHm(() => 70), p, rules, g), 'place failed')
+})
+
+test('a spot whose trunk already stands is left alone (a re-run plants nothing twice)', () => {
+  const p = D.forests.tempest
+  const g = p.giants[0]
+  const u = p.understory[0]
+  const trunk = (x0, z0) => (x, y, z) => (x === x0 && z === z0 && y === 70 ? 'minecraft:dark_oak_log' : 'minecraft:air')
+  const s = fakeServer()
+  assert.equal(F.giant(s, fakeHm(() => 70, { block: trunk(g[1], g[2]) }), p, { kept: [], lanes: [] }, g), 'standing')
+  assert.equal(F.understory(s, fakeHm(() => 70, { block: trunk(u[1], u[2]) }), p, { kept: [], lanes: [] }, u), 'standing')
+  assert.deepEqual(s.cmds, [])
+  assert.equal(JSON.stringify(F.counts('3 4 5')), '[3,4,5,0,0]')
 })
 
 test('understory trees go on dry soil only', () => {
@@ -163,6 +181,7 @@ test('understory trees go on dry soil only', () => {
   assert.equal(F.understory(s, fakeHm(() => 71), p, { kept: [], lanes: [] }, u), null)
   assert.deepEqual(s.cmds, [`place feature ${p.features[u[0]]} ${u[1]} 71 ${u[2]}`])
   assert.equal(F.understory(fakeServer(), fakeHm(() => 71, { wet: () => true }), p, { kept: [], lanes: [] }, u), 'ground')
+  assert.equal(F.understory(fakeServer(0), fakeHm(() => 71), p, { kept: [], lanes: [] }, u), 'no room')
 })
 
 test('pieces cover every tree and column exactly once', () => {

@@ -62,6 +62,45 @@ retain all 58 markers/footprints, then run the default checker and inspect previ
 is still draft PR #69 and fails five default relations superseded by owner geography corrections.
 No map, runtime, tools, generated terrain or server files changed in this research checkpoint.
 
+## 19/11 night — no junk from placement, spawn zones round Tempest, staging profiled (branch `perf-and-spawns`, Claude)
+
+Owner: fewer mobs next to Tempest, less lag. **Done** (design/decisions.md 19/11 "Placement leaves no junk"): `life/drops.js`
+(no-drop removal used by trade_roads, unplace, dwargon seal/drain, forests' floor clear; every chunk hold sweeps its young
+items and falling blocks on release), `design/data/spawns.toml` + `TtlSpawnZones` in `life/mortal_spawns.js` (r 150 no
+natural hostiles, 25 % to r 400, 4 animals per 32 x 32), the magicule loop clears effects only when present.
+**Verified locally**: `drops` (0 items, gravel kept; vanilla fill on the same column: 1 item, gravel fell) and `spawns`
+pass; a bot at midnight: 101 natural hostiles refused in the town, 45 refused and 13 kept (22 %) at r 280; tests/drops.js, tests/spawns.js.
+**On the next staging deploy**: `tools/server.sh test drops`, `test spawns`; `ttl spawns zone 1720 900` after an evening
+of play (counts); `neoforge tps` and `execute in minecraft:overworld run neoforge entity list` (items, falling_block) to
+compare with 19/11 (overworld 23-26 ms with 2 players, 313-461 items, 152 falling blocks). The frozen junk already saved
+in chunks is not swept by this; kill it away from players when it shows up. Suggestions not done (owner/ops): simulation
+distance 8 -> 6, Tensura spawn weights (tensuramoreconfig) if Jura stays crowded.
+## 19/11 night — dev log feed `#dev-server-log` (branch `dev-server-feed`, Claude, for Yasuke)
+
+New read-only channel in DEVELOPMENT (`tools/discord_setup.sh`, mode `rostaff`; created live 19/11, id in the Homelab
+manifest) with a privacy-filtered feed of the server log, posted by the `logfeed` sidecar of the ttl-ops pod (Homelab PR
+`ttl-ops-logfeed`). It is deliberately not called `#server-log`: that is the existing staff-only channel. Docs:
+`docs/server.md` "Server log feed", decision row 19/11. **Verified**: 49 unit tests (filter, dedupe, batching, rate cap,
+reconnect against a fake kubectl), a dry run on `kubectl logs --tail=500` and a live follow of the mc pod from a PC.
+**After the Homelab merge**: the startup line `FEED  Log feed started` must appear in `#dev-server-log`; joins and leaves
+are off (`FEED_JOINS`), say if Yasuke wants them on.
+
+
+## 19/11 late — staging round 2 (branch `fix-staging-round2`, Claude)
+
+Bugs from the 9d27705 deploy, fixed and verified on the local Lerfing server (design/decisions.md 19/11 "Staging round 2"):
+**forests** v2 (the trees stood; `runCommandSilent` returns nothing, so all were counted failed; now real counts, no
+double planting, floor cleared, giants' check box held: local tempest 40/52 giants and ~1060 understory standing, treyni
+69/69; a second forced run plants ~0); **NPC gear** (goblins picked up loot into the weapon hand; rev 2, re-equip on
+mismatch); **locate** (`ServerLevel.dimension` is a KubeJS property); **arena_dwarven** (stale loop after `/reload`;
+local only); **banners** (were patterned; count fixed); **landmarks** lizardmen_village, lizardmen_caverns,
+ogre_village_ruin, treyni_grove v2 grounded (old copies removed 100 %); **world fixes** raja_lava,
+sacred_mountain_water, frost_palace_skirt; tests: npc_defend, domains, sidequests (escort), nations (bots resist Jura's
+mobs), walpurgis, arena_dwarven (fill split). **On the next staging deploy** watch: `[ttl] forest tempest planted: G
+giants, U understory trees, A already standing ...` (A large, G/U small: v1's trees stand), `forest treyni planted`,
+`landmark ... old copy lerfing_1 ... removed`, `... placed ... grounded by`, `world fix <id>: ... 0 failed`, no `npc
+gear command failed`; then `tools/server.sh test works` (`expect forest ... standing`). **Not done**: Dragon's Nest
+white pad and Sealed Cave's 32 missing logs/pad (need the build repair to use the site's top block / a re-placement).
 
 ## 19/11 night — map_check spacing rule and relative anchors (branch `map-check-spacing`, Claude)
 

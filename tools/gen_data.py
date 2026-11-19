@@ -1256,6 +1256,32 @@ def check_story(story: dict, factions: dict | None, bosses: dict | None, skills:
                         raise SystemExit(f"{where}: {tl}: button fights the unknown boss {fight_id!r}")
 
 
+def check_spawns(spawns: dict) -> None:
+    # life/mortal_spawns.js TtlSpawnZones: graded natural-spawn zones round the towns (design/data/spawns.toml).
+    zones = spawns.get("zone")
+    if not isinstance(zones, dict) or not zones:
+        raise SystemExit("spawns.toml: at least one [zone.<id>]")
+    anchors = anchor_table()
+    for zid, z in zones.items():
+        where = f"spawns.toml [zone.{zid}]"
+        if z.get("anchor") not in anchors:
+            raise SystemExit(f"{where}: anchor {z.get('anchor')!r} is not a design/data/anchors.toml anchor")
+        for key in ("town_radius", "reduced_radius", "passive_radius", "passive_cap", "passive_box"):
+            v = z.get(key)
+            if not isinstance(v, int) or isinstance(v, bool) or v < 0:
+                raise SystemExit(f"{where}: {key} must be a whole number >= 0")
+        if not 0 < z["town_radius"] <= z["reduced_radius"] <= 1000:
+            raise SystemExit(f"{where}: 0 < town_radius <= reduced_radius <= 1000")
+        if z["passive_radius"] > 1000 or not 8 <= z["passive_box"] <= 128:
+            raise SystemExit(f"{where}: passive_radius <= 1000, passive_box 8..128")
+        keep = z.get("hostile_keep")
+        if not isinstance(keep, (int, float)) or isinstance(keep, bool) or not 0 <= keep <= 1:
+            raise SystemExit(f"{where}: hostile_keep must be a number from 0 to 1")
+        safe = 56 if zid == "tempest" else 0
+        if z["town_radius"] < safe:
+            raise SystemExit(f"{where}: town_radius must cover Tempest's hostile-free square (r {safe})")
+
+
 def check_arrival(arrival: dict) -> None:
     # life/arrival.js grounds [life2] at x, z and TtlLife.toOverworld teleports there; a wrong type would only
     # show up as a bad `tp` at the first rebirth.
@@ -2515,6 +2541,8 @@ def render() -> dict[Path, str]:
         check_events(data["events"])
     if "arrival" in data:
         check_arrival(data["arrival"])
+    if "spawns" in data:
+        check_spawns(data["spawns"])
     if "landmarks" in data:
         check_landmarks(data["landmarks"])
     if "carryover" in data:

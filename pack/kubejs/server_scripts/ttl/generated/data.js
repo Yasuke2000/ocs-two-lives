@@ -5839,10 +5839,17 @@ const TtlData = {
         "name": "lizardmen_village",
         "notes": "Stilt village on the south shore of Lake Siss (anchors.toml lizardmen_village: 45 % water within 48, clear of Lerfing's hut clusters). The canon point (Lake Siss) is mid-lake.",
         "reach": 48,
+        "remove": [
+          {
+            "id": "lerfing_1",
+            "x": 3207,
+            "z": 965
+          }
+        ],
         "structure": "tensura:villages/lizardmen_village/water",
         "surface": "water",
         "title": "Lizardmen's village on Lake Siss",
-        "version": 1,
+        "version": 2,
         "x": 3184,
         "z": 988
       },
@@ -5851,10 +5858,17 @@ const TtlData = {
         "name": "lizardmen_caverns",
         "notes": "Underground village (entrance on the surface) in the marsh on the south shore of Lake Siss.",
         "reach": 56,
+        "remove": [
+          {
+            "id": "lerfing_1",
+            "x": 3323,
+            "z": 1177
+          }
+        ],
         "structure": "tensura:villages/lizardmen_village/underground",
         "surface": "land",
         "title": "Lizardmen's caverns (Gabiru, Avalos)",
-        "version": 1,
+        "version": 2,
         "x": 3300,
         "z": 1200
       },
@@ -5915,10 +5929,17 @@ const TtlData = {
         "name": "ogre_village_ruin",
         "notes": "The Kijin homeland the orcs burned; a burnt tower ruin marks the site (canon position unverified).",
         "reach": 24,
+        "remove": [
+          {
+            "id": "lerfing_1",
+            "x": 2150,
+            "z": 400
+          }
+        ],
         "structure": "tensura:ruin/wizard_tower/burnt",
         "surface": "land",
         "title": "Burned ruin at the hidden ogre village",
-        "version": 1,
+        "version": 2,
         "x": 2150,
         "z": 400
       },
@@ -5927,10 +5948,17 @@ const TtlData = {
         "name": "treyni_grove",
         "notes": "A giant ancient-forest tree for the dryad sanctuary east of the Ameld.",
         "reach": 48,
+        "remove": [
+          {
+            "id": "lerfing_1",
+            "x": 1920,
+            "z": 1540
+          }
+        ],
         "structure": "tensura:ancient_forest/tree",
         "surface": "land",
         "title": "Treyni's grove (dryad sanctuary)",
-        "version": 1,
+        "version": 2,
         "x": 1920,
         "z": 1540
       }
@@ -6541,7 +6569,7 @@ const TtlData = {
         "ttl.arena.mob"
       ],
       "guard_radius": 16,
-      "rev": 1
+      "rev": 2
     }
   },
   "npcs": {
@@ -8606,6 +8634,19 @@ const TtlData = {
         "awakening",
         "staff"
       ]
+    }
+  },
+  "spawns": {
+    "zone": {
+      "tempest": {
+        "anchor": "tempest",
+        "hostile_keep": 0.25,
+        "passive_box": 32,
+        "passive_cap": 4,
+        "passive_radius": 400,
+        "reduced_radius": 400,
+        "town_radius": 150
+      }
     }
   },
   "story": {

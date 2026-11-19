@@ -13,12 +13,24 @@
 //   ground (the jigsaw's own start_height -5: the roots go into the ground);
 // - understory (a vanilla tree feature): dry soil, 3 blocks clear of every kept box, clear of the lanes; then
 //   `place feature <id> x y z` (it grows only where the tree fits, like a sapling).
-// Log: `[ttl] forest <id> planted: G giants, U understory trees, S skipped (...) (version V)`.
+// A spot whose trunk already stands (a re-run, a bumped version: v1 planted but counted nothing) is left as it is.
+// Log: `[ttl] forest <id> planted: G giants, U understory trees, A already standing (g giants), S skipped (...)
+// (version V)`.
 const TtlForests = {
   TILE: 64,
   ROOTS: 5,
   LEVEL: 4,
   ROT: ['none', 'clockwise_90', '180', 'counterclockwise_90'],
+  TRUNK: ['_log', '_wood', '_stem'],
+  told: 0, // giants whose place failed, logged with the reason (the first 5 per boot)
+  // The forest floor in a tree's way: a tree feature grows only where its lower crown is air or #replaceable_by_trees,
+  // and Tensura's hipokute grass and baffledil are not (local 19/11/2026: most of the understory's 'no room'); a dark
+  // oak over tall grass grew without the log on its own spot. Cleared round the trunk before `place feature`.
+  FLOOR: ['minecraft:short_grass', 'minecraft:tall_grass', 'minecraft:fern', 'minecraft:large_fern', 'minecraft:dead_bush',
+    'minecraft:snow', 'minecraft:sweet_berry_bush', 'minecraft:moss_carpet', 'minecraft:pink_petals', 'tensura:hipokute_grass',
+    'tensura:baffledil'],
+  FLOWERS: ['tulip', 'orchid', 'allium', 'bluet', 'daisy', 'poppy', 'dandelion', 'cornflower', 'lily_of_the_valley',
+    'lilac', 'peony', 'rose_bush', 'sunflower', 'torchflower', 'mushroom'],
 
   all() {
     return TtlWorks.data().forests || {}
@@ -30,7 +42,7 @@ const TtlForests = {
 
   forget(server, id) {
     var self = this
-    ;['version', 'piece', 'counts', 'skips'].forEach(k => server.persistentData.remove(self.key(id, k)))
+    ;['version', 'pversion', 'piece', 'counts', 'skips'].forEach(k => server.persistentData.remove(self.key(id, k)))
   },
 
   // Template-local offset -> world offset for a /place template rotation (pivot = the corner).
@@ -90,6 +102,10 @@ const TtlForests = {
       var b = self.giantBox(p.templates[p.giant_keys[g[0]]], g[1], g[2], self.ROT[g[3]])
       t.giants.push(g)
       grow(t, b.x0 - 2, b.z0 - 2, b.x1 + 2, b.z1 + 2)
+      // `place template` checks that the UNROTATED box from the corner (corner + size, +x +z) is loaded, whatever the
+      // rotation: without it, rotated giants failed with "That position is not loaded" (local 19/11/2026)
+      var tp = p.templates[p.giant_keys[g[0]]]
+      grow(t, b.cx, b.cz, b.cx + tp.size[0], b.cz + tp.size[2])
     })
     p.understory.forEach(u => {
       var t = get(u[1], u[2])
@@ -123,7 +139,48 @@ const TtlForests = {
     return rules.lanes.some(l => self.segDist(x, z, l.seg) < l.half + gap)
   },
 
-  // Plants one giant; returns null or why it was skipped.
+  // A tree stands on (x, z): hm.ground looks through logs and leaves, so on a trunk it ends at the trunk's foot. The
+  // 2 x 2 from (x, z) (dark oak, mega spruce: v1 left some with a plant on the spot itself and the log beside it).
+  standing(hm, x, z) {
+    for (var d = 0; d < 4; d++) {
+      var cx = x + (d & 1)
+      var cz = z + (d >> 1)
+      var y = hm.ground(cx, cz)
+      if (y === null) continue
+      var id = String(hm.block(cx, y, cz))
+      if (this.TRUNK.some(k => id.indexOf(k) >= 0)) return true
+    }
+    return false
+  },
+
+  // Clears the forest floor (FLOOR, FLOWERS) in the tree's lower crown: x-2..x+3, z-2..z+3, ground and one above.
+  clearFloor(server, hm, x, y, z) {
+    var self = this
+    for (var dx = -2; dx <= 3; dx++) {
+      for (var dz = -2; dz <= 3; dz++) {
+        for (var dy = 0; dy <= 1; dy++) {
+          var id = String(hm.block(x + dx, y + dy, z + dz))
+          if (id === 'minecraft:air') continue
+          if (self.FLOOR.indexOf(id) >= 0 || (id.indexOf('minecraft:') === 0 && self.FLOWERS.some(k => id.indexOf(k) >= 0) &&
+            !/_block|_stem|potted_/.test(id))) {
+            // without drops (life/drops.js): a plain setblock pops the top half of a tall plant as seeds
+            if (typeof TtlDrops === 'undefined' || TtlDrops.clearColumn(server, TtlLife.OVERWORLD, x + dx, y + dy, y + dy, z + dz) < 0) {
+              TtlWorks.run(server, `setblock ${x + dx} ${y + dy} ${z + dz} minecraft:air`)
+            }
+          }
+        }
+      }
+    }
+  },
+
+  // [giants, understory, skipped, giants standing, understory standing] (v1 stored the first three).
+  counts(text) {
+    var c = TtlWorks.ints(text) || []
+    for (var i = 0; i < 5; i++) c[i] = c[i] || 0
+    return c
+  },
+
+  // Plants one giant; returns null, 'standing' or why it was skipped.
   giant(server, hm, p, rules, g) {
     var tid = p.giant_keys[g[0]]
     var tp = p.templates[tid]
@@ -133,6 +190,7 @@ const TtlForests = {
     var b = this.giantBox(tp, x, z, rot)
     if (TtlWorks.boxHits(rules.kept, b, 0)) return 'kept'
     if (this.laneHit(rules, x, z, tp.trunk_r + 1)) return 'lane'
+    if (this.standing(hm, x, z)) return 'standing'
     var r = tp.trunk_r
     var ys = []
     for (var dx = -r; dx <= r; dx += r) {
@@ -143,8 +201,14 @@ const TtlForests = {
     }
     var lo = Math.min.apply(null, ys)
     if (Math.max.apply(null, ys) - lo > this.LEVEL) return 'slope'
-    var ok = TtlWorks.run(server, `place template ${tid} ${b.cx} ${lo - this.ROOTS} ${b.cz} ${rot}`)
-    return ok > 0 ? null : 'place failed'
+    var cmd = `place template ${tid} ${b.cx} ${lo - this.ROOTS} ${b.cz} ${rot}`
+    var at = TtlWorks.attempt(server, cmd)
+    if (at.result > 0) return null
+    if (this.told < 5) {
+      this.told++
+      console.warn(`[ttl] forest: giant at ${x} ${z} not placed (${cmd}): ${at.error || 'no result'}`)
+    }
+    return 'place failed'
   },
 
   understory(server, hm, p, rules, u) {
@@ -152,8 +216,11 @@ const TtlForests = {
     var z = u[2]
     if (TtlWorks.inBox(rules.kept, x, z, 3)) return 'kept'
     if (this.laneHit(rules, x, z, 2)) return 'lane'
+    if (this.standing(hm, x, z)) return 'standing'
     if (!hm.soil(x, z) || hm.wet(x, z)) return 'ground'
-    var ok = TtlWorks.run(server, `place feature ${p.features[u[0]]} ${x} ${hm.ground(x, z)} ${z}`)
+    var y = hm.ground(x, z)
+    this.clearFloor(server, hm, x, y, z)
+    var ok = TtlWorks.run(server, `place feature ${p.features[u[0]]} ${x} ${y} ${z}`)
     return ok > 0 ? null : 'no room'
   },
 
@@ -165,8 +232,9 @@ const TtlForests = {
       return
     }
     if (force) this.forget(server, id)
+    TtlWorks.begin(server, this, id, p.version)
     var pieces = this.pieces(p)
-    var counts = TtlWorks.ints(data.getString(this.key(id, 'counts'))) || [0, 0, 0]
+    var counts = this.counts(data.getString(this.key(id, 'counts')))
     var skips = {}
     try {
       skips = JSON.parse(String(data.getString(this.key(id, 'skips')) || '{}'))
@@ -182,7 +250,7 @@ const TtlForests = {
       if (i >= pieces.length) {
         data.putInt(self.key(id, 'version'), p.version)
         var why = Object.keys(skips).map(k => `${k} ${skips[k]}`).join(', ')
-        console.info(`[ttl] forest ${id} planted: ${counts[0]} giants, ${counts[1]} understory trees, ${counts[2]} skipped (${why || 'none'}) (version ${p.version})`)
+        console.info(`[ttl] forest ${id} planted: ${counts[0]} giants, ${counts[1]} understory trees, ${counts[3] + counts[4]} already standing (${counts[3]} giants), ${counts[2]} skipped (${why || 'none'}) (version ${p.version})`)
         done()
         return
       }
@@ -191,6 +259,7 @@ const TtlForests = {
         var fns = []
         var tally = (why, slot) => {
           if (why === null) counts[slot]++
+          else if (why === 'standing') counts[slot + 3]++
           else {
             counts[2]++
             skips[why] = (skips[why] || 0) + 1
@@ -217,8 +286,8 @@ const TtlForests = {
     var p = this.all()[id]
     var data = server.persistentData
     var v = data.getInt(this.key(id, 'version'))
-    var c = TtlWorks.ints(data.getString(this.key(id, 'counts'))) || [0, 0, 0]
-    var state = v === p.version ? `planted (${c[0]} giants, ${c[1]} understory, ${c[2]} skipped)` :
+    var c = this.counts(data.getString(this.key(id, 'counts')))
+    var state = v === p.version ? `planted (${c[0]} giants, ${c[1]} understory, ${c[3] + c[4]} already standing, ${c[2]} skipped)` :
       `pending, tile ${data.getInt(this.key(id, 'piece'))}/${this.pieces(p).length} (${c[0]} giants, ${c[1]} understory so far)`
     return `forest ${id}: ${p.title}, r ${p.inner}-${p.outer} round ${p.centre[0]} ${p.centre[1]}, v${p.version} ${state}`
   }

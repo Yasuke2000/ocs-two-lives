@@ -31,6 +31,22 @@ const TtlMortalImmunity = {
     return this.protects(player) || (poisonOnly && TtlSafeSpawns.inZone(player))
   },
 
+  // Whether the player has the effect now (its description id holds the id's path, "effect.tensura.magicule_poison"):
+  // the loop used to send two `effect clear` commands per protected player every 2 ticks whether or not there was one.
+  // true when the effects cannot be read (then the command runs as before).
+  has(player, id) {
+    try {
+      var path = id.split(':')[1]
+      var found = false
+      player.getActiveEffects().forEach(inst => {
+        if (String(inst.getDescriptionId()).indexOf(path) >= 0) found = true
+      })
+      return found
+    } catch (e) {
+      return true
+    }
+  },
+
   poison(text) {
     return String(text).indexOf('magicule_poison') >= 0
   },
@@ -67,6 +83,8 @@ ServerEvents.tick(event => {
   server.getPlayerList().getPlayers().forEach(p => {
     var all = TtlMortalImmunity.protects(p)
     if (!all && !TtlSafeSpawns.inZone(p)) return
-    ;(all ? TtlMortalImmunity.EFFECTS : ['tensura:magicule_poison']).forEach(id => server.runCommandSilent(`effect clear ${p.username} ${id}`))
+    ;(all ? TtlMortalImmunity.EFFECTS : ['tensura:magicule_poison']).forEach(id => {
+      if (TtlMortalImmunity.has(p, id)) server.runCommandSilent(`effect clear ${p.username} ${id}`)
+    })
   })
 })

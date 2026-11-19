@@ -38,7 +38,8 @@ read_txt() { IFS= read -r -d '' "$1" || true; }
 # ---------------------------------------------------------------------------------------------
 # Layout. Category lines:  key|name|old name (renamed when found)
 # Channel lines:           key|name|old name|type (0 text, 2 voice, 15 forum)|category key|mode
-# Modes: rw = everyone writes; ro = members read and react, only the bot posts; staff = modder role + bot only.
+# Modes: rw = everyone writes; ro = members read and react, only the bot posts; rostaff = like ro, but the modder role
+# can post as well; staff = modder role + bot only (hidden from members).
 # #roadmap sits in START, not COMMUNITY: like #patch-notes it is read-only reference that a new player should find
 # first ("what can I test, what is coming"); the place to answer it, the #suggestions forum, is in COMMUNITY.
 # ---------------------------------------------------------------------------------------------
@@ -65,6 +66,7 @@ CHANS=(
   "voice|Voice||2|community|rw"
   "contribute|contribute||0|development|rw"
   "dev-chat|dev-chat||0|development|rw"
+  "dev-server-log|dev-server-log||0|development|rostaff"
   "server-log|server-log|logging-and-server-notifactions|0|staff|staff"
 )
 # Removed when present (and, for the categories, empty): the Discord defaults.
@@ -146,6 +148,7 @@ read_txt MAP_EN <<'EOF'
 **🛠 DEVELOPMENT**
 - {#contribute}: how to help improve the pack
 - {#dev-chat}: talk with the people working on the pack and mod
+- {#dev-server-log}: the server's important log lines (errors, start/stop/crashes, world works, deploys), read-only
 Every channel starts with a pinned "How to use this channel" message. Lost? Read that one first.
 EOF
 
@@ -170,6 +173,7 @@ read_txt MAP_NL <<'EOF'
 **🛠 DEVELOPMENT**
 - {#contribute}: hoe je kan helpen om de pack te verbeteren
 - {#dev-chat}: praten met de mensen die aan de pack en de mod werken
+- {#dev-server-log}: de belangrijke logregels van de server (fouten, start/stop/crashes, wereldwerken, deploys), alleen-lezen
 Elk kanaal begint met een vastgepind bericht "Hoe gebruik je dit kanaal". Kwijt? Lees dat eerst.
 EOF
 
@@ -366,6 +370,17 @@ Decisions and tasks belong in a GitHub issue, not only here. Setup help: `CONTRI
 Beslissingen en taken horen in een GitHub-issue, niet alleen hier. Hulp bij de setup: `CONTRIBUTING.md` in de repo, stappen in {#contribute}.
 EOF
 
+read_txt G_dev_server_log <<'EOF'
+**EN** A read-only, filtered live feed of the server log, so you can follow the server without cluster access. Only the bot and staff post; discuss in {#dev-chat}.
+**Posted:** errors and warnings from `[ttl]`, KubeJS and the mods (known boot noise left out); server start, stop, crashes and watchdog; world works (import, placed, laid, planted); deploy and test results of ttl-ops. Joins and leaves are off.
+**Reading it:** one code block per post, lines as `time LABEL text`. `(×N)` = the same line N times within a minute. `… N lines suppressed` = the limit of about 20 posts a minute was hit; `tools/server.sh logs` has the rest.
+**Privacy:** IP addresses, ports, e-mails and token-like strings are removed before posting. Never paste secrets here.
+**NL** Een alleen-lezen, gefilterde livefeed van de serverlog, zodat je de server kan volgen zonder toegang tot de cluster. Alleen de bot en staff posten; bespreek het in {#dev-chat}.
+**Gepost:** fouten en waarschuwingen van `[ttl]`, KubeJS en de mods (bekende opstartruis weggelaten); serverstart, stop, crashes en watchdog; wereldwerken (import, placed, laid, planted); deploy- en testresultaten van ttl-ops. Joins en leaves staan uit.
+**Zo lees je het:** één codeblok per post, regels als `tijd LABEL tekst`. `(×N)` = dezelfde regel N keer binnen een minuut. `… N lines suppressed` = de limiet van ongeveer 20 posts per minuut is bereikt; `tools/server.sh logs` heeft de rest.
+**Privacy:** IP-adressen, poorten, e-mails en token-achtige tekst worden verwijderd vóór het posten. Plak hier nooit geheimen.
+EOF
+
 read_txt G_server_log <<'EOF'
 **EN** Staff only (the `modder` role and the bot). Automatic notices from the server: deploys and test results, crashes, lag, server up/down, new GitHub issues and pull requests. Staff can also run read-only `?commands` here (`?list`, `?neoforge tps`, `?ttl staff status`, ...).
 Please do not chat here; use {#chat}.
@@ -386,6 +401,7 @@ TOPIC_ideas_and_feedback='Feedback; linked players report bugs with ?bugreport f
 TOPIC_roadmap='Live (test this), being built and planned, kept up to date by the bot. Read-only. | Live (test dit), in de maak en gepland, bijgehouden door de bot. Alleen-lezen.'
 TOPIC_contribute="How to help: GitHub issues, project board, pull requests. Nothing is merged without Yasuke's approval. | Zo help je mee: GitHub-issues, projectbord, pull requests. Niets gaat live zonder goedkeuring van Yasuke."
 TOPIC_dev_chat='For people working on the pack and mod (repo, tools, scripts, PRs). Open to everyone. | Voor wie aan de pack en de mod werkt (repo, tools, scripts, PRs). Open voor iedereen.'
+TOPIC_dev_server_log='Read-only, filtered feed of the server log: errors, start/stop/crashes, world works, deploys. No IPs, e-mails or tokens. | Alleen-lezen, gefilterde feed van de serverlog: fouten, start/stop/crashes, wereldwerken, deploys. Geen IPs, e-mails of tokens.'
 TOPIC_server_log='Staff only: server notices (deploys, tests, crashes, up/down, GitHub). | Alleen staff: servermeldingen (deploys, tests, crashes, aan/uit, GitHub).'
 
 # Content messages that follow the how-to, per channel: "variable|first line (prefix used to find it again)|pin 1/0|old prefix"
@@ -434,6 +450,7 @@ guide_text() { local v="G_$(key "$1")"; printf '%s\n%s' "$HEAD" "${!v%$'\n'}"; }
 mode_text() {
   case $1 in
     ro) echo "read-only (the bot posts, members react)";;
+    rostaff) echo "read-only (the bot and the modder role post, members react)";;
     staff) echo "staff only (modder role + bot)";;
     forum) echo "everyone: new posts and replies (status tags: staff and the bot)";;
     *) echo "everyone";;
@@ -563,6 +580,8 @@ ow_json() {
   case $1 in
     ro) jq -n --arg g "$G" --arg b "$BOT" --arg d "$RO_DENY" \
           '[{id:$g,type:0,allow:"0",deny:$d},{id:$b,type:1,allow:"3072",deny:"0"}]';;
+    rostaff) jq -n --arg g "$G" --arg b "$BOT" --arg m "$MODDER" --arg d "$RO_DENY" \
+          '[{id:$g,type:0,allow:"0",deny:$d},{id:$b,type:1,allow:"3072",deny:"0"},{id:$m,type:0,allow:"3072",deny:"0"}]';;
     staff) jq -n --arg g "$G" --arg b "$BOT" --arg m "$MODDER" \
           '[{id:$g,type:0,allow:"0",deny:"1024"},{id:$m,type:0,allow:"68608",deny:"0"},{id:$b,type:1,allow:"68608",deny:"0"}]';;
     *) echo '[]';;

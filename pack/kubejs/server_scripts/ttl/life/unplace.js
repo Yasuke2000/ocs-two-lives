@@ -15,7 +15,8 @@
 //   becomes `top`, the rest air.
 // A unit (every job of one copy) is removed only when at least MIN_MATCH of its non-air cells still match: a copy that is
 // not there (a spot that never got one, a world that was reset) is left alone and reported.
-// Reads only loaded chunks (the caller holds them, life/chunk_hold.js) and works under a time budget per tick.
+// Reads only loaded chunks (the caller holds them, life/chunk_hold.js) and works under a time budget per tick. Blocks go
+// without drops (life/drops.js TtlDrops.replace: containers emptied first, nothing that leaned on them pops off).
 const TtlUnplace = {
   BUDGET_MS: 15,
   MIN_MATCH: 0.5,
@@ -113,6 +114,7 @@ const TtlUnplace = {
     var loaded = (x, z) => source.getChunkNow(x >> 4, z >> 4) !== null
     var id = (x, y, z) => String(level.getBlock(x, y, z).id)
     var res = { removed: 0, skipped: 0, cells: 0, unloaded: 0, missing: [], done: [] }
+    var drops = typeof TtlDrops !== 'undefined' && !!TtlDrops.java()
     // Work list: per unit, the cells to change ([x, y, z, kind]) after its match count. Built and applied in steps.
     var u = 0
     var phase = 'scan'
@@ -214,7 +216,10 @@ const TtlUnplace = {
           var below = TtlRepair.cls(id(o[0], o[1] - 1, o[2]))
           put = below === 'solid' ? TOP : AIR
         }
-        level.setBlock(pos, put, 2)
+        // Without drops: a chest or barrel of the copy would spill its loot, a plant or torch on it would pop off
+        // (life/drops.js); flag 2 and the old behaviour where TtlDrops is not loaded.
+        if (drops) TtlDrops.replace(level, o[0], o[1], o[2], put)
+        else level.setBlock(pos, put, 2)
         if ((k & 63) === 0 && stop()) return false
       }
       res.removed++

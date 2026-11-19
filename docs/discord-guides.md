@@ -37,6 +37,7 @@ Category | Channel | Who can write | Topic
 💬 COMMUNITY | voice `Voice` | everyone | 
 🛠 DEVELOPMENT | `#contribute` | everyone | How to help: GitHub issues, project board, pull requests. Nothing is merged without Yasuke's approval. / Zo help je mee: GitHub-issues, projectbord, pull requests. Niets gaat live zonder goedkeuring van Yasuke.
 🛠 DEVELOPMENT | `#dev-chat` | everyone | For people working on the pack and mod (repo, tools, scripts, PRs). Open to everyone. / Voor wie aan de pack en de mod werkt (repo, tools, scripts, PRs). Open voor iedereen.
+🛠 DEVELOPMENT | `#dev-server-log` | read-only (the bot and the modder role post, members react) | Read-only, filtered feed of the server log: errors, start/stop/crashes, world works, deploys. No IPs, e-mails or tokens. / Alleen-lezen, gefilterde feed van de serverlog: fouten, start/stop/crashes, wereldwerken, deploys. Geen IPs, e-mails of tokens.
 🔒 STAFF | `#server-log` | staff only (modder role + bot) | Staff only: server notices (deploys, tests, crashes, up/down, GitHub). / Alleen staff: servermeldingen (deploys, tests, crashes, aan/uit, GitHub).
 
 Channels hidden from members: `#server-log` is visible to the `modder` role and the bot only.
@@ -100,6 +101,7 @@ Een Minecraft-modpackserver waar je **twee keer** leeft. Eerst als gewone mens i
 **🛠 DEVELOPMENT**
 - #contribute: how to help improve the pack
 - #dev-chat: talk with the people working on the pack and mod
+- #dev-server-log: the server's important log lines (errors, start/stop/crashes, world works, deploys), read-only
 Every channel starts with a pinned "How to use this channel" message. Lost? Read that one first.
 ````
 
@@ -126,6 +128,7 @@ Every channel starts with a pinned "How to use this channel" message. Lost? Read
 **🛠 DEVELOPMENT**
 - #contribute: hoe je kan helpen om de pack te verbeteren
 - #dev-chat: praten met de mensen die aan de pack en de mod werken
+- #dev-server-log: de belangrijke logregels van de server (fouten, start/stop/crashes, wereldwerken, deploys), alleen-lezen
 Elk kanaal begint met een vastgepind bericht "Hoe gebruik je dit kanaal". Kwijt? Lees dat eerst.
 ````
 
@@ -410,6 +413,20 @@ Alles komt pas op `main` (en dus op de server) na goedkeuring van Yasuke. Vragen
 Decisions and tasks belong in a GitHub issue, not only here. Setup help: `CONTRIBUTING.md` in the repo, steps in #contribute.
 **NL** Open voor iedereen: praat mee met de mensen die aan de pack en de mod werken (repo, tools, mods, scripts, pull requests). Stel vragen, deel waar je mee bezig bent, vraag een review.
 Beslissingen en taken horen in een GitHub-issue, niet alleen hier. Hulp bij de setup: `CONTRIBUTING.md` in de repo, stappen in #contribute.
+````
+
+### #dev-server-log
+
+````
+**How to use this channel / Hoe gebruik je dit kanaal**
+**EN** A read-only, filtered live feed of the server log, so you can follow the server without cluster access. Only the bot and staff post; discuss in #dev-chat.
+**Posted:** errors and warnings from `[ttl]`, KubeJS and the mods (known boot noise left out); server start, stop, crashes and watchdog; world works (import, placed, laid, planted); deploy and test results of ttl-ops. Joins and leaves are off.
+**Reading it:** one code block per post, lines as `time LABEL text`. `(×N)` = the same line N times within a minute. `… N lines suppressed` = the limit of about 20 posts a minute was hit; `tools/server.sh logs` has the rest.
+**Privacy:** IP addresses, ports, e-mails and token-like strings are removed before posting. Never paste secrets here.
+**NL** Een alleen-lezen, gefilterde livefeed van de serverlog, zodat je de server kan volgen zonder toegang tot de cluster. Alleen de bot en staff posten; bespreek het in #dev-chat.
+**Gepost:** fouten en waarschuwingen van `[ttl]`, KubeJS en de mods (bekende opstartruis weggelaten); serverstart, stop, crashes en watchdog; wereldwerken (import, placed, laid, planted); deploy- en testresultaten van ttl-ops. Joins en leaves staan uit.
+**Zo lees je het:** één codeblok per post, regels als `tijd LABEL tekst`. `(×N)` = dezelfde regel N keer binnen een minuut. `… N lines suppressed` = de limiet van ongeveer 20 posts per minuut is bereikt; `tools/server.sh logs` heeft de rest.
+**Privacy:** IP-adressen, poorten, e-mails en token-achtige tekst worden verwijderd vóór het posten. Plak hier nooit geheimen.
 ````
 
 ### #server-log

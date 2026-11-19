@@ -8,7 +8,8 @@
 // - land: the gap between the ground and y filled (dirt, stone deeper; small dips and ponds), the surface block at y
 //   (a weighted mix per column: dirt path, gravel, coarse dirt, cobble in Jura; cobble, stone, andesite, tuff, gravel on
 //   the stone stretch below Dwargon), everything from y + 1 up to y + 4 (or the cut, at most CUT) cleared: grass,
-//   flowers, saplings, logs and leaves. A column whose neighbour along the road is one higher gets a slab, so the road
+//   flowers, saplings, logs and leaves, without drops (life/drops.js clearColumn: what leaned on the cleared blocks goes
+//   too, a gravel block left over a cut turns to stone, a gravel surface over a gap gets dirt under it). A column whose neighbour along the road is one higher gets a slab, so the road
 //   walks without jumping;
 // - bridges (the planner's wet runs): a plank deck at y (2 above the water), fence railings on the edge columns,
 //   log pillars down to the bed every 5 blocks, the water under the deck left as it is;
@@ -34,7 +35,7 @@ const TtlTradeRoads = {
 
   forget(server, id) {
     var self = this
-    ;['version', 'piece', 'counts'].forEach(k => server.persistentData.remove(self.key(id, k)))
+    ;['version', 'pversion', 'piece', 'counts'].forEach(k => server.persistentData.remove(self.key(id, k)))
   },
 
   // Positions every block of arc length along the polyline (trade_roads.py arc_samples).
@@ -161,7 +162,7 @@ const TtlTradeRoads = {
     if (TtlWorks.inBox(kept, x, z, 0)) return 'kept'
     var run = cmd => TtlWorks.run(server, cmd)
     if (this.bridgeAt(r, i)) {
-      run(`fill ${x} ${y + 1} ${z} ${x} ${y + this.CLEAR} ${z} minecraft:air`)
+      this.clear(server, x, y + 1, y + this.CLEAR, z)
       run(`setblock ${x} ${y} ${z} ${r.bridge.deck}`)
       if (o > r.half - 0.6) {
         run(`setblock ${x} ${y + 1} ${z} ${r.bridge.railing}`)
@@ -180,13 +181,22 @@ const TtlTradeRoads = {
       run(`fill ${x} ${dirtFrom} ${z} ${x} ${y - 1} ${z} minecraft:dirt`)
     }
     var top = Math.min(y + this.CUT, Math.max(y + this.CLEAR, g === null ? y : g - 1))
-    run(`fill ${x} ${y + 1} ${z} ${x} ${top} ${z} minecraft:air`)
+    this.clear(server, x, y + 1, top, z)
     run(`setblock ${x} ${y} ${z} ${this.material(r, x, z)}`)
+    if (typeof TtlDrops !== 'undefined') TtlDrops.underpin(server, TtlLife.OVERWORLD, x, y, z)
     var p = r.profile
     if ((i + 1 < p.length && p[i + 1] > y) || (i > 0 && p[i - 1] > y)) {
       run(`setblock ${x} ${y + 1} ${z} ${this.stone(r, x, z) ? this.SLAB.stone : this.SLAB.jura}[type=bottom]`)
     }
     return 'road'
+  },
+
+  // The column x z from y0 to y1 to air without drops (life/drops.js: nothing that leaned on it pops off, gravel left
+  // over the cut turns to stone); the plain `fill` where TtlDrops is not loaded (tests/works.js).
+  clear(server, x, y0, y1, z) {
+    if (y1 < y0) return
+    if (typeof TtlDrops !== 'undefined' && TtlDrops.clearColumn(server, TtlLife.OVERWORLD, x, y0, y1, z) >= 0) return
+    TtlWorks.run(server, `fill ${x} ${y0} ${z} ${x} ${y1} ${z} minecraft:air`)
   },
 
   post(server, hm, kept, x, z) {
@@ -237,6 +247,7 @@ const TtlTradeRoads = {
       return
     }
     if (force) this.forget(server, id)
+    TtlWorks.begin(server, this, id, r.version)
     var pieces = this.pieces(r)
     var kept = TtlWorks.kept(server, true)
     var counts = TtlWorks.ints(data.getString(this.key(id, 'counts'))) || [0, 0, 0, 0]

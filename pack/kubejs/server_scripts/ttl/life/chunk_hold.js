@@ -10,6 +10,11 @@
 // ticket of an administrator's /forceload, so releasing ours never drops theirs. The tickets are not saved: a crash
 // or restart drops them (no stale forced chunks). Fallback without Java: `forceload add` one chunk every SPACING ticks
 // (each still a synchronous load, but one at a time), released with `forceload remove`.
+//
+// Level 32 ticks blocks but not entities: an item that drops or a gravel block that falls while the chunks are held
+// never moves or despawns and is saved with the chunk (staging 19/11/2026: 152 falling blocks with Time 0, thousands of
+// items round Jura). release() first sweeps what appeared in the held area during the hold (life/drops.js TtlDrops.sweep:
+// items removed, falling blocks set down where they would land; never within 32 blocks of a player).
 const TtlChunks = {
   LEVEL_DISTANCE: 1,
   SPACING: 4,
@@ -30,7 +35,8 @@ const TtlChunks = {
 
   // a = { x0, z0, x1, z1 } in blocks (inclusive). Returns the hold to pass to ready() and release().
   hold(server, dim, a, label) {
-    var h = { dim: dim, cx0: a.x0 >> 4, cz0: a.z0 >> 4, cx1: a.x1 >> 4, cz1: a.z1 >> 4, label: label || '', mode: 'ticket', released: false }
+    var h = { dim: dim, cx0: a.x0 >> 4, cz0: a.z0 >> 4, cx1: a.x1 >> 4, cz1: a.z1 >> 4, label: label || '', mode: 'ticket', released: false,
+      t0: server.getTickCount() }
     var n = (h.cx1 - h.cx0 + 1) * (h.cz1 - h.cz0 + 1)
     var j = this.java()
     if (j) {
@@ -123,9 +129,17 @@ const TtlChunks = {
     })
   },
 
+  // Items and falling blocks younger than the hold (+2 ticks) in its chunks; at most 6000 ticks (an item's lifetime).
+  sweep(server, h) {
+    if (typeof TtlDrops === 'undefined') return
+    var age = Math.min(6000, server.getTickCount() - (h.t0 || 0) + 2)
+    TtlDrops.sweep(server, h.dim, { x0: h.cx0 * 16, z0: h.cz0 * 16, x1: h.cx1 * 16 + 15, z1: h.cz1 * 16 + 15 }, age, h.label)
+  },
+
   release(server, h) {
     if (!h || h.released) return
     h.released = true
+    this.sweep(server, h)
     try {
       if (h.mode === 'ticket') this.dropTickets(server, h)
       else {

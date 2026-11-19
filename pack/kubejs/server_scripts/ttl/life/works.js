@@ -5,8 +5,8 @@
 // tickets (life/chunk_hold.js: loaded in the background, never a synchronous `forceload`), worked under a time budget
 // per tick (BUDGET_MS), its progress recorded per piece so a restart resumes where it stopped and a finished job never
 // runs twice (persistentData ttl.forest.<id>.* / ttl.troad.<id>.*: version, piece, counts).
-// Op commands: /ttl works list | run <forest|road> <id> [force] | expect forest <id> planted <min giants> |
-// expect road <id> laid | expect road <id> surface <arc> | where road <id> <arc>.
+// Op commands: /ttl works list | run <forest|road|fix> <id> [force] | expect forest <id> planted|standing <min giants> |
+// expect road <id> laid | expect road <id> surface <arc> | where road <id> <arc> | probe <x> <z>.
 const TtlWorks = {
   START_DELAY: 2400, // after the canon builds (1800 + their queue)
   RETRY: 200,
@@ -30,6 +30,7 @@ const TtlWorks = {
     // roads first: a road is a minute's work, the forests take a few
     if (typeof TtlTradeRoads !== 'undefined') out.road = TtlTradeRoads
     if (typeof TtlForests !== 'undefined') out.forest = TtlForests
+    if (typeof TtlWorldFixes !== 'undefined') out.fix = TtlWorldFixes
     return out
   },
   queue: [],
@@ -37,15 +38,31 @@ const TtlWorks = {
   waits: 0,
 
   data() {
-    return typeof TtlPlacementData === 'undefined' ? { forests: {}, roads: {}, keepouts: [] } : TtlPlacementData
+    return typeof TtlPlacementData === 'undefined' ? { forests: {}, roads: {}, keepouts: [], fixes: {} } : TtlPlacementData
   },
 
+  // The command's result (1 placed, 0 failed): `server.runCommandSilent` returns nothing in KubeJS 2101, so a check
+  // on it counted every planted tree as failed (staging 19/11/2026: "0 giants ... place failed 44, no room 1267" over a
+  // forest that stood). TtlCmd (life/state.js) runs it through the dispatcher.
   run(server, cmd) {
-    return server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} run ${cmd}`)
+    return this.attempt(server, cmd).result
+  },
+
+  attempt(server, cmd) {
+    return TtlCmd.attempt(server, `execute in ${TtlLife.OVERWORLD} run ${cmd}`)
   },
 
   ints(text) {
     return text ? String(text).split(' ').map(Number) : null
+  },
+
+  // Progress (piece, counts, skips) belongs to one version (key pversion): a bumped version starts again at piece 0,
+  // a run cut short by a restart resumes where it stopped.
+  begin(server, h, id, version) {
+    var data = server.persistentData
+    if (data.getInt(h.key(id, 'pversion')) === version) return
+    ;['piece', 'counts', 'skips'].forEach(k => data.remove(h.key(id, k)))
+    data.putInt(h.key(id, 'pversion'), version)
   },
 
   // Heightmaps through Java (as life/builds.js): ground = first free y above the terrain (trees and plants skipped;
@@ -309,7 +326,7 @@ ServerEvents.commandRegistry(event => {
     var kind = String(Arguments.STRING.getResult(ctx, 'kind'))
     var id = String(Arguments.STRING.getResult(ctx, 'id'))
     var h = TtlWorks.kinds()[kind]
-    if (!h) return fail(ctx, `no work kind ${kind} (forest, road)`)
+    if (!h) return fail(ctx, `no work kind ${kind} (forest, road, fix)`)
     if (!h.all()[id]) return fail(ctx, `no ${kind} ${id}; see /ttl works list`)
     return then(ctx.source.getServer(), h, kind, id)
   }
@@ -346,10 +363,29 @@ ServerEvents.commandRegistry(event => {
                 if (!p) return fail(ctx, `no forest ${id}`)
                 var server = ctx.source.getServer()
                 var v = server.persistentData.getInt(TtlForests.key(id, 'version'))
-                var got = TtlWorks.ints(server.persistentData.getString(TtlForests.key(id, 'counts'))) || [0, 0, 0]
+                var got = TtlForests.counts(server.persistentData.getString(TtlForests.key(id, 'counts')))
                 if (v !== p.version) return fail(ctx, `expected forest ${id} planted at version ${p.version}, it is ${v || 'not planted'} (${TtlForests.describe(server, id)})`)
-                if (got[0] < min) return fail(ctx, `expected at least ${min} giant trees in forest ${id}, planted ${got[0]}`)
-                say(ctx, `forest ${id}: ${got[0]} giants, ${got[1]} understory trees planted as expected`)
+                if (got[0] + got[3] < min) return fail(ctx, `expected at least ${min} giant trees in forest ${id}, planted ${got[0]} (${got[3]} already standing)`)
+                say(ctx, `forest ${id}: ${got[0] + got[3]} giants, ${got[1] + got[4]} understory trees standing as expected`)
+                return 1
+              })))
+            // The trunks themselves on the live terrain (loads the giants' chunks): what stands, not what was counted.
+            .then(Commands.literal('standing')
+              .then(Commands.argument('min', Arguments.INTEGER.create(event)).executes(ctx => {
+                var id = String(Arguments.STRING.getResult(ctx, 'id'))
+                var min = Arguments.INTEGER.getResult(ctx, 'min')
+                var p = TtlForests.all()[id]
+                if (!p) return fail(ctx, `no forest ${id}`)
+                var hm = TtlWorks.heightmaps(ctx.source.getServer())
+                if (!hm) return fail(ctx, 'heightmaps unavailable')
+                var level = ctx.source.getServer().getLevel(TtlLife.OVERWORLD)
+                // Level.getHeight reads an unloaded chunk as empty; getChunk loads it (synchronously, for this check)
+                var n = p.giants.filter(g => {
+                  level.getChunk(g[1] >> 4, g[2] >> 4)
+                  return TtlForests.standing(hm, g[1], g[2])
+                }).length
+                if (n < min) return fail(ctx, `expected at least ${min} giant trunks standing in forest ${id}, found ${n} of ${p.giants.length}`)
+                say(ctx, `forest ${id}: ${n} of ${p.giants.length} giant trunks stand`)
                 return 1
               })))))
         .then(Commands.literal('road')
@@ -375,6 +411,22 @@ ServerEvents.commandRegistry(event => {
                 say(ctx, `road ${id}: the surface at arc ${arc} is laid`)
                 return 1
               }))))))
+      // What the works read at a column (loads its chunk): the ground, the block under and on it, soil, wet, a trunk.
+      .then(Commands.literal('probe')
+        .then(Commands.argument('x', Arguments.INTEGER.create(event))
+          .then(Commands.argument('z', Arguments.INTEGER.create(event)).executes(ctx => {
+            var x = Arguments.INTEGER.getResult(ctx, 'x')
+            var z = Arguments.INTEGER.getResult(ctx, 'z')
+            var server = ctx.source.getServer()
+            server.getLevel(TtlLife.OVERWORLD).getChunk(x >> 4, z >> 4)
+            var hm = TtlWorks.heightmaps(server)
+            if (!hm) return fail(ctx, 'heightmaps unavailable')
+            var y = hm.ground(x, z)
+            if (y === null) return fail(ctx, `${x} ${z}: no ground`)
+            say(ctx, `${x} ${z}: ground ${y} on ${hm.block(x, y - 1, z)}, at ${hm.block(x, y, z)}, top ${hm.top(x, z)}, ` +
+              `soil ${hm.soil(x, z)}, wet ${hm.wet(x, z)}, trunk ${TtlForests.standing(hm, x, z)}`)
+            return 1
+          }))))
       .then(Commands.literal('where')
         .then(Commands.literal('road')
           .then(Commands.argument('id', Arguments.STRING.create(event))
