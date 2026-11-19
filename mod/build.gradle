@@ -48,3 +48,27 @@ tasks.named('processResources', ProcessResources) {
 }
 
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+
+// Offline self-checks of the canon map and the own world's design rasters (pure Java; Minecraft classes only where
+// available): part of `gradlew build` through `check`.
+def selfCheckLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+tasks.register('selfCheckCanon', JavaExec) {
+    description = 'CanonGrid self-check (synthetic canon map, sites, zones, Lerfing format)'
+    group = 'verification'
+    classpath = sourceSets.main.runtimeClasspath
+    javaLauncher = selfCheckLauncher
+    mainClass = 'com.yasuke.ttl.world.CanonGrid'
+}
+tasks.register('selfCheck', JavaExec) {
+    description = 'Own-world design self-check (rasters, density math, masks, structure exclusion, sites) and the CanonGrid self-check'
+    group = 'verification'
+    dependsOn 'selfCheckCanon'
+    classpath = sourceSets.main.runtimeClasspath
+    javaLauncher = selfCheckLauncher
+    mainClass = 'com.yasuke.ttl.world.DesignSelfCheck'
+    // Minecraft's bootstrap (tried for the density-function check) writes logs/ into the working directory.
+    def dir = layout.buildDirectory.dir('selfcheck').get().asFile
+    workingDir = dir
+    doFirst { dir.mkdirs() }
+}
+tasks.named('check') { dependsOn 'selfCheck' }

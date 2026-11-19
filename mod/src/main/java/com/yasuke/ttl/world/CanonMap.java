@@ -44,6 +44,7 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
     static {
         TYPES.register("canon_map", () -> MAP_CODEC);
         TYPES.register("canon_sites", () -> CanonSiteTerrain.MAP_CODEC);
+        DesignDensity.register(TYPES);
     }
 
     public enum Channel implements StringRepresentable {
@@ -151,6 +152,8 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
             double blend = json.has("blend") ? json.get("blend").getAsDouble() : 800;
             long start = System.nanoTime();
             int[] inner = CanonConfig.importBox(json, msg -> LOGGER.warn("[ttl] {}", msg));
+            DesignWorld.Loaded design = DesignWorld.loaded(); // the own world's site plates (sites.json), when its rasters are present
+            if (design != null) sites = DesignSitesFile.merge(sites, design.sites());
             CanonGrid grid = CanonGrid.load(dir.resolve("canon_map.txt"), regions, ring, blend).withSites(sites).withImport(inner);
             LOGGER.info("[ttl] canon map loaded in {} ms: {}", (System.nanoTime() - start) / 1_000_000, grid.describe());
             return grid;

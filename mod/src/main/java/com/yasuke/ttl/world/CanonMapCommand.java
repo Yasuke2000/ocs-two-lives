@@ -41,6 +41,8 @@ public final class CanonMapCommand {
         NoiseRouter router = random.router();
         CanonGrid grid = CanonMap.grid();
         StringBuilder out = new StringBuilder("[ttl] canon map at ").append(x).append(' ').append(z).append(": ");
+        CanonRasters design = DesignWorld.rasters();
+        String designLine = design == null ? "" : "\n  " + design.describe(x, z);
         if (grid != null && grid.imported(x, z)) {
             char c = grid.charAt(x, z), owner = grid.ownerCell(x, z);
             out.append('\'').append(c).append("' ").append(grid.regionName(c))
@@ -54,6 +56,7 @@ public final class CanonMapCommand {
                         .map(key -> key.location().toString()).orElse("?");
                 out.append("\n  imported chunk: stored biome ").append(biome).append(" at surface y").append(surface);
             }
+            out.append(designLine);
             String text = out.toString();
             ctx.getSource().sendSuccess(() -> Component.literal(text), false);
             return 1;
@@ -67,6 +70,7 @@ public final class CanonMapCommand {
             String sites = grid.sites().describe(x, z);
             if (sites != null) out.append("\n  ").append(sites);
         }
+        out.append(designLine);
         DensityFunction.SinglePointContext point = new DensityFunction.SinglePointContext(x, 0, z);
         out.append(channel("continents", router.continents(), point))
                 .append(channel("erosion", router.erosion(), point))
