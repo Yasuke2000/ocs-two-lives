@@ -1,5 +1,23 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 — Research-driven map round 4 (ChatGPT, `chatgpt/world-map`, PR #74)
+
+Replaced the starter with the current authored map and corrected its northern bay, southern gulf,
+western coastal tongue and Ameld foothill corridor/eastward bend. Trail to Jia detours around the gulf.
+All 58 footprint-sized sites retained; exact parent offsets verified. [Numbered atlas](../world/atlas.png),
+[comparison](../world/comparison.md), [review](../world/review.md), [region differences](../world/regions.md).
+Research ledger: 50 thematic claims plus 58 coordinate interpretations, not 108 verified canon facts.
+Added access log: publisher LN1 sample read (prologue only); licensed BookWalker trial timed out.
+**Verified:** default checker after each SVG edit and preview inspection; five known canon-rule errors;
+alternate 56-rule matrix 0 errors/2 disclosed warnings; final converter 68.8s/0 warnings; source hash
+matches; 58/58 generated coordinates, radii minima and relative offsets match SVG. Gate via Git Bash:
+456 tests, 3 failures/26 skips; failures only on the same five default-map relations. Gate remains red.
+**Next:** reconcile technical matrix with owner geography choice (tools edits forbidden to this agent),
+strengthen primary LN/manga/anime evidence and audit remaining nonuniform proportions/open lore questions.
+Do not apply, merge or deploy until default gate passes and the map review is accepted. No runtime
+code, tools, pack configuration, Minecraft chunks or server state changed. PR #69 is prior reference.
+
+
 ## 19/11 — Primary geography evidence checkpoint (ChatGPT, `chatgpt/world-map`)
 
 Yasuke confirmed anime/wiki placement over earlier server liberties: Fulbrosia south of Jura and

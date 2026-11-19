@@ -1,0 +1,22 @@
+{
+  "stage": "draft terrain rasters only; not applied",
+  "source_sha256": "f762213a2c6877fce20546497002008f14f8c1d11357e42427f1e813cf559cfc",
+  "site_coordinates_verified": 58,
+  "site_radii_and_relative_offsets_verified": true,
+  "default_checker_errors": 5,
+  "alternate_checker_errors": 0,
+  "checker_warnings": 2,
+  "converter_warnings": [],
+  "pixel_size_blocks": 4,
+  "raster_size": [
+    3072,
+    2688
+  ],
+  "build_seconds": 68.8,
+  "repository_gate": {
+    "tests": 456,
+    "failures": 3,
+    "skips": 26,
+    "failure_cause": "five default geography relations; see world/review.md"
+  }
+}

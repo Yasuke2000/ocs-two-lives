@@ -2,9 +2,15 @@
 
 `world/map.svg` is the single source of the new, fully own Tensura world (design: [own-world.md](../design/architecture/own-world.md),
 sections 2 and 6.1). ChatGPT draws it, `tools/world/map_check.py` validates it, a converter later turns it into rasters.
-The file in the repo is a **starter template**: the 58 sites sit in a schematic layout that satisfies the canon relations;
-the coast (a blocky union of the region tiles), forests, mountains, hills, biomes, rivers and roads are placeholders that
-show the format. Redraw them, keep the site ids.
+This branch contains a **draft research-driven redraw**, with all 58 footprint-sized sites, authored coasts,
+relief, waters, habitats and roads. [Numbered atlas](atlas.png), [checker preview](preview.png),
+[reference comparison](comparison.md), [evidence ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv)
+and [deliberate differences](regions.md).
+
+**Not ready to apply:** the default checker rejects five old geographic relations that conflict with the owner's
+anime/wiki placement choice. `canon-relations-anime.toml` is an explicit review alternative, not a change to the
+default checker. Local draft rasters were generated without applying them to the pack; no Minecraft chunks or
+server changes are claimed. See [review.md](review.md) for results and remaining work.
 
 ## Format in short
 
