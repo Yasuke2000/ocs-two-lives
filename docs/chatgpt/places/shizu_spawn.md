@@ -1,0 +1,41 @@
+# Hinata's ambush west of Tempest (bosses.toml hinata_sakaguchi spawn, r 48)
+
+`id: shizu_spawn` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
+
+| | |
+|---|---|
+| Anchor (Lerfing's map, x, z) | **1300, 820** (x grows east, z grows south) |
+| Audit status (19/11/2026) | **OK** |
+| Relative to | `tempest` + (-420, -80) |
+| Lore | [`design/lore/world.md`](../../../design/lore/world.md), section J |
+
+## Lore (canon)
+
+Quest spot (`bosses.toml`, boss `hinata_sakaguchi`, radius 48): the Shizu / Hinata storyline of chapter 11, an hour's walk west of Tempest. The id keeps the early design name.
+
+## What it should look like
+
+Dense Jura forest by the lake. Not a build; useful as a concept-art subject for 'the ambush clearing'.
+
+Why it stands here (anchor table, Lerfing coordinates): West of the lake, as today's (-400, -60). The id is the design's (§3.2 'Shizu quest spawn'); the only user is Hinata's quest spawn (bosses.toml), Shizu fights at Tempest.
+
+## Current state: BlueMap audit of 19/11/2026
+
+Map: Tensura by Lerfing (current, being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
+
+- **Status:** OK
+- **Placed:** not applicable (no structure: spot)
+- Dense Jura forest by a lake; fine.
+
+![shizu_spawn: Top-down, about 300 blocks across](img/shizu_spawn-top.jpg)  
+*Top-down, about 300 blocks across. Map: Tensura by Lerfing (current, being replaced).*
+
+![shizu_spawn: 3D perspective, about 100 blocks](img/shizu_spawn-3d.jpg)  
+*3D perspective, about 100 blocks. Map: Tensura by Lerfing (current, being replaced).*
+
+## What ChatGPT can deliver for this place
+
+- Concept art: `docs/art/places/shizu_spawn.png` + `docs/art/places/shizu_spawn.md` (see [art.md](../art.md)).
+- Lore and quest text in EN and NL for this place (see [tasks.md](../tasks.md)).
+
+Back to the [world guide](../world.md) · [knowledge pack](../README.md)
