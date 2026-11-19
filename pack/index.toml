@@ -2830,7 +2830,7 @@ hash = "5be721009daa4fe3b83d3be9a1a1de67999de47694689a8ceef75e4d1237bbcc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/director.js"
-hash = "38ab9dc29285abba24c08395ba1c059acb3e2e6d00ff260d33c9d512383a8afe"
+hash = "06ddb5ab80fcdfd302067ab5c610141037083d4659c3d2090b01052e6875a2f0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/favor.js"
@@ -2918,7 +2918,7 @@ hash = "8bee3b9217d34ca324be17a497392713a8c23d468f1e5bc76b96abd30f7d2973"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
-hash = "c32b41cc49779bb8801233afbf9d6cfeac0a6ee09b49811c3bba8b24fd5904bf"
+hash = "1421a85d2bcd6b39d98a4b3a7f202eb5888f6c4024efc2ee7ca905f452962036"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
@@ -3166,7 +3166,7 @@ hash = "7ccba9a500d6dec5c269a9ebefdae245599533f69547a0ee1c747f3e7d3f920e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/chronicle.js"
-hash = "77d1cfcde382e3dc78e64b4a2920f51bfc1b28143923cfc363a6e7bd425316e1"
+hash = "dc5860384cbd76be95ab7ed811a0898d7d7ea634ab235bc7d292909084535d38"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/commands.js"
@@ -3569,7 +3569,7 @@ metafile = true
 
 [[files]]
 file = "mods/ttl-portals.pw.toml"
-hash = "4494eaa1d933cd7a2d24e84fad9146b5c3db843f99cc89708ebe2961122d40bb"
+hash = "f448f03be320ac8aca862122560cb584b3a7f5f7095375e4adae71a852e8289c"
 metafile = true
 
 [[files]]
