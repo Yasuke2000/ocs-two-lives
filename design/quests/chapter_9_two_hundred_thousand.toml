@@ -22,12 +22,12 @@
 # Rewards stay modest (food, a little XP, bronze/silver coins) and NEVER grant skills, races, evolutions or uniques
 # (design/manas-integration.md §5(d)); the bosses' own coins and rep come from bosses.toml, not from here.
 #
-# Places (all from chapter 4 / design/data/landmarks.toml; the world is 14,000 blocks across):
-#   Tempest council longhouse (0, -20) radius 12 (chapter 2)       lizardmen's caverns (926, 398) radius 120 (chapter 4)
-#   orc camp / battlefield (1106, 539): radius 134 for "the marsh" (chapter 4); radius 40 where a claim starts a fight
+# Places (all from chapter 4 / design/data/landmarks.toml; positions come from design/data/anchors.toml):
+#   Tempest council longhouse (tempest + (0, -20)) radius 12 (chapter 2)   lizardmen_caverns radius 120 (chapter 4)
+#   orc_camp / battlefield: radius 134 for "the marsh" (chapter 4); radius 40 where a claim starts a fight
 #   `/place structure` puts the camp on the flattest of ~16 spots up to 64 blocks from the nominal point, and `ttl story fight` needs the
 #   soul within 96 blocks of the boss arena's centre (story.toml [rules] fight_near), so the fight-start quests use the small radius 40
-#   and say where the camp really is (`/ttl landmark where orc_camp`). The Orc Disaster arena is the nominal (1106, 539), radius 64.
+#   and say where the camp really is (`/ttl landmark where orc_camp`). The Orc Disaster arena is the nominal orc_camp point, radius 64.
 # Our interpretation (not canon): the Outcast Society's and the Horde's agents on the dark road, the raid on the caverns (in the anime
 # the lizardmen are the Orc Lord's first victims, and Gabiru seizes his father's seat on his own), and the spared orcs joining
 # Tempest as a quest outcome (in the anime the orcs join the Jura alliance after Geld's death, episode 15).
@@ -74,7 +74,7 @@ choose your road.
 """
 tasks = [
   { type = "stage", stage = "ttl.story.act2", title = "Act II is behind you" },
-  { type = "location", dimension = "minecraft:overworld", at = [0, -20], radius = 12, title = "The council longhouse" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = -20 }, radius = 12, title = "The council longhouse" },
 ]
 rewards = [{ type = "item", item = "minecraft:bread", count = 6 }, { type = "item", item = "tensura:bronze_coin", count = 3 }, { type = "xp", xp = 60 }]
 
@@ -97,7 +97,7 @@ belong to everyone.
 Go to the caverns and hand in four low potions for the wounded.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [926, 398], radius = 120, title = "The lizardmen's caverns" },
+  { type = "location", dimension = "minecraft:overworld", at = { landmark = "lizardmen_caverns" }, radius = 120, title = "The lizardmen's caverns" },
   { type = "item", item = "tensura:low_potion", count = 4, consume = true },
 ]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "item", item = "minecraft:cooked_cod", count = 8 }, { type = "xp", xp = 70 }]
@@ -117,7 +117,7 @@ the king himself came forward (anime season 1, episode 13). Stand on the same gr
 of the army will not stay to see the rest of them.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 134, title = "The marsh battlefield" },
+  { type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 134, title = "The marsh battlefield" },
   { type = "kill", entity = "tensura:orc", count = 15 },
 ]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "item", item = "minecraft:cooked_beef", count = 8 }, { type = "xp", xp = 100 }]
@@ -141,7 +141,7 @@ He summons the horde at 60% health and goes into a frenzy at 30%. Bring a party.
 &6If the call fails&r (the Orc Lord is already out, or resting: 24 hours, or you are more than 96 blocks from the camp's centre),
 find the camp with /ttl landmark where orc_camp and type /ttl story fight orc_lord there.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 40, title = "In the orc camp" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 40, title = "In the orc camp" }]
 rewards = [{ type = "command", command = "ttl story fight orc_lord", feedback = "The Orc Lord rises from his throne of bones." }]
 
 [[quests]]
@@ -179,7 +179,7 @@ more health, a starving horde behind him, and a frenzy at 30% health.
 &6If the call fails&r (the Disaster is already out, or resting: 48 hours), type /ttl story fight orc_disaster at the
 battlefield.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [3600, 1250], radius = 40, title = "On the battlefield" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 40, title = "On the battlefield" }]
 rewards = [{ type = "command", command = "ttl story fight orc_disaster", feedback = "The ground shakes under the Disaster." }]
 
 [[quests]]
@@ -215,7 +215,7 @@ fed at the camp, and the ones who choose to stay take Tempest's name.
 Stand in the camp and hand in twenty-four baked potatoes. The claim records that the orcs joined Tempest.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 100, title = "The orc camp" },
+  { type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 100, title = "The orc camp" },
   { type = "item", item = "minecraft:baked_potato", count = 24, consume = true },
 ]
 rewards = [
@@ -243,7 +243,7 @@ it needs loyalty (our interpretation: the Outcast Society passes yours along).
 
 Walk into the orc camp and be seen. Orcs do not make distinctions between hungry and hunted, so keep your sword out.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 100, title = "The orc camp" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 100, title = "The orc camp" }]
 rewards = [{ type = "item", item = "minecraft:cooked_porkchop", count = 8 }, { type = "item", item = "tensura:bronze_coin", count = 3 }, { type = "xp", xp = 70 }]
 
 [[quests]]
@@ -263,7 +263,7 @@ hold and cut down twelve of them.
 &6Why it matters:&r Act III costs a dark soul the lizardmen's goodwill (Lizardmen -20) and wins the Horde's (Orc Horde +40).
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [926, 398], radius = 120, title = "The lizardmen's caverns" },
+  { type = "location", dimension = "minecraft:overworld", at = { landmark = "lizardmen_caverns" }, radius = 120, title = "The lizardmen's caverns" },
   { type = "kill", entity = "tensura:lizardman", count = 12 },
 ]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "item", item = "minecraft:cooked_porkchop", count = 8 }, { type = "xp", xp = 100 }]
@@ -288,7 +288,7 @@ frenzy at 30%.
 &6If the call fails&r (the Orc Lord is already out, or resting: 24 hours, or you are more than 96 blocks from the camp's centre),
 find the camp with /ttl landmark where orc_camp and type /ttl story fight orc_lord there.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 40, title = "In the orc camp" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 40, title = "In the orc camp" }]
 rewards = [{ type = "command", command = "ttl story fight orc_lord", feedback = "The Orc Lord rises from his throne of bones." }]
 
 [[quests]]
@@ -335,7 +335,7 @@ it, and a frenzy at 30% health.
 &6If the call fails&r (the Disaster is already out, or resting: 48 hours), type /ttl story fight orc_disaster at the
 battlefield.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [3600, 1250], radius = 40, title = "On the battlefield" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 40, title = "On the battlefield" }]
 rewards = [{ type = "command", command = "ttl story fight orc_disaster", feedback = "The ground shakes under the Disaster." }]
 
 [[quests]]
@@ -372,7 +372,7 @@ follows you.
 Stand in the camp and hand in thirty-two pieces of rotten flesh.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 100, title = "The orc camp" },
+  { type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 100, title = "The orc camp" },
   { type = "item", item = "minecraft:rotten_flesh", count = 32, consume = true },
 ]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 2 }, { type = "item", item = "minecraft:cooked_porkchop", count = 8 }, { type = "xp", xp = 120 }]

@@ -1,6 +1,6 @@
 # The rings of Jura
 
-**On your first trip, head north to Dwargon.** You arrive on the northern rim of Jura in `minecraft:overworld`, near **X 1780, Z −150**, on the road between the dwarven kingdom and Tempest. Dwargon’s white gate stands about 370 blocks north at **X 1900, Z −500**. Tempest lies the other way, at **X 1720, Z 900**, with much denser magicule country on the approach. [World map](world-map.md) · [Nederlands](../nl/jura-rings.md)
+**On your first trip, head north to Dwargon.** You arrive on the northern rim of Jura in `minecraft:overworld`, near **X 1660, Z −100**, on the road between the dwarven kingdom and Tempest. Dwargon’s white gate stands about 500 blocks north-north-east at **X 1900, Z −500**. Tempest lies the other way, at **X 1720, Z 900**, with much denser magicule country on the approach. [World map](world-map.md) · [Nederlands](../nl/jura-rings.md)
 
 Ring widths, magicule levels and arrival protection may change.
 

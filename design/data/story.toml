@@ -728,7 +728,7 @@ text = "A knight of Falmuth stands at the king's right hand, hand on his sword, 
 
 [[npc.talk]]
 act = 5
-text = "Falmuth's field commander does not talk to the likes of you. His eyes say enough: when the horn sounds, he rides south."
+text = "Falmuth's field commander does not talk to the likes of you. His eyes say enough: when the horn sounds, he rides east."
 
 [[npc]]
 id = "kyoya"

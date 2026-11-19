@@ -537,7 +537,7 @@ client = "missing_rookie"
 from = "rookie_camp"
 to = "rim_camp"
 ambush = [{ at = 0.5, mobs = { "tensura:direwolf" = 3 } }]
-text = "A rookie named Tomas never came back from his first hunt. His camp is south of the rim. Bring him home alive."
+text = "A rookie named Tomas never came back from his first hunt. His camp is west of the rim camp, off the road. Bring him home alive."
 
 [[quest]]
 id = "grain_cart"

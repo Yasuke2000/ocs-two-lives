@@ -6,7 +6,7 @@ De posities wijzen het midden van een plek aan; de precieze ingang hangt van de 
 
 ## Je eerste stappen
 
-Je komt aan bij **(1780, −150)** aan de noordrand van Jura, op de weg tussen de twee plekken waar elke ziel het eerst van hoort. **De witte poort van Dwargon ligt in het noorden** op **(1900, −500)**, een korte klim (ongeveer 370 blokken). **Tempest ligt in het zuiden** op **(1720, 900)**, 1.050 blokken verderop, voorbij de gevaarlijke binnenringen van het bos. Lees [de ringen van Jura](jura-rings.md) voor je naar het zuiden loopt.
+Je komt aan bij **(1660, −100)** aan de noordrand van Jura, op de weg tussen de twee plekken waar elke ziel het eerst van hoort. **De witte poort van Dwargon ligt in het noorden** op **(1900, −500)**, een klim (ongeveer 500 blokken, iets ten oosten van het noorden). **Tempest ligt in het zuiden** op **(1720, 900)**, 1.000 blokken verderop, voorbij de gevaarlijke binnenringen van het bos. Lees [de ringen van Jura](jura-rings.md) voor je naar het zuiden loopt.
 
 Voor het hele continent gebruik je [BlueMap](https://map.daviddelporte.com) (kies **Tensura (Life 2)**; landschap en markeringen, geen live spelersposities) of de [atlas met regio’s en ankerpunten](../../previews/lerfing_regions.png), die ook werkt als de webkaart offline is.
 
@@ -32,9 +32,9 @@ Lerfing tekende de landen; de pack bepaalt welk land welk deel is. Enkele keuzes
 
 | Plek | X, Z | Regio | ID |
 | --- | --- | --- | --- |
-| Aankomst in Leven 2 aan de rand van Jura | 1780, −150 | Jura |  |
+| Aankomst in Leven 2 aan de rand van Jura | 1660, −100 | Jura |  |
 | Tempest, Rimuru’s hoofdstad | 1720, 900 | Jura | `tempest` |
-| Poort naar de Woonplaats van de Geesten | 1540, 1080 | Jura | `spirit_gate` |
+| Poort naar de Woonplaats van de Geesten | 1570, 1130 | Jura | `spirit_gate` |
 | Oud goblindorp van Rigurd | 1390, 710 | Jura | `goblin_village` |
 | Verzegelde Grot (Veldora’s gevangenis, Rimuru’s geboorteplaats) | 1380, 560 | Jura | `sealed_cave` |
 | Verborgen ogerdorp (afgebrande ruïne) | 2150, 400 | Jura | `ogre_village_ruin` |
@@ -43,11 +43,11 @@ Lerfing tekende de landen; de pack bepaalt welk land welk deel is. Enkele keuzes
 | Hoofdpoort van Dwargon | 1900, −500 | Dwargon | `dwargon` |
 | Dwargo, de grottenhoofdstad | 1900, −600 | Dwargon |  |
 | Dwergendorp aan de weg naar Dwargon | 2000, −110 | Dwargon | `dwarf_village` |
-| Dwergenarena | 2200, −80 | Dwargon | `dwarven_arena` |
+| Dwergenarena | 2260, −80 | Dwargon | `dwarven_arena` |
 | Grote Ameld, bron | 2500, −200 | Dwargon |  |
 | Drakennest (hoogste top van het Canaatgebergte) | 2420, −1536 | Dwargon | `dragons_nest` |
 | Meer van Siss | 3050, 750 | Moeras van Siss |  |
-| Paaldorp van het hagedissenvolk | 2900, 1020 | Moeras van Siss | `lizardmen_village` |
+| Paaldorp van het hagedissenvolk | 3184, 988 | Moeras van Siss | `lizardmen_village` |
 | Grotten van het hagedissenvolk (Gabiru, Avalos) | 3300, 1200 | Moeras van Siss | `lizardmen_caverns` |
 | Slagveld van de Orkenoorlog | 3600, 1250 | Moeras van Siss | `orc_camp` |
 | Grote Ameld, monding | 4580, 2300 | Domein van Milim |  |

@@ -9,12 +9,12 @@ Go to the named site in the Tensura overworld and use `/ttl story fight <id>`. T
 | Tier | Site | Boss IDs and prerequisites |
 | --- | --- | --- |
 | 1 | Orc camp · Sealed Cave | `orc_lord` at the camp · `supermassive_slime` at the cave |
-| 2 | Tempest, near x 0, z 0 | `shizu` · `ifrit` after defeating Shizu |
-| 2 | Orc battlefield, x 1106, z 539 | `orc_disaster` after defeating the Orc Lord |
+| 2 | Tempest, near x 1720, z 900 | `shizu` · `ifrit` after defeating Shizu |
+| 2 | Orc battlefield, x 3600, z 1250 | `orc_disaster` after defeating the Orc Lord |
 | 2 | Dwelling of the Spirits | `sylphide`, `undine`, `akash`, `rimuru_clone` (Mimic Echo) |
-| 2 | Marris · Falmuth invasion encounter | `kyoya_tachibana`, `shogo_taguchi`, `kirara_mizutani` in Marris · `folgen` near Tempest at x 0, z 40 |
-| 3 | Lake Siss · Dwargon | `charybdis` at x 635, z 145 · `gazel_dwargo` at x 435, z −1106 |
-| 3 | Western road · Tempest | `hinata_sakaguchi` at x −400, z −60 · `rimuru_ogre_fight` at x 0, z 0. Both require a prior Shizu defeat. |
+| 2 | Marris · Falmuth invasion encounter | `kyoya_tachibana`, `shogo_taguchi`, `kirara_mizutani` in Marris · `folgen` near Tempest at x 1720, z 940 |
+| 3 | Lake Siss · Dwargon | `charybdis` over the middle of Lake Siss at x 3050, z 750 (bring a boat) · `gazel_dwargo` at x 1900, z −606 |
+| 3 | Western road · Tempest | `hinata_sakaguchi` at x 1300, z 820 · `rimuru_ogre_fight` at x 1720, z 900. Both require a prior Shizu defeat. |
 | 3 | City of Laura · Clayman's Castle | `carrion` at Laura · `clayman` at the castle. A named stand-in portrays Clayman. |
 | 4 | Lubelius · Sealed Cave | `luminous_valentine` in Lubelius after Hinata · `veldora` at the cave after Charybdis |
 

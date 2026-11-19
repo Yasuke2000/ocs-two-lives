@@ -7962,7 +7962,7 @@ const TtlData = {
         "giver": "rim_camp",
         "id": "rescue_rookie",
         "kind": "escort",
-        "text": "A rookie named Tomas never came back from his first hunt. His camp is south of the rim. Bring him home alive.",
+        "text": "A rookie named Tomas never came back from his first hunt. His camp is west of the rim camp, off the road. Bring him home alive.",
         "title": "The Missing Rookie",
         "to": "rim_camp"
       },
@@ -9213,7 +9213,7 @@ const TtlData = {
           },
           {
             "act": 5,
-            "text": "Falmuth's field commander does not talk to the likes of you. His eyes say enough: when the horn sounds, he rides south."
+            "text": "Falmuth's field commander does not talk to the likes of you. His eyes say enough: when the horn sounds, he rides east."
           }
         ]
       },

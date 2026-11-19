@@ -3,14 +3,16 @@
 #
 # Rewards stay modest and NEVER grant skills, races or awakenings (design/manas-integration.md §5(d)).
 # Places inside the city are real positions from blueprints/dwargon.py. life/dwargon.js pastes the build so the
-# arrival point in front of the gate, blueprint (74, 120), is world (435, -1000) (x = 435 + bx - 74, z = -1000 + bz - 120):
-#   checkpoint arch z160 -> z -960        queue lanes and guard booths z114-125 -> z -1006..-995
-#   gate wall front z107 -> z -1013       tunnel z94-106 -> z -1026..-1014
-#   south street z68-94 -> z -1052..-1026  plaza centre (74, 54) r17 -> (435, -1066)
-#   forge hall (52, 54) -> (413, -1066)    engineers' workshop (96, 54) -> (457, -1066)
-#   forge street z34-43 -> z -1086..-1077  Kaijin's smithy x58-66 z34-38 -> (423, -1084), anvil (425, -1085)
-#   royal terrace front z29 -> z -1091     throne room x49-99 z0-26 -> x 410..460, z -1120..-1094; throne seat (435, -1109)
-# The dwarf village on the road (landmarks.toml: x 250, z -740, reach 116) is placed on the flattest of ~16 nearby
+# arrival point in front of the gate, blueprint (74, 120), is the `dwargon` anchor of design/data/anchors.toml (the gate:
+# x = dwargon.x + bx - 74, z = dwargon.z + bz - 120). Every location task of this chapter is `at = { anchor = "dwargon", dx, dz }`
+# with the offsets below (the city lies at negative dz: north, up the slope into the Canaat):
+#   checkpoint arch z160 -> dz +40        queue lanes and guard booths z114-125 -> dz -6..+5
+#   gate wall front z107 -> dz -13        tunnel z94-106 -> dz -26..-14
+#   south street z68-94 -> dz -52..-26    plaza centre (74, 54) r17 -> (0, -66)
+#   forge hall (52, 54) -> (-22, -66)     engineers' workshop (96, 54) -> (+22, -66)
+#   forge street z34-43 -> dz -86..-77    Kaijin's smithy x58-66 z34-38 -> (-12, -84), anvil (-10, -85)
+#   royal terrace front z29 -> dz -91     throne room x49-99 z0-26 -> dx -25..+25, dz -120..-94; throne seat (0, -109)
+# The dwarf village on the road (landmarks.toml `dwarf_village`, reach 116) is placed on the flattest of ~16 nearby
 # spots (up to 64 blocks away), so its location task uses a big radius (150): the real centre is not known in advance.
 # King Gazel in the throne room is a seated NoAI, invulnerable NPC (life/dwargon.js): the audience is a location
 # task, not a fight. The book cannot detect talking to anyone, so every "meet" is a location or advancement check.
@@ -27,7 +29,7 @@ order = 3
 life = 2
 hide_until_deps_complete = true
 text = """
-A thousand blocks north of Tempest, at the foot of the Great Canaat Mountains, lies the dwarf kingdom of Dwargon:
+About ${dist:tempest>dwargon} blocks ${dir:tempest>dwargon} of Tempest, cut into the southern face of the Great Canaat Mountains, lies the dwarf kingdom of Dwargon:
 a neutral trade hub inside a cavern, ruled for three hundred years by the Hero King Gazel Dwargo. It is where
 Kaijin was judged, and where every smith in the world wants to work.
 """
@@ -62,10 +64,10 @@ deps = ["road_supplies"]
 lane = 0
 col = 1
 text = """
-Halfway up the road, inside the dwarves' border, stands a village of stone and spruce with copper roofs: smithy,
+On the last stretch of the road, just inside the dwarves' border, stands a village of stone and spruce with copper roofs: smithy,
 library and market in one. It is the first sign that you have left the forest behind.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [250, -740], radius = 150, title = "The dwarf village on the road" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "dwarf_village" }, radius = 150, title = "The dwarf village on the road" }]
 rewards = [{ type = "item", item = "minecraft:cooked_porkchop", count = 8 }, { type = "xp", xp = 40 }]
 
 [[quests]]
@@ -79,7 +81,7 @@ text = """
 Yellow banners with a red emblem hang from the arch where the outer road begins, and a watch tower stands beside it.
 Dwargon watches who comes to its gate. Walk through the arch.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -960], radius = 14, title = "The checkpoint arch" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = 40 }, radius = 14, title = "The checkpoint arch" }]
 rewards = [{ type = "item", item = "tensura:bronze_coin", count = 3 }]
 
 [[quests]]
@@ -93,7 +95,7 @@ text = """
 Travellers queue in fenced lanes between two guard booths while the dwarf guards check what they carry. Rimuru's first
 visit ended in a scuffle by this gate and a night in a cell. Behave better: wait in the queue in front of the white wall.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1005], radius = 14, title = "In the queue at the gate" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -5 }, radius = 14, title = "In the queue at the gate" }]
 rewards = [{ type = "item", item = "tensura:bronze_coin", count = 5 }, { type = "xp", xp = 40 }]
 
 [[quests]]
@@ -107,7 +109,7 @@ text = """
 Behind the gate a long tunnel climbs into the mountain, then opens on a cavern city: lit windows, shop signs,
 lamps strung across the street and bridges high above. Walk the south street.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1039], radius = 14, title = "The south street" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -39 }, radius = 14, title = "The south street" }]
 rewards = [{ type = "item", item = "minecraft:cooked_cod", count = 8 }, { type = "xp", xp = 40 }]
 
 [[quests]]
@@ -121,7 +123,7 @@ text = """
 A round plaza with a fountain, twelve market stalls under white awnings, and every nation's merchants shouting prices.
 Dwargon stays neutral so that everyone trades here.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1066], radius = 16, title = "The plaza" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -66 }, radius = 16, title = "The plaza" }]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "xp", xp = 40 }]
 
 [[quests]]
@@ -135,7 +137,7 @@ text = """
 North of the plaza the street climbs towards the royal terrace and the sound changes to hammers. This is where the
 kingdom's smiths live and work, house after house with a chimney.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1081], radius = 10, title = "The forge street" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -81 }, radius = 10, title = "The forge street" }]
 rewards = [{ type = "item", item = "minecraft:coal", count = 16 }, { type = "xp", xp = 40 }]
 
 [[quests]]
@@ -149,7 +151,7 @@ text = """
 The first house on the west side of the forge street was Kaijin's before King Gazel exiled him after a sham trial.
 His anvil, his blast furnace and his lava cauldron are still where he left them. Stand in his forge.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [423, -1084], radius = 8, title = "Kaijin's smithy" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = -12, dz = -84 }, radius = 8, title = "Kaijin's smithy" }]
 rewards = [{ type = "item", item = "minecraft:iron_ingot", count = 8 }, { type = "xp", xp = 60 }]
 
 [[quests]]
@@ -167,7 +169,7 @@ At the back of the cavern, behind the great stair and the royal terrace, sits th
 room of tuff and deepslate, under red banners. He has ruled for over three hundred years and judges every petitioner
 himself. He sits there as a silent guardian (he does not speak and does not fight): kneel, then leave.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1106], radius = 12, title = "The throne room" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -106 }, radius = 12, title = "The throne room" }]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 5 }, { type = "item", item = "minecraft:golden_apple" }, { type = "xp", xp = 150 }]
 
 # ---- Trade -------------------------------------------------------------------------------------------------
@@ -243,7 +245,7 @@ text = """
 West of the plaza stands the forge hall: three chimneys, copper roofs, cogs on the walls, an open front you can walk
 into. Dwargon makes weapons here for the whole continent.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [413, -1066], radius = 9, title = "The forge hall" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = -22, dz = -66 }, radius = 9, title = "The forge hall" }]
 rewards = [{ type = "item", item = "minecraft:iron_ingot", count = 6 }, { type = "xp", xp = 40 }]
 
 [[quests]]
@@ -258,7 +260,7 @@ text = """
 East of the plaza the engineers keep their workshop, a hall of casings, shafts and turning cogs. Dwargon is the first
 place on this continent that runs machines. Look inside.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [457, -1066], radius = 9, title = "The engineers' workshop" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 22, dz = -66 }, radius = 9, title = "The engineers' workshop" }]
 rewards = [{ type = "item", item = "minecraft:redstone", count = 16 }, { type = "xp", xp = 40 }]
 
 [[quests]]
