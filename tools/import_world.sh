@@ -4,7 +4,7 @@
 # running, the upload goes to /data/import (not the world), and the swap itself happens at the next start
 # (ttl-portals 0.9.0), so the restart is the normal deploy.
 #
-#   bash tools/import_world.sh [--dry-run] [--src DIR] [--batch N] [--margin GIB] [--no-marker]
+#   bash tools/import_world.sh [--dry-run] [--src DIR] [--batch N] [--margin GIB] [--no-marker [--while-online]]
 #
 # (a) refuses while a human is online (test bots don't count: `server.sh who`);
 # (b) checks the local world (DIR/region/r.*.mca = the lines of DIR/sha256.txt) and the free space on /data;
@@ -53,7 +53,7 @@ REMOTE=/data/import
 WORLD=/data/world-ttl
 MIN_MOD=0.9.0
 SRC="${TTL_IMPORT_SRC:-/c/Users/david/AppData/Local/Temp/claude/c--Users-david-Documents-Claims-poc/1537105e-29c1-44a8-bf81-a2b0788a3048/scratchpad/lerfing_world}"
-DRY=""; BATCH=25; MARGIN_GIB=2; MARKER=1
+DRY=""; BATCH=25; MARGIN_GIB=2; MARKER=1; WHILE_ONLINE=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --dry-run) DRY=1 ;;
@@ -61,8 +61,9 @@ while [ $# -gt 0 ]; do
     --batch) BATCH="${2:?--batch N}"; shift ;;
     --margin) MARGIN_GIB="${2:?--margin GIB}"; shift ;;
     --no-marker) MARKER="" ;;
+    --while-online) WHILE_ONLINE=1 ;;
     -h|--help) sed -n '2,25p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
-    *) echo "usage: import_world.sh [--dry-run] [--src DIR] [--batch N] [--margin GIB] [--no-marker]" >&2; exit 2 ;;
+    *) echo "usage: import_world.sh [--dry-run] [--src DIR] [--batch N] [--margin GIB] [--no-marker [--while-online]]" >&2; exit 2 ;;
   esac
   shift
 done
@@ -85,8 +86,16 @@ online_check() {
   who=$(bash "$HERE/server.sh" who 2>/dev/null) || die 3 "cannot ask the server who is online (is it up? tools/server.sh status)"
   [ -z "$who" ] || die 3 "online now: $who. The upload and the restart wait until nobody plays."
 }
-online_check
-say "nobody online (test bots don't count)"
+# The upload only writes /data/import and never touches the running world, so it may run while people play;
+# the marker (and so the restart that swaps the world) still waits until nobody is online.
+if [ -n "$WHILE_ONLINE" ]; then
+  [ -z "$MARKER" ] || die 2 "--while-online needs --no-marker (the marker waits until nobody plays)"
+  say "--while-online: upload only, online now: [$(bash "$HERE/server.sh" who 2>/dev/null | tr '
+' ' ')]"
+else
+  online_check
+  say "nobody online (test bots don't count)"
+fi
 pregen=$(bash "$HERE/server.sh" rcon "dh pregen status" 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' | grep -m1 -E "Generated radius|not running" || true)
 say "night pregen: ${pregen:-unknown} (a restart stops it; ttl-ops' own deploy pauses it first)"
 
