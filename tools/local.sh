@@ -169,9 +169,25 @@ install_pack() {
   tar -C "$PACK" -cf - . | tar -C "$D/pack" -xf -
   (cd "$D/pack" && "$PW" refresh >/dev/null)
   port=$("$PY" -I -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])')
-  "$PY" -I -m http.server "$port" --bind 127.0.0.1 --directory "$(winpath "$D/pack")" >/dev/null 2>&1 &
+  # Not `-m http.server`: its listen backlog of 5 makes Windows refuse packwiz-installer's parallel downloads.
+  "$PY" -I -c '
+import functools, http.server, sys
+class S(http.server.ThreadingHTTPServer):
+    request_queue_size = 256
+    daemon_threads = True
+h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=sys.argv[2])
+S(("127.0.0.1", int(sys.argv[1])), h).serve_forever()
+' "$port" "$(winpath "$D/pack")" > "$CACHE/pack-httpd.log" 2>&1 &
   httpd=$!
-  sleep 1
+  # Python on Windows can take several seconds to bind; packwiz-installer gives up on the first refused connect.
+  local i
+  for i in $(seq 1 60); do
+    curl -fsS -o /dev/null "http://127.0.0.1:$port/pack.toml" 2>/dev/null && break
+    kill -0 "$httpd" 2>/dev/null || { cat "$CACHE/pack-httpd.log" >&2; die "the local pack server stopped (port $port)"; }
+    sleep 0.5
+  done
+  curl -fsS -o /dev/null "http://127.0.0.1:$port/pack.toml" \
+    || { kill "$httpd" 2>/dev/null; cat "$CACHE/pack-httpd.log" >&2; die "the local pack server did not answer on port $port"; }
   say "installing the pack (packwiz-installer, server side)"
   (cd "$SRV" && "$java" -jar "$(winpath "$CACHE/packwiz-installer-bootstrap.jar")" -g -s server \
      "http://127.0.0.1:$port/pack.toml" > "$CACHE/packwiz-install.log" 2>&1) \
