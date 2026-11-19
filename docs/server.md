@@ -129,6 +129,7 @@ Log lines: `[ttl] landmark <name> placed: <structure> at X Y Z (…, box …)` o
 Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a tp command), `/ttl landmark place <name|all>`
 (places again; the old copy stays). Change a landmark or bump its `version` in the TOML, then
 `python tools/gen_data.py`.
+Finding places: `/locate place <id>` (op, vanilla `/locate` style, tab-completes every anchor id plus placed builds and landmarks without an anchor; recorded placement first, else the anchor) and `/ttl where <id>` for players (direction and rounded distance only; `life/locate.js`).
 
 ## Permissions
 
@@ -750,6 +751,27 @@ Setup notes:
   (e.g. `neoforge tps`) show only the first.
 - Ops in game: `/ttl recap preview | now`, `/ttl discordroles <player> [dry | expect <keys>]`, `/ttl staff status | registry`.
   Test: `tests/ingame/discord.rcon`.
+
+### The `/ttl` command reference (`#dev-chat`)
+
+[`docs/dev/ttl-commands.md`](dev/ttl-commands.md) lists every `/ttl` command (and `/locate place`) by system with what it
+does, what it is for (**PLAYER**, staff, test bot) and its arguments. The command tree and the op level come from the
+KubeJS registration source; the descriptions are in `docs/dev/ttl-commands.toml`. After adding or changing a command:
+
+```sh
+python tools/gen_ttl_commands.py                  # rewrites docs/dev/ttl-commands.md; lists what the toml still lacks
+python tools/gen_ttl_commands.py --check          # exit 1 when the md is stale or the toml and the source disagree
+python tools/gen_ttl_commands.py --compare-help help.txt   # against a pasted `/help ttl` of the live server
+```
+
+The Discord copy is one pinned header plus a few messages per group in `#dev-chat`. The script finds its own messages by
+their last line, edits them in place and never doubles them (more messages than before: the extras go at the bottom;
+fewer: the surplus is deleted):
+
+```sh
+python tools/gen_ttl_commands.py --discord | ssh -o LogLevel=ERROR root@100.109.28.21 'cat > /tmp/ttl-commands-discord.md'
+ssh -o LogLevel=ERROR root@100.109.28.21 'bash -s -- /tmp/ttl-commands-discord.md' < tools/post_ttl_commands.sh
+```
 
 ## Roadmap and suggestions
 

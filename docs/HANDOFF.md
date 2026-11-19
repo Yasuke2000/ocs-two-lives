@@ -16,6 +16,16 @@ and cast NPCs respawn on the next check). **Verified offline only** (check.sh, `
 render on a client (front/back, slim arms of Lyra/Mira/Anne/Ilse), `tests/ingame/sidequests.rcon` and
 `guild_npcs.rcon`, and that a town no longer shows the same adventurer twice.
 
+## 19/11 evening — `/ttl` command reference (branch `ttl-command-docs`, Claude, for Yasuke)
+
+**`docs/dev/ttl-commands.md`**: every `/ttl` command (68, plus `/locate place`) by system, PLAYER / staff / test, with its
+arguments. `tools/gen_ttl_commands.py` reads the command tree and the op level from the KubeJS registration source (it
+matched the live `/help ttl`, 67 entries, on 19/11/2026) and the descriptions from `docs/dev/ttl-commands.toml`; a command
+without a row makes it exit 1 (`--check`). **`tools/post_ttl_commands.sh`** posts it to `#dev-chat` (pinned header, one or
+more messages per group, edited in place on a re-run); docs/server.md "The /ttl command reference". **Not in CI**:
+`--check` is not in `validate.py` on purpose (it would turn every open branch with a new command red); add it there once
+the branches have landed. After a new command: add its row to the toml, regenerate, re-post.
+
 ## 19/11 afternoon — local test loop runs on this PC (branch `local-up-wait`, Claude)
 
 **Verified on the workstation**: `local.sh up` cold 384 s, warm restart 48-63 s, clean stop 6-9 s ("All dimensions are

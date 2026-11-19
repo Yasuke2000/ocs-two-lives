@@ -2750,7 +2750,7 @@ hash = "44c5a0c6a9221e480417711c1e474689396917eefe4a56b473cc84554b0921a2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "373b243bece5854d096f0a28c0af7079590af6ea2b1b1248ef0bbb3cd9d25f3d"
+hash = "bc06bc09a7861a01a88682f95090173d85de8666bd6e747205161869cd7313a9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -2838,7 +2838,7 @@ hash = "aba724b81546b1b73b253460418b272ac2ee350f2ba0761423c847bd4900585a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/anchors.js"
-hash = "f09a8eedfd9b4db114d3ea93a8c6a5aab662dd7c2db63a56c0fb6c6274d0bdd4"
+hash = "07a7150b1aacd2df2fb676136fb589c581a5ef4491b4621837616236e55a7a63"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
@@ -2947,6 +2947,10 @@ hash = "632a216919c81c8bff7e7f4ff9bcc82aa383653750780fde9e6cc116c5be2fa2"
 [[files]]
 file = "kubejs/server_scripts/ttl/life/landmarks.js"
 hash = "e8ae845de50ae70a116bdec46a2596670489fc30f7c049a557405e938a2177d2"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/locate.js"
+hash = "02ddd334b4b393d54dd44a5865ad7f6694c2c8047a58e23b78ffdca8faf1ce0b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_banned.js"

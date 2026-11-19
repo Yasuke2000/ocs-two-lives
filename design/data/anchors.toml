@@ -8,6 +8,7 @@
 # CanonGrid self-check reads x/z of every [table] with a tiny parser and checks each lies on the continent):
 #   <id>     the table name, unique [a-z0-9_]; the name scripts, quests and tests use (`${anchor:<id>}`)
 #   name     what it is
+#   title    optional short name for /locate place and /ttl where (default: name up to the first " (" or ":")
 #   x, z     world block position (the survey/placement centre for builds and landmarks)
 #   region   the canon_map.txt letter it must stand in; for water anchors, the nation that owns the water (any of
 #            several letters may be given, "MB" = M or B)
@@ -182,6 +183,7 @@ notes = "North foot of the east-Jura massif ('north-eastern hills'), y 81/89/99.
 
 [dwargon]
 name = "Dwargon main gate (TtlDwargon.GATE)"
+title = "Dwargon"
 x = 1878
 z = -544
 region = "D"
@@ -352,6 +354,7 @@ notes = "South-east of the lake where the marsh meets Eurazania's jungle: Geld's
 
 [blumund]
 name = "Blumund capital (Londo): Fuze, the guild"
+title = "Blumund"
 x = -450
 z = 150
 region = "R"
@@ -378,6 +381,7 @@ notes = "On the eastbound road between Londo and Lura, Englassian side; flat."
 
 [englassia]
 name = "Englassia capital (Lura): Freedom Academy, Free Guild HQ"
+title = "Englassia"
 x = -2150
 z = -410
 region = "G"
