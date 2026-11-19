@@ -10,18 +10,26 @@
 # Tensura's own AI; merchants and escort clients run from monsters (FLEE_MONSTER, PANIC).
 execute in minecraft:overworld run forceload add ${anchor:tempest.x-16} ${anchor:tempest.z-48} ${anchor:tempest.x+47} ${anchor:tempest.z}
 @sleep 3
+# A killable resident (goblin_3) killed earlier comes back only after respawn_minutes and two checks: no delay, two passes.
+ttl domain testdelay 0
+ttl domain respawn
 ttl domain respawn
 ttl npcgear refresh
-# Gear per role.
+# Gear per role, and no loot picked up into a hand (a Tensura goblin took a bone or leather into it, staging 19/11).
 @until 20 ttl npcgear expect hand goblin_3 main tensura:iron_katana
+execute in minecraft:overworld at @e[tag=ttl.resident.rigur,limit=1] run summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:leather",count:1},Tags:["ttl.test.loot"]}
+@sleep 2
 ttl npcgear expect hand rigur main tensura:iron_long_sword
 ttl npcgear expect hand rigur off minecraft:shield
 ttl npcgear expect hand gobta main tensura:iron_kodachi
 ttl npcgear expect hand rigurd main tensura:goblin_club
 ttl npcgear expect hand haruna main empty
-# A guard defends its post: a husk (no sunburn) three blocks from goblin_3 is dead within 40 s.
+# A guard defends its post: a husk (no sunburn) on goblin_3's post is dead within 40 s. The guard loop runs only
+# while someone is online (a guard whose brain dropped the target is set on it again every guard_check_ticks): a bot.
+ttlbot spawn TtlBotGuard
 kill @e[type=minecraft:husk,tag=ttl.test.defend]
-execute in minecraft:overworld at @e[tag=ttl.resident.goblin_3,limit=1] run summon minecraft:husk ~3 ~ ~ {Tags:["ttl.test.defend"],PersistenceRequired:1b}
+# On goblin_3's post (open ground; "3 blocks from the goblin" could be inside a hut, out of a guard's reach).
+execute in minecraft:overworld positioned ${anchor:tempest.x+23} 0 ${anchor:tempest.z-29} positioned over motion_blocking_no_leaves run summon minecraft:husk ~ ~ ~ {Tags:["ttl.test.defend"],PersistenceRequired:1b}
 ttl npcgear guards
 @until 40 ttl npcgear expect gone ttl.test.defend
 # An adventurer fights a monster too, with its role's sword and shield.
@@ -43,6 +51,8 @@ ttl domain respawn
 @until 20 ttl npcgear expect hand goblin_3 main tensura:iron_katana
 ttl domain testdelay reset
 # Clean up.
+ttlbot remove TtlBotGuard
+kill @e[type=minecraft:item,tag=ttl.test.loot]
 kill @e[type=minecraft:husk,tag=ttl.test.defend]
 kill @e[type=minecraft:husk,tag=ttl.test.defend2]
 execute in minecraft:overworld run forceload remove ${anchor:tempest.x-16} ${anchor:tempest.z-48} ${anchor:tempest.x+47} ${anchor:tempest.z}

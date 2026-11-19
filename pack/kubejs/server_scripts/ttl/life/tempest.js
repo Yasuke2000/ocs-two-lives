@@ -246,7 +246,7 @@ const TtlTempest = {
     for (var j = 0; j < e.residents.length; j++) {
       var r = e.residents[j]
       var name = r[3] ? `,CustomName:'${JSON.stringify(r[3])}'` : ''
-      n += this.run(server, `summon tensura:goblin ${b.x0 + r[0] + 0.5} ${base + r[1]} ${b.z0 + r[2] + 0.5} ` +
+      n += TtlCmd.run(server, `execute in ${TtlLife.OVERWORLD} run summon tensura:goblin ${b.x0 + r[0] + 0.5} ${base + r[1]} ${b.z0 + r[2] + 0.5} ` +
         `{PersistenceRequired:1b,EvoState:1,Tags:["${this.RESIDENT}"]${name}}`) > 0 ? 1 : 0
     }
     console.info(`[ttl] tempest: ${e.loot.length} loot containers, ${n}/${e.residents.length} goblin residents`)

@@ -68,7 +68,13 @@ ttl domain expect resident rigurd missing
 ttl domain expect resident rigurd alive
 ttl domain expect invulnerable rigurd yes
 ttl cast expect hook_rigurd found
-# An unnamed resident stays killable and comes back after the (test) delay.
+# An unnamed resident stays killable and comes back after the (test) delay. goblin_3 may be dead already (a monster of
+# Jura's forest; staging 19/11: "goblin_3 is not loaded", then its old absence brought it back right after the kill): bring
+# it back first, with no delay, so the kill below starts a fresh absence.
+ttl domain testdelay 0
+ttl domain respawn
+ttl domain respawn
+@until 20 ttl domain expect resident goblin_3 alive
 ttl domain expect invulnerable goblin_3 no
 ttl domain testdelay 5
 kill @e[type=tensura:goblin,tag=ttl.resident.goblin_3]

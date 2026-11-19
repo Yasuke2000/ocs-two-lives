@@ -16,7 +16,11 @@ kubejs stages add TtlBotDwA ttl.life2
 kubejs stages add TtlBotDwB ttl.life2
 execute in minecraft:overworld run forceload add 20992 20992 21088 21056
 @sleep 2
-execute in minecraft:overworld run fill 21000 200 21000 21074 225 21050 minecraft:air
+# In four slabs: one fill takes at most 32768 blocks (the single 99450-block fill was refused and cleared nothing).
+execute in minecraft:overworld run fill 21000 200 21000 21018 225 21050 minecraft:air
+execute in minecraft:overworld run fill 21019 200 21000 21037 225 21050 minecraft:air
+execute in minecraft:overworld run fill 21038 200 21000 21056 225 21050 minecraft:air
+execute in minecraft:overworld run fill 21057 200 21000 21074 225 21050 minecraft:air
 execute in minecraft:overworld run place template ttl:dwarven_arena 21000 200 21000
 @sleep 4
 # Forecourt paving, the open door, a cell where a royal warp pad stood, the standing spots and their floor.
@@ -77,7 +81,11 @@ ttl arena expect arena dwarven state free
 
 # ---- clean up --------------------------------------------------------------------------------------------------------
 ttl arena reset
-execute in minecraft:overworld run fill 21000 200 21000 21074 225 21050 minecraft:air
+# In four slabs: one fill takes at most 32768 blocks (the single 99450-block fill was refused and cleared nothing).
+execute in minecraft:overworld run fill 21000 200 21000 21018 225 21050 minecraft:air
+execute in minecraft:overworld run fill 21019 200 21000 21037 225 21050 minecraft:air
+execute in minecraft:overworld run fill 21038 200 21000 21056 225 21050 minecraft:air
+execute in minecraft:overworld run fill 21057 200 21000 21074 225 21050 minecraft:air
 execute in minecraft:overworld run forceload remove 20992 20992 21088 21056
 ttl arena clear TtlBotDwA
 ttl arena clear TtlBotDwB

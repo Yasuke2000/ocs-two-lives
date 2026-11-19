@@ -7,8 +7,9 @@
 // after the import as well, so the hands are right even if a preset field is not read; companions.js equips its hire
 // from the role too.
 // Tempest residents (Tensura goblins, world/domains.js): `/summon` with NBT skips Tensura's own finalizeSpawn, so they
-// came with empty hands. TtlDomains.mark calls ensureResident on every check: a resident without the tag
-// `ttl.gear.r<settings.rev>` gets its role's items (drop chance 0) and, for a guard, the tag `ttl.npc.guard`.
+// came with empty hands. TtlDomains.mark calls ensureResident on every check and right after a respawn: a resident without
+// the tag `ttl.gear.r<settings.rev>`, or whose hands are not its role's (a goblin picks up loot into its hand), gets its
+// role's items (drop chance 0, CanPickUpLoot off) and, for a guard, the tag `ttl.npc.guard`.
 // THE GUARD LOOP (every settings.guard_check_ticks, only while someone is online and Tempest is placed): a guard without a
 // living target is set on the nearest monster (KubeJS isMonster(): an Enemy; never a player, a Tensura goblin, wolf or other
 // tameable, nor an entity with one of settings.guard_ignore_tags) within settings.guard_radius of its POST, so it defends
@@ -58,13 +59,14 @@ const TtlNpcGear = {
     }
   },
 
-  // The role's items in both hands (empty hand = air) and drop chance 0 for hands and armour.
+  // The role's items in both hands (empty hand = air), drop chance 0 for hands and armour, and no picking up loot: a
+  // Tensura goblin takes what lies near it into its hand (staging 19/11/2026: Gobta with a bone, Rigur with leather).
   equip(server, e, role) {
     var id = this.uuid(e)
     if (!id || !role) return false
     TtlCmd.run(server, `item replace entity ${id} weapon.mainhand with ${role.main ? role.main : 'minecraft:air'}`)
     TtlCmd.run(server, `item replace entity ${id} weapon.offhand with ${role.off ? role.off : 'minecraft:air'}`)
-    TtlCmd.run(server, `data merge entity ${id} {HandDropChances:[0.0f,0.0f],ArmorDropChances:[0.0f,0.0f,0.0f,0.0f]}`)
+    TtlCmd.run(server, `data merge entity ${id} {HandDropChances:[0.0f,0.0f],ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],CanPickUpLoot:0b}`)
     return true
   },
 
@@ -79,14 +81,26 @@ const TtlNpcGear = {
     return false
   },
 
-  // TtlDomains.mark: items and the guard tag once per settings.rev.
+  // The item id in a hand ('' = empty).
+  hand(e, off) {
+    var stack = off ? e.getOffhandItem() : e.getMainHandItem()
+    return stack && !stack.isEmpty() ? String(stack.id) : ''
+  },
+
+  holds(e, role) {
+    return this.hand(e, false) === String(role.main || '') && this.hand(e, true) === String(role.off || '')
+  },
+
+  // TtlDomains.mark (every resident check and right after a respawn): the role's items whenever the hands are not
+  // what the role says (a fresh summon, an item picked up, a rev bump) and the guard tag.
   ensureResident(e, r) {
     var tags = e.getTags()
     var mine = this.GEAR + this.rev()
-    if (tags.contains(mine)) return
     var role = this.residentRole(r)
+    if (!role) return
+    if (tags.contains(mine) && this.holds(e, role)) return
     var server = e.getServer()
-    if (!role || !server) return
+    if (!server) return
     this.equip(server, e, role)
     var old = []
     var prefix = this.GEAR

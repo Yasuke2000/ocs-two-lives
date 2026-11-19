@@ -11,3 +11,6 @@ ttl works expect road tempest_dwargon surface 1000
 ttl works expect road tempest_dwargon surface 1300
 @until 1200 ttl works expect forest tempest planted 35
 @until 1200 ttl works expect forest treyni planted 45
+# The trunks themselves (v1 planted but counted nothing: the counts above are from v2's run, standing trees included).
+ttl works expect forest tempest standing 35
+ttl works expect forest treyni standing 45

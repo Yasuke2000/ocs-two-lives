@@ -873,18 +873,22 @@ const TtlArenas = {
 }
 
 ServerEvents.loaded(event => {
-  var server = event.server
   TtlArenas.mem = null
-  var loop = () => server.scheduleInTicks(TtlArenas.num(TtlArenas.rules().poll_ticks, 20), () => {
-    try {
-      TtlArenas.refreshBoxes(server)
-      TtlArenas.poll(server)
-    } catch (e) {
-      console.error(`[ttl] arena: poll failed: ${e}`)
-    }
-    loop()
-  })
-  loop()
+})
+
+// The poll on the tick event, not a scheduleInTicks loop from ServerEvents.loaded: a /reload makes a new TtlArenas (the
+// commands use it) while such a loop kept polling the old object and its own cached state, so a duel the new commands
+// started was settled by nobody ("TtlBotDwB is not in a running match", local server after a sync). Tick handlers are
+// replaced on a reload.
+ServerEvents.tick(event => {
+  TtlArenas.ticks = (TtlArenas.ticks || 0) + 1
+  if (TtlArenas.ticks % TtlArenas.num(TtlArenas.rules().poll_ticks, 20) !== 0) return
+  try {
+    TtlArenas.refreshBoxes(event.server)
+    TtlArenas.poll(event.server)
+  } catch (e) {
+    console.error(`[ttl] arena: poll failed: ${e}`)
+  }
 })
 
 // A fatal blow on a fighter is a defeat; blows between fighters before the start or on the same side do nothing; a wave mob's
