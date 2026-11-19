@@ -164,8 +164,7 @@ wait_settled() {
     left=$(rcon_once "ttl build list" | grep -E 'pending|FAILED' || true)
     n=$(grep -c 'pending' <<<"$left" || true)
     [ "$n" -gt 0 ] || break
-    [ $(( $(now) - t0 )) -lt "$deadline" ] || { printf '%s
-' "$left" >&2; die "start-up builds still pending after ${deadline}s"; }
+    [ $(( $(now) - t0 )) -lt "$deadline" ] || { printf '%s\n' "$left" >&2; die "start-up builds still pending after ${deadline}s"; }
     [ "$n" = "$last" ] || say "waiting for $n start-up build(s) to place ($(grep -m1 -o '^[a-z_]*' <<<"$left") ...)"
     last=$n
     sleep 10
@@ -330,8 +329,10 @@ snapshot_restore() {
 # Copies what changed in pack/ since the last up/sync into the server, and applies it the cheapest way that works.
 # $D/pack is the baseline (what the server has from git), so files the mods rewrite on start-up (configs) never
 # count as changes.
-#   kubejs/server_scripts                                  -> /kubejs reload server_scripts
-#   kubejs/data, datapacks, config/ttl, config/ftbquests   -> /reload (data, scripts and quest files)
+#   kubejs/server_scripts, kubejs/data, datapacks,
+#   config/ttl, config/ftbquests                           -> /reload (scripts, data and quest files; like staging's
+#                                                             push-scripts: /kubejs reload server-scripts would keep
+#                                                             the commands the old scripts registered)
 #   kubejs/startup_scripts, other config                   -> restart (read at start-up only)
 #   mods/*.pw.toml, [versions] in pack.toml, mod/ sources  -> full up: packwiz-installer + gradle + restart
 #   kubejs/assets, kubejs/client_scripts                   -> copied; nothing to apply on a server
@@ -353,7 +354,7 @@ mods_changed() {
   [ -n "$(find "$ROOT/mod/src" "$ROOT/mod/build.gradle" "$ROOT/mod/gradle.properties" -newer "$SRV/mods/ttl-portals-local.jar" -type f 2>/dev/null | head -1)" ]
 }
 
-# Copies the changes into the server and the baseline; sets NEED to none, scripts, reload or restart and N to the count.
+# Copies the changes into the server and the baseline; sets NEED to none, reload or restart and N to the count.
 apply_changes() {
   local op rel
   NEED=none; N=0
@@ -361,8 +362,7 @@ apply_changes() {
     N=$((N + 1))
     case "$rel" in
       kubejs/assets/*|kubejs/client_scripts/*) ;;
-      kubejs/server_scripts*) [ "$NEED" = none ] && NEED=scripts ;;
-      kubejs/data*|datapacks*|config/ttl*|config/ftbquests*) [ "$NEED" = restart ] || NEED=reload ;;
+      kubejs/server_scripts*|kubejs/data*|datapacks*|config/ttl*|config/ftbquests*) [ "$NEED" = restart ] || NEED=reload ;;
       *) NEED=restart ;;
     esac
     if [ "$op" = D ]; then
@@ -379,13 +379,25 @@ apply_changes() {
   done < <(sync_changes)
 }
 
+# /reload answers at once and reloads in the background; the log says "Reloaded with ..." when it is done.
+wait_reloaded() {
+  local a i
+  read -r a _ <<<"$1"
+  for i in $(seq 1 120); do
+    tail -n +"$((a + 1))" "$SRV/logs/latest.log" 2>/dev/null | grep -q 'Reloaded with' && return 0
+    sleep 0.5
+  done
+  say "no 'Reloaded with' in the log after 60s"
+}
+
 # New lines in the server log and KubeJS's own log since a mark (line counts), filtered to script errors.
 log_mark() { echo "$(wc -l < "$SRV/logs/latest.log" 2>/dev/null || echo 0) $(wc -l < "$SRV/logs/kubejs/server.log" 2>/dev/null || echo 0)"; }
 new_errors() {
   local a b
   read -r a b <<<"$1"
-  { tail -n +"$((a + 1))" "$SRV/logs/latest.log" 2>/dev/null; tail -n +"$((b + 1))" "$SRV/logs/kubejs/server.log" 2>/dev/null; } \
-    | grep -E 'ERROR|\[ttl\].*failed' | head -20 || true
+  # Not every ERROR: a /reload logs mods' own (Curios on optional cataclysm ids), as on staging (AGENTS.md step 4).
+  { tail -n +"$((a + 1))" "$SRV/logs/latest.log" 2>/dev/null | grep -E 'ERROR.*KubeJS|\[ttl\].*failed'
+    tail -n +"$((b + 1))" "$SRV/logs/kubejs/server.log" 2>/dev/null | grep -E '\[(ERROR|WARN)\]|\[ttl\].*failed'; } | head -20 || true
 }
 
 sync_pack() {
@@ -401,8 +413,10 @@ sync_pack() {
   mark=$(log_mark)
   case "$NEED" in
     none)    say "$N change(s); nothing to reload" ;;
-    scripts) say "$N change(s); kubejs reload server_scripts"; rcon_once "kubejs reload server_scripts" | tail -3 ;;
-    reload)  say "$N change(s); /reload"; rcon_once "reload" | tail -3 ;;
+    reload)  say "$N change(s); /reload"
+             out=$(rcon_once "reload")
+             if grep -qE "$FAILED_RE" <<<"$(plain <<<"$out")"; then printf '%s\n' "$out" >&2; die "/reload was refused"; fi
+             wait_reloaded "$mark" ;;
     restart) say "$N change(s) need a restart (startup scripts or mod config)"
              stop_server; configure; start_server; wait_ready; return ;;
   esac
