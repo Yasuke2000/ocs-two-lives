@@ -2,7 +2,7 @@
 
 Living page for contributors: how we work, what we measure, the feel we aim for, and what is actually built.
 **Update it whenever something lands on `main`** (agents: as part of every merge). Owner: **Yasuke**.
-Last update: 19/11/2026 (after merging PRs #19–#34 and verifying the landmarks).
+Last update: 19/11/2026 (after PR #35, the overworld reset and the re-verification of every build).
 
 ## Where we are
 
@@ -15,10 +15,10 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 
 | Metric | Value | How to measure |
 | --- | --- | --- |
-| In-game bot tests | 70 test files (69/70 on ttl-ops `cf7ad82`, 19/11: `arena_dwarven` fixed in the test since; 67/67 on `bae23df`) | `bash tools/server.sh test-all` |
+| In-game bot tests | 70 test files: **70/70** on the reset world (19/11 05:07, by hand after the `guild_npcs` fix); ttl-ops `785036f` 69/70 (`bosses` flaked, green since) | `bash tools/server.sh test-all` (Git Bash: `MSYS2_ARG_CONV_EXCL=/data`) |
 | Offline unit tests | 157 green | `python -m unittest discover -s tests` |
 | Validation | must say "validation passed" | `python tools/validate.py` |
-| Builds verified 1:1 in the world | 33 builds + 7 Tensura landmarks, all ≥ 99.9 % (38 build manifests; the 11 canon landmarks, Walpurgis Hall and the Dwarven Arena verified 19/11; 6 Mortal Realm waypoints still to verify) | `python tools/verify_build.py <name> --log` |
+| Builds verified 1:1 in the world | All 38 build manifests + Tempest, Dwargon and mortal_spawn re-verified on the reset world 19/11, all ≥ 99.9 % (28 overworld builds, Walpurgis Hall, Spirit Dwelling, test hut, the 6 Mortal Realm waypoints); terrain round the builds repaired by hand on staging (decisions.md 19/11); every overworld build in its site biome except Treyni's shrine (half in ancient forest); night pregen of the new world started 19/11 05:08, not finished | `python tools/verify_build.py <name> --log` |
 | Quests | 398 in 28 chapters, one connected web | `python tools/quest_graph.py --check` |
 | Canon cast | 38 NPC spots, 28 original skins | `design/data/npcs.toml`, `/ttl cast verify all` |
 | Mods | 77 | `pack/mods/*.pw.toml` |

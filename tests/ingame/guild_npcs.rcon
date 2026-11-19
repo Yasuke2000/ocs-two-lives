@@ -72,7 +72,9 @@ ttl guild npc ensure receptionist_tempest
 ttl guild npc expect count_receptionist_tempest 1
 # Fuze: Blumund is placed (on staging and at launch every canon build is), so he stands in Blumund's guild hall and the
 # Tempest stand-in spot is inactive (`unless_build = "blumund"`). Blumund's spots are force-loaded like Tempest's.
-execute in minecraft:overworld run forceload add -1003 -187 -994 -171
+# Fuze's stand is Blumund's corner + (107, 11, 61); the corner is the placed anchor - (62, 5, 72) (`ttl build list`), -1086 65 -224 since the world
+# reset of 19/11 (it was -1102 67 -248 before). Move this box with the build.
+execute in minecraft:overworld run forceload add -984 -168 -975 -158
 ttl guild npc goto TtlBotNpcA fuze_blumund
 @sleep 4
 ttl guild npc remove fuze_blumund
@@ -93,6 +95,6 @@ ttl guild npc expect count_receptionist_blumund_2 1
 ttl guild reset TtlBotNpcA
 ttl guild npc ensure
 execute in minecraft:overworld run forceload remove 3 -19 8 -16
-execute in minecraft:overworld run forceload remove -1003 -187 -994 -171
+execute in minecraft:overworld run forceload remove -984 -168 -975 -158
 ttlbot remove TtlBotNpcA
 ttlbot remove TtlBotNpcB

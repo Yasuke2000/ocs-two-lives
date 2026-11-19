@@ -1,6 +1,42 @@
 # Handoff — current state of the work (update this when you stop)
 
-## 19/11 — branch `site-biomes` (PR open, NOT merged): biomes and terrain round every canon build; overworld reset runbook (Claude)
+## 19/11 night — overworld reset done: every build verified on the new world, terrain repaired by hand, test-all 70/70, pregen running (Claude)
+
+**State**: the 03:05 reset (`ttl-backup/20261119-030516`) generated the new site terrain; Tempest and Dwargon were placed on the
+03:05 boot, the 7 landmarks and 28 overworld builds on the 03:07 boot after one crash (below). `ttl build list` / `ttl landmark
+list`: everything placed. `/ttlmap 435 -1000` = site dwargon flat y72, plains; `ttlmap 370 -2402` = dragons_nest flat y190, frozen_peaks.
+**Verify 1:1** (`verify_build.py <name> --log --min 98`, after all repairs): amrita, ballachia, blumund, clayman_castle, dragons_nest
+(6 snow layers), dwarven_arena, el_dorado, elmine, englassia, forgotten_dragon_city, frost_palace, great_holy_mountain, heaven_tower,
+jia, laura, lubelius, marris, morgdahl, nasca, nostraille, raja, sacred_mountain, sealed_cave, siltrosso, spirit_gate, treyni_shrine,
+ulgr_nature_park, tempest (3 lanterns), dwargon all **100.00 %**; coleus 99.99 (lightning-rod facing); walpurgis_hall 100.00
+(`ttl:walpurgis -40 49 -79`); spirit_dwelling 99.99 (`ttl:spirit_domain -44 23 -66`, vines); test_hut 100.00; mortal_spawn 99.90;
+the 6 Mortal Realm waypoints 99.97-100.00 (`--dimension ttl:mortal_realm`).
+**Site biomes** (`execute if biome` at the anchor and the 4 box corners + `/ttlmap`): every overworld build sits in its site biome
+at all 5 points, except Raja's SW corner (river: the lake it is built on, `keep` site) and **Treyni's shrine** (anchor and the east
+corners in `tensura:ancient_forest`, west corners flower_forest): the survey had to put it 61 blocks east of its site centre because
+the grove landmark's keepout (reach 48 + 24 + margin 8) covers the canon spot. Fix needs a site change (mod release) or a new spot
+plus removal of the old copy; left for the day.
+**Ground** (throw-away capture of each box + a 4-column ring: gaps under the build connected to open sky, ditches in box columns
+the blueprint leaves undefined, stray lava/fire) — repaired by hand on staging (decisions.md row of 19/11, not reproducible from
+the repo): Nostraille's ravine under the north edge (275 columns), Laura and Sacred Mountain edge caves, El Dorado's plaza-edge
+slit and its north lava pool, Coleus' west-edge water crevice, Amrita's 25-deep sinkhole beside the stair, the 2-row ditches inside
+the Heaven Tower, El Dorado and Elmine boxes, stray lava near 8 builds and under Dwargon. Re-checked: no sky-connected gap or lava
+left at any build; remaining "gaps" are closed cave roofs (Blumund, Sealed Cave, Dwarven Arena, Sacred Mountain: 5+ blocks from
+any opening). A shallow 4-deep grassy bowl in Dwargon's NE box corner (x 496-508, z -1113..-1095) was left (outside the walls).
+**Tests**: `MSYS2_ARG_CONV_EXCL=/data bash tools/server.sh test-all` at 04:40-05:07 = **70/70, 0 failing** (with the guild_npcs fix
+of the entry below; an earlier run at 03:28 was 69/70, only guild_npcs).
+**Pregen**: held back during the checks (temporary `/data/ttl-pregen.done`, removed again), started by hand at 05:08 with ttl-ops'
+commands (`dh config generation.chunkMode INTERNAL_SERVER`, `common.threadPreset BALANCED`, `dh pregen start minecraft:overworld
+-2088 -616 450`): ~35 cps, ETA ~6 h, so it will NOT finish tonight; ttl-ops stops it at 07:00 (or when someone joins) and resumes
+next night (no `ttl-pregen.done` until ≥ 99 %). Check `dh pregen status` and the ttl-ops log.
+**Crash at 03:09** (`crash-2026-11-19_03.09.53-server.txt`): watchdog, the server thread waited 60 s in a `forceload add` of the
+landmark placer for a chunk while `IO-Worker-3` spun in `CompoundTag.write` (fastutil map iterator: looks like an NBT map changed
+during the chunk save) and generation workers waited on that IO worker (`isOldChunkAround`). Second boot clean; one more
+watchdog crash on 18/11 06:18 in the same family. Watch for it during pregen (ttl-ops stops the pregen for the night on a crash).
+**Open**: Treyni shrine biome (above); a placer pass for undefined box columns, caves and lava next to the box (so a future reset
+needs no hand repairs); the IO-worker hang; BlueMap still rendering the new world.
+
+## 19/11 — PR #35 `site-biomes` (merged, `785036f`, ttl-portals 0.8.3): biomes and terrain round every canon build; overworld reset runbook (Claude)
 
 **Why**: Yasuke on the public BlueMap: "the biomes of the map don't match up — Dwargon should be on a plain, not an ice
 mountain." Audit (`/ttlmap` at every overworld build/landmark spot and 4 points 120 blocks out, live server 19/11):
@@ -58,39 +94,40 @@ deploy (step 2), before the reset.
    footprint (Nostraille and Amrita had both before), `/ttl arrival`, and `bash tools/server.sh test-all` = 0 failing.
    Look at the map at https://map.daviddelporte.com once the render has passed Dwargon.
 
-## 19/11 — PR #34 merged (issues #12, #4, #5 closed); 12 builds verified in the world (Claude)
+## 19/11 — PR #34 merged (issues #12, #4, #5 closed); 13 builds verified, again after the world reset (Claude)
 
-**Merged**: PR #34 `fix-issues-12-4-5` (trial climb guard, reset-scroll races + life 1 race lock, Dwarven Arena) with
-`--no-ff` into main (`eca49d2`); GitHub closed #12, #4 and #5 and shows the PR merged. Conflicts: decisions.md (kept every
-row) and pack.toml (regenerated with packwiz refresh); gen_data, gen_quests, gen_npcs, build_structures --check,
-config_index all re-run, validate passed.
-**Tests**: ttl-ops on `eca49d2` = 69/70: only `events` failed (`command error`), the new tests trial_climb, race_lock and
-arena_dwarven passed; `bash tools/server.sh test events` on the same pack passes (no error line), so it is a flake of the
-full run (not reproduced, cause unknown). ttl-ops on `cf7ad82` (the build fixes) = 69/70: `events` green this time, but
-`arena_dwarven` failed deterministically (3 of 3 by hand): the bot stands 5 blocks from a mob spot and does not fight back, wave 2's
-armorsaurus felled it before the test cleared the wave, so wave 3 never spawned (the first run passed by luck). Test fix: the
-bot gets resistance after `ttl arena start`; arena rules and spots unchanged (a real player faces the same wave 2: if it is too
-hard for the Dwargon tier, rebalance `arenas.toml`). 70 test files, 157 offline unit tests OK.
-**Verified in the world** (`verify_build.py <name> --log --min 98`; none under 98 %): dwarven_arena 100.00, amrita 99.92 (100.00
-after the fix), coleus 99.96, elmine 100.00, great_holy_mountain 100.00, jia 100.00, morgdahl 100.00, nasca 100.00,
-nostraille 100.00, raja 100.00, siltrosso 100.00, ulgr_nature_park 100.00, walpurgis_hall 100.00 (corner given by hand:
-`walpurgis_hall ttl:walpurgis -40 49 -79`, the placer logs no corner line for it). verify_build only compares blocks, so
-floating and wet were checked separately (capture of the columns under the footprint, waterlogged blocks, water on cells
-the blueprint defines as air); the scripts were throw-away, nothing new in the repo.
-**Fixes** (decisions.md row of 19/11):
-- Dwarven Arena was NOT placed (`FAILED 1x`: all 49 candidates inside the dwarf village's keepout, the survey had moved the
-  village to 205 -695). Moved to -30 -850 (toml + lore), placed at -21 160 -883, 100.00 %.
-- Amrita was wet: 11 stairs/slabs on the gallery floor were waterlogged (`place template` keeps the old terrain's water) and fed
-  puddles. New TOML field `dry` (gen_data check, builds.js drains the box before placing, docs/server.md "Dry builds",
-  `_example.toml`); Amrita has `dry = true`, version NOT bumped (a re-placement cannot repair waterlogged blocks); staging
-  repaired by hand (waterlogged=false + drain). A world reset places it dry.
-- Nostraille floated: 149 columns of dirt hung 12 blocks over a lake (terrain fit missed them, cause not found); filled by hand
-  on staging. Not reproducible from the repo, so a world reset may bring it back: re-verify with a column check.
-- Walpurgis Hall version 2: two hanging soul lanterns without support dropped; now on a chain. ttl-ops re-places it when it
-  deploys this commit: re-run `verify_build.py walpurgis_hall ttl:walpurgis -40 49 -79`.
-**Open**: Coleus keeps 21 `air -> water` cells at the lakeside (0.03 %, left); the 6 Mortal Realm waypoints still need
-`test mortal_waypoints` / verify; `tensura:boss_area` question from the entry below; confirm that `events` stays green on the
-run of this commit. Server tip: `push-scripts` from Git Bash on Windows needs `sh -c "tar -C /data -xf -"` (path mangling).
+**Merged**: PR #34 `fix-issues-12-4-5` with `--no-ff` into main (`eca49d2`); GitHub closed #12, #4, #5. Conflicts: decisions.md
+(kept every row), pack.toml (regenerated); gen_data, gen_quests, gen_npcs, build_structures --check, config_index re-run.
+**While I worked** PR #35 (site-biomes, ttl-portals 0.8.3) landed and the Overworld was reset: every overworld build was placed
+again on the new terrain (the mc pod crashed once on the 60 s watchdog inside a `forceload add` of the landmark placer, then
+placed all 38 builds on the second boot). My first verification (old world, 12 builds + Walpurgis, all >= 99.9 %) and my manual
+repairs on it are gone; everything below was **re-verified on the new world** at ~03:30 (nobody online, pod stable).
+**Verified** (`verify_build.py <name> --log --min 98`): dwarven_arena 100.00, amrita 100.00, coleus 99.99 (9 `lightning_rod` facing
+defaults), elmine 100.00, great_holy_mountain 100.00, jia 100.00, morgdahl 100.00, nasca 100.00, nostraille 100.00, raja 100.00,
+siltrosso 100.00, ulgr_nature_park 100.00, walpurgis_hall 100.00 (`walpurgis_hall ttl:walpurgis -40 49 -79`; v2, 10 glazed
+terracotta facing defaults). Wet: no waterlogged block and no water on defined air in any of them (Amrita included). Floating: no
+column of any build is unsupported except Nostraille (161 columns, 3.5 %) and Ulgr Nature Park (185, 4.0 %): their lowest dirt layer is
+the roof of a natural cave (air 6 to 56 blocks below, 12-27 for Nostraille); the terrain fit only fills when the heightmap surface is
+below the layer, so a cave under a hillside edge stays open. Invisible from outside, the layer itself carries the hall. (Later the
+same night: Nostraille's cave was a ravine open to the sky at the hall's north edge and was filled by hand; Ulgr's caves have no
+opening near the park. See the entry above.) Not fixed in the placer:
+a probe-and-fill pass in `terrainCommands` (look down from the layer's lowest block through air/water, fill to the first solid) would
+close them; it touches every build on every reset, so it needs its own PR and a re-verify of all builds.
+**Fixes** (decisions.md row of 19/11): Dwarven Arena moved to -30 -850 (the old spot lay inside the dwarf village's keepout once the
+survey moved it; on the new world the village stands at its nominal 250 -740, the arena at -30 72 -850, both fine); new TOML field `dry`
+(builds.js drains the box before placing; docs/server.md "Dry builds"; Amrita `dry = true`; on the old world 11 waterlogged stairs and
+slabs flooded its gallery floor); Walpurgis Hall v2 (two hanging lanterns now on chains); `arena_dwarven` test (bot got resistance:
+wave 2's armorsaurus felled it); `guild_npcs` test (the forceload box of Fuze's stand follows Blumund's new spot: corner
+-1086 65 -224, Fuze at -979 76 -163).
+**Tests**: ttl-ops: `eca49d2` 69/70 (events flaked, green alone), `cf7ad82` 69/70 (arena_dwarven, now fixed), `785036f` (PR #35,
+after the reset) 69/70 (bosses, green alone). My own full `test-all` on the new world after the placement (`MSYS2_ARG_CONV_EXCL=/data`
+needed from Git Bash, or the trial verdicts read nothing): **69/70, only guild_npcs** (stale Blumund coordinates), fixed and green
+alone; 70 test files in all (trial_climb, race_lock, arena_dwarven green), 157 offline unit tests OK. ttl-ops redeploys only when the
+pack changes, so the next pack commit gets the full ttl-ops run: expect 70/70, and watch `events` / `bosses`, which flaked once each.
+**Open**: Nostraille/Ulgr cave roofs (above; Nostraille filled since); Mortal Realm waypoints (verified since, see the entry
+above); `tensura:boss_area` question (entry below); the watchdog crash when the landmark placer forceloads a big area on freshly
+reset terrain (PR #35's domain: `forceload add` blocks the tick; consider smaller strips or `--no-wait` chunk loading). Git Bash on
+Windows: `push-scripts` and `exec ... /data` need `sh -c "tar -C /data -xf -"` / `MSYS2_ARG_CONV_EXCL=/data`.
 
 ## 18/11 night — PRs #18–#33 merged into main; ttl-ops on `bae23df`: **67/67 green** (merge-and-test run, Claude)
 
