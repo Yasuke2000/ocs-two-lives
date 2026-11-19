@@ -710,11 +710,11 @@ hash = "816aa48c7a5fea3862e3cc43d0b352cad166783556128222e004fb3ba1f8ed55"
 
 [[files]]
 file = "config/bluemap/maps/mortal_realm.conf"
-hash = "563011b9d3431d8c3b00089f91fa1f82af8a70cd9395237fbc55741ac29ab51a"
+hash = "826ca8d60e51c4b8fa906c115604c6469380a12505b36b603abe2b37534151fb"
 
 [[files]]
 file = "config/bluemap/maps/tensura.conf"
-hash = "54bb9024a3826a011d3f79eef12ea5fef42e1e5b208e371e127e9aaafee444c5"
+hash = "dba14800b9753fa9cded38c6df2583067729b7a3271d978ab3ade263062fb77b"
 
 [[files]]
 file = "config/bluemap/plugin.conf"
@@ -1546,11 +1546,11 @@ hash = "fe4ca0974aca38b27c94e3f1dc092f1688b54f27d9eaa728d61c6ccae4ca1313"
 
 [[files]]
 file = "config/ttl/canon_map.txt"
-hash = "19558c53e35282b9062ca492ba6a65290a40812d1a3d0c8fd2197832e7ecface"
+hash = "59c7ed0f184ed070c93b31a64bf18a1a0d7f634f74854f1576c044bd6cec9cf0"
 
 [[files]]
 file = "config/ttl/canon_regions.json"
-hash = "b23a1cd0edb014b59847ab14bc986456700479ac414a99f9af514054d8aae599"
+hash = "6232b560e40018f1261e96f0ebacd36349d5a190845ac68804d968874ee9b9b1"
 
 [[files]]
 file = "config/vanilla_structures/placement_structure_config.json5"
@@ -2642,7 +2642,7 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "de027721a92f2f0eac9178999f170857a3e2773c24d12832aa74875c4eaa1c06"
+hash = "c6b3a9a73b273c104ab7d47125305688c2d8314b473850352323e28b5b24868a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
