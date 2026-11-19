@@ -5,7 +5,7 @@
 // tickets (life/chunk_hold.js: loaded in the background, never a synchronous `forceload`), worked under a time budget
 // per tick (BUDGET_MS), its progress recorded per piece so a restart resumes where it stopped and a finished job never
 // runs twice (persistentData ttl.forest.<id>.* / ttl.troad.<id>.*: version, piece, counts).
-// Op commands: /ttl works list | run <forest|road> <id> [force] | expect forest <id> planted|standing <min giants> |
+// Op commands: /ttl works list | run <forest|road|fix> <id> [force] | expect forest <id> planted|standing <min giants> |
 // expect road <id> laid | expect road <id> surface <arc> | where road <id> <arc> | probe <x> <z>.
 const TtlWorks = {
   START_DELAY: 2400, // after the canon builds (1800 + their queue)
@@ -30,6 +30,7 @@ const TtlWorks = {
     // roads first: a road is a minute's work, the forests take a few
     if (typeof TtlTradeRoads !== 'undefined') out.road = TtlTradeRoads
     if (typeof TtlForests !== 'undefined') out.forest = TtlForests
+    if (typeof TtlWorldFixes !== 'undefined') out.fix = TtlWorldFixes
     return out
   },
   queue: [],
@@ -37,7 +38,7 @@ const TtlWorks = {
   waits: 0,
 
   data() {
-    return typeof TtlPlacementData === 'undefined' ? { forests: {}, roads: {}, keepouts: [] } : TtlPlacementData
+    return typeof TtlPlacementData === 'undefined' ? { forests: {}, roads: {}, keepouts: [], fixes: {} } : TtlPlacementData
   },
 
   // The command's result (1 placed, 0 failed): `server.runCommandSilent` returns nothing in KubeJS 2101, so a check
@@ -325,7 +326,7 @@ ServerEvents.commandRegistry(event => {
     var kind = String(Arguments.STRING.getResult(ctx, 'kind'))
     var id = String(Arguments.STRING.getResult(ctx, 'id'))
     var h = TtlWorks.kinds()[kind]
-    if (!h) return fail(ctx, `no work kind ${kind} (forest, road)`)
+    if (!h) return fail(ctx, `no work kind ${kind} (forest, road, fix)`)
     if (!h.all()[id]) return fail(ctx, `no ${kind} ${id}; see /ttl works list`)
     return then(ctx.source.getServer(), h, kind, id)
   }

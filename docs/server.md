@@ -168,6 +168,12 @@ overworld (`world_reset.js`) runs them again.
 | `/ttl works expect forest <id> standing <min giants>` | counts the giant trunks on the live terrain (loads their chunks) |
 | `/ttl works probe <x> <z>` | what the works read at a column: ground, the block under and on it, soil, wet, a trunk |
 
+**World fixes** (`life/world_fixes.js`, `design/data/world_fixes.toml`, kind `fix`): bounded one-time commands for a
+defect a placer left that its own repair does not reach (place audit 19/11: Raja's surface lava pool, Sacred Mountain's
+water pockets, Frost Palace's dirt skirt). Each runs once per version after the other works, its area held with
+tickets; log `[ttl] world fix <id>: N commands changed blocks, M had nothing to do, F failed (version V)`.
+`/ttl works run fix <id> [force]` runs one again.
+
 **Changing a forest or road.** Edit the TOML, plan again on the imported world, regenerate, bump `version`:
 `python -I tools/lerfing/trade_roads.py plan <id> --world <import dir>` (roads first: forests keep off them),
 `python -I tools/lerfing/forests.py plan <id> --world <import dir>`, `python -I tools/lerfing/forests.py measure <id>
