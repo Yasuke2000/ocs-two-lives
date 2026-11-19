@@ -32,6 +32,59 @@ use `~/.kube/ocs-two-lives.yaml` when it exists: kubectl straight to the K3s API
 ServiceAccount `ttl-operator`, which can only reach this namespace (pods, exec, logs, restarts). No SSH means no
 Tailscale SSH re-checks. Without the file they fall back to SSH to the node. Ask Yasuke for the key; never commit it.
 
+## Local testing
+
+Staging is slow to iterate on: push → ttl-ops deploys only while nobody is online → `test-all` → status on GitHub.
+Test on your own PC first, then push. Three tiers, fastest first:
+
+| Step | Command | Time |
+| --- | --- | --- |
+| Offline checks before a push | `bash tools/check.sh` | validate + the fast unit tier + `node --check` on changed JS |
+| Unit tests, quick tier | `bash tools/test_fast.sh` | ~7 s warm (the full suite is ~4 min) |
+| Unit tests, everything | `bash tools/test_fast.sh --all` | ~45 s (one process per module) |
+| In-game tests on a local server | `bash tools/local.sh up`, then `bash tools/local.sh test <name>` or `test all` | see below |
+
+**Unit tiers.** Almost all of the ~4 minutes is the pure-Python NBT reader parsing the big structures. `test_fast.sh`
+and `check.sh` set `TTL_FOOTPRINT_CACHE` (default `~/.cache/ocs-two-lives/footprints`), so `gen_data.read_footprint`
+keeps each build's footprint keyed by the structure files' bytes and the reader's code: a changed slab is read again,
+an unchanged one comes from the cache. The first run after many structures changed takes ~70 s. Tests marked
+`@heavy` (`tests/tiers.py`: the full block-by-block loads of tempest and dwargon in `verify_build`, the lerfing CLI)
+skip in the quick tier. `check.sh` runs them as well (`--all`) when blueprints, structure files or the structure
+tools changed. `check.sh` also sets `TTL_STRUCTURE_CHECK_CACHE`: `build_structures.py --check` (inside validate.py,
+it rebuilds every blueprint, ~3-4 minutes) remembers a pass under the hash of `blueprints/**` and the structure tools
+plus the hashes of the files it compared, and is skipped while all of those are unchanged. The plain
+`python -I -m unittest discover -s tests`, a plain `python tools/validate.py` and CI are unchanged and cache nothing.
+
+**Opt-in pre-push hook** (one clone; all worktrees share it; skip once with `git push --no-verify`):
+
+```bash
+printf '#!/bin/sh\nexec bash tools/check.sh\n' > "$(git rev-parse --git-common-dir)/hooks/pre-push"
+```
+
+**Local server** (`tools/local.sh`, Git Bash on Windows; Linux/WSL work too). Needs Java 21 (found in
+`~/.gradle/jdks` after a `mod/` build, or set `TTL_JAVA`), Python 3, packwiz and network for the first install.
+Everything lives in `%LOCALAPPDATA%\ocs-two-lives\local-server` (`TTL_LOCAL_DIR`), never in git; `local.sh where`
+prints it.
+
+| Command | What |
+| --- | --- |
+| `up` | Installs NeoForge from `pack/pack.toml`, the pack's server side with packwiz-installer (what the itzg image does for `PACKWIZ_URL`, from a refreshed copy of your working tree, so uncommitted edits count), your `mod/` build of ttl-portals in place of the released jar, the `ttl-overrides` datapack into the world; starts and waits for RCON. The first boot saves the world as snapshot `base`. Later `up`s only redo what changed (packwiz-installer when the mod list or versions changed, gradle when `mod/` changed; `TTL_LOCAL_FULL=1` forces both) |
+| `sync` | Copies what changed in `pack/` since the last up/sync into the running server and applies it: `server_scripts` → `/kubejs reload server_scripts`; `kubejs/data`, `datapacks`, `config/ttl`, `config/ftbquests` → `/reload`; startup scripts or other config → restart; mods or `mod/` → full `up`. Prints new KubeJS/`[ttl]` errors |
+| `test <name>` / `test all` | The same `tests/ingame/*.rcon` through the same runner as `tools/server.sh` (`tools/ingame.sh`), on one RCON connection (`tools/rcon.py --serve`). `test all` keeps each output in `test-out/` |
+| `down`, `restart`, `status`, `logs [n]`, `follow`, `rcon "<cmd>"` | As in `server.sh` |
+| `snapshot [name]`, `reset [name]` | Save the stopped world / put it back (default `base`) |
+
+Same as staging: NeoForge version, server-side mods and configs, datapack, `world-ttl`, hard, simulation distance 8,
+flight on, no whitelist, spawn protection 0, Aikar flags. Different on purpose: game and RCON bound to 127.0.0.1,
+offline mode (join from the Prism instance at `localhost`), a random RCON password in `state/`, no Discord token
+(Simple Discord Link stays offline; tests mute Discord anyway), no GitHub token (`/bug` saves to `ttl-reports/`),
+BlueMap's web server on 127.0.0.1:8100, a fixed seed (`TTL_LOCAL_SEED`), heap 6 GB (`TTL_LOCAL_MEMORY`) and view
+distance 8 (`TTL_LOCAL_VIEW`). Plan on ~8 GB of RAM for the Java process. Tests a local server cannot run are
+listed in `ingame_skip_reason` in `local.sh` and print `skipped (<reason>)`; none are listed yet.
+
+A local pass is not the staging pass: after the merge, ttl-ops still deploys and runs `test-all` on staging (the
+real map, real players' data, Discord). Use the local server to get there green the first time.
+
 ## Checking placed builds and landmarks
 
 **Does a build transfer well?** `python tools/verify_build.py <name> --log` (or `tools/server.sh verify <name>`)

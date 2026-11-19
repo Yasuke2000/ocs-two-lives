@@ -11,6 +11,7 @@ import nbt
 import tempest
 import tempest_city
 import tempest_town
+from tiers import heavy  # noqa: E402
 
 
 def chapter_destinations():
@@ -25,6 +26,7 @@ def chapter_destinations():
 
 
 class TempestPhaseTests(unittest.TestCase):
+    @heavy("exports tempest, ~4 s")
     def test_exported_slabs_preserve_existing_quest_and_npc_positions(self):
         previous = tempest
         protected = set(chapter_destinations())

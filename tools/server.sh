@@ -21,7 +21,11 @@ else
   rq() { printf '%q' "$1"; }
 fi
 rcon() { k exec deploy/mc -- rcon-cli "$(rq "$1")"; }
-plain() { sed 's/\[[0-9;]*m//g'; }
+log_grep() { k exec deploy/mc -- grep -E "$(rq "$1")" /data/logs/latest.log; }
+# plain, run_test, ingame_test and ingame_test_all; tools/local.sh runs the same tests on this PC.
+source "$(dirname "$0")/ingame.sh"
+# run_test with the `@expect` / `@import` lines and the ${anchor:...} / ${probe:...} tokens (overrides ingame.sh's):
+source "$(dirname "$0")/test_lib.sh"
 # Real players online (test bots excluded), comma-separated; empty when nobody is playing.
 humans() {
   local all bots
@@ -33,10 +37,6 @@ humans() {
 ' <<<"$all" | grep -vxF -f <(tr ',' '
 ' <<<"$bots") | grep -v '^$' | paste -sd, - || true
 }
-# run_test, the `@sleep` / `@until` / `@expect` / `@import` lines and the ${anchor:...} / ${probe:...} tokens of tests/ingame/*.rcon:
-# tools/test_lib.sh (documented there; sourced with a fake `rcon` by tests/test_lerfing_tests.py).
-source "$(dirname "$0")/test_lib.sh"
-
 case "${1:-}" in
   status)  k get pods,svc -o wide ;;
   logs)    k logs deploy/mc --tail="${2:-300}" ;;
@@ -75,37 +75,9 @@ case "${1:-}" in
       sleep 60
     done
     exit 1 ;;
-  # Tests never post to Discord (#story, #events): the mute is set for the run and lifted after it, and
-  # discord.js drops every post while a test bot is online as well.
-  test)
-    rcon "ttl discord mute on" >/dev/null
-    run_test "$(dirname "$0")/../tests/ingame/${2:?usage: server.sh test <name>}.rcon"
-    rcon "ttl discord mute off" >/dev/null ;;
-  # Every tests/ingame/*.rcon. A test fails on command errors, or when a trial test ends the other way
-  # than its name says (`*_fail` must fail, every other trial test must pass). Takes ~6 minutes.
-  test-all)
-    fails=0
-    rcon "ttl discord mute on" >/dev/null
-    for f in "$(dirname "$0")"/../tests/ingame/*.rcon; do
-      name=$(basename "$f" .rcon)
-      out=$(run_test "$f" 2>&1 | plain)
-      verdict=ok
-      if grep -qE 'Unknown or incomplete|Incorrect argument|An unexpected error|ttl: ' <<<"$out"; then verdict="command error"; fi
-      # `@import` tests (lerfing*.rcon) skip themselves on a world that is not Lerfing's import: not a failure.
-      if [ "$verdict" = ok ] && grep -q '^skipped: ' <<<"$out"; then verdict="skipped (not Lerfing's import)"; fi
-      if [[ $name == trial_* ]]; then
-        bot=$(grep -m1 -oE 'ttlbot spawn [A-Za-z0-9_]+' "$f" | cut -d' ' -f3)
-        result=$(k exec deploy/mc -- grep -E "$(rq "$bot (passed|failed) the")" /data/logs/latest.log | tail -1 | grep -oE 'passed|failed' || true)
-        want=passed; [[ $name == *_fail ]] && want=failed
-        [ "$result" = "$want" ] || verdict="expected $want, got ${result:-nothing}"
-      fi
-      [ "$verdict" = ok ] || [[ $verdict == skipped* ]] || fails=$((fails + 1))
-      printf '%-24s %s
-' "$name" "$verdict"
-    done
-    rcon "ttl discord mute off" >/dev/null
-    echo "$fails failing"
-    [ "$fails" -eq 0 ] ;;
+  # Tests never post to Discord (mute on for the run), see tools/ingame.sh. test-all takes ~6 minutes.
+  test)     ingame_test "${2:?usage: server.sh test <name>}" ;;
+  test-all) ingame_test_all ;;
   who) humans ;;
   *) echo "usage: server.sh status|logs [n]|follow|restart|deploy [--force]|rcon \"<cmd>\"|reload|push-scripts|place <name> <dim> <x> <y> <z>|verify <name> [<dim> <x> <y> <z>]|test <name>|test-all|who" >&2; exit 2 ;;
 esac

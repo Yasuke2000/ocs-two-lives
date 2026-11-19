@@ -13,6 +13,18 @@ StorageClass; the Longhorn 1.11.1 chart hard-codes `allowVolumeExpansion: true`.
 L4/L5/L8 and `lerfing-import` into `main`, merge PR #60, then run `tools/import_world.sh` and `tools/server.sh deploy`
 (docs/server.md, Runbook steps 3–7).
 **Not done in L10**: `pack/config/bluemap/maps/tensura.conf` (mask and markers come from `gen_map.py` after WP-L2/L4).
+## 19/11 — local test loop (branch `local-test-loop`, Claude)
+
+`tools/local.sh` (local NeoForge server: up/down/restart/sync/test/snapshot/reset), `tools/ingame.sh` (the in-game
+runner, now shared by `server.sh` and `local.sh`), `tools/rcon.py`, `tools/test_fast.sh`, `tools/check.sh`;
+docs/server.md "Local testing". **Verified**: quick unit tier 192 tests in ~7 s warm (~70 s on a cold cache), `--all`
+in ~45 s, plain full suite unchanged (192 OK, ~230 s); the shared runner against a stub RCON (verdicts, trial
+pass/fail, skips) and `tools/rcon.py` against a fake server (unit test). **Not yet verified**: `local.sh up` and
+everything after it never ran — the session that wrote it was not allowed to download NeoForge/packwiz-installer or
+start the server. First thing to do: `bash tools/local.sh up` on the workstation, fix what breaks (pid lookup on
+Windows, packwiz-installer on a localhost URL, BlueMap `ip:`), then measure cold up / restart / sync / `test all`
+and list the tests that cannot pass locally in `ingame_skip_reason`. `server.sh test`/`test-all` on staging go
+through `tools/ingame.sh` now: watch the first ttl-ops run after the merge.
 
 ## 19/11 day — watchdog root cause fixed (chunk tickets), events/bosses made deterministic, Treyni's shrine moved, boss_area DECIDED (Claude)
 

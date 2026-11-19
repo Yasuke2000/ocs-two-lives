@@ -8,8 +8,11 @@ Usage: gen_data.py            write the files
        gen_data.py --check    exit 1 if a file is out of date (used by validate.py)
 """
 import functools
+import hashlib
+import inspect
 import json
 import math
+import os
 import re
 import sys
 import tomllib
@@ -2068,6 +2071,38 @@ def rle(values: list[int]) -> list[int]:
 
 
 def read_footprint(files: list[Path]) -> dict:
+    """_read_footprint, cached on disk when TTL_FOOTPRINT_CACHE names a folder (tools/test_fast.sh, tools/check.sh).
+
+    Parsing the big structures in pure Python is ~1 minute per check_builds; the cache key is the structure files'
+    names and bytes plus the code that reads them, so a changed slab or reader is always read again. Unset (CI,
+    gen_data.py, validate.py on their own) nothing is cached.
+    """
+    cache = os.environ.get("TTL_FOOTPRINT_CACHE")
+    if not cache:
+        return _read_footprint(files)
+    h = hashlib.sha256()
+    for part in (inspect.getsource(_read_footprint), Path(nbt.__file__).read_text(encoding="utf-8"),
+                 repr(sorted(AIRISH)), str(NONE)):
+        h.update(part.encode("utf-8"))
+    for path in files:
+        h.update(Path(path).name.encode("utf-8") + b"\0" + Path(path).read_bytes())
+    entry = Path(cache) / f"footprint-{h.hexdigest()}.json"
+    try:
+        return json.loads(entry.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        pass
+    fp = _read_footprint(files)
+    try:
+        entry.parent.mkdir(parents=True, exist_ok=True)
+        tmp = entry.with_suffix(f".{os.getpid()}.tmp")
+        tmp.write_text(json.dumps(fp), encoding="utf-8")
+        os.replace(tmp, entry)
+    except OSError:
+        pass
+    return fp
+
+
+def _read_footprint(files: list[Path]) -> dict:
     """Size, slabs and per-column ground data of a build's structure files (slabs stacked along z).
 
     Per column of the box (row-major, z outer, x inner; run-length encoded as [value, count, ...]):

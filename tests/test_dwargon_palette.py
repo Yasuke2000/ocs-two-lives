@@ -14,9 +14,11 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "blueprints"))
 import dwargon  # noqa: E402
 import verify_build as vb  # noqa: E402
+from tiers import heavy  # noqa: E402
 
 
 class DwargonPaletteTests(unittest.TestCase):
+    @heavy("reads dwargon, ~6 s")
     def test_no_sandstone_or_meadow_in_the_structure(self):
         _, blocks, _ = vb.load_expected(vb.structure_files("dwargon"))
         names = collections.Counter(s.split("[")[0].split(":")[-1] for s in blocks.values())

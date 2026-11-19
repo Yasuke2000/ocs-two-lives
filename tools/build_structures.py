@@ -7,7 +7,10 @@ Usage: build_structures.py [name ...]   (no names: all blueprints)
        build_structures.py --check      exit 1 if a structure file is out of date (validate.py)
 """
 import ast
+import hashlib
 import importlib.util
+import json
+import os
 import sys
 import tempfile
 from pathlib import Path
@@ -74,10 +77,37 @@ def gallery(files: list[Path]) -> str:
     return "\n".join(lines)
 
 
+def check_cache_key() -> str:
+    """Hash of everything a blueprint build reads: blueprints/** (helpers and assets included) and the tools."""
+    h = hashlib.sha256()
+    tools = [ROOT / "tools" / n for n in ("blueprint.py", "nbt.py", "build_structures.py")]
+    for path in sorted(p for p in BLUEPRINTS.rglob("*") if p.is_file() and "__pycache__" not in p.parts) + tools:
+        h.update(path.relative_to(ROOT).as_posix().encode("utf-8") + b"\0" + path.read_bytes())
+    return h.hexdigest()
+
+
+def file_hash(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else ""
+
+
 def main() -> None:
     check = "--check" in sys.argv
     names = [a for a in sys.argv[1:] if not a.startswith("--")]
     stale = []
+    # Opt-in (tools/check.sh): a full --check rebuilds every blueprint (minutes). With TTL_STRUCTURE_CHECK_CACHE set,
+    # a passing check is remembered under the hash of its inputs together with the hashes of the files it compared;
+    # the next check passes at once only while both are unchanged. validate.py and CI on their own never cache.
+    cache_dir = os.environ.get("TTL_STRUCTURE_CHECK_CACHE") if check and not names else None
+    compared: list[Path] = []
+    if cache_dir:
+        marker = Path(cache_dir) / f"structures-{check_cache_key()}.json"
+        try:
+            seen = json.loads(marker.read_text(encoding="utf-8"))
+            if seen and all(file_hash(ROOT / rel) == sha for rel, sha in seen.items()):
+                print("structures: blueprints and structure files unchanged since a passing --check (cached)")
+                return
+        except (OSError, ValueError):
+            pass
     # Captured from the world (.nbt, tools/capture.py) wins over polished in WorldEdit (.schem,
     # tools/import_schem.py), which wins over code (.py) of the same name.
     by_name = {p.stem: p for p in sorted(BLUEPRINTS.glob("*.py")) if not p.stem.startswith("_")}
@@ -88,6 +118,7 @@ def main() -> None:
     if check:
         if not index.exists() or index.read_text(encoding="utf-8") != gallery(files):
             stale.append("docs/previews/README.md")
+        compared.append(index)
     else:
         PREVIEWS.mkdir(parents=True, exist_ok=True)
         index.write_text(gallery(files), encoding="utf-8", newline="\n")
@@ -103,10 +134,12 @@ def main() -> None:
                     nbt.write_gzip(fresh, data)
                     if not target.exists() or target.read_bytes() != fresh.read_bytes():
                         stale.append(name)
+                compared.append(target)
             for rel, text in getattr(bp, "outputs", {}).items():
                 out = ROOT / rel
                 if not out.exists() or out.read_text(encoding="utf-8") != text:
                     stale.append(rel)
+                compared.append(out)
             continue
         STRUCTURES.mkdir(parents=True, exist_ok=True)
         for name, data in structures(bp).items():
@@ -123,6 +156,14 @@ def main() -> None:
     if stale:
         print("FAIL structures out of date: " + ", ".join(stale) + " (run python tools/build_structures.py)")
         sys.exit(1)
+    if cache_dir:
+        try:
+            marker.parent.mkdir(parents=True, exist_ok=True)
+            tmp = marker.with_suffix(f".{os.getpid()}.tmp")
+            tmp.write_text(json.dumps({p.relative_to(ROOT).as_posix(): file_hash(p) for p in compared}), encoding="utf-8")
+            os.replace(tmp, marker)
+        except OSError:
+            pass
 
 
 if __name__ == "__main__":
