@@ -258,6 +258,31 @@ Q5 of 19/11, now enforced by code instead of by chunk status). Also used to keep
 | BlueMap | render mask = the design box; `min-inhabited-time 0`; purge + force-update on the reset day; ~2 h for the first render at 1 thread (half the import's area) |
 | Watchdog | nothing new: placements use `chunk_hold.js` tickets; sites are flat so repair phases finish in one or two ticks |
 
+### 3.8 The rasters as built (WP-W1, the interface W2–W4 read)
+
+`tools/world/svg2rasters.py` writes `pack/config/ttl/world/` (`tools/world/build.py` writes `world/build/` and only
+`--apply` writes there, together with `anchors.toml` x/z/y: that is the switch). `index.json` is the legend and repeats
+every number below. Pixel (i, j) = blocks x0 + 4i .. + 3, z0 + 4j .. + 3, value taken at the pixel centre; rows north to
+south. Box = content (land, lakes, roads, sites) + 1,200 of sea, rounded out to 512. The starter map: 3072 × 2560 px,
+built in ~1 minute on one core.
+
+| File | Format | Value |
+| --- | --- | --- |
+| `height.png` | 16-bit grey | `round((H + 64) × 16)`; H = designed surface = y of the first air block (offset = (H − 128)/128) |
+| `rugged.png` | 8-bit grey | `round(rugged × 255)`; classes flat < 0.10 (factor 8), rolling < 0.45 (5), hills < 0.75 (3), alpine (1.5); factor piecewise-linear (0 → 8, 0.1 → 8, 0.3 → 5, 0.6 → 3, 0.8 → 1.5); jaggedness 0 below 0.8 → 0.6 at 1.0 |
+| `water.png` | 16-bit grey | 0 dry, else level + 64; level = first air above the water (sea-level convention): fill sources from the bed to level − 1. Lakes, river reaches (one level per reach, steps of 1–2 every ≥ 40 blocks), plates under water. Not the open sea |
+| `road.png` | 8-bit | 0 none, 1 corridor (graded, no surface), 2 trail, 3 main, 4 trail bridge, 5 main bridge; exact centrelines and profiles in `roads.json` |
+| `biome.png` | 8-bit palette | index into `index.json` `files.biome.biomes`; 0 = `#ocean` (vanilla's ocean by depth and temperature) |
+| `sites.png` | 8-bit | 1-based index into `index.json` `sites` inside every plated site's r |
+| `exclude.png` | 8-bit bits | 1 site r + `data-margin` (default 48), 2 road corridor + `data-margin` (default 8), 4 carve cavity (box + margin + 8). Q4: no structure start where non-zero; `ttl:design_dry` uses bits 1 and 4 |
+| `sites.json` | CanonSites schema | flat sites; carve sites left out (a flat pull would level the massif); lakeside/coast radius stops 4 short of the water |
+| `canon_map.txt` | CanonGrid format | the chunk grid of the design box ('.' sea, '~' lake/river, region letters) |
+
+A site's r is the SVG circle's, raised to the build's `min_r` from `world/sites.toml` when drawn smaller (§4.2: the
+footprint drives the site). Carve sites raise the massif to y + roof + `min_cover` over every roof column (dilated one
+pixel so bilinear sampling never dips under it) and cut the approach ravine through the roofless run of the box edge on
+`facing`.
+
 ## 4. Builds
 
 ### 4.1 Each of the 58 anchors becomes a designed site

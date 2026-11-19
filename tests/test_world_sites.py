@@ -75,6 +75,16 @@ class WorldSites(unittest.TestCase):
                 fp = self.src.footprints[a["build"]]
                 self.assertEqual(rec["box"], [fp["size"][0], fp["size"][2]], a["id"])
 
+    def test_no_two_sites_overlap(self):
+        if not sfb.SVG.is_file():
+            self.skipTest("no world/map.svg yet")
+        svg = sfb.svg_sites(sfb.SVG)
+        self.assertEqual(sfb.overlaps(self.sites, svg, self.src.anchors), [])
+        for aid, rec in self.sites.items():
+            if "svg_r" in rec:      # drawn too small: the site still gets the build's min_r (a warning, not a misfit)
+                self.assertEqual(rec["r"], rec["min_r"], aid)
+                self.assertEqual(rec["svg_r"], round(svg[aid][1]), aid)
+
     def test_landmarks_and_arrival(self):
         for a in self.src.anchors.values():
             rec = self.sites[a["id"]]
@@ -84,8 +94,11 @@ class WorldSites(unittest.TestCase):
             elif a.get("kind") == "arrival":
                 self.assertGreaterEqual(rec["r"], self.src.safe_radius + 12)
             elif a.get("kind") in ("pin", "spot"):
-                self.assertEqual(rec["r"], sfb.PIN_R, a["id"])
+                # coordinates only: no plate, no build; r 8 unless the map draws the pin larger (Lake Siss)
                 self.assertNotIn("plate", rec, a["id"])
+                self.assertNotIn("ground", rec, a["id"])
+                if not sfb.SVG.is_file():
+                    self.assertEqual(rec["r"], sfb.PIN_R, a["id"])
 
     def test_first_pass_grounds(self):
         self.assertEqual(self.sites["tempest"]["y"], 70)

@@ -29,10 +29,12 @@ Files written to --out (index.json is the legend the mod reads; every number bel
                   Tempest (core r 200 tensura:ancient_forest, band to 600 minecraft:dark_forest, inside region J) >
                   `forests` type > river on lake/river water > beach / snowy_beach / stony_shore on the coast strip >
                   peaks by height and rugged > the region's default_biome (sites.toml [region.<letter>]) > plains.
-    sites.png     8-bit: 1-based index into legend `sites` inside every plated site's radius r; 0 elsewhere.
+    sites.png     8-bit: 1-based index into legend `sites` inside every plated site's radius r; 0 elsewhere. r is
+                  the SVG circle's, raised to the build's min_r (tools/world/sites_from_builds.py) when drawn smaller.
     exclude.png   8-bit bit mask, the Q4 structure exclusion (no structure start where non-zero): 1 = a plated
-                  site's r + site_margin, 2 = a road corridor + road_margin, 4 = a carve cavity (the build's box +
-                  margin: Dwargon's city, the Sealed Cave). The ttl:design_dry wrapper uses bits 1 and 4.
+                  site's r + its data-margin (default 48), 2 = a road corridor + its data-margin (default 8), 4 = a
+                  carve cavity (the build's box + margin: Dwargon's city, the Sealed Cave). The ttl:design_dry
+                  wrapper uses bits 1 and 4.
     index.json    the legend: box, scale, encodings, biome list, classes, sites (id, kind, x, z, r, fade, y, ...),
                   water bodies, roads, warnings, the source hash and seed.
     sites.json    {"sites": [...]} in the schema CanonSites reads (name, centre, radius, fade, terrain "flat", ground,
@@ -103,6 +105,14 @@ ALLOWED_BIOMES = {"minecraft:" + b for b in (
     "wooded_badlands windswept_hills windswept_forest windswept_gravelly_hills stony_peaks jagged_peaks frozen_peaks "
     "snowy_slopes snowy_plains ice_spikes mushroom_fields").split()} | {
     "tensura:ancient_forest", "tensura:barren_land", "tensura:desert_of_death", "tensura:miasmic_plains"}
+BIOMES_TXT = HERE / "biomes.txt"
+if BIOMES_TXT.is_file():
+    # the map checker's list is the one source; the constant above is the fallback (design §2.2.1)
+    ALLOWED_BIOMES = set()
+    for _line in BIOMES_TXT.read_text(encoding="utf-8").splitlines():
+        _line = _line.split("#", 1)[0].strip()
+        if _line:
+            ALLOWED_BIOMES.add(_line if ":" in _line else "minecraft:" + _line)
 AUTO_BIOMES = ["#ocean", "minecraft:river", "minecraft:frozen_river", "minecraft:beach", "minecraft:snowy_beach",
                "minecraft:stony_shore"]
 RUGGED = {"default_land": 0.2, "default_sea": 0.1, "hill": 0.4, "mountain": 0.8,
@@ -362,6 +372,9 @@ class Site:
         self.ov = ov or {}
         akind = self.anchor.get("kind")
         self.plated = akind in sfb.PLATED if akind else r > sfb.PIN_R
+        self.svg_r = r
+        if self.plated and self.req.get("min_r", 0) > r:
+            self.r = r = self.req["min_r"]       # the footprint drives the site (design §4.2)
         self.fade = int(self.ov.get("fade", clamp(round(r / 2), 24, 96)))
         self.biome = self.ov.get("biome")
         self.facing = self.ov.get("facing", "south" if kind == "carve" else "auto")
@@ -780,7 +793,12 @@ class World:
                 self.warn("%s: a site needs data-id and r" % s.label)
                 continue
             kind = s.get("data-site", "clearing")
-            out.append(Site(sid, kind, s.cx, s.cy, s.r, self.anchors.get(sid), reqs.get(sid), self.ov.get(sid)))
+            t = Site(sid, kind, s.cx, s.cy, s.r, self.anchors.get(sid), reqs.get(sid), self.ov.get(sid))
+            t.margin = s.num("data-margin", self.o.site_margin)
+            if t.r > t.svg_r:
+                self.warn("site %s: drawn r %d is smaller than its build needs (min_r %d); using %d" % (
+                    sid, t.svg_r, t.r, t.r))
+            out.append(t)
         # relative anchors (of/dx/dz) follow their parent, as gen_data requires
         by_id = {t.id: t for t in out}
         for t in out:
@@ -850,8 +868,8 @@ class World:
             self.warn("site %s: lakeside without a lake or river within r + 32" % t.id)
         under = t.surface == "water" and near is not None
         reach = t.r + (max(t.fade, 2 * VALLEY) if t.kind == "plateau" else t.fade)
-        sm = self.o.site_margin
-        for g, d, x, z in self.disc(t, reach + sm):
+        sm = t.margin
+        for g, d, x, z in self.disc(t, max(reach, t.r + sm)):
             if d <= t.r + sm:
                 self.excl[g] |= EXCL["site"]
             if d > reach:
@@ -986,6 +1004,7 @@ class World:
                 kind = "trail"
             half = ROAD_HALF[kind]
             corridor = half + 3
+            rmargin = s.num("data-margin", self.o.road_margin)
             rid = s.get("data-id") or self.road_id(s.pts, n)
             samples = densify(s.pts, PX)
             ys, wet, levels = [], [], []
@@ -1003,7 +1022,7 @@ class World:
                 if length > BRIDGE_MAX:
                     self.warn("road %s: a %d-block wet run (bridges are at most %d)" % (rid, length, BRIDGE_MAX))
             best = {}
-            band = corridor + VALLEY
+            band = max(corridor + VALLEY, corridor + rmargin)
             for k in range(len(samples) - 1):
                 ax, az, _ = samples[k]
                 bx, bz, _ = samples[k + 1]
@@ -1022,7 +1041,7 @@ class World:
             surf = ROAD_CLASS[kind]
             bridge = ROAD_CLASS[kind + "_bridge"]
             for g, (d, y, on_wet) in sorted(best.items()):
-                if d <= corridor + self.o.road_margin:
+                if d <= corridor + rmargin:
                     self.excl[g] |= EXCL["road"]
                 in_site = self.site[g] != 0
                 wet_px = not self.land[g] or self.wkind[g] in (1, 2)
@@ -1039,14 +1058,15 @@ class World:
                 if d <= corridor:
                     self.H[g] = y
                     self.rug[g] = 0.0
-                else:
+                elif d <= corridor + VALLEY:
                     dd = d - corridor
                     self.H[g] = clamp(self.H[g], y - dd, y + dd)
                     if dd < 8:
                         self.rug[g] = min(self.rug[g], 0.3 * dd / 8)
             pts = [[round(x, 1), round(z, 1), round(prof[k], 2), 1 if wet[k] else 0]
                    for k, (x, z, _) in enumerate(samples)]
-            self.roads_info.append({"id": rid, "kind": kind, "half": half, "corridor": corridor, "points": pts,
+            self.roads_info.append({"id": rid, "kind": kind, "half": half, "corridor": corridor, "margin": rmargin,
+                                    "points": pts,
                                     "bridges": [[a * PX, (b - a + 1) * PX] for a, b in runs]})
 
     def road_id(self, pts, n):
@@ -1410,7 +1430,9 @@ def legend(world):
         rec = {"id": t.id, "kind": t.kind, "x": int(round(t.x)), "z": int(round(t.z)), "r": int(round(t.r)),
                "plated": t.plated, "y": t.ground}
         if t.plated:
-            rec.update({"index": t.index, "fade": t.fade, "biome": t.biome})
+            rec.update({"index": t.index, "fade": t.fade, "biome": t.biome, "margin": t.margin})
+            if t.svg_r != t.r:
+                rec["svg_r"] = int(round(t.svg_r))
             if t.kind == "carve":
                 rec["cover"] = t.cover
         sites.append(rec)

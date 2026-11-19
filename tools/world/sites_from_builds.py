@@ -20,8 +20,9 @@ Dwargon footprints of their own generators, landmarks.toml `reach`, arrival.toml
     y       the walking level = the plate's height: the site's ground from the rasters (svg2rasters' index.json), else
             the first-pass value of design §4.1 (Tempest 70, Dwargon's gate 146, Dragon's Nest 272), else absent
 
-`site` and `r` come from the SVG `sites` layer when --svg is given (it is the source); without a map they are the
-first-pass assignment of design §4.1, with r raised to min_r. Keys a person sets in world/sites.toml and the generator
+`site` and `r` come from the SVG `sites` layer when there is a map (it is the source), r raised to min_r when the circle
+is drawn smaller (design §4.2: the footprint drives the site; `svg_r` keeps the drawn radius and the run warns); without
+a map they are the first-pass assignment of design §4.1, r raised to min_r likewise. Keys a person sets in world/sites.toml and the generator
 keeps: plate_y (the design's `ground` override of the plate level; renamed because `ground` is the build's placement
 mode here), fade, biome, facing, min_cover, surface, clear_above, notes. Pins and spots only pin coordinates (r 8, no
 plate). Nothing in the game reads sites.toml yet: it feeds svg2rasters.py and, at the switch, design/builds.
@@ -251,8 +252,13 @@ def derive(src, svg=None, grounds=None, existing=None):
             rec["r"] = PIN_R if aid not in svg else int(round(svg[aid][1]))
             rec["min_r"] = PIN_R
         else:
-            want = int(round(svg[aid][1])) if aid in svg else max(int(old.get("r", 0)), int(fp.get("r", 0)), req["min_r"])
-            rec["r"] = want
+            if aid in svg:
+                drawn = int(round(svg[aid][1]))
+                rec["r"] = max(drawn, req["min_r"])
+                if drawn < req["min_r"]:
+                    rec["svg_r"] = drawn
+            else:
+                rec["r"] = max(int(old.get("r", 0)), int(fp.get("r", 0)), req["min_r"])
             rec["min_r"] = req["min_r"]
         for key in ("box", "plate", "margin", "height"):
             if key in req:
@@ -275,6 +281,27 @@ def derive(src, svg=None, grounds=None, existing=None):
             rec["y"] = int(y)
         out[aid] = rec
     return out, reqs
+
+
+def drawn_small(sites):
+    """Sites whose SVG circle is smaller than the build needs (the converter uses min_r; redraw the circle)."""
+    return ["%s: drawn r %d < min_r %d; the site uses r %d (redraw the circle in world/map.svg)"
+            % (aid, rec["svg_r"], rec["min_r"], rec["r"]) for aid, rec in sites.items() if "svg_r" in rec]
+
+
+def overlaps(sites, svg, anchors):
+    """Plated sites whose discs (r, after the footprint) overlap; an anchor and its `of` parent are one place."""
+    plated = [(aid, svg[aid][2], svg[aid][3], sites[aid]["r"]) for aid in sites
+              if aid in svg and anchors.get(aid, {}).get("kind") in PLATED]
+    out = []
+    for n, (a, ax, az, ar) in enumerate(plated):
+        for b, bx, bz, br in plated[n + 1:]:
+            if anchors[a].get("of") == b or anchors[b].get("of") == a:
+                continue
+            d = math.hypot(ax - bx, az - bz)
+            if d < ar + br:
+                out.append("%s and %s overlap: %d blocks apart, r %d + %d" % (a, b, d, ar, br))
+    return out
 
 
 def problems(sites, reqs):
@@ -317,9 +344,9 @@ HEADER = """\
 # sites layer and the rasters; `python -I tools/world/sites_from_builds.py` rewrites it. Claude owns this file
 # (ChatGPT never edits it). Nothing in the game reads it until the switch to the own world.
 #
-# Generated every run:  site (SVG data-site, else the first pass), r (SVG, else the first pass raised to min_r),
-#   min_r, box, plate, margin, height, roof (carve), ground = "fixed" (builds), y (the walking level = plate height,
-#   from the rasters once they exist).
+# Generated every run:  site (SVG data-site, else the first pass), r (SVG or first pass, at least min_r), svg_r (the
+#   SVG circle when it is drawn smaller than min_r: redraw it), min_r, box, plate, margin, height, roof (carve),
+#   ground = "fixed" (builds), y (the walking level = plate height, from the rasters once they exist).
 # Kept when set here:   plate_y (plate level override), fade, biome (inside r), facing (north/south/east/west/auto),
 #   min_cover (carve, >= 6), surface ("water": the plate lies under the water), clear_above, notes.
 # tests/test_world_sites.py checks that every build fits its site and every carve site keeps >= 6 blocks of cover.
@@ -368,6 +395,8 @@ def main(argv=None):
     bad = problems(sites, reqs)
     for b in bad:
         print("error: " + b, file=sys.stderr)
+    for w in drawn_small(sites):
+        print("warn: " + w, file=sys.stderr)
     out = Path(args.out)
     if args.check:
         if not out.is_file() or out.read_text(encoding="utf-8") != text:

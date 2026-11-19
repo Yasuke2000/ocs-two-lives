@@ -264,7 +264,8 @@ class WorldRasters(unittest.TestCase):
         for s in self.r.index["sites"]:
             if not s["plated"]:
                 continue
-            reach = s["r"] + margin["site"]
+            self.assertEqual(s["margin"], margin["site"])     # no data-margin on the synthetic sites: the default
+            reach = s["r"] + s["margin"]
             for d in range(0, int(reach) - 3, 6):
                 for ang in range(0, 360, 30):
                     x = s["x"] + d * math.cos(math.radians(ang))
