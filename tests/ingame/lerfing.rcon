@@ -30,12 +30,16 @@ execute in minecraft:overworld run forceload add ${probe:paulzero_trunk.x} ${pro
 execute in minecraft:overworld run forceload add ${probe:barren_lands.x} ${probe:barren_lands.z}
 execute in minecraft:overworld run forceload add ${anchor:tempest}
 execute in minecraft:overworld run forceload add ${anchor:dwargon}
+execute in minecraft:overworld run forceload add ${anchor:goblin_village}
+execute in minecraft:overworld run forceload add ${anchor:arrival}
 @until 120 execute in minecraft:overworld if loaded ${probe:chest.x} ${probe:chest.y} ${probe:chest.z}
 @until 120 execute in minecraft:overworld if loaded ${probe:canaat_summit.x} ${probe:canaat_summit.y} ${probe:canaat_summit.z}
 @until 120 execute in minecraft:overworld if loaded ${probe:paulzero_trunk.x} ${probe:paulzero_trunk.y} ${probe:paulzero_trunk.z}
 @until 120 execute in minecraft:overworld if loaded ${probe:barren_lands.x} 64 ${probe:barren_lands.z}
 @until 120 execute in minecraft:overworld if loaded ${anchor:tempest.x} 64 ${anchor:tempest.z}
 @until 120 execute in minecraft:overworld if loaded ${anchor:dwargon.x} 64 ${anchor:dwargon.z}
+@until 120 execute in minecraft:overworld if loaded ${anchor:goblin_village.x} 64 ${anchor:goblin_village.z}
+@until 120 execute in minecraft:overworld if loaded ${anchor:arrival.x} 64 ${anchor:arrival.z}
 # ---- 1. no liquid_carvers regeneration: his blocks ----
 @expect 5 Test passed :: execute in minecraft:overworld if block ${probe:chest} ${probe:chest.block}
 @expect 5 Test passed :: execute in minecraft:overworld if block ${probe:canaat_summit} ${probe:canaat_summit.block}
@@ -75,6 +79,8 @@ execute in minecraft:overworld run forceload remove ${probe:paulzero_trunk.x} ${
 execute in minecraft:overworld run forceload remove ${probe:barren_lands.x} ${probe:barren_lands.z}
 execute in minecraft:overworld run forceload remove ${anchor:tempest}
 execute in minecraft:overworld run forceload remove ${anchor:dwargon}
+execute in minecraft:overworld run forceload remove ${anchor:goblin_village}
+execute in minecraft:overworld run forceload remove ${anchor:arrival}
 kubejs stages remove TtlBotLerf ttl.life2
 ttl reset TtlBotLerf
 ttlbot remove TtlBotLerf

@@ -21,7 +21,7 @@
 #   ${probe:chest}               "-453 73 979" (x y z)       ${probe:chest.y+1}    ${probe:ring_east.x}      ${probe:chest.block}
 # An unknown token or an offset on a non-number prints "ttl: ..." and the line is not sent, so test-all counts it as a failure.
 
-FAILED_RE='Unknown or incomplete|Incorrect argument|An unexpected error|ttl: |Test failed'
+FAILED_RE='Unknown or incomplete|Incorrect argument|Expected whitespace|An unexpected error|ttl: |Test failed'
 TTL_ANCHORS_ENV="${TTL_ANCHORS_ENV:-$(dirname "${BASH_SOURCE[0]}")/../tests/anchors.env}"
 declare -gA TTL_ANCHORS=()
 TTL_ANCHORS_LOADED=

@@ -88,8 +88,8 @@ const TtlAnchors = {
   "dwarven_arena": {
     "kind": "build",
     "region": "D",
-    "x": 2260,
-    "z": -80
+    "x": 2100,
+    "z": -90
   },
   "el_dorado": {
     "kind": "build",

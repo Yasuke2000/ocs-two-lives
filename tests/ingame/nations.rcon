@@ -50,6 +50,10 @@ ttl nation test TtlBotNatB life2
 # Into the overworld only now: a Life 1 soul there is sent back to the Mortal Realm at once (life/confine.js).
 # The two nations stand 100 and 300 blocks east of Tempest and 100 south (tempest anchor, design/data/anchors.toml), set on the
 # surface, not at a fixed y (the old fixed spots 100 100 / 300 100 now lie 1,600 blocks west of Tempest, at the Blumund channel).
+# Load both spots first: `positioned over` reads the heightmap of an unloaded chunk as the bottom of the world.
+execute in minecraft:overworld run forceload add ${anchor:tempest.x+100} ${anchor:tempest.z+100} ${anchor:tempest.x+300} ${anchor:tempest.z+100}
+@until 120 execute in minecraft:overworld if loaded ${anchor:tempest.x+102} 64 ${anchor:tempest.z+100}
+@until 120 execute in minecraft:overworld if loaded ${anchor:tempest.x+300} 64 ${anchor:tempest.z+100}
 execute in minecraft:overworld positioned ${anchor:tempest.x+100} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotNatA ~ ~ ~
 execute in minecraft:overworld positioned ${anchor:tempest.x+102} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotNatB ~ ~ ~
 ttl nation expect TtlBotNatA try_found_TtlBotLand noparty
@@ -225,6 +229,7 @@ ttl nation test TtlBotNatD leaveparty
 ttl nation test TtlBotNatA leaveparty
 ttl rep bonus TtlBotNatA -100
 ttl rep bonus TtlBotNatB -100
+execute in minecraft:overworld run forceload remove ${anchor:tempest.x+100} ${anchor:tempest.z+100} ${anchor:tempest.x+300} ${anchor:tempest.z+100}
 ttlbot remove TtlBotNatA
 ttlbot remove TtlBotNatB
 ttlbot remove TtlBotNatC

@@ -126,9 +126,14 @@ its capture file and only the forceloads it added). The comparison is unit-teste
 lizardmen, orc and dwarf villages, a burnt tower, a giant ancient tree) placed with `/place structure` at
 canon_regions.json landmarks, once, about 45 s after start (one at a time) and again after an overworld reset.
 Log lines: `[ttl] landmark <name> placed: <structure> at X Y Z (…, box …)` or `could not be placed`.
-Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a tp command), `/ttl landmark place <name|all>`
-(places again; the old copy stays). Change a landmark or bump its `version` in the TOML, then
-`python tools/gen_data.py`.
+The placer grounds every rigid group of pieces on the real terrain (a jigsaw alone would use the generator's
+heights, not Lerfing's) and fills a foundation under it: `... N rigid group(s) grounded by A..B` and
+`[ttl] build landmark <name>: repaired N foundation`. Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a
+tp command), `/ttl landmark place <name|all>` (places again; the old copy stays), `/ttl landmark remove <name>` (takes
+out the current copy block for block, `life/unplace.js`). To move a landmark for good: bump its `version` and list
+the old spot in its TOML `remove` (taken out once on the next start: `[ttl] unplace landmark <name> old copy ...`),
+then `python tools/gen_data.py`. A build whose x/z, anchor or `beside` changes has its old copy taken out the same way
+before it is surveyed again (`[ttl] build <name>: old copy taken out`).
 
 ## Permissions
 

@@ -1,5 +1,21 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 evening — Lerfing placements: grounded landmarks, no duplicates, arena in the dwarf village (branch `fix-lerfing-placements`, Claude)
+
+**Fixed** (design/decisions.md 19/11 "Lerfing placements"): landmarks are grounded on the real terrain with a foundation
+(the dwarf village floated on the generator's heights); placed once per boot (the world-reset pass re-queued the one
+being placed: goblin_village twice); the marker read-back that reported placed structures as "failed" is gone (orc_camp's
+4 "failures" on staging may be 4 orc villages); old copies are taken out block for block (`life/unplace.js`, TOML
+`remove`, builds whose plan changed); the Dwarven Arena moves next to the dwarf village (version 2, `beside`).
+**Verified locally** (local Lerfing server): removals 90-100 % matched, absent copies left alone, arena v2 verify
+100.00 %, old arena site clean; in-game tests landmarks, builds, build_repair, world_landmarks, lerfing, nations pass.
+**On the next staging deploy** (watch the log): `[ttl] unplace landmark goblin_village old copy lerfing_1/2`, `orc_camp
+lerfing_1..4` (only the spots that really hold a copy: "not there any more" for the others), `dwarf_village lerfing_1`,
+then `landmark ... placed ... grounded by`, `build dwarven_arena: old copy taken out`, `dwarven_arena placed`. Then
+`tools/server.sh verify dwarven_arena` and `/ttl landmark where dwarf_village`.
+**Not touched**: lizardmen_village, lizardmen_caverns, ogre_village_ruin, treyni_grove keep their ungrounded v1 copies
+(staging placed each at try 1 and nobody reported them); bump their version to re-place them grounded.
+
 ## 19/11 afternoon — local test loop runs on this PC (branch `local-up-wait`, Claude)
 
 **Verified on the workstation**: `local.sh up` cold 384 s, warm restart 48-63 s, clean stop 6-9 s ("All dimensions are
