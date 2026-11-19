@@ -168,6 +168,7 @@ _COLORS = [
     ("terracotta", (152, 94, 67)), ("dripstone", (134, 107, 92)), ("brass", (205, 160, 70)),
     ("cogwheel", (160, 125, 80)), ("shaft", (140, 140, 140)),
     ("podzol", (95, 68, 38)), ("fern", (80, 130, 60)), ("scaffolding", (205, 175, 105)),
+    ("mycelium", (111, 99, 105)), ("clay", (160, 166, 179)),
 ]
 
 # Dyed terracotta is much duller than its dye colour.

@@ -11,7 +11,7 @@
 // 3. place the slabs, one every 2 ticks;
 // 4. clear terrain above the open-sky columns (road, ravine, skylight crack) and cut 1:1 slopes round them;
 // 5. fill the gap under every footprint column down to the ground (nothing floats), plus a 1:1 talus skirt
-//    round the edges, in banded sandstone like the mountain; FILLS_PER_TICK one-column fills per tick.
+//    round the edges, in banded Canaat rock like the mountain; FILLS_PER_TICK one-column fills per tick.
 // 5b. terrain repair (life/repair.js): caves, lava and water under the city filled, the plain continued at the road
 //    level in box columns the blueprint leaves empty, pits and crevices in the talus and the margin closed (no second
 //    slab pass here, so the repair never touches a block the blueprint defines, explicit air included: `bottom`).
@@ -20,7 +20,7 @@
 // King Gazel (TtlDwargonGazel): tensura:gazel_dwargo seated on his throne, checked every 30 s while the throne
 // is loaded and summoned again when missing. He shows a boss bar and wakes on right-click unless tamed, so he
 // gets a dummy Owner (no real player), NoAI, Invulnerable, Silent, PersistenceRequired; Phase 0 = seated.
-const TTL_DWARGON_VERSION = 6
+const TTL_DWARGON_VERSION = 7
 
 const TtlDwargon = {
   // The arrival point in front of the gate; its blueprint coordinates are TtlDwargonFootprint.arrival.
@@ -31,8 +31,11 @@ const TtlDwargon = {
   FILLS_PER_TICK: 150,
   FALLBACK_DEPTH: 48,
   BANDED: 12,
-  BANDS: ['smooth_sandstone', 'sandstone', 'smooth_sandstone', 'white_terracotta', 'sandstone',
-    'smooth_sandstone', 'terracotta', 'smooth_sandstone', 'sandstone', 'white_terracotta'],
+  // The Canaat's sloping-ground mix (blueprints/dwargon.py CANAAT_SLOPE, sampled from Lerfing's map), one entry
+  // per 4-block band, in about the map's proportions: clay 30 %, gravel/cobblestone/stone 20 % each, 5 % tuff and
+  // light gray terracotta. Fills below the banded top are stone, like the map under its ~7-block cover.
+  BANDS: ['clay', 'gravel', 'cobblestone', 'stone', 'clay', 'light_gray_terracotta', 'gravel', 'clay', 'cobblestone',
+    'stone', 'clay', 'gravel', 'cobblestone', 'stone', 'clay', 'gravel', 'stone', 'cobblestone', 'clay', 'tuff'],
 
   run(server, cmd) {
     return server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} run ${cmd}`)
@@ -112,7 +115,7 @@ const TtlDwargon = {
   },
 
   // Banded rock like the mountain's strata: one fill per 4-block band of the column.
-  // Only the top BANDED blocks are banded; deeper gaps get one sandstone fill (keeps the command count down).
+  // Only the top BANDED blocks are banded; deeper gaps get one stone fill (keeps the command count down).
   rockCommands(x, z, y1, y2, base, replaceAir, out) {
     var off = Math.floor(this.hash(x >> 3, z >> 3) * 4)
     var streak = this.hash(x, z) < 0.07 ? (this.hash(z, x) < 0.5 ? 'stone' : 'andesite') : null
@@ -120,7 +123,7 @@ const TtlDwargon = {
     var tail = replaceAir ? ' replace minecraft:air' : ''
     var y = y1
     if (y2 - y1 >= this.BANDED) {
-      out.push(`fill ${x} ${y1} ${z} ${x} ${y2 - this.BANDED} ${z} minecraft:${streak || 'sandstone'}${tail}`)
+      out.push(`fill ${x} ${y1} ${z} ${x} ${y2 - this.BANDED} ${z} minecraft:${streak || 'stone'}${tail}`)
       y = y2 - this.BANDED + 1
     }
     while (y <= y2) {
