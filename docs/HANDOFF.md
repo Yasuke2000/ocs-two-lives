@@ -1,5 +1,22 @@
 # Handoff — current state of the work (update this when you stop)
 
+
+## 19/11 late — staging round 2 (branch `fix-staging-round2`, Claude)
+
+Bugs from the 9d27705 deploy, fixed and verified on the local Lerfing server (design/decisions.md 19/11 "Staging round 2"):
+**forests** v2 (the trees stood; `runCommandSilent` returns nothing, so all were counted failed; now real counts, no
+double planting, floor cleared, giants' check box held: local tempest 40/52 giants and ~1060 understory standing, treyni
+69/69; a second forced run plants ~0); **NPC gear** (goblins picked up loot into the weapon hand; rev 2, re-equip on
+mismatch); **locate** (`ServerLevel.dimension` is a KubeJS property); **arena_dwarven** (stale loop after `/reload`;
+local only); **banners** (were patterned; count fixed); **landmarks** lizardmen_village, lizardmen_caverns,
+ogre_village_ruin, treyni_grove v2 grounded (old copies removed 100 %); **world fixes** raja_lava,
+sacred_mountain_water, frost_palace_skirt; tests: npc_defend, domains, sidequests (escort), nations (bots resist Jura's
+mobs), walpurgis, arena_dwarven (fill split). **On the next staging deploy** watch: `[ttl] forest tempest planted: G
+giants, U understory trees, A already standing ...` (A large, G/U small: v1's trees stand), `forest treyni planted`,
+`landmark ... old copy lerfing_1 ... removed`, `... placed ... grounded by`, `world fix <id>: ... 0 failed`, no `npc
+gear command failed`; then `tools/server.sh test works` (`expect forest ... standing`). **Not done**: Dragon's Nest
+white pad and Sealed Cave's 32 missing logs/pad (need the build repair to use the site's top block / a re-placement).
+
 ## 19/11 night — Dwargon flood sealed (branch `fix-dwargon-flood`, Claude)
 
 TTL_DWARGON_VERSION 12: the carve's shell (footprint) is sealed (water, lava, waterlogged blocks -> tuff), the city drained
