@@ -1,4 +1,4 @@
-// One-time world fixes (design/data/world_fixes.toml -> generated/placements.js `fixes`): bounded commands for a defect a
+// One-time world fixes (design/data/world_fixes/fixes.toml -> generated/placements.js `fixes`): bounded commands for a defect a
 // placer left in the terrain that its own repair does not reach (the place audit's Raja lava pool). Run by the works
 // runner (life/works.js) as kind `fix`: its area's chunks held with tickets, the commands in order, once per version
 // (persistentData ttl.fix.<id>.version). A fill whose filter finds nothing ("No blocks were filled") counts as nothing to
