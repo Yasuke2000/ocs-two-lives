@@ -181,6 +181,96 @@ plain, Laura in jungle, the Frost Palace on a snowfield). Owner decision of 19/1
   tensura`. One changed area: `bluemap force-update tensura <x> <z> <radius>` (radius in blocks; for a site, its
   radius + fade + 100). `bluemap` shows the queue; render only while few people are online.
 
+## World import (Lerfing's map, `ttl-import.txt`)
+
+Lerfing's Tensura map becomes the overworld (`design/architecture/lerfing-import.md`, owner decisions of 19/11/2026).
+ttl-portals 0.9.0 swaps it in at server start from a marker, the way `ttl-reset.txt` resets a dimension.
+
+**The marker.** `/data/world-ttl/ttl-import.txt`, one line (`#` lines are comments):
+
+```
+minecraft:overworld import 800
+```
+
+`<dimension id> <folder> [<region file count>]`. The folder holds `region/` (and `entities/`, `poi/` if the prepared
+world has them). A relative folder is looked up in the world folder first, then next to it (`import` = `/data/import`);
+an absolute path is taken as is. The count is optional, but give it: the import is refused unless exactly that many
+`r.<x>.<z>.mca` files are there (800 for Lerfing's inner tiles), which catches an incomplete upload.
+
+**Checks before anything moves** (any failure = `[ttl] world import REFUSED ...`, nothing moved, the marker stays,
+the old world starts as it was): the marker parses; the source exists, has a `region/` folder and is not the world, a
+part of it, or inside `ttl-backup`; the region files are named `r.<x>.<z>.mca`, each at least the 8 KiB header, every
+header entry points inside its file; in every file the first and last chunk are decompressed and read: the `Status`
+must be one Minecraft 1.21.1 knows (an unknown one such as 1.18's `liquid_carvers` loads as EMPTY and the chunk would
+be **regenerated over Lerfing's terrain**; `tools/lerfing_import.py` renames it to `minecraft:carvers`), the
+`DataVersion` not newer than the game's (3955), and `xPos`/`zPos` inside the file's region. The log then says
+`[ttl] world import: source OK: 800 region files (6.70 GB), 796544 chunks; 1600 sampled: statuses {...}, DataVersion 2860..2860`.
+
+**The swap.** A journal `/data/world-ttl/ttl-import.journal` is written; the old overworld (`region`, `entities`,
+`poi`, `data/DistantHorizons*`) moves to `world-ttl/ttl-backup/<time>/minecraft/overworld/` (nothing is deleted); the
+source's `region` (+ `entities`/`poi`) moves into the world folder. On the same volume these are renames (seconds,
+no extra disk); from another volume it is a copy, verified file by file (count and sizes), and the source is kept.
+The marker moves into the backup folder, the journal is deleted, and the log says
+`[ttl] world import: minecraft:overworld from import; old terrain in ttl-backup/<time> (moved)`. Once the server has
+started, `/ttl worldreset minecraft:overworld` runs, so the scripts re-place Tempest, Dwargon, the landmarks, the
+builds and the arrival, and move players on login, as after a reset. A `ttl-reset.txt` that also names the overworld
+skips it (warning in the log); other dimensions in it are reset as usual.
+
+**When it goes wrong.**
+
+| Log / symptom | State | What to do |
+| --- | --- | --- |
+| `world import REFUSED, nothing was moved ...: <reason>` | old world running, marker kept | fix the reason (upload, count, run the import tool again), restart |
+| `world import FAILED and was undone, the old world starts` | every step undone in reverse order, marker kept | read the reason (disk full, permissions), fix, restart |
+| server stops at start: `ttl-import.journal exists: a world import did not finish` | the JVM died mid-swap or the undo itself failed; the server refuses to start on a half-swapped world | from a debug pod on the volume: read the journal (source, backup, dimension), put `region`/`entities`/`poi` and `DistantHorizons*` back from `ttl-backup/<time>/minecraft/overworld/` (or finish the swap by hand), delete the journal, scale to 1 |
+| import done but wrong (the owner does not want it) | old world in `ttl-backup/<time>/` | rollback: scale to 0, delete `world-ttl/region` (the import), move `ttl-backup/<time>/minecraft/overworld/{region,entities,poi}` back and `DistantHorizons*` into `data/`, revert the data commits, scale to 1 |
+
+**Runbook** (lead, nobody online; full plan in the design doc §6.3):
+
+1. Offline: `python -I tools/lerfing_import.py "<zip>" out/`; `out/report.json` must show 796,544 chunks, no
+   `liquid_carvers`, no Nether/End biomes. The mod (`python tools/release_mod.py --bump minor` → `mod-v0.9.0`) is
+   released **before** the pack commit with the Lerfing grid, `sea_level` 64 and the noise settings without
+   `ttl:canon_sites` reaches `main`.
+2. Upload `out/region/` to `/data/import/region/` (tar stream into the pod, or scp + a debug pod on the volume);
+   check the file count (800) and the sha256 manifest. Same volume as the world, so the swap is a rename.
+3. `bash tools/server.sh rcon "dh pregen stop"`, `rcon "save-all flush"`, a manual Longhorn snapshot + backup of
+   `mc-data`, then scale to 0.
+4. From a debug pod: `echo "minecraft:overworld import 800" > /data/world-ttl/ttl-import.txt`; `rm -f /data/ttl-pregen.done`.
+5. Scale to 1. The log must show `world import: source OK`, then `world import: minecraft:overworld from import; old
+   terrain in ttl-backup/<time> (moved)`, then the placers (`[ttl] arrival grounded at 1780 ...`, `tempest placed`,
+   `dwargon placed`, landmarks and builds, no watchdog).
+6. First checks: `ttlmap 1720 900` says `imported chunk: stored biome ...` (Tempest's chunk is loaded by its placer);
+   `execute in minecraft:overworld if block -453 73 979 minecraft:chest` (Lerfing's spawn chest is still there: no
+   proto chunk was regenerated); `/ttl world expect continent 1720 900 yes`, `... 9000 0 no`;
+   `ls /data/world-ttl/data/DistantHorizons.sqlite*` shows only a fresh, small file.
+7. `bluemap purge tensura`, `bluemap force-update tensura`; `/ttl build list`, `/ttl landmark list`; `verify_build.py`;
+   `MSYS2_ARG_CONV_EXCL=/data bash tools/server.sh test-all` = 0 failing. Then the night pregen.
+8. Delete `ttl-backup/<time>/` from the volume only after the owner has looked at the map (the NAS backup keeps it),
+   and `/data/import/` once it is empty.
+
+**Outside the import.** Nothing of ours generates inside the imported area: its chunks exist, and Minecraft never
+regenerates an existing chunk. Beyond it the generator makes the canon ring: `canon_map.txt` is Lerfing's land mask,
+and the signed distance from it makes deep ocean at the seam (the self-check asserts continentalness < −0.455 along
+all four edges of `lerfing.inner`), held for `ring` blocks from the land's bounding box and blended into vanilla over
+`blend` (2000 / 800 in `canon_regions.json`). `sea_level` is 64 in `noise_settings/overworld.json` (was 63), so the
+generated sea's top water block is y 63 like Lerfing's: no one-block water step along the seam. The per-build `sites`
+are gone from the Lerfing grid (the mod treats a missing `sites` key as none), and the noise settings no longer wrap
+`final_density` in `ttl:canon_sites` (the type stays registered, so an older pack still loads with 0.9.0).
+`/ttlmap <x> <z>` inside `lerfing.inner` reports the grid letter and the **stored** biome of the loaded chunk
+(`imported, not loaded` otherwise) instead of the generator's opinion; outside it works as before. `/ttlregion
+<player>` on the import names Jura's ring from the stored biome (`tensura:ancient_forest` core, `minecraft:dark_forest`
+dark band, anything else the safe rim).
+
+**Self-checks** (after `gradlew build`; JDK 21; `:` instead of `;` on Linux):
+`java -cp mod/build/classes/java/main com.yasuke.ttl.world.WorldImport` (synthetic region files: marker parsing,
+every refusal, a full swap, the undo after an injected failure, a failed undo keeping the journal, the cross-volume
+copy, a non-overworld dimension) ends with `world import self-check passed`. `java -cp
+"mod/build/classes/java/main;<gson.jar>" com.yasuke.ttl.world.CanonGrid pack/config/ttl/canon_map.txt
+pack/config/ttl/canon_regions.json 1780 -150 design/data/anchors.toml` understands both formats: with a `lerfing`
+block it checks the import box against the grid, the deep-ocean seam, no sites, Jura's radius rings round Tempest, the
+arrival in the safe outer ring, and every landmark `at` and anchor on the continent (land, lake, river or coastal
+water); without one it runs the old site and depth-rim checks.
+
 ## Canon builds
 
 Our own builds on canon spots (a town square, a gate, a hall: `blueprints/<name>.py`) are placed by
@@ -333,7 +423,8 @@ The world volume (`mc-data`, Longhorn) is in Longhorn's `default` recurring-job 
 at 03:00 (7 kept), a backup to the NAS (`nfs://10.0.20.14:/volume1/media/longhorn-backups`) at 04:30 Mon–Sat
 (7 kept) and every Sunday at 04:00 (4 kept). Minecraft autosaves every 5 minutes, so a backup is at most a few
 minutes behind. ttl-ops posts in Discord when the newest completed backup is older than 2 days.
-A world reset (`ttl-reset.txt`) also keeps the old terrain in `world-ttl/ttl-backup/<time>/` on the volume.
+A world reset (`ttl-reset.txt`) or a world import (`ttl-import.txt`, "World import" above) also keeps the old
+terrain in `world-ttl/ttl-backup/<time>/` on the volume.
 
 Restore (Yasuke, Longhorn UI → Backup):
 1. Pick the backup of `pvc-d09ea911-…` → **Restore** to a new volume (e.g. `mc-data-restore`), wait until
