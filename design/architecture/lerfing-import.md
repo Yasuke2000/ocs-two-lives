@@ -1,5 +1,8 @@
 # Lerfing's Tensura map as the Life 2 overworld — import design
 
+> **To be superseded by [own-world.md](own-world.md)** (owner decision of 19/11/2026: a fully own world map replaces the
+> imported one; the import machinery is reused or retired as own-world.md §5 says). This file stays as the record of the import.
+
 > Target path in the repo: `design/architecture/lerfing-import.md`. Design only (19/11/2026, Claude for Yasuke).
 > Owner decisions of 19/11/2026 (final): import Lerfing's map 1:1 as `minecraft:overworld` of `world-ttl`; ocean ring,
 > then normal vanilla generation (free roam, non-story quests); let Minecraft populate the proto chunks; repaint the

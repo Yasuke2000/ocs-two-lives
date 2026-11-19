@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  world/map.svg - the layered map of OCS Two Lives' own Tensura world (STARTER TEMPLATE, 19/11/2026).
+
+  Spec: design/architecture/own-world.md section 2 (format) and 6.1 (rules); short form: world/README.md.
+  Check:  python -I tools/world/map_check.py world/map.svg, then add the preview option (world/README.md)
+  Look at the preview, not at this text. A map that does not pass the check is not delivered.
+
+  COORDINATES  Blocks. viewBox -8000 -6000 16000 12000 is only the canvas (the converter crops to the content + 1,200
+               blocks of sea). World (0, 0) = Tempest; x grows east, y grows south (y = Minecraft z).
+  RULES        No transform attributes, no nested groups, no gradients; polygons closed (<polygon>, or a <path> ending
+               in Z), 8..400 vertices each, not self-crossing; paths use M L H V C Q Z only. Write the final coordinates.
+  GROUPS       Exactly these <g id="..."> (labels may be left out):
+    coast      one closed polygon per landmass; optional data-name.
+    lakes      closed polygons; optional data-level (water y), data-depth.
+    rivers     polylines source -> mouth; data-width 4..24 (required); optional data-head, data-mouth. Start on land,
+               end inside a lake or in the sea (at most 16 blocks outside the coast).
+    mountains  closed polygons, data-peak 100..300 (required); optional data-shape alpine|mesa|dome, data-rugged 0..1;
+               optional <polyline class="ridge"> inside a mountain for the crest.
+    hills      closed polygons, data-height 70..150 (required, y of the top); optional data-shape rolling|mesa, data-rugged.
+    forests    closed polygons, data-type (required): light dense dark ancient birch taiga old_taiga jungle sparse_jungle
+               cherry mangrove.
+    biomes     closed polygons, data-biome (required) from tools/world/biomes.txt (own-world.md 2.2.1); beaches, rivers,
+               shores and oceans are assigned by the tool.
+    regions    closed polygons, data-letter (required): a letter of pack/config/ttl/canon_regions.json. Together they
+               cover all land with no overlap; one polygon per letter per landmass.
+    roads      polylines site -> site, data-kind main|trail (required); optional data-id, data-margin. The four v1 ids:
+               tempest_dwargon, tempest_blumund, blumund_englassia_lubelius, dwargon_dwarf_village. Ends within 32 blocks
+               of a site; a stretch of water (lake, ocean, river) is at most 64 blocks long (a bridge).
+    sites      one <circle> per anchor of design/data/anchors.toml (58): data-id, data-site, r (8..160), optional
+               data-margin (blocks of exclusion margin for structure starts round the disc). data-site:
+                 clearing  flat plate (towns, camps; pins and spots are clearing with r 8)
+                 plateau   terrace cut into a slope
+                 carve     inside a mountain or hill polygon (Dwargon, caves)
+                 lakeside  touches a lake or river on one side
+                 coast     touches the sea on one side (not subject to the 48-block coast margin)
+                 village   a Tensura jigsaw landmark's clearing; r >= the landmark's reach (design/data/landmarks.toml)
+               A site disc lies on land, at least 48 blocks from the coast, inside the nation its anchor names, and at
+               least 2 x (r1 + r2) from every other site. Only Lake Siss and the Ameld mouth (surface = water) may stand
+               in water.
+    labels     cosmetic text (ignored).
+  CANON        tools/world/canon_relations.toml: directions and distances between the sites, cited to the lore.
+
+  EVERYTHING BELOW IS PLACEHOLDER GEOMETRY. The sites are placed from the canon relations in a schematic layout; the
+  coast is the blocky union of the region tiles; forests, mountains, hills, biomes and rivers only show the format.
+  Redraw it all, keep the ids and run the check after every change.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8000 -6000 16000 12000" width="1600" height="1200">
+  <rect x="-8000" y="-6000" width="16000" height="12000" fill="#bad4ea"/>
+  <g id="coast" fill="#eee8d0" stroke="#233755" stroke-width="12">
+    <!-- PLACEHOLDER: a blocky schematic continent (the union of the region tiles below) and two islands. Redraw it. -->
+    <polygon data-name="Jura continent" points="4700,-2200 4700,1800 2400,1800 2400,1100 2000,1100 2000,3400 550,3400 550,3000 -1300,3000 -1300,1500 -3400,1500 -3400,1300 -4800,1300 -4800,-1000 -4300,-1000 -4300,-2000 -3100,-2000 -3100,-2200 -1700,-2200 -1700,-900 -1300,-900 -1300,-1100 -900,-1100 -900,-2200"/>
+    <polygon data-name="Ice Continent" points="-2900,-4400 -2275,-4400 -1650,-4400 -1025,-4400 -400,-4400 -400,-3200 -1650,-3200 -2900,-3200"/>
+    <polygon data-name="El Dorado" points="-4800,2400 -4100,2400 -3400,2400 -3400,2900 -3400,3400 -4100,3400 -4800,3400 -4800,2900"/>
+  </g>
+  <g id="lakes" fill="#6ea5e1" stroke="#233755" stroke-width="8">
+    <!-- PLACEHOLDER lakes: Tempest's lake, Lake Siss (the Charybdis arena), a pond by Raja. data-level / data-depth are optional. -->
+    <polygon data-depth="6" points="-158,137 -218,245 -302,245 -362,137 -362,-17 -302,-125 -218,-125 -158,-17"/>
+    <polygon data-depth="12" points="1457,-22 1362,112 1196,190 1004,190 838,112 743,-22 743,-178 838,-312 1004,-390 1196,-390 1362,-312 1457,-178"/>
+    <polygon data-depth="4" points="-2776,469 -2819,496 -2881,496 -2924,469 -2924,431 -2881,404 -2819,404 -2776,431"/>
+  </g>
+  <g id="rivers" fill="none" stroke="#2d69c8" stroke-linecap="round" stroke-linejoin="round" stroke-width="12">
+    <!-- PLACEHOLDER rivers: they flow from the first to the last point and end in a lake or the sea. -->
+    <polyline data-width="10" points="900,-1000 960,-850 1000,-700 1050,-550 1080,-450 1090,-330"/>
+    <polyline data-width="16" points="1490,-40 1700,100 1900,400 2000,700 2100,1000 2150,1108"/>
+    <polyline data-width="8" points="-330,260 -300,500 -100,700 50,900 150,1000 100,1500 200,2100 150,2600 250,3010"/>
+  </g>
+  <g id="mountains" fill="#807468" fill-opacity="0.6" stroke="#463c37" stroke-width="8">
+    <!-- PLACEHOLDER: the Canaat (Dwargon, the Dragon's Nest), the Sacred Mountain, the Great Holy Mountain, the El Dorado volcano. -->
+    <polygon data-peak="280" data-shape="alpine" data-rugged="0.9" points="-700,-2100 600,-2150 1900,-2050 2100,-1700 1800,-1300 700,-1280 -200,-1300 -700,-1500"/>
+    <polygon data-peak="190" data-shape="alpine" data-rugged="0.8" points="-3623,-1447 -3785,-1230 -4015,-1230 -4177,-1447 -4177,-1753 -4015,-1970 -3785,-1970 -3623,-1753"/>
+    <polygon data-peak="250" data-shape="dome" data-rugged="0.6" points="3766,-1178 3522,-934 3178,-934 2934,-1178 2934,-1522 3178,-1766 3522,-1766 3766,-1522"/>
+    <polygon data-peak="220" data-shape="dome" data-rugged="0.6" points="-3660,3196 -3801,3331 -3999,3331 -4140,3196 -4140,3004 -3999,2869 -3801,2869 -3660,3004"/>
+    <polyline class="ridge" fill="none" points="-600,-1600 0,-1800 700,-1900 1500,-1800"/>
+    <polyline class="ridge" fill="none" points="-4000,-1300 -3900,-1600 -3800,-1900"/>
+  </g>
+  <g id="hills" fill="#bea982" fill-opacity="0.6" stroke="#8a7650" stroke-width="6">
+    <!-- PLACEHOLDER hills (data-height = y of the top): the Sealed Cave hill, the ogres' hills, the limestone of the lizardmen caverns, the mound of Amrita, the mesa of Jia. -->
+    <polygon data-height="95" data-shape="mesa" points="-208,-266 -262,-217 -338,-217 -392,-266 -392,-334 -338,-383 -262,-383 -208,-334"/>
+    <polygon data-height="100" points="542,-418 488,-358 412,-358 358,-418 358,-502 412,-562 488,-562 542,-502"/>
+    <polygon data-height="100" points="1485,581 1377,668 1223,668 1115,581 1115,459 1223,372 1377,372 1485,459"/>
+    <polygon data-height="90" points="3939,-454 3857,-389 3743,-389 3661,-454 3661,-546 3743,-611 3857,-611 3939,-546"/>
+    <polygon data-height="140" data-shape="mesa" points="-2715,1161 -2823,1248 -2977,1248 -3085,1161 -3085,1039 -2977,952 -2823,952 -2715,1039"/>
+  </g>
+  <g id="forests" fill="#3c8737" fill-opacity="0.45" stroke="#1d5a24" stroke-width="6">
+    <!-- PLACEHOLDER forests (data-type: light dense dark ancient birch taiga old_taiga jungle sparse_jungle cherry mangrove). The Jura rings are drawn as forest. -->
+    <polygon data-type="ancient" points="220,0 203,84 156,156 84,203 0,220 -84,203 -156,156 -203,84 -220,0 -203,-84 -156,-156 -84,-203 0,-220 84,-203 156,-156 203,-84"/>
+    <polygon data-type="dark" points="650,0 601,249 460,460 249,601 0,650 -249,601 -460,460 -601,249 -650,0 -601,-249 -460,-460 -249,-601 0,-650 249,-601 460,-460 601,-249"/>
+    <polygon data-type="old_taiga" points="739,497 587,605 373,605 221,497 221,343 373,235 587,235 739,343"/>
+    <polygon data-type="dense" points="-1677,834 -1866,1023 -2134,1023 -2323,834 -2323,566 -2134,377 -1866,377 -1677,566"/>
+    <polygon data-type="dense" points="116,2072 -128,2316 -472,2316 -716,2072 -716,1728 -472,1484 -128,1484 116,1728"/>
+    <polygon data-type="jungle" points="2047,2244 1826,2614 1491,2792 1132,2731 845,2448 706,2017 753,1556 974,1186 1309,1008 1668,1069 1955,1352 2094,1783"/>
+    <polygon data-type="birch" points="-2039,-42 -2104,12 -2196,12 -2261,-42 -2261,-118 -2196,-172 -2104,-172 -2039,-118"/>
+    <polygon data-type="light" points="-2438,-185 -2709,-23 -3091,-23 -3362,-185 -3362,-415 -3091,-577 -2709,-577 -2438,-415"/>
+    <polygon data-type="taiga" points="-726,-3666 -1041,-3522 -1519,-3453 -2033,-3477 -2443,-3587 -2641,-3754 -2574,-3934 -2259,-4078 -1781,-4147 -1267,-4123 -857,-4013 -659,-3846"/>
+  </g>
+  <g id="biomes" fill="none" stroke="#5a965a" stroke-width="6" stroke-dasharray="40 30">
+    <!-- PLACEHOLDER biome areas (data-biome from tools/world/biomes.txt) where a forest type is not enough. -->
+    <polygon data-biome="tensura:ancient_forest" points="220,0 203,84 156,156 84,203 0,220 -84,203 -156,156 -203,84 -220,0 -203,-84 -156,-156 -84,-203 0,-220 84,-203 156,-156 203,-84"/>
+    <polygon data-biome="minecraft:dark_forest" points="650,0 601,249 460,460 249,601 0,650 -249,601 -460,460 -601,249 -650,0 -601,-249 -460,-460 -249,-601 0,-650 249,-601 460,-460 601,-249"/>
+    <polygon data-biome="minecraft:stony_peaks" points="-700,-2100 600,-2150 1900,-2050 2100,-1700 1800,-1300 700,-1280 -200,-1300 -700,-1500"/>
+    <polygon data-biome="minecraft:swamp" points="1515,-7 1404,155 1211,248 989,248 796,155 685,-7 685,-193 796,-355 989,-448 1211,-448 1404,-355 1515,-193"/>
+    <polygon data-biome="minecraft:badlands" points="4131,530 3848,776 3417,895 2956,854 2586,665 2408,378 2469,70 2752,-176 3183,-295 3644,-254 4014,-65 4192,222"/>
+    <polygon data-biome="tensura:desert_of_death" points="-3646,30 -3835,276 -4122,395 -4430,354 -4676,165 -4795,-122 -4754,-430 -4565,-676 -4278,-795 -3970,-754 -3724,-565 -3605,-278"/>
+    <polygon data-biome="tensura:barren_land" points="-4223,953 -4385,1170 -4615,1170 -4777,953 -4777,647 -4615,430 -4385,430 -4223,647"/>
+    <polygon data-biome="minecraft:snowy_plains" points="-634,-3628 -980,-3443 -1506,-3354 -2071,-3384 -2523,-3526 -2741,-3741 -2666,-3972 -2320,-4157 -1794,-4246 -1229,-4216 -777,-4074 -559,-3859"/>
+  </g>
+  <g id="regions" fill="none" stroke="#781e78" stroke-width="8">
+    <!-- PLACEHOLDER nation tiles: one polygon per canon letter (pack/config/ttl/canon_regions.json), covering all land with no overlap. -->
+    <polygon data-letter="J" points="-1300,-1100 -375,-1100 550,-1100 550,-50 550,1000 -375,1000 -1300,1000 -1300,-50"/>
+    <polygon data-letter="D" points="-900,-2200 2700,-2200 2700,-1000 2000,-1000 2000,-550 550,-550 550,-1100 -900,-1100"/>
+    <polygon data-letter="W" points="550,-550 1275,-550 2000,-550 2000,75 2000,700 1275,700 550,700 550,75"/>
+    <polygon data-letter="M" points="2000,-1000 2700,-1000 2700,-200 4700,-200 4700,1800 2200,1800 2200,700 2000,700"/>
+    <polygon data-letter="B" points="550,700 1375,700 2200,700 2200,2050 2200,3400 1375,3400 550,3400 550,2050"/>
+    <polygon data-letter="S" points="-1300,1000 -375,1000 550,1000 550,2000 550,3000 -375,3000 -1300,3000 -1300,2000"/>
+    <polygon data-letter="P" points="2700,-1000 3200,-1000 3700,-1000 4200,-1000 4700,-1000 4700,-200 3700,-200 2700,-200"/>
+    <polygon data-letter="E" points="2700,-2200 3700,-2200 4700,-2200 4700,-1600 4700,-1000 3700,-1000 2700,-1000 2700,-1600"/>
+    <polygon data-letter="R" points="-2300,-900 -1800,-900 -1300,-900 -1300,-400 -1300,100 -2000,100 -2000,-200 -2300,-200"/>
+    <polygon data-letter="Q" points="-2300,-200 -2150,-200 -2000,-200 -2000,-50 -2000,100 -2150,100 -2300,100 -2300,-50"/>
+    <polygon data-letter="U" points="-2300,100 -1800,100 -1300,100 -1300,800 -1300,1500 -1800,1500 -2300,1500 -2300,800"/>
+    <polygon data-letter="G" points="-3400,-1000 -2850,-1000 -2300,-1000 -2300,-450 -2300,100 -2850,100 -3400,100 -3400,-450"/>
+    <polygon data-letter="F" points="-3100,-2200 -2400,-2200 -1700,-2200 -1700,-1550 -1700,-900 -2300,-900 -2300,-1000 -3100,-1000"/>
+    <polygon data-letter="L" points="-4300,-2000 -3700,-2000 -3100,-2000 -3100,-1500 -3100,-1000 -3700,-1000 -4300,-1000 -4300,-1500"/>
+    <polygon data-letter="O" points="-3400,100 -3200,100 -3000,100 -3000,325 -3000,550 -3200,550 -3400,550 -3400,325"/>
+    <polygon data-letter="A" points="-3000,100 -2850,100 -2700,100 -2700,325 -2700,550 -2850,550 -3000,550 -3000,325"/>
+    <polygon data-letter="N" points="-2700,100 -2550,100 -2400,100 -2400,325 -2400,550 -2550,550 -2700,550 -2700,325"/>
+    <polygon data-letter="Y" points="-2400,100 -2300,100 -2300,212 -2300,325 -2300,438 -2300,550 -2400,550 -2400,325"/>
+    <polygon data-letter="H" points="-3400,550 -2850,550 -2300,550 -2300,1025 -2300,1500 -2850,1500 -3400,1500 -3400,1025"/>
+    <polygon data-letter="V" points="-4800,-1000 -4100,-1000 -3400,-1000 -3400,150 -3400,1300 -4100,1300 -4800,1300 -4800,150"/>
+    <polygon data-letter="I" points="-2900,-4400 -2275,-4400 -1650,-4400 -1025,-4400 -400,-4400 -400,-3200 -1650,-3200 -2900,-3200"/>
+    <polygon data-letter="X" points="-4800,2400 -4100,2400 -3400,2400 -3400,2900 -3400,3400 -4100,3400 -4800,3400 -4800,2900"/>
+  </g>
+  <g id="roads" fill="none" stroke="#6e320f" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <!-- PLACEHOLDER roads: data-kind main|trail, data-id, data-margin (exclusion margin round the corridor, blocks). Ends within 32 of a site. -->
+    <polyline data-kind="main" data-id="tempest_dwargon" data-margin="24" points="0,-115 0,-400 10,-700 0,-1000 -30,-1250 0,-1495"/>
+    <polyline data-kind="main" data-id="tempest_blumund" data-margin="24" points="-60,-100 -150,-330 -500,-420 -1000,-450 -1300,-420 -1500,-380 -1825,-310"/>
+    <polyline data-kind="trail" data-id="blumund_englassia_lubelius" data-margin="16" points="-1975,-310 -2300,-400 -2600,-480 -2810,-540 -3000,-640 -3300,-900 -3520,-1200 -3550,-1230"/>
+    <polyline data-kind="main" data-id="dwargon_dwarf_village" data-margin="24" points="40,-1500 150,-1420 300,-1300 330,-1240"/>
+    <polyline data-kind="trail" data-id="sacred_mountain_trail" data-margin="16" points="-3660,-1360 -3750,-1450 -3850,-1550"/>
+  </g>
+  <g id="sites" fill="#cd1414" fill-opacity="0.5" stroke="#8b0000" stroke-width="6">
+    <!-- One <circle> per anchor of design/data/anchors.toml: data-id = anchor id, data-site = clearing|plateau|carve|lakeside|coast|village, r = disc radius in blocks (8..160; pins and spots are clearing r 8), data-margin = exclusion margin (blocks) round the disc. -->
+    <circle data-id="tempest" data-site="clearing" data-margin="64" cx="0" cy="0" r="110"/>
+    <circle data-id="arrival" data-site="clearing" data-margin="48" cx="0" cy="-1000" r="40"/>
+    <circle data-id="wayfarers_camp" data-site="clearing" data-margin="24" cx="-110" cy="-1000" r="8"/>
+    <circle data-id="sealed_cave" data-site="carve" data-margin="48" cx="-300" cy="-300" r="40"/>
+    <circle data-id="goblin_village" data-site="village" data-margin="48" cx="-440" cy="-170" r="50"/>
+    <circle data-id="spirit_gate" data-site="lakeside" data-margin="48" cx="-240" cy="320" r="70"/>
+    <circle data-id="shizu_spawn" data-site="clearing" data-margin="24" cx="-560" cy="60" r="8"/>
+    <circle data-id="outcast_road" data-site="clearing" data-margin="24" cx="0" cy="300" r="8"/>
+    <circle data-id="treyni_grove" data-site="village" data-margin="48" cx="400" cy="380" r="50"/>
+    <circle data-id="treyni_shrine" data-site="clearing" data-margin="48" cx="540" cy="470" r="30"/>
+    <circle data-id="ogre_village_ruin" data-site="village" data-margin="48" cx="450" cy="-450" r="30"/>
+    <circle data-id="dwargon" data-site="carve" data-margin="48" cx="0" cy="-1550" r="60"/>
+    <circle data-id="dwargo" data-site="clearing" data-margin="24" cx="0" cy="-1700" r="8"/>
+    <circle data-id="dwargon_throne" data-site="clearing" data-margin="24" cx="0" cy="-1850" r="8"/>
+    <circle data-id="kaijin_smithy" data-site="clearing" data-margin="24" cx="-150" cy="-1700" r="8"/>
+    <circle data-id="dwarf_village" data-site="village" data-margin="64" cx="350" cy="-1200" r="120"/>
+    <circle data-id="dwarven_arena" data-site="clearing" data-margin="48" cx="700" cy="-1200" r="50"/>
+    <circle data-id="dragons_nest" data-site="clearing" data-margin="48" cx="350" cy="-2000" r="50"/>
+    <circle data-id="ameld_source" data-site="clearing" data-margin="24" cx="900" cy="-1000" r="8"/>
+    <circle data-id="ameld_mouth" data-site="coast" data-margin="24" cx="2150" cy="1250" r="8"/>
+    <circle data-id="lake_siss" data-site="lakeside" data-margin="48" cx="1100" cy="-100" r="96"/>
+    <circle data-id="lizardmen_village" data-site="lakeside" data-margin="48" cx="1100" cy="265" r="60"/>
+    <circle data-id="lizardmen_caverns" data-site="carve" data-margin="48" cx="1300" cy="520" r="60"/>
+    <circle data-id="orc_camp" data-site="village" data-margin="48" cx="1750" cy="550" r="60"/>
+    <circle data-id="blumund" data-site="clearing" data-margin="48" cx="-1900" cy="-300" r="80"/>
+    <circle data-id="ballachia" data-site="clearing" data-margin="48" cx="-2450" cy="-450" r="40"/>
+    <circle data-id="englassia" data-site="clearing" data-margin="48" cx="-2900" cy="-550" r="90"/>
+    <circle data-id="marris" data-site="clearing" data-margin="48" cx="-2600" cy="-1700" r="90"/>
+    <circle data-id="siltrosso" data-site="coast" data-margin="48" cx="-3040" cy="-2080" r="50"/>
+    <circle data-id="lubelius" data-site="plateau" data-margin="48" cx="-3600" cy="-1300" r="90"/>
+    <circle data-id="sacred_mountain" data-site="plateau" data-margin="48" cx="-3900" cy="-1600" r="50"/>
+    <circle data-id="coleus" data-site="clearing" data-margin="48" cx="-3650" cy="-250" r="60"/>
+    <circle data-id="heaven_tower" data-site="clearing" data-margin="48" cx="-4200" cy="-200" r="60"/>
+    <circle data-id="morgdahl" data-site="clearing" data-margin="48" cx="-3200" cy="330" r="50"/>
+    <circle data-id="raja" data-site="lakeside" data-margin="48" cx="-2850" cy="360" r="50"/>
+    <circle data-id="nostraille" data-site="clearing" data-margin="48" cx="-2550" cy="330" r="50"/>
+    <circle data-id="yuzalgh" data-site="clearing" data-margin="24" cx="-2350" cy="300" r="8"/>
+    <circle data-id="yggdonia" data-site="clearing" data-margin="24" cx="-2150" cy="-80" r="8"/>
+    <circle data-id="filtwood" data-site="clearing" data-margin="24" cx="-1700" cy="300" r="8"/>
+    <circle data-id="ghastone" data-site="clearing" data-margin="24" cx="-3200" cy="-300" r="8"/>
+    <circle data-id="rostia" data-site="clearing" data-margin="24" cx="-2780" cy="200" r="8"/>
+    <circle data-id="sainte_malukshure" data-site="clearing" data-margin="24" cx="-3000" cy="900" r="8"/>
+    <circle data-id="ulgr_nature_park" data-site="plateau" data-margin="48" cx="-2000" cy="700" r="60"/>
+    <circle data-id="elmine" data-site="clearing" data-margin="64" cx="-300" cy="1900" r="100"/>
+    <circle data-id="jia" data-site="plateau" data-margin="48" cx="-2900" cy="1100" r="60"/>
+    <circle data-id="laura" data-site="clearing" data-margin="64" cx="1500" cy="1600" r="100"/>
+    <circle data-id="forgotten_dragon_city" data-site="clearing" data-margin="64" cx="2500" cy="150" r="100"/>
+    <circle data-id="clayman_castle" data-site="clearing" data-margin="48" cx="3300" cy="-600" r="80"/>
+    <circle data-id="amrita" data-site="carve" data-margin="48" cx="3800" cy="-500" r="60"/>
+    <circle data-id="nasca" data-site="plateau" data-margin="48" cx="3200" cy="-1800" r="90"/>
+    <circle data-id="great_holy_mountain" data-site="clearing" data-margin="48" cx="3350" cy="-1350" r="80"/>
+    <circle data-id="el_dorado" data-site="clearing" data-margin="64" cx="-4300" cy="3000" r="100"/>
+    <circle data-id="el_dorado_volcano" data-site="clearing" data-margin="24" cx="-3900" cy="3200" r="8"/>
+    <circle data-id="frost_palace" data-site="coast" data-margin="48" cx="-1500" cy="-3260" r="60"/>
+    <circle data-id="blumund_road" data-site="clearing" data-margin="24" cx="-1500" cy="-200" r="8"/>
+    <circle data-id="englassia_road" data-site="clearing" data-margin="24" cx="-2650" cy="-520" r="8"/>
+    <circle data-id="old_well" data-site="clearing" data-margin="24" cx="-1000" cy="-340" r="8"/>
+    <circle data-id="rookie_camp" data-site="clearing" data-margin="24" cx="-120" cy="-560" r="8"/>
+  </g>
+  <g id="labels" font-family="Barlow, sans-serif" font-size="44" fill="#1a1a1a">
+    <!-- Cosmetic only: ignored by the checker and the converter (BlueMap labels). -->
+    <text x="130" y="14">Tempest</text>
+    <text x="60" y="-986">Life 2 arrival</text>
+    <text x="-82" y="-986">Wayfarers' camp on Jura's rim</text>
+    <text x="-240" y="-286">Sealed Cave</text>
+    <text x="-370" y="-156">Old goblin village</text>
+    <text x="-150" y="334">Spirit Gate</text>
+    <text x="-532" y="74">Hinata's ambush west of Tempest</text>
+    <text x="28" y="314">The Outcast on Tempest's south road</text>
+    <text x="470" y="394">Treyni's grove</text>
+    <text x="590" y="484">Treyni's shrine</text>
+    <text x="500" y="-436">Hidden ogre village</text>
+    <text x="80" y="-1536">Dwargon</text>
+    <text x="28" y="-1686">Dwargo</text>
+    <text x="28" y="-1836">Gazel's throne room</text>
+    <text x="-122" y="-1686">Kaijin's smithy</text>
+    <text x="490" y="-1186">Dwarf village on the road to Dwargon</text>
+    <text x="770" y="-1186">Dwarven Arena</text>
+    <text x="420" y="-1986">Dragon's Nest</text>
+    <text x="928" y="-986">Great Ameld River source</text>
+    <text x="2178" y="1264">Great Ameld River mouth</text>
+    <text x="1216" y="-86">Lake Siss</text>
+    <text x="1180" y="279">Lizardmen's stilt village</text>
+    <text x="1380" y="534">Lizardmen's caverns</text>
+    <text x="1830" y="564">Orc War battlefield</text>
+    <text x="-1800" y="-286">Blumund</text>
+    <text x="-2390" y="-436">Ballachia</text>
+    <text x="-2790" y="-536">Englassia</text>
+    <text x="-2490" y="-1686">Marris</text>
+    <text x="-2970" y="-2066">Siltrosso</text>
+    <text x="-3490" y="-1286">Holy City Lubelius</text>
+    <text x="-3830" y="-1586">Sacred Mountain</text>
+    <text x="-3570" y="-236">Coleus</text>
+    <text x="-4120" y="-186">Heaven Tower</text>
+    <text x="-3130" y="344">Morgdahl</text>
+    <text x="-2780" y="374">Raja</text>
+    <text x="-2480" y="344">Nostraille</text>
+    <text x="-2322" y="314">Yuzalgh</text>
+    <text x="-2122" y="-66">Yggdonia</text>
+    <text x="-1672" y="314">Filtwood</text>
+    <text x="-3172" y="-286">Ghastone</text>
+    <text x="-2752" y="214">Rostia</text>
+    <text x="-2972" y="914">Sainte Malukshure</text>
+    <text x="-1920" y="714">Galut / Ulgr Nature Park</text>
+    <text x="-180" y="1914">Elmine</text>
+    <text x="-2820" y="1114">Jia</text>
+    <text x="1620" y="1614">Laura</text>
+    <text x="2620" y="164">City of the Forgotten Dragon</text>
+    <text x="3400" y="-586">Clayman's Castle</text>
+    <text x="3880" y="-486">Amrita</text>
+    <text x="3310" y="-1786">Nasca</text>
+    <text x="3450" y="-1336">Great Holy Mountain</text>
+    <text x="-4180" y="3014">Golden City of El Dorado</text>
+    <text x="-3872" y="3214">El Dorado volcano</text>
+    <text x="-1420" y="-3246">Frost Palace</text>
+    <text x="-1472" y="-186">Blumund road camp at Jura's edge</text>
+    <text x="-2622" y="-506">Englassia road post</text>
+    <text x="-972" y="-326">The old well on the Blumund road</text>
+    <text x="-92" y="-546">The abandoned rookie camp</text>
+  </g>
+</svg>
