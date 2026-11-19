@@ -1,3 +1,2 @@
-# Every change to main needs an approving review from a code owner (branch protection on main).
-# Ask in the pull request; Yasuke approves, then the PR can be merged.
-*  @Yasuke2000
+# Owner approval is required for pull requests from anyone else; branch protection asks 0 reviews otherwise.
+* @Yasuke2000
