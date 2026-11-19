@@ -2,7 +2,7 @@
 
 Het continent van Tensura is **Tensura by Lerfing**, een met de hand gebouwde kaart die hier blok voor blok is geladen. De reuzenbomen van Sarion zijn van Paulzero. [Pagina op Planet Minecraft](https://www.planetminecraft.com/project/tensura-map/) · [Credits](../../../CREDITS.md). De horizontale coördinaten in de tabellen zijn **X, Z in blokken**: naar het oosten wordt X groter, naar het zuiden wordt Z groter en naar het noorden wordt Z kleiner. [De ringen van Jura](jura-rings.md) · [English](../en/world-map.md)
 
-De posities wijzen het midden van een plek aan; de precieze ingang hangt van de ondergrond af en kan enkele tientallen blokken verschillen. Beheerders kunnen de opgeslagen plek van een gebouw opvragen met `/ttl build where <id>`. Coördinaten kunnen veranderen met een nieuwe packversie.
+De posities wijzen het midden van een plek aan; de precieze ingang hangt van de ondergrond af en kan enkele tientallen blokken verschillen. Gebruik `/ttl where <plaats>` in de overwereld voor een ruwe richting naar een plek. Beheerders kunnen de opgeslagen plek van een gebouw opvragen met `/ttl build where <id>` en elke plaats vinden met `/locate place <id>`. Coördinaten kunnen veranderen met een nieuwe packversie.
 
 ## Je eerste stappen
 

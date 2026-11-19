@@ -11,6 +11,7 @@ Typ deze commando’s in de Minecraft-chat. Vervang woorden tussen `< >` door ee
 | `/ttl status` | Bekijk in welk leven of welke overgang je zit. |
 | `/ttl life` | Bekijk je eigen karma en rang. |
 | `/ttl menu` | Open de huidige keuze in de Spirit Corridor opnieuw. |
+| `/ttl where <plaats>` | In welke richting een bekende plaats ligt en ongeveer hoe ver (afgerond, zonder coördinaten). Tab vult de namen aan, bv. `/ttl where tempest`. Werkt alleen in de Tensura-overwereld. |
 | `/ttl talk` | Spreek de Voice of the World aan in de Corridor of open elders de gids. |
 | `/bug <wat er gebeurde>` | Verstuur een melding vanuit het spel. Vermeld wat je deed en wat je verwachtte. |
 

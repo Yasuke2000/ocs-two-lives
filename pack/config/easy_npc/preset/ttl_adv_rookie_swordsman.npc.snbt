@@ -128,6 +128,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-2063819489,-1845864148,-1963667524,-130559566],
     VariantType:"FARMER_01",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_guild_rookie_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

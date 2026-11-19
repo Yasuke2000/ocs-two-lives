@@ -113,6 +113,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-1608113975,1299142902,-1853423207,438064651],
     VariantType:"JAYJASONBO",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_otherworlder_2.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

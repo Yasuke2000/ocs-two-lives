@@ -116,6 +116,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-1949694672,949706287,-1198513662,1736060717],
     VariantType:"ZURI",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_merchant_2.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

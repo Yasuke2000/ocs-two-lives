@@ -57,9 +57,14 @@ rcon_password() {
 }
 rcon_once() { "$PY" -I "$(winpath "$ROOT/tools/rcon.py")" --port "$RCON_PORT" --password-file "$(winpath "$STATE/rcon.password")" "$1"; }
 # One connection for a whole test run (tools/rcon.py --serve), on fds 7/8 so the runner's subshells can use it.
+# Each command starts TTL_LOCAL_TICKS (2) game ticks after the previous one ended: on staging a command is a kubectl
+# exec (~0.17 s, 3 ticks), and tests count on what a script schedules a tick later (the Corridor after a `kill`) being
+# done. 2, not 1: a command can run in the middle of a tick (while the main thread waits for a chunk), so only the
+# second tick boundary guarantees that a whole tick has passed.
+TICKS=${TTL_LOCAL_TICKS:-2}
 RCON_OPEN=
 rcon_open() {
-  coproc RCONP { "$PY" -I "$(winpath "$ROOT/tools/rcon.py")" --serve --port "$RCON_PORT" --password-file "$(winpath "$STATE/rcon.password")"; }
+  coproc RCONP { "$PY" -I "$(winpath "$ROOT/tools/rcon.py")" --serve --ticks "$TICKS" --port "$RCON_PORT" --password-file "$(winpath "$STATE/rcon.password")"; }
   exec 7>&"${RCONP[1]}" 8<&"${RCONP[0]}"
   RCON_OPEN=1
 }
@@ -96,6 +101,7 @@ wait_ready() {  # until RCON answers and the log says Done, or the process dies
     fi
     if grep -q 'Done (' "$SRV/logs/latest.log" 2>/dev/null && rcon_once "list" >/dev/null 2>&1; then
       say "ready in $(( $(now) - t0 ))s ($(grep -m1 -o 'Done ([0-9.]*s)' "$SRV/logs/latest.log"))"
+      now > "$STATE/ready.at"
       return 0
     fi
     [ $(( $(now) - t0 )) -lt "$deadline" ] || die "not ready after ${deadline}s; see tools/local.sh logs"
@@ -109,7 +115,8 @@ start_server() {
   java=$(find_java)
   args=libraries/net/neoforged/neoforge/$NEOFORGE/$([ -n "$WIN" ] && echo win_args.txt || echo unix_args.txt)
   [ -f "$SRV/$args" ] || die "NeoForge is not installed; run tools/local.sh up"
-  rm -f "$SRV/logs/latest.log"
+  # wait_ready looks for "Done (" in latest.log, so it must be new; keep the last run's log (an import, a crash).
+  [ -f "$SRV/logs/latest.log" ] && mv -f "$SRV/logs/latest.log" "$SRV/logs/previous.log"
   say "starting (heap $MEMORY, game 127.0.0.1:$PORT, RCON 127.0.0.1:$RCON_PORT)"
   # No bug-report token: /bug saves to ttl-reports/ instead of opening GitHub issues. -Dttl.local marks the process.
   (cd "$SRV" && exec env -u TTL_GITHUB_TOKEN -u TTL_REPORT_REPO -u CFG_DISCORD_TOKEN \
@@ -132,8 +139,8 @@ stop_server() {
   pid_alive || { say "not running"; rm -f "$STATE/server.pid"; return 0; }
   local p t0
   p=$(cat "$STATE/server.pid"); t0=$(now)
-  say "stopping (save-all, stop)"
-  rcon_once "stop" >/dev/null 2>&1 || true
+  say "stopping (stop saves every level, then exits)"
+  rcon_once "stop" >/dev/null 2>&1 || say "RCON did not take 'stop'; waiting for the process anyway"
   while pid_alive; do
     if [ $(( $(now) - t0 )) -gt 120 ]; then
       say "no clean stop after 120s; killing pid $p"
@@ -142,8 +149,29 @@ stop_server() {
     fi
     sleep 1
   done
-  rm -f "$STATE/server.pid"
-  say "stopped in $(( $(now) - t0 ))s"
+  rm -f "$STATE/server.pid" "$STATE/ready.at"
+  if grep -q 'All dimensions are saved' "$SRV/logs/latest.log" 2>/dev/null; then say "stopped in $(( $(now) - t0 ))s (all levels saved)"
+  else say "stopped in $(( $(now) - t0 ))s, but the log does not say the levels were saved: a snapshot now may be torn"; fi
+}
+
+# The start-up placers (Tempest, Dwargon, landmarks, then the canon builds from tick 1800, builds.js START_DELAY) run
+# one by one in the background for many minutes on a fresh world; tests that place or expect a build queue behind
+# them and fail. Staging's world finished them long ago. Waits until the builds queue is empty.
+wait_settled() {
+  local deadline=${1:-3600} t0 up left n last=
+  t0=$(now)
+  up=$(( t0 - $(cat "$STATE/ready.at" 2>/dev/null || echo 0) ))
+  if [ "$up" -lt 100 ]; then say "waiting $(( 100 - up ))s for the build queue to start (builds.js START_DELAY)"; sleep $(( 100 - up )); fi
+  while :; do
+    left=$(rcon_once "ttl build list" | grep -E 'pending|FAILED' || true)
+    n=$(grep -c 'pending' <<<"$left" || true)
+    [ "$n" -gt 0 ] || break
+    [ $(( $(now) - t0 )) -lt "$deadline" ] || { printf '%s\n' "$left" >&2; die "start-up builds still pending after ${deadline}s"; }
+    [ "$n" = "$last" ] || say "waiting for $n start-up build(s) to place ($(grep -m1 -o '^[a-z_]*' <<<"$left") ...)"
+    last=$n
+    sleep 10
+  done
+  [ $(( $(now) - t0 )) -lt 2 ] || say "start-up placements done in $(( $(now) - t0 ))s"
 }
 
 # --- install ---------------------------------------------------------------------------------------------
@@ -170,9 +198,25 @@ install_pack() {
   tar -C "$PACK" -cf - . | tar -C "$D/pack" -xf -
   (cd "$D/pack" && "$PW" refresh >/dev/null)
   port=$("$PY" -I -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])')
-  "$PY" -I -m http.server "$port" --bind 127.0.0.1 --directory "$(winpath "$D/pack")" >/dev/null 2>&1 &
+  # Not `-m http.server`: its listen backlog of 5 makes Windows refuse packwiz-installer's parallel downloads.
+  "$PY" -I -c '
+import functools, http.server, sys
+class S(http.server.ThreadingHTTPServer):
+    request_queue_size = 256
+    daemon_threads = True
+h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=sys.argv[2])
+S(("127.0.0.1", int(sys.argv[1])), h).serve_forever()
+' "$port" "$(winpath "$D/pack")" > "$CACHE/pack-httpd.log" 2>&1 &
   httpd=$!
-  sleep 1
+  # Python on Windows can take several seconds to bind; packwiz-installer gives up on the first refused connect.
+  local i
+  for i in $(seq 1 60); do
+    curl -fsS -o /dev/null "http://127.0.0.1:$port/pack.toml" 2>/dev/null && break
+    kill -0 "$httpd" 2>/dev/null || { cat "$CACHE/pack-httpd.log" >&2; die "the local pack server stopped (port $port)"; }
+    sleep 0.5
+  done
+  curl -fsS -o /dev/null "http://127.0.0.1:$port/pack.toml" \
+    || { kill "$httpd" 2>/dev/null; cat "$CACHE/pack-httpd.log" >&2; die "the local pack server did not answer on port $port"; }
   say "installing the pack (packwiz-installer, server side)"
   (cd "$SRV" && "$java" -jar "$(winpath "$CACHE/packwiz-installer-bootstrap.jar")" -g -s server \
      "http://127.0.0.1:$port/pack.toml" > "$CACHE/packwiz-install.log" 2>&1) \
@@ -224,8 +268,12 @@ configure() {
   set_prop white-list false
   set_prop enforce-whitelist false
   set_prop motd "OCS Tensura: Two Lives - local"
-  # Staging: MEMORY=8G + USE_AIKAR_FLAGS (itzg's G1 set for heaps under 12 GB).
+  # Staging: MEMORY=8G + USE_AIKAR_FLAGS (itzg's G1 set for heaps under 12 GB). The container's JVM runs in en_US;
+  # Windows hands Java the PC's locale (nl_BE prints "1,00"), and replies such as /ttlmap's "canon weight 1.00"
+  # format numbers with it, so tests that match them fail here only.
   cat > "$SRV/user_jvm_args.txt" <<EOF
+-Duser.language=en
+-Duser.country=US
 -Xms$MEMORY
 -Xmx$MEMORY
 -XX:+UseG1GC
@@ -287,8 +335,10 @@ snapshot_restore() {
 # Copies what changed in pack/ since the last up/sync into the server, and applies it the cheapest way that works.
 # $D/pack is the baseline (what the server has from git), so files the mods rewrite on start-up (configs) never
 # count as changes.
-#   kubejs/server_scripts                                  -> /kubejs reload server_scripts
-#   kubejs/data, datapacks, config/ttl, config/ftbquests   -> /reload (data, scripts and quest files)
+#   kubejs/server_scripts, kubejs/data, datapacks,
+#   config/ttl, config/ftbquests                           -> /reload (scripts, data and quest files; like staging's
+#                                                             push-scripts: /kubejs reload server-scripts would keep
+#                                                             the commands the old scripts registered)
 #   kubejs/startup_scripts, other config                   -> restart (read at start-up only)
 #   mods/*.pw.toml, [versions] in pack.toml, mod/ sources  -> full up: packwiz-installer + gradle + restart
 #   kubejs/assets, kubejs/client_scripts                   -> copied; nothing to apply on a server
@@ -310,7 +360,7 @@ mods_changed() {
   [ -n "$(find "$ROOT/mod/src" "$ROOT/mod/build.gradle" "$ROOT/mod/gradle.properties" -newer "$SRV/mods/ttl-portals-local.jar" -type f 2>/dev/null | head -1)" ]
 }
 
-# Copies the changes into the server and the baseline; sets NEED to none, scripts, reload or restart and N to the count.
+# Copies the changes into the server and the baseline; sets NEED to none, reload or restart and N to the count.
 apply_changes() {
   local op rel
   NEED=none; N=0
@@ -318,8 +368,7 @@ apply_changes() {
     N=$((N + 1))
     case "$rel" in
       kubejs/assets/*|kubejs/client_scripts/*) ;;
-      kubejs/server_scripts*) [ "$NEED" = none ] && NEED=scripts ;;
-      kubejs/data*|datapacks*|config/ttl*|config/ftbquests*) [ "$NEED" = restart ] || NEED=reload ;;
+      kubejs/server_scripts*|kubejs/data*|datapacks*|config/ttl*|config/ftbquests*) [ "$NEED" = restart ] || NEED=reload ;;
       *) NEED=restart ;;
     esac
     if [ "$op" = D ]; then
@@ -336,13 +385,25 @@ apply_changes() {
   done < <(sync_changes)
 }
 
+# /reload answers at once and reloads in the background; the log says "Reloaded with ..." when it is done.
+wait_reloaded() {
+  local a i
+  read -r a _ <<<"$1"
+  for i in $(seq 1 120); do
+    tail -n +"$((a + 1))" "$SRV/logs/latest.log" 2>/dev/null | grep -q 'Reloaded with' && return 0
+    sleep 0.5
+  done
+  say "no 'Reloaded with' in the log after 60s"
+}
+
 # New lines in the server log and KubeJS's own log since a mark (line counts), filtered to script errors.
 log_mark() { echo "$(wc -l < "$SRV/logs/latest.log" 2>/dev/null || echo 0) $(wc -l < "$SRV/logs/kubejs/server.log" 2>/dev/null || echo 0)"; }
 new_errors() {
   local a b
   read -r a b <<<"$1"
-  { tail -n +"$((a + 1))" "$SRV/logs/latest.log" 2>/dev/null; tail -n +"$((b + 1))" "$SRV/logs/kubejs/server.log" 2>/dev/null; } \
-    | grep -E 'ERROR|\[ttl\].*failed' | head -20 || true
+  # Not every ERROR: a /reload logs mods' own (Curios on optional cataclysm ids), as on staging (AGENTS.md step 4).
+  { tail -n +"$((a + 1))" "$SRV/logs/latest.log" 2>/dev/null | grep -E 'ERROR.*KubeJS|\[ttl\].*failed'
+    tail -n +"$((b + 1))" "$SRV/logs/kubejs/server.log" 2>/dev/null | grep -E '\[(ERROR|WARN)\]|\[ttl\].*failed'; } | head -20 || true
 }
 
 sync_pack() {
@@ -358,8 +419,10 @@ sync_pack() {
   mark=$(log_mark)
   case "$NEED" in
     none)    say "$N change(s); nothing to reload" ;;
-    scripts) say "$N change(s); kubejs reload server_scripts"; rcon_once "kubejs reload server_scripts" | tail -3 ;;
-    reload)  say "$N change(s); /reload"; rcon_once "reload" | tail -3 ;;
+    reload)  say "$N change(s); /reload"
+             out=$(rcon_once "reload")
+             if grep -qE "$FAILED_RE" <<<"$(plain <<<"$out")"; then printf '%s\n' "$out" >&2; die "/reload was refused"; fi
+             wait_reloaded "$mark" ;;
     restart) say "$N change(s) need a restart (startup scripts or mod config)"
              stop_server; configure; start_server; wait_ready; return ;;
   esac
@@ -390,8 +453,8 @@ do_up() {
   wait_ready
   if [ -n "$first" ] && [ ! -d "$SNAPS/base" ]; then
     # Let the start-up placements (mortal spawn, landmarks ~45 s after start) finish, then keep this world.
-    say "first boot: waiting 90s for start-up placements, then saving snapshot 'base'"
-    sleep 90
+    say "first boot: waiting for the start-up placements, then saving snapshot 'base'"
+    wait_settled 5400
     stop_server; snapshot_save base; start_server; wait_ready
   fi
   say "up in $(( $(now) - t0 ))s"
@@ -417,6 +480,7 @@ case "${1:-}" in
   sync)     t0=$(now); sync_pack; say "sync in $(( $(now) - t0 ))s" ;;
   test)
     running || die "the local server is not running (tools/local.sh up)"
+    wait_settled
     rcon_open
     if [ "${2:?usage: local.sh test <name>|all}" = all ]; then
       mkdir -p "$D/test-out"; rm -f "$D/test-out"/*.out

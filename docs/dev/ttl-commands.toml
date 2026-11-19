@@ -1,0 +1,812 @@
+# The hand-written half of docs/dev/ttl-commands.md (tools/gen_ttl_commands.py reads this file and the KubeJS source).
+#
+# What the source gives the generator: which commands and subcommands exist, their arguments, and which ones are
+# op-only (`.requires(op)`). What it cannot give is written here: the group, what a command does and what it is for.
+# One table per top-level /ttl command:
+#   group = life | story | world | builds | bosses | nations | paths | social | ops
+#   who   = player (anyone, permission level 0) | staff (op level 2) | test (op level 2, hooks for tests/ingame/*.rcon)
+#   does  = one line: what it does, what it is for
+#   subs  = [[path, who, does], ...]  path is the subcommand as typed after the command, `<name>` for an argument
+#           (`<target> give` = the subcommand `give` after the argument). Every direct subcommand in the source needs
+#           a row (a deeper path may stand for several). `test` rows of one command are printed on one line.
+#   runtime_ops = true: the source checks the op level inside the handler instead of `.requires`, so the generator
+#           accepts staff rows under a command the tree shows as open (events).
+# `python tools/gen_ttl_commands.py --check` fails when the source and this file disagree.
+
+# ---------------------------------------------------------------------------------------------------------------
+# Life and rebirth
+# ---------------------------------------------------------------------------------------------------------------
+
+[wish]
+group = "life"
+who = "player"
+does = "Spirit Corridor, step 1: pick your Last Wish by id. It sets the pool your unique skill is drawn from."
+
+[trial]
+group = "life"
+who = "player"
+does = "Spirit Corridor, step 2: face the Trial of the Soul instead of choosing a race straight away. Passing it lets you pick 1 of 3 uniques; without it one is drawn at random."
+
+[answer]
+group = "life"
+who = "player"
+does = "Answer the question of the running Trial of the Soul."
+
+[choose]
+group = "life"
+who = "player"
+does = "Spirit Corridor: take one of the offered races for Life 2."
+
+[unique]
+group = "life"
+who = "player"
+does = "Spirit Corridor: after a passed Trial, take one of the three offered unique skills (granted through the registry)."
+
+[menu]
+group = "life"
+who = "player"
+does = "Reopen the menu the current Corridor step needs (wish, race, unique), for example after a relog."
+
+[rebirth]
+group = "life"
+who = "player"
+does = "Start the rebirth into Life 2 once the Corridor flow is at its last step."
+
+[reborn]
+group = "life"
+who = "staff"
+does = "Applies a rebirth with the given race. The ttl-portals reincarnation menu (Great Sage scene) runs it when a race is confirmed; by hand only to repair a soul."
+
+[status]
+group = "life"
+who = "player"
+does = "Prints your life phase (Life 1, Corridor, Life 2) and the current Corridor step."
+
+[life]
+group = "life"
+who = "player"
+does = "The Life screen: what your first life earned (karma, tier, verdict)."
+
+[karma]
+group = "life"
+who = "staff"
+does = "Karma of a soul: stats, axes, score and tier (a live preview in Life 1)."
+subs = [
+  ["set", "staff", "Make a Life 1 stat exactly `n` (admin fixes, bot tests)."],
+  ["pick", "test", "Take the first unique option at the unique step."],
+  ["sample", "test", "One activity sample as if the timer fired (active time, exploration)."],
+  ["act", "test", "Mark the player as having acted since the last sample."],
+  ["explore", "test", "Visit n squares in a row from x z (the daily cap applies)."],
+  ["odds", "test", "400 trial draws from a wish's pool with the soul's tier weights; fails when the rare share is off by more than 10 points."],
+  ["expect", "test", "Assert a karma field (tier, dark, days, bosses, offers, step, phase, ledger ...)."],
+]
+
+[reset]
+group = "life"
+who = "staff"
+does = "Sends a soul back to a fresh Life 1: clears items, stages, registry holds, karma, soul, reputation, story, absorb and artificer data. With `/ttl absorb clear` the only way to give a soul its awakening claim back."
+
+[soul]
+group = "life"
+who = "staff"
+does = "Soul carryover: the Soul Gem (issued once, kept through death) and the enchantment the soul remembers. `soul <target>` shows what the soul holds."
+subs = [
+  ["<target> give", "staff", "Issue a Soul Gem if the body holds none."],
+  ["<target> use", "test", "The Life 2 echo (short Regeneration + Resistance), as a right-click would."],
+  ["<target> clear", "staff", "Forget the gem flag, the remembered enchantment and the cooldown."],
+  ["expect", "test", "Assert a soul field, or how many stacks of an item the body holds."],
+]
+
+[stash]
+group = "life"
+who = "staff"
+does = "The Life 1 strip: banned items kept in the soul stash and soulbound stacks kept for rebirth. Without a subcommand: what the soul holds."
+subs = [
+  ["sweep", "staff", "Run the banned-item sweep now (Life 1 in the Mortal dimensions)."],
+  ["clear", "staff", "Empty the soul stash and the kept list (a /ttl reset leaves them)."],
+  ["equip", "test", "Put one item into the first free Curios slot."],
+  ["soulbound", "test", "Treat that item id as soulbound until the next script reload."],
+  ["spell", "test", "Assert whether a cast of an Iron's Spells school is refused where the player stands."],
+  ["expect", "test", "Assert a stash field."],
+]
+
+[racelock]
+group = "life"
+who = "staff"
+does = "The Human lock of Life 1 (a Life 1 soul with another race is set back to Human within 5 s). Without a subcommand: the soul's race and whether the lock applies."
+subs = [
+  ["enforce", "test", "Run the lock now."],
+  ["expect", "test", "Assert the race id."],
+]
+
+[grant]
+group = "life"
+who = "staff"
+does = "Grant a unique skill to a soul through the registry (caps and the Legendary ceiling apply)."
+
+[reconcile]
+group = "life"
+who = "staff"
+does = "Match the registry to the uniques a soul really holds (it also runs every 5 minutes)."
+
+[registry]
+group = "life"
+who = "staff"
+does = "The unique-skill registry: who holds which unique, caps, the Legendary ceiling, the transfer log. Every grant and revoke goes through it."
+subs = [
+  ["slots", "staff", "Legendary slots used and free in the current era."],
+  ["free", "staff", "Release a unique whose holder is gone."],
+  ["history", "staff", "The newest 20 transfers (grants, revokes, returns to the pool), for one skill or all."],
+  ["sweep", "staff", "Return to the pool now every unique of a holder inactive for skills.toml [registry] inactive_days."],
+  ["migrate", "staff", "Convert name-keyed records to UUID-keyed ones."],
+  ["transfer", "staff", "Move a unique from one holder to another by route (duel, war, bequest, awakening, staff; default staff)."],
+  ["legend", "staff", "Grant a Legendary that uses a per-era slot, as a rebirth Legend pick does."],
+  ["legendcap", "test", "Replace max_holders and slots_per_era for a test; `reset` puts them back."],
+  ["seen", "test", "Pretend a soul was last seen `days` days ago."],
+  ["legacy", "test", "Write a name-keyed legacy record for the migrate test."],
+  ["expect", "test", "Assert counts, holders, rarity, the last transfer or pending returns."],
+]
+
+[era]
+group = "life"
+who = "player"
+does = "The current era and the Legendary slots left. An era is a server-wide season; Legendary slots are counted per era."
+subs = [
+  ["next", "staff", "Start the next era (archives and clears the era titles; `silent` posts nothing)."],
+  ["set", "staff", "Set the era number."],
+  ["reset", "staff", "Back to era 1: clears the Legendary slot ledger, era titles and archive."],
+  ["title", "staff", "Give a soul an era title."],
+  ["testmark", "test", "Save the era state."],
+  ["testrestore", "test", "Put the saved era state back, silently."],
+  ["expect", "test", "Assert era number, slots used or free, or a soul's title count."],
+]
+
+[core]
+group = "life"
+who = "player"
+does = "Skill Cores (dropped by bosses)."
+subs = [
+  ["open", "player", "Open a Skill Core from your inventory (Life 2 only). Staff can add a player name to open one for them without an item."],
+  ["odds", "test", "300 draws from the Skill Core pool with the soul's weights; prints how many were Legendary, Rare, Common or none."],
+  ["expect", "test", "Assert how many uniques the registry lists for a soul."],
+]
+
+[absorb]
+group = "life"
+who = "player"
+does = "How a unique changes hands between souls in Life 2: duel, bequest, awakening, challenge and war. Every route is a knob in skills.toml [absorb]."
+subs = [
+  ["status", "player", "Your absorb cooldown, open pacts and the awakenings you have used."],
+  ["duel", "player", "Offer a consensual duel anywhere in Life 2. The loser's Legendary goes to the winner, Rare and Common are copied."],
+  ["accept", "player", "Accept a pending duel or bequest from a soul."],
+  ["decline", "player", "Refuse a pending duel or bequest."],
+  ["bequest", "player", "Hand one of your uniques on voluntarily (the other soul must accept)."],
+  ["free", "player", "A True Demon Lord or True Hero lists the free Legendaries it may claim."],
+  ["claim", "player", "A True Demon Lord or True Hero claims a free Legendary (once per soul)."],
+  ["challenge", "player", "A True Demon Lord or True Hero challenges a weaker Legendary holder; the holder cannot refuse."],
+  ["simulate", "staff", "Run a kill between two souls through the absorb rules (optionally by a route) to see the result."],
+  ["ep", "test", "Fake a soul's EP for the absorb gate."],
+  ["war", "staff", "Flag two souls as being at war (their Legendary changes hands on a kill); `clear` drops all flags."],
+  ["awake", "test", "Fake an awakening kind and state on a soul."],
+  ["clear", "staff", "Forget one soul's absorb state, including its awakening claim."],
+  ["testwipe", "test", "Wipe a soul's local absorb data for a test."],
+  ["expect", "test", "Assert open pacts, war flags, or a soul's cooldown, options, awakenings and combat state."],
+]
+
+[liability]
+group = "life"
+who = "staff"
+does = "Duel damage liability: whoever starts a duel in a public place pays for the blocks that get broken there. These are the staff and test tools."
+subs = [
+  ["where", "staff", "Where a player stands: which public place, and who is paid, or the wild."],
+  ["sweep", "staff", "Settle finished or expired duels now."],
+  ["clear", "staff", "Drop every damage record."],
+  ["testbreak", "test", "The player breaks the block two above their head through the normal break path."],
+  ["expect", "test", "Assert recorded changes, liability, arena or public place of a player, or the block above them."],
+]
+
+# ---------------------------------------------------------------------------------------------------------------
+# Story and quests
+# ---------------------------------------------------------------------------------------------------------------
+
+[story]
+group = "story"
+who = "player"
+does = "The story core: your Oath path (light or dark), acts and marks (plain `/ttl story` shows them). Logic in story/story.js, the words in design/data/story.toml."
+subs = [
+  ["status", "staff", "Your own path, acts and marks come from plain `/ttl story`; this shows the same lines for another player."],
+  ["oath", "player", "Open the Oath choice, or swear it directly (light, dark, unaligned); a party leader's Oath binds the party. Staff can swear for a player."],
+  ["talk", "player", "What a story NPC says to you now (what NPC dialog buttons run)."],
+  ["fight", "player", "Start a boss fight from the story when you stand near its arena. Staff can start it for a player from anywhere."],
+  ["flip", "player", "Atonement or Corruption, once per soul, after a quest has opened it."],
+  ["capstone", "player", "Retry your personal Act VII after your team finished the book."],
+  ["act", "staff", "Complete act n for a soul (the quest command reward `ttl story act @p 2`)."],
+  ["flag", "staff", "Set a story flag on a soul."],
+  ["unflag", "staff", "Remove a story flag."],
+  ["set", "staff", "Set the path exactly (light, dark, none) without any deltas."],
+  ["reset", "staff", "Forget all story state of a soul."],
+  ["killrep", "test", "Apply a boss's kill cost (kill_rep in bosses.toml) as a real finish would."],
+  ["testunlock", "test", "Mark and restore the server-wide unlocked-boss list around a test that completes acts."],
+  ["expect", "test", "Assert path, scoreboard, stage, act, flag, flips, unlocked boss, title or which NPC dialog answers."],
+]
+
+[cast]
+group = "story"
+who = "staff"
+does = "The story cast in the world: statues of mod characters and NPCs that answer a right-click with the story talk lines."
+subs = [
+  ["list", "staff", "Every cast spot and its state."],
+  ["load", "staff", "Force-load the chunk of every placed spot (a chunk only loaded by a teleported bot does not tick its entities)."],
+  ["unload", "staff", "Remove those chunk tickets again."],
+  ["verify", "test", "Check one spot or all (a spot whose build is not placed is skipped)."],
+  ["interact", "test", "Do what a right-click on a spot's entity does, as a player, and check the story id."],
+  ["expect", "test", "Assert a cast field."],
+]
+
+[quests]
+group = "story"
+who = "staff"
+does = "The FTB Quests book and the Life 1 milestone whispers."
+subs = [
+  ["check", "staff", "Check that every chapter and quest of generated/quests.js (tools/gen_quests.py) is loaded by FTB Quests."],
+  ["tick", "staff", "Run the Life 1 milestone check of a soul now (whispers, primer book)."],
+  ["expect", "test", "Assert a milestone whisper was said this life, or that the primer book was given."],
+]
+
+[sidequest]
+group = "story"
+who = "player"
+does = "Side jobs from the adventurers of the canon continent: fetch, escort, cull and parcel jobs."
+subs = [
+  ["status", "player", "Your active side jobs."],
+  ["offers", "player", "The jobs offered where you stand (the adventurers' work button)."],
+  ["take", "player", "Take a job; its giver place must be within settings.take_radius."],
+  ["abandon", "player", "Drop a job (an escort client walks off, a parcel is taken back)."],
+  ["turnin", "player", "Hand in fetch jobs that have no hand-in place."],
+  ["start", "staff", "Start a job without the giver check (FTB quest reward `ttl sidequest start {p} <id>`)."],
+  ["complete", "test", "Force a job to complete."],
+  ["fail", "test", "Force a job to fail."],
+  ["poll", "test", "Run the job poll now for one soul or all."],
+  ["goto", "test", "Stand a player at a place."],
+  ["bring", "test", "Bring the player's escort clients beside them."],
+  ["reset", "staff", "Forget a player's side record and stages."],
+  ["where", "staff", "Where a place resolves to now."],
+  ["expect", "test", "Assert jobs, places, parcels, clients, progress or whether a start would be refused."],
+]
+
+[adventurers]
+group = "story"
+who = "staff"
+does = "The ambient adventurers (Easy NPCs) in guild halls, plazas and road camps of the continent, who give side jobs."
+subs = [
+  ["list", "staff", "Places and their adventurers."],
+  ["populate", "staff", "Fill one place (or all) up to its cap now."],
+  ["sweep", "staff", "Remove adventurers of an old rev or an unknown place and extras over the cap."],
+  ["clear", "staff", "Remove the adventurers of one place or all."],
+  ["hold", "test", "Stop the ambient loop from spawning for `seconds` (0 releases)."],
+  ["expect", "test", "Assert how many adventurers a place has."],
+]
+
+# ---------------------------------------------------------------------------------------------------------------
+# World and map
+# ---------------------------------------------------------------------------------------------------------------
+
+[world]
+group = "world"
+who = "player"
+does = "The World Chronicle: era, balance and tide, growth phases of places, milestones and thrones. Numbers in design/data/world.toml."
+subs = [
+  ["where", "player", "Whether you stand on the canon continent (story rules apply) or outside it."],
+  ["at", "staff", "The same for an overworld column x z."],
+  ["log", "staff", "The last n chronicle entries."],
+  ["balance", "staff", "Move the light/dark balance by n (-100..100); the tide follows."],
+  ["milestone", "staff", "List milestones, or fire one (its effects run, it stays reached)."],
+  ["phase", "staff", "Set a place's growth phase."],
+  ["conflict", "staff", "Open or close the takeover path of a canon nation."],
+  ["rule", "staff", "Set or clear who sits on a canon throne (faction, nation, mode)."],
+  ["active", "staff", "Set or clear a timed world state such as rebuilding."],
+  ["recount", "staff", "Backfill every online soul, recount from the ledger and evaluate."],
+  ["sync", "staff", "Rewrite a soul's world mirrors (what login does)."],
+  ["forget", "staff", "Remove a soul's ttl.world stages and heard Voice lines."],
+  ["export", "staff", "One JSON line of the chronicle (Discord, BlueMap, Hall)."],
+  ["testmark", "test", "Save the world and start a blank one in which test bots count."],
+  ["testrestore", "test", "Put the saved world back."],
+  ["testthreshold", "test", "Replace the milestone threshold until testrestore; `reset` undoes it."],
+  ["expect", "test", "Assert continent, milestone, phase, tide, balance, unlocked event, mood, conflict, rule, first boss or a dotted path."],
+]
+
+[domain]
+group = "world"
+who = "player"
+does = "Faction domains on the continent (Tempest and others): who may change blocks where."
+subs = [
+  ["check", "staff", "Inside or outside the continent, the domain at x z and who may edit there."],
+  ["list", "staff", "Every domain part in force (placed builds and landmarks)."],
+  ["residents", "staff", "Tempest's residents and their last state."],
+  ["respawn", "staff", "Run the resident check now."],
+  ["testdelay", "test", "Set the respawn delay of killable residents in seconds; `reset` undoes it."],
+  ["testbreak", "test", "Put stone on the surface at x z and let the player break it through the game's own path; fails when the outcome is not kept or broken as expected."],
+  ["testdoor", "test", "Put a door on the surface and let the player right-click it."],
+  ["expect", "test", "Assert who may edit, the faction at x z, a resident's state, invulnerability or part counts."],
+]
+
+[events]
+group = "world"
+who = "staff"
+runtime_ops = true
+does = "The event director: world events with a schedule, and the chat lines players get for them. Only `mute` is for players."
+subs = [
+  ["next", "staff", "The schedule only."],
+  ["mute", "player", "Toggle the chat lines (and Great Sage clips) of world events for yourself; titles stay."],
+  ["fire", "staff", "Start an event now (not counted in the daily cap); `force` restarts an active one."],
+  ["end", "staff", "End one event, or all of them."],
+  ["due", "test", "Make an event due now."],
+  ["tick", "test", "Run one scheduler pass now (with an id: only that event, test bots count as online)."],
+  ["reschedule", "staff", "Forget the stored next start and compute it again from events.toml."],
+  ["setup", "test", "A Life 2 player with this EP and this many hours played this week."],
+  ["offerset", "test", "Give a player exactly this Favor offer."],
+  ["clear", "test", "Forget a player's Favor offer, cooldown and play week."],
+  ["expect", "test", "Assert active events, schedule, registration, a captured gamerule, the Favor winner or a player's offer, cooldown, unique or mute."],
+]
+
+[favor]
+group = "world"
+who = "player"
+does = "The World's Favor: a blessing offered to you by a world event."
+subs = [
+  ["choose", "player", "Take one of the offered blessings by id."],
+]
+
+[where]
+group = "world"
+who = "player"
+does = "Which way a known place lies: a compass direction and a rounded distance, never coordinates or a teleport hint (Tensura world only). Without an id: the places you know."
+
+["locate place"]
+group = "world"
+who = "staff"
+does = "Extends vanilla `/locate`: where a canon place (anchor, settlement, build or landmark) stands, with coordinates, the distance and a click-to-suggest teleport; a planned spot is marked as not placed yet. Tab-complete lists the ids. The player version is `/ttl where`."
+
+[tempest]
+group = "world"
+who = "staff"
+does = "Test hooks for early Tempest (the goblin village placed by life/tempest.js)."
+subs = [
+  ["expect", "test", "Assert that Tempest was placed at the current version with n slab passes, or that at least n crops stand in its field."],
+]
+
+[arrival]
+group = "world"
+who = "staff"
+does = "The Life 2 arrival point on the safe rim of the Jura forest, and the world spawn."
+subs = [
+  ["expect", "test", "Assert that a bot stands within `blocks` of the arrival point, or is alive."],
+]
+
+[spiritdomain]
+group = "world"
+who = "staff"
+does = "The Dwelling of the Spirits: a gate in the Great Jura Forest into its own dimension (ttl:spirit_domain). Not the Spirit Corridor."
+subs = [
+  ["where", "staff", "Where the spirit gate and the Dwelling are placed."],
+  ["tp", "staff", "Send a player into the Dwelling (needs the Dwelling placed and a fitting life phase)."],
+  ["walk", "test", "Walk a player through the gate or back."],
+  ["expect", "test", "Assert that a player is in or out of the Dwelling."],
+]
+
+[worldreset]
+group = "world"
+who = "staff"
+does = "Run by ttl-portals after it regenerated dimensions (comma-separated ids): places Wayfarer's Rest and the Tensura world spawn again and moves players with an old position to the new spawn. Not for typing by hand."
+
+# ---------------------------------------------------------------------------------------------------------------
+# Builds and landmarks
+# ---------------------------------------------------------------------------------------------------------------
+
+[build]
+group = "builds"
+who = "staff"
+does = "Canon builds (design/builds/*.toml, blueprints/*.py): the placer puts each one on its canon spot once per version."
+subs = [
+  ["<name>", "staff", "Place the blueprint `name` with its corner at your feet (a build tool, not the canon placer)."],
+  ["list", "staff", "Every build and whether it is placed."],
+  ["where", "staff", "Where a build was placed (corner, anchor, version)."],
+  ["place", "staff", "Place a build, or all; `force` places it again even when the version is current."],
+  ["expect", "test", "Assert that a build is placed, how much the terrain repair filled, or the block at a cell."],
+]
+
+[landmark]
+group = "builds"
+who = "staff"
+does = "Canon landmarks (design/data/landmarks.toml) placed with Tensura's own jigsaw structures: Rigurd's goblin village, the Lake Siss lizardmen, the orc camp."
+subs = [
+  ["list", "staff", "Every landmark and its state."],
+  ["place", "staff", "Place a landmark, or all."],
+  ["where", "staff", "Where a landmark was placed."],
+]
+
+[works]
+group = "builds"
+who = "staff"
+does = "One-time world works on Lerfing's map: the planted forests (Tempest, Treyni) and the trade roads (the Dwarven Road), placed once after the builds."
+subs = [
+  ["list", "staff", "Every forest and road with its state (planted / laid, or the piece it resumes at)."],
+  ["run", "staff", "Queue a forest or road (`<kind> <id>`); with force, again over what is there."],
+  ["expect", "test", "Assert a forest planted (at least n giants), a road laid, or the road surface at an arc length."],
+  ["where", "staff", "Position and tp command of a road at an arc length."],
+]
+
+[chunks]
+group = "builds"
+who = "staff"
+does = "The chunk tickets the placers use to load a rectangle without a synchronous forceload."
+subs = [
+  ["hold", "test", "Hold an overworld rectangle x0 z0 x1 z1."],
+  ["expect", "test", "Assert that a chunk is FULL right now."],
+]
+
+[spawn]
+group = "builds"
+who = "staff"
+does = "Where Life 1 starts: Wayfarer's Rest in the Mortal Realm, and its version."
+
+[wayfarer]
+group = "builds"
+who = "staff"
+does = "Test hook for the Wayfarer's Rest build protection."
+subs = [
+  ["expect", "test", "Assert that a block at the player's x, y+dy, z is protected or open for them."],
+]
+
+# ---------------------------------------------------------------------------------------------------------------
+# Bosses and arenas
+# ---------------------------------------------------------------------------------------------------------------
+
+[boss]
+group = "bosses"
+who = "staff"
+does = "The boss framework (bosses/boss.js, design/data/bosses.toml): summon, watch and clean up bosses."
+subs = [
+  ["summon", "staff", "Summon a boss at x y z, else at its arena, else where you stand. Skips the cooldown and requires."],
+  ["list", "staff", "Every boss: tier, fixed spawn, wild chance, state while one is out."],
+  ["wild", "staff", "The wild roll: knobs, today's starts, what roams; `roll <id> [player]` starts a wild boss near a player now."],
+  ["abort", "staff", "Remove a summoned boss (or all) without rewards; a freed arena goes to the head of its queue."],
+  ["reset", "staff", "Forget a player's boss stages, kill counts and cooldown stamps."],
+  ["cooldown", "staff", "`clear <id|all>`: forget the per-party cooldown stamps and arena gaps of a boss."],
+  ["arena", "staff", "`clear <id|all>`: forget a boss's arena gaps and queue."],
+  ["queue", "staff", "Who waits for which boss arena; `clear [id]` empties it."],
+  ["testparty", "test", "Make these players one party for boss credit (`set a b [c]`, `clear`)."],
+  ["testecho", "test", "Make a boss count as already fallen, so its fights are echoes (`set <id>`, `clear`)."],
+  ["expect", "test", "Assert a boss field for a player (stage, defeated, kills, active, cooldown, queue, gate, wild chance, cores ...)."],
+]
+
+[arena]
+group = "bosses"
+who = "player"
+does = "PvP and party arenas (arena/arenas.js, design/data/arenas.toml)."
+subs = [
+  ["list", "player", "The arenas and their state."],
+  ["join", "player", "Join an arena as a duel, party or challenge fighter (modes duel, party, challenge; sides a or b)."],
+  ["leave", "player", "Leave your arena and go back where you came from."],
+  ["start", "player", "Start the match you joined. Staff can start an arena by name."],
+  ["reset", "staff", "Reset one arena or all."],
+  ["clear", "staff", "Clear a player's arena state."],
+  ["defeat", "staff", "Count a player as defeated (optionally by someone)."],
+  ["wave", "staff", "Clear the current wave of an arena."],
+  ["end", "staff", "End a match: a, b, draw, clear, partial or fail."],
+  ["testat", "test", "Place an arena at x y z for a test, or `clear` it."],
+  ["testmode", "test", "Switch the arena test mode on or off."],
+  ["expect", "test", "Assert an arena's state, mode, phase, result, players or wave, or a player's record and cooldowns."],
+]
+
+[walpurgis]
+group = "bosses"
+who = "player"
+does = "The Walpurgis Hall: the Demon Lords' council chamber and the Banquet Floor arena in the dimension ttl:walpurgis. Entry by invitation or condition (a Legendary, a story capstone or a booked match)."
+subs = [
+  ["status", "player", "Whether you may enter and why not."],
+  ["go", "player", "Enter the hall when you qualify (only while command_entry is on in arenas.toml; otherwise through the dais of Clayman's throne)."],
+  ["invite", "player", "Invite a soul for some hours (Legendary holders may, when invite_by_legendary; staff always)."],
+  ["uninvite", "staff", "Cancel an invitation."],
+  ["where", "staff", "Where the Walpurgis Hall and its gate are placed."],
+  ["tp", "staff", "Send a player into the hall; refused when they do not qualify."],
+  ["walk", "test", "Walk a player through the doorway or back."],
+  ["expect", "test", "Assert that a player is in or out of the hall, or allowed to enter."],
+]
+
+# ---------------------------------------------------------------------------------------------------------------
+# Nations and economy
+# ---------------------------------------------------------------------------------------------------------------
+
+[nation]
+group = "nations"
+who = "player"
+does = "Nations: an FTB party that its owner founds (create and fill the party with /ftbteams first). Logic in nations/nations.js, claims in nations/claims.js."
+subs = [
+  ["info", "player", "Your nation, or any nation by name: rank, value, members, land, treasury, allies, wars."],
+  ["found", "player", "Found the nation of your party: the party owner, Life 2, in the overworld, with the boss stage and the charter fee."],
+  ["dissolve", "player", "The owner ends the nation (the treasury is paid back; the party stays)."],
+  ["top", "player", "All nations by value."],
+  ["value", "player", "What you are worth (renown) and what your nation is worth."],
+  ["deposit", "player", "Pay coins (bronze, silver, gold, stellar) into the treasury."],
+  ["withdraw", "player", "The owner takes coins out of the treasury."],
+  ["ally", "player", "Offer an alliance (mutual once the other owner does the same)."],
+  ["unally", "player", "End an alliance."],
+  ["war", "player", "Declare war on a nation (counts after diplomacy.war_notice_hours)."],
+  ["peace", "player", "End a war."],
+  ["sync", "staff", "Reconcile nations with FTB Teams now (stages, claim allowance, disbanded parties)."],
+  ["test", "test", "Test hooks: Life 2 stage, charter stage, leave party, drop the record, make wars active, run upkeep, clear extra claims."],
+  ["expect", "test", "Assert a nation field or try a real action (found, war, withdraw) and read what refused it."],
+]
+
+[econ]
+group = "nations"
+who = "staff"
+does = "The coin economy (bronze is the base unit): this week's faucet and sink counters and the last weeks."
+subs = [
+  ["give", "staff", "Pay a soul bronze from nowhere (counts as a staff faucet)."],
+  ["take", "staff", "Take bronze from a soul."],
+  ["expect", "test", "Assert a balance, faucet, sink, fee or whether a soul can pay."],
+]
+
+[merit]
+group = "nations"
+who = "player"
+does = "Your merit from building and the Public Works chunks you keep (Life 2)."
+subs = [
+  ["works", "player", "`mark` or `unmark` the chunk you stand in as Public Works (Life 2, Tensura overworld)."],
+  ["test", "test", "Count n placed blocks of a type at a player's feet."],
+  ["reset", "staff", "Forget a player's merit."],
+  ["expect", "test", "Assert merit total, week, works or the builder title."],
+]
+
+[rep]
+group = "nations"
+who = "player"
+does = "Reputation with the factions (-100..100, bands from hostile to exalted) and renown. Logic in rep/rep.js."
+subs = [
+  ["list", "staff", "The same standing list for someone else."],
+  ["renown", "player", "Your renown (your worth) with its parts. Staff can look at a player."],
+  ["set", "staff", "Set a faction value exactly."],
+  ["add", "staff", "Change a faction value by n (what NPC dialog actions run)."],
+  ["bonus", "staff", "Permanent bonus renown (quests, merit, staff); negative lowers it."],
+  ["log", "staff", "The newest n reputation changes."],
+  ["seed", "test", "Redo the rebirth seeding from race and stored karma."],
+  ["decay", "test", "Apply that many weekly decay steps now."],
+  ["expect", "test", "Assert a faction band, value, stage or scoreboard mirror, or a renown part."],
+]
+
+# ---------------------------------------------------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------------------------------------------------
+
+[necro]
+group = "paths"
+who = "player"
+does = "The Necromancer path: rank, the Church's eye (Sense, Holy Hunt, licence) and the legion of the dead. Logic in necro/necro.js, necro/legion.js, necro/sanctum.js."
+subs = [
+  ["status", "player", "Who you are among the dead: rank, points, the Church's eye, licence."],
+  ["rank", "player", "The rank ladder."],
+  ["rite", "player", "Become a necromancer at your Bone Altar (a rite spell plus the reagent, ash or dust)."],
+  ["licence", "player", "Ask the Church for a licence (Honored, 14 clean days, in its lands)."],
+  ["license", "player", "The same as `licence`."],
+  ["bounties", "player", "The Church's bounty list (Marked souls)."],
+  ["raise", "player", "Raise a skeleton or zombie at your Bone Altar (dust = grey, ash = dark), with an optional label."],
+  ["knight", "player", "Make a Death Knight (rank 3+, the gear, 32 dust or ash and a corpse)."],
+  ["stow", "player", "Put your dead near you to sleep in the tomb."],
+  ["rouse", "player", "Wake sleeping dead at the altar."],
+  ["recall", "player", "Your loaded dead within 64 blocks come to you."],
+  ["stand", "player", "Turn your dead into tomb guards (no AI) or back to life."],
+  ["rest", "player", "Lay the dead under a grave marker to rest (the Keeper)."],
+  ["muster", "player", "Count your army; a nation at war holds the war cap for 24 h."],
+  ["sanctum", "player", "What your tomb is and what it needs to grow."],
+  ["legion", "player", "Your legion. Staff have more subcommands (info, altar, sanctum, corpse, pvp, sweep, test, expect)."],
+  ["info", "staff", "The necro record of a soul."],
+  ["points", "staff", "Add to or set rank points (add goes through the weekly cap)."],
+  ["sense", "staff", "Add to or set the Church's Sense; marks and the Hunt follow."],
+  ["hunt", "staff", "Start or end the Holy Hunt on a soul."],
+  ["test", "test", "Test hooks: clean days, licence place rule, continent, hunt minutes, week, refresh, reset."],
+  ["expect", "test", "Assert a necro field (rank, points, entry, sense, marked, hunted, licence, bounty ...)."],
+]
+
+[artifice]
+group = "paths"
+who = "player"
+does = "The Artificer path: Workshop Benches, schematics, commissions and engraving. Logic in artifice/*.js, data in design/data/artifice.toml."
+subs = [
+  ["status", "player", "Rank, points, caps and what is next."],
+  ["charter", "player", "Sign the charter at a Workshop Bench (3 schematics known or carried)."],
+  ["commissions", "player", "Today's commission board."],
+  ["commission", "player", "`take <n|id>`, `turnin` or `abandon <n|id>` a commission. Staff: `test <player> <id>` accepts one that is not on the board."],
+  ["engrave", "player", "List engravings, or engrave the item in your main hand (rank 2+, chisel, own work)."],
+  ["make", "player", "List the workshop recipes, or make one."],
+  ["curse", "player", "Put a cursed whetstone on the blade in your main hand (dark road)."],
+  ["schematic", "player", "`buy`: buy a Dwargon schematic for coin (honest road)."],
+  ["steal", "player", "Steal a schematic from the Dwargon smithy at night (dark road)."],
+  ["info", "staff", "The artificer record of a soul."],
+  ["firsts", "staff", "The server's first maker of each metal."],
+  ["roll", "staff", "Roll a new commission board."],
+  ["refresh", "staff", "Re-sync a soul's artificer stages and scoreboard."],
+  ["points", "staff", "Add to or set artificer points."],
+  ["test", "test", "Test hooks: Life 1/2, reset, relaxed or strict theft rules, bench and kiln code paths, stamp the main-hand item."],
+  ["expect", "test", "Assert an artificer field (rank, points, jobs, metals, stamp, cursed, enchantments, try_* answers ...)."],
+]
+
+[roads]
+group = "paths"
+who = "player"
+does = "The two roads: routes you took in moral choices (counts per choice, never the karma numbers). Logic in roads/roads.js, data in design/data/roads.toml."
+subs = [
+  ["list", "staff", "Every choice and its routes."],
+  ["info", "staff", "A soul's counts, firsts, today's balance notes, ledger and last result."],
+  ["witnesses", "staff", "Who would witness an act where the player stands."],
+  ["pay", "staff", "Take a route for a soul and pay its costs."],
+  ["log", "staff", "The newest n routes taken."],
+  ["items", "test", "Check that every path item and block is registered, or give a player one of each."],
+  ["block", "test", "Assert the block at a position."],
+  ["test", "test", "Life 2 or Life 1 stage only, or forget roads state and ledger."],
+  ["expect", "test", "Assert a ledger value, route count, first-time flag, tide notes or the last result."],
+]
+
+[paths]
+group = "paths"
+who = "player"
+does = "The paths you can walk (necromancer, artificer ...): the guide page plus a short list in chat."
+
+[choice]
+group = "paths"
+who = "player"
+does = "Moral-choice scenes in the world (hostages, a sick village, a starving horde ...). Engine in choices/engine.js, data in design/data/choices.toml."
+subs = [
+  ["take", "player", "Take a menu route of a scene (what the clickable buttons run)."],
+  ["list", "staff", "Open scenes, registered events and their weights."],
+  ["spawn", "staff", "Spawn a scene at a position, or `near <player>` where a natural roll would put it."],
+  ["roll", "staff", "A natural roll now (no chance, no gap; the caps apply)."],
+  ["resolve", "staff", "Resolve a scene as if a player completed a route, or end it the neutral way."],
+  ["act", "test", "Take a menu route as another player (bots)."],
+  ["test", "test", "Scene test verbs (heal, free, feed, kill, owner ...) and fake skills for a soul."],
+  ["testonline", "test", "Fake the number of Life 2 souls online for the scale."],
+  ["clear", "staff", "End and clear every scene now (no costs, no chronicle)."],
+  ["reset", "test", "Forget a soul's choice history, dark cap and test skills."],
+  ["expect", "test", "Assert a scene, player or world field."],
+]
+
+# ---------------------------------------------------------------------------------------------------------------
+# Social
+# ---------------------------------------------------------------------------------------------------------------
+
+[party]
+group = "social"
+who = "player"
+does = "Your party (an FTB Teams party): leader, members, the party's Oath and boss credit. Create, invite, join, leave and kick are FTB's own `/ftbteams party ...`."
+subs = [
+  ["status", "staff", "The same lines for another player."],
+  ["poll", "staff", "Run one path-lock pass now (it also runs every 3 seconds)."],
+  ["expect", "test", "Assert party membership, size, owner, path, cap or boss roster."],
+]
+
+[companion]
+group = "social"
+who = "player"
+does = "Companions: an adventurer you hire for coins who follows and fights for you."
+subs = [
+  ["status", "player", "Your companion."],
+  ["hire", "player", "Hire the nearest hireable adventurer within 6 blocks (Life 2; limits and the party cap apply)."],
+  ["dismiss", "player", "Send your companion away."],
+  ["grant", "test", "Give a player a companion of a kind for some minutes."],
+  ["clear", "test", "Remove a player's companion."],
+  ["expect", "test", "Assert companion count, kind, alive or can_hire."],
+]
+
+[guild]
+group = "social"
+who = "player"
+does = "The Free Guild (Life 2): a bounty board with daily and weekly bounties, handed out by desks and the guild master Fuze."
+subs = [
+  ["board", "player", "The board with your status per bounty (optionally one giver: desk or fuze)."],
+  ["take", "player", "Accept a bounty by slot or id."],
+  ["turnin", "player", "Hand in everything that is ready."],
+  ["abandon", "player", "Drop an accepted bounty."],
+  ["status", "player", "Your guild points, rank and bounties (Life 2 only)."],
+  ["roll", "staff", "Re-roll the board now (daily, weekly or all)."],
+  ["post", "test", "Put a bounty into the first slot of its period."],
+  ["sample", "test", "Sample kills and visits now instead of waiting."],
+  ["test", "test", "Give a bot the Life 2 stage."],
+  ["reset", "test", "Forget a player's guild record."],
+  ["desk", "staff", "`add x y z`, `remove x y z` or `list` the interim guild desks."],
+  ["expect", "test", "Assert a guild field (points, rank, board slots, accepted/ready bounty, take answers ...)."],
+  ["npc", "staff", "The guild's Easy NPCs: `list`, `ensure`, `spawn`, `remove`, `goto`, `expect`."],
+]
+
+[guide]
+group = "social"
+who = "player"
+does = "The guide pop-up (Great Sage style screen). Without an argument the main guide; also `corridor`, `life2` and other page sets."
+
+[talk]
+group = "social"
+who = "player"
+does = "What the Voice of the World NPC runs on right-click."
+
+[top]
+group = "social"
+who = "player"
+does = "The leaderboard in chat (the same standings as #leaderboard in Discord)."
+
+# ---------------------------------------------------------------------------------------------------------------
+# Ops and testing
+# ---------------------------------------------------------------------------------------------------------------
+
+[inspect]
+group = "ops"
+who = "staff"
+does = "One line with a soul's state: phase, dimension, position, Corridor step, wish, offers, race, uniques, trial result and karma. Answers over RCON, so the tests can read it."
+
+[as]
+group = "ops"
+who = "test"
+does = "Run a command as the player typed it (for example FTB party commands for test bots). Prints the result; a refusal is not an error."
+
+[ops]
+group = "ops"
+who = "test"
+does = "The command log of /ttl and the other ops commands (literal paths only, never free text, selectors or NBT)."
+subs = [
+  ["expect", "test", "Assert the last logged command path: `expect cmdlog last <path>`."],
+]
+
+[guideforget]
+group = "ops"
+who = "staff"
+does = "Show the once-only guide pop-ups to a player again."
+
+[npc]
+group = "ops"
+who = "staff"
+does = "Where the Voice of the World NPC in the Spirit Corridor is (fails when it is missing)."
+subs = [
+  ["respawn", "staff", "Replace the NPC, then report where it is."],
+]
+
+[discord]
+group = "ops"
+who = "staff"
+does = "Discord posting of story events."
+subs = [
+  ["mute", "test", "`on`, `off` or `status`: drop every Discord post. tools/server.sh sets it around each test run."],
+  ["expect", "test", "Assert how many story lines a bot's session would have posted for a moment, without contacting Discord."],
+]
+
+[discordroles]
+group = "ops"
+who = "staff"
+does = "Compute and sync the Life and karma roles of a linked player on Discord."
+subs = [
+  ["dry", "staff", "Print the computed roles without contacting Discord (without it the roles are synced now)."],
+  ["expect", "test", "Assert the computed role keys."],
+]
+
+[staff]
+group = "ops"
+who = "staff"
+does = "Read-only overviews, also available as Discord `?ttl staff ...` commands for the modder role."
+subs = [
+  ["status", "staff", "Who is online: life phase, title and dimension per player (test bots left out)."],
+  ["registry", "staff", "Held uniques and their holders."],
+]
+
+[recap]
+group = "ops"
+who = "staff"
+does = "The weekly Hall of Souls recap (Sunday 20:00, posted to #story)."
+subs = [
+  ["preview", "staff", "Print the recap without posting."],
+  ["now", "staff", "Post the recap now."],
+]
+
+[meta]
+verified = "19/11/2026"
+help_entries = 67
+# on main since that check, not yet on the live server: left out of the /help comparison and named in the text
+newer_than_help = ["where"]
+newer_note = "`/ttl where` and `/locate place` came to main after that check and are not on that server yet"

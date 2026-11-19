@@ -112,6 +112,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-1481173462,986603000,-1125017445,-605183770],
     VariantType:"KAI",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_bard_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

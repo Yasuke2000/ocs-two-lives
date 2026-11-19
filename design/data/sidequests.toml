@@ -64,7 +64,8 @@ active_range = 96
 night_start = 13000
 night_end = 23500
 # Bump to replace every ambient adventurer (and companion look) with a fresh one from the current presets.
-rev = 1
+# 2: the Tensura looks (tools/npc_looks.py) replace Easy NPC's default skins, 19/11/2026.
+rev = 2
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Places. `anchor`:
@@ -246,9 +247,12 @@ y = 0
 cap = 0
 
 # ---------------------------------------------------------------------------------------------------------------------
-# Adventurers. Generic folk of the guilds (never a canon character: those are npcs.toml's story cast). `skin` is an
-# Easy NPC built-in variant of `model` (gen_npcs.py VARIANTS); our own PNG ttl:textures/entity/npc/adv_<id>.png is used
-# when it exists. `lines`: up to 6 short speech-bubble lines, one picked at random now and then (Easy NPC MESSAGE action on
+# Adventurers. Generic folk of the guilds (never a canon character: those are npcs.toml's story cast). `look` is an
+# archetype of tools/npc_looks.py (guild_rookie, guild_veteran, dwarf_warrior, merchant, ...): the NPC wears the variant
+# picked from its `name` (or `look_name`) among the variants that fit `model`, a 64x64 skin drawn by
+# tools/gen_npc_looks.py (contact sheet: docs/previews/npc_skins.png). `skin` is the Easy NPC built-in variant of `model`
+# kept as the fallback (gen_npcs.py VARIANTS); without a `look`, our own PNG ttl:textures/entity/npc/adv_<id>.png is
+# used when it exists. After a look change, bump [ambient] rev so the adventurers already in the world are replaced. `lines`: up to 6 short speech-bubble lines, one picked at random now and then (Easy NPC MESSAGE action on
 # ON_INTERVAL_NORMAL with a CHANCE condition; no chat spam). `hire` makes the adventurer recruitable:
 #   fee = coin table (a sink: TtlEcon.charge) · minutes = contract length (real time) · hp · weapon (item id) ·
 #   armor = "" | "leather" | "chainmail" | "iron" · rank = guild rank letter shown in the offer.
@@ -260,6 +264,7 @@ title = "F-rank swordsman"
 name_color = "#9BC53D"
 model = "humanoid"
 skin = "FARMER_01"
+look = "guild_rookie"
 lines = [
   "Three days a rookie and I've already lost a sword to a horned rabbit.",
   "They say the Free Guild takes anyone. They weren't lying.",
@@ -282,6 +287,7 @@ title = "C-rank knight"
 name_color = "#4F86C6"
 model = "humanoid"
 skin = "KNIGHT_02"
+look = "guild_veteran"
 lines = [
   "Keep your guard up on the Falmuth road. Bandits like rookies.",
   "I've seen what a direwolf pack does to a careless caravan.",
@@ -304,6 +310,7 @@ title = "D-rank scout"
 name_color = "#2BB5A0"
 model = "humanoid_slim"
 skin = "EFE"
+look = "guild_scout"
 lines = [
   "Footprints never lie. People do.",
   "The forest goes quiet before something big comes through.",
@@ -325,6 +332,7 @@ title = "D-rank axe-hand"
 name_color = "#C8963E"
 model = "humanoid"
 skin = "STEVE"
+look = "dwarf_warrior"
 lines = [
   "Dwargon steel, Jura timber. Best trade there is.",
   "The King's peace holds the forest road. Mostly.",
@@ -345,7 +353,8 @@ name = "Hald"
 title = "C-rank monster hunter"
 name_color = "#8C5A3C"
 model = "humanoid"
-skin = "SECURITY_01"
+skin = "FARMER_01"
+look = "guild_scout"
 lines = [
   "A horned bear in the north fields. Nobody's paid me to look yet.",
   "Black spiders nest where the light doesn't reach.",
@@ -367,6 +376,7 @@ title = "E-rank mage"
 name_color = "#B57EDC"
 model = "humanoid_slim"
 skin = "MAGE_01"
+look = "guild_mage"
 lines = [
   "Fire Bolt, Fire Bolt, Fire... no, that's a candle.",
   "Magicules are thick here. I can feel it in my teeth.",
@@ -381,6 +391,7 @@ title = "E-rank cleric"
 name_color = "#F2E8CF"
 model = "humanoid_slim"
 skin = "ALEX"
+look = "luminist_cleric"
 lines = [
   "Bless you. That will be three bronze. Joking.",
   "The Church says monsters are evil. The ones in Tempest bake bread.",
@@ -395,6 +406,7 @@ title = "otherworlder"
 name_color = "#E4572E"
 model = "humanoid"
 skin = "JAYJASONBO"
+look = "otherworlder"
 lines = [
   "One truck, one flash of light, and here I am.",
   "Back home we had vending machines. I miss vending machines.",
@@ -410,6 +422,7 @@ title = "travelling merchant"
 name_color = "#E8C547"
 model = "humanoid"
 skin = "ZURI"
+look = "merchant"
 lines = [
   "Fine wares from Blumund! Finer wares from Dwargon!",
   "The road to Tempest is good for trade, if you have a guard.",
@@ -424,6 +437,7 @@ title = "wandering bard"
 name_color = "#FF8FAB"
 model = "humanoid"
 skin = "KAI"
+look = "bard"
 lines = [
   "Have you heard the ballad of the Storm Dragon's friend?",
   "A slime who names monsters, a king who smiths... what a time.",
@@ -433,12 +447,15 @@ lines = [
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Escort clients: Easy NPCs that follow the soul (FOLLOW_PLAYER), can be attacked and fail the job when they fall.
+# `look` / `look_name` / `skin` as for the adventurers (a client is spawned fresh for every escort).
 [[client]]
 id = "merchant"
 name = "Merchant Marlo"
 name_color = "#E8C547"
 model = "humanoid"
 skin = "ZURI"
+look = "merchant"
+look_name = "Marlo"         # the same face as the adventurer Marlo
 lines = ["Not so fast, my legs are older than yours!", "Is that a wolf? Tell me that isn't a wolf.", "Almost there. I can smell the forges."]
 
 [[client]]
@@ -447,6 +464,7 @@ name = "Caravan Master Durn"
 name_color = "#C8963E"
 model = "humanoid"
 skin = "FARMER_01"
+look = "dwarf_trader"
 lines = ["The King's ore goes through, whatever the road says.", "Keep the beasts off the carts!", "Dwarves don't run. We walk fast."]
 
 [[client]]
@@ -455,6 +473,7 @@ name = "Tomas, missing rookie"
 name_color = "#9BC53D"
 model = "humanoid"
 skin = "STEVE"
+look = "guild_rookie"
 lines = ["I thought nobody would come.", "My party ran. I don't blame them.", "Please, just get me back to the camp."]
 
 [[client]]
@@ -463,6 +482,7 @@ name = "Scholar Ilse"
 name_color = "#B57EDC"
 model = "humanoid_slim"
 skin = "MAKENA"
+look = "scholar"
 lines = ["Fascinating, the soil here is soaked in magicules.", "Do slow down, I am writing.", "The academy will want every word of this."]
 
 [[client]]
@@ -471,6 +491,7 @@ name = "Carter Wil"
 name_color = "#E3B23C"
 model = "humanoid"
 skin = "SUNNY"
+look = "commoner"
 lines = ["Grain for Ballachia, and not a sack less.", "My cart wheel squeaks. Sorry.", "The guild said you were good. Are you good?"]
 
 # ---------------------------------------------------------------------------------------------------------------------

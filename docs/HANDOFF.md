@@ -14,6 +14,45 @@ owned by the landmark agent; next is `tools/local.sh sync` + `test works` on a s
 (`tools/server.sh test works`, log lines `[ttl] trade road tempest_dwargon laid` / `[ttl] forest <id> planted`). Next
 possible: Tempest -> Blumund as a second `roads.toml` entry (crosses the Blumund channel: a long bridge).
 
+## 19/11 evening — Tensura looks for the generic NPCs (branch `tensura-npc-skins`, Claude)
+
+Yasuke: the generic NPCs (Hald, Marlo, ...) wore Easy NPC's default modern skins. Now `tools/npc_looks.py` (catalogue,
+stdlib) + `tools/gen_npc_looks.py` (Pillow composer) give 23 archetypes / 50 original skins
+(`pack/kubejs/assets/ttl/textures/entity/npc/look_*.png`), plus Tensura's own `falmuth_knight` texture referenced at
+runtime. All 10 adventurers, 5 companions, 5 escort clients and the Outcast contact wear one (`look` in
+`sidequests.toml`, variant = CRC-32 of the name). Contact sheet `docs/previews/npc_skins.png` (**waits for Yasuke's
+approval**); ChatGPT prompts for hand-made art `docs/art/npc-skin-prompts.md`; sources and licences in
+`design/lore/skins.md` "Generic looks". The ambient spawner (`sidequests/adventurers.js`) now prefers a kind not yet at
+the place. **Refresh**: `[ambient] rev` 1 → 2 (the minute sweep, or `/ttl adventurers sweep`, removes the old ones and
+`populate` refills; hired companions take the new look at their next summon, e.g. relog), `npcs.toml rev` 3 → 4 (guild
+and cast NPCs respawn on the next check). **Verified offline only** (check.sh, `tests/test_npc_looks.py`,
+`gen_npc_looks.py --check`); the local server was busy (another agent). **To check in game after the deploy**: skins
+render on a client (front/back, slim arms of Lyra/Mira/Anne/Ilse), `tests/ingame/sidequests.rcon` and
+`guild_npcs.rcon`, and that a town no longer shows the same adventurer twice.
+
+## 19/11 evening — `/ttl` command reference (branch `ttl-command-docs`, Claude, for Yasuke)
+
+**`docs/dev/ttl-commands.md`**: every `/ttl` command (68, plus `/locate place`) by system, PLAYER / staff / test, with its
+arguments. `tools/gen_ttl_commands.py` reads the command tree and the op level from the KubeJS registration source (it
+matched the live `/help ttl`, 67 entries, on 19/11/2026) and the descriptions from `docs/dev/ttl-commands.toml`; a command
+without a row makes it exit 1 (`--check`). **`tools/post_ttl_commands.sh`** posts it to `#dev-chat` (pinned header, one or
+more messages per group, edited in place on a re-run); docs/server.md "The /ttl command reference". **Not in CI**:
+`--check` is not in `validate.py` on purpose (it would turn every open branch with a new command red); add it there once
+the branches have landed. After a new command: add its row to the toml, regenerate, re-post.
+
+## 19/11 afternoon — local test loop runs on this PC (branch `local-up-wait`, Claude)
+
+**Verified on the workstation**: `local.sh up` cold 384 s, warm restart 48-63 s, clean stop 6-9 s ("All dimensions are
+saved"), `sync` of a server script ~4 s, `test all` 70/71 ok in 23 min. Fixed: `rcon.py` pipelined the command and its
+end probe, and Minecraft's RCON drops the connection when two packets arrive in one read (empty replies, "connection
+closed", test-all dying on its first command, `stop` never reaching the server so every stop was a kill after 120 s);
+tests now wait 2 game ticks between commands like staging's kubectl latency (`--ticks`); `test` and the first-boot
+snapshot wait for the start-up builds; `sync` used a misspelt `/kubejs reload` and now uses `/reload`. **Still failing
+locally**: `guild_npcs` (its forceload box is staging's Blumund; local Blumund is at -1024 70 -120). **Latent test bug**
+(staging too): `build_repair` passes `minecraft:grass_block` to `ttl build expect ... cell`, an unquoted string that
+cannot hold `:` ("Expected whitespace ..."); the runner does not count that message, so those three cells are never
+checked. docs/server.md "Local testing" has the timings.
+
 ## 19/11 afternoon — WP-L10: fast import path, runbook and rollback, Homelab PR (Claude, branch `lerfing-l10`)
 
 **`tools/import_world.sh`** uploads Lerfing's prepared world and arms the `ttl-import.txt` marker any time nobody is online;
@@ -27,6 +66,7 @@ StorageClass; the Longhorn 1.11.1 chart hard-codes `allowVolumeExpansion: true`.
 L4/L5/L8 and `lerfing-import` into `main`, merge PR #60, then run `tools/import_world.sh` and `tools/server.sh deploy`
 (docs/server.md, Runbook steps 3–7).
 **Not done in L10**: `pack/config/bluemap/maps/tensura.conf` (mask and markers come from `gen_map.py` after WP-L2/L4).
+
 ## 19/11 — local test loop (branch `local-test-loop`, Claude)
 
 `tools/local.sh` (local NeoForge server: up/down/restart/sync/test/snapshot/reset), `tools/ingame.sh` (the in-game
