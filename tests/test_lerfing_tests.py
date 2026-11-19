@@ -423,7 +423,10 @@ class Runner(unittest.TestCase):
     def test_server_sh_sources_the_runner(self):
         text = SERVER.read_text(encoding="utf-8")
         self.assertIn('source "$(dirname "$0")/test_lib.sh"', text)
-        self.assertIn("skipped", text, "test-all must not count a skipped @import test as failing")
+        ingame = (ROOT / "tools" / "ingame.sh").read_text(encoding="utf-8")
+        self.assertIn("skipped", ingame, "test-all must not count a skipped @import test as failing")
+        local = (ROOT / "tools" / "local.sh").read_text(encoding="utf-8")
+        self.assertIn("tools/test_lib.sh", local, "local.sh must run the same runner as staging")
 
     def test_expand_tokens(self):
         cases = {
