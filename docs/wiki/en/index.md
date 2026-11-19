@@ -27,3 +27,4 @@ On your first login, the in-game guide opens at Wayfarer’s Rest. You can reope
 - [Player commands](player-commands.md)
 - [Frequently asked questions](faq.md)
 - [Report a bug](report-bugs.md)
+- [Credits](../../CREDITS.md) — the map is *Tensura by Lerfing*; the giant trees are by Paulzero.

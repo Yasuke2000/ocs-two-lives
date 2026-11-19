@@ -4,7 +4,7 @@
 # The Life 2 companion of chapter 5: the same repeat rules (`repeatable`, `cooldown` in seconds, item tasks as hand-ins),
 # with Tensura monsters and items. Rewards stay small: food, bronze coins and a low potion; never skills, races or
 # awakenings. Each job unlocks with the chapter 1 / 2 quest that teaches it (rabbits and ants after Monsters of Jura, wolves after The Direwolf
-# Pack, herbs after Hipokute Herbs, ore after Magic Ore, the patrol after the village green). The patrol is a location check on Tempest's centre (0, 0, radius 64, as chapter 1's town visit).
+# Pack, herbs after Hipokute Herbs, ore after Magic Ore, the patrol after the village green). The patrol is a location check on Tempest's centre (the `tempest` anchor, radius 64, as chapter 1's town visit).
 
 [chapter]
 key = "daily_jura"
@@ -100,5 +100,5 @@ col = 0
 repeatable = true
 cooldown = 86400
 text = "A town that is not walked at dawn is a town that is not watched. Make your round of Tempest."
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [0, 0], radius = 64, title = "Round of the town" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest" }, radius = 64, title = "Round of the town" }]
 rewards = [{ type = "item", item = "minecraft:bread", count = 4 }, { type = "xp", xp = 15 }]

@@ -2,12 +2,12 @@
 # Format and rules: design/quests.md.
 #
 # Rewards stay modest and NEVER grant skills, races or awakenings (design/manas-integration.md §5(d)).
-# Places are the landmarks placed by life/landmarks.js (design/data/landmarks.toml, 14,000-block world):
-#   Lake Siss (888, 202)                      canon_regions.json landmark (world = (ref - origin) * 14000 / 2570)
-#   lizardmen's stilt village (700, 344)      reach 48, "water" surface   -> radius 110
-#   lizardmen's caverns (926, 398)            reach 56                    -> radius 120
-#   orc camp / Orc War battlefield (1106, 539) reach 40                   -> radius 100 (camp), 134 (battlefield, as chapter 1)
-#   burned Kijin village ruin (1460, -959)    reach 24, canon position unverified -> radius 90
+# Places are the landmarks placed by life/landmarks.js (design/data/landmarks.toml) on Lerfing's map; their positions are read from
+# design/data/anchors.toml (`at = { landmark = "..." }`), never written here:
+#   lizardmen_village (south-west shore of Lake Siss)  reach 48, "water" surface   -> radius 110
+#   lizardmen_caverns (the marsh, south of the lake)   reach 56                    -> radius 120
+#   orc_camp (Orc War battlefield, south-east of lake) reach 40                    -> radius 100 (camp), 134 (battlefield, as chapter 1)
+#   ogre_village_ruin (north-east hills of Jura)       reach 24, our own reading   -> radius 90
 # `/place structure` puts each landmark on the flattest of ~16 nearby spots (up to 64 blocks from the nominal
 # position), so every radius adds that slack to the structure's reach.
 # Detectable tasks only: entity kills with ids from the Tensura jar (`tensura:orc`, `tensura:orc_lord`) and the
@@ -44,7 +44,7 @@ text = """
 The lizardmen live on the shores of Lake Siss in a village on stilts, and fish the lake. Their chief's son Gabiru came to
 Tempest with an envoy: the orc horde is coming and the marsh cannot hold. Travel east to the stilt village.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [700, 344], radius = 110, title = "The lizardmen's stilt village" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "lizardmen_village" }, radius = 110, title = "The lizardmen's stilt village" }]
 rewards = [{ type = "item", item = "minecraft:cooked_cod", count = 8 }, { type = "xp", xp = 50 }]
 
 [[quests]]
@@ -75,7 +75,7 @@ text = """
 The limestone caves on the south shore are a labyrinth that is both fortress and seat of government. Chief Avalos
 holds court there; his men will fight from its tunnels. Find the entrance in the marsh.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [926, 398], radius = 120, title = "The lizardmen's caverns" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "lizardmen_caverns" }, radius = 120, title = "The lizardmen's caverns" }]
 rewards = [{ type = "item", item = "tensura:low_potion", count = 2 }, { type = "xp", xp = 60 }]
 
 [[quests]]
@@ -104,7 +104,7 @@ text = """
 Souei scouted the horde before anyone drew a blade: tens of thousands, all of them starving. Creep to the camp south-east
 of the lake and see for yourself before you pick a fight.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 100, title = "The orc camp" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 100, title = "The orc camp" }]
 rewards = [{ type = "item", item = "minecraft:cooked_beef", count = 8 }, { type = "xp", xp = 60 }]
 
 [[quests]]
@@ -132,7 +132,7 @@ The goblins, the direwolves, the kijin and the lizardmen fought the horde in the
 south-east of the lake and cut down twenty more orcs.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 134, title = "The marsh battlefield" },
+  { type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 134, title = "The marsh battlefield" },
   { type = "kill", entity = "tensura:orc", count = 20 },
 ]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 2 }, { type = "xp", xp = 120 }]
@@ -220,8 +220,8 @@ col = 4
 optional = true
 text = """
 Before Rimuru named them, the ogres had a hidden village in the north-east hills. The orcs burned it and killed most
-of its people; the six survivors came to Tempest. A burned tower marks the site. This position is our own estimate
-from the fan map, so look around the hills if you do not find it at once.
+of its people; the six survivors came to Tempest. A burned tower marks the site. This position is our own reading
+of Lerfing's map, so look around the hills if you do not find it at once.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [1460, -959], radius = 90, title = "The burned ogre village" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "ogre_village_ruin" }, radius = 90, title = "The burned ogre village" }]
 rewards = [{ type = "item", item = "minecraft:cooked_beef", count = 8 }, { type = "xp", xp = 70 }]

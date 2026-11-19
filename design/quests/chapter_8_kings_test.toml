@@ -17,10 +17,10 @@
 # Rewards stay modest (food, a little XP, coins) and NEVER grant skills, races, evolutions or uniques (design/manas-integration.md §5(d));
 # the boss's own coins and Skill Core come from bosses.toml, not from here.
 #
-# Places (blueprints/dwargon.py, world = (435 + bx - 74, -1000 + bz - 120), see chapter 3):
-#   royal terrace front (435, -1091)   throne room (435, -1106) radius 12   Kaijin's smithy (423, -1084)
-#   forge hall (413, -1066)            engineers' workshop (457, -1066)    market plaza (435, -1066)
-#   Tempest green (0, -7)              Outcast contact on Tempest's south road (0, 52): same spot as chapter 7 (OUR CHOICE)
+# Places (blueprints/dwargon.py, world = the `dwargon` anchor + (bx - 74, bz - 120), see chapter 3; offsets are dx, dz from it):
+#   royal terrace front (0, -91)   throne room (0, -106) radius 12   Kaijin's smithy (-12, -84)
+#   forge hall (-22, -66)          engineers' workshop (22, -66)     market plaza (0, -66)
+#   Tempest green: `tempest` + (0, -7)   Outcast contact on Tempest's south road: `tempest` + (0, 52), same spot as chapter 7 (OUR CHOICE)
 # Our interpretation (not canon): the honour duel and the pact between the smiths; the Outcast Society's interest in Dwargon's forge plans.
 # Canon anchor: Gazel exiles Kaijin and his men after the sham trial (anime season 1, episode 5), Tensura's own throne room greets a hero
 # with "Oh? You want to have a training fight?" (lang `tensura.message.dwarf.king.greet.positive_start`).
@@ -62,7 +62,7 @@ Walk back up to the royal terrace, where the guards now step aside.
 """
 tasks = [
   { type = "stage", stage = "ttl.story.act1", title = "Act I is behind you" },
-  { type = "location", dimension = "minecraft:overworld", at = [435, -1091], radius = 12, title = "The royal terrace" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -91 }, radius = 12, title = "The royal terrace" },
 ]
 rewards = [{ type = "item", item = "minecraft:bread", count = 6 }, { type = "item", item = "tensura:bronze_coin", count = 3 }, { type = "xp", xp = 60 }]
 
@@ -81,7 +81,7 @@ to say, and that a king can be asked again.
 
 Stand in his old forge and listen to what the hammer says about the man on the throne.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [423, -1084], radius = 8, title = "Kaijin's smithy" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = -12, dz = -84 }, radius = 8, title = "Kaijin's smithy" }]
 rewards = [{ type = "item", item = "minecraft:iron_ingot", count = 8 }, { type = "xp", xp = 60 }]
 
 [[quests]]
@@ -118,7 +118,7 @@ room greets a hero the same way, with a training fight.
 Stand before the throne and accept the terms. The King's word is set down for you at once: your duel costs Dwargon's
 goodwill nothing, and the word is spent when the duel is fought.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1106], radius = 12, title = "Before the throne" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -106 }, radius = 12, title = "Before the throne" }]
 rewards = [
   { type = "command", command = "ttl story flag {p} honour_duel", silent = true, auto = "invisible" },
   { type = "item", item = "minecraft:bread", count = 6 },
@@ -142,7 +142,7 @@ healing within reach.
 &6If the call fails&r (the King is already out, or still resting from the last fight: 72 hours), type /ttl story fight
 gazel_dwargo at the throne.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1106], radius = 12, title = "At the throne" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -106 }, radius = 12, title = "At the throne" }]
 rewards = [{ type = "command", command = "ttl story fight gazel_dwargo", feedback = "The King rises from his throne." }]
 
 [[quests]]
@@ -178,7 +178,7 @@ finished steel in the other.
 Bring Kaijin the first shipment, sixteen iron ingots and four silver ingots, in his smithy.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [423, -1084], radius = 8, title = "Kaijin's smithy" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = -12, dz = -84 }, radius = 8, title = "Kaijin's smithy" },
   { type = "item", item = "minecraft:iron_ingot", count = 16, consume = true },
   { type = "item", item = "tensura:silver_ingot", count = 4, consume = true },
 ]
@@ -197,9 +197,9 @@ text = """
 Dwargon's word is only worth what is carried back to the people it was given for. The green in Tempest is where
 Rimuru's council meets, and the stew is better than the King's.
 
-Take the pact north and stand on the village green.
+Take the pact south, back down the road, and stand on the village green.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [0, -7], radius = 10, title = "The village green" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = -7 }, radius = 10, title = "The village green" }]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "item", item = "minecraft:golden_carrot", count = 6 }, { type = "xp", xp = 100 }]
 
 # ---- Dark lane: schematics or regicide --------------------------------------------------------------------
@@ -220,7 +220,7 @@ the King can be taken the hard way, or the quiet one.
 
 Stand among the stalls of the market plaza and let the broker find you.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1066], radius = 16, title = "The market plaza" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -66 }, radius = 16, title = "The market plaza" }]
 rewards = [{ type = "item", item = "minecraft:bread", count = 6 }, { type = "item", item = "tensura:bronze_coin", count = 3 }, { type = "xp", xp = 50 }]
 
 [[quests]]
@@ -240,8 +240,8 @@ both halls and copy what you can: eight sheets of paper for the broker.
 &6Why it matters:&r Act II costs a dark soul Dwargon -20 and gives Outcast Society +10. The quiet way spends nothing more.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [413, -1066], radius = 10, title = "The forge hall" },
-  { type = "location", dimension = "minecraft:overworld", at = [457, -1066], radius = 10, title = "The engineers' workshop" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = -22, dz = -66 }, radius = 10, title = "The forge hall" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 22, dz = -66 }, radius = 10, title = "The engineers' workshop" },
   { type = "item", item = "minecraft:paper", count = 8, consume = true },
 ]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 3 }, { type = "item", item = "minecraft:cooked_porkchop", count = 8 }, { type = "xp", xp = 160 }]
@@ -262,7 +262,7 @@ Claim the reward at the throne to wake the King, or strike the seated statue (th
 
 &6If the call fails&r (the King is already out, or resting: 72 hours), type /ttl story fight gazel_dwargo at the throne.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1106], radius = 12, title = "At the throne" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon", dx = 0, dz = -106 }, radius = 12, title = "At the throne" }]
 rewards = [{ type = "command", command = "ttl story fight gazel_dwargo", feedback = "The King rises from his throne." }]
 
 [[quests]]
@@ -300,7 +300,7 @@ the road forks south of Tempest's gate, and you had better leave Dwargon before 
 
 Return to the Outcast contact on the south road.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [0, 52], radius = 14, title = "The Outcast contact on the south road" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = 52 }, radius = 14, title = "The Outcast contact on the south road" }]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "item", item = "minecraft:golden_carrot", count = 6 }, { type = "xp", xp = 100 }]
 
 # ---- Join -------------------------------------------------------------------------------------------------

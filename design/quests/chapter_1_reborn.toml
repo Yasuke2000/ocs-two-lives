@@ -4,9 +4,10 @@
 # Rewards stay modest and NEVER grant skills: no tensura_ftb ability / random_ability / race / awakening rewards
 # (design/manas-integration.md §5(d); the generator has no such reward types). Tasks may use the Tensura
 # task types `ep` (tensura_ftb:existence_value) and `ability` (tensura_ftb:ability, status LEARNT).
-# Places are canon landmarks (pack/config/ttl/canon_regions.json, `landmarks`), converted at about 5.45 blocks per
-# reference pixel (14,000-block width) with world 0,0 = origin; Tempest itself is placed at 0,0 (life/tempest.js) and
-# Dwargon's gate at 435,-1000 (life/dwargon.js). If those move, update the `at` coordinates here and regenerate.
+# Places are canon landmarks on Lerfing's map (world 0, 0 = his 0, 0). A location task never repeats a number: `at` names an
+# anchor, landmark or build of design/data/anchors.toml (the one table of canon coordinates, tools/gen_quests.py resolves it),
+# and place names in the text read it too (`${dir:tempest>dwargon}`, `${dist:a>b}`, `${anchor:id.x}`). Move a place there and
+# regenerate; no quest changes.
 # Every quest after the first stays hidden until its dependencies are done: the story unfolds as you play.
 
 [chapter]
@@ -18,8 +19,8 @@ order = 1
 life = 2
 hide_until_deps_complete = true
 text = """
-Your soul has crossed. The Forest of Jura, the monster town of Tempest, the dwarves of Dwargon to the
-north and Lake Siss to the east: this is the world of Tensura, and you are part of it now.
+Your soul has crossed. The Forest of Jura, the monster town of Tempest, the dwarves of Dwargon far to the
+${dir:tempest>dwargon} and Lake Siss to the ${dir:tempest>lake_siss}: this is the world of Tensura, and you are part of it now.
 """
 
 [[quests]]
@@ -48,7 +49,7 @@ text = """
 Walk the streets of early Tempest, the town Rimuru built for goblins and direwolves.
 Goblins, wolves, dwarves and kijin live side by side here; behave like a guest.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [0, 0], radius = 64, title = "Visit Tempest" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest" }, radius = 64, title = "Visit Tempest" }]
 rewards = [{ type = "item", item = "tensura:bronze_coin", count = 5 }]
 
 [[quests]]
@@ -57,8 +58,8 @@ title = "Rigurd's Tribe"
 icon = "minecraft:campfire"
 deps = ["tempest"]
 lane = -1
-text = "Find the old goblin village north-west of Tempest, where Rigurd's tribe hid from the direwolves before the slime came."
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [-164, -234], radius = 64, title = "Old goblin village" }]
+text = "Find the old goblin village ${dir:tempest>goblin_village} of Tempest, where Rigurd's tribe hid from the direwolves before the slime came."
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "goblin_village" }, radius = 64, title = "Old goblin village" }]
 rewards = [{ type = "item", item = "minecraft:cooked_chicken", count = 8 }]
 
 [[quests]]
@@ -78,10 +79,10 @@ icon = "minecraft:mossy_cobblestone"
 deps = ["tempest"]
 lane = 1
 text = """
-North-west of Tempest lies the cave where the Storm Dragon Veldora was sealed for three hundred years,
+To the ${dir:tempest>sealed_cave} of Tempest lies the cave where the Storm Dragon Veldora was sealed for three hundred years,
 and where a slime woke up with a Great Sage in his head.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [-256, -343], radius = 90, title = "The Sealed Cave" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { build = "sealed_cave" }, radius = 150, title = "The Sealed Cave" }]
 rewards = [{ type = "xp", xp = 50 }]
 
 [[quests]]
@@ -151,10 +152,10 @@ icon = "minecraft:iron_pickaxe"
 deps = ["tempest"]
 lane = -2
 text = """
-Follow the road north through the mountains to the gate of the Armed Nation of Dwargon,
+Follow the road north out of Jura and up into the grey foothills of the Canaat Mountains, to the gate of the Armed Nation of Dwargon,
 where King Gazel rules and the best smiths of the continent work.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [435, -1000], radius = 48, title = "Dwargon's gate" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "dwargon" }, radius = 48, title = "Dwargon's gate" }]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "item", item = "minecraft:cooked_porkchop", count = 8 }]
 
 [[quests]]
@@ -173,8 +174,8 @@ title = "Lake Siss"
 icon = "minecraft:water_bucket"
 deps = ["tempest"]
 lane = 4
-text = "East of Tempest lies Lake Siss and its marsh, home of the lizardmen."
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [888, 202], radius = 180, title = "Lake Siss" }]
+text = "To the ${dir:tempest>lake_siss} of Tempest lies Lake Siss and its marsh, home of the lizardmen."
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "lake_siss" }, radius = 180, title = "Lake Siss" }]
 rewards = [{ type = "item", item = "minecraft:cooked_cod", count = 8 }]
 
 [[quests]]
@@ -184,7 +185,7 @@ icon = "minecraft:mangrove_roots"
 deps = ["lake_siss"]
 lane = 4
 text = "Find the caverns of the lizardmen south of the lake, where Chief Avalos ruled and his son Gabiru dreamed of glory."
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [925, 398], radius = 90, title = "Lizardmen's caverns" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "lizardmen_caverns" }, radius = 90, title = "Lizardmen's caverns" }]
 rewards = [{ type = "item", item = "tensura:low_potion", count = 2 }, { type = "xp", xp = 60 }]
 
 [[quests]]
@@ -195,5 +196,5 @@ deps = ["lizardmen", "orc_lord/orc_lord_kill"]
 lane = 5
 optional = true
 text = "Stand on the marsh battlefield where two hundred thousand orcs met the forest alliance."
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 134, title = "The Orc War battlefield" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "orc_camp" }, radius = 134, title = "The Orc War battlefield" }]
 rewards = [{ type = "xp", xp = 80 }]

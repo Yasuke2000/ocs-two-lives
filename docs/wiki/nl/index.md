@@ -27,3 +27,4 @@ Bij je eerste bezoek opent de gids vanzelf in Wayfarer’s Rest. Met `/ttl guide
 - [Spelerscommando’s](player-commands.md)
 - [Veelgestelde vragen](faq.md)
 - [Een bug melden](report-bugs.md)
+- [Credits](../../CREDITS.md) — de kaart is *Tensura by Lerfing*; de reuzenbomen zijn van Paulzero.

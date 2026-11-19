@@ -2,6 +2,22 @@
 
 OCS Tensura: Two Lives is a free, non-commercial fan modpack. Nothing here is sold.
 
+- **The map: *Tensura by Lerfing*.** The Tensura continent of Life 2 (the overworld of `world-ttl`) is Lerfing's WorldPainter
+  map, imported block for block: [Tensura Map on Planet Minecraft](https://www.planetminecraft.com/project/tensura-map/).
+  Lerfing drew the land, the lakes, the mountains and the coasts; we add the canon reading of it (which part is which nation,
+  where each place stands), a few repainted biomes (his Nether and End biomes become overworld and Tensura biomes, blocks
+  untouched) and our own builds. Lerfing's own builds are kept as he made them: the stilt-hut village on Lake Siss, the ice
+  crystals on the Ice Continent's south shore, the builds on the north islet and his spawn chest. See
+  [the world lore](design/lore/world.md) and [the import design](design/architecture/lerfing-import.md).
+- **The giant trees: Paulzero.** The grove of giant trees in the south (about x 350..1050, z 2600..3150, thirteen signs "built by
+  Paulzero"), which we read as the Divine Tree of Sarion beside Elmine, is part of the same map and is by Paulzero
+  ([Planet Minecraft page](https://www.planetminecraft.com/project/tensura-map/)). It is kept untouched.
+- **Licence of the map: unknown.** We have not found a licence or redistribution terms for Tensura by Lerfing (the Planet
+  Minecraft page returned HTTP 403 to our check). The map is not in this repository and its blocks are not committed (only
+  1:16 rasters and biome repaint rules we derived, in `design/data/lerfing/`); the server runs it privately.
+  **TODO (Yasuke): ask Lerfing (and Paulzero for the trees) for permission to use the map on this server and to credit it
+  publicly, and get the answer in writing, before the public launch of the server or the public web map.** Until then
+  nothing that contains his blocks may be published or shared outside the server.
 - **That Time I Got Reincarnated as a Slime** (Tensei Shitara Slime Datta Ken) — story, world and characters by
   Fuse, illustrated by Mitz Vah; published by Micro Magazine / Kodansha. All rights to the original work belong to
   them.
@@ -19,8 +35,9 @@ OCS Tensura: Two Lives is a free, non-commercial fan modpack. Nothing here is so
   their own licences; the pack only links to them (packwiz), it does not redistribute their jars.
 - **Lightman's Currency** — by Lightman314 (Apache-2.0 on Modrinth). Our Mana Ledger (ATM block, pocket item and card)
   textures in `pack/kubejs/assets/lightmanscurrency/` are palette recolours of the mod's own textures.
-- Map references: fan-made Tensura world maps (political and illustrated); our grid in `pack/config/ttl/` is our own
-  trace, the reference images are not in the repo.
+- Map references: the fan-made Tensura political and illustrated maps were used to read which nation is where on Lerfing's
+  map; our grid in `pack/config/ttl/` is generated from Lerfing's land mask and our own region polygons, the reference images are
+  not in the repo.
 - **Blumund and Marris** (`blueprints/blumund.py`, `blueprints/marris.py`, helper `blueprints/_town_lib.py`) are
   written from scratch as code; no mod structures are copied into them. For visual reference only we looked at the
   structure files of **Towns and Towers** (CC BY-NC-ND 4.0, "no changes to the mod", so nothing from it is reused),
