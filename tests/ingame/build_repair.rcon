@@ -33,22 +33,22 @@ ttl build expect test_hut cell 2500 55 0 solid
 ttl build expect test_hut cell 2498 59 0 solid
 ttl build expect test_hut cell 2498 61 1 solid
 ttl build expect test_hut cell 2497 57 0 solid
-ttl build expect test_hut cell 2506 62 0 minecraft:grass_block
+ttl build expect test_hut cell 2506 62 0 "minecraft:grass_block"
 ttl build expect test_hut cell 2506 61 0 solid
-ttl build expect test_hut cell 2507 62 1 minecraft:grass_block
+ttl build expect test_hut cell 2507 62 1 "minecraft:grass_block"
 ttl build expect test_hut cell 2500 60 -3 solid
 ttl build expect test_hut cell 2501 59 -4 solid
 ttl build expect test_hut cell 2492 60 0 solid
-ttl build expect test_hut cell 2499 62 6 minecraft:grass_block
+ttl build expect test_hut cell 2499 62 6 "minecraft:grass_block"
 ttl build expect test_hut cell 2500 60 7 solid
 ttl build expect test_hut cell 2494 63 4 air
 ttl build expect test_hut cell 2512 62 0 water
-ttl build expect test_hut cell 2500 63 0 minecraft:stone_bricks
+ttl build expect test_hut cell 2500 63 0 "minecraft:stone_bricks"
 ttl build expect test_hut cell 2500 64 2 air
-ttl build expect test_hut cell 2500 66 0 minecraft:lantern
+ttl build expect test_hut cell 2500 66 0 "minecraft:lantern"
 # Clean up: the patch, the repairs in it and any fire go; the hut stays.
 execute in ttl:spirit_corridor run fill 2484 50 -14 2516 62 14 minecraft:air
 execute in ttl:spirit_corridor run fill 2484 63 -14 2516 63 14 minecraft:air replace #minecraft:fire
-ttl build expect test_hut cell 2500 63 0 minecraft:stone_bricks
+ttl build expect test_hut cell 2500 63 0 "minecraft:stone_bricks"
 ttl build expect test_hut cell 2500 62 0 air
 execute in ttl:spirit_corridor run forceload remove 2480 -16 2520 16

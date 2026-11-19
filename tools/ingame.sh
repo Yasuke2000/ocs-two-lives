@@ -8,7 +8,7 @@ INGAME_DIR="$(dirname "${BASH_SOURCE[0]}")/../tests/ingame"
 # The caller may override this: print a reason to skip test <name> on its server, nothing to run it.
 ingame_skip_reason() { :; }
 plain() { sed 's/\[[0-9;]*m//g'; }
-FAILED_RE='Unknown or incomplete|Incorrect argument|An unexpected error|ttl: |Test failed'
+FAILED_RE='Unknown or incomplete|Incorrect argument|Expected whitespace|An unexpected error|ttl: |Test failed'
 
 run_test() {
   # `@sleep N` lines wait N seconds (game time has to pass between some steps). `@until N <command>` runs the command once
