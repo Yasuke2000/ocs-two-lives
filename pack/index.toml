@@ -2638,15 +2638,15 @@ hash = "aba724b81546b1b73b253460418b272ac2ee350f2ba0761423c847bd4900585a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
-hash = "fc83cba4436266c4f5e7efdb16e6dff287f8fd013554ed4cb5bd0c861e8fc06c"
+hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "8fa78c0c990bc07b9301a21a0028674a1a9715e9e1dfe1f773c8021e55ba767a"
+hash = "de027721a92f2f0eac9178999f170857a3e2773c24d12832aa74875c4eaa1c06"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
-hash = "3f8cccb21b922a8ccdb6cc6c4e3e5bfeba5dac91fc20903b3d381ecfec0c16e9"
+hash = "abaf058d8abd126852c591a4a6be9a5ae15ca67edf3955afdbbfb4d3545d8c7e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
@@ -2698,7 +2698,7 @@ hash = "294f1782e4836f6b37f4a5288fe42bfa289719398d009c6e206657b8e3cee56a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
-hash = "1e09a30a94a765bed578ac176b29e3f914c1a1fd974105277c1801005fe7f4a5"
+hash = "2130a35e34ed7f0b0337ff56674d8f1697379528eb303951f7ca1e4101b8c866"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
@@ -2726,7 +2726,7 @@ hash = "b439e7faa512766d89afa38225fbb6efeb37b99c56316f26034322d38d7d4f6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "3af1e2484a7fe9a8f1ca4f0197bb4535b4f647998229a23af5292800e33012be"
+hash = "45884f450927473aecb7bcac32e6cf45a0eee72125addda09ceac19ec23e9bfb"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -2765,6 +2765,10 @@ file = "kubejs/server_scripts/ttl/life/race_lock.js"
 hash = "1bafd26113ed71a0718e56ca7776c3547bb24dc73ddde6f39a28739721954ca3"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/repair.js"
+hash = "69125c865796aef170db40e232b33de697e88991598160f984e4a1381dcec03c"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/spirit_domain.js"
 hash = "c8c74608bf38c6664b0c937edd67c94c37756cef0668c949838c4af138c11167"
 
@@ -2774,7 +2778,7 @@ hash = "685ffbc46d46a5debf5571fc115bf2a86812a1f0efce7182ae51f9d85f402334"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/tempest.js"
-hash = "e6335cec4d23c54d56241d2e32d7eaf97523504207a92ca5fbf25fc36677f317"
+hash = "27d684cd096df3843626e8a5dd1d729bd31123e782bf520ccd34e75f95ac0dbf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"

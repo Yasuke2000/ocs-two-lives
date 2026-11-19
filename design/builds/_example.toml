@@ -71,5 +71,22 @@ margin = 8
 # box the landmark's structure recorded, so the build can stand right beside it. Setting or changing it surveys anew.
 # beside = "treyni_grove"
 
+# Terrain repair (life/repair.js; docs/server.md "Terrain repair"), after the terrain fit and before the second slab
+# pass, on the real blocks: under every box column the build defines, air, water, lava and plants in the
+# `repair_depth` blocks below its lowest block become ground (caves, sinkholes, a ravine running under the edge; never
+# inside the build, nothing over the void); box columns the blueprint leaves undefined get the ground layer at the
+# ground height (no ditches); in a ring of `repair_margin` columns round the box, pits, crevices, slits and ravine
+# edges are filled to their rim (never above the ground layer, never below the 1:1 skirt), cave mouths just under the
+# surface are closed, water touching the box is banked up, lava is filled or cleared and fire put out. Logs
+# `[ttl] build <name>: repaired N foundation, M skirt, K lava`. Default true; false leaves the terrain as the fit made it.
+repair = true
+# Default 48, 1..96: how deep under the build gaps are filled.
+repair_depth = 48
+# Default 8, 0..16: the ring round the box (the forceloaded area grows to max(margin, repair_margin) + 2).
+repair_margin = 8
+# Default false: true keeps every water block (a build that sits on a lake or a river: Raja); air, lava and fire are
+# still repaired.
+repair_keep_water = false
+
 # Optional free text; not used by the game.
 notes = "What the build is and which canon sources it follows (design/lore/<name>.md)."

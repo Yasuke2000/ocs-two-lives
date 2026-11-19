@@ -4,7 +4,9 @@
 // canon spot. Each build is placed once (persistentData ttl.build.<name>.version = its `version`), one at a time
 // with a gap, after Tempest, Dwargon and the landmarks; bump `version` in the TOML to place it again, and
 // world_reset.js places every build of a reset dimension again on the new terrain (TtlBuilds.reset).
-// Op commands: /ttl build list | where <name> | place <name|all> [force] | expect <name> placed.
+// Op commands: /ttl build list | where <name> | place <name|all> [force] | expect <name> placed |
+// expect <name> repaired <foundation> <skirt> <lava> (at least that many cells in the last terrain repair) |
+// expect <name> cell <x> <y> <z> <solid|air|water|lava|fire|soft|block id> (a block in the build's dimension).
 // (/ttl build <blueprint> from commands.js, a build at your feet, still works: only these four words are taken.)
 //
 // Per build (same grounding as tempest.js / dwargon.js, worked out from the structure files):
@@ -22,6 +24,10 @@
 //    the terrain (the bed, under water) and the column's lowest block (dirt, stone deeper down), so nothing floats; b) above the column's
 //    highest block: clear trees and hills up to the sky; c) round the box a 1:1 skirt (`margin` columns) falling
 //    away from the ground layer (the block under the anchor) and a 1:1 cut into hills, grass (sand, red sand) on top;
+// 4a. terrain repair (life/repair.js, TOML repair / repair_depth / repair_margin / repair_keep_water): the real blocks
+//    after the fit: caves, ravines, water and lava under the box filled down to repair_depth, the ground layer
+//    continued in box columns the blueprint leaves undefined, pits, crevices, cave mouths, lava and fire in a ring of
+//    repair_margin columns; logs `[ttl] build <name>: repaired N foundation, M skirt, K lava`;
 // 4b. place the slabs a second time on the finished ground (supported blocks that popped in the first pass);
 // 5. record the placement and log `[ttl] <name> placed: corner X Y Z, anchor at x y z (version N, terrain done)`;
 //    tools/verify_build.py reads the corner from that line (non-overworld builds: --dimension <dim>).
@@ -102,12 +108,13 @@ const TtlBuilds = {
     return { x0: at.x - b.anchor[0], z0: at.z - b.anchor[2], base: at.y - b.anchor[1] }
   },
 
-  // The area to forceload: every candidate box with its margin, or just the box of a known spot.
+  // The area to forceload: every candidate box with its margin (the fit's or the repair ring, the wider), or just the
+  // box of a known spot. The terrain repair reads only inside it and never forceloads anything itself.
   area(b, spot) {
     var s = (spot || b.ground === 'fixed') ? 0 : b.search
     var cx = spot ? spot.x : b.x
     var cz = spot ? spot.z : b.z
-    var m = b.margin + 2
+    var m = Math.max(b.margin, this.ring(b)) + 2
     return {
       x0: cx - b.anchor[0] - s - m, z0: cz - b.anchor[2] - s - m,
       x1: cx - b.anchor[0] + b.size[0] - 1 + s + m, z1: cz - b.anchor[2] + b.size[2] - 1 + s + m
@@ -367,6 +374,35 @@ const TtlBuilds = {
     return clears.concat(fills)
   },
 
+  ring(b) {
+    return b.repair === false ? 0 : b.repair_margin === undefined ? 8 : b.repair_margin
+  },
+
+  // What life/repair.js needs: the box (bottom = lowest defined block per column, explicit air included) and a ring of
+  // repair_margin columns whose slope is the fit's 1:1 skirt.
+  repairSpec(b, f, geo, mat) {
+    var sx = f.size[0]
+    var sz = f.size[2]
+    var R = this.ring(b)
+    var G = geo.base + b.anchor[1] - 1
+    var bottom = this.decode(f.bottom || f.fill, sx * sz)
+    return {
+      label: b.name, enabled: b.repair !== false, dimension: b.dimension, ring: R,
+      x0: geo.x0 - R, z0: geo.z0 - R, w: sx + 2 * R, l: sz + 2 * R, ground: G,
+      depth: b.repair_depth || TtlRepair.DEPTH, keepWater: !!b.repair_keep_water, mat: mat,
+      col: (gx, gz) => {
+        var bx = gx - R
+        var bz = gz - R
+        if (bx >= 0 && bz >= 0 && bx < sx && bz < sz) {
+          var v = bottom[bz * sx + bx]
+          return v === f.none ? { t: 'ground' } : { t: 'build', bottom: geo.base + v }
+        }
+        var d = Math.ceil(Math.sqrt(Math.pow(Math.max(0, -bx, bx - sx + 1), 2) + Math.pow(Math.max(0, -bz, bz - sz + 1), 2)))
+        return { t: 'ring', slope: G - d }
+      }
+    }
+  },
+
   runBatched(server, b, cmds, done) {
     var self = this
     var i = 0
@@ -431,7 +467,8 @@ const TtlBuilds = {
       how = `surveyed, ${best.dist.toFixed(0)} blocks from the canon point, ${Math.round(best.wet * 100)} % water`
     }
     var geo = this.geometry(b, at)
-    var cmds = this.terrainCommands(b, f, hm, geo, this.materials(hm, at))
+    var mat = this.materials(hm, at)
+    var cmds = this.terrainCommands(b, f, hm, geo, mat)
     var self = this
     // All slabs, one every 2 ticks, then next(ok).
     var placeSlabs = next => {
@@ -496,9 +533,12 @@ const TtlBuilds = {
             finish(false)
             return
           }
-          placeSlabs(again => {
-            if (again) finish(true)
-            else done(false)
+          TtlRepair.repair(server, self.repairSpec(b, f, geo, mat), res => {
+            server.persistentData.putString(self.key(b, 'repair'), res ? `${res.foundation} ${res.skirt} ${res.lava}` : '')
+            placeSlabs(again => {
+              if (again) finish(true)
+              else done(false)
+            })
           })
         })
       })
@@ -585,7 +625,7 @@ const TtlBuilds = {
     this.all().forEach(b => {
       if (ids && ids.indexOf(b.dimension) < 0) return
       hit = true
-      ;['version', 'at', 'corner', 'box', 'plan', 'fails'].forEach(k => data.remove(self.key(b, k)))
+      ;['version', 'at', 'corner', 'box', 'plan', 'fails', 'repair'].forEach(k => data.remove(self.key(b, k)))
     })
     if (hit) this.schedule(server)
   },
@@ -720,5 +760,40 @@ ServerEvents.commandRegistry(event => {
               say(ctx, `builds: ${b.name} is placed at ${TtlBuilds.str(server, b, 'at')} as expected`)
               return 1
             }
-          })))))))
+          })))
+          .then(Commands.literal('repaired')
+            .then(Commands.argument('foundation', Arguments.INTEGER.create(event))
+              .then(Commands.argument('skirt', Arguments.INTEGER.create(event))
+                .then(Commands.argument('lava', Arguments.INTEGER.create(event)).executes(ctx => named(ctx, {
+                  one: (server, b) => {
+                    var want = ['foundation', 'skirt', 'lava'].map(k => Arguments.INTEGER.getResult(ctx, k))
+                    var text = TtlBuilds.str(server, b, 'repair')
+                    var got = TtlBuilds.ints(text)
+                    if (!got || got.length !== 3) return fail(ctx, `expected a terrain repair of ${b.name}, none recorded (repair off, failed, or not placed since)`)
+                    if (got.some((v, i) => v < want[i])) {
+                      return fail(ctx, `expected ${b.name}'s terrain repair to fill at least ${want.join(' / ')} foundation / skirt / lava cells, it filled ${got.join(' / ')}`)
+                    }
+                    say(ctx, `builds: ${b.name} repaired ${got[0]} foundation, ${got[1]} skirt, ${got[2]} lava cells`)
+                    return 1
+                  }
+                }))))))
+          .then(Commands.literal('cell')
+            .then(Commands.argument('x', Arguments.INTEGER.create(event))
+              .then(Commands.argument('y', Arguments.INTEGER.create(event))
+                .then(Commands.argument('z', Arguments.INTEGER.create(event))
+                  .then(Commands.argument('kind', Arguments.STRING.create(event)).executes(ctx => named(ctx, {
+                    one: (server, b) => {
+                      var x = Arguments.INTEGER.getResult(ctx, 'x')
+                      var y = Arguments.INTEGER.getResult(ctx, 'y')
+                      var z = Arguments.INTEGER.getResult(ctx, 'z')
+                      var want = String(Arguments.STRING.getResult(ctx, 'kind'))
+                      var level = server.getLevel(b.dimension)
+                      if (!level.getChunkSource().hasChunk(x >> 4, z >> 4)) return fail(ctx, `${x} ${z} in ${b.dimension} is not loaded (forceload it first)`)
+                      var id = String(level.getBlock(x, y, z).id)
+                      var got = want.indexOf(':') >= 0 ? id : TtlRepair.cls(id)
+                      if (got !== want) return fail(ctx, `expected ${want} at ${x} ${y} ${z} in ${b.dimension}, found ${id}`)
+                      say(ctx, `builds: ${x} ${y} ${z} is ${id} (${want}) as expected`)
+                      return 1
+                    }
+                  })))))))))))
 })

@@ -12,6 +12,9 @@
 // 4. clear terrain above the open-sky columns (road, ravine, skylight crack) and cut 1:1 slopes round them;
 // 5. fill the gap under every footprint column down to the ground (nothing floats), plus a 1:1 talus skirt
 //    round the edges, in banded sandstone like the mountain; FILLS_PER_TICK one-column fills per tick.
+// 5b. terrain repair (life/repair.js): caves, lava and water under the city filled, the plain continued at the road
+//    level in box columns the blueprint leaves empty, pits and crevices in the talus and the margin closed (no second
+//    slab pass here, so the repair never touches a block the blueprint defines, explicit air included: `bottom`).
 // 6. the throne room's banners get their canon Dwargon patterns (TtlDwargonRoyal.banners; structure files built
 //    from code carry no block entity data).
 // King Gazel (TtlDwargonGazel): tensura:gazel_dwargo seated on his throne, checked every 30 s while the throne
@@ -158,6 +161,30 @@ const TtlDwargon = {
     return clears.concat(fills)
   },
 
+  // life/repair.js over the box and its margin: `bottom` (lowest defined block, explicit air included) marks the city's
+  // columns; empty box columns with a talus value are slopes like the margin, the others plain ground at the road level.
+  repairSpec(base) {
+    var f = TtlDwargonFootprint
+    var b = this.box()
+    var w = f.grid[0]
+    var n = w * f.grid[1]
+    var fill = this.decode(f.fill, n)
+    var bottom = f.bottom ? this.decode(f.bottom, n) : fill
+    var m = f.margin
+    return {
+      label: 'dwargon', enabled: true, dimension: TtlLife.OVERWORLD, ring: m, x0: b.ax0, z0: b.az0, w: w, l: f.grid[1],
+      ground: base + f.arrival[1] - 1, depth: TtlRepair.DEPTH, keepWater: false,
+      mat: { top: 'minecraft:grass_block', fill: 'minecraft:dirt', deep: 'minecraft:stone' },
+      col: (gx, gz) => {
+        var i = gz * w + gx
+        var inBox = gx >= m && gz >= m && gx < m + f.size[0] && gz < m + f.size[2]
+        if (inBox && bottom[i] !== f.none) return { t: 'build', bottom: base + bottom[i] }
+        if (fill[i] !== f.none) return { t: 'ring', slope: base + fill[i] - 1 }
+        return inBox ? { t: 'ground' } : { t: 'ring', slope: null }
+      }
+    }
+  },
+
   runBatched(server, cmds, done) {
     var self = this
     var i = 0
@@ -205,7 +232,7 @@ const TtlDwargon = {
         return
       }
       console.info(`[ttl] dwargon: ${f.parts.length} slab(s) placed, ${cmds.length} terrain commands (${self.FILLS_PER_TICK}/tick)`)
-      self.runBatched(server, cmds, ok => {
+      var after = ok => {
         var gy = base + f.arrival[1]
         if (ok) self.royalBanners(server, b, base)
         if (ok) {
@@ -216,6 +243,16 @@ const TtlDwargon = {
         }
         console.info(`[ttl] dwargon placed: corner ${b.x0} ${base} ${b.z0}, gate at ${self.GATE.x} ${gy} ${self.GATE.z} (version ${TTL_DWARGON_VERSION}, terrain ${ok ? 'done' : 'FAILED'})`)
         done(ok)
+      }
+      self.runBatched(server, cmds, ok => {
+        if (!ok) {
+          after(false)
+          return
+        }
+        TtlRepair.repair(server, self.repairSpec(base), res => {
+          server.persistentData.putString('ttl.dwargon.repair', res ? `${res.foundation} ${res.skirt} ${res.lava}` : '')
+          after(true)
+        })
       })
     }
     placeNext()

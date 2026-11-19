@@ -1,0 +1,54 @@
+# Terrain repair after the fit (life/repair.js, builds.js step 4a): a patch of ground is laid under and round test_hut in
+# the void of ttl:spirit_corridor (stone y 50-61, grass y 62, one below the hut's floor at y 63), damaged in ways the fit
+# cannot see or only half fixes, then the hut is placed again with force and the repaired blocks are checked with
+# `ttl build expect test_hut cell <x> <y> <z> <kind>` (prints "ttl: ..." on a mismatch). The hut: corner 2498 63 -2,
+# box x 2498-2502 z -2..2, ground layer y 63, repair ring 8 (x 2490-2510, z -10..10). The patch is removed at the end,
+# so the hut floats in the void again as builds.rcon expects.
+execute in ttl:spirit_corridor run forceload add 2480 -16 2520 16
+@sleep 3
+execute in ttl:spirit_corridor run fill 2484 50 -14 2516 61 14 minecraft:stone
+execute in ttl:spirit_corridor run fill 2484 62 -14 2516 62 14 minecraft:grass_block
+# 1. A closed cave under the hut with a lava source in it (foundation).
+execute in ttl:spirit_corridor run fill 2499 55 -1 2501 60 1 minecraft:cave_air
+execute in ttl:spirit_corridor run setblock 2500 55 0 minecraft:lava
+# 2. A slit open to the sky along the west edge (the fit fills it from its floor) that runs on under the box edge.
+execute in ttl:spirit_corridor run fill 2496 56 -3 2497 62 3 minecraft:air
+execute in ttl:spirit_corridor run fill 2498 58 -1 2498 61 1 minecraft:air
+# 3. A lava pool flush with the ground east of the hut (d 3..5).
+execute in ttl:spirit_corridor run fill 2505 61 -1 2507 62 1 minecraft:lava
+# 4. A water pocket right under the grass on the north edge (d 1..2) and a cave mouth under the grass west (d 5..6).
+execute in ttl:spirit_corridor run fill 2499 59 -4 2501 61 -3 minecraft:water
+execute in ttl:spirit_corridor run fill 2492 59 -1 2493 61 1 minecraft:cave_air
+# 5. A pit 12 deep south (d 4..5) down to the patch's bottom layer: the fit fills it to its 1:1 slope only, the repair to the rim.
+execute in ttl:spirit_corridor run fill 2499 51 6 2500 62 7 minecraft:air
+# 6. Fire on the ground south-west, and a pond beyond the ring (d 10..11) that must stay.
+execute in ttl:spirit_corridor run setblock 2494 63 4 minecraft:fire
+execute in ttl:spirit_corridor run fill 2512 60 0 2513 62 1 minecraft:water
+ttl build place test_hut force
+@sleep 12
+ttl build expect test_hut placed
+ttl build expect test_hut repaired 40 20 18
+ttl build expect test_hut cell 2500 58 0 solid
+ttl build expect test_hut cell 2500 55 0 solid
+ttl build expect test_hut cell 2498 59 0 solid
+ttl build expect test_hut cell 2498 61 1 solid
+ttl build expect test_hut cell 2497 57 0 solid
+ttl build expect test_hut cell 2506 62 0 minecraft:grass_block
+ttl build expect test_hut cell 2506 61 0 solid
+ttl build expect test_hut cell 2507 62 1 minecraft:grass_block
+ttl build expect test_hut cell 2500 60 -3 solid
+ttl build expect test_hut cell 2501 59 -4 solid
+ttl build expect test_hut cell 2492 60 0 solid
+ttl build expect test_hut cell 2499 62 6 minecraft:grass_block
+ttl build expect test_hut cell 2500 60 7 solid
+ttl build expect test_hut cell 2494 63 4 air
+ttl build expect test_hut cell 2512 62 0 water
+ttl build expect test_hut cell 2500 63 0 minecraft:stone_bricks
+ttl build expect test_hut cell 2500 64 2 air
+ttl build expect test_hut cell 2500 66 0 minecraft:lantern
+# Clean up: the patch, the repairs in it and any fire go; the hut stays.
+execute in ttl:spirit_corridor run fill 2484 50 -14 2516 62 14 minecraft:air
+execute in ttl:spirit_corridor run fill 2484 63 -14 2516 63 14 minecraft:air replace #minecraft:fire
+ttl build expect test_hut cell 2500 63 0 minecraft:stone_bricks
+ttl build expect test_hut cell 2500 62 0 air
+execute in ttl:spirit_corridor run forceload remove 2480 -16 2520 16
