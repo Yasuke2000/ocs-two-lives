@@ -20,20 +20,22 @@ ttl boss expect TtlBotBoss kills orc_lord 0
 ttl boss expect TtlBotBoss active orc_lord no
 # Summon at explicit coordinates in the dimension the command runs in; the entity appears once its chunk is loaded.
 execute in ttl:spirit_corridor run ttl boss summon orc_lord 0 66 8
-@sleep 3
-ttl boss expect TtlBotBoss active orc_lord yes
+@until 30 ttl boss expect TtlBotBoss active orc_lord yes
 execute in ttl:spirit_corridor if entity @e[tag=ttl.boss,tag=ttl.bossid.orc_lord,limit=1]
 # Scaled: Health above the vanilla value (compare with `data get entity <an unscaled tensura:orc_lord> Health`); the bot
 # stands within range, so the boss has woken (NoAI:0b).
 execute in ttl:spirit_corridor run data get entity @e[tag=ttl.boss,limit=1] Health
 execute in ttl:spirit_corridor run data get entity @e[tag=ttl.boss,limit=1] NoAI
+# The boss must have been polled with the bot in range before it dies: a boss killed before its first poll (a lag spike
+# delays the summon) is "lost without a fight" and pays nobody (ttl-ops run of 785036f, 19/11/2026).
+@until 30 ttl boss expect TtlBotBoss fighting orc_lord yes
 # Phase 1 (60%): drop the boss to 1 health; the horde must appear and carry the minion tag.
 execute in ttl:spirit_corridor run data modify entity @e[tag=ttl.boss,limit=1] Health set value 1.0f
 @sleep 3
 execute in ttl:spirit_corridor if entity @e[tag=ttl.boss.minion]
 # A /kill has no player behind it, so the boss dies without kill credit and the fighters in range share the reward.
 execute in ttl:spirit_corridor run kill @e[tag=ttl.boss,tag=ttl.bossid.orc_lord]
-@sleep 3
+@until 30 ttl boss expect TtlBotBoss active orc_lord no
 ttl boss expect TtlBotBoss stage t1 yes
 ttl boss expect TtlBotBoss defeated orc_lord yes
 ttl boss expect TtlBotBoss kills orc_lord 1
@@ -53,13 +55,11 @@ ttl boss expect TtlBotBoss stage t1 no
 ttl boss expect TtlBotBoss defeated shizu no
 # Part 2: the Tempest arena (Overworld 0 0, radius 48). No players there, so Shizu stays asleep until aborted.
 ttl boss summon shizu
-@sleep 4
-ttl boss expect TtlBotBoss active shizu yes
+@until 30 ttl boss expect TtlBotBoss active shizu yes
 execute in minecraft:overworld if entity @e[tag=ttl.boss,tag=ttl.bossid.shizu]
 ttl boss list
 ttl boss abort shizu
-@sleep 2
-ttl boss expect TtlBotBoss active shizu no
+@until 30 ttl boss expect TtlBotBoss active shizu no
 # Gone again: FAILS (Test failed).
 execute in minecraft:overworld if entity @e[tag=ttl.boss,tag=ttl.bossid.shizu]
 # Refused outside the arena by design (prints "ttl: Shizu ... can only be summoned within 48 blocks"), so not run here:
@@ -90,12 +90,10 @@ ttl boss reset TtlBotBoss
 # A build is a valid place: Kyoya's fixed spawn is the Marris build (its placed anchor, else the canon x/z, on the surface).
 # Nobody is near, so he stays asleep until aborted. Chunk generation can take a few seconds.
 ttl boss summon kyoya_tachibana
-@sleep 6
-ttl boss expect TtlBotBoss active kyoya_tachibana yes
+@until 30 ttl boss expect TtlBotBoss active kyoya_tachibana yes
 ttl boss list
 ttl boss abort kyoya_tachibana
-@sleep 2
-ttl boss expect TtlBotBoss active kyoya_tachibana no
+@until 30 ttl boss expect TtlBotBoss active kyoya_tachibana no
 ttlbot remove TtlBotBoss
 # Part 4: party credit (boss.js finish). Carrion (tier 3, Skill Core) is summoned in the Spirit Corridor next to three Life 2 bots.
 # A deals the killing blow; B and C only stand there (not contributors: they were in range for a few seconds, not 15).
@@ -124,13 +122,12 @@ execute in ttl:spirit_corridor run tp TtlBotPtyA 0.5 65 0.5
 execute in ttl:spirit_corridor run tp TtlBotPtyB 0.5 65 2.5
 execute in ttl:spirit_corridor run tp TtlBotPtyC 2.5 65 0.5
 execute in ttl:spirit_corridor run ttl boss summon carrion 0 66 8
-@sleep 3
-ttl boss expect TtlBotPtyA active carrion yes
+@until 30 ttl boss expect TtlBotPtyA active carrion yes
+@until 30 ttl boss expect TtlBotPtyA fighting carrion yes
 execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
 @sleep 5
 execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
-@sleep 3
-ttl boss expect TtlBotPtyA active carrion no
+@until 30 ttl boss expect TtlBotPtyA active carrion no
 ttl boss expect TtlBotPtyA stage t3 yes
 ttl boss expect TtlBotPtyA kills carrion 1
 ttl boss expect TtlBotPtyA cores - 1
@@ -144,11 +141,11 @@ ttl boss reset TtlBotPtyC
 clear TtlBotPtyA ttl:skill_core
 ttl boss testparty set TtlBotPtyA TtlBotPtyB TtlBotPtyC
 execute in ttl:spirit_corridor run ttl boss summon carrion 0 66 8
-@sleep 3
+@until 30 ttl boss expect TtlBotPtyA fighting carrion yes
 execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
 @sleep 5
 execute in ttl:spirit_corridor run damage @e[tag=ttl.boss,tag=ttl.bossid.carrion,limit=1] 1000000 minecraft:player_attack by TtlBotPtyA
-@sleep 3
+@until 30 ttl boss expect TtlBotPtyA active carrion no
 ttl boss expect TtlBotPtyA stage t3 yes
 ttl boss expect TtlBotPtyB stage t3 yes
 ttl boss expect TtlBotPtyC stage t3 yes
@@ -198,10 +195,10 @@ execute in ttl:spirit_corridor run tp TtlBotInsA 0.5 65 0.5
 execute in ttl:spirit_corridor run tp TtlBotInsB 0.5 65 2.5
 execute in minecraft:overworld run tp TtlBotInsC 600 120 600
 execute in ttl:spirit_corridor run ttl boss summon orc_lord 0 66 8
-@sleep 3
-ttl boss expect TtlBotInsA active orc_lord yes
+@until 30 ttl boss expect TtlBotInsA active orc_lord yes
+@until 30 ttl boss expect TtlBotInsA fighting orc_lord yes
 execute in ttl:spirit_corridor run kill @e[tag=ttl.boss,tag=ttl.bossid.orc_lord]
-@sleep 3
+@until 30 ttl boss expect TtlBotInsA active orc_lord no
 ttl boss expect TtlBotInsA defeated orc_lord yes
 ttl boss expect TtlBotInsB defeated orc_lord yes
 # The cooldown is the party's: A and B are on it, C (another party) is not, and nothing server-wide stops C.
@@ -217,20 +214,17 @@ ttl boss testparty clear
 ttl boss expect TtlBotInsC cooldown orc_lord no
 # C alone starts the story fight at the orc camp (ops form: from anywhere). Nobody stands there, so Geld waits asleep.
 ttl story fight orc_lord TtlBotInsC
-@sleep 4
-ttl boss expect TtlBotInsC active orc_lord yes
+@until 30 ttl boss expect TtlBotInsC active orc_lord yes
 ttl boss expect TtlBotInsC story orc_lord yes
 # max_per_party = 1: C's party already has a boss out, so a second one is refused (not queued).
 ttl boss expect TtlBotInsC cansummon shizu no
 ttl boss abort orc_lord
-@sleep 2
-ttl boss expect TtlBotInsC cansummon shizu yes
+@until 30 ttl boss expect TtlBotInsC cansummon shizu yes
 # The arena queue: an ops Gazel holds his throne-room arena; C asks for the same fight and is put in line (a plain refusal line
 # with the place and the ETA, not a "ttl:" failure). The seated king steps aside while the fight is out: the next line FAILS
 # (Test failed) whether Dwargon is placed or not; it would pass only if the statue had stayed.
 ttl boss summon gazel_dwargo
-@sleep 4
-ttl boss expect TtlBotInsC active gazel_dwargo yes
+@until 30 ttl boss expect TtlBotInsC active gazel_dwargo yes
 ttl boss expect TtlBotInsC busy gazel_dwargo yes
 execute in minecraft:overworld if entity @e[tag=ttl_gazel]
 ttl story fight gazel_dwargo TtlBotInsC
@@ -239,7 +233,7 @@ ttl boss expect TtlBotInsC ready gazel_dwargo no
 ttl boss queue
 # The arena frees: the head of the line is pinged and the arena is held for it (queue_ttl_minutes); A, not in line, must wait.
 ttl boss abort gazel_dwargo
-@sleep 3
+@until 30 ttl boss expect TtlBotInsC ready gazel_dwargo yes
 ttl boss expect TtlBotInsC queued gazel_dwargo no
 ttl boss expect TtlBotInsC ready gazel_dwargo yes
 ttl boss expect TtlBotInsA busy gazel_dwargo yes
@@ -247,8 +241,7 @@ ttl boss expect TtlBotInsC busy gazel_dwargo no
 # C fights it at the throne room: a boss with no player in range is lost after a moment ("lost without a fight").
 execute in minecraft:overworld positioned 435 0 -1106 positioned over motion_blocking_no_leaves run tp TtlBotInsC ~ ~ ~
 ttl story fight gazel_dwargo TtlBotInsC
-@sleep 4
-ttl boss expect TtlBotInsC active gazel_dwargo yes
+@until 30 ttl boss expect TtlBotInsC active gazel_dwargo yes
 ttl boss expect TtlBotInsC ready gazel_dwargo no
 ttl boss abort gazel_dwargo
 @sleep 2
@@ -262,8 +255,7 @@ ttl boss expect TtlBotInsC story shizu yes
 ttl boss list
 ttl boss abort shizu
 ttl boss testecho clear
-@sleep 2
-ttl boss expect TtlBotInsC active shizu no
+@until 30 ttl boss expect TtlBotInsC active shizu no
 # Clean up.
 ttl boss abort
 ttl boss queue clear

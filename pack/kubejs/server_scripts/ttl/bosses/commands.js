@@ -19,6 +19,9 @@
 //       /ttl boss expect <player> defeated <id> <yes|no>              the stage ttl.defeated.<id>
 //       /ttl boss expect <player> kills <id> <n>
 //       /ttl boss expect <player> active <id> <yes|no>                whether a summoned boss of that id is out
+//       /ttl boss expect <player> fighting <id> <yes|no>              whether a boss of that id is out and its last poll saw the
+//                                                                     player in range (what a kill without a killer pays; tests
+//                                                                     wait for it with `@until` before killing the boss)
 //       /ttl boss expect <player> cooldown <id> <yes|no>              whether the player's PARTY is on cooldown for the id (any
 //                                                                     member's stamp; cooldown_scope server: the old global stamp)
 //       /ttl boss expect <player> busy <id> <yes|no>                  whether the boss's arena is busy, settling or held for others
@@ -258,6 +261,14 @@ ServerEvents.commandRegistry(event => {
         if (active[k].id === a) out = true
       }
       got = yesno(out)
+    } else if (field === 'fighting') {
+      var fights = TtlBoss.load(server)
+      var me = TtlBoss.uid(target)
+      var seen = false
+      for (var k4 in fights) {
+        if (fights[k4].id === a && (fights[k4].last || []).indexOf(me) >= 0) seen = true
+      }
+      got = yesno(seen)
     } else if (field === 'cooldown') {
       var def = TtlBoss.def(a)
       if (!def) throw `unknown boss ${a}`

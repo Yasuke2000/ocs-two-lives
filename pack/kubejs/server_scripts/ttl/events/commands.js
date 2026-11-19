@@ -8,7 +8,8 @@
 //          /ttl events fire <id> [force]   start an event now (not counted in the daily cap; `force` restarts an active one)
 //          /ttl events end [<id>]       end one event (or all of them)
 //          /ttl events due <id>         test hook: make the event due now (the next tick or scheduler pass starts it)
-//          /ttl events tick             test hook: run one scheduler pass now
+//          /ttl events tick [id]        test hook: run one scheduler pass now (with an id: only that event, test bots
+//                                       counting as online players; a real pass ignores test bots)
 //          /ttl events reschedule <id>  forget the stored next start and compute it again from events.toml
 //          /ttl events setup <player> <ep> <hours>   test hook: a Life 2 player with this EP and this many hours played this week
 //          /ttl events offerset <player> <id,id,..>  test hook: give a player exactly this Favor offer (also starts their cooldown)
@@ -87,8 +88,15 @@ ServerEvents.commandRegistry(event => {
 
   var tick = ctx => {
     ops(ctx)
-    TtlEvents.tick(ctx.source.getServer())
-    say(ctx, 'events: scheduler pass done')
+    var only = null
+    try {
+      only = arg(ctx, 'id')
+    } catch (e) {
+      only = null
+    }
+    if (only && !TtlEvents.get(only)) throw `unknown event ${only}`
+    TtlEvents.tick(ctx.source.getServer(), only)
+    say(ctx, `events: scheduler pass done${only ? ` (${only} only)` : ''}`)
     return 1
   }
 
@@ -244,7 +252,7 @@ ServerEvents.commandRegistry(event => {
         .executes(logged(endAll))
         .then(strArg('id').executes(logged(end))))
       .then(Commands.literal('due').then(strArg('id').executes(logged(due))))
-      .then(Commands.literal('tick').executes(logged(tick)))
+      .then(Commands.literal('tick').executes(logged(tick)).then(strArg('id').executes(logged(tick))))
       .then(Commands.literal('reschedule').then(strArg('id').executes(logged(reschedule))))
       .then(Commands.literal('setup')
         .then(Commands.argument('target', Arguments.PLAYER.create(event))

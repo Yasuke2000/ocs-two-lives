@@ -7,6 +7,9 @@ ttlbot spawn TtlBotEvA
 ttlbot spawn TtlBotEvB
 ttlbot spawn TtlBotEvC
 @sleep 3
+# Start from a quiet director: an event left running from before the run (a Blood Moon a player saw, a manual fire) would
+# break the counts below. Scheduled starts ignore test bots, so nothing new starts during the run on its own.
+ttl events end
 ttl events
 # Sample event "omen": manual only; its declarative action turns spectatorsGenerateChunks off while it runs.
 ttl events expect registered omen false
@@ -20,9 +23,10 @@ ttl events expect rule spectatorsGenerateChunks false
 ttl events end omen
 ttl events expect active none
 ttl events expect rule spectatorsGenerateChunks true
-# The scheduler: `due` makes the event due, one pass starts it (omen is exempt from the daily cap), `end` without an id ends all.
+# The scheduler: `due` makes the event due, one pass for it starts it (omen is exempt from the daily cap; `tick omen` lets the
+# test bots count as online and leaves every other due event alone), `end` without an id ends all.
 ttl events due omen
-ttl events tick
+ttl events tick omen
 ttl events expect active omen
 ttl events expect scheduled omen false
 ttl events end

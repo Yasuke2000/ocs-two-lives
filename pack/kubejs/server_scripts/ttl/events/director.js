@@ -236,13 +236,25 @@ const TtlEvents = {
     return this.read(server, 'ttl.events.next', {})[String(id)] !== undefined
   },
 
+  // Players who count as "online" for a scheduled start: test bots (/ttlbot, names TtlBot...) do not. A full test run
+  // keeps bots online for ~20 minutes; with them counted, a due Blood Moon started in the middle of it (18/11/2026 23:30)
+  // and was still running when tests/ingame/events.rcon asserted that no event was active. Only the test hook
+  // `/ttl events tick <id>` lets bots count, for that one event.
+  humans(server) {
+    var n = 0
+    server.getPlayerList().getPlayers().forEach(p => {
+      if (!/^TtlBot/.test(String(p.username))) n++
+    })
+    return n
+  },
+
   // Why a scheduled start must wait, or null. Manual fires skip all of this except "already active".
-  blocked(server, def, now) {
+  blocked(server, def, now, botsCount) {
     var d = this.dir()
     var active = this.read(server, 'ttl.events.active', {})
     if (active[def.id]) return 'already active'
     if (this.num(def.duration_minutes, 0) > 0 && Object.keys(active).length >= d.max_active) return `${d.max_active} events already running`
-    if (server.getPlayerList().getPlayerCount() < 1) return 'nobody online'
+    if ((botsCount ? server.getPlayerList().getPlayerCount() : this.humans(server)) < 1) return 'nobody online'
     if (def.capped !== false) {
       var day = this.read(server, 'ttl.events.day', { k: '', n: 0, t: 0 })
       if (day.t && now - day.t < d.min_gap_minutes * 60000) return `less than ${d.min_gap_minutes} min after the previous event`
@@ -260,22 +272,23 @@ const TtlEvents = {
     return null
   },
 
-  // One scheduler pass (every loop_ticks, or /ttl events tick).
-  tick(server) {
+  // One scheduler pass (every loop_ticks, or /ttl events tick). `only` (test hook /ttl events tick <id>): just that
+  // event, with test bots counting as online players; every other due event is left for the next real pass.
+  tick(server, only) {
     var now = Date.now()
     var self = this
     this.expire(server, now)
     var next = this.ensure(server, now)
-    var due = Object.keys(next).filter(id => next[id] <= now).sort((a, b) => next[a] - next[b])
+    var due = Object.keys(next).filter(id => next[id] <= now && (!only || id === only)).sort((a, b) => next[a] - next[b])
     due.forEach(id => {
       try {
-        self.runDue(server, id, next[id], now)
+        self.runDue(server, id, next[id], now, !!only)
       } catch (e) {
         console.error(`[ttl] events: ${id} scheduler failed: ${e}`)
       }
     })
     try {
-      if (typeof TtlFavor !== 'undefined') TtlFavor.track(server)
+      if (!only && typeof TtlFavor !== 'undefined') TtlFavor.track(server)
     } catch (e) {
       console.error(`[ttl] events: play-time tracking failed: ${e}`)
     }
@@ -295,7 +308,7 @@ const TtlEvents = {
     this.write(server, 'ttl.events.hold', hold)
   },
 
-  runDue(server, id, dueAt, now) {
+  runDue(server, id, dueAt, now, botsCount) {
     var def = this.get(id)
     if (!def) return
     var d = this.dir()
@@ -307,7 +320,7 @@ const TtlEvents = {
       this.settle(server, def, dueAt, now)
       return
     }
-    var why = this.blocked(server, def, now)
+    var why = this.blocked(server, def, now, botsCount)
     var res = null
     if (!why) {
       res = this.fire(server, id, { scheduled: true })

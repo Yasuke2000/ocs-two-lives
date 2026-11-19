@@ -33,11 +33,24 @@ humans() {
 ' <<<"$all" | grep -vxF -f <(tr ',' '
 ' <<<"$bots") | grep -v '^$' | paste -sd, - || true
 }
+FAILED_RE='Unknown or incomplete|Incorrect argument|An unexpected error|ttl: |Test failed'
 run_test() {
-  # `@sleep N` lines wait N seconds (game time has to pass between some steps).
+  # `@sleep N` lines wait N seconds (game time has to pass between some steps). `@until N <command>` runs the command once
+  # a second until its reply holds (no "ttl: ..." / "Test failed" / command error), for at most N seconds, and prints the
+  # last reply: a step that waits on the server (a boss that has to spawn and be polled) waits as long as it needs, not a
+  # fixed guess that a lag spike can beat.
   grep -vE '^\s*(#|$)' "$1" | while IFS= read -r cmd; do
     case "$cmd" in
       @sleep\ *) sleep "${cmd#@sleep }" ;;
+      @until\ *)
+        rest=${cmd#@until }; secs=${rest%% *}; c=${rest#* }
+        echo "> $c (until it holds, ${secs}s at most)"
+        for ((i = 0; i < secs; i++)); do
+          out=$(rcon "$c" < /dev/null)
+          grep -qE "$FAILED_RE" <<<"$(plain <<<"$out")" || break
+          sleep 1
+        done
+        echo "$out" ;;
       *) echo "> $cmd"; rcon "$cmd" ;;
     esac
   done
