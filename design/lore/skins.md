@@ -70,3 +70,42 @@ Choose `easy_npc:humanoid` for classic rows and `easy_npc:humanoid_slim` for sli
 After merge, Claude can wire the two guild roles in `design/data/npcs.toml` and the preset generator, regenerate presets and pack metadata, and bump `settings.rev` so already-spawned guild residents refresh. The other 26 need story-specific placement, including the six statue positions. Living characters also need their role-specific dialog. In-game review should include front and back, moving arms, overlay visibility and a previously spawned guild resident.
 
 [Guild definitions](../data/npcs.toml) · [Preset generator](../../tools/gen_npcs.py) · [Guild resident refresh](../../pack/kubejs/server_scripts/ttl/economy/guild_npcs.js) · [Tempest residents](../../pack/kubejs/server_scripts/ttl/life/tempest.js) · [Pinned Easy NPC release](https://modrinth.com/mod/easy-npc/version/6dcPALjP)
+
+## Generic looks
+
+The named roles above have their own skins. The generic NPCs used Easy NPC's built-in modern skins until 19/11/2026.
+These included the Free Guild adventurers and the escort clients in `design/data/sidequests.toml`, as well as the
+Outcast contact. Yasuke said they did not fit the Tensura setting. They now wear a **look**, an archetype in
+`tools/npc_looks.py` with a few variants. `tools/gen_npc_looks.py` composes each variant from parts: race and face,
+hair, garment, belt, tabard, cloak or pack, and headgear. A variant is picked from the NPC's name, so one name always
+wears the same skin. The contact sheet is [`docs/previews/npc_skins.png`](../../docs/previews/npc_skins.png).
+
+| Look | Variants | What it shows (our interpretation) |
+| --- | --- | --- |
+| `guild_rookie`, `guild_veteran`, `guild_elite` | 3, 3, 2 | Free Guild ranks F-E (wool and leather), D-C (chain, cloak, tabard) and B-A (steel plate, cape). A small rank plate on the left chest uses wood, copper, iron, silver, gold or mithril. The colours are ours; canon describes the ranks but gives no plates. |
+| `guild_scout`, `guild_mage`, `bard`, `otherworlder` | 3, 3, 2, 2 | Hooded rangers, robed mages, a bard and otherworlders in adventurer gear. Otherworlders keep only black hair from home. |
+| `merchant`, `dwarf_trader`, `commoner`, `scholar` | 3, 2, 2, 2 | The merchant styles are a Blumund pedlar in Blumund red and cream with a pack, a southern trader in an ochre robe and an Englassian factor in navy. The other looks cover Dwargon's traders, carters and Englassia academy scholars. |
+| `dwarf_warrior`, `dwarf_smith` | 3, 2 | The Armed Nation of Dwargon uses red and yellow anvil tabards from the pack's heraldry. Long beards fall onto the chest, and smiths wear leather aprons. |
+| `luminist_cleric`, `holy_knight`, `englassia_knight` | 3, 2, 2 | The Western Holy Church uses ivory, gold and blue, as in the pack's Lubelius. Englassia uses navy and crimson, a pack choice with no canon heraldry. |
+| `falmuth_knight` | 1 | Tensura's own Falmuth knight texture, used in its white, green and gold rather than the pack's blue-and-white Falmuth heraldry. |
+| `goblin`, `hobgoblin`, `kijin`, `lizardman`, `tempest_citizen` | 2 each | These cover the Jura forest peoples who need an Easy NPC with dialog. Goblins have green skin, fangs and long ears. Hobgoblins are human-sized with small ears and one fang. Kijin have horns and kimono with hakama. Lizardmen have scales, a crest, slit eyes and Lake Siss blue. |
+| `outcast` | 1 | The Outcast Society's hooded contact in the faction's purple. The faction and its contact are original to the pack. |
+
+**Sources, in the order we checked them.**
+
+1. **The repo.** The 28 skins above are named characters, so they cannot be reused for crowds.
+2. **The Tensura 2.0.1.5 jar.** Its licence is *All Rights Reserved*. Its goblins, hobgoblins, dwarves and lizardmen are
+   layered textures for Tensura's own models, such as skin, face, hair and clothing layers for goblins and dwarves, and
+   128 px GeckoLib sheets for lizardmen. They do not fit the player-skin model. Compositing them into player skins
+   would also redistribute derived art. The only generic player-layout texture is `human/falmuth_knight.png`. The
+   `falmuth_knight` look references it at runtime as `tensura:textures/entity/human/falmuth_knight.png`, and nothing
+   is copied. The ten 64 × 64 otherworlder textures (Shizu, Hinata and others) are named characters. Where a role
+   needs a real monster rather than a talking NPC, Tensura's own entities are better: `tensura:goblin`,
+   `tensura:dwarf`, `tensura:lizardman`, `tensura:orc` and `tensura:falmuth_knight`. Tempest's residents already use
+   them.
+3. **External skin sites.** We used none, because we found no clear licence.
+4. **Our generator.** We drew the remaining skins ourselves. They are original pixel art in the same woven grain as
+   `tools/gen_skins.py`.
+
+Hand-made replacements can be done later with the prompts in
+[`docs/art/npc-skin-prompts.md`](../../docs/art/npc-skin-prompts.md).

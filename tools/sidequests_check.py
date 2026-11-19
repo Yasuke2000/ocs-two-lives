@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import anchor_refs  # noqa: E402
+import npc_looks  # noqa: E402
 BUILDS = ROOT / "design" / "builds"
 CANON_MAP = ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
 ID = re.compile(r"^[a-z][a-z0-9_]*$")
@@ -73,6 +74,9 @@ def check_look(where: str, k: dict) -> None:
         fail(f"{where}: name_color must be #RRGGBB")
     if not k.get("name") or "'" in k["name"] or '"' in k["name"] or len(k["name"]) > 32:
         fail(f"{where}: name is needed, up to 32 characters, no quotes")
+    if "look" in k or "look_name" in k:
+        for why in npc_looks.problems(k.get("look"), model, k.get("look_name", k["name"])):
+            fail(f"{where}: {why}")
 
 
 def check_sidequests(sq: dict, data: dict) -> None:

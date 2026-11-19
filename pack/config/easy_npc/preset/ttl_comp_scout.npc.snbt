@@ -157,6 +157,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;266764476,1359434902,-1804299533,1357278956],
     VariantType:"EFE",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_guild_scout_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid_slim"
   }
 }

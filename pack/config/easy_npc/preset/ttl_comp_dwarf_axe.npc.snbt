@@ -157,6 +157,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;1038868543,-2008119,-1608066016,78012902],
     VariantType:"STEVE",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_dwarf_warrior_3.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

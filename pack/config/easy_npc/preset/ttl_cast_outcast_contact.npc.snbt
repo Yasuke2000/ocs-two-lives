@@ -79,6 +79,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;-1338124090,-208513222,-1912190655,1139338475],
     VariantType:"NOOR",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_outcast_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

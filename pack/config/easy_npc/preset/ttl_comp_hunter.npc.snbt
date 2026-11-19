@@ -8,7 +8,7 @@
     entityTypeId:"easy_npc:humanoid",
     modified:1790000000000L,
     name:"Hald, C-rank monster hunter",
-    variantType:"SECURITY_01",
+    variantType:"FARMER_01",
     version:"1.0.0"
   },
   data:{
@@ -156,7 +156,11 @@
     },
     PersistenceRequired:1b,
     PresetUUID:[I;-1443434831,-1241358941,-1708621543,-1960556691],
-    VariantType:"SECURITY_01",
+    VariantType:"FARMER_01",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_guild_scout_3.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }
