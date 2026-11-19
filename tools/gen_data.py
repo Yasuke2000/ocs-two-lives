@@ -1862,7 +1862,8 @@ def check_world(world: dict, data: dict) -> None:
 
 
 BUILD_KEYS = {"name", "title", "landmark", "x", "z", "anchor", "ground", "y", "search", "dimension", "version",
-              "clear_above", "margin", "max_wet", "dry", "notes"}
+              "clear_above", "margin", "max_wet", "dry", "repair", "repair_depth", "repair_margin", "repair_keep_water",
+              "notes"}
 
 
 def is_int(v) -> bool:
@@ -1896,19 +1897,24 @@ def read_footprint(files: list[Path]) -> dict:
     Per column of the box (row-major, z outer, x inner; run-length encoded as [value, count, ...]):
     fill = y of the lowest non-air block (NONE: the column is air) and top = y of the highest non-air block + 1.
     life/builds.js fills the gap between the terrain and `fill` and clears from `top` up, so nothing floats.
+    bottom = y of the lowest block the structure defines, explicit air included (NONE: the blueprint leaves the
+    column undefined): life/repair.js fills caves only below it and continues the ground layer in NONE columns.
     """
     sx = sy = z0 = 0
-    slabs, offsets, low, high = [], [], {}, {}
+    slabs, offsets, low, high, bottom = [], [], {}, {}, {}
     for path in files:
         root = nbt.read_gzip(path)
         px, py, pz = root["size"]
         palette = root.get("palette") or (root.get("palettes") or [[]])[0]
         solid = [e["Name"] not in AIRISH for e in palette]
+        void = [e["Name"] == "minecraft:structure_void" for e in palette]
         for block in root["blocks"]:
-            if not solid[block["state"]]:
-                continue
             x, y, z = block["pos"]
             k = (x, z + z0)
+            if not void[block["state"]] and y < bottom.get(k, 1 << 30):
+                bottom[k] = y
+            if not solid[block["state"]]:
+                continue
             if y < low.get(k, 1 << 30):
                 low[k] = y
             if y > high.get(k, -1):
@@ -1919,7 +1925,8 @@ def read_footprint(files: list[Path]) -> dict:
     cells = [(x, z) for z in range(z0) for x in range(sx)]
     return {"size": [sx, sy, z0], "slabs": slabs, "parts": offsets, "none": NONE,
             "fill": rle([low.get(c, NONE) for c in cells]),
-            "top": rle([high[c] + 1 if c in high else NONE for c in cells])}
+            "top": rle([high[c] + 1 if c in high else NONE for c in cells]),
+            "bottom": rle([bottom.get(c, NONE) for c in cells])}
 
 
 def canon_char(x: int, z: int) -> str | None:
@@ -1966,6 +1973,17 @@ def check_builds() -> tuple[list[dict], dict]:
         b["margin"] = b.get("margin", 8)
         if not is_int(b["margin"]) or not 0 <= b["margin"] <= 16:
             raise SystemExit(f"{where}: margin must be an integer 0..16")
+        # Terrain repair after the fit (life/repair.js, docs/server.md "Terrain repair").
+        for key in ("repair", "repair_keep_water"):
+            b[key] = b.get(key, key == "repair")
+            if not isinstance(b[key], bool):
+                raise SystemExit(f"{where}: {key} must be true or false")
+        b["repair_depth"] = b.get("repair_depth", 48)
+        if not is_int(b["repair_depth"]) or not 1 <= b["repair_depth"] <= 96:
+            raise SystemExit(f"{where}: repair_depth must be an integer 1..96 (blocks below the build that are made solid)")
+        b["repair_margin"] = b.get("repair_margin", 8)
+        if not is_int(b["repair_margin"]) or not 0 <= b["repair_margin"] <= 16:
+            raise SystemExit(f"{where}: repair_margin must be an integer 0..16 (columns round the box)")
         b["ground"] = b.get("ground", "survey")
         if b["ground"] not in ("survey", "fixed"):
             raise SystemExit(f"{where}: ground must be \"survey\" or \"fixed\"")
@@ -2007,7 +2025,7 @@ def check_builds() -> tuple[list[dict], dict]:
         if not all(0 <= a < s for a, s in zip(anchor, size)) or anchor[1] < 1:
             raise SystemExit(f"{where}: anchor {anchor} is outside the structure ({size[0]}x{size[1]}x{size[2]}; "
                              f"y must be 1 or more, the block below it is the ground layer)")
-        if max(size[0], size[2]) + 2 * b["margin"] + 2 * b["search"] > 1000:
+        if max(size[0], size[2]) + 2 * max(b["margin"], b["repair_margin"]) + 2 * b["search"] > 1000:
             raise SystemExit(f"{where}: box + margin + 2 x search is wider than 1000 blocks (forceload limit)")
         b["size"] = size
 

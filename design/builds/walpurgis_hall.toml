@@ -13,5 +13,6 @@ y = 64
 dimension = "ttl:walpurgis"
 version = 2
 clear_above = false
+repair = false  # its own dimension, placed 1:1 as the blueprint says (undefined columns stay open)
 margin = 0
 notes = "Council chamber with ten thrones (the Ten Great Demon Lords; canon's council is ten until the Octagram) and the Banquet Floor arena. No canon venue is depicted: the round table, thrones, dome and pit are our interpretation."

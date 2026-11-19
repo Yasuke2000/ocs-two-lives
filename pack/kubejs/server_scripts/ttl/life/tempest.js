@@ -13,7 +13,8 @@
 //    sits at the median terrain height of the probes across the clearing;
 // 3. place the slabs, one every 2 ticks (the box holds air above the ground layer: trees and hills in it go);
 //    after the terrain fit (4, 5) the slabs are placed a second time on the finished ground (crops and lanterns that
-//    popped in the first pass), before the signs and loot tables (3b);
+//    popped in the first pass), before the signs and loot tables (3b); between the fit and that second pass the
+//    terrain repair (life/repair.js) fills caves, lava and water under the box and pits and crevices in the margin;
 // 4. clear terrain above the box, and cut 1:1 slopes into hills round it (only where the terrain itself rises
 //    above the slope, so the surrounding forest stays standing);
 // 5. fill the gap under every box column down to the terrain (dirt, stone deeper down), plus a 1:1 earth
@@ -188,6 +189,27 @@ const TtlTempest = {
     return clears.concat(fills)
   },
 
+  // life/repair.js over the box and its margin: every box column is defined from its lowest non-air block down
+  // (tests/test_build_repair.py checks that the blueprint has no air below it), the margin's slope is the fit's skirt.
+  repairSpec(base) {
+    var f = TtlTempestFootprint
+    var b = this.box()
+    var w = f.grid[0]
+    var fill = this.decode(f.fill, w * f.grid[1])
+    var m = f.margin
+    var G = base + f.ground
+    return {
+      label: 'tempest', enabled: true, dimension: TtlLife.OVERWORLD, ring: m, x0: b.ax0, z0: b.az0, w: w, l: f.grid[1],
+      ground: G, depth: TtlRepair.DEPTH, keepWater: false,
+      mat: { top: 'minecraft:grass_block', fill: 'minecraft:dirt', deep: 'minecraft:stone' },
+      col: (gx, gz) => {
+        var v = fill[gz * w + gx]
+        if (gx >= m && gz >= m && gx < m + f.size[0] && gz < m + f.size[2]) return v === f.none ? { t: 'ground' } : { t: 'build', bottom: base + v }
+        return { t: 'ring', slope: v === f.none ? null : base + v - 1 }
+      }
+    }
+  },
+
   runBatched(server, cmds, done) {
     var self = this
     var i = 0
@@ -288,9 +310,12 @@ const TtlTempest = {
           self.finish(server, b, base, false, 1, done)
           return
         }
-        placeSlabs(again => {
-          if (again) self.finish(server, b, base, true, 2, done)
-          else done(false)
+        TtlRepair.repair(server, self.repairSpec(base), res => {
+          server.persistentData.putString('ttl.tempest.repair', res ? `${res.foundation} ${res.skirt} ${res.lava}` : '')
+          placeSlabs(again => {
+            if (again) self.finish(server, b, base, true, 2, done)
+            else done(false)
+          })
         })
       })
     })

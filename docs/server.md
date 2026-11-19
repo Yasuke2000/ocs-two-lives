@@ -220,6 +220,48 @@ the box `margin` columns get a 1:1 earth skirt (grass on top) and a 1:1 cut into
 Corridor) are left alone. Put explicit air into the blueprint wherever the inside must stay open: the placer only
 fills under the lowest and clears above the highest block of a column.
 
+**Terrain repair** (`life/repair.js`, shared by `builds.js`, `tempest.js` and `dwargon.js`). The fit above works from
+heightmaps read before the build went in, so it misses what lies under an overhang, a closed cave roof, and the old
+terrain in box columns the blueprint leaves undefined (after the 19/11 reset all of it was repaired by hand). After
+the fit and before the second slab pass the repair reads the real blocks and fixes, deterministically:
+- *Foundation*: under every box column the build defines (from its lowest defined block, explicit air included:
+  `bottom` in the footprint), every air, water, lava, fire or plant cell in the `repair_depth` blocks below becomes
+  ground (dirt in the 3 cells under the build, stone deeper, deepslate under y 0): caves, sinkholes, a ravine running
+  under the edge. A gap that runs on below the depth is closed down to the depth when there is ground below it; a
+  column with nothing solid under it (a void dimension, a floating island) is left alone; nothing is placed at or
+  above the build's lowest block.
+- *Undefined columns* (the blueprint holds no block there): the ground layer is continued at the ground height (the
+  block under the anchor), with the nearest defined column's grass, path or sand at that height (else the site's top
+  block) and the same fill below: no ditches. Bare rock at that height is covered; nothing above it is touched.
+- *Ring* of `repair_margin` columns (square): the surface is raised to `max(1:1 skirt, min(ground height, closing))`,
+  where the closing (max then min over a 9 x 9 window, box columns counted at the ground height) is used only where it
+  lies 3 or more above the surface: pits, crevices, slits and ravine edges up to ~8 wide fill to their rim with grass
+  on top, gentle dips, hills, wide valleys and lakes keep their shape. A gap within 3 blocks under the surface (a cave
+  mouth, an overhang, the lip of a ravine) is filled to its floor. Water in the ring that touches the box (through ring
+  water) is filled up to its surface, so a bank holds the water beyond the ring; other water is kept, and
+  `repair_keep_water = true` (Raja, on its lake) keeps every water block. Lava is filled up to its surface below the
+  ground height; lava above it and fire become air.
+- *Cost*: the planner reads blocks only inside the area the placer already forceloaded (it never forceloads or loads a
+  chunk itself; the area grows to `max(margin, repair_margin) + 2`), every cell in the first 8 under the build and
+  every other cell deeper (~30 reads per box column at depth 48). Planning and the merged `fill` commands (boxes of at
+  most 32768 blocks) run 15 ms per tick at most (200 commands), so a 120 x 120 build takes some seconds of ticks, not
+  one long tick. Log: `[ttl] build <name>: repaired N foundation, M skirt, K lava (F fills, T ticks, ms; depth, ring;
+  D gaps run deeper, U columns not loaded)` (cells; K counts lava and fire; `build tempest` / `build dwargon` for the
+  settlements). The counts are kept in `ttl.build.<name>.repair` (`ttl.tempest.repair`, `ttl.dwargon.repair`).
+- *Knobs* (TOML, `gen_data` checks them): `repair = false` turns it off (Walpurgis Hall and the Spirit Dwelling, in
+  their own dimensions, are placed 1:1), `repair_depth` (default 48, 1..96), `repair_margin` (default 8, 0..16),
+  `repair_keep_water` (default false). Tempest and Dwargon always repair, depth 48, over their footprint margin;
+  Dwargon's empty box columns with a talus value count as ring, the others as plain ground at the road level.
+  Jigsaw landmarks (`landmarks.js`) are not repaired.
+- *Tests*: `tests/build_repair.js` (offline, synthetic worlds: cave and lava under the box, a ravine under the edge,
+  overhang, pit, lava pool and fire, undefined columns, water touching the box, a kept-water site, void, depth),
+  `tests/ingame/build_repair.rcon` (digs a cave, a slit, a lava pool, a water pocket, a cave mouth and a pit under and
+  round `test_hut` on a patch of ground in the Spirit Corridor, places it again with force, checks the blocks with
+  `/ttl build expect test_hut cell <x> <y> <z> <solid|air|water|lava|fire|soft|block id>` and
+  `/ttl build expect test_hut repaired <foundation> <skirt> <lava>`, then removes the patch).
+- *Not repaired*: an existing copy (the repair runs when a build is placed: a world reset, a version bump or
+  `/ttl build place <name> force`), and a gap 1 cell high deeper than 8 under the build.
+
 **Dry builds.** `place template` keeps the water of the old terrain: a stair, slab or wall set on a flooded cell comes out waterlogged and feeds a puddle for good. A build cut below the water table sets `dry = true` in its TOML (Amrita) and the placer drains the box (`fill ... air replace minecraft:water`) before the first pass. It cannot repair an old copy (its waterlogged blocks keep their water): `verify_build.py` shows them as `air -> water` inside the build; set those blocks again with `waterlogged=false` and drain the box by hand.
 
 **Log lines.** One per build when done, the format `tools/verify_build.py <name> --log` reads:
@@ -231,7 +273,8 @@ one). Builds outside the overworld: `verify_build.py <name> --log --dimension <d
 **Ops** (permission 2): `/ttl build list` (state of every build), `/ttl build where <name>` (spot, worked area, a
 tp command), `/ttl build place <name|all>` (builds that are not at their current version yet),
 `/ttl build place <name|all> force` (again, at the recorded spot), `/ttl build expect <name> placed` (prints
-`ttl: ...` when the placed version is not the TOML's). `/ttl build <blueprint>` (a build at your feet) still works.
+`ttl: ...` when the placed version is not the TOML's), `/ttl build expect <name> repaired <f> <s> <l>` and
+`/ttl build expect <name> cell <x> <y> <z> <kind>` (terrain repair, above). `/ttl build <blueprint>` (a build at your feet) still works.
 A player who walks into a placed build for the first time (per version) sees its `title`. Test:
 `tools/server.sh test builds` (`test_hut`, a 5x5 hut in the Spirit Corridor; delete `design/builds/test_hut.toml`
 and `blueprints/test_hut.py` when the placer is trusted).

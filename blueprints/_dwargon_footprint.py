@@ -9,6 +9,9 @@ NONE = nothing to do), heights relative to the structure's base layer:
          a 1:1 talus skirt falling away from the build's surface, so edges meet low ground in a slope.
 - clear: remove terrain from this layer upward. Columns whose highest block is air (the approach, the
          ravine, the skylight crack) are open sky by design; the columns round them get a 1:1 cut slope.
+- bottom: the lowest block the build defines in a footprint column, explicit air included (NONE: the column
+         holds no block at all, and every margin column). life/repair.js fills caves and lava only below it and
+         treats a NONE box column as open ground, so it never fills into the carved city.
 """
 import json
 import math
@@ -31,9 +34,11 @@ def _rle(values):
 
 def footprint(bp, probes, arrival, parts) -> str:
     sx, sy, sz = bp.size
-    low, high, top_state = {}, {}, {}
+    low, high, top_state, bottom = {}, {}, {}, {}
     for (x, y, z), state in bp.blocks.items():
         k = (x, z)
+        if y < bottom.get(k, sy):
+            bottom[k] = y
         if state != AIR and y < low.get(k, sy):
             low[k] = y
         if y > high.get(k, -1):
@@ -74,17 +79,18 @@ def footprint(bp, probes, arrival, parts) -> str:
             v = c0 + math.ceil(d)
             if c not in cut or v < cut[c]:
                 cut[c] = v
-    fills, clears = [], []
+    fills, clears, bottoms = [], [], []
     for gz in range(l):
         for gx in range(w):
             k = (gx - MARGIN, gz - MARGIN)
             fills.append(fill.get(k, skirt.get(k, NONE)))
             clears.append(clear.get(k, cut.get(k, NONE)))
+            bottoms.append(bottom.get(k, NONE))
     data = {
         "size": list(bp.size), "margin": MARGIN, "grid": [w, l], "none": NONE,
         "arrival": list(arrival), "probes": [list(p) for p in probes],
         "parts": list(parts) if parts else [0],
-        "fill": _rle(fills), "clear": _rle(clears),
+        "fill": _rle(fills), "clear": _rle(clears), "bottom": _rle(bottoms),
     }
     body = json.dumps(data, separators=(",", ":"))
     return ("// priority: 200\n"

@@ -8,5 +8,6 @@ max_wet = 0.08
 dimension = "minecraft:overworld"
 version = 1
 clear_above = true
+repair_keep_water = true  # built on its lake (site `keep`): the repair keeps every water block
 margin = 12
 notes = "Walk north from the inlet landing to the winding frame and the exhausted gold mine in the bank."
