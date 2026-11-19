@@ -106,6 +106,7 @@ Log lines: `[ttl] landmark <name> placed: <structure> at X Y Z (…, box …)` o
 Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a tp command), `/ttl landmark place <name|all>`
 (places again; the old copy stays). Change a landmark or bump its `version` in the TOML, then
 `python tools/gen_data.py`.
+Finding places: `/locate place <id>` (op, vanilla `/locate` style, tab-completes every anchor id plus placed builds and landmarks without an anchor; recorded placement first, else the anchor) and `/ttl where <id>` for players (direction and rounded distance only; `life/locate.js`).
 
 ## Permissions
 
