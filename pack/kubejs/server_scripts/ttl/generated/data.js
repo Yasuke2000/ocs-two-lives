@@ -4971,7 +4971,7 @@ const TtlData = {
     ],
     "life2": [
       {
-        "body": "Open your eyes. You are reborn in the world of Tensura, at the edge of the *Forest of Jura*, on the road between *Tempest* (south-west) and *Dwargon* (north-east). The forest is deadlier the closer you get to Tempest.\n\n- Your new race and Unique Skill are yours now. Learn what they can do.\n- Fight, grow stronger and evolve.\n- Death is no longer the end: in Life 2 you come back.\n",
+        "body": "Open your eyes. You are reborn in the world of Tensura, at the northern edge of the *Forest of Jura*, on the road between *Tempest* (south) and *Dwargon* (north). The forest is deadlier the closer you get to Tempest.\n\n- Your new race and Unique Skill are yours now. Learn what they can do.\n- Fight, grow stronger and evolve.\n- Death is no longer the end: in Life 2 you come back.\n",
         "title": "Life 2 begins"
       },
       {
@@ -5005,7 +5005,7 @@ const TtlData = {
         "title": "What your soul keeps"
       },
       {
-        "body": "You are reborn on the Tensura continent, at the safe edge of the *Forest of Jura*, on the road between *Tempest* (south-west, deep in the forest) and the dwarven kingdom of *Dwargon* (north-east, behind its white gate).\n\n- The forest grows deadlier towards Tempest: Veldora's magicule soaks it. Grow stronger before you walk in.\n\n- Your new race and Unique Skill are yours now. Some Unique Skills only a few souls can hold at once.\n- Fight, grow stronger and evolve. Death in Life 2 is not the end: you come back.\n",
+        "body": "You are reborn on the Tensura continent, at the safe northern edge of the *Forest of Jura*, on the road between *Tempest* (far to the south, deep in the forest) and the dwarven kingdom of *Dwargon* (to the north, behind its white gate).\n\n- The forest grows deadlier towards Tempest: Veldora's magicule soaks it. Grow stronger before you walk in.\n\n- Your new race and Unique Skill are yours now. Some Unique Skills only a few souls can hold at once.\n- Fight, grow stronger and evolve. Death in Life 2 is not the end: you come back.\n",
         "title": "Life 2: the world of Tensura"
       },
       {
@@ -7939,7 +7939,7 @@ const TtlData = {
         "giver": "rim_camp",
         "id": "rescue_rookie",
         "kind": "escort",
-        "text": "A rookie named Tomas never came back from his first hunt. His camp is south of the rim. Bring him home alive.",
+        "text": "A rookie named Tomas never came back from his first hunt. His camp is west of the rim camp, off the road. Bring him home alive.",
         "title": "The Missing Rookie",
         "to": "rim_camp"
       },
@@ -9190,7 +9190,7 @@ const TtlData = {
           },
           {
             "act": 5,
-            "text": "Falmuth's field commander does not talk to the likes of you. His eyes say enough: when the horn sounds, he rides south."
+            "text": "Falmuth's field commander does not talk to the likes of you. His eyes say enough: when the horn sounds, he rides east."
           }
         ]
       },

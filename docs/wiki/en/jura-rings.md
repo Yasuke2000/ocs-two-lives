@@ -1,25 +1,25 @@
 # The rings of Jura
 
-**On your first trip, head northeast towards Dwargon.** You arrive on the outer edge of the Great Jura Forest in `minecraft:overworld`, near **X 271, Z -624**, already facing roughly towards the gate at **X 435, Z -1000**. The server looks for a clearing within 40 blocks of the arrival point. Tempest lies the other way, at **X 0, Z 0**, with much denser magicule country on the approach. [World map](world-map.md) · [Nederlands](../nl/jura-rings.md)
+**On your first trip, head north towards Dwargon.** You arrive on the northern edge of the Great Jura Forest in `minecraft:overworld`, near **X 1780, Z -150**, already facing towards the gate at **X 1900, Z -500**, about 370 blocks away. The server looks for a clearing within 40 blocks of the arrival point. Tempest lies the other way, about 1,050 blocks south at **X 1720, Z 900**, with much denser magicule country on the approach. [World map](world-map.md) · [Nederlands](../nl/jura-rings.md)
 
 Ring widths, magicule levels and arrival protection may change.
 
 ## Reading the landscape
 
-Veldora’s leaked magicules give the forest three bands. The rim follows Jura’s *outer border*. Only the core is measured outward from Tempest. A trip along the border can stay on the rim for a long time. Cutting across a bend can take you into the middle. Lake Siss, its marsh and the rivers inside Jura do not create another safe rim.
+Veldora’s leaked magicules give the forest three bands, all measured in rings outward from Tempest. Going north, south, west or east you cross the same distances. Lerfing’s map is open country with patches of forest, so the bands follow the distance from Tempest, not the thickness of the trees. Lakes, beaches and rivers are never repainted: the ground beside them still has the danger of its band.
 
 | Band | Where to expect it | What to look for |
 | --- | --- | --- |
-| Rim | About the first 280 blocks inside the outer border | Oak and birch forest, old-growth birch, flower forest, plains or swamp. These ordinary biomes have a nominal area magicule of 500. |
-| Middle | Between the border belt and the central core | Mostly dark forest, nominally 2,000 area magicule, with pockets of ancient forest at 20,000. A change of biome can change the danger before you reach the core. |
-| Core | Roughly a 200-block radius around Tempest | Primarily ancient forest, with some dark forest. A newly reborn soul can suffer magicule poisoning within seconds in ancient forest. |
+| Rim | More than about 600 blocks from Tempest, which includes the arrival | Whatever Lerfing’s map grows there: plains, oak and birch forest, flower forest or swamp. These ordinary biomes have a nominal area magicule of 500. |
+| Middle | About 200 to 600 blocks from Tempest | Dark forest, nominally 2,000 area magicule. The old goblin village, the Sealed Cave and the Spirit Gate lie in this band. A change of biome can change the danger before you reach the core. |
+| Core | Roughly a 200-block radius around Tempest | Ancient forest, nominally 20,000 area magicule. A newly reborn soul can suffer magicule poisoning within seconds in ancient forest. |
 
-The borders vary by roughly 50 blocks between terrain patches. Heights and water also affect biome selection. These figures describe the current pack’s nominal **area magicule**, an environmental value. Your own EP includes both your magicules and aura. It cannot be read as a universal safe-entry threshold. Terrain already generated on an older version can retain its original biome. [Region and biome settings](../../../pack/config/ttl/canon_regions.json) · [Jura geography](../../../design/lore/world.md)
+The borders wobble by roughly 50 blocks. The rings were painted onto Lerfing’s map once, when the world was imported, so they do not move. These figures describe the current pack’s nominal **area magicule**, an environmental value. Your own EP includes both your magicules and aura. It cannot be read as a universal safe-entry threshold. [Region and biome settings](../../../pack/config/ttl/canon_regions.json) · [Jura geography](../../../design/lore/world.md)
 
 ## Surviving the road
 
 - **At arrival**, use the current 20 seconds of grace to check your coordinates and find the road. Blade Tigers and Barghests can target and push you on the rim. Void damage and the kill command bypass grace. When grace ends, ordinary damage resumes.
-- **While travelling**, mark the clearing and the Dwargon gate as waypoints. If you run into ancient forest or begin taking magicule damage, turn back along your approach towards the lighter forest at the border. A riverbank can lead deeper into Jura.
-- **At Tempest**, the green within 56 blocks of **(0, 0)** shelters Life 2 players from magicule poison and suppresses natural hostile spawns. Creatures can walk into the green. The approach outside that small circle still crosses the core, and the green gives no general immunity to combat or curses.
+- **While travelling**, mark the clearing and the Dwargon gate as waypoints. If you run into ancient forest or begin taking magicule damage, turn back along your approach, away from Tempest, towards the lighter country outside the dark band. A riverbank can lead deeper into Jura.
+- **At Tempest**, the green within 56 blocks of **(1720, 900)** shelters Life 2 players from magicule poison and suppresses natural hostile spawns. Creatures can walk into the green. The approach outside that small circle still crosses the core, and the green gives no general immunity to combat or curses.
 
 These distances and timers can change with pack updates. If the arrival or forest behaves differently on your server, include your dimension, X/Z and the biome shown on the debug screen when reporting it. An operator can compare the saved arrival with `/ttl arrival` and the expected biome with `/ttlmap <x> <z>`. [Arrival settings](../../../design/data/arrival.toml) · [Life 2 protections](../../../pack/kubejs/server_scripts/ttl/life/mortal_immunity.js) · [Report a bug](report-bugs.md)
