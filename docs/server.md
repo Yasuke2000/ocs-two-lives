@@ -68,11 +68,11 @@ prints it.
 
 | Command | What |
 | --- | --- |
-| `up` | Installs NeoForge from `pack/pack.toml`, the pack's server side with packwiz-installer (what the itzg image does for `PACKWIZ_URL`, from a refreshed copy of your working tree, so uncommitted edits count), your `mod/` build of ttl-portals in place of the released jar, the `ttl-overrides` datapack into the world; starts and waits for RCON. The first boot saves the world as snapshot `base`. Later `up`s only redo what changed (packwiz-installer when the mod list or versions changed, gradle when `mod/` changed; `TTL_LOCAL_FULL=1` forces both) |
-| `sync` | Copies what changed in `pack/` since the last up/sync into the running server and applies it: `server_scripts` → `/kubejs reload server_scripts`; `kubejs/data`, `datapacks`, `config/ttl`, `config/ftbquests` → `/reload`; startup scripts or other config → restart; mods or `mod/` → full `up`. Prints new KubeJS/`[ttl]` errors |
-| `test <name>` / `test all` | The same `tests/ingame/*.rcon` through the same runner as `tools/server.sh` (`tools/ingame.sh`), on one RCON connection (`tools/rcon.py --serve`). `test all` keeps each output in `test-out/` |
-| `down`, `restart`, `status`, `logs [n]`, `follow`, `rcon "<cmd>"` | As in `server.sh` |
-| `snapshot [name]`, `reset [name]` | Save the stopped world / put it back (default `base`) |
+| `up` | Installs NeoForge from `pack/pack.toml`, the pack's server side with packwiz-installer (what the itzg image does for `PACKWIZ_URL`, from a refreshed copy of your working tree, so uncommitted edits count), your `mod/` build of ttl-portals in place of the released jar, the `ttl-overrides` datapack into the world; starts and waits for RCON. The first boot waits until the start-up placements are done (`ttl build list` has nothing pending, ~15 min on a fresh world) and saves the world as snapshot `base`. Later `up`s only redo what changed (packwiz-installer when the mod list or versions changed, gradle when `mod/` changed; `TTL_LOCAL_FULL=1` forces both) |
+| `sync` | Copies what changed in `pack/` since the last up/sync into the running server and applies it: `kubejs/server_scripts`, `kubejs/data`, `datapacks`, `config/ttl`, `config/ftbquests` → `/reload` (waits for "Reloaded with"; like `server.sh push-scripts`, so commands re-register); startup scripts or other config → restart; mods or `mod/` → full `up`. Prints new KubeJS/`[ttl]` errors and exits 1 on them |
+| `test <name>` / `test all` | The same `tests/ingame/*.rcon` through the same runner as `tools/server.sh` (`tools/ingame.sh`), on one RCON connection (`tools/rcon.py --serve`), each command 2 game ticks after the previous one (`TTL_LOCAL_TICKS`; staging's kubectl exec takes ~3). Waits first while start-up builds are still pending. `test all` keeps each output in `test-out/` |
+| `down`, `restart`, `status`, `logs [n]`, `follow`, `rcon "<cmd>"` | As in `server.sh`; the log of the run before the last start is `logs/previous.log` |
+| `snapshot [name]`, `reset [name]` | Save the stopped world / put it back (default `base`). `stop` says whether the log has "All dimensions are saved" |
 
 Same as staging: NeoForge version, server-side mods and configs, datapack, `world-ttl`, hard, simulation distance 8,
 flight on, no whitelist, spawn protection 0, Aikar flags. Different on purpose: game and RCON bound to 127.0.0.1,
@@ -81,6 +81,29 @@ offline mode (join from the Prism instance at `localhost`), a random RCON passwo
 BlueMap's web server on 127.0.0.1:8100, a fixed seed (`TTL_LOCAL_SEED`), heap 6 GB (`TTL_LOCAL_MEMORY`) and view
 distance 8 (`TTL_LOCAL_VIEW`). Plan on ~8 GB of RAM for the Java process. Tests a local server cannot run are
 listed in `ingame_skip_reason` in `local.sh` and print `skipped (<reason>)`; none are listed yet.
+
+**Timings** (Yasuke's PC: 16 threads, 32 GB RAM; 19/11/2026, branch `local-up-wait`):
+
+| Step | Time |
+| --- | --- |
+| `up`, cold (NeoForge + packwiz-installer + gradle + first boot) | 384 s, then ~15 min of start-up placements before snapshot `base` |
+| `up`/`restart`, warm (nothing to reinstall) | 48-63 s (stop 6-9 s, start to "ready" ~43 s) |
+| `snapshot base` (stop, copy 565 MB, start) | 62 s |
+| `sync` of one server script (copy + `/reload` + error check) | ~4 s |
+| `test <name>` | 16 s (`arrival`) to 40 s (`guide`) |
+| `test all` (71 tests) | 1385 s (23 min), 70 ok; staging's run from a PC is ~27 min |
+
+**Why the harness waits.** Two things staging gives for free: (1) every staging command is a `kubectl exec` (~0.17 s, 3
+ticks), so work a script schedules a tick later (the Corridor after `kill`, the trials) is done before the next
+command; locally a command takes ~1 ms, so `rcon.py --serve --ticks 2` waits 2 game ticks (one is not enough: a command
+can run in the middle of a tick). (2) Staging's world placed its canon builds long ago; a fresh local world places
+them one by one for ~15 min after start, and tests that place or expect a build (`build_repair`, `builds`,
+`duel_liability`) queue behind them. `rcon.py` never sends a packet before the previous one is answered: Minecraft's
+RCON reads one TCP chunk per request and drops the connection when two packets arrive together.
+
+Known local difference: `guild_npcs` forceloads a box at staging's Blumund (corner -1086 65 -224); the local fixed seed
+places Blumund at -1024 70 -120, so Fuze's stand is outside the box and the Fuze steps fail. The test needs the box
+moved with the build (or read from `ttl build where blumund`).
 
 A local pass is not the staging pass: after the merge, ttl-ops still deploys and runs `test-all` on staging (the
 real map, real players' data, Discord). Use the local server to get there green the first time.
