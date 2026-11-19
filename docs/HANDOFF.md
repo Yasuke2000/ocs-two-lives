@@ -52,6 +52,10 @@ asynchronous. Fixed in the tests: arrival.rcon kills direwolves within 96 of the
 walpurgis.rcon wait with `@until` for in/out. All three pass alone. **Owner question**: wild direwolves (hostile) spawn
 right at the Life 2 arrival on the "safe rim": should the arrival get a hostile-spawn-free radius like Tempest and
 Wayfarer's Rest (`life/mortal_spawns.js`)? Not changed (gameplay decision).
+**Final**: ttl-ops on `adbd6ab` (main with PR #36, these test fixes and PRs #37/#38/#40; fresh boot ~12:50) = **all tests
+green (71/71)**. That boot placed Dwargon v7 through the chunk tickets (`holding 156 chunks for dwargon`, then `repaired
+14365 foundation, 2361 skirt, 142 lava (2237 fills, 589 ticks, 34125 ms)`), no watchdog, only two 2-4 s "Can't keep up"
+at start-up.
 
 ## 19/11 night — overworld reset done: every build verified on the new world, terrain repaired by hand, test-all 70/70, pregen running (Claude)
 
