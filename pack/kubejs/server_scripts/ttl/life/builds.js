@@ -8,7 +8,8 @@
 // (/ttl build <blueprint> from commands.js, a build at your feet, still works: only these four words are taken.)
 //
 // Per build (same grounding as tempest.js / dwargon.js, worked out from the structure files):
-// 1. forceload the area (box + margin + the survey radius) and wait until every chunk is loaded;
+// 1. hold the area (box + margin + the survey radius) with chunk tickets (life/chunk_hold.js: loaded in the background,
+//    never a synchronous `forceload` burst) and wait until every chunk is FULL; give up after LOAD_TIMEOUT;
 // 2. where: the spot recorded by an earlier placement of this build (a version bump puts the new version over the
 //    old one at the same corner) or, with ground = "fixed", x/z at y; with ground = "survey" the flattest dry spot
 //    within `search` blocks of x/z: candidates on a grid, samples over the build's own columns (heightmaps, trees
@@ -31,7 +32,7 @@ const TtlBuilds = {
   GAP: 100, // ticks between two builds
   RETRY: 200, // while the landmarks are still placing
   LOAD_POLL: 40,
-  LOAD_TIMEOUT: 4800,
+  LOAD_TIMEOUT: 12000, // 10 min: a fresh 600-chunk area generates in the background while the server ticks
   FILLS_PER_TICK: 150,
   BOOT_ATTEMPTS: 3, // boots in a row that may fail before a build waits for /ttl build place
   KEEPOUT: 24, // blocks kept clear of other placed things
@@ -107,26 +108,6 @@ const TtlBuilds = {
     return {
       x0: cx - b.anchor[0] - s - m, z0: cz - b.anchor[2] - s - m,
       x1: cx - b.anchor[0] + b.size[0] - 1 + s + m, z1: cz - b.anchor[2] + b.size[2] - 1 + s + m
-    }
-  },
-
-  // forceload takes at most 256 chunks per command: strips of 4 chunk rows (gen_data keeps the width under 1000).
-  forceload(server, b, a, mode) {
-    for (var z = a.z0; z <= a.z1; z += 64) this.run(server, b, `forceload ${mode} ${a.x0} ${z} ${a.x1} ${Math.min(z + 63, a.z1)}`)
-  },
-
-  // true when every chunk of the area is loaded; null when that cannot be checked (fixed wait instead).
-  loaded(server, b, a) {
-    try {
-      var source = server.getLevel(b.dimension).getChunkSource()
-      for (var cx = a.x0 >> 4; cx <= a.x1 >> 4; cx++) {
-        for (var cz = a.z0 >> 4; cz <= a.z1 >> 4; cz++) {
-          if (!source.hasChunk(cx, cz)) return false
-        }
-      }
-      return true
-    } catch (e) {
-      return null
     }
   },
 
@@ -530,7 +511,9 @@ const TtlBuilds = {
     }
   },
 
-  // One build at a time: forceload, wait for the chunks, place, unload, gap, next.
+  // One build at a time: hold the chunks, wait until they are FULL, place, release, gap, next. A build whose chunks
+  // are not all loaded after LOAD_TIMEOUT is not placed (counted as a failed boot attempt): reading heightmaps or
+  // filling in a missing chunk would load it synchronously, the server stall the chunk tickets avoid.
   pump(server) {
     if (this.busy || this.queue.length === 0) return
     var self = this
@@ -542,20 +525,17 @@ const TtlBuilds = {
     var spot = this.stored(server, b)
     var a = this.area(b, spot)
     this.busy = true
-    this.forceload(server, b, a, 'add')
-    var waited = 0
-    var check = () => {
-      var ready = self.loaded(server, b, a)
-      waited += self.LOAD_POLL
-      if (ready === false && waited < self.LOAD_TIMEOUT) {
-        server.scheduleInTicks(self.LOAD_POLL, check)
+    var hold = TtlChunks.hold(server, b.dimension, a, `build ${b.name}`)
+    var finish = () => {
+      TtlChunks.release(server, hold)
+      self.busy = false
+      server.scheduleInTicks(self.GAP, () => self.pump(server))
+    }
+    TtlChunks.whenReady(server, hold, this.LOAD_POLL, this.LOAD_TIMEOUT, (ready, missing) => {
+      if (!ready && missing > 0) {
+        self.failed(server, b, `${missing} chunk(s) of its area still not loaded after ${self.LOAD_TIMEOUT} ticks`)
+        finish()
         return
-      }
-      if (ready === false) console.warn(`[ttl] build ${b.name}: chunks still loading after ${waited} ticks; trying anyway`)
-      var finish = () => {
-        self.forceload(server, b, a, 'remove')
-        self.busy = false
-        server.scheduleInTicks(self.GAP, () => self.pump(server))
       }
       try {
         self.place(server, b, spot, finish)
@@ -563,9 +543,7 @@ const TtlBuilds = {
         self.failed(server, b, `${e}`)
         finish()
       }
-    }
-    // A fixed 15 s when the loaded check is unavailable (loaded() returns null).
-    server.scheduleInTicks(this.loaded(server, b, a) === null ? 300 : this.LOAD_POLL, check)
+    })
   },
 
   enqueue(server, b) {

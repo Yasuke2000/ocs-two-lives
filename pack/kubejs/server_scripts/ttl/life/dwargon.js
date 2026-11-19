@@ -4,7 +4,8 @@
 // overworld places it again on the new terrain (world_reset.js).
 //
 // Grounding (TtlDwargonFootprint, generated/dwargon_footprint.js, written by tools/build_structures.py):
-// 1. forceload the box + margin, wait 10 s for generation;
+// 1. hold the box + margin with chunk tickets (life/chunk_hold.js: generated in the background, no synchronous
+//    `forceload` burst), wait at least 10 s and until every chunk is FULL (at most 10 min, then not placed);
 // 2. read the real ground per column (heightmaps) BEFORE placing; the base layer is chosen so the road in
 //    front of the gate sits at the median ground height of the approach probes;
 // 3. place the slabs, one every 2 ticks;
@@ -43,13 +44,6 @@ const TtlDwargon = {
     return { x0: x0, z0: z0, ax0: x0 - m, az0: z0 - m, ax1: x0 + f.size[0] + m - 1, az1: z0 + f.size[2] + m - 1 }
   },
 
-  // forceload takes at most 256 chunks per command: add/remove the area in strips of 4 chunk rows.
-  forceload(server, mode) {
-    var b = this.box()
-    for (var z = b.az0; z <= b.az1; z += 64) {
-      this.run(server, `forceload ${mode} ${b.ax0} ${z} ${b.ax1} ${Math.min(z + 63, b.az1)}`)
-    }
-  },
 
   decode(rle, n) {
     var out = new Array(n)
@@ -238,16 +232,22 @@ const TtlDwargon = {
 
   schedule(server) {
     var self = this
-    this.forceload(server, 'add')
-    server.scheduleInTicks(200, () => {
-      var finish = () => self.forceload(server, 'remove')
+    var b = this.box()
+    var hold = TtlChunks.hold(server, TtlLife.OVERWORLD, { x0: b.ax0, z0: b.az0, x1: b.ax1, z1: b.az1 }, 'dwargon')
+    var finish = () => TtlChunks.release(server, hold)
+    server.scheduleInTicks(200, () => TtlChunks.whenReady(server, hold, 40, 12000, (ready, missing) => {
+      if (!ready && missing > 0) {
+        console.error(`[ttl] dwargon: ${missing} chunk(s) still not loaded after 10 min; not placed (next boot tries again)`)
+        finish()
+        return
+      }
       try {
         self.place(server, finish)
       } catch (e) {
         console.error(`[ttl] dwargon placement failed: ${e}`)
         finish()
       }
-    })
+    }))
   }
 }
 

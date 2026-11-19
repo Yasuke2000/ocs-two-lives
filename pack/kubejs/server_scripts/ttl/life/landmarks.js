@@ -5,7 +5,8 @@
 // reset. Op commands: /ttl landmark list | place <name|all> | where <name>.
 //
 // Per landmark:
-// 1. forceload the area (reach + the farthest candidate offset) and wait until every chunk is loaded;
+// 1. hold the area (reach + the farthest candidate offset) with chunk tickets (life/chunk_hold.js, loaded in the
+//    background, no synchronous `forceload` burst) and wait until every chunk is FULL; give up after LOAD_TIMEOUT;
 // 2. survey the nominal spot and 16 candidates 32 and 64 blocks out (heightmaps): water fraction and ground
 //    spread; drop candidates that come within `keepout` + reach of Tempest's or Dwargon's box; best first;
 // 3. `place structure` (vanilla: skips the biome check, uses only the chunk, needs the chunks loaded, throws
@@ -19,7 +20,7 @@ const TtlLandmarks = {
   PROBE: 'ttl_landmark_probe',
   START_DELAY: 900, // after Tempest (300) and Dwargon have started placing
   LOAD_POLL: 40,
-  LOAD_TIMEOUT: 3600,
+  LOAD_TIMEOUT: 12000, // 10 min: up to 625 fresh chunks generate in the background while the server ticks
   OFFSETS: [32, 64],
   TRIES: 4,
   BOOT_ATTEMPTS: 3, // boots in a row that may fail before a landmark waits for /ttl landmark place
@@ -85,28 +86,6 @@ const TtlLandmarks = {
   area(l) {
     var r = l.reach + this.OFFSETS[this.OFFSETS.length - 1] + 16
     return { x0: l.x - r, z0: l.z - r, x1: l.x + r, z1: l.z + r }
-  },
-
-  // forceload takes at most 256 chunks per command: strips of 4 chunk rows.
-  forceload(server, l, mode) {
-    var a = this.area(l)
-    for (var z = a.z0; z <= a.z1; z += 64) this.run(server, `forceload ${mode} ${a.x0} ${z} ${a.x1} ${Math.min(z + 63, a.z1)}`)
-  },
-
-  // true when every chunk of the area is loaded; true as well when that cannot be checked (fixed wait instead).
-  loaded(server, l) {
-    try {
-      var source = server.getLevel(TtlLife.OVERWORLD).getChunkSource()
-      var a = this.area(l)
-      for (var cx = a.x0 >> 4; cx <= a.x1 >> 4; cx++) {
-        for (var cz = a.z0 >> 4; cz <= a.z1 >> 4; cz++) {
-          if (!source.hasChunk(cx, cz)) return false
-        }
-      }
-      return true
-    } catch (e) {
-      return null
-    }
   },
 
   // Ground probe through Java heightmaps: { y, water } per column, trees and plants skipped. null when unavailable.
@@ -245,33 +224,28 @@ const TtlLandmarks = {
     return false
   },
 
-  // One landmark at a time: forceload, wait for the chunks, place, unload, next.
+  // One landmark at a time: hold the chunks, wait until they are FULL, place, release, next. Not placed when the
+  // area is still not loaded after LOAD_TIMEOUT (a failed boot attempt): surveying a missing chunk would load it
+  // synchronously, the stall the tickets avoid.
   pump(server) {
     if (this.busy || this.queue.length === 0) return
     var l = this.queue.shift()
     var self = this
     this.busy = true
-    this.forceload(server, l, 'add')
-    var waited = 0
-    var check = () => {
-      var ready = self.loaded(server, l)
-      waited += self.LOAD_POLL
-      if (ready === false && waited < self.LOAD_TIMEOUT) {
-        server.scheduleInTicks(self.LOAD_POLL, check)
-        return
-      }
-      if (ready === false) console.warn(`[ttl] landmark ${l.name}: chunks still loading after ${waited} ticks; trying anyway`)
+    var hold = TtlChunks.hold(server, TtlLife.OVERWORLD, this.area(l), `landmark ${l.name}`)
+    TtlChunks.whenReady(server, hold, this.LOAD_POLL, this.LOAD_TIMEOUT, (ready, missing) => {
       try {
-        self.place(server, l)
+        if (!ready && missing > 0) {
+          server.persistentData.putInt(self.key(l, 'fails'), server.persistentData.getInt(self.key(l, 'fails')) + 1)
+          console.error(`[ttl] landmark ${l.name}: ${missing} chunk(s) still not loaded after ${self.LOAD_TIMEOUT} ticks; not placed`)
+        } else self.place(server, l)
       } catch (e) {
         console.error(`[ttl] landmark ${l.name} placement failed: ${e}`)
       }
-      self.forceload(server, l, 'remove')
+      TtlChunks.release(server, hold)
       self.busy = false
       server.scheduleInTicks(20, () => self.pump(server))
-    }
-    // A fixed 15 s when the loaded check is unavailable (loaded() returns null).
-    server.scheduleInTicks(this.loaded(server, l) === null ? 300 : this.LOAD_POLL, check)
+    })
   },
 
   enqueue(server, l) {

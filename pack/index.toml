@@ -2694,15 +2694,19 @@ hash = "f9958b7230e3b0f97e2c2e893322d5fb6a79eda96c0515d2ba8beeb0c6cc77c7"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/arrival.js"
-hash = "193614bf022a405a3d9405c406d0eee3cfaebc308ea0e6f6716a88838509c35c"
+hash = "294f1782e4836f6b37f4a5288fe42bfa289719398d009c6e206657b8e3cee56a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
-hash = "8c7ec38de653472596bb53d243c56521bc0cb09d9a40be6d2640fcc1c8cee9b4"
+hash = "198b98b100e06a04e099027393756791ddad43477bec1c4316d8fc346cba9d61"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
 hash = "334854051204d3da6eab0d2927aaf4e32db1b5e24fe61def8bec0d9e744a5baa"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/chunk_hold.js"
+hash = "23e41f338285a282f3c585ff267ac7203dca4e69a47d59152d6a21e5faf3bc64"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/confine.js"
@@ -2722,7 +2726,7 @@ hash = "b439e7faa512766d89afa38225fbb6efeb37b99c56316f26034322d38d7d4f6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "6d784132179f81320d936cd9966efe6d6f3248923544ff5a89a35250ea0a7495"
+hash = "3af1e2484a7fe9a8f1ca4f0197bb4535b4f647998229a23af5292800e33012be"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
@@ -2738,7 +2742,7 @@ hash = "632a216919c81c8bff7e7f4ff9bcc82aa383653750780fde9e6cc116c5be2fa2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/landmarks.js"
-hash = "b6fff8c3cebcbd55a06e891196765a3d71634e40335ea5546ebe6fb2c7bba1bc"
+hash = "e8ae845de50ae70a116bdec46a2596670489fc30f7c049a557405e938a2177d2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_banned.js"
@@ -2770,7 +2774,7 @@ hash = "685ffbc46d46a5debf5571fc115bf2a86812a1f0efce7182ae51f9d85f402334"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/tempest.js"
-hash = "ff921e6b0a03f8b2500eb77769f9db9c0b96a271de8bce41a003e3c16207075d"
+hash = "e6335cec4d23c54d56241d2e32d7eaf97523504207a92ca5fbf25fc36677f317"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"

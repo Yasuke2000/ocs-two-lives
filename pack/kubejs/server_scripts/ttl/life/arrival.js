@@ -8,8 +8,8 @@
 //
 // Grounding, once per `version` (and again after an overworld reset, world_reset.js):
 // 1. provisional: spawn and teleports use the surface column at x, z right away (`positioned over`);
-// 2. forceload the area, wait DELAY_TICKS, then look within `search` blocks for natural, open, level ground (a
-//    clearing: soil underfoot, no canopy above, no water, heights within 2 of each other) closest to x, z; fall
+// 2. hold the area with chunk tickets (life/chunk_hold.js), wait DELAY_TICKS and until it is loaded, then look
+//    within `search` blocks for natural, open, level ground (a clearing: soil underfoot, no canopy above, no water, heights within 2 of each other) closest to x, z; fall
 //    back to the plain surface at x, z;
 // 3. store "x y z" in persistentData ttl.arrival.pos (+ ttl.arrival.version) and `setworldspawn` there.
 // tempest.js and world_reset.js skip their own setworldspawn while TtlArrival.active(). Without a [life2] entry
@@ -149,10 +149,10 @@ const TtlArrival = {
     this.busy = true
     this.applySpawn(server)
     var r = cfg.search + 32
-    var area = `${cfg.x - r} ${cfg.z - r} ${cfg.x + r} ${cfg.z + r}`
-    this.run(server, `forceload add ${area}`)
-    server.scheduleInTicks(this.DELAY_TICKS, () => {
+    var hold = TtlChunks.hold(server, TtlLife.OVERWORLD, { x0: cfg.x - r, z0: cfg.z - r, x1: cfg.x + r, z1: cfg.z + r }, 'arrival')
+    server.scheduleInTicks(this.DELAY_TICKS, () => TtlChunks.whenReady(server, hold, 40, 12000, (ready, missing) => {
       try {
+        if (!ready && missing > 0) throw `${missing} chunk(s) still not loaded after 10 min`
         var spot = self.find(server, cfg)
         if (spot) {
           server.persistentData.putString(self.POS, `${spot.x + 0.5} ${spot.y} ${spot.z + 0.5}`)
@@ -165,9 +165,9 @@ const TtlArrival = {
       } catch (e) {
         console.error(`[ttl] arrival grounding failed: ${e}`)
       }
-      self.run(server, `forceload remove ${area}`)
+      TtlChunks.release(server, hold)
       self.busy = false
-    })
+    }))
   },
 
   // After an overworld reset the old terrain is gone: forget the grounded point and ground it again.
