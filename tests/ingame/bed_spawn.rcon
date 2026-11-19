@@ -1,0 +1,18 @@
+# Beds and respawn points (life/bed_spawn.js, decisions.md 19/11/2026). Expect no "ttl:" failure lines.
+# A Life 1 soul sets a respawn point only in the Mortal dimensions: the Tensura world (Tempest's beds) is refused.
+# A Life 2 soul sets one anywhere in the Tensura world but never in a ttl: dimension (the Mortal Realm).
+ttlbot spawn TtlBotBed
+@sleep 4
+ttl bedspawn TtlBotBed try ttl:mortal_realm 0 70 0 set
+ttl bedspawn TtlBotBed try minecraft:overworld 0 70 0 refused
+ttl bedspawn TtlBotBed try ttl:spirit_corridor 0 65 0 refused
+# Reborn: now a Life 2 soul.
+kill TtlBotBed
+execute as TtlBotBed run ttl wish knowledge
+execute as TtlBotBed run ttl choose slime
+@sleep 2
+ttl bedspawn TtlBotBed try minecraft:overworld 0 70 0 set
+ttl bedspawn TtlBotBed try ttl:mortal_realm 0 70 0 refused
+ttl bedspawn TtlBotBed try ttl:walpurgis 0 70 0 refused
+ttl reset TtlBotBed
+ttlbot remove TtlBotBed

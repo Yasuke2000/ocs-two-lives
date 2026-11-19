@@ -1,5 +1,18 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 night — Dwargon flood sealed (branch `fix-dwargon-flood`, Claude)
+
+TTL_DWARGON_VERSION 12: the carve's shell (footprint) is sealed (water, lava, waterlogged blocks -> tuff), the city drained
+and its slabs laid again, twice (design/decisions.md 19/11 "Dwargon sealed"). `verify_build.py` fails on unexpected fluids
+(`--max-fluids`, default 0). **Verified locally**: 529 flooded cells -> verify 100.00 %, 0 fluids. **On the next staging
+deploy**: log `[ttl] dwargon: sealed the carve's rim: N water and M lava` (expect a few water at the crack, lava at the
+cleft) and `drained N fluid cells`, then `tools/server.sh verify dwargon` must PASS with 0 unexpected fluids. **Still open**
+(not in this branch): `0/10 throne room banners patterned` (the banner `data merge` fails on staging and locally); the
+place audit's items 3-5 (Raja lava pool, Sealed Cave 113 blocks off with a pad, Dragon's Nest pad, Frost Palace skirt,
+Sacred Mountain terraces, ogre ruin, the orange patch near the arrival); `locate.rcon` fails locally (TypeError
+"Cannot call property dimension" in life/locate.js); `sidequests` merchant_escort done/stage fail locally (also before);
+`arena_dwarven` duel step "not in a running match" fails locally since 19/11 evening (arenas.rcon passes).
+
 ## 19/11 evening — Lerfing placements: grounded landmarks, no duplicates, arena in the dwarf village (branch `fix-lerfing-placements`, Claude)
 
 **Fixed** (design/decisions.md 19/11 "Lerfing placements"): landmarks are grounded on the real terrain with a foundation

@@ -113,8 +113,24 @@ def check_generated() -> None:
             errors.append(r.stdout.strip() or r.stderr.strip())
 
 
+def check_world_map() -> None:
+    """world/map.svg (the own world, design/architecture/own-world.md) must pass tools/world/map_check.py."""
+    svg = ROOT / "world" / "map.svg"
+    if not svg.is_file():
+        return
+    r = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "world" / "map_check.py"), str(svg), "--json"],
+                       capture_output=True, text=True)
+    try:
+        rep = json.loads(r.stdout)
+    except ValueError:
+        errors.append("world/map.svg: tools/world/map_check.py failed: " + (r.stderr.strip() or r.stdout.strip())[:300])
+        return
+    for e in rep.get("errors", [])[:20]:
+        errors.append(f"world/map.svg [{e['rule']}] {e['message']}")
+
+
 def main() -> int:
-    for check in (check_json, check_js, check_mods, check_config_text, check_r12, check_generated, check_index_fresh):
+    for check in (check_json, check_js, check_mods, check_config_text, check_r12, check_generated, check_index_fresh, check_world_map):
         check()
     for e in errors:
         print(f"FAIL {e}")

@@ -21,6 +21,7 @@ Block light is checked for every spawnable spot inside the walls and on the appr
 """
 import math
 
+from _beds import CULTURE, place_bed
 from _dwargon_lib import AIR, rnd
 from _town_lib import (M, Town, banner, bed, door, fence_gate, lantern_floor, lantern_hung, log, slab, stair,
                        trapdoor, wall_banner)
@@ -31,6 +32,7 @@ SX, SY, SZ = SIZE
 G = 4
 F = G + 1
 PARTS = [0, 38, 76]
+BEDS = CULTURE["falmuth"]  # light blue and white wool beds, the kingdom's heraldry (our interpretation)
 ARRIVAL = (68, F, 106)
 CX = 68
 WALL_H = 9
@@ -87,19 +89,34 @@ def townhouses(t: Town):
         z = 78
         for d in (6, 6):
             t.house(x0 if side == "e" else x0, z, x1, z + d + 1, side, 3, plaster=PLASTERS[int(rnd(x0, z, 3, 1) * 4)],
-                    roof="slate", axis="z", frame="dark_oak", base="stone_bricks")
+                    roof="slate", axis="z", frame="dark_oak", base="stone_bricks", bed_colours=BEDS)
             z += d + 2
     for x0, x1, side in ((24, 42, "e"), (94, 112, "w")):
         pass
     # the customs house on the plaza's east side
-    t.house(94, 48, 110, 66, "w", 3, plaster="stone_bricks", roof="copper", axis="z", frame="spruce")
+    t.house(94, 48, 110, 66, "w", 3, plaster="stone_bricks", roof="copper", axis="z", frame="spruce", bed_colours=BEDS)
     # more houses along the avenue's rear and corners
     for z0 in (82, 88):
         pass
     for x0 in (12, 100):
-        t.house(x0, 78, x0 + 10, 88, "e" if x0 < 60 else "w", 2, plaster="calcite", roof="slate", axis="z")
-    t.house(26, 80, 38, 88, "e", 3, plaster="smooth_quartz", roof="slate", axis="z")
-    t.house(98, 80, 110, 88, "w", 3, plaster="calcite", roof="slate", axis="z")
+        # The east one is mostly overbuilt by the 13-wide house below (98-110 x 80-88): unfurnished, so no bed is
+        # left half-buried in its wall.
+        t.house(x0, 78, x0 + 10, 88, "e" if x0 < 60 else "w", 2, plaster="calcite", roof="slate", axis="z", bed_colours=BEDS,
+                furnish=x0 < 60)
+    t.house(26, 80, 38, 88, "e", 3, plaster="smooth_quartz", roof="slate", axis="z", bed_colours=BEDS)
+    t.house(98, 80, 110, 88, "w", 3, plaster="calcite", roof="slate", axis="z", bed_colours=BEDS)
+
+
+def royal_chamber(t: Town):
+    """The king's bed at the west end of the palace's first floor (the gallery over the throne hall): a purple bed,
+    heads to the end wall, a rug, a chest and a barrel. Our interpretation: canon gives no royal quarters."""
+    y = F + 9
+    place_bed(t.put, t.get_free, 41, y, 14, "west", CULTURE["noble"][0])
+    for z in (13, 14, 15):
+        for x in (43, 44):
+            t.put(x, y, z, M("purple_carpet"))
+    t.put(41, y, 12, M("chest[facing=south,type=single,waterlogged=false]"))
+    t.put(41, y, 16, M("barrel[facing=up,open=false]"))
 
 
 def church(t: Town):
@@ -300,8 +317,12 @@ def palace(t: Town):
     t.pave(62, 22, 74, 33, "street")
     t.pave(30, 22, 106, 33, "cobble")
     t.pave(62, 22, 74, 33, "street")
-    t.house(34, 25, 46, 32, "e", 2, plaster="calcite", roof="slate", axis="z")
-    t.house(90, 25, 102, 32, "w", 2, plaster="calcite", roof="slate", axis="z")
+    # The guard barracks (two floors): a dayroom with a barrel below, the sleeping floor above in two rows of beds.
+    for x0, x1, side in ((34, 46, "e"), (90, 102, "w")):
+        t.house(x0, 25, x1, 32, side, 2, plaster="calcite", roof="slate", axis="z", furnish=False)
+        t.dorm(x0, 25, x1, 32, side, BEDS, y=F + 4, avoid=[(x0 + 1, 26)])
+        for x in (x0 + 2, x0 + 3):
+            t.put(x, F, 31, M("barrel[facing=up,open=false]"))
     for x in (56, 80):
         t.tree(x, 28, "oak", 4, 2)
     t.points["castle_gate"] = (68, F, 37)
@@ -340,6 +361,7 @@ def build(bp):
     walls_and_gates(t)
     royal_plaza(t)
     palace(t)
+    royal_chamber(t)
     church(t)
     townhouses(t)
     approach(t)

@@ -9,6 +9,7 @@ References: https://www.ten-sura.com/map/#A-112 and https://www.ten-sura.com/ani
 (regional settlement after the Orc Disaster); the street plan and building designs are our interpretation.
 """
 from blueprint import Blueprint
+from _beds import CULTURE
 from _dwargon_lib import AIR, block_light, emission, spawn_floor
 from _town_lib import Town, M, lantern_floor, lantern_hung, log, slab, stair
 import tempest
@@ -18,6 +19,7 @@ ARRIVAL = (68, 5, 68)
 PARTS = [0, 23, 46, 69, 92, 115]
 G, F = 4, 5
 CORE_X, CORE_Z = 23, 11
+GOBLIN_BEDS = CULTURE["tempest"]  # simple brown and green wool beds in Tempest's homes
 
 
 def in_core(x, z):
@@ -143,7 +145,7 @@ def quarters(t):
     """Hobgoblin households share kitchen gardens; orc masons share a cutting yard and dormitories."""
     for x, z, roof, wall in ((5, 109, "spruce", "mud_bricks"), (20, 112, "mud", "brown_terracotta"),
                             (5, 124, "dark", "white_terracotta"), (21, 126, "spruce", "mud_bricks")):
-        t.house(x, z, x + 8, z + 7, "e", 1, wall, "oak", roof)
+        t.house(x, z, x + 8, z + 7, "e", 1, wall, "oak", roof, bed_colours=GOBLIN_BEDS, beds=2)
         # Thatch shingles above the hobgoblins' domestic rooms keep the village roof profile.
         for bx in range(x - 1, x + 10):
             for bz in range(z - 1, z + 9):
@@ -185,11 +187,11 @@ def market(t):
     t.pave(40, 108, 63, 126, "cobble")
     for x, colours in ((41, ("yellow", "white")), (49, ("cyan", "white")), (57, ("orange", "brown"))):
         t.stall(x, 110, 5, 4, colours)
-    t.house(43, 120, 56, 130, "n", 2, "terracotta", "spruce", "brick")
+    t.house(43, 120, 56, 130, "n", 2, "terracotta", "spruce", "brick", bed_colours=GOBLIN_BEDS)
     for x in (59, 61):
         t.put(x, F, 123, M("barrel[facing=up]"))
     for x, z, face in ((3, 18, "e"), (4, 77, "e"), (5, 92, "e"), (122, 17, "w"), (123, 73, "w")):
-        t.house(x, z, x + 9, z + 10, face, 1, "white_terracotta", "oak", "spruce")
+        t.house(x, z, x + 9, z + 10, face, 1, "white_terracotta", "oak", "spruce", bed_colours=GOBLIN_BEDS)
     for x, z in ((8, 11), (10, 34), (15, 89), (128, 34), (127, 11), (8, 102),
                  (38, 129), (59, 133), (75, 132), (101, 132), (133, 104), (132, 62), (32, 2), (55, 2), (88, 2), (102, 2)):
         t.tree(x, z, "oak", 6, 2)

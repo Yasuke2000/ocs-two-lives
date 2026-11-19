@@ -6,6 +6,6 @@ ground = "survey"
 search = 128
 margin = 12
 dimension = "minecraft:overworld"
-version = 1
+version = 2
 clear_above = true
 notes = "Former Orthrus exchange on the eastbound road, after Masayuki's visit. See design/lore/ballachia.md."
