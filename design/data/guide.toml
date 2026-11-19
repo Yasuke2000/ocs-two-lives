@@ -81,9 +81,10 @@ Items from Tensura that you carried into the Mortal Realm are put away safely an
 [[main]]
 title = "Life 2: the world of Tensura"
 body = """
-You are reborn on the Tensura continent, at the safe northern edge of the *Forest of Jura*, on the road between *Tempest* (far to the south, deep in the forest) and the dwarven kingdom of *Dwargon* (to the north, behind its white gate).
+You are reborn on the Tensura continent, at the safe northern edge of *Jura*, on the road between *Tempest* (south, deep in the forest) and the dwarven kingdom of *Dwargon* (north, behind its white gate).
 
 - The forest grows deadlier towards Tempest: Veldora's magicule soaks it. Grow stronger before you walk in.
+- The continent is *Tensura by Lerfing*, a hand-built map. Beyond the sea lies the free, ordinary world.
 
 - Your new race and Unique Skill are yours now. Some Unique Skills only a few souls can hold at once.
 - Fight, grow stronger and evolve. Death in Life 2 is not the end: you come back.
@@ -99,6 +100,18 @@ body = """
 - `/bug <what happened>` sends a report to the developers, with everything they need to look into it
 
 Found something odd? Use `/bug` right away, while it is fresh. Good luck, and live well.
+"""
+
+[[main]]
+title = "Credits"
+body = """
+The world of Tensura you walk in is *Tensura by Lerfing*, a hand-built map, loaded as he made it. The giant trees of Sarion are by *Paulzero*.
+
+- Map page: *planetminecraft.com/project/tensura-map*
+- The story, world and characters belong to Fuse and Mitz Vah (*That Time I Got Reincarnated as a Slime*).
+- Every mod in the pack belongs to its authors. This is a free fan pack and nothing here is sold.
+
+The full list is in `CREDITS.md` in the pack's repository.
 """
 
 [[main]]
@@ -144,7 +157,7 @@ Nothing here can hurt you. Take your time.
 [[life2]]
 title = "Life 2 begins"
 body = """
-Open your eyes. You are reborn in the world of Tensura, at the northern edge of the *Forest of Jura*, on the road between *Tempest* (south) and *Dwargon* (north). The forest is deadlier the closer you get to Tempest.
+Open your eyes. You are reborn in the world of Tensura, at the edge of the *Forest of Jura*, on the road between *Tempest* (south) and *Dwargon* (north). The forest is deadlier the closer you get to Tempest.
 
 - Your new race and Unique Skill are yours now. Learn what they can do.
 - Fight, grow stronger and evolve.

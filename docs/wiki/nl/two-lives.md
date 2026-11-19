@@ -14,6 +14,6 @@ In de **Spirit Corridor** lees je je oordeel en kies je een laatste wens. Daarna
 
 ## Je eerste minuten in Leven 2
 
-Je komt aan bij **(1780, −150)** aan de noordrand van het Grote Jurawoud. Je krijgt kort bescherming om je te oriënteren. Dwargon ligt naar het noorden en Tempest ver naar het zuiden. Hoe dieper je het woud intrekt, hoe meer je rekening moet houden met sterke monsters en hoge concentraties magicules. Open **Open Your Eyes** in het questboek om te beginnen. Vanaf hier kun je na je dood respawnen.
+Je komt aan bij **(1780, −150)** aan de noordrand van Jura, op Lerfings kaart van het continent van Tensura. Je krijgt kort bescherming om je te oriënteren. Dwargon ligt naar het noorden en Tempest naar het zuiden. Hoe dieper je het woud intrekt, hoe meer je rekening moet houden met sterke monsters en hoge concentraties magicules. Open **Open Your Eyes** in het questboek om te beginnen. Vanaf hier kun je na je dood respawnen.
 
 Met `/ttl guide` open je de gids opnieuw. Met `/ttl status` zie je in welk leven je zit en met `/ttl life` bekijk je het verslag van je eerste leven. [Hoe karma werkt](karma.md) · [Verhaal en eed](story-and-oath.md)

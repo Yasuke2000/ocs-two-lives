@@ -208,6 +208,7 @@ read_txt INFO_EN <<'EOF'
 - Project board (open work): <https://github.com/users/Yasuke2000/projects/1>
 - What changed in each update: {#patch-notes}
 - How to contribute: {#contribute}
+- Map credits: the Tensura continent is *Tensura by Lerfing* (giant trees: Paulzero), <https://www.planetminecraft.com/project/tensura-map/>
 EOF
 
 read_txt INFO_NL <<'EOF'
@@ -225,6 +226,7 @@ read_txt INFO_NL <<'EOF'
 - Projectbord (openstaand werk): <https://github.com/users/Yasuke2000/projects/1>
 - Wat er veranderd is per update: {#patch-notes}
 - Meehelpen: {#contribute}
+- Kaartcredits: het continent van Tensura is *Tensura by Lerfing* (reuzenbomen: Paulzero), <https://www.planetminecraft.com/project/tensura-map/>
 EOF
 
 read_txt CONTRIB_EN <<'EOF'

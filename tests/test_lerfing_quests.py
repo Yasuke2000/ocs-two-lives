@@ -114,25 +114,25 @@ class RealBook(unittest.TestCase):
 
 
 class WikiAndGuide(unittest.TestCase):
-    @staticmethod
-    def coords(text, row_id):
-        m = re.search(r"`%s` \| (-?\d+), (-?\d+)" % re.escape(row_id), text)
-        return (int(m[1]), int(m[2])) if m else None
+    ROW = re.compile(r"^\| [^|]+ \| (-?\d+), (-?\d+) \| [^|]+ \| `([a-z0-9_]+)` \|$", re.M)
 
-    def test_build_and_landmark_rows_match_anchors(self):
+    def test_world_map_rows_match_anchors(self):
+        # `| place | X, Z | region | `anchor id` |`: the id names the anchors.toml table the numbers come from
         for lang, text in WIKI.items():
-            for a in ANCHORS.values():
-                for field in ("build", "landmark"):
-                    if field in a and f"`{a[field]}` |" in text:
-                        self.assertEqual(self.coords(text, a[field]), (a["x"], a["z"]), f"{lang}: {a[field]}")
+            text = text.replace("−", "-")
+            rows = self.ROW.findall(text)
+            self.assertGreaterEqual(len(rows), 25, lang)
+            for x, z, aid in rows:
+                self.assertIn(aid, ANCHORS, f"{lang}: {aid}")
+                self.assertEqual((int(x), int(z)), (ANCHORS[aid]["x"], ANCHORS[aid]["z"]), f"{lang}: {aid}")
 
-    def test_marker_rows_match_canon_landmarks(self):
+    def test_world_map_markers_are_canon_landmarks(self):
         import json
         landmarks = json.loads((ROOT / "pack" / "config" / "ttl" / "canon_regions.json").read_text(encoding="utf-8"))["landmarks"]
         for lang, text in WIKI.items():
-            rows = re.findall(r"^\| [^|`]+ \| (-?\d+), (-?\d+) \| [^|]+ \|$", text, re.M)
-            self.assertGreaterEqual(len(rows), len(landmarks))
-            self.assertEqual([(int(x), int(z)) for x, z in rows[:len(landmarks)]], [tuple(lm["at"]) for lm in landmarks], lang)
+            pairs = set(re.findall(r"\| (-?\d+), (-?\d+) \|", text.replace("−", "-")))
+            missing = [lm["name"] for lm in landmarks if (str(lm["at"][0]), str(lm["at"][1])) not in pairs]
+            self.assertEqual(missing, [], f"{lang}: landmarks missing from the world map table")
 
     def test_arrival_and_gate_in_the_wiki(self):
         a, g, t = ANCHORS["arrival"], ANCHORS["dwargon"], ANCHORS["tempest"]

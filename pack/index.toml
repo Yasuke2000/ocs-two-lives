@@ -2642,7 +2642,7 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "b80ccefc30543dc93d1ebd864bc8bce79849f312098f57b67e9a29bacbfff7a3"
+hash = "60a16665d7e780e5a3a9328e3a251e88955015710589f8c0d1dceab21babf111"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"

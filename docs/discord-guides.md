@@ -172,6 +172,7 @@ Elk kanaal begint met een vastgepind bericht "Hoe gebruik je dit kanaal". Kwijt?
 - Project board (open work): <https://github.com/users/Yasuke2000/projects/1>
 - What changed in each update: #patch-notes
 - How to contribute: #contribute
+- Map credits: the Tensura continent is *Tensura by Lerfing* (giant trees: Paulzero), <https://www.planetminecraft.com/project/tensura-map/>
 ````
 
 ### Rollen en links (Nederlands)
@@ -191,6 +192,7 @@ Elk kanaal begint met een vastgepind bericht "Hoe gebruik je dit kanaal". Kwijt?
 - Projectbord (openstaand werk): <https://github.com/users/Yasuke2000/projects/1>
 - Wat er veranderd is per update: #patch-notes
 - Meehelpen: #contribute
+- Kaartcredits: het continent van Tensura is *Tensura by Lerfing* (reuzenbomen: Paulzero), <https://www.planetminecraft.com/project/tensura-map/>
 ````
 
 ## #contribute: pinned how-to messages (after the pinned how-to)
