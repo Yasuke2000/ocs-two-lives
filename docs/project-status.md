@@ -19,7 +19,7 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 | Offline unit tests | 169 green (with PR #36) | `python -m unittest discover -s tests` |
 | Validation | must say "validation passed" | `python tools/validate.py` |
 | Builds verified 1:1 in the world | All 38 build manifests + Tempest, Dwargon and mortal_spawn re-verified on the reset world 19/11, all ≥ 99.9 % (28 overworld builds, Walpurgis Hall, Spirit Dwelling, test hut, the 6 Mortal Realm waypoints); terrain round the builds repaired by hand on staging (decisions.md 19/11); every overworld build in its site biome (Treyni's shrine moved beside the grove 19/11, flower forest at all 5 points); night pregen of the new world started 19/11 05:08, not finished | `python tools/verify_build.py <name> --log` |
-| Quests | 398 in 28 chapters, one connected web | `python tools/quest_graph.py --check` |
+| Quests | 398 in 28 chapters, one connected web, two chapter tabs (First Life, Second Life), generated layout: 0 overlaps, 0 lines through an icon | `python tools/quest_graph.py --check`, `python tools/quest_layout.py` |
 | Canon cast | 38 NPC spots, 28 original skins (+ 50 generic looks) | `design/data/npcs.toml`, `/ttl cast verify all` |
 | Mods | 77 | `pack/mods/*.pw.toml` |
 | KubeJS server scripts | 106 | `pack/kubejs/server_scripts/ttl/` |

@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "first_days"
-	group: ""
+	group: "089866DB8636BACD"
 	icon: {
 		count: 1
 		id: "minecraft:crafting_table"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"50382544FBB449E8": false
+			}
 			dependencies: [
 				"50382544FBB449E8"
 			]
@@ -80,7 +83,7 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -135,7 +138,7 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
@@ -170,7 +173,7 @@
 					type: "item"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
@@ -205,7 +208,7 @@
 					type: "item"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 0.0d
 		}
 		{
@@ -240,7 +243,7 @@
 					type: "item"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: 0.0d
 		}
 		{
@@ -271,7 +274,7 @@
 					type: "item"
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: 0.0d
 		}
 		{
@@ -306,7 +309,7 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 1.5d
 		}
 		{
@@ -351,8 +354,8 @@
 					type: "item"
 				}
 			]
-			x: 4.5d
-			y: -1.5d
+			x: 6.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -393,10 +396,14 @@
 					type: "advancement"
 				}
 			]
-			x: 6.0d
-			y: -1.5d
+			x: 8.0d
+			y: 1.5d
 		}
 		{
+			dep_line_visibility: {
+				"67B8853DC7F4D8B5": false
+				"7F12E567F376A418": false
+			}
 			dependencies: [
 				"0F6D40AEB406B8B7"
 				"67B8853DC7F4D8B5"
@@ -440,7 +447,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 10.5d
+			x: 14.0d
 			y: 0.0d
 		}
 	]

@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "two_hundred_thousand"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "minecraft:netherite_axe"
@@ -14,6 +14,10 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"4B97B9BA4541C6C9": false
+				"7797476042AAC217": false
+			}
 			dependencies: [
 				"4B97B9BA4541C6C9"
 				"7797476042AAC217"
@@ -134,7 +138,7 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: -1.5d
 		}
 		{
@@ -197,7 +201,7 @@
 					value: 15
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: -1.5d
 		}
 		{
@@ -238,7 +242,7 @@
 					type: "location"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: -1.5d
 		}
 		{
@@ -293,7 +297,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: -1.5d
 		}
 		{
@@ -334,7 +338,7 @@
 					type: "location"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: -1.5d
 		}
 		{
@@ -389,7 +393,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: -1.5d
 		}
 		{
@@ -464,7 +468,7 @@
 					type: "item"
 				}
 			]
-			x: 10.5d
+			x: 14.0d
 			y: -1.5d
 		}
 		{
@@ -521,7 +525,7 @@
 					type: "location"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 1.5d
 		}
 		{
@@ -584,7 +588,7 @@
 					value: 12
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 1.5d
 		}
 		{
@@ -625,7 +629,7 @@
 					type: "location"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 1.5d
 		}
 		{
@@ -688,7 +692,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 1.5d
 		}
 		{
@@ -729,7 +733,7 @@
 					type: "location"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: 1.5d
 		}
 		{
@@ -784,7 +788,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: 1.5d
 		}
 		{
@@ -851,7 +855,7 @@
 					type: "item"
 				}
 			]
-			x: 10.5d
+			x: 14.0d
 			y: 1.5d
 		}
 		{
@@ -897,7 +901,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 12.0d
+			x: 16.0d
 			y: 0.0d
 		}
 	]
