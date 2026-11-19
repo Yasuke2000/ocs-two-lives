@@ -35,9 +35,12 @@
                  lakeside  touches a lake or river on one side
                  coast     touches the sea on one side (not subject to the 48-block coast margin)
                  village   a Tensura jigsaw landmark's clearing; r >= the landmark's reach (design/data/landmarks.toml)
-               A site disc lies on land, at least 48 blocks from the coast, inside the nation its anchor names, and at
-               least 2 x (r1 + r2) from every other site. Only Lake Siss and the Ameld mouth (surface = water) may stand
-               in water.
+               A site disc lies on land, at least 48 blocks from the coast and inside the nation its anchor names. Spacing:
+               edge gap = distance - (r1 + r2) must be at least the larger of the two sites' data-margin (default 48),
+               with r = max(drawn r, min_r of world/sites.toml); draw r >= min_r (world/site_sizes.md) or the check warns.
+               An anchor with `of`/`dx`/`dz` in anchors.toml is drawn within 32 blocks of its parent + offset (warning
+               otherwise); it is exempt from the spacing rule against its parent and its siblings. Only Lake Siss and
+               the Ameld mouth (surface = water) may stand in water.
     labels     cosmetic text (ignored).
   CANON        tools/world/canon_relations.toml: directions and distances between the sites, cited to the lore.
 
@@ -140,60 +143,60 @@
   </g>
   <g id="sites" fill="#cd1414" fill-opacity="0.5" stroke="#8b0000" stroke-width="6">
     <!-- One <circle> per anchor of design/data/anchors.toml: data-id = anchor id, data-site = clearing|plateau|carve|lakeside|coast|village, r = disc radius in blocks (8..160; pins and spots are clearing r 8), data-margin = exclusion margin (blocks) round the disc. -->
-    <circle data-id="tempest" data-site="clearing" data-margin="64" cx="0" cy="0" r="110"/>
-    <circle data-id="arrival" data-site="clearing" data-margin="48" cx="0" cy="-1000" r="40"/>
-    <circle data-id="wayfarers_camp" data-site="clearing" data-margin="24" cx="-110" cy="-1000" r="8"/>
-    <circle data-id="sealed_cave" data-site="carve" data-margin="48" cx="-300" cy="-300" r="40"/>
-    <circle data-id="goblin_village" data-site="village" data-margin="48" cx="-440" cy="-170" r="50"/>
+    <circle data-id="tempest" data-site="clearing" data-margin="64" cx="0" cy="0" r="148"/>
+    <circle data-id="arrival" data-site="clearing" data-margin="48" cx="0" cy="-1000" r="60"/>
+    <circle data-id="wayfarers_camp" data-site="clearing" data-margin="24" cx="15" cy="-985" r="8"/>
+    <circle data-id="sealed_cave" data-site="carve" data-margin="48" cx="-300" cy="-300" r="75"/>
+    <circle data-id="goblin_village" data-site="village" data-margin="48" cx="-470" cy="-200" r="56"/>
     <circle data-id="spirit_gate" data-site="lakeside" data-margin="48" cx="-240" cy="320" r="70"/>
-    <circle data-id="shizu_spawn" data-site="clearing" data-margin="24" cx="-560" cy="60" r="8"/>
-    <circle data-id="outcast_road" data-site="clearing" data-margin="24" cx="0" cy="300" r="8"/>
-    <circle data-id="treyni_grove" data-site="village" data-margin="48" cx="400" cy="380" r="50"/>
-    <circle data-id="treyni_shrine" data-site="clearing" data-margin="48" cx="540" cy="470" r="30"/>
-    <circle data-id="ogre_village_ruin" data-site="village" data-margin="48" cx="450" cy="-450" r="30"/>
-    <circle data-id="dwargon" data-site="carve" data-margin="48" cx="0" cy="-1550" r="60"/>
-    <circle data-id="dwargo" data-site="clearing" data-margin="24" cx="0" cy="-1700" r="8"/>
-    <circle data-id="dwargon_throne" data-site="clearing" data-margin="24" cx="0" cy="-1850" r="8"/>
-    <circle data-id="kaijin_smithy" data-site="clearing" data-margin="24" cx="-150" cy="-1700" r="8"/>
-    <circle data-id="dwarf_village" data-site="village" data-margin="64" cx="350" cy="-1200" r="120"/>
-    <circle data-id="dwarven_arena" data-site="clearing" data-margin="48" cx="700" cy="-1200" r="50"/>
-    <circle data-id="dragons_nest" data-site="clearing" data-margin="48" cx="350" cy="-2000" r="50"/>
+    <circle data-id="shizu_spawn" data-site="clearing" data-margin="24" cx="-420" cy="-80" r="8"/>
+    <circle data-id="outcast_road" data-site="clearing" data-margin="24" cx="0" cy="52" r="8"/>
+    <circle data-id="treyni_grove" data-site="village" data-margin="48" cx="400" cy="380" r="56"/>
+    <circle data-id="treyni_shrine" data-site="clearing" data-margin="48" cx="540" cy="470" r="36"/>
+    <circle data-id="ogre_village_ruin" data-site="village" data-margin="48" cx="450" cy="-450" r="32"/>
+    <circle data-id="dwargon" data-site="carve" data-margin="48" cx="0" cy="-1550" r="127"/>
+    <circle data-id="dwargo" data-site="clearing" data-margin="24" cx="0" cy="-1650" r="8"/>
+    <circle data-id="dwargon_throne" data-site="clearing" data-margin="24" cx="0" cy="-1656" r="8"/>
+    <circle data-id="kaijin_smithy" data-site="clearing" data-margin="24" cx="-12" cy="-1634" r="8"/>
+    <circle data-id="dwarf_village" data-site="village" data-margin="64" cx="350" cy="-1200" r="124"/>
+    <circle data-id="dwarven_arena" data-site="clearing" data-margin="48" cx="450" cy="-1180" r="58"/>
+    <circle data-id="dragons_nest" data-site="clearing" data-margin="48" cx="350" cy="-2000" r="64"/>
     <circle data-id="ameld_source" data-site="clearing" data-margin="24" cx="900" cy="-1000" r="8"/>
     <circle data-id="ameld_mouth" data-site="coast" data-margin="24" cx="2150" cy="1250" r="8"/>
     <circle data-id="lake_siss" data-site="lakeside" data-margin="48" cx="1100" cy="-100" r="96"/>
     <circle data-id="lizardmen_village" data-site="lakeside" data-margin="48" cx="1100" cy="265" r="60"/>
-    <circle data-id="lizardmen_caverns" data-site="carve" data-margin="48" cx="1300" cy="520" r="60"/>
+    <circle data-id="lizardmen_caverns" data-site="carve" data-margin="48" cx="1300" cy="520" r="64"/>
     <circle data-id="orc_camp" data-site="village" data-margin="48" cx="1750" cy="550" r="60"/>
-    <circle data-id="blumund" data-site="clearing" data-margin="48" cx="-1900" cy="-300" r="80"/>
-    <circle data-id="ballachia" data-site="clearing" data-margin="48" cx="-2450" cy="-450" r="40"/>
-    <circle data-id="englassia" data-site="clearing" data-margin="48" cx="-2900" cy="-550" r="90"/>
-    <circle data-id="marris" data-site="clearing" data-margin="48" cx="-2600" cy="-1700" r="90"/>
-    <circle data-id="siltrosso" data-site="coast" data-margin="48" cx="-3040" cy="-2080" r="50"/>
-    <circle data-id="lubelius" data-site="plateau" data-margin="48" cx="-3600" cy="-1300" r="90"/>
-    <circle data-id="sacred_mountain" data-site="plateau" data-margin="48" cx="-3900" cy="-1600" r="50"/>
-    <circle data-id="coleus" data-site="clearing" data-margin="48" cx="-3650" cy="-250" r="60"/>
-    <circle data-id="heaven_tower" data-site="clearing" data-margin="48" cx="-4200" cy="-200" r="60"/>
-    <circle data-id="morgdahl" data-site="clearing" data-margin="48" cx="-3200" cy="330" r="50"/>
-    <circle data-id="raja" data-site="lakeside" data-margin="48" cx="-2850" cy="360" r="50"/>
-    <circle data-id="nostraille" data-site="clearing" data-margin="48" cx="-2550" cy="330" r="50"/>
+    <circle data-id="blumund" data-site="clearing" data-margin="48" cx="-1900" cy="-300" r="97"/>
+    <circle data-id="ballachia" data-site="clearing" data-margin="48" cx="-2450" cy="-450" r="68"/>
+    <circle data-id="englassia" data-site="clearing" data-margin="48" cx="-2900" cy="-550" r="98"/>
+    <circle data-id="marris" data-site="clearing" data-margin="48" cx="-2600" cy="-1700" r="101"/>
+    <circle data-id="siltrosso" data-site="coast" data-margin="48" cx="-3040" cy="-2080" r="66"/>
+    <circle data-id="lubelius" data-site="plateau" data-margin="48" cx="-3600" cy="-1300" r="97"/>
+    <circle data-id="sacred_mountain" data-site="plateau" data-margin="48" cx="-3900" cy="-1600" r="80"/>
+    <circle data-id="coleus" data-site="clearing" data-margin="48" cx="-3650" cy="-250" r="73"/>
+    <circle data-id="heaven_tower" data-site="clearing" data-margin="48" cx="-4200" cy="-200" r="84"/>
+    <circle data-id="morgdahl" data-site="clearing" data-margin="48" cx="-3200" cy="330" r="61"/>
+    <circle data-id="raja" data-site="lakeside" data-margin="48" cx="-2850" cy="360" r="71"/>
+    <circle data-id="nostraille" data-site="clearing" data-margin="48" cx="-2550" cy="330" r="66"/>
     <circle data-id="yuzalgh" data-site="clearing" data-margin="24" cx="-2350" cy="300" r="8"/>
     <circle data-id="yggdonia" data-site="clearing" data-margin="24" cx="-2150" cy="-80" r="8"/>
     <circle data-id="filtwood" data-site="clearing" data-margin="24" cx="-1700" cy="300" r="8"/>
     <circle data-id="ghastone" data-site="clearing" data-margin="24" cx="-3200" cy="-300" r="8"/>
     <circle data-id="rostia" data-site="clearing" data-margin="24" cx="-2780" cy="200" r="8"/>
     <circle data-id="sainte_malukshure" data-site="clearing" data-margin="24" cx="-3000" cy="900" r="8"/>
-    <circle data-id="ulgr_nature_park" data-site="plateau" data-margin="48" cx="-2000" cy="700" r="60"/>
+    <circle data-id="ulgr_nature_park" data-site="plateau" data-margin="48" cx="-2000" cy="700" r="63"/>
     <circle data-id="elmine" data-site="clearing" data-margin="64" cx="-300" cy="1900" r="100"/>
-    <circle data-id="jia" data-site="plateau" data-margin="48" cx="-2900" cy="1100" r="60"/>
+    <circle data-id="jia" data-site="plateau" data-margin="48" cx="-2900" cy="1100" r="68"/>
     <circle data-id="laura" data-site="clearing" data-margin="64" cx="1500" cy="1600" r="100"/>
     <circle data-id="forgotten_dragon_city" data-site="clearing" data-margin="64" cx="2500" cy="150" r="100"/>
-    <circle data-id="clayman_castle" data-site="clearing" data-margin="48" cx="3300" cy="-600" r="80"/>
-    <circle data-id="amrita" data-site="carve" data-margin="48" cx="3800" cy="-500" r="60"/>
+    <circle data-id="clayman_castle" data-site="clearing" data-margin="48" cx="3300" cy="-600" r="90"/>
+    <circle data-id="amrita" data-site="carve" data-margin="48" cx="3800" cy="-500" r="63"/>
     <circle data-id="nasca" data-site="plateau" data-margin="48" cx="3200" cy="-1800" r="90"/>
     <circle data-id="great_holy_mountain" data-site="clearing" data-margin="48" cx="3350" cy="-1350" r="80"/>
     <circle data-id="el_dorado" data-site="clearing" data-margin="64" cx="-4300" cy="3000" r="100"/>
     <circle data-id="el_dorado_volcano" data-site="clearing" data-margin="24" cx="-3900" cy="3200" r="8"/>
-    <circle data-id="frost_palace" data-site="coast" data-margin="48" cx="-1500" cy="-3260" r="60"/>
+    <circle data-id="frost_palace" data-site="coast" data-margin="48" cx="-1500" cy="-3260" r="67"/>
     <circle data-id="blumund_road" data-site="clearing" data-margin="24" cx="-1500" cy="-200" r="8"/>
     <circle data-id="englassia_road" data-site="clearing" data-margin="24" cx="-2650" cy="-520" r="8"/>
     <circle data-id="old_well" data-site="clearing" data-margin="24" cx="-1000" cy="-340" r="8"/>
