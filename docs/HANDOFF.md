@@ -1,5 +1,18 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 afternoon — local test loop runs on this PC (branch `local-up-wait`, Claude)
+
+**Verified on the workstation**: `local.sh up` cold 384 s, warm restart 48-63 s, clean stop 6-9 s ("All dimensions are
+saved"), `sync` of a server script ~4 s, `test all` 70/71 ok in 23 min. Fixed: `rcon.py` pipelined the command and its
+end probe, and Minecraft's RCON drops the connection when two packets arrive in one read (empty replies, "connection
+closed", test-all dying on its first command, `stop` never reaching the server so every stop was a kill after 120 s);
+tests now wait 2 game ticks between commands like staging's kubectl latency (`--ticks`); `test` and the first-boot
+snapshot wait for the start-up builds; `sync` used a misspelt `/kubejs reload` and now uses `/reload`. **Still failing
+locally**: `guild_npcs` (its forceload box is staging's Blumund; local Blumund is at -1024 70 -120). **Latent test bug**
+(staging too): `build_repair` passes `minecraft:grass_block` to `ttl build expect ... cell`, an unquoted string that
+cannot hold `:` ("Expected whitespace ..."); the runner does not count that message, so those three cells are never
+checked. docs/server.md "Local testing" has the timings.
+
 ## 19/11 — local test loop (branch `local-test-loop`, Claude)
 
 `tools/local.sh` (local NeoForge server: up/down/restart/sync/test/snapshot/reset), `tools/ingame.sh` (the in-game
