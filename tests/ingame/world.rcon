@@ -22,6 +22,8 @@ ttl world expect continent 0 9000 no
 ttl world expect continentin tensura:labyrinth 9000 0 yes
 ttl world expect continentin ttl:spirit_domain 0 0 yes
 ttl world expect continentin ttl:mortal_realm 0 0 no
+# tensura:boss_area (Tensura's own Gazel/Hinata boss dimension) stays outside the story rules: owner decision, design/decisions.md 19/11/2026
+ttl world expect continentin tensura:boss_area 0 0 no
 ttl world at 0 0
 ttl world at 9000 0
 ttlbot spawn TtlBotWorldA

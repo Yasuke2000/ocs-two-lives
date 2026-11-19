@@ -2526,7 +2526,7 @@ hash = "e84516a5c5f81c7285812eca292d20bfe92e6e3437443e082e5a58c6579ad178"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/commands.js"
-hash = "dd9b17a3381604dd1078826be8c67099c03f5e5daf1bdbe2474a3f0997d53c4b"
+hash = "f5f2b3cbb3b581077dd0dd0b6a96431fe471205b99c3dc8b8add61aeb59b6104"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/loot.js"
@@ -2618,11 +2618,11 @@ hash = "e95d7a28e857f9cf8f813315039dfcd81c3d7d99c26dfdaaff0d902ed84edfaf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/commands.js"
-hash = "86cf66756a3b206ae63db99fd72555b5165ed475cf86919f27ebe5b3496606f2"
+hash = "5be721009daa4fe3b83d3be9a1a1de67999de47694689a8ceef75e4d1237bbcc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/director.js"
-hash = "07ac0046ce3e9a229e1a7603f7adcf8c00030dd8ad66e878f40e4c9eb84a8bec"
+hash = "38ab9dc29285abba24c08395ba1c059acb3e2e6d00ff260d33c9d512383a8afe"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/favor.js"
@@ -2642,7 +2642,7 @@ hash = "fc83cba4436266c4f5e7efdb16e6dff287f8fd013554ed4cb5bd0c861e8fc06c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "31c209dce3658083ca479a9f4e2eb6cbd2b44d78375f135551b92d0a98d1e3c2"
+hash = "8fa78c0c990bc07b9301a21a0028674a1a9715e9e1dfe1f773c8021e55ba767a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2698,7 +2698,7 @@ hash = "294f1782e4836f6b37f4a5288fe42bfa289719398d009c6e206657b8e3cee56a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
-hash = "198b98b100e06a04e099027393756791ddad43477bec1c4316d8fc346cba9d61"
+hash = "1e09a30a94a765bed578ac176b29e3f914c1a1fd974105277c1801005fe7f4a5"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"

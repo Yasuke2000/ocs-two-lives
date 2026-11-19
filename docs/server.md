@@ -192,6 +192,13 @@ structure or an anchor outside the structure) and writes `TtlData.builds` plus t
 structure files (`generated/builds.js`).
 
 **When.** About 90 s after start, one build at a time with a 5 s gap, after Tempest, Dwargon and the landmarks.
+**Chunks.** Every placer (Tempest, Dwargon, the arrival, landmarks, builds) holds its area with chunk tickets
+(`life/chunk_hold.js`, `TtlChunks`), not `forceload add`: the chunks load and generate in the background and the
+placer starts once every one of them is FULL (at most 10 minutes; otherwise it is not placed and counts as a failed
+start). `forceload add` loads (on a fresh world: generates) every chunk synchronously in that one tick: 121 new chunks
+took 8.9 s on staging, and a landmark area holds 200-625, so a reset boot ran 10-20 s ticks until the watchdog killed
+the server (decisions.md, 19/11/2026). `/ttl chunks hold <x0> <z0> <x1> <z1>` tries it on an overworld rectangle
+(the log says when it is ready).
 A build is placed once: `ttl.build.<name>.version` in the server's persistentData holds the placed `version`.
 - **Version.** Bump `version` in the TOML and regenerate: the next start places the new version over the old one
   at the same corner (blocks of the old version that the new one does not overwrite stay). Changing x/z, `ground`,
@@ -205,12 +212,17 @@ A build is placed once: `ttl.build.<name>.version` in the server's persistentDat
 **Where.** `ground = "fixed"`: x/z at world `y`. `ground = "survey"` (default): the flattest dry spot within
 `search` blocks of x/z. Candidates lie on a grid (4 to 16 blocks apart); every column of the build is sampled
 (heightmaps, trees and plants skipped); a spot with any lava or void, more than `max_wet` (default 10 %) of its
-columns over water or ice, or within 24 blocks of Tempest, Dwargon, a placed landmark or another build, is out; the
+columns over water or ice, or within 24 blocks (on top of its own `margin`) of Tempest, Dwargon, a placed landmark or
+another build, is out; the
 rest are scored by 2 x the mean deviation from the median ground height + half the p10-p90 spread + distance/16 +
 20 x the water share, and the anchor goes on the median. (Water is a cost, not a veto: a 120-block box nearly always
 crosses a stream or pond, and the terrain fit fills those columns from the bed.) The log line
 `[ttl] build <name>: surveyed N spots ... least water P %; best at X Z, D blocks from the canon point ...` says what
-was found; when nothing qualifies, the least water seen tells whether to raise `search` or `max_wet`. The canon map
+was found; when nothing qualifies, the least water seen tells whether to raise `search` or `max_wet`. A placed landmark
+counts with the bounding box `life/landmarks.js` recorded for its structure (`/ttl landmark where <name>` shows it; the
+square of its `reach` round its spot when the start could not be registered). `beside = "<landmark>"` (Treyni's shrine
+beside the grove's tree) drops the 24 blocks for that one landmark: only the build's own terrain `margin` stays off its
+box, so the build lands right next to it. Setting or changing `beside` surveys a new spot, like changing x/z. The canon map
 (`canon_map.txt`) does not predict real lakes: Milim's land round the Forgotten Dragon landmark is lakes at sea level.
 
 **Terrain.** Like Tempest and Dwargon: the real terrain is read before placing; under every column that has blocks
