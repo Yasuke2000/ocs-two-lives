@@ -114,7 +114,8 @@ start_server() {
   java=$(find_java)
   args=libraries/net/neoforged/neoforge/$NEOFORGE/$([ -n "$WIN" ] && echo win_args.txt || echo unix_args.txt)
   [ -f "$SRV/$args" ] || die "NeoForge is not installed; run tools/local.sh up"
-  rm -f "$SRV/logs/latest.log"
+  # wait_ready looks for "Done (" in latest.log, so it must be new; keep the last run's log (an import, a crash).
+  [ -f "$SRV/logs/latest.log" ] && mv -f "$SRV/logs/latest.log" "$SRV/logs/previous.log"
   say "starting (heap $MEMORY, game 127.0.0.1:$PORT, RCON 127.0.0.1:$RCON_PORT)"
   # No bug-report token: /bug saves to ttl-reports/ instead of opening GitHub issues. -Dttl.local marks the process.
   (cd "$SRV" && exec env -u TTL_GITHUB_TOKEN -u TTL_REPORT_REPO -u CFG_DISCORD_TOKEN \
