@@ -27,6 +27,8 @@ Licensed LN volume 1/2 publisher listings and the Google Books volume-1 listing 
 | C11 | Server orc marker is a battlefield, not necessarily the army's homeland. WN approach has distinct southern origin and western wetland detour. | Annotate route and marker role separately before moving sites. |
 | C12 | Existing original coastline lacks the official map's large northern bay and western peninsula; Minecraft dimensions compress the setting. | Western/cave proportions improved in round 6; northern bank, northeastern hook and eastern bay redrawn. Residual fixed-rule distortions are quantified and drawn as inert reference-scaled points in map.svg and proportion-study.png. |
 
+| C13 | The author also supplies a rough WN-era map, with explanatory eastern-gate and subterranean-habitat notes. | Retain as WN-specific evidence. Do not replace later anime geography, invent bridge coordinates, or derive exact proportions from this explicitly approximate sketch. |
+
 ## Review status
 
 The current visible map is PR #74 on `chatgpt/world-map`, still a draft. Earlier PR #69 remains historical reference. The owner-approved five corrections are now in the default matrix; the standard map checker passes with two disclosed warnings. No Minecraft world or deployment is claimed. The five technical geography conflicts are resolved by the explicit owner exception; source coverage and proportional-fidelity review remain incomplete.

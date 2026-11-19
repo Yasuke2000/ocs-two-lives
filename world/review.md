@@ -15,7 +15,7 @@ All 58 site IDs, radius minima and relative internal offsets are retained.
 [Regions and deliberate differences](regions.md), [claim ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
 [publisher LN findings](../docs/research/tensura-world-2026-11-19/ln-sample-findings.md),
 [source access](../docs/research/tensura-world-2026-11-19/source-access.csv), [reference comparison](comparison.md).
-The ledger contains **125 records: 67 thematic/design records and 58 site-coordinate interpretations**,
+The ledger contains **128 records: 70 thematic/design records and 58 site-coordinate interpretations**,
 including 11 directly read LN claims; not all records are verified canon.
 
 ## Measured verification

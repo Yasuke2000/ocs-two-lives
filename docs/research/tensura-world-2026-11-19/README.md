@@ -1,11 +1,11 @@
 # Tensura geography research — map round 6
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 67 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 125 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 70 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 128 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
-The author's WN chapters 13 and 31 and the official anime guide were read; the official base map and
+The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and
 11 referenced anime frames were visually inspected. Publisher-hosted LN2/3/5/6/10 passages now directly support eleven additional claims; see
 [findings](ln-sample-findings.md). The public LN1 sample is only a prologue. The licensed guidebook trial
 stalled before pages could be inspected. A publisher listing alone is not geographic evidence.
@@ -20,3 +20,5 @@ Use directly verified LN > WN > manga > anime > official map > wiki when actual 
 [new marked atlas](../../../world/atlas.png), [reference comparison](../../../world/comparison.md),
 [deliberate differences](../../../world/regions.md). The five owner-approved geography corrections are now in the default matrix;
 the standard map checker passes with two disclosed warnings. Source/fidelity review remains open. No playable Minecraft world is claimed.
+
+The author-linked [WN sketch](https://8371.mitemin.net/userpageimage/viewimagebig/icode/i71781/) was visually inspected outside the repo. See C13 for its continuity and precision limits.

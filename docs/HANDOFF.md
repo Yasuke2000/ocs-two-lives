@@ -7,7 +7,7 @@ redrew bay bank/approaches, northeastern hook and eastern bay. P/M coverage adju
 No fixed rules relaxed. [Benchmark](../world/proportion-audit.csv): three distance discrepancies improve
 57.4→32.8%, 41.8→11.4%, 24.3→3.3%. Residual fixed-range alternatives drawn in inert SVG comment and
 [proportion study](../world/proportion-study.png). All 58 IDs/minima/internal offsets preserved.
-125 evidence records (67 thematic/design + 58 coordinates), 11 direct LN claims. [Review](../world/review.md).
+128 evidence records (70 thematic/design + 58 coordinates), 11 direct LN claims. [Review](../world/review.md).
 **Verified:** standard checker 0 errors/2 disclosed warnings; normal build 57.6s/0 warnings, source SHA
 matches; cave water raster 0/1116 wet pixels. Profile audit found ten old climbs >1:2; authored routes
 now stay in their corridors with exact sampling lengths: all 21 profiles <=0.5, longest bridge 24 blocks.
