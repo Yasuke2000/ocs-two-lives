@@ -64,6 +64,7 @@ public final class CanonGrid {
     final double landX0, landZ0, landX1, landZ1, ring, blend;
     final Map<Character, Region> regions;
     private CanonSites sites = CanonSites.NONE; // set once by withSites, before the grid is published
+    private int[] inner; // imported area {x0, z0, x1, z1} (half-open, blocks), set once by withImport; null = none
 
     private CanonGrid(int w, int h, int originCol, int originRow, char[] cells, Map<Character, Region> regions, double ring, double blend) {
         this.w = w;
@@ -201,6 +202,25 @@ public final class CanonGrid {
 
     public CanonSites sites() {
         return sites;
+    }
+
+    /**
+     * Attaches the imported area (Lerfing's map, {@code lerfing.inner} in canon_regions.json; null = none); call before
+     * the grid is shared; returns this. Its chunks exist on disk, so the generator is never asked for them.
+     */
+    public CanonGrid withImport(int[] inner) {
+        this.inner = inner == null ? null : inner.clone();
+        return this;
+    }
+
+    /** True inside the imported area: the terrain and biomes there are Lerfing's stored chunks, not this grid's. */
+    public boolean imported(int blockX, int blockZ) {
+        return inner != null && blockX >= inner[0] && blockZ >= inner[1] && blockX < inner[2] && blockZ < inner[3];
+    }
+
+    /** The imported area {x0, z0, x1, z1} or null. */
+    public int[] importBox() {
+        return inner == null ? null : inner.clone();
     }
 
     char cell(int x, int z) {
@@ -404,14 +424,17 @@ public final class CanonGrid {
     }
 
     public String describe() {
-        return String.format("%dx%d cells, origin %d,%d, land x %.0f..%.0f z %.0f..%.0f, ring %.0f, blend %.0f, %d sites",
-                w, h, originCol, originRow, landX0, landX1, landZ0, landZ1, ring, blend, sites.size());
+        return String.format("%dx%d cells, origin %d,%d, land x %.0f..%.0f z %.0f..%.0f, ring %.0f, blend %.0f, %d sites%s",
+                w, h, originCol, originRow, landX0, landX1, landZ0, landZ1, ring, blend, sites.size(),
+                inner == null ? "" : String.format(", imported x %d..%d z %d..%d", inner[0], inner[2], inner[1], inner[3]));
     }
 
     /**
      * Self-check: {@code java -cp build/classes/java/main com.yasuke.ttl.world.CanonGrid [canon_map.txt
-     * [canon_regions.json [arrival-x arrival-z]]]}. The JSON (needs Gson on the class path, like the build's) also
-     * checks Jura's real zones against the real map, and the Life 2 arrival point when it is given.
+     * [canon_regions.json [arrival-x arrival-z [anchors.toml]]]]}. The JSON (needs Gson on the class path, like the
+     * build's) also checks Jura's real zones against the real map, and the Life 2 arrival point when it is given. Both
+     * formats are understood: the old generated continent (sites, Jura's depth rim) and Lerfing's imported map
+     * ({@code lerfing} block, no sites, radius rings, landmarks with {@code at}, the anchors file of gen_data).
      */
     public static void main(String[] args) throws IOException {
         Map<Character, Region> regions = new HashMap<>();
@@ -463,9 +486,10 @@ public final class CanonGrid {
         }
         zoneChecks();
         siteChecks();
+        lerfingSynthetic();
         if (args.length > 1) {
             int[] arrival = args.length > 3 ? new int[] {Integer.parseInt(args[2]), Integer.parseInt(args[3])} : null;
-            realZoneChecks(args[0], args[1], arrival);
+            realZoneChecks(args[0], args[1], arrival, args.length > 4 ? args[4] : null);
         }
         System.out.println("canon self-check passed");
     }
@@ -519,12 +543,17 @@ public final class CanonGrid {
     }
 
     /** Jura's real rings on the real map: safe rim along the whole border, core at Tempest, arrival point safe. */
-    private static void realZoneChecks(String mapFile, String regionsFile, int[] arrival) throws IOException {
+    private static void realZoneChecks(String mapFile, String regionsFile, int[] arrival, String anchorsFile) throws IOException {
         com.google.gson.JsonObject json = com.google.gson.JsonParser.parseString(Files.readString(Path.of(regionsFile), StandardCharsets.UTF_8)).getAsJsonObject();
         List<String> warnings = new ArrayList<>();
         Map<Character, Region> real = CanonConfig.regions(json, warnings::add);
         check(warnings.isEmpty(), "canon_regions.json parses cleanly: " + warnings);
         CanonGrid g = load(Path.of(mapFile), real, json.get("ring").getAsDouble(), json.get("blend").getAsDouble());
+        if (json.has("lerfing")) {
+            lerfingChecks(json, g, arrival, anchorsFile == null ? null : Files.readAllLines(Path.of(anchorsFile), StandardCharsets.UTF_8));
+            return;
+        }
+        check(anchorsFile == null, "an anchors file is only checked against the Lerfing grid");
         Region j = g.region('J');
         check(j != null && j.zones() != null, "J has zones");
         CanonZones zones = j.zones();
@@ -716,6 +745,216 @@ public final class CanonGrid {
                 }
         }
         System.out.printf("real sites: %d (%d flat) parse cleanly; the arrival area has only safe site biomes%n", sites.size(), flats);
+    }
+
+    /**
+     * Lerfing's map (design/architecture/lerfing-import.md): the grid is his land mask over the imported inner tiles,
+     * nothing of ours generates inside, the generated ring round it is deep ocean at the seam and blends into vanilla
+     * beyond; no sites; Jura's rings are radius rings round Tempest (the import tool paints them; the grid keeps the
+     * geometry for /ttlregion and this check); every landmark ({@code at}) and anchor lies on the continent.
+     */
+    private static void lerfingChecks(com.google.gson.JsonObject json, CanonGrid g, int[] arrival, List<String> anchors) {
+        List<String> warnings = new ArrayList<>();
+        int[] box = CanonConfig.importBox(json, warnings::add);
+        check(warnings.isEmpty() && box != null, "lerfing.inner parses: " + warnings);
+        g.withImport(box);
+        CanonSites sites = CanonConfig.sites(json, warnings::add);
+        check(warnings.isEmpty() && sites.isEmpty(), "the Lerfing grid has no sites (nothing of ours generates under a build): " + sites + " " + warnings);
+        for (String gone : List.of("reference", "width", "paint_width", "origin", "paint", "seeds"))
+            check(!json.has(gone), "'" + gone + "' belongs to the old traced plate, not the Lerfing grid");
+
+        // The grid covers the imported area; the seam is open, deep, canon-weighted sea.
+        int gx0 = -g.originCol * 16, gz0 = -g.originRow * 16, gx1 = (g.w - g.originCol) * 16, gz1 = (g.h - g.originRow) * 16;
+        check(gx0 <= box[0] && gz0 <= box[1] && gx1 >= box[2] && gz1 >= box[3], "the grid (x " + gx0 + ".." + gx1 + ", z " + gz0 + ".." + gz1
+                + ") covers the imported area " + Arrays.toString(box));
+        check(g.landX0 > box[0] && g.landZ0 > box[1] && g.landX1 < box[2] && g.landZ1 < box[3], "all land lies inside the imported area");
+        check(g.imported(box[0], box[1]) && !g.imported(box[2], box[3]) && !g.imported(box[0] - 1, box[1]), "imported() is the half-open box");
+        int seam = 0;
+        double worst = -2;
+        for (int k = 0; k < 4; k++) {
+            boolean alongX = k < 2;
+            int fixed = k == 0 ? box[1] - 1 : k == 1 ? box[3] : k == 2 ? box[0] - 1 : box[2];
+            for (int t = alongX ? box[0] : box[1]; t < (alongX ? box[2] : box[3]); t += 64) {
+                int x = alongX ? t : fixed, z = alongX ? fixed : t;
+                check(g.charAt(x, z) == '.' && g.ownerCell(x, z) == 0, "open sea just outside the import at " + x + "," + z);
+                check(g.canonWeight(x, z) == 1, "the full canon ring (not yet vanilla) at the seam " + x + "," + z);
+                double c = g.continents(x, z, 0);
+                worst = Math.max(worst, c);
+                check(c < -0.455, "deep ocean is generated at the seam " + x + "," + z + ": " + c);
+                seam++;
+            }
+        }
+        double far = g.ring + g.blend + 16;
+        check(g.canonWeight(g.landX1 + far, 0) == 0 && g.continents((int) (g.landX1 + far), 0, 0.37) == 0.37, "vanilla beyond ring + blend");
+        System.out.printf("lerfing: imported x %d..%d z %d..%d, land x %.0f..%.0f z %.0f..%.0f; %d seam points deep ocean (worst %.3f); vanilla from %.0f blocks beyond the land bbox%n",
+                box[0], box[2], box[1], box[3], g.landX0, g.landX1, g.landZ0, g.landZ1, seam, worst, g.ring + g.blend);
+
+        // Jura: radius rings round Tempest, the core deadly at Tempest, the arrival in the safe outer ring.
+        Region j = g.region('J');
+        check(j != null && j.zones() != null && !j.zones().usesDepth() && j.zones().size() >= 2, "J has radius-only zones");
+        CanonZones zones = j.zones();
+        double cx = zones.centreX(), cz = zones.centreZ(), dither = zones.fade() + (CanonPalette.BORDER_WARP + CanonPalette.BORDER_FINE) * Math.sqrt(2) + 2;
+        check(g.ownerCell((int) cx, (int) cz) == 'J' && "~.".indexOf(g.charAt((int) cx, (int) cz)) < 0, "Tempest (zones centre " + cx + "," + cz + ") stands on Jura land");
+        for (long s = 1; s <= 200; s++) check(g.zoneAt('J', (int) cx, (int) cz, s, CanonPalette.patch(s, (int) cx, (int) cz)) == 0, "Tempest is core (seed " + s + ")");
+        int last = zones.size() - 1, sampled = 0;
+        for (int k = 0; k < 72; k++) {
+            double a = 2 * Math.PI * k / 72;
+            for (int i = 0; i < last; i++) {
+                double inner = i == 0 ? 0 : zones.ring(i - 1).radius() + dither, outer = zones.ring(i).radius() - dither;
+                if (outer <= inner) continue;
+                double r = (inner + outer) / 2;
+                int x = (int) Math.round(cx + r * Math.cos(a)), z = (int) Math.round(cz + r * Math.sin(a));
+                for (long s = 1; s <= 20; s++) check(g.zoneAt('J', x, z, s, CanonPalette.patch(s, x, z)) == i, "ring " + zones.ring(i).name() + " at r " + (int) r + " (" + x + "," + z + ")");
+                sampled++;
+            }
+            double r = zones.ring(last - 1).radius() + dither + 8;
+            int x = (int) Math.round(cx + r * Math.cos(a)), z = (int) Math.round(cz + r * Math.sin(a));
+            for (long s = 1; s <= 20; s++) check(g.zoneAt('J', x, z, s, CanonPalette.patch(s, x, z)) == last, "outer ring " + zones.ring(last).name() + " at " + x + "," + z);
+            sampled++;
+        }
+        StringBuilder rings = new StringBuilder();
+        for (int i = 0; i < zones.size(); i++) rings.append(i == 0 ? "" : ", ").append(zones.ring(i).name()).append(i < last ? " r" + (int) zones.ring(i).radius() : "");
+        System.out.printf("jura: rings %s round %.0f,%.0f; %d ring samples x 20 seeds land in their ring%n", rings, cx, cz, sampled);
+        if (arrival != null) {
+            int x = arrival[0], z = arrival[1];
+            check(g.imported(x, z), "the arrival lies on the imported map");
+            check(g.ownerCell(x, z) == 'J' && "~.".indexOf(g.charAt(x, z)) < 0, "the arrival stands on Jura land: '" + g.charAt(x, z) + "'");
+            for (long s = 1; s <= 500; s++)
+                for (int dz = -48; dz <= 48; dz += 16)
+                    for (int dx = -48; dx <= 48; dx += 16)
+                        check(g.zoneAt('J', x + dx, z + dz, s, CanonPalette.patch(s, x + dx, z + dz)) == last, "the safe outer ring round the arrival (seed " + s + ")");
+            System.out.printf("arrival %d,%d: Jura land, %.0f blocks from Tempest, outer ring for 500 seeds within 48 blocks%n", x, z, Math.hypot(x - cx, z - cz));
+        }
+
+        // Landmarks carry world coordinates; anchors (gen_data) likewise; both lie on the continent.
+        int marks = 0, onWater = 0;
+        com.google.gson.JsonArray landmarks = json.has("landmarks") ? json.getAsJsonArray("landmarks") : new com.google.gson.JsonArray();
+        for (com.google.gson.JsonElement e : landmarks) {
+            com.google.gson.JsonObject m = e.getAsJsonObject();
+            String name = m.has("name") ? m.get("name").getAsString() : "?";
+            check(m.has("at") && !m.has("ref"), "landmark " + name + " has 'at' [x, z] (not the old 'ref')");
+            int x = m.getAsJsonArray("at").get(0).getAsInt(), z = m.getAsJsonArray("at").get(1).getAsInt();
+            check(g.imported(x, z) && g.ownerCell(x, z) != 0, "landmark " + name + " at " + x + "," + z + " lies on the continent ('" + g.charAt(x, z) + "')");
+            if ("~.".indexOf(g.charAt(x, z)) >= 0) onWater++;
+            marks++;
+        }
+        int anchorCount = 0;
+        if (anchors != null) {
+            Map<String, int[]> points = anchorPoints(anchors);
+            check(!points.isEmpty(), "the anchors file holds anchors (x/z keys, [x, z] or {x, z})");
+            for (Map.Entry<String, int[]> e : points.entrySet()) {
+                int x = e.getValue()[0], z = e.getValue()[1];
+                check(g.imported(x, z) && g.ownerCell(x, z) != 0, "anchor " + e.getKey() + " at " + x + "," + z + " lies on the continent ('" + g.charAt(x, z) + "')");
+                if ("~.".indexOf(g.charAt(x, z)) >= 0) onWater++;
+                anchorCount++;
+            }
+        }
+        System.out.printf("lerfing: %d landmarks and %d anchors on the continent (%d of them on lake/river/coastal water cells)%n", marks, anchorCount, onWater);
+    }
+
+    private static final java.util.regex.Pattern TOML_PAIR = java.util.regex.Pattern.compile(
+            "^([A-Za-z0-9_.\"-]+)\\s*=\\s*\\[\\s*(-?\\d+(?:\\.\\d+)?)\\s*,\\s*(-?\\d+(?:\\.\\d+)?)\\s*\\]");
+    private static final java.util.regex.Pattern TOML_INLINE = java.util.regex.Pattern.compile("^([A-Za-z0-9_.\"-]+)\\s*=\\s*\\{(.*)\\}");
+    private static final java.util.regex.Pattern TOML_XZ = java.util.regex.Pattern.compile("(?:^|[\\s,{])([xz])\\s*=\\s*(-?\\d+(?:\\.\\d+)?)");
+
+    /**
+     * Points of a small TOML file (the anchor table gen_data writes): a {@code [table]} with {@code x} and {@code z}
+     * keys, {@code name = [x, z]} or {@code name = { x = .., z = .. }}; everything else is ignored. Keys are
+     * "table" or "table.name".
+     */
+    static Map<String, int[]> anchorPoints(List<String> lines) {
+        Map<String, int[]> out = new java.util.LinkedHashMap<>();
+        String table = "";
+        Double tx = null, tz = null;
+        for (String raw : lines) {
+            String line = raw.replaceAll("#.*$", "").strip();
+            if (line.isEmpty()) continue;
+            if (line.startsWith("[")) {
+                if (tx != null && tz != null) out.put(table, new int[] {(int) Math.round(tx), (int) Math.round(tz)});
+                table = line.replaceAll("^\\[+|\\]+$", "").strip();
+                tx = tz = null;
+                continue;
+            }
+            String prefix = table.isEmpty() ? "" : table + ".";
+            java.util.regex.Matcher m = TOML_PAIR.matcher(line);
+            if (m.find()) {
+                out.put(prefix + m.group(1).replace("\"", ""), new int[] {(int) Math.round(Double.parseDouble(m.group(2))), (int) Math.round(Double.parseDouble(m.group(3)))});
+                continue;
+            }
+            m = TOML_INLINE.matcher(line);
+            if (m.find()) {
+                Double ix = null, iz = null;
+                java.util.regex.Matcher k = TOML_XZ.matcher(m.group(2));
+                while (k.find()) {
+                    if (k.group(1).equals("x")) ix = Double.parseDouble(k.group(2));
+                    else iz = Double.parseDouble(k.group(2));
+                }
+                if (ix != null && iz != null) out.put(prefix + m.group(1).replace("\"", ""), new int[] {(int) Math.round(ix), (int) Math.round(iz)});
+                continue;
+            }
+            java.util.regex.Matcher k = TOML_XZ.matcher(line);
+            if (k.find() && k.start(1) == 0) {
+                if (k.group(1).equals("x")) tx = Double.parseDouble(k.group(2));
+                else tz = Double.parseDouble(k.group(2));
+            }
+        }
+        if (tx != null && tz != null) out.put(table, new int[] {(int) Math.round(tx), (int) Math.round(tz)});
+        return out;
+    }
+
+    /** The Lerfing checks on synthetic data in the new canon_regions.json format (no files needed). */
+    private static void lerfingSynthetic() {
+        com.google.gson.JsonObject json = com.google.gson.JsonParser.parseString("""
+                {"_doc": "synthetic Lerfing-format test data",
+                 "ring": 1000, "blend": 400,
+                 "lerfing": {"inner": [-1120, -880, 1120, 880], "polygons": {"J": [[-320, -400], [640, -400], [640, 400], [-320, 400]]}},
+                 "regions": {
+                   "J": {"name": "Jura", "colour": "#2e7d32", "zones": {"centre": [200, 0], "fade": 30, "interior": "~", "rings": [
+                     {"name": "core", "radius": 100, "biomes": [["tensura:ancient_forest", 1]]},
+                     {"name": "band", "radius": 300, "biomes": [["minecraft:dark_forest", 1]]},
+                     {"name": "rim", "biomes": [["minecraft:plains", 1]]}]}},
+                   "R": {"name": "Blumund", "colour": "#1565c0"}},
+                 "landmarks": [
+                   {"name": "Tempest", "kind": "capital", "at": [200, 0]},
+                   {"name": "Lake", "kind": "lake", "at": [350, -200]},
+                   {"name": "Londo", "kind": "capital", "at": [-500, 100]}]}
+                """).getAsJsonObject();
+        List<String> warnings = new ArrayList<>();
+        Map<Character, Region> regions = CanonConfig.regions(json, warnings::add);
+        check(warnings.isEmpty() && CanonConfig.sites(json, warnings::add).isEmpty(), "new format parses without sites: " + warnings);
+        check(Arrays.equals(CanonConfig.importBox(json, warnings::add), new int[] {-1120, -880, 1120, 880}), "import box");
+        List<String> bad = new ArrayList<>();
+        check(CanonConfig.importBox(com.google.gson.JsonParser.parseString("{\"lerfing\": {\"inner\": [1, 2, 0, 9]}}").getAsJsonObject(), bad::add) == null && bad.size() == 1,
+                "a malformed box is ignored with a warning");
+        check(CanonConfig.importBox(new com.google.gson.JsonObject(), bad::add) == null && bad.size() == 1, "no lerfing block, no box, no warning");
+        // 140 x 110 chunks, origin 70 55 (blocks x -1120..1120, z -880..880); land x -640..640, z -400..400 (R west
+        // of x -320, J east of it), a lake at x 320..384, z -240..-176.
+        List<String> lines = new ArrayList<>();
+        lines.add("# origin 70 55");
+        for (int z = 0; z < 110; z++) {
+            StringBuilder row = new StringBuilder();
+            for (int x = 0; x < 140; x++) {
+                boolean land = x >= 30 && x < 110 && z >= 30 && z < 80;
+                row.append(!land ? '.' : x >= 90 && x < 94 && z >= 40 && z < 44 ? '~' : x < 50 ? 'R' : 'J');
+            }
+            lines.add(row.toString());
+        }
+        CanonGrid g = parse(lines, regions, json.get("ring").getAsDouble(), json.get("blend").getAsDouble());
+        check(!g.imported(0, 0), "no import box before withImport");
+        lerfingChecks(json, g, new int[] {-250, 300}, List.of(
+                "# generated", "[tempest]", "x = 200", "z = 0", "[dwargon]", "x = 400", "z = -350",
+                "[builds]", "londo = [-500, 100]", "lake_camp = { x = 360, z = -210, survey = 64 }"));
+        Map<String, int[]> points = anchorPoints(List.of("[a]", "x = 1", "z = -2", "[b]", "c = [3, 4]", "d = {x = 5, z = 6}", "e = 7", "[f]", "x = 9"));
+        check(points.size() == 3 && points.get("a")[1] == -2 && points.get("b.c")[0] == 3 && points.get("b.d")[1] == 6 && !points.containsKey("f"), "anchors parser: " + points.keySet());
+        com.google.gson.JsonObject withSites = json.deepCopy();
+        withSites.add("sites", com.google.gson.JsonParser.parseString("[{\"name\": \"x\", \"centre\": [0, 0], \"radius\": 50, \"terrain\": \"flat\"}]"));
+        try {
+            lerfingChecks(withSites, parse(lines, regions, 1000, 400), null, null);
+            throw new IllegalStateException("sites in the Lerfing format must fail the check");
+        } catch (AssertionError expected) {
+            check(expected.getMessage().contains("no sites"), "sites rejected: " + expected.getMessage());
+        }
+        System.out.println("lerfing synthetic: the new canon_regions.json format passes (and sites in it are rejected)");
     }
 
     /** Palette layout: owner lookup, dithered borders, weights, patch size, determinism. */

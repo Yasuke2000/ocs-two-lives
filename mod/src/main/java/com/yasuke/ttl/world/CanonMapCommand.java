@@ -12,13 +12,18 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.NoiseRouter;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
-/** {@code /ttlmap <x> <z>}: what the canon map says about an overworld block column, for checks over RCON. */
+/**
+ * {@code /ttlmap <x> <z>}: what the canon map says about an overworld block column, for checks over RCON. Inside
+ * Lerfing's imported area the chunks come from his map, so it reports the stored biome of the loaded chunk (and the
+ * grid letter, which the continent rule reads) instead of what the generator would make.
+ */
 public final class CanonMapCommand {
     private CanonMapCommand() {}
 
@@ -36,6 +41,23 @@ public final class CanonMapCommand {
         NoiseRouter router = random.router();
         CanonGrid grid = CanonMap.grid();
         StringBuilder out = new StringBuilder("[ttl] canon map at ").append(x).append(' ').append(z).append(": ");
+        if (grid != null && grid.imported(x, z)) {
+            char c = grid.charAt(x, z), owner = grid.ownerCell(x, z);
+            out.append('\'').append(c).append("' ").append(grid.regionName(c))
+                    .append(owner != 0 && owner != c ? " (owner " + grid.regionName(owner) + ")" : owner == 0 ? " (not on the continent)" : "");
+            LevelChunk chunk = level.getChunkSource().getChunkNow(x >> 4, z >> 4);
+            if (chunk == null) {
+                out.append("\n  imported, not loaded: Lerfing's stored chunk (the generator is never asked here); load it to read its biome");
+            } else {
+                int surface = chunk.getHeight(Heightmap.Types.WORLD_SURFACE, x & 15, z & 15) + 1;
+                String biome = chunk.getNoiseBiome(QuartPos.fromBlock(x), QuartPos.fromBlock(surface), QuartPos.fromBlock(z)).unwrapKey()
+                        .map(key -> key.location().toString()).orElse("?");
+                out.append("\n  imported chunk: stored biome ").append(biome).append(" at surface y").append(surface);
+            }
+            String text = out.toString();
+            ctx.getSource().sendSuccess(() -> Component.literal(text), false);
+            return 1;
+        }
         if (grid == null) {
             out.append("NOT LOADED (see the server log), vanilla terrain");
         } else {
