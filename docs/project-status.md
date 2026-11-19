@@ -115,6 +115,9 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - World Chronicle (WP-W1: the world's counts, milestones, balance and tide), the continent line (outside it the mods
   run as shipped), protected canon domains with respawning residents and the Eurazania faction (WP-W3).
 - 11 canon landmarks (Elmine … Raja); Tempest growth rings and 6 Mortal Realm waypoints drawn (not placed yet).
+- One-time world works on Lerfing's map (`life/works.js`): Jura's forest round Tempest (52 ancient-forest giants + 1,294
+  trees, r 60..250) and Treyni's old wood (69 + 1,066, r 25..180), the Dwarven Road Tempest -> Dwargon (1,478 blocks,
+  lanterns); planned offline (`tools/lerfing/forests.py`, `trade_roads.py`), not yet seen in game (first boot after the merge).
 
 ## In progress
 

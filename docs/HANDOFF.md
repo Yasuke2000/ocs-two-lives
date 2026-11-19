@@ -1,5 +1,19 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 evening — Tempest in the forest, the Dwarven Road, Treyni's old wood (Claude, branch `tempest-forest-road`)
+
+Owner requests: Tempest stands on open grass (it should be deep in the forest), no road to Dwargon, Treyni's shrine in the open.
+Cause of the bare core: Tensura's ancient-forest trees are jigsaw structures, and the import counts structure steps as done.
+New: `life/works.js` (one-time world works runner: chunk tickets per piece, 25 ms/tick, resumable, versioned), `life/forests.js`
+(patches `tempest` r 60..250 and `treyni` r 25..180), `life/trade_roads.js` (`tempest_dwargon`, 1,478 blocks); data in
+`design/data/forests/` and `design/data/trade_roads/`, planned offline by `tools/lerfing/forests.py` / `trade_roads.py` on the
+imported world, `tools/gen_placements.py` -> `generated/placements.js`; preview `docs/previews/tempest-forest-road.png`;
+docs/server.md "Forests and trade roads". **Verified offline**: `tests/test_works.py` + `tests/works.js` (JS geometry equals the
+planners', commands on synthetic terrain), `tools/check.sh`. **Not verified in game yet**: the local Lerfing server was
+owned by the landmark agent; next is `tools/local.sh sync` + `test works` on a slot, then staging after the deploy
+(`tools/server.sh test works`, log lines `[ttl] trade road tempest_dwargon laid` / `[ttl] forest <id> planted`). Next
+possible: Tempest -> Blumund as a second `roads.toml` entry (crosses the Blumund channel: a long bridge).
+
 ## 19/11 afternoon — WP-L10: fast import path, runbook and rollback, Homelab PR (Claude, branch `lerfing-l10`)
 
 **`tools/import_world.sh`** uploads Lerfing's prepared world and arms the `ttl-import.txt` marker any time nobody is online;

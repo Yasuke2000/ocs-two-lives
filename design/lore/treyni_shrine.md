@@ -6,6 +6,15 @@ river that drains Jura's lakes, 670 blocks south-east of Tempest) plus 38 blocks
 `life/landmarks.js` (landmark `treyni_grove`, up to 39 x 42 x 41 blocks, spot surveyed within 64 blocks of the nominal one), so
 the shrine's survey starts 38 blocks east and searches up to 132 blocks. The placer checks the actual tree position, its 48-block reach, the shrine box and margin, and a 24-block separation. The shrine's final direction from the tree depends on the dry land it finds.
 
+## The old wood round the shrine (19/11/2026)
+
+The owner: Treyni is the dryad guardian of the Forest of Jura, so her shrine belongs deep in old, dense forest; on Lerfing's
+map it stood on an open grass slope (tree cover 2 % at r 25..80, 6 % at r 80..180). `life/forests.js` plants the patch
+`treyni` once (`design/data/forests/patches.toml`): 69 of Tensura's ancient-forest giants (the same trees as the grove's)
+and 1,066 dark oak, fancy oak, birch, spruce and azalea trees at r 25..180 round the shrine; planned canopy 76 %. The
+shrine's and the grove tree's recorded boxes (+6 / +4) and an approach lane from the shrine's west gate (the living gate)
+towards Tempest, 190 blocks long and 8 wide, stay open; water and Lerfing's keepouts too. Our interpretation.
+
 ## Canon
 
 - Treyni is the eldest of three dryad sisters (Treyni, Trya, Doris). Dryads are elementals incarnated in plant life (Dryas

@@ -8,6 +8,8 @@ Positions are the middle of a place; the exact doorway depends on the ground and
 
 You arrive at **(1660, −100)** on the northern edge of Jura, on the road between the two places every soul hears about first. **Dwargon’s white gate is north** at **(1878, −544)**, a walk uphill (about 500 blocks, a little east of north). **Tempest is south** at **(1720, 900)**, 1,000 blocks away across the forest’s dangerous inner rings. Read [the rings of Jura](jura-rings.md) before you walk south.
 
+**The Dwarven Road** links the two: a 4-block road with a lantern post every 40 blocks, from Dwargon’s checkpoint at (1878, −497) down the Canaat slope, 30 blocks east of the arrival, and south along Jura’s valley to the north edge of Tempest at (1720, 842), about 1,480 blocks in all. It is paved with stone on the mountain and is a dirt and gravel track in Jura. Tempest stands in a clearing in a dense ancient forest (giant trees up to 45 blocks high), and so does Treyni’s shrine. Follow the road; the forest is easy to get lost in.
+
 For the whole continent use [BlueMap](https://map.daviddelporte.com) (select **Tensura (Life 2)**; terrain and markers, no live player dots) or the [regions and anchors atlas](../../previews/lerfing_regions.png), which works when the web map is offline.
 
 ## The continent at a glance

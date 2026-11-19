@@ -2657,6 +2657,10 @@ file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
 hash = "be431726c5095293051c1560bcaaa5c8d12f054860fa2beae60017d5ffa0aaa8"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/generated/placements.js"
+hash = "0a0900401cc0841136e6eb1fafa0b81ee8e7e5db5c06b678f37f9a185657a107"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
 hash = "de66a3f42cb4b92586827dcc7a30c42383e608940b4ac85e61632082a88ba46c"
 
@@ -2733,6 +2737,10 @@ file = "kubejs/server_scripts/ttl/life/dwargon.js"
 hash = "69ec14c060a6773312d52d5d535589f2d97bfd63290164bc6338a4b1ce422a9a"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/forests.js"
+hash = "38528c60378950ccfb3c6af15fb3d65a9942ce814e0f38cb81a845e6d6957479"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
 hash = "1868626097386a971ec1f54d4b1b8386b19ba1a1b40a4d29ec9161c5fc46823d"
 
@@ -2785,6 +2793,10 @@ file = "kubejs/server_scripts/ttl/life/tempest.js"
 hash = "22ec61ad1d72422435b3fb5236879750a14da5a12c05fc22c6a30c0988e0c695"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/trade_roads.js"
+hash = "9decbfd006745988053afe109721c22b24f50ce8194129a72fa5ff1fe885199c"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
 hash = "53ec9a2f128025a2528acfed5dee1cc7f542f938931acbdff9b6c42f9f5c9ed4"
 
@@ -2801,8 +2813,12 @@ file = "kubejs/server_scripts/ttl/life/wishes.js"
 hash = "63b90a9c199668c971c2465617cb1b7c3cb61459251bf16bd687a98f5b0b724f"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/works.js"
+hash = "30f35cd9c15176393b2956a1de0e6cb8ac401c581a6e09148d72463bf2922874"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/world_reset.js"
-hash = "61474dab6c64c29cfaaa9ddf77613fc1dbaeeb6f68430020857ee54dbe90b2a5"
+hash = "9124659ba08dc072cacde21b217b0b831ee2a167869d3ffbbc192608a1d80ce8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/manas.js"

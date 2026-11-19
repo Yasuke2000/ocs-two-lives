@@ -107,6 +107,40 @@ Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a tp command), `/t
 (places again; the old copy stays). Change a landmark or bump its `version` in the TOML, then
 `python tools/gen_data.py`.
 
+## Forests and trade roads (one-time world works)
+
+`life/works.js` runs two kinds of one-time works on the Life 2 overworld, one job at a time, about 2 minutes after
+start and only once the landmarks and canon builds have placed (it waits up to 15 minutes for their queues):
+
+- **Forests** (`life/forests.js`, `design/data/forests/patches.toml`): Jura's forest round Tempest (r 60..250, outside
+  the city box) and Treyni's old wood (r 25..180). Tensura's ancient-forest giants (`place template`, roots 5 deep) and
+  vanilla tree features (`place feature`) on spots planned offline; every tree is checked again on the live terrain.
+- **Trade roads** (`life/trade_roads.js`, `design/data/trade_roads/roads.toml`): the Dwarven Road, Tempest -> Dwargon,
+  1,478 blocks with lantern posts.
+
+Each job works in pieces (a 64 x 64 forest tile, a 48-block road stretch) whose chunks are held with tickets
+(`life/chunk_hold.js`), never a synchronous forceload, under 25 ms of commands per tick. Progress is saved per piece
+(`ttl.forest.<id>.piece`, `ttl.troad.<id>.piece`), so a restart resumes; a finished job records its version and never
+runs again. Log lines: `[ttl] forest <id> planted: G giants, U understory trees, S skipped (...)` and
+`[ttl] trade road <id> laid: N columns, B bridge columns, L lanterns, S kept clear`. Both keep clear of Tempest's and
+Dwargon's boxes, every placed build and landmark (recorded boxes) and Lerfing's keepouts. A world reset of the
+overworld (`world_reset.js`) runs them again.
+
+| Command | What |
+| --- | --- |
+| `/ttl works list` | every forest and road with its state |
+| `/ttl works run <forest\|road> <id> [force]` | queue one (force: again, over what is there) |
+| `/ttl works expect forest <id> planted <min giants>` / `expect road <id> laid` / `expect road <id> surface <arc>` | test checks (`tests/ingame/works.rcon`) |
+| `/ttl works where road <id> <arc>` | position and tp command of the road at that arc length |
+
+**Changing a forest or road.** Edit the TOML, plan again on the imported world, regenerate, bump `version`:
+`python -I tools/lerfing/trade_roads.py plan <id> --world <import dir>` (roads first: forests keep off them),
+`python -I tools/lerfing/forests.py plan <id> --world <import dir>`, `python -I tools/lerfing/forests.py measure <id>
+--world <import dir>` (tree cover before/after per ring), `python tools/gen_placements.py`, and the preview
+`python tools/lerfing/works_preview.py --world <import dir>` (Pillow) -> `docs/previews/tempest-forest-road.png`.
+`gen_placements.py --check` (in `validate.py`) refuses a plan that no longer matches its config. A new road (Tempest ->
+Blumund) is a new `[id]` in `roads.toml` plus its plan; nothing in the scripts changes.
+
 ## Permissions
 
 LuckPerms was removed on 18/11/2026: it breaks the /ttlbot test players; staff commands use vanilla op level 2.
