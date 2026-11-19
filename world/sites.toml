@@ -13,7 +13,6 @@
 [tempest]
 site = "clearing"
 r = 148
-svg_r = 110
 min_r = 148
 box = [192, 192]
 plate = [208, 208]
@@ -26,7 +25,6 @@ y = 70
 [arrival]
 site = "clearing"
 r = 60
-svg_r = 40
 min_r = 60
 biome = "minecraft:plains"
 
@@ -38,7 +36,6 @@ min_r = 8
 [sealed_cave]
 site = "carve"
 r = 75
-svg_r = 40
 min_r = 75
 box = [88, 88]
 plate = [104, 104]
@@ -53,7 +50,6 @@ ground = "fixed"
 [goblin_village]
 site = "village"
 r = 56
-svg_r = 50
 min_r = 56
 biome = "minecraft:plains"
 
@@ -82,13 +78,11 @@ min_r = 8
 [treyni_grove]
 site = "village"
 r = 56
-svg_r = 50
 min_r = 56
 
 [treyni_shrine]
 site = "clearing"
 r = 36
-svg_r = 30
 min_r = 36
 box = [33, 33]
 plate = [49, 49]
@@ -100,14 +94,12 @@ ground = "fixed"
 [ogre_village_ruin]
 site = "village"
 r = 32
-svg_r = 30
 min_r = 32
 biome = "minecraft:windswept_forest"
 
 [dwargon]
 site = "carve"
 r = 127
-svg_r = 60
 min_r = 127
 box = [148, 168]
 plate = [168, 188]
@@ -137,14 +129,12 @@ min_r = 8
 [dwarf_village]
 site = "village"
 r = 124
-svg_r = 120
 min_r = 124
 biome = "minecraft:meadow"
 
 [dwarven_arena]
 site = "clearing"
 r = 58
-svg_r = 50
 min_r = 58
 box = [75, 51]
 plate = [91, 67]
@@ -156,7 +146,6 @@ ground = "fixed"
 [dragons_nest]
 site = "clearing"
 r = 64
-svg_r = 50
 min_r = 64
 box = [73, 73]
 plate = [89, 89]
@@ -193,7 +182,6 @@ surface = "water"
 [lizardmen_caverns]
 site = "carve"
 r = 64
-svg_r = 60
 min_r = 64
 biome = "minecraft:swamp"
 facing = "auto"
@@ -208,7 +196,6 @@ biome = "minecraft:plains"
 [blumund]
 site = "clearing"
 r = 97
-svg_r = 80
 min_r = 97
 box = [124, 116]
 plate = [140, 132]
@@ -219,7 +206,6 @@ ground = "fixed"
 [ballachia]
 site = "clearing"
 r = 68
-svg_r = 40
 min_r = 68
 box = [76, 66]
 plate = [100, 90]
@@ -231,7 +217,6 @@ ground = "fixed"
 [englassia]
 site = "clearing"
 r = 98
-svg_r = 90
 min_r = 98
 box = [128, 112]
 plate = [144, 128]
@@ -242,7 +227,6 @@ ground = "fixed"
 [marris]
 site = "clearing"
 r = 101
-svg_r = 90
 min_r = 101
 box = [136, 112]
 plate = [152, 128]
@@ -253,7 +237,6 @@ ground = "fixed"
 [siltrosso]
 site = "coast"
 r = 66
-svg_r = 50
 min_r = 66
 box = [73, 65]
 plate = [97, 89]
@@ -265,7 +248,6 @@ ground = "fixed"
 [lubelius]
 site = "plateau"
 r = 97
-svg_r = 90
 min_r = 97
 box = [120, 120]
 plate = [136, 136]
@@ -276,7 +258,6 @@ ground = "fixed"
 [sacred_mountain]
 site = "plateau"
 r = 80
-svg_r = 50
 min_r = 80
 box = [81, 81]
 plate = [113, 113]
@@ -287,7 +268,6 @@ ground = "fixed"
 [coleus]
 site = "clearing"
 r = 73
-svg_r = 60
 min_r = 73
 box = [85, 79]
 plate = [105, 99]
@@ -299,7 +279,6 @@ ground = "fixed"
 [heaven_tower]
 site = "clearing"
 r = 84
-svg_r = 60
 min_r = 84
 box = [81, 91]
 plate = [113, 123]
@@ -311,7 +290,6 @@ ground = "fixed"
 [morgdahl]
 site = "clearing"
 r = 61
-svg_r = 50
 min_r = 61
 box = [69, 61]
 plate = [89, 81]
@@ -323,7 +301,6 @@ ground = "fixed"
 [raja]
 site = "lakeside"
 r = 71
-svg_r = 50
 min_r = 71
 box = [80, 70]
 plate = [104, 94]
@@ -335,7 +312,6 @@ ground = "fixed"
 [nostraille]
 site = "clearing"
 r = 66
-svg_r = 50
 min_r = 66
 box = [72, 64]
 plate = [96, 88]
@@ -376,7 +352,6 @@ min_r = 8
 [ulgr_nature_park]
 site = "plateau"
 r = 63
-svg_r = 60
 min_r = 63
 box = [71, 65]
 plate = [91, 85]
@@ -397,7 +372,6 @@ ground = "fixed"
 [jia]
 site = "plateau"
 r = 68
-svg_r = 60
 min_r = 68
 box = [73, 69]
 plate = [97, 93]
@@ -428,7 +402,6 @@ ground = "fixed"
 [clayman_castle]
 site = "clearing"
 r = 90
-svg_r = 80
 min_r = 90
 box = [109, 109]
 plate = [125, 125]
@@ -439,7 +412,6 @@ ground = "fixed"
 [amrita]
 site = "carve"
 r = 63
-svg_r = 60
 min_r = 63
 box = [69, 75]
 plate = [85, 91]
@@ -490,7 +462,6 @@ min_r = 8
 [frost_palace]
 site = "coast"
 r = 67
-svg_r = 60
 min_r = 67
 box = [85, 69]
 plate = [101, 85]

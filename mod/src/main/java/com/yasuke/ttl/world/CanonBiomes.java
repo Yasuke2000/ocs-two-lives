@@ -81,6 +81,8 @@ public final class CanonBiomes extends BiomeSource {
             Map.entry("jagged_peaks", PEAK), Map.entry("frozen_peaks", PEAK), Map.entry("stony_peaks", PEAK),
             Map.entry("snowy_slopes", PEAK), Map.entry("grove", PEAK));
     private static final Byte LAND_BOXED = LAND;
+    /** Blocks under the designed surface from which vanilla's cave biomes (lush, dripstone, deep dark) are kept. */
+    static final int DESIGN_CAVE_DEPTH = 16;
 
     private final Holder<MultiNoiseBiomeSourceParameterList> preset;
     private final HolderGetter<Biome> biomes;
@@ -118,6 +120,11 @@ public final class CanonBiomes extends BiomeSource {
     public Holder<Biome> select(int x, int y, int z, Climate.Sampler sampler, @Nullable StringBuilder why) {
         Climate.TargetPoint target = sampler.sample(x, y, z);
         Resolved r = resolved();
+        CanonRasters design = r.rasters;
+        if (design != null) {
+            int index = design.biomeIndexAtQuart(x, z);
+            if (index >= 0) return designBiome(r, design, index, target, x, y, z, why);
+        }
         CanonGrid grid = r.grid;
         if (grid == null) return outside(target, x, y, z, why, "canon map not loaded");
         int bx = QuartPos.toBlock(x) + 2, bz = QuartPos.toBlock(z) + 2;
@@ -185,6 +192,30 @@ public final class CanonBiomes extends BiomeSource {
         return chosen;
     }
 
+    /**
+     * Inside the own world's biome raster: the painted biome of the quart (no palettes, no patch noise), vanilla's
+     * choice where it says auto (the sea by depth) or names a biome this server does not have. Cave biomes vanilla
+     * picks more than {@link #DESIGN_CAVE_DEPTH} blocks under the designed surface are kept.
+     */
+    private Holder<Biome> designBiome(Resolved r, CanonRasters design, int index, Climate.TargetPoint target, int x, int y, int z, @Nullable StringBuilder why) {
+        Holder<Biome> painted = index < r.rasterHolders.length ? r.rasterHolders[index] : null;
+        if (painted == null) {
+            Holder<Biome> vanilla = parameters().findValue(target);
+            if (why != null) why.append("design raster: ").append(index == 0 ? "auto" : "unknown index " + index + " (" + design.biomeId(index) + ")").append(", vanilla's choice");
+            return vanilla;
+        }
+        int bx = QuartPos.toBlock(x) + 2, by = QuartPos.toBlock(y), bz = QuartPos.toBlock(z) + 2;
+        if (by < design.heightPx(bx, bz) - DESIGN_CAVE_DEPTH) {
+            Holder<Biome> vanilla = parameters().findValue(target);
+            if (r.kinds.getOrDefault(vanilla, LAND_BOXED) == CAVE) {
+                if (why != null) why.append("design raster, deep underground: vanilla's cave biome");
+                return vanilla;
+            }
+        }
+        if (why != null) why.append("design raster biome ").append(design.biomeId(index));
+        return painted;
+    }
+
     private Holder<Biome> outside(Climate.TargetPoint target, int x, int y, int z, @Nullable StringBuilder why, String reason) {
         MethodHandle tb = terraBlender;
         if (tb != null) {
@@ -216,6 +247,9 @@ public final class CanonBiomes extends BiomeSource {
         final boolean[] frozen = new boolean[128], hasTemperature = new boolean[128]; // temperature knob < -0.45: frozen_river
         final List<Holder<Biome>> paletteBiomes = new ArrayList<>();
         @Nullable Holder<Biome> river, frozenRiver;
+        /** The own world's rasters (null = none) and the holder per biome raster index (null = auto/unknown). */
+        @Nullable CanonRasters rasters;
+        @SuppressWarnings("unchecked") Holder<Biome>[] rasterHolders = new Holder[0];
         /** Per site (CanonSites order): its known biomes and their holders, null when it has none. */
         final CanonPalette[] sitePalettes;
         final Holder<Biome>[][] siteHolders;
@@ -254,6 +288,7 @@ public final class CanonBiomes extends BiomeSource {
                 if (id.getPath().equals("river") && id.getNamespace().equals("minecraft")) r.river = biome;
                 if (id.getPath().equals("frozen_river") && id.getNamespace().equals("minecraft")) r.frozenRiver = biome;
             }
+            resolveRasters(r);
             if (grid == null) return r;
             List<String> nations = new ArrayList<>();
             Set<String> unknown = new java.util.TreeSet<>();
@@ -299,6 +334,31 @@ public final class CanonBiomes extends BiomeSource {
             LOGGER.error("[ttl] canon biomes: palette data unusable, the Tensura world gets normal overworld biomes", e);
             return vanillaOnly;
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void resolveRasters(Resolved r) {
+        CanonRasters design = DesignWorld.rasters();
+        if (design == null) return;
+        Holder<Biome>[] holders = new Holder[design.biomeTableSize()];
+        Set<String> unknown = new java.util.TreeSet<>();
+        int known = 0;
+        for (int i = 1; i < holders.length; i++) {
+            String id = design.biomeId(i);
+            if (id == null) continue;
+            Optional<? extends Holder<Biome>> holder = lookup(id);
+            if (holder.isEmpty()) {
+                unknown.add(id);
+                continue;
+            }
+            holders[i] = holder.get();
+            r.paletteBiomes.add(holder.get());
+            known++;
+        }
+        r.rasters = design;
+        r.rasterHolders = holders;
+        if (!unknown.isEmpty()) LOGGER.warn("[ttl] canon biomes: design raster biome ids not on this server, vanilla's choice there: {}", unknown);
+        LOGGER.info("[ttl] canon biomes: design biome raster, {} of {} indices resolved", known, holders.length - 1);
     }
 
     @Nullable
