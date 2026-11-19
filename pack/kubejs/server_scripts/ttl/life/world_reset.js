@@ -48,6 +48,11 @@ const TtlWorldReset = {
     } catch (e) {
       console.error(`[ttl] world reset: canon builds not rescheduled: ${e}`)
     }
+    try {
+      if (typeof TtlWorks !== 'undefined') TtlWorks.reset(server, ids)
+    } catch (e) {
+      console.error(`[ttl] world reset: forests and trade roads not rescheduled: ${e}`)
+    }
     console.info(`[ttl] world reset applied: ${ids.join(', ')}`)
   },
 

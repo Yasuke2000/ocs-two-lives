@@ -89,7 +89,7 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - The Oath (light or dark, party-level), 7 acts, one path flip per life; story chapters 7–13 with equal light and
   dark lanes (Crossroads, The King's Test, the Orc War, Charybdis, Mask and Blade, Walpurgis, the Harvest Festival);
   side chapters 20–23 (47 side jobs: escort, delivery, travel, fetch, cull); 398 quests total in one connected web.
-- Side content: ambient adventurers in the towns, hireable Easy NPC companions. Generic NPCs wear Tensura looks (guild ranks, merchants, dwarves, Church, knights, goblins and more; 50 original skins, `tools/gen_npc_looks.py`, contact sheet `docs/previews/npc_skins.png`) instead of Easy NPC's default skins.
+- Side content: ambient adventurers in the towns, hireable Easy NPC companions. Generic NPCs wear Tensura looks (guild ranks, merchants, dwarves, Church, knights, goblins and more; 50 original skins, `tools/gen_npc_looks.py`, contact sheet `docs/previews/npc_skins.png`) instead of Easy NPC's default skins. They carry weapons by role and defend themselves: Tempest's guards fight monsters near their posts, adventurers fight, merchants and civilians flee (`design/data/npc_gear.toml`).
 - Player paths (`/ttl paths`): the two roads (slow good, fast dark, Life 2 karma ledger), the Necromancer (Bone Altar,
   legion, Death Knights, player-built tombs, four ranks, the Church's Sense and the exorcist licence), the Artificer
   (Workshop Bench, charter, maker's stamp, commissions, four ranks), moral-choice scenes (4 events).
@@ -115,6 +115,9 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - World Chronicle (WP-W1: the world's counts, milestones, balance and tide), the continent line (outside it the mods
   run as shipped), protected canon domains with respawning residents and the Eurazania faction (WP-W3).
 - 11 canon landmarks (Elmine … Raja); Tempest growth rings and 6 Mortal Realm waypoints drawn (not placed yet).
+- One-time world works on Lerfing's map (`life/works.js`): Jura's forest round Tempest (52 ancient-forest giants + 1,294
+  trees, r 60..250) and Treyni's old wood (69 + 1,066, r 25..180), the Dwarven Road Tempest -> Dwargon (1,478 blocks,
+  lanterns); planned offline (`tools/lerfing/forests.py`, `trade_roads.py`), not yet seen in game (first boot after the merge).
 
 ## In progress
 

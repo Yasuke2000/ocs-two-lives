@@ -103,6 +103,18 @@
       Type:"STANDARD"
     },
     EasyNPCVersion:3,
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {
+        id:"minecraft:iron_sword",
+        count:1
+      },
+      {
+        id:"minecraft:shield",
+        count:1
+      }
+    ],
     Invulnerable:1b,
     ObjectiveData:{
       ObjectiveDataSet:[
@@ -122,6 +134,17 @@
         {
           SpeedModifier:0.6d,
           Type:"MOVE_BACK_TO_HOME"
+        },
+        {
+          SpeedModifier:0.8d,
+          Type:"MELEE_ATTACK"
+        },
+        {
+          SpeedModifier:0.8d,
+          Type:"ATTACK_MOB_WITHOUT_CREEPER"
+        },
+        {
+          Type:"HURT_BY_TARGET"
         }
       ]
     },

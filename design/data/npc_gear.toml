@@ -1,0 +1,130 @@
+# Gear and fighting behaviour of the generic NPCs, by role (Yasuke 19/11/2026: "the guards have no weapons, also the npcs
+# also do not, and don't defend themselves"). Consumers:
+#   python tools/gen_data.py   -> TtlData.npc_gear (checked by tools/npc_gear_check.py)
+#   python tools/gen_npcs.py   -> the Easy NPC presets of sidequests.toml: HandItems + zero drop chances + the role's
+#                                 Easy NPC objectives (an [[adventurer]] / [[client]] names its `role`)
+#   pack/kubejs/server_scripts/ttl/world/npc_gear.js -> equips the Tempest residents (Tensura goblins, [residents.tempest])
+#                                 and lets the guards among them engage monsters near their post; re-equips Easy NPCs
+#                                 right after their import (sidequests/places.js) and hired companions
+# Items were checked in tensura-neoforge-2.0.1.5.jar (assets/tensura/models/item/<id>.json) and vanilla 1.21.1.
+# Gear never drops (drop chance 0), so nobody farms the NPCs for it.
+
+[settings]
+# Bump to re-equip the residents already in the world (their tag ttl.gear.r<rev>); Easy NPCs refresh through their own
+# revs (sidequests.toml [ambient] rev, a client is new per escort, a companion at its next summon).
+rev = 1
+# The guard loop (world/npc_gear.js): how often, and how far from its post a guard looks for a monster to fight. A guard
+# fights a monster (an Enemy: vanilla and Tensura monsters, never a Tensura goblin, wolf or other tameable) within
+# `guard_radius` of its post; it never picks a player. Players it meets only through Tensura's own retaliation.
+guard_check_ticks = 40
+guard_radius = 16
+# Monsters with one of these entity tags are never picked: a soul's legion, a choice scene's actors, story bosses, arena waves.
+guard_ignore_tags = ["ttl.legion", "ttl.scene", "ttl.boss", "ttl.arena.mob"]
+
+# What each `ai` means. `easy_npc` = the objectives written into the Easy NPC preset (Easy NPC 7.19 ObjectiveType names;
+# ATTACK_MOB_WITHOUT_CREEPER targets monsters (Enemy) but not creepers, so no fight blows up a town). For a Tensura mob,
+# `guard` = the guard loop above, the others leave Tensura's own brain alone.
+[ai.guard]
+easy_npc = ["MELEE_ATTACK", "ATTACK_MOB_WITHOUT_CREEPER", "HURT_BY_TARGET"]
+[ai.fighter]
+easy_npc = ["MELEE_ATTACK", "ATTACK_MOB_WITHOUT_CREEPER", "HURT_BY_TARGET"]
+[ai.civilian]
+easy_npc = ["FLEE_MONSTER", "PANIC"]
+[ai.none]
+easy_npc = []
+
+# Roles. main / off = item ids in the main hand and the offhand ("" = empty).
+[[role]]
+id = "tempest_guard"           # the unnamed hobgoblins of Tempest: Kurobe-style katanas (our interpretation)
+main = "tensura:iron_katana"
+ai = "guard"
+
+[[role]]
+id = "tempest_captain"         # Rigur, captain of Tempest's guard
+main = "tensura:iron_long_sword"
+off = "minecraft:shield"
+ai = "guard"
+
+[[role]]
+id = "tempest_rider"           # Gobta, leader of the goblin riders
+main = "tensura:iron_kodachi"
+ai = "guard"
+
+[[role]]
+id = "tempest_elder"           # Rigurd, the village's elder: a club, and he still stands his ground
+main = "tensura:goblin_club"
+ai = "guard"
+
+[[role]]
+id = "tempest_healer"          # Haruna: no weapon, Tensura's own behaviour
+ai = "none"
+
+[[role]]
+id = "guild_rookie"            # rank F
+main = "minecraft:stone_sword"
+ai = "fighter"
+
+[[role]]
+id = "guild_fighter"           # ranks E-C: plain iron
+main = "minecraft:iron_sword"
+ai = "fighter"
+
+[[role]]
+id = "guild_knight"            # a knight: sword and shield
+main = "minecraft:iron_sword"
+off = "minecraft:shield"
+ai = "fighter"
+
+[[role]]
+id = "guild_scout"
+main = "tensura:iron_short_sword"
+ai = "fighter"
+
+[[role]]
+id = "guild_hunter"
+main = "tensura:iron_spear"
+ai = "fighter"
+
+[[role]]
+id = "guild_caster"            # mages and clerics: a staff
+main = "tensura:low_magic_staff"
+ai = "fighter"
+
+[[role]]
+id = "guild_elite"             # ranks B-A: better steel (no NPC of that rank yet)
+main = "tensura:mithril_long_sword"
+off = "minecraft:shield"
+ai = "fighter"
+
+[[role]]
+id = "otherworlder"
+main = "tensura:iron_katana"
+ai = "fighter"
+
+[[role]]
+id = "dwarf_fighter"           # Dwargon's axe-hands and caravan masters
+main = "minecraft:iron_axe"
+ai = "fighter"
+
+[[role]]
+id = "dwarf_guard"             # Dwargon's guards: axe and shield (no NPC yet)
+main = "minecraft:iron_axe"
+off = "minecraft:shield"
+ai = "guard"
+
+[[role]]
+id = "merchant"                # merchants keep their hands free and run
+ai = "civilian"
+
+[[role]]
+id = "civilian"                # bards, scholars, carters, lost rookies
+ai = "civilian"
+
+# The Tempest residents (generated/tempest_extras.js, world/domains.js): resident id (the lowercase name, or `goblin` for
+# every unnamed one) -> role.
+[residents.tempest]
+rigurd = "tempest_elder"
+rigur = "tempest_captain"
+gobta = "tempest_rider"
+haruna = "tempest_healer"
+goblin = "tempest_guard"
