@@ -10,6 +10,7 @@ Every Town.put raises when a block falls outside the box, so layout mistakes sho
 """
 import math
 
+from _beds import around, bed_row, pick
 from _dwargon_lib import AIR, dark_spots, noise2, rnd
 
 
@@ -260,9 +261,12 @@ class Town:
 
     # -- houses ------------------------------------------------------------------------------------
     def house(self, x0, z0, x1, z1, door_side="s", storeys=2, plaster="calcite", frame="dark_oak", roof="brick",
-              axis=None, base="stone_bricks", furnish=True, door_mat="spruce", shutters=True, storey_h=4, door_x=None):
+              axis=None, base="stone_bricks", furnish=True, door_mat="spruce", shutters=True, storey_h=4, door_x=None,
+              bed_colours=("red",), beds=None):
         """Timber-frame house: stone footing, plaster panels between a dark frame, windows with shutters, floors and
-        a loft ceiling, ladder up, tiled gable roof. Returns (top roof y, door position)."""
+        a loft ceiling, ladder up, tiled gable roof. Returns (top roof y, door position).
+        Furnished houses get a bed in the loft (storeys > 1) or, in a one-storey house, on the ground floor against the
+        wall opposite the door (`beds` of them, default 1; two if the room is wide enough), in a colour of `bed_colours`."""
         F, G = self.F, self.G
         h = storey_h * storeys
         axis = axis or ("x" if (x1 - x0) >= (z1 - z0) else "z")
@@ -322,20 +326,23 @@ class Town:
             for y in range(F, F + storey_h * (storeys - 1) + 1):
                 self.put(lx, y, lz, M(f"ladder[facing={face_l},waterlogged=false]"))
         if furnish:
-            self._furnish(x0, z0, x1, z1, door_side, storeys, storey_h)
+            self._furnish(x0, z0, x1, z1, door_side, storeys, storey_h, bed_colours, beds, (dx, dz))
         return self.gable(x0, z0, x1, z1, F + h, roof, axis, pl), (dx, dz)
 
-    def _furnish(self, x0, z0, x1, z1, door_side, storeys, storey_h):
+    def _furnish(self, x0, z0, x1, z1, door_side, storeys, storey_h, bed_colours=("red",), beds=None, door=None):
         F = self.F
+        colour = pick(bed_colours, x0, z0)
         bx, bz = (x1 - 1, z0 + 1) if door_side != "n" else (x1 - 1, z1 - 2)
+        if storeys == 1:
+            self._ground_beds(x0, z0, x1, z1, door_side, bed_colours, 1 if beds is None else beds, door)
         if storeys > 1:
             y = F + storey_h
             # The head lies one block toward `facing` from the foot: head against the back wall, foot toward the room.
             facing = "north" if door_side != "n" else "south"
             zz = bz + (1 if facing == "north" else -1)
             if self.get(bx, y, bz) == AIR and self.get(bx, y, zz) == AIR:
-                self.put(bx, y, bz, bed("red", facing, "head"))
-                self.put(bx, y, zz, bed("red", facing, "foot"))
+                self.put(bx, y, bz, bed(colour, facing, "head"))
+                self.put(bx, y, zz, bed(colour, facing, "foot"))
             if self.get(bx - 1, y, bz) == AIR:
                 self.put(bx - 1, y, bz, M("barrel[facing=up,open=false]"))
         gx, gz = (x1 - 1, z1 - 1) if door_side != "n" else (x1 - 1, z0 + 1)
@@ -345,6 +352,48 @@ class Town:
             self.put(gx - 1, F, gz, M("barrel[facing=up,open=false]"))
         if (x1 - x0) >= 6 and self.get(x0 + 3, F, z0 + 2 if door_side != "n" else z1 - 2) == AIR:
             self.put(x0 + 3, F, z0 + 2 if door_side != "n" else z1 - 2, M("dark_oak_slab[type=bottom,waterlogged=false]"))
+
+    def _ground_beds(self, x0, z0, x1, z1, door_side, colours, n, door):
+        """`n` beds (heads to the wall opposite the door, three blocks apart from the corner) on the ground floor."""
+        if n <= 0:
+            return
+        wall = {"s": "north", "n": "south", "e": "west", "w": "east"}[door_side]
+        inner = (door[0] + {"e": -1, "w": 1}.get(door_side, 0), door[1] + {"s": -1, "n": 1}.get(door_side, 0))
+        clear = around(inner, 1)
+        if wall == "north":
+            line, span, step = z0 + 1, (x0 + 1, x1 - 1), 3
+        elif wall == "south":
+            line, span, step = z1 - 1, (x0 + 1, x1 - 1), 3
+        elif wall == "west":
+            line, span, step = x0 + 1, (z0 + 1, z1 - 1), 3
+        else:
+            line, span, step = x1 - 1, (z0 + 1, z1 - 1), 3
+        got = bed_row(self.put, self.get_free, self.F, wall, line, (span[0], span[0] + step * (n - 1)), colours, step,
+                      clear)
+        if got < n:
+            raise ValueError(f"{self.bp.name}: house {x0},{z0}-{x1},{z1} got {got} of {n} ground-floor beds")
+
+    def dorm(self, x0, z0, x1, z1, door_side, colours, step=2, y=None, inset=1, avoid=()):
+        """Beds in two rows along the long walls of a room (one floor of a house: `y` is its walking layer), heads
+        to the wall, `step` blocks apart, leaving the door's landing, the cells round `avoid` (a ladder foot) and the
+        aisle between the rows free. Returns the number of beds."""
+        y = self.F if y is None else y
+        inner = {"e": (x1 - 1, (z0 + z1) // 2), "w": (x0 + 1, (z0 + z1) // 2),
+                 "s": ((x0 + x1) // 2, z1 - 1), "n": ((x0 + x1) // 2, z0 + 1)}[door_side]
+        clear = around(inner, 1)
+        for cell in avoid:
+            clear |= around(cell, 1)
+        n = 0
+        if (x1 - x0) >= (z1 - z0):
+            n += bed_row(self.put, self.get_free, y, "north", z0 + inset, (x0 + 1, x1 - 1), colours, step, clear)
+            n += bed_row(self.put, self.get_free, y, "south", z1 - inset, (x0 + 1, x1 - 1), colours, step, clear)
+        else:
+            n += bed_row(self.put, self.get_free, y, "west", x0 + inset, (z0 + 1, z1 - 1), colours, step, clear)
+            n += bed_row(self.put, self.get_free, y, "east", x1 - inset, (z0 + 1, z1 - 1), colours, step, clear)
+        return n
+
+    def get_free(self, x, y, z):
+        return self.bp.blocks.get((x, y, z))
 
     # -- props --------------------------------------------------------------------------------------
     def stall(self, x, z, w=5, d=3, colours=("red", "white"), goods=None, facing="s"):

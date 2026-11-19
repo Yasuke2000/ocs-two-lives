@@ -10,6 +10,7 @@ The use of this facade for the yard is our interpretation (design/lore/ballachia
 """
 from math import isqrt
 
+from _beds import CULTURE, around, bed_row
 from _dwargon_lib import noise2, rnd
 from _lords_lib import disc_cells, light_pass
 from _town_lib import M, Town, lantern_floor, lantern_hung, log, slab, stair, trapdoor
@@ -270,6 +271,11 @@ def build(bp):
     arcade_detail(t)
     coach_shed(t)
     t.house(5, 45, 19, 55, "n", 1, roof="slate", furnish=False)
+    # The lodging house for carters and travellers: a row of six beds along the door wall (heads to it, the door's
+    # landing left free), blue and white wool, with a barrel at each end; the benches on the far side stay.
+    bed_row(t.put, t.get_free, F, "north", 46, (6, 18), CULTURE["blumund"], 2, around((12, 46), 1))
+    for x in (6, 18):
+        t.put(x, F, 48, M("barrel[facing=up,open=false]"))
     for x in (8, 12, 16):
         t.put(x, F, 54, stair("spruce", "south"))
         t.put(x, F, 53, slab("spruce", "top"))

@@ -14,6 +14,7 @@ The runtime template is just the new ring. draw_phase() also draws the town for 
 from math import cos, hypot, pi, sin
 
 from blueprint import Blueprint
+from _beds import CULTURE, place_bed
 from _dwargon_lib import AIR, block_light, see_through, spawn_floor
 from _town_lib import M, Town, lantern_floor, lantern_hung, log, slab, stair, trapdoor, wall_banner
 
@@ -287,7 +288,7 @@ def neighbourhoods(t):
         (5, 110, 18, 124, "e", "blue"), (4, 135, 18, 151, "e", "slate"),
         (172, 111, 185, 127, "w", "brick"), (172, 136, 187, 153, "w", "dark")
     ):
-        _, (dx, dz) = t.house(xa, za, xb, zb, side, storeys=2, roof=roof)
+        _, (dx, dz) = t.house(xa, za, xb, zb, side, storeys=2, roof=roof, bed_colours=CULTURE["tempest"])
         t.pave(min(dx, 22 if side == "e" else 168), dz - 1,
                max(dx, 22 if side == "e" else 168), dz + 1, "street")
     # The west inn: a public porch, a communal meal downstairs and two guest rooms off the loft.
@@ -303,10 +304,11 @@ def neighbourhoods(t):
         t.put(x, 5, 142, stair("spruce", "south"))
     t.fill(7, 9, 145, 14, 10, 145, M("white_terracotta"))
     t.clear(11, 9, 145, 12, 10, 145)
-    for z in (138, 147):
-        t.put(6, 9, z, M("light_blue_bed[part=head,facing=west]"))
-        t.put(7, 9, z, M("light_blue_bed[part=foot,facing=west]"))
-        t.put(6, 9, z + 1, M("barrel[facing=up]"))
+    # Four guest beds (two a room, heads to the west wall) with a barrel between each pair.
+    for z in (138, 141, 147, 150):
+        place_bed(t.put, t.get_free, 6, 9, z, "west", "light_blue")
+    for z in (139, 142, 148):
+        t.put(6, 9, z, M("barrel[facing=up]"))
     t.fill(6, 5, 137, 6, 5, 138, M("smoker[facing=east]"))
     for x, z in ((10, 13), (179, 14), (14, 174), (13, 85), (179, 84),
                  (87, 12), (85, 180), (139, 182), (177, 32), (14, 159)):
@@ -360,7 +362,7 @@ def light_districts(bp):
     for (x, y, z), state in list(bp.blocks.items()):
         if 27 <= x <= 163 and 27 <= z <= 163 or y < G or y + 1 >= SIZE[1]:
             continue
-        if state == AIR or see_through(state):
+        if state == AIR or see_through(state) or "_bed[" in state:  # no lantern on a bed: monsters cannot spawn on it
             continue
         if not (spawn_floor(state) or state.startswith("minecraft:hay_block") or "type=top" in state or "type=double" in state or "half=top" in state):
             continue
