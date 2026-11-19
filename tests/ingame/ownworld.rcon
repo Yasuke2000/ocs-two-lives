@@ -1,0 +1,8 @@
+# Own world, mod side (design/architecture/own-world.md WP-W2/W3/W4; docs/server.md "Own world"). On a world without
+# design rasters (staging until the reset) the mod says so and changes nothing: `ttlsite status` names the missing
+# folder, `ttlmap` has no design line. With design rasters it prints the raster summary and the structure starts kept
+# out. The calibration gate (`ttlsite calibrate`, `ttlsite check all`) runs by hand on a local world with the calibration
+# map (DesignSelfCheck write-calibration): it reads the generator's noise and generates nothing.
+@expect 5 own world: :: ttlsite status
+ttlsite list
+@expect 5 canon map at 0 0: :: ttlmap 0 0

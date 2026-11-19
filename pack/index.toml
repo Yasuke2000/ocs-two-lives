@@ -2069,12 +2069,24 @@ file = "kubejs/data/minecraft/worldgen/density_function/overworld/erosion.json"
 hash = "1cf4668bbb0f24f73300f66bf2c16a070b4304f0f93e07bb1d548edf3a0008fd"
 
 [[files]]
+file = "kubejs/data/minecraft/worldgen/density_function/overworld/factor.json"
+hash = "001c64112ecb079f3929c3c323f297fd40bed84b74059daafe3b558bc879b35e"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/density_function/overworld/jaggedness.json"
+hash = "eb4689bd70b4db4ae7f912b5cc02835687788d0f3e30958c34564f6b232be7ed"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/density_function/overworld/offset.json"
+hash = "e6a2b45510f8e6c4fe1a581af4061fb0571be75cd35167cdf34778c2452ebaa2"
+
+[[files]]
 file = "kubejs/data/minecraft/worldgen/density_function/overworld/ridges.json"
 hash = "2b85aae8d5bb8d25fe4b379b6377e91625ec4720c091b36d2d07d995fd965e6f"
 
 [[files]]
 file = "kubejs/data/minecraft/worldgen/noise_settings/overworld.json"
-hash = "4aab94fee2a23b88a39f7e57af601f711d611b607fe21f3e04156c11216c1639"
+hash = "2a915d3f9aae4e9b578c740460a161c18956354e5d9b09570d200410c947f106"
 
 [[files]]
 file = "kubejs/data/tensura/loot_table/advancement_reward/adamantite.json"
@@ -2127,6 +2139,14 @@ hash = "645a33abf28bc4978257fe0b56ca6e324f970c33494d8300974e70f8f0f05cb3"
 [[files]]
 file = "kubejs/data/ttl/dimension_type/walpurgis.json"
 hash = "c7b3804802470817f34e5ef5440f618f044fb10547aa2c3e829f66499be97b25"
+
+[[files]]
+file = "kubejs/data/ttl/neoforge/biome_modifier/design_road.json"
+hash = "6c6dc71029ef94ca13beabdafe24f79f5693b62d1caaa9ad6757e49d63728694"
+
+[[files]]
+file = "kubejs/data/ttl/neoforge/biome_modifier/design_water.json"
+hash = "88c8e69ee171e17bea0d2e99d796be8a806baddbfdee33e089af92d51faf409c"
 
 [[files]]
 file = "kubejs/data/ttl/neoforge/biome_modifier/more_goats.json"
@@ -2679,6 +2699,22 @@ hash = "8d35a813f8f5178bb5e2a0c5f0c0938126b647fd054cd98620d9ac9e2996b38a"
 [[files]]
 file = "kubejs/data/ttl/worldgen/biome/walpurgis.json"
 hash = "031ca3f63e21a0a7ebbbb316fab928f27a9544afc6ce68dd0acf8776a74e3bdc"
+
+[[files]]
+file = "kubejs/data/ttl/worldgen/configured_feature/design_road.json"
+hash = "0585084a5f103f0e494027c04792ef8c501d2dbe0d64f256b0fe4fbe1e5c471c"
+
+[[files]]
+file = "kubejs/data/ttl/worldgen/configured_feature/design_water.json"
+hash = "ed202114bbcb9a6e10950c20d3f3c46ad93e7e341dbb2dac64f8bed53323501f"
+
+[[files]]
+file = "kubejs/data/ttl/worldgen/placed_feature/design_road.json"
+hash = "7b2776e326819d6c0131bb8becb3e8a2a40ab9710e0bc019ae319088e68e8dfd"
+
+[[files]]
+file = "kubejs/data/ttl/worldgen/placed_feature/design_water.json"
+hash = "5405e42adf69365df2783d7b843c1e418e45ae026f5431757c50bfcb02b85415"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/absorb/absorb.js"

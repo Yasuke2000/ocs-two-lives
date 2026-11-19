@@ -1,0 +1,54 @@
+{
+  "type": "ttl:design_road",
+  "config": {
+    "palettes": {
+      "default": {
+        "surface": {
+          "minecraft:dirt_path": 70,
+          "minecraft:gravel": 12,
+          "minecraft:coarse_dirt": 10,
+          "minecraft:cobblestone": 8
+        },
+        "slab": "minecraft:cobblestone_slab"
+      },
+      "J": {
+        "surface": {
+          "minecraft:dirt_path": 70,
+          "minecraft:gravel": 12,
+          "minecraft:coarse_dirt": 10,
+          "minecraft:cobblestone": 8
+        },
+        "slab": "minecraft:cobblestone_slab"
+      },
+      "D": {
+        "surface": {
+          "minecraft:cobblestone": 35,
+          "minecraft:stone": 20,
+          "minecraft:andesite": 15,
+          "minecraft:tuff": 15,
+          "minecraft:gravel": 15
+        },
+        "slab": "minecraft:andesite_slab"
+      },
+      "trail": {
+        "surface": {
+          "minecraft:dirt_path": 60,
+          "minecraft:coarse_dirt": 25,
+          "minecraft:gravel": 15
+        },
+        "slab": "minecraft:cobblestone_slab"
+      }
+    },
+    "post": "minecraft:spruce_fence",
+    "lantern": "minecraft:lantern",
+    "lantern_every": 40,
+    "clear": 4,
+    "cut": 8,
+    "fill": 12,
+    "bridge": {
+      "deck": "minecraft:spruce_planks",
+      "railing": "minecraft:spruce_fence",
+      "pillar": "minecraft:spruce_log"
+    }
+  }
+}
