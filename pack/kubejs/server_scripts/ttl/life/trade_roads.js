@@ -35,7 +35,7 @@ const TtlTradeRoads = {
 
   forget(server, id) {
     var self = this
-    ;['version', 'piece', 'counts'].forEach(k => server.persistentData.remove(self.key(id, k)))
+    ;['version', 'pversion', 'piece', 'counts'].forEach(k => server.persistentData.remove(self.key(id, k)))
   },
 
   // Positions every block of arc length along the polyline (trade_roads.py arc_samples).
@@ -247,6 +247,7 @@ const TtlTradeRoads = {
       return
     }
     if (force) this.forget(server, id)
+    TtlWorks.begin(server, this, id, r.version)
     var pieces = this.pieces(r)
     var kept = TtlWorks.kept(server, true)
     var counts = TtlWorks.ints(data.getString(this.key(id, 'counts'))) || [0, 0, 0, 0]

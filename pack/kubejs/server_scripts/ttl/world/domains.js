@@ -456,6 +456,21 @@ const TtlDomains = {
     }
   },
 
+  // The living entity tagged as resident r near its spot, or null.
+  findResident(level, r) {
+    var found = null
+    var tag = this.RES_TAG + r.id
+    try {
+      var AABB = Java.loadClass('net.minecraft.world.phys.AABB')
+      level.getEntitiesWithin(new AABB(r.x - 4, r.y - 4, r.z - 4, r.x + 4, r.y + 4, r.z + 4)).forEach(e => {
+        if (!found && e.isAlive() && e.getTags().contains(tag)) found = e
+      })
+    } catch (x) {
+      console.warn(`[ttl] domains: looking for resident ${r.id} failed (${x})`)
+    }
+    return found
+  },
+
   isLoaded(server, r) {
     return TtlCmd.run(server, `execute in ${r.dim} if loaded ${Math.floor(r.x)} ${Math.floor(r.y)} ${Math.floor(r.z)}`) > 0
   },
@@ -543,6 +558,9 @@ const TtlDomains = {
       if (self.summon(server, r)) {
         delete miss[r.id]
         states[r.id] = 'respawned'
+        // marked (and armed) now, not at the next check: a guard that comes back holds its weapon at once
+        var fresh = self.findResident(level, r)
+        if (fresh) self.mark(fresh, r)
         console.info(`[ttl] domains: resident ${r.id}${r.name ? ` (${r.name})` : ''} came back at ${Math.floor(r.x)} ${r.y} ${Math.floor(r.z)}${r.anchor ? ' (anchor, invulnerable)' : ''}`)
       } else {
         states[r.id] = 'failed'

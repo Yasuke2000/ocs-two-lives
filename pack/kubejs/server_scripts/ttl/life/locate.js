@@ -142,7 +142,7 @@ ServerEvents.commandRegistry(event => {
   var idOf = ctx => String(Arguments.STRING.getResult(ctx, 'id')).toLowerCase()
   var here = ctx => {
     var pos = ctx.source.getPosition()
-    return { x: Math.floor(pos.x()), z: Math.floor(pos.z()), dim: String(ctx.source.getLevel().dimension().location()) }
+    return { x: Math.floor(pos.x()), z: Math.floor(pos.z()), dim: String(ctx.source.getLevel().dimension) }
   }
 
   var locate = ctx => {

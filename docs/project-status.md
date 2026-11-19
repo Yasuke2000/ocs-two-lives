@@ -136,6 +136,8 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
   biomes, canon-site terrain and build spots will need a new pass then.
 - Untested with real players: skins rendering, duels/wars between players, shops and wallets, the Labyrinth hall.
 - Before launch: run the reset checklist in `docs/server.md` (era, test registry holders, test story/party/nation records).
+- Place audit leftovers (19/11): Dragon's Nest's white pad and the Sealed Cave's 32 missing logs and visible pad (Raja's
+  lava pool, Sacred Mountain's water and Frost Palace's skirt are one-time world fixes, `design/data/world_fixes/`).
 
 ## Where to find things
 
