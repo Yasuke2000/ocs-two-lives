@@ -14,7 +14,12 @@ ttl guild reset TtlBotGuildA
 ttl merit reset TtlBotGuildA
 ttl rep set TtlBotGuildA dwargon 0
 clear TtlBotGuildA
+# `positioned over` needs the chunk loaded ("That position is not loaded": the bot stayed in the Mortal Realm and could
+# not mark Public Works, local test-all 19/11); the forest's mobs must not end the test.
+execute in minecraft:overworld run forceload add ${anchor:tempest.x+100} ${anchor:tempest.z+100}
+@sleep 2
 execute in minecraft:overworld positioned ${anchor:tempest.x+100} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotGuildA ~ ~ ~
+effect give TtlBotGuildA minecraft:resistance 900 4 true
 # The board: 3 daily + 2 weekly, one daily slot for rank F; a Life 1 soul is refused (answers life2only, no side effects).
 ttl guild roll
 ttl guild expect TtlBotGuildA board 5
@@ -75,3 +80,4 @@ ttl merit reset TtlBotGuildA
 clear TtlBotGuildA
 ttlbot remove TtlBotGuildA
 ttlbot remove TtlBotGuildB
+execute in minecraft:overworld run forceload remove ${anchor:tempest.x+100} ${anchor:tempest.z+100}
