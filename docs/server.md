@@ -182,6 +182,30 @@ tickets; log `[ttl] world fix <id>: N commands changed blocks, M had nothing to 
 `gen_placements.py --check` (in `validate.py`) refuses a plan that no longer matches its config. A new road (Tempest ->
 Blumund) is a new `[id]` in `roads.toml` plus its plan; nothing in the scripts changes.
 
+## Junk drops, spawn zones and profiling
+
+**No junk from placement** (`life/drops.js`): the placers remove blocks without drops (no neighbour shape updates,
+containers emptied first, whatever leaned on the block goes too, sand/gravel left over a gap turns solid), and every chunk
+hold's release sweeps the items and falling blocks that appeared in its chunks during the hold (log `[ttl] drops: <hold>:
+swept N item(s), set down M falling block(s)`). Why: a hold keeps chunks at ticket level 32, block ticking without entity
+ticking, so drops and falling gravel there never despawn or land and are saved with the chunk. Test: `drops`.
+Ops: `/ttl drops test|expect clean|sweep <x> <y> <z>`. Junk already in the world (from before) is not swept; find it with
+`execute in minecraft:overworld run neoforge entity list` and remove it away from players, e.g.
+`kill @e[type=minecraft:item,x=..,z=..,dx=..,dz=..]`.
+
+**Spawn zones** (`design/data/spawns.toml`, `life/mortal_spawns.js` TtlSpawnZones): round Tempest no natural hostile spawn
+within r 150, a quarter of them from 150 to 400, at most 4 animals per 32 x 32 square to r 400. Only natural spawns
+(natural, chunk generation, patrol). `/ttl spawns zone <x> <z>` prints the band and the counts since the start;
+`/ttl spawns expect <x> <z> <none|reduced|open>` (test `spawns`). The hard squares (Tempest r 56, arrival r 48, Wayfarer's
+Rest) are separate and unchanged.
+
+**Profiling** (spark, installed): `spark profiler start --timeout 120 --save-to-file` (no `--thread` filter: a wrong name
+profiles nothing; the default is the server thread). The file lands in `/data/config/spark/profile-<date>.sparkprofile`;
+copy it with `kubectl exec deploy/mc -- cat <file> > p.sparkprofile` (Git Bash: `MSYS_NO_PATHCONV=1`) and open it at
+spark.lucko.me (drag the file in) or read it offline. `neoforge tps` gives ms per dimension; `execute in <dim> run neoforge
+entity list` the entity counts. Staging 19/11/2026: entity AI (Tensura's tamable and mount entities, SmartBrainLib) and
+chunk ticking are the cost; our scripts are ~2 %.
+
 ## Permissions
 
 LuckPerms was removed on 18/11/2026: it breaks the /ttlbot test players; staff commands use vanilla op level 2.

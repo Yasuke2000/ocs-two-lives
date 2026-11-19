@@ -1,0 +1,18 @@
+# Placement without junk drops (life/drops.js): a column with tall grass on top, a torch on its side and gravel above a
+# second cleared run (it must turn to stone) is cleared the way the trade road and the unplacer clear (TtlDrops.clearColumn); 5 ticks later not
+# one item entity or falling block may lie round it (vanilla `fill ... air` drops the grass's seeds, the torch, and lets
+# the gravel fall). Then the sweep: a fresh item dropped in the box is taken by the end-of-piece sweep. High in the air
+# over the arrival, so nothing of the world is touched; the plinth is removed at the end.
+execute in minecraft:overworld run forceload add ${anchor:arrival.x} ${anchor:arrival.z}
+@sleep 1
+ttl drops test ${anchor:arrival.x} 240 ${anchor:arrival.z}
+@sleep 1
+ttl drops expect clean ${anchor:arrival.x} 240 ${anchor:arrival.z}
+execute in minecraft:overworld if block ${anchor:arrival.x} 248 ${anchor:arrival.z} minecraft:stone
+execute in minecraft:overworld run summon minecraft:item ${anchor:arrival.x} 242 ${anchor:arrival.z} {Item:{id:"minecraft:wheat_seeds",count:1}}
+@expect 5 swept 1 item :: ttl drops sweep ${anchor:arrival.x} 240 ${anchor:arrival.z}
+ttl drops expect clean ${anchor:arrival.x} 240 ${anchor:arrival.z}
+execute in minecraft:overworld run setblock ${anchor:arrival.x+1} 242 ${anchor:arrival.z} minecraft:air
+execute in minecraft:overworld run fill ${anchor:arrival.x-3} 240 ${anchor:arrival.z-3} ${anchor:arrival.x+3} 249 ${anchor:arrival.z+3} minecraft:air
+execute in minecraft:overworld run kill @e[type=minecraft:item,x=${anchor:arrival.x-6},y=234,z=${anchor:arrival.z-6},dx=13,dy=20,dz=13]
+execute in minecraft:overworld run forceload remove ${anchor:arrival.x} ${anchor:arrival.z}

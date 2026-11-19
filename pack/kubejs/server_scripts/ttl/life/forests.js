@@ -163,7 +163,10 @@ const TtlForests = {
           if (id === 'minecraft:air') continue
           if (self.FLOOR.indexOf(id) >= 0 || (id.indexOf('minecraft:') === 0 && self.FLOWERS.some(k => id.indexOf(k) >= 0) &&
             !/_block|_stem|potted_/.test(id))) {
-            TtlWorks.run(server, `setblock ${x + dx} ${y + dy} ${z + dz} minecraft:air`)
+            // without drops (life/drops.js): a plain setblock pops the top half of a tall plant as seeds
+            if (typeof TtlDrops === 'undefined' || TtlDrops.clearColumn(server, TtlLife.OVERWORLD, x + dx, y + dy, y + dy, z + dz) < 0) {
+              TtlWorks.run(server, `setblock ${x + dx} ${y + dy} ${z + dz} minecraft:air`)
+            }
           }
         }
       }

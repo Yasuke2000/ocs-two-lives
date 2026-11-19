@@ -118,6 +118,9 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - One-time world works on Lerfing's map (`life/works.js`): Jura's forest round Tempest (52 ancient-forest giants + 1,294
   trees, r 60..250) and Treyni's old wood (69 + 1,066, r 25..180), the Dwarven Road Tempest -> Dwargon (1,478 blocks,
   lanterns); planned offline (`tools/lerfing/forests.py`, `trade_roads.py`), not yet seen in game (first boot after the merge).
+- Placement without junk drops (`life/drops.js`: no-drop removal, a sweep after every chunk hold) and graded spawn zones
+  round Tempest (`design/data/spawns.toml`: no natural hostiles within r 150, a quarter to r 400, 4 animals per 32 x 32).
+  Staging profile 19/11: entity AI (Tensura) and chunk ticking are the tick's cost, our scripts ~2 %.
 
 ## In progress
 
