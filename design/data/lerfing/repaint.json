@@ -1,0 +1,35 @@
+{
+ "_doc": "Biome repaint of Lerfing's map, applied offline by tools/lerfing/import.py (design/architecture/lerfing-import.md §1.2, §2.3, §3.6). Blocks are never touched. 'rules': stored biome -> new biome, first match wins; x/z ranges are half-open [min, max) in blocks at the 4x4 biome cell centre, null = open. 'spots' and 'jura' repaint land cells only: a cell whose stored biome matches 'keep', or whose column has water/ice over the ground, keeps its biome. 'forbidden' must not remain anywhere after the import (checked by --verify).",
+ "version": 1,
+ "rules": [
+  {"from": "minecraft:soul_sand_valley", "to": "minecraft:stony_peaks", "why": "the grey Canaat massif: high cold rock, no ghasts"},
+  {"from": "minecraft:nether_wastes", "x": [3700, 7700], "z": [-3400, -1000], "to": "minecraft:badlands", "why": "the NE volcano, Velgrynd's scorching mountain"},
+  {"from": "minecraft:nether_wastes", "to": "minecraft:windswept_gravelly_hills", "why": "the SW crystal hills and other patches: hills of Fulbrosia, no piglins"},
+  {"from": "minecraft:the_end", "x": [null, -4900], "to": "tensura:barren_land", "why": "the canon Barren Lands west of Damargania"}
+ ],
+ "spots": [
+  {"name": "claymans_castle", "centre": [5620, -900], "radius": 180, "biome": "minecraft:dark_forest", "why": "Clayman's Castle wants dark forest in Jistav's plains (§3.4)"}
+ ],
+ "jura": {
+  "centre": [1720, 900],
+  "core": 200,
+  "band": 600,
+  "wobble": 50,
+  "wobble_cell": 64,
+  "seed": 1720900,
+  "core_biome": "tensura:ancient_forest",
+  "band_biome": "minecraft:dark_forest",
+  "clip": {"x": [-100, 2350], "z": [-400, 2200]},
+  "why": "owner decision Q4: rings by radius around Tempest (1720, 900); the clip is Jura's outline of §3.1 so Lake Siss's marsh (x >= 2350) stays swamp"
+ },
+ "keep": [
+  "minecraft:*ocean*", "minecraft:*river*", "minecraft:*beach*", "minecraft:stony_shore",
+  "minecraft:swamp", "minecraft:mangrove_swamp",
+  "minecraft:lush_caves", "minecraft:dripstone_caves", "minecraft:deep_dark"
+ ],
+ "forbidden": [
+  "minecraft:soul_sand_valley", "minecraft:nether_wastes", "minecraft:the_end",
+  "minecraft:crimson_forest", "minecraft:warped_forest", "minecraft:basalt_deltas",
+  "minecraft:end_highlands", "minecraft:end_midlands", "minecraft:small_end_islands", "minecraft:end_barrens"
+ ]
+}
