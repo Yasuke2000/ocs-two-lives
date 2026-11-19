@@ -26,3 +26,5 @@ as pre-launch command, so mods sync from `pack/pack.toml` on every launch.
 - `tests/ingame/` — RCON acceptance tests
 
 Development rules: [CLAUDE.md](CLAUDE.md).
+
+Creative side (world map, concept art, builds, lore and quest text, NPC skins): the [knowledge pack for ChatGPT](docs/chatgpt/README.md).

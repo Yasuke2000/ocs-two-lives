@@ -1,0 +1,43 @@
+# Nasca (Eastern Empire capital)
+
+`id: nasca` · build (our blueprint) · region **E** (Eastern Empire)
+
+| | |
+|---|---|
+| Anchor (Lerfing's map, x, z) | **5100, -2680** (x grows east, z grows south) |
+| Audit status (19/11/2026) | **OK** |
+| Blueprint | [`blueprints/nasca.py`](../../../blueprints/nasca.py), 85 x 42 x 79 blocks (x, y, z), anchor [42, 5, 66] |
+| Preview (blueprint only) | ![nasca](../../previews/nasca-iso.png) |
+| Lore page | [`design/lore/nasca.md`](../../../design/lore/nasca.md) |
+
+## Lore (canon)
+
+The vast military empire of the east; political and military power sit with Rudra; the Imperial Guardians protect him. The capital stands beside the Great Holy Mountain.
+
+## What it should look like
+
+An imperial audience court: two standards mark the way onto a parade ground with pale lines in the paving; two galleries face one another; five broad steps lead to an open audience pavilion with three chairs before a red screen; an amber-glass clerestory; copper scrolls on a dark green roof.
+
+Why it stands here (anchor table, Lerfing coordinates): The valley north of the crater, relief 1.
+
+## Current state: BlueMap audit of 19/11/2026
+
+Map: Tensura by Lerfing (current, being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
+
+- **Status:** OK
+- **Placed:** 5100 70 -2680 (corner 5058 65 -2746)
+- Imperial court near the coast; verify 100 %.
+
+![nasca: Top-down, about 300 blocks across](img/nasca-top.jpg)  
+*Top-down, about 300 blocks across. Map: Tensura by Lerfing (current, being replaced).*
+
+![nasca: 3D perspective, about 100 blocks](img/nasca-3d.jpg)  
+*3D perspective, about 100 blocks. Map: Tensura by Lerfing (current, being replaced).*
+
+## What ChatGPT can deliver for this place
+
+- Concept art: `docs/art/places/nasca.png` + `docs/art/places/nasca.md` (see [art.md](../art.md)).
+- Blueprint design notes or a Python blueprint in the format of [builds.md](../builds.md) (never the placement data: that is Claude's).
+- Lore and quest text in EN and NL for this place (see [tasks.md](../tasks.md)).
+
+Back to the [world guide](../world.md) · [knowledge pack](../README.md)
