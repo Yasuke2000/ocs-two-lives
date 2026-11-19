@@ -13,7 +13,8 @@
 // 1. hold the area (box + margin + the survey radius) with chunk tickets (life/chunk_hold.js: loaded in the background,
 //    never a synchronous `forceload` burst) and wait until every chunk is FULL; give up after LOAD_TIMEOUT;
 // 2. where: the spot recorded by an earlier placement of this build (a version bump puts the new version over the
-//    old one at the same corner) or, with ground = "fixed", x/z at y; with ground = "survey" the flattest dry spot
+//    old one at the same corner; when the plan changed, x/z, ground, anchor or beside, the old copy is taken out first,
+//    removeOld + life/unplace.js) or, with ground = "fixed", x/z at y; with ground = "survey" the flattest dry spot
 //    within `search` blocks of x/z: candidates on a grid, samples over the build's own columns (heightmaps, trees
 //    and plants skipped); a lava or void sample rules a candidate out, so does more than `max_wet` of the samples
 //    over water or ice, or a keepout (Tempest, Dwargon, placed landmarks and builds, KEEPOUT blocks); score = 2 x
@@ -49,6 +50,7 @@ const TtlBuilds = {
   WET_COST: 20, // score per wet fraction: 10 % water under the build costs as much as 32 blocks of distance
   queue: [],
   busy: false,
+  current: null, // the build pump() took off the queue and is placing
   waits: 0,
 
   all() {
@@ -575,31 +577,97 @@ const TtlBuilds = {
     }
     var b = this.queue.shift()
     var spot = this.stored(server, b)
-    var a = this.area(b, spot)
     this.busy = true
-    var hold = TtlChunks.hold(server, b.dimension, a, `build ${b.name}`)
-    var finish = () => {
-      TtlChunks.release(server, hold)
+    this.current = b.name
+    var released = () => {
       self.busy = false
+      self.current = null
       server.scheduleInTicks(self.GAP, () => self.pump(server))
     }
+    var go = () => {
+      var hold = TtlChunks.hold(server, b.dimension, self.area(b, spot), `build ${b.name}`)
+      var finish = () => {
+        TtlChunks.release(server, hold)
+        released()
+      }
+      TtlChunks.whenReady(server, hold, self.LOAD_POLL, self.LOAD_TIMEOUT, (ready, missing) => {
+        if (!ready && missing > 0) {
+          self.failed(server, b, `${missing} chunk(s) of its area still not loaded after ${self.LOAD_TIMEOUT} ticks`)
+          finish()
+          return
+        }
+        try {
+          self.place(server, b, spot, finish)
+        } catch (e) {
+          self.failed(server, b, `${e}`)
+          finish()
+        }
+      })
+    }
+    if (spot) {
+      go()
+      return
+    }
+    this.removeOld(server, b, ok => {
+      if (ok) go()
+      else released()
+    })
+  },
+
+  // A build whose plan changed (it moves: new x/z, ground, anchor or beside) still has its old copy at the recorded
+  // corner. Take it out first, block for block (life/unplace.js: only cells that still hold the build's own blocks;
+  // the ground layer becomes the site's top block, cells under it dirt), and forget its box, so it is no keepout for
+  // the new survey. next(true) to go on placing, next(false) when the removal failed (tried again next boot).
+  removeOld(server, b, next) {
+    var corner = this.ints(this.str(server, b, 'corner'))
+    var box = this.ints(this.str(server, b, 'box'))
+    var f = this.foot(b)
+    if (!corner || corner.length !== 3 || !f) {
+      next(true)
+      return
+    }
+    var self = this
+    var data = server.persistentData
+    var label = `build ${b.name} old copy (corner ${corner.join(' ')}, version ${data.getInt(this.key(b, 'version'))})`
+    var a = box && box.length === 4 ? { x0: box[0], z0: box[1], x1: box[2], z1: box[3] } :
+      { x0: corner[0], z0: corner[2], x1: corner[0] + f.size[0] - 1, z1: corner[2] + f.size[2] - 1 }
+    var hold = TtlChunks.hold(server, b.dimension, { x0: a.x0 - 10, z0: a.z0 - 10, x1: a.x1 + 10, z1: a.z1 + 10 }, label)
     TtlChunks.whenReady(server, hold, this.LOAD_POLL, this.LOAD_TIMEOUT, (ready, missing) => {
+      var done = ok => {
+        TtlChunks.release(server, hold)
+        next(ok)
+      }
       if (!ready && missing > 0) {
-        self.failed(server, b, `${missing} chunk(s) of its area still not loaded after ${self.LOAD_TIMEOUT} ticks`)
-        finish()
+        self.failed(server, b, `${missing} chunk(s) round its old copy still not loaded`)
+        done(false)
         return
       }
       try {
-        self.place(server, b, spot, finish)
+        var jobs = f.slabs.map((slab, i) => ({ template: slab, x: corner[0], y: corner[1], z: corner[2] + f.parts[i],
+          rotation: null, ground: b.anchor[1] - 1, terrain: false }))
+        var top = TtlLandmarks.siteTop(server.getLevel(b.dimension), a)
+        TtlUnplace.remove(server, b.dimension, [{ label: label, jobs: jobs }], { top: top, fill: 'minecraft:dirt' }, res => {
+          if (!res) {
+            self.failed(server, b, 'taking out its old copy failed')
+            done(false)
+            return
+          }
+          ;['corner', 'box', 'at'].forEach(k => data.remove(self.key(b, k)))
+          console.info(`[ttl] build ${b.name}: old copy ${res.removed ? `taken out (${res.cells} blocks, ground top ${top})` : 'not found, nothing taken out'}; ` +
+            `placing version ${b.version} by a new survey`)
+          done(true)
+        })
       } catch (e) {
-        self.failed(server, b, `${e}`)
-        finish()
+        self.failed(server, b, `taking out its old copy: ${e}`)
+        done(false)
       }
     })
   },
 
+  // Once per build: not while it waits in the queue, and not while pump() is placing it (a world-reset pass at boot
+  // queues pending() again; life/landmarks.js placed goblin_village twice that way).
   enqueue(server, b) {
-    if (this.queue.some(q => q.name === b.name)) return
+    if (this.current === b.name || this.queue.some(q => q.name === b.name)) return
     this.queue.push(b)
     this.pump(server)
   },
@@ -636,7 +704,8 @@ const TtlBuilds = {
     var at = this.str(server, b, 'at')
     var state = v === b.version ? `placed at ${at}` : v ? `placed v${v} at ${at}, v${b.version} pending` :
       data.getInt(this.key(b, 'fails')) ? `FAILED ${data.getInt(this.key(b, 'fails'))}x` : 'pending'
-    if (this.queue.some(q => q.name === b.name)) state += ' (queued)'
+    if (this.current === b.name) state += ' (placing)'
+    else if (this.queue.some(q => q.name === b.name)) state += ' (queued)'
     return `${b.name}: ${b.title}, near ${b.x} ${b.z} in ${b.dimension}, ${state}`
   },
 

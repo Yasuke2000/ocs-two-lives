@@ -277,6 +277,8 @@ means **the city body carved into the apron with the mountain closing over it**.
   gate + (−12, −84) = (1888, −584); checkpoint arch gate + (0, +40); plaza gate + (0, −66); all dwargon-relative data.
 - **Dwarf village** (Tensura jigsaw, reach 116): (2000, −110), 150 blocks east of the road, on the apron foot (y 86, relief
   14, dry). **Dwarven Arena**: (2200, −80), survey 24, outside the village's keepout, in D.
+  *Superseded 19/11/2026:* the arena belongs IN the village (owner); it is `beside` the village at (2100, −90), survey 48,
+  against the village's real box (design/decisions.md 19/11 "Lerfing placements").
 - **Dragon's Nest**: the summit shoulder **(2420, −1536)**, y 273, relief 6 over 90 × 90, 100 blocks north of the lava lake,
   under the 316 peak; the build is 46 high with its floor at layer 8 → top ≈ 311 < 320 (WP-L7 asserts this; the lava lake
   itself and the peak are left as Lerfing made them).

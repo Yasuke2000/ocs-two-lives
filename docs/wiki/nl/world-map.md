@@ -45,7 +45,7 @@ Lerfing tekende de landen; de pack bepaalt welk land welk deel is. Enkele keuzes
 | Hoofdpoort van Dwargon | 1878, −544 | Dwargon | `dwargon` |
 | Dwargo, de grottenhoofdstad | 1878, −644 | Dwargon |  |
 | Dwergendorp aan de weg naar Dwargon | 2000, −110 | Dwargon | `dwarf_village` |
-| Dwergenarena | 2260, −80 | Dwargon | `dwarven_arena` |
+| Dwergenarena | 2100, −90 (oostkant van het dwergendorp) | Dwargon | `dwarven_arena` |
 | Grote Ameld, bron | 2500, −200 | Dwargon |  |
 | Drakennest (hoogste top van het Canaatgebergte) | 2420, −1536 | Dwargon | `dragons_nest` |
 | Meer van Siss | 3050, 750 | Moeras van Siss |  |

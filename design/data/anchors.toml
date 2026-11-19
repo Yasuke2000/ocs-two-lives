@@ -251,15 +251,18 @@ notes = "150 east of the road on the apron foot, y 78/81/88, dry."
 
 [dwarven_arena]
 name = "Dwarven Arena"
-x = 2260
-z = -80
+x = 2100
+z = -90
 region = "D"
 kind = "build"
 surface = "land"
 build = "dwarven_arena"
+of = "dwarf_village"
+dx = 100
+dz = 20
 old_x = -30
 old_z = -850
-notes = "East of the dwarf village, in D: WP-L4 moved it 60 east of the design's (2200, -80) so the box + search stays outside the village's keepout (spot + 116 reach + 64 offset + 24) wherever the village lands; box ground y 75/76/77, dry gravel and grass; survey 24."
+notes = "Part of the dwarf village (owner 19/11/2026: \"the arena is not even in the dwarven village\"; Tensura keeps the hall as dwarf_village/building/dwarf_arena): against the village's east side, the door in the arena's west wall facing the houses. The build is beside = dwarf_village, so only its 6-block margin stays off the village's real box; the survey (48) finds the spot next to wherever the village landed. Ground east of the village y 85/87/88 within 40 (relief 3), plains and the apron's gravel, dry. Was (2260, -80), 180 blocks from the houses (WP-L4 kept it outside the village's reach square)."
 
 [dragons_nest]
 name = "Dragon's Nest (highest peak of the Great Canaat Mountains)"

@@ -1483,6 +1483,20 @@ def check_landmarks(landmarks: dict) -> None:
             raise SystemExit(f"{where}: canon landmark {lm['canon']!r} not in canon_regions.json")
         if ("x" in lm) != ("z" in lm):
             raise SystemExit(f"{where}: give both x and z, or neither")
+        # Old copies life/landmarks.js takes out before the next placement (life/unplace.js), once per id.
+        ids = set()
+        for r in lm.get("remove", []):
+            if not isinstance(r, dict) or set(r) - {"id", "x", "z", "structure"} or not {"id", "x", "z"} <= set(r):
+                raise SystemExit(f"{where}: remove entries are {{ id, x, z }} (+ structure)")
+            if not re.fullmatch(r"[a-z0-9_]+", str(r["id"])) or r["id"] in ids:
+                raise SystemExit(f"{where}: remove id {r['id']!r} must be unique [a-z0-9_]")
+            ids.add(r["id"])
+            if not (is_int(r["x"]) and is_int(r["z"])):
+                raise SystemExit(f"{where}: remove {r['id']}: x and z must be integers")
+            if "structure" in r and not re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_/.-]+", str(r["structure"])):
+                raise SystemExit(f"{where}: remove {r['id']}: structure must be a namespaced id")
+        if "repair" in lm and not isinstance(lm["repair"], bool):
+            raise SystemExit(f"{where}: repair must be true or false")
         # Where: the anchors.toml anchor that names this landmark, else x/z, else the canon landmark's `at`.
         linked = anchor_refs.linked("landmark", name)
         if linked and "x" in lm and (lm["x"], lm["z"]) != (linked["x"], linked["z"]):

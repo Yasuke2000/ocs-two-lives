@@ -14,10 +14,17 @@
 #               keeps it `keepout` blocks clear of Tempest and Dwargon (and reach + 64 off Lerfing's builds, the
 #               anchors.toml keepouts), and sets the area held while it is placed
 #   surface   = "land" (dry and as flat as possible), "water" (a shore: part lake, part land) or "any"
-#   version   = bump to place this landmark again on the next start (the old copy stays where it was)
+#   version   = bump to place this landmark again on the next start (the old copy stays unless `remove` names it)
+#   remove    = old copies to take out before the next placement, once each: [{ id, x, z }, ...] where x, z is the spot
+#               the old copy was placed at (the log's "placed ... at X Y Z"; the "not placed at"/"failed at" spots of the
+#               marker-era placer count too, they may hold a copy). life/unplace.js regenerates that start from seed +
+#               chunk and removes only blocks that are still the structure's own (>= 50 % must match, else it was not
+#               there and nothing happens); `structure` per entry when it differs. Done flags: ttl.landmark.<name>.removed.<id>
+#   repair    = false: no foundation under the rigid pieces (life/repair.js); repair_depth / repair_keep_water as for builds
 #
-# There is no y: `/place structure` only uses the chunk; the jigsaw projects its start piece onto the generator's
-# surface heightmap itself. It also skips terrain adaptation (beard), so the script tries the nominal spot and
+# There is no y: the jigsaw projects its pieces onto the chunk GENERATOR's surface, which on Lerfing's imported map is
+# not the real ground; the script moves every rigid group onto the real ground and fills a foundation under it
+# (life/landmarks.js steps 4 and 7). Terrain adaptation (beard) is skipped, so the script tries the nominal spot and
 # up to 16 nearby spots (32 and 64 blocks out) and picks the flattest one that fits `surface`.
 
 keepout = 60
@@ -29,7 +36,10 @@ structure = "tensura:villages/goblin_village/oak"
 canon = "Old goblin village (Rigurd's tribe)"
 reach = 48
 surface = "land"
-version = 1
+version = 2
+# Staging (Lerfing import, 19/11/2026) placed it twice in one boot (a world-reset pass queued it again while it was being
+# placed), both copies overlapping, ungrounded: both go, version 2 is placed once, grounded.
+remove = [{ id = "lerfing_1", x = 1390, z = 742 }, { id = "lerfing_2", x = 1358, z = 710 }]
 notes = "Rigurd's poor village of wooden huts in the Jura forest, north-west of Tempest; goblin spawn pieces."
 
 [[landmark]]
@@ -59,7 +69,11 @@ structure = "tensura:villages/orc_village"
 canon = "Orc War battlefield (Lake Siss marsh)"
 reach = 40
 surface = "land"
-version = 1
+version = 2
+# Staging (Lerfing import): "place structure failed" at all four tries, but the read-back marker was what failed: each
+# try may have left a copy (a local run of the same boot left whole structures at "failed" spots). Whatever stands there
+# goes before version 2 is placed.
+remove = [{ id = "lerfing_1", x = 3600, z = 1250 }, { id = "lerfing_2", x = 3623, z = 1227 }, { id = "lerfing_3", x = 3632, z = 1250 }, { id = "lerfing_4", x = 3600, z = 1282 }]
 notes = "Geld's horde camped south-east of Lake Siss; the orc village has an orc lord spawn piece."
 
 [[landmark]]
@@ -68,7 +82,10 @@ title = "Dwarf village on the Dwarven Road"
 structure = "tensura:villages/dwarf_village"
 reach = 116
 surface = "land"
-version = 1
+version = 2
+# Staging (Lerfing import) placed it ungrounded: its rigid buildings float over the Canaat apron on the generator's
+# heights. The floating copy goes, version 2 is grounded with a foundation.
+remove = [{ id = "lerfing_1", x = 2000, z = -110 }]
 notes = "Beside the road from Tempest to Dwargon's gate, on the Canaat apron foot just inside Dwargon's border (D), about 150 blocks east of the road (anchors.toml dwarf_village)."
 
 [[landmark]]

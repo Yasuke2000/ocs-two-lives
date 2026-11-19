@@ -27,8 +27,17 @@ only.
 
 ## Place
 
-Beside the dwarf village on the Dwarven Road (`landmarks.toml dwarf_village`, nominal 250 -740, placed at 205 -695 by the survey, reach 116), in the Dwargon region
-(D on `canon_map.txt`) like the village. The placer keeps a 24 block gap from a landmark's reach square, so the arena
-stands at -30 -850 (survey radius 16), west-north-west of the village: outside the Dwargon capital domain (x 179..691,
-z -1256..-744) and 200+ blocks from the Life 2 arrival (271 -624). As an unowned canon build it is protected from block
-edits (`factions.toml [domains] unowned_builds`), which is what an arena wants.
+In the dwarf village (19/11/2026, Lerfing's map). Yasuke's issue asked for the arena "in the dwarven village", and
+Tensura itself files the hall among the village's buildings (`dwarf_village/building/dwarf_arena`); Gazel's own hall,
+the boss room, is already the throne room inside Dwargon (`design/lore/dwargon.md`), and the gate's cleft and queue
+lanes leave no room for a 75 x 51 hall at the forecourt, so the village is the lore-accurate home (*our
+interpretation*). Anchor `dwarven_arena` = `dwarf_village` + (100, 20) = (2100, -90), `beside = "dwarf_village"`: the
+placer keeps only the build's 6-block margin off the village's real (recorded) box and surveys 48 blocks round the
+anchor, so the hall stands against the village's east side with its west door facing the houses, on the flat plains
+and gravel east of the village (ground y 85-88, relief 3). It stays in the Dwargon region (D), 380+ blocks from the
+Life 2 arrival, and as an unowned canon build it is protected from block edits (`factions.toml [domains]
+unowned_builds`), which is what an arena wants.
+
+Before (WP-L4 of the import, version 1) it stood at (2256, -76), 180 blocks east of the village, because the placer then
+kept builds a whole reach square (116 + 64 + 24) off a landmark's spot; version 2 moves it and `life/builds.js` takes the
+version-1 copy out block for block first. On the old continent it stood west-north-west of the village at -30 -850.

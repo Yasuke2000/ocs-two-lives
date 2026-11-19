@@ -2830,7 +2830,7 @@ hash = "5be721009daa4fe3b83d3be9a1a1de67999de47694689a8ceef75e4d1237bbcc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/director.js"
-hash = "06ddb5ab80fcdfd302067ab5c610141037083d4659c3d2090b01052e6875a2f0"
+hash = "38ab9dc29285abba24c08395ba1c059acb3e2e6d00ff260d33c9d512383a8afe"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/favor.js"
@@ -2846,7 +2846,7 @@ hash = "aba724b81546b1b73b253460418b272ac2ee350f2ba0761423c847bd4900585a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/anchors.js"
-hash = "07a7150b1aacd2df2fb676136fb589c581a5ef4491b4621837616236e55a7a63"
+hash = "83bfb553ef523bf6bef2b162de6c7096f52af5d3cfe7dcf396ae1dbacafc8a45"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
@@ -2854,7 +2854,7 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "1167a72ac3d8ed1f9848b178a96b845e2dd2603befbddddf9dec0b32a1821db8"
+hash = "cc8cee62fae6b5184cea98fe0f059d41aea298aa328bf616351561ace7f056dc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2914,7 +2914,7 @@ hash = "a9a20fd625f9f3b7e0567e72578c5a9728111dca40efeb513f39a5f107b92c44"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
-hash = "e4d6a6beb1735f4c4e26fa4f02fc4d65da507055ac05303b43f22646c6a2a375"
+hash = "c32b41cc49779bb8801233afbf9d6cfeac0a6ee09b49811c3bba8b24fd5904bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
@@ -2962,7 +2962,7 @@ hash = "632a216919c81c8bff7e7f4ff9bcc82aa383653750780fde9e6cc116c5be2fa2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/landmarks.js"
-hash = "e8ae845de50ae70a116bdec46a2596670489fc30f7c049a557405e938a2177d2"
+hash = "6d3a6b2044ed9f9093b7d254b042a31ec902fec030c60e4d87e2fde6f753b277"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/locate.js"
@@ -3015,6 +3015,10 @@ hash = "53ec9a2f128025a2528acfed5dee1cc7f542f938931acbdff9b6c42f9f5c9ed4"
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial_defs.js"
 hash = "ab0d55f5e7cf3386a370ea059dde43b737f106083b3dd2ea11c5bba3b450a399"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/unplace.js"
+hash = "45be2caceba8644c8e325ec46a523b5077c1baed1a1280b51b122465f523a2f4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/voice_npc.js"
@@ -3158,7 +3162,7 @@ hash = "7ccba9a500d6dec5c269a9ebefdae245599533f69547a0ee1c747f3e7d3f920e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/chronicle.js"
-hash = "dc5860384cbd76be95ab7ed811a0898d7d7ea634ab235bc7d292909084535d38"
+hash = "77d1cfcde382e3dc78e64b4a2920f51bfc1b28143923cfc363a6e7bd425316e1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/commands.js"
@@ -3561,7 +3565,7 @@ metafile = true
 
 [[files]]
 file = "mods/ttl-portals.pw.toml"
-hash = "f448f03be320ac8aca862122560cb584b3a7f5f7095375e4adae71a852e8289c"
+hash = "4494eaa1d933cd7a2d24e84fad9146b5c3db843f99cc89708ebe2961122d40bb"
 metafile = true
 
 [[files]]
