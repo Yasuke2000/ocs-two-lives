@@ -13,7 +13,8 @@ Steps (design/architecture/own-world.md §5.1, "Local-first"):
   2. tools/world/svg2rasters.py: height, rugged, water, road, biome, site and exclusion rasters + index.json,
      sites.json, roads.json, canon_map.txt;
   3. tools/world/raster_preview.py: <out>/preview.png, the rasters as the generator will see them;
-  4. tools/world/sites_from_builds.py: world/sites.toml with the sites' kinds, radii and walking levels;
+  4. tools/world/sites_from_builds.py: the sites' kinds, radii and walking levels (<out>/sites.toml; world/sites.toml
+     itself only with --apply, since tests/test_world_sites.py checks it against the live rasters);
   5. anchors: x, z (the SVG site centres; relative anchors keep <of> + dx/dz) and y (the walking level: the plate's
      ground, a pin's surface) for every anchor the SVG places. Every other line of anchors.toml is kept as it is.
      Without --apply the result goes to <out>/anchors.toml for review.
@@ -160,12 +161,16 @@ def main(argv=None):
     print("preview: %s" % preview)
 
     src = sfb.Sources()
-    sites, reqs = sfb.derive(src, sfb.svg_sites(svg), sfb.raster_grounds(out), sfb.load_existing(args.sites))
-    Path(args.sites).write_text(sfb.dumps(sites, sfb.load_existing(args.sites)), encoding="utf-8", newline="\n")
+    existing = sfb.load_existing(args.sites)
+    sites, reqs = sfb.derive(src, sfb.svg_sites(svg), sfb.raster_grounds(out), existing)
+    sites_out = Path(args.sites) if args.apply else out / "sites.toml"
+    sites_out.write_text(sfb.dumps(sites, existing), encoding="utf-8", newline="\n")
     bad = sfb.problems(sites, reqs)
     for b in bad:
         print("error: sites: " + b, file=sys.stderr)
-    print("sites: %s" % args.sites)
+    for w in sfb.drawn_small(sites):
+        print("warn: sites: " + w, file=sys.stderr)
+    print("sites: %s" % sites_out)
 
     index = json.loads((out / "index.json").read_text(encoding="utf-8"))
     coords = anchor_coords(index, src.anchors)
