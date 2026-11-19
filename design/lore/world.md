@@ -23,7 +23,9 @@ Source: https://tensura.fandom.com/wiki/Magic_Continent, https://tensura.fandom.
 
 ## Regions
 
-Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
+Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks. Around every canon build and landmark a
+**site** (`sites` in `canon_regions.json`, 19/11/2026) overrides the region's palette and terrain with what that
+build's style and lore need: docs/server.md "Site biomes" and the decisions.md row of 19/11/2026.
 
 ### J: Jura-Tempest Federation (ジュラ・テンペスト連邦国)
 
@@ -83,7 +85,11 @@ Grid letter, name, `banner_subtitle`, then lore, terrain and landmarks.
   - Dwargo, the cavern capital: [1869, 836] → (419, -1661).
   - Main gate, facing Jura: [1872, 868] → (436, -1487).
   - Dragon's Nest: [1860, 700] → (370, -2402).
-- **Biomes.** meadow 3 (dwarf villages), grove 2, windswept_hills 2, windswept_forest 2, snowy_slopes 2,
+- **Owner override (19/11/2026).** Dwargon itself stands **on a plain**: its site in `canon_regions.json` levels the
+  ground to y 72 (plains) inside a plains/meadow lowland of about 230 blocks, so the city sits at the foot of the range
+  and the peaks rise further north. Our interpretation of "a natural hollow at the foot of the Canaat Mountains".
+- **Biomes** (before 19/11/2026; now meadow 3, windswept_hills 2, windswept_forest 2, taiga 2,
+  old_growth_spruce_taiga 1, grove 1, windswept_gravelly_hills 1, no snowy_slopes on low land). Was: meadow 3 (dwarf villages), grove 2, windswept_hills 2, windswept_forest 2, snowy_slopes 2,
   old_growth_spruce_taiga 1, taiga 1, windswept_gravelly_hills 1.
 - **Distances.** The trip from the goblin village to Dwargon takes about two months on foot and three days on
   Tempest wolves.

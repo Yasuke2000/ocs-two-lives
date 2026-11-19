@@ -8,6 +8,14 @@ not allowed, so the facts below come from search-engine extracts and the sources
 *(unverified)* are from memory of the anime, manga and light novel and could not be checked; treat them as our own
 design choices.
 
+## Owner override: Dwargon on a plain (19/11/2026)
+
+Yasuke, after looking at the public map: "Dwargon should be on a plain, not an ice mountain." The city's site in
+`pack/config/ttl/canon_regions.json` (`dwargon`, flat ground y 72, plains; `dwargon_plain`, a plains/meadow
+lowland of radius 230) wins over the lore's "hollow at the foot of the Canaat Mountains" for the area round the
+build: the city stands on open ground and the Canaat peaks rise behind it to the north. The build's own sandstone
+mountain stays. Takes effect on the next overworld reset (docs/HANDOFF.md).
+
 ## Facts the build follows
 
 | Fact | How the build shows it | Source |

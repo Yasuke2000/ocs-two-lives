@@ -24,7 +24,8 @@ import org.slf4j.Logger;
 /**
  * Density function {@code ttl:canon_map}: inside the canon continent (pack/config/ttl/canon_map.txt) it
  * steers one climate channel of the overworld noise router, and returns {@code outside} (vanilla) beyond
- * the open-sea ring. The vanilla overworld router is wrapped through pack/kubejs/data/minecraft/worldgen.
+ * the open-sea ring; the per-build {@link CanonSites} steer it further around canon builds (ridges only there).
+ * The vanilla overworld router is wrapped through pack/kubejs/data/minecraft/worldgen.
  */
 public record CanonMap(Channel channel, DensityFunction outside) implements DensityFunction {
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -40,13 +41,16 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
 
     static {
         TYPES.register("canon_map", () -> MAP_CODEC);
+        TYPES.register("canon_sites", () -> CanonSiteTerrain.MAP_CODEC);
     }
 
     public enum Channel implements StringRepresentable {
         CONTINENTS("continents", -1),
         EROSION("erosion", CanonGrid.EROSION),
         TEMPERATURE("temperature", CanonGrid.TEMPERATURE),
-        VEGETATION("vegetation", CanonGrid.VEGETATION);
+        VEGETATION("vegetation", CanonGrid.VEGETATION),
+        /** Weirdness: only the canon sites steer it (mountain intents), everywhere else it is vanilla's. */
+        RIDGES("ridges", -2);
 
         public static final Codec<Channel> CODEC = StringRepresentable.fromEnum(Channel::values);
         private final String name;
@@ -82,7 +86,11 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
     }
 
     public double apply(CanonGrid grid, int x, int z, double o) {
-        return channel == Channel.CONTINENTS ? grid.continents(x, z, o) : grid.climate(channel.index, x, z, o);
+        return switch (channel) {
+            case CONTINENTS -> grid.continents(x, z, o);
+            case RIDGES -> grid.ridges(x, z, o);
+            default -> grid.climate(channel.index, x, z, o);
+        };
     }
 
     @Override
@@ -100,7 +108,8 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
     @Override
     public double maxValue() {
         double o = outside.maxValue();
-        return channel == Channel.CONTINENTS ? Math.max(o, CanonGrid.CONT_MAX + CanonGrid.WIGGLE * Math.max(0, o)) : Math.max(o, 1);
+        // Mountain sites may lift continentalness up to 1 (CanonSites.Terrain.MOUNTAIN targets 0.75).
+        return channel == Channel.CONTINENTS ? Math.max(o, Math.max(1, CanonGrid.CONT_MAX + CanonGrid.WIGGLE * Math.max(0, o))) : Math.max(o, 1);
     }
 
     @Override
@@ -135,10 +144,11 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
         try {
             JsonObject json = JsonParser.parseString(Files.readString(dir.resolve("canon_regions.json"), StandardCharsets.UTF_8)).getAsJsonObject();
             Map<Character, CanonGrid.Region> regions = CanonConfig.regions(json, msg -> LOGGER.warn("[ttl] {}", msg));
+            CanonSites sites = CanonConfig.sites(json, msg -> LOGGER.warn("[ttl] {}", msg));
             double ring = json.has("ring") ? json.get("ring").getAsDouble() : 1600;
             double blend = json.has("blend") ? json.get("blend").getAsDouble() : 800;
             long start = System.nanoTime();
-            CanonGrid grid = CanonGrid.load(dir.resolve("canon_map.txt"), regions, ring, blend);
+            CanonGrid grid = CanonGrid.load(dir.resolve("canon_map.txt"), regions, ring, blend).withSites(sites);
             LOGGER.info("[ttl] canon map loaded in {} ms: {}", (System.nanoTime() - start) / 1_000_000, grid.describe());
             return grid;
         } catch (Exception e) {

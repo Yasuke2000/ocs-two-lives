@@ -45,7 +45,9 @@ import org.slf4j.Logger;
  * {@code ttl:canon_biomes}: the Tensura world's biome source. The canon_map density functions still shape the
  * terrain; this picks the biome on top of it, per nation, from the weighted palettes in canon_regions.json.
  *
- * <p>Per quart position: vanilla's choice from the preset (plain {@code findValue}, no TerraBlender) is kept for
+ * <p>Per quart position: a canon site ({@link CanonSites}) with biomes comes first: inside its biome edge its own list
+ * replaces ordinary land and peaks, and a {@code flat} site also replaces water, shores and cave biomes above its solid
+ * band (its terrain has none of those left). Otherwise vanilla's choice from the preset (plain {@code findValue}, no TerraBlender) is kept for
  * water, shores, rivers, mushroom fields and cave biomes, and for peaks/slopes unless the nation sets
  * {@code replace_peaks}; ocean picked inside a canon lake ('~') becomes river. Any other land inside a nation
  * (letter at the dithered block, nearest nation for '~' and coastal water) takes a palette biome, laid out in
@@ -68,14 +70,14 @@ public final class CanonBiomes extends BiomeSource {
             RegistryOps.retrieveGetter(Registries.BIOME)
     ).apply(i, CanonBiomes::new));
 
-    static final byte LAND = 0, KEEP = 1, OCEAN = 2, FROZEN_OCEAN = 3, PEAK = 4;
+    static final byte LAND = 0, KEEP = 1, OCEAN = 2, FROZEN_OCEAN = 3, PEAK = 4, CAVE = 5;
     private static final Map<String, Byte> VANILLA_KINDS = Map.ofEntries(
             Map.entry("ocean", OCEAN), Map.entry("deep_ocean", OCEAN), Map.entry("cold_ocean", OCEAN),
             Map.entry("deep_cold_ocean", OCEAN), Map.entry("lukewarm_ocean", OCEAN), Map.entry("deep_lukewarm_ocean", OCEAN),
             Map.entry("warm_ocean", OCEAN), Map.entry("frozen_ocean", FROZEN_OCEAN), Map.entry("deep_frozen_ocean", FROZEN_OCEAN),
             Map.entry("beach", KEEP), Map.entry("snowy_beach", KEEP), Map.entry("stony_shore", KEEP),
             Map.entry("river", KEEP), Map.entry("frozen_river", KEEP), Map.entry("mushroom_fields", KEEP),
-            Map.entry("lush_caves", KEEP), Map.entry("dripstone_caves", KEEP), Map.entry("deep_dark", KEEP),
+            Map.entry("lush_caves", CAVE), Map.entry("dripstone_caves", CAVE), Map.entry("deep_dark", CAVE),
             Map.entry("jagged_peaks", PEAK), Map.entry("frozen_peaks", PEAK), Map.entry("stony_peaks", PEAK),
             Map.entry("snowy_slopes", PEAK), Map.entry("grove", PEAK));
     private static final Byte LAND_BOXED = LAND;
@@ -119,6 +121,22 @@ public final class CanonBiomes extends BiomeSource {
         CanonGrid grid = r.grid;
         if (grid == null) return outside(target, x, y, z, why, "canon map not loaded");
         int bx = QuartPos.toBlock(x) + 2, bz = QuartPos.toBlock(z) + 2;
+        int site = grid.sites().biomeSite(bx, bz);
+        if (site >= 0 && r.siteHolders[site] != null) {
+            Holder<Biome> vanilla = parameters().findValue(target);
+            byte kind = r.kinds.getOrDefault(vanilla, LAND_BOXED);
+            CanonSites.Site s = grid.sites().site(site);
+            // A flat site has no water and no open cave near its surface, so it takes those biomes too (deeper cave biomes stay).
+            boolean take = kind == LAND || kind == PEAK
+                    || (s.flat() && (kind != CAVE || QuartPos.toBlock(y) >= s.ground() - CanonSites.SOLID_BAND));
+            if (take) {
+                CanonPalette pal = r.sitePalettes[site];
+                Holder<Biome> chosen = r.siteHolders[site][pal.pick(CanonPalette.mix(CanonPalette.patch(seed, bx, bz) ^ grid.sites().salt(site)))];
+                if (why != null) why.append("site '").append(s.name()).append("' (").append(s.terrain().id()).append("), vanilla would be ")
+                        .append(vanilla.unwrapKey().map(k -> k.location().toString()).orElse("?"));
+                return chosen;
+            }
+        }
         char owner = grid.ownerAt(bx, bz, seed);
         if (owner == 0) return outside(target, x, y, z, why, "outside the canon land");
 
@@ -136,7 +154,7 @@ public final class CanonBiomes extends BiomeSource {
             if (why != null) why.append("vanilla kept (ocean)");
             return vanilla;
         }
-        if (kind == KEEP) {
+        if (kind == KEEP || kind == CAVE) {
             if (why != null) why.append("vanilla kept (shore/river/mushroom/cave)");
             return vanilla;
         }
@@ -198,9 +216,15 @@ public final class CanonBiomes extends BiomeSource {
         final boolean[] frozen = new boolean[128], hasTemperature = new boolean[128]; // temperature knob < -0.45: frozen_river
         final List<Holder<Biome>> paletteBiomes = new ArrayList<>();
         @Nullable Holder<Biome> river, frozenRiver;
+        /** Per site (CanonSites order): its known biomes and their holders, null when it has none. */
+        final CanonPalette[] sitePalettes;
+        final Holder<Biome>[][] siteHolders;
 
         Resolved(@Nullable CanonGrid grid) {
             this.grid = grid;
+            int n = grid == null ? 0 : grid.sites().size();
+            this.sitePalettes = new CanonPalette[n];
+            this.siteHolders = newHolderGrid(n);
         }
     }
 
@@ -258,8 +282,18 @@ public final class CanonBiomes extends BiomeSource {
                 r.regions[c] = new RegionPalette(region.name(), land, landHolders, region.replacePeaks(), peaks, peakHolders, rings, ringHolders);
                 nations.add(c + "=" + land.size() + (region.replacePeaks() ? "+peaks" : "") + (zones == null ? "" : "+" + zones.size() + "rings"));
             }
+            int siteCount = 0;
+            for (int i = 0; i < grid.sites().size(); i++) {
+                CanonSites.Site site = grid.sites().site(i);
+                if (site.biomes() == null) continue;
+                CanonPalette known = known(site.biomes(), unknown);
+                if (known == null) continue;
+                r.sitePalettes[i] = known;
+                r.siteHolders[i] = holders(known, r);
+                siteCount++;
+            }
             if (!unknown.isEmpty()) LOGGER.warn("[ttl] canon biomes: unknown biome ids skipped: {}", unknown);
-            LOGGER.info("[ttl] canon biomes: palettes for {} nations {}", nations.size(), nations);
+            LOGGER.info("[ttl] canon biomes: palettes for {} nations {}, biomes for {} of {} sites", nations.size(), nations, siteCount, grid.sites().size());
             return r;
         } catch (RuntimeException e) {
             LOGGER.error("[ttl] canon biomes: palette data unusable, the Tensura world gets normal overworld biomes", e);

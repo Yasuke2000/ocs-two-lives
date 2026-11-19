@@ -1550,7 +1550,7 @@ hash = "19558c53e35282b9062ca492ba6a65290a40812d1a3d0c8fd2197832e7ecface"
 
 [[files]]
 file = "config/ttl/canon_regions.json"
-hash = "a49d1234cbe245cdcbd6d4355b8463fb8805129731d831f0c736bad7234d64b9"
+hash = "b23a1cd0edb014b59847ab14bc986456700479ac414a99f9af514054d8aae599"
 
 [[files]]
 file = "config/vanilla_structures/placement_structure_config.json5"
@@ -1861,8 +1861,12 @@ file = "kubejs/data/minecraft/worldgen/density_function/overworld/erosion.json"
 hash = "1cf4668bbb0f24f73300f66bf2c16a070b4304f0f93e07bb1d548edf3a0008fd"
 
 [[files]]
+file = "kubejs/data/minecraft/worldgen/density_function/overworld/ridges.json"
+hash = "2b85aae8d5bb8d25fe4b379b6377e91625ec4720c091b36d2d07d995fd965e6f"
+
+[[files]]
 file = "kubejs/data/minecraft/worldgen/noise_settings/overworld.json"
-hash = "cb31a8f62f314fd763dafca5b7ab3adf52b7d6e8b78e527dab7ac3d1146d947c"
+hash = "d371718f5d48693397c5203557ac8d9b7437c6bc07319e1a1afe0781cb55bc35"
 
 [[files]]
 file = "kubejs/data/tensura/loot_table/advancement_reward/adamantite.json"

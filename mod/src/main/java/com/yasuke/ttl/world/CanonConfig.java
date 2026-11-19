@@ -11,7 +11,8 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Reads the {@code regions} of canon_regions.json into {@link CanonGrid.Region}s. Only Gson, no Minecraft types, so
+ * Reads the {@code regions} of canon_regions.json into {@link CanonGrid.Region}s and its {@code sites} into
+ * {@link CanonSites}. Only Gson, no Minecraft types, so
  * {@link CanonGrid#main} can check the real file. Malformed pieces are skipped through {@code warn}; a region with
  * broken {@code zones} simply has none (its plain {@code biomes} palette applies).
  */
@@ -95,6 +96,40 @@ public final class CanonConfig {
             warn.accept("canon region " + region + ": zones ignored, the plain 'biomes' palette applies (" + ex + ")");
             return null;
         }
+    }
+
+    /**
+     * {@code "sites": [{"name", "centre": [x, z], "radius", "fade", "terrain": keep|flat|lowland|hills|mountain,
+     * "ground" (flat), "biomes": [[id, weight], ...] (optional), "erosion"/"continents"/"ridges" (optional)}, ...]}:
+     * see {@link CanonSites}. Other keys (notes) are ignored; a malformed site is skipped with a warning.
+     */
+    public static CanonSites sites(JsonObject json, Consumer<String> warn) {
+        JsonElement v = json.get("sites");
+        if (v == null || v.isJsonNull()) return CanonSites.NONE;
+        if (!v.isJsonArray()) {
+            warn.accept("canon sites: 'sites' is not a list; no sites");
+            return CanonSites.NONE;
+        }
+        List<CanonSites.Site> sites = new ArrayList<>();
+        java.util.Set<String> names = new java.util.HashSet<>();
+        for (JsonElement e : v.getAsJsonArray()) {
+            String name = "?";
+            try {
+                JsonObject s = e.getAsJsonObject();
+                name = s.get("name").getAsString();
+                if (!names.add(name)) throw new IllegalArgumentException("duplicate name");
+                JsonArray centre = s.getAsJsonArray("centre");
+                CanonPalette biomes = s.has("biomes") ? palette(s, "biomes", "site " + name, warn) : null;
+                if (s.has("biomes") && biomes == null) throw new IllegalArgumentException("biomes has no usable entry");
+                CanonSites.Terrain terrain = CanonSites.Terrain.of(s.has("terrain") ? s.get("terrain").getAsString() : "keep");
+                sites.add(CanonSites.Site.of(name, centre.get(0).getAsDouble(), centre.get(1).getAsDouble(),
+                        s.get("radius").getAsDouble(), s.has("fade") ? s.get("fade").getAsDouble() : 0, biomes, terrain,
+                        s.has("ground") ? s.get("ground").getAsInt() : null, knob(s, "continents"), knob(s, "erosion"), knob(s, "ridges")));
+            } catch (RuntimeException ex) {
+                warn.accept("canon site " + name + " skipped: " + ex);
+            }
+        }
+        return sites.isEmpty() ? CanonSites.NONE : new CanonSites(sites.toArray(CanonSites.Site[]::new));
     }
 
     @Nullable
