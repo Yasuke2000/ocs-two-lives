@@ -101,9 +101,13 @@ const TtlCompanion = {
     return rec && rec.npc ? TtlSideNpc.byUuid(server, rec.dim, rec.npc) : null
   },
 
-  equip(server, e, hire) {
+  // The kind's npc_gear.toml role gives the hands (hire.weapon when the role holds nothing); hands and armour never drop.
+  equip(server, e, hire, kind) {
     var id = TtlSideNpc.uuidOf(e)
-    TtlCmd.run(server, `item replace entity ${id} weapon.mainhand with ${hire.weapon}`)
+    var role = typeof TtlNpcGear !== 'undefined' && kind ? TtlNpcGear.role(kind.role) : null
+    TtlCmd.run(server, `item replace entity ${id} weapon.mainhand with ${role && role.main ? role.main : hire.weapon}`)
+    if (role && role.off) TtlCmd.run(server, `item replace entity ${id} weapon.offhand with ${role.off}`)
+    TtlCmd.run(server, `data merge entity ${id} {HandDropChances:[0.0f,0.0f],ArmorDropChances:[0.0f,0.0f,0.0f,0.0f]}`)
     var a = String(hire.armor || '')
     if (a) {
       var mat = a === 'chainmail' ? 'chainmail' : a
@@ -123,7 +127,7 @@ const TtlCompanion = {
     TtlSideNpc.cmd(server, e, 'objective {npc} set follow owner')
     TtlSideNpc.health(server, e, Number(k.hire.hp))
     TtlCmd.run(server, `attribute ${TtlSideNpc.uuidOf(e)} minecraft:generic.attack_damage base set 2`)
-    this.equip(server, e, k.hire)
+    this.equip(server, e, k.hire, k)
     rec.npc = TtlSideNpc.uuidOf(e)
     rec.dim = String(pos.dim)
     rec.lx = e.getX()

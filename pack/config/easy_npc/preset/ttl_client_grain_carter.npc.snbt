@@ -99,6 +99,12 @@
       Type:"STANDARD"
     },
     EasyNPCVersion:3,
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {},
+      {}
+    ],
     Invulnerable:0b,
     ObjectiveData:{
       ObjectiveDataSet:[
@@ -110,6 +116,14 @@
         },
         {
           Type:"FLOAT"
+        },
+        {
+          SpeedModifier:1.0d,
+          Type:"FLEE_MONSTER"
+        },
+        {
+          SpeedModifier:1.2d,
+          Type:"PANIC"
         }
       ]
     },

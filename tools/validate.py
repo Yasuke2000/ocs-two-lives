@@ -107,7 +107,7 @@ def check_config_text() -> None:
 
 
 def check_generated() -> None:
-    for tool in ("gen_data.py", "gen_npcs.py", "gen_quests.py", "quest_graph.py", "config_index.py", "build_structures.py"):
+    for tool in ("gen_data.py", "gen_npcs.py", "gen_quests.py", "quest_graph.py", "config_index.py", "build_structures.py", "gen_placements.py"):
         r = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / tool), "--check"], capture_output=True, text=True)
         if r.returncode != 0:
             errors.append(r.stdout.strip() or r.stderr.strip())

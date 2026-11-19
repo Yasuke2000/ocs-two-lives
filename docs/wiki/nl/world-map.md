@@ -8,6 +8,8 @@ De posities wijzen het midden van een plek aan; de precieze ingang hangt van de 
 
 Je komt aan bij **(1660, −100)** aan de noordrand van Jura, op de weg tussen de twee plekken waar elke ziel het eerst van hoort. **De witte poort van Dwargon ligt in het noorden** op **(1878, −544)**, een klim (ongeveer 500 blokken, iets ten oosten van het noorden). **Tempest ligt in het zuiden** op **(1720, 900)**, 1.000 blokken verderop, voorbij de gevaarlijke binnenringen van het bos. Lees [de ringen van Jura](jura-rings.md) voor je naar het zuiden loopt.
 
+**De Dwergenweg** verbindt de twee: een weg van 4 blokken breed met om de 40 blokken een lantaarnpaal, van het controlepunt van Dwargon op (1878, −497) de helling van de Canaat af, 30 blokken ten oosten van de aankomst, en dan naar het zuiden door het dal van Jura tot de noordrand van Tempest op (1720, 842), samen ongeveer 1.480 blokken. Op de berg is hij met steen geplaveid, in Jura is het een pad van aarde en grind. Tempest ligt op een open plek in een dicht oerbos (reuzenbomen tot 45 blokken hoog), net als het heiligdom van Treyni. Volg de weg: in het bos verdwaal je snel.
+
 Voor het hele continent gebruik je [BlueMap](https://map.daviddelporte.com) (kies **Tensura (Life 2)**; landschap en markeringen, geen live spelersposities) of de [atlas met regio’s en ankerpunten](../../previews/lerfing_regions.png), die ook werkt als de webkaart offline is.
 
 ## Het continent in een oogopslag

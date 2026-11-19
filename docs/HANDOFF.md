@@ -14,6 +14,32 @@ ungrouped on top; Life 2 chapter `order` renumbered to the story path. Ids uncha
 deploy**: `tests/ingame/quests.rcon`, the two tabs in the chapter list (and their Dutch titles with the game in Dutch),
 that hidden lines stay hidden and the "Needs" line reads well. The `lane`/`col` lines in the chapter TOMLs are now
 ignored and can be deleted once the open quest branches have landed.
+## 19/11 evening — Tempest in the forest, the Dwarven Road, Treyni's old wood (Claude, branch `tempest-forest-road`)
+
+Owner requests: Tempest stands on open grass (it should be deep in the forest), no road to Dwargon, Treyni's shrine in the open.
+Cause of the bare core: Tensura's ancient-forest trees are jigsaw structures, and the import counts structure steps as done.
+New: `life/works.js` (one-time world works runner: chunk tickets per piece, 25 ms/tick, resumable, versioned), `life/forests.js`
+(patches `tempest` r 60..250 and `treyni` r 25..180), `life/trade_roads.js` (`tempest_dwargon`, 1,478 blocks); data in
+`design/data/forests/` and `design/data/trade_roads/`, planned offline by `tools/lerfing/forests.py` / `trade_roads.py` on the
+imported world, `tools/gen_placements.py` -> `generated/placements.js`; preview `docs/previews/tempest-forest-road.png`;
+docs/server.md "Forests and trade roads". **Verified offline**: `tests/test_works.py` + `tests/works.js` (JS geometry equals the
+planners', commands on synthetic terrain), `tools/check.sh`. **Not verified in game yet**: the local Lerfing server was
+owned by the landmark agent; next is `tools/local.sh sync` + `test works` on a slot, then staging after the deploy
+(`tools/server.sh test works`, log lines `[ttl] trade road tempest_dwargon laid` / `[ttl] forest <id> planted`). Next
+possible: Tempest -> Blumund as a second `roads.toml` entry (crosses the Blumund channel: a long bridge).
+
+## 19/11 evening — NPC weapons and self-defence (branch `npc-gear-ai`, Claude)
+
+Yasuke: the Tempest guards and the NPCs had no weapons and did not defend themselves. `design/data/npc_gear.toml` (roles:
+items + ai), `tools/npc_gear_check.py`, `world/npc_gear.js` (resident equipment, guard loop, drop filter, `/ttl npcgear`).
+Tempest goblins were summoned with NBT, so Tensura never armed them; now guards hold iron katanas, Rigur a long sword and
+shield, Gobta a kodachi, Rigurd a goblin club, and the guards are set on monsters near their post through their
+SmartBrainLib brain (`BrainUtils.setTargetOfEntity`, falls back to `setTarget`). Easy NPC adventurers fight
+(MELEE_ATTACK, ATTACK_MOB_WITHOUT_CREEPER, HURT_BY_TARGET), merchants and civilian clients flee (FLEE_MONSTER, PANIC).
+**Verified offline only** (check.sh, `tests/test_npc_gear.py`). **Needs a local-server slot**: `bash tools/local.sh test
+npc_defend` (and `domains`, `companions`, `sidequests`). Unverified in game, in order of risk: the brain target on Tensura
+goblins (if the husk survives, look for the "BrainUtils cannot be loaded" warning); `EntityEvents.drops` firing for a
+goblin (the katana check); Easy NPC reading HandItems from the preset (`equipSide` sets them anyway after the import).
 
 ## 19/11 evening — Tensura looks for the generic NPCs (branch `tensura-npc-skins`, Claude)
 

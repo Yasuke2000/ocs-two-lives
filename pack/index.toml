@@ -830,43 +830,43 @@ hash = "3f871a556a9f1d11baa6e86e46240e22d98ae364f3112f44678571a677d5abd0"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_apprentice_mage.npc.snbt"
-hash = "b583f048fa8cb3f61b0cd84979351ac51880bf6489857e77b4a58b193b51290b"
+hash = "9bd5074703cec93ce018b3c73752231ea56df846ccbaf7a34b52ddcb5eb84a37"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_bard.npc.snbt"
-hash = "9eeb531cec32e807c544f235b865da9519ce172171d9d499163ae9f3b3ce36ba"
+hash = "b3e0c51a9d3c89614ae4bb8798dba58265e4b821c226dacb832a13b437d07c04"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_cleric.npc.snbt"
-hash = "255b4890ca8f7cf3239cb6b4a0040ef55db20f7c3b6b53e0e5898ddf505cdd9e"
+hash = "8f72709cf45040853b996f6ccd5ff4ca330119f0c089e7b174a68de997931ba8"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_dwarf_axe.npc.snbt"
-hash = "51056ea804b00f62e5a374343bab1caa2ac40be94f97460afe1b129bb5255872"
+hash = "80764e3aa3258e47c967f8d61c0e3ac808e2e14d1850f3b7ba403764a5e60826"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_hunter.npc.snbt"
-hash = "564d595832de54a8432ac121caf4ad641154871bf58676d2b92a1312544ac981"
+hash = "57832499ef4360ac45113ca6251d57cc978eeaffc8863179965c34307e6a1130"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_merchant.npc.snbt"
-hash = "3c46383ae7ed12c678001575dcdf3c8e28f2f4192af90aa87e027f19ebb3993a"
+hash = "201e57a178600c85f577844007967d72f41d42f4ff877cb5460e6d574f6d88d2"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_otherworlder.npc.snbt"
-hash = "2cabfd3b9298f2e8bab79ccecb1c3b70892abdf254d2e0003fa690eb3708aaca"
+hash = "34437d6b29c351481666a03b21d40d26d273c180d14b15c13d37e0d65475c4c0"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_rookie_swordsman.npc.snbt"
-hash = "96a482ec4c7d7505bed850ac6158c7c34364997ff4459bcbc00b05ddba135542"
+hash = "b1453fdbd9c1d668c05e55f677a9439734c66c7f8e6ead1c679fd783f874e6a4"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_scout.npc.snbt"
-hash = "83f71b441ea74527d54e139dba4748a56e23e70a67cf57dd4db7f28c34aab22d"
+hash = "4372d1ee3152d2df9160b7116590ac4c0115dab252c220f4182298cb24a12b1c"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_veteran_knight.npc.snbt"
-hash = "6b5f95120563bfb302396e623e5f24435f8e91bd30ad85a08293bdc1dd9b0e1c"
+hash = "2c7f8f46022002dfad9cfaab8b032ba930b6f451f3b1fd352f8025952f43a1f8"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_benimaru.npc.snbt"
@@ -962,43 +962,43 @@ hash = "013fdcfb2ebe262d650552adaa60f3fdaabfe1cac28dcce4b877cced722acea6"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_caravan_master.npc.snbt"
-hash = "0c9e253e12dcb8e9ae716ae6f6dccedfdebfb50cdc14c5e899fdbd7ad07840f7"
+hash = "e21609aa53c9b0552014ab252ccbc5032ef8f2ce768ac82834048afd417c3453"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_grain_carter.npc.snbt"
-hash = "ae3d22f10c8183b57202d878a3aea77aa9239a5dc10adf9b1ba10985e6ca863e"
+hash = "898f5160f3602e0cf0d1e34934974f78ecaf89541c9553a55dcf079d51ab70e7"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_merchant.npc.snbt"
-hash = "fb9d280efd05c6fe4af3f816e792c59974cbd6a1ed0d672def6bc13b0396e268"
+hash = "e92d9ff2269540e782594c890cffba35984acc1fc067a93cccfb792383fa5387"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_missing_rookie.npc.snbt"
-hash = "3c9ba8b3e03ebbadbe154f4e5c048c87d05cfc21866536f8697e28998b950ce1"
+hash = "43257b13d9bf01af00d547f2d6cca8c16ffa651eca1602ceeaf82ccc7ebd26a0"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_scholar.npc.snbt"
-hash = "252469522f81d678d6484613fb06b5b0065fe9dd4b3b702de7b3635cbe328c3b"
+hash = "719131c5cda1862dfde9b97bda268af4f5210a6c97ed211a9247d75f0356bd44"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_dwarf_axe.npc.snbt"
-hash = "112efc7ab151c39995f893cdaeaea7db3507651b0881311c3047f67b129c6ea8"
+hash = "ca27e7f41b56cae6ddd62dc3bf824d28c96db4f778482e6e342732f6e98bb4fb"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_hunter.npc.snbt"
-hash = "fe3484d0ddac67d2e6dd04cbb88a81cad3402ca1f4a537a56f7a113ff2d7ee82"
+hash = "499bc60ebc1682584888935a60e2c8626a6f0dc33687149a3140e70beae64e62"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_rookie_swordsman.npc.snbt"
-hash = "df3b12d2876679b9b1e5e1f65f1cd0d552dac4cf2eacd1d8e8dddf69b4a29484"
+hash = "0a7327e85d2bd249584bd9a0fdab98dae984c18b97b34e97d1f1afabe61257b3"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_scout.npc.snbt"
-hash = "2a28b87d353afc01c573c08c2273e30b09a06d9ff67f86c811297b4ad40fa67b"
+hash = "841e1093bbf4c6a7eb6f69e8dfb8b1ec5259e282aa0ffd358e339cc197344ab5"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_veteran_knight.npc.snbt"
-hash = "83cec24f801ab8adecd455b9d6efb739d23488366e425ff57315f3ac22cf51c8"
+hash = "2c743855694646c145867906795c0881777d806ada3b5051f22f1ddf2ab943bb"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_guild_fuze.npc.snbt"
@@ -2854,7 +2854,7 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "ef539267ab398d38aa75836f262f6bee0e40c1cb4305c53427e4cb215a6f7545"
+hash = "1167a72ac3d8ed1f9848b178a96b845e2dd2603befbddddf9dec0b32a1821db8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2863,6 +2863,10 @@ hash = "05244557f351f6ab0fe130edcc769994acbc0b6351fea2247dab42d8398dc4b0"
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
 hash = "be431726c5095293051c1560bcaaa5c8d12f054860fa2beae60017d5ffa0aaa8"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/generated/placements.js"
+hash = "0a0900401cc0841136e6eb1fafa0b81ee8e7e5db5c06b678f37f9a185657a107"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
@@ -2941,6 +2945,10 @@ file = "kubejs/server_scripts/ttl/life/dwargon.js"
 hash = "69ec14c060a6773312d52d5d535589f2d97bfd63290164bc6338a4b1ce422a9a"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/forests.js"
+hash = "38528c60378950ccfb3c6af15fb3d65a9942ce814e0f38cb81a845e6d6957479"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
 hash = "1868626097386a971ec1f54d4b1b8386b19ba1a1b40a4d29ec9161c5fc46823d"
 
@@ -2997,6 +3005,10 @@ file = "kubejs/server_scripts/ttl/life/tempest.js"
 hash = "22ec61ad1d72422435b3fb5236879750a14da5a12c05fc22c6a30c0988e0c695"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/trade_roads.js"
+hash = "9decbfd006745988053afe109721c22b24f50ce8194129a72fa5ff1fe885199c"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
 hash = "53ec9a2f128025a2528acfed5dee1cc7f542f938931acbdff9b6c42f9f5c9ed4"
 
@@ -3013,8 +3025,12 @@ file = "kubejs/server_scripts/ttl/life/wishes.js"
 hash = "63b90a9c199668c971c2465617cb1b7c3cb61459251bf16bd687a98f5b0b724f"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/works.js"
+hash = "30f35cd9c15176393b2956a1de0e6cb8ac401c581a6e09148d72463bf2922874"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/world_reset.js"
-hash = "61474dab6c64c29cfaaa9ddf77613fc1dbaeeb6f68430020857ee54dbe90b2a5"
+hash = "9124659ba08dc072cacde21b217b0b831ee2a167869d3ffbbc192608a1d80ce8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/manas.js"
@@ -3118,11 +3134,11 @@ hash = "eb61e0232c321cb59dbe60a708de1c4bfab359cfd8173367f1dcadb6e7d1be40"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/companions.js"
-hash = "c68e4b045512b041fbc4aa57bba2ba6fef1c0d626cad304a5ee42bd67cc65989"
+hash = "c1c89194706d0304ded67111c0d26629e3ef07d0b9a7b8eae5a2e25d772347a4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/places.js"
-hash = "43bd0294897addc64a25c7c0fa76c021fe065cddb855efcc3cc51bcab7632a89"
+hash = "2fc2d9be986906e88092545e92777b1db789431000258546fa68fabac53ddc27"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/side.js"
@@ -3154,7 +3170,11 @@ hash = "9bd3c2ed771384e906149dd6a9c0b51d70302fba5a175628c098fe876d7c1f5a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/domains.js"
-hash = "6519393bb49238a07c860af3da91e0b30748442e08dfca2f650fdeae33aeeaad"
+hash = "3830760471ca0f3d76fab948fcc95fd9e957085a4c78021def70298322e4e7d1"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/world/npc_gear.js"
+hash = "9819faa10afa2a25662fd8c623d9c0eb6d804a1e871406d64b7a8cd24a690019"
 
 [[files]]
 file = "kubejs/startup_scripts/ttl/blocks.js"

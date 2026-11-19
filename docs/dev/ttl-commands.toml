@@ -330,6 +330,18 @@ subs = [
   ["expect", "test", "Assert who may edit, the faction at x z, a resident's state, invulnerability or part counts."],
 ]
 
+[npcgear]
+group = "world"
+who = "staff"
+does = "Weapons and fighting behaviour of the generic NPCs (design/data/npc_gear.toml): Tempest's guards and the Easy NPC adventurers."
+subs = [
+  ["refresh", "staff", "Re-equip every Tempest resident with its role's items now."],
+  ["guards", "staff", "Run the guard pass now: how many guards stand near their posts and how many were set on a monster."],
+  ["testspawn", "test", "Import an adventurer's preset at a position, tagged as a test NPC."],
+  ["testclear", "test", "Remove the test NPCs."],
+  ["expect", "test", "Assert a resident's or test NPC's main or offhand item, or that nothing with a tag is alive."],
+]
+
 [events]
 group = "world"
 who = "staff"
@@ -423,6 +435,17 @@ subs = [
   ["list", "staff", "Every landmark and its state."],
   ["place", "staff", "Place a landmark, or all."],
   ["where", "staff", "Where a landmark was placed."],
+]
+
+[works]
+group = "builds"
+who = "staff"
+does = "One-time world works on Lerfing's map: the planted forests (Tempest, Treyni) and the trade roads (the Dwarven Road), placed once after the builds."
+subs = [
+  ["list", "staff", "Every forest and road with its state (planted / laid, or the piece it resumes at)."],
+  ["run", "staff", "Queue a forest or road (`<kind> <id>`); with force, again over what is there."],
+  ["expect", "test", "Assert a forest planted (at least n giants), a road laid, or the road surface at an arc length."],
+  ["where", "staff", "Position and tp command of a road at an arc length."],
 ]
 
 [chunks]
