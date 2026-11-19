@@ -1,5 +1,19 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 evening — quest book layout and the two chapter tabs (branch `quest-layout`, Claude)
+
+Yasuke: the quest lines "are going through one another", and Life 1 / Life 2 chapters were one flat list.
+`tools/quest_layout.py` (called by `gen_quests.py`) now places every quest: main line on one row, side branches as blocks
+above/below, long or blocked lines hidden per dependency (`dep_line_visibility`) with a grey "Needs: ..." line in the quest
+text (also for every cross-chapter dependency). Over 28 chapters: crossings 41 → 7, overlaps 1 → 0, lines through an icon
+66 → 0. `quest_graph.py --check` and `tests/test_gen_quests.py` fail on overlaps and lines through icons. Previews:
+`docs/previews/quests/` (all chapters; `-before` for mortal_life, fields, side_guild). Chapter groups "First Life — the
+Mortal Realm" / "Second Life — Reborn in Tempest" (`chapter_groups.snbt`, Dutch titles in `lang/nl_nl.snbt`), Daily Deeds
+ungrouped on top; Life 2 chapter `order` renumbered to the story path. Ids unchanged. **Verified offline only**
+(check.sh, field names against the FTB Quests 2101.1.39 jar); the local server was busy. **To check in game after the
+deploy**: `tests/ingame/quests.rcon`, the two tabs in the chapter list (and their Dutch titles with the game in Dutch),
+that hidden lines stay hidden and the "Needs" line reads well. The `lane`/`col` lines in the chapter TOMLs are now
+ignored and can be deleted once the open quest branches have landed.
 ## 19/11 evening — Tempest in the forest, the Dwarven Road, Treyni's old wood (Claude, branch `tempest-forest-road`)
 
 Owner requests: Tempest stands on open grass (it should be deep in the forest), no road to Dwargon, Treyni's shrine in the open.

@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "end_road"
-	group: ""
+	group: "089866DB8636BACD"
 	icon: {
 		count: 1
 		id: "minecraft:end_crystal"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"26616A4D8CE7AC47": false
+			}
 			dependencies: [
 				"26616A4D8CE7AC47"
 			]
@@ -97,8 +100,8 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
-			y: -1.5d
+			x: 2.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -148,7 +151,7 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -189,10 +192,13 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
-			y: 1.5d
+			x: 2.0d
+			y: -1.5d
 		}
 		{
+			dep_line_visibility: {
+				"074E3BFDC57CA159": false
+			}
 			dependencies: [
 				"65B824C8927B1E9A"
 				"074E3BFDC57CA159"
@@ -281,10 +287,14 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"0A91A668AA132C1A": false
+				"177FAA70EB81D656": false
+			}
 			dependencies: [
 				"177FAA70EB81D656"
 				"335512BF337D39FE"
@@ -326,10 +336,13 @@
 					type: "checkmark"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"3D024E08F02CAA7A": false
+			}
 			dependencies: [
 				"384C1793A5436F8A"
 				"3D024E08F02CAA7A"
@@ -365,8 +378,8 @@
 					type: "advancement"
 				}
 			]
-			x: 6.0d
-			y: 0.0d
+			x: 8.0d
+			y: 3.0d
 		}
 		{
 			dependencies: [
@@ -402,8 +415,8 @@
 					type: "structure"
 				}
 			]
-			x: 7.5d
-			y: 0.0d
+			x: 10.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -454,8 +467,8 @@
 					type: "item"
 				}
 			]
-			x: 7.5d
-			y: 1.5d
+			x: 10.0d
+			y: 3.0d
 		}
 		{
 			dependencies: [
@@ -506,8 +519,8 @@
 					type: "item"
 				}
 			]
-			x: 9.0d
-			y: 0.0d
+			x: 12.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -544,8 +557,8 @@
 					type: "advancement"
 				}
 			]
-			x: 7.5d
-			y: -1.5d
+			x: 10.0d
+			y: 4.5d
 		}
 		{
 			dependencies: [
@@ -586,8 +599,8 @@
 					type: "item"
 				}
 			]
-			x: 10.5d
-			y: 0.0d
+			x: 14.0d
+			y: 1.5d
 		}
 	]
 }

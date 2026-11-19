@@ -23,7 +23,8 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | `key` | lowercase id; also the chapter file name |
 | `title`, `subtitle`, `text` | shown on the chapter (text: blank line = new paragraph) |
 | `icon` | item id |
-| `order` | position in the chapter list (unique integer; FTB sorts by it, negative works). The Life 1 chapters use -11 (A Mortal Life) to -1 so that they sit before the Life 2 chapters without renumbering them; chapters added for later acts take 9 and up |
+| `order` | position in the chapter list (unique integer; FTB sorts by it inside a group, negative works). The Life 1 chapters use -11 (A Mortal Life) to -1; the Life 2 chapters follow the story path (1 Reborn, 2 Tempest Rises, 3 Crossroads, 4 The Armed Nation, 5 The King's Test, 6 The Orc Lord, 9-13 the later acts; 7-8 free), then 19 Daily Deeds: Jura and 20-23 the side-quest boards. Daily Deeds (both lives) has 0 |
+| `group` | chapter group (a tab of the chapter list, `CHAPTER_GROUPS` in the generator): defaults to the one of `life`, `life1` "First Life — the Mortal Realm" or `life2` "Second Life — Reborn in Tempest"; `"both"` chapters are ungrouped (listed above the two tabs). A life 1 or 2 chapter cannot join the other life's group |
 | `life` | `1` = Life 1: items and entities from `minecraft:` and the two Sophisticated storage mods only (`LIFE1_NAMESPACES` in the generator, checked against `design/data/mortal_banned.toml`), no Tensura tasks (enforced); `2` = Life 2; `"both"` = shared by both lives, so the same rules as `1` (enforced) |
 | `hide_until_deps_complete` | quests stay hidden until their dependencies are done (story chapters) |
 
@@ -35,7 +36,7 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 | `deps` | keys of quests that must be done first; `"<chapter>/<quest>"` points at a quest of another chapter (see Story extensions) |
 | `min_deps` | at least this many of `deps` must be done (FTB `min_required_dependencies`), default all: a quest after two lanes uses `min_deps = 1` |
 | `path` | `"light"` or `"dark"`: a story lane quest, see Story extensions |
-| `lane`, `col` | layout: row (negative = above) and column; column defaults to deepest dependency + 1 |
+| `pin` | `[x, y]`: keep this quest on that spot (FTB grid units) instead of the automatic layout (see Layout). `lane` and `col`, the hand layout before, are still accepted and ignored |
 | `shape`, `size` | `circle` … `gear`; size 1.5 for milestones |
 | `optional` | does not block chapter completion |
 | `repeatable`, `cooldown` | FTB Quests `can_repeat` / `repeat_cooldown`: once every reward is claimed the quest resets; `cooldown` is in seconds (86400 = daily) and needs `repeatable`. A repeatable quest may not have a plain item task: use `consume = true` (below) or it completes again at once |
@@ -56,6 +57,29 @@ and Life 2 only: `ep` (`tensura_ftb:existence_value`, default `existence = "EP"`
 **Mortal dimensions:** vanilla advancements that test a dimension (`story/enter_the_nether`, `story/enter_the_end`,
 `end/root`…) never fire in `ttl:mortal_nether` / `ttl:mortal_end`. Use `dimension` tasks there. Item, kill,
 structure, biome, stat and most other advancements work in every dimension.
+
+## Layout
+
+The generator places every quest; nothing is positioned by hand (`tools/quest_layout.py`, called by `gen_quests.py`):
+
+- **Layers left to right.** A quest's column is its dependency depth inside the chapter (2 grid units apart); a quest with no
+  dependency in the chapter moves right, next to the first quest that needs it.
+- **The main line is one straight row** (row 0): a chain of required, path-less quests ending at the chapter's goal (the biggest
+  quest nothing in the chapter depends on).
+- **Branches are blocks.** The other quests form branches (connected quests of one lane). Each branch is laid out on its own with
+  barycenter sweeps (rows follow the neighbours, optional quests last) and then placed next to the main line at the offset with no
+  line through an icon, the fewest crossings and the shortest lines; a few branch orders are tried (seeded, so every run gives the
+  same book). The light lane goes above the main line; the dark lane, required branches and optional ones below. A chapter without
+  a light lane may also put required branches above when that reads better. Quests with no line in the chapter (dailies, boards)
+  form a grid under everything. Rows are 1.5 grid units apart, so icons never overlap.
+- **Hidden lines.** A line across more than two layers, or one that would still pass through an icon (a dependency that skips a
+  quest on the main row), is hidden with FTB's per-dependency `dep_line_visibility`. FTB never draws a line to a quest of another
+  chapter; those are hidden explicitly as well. Every dependency without a line is named at the end of the quest text in grey:
+  `Needs: The First Night (A Mortal Life)`, or `Needs one of: ...` when `min_deps` lets one of several do.
+- **Checks.** `python tools/quest_graph.py --check` (in `validate.py`) and `tests/test_gen_quests.py` fail when two icons overlap
+  or a drawn line passes through an icon. `python tools/quest_layout.py` prints crossings, overlaps, hidden lines and lines through
+  icons per chapter; `python tools/quest_layout.py --png docs/previews/quests` renders the previews (Pillow, dev only;
+  `--from <book dir> --suffix -before` renders another generated book, as for the before/after pictures there).
 
 ## Story extensions (WP-S5, `design/architecture/story-characters.md` §3, §6.3)
 

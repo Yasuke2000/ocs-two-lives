@@ -3,17 +3,21 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "kings_test"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "minecraft:golden_helmet"
 	}
 	id: "36D8E5C05627FA49"
 	images: [ ]
-	order_index: 8
+	order_index: 5
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"04FB0C80CDC310C0": false
+				"6BFA5D9C19308004": false
+			}
 			dependencies: [
 				"6BFA5D9C19308004"
 				"04FB0C80CDC310C0"
@@ -106,7 +110,7 @@
 					type: "location"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -143,7 +147,7 @@
 					value: 10000
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
@@ -199,7 +203,7 @@
 					type: "location"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: -1.5d
 		}
 		{
@@ -240,7 +244,7 @@
 					type: "location"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: -1.5d
 		}
 		{
@@ -295,7 +299,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: -1.5d
 		}
 		{
@@ -372,7 +376,7 @@
 					type: "item"
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: -1.5d
 		}
 		{
@@ -429,7 +433,7 @@
 					type: "location"
 				}
 			]
-			x: 10.5d
+			x: 14.0d
 			y: -1.5d
 		}
 		{
@@ -486,10 +490,13 @@
 					type: "location"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 1.5d
 		}
 		{
+			dep_line_visibility: {
+				"21B1F1A48AFB857E": false
+			}
 			dependencies: [
 				"619B66622F524091"
 				"21B1F1A48AFB857E"
@@ -562,7 +569,7 @@
 					type: "item"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 1.5d
 		}
 		{
@@ -603,7 +610,7 @@
 					type: "location"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 3.0d
 		}
 		{
@@ -658,7 +665,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: 3.0d
 		}
 		{
@@ -717,7 +724,7 @@
 					type: "location"
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: 1.5d
 		}
 		{
@@ -763,7 +770,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 12.0d
+			x: 16.0d
 			y: 0.0d
 		}
 	]

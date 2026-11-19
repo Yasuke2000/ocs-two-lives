@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "side_jura"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "minecraft:oak_sapling"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"05F41C817DFF715C": false
+			}
 			dependencies: [
 				"05F41C817DFF715C"
 			]
@@ -48,7 +51,7 @@
 				}
 			]
 			x: 0.0d
-			y: 0.0d
+			y: -6.0d
 		}
 		{
 			dependencies: [
@@ -74,8 +77,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 1.5d
-			y: -1.5d
+			x: 2.0d
+			y: -3.0d
 		}
 		{
 			can_repeat: true
@@ -120,8 +123,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 3.0d
-			y: -1.5d
+			x: 4.0d
+			y: -3.0d
 		}
 		{
 			dependencies: [
@@ -147,8 +150,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 1.5d
-			y: 0.0d
+			x: 2.0d
+			y: -4.5d
 		}
 		{
 			can_repeat: true
@@ -202,8 +205,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 3.0d
-			y: 0.0d
+			x: 4.0d
+			y: -4.5d
 		}
 		{
 			dependencies: [
@@ -229,8 +232,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 1.5d
-			y: 1.5d
+			x: 2.0d
+			y: -6.0d
 		}
 		{
 			dependencies: [
@@ -274,8 +277,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 3.0d
-			y: 1.5d
+			x: 4.0d
+			y: -6.0d
 		}
 		{
 			dependencies: [
@@ -310,8 +313,8 @@
 					value: 1
 				}
 			]
-			x: 1.5d
-			y: 3.0d
+			x: 2.0d
+			y: -7.5d
 		}
 		{
 			dependencies: [
@@ -346,10 +349,13 @@
 					type: "gamestage"
 				}
 			]
-			x: 1.5d
-			y: 4.5d
+			x: 2.0d
+			y: -9.0d
 		}
 		{
+			dep_line_visibility: {
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"27035168A6DEED93"
 			]
@@ -382,8 +388,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 1.5d
-			y: 6.0d
+			x: 0.0d
+			y: 0.0d
 		}
 		{
 			can_repeat: true
@@ -433,8 +439,8 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
-			y: 6.0d
+			x: 2.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -469,8 +475,8 @@
 					value: 4
 				}
 			]
-			x: 3.0d
-			y: 7.5d
+			x: 4.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -496,8 +502,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 3.0d
-			y: 9.0d
+			x: 2.0d
+			y: 3.0d
 		}
 		{
 			dependencies: [
@@ -541,10 +547,13 @@
 					type: "gamestage"
 				}
 			]
-			x: 4.5d
-			y: 9.0d
+			x: 4.0d
+			y: 3.0d
 		}
 		{
+			dep_line_visibility: {
+				"50CBFF631DD567A4": false
+			}
 			dependencies: [
 				"7BF2DFDFA8FA836B"
 				"50CBFF631DD567A4"
@@ -569,8 +578,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 3.0d
-			y: 10.5d
+			x: 2.0d
+			y: -1.5d
 		}
 		{
 			dependencies: [
@@ -614,8 +623,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 4.5d
-			y: 10.5d
+			x: 4.0d
+			y: -1.5d
 		}
 		{
 			dependencies: [
@@ -650,10 +659,13 @@
 					type: "gamestage"
 				}
 			]
-			x: 3.0d
-			y: 12.0d
+			x: 2.0d
+			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"7BF2DFDFA8FA836B": false
+			}
 			dependencies: [
 				"7BF2DFDFA8FA836B"
 			]
@@ -686,8 +698,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 3.0d
-			y: 13.5d
+			x: 6.0d
+			y: 3.0d
 		}
 		{
 			dependencies: [
@@ -713,8 +725,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 4.5d
-			y: 12.0d
+			x: 4.0d
+			y: 0.0d
 		}
 		{
 			dependencies: [
@@ -750,9 +762,12 @@
 				}
 			]
 			x: 6.0d
-			y: 12.0d
+			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"355AD96A045EAE0D": false
+			}
 			dependencies: [
 				"27A1BFDFF4CA46CE"
 				"65E16A025149E756"
@@ -792,8 +807,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 6.0d
-			y: 4.5d
+			x: 8.0d
+			y: 0.0d
 		}
 	]
 }

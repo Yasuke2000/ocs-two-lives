@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "harvest_festival"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "minecraft:dragon_breath"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"641D39B5FFE38B84": false
+			}
 			dependencies: [
 				"641D39B5FFE38B84"
 			]
@@ -80,7 +83,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -127,7 +130,7 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: -1.5d
 		}
 		{
@@ -163,7 +166,7 @@
 					type: "tensura_ftb:awakening"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: -1.5d
 		}
 		{
@@ -210,7 +213,7 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 1.5d
 		}
 		{
@@ -246,7 +249,7 @@
 					type: "tensura_ftb:awakening"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 1.5d
 		}
 		{
@@ -284,7 +287,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 0.0d
 		}
 	]

@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "puppet_master"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "minecraft:string"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"2B15187EE73E8DC2": false
+			}
 			dependencies: [
 				"2B15187EE73E8DC2"
 			]
@@ -90,7 +93,7 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: -1.5d
 		}
 		{
@@ -127,7 +130,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: -1.5d
 		}
 		{
@@ -171,7 +174,7 @@
 					type: "location"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: -1.5d
 		}
 		{
@@ -208,7 +211,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 1.5d
 		}
 		{
@@ -255,7 +258,7 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 1.5d
 		}
 		{
@@ -299,7 +302,7 @@
 					type: "location"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 1.5d
 		}
 		{
@@ -333,7 +336,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 3.0d
+			x: 2.0d
 			y: 3.0d
 		}
 		{
@@ -377,7 +380,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 0.0d
 		}
 	]

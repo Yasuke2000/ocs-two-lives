@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "mask_and_blade"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "minecraft:iron_sword"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"2838EEA8E8718D5C": false
+			}
 			dependencies: [
 				"2838EEA8E8718D5C"
 			]
@@ -76,7 +79,7 @@
 					type: "location"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -109,7 +112,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
@@ -137,7 +140,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
@@ -165,7 +168,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 0.0d
 		}
 		{
@@ -202,7 +205,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: -1.5d
 		}
 		{
@@ -261,7 +264,7 @@
 					type: "item"
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: -1.5d
 		}
 		{
@@ -310,7 +313,7 @@
 					type: "location"
 				}
 			]
-			x: 10.5d
+			x: 14.0d
 			y: -1.5d
 		}
 		{
@@ -367,7 +370,7 @@
 					type: "item"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: 1.5d
 		}
 		{
@@ -416,7 +419,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: 1.5d
 		}
 		{
@@ -453,7 +456,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 10.5d
+			x: 14.0d
 			y: 1.5d
 		}
 		{
@@ -491,8 +494,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 12.0d
-			y: -3.0d
+			x: 16.0d
+			y: -1.5d
 		}
 		{
 			dependencies: [
@@ -607,7 +610,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 12.0d
+			x: 16.0d
 			y: 0.0d
 		}
 	]

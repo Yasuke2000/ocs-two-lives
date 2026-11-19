@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "roads_ruins"
-	group: ""
+	group: "089866DB8636BACD"
 	icon: {
 		count: 1
 		id: "minecraft:filled_map"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 			]
@@ -95,7 +98,7 @@
 					type: "biome"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -139,7 +142,7 @@
 					type: "biome"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: -1.5d
 		}
 		{
@@ -178,7 +181,7 @@
 					type: "structure"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 1.5d
 		}
 		{
@@ -227,7 +230,7 @@
 					type: "biome"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
@@ -268,8 +271,8 @@
 					type: "structure"
 				}
 			]
-			x: 3.0d
-			y: 1.5d
+			x: 4.0d
+			y: 3.0d
 		}
 		{
 			dependencies: [
@@ -309,8 +312,8 @@
 					type: "structure"
 				}
 			]
-			x: 3.0d
-			y: 3.0d
+			x: 6.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -348,8 +351,8 @@
 					type: "structure"
 				}
 			]
-			x: 3.0d
-			y: 4.5d
+			x: 4.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -388,7 +391,7 @@
 					type: "structure"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: -1.5d
 		}
 		{
@@ -438,7 +441,7 @@
 					type: "item"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: -1.5d
 		}
 		{
@@ -477,7 +480,7 @@
 					type: "structure"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
@@ -513,10 +516,15 @@
 					type: "structure"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 1.5d
 		}
 		{
+			dep_line_visibility: {
+				"28ECD42F864E39EB": false
+				"2DB50F1703D405E4": false
+				"47AE71C4AA741918": false
+			}
 			dependencies: [
 				"2DB50F1703D405E4"
 				"34884FFE5F8393B9"
@@ -564,7 +572,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 0.0d
 		}
 	]
