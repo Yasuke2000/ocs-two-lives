@@ -38,6 +38,23 @@ Borders in this book are gameplay coverage polygons. No precise sovereign bounda
 subordination or early/late-story political continuity can be inferred from them. C05 (Velgrynd's mountain
 bearing) and C06 (Siltrosso representation) remain open; source detail is insufficient to replace the fixed constraints.
 
+## LN evidence and unresolved alternatives — round 5
+
+Eleven directly read publisher-hosted LN claims (`LN02-*`, `LN03-*`, `LN05-*`, `LN06-*`, `LN10-*`)
+now strengthen the ledger; [passage access and limits](../docs/research/tensura-world-2026-11-19/ln-sample-findings.md).
+They support Frey's Jura adjacency, Carrion's mountain backdrop, the sacred stair approach and Amrita's
+ruin/surface distinction. Exact bearings and heights remain interpretation.
+
+The official guide puts Ulgr Nature Park in northernmost Ulgracia. Its marker is **not Galut**.
+The authored S/U boundary now passes about y2720, placing the unchanged park near Ulgracia's northern edge.
+This border course is **our interpretation**; the park's separate northern location is source-supported.
+
+[Review diagram](lore-alternatives.png) and [editable version](lore-alternatives.svg) show C05/C06.
+The north-of-Nasca mountain trial and an illustrative independent Siltrosso polygon are drawn inside
+an **inert comment in map.svg**, as requested when source geography and fixed rules conflict.
+They do not alter terrain. Siltrosso's capital is labelled Shia, independently of the F gameplay mask.
+No surveyed political boundary or primary-confirmed volcano bearing is invented.
+
 ## Source and era policy
 
 The official guide and episode stills are reference links only; no official artwork is copied into this repository. Still links were extracted from the corresponding official episode pages on 19/11/2026; they provide shared series visual vocabulary and do not necessarily depict every minor nation. Where a place has no verified dedicated canonical image, the linked stills are mood references, not geographic evidence. Canon summaries below are paraphrases of the repo lore and the primary guide.
@@ -256,7 +273,7 @@ Early Tempest depicts the village after the ogres join. Later capitals and ruins
 
 **Palette, vegetation and crossings.** Jungle green, golden fruit, brown timber and thatch. Reeds recede behind low wooded ridges and cultivated fruit groves.
 
-**Canon basis and interpretation.** Eurazania lies south/southeast of Jura. The supplied Laura frame shows a capital below a great mountain waterfall, and the wiki excerpt describes abundant fruit plantations. Exact waterfall reaches and playable elevations are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Canon basis and interpretation.** Eurazania lies south/southeast of Jura. LN5 supports the castle mountain backdrop and town below (`LN05-001..002`). The supplied Laura frame shows the waterfall; the wiki excerpt describes fruit plantations. Exact waterfall reaches and playable elevations are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
 **Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 30, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img1.jpg), [episode 30, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img2.jpg).
 
@@ -276,13 +293,13 @@ Early Tempest depicts the village after the ogres join. Later capitals and ruins
 
 ## P — Jistav
 
-**Landform and heights.** Northeastern dark-wood basin 72–95, castle on a dry site beside its separate moat; Amrita is buried in a low mound to93.
+**Landform and heights.** Northeastern dark-wood basin 72–95, castle on a dry site beside its separate moat; the separate Amrita ruin footprint uses an authored low mound to93.
 
 **Target biome mix.** `minecraft:dark_forest` 60%, `minecraft:forest` 20%, `minecraft:plains` 15%, `tensura:miasmic_plains` 5%.
 
 **Palette, vegetation and crossings.** Deep green, muted violet, grey stone and cold lantern light. The road enters a closed canopy before reaching the castle clearing and eastern ruin.
 
-**Canon basis and interpretation.** The official guide identifies Jistav as Clayman’s territory; exact basin, moat and ruin placement are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Canon basis and interpretation.** The official guide identifies Jistav as Clayman’s territory. LN10 prologue distinguishes the Amrita ruins from the surface city (`LN10-001..002`); exact basin, moat, mound and eastward game offset are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
 **Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 48, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img1.jpg), [episode 48, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img2.jpg).
 

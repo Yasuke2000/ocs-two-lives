@@ -1,5 +1,19 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 — LN evidence and northern Ulgr park (ChatGPT, PR #74 round 5)
+
+Read relevant publisher-hosted Japanese LN2/3/5/6/10 passages: 11 direct geography claims added.
+[Findings](research/tensura-world-2026-11-19/ln-sample-findings.md). Ledger now 122 records (64 thematic/design,
+58 coordinate interpretations), with access limits. Guidebook 8.5 trial loader stalled; no pages claimed read.
+Moved only S/U border to about y2720 for the officially northern park; preserved all 58 coordinates/radii.
+Atlas separates park/Spirit Dwelling entrance from Galut and labels independent Shia/Siltrosso. C05/C06
+alternatives drawn inside inert SVG comment plus [review diagram](../world/lore-alternatives.png).
+**Verified:** standard checker 0 errors/2 disclosed warnings; normal build 54.2s/0 warnings, matching SHA,
+58 coordinate/minimum-radius/offset checks; full gate passes validation + 456 tests (26 skips); previews inspected.
+No further tools changes; only the previously approved five data entries differ from main. Fetched a1848be:
+world format/tools/sizes unchanged; integrating main before next push. Source/fidelity review stays open.
+
+
 ## 19/11 — Five owner-approved geography corrections; normal gate green (ChatGPT, PR #74)
 
 Yasuke explicitly approved an exception for **only five data entries** in `tools/world/canon_relations.toml`.

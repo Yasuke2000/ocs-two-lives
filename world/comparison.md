@@ -1,4 +1,4 @@
-# Reference comparison — draft research round 4
+# Reference comparison — draft research round 5
 
 | Authored Minecraft geometry | Official visual reference |
 | --- | --- |
@@ -14,3 +14,5 @@ are compressed nonuniformly around server constraints. This is an original adapt
 
 **Default map checker: zero errors, two disclosed warnings**, after exactly five owner-authorized data-rule
 corrections. These screenshots do not prove source completeness, proportional fidelity or Minecraft runtime acceptance.
+
+[Unresolved lore alternatives](lore-alternatives.png) are drawn as a separate review diagram and inert SVG comments; they do not change the active map.

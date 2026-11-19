@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "ad960cbcb32d011b0d7a44ddcd0af39dcba44814f4512249ace0b6cd8e561b60",
+  "source_sha256": "7142b5837af98cd2b12d64c443561d003fec6d8793e8fa86e3a1720122f9b2c4",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,12 +12,15 @@
     3072,
     2688
   ],
-  "build_seconds": 60.5,
+  "build_seconds": 54.2,
   "repository_gate": {
     "tests": 456,
     "failures": 0,
     "skips": 26,
     "validation": "passed"
   },
-  "build_command": "python -I tools/world/build.py"
+  "build_command": "python -I tools/world/build.py",
+  "research_claim_records": 122,
+  "directly_verified_LN_claims": 11,
+  "reference_alternatives_inert": true
 }

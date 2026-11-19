@@ -1,13 +1,14 @@
-# Tensura geography research — map round 4
+# Tensura geography research — map round 5
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 50 thematic claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 108 verified canon facts. Coverage is incomplete;
-missing LN geography passages, manga page numbers and anime timestamps are not invented.
+and [source-access log](source-access.csv). There are 64 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 122 verified canon facts. Coverage is incomplete;
+remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31 and the official anime guide were read; the official base map and
-11 referenced anime frames were visually inspected. The publisher's public LN volume-1 sample is only
-a prologue. Its linked BookWalker trial could not load in the available browser. A listing is not evidence.
+11 referenced anime frames were visually inspected. Publisher-hosted LN2/3/5/6/10 passages now directly support eleven additional claims; see
+[findings](ln-sample-findings.md). The public LN1 sample is only a prologue. The licensed guidebook trial
+stalled before pages could be inspected. A publisher listing alone is not geographic evidence.
 
 Research originals and temporary reference images remain outside the modpack repository in
 `C:/Users/david/Documents/ocs-world-research`. This directory stores paraphrases and links only.
