@@ -143,6 +143,44 @@ soul). The log says `[ttl] arrival grounded at X Y Z` about 20 s after the first
 not generated yet follow the rings; after changing them on a live world use a world reset of the overworld.
 Magicule poison is refused for everyone who is not in Life 2 (`life/mortal_immunity.js`).
 
+## Site biomes
+
+Every canon build and landmark of the Tensura overworld has a **site** (`sites` in
+`pack/config/ttl/canon_regions.json`, mod classes `CanonSites` and `CanonSiteTerrain`): a centre, a radius and a fade,
+a biome list and a terrain intent, so the ground and the biome round a build fit its style and lore (Dwargon on a
+plain, Laura in jungle, the Frost Palace on a snowfield). Owner decision of 19/11/2026 (`design/decisions.md`).
+
+- **Biomes.** Inside a site's biome edge (half-way through the fade, wobbled per site so it is an organic blob, not a
+  circle) its own list replaces the nation palette for land and peaks; a `flat` site also replaces water, shores and
+  cave biomes less than 16 blocks below its ground. A site without `biomes` keeps the nation's (Tempest and Rigurd's village keep
+  Jura's rings: the deadly core is an owner decision). The first listed site wins where two overlap.
+- **Terrain.** `keep`: biomes only (Jia's mountain, Raja's lake, the lizardmen's marsh). `flat`: the ground is levelled
+  to `ground` (y of the first air block; >= 64 so the sea does not flood it) over the radius and blended back to the
+  natural terrain over the fade; the aquifers see the same surface, and the column under it is pulled solid (raised
+  ground never floats; noise caves under the middle fill up, carver caves and ores stay).
+  `lowland`, `hills`, `mountain`: climate presets (erosion 0.5; erosion -0.1; continentalness 0.75, erosion -0.9,
+  ridges 0.62) that make vanilla build that landform; `erosion`, `continents`, `ridges` in a site override them.
+- **Outside every site nothing changes**, to the bit (the CanonGrid self-check proves it), so a site only moves the
+  land round its build.
+- **Only new chunks.** Like the palettes, sites shape chunks that are not generated yet. `/fillbiome` could repaint the
+  biome of an old area, but a mountain stays a mountain: terrain shape only changes when the chunks regenerate. The
+  overworld is reset after this change instead (players had built nothing; runbook in `docs/HANDOFF.md`).
+- **Deploy order.** `noise_settings/overworld.json` and `density_function/overworld/ridges.json` name
+  `ttl:canon_sites` and the canon_map channel `ridges`, which only ttl-portals 0.8.3+ knows: an older mod cannot load
+  the overworld. Release the mod (`tools/release_mod.py`) on the branch **before** these files reach `main`.
+- **A new build.** `tests/test_canon_sites.py` fails until the build has a site with its name, centred on the build's
+  x/z, with a radius that covers its box + margin (`flat`) or box + margin + search (other terrains). Pick the biome
+  and terrain from the build's lore file and say why in `why`.
+- **Check.** `/ttlmap <x> <z>` lists the sites that reach a column (name, terrain, distance, weight) and prints the
+  surface height and the biome the generator would make there, without generating the chunk: right after a deploy,
+  `/ttlmap 435 -1000` must say `site 'dwargon' (flat y72)`, `surface y72` and `minecraft:plains`. Self-check:
+  `java -cp "mod/build/classes/java/main;<gson.jar>" com.yasuke.ttl.world.CanonGrid pack/config/ttl/canon_map.txt
+  pack/config/ttl/canon_regions.json 271 -624` (after `gradlew build`; `:` instead of `;` on Linux) ends with
+  `canon self-check passed`.
+- **BlueMap after a terrain change.** Whole map (after a reset): `bluemap purge tensura`, then `bluemap force-update
+  tensura`. One changed area: `bluemap force-update tensura <x> <z> <radius>` (radius in blocks; for a site, its
+  radius + fade + 100). `bluemap` shows the queue; render only while few people are online.
+
 ## Canon builds
 
 Our own builds on canon spots (a town square, a gate, a hall: `blueprints/<name>.py`) are placed by

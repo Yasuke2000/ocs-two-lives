@@ -16,6 +16,7 @@
     "landmarks: named places in reference-map pixel coordinates (the 2800x2050 political fan map, same space as seeds and origin); a tool converts them to world coordinates (about 5.447 blocks per reference pixel at width 14000; world 0,0 = origin).",
     "ring: open sea around the continent (blocks) before the free, non-canon lands; blend: blocks over which the sea fades into them.",
     "seeds and origin are points on the reference map (tools/canon_map.py), only used when the grid is regenerated.",
+    "sites: per canon build or landmark (tools never generate them; tests/test_canon_sites.py keeps them in step with the builds): name, for, centre [x, z] world blocks, radius, fade (blocks), terrain, biomes (optional), why. Inside its biome edge (half-way through the fade, wobbled per site so it is organic) a site's own biomes replace the nation palette for land and peaks (a flat site also for water, shores and cave biomes less than 16 blocks below its ground); no biomes = the nation's (Jura's rings stay). terrain: keep (biomes only); flat (the ground is blended to a plain at 'ground' = y of the first air block, default 70, keep it >= 64 so no sea floods it; the column below is pulled solid, so noise caves under the middle fill up); lowland, hills, mountain (erosion 0.5 / erosion -0.1 / continents 0.75, erosion -0.9, ridges 0.62; explicit erosion, continents, ridges override). Listed order: the first biome site wins, later climate sites win where they overlap, the strongest flat site wins. Outside every site nothing changes. Mod: CanonSites, CanonSiteTerrain; /ttlmap x z names the sites at a column.",
     "Changes only affect chunks that are not generated yet.",
     "paint: water and wetlands traced maps miss, in world blocks (tools/canon_map.py applies them after tracing): lake = ellipse of '~' (size in chunks) with an optional ring of a region; river = polyline of '~' `width` chunks wide over land.",
     "width: the continent's width in blocks (owner chose 14000 on 18/11/2026); paint coordinates are written for paint_width and scale with it. World ≈ (reference px − origin) × width / 2570."
@@ -203,10 +204,6 @@
           3
         ],
         [
-          "minecraft:grove",
-          2
-        ],
-        [
           "minecraft:windswept_hills",
           2
         ],
@@ -215,7 +212,7 @@
           2
         ],
         [
-          "minecraft:snowy_slopes",
+          "minecraft:taiga",
           2
         ],
         [
@@ -223,7 +220,7 @@
           1
         ],
         [
-          "minecraft:taiga",
+          "minecraft:grove",
           1
         ],
         [
@@ -1423,6 +1420,815 @@
         1856,
         1475
       ]
+    }
+  ],
+  "sites": [
+    {
+      "name": "tempest",
+      "for": "Tempest (life/tempest.js)",
+      "centre": [
+        0,
+        0
+      ],
+      "radius": 89,
+      "fade": 89,
+      "terrain": "flat",
+      "ground": 70,
+      "why": "Clearing for the town; biomes stay Jura's rings (the deadly magicule core round Tempest is an owner decision)."
+    },
+    {
+      "name": "dwargon",
+      "for": "Dwargon (life/dwargon.js)",
+      "centre": [
+        435,
+        -1000
+      ],
+      "radius": 159,
+      "fade": 140,
+      "terrain": "flat",
+      "ground": 72,
+      "biomes": [
+        [
+          "minecraft:plains",
+          1
+        ]
+      ],
+      "why": "Owner override 19/11/2026: Dwargon stands on a plain, not on frozen peaks."
+    },
+    {
+      "name": "dwarven_arena",
+      "for": "build dwarven_arena",
+      "centre": [
+        -30,
+        -850
+      ],
+      "radius": 90,
+      "fade": 90,
+      "terrain": "flat",
+      "ground": 72,
+      "biomes": [
+        [
+          "minecraft:meadow",
+          1
+        ]
+      ],
+      "why": "Beside Dwargon on the same lowland; meadow like the dwarf villages."
+    },
+    {
+      "name": "dwarf_village",
+      "for": "landmark dwarf_village",
+      "centre": [
+        250,
+        -740
+      ],
+      "radius": 132,
+      "fade": 132,
+      "terrain": "flat",
+      "ground": 72,
+      "biomes": [
+        [
+          "minecraft:meadow",
+          1
+        ]
+      ],
+      "why": "Tensura's dwarf villages belong in meadow."
+    },
+    {
+      "name": "goblin_village",
+      "for": "landmark goblin_village",
+      "centre": [
+        -163,
+        -234
+      ],
+      "radius": 64,
+      "fade": 64,
+      "terrain": "flat",
+      "ground": 70,
+      "why": "Rigurd's village in a Jura clearing; biomes stay Jura's rings."
+    },
+    {
+      "name": "sealed_cave",
+      "for": "build sealed_cave",
+      "centre": [
+        -256,
+        -343
+      ],
+      "radius": 110,
+      "fade": 110,
+      "terrain": "flat",
+      "ground": 70,
+      "biomes": [
+        [
+          "minecraft:forest",
+          1
+        ]
+      ],
+      "why": "A mossy hill in a forest clearing (lore: sealed_cave.md)."
+    },
+    {
+      "name": "spirit_gate",
+      "for": "build spirit_gate",
+      "centre": [
+        -210,
+        130
+      ],
+      "radius": 59,
+      "fade": 64,
+      "terrain": "flat",
+      "ground": 72,
+      "biomes": [
+        [
+          "minecraft:forest",
+          1
+        ]
+      ],
+      "why": "Gate in front of a mossy cliff in the forest."
+    },
+    {
+      "name": "treyni_grove",
+      "for": "landmark treyni_grove",
+      "centre": [
+        1950,
+        -223
+      ],
+      "radius": 64,
+      "fade": 64,
+      "terrain": "flat",
+      "ground": 70,
+      "biomes": [
+        [
+          "minecraft:flower_forest",
+          1
+        ]
+      ],
+      "why": "Dryad sanctuary: flower forest round the ancient tree."
+    },
+    {
+      "name": "treyni_shrine",
+      "for": "build treyni_shrine",
+      "centre": [
+        1988,
+        -223
+      ],
+      "radius": 39,
+      "fade": 64,
+      "terrain": "flat",
+      "ground": 70,
+      "biomes": [
+        [
+          "minecraft:flower_forest",
+          1
+        ]
+      ],
+      "why": "Dryad sanctuary: flower forest."
+    },
+    {
+      "name": "ogre_village_ruin",
+      "for": "landmark ogre_village_ruin",
+      "centre": [
+        1460,
+        -959
+      ],
+      "radius": 48,
+      "fade": 80,
+      "terrain": "hills",
+      "why": "Kijin homeland in the north-eastern hills; biomes stay Jura's rim."
+    },
+    {
+      "name": "lizardmen_village",
+      "for": "landmark lizardmen_village",
+      "centre": [
+        700,
+        344
+      ],
+      "radius": 72,
+      "fade": 80,
+      "terrain": "keep",
+      "biomes": [
+        [
+          "minecraft:mangrove_swamp",
+          1
+        ]
+      ],
+      "why": "Lizardman surface villages stand in mangrove swamp; the water stays."
+    },
+    {
+      "name": "lizardmen_caverns",
+      "for": "landmark lizardmen_caverns",
+      "centre": [
+        926,
+        398
+      ],
+      "radius": 80,
+      "fade": 80,
+      "terrain": "keep",
+      "biomes": [
+        [
+          "minecraft:swamp",
+          1
+        ]
+      ],
+      "why": "Underground lizardman village under the marsh; the water stays."
+    },
+    {
+      "name": "orc_camp",
+      "for": "landmark orc_camp",
+      "centre": [
+        1106,
+        539
+      ],
+      "radius": 64,
+      "fade": 80,
+      "terrain": "keep",
+      "biomes": [
+        [
+          "minecraft:swamp",
+          1
+        ]
+      ],
+      "why": "Orc War battlefield in the Lake Siss marsh; the water stays."
+    },
+    {
+      "name": "blumund",
+      "for": "build blumund",
+      "centre": [
+        -1024,
+        -120
+      ],
+      "radius": 112,
+      "fade": 112,
+      "terrain": "flat",
+      "ground": 70,
+      "biomes": [
+        [
+          "minecraft:plains",
+          1
+        ]
+      ],
+      "why": "Farmland kingdom on the Jura border."
+    },
+    {
+      "name": "ballachia",
+      "for": "build ballachia",
+      "centre": [
+        -1384,
+        -212
+      ],
+      "radius": 76,
+      "fade": 76,
+      "terrain": "flat",
+      "ground": 68,
+      "biomes": [
+        [
+          "minecraft:meadow",
+          1
+        ]
+      ],
+      "why": "Low meadow banks with daisies and cornflowers (lore: ballachia.md)."
+    },
+    {
+      "name": "marris",
+      "for": "build marris",
+      "centre": [
+        -1286,
+        -1040
+      ],
+      "radius": 111,
+      "fade": 111,
+      "terrain": "flat",
+      "ground": 70,
+      "biomes": [
+        [
+          "minecraft:plains",
+          1
+        ]
+      ],
+      "why": "Falmuth's capital in its plains and farmland."
+    },
+    {
+      "name": "siltrosso",
+      "for": "build siltrosso",
+      "centre": [
+        -2026,
+        -921
+      ],
+      "radius": 84,
+      "fade": 84,
+      "terrain": "flat",
+      "ground": 68,
+      "biomes": [
+        [
+          "minecraft:plains",
+          1
+        ]
+      ],
+      "why": "Englassia's lowland plains."
+    },
+    {
+      "name": "englassia",
+      "for": "build englassia",
+      "centre": [
+        -2626,
+        -300
+      ],
+      "radius": 129,
+      "fade": 129,
+      "terrain": "flat",
+      "ground": 70,
+      "biomes": [
+        [
+          "minecraft:plains",
+          1
+        ]
+      ],
+      "why": "The Western Nations' green lowland plains."
+    },
+    {
+      "name": "nostraille",
+      "for": "build nostraille",
+      "centre": [
+        -2560,
+        360
+      ],
+      "radius": 77,
+      "fade": 77,
+      "terrain": "flat",
+      "ground": 76,
+      "biomes": [
+        [
+          "minecraft:meadow",
+          1
+        ]
+      ],
+      "why": "Hill kingdom of wool: a meadow terrace."
+    },
+    {
+      "name": "raja",
+      "for": "build raja",
+      "centre": [
+        -1084,
+        763
+      ],
+      "radius": 126,
+      "fade": 96,
+      "terrain": "keep",
+      "biomes": [
+        [
+          "minecraft:meadow",
+          1
+        ]
+      ],
+      "why": "Old lakeside gold workings in Raja's hills: the lake and banks stay as generated."
+    },
+    {
+      "name": "morgdahl",
+      "for": "build morgdahl",
+      "centre": [
+        -4009,
+        1002
+      ],
+      "radius": 90,
+      "fade": 90,
+      "terrain": "flat",
+      "ground": 68,
+      "biomes": [
+        [
+          "minecraft:forest",
+          1
+        ]
+      ],
+      "why": "Timber landing: forest round the mill yard (the build brings its own water)."
+    },
+    {
+      "name": "coleus",
+      "for": "build coleus",
+      "centre": [
+        -4151,
+        370
+      ],
+      "radius": 102,
+      "fade": 102,
+      "terrain": "flat",
+      "ground": 66,
+      "biomes": [
+        [
+          "minecraft:desert",
+          1
+        ]
+      ],
+      "why": "Oasis palace on a sandstone hill toward Damargania."
+    },
+    {
+      "name": "lubelius",
+      "for": "build lubelius",
+      "centre": [
+        -3977,
+        -659
+      ],
+      "radius": 131,
+      "fade": 131,
+      "terrain": "flat",
+      "ground": 86,
+      "biomes": [
+        [
+          "minecraft:meadow",
+          1
+        ]
+      ],
+      "why": "The holy city on a raised meadow terrace below the Sacred Mountain."
+    },
+    {
+      "name": "sacred_mountain",
+      "for": "build sacred_mountain",
+      "centre": [
+        -4423,
+        -1286
+      ],
+      "radius": 110,
+      "fade": 110,
+      "terrain": "flat",
+      "ground": 82,
+      "biomes": [
+        [
+          "minecraft:meadow",
+          1
+        ]
+      ],
+      "why": "Level apron at the foot of the Sacred Mountain; the mountain rises behind (sacred_mountain_peak)."
+    },
+    {
+      "name": "heaven_tower",
+      "for": "build heaven_tower",
+      "centre": [
+        -7507,
+        245
+      ],
+      "radius": 117,
+      "fade": 117,
+      "terrain": "flat",
+      "ground": 72,
+      "biomes": [
+        [
+          "minecraft:desert",
+          1
+        ]
+      ],
+      "why": "Dagruel's tower in the Desert of Death sand sea."
+    },
+    {
+      "name": "frost_palace",
+      "for": "build frost_palace",
+      "centre": [
+        -2435,
+        -4314
+      ],
+      "radius": 94,
+      "fade": 94,
+      "terrain": "flat",
+      "ground": 80,
+      "biomes": [
+        [
+          "minecraft:snowy_plains",
+          1
+        ]
+      ],
+      "why": "Guy's palace on a snowfield (keep snowy)."
+    },
+    {
+      "name": "dragons_nest",
+      "for": "build dragons_nest",
+      "centre": [
+        370,
+        -2402
+      ],
+      "radius": 88,
+      "fade": 88,
+      "terrain": "flat",
+      "ground": 190,
+      "biomes": [
+        [
+          "minecraft:frozen_peaks",
+          1
+        ]
+      ],
+      "why": "Summit plateau of the highest Canaat peak (canaat_summit)."
+    },
+    {
+      "name": "great_holy_mountain",
+      "for": "build great_holy_mountain",
+      "centre": [
+        2386,
+        -2511
+      ],
+      "radius": 110,
+      "fade": 110,
+      "terrain": "flat",
+      "ground": 78,
+      "biomes": [
+        [
+          "minecraft:windswept_gravelly_hills",
+          1
+        ]
+      ],
+      "why": "Velgrynd's volcano: the trailhead apron, the cone rises behind (holy_mountain_peak)."
+    },
+    {
+      "name": "nasca",
+      "for": "build nasca",
+      "centre": [
+        2631,
+        -2059
+      ],
+      "radius": 99,
+      "fade": 99,
+      "terrain": "flat",
+      "ground": 72,
+      "biomes": [
+        [
+          "minecraft:plains",
+          1
+        ]
+      ],
+      "why": "Imperial capital in the Empire's broad lowland."
+    },
+    {
+      "name": "amrita",
+      "for": "build amrita",
+      "centre": [
+        3552,
+        -703
+      ],
+      "radius": 93,
+      "fade": 93,
+      "terrain": "flat",
+      "ground": 72,
+      "biomes": [
+        [
+          "minecraft:dark_forest",
+          1
+        ]
+      ],
+      "why": "Jistav's buried gallery under a grassy mound in the gloomy forest."
+    },
+    {
+      "name": "clayman_castle",
+      "for": "build clayman_castle",
+      "centre": [
+        3693,
+        -959
+      ],
+      "radius": 132,
+      "fade": 132,
+      "terrain": "flat",
+      "ground": 82,
+      "biomes": [
+        [
+          "minecraft:dark_forest",
+          1
+        ]
+      ],
+      "why": "Clayman's castle on a plateau in Jistav's dark forest."
+    },
+    {
+      "name": "forgotten_dragon_city",
+      "for": "build forgotten_dragon_city",
+      "centre": [
+        2340,
+        905
+      ],
+      "radius": 149,
+      "fade": 149,
+      "terrain": "flat",
+      "ground": 66,
+      "biomes": [
+        [
+          "minecraft:plains",
+          1
+        ]
+      ],
+      "why": "Milim's city on the Ameld's fertile river plains."
+    },
+    {
+      "name": "laura",
+      "for": "build laura",
+      "centre": [
+        1689,
+        1302
+      ],
+      "radius": 138,
+      "fade": 138,
+      "terrain": "flat",
+      "ground": 68,
+      "biomes": [
+        [
+          "minecraft:sparse_jungle",
+          1
+        ]
+      ],
+      "why": "Eurazania's capital among tropical orchards (jungle edge; the dense jungle is the region's)."
+    },
+    {
+      "name": "elmine",
+      "for": "build elmine",
+      "centre": [
+        -1471,
+        1629
+      ],
+      "radius": 93,
+      "fade": 93,
+      "terrain": "flat",
+      "ground": 66,
+      "biomes": [
+        [
+          "minecraft:flower_forest",
+          1
+        ]
+      ],
+      "why": "Elven capital: flower meadows round the Divine Tree; the region keeps its ancient forest."
+    },
+    {
+      "name": "ulgr_nature_park",
+      "for": "build ulgr_nature_park",
+      "centre": [
+        -1171,
+        2152
+      ],
+      "radius": 70,
+      "fade": 70,
+      "terrain": "flat",
+      "ground": 70,
+      "biomes": [
+        [
+          "minecraft:flower_forest",
+          1
+        ]
+      ],
+      "why": "Ulgracia's flower country and spirit trail."
+    },
+    {
+      "name": "el_dorado",
+      "for": "build el_dorado",
+      "centre": [
+        -4808,
+        3240
+      ],
+      "radius": 109,
+      "fade": 109,
+      "terrain": "flat",
+      "ground": 76,
+      "biomes": [
+        [
+          "minecraft:savanna",
+          1
+        ]
+      ],
+      "why": "Golden city on magically levelled land (lore: el_dorado.md)."
+    },
+    {
+      "name": "jia",
+      "for": "build jia",
+      "centre": [
+        349,
+        1819
+      ],
+      "radius": 150,
+      "fade": 96,
+      "terrain": "keep",
+      "biomes": [
+        [
+          "minecraft:windswept_hills",
+          1
+        ]
+      ],
+      "why": "Harpy capital on a mountain spur: the mountain stays."
+    },
+    {
+      "name": "dwargon_plain",
+      "for": "the plain round Dwargon",
+      "centre": [
+        435,
+        -1000
+      ],
+      "radius": 230,
+      "fade": 160,
+      "terrain": "lowland",
+      "biomes": [
+        [
+          "minecraft:plains",
+          2
+        ],
+        [
+          "minecraft:meadow",
+          1
+        ]
+      ],
+      "why": "Owner override: the city's plain runs out into meadow foothills before the Canaat peaks rise further north."
+    },
+    {
+      "name": "dwarven_arena_plain",
+      "for": "the ground round the Dwarven Arena",
+      "centre": [
+        -30,
+        -850
+      ],
+      "radius": 120,
+      "fade": 140,
+      "terrain": "lowland",
+      "biomes": [
+        [
+          "minecraft:meadow",
+          1
+        ]
+      ],
+      "why": "Brings the arena's ground down out of the peaks (it stood at y 161 on jagged peaks)."
+    },
+    {
+      "name": "canaat_summit",
+      "for": "Dragon's Nest",
+      "centre": [
+        370,
+        -2402
+      ],
+      "radius": 240,
+      "fade": 320,
+      "terrain": "mountain",
+      "biomes": [
+        [
+          "minecraft:frozen_peaks",
+          1
+        ],
+        [
+          "minecraft:jagged_peaks",
+          1
+        ]
+      ],
+      "why": "Highest peak of the Great Canaat Mountains (lore: dragons_nest.md); keeps peaks round the nest."
+    },
+    {
+      "name": "sacred_mountain_peak",
+      "for": "Sacred Mountain",
+      "centre": [
+        -4423,
+        -1520
+      ],
+      "radius": 150,
+      "fade": 220,
+      "terrain": "mountain",
+      "biomes": [
+        [
+          "minecraft:snowy_slopes",
+          2
+        ],
+        [
+          "minecraft:jagged_peaks",
+          1
+        ]
+      ],
+      "why": "Luminous's holy mountain, white and steep, north of its sealed gate."
+    },
+    {
+      "name": "holy_mountain_peak",
+      "for": "Great Holy Mountain (volcano)",
+      "centre": [
+        2386,
+        -2740
+      ],
+      "radius": 140,
+      "fade": 200,
+      "terrain": "mountain",
+      "biomes": [
+        [
+          "minecraft:stony_peaks",
+          2
+        ],
+        [
+          "minecraft:windswept_gravelly_hills",
+          1
+        ]
+      ],
+      "why": "Velgrynd's volcano behind the trailhead (Scorching God Mountain)."
+    },
+    {
+      "name": "el_dorado_volcano",
+      "for": "El Dorado volcano",
+      "centre": [
+        -5077,
+        2991
+      ],
+      "radius": 160,
+      "fade": 220,
+      "terrain": "mountain",
+      "biomes": [
+        [
+          "minecraft:badlands",
+          2
+        ],
+        [
+          "minecraft:wooded_badlands",
+          1
+        ]
+      ],
+      "why": "Central volcano of the gold country (badlands carry the extra gold)."
     }
   ],
   "paint": [

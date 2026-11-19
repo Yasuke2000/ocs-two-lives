@@ -42,12 +42,15 @@ public final class CanonMapCommand {
             char c = grid.charAt(x, z);
             out.append('\'').append(c).append("' ").append(grid.regionName(c))
                     .append(String.format(", canon weight %.2f", grid.canonWeight(x, z)));
+            String sites = grid.sites().describe(x, z);
+            if (sites != null) out.append("\n  ").append(sites);
         }
         DensityFunction.SinglePointContext point = new DensityFunction.SinglePointContext(x, 0, z);
         out.append(channel("continents", router.continents(), point))
                 .append(channel("erosion", router.erosion(), point))
                 .append(channel("temperature", router.temperature(), point))
-                .append(channel("vegetation", router.vegetation(), point));
+                .append(channel("vegetation", router.vegetation(), point))
+                .append(channel("ridges", router.ridges(), point));
         double cont = router.continents().compute(point);
         out.append("\n  band: ").append(cont < -1.05 ? "mushroom" : cont < -0.455 ? "deep ocean" : cont < -0.19 ? "ocean" : cont < -0.11 ? "coast" : "inland");
         ChunkGenerator generator = level.getChunkSource().getGenerator();

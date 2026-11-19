@@ -63,6 +63,7 @@ public final class CanonGrid {
     final float[][] climateWeight = new float[3][], climateValue = new float[3][]; // blurred strength, blurred strength*knob
     final double landX0, landZ0, landX1, landZ1, ring, blend;
     final Map<Character, Region> regions;
+    private CanonSites sites = CanonSites.NONE; // set once by withSites, before the grid is published
 
     private CanonGrid(int w, int h, int originCol, int originRow, char[] cells, Map<Character, Region> regions, double ring, double blend) {
         this.w = w;
@@ -192,6 +193,16 @@ public final class CanonGrid {
         return parse(Files.readAllLines(grid, StandardCharsets.UTF_8), regions, ring, blend);
     }
 
+    /** Attaches the per-build sites (call before the grid is shared); returns this. */
+    public CanonGrid withSites(CanonSites sites) {
+        this.sites = sites == null ? CanonSites.NONE : sites;
+        return this;
+    }
+
+    public CanonSites sites() {
+        return sites;
+    }
+
     char cell(int x, int z) {
         return x < 0 || z < 0 || x >= w || z >= h ? '.' : cells[z * w + x];
     }
@@ -278,6 +289,15 @@ public final class CanonGrid {
     }
 
     public double continents(int blockX, int blockZ, double outside) {
+        return sites.climate(CanonSites.CONTINENTS, blockX, blockZ, canonContinents(blockX, blockZ, outside));
+    }
+
+    /** Weirdness (the router's ridges): vanilla, steered only by the sites. */
+    public double ridges(int blockX, int blockZ, double outside) {
+        return sites.climate(CanonSites.RIDGES, blockX, blockZ, outside);
+    }
+
+    private double canonContinents(int blockX, int blockZ, double outside) {
         double wc = canonWeight(blockX, blockZ);
         if (wc <= 0) return outside;
         double u = blockX / 16.0 + originCol - 0.5, v = blockZ / 16.0 + originRow - 0.5;
@@ -296,6 +316,11 @@ public final class CanonGrid {
     }
 
     public double climate(int channel, int blockX, int blockZ, double outside) {
+        double value = canonClimate(channel, blockX, blockZ, outside);
+        return channel == EROSION ? sites.climate(CanonSites.EROSION, blockX, blockZ, value) : value;
+    }
+
+    private double canonClimate(int channel, int blockX, int blockZ, double outside) {
         double wc = canonWeight(blockX, blockZ);
         if (wc <= 0) return outside;
         double u = blockX / 16.0 + originCol - 0.5, v = blockZ / 16.0 + originRow - 0.5;
@@ -379,8 +404,8 @@ public final class CanonGrid {
     }
 
     public String describe() {
-        return String.format("%dx%d cells, origin %d,%d, land x %.0f..%.0f z %.0f..%.0f, ring %.0f, blend %.0f",
-                w, h, originCol, originRow, landX0, landX1, landZ0, landZ1, ring, blend);
+        return String.format("%dx%d cells, origin %d,%d, land x %.0f..%.0f z %.0f..%.0f, ring %.0f, blend %.0f, %d sites",
+                w, h, originCol, originRow, landX0, landX1, landZ0, landZ1, ring, blend, sites.size());
     }
 
     /**
@@ -437,6 +462,7 @@ public final class CanonGrid {
             System.out.printf("at 0,0: '%c' continents %.3f%n", real.charAt(0, 0), real.continents(0, 0, 0));
         }
         zoneChecks();
+        siteChecks();
         if (args.length > 1) {
             int[] arrival = args.length > 3 ? new int[] {Integer.parseInt(args[2]), Integer.parseInt(args[3])} : null;
             realZoneChecks(args[0], args[1], arrival);
@@ -560,6 +586,136 @@ public final class CanonGrid {
                         check(g.zoneAt('J', x + dx, z + dz, s, CanonPalette.patch(s, x + dx, z + dz)) == 1, "rim around the arrival (seed " + s + ")");
             System.out.printf("arrival %d,%d: Jura, %.0f blocks inside the border, %.0f from Tempest, rim for 500 seeds within 48 blocks%n", x, z, depth, Math.hypot(x, z));
         }
+        realSiteChecks(json, g, arrival);
+    }
+
+    /** Synthetic sites on a synthetic map: byte-identical outside, organic edges, flat ground, climate presets, config. */
+    private static void siteChecks() {
+        Map<Character, Region> regions = new HashMap<>();
+        regions.put('A', new Region("Alpha", -0.5, 0.2, 0.1, 1.0, new CanonPalette(new String[] {"t:forest"}, new int[] {1}), false, null, null, null));
+        List<String> lines = new ArrayList<>();
+        lines.add("# origin 40 40");
+        for (int z = 0; z < 80; z++) lines.add((z < 4 || z >= 76) ? ".".repeat(80) : "...." + "A".repeat(72) + "....");
+        CanonPalette plains = new CanonPalette(new String[] {"t:plains"}, new int[] {1});
+        CanonSites.Site flat = CanonSites.Site.of("town", 0, 0, 80, 60, plains, CanonSites.Terrain.FLAT, 72, null, null, null);
+        CanonSites.Site peak = CanonSites.Site.of("peak", 300, 0, 60, 100, null, CanonSites.Terrain.MOUNTAIN, null, null, null, null);
+        CanonSites.Site marsh = CanonSites.Site.of("marsh", -300, 0, 50, 40, plains, CanonSites.Terrain.KEEP, null, null, null, null);
+        CanonSites sites = new CanonSites(new CanonSites.Site[] {flat, peak, marsh});
+        CanonGrid plain = parse(lines, regions, 1600, 800), sited = parse(lines, regions, 1600, 800).withSites(sites);
+        check(plain.sites().isEmpty() && sited.sites().size() == 3, "sites attached");
+
+        // Outside every reach the grid is the same to the bit; inside it is not.
+        int same = 0;
+        for (int z = -600; z <= 600; z += 37)
+            for (int x = -600; x <= 600; x += 41) {
+                boolean far = true;
+                for (int i = 0; i < 3; i++) far &= Math.hypot(x - sites.site(i).x(), z - sites.site(i).z()) > sites.site(i).reach();
+                if (!far) continue;
+                double o = (x * 31 + z * 17) % 100 / 100.0;
+                check(Double.doubleToRawLongBits(plain.continents(x, z, o)) == Double.doubleToRawLongBits(sited.continents(x, z, o))
+                        && Double.doubleToRawLongBits(plain.climate(EROSION, x, z, o)) == Double.doubleToRawLongBits(sited.climate(EROSION, x, z, o))
+                        && Double.doubleToRawLongBits(plain.climate(TEMPERATURE, x, z, o)) == Double.doubleToRawLongBits(sited.climate(TEMPERATURE, x, z, o))
+                        && Double.doubleToRawLongBits(sited.ridges(x, z, o)) == Double.doubleToRawLongBits(o), "byte-identical outside the sites at " + x + "," + z);
+                double[] f = {9, 9};
+                sites.flat(x, z, f);
+                check(f[0] == 0 && sites.biomeSite(x, z) == -1, "no flat pull and no site biome outside at " + x + "," + z);
+                same++;
+            }
+        check(same > 500, "enough columns outside the sites: " + same);
+
+        // Mountain: climate pulled to its preset at the centre; keep sites and temperature untouched.
+        check(Math.abs(sited.continents(300, 0, 0.1) - 0.75) < 1e-9 && Math.abs(sited.climate(EROSION, 300, 0, 0.3) - -0.9) < 1e-9
+                && Math.abs(sited.ridges(300, 0, -0.4) - 0.62) < 1e-9, "mountain preset at its centre");
+        check(sited.climate(EROSION, -300, 0, 0.3) == plain.climate(EROSION, -300, 0, 0.3), "a keep site leaves the climate alone");
+        check(sited.climate(TEMPERATURE, 300, 0, 0.3) == plain.climate(TEMPERATURE, 300, 0, 0.3), "sites never touch temperature");
+
+        // Biome edges: inside the radius always the site, beyond the reach never; the edge is ragged, not a circle.
+        java.util.Set<Integer> edges = new java.util.HashSet<>();
+        int inside = (int) Math.floor(80 - CanonPalette.BORDER_WARP - CanonPalette.BORDER_FINE - (CanonSites.WOBBLE + CanonSites.WOBBLE_FINE) * 60 - 1);
+        for (int k = 0; k < 64; k++) {
+            double a = 2 * Math.PI * k / 64, dx = Math.cos(a), dz = Math.sin(a);
+            check(sites.biomeSite((int) Math.round(dx * inside), (int) Math.round(dz * inside)) == 0, "the site's own biome well inside (angle " + k + ")");
+            int edge = -1;
+            for (int r = inside; r < 400; r++) {
+                if (sites.biomeSite((int) Math.round(dx * r), (int) Math.round(dz * r)) != 0) {
+                    edge = r;
+                    break;
+                }
+            }
+            check(edge > 0 && edge < flat.reach(), "the biome edge lies inside the reach: " + edge);
+            edges.add(edge / 4);
+        }
+        check(edges.size() >= 6, "the biome edge is ragged, not a circle: " + edges);
+        check(sites.biomeSite(300, 0) == -1, "a site without biomes leaves the nation's");
+        check(sites.biomeSite(-300, 0) == 2, "keep site biomes");
+
+        // Flat ground: full pull inside the radius, the surface exactly at the ground, solid underneath.
+        double[] f = new double[2];
+        sites.flat(5, 5, f);
+        check(f[0] == 1 && f[1] == 72, "full flat pull near the centre: " + java.util.Arrays.toString(f));
+        for (double v : new double[] {-2, -0.3, 0, 0.4, 3}) {
+            check(CanonSites.flatten(v, 0, 1, 72, 71) > 0 && CanonSites.flatten(v, 0, 1, 72, 72) < 0, "final density surface at y 72 for " + v);
+            check(CanonSites.flatten(v, 0.390625, 1, 72, 71) > 0.390625 && CanonSites.flatten(v, 0.390625, 1, 72, 72) < 0.390625, "preliminary surface at y 72 for " + v);
+            for (int y = -64; y < 72; y += 7)
+                check(CanonSites.flatten(v, 0, 1, 72, y) > 0, "solid all the way down at full weight (raised ground never floats) for " + v + " at y " + y);
+            for (int y = 72; y < 320; y += 7) check(CanonSites.flatten(v, 0, 1, 72, y) < 0, "open sky above the ground for " + v + " at y " + y);
+            check(CanonSites.flatten(v, 0, 0, 72, 90) == v, "weight 0 changes nothing");
+        }
+        double half = CanonSites.flatten(1.0, 0, 0.5, 72, 100);
+        check(half < 1.0 && half > -1.0, "half weight blends: " + half);
+        for (int r = 0; r < 400; r += 4) {
+            double w = sites.weight(0, r, 0);
+            check(w >= 0 && w <= 1, "weight in 0..1");
+        }
+        check(sites.weight(0, 0, 0) == 1 && sites.weight(0, 400, 0) == 0, "weight 1 at the centre, 0 beyond the reach");
+        long a1 = Double.doubleToRawLongBits(sites.weight(0, 97, -33)), a2 = Double.doubleToRawLongBits(new CanonSites(new CanonSites.Site[] {flat}).weight(0, 97, -33));
+        check(a1 == a2, "deterministic, independent of the other sites");
+        check(sites.describe(0, 0).startsWith("site 'town' (flat y72)") && sites.describe(5000, 5000) == null, "debug text: " + sites.describe(0, 0));
+
+        // Config: malformed sites are skipped with a warning, the rest load.
+        com.google.gson.JsonObject json = com.google.gson.JsonParser.parseString("""
+                {"sites": [
+                  {"name": "a", "centre": [0, 0], "radius": 50, "fade": 20, "terrain": "flat", "ground": 70},
+                  {"name": "a", "centre": [9, 9], "radius": 50, "terrain": "flat"},
+                  {"name": "b", "centre": [0, 0], "radius": 50, "terrain": "volcano"},
+                  {"name": "c", "centre": [0, 0], "radius": 50},
+                  {"name": "d", "centre": [0, 0], "radius": 30, "terrain": "lowland", "erosion": 0.2, "biomes": [["t:x", 2]]}
+                ]}""").getAsJsonObject();
+        List<String> warnings = new ArrayList<>();
+        CanonSites parsed = CanonConfig.sites(json, warnings::add);
+        check(parsed.size() == 2 && warnings.size() == 3, "sites parse: " + parsed + " " + warnings);
+        check(parsed.site(1).climate()[CanonSites.EROSION] == 0.2 && parsed.site(1).climate()[CanonSites.CONTINENTS] == null, "explicit knob over preset");
+        check(CanonConfig.sites(new com.google.gson.JsonObject(), warnings::add).isEmpty(), "no sites key, no sites");
+        System.out.printf("sites: %d synthetic columns outside are byte-identical; biome edge spread over %d 4-block buckets%n", same, edges.size());
+    }
+
+    /** The real sites: parse cleanly, sane values, and the Life 2 arrival keeps a safe biome. */
+    private static void realSiteChecks(com.google.gson.JsonObject json, CanonGrid g, int[] arrival) {
+        List<String> warnings = new ArrayList<>();
+        CanonSites sites = CanonConfig.sites(json, warnings::add);
+        check(warnings.isEmpty(), "sites parse cleanly: " + warnings);
+        check(sites.size() > 0 && json.getAsJsonArray("sites").size() == sites.size(), "every site loads");
+        g.withSites(sites);
+        int flats = 0;
+        for (int i = 0; i < sites.size(); i++) {
+            CanonSites.Site s = sites.site(i);
+            if (s.flat()) {
+                flats++;
+                check(s.ground() >= 64 && s.ground() <= 240, "site " + s.name() + ": ground " + s.ground() + " must be 64..240 (no sea floods it)");
+            }
+            check(g.ownerCell((int) s.x(), (int) s.z()) != 0, "site " + s.name() + " stands on canon land");
+            check(sites.weight(i, (int) s.x(), (int) s.z()) == 1, "site " + s.name() + ": full weight at its centre");
+        }
+        if (arrival != null) {
+            for (int dz = -48; dz <= 48; dz += 8)
+                for (int dx = -48; dx <= 48; dx += 8) {
+                    int i = sites.biomeSite(arrival[0] + dx, arrival[1] + dz);
+                    if (i < 0) continue;
+                    for (String id : sites.site(i).biomes().ids())
+                        check(id.startsWith("minecraft:") && !id.contains("dark_forest"), "the arrival keeps a safe biome: site " + sites.site(i).name() + " brings " + id);
+                }
+        }
+        System.out.printf("real sites: %d (%d flat) parse cleanly; the arrival area has only safe site biomes%n", sites.size(), flats);
     }
 
     /** Palette layout: owner lookup, dithered borders, weights, patch size, determinism. */

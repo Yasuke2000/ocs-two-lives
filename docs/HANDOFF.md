@@ -1,5 +1,63 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 — branch `site-biomes` (PR open, NOT merged): biomes and terrain round every canon build; overworld reset runbook (Claude)
+
+**Why**: Yasuke on the public BlueMap: "the biomes of the map don't match up — Dwargon should be on a plain, not an ice
+mountain." Audit (`/ttlmap` at every overworld build/landmark spot and 4 points 120 blocks out, live server 19/11):
+Dwargon frozen_peaks at y 170 and snowy_slopes all round; the Dwarven Arena jagged_peaks y 158; the Dragon's Nest
+old-growth spruce taiga at y 125 (not a peak); the Sacred Mountain a meadow at y 77 (no mountain); the Great Holy
+Mountain plains at y 70; El Dorado jungle at y 115; Lubelius grove at y 120 (snow); the Forgotten Dragon City on a
+river; Coleus in desert_of_death; Spirit Gate and Treyni dark_forest. Full table in the PR.
+**Owner decision (coordinator, 19/11)**: players have built nothing, so the Tensura overworld is **reset from scratch**
+after this change; the `/fillbiome` fix script and the partial Dwargon reset were dropped.
+**What**: `sites` in `canon_regions.json` (43: every overworld build, every `landmarks.toml` landmark, Tempest,
+Dwargon, plus landform sites for Dwargon's plain, the arena, the Dragon's Nest massif, the Sacred Mountain, Velgrynd's
+volcano and El Dorado's volcano); mod `CanonSites` (weights, organic edges, presets), `CanonSiteTerrain`
+(`ttl:canon_sites`, wraps `final_density` and `initial_density_without_jaggedness` in `noise_settings/overworld.json`),
+a `ridges` channel for `ttl:canon_map` (`density_function/overworld/ridges.json`), site biomes first in `CanonBiomes`,
+`/ttlmap` prints the sites and ridges. Dwargon's land palette lost snowy_slopes. Docs: docs/server.md "Site biomes",
+decisions.md row of 19/11, world.md and dwargon.md (owner override).
+**Verified offline**: `gradlew build` OK; CanonGrid self-check passed (synthetic: 778 columns outside the sites
+byte-identical, ragged biome edge, flat surface exactly at `ground` and solid below it, presets, config errors;
+real: 43 sites parse cleanly, every centre on canon land, ground 64..240, the Life 2 arrival only near safe site
+biomes; the Jura ring checks unchanged); `tests/test_canon_sites.py` (5 tests: every build/landmark/Tempest/Dwargon
+covered by a big enough site at its spot, known biome ids, the owner override). **Not verified**: the new density
+function and the `ridges` channel in a running server (no local server run): check with `/ttlmap` right after the
+deploy (step 2), before the reset.
+
+### Overworld reset runbook (lead; in this order)
+
+1. **Release the mod from this branch, before merging**: `git checkout site-biomes && python tools/release_mod.py`
+   (0.8.2 -> 0.8.3, gh release `mod-v0.8.3`, packwiz relink, validate, commit + push to the branch). Then merge the PR
+   (`--no-ff`). Never let `noise_settings/overworld.json` or `ridges.json` reach `main` with the 0.8.2 mod: it does not
+   know `ttl:canon_sites` / channel `ridges` and the overworld would not load (ttl-ops auto-deploys `main`).
+2. **Deploy only when nobody is online**: `bash tools/server.sh deploy` (refuses with players online; ttl-ops may
+   also deploy `main` on its own when the server is empty). Check: `bash tools/server.sh logs 2000 | grep -E "canon
+   (map|biomes)"` shows `43 sites` and `biomes for 40 of 43 sites`, no `canon site ... skipped`; `bash tools/server.sh
+   rcon "ttlmap 435 -1000"` says `site 'dwargon' (flat y72)`, `surface y72`, `minecraft:plains`;
+   `ttlmap 370 -2402` names `site 'dragons_nest' (flat y190)` inside `canaat_summit` (mountain), `surface y190`;
+   `ttlmap -4808 3240` savanna. If the overworld
+   fails to load, roll back the pack commit (the old world is untouched until step 3).
+3. **Reset**: stop the night pregen (`bash tools/server.sh rcon "dh pregen stop"`), then
+   `kubectl --kubeconfig ~/.kube/ocs-two-lives.yaml -n ocs-two-lives exec deploy/mc -- sh -c 'echo minecraft:overworld > /data/world-ttl/ttl-reset.txt'`
+   and `bash tools/server.sh restart`. The log says `[ttl] world reset: [minecraft:overworld] regenerate; old terrain in
+   ttl-backup/<time>` (region, entities, poi and the overworld's DistantHorizons* files are moved, nothing deleted).
+   Player data, the Mortal Realm, the Spirit Corridor and the other dimensions stay.
+4. **DH LODs**: WorldReset moves `/data/world-ttl/data/DistantHorizons.sqlite*` into the backup; check that
+   `ls /data/world-ttl/data/DistantHorizons.sqlite*` only shows a fresh, small file. If an old one is still there,
+   scale the server down (`kubectl ... scale deploy/mc --replicas=0`), delete `/data/world-ttl/data/DistantHorizons.sqlite*`
+   from a debug pod on the volume, scale back to 1.
+5. **BlueMap**: `bash tools/server.sh rcon "bluemap purge tensura"`, then `bash tools/server.sh rcon "bluemap force-update tensura"`
+   (renders as chunks generate; `bluemap` shows the queue).
+6. **Pregen**: `kubectl ... exec deploy/mc -- rm -f /data/ttl-pregen.done`, so ttl-ops' night pregen walks the
+   continent again.
+7. **Placements, then verify**: about 45-90 s after the start Tempest, Dwargon, the 7 landmarks and the 28 overworld
+   builds are placed one by one (`[ttl] tempest placed`, `[ttl] <name> placed: corner ...`); `/ttl build list` and
+   `/ttl landmark list` must show all placed. Then `python tools/verify_build.py <name> --log --min 98` for each
+   overworld build (and the dimension builds if anything moved), a column check for floating or wet blocks under each
+   footprint (Nostraille and Amrita had both before), `/ttl arrival`, and `bash tools/server.sh test-all` = 0 failing.
+   Look at the map at https://map.daviddelporte.com once the render has passed Dwargon.
+
 ## 19/11 — PR #34 merged (issues #12, #4, #5 closed); 12 builds verified in the world (Claude)
 
 **Merged**: PR #34 `fix-issues-12-4-5` (trial climb guard, reset-scroll races + life 1 race lock, Dwarven Arena) with
