@@ -12,7 +12,7 @@
 [settings]
 # Bump to re-equip the residents already in the world (their tag ttl.gear.r<rev>); Easy NPCs refresh through their own
 # revs (sidequests.toml [ambient] rev, a client is new per escort, a companion at its next summon).
-rev = 1
+rev = 2
 # The guard loop (world/npc_gear.js): how often, and how far from its post a guard looks for a monster to fight. A guard
 # fights a monster (an Enemy: vanilla and Tensura monsters, never a Tensura goblin, wolf or other tameable) within
 # `guard_radius` of its post; it never picks a player. Players it meets only through Tensura's own retaliation.

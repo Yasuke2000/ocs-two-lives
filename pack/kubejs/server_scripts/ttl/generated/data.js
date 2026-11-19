@@ -6541,7 +6541,7 @@ const TtlData = {
         "ttl.arena.mob"
       ],
       "guard_radius": 16,
-      "rev": 1
+      "rev": 2
     }
   },
   "npcs": {
