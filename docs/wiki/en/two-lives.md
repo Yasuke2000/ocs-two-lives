@@ -14,6 +14,6 @@ In the **Spirit Corridor**, read your verdict, choose a Last Wish, then decide w
 
 ## Your first minutes in Life 2
 
-You arrive near **(271, −624)** on the outer edge of the Great Jura Forest. The short arrival grace gives you time to get your bearings. Dwargon lies northeast, Tempest southwest. Prepare for stronger creatures and denser magicules on the way into the forest. Open **Open Your Eyes** in the quest book to begin the second story. From here, death lets you respawn.
+You arrive near **(1660, −100)** on the northern edge of Jura, on Lerfing’s map of the Tensura continent. The short arrival grace gives you time to get your bearings. Dwargon lies north, Tempest south. Prepare for stronger creatures and denser magicules on the way into the forest. Open **Open Your Eyes** in the quest book to begin the second story. From here, death lets you respawn.
 
 Use `/ttl guide` to reopen the guide, `/ttl status` to check which life you are in, and `/ttl life` to read your first-life record. [How karma works](karma.md) · [Story and Oath](story-and-oath.md)

@@ -6,9 +6,12 @@ entity and item ids shaped like ids, factions from factions.toml). What cannot b
 there, does the build stand where the survey put it) is listed under "verify in game" in design/quests.md.
 """
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import anchor_refs  # noqa: E402
 BUILDS = ROOT / "design" / "builds"
 CANON_MAP = ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
 ID = re.compile(r"^[a-z][a-z0-9_]*$")
@@ -73,6 +76,7 @@ def check_look(where: str, k: dict) -> None:
 
 
 def check_sidequests(sq: dict, data: dict) -> None:
+    anchor_refs.resolve_data({"sidequests": sq})  # world places name an anchors.toml anchor (at = "<id>")
     s = sq.get("settings", {})
     for key in ("poll_ticks", "max_active", "take_radius", "discover_radius", "arrive_radius", "leash", "leash_seconds",
                 "appear_radius", "client_hp", "deliver_radius", "travel_radius"):
@@ -152,6 +156,8 @@ def check_sidequests(sq: dict, data: dict) -> None:
             fail(f"{w}: build {p.get('build')!r} has no design/builds/<name>.toml")
         if anchor == "landmark" and p.get("landmark") not in landmarks:
             fail(f"{w}: landmark {p.get('landmark')!r} is not in landmarks.toml")
+        if "at" in p and anchor != "world":
+            fail(f"{w}: at = \"<anchors.toml id>\" only goes with anchor = \"world\"")
         if anchor in ("tempest", "build", "dwargon", "world"):
             if not all(isinstance(p.get(k), int) for k in ("x", "y", "z")):
                 fail(f"{w}: x, y, z are whole numbers for anchor {anchor}")

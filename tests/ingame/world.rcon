@@ -13,10 +13,15 @@ ttl world expect test yes
 ttl world expect threshold 3
 ttl world expect counts.souls 0
 ttl world expect milestone act2_reached no
-# The continent line (R11): Tempest is inside, 9000 0 is beyond the map (open sea / free lands), the Labyrinth counts as
-# inside, the Mortal Realm (Life 1) is never part of it.
-ttl world expect continent 0 0 yes
-ttl world expect continent 435 -1106 yes
+# The continent line (R11): Tempest and Dwargon's throne room are inside, 9000 0 and 0 9000 are open sea beyond Lerfing's map,
+# the Labyrinth counts as inside, the Mortal Realm (Life 1) is never part of it (the other dimensions' coordinates do not
+# matter: their rule is the dimension). Tempest, the throne room and the coast
+# points come from design/data/anchors.toml and design/data/lerfing/probes.toml (tests/anchors.env): the nation owns 128
+# blocks of coastal water, so 64 blocks off Sarion's south coast is inside and 200 blocks off it is not.
+ttl world expect continent ${anchor:tempest} yes
+ttl world expect continent ${anchor:dwargon_throne} yes
+ttl world expect continent ${probe:coast_in} ${probe:coast_in.inside}
+ttl world expect continent ${probe:coast_out} ${probe:coast_out.inside}
 ttl world expect continent 9000 0 no
 ttl world expect continent 0 9000 no
 ttl world expect continentin tensura:labyrinth 9000 0 yes
@@ -24,7 +29,7 @@ ttl world expect continentin ttl:spirit_domain 0 0 yes
 ttl world expect continentin ttl:mortal_realm 0 0 no
 # tensura:boss_area (Tensura's own Gazel/Hinata boss dimension) stays outside the story rules: owner decision, design/decisions.md 19/11/2026
 ttl world expect continentin tensura:boss_area 0 0 no
-ttl world at 0 0
+ttl world at ${anchor:tempest}
 ttl world at 9000 0
 ttlbot spawn TtlBotWorldA
 ttlbot spawn TtlBotWorldB

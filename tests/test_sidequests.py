@@ -98,10 +98,13 @@ class SideQuestTests(unittest.TestCase):
                 self.assertIn("Invulnerable:1b", text)
 
     def test_places_on_land(self):
+        import anchor_refs
+        from sidequests_check import canon_cell
         for p in SIDE["place"]:
             if p["anchor"] == "world":
-                from sidequests_check import canon_cell
-                self.assertTrue(canon_cell(p["x"], p["z"]).isalpha(), p["id"])
+                self.assertIn("at", p, f"{p['id']}: a world place names its anchors.toml anchor (at), not numbers")
+                x, z = anchor_refs.point(p["id"], p["at"])
+                self.assertTrue(canon_cell(x, z).isalpha(), p["id"])
 
     def test_generated_data_has_it(self):
         self.assertIn('"sidequests": {', gen_data.TARGET.read_text(encoding="utf-8"))

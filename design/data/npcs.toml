@@ -103,7 +103,8 @@ back = "Back"
 #                       (the block layer the NPC stands in, 5 on a village's ground).
 #   anchor = "tempest"  x/y/z are offsets from Tempest's arrival point (the village green's south edge, stored by
 #                       life/tempest.js as `ttl.tempest.arrival`); the spot waits until Tempest is placed.
-#   anchor = "world"    x/y/z are absolute block coordinates (the NPC stands in the middle of that block).
+#   anchor = "world"    x/y/z are absolute block coordinates (the NPC stands in the middle of that block); in the Tensura
+#                       overworld write at = "<design/data/anchors.toml id>" instead of x/z (gen_data fills them in).
 # yaw: 0 faces south, 90 west, 180 north, -90 east. dim: the dimension id.
 # unless_build = "<build>": the spot is a stand-in that is only active while that build is NOT placed; once it is,
 # the stand-in's NPC is removed and the spot that is anchored to the build takes over (same tag, so there is still
@@ -620,8 +621,9 @@ y = 0
 z = 9
 yaw = 0
 
-# The Outcast: chapters 7 and 8 (WP-S6) send the dark path to him on Tempest's south road at world 0, 52 (the Crossroads is the
-# south gate at 0, 23). He faces north, toward the village.
+# The Outcast: chapters 7 and 8 (WP-S6) send the dark path to him on Tempest's south road, 52 blocks south of Tempest's arrival
+# point (anchors.toml outcast_road = tempest + (0, 52); the Crossroads is the south gate at + (0, 23)). He faces north, toward
+# the village.
 [[spot]]
 id = "outcast_road"
 kind = "outcast_contact"
@@ -630,9 +632,8 @@ enabled = true
 dim = "minecraft:overworld"
 anchor = "world"
 surface = true
-x = 0
+at = "outcast_road"
 y = 64
-z = 52
 yaw = 180
 
 # Blumund's guild hall (blueprints/blumund.py): the public side of the hall, x 94-101, z 57-79, door in the west wall at

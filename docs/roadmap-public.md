@@ -48,6 +48,7 @@ Last update: 18/11/2026 (evening).
 - **Mortal Realm destinations**: six new places to travel to in Life 1 (ferry, keep, market, mine, shrine, tower).
 - **More paths**: Artificer golems, more moral choices, the Priest/Exorcist after the Necromancer.
 - **Dutch translation** of the pack's own texts, and the **player wiki** going online.
+- **A new continent**: Lerfing's hand-built Tensura map (credit: Lerfing; giant trees: Paulzero) replaces the generated one, with an ocean ring and the free world beyond.
 - **Public web map** (BlueMap): the map runs, the public link is coming.
 - **Faction banners** you can weave on a loom, and map markers.
 **NL** Waar het team nu aan werkt: nog niet op de server, of nog niet af.
@@ -55,6 +56,7 @@ Last update: 18/11/2026 (evening).
 - **Bestemmingen in het Mortal Realm**: zes nieuwe plekken in Life 1 (veerpont, burcht, markt, mijn, heiligdom, toren).
 - **Meer paden**: golems voor de Artificer, meer morele keuzes, de Priester/Exorcist na de Necromancer.
 - **Nederlandse vertaling** van de eigen teksten van de pack, en de **spelerswiki** online.
+- **Een nieuw continent**: Lerfings met de hand gebouwde Tensura-kaart (credit: Lerfing; reuzenbomen: Paulzero) vervangt de gegenereerde, met een oceaanring en de vrije wereld daarachter.
 - **Publieke webkaart** (BlueMap): de kaart draait, de publieke link komt eraan.
 - **Factiebanieren** om op een weefgetouw te maken, en kaartmarkeringen.
 

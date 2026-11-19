@@ -30,7 +30,8 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
  * shows its name (gold) and {@code banner_subtitle} (gray) from canon_regions.json with a soft chime; leaving the
  * land shows "The Open Sea", passing the ring "Uncharted Lands". Checked once a second per player; a new region
  * must hold for {@link #CONFIRM} checks so walking along a border doesn't spam. {@code /ttlregion <player>} reports, including
- * the distance ring (zone) of a nation that has them.
+ * the distance ring (zone) of a nation that has them; on Lerfing's imported map the ring is named from the stored
+ * biome, since the import tool painted the rings into the chunks.
  */
 @EventBusSubscriber(modid = TtlPortals.MOD_ID)
 public final class RegionTitles {
@@ -76,6 +77,15 @@ public final class RegionTitles {
         char owner = grid.ownerCell(x, z); // coastal water belongs to its nation
         if (owner != 0 && grid.region(owner) != null) return owner;
         return grid.canonWeight(x, z) < UNCHARTED_WEIGHT ? UNCHARTED : SEA;
+    }
+
+    /** Jura's ring from a stored biome's magicule class (design/architecture/lerfing-import.md §3.6). */
+    static String storedRing(String biome) {
+        return switch (biome) {
+            case "tensura:ancient_forest" -> "core (deadly, ancient forest)";
+            case "minecraft:dark_forest" -> "dark band (dark forest)";
+            default -> "rim (safe)";
+        };
     }
 
     static String title(CanonGrid grid, char key) {
@@ -152,8 +162,17 @@ public final class RegionTitles {
             out.append(key == '~' ? "river/lake (keeps the previous banner)" : title(grid, key) + " / " + subtitle(grid, key))
                     .append(", cell '").append(grid.charAt(player.getBlockX(), player.getBlockZ())).append('\'');
             long seed = ((ServerLevel) player.level()).getSeed();
-            String ring = grid.zoneInfo(grid.ownerAt(player.getBlockX(), player.getBlockZ(), seed), player.getBlockX(), player.getBlockZ(), seed);
-            if (ring != null) out.append(", zone ").append(ring);
+            char owner = grid.ownerAt(player.getBlockX(), player.getBlockZ(), seed);
+            if (grid.imported(player.getBlockX(), player.getBlockZ())) {
+                // Lerfing's chunks carry the rings the import tool painted: name them from the stored biome, which is what hurts.
+                String biome = player.level().getBiome(player.blockPosition()).unwrapKey().map(k -> k.location().toString()).orElse("?");
+                out.append(", stored biome ").append(biome);
+                CanonGrid.Region region = grid.region(grid.ownerCell(player.getBlockX(), player.getBlockZ()));
+                if (region != null && region.zones() != null) out.append(", zone ").append(storedRing(biome));
+            } else {
+                String ring = grid.zoneInfo(owner, player.getBlockX(), player.getBlockZ(), seed);
+                if (ring != null) out.append(", zone ").append(ring);
+            }
             Tracker tracker = TRACKERS.get(player.getUUID());
             if (tracker != null) {
                 out.append(", banner shown: ").append(tracker.shown == NONE ? "none yet" : title(grid, tracker.shown));

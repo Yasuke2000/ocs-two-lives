@@ -1,6 +1,6 @@
 # The Wool Hall of Nostraille
 
-Under the hall’s two ridges, carts can pass between the stone piers. A beam balance hangs over the central aisle and graded fleeces are stacked along the north side. The three south gables face the street. Across it, lengths of russet and undyed cloth hang from open tenter frames. The walking anchor is local (36, 5, 43) in a 72 × 33 × 64 template, at the Nostraille landmark near world (−2560, 360).
+Under the hall’s two ridges, carts can pass between the stone piers. A beam balance hangs over the central aisle and graded fleeces are stacked along the north side. The three south gables face the street. Across it, lengths of russet and undyed cloth hang from open tenter frames. The walking anchor is local (36, 5, 43) in a 72 × 33 × 64 template, at the Nostraille landmark at world (−1780, 550) on Lerfing's map, a quiet hill (plains, relief 1) east of Raja.
 
 Nostraille appears among the small western states on the Council map. The Council itself meets in Englesia. The pack calls Nostraille a quiet hill kingdom. The sources establish geography and give no architecture or wool industry for the capital. **Our interpretation** gives this farming country a covered wool hall and a yard where cloth can dry under tension. [Council map comparison](https://www.reddit.com/r/TenseiSlime/comments/1suz7yb/new_countries/) · [Episode 76 preview](https://www.oricon-group.com/news/8380/) · [Pack geography](world.md)
 

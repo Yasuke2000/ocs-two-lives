@@ -24,6 +24,8 @@ rcon() { k exec deploy/mc -- rcon-cli "$(rq "$1")"; }
 log_grep() { k exec deploy/mc -- grep -E "$(rq "$1")" /data/logs/latest.log; }
 # plain, run_test, ingame_test and ingame_test_all; tools/local.sh runs the same tests on this PC.
 source "$(dirname "$0")/ingame.sh"
+# run_test with the `@expect` / `@import` lines and the ${anchor:...} / ${probe:...} tokens (overrides ingame.sh's):
+source "$(dirname "$0")/test_lib.sh"
 # Real players online (test bots excluded), comma-separated; empty when nobody is playing.
 humans() {
   local all bots

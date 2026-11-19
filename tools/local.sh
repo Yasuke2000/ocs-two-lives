@@ -81,6 +81,7 @@ rcon() {
 log_grep() { grep -E "$1" "$SRV/logs/latest.log" || true; }
 # The same runner as tools/server.sh (plain, run_test, ingame_test, ingame_test_all).
 source "$ROOT/tools/ingame.sh"
+source "$ROOT/tools/test_lib.sh"   # run_test with tokens, `@expect` and `@import` (overrides ingame.sh's)
 
 # --- process ---------------------------------------------------------------------------------------------
 pid_alive() {

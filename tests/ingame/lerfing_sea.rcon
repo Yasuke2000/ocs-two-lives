@@ -1,0 +1,31 @@
+# The sea at the seam of Lerfing's import (design/architecture/lerfing-import.md §2.1, §5 "Sea-level seam"; WP-L6). Beyond the
+# inner tiles (x 8192, z 6528 ...) our generator makes the ocean ring, and it must meet his sea without a step: his water is
+# topped at y 64 (probes sea_*_in, read from the import), the generator fills water up to sea_level - 1, so
+# pack/kubejs/data/minecraft/worldgen/noise_settings/overworld.json needs "sea_level": 65 (it has 64 on lerfing-import: the ring
+# would end at y 63, a 1-block step along 4 x 16,000 blocks and a fringe of flowing water creeping over the lower sea).
+# This is its own file so that a seam that fails does not hide behind the checks of lerfing.rcon: red here = the sea level.
+# `@import` skips it on a world that is not Lerfing's import. Each side is one chunk: the generator's first chunk beyond the edge
+# is generated here (deep ocean, cheap) next to his stored chunk.
+@import
+execute in minecraft:overworld run forceload add ${probe:sea_east_in.x} ${probe:sea_east_in.z}
+execute in minecraft:overworld run forceload add ${probe:sea_east_out.x} ${probe:sea_east_out.z}
+execute in minecraft:overworld run forceload add ${probe:sea_south_in.x} ${probe:sea_south_in.z}
+execute in minecraft:overworld run forceload add ${probe:sea_south_out.x} ${probe:sea_south_out.z}
+@until 180 execute in minecraft:overworld if loaded ${probe:sea_east_in}
+@until 180 execute in minecraft:overworld if loaded ${probe:sea_east_out}
+@until 180 execute in minecraft:overworld if loaded ${probe:sea_south_in}
+@until 180 execute in minecraft:overworld if loaded ${probe:sea_south_out}
+# East edge: water at y 64 and air above it, on both sides.
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:sea_east_in} ${probe:sea_east_in.block}
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:sea_east_in.x} ${probe:sea_east_in.y+1} ${probe:sea_east_in.z} minecraft:air
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:sea_east_out} ${probe:sea_east_out.block}
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:sea_east_out.x} ${probe:sea_east_out.y+1} ${probe:sea_east_out.z} minecraft:air
+# South edge.
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:sea_south_in} ${probe:sea_south_in.block}
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:sea_south_in.x} ${probe:sea_south_in.y+1} ${probe:sea_south_in.z} minecraft:air
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:sea_south_out} ${probe:sea_south_out.block}
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:sea_south_out.x} ${probe:sea_south_out.y+1} ${probe:sea_south_out.z} minecraft:air
+execute in minecraft:overworld run forceload remove ${probe:sea_east_in.x} ${probe:sea_east_in.z}
+execute in minecraft:overworld run forceload remove ${probe:sea_east_out.x} ${probe:sea_east_out.z}
+execute in minecraft:overworld run forceload remove ${probe:sea_south_in.x} ${probe:sea_south_in.z}
+execute in minecraft:overworld run forceload remove ${probe:sea_south_out.x} ${probe:sea_south_out.z}

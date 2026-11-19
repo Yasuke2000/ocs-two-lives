@@ -1,2332 +1,499 @@
 {
-  "_doc": [
-    "The canon continent of the Tensura world (Life 2). canon_map.txt holds one character per chunk; this file says what each character is. Lore, terrain and sources per region: design/lore/world.md.",
-    "Climate knobs (multi-noise parameters, -1..1; null keeps the vanilla value). With a 'biomes' palette they mostly shape the terrain (erosion) and steer what vanilla still picks (oceans, beaches, rivers, peaks):",
-    "  temperature: < -0.45 frozen, -0.45..-0.15 cold, -0.15..0.2 temperate, 0.2..0.55 warm, > 0.55 hot",
-    "  vegetation (humidity): < -0.35 arid, ... , > 0.3 lush (forests, jungle)",
-    "  erosion: < -0.78 high peaks, -0.78..-0.38 mountains and hills, ... , > 0.55 flat plains",
-    "  strength: 0..1, how strongly the knobs win over vanilla's own noise (1 = the whole nation one climate)",
-    "biomes: weighted land-biome palette [[id, weight], ...] for ordinary inland terrain, picked in noise-shaped patches. Oceans, beaches, rivers and high peaks keep vanilla's choice unless replace_peaks is true; then peaks come from 'peaks'. Allowed ids: vanilla 1.21.1 and tensura:{ancient_forest,barren_land,desert_of_death,miasmic_plains} (never tensura:underworld_*).",
-    "  Palettes also place Tensura structures: goblin villages need forest/birch_forest/taiga/savanna/plains/jungle, lizardman surface villages mangrove_swamp, orc villages desert, dwarf villages meadow/cherry_grove/savanna_plateau/snowy_slopes, labyrinth trees tensura:ancient_forest.",
-    "zones (optional, per region): a distance gradient instead of one palette everywhere, so the biome (and with it Tensura's per-biome area magicule) depends on where you stand. Used by J: Veldora's leaked magicule soaks the Jura forest, so newcomers must not be able to stroll to Tempest. Tensura's area magicule per biome: every unlisted biome (forest, birch, plains, flower forest, swamp, peaks ...) is 500 (safe), minecraft:dark_forest +1500 (2000), tensura:ancient_forest +19500 (20000, kills a fresh soul in about a second; verified in the Tensura 2.0.1.5 jar).",
-    "  centre: [x, z] world blocks for radius tests (Tempest = 0, 0). interior: cell characters that are not the region's border for depth tests (default \"~\"; J adds W, the Lake Siss marsh, so the lake shore is not an outer edge). fade: every patch shifts all ring tests by a random amount in [-fade, fade] blocks (on top of the border dither), so ring edges are ragged fringes of whole patches.",
-    "  rings: tried in listed order, the first test that passes wins, the last ring has no test. Each ring has a name, 'biomes' (like the region's own) and one test: radius (blocks from the centre) or depth (blocks inside the region's border, to the nearest non-region, non-interior cell). The region's plain 'biomes' stays as the fallback if zones are broken (for J: the safe rim list). Peaks keep their own palette.",
-    "  J on the 14,000-block map: the border is 650-950 blocks from Tempest on the Blumund (west), Falmuth (north-west) and Dwargon (north) sides and 1,100-3,000 blocks elsewhere, so rings are measured from the border (rim, depth 280 +- 50: 200-350 blocks deep along the whole border, the 'safe outer edge') and from Tempest (core, radius 200 +- 50, about the inner third of the narrowest 650 blocks); the dark-forest middle is everything between: about 190 blocks wide toward Blumund, 290-420 toward Dwargon and Falmuth, 650+ south and east. Life 2 arrives on the rim (design/data/arrival.toml). Check after editing: java -cp mod/build/classes/java/main:<gson jar> com.yasuke.ttl.world.CanonGrid pack/config/ttl/canon_map.txt pack/config/ttl/canon_regions.json <arrival x> <arrival z>. Terrain that is already generated keeps its biomes; only new chunks follow the rings (/ttlmap <x> <z> and /ttlregion <player> name the ring).",
-    "The Lake Siss paint pass adds the W marsh ring after the political trace; W intentionally has no flood seeds.",
-    "landmarks: named places in reference-map pixel coordinates (the 2800x2050 political fan map, same space as seeds and origin); a tool converts them to world coordinates (about 5.447 blocks per reference pixel at width 14000; world 0,0 = origin).",
-    "ring: open sea around the continent (blocks) before the free, non-canon lands; blend: blocks over which the sea fades into them.",
-    "seeds and origin are points on the reference map (tools/canon_map.py), only used when the grid is regenerated.",
-    "sites: per canon build or landmark (tools never generate them; tests/test_canon_sites.py keeps them in step with the builds): name, for, centre [x, z] world blocks, radius, fade (blocks), terrain, biomes (optional), why. Inside its biome edge (half-way through the fade, wobbled per site so it is organic) a site's own biomes replace the nation palette for land and peaks (a flat site also for water, shores and cave biomes less than 16 blocks below its ground); no biomes = the nation's (Jura's rings stay). terrain: keep (biomes only); flat (the ground is blended to a plain at 'ground' = y of the first air block, default 70, keep it >= 64 so no sea floods it; the column below is pulled solid, so noise caves under the middle fill up); lowland, hills, mountain (erosion 0.5 / erosion -0.1 / continents 0.75, erosion -0.9, ridges 0.62; explicit erosion, continents, ridges override). Listed order: the first biome site wins, later climate sites win where they overlap, the strongest flat site wins. Outside every site nothing changes. Mod: CanonSites, CanonSiteTerrain; /ttlmap x z names the sites at a column.",
-    "Changes only affect chunks that are not generated yet.",
-    "paint: water and wetlands traced maps miss, in world blocks (tools/canon_map.py applies them after tracing): lake = ellipse of '~' (size in chunks) with an optional ring of a region; river = polyline of '~' `width` chunks wide over land.",
-    "width: the continent's width in blocks (owner chose 14000 on 18/11/2026); paint coordinates are written for paint_width and scale with it. World ≈ (reference px − origin) × width / 2570."
-  ],
-  "reference": {
-    "width": 2800
-  },
-  "width": 14000,
-  "paint_width": 10000,
-  "origin": [
-    1792,
-    1141
-  ],
-  "ring": 1600,
+  "_doc": ["The canon continent of the Tensura world (Life 2) is Lerfing's map, imported 1:1 as the overworld of world-ttl (design/architecture/lerfing-import.md; map by Lerfing, giant trees by Paulzero). World 0, 0 = Lerfing's 0, 0. canon_map.txt holds one character per chunk of his inner tiles; this file says what each letter is. Lore per region: design/lore/world.md. Every canon place, with its coordinates: design/data/anchors.toml.", "lerfing.inner: the imported inner tiles [x0, z0, x1, z1] (blocks; 1,016 x 784 chunks). lerfing.polygons: one or more polygons per region letter, [[x, z], ...] in world blocks, tried in listed order; tools/lerfing_grid.py gives every land cell the first polygon holding its centre, else the nearest polygon's letter, and regenerates canon_map.txt (run it after an edit, then python tools/gen_map.py).", "Imported chunks are never generated, so inside the inner tiles the climate knobs (temperature, vegetation, erosion, strength), the 'biomes' palettes, replace_peaks and peaks shape nothing: Lerfing's stored biomes rule (WP-L1 repaints the Nether/End ones offline). They stay as documentation and for CanonBiomes' fallback. RegionTitles, /ttlregion, factions and nations read name, colour and banner_*.", "zones (J only): rings by radius from Tempest (owner decision Q4, 19/11/2026): core r 200 +- fade tensura:ancient_forest (20,000 magicule), dark band r 600 +- fade minecraft:dark_forest (2,000), the rest keeps Lerfing's own biome (safe, 500). The offline import repaints the land cells by these rings; /ttlregion and the arrival self-check read them here. centre = tempest in anchors.toml.", "landmarks: named canon places for the map and the data (gen_data.py, gen_map.py); `at` = world [x, z] and must equal the anchors.toml anchor that names it (canon = ...).", "ring: open sea around the land bbox (blocks) before the free, non-canon lands; blend: blocks over which the sea fades into them. The generated ring starts at the edge of the inner tiles (476-696 blocks beyond the land).", "sites: none. They only shaped chunks the generator makes, and no canon build stands on a generated chunk any more; builds are fitted by the placer (survey, fit, repair.js). The key stays so every reader parses the file."],
+  "ring": 2000,
   "blend": 800,
+  "lerfing": {
+    "inner": [-8064, -6016, 8192, 6528],
+    "polygons": {
+      "I": [[-4400, -6016], [2700, -6016], [2700, -2700], [-4400, -2700]],
+      "X": [[[-5300, 3250], [-1300, 3250], [-1300, 6000], [-5300, 6000]], [[-3300, 2800], [-2700, 2800], [-2700, 3250], [-3300, 3250]]],
+      "D": [[450, -2700], [3850, -2700], [3850, -1050], [3950, -1050], [3950, 300], [2420, 300], [2400, 80], [1920, 60], [1880, -270], [1300, -290], [900, -350], [650, -800], [450, -1000]],
+      "P": [[5300, -1100], [7900, -1100], [7900, -300], [5300, -300]],
+      "E": [[3600, -3900], [7900, -3900], [7900, -1050], [3600, -1050]],
+      "W": [[2420, 300], [3950, 300], [4300, 560], [4300, 1000], [3880, 1320], [2400, 1320]],
+      "B": [[2400, 1320], [3880, 1320], [3900, 1500], [4000, 1750], [4300, 2000], [4550, 2150], [4600, 2300], [4800, 5500], [1500, 5500], [1500, 2250], [2400, 2250]],
+      "M": [[3950, -1050], [5300, -1050], [5300, -300], [7900, -300], [7900, 3200], [3800, 3200], [3800, 300], [3950, 300]],
+      "J": [[-150, -900], [650, -900], [900, -350], [1300, -290], [1880, -270], [1920, 60], [2400, 80], [2400, 2250], [-320, 2250], [-330, 1400], [-420, 1000], [-150, 820]],
+      "S": [[-800, 2250], [1500, 2250], [1500, 3900], [-800, 3900]],
+      "R": [[-1450, -750], [-150, -750], [-150, 820], [-420, 1000], [-480, 600], [-1300, 600], [-1300, 0], [-1450, 0]],
+      "Q": [[-1500, 0], [-1300, 0], [-1300, 600], [-1500, 600]],
+      "U": [[-1500, 600], [-480, 600], [-420, 1000], [-330, 1400], [-320, 2250], [-800, 2250], [-800, 2500], [-1550, 2500], [-1550, 1050], [-1500, 1050]],
+      "G": [[-2450, -750], [-1450, -750], [-1450, 0], [-1500, 0], [-1500, 500], [-2450, 500]],
+      "F": [
+        [[-2700, -2400], [-1150, -2400], [-1150, -750], [-2700, -750]],
+        [[-1150, -2300], [250, -2300], [250, -1000], [-1150, -1000]]
+      ],
+      "L": [[-4400, -2400], [-2700, -2400], [-2700, -750], [-2450, -750], [-2450, 300], [-3250, 300], [-3250, -750], [-4400, -750]],
+      "O": [[-2600, 500], [-2250, 500], [-2250, 1050], [-2600, 1050]],
+      "A": [[-2250, 500], [-1950, 500], [-1950, 1050], [-2250, 1050]],
+      "N": [[-1950, 500], [-1650, 500], [-1650, 1050], [-1950, 1050]],
+      "Y": [[-1650, 500], [-1500, 500], [-1500, 1050], [-1650, 1050]],
+      "H": [[-3950, 1050], [-1550, 1050], [-1550, 2700], [-3950, 2700]],
+      "V": [[-8064, -2400], [-4400, -2400], [-4400, -750], [-3250, -750], [-3250, 300], [-2600, 300], [-2600, 1050], [-3950, 1050], [-3950, 3000], [-8064, 3000]]
+    }
+  },
   "regions": {
     "J": {
       "name": "Jura-Tempest Federation",
-      "colour": [
-        228,
-        114,
-        210
-      ],
-      "seeds": [
-        [
-          1987,
-          1232
-        ]
-      ],
+      "colour": [228, 114, 210],
       "temperature": 0.0,
       "vegetation": 0.45,
       "erosion": 0.3,
       "strength": 0.85,
       "banner_subtitle": "ジュラ・テンペスト連邦国",
-      "biomes": [
-        [
-          "minecraft:forest",
-          4
-        ],
-        [
-          "minecraft:birch_forest",
-          3
-        ],
-        [
-          "minecraft:old_growth_birch_forest",
-          2
-        ],
-        [
-          "minecraft:flower_forest",
-          2
-        ],
-        [
-          "minecraft:plains",
-          2
-        ],
-        [
-          "minecraft:swamp",
-          1
-        ]
-      ],
+      "biomes": [["minecraft:forest", 4], ["minecraft:birch_forest", 3], ["minecraft:old_growth_birch_forest", 2], ["minecraft:flower_forest", 2], ["minecraft:plains", 2], ["minecraft:swamp", 1]],
       "zones": {
-        "centre": [
-          0,
-          0
-        ],
-        "interior": "~W",
+        "centre": [1720, 900],
         "fade": 50,
         "rings": [
           {
             "name": "core",
             "radius": 200,
-            "biomes": [
-              [
-                "tensura:ancient_forest",
-                6
-              ],
-              [
-                "minecraft:dark_forest",
-                3
-              ]
-            ]
+            "biomes": [["tensura:ancient_forest", 1]]
+          },
+          {
+            "name": "band",
+            "radius": 600,
+            "biomes": [["minecraft:dark_forest", 1]]
           },
           {
             "name": "rim",
-            "depth": 280,
-            "biomes": [
-              [
-                "minecraft:forest",
-                4
-              ],
-              [
-                "minecraft:birch_forest",
-                3
-              ],
-              [
-                "minecraft:old_growth_birch_forest",
-                2
-              ],
-              [
-                "minecraft:flower_forest",
-                2
-              ],
-              [
-                "minecraft:plains",
-                2
-              ],
-              [
-                "minecraft:swamp",
-                1
-              ]
-            ]
-          },
-          {
-            "name": "middle",
-            "biomes": [
-              [
-                "minecraft:dark_forest",
-                7
-              ],
-              [
-                "tensura:ancient_forest",
-                2
-              ]
-            ]
+            "biomes": [["minecraft:forest", 4], ["minecraft:birch_forest", 3], ["minecraft:old_growth_birch_forest", 2], ["minecraft:flower_forest", 2], ["minecraft:plains", 2], ["minecraft:swamp", 1]]
           }
         ]
       },
       "replace_peaks": true,
-      "peaks": [
-        [
-          "minecraft:stony_peaks",
-          2
-        ],
-        [
-          "minecraft:windswept_forest",
-          1
-        ]
-      ]
+      "peaks": [["minecraft:stony_peaks", 2], ["minecraft:windswept_forest", 1]]
     },
     "W": {
       "name": "Lizardmen's Marsh of Lake Siss",
-      "colour": [
-        70,
-        140,
-        110
-      ],
-      "seeds": [],
+      "colour": [70, 140, 110],
       "temperature": 0.35,
       "vegetation": 0.4,
       "erosion": 0.75,
       "strength": 0.9,
       "banner_subtitle": "シス湖 — 蜥蜴人族の湿地帯",
-      "biomes": [
-        [
-          "minecraft:mangrove_swamp",
-          4
-        ],
-        [
-          "minecraft:swamp",
-          4
-        ]
-      ]
+      "biomes": [["minecraft:mangrove_swamp", 4], ["minecraft:swamp", 4]]
     },
     "D": {
       "name": "Armed Nation of Dwargon",
-      "colour": [
-        209,
-        204,
-        59
-      ],
-      "seeds": [
-        [
-          1819,
-          756
-        ]
-      ],
+      "colour": [209, 204, 59],
       "temperature": -0.3,
       "vegetation": null,
       "erosion": -0.72,
       "strength": 0.85,
       "banner_subtitle": "武装国家ドワルゴン",
-      "biomes": [
-        [
-          "minecraft:meadow",
-          3
-        ],
-        [
-          "minecraft:windswept_hills",
-          2
-        ],
-        [
-          "minecraft:windswept_forest",
-          2
-        ],
-        [
-          "minecraft:taiga",
-          2
-        ],
-        [
-          "minecraft:old_growth_spruce_taiga",
-          1
-        ],
-        [
-          "minecraft:grove",
-          1
-        ],
-        [
-          "minecraft:windswept_gravelly_hills",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:meadow", 3], ["minecraft:windswept_hills", 2], ["minecraft:windswept_forest", 2], ["minecraft:taiga", 2], ["minecraft:old_growth_spruce_taiga", 1], ["minecraft:grove", 1], ["minecraft:windswept_gravelly_hills", 1]]
     },
     "E": {
       "name": "Eastern Empire",
-      "colour": [
-        135,
-        217,
-        68
-      ],
-      "seeds": [
-        [
-          2380,
-          588
-        ]
-      ],
+      "colour": [135, 217, 68],
       "temperature": 0.1,
       "vegetation": 0.0,
       "erosion": 0.45,
       "strength": 0.6,
       "banner_subtitle": "東の帝国 — 東方連合統一帝国",
-      "biomes": [
-        [
-          "minecraft:plains",
-          3
-        ],
-        [
-          "minecraft:forest",
-          2
-        ],
-        [
-          "minecraft:taiga",
-          2
-        ],
-        [
-          "minecraft:birch_forest",
-          1
-        ],
-        [
-          "minecraft:meadow",
-          1
-        ],
-        [
-          "minecraft:sunflower_plains",
-          1
-        ],
-        [
-          "minecraft:windswept_hills",
-          1
-        ],
-        [
-          "minecraft:old_growth_pine_taiga",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:plains", 3], ["minecraft:forest", 2], ["minecraft:taiga", 2], ["minecraft:birch_forest", 1], ["minecraft:meadow", 1], ["minecraft:sunflower_plains", 1], ["minecraft:windswept_hills", 1], ["minecraft:old_growth_pine_taiga", 1]]
     },
     "P": {
       "name": "Puppet Nation of Jistav",
-      "colour": [
-        215,
-        165,
-        70
-      ],
-      "seeds": [
-        [
-          2520,
-          1120
-        ]
-      ],
+      "colour": [215, 165, 70],
       "temperature": 0.0,
       "vegetation": 0.2,
       "erosion": -0.3,
       "strength": 0.65,
       "banner_subtitle": "傀儡国ジスターヴ",
-      "biomes": [
-        [
-          "minecraft:dark_forest",
-          3
-        ],
-        [
-          "minecraft:taiga",
-          2
-        ],
-        [
-          "minecraft:windswept_hills",
-          2
-        ],
-        [
-          "tensura:miasmic_plains",
-          2
-        ],
-        [
-          "minecraft:old_growth_spruce_taiga",
-          1
-        ],
-        [
-          "minecraft:swamp",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:dark_forest", 3], ["minecraft:taiga", 2], ["minecraft:windswept_hills", 2], ["tensura:miasmic_plains", 2], ["minecraft:old_growth_spruce_taiga", 1], ["minecraft:swamp", 1]]
     },
     "M": {
       "name": "Milim's Domain",
-      "colour": [
-        226,
-        205,
-        164
-      ],
-      "seeds": [
-        [
-          2464,
-          1330
-        ]
-      ],
+      "colour": [226, 205, 164],
       "temperature": 0.6,
       "vegetation": -0.2,
       "erosion": -0.1,
       "strength": 0.8,
       "banner_subtitle": "ミリム領 — 忘れられた竜の都",
-      "biomes": [
-        [
-          "minecraft:savanna",
-          3
-        ],
-        [
-          "minecraft:savanna_plateau",
-          2
-        ],
-        [
-          "minecraft:plains",
-          2
-        ],
-        [
-          "minecraft:badlands",
-          1
-        ],
-        [
-          "minecraft:wooded_badlands",
-          1
-        ],
-        [
-          "minecraft:windswept_savanna",
-          1
-        ],
-        [
-          "minecraft:sunflower_plains",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:savanna", 3], ["minecraft:savanna_plateau", 2], ["minecraft:plains", 2], ["minecraft:badlands", 1], ["minecraft:wooded_badlands", 1], ["minecraft:windswept_savanna", 1], ["minecraft:sunflower_plains", 1]]
     },
     "B": {
       "name": "Beast Kingdom of Eurazania",
-      "colour": [
-        135,
-        220,
-        69
-      ],
-      "seeds": [
-        [
-          2100,
-          1344
-        ]
-      ],
+      "colour": [135, 220, 69],
       "temperature": 0.7,
       "vegetation": 0.35,
       "erosion": 0.4,
       "strength": 0.75,
       "banner_subtitle": "獣王国ユーラザニア",
-      "biomes": [
-        [
-          "minecraft:sparse_jungle",
-          3
-        ],
-        [
-          "minecraft:savanna",
-          3
-        ],
-        [
-          "minecraft:jungle",
-          2
-        ],
-        [
-          "minecraft:plains",
-          1
-        ],
-        [
-          "minecraft:bamboo_jungle",
-          1
-        ],
-        [
-          "minecraft:savanna_plateau",
-          1
-        ]
-      ],
+      "biomes": [["minecraft:sparse_jungle", 3], ["minecraft:savanna", 3], ["minecraft:jungle", 2], ["minecraft:plains", 1], ["minecraft:bamboo_jungle", 1], ["minecraft:savanna_plateau", 1]],
       "replace_peaks": true,
-      "peaks": [
-        [
-          "minecraft:stony_peaks",
-          2
-        ],
-        [
-          "minecraft:windswept_savanna",
-          1
-        ]
-      ]
+      "peaks": [["minecraft:stony_peaks", 2], ["minecraft:windswept_savanna", 1]]
     },
     "H": {
       "name": "Harpy Queendom of Fulbrosia",
-      "colour": [
-        221,
-        150,
-        104
-      ],
-      "seeds": [
-        [
-          1847,
-          1610
-        ]
-      ],
+      "colour": [221, 150, 104],
       "temperature": -0.3,
       "vegetation": 0.3,
       "erosion": -0.6,
       "strength": 0.75,
       "banner_subtitle": "天翼国フルブロジア",
-      "biomes": [
-        [
-          "minecraft:windswept_hills",
-          3
-        ],
-        [
-          "minecraft:windswept_forest",
-          2
-        ],
-        [
-          "minecraft:meadow",
-          2
-        ],
-        [
-          "minecraft:old_growth_pine_taiga",
-          2
-        ],
-        [
-          "minecraft:grove",
-          1
-        ],
-        [
-          "minecraft:snowy_slopes",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:windswept_hills", 3], ["minecraft:windswept_forest", 2], ["minecraft:meadow", 2], ["minecraft:old_growth_pine_taiga", 2], ["minecraft:grove", 1], ["minecraft:snowy_slopes", 1]]
     },
     "S": {
       "name": "Sorcerous Dynasty of Sarion",
-      "colour": [
-        203,
-        201,
-        55
-      ],
-      "seeds": [
-        [
-          1400,
-          1484
-        ]
-      ],
+      "colour": [203, 201, 55],
       "temperature": 0.15,
       "vegetation": 0.45,
       "erosion": 0.3,
       "strength": 0.65,
       "banner_subtitle": "魔導王朝サリオン",
-      "biomes": [
-        [
-          "tensura:ancient_forest",
-          3
-        ],
-        [
-          "minecraft:forest",
-          2
-        ],
-        [
-          "minecraft:flower_forest",
-          2
-        ],
-        [
-          "minecraft:birch_forest",
-          2
-        ],
-        [
-          "minecraft:old_growth_birch_forest",
-          2
-        ],
-        [
-          "minecraft:cherry_grove",
-          1
-        ],
-        [
-          "minecraft:plains",
-          1
-        ]
-      ]
+      "biomes": [["tensura:ancient_forest", 3], ["minecraft:forest", 2], ["minecraft:flower_forest", 2], ["minecraft:birch_forest", 2], ["minecraft:old_growth_birch_forest", 2], ["minecraft:cherry_grove", 1], ["minecraft:plains", 1]]
     },
     "U": {
       "name": "Republic of Ulgracia",
-      "colour": [
-        212,
-        173,
-        83
-      ],
-      "seeds": [
-        [
-          1582,
-          1540
-        ]
-      ],
+      "colour": [212, 173, 83],
       "temperature": 0.25,
       "vegetation": 0.2,
       "erosion": 0.3,
       "strength": 0.5,
       "banner_subtitle": "ウルグレイシア共和国",
-      "biomes": [
-        [
-          "minecraft:plains",
-          3
-        ],
-        [
-          "minecraft:flower_forest",
-          2
-        ],
-        [
-          "minecraft:sunflower_plains",
-          1
-        ],
-        [
-          "minecraft:forest",
-          1
-        ],
-        [
-          "minecraft:meadow",
-          1
-        ],
-        [
-          "minecraft:cherry_grove",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:plains", 3], ["minecraft:flower_forest", 2], ["minecraft:sunflower_plains", 1], ["minecraft:forest", 1], ["minecraft:meadow", 1], ["minecraft:cherry_grove", 1]]
     },
     "R": {
       "name": "Kingdom of Blumund",
-      "colour": [
-        226,
-        170,
-        69
-      ],
-      "seeds": [
-        [
-          1610,
-          1148
-        ]
-      ],
+      "colour": [226, 170, 69],
       "temperature": 0.05,
       "vegetation": 0.15,
       "erosion": 0.45,
       "strength": 0.4,
       "banner_subtitle": "ブルムンド王国",
-      "biomes": [
-        [
-          "minecraft:plains",
-          3
-        ],
-        [
-          "minecraft:forest",
-          3
-        ],
-        [
-          "minecraft:birch_forest",
-          2
-        ],
-        [
-          "minecraft:flower_forest",
-          1
-        ],
-        [
-          "minecraft:sunflower_plains",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:plains", 3], ["minecraft:forest", 3], ["minecraft:birch_forest", 2], ["minecraft:flower_forest", 1], ["minecraft:sunflower_plains", 1]]
     },
     "F": {
       "name": "Kingdom of Falmuth",
-      "colour": [
-        129,
-        215,
-        66
-      ],
-      "seeds": [
-        [
-          1512,
-          909
-        ]
-      ],
+      "colour": [129, 215, 66],
       "temperature": 0.1,
       "vegetation": -0.1,
       "erosion": 0.6,
       "strength": 0.5,
       "banner_subtitle": "ファルムス王国",
-      "biomes": [
-        [
-          "minecraft:plains",
-          3
-        ],
-        [
-          "minecraft:forest",
-          2
-        ],
-        [
-          "minecraft:birch_forest",
-          1
-        ],
-        [
-          "minecraft:sunflower_plains",
-          1
-        ],
-        [
-          "minecraft:meadow",
-          1
-        ],
-        [
-          "minecraft:windswept_hills",
-          1
-        ],
-        [
-          "minecraft:taiga",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:plains", 3], ["minecraft:forest", 2], ["minecraft:birch_forest", 1], ["minecraft:sunflower_plains", 1], ["minecraft:meadow", 1], ["minecraft:windswept_hills", 1], ["minecraft:taiga", 1]]
     },
     "G": {
       "name": "Kingdom of Englassia",
-      "colour": [
-        209,
-        167,
-        71
-      ],
-      "seeds": [
-        [
-          1232,
-          1148
-        ]
-      ],
+      "colour": [209, 167, 71],
       "temperature": 0.0,
       "vegetation": 0.0,
       "erosion": 0.5,
       "strength": 0.5,
       "banner_subtitle": "イングラシア王国",
-      "biomes": [
-        [
-          "minecraft:plains",
-          4
-        ],
-        [
-          "minecraft:forest",
-          2
-        ],
-        [
-          "minecraft:sunflower_plains",
-          1
-        ],
-        [
-          "minecraft:flower_forest",
-          1
-        ],
-        [
-          "minecraft:birch_forest",
-          1
-        ],
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:plains", 4], ["minecraft:forest", 2], ["minecraft:sunflower_plains", 1], ["minecraft:flower_forest", 1], ["minecraft:birch_forest", 1], ["minecraft:meadow", 1]]
     },
     "L": {
       "name": "Holy Empire of Lubelius",
-      "colour": [
-        229,
-        154,
-        107
-      ],
-      "seeds": [
-        [
-          923,
-          840
-        ],
-        [
-          1290,
-          760
-        ]
-      ],
+      "colour": [229, 154, 107],
       "temperature": -0.15,
       "vegetation": 0.1,
       "erosion": -0.4,
       "strength": 0.65,
       "banner_subtitle": "神聖法皇国ルベリオス",
-      "biomes": [
-        [
-          "minecraft:meadow",
-          3
-        ],
-        [
-          "minecraft:forest",
-          2
-        ],
-        [
-          "minecraft:plains",
-          2
-        ],
-        [
-          "minecraft:taiga",
-          1
-        ],
-        [
-          "minecraft:windswept_forest",
-          1
-        ],
-        [
-          "minecraft:flower_forest",
-          1
-        ],
-        [
-          "minecraft:grove",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:meadow", 3], ["minecraft:forest", 2], ["minecraft:plains", 2], ["minecraft:taiga", 1], ["minecraft:windswept_forest", 1], ["minecraft:flower_forest", 1], ["minecraft:grove", 1]]
     },
     "V": {
       "name": "Holy Void of Damargania",
-      "colour": [
-        224,
-        204,
-        165
-      ],
-      "seeds": [
-        [
-          461,
-          1316
-        ]
-      ],
+      "colour": [224, 204, 165],
       "temperature": 0.85,
       "vegetation": -0.8,
       "erosion": 0.5,
       "strength": 0.9,
       "banner_subtitle": "聖虚ダマルガニア",
-      "biomes": [
-        [
-          "tensura:desert_of_death",
-          4
-        ],
-        [
-          "tensura:barren_land",
-          3
-        ],
-        [
-          "minecraft:desert",
-          2
-        ],
-        [
-          "minecraft:badlands",
-          1
-        ],
-        [
-          "minecraft:eroded_badlands",
-          1
-        ]
-      ]
+      "biomes": [["tensura:desert_of_death", 4], ["tensura:barren_land", 3], ["minecraft:desert", 2], ["minecraft:badlands", 1], ["minecraft:eroded_badlands", 1]]
     },
     "O": {
       "name": "Morgdahl",
-      "colour": [
-        150,
-        70,
-        175
-      ],
-      "seeds": [
-        [
-          1064,
-          1330
-        ]
-      ],
+      "colour": [150, 70, 175],
       "temperature": 0.15,
       "vegetation": 0.1,
       "erosion": 0.4,
       "strength": 0.4,
       "banner_subtitle": "A river-mouth realm on the southern coast of the Western Nations",
-      "biomes": [
-        [
-          "minecraft:plains",
-          3
-        ],
-        [
-          "minecraft:forest",
-          2
-        ],
-        [
-          "minecraft:birch_forest",
-          1
-        ],
-        [
-          "minecraft:swamp",
-          1
-        ],
-        [
-          "minecraft:savanna",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:plains", 3], ["minecraft:forest", 2], ["minecraft:birch_forest", 1], ["minecraft:swamp", 1], ["minecraft:savanna", 1]]
     },
     "N": {
       "name": "Nostraille",
-      "colour": [
-        224,
-        154,
-        108
-      ],
-      "seeds": [
-        [
-          1204,
-          1288
-        ]
-      ],
+      "colour": [224, 154, 108],
       "temperature": 0.1,
       "vegetation": 0.0,
       "erosion": 0.4,
       "strength": 0.4,
       "banner_subtitle": "A quiet hill kingdom of the Western Nations",
-      "biomes": [
-        [
-          "minecraft:plains",
-          2
-        ],
-        [
-          "minecraft:meadow",
-          2
-        ],
-        [
-          "minecraft:forest",
-          2
-        ],
-        [
-          "minecraft:windswept_hills",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:plains", 2], ["minecraft:meadow", 2], ["minecraft:forest", 2], ["minecraft:windswept_hills", 1]]
     },
     "Y": {
       "name": "Yuzalgh",
-      "colour": [
-        190,
-        80,
-        140
-      ],
-      "seeds": [
-        [
-          1484,
-          1288
-        ]
-      ],
+      "colour": [190, 80, 140],
       "temperature": 0.15,
       "vegetation": 0.1,
       "erosion": 0.4,
       "strength": 0.4,
       "banner_subtitle": "A lakeside kingdom on the road between Englassia and Jura",
-      "biomes": [
-        [
-          "minecraft:forest",
-          2
-        ],
-        [
-          "minecraft:plains",
-          2
-        ],
-        [
-          "minecraft:birch_forest",
-          2
-        ],
-        [
-          "minecraft:flower_forest",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:forest", 2], ["minecraft:plains", 2], ["minecraft:birch_forest", 2], ["minecraft:flower_forest", 1]]
     },
     "Q": {
       "name": "Yggdonia",
-      "colour": [
-        226,
-        160,
-        110
-      ],
-      "seeds": [
-        [
-          1547,
-          1205
-        ]
-      ],
+      "colour": [226, 160, 110],
       "temperature": 0.1,
       "vegetation": 0.2,
       "erosion": 0.4,
       "strength": 0.4,
       "banner_subtitle": "A small birchwood realm on Blumund's southern border",
-      "biomes": [
-        [
-          "minecraft:old_growth_birch_forest",
-          2
-        ],
-        [
-          "minecraft:birch_forest",
-          2
-        ],
-        [
-          "minecraft:flower_forest",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:old_growth_birch_forest", 2], ["minecraft:birch_forest", 2], ["minecraft:flower_forest", 1]]
     },
     "A": {
       "name": "Raja",
-      "colour": [
-        135,
-        218,
-        68
-      ],
-      "seeds": [
-        [
-          1596,
-          1281
-        ]
-      ],
+      "colour": [135, 218, 68],
       "temperature": 0.3,
       "vegetation": 0.1,
       "erosion": 0.4,
       "strength": 0.4,
       "banner_subtitle": "A small Western state of hills and old mines on the Jura border",
-      "biomes": [
-        [
-          "minecraft:plains",
-          2
-        ],
-        [
-          "minecraft:forest",
-          1
-        ],
-        [
-          "minecraft:meadow",
-          1
-        ],
-        [
-          "minecraft:windswept_hills",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:plains", 2], ["minecraft:forest", 1], ["minecraft:meadow", 1], ["minecraft:windswept_hills", 1]]
     },
     "I": {
       "name": "Ice Continent",
-      "colour": [
-        211,
-        165,
-        73
-      ],
-      "seeds": [
-        [
-          1540,
-          210
-        ]
-      ],
+      "colour": [211, 165, 73],
       "temperature": -0.95,
       "vegetation": null,
       "erosion": -0.4,
       "strength": 0.95,
       "banner_subtitle": "氷の大陸 — 白氷宮",
-      "biomes": [
-        [
-          "minecraft:snowy_plains",
-          3
-        ],
-        [
-          "minecraft:ice_spikes",
-          2
-        ],
-        [
-          "minecraft:snowy_slopes",
-          2
-        ],
-        [
-          "minecraft:snowy_taiga",
-          1
-        ],
-        [
-          "minecraft:grove",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:snowy_plains", 3], ["minecraft:ice_spikes", 2], ["minecraft:snowy_slopes", 2], ["minecraft:snowy_taiga", 1], ["minecraft:grove", 1]]
     },
     "X": {
       "name": "El Dorado",
-      "colour": [
-        225,
-        218,
-        66
-      ],
-      "seeds": [
-        [
-          979,
-          1819
-        ]
-      ],
+      "colour": [225, 218, 66],
       "temperature": 0.7,
       "vegetation": 0.6,
       "erosion": 0.1,
       "strength": 0.8,
       "banner_subtitle": "黄金郷エルドラド",
-      "biomes": [
-        [
-          "minecraft:sparse_jungle",
-          2
-        ],
-        [
-          "minecraft:jungle",
-          2
-        ],
-        [
-          "minecraft:savanna",
-          2
-        ],
-        [
-          "minecraft:wooded_badlands",
-          2
-        ],
-        [
-          "minecraft:badlands",
-          1
-        ],
-        [
-          "minecraft:bamboo_jungle",
-          1
-        ],
-        [
-          "minecraft:windswept_savanna",
-          1
-        ]
-      ]
+      "biomes": [["minecraft:sparse_jungle", 2], ["minecraft:jungle", 2], ["minecraft:savanna", 2], ["minecraft:wooded_badlands", 2], ["minecraft:badlands", 1], ["minecraft:bamboo_jungle", 1], ["minecraft:windswept_savanna", 1]]
     }
   },
   "landmarks": [
     {
       "name": "Tempest (Rimuru, capital of the Federation)",
       "kind": "capital",
-      "ref": [
-        1790,
-        1122
-      ]
+      "at": [1720, 900]
     },
     {
       "name": "Sealed Cave (Veldora's prison, Rimuru's birthplace)",
       "kind": "cave",
-      "ref": [
-        1745,
-        1078
-      ]
+      "at": [1380, 560]
     },
     {
       "name": "Old goblin village (Rigurd's tribe)",
       "kind": "village",
-      "ref": [
-        1762,
-        1098
-      ]
+      "at": [1390, 710]
     },
     {
       "name": "Lake Siss",
       "kind": "lake",
-      "ref": [
-        1955,
-        1178
-      ]
+      "at": [3050, 750]
     },
     {
       "name": "Lizardmen's caverns (Gabiru, Avalos)",
       "kind": "cave",
-      "ref": [
-        1962,
-        1214
-      ]
+      "at": [3300, 1200]
     },
     {
       "name": "Orc War battlefield (Lake Siss marsh)",
       "kind": "battlefield",
-      "ref": [
-        1995,
-        1240
-      ]
+      "at": [3600, 1250]
     },
     {
       "name": "Great Ameld River source (Canaat foothills)",
       "kind": "river",
-      "ref": [
-        2037,
-        938
-      ]
+      "at": [2500, -200]
     },
     {
       "name": "Great Ameld River mouth",
       "kind": "river",
-      "ref": [
-        2434,
-        1384
-      ]
+      "at": [4580, 2300]
     },
     {
       "name": "Hidden ogre village (Kijin homeland, burned)",
       "kind": "ruin",
-      "ref": [
-        2060,
-        965
-      ]
+      "at": [2150, 400]
     },
     {
       "name": "Treyni's grove (Dryad sanctuary)",
       "kind": "forest",
-      "ref": [
-        2150,
-        1100
-      ]
+      "at": [1920, 1540]
     },
     {
       "name": "Dwargo (Dwargon cavern capital)",
       "kind": "capital",
-      "ref": [
-        1869,
-        836
-      ]
+      "at": [1878, -644]
     },
     {
       "name": "Dwargon main gate",
       "kind": "gate",
-      "ref": [
-        1872,
-        868
-      ]
+      "at": [1878, -544]
     },
     {
       "name": "Dragon's Nest (highest peak of the Great Canaat Mountains)",
       "kind": "mountain",
-      "ref": [
-        1860,
-        700
-      ]
+      "at": [2420, -1536]
     },
     {
       "name": "Marris (Falmuth capital)",
       "kind": "capital",
-      "ref": [
-        1556,
-        950
-      ]
+      "at": [-2000, -1450]
     },
     {
       "name": "Siltrosso",
       "kind": "city",
-      "ref": [
-        1420,
-        972
-      ]
+      "at": [-2450, -1650]
     },
     {
       "name": "Blumund capital (Londo)",
       "kind": "capital",
-      "ref": [
-        1604,
-        1119
-      ]
+      "at": [-450, 150]
     },
     {
       "name": "Ballachia",
       "kind": "town",
-      "ref": [
-        1538,
-        1102
-      ]
+      "at": [-1660, -460]
     },
     {
       "name": "Englassia capital (Lura): Freedom Academy, Free Guild HQ",
       "kind": "capital",
-      "ref": [
-        1310,
-        1086
-      ]
+      "at": [-2150, -410]
     },
     {
       "name": "Holy City Lubelius (Lune)",
       "kind": "capital",
-      "ref": [
-        1062,
-        1020
-      ]
+      "at": [-2550, -700]
     },
     {
       "name": "Sacred Mountain (Inner Sanctum, Luminous)",
       "kind": "mountain",
-      "ref": [
-        980,
-        905
-      ]
+      "at": [-2980, -900]
     },
     {
       "name": "Coleus",
       "kind": "town",
-      "ref": [
-        1030,
-        1209
-      ]
+      "at": [-3080, 600]
     },
     {
       "name": "Morgdahl",
       "kind": "capital",
-      "ref": [
-        1056,
-        1325
-      ]
+      "at": [-2440, 740]
     },
     {
       "name": "Nostraille",
       "kind": "capital",
-      "ref": [
-        1322,
-        1207
-      ]
+      "at": [-1780, 550]
     },
     {
       "name": "Ghastone",
       "kind": "town",
-      "ref": [
-        1358,
-        1231
-      ]
+      "at": [-2000, 300]
     },
     {
       "name": "Rostia",
       "kind": "town",
-      "ref": [
-        1344,
-        1320
-      ]
+      "at": [-2100, 1000]
     },
     {
       "name": "Yuzalgh",
       "kind": "capital",
-      "ref": [
-        1448,
-        1200
-      ]
+      "at": [-1580, 650]
     },
     {
       "name": "Yggdonia",
       "kind": "capital",
-      "ref": [
-        1548,
-        1174
-      ]
+      "at": [-1400, 300]
     },
     {
       "name": "Filtwood",
       "kind": "town",
-      "ref": [
-        1597,
-        1254
-      ]
+      "at": [-900, 700]
     },
     {
       "name": "Raja",
       "kind": "capital",
-      "ref": [
-        1593,
-        1281
-      ]
+      "at": [-2050, 760]
     },
     {
       "name": "Sainte Malukshure",
       "kind": "town",
-      "ref": [
-        1242,
-        1378
-      ]
+      "at": [-2500, 1300]
     },
     {
       "name": "Elmine (Sarion capital in the Divine Tree)",
       "kind": "capital",
-      "ref": [
-        1522,
-        1440
-      ]
+      "at": [1100, 2760]
     },
     {
       "name": "Galut / Ulgr Nature Park (Ulgracia)",
       "kind": "capital",
-      "ref": [
-        1577,
-        1536
-      ]
+      "at": [-1040, 1060]
     },
     {
       "name": "Heaven Tower (Dagruel, Damargania)",
       "kind": "capital",
-      "ref": [
-        414,
-        1186
-      ]
+      "at": [-4500, 560]
     },
     {
       "name": "Golden City of El Dorado (Leon)",
       "kind": "capital",
-      "ref": [
-        910,
-        1736
-      ]
+      "at": [-3300, 4300]
     },
     {
       "name": "El Dorado volcano",
       "kind": "volcano",
-      "ref": [
-        860,
-        1690
-      ]
+      "at": [-2850, 4600]
     },
     {
       "name": "Frost Palace (Guy Crimson)",
       "kind": "palace",
-      "ref": [
-        1345,
-        349
-      ]
+      "at": [-1980, -4300]
     },
     {
       "name": "Nasca (Eastern Empire capital)",
       "kind": "capital",
-      "ref": [
-        2275,
-        763
-      ]
+      "at": [5100, -2680]
     },
     {
       "name": "Great Holy Mountain (Velgrynd)",
       "kind": "volcano",
-      "ref": [
-        2230,
-        680
-      ]
+      "at": [5120, -1860]
     },
     {
       "name": "Amrita (Jistav capital)",
       "kind": "capital",
-      "ref": [
-        2444,
-        1012
-      ]
+      "at": [6100, -650]
     },
     {
       "name": "Clayman's Castle",
       "kind": "palace",
-      "ref": [
-        2470,
-        965
-      ]
+      "at": [5620, -900]
     },
     {
       "name": "City of the Forgotten Dragon (Milim)",
       "kind": "capital",
-      "ref": [
-        2244,
-        1295
-      ]
+      "at": [4680, 840]
     },
     {
       "name": "Laura (Eurazania capital, rebuilt)",
       "kind": "capital",
-      "ref": [
-        2102,
-        1380
-      ]
+      "at": [3300, 2600]
     },
     {
       "name": "Jia (Fulbrosia capital, Frey)",
       "kind": "capital",
-      "ref": [
-        1856,
-        1475
-      ]
+      "at": [-2700, 1500]
     }
   ],
-  "sites": [
-    {
-      "name": "tempest",
-      "for": "Tempest (life/tempest.js)",
-      "centre": [
-        0,
-        0
-      ],
-      "radius": 89,
-      "fade": 89,
-      "terrain": "flat",
-      "ground": 70,
-      "why": "Clearing for the town; biomes stay Jura's rings (the deadly magicule core round Tempest is an owner decision)."
-    },
-    {
-      "name": "dwargon",
-      "for": "Dwargon (life/dwargon.js)",
-      "centre": [
-        435,
-        -1000
-      ],
-      "radius": 159,
-      "fade": 140,
-      "terrain": "flat",
-      "ground": 72,
-      "biomes": [
-        [
-          "minecraft:plains",
-          1
-        ]
-      ],
-      "why": "Owner override 19/11/2026: Dwargon stands on a plain, not on frozen peaks."
-    },
-    {
-      "name": "dwarven_arena",
-      "for": "build dwarven_arena",
-      "centre": [
-        -30,
-        -850
-      ],
-      "radius": 90,
-      "fade": 90,
-      "terrain": "flat",
-      "ground": 72,
-      "biomes": [
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ],
-      "why": "Beside Dwargon on the same lowland; meadow like the dwarf villages."
-    },
-    {
-      "name": "dwarf_village",
-      "for": "landmark dwarf_village",
-      "centre": [
-        250,
-        -740
-      ],
-      "radius": 132,
-      "fade": 132,
-      "terrain": "flat",
-      "ground": 72,
-      "biomes": [
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ],
-      "why": "Tensura's dwarf villages belong in meadow."
-    },
-    {
-      "name": "goblin_village",
-      "for": "landmark goblin_village",
-      "centre": [
-        -163,
-        -234
-      ],
-      "radius": 64,
-      "fade": 64,
-      "terrain": "flat",
-      "ground": 70,
-      "why": "Rigurd's village in a Jura clearing; biomes stay Jura's rings."
-    },
-    {
-      "name": "sealed_cave",
-      "for": "build sealed_cave",
-      "centre": [
-        -256,
-        -343
-      ],
-      "radius": 110,
-      "fade": 110,
-      "terrain": "flat",
-      "ground": 70,
-      "biomes": [
-        [
-          "minecraft:forest",
-          1
-        ]
-      ],
-      "why": "A mossy hill in a forest clearing (lore: sealed_cave.md)."
-    },
-    {
-      "name": "spirit_gate",
-      "for": "build spirit_gate",
-      "centre": [
-        -210,
-        130
-      ],
-      "radius": 59,
-      "fade": 64,
-      "terrain": "flat",
-      "ground": 72,
-      "biomes": [
-        [
-          "minecraft:forest",
-          1
-        ]
-      ],
-      "why": "Gate in front of a mossy cliff in the forest."
-    },
-    {
-      "name": "treyni_grove",
-      "for": "landmark treyni_grove",
-      "centre": [
-        1950,
-        -223
-      ],
-      "radius": 64,
-      "fade": 64,
-      "terrain": "flat",
-      "ground": 70,
-      "biomes": [
-        [
-          "minecraft:flower_forest",
-          1
-        ]
-      ],
-      "why": "Dryad sanctuary: flower forest round the ancient tree."
-    },
-    {
-      "name": "treyni_shrine",
-      "for": "build treyni_shrine",
-      "centre": [
-        1988,
-        -223
-      ],
-      "radius": 39,
-      "fade": 64,
-      "terrain": "flat",
-      "ground": 70,
-      "biomes": [
-        [
-          "minecraft:flower_forest",
-          1
-        ]
-      ],
-      "why": "Dryad sanctuary: flower forest."
-    },
-    {
-      "name": "ogre_village_ruin",
-      "for": "landmark ogre_village_ruin",
-      "centre": [
-        1460,
-        -959
-      ],
-      "radius": 48,
-      "fade": 80,
-      "terrain": "hills",
-      "why": "Kijin homeland in the north-eastern hills; biomes stay Jura's rim."
-    },
-    {
-      "name": "lizardmen_village",
-      "for": "landmark lizardmen_village",
-      "centre": [
-        700,
-        344
-      ],
-      "radius": 72,
-      "fade": 80,
-      "terrain": "keep",
-      "biomes": [
-        [
-          "minecraft:mangrove_swamp",
-          1
-        ]
-      ],
-      "why": "Lizardman surface villages stand in mangrove swamp; the water stays."
-    },
-    {
-      "name": "lizardmen_caverns",
-      "for": "landmark lizardmen_caverns",
-      "centre": [
-        926,
-        398
-      ],
-      "radius": 80,
-      "fade": 80,
-      "terrain": "keep",
-      "biomes": [
-        [
-          "minecraft:swamp",
-          1
-        ]
-      ],
-      "why": "Underground lizardman village under the marsh; the water stays."
-    },
-    {
-      "name": "orc_camp",
-      "for": "landmark orc_camp",
-      "centre": [
-        1106,
-        539
-      ],
-      "radius": 64,
-      "fade": 80,
-      "terrain": "keep",
-      "biomes": [
-        [
-          "minecraft:swamp",
-          1
-        ]
-      ],
-      "why": "Orc War battlefield in the Lake Siss marsh; the water stays."
-    },
-    {
-      "name": "blumund",
-      "for": "build blumund",
-      "centre": [
-        -1024,
-        -120
-      ],
-      "radius": 112,
-      "fade": 112,
-      "terrain": "flat",
-      "ground": 70,
-      "biomes": [
-        [
-          "minecraft:plains",
-          1
-        ]
-      ],
-      "why": "Farmland kingdom on the Jura border."
-    },
-    {
-      "name": "ballachia",
-      "for": "build ballachia",
-      "centre": [
-        -1384,
-        -212
-      ],
-      "radius": 76,
-      "fade": 76,
-      "terrain": "flat",
-      "ground": 68,
-      "biomes": [
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ],
-      "why": "Low meadow banks with daisies and cornflowers (lore: ballachia.md)."
-    },
-    {
-      "name": "marris",
-      "for": "build marris",
-      "centre": [
-        -1286,
-        -1040
-      ],
-      "radius": 111,
-      "fade": 111,
-      "terrain": "flat",
-      "ground": 70,
-      "biomes": [
-        [
-          "minecraft:plains",
-          1
-        ]
-      ],
-      "why": "Falmuth's capital in its plains and farmland."
-    },
-    {
-      "name": "siltrosso",
-      "for": "build siltrosso",
-      "centre": [
-        -2026,
-        -921
-      ],
-      "radius": 84,
-      "fade": 84,
-      "terrain": "flat",
-      "ground": 68,
-      "biomes": [
-        [
-          "minecraft:plains",
-          1
-        ]
-      ],
-      "why": "Englassia's lowland plains."
-    },
-    {
-      "name": "englassia",
-      "for": "build englassia",
-      "centre": [
-        -2626,
-        -300
-      ],
-      "radius": 129,
-      "fade": 129,
-      "terrain": "flat",
-      "ground": 70,
-      "biomes": [
-        [
-          "minecraft:plains",
-          1
-        ]
-      ],
-      "why": "The Western Nations' green lowland plains."
-    },
-    {
-      "name": "nostraille",
-      "for": "build nostraille",
-      "centre": [
-        -2560,
-        360
-      ],
-      "radius": 77,
-      "fade": 77,
-      "terrain": "flat",
-      "ground": 76,
-      "biomes": [
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ],
-      "why": "Hill kingdom of wool: a meadow terrace."
-    },
-    {
-      "name": "raja",
-      "for": "build raja",
-      "centre": [
-        -1084,
-        763
-      ],
-      "radius": 126,
-      "fade": 96,
-      "terrain": "keep",
-      "biomes": [
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ],
-      "why": "Old lakeside gold workings in Raja's hills: the lake and banks stay as generated."
-    },
-    {
-      "name": "morgdahl",
-      "for": "build morgdahl",
-      "centre": [
-        -4009,
-        1002
-      ],
-      "radius": 90,
-      "fade": 90,
-      "terrain": "flat",
-      "ground": 68,
-      "biomes": [
-        [
-          "minecraft:forest",
-          1
-        ]
-      ],
-      "why": "Timber landing: forest round the mill yard (the build brings its own water)."
-    },
-    {
-      "name": "coleus",
-      "for": "build coleus",
-      "centre": [
-        -4151,
-        370
-      ],
-      "radius": 102,
-      "fade": 102,
-      "terrain": "flat",
-      "ground": 66,
-      "biomes": [
-        [
-          "minecraft:desert",
-          1
-        ]
-      ],
-      "why": "Oasis palace on a sandstone hill toward Damargania."
-    },
-    {
-      "name": "lubelius",
-      "for": "build lubelius",
-      "centre": [
-        -3977,
-        -659
-      ],
-      "radius": 131,
-      "fade": 131,
-      "terrain": "flat",
-      "ground": 86,
-      "biomes": [
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ],
-      "why": "The holy city on a raised meadow terrace below the Sacred Mountain."
-    },
-    {
-      "name": "sacred_mountain",
-      "for": "build sacred_mountain",
-      "centre": [
-        -4423,
-        -1286
-      ],
-      "radius": 110,
-      "fade": 110,
-      "terrain": "flat",
-      "ground": 82,
-      "biomes": [
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ],
-      "why": "Level apron at the foot of the Sacred Mountain; the mountain rises behind (sacred_mountain_peak)."
-    },
-    {
-      "name": "heaven_tower",
-      "for": "build heaven_tower",
-      "centre": [
-        -7507,
-        245
-      ],
-      "radius": 117,
-      "fade": 117,
-      "terrain": "flat",
-      "ground": 72,
-      "biomes": [
-        [
-          "minecraft:desert",
-          1
-        ]
-      ],
-      "why": "Dagruel's tower in the Desert of Death sand sea."
-    },
-    {
-      "name": "frost_palace",
-      "for": "build frost_palace",
-      "centre": [
-        -2435,
-        -4314
-      ],
-      "radius": 94,
-      "fade": 94,
-      "terrain": "flat",
-      "ground": 80,
-      "biomes": [
-        [
-          "minecraft:snowy_plains",
-          1
-        ]
-      ],
-      "why": "Guy's palace on a snowfield (keep snowy)."
-    },
-    {
-      "name": "dragons_nest",
-      "for": "build dragons_nest",
-      "centre": [
-        370,
-        -2402
-      ],
-      "radius": 88,
-      "fade": 88,
-      "terrain": "flat",
-      "ground": 190,
-      "biomes": [
-        [
-          "minecraft:frozen_peaks",
-          1
-        ]
-      ],
-      "why": "Summit plateau of the highest Canaat peak (canaat_summit)."
-    },
-    {
-      "name": "great_holy_mountain",
-      "for": "build great_holy_mountain",
-      "centre": [
-        2386,
-        -2511
-      ],
-      "radius": 110,
-      "fade": 110,
-      "terrain": "flat",
-      "ground": 78,
-      "biomes": [
-        [
-          "minecraft:windswept_gravelly_hills",
-          1
-        ]
-      ],
-      "why": "Velgrynd's volcano: the trailhead apron, the cone rises behind (holy_mountain_peak)."
-    },
-    {
-      "name": "nasca",
-      "for": "build nasca",
-      "centre": [
-        2631,
-        -2059
-      ],
-      "radius": 99,
-      "fade": 99,
-      "terrain": "flat",
-      "ground": 72,
-      "biomes": [
-        [
-          "minecraft:plains",
-          1
-        ]
-      ],
-      "why": "Imperial capital in the Empire's broad lowland."
-    },
-    {
-      "name": "amrita",
-      "for": "build amrita",
-      "centre": [
-        3552,
-        -703
-      ],
-      "radius": 93,
-      "fade": 93,
-      "terrain": "flat",
-      "ground": 72,
-      "biomes": [
-        [
-          "minecraft:dark_forest",
-          1
-        ]
-      ],
-      "why": "Jistav's buried gallery under a grassy mound in the gloomy forest."
-    },
-    {
-      "name": "clayman_castle",
-      "for": "build clayman_castle",
-      "centre": [
-        3693,
-        -959
-      ],
-      "radius": 132,
-      "fade": 132,
-      "terrain": "flat",
-      "ground": 82,
-      "biomes": [
-        [
-          "minecraft:dark_forest",
-          1
-        ]
-      ],
-      "why": "Clayman's castle on a plateau in Jistav's dark forest."
-    },
-    {
-      "name": "forgotten_dragon_city",
-      "for": "build forgotten_dragon_city",
-      "centre": [
-        2340,
-        905
-      ],
-      "radius": 149,
-      "fade": 149,
-      "terrain": "flat",
-      "ground": 66,
-      "biomes": [
-        [
-          "minecraft:plains",
-          1
-        ]
-      ],
-      "why": "Milim's city on the Ameld's fertile river plains."
-    },
-    {
-      "name": "laura",
-      "for": "build laura",
-      "centre": [
-        1689,
-        1302
-      ],
-      "radius": 138,
-      "fade": 138,
-      "terrain": "flat",
-      "ground": 68,
-      "biomes": [
-        [
-          "minecraft:sparse_jungle",
-          1
-        ]
-      ],
-      "why": "Eurazania's capital among tropical orchards (jungle edge; the dense jungle is the region's)."
-    },
-    {
-      "name": "elmine",
-      "for": "build elmine",
-      "centre": [
-        -1471,
-        1629
-      ],
-      "radius": 93,
-      "fade": 93,
-      "terrain": "flat",
-      "ground": 66,
-      "biomes": [
-        [
-          "minecraft:flower_forest",
-          1
-        ]
-      ],
-      "why": "Elven capital: flower meadows round the Divine Tree; the region keeps its ancient forest."
-    },
-    {
-      "name": "ulgr_nature_park",
-      "for": "build ulgr_nature_park",
-      "centre": [
-        -1171,
-        2152
-      ],
-      "radius": 70,
-      "fade": 70,
-      "terrain": "flat",
-      "ground": 70,
-      "biomes": [
-        [
-          "minecraft:flower_forest",
-          1
-        ]
-      ],
-      "why": "Ulgracia's flower country and spirit trail."
-    },
-    {
-      "name": "el_dorado",
-      "for": "build el_dorado",
-      "centre": [
-        -4808,
-        3240
-      ],
-      "radius": 109,
-      "fade": 109,
-      "terrain": "flat",
-      "ground": 76,
-      "biomes": [
-        [
-          "minecraft:savanna",
-          1
-        ]
-      ],
-      "why": "Golden city on magically levelled land (lore: el_dorado.md)."
-    },
-    {
-      "name": "jia",
-      "for": "build jia",
-      "centre": [
-        349,
-        1819
-      ],
-      "radius": 150,
-      "fade": 96,
-      "terrain": "keep",
-      "biomes": [
-        [
-          "minecraft:windswept_hills",
-          1
-        ]
-      ],
-      "why": "Harpy capital on a mountain spur: the mountain stays."
-    },
-    {
-      "name": "dwargon_plain",
-      "for": "the plain round Dwargon",
-      "centre": [
-        435,
-        -1000
-      ],
-      "radius": 230,
-      "fade": 160,
-      "terrain": "lowland",
-      "biomes": [
-        [
-          "minecraft:plains",
-          2
-        ],
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ],
-      "why": "Owner override: the city's plain runs out into meadow foothills before the Canaat peaks rise further north."
-    },
-    {
-      "name": "dwarven_arena_plain",
-      "for": "the ground round the Dwarven Arena",
-      "centre": [
-        -30,
-        -850
-      ],
-      "radius": 120,
-      "fade": 140,
-      "terrain": "lowland",
-      "biomes": [
-        [
-          "minecraft:meadow",
-          1
-        ]
-      ],
-      "why": "Brings the arena's ground down out of the peaks (it stood at y 161 on jagged peaks)."
-    },
-    {
-      "name": "canaat_summit",
-      "for": "Dragon's Nest",
-      "centre": [
-        370,
-        -2402
-      ],
-      "radius": 240,
-      "fade": 320,
-      "terrain": "mountain",
-      "biomes": [
-        [
-          "minecraft:frozen_peaks",
-          1
-        ],
-        [
-          "minecraft:jagged_peaks",
-          1
-        ]
-      ],
-      "why": "Highest peak of the Great Canaat Mountains (lore: dragons_nest.md); keeps peaks round the nest."
-    },
-    {
-      "name": "sacred_mountain_peak",
-      "for": "Sacred Mountain",
-      "centre": [
-        -4423,
-        -1520
-      ],
-      "radius": 150,
-      "fade": 220,
-      "terrain": "mountain",
-      "biomes": [
-        [
-          "minecraft:snowy_slopes",
-          2
-        ],
-        [
-          "minecraft:jagged_peaks",
-          1
-        ]
-      ],
-      "why": "Luminous's holy mountain, white and steep, north of its sealed gate."
-    },
-    {
-      "name": "holy_mountain_peak",
-      "for": "Great Holy Mountain (volcano)",
-      "centre": [
-        2386,
-        -2740
-      ],
-      "radius": 140,
-      "fade": 200,
-      "terrain": "mountain",
-      "biomes": [
-        [
-          "minecraft:stony_peaks",
-          2
-        ],
-        [
-          "minecraft:windswept_gravelly_hills",
-          1
-        ]
-      ],
-      "why": "Velgrynd's volcano behind the trailhead (Scorching God Mountain)."
-    },
-    {
-      "name": "el_dorado_volcano",
-      "for": "El Dorado volcano",
-      "centre": [
-        -5077,
-        2991
-      ],
-      "radius": 160,
-      "fade": 220,
-      "terrain": "mountain",
-      "biomes": [
-        [
-          "minecraft:badlands",
-          2
-        ],
-        [
-          "minecraft:wooded_badlands",
-          1
-        ]
-      ],
-      "why": "Central volcano of the gold country (badlands carry the extra gold)."
-    }
-  ],
-  "paint": [
-    {
-      "kind": "lake",
-      "name": "Lake Siss",
-      "center": [
-        635,
-        145
-      ],
-      "size": [
-        38,
-        14
-      ],
-      "ring": 8,
-      "ring_region": "W"
-    },
-    {
-      "kind": "river",
-      "name": "Great Ameld River (east branch to Milim's lake)",
-      "width": 2.5,
-      "points": [
-        [
-          955,
-          -790
-        ],
-        [
-          900,
-          -420
-        ],
-        [
-          780,
-          -120
-        ],
-        [
-          700,
-          80
-        ],
-        [
-          940,
-          170
-        ],
-        [
-          1220,
-          330
-        ],
-        [
-          1520,
-          470
-        ],
-        [
-          1760,
-          600
-        ],
-        [
-          2100,
-          700
-        ],
-        [
-          2445,
-          775
-        ],
-        [
-          2498,
-          946
-        ]
-      ]
-    },
-    {
-      "kind": "river",
-      "name": "Ameld south-east branch",
-      "width": 2.5,
-      "points": [
-        [
-          1100,
-          240
-        ],
-        [
-          1090,
-          420
-        ],
-        [
-          1170,
-          600
-        ],
-        [
-          1330,
-          720
-        ],
-        [
-          1480,
-          830
-        ],
-        [
-          1620,
-          885
-        ]
-      ]
-    }
-  ]
+  "sites": []
 }

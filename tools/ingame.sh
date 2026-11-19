@@ -60,7 +60,9 @@ ingame_test_all() {
       want=passed; [[ $name == *_fail ]] && want=failed
       [ "$result" = "$want" ] || verdict="expected $want, got ${result:-nothing}"
     fi
-    [ "$verdict" = ok ] || fails=$((fails + 1))
+    # `@import` tests (lerfing*.rcon) skip themselves on a world that is not Lerfing's import: not a failure.
+    if [ "$verdict" = ok ] && grep -q '^skipped: ' <<<"$out"; then verdict="skipped (not Lerfing's import)"; fi
+    [ "$verdict" = ok ] || [[ $verdict == skipped* ]] || fails=$((fails + 1))
     printf '%-24s %s\n' "$name" "$verdict"
     [ -z "${INGAME_OUT:-}" ] || printf '%s\n' "$out" > "$INGAME_OUT/$name.out"
   done

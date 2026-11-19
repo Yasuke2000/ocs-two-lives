@@ -27,7 +27,7 @@ rises.
 """
 tasks = [
   { type = "stage", stage = "ttl.story.act4", title = "Complete Act IV" },
-  { type = "location", dimension = "minecraft:overworld", at = [-1024, -120], radius = 140, title = "Visit Londo’s guild district" },
+  { type = "location", dimension = "minecraft:overworld", at = { build = "blumund" }, radius = 140, title = "Visit Londo’s guild district" },
 ]
 rewards = [
   { type = "xp", xp = 90 },
@@ -47,7 +47,7 @@ has been trying to protect. Claim the encounter here. If it is already underway 
 the green and use /ttl story fight shizu.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [0, 0], radius = 20, title = "Return to Tempest’s green" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest" }, radius = 20, title = "Return to Tempest’s green" },
 ]
 rewards = [
   { type = "command", command = "ttl story fight shizu", permission_level = 0 },
@@ -102,7 +102,7 @@ deps = ["ifrit"]
 lane = 0
 col = 4
 text = """
-At x −400, z −60 on the Blumund road, use /ttl story fight hinata_sakaguchi. Hinata once learned from Shizu.
+On the west road to Blumund, at x ${anchor:shizu_spawn.x}, z ${anchor:shizu_spawn.z}, use /ttl story fight hinata_sakaguchi. Hinata once learned from Shizu.
 She believes she has found the monster responsible for her teacher’s death. Behind you, Tempest’s defenders
 are losing their magic to another barrier.
 
@@ -125,7 +125,7 @@ lane = -1
 col = 5
 path = "light"
 text = """
-Go to Tempest’s south gate near x 0, z 40 and use /ttl story fight folgen. In this telling the field
+Go to Tempest’s south gate near x ${anchor:tempest.x}, z ${anchor:tempest.z+40} and use /ttl story fight folgen. In this telling the field
 commander leads Falmuth’s attack. The people behind the gate need the road held long enough to get the
 wounded indoors.
 """
@@ -151,7 +151,7 @@ of the people who fell; you can carry their anger without taking the enemy’s s
 refusal is the light oath’s answer in our story.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [0, -7], radius = 16, title = "Return to the green" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = -7 }, radius = 16, title = "Return to the green" },
   { type = "item", item = "minecraft:bread", count = 8, consume = true },
   { type = "item", item = "minecraft:white_wool", count = 4, consume = true },
 ]
@@ -175,7 +175,7 @@ victory over Rimuru. Handing in the iron closes this road in peace.
 """
 tasks = [
   { type = "item", item = "minecraft:iron_ingot", count = 4, consume = true },
-  { type = "location", dimension = "minecraft:overworld", at = [0, 0], radius = 20, title = "Meet Rimuru at the green" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest" }, radius = 20, title = "Meet Rimuru at the green" },
 ]
 rewards = [
   { type = "xp", xp = 140 },
@@ -196,7 +196,7 @@ the march orders. Taking the warrant records your part in Falmuth’s campaign. 
 and your signature on the orders are part of the pack’s dark route.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [-1286, -1040], radius = 145, title = "Attend the court of Marris" },
+  { type = "location", dimension = "minecraft:overworld", at = { build = "marris" }, radius = 145, title = "Attend the court of Marris" },
   { type = "item", item = "minecraft:paper", count = 8, consume = true },
 ]
 rewards = [
@@ -285,7 +285,7 @@ three parcels to earn Atonement. If you still have your one change of oath, /ttl
 to the light road. Turning is your decision.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [0, -7], radius = 16, title = "Reach Tempest’s relief station" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = -7 }, radius = 16, title = "Reach Tempest’s relief station" },
   { type = "item", item = "minecraft:bread", count = 12, consume = true },
   { type = "item", item = "minecraft:white_wool", count = 8, consume = true },
   { type = "item", item = "minecraft:iron_ingot", count = 4, consume = true },

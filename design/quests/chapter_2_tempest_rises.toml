@@ -5,7 +5,9 @@
 # awakenings (design/manas-integration.md §5(d)). Tasks may use `ep` and `ability` (Life 2 only).
 #
 # Places inside Tempest are real positions from blueprints/tempest.py. The town is pasted so that blueprint
-# (45, 57) is world (0, 0) (life/tempest.js: x = bx - 45, z = bz - 57), so:
+# (45, 57) is the `tempest` anchor of design/data/anchors.toml (life/tempest.js: x = tempest.x + bx - 45,
+# z = tempest.z + bz - 57; Lerfing's map puts it in the middle of Jura). Every location task of this chapter is
+# `at = { anchor = "tempest", dx, dz }` with the offsets below, so moving Tempest never touches a quest:
 #   village green (45, 50) -> (0, -7)         council longhouse x35-55 z33-42 -> centre (0, -20)
 #   Kaijin's forge x13-25 z40-50 -> (-26, -12)  Shuna's weaving hut x63-72 z44-52 -> (22, -9)
 #   raised food store x58-64 z31-36 -> (16, -24)  Rigurd's chief hut x63-71 z14-22 -> (22, -39)
@@ -46,7 +48,7 @@ text = """
 Rimuru moved the village to open ground with room to grow and water close by, and insisted on proper
 houses and roads from the first day. Stand on the green by the cooking fire: every plan in Tempest starts here.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [0, -7], radius = 10, title = "The village green" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = -7 }, radius = 10, title = "The village green" }]
 rewards = [{ type = "item", item = "minecraft:bread", count = 4 }, { type = "item", item = "tensura:bronze_coin", count = 2 }]
 
 [[quests]]
@@ -60,7 +62,7 @@ text = """
 Rigurd leads the goblins and still lives in the old chief's hut in the goblins' quarter, north-east of the green.
 He served the tribe through the direwolf years and is the first to say what the town needs.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [22, -39], radius = 12, title = "Rigurd's hut" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 22, dz = -39 }, radius = 12, title = "Rigurd's hut" }]
 rewards = [{ type = "item", item = "minecraft:cooked_chicken", count = 6 }, { type = "xp", xp = 30 }]
 
 [[quests]]
@@ -74,7 +76,7 @@ text = """
 Gobta is the hobgoblin who volunteers first, rides a wolf badly and boasts well. Find him at the goblins'
 campfire, south of Rigurd's hut.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [22, -30], radius = 10, title = "The goblins' campfire" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 22, dz = -30 }, radius = 10, title = "The goblins' campfire" }]
 rewards = [{ type = "item", item = "minecraft:bread", count = 6 }, { type = "xp", xp = 30 }]
 
 [[quests]]
@@ -88,7 +90,7 @@ text = """
 Benimaru, Shuna, Shion, Souei, Hakurou and Kurobe sat at this long table when Rimuru named them, and the first plans
 against the coming trouble were made here. Walk in and take your seat on the benches.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [0, -20], radius = 12, title = "The council longhouse" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = -20 }, radius = 12, title = "The council longhouse" }]
 rewards = [{ type = "item", item = "tensura:bronze_coin", count = 3 }, { type = "xp", xp = 40 }]
 
 [[quests]]
@@ -135,7 +137,7 @@ lumber yard, where the half-built houses wait for boards.
 """
 tasks = [
   { type = "item", item = "tensura:woodcutter" },
-  { type = "location", dimension = "minecraft:overworld", at = [-22, 4], radius = 14, title = "The building site" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = -22, dz = 4 }, radius = 14, title = "The building site" },
 ]
 rewards = [{ type = "item", item = "minecraft:iron_axe" }, { type = "xp", xp = 40 }]
 
@@ -198,7 +200,7 @@ Kaijin was exiled from Dwargon and now leads production in Tempest, with Kurobe 
 proper tools and katana. Bring 16 iron ingots and 16 coal to his open forge on the west road.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [-26, -12], radius = 10, title = "Kaijin's forge" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = -26, dz = -12 }, radius = 10, title = "Kaijin's forge" },
   { type = "item", item = "minecraft:iron_ingot", count = 16, consume = true },
   { type = "item", item = "minecraft:coal", count = 16, consume = true },
 ]
@@ -230,7 +232,7 @@ Shuna leads the goblin women at the looms and clothes the whole town, down to th
 thread. Hand in 16 string and 16 white wool and visit her weaving hut on the east road.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [22, -9], radius = 8, title = "Shuna's weaving hut" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 22, dz = -9 }, radius = 8, title = "Shuna's weaving hut" },
   { type = "item", item = "minecraft:string", count = 16, consume = true },
   { type = "item", item = "minecraft:white_wool", count = 16, consume = true },
 ]
@@ -250,7 +252,7 @@ At night the direwolves come out of the forest. Before the slime came, they were
 unfinished palisade by the south gate and drive off six of them.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [0, 23], radius = 16, title = "The south gate" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = 23 }, radius = 16, title = "The south gate" },
   { type = "kill", entity = "tensura:direwolf", count = 6 },
 ]
 rewards = [{ type = "item", item = "tensura:low_potion", count = 2 }, { type = "xp", xp = 80 }]

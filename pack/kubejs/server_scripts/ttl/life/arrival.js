@@ -1,8 +1,8 @@
 // Where Life 2 souls arrive in the Tensura world, and the world spawn (design/data/arrival.toml → TtlData.arrival).
 //
 // Veldora's leaked magicule soaks the Jura forest, so a weak newcomer must not appear in, or stroll to, Tempest
-// (world 0, 0): Jura's biomes form rings (canon_regions.json, J "zones"; ttl-portals CanonZones) from a safe rim
-// along the whole border to an ancient-forest core. The arrival point is on the rim, on the road from Tempest to
+// (anchors.toml tempest): Jura's biomes form rings round it (canon_regions.json, J "zones", by radius; repainted into
+// Lerfing's map by the import), an ancient-forest core, a dark-forest band and a safe rim beyond. The arrival point is on the rim, on the road from Tempest to
 // the Dwargon gate. Brand-new players stand at the world spawn for about 2 s before their first teleport, so the
 // world spawn is the arrival point too (and so is the respawn point of a Life 2 soul that dies).
 //

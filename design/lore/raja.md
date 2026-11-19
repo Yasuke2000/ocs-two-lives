@@ -1,6 +1,6 @@
 # Raja’s old lakeside workings
 
-From the landing, visitors can see the winding wheel against a grey ridge. Follow the rails under the portal to the back of the mine. A side gallery branches west behind the timber sets. Outside, two settling beds stand on the shore. Across the yard, an assay house has sample benches and a small crown in its south window. The template is 80 × 37 × 70 blocks. Its walking anchor at local (36, 6, 49) places the haul road near world (−1084, 763).
+From the landing, visitors can see the winding wheel against a grey ridge. Follow the rails under the portal to the back of the mine. A side gallery branches west behind the timber sets. Outside, two settling beds stand on the shore. Across the yard, an assay house has sample benches and a small crown in its south window. The template is 80 × 37 × 70 blocks. Its walking anchor at local (36, 6, 49) places the haul road near world (−2050, 760) on Lerfing's map, on the lake of the river-and-lake belt west of Blumund.
 
 The survey searches up to 48 blocks along either axis, all within Raja on the pack map, and tolerates up to 8% naturally wet samples. The inlet itself is part of the template.
 

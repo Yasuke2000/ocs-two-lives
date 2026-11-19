@@ -83,6 +83,25 @@ replace the copies with in-game `place template tensura:goblin_village/...` befo
 
 ## Placement
 
-World 0, 0 (the Life 2 world spawn) = the arrival point, blueprint (45, 5, 57). canon_regions.json puts the
-Tempest landmark at ref [1790, 1122] → about (-10, -70); that is inside the fan map's precision, and the spawn
-is the more important anchor, so 0, 0 is kept. `TtlTempest.LANDMARK` in `life/tempest.js` moves it.
+Tempest's arrival point (blueprint (45, 5, 57), the south edge of the village green at the signpost) is anchored at
+**world (1720, 900)** on Lerfing's map: `design/data/anchors.toml` `[tempest]`, the middle of Jura (see [world.md](world.md#j-jura-tempest-federation-ジュラ・テンペスト連邦国)).
+`TtlTempest.LANDMARK` in `life/tempest.js` reads it. Tempest is no longer the Life 2 world spawn: souls are reborn on the
+rim at (1660, −100), 1,000 blocks north, and walk the road south.
+
+**The ground under it** (`python -I tools/lerfing/jura_check.py`, exact columns of the imported world at 2-block steps,
+terrain-fit margin 8 included; 19/11/2026):
+
+| Footprint (box + margin) | x, z | Ground y p10 / median / p90 | Relief p90−p10 | Slope p95 / max | Water over ground | Off the median by more than 8 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Early village (91², arrival 45, 57) | 1667..1773, 835..941 | 63 / 65 / 69 | 6 | 0.5 / 2.0 | 10.4 % (deepest 2) | 0 cut, 0 fill |
+| Town (137², arrival 68, 68) | 1644..1796, 824..976 | 64 / 66 / 69 | 5 | 0.5 / 2.0 | 6.1 % (deepest 2) | 1 cut, 0 fill |
+| City (191², arrival 95, 95) | 1617..1823, 797..1003 | 64 / 69 / 71 | 7 | 0.5 / 2.0 | 3.3 % (deepest 2) | 239 cut (the north-east corner, a knoll up to y 90), 3 fill |
+
+Findings: the ground is buildable at all three phases (95 % of the early box lies within 4 blocks of the median; no
+lava; slopes are gentle, the maximum 2.0 is a river bank). Two things the placer meets: the **pond** south of the arrival
+(x 1657..1739, z 905..943, depth at most 2) cuts the early box's south-west corner (202 of 2,916 columns wet) and
+is filled by the terrain fit and the repair under the box (`TtlTempest` uses the bed of the water as the floor, `keepWater: false`)
+and the margin's water that touches the box is filled up to its surface, so a bank holds what lies beyond;
+and the surface is **sand** (45 % of the early box, the rest grass, some gravel and clay) in `tensura:ancient_forest`
+and `minecraft:beach` biomes: the blueprint lays its own grass and dirt ground layer, so only the 1:1 skirt and the
+margin show Lerfing's sand.
