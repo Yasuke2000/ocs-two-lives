@@ -1,5 +1,41 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 day — watchdog root cause fixed (chunk tickets), events/bosses made deterministic, Treyni's shrine moved, boss_area DECIDED (Claude)
+
+**Watchdog crash (18/11 01:24, 18/11 06:18, 19/11 03:09)**: all three have the server thread in `ForceLoadCommand ->
+ServerLevel.setChunkForced -> getChunkBlocking`, from a KubeJS scheduled callback (a placer's `forceload add`).
+`setChunkForced` loads every newly forced chunk synchronously; after a reset that is generation (measured on staging:
+one `forceload add` of 121 fresh chunks = an 8.9 s tick). Landmark areas are 200-625 chunks; the 03:09 log shows five
+landmarks placed 03:08:40-03:09:50, each in a 10-20 s tick, and the watchdog fires on the accumulated lag behind the
+tick schedule. The IO worker in `CompoundTag.write` and the gen workers in `isOldChunkAround` are the chunk system busy
+with the burst (no mod frame, no off-thread NBT work in our scripts or mod; no matching upstream bug found). **Fix**
+(`4ddd009`): `life/chunk_hold.js` (`TtlChunks`) holds areas with region tickets (level 32, not saved) and waits for
+FULL chunks (`getChunkNow`); Tempest, Dwargon, the arrival, landmarks and builds use it, give up after 10 min instead
+of loading the rest synchronously. Staging: 100 fresh chunks ready in 7.5 s, no "Can't keep up"; Treyni's v4 was
+placed through it. Watchdog timeout unchanged. **Not yet exercised**: a full reset boot with the new placers
+(Tempest/Dwargon/landmarks only run then) — watch the next reset's log for `[ttl] chunks: holding ...` and no crash.
+**Flaky `events`**: a due Blood Moon started at 18/11 23:30 because test bots counted as online and was still
+active when events.rcon asserted 0 events. Fix (`3b3a820`): scheduled starts ignore `TtlBot*`; `/ttl events tick <id>`
+test hook; events.rcon ends all events first. **Flaky `bosses`** (785036f, 02:44): the Orc Lord spawned 2.4 s late
+(lag: a second test run, quests/TtlBotSaga*, ran at the same time), the test killed it 1 s later before any poll saw
+the bots -> "lost without a fight", 6 expects failed. Fix: `tools/server.sh` `@until <s> <cmd>`, `/ttl boss expect
+<p> fighting <id>`, bosses.rcon waits for the fight before kills and for the finish after. Only one agent may use
+RCON at a time (lead's rule): two test runs at once corrupt each other.
+**Treyni's shrine** (`fd042e9`): builds keep off a landmark's recorded box (not reach square); `beside` TOML field;
+shrine v4 at anchor 2000 70 -223 (old v3 box 2032..2064 65..86 -227..-195 cleared to grass/dirt/stone after a 100 %
+verify; its Treyni NPC removed and respawned at the new spot 2004.5 70 -222.5). Verify 100.00 %, `execute if biome`
+flower_forest at anchor + 4 corners, `/ttlmap 2000 -223` both Treyni sites "its biomes", every biome cell of the
+worked area flower_forest, groundcheck clean. The lead's later note: **Treyni biome: moot, continent will be replaced
+by the imported world** — the move had already been done and verified when that arrived; it was kept (reverting would
+mean placing v3 again and clearing v4, and a repo at v3 with staging at v4 would place a duplicate on the next deploy).
+**tensura:boss_area**: DECIDED (owner) — outside the story rules; `world.rcon` asserts it.
+**Mortal Realm waypoints**: skipped (night agent verified 99.97-100 %).
+**Tests on `40e1e51`**: ttl-ops (fresh boot, ~09:50-10:15) **all green (70/70)**; my run 10:15-10:44 70/70 ok (events,
+bosses, world included; the only failure was `build_repair`, a file of the not-yet-deployed PR #36 in my checkout).
+**PR #36 `placer-terrain-repair`** merged with `--no-ff` (conflicts: decisions.md kept every row, gen_data BUILD_KEYS
+beside + repair*, `_example.toml` both field docs, generated files and index regenerated); `repair.js` reads a chunk only
+when `getChunkNow` has it. Offline 169 unit tests OK, validation passed. Staging checks of the merge: see the next entry.
+
 ## 19/11 night — overworld reset done: every build verified on the new world, terrain repaired by hand, test-all 70/70, pregen running (Claude)
 
 **State**: the 03:05 reset (`ttl-backup/20261119-030516`) generated the new site terrain; Tempest and Dwargon were placed on the

@@ -2,7 +2,7 @@
 
 Living page for contributors: how we work, what we measure, the feel we aim for, and what is actually built.
 **Update it whenever something lands on `main`** (agents: as part of every merge). Owner: **Yasuke**.
-Last update: 19/11/2026 (after PR #35, the overworld reset and the re-verification of every build).
+Last update: 19/11/2026 (chunk tickets for the placers, deterministic events/bosses tests, Treyni's shrine moved, PR #36 terrain repair merged).
 
 ## Where we are
 
@@ -15,16 +15,16 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 
 | Metric | Value | How to measure |
 | --- | --- | --- |
-| In-game bot tests | 70 test files: **70/70** on the reset world (19/11 05:07, by hand after the `guild_npcs` fix); ttl-ops `785036f` 69/70 (`bosses` flaked, green since) | `bash tools/server.sh test-all` (Git Bash: `MSYS2_ARG_CONV_EXCL=/data`) |
-| Offline unit tests | 157 green | `python -m unittest discover -s tests` |
+| In-game bot tests | 70 test files: **70/70** twice on `40e1e51` (ttl-ops 19/11 ~10:15, by hand right after); PR #36 adds `build_repair` (71 files) | `bash tools/server.sh test-all` (Git Bash: `MSYS2_ARG_CONV_EXCL=/data`) |
+| Offline unit tests | 169 green (with PR #36) | `python -m unittest discover -s tests` |
 | Validation | must say "validation passed" | `python tools/validate.py` |
-| Builds verified 1:1 in the world | All 38 build manifests + Tempest, Dwargon and mortal_spawn re-verified on the reset world 19/11, all ≥ 99.9 % (28 overworld builds, Walpurgis Hall, Spirit Dwelling, test hut, the 6 Mortal Realm waypoints); terrain round the builds repaired by hand on staging (decisions.md 19/11); every overworld build in its site biome except Treyni's shrine (half in ancient forest); night pregen of the new world started 19/11 05:08, not finished | `python tools/verify_build.py <name> --log` |
+| Builds verified 1:1 in the world | All 38 build manifests + Tempest, Dwargon and mortal_spawn re-verified on the reset world 19/11, all ≥ 99.9 % (28 overworld builds, Walpurgis Hall, Spirit Dwelling, test hut, the 6 Mortal Realm waypoints); terrain round the builds repaired by hand on staging (decisions.md 19/11); every overworld build in its site biome (Treyni's shrine moved beside the grove 19/11, flower forest at all 5 points); night pregen of the new world started 19/11 05:08, not finished | `python tools/verify_build.py <name> --log` |
 | Quests | 398 in 28 chapters, one connected web | `python tools/quest_graph.py --check` |
 | Canon cast | 38 NPC spots, 28 original skins | `design/data/npcs.toml`, `/ttl cast verify all` |
 | Mods | 77 | `pack/mods/*.pw.toml` |
-| KubeJS server scripts | 104 | `pack/kubejs/server_scripts/ttl/` |
+| KubeJS server scripts | 106 | `pack/kubejs/server_scripts/ttl/` |
 | Data files (TOML → generated JS) | 25 | `design/data/*.toml` → `tools/gen_data.py` |
-| Logged decisions | 222 | `design/decisions.md` |
+| Logged decisions | 227 | `design/decisions.md` |
 
 ## Vibes (design pillars)
 
@@ -81,7 +81,9 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
   Castle, City of the Forgotten Dragon, Laura, El Dorado, Frost Palace, Heaven Tower, the 11 canon landmarks (Elmine,
   Nasca, Jia, Amrita, Siltrosso, Ulgr Nature Park, Great Holy Mountain, Coleus, Morgdahl, Nostraille, Raja), the Walpurgis
   Hall and the Dwarven Arena; 7 Tensura landmarks.
-- Generic build placer (`design/builds/*.toml`): surveys the canon spot, fits terrain, re-places on version bump.
+- Generic build placer (`design/builds/*.toml`): surveys the canon spot, fits terrain, repairs caves/ditches/lava round
+  the box (PR #36), re-places on version bump; every placer loads its area with chunk tickets in the background (no
+  synchronous `forceload` bursts: the cause of the watchdog crashes after a reset).
 
 **Story, quests, characters**
 - The Oath (light or dark, party-level), 7 acts, one path flip per life; story chapters 7–13 with equal light and
@@ -119,14 +121,16 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - World State: W4 (PvP only in quests, arenas and wars) and waves B–D (Tempest growth phases, catch-up, raid groups,
   radiant quests, the immersive Orc Lord, usurping/vassalising canon nations).
 - Paths: Artificer constructs (WP-A2), moral choices 4.5–4.12 (WP-C2), Priest/Exorcist next.
-- Not yet verified in game: the Mortal Realm waypoints (`test mortal_waypoints`), real-player Discord role and
-  staff-audit behaviour.
+- Not yet verified in game: real-player Discord role and staff-audit behaviour; a full reset boot with the chunk-ticket
+  placers (Tempest, Dwargon and the landmarks only run on a reset).
 
 ## Open decisions and known issues
 
 - BlueMap public URL needs a Cloudflare DNS record + tunnel route (Yasuke).
-- Owner question: does `tensura:boss_area` count as inside the continent? Today (W1 default) it does not, so the
-  mod's bosses spawn there as shipped.
+- DECIDED (owner): `tensura:boss_area` stays outside the story rules (Tensura's own boss dimension, as shipped);
+  `world.rcon` asserts it.
+- The generated Tensura continent will be replaced by an imported 1:1 hand-made world map (owner, 19/11): site
+  biomes, canon-site terrain and build spots will need a new pass then.
 - Untested with real players: skins rendering, duels/wars between players, shops and wallets, the Labyrinth hall.
 - Before launch: run the reset checklist in `docs/server.md` (era, test registry holders, test story/party/nation records).
 
