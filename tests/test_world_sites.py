@@ -44,6 +44,12 @@ class WorldSites(unittest.TestCase):
         self.assertEqual(sfb.SITES_TOML.read_text(encoding="utf-8"), sfb.dumps(self.sites, self.existing),
                          "world/sites.toml is stale: run python -I tools/world/sites_from_builds.py")
 
+    def test_site_sizes_md_is_current(self):
+        md = sfb.SITES_TOML.parent / "site_sizes.md"
+        self.assertTrue(md.is_file(), "world/site_sizes.md is missing")
+        self.assertEqual(md.read_text(encoding="utf-8"), sfb.sizes_md(self.sites),
+                         "world/site_sizes.md is stale: run python -I tools/world/sites_from_builds.py")
+
     def test_one_site_per_anchor(self):
         tables = {k for k, v in self.existing.items() if k not in sfb.EXTRA_TABLES and isinstance(v, dict)}
         self.assertEqual(tables, set(self.src.anchors))
