@@ -448,6 +448,12 @@ const TtlDomains = {
     if (!tags.contains(r.npcTag)) e.addTag(r.npcTag)
     if (!tags.contains(this.RES_TAG + r.id)) e.addTag(this.RES_TAG + r.id)
     if (!!e.isInvulnerable() !== r.anchor) e.setInvulnerable(r.anchor)
+    // Weapons and the guard tag of the resident's npc_gear.toml role, once per its rev (world/npc_gear.js).
+    try {
+      if (typeof TtlNpcGear !== 'undefined') TtlNpcGear.ensureResident(e, r)
+    } catch (x) {
+      console.error(`[ttl] domains: equipping resident ${r.id} failed: ${x}`)
+    }
   },
 
   isLoaded(server, r) {

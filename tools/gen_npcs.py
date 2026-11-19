@@ -42,6 +42,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))  # python -I
 import anchor_refs  # noqa: E402
+import npc_gear_check  # noqa: E402
 import npc_looks  # noqa: E402
 
 DATA = ROOT / "design" / "data"
@@ -276,6 +277,26 @@ def side_look(kind: dict, own: str) -> dict:
     return out
 
 
+GEAR = npc_gear_check.load()
+
+
+def gear(kind: dict, role_kind: str) -> tuple[dict, list]:
+    """(Mob NBT for the hands and zero drop chances, extra Easy NPC objectives) of a side kind's npc_gear.toml role. A
+    companion keeps its own fighting objectives and only takes the role's items."""
+    role = npc_gear_check.roles(GEAR).get(kind.get("role", ""))
+    if not role:
+        return {}, []
+    nbt = {"ArmorDropChances": Raw("[0.0f,0.0f,0.0f,0.0f]"), "HandDropChances": Raw("[0.0f,0.0f]"),
+           "HandItems": npc_gear_check.hand_items(role)}
+    if role_kind == "companion":
+        return nbt, []
+    extra = []
+    for o in npc_gear_check.objectives(GEAR, role):
+        speed = npc_gear_check.SPEED.get(o)
+        extra.append({"SpeedModifier": Raw(speed), "Type": o} if speed else {"Type": o})
+    return nbt, extra
+
+
 def message(texts: list, chance: int | None) -> dict:
     """An Easy NPC MESSAGE action shown as a speech bubble only (MessageActionData bit 4 of T), one text picked at random."""
     entry = {"Msg": {"T": Raw("4b"), "Texts": list(texts)}, "Type": "MESSAGE"}
@@ -332,12 +353,16 @@ def side_preset(kind: dict, role: str) -> str:
         "Priority": 5,
         "Texts": [{"Text": intro.replace("\n", "\\n")}],
     }
+    hands, fight = gear(kind, role)
+    have = {o["Type"] for o in objectives}
+    objectives += [o for o in fight if o["Type"] not in have]
     data = {
         "ActionData": {"ActionEventSet": events},
         "CustomName": Raw("'" + custom_name.replace("\\", "\\\\").replace("'", "\\'") + "'"),
         "CustomNameVisible": True,
         "DialogData": {"DialogDataSet": [default], "Type": "STANDARD"},
         "EasyNPCVersion": 3,
+        **hands,
         "Invulnerable": invulnerable,
         "ObjectiveData": {"ObjectiveDataSet": objectives},
         "PersistenceRequired": True,

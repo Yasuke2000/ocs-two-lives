@@ -276,6 +276,12 @@ const TtlSideNpc = {
       return null
     }
     tags.forEach(t => best.addTag(String(t)))
+    // The role's weapon (npc_gear.toml), drop chance 0; the preset carries it too (world/npc_gear.js).
+    try {
+      if (typeof TtlNpcGear !== 'undefined') TtlNpcGear.equipSide(server, best, preset)
+    } catch (x) {
+      console.error(`[ttl] side: equipping ${preset} failed: ${x}`)
+    }
     return best
   },
 

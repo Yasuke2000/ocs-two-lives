@@ -79,6 +79,13 @@ def check_look(where: str, k: dict) -> None:
             fail(f"{where}: {why}")
 
 
+def check_role(where: str, k: dict, data: dict) -> None:
+    """`role` names a [[role]] of npc_gear.toml: the NPC's weapon and whether it fights or flees."""
+    roles = {r["id"] for r in data.get("npc_gear", {}).get("role", [])}
+    if k.get("role") not in roles:
+        fail(f"{where}: role {k.get('role')!r} must be a [[role]] of npc_gear.toml ({', '.join(sorted(roles))})")
+
+
 def check_sidequests(sq: dict, data: dict) -> None:
     anchor_refs.resolve_data({"sidequests": sq})  # world places name an anchors.toml anchor (at = "<id>")
     s = sq.get("settings", {})
@@ -120,6 +127,7 @@ def check_sidequests(sq: dict, data: dict) -> None:
             fail(f"{w}: id must be unique [a-z0-9_]")
         advs[k["id"]] = k
         check_look(w, k)
+        check_role(w, k, data)
         if not k.get("title") or len(k["title"]) > 32:
             fail(f"{w}: title (up to 32 characters) is needed")
         check_lines(w, k.get("lines"))
@@ -143,6 +151,7 @@ def check_sidequests(sq: dict, data: dict) -> None:
             fail(f"{w}: id must be unique [a-z0-9_]")
         clients[k["id"]] = k
         check_look(w, k)
+        check_role(w, k, data)
         check_lines(w, k.get("lines"))
 
     places = {}
