@@ -2,7 +2,7 @@
 """Checker and previewer for world/map.svg, the layered block-coordinate map of OCS Two Lives' own Tensura world.
 
     python -I tools/world/map_check.py world/map.svg [--preview out.png] [--json] [--jar TENSURA.jar]
-                                       [--anchors F] [--relations F] [--canon F] [--biomes F] [--landmarks F]
+                                       [--anchors F] [--relations F] [--canon F] [--biomes F] [--landmarks F] [--sites F]
 
 The format is described in world/README.md and in the comment at the top of world/map.svg; the design is
 design/architecture/own-world.md (section 2 format, section 6.1 rules). In short: viewBox -8000 -6000 16000 12000 (block
@@ -25,6 +25,7 @@ from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_ANCHORS = ROOT / "design" / "data" / "anchors.toml"
+DEFAULT_SITES = ROOT / "world" / "sites.toml"
 DEFAULT_LANDMARKS = ROOT / "design" / "data" / "landmarks.toml"
 DEFAULT_RELATIONS = ROOT / "tools" / "world" / "canon_relations.toml"
 DEFAULT_CANON = ROOT / "pack" / "config" / "ttl" / "canon_regions.json"
@@ -47,6 +48,8 @@ HILL_RANGE = (70.0, 150.0)
 SITE_R = (8.0, 160.0)
 POLY_NODES = (8, 400)
 MARGIN_MAX = 256.0
+SITE_MARGIN = 48.0       # default data-margin of a site (the generator's default too)
+ANCHOR_DRIFT = 32.0      # a relative anchor's site may stand this far from parent + (dx, dz)
 RIVER_MOUTH_SLACK = 16.0  # a river may end this far outside the coast
 COAST_MIN = 48.0          # a site (except `coast`) is at least this far from the coast
 TOUCH_SLACK = 16.0        # a coast / lakeside site's disc must reach the water within this slack
@@ -77,8 +80,10 @@ RULES = (
     "data-site, r 8..160",
     "4 water: lakes, mountains, hills on land; rivers start on land and end in a lake or in the sea (<= 16 outside "
     "the coast); a river crossing a mountain warns",
-    "5 sites: whole disc on land (coast/lakeside touch water), in the region of the anchor's letter, >= 2*(r1+r2) "
-    "apart, >= 48 from the coast, carve inside a mountain or hill, village r >= landmark reach",
+    "5 sites: whole disc on land (coast/lakeside touch water), in the region of the anchor's letter, edge gap "
+    "(distance - (r1_eff + r2_eff)) >= the larger data-margin (default 48) with r_eff = max(drawn r, min_r of "
+    "world/sites.toml; anchors relative to each other via of/dx/dz are exempt), >= 48 from the coast, carve inside a mountain or hill, village r >= landmark reach; "
+    "warnings: a circle drawn below its min_r, a relative anchor (of/dx/dz) more than 32 from parent + offset",
     "6 canon: direction + distance relations, site rules and sea gaps of tools/world/canon_relations.toml",
     "7 size: mainland <= 11,000 x 8,000 (warn 10,000 x 7,500); land <= 55 % of the design box; box <= 14,336 x 11,264 "
     "(warn above 12,288 x 10,240)",
@@ -99,7 +104,7 @@ class ParseError(Exception):
 
 class Config:
     def __init__(self, anchors, letters, relations=None, biomes=None, colours=None, problems=None, site_rules=None,
-                 gaps=None, reach=None, jar_problems=None):
+                 gaps=None, reach=None, jar_problems=None, min_r=None):
         self.anchors = anchors                    # id -> {name, region, kind, surface, landmark, x, z}
         self.letters = set(letters)               # region letters of canon_regions.json
         self.relations = relations or []          # [[relation]]
@@ -110,6 +115,7 @@ class Config:
         self.problems = problems or []            # mistakes in the data files themselves
         self.reach = reach or {}                  # landmark name -> reach
         self.jar_problems = jar_problems or []
+        self.min_r = min_r or {}                  # site id -> smallest r the build needs (world/sites.toml), may be empty
 
 
 def load_anchors(path):
@@ -121,6 +127,7 @@ def load_anchors(path):
         anchors[key] = {
             "name": val.get("name", key), "region": val.get("region", ""), "kind": val.get("kind", ""),
             "surface": val.get("surface", "any"), "landmark": val.get("landmark"), "x": val.get("x"), "z": val.get("z"),
+            "of": val.get("of"), "dx": val.get("dx", 0), "dz": val.get("dz", 0),
         }
     return anchors
 
@@ -130,6 +137,18 @@ def load_landmark_reach(path):
         return {}
     data = tomllib.loads(Path(path).read_text(encoding="utf-8"))
     return {lm["name"]: lm["reach"] for lm in data.get("landmark", []) if "name" in lm and "reach" in lm}
+
+
+def load_min_r(path):
+    """{site id: min_r} from world/sites.toml; {} when the file is missing or unreadable (the SVG r then stands alone)."""
+    if not path or not Path(path).is_file():
+        return {}
+    try:
+        data = tomllib.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, tomllib.TOMLDecodeError):
+        return {}
+    return {k: v["min_r"] for k, v in data.items()
+            if isinstance(v, dict) and isinstance(v.get("min_r"), (int, float)) and not isinstance(v.get("min_r"), bool)}
 
 
 def load_canon(path):
@@ -193,14 +212,15 @@ def load_relations(path, anchors):
     return data.get("relation", []), data.get("site_rule", []), data.get("gap", []), problems
 
 
-def load_config(anchors=None, relations=None, canon=None, biomes=None, landmarks=None, jar=None):
+def load_config(anchors=None, relations=None, canon=None, biomes=None, landmarks=None, jar=None, sites=None):
     anchors_d = load_anchors(anchors or DEFAULT_ANCHORS)
     letters, colours = load_canon(canon or DEFAULT_CANON)
     rels, rules, gaps, problems = load_relations(relations or DEFAULT_RELATIONS, anchors_d)
     bio = load_biomes(biomes or DEFAULT_BIOMES)
     jar = jar or os.environ.get("TTL_TENSURA_JAR")
     return Config(anchors_d, letters, rels, bio, colours, problems, rules, gaps,
-                  load_landmark_reach(landmarks or DEFAULT_LANDMARKS), check_jar(bio, jar))
+                  load_landmark_reach(landmarks or DEFAULT_LANDMARKS), check_jar(bio, jar),
+                  load_min_r(sites or DEFAULT_SITES))
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -1006,6 +1026,16 @@ class Site:
     def __init__(self, shape, ident, kind):
         self.shape, self.id, self.kind = shape, ident, kind
         self.x, self.y, self.r = shape.cx, shape.cy, shape.r
+        self.min_r = 0
+        try:
+            self.margin = float(shape.get("data-margin", SITE_MARGIN))
+        except (TypeError, ValueError):
+            self.margin = SITE_MARGIN
+
+    @property
+    def eff_r(self):
+        """The radius the generator uses: the drawn r, raised to the build's min_r (svg2rasters.py)."""
+        return max(self.r, self.min_r)
 
     @property
     def pt(self):
@@ -1030,7 +1060,9 @@ def collect_sites(shapes, cfg, report):
             continue
         if s.get("data-margin") is not None and not num_in(s.get("data-margin"), 0, MARGIN_MAX):
             report.error("attribute", "%s (%s): data-margin %r is not a number in 0..%d" % (s.label, ident, s.get("data-margin"), MARGIN_MAX))
-        sites.append(Site(s, ident, kind))
+        st = Site(s, ident, kind)
+        st.min_r = cfg.min_r.get(ident, 0)
+        sites.append(st)
     by = {}
     for st in sites:
         by.setdefault(st.id, []).append(st)
@@ -1094,13 +1126,40 @@ def check_sites(world, shapes, cfg, sites, report):
                 actual = sorted({s.get("data-letter") for s in shapes["regions"] if point_in_poly(p, s.pts)})
                 report.error("site", "site %s at %s is %s, anchors.toml says region %s" %
                              (st.id, fmt_pt(p), "in region " + "/".join(actual) if actual else "in no region", anchor["region"]))
+    for st in sites:
+        if st.min_r > st.r:
+            report.warn("site", "site %s: drawn too small, r %d < min_r %d of its build; it will be enlarged to %d (draw r %d)" %
+                        (st.id, round(st.r), round(st.min_r), round(st.min_r), round(st.min_r)))
+    parent = {k: v.get("of") for k, v in cfg.anchors.items()}
     for i in range(len(sites)):
         for j in range(i + 1, len(sites)):
             a, b = sites[i], sites[j]
-            need = 2 * (a.r + b.r)
+            # anchors placed relative to each other (of/dx/dz) are one place: a child lies by design in its parent's disc
+            # and siblings may sit a few blocks apart (dwargo, dwargon_throne, kaijin_smithy)
+            if parent.get(a.id) == b.id or parent.get(b.id) == a.id or (parent.get(a.id) and parent.get(a.id) == parent.get(b.id)):
+                continue
+            need = max(a.margin, b.margin)
             d = math.dist(a.pt, b.pt)
-            if d < need:
-                report.error("site", "sites %s and %s are %d blocks apart (minimum 2 x (r1 + r2) = %d)" % (a.id, b.id, round(d), round(need)))
+            gap = d - (a.eff_r + b.eff_r)
+            if gap < need:
+                report.error("site", "sites %s and %s are %d blocks apart: edge gap %d = distance - (r1_eff %d + r2_eff %d) is "
+                             "below the larger data-margin %d" %
+                             (a.id, b.id, round(d), round(gap), round(a.eff_r), round(b.eff_r), round(need)))
+
+
+def check_relative_anchors(cfg, site_by_id, report):
+    """An anchor placed `of` another with dx/dz must be drawn near parent + offset (the scripts keep the offsets)."""
+    for aid, a in cfg.anchors.items():
+        parent = a.get("of")
+        st, ps = site_by_id.get(aid), site_by_id.get(parent) if parent else None
+        if not parent or st is None or ps is None:
+            continue
+        want = (ps.x + a.get("dx", 0), ps.y + a.get("dz", 0))
+        off = math.dist(st.pt, want)
+        if off > ANCHOR_DRIFT:
+            report.warn("site", "relative anchor %s is drawn at %s, %d blocks from %s + (%d, %d) = %s (anchors.toml of/dx/dz); "
+                        "move it within %d" % (aid, fmt_pt(st.pt), round(off), parent, a.get("dx", 0), a.get("dz", 0),
+                                                fmt_pt(want), ANCHOR_DRIFT))
 
 
 def sample_path(pts, step):
@@ -1390,6 +1449,7 @@ def check_svg(text, cfg):
     check_region_cover(world, shapes, report)
     sites, site_by_id = collect_sites(shapes, cfg, report)
     check_sites(world, shapes, cfg, sites, report)
+    check_relative_anchors(cfg, site_by_id, report)
     check_roads(world, shapes, sites, cfg, report)
     check_margins(shapes, sites, report)
     check_canon(world, shapes, cfg, site_by_id, report)
@@ -1672,8 +1732,9 @@ def main(argv=None):
     ap.add_argument("--relations", help="canon relations (default: tools/world/canon_relations.toml)")
     ap.add_argument("--canon", help="canon_regions.json (default: pack/config/ttl/canon_regions.json)")
     ap.add_argument("--biomes", help="allowed biome list (default: tools/world/biomes.txt)")
+    ap.add_argument("--sites", help="sites.toml with each site's min_r (default: world/sites.toml; optional)")
     args = ap.parse_args(argv)
-    cfg = load_config(args.anchors, args.relations, args.canon, args.biomes, args.landmarks, args.jar)
+    cfg = load_config(args.anchors, args.relations, args.canon, args.biomes, args.landmarks, args.jar, args.sites)
     try:
         text = Path(args.svg).read_text(encoding="utf-8")
     except OSError as e:

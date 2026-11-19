@@ -5,6 +5,7 @@ changes one thing and looks for the rule's error (or its absence). The data test
 and the starter world/map.svg honest.
 """
 import json
+import math
 import subprocess
 import sys
 import tempfile
@@ -61,8 +62,9 @@ def svg(viewbox="-8000 -6000 16000 12000", top="", **layers):
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="%s">%s%s</svg>' % (viewbox, groups, top)
 
 
-def anchor(region="J", kind="spot", surface="land", landmark=None, name="x"):
-    return {"name": name, "region": region, "kind": kind, "surface": surface, "landmark": landmark, "x": 0, "z": 0}
+def anchor(region="J", kind="spot", surface="land", landmark=None, name="x", of=None, dx=0, dz=0):
+    return {"name": name, "region": region, "kind": kind, "surface": surface, "landmark": landmark, "x": 0, "z": 0,
+            "of": of, "dx": dx, "dz": dz}
 
 
 def config(**kw):
@@ -354,11 +356,75 @@ class Sites(Base):
         r = self.run_check(svg(lakes=poly(ring(510, -100, 700, 100))))
         self.assertError(r, "reaches a lake", "site")
 
-    def test_spacing_is_twice_the_radii(self):
-        r = self.run_check(svg(sites=circle("tempest", 0, 0, 50, "clearing") + circle("camp", 139, 0, 20, "clearing")))
-        self.assertError(r, "minimum 2 x (r1 + r2) = 140", "site")
-        r = self.run_check(svg(sites=circle("tempest", 0, 0, 50, "clearing") + circle("camp", 141, 0, 20, "clearing")))
+    def two(self, d, r1=50, r2=20, m1=48, m2=48, **kw):
+        return self.run_check(svg(sites=circle("tempest", 0, 0, r1, "clearing", margin=m1) +
+                                  circle("camp", d, 0, r2, "clearing", margin=m2)), config(**kw))
+
+    def test_spacing_is_the_edge_gap_against_the_margin(self):
+        # edge gap = distance - (r1 + r2) must reach the larger data-margin (48): 50 + 20 + 48 = 118
+        self.assertError(self.two(117), "edge gap 47 = distance - (r1_eff 50 + r2_eff 20) is below the larger data-margin 48", "site")
+        self.assertClean(self.two(118), "site")
+        self.assertClean(self.two(300), "site")
+
+    def test_the_larger_margin_of_the_two_sites_counts(self):
+        self.assertError(self.two(150, m2=100), "below the larger data-margin 100", "site")
+        self.assertClean(self.two(171, m2=100), "site")
+        self.assertClean(self.two(171, m1=100, m2=8), "site")
+
+    def test_a_missing_margin_is_48_for_the_spacing(self):
+        r = self.run_check(svg(sites=circle("tempest", 0, 0, 50, "clearing", margin=48).replace('data-margin="48"', "")
+                               + circle("camp", 100, 0, 20, "clearing", margin=0)))
+        self.assertError(r, "below the larger data-margin 48", "site")
+
+    def test_spacing_uses_min_r_from_sites_toml(self):
+        # drawn 50 and 20, but the builds need 148 and 75: 148 + 75 + 48 = 271
+        need = {"tempest": 148, "camp": 75}
+        self.assertError(self.two(270, min_r=need), "r1_eff 148 + r2_eff 75", "site")
+        self.assertClean(self.two(271, min_r=need), "site")
+        self.assertClean(self.two(270), "site")          # no sites.toml: the drawn r stands alone
+
+    def test_tempest_and_the_sealed_cave_fit_at_the_starter_distance(self):
+        # the W1 report: 2 x (r1 + r2) wanted 446 blocks, canon has 424; the edge gap is 424 - 223 = 201
+        self.assertClean(self.two(424, r1=148, r2=75, min_r={"tempest": 148, "camp": 75}), "site")
+
+    def test_drawn_too_small_warns_per_site(self):
+        r = self.two(500, min_r={"tempest": 148, "camp": 20})
+        w = self.msgs(r, "site", "warnings")
+        self.assertEqual(len(w), 1, w)
+        self.assertIn("site tempest: drawn too small, r 50 < min_r 148", w[0])
+        self.assertIn("enlarged to 148", w[0])
+        self.assertEqual(self.msgs(self.two(500, r1=148, min_r={"tempest": 148}), "site", "warnings"), [])
+        self.assertEqual(self.msgs(self.two(500), "site", "warnings"), [])
+
+    def test_min_r_file_is_optional(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertEqual(mc.load_min_r(Path(d) / "nope.toml"), {})
+            self.assertEqual(mc.load_min_r(None), {})
+            f = Path(d) / "sites.toml"
+            f.write_text('[tempest]\nmin_r = 148\n[camp]\nr = 8\n[forest]\nlight = "x"\n', encoding="utf-8")
+            self.assertEqual(mc.load_min_r(f), {"tempest": 148})
+            f.write_text("not = [toml", encoding="utf-8")
+            self.assertEqual(mc.load_min_r(f), {})
+
+    def relative(self, camp_at, **kw):
+        cfg = config(anchors={"tempest": anchor(kind="settlement"), "camp": anchor(of="tempest", dx=300, dz=-100)}, **kw)
+        return self.run_check(svg(sites=circle("tempest", 0, 0, 50, "clearing") + circle("camp", camp_at[0], camp_at[1], 20, "clearing")), cfg)
+
+    def test_relative_anchor_far_from_parent_plus_offset_warns(self):
+        w = self.msgs(self.relative((300, 0)), "site", "warnings")        # 100 off
+        self.assertTrue(any("relative anchor camp is drawn at (300, 0), 100 blocks from tempest + (300, -100)" in m for m in w), w)
+        self.assertEqual(self.msgs(self.relative((300, -100)), "site", "warnings"), [])
+        self.assertEqual(self.msgs(self.relative((320, -120)), "site", "warnings"), [])     # 28 off
+        self.assertEqual(len(self.msgs(self.relative((340, -100)), "site", "warnings")), 1)  # 40 off
+
+    def test_relative_anchors_are_exempt_from_the_spacing_of_their_family(self):
+        cfg = config(anchors={"tempest": anchor(kind="settlement"), "camp": anchor(of="tempest", dx=10, dz=10),
+                              "pin": anchor(of="tempest", dx=14, dz=10)})
+        r = self.run_check(svg(sites=circle("tempest", 0, 0, 50, "clearing") + circle("camp", 10, 10, 8, "clearing")
+                               + circle("pin", 14, 10, 8, "clearing")), cfg)
         self.assertClean(r, "site")
+        # an unrelated site still has to keep its distance
+        self.assertError(self.two(60), "below the larger data-margin", "site")
 
     def test_region_of_the_anchor(self):
         two = poly(ring(-2000, -1500, 0, 1500), data_letter="J") + poly(ring(0, -1500, 2000, 1500), data_letter="D")
@@ -622,6 +688,19 @@ class RepoData(unittest.TestCase):
         self.assertEqual(len([r for r in report.relations if r["ok"]]), len(self.cfg.relations))
         self.assertEqual(report.stats["mainland_bbox"][0] <= 10000, True)
         self.assertEqual(self.msgs_of(report, "margin"), [])
+        # the starter is drawn at the real rule: no site below its min_r, every relative anchor at parent + offset
+        self.assertEqual(self.msgs_of(report, "site"), [])
+        self.assertEqual(self.cfg.min_r["tempest"], 148)
+        self.assertEqual(self.cfg.min_r["sealed_cave"], 75)
+        by = {s.id: s for s in sites}
+        self.assertGreaterEqual(math.dist(by["tempest"].pt, by["sealed_cave"].pt) - 223, 48)
+        self.assertEqual(len([a for a in self.cfg.anchors.values() if a.get("of")]), 7)
+
+    def test_starter_map_without_sites_toml_still_passes(self):
+        cfg = mc.load_config(sites=ROOT / "does-not-exist.toml")
+        self.assertEqual(cfg.min_r, {})
+        report, _, _ = mc.check_svg((ROOT / "world" / "map.svg").read_text(encoding="utf-8"), cfg)
+        self.assertEqual(report.errors, [])
 
     @staticmethod
     def msgs_of(report, rule):
