@@ -47,8 +47,9 @@ class DomainDataTests(unittest.TestCase):
     def test_shipped_domains_are_valid_and_centred(self):
         fac = copy.deepcopy(self.data["factions"])
         self.run_check(fac)
-        self.assertEqual(self.faction(fac, "tempest")["domain"]["center"], [0, -12])
-        self.assertEqual(self.faction(fac, "eurazania")["domain"]["center"], [1689, 1302])
+        # Lerfing's map: the centres follow design/data/anchors.toml (Tempest 1720, 900; Laura 3300, 2600).
+        self.assertEqual(self.faction(fac, "tempest")["domain"]["center"], [1720, 888])
+        self.assertEqual(self.faction(fac, "eurazania")["domain"]["center"], [3300, 2600])
 
     def test_eurazania_is_a_faction_and_no_longer_pending(self):
         eur = self.faction(self.data["factions"], "eurazania")
@@ -83,8 +84,8 @@ class DomainDataTests(unittest.TestCase):
         self.bad(lambda f: self.faction(f, "tempest").update(territory="everything"))
 
     def test_the_life2_arrival_stays_free(self):
-        # The dwarf village's reach square reaches the arrival; putting it back into Dwargon's domain must fail.
-        self.bad(lambda f: self.faction(f, "dwargon")["domain"].update(landmarks=["dwarf_village"]))
+        # The arrival (anchors.toml, 1780, -150) lies on the road to Dwargon's gate (1900, -500): a
+        # Dwargon capital square of 500 would reach it and must fail.
         self.bad(lambda f: self.faction(f, "dwargon")["domain"].update(capital_radius=500))
 
     def test_boss_area_stays_outside(self):
