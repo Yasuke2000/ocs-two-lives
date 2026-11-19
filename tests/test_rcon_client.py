@@ -47,6 +47,8 @@ class FakeMinecraft(threading.Thread):
         self.sock.bind(("127.0.0.1", 0))
         self.sock.listen()
         self.port = self.sock.getsockname()[1]
+        self.seen = []  # commands in the order the server ran them
+        self.gametime = 1000
 
     def run(self):
         while True:
@@ -69,6 +71,11 @@ class FakeMinecraft(threading.Thread):
                 if kind == 3:
                     authed = body == PASSWORD
                     conn.sendall(packet(rid if authed else -1, 2, ""))
+                    continue
+                self.seen.append(body)
+                if body == "time query gametime":
+                    self.gametime += 1  # one tick per query: the game moves on while the client polls
+                    conn.sendall(packet(rid, 0, f"The time is {self.gametime}"))
                     continue
                 if body == "long":
                     reply = "x" * 9000
@@ -132,6 +139,19 @@ class RconClientTests(unittest.TestCase):
                                   str(self.server.port), "--password-file", str(pw)],
                                  input="say a\nsay b\n", capture_output=True, text=True, timeout=30)
         self.assertEqual(out.stdout.split("\n"), ["echo say a", rcon.MARKER, "echo say b", rcon.MARKER, ""])
+
+    def test_serve_mode_waits_ticks_between_commands(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            pw = Path(tmp, "pw")
+            pw.write_text(PASSWORD + "\n", encoding="utf-8")
+            self.server.seen.clear()
+            out = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "rcon.py"), "--serve", "--ticks", "3",
+                                  "--port", str(self.server.port), "--password-file", str(pw)],
+                                 input="say c\nsay d\n", capture_output=True, text=True, timeout=30)
+        self.assertEqual(out.stdout.split("\n"), ["echo say c", rcon.MARKER, "echo say d", rcon.MARKER, ""])
+        seen = self.server.seen
+        # One read right after "say c", then polls until the game time is 3 ticks on.
+        self.assertEqual(seen[seen.index("say c") + 1:seen.index("say d")], ["time query gametime"] * 4)
 
 
 if __name__ == "__main__":

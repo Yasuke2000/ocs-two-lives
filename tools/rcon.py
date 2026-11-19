@@ -124,8 +124,13 @@ def main() -> int:
         if not args.serve:
             sys.stdout.write(reply(rc.command(args.command or "list")))
             return 0
+        last = None
         for line in sys.stdin:
-            sys.stdout.write(reply(rc.command(line.rstrip("\r\n"))) + MARKER + "\n")
+            rc.wait_ticks(last, args.ticks)
+            out = rc.command(line.rstrip("\r\n"))
+            if args.ticks > 0:
+                last = rc.gametime()
+            sys.stdout.write(reply(out) + MARKER + "\n")
             sys.stdout.flush()
     except (OSError, ValueError) as e:
         print(f"rcon: {e}", file=sys.stderr)

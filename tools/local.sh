@@ -57,9 +57,11 @@ rcon_password() {
 }
 rcon_once() { "$PY" -I "$(winpath "$ROOT/tools/rcon.py")" --port "$RCON_PORT" --password-file "$(winpath "$STATE/rcon.password")" "$1"; }
 # One connection for a whole test run (tools/rcon.py --serve), on fds 7/8 so the runner's subshells can use it.
-# Each command starts TTL_LOCAL_TICKS game ticks after the previous one ended: on staging a command is a kubectl exec
-# (~0.17 s, 3 ticks), and tests count on what a script schedules a tick later (the Corridor after a `kill`) being done.
-TICKS=${TTL_LOCAL_TICKS:-1}
+# Each command starts TTL_LOCAL_TICKS (2) game ticks after the previous one ended: on staging a command is a kubectl
+# exec (~0.17 s, 3 ticks), and tests count on what a script schedules a tick later (the Corridor after a `kill`) being
+# done. 2, not 1: a command can run in the middle of a tick (while the main thread waits for a chunk), so only the
+# second tick boundary guarantees that a whole tick has passed.
+TICKS=${TTL_LOCAL_TICKS:-2}
 RCON_OPEN=
 rcon_open() {
   coproc RCONP { "$PY" -I "$(winpath "$ROOT/tools/rcon.py")" --serve --ticks "$TICKS" --port "$RCON_PORT" --password-file "$(winpath "$STATE/rcon.password")"; }
