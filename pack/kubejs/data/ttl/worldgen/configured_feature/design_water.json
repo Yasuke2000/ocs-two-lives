@@ -1,0 +1,8 @@
+{
+  "type": "ttl:design_water",
+  "config": {
+    "carve": 4,
+    "seal": 4,
+    "bank": 8
+  }
+}
