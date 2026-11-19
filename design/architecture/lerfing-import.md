@@ -83,10 +83,11 @@ WorldUpgrader, all 796k chunks before the level opens, ~15–40 min on 2 CPU; ra
 
 - Files go where the overworld already lives: `/data/world-ttl/region/` (overworld terrain is the world folder itself;
   `WorldReset.move` shows which folders belong to it: `region`, `entities`, `poi`, `data/DistantHorizons*`).
-- Upload: tar the 800 files (6.7 GB) and stream into the pod (`kubectl exec -i deploy/mc -- sh -c "tar -C /data/import -xf -"`,
-  `MSYS2_ARG_CONV_EXCL=/data` from Git Bash) or scp to node3 and copy from a debug pod on the volume; expect 30–60 min over
-  Tailscale. Verify the file count and the sha256 manifest the tool wrote before the swap.
-- Swap only with the server scaled to 0 (runbook §6.3). The mod gets a new marker `ttl-import.txt` (§2.4): like
+- Upload: `tools/import_world.sh` (WP-L10) streams the 800 files (6.59 GB) into the running pod with tar over
+  `kubectl exec`, in resumable batches, then checks the sha256 manifest on the pod. Measured on 19/11/2026: 8.3 MB/s,
+  about 14 min. `/data/import` is not part of the world, so the server keeps running.
+- The swap needs no scale to 0: the marker is read at server start, before the levels load, so the restart is the normal
+  deploy (runbook §6.3). The mod gets a new marker `ttl-import.txt` (§2.4): like
   `ttl-reset.txt` it moves the old overworld (`region`, `entities`, `poi`, DH sqlite) to `ttl-backup/<time>/`, but then
   **moves `/data/import/region` into place instead of leaving the folder empty**, and triggers `/ttl worldreset
   minecraft:overworld` so the scripts re-place Tempest, Dwargon, landmarks, builds and the arrival and move players.
@@ -104,21 +105,25 @@ WorldUpgrader, all 796k chunks before the level opens, ~15–40 min on 2 CPU; ra
 | `ttl-backup/<time>/` of the current generated overworld (the November reset world + its pregen) | 3–6 GB until deleted |
 | **Total** | **18–30 GB** |
 
-Recommendation (Q1): grow `mc-data` to **60 Gi** (Longhorn expansion: scale to 0, edit the PVC in the Homelab manifest,
-ArgoCD syncs; Longhorn grows the filesystem on next attach), and move the old overworld backup to the NAS (Longhorn backup
+Recommendation (Q1): grow `mc-data` to **60 Gi** (Longhorn expansion: edit the PVC in the Homelab manifest (PR #60, WP-L10),
+ArgoCD syncs; Longhorn grows an attached volume online, else at the next attach), and move the old overworld backup to the NAS (Longhorn backup
 target) before deleting `ttl-backup/<time>/` from the PVC. ttl-ops already pauses the pregen at 85 % disk.
 
 ### 1.5 Backup and rollback
 
-- Before: a manual Longhorn snapshot + backup of `mc-data` (the nightly 03:00 snapshot and the 04:30 NAS backup exist;
-  trigger one by hand), `tools/server.sh rcon "save-all flush"`, scale to 0.
+- Before: the nightly 03:00 Longhorn snapshot and the 04:30 NAS backup of `mc-data` exist, and a manual one (Yasuke,
+  Longhorn UI) is optional. No scale to 0: the marker is applied at the next start, and the restart's shutdown saves the
+  world first.
 - The marker keeps the old overworld in `ttl-backup/<time>/` (nothing deleted); the DH sqlite goes with it; BlueMap is purged.
-- Rollback = scale to 0, move `ttl-backup/<time>/{region,entities,poi,DistantHorizons*}` back, delete the import's
-  `region/`, `git revert` the data commits (anchors) on `main`, start. Player positions on the old terrain are restored by the
-  scripts' epoch logic (`world_reset.js`: players whose position belongs to the old epoch are moved to spawn on login —
-  after a rollback bump nothing; they log in where they were).
-- The runbook (§6.3) does the import on a night with nobody online and does not delete `ttl-backup` until the bot tests
-  are green and the owner has looked at the map.
+- Rollback (WP-L10, `docs/server.md` "World import", "Rollback") uses the same marker. Revert the data commits (anchors,
+  grid, `sea_level`) on `main` and keep ttl-portals 0.9.0; once that is deployed, move
+  `ttl-backup/<time>/minecraft/overworld/{region,entities,poi}` to `/data/rollback` (a rename; the marker refuses a source
+  inside `ttl-backup`), write `minecraft:overworld rollback <count>` and restart. Lerfing's map goes to a new
+  `ttl-backup/<time>/`. No scale to 0 is needed. The old DH database only goes back by hand, with the server stopped. Like any import, the
+  rollback runs `/ttl worldreset`, so players are moved to spawn when they log in (`world_reset.js` epoch).
+- The runbook (§6.3) does the import at any time when nobody is online (owner, 19/11/2026: test as soon as possible). It
+  does not delete `ttl-backup` until the bot tests are green and the owner has looked at the map. Only the pregen waits for
+  the night.
 
 ## 2. Worldgen outside the import
 
@@ -419,7 +424,7 @@ about the free lands, not a strait). No script changes: every consumer (`boss.js
 | Watchdog on fresh terrain | placers waiting for FULL chunks; an imported chunk needs populate + light to reach FULL | `life/chunk_hold.js` tickets (no synchronous forceload) already; 600-chunk areas took 7.5 s/100 chunks on generation, populate is cheaper; nothing of ours runs `forceload add` on first boot |
 | Populate changes the look | `dark_forest`/`jungle`/`forest` cells get vanilla trees on top of Lerfing's; Jura's band gets dark oak; the core gets labyrinth trees | accepted for the Jura rings (owner decision, Q4); jungle/forest are Lerfing's own intent; plains (10 % of the map) only get grass and the rare tree |
 | Sea-level seam | 1-block water step along 4 × 16k blocks of seam | `sea_level` 64 (§2.1); the tool prints the edge histogram |
-| BlueMap render size | 1.5× the old mask; the first full render takes hours in the game JVM at 1 thread | purge + `force-update` on the import night; render mask = inner tiles; `min-inhabited-time` 0 so pregen'd chunks render; watch tiles size |
+| BlueMap render size | 1.5× the old mask; the first full render takes hours in the game JVM at 1 thread | purge + `force-update` on the import day; render mask = inner tiles; `min-inhabited-time` 0 so pregen'd chunks render; watch tiles size |
 | DH | a fresh LOD db for 1.5× the area; clients keep stale LODs of the old terrain | move the server sqlite with the backup (marker does it); tell players to clear the DH client cache for the server (known from the 19/11 reset) |
 | Pregen of the outer ring | the ring is generated, not imported: deep ocean, cheap; the vanilla free lands beyond must NOT be pregenerated | `PREGEN_X=64, PREGEN_Z=256, PREGEN_RADIUS=520` chunks (covers the inner tiles; the square's corners are ring sea); ~1.0 M chunks; at 60–100 cps (populate, not generation) 3–5 h → one or two nights |
 | Disk | §1.4 | PVC 60 Gi (Q1), backup to NAS, delete `ttl-backup` after sign-off |
@@ -455,30 +460,41 @@ Wave A is offline and parallel; B needs A's anchor table; C needs B; D is the ni
 ### 6.2 Order on `main`
 
 L1, L2, L3 (mod released first), L7-blueprint → one merge; L4, L5, L8, L7-placer → one merge (data + structures regenerated
-together, `validate.py`, `--check` generators); L6, L10 → merge; then L9 on the night. ttl-ops deploys `main` only when
-nobody is online; the import night is a manual step on top (it needs the server scaled to 0).
+together, `validate.py`, `--check` generators); L6, L10 → merge; then L9 (any time nobody is online). ttl-ops deploys `main` only when
+nobody is online. The import is a manual step on top (`tools/import_world.sh` and a deploy restart, §6.3). It needs nobody
+online, but not a night and not a stopped server (WP-L10).
 
-### 6.3 Reset / import runbook (lead, in this order, nobody online)
+### 6.3 Import runbook (lead, in this order; any time nobody is online — WP-L10)
 
-1. Offline: `python -I tools/lerfing/import.py "<zip>" --out <dir>`, then `… --out <dir> --verify` → check `<dir>/report.json` (796,544 chunks, statuses, biomes,
-   edge histogram), commit the rasters. `python tools/validate.py`, `python -m unittest discover -s tests`.
-2. Upload `<dir>/region/` to `/data/import/region/` on the PVC (tar stream or scp + debug pod); verify the sha256 manifest.
-3. Homelab PR merged: PVC 60 Gi (Q1), pregen env, BlueMap mask. Wait for ArgoCD; confirm `df -h /data` shows the new size.
-4. `bash tools/server.sh rcon "dh pregen stop"`, `rcon "save-all flush"`, Longhorn manual snapshot + backup, then
-   `kubectl … scale deploy/mc --replicas=0`.
-5. From a debug pod on the volume: `echo "minecraft:overworld import" > /data/world-ttl/ttl-import.txt`; make sure
-   `/data/ttl-pregen.done` is gone; `rm -f /data/world-ttl/data/DistantHorizons.sqlite*` is done by the marker (check after boot).
-6. Scale to 1. Log must show `[ttl] world import: minecraft:overworld from import; old terrain in ttl-backup/<time>`, then
-   `[ttl] arrival grounded at 1780 … −150`, `[ttl] tempest placed`, `[ttl] dwargon placed`, the 7 landmarks and 28 builds
+The import is pre-made terrain, so it no longer waits for a night. Only the pregen stays night-only (owner rule).
+The step-by-step version, with the log lines, is `docs/server.md` "World import".
+
+1. Offline: `python -I tools/lerfing/import.py "<zip>" --out <dir>`, then `… --out <dir> --verify`. Check
+   `<dir>/report.json` (796,544 chunks, statuses, biomes, edge histogram) and commit the rasters. Run
+   `python tools/validate.py` and `python -m unittest discover -s tests`.
+2. `main` is ready: mod-v0.9.0 is released and `main` carries it with the Lerfing grid, `sea_level` 64 and the anchor
+   table (L1–L8 merged, §6.2). ttl-ops deploys it when nobody is online.
+3. Disk: merge the Homelab PR (PVC 60 Gi, pregen `64 256 520`) and confirm `df -h /data` shows the new size. 30 Gi holds
+   the upload (about 90 % used afterwards), but no pregen runs above 85 %.
+4. `bash tools/import_world.sh --dry-run`, then `bash tools/import_world.sh`. The script refuses while anyone is online,
+   checks the free space, uploads to `/data/import/region` (resumable), checks sha256 on the pod, writes
+   `minecraft:overworld import 800` to `/data/world-ttl/ttl-import.txt` (only if `main` is ready) and removes
+   `/data/ttl-pregen.done`. The server keeps running throughout.
+5. Restart with the normal deploy: `bash tools/server.sh deploy` (or ttl-ops' own deploy of a new `main`). No scale to 0
+   and no debug pod. The nightly Longhorn snapshot plus `ttl-backup/<time>/` are the safety net.
+6. The log must show `[ttl] world import: source OK: 800 region files (6.59 GB), 796544 chunks; …`, then
+   `[ttl] world import: minecraft:overworld from import; old terrain in ttl-backup/<time> (moved); …`, then
+   `[ttl] arrival grounded at 1780 … −150`, `[ttl] tempest placed`, `[ttl] dwargon placed`, the 7 landmarks and the 28 builds
    (`[ttl] chunks: holding …` lines, no watchdog). First checks: `ttlmap 1720 900` = imported chunk;
-   `execute in minecraft:overworld if block -453 73 979 minecraft:chest` = Lerfing's spawn chest still there (proof that
+   `execute in minecraft:overworld if block -453 73 979 minecraft:chest` = Lerfing's spawn chest is still there (proof that
    no proto chunk was regenerated); `/ttl world expect continent 1720 900 yes`, `… 9000 0 no`.
-7. `bluemap purge tensura`, `bluemap force-update tensura`; `/ttl build list`, `/ttl landmark list` all placed;
-   `verify_build.py <name> --log --min 98` for dwargon, tempest and a sample of six builds (one per quadrant);
+7. `bluemap purge tensura`, `bluemap force-update tensura`; `/ttl build list` and `/ttl landmark list` show everything
+   placed; `verify_build.py <name> --log --min 98` for dwargon, tempest and a sample of six builds (one per quadrant);
    `MSYS2_ARG_CONV_EXCL=/data bash tools/server.sh test-all` = 0 failing.
-8. Start the pregen by hand (`dh config generation.chunkMode INTERNAL_SERVER`, `common.threadPreset BALANCED`,
-   `dh pregen start minecraft:overworld 64 256 520`) or let ttl-ops take the night; watch TPS, RSS, `df`.
-9. Owner looks at https://map.daviddelporte.com; then delete `ttl-backup/<time>/` from the PVC (the NAS backup keeps it).
+8. Players can test at once: chunks are populated on first load. The pregen (`64 256 520`: every imported tile plus the
+   ring north and south) is run only by ttl-ops at night, 23:00–07:00, with nobody online and the disk under 85 %.
+9. The owner looks at https://map.daviddelporte.com. Then delete `ttl-backup/<time>/` from the PVC (the NAS backup
+   keeps it). Rollback, if he does not want it: `docs/server.md` "World import", "Rollback".
 10. `docs/HANDOFF.md`, `decisions.md`, `roadmap-public.md`.
 
 ## 7. Open questions for the owner (with recommendations)
