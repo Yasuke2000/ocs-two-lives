@@ -2682,7 +2682,7 @@ hash = "031ca3f63e21a0a7ebbbb316fab928f27a9544afc6ce68dd0acf8776a74e3bdc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/absorb/absorb.js"
-hash = "8ed1e2d2f5350926fb59098a6a15940260fc9b29b45110342099e2ced6099063"
+hash = "28c165131accd325f19fefc3c3110ee4995f8e0423f14c568ba34529b3bce768"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/absorb/liability.js"
@@ -2730,11 +2730,11 @@ hash = "550db5e1c60c852d5e53e8e87d36bc39f4a43bb95732eed047ae230573bb517d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/boss.js"
-hash = "e84516a5c5f81c7285812eca292d20bfe92e6e3437443e082e5a58c6579ad178"
+hash = "a7af21a1235cd2c67ea6f6ce818b149cd2baa9f8b67de4cdafe39dd5648a31ef"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/commands.js"
-hash = "f5f2b3cbb3b581077dd0dd0b6a96431fe471205b99c3dc8b8add61aeb59b6104"
+hash = "7931411c28db3924a4592adac36bf0664fbcdc5d348a9dfc1ef6629a4a6f8010"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/bosses/loot.js"
@@ -2746,11 +2746,11 @@ hash = "482959d16a7af69c0ca6aeb703f894e2a6f776446f5a7f76008bb5d5bb559dcd"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/choices/commands.js"
-hash = "1db3cec5413abfc7edf3ab66a2838e0dfa2e64cb62c2cd90712100f317364112"
+hash = "8c1b64372f3a651b15ac4ae4b2c2d606654efe2ce8a76f86cb2652ffe116edf0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/choices/engine.js"
-hash = "21884a0822cc6ab0c2e6d455910cfe8be3eb8f4e22ab40f5fed274279c25ab13"
+hash = "a4bb6e4fcdceae3896c05c8f84c7232469b0ddd1b89ceceb083f69a59695455d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/choices/events_c1.js"
@@ -2758,7 +2758,7 @@ hash = "44c5a0c6a9221e480417711c1e474689396917eefe4a56b473cc84554b0921a2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "bc06bc09a7861a01a88682f95090173d85de8666bd6e747205161869cd7313a9"
+hash = "7a32dc8ff40aca6ebad0f03ff9b0d71e29d3b36847cc48066c84eb9c5bc8fe5b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -2818,7 +2818,7 @@ hash = "01896f2aad3bc265bbb3274ab0730e264125115e429e55c8a7adda618077c417"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/era/era.js"
-hash = "ad5c52dd198cf8583629c86fd7860627d1a499c8e86ad08ec5e6230db322a77f"
+hash = "480b538839ef70fdf154fb4b4b2357d04dd31bc93c51cfe253874b1c5495d010"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/calamity.js"
@@ -3118,7 +3118,7 @@ hash = "dbdcf85a6979080cb90d351ff461afb055c38d282b1ad4a15e0c51f4dbac534d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "7d3d163bd8a13a8debc750b501ee7d738dd5dda8a082edcf420284c1f4712f74"
+hash = "3734cedfef7be9321c3dd95a64605380b7335af8efa7492cbcc22848a59220ec"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/commands.js"

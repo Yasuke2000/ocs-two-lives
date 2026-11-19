@@ -42,7 +42,7 @@ execute at TtlBotEventPack run damage @e[tag=ttl.test.moon,limit=1,sort=nearest]
 ttl events expect bloodkills TtlBotEventPack 2
 # Calamity summons the configured boss through its normal arena; abort leaves no cooldown or raid behind.
 ttl events setup TtlBotEventPack 100 6
-ttl boss cooldown clear charybdis
+ttl boss cooldown clear charybdis tests
 ttl events expect registered calamity_rising true
 ttl events fire calamity_rising
 @sleep 6

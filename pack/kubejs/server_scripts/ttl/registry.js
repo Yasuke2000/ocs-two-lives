@@ -27,6 +27,10 @@
 // Uniques gained outside the registry (the Great Sage scene's wishes, Tensura's own Reset Counter bonus unique,
 // admin commands) are caught by reconcile(), which reads what players really hold through TtlManas.
 // Callers may still pass a player NAME where a holder is asked for (available/draw): resolve() maps it to a UUID.
+// Test bots (TtlBot*) and real players count in separate pools (owner decision 20/11/2026): every cap, the Legendary
+// ceiling and reconcile's "over its cap" see only holders of the asker's own kind (scoped()). Bots share the one
+// holder map, but a real player's records never fill a bot's cap (tests pass whatever real players hold) and a test
+// bot's records never fill a real player's. Nothing here ever changes or reads past a record of the other kind.
 const TtlRegistry = {
   UUID: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i,
   // Persistent strings are written as modified UTF-8 with a 16-bit length: stay well below 65535.
@@ -106,8 +110,13 @@ const TtlRegistry = {
   canHoldLegendary(server, id, recs) {
     var max = this.maxHolders(server)
     if (!(max > 0)) return true
-    var holders = this.legendaryHoldersIn(recs || this.records(server))
+    var holders = this.legendaryHoldersIn(this.scoped(server, recs || this.records(server), id))
     return holders.indexOf(id) >= 0 || holders.length < max
+  },
+
+  // Legendary holders of the same kind as `id` (test bots or real players), for the refusal messages.
+  legendaryHoldersFor(server, id) {
+    return this.legendaryHoldersIn(this.scoped(server, this.records(server), id))
   },
 
   // Is a Legendary slot free this era? (Rebirth Legend picks.) Always true without a per-era throttle.
@@ -149,6 +158,34 @@ const TtlRegistry = {
 
   isBot(name) {
     return /^TtlBot/.test(String(name))
+  },
+
+  // Is the holder `id` (UUID or legacy name) a test bot? By its cached name, else an online player with that UUID,
+  // else the entry itself (a legacy record is the name). `names` may be passed in to read it once per pass.
+  isBotId(server, id, names) {
+    var s = String(id)
+    if (!this.isId(s)) return this.isBot(s)
+    var n = (names || this.names(server))[s]
+    if (n) return this.isBot(n)
+    var bot = false
+    server.getPlayerList().getPlayers().forEach(p => { if (this.uid(p) === s.toLowerCase()) bot = this.isBot(p.username) })
+    return bot
+  },
+
+  // The records as `id` sees them: only holders of its own kind (test bots, or real players). A copy; never saved.
+  scoped(server, recs, id) {
+    return this.ofKind(server, recs, this.isBotId(server, id))
+  },
+
+  // Only the test bots' records (bot = true) or only the real players' (false). A copy; never saved.
+  ofKind(server, recs, bot) {
+    var names = this.names(server)
+    var out = {}
+    Object.keys(recs).forEach(skill => {
+      var list = recs[skill].filter(h => this.isBotId(server, h, names) === !!bot)
+      if (list.length > 0) out[skill] = list
+    })
+    return out
   },
 
   load(server, key, empty) {
@@ -410,8 +447,8 @@ const TtlRegistry = {
   // Legendary only when `allowLegendary` (deliberate grants, never rebirth draws, so draw() cannot hand one out),
   // and then only while the global ceiling leaves room for `who` as a Legendary holder (canHoldLegendary).
   available(server, pool, who, allowLegendary) {
-    var recs = this.records(server)
     var id = this.resolve(server, who)
+    var recs = this.scoped(server, this.records(server), id)
     var self = this
     var room = allowLegendary ? this.canHoldLegendary(server, id, recs) : false
     return pool.filter(skill => {
@@ -458,7 +495,7 @@ const TtlRegistry = {
     var slot = !!(opts && opts.slot) && this.rarityOf(skill) === 'legendary'
     this.migrate(server, false)
     if (this.rarityOf(skill) === 'legendary' && !this.canHoldLegendary(server, id)) {
-      console.warn(`[ttl] registry: refused ${skill} for ${name}: ${this.legendaryHolders(server).length}/${this.maxHolders(server)} Legendary holders already`)
+      console.warn(`[ttl] registry: refused ${skill} for ${name}: ${this.legendaryHoldersFor(server, id).length}/${this.maxHolders(server)} Legendary holders already`)
       return false
     }
     if (slot && !this.legendarySlotFree(server)) {
@@ -482,7 +519,7 @@ const TtlRegistry = {
     }
     this.touch(server, player)
     this.remember(server, player)
-    console.info(`[ttl] registry: ${skill} -> ${name} (${recs[skill].length}/${this.capOf(skill)})`)
+    console.info(`[ttl] registry: ${skill} -> ${name} (${this.scoped(server, recs, id)[skill].length}/${this.capOf(skill)})`)
     var used = slot ? this.useSlot(server) : 0
     this.log(server, 'grant', skill, id, `${reason || 'granted through the registry'}${slot ? ` (Legendary slot ${used}/${this.slotsPerEra(server) || 'unlimited'}, era ${this.era(server)})` : ''}`)
     return true
@@ -566,16 +603,18 @@ const TtlRegistry = {
       dropped.push(skill)
       console.info(`[ttl] registry: ${name} no longer holds ${skill}`)
     })
+    var mine = this.scoped(server, recs, id)
     actual.forEach(skill => {
       if (recorded.indexOf(skill) >= 0) return
       var list = recs[skill] || []
-      if (self.rarityOf(skill) === 'legendary' || list.length >= self.capOf(skill)) {
+      if (self.rarityOf(skill) === 'legendary' || (mine[skill] || []).length >= self.capOf(skill)) {
         refused.push(skill)
         return
       }
       recs[skill] = list.concat([id])
+      mine[skill] = (mine[skill] || []).concat([id])
       added.push(skill)
-      console.info(`[ttl] registry: recorded ${skill} for ${name}, gained outside the registry (${recs[skill].length}/${self.capOf(skill)})`)
+      console.info(`[ttl] registry: recorded ${skill} for ${name}, gained outside the registry (${mine[skill].length}/${self.capOf(skill)})`)
     })
     this.save(server, recs)
     dropped.forEach(skill => this.log(server, 'revoke', skill, id, 'no longer held (reset, removed or lost outside the registry)'))
@@ -691,7 +730,7 @@ const TtlRegistry = {
     if (this.rarityOf(skill) === 'legendary' && !this.canHoldLegendary(server, dst.id, recs)) {
       // The receiver is a new Legendary holder at the ceiling: allowed only if the giver stops being one.
       var stays = this.heldBy(recs, src.id).filter(sk => sk !== skill && this.rarityOf(sk) === 'legendary').length > 0
-      if (stays) return refuse(`${this.legendaryHolders(server).length}/${this.maxHolders(server)} Legendary holders already`)
+      if (stays) return refuse(`${this.legendaryHoldersFor(server, dst.id).length}/${this.maxHolders(server)} Legendary holders already`)
     }
     var fromName = this.nameOf(server, src.id)
     if (src.player) {

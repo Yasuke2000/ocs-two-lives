@@ -12,7 +12,7 @@ ttlbot spawn TtlBotBoss
 gamemode creative TtlBotBoss
 ttl boss reset TtlBotBoss
 ttl boss abort
-ttl boss cooldown clear all
+ttl boss cooldown clear all tests
 execute in ttl:spirit_corridor run tp TtlBotBoss 0.5 65 0.5
 ttl boss list
 ttl boss expect TtlBotBoss stage t1 no
@@ -165,8 +165,8 @@ kubejs stages remove TtlBotPtyA ttl.life2
 kubejs stages remove TtlBotPtyB ttl.life2
 kubejs stages remove TtlBotPtyC ttl.life2
 # No cooldown left behind: story.rcon and wild.rcon summon / roll the Orc Lord after this test.
-ttl boss cooldown clear orc_lord
-ttl boss cooldown clear carrion
+ttl boss cooldown clear orc_lord tests
+ttl boss cooldown clear carrion tests
 ttlbot remove TtlBotPtyA
 ttlbot remove TtlBotPtyB
 ttlbot remove TtlBotPtyC
@@ -188,7 +188,7 @@ ttl boss reset TtlBotInsA
 ttl boss reset TtlBotInsB
 ttl boss reset TtlBotInsC
 ttl boss abort
-ttl boss cooldown clear all
+ttl boss cooldown clear all tests
 ttl boss arena clear all
 ttl boss testparty set TtlBotInsA TtlBotInsB
 execute in ttl:spirit_corridor run tp TtlBotInsA 0.5 65 0.5
@@ -262,7 +262,7 @@ ttl boss testecho clear
 ttl boss abort
 ttl boss queue clear
 ttl boss arena clear all
-ttl boss cooldown clear all
+ttl boss cooldown clear all tests
 ttl boss testparty clear
 ttl boss reset TtlBotInsA
 ttl boss reset TtlBotInsB

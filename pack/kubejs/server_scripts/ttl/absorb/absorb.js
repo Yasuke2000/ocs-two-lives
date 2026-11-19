@@ -823,9 +823,10 @@ ServerEvents.commandRegistry(event => {
       .then(Commands.literal('testwipe').requires(op)
         .then(playerArg('target').executes(logged(wipeLocal))))
       .then(Commands.literal('expect').requires(op)
+        // Test bots' pacts and war flags only (a party is a TtlBot*): real players' duels never move a test.
         .then(Commands.literal('pacts').then(intArg('n').executes(logged(ctx =>
-          check(ctx, 'live pacts', TtlAbsorb.live(server(ctx)).length, num(ctx, 'n'))))))
+          check(ctx, 'live test-bot pacts', TtlAbsorb.live(server(ctx)).filter(p => TtlRegistry.isBotId(server(ctx), p.a) || TtlRegistry.isBotId(server(ctx), p.b)).length, num(ctx, 'n'))))))
         .then(Commands.literal('wars').then(intArg('n').executes(logged(ctx =>
-          check(ctx, 'staff war flags', TtlAbsorb.wars(server(ctx)).length, num(ctx, 'n'))))))
+          check(ctx, 'test-bot staff war flags', TtlAbsorb.wars(server(ctx)).filter(w => TtlRegistry.isBotId(server(ctx), w[0]) || TtlRegistry.isBotId(server(ctx), w[1])).length, num(ctx, 'n'))))))
         .then(expectTarget))))
 })

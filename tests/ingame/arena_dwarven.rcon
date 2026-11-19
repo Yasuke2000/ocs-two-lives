@@ -5,6 +5,12 @@
 # (the royal warp pads stood there: now air), pit floor y 0 (you stand at y 1), spawn A 15 1 25, spawn B 43 1 25.
 # Not asserted (verify in game): the real placement by the survey, the look from outside, the door and forecourt, the
 # gallery on the dais, loot, the teleport back, the waves' mobs (tensura:armorsaurus, war_gnome, beast_gnome, bone_golem).
+# The arena's countdowns run in game ticks, so every "becomes" check (fight, wave n, result, free) is an `@until`, not a
+# fixed sleep: on staging 19/11 22:33 a lag spike (dwarf_village re-placed right after the deploy) stretched the challenge's
+# countdown past the old 7 s and "phase waves" failed although the arena worked. `expect state fight` already holds during
+# the countdown, so the first `defeat` is retried (`@until`) until the match really runs: it refuses with no effect before.
+# `expect arena ... result` reads the arena's LAST result (an earlier run's may match), so the fighters' records after it
+# are waited for too.
 ttlbot spawn TtlBotDwA
 ttlbot spawn TtlBotDwB
 @sleep 2
@@ -45,15 +51,12 @@ execute as TtlBotDwA run ttl arena start
 # The bot stands 5 blocks from a mob spot and does not fight back: the armorsaurus of wave 2 felled it before the test cleared the wave
 # (the first full run passed by luck). Resistance keeps it standing; the arena rules stay untouched.
 effect give TtlBotDwA minecraft:resistance 200 255 true
-@sleep 7
-ttl arena expect arena dwarven state fight
-ttl arena defeat TtlBotDwB TtlBotDwA
-@sleep 2
-ttl arena expect arena dwarven result a
-ttl arena expect player TtlBotDwA wins 1
-ttl arena expect player TtlBotDwB losses 1
-@sleep 6
-ttl arena expect arena dwarven state free
+@until 60 ttl arena expect arena dwarven state fight
+@until 60 ttl arena defeat TtlBotDwB TtlBotDwA
+@until 60 ttl arena expect arena dwarven result a
+@until 60 ttl arena expect player TtlBotDwA wins 1
+@until 60 ttl arena expect player TtlBotDwB losses 1
+@until 60 ttl arena expect arena dwarven state free
 
 # ---- challenge: waves only (no boss), clear when the third wave is down -----------------------------------------------
 # The wave mobs knocked the bot out of the arena in wave 3 ("left the arena", result partial; test-all 19/11 11:51):
@@ -62,22 +65,17 @@ attribute TtlBotDwA minecraft:generic.knockback_resistance base set 1
 execute as TtlBotDwA run ttl arena join dwarven challenge
 ttl arena expect arena dwarven mode challenge
 execute as TtlBotDwA run ttl arena start
-@sleep 7
-ttl arena expect arena dwarven state fight
-ttl arena expect arena dwarven phase waves
-ttl arena expect arena dwarven wave 1
+@until 60 ttl arena expect arena dwarven state fight
+@until 60 ttl arena expect arena dwarven phase waves
+@until 60 ttl arena expect arena dwarven wave 1
 ttl arena wave dwarven clear
-@sleep 2
-ttl arena expect arena dwarven wave 2
+@until 60 ttl arena expect arena dwarven wave 2
 ttl arena wave dwarven clear
-@sleep 2
-ttl arena expect arena dwarven wave 3
+@until 60 ttl arena expect arena dwarven wave 3
 ttl arena wave dwarven clear
-@sleep 4
-ttl arena expect arena dwarven result clear
-ttl arena expect player TtlBotDwA clears 1
-@sleep 6
-ttl arena expect arena dwarven state free
+@until 60 ttl arena expect arena dwarven result clear
+@until 60 ttl arena expect player TtlBotDwA clears 1
+@until 60 ttl arena expect arena dwarven state free
 
 # ---- clean up --------------------------------------------------------------------------------------------------------
 ttl arena reset

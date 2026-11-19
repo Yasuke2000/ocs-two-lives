@@ -131,7 +131,7 @@ ttl story expect TtlBotStoryB flips 1
 execute as TtlBotStoryB run ttl story fight orc_lord
 @sleep 1
 ttl boss expect TtlBotStoryB active orc_lord no
-ttl boss cooldown clear orc_lord
+ttl boss cooldown clear orc_lord tests
 ttl story fight orc_lord TtlBotStoryB
 @sleep 3
 ttl boss expect TtlBotStoryB active orc_lord yes

@@ -106,7 +106,9 @@ the Homelab repo (`Yasuke2000/Homelab`, branch `master`, `apps/ocs-two-lives/`) 
 1. `python tools/validate.py` (JSON/JS/SNBT syntax, packwiz index fresh, forbidden mods absent); `bash tools/check.sh`
    runs it with the fast unit tier and `node --check`. Test in-game on a local server first:
    `tools/local.sh up|sync|test <name>` (docs/server.md "Local testing").
-2. Push, restart or reload, then `tools/server.sh logs | python tools/logscan.py` — zero new `[ttl]` errors.
+2. After the merge: `tools/local.sh verify` on the local Lerfing server (the deploy gate, AGENTS.md): ttl-ops deploys
+   `main` to staging only once its commit has the status `local-test-all = success`. Then
+   `tools/server.sh logs | python tools/logscan.py` — zero new `[ttl]` errors.
 3. Run the matching `tests/ingame/<feature>.rcon` with `tools/server.sh test <feature>`.
 4. Player flows: spawn a test player with `/ttlbot spawn <name>`, drive it with `execute as <name> run ...`,
    read its state with `/ttl inspect <name>`, then `/ttlbot remove <name>`. Bots don't move on their own.

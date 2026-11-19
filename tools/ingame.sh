@@ -40,12 +40,38 @@ ingame_test() {
   rcon "ttl discord mute off" >/dev/null
 }
 
+# Start-up world works: after a restart the canon builds and landmarks whose version changed are taken out and placed
+# again, one by one, for minutes, and the server lags while they run (staging 19/11 22:33: dwarf_village re-placed right
+# after a deploy, 2 s behind, and arena_dwarven's fixed waits ran out). test-all waits until no build or landmark is being
+# placed or queued; one still "pending" but never queued (its boot attempts used up, or the start delay not yet over) is
+# waited for TTL_SETTLE_GRACE seconds (300) at most. TTL_SETTLE_WAIT (1800) caps the whole wait; then the tests run anyway.
+wait_world_settled() {
+  local t0=$SECONDS lines active waiting last=
+  while :; do
+    lines=$( { rcon "ttl build list"; rcon "ttl landmark list"; } < /dev/null 2>/dev/null | plain)
+    active=$(grep -cE '\((placing|queued)\)' <<<"$lines" || true)
+    waiting=$(grep -cE ' pending' <<<"$lines" || true)
+    if [ "$active" -eq 0 ] && { [ "$waiting" -eq 0 ] || [ $((SECONDS - t0)) -ge "${TTL_SETTLE_GRACE:-300}" ]; }; then
+      [ $((SECONDS - t0)) -lt 2 ] || echo "(start-up placements settled after $((SECONDS - t0))s)" >&2
+      return 0
+    fi
+    if [ $((SECONDS - t0)) -ge "${TTL_SETTLE_WAIT:-1800}" ]; then
+      echo "(start-up placements still busy after $((SECONDS - t0))s; running the tests anyway)" >&2
+      return 0
+    fi
+    [ "$active/$waiting" = "$last" ] || echo "(waiting for start-up placements: $active placing or queued, $waiting pending)" >&2
+    last="$active/$waiting"
+    sleep 10
+  done
+}
+
 # A test fails on command errors, or when a trial test ends the other way than its name says (`*_fail` must fail,
 # every other trial test must pass). Tests with an ingame_skip_reason print "skipped (<reason>)" and do not count as
 # failing. INGAME_OUT=<dir> keeps each test's output as <dir>/<name>.out. Prints one line per test and
 # "<n> failing"; returns non-zero when any test failed.
 ingame_test_all() {
   local fails=0 f name out verdict bot result want why
+  wait_world_settled
   rcon "ttl discord mute on" >/dev/null
   for f in "$INGAME_DIR"/*.rcon; do
     name=$(basename "$f" .rcon)

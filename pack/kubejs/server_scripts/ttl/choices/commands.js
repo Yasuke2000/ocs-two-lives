@@ -15,7 +15,10 @@
 //          /ttl choice test <player> skill <ids|none>    test hook: the soul counts as having these skills ("necro" = a
 //                                                        necromancer), comma-separated
 //          /ttl choice testonline <n>                    test hook: Life 2 souls online for the scale (0 = count them)
-//          /ttl choice clear                             end and clear every scene now (no costs, no chronicle)
+//          /ttl choice testonly on|off                   test hook: for 30 min at most, open scenes, caps, clear and the
+//                                                        world counts see only test scenes (ops / TtlBot*), never real ones
+//          /ttl choice clear                             end and clear every scene now (no costs, no chronicle; under
+//                                                        testonly the test scenes only)
 //          /ttl choice reset <player>                    test hook: forget the soul's choice history, dark cap and test skills
 //          /ttl choice expect scene <sid|last> <field> <value>   test assertion: "ttl: ..." when it does not hold
 //            fields: state (open|good|grey|dark|neutral), route, actor, event, home, mult, online, region,
@@ -64,7 +67,11 @@ const TtlChoicesCmd = {
 
   worldField(server, field) {
     if (field === 'open') return String(TtlChoices.open(server).length)
-    if (field === 'active') return String(Object.keys(TtlChoices.scenes(server)).length)
+    if (field === 'active') {
+      var all = TtlChoices.scenes(server)
+      var only = TtlChoices.testOnly(server)
+      return String(Object.keys(all).filter(k => !only || TtlChoices.isTestScene(all[k])).length)
+    }
     if (field === 'events') return String(TtlChoices.ids().length)
     if (field === 'room') return String(Math.max(0, TtlChoices.eng().max_active - TtlChoices.open(server).length))
     throw `unknown field ${field} (open, active, events, room)`
@@ -218,6 +225,14 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var testOnlyCmd = on => ctx => {
+    var server = ctx.source.getServer()
+    if (on) server.persistentData.putString(TtlChoices.TESTONLY, String(Date.now() + TtlChoices.TESTONLY_MS))
+    else server.persistentData.remove(TtlChoices.TESTONLY)
+    say(ctx, `choice: ${on ? 'test scenes only (30 min at most)' : 'every scene counts again'}`)
+    return 1
+  }
+
   var clear = ctx => {
     say(ctx, `choice: cleared ${TtlChoices.clearAll(ctx.source.getServer())} scene(s)`)
     return 1
@@ -284,6 +299,9 @@ ServerEvents.commandRegistry(event => {
             .then(S('arg').executes(logged(test(true))))))))
       .then(Commands.literal('testonline').requires(ops)
         .then(Commands.argument('n', Arguments.INTEGER.create(event)).executes(logged(testOnline))))
+      .then(Commands.literal('testonly').requires(ops)
+        .then(Commands.literal('on').executes(logged(testOnlyCmd(true))))
+        .then(Commands.literal('off').executes(logged(testOnlyCmd(false)))))
       .then(Commands.literal('clear').requires(ops).executes(logged(clear)))
       .then(Commands.literal('reset').requires(ops).then(P().executes(logged(reset))))
       .then(Commands.literal('expect').requires(ops)

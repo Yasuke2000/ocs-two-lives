@@ -164,12 +164,15 @@ ServerEvents.commandRegistry(event => {
     if (v !== 'true' && v !== 'false') throw `${name} must be true or false`
     return v === 'true'
   }
+  // Counts test bots only (TtlBot*): real players' records live in their own pool (registry.js scoped()), so what
+  // real players hold on staging never moves a test.
   var expectCount = ctx => {
+    var server = ctx.source.getServer()
     var skill = `tensura:${word(ctx, 'skill')}`
     var want = Number(Arguments.INTEGER.getResult(ctx, 'n'))
-    var got = (TtlRegistry.records(ctx.source.getServer())[skill] || []).length
-    if (got !== want) throw `expected ${skill} to have ${want} holders, it has ${got}`
-    say(ctx, `registry: ${skill} has ${want} holders as expected`)
+    var got = (TtlRegistry.ofKind(server, TtlRegistry.records(server), true)[skill] || []).length
+    if (got !== want) throw `expected ${skill} to have ${want} test-bot holders, it has ${got}`
+    say(ctx, `registry: ${skill} has ${want} test-bot holders as expected`)
     return 1
   }
   var expectHolds = ctx => {
