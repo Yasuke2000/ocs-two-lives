@@ -44,8 +44,8 @@ ttl guild npc expect count_benimaru_tempest 1
 ttl guild npc expect count_shion_tempest 1
 ttl guild npc expect count_souei_tempest 1
 ttl guild npc expect tags_benimaru_tempest ok
-ttl guild npc expect type_benimaru_tempest easy_npc:humanoid
-ttl guild npc expect type_shuna_tempest easy_npc:humanoid_slim
+ttl guild npc expect type_benimaru_tempest "easy_npc:humanoid"
+ttl guild npc expect type_shuna_tempest "easy_npc:humanoid_slim"
 ttl guild npc expect invulnerable_benimaru_tempest true
 ttl guild npc expect talk_benimaru_tempest benimaru
 ttl guild npc expect name_benimaru_tempest Benimaru

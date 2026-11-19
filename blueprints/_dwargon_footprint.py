@@ -15,6 +15,11 @@ NONE = nothing to do), heights relative to the structure's base layer:
          column of air alone (the cleft's upper walls in carve mode) is never given a foundation under its air.
 - roof:  carve mode (bp.roof): the highest interior air of a column that Lerfing's rock closes over the city;
          dwargon.js and tools/lerfing/dwargon_fit.py measure the rock cover above it.
+- shell: carve mode: the cells the build does NOT define that touch (6 sides) a cell it defines as air: where the
+         real mountain meets the carved air (the cleft's walls, the skylight crack, the box faces). Flat list of
+         [grid cell, y1, y2] runs (y relative to the base layer). dwargon.js turns water and lava there into rock
+         after placing, so Lerfing's springs and lava pockets cannot pour into the city (staging 19/11: 2,253
+         cells of the throne hall and forge street flooded from two springs at the crack's rim, lava in the cleft).
 """
 import json
 import math
@@ -83,6 +88,27 @@ def footprint(bp, probes, arrival, parts) -> str:
             if c not in cut or v < cut[c]:
                 cut[c] = v
     roof = getattr(bp, "roof", None) or {}
+    shell = {}
+    if roof:
+        for (x, y, z), state in bp.blocks.items():
+            if state != AIR:
+                continue
+            for dx, dy, dz in ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)):
+                q = (x + dx, y + dy, z + dz)
+                if q not in bp.blocks and -MARGIN <= q[0] < sx + MARGIN and -MARGIN <= q[2] < sz + MARGIN:
+                    shell.setdefault((q[0], q[2]), set()).add(q[1])
+    runs = []
+    for (x, z) in sorted(shell, key=lambda k: (k[1], k[0])):
+        ys = sorted(shell[(x, z)])
+        i = (z + MARGIN) * w + (x + MARGIN)
+        start = prev = ys[0]
+        for y in ys[1:] + [None]:
+            if y is not None and y == prev + 1:
+                prev = y
+                continue
+            runs += [i, start, prev]
+            if y is not None:
+                start = prev = y
     fills, clears, bottoms, roofs = [], [], [], []
     for gz in range(l):
         for gx in range(w):
@@ -96,6 +122,7 @@ def footprint(bp, probes, arrival, parts) -> str:
         "arrival": list(arrival), "probes": [list(p) for p in probes],
         "parts": list(parts) if parts else [0],
         "fill": _rle(fills), "clear": _rle(clears), "bottom": _rle(bottoms), "roof": _rle(roofs),
+        "shell": runs,
     }
     body = json.dumps(data, separators=(",", ":"))
     return ("// priority: 200\n"

@@ -118,7 +118,8 @@ Give the corner yourself with `verify_build.py <name> <dimension> <x> <y> <z>`. 
 structure defines (explicit air included) and treats what the game changes on its own as a match: fence, wall,
 pane and redstone connections, stair shapes, power, leaf distance, waterlogging, snowy grass, crop growth, fluid
 levels, grass/dirt and air variants. It prints the match %, mismatches per slab and the top mismatching block
-pairs with world coordinates, and exits 1 below `--min` (default 98 %). It does not change the world (it removes
+pairs with world coordinates, and exits 1 below `--min` (default 98 %) or when more positions than `--max-fluids`
+(default 0) hold water or lava the structure does not have (a flood can hide in a 99 % match). It does not change the world (it removes
 its capture file and only the forceloads it added). The comparison is unit-tested offline:
 `python -I -m unittest discover -s tests`.
 
