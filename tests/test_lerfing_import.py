@@ -20,6 +20,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from lerfing import nbt  # noqa: E402
 from lerfing import common  # noqa: E402
 from lerfing.common import Rules, pack, unpack  # noqa: E402
+from tiers import heavy  # noqa: E402
 
 imp = importlib.import_module("lerfing.import")
 probe = importlib.import_module("lerfing.probe")
@@ -304,6 +305,7 @@ class VerifyTest(unittest.TestCase):
 
 
 class CliTest(unittest.TestCase):
+    @heavy("full import CLI, ~5 s")
     def test_import_verify_probe(self):
         with tempfile.TemporaryDirectory() as tmp:
             zpath = os.path.join(tmp, "lerfing.zip")

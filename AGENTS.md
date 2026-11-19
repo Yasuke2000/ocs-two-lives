@@ -26,7 +26,7 @@ Yasuke in anything players or contributors read). Players talk on Discord; the s
 | `pack/config/ttl/canon_regions.json`, `canon_map.txt` | The canon continent of the Tensura world (worldgen in `mod/`) |
 | `mod/` | ttl-portals Java mod; release only with `python tools/release_mod.py` (bumps patch) |
 | `tests/ingame/*.rcon` | In-game bot tests; `tests/*.py` offline unit tests |
-| `tools/` | validate.py, server.sh, gen_*.py, verify_build.py, discord_setup.sh, … |
+| `tools/` | validate.py, server.sh (staging), local.sh (local server), check.sh, test_fast.sh, gen_*.py, verify_build.py, … |
 
 ## Hard rules (summary — CLAUDE.md is authoritative)
 
@@ -49,15 +49,17 @@ Yasuke in anything players or contributors read). Players talk on Discord; the s
 1. `git pull`, read `docs/HANDOFF.md` (current state + next steps), pick the next open step.
 2. Work on a branch or worktree; keep `main` deployable — `main` auto-deploys to the server via ttl-ops when
    nobody is online, then runs all in-game tests and posts the result to Discord #server-log.
-3. Before pushing: `python tools/validate.py` → "validation passed" (needs `packwiz` on PATH),
-   `python -m unittest discover -s tests`, `node --check` on changed JS.
+3. Test locally first, then push (docs/server.md "Local testing"): `bash tools/check.sh` (validate, the fast unit
+   tier, `node --check` on changed JS; the full `python -I -m unittest discover -s tests` still works and takes ~4
+   min). For in-game changes: `bash tools/local.sh up`, then `bash tools/local.sh sync` after each edit and
+   `bash tools/local.sh test <name>` (or `test all`) until it passes. Only then push.
 4. After a deploy: `bash tools/server.sh test-all` must say "0 failing"; `bash tools/server.sh logs 2000 | grep -E "ERROR.*KubeJS|\[ttl\].*failed"` clean.
 5. Update `docs/HANDOFF.md` when you stop: what you did, what is verified, what is next. When something lands on
    `main`, also update `docs/project-status.md` (metrics, what is built, in progress).
 
 Server access (`tools/server.sh`) needs SSH to the homelab node over Tailscale or the kubeconfig in
-`~/.kube/ocs-two-lives.yaml`; without that, work offline (validate + unit tests) and leave in-game checks
-for someone with access, listed in `docs/HANDOFF.md`.
+`~/.kube/ocs-two-lives.yaml`; without that, work offline (validate + unit tests) and on a local server
+(`tools/local.sh`, no access needed), and leave the staging checks for someone with access, listed in `docs/HANDOFF.md`.
 
 Public roadmap: when a feature changes status for players (planned → being built → live on the server), update
 `docs/roadmap-public.md` (EN + NL; "Live" says how to try it) and post it with `tools/post_roadmap.sh` (it edits

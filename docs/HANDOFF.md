@@ -1,5 +1,18 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 — local test loop (branch `local-test-loop`, Claude)
+
+`tools/local.sh` (local NeoForge server: up/down/restart/sync/test/snapshot/reset), `tools/ingame.sh` (the in-game
+runner, now shared by `server.sh` and `local.sh`), `tools/rcon.py`, `tools/test_fast.sh`, `tools/check.sh`;
+docs/server.md "Local testing". **Verified**: quick unit tier 192 tests in ~7 s warm (~70 s on a cold cache), `--all`
+in ~45 s, plain full suite unchanged (192 OK, ~230 s); the shared runner against a stub RCON (verdicts, trial
+pass/fail, skips) and `tools/rcon.py` against a fake server (unit test). **Not yet verified**: `local.sh up` and
+everything after it never ran — the session that wrote it was not allowed to download NeoForge/packwiz-installer or
+start the server. First thing to do: `bash tools/local.sh up` on the workstation, fix what breaks (pid lookup on
+Windows, packwiz-installer on a localhost URL, BlueMap `ip:`), then measure cold up / restart / sync / `test all`
+and list the tests that cannot pass locally in `ingame_skip_reason`. `server.sh test`/`test-all` on staging go
+through `tools/ingame.sh` now: watch the first ttl-ops run after the merge.
+
 ## 19/11 day — watchdog root cause fixed (chunk tickets), events/bosses made deterministic, Treyni's shrine moved, boss_area DECIDED (Claude)
 
 **Watchdog crash (18/11 01:24, 18/11 06:18, 19/11 03:09)**: all three have the server thread in `ForceLoadCommand ->
