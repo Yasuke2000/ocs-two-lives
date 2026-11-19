@@ -1,0 +1,42 @@
+[
+  {
+    "id": "tempest",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Asset: docs/art/places/tempest.png, original Minecraft-build concept for OCS Tensura: Two Lives. Landscape 1536x1024 PNG. Early Tempest village after the ogres join: a modest 91-block-wide construction site in an irregular clearing, enclosed by immense temperate oak and dark-oak ancient forest, never jungle. From the southern approach looking north, show unfinished timber cabins with scaffolds, hide tents along the clearing, open stone forge, council longhouse, weaving hut and wolf pen. A narrow brook skirts the west side; distant grey Canaat mountains north. Materials visibly Minecraft-sized blocks: oak, spruce, cobblestone, thatch-like hay. Golden morning, thoughtful high-quality voxel fantasy concept art. Clear buildable silhouettes, naturally blended terrain, no square floating platform. No writing, captions, logos, watermarks or copied anime artwork. No named character portraits. Concept is our interpretation, not an in-game screenshot."
+  },
+  {
+    "id": "dwargon",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Original Minecraft-buildable concept for OCS Tensura: Two Lives, landscape 1536x1024 PNG. Southern approach to Dwargon, a 148 by 168 block underground dwarf city carved INTO an enormous grey Canaat escarpment. Narrow 20 block ravine, fortified pale stone gate with four towers tucked beneath rock, queued trade carts, guarded entry, distant glimpse of warmly lit cavern balconies and forge chimneys through the gate. Grey tuff stone gravel cliff rises continuously above gate with ample roof cover; no standalone castle on top of a mountain. South-facing gate; no lava or waterfalls near entrance. High quality voxel fantasy illustration, visible block materials, believable Minecraft scale, atmospheric but architecturally clear, organic terrain. No captions, text, logos, watermark, copied anime art, or close-up named character portraits."
+  },
+  {
+    "id": "blumund",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Original Minecraft-buildable concept for OCS Tensura: Two Lives, landscape 1536x1024 PNG. Londo, capital of small human kingdom Blumund, compact 124 by 116 block walled rural town on gentle plains west of the dense Jura forest. Low simple stone and oak buildings, a guild hall dominating a small market square, modest royal keep at end of main street, red and cream cloth banners, nearby cultivated fields. East gate opens onto a dry LAND road entering the forest, no sea channel separating town and forest. Morning market, grounded masonry foundations blending into grass. High quality voxel fantasy illustration, visible block materials, believable Minecraft scale, atmospheric but architecturally clear, organic terrain. No captions, text, logos, watermark, copied anime art, or close-up named character portraits."
+  },
+  {
+    "id": "lake_siss",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Original Minecraft-buildable concept for OCS Tensura: Two Lives, landscape 1536x1024 PNG. Wide irregular freshwater Lake Siss east of Jura, seen from south shore looking northwest. Large open central water arena, quiet reed bays and swamp fingers, original lizardmen stilt huts on a southern shore, limestone ridge and cavern openings on the far southern bank, forested Canaat slopes north, inlet at north and a narrow southeastern outlet. Marsh and mangroves, green teal wood and reed huts, no human castle, no copied builds. Ancient Jura forest in west background. High quality voxel fantasy illustration, visible block materials, believable Minecraft scale, atmospheric but architecturally clear, organic terrain. No captions, text, logos, watermark, copied anime art, or close-up named character portraits."
+  },
+  {
+    "id": "treyni_shrine",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Original Minecraft-buildable concept for OCS Tensura: Two Lives, landscape 1536x1024 PNG. Small 33 by 33 block dryad shrine DEEP IN OLD TEMPERATE FOREST southeast of Tempest. View from west approach. Mossy circular stone dais, subtle green copper inlay runes without writing, young azalea tree on north side, three simple seats with potted saplings, bent oak-log living gateway at west, vines and hanging lanterns, huge old trunks and dense layered canopy surrounding on all sides. Intimate shadowy woodland sanctuary, no exposed meadow, no giant temple. Shrine architecture is an original interpretation. High quality voxel fantasy illustration, visible block materials, believable Minecraft scale, atmospheric but architecturally clear, organic terrain. No captions, text, logos, watermark, copied anime art, or close-up named character portraits."
+  },
+  {
+    "id": "sealed_cave",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Original Minecraft-buildable concept for OCS Tensura: Two Lives, landscape 1536x1024 PNG. Sealed Cave northwest of Tempest in dark temperate forest. View from south at walking height: irregular mossy grey rock hill roughly 70 blocks wide and 27 high, dark mouth cut into SOUTH face, oak roots, ferns, broken natural stone ledges. Glimpse winding descending passage with dim teal magic ore glow, no dragon visible since Veldora has already been absorbed. Hill emerges organically from forest floor; no square platform, no monumental fortress entrance. Minecraft stone tuff moss deepslate. High quality voxel fantasy illustration, visible block materials, believable Minecraft scale, atmospheric but architecturally clear, organic terrain. No captions, text, logos, watermark, copied anime art, or close-up named character portraits."
+  },
+  {
+    "id": "dwarf_village",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Original Minecraft-buildable concept for OCS Tensura: Two Lives, landscape 1536x1024 PNG. Dwarf miners' settlement on the Canaat apron east of the northbound Dwarven Road, a 240 block diameter grassy terrace. Stone-and-timber homes with sturdy low roofs, modest forge, stepped vegetable plots, retaining walls integrated into grey foothills; distant mountain gate northwest. View from southwest beside road spur toward village. All houses and fields firmly grounded in terrain, no floating platforms. Grey tuff cobblestone spruce timber, amber forge light and meadow grass. High quality voxel fantasy illustration, visible block materials, believable Minecraft scale, atmospheric but architecturally clear, organic terrain. No captions, text, logos, watermark, copied anime art, or close-up named character portraits."
+  },
+  {
+    "id": "orc_camp",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Original Minecraft-buildable concept for OCS Tensura: Two Lives, landscape 1536x1024 PNG. Sprawling crude orc war camp on DRY RISING GROUND at southeast edge of Lake Siss marsh. 120 block diameter central camp, muddy outer battlefield beyond. Wide elevated view from west: rough hide tents, timber pens, bone-colored stakes, dark tusk banners without lettering, smoky fires, large command pavilion. Swamp reeds and shallow channels below camp, jungle starts south and limestone rises north. A playable dry central fighting area; no modern military gear, no neat stone town, no square floating terrain pad. High quality voxel fantasy illustration, visible block materials, believable Minecraft scale, atmospheric but architecturally clear, organic terrain. No captions, text, logos, watermark, copied anime art, or close-up named character portraits."
+  }
+]
