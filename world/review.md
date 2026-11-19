@@ -63,3 +63,7 @@ differs from the integrated main. See design/lore/world-map-corrections.md.
 Further relevant WN/LN geography, manga page-level sources and exact anime timestamps still warrant
 primary-source review. Unavailable licensed fragments are not presented as read. No Minecraft chunks,
 runtime acceptance, pack application, merge to main or deployment are claimed.
+
+## Wiki coverage audit
+
+The [126-entry audit](../docs/research/tensura-world-2026-11-19/wiki-coverage.md) enumerates all 31 owner-listed Location entries and the 44-entry Countries index, plus related geography. It identifies 29 entries without distinct production representation. These include interior and historical candidates, not 29 automatically approved new continent sites. Eastern Empire region E and its two markers are present; exhaustive city/interior coverage is not. No production geometry changed in this documentation pass.

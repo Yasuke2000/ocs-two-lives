@@ -22,3 +22,7 @@ Use directly verified LN > WN > manga > anime > official map > wiki when actual 
 the standard map checker passes with two disclosed warnings. Source/fidelity review remains open. No playable Minecraft world is claimed.
 
 The author-linked [WN sketch](https://8371.mitemin.net/userpageimage/viewimagebig/icode/i71781/) was visually inspected outside the repo. See C13 for its continuity and precision limits.
+
+## Wiki-wide location coverage
+
+[Coverage audit](wiki-coverage.md), [126-entry inventory](wiki-location-coverage.csv), [source access/traversal](wiki-source-audit.csv) and [58-site crosswalk](server-site-crosswalk.csv). This expands the original server brief and explicitly lists missing places; it does not certify the entire wiki as read.

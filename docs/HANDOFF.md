@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Wiki completeness audit (ChatGPT, PR #74)
+
+Owner asks to check the whole wiki geography, beyond the original 58 sites. [Audit](research/tensura-world-2026-11-19/wiki-coverage.md): all 31 owner-listed Locations entries, all 44 accessible Countries index entries, linked indexes/article geography; 126 deduplicated records, 29 missing distinct representations. 58 actual SVG sites cross-referenced; all map references validated against SVG identifiers. Empire E/Nasca/Velgrynd mountain exist, but Silberia, frontier settlements and interiors are not comprehensively represented. Long Wall, Magic Tower, Galut, Tengu settlement, Orbic and ocean/movie destinations need further coverage. Category access and Horn Empire are qualified; do not say the entire wiki or every primary source was read. No SVG/tool/runtime changes. Next: close source/traversal gaps and research additional-location proposals before final fidelity acceptance.
+
 ## 20/11 — Western proportions, eastern coast and measured climb grades (ChatGPT, PR #74 round 6)
 
 Moved Blumund (-1500,-620), Marris (-1800,-1650), cave (-120,-400), Shia's coastal landing and one road pin;
