@@ -2,7 +2,7 @@
 
 The Tensura continent is **Tensura by Lerfing**, a hand-built map, loaded here block for block. The giant trees of Sarion are by Paulzero. [Planet Minecraft page](https://www.planetminecraft.com/project/tensura-map/) · [Credits](../../../CREDITS.md). In every table the horizontal coordinates are **X, Z in blocks**: east is larger X, south is larger Z, north is smaller Z. [The rings of Jura](jura-rings.md) · [Nederlands](../nl/world-map.md)
 
-Positions are the middle of a place; the exact doorway depends on the ground and can differ by a few dozen blocks. Operators can read the saved spot of a build with `/ttl build where <id>`. Coordinates may change with pack updates.
+Positions are the middle of a place; the exact doorway depends on the ground and can differ by a few dozen blocks. Use `/ttl where <place>` in the overworld for a rough bearing to a place. Operators can read the saved spot of a build with `/ttl build where <id>` and find any place with `/locate place <id>`. Coordinates may change with pack updates.
 
 ## Your first steps
 

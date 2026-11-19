@@ -9,6 +9,7 @@
 //           /ttl grant <player> <skill> (through the registry, caps apply)
 //           /ttl build <name> (place blueprints/<name>.py with its corner at your feet)
 //           /ttl spawn (where Life 1 starts: Wayfarer's Rest in the Mortal Realm)
+// Places:   /ttl where <place> (players: direction + rounded distance) · /locate place <id> (ops: exact, vanilla style) — life/locate.js
 // Karma:    /ttl life (players) · /ttl karma <player> [set <stat> <n> | expect <field> <value>] — karma/commands.js
 ServerEvents.commandRegistry(event => {
   var { commands: Commands, arguments: Arguments } = event
