@@ -8,7 +8,7 @@ In *Visions of Coleus*, Yuuki sends Rimuru to investigate the succession dispute
 
 ## Placement and scale
 
-The structure spans **85 × 47 × 79 blocks** in x, y and z, split into three north–south sections. The anchor at **(42, 4, 72)** is on the walking level at the stair foot. The exact landmark **Coleus** starts the terrain survey at **x −4151, z 370**. That point is dry V land on the pack map. Its 48-block search also has room for the entire footprint on dry land. The unshifted rectangle crosses a mapped watercourse and the V/L border.
+The structure spans **85 × 47 × 79 blocks** in x, y and z, split into three north–south sections. The anchor at **(42, 4, 72)** is on the walking level at the stair foot. The exact landmark **Coleus** starts the terrain survey at **x −3080, z 600** on Lerfing's map: dry V land on the desert's eastern edge (desert, ground y 74, relief 4). Its 48-block search also has room for the entire footprint on dry land. The unshifted rectangle crosses a mapped watercourse and the V/L border.
 
 Coleus is an independent kingdom. The official anime places it between Ingrassia and Lubelius. The fan cartographer says they deliberately moved it across the river towards Damargania. The build uses the pack's existing point, and the grid letter is its terrain selector. Server terrain will determine the final position, height and fit of the oasis bank. [Official outline](https://www.ten-sura.com/anime/coleus/outline) · [Cartographer's placement note](https://www.reddit.com/r/TenseiSlime/comments/1um7i81/i_created_a_bunch_of_tensura_political_maps/) · [Pack atlas, landmark 21](../../docs/audits/world-audit-2026-11.md)
 
