@@ -6367,6 +6367,141 @@ const TtlData = {
       ]
     }
   },
+  "npc_gear": {
+    "ai": {
+      "civilian": {
+        "easy_npc": [
+          "FLEE_MONSTER",
+          "PANIC"
+        ]
+      },
+      "fighter": {
+        "easy_npc": [
+          "MELEE_ATTACK",
+          "ATTACK_MOB_WITHOUT_CREEPER",
+          "HURT_BY_TARGET"
+        ]
+      },
+      "guard": {
+        "easy_npc": [
+          "MELEE_ATTACK",
+          "ATTACK_MOB_WITHOUT_CREEPER",
+          "HURT_BY_TARGET"
+        ]
+      },
+      "none": {
+        "easy_npc": []
+      }
+    },
+    "residents": {
+      "tempest": {
+        "goblin": "tempest_guard",
+        "gobta": "tempest_rider",
+        "haruna": "tempest_healer",
+        "rigur": "tempest_captain",
+        "rigurd": "tempest_elder"
+      }
+    },
+    "role": [
+      {
+        "ai": "guard",
+        "id": "tempest_guard",
+        "main": "tensura:iron_katana"
+      },
+      {
+        "ai": "guard",
+        "id": "tempest_captain",
+        "main": "tensura:iron_long_sword",
+        "off": "minecraft:shield"
+      },
+      {
+        "ai": "guard",
+        "id": "tempest_rider",
+        "main": "tensura:iron_kodachi"
+      },
+      {
+        "ai": "guard",
+        "id": "tempest_elder",
+        "main": "tensura:goblin_club"
+      },
+      {
+        "ai": "none",
+        "id": "tempest_healer"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_rookie",
+        "main": "minecraft:stone_sword"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_fighter",
+        "main": "minecraft:iron_sword"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_knight",
+        "main": "minecraft:iron_sword",
+        "off": "minecraft:shield"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_scout",
+        "main": "tensura:iron_short_sword"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_hunter",
+        "main": "tensura:iron_spear"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_caster",
+        "main": "tensura:low_magic_staff"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_elite",
+        "main": "tensura:mithril_long_sword",
+        "off": "minecraft:shield"
+      },
+      {
+        "ai": "fighter",
+        "id": "otherworlder",
+        "main": "tensura:iron_katana"
+      },
+      {
+        "ai": "fighter",
+        "id": "dwarf_fighter",
+        "main": "minecraft:iron_axe"
+      },
+      {
+        "ai": "guard",
+        "id": "dwarf_guard",
+        "main": "minecraft:iron_axe",
+        "off": "minecraft:shield"
+      },
+      {
+        "ai": "civilian",
+        "id": "merchant"
+      },
+      {
+        "ai": "civilian",
+        "id": "civilian"
+      }
+    ],
+    "settings": {
+      "guard_check_ticks": 40,
+      "guard_ignore_tags": [
+        "ttl.legion",
+        "ttl.scene",
+        "ttl.boss",
+        "ttl.arena.mob"
+      ],
+      "guard_radius": 16,
+      "rev": 1
+    }
+  },
   "npcs": {
     "hook": [
       {
@@ -7420,6 +7555,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Bram",
         "name_color": "#9BC53D",
+        "role": "guild_rookie",
         "skin": "FARMER_01",
         "title": "F-rank swordsman"
       },
@@ -7446,6 +7582,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Olric",
         "name_color": "#4F86C6",
+        "role": "guild_knight",
         "skin": "KNIGHT_02",
         "title": "C-rank knight"
       },
@@ -7471,6 +7608,7 @@ const TtlData = {
         "model": "humanoid_slim",
         "name": "Lyra",
         "name_color": "#2BB5A0",
+        "role": "guild_scout",
         "skin": "EFE",
         "title": "D-rank scout"
       },
@@ -7496,6 +7634,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Borin",
         "name_color": "#C8963E",
+        "role": "dwarf_fighter",
         "skin": "STEVE",
         "title": "D-rank axe-hand"
       },
@@ -7522,6 +7661,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Hald",
         "name_color": "#8C5A3C",
+        "role": "guild_hunter",
         "skin": "FARMER_01",
         "title": "C-rank monster hunter"
       },
@@ -7537,6 +7677,7 @@ const TtlData = {
         "model": "humanoid_slim",
         "name": "Mira",
         "name_color": "#B57EDC",
+        "role": "guild_caster",
         "skin": "MAGE_01",
         "title": "E-rank mage"
       },
@@ -7552,6 +7693,7 @@ const TtlData = {
         "model": "humanoid_slim",
         "name": "Anne",
         "name_color": "#F2E8CF",
+        "role": "guild_caster",
         "skin": "ALEX",
         "title": "E-rank cleric"
       },
@@ -7568,6 +7710,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Sho",
         "name_color": "#E4572E",
+        "role": "otherworlder",
         "skin": "JAYJASONBO",
         "title": "otherworlder"
       },
@@ -7583,6 +7726,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Marlo",
         "name_color": "#E8C547",
+        "role": "merchant",
         "skin": "ZURI",
         "title": "travelling merchant"
       },
@@ -7598,6 +7742,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Pip",
         "name_color": "#FF8FAB",
+        "role": "civilian",
         "skin": "KAI",
         "title": "wandering bard"
       }
@@ -7608,7 +7753,7 @@ const TtlData = {
       "enabled": true,
       "night_end": 23500,
       "night_start": 13000,
-      "rev": 2
+      "rev": 3
     },
     "client": [
       {
@@ -7623,6 +7768,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Merchant Marlo",
         "name_color": "#E8C547",
+        "role": "merchant",
         "skin": "ZURI"
       },
       {
@@ -7636,6 +7782,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Caravan Master Durn",
         "name_color": "#C8963E",
+        "role": "dwarf_fighter",
         "skin": "FARMER_01"
       },
       {
@@ -7649,6 +7796,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Tomas, missing rookie",
         "name_color": "#9BC53D",
+        "role": "civilian",
         "skin": "STEVE"
       },
       {
@@ -7662,6 +7810,7 @@ const TtlData = {
         "model": "humanoid_slim",
         "name": "Scholar Ilse",
         "name_color": "#B57EDC",
+        "role": "civilian",
         "skin": "MAKENA"
       },
       {
@@ -7675,6 +7824,7 @@ const TtlData = {
         "model": "humanoid",
         "name": "Carter Wil",
         "name_color": "#E3B23C",
+        "role": "civilian",
         "skin": "SUNNY"
       }
     ],

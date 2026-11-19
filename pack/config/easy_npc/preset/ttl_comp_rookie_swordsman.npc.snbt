@@ -124,6 +124,15 @@
       Type:"STANDARD"
     },
     EasyNPCVersion:3,
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {
+        id:"minecraft:stone_sword",
+        count:1
+      },
+      {}
+    ],
     Invulnerable:0b,
     ObjectiveData:{
       ObjectiveDataSet:[
