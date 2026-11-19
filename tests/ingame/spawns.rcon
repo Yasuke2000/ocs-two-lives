@@ -1,0 +1,10 @@
+# Graded spawn zones round Tempest (design/data/spawns.toml, life/mortal_spawns.js TtlSpawnZones): no natural hostile spawn
+# in the town (r 150), a quarter of them out to r 400, the open wild beyond; Tempest's hard square (r 56) and the arrival's
+# are unchanged. `ttl spawns zone` also prints how many natural spawns were refused since the start.
+ttl spawns zone ${anchor:tempest}
+ttl spawns expect ${anchor:tempest.x} ${anchor:tempest.z} none
+ttl spawns expect ${anchor:tempest.x+140} ${anchor:tempest.z} none
+ttl spawns expect ${anchor:tempest.x} ${anchor:tempest.z+200} reduced
+ttl spawns expect ${anchor:tempest.x-390} ${anchor:tempest.z} reduced
+ttl spawns expect ${anchor:tempest.x+420} ${anchor:tempest.z} open
+ttl spawns expect ${anchor:arrival} open

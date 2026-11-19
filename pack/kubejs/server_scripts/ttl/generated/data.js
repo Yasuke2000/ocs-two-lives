@@ -8636,6 +8636,19 @@ const TtlData = {
       ]
     }
   },
+  "spawns": {
+    "zone": {
+      "tempest": {
+        "anchor": "tempest",
+        "hostile_keep": 0.25,
+        "passive_box": 32,
+        "passive_cap": 4,
+        "passive_radius": 400,
+        "reduced_radius": 400,
+        "town_radius": 150
+      }
+    }
+  },
   "story": {
     "act": [
       {

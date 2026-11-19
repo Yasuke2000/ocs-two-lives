@@ -60,7 +60,6 @@ function fakeLevel () {
     getBlockEntity: p => (level.at(p.x, p.y, p.z) === 'minecraft:chest' ? { chestAt: k(p.x, p.y, p.z) } : null),
     getMinBuildHeight: () => -64,
     getMaxBuildHeight: () => 320,
-    players: () => level.playersAt.map(([x, y, z]) => ({ getX: () => x, getY: () => y, getZ: () => z })),
     getEntitiesWithin: () => level.entities
   }
   return level
@@ -78,7 +77,11 @@ const J = {
 }
 let level = fakeLevel()
 let tick = 1000
-const server = { getLevel: () => level, getTickCount: () => tick }
+const server = {
+  getLevel: () => level,
+  getTickCount: () => tick,
+  getPlayerList: () => ({ getPlayers: () => level.playersAt.map(([x, y, z]) => ({ level: { dimension: 'minecraft:overworld' }, getX: () => x, getY: () => y, getZ: () => z })) })
+}
 const ctx = vm.createContext({
   console: { info () {}, warn () {}, error: (...a) => console.error(...a), log: console.log },
   ServerEvents: { loaded () {}, commandRegistry () {} },

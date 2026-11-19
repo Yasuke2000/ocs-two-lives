@@ -1,5 +1,19 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 night — no junk from placement, spawn zones round Tempest, staging profiled (branch `perf-and-spawns`, Claude)
+
+Owner: fewer mobs next to Tempest, less lag. **Done** (design/decisions.md 19/11 "Placement leaves no junk"): `life/drops.js`
+(no-drop removal used by trade_roads, unplace, dwargon seal/drain, forests' floor clear; every chunk hold sweeps its young
+items and falling blocks on release), `design/data/spawns.toml` + `TtlSpawnZones` in `life/mortal_spawns.js` (r 150 no
+natural hostiles, 25 % to r 400, 4 animals per 32 x 32), the magicule loop clears effects only when present.
+**Verified locally**: `drops` (0 items, gravel kept; vanilla fill on the same column: 1 item, gravel fell) and `spawns`
+pass; a bot at midnight: 101 natural hostiles refused in the town, 45 refused and 13 kept (22 %) at r 280; tests/drops.js, tests/spawns.js.
+**On the next staging deploy**: `tools/server.sh test drops`, `test spawns`; `ttl spawns zone 1720 900` after an evening
+of play (counts); `neoforge tps` and `execute in minecraft:overworld run neoforge entity list` (items, falling_block) to
+compare with 19/11 (overworld 23-26 ms with 2 players, 313-461 items, 152 falling blocks). The frozen junk already saved
+in chunks is not swept by this; kill it away from players when it shows up. Suggestions not done (owner/ops): simulation
+distance 8 -> 6, Tensura spawn weights (tensuramoreconfig) if Jura stays crowded.
+
 
 ## 19/11 late — staging round 2 (branch `fix-staging-round2`, Claude)
 

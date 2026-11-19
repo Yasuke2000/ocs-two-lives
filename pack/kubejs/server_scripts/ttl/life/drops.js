@@ -175,7 +175,9 @@ const TtlDrops = {
     try {
       var level = server.getLevel(dim)
       var players = []
-      level.players().forEach(p => players.push(p))
+      server.getPlayerList().getPlayers().forEach(p => {
+        if (String(p.level.dimension) === String(dim)) players.push(p)
+      })
       var aabb = new J.AABB(box.x0, level.getMinBuildHeight(), box.z0, box.x1 + 1, level.getMaxBuildHeight(), box.z1 + 1)
       var self = this
       var items = []
@@ -243,7 +245,7 @@ ServerEvents.commandRegistry(event => {
     .then(Commands.literal('drops')
       .requires(src => src.hasPermission(2))
       .then(Commands.literal('test').then(xyz(ctx => (server, x, y, z) => {
-        var run = cmd => server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} run ${cmd}`)
+        var run = cmd => TtlCmd.run(server, `execute in ${TtlLife.OVERWORLD} run ${cmd}`)
         // a stone plinth with the test column in the middle, everything round it air
         run(`fill ${x - 3} ${y} ${z - 3} ${x + 3} ${y + 9} ${z + 3} minecraft:air`)
         run(`fill ${x - 2} ${y} ${z - 2} ${x + 2} ${y} ${z + 2} minecraft:stone`)
