@@ -17,7 +17,7 @@
 
 | Fact | Value | Consequence |
 | --- | --- | --- |
-| Export | WorldPainter, every chunk DataVersion 2860 (1.18.0), 1,474,944 chunks in 1,470 region files, 9.40 GB on disk | DFU upgrade 1.18 → 1.21.1 (3955) on load; no `entities/`, no `poi/` |
+| Export | WorldPainter, every chunk DataVersion 2860 (1.18.0), 1,474,944 chunks in 1,470 region files, 9.40 GB on disk | DFU upgrade 1.18 → 1.21.1 (3955) on load; no `poi/`; `entities/` holds 15 files with 11 dropped items and 14 creepers only (not copied) |
 | Inner tiles | x −8064..8192, z −6016..6528 = regions r.−16..15 × r.−12..12 = **800 files, 6.70 GB**, status `liquid_carvers` (proto chunks, "allow Minecraft to populate") | populate = ores (Tensura magic ore via biome modifiers), vegetation features, heightmaps, light, initial mobs |
 | Outer border | 2,560 blocks of flat shallow sea (floor y 47–51), 670 files, 2.69 GB, status `full` | WorldPainter's automatic border, not part of the drawn map |
 | Land | x −7400..7640, z −5540..5832 (15,040 × 11,372); sea level 64 (vanilla `sea_level` 63 in our noise settings); peak y 316 at (2502, −1432) | a 1-block sea step at any seam unless our generator's sea level becomes 64; world build limit 320 caps anything on the summit |
@@ -30,7 +30,9 @@
 
 ### 1.1 What to copy
 
-**Copy the 800 inner-tile regions only** (6.70 GB, 796,544 chunks); drop the 670 flat border regions.
+**Copy the 800 inner-tile regions only** (6.70 GB, 796,544 chunks); drop the 670 flat border regions. The 800 files also
+hold 22,656 `full` border chunks (the 8-chunk strip outside x −8064..8192, z −6016..6528); the tool drops those too, so
+the output is exactly the 796,544 drawn chunks (6.59 GB).
 
 Trade-off: the border is WorldPainter's automatic 2,560-block shallow shelf (floor 47–51), not Lerfing's drawing. Keeping it
 costs 2.7 GB, 46 % of all chunks for DH/BlueMap to process, and still leaves a seam (shelf → our ocean) further out.
@@ -41,9 +43,9 @@ Dropping it moves the seam to the inner-tile edge, where Lerfing's painted sea i
 step of a few blocks, 500+ blocks from any coast. The import tool prints the floor histogram along the four inner edges
 so the ring's `SEA_DROP` can be tuned if an edge turns out shallow (owner question Q2 if he wants the shelf kept anyway).
 
-### 1.2 Offline pre-processing (workstation, Python, no server) — `tools/lerfing_import.py`
+### 1.2 Offline pre-processing (workstation, Python, no server) — `tools/lerfing/import.py`
 
-Input: the zip (`Tensura By Lerfing.zip`). Output: `out/region/` (800 files) + rasters for the repo. One pass per region,
+Input: the zip (`Tensura By Lerfing.zip`). Output: `<out>/region/` (800 files, `--out` outside the repo) + rasters for the repo. One pass per region,
 chunk by chunk (the extractor's `nbt.py` reads; the tool adds a minimal NBT writer or uses `nbtlib`):
 
 1. **Status**: `Status: "liquid_carvers"` → `"minecraft:carvers"` (every proto chunk). `full` stays `full`. Nothing else in the
@@ -63,10 +65,12 @@ chunk by chunk (the extractor's `nbt.py` reads; the tool adds a minimal NBT writ
 
    Everything else keeps Lerfing's biome. The tool writes `design/data/lerfing/biomes16.png` after the repaint.
 3. **Rasters for the repo** (1 px = 16 blocks, inner tiles, ~1,016 × 784 px): `landmask16.png` (land / lake-or-river / sea,
-   by flood fill from the inner edge: water not connected to the open sea = `~`), `heights16.png` (ground y, uint8),
+   open sea = water reached from the inner edge through water more than 64 blocks from land, plus 64 blocks of shore;
+   every other water = `~`, so Lake Siss and the rivers are `~` although they drain to the sea), `heights16.png`
+   (ground y + 64, 16-bit: the summit is y 316),
    `biomes16.png` (index + legend json). Small enough to commit (< 1.5 MB together); they feed `lerfing_grid.py`,
-   `lerfing_probe.py` and the unit tests, so nobody needs the 9 GB zip to work on anchors.
-4. **Report** `out/report.json`: chunk/status counts before and after, biome counts after, the inner-edge floor histogram,
+   `tools/lerfing/probe.py` and the unit tests, so nobody needs the 9 GB zip to work on anchors.
+4. **Report** `<out>/report.json`: chunk/status counts before and after, biome counts after, the inner-edge floor histogram,
    the list of block entities kept. `tests/test_lerfing_import.py` runs the rewrite on a synthetic region and asserts the
    status and palette rewrites are byte-exact elsewhere.
 
@@ -155,7 +159,7 @@ target) before deleting `ttl-backup/<time>/` from the PVC. ttl-ops already pause
 ### 2.3 "Sites per build" (standing decision) re-read
 
 The decision's intent — a build must stand in the biome and on the terrain its lore asks for — is now met by choosing the
-spot on Lerfing's map (§3) and verifying it offline with `tools/lerfing_probe.py` (land, water share, relief, stored biome
+spot on Lerfing's map (§3) and verifying it offline with `tools/lerfing/probe.py` (land, water share, relief, stored biome
 at the anchor and the box corners) before the placer ever runs. The `sites` mechanism itself has nothing to shape. Where the
 stored biome is wrong for a build (e.g. Clayman's Castle wants dark forest in Jistav's plains) the import tool's repaint rules
 can add a per-build circle (`repaint.json` "spots": name, centre, radius, biome) — same data, same tool, applied offline.
@@ -181,7 +185,7 @@ becomes trivial.
 ### 3.1 The new canon grid (`tools/lerfing_grid.py` → `canon_map.txt`)
 
 - Cells = chunks of the inner tiles (1,016 × 784, origin cell = chunk (0, 0); header `# origin <col> <row>` as today).
-- Cell class from `landmask16.png`: sea `.`, lake/river `~` (water not connected to the open sea by flood fill), land → a
+- Cell class from `landmask16.png`: sea `.`, lake/river `~` (water that is not open sea, §1.2), land → a
   letter. The letter comes from **region polygons in world coordinates** (`canon_regions.json` → `lerfing.polygons`:
   `{"J": [[x, z], ...], ...}`); a land cell inside no polygon takes the nearest polygon's letter (so every land cell is
   owned and the continent rule is exactly the land mask, §4); islets likewise.
@@ -231,7 +235,7 @@ as a backdrop to the east, the mesa field to the north-west for the Sealed Cave.
 repair handle the ±7 blocks.
 
 Satellites (offsets kept from today's layout where the lore allows; `survey` = the placer's own search radius; every spot
-re-checked by WP-L8 with `lerfing_probe.py`):
+re-checked by WP-L8 with `tools/lerfing/probe.py`):
 
 | Place | New (x, z) | Offset from Tempest | Note |
 | --- | --- | --- | --- |
@@ -432,11 +436,11 @@ Wave A is offline and parallel; B needs A's anchor table; C needs B; D is the ni
 
 | WP | Wave | What | Owned files | Done when |
 | --- | --- | --- | --- | --- |
-| **WP-L1 Import tool** | A | `tools/lerfing_import.py` (status rename, repaint from `repaint.json` + J rings, inner tiles only, rasters, report, sha256 manifest); `tools/lerfing_probe.py x z [half]` (land/water/height/biome/relief from the rasters); NBT writer | `tools/lerfing_import.py`, `tools/lerfing_probe.py`, `tools/nbtw.py`, `design/data/lerfing/{repaint.json,landmask16.png,heights16.png,biomes16.png,legend.json}`, `tests/test_lerfing_import.py` | unit test green on a synthetic region; a real run on the zip reports 796,544 chunks, 0 × `liquid_carvers`, 0 × nether/end biomes; rasters committed |
+| **WP-L1 Import tool** | A | `tools/lerfing/import.py` (status rename, repaint from `repaint.json` + J rings, inner tiles only, rasters, report, sha256 manifest, `--verify`); `tools/lerfing/probe.py x z [half]` (land/water/height/biome/relief from the rasters, or exact columns with `--world`/`--zip`); NBT reader/writer | `tools/lerfing/{import,probe,nbt,common}.py`, `design/data/lerfing/{repaint.json,landmask16.png,heights16.png,biomes16.png,legend.json}`, `tests/test_lerfing_import.py` | unit test green on a synthetic region; a real run on the zip reports 796,544 chunks, 0 × `liquid_carvers`, 0 × nether/end biomes; rasters committed |
 | **WP-L2 Grid and regions** | A | `tools/lerfing_grid.py` (land mask + polygons → `canon_map.txt`); `canon_regions.json` rewrite (lerfing block, polygons of §3.1, `at` landmarks, no sites, ring 2000, J radius zones); `gen_data.py` landmark/anchor table + `anchors.toml`; `gen_map.py` on `at`; `tests/test_lerfing_anchors.py` replaces `test_canon_sites.py` | `tools/lerfing_grid.py`, `pack/config/ttl/canon_map.txt`, `pack/config/ttl/canon_regions.json`, `tools/gen_data.py` (anchor section), `tools/gen_map.py`, `design/data/anchors.toml` (generated), `tests/test_lerfing_anchors.py`, `tools/canon_map.py` (deleted) | `validate.py` passes; `CanonGrid` self-check passes on the new grid with the arrival; every landmark on land; the BlueMap conf regenerated |
 | **WP-L3 Mod 0.9.0** | A | `ttl-import.txt` marker in `WorldReset`; `/ttlmap` imported branch; `/ttlregion` from stored biome; `CanonGrid.main` anchor checks; `sea_level` 64 in the pack's noise settings | `mod/.../WorldReset.java`, `CanonMapCommand.java`, `RegionTitles.java`/`CanonGrid.java` (main), `pack/kubejs/data/minecraft/worldgen/noise_settings/overworld.json`, `tools/release_mod.py` run | `gradlew build`; self-check; released as mod-v0.9.0 before the pack commit |
 | **WP-L7 Dwargon in the mountain** | A (blueprint) / B (placer) | `dwargon.py` grey palette switch, version 7; `dwargon.js` carve mode + bands from data; Dragon's Nest height assert; lore `dwargon.md` | `blueprints/dwargon.py`, `blueprints/_dwargon_lib.py`, `pack/kubejs/server_scripts/ttl/life/dwargon.js`, `design/lore/dwargon.md`, `tests/ingame/builds.rcon` (dwargon cells) | structures rebuilt; `builds.rcon` dwargon cells green on staging after the import; `verify_build.py dwargon --min 98` |
-| **WP-L4 Data re-anchoring** | B | `world.toml [anchors]` (tempest, dwargon, arrival) read by `tempest.js`/`dwargon.js`/`arrival.toml`; new x/z in all 28 build TOMLs and `landmarks.toml`; NPC and sidequest world spots; `bosses.toml` anchored spawns; `artifice.toml` smithy; `gen_data` anchor syntax for `check_arena`; `generated/anchors.js` | `design/data/{world,arrival,landmarks,npcs,sidequests,bosses,artifice}.toml`, `design/builds/*.toml` (x/z/search/beside only), `tools/gen_data.py` (anchor syntax), `generated/*` regenerated, `life/tempest.js` + `life/dwargon.js` (read the anchor: two lines) | `validate.py`, unit tests, `test_lerfing_anchors.py` green; every spot probed with `lerfing_probe.py` (land, water < max_wet, relief noted in the TOML `notes`) |
+| **WP-L4 Data re-anchoring** | B | `world.toml [anchors]` (tempest, dwargon, arrival) read by `tempest.js`/`dwargon.js`/`arrival.toml`; new x/z in all 28 build TOMLs and `landmarks.toml`; NPC and sidequest world spots; `bosses.toml` anchored spawns; `artifice.toml` smithy; `gen_data` anchor syntax for `check_arena`; `generated/anchors.js` | `design/data/{world,arrival,landmarks,npcs,sidequests,bosses,artifice}.toml`, `design/builds/*.toml` (x/z/search/beside only), `tools/gen_data.py` (anchor syntax), `generated/*` regenerated, `life/tempest.js` + `life/dwargon.js` (read the anchor: two lines) | `validate.py`, unit tests, `test_lerfing_anchors.py` green; every spot probed with `tools/lerfing/probe.py` (land, water < max_wet, relief noted in the TOML `notes`) |
 | **WP-L5 Quests** | B | `gen_quests.py` anchor syntax; rewrite the overworld location tasks of chapters 1–13, 20–23; comments updated | `tools/gen_quests.py`, `design/quests/*.toml`, FTB SNBT regenerated, `tests/test_story_chapters_*.py` | `quest_graph.py --check`: 21 chapters, 304 quests; `quests.rcon` sections 1–7 green after the import |
 | **WP-L8 Jura placement and lore** | B | the Tempest/Sealed Cave/goblin village/Spirit Gate/arrival/Treyni/ogre ruin coordinates verified with the probe and the 1:1 crops; `world.md` region table, `tempest.md`, `sealed_cave.md`, `spirit_domain.md`; `CREDITS.md` (Lerfing's map, Paulzero's giant trees, Lerfing's lake village and ice structure); `decisions.md` rows; `roadmap-public.md` | `design/lore/*.md`, `CREDITS.md`, `design/decisions.md`, `docs/roadmap-public.md` | lore files cite the probes; `post_roadmap.sh` run by the owner |
 | **WP-L6 Tests and server.sh** | C | `${anchor:…}` substitution in `tools/server.sh test`; `tests/anchors.env` written by gen_data; rcon files of §3.9 updated; `world.rcon` coast check | `tools/server.sh`, `tests/anchors.env`, `tests/ingame/{world,wild,bosses,nations,guild_npcs,domains,sidequests,choices}.rcon` | `test-all` = 0 failing on staging after the import night |
@@ -456,9 +460,9 @@ nobody is online; the import night is a manual step on top (it needs the server 
 
 ### 6.3 Reset / import runbook (lead, in this order, nobody online)
 
-1. Offline: `python -I tools/lerfing_import.py "<zip>" out/` → check `out/report.json` (796,544 chunks, statuses, biomes,
+1. Offline: `python -I tools/lerfing/import.py "<zip>" --out <dir>`, then `… --out <dir> --verify` → check `<dir>/report.json` (796,544 chunks, statuses, biomes,
    edge histogram), commit the rasters. `python tools/validate.py`, `python -m unittest discover -s tests`.
-2. Upload `out/region/` to `/data/import/region/` on the PVC (tar stream or scp + debug pod); verify the sha256 manifest.
+2. Upload `<dir>/region/` to `/data/import/region/` on the PVC (tar stream or scp + debug pod); verify the sha256 manifest.
 3. Homelab PR merged: PVC 60 Gi (Q1), pregen env, BlueMap mask. Wait for ArgoCD; confirm `df -h /data` shows the new size.
 4. `bash tools/server.sh rcon "dh pregen stop"`, `rcon "save-all flush"`, Longhorn manual snapshot + backup, then
    `kubectl … scale deploy/mc --replicas=0`.
