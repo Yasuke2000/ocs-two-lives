@@ -10,11 +10,15 @@
 	}
 	id: "60737BD25048CC9D"
 	images: [ ]
-	order_index: 5
+	order_index: 0
 	quest_links: [ ]
 	quests: [
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 				"27035168A6DEED93"
@@ -52,10 +56,14 @@
 				}
 			]
 			x: 0.0d
-			y: -1.5d
+			y: 0.0d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 				"27035168A6DEED93"
@@ -92,11 +100,15 @@
 					value: 8
 				}
 			]
-			x: 1.5d
-			y: -1.5d
+			x: 2.0d
+			y: 0.0d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 				"27035168A6DEED93"
@@ -133,11 +145,15 @@
 					value: 6
 				}
 			]
-			x: 3.0d
-			y: -1.5d
+			x: 4.0d
+			y: 0.0d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 				"27035168A6DEED93"
@@ -179,10 +195,14 @@
 				}
 			]
 			x: 0.0d
-			y: 0.0d
+			y: 1.5d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 				"27035168A6DEED93"
@@ -223,11 +243,15 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
-			y: 0.0d
+			x: 2.0d
+			y: 1.5d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 				"27035168A6DEED93"
@@ -268,11 +292,15 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
-			y: 0.0d
+			x: 4.0d
+			y: 1.5d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 				"27035168A6DEED93"
@@ -313,11 +341,15 @@
 					type: "item"
 				}
 			]
-			x: 4.5d
-			y: 0.0d
+			x: 0.0d
+			y: 3.0d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 				"27035168A6DEED93"
@@ -353,11 +385,15 @@
 					type: "biome"
 				}
 			]
-			x: 0.0d
-			y: 1.5d
+			x: 2.0d
+			y: 3.0d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"01E277329C034ED2": false
+				"27035168A6DEED93": false
+			}
 			dependencies: [
 				"01E277329C034ED2"
 				"27035168A6DEED93"
@@ -393,8 +429,8 @@
 					type: "biome"
 				}
 			]
-			x: 1.5d
-			y: 1.5d
+			x: 4.0d
+			y: 3.0d
 		}
 	]
 }

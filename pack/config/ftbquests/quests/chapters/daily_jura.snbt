@@ -3,18 +3,21 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "daily_jura"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "tensura:bronze_coin"
 	}
 	id: "378BD420FE635504"
 	images: [ ]
-	order_index: 6
+	order_index: 19
 	quest_links: [ ]
 	quests: [
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"7C0600E97AB2B3FD": false
+			}
 			dependencies: [
 				"7C0600E97AB2B3FD"
 			]
@@ -50,10 +53,13 @@
 				}
 			]
 			x: 0.0d
-			y: -1.5d
+			y: 0.0d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"7C0600E97AB2B3FD": false
+			}
 			dependencies: [
 				"7C0600E97AB2B3FD"
 			]
@@ -88,11 +94,14 @@
 					value: 6
 				}
 			]
-			x: 1.5d
-			y: -1.5d
+			x: 2.0d
+			y: 0.0d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"057458900C12E9B2": false
+			}
 			dependencies: [
 				"057458900C12E9B2"
 			]
@@ -127,11 +136,14 @@
 					value: 3
 				}
 			]
-			x: 3.0d
-			y: -1.5d
+			x: 4.0d
+			y: 0.0d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"6DAB90333F617B16": false
+			}
 			dependencies: [
 				"6DAB90333F617B16"
 			]
@@ -171,10 +183,13 @@
 				}
 			]
 			x: 0.0d
-			y: 0.0d
+			y: 1.5d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"48B3E8CACE86A277": false
+			}
 			dependencies: [
 				"48B3E8CACE86A277"
 			]
@@ -213,11 +228,14 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
-			y: 0.0d
+			x: 2.0d
+			y: 1.5d
 		}
 		{
 			can_repeat: true
+			dep_line_visibility: {
+				"63A48763F37F8D6C": false
+			}
 			dependencies: [
 				"63A48763F37F8D6C"
 			]
@@ -254,7 +272,7 @@
 					type: "location"
 				}
 			]
-			x: 0.0d
+			x: 4.0d
 			y: 1.5d
 		}
 	]

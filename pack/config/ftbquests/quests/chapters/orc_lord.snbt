@@ -3,17 +3,20 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "orc_lord"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "minecraft:iron_axe"
 	}
 	id: "300D34CBDD2EC27E"
 	images: [ ]
-	order_index: 4
+	order_index: 6
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"6DDF459E16D36563": false
+			}
 			dependencies: [
 				"6DDF459E16D36563"
 			]
@@ -102,7 +105,7 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -141,7 +144,7 @@
 					type: "location"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
@@ -176,7 +179,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
@@ -215,7 +218,7 @@
 					type: "location"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 0.0d
 		}
 		{
@@ -252,7 +255,7 @@
 					value: 10
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: 0.0d
 		}
 		{
@@ -297,10 +300,13 @@
 					value: 20
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"7797476042AAC217": false
+			}
 			dependencies: [
 				"4B97B9BA4541C6C9"
 				"7797476042AAC217"
@@ -346,7 +352,7 @@
 					value: 1
 				}
 			]
-			x: 10.5d
+			x: 14.0d
 			y: 0.0d
 		}
 		{
@@ -384,8 +390,8 @@
 					type: "advancement"
 				}
 			]
-			x: 12.0d
-			y: 0.0d
+			x: 16.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -421,10 +427,13 @@
 					value: 10000
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 1.5d
 		}
 		{
+			dep_line_visibility: {
+				"0D910C4529DD06CC": false
+			}
 			dependencies: [
 				"7797476042AAC217"
 				"0D910C4529DD06CC"
@@ -460,7 +469,7 @@
 					value: 50000
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 1.5d
 		}
 		{
@@ -498,7 +507,7 @@
 					value: 100000
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: 1.5d
 		}
 		{
@@ -538,8 +547,8 @@
 					type: "location"
 				}
 			]
-			x: 6.0d
-			y: -1.5d
+			x: 8.0d
+			y: 3.0d
 		}
 	]
 }

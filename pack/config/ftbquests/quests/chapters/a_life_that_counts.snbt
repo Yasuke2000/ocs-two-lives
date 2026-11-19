@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "a_life_that_counts"
-	group: ""
+	group: "089866DB8636BACD"
 	icon: {
 		count: 1
 		id: "minecraft:totem_of_undying"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"0FFFE97BBDA23025": false
+			}
 			dependencies: [
 				"0FFFE97BBDA23025"
 			]
@@ -90,7 +93,7 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -130,7 +133,7 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 1.5d
 		}
 		{
@@ -170,10 +173,13 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: -1.5d
 		}
 		{
+			dep_line_visibility: {
+				"4B477A6841CB5326": false
+			}
 			dependencies: [
 				"0A93A9B14DA30692"
 				"4B477A6841CB5326"
@@ -207,10 +213,14 @@
 					value: 5
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"3F0BBF3FEC97C135": false
+				"7D36EB729E2C654D": false
+			}
 			dependencies: [
 				"3F0BBF3FEC97C135"
 				"7D36EB729E2C654D"
@@ -244,10 +254,13 @@
 					value: 30
 				}
 			]
-			x: 1.5d
-			y: 3.0d
+			x: 4.0d
+			y: 1.5d
 		}
 		{
+			dep_line_visibility: {
+				"17D2C8763547C148": false
+			}
 			dependencies: [
 				"17D2C8763547C148"
 			]
@@ -281,10 +294,15 @@
 					value: 3
 				}
 			]
-			x: 1.5d
+			x: 0.0d
 			y: 4.5d
 		}
 		{
+			dep_line_visibility: {
+				"0A93A9B14DA30692": false
+				"17D2C8763547C148": false
+				"6AA6AC10181F3F11": false
+			}
 			dependencies: [
 				"0A93A9B14DA30692"
 				"64018361CB47A52B"
@@ -328,7 +346,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
@@ -366,10 +384,21 @@
 					type: "location"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"07FC914EC6BBF568": false
+				"2D0434A6C1F58EC6": false
+				"2F2C876EEE6CAF98": false
+				"314ED94175235B90": false
+				"384C1793A5436F8A": false
+				"4B4B59B007A98EEC": false
+				"522F16F19507224C": false
+				"5510D365D50CF905": false
+				"66CC4813FDE91493": false
+			}
 			dependencies: [
 				"522F16F19507224C"
 				"2F2C876EEE6CAF98"
@@ -415,10 +444,14 @@
 					type: "checkmark"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 1.5d
 		}
 		{
+			dep_line_visibility: {
+				"1E1AD89FFD572291": false
+				"3D024E08F02CAA7A": false
+			}
 			dependencies: [
 				"3D024E08F02CAA7A"
 				"1E1AD89FFD572291"
@@ -463,7 +496,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: 0.0d
 		}
 	]

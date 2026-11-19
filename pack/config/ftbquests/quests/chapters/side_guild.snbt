@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "side_guild"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "minecraft:writable_book"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"05F41C817DFF715C": false
+			}
 			dependencies: [
 				"05F41C817DFF715C"
 			]
@@ -98,8 +101,8 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
-			y: -1.5d
+			x: 2.0d
+			y: 3.0d
 		}
 		{
 			can_repeat: true
@@ -136,7 +139,7 @@
 					value: 10
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -181,7 +184,7 @@
 					value: 6
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
@@ -217,7 +220,7 @@
 					value: 6
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
@@ -244,8 +247,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 3.0d
-			y: 1.5d
+			x: 4.0d
+			y: -1.5d
 		}
 		{
 			can_repeat: true
@@ -290,8 +293,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 4.5d
-			y: 1.5d
+			x: 6.0d
+			y: -1.5d
 		}
 		{
 			dependencies: [
@@ -317,8 +320,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 1.5d
-			y: 3.0d
+			x: 2.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -362,8 +365,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 3.0d
-			y: 3.0d
+			x: 4.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -398,8 +401,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 1.5d
-			y: 4.5d
+			x: 2.0d
+			y: 6.0d
 		}
 		{
 			dependencies: [
@@ -434,8 +437,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 1.5d
-			y: 6.0d
+			x: 2.0d
+			y: -3.0d
 		}
 		{
 			dependencies: [
@@ -461,7 +464,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 4.5d
 		}
 		{
@@ -507,7 +510,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 4.5d
 		}
 		{
@@ -534,8 +537,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 6.0d
-			y: 6.0d
+			x: 8.0d
+			y: 4.5d
 		}
 		{
 			can_repeat: true
@@ -580,8 +583,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 7.5d
-			y: 6.0d
+			x: 10.0d
+			y: 4.5d
 		}
 		{
 			dependencies: [
@@ -607,8 +610,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 3.0d
-			y: 7.5d
+			x: 4.0d
+			y: -3.0d
 		}
 		{
 			can_repeat: true
@@ -662,8 +665,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 4.5d
-			y: 7.5d
+			x: 6.0d
+			y: -3.0d
 		}
 		{
 			dependencies: [
@@ -689,8 +692,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 3.0d
-			y: 9.0d
+			x: 4.0d
+			y: 7.5d
 		}
 		{
 			can_repeat: true
@@ -735,8 +738,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 4.5d
-			y: 9.0d
+			x: 6.0d
+			y: 7.5d
 		}
 		{
 			dependencies: [
@@ -762,8 +765,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 3.0d
-			y: 10.5d
+			x: 4.0d
+			y: 6.0d
 		}
 		{
 			dependencies: [
@@ -807,8 +810,8 @@
 					type: "gamestage"
 				}
 			]
-			x: 4.5d
-			y: 10.5d
+			x: 6.0d
+			y: 6.0d
 		}
 		{
 			dependencies: [
@@ -843,8 +846,8 @@
 					value: 5
 				}
 			]
-			x: 4.5d
-			y: -1.5d
+			x: 6.0d
+			y: 1.5d
 		}
 		{
 			can_repeat: true
@@ -885,8 +888,8 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
-			y: -3.0d
+			x: 2.0d
+			y: -6.0d
 		}
 		{
 			dependencies: [
@@ -921,10 +924,14 @@
 					type: "gamestage"
 				}
 			]
-			x: 1.5d
-			y: -4.5d
+			x: 2.0d
+			y: -1.5d
 		}
 		{
+			dep_line_visibility: {
+				"22C1B65293722FF5": false
+				"47344390C031C52F": false
+			}
 			dependencies: [
 				"5BB572766612178E"
 				"1B0A15FA1E2A4F8E"
@@ -964,8 +971,8 @@
 					type: "checkmark"
 				}
 			]
-			x: 12.0d
-			y: 1.5d
+			x: 8.0d
+			y: 0.0d
 		}
 	]
 }
