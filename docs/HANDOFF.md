@@ -1,5 +1,19 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — deploy gate and tests independent of real players (branch `test-isolation-gate`, Claude, for Yasuke)
+
+Staging failed `registry` (real holders of berserker/gluttony/great_sage counted against the bots) and `arena_dwarven`
+(a deploy re-placed dwarf_village during test-all; the lag outran a fixed 7 s). **Done** (decision row 20/11 "Deploy
+gate"): test bots and real players count in separate registry pools (`scoped()`), bot-only test assertions, test scopes
+for boss cooldown clears and choice scenes, `@until` arena waits, test-all waits for start-up placements;
+`tools/local.sh verify` + lock; ttl-ops gate in the Homelab PR `ttl-ops-local-gate`. **Verified locally** (Lerfing
+server, with a simulated real player holding berserker, gluttony, seeker and great_sage and an open real choice scene,
+both untouched afterwards): registry, legendary, absorb, registry_pool, registry_reconcile, choices, arena_dwarven,
+arenas2, bosses, wild, story, events_pack, quests. **Next**: after every merge run `local.sh verify` (AGENTS.md).
+Not covered (low risk, noted): `nations` claims a chunk 100 blocks from Tempest (fails if a real player claimed it);
+`events` ends a real running event (`ttl events end`) and `ttl arena reset` resets every arena (both only while nobody
+is online).
+
 ## 19/11 night — no junk from placement, spawn zones round Tempest, staging profiled (branch `perf-and-spawns`, Claude)
 
 Owner: fewer mobs next to Tempest, less lag. **Done** (design/decisions.md 19/11 "Placement leaves no junk"): `life/drops.js`

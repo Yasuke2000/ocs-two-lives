@@ -1,6 +1,8 @@
 # Registry caps (design/data/skills.toml): berserker is Rare (cap 3), great_sage is Legendary (cap 3,
 # granted only on purpose). Expect: berserker granted to A, B, C and refused for D; great_sage granted to
-# A, B, C and refused for D; `ttl registry` lists both at 3/3. Holders are keyed by UUID: `expect keyed` fails
+# A, B, C and refused for D. Test bots and real players count in separate pools (registry.js scoped(), owner 20/11/2026):
+# what real players hold on staging (a real great_sage, berserker or gluttony) neither refuses a bot nor changes
+# `expect count` (test bots only), and the test never touches a real player's record. `ttl registry` lists every holder. Holders are keyed by UUID: `expect keyed` fails
 # ("ttl: ...") when a record still names the player, and `legacy` + `migrate` rewrites A's records the old
 # way (player name) and migrates them back. Every grant lands in `ttl registry history`.
 ttlbot spawn TtlBotRegA

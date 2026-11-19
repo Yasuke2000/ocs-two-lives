@@ -19,8 +19,9 @@ issue with the label `server` or ask Yasuke.
 | Flight | allowed (Tensura flight skills and wings; off kicks players mid-air) |
 | Pack | installed from `main` (`pack/pack.toml`) on every restart |
 
-**Deploys:** a merge to `main` is picked up automatically when nobody is online; the bot tests then
-run and the commit gets a ✅/❌ "ttl staging" status. Players online are never kicked for a deploy.
+**Deploys:** a merge to `main` is picked up automatically once the commit passed the local test-all (status
+`local-test-all`, "The deploy gate" below) and nobody is online; the bot tests then run and the commit gets a ✅/❌
+"ttl staging" status. Players online are never kicked for a deploy.
 
 **Bug reports:** `/bug <text>` in game. Reports become GitHub issues (labels `bug`, `from-game`,
 `triage`) once the server has a token; until then they are saved on the server in `ttl-reports/`.
@@ -71,7 +72,8 @@ prints it.
 | `up` | Installs NeoForge from `pack/pack.toml`, the pack's server side with packwiz-installer (what the itzg image does for `PACKWIZ_URL`, from a refreshed copy of your working tree, so uncommitted edits count), your `mod/` build of ttl-portals in place of the released jar, the `ttl-overrides` datapack into the world; starts and waits for RCON. The first boot waits until the start-up placements are done (`ttl build list` has nothing pending, ~15 min on a fresh world) and saves the world as snapshot `base`. Later `up`s only redo what changed (packwiz-installer when the mod list or versions changed, gradle when `mod/` changed; `TTL_LOCAL_FULL=1` forces both) |
 | `sync` | Copies what changed in `pack/` since the last up/sync into the running server and applies it: `kubejs/server_scripts`, `kubejs/data`, `datapacks`, `config/ttl`, `config/ftbquests` → `/reload` (waits for "Reloaded with"; like `server.sh push-scripts`, so commands re-register); startup scripts or other config → restart; mods or `mod/` → full `up`. Prints new KubeJS/`[ttl]` errors and exits 1 on them |
 | `test <name>` / `test all` | The same `tests/ingame/*.rcon` through the same runner as `tools/server.sh` (`tools/ingame.sh`), on one RCON connection (`tools/rcon.py --serve`), each command 2 game ticks after the previous one (`TTL_LOCAL_TICKS`; staging's kubectl exec takes ~3). Waits first while start-up builds are still pending. `test all` keeps each output in `test-out/` |
-| `down`, `restart`, `status`, `logs [n]`, `follow`, `rcon "<cmd>"` | As in `server.sh`; the log of the run before the last start is `logs/previous.log` |
+| `verify [<ref>]` | The deploy gate (below): `main`'s exact commit (or `<ref>`) in its own worktree `verify-src/`, the server synced to it, `test all`, and the GitHub status `local-test-all` posted on that SHA (success, or failure with the failing tests). Output in `verify/<sha>.txt`; `TTL_VERIFY_NO_STATUS=1` posts nothing |
+| `down`, `restart`, `status`, `logs [n]`, `follow`, `rcon "<cmd>"` | As in `server.sh`; the log of the run before the last start is `logs/previous.log`. `status` also says whether a `local.sh` holds the server (and which) |
 | `snapshot [name]`, `reset [name]` | Save the stopped world / put it back (default `base`). `stop` says whether the log has "All dimensions are saved" |
 
 Same as staging: NeoForge version, server-side mods and configs, datapack, `world-ttl`, hard, simulation distance 8,
@@ -107,6 +109,54 @@ moved with the build (or read from `ttl build where blumund`).
 
 A local pass is not the staging pass: after the merge, ttl-ops still deploys and runs `test-all` on staging (the
 real map, real players' data, Discord). Use the local server to get there green the first time.
+
+**One user at a time.** `up`, `down`, `restart`, `sync`, `test`, `snapshot`, `reset` and `verify` hold `state/lock`
+for their run (owner pid, command, start time, checkout); a second one is refused with the holder's name until the
+first is done. A lock whose process is gone is taken over. `bash tools/local.sh status` says "free" or who holds it.
+Two agents' syncs or test runs on one server overwrite each other's scripts and bots, and on 19/11 some PRs were
+tested offline only because the local server was busy. `mods_changed` compares the content of `mod/` (`state/mod.sha`), not file times, so a checkout of another
+branch always gets its own ttl-portals build.
+
+### The deploy gate
+
+Owner decision 20/11/2026, after staging failed on two merged commits (7650db5, 2832951) that every author had tested
+on their own branch, while nobody had run `test-all` on `main` with all of them together. "Shouldn't this not even
+happen, because we first do stuff locally?" (Yasuke). Now it cannot:
+
+1. **Every PR** is tested locally for the areas it touches (`local.sh test <name>`). A PR that was only tested offline
+   is merged only when it changes no in-game behaviour (docs, tools, unit tests).
+2. **After a merge**, someone runs `bash tools/local.sh verify` on the local Lerfing server
+   (`TTL_LOCAL_DIR=/c/Users/david/AppData/Local/ocs-two-lives/local-lerfing`; check `status` first). It fetches,
+   checks out `origin/main`'s exact commit in `$TTL_LOCAL_DIR/verify-src` (a worktree of its own, never your
+   checkout), syncs the server to it with that worktree's `local.sh` (scripts, data, configs, mods and the
+   ttl-portals build of that commit), runs `test all` (~25 min) and posts the commit status `local-test-all`:
+   `success` ("test-all green on the local Lerfing server"), or `failure` with "N failing: name, name". A run that
+   does not finish posts nothing. When `main` moved on meanwhile, verify the new head: only the head is deployed.
+3. **ttl-ops** (Homelab repo, `apps/ocs-two-lives/manifests/ops.yaml`, `gate_open` in `loop.sh`) deploys a new pack
+   only when `main`'s head has `local-test-all = success`. Otherwise it posts once per commit and state to
+   `#server-log` and the dev feed ("`<sha>` waiting for local test-all", "... local test-all failed: ...") and sets
+   "ttl staging" to pending; the "nobody online" rule still applies after the gate. It reads the status with its
+   GitHub token and fails closed (no token or GitHub unreachable = no deploy). Just before the restart it checks that
+   `main` still points at the verified commit. A pack that is already installed (a restart from elsewhere) is only
+   tested, not gated.
+4. **Emergency override (Yasuke):** the label `deploy-override` on the merged pull request, or the commit status
+   `deploy-override = success` on the commit
+   (`gh api repos/Yasuke2000/ocs-two-lives/statuses/<sha> -f state=success -f context=deploy-override -f description="<why>"`).
+   The deploy post then says **OVERRIDE**. `GATE_ENABLED: "0"` on the ttl-ops Deployment switches the gate off.
+
+**Tests never depend on real players' data.** Staging has real players (a real Legendary Great Sage, Rare uniques,
+duels, boss kills, moral-choice scenes); local servers have none, which is why `registry` passed locally and failed on
+staging ("expected tensura:gluttony to have 0 holders, it has 1"). Test bots (`TtlBot*`) and real players count in
+separate pools: the registry's caps, the Legendary ceiling and reconcile see only holders of the asker's kind
+(`registry.js` `scoped()`), and the test assertions count test bots only (`ttl registry expect count|holders`,
+`ttl absorb expect pacts|wars`). Hooks that would touch everyone have a test scope: `ttl boss cooldown clear <id> tests`
+(test bots' stamps only), `ttl choice testonly on|off` (open scenes, caps and `clear` see only ops / test-bot scenes;
+expires after 30 min), and the existing `ttl world testmark` / `ttl era testmark`. A test never revokes or changes a real
+player's uniques, cooldowns or scenes. Before staging's `test-all` (and local's) the runner also waits until the
+start-up placements are done (`wait_world_settled` in `tools/ingame.sh`: no build or landmark placing or queued): a
+deploy that bumps a build's version re-places it for minutes, and the lag stretched `arena_dwarven`'s countdown past
+its fixed wait (staging 19/11 22:33). Arena tests wait with `@until`, never a fixed `@sleep`, for anything the server
+counts in game ticks.
 
 ## Checking placed builds and landmarks
 

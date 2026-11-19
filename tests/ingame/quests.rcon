@@ -170,7 +170,7 @@ ttl story expect TtlBotWarL act 4 yes
 ttl rep expect TtlBotWarL tempest value 45
 ttl story expect TtlBotWarL unlocked charybdis yes
 # L: the Disaster answers only a soul that beat the Orc Lord (its `requires`); the story fight starts both bosses from anywhere for ops.
-ttl boss cooldown clear all
+ttl boss cooldown clear all tests
 ttl boss expect TtlBotWarL gate orc_disaster no
 kubejs stages add TtlBotWarL ttl.defeated.orc_lord
 ttl boss expect TtlBotWarL gate orc_disaster yes
@@ -186,7 +186,7 @@ ttl boss abort charybdis
 @sleep 1
 ttl boss expect TtlBotWarL active orc_disaster no
 ttl boss expect TtlBotWarL active charybdis no
-ttl boss cooldown clear all
+ttl boss cooldown clear all tests
 # D: the dark lane. "Devour the King" (flag horde_leader), "Wake the Calamity" (flag charybdis_woke), Act III (orc_horde +40 on top of the
 # Oath's 15, lizardmen -20), Act IV (outcast +20 on top of 20 + 10).
 execute as TtlBotWarD run ttl story oath dark

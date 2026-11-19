@@ -302,15 +302,20 @@ const TtlBoss = {
     return found
   },
 
-  // Forget the story cooldown of a boss for everyone (ops, tests): the mirror, every online soul's stamp, the old server stamp.
-  clearCooldown(server, id) {
+  // Forget the story cooldown of a boss for everyone (ops): the mirror, every online soul's stamp, the old server stamp.
+  // `botsOnly` (tests: `cooldown clear <id> tests`): only test bots' stamps (TtlBot*), so a test run never shortens a
+  // real player's cooldown; the old server stamp stays.
+  clearCooldown(server, id, botsOnly) {
     var all = this.readJson(server, 'ttl.boss.lastkill', {})
+    var bot = u => typeof TtlRegistry !== 'undefined' && TtlRegistry.isBotId(server, u)
     Object.keys(all).forEach(u => {
+      if (botsOnly && !bot(u)) return
       delete all[u][id]
       if (Object.keys(all[u]).length === 0) delete all[u]
     })
     this.writeJson(server, 'ttl.boss.lastkill', all)
     server.getPlayerList().getPlayers().forEach(p => {
+      if (botsOnly && !/^TtlBot/.test(String(p.username))) return
       try {
         var mine = JSON.parse(String(p.persistentData.getString('ttl.boss.lastkill')) || '{}')
         if (mine[id] === undefined) return
@@ -320,7 +325,7 @@ const TtlBoss = {
         p.persistentData.remove('ttl.boss.lastkill')
       }
     })
-    server.persistentData.remove(`ttl.boss.last.${id}`)
+    if (!botsOnly) server.persistentData.remove(`ttl.boss.last.${id}`)
   },
 
   // Forget the arena gaps left by a boss (id '' = every boss) and its queue (ops, tests).

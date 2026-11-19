@@ -14,6 +14,8 @@ ttl roads test TtlBotChoiceA reset
 ttl roads test TtlBotChoiceB reset
 ttl choice reset TtlBotChoiceA
 ttl choice reset TtlBotChoiceB
+# Real players' scenes stay out of the run: counted, capped and cleared are only the test's own (ops / TtlBot*).
+ttl choice testonly on
 ttl roads test TtlBotChoiceA life2
 ttl roads test TtlBotChoiceB life2
 gamemode creative TtlBotChoiceA
@@ -195,6 +197,7 @@ ttl choice clear
 ttl choice expect world active 0
 # Clean up.
 ttl choice testonline 0
+ttl choice testonly off
 execute in minecraft:overworld run kill @e[tag=ttl.wants_name]
 execute in minecraft:overworld run forceload remove 1440 1480 1560 1520
 ttl choice reset TtlBotChoiceA

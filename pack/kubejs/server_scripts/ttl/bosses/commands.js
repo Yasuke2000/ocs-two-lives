@@ -10,8 +10,8 @@
 //       /ttl boss testparty set <a> <b> [c]   test hook: these players are one party for boss credit (test bots then count); `clear` ends it
 //       /ttl boss abort [id]            remove a summoned boss (or all) without rewards (a freed arena goes to the head of its queue)
 //       /ttl boss reset <player>        forget the player's boss stages (ttl.boss.t1-t4, ttl.defeated.<id>), kill counts and cooldown stamps
-//       /ttl boss cooldown clear <id|all>   forget the boss's per-party cooldown stamps (every soul) and its arena gaps (tests leave
-//                                       no cooldown behind)
+//       /ttl boss cooldown clear <id|all> [tests]   forget the boss's per-party cooldown stamps (every soul; `tests`: test
+//                                       bots only, what the tests use) and its arena gaps (tests leave no cooldown behind)
 //       /ttl boss arena clear <id|all>  forget the arena gaps a boss left and its queue (the party stamps stay)
 //       /ttl boss queue [id]            who waits for which arena (place, party, held or waiting); `queue clear [id]` empties it
 //       /ttl boss testecho set <id> | clear   test hook: the boss counts as already fallen in the world (its fights are echoes)
@@ -355,6 +355,24 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  // `cooldown clear <id|all> [tests]`: `tests` forgets only the test bots' stamps (real players' cooldowns stay); the arena
+  // gaps (a 10-minute world timer, no player's data) go either way, so a test never waits on a real fight's gap.
+  var cooldownClear = botsOnly => ctx => {
+    var server = ctx.source.getServer()
+    var id = String(Arguments.STRING.getResult(ctx, 'id')).toLowerCase()
+    var ids = id === 'all' ? TtlBoss.defs().map(d => d.id) : [id]
+    if (id !== 'all' && !TtlBoss.def(id)) throw `unknown boss ${id}`
+    ids.forEach(b => {
+      TtlBoss.clearCooldown(server, b, botsOnly)
+      var gaps = TtlBoss.readJson(server, 'ttl.boss.arena', {})
+      Object.keys(gaps).forEach(g => { if (gaps[g].id === b) delete gaps[g] })
+      TtlBoss.writeJson(server, 'ttl.boss.arena', gaps)
+    })
+    console.info(`[ttl] boss: cooldown cleared for ${id}${botsOnly ? ' (test bots only)' : ''}`)
+    ctx.source.sendSystemMessage(Text.of(`boss: cooldown cleared for ${id}${botsOnly ? ' (test bots only)' : ''}`))
+    return 1
+  }
+
   event.register(Commands.literal('ttl')
     .then(Commands.literal('boss')
       .requires(src => src.hasPermission(2))
@@ -385,21 +403,8 @@ ServerEvents.commandRegistry(event => {
         .then(Commands.argument('target', Arguments.PLAYER.create(event)).executes(logged(reset))))
       .then(Commands.literal('cooldown')
         .then(Commands.literal('clear')
-          .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(ctx => {
-            var server = ctx.source.getServer()
-            var id = String(Arguments.STRING.getResult(ctx, 'id')).toLowerCase()
-            var ids = id === 'all' ? TtlBoss.defs().map(d => d.id) : [id]
-            if (id !== 'all' && !TtlBoss.def(id)) throw `unknown boss ${id}`
-            ids.forEach(b => {
-              TtlBoss.clearCooldown(server, b)
-              var gaps = TtlBoss.readJson(server, 'ttl.boss.arena', {})
-              Object.keys(gaps).forEach(g => { if (gaps[g].id === b) delete gaps[g] })
-              TtlBoss.writeJson(server, 'ttl.boss.arena', gaps)
-            })
-            console.info(`[ttl] boss: cooldown cleared for ${id}`)
-            ctx.source.sendSystemMessage(Text.of(`boss: cooldown cleared for ${id}`))
-            return 1
-          })))))
+          .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(cooldownClear(false)))
+            .then(Commands.literal('tests').executes(logged(cooldownClear(true)))))))
       .then(Commands.literal('arena')
         .then(Commands.literal('clear')
           .then(Commands.argument('id', Arguments.STRING.create(event)).executes(logged(arenaClear)))))

@@ -1,6 +1,6 @@
 # Registry v2: the Legendary ceiling, per-era slots, transfer routes, eras, Skill Core open.
-# Run on staging with NO other Legendary holder online or recorded (the counts below are server-wide); it advances the
-# era twice, silently, and puts the era state back at the end (`era testmark` / `era testrestore`): test runs never
+# The ceiling, `expect holders` and `expect count` see test bots only (registry.js scoped(): real players' Legendary
+# holders are a separate pool), so real holders on staging change nothing here; it advances the era twice, silently, and puts the era state back at the end (`era testmark` / `era testrestore`): test runs never
 # reach Discord #story. Shipped knobs (design/data/skills.toml [legendary]): max_holders = 10 (the Ten Great Demon Lords),
 # slots_per_era = 0 (no per-era throttle). `ttl registry legendcap <max> <slots>` replaces both until `legendcap reset`,
 # so three bots can hit the ceiling (3) and the per-era slots (2).

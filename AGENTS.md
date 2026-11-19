@@ -50,13 +50,38 @@ Yasuke in anything players or contributors read). Players talk on Discord; the s
 ## How to work
 
 1. `git pull`, read `docs/HANDOFF.md` (current state + next steps), pick the next open step.
-2. Work on a branch or worktree; keep `main` deployable — `main` auto-deploys to the server via ttl-ops when
-   nobody is online, then runs all in-game tests and posts the result to Discord #server-log.
+2. Work on a branch or worktree; keep `main` deployable — ttl-ops deploys a `main` commit to staging only when it
+   carries the GitHub status `local-test-all = success` (the deploy gate, below) and nobody is online, then runs all
+   in-game tests there and posts the result to Discord #server-log.
 3. Test locally first, then push (docs/server.md "Local testing"): `bash tools/check.sh` (validate, the fast unit
    tier, `node --check` on changed JS; the full `python -I -m unittest discover -s tests` still works and takes ~4
    min). For in-game changes: `bash tools/local.sh up`, then `bash tools/local.sh sync` after each edit and
    `bash tools/local.sh test <name>` (or `test all`) until it passes. Only then push.
 4. After a deploy: `bash tools/server.sh test-all` must say "0 failing"; `bash tools/server.sh logs 2000 | grep -E "ERROR.*KubeJS|\[ttl\].*failed"` clean.
+
+### The deploy gate (rules, owner decision 20/11/2026)
+
+Every agent tested its own branch, nobody tested `main` after several PRs landed together, and staging failed
+(19/11/2026). So:
+
+- **Every PR is tested locally** before it is merged: `bash tools/local.sh test <name>` for every in-game area it
+  touches (and `bash tools/check.sh`). Say in the PR which tests ran.
+- **Never merge a PR that was only tested offline** (validate + unit tests) unless it changes no in-game behaviour:
+  docs, tools, unit tests, design notes. Scripts, data, configs, mods, structures and `tests/ingame/` need a local run.
+- **After merging to `main`, run `bash tools/local.sh verify`** on the local Lerfing server. It checks out `main`'s
+  exact commit in its own worktree, syncs the server to it, runs `test all` and posts the commit status
+  `local-test-all` (success, or failure with the failing tests). ttl-ops deploys only a commit with
+  `local-test-all = success`; until then it posts once to Discord "<sha> waiting for local test-all". When `main`
+  moved on during your run, verify the new head too (only the newest commit is deployed).
+- **One user on the local server at a time.** `local.sh` holds a lock while it syncs, tests or verifies; check
+  `bash tools/local.sh status` first ("free" or who holds it) and wait instead of running a second sync or test on top.
+  Local Lerfing server: `TTL_LOCAL_DIR=/c/Users/david/AppData/Local/ocs-two-lives/local-lerfing`.
+- **Tests never depend on real players' data or change it.** Test bots (`TtlBot*`) and real players count in separate
+  pools (unique caps, Legendary ceiling, pacts, boss cooldowns, choice scenes); use the test-scoped hooks
+  (`ttl boss cooldown clear <id> tests`, `ttl choice testonly on`, `ttl world testmark`, `ttl era testmark`) and
+  assert counts of test bots, never server-wide totals.
+- **Emergency only:** Yasuke can bypass the gate by setting the label `deploy-override` on the merged PR or the commit
+  status `deploy-override = success` on the commit (docs/server.md "The deploy gate").
 5. Update `docs/HANDOFF.md` when you stop: what you did, what is verified, what is next. When something lands on
    `main`, also update `docs/project-status.md` (metrics, what is built, in progress).
 

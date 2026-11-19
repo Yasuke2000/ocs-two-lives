@@ -2,8 +2,8 @@
 # [legend_pick] / [absorb]). `ttl absorb expect ...` and `ttl registry expect ...` print "ttl: ..." when a value is wrong,
 # which `server.sh test-all` counts as a failure. A `ttl absorb simulate` line prints "absorb simulate: refused (...)" on
 # purpose when a route must say no; the registry expects after it carry the assertion.
-# Run on staging with NO other Legendary holder online or recorded (the ceiling counts are server-wide); it advances the
-# era once, silently, and puts the era state back at the end (`era testmark` / `era testrestore`): test runs never
+# The ceiling and `expect holders` / `expect pacts` / `expect wars` see test bots only (real players are a separate
+# pool, registry.js scoped()), so real holders and duels on staging change nothing here; it advances the era once, silently, and puts the era state back at the end (`era testmark` / `era testrestore`): test runs never
 # reach Discord #story. `ttl registry legendcap <max> <slots>` replaces max_holders / slots_per_era until `legendcap reset`.
 # The Life 2 bots here are bots with the stage ttl.life2 (test hook). The hooks themselves (the fatal blow inside a pact, a
 # real kill in a war, a combat log) need two real players and stay on the "verify in game" list; `ttl absorb simulate`
