@@ -24,7 +24,9 @@ import org.slf4j.Logger;
 /**
  * Density function {@code ttl:canon_map}: inside the canon continent (pack/config/ttl/canon_map.txt) it
  * steers one climate channel of the overworld noise router, and returns {@code outside} (vanilla) beyond
- * the open-sea ring; the per-build {@link CanonSites} steer it further around canon builds (ridges only there).
+ * the open-sea ring; per-build {@link CanonSites}, when the file still has any, steer it further around canon builds
+ * (ridges only there). Inside Lerfing's imported area ({@link CanonGrid#imported}) the chunks exist on disk and none
+ * of this is asked: it only shapes the generated ring round the import and blends into vanilla beyond it.
  * The vanilla overworld router is wrapped through pack/kubejs/data/minecraft/worldgen.
  */
 public record CanonMap(Channel channel, DensityFunction outside) implements DensityFunction {
@@ -148,7 +150,8 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
             double ring = json.has("ring") ? json.get("ring").getAsDouble() : 1600;
             double blend = json.has("blend") ? json.get("blend").getAsDouble() : 800;
             long start = System.nanoTime();
-            CanonGrid grid = CanonGrid.load(dir.resolve("canon_map.txt"), regions, ring, blend).withSites(sites);
+            int[] inner = CanonConfig.importBox(json, msg -> LOGGER.warn("[ttl] {}", msg));
+            CanonGrid grid = CanonGrid.load(dir.resolve("canon_map.txt"), regions, ring, blend).withSites(sites).withImport(inner);
             LOGGER.info("[ttl] canon map loaded in {} ms: {}", (System.nanoTime() - start) / 1_000_000, grid.describe());
             return grid;
         } catch (Exception e) {

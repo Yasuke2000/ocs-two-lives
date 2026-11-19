@@ -11,8 +11,8 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Reads the {@code regions} of canon_regions.json into {@link CanonGrid.Region}s and its {@code sites} into
- * {@link CanonSites}. Only Gson, no Minecraft types, so
+ * Reads the {@code regions} of canon_regions.json into {@link CanonGrid.Region}s, its {@code sites} (optional; the
+ * Lerfing grid has none) into {@link CanonSites} and {@code lerfing.inner} into the imported area. Only Gson, no Minecraft types, so
  * {@link CanonGrid#main} can check the real file. Malformed pieces are skipped through {@code warn}; a region with
  * broken {@code zones} simply has none (its plain {@code biomes} palette applies).
  */
@@ -130,6 +130,25 @@ public final class CanonConfig {
             }
         }
         return sites.isEmpty() ? CanonSites.NONE : new CanonSites(sites.toArray(CanonSites.Site[]::new));
+    }
+
+    /**
+     * {@code "lerfing": {"inner": [x0, z0, x1, z1], ...}}: the imported area (half-open block box, Lerfing's inner
+     * region tiles), or null when the file has none (the old generated continent) or it is malformed (a warning).
+     */
+    @Nullable
+    public static int[] importBox(JsonObject json, Consumer<String> warn) {
+        JsonElement v = json.get("lerfing");
+        if (v == null || v.isJsonNull()) return null;
+        try {
+            JsonArray a = v.getAsJsonObject().getAsJsonArray("inner");
+            int[] box = {a.get(0).getAsInt(), a.get(1).getAsInt(), a.get(2).getAsInt(), a.get(3).getAsInt()};
+            if (a.size() != 4 || box[2] <= box[0] || box[3] <= box[1]) throw new IllegalArgumentException("need [x0, z0, x1, z1] with x1 > x0, z1 > z0");
+            return box;
+        } catch (RuntimeException ex) {
+            warn.accept("canon map: 'lerfing.inner' ignored, no imported area (" + ex + ")");
+            return null;
+        }
     }
 
     @Nullable
