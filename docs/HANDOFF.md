@@ -28,7 +28,7 @@ of the entry below; an earlier run at 03:28 was 69/70, only guild_npcs).
 **Pregen**: held back during the checks (temporary `/data/ttl-pregen.done`, removed again), started by hand at 05:08 with ttl-ops'
 commands (`dh config generation.chunkMode INTERNAL_SERVER`, `common.threadPreset BALANCED`, `dh pregen start minecraft:overworld
 -2088 -616 450`): ~35 cps, ETA ~6 h, so it will NOT finish tonight; ttl-ops stops it at 07:00 (or when someone joins) and resumes
-next night (no `ttl-pregen.done` until ≥ 99 %). Check `dh pregen status` and the ttl-ops log.
+next night (no `ttl-pregen.done` until ≥ 99 %). Result: reached radius ~250 / 450 chunks (~30 %) and was cancelled at 07:21 (end of the night window), no crash; the next night resumes from the centre and skips the done part.
 **Crash at 03:09** (`crash-2026-11-19_03.09.53-server.txt`): watchdog, the server thread waited 60 s in a `forceload add` of the
 landmark placer for a chunk while `IO-Worker-3` spun in `CompoundTag.write` (fastutil map iterator: looks like an NBT map changed
 during the chunk save) and generation workers waited on that IO worker (`isOldChunkAround`). Second boot clean; one more
