@@ -5,7 +5,7 @@ ttl reset TtlBotEventPack
 gamemode creative TtlBotEventPack
 # A registered regional storm chooses the only occupied Life 2 region, and does not leak into another dimension.
 ttl events setup TtlBotEventPack 100 6
-execute in minecraft:overworld run tp TtlBotEventPack 0 160 0
+execute in minecraft:overworld run tp TtlBotEventPack ${anchor:tempest.x} 160 ${anchor:tempest.z}
 ttl events expect registered magicule_storm true
 # A storm the director started on its own (the bots count as Life 2 players) would make the capture read 2: end all first.
 ttl events end
@@ -18,7 +18,7 @@ execute in ttl:mortal_realm run tp TtlBotEventPack 0 160 0
 ttl events expect storm TtlBotEventPack false
 ttl events end magicule_storm
 ttl events expect rule epGainMultiplier captured
-execute in minecraft:overworld run tp TtlBotEventPack 0 160 0
+execute in minecraft:overworld run tp TtlBotEventPack ${anchor:tempest.x} 160 ${anchor:tempest.z}
 ttl events expect storm TtlBotEventPack false
 # Exercise two real player-attributed kills in one night and an uncredited kill after the end.
 # Manual fire leaves the EC2 forecast and the server's day/time intact.

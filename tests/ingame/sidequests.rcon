@@ -16,7 +16,7 @@ kubejs stages add TtlBotSideA ttl.life2
 ttl sidequest reset TtlBotSideA
 clear TtlBotSideA
 # R11: the places live on the canon continent; far out in the sea ring nothing counts as "on the continent".
-ttl sidequest expect TtlBotSideA continent 0,0 yes
+ttl sidequest expect TtlBotSideA continent ${anchor:tempest.x},${anchor:tempest.z} yes
 ttl sidequest expect TtlBotSideA continent 9000,0 no
 ttl sidequest expect TtlBotSideA place tempest_green resolved
 ttl sidequest expect TtlBotSideA place dwargon_plaza resolved
@@ -82,7 +82,7 @@ ttl sidequest expect TtlBotSideA client merchant_escort alive
 ttl sidequest goto TtlBotSideA dwarf_road
 @sleep 3
 ttl sidequest bring TtlBotSideA
-execute in minecraft:overworld run forceload remove 285 -612
+execute in minecraft:overworld run forceload remove ${anchor:wayfarers_camp}
 ttl sidequest poll TtlBotSideA
 ttl sidequest expect TtlBotSideA done merchant_escort yes
 ttl sidequest expect TtlBotSideA stage merchant_escort yes

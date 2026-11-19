@@ -48,8 +48,10 @@ ttl nation expect TtlBotNatA try_found_TtlBotLand life2only
 ttl nation test TtlBotNatA life2
 ttl nation test TtlBotNatB life2
 # Into the overworld only now: a Life 1 soul there is sent back to the Mortal Realm at once (life/confine.js).
-execute in minecraft:overworld run tp TtlBotNatA 100 100 100
-execute in minecraft:overworld run tp TtlBotNatB 102 100 100
+# The two nations stand 100 and 300 blocks east of Tempest and 100 south (tempest anchor, design/data/anchors.toml), set on the
+# surface, not at a fixed y (the old fixed spots 100 100 / 300 100 now lie 1,600 blocks west of Tempest, at the Blumund channel).
+execute in minecraft:overworld positioned ${anchor:tempest.x+100} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotNatA ~ ~ ~
+execute in minecraft:overworld positioned ${anchor:tempest.x+102} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotNatB ~ ~ ~
 ttl nation expect TtlBotNatA try_found_TtlBotLand noparty
 ttl as TtlBotNatA ftbteams party create TtlBotNatParty
 ttl nation expect TtlBotNatA try_found_TtlBotLand members
@@ -146,7 +148,7 @@ ttl nation expect TtlBotNatA yield_here 1
 # Nation 2 (D owner, E member) for diplomacy.
 ttl nation test TtlBotNatD life2
 ttl nation test TtlBotNatE life2
-execute in minecraft:overworld run tp TtlBotNatD 300 100 100
+execute in minecraft:overworld positioned ${anchor:tempest.x+300} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotNatD ~ ~ ~
 ttl nation test TtlBotNatD boss1
 ttl econ give TtlBotNatD 5000
 ttl as TtlBotNatD ftbteams party create TtlBotNatParty2
