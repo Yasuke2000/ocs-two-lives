@@ -74,3 +74,16 @@ The technical matrix is unchanged from the previous owner-approved five-entry co
 
 Fetched current main (`a1848be`) before submission; its intervening commits do not change the world
 format, site-size table, map tools or relation matrix. Integration into this branch is checked separately.
+
+
+## Integration and proportion benchmark
+
+Integrated main `a1848be` on the map branch, preserving both sides of the two append-only documentation
+conflicts. No upstream technical code was edited by hand. The integrated gate passes validation and
+**462 tests (26 skips)**. Relative to current main, the only technical file changed remains the five
+owner-authorized entries in `tools/world/canon_relations.toml`.
+
+[Fourteen-site proportion audit](proportion-audit.md) records differences from the supplied secondary
+marker reference. Normalizing to Tempest–Siss exposes particularly large western-distance differences.
+This is a diagnostic benchmark with an unknown illustration projection, not a surveyed canon map.
+Further proportional revision remains necessary; a passing checker alone does not complete that review.

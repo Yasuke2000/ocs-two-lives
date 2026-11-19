@@ -14,13 +14,15 @@
   ],
   "build_seconds": 54.2,
   "repository_gate": {
-    "tests": 456,
+    "tests": 462,
     "failures": 0,
     "skips": 26,
-    "validation": "passed"
+    "validation": "passed",
+    "base_main": "a1848be"
   },
   "build_command": "python -I tools/world/build.py",
   "research_claim_records": 122,
   "directly_verified_LN_claims": 11,
-  "reference_alternatives_inert": true
+  "reference_alternatives_inert": true,
+  "proportion_review": "open; world/proportion-audit.csv"
 }

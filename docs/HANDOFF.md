@@ -1,5 +1,17 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 — Latest main integrated; proportion review now measurable (ChatGPT, PR #74)
+
+Merged main a1848be into chatgpt/world-map (79178d8), retaining both agents' decision/handoff additions.
+Integrated gate passes validation and **462 tests (26 skips)**. World format, site-size table and map tools
+unchanged upstream; only the previously authorized five relation entries differ technically from main.
+[14-site audit](../world/proportion-audit.md) normalizes reference and authored distances to Tempest–Siss.
+Blumund +57.4% and Marris +41.8% in this secondary benchmark are clear review signals, not canonical survey
+errors. Next: revise western/central proportions within fixed constraints, updating coast/roads/regions
+and checking every geometry edit; draw/explain source alternatives where constraints prevent fidelity.
+The earlier source-evidence and round-5 entries remain current; do not mark the full goal complete yet.
+
+
 ## 19/11 — LN evidence and northern Ulgr park (ChatGPT, PR #74 round 5)
 
 Read relevant publisher-hosted Japanese LN2/3/5/6/10 passages: 11 direct geography claims added.
