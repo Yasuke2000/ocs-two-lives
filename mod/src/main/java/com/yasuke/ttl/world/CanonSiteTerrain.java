@@ -48,6 +48,11 @@ public record CanonSiteTerrain(DensityFunction argument, double threshold) imple
 
     @Override
     public void fillArray(double[] values, ContextProvider provider) {
+        CanonGrid grid = CanonMap.grid();
+        if (grid == null || !grid.sites().anyFlat()) {
+            argument.fillArray(values, provider); // no flat site anywhere: vanilla's own fill, exactly as unwrapped
+            return;
+        }
         provider.fillAllDirectly(values, this);
     }
 

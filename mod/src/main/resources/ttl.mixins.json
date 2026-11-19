@@ -4,6 +4,7 @@
   "package": "com.yasuke.ttl.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ChunkGeneratorMixin",
     "ChunkGeneratorStructureStateAccessor",
     "EndPortalBlockMixin",
     "NetherPortalBlockMixin",
