@@ -52,6 +52,9 @@ ttl arena expect player TtlBotDwB losses 1
 ttl arena expect arena dwarven state free
 
 # ---- challenge: waves only (no boss), clear when the third wave is down -----------------------------------------------
+# The wave mobs knocked the bot out of the arena in wave 3 ("left the arena", result partial; test-all 19/11 11:51):
+# full knockback resistance keeps it inside, reset at the end.
+attribute TtlBotDwA minecraft:generic.knockback_resistance base set 1
 execute as TtlBotDwA run ttl arena join dwarven challenge
 ttl arena expect arena dwarven mode challenge
 execute as TtlBotDwA run ttl arena start
@@ -80,5 +83,6 @@ ttl arena clear TtlBotDwA
 ttl arena clear TtlBotDwB
 kubejs stages remove TtlBotDwA ttl.life2
 kubejs stages remove TtlBotDwB ttl.life2
+attribute TtlBotDwA minecraft:generic.knockback_resistance base set 0
 ttlbot remove TtlBotDwA
 ttlbot remove TtlBotDwB

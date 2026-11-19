@@ -7,11 +7,13 @@ damage TtlBotVen 1000 minecraft:mob_attack by @e[tag=ttlkiller,limit=1]
 kill @e[tag=ttlkiller]
 execute as TtlBotVen run ttl wish vengeance
 execute as TtlBotVen run ttl trial
-@sleep 3
-ttl inspect TtlBotVen
-execute in ttl:spirit_corridor if entity @e[type=minecraft:zombie,tag=ttl_nemesis,x=1100,y=60,z=0,distance=..30]
+# The nemesis (summoned 40 ticks after the start) fights back: in test-all 19/11 11:40 the RCON round trips took 15 s
+# under load, it killed the bot first and the trial was "failed". The bot gets resistance, the test waits for the
+# nemesis instead of a fixed 3 s, kills it at once and waits for the pass to be recorded.
+effect give TtlBotVen minecraft:resistance 120 255 true
+@until 30 execute in ttl:spirit_corridor if entity @e[type=minecraft:zombie,tag=ttl_nemesis,x=1100,y=60,z=0,distance=..30]
 kill @e[tag=ttl_nemesis]
-@sleep 2
+@until 20 execute if data entity TtlBotVen KubeJSPersistentData{"ttl.trial.passed":1b}
 ttl inspect TtlBotVen
 ttl reset TtlBotVen
 ttlbot remove TtlBotVen
