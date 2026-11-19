@@ -13,14 +13,14 @@ design choices.
 Yasuke, after looking at the public map: "Dwargon should be on a plain, not an ice mountain." The city's site in
 `pack/config/ttl/canon_regions.json` (`dwargon`, flat ground y 72, plains; `dwargon_plain`, a plains/meadow
 lowland of radius 230) wins over the lore's "hollow at the foot of the Canaat Mountains" for the area round the
-build: the city stands on open ground and the Canaat peaks rise behind it to the north. The build's own sandstone
-mountain stays. Takes effect on the next overworld reset (docs/HANDOFF.md).
+build: the city stands on open ground and the Canaat peaks rise behind it to the north. The build's own mountain
+stays (since version 7 in the Canaat's grey, see "The mountain's palette"). Takes effect on the next overworld reset (docs/HANDOFF.md).
 
 ## Facts the build follows
 
 | Fact | How the build shows it | Source |
 | --- | --- | --- |
-| A dwarf kingdom, the "Armed Nation", in an underground cavern city behind fortified gates, in a natural hollow at the foot of the Great Canaat Mountains | The city sits in a cavern inside its own sandstone mountain; the only way in is the white gate wall and a tunnel | world.md §D (fandom: Armed_Nation_of_Dwargon, Great_Canaat_Mountains) |
+| A dwarf kingdom, the "Armed Nation", in an underground cavern city behind fortified gates, in a natural hollow at the foot of the Great Canaat Mountains | The city sits in a cavern inside its own mountain shell, dressed like Lerfing's Canaat; the only way in is the white gate wall and a tunnel | world.md §D (fandom: Armed_Nation_of_Dwargon, Great_Canaat_Mountains) |
 | Neutral trade hub, open to dwarves, elves and humans | Market plaza with twelve stalls, shop signs along the streets, an outer road with lamp posts | world.md §D; [gamerbraves](https://www.gamerbraves.com/?p=75332) |
 | A big, busy city that can be dangerous for the careless | Dense multi-storey streets, back alleys, homes high in the walls | [thetvdb episode summary](https://www.thetvdb.com/series/that-time-i-got-reincarnated-as-a-slime/episodes/6843179) |
 | Travellers queue at the city gate and are inspected; Rimuru's scuffle just outside the gate lands him in a cell | Fenced queue lanes (in and out) and two guard booths with lecterns in front of the gate; road tower and checkpoint arch further out | [thetvdb](https://www.thetvdb.com/series/that-time-i-got-reincarnated-as-a-slime/episodes/6843179) (scuffle at the gate); queue and inspection *(unverified)* |
@@ -59,6 +59,30 @@ to `blueprints/assets/gazel_throne.nbt` and loaded with `from_structure` in `dwa
   PersistenceRequired and a dummy `Owner` so he is "tame": no boss bar or boss music (untamed he shows one in every
   dimension) and right-clicks do nothing (untamed, a click wakes him: phase 1, knockback). Tag `ttl_gazel`; a
   creative-mode hit can still wake him.
+
+## The mountain's palette (WP-L7a, TTL_DWARGON_VERSION 7)
+
+Source: Lerfing's map (design/architecture/lerfing-import.md §3.3), sampled on 19/11/2026 round the gate, x 1700..2040,
+z -760..-300 (21,120 columns, 2-block stride, top non-plant block per column). The Canaat there is not concrete (the
+grey concrete of the analysis lies in the far west, the Barren Lands): it is WorldPainter's grey cover, one material
+per patch about 7 blocks deep (mycelium: one block over dirt), then stone. The blueprint's shell uses the same blocks
+in the same proportions (`CANAAT_FLAT`, `CANAAT_SLOPE` in `blueprints/dwargon.py`, held by
+`tests/test_dwargon_palette.py`); the city interior, the gate wall, towers, road furniture and the throne room keep
+their own look.
+
+| Block | Gentle ground (apron, terraces, 59 %) | Sloping ground (the rest, 41 %) | Whole sample |
+| --- | --- | --- | --- |
+| gravel | 57.8 % | 21.2 % | 42.9 % |
+| clay | 5.1 % | 35.9 % | 17.6 % |
+| mycelium (over dirt) | 20.5 % | 0.6 % | 12.5 % |
+| tuff | 16.5 % | 1.0 % | 10.2 % |
+| cobblestone | 0.1 % | 17.8 % | 7.3 % |
+| stone | 0.1 % | 17.6 % | 7.2 % |
+| light gray terracotta | — | 5.8 % | 2.3 % |
+
+Replaced: banded sandstone, smooth sandstone, white and plain terracotta, the grass, moss, flowers and azalea bushes of
+the apron and its terraces, and the sandstone of the cavern wall mix (now cobblestone). Placer side: `TtlDwargon.BANDS`
+carries the same sloping-ground mix for the skirt and the fill under the build; the deep fill is stone.
 
 ## Style of Tensura's dwarf villages (for the city's houses)
 

@@ -1,0 +1,210 @@
+{
+ "source": "Lerfing's Tensura map, inner tiles, after tools/lerfing/import.py (status rename + biome repaint)",
+ "scale": 16,
+ "width": 1016,
+ "height": 784,
+ "origin_chunk": [
+  -504,
+  -376
+ ],
+ "origin_block": [
+  -8064,
+  -6016
+ ],
+ "pixel": "column = chunk x - -504, row = chunk z - -376; each pixel samples the 16 cell-centre columns of its chunk",
+ "landmask16.png": {
+  "type": "8-bit palette",
+  "classes": {
+   "0": "open sea (see split_water: reached from the outer edge through water > 4 px from land, plus 4 px of shore)",
+   "1": "lake or river (other water: Lake Siss, rivers and their mouths, ponds)",
+   "2": "land (>= 8 of 16 columns dry)",
+   "3": "missing chunk"
+  },
+  "counts": {
+   "0": 515178,
+   "1": 9467,
+   "2": 271899
+  }
+ },
+ "heights16.png": {
+  "type": "16-bit gray",
+  "value": "ground y + 64 (median of the 16 columns; the floor under water); 0 = missing",
+  "note": "16-bit because the Canaat summit is y 316"
+ },
+ "biomes16.png": {
+  "type": "8-bit palette",
+  "value": "index into biomes (0 = missing); most common surface biome of the 16 columns",
+  "biomes": [
+   {
+    "index": 1,
+    "id": "minecraft:deep_ocean",
+    "chunks": 434769,
+    "colour": [
+     20,
+     40,
+     110
+    ]
+   },
+   {
+    "index": 2,
+    "id": "minecraft:plains",
+    "chunks": 146738,
+    "colour": [
+     130,
+     190,
+     90
+    ]
+   },
+   {
+    "index": 3,
+    "id": "minecraft:ocean",
+    "chunks": 71458,
+    "colour": [
+     40,
+     70,
+     160
+    ]
+   },
+   {
+    "index": 4,
+    "id": "minecraft:snowy_plains",
+    "chunks": 27584,
+    "colour": [
+     240,
+     245,
+     250
+    ]
+   },
+   {
+    "index": 5,
+    "id": "minecraft:badlands",
+    "chunks": 21021,
+    "colour": [
+     205,
+     100,
+     50
+    ]
+   },
+   {
+    "index": 6,
+    "id": "minecraft:desert",
+    "chunks": 17640,
+    "colour": [
+     240,
+     210,
+     120
+    ]
+   },
+   {
+    "index": 7,
+    "id": "minecraft:river",
+    "chunks": 17594,
+    "colour": [
+     60,
+     110,
+     220
+    ]
+   },
+   {
+    "index": 8,
+    "id": "minecraft:stony_peaks",
+    "chunks": 16829,
+    "colour": [
+     150,
+     150,
+     150
+    ]
+   },
+   {
+    "index": 9,
+    "id": "tensura:barren_land",
+    "chunks": 10448,
+    "colour": [
+     110,
+     150,
+     140
+    ]
+   },
+   {
+    "index": 10,
+    "id": "minecraft:beach",
+    "chunks": 9983,
+    "colour": [
+     230,
+     215,
+     150
+    ]
+   },
+   {
+    "index": 11,
+    "id": "minecraft:jungle",
+    "chunks": 8838,
+    "colour": [
+     40,
+     160,
+     40
+    ]
+   },
+   {
+    "index": 12,
+    "id": "minecraft:forest",
+    "chunks": 4496,
+    "colour": [
+     60,
+     130,
+     50
+    ]
+   },
+   {
+    "index": 13,
+    "id": "minecraft:dark_forest",
+    "chunks": 4076,
+    "colour": [
+     40,
+     80,
+     30
+    ]
+   },
+   {
+    "index": 14,
+    "id": "minecraft:swamp",
+    "chunks": 3251,
+    "colour": [
+     80,
+     100,
+     60
+    ]
+   },
+   {
+    "index": 15,
+    "id": "minecraft:windswept_gravelly_hills",
+    "chunks": 1272,
+    "colour": [
+     120,
+     130,
+     120
+    ]
+   },
+   {
+    "index": 16,
+    "id": "tensura:ancient_forest",
+    "chunks": 379,
+    "colour": [
+     20,
+     50,
+     20
+    ]
+   },
+   {
+    "index": 17,
+    "id": "minecraft:mushroom_fields",
+    "chunks": 168,
+    "colour": [
+     190,
+     100,
+     190
+    ]
+   }
+  ]
+ }
+}

@@ -5,6 +5,9 @@
 # from killing it, but they still shove it: after 10 s it only has to be within 32 blocks). Any "ttl: ..." line is a failure. Check the biome too:
 # `ttlmap 271 -624` must say ring 'rim'.
 ttl arrival
+# Wild Tensura direwolves spawn on the safe rim round the arrival (three stood within 16 blocks of it on 19/11); their
+# attacks knocked the reborn bot 3 and 36 blocks off the point (test-all 10:49 and 12:19). Clear them first.
+execute in minecraft:overworld positioned 272 72 -623 run kill @e[type=tensura:direwolf,distance=..96]
 ttlbot spawn TtlBotArrival
 @sleep 2
 kill TtlBotArrival

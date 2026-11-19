@@ -34,7 +34,24 @@ mean placing v3 again and clearing v4, and a repo at v3 with staging at v4 would
 bosses, world included; the only failure was `build_repair`, a file of the not-yet-deployed PR #36 in my checkout).
 **PR #36 `placer-terrain-repair`** merged with `--no-ff` (conflicts: decisions.md kept every row, gen_data BUILD_KEYS
 beside + repair*, `_example.toml` both field docs, generated files and index regenerated); `repair.js` reads a chunk only
-when `getChunkNow` has it. Offline 169 unit tests OK, validation passed. Staging checks of the merge: see the next entry.
+when `getChunkNow` has it. Offline 169 unit tests OK, validation passed (`854089a`, pushed with `60d9d07`).
+**Staging after the merge**: `test build_repair` 0 failing (`repaired 57 foundation, 50 skirt, 28 lava (12 fills, 5 ticks,
+163 ms; depth 48, ring 8; 0 gaps run deeper, 0 columns not loaded)`), `test builds` 0 failing (void hut: 0/0/0, 151 ms).
+ttl-ops on `60d9d07`: 70/71 (`arrival`: the reborn bot stood 36 blocks from the arrival point 10 s later; passed twice
+alone right after; cause not found, nothing in the log moved it: watch it). My test-all 11:13-11:53: 69/71, `arena_dwarven`
+(wave-3 mobs knocked the bot out of the arena: "left the arena", result partial; also failed alone once) and
+`trial_vengeance` (RCON round trips took 15 s under load, the nemesis killed the bot before the test's kill: "faltered").
+Fixed in the tests: knockback resistance for the arena bot; the vengeance bot gets resistance, the test waits for the
+nemesis with `@until`, kills it at once and waits for `ttl.trial.passed`. Both pass alone after the fix. Note: `@until`
+retries log a `[ttl] ... command failed` line per failed attempt, so after a test run the log grep for `failed` shows
+those waits too (only the last reply counts).
+**Test-all 12:15-12:55 on `b13d7cd`**: 69/71: `arrival` (bot 3 blocks off right after rebirth) and `quests` (the Walpurgis
+leave took longer than the fixed 2 s). Causes: three wild `tensura:direwolf` stood within 16 blocks of the arrival point
+(272 -623) and attacked/knocked the bot (also the 10:49 "36 blocks" failure); walpurgis join/leave teleports are
+asynchronous. Fixed in the tests: arrival.rcon kills direwolves within 96 of the arrival first; quests.rcon and
+walpurgis.rcon wait with `@until` for in/out. All three pass alone. **Owner question**: wild direwolves (hostile) spawn
+right at the Life 2 arrival on the "safe rim": should the arrival get a hostile-spawn-free radius like Tempest and
+Wayfarer's Rest (`life/mortal_spawns.js`)? Not changed (gameplay decision).
 
 ## 19/11 night — overworld reset done: every build verified on the new world, terrain repaired by hand, test-all 70/70, pregen running (Claude)
 

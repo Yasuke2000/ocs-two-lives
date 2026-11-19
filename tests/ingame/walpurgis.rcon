@@ -27,12 +27,10 @@ ttl walpurgis expect TtlBotWalA allowed yes
 ttl walpurgis expect TtlBotWalB allowed no
 ttl walpurgis expect TtlBotWalA out
 ttl walpurgis tp TtlBotWalA
-@sleep 2
-ttl walpurgis expect TtlBotWalA in
+@until 20 ttl walpurgis expect TtlBotWalA in
 @sleep 5
 ttl walpurgis walk TtlBotWalA back
-@sleep 2
-ttl walpurgis expect TtlBotWalA out
+@until 20 ttl walpurgis expect TtlBotWalA out
 ttl walpurgis uninvite TtlBotWalA
 ttl walpurgis expect TtlBotWalA allowed no
 kubejs stages add TtlBotWalA ttl.story.hero

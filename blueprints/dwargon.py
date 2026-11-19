@@ -1,8 +1,8 @@
-"""The Armed Nation of Dwargon: the dwarf kingdom in a great cavern inside a pale sandstone mountain.
+"""The Armed Nation of Dwargon: the dwarf kingdom in a great cavern inside Lerfing's grey Canaat mountain.
 
 Lore notes and sources: design/lore/dwargon.md. SIZE (148, 92, 168), saved as three z slabs dwargon_0..2
 (z 0-55, 56-111, 112-167; PARTS) placed side by side by life/dwargon.js. The gate faces south (+z). The
-mountain is part of the build (stepped sandstone/terracotta massif, grass on its lower terraces, two spurs
+mountain is part of the build (a stepped massif in the Canaat's own surface mix, see CANAAT_*, two spurs
 flanking the gate); outside the mountain and the approach the corners are left empty and terrain stays.
 Grounding: outputs() writes generated/dwargon_footprint.js (lowest block per column, open-sky columns),
 which dwargon.js uses to fill the ground under the build and clear hills off the road (see there).
@@ -22,7 +22,7 @@ street (z 34-43) with Kaijin's smithy (west, z 34); then a great stair (z 30-33)
 (floor y 7, landing z 28-29) and King Gazel's throne room: Tensura's own Gazel Dwargo boss arena
 (blueprints/assets/gazel_throne.nbt, the dwarf_arena structure), its dais half (arena x 42-68) turned a quarter so
 the throne faces south, at x 49-99, y 1-27, z 0-26 behind a tuff facade with a great door (z 27, x 71-77). The
-arena's black glass shell became deepslate/tuff/stone (sandstone strata where it meets the open slope), the boss
+arena's black glass shell became deepslate/tuff/stone (the Canaat surface where it meets the open slope), the boss
 pit and its warp pads were left out, the bulbs' redstone blocks became rock (bulbs stay lit). Throne seat
 (74, 9, 11); dwargon.js seats Gazel there and restores the canon banner patterns. Chimneys smoke (campfires on
 hay). Every spawnable spot inside has block light (checked when this builds).
@@ -148,16 +148,57 @@ def in_cleft(x: int, y: int, z: int) -> bool:
     return abs(x - CX) <= hw
 
 
-BANDS = ["smooth_sandstone", "sandstone", "smooth_sandstone", "white_terracotta", "sandstone",
-         "smooth_sandstone", "terracotta", "smooth_sandstone", "sandstone", "white_terracotta"]
+# The mountain shell wears the surface of Lerfing's Canaat (WP-L7a, 19/11/2026). Measured on the real map
+# around the gate, x 1700..2040 z -760..-300 (21,120 columns, a 2-block stride, top non-plant block per column,
+# trees left out): the volcano is NOT concrete there but WorldPainter's grey cover, one material per patch
+# about 7 blocks deep (mycelium: 1 block over dirt), then stone. Gentle ground (neighbours within 1 block
+# at a 2-block stride) and sloping ground differ, so there are two mixes, in percent along the patch noise.
+# The apron in front of the gate and the gentle terraces take the first, the rest of the mountain the second.
+CANAAT_FLAT = (("tuff", 16.5), ("mycelium", 20.5), ("gravel", 57.8), ("clay", 5.1))
+CANAAT_SLOPE = (("mycelium", 0.6), ("tuff", 1.0), ("gravel", 21.2), ("clay", 35.9), ("cobblestone", 17.8),
+                ("stone", 17.6), ("light_gray_terracotta", 5.8))
+COVER = 6  # depth of the patch material under a gentle top (the map's 7 minus the top block)
 
 
-def outer_mat(x, y, z) -> str:
-    n = noise3(x, y, z, 5, 12)
-    if n > 0.8:
-        return M("stone") if n < 0.87 else M("andesite")
-    band = int((y + 6 * noise2(x, z, 18, 11)) // 4) % len(BANDS)
-    return M(BANDS[band])
+def _patch(x, z) -> float:
+    return fbm2(x, z, 14, 91, 3)
+
+
+def _quantiles(mix):
+    """Thresholds on the patch noise so each block gets exactly its share of the blueprint's columns
+    (value noise is not uniform, so a plain cut-off would skew the proportions)."""
+    values = sorted(_patch(x, z) for x in range(SX) for z in range(SZ))
+    total = sum(w for _, w in mix)
+    cuts, acc = [], 0.0
+    for name, w in mix:
+        acc += w
+        cuts.append((values[min(len(values) - 1, int(acc / total * len(values)))], name))
+    return cuts
+
+
+_CUTS: dict = {}
+
+
+def canaat_pick(x, z, flat: bool) -> str:
+    """The patch material of one column (a block name, mycelium included)."""
+    key = flat
+    if key not in _CUTS:
+        _CUTS[key] = _quantiles(CANAAT_FLAT if flat else CANAAT_SLOPE)
+    v = _patch(x, z)
+    for cut, name in _CUTS[key]:
+        if v <= cut:
+            return name
+    return _CUTS[key][-1][1]
+
+
+def canaat_block(name: str, top: bool) -> str:
+    """Mycelium is a one-block skin over dirt, every other patch material runs through."""
+    return M("mycelium" if top else "dirt") if name == "mycelium" else M(name)
+
+
+def outer_mat(x, y, z, top=None) -> str:
+    """Mountain surface block. `top` = the column's top y when the caller knows it (mycelium skin only there)."""
+    return canaat_block(canaat_pick(x, z, False), top is not None and y == top)
 
 
 def cave_mat(x, y, z) -> str:
@@ -165,7 +206,7 @@ def cave_mat(x, y, z) -> str:
     if rnd(x, y, z, 22) < 0.012:
         return M("glowstone") if rnd(x, y, z, 23) < 0.6 else M("shroomlight")
     return M("stone" if n < 0.32 else "andesite" if n < 0.5 else "dripstone_block" if n < 0.7
-             else "tuff" if n < 0.84 else "sandstone")
+             else "tuff" if n < 0.84 else "cobblestone")
 
 
 class City:
@@ -206,26 +247,14 @@ def terrain(c: City):
                 cleft_cols.add((x, z))
                 continue
             green = top <= G + 9 + 8 * noise2(x, z, 9, 15) and top - low <= 3
-            if y == top and green:
-                v = noise2(x, z, 5, 13)
-                state = M("moss_block") if v > 0.72 else M("coarse_dirt") if v < 0.2 else M("grass_block")
-            elif y >= top - 2 and green:
-                state = M("dirt")
+            if green and y >= top - COVER:
+                state = canaat_block(canaat_pick(x, z, True), y == top)
             elif y >= low - 1 or y == top:
-                state = outer_mat(x, y, z)
-            elif y >= low - 5:
-                state = M("sandstone")
+                state = outer_mat(x, y, z, top)
             else:
                 state = M("stone")
             bp.blocks[p] = state
             c.rock.add(p)
-        # A little growth on the gentle foot slopes.
-        if bp.blocks.get((x, top, z)) == M("grass_block") and top + 1 < SY:
-            v = rnd(x, top, z, 14)
-            if v < 0.25:
-                bp.blocks[(x, top + 1, z)] = M("short_grass")
-            elif v < 0.29:
-                bp.blocks[(x, top + 1, z)] = M("dandelion" if v < 0.27 else "poppy")
     # Re-texture the rock around the cavern; the cleft and the top of the crack show the outer strata.
     for (x, y, z) in cave:
         for n in ((x + 1, y, z), (x - 1, y, z), (x, y + 1, z), (x, y - 1, z), (x, y, z + 1), (x, y, z - 1)):
@@ -238,7 +267,7 @@ def terrain(c: City):
                     bp.blocks[n] = cave_mat(*n)
     for (x, y, z) in c.outside:
         for n in ((x + 1, y, z), (x - 1, y, z), (x, y + 1, z), (x, y - 1, z), (x, y, z - 1)):
-            if n in c.rock and bp.blocks[n] in (M("stone"), M("sandstone")):
+            if n in c.rock and bp.blocks[n] == M("stone"):
                 bp.blocks[n] = outer_mat(*n)
     # Cavern floor.
     for (x, y, z) in cave:
@@ -279,20 +308,13 @@ def approach(c: City, H: dict):
             for y in range(G):
                 if (x, y, z) not in bp.blocks or not mountain:
                     bp.set(x, y, z, M("stone") if y == 0 else M("dirt"))
-            v = noise2(x, z, 4, 70)
-            bp.set(x, G, z, M("coarse_dirt") if v < 0.18 else M("grass_block"))
+            bp.set(x, G, z, canaat_block(canaat_pick(x, z, True), True))
             c.rock.discard((x, G, z))
             top = max(G + 16, H.get((x, z), 0))
             for y in range(G + 1, min(top, SY - 1) + 1):
                 if (x, y, z) not in bp.blocks or not mountain:
                     bp.set(x, y, z, AIR)
                     c.outside.add((x, y, z))
-            if bp.blocks[(x, G, z)] == M("grass_block"):
-                r = rnd(x, G, z, 71)
-                if r < 0.22:
-                    bp.set(x, G + 1, z, M("short_grass"))
-                elif r < 0.26:
-                    bp.set(x, G + 1, z, [M("poppy"), M("dandelion"), M("cornflower"), M("oxeye_daisy")][int(r * 100) % 4])
     # Road from the south edge to the gate, with an apron in front of the gate.
     for z in range(GATE_Z + 3, SZ):
         mid = CX if z < GATE_Z + 12 else CX + round((noise2(0, z, 10, 72) - 0.5) * 4)
@@ -319,14 +341,14 @@ def approach(c: City, H: dict):
             continue
         for dx in (0, 1):
             for dz in (0, 1):
-                bp.set(bx + dx, G + 1, bz + dz, M("sandstone") if (dx + dz + i) % 3 else M("stone"))
-        bp.set(bx, G + 2, bz, M("smooth_sandstone"))
+                bp.set(bx + dx, G + 1, bz + dz, M("cobblestone") if (dx + dz + i) % 3 else M("stone"))
+        bp.set(bx, G + 2, bz, M("tuff"))
     for i, (bx, bz) in enumerate(((CX - 18, GATE_Z + 13), (CX + 20, GATE_Z + 16), (CX + 13, GATE_Z + 29), (CX - 27, GATE_Z + 22), (CX + 26, GATE_Z + 31),
                                      (CX - 16, GATE_Z + 39), (CX + 32, GATE_Z + 52), (CX - 24, GATE_Z + 58), (CX + 18, GATE_Z + 45))):
         if (bx, bz) in H:
             continue
         for dx, dz, dy in ((0, 0, 1), (1, 0, 1), (0, 1, 1), (-1, 0, 1), (0, -1, 1), (0, 0, 2)):
-            bp.set(bx + dx, G + dy, bz + dz, M("oak_leaves[persistent=true]") if i % 2 else M("azalea_leaves[persistent=true]"))
+            bp.set(bx + dx, G + dy, bz + dz, M("oak_leaves[persistent=true]") if i % 2 else M("spruce_leaves[persistent=true]"))
 
 
 EMBLEMS = {
@@ -922,7 +944,7 @@ def _rotate(state: str) -> str:
 
 
 def shell_rock(x, y, z, exposed: bool) -> str:
-    """The arena's void-facing glass becomes the mountain: deepslate/tuff/stone, sandstone strata outside."""
+    """The arena's void-facing glass becomes the mountain: deepslate/tuff/stone, the Canaat surface outside."""
     if exposed:
         return outer_mat(x, y, z)
     n = noise3(x, y, z, 5, 81)
