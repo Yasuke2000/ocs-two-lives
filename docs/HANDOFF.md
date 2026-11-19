@@ -1,5 +1,18 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 evening — NPC weapons and self-defence (branch `npc-gear-ai`, Claude)
+
+Yasuke: the Tempest guards and the NPCs had no weapons and did not defend themselves. `design/data/npc_gear.toml` (roles:
+items + ai), `tools/npc_gear_check.py`, `world/npc_gear.js` (resident equipment, guard loop, drop filter, `/ttl npcgear`).
+Tempest goblins were summoned with NBT, so Tensura never armed them; now guards hold iron katanas, Rigur a long sword and
+shield, Gobta a kodachi, Rigurd a goblin club, and the guards are set on monsters near their post through their
+SmartBrainLib brain (`BrainUtils.setTargetOfEntity`, falls back to `setTarget`). Easy NPC adventurers fight
+(MELEE_ATTACK, ATTACK_MOB_WITHOUT_CREEPER, HURT_BY_TARGET), merchants and civilian clients flee (FLEE_MONSTER, PANIC).
+**Verified offline only** (check.sh, `tests/test_npc_gear.py`). **Needs a local-server slot**: `bash tools/local.sh test
+npc_defend` (and `domains`, `companions`, `sidequests`). Unverified in game, in order of risk: the brain target on Tensura
+goblins (if the husk survives, look for the "BrainUtils cannot be loaded" warning); `EntityEvents.drops` firing for a
+goblin (the katana check); Easy NPC reading HandItems from the preset (`equipSide` sets them anyway after the import).
+
 ## 19/11 evening — Tensura looks for the generic NPCs (branch `tensura-npc-skins`, Claude)
 
 Yasuke: the generic NPCs (Hald, Marlo, ...) wore Easy NPC's default modern skins. Now `tools/npc_looks.py` (catalogue,

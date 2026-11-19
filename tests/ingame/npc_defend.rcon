@@ -1,0 +1,48 @@
+# NPC weapons and self-defence (world/npc_gear.js, design/data/npc_gear.toml; gen_npcs.py writes the Easy NPC side).
+# Every `ttl npcgear expect` prints "ttl: ..." when it does not hold; `execute unless entity` prints "Test failed".
+# Needs Tempest placed (life/tempest.js, version 3) at the `tempest` anchor (tests/anchors.env), like domains.rcon: the
+# green at (0, -7) from its centre, the unnamed goblin goblin_3 at (23, -29), Rigur at (22, -38), Haruna at (15, -32).
+# Checked: the residents hold their role's items (guard katana, captain sword and shield, healer empty hands); a husk
+# beside a guard dies; a C-rank adventurer (Easy NPC preset ttl_adv_veteran_knight) holds sword and shield and kills a husk
+# on the green (more than guard_radius from every post, so no goblin helps); a killed guard drops no katana.
+# Expect in the log: "[ttl] domains: resident goblin_3 came back at 23 ...".
+# Verify in game (not asserted): guards never start on a player; a soul that hits a killable resident is fought back by
+# Tensura's own AI; merchants and escort clients run from monsters (FLEE_MONSTER, PANIC).
+execute in minecraft:overworld run forceload add ${anchor:tempest.x-16} ${anchor:tempest.z-48} ${anchor:tempest.x+47} ${anchor:tempest.z}
+@sleep 3
+ttl domain respawn
+ttl npcgear refresh
+# Gear per role.
+@until 20 ttl npcgear expect hand goblin_3 main tensura:iron_katana
+ttl npcgear expect hand rigur main tensura:iron_long_sword
+ttl npcgear expect hand rigur off minecraft:shield
+ttl npcgear expect hand gobta main tensura:iron_kodachi
+ttl npcgear expect hand rigurd main tensura:goblin_club
+ttl npcgear expect hand haruna main empty
+# A guard defends its post: a husk (no sunburn) three blocks from goblin_3 is dead within 40 s.
+kill @e[type=minecraft:husk,tag=ttl.test.defend]
+execute in minecraft:overworld at @e[tag=ttl.resident.goblin_3,limit=1] run summon minecraft:husk ~3 ~ ~ {Tags:["ttl.test.defend"],PersistenceRequired:1b}
+ttl npcgear guards
+@until 40 ttl npcgear expect gone ttl.test.defend
+# An adventurer fights a monster too, with its role's sword and shield.
+ttl npcgear testclear
+execute in minecraft:overworld positioned ${anchor:tempest.x} 0 ${anchor:tempest.z-7} positioned over motion_blocking_no_leaves run ttl npcgear testspawn veteran_knight ~ ~ ~
+ttl npcgear expect hand test:veteran_knight main minecraft:iron_sword
+ttl npcgear expect hand test:veteran_knight off minecraft:shield
+execute in minecraft:overworld positioned ${anchor:tempest.x} 0 ${anchor:tempest.z-7} positioned over motion_blocking_no_leaves run summon minecraft:husk ~3 ~ ~ {Tags:["ttl.test.defend2"],PersistenceRequired:1b}
+@until 40 ttl npcgear expect gone ttl.test.defend2
+ttl npcgear testclear
+# A killed guard drops none of its gear (Tensura drops every equipment slot; world/npc_gear.js filters the drops).
+execute in minecraft:overworld run kill @e[type=minecraft:item,x=${anchor:tempest.x+7},y=-64,z=${anchor:tempest.z-45},dx=32,dy=400,dz=32]
+ttl domain testdelay 5
+kill @e[type=tensura:goblin,tag=ttl.resident.goblin_3]
+@sleep 1
+execute in minecraft:overworld unless entity @e[type=minecraft:item,x=${anchor:tempest.x+7},y=-64,z=${anchor:tempest.z-45},dx=32,dy=400,dz=32,nbt={Item:{id:"tensura:iron_katana"}}]
+@sleep 15
+ttl domain respawn
+@until 20 ttl npcgear expect hand goblin_3 main tensura:iron_katana
+ttl domain testdelay reset
+# Clean up.
+kill @e[type=minecraft:husk,tag=ttl.test.defend]
+kill @e[type=minecraft:husk,tag=ttl.test.defend2]
+execute in minecraft:overworld run forceload remove ${anchor:tempest.x-16} ${anchor:tempest.z-48} ${anchor:tempest.x+47} ${anchor:tempest.z}

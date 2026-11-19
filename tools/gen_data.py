@@ -2516,6 +2516,9 @@ def render() -> dict[Path, str]:
         check_arenas(data["arenas"], data.get("bosses"))
     if "world" in data:
         check_world(data["world"], data)
+    if "npc_gear" in data:
+        from npc_gear_check import check_npc_gear  # noqa: E402 (tools/ is on sys.path above)
+        check_npc_gear(data["npc_gear"])
     if "sidequests" in data:
         from sidequests_check import check_sidequests  # noqa: E402 (tools/ is on sys.path above)
         check_sidequests(data["sidequests"], data)
