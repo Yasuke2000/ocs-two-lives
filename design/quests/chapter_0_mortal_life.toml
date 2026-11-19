@@ -11,8 +11,8 @@
 # delving, roads_ruins, folk, arts, nether_road, end_road, a_life_that_counts: files chapter_0a ... chapter_0j). They sit at orders
 # -10..-1 and this chapter at -11, so the whole of Life 1 comes before the Life 2 chapters without renumbering them.
 #
-# Layout: `lane` is the row (negative = above the main line); the column is the deepest dependency + 1
-# unless `col` is given. Two quests on the same spot is an error.
+# Layout: generated (tools/quest_layout.py, design/quests.md "Layout"); the `lane`/`col` lines below are the old hand layout
+# and are ignored. `pin = [x, y]` fixes one quest's spot.
 
 [chapter]
 key = "mortal_life"

@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "fields"
-	group: ""
+	group: "089866DB8636BACD"
 	icon: {
 		count: 1
 		id: "minecraft:wheat"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"522F16F19507224C": false
+			}
 			dependencies: [
 				"522F16F19507224C"
 			]
@@ -95,7 +98,7 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -130,10 +133,13 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"0FFFE97BBDA23025": false
+			}
 			dependencies: [
 				"21C4013E065B227E"
 				"0FFFE97BBDA23025"
@@ -176,8 +182,8 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
-			y: 1.5d
+			x: 4.0d
+			y: -1.5d
 		}
 		{
 			dependencies: [
@@ -221,8 +227,8 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
-			y: -1.5d
+			x: 4.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -256,8 +262,8 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
-			y: -3.0d
+			x: 4.0d
+			y: 3.0d
 		}
 		{
 			dependencies: [
@@ -296,7 +302,7 @@
 					type: "advancement"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: -1.5d
 		}
 		{
@@ -342,10 +348,13 @@
 					value: 10
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 1.5d
 		}
 		{
+			dep_line_visibility: {
+				"78E241CB36B19CE3": false
+			}
 			dependencies: [
 				"78E241CB36B19CE3"
 			]
@@ -377,10 +386,13 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
-			y: -4.5d
+			x: 4.0d
+			y: 4.5d
 		}
 		{
+			dep_line_visibility: {
+				"78E241CB36B19CE3": false
+			}
 			dependencies: [
 				"78E241CB36B19CE3"
 			]
@@ -422,8 +434,8 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
-			y: 4.5d
+			x: 0.0d
+			y: 7.5d
 		}
 		{
 			dependencies: [
@@ -481,8 +493,8 @@
 					value: 1
 				}
 			]
-			x: 4.5d
-			y: -3.0d
+			x: 6.0d
+			y: 4.5d
 		}
 		{
 			dependencies: [
@@ -517,8 +529,8 @@
 					type: "advancement"
 				}
 			]
-			x: 4.5d
-			y: -4.5d
+			x: 6.0d
+			y: 3.0d
 		}
 		{
 			dependencies: [
@@ -552,7 +564,7 @@
 					type: "item"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
@@ -613,7 +625,7 @@
 					type: "item"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 0.0d
 		}
 		{
@@ -650,10 +662,18 @@
 					type: "advancement"
 				}
 			]
-			x: 3.0d
-			y: 3.0d
+			x: 6.0d
+			y: 1.5d
 		}
 		{
+			dep_line_visibility: {
+				"223D5908F2639057": false
+				"360847E3AB660F98": false
+				"36CA793DF8F0E397": false
+				"45F8FC6706DF4F4F": false
+				"52EC32EBD77A5F6A": false
+				"7C7AC7C8446F66E0": false
+			}
 			dependencies: [
 				"36CA793DF8F0E397"
 				"223D5908F2639057"
@@ -697,7 +717,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: 0.0d
 		}
 	]

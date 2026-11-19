@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "nether_road"
-	group: ""
+	group: "089866DB8636BACD"
 	icon: {
 		count: 1
 		id: "minecraft:crimson_nylium"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"5F1A8DCF7C0E73A4": false
+			}
 			dependencies: [
 				"5F1A8DCF7C0E73A4"
 			]
@@ -96,8 +99,8 @@
 					type: "biome"
 				}
 			]
-			x: 1.5d
-			y: -1.5d
+			x: 2.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -142,7 +145,7 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -188,8 +191,8 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
-			y: 1.5d
+			x: 2.0d
+			y: 3.0d
 		}
 		{
 			dependencies: [
@@ -224,7 +227,7 @@
 					type: "structure"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 0.0d
 		}
 		{
@@ -271,10 +274,13 @@
 					type: "advancement"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"106940F54EF8B23F": false
+			}
 			dependencies: [
 				"106940F54EF8B23F"
 				"5519CECDD67BEDC0"
@@ -321,8 +327,8 @@
 					value: 1
 				}
 			]
-			x: 4.5d
-			y: -1.5d
+			x: 6.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -358,8 +364,8 @@
 					type: "advancement"
 				}
 			]
-			x: 3.0d
-			y: -3.0d
+			x: 4.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -394,8 +400,8 @@
 					type: "item"
 				}
 			]
-			x: 1.5d
-			y: 3.0d
+			x: 2.0d
+			y: -1.5d
 		}
 		{
 			dependencies: [
@@ -435,10 +441,13 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
-			y: 3.0d
+			x: 4.0d
+			y: -1.5d
 		}
 		{
+			dep_line_visibility: {
+				"5A428C02809011D3": false
+			}
 			dependencies: [
 				"0E25F2B8A0455B10"
 				"5A428C02809011D3"
@@ -487,10 +496,13 @@
 					type: "item"
 				}
 			]
-			x: 4.5d
-			y: 3.0d
+			x: 6.0d
+			y: -1.5d
 		}
 		{
+			dep_line_visibility: {
+				"59A17C1D26897630": false
+			}
 			dependencies: [
 				"59A17C1D26897630"
 			]
@@ -524,10 +536,14 @@
 					type: "structure"
 				}
 			]
-			x: 3.0d
+			x: 8.0d
 			y: 1.5d
 		}
 		{
+			dep_line_visibility: {
+				"6393057B0136AB75": false
+				"7AF1B198048D79AD": false
+			}
 			dependencies: [
 				"58AA1E63ACF93062"
 				"000953FD111E508C"
@@ -571,7 +587,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 0.0d
 		}
 	]

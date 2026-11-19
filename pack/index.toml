@@ -1045,116 +1045,120 @@ file = "config/ftbchunks-world.snbt"
 hash = "c6da17dedd636e6d74dabcb6a3287d3c33ee77c403c94f84c2a70c3a80de50f0"
 
 [[files]]
+file = "config/ftbquests/quests/chapter_groups.snbt"
+hash = "4c870cf2d82b03ed7bc58fb313838609a756575d61d4dd43c2aff986eccec318"
+
+[[files]]
 file = "config/ftbquests/quests/chapters/a_life_that_counts.snbt"
-hash = "719429b36de548e95fab73fdd4180674351fdd656467e3185cc5b77be79c2d4a"
+hash = "13a29a46205e984cfe23038fe742e420913c499ee038606bac6b0f9c2087f396"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/armed_nation.snbt"
-hash = "0c1cc4eddf3be26f3417230db33015dddf9aaa609648a0f95d9edce6dbaf9e72"
+hash = "7a4c380a048317f759ebdb74a10465cf2bb8f36e4a3ed9033243d124d1185798"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/arts.snbt"
-hash = "a7bc0a75bd2489803ff223448b755359e8aff2a33cd3d9d38de57590f0657ab1"
+hash = "d098c69422297d7edf0145cedfebd160ebe3d1750c70e9d99fbcf5035cd9cb29"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/crossroads.snbt"
-hash = "7879f58023d0d0dc0646e89a52b4c1e621300bd6f076f7717b2e512eaa8288ca"
+hash = "427a85a2f047bad7fecafd29e92c6fa11884f321a1253089fda08166997e1a37"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/daily_deeds.snbt"
-hash = "8f8c68fd141e126e3bc285f77d3592a5e4401206829a23bf11ce85bd6b2fe092"
+hash = "47acc0dde500ee205f83eb48634895487b802cbfbd82087d9f97464037b0db08"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/daily_jura.snbt"
-hash = "9fbc161cf7b9fe76ee5b026ed4f6789d81cfa6bb3ad50c2badf41e51522ae64d"
+hash = "939e682ba18437595bda8ac9a035fcbe032b2a51a8b0ba553a032e915f7b7ca1"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/delving.snbt"
-hash = "9d5e0529f769ca57900136d4d2c0e1ee16e82d1e866297065c5490dd8b54bc29"
+hash = "86d670234d2662436093b134681008a047500159c79395820885a958fd7780df"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/end_road.snbt"
-hash = "fd2df85f1dfc80ff1bab6fe5c1663488618b8793fb36af2e65bf25d9257e76b4"
+hash = "b5ede1a7fc00f71c395187d66d38fb4eb31821e6f6ea7bcd47d88597062c6d4e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/fields.snbt"
-hash = "f13e392025c4d122518555d63e7ff751a3d52002371bb7ccbe0b3cea3d8ea76b"
+hash = "52ead6d057a28c8d56532d4c26d35e3b585753f7f05b2b62dbc060c462af5510"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/first_days.snbt"
-hash = "1b84305969e0dd504d4bdb2714c25027f3f306bf799a94814e2de7f5d4df55a6"
+hash = "0d031ca912a2875d4e292780ebd55138659f32a1527c4e626accbd2cfda15ae2"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/folk.snbt"
-hash = "079e1b88e7825cac34865eb73679916b054d26b05ebcb955bf9503a9a70563d0"
+hash = "75c30535579aa1ddaa665612ab79656a7535bf1e3f8ec5f5bab31c45d9d280ff"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/harvest_festival.snbt"
-hash = "2fa2211c38134b42b272c239da971c6b36c77275c69874365d9a21db7ea1190a"
+hash = "7260d374aaee8840e62d18c35801a75dc38d1f9795ba962b0ba6602d73f8b6b8"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/homestead.snbt"
-hash = "cc4ce834e136768f328454884d35d042cad3627ebf3e56fee52dbb92cbd42459"
+hash = "4b0c90b2c37bdb9640c2fbd91f04835aa3899776a6d4fa2cd9179a0b3b291cdd"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/kings_test.snbt"
-hash = "528981036bb88b0f96c64c158613606a9b9a7fbe7d91b4f7398068d791fc09c6"
+hash = "8488cdfef246de4d7c2235c7addd1f2587f0a6814426db7f27ab9ef08b085ced"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mask_and_blade.snbt"
-hash = "8d58dda259e202bee77a3585e96681e40a80db3080aa4df12477a3997228cd5a"
+hash = "302eac1bb80f2636f87bb77a451a87dab7072297fc82e72b195dbb530cde51e5"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mortal_life.snbt"
-hash = "7e1664bcaf900d6a4d73df3d43a75ffb81b436ede641dd5f013a97eb347e3384"
+hash = "517b8fb780c7a55cfbf19ef25f46511314b7c07a96d566bf7f35dbfd01044b9f"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/nether_road.snbt"
-hash = "2cd2bffe56234cbda0d2013e06b437f2d3a12b6255262f58aa469909101354e1"
+hash = "c370c6c2a663c754ba57cb5749986816d39291e946aca3dba0e5a46359c00d2d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/orc_lord.snbt"
-hash = "8083512206c0b316d610112098071970cca8b4fd1fc777477d71fc7d58d0f886"
+hash = "3f60549cd896cf89f0ff1bf22deeba377896f210d8abb002878e4df8f88353cd"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/puppet_master.snbt"
-hash = "d17ebc216331b07d6ffea86898f739d203ba25890c3b36d83e326815130f7b27"
+hash = "3993daa80e7bbf813abc3a2d2f1fc8afa517507e3d3416bef8b3fcfd81828e5d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/reborn.snbt"
-hash = "9ff0bb7639f402bc9ca0af5e9ac7732ab75d9db09500ff7e0680a3f9f57604c1"
+hash = "c1dad9a2e0de1a422ca2ed8d34959e197dd5a7f6a4ec95535b6df09e87f58674"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/roads_ruins.snbt"
-hash = "afab704c612852beb3175ac4e3c1d30b504b9317db16d23e34268483cff11f2e"
+hash = "6bc5d3d0c3b2230c84961e300d0fda55a407884bf6f615503adcd1162d297b18"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/side_dwargon.snbt"
-hash = "cfa0d8a00e14c4ff353f568e396371f598ba36c79eebf7744f310d3bd4ca4e7e"
+hash = "a5a107d85369969d5134fee11b144089e6a78a7ce22ca1ec1c7fcc09aa467ccf"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/side_guild.snbt"
-hash = "d896bb9fbffa2a593c6b2e2f856a1ecaf89f80faa75fd5ffb5745f1ead10f340"
+hash = "3e834761447f78cc65865628c4f6c182cf8e2b65b1c16d3ed39af217dba253aa"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/side_jura.snbt"
-hash = "a599a54ad1135c5318643963d41aeddc12337f918d7ae60dea859e6c3bdcb8e1"
+hash = "7ab294c3c998b36732013acf2598da72f609d88b4a97585b3dfe93ec9ecd2450"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/side_roads.snbt"
-hash = "85276b0489f95cb4d2a0b648fe717810ae4780fa6c99b11a1d1e438b9ee9fec0"
+hash = "f66106f9213ea47aef17fbdfb67548c403835757e7e805d2659d22942a7423ed"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tempest_rises.snbt"
-hash = "20af03031abc364b7a7ba455eaa4fd75bc4b861946f4252f6f1da8f2918a2a2b"
+hash = "9e5c3c0b5efb8c1bbcb4d1bbdfbc9a8f9b14b39d8db0dbb09d23aeb699fbade5"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/two_hundred_thousand.snbt"
-hash = "501e589449a44b51c4b7396425b33613aef0c45442d34e6dda54acaeceed67f8"
+hash = "e1947083a02f593a6eab874f62054ea68e326a29f407e3377b49a48ba95fb2c2"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/whirlpool.snbt"
-hash = "7d0e70689743241c5c7d877a82d0842e0a899f88fd92bfe1418cda000d740fdb"
+hash = "2d27f21a56ec5333d422afcc2a500fbfe195e25cd0c81960747a3bb2833f900e"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
@@ -1162,7 +1166,11 @@ hash = "fa792420b8546bafa3673aa2aac7dc21cac295c6038694d0b45c9b50ef692304"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "cd5e90bc268d2eae5999ddde9ba8ab004dcc170abfe1e7e184b7b158260e2e0f"
+hash = "0d672c4f76dc9a9beb9dd1365920ed2f19b56462b024b741d3835f755b4ce9bd"
+
+[[files]]
+file = "config/ftbquests/quests/lang/nl_nl.snbt"
+hash = "2851eeeb24053d5abc90292bbc118a45f389c8b7c7b350c8fc808e8c92bf45a8"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
