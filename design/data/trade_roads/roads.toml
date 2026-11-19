@@ -1,0 +1,52 @@
+# Trade roads between the canon nations on Lerfing's map (life/trade_roads.js). Each [<id>] is one road: where it
+# starts and ends (anchors.toml ids + offsets), the stops it passes, its width and materials. The path itself is
+# planned offline by `python -I tools/lerfing/trade_roads.py plan <id> --world <import dir>` (a terrain-following
+# search on the 1:16 rasters, refined on the imported world's exact columns) and checked in as
+# design/data/trade_roads/<id>.json; tools/gen_placements.py turns both into generated/placements.js (TtlPlacementData).
+# A road is laid once (persistentData ttl.troad.<id>.version = version); bump version to lay it again (the new path
+# over the old one; the old surface stays where the path moved).
+#
+# Keys per road:
+#   title, notes        what it is, the lore behind it
+#   from, to            { anchor = "<id>", dx = n, dz = n }: the two ends; to_y = the exact surface y at the end
+#                       (Dwargon's own road block), from_y likewise (optional)
+#   via                 [{ anchor, dx, dz }]: stops the road passes on the way, in order
+#   avoid               [{ anchor, r }]: discs the path keeps out of (placed landmarks whose box is not known offline)
+#   half                road half-width in blocks (columns within `half` of the centre line are paved: 4-5 wide at 2)
+#   max_grade           steepest rise per horizontal block of the finished surface (0.5 = 1 block in 2: every rise gets a slab, so it walks without jumping)
+#   lantern_every       a fence post with a lantern every n blocks along the road (alternating sides; 0 = none)
+#   stone_from          [x0, z0, x1, z1] boxes where the surface is stone (the Canaat apron below Dwargon)
+#   surface, stone      { "<block id>" = weight }: the road surface in Jura and on the stone stretch
+#   bridge              deck, railing and pillar blocks of the wooden bridges (decks 2 above the water)
+
+[tempest_dwargon]
+title = "The Dwarven Road (Tempest - Dwargon)"
+notes = "After the trade treaty with King Gazel, Tempest builds a paved road north to the Armed Nation of Dwargon (light novel vol. 2-3, anime season 1). It starts at the early village's north edge (the town's north gate at 0, -66 will stand on it, tempest_growth.md), runs up Jura's long valley past Lerfing's wood north of Tempest, passes the Life 2 arrival on Jura's rim (the souls walk it south) and climbs the Canaat apron to Dwargon's checkpoint road. The dwarf village stands east of it (our interpretation of the route; the canon road is not mapped)."
+from = { anchor = "tempest", dx = 0, dz = -58 }
+to = { anchor = "dwargon", dx = 0, dz = 47 }
+to_y = 145
+via = [{ anchor = "arrival", dx = 30, dz = 0 }]
+avoid = [{ anchor = "dwarf_village", r = 132 }, { anchor = "dwarven_arena", r = 60 }, { anchor = "wayfarers_camp", r = 14 }]
+half = 2
+max_grade = 0.5
+lantern_every = 40
+stone_from = [[1600, -700, 2100, -240]]
+version = 1
+
+[tempest_dwargon.surface]
+"minecraft:dirt_path" = 70
+"minecraft:gravel" = 12
+"minecraft:coarse_dirt" = 10
+"minecraft:cobblestone" = 8
+
+[tempest_dwargon.stone]
+"minecraft:cobblestone" = 35
+"minecraft:stone" = 20
+"minecraft:andesite" = 15
+"minecraft:tuff" = 15
+"minecraft:gravel" = 15
+
+[tempest_dwargon.bridge]
+deck = "minecraft:spruce_planks"
+railing = "minecraft:spruce_fence"
+pillar = "minecraft:spruce_log"

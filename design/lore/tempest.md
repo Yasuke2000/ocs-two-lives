@@ -88,6 +88,16 @@ Tempest's arrival point (blueprint (45, 5, 57), the south edge of the village gr
 `TtlTempest.LANDMARK` in `life/tempest.js` reads it. Tempest is no longer the Life 2 world spawn: souls are reborn on the
 rim at (1660, −100), 1,000 blocks north, and walk the road south.
 
+**The forest and the road** (owner 19/11/2026: "this should be in the middle of a forest"; "there is also no road to
+Dwargon?"). Lerfing painted the land round Tempest as open grass (tree cover 15 % at r 110..200), and Tensura's
+ancient-forest trees are structures that the import never generated. `life/forests.js` plants a dense ring r 60..250 once
+(Tensura's giant ancient-forest trees, dark oak and spruce between them; 55 % canopy at r 110..250), outside a square
+clearing of ±110 that holds the village, the town and the city boxes with their margins: Tempest stands in a clearing
+deep in the forest, as canon. The Dwarven Road (`life/trade_roads.js`) leaves the village's north edge at (1720, 842),
+where the town's north gate (0, −66) will stand, and runs 1,478 blocks to Dwargon's gate. We kept the anchor: no spot
+within 300 blocks is a clearly better canon clearing (Lerfing's denser wood 260 N has no river and lies outside the
+deadly core), and moving Tempest would move its quests, bosses, domain and tests. Details in [world.md](world.md) §J.
+
 **The ground under it** (`python -I tools/lerfing/jura_check.py`, exact columns of the imported world at 2-block steps,
 terrain-fit margin 8 included; 19/11/2026):
 

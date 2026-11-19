@@ -437,6 +437,17 @@ subs = [
   ["where", "staff", "Where a landmark was placed."],
 ]
 
+[works]
+group = "builds"
+who = "staff"
+does = "One-time world works on Lerfing's map: the planted forests (Tempest, Treyni) and the trade roads (the Dwarven Road), placed once after the builds."
+subs = [
+  ["list", "staff", "Every forest and road with its state (planted / laid, or the piece it resumes at)."],
+  ["run", "staff", "Queue a forest or road (`<kind> <id>`); with force, again over what is there."],
+  ["expect", "test", "Assert a forest planted (at least n giants), a road laid, or the road surface at an arc length."],
+  ["where", "staff", "Position and tp command of a road at an arc length."],
+]
+
 [chunks]
 group = "builds"
 who = "staff"

@@ -1,0 +1,89 @@
+# Planted forests on Lerfing's map (life/forests.js). Each [<id>] is one patch: a ring round an anchor planted once
+# with Tensura's own ancient-forest trees (the jigsaw pieces of tensura:ancient_forest/tree, placed as templates) and
+# vanilla tree features as the understory. Why: Tensura's ancient forest grows its trees as STRUCTURES, and the import
+# counts every structure step of Lerfing's proto chunks as done, so tensura:ancient_forest round Tempest populated with
+# grass, ferns and mushrooms but not one tree (design/lore/world.md, Jura).
+#
+# The tree spots are planned offline: `python -I tools/lerfing/forests.py plan <id> --world <import dir>` writes
+# design/data/forests/<id>.json (dry soil only: no water, sand, beach or rock; clear of the boxes and lanes below, the
+# trade roads, Lerfing's keepouts, Tempest's and Dwargon's boxes). tools/gen_placements.py turns both into
+# generated/placements.js. At runtime every tree is checked again on the live terrain (soil, slope, recorded build and
+# landmark boxes) before it is planted; a patch is planted once (persistentData ttl.forest.<id>.version = version).
+#
+# Keys per patch:
+#   title, notes      what and why
+#   centre            anchors.toml id the rings are measured from
+#   inner, outer      the ring (blocks); giants_outer: giant trees only inside this radius
+#   giant_spacing     least distance between two giant trunks; understory_spacing likewise for the understory
+#   seed              the planner's random seed (a re-plan with the same seed and terrain gives the same spots)
+#   clear             [{ anchor, x0, z0, x1, z1, why }]: boxes relative to an anchor kept free of trees (whole crowns)
+#   keep_clear        [{ build | landmark = "<name>", pad, offline = [x0, z0, x1, z1] }]: a placed build's or landmark's
+#                     recorded box + pad stays free of crowns; `offline` = the box the planner assumes (its staging
+#                     reading), the runtime uses the recorded one
+#   lanes             [{ build, side, toward, length, half, offline = [x0, z0, x1, z1] }]: a lane `half` wide from the
+#                     middle of the build box's `side` towards an anchor, `length` long, free of trunks (the approach path)
+#   road_gap          trunks stay this far beyond a trade road's edge (giants: plus their trunk radius)
+#   giants, understory  { "<template or configured feature id>" = weight }
+
+[tempest]
+title = "The Forest of Jura round Tempest"
+notes = "Canon: Tempest was founded in a clearing deep in the Forest of Jura, by a river (LN vol. 1-2). Lerfing painted Jura as open grass round Tempest; the ring 60-250 is planted dense, outside Tempest's village, town and city boxes. Giants in the ancient-forest core (r < 200 + the band edge), dark oak and spruce between them."
+centre = "tempest"
+inner = 60
+outer = 250
+giants_outer = 235
+giant_spacing = 26
+understory_spacing = 6
+seed = 1720900
+road_gap = 3
+version = 1
+clear = [{ anchor = "tempest", x0 = -110, z0 = -110, x1 = 110, z1 = 110, why = "the city box (+-95 round the arrival) + terrain margin 8 + a 7-block clearing: Tempest grows into it" }]
+keep_clear = [{ build = "spirit_gate", pad = 6, offline = [1518, 1106, 1590, 1178] }]
+
+[tempest.giants]
+"tensura:ancient_forest/ancient_forest_tree_1" = 1
+"tensura:ancient_forest/ancient_forest_tree_2" = 1
+"tensura:ancient_forest/ancient_forest_tree_3" = 1
+"tensura:ancient_forest/ancient_forest_tree_4" = 1
+"tensura:ancient_forest/ancient_forest_tree_5" = 1
+"tensura:ancient_forest/ancient_forest_tree_6" = 1
+
+[tempest.understory]
+"minecraft:dark_oak" = 40
+"minecraft:mega_spruce" = 25
+"minecraft:fancy_oak" = 20
+"minecraft:super_birch_bees_0002" = 10
+"minecraft:mega_pine" = 5
+
+[treyni]
+title = "Treyni's old wood (the dryad's shrine)"
+notes = "Treyni is the dryad guardian of the Forest of Jura; her shrine and the grove's ancient tree stand deep in old, dense forest (owner 19/11/2026). Ring 25-180 round the shrine, the shrine's and the tree's boxes and the shrine's west approach kept clear."
+centre = "treyni_shrine"
+inner = 25
+outer = 180
+giants_outer = 180
+giant_spacing = 26
+understory_spacing = 6
+seed = 1958154
+road_gap = 3
+version = 1
+keep_clear = [
+  { build = "treyni_shrine", pad = 6, offline = [1930, 1520, 1978, 1568] },
+  { landmark = "treyni_grove", pad = 4, offline = [1883, 1496, 1920, 1536] },
+]
+lanes = [{ build = "treyni_shrine", side = "west", toward = "tempest", length = 190, half = 4, offline = [1930, 1520, 1978, 1568] }]
+
+[treyni.giants]
+"tensura:ancient_forest/ancient_forest_tree_1" = 1
+"tensura:ancient_forest/ancient_forest_tree_2" = 1
+"tensura:ancient_forest/ancient_forest_tree_3" = 1
+"tensura:ancient_forest/ancient_forest_tree_4" = 1
+"tensura:ancient_forest/ancient_forest_tree_5" = 1
+"tensura:ancient_forest/ancient_forest_tree_6" = 1
+
+[treyni.understory]
+"minecraft:dark_oak" = 35
+"minecraft:fancy_oak" = 25
+"minecraft:super_birch_bees_0002" = 20
+"minecraft:mega_spruce" = 10
+"minecraft:azalea_tree" = 10

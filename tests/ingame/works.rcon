@@ -1,0 +1,13 @@
+# One-time world works (life/works.js): the Dwarven Road (life/trade_roads.js) and the planted forests round Tempest and
+# Treyni's shrine (life/forests.js). They run once, about 2 minutes after a start and after the landmarks and builds, so on
+# the first boot after the deploy the @until lines wait for them (the road takes about a minute, the forests a few); on
+# every later run they hold at once. `expect road ... surface <arc>` reads the block at the road's centre at that arc
+# length (a chunk load for one chunk): arc 200 is in Lerfing's wood north of Tempest, 1000 at the arrival, 1300 on the
+# stone stretch of the Canaat apron.
+ttl works list
+@until 900 ttl works expect road tempest_dwargon laid
+ttl works expect road tempest_dwargon surface 200
+ttl works expect road tempest_dwargon surface 1000
+ttl works expect road tempest_dwargon surface 1300
+@until 1200 ttl works expect forest tempest planted 35
+@until 1200 ttl works expect forest treyni planted 45

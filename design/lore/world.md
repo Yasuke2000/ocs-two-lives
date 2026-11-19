@@ -72,6 +72,25 @@ Grid letter, name, `banner_subtitle`, then lore, terrain on Lerfing's map and la
   (z ≈ −250..−400) in the north and Lake Siss's marsh (x ≈ 2350) in the east. The land is low in the south
   (y 63–80) and rises to the massif on the east side (x 2000..2300, z 500..1000, y 250+). The forest of the lore is the
   magicule rings below, not Lerfing's tree cover. Stored biomes: plains 73 %, dark forest 15 %, beach 5 %, forest 4 %, ancient forest 2 %.
+- **The forest round Tempest is planted** (owner 19/11/2026: "this should be in the middle of a forest"). Tensura grows the
+  ancient forest's giant trees as jigsaw structures (`tensura:ancient_forest/tree`), and the import counts every structure
+  step of Lerfing's proto chunks as done, so the repainted core populated with grass, ferns and mushrooms only. Measured on
+  the imported world (2-block lattice): tree cover 11 % at r 60..110, 15 % at r 110..200, 19 % at r 200..250, and no
+  window within 300 blocks better than Lerfing's wood 260 N of Tempest (48 % over 200 x 200, no water; moving Tempest
+  there would put it outside its own deadly core). `life/forests.js` plants the ring r 60..250 once, outside the city box
+  (+-95 round the arrival + margin + a 7-block clearing): 52 of Tensura's ancient-forest giants (the jigsaw's own pieces,
+  roots 5 deep as the jigsaw places them) and 1,294 dark oak, spruce, fancy oak, birch and pine trees between them, on dry
+  soil only (never water, beach sand or rock). Planned canopy at r 110..250: 17 % -> 55 % of all samples (62 % of the dry
+  land). Treyni's old wood (r 25..180 round her shrine) likewise: 69 giants and 1,066 understory trees, 5 % -> 76 %.
+  Data: `design/data/forests/` (`tools/lerfing/forests.py`); preview `docs/previews/tempest-forest-road.png`.
+- **The Dwarven Road** (Tempest -> Dwargon; canon: Tempest builds a paved road to Dwargon after the trade treaty with King
+  Gazel, later roads to Blumund and the other nations). Our route (the canon road is not mapped): from the early village's
+  north edge (1720, 842) north up Jura's long valley, through Lerfing's wood (1760, 650), along x 1790 to z 300, past the
+  Life 2 arrival (1690, -100; the souls walk it south), then up the Canaat apron on a diagonal to Dwargon's checkpoint road
+  at (1878, -497), y 145. 1,478 blocks, y 69 -> 145, 4-5 wide, at most one block in two (a slab on every rise), no water
+  crossed (the lakes lie off the valley; bridges are laid where a planned road crosses a river), a lantern post every 40
+  blocks. Dirt path, gravel and cobble in Jura, cobble, stone, andesite and tuff from z -240 up. `life/trade_roads.js`,
+  `design/data/trade_roads/` (`tools/lerfing/trade_roads.py`). Tempest -> Blumund is a second entry when it is wanted.
 - **The rings** (owner decision Q4, 19/11/2026; `design/data/lerfing/repaint.json`, applied offline by the import tool;
   verified with `python -I tools/lerfing/jura_check.py`): rings by radius from Tempest. **Core** r 200 ± 50:
   `tensura:ancient_forest` (about 20,000 area magicule, deadly for a fresh soul). **Band** r 200..600 ± 50:
@@ -86,7 +105,8 @@ Grid letter, name, `banner_subtitle`, then lore, terrain on Lerfing's map and la
   - Spirit Gate: (1570, 1130), 275 blocks south-south-west.
   - Treyni's grove, the dryad sanctuary, and her shrine: (1920, 1540) / (1958, 1540), 670 blocks south-east, on the plain east of the river that drains Jura's lakes.
   - Hidden ogre village (the Kijin homeland, burned by the orcs): (2150, 400), at the north foot of the east massif ("north-eastern hills", *placement unverified*).
-  - Life 2 arrival: (1660, −100), 1,000 blocks north of Tempest on the way to Dwargon, on pure plains.
+  - Life 2 arrival: (1660, −100), 1,000 blocks north of Tempest on the way to Dwargon, on pure plains; the Dwarven Road
+    passes 30 blocks east of it.
   - Source of the Great Ameld River: (2500, −200), in D.
 - Sources: https://tensura.fandom.com/wiki/Great_Jura_Forest, https://tensura.fandom.com/wiki/Lake_Siss,
   https://tensura.fandom.com/wiki/Great_Ameld_River, https://tensura.fandom.com/wiki/Orc_War,
