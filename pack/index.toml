@@ -714,7 +714,7 @@ hash = "826ca8d60e51c4b8fa906c115604c6469380a12505b36b603abe2b37534151fb"
 
 [[files]]
 file = "config/bluemap/maps/tensura.conf"
-hash = "dba14800b9753fa9cded38c6df2583067729b7a3271d978ab3ade263062fb77b"
+hash = "e6067ca7fcfaf3366484d68493658eb6a02d2ff18dde105f083c9395e43215df"
 
 [[files]]
 file = "config/bluemap/plugin.conf"
@@ -1150,11 +1150,11 @@ hash = "eab52fc37864e20a5062427c4f6dded2c70b643ae447b497f378473fcb00a4ed"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/two_hundred_thousand.snbt"
-hash = "4aa4b784354990284194fa4489e65c2eca3f00f7505314476e12a5e8168f2231"
+hash = "69f3fb31a5d1c786dfdf6341afc42f3abb30ccae5bed2bbc6d3c6208857d189e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/whirlpool.snbt"
-hash = "b73a37fbb197e0f5d20fa1614dbc5391429f44fcefc51bf00a6f724268c23d94"
+hash = "b7634434de7c4616aae6ce5b5a25a316e378fa7d553cd24eecef536f7e35dda3"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
@@ -2637,12 +2637,16 @@ file = "kubejs/server_scripts/ttl/events/storm.js"
 hash = "aba724b81546b1b73b253460418b272ac2ee350f2ba0761423c847bd4900585a"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/generated/anchors.js"
+hash = "9d27cddfaf4eb519e6caa04c702880fdedb937ea91a06c7e3b3e201738c39f2b"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
 hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "c6b3a9a73b273c104ab7d47125305688c2d8314b473850352323e28b5b24868a"
+hash = "1399aefb8205df4a525ed9793b473e52947d58d72de1221fa84ae34eeb0f5361"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2694,7 +2698,7 @@ hash = "f9958b7230e3b0f97e2c2e893322d5fb6a79eda96c0515d2ba8beeb0c6cc77c7"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/arrival.js"
-hash = "294f1782e4836f6b37f4a5288fe42bfa289719398d009c6e206657b8e3cee56a"
+hash = "a9a20fd625f9f3b7e0567e72578c5a9728111dca40efeb513f39a5f107b92c44"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
@@ -2758,7 +2762,7 @@ hash = "a3b1caae2417a2488a3f80ed7dabe525bcc4cae3d74496a0c6e15a305e0d288b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
-hash = "4a972dc31918971f0782fe49de5d284121a8bf42cc7fa91fc69091a55bd24dd9"
+hash = "04ee81e29fbf6ef1afdfb783a67cd59daf45fbd8c6239954c0adff541f4a37e2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/race_lock.js"
@@ -2778,7 +2782,7 @@ hash = "685ffbc46d46a5debf5571fc115bf2a86812a1f0efce7182ae51f9d85f402334"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/tempest.js"
-hash = "27d684cd096df3843626e8a5dd1d729bd31123e782bf520ccd34e75f95ac0dbf"
+hash = "22ec61ad1d72422435b3fb5236879750a14da5a12c05fc22c6a30c0988e0c695"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
@@ -2798,7 +2802,7 @@ hash = "63b90a9c199668c971c2465617cb1b7c3cb61459251bf16bd687a98f5b0b724f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/world_reset.js"
-hash = "970f53d54836bfb7b8afd86e30d6c079b18a7a14becdb6ced02f518fc305048f"
+hash = "61474dab6c64c29cfaaa9ddf77613fc1dbaeeb6f68430020857ee54dbe90b2a5"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/manas.js"

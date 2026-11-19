@@ -1,7 +1,5 @@
 name = "el_dorado"
 title = "Golden City of El Dorado — Leon’s Audience Court"
-x = -4808
-z = 3240
 anchor = [40, 4, 74]
 ground = "survey"
 search = 48

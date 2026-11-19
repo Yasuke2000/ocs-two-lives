@@ -1,12 +1,19 @@
 // Life 1's dimensions are a world without Tensura: its mobs never spawn there (master plan §1).
-// Arrival points are safe ground: no hostile mob spawns within SAFE.radius of Wayfarer's Rest (Life 1 arrives
-// there, often at night — test bots were killed within seconds by the crowd around it) or of Tempest (Life 2).
-// Mobs can still walk in from outside; this only keeps the arrival square from becoming a spawner.
+// Arrival points are safe ground: no hostile mob spawns within a zone's radius of Wayfarer's Rest (Life 1 arrives
+// there, often at night — test bots were killed within seconds by the crowd around it), of Tempest (Life 2's capital)
+// or of the Life 2 arrival on Jura's rim (owner 19/11/2026: wild direwolves spawned right on the arrival point; outside
+// the radius the rim stays wild). Mobs can still walk in from outside; this only keeps the square from becoming a
+// spawner. The overworld centres come from design/data/anchors.toml: Tempest through TtlAnchors (generated/anchors.js),
+// the arrival through TtlData.arrival.life2 (x/z = the arrival anchor, safe_radius) — both generated, priority 200.
 const TtlSafeSpawns = {
-  ZONES: [
-    { dim: 'ttl:mortal_realm', x: 0, z: 0, radius: 48 },
-    { dim: 'minecraft:overworld', x: 0, z: 0, radius: 56 }
-  ],
+  ZONES: (function () {
+    var zones = [{ dim: 'ttl:mortal_realm', x: 0, z: 0, radius: 48 }]
+    var t = typeof TtlAnchors !== 'undefined' ? TtlAnchors.tempest : null
+    if (t) zones.push({ dim: 'minecraft:overworld', x: t.x, z: t.z, radius: 56, id: 'tempest' })
+    var a = typeof TtlData !== 'undefined' && TtlData.arrival ? TtlData.arrival.life2 : null
+    if (a && a.safe_radius > 0) zones.push({ dim: 'minecraft:overworld', x: a.x, z: a.z, radius: a.safe_radius, id: 'arrival' })
+    return zones
+  })(),
 
   hostile(entity) {
     try {

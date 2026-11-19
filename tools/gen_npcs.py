@@ -37,6 +37,9 @@ import uuid
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))  # python -I
+import anchor_refs  # noqa: E402
+
 DATA = ROOT / "design" / "data"
 TARGET = ROOT / "pack" / "config" / "easy_npc" / "preset"
 ASSETS = ROOT / "pack" / "kubejs" / "assets"
@@ -455,7 +458,11 @@ def check_npcs(npcs: dict, eco: dict, story: dict) -> None:
                 raise SystemExit(f"{where}: build {b!r} has no design/builds/{b}.toml")
         if "surface" in s and (s["surface"] is not True or s["anchor"] != "world"):
             raise SystemExit(f"{where}: surface = true only goes with anchor = \"world\"")
-        if not all(isinstance(s[a], int) for a in ("x", "y", "z", "yaw")):
+        if "at" in s:
+            if s["anchor"] != "world":
+                raise SystemExit(f"{where}: at = \"<anchors.toml id>\" only goes with anchor = \"world\"")
+            anchor_refs.resolve_at(where, s)
+        if not all(isinstance(s.get(a), int) for a in ("x", "y", "z", "yaw")):
             raise SystemExit(f"{where}: x, y, z, yaw are integers")
         if s["enabled"]:
             by_tag.setdefault(s["tag"], []).append(s)

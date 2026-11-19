@@ -156,7 +156,7 @@ camp has to be fed and mended before anything rises out of the lake.
 Walk to the lake's western shore, where the forest ends, and hand in six low potions for the line.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [635, 145], radius = 96, title = "The lake shore" },
+  { type = "location", dimension = "minecraft:overworld", at = [3050, 750], radius = 96, title = "The lake shore" },
   { type = "item", item = "tensura:low_potion", count = 6, consume = true },
 ]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "item", item = "minecraft:cooked_cod", count = 8 }, { type = "xp", xp = 80 }]
@@ -180,7 +180,7 @@ furious at 60% and again at 30% of its health. Bring a party, and stay out of th
 &6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight
 charybdis on the shore, within 96 blocks of the arena's centre (635, 145).
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [635, 145], radius = 60, title = "On the shore" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = [3050, 750], radius = 60, title = "On the shore" }]
 rewards = [{ type = "command", command = "ttl story fight charybdis", feedback = "The lake begins to turn." }]
 
 [[quests]]
@@ -259,7 +259,7 @@ of soul who pays.
 Meet them on the lake's western shore and hand in three silver coins.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [635, 145], radius = 96, title = "The lake shore" },
+  { type = "location", dimension = "minecraft:overworld", at = [3050, 750], radius = 96, title = "The lake shore" },
   { type = "item", item = "tensura:silver_coin", count = 3, consume = true },
 ]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 2 }, { type = "item", item = "minecraft:cooked_porkchop", count = 8 }, { type = "xp", xp = 80 }]
@@ -284,7 +284,7 @@ its health. The claim also records the story flag "charybdis_woke".
 &6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight
 charybdis on the shore, within 96 blocks of the arena's centre (635, 145).
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [635, 145], radius = 60, title = "On the shore" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = [3050, 750], radius = 60, title = "On the shore" }]
 rewards = [
   { type = "command", command = "ttl story flag {p} charybdis_woke", silent = true, auto = "invisible" },
   { type = "command", command = "ttl story fight charybdis", feedback = "The lake begins to turn." },

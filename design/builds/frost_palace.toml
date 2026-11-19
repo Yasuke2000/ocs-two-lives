@@ -1,8 +1,6 @@
 name = "frost_palace"
 title = "The Frost Palace — Guy Crimson's gate"
 landmark = "Frost Palace (Guy Crimson)"
-x = -2435
-z = -4314
 anchor = [42, 4, 65]
 ground = "survey"
 search = 48

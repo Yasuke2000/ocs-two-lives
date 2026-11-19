@@ -73,7 +73,8 @@ rev = 1
 #   build_at  the build's own anchor point (ttl.build.<build>.at); no x/y/z
 #   dwargon   x/y/z are blueprint coordinates of blueprints/dwargon.py (corner = TtlDwargon.box(), y = ttl.dwargon.base)
 #   landmark  the placed landmark (ttl.landmark.<landmark>.at, else its planned x/z from landmarks.toml, surface y)
-#   world     absolute x/z, standing on the surface (heightmap) once the chunk is loaded
+#   world     at = "<design/data/anchors.toml id>" (gen_data writes its x/z), standing on the surface (heightmap) once
+#             the chunk is loaded; y = 0
 # `cap` = ambient adventurers kept there (0 = a quest target only), `kinds` = who may appear, `radius` = their stroll
 # (Easy NPC RANDOM_STROLL_AROUND_HOME wanders about 10 blocks from home whatever this says; `radius` only spreads the
 # spawn on surface places), `inn` = where they go at night (same anchor), `discover` = gives the stage
@@ -156,9 +157,8 @@ discover = true
 id = "rim_camp"
 title = "the wayfarers' camp on Jura's rim"
 anchor = "world"
-x = 1795
+at = "wayfarers_camp"
 y = 0
-z = -135
 radius = 10
 cap = 2
 kinds = ["rookie_swordsman", "hunter", "merchant", "otherworlder"]
@@ -178,9 +178,8 @@ discover = true
 id = "blumund_road"
 title = "the Blumund road camp at Jura's edge"
 anchor = "world"
-x = -250
+at = "blumund_road"
 y = 0
-z = 250
 radius = 10
 cap = 2
 kinds = ["rookie_swordsman", "scout", "merchant"]
@@ -190,9 +189,8 @@ discover = true
 id = "englassia_road"
 title = "the Englassia road post"
 anchor = "world"
-x = -1880
+at = "englassia_road"
 y = 0
-z = -500
 radius = 10
 cap = 1
 kinds = ["veteran_knight", "bard", "merchant"]
@@ -235,18 +233,16 @@ discover = true
 id = "old_well"
 title = "the old well on the Blumund road"
 anchor = "world"
-x = 300
+at = "old_well"
 y = 0
-z = 410
 cap = 0
 
 [[place]]
 id = "rookie_camp"
 title = "the abandoned rookie camp"
 anchor = "world"
-x = 1550
+at = "rookie_camp"
 y = 0
-z = -60
 cap = 0
 
 # ---------------------------------------------------------------------------------------------------------------------

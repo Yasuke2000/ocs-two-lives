@@ -376,7 +376,7 @@ pool = [
 # Dwargon's guards turn on a Hostile soul by themselves, rep/guards.js). Once per `cooldown_hours`.
 
 [steal]
-smithy = { x = 423, z = -1084 }
+smithy = { anchor = "kaijin_smithy" }   # design/data/anchors.toml (Dwargon gate + (-12, -84)); gen_data writes x/z
 radius = 48
 night = [13000, 23000]       # day time ticks (mod 24000) that count as night
 channel_seconds = 30

@@ -179,7 +179,7 @@ more health, a starving horde behind him, and a frenzy at 30% health.
 &6If the call fails&r (the Disaster is already out, or resting: 48 hours), type /ttl story fight orc_disaster at the
 battlefield.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 40, title = "On the battlefield" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = [3600, 1250], radius = 40, title = "On the battlefield" }]
 rewards = [{ type = "command", command = "ttl story fight orc_disaster", feedback = "The ground shakes under the Disaster." }]
 
 [[quests]]
@@ -335,7 +335,7 @@ it, and a frenzy at 30% health.
 &6If the call fails&r (the Disaster is already out, or resting: 48 hours), type /ttl story fight orc_disaster at the
 battlefield.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [1106, 539], radius = 40, title = "On the battlefield" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = [3600, 1250], radius = 40, title = "On the battlefield" }]
 rewards = [{ type = "command", command = "ttl story fight orc_disaster", feedback = "The ground shakes under the Disaster." }]
 
 [[quests]]
