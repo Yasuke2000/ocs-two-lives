@@ -91,7 +91,7 @@ At the placed castle’s entrance, claim the fight reward. If the boss is alread
 arch daemon in this pack. A named boss victory is the proof that the council accepts.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [3693, -959], radius = 225, title = "Return to the placed castle" },
+  { type = "location", dimension = "minecraft:overworld", at = { build = "clayman_castle" }, radius = 225, title = "Return to the placed castle" },
 ]
 rewards = [
   { type = "command", command = "ttl story fight clayman", permission_level = 0 },
@@ -154,7 +154,7 @@ Back in Jistav, demand Clayman’s seat for yourself. Claim the fight reward at 
 arch-daemon proxy carries the encounter credit. A wild arch daemon elsewhere cannot settle the account.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [3693, -959], radius = 225, title = "Return to the placed castle" },
+  { type = "location", dimension = "minecraft:overworld", at = { build = "clayman_castle" }, radius = 225, title = "Return to the placed castle" },
 ]
 rewards = [
   { type = "command", command = "ttl story fight clayman", permission_level = 0 },

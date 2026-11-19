@@ -166,7 +166,7 @@
 					dimension: "minecraft:overworld"
 					id: "33DE8FAF7949FE99"
 					ignore_dimension: false
-					position: [I; 3468, -64, -1184]
+					position: [I; 5395, -64, -1125]
 					size: [I; 451, 384, 451]
 					type: "location"
 				}
@@ -294,7 +294,7 @@
 					dimension: "minecraft:overworld"
 					id: "04D35BB1D70BA4E7"
 					ignore_dimension: false
-					position: [I; 3468, -64, -1184]
+					position: [I; 5395, -64, -1125]
 					size: [I; 451, 384, 451]
 					type: "location"
 				}

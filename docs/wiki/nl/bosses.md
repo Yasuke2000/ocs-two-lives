@@ -9,12 +9,12 @@ Reis naar de aangegeven plek in de bovenwereld van Tensura en gebruik `/ttl stor
 | Rang | Plek | Baas-ID’s en voorwaarden |
 | --- | --- | --- |
 | 1 | Orkkamp · Sealed Cave | `orc_lord` bij het kamp · `supermassive_slime` bij de grot |
-| 2 | Tempest, nabij x 0, z 0 | `shizu` · `ifrit` nadat je Shizu hebt verslagen |
-| 2 | Slagveld van de orks, x 1106, z 539 | `orc_disaster` nadat je de Orc Lord hebt verslagen |
+| 2 | Tempest, nabij x 1720, z 900 | `shizu` · `ifrit` nadat je Shizu hebt verslagen |
+| 2 | Slagveld van de orks, x 3600, z 1250 | `orc_disaster` nadat je de Orc Lord hebt verslagen |
 | 2 | Dwelling of the Spirits | `sylphide`, `undine`, `akash`, `rimuru_clone` (Mimic Echo) |
-| 2 | Marris · invasie van Falmuth | `kyoya_tachibana`, `shogo_taguchi`, `kirara_mizutani` in Marris · `folgen` bij Tempest, x 0, z 40 |
-| 3 | Lake Siss · Dwargon | `charybdis` op x 635, z 145 · `gazel_dwargo` op x 435, z −1106 |
-| 3 | Westelijke weg · Tempest | `hinata_sakaguchi` op x −400, z −60 · `rimuru_ogre_fight` op x 0, z 0. Voor beide moet je eerst Shizu verslaan. |
+| 2 | Marris · invasie van Falmuth | `kyoya_tachibana`, `shogo_taguchi`, `kirara_mizutani` in Marris · `folgen` bij Tempest, x 1720, z 940 |
+| 3 | Lake Siss · Dwargon | `charybdis` boven het midden van Lake Siss op x 3050, z 750 (neem een boot mee) · `gazel_dwargo` op x 1900, z −606 |
+| 3 | Westelijke weg · Tempest | `hinata_sakaguchi` op x 1300, z 820 · `rimuru_ogre_fight` op x 1720, z 900. Voor beide moet je eerst Shizu verslaan. |
 | 3 | Stad Laura · kasteel van Clayman | `carrion` in Laura · `clayman` bij het kasteel. Een mob met Claymans naam vertolkt zijn rol. |
 | 4 | Lubelius · Sealed Cave | `luminous_valentine` in Lubelius nadat je Hinata hebt verslagen · `veldora` bij de grot nadat je Charybdis hebt verslagen |
 
