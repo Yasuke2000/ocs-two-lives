@@ -106,11 +106,16 @@ const TtlLife = {
 // the command (booleans 1/0), 0 when it fails or does not parse. The output is suppressed.
 const TtlCmd = {
   run(server, cmd) {
+    return this.attempt(server, cmd).result
+  },
+
+  // {result, error}: the error is the command's own message when it failed ("That position is not loaded", ...).
+  attempt(server, cmd) {
     try {
       var src = server.createCommandSourceStack().withSuppressedOutput()
-      return Number(server.getCommands().getDispatcher()['execute(java.lang.String,java.lang.Object)'](String(cmd), src))
+      return { result: Number(server.getCommands().getDispatcher()['execute(java.lang.String,java.lang.Object)'](String(cmd), src)), error: '' }
     } catch (e) {
-      return 0
+      return { result: 0, error: String(e) }
     }
   },
 

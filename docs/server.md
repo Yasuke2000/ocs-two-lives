@@ -151,7 +151,10 @@ start and only once the landmarks and canon builds have placed (it waits up to 1
 Each job works in pieces (a 64 x 64 forest tile, a 48-block road stretch) whose chunks are held with tickets
 (`life/chunk_hold.js`), never a synchronous forceload, under 25 ms of commands per tick. Progress is saved per piece
 (`ttl.forest.<id>.piece`, `ttl.troad.<id>.piece`), so a restart resumes; a finished job records its version and never
-runs again. Log lines: `[ttl] forest <id> planted: G giants, U understory trees, S skipped (...)` and
+runs again; a bumped version starts over at piece 0 (`pversion`). A spot whose trunk already stands is left alone
+(`already standing`), so a re-run or a bumped version never plants a tree twice. Before a tree feature the forest floor
+round its trunk is cleared (grass, ferns, flowers, Tensura's hipokute grass and baffledil: a tree does not grow through
+them). Log lines: `[ttl] forest <id> planted: G giants, U understory trees, A already standing (g giants), S skipped (...)` and
 `[ttl] trade road <id> laid: N columns, B bridge columns, L lanterns, S kept clear`. Both keep clear of Tempest's and
 Dwargon's boxes, every placed build and landmark (recorded boxes) and Lerfing's keepouts. A world reset of the
 overworld (`world_reset.js`) runs them again.
@@ -162,6 +165,8 @@ overworld (`world_reset.js`) runs them again.
 | `/ttl works run <forest\|road> <id> [force]` | queue one (force: again, over what is there) |
 | `/ttl works expect forest <id> planted <min giants>` / `expect road <id> laid` / `expect road <id> surface <arc>` | test checks (`tests/ingame/works.rcon`) |
 | `/ttl works where road <id> <arc>` | position and tp command of the road at that arc length |
+| `/ttl works expect forest <id> standing <min giants>` | counts the giant trunks on the live terrain (loads their chunks) |
+| `/ttl works probe <x> <z>` | what the works read at a column: ground, the block under and on it, soil, wet, a trunk |
 
 **Changing a forest or road.** Edit the TOML, plan again on the imported world, regenerate, bump `version`:
 `python -I tools/lerfing/trade_roads.py plan <id> --world <import dir>` (roads first: forests keep off them),
