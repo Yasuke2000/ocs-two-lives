@@ -12,14 +12,10 @@ OCS Tensura: Two Lives is a free, non-commercial fan modpack. Nothing here is so
 - **The giant trees: Paulzero.** The grove of giant trees in the south (about x 350..1050, z 2600..3150, thirteen signs "built by
   Paulzero"), which we read as the Divine Tree of Sarion beside Elmine, is part of the same map and is by Paulzero
   ([Planet Minecraft page](https://www.planetminecraft.com/project/tensura-map/)). It is kept untouched.
-- **Licence of the map: unknown.** We have not found a licence or redistribution terms for Tensura by Lerfing (the Planet
-  Minecraft page returned HTTP 403 to our check). The map is not in this repository and its blocks are not committed (only
-  1:16 rasters and biome repaint rules we derived, in `design/data/lerfing/`); the server runs it privately.
-  **TODO (Yasuke): ask Lerfing (and Paulzero for the trees) for permission to use the map on this server and to credit it
-  publicly, and get the answer in writing, before the public launch of the server.** Owner decision 19/11/2026: the
-  public web map (BlueMap, https://map.daviddelporte.com) stays on after the import, with this credit, while the
-  permission is asked. Until the answer arrives, nothing else that contains his blocks is published or shared outside
-  the server.
+- **Licence of the map.** Purchased by Yasuke; licence allows use on servers. Not redistributed as world files: no world,
+  region or zip files are in this repository (only 1:16 rasters, biome repaint rules and reference renders we derived, in
+  `design/data/lerfing/` and `docs/chatgpt/source-map/`); the server runs the map privately. The public web map (BlueMap,
+  https://map.daviddelporte.com) shows it with the credit "Map: Tensura by Lerfing".
 - **That Time I Got Reincarnated as a Slime** (Tensei Shitara Slime Datta Ken) — story, world and characters by
   Fuse, illustrated by Mitz Vah; published by Micro Magazine / Kodansha. All rights to the original work belong to
   them.

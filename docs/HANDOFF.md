@@ -1,5 +1,36 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 evening — Lerfing placements: grounded landmarks, no duplicates, arena in the dwarf village (branch `fix-lerfing-placements`, Claude)
+
+**Fixed** (design/decisions.md 19/11 "Lerfing placements"): landmarks are grounded on the real terrain with a foundation
+(the dwarf village floated on the generator's heights); placed once per boot (the world-reset pass re-queued the one
+being placed: goblin_village twice); the marker read-back that reported placed structures as "failed" is gone (orc_camp's
+4 "failures" on staging may be 4 orc villages); old copies are taken out block for block (`life/unplace.js`, TOML
+`remove`, builds whose plan changed); the Dwarven Arena moves next to the dwarf village (version 2, `beside`).
+**Verified locally** (local Lerfing server): removals 90-100 % matched, absent copies left alone, arena v2 verify
+100.00 %, old arena site clean; in-game tests landmarks, builds, build_repair, world_landmarks, lerfing, nations pass.
+**On the next staging deploy** (watch the log): `[ttl] unplace landmark goblin_village old copy lerfing_1/2`, `orc_camp
+lerfing_1..4` (only the spots that really hold a copy: "not there any more" for the others), `dwarf_village lerfing_1`,
+then `landmark ... placed ... grounded by`, `build dwarven_arena: old copy taken out`, `dwarven_arena placed`. Then
+`tools/server.sh verify dwarven_arena` and `/ttl landmark where dwarf_village`.
+**Not touched**: lizardmen_village, lizardmen_caverns, ogre_village_ruin, treyni_grove keep their ungrounded v1 copies
+(staging placed each at try 1 and nobody reported them); bump their version to re-place them grounded.
+
+
+## 19/11 evening — quest book layout and the two chapter tabs (branch `quest-layout`, Claude)
+
+Yasuke: the quest lines "are going through one another", and Life 1 / Life 2 chapters were one flat list.
+`tools/quest_layout.py` (called by `gen_quests.py`) now places every quest: main line on one row, side branches as blocks
+above/below, long or blocked lines hidden per dependency (`dep_line_visibility`) with a grey "Needs: ..." line in the quest
+text (also for every cross-chapter dependency). Over 28 chapters: crossings 41 → 7, overlaps 1 → 0, lines through an icon
+66 → 0. `quest_graph.py --check` and `tests/test_gen_quests.py` fail on overlaps and lines through icons. Previews:
+`docs/previews/quests/` (all chapters; `-before` for mortal_life, fields, side_guild). Chapter groups "First Life — the
+Mortal Realm" / "Second Life — Reborn in Tempest" (`chapter_groups.snbt`, Dutch titles in `lang/nl_nl.snbt`), Daily Deeds
+ungrouped on top; Life 2 chapter `order` renumbered to the story path. Ids unchanged. **Verified offline only**
+(check.sh, field names against the FTB Quests 2101.1.39 jar); the local server was busy. **To check in game after the
+deploy**: `tests/ingame/quests.rcon`, the two tabs in the chapter list (and their Dutch titles with the game in Dutch),
+that hidden lines stay hidden and the "Needs" line reads well. The `lane`/`col` lines in the chapter TOMLs are now
+ignored and can be deleted once the open quest branches have landed.
 ## 19/11 evening — Tempest in the forest, the Dwarven Road, Treyni's old wood (Claude, branch `tempest-forest-road`)
 
 Owner requests: Tempest stands on open grass (it should be deep in the forest), no road to Dwargon, Treyni's shrine in the open.

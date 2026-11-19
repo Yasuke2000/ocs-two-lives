@@ -123,12 +123,17 @@ its capture file and only the forceloads it added). The comparison is unit-teste
 `python -I -m unittest discover -s tests`.
 
 **Canon landmarks** (`design/data/landmarks.toml`, `life/landmarks.js`): Tensura's own structures (goblin,
-lizardmen, orc and dwarf villages, a burnt tower, a giant ancient tree) placed with `/place structure` at
+lizardmen, orc and dwarf villages, a burnt tower, a giant ancient tree) generated as `/place structure` would, at
 canon_regions.json landmarks, once, about 45 s after start (one at a time) and again after an overworld reset.
 Log lines: `[ttl] landmark <name> placed: <structure> at X Y Z (…, box …)` or `could not be placed`.
-Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a tp command), `/ttl landmark place <name|all>`
-(places again; the old copy stays). Change a landmark or bump its `version` in the TOML, then
-`python tools/gen_data.py`.
+The placer grounds every rigid group of pieces on the real terrain (a jigsaw alone would use the generator's
+heights, not Lerfing's) and fills a foundation under it: `... N rigid group(s) grounded by A..B` and
+`[ttl] build landmark <name>: repaired N foundation`. Ops: `/ttl landmark list`, `/ttl landmark where <name>` (with a
+tp command), `/ttl landmark place <name|all>` (places again; the old copy stays), `/ttl landmark remove <name>` (takes
+out the current copy block for block, `life/unplace.js`). To move a landmark for good: bump its `version` and list
+the old spot in its TOML `remove` (taken out once on the next start: `[ttl] unplace landmark <name> old copy ...`),
+then `python tools/gen_data.py`. A build whose x/z, anchor or `beside` changes has its old copy taken out the same way
+before it is surveyed again (`[ttl] build <name>: old copy taken out`).
 Finding places: `/locate place <id>` (op, vanilla `/locate` style, tab-completes every anchor id plus placed builds and landmarks without an anchor; recorded placement first, else the anchor) and `/ttl where <id>` for players (direction and rounded distance only; `life/locate.js`).
 
 ## Forests and trade roads (one-time world works)
@@ -180,9 +185,9 @@ generated).
 | `tensura` (Life 2) | `minecraft:overworld` of `world-ttl` | canon continent + 1,000 blocks of sea (x -10,088..5,912, z -6,680..5,448) | 22 region labels (shown when zoomed out), 43 canon landmarks |
 | `mortal_realm` (Life 1) | `ttl:mortal_realm` | 3,000-block square around Wayfarer's Rest | Wayfarer's Rest |
 
-**Credit.** The `tensura` map renders *Tensura by Lerfing* (giant trees by Paulzero); see `CREDITS.md`. Owner
-decision 19/11/2026: the map **stays public after the import** although Lerfing's licence is still unknown; asking
-Lerfing (and Paulzero) for permission is still Yasuke's TODO in `CREDITS.md`.
+**Credit.** The `tensura` map renders *Tensura by Lerfing* (giant trees by Paulzero); see `CREDITS.md`. The map was purchased by
+Yasuke and its licence allows use on servers; it is not redistributed as world files. Owner decision 19/11/2026: the map
+**stays public after the import**, with the credit line.
 
 The Spirit Corridor, Mortal Nether and Mortal End are not mapped. `python tools/gen_map.py` rewrites the two map
 files from `canon_regions.json` and `canon_map.txt` (`--check` tells if they are stale); the knobs (world name, sea

@@ -4,8 +4,10 @@
 The generator (gen_quests.py) already refuses unknown or looping dependencies. This tool asks the next questions:
   * can every quest be unlocked at all (a quest with `min_deps` N needs N of its dependencies to be unlockable)?
   * are the chapters one connected web, and which quests nothing depends on (dead ends)?
+  * is the generated book readable: no two quest icons overlap and no drawn dependency line passes through an icon
+    (tools/quest_layout.py, read from pack/config/ftbquests/quests, which gen_quests.py --check keeps fresh)?
 Stdlib only. Usage: quest_graph.py            print the chapter map and the Life 1 / Life 2 maps as mermaid
-                   quest_graph.py --check    exit 1 on a quest that can never unlock or a chapter outside the web
+                   quest_graph.py --check    exit 1 on a quest that can never unlock, a chapter outside the web, or a layout problem
 """
 import sys
 import tomllib
@@ -13,6 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import gen_quests  # noqa: E402
+import quest_layout  # noqa: E402
 
 # Quests that may have no dependency at all: the two ways a soul enters the book (Life 1 at Wayfarer's Rest, Life 2 on rebirth).
 ROOTS = {("mortal_life", "only_once"), ("reborn", "eyes_open")}
@@ -159,7 +162,10 @@ def main() -> None:
         bad = problems(chapters, quests)
         for line in bad:
             print("FAIL quest web:", line)
-        sys.exit(1 if bad else 0)
+        drawn = quest_layout.problems(quest_layout.read_book())
+        for line in drawn:
+            print("FAIL quest layout:", line)
+        sys.exit(1 if bad or drawn else 0)
     print("```mermaid\n" + mermaid_chapters(chapters, quests) + "\n```")
     ends = dead_ends(quests)
     print(f"\n{len(quests)} quests, {len(unlockable(quests))} unlockable, dead ends (non-optional, nothing depends on them):")

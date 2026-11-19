@@ -2,7 +2,7 @@
 
 Covers the story extensions (WP-S5): `path`, `stage` / `command` rewards, `team_stage`, cross-chapter `deps`, `min_deps`,
 and that the existing chapters still generate byte-identical. Also the quest web (quests-web work package): the `lore` field,
-the Life 1 mod namespaces, and the audit in tools/quest_graph.py over the real book (every quest unlockable, one connected web,
+the Life 1 mod namespaces, the layout (tools/quest_layout.py) and the chapter groups, and the audit in tools/quest_graph.py over the real book (every quest unlockable, one connected web,
 Life 1 converging on its finale, the Life 2 story order, the dailies unlocking). The last class checks every emitted FTB Quests field name
 against the FTB Quests jar when it is available (skipped otherwise)."""
 import os
@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import gen_quests  # noqa: E402
 import quest_graph  # noqa: E402
+import quest_layout  # noqa: E402
 
 CH_A = """
 [chapter]
@@ -345,6 +346,166 @@ class Life1NamespaceTests(unittest.TestCase):
         self.assertEqual(set(banned) & set(gen_quests.LIFE1_NAMESPACES), set())
 
 
+def quest(key: str, deps=(), extra: str = "") -> str:
+    d = ", ".join(f'"{x}"' for x in deps)
+    return f'\n[[quests]]\nkey = "{key}"\ntitle = "{key.title()}"\ndeps = [{d}]\n{extra}\ntasks = [{{ type = "checkmark" }}]\n'
+
+
+def chapter(key: str, body: str, life: int = 2, order: int = 1, extra: str = "") -> str:
+    return f'[chapter]\nkey = "{key}"\ntitle = "{key.title()}"\norder = {order}\nlife = {life}\n{extra}\n' + body
+
+
+def laid_out(files, key: str) -> dict:
+    """{quest key: quest dict} of a rendered chapter, read back with the layout tool's SNBT reader."""
+    ch = quest_layout.parse_snbt(chapter_text(files, key))
+    by_id = {q["id"]: q for q in ch["quests"]}
+    return {k: by_id[gen_quests.qid(key, k)] for k in (q for q in _keys(ch, key, by_id))}
+
+
+def _keys(ch, key, by_id):
+    for k in ("a", "b", "c", "d", "e", "f", "l1", "l2", "d1", "d2", "opt", "end", "pinned", "start", "second", "oath"):
+        if gen_quests.qid(key, k) in by_id:
+            yield k
+
+
+def lang_of(files) -> dict:
+    return quest_layout.parse_snbt(files[gen_quests.TARGET / "lang" / "en_us.snbt"])
+
+
+class LayoutTests(unittest.TestCase):
+    """tools/quest_layout.py through the generator: rows, lanes, hidden lines and the "Needs" line."""
+
+    def test_main_line_is_one_straight_row(self):
+        files = render({"a.toml": chapter("ch", quest("a") + quest("b", ["a"]) + quest("c", ["b"]) + quest("d", ["c"]))})
+        q = laid_out(files, "ch")
+        self.assertEqual({q[k]["y"] for k in "abcd"}, {0.0})
+        self.assertEqual([q[k]["x"] for k in "abcd"], sorted(q[k]["x"] for k in "abcd"))
+        self.assertEqual(len({q[k]["x"] for k in "abcd"}), 4)
+
+    def test_a_line_along_the_main_row_is_hidden_and_named(self):
+        # c needs a and b; the line a-c would run through b, so it is hidden and c's text names a
+        files = render({"a.toml": chapter("ch", quest("a") + quest("b", ["a"]) + quest("c", ["a", "b"]))})
+        q = laid_out(files, "ch")
+        self.assertEqual(q["c"]["dep_line_visibility"], {gen_quests.qid("ch", "a"): False})
+        self.assertNotIn("dep_line_visibility", q["b"])
+        self.assertIn("&7Needs: A&r", lang_of(files)[f"quest.{gen_quests.qid('ch', 'c')}.quest_desc"])
+
+    def test_a_line_across_more_than_two_layers_is_hidden(self):
+        body = (quest("a") + quest("b", ["a"]) + quest("c", ["b"]) + quest("d", ["c"])
+                + quest("e", ["d"]) + quest("f", ["a", "e"]))
+        _pos, hidden = quest_layout.layout([
+            {"key": k, "deps": d, "size": 1.0, "optional": False, "path": None, "pin": None}
+            for k, d in (("a", []), ("x", ["a"]), ("b", ["x"]), ("c", ["b"]), ("f", ["a", "c"]), ("g", ["a"]),
+                         ("h", ["g"]), ("i", ["h"]), ("j", ["i"]), ("k", ["g", "j"]))])
+        self.assertIn(("g", "k"), hidden)
+        self.assertNotIn(("j", "k"), hidden)
+        render({"a.toml": chapter("ch", body)})  # renders without error
+
+    def test_optional_branches_go_below_the_main_line(self):
+        files = render({"a.toml": chapter("ch", quest("a") + quest("b", ["a"]) + quest("c", ["b"])
+                                          + quest("opt", ["a"], "optional = true"))})
+        q = laid_out(files, "ch")
+        self.assertGreater(q["opt"]["y"], 0)
+
+    def test_light_lane_above_dark_lane_below(self):
+        body = (quest("start") + quest("l1", ["start"], 'path = "light"') + quest("l2", ["l1"], 'path = "light"')
+                + quest("d1", ["start"], 'path = "dark"') + quest("d2", ["d1"], 'path = "dark"')
+                + quest("end", ["l2", "d2"], "min_deps = 1"))
+        q = laid_out(render({"a.toml": chapter("ch", body)}), "ch")
+        self.assertEqual(q["start"]["y"], 0.0)
+        self.assertEqual(q["end"]["y"], 0.0)
+        self.assertLess(q["l1"]["y"], 0)
+        self.assertLess(q["l2"]["y"], 0)
+        self.assertGreater(q["d1"]["y"], 0)
+        self.assertGreater(q["d2"]["y"], 0)
+
+    def test_pin_keeps_its_spot_and_lane_col_are_ignored(self):
+        body = quest("a") + quest("b", ["a"]) + quest("pinned", ["a"], "pin = [10, -7.5]")
+        q = laid_out(render({"a.toml": chapter("ch", body)}), "ch")
+        self.assertEqual((q["pinned"]["x"], q["pinned"]["y"]), (10.0, -7.5))
+        plain = chapter_text(render({"a.toml": chapter("ch", quest("a") + quest("b", ["a"]))}), "ch")
+        legacy = chapter_text(render({"a.toml": chapter("ch", quest("a", (), "lane = 4\ncol = 9") + quest("b", ["a"], "lane = -2"))}), "ch")
+        self.assertEqual(plain, legacy)
+        with self.assertRaises(gen_quests.QuestError):
+            render({"a.toml": chapter("ch", quest("a", (), 'pin = "here"'))})
+
+    def test_cross_chapter_dependency_has_no_line_and_is_named(self):
+        files = render({"a.toml": CH_A, "b.toml": CH_B})
+        oath = gen_quests.qid("beta", "oath")
+        q = quest_layout.parse_snbt(chapter_text(files, "beta"))["quests"][0]
+        self.assertEqual(q["dep_line_visibility"], {gen_quests.qid("alpha", "second"): False})
+        self.assertEqual(lang_of(files)[f"quest.{oath}.quest_desc"], ["&7Needs: Second &8(Alpha)&7&r"])
+
+    def test_min_deps_names_every_dependency(self):
+        body = quest("a") + quest("b", ["a", "alpha/second"], "min_deps = 1")
+        files = render({"a.toml": CH_A, "b.toml": chapter("ch", body, order=5)})
+        desc = lang_of(files)[f"quest.{gen_quests.qid('ch', 'b')}.quest_desc"]
+        self.assertEqual(desc, ["&7Needs one of: A, Second &8(Alpha)&7&r"])
+
+    def test_quests_without_lines_form_a_grid_without_overlaps(self):
+        body = "".join(quest(f"q{i}", ["alpha/start"]) for i in range(9))
+        files = render({"a.toml": CH_A, "b.toml": chapter("ch", body, order=5)})
+        lang = lang_of(files)
+        geo = quest_layout.chapter_geometry(quest_layout.parse_snbt(chapter_text(files, "ch")), lang)
+        self.assertEqual(quest_layout.problems([geo]), [])
+        self.assertEqual(len({(x, y) for x, y, _ in geo[2].values()}), 9)
+
+    def test_checks_find_overlaps_and_lines_through_icons(self):
+        geo = {"a": (0.0, 0.0, 1.0), "b": (4.0, 0.0, 1.0), "c": (2.0, 0.2, 1.0), "d": (2.5, 0.2, 1.0)}
+        self.assertEqual(quest_layout.overlaps(geo), [("c", "d")])
+        self.assertEqual(sorted(quest_layout.through(geo, "a", "b")), ["c", "d"])
+        self.assertEqual(quest_layout.crossings({"a": (0, 0, 1), "b": (2, 2, 1), "c": (0, 2, 1), "d": (2, 0, 1)},
+                                                [("a", "b"), ("c", "d")]), 1)
+
+    def test_the_real_book_has_no_overlaps_and_no_line_through_an_icon(self):
+        self.assertEqual(quest_layout.problems(quest_layout.read_book()), [])
+
+    def test_layout_is_deterministic(self):
+        files = gen_quests.render()
+        again = gen_quests.render()
+        self.assertEqual(files, again)
+
+
+class ChapterGroupTests(unittest.TestCase):
+    def test_groups_file_and_titles(self):
+        files = render({"a.toml": CH_A})
+        groups = quest_layout.parse_snbt(files[gen_quests.TARGET / "chapter_groups.snbt"])["chapter_groups"]
+        ids = [g["id"] for g in groups]
+        self.assertEqual(ids, [gen_quests.qid("_group", g) for g in gen_quests.CHAPTER_GROUPS])
+        lang = lang_of(files)
+        nl = quest_layout.parse_snbt(files[gen_quests.TARGET / "lang" / "nl_nl.snbt"])
+        for gid, key in zip(ids, gen_quests.CHAPTER_GROUPS):
+            self.assertEqual(lang[f"chapter_group.{gid}.title"], gen_quests.CHAPTER_GROUPS[key]["en_us"])
+            self.assertEqual(nl[f"chapter_group.{gid}.title"], gen_quests.CHAPTER_GROUPS[key]["nl_nl"])
+
+    def test_a_chapter_joins_the_group_of_its_life(self):
+        files = render({"a.toml": chapter("one", quest("a"), life=1, order=1), "b.toml": chapter("two", quest("a"), order=2),
+                        "c.toml": chapter("both", quest("a"), life='"both"', order=3)})
+        grp = {k: quest_layout.parse_snbt(chapter_text(files, k))["group"] for k in ("one", "two", "both")}
+        self.assertEqual(grp, {"one": gen_quests.qid("_group", "life1"), "two": gen_quests.qid("_group", "life2"), "both": ""})
+        files = render({"c.toml": chapter("both", quest("a"), life='"both"', extra='group = "life2"')})
+        self.assertEqual(quest_layout.parse_snbt(chapter_text(files, "both"))["group"], gen_quests.qid("_group", "life2"))
+
+    def test_bad_groups_are_refused(self):
+        with self.assertRaises(gen_quests.QuestError):
+            render({"a.toml": chapter("one", quest("a"), life=1, extra='group = "life2"')})
+        with self.assertRaises(gen_quests.QuestError):
+            render({"a.toml": chapter("one", quest("a"), extra='group = "nowhere"')})
+
+    def test_the_real_book_is_split_by_life_in_story_order(self):
+        chapters, _quests = quest_graph.load()
+        life2 = sorted((c for c in chapters.values() if c.get("life") == 2), key=lambda c: c["order"])
+        keys = [c["key"] for c in life2]
+        story = ["reborn", "tempest_rises", "crossroads", "armed_nation", "kings_test", "orc_lord", "two_hundred_thousand",
+                 "whirlpool", "mask_and_blade", "puppet_master", "harvest_festival"]
+        self.assertEqual(keys[:len(story)], story)
+        rest = keys[len(story):]
+        self.assertEqual(rest[0], "daily_jura")  # the dailies, then the side-quest boards
+        self.assertTrue(all(k.startswith("side_") for k in rest[1:]))
+        self.assertEqual(chapters["daily_deeds"].get("life"), "both")
+        self.assertNotIn("group", chapters["daily_deeds"])  # shared by both lives: ungrouped, above the two tabs
+
+
 class QuestGraphUnitTests(unittest.TestCase):
     """quest_graph on tiny synthetic books."""
 
@@ -543,7 +704,11 @@ class JarFieldNameTests(unittest.TestCase):
 
     def test_quest_fields(self):
         self.cls_has("Quest", "min_required_dependencies", "require_sequential_tasks", "invisible",
-                     "invisible_until_tasks", "dependencies", "hide_until_deps_complete")
+                     "invisible_until_tasks", "dependencies", "hide_until_deps_complete", "dep_line_visibility")
+
+    def test_chapter_group_fields(self):
+        self.cls_has("BaseQuestFile", "chapter_groups", "chapter_groups.snbt", "group")
+        self.cls_has("QuestObjectType", "chapter_group")
 
 
 if __name__ == "__main__":

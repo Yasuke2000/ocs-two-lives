@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "whirlpool"
-	group: ""
+	group: "7B6B761336FD9E7D"
 	icon: {
 		count: 1
 		id: "tensura:charybdis_scale"
@@ -14,6 +14,9 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dep_line_visibility: {
+				"1585311527965ABC": false
+			}
 			dependencies: [
 				"1585311527965ABC"
 			]
@@ -70,6 +73,9 @@
 			y: 0.0d
 		}
 		{
+			dep_line_visibility: {
+				"0D910C4529DD06CC": false
+			}
 			dependencies: [
 				"4BCFD8327B35499E"
 				"0D910C4529DD06CC"
@@ -104,7 +110,7 @@
 					value: 20000
 				}
 			]
-			x: 1.5d
+			x: 2.0d
 			y: 0.0d
 		}
 		{
@@ -153,8 +159,8 @@
 					type: "location"
 				}
 			]
-			x: 1.5d
-			y: 3.0d
+			x: 2.0d
+			y: 1.5d
 		}
 		{
 			dependencies: [
@@ -220,7 +226,7 @@
 					type: "item"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: -1.5d
 		}
 		{
@@ -287,7 +293,7 @@
 					type: "item"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: -1.5d
 		}
 		{
@@ -328,7 +334,7 @@
 					type: "location"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: -1.5d
 		}
 		{
@@ -383,7 +389,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: -1.5d
 		}
 		{
@@ -450,7 +456,7 @@
 					type: "item"
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: -1.5d
 		}
 		{
@@ -507,7 +513,7 @@
 					type: "location"
 				}
 			]
-			x: 3.0d
+			x: 4.0d
 			y: 1.5d
 		}
 		{
@@ -574,7 +580,7 @@
 					type: "item"
 				}
 			]
-			x: 4.5d
+			x: 6.0d
 			y: 1.5d
 		}
 		{
@@ -623,7 +629,7 @@
 					type: "location"
 				}
 			]
-			x: 6.0d
+			x: 8.0d
 			y: 1.5d
 		}
 		{
@@ -678,7 +684,7 @@
 					type: "gamestage"
 				}
 			]
-			x: 7.5d
+			x: 10.0d
 			y: 1.5d
 		}
 		{
@@ -735,7 +741,7 @@
 					type: "location"
 				}
 			]
-			x: 9.0d
+			x: 12.0d
 			y: 1.5d
 		}
 		{
@@ -781,7 +787,7 @@
 					type: "checkmark"
 				}
 			]
-			x: 10.5d
+			x: 14.0d
 			y: 0.0d
 		}
 	]

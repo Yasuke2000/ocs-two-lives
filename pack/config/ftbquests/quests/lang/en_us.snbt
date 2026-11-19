@@ -144,6 +144,8 @@
 		"Your soul has crossed. The Forest of Jura, the monster town of Tempest, the dwarves of Dwargon far to the north and Lake Siss to the east: this is the world of Tensura, and you are part of it now."
 	]
 	chapter.7BD0671B53FE48F5.title: "Reborn"
+	chapter_group.089866DB8636BACD.title: "First Life — the Mortal Realm"
+	chapter_group.7B6B761336FD9E7D.title: "Second Life — Reborn in Tempest"
 	file.0000000000000001.title: "OCS Tensura: Two Lives"
 	quest.000953FD111E508C.quest_desc: [
 		"Slay a hoglin, a piglin and a zombified piglin. Hoglins charge, piglins trade or kill, zombified piglins forgive nothing."
@@ -151,6 +153,8 @@
 		"&7&o“They do not hate you. It is simply that nothing in the Nether has anything to spare.”&r"
 		""
 		"&6Next life:&r Valor: all three are new kinds of foe (+4 each)."
+		""
+		"&7Needs: Forests of Fungus&r"
 	]
 	quest.000953FD111E508C.title: "Pork of the Nether"
 	quest.00ECAE3FA494F924.quest_desc: [
@@ -159,6 +163,8 @@
 		"&7&o“A scout's first lesson: if you can see them with the glass, they cannot yet see you.”&r"
 		""
 		"&6Next life:&r Not scored directly: but a map of what lies ahead means a longer life."
+		""
+		"&7Needs: Green Metal&r"
 	]
 	quest.00ECAE3FA494F924.title: "The Far-Seer"
 	quest.014697902F2935D2.quest_desc: [
@@ -167,6 +173,8 @@
 		"&7&o“A trimmed breastplate is the only vanity the Realm approves of.”&r"
 		""
 		"&6Next life:&r Craft: each use of a smithing table is +2; Faith for the advancement (+2)."
+		""
+		"&7Needs: The Smith's Art &8(A Mortal Life)&7&r"
 	]
 	quest.014697902F2935D2.title: "Make Your Mark"
 	quest.0151D7B3D463D1B8.quest_desc: [
@@ -212,11 +220,15 @@
 	quest.039E840CEA579BD3.title: "A Stack to Build With"
 	quest.03A66B17ACC87C45.quest_desc: [
 		"Giant ants dig under the fences and eat the crops. Kill six."
+		""
+		"&7Needs: Monsters of Jura &8(Reborn)&7&r"
 	]
 	quest.03A66B17ACC87C45.quest_subtitle: "Hunt"
 	quest.03A66B17ACC87C45.title: "Ants in the Fields"
 	quest.03D7C7B0E21E79DD.quest_desc: [
 		"Charybdis is a calamity-class monster, a whirlpool with a body, and in Tensura's own fight it brings water and a swarm with it. Gazel needed 10,000 EP; the sea wants twice that. Reach 20,000 EP and carry a plan, whether it is steel, fire or a party."
+		""
+		"&7Needs: A Named Monster's Strength &8(Reborn)&7&r"
 	]
 	quest.03D7C7B0E21E79DD.quest_subtitle: "20,000 EP"
 	quest.03D7C7B0E21E79DD.title: "A Match for the Sea"
@@ -226,10 +238,14 @@
 		"&7&o“A smith never counts his iron; he counts what is missing.”&r"
 		""
 		"&6Next life:&r Craft grows with the work behind it, not the ingots themselves."
+		""
+		"&7Needs: Iron Age &8(A Mortal Life)&7&r"
 	]
 	quest.041B0CE4E1347744.title: "An Iron Hoard"
 	quest.0421C6ABC740C8F8.quest_desc: [
 		"Bread keeps people alive longer than swords do. Hand in 16 wheat."
+		""
+		"&7Needs one of: The First Night &8(A Mortal Life)&7, The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.0421C6ABC740C8F8.quest_subtitle: "Gather"
 	quest.0421C6ABC740C8F8.title: "A Day's Harvest"
@@ -244,6 +260,8 @@
 		"Where the Jura forest gives way to Blumund's fields, adventurers keep a camp on the road. News from both sides passes through it."
 		""
 		"&7&o“East: monsters who keep the peace. West: humans who keep accounts. The camp keeps both.”&r"
+		""
+		"&7Needs: Register at the Guild &8(The Notice Board)&7&r"
 	]
 	quest.04BFB470A25B9C3A.quest_subtitle: "Travel"
 	quest.04BFB470A25B9C3A.title: "The Blumund Road Camp"
@@ -305,6 +323,8 @@
 		"Marris, Falmuth's capital, north-west of Blumund: the richest kingdom of the West, proud of its knights and its summoned otherworlders."
 		""
 		"&7&o“The knights watched you cross the plaza. Falmuth watches everyone who comes from the east.”&r"
+		""
+		"&7Needs: Register at the Guild &8(The Notice Board)&7&r"
 	]
 	quest.077BAAE3A59A61F7.quest_subtitle: "Travel"
 	quest.077BAAE3A59A61F7.title: "The Royal Plaza of Marris"
@@ -314,6 +334,8 @@
 		"&7&o“The voices in the valley do not say goodbye. They say, softly, until next time.”&r"
 		""
 		"&6Next life:&r Valor: +20 once for walking the Mortal Nether, and every new kind of foe; this milestone only says you did."
+		""
+		"&7Needs 5 of: Oh, Shiny, Pork of the Nether, A Ride on the Lava, The Basalt Deltas, Tears and Cream, The Smith's Art &8(A Mortal Life)&7&r"
 	]
 	quest.07FC914EC6BBF568.quest_subtitle: "The Nether milestone"
 	quest.07FC914EC6BBF568.title: "Hellwalker"
@@ -370,6 +392,8 @@
 		"&7&o“The old miners called the first seam a promise, and the second one a bill.”&r"
 		""
 		"&6Next life:&r Not scored directly."
+		""
+		"&7Needs: Wood and Stone &8(A Mortal Life)&7&r"
 	]
 	quest.0B48B9D221810B49.title: "Black Gold"
 	quest.0B8768A5E7AC606A.quest_desc: [
@@ -384,6 +408,8 @@
 		"&7&o“Every harvest begins as a gamble made by someone who intends to be alive in the autumn.”&r"
 		""
 		"&6Next life:&r Not scored directly: a fed soul lives longer, and days alive are Longevity."
+		""
+		"&7Needs: Ready for the Road &8(Bare Hands)&7&r"
 	]
 	quest.0BA57A81D13A7783.title: "A Handful of Seed"
 	quest.0BB9C2EF440ADC49.quest_desc: [
@@ -423,6 +449,8 @@
 	quest.0C96F45596B0D358.title: "A Pedlar's Pack"
 	quest.0C9933D5EB683ACC.quest_desc: [
 		"Deep forest, thick roots, little light. Walk into a dark forest and look around."
+		""
+		"&7Needs one of: The First Night &8(A Mortal Life)&7, The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.0C9933D5EB683ACC.quest_subtitle: "Wander"
 	quest.0C9933D5EB683ACC.title: "Into the Dark Forest"
@@ -436,6 +464,8 @@
 	quest.0D4D0DF9B4020101.title: "The Road Inside the Barrier"
 	quest.0D910C4529DD06CC.quest_desc: [
 		"Reach 20,000 EP. In the story, a single naming lifted goblins and wolves far beyond their kin."
+		""
+		"&7Needs: B-Class &8(The Armed Nation)&7&r"
 	]
 	quest.0D910C4529DD06CC.title: "A Named Monster's Strength"
 	quest.0E220EAEF0608834.quest_desc: [
@@ -454,6 +484,8 @@
 	quest.0E25F2B8A0455B10.title: "A Roof of Light"
 	quest.0E507B0734BAF632.quest_desc: [
 		"Water means fish, clay and a way across. Walk down to a river."
+		""
+		"&7Needs one of: The First Night &8(A Mortal Life)&7, The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.0E507B0734BAF632.quest_subtitle: "Wander"
 	quest.0E507B0734BAF632.title: "Down to the River"
@@ -483,6 +515,8 @@
 		"&7&o“A plate of diamond turns every wound into a story you will be able to tell.”&r"
 		""
 		"&6Next life:&r Craft grows with the diamonds you mined and the anvil work you did; the armour itself is not scored."
+		""
+		"&7Needs: Cover Me with Diamonds &8(A Mortal Life)&7&r"
 	]
 	quest.0FFE83FD7094E6BA.title: "Full Plate"
 	quest.0FFFE97BBDA23025.quest_desc: [
@@ -497,6 +531,8 @@
 		"&7&o“They used ponies once. The ponies preferred the sun, and so did everyone else.”&r"
 		""
 		"&6Next life:&r Not scored directly."
+		""
+		"&7Needs: Old Shafts&r"
 	]
 	quest.105B85B97AE88524.title: "Pit Ponies"
 	quest.106940F54EF8B23F.quest_desc: [
@@ -518,6 +554,8 @@
 		"Rimuru was born in the Sealed Cave, where Veldora was held for three hundred years (anime season 1, episode 1). The magicule that leaked out of the seal does not stay quiet (our interpretation): the Supermassive Slime at the altar is what is left of it. Anyone may fight it, whatever road they walk."
 		""
 		"Stand in the cave's antechamber and claim the reward to wake it. It must be started within 96 blocks of the altar."
+		""
+		"&7Needs: The Sealed Cave &8(Reborn)&7&r"
 	]
 	quest.1167BEB1B24E76ED.quest_subtitle: "Veldora's leftovers (optional)"
 	quest.1167BEB1B24E76ED.title: "The Cave Stirs"
@@ -564,6 +602,8 @@
 		"&7&o“The first potion is an accident. The tenth is a recipe. After that it is a life's work.”&r"
 		""
 		"&6Next life:&r Faith: every use of a brewing stand adds a little (0.5 each)."
+		""
+		"&7Needs: Local Brewery &8(A Mortal Life)&7&r"
 	]
 	quest.152AEAE80A21A4C2.title: "Many Brews"
 	quest.15545C55B1BB168E.quest_desc: [
@@ -592,10 +632,14 @@
 		"At the Sealed Cave, near x 1380, z 560, stand by its placed entrance and claim the trial. Veldora answers someone who helped defeat Charybdis. If the encounter is cooling down, return later and use /ttl story fight veldora. In the anime Raphael analyzes the prison and Rimuru releases his friend. The trial is our version of that return."
 		""
 		"&7&o“Unlimited Imprisonment was the first problem Rimuru promised to solve for a friend.”&r"
+		""
+		"&7Needs: Who Remains at the Table? &8(Walpurgis)&7&r"
 	]
 	quest.16275F334E658FCF.title: "The Prison Opens"
 	quest.16C682117AAF591D.quest_desc: [
 		"Canon says three days by wolf and two months on foot, and the road north has no inns. Pack food, a good pickaxe and torches before you leave the forest: 16 cooked beef, an iron pickaxe and 32 torches in your inventory."
+		""
+		"&7Needs: The Forest Awakens &8(Crossroads)&7&r"
 	]
 	quest.16C682117AAF591D.title: "Provisions for the Road"
 	quest.1703B5D161F5AD7F.quest_desc: [
@@ -618,6 +662,8 @@
 		"&7&o“The old rule of the Realm: bring more food than you plan to eat, and more courage than you plan to need.”&r"
 		""
 		"&6Next life:&r Not scored directly."
+		""
+		"&7Needs: Eyes of Ender &8(A Mortal Life)&7&r"
 	]
 	quest.177FAA70EB81D656.title: "Apples of Gold"
 	quest.17D2C8763547C148.quest_desc: [
@@ -638,6 +684,8 @@
 		"&7&o“At dusk the lamplighter of Wayfarer's Rest walks the square, and the Realm seems a little less large.”&r"
 		""
 		"&6Next life:&r Not scored directly."
+		""
+		"&7Needs: Iron Age &8(A Mortal Life)&7&r"
 	]
 	quest.1816F54043A80DF7.title: "Lamplighter"
 	quest.181ABFB92A6CF8C1.quest_desc: [
@@ -754,6 +802,8 @@
 		"&7&o“In the Realm a purse never fills by itself. It is filled by people who were glad to see you.”&r"
 		""
 		"&6Next life:&r Order: each trade is +1, and the first twenty-five trades count the most."
+		""
+		"&7Needs: A Fair Deal &8(A Mortal Life)&7&r"
 	]
 	quest.1C7A1C8BD2A8FE30.title: "A Heavy Purse"
 	quest.1C84F2499287E14E.quest_desc: [
@@ -765,6 +815,8 @@
 	quest.1C84F2499287E14E.title: "Job: Gobta's Lost Spear"
 	quest.1C877BA54AD9295D.quest_desc: [
 		"A cold forge makes no iron. Hand in 12 coal."
+		""
+		"&7Needs one of: The First Night &8(A Mortal Life)&7, The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.1C877BA54AD9295D.quest_subtitle: "Gather"
 	quest.1C877BA54AD9295D.title: "A Day's Fuel"
@@ -774,6 +826,8 @@
 		"&7&o“The bell is the one voice a whole village obeys at the same moment.”&r"
 		""
 		"&6Next life:&r Not scored directly: ringing it for a raid is just a warning, and the raid, if you bring it, is a Chaos deed."
+		""
+		"&7Needs: People of the Realm &8(A Mortal Life)&7&r"
 	]
 	quest.1D03190909C19A0D.title: "Ring the Bell"
 	quest.1D2BA21736C69E22.quest_desc: [
@@ -787,6 +841,8 @@
 	quest.1D2BA21736C69E22.title: "Take the Horde"
 	quest.1D3D81B3B457597B.quest_desc: [
 		"Spiders drop from the ceiling of every cave. Kill six, and keep their string for later."
+		""
+		"&7Needs one of: The First Night &8(A Mortal Life)&7, The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.1D3D81B3B457597B.quest_subtitle: "Hunt"
 	quest.1D3D81B3B457597B.title: "Eight Legs Too Many"
@@ -812,6 +868,8 @@
 		"Three jobs done for the dwarves of the road and the city. The forge street nods when you pass."
 		""
 		"&7&o“A dwarf nod is worth more than an elf's speech.”&r"
+		""
+		"&7Needs 3 of: Protect the Dwarf Caravan, The Smith's Letter, Coal for the Forges, Carapace for the Armourers, Knight Spiders in the Tunnels&r"
 	]
 	quest.1E7D098A7387BF0C.quest_subtitle: "Capstone"
 	quest.1E7D098A7387BF0C.title: "Friend of the Forges"
@@ -867,6 +925,8 @@
 		"&7&o“A village without a well is a village waiting for a fire.”&r"
 		""
 		"&6Next life:&r Not scored directly."
+		""
+		"&7Needs: Iron Age &8(A Mortal Life)&7&r"
 	]
 	quest.2132F3CD7B78FC48.title: "A Well in the Yard"
 	quest.219098709232BE9A.quest_desc: [
@@ -875,6 +935,8 @@
 		"&7&o“A hearth makes a house; walls are only what keeps the draught off it.”&r"
 		""
 		"&6Next life:&r Not scored directly."
+		""
+		"&7Needs: Ready for the Road &8(Bare Hands)&7&r"
 	]
 	quest.219098709232BE9A.title: "The Hearth"
 	quest.21B1F1A48AFB857E.quest_desc: [
@@ -901,6 +963,8 @@
 		"Gazel sat silent when you knelt, and a king who stays silent is still counting. Word of an Oath sworn in the forest has reached the white gate (Act I is behind you), and the court has noticed who walks its stair."
 		""
 		"Walk back up to the royal terrace, where the guards now step aside."
+		""
+		"&7Needs: An Audience with King Gazel &8(The Armed Nation)&7, The Forest Awakens &8(Crossroads)&7&r"
 	]
 	quest.22BF60FD6B9D6839.quest_subtitle: "Act II begins"
 	quest.22BF60FD6B9D6839.title: "The King Looks Up"
@@ -957,6 +1021,8 @@
 		"&7&o“A banner says who you are before you open your mouth, which is why so few are ever lowered.”&r"
 		""
 		"&6Next life:&r Not scored directly."
+		""
+		"&7Needs: Shears and Wool &8(Seed and Stock)&7&r"
 	]
 	quest.25E18FB809A0CA5D.title: "Heraldry"
 	quest.26616A4D8CE7AC47.quest_desc: [
@@ -976,6 +1042,8 @@
 		"The forge hall on the plaza and the engineers' workshop on the east side keep the plans of Dwargon's first technology tier on their walls. Nobody counts the paper in a smith's trash, and nobody guards what everyone already sees. Visit both halls and copy what you can: eight sheets of paper for the broker."
 		""
 		"&6Why it matters:&r Act II costs a dark soul Dwargon -20 and gives Outcast Society +10. The quiet way spends nothing more."
+		""
+		"&7Needs: The Great Forge Hall &8(The Armed Nation)&7&r"
 	]
 	quest.26A6D1053EDA56FF.quest_subtitle: "The quiet way"
 	quest.26A6D1053EDA56FF.title: "Steal the Schematics"
@@ -1027,6 +1095,8 @@
 		"&7&o“Every road in the Realm began with a splinter in somebody's palm.”&r"
 		""
 		"&6Next life:&r Not scored directly. A soul that survives the first hour is already counting days."
+		""
+		"&7Needs: Only Once &8(A Mortal Life)&7&r"
 	]
 	quest.283DBEA71CB9C9E6.quest_subtitle: "Gather sticks"
 	quest.283DBEA71CB9C9E6.title: "Bare Hands"
@@ -1083,6 +1153,8 @@
 		"Their account begins this act as a recollection. In the anime they travel with Shizu long before Charybdis rises."
 		""
 		"&7&o“At the guild table, the three adventurers still leave room for Shizu when they tell the story.”&r"
+		""
+		"&7Needs: Calamity &8(The Whirlpool)&7&r"
 	]
 	quest.29429F8A06E27248.title: "Three Places at the Guild Table"
 	quest.295AA61F9C55A114.quest_desc: [
@@ -1153,6 +1225,8 @@
 		"&7&o“The map-seller at the crossroads says the best map is the one you could draw from memory with your eyes shut.”&r"
 		""
 		"&6Next life:&r Valor: ground explored is scored by the squares you entered, not by this milestone."
+		""
+		"&7Needs 5 of: The High Country, Wrecks and Ruins, A Tower in the Wilds, Trails Under the Grass, A Gate Nobody Lit, The Wide World &8(A Mortal Life)&7&r"
 	]
 	quest.2D0434A6C1F58EC6.quest_subtitle: "The exploration milestone"
 	quest.2D0434A6C1F58EC6.title: "Cartographer's Pride"
@@ -1191,6 +1265,8 @@
 		"&7&o“The main island is only the doorstep of the End. The rest is a very long yard.”&r"
 		""
 		"&6Next life:&r Faith for the advancement (+2)."
+		""
+		"&7Needs: The Mortal Dragon &8(A Mortal Life)&7&r"
 	]
 	quest.2F5E407CC816055C.title: "Beyond the Island"
 	quest.2FC9FB28AF28814C.quest_desc: [
@@ -1218,6 +1294,8 @@
 		"&7&o“On market days they save you a stool. The stool is the highest honour the Realm has.”&r"
 		""
 		"&6Next life:&r Order: this is what the trade count in your life record is made of."
+		""
+		"&7Needs: Good Morning, A Trade for Everyone&r"
 	]
 	quest.314ED94175235B90.quest_subtitle: "The villages milestone"
 	quest.314ED94175235B90.title: "Friend of the Hamlet"
@@ -1256,6 +1334,8 @@
 		"&7&o“The villagers keep a few crops back as seed corn, and a fool who steals it is a fool who starves.”&r"
 		""
 		"&6Next life:&r Not scored directly. Do not steal from a village's farms: nothing here is taken for you."
+		""
+		"&7Needs: People of the Realm &8(A Mortal Life)&7&r"
 	]
 	quest.32DDE3E79622B19D.title: "Roots and Tubers"
 	quest.335512BF337D39FE.quest_desc: [
@@ -1279,6 +1359,8 @@
 	quest.33773FD7757DFBC8.title: "The Lizardmen's Alliance"
 	quest.33FCE563EA7EA5CF.quest_desc: [
 		"The dead walk when the sun goes down. Put ten zombies back in the ground and sleep better."
+		""
+		"&7Needs one of: The First Night &8(A Mortal Life)&7, The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.33FCE563EA7EA5CF.quest_subtitle: "Hunt"
 	quest.33FCE563EA7EA5CF.title: "Clear the Night"
@@ -1321,6 +1403,8 @@
 		"&7&o“Ask a farm girl what she loves most about cows and she will say it is how patient they are with fools.”&r"
 		""
 		"&6Next life:&r Not scored directly."
+		""
+		"&7Needs: Iron Age &8(A Mortal Life)&7&r"
 	]
 	quest.360847E3AB660F98.title: "Fresh Milk"
 	quest.36CA793DF8F0E397.quest_desc: [
@@ -1350,6 +1434,8 @@
 		"&7&o“On the evening before a long journey the Realm says nothing. It only leaves the porch light on.”&r"
 		""
 		"&6Next life:&r Valor: +30 once for reaching the Mortal End, +120 and a great foe for the dragon; this milestone only says you prepared."
+		""
+		"&7Needs: Apples of Gold, Hammer and Anvil &8(A Mortal Life)&7&r"
 	]
 	quest.384C1793A5436F8A.quest_subtitle: "The preparation milestone"
 	quest.384C1793A5436F8A.title: "The Dragon's Eve"
@@ -1357,6 +1443,8 @@
 		"Through the gate, down the south street, under the cavern's vault: the market plaza of Dwargon, with its fountain and its cogwheel."
 		""
 		"&7&o“Everything here is made to last a thousand years, including the prices.”&r"
+		""
+		"&7Needs: The Dwarven Road &8(Reborn)&7&r"
 	]
 	quest.38FC480641D6350F.quest_subtitle: "Travel"
 	quest.38FC480641D6350F.title: "The Market Plaza"
@@ -1378,6 +1466,8 @@
 	quest.397ABE2F023AD1E0.title: "A Garden of Chorus"
 	quest.3CBF4118CD1C5AF7.quest_desc: [
 		"The houses have doors, the store is full, the forge is lit and the looms run. The first night raid broke on the palisade. Rimuru calls it a town, and a town is asked where it stands: the road south of the gate splits in two (the Crossroads chapter). The road north to Dwargon, and east to Lake Siss, opens after that. This is a milestone: tick it off when you are ready to look beyond the forest."
+		""
+		"&7Needs: Fill the Food Store, A Bench for the Smiths, Cloth for Shuna&r"
 	]
 	quest.3CBF4118CD1C5AF7.quest_subtitle: "A town, not a camp"
 	quest.3CBF4118CD1C5AF7.title: "Tempest Stands"
@@ -1393,6 +1483,8 @@
 		"Stand at the fork south of the gate, then claim the reward: it opens the Oath menu (the same menu opens if you talk to Rigurd, or type /ttl story oath). Two roads: the light one, with Rigurd's folk, or the dark one, with the Outcasts and the Orc Horde. In a party the leader swears and the whole party is bound with them. The choice is not undone by wishing: only a later Atonement or Corruption can turn you, once."
 		""
 		"&6Why it matters:&r the light Oath gives Tempest +20; the dark Oath gives Outcast Society +20 and Orc Horde +15 and costs Tempest 20. Both lanes below are full quest lines of the same size."
+		""
+		"&7Needs: Tempest Stands &8(Tempest Rises)&7&r"
 	]
 	quest.3D14EC5F5890B8B5.quest_subtitle: "Swear the Oath"
 	quest.3D14EC5F5890B8B5.title: "Crossroads"
@@ -1448,11 +1540,15 @@
 		"Halfway between Jura's rim and Dwargon's gate, a dwarf village feeds the caravans and fixes their wheels."
 		""
 		"&7&o“The innkeeper weighed your purse with her eyes and poured you the second-best ale.”&r"
+		""
+		"&7Needs: The Dwarven Road &8(Reborn)&7&r"
 	]
 	quest.3F385FB3B428AA1C.quest_subtitle: "Travel"
 	quest.3F385FB3B428AA1C.title: "The Village on the Road"
 	quest.3F5B0360B52B7445.quest_desc: [
 		"Rimuru learned his resistances by taking hits, not by studying. After the wolves have bitten you a few times, the world may start to answer: Physical Attack Resistance begins to form. Skills are never handed out by this book."
+		""
+		"&7Needs: Your First Ability&r"
 	]
 	quest.3F5B0360B52B7445.title: "Thick Skin"
 	quest.3FAB106A60C8B299.quest_desc: [
@@ -1465,6 +1561,8 @@
 		"&7&o“The pedlars say a road you have walked is a road that will let you back.”&r"
 		""
 		"&6Next life:&r Valor: new ground entered on foot counts (1 per 100 blocks, within a daily cap)."
+		""
+		"&7Needs: The First Night &8(A Mortal Life)&7&r"
 	]
 	quest.40A33D79BFA6EAAC.title: "A Long Walker"
 	quest.4132F2C686AF15E9.quest_desc: [
@@ -1483,6 +1581,8 @@
 		"The last post on the road to Lura, where Englassia's patrols turn back."
 		""
 		"&7&o“The patrol sergeant asked where you were from. You said east. He did not ask how far.”&r"
+		""
+		"&7Needs: The Road West &8(The Notice Board)&7&r"
 	]
 	quest.41D840952480F245.quest_subtitle: "Travel"
 	quest.41D840952480F245.title: "The Englassia Road Post"
@@ -1519,6 +1619,8 @@
 		"&7&o“A village that has been saved once is grateful. One that has been saved three times is simply used to you.”&r"
 		""
 		"&6Next life:&r Order +30 per raid won (on a diminishing curve for repeats); Chaos +3 for each raid you brought on a village, so win only what is not your own."
+		""
+		"&7Needs: Hero of the Village &8(A Mortal Life)&7&r"
 	]
 	quest.43D7C9E691C19B2F.title: "Shield of the Village"
 	quest.443CA0DC588BEC52.quest_desc: [
@@ -1527,6 +1629,8 @@
 		"&7&o“The Realm has no printing press. It has patient people with ink and good eyes.”&r"
 		""
 		"&6Next life:&r Faith: books feed enchanting, and every enchantment is +2."
+		""
+		"&7Needs: Words of Power &8(A Mortal Life)&7&r"
 	]
 	quest.443CA0DC588BEC52.title: "The Scribe's Table"
 	quest.4498A01D17D3F657.quest_desc: [
@@ -1554,6 +1658,8 @@
 	quest.45F8FC6706DF4F4F.title: "A Line in the Water"
 	quest.464A5CC05EC762D9.quest_desc: [
 		"Kaijin never has enough magic ore. Hand in two shards."
+		""
+		"&7Needs: Magic Ore &8(Reborn)&7&r"
 	]
 	quest.464A5CC05EC762D9.quest_subtitle: "Gather"
 	quest.464A5CC05EC762D9.title: "Shards for Kaijin"
@@ -1563,6 +1669,8 @@
 		"&7&o“The shepherds' rule is older than the village: take the wool, never the sheep.”&r"
 		""
 		"&6Next life:&r Not scored directly."
+		""
+		"&7Needs: Iron Age &8(A Mortal Life)&7&r"
 	]
 	quest.46541EE000811D56.title: "Shears and Wool"
 	quest.46A849AD3B1F41C5.quest_desc: [
@@ -1593,6 +1701,8 @@
 	quest.47AE71C4AA741918.title: "The Wide World"
 	quest.4895991B15F57CD2.quest_desc: [
 		"A town that is not walked at dawn is a town that is not watched. Make your round of Tempest."
+		""
+		"&7Needs: A Town on Open Ground &8(Tempest Rises)&7&r"
 	]
 	quest.4895991B15F57CD2.quest_subtitle: "Wander"
 	quest.4895991B15F57CD2.title: "Round of the Town"
@@ -1604,6 +1714,8 @@
 		"Four kinds of work done for the Free Guild, and the receptionists know your name without looking at the card."
 		""
 		"&7&o“They put your name on the board of regulars. In pencil, but still.”&r"
+		""
+		"&7Needs 4 of: The Lost Ring, Goblin Raiders of Blumund, The Mail Run: Blumund to Englassia, Guard the Grain Cart, D-Rank: The Black Spider Nest, The Scholar's Road, A Sword for Hire&r"
 	]
 	quest.48F8F5F5965DC32F.quest_subtitle: "Capstone"
 	quest.48F8F5F5965DC32F.title: "A Regular of the Guild"
@@ -1618,6 +1730,8 @@
 		"Camp, post, plaza and road: the West has seen your boots."
 		""
 		"&7&o“Somewhere a bard is already getting the details wrong.”&r"
+		""
+		"&7Needs 3 of: The Blumund Road Camp, The Englassia Road Post, A Knight's Errand, Bandits on the Falmuth Road&r"
 	]
 	quest.4A578275C6CEFAF1.quest_subtitle: "Capstone"
 	quest.4A578275C6CEFAF1.title: "The Long Roads"
@@ -1637,6 +1751,8 @@
 		"&7&o“The old crafts did not die with the old kingdoms. They went on being useful, quietly, in a corner.”&r"
 		""
 		"&6Next life:&r Craft and Faith are scored by the work itself (anvil, smithing, enchanting, brewing), not by this milestone."
+		""
+		"&7Needs 5 of: A Reader at the Lectern, Heraldry, The Cartographer's Desk, The Mason's Saw, Dark Chemistry, Scholar &8(A Mortal Life)&7&r"
 	]
 	quest.4B4B59B007A98EEC.quest_subtitle: "The crafts milestone"
 	quest.4B4B59B007A98EEC.title: "Master of Hand and Cauldron"
@@ -1648,11 +1764,15 @@
 		"The Orc War is behind you and the council longhouse is quieter than it has been in months, which is the sort of quiet Souei does not like. Reports from the lake say the fish have gone and the water has begun to turn. Treyni's warning has come through the trees (our interpretation; in the anime a whirlpool calamity is sealed in the Beast Kingdom's borders and broken loose by Clayman's harlequins, episodes 17-18)."
 		""
 		"Stand on the green and hear what the scouts say before you choose your road."
+		""
+		"&7Needs: The Orc War &8(Two Hundred Thousand)&7&r"
 	]
 	quest.4BCFD8327B35499E.quest_subtitle: "Act IV begins"
 	quest.4BCFD8327B35499E.title: "A Calamity Stirs"
 	quest.4C0E3BFFAE3E50CA.quest_desc: [
 		"Wild direwolves still prowl the forest edge. Drive off three."
+		""
+		"&7Needs: The Direwolf Pack &8(Reborn)&7&r"
 	]
 	quest.4C0E3BFFAE3E50CA.quest_subtitle: "Hunt"
 	quest.4C0E3BFFAE3E50CA.title: "Wolves at the Edge"
@@ -1681,6 +1801,8 @@
 		"To the east of Tempest, past Lake Siss, the lizardmen keep their caverns in the marsh. Visitors are tolerated, if they are polite."
 		""
 		"&7&o“A young lizardman with a fine spear told you he would be chief one day. He told everyone.”&r"
+		""
+		"&7Needs: The Green of Tempest&r"
 	]
 	quest.4EEF90989EF8A2DA.quest_subtitle: "Travel"
 	quest.4EEF90989EF8A2DA.title: "The Lizardmen's Caverns"
@@ -1696,6 +1818,8 @@
 		"Punch a tree, make a crafting table, and trade your wooden tools for stone ones before night falls."
 		""
 		"&6Next life:&r Small steps, but every advancement you earn in Life 1 adds Faith karma."
+		""
+		"&7Needs: Wooden Tools &8(Bare Hands)&7&r"
 	]
 	quest.4FAAF7A1BC9ADF09.title: "Wood and Stone"
 	quest.4FE7A65646FF0ED9.quest_desc: [
@@ -1704,10 +1828,14 @@
 		"&7&o“A hundred trades and every librarian in the district knows how you take your tea.”&r"
 		""
 		"&6Next life:&r Order: 1 per trade; the curve flattens, but a hundred trades is a name the Realm remembers."
+		""
+		"&7Needs: A Known Face &8(A Mortal Life)&7&r"
 	]
 	quest.4FE7A65646FF0ED9.title: "Master Trader"
 	quest.502D1D1020519DFF.quest_desc: [
 		"The sick tent never has enough hipokute. Hand in six hipokute grass."
+		""
+		"&7Needs: Hipokute Herbs &8(Reborn)&7&r"
 	]
 	quest.502D1D1020519DFF.quest_subtitle: "Gather"
 	quest.502D1D1020519DFF.title: "Herbs for the Infirmary"
@@ -1769,6 +1897,8 @@
 		"&7&o“In a ledger, the zero entries are the ones that tell you most about a person.”&r"
 		""
 		"&6Next life:&r Nothing is scored here: this only counts the milestones above."
+		""
+		"&7Needs 5 of: Ready for the Road &8(Bare Hands)&7, Home Fires &8(Hearth and Home)&7, Harvest Home &8(Seed and Stock)&7, Deep Delver &8(Down the Shaft)&7, Cartographer's Pride &8(The Long Road)&7, Friend of the Hamlet &8(Folk of the Realm)&7, Master of Hand and Cauldron &8(Hand and Cauldron)&7, Hellwalker &8(Beneath the Burning Sky)&7, The Dragon's Eve &8(The Dragon's Eve)&7&r"
 	]
 	quest.51BE6D1FFA78B4AF.quest_subtitle: "Five ways of life"
 	quest.51BE6D1FFA78B4AF.title: "The Ledger"
@@ -1790,6 +1920,8 @@
 		"&7&o“At Wayfarer's Rest they ring the bell once for a traveller who has packed well.”&r"
 		""
 		"&6Next life:&r Longevity first: nothing else you do in this book matters if you do not live to do it."
+		""
+		"&7Needs: A Place for Things, First Blood&r"
 	]
 	quest.522F16F19507224C.quest_subtitle: "The first milestone"
 	quest.522F16F19507224C.title: "Ready for the Road"
@@ -1816,6 +1948,8 @@
 		"&7&o“A shepherd's wealth is counted in the lambs of the lambs.”&r"
 		""
 		"&6Next life:&r Order: 0.5 per animal bred, on the diminishing log curve, so the first few score most."
+		""
+		"&7Needs: Shepherd &8(A Mortal Life)&7, Two by Two &8(Seed and Stock)&7&r"
 	]
 	quest.5324FB850E375029.title: "Keeper of Herds"
 	quest.53C77B16D89F8A29.quest_desc: [
@@ -1839,6 +1973,8 @@
 		"&7&o“The miners' guild at Wayfarer's Rest has one rule: the last one out turns off no light.”&r"
 		""
 		"&6Next life:&r Craft: every diamond and every ancient debris you mined is already scored; this milestone only says you did it."
+		""
+		"&7Needs 5 of: Where the Stone Goes Dark, Pit Ponies, Cooled by Water, A Crystal Cave, The Far-Seer, Trial Chambers &8(A Mortal Life)&7&r"
 	]
 	quest.5510D365D50CF905.quest_subtitle: "The mining milestone"
 	quest.5510D365D50CF905.title: "Deep Delver"
@@ -1862,6 +1998,8 @@
 		"Enter the Walpurgis Hall. If you hold a Legendary or an invitation, walk through the gate on Clayman’s throne dais in Jistav. Any Life 2 player can also use /ttl arena join walpurgis when the Banquet Floor lobby is free. A solo booking brings you into the hall immediately. Wait for the visit to register before using /ttl arena leave to return. You do not need to start a match. In the council chamber, look for Frey, Guy, Leon and Dagruel on the carpet around the table. Their Act VI dialogue opens after the judgment."
 		""
 		"&7&o“In Walpurgis, Guy makes Clayman answer for his accusation in front of the other Demon Lords.”&r"
+		""
+		"&7Needs: The Names on the Warrant &8(Mask and Blade)&7&r"
 	]
 	quest.5547ED09793466EB.title: "Four Witnesses to Walpurgis"
 	quest.5557926F5E401552.quest_desc: [
@@ -1870,11 +2008,15 @@
 		"&7&o“They will say it began at a crossroads with a bell and ended somewhere else, and that is the whole of the truth.”&r"
 		""
 		"&6Next life:&r Legend tier: a great foe, at least 30 days and enough karma, scored by the karma engine at death, not by this book."
+		""
+		"&7Needs: The Mortal Dragon &8(A Mortal Life)&7, A Full Life &8(A Mortal Life)&7&r"
 	]
 	quest.5557926F5E401552.quest_subtitle: "The finale of the first life"
 	quest.5557926F5E401552.title: "A Life That Counted"
 	quest.556EA88DAE9171BE.quest_desc: [
 		"Shion's stew needs meat, and horned rabbits are everywhere. Bring down six."
+		""
+		"&7Needs: Monsters of Jura &8(Reborn)&7&r"
 	]
 	quest.556EA88DAE9171BE.quest_subtitle: "Hunt"
 	quest.556EA88DAE9171BE.title: "Horned Rabbit Stew"
@@ -1901,6 +2043,8 @@
 		"&7&o“A village that has had a bad winter does not say so. It only goes quiet near the bakery.”&r"
 		""
 		"&6Next life:&r Not scored: the book cannot see a gift, and the Voice scores only what the world records. Do it anyway."
+		""
+		"&7Needs: People of the Realm &8(A Mortal Life)&7&r"
 	]
 	quest.57F95C93A1BA166D.title: "Bread for the Hungry"
 	quest.589B9EDB1263A248.quest_desc: [
@@ -1987,6 +2131,8 @@
 		"Build an enchanting table and enchant something."
 		""
 		"&6Next life:&r Faith: every enchantment adds Faith karma. Faith souls lean towards Elves, spirits and sage-type skills."
+		""
+		"&7Needs: Diamonds&r"
 	]
 	quest.5C3910E005FDD1EA.title: "Words of Power"
 	quest.5C6CEA9703648161.quest_desc: [
@@ -1995,6 +2141,8 @@
 		"&7&o“A name in the Realm is not what you are called. It is what people say when you leave the room.”&r"
 		""
 		"&6Next life:&r Order and Valor are scored by what the world records; this milestone only says you did the rest."
+		""
+		"&7Needs 3 of: Torches for the Night Watch, Arrows for the Guard, Wool for the Cold, Keep the Peace, Keeper of Herds, Hired Help &8(A Mortal Life)&7, Hero of the Village &8(A Mortal Life)&7&r"
 	]
 	quest.5C6CEA9703648161.quest_subtitle: "The deeds milestone"
 	quest.5C6CEA9703648161.title: "A Good Name"
@@ -2013,6 +2161,8 @@
 	quest.5CC1ABCBFB22E216.title: "A Witness from the Crypt"
 	quest.5CCC0C26065B405A.quest_desc: [
 		"Stand on the marsh battlefield where two hundred thousand orcs met the forest alliance."
+		""
+		"&7Needs: The Orc Lord &8(The Orc Lord)&7&r"
 	]
 	quest.5CCC0C26065B405A.title: "Where the Orc Lord Fell"
 	quest.5CE177F176862D46.quest_desc: [
@@ -2028,6 +2178,8 @@
 		"&7&o“The Nether has no history that anyone has ever written down. The fossil is simply proof that it once had a past.”&r"
 		""
 		"&6Next life:&r Valor for the walking."
+		""
+		"&7Needs: The Valley of Souls&r"
 	]
 	quest.5D7D7960B5EA0119.title: "The Bones of Something Large"
 	quest.5DC6BB895E05778A.quest_desc: [
@@ -2114,6 +2266,8 @@
 		"Wayfarers and rookie adventurers camp on Jura's northern rim, a few steps from where reborn souls wake: the forest's safe edge. Find the camp."
 		""
 		"&7&o“A fire, a pot, and four strangers arguing about which way Tempest is. You have found the rim.”&r"
+		""
+		"&7Needs: Open Your Eyes &8(Reborn)&7&r"
 	]
 	quest.603D7332235307E3.quest_subtitle: "Travel"
 	quest.603D7332235307E3.title: "The Wayfarers' Camp"
@@ -2140,6 +2294,8 @@
 	quest.60EF9E8FB35BF30E.title: "Wool for the Cold"
 	quest.60F244EA243A900D.quest_desc: [
 		"Geld, the Orc Lord, ate the strongest of his own army to become a monster that no one in the forest could face alone. He lies at the heart of the horde. This quest needs a real orc lord to be alive in the camp when you get there; the landmark spawns one, but another player may have killed it first. Come prepared, and do not come alone."
+		""
+		"&7Needs: A Hazard to Others&r"
 	]
 	quest.60F244EA243A900D.quest_subtitle: "Geld, king of the hungry"
 	quest.60F244EA243A900D.title: "The Orc Lord"
@@ -2194,6 +2350,8 @@
 	quest.6393057B0136AB75.title: "The Smith's Art"
 	quest.63A48763F37F8D6C.quest_desc: [
 		"Rimuru moved the village to open ground with room to grow and water close by, and insisted on proper houses and roads from the first day. Stand on the green by the cooking fire: every plan in Tempest starts here."
+		""
+		"&7Needs: The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.63A48763F37F8D6C.quest_subtitle: "The village green"
 	quest.63A48763F37F8D6C.title: "A Town on Open Ground"
@@ -2229,10 +2387,14 @@
 		"&7&o“A ghast weeps for nobody in particular. A brewer collects what falls.”&r"
 		""
 		"&6Next life:&r Faith for the brewing it feeds (0.5 per use)."
+		""
+		"&7Needs: Fire and Bone &8(A Mortal Life)&7&r"
 	]
 	quest.644083476DBFE88A.title: "Tears and Cream"
 	quest.64E84EC2992F8D82.quest_desc: [
 		"Walls, furnaces and footings: all of them want cobblestone. Hand in 32."
+		""
+		"&7Needs one of: The First Night &8(A Mortal Life)&7, The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.64E84EC2992F8D82.quest_subtitle: "Gather"
 	quest.64E84EC2992F8D82.title: "A Day's Stone"
@@ -2252,6 +2414,8 @@
 	quest.654329C1B385D470.title: "The Cartographer's Desk"
 	quest.654B3760F245A721.quest_desc: [
 		"Every house, door and fence starts as a tree. Hand in 16 oak logs."
+		""
+		"&7Needs one of: The First Night &8(A Mortal Life)&7, The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.654B3760F245A721.quest_subtitle: "Gather"
 	quest.654B3760F245A721.title: "A Day's Wood"
@@ -2267,6 +2431,8 @@
 		"Kaijin owes the forge street of Dwargon a crate of Jura ore. He was exiled from the dwarf kingdom and is not welcome there himself. You are."
 		""
 		"&7&o“An exiled smith pays his debts. He just needs someone else to carry them.”&r"
+		""
+		"&7Needs: The Dwarven Road &8(Reborn)&7&r"
 	]
 	quest.65BC582974E27AFB.quest_subtitle: "Accept"
 	quest.65BC582974E27AFB.title: "Job: Kaijin's Ore for Dwargon"
@@ -2298,6 +2464,8 @@
 		"&7&o“They hold the harvest feast when the last sheaf is in. Whoever brought the first seed is, by old custom, served first.”&r"
 		""
 		"&6Next life:&r Longevity: you will not starve."
+		""
+		"&7Needs 5 of: The Baker's Hour, A Hen-House, A Full Larder, A Line in the Water, A Loyal Friend, Sweet and Gourd, Fresh Milk&r"
 	]
 	quest.66CC4813FDE91493.quest_subtitle: "The farming milestone"
 	quest.66CC4813FDE91493.title: "Harvest Home"
@@ -2368,11 +2536,15 @@
 	quest.6AA8E6067A8EC212.title: "The Town of Ballachia"
 	quest.6BFA5D9C19308004.quest_desc: [
 		"At the back of the cavern, behind the great stair and the royal terrace, sits the third king of Dwargon in his throne room of tuff and deepslate, under red banners. He has ruled for over three hundred years and judges every petitioner himself. He sits there as a silent guardian (he does not speak and does not fight): kneel, then leave."
+		""
+		"&7Needs: B-Class&r"
 	]
 	quest.6BFA5D9C19308004.quest_subtitle: "Gazel Dwargo, the Hero King"
 	quest.6BFA5D9C19308004.title: "An Audience with King Gazel"
 	quest.6BFF3AB595F9426A.quest_desc: [
 		"Reach 50,000 EP. At this strength a single fighter can turn a skirmish, as the kijin did on the battlefield."
+		""
+		"&7Needs: A Named Monster's Strength &8(Reborn)&7&r"
 	]
 	quest.6BFF3AB595F9426A.title: "A Walking Calamity"
 	quest.6C47CF0254A7CCAA.quest_desc: [
@@ -2409,6 +2581,8 @@
 	quest.6DDF459E16D36563.title: "The Armed Nation"
 	quest.6E5B3A4C9692E518.quest_desc: [
 		"Skeletons shoot from the dark and never miss twice. Shut up eight of them."
+		""
+		"&7Needs one of: The First Night &8(A Mortal Life)&7, The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.6E5B3A4C9692E518.quest_subtitle: "Hunt"
 	quest.6E5B3A4C9692E518.title: "Quiet the Bowmen"
@@ -2418,6 +2592,8 @@
 		"&7&o“Raiders count on a village not being able to say no. It is a kindness to say it for them.”&r"
 		""
 		"&6Next life:&r Valor: pillagers are a kind of foe (+4 for the first, little after). A raid you did not start and won is Order (+30)."
+		""
+		"&7Needs: Illagers &8(A Mortal Life)&7&r"
 	]
 	quest.6EC64E409D27BB66.title: "Keep the Peace"
 	quest.6ED182178A90CB23.quest_desc: [
@@ -2443,6 +2619,8 @@
 	quest.7070BCCFF604CC3C.title: "The Sealed Cave"
 	quest.7084AFF4A1F3AAC4.quest_desc: [
 		"Your strength in this world is measured in EP (existence points): magicules plus aura. Defeating monsters makes you stronger. Reach 5,000 EP, where common skills start to answer."
+		""
+		"&7Needs: Fit for a Named Pack &8(Tempest Rises)&7&r"
 	]
 	quest.7084AFF4A1F3AAC4.title: "Existence Points"
 	quest.7088AFEA47B54D28.quest_desc: [
@@ -2463,6 +2641,8 @@
 		"The Free Guild's Blumund branch stands on the market square of Londo, Blumund's capital, west of the Jura forest. Walk into the hall and become an adventurer: everyone starts at rank F."
 		""
 		"&7&o“A clean registration card, a rank of F, and a receptionist who has seen a hundred heroes walk in and twelve walk out.”&r"
+		""
+		"&7Needs: Open Your Eyes &8(Reborn)&7&r"
 	]
 	quest.70C8014139160B5D.quest_subtitle: "Rank F"
 	quest.70C8014139160B5D.title: "Register at the Guild"
@@ -2472,6 +2652,8 @@
 		"&7&o“The first road in the Nether was laid by someone who did not come back. The second by someone who followed their footprints.”&r"
 		""
 		"&6Next life:&r Valor: the Mortal Nether adds +20 once for walking in it."
+		""
+		"&7Needs: The Mortal Nether &8(A Mortal Life)&7&r"
 	]
 	quest.70EB5B4005F7C8E2.title: "The Netherrack Road"
 	quest.7120FAE119C8B75E.quest_desc: [
@@ -2502,6 +2684,8 @@
 		"The ogres have become kijin, the lizardmen have begged Tempest for help, and the Orc Lord's name is on every lip (anime season 1, episodes 10-12). Benimaru has laid out the marsh on the council table: two hundred thousand orcs under a king whose skill, Starved, drives the whole horde mad with hunger."
 		""
 		"You have blunted the first wave and carried Act II to Tempest. Walk into the council longhouse and hear the plan before you choose your road."
+		""
+		"&7Needs: Hold the Line &8(The Orc Lord)&7, A Hazard to Others &8(The Orc Lord)&7&r"
 	]
 	quest.726B82305E098613.quest_subtitle: "Act III begins"
 	quest.726B82305E098613.title: "The War Council"
@@ -2511,6 +2695,8 @@
 	quest.7289055E6D3B5177.title: "Ore, But Magic?!"
 	quest.72ED01B72020F604.quest_desc: [
 		"The lizardmen live on the shores of Lake Siss in a village on stilts, and fish the lake. Their chief's son Gabiru came to Tempest with an envoy: the orc horde is coming and the marsh cannot hold. Travel east to the stilt village."
+		""
+		"&7Needs: The Armed Nation &8(The King's Test)&7&r"
 	]
 	quest.72ED01B72020F604.quest_subtitle: "Gabiru's envoy"
 	quest.72ED01B72020F604.title: "The Stilt Village"
@@ -2625,6 +2811,8 @@
 		"&7&o“In the Realm you do not ask a stranger's name before you give them a bed. You ask it at breakfast.”&r"
 		""
 		"&6Next life:&r Not scored directly: but a bed slept in is a night survived (Longevity), and a guest warmed is a good deed the book cannot see."
+		""
+		"&7Needs: A Roof and a Bed &8(A Mortal Life)&7&r"
 	]
 	quest.7A865EDF634D7260.title: "A Bed for Every Guest"
 	quest.7AF1B198048D79AD.quest_desc: [
@@ -2657,6 +2845,8 @@
 		"Adventurers from every country stop on Tempest's green to stare at a town of monsters that bakes bread and keeps the peace."
 		""
 		"&7&o“A goblin offered you tea. A kijin watched you drink it. Welcome to Tempest.”&r"
+		""
+		"&7Needs: The Town of Monsters &8(Reborn)&7&r"
 	]
 	quest.7BF2DFDFA8FA836B.quest_subtitle: "Travel"
 	quest.7BF2DFDFA8FA836B.title: "The Green of Tempest"
@@ -2725,6 +2915,8 @@
 		"Four jobs done for the people of the forest. The wayfarers point you out to the rookies."
 		""
 		"&7&o“\"Ask that one,\" they say at the rim. \"That one knows the forest.\"”&r"
+		""
+		"&7Needs 4 of: Clear the Rim Road, The Merchant's Escort, The Missing Rookie, Gobta's Lost Spear, Kaijin's Ore for Dwargon, The Dragon-City Pilgrimage, The Horned Bear&r"
 	]
 	quest.7D80C70C55797B80.quest_subtitle: "Capstone"
 	quest.7D80C70C55797B80.title: "Handyman of Jura"

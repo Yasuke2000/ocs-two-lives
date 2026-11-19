@@ -1,17 +1,19 @@
 # The Dwarven Arena (blueprints/dwarven_arena.py, issue #5): Yasuke's dwarf_arena export (Tensura's Gazel Dwargo fight hall)
 # without the royal warp pad, the boss and the black glass shell, with a door and a forecourt. It is the duel / party /
 # challenge venue "dwarven" of design/data/arenas.toml. Position: design/data/anchors.toml dwarven_arena (Lerfing's map),
-# east of the dwarf village (anchor dwarf_village): the village keeps a 116 + 24 block keepout round its placed spot, which
-# the landmark placer may put up to 64 blocks off its nominal one, so the arena's box + search stays east of that whatever
-# happens (tests/test_dwarven_arena.py), in the Dwargon region (D on canon_map.txt) like the village, away from the Life 2
-# arrival and outside the Dwargon capital domain.
+# IN the dwarf village (issue #5 "add dwarven arena to the dwarven village"; Tensura's own file is a dwarf_village building):
+# beside = "dwarf_village" drops the 24-block keepout for the village, so the survey puts the hall right against the
+# village's real box (only `margin` stays off it), east of the houses with its west door facing them; in the Dwargon region
+# (D on canon_map.txt), away from the Life 2 arrival (tests/test_dwarven_arena.py). Version 2 (19/11/2026) moved it there
+# from (2256, -76), 180 blocks east of the village; life/builds.js takes the version-1 copy out first (removeOld).
 name = "dwarven_arena"
 title = "The Dwarven Arena"
 anchor = [3, 1, 25]
 ground = "survey"
-search = 24
+search = 48
+beside = "dwarf_village"
 dimension = "minecraft:overworld"
-version = 1
+version = 2
 clear_above = true
 margin = 6
 notes = "Gazel's fight hall as a Life 2 arena venue, entered through a door in the west wall. Source: Tensura 2.0.1.5 dwarf_village/building/dwarf_arena (our adaptation, see the blueprint docstring and design/lore/dwarven_arena.md)."

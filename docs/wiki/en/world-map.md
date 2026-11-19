@@ -45,7 +45,7 @@ Lerfing drew the lands; the pack decides which nation each part is. A few readin
 | Dwargon main gate | 1878, −544 | Dwargon | `dwargon` |
 | Dwargo, the cavern capital | 1878, −644 | Dwargon |  |
 | Dwarf village on the road to Dwargon | 2000, −110 | Dwargon | `dwarf_village` |
-| Dwarven Arena | 2260, −80 | Dwargon | `dwarven_arena` |
+| Dwarven Arena | 2100, −90 (east side of the dwarf village) | Dwargon | `dwarven_arena` |
 | Great Ameld River, source | 2500, −200 | Dwargon |  |
 | Dragon’s Nest (highest peak of the Canaat) | 2420, −1536 | Dwargon | `dragons_nest` |
 | Lake Siss | 3050, 750 | Lake Siss marsh |  |

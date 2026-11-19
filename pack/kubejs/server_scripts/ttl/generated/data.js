@@ -2289,6 +2289,7 @@ const TtlData = {
         1,
         25
       ],
+      "beside": "dwarf_village",
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
@@ -2301,16 +2302,16 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 24,
+      "search": 48,
       "size": [
         75,
         26,
         51
       ],
       "title": "The Dwarven Arena",
-      "version": 1,
-      "x": 2260,
-      "z": -80
+      "version": 2,
+      "x": 2100,
+      "z": -90
     },
     {
       "anchor": [
@@ -5814,10 +5815,22 @@ const TtlData = {
         "name": "goblin_village",
         "notes": "Rigurd's poor village of wooden huts in the Jura forest, north-west of Tempest; goblin spawn pieces.",
         "reach": 48,
+        "remove": [
+          {
+            "id": "lerfing_1",
+            "x": 1390,
+            "z": 742
+          },
+          {
+            "id": "lerfing_2",
+            "x": 1358,
+            "z": 710
+          }
+        ],
         "structure": "tensura:villages/goblin_village/oak",
         "surface": "land",
         "title": "Old goblin village (Rigurd's tribe)",
-        "version": 1,
+        "version": 2,
         "x": 1390,
         "z": 710
       },
@@ -5850,10 +5863,32 @@ const TtlData = {
         "name": "orc_camp",
         "notes": "Geld's horde camped south-east of Lake Siss; the orc village has an orc lord spawn piece.",
         "reach": 40,
+        "remove": [
+          {
+            "id": "lerfing_1",
+            "x": 3600,
+            "z": 1250
+          },
+          {
+            "id": "lerfing_2",
+            "x": 3623,
+            "z": 1227
+          },
+          {
+            "id": "lerfing_3",
+            "x": 3632,
+            "z": 1250
+          },
+          {
+            "id": "lerfing_4",
+            "x": 3600,
+            "z": 1282
+          }
+        ],
         "structure": "tensura:villages/orc_village",
         "surface": "land",
         "title": "Orc camp at the Orc War battlefield",
-        "version": 1,
+        "version": 2,
         "x": 3600,
         "z": 1250
       },
@@ -5861,10 +5896,17 @@ const TtlData = {
         "name": "dwarf_village",
         "notes": "Beside the road from Tempest to Dwargon's gate, on the Canaat apron foot just inside Dwargon's border (D), about 150 blocks east of the road (anchors.toml dwarf_village).",
         "reach": 116,
+        "remove": [
+          {
+            "id": "lerfing_1",
+            "x": 2000,
+            "z": -110
+          }
+        ],
         "structure": "tensura:villages/dwarf_village",
         "surface": "land",
         "title": "Dwarf village on the Dwarven Road",
-        "version": 1,
+        "version": 2,
         "x": 2000,
         "z": -110
       },

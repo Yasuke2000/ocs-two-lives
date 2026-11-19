@@ -105,14 +105,17 @@ class DwarvenArena(unittest.TestCase):
         sx, _, sz = self.m.SIZE
         reach = max(b["margin"], b.get("repair_margin", 8)) + b["search"]
         box = (a["x"] - ax - reach, a["z"] - az - reach, a["x"] - ax + sx - 1 + reach, a["z"] - az + sz - 1 + reach)
-        # Outside the dwarf village's keepout whatever happens: the landmark placer may put the village up to 64 blocks off
-        # its anchor, its jigsaw spreads `reach` (landmarks.toml, 116) round that, and every placed build keeps 24 more.
+        # IN the dwarf village (owner 19/11/2026; issue #5): beside the landmark (only the build's margin stays off its real
+        # box), anchored on the village, and its survey reaches the village's own square (spot + reach) so the hall can
+        # stand right against the houses.
+        self.assertEqual(b.get("beside"), "dwarf_village")
+        self.assertEqual(a.get("of"), "dwarf_village")
         lm = next(l for l in tomllib.loads((ROOT / "design" / "data" / "landmarks.toml").read_text(encoding="utf-8"))["landmark"]
                   if l["name"] == "dwarf_village")
-        keep = lm["reach"] + 64 + 24
-        vbox = (village["x"] - keep, village["z"] - keep, village["x"] + keep, village["z"] + keep)
+        vbox = (village["x"] - lm["reach"], village["z"] - lm["reach"], village["x"] + lm["reach"], village["z"] + lm["reach"])
         overlap = box[0] <= vbox[2] and vbox[0] <= box[2] and box[1] <= vbox[3] and vbox[1] <= box[3]
-        self.assertFalse(overlap, f"arena {box} reaches the dwarf village's keepout {vbox}")
+        self.assertTrue(overlap, f"arena {box} cannot reach the dwarf village's square {vbox}")
+        self.assertLess(math.hypot(a["x"] - village["x"], a["z"] - village["z"]), lm["reach"] + 24)
         # The Life 2 arrival stays free ground well away from it.
         gap = math.hypot(max(box[0] - arrival["x"], 0, arrival["x"] - box[2]), max(box[1] - arrival["z"], 0, arrival["z"] - box[3]))
         self.assertGreater(gap, 200)
