@@ -13,6 +13,15 @@ of play (counts); `neoforge tps` and `execute in minecraft:overworld run neoforg
 compare with 19/11 (overworld 23-26 ms with 2 players, 313-461 items, 152 falling blocks). The frozen junk already saved
 in chunks is not swept by this; kill it away from players when it shows up. Suggestions not done (owner/ops): simulation
 distance 8 -> 6, Tensura spawn weights (tensuramoreconfig) if Jura stays crowded.
+## 19/11 night — dev log feed `#dev-server-log` (branch `dev-server-feed`, Claude, for Yasuke)
+
+New read-only channel in DEVELOPMENT (`tools/discord_setup.sh`, mode `rostaff`; created live 19/11, id in the Homelab
+manifest) with a privacy-filtered feed of the server log, posted by the `logfeed` sidecar of the ttl-ops pod (Homelab PR
+`ttl-ops-logfeed`). It is deliberately not called `#server-log`: that is the existing staff-only channel. Docs:
+`docs/server.md` "Server log feed", decision row 19/11. **Verified**: 49 unit tests (filter, dedupe, batching, rate cap,
+reconnect against a fake kubectl), a dry run on `kubectl logs --tail=500` and a live follow of the mc pod from a PC.
+**After the Homelab merge**: the startup line `FEED  Log feed started` must appear in `#dev-server-log`; joins and leaves
+are off (`FEED_JOINS`), say if Yasuke wants them on.
 
 
 ## 19/11 late — staging round 2 (branch `fix-staging-round2`, Claude)

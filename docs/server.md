@@ -899,6 +899,45 @@ python tools/gen_ttl_commands.py --discord | ssh -o LogLevel=ERROR root@100.109.
 ssh -o LogLevel=ERROR root@100.109.28.21 'bash -s -- /tmp/ttl-commands-discord.md' < tools/post_ttl_commands.sh
 ```
 
+## Server log feed (`#dev-server-log`)
+
+Devs can follow the Minecraft server without cluster access: a read-only channel in 🛠 DEVELOPMENT (members read; the
+bot and the `modder` role post) with the server's important log lines. It is **not** the staff-only `#server-log`
+(ops notices and staff `?commands`, unchanged), so staff output stays hidden. The channel is made by
+`tools/discord_setup.sh` (re-runnable; pinned EN+NL how-to first); its id is in the Homelab manifest.
+
+**Where it runs.** The `logfeed` sidecar of the `ttl-ops` pod (Homelab repo, `apps/ocs-two-lives/manifests/ops.yaml`,
+ConfigMap key `logfeed.py`, tests in `apps/ocs-two-lives/tests/`). It follows `kubectl logs -f` of the `mc` pod,
+reconnects after a pod restart or a dropped connection, and posts with the bot token (the mounted `discord-bot` secret;
+no new secret). A Discord outage only makes it back off; it never touches the deploy loop or the Minecraft pod.
+
+| Posted | Label |
+| --- | --- |
+| ERROR and WARN from `[ttl]`, KubeJS and the mods; vanilla only `Can't keep up` (lag, one line per 10 min) | `ERROR` `WARN` `LAG` |
+| Server start (`Done (…s)`), stop, crashes, watchdog, a restarted container or replaced pod | `START` `STOP` `CRASH` `FEED` |
+| `[ttl] world import`, `placed`, `could not be placed`, `laid`, `planted` | `WORLD` |
+| Deploy and test results of ttl-ops (posted by `loop.sh`, not by the forwarder, so nothing is doubled) | plain messages |
+| `X joined` / `X left`, no IP, test bots skipped; off by default (`FEED_JOINS=1` in the manifest) | `JOIN` `LEAVE` |
+
+Left out as known noise: mixin `Error loading class … invalid dist` and all other boot-time mixin warnings, Curios `not
+a registered entity type`, the octolib `ClassNotFound`, Easy NPC debug-manager lines, BlueMap dimension-type fallbacks,
+KubeJS client-plugin skips, ModernFix load times, and vanilla chatter (`moved too quickly`, `marked as removed`).
+
+**Privacy filter** (applied to every line before it is posted; unit-tested): IPv4 and IPv6 addresses with their ports
+(`Name[/1.2.3.4:5678] logged in with entity id … at (…)` becomes `Name logged in`; other addresses become `[ip]`), e-mail
+addresses, Discord and GitHub tokens, JWTs, webhook URLs, `Bearer`/`Bot` credentials, values after `token`, `secret`,
+`password`, `api_key`, …, hex runs of 32+ characters, mixed-case base64-like runs of 32+ characters, and UUIDs. Backticks
+are swapped for `'` so a line cannot break out of its code block.
+
+**Rate limit.** Identical lines (numbers ignored) within 60 s are posted once, then one `↳ … (×N)` line. Lines are
+batched into code blocks under 1,900 characters, at most 20 posts a minute (`FEED_MAX_PER_MIN`); beyond that ordinary
+lines are dropped and one `… N lines suppressed` line says how many. Start, stop and crash lines are never dropped.
+
+**Operations.** A startup line (`FEED  Log feed started …`) appears whenever the sidecar starts. Tests and a dry run
+against a saved log: `python3 -I -m unittest discover -s apps/ocs-two-lives/tests` and
+`kubectl -n ocs-two-lives logs --tail=500 deploy/mc | python3 logfeed.py --stdin` (Homelab repo; the script is in the
+ConfigMap). After editing `logfeed.py`, bump `FEED_REV` in the manifest: the ConfigMap alone does not restart the pod.
+
 ## Roadmap and suggestions
 
 Two Discord channels show players what is going on and let them propose things; the team decides on GitHub and
