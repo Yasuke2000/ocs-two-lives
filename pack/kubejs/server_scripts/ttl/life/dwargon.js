@@ -42,6 +42,9 @@ const TtlDwargon = {
   PROBE: 'ttl_dwargon_probe',
   FILLS_PER_TICK: 150,
   SEAL_MS: 15,
+  // seal and drain: Block.UPDATE_CLIENTS | UPDATE_KNOWN_SHAPE, no neighbour shape updates (life/drops.js): a kelp or
+  // glow lichen next to a drained cell does not pop off as an item, and the water beside it does not flow back in
+  QUIET: 18,
   FALLBACK_DEPTH: 48,
   BANDED: 12,
   // The Canaat's sloping-ground mix (blueprints/dwargon.py CANAAT_SLOPE, sampled from Lerfing's map), one entry
@@ -379,7 +382,7 @@ const TtlDwargon = {
             var pos = new BlockPos(x, y, z)
             var fs = level.getFluidState(pos)
             if (!fs.isEmpty()) {
-              level.setBlock(pos, rock, 2)
+              level.setBlock(pos, rock, self.QUIET)
               if (String(fs.getType()).indexOf('lava') >= 0) res.lava++
               else res.water++
             }
@@ -454,7 +457,7 @@ const TtlDwargon = {
             var pos = new BlockPos(b.ax0 + gx, y, b.az0 + gz)
             if (!level.getFluidState(pos).isEmpty()) {
               var st = level.getBlockState(pos)
-              level.setBlock(pos, st.hasProperty(WET) ? st.setValue(WET, DRY) : AIR, 2)
+              level.setBlock(pos, st.hasProperty(WET) ? st.setValue(WET, DRY) : AIR, self.QUIET)
               cells++
             }
             y++

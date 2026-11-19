@@ -1,0 +1,27 @@
+# Graded spawn zones round the Life 2 towns (life/mortal_spawns.js TtlSpawnZones). Edit, then run `python tools/gen_data.py`;
+# the scripts read it as TtlData.spawns.
+#
+# Owner 19/11/2026: fewer mobs next to Tempest. Only NATURAL spawns are touched (the world's own spawning and the mobs a new
+# chunk is generated with: MobSpawnType natural, chunk_generation, patrol): a boss, an arena, an event, a choice scene, a
+# summon, a spawner or a breeding pair is never refused. The hard hostile-free squares (Tempest r 56, the arrival r 48,
+# Wayfarer's Rest) and the magicule core are not this file: life/mortal_spawns.js TtlSafeSpawns.ZONES and
+# life/mortal_immunity.js keep them as they are, Jura's core keeps its magicule.
+#
+# [zone.<id>]
+#   anchor          = the design/data/anchors.toml anchor at the centre (x/z from there)
+#   town_radius     = no natural hostile spawn within this many blocks (the town itself)
+#   reduced_radius  = from town_radius out to here, a natural hostile spawn goes ahead with chance `hostile_keep`
+#   hostile_keep    = 0..1, the share of hostile spawns kept in the reduced band (0.25 = three in four refused)
+#   passive_radius  = within this many blocks a natural passive animal spawn (pigs, chickens, sheep, cows, horses: any
+#                     Animal) is refused when `passive_cap` animals already stand in its `passive_box` x `passive_box`
+#                     square (the chunk area round the spawn, every height); 0 = no cap
+#   passive_cap     = animals allowed per square
+#   passive_box     = side of the square in blocks (32 = 2 x 2 chunks)
+[zone.tempest]
+anchor = "tempest"
+town_radius = 150
+reduced_radius = 400
+hostile_keep = 0.25
+passive_radius = 400
+passive_cap = 4
+passive_box = 32
