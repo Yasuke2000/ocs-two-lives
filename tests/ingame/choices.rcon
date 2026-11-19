@@ -1,8 +1,8 @@
 # Moral-choice scenes (WP-C1: choices/engine.js, choices/events_c1.js, design/data/choices.toml). `ttl choice expect`,
 # `ttl roads expect`, `ttl karma ... expect` and `ttl rep expect` print "ttl: ..." when wrong, which `server.sh test-all`
 # counts as a failure. A takes the routes; B stands 10 blocks away (a Life 2 witness, R14, and a non-participant inside the
-# 48-block credit radius). The platform at 1500 150 1500 is on the canon continent (Blumund, 'B' in canon_map.txt) and far
-# from every canon build, so no ttl.npc witnesses. Bots never count in the World Chronicle without its test mark, so the
+# 48-block credit radius). The platform at 1500 150 1500 is on the canon continent (a Jura river cell: '~' owned by 'J' in canon_map.txt,
+# 640 blocks from Tempest) and far from every canon build, so no ttl.npc witnesses. Bots never count in the World Chronicle without its test mark, so the
 # balance notes are counted (last_noted, tide_dark) but the world does not move. Discord is muted in tests.
 ttlbot spawn TtlBotChoiceA
 ttlbot spawn TtlBotChoiceB

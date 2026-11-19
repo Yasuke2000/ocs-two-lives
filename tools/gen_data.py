@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))  # python -I (validate.py) does not put the script's folder on the path
 import nbt  # noqa: E402
+import anchors_env  # noqa: E402 (tests/anchors.env, WP-L6)
 
 SOURCES = ROOT / "design" / "data"
 BUILDS = ROOT / "design" / "builds"
@@ -2425,11 +2426,12 @@ def render() -> dict[Path, str]:
 
 def main() -> None:
     files = render()
+    files.update(anchors_env.render())  # tests/anchors.env: the bot tests' ${anchor:...} / ${probe:...} numbers (WP-L6)
     if "--check" in sys.argv:
         for path, text in files.items():
             current = path.read_text(encoding="utf-8") if path.exists() else ""
             if current != text:
-                print(f"FAIL generated/{path.name} is stale: run python tools/gen_data.py")
+                print(f"FAIL {path.relative_to(ROOT).as_posix()} is stale: run python tools/gen_data.py")
                 sys.exit(1)
         return
     for path, text in files.items():

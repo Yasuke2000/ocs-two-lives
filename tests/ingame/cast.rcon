@@ -33,7 +33,7 @@ execute as TtlBotCastA run ttl story talk hinata
 execute as TtlBotCastA run ttl story talk gazel
 # ---- placement: force-load every placed spot, let the check run, then verify ----
 ttl cast load
-execute in minecraft:overworld run forceload add 16 -48 31 -28
+execute in minecraft:overworld run forceload add ${anchor:tempest.x+16} ${anchor:tempest.z-48} ${anchor:tempest.x+31} ${anchor:tempest.z-28}
 @sleep 8
 ttl guild npc ensure
 @sleep 2
@@ -87,7 +87,7 @@ ttl cast interact TtlBotCastA ramiris_spirit_dwelling ramiris
 ttl guild npc expect count_gido 1
 # ---- clean up ----
 ttl cast unload
-execute in minecraft:overworld run forceload remove 16 -48 31 -28
+execute in minecraft:overworld run forceload remove ${anchor:tempest.x+16} ${anchor:tempest.z-48} ${anchor:tempest.x+31} ${anchor:tempest.z-28}
 ttl reset TtlBotCastA
 ttl reset TtlBotCastB
 ttlbot remove TtlBotCastA

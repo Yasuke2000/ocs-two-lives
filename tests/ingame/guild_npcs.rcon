@@ -54,7 +54,7 @@ execute as TtlBotNpcA run ttl guild board fuze
 ttl guild npc list
 # A bot that was teleported within one dimension does not make its new chunk entity-ticking (it sends no movement
 # packets; in game 18/11/2026), so the two Tempest spots are force-loaded for the test (removed again at the end).
-execute in minecraft:overworld run forceload add 3 -19 8 -16
+execute in minecraft:overworld run forceload add ${anchor:tempest.x+3} ${anchor:tempest.z-19} ${anchor:tempest.x+8} ${anchor:tempest.z-16}
 ttl guild npc goto TtlBotNpcA receptionist_tempest
 @sleep 4
 ttl guild npc remove receptionist_tempest
@@ -71,10 +71,10 @@ ttl guild npc expect count_receptionist_tempest 2
 ttl guild npc ensure receptionist_tempest
 ttl guild npc expect count_receptionist_tempest 1
 # Fuze: Blumund is placed (on staging and at launch every canon build is), so he stands in Blumund's guild hall and the
-# Tempest stand-in spot is inactive (`unless_build = "blumund"`). Blumund's spots are force-loaded like Tempest's.
-# Fuze's stand is Blumund's corner + (107, 11, 61); the corner is the placed anchor - (62, 5, 72) (`ttl build list`), -1086 65 -224 since the world
-# reset of 19/11 (it was -1102 67 -248 before). Move this box with the build.
-execute in minecraft:overworld run forceload add -984 -168 -975 -158
+# Tempest stand-in spot is inactive (`unless_build = "blumund"`). Blumund's spots are force-loaded like Tempest's: Fuze's stand
+# is Blumund's placed anchor + (45, 6, -11), and the placer surveys up to 128 blocks round the `blumund` anchor, so no fixed box
+# holds it; `ttl cast load` force-loads the chunk of every active spot where it really stands (released again at the end).
+ttl cast load
 ttl guild npc goto TtlBotNpcA fuze_blumund
 @sleep 4
 ttl guild npc remove fuze_blumund
@@ -94,7 +94,7 @@ ttl guild npc expect count_receptionist_blumund_2 1
 # Clean up: the NPCs stay (they are the real ones); only the bots go.
 ttl guild reset TtlBotNpcA
 ttl guild npc ensure
-execute in minecraft:overworld run forceload remove 3 -19 8 -16
-execute in minecraft:overworld run forceload remove -984 -168 -975 -158
+execute in minecraft:overworld run forceload remove ${anchor:tempest.x+3} ${anchor:tempest.z-19} ${anchor:tempest.x+8} ${anchor:tempest.z-16}
+ttl cast unload
 ttlbot remove TtlBotNpcA
 ttlbot remove TtlBotNpcB

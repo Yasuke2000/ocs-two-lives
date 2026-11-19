@@ -1,0 +1,150 @@
+# Facts about Lerfing's imported map that tests/ingame/lerfing.rcon and lerfing_sea.rcon check on the staging world after the
+# import night (design/architecture/lerfing-import.md §5, WP-L6). They are properties of his map, not of our data, so they
+# do not move with the anchors (design/data/anchors.toml): a probe point is where his terrain is known from the import's
+# own output (`python -I tools/lerfing/probe.py X Z --world <import dir>`, exact columns; the values below were read from
+# the verified import of 19/11/2026: 800 regions, 796,544 chunks, 0 x liquid_carvers).
+#
+# tools/anchors_env.py (called by gen_data.py) writes every table into tests/anchors.env as probe.<id>.<field>; the rcon
+# files read them as ${probe:<id>} ("x y z", or "x z" when the probe has no y), ${probe:<id>.x}, ${probe:<id>.y+1}, ...
+# tests/test_lerfing_probes.py keeps this file in step with the rasters, canon_regions.json and the canon grid (and with
+# the import world itself when $TTL_LERFING_WORLD points at one).
+#
+# Fields: kind     block (a block that only Lerfing's chunk can hold), biome (the stored biome after the offline repaint),
+#                  seam (water on each side of the inner-tile edge), ring (open sea the generator makes), vanilla (beyond
+#                  ring + blend: the generator is not ours any more), coast (the continent rule off a coast)
+#         x, y, z  block position (no y for biome, ring and vanilla probes: the surface)
+#         block    the block expected at x, y, z (any block state)
+#         biome    the stored biome expected at the surface
+#         inside   "yes" / "no": whether TtlWorld.onContinent holds there (coastal water within 128 blocks of a nation's land does)
+#         weight   canon weight CanonGrid.canonWeight must give (1 = inside the ring, 0 = beyond ring + blend)
+#         what     why this probe
+
+# --- no liquid_carvers regeneration: his blocks are still there ---------------------------------------------------------
+# A proto chunk whose status the import had NOT renamed from liquid_carvers would be regenerated from scratch (an unknown
+# status reads as EMPTY) and none of these blocks would survive.
+
+[chest]
+kind = "block"
+x = -453
+y = 73
+z = 979
+block = "minecraft:chest"
+what = "Lerfing's spawn chest (his spawn kit), under a dark oak crown in Ulgracia; probe: ground y 73 minecraft:chest facing north"
+
+[canaat_summit]
+kind = "block"
+x = 2502
+y = 316
+z = -1432
+block = "minecraft:gravel"
+biome = "minecraft:stony_peaks"
+what = "Summit of the Great Canaat: gravel at y 316, air above it (the world's build limit is 320); his soul_sand_valley, repainted to stony_peaks"
+
+[paulzero_trunk]
+kind = "block"
+x = 610
+y = 100
+z = 2930
+block = "minecraft:oak_wood"
+what = "Paulzero's giant tree, the Divine Tree: one solid oak_wood trunk from y 52 to y 126 (13 'built by Paulzero' signs round it)"
+
+# --- the offline repaint survived the load -------------------------------------------------------------------------------
+
+[barren_lands]
+kind = "biome"
+x = -6408
+z = -1256
+biome = "tensura:barren_land"
+what = "far west, the canon Barren Lands: his the_end biome, repainted (repaint.json); a nether or end biome here would mean the repaint was lost"
+
+# --- the seam at the inner-tile edge: his sea on one side, the generator's on the other ------------------------------------
+# His sea is water up to y 64 (top block) over a floor at y 17..30; the generator's top water block is sea_level - 1, so these fail on
+# the first side-by-side load unless noise_settings/overworld.json has sea_level 65 (it has 64 on lerfing-import).
+
+[sea_east_in]
+kind = "seam"
+x = 8176
+y = 64
+z = 0
+block = "minecraft:water"
+what = "his sea, 16 blocks inside the east edge (x 8192): top water block y 64"
+
+[sea_east_out]
+kind = "seam"
+x = 8200
+y = 64
+z = 0
+block = "minecraft:water"
+what = "the generator's sea, the first chunk beyond the east edge: must reach y 64 too"
+
+[sea_south_in]
+kind = "seam"
+x = 0
+y = 64
+z = 6512
+block = "minecraft:water"
+what = "his sea, 16 blocks inside the south edge (z 6528)"
+
+[sea_south_out]
+kind = "seam"
+x = 0
+y = 64
+z = 6536
+block = "minecraft:water"
+what = "the generator's sea, the first chunk beyond the south edge"
+
+# --- the ocean ring and what lies beyond it ----------------------------------------------------------------------------------
+# Land bbox x -7408..7648, z -5536..5840 (canon_map.txt); ring 2000, blend 800 (canon_regions.json): the canon weight is 1
+# up to 2000 blocks from the bbox and 0 from 2800 on. /ttlmap prints "canon weight W" and "band: deep ocean" for the ring.
+
+[ring_east]
+kind = "ring"
+x = 9000
+z = 0
+weight = 1.0
+what = "1,352 blocks off the east coast, 808 beyond the inner tiles: open deep sea made by CanonGrid"
+
+[ring_south]
+kind = "ring"
+x = 0
+z = 7500
+weight = 1.0
+what = "1,660 blocks off the south coast"
+
+[ring_west]
+kind = "ring"
+x = -9000
+z = 0
+weight = 1.0
+what = "1,592 blocks off the west coast"
+
+[vanilla_east]
+kind = "vanilla"
+x = 11000
+z = 0
+weight = 0.0
+what = "3,352 blocks off the east coast: beyond ring + blend, the free lands (vanilla generation, never pregenerated)"
+
+[vanilla_south]
+kind = "vanilla"
+x = 0
+z = 9000
+weight = 0.0
+what = "3,160 blocks off the south coast"
+
+# --- the continent line off a coast (R11: the nation owns 128 blocks of coastal water) --------------------------------------
+# Sarion's south coast, x 1360..1392: the last land cell is z 3488..3503, sea for 240+ blocks south of it, no other land near.
+
+[coast_in]
+kind = "coast"
+x = 1376
+z = 3568
+inside = "yes"
+what = "64 blocks off Sarion's south coast: territorial waters, still on the continent"
+
+[coast_out]
+kind = "coast"
+x = 1376
+z = 3704
+inside = "no"
+what = "200 blocks off the same coast: open sea, outside the continent"
