@@ -143,6 +143,11 @@ public final class DesignRoadFeature extends Feature<DesignRoadFeature.Config> {
             BlockState want = y == ry && slab ? b.slab.getOrDefault(zone, b.slab.get("default")) : net.minecraft.world.level.block.Blocks.AIR.defaultBlockState();
             if (!level.getBlockState(pos.set(x, y, z)).equals(want)) level.setBlock(pos, want, 2);
         }
+        // A trunk standing on the road goes entirely (no log floating over the road); its leaves decay on their own.
+        for (int y = top + 1; y <= Math.min(top + 24, level.getMaxBuildHeight() - 1); y++) {
+            if (!level.getBlockState(pos.set(x, y, z)).is(net.minecraft.tags.BlockTags.LOGS)) break;
+            level.setBlock(pos, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(), 2);
+        }
         return true;
     }
 
