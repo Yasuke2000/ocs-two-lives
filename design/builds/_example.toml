@@ -66,5 +66,10 @@ dry = false
 # Default 8, 0..16: columns round the box that get a 1:1 earth skirt below the ground layer and a 1:1 cut above it.
 margin = 8
 
+# Optional: a landmark of design/data/landmarks.toml the build belongs next to (Treyni's shrine: "treyni_grove"). The
+# survey keeps every other placed thing 24 blocks (plus margin) away; for this landmark only the margin stays off the
+# box the landmark's structure recorded, so the build can stand right beside it. Setting or changing it surveys anew.
+# beside = "treyni_grove"
+
 # Optional free text; not used by the game.
 notes = "What the build is and which canon sources it follows (design/lore/<name>.md)."

@@ -7,7 +7,7 @@ Canon: the dryads (Treyni and her younger sisters Trya and Doris) are spirits th
 Forest and keep it; Treyni became the forest's guardian under Veldora (and later moved with Ramiris to the labyrinth,
 taking a body made from the Great Spirit Tree). The grove's ancient tree is Tensura's own `tensura:ancient_forest/tree`
 (placed by life/landmarks.js, landmark treyni_grove, about 40 x 42 blocks across); this small shrine stands beside it,
-outside its keepout (design/builds/treyni_shrine.toml starts the survey 38 blocks east of the landmark). Our interpretation, nothing here is canon detail: a round mossy dais with a young azalea tree just north of its
+just east of its crown (design/builds/treyni_shrine.toml: survey from 38 blocks east of the landmark, `beside` the grove). Our interpretation, nothing here is canon detail: a round mossy dais with a young azalea tree just north of its
 arrival stone (a seedling of the ancient one), three seats for the three sisters, each with a potted sapling, four log posts with
 lanterns, and a living gate of two bent oak logs on the west side. Every spawnable spot on the
 dais has block light (checked when this builds). Sources: design/lore/treyni_shrine.md.

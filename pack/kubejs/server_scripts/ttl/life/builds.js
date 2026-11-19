@@ -82,9 +82,12 @@ const TtlBuilds = {
     return out
   },
 
-  // Changing where or how the build stands (not version, search or margin) means a new survey.
+  // Changing where or how the build stands (not version, search or margin) means a new survey. `beside` is part of
+  // it only when set, so plans recorded before the field existed still match.
   plan(b) {
-    return [b.dimension, b.x, b.z, b.ground, b.y === undefined ? '' : b.y, b.anchor.join(',')].join('|')
+    var p = [b.dimension, b.x, b.z, b.ground, b.y === undefined ? '' : b.y, b.anchor.join(',')]
+    if (b.beside) p.push(`beside=${b.beside}`)
+    return p.join('|')
   },
 
   // The anchor recorded by the last placement of this build (x, y, z), when it was made for the same plan.
@@ -162,7 +165,10 @@ const TtlBuilds = {
     }
   },
 
-  // Rectangles (inclusive x0 z0 x1 z1) this build must keep KEEPOUT blocks away from.
+  // Rectangles (inclusive x0 z0 x1 z1) this build must keep KEEPOUT blocks away from (gap: blocks on top of the
+  // build's margin; KEEPOUT unless set). A placed landmark counts with the bounding box landmarks.js recorded for
+  // its structure start; without one (start not registered) with the square of its reach round its spot. The
+  // landmark a build stands `beside` (TOML) gets gap 0: only the build's own terrain margin stays off its box.
   keepouts(server, b) {
     var out = []
     var self = this
@@ -179,8 +185,11 @@ const TtlBuilds = {
       add('Dwargon', () => TtlDwargon.box())
       try {
         TtlLandmarks.all().forEach(l => {
+          var gap = b.beside === l.name ? 0 : undefined
+          var box = self.ints(String(server.persistentData.getString(TtlLandmarks.key(l, 'box')) || ''))
           var at = self.ints(String(server.persistentData.getString(TtlLandmarks.key(l, 'at')) || ''))
-          if (at && at.length === 3) out.push({ label: `landmark ${l.name}`, x0: at[0] - l.reach, z0: at[2] - l.reach, x1: at[0] + l.reach, z1: at[2] + l.reach })
+          if (box && box.length === 6) out.push({ label: `landmark ${l.name}`, x0: box[0], z0: box[2], x1: box[3], z1: box[5], gap: gap })
+          else if (at && at.length === 3) out.push({ label: `landmark ${l.name}`, x0: at[0] - l.reach, z0: at[2] - l.reach, x1: at[0] + l.reach, z1: at[2] + l.reach, gap: gap })
         })
       } catch (e) {
         console.warn(`[ttl] build ${b.name}: landmark spots unavailable (${e})`)
@@ -213,8 +222,11 @@ const TtlBuilds = {
     }))
     var step = stride * Math.max(1, Math.ceil(b.search / (12 * stride)))
     var kmax = Math.floor(b.search / step)
-    var m = b.margin + this.KEEPOUT
-    var kos = this.keepouts(server, b)
+    var keep = this.KEEPOUT
+    var kos = this.keepouts(server, b).map(r => {
+      r.m = b.margin + (r.gap === undefined ? keep : r.gap)
+      return r
+    })
     var cache = {}
     var sample = (x, z) => {
       var k = x + ',' + z
@@ -239,7 +251,7 @@ const TtlBuilds = {
         seen.total++
         var x0 = b.x + dx - ax
         var z0 = b.z + dz - az
-        var hit = kos.some(r => !(x0 + sx - 1 + m < r.x0 || x0 - m > r.x1 || z0 + sz - 1 + m < r.z0 || z0 - m > r.z1))
+        var hit = kos.some(r => !(x0 + sx - 1 + r.m < r.x0 || x0 - r.m > r.x1 || z0 + sz - 1 + r.m < r.z0 || z0 - r.m > r.z1))
         if (hit) {
           seen.keepout++
           continue

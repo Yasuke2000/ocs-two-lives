@@ -2964,6 +2964,7 @@ const TtlData = {
         5,
         16
       ],
+      "beside": "treyni_grove",
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
@@ -2973,14 +2974,14 @@ const TtlData = {
       "max_wet": 0.1,
       "name": "treyni_shrine",
       "notes": "Small mossy dais with a young azalea tree and three seats for the dryad sisters; our interpretation (design/lore/treyni_shrine.md).",
-      "search": 132,
+      "search": 48,
       "size": [
         33,
         22,
         33
       ],
       "title": "Treyni's shrine",
-      "version": 3,
+      "version": 4,
       "x": 1988,
       "z": -223
     },

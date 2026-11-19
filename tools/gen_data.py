@@ -1862,7 +1862,7 @@ def check_world(world: dict, data: dict) -> None:
 
 
 BUILD_KEYS = {"name", "title", "landmark", "x", "z", "anchor", "ground", "y", "search", "dimension", "version",
-              "clear_above", "margin", "max_wet", "dry", "notes"}
+              "clear_above", "margin", "max_wet", "dry", "beside", "notes"}
 
 
 def is_int(v) -> bool:
@@ -1936,6 +1936,7 @@ def check_builds() -> tuple[list[dict], dict]:
     """design/builds/<name>.toml -> (TtlData.builds, footprints); files starting with `_` are examples."""
     canon = json.loads(CANON.read_text(encoding="utf-8"))
     refs = {lm["name"]: lm["ref"] for lm in canon["landmarks"]}
+    landmark_names = {lm["name"] for lm in tomllib.loads((SOURCES / "landmarks.toml").read_text(encoding="utf-8")).get("landmark", [])}
     builds, footprints = [], {}
     for path in sorted(BUILDS.glob("*.toml")) if BUILDS.exists() else []:
         if path.name.startswith("_"):
@@ -1963,6 +1964,9 @@ def check_builds() -> tuple[list[dict], dict]:
         b["dry"] = b.get("dry", False)
         if not isinstance(b["dry"], bool):
             raise SystemExit(f"{where}: dry must be true or false")
+        if "beside" in b and (not isinstance(b["beside"], str) or b["beside"] not in landmark_names):
+            raise SystemExit(f"{where}: beside must name a landmark of design/data/landmarks.toml "
+                             f"({', '.join(sorted(landmark_names))})")
         b["margin"] = b.get("margin", 8)
         if not is_int(b["margin"]) or not 0 <= b["margin"] <= 16:
             raise SystemExit(f"{where}: margin must be an integer 0..16")
