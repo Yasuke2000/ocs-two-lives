@@ -1,0 +1,17 @@
+{
+  "status": "staging-only; technical default relations reconciliation required",
+  "source_sha256": "27140dd81066b37c2fe842d819946c12eb5497b12f85ad946bc5bf5025ac7327",
+  "locations": 58,
+  "generated_positions_match_svg": 58,
+  "raster_width": 3072,
+  "raster_height": 2688,
+  "converter_warnings": [],
+  "alternate_relation_changes": 5,
+  "geometry_errors": 0,
+  "geometry_warnings": [
+    "deliberate Laura waterfall crosses its mountain source",
+    "design box 512 blocks taller than preferred target; below hard cap"
+  ],
+  "default_matrix_passes": false,
+  "applied_to_pack_or_server": false
+}
