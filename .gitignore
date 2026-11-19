@@ -9,3 +9,4 @@ mod/.gradle/
 !mod/gradle/wrapper/gradle-wrapper.jar
 mod/.vscode/
 
+.local-server/

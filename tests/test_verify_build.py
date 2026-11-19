@@ -10,6 +10,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import nbt  # noqa: E402
 import verify_build as vb  # noqa: E402
 from blueprint import Blueprint  # noqa: E402
+from tiers import heavy  # noqa: E402
 
 
 def as_capture(size, blocks: dict) -> Path:
@@ -21,6 +22,7 @@ def as_capture(size, blocks: dict) -> Path:
     return path
 
 
+@heavy("loads tempest, ~40 s for the class")
 class CompareTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -145,6 +147,8 @@ class CompareTests(unittest.TestCase):
         self.assertEqual(size, (148, 92, 168))
         self.assertEqual([(s[1], s[2]) for s in slabs], [(0, 56), (56, 112), (112, 168)])
 
+
+class ChunkStripTests(unittest.TestCase):
     def test_forceload_strips_stay_under_256_chunks(self):
         strips = list(vb.chunk_strips(-300, -300, 300, 300))
         chunks = 0

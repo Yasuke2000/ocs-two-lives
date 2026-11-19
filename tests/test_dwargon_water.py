@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import verify_build as vb  # noqa: E402
+from tiers import heavy  # noqa: E402
 
 WATERLOGGABLE = ("_stairs", "_slab", "_fence", "_wall", "_trapdoor", "_sign", "ladder", "chain", "lantern", "bars",
                  "_pane", "scaffolding", "campfire", "barrel", "chest", "conduit", "sea_pickle", "pointed_dripstone")
@@ -21,6 +22,7 @@ def name(state: str) -> str:
     return state.split("[")[0].split(":")[-1]
 
 
+@heavy("loads dwargon, ~6 s for the class")
 class DwargonWaterTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
