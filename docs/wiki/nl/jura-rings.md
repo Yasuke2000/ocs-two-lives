@@ -1,6 +1,6 @@
 # De ringen van Jura
 
-**Trek voor je eerste reis naar het noorden, naar Dwargon.** Je verschijnt aan de noordrand van Jura in `minecraft:overworld`, bij **X 1660, Z −100**, op de weg tussen het dwergenrijk en Tempest. De witte poort van Dwargon staat ongeveer 500 blokken noord-noordoostwaarts op **X 1900, Z −500**. Tempest ligt de andere kant op, op **X 1720, Z 900**. Op weg naar die stad kom je door een gebied met veel meer magicules. [Wereldkaart](world-map.md) · [English](../en/jura-rings.md)
+**Trek voor je eerste reis naar het noorden, naar Dwargon.** Je verschijnt aan de noordrand van Jura in `minecraft:overworld`, bij **X 1660, Z −100**, op de weg tussen het dwergenrijk en Tempest. De witte poort van Dwargon staat ongeveer 500 blokken noord-noordoostwaarts op **X 1878, Z −544**. Tempest ligt de andere kant op, op **X 1720, Z 900**. Op weg naar die stad kom je door een gebied met veel meer magicules. [Wereldkaart](world-map.md) · [English](../en/jura-rings.md)
 
 De zonebreedtes, magiculewaarden en aankomstbescherming kunnen veranderen.
 

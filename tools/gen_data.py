@@ -1281,20 +1281,18 @@ def check_arrival(arrival: dict) -> None:
 
 def settlement_box(script: str, anchor: str, footprint: str) -> tuple[int, int, int, int]:
     """World box (x0, z0, x1, z1, margin included) of Tempest or Dwargon, as their scripts compute it, at the position
-    design/data/anchors.toml gives them (the source of truth since the Lerfing import). A script reads it from TtlAnchors
-    (generated/anchors.js) and keeps a fallback literal for a missing generated file; that literal must be the anchor."""
+    design/data/anchors.toml gives them (the source of truth since the Lerfing import). The script's literal (tempest.js:
+    the fallback next to TtlAnchors.tempest; dwargon.js: GATE itself) must equal the anchor."""
     text = (SCRIPTS / "life" / script).read_text(encoding="utf-8")
     m = re.search(r"\b" + anchor + r":[^\n]*?\{\s*x:\s*(-?\d+),\s*z:\s*(-?\d+)\s*\}", text)
     sx, sz = int(m.group(1)), int(m.group(2))
     aid = script.removesuffix(".js")
     at = anchor_table().get(aid)
     if at and (at["x"], at["z"]) != (sx, sz):
-        # life/dwargon.js belongs to WP-L7b (Dwargon in the mountain), which moves its GATE onto the anchor.
-        warn_once(f"warn: life/{script} {anchor} ({sx}, {sz}) differs from anchors.toml {at['id']} ({at['x']}, {at['z']}); "
-                  f"the checks use the anchor (the script must read TtlAnchors.{aid})")
-        sx, sz = at["x"], at["z"]
-    elif at and f"TtlAnchors.{aid}" not in text:
-        warn_once(f"warn: life/{script} {anchor} is a literal; read TtlAnchors.{aid} (generated/anchors.js) instead")
+        # tempest.js reads TtlAnchors.tempest (the literal is its fallback); dwargon.js (WP-L7b) keeps GATE as a literal
+        # chosen on the real heights. Either way the number must be the anchor, or the checks and the game disagree.
+        raise SystemExit(f"life/{script} {anchor} ({sx}, {sz}) differs from anchors.toml {at['id']} ({at['x']}, {at['z']}): "
+                         f"move them together")
     line = next(t for t in (SCRIPTS / "generated" / footprint).read_text(encoding="utf-8").splitlines()
                 if t.startswith("const ") and "Footprint = " in t)
     f = json.loads(line[line.index("{"):])

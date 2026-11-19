@@ -10,8 +10,11 @@ NONE = nothing to do), heights relative to the structure's base layer:
 - clear: remove terrain from this layer upward. Columns whose highest block is air (the approach, the
          ravine, the skylight crack) are open sky by design; the columns round them get a 1:1 cut slope.
 - bottom: the lowest block the build defines in a footprint column, explicit air included (NONE: the column
-         holds no block at all, and every margin column). life/repair.js fills caves and lava only below it and
-         treats a NONE box column as open ground, so it never fills into the carved city.
+         holds no solid block at all, only air or nothing, and every margin column). life/repair.js fills caves and
+         lava only below it and treats a NONE box column as open ground, so it never fills into the carved city; a
+         column of air alone (the cleft's upper walls in carve mode) is never given a foundation under its air.
+- roof:  carve mode (bp.roof): the highest interior air of a column that Lerfing's rock closes over the city;
+         dwargon.js and tools/lerfing/dwargon_fit.py measure the rock cover above it.
 """
 import json
 import math
@@ -79,18 +82,20 @@ def footprint(bp, probes, arrival, parts) -> str:
             v = c0 + math.ceil(d)
             if c not in cut or v < cut[c]:
                 cut[c] = v
-    fills, clears, bottoms = [], [], []
+    roof = getattr(bp, "roof", None) or {}
+    fills, clears, bottoms, roofs = [], [], [], []
     for gz in range(l):
         for gx in range(w):
             k = (gx - MARGIN, gz - MARGIN)
             fills.append(fill.get(k, skirt.get(k, NONE)))
             clears.append(clear.get(k, cut.get(k, NONE)))
-            bottoms.append(bottom.get(k, NONE))
+            bottoms.append(bottom.get(k, NONE) if k in low else NONE)
+            roofs.append(roof.get(k, NONE))
     data = {
         "size": list(bp.size), "margin": MARGIN, "grid": [w, l], "none": NONE,
         "arrival": list(arrival), "probes": [list(p) for p in probes],
         "parts": list(parts) if parts else [0],
-        "fill": _rle(fills), "clear": _rle(clears), "bottom": _rle(bottoms),
+        "fill": _rle(fills), "clear": _rle(clears), "bottom": _rle(bottoms), "roof": _rle(roofs),
     }
     body = json.dumps(data, separators=(",", ":"))
     return ("// priority: 200\n"

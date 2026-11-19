@@ -182,20 +182,20 @@ notes = "North foot of the east-Jura massif ('north-eastern hills'), y 81/89/99.
 
 [dwargon]
 name = "Dwargon main gate (TtlDwargon.GATE)"
-x = 1900
-z = -500
+x = 1878
+z = -544
 region = "D"
 kind = "settlement"
 surface = "land"
 canon = "Dwargon main gate"
 old_x = 435
 old_z = -1000
-notes = "Inside the mountain (§3.3): the city is carved into the Canaat apron, the gate faces south down the road to Tempest (1,400 blocks). Base y ~136."
+notes = "Inside the mountain (§3.3, WP-L7b): the gate at the foot of the escarpment on the Canaat's south flank faces south onto the apron (road y 145), the city lies in a cavern under the plateau (y 200-215) with >= 7 blocks of rock over it (tools/lerfing/dwargon_fit.py). Rotation none."
 
 [dwargo]
 name = "Dwargo (Dwargon cavern capital)"
-x = 1900
-z = -600
+x = 1878
+z = -644
 region = "D"
 kind = "pin"
 surface = "land"
@@ -209,8 +209,8 @@ notes = "City centre pin, under the mountain."
 
 [dwargon_throne]
 name = "Gazel's throne room (statue)"
-x = 1900
-z = -606
+x = 1878
+z = -650
 region = "D"
 kind = "spot"
 surface = "land"
@@ -224,8 +224,8 @@ notes = "Dwargon-relative (bosses.toml Gazel statue)."
 
 [kaijin_smithy]
 name = "Kaijin's smithy"
-x = 1888
-z = -584
+x = 1866
+z = -628
 region = "D"
 kind = "spot"
 surface = "land"

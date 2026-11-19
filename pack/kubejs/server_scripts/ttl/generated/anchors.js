@@ -70,20 +70,20 @@ const TtlAnchors = {
   "dwargo": {
     "kind": "pin",
     "region": "D",
-    "x": 1900,
-    "z": -600
+    "x": 1878,
+    "z": -644
   },
   "dwargon": {
     "kind": "settlement",
     "region": "D",
-    "x": 1900,
-    "z": -500
+    "x": 1878,
+    "z": -544
   },
   "dwargon_throne": {
     "kind": "spot",
     "region": "D",
-    "x": 1900,
-    "z": -606
+    "x": 1878,
+    "z": -650
   },
   "dwarven_arena": {
     "kind": "build",
@@ -172,8 +172,8 @@ const TtlAnchors = {
   "kaijin_smithy": {
     "kind": "spot",
     "region": "D",
-    "x": 1888,
-    "z": -584
+    "x": 1866,
+    "z": -628
   },
   "lake_siss": {
     "kind": "pin",

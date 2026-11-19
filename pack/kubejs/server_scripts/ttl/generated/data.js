@@ -1173,8 +1173,8 @@ const TtlData = {
       "radius": 48,
       "smithy": {
         "anchor": "kaijin_smithy",
-        "x": 1888,
-        "z": -584
+        "x": 1866,
+        "z": -628
       }
     }
   },
@@ -1738,8 +1738,8 @@ const TtlData = {
           "at": {
             "anchor": "dwargon_throne",
             "radius": 40,
-            "x": 1900,
-            "z": -606
+            "x": 1878,
+            "z": -650
           },
           "kind": "statue",
           "statue": "ttl_gazel"
@@ -4652,8 +4652,8 @@ const TtlData = {
           ],
           "capital": "dwargon",
           "center": [
-            1900,
-            -536
+            1878,
+            -580
           ]
         },
         "id": "dwargon",

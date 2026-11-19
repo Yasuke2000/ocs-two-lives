@@ -84,7 +84,7 @@ class DomainDataTests(unittest.TestCase):
         self.bad(lambda f: self.faction(f, "tempest").update(territory="everything"))
 
     def test_the_life2_arrival_stays_free(self):
-        # The arrival (anchors.toml, 1660, -100) lies on the way to Dwargon's gate (1900, -500): a
+        # The arrival (anchors.toml, 1660, -100) lies on the way to Dwargon's gate (1878, -544): a
         # Dwargon capital square of 500 would reach it and must fail.
         self.bad(lambda f: self.faction(f, "dwargon")["domain"].update(capital_radius=500))
 

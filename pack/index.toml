@@ -714,7 +714,7 @@ hash = "826ca8d60e51c4b8fa906c115604c6469380a12505b36b603abe2b37534151fb"
 
 [[files]]
 file = "config/bluemap/maps/tensura.conf"
-hash = "e6067ca7fcfaf3366484d68493658eb6a02d2ff18dde105f083c9395e43215df"
+hash = "f48193d6dd962feda2a46a62d043cb8b6fb9a5a2259195a2bb11511a525005bf"
 
 [[files]]
 file = "config/bluemap/plugin.conf"
@@ -1050,7 +1050,7 @@ hash = "719429b36de548e95fab73fdd4180674351fdd656467e3185cc5b77be79c2d4a"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/armed_nation.snbt"
-hash = "42dbd66cd8873e80c7ddc57383363a85a527d662af524925c03be56aa8873ef1"
+hash = "0c1cc4eddf3be26f3417230db33015dddf9aaa609648a0f95d9edce6dbaf9e72"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/arts.snbt"
@@ -1098,7 +1098,7 @@ hash = "cc4ce834e136768f328454884d35d042cad3627ebf3e56fee52dbb92cbd42459"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/kings_test.snbt"
-hash = "d4ab8d420bed845f6bb1a0ea7cf966a90ee440ddece96df08fc7833782752d8e"
+hash = "528981036bb88b0f96c64c158613606a9b9a7fbe7d91b4f7398068d791fc09c6"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mask_and_blade.snbt"
@@ -1122,7 +1122,7 @@ hash = "d17ebc216331b07d6ffea86898f739d203ba25890c3b36d83e326815130f7b27"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/reborn.snbt"
-hash = "0cd01c70f004302e05c3a02da59ef36faf62922069373248961c9b88e44c33bf"
+hash = "9ff0bb7639f402bc9ca0af5e9ac7732ab75d9db09500ff7e0680a3f9f57604c1"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/roads_ruins.snbt"
@@ -1162,7 +1162,7 @@ hash = "fa792420b8546bafa3673aa2aac7dc21cac295c6038694d0b45c9b50ef692304"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "5ad412fd19d7e493768a2a8316decadb601b7c7fa173046bde158712549488df"
+hash = "cd5e90bc268d2eae5999ddde9ba8ab004dcc170abfe1e7e184b7b158260e2e0f"
 
 [[files]]
 file = "config/ftbteams-server.snbt"
@@ -1550,7 +1550,7 @@ hash = "59c7ed0f184ed070c93b31a64bf18a1a0d7f634f74854f1576c044bd6cec9cf0"
 
 [[files]]
 file = "config/ttl/canon_regions.json"
-hash = "6232b560e40018f1261e96f0ebacd36349d5a190845ac68804d968874ee9b9b1"
+hash = "9453422f436db7561a0745b404f5fb971b930f5bab46e9ca9b956f952e1165d8"
 
 [[files]]
 file = "config/vanilla_structures/placement_structure_config.json5"
@@ -1994,15 +1994,15 @@ hash = "ce66b4e1e87890da08df057b464d545b3965191756d62a1de23ba41b0995da58"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_0.nbt"
-hash = "7a674c6daca853c7cb25e88ee60fdce89d057749a9a83f0e5a5e39453f79e6b8"
+hash = "9367582a00fbbdeb4f2abfb0453707cffc4a24f6f4a8651a91cfadad42cdc7f6"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_1.nbt"
-hash = "954b47ae3e6de001b81fa92aad0049ce11948a5321d1b4968718ca5449f52689"
+hash = "10293e36c4cb1a4853ed518e7c04d0d8d31dc890314bf73220e919b3d8186ab1"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_2.nbt"
-hash = "5a0d0ae61181ad7a3df6ffd9beb9d59bccd748ecf80167099fc459ab93b2368d"
+hash = "f5ecead5006c2be0d7badfa989120755e39e4d8869acfd4aa29cc81477816973"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwarven_arena.nbt"
@@ -2638,7 +2638,7 @@ hash = "aba724b81546b1b73b253460418b272ac2ee350f2ba0761423c847bd4900585a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/anchors.js"
-hash = "9d27cddfaf4eb519e6caa04c702880fdedb937ea91a06c7e3b3e201738c39f2b"
+hash = "f09a8eedfd9b4db114d3ea93a8c6a5aab662dd7c2db63a56c0fb6c6274d0bdd4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
@@ -2646,11 +2646,11 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "eb3f32febb8736b9d9f9c4cbb4cc50490a569cf5f99dbe68e7ba63c76555e4d9"
+hash = "560e7bd01783ddb9a5258f5a9597262a39dfe556809b7b4387337068cd76429b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
-hash = "22fc65468f176eab967b51a92341570d173c503f80d6eef3161256e300841411"
+hash = "05244557f351f6ab0fe130edcc769994acbc0b6351fea2247dab42d8398dc4b0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
@@ -2730,7 +2730,7 @@ hash = "b439e7faa512766d89afa38225fbb6efeb37b99c56316f26034322d38d7d4f6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "1cf30e0b9872ed6e08111740767f00341cfd8a31e8e0748f2fc701a959a5e8c1"
+hash = "69ec14c060a6773312d52d5d535589f2d97bfd63290164bc6338a4b1ce422a9a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
