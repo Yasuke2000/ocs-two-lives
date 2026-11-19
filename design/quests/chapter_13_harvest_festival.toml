@@ -18,7 +18,7 @@ deps = ["puppet_master/act_six"]
 lane = 0
 col = 0
 text = """
-At the Sealed Cave, near x −256, z −343, stand by its placed entrance and claim the trial. Veldora answers
+At the Sealed Cave, near x ${anchor:sealed_cave.x}, z ${anchor:sealed_cave.z}, stand by its placed entrance and claim the trial. Veldora answers
 someone who helped defeat Charybdis. If the encounter is cooling down, return later and use /ttl story fight
 veldora. In the anime Raphael analyzes the prison and Rimuru releases his friend. The trial is our version
 of that return.
@@ -26,7 +26,7 @@ of that return.
 tasks = [
   { type = "stage", stage = "ttl.story.act6", title = "Complete Act VI" },
   { type = "stage", stage = "ttl.defeated.charybdis", title = "Hold credit for the Whirlpool Calamity" },
-  { type = "location", dimension = "minecraft:overworld", at = [-256, -343], radius = 150, title = "Find the Sealed Cave" },
+  { type = "location", dimension = "minecraft:overworld", at = { build = "sealed_cave" }, radius = 150, title = "Find the Sealed Cave" },
 ]
 rewards = [
   { type = "command", command = "ttl story fight veldora", permission_level = 0 },

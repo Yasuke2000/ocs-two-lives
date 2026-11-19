@@ -20,7 +20,9 @@ def chapter_destinations():
         for quest in tomllib.loads(source.read_text(encoding="utf-8"))["quests"]:
             for task in quest["tasks"]:
                 if task["type"] == "location" and task["dimension"] == "minecraft:overworld":
-                    yield tuple(task["at"])
+                    at = task["at"]  # `{ anchor = "tempest", dx, dz }`: an offset from the arrival point, as the NPC spots below
+                    if at.get("anchor") == "tempest":
+                        yield (at.get("dx", 0), at.get("dz", 0))
 
 
 class TempestPhaseTests(unittest.TestCase):

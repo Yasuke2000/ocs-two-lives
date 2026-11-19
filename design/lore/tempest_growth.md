@@ -13,7 +13,7 @@ After the Orc Disaster, the hard problem facing Rimuru is finding homes and work
 
 ## Quest and NPC coordinates
 
-The village arrival is the origin for both later plans. East is positive X. South is positive Z. Y offsets are measured from the walking surface stored by the existing village placer. The village’s geometric middle is twelve blocks north of world (0, 0). Using its middle as the arrival would move every quest target. [Village blueprint](../../blueprints/tempest.py) · [NPC spots](../data/npcs.toml) · [Story quest web](../quests.md)
+The village arrival is the origin for both later plans. East is positive X. South is positive Z. Y offsets are measured from the walking surface stored by the existing village placer. The village’s geometric middle is twelve blocks north of the arrival, which stands at world (1720, 900) on Lerfing's map (`design/data/anchors.toml`); every offset below is relative to it. Using the middle as the arrival would move every quest target. [Village blueprint](../../blueprints/tempest.py) · [NPC spots](../data/npcs.toml) · [Story quest web](../quests.md)
 
 | Place | World x, z | What stays accessible |
 | --- | --- | --- |

@@ -33,14 +33,15 @@ kubejs stages remove TtlBotWildA ttl.path.dark
 kubejs stages add TtlBotWildA ttl.path.light
 ttl boss expect TtlBotWildA chance hinata_sakaguchi 0.005
 kubejs stages remove TtlBotWildA ttl.path.light
-# Regions: Tempest's green (0 0) is Jura ('J'): Shizu and the Orc Lord roam there, Hinata does not.
-execute in minecraft:overworld run tp TtlBotWildA 0 100 0
+# Regions: Tempest (anchor `tempest`, design/data/anchors.toml) is Jura ('J'): Shizu and the Orc Lord roam there, Hinata does not.
+execute in minecraft:overworld run tp TtlBotWildA ${anchor:tempest.x} 100 ${anchor:tempest.z}
 @sleep 1
 ttl boss expect TtlBotWildA wildregion shizu yes
 ttl boss expect TtlBotWildA wildregion orc_lord yes
 ttl boss expect TtlBotWildA wildregion hinata_sakaguchi no
-# A manual roll near the bot: far from Tempest, so the safe-zone margin does not refuse the spot.
-execute in minecraft:overworld run tp TtlBotWildA 600 120 600
+# A manual roll near the bot: at the Life 2 arrival, 1,050 blocks from Tempest on Jura's rim, so the safe-zone margin does not
+# refuse the spot (it is open ground, no build or domain within 24 blocks).
+execute in minecraft:overworld run tp TtlBotWildA ${anchor:arrival.x} 120 ${anchor:arrival.z}
 @sleep 1
 ttl boss expect TtlBotWildA active shizu no
 ttl boss expect TtlBotWildA wildblock shizu no
@@ -85,7 +86,7 @@ execute in minecraft:overworld run tp TtlBotWildA 9000 120 0
 ttl boss expect TtlBotWildA continent here no
 ttl boss expect TtlBotWildA summonhere orc_lord no
 ttl boss expect TtlBotWildA wildregion orc_lord no
-execute in minecraft:overworld run tp TtlBotWildA 600 120 600
+execute in minecraft:overworld run tp TtlBotWildA ${anchor:arrival.x} 120 ${anchor:arrival.z}
 @sleep 2
 ttl boss expect TtlBotWildA continent here yes
 ttl boss expect TtlBotWildA summonhere orc_lord yes

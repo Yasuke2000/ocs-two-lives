@@ -35,9 +35,9 @@ Chapter 108 supplies the reason for the escort; the wagon fittings follow the an
 [Production still published by KADOKAWA’s The Television](https://thetv.jp/news/detail/1211892/13401124/) · [Kodansha, chapter 108](https://pocket.shonenmagazine.com/title/00380/episode/378955)
 
 The box is **76 × 38 × 66 blocks** (x, y, z). The south approach joins the east road at local
-(38, 4, 41). The survey starts at **x −1384, z −212**, inside land region F on the current
-14,000-block map. The political fan map marks Ballachia separately. The pack's coarser
-grid groups its land with Falmuth. [Map research and original reference coordinates](world.md#f-kingdom-of-falmuth) · [Pack landmark registry](../../pack/config/ttl/canon_regions.json)
+(38, 4, 41). The survey starts at **x −1660, z −460**, on Lerfing's map inside land region G (Englassia),
+on the eastbound road between Lura and Londo (plains, relief 4, a strip of beach on the lake shore). The political fan map marks
+Ballachia separately; the pack's grid groups its land with Englassia. [Map research and original reference coordinates](world.md#f-kingdom-of-falmuth) · [Pack landmark registry](../../pack/config/ttl/canon_regions.json)
 
 Our approach roads lose their kerbs and narrow to coarse-dirt wheel ruts with grass
 between them. Low meadow banks, dotted with daisies and cornflowers, shelter the road

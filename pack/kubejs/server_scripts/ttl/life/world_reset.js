@@ -19,8 +19,8 @@ const TtlWorldReset = {
       })
     }
     if (ids.indexOf(TtlLife.OVERWORLD) >= 0) {
-      // World 0, 0 is Jura-Tempest on the canon map (pack/config/ttl/canon_map.txt). Life 2 begins on the safe rim
-      // of the forest (life/arrival.js grounds it again and sets the world spawn); without one, at Tempest.
+      // Life 2 begins on the safe rim of Jura (life/arrival.js grounds it again and sets the world spawn); without
+      // one, at Tempest (TtlTempest.LANDMARK, the tempest anchor of design/data/anchors.toml).
       var arrival = typeof TtlArrival !== 'undefined' && TtlArrival.active()
       if (arrival) {
         try {
@@ -29,10 +29,12 @@ const TtlWorldReset = {
           console.error(`[ttl] world reset: arrival grounding failed: ${e}`)
         }
       } else {
-        server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} run forceload add -16 -16 16 16`)
+        var tx = TtlTempest.LANDMARK.x
+        var tz = TtlTempest.LANDMARK.z
+        server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} run forceload add ${tx - 16} ${tz - 16} ${tx + 16} ${tz + 16}`)
         server.scheduleInTicks(40, () => {
-          server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} positioned 0 0 0 positioned over motion_blocking_no_leaves run setworldspawn ~ ~ ~`)
-          server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} run forceload remove -16 -16 16 16`)
+          server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} positioned ${tx} 0 ${tz} positioned over motion_blocking_no_leaves run setworldspawn ~ ~ ~`)
+          server.runCommandSilent(`execute in ${TtlLife.OVERWORLD} run forceload remove ${tx - 16} ${tz - 16} ${tx + 16} ${tz + 16}`)
         })
       }
       server.persistentData.remove('ttl.dwargon.version')

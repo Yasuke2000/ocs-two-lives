@@ -1,0 +1,8 @@
+{
+ "what": "Lerfing's real ground y + 64 (16-bit grey, 0 = no data) round Dwargon's carve box, written by tools/lerfing/dwargon_fit.py --save-sample; read by the same tool and tests/test_dwargon_carve.py",
+ "x0": 1778,
+ "z0": -690,
+ "width": 200,
+ "height": 220,
+ "source": "Lerfing's imported world (tools/lerfing/import.py), exact columns"
+}

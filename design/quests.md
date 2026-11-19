@@ -47,9 +47,11 @@ reordering its tasks resets that progress for everyone (give a task a `key` to m
 
 Task types: `item` (item, count; checks the inventory and never consumes unless `consume = true`, which makes it a hand-in submitted in the quest screen), `kill` (entity, count), `dimension`, `structure` (id or `#tag`),
 `biome`, `advancement` (+ optional `criterion`), `stat` (custom stat id, value), `stage` (KubeJS stage, via
-FTB XMod Compat; `team_stage = true` reads the FTB team's stages instead of the submitting player's; the name must be `ttl.<…>`), `checkmark`, `xp`, `location` (dimension, `at = [x, z]`, `radius`: a full-height box),
+FTB XMod Compat; `team_stage = true` reads the FTB team's stages instead of the submitting player's; the name must be `ttl.<…>`), `checkmark`, `xp`, `location` (dimension, `at`, `radius`: a full-height box; `at` is `[x, z]` only for a fixed point in another dimension, in the Tensura overworld it names a place of `design/data/anchors.toml`: `{ anchor = "tempest", dx = 0, dz = -7 }`, `{ landmark = "orc_camp" }` or `{ build = "sealed_cave" }`, `dx`/`dz` optional, so a quest never repeats a coordinate),
 and Life 2 only: `ep` (`tensura_ftb:existence_value`, default `existence = "EP"`) and `ability`
 (`tensura_ftb:ability`, ability id, status AVAILABLE/LEARNT/MASTERED). Any task may have a `title`.
+
+**Places in text.** Quest titles, subtitles, text, lore and task titles read positions from `design/data/anchors.toml` instead of repeating them: `${anchor:tempest.x}`, `${anchor:tempest.z+40}` (a coordinate, optional offset), `${dir:tempest>dwargon}` (the compass word from the first place to the second: north, south-east, ...; north is -Z, east is +X) and `${dist:tempest>dwargon}` (the straight-line distance, rounded to 100 blocks: 1,400). `tools/gen_quests.py` expands them and refuses an unknown place, so a direction in a quest text is checked against the map. Directions that the text states as prose ("north-east of the green" inside a town) are offsets in a blueprint and are not tokens.
 
 **Mortal dimensions:** vanilla advancements that test a dimension (`story/enter_the_nether`, `story/enter_the_end`,
 `end/root`…) never fire in `ttl:mortal_nether` / `ttl:mortal_end`. Use `dimension` tasks there. Item, kill,
@@ -392,26 +394,26 @@ Lord Fell (optional). Places come from the canon landmarks (`pack/config/ttl/can
 per reference pixel, same conversion that puts Dwargon's gate at 310, -1060). Rewards: food, XP, low potions,
 a few Tensura coins; no skills.
 
-**2. Tempest Rises** (Life 2, 21 quests, revealed step by step). Join the town on the green (0,-7) → Rigurd's hut →
+**2. Tempest Rises** (Life 2, 21 quests, revealed step by step). Join the town on the green (tempest + 0,-7) → Rigurd's hut →
 Gobta's campfire → the council longhouse → naming a monster (advancement `tensura:name_a_mob`). Build and bring:
 oak logs, a woodcutter, cobblestone, oak doors (hand-ins for Mildo), a food store (wheat, porkchops), iron and coal for
 Kaijin's forge with a smithing bench, string and wool for Shuna. Defend: the Night of the Direwolves (kill 6, at the
 south gate) and Pests of the Forest (giant ants, black spiders). Skills and strength: any ability
 (`tensura:real_adventure`), Physical Attack Resistance AVAILABLE then LEARNT, EP 1,000 / 3,000. Finale "Tempest Stands" is a
-checkmark. Positions are real offsets in the Tempest blueprint (blueprint (45, 57) = world 0, 0).
+checkmark. Positions are real offsets in the Tempest blueprint (blueprint (45, 57) = the `tempest` anchor); every location task is `{ anchor = "tempest", dx, dz }`.
 
-**3. The Armed Nation** (Life 2, 21 quests). Provisions → dwarf village on the road (250,-740, radius 150) → checkpoint
-arch → gate inspection (435,-1005) → tunnel and south street → market plaza (435,-1066) → forge street → Kaijin's smithy
-(423,-1084) → audience at King Gazel's throne (435,-1106; he is a seated invulnerable NPC, so it is a location task).
+**3. The Armed Nation** (Life 2, 21 quests). Provisions → dwarf village on the road (landmark `dwarf_village`, radius 150) → checkpoint
+arch → gate inspection (dwargon + 0,-5) → tunnel and south street → market plaza (dwargon + 0,-66) → forge street → Kaijin's smithy
+(dwargon + -12,-84) → audience at King Gazel's throne (dwargon + 0,-106; he is a seated invulnerable NPC, so it is a location task).
 Branches: trade (advancements `delightful_trade`, `my_precious`), optional dwarf manual (Aura Sword) and tome (Wind
 Cutter), forge hall, engineers' workshop, smithing bench and schematic, silver → magic ore → low magisteel (needs a
-kiln), EP 6,000 gate to the throne. Positions come from blueprints/dwargon.py (gate arrival (74,120) = world (435,-1000)).
+kiln), EP 6,000 gate to the throne. Positions come from blueprints/dwargon.py (gate arrival (74,120) = the `dwargon` anchor); every location task is `{ anchor = "dwargon", dx, dz }`.
 
-**4. The Orc Lord** (Life 2, 13 quests). Lizardmen's stilt village (700,344) → rations (hand-in) → the caverns (926,398) →
-alliance (checkmark: no state to read) → scout the orc camp (1106,539) → kill 10 orcs → hold the battlefield (20 more)
+**4. The Orc Lord** (Life 2, 13 quests). Lizardmen's stilt village (landmark `lizardmen_village`) → rations (hand-in) → the caverns (`lizardmen_caverns`) →
+alliance (checkmark: no state to read) → scout the orc camp (`orc_camp`) → kill 10 orcs → hold the battlefield (20 more)
 → finale: kill a `tensura:orc_lord` (needs one alive in the camp), then the optional epilogue "Eat or Be Eaten"
 (advancement `tensura:eat_or_be_eaten`, defeat an Orc Disaster). EP 10,000 gates the finale; 50,000 and 100,000 are optional.
-Optional ruin of the Kijin village (1460,-959, position unverified).
+Optional ruin of the Kijin village (`ogre_village_ruin`, our own reading of Lerfing's map).
 
 **5. Daily Deeds** (shared by both lives, 9 repeatable quests, 24 h cooldown, hidden until Life 1's The First Night or Life 2's Town of Monsters, `min_deps = 1`): kill zombies, skeletons, spiders; hand in
 logs, cobblestone, coal, wheat; stand in a dark forest or river biome. Vanilla only, rewards are food, arrows, torches and XP.
@@ -446,9 +448,9 @@ The Horde Kneels (32 rotten flesh). Finale The Orc War (`min_deps = 1`): `ttl st
 The fight-start quests use radius 40 because `ttl story fight` needs the soul within 96 blocks of the arena and the camp landmark can sit up to 64 blocks from its nominal spot.
 
 **10. The Whirlpool** (Life 2, Act IV, 14 quests, WP-S7). After chapter 9's finale: A Calamity Stirs (stage `ttl.story.act3` + the green) -> A Match for the Sea (20,000 EP),
-an optional pilgrimage to Treyni's shrine (about 2,000 blocks east), then two lanes of five. Light (`path = "light"`): Honey for a Demon Lord (hand in 8 honey bottles in Milim's
-domain, the City of the Forgotten Dragon, about 2,500 blocks east) -> The Shore Camp (6 low potions on the lake's western shore) -> Face the Whirlpool (claim = `ttl story fight
-charybdis`, radius 60 around the arena centre 635, 145) -> The Whirlpool Calamity (stage `ttl.defeated.charybdis`) -> The Victory Feast (Tempest green). Dark (`path = "dark"`): The
+an optional pilgrimage to Treyni's shrine (about 700 blocks south of Tempest), then two lanes of five. Light (`path = "light"`): Honey for a Demon Lord (hand in 8 honey bottles in Milim's
+domain, the City of the Forgotten Dragon, about 3,000 blocks east) -> The Shore Camp (6 low potions on the lake's western shore) -> Face the Whirlpool (claim = `ttl story fight
+charybdis`, from a boat: radius 67 around the arena centre, the middle of Lake Siss) -> The Whirlpool Calamity (stage `ttl.defeated.charybdis`) -> The Victory Feast (Tempest green). Dark (`path = "dark"`): The
 Unsigned Letter (Outcast contact) -> The Harlequins' Toll (3 silver coins at the shore) -> Wake the Calamity (claim = the fight plus the flag `charybdis_woke`) -> Survive the
 Whirlpool (the kill) -> The Puppet's Pay (Outcast contact). Finale Calamity (`min_deps = 1`): `ttl story act {p} 4` (light Tempest +15; dark Outcast +20). Phobio is the
 Wikipedia spelling of the beast prince (the design briefs write Fobio); he is text only (no mod has him).
@@ -519,8 +521,8 @@ Pip), the jobs themselves, the honey "pilgrimage" custom, the smiths' letter to 
 hall floor (blueprint 97, 5, 68; inn: the tavern nook 108, 5, 75), Englassia's headquarters hall (108, 5, 82), Tempest's green
 (arrival offset -4, 0, -6; inn: the council longhouse 6, 0, -17), Dwargon's plaza east of the fountain (84, 4, 54), Marris's Royal
 Plaza (64, 5, 70), Ballachia's square (38, 4, 41), and surface spots checked against `canon_map.txt`: the wayfarers' camp on Jura's
-rim (285, -612), the Blumund road camp (-850, -110), the Englassia road post (-1900, -260), the old well (-930, -60), the abandoned
-rookie camp (140, -420); the dwarf village, the old goblin village and the lizardmen's caverns are landmarks; Treyni's shrine and
+rim, the Blumund road camp, the Englassia road post, the old well and the abandoned
+rookie camp (all in `design/data/anchors.toml`); the dwarf village, the old goblin village and the lizardmen's caverns are landmarks; Treyni's shrine and
 the dragon city are builds.
 
 **Verify in game** (not checkable offline): Easy NPC's FOLLOW_PLAYER / FOLLOW_OWNER from `/easy_npc objective <uuid> set follow ...`
@@ -637,9 +639,8 @@ Chapters 9-10 (WP-S7, 18/11/2026; ids verified against Tensura 2.0.1.5 `assets/t
   hand-ins. Gabiru has no entity: the dark lane's raid kills ordinary `tensura:lizardman` mobs; a Gabiru proxy boss (owner decision O3) is a separate `[[boss]]` entry in `bosses.toml`, not built here.
 - Ids: entities `orc`, `lizardman`, bosses `orc_lord`, `orc_disaster`, `charybdis` (bosses.toml); items `low_potion`, `silver_coin`, `bronze_coin`, `charybdis_scale` (icon only). `entity.tensura.megalodon`
   also exists (the anime's escort of Charybdis) but no quest uses it: where it spawns was not verified.
-- Places: Tempest offsets from chapter 2; the orc camp, battlefield, caverns from chapter 4; the Charybdis arena (635, 145, radius 96) from `bosses.toml` - canon_map.txt shows the forest (J) giving way
-  to marsh (W) and lake (`~`) on that row from x about 430 to 600, so it is the lake's western reach at the forest edge; Milim's domain is the build `forgotten_dragon_city` (version 3, lore pass 18/11/2026: survey start 2340, 905, Milim at
-  blueprint 60, 25, so about 2340, 812; the survey may move it up to 128 blocks, hence centre 2340, 830 radius 140) and Treyni's shrine the build `treyni_shrine` (1988, -223). The architecture doc's 1780, 684 for Milim predates the 14,000-block map.
+- Places: Tempest offsets from chapter 2; the orc camp, battlefield, caverns from chapter 4; the Charybdis arena (the `lake_siss` anchor, radius 96) from `bosses.toml`: open water in the middle of Lerfing's Lake Siss, the nearest ground ~100 blocks away, so the fight-start quests say "take a boat"; the shore
+  camp is the lake's west shore (`lake_siss` + -170, 0); Milim's domain is the build `forgotten_dragon_city` (survey 128, radius 140) and Treyni's shrine the build `treyni_shrine` (radius 140).
 
 Quest-line ideas:
 - Hardcore / staged packs: Araxer's Staged Survival (8 gated chapters,
@@ -664,7 +665,7 @@ Quest-line ideas:
 
 **Implementation references.** The SHA-512-verified Tensura Compat FTB 2.0.0.4 jar registers the task `tensura_ftb:awakening`. Its `AwakeningTask.readData` reads `status`. On submission, `HERO` calls `isTrueHero()` and `DEMON_LORD` calls `isTrueDemonLord()`. Tensura 2.0.1.5’s player commands are `/evolve hero` and `/evolve demonLord`. The former requires a Hero Egg and a qualifying combatant in the hero-boss tag, fought while it has less than half health, at least 400,000 maximum EP and no subordinate owner. The latter reads the world’s soul requirement and the player’s Demon Lord Seed, then starts the Harvest Festival. Additional naming restrictions apply when the hardcore race rule is enabled. The NEB 2.0.0.3 jar adds Carrion, Luminous and the ogre Rimuru encounter to the hero-boss tag. Veldora’s story victory tests a separate requirement. Eligible players can inspect and claim available Legendaries through the existing `/ttl absorb free` and `/ttl absorb claim <skill>` commands. A full registry provides no automatic capstone draw or substitute payout.
 
-**Placement and costs.** The fixed arena coordinates come from `bosses.toml`. Locations tied to structures use the 14,000-block survey origins and allowances for the 64–160-block searches. Actual fights resolve the placed build through `TtlBoss.arenaOf`; calling a fight from beyond the 96-block approach yields the actual center. Chapter 11’s optional Atonement submits 12 bread, eight white wool and four iron ingots for the existing flag. The vote to change oath remains a player action, `/ttl story flip`. Light Act V’s +10 Church reputation and dark Act V’s −40 Tempest/+30 Falmuth are separate from boss kill reputation. Both paths receive equivalent quest XP at corresponding required and optional nodes.
+**Placement and costs.** The fixed arena coordinates come from `bosses.toml`. Locations tied to structures use the anchors of `design/data/anchors.toml` and allowances for the 64–160-block searches. Actual fights resolve the placed build through `TtlBoss.arenaOf`; calling a fight from beyond the 96-block approach yields the actual center. Chapter 11’s optional Atonement submits 12 bread, eight white wool and four iron ingots for the existing flag. The vote to change oath remains a player action, `/ttl story flip`. Light Act V’s +10 Church reputation and dark Act V’s −40 Tempest/+30 Falmuth are separate from boss kill reputation. Both paths receive equivalent quest XP at corresponding required and optional nodes.
 
 FTB Quests 2101.1.39 writes a successful boolean task to `TeamData` and auto-claims an individual reward for each online teammate. Its command reward consumes the claim even when the invoked command refuses. The story therefore remembers a pending Act VII reward per soul until that player meets the personal conditions. An unfinished team cannot open the retry by typing the player command.
 

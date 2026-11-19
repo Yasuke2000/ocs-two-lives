@@ -14,6 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import anchor_refs  # noqa: E402
 import gen_quests  # noqa: E402
 
 TENSURA_JAR = Path(os.environ.get("TENSURA_JAR", r"C:\Users\david\AppData\Roaming\PrismLauncher\instances\OCs\minecraft\mods\tensura-neoforge-2.0.1.5.jar"))
@@ -31,7 +32,8 @@ def chapter(name: str) -> dict:
 CH9 = chapter("chapter_9_two_hundred_thousand.toml")
 CH10 = chapter("chapter_10_whirlpool.toml")
 STORY = load(ROOT / "design" / "data" / "story.toml")
-BOSSES = {b["id"]: b for b in load(ROOT / "design" / "data" / "bosses.toml")["boss"]}
+# Boss places name design/data/anchors.toml anchors (tools/anchor_refs.py writes their x/z, as gen_data does).
+BOSSES = {b["id"]: b for b in anchor_refs.resolve_data({"bosses": load(ROOT / "design" / "data" / "bosses.toml")})["bosses"]["boss"]}
 FACTIONS = {f["id"] for f in load(ROOT / "design" / "data" / "factions.toml")["faction"]}
 ACTS = {a["id"]: a for a in STORY["act"]}
 FLAGS = STORY["flag"]
@@ -205,6 +207,15 @@ class FightTests(unittest.TestCase):
                 if m := re.fullmatch(r"ttl story fight (\w+)", cmd):
                     yield q, m.group(1)
 
+    @staticmethod
+    def arena_centre(spawn: dict):
+        """The encounter's centre when bosses.toml names it by anchor, landmark or build (the Lerfing import, WP-L4); None while it is
+        still a fixed old-world x/z."""
+        at = spawn.get("at")
+        if not at or "x" in at:
+            return None
+        return gen_quests.resolve_at("bosses.toml", {k: v for k, v in at.items() if k in ("anchor", "landmark", "build", "dx", "dz")})
+
     def test_fight_starts_name_bosses_and_stand_inside_the_fight_rule(self):
         near = STORY["rules"]["fight_near"]
         seen = set()
@@ -214,12 +225,14 @@ class FightTests(unittest.TestCase):
                 self.assertIn(boss, BOSSES)
                 loc = [t for t in q["tasks"] if t["type"] == "location"]
                 self.assertEqual(len(loc), 1, "the claim must be tied to one place")
-                self.assertLessEqual(loc[0]["radius"], 60)
-                spawn = BOSSES[boss]["spawn"]
-                if "at" in spawn and "x" in spawn["at"]:
-                    dx = loc[0]["at"][0] - spawn["at"]["x"]
-                    dz = loc[0]["at"][1] - spawn["at"]["z"]
-                    self.assertLessEqual((dx * dx + dz * dz) ** 0.5 + loc[0]["radius"], near)
+                r = loc[0]["radius"]
+                # the claim box is a square of half-width r: its corner is r * sqrt(2) from the centre
+                self.assertLessEqual(r * 2 ** 0.5, near)
+                centre = self.arena_centre(BOSSES[boss]["spawn"])
+                if centre is None:
+                    self.skipTest("bosses.toml still gives this spawn as fixed old-world x/z: WP-L4 anchors it")
+                x, z = gen_quests.resolve_at(q["key"], loc[0]["at"])
+                self.assertLessEqual(((x - centre[0]) ** 2 + (z - centre[1]) ** 2) ** 0.5 + r * 2 ** 0.5, near)
         self.assertEqual(seen, {"orc_lord", "orc_disaster", "charybdis"})
 
     def test_each_lane_fights_each_boss_and_waits_for_the_kill(self):
@@ -238,13 +251,24 @@ class FightTests(unittest.TestCase):
         self.assertIn("geld_falls", by_key["face_disaster"]["deps"])
         self.assertIn("devour_king", by_key["champion_turns"]["deps"])
 
-    def test_charybdis_arena_matches_the_shore_quests(self):
-        arena = BOSSES["charybdis"]["spawn"]["at"]
-        for key in ("face_whirlpool", "wake_calamity", "shore_camp", "harlequins_toll"):
+    def test_charybdis_arena_matches_the_lake_quests(self):
+        # the arena is open water in the middle of Lake Siss: the fight-start claims stand on it (in a boat), the shore camp and the
+        # harlequins meet on the lake's west shore
+        lake = gen_quests.anchor_of("t", "lake_siss")
+        centre = self.arena_centre(BOSSES["charybdis"]["spawn"])
+        for key, west in (("face_whirlpool", False), ("wake_calamity", False), ("shore_camp", True), ("harlequins_toll", True)):
             q = quests(CH10)[key]
             loc = [t for t in q["tasks"] if t["type"] == "location"][0]
+            x, z = gen_quests.resolve_at(key, loc["at"])
             with self.subTest(quest=key):
-                self.assertEqual(loc["at"], [arena["x"], arena["z"]])
+                self.assertEqual(loc["at"]["anchor"], "lake_siss")
+                if centre is not None:
+                    self.assertEqual(centre, (lake["x"], lake["z"]))
+                if west:
+                    self.assertLess(x, lake["x"])
+                    self.assertEqual(z, lake["z"])
+                else:
+                    self.assertEqual((x, z), (lake["x"], lake["z"]))
 
 
 @unittest.skipUnless(TENSURA_JAR.exists(), "Tensura jar not found (set TENSURA_JAR)")

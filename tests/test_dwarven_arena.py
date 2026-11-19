@@ -92,15 +92,30 @@ class DwarvenArena(unittest.TestCase):
         self.assertNotIn("round", a)
 
     def test_build_toml(self):
+        import anchor_refs
+        import math
         with (ROOT / "design" / "builds" / "dwarven_arena.toml").open("rb") as f:
             b = tomllib.load(f)
         self.assertEqual(tuple(b["anchor"]), self.m.ANCHOR)
-        # Outside the dwarf village's keepout whatever the survey picks: the village's placed box is its spot +- 116 (spot
-        # 250 -740), and a build keeps `margin` + 24 blocks clear of it. The Life 2 arrival (271 -624) is 200 blocks south.
-        reach = self.m.SIZE[0] // 2 + 1 + b["margin"] + 24 + b["search"]
-        self.assertLessEqual(b["x"] + reach, 250 - 116)
-        self.assertLess(b["z"] + self.m.SIZE[2] // 2 + 1 + b["search"], -624 - 40 - 100)
-
+        self.assertNotIn("x", b, "design/data/anchors.toml positions the arena (Lerfing's map)")
+        a, village, arrival = (anchor_refs.table()[k] for k in ("dwarven_arena", "dwarf_village", "arrival"))
+        self.assertEqual(a["build"], "dwarven_arena")
+        # The arena's box + margin + search, wherever the survey puts it.
+        ax, _, az = self.m.ANCHOR
+        sx, _, sz = self.m.SIZE
+        reach = max(b["margin"], b.get("repair_margin", 8)) + b["search"]
+        box = (a["x"] - ax - reach, a["z"] - az - reach, a["x"] - ax + sx - 1 + reach, a["z"] - az + sz - 1 + reach)
+        # Outside the dwarf village's keepout whatever happens: the landmark placer may put the village up to 64 blocks off
+        # its anchor, its jigsaw spreads `reach` (landmarks.toml, 116) round that, and every placed build keeps 24 more.
+        lm = next(l for l in tomllib.loads((ROOT / "design" / "data" / "landmarks.toml").read_text(encoding="utf-8"))["landmark"]
+                  if l["name"] == "dwarf_village")
+        keep = lm["reach"] + 64 + 24
+        vbox = (village["x"] - keep, village["z"] - keep, village["x"] + keep, village["z"] + keep)
+        overlap = box[0] <= vbox[2] and vbox[0] <= box[2] and box[1] <= vbox[3] and vbox[1] <= box[3]
+        self.assertFalse(overlap, f"arena {box} reaches the dwarf village's keepout {vbox}")
+        # The Life 2 arrival stays free ground well away from it.
+        gap = math.hypot(max(box[0] - arrival["x"], 0, arrival["x"] - box[2]), max(box[1] - arrival["z"], 0, arrival["z"] - box[3]))
+        self.assertGreater(gap, 200)
 
 if __name__ == "__main__":
     unittest.main()

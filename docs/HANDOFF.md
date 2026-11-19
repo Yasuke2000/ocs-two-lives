@@ -1,5 +1,18 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 afternoon — WP-L10: fast import path, runbook and rollback, Homelab PR (Claude, branch `lerfing-l10`)
+
+**`tools/import_world.sh`** uploads Lerfing's prepared world and arms the `ttl-import.txt` marker any time nobody is online;
+the swap is the normal `tools/server.sh deploy` restart. Runbook and rollback: `docs/server.md` "World import"; design §6.3.
+The dry run against staging (read-only) passed. It found nobody online, 800 local files (6.59 GB) and `/data` at 31.53 GB
+with 22.05 GB used and 9.46 GB free; after the upload about 2.9 GB would stay free (90 %). The measured upload speed is
+8.3 MB/s, so about 13 min. `main` is **not ready for the marker yet**: it has ttl-portals 0.8.3, no Lerfing grid and no
+anchor table, so a real run today would upload and verify, then stop with exit 4 and write no marker.
+**Homelab PR #60** (not merged): `mc-data` 30 → 60 Gi; ttl-ops pregen `64 256 520`. The namespace key cannot read the
+StorageClass; the Longhorn 1.11.1 chart hard-codes `allowVolumeExpansion: true`. **Next**: release mod-v0.9.0, merge
+L4/L5/L8 and `lerfing-import` into `main`, merge PR #60, then run `tools/import_world.sh` and `tools/server.sh deploy`
+(docs/server.md, Runbook steps 3–7).
+**Not done in L10**: `pack/config/bluemap/maps/tensura.conf` (mask and markers come from `gen_map.py` after WP-L2/L4).
 ## 19/11 — local test loop (branch `local-test-loop`, Claude)
 
 `tools/local.sh` (local NeoForge server: up/down/restart/sync/test/snapshot/reset), `tools/ingame.sh` (the in-game

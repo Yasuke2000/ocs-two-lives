@@ -53,7 +53,7 @@
 					dimension: "minecraft:overworld"
 					id: "0FD940179FF540EB"
 					ignore_dimension: false
-					position: [I; -12, -64, 11]
+					position: [I; 1708, -64, 911]
 					size: [I; 25, 384, 25]
 					type: "location"
 				}
@@ -110,7 +110,7 @@
 					dimension: "minecraft:overworld"
 					id: "41C475618C602386"
 					ignore_dimension: false
-					position: [I; 14, -64, -47]
+					position: [I; 1734, -64, 853]
 					size: [I; 17, 384, 17]
 					type: "location"
 				}
@@ -268,7 +268,7 @@
 					dimension: "minecraft:overworld"
 					id: "1941063E33D88146"
 					ignore_dimension: false
-					position: [I; 16, -64, -36]
+					position: [I; 1736, -64, 864]
 					size: [I; 13, 384, 13]
 					type: "location"
 				}
@@ -335,7 +335,7 @@
 					dimension: "minecraft:overworld"
 					id: "752A76D950963894"
 					ignore_dimension: false
-					position: [I; -14, -64, 38]
+					position: [I; 1706, -64, 938]
 					size: [I; 29, 384, 29]
 					type: "location"
 				}
@@ -497,7 +497,7 @@
 					dimension: "minecraft:overworld"
 					id: "798EAAEA6091EF8B"
 					ignore_dimension: false
-					position: [I; -228, -64, -298]
+					position: [I; 1326, -64, 646]
 					size: [I; 129, 384, 129]
 					type: "location"
 				}
@@ -579,8 +579,8 @@
 					dimension: "minecraft:overworld"
 					id: "58B6A23EAA193CD0"
 					ignore_dimension: false
-					position: [I; -346, -64, -433]
-					size: [I; 181, 384, 181]
+					position: [I; 1230, -64, 410]
+					size: [I; 301, 384, 301]
 					type: "location"
 				}
 			]

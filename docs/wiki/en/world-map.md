@@ -1,110 +1,96 @@
 # Tensura world map
 
-You begin Life 2 on the northern edge of Jura, near **(271, -624)**. Follow the road north towards Dwargon’s gate at **(435, -1000)**. Tempest lies southwest, across the forest’s dangerous inner rings. In every table the horizontal coordinates are **X, Z in blocks**. North means decreasing Z, east means increasing X. [Jura rings and first journey](jura-rings.md) · [Nederlands](../nl/world-map.md)
+The Tensura continent is **Tensura by Lerfing**, a hand-built map, loaded here block for block. The giant trees of Sarion are by Paulzero. [Planet Minecraft page](https://www.planetminecraft.com/project/tensura-map/) · [Credits](../../../CREDITS.md). In every table the horizontal coordinates are **X, Z in blocks**: east is larger X, south is larger Z, north is smaller Z. [The rings of Jura](jura-rings.md) · [Nederlands](../nl/world-map.md)
 
-Survey radii and preferred placement coordinates may change.
+Positions are the middle of a place; the exact doorway depends on the ground and can differ by a few dozen blocks. Operators can read the saved spot of a build with `/ttl build where <id>`. Coordinates may change with pack updates.
 
-Use the atlas to see where neighbouring countries meet. On BlueMap, select **Tensura (Life 2)** for the continent or the Mortal Realm for Wayfarer’s Rest. The public map displays terrain and markers without live player dots. The static atlas is available even when the web map is offline. [Annotated continent atlas](../../audits/world-audit-2026-11-map.png) · [BlueMap](https://map.daviddelporte.com)
+## Your first steps
 
-## The 43 map markers
+You arrive at **(1660, −100)** on the northern edge of Jura, on the road between the two places every soul hears about first. **Dwargon’s white gate is north** at **(1878, −544)**, a walk uphill (about 500 blocks, a little east of north). **Tempest is south** at **(1720, 900)**, 1,000 blocks away across the forest’s dangerous inner rings. Read [the rings of Jura](jura-rings.md) before you walk south.
 
-These are the geographical reference points in `minecraft:overworld`. A marker can represent a river, an entire battle or a country. Some western states share a terrain region. The region column identifies the cell under the pin. For a building entrance, use the settlement and structure tables below. [Map coordinates](../../../pack/config/ttl/canon_regions.json) · [Cartographer’s source plate](https://i.redd.it/q1p4ksudqyah1.png)
+For the whole continent use [BlueMap](https://map.daviddelporte.com) (select **Tensura (Life 2)**; terrain and markers, no live player dots) or the [regions and anchors atlas](../../previews/lerfing_regions.png), which works when the web map is offline.
 
-| Marker | X, Z | Terrain region |
-| --- | --- | --- |
-| Tempest (Rimuru, capital of the Federation) | -11, -104 | Jura |
-| Sealed Cave (Veldora's prison, Rimuru's birthplace) | -256, -343 | Jura |
-| Old goblin village (Rigurd's tribe) | -163, -234 | Jura |
-| Lake Siss | 888, 202 | Inland water |
-| Lizardmen's caverns (Gabiru, Avalos) | 926, 398 | Lake Siss marsh |
-| Orc War battlefield (Lake Siss marsh) | 1106, 539 | Jura |
-| Great Ameld River source (Canaat foothills) | 1335, -1106 | Jura |
-| Great Ameld River mouth | 3497, 1324 | Inland water |
-| Hidden ogre village (Kijin homeland, burned) | 1460, -959 | Jura |
-| Treyni's grove (Dryad sanctuary) | 1950, -223 | Jura |
-| Dwargo (Dwargon cavern capital) | 419, -1661 | Dwargon |
-| Dwargon main gate | 436, -1487 | Dwargon |
-| Dragon's Nest (highest peak of the Great Canaat Mountains) | 370, -2402 | Dwargon |
-| Marris (Falmuth capital) | -1286, -1040 | Falmuth |
-| Siltrosso | -2026, -921 | Englassia |
-| Blumund capital (Londo) | -1024, -120 | Blumund |
-| Ballachia | -1384, -212 | Falmuth |
-| Englassia capital (Lura): Freedom Academy, Free Guild HQ | -2626, -300 | Englassia |
-| Holy City Lubelius (Lune) | -3977, -659 | Lubelius |
-| Sacred Mountain (Inner Sanctum, Luminous) | -4423, -1286 | Lubelius |
-| Coleus | -4151, 370 | Damargania |
-| Morgdahl | -4009, 1002 | Morgdahl |
-| Nostraille | -2560, 360 | Nostraille |
-| Ghastone | -2364, 490 | Nostraille |
-| Rostia | -2440, 975 | Nostraille |
-| Yuzalgh | -1874, 321 | Yuzalgh |
-| Yggdonia | -1329, 180 | Yggdonia |
-| Filtwood | -1062, 616 | Raja |
-| Raja | -1084, 763 | Raja |
-| Sainte Malukshure | -2996, 1291 | Morgdahl |
-| Elmine (Sarion capital in the Divine Tree) | -1471, 1629 | Sarion |
-| Galut / Ulgr Nature Park (Ulgracia) | -1171, 2152 | Ulgracia |
-| Heaven Tower (Dagruel, Damargania) | -7507, 245 | Damargania |
-| Golden City of El Dorado (Leon) | -4805, 3241 | El Dorado |
-| El Dorado volcano | -5077, 2991 | El Dorado |
-| Frost Palace (Guy Crimson) | -2435, -4314 | Ice Continent |
-| Nasca (Eastern Empire capital) | 2631, -2059 | Eastern Empire |
-| Great Holy Mountain (Velgrynd) | 2386, -2511 | Eastern Empire |
-| Amrita (Jistav capital) | 3552, -703 | Jistav |
-| Clayman's Castle | 3693, -959 | Jistav |
-| City of the Forgotten Dragon (Milim) | 2462, 839 | Inland water |
-| Laura (Eurazania capital, rebuilt) | 1689, 1302 | Eurazania |
-| Jia (Fulbrosia capital, Frey) | 349, 1819 | Fulbrosia |
+## The continent at a glance
 
-## Where to find the builds
+The land spans x −7,400 to 7,640 and z −5,540 to 5,832. Jura is in the middle. Read it from there:
 
-All rows in the next table are in **`minecraft:overworld`**. Use the search centre as a waypoint. The radius gives the configured search range in blocks, and the actual entrance depends on dry, suitable ground. Yasuke or another operator can read the saved placement with `/ttl build where <id>`. Changes to the pack or a world reset can move the destination. For example, the current Forgotten Dragon City search starts at **(2340, 905)**, while an older staging copy stood at **(2510, 575)**. Its map pin is in water. [Build manifests](../../../design/builds) · [Recorded staging checks](../../HANDOFF.md)
+| Direction from Jura | What lies there |
+| --- | --- |
+| Middle | **Jura** (the Jura-Tempest Federation): rolling plains, forested mesas and lakes. Tempest is at its heart. |
+| North | The **Canaat Mountains** with **Dwargon**: a grey massif that climbs to the world’s highest point (y 316 at (2502, −1432)), a lava lake on its top and the Dragon’s Nest on its shoulder. The **Great Ameld River** rises at its foot. |
+| East | **Lake Siss** and the **lizardmen’s marsh**, then **Milim’s Domain**, a huge red-and-green badland. **Jistav** (Clayman’s Castle, Amrita) is its north-eastern corner. |
+| North-east | The **Eastern Empire** with its red volcano, the Great Holy Mountain and Nasca. |
+| South-east | **Eurazania**, a jungle peninsula that reaches far to the south. |
+| South | **Sarion**, a peninsula with the giant trees of Paulzero. Elmine, the capital in the Divine Tree, stands beside them. |
+| West | **Blumund**, across a channel at the edge of Jura, then **Ulgracia** (south), **Falmuth** (north-west, with a north arm and a small islet), **Englassia** and the small western nations in a belt of rivers and lakes, and **Lubelius** on the north-western ridge. |
+| Far west | **Damargania**: the Desert of Death and the Barren Lands, as far as x −7,400. **Fulbrosia** (the crystal hills) is in the south-west. |
+| Islands | The **Ice Continent** far to the north (Frost Palace) and **El Dorado** to the south-west (the Golden City). |
 
-| Destination | Build ID | Search centre X, Z | Radius |
+Lerfing drew the lands; the pack decides which nation each part is. A few readings are ours: the giant trees are the Divine Tree, the crystal hills are Fulbrosia, and Ulgracia lies north-west of Sarion.
+
+## Places and coordinates
+
+| Place | X, Z | Region | ID |
 | --- | --- | --- | --- |
-| Amrita — Buried Gallery of Jistav | `amrita` | 3552, -703 | 32 |
-| Ballachia — The Freed Travellers' Yard | `ballachia` | -1384, -212 | 128 |
-| Blumund — Londo | `blumund` | -1024, -120 | 64 |
-| Clayman's Castle — the Puppet Nation of Jistav | `clayman_castle` | 3693, -959 | 160 |
-| Coleus — The Palace of Herbaria | `coleus` | -4151, 370 | 48 |
-| The Dragon's Nest | `dragons_nest` | 370, -2402 | 32 |
-| Golden City of El Dorado — Leon’s Audience Court | `el_dorado` | -4808, 3240 | 48 |
-| Elmine — Terrace of the Divine Tree | `elmine` | -1471, 1629 | 32 |
-| Englassia — Lura | `englassia` | -2626, -300 | 64 |
-| City of the Forgotten Dragon — Milim's domain | `forgotten_dragon_city` | 2340, 905 | 128 |
-| The Frost Palace — Guy Crimson's gate | `frost_palace` | -2435, -4314 | 48 |
-| Scorching God Mountain — Velgrynd’s sanctuary | `great_holy_mountain` | 2386, -2511 | 48 |
-| Heaven Tower — Holy Void of Damargania | `heaven_tower` | -7507, 245 | 48 |
-| Jia — Frey's Landing Court | `jia` | 349, 1819 | 96 |
-| Laura — capital of the Beast Kingdom of Eurazania | `laura` | 1689, 1302 | 64 |
-| Holy City Lubelius — Lune | `lubelius` | -3977, -659 | 64 |
-| Marris — Falmuth | `marris` | -1286, -1040 | 64 |
-| Morgdahl — The Timber Landing | `morgdahl` | -4009, 1002 | 96 |
-| Nasca — Imperial audience court | `nasca` | 2631, -2059 | 96 |
-| Nostraille — The Wool Hall | `nostraille` | -2560, 360 | 32 |
-| Raja — The Old Lakeside Workings | `raja` | -1084, 763 | 48 |
-| Sacred Mountain — the seal of the Inner Sanctum | `sacred_mountain` | -4423, -1286 | 48 |
-| The Sealed Cave: Veldora's prison, Rimuru's birthplace | `sealed_cave` | -256, -343 | 128 |
-| Siltrosso — The Rosso counting court | `siltrosso` | -2026, -921 | 96 |
-| The gate to the Dwelling of the Spirits | `spirit_gate` | -210, 130 | 64 |
-| Treyni's shrine | `treyni_shrine` | 1988, -223 | 132 |
-| Ulgr Nature Park — The Spirit Trail | `ulgr_nature_park` | -1171, 2152 | 64 |
+| Life 2 arrival on the rim of Jura | 1660, −100 | Jura |  |
+| Tempest, Rimuru’s capital | 1720, 900 | Jura | `tempest` |
+| Gate to the Dwelling of the Spirits | 1570, 1130 | Jura | `spirit_gate` |
+| Old goblin village (Rigurd’s tribe) | 1390, 710 | Jura | `goblin_village` |
+| Sealed Cave (Veldora’s prison, Rimuru’s birthplace) | 1380, 560 | Jura | `sealed_cave` |
+| Hidden ogre village (burned ruin) | 2150, 400 | Jura | `ogre_village_ruin` |
+| Treyni’s grove (dryad sanctuary) | 1920, 1540 | Jura | `treyni_grove` |
+| Treyni’s shrine | 1958, 1540 | Jura | `treyni_shrine` |
+| Dwargon main gate | 1878, −544 | Dwargon | `dwargon` |
+| Dwargo, the cavern capital | 1878, −644 | Dwargon |  |
+| Dwarf village on the road to Dwargon | 2000, −110 | Dwargon | `dwarf_village` |
+| Dwarven Arena | 2260, −80 | Dwargon | `dwarven_arena` |
+| Great Ameld River, source | 2500, −200 | Dwargon |  |
+| Dragon’s Nest (highest peak of the Canaat) | 2420, −1536 | Dwargon | `dragons_nest` |
+| Lake Siss | 3050, 750 | Lake Siss marsh |  |
+| Lizardmen’s stilt village | 3184, 988 | Lake Siss marsh | `lizardmen_village` |
+| Lizardmen’s caverns (Gabiru, Avalos) | 3300, 1200 | Lake Siss marsh | `lizardmen_caverns` |
+| Orc War battlefield | 3600, 1250 | Lake Siss marsh | `orc_camp` |
+| Great Ameld River, mouth | 4580, 2300 | Milim’s Domain |  |
+| City of the Forgotten Dragon (Milim) | 4680, 840 | Milim’s Domain | `forgotten_dragon_city` |
+| Clayman’s Castle | 5620, −900 | Jistav | `clayman_castle` |
+| Amrita (Jistav) | 6100, −650 | Jistav | `amrita` |
+| Great Holy Mountain (Velgrynd) | 5120, −1860 | Eastern Empire | `great_holy_mountain` |
+| Nasca (Eastern Empire) | 5100, −2680 | Eastern Empire | `nasca` |
+| Laura (Eurazania) | 3300, 2600 | Eurazania | `laura` |
+| Elmine (Sarion), beside the Divine Tree | 1100, 2760 | Sarion | `elmine` |
+| Blumund (Londo) | −450, 150 | Blumund | `blumund` |
+| Ulgr Nature Park (Galut, Ulgracia) | −1040, 1060 | Ulgracia | `ulgr_nature_park` |
+| Filtwood | −900, 700 | Ulgracia |  |
+| Ballachia | −1660, −460 | Englassia | `ballachia` |
+| Englassia (Lura): Freedom Academy, Free Guild HQ | −2150, −410 | Englassia | `englassia` |
+| Ghastone | −2000, 300 | Englassia |  |
+| Marris (Falmuth) | −2000, −1450 | Falmuth | `marris` |
+| Siltrosso | −2450, −1650 | Falmuth | `siltrosso` |
+| Holy City Lubelius (Lune) | −2550, −700 | Lubelius | `lubelius` |
+| Sacred Mountain (Inner Sanctum) | −2980, −900 | Lubelius | `sacred_mountain` |
+| Yggdonia | −1400, 300 | Yggdonia |  |
+| Yuzalgh | −1580, 650 | Yuzalgh |  |
+| Nostraille | −1780, 550 | Nostraille | `nostraille` |
+| Raja | −2050, 760 | Raja | `raja` |
+| Rostia | −2100, 1000 | Raja |  |
+| Morgdahl | −2440, 740 | Morgdahl | `morgdahl` |
+| Sainte Malukshure | −2500, 1300 | Fulbrosia |  |
+| Coleus | −3080, 600 | Damargania | `coleus` |
+| Heaven Tower (Dagruel) | −4500, 560 | Damargania | `heaven_tower` |
+| Jia (Fulbrosia) | −2700, 1500 | Fulbrosia | `jia` |
+| Frost Palace (Guy Crimson) | −1980, −4300 | Ice Continent | `frost_palace` |
+| Golden City of El Dorado (Leon) | −3300, 4300 | El Dorado | `el_dorado` |
+| El Dorado volcano | −2850, 4600 | El Dorado |  |
 
-**Two entrances with fixed horizontal coordinates.** Tempest’s arrival green is at **(0, 0)** in `minecraft:overworld`. The road ends at the physical Dwargon gate at **(435, -1000)** in the same dimension. The capital and gate dots in the atlas record the geographical references. The green and the physical gate make better walking destinations. [Tempest](../../../pack/kubejs/server_scripts/ttl/life/tempest.js) · [Dwargon](../../../pack/kubejs/server_scripts/ttl/life/dwargon.js)
+Lerfing’s own builds stay as he made them: the stilt-hut village on Lake Siss, the ice crystals on the Ice Continent’s south shore and the builds on the north islet.
 
-## Seven settlements and sites assembled in the world
+## The sea around the continent
 
-Tensura assembles these sites from its own structure pieces in **`minecraft:overworld`**. It searches the nominal point and nearby candidates up to 64 blocks away. A shore village needs both water and dry land. A jigsaw start is the point from which the pieces grow, so its last house may be much farther away. Operators can check the stored start with `/ttl landmark where <id>`. [Runtime locations](../../../design/data/landmarks.toml)
+The continent is an island world. Past every coast Lerfing’s map continues as open sea (his map ends at x −8,064 and 8,192, z −6,016 and 6,528). Beyond it the server keeps the water going: the first land of the ordinary world lies roughly **2,000 blocks and more** off the coast in every direction, a boat trip of a few minutes. Plan food, a bed and a way home.
 
-| Site | Landmark ID | Nominal X, Z |
-| --- | --- | --- |
-| Old goblin village (Rigurd's tribe) | `goblin_village` | -163, -234 |
-| Lizardmen's village on Lake Siss | `lizardmen_village` | 700, 344 |
-| Lizardmen's caverns (Gabiru, Avalos) | `lizardmen_caverns` | 926, 398 |
-| Orc camp at the Orc War battlefield | `orc_camp` | 1106, 539 |
-| Dwarf village on the Dwarven Road | `dwarf_village` | 250, -740 |
-| Burned ruin at the hidden ogre village | `ogre_village_ruin` | 1460, -959 |
-| Treyni's grove (dryad sanctuary) | `treyni_grove` | 1950, -223 |
+## The free world beyond
+
+Past the ocean ring the world is the ordinary Minecraft overworld: vanilla biomes, villages, ruins and all, generated as you explore. It is for free roaming and building. The Tensura story stays on the continent: the story bosses, the hard-choice scenes, the Church’s Sense, the guild’s adventurers and the nations’ domain rules all belong to it, so nobody needs to cross the sea to follow the story.
 
 ## Other dimensions and the Last Wish trials
 
@@ -136,3 +122,7 @@ All ten Trial of the Soul arenas are in **`ttl:spirit_corridor`**. Each row give
 | Creation | `trial_creation` | 1700, 0 |
 | Dominion | `trial_dominion` | 1800, 0 |
 | Survival | `trial_survival` | 1900, 0 |
+
+---
+
+Map: *Tensura by Lerfing*; giant trees: Paulzero ([Planet Minecraft](https://www.planetminecraft.com/project/tensura-map/)).
