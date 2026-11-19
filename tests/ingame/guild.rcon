@@ -14,7 +14,7 @@ ttl guild reset TtlBotGuildA
 ttl merit reset TtlBotGuildA
 ttl rep set TtlBotGuildA dwargon 0
 clear TtlBotGuildA
-execute in minecraft:overworld run tp TtlBotGuildA 100 100 100
+execute in minecraft:overworld positioned ${anchor:tempest.x+100} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotGuildA ~ ~ ~
 # The board: 3 daily + 2 weekly, one daily slot for rank F; a Life 1 soul is refused (answers life2only, no side effects).
 ttl guild roll
 ttl guild expect TtlBotGuildA board 5

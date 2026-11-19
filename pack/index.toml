@@ -1866,7 +1866,7 @@ hash = "2b85aae8d5bb8d25fe4b379b6377e91625ec4720c091b36d2d07d995fd965e6f"
 
 [[files]]
 file = "kubejs/data/minecraft/worldgen/noise_settings/overworld.json"
-hash = "649a2977209c8a1b6ca45af857b26f5261600dae1dafddfa30787e1a5071331c"
+hash = "4aab94fee2a23b88a39f7e57af601f711d611b607fe21f3e04156c11216c1639"
 
 [[files]]
 file = "kubejs/data/tensura/loot_table/advancement_reward/adamantite.json"

@@ -16,8 +16,10 @@ OCS Tensura: Two Lives is a free, non-commercial fan modpack. Nothing here is so
   Minecraft page returned HTTP 403 to our check). The map is not in this repository and its blocks are not committed (only
   1:16 rasters and biome repaint rules we derived, in `design/data/lerfing/`); the server runs it privately.
   **TODO (Yasuke): ask Lerfing (and Paulzero for the trees) for permission to use the map on this server and to credit it
-  publicly, and get the answer in writing, before the public launch of the server or the public web map.** Until then
-  nothing that contains his blocks may be published or shared outside the server.
+  publicly, and get the answer in writing, before the public launch of the server.** Owner decision 19/11/2026: the
+  public web map (BlueMap, https://map.daviddelporte.com) stays on after the import, with this credit, while the
+  permission is asked. Until the answer arrives, nothing else that contains his blocks is published or shared outside
+  the server.
 - **That Time I Got Reincarnated as a Slime** (Tensei Shitara Slime Datta Ken) — story, world and characters by
   Fuse, illustrated by Mitz Vah; published by Micro Magazine / Kodansha. All rights to the original work belong to
   them.

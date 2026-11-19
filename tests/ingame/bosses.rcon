@@ -63,7 +63,7 @@ ttl boss abort shizu
 # Gone again: FAILS (Test failed).
 execute in minecraft:overworld if entity @e[tag=ttl.boss,tag=ttl.bossid.shizu]
 # Refused outside the arena by design (prints "ttl: Shizu ... can only be summoned within 48 blocks"), so not run here:
-#   execute in minecraft:overworld run ttl boss summon shizu 500 70 500
+#   execute in minecraft:overworld run ttl boss summon shizu <a spot 500 blocks from Tempest> 70 <...>
 # Part 3: every boss has a fixed spawn (kind + place) and a condition on the SUMMONER (never a story path). `spawn.stages` and
 # `requires` both gate; a wild-only boss has no fixed spawn.
 ttl boss expect TtlBotBoss spawn orc_lord altar
@@ -193,7 +193,7 @@ ttl boss arena clear all
 ttl boss testparty set TtlBotInsA TtlBotInsB
 execute in ttl:spirit_corridor run tp TtlBotInsA 0.5 65 0.5
 execute in ttl:spirit_corridor run tp TtlBotInsB 0.5 65 2.5
-execute in minecraft:overworld run tp TtlBotInsC 600 120 600
+execute in minecraft:overworld run tp TtlBotInsC ${anchor:arrival.x} 120 ${anchor:arrival.z}
 execute in ttl:spirit_corridor run ttl boss summon orc_lord 0 66 8
 @until 30 ttl boss expect TtlBotInsA active orc_lord yes
 @until 30 ttl boss expect TtlBotInsA fighting orc_lord yes
@@ -238,8 +238,10 @@ ttl boss expect TtlBotInsC queued gazel_dwargo no
 ttl boss expect TtlBotInsC ready gazel_dwargo yes
 ttl boss expect TtlBotInsA busy gazel_dwargo yes
 ttl boss expect TtlBotInsC busy gazel_dwargo no
-# C fights it at the throne room: a boss with no player in range is lost after a moment ("lost without a fight").
-execute in minecraft:overworld positioned 435 0 -1106 positioned over motion_blocking_no_leaves run tp TtlBotInsC ~ ~ ~
+# C fights it at the throne room (anchor `dwargon_throne`; the city is carved into the Canaat since the import, so the surface
+# above it is not the hall: this test only starts and aborts the fight): a boss with no player in range is lost after a moment
+# ("lost without a fight").
+execute in minecraft:overworld positioned ${anchor:dwargon_throne.x} 0 ${anchor:dwargon_throne.z} positioned over motion_blocking_no_leaves run tp TtlBotInsC ~ ~ ~
 ttl story fight gazel_dwargo TtlBotInsC
 @until 30 ttl boss expect TtlBotInsC active gazel_dwargo yes
 ttl boss expect TtlBotInsC ready gazel_dwargo no

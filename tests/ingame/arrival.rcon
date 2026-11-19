@@ -1,13 +1,14 @@
-# Life 2 arrival (life/arrival.js, design/data/arrival.toml). Expect: "Arrival: x y z (grounded) ..." (271.5 y -623.5
-# once grounded, about 20 s after start; a "provisional" line only on a fresh world), then a reborn bot lands within
-# 3 blocks of it, on Jura's safe rim and not in Tempest, and is still alive 10 s later (area magicule there is 500;
+# Life 2 arrival (life/arrival.js, design/data/arrival.toml, the `arrival` anchor of design/data/anchors.toml). Expect:
+# "Arrival: x y z (grounded) ..." (within `search` blocks of the anchor, once grounded, about 20 s after start; a
+# "provisional" line only on a fresh world), then a reborn bot lands within 3 blocks of it, on Jura's safe rim (its
+# /ttlregion says zone rim) and not in Tempest, standing on dry ground, and is still alive 10 s later (area magicule there is 500;
 # the forest ahead is lethal for a fresh soul; the arrival grace of arrival.toml keeps the rim's Blade Tigers and Barghests
-# from killing it, but they still shove it: after 10 s it only has to be within 32 blocks). Any "ttl: ..." line is a failure. Check the biome too:
-# `ttlmap 271 -624` must say ring 'rim'.
+# from killing it, but they still shove it: after 10 s it only has to be within 32 blocks). Any "ttl: ..." line is a failure.
+# tests/ingame/lerfing.rcon checks the anchor itself against Lerfing's stored chunks (needs the import).
 ttl arrival
 # Wild Tensura direwolves spawn on the safe rim round the arrival (three stood within 16 blocks of it on 19/11); their
 # attacks knocked the reborn bot 3 and 36 blocks off the point (test-all 10:49 and 12:19). Clear them first.
-execute in minecraft:overworld positioned 272 72 -623 run kill @e[type=tensura:direwolf,distance=..96]
+execute in minecraft:overworld positioned ${anchor:arrival.x} 72 ${anchor:arrival.z} run kill @e[type=tensura:direwolf,distance=..96]
 ttlbot spawn TtlBotArrival
 @sleep 2
 kill TtlBotArrival
@@ -16,6 +17,10 @@ execute as TtlBotArrival run ttl choose slime
 @sleep 2
 ttl inspect TtlBotArrival
 ttl arrival expect TtlBotArrival near 3
+# On the rim, not in the dark band or the core ("zone rim (safe)" on Lerfing's stored biomes, "zone ring 'rim' ..." from the
+# generator's ring maths), and not in or over water or lava.
+@expect 5 zone (rim|ring 'rim') :: ttlregion TtlBotArrival
+@expect 5 Test passed :: execute as TtlBotArrival at @s unless block ~ ~ ~ minecraft:water unless block ~ ~-1 ~ minecraft:water unless block ~ ~-1 ~ minecraft:lava
 @sleep 10
 ttl arrival expect TtlBotArrival alive
 ttl arrival expect TtlBotArrival near 32
