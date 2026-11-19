@@ -108,7 +108,7 @@ list against the jar when `pack/mods` is installed (`/dump-ids` rule: never an i
 | Mainland bbox | recommended ≈ **9,500 × 7,000**; `map_check` **error above 11,000 × 8,000**, warning above 10,000 × 7,500 | Travel: Tempest→Dwargon ≈ 1,400 (4–5 min sprint), →Blumund ≈ 1,900, →Lake Siss ≈ 1,100, →Laura ≈ 2,200, →Nasca ≈ 3,300, →Heaven Tower ≈ 4,200; nothing beyond ~10 minutes |
 | Islands | Ice Continent ≈ 2,500 × 1,500 at 900–1,200 of sea north; El Dorado ≈ 2,000 × 1,600 at ≈ 900 south-west; islets free | A boat trip, visible with DH |
 | Sea to the box edge | ≥ 1,200 from any coast (the converter adds it) | Deep ocean by then; the ring (§3.5) continues it |
-| Distance limits (`map_check`) | sites ≥ 2 × (r₁ + r₂) apart, ≥ 48 from any coast unless kind `coast`/`lakeside`; Tempest↔Dwargon 1,200–1,600; Tempest↔Blumund 1,600–2,200; Tempest↔Lake Siss 900–1,300; arrival 900–1,100 north of Tempest on the Dwargon road; every build site reachable from Tempest by `roads` or ≤ 400 from one | The travel feel the owner wants, machine-checked |
+| Distance limits (`map_check`) | sites: edge gap = distance − (r₁ + r₂) ≥ the larger of the two `data-margin` (default 48), r = max(drawn r, `min_r`) (§3.8); ≥ 48 from any coast unless kind `coast`/`lakeside`; Tempest↔Dwargon 1,200–1,600; Tempest↔Blumund 1,600–2,200; Tempest↔Lake Siss 900–1,300; arrival 900–1,100 north of Tempest on the Dwargon road; every build site reachable from Tempest by `roads` or ≤ 400 from one | The travel feel the owner wants, machine-checked |
 | Raster resolution | 1 px = 4 blocks (= one quart, what the biome source samples) for height, rugged, water, road, biome; at the target box 3072 × 2560 px | 7.9 Mpx; ~60 MB of arrays in the server heap; vanilla noise supplies the sub-4-block detail |
 | Sea level | **63** (vanilla) | No import to match; beaches and aquifers at their defaults |
 | Heights | sea floor −20..40, coast 63, lowland 64–80, hills 80–110, highland 110–150, mountains 150–230, Canaat crest 280; `data-peak` ≤ 300; Dragon's Nest top < 320 | Build limit 320 |
@@ -279,7 +279,11 @@ built in ~1 minute on one core.
 | `canon_map.txt` | CanonGrid format | the chunk grid of the design box ('.' sea, '~' lake/river, region letters) |
 
 A site's r is the SVG circle's, raised to the build's `min_r` from `world/sites.toml` when drawn smaller (§4.2: the
-footprint drives the site). Carve sites raise the massif to y + roof + `min_cover` over every roof column (dilated one
+footprint drives the site). `map_check` uses the same effective radius, r_eff = max(drawn r, `min_r`; just the drawn r when
+`world/sites.toml` is missing): it warns per site drawn below `min_r` and requires an edge gap = distance − (r_eff₁ + r_eff₂)
+≥ the larger of the two sites' `data-margin` (default 48), because the generator keeps every site box + margin free of
+structure starts. An anchor placed relative to another (`of`/`dx`/`dz` in `anchors.toml`) is one place with its parent and
+siblings and is exempt from the spacing rule; it must be drawn within 32 blocks of parent + offset (warning). Carve sites raise the massif to y + roof + `min_cover` over every roof column (dilated one
 pixel so bilinear sampling never dips under it) and cut the approach ravine through the roofless run of the box edge on
 `facing`.
 
@@ -430,7 +434,7 @@ Total Claude effort ≈ 85–95 h; ChatGPT: 3 + 2 rounds of maps plus 58 site sh
 | 2 | Polygons closed (`z` or first = last) in `coast lakes mountains hills forests biomes regions`; 8–400 vertices; no self-intersection; coordinates inside the viewBox | error |
 | 3 | Required attributes present and in range: rivers `data-width` 4–24; mountains `data-peak` 100–300; hills `data-height` 70–150; forests `data-type` in the list; biomes `data-biome` in §2.2.1 (checked against the jar when `pack/mods` is present); regions `data-letter` one of the 22, each letter at most once per landmass, every land px in exactly one region; roads `data-kind` main/trail; sites `data-id` an `anchors.toml` id, each of the 58 exactly once, `data-site` in the six kinds, `r` 8–160 | error |
 | 4 | Lakes, mountains and hills lie on land; rivers start on land and end inside a lake or in the sea (≤ 16 blocks outside the coast); a river crossing a mountain polygon | error / warning |
-| 5 | Sites on land (centre and the whole r disc, except `coast`/`lakeside`, which must touch sea/water on one side); inside the region their `anchors.toml` `region` says; ≥ 2 × (r₁ + r₂) apart; ≥ 48 from the coast unless `coast`; a `carve` site inside a mountain or hill polygon; a `village` site's r ≥ the landmark's `reach` | error |
+| 5 | Sites on land (centre and the whole r disc, except `coast`/`lakeside`, which must touch sea/water on one side); inside the region their `anchors.toml` `region` says; edge gap (distance − (r_eff₁ + r_eff₂)) ≥ the larger `data-margin` (default 48), r_eff = max(drawn r, `min_r` of `world/sites.toml`), relative anchors exempt from their parent and siblings; ≥ 48 from the coast unless `coast`; a `carve` site inside a mountain or hill polygon; a `village` site's r ≥ the landmark's `reach`. Warnings: a site drawn below its `min_r` ("drawn too small, will be enlarged to N"); a relative anchor (`of`/`dx`/`dz`) more than 32 blocks from parent + offset | error / warning |
 | 6 | Canon relations (§2.4): Dwargon 1,200–1,600 from Tempest at bearing 330–30° (north), inside a mountain polygon; arrival 900–1,100 north of Tempest within 16 blocks of a `main` road; Blumund 1,600–2,200 west; Lake Siss 900–1,300 east with a `lakes` polygon ≥ 400 wide there; Treyni 500–800 at bearing 100–170° inside a `forests` polygon of type `dark`/`old_taiga`/`ancient`; Sealed Cave 350–600 NW; the Ice Continent north of the mainland by 900–1,200 of sea; the Empire's sites east of x +3,000, Damargania's west of x −3,000; Lubelius NW; Sarion/Eurazania sites south of z +1,500 | error |
 | 7 | Size limits (§2.3): mainland bbox ≤ 11,000 × 8,000 (warning above 10,000 × 7,500); land ≤ 55 % of the design box; design box (content + 1,200 sea, region-rounded) ≤ 14,336 × 11,264 | error / warning |
 | 8 | Roads: polylines start and end within 32 blocks of a site; every wet run ≤ 64 blocks (longer = error: draw a bridgeable gap or a detour); corridor grade on the estimated height ≤ 1:2 after smoothing (warning); the four v1 roads present (`tempest_dwargon`, `tempest_blumund`, `blumund_englassia_lubelius`, `dwargon_dwarf_village`) | error / warning |
@@ -463,7 +467,7 @@ painting); DH client caches (players clear once).
 
 ## 8. ChatGPT brief — the world map drawing and its layer specification
 
-> Paste as-is. Attach: `design/lore/world.md`, the place pages, `design/data/anchors.toml` (ids only), the list below.
+> Paste as-is. Attach: `design/lore/world.md`, the place pages, `design/data/anchors.toml` (ids and the `of`/`dx`/`dz` offsets), `world/site_sizes.md` (the `min_r` table), the list below.
 
 ---
 
@@ -492,7 +496,7 @@ give is the geometry players get.**
    | `biomes` | closed polygon (only where a forest type is not enough: deserts, badlands, swamps, snow, savanna, Tensura biomes) | **`data-biome`** from the allowed list below |
    | `regions` | closed polygon per nation, covering all land, no overlaps | **`data-letter`** from the attached letter list |
    | `roads` | polyline from site to site | **`data-kind`**: `main` (paved) or `trail`; `data-id` |
-   | `sites` | one `<circle>` per anchor id in the attached list (58) | **`data-id`**, **`data-site`**: `clearing`, `plateau`, `carve`, `lakeside`, `coast`, `village`; **`r`** (8–160; the attached list gives each site's kind and r) |
+   | `sites` | one `<circle>` per anchor id in the attached list (58) | **`data-id`**, **`data-site`**: `clearing`, `plateau`, `carve`, `lakeside`, `coast`, `village`; **`r`** (8–160; at least the site's `min_r` from the attached `world/site_sizes.md`), `data-margin` (default 48) |
    | `labels` | text | cosmetic |
 
    Allowed `data-biome` ids: `minecraft:plains sunflower_plains meadow forest flower_forest birch_forest
@@ -535,9 +539,20 @@ give is the geometry players get.**
   grade 1 in 2; a road may cross at most 64 blocks of water in one go (that becomes a bridge).
 - Heights: coast 63; lowlands 64–80; hills 80–110; highlands 110–150; mountains 150–230. Rivers either at sea level or as
   stepped reaches (flat stretches with small falls). Every lake needs a rim.
-- Every site circle must be on land (coast/lakeside sites touch the water on one side), at least 2 × (r₁ + r₂) from
-  any other site, at least 48 blocks from the coast unless it is a `coast` site, inside its nation, and every build site
-  must be on a road or within 400 blocks of one. `carve` sites sit inside a mountain or hill polygon.
+- Every site circle must be on land (coast/lakeside sites touch the water on one side), at least 48 blocks from the coast
+  unless it is a `coast` site, inside its nation, and every build site must be on a road or within 400 blocks of one.
+  `carve` sites sit inside a mountain or hill polygon.
+- **Site size**: a build needs room, so draw each circle with `r` at least its `min_r` (table in `world/site_sizes.md`;
+  e.g. Tempest 148, Dwargon 127, Dwarf village 124, Blumund 97, Sealed Cave 75, a pin or spot 8). A smaller circle is
+  enlarged by the generator and the check warns "drawn too small, will be enlarged to N". The effective radius is
+  r_eff = max(drawn r, `min_r`).
+- **Site spacing**: for every two sites, edge gap = distance − (r_eff₁ + r_eff₂) must be **at least the larger of their
+  `data-margin`** (default 48; nothing may generate inside a site's disc plus margin). Example: Tempest (148) and the
+  Sealed Cave (75) 424 apart leave a gap of 201: fine. This is not 2 × (r₁ + r₂): that old rule is gone.
+- **Relative anchors**: Dwargo, the throne room and Kaijin's smithy (round Dwargon), the arena (by the dwarf village),
+  the Wayfarer's camp (by the arrival), Shizu's spawn and the outcast road (by Tempest) have `of`/`dx`/`dz` in
+  `anchors.toml`: draw each at its parent's centre + (`dx`, `dz`), at most 32 blocks off (the check warns beyond). They sit
+  inside or beside their parent by design and are exempt from the spacing rule against it and each other.
 
 **Style**: hand-drawn fantasy atlas feel (think the official ten-sura.com map), but the SVG itself is plain geometry.
 Iterate on the SVG against `map_check.py` and its preview, not on the painting. Item or GUI textures you make for the pack

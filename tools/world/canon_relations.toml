@@ -142,10 +142,10 @@ note = "The dwarf village is on the road to Dwargon, on the foot of the Canaat a
 a = "dwarven_arena"
 dir = "any"
 b = "dwarf_village"
-min = 150
+min = 60
 max = 700
 source = "design/lore/dwarven_arena.md"
-note = "The arena stands beside the dwarf village on the Dwarven Road."
+note = "The arena stands beside the dwarf village on the Dwarven Road (anchors.toml: 102 blocks from its centre, inside its apron)."
 
 [[relation]]
 a = "dragons_nest"
@@ -178,10 +178,10 @@ note = "Gazel's throne room is at the top of the cavern city behind the gate."
 a = "kaijin_smithy"
 dir = "any"
 b = "dwargon"
-min = 100
+min = 60
 max = 500
 source = "design/lore/dwargon.md"
-note = "Kaijin's smithy is on the forge street inside the cavern city."
+note = "Kaijin's smithy is on the forge street inside the cavern city (anchors.toml: 85 blocks from the gate, behind it)."
 
 [[relation]]
 a = "ameld_source"
