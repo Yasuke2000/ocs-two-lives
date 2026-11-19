@@ -152,9 +152,16 @@ public record CanonMap(Channel channel, DensityFunction outside) implements Dens
             double blend = json.has("blend") ? json.get("blend").getAsDouble() : 800;
             long start = System.nanoTime();
             int[] inner = CanonConfig.importBox(json, msg -> LOGGER.warn("[ttl] {}", msg));
-            DesignWorld.Loaded design = DesignWorld.loaded(); // the own world's site plates (sites.json), when its rasters are present
-            if (design != null) sites = DesignSitesFile.merge(sites, design.sites());
-            CanonGrid grid = CanonGrid.load(dir.resolve("canon_map.txt"), regions, ring, blend).withSites(sites).withImport(inner);
+            // The own world (rasters in config/ttl/world/): its own chunk grid and site plates, and nothing is imported.
+            DesignWorld.Loaded design = DesignWorld.loaded();
+            Path mapFile = dir.resolve("canon_map.txt");
+            if (design != null) {
+                sites = DesignSitesFile.merge(sites, design.sites());
+                if (Files.isRegularFile(DesignWorld.dir().resolve("canon_map.txt"))) mapFile = DesignWorld.dir().resolve("canon_map.txt");
+                if (inner != null) LOGGER.info("[ttl] canon map: lerfing.inner ignored, the own world is generated");
+                inner = null;
+            }
+            CanonGrid grid = CanonGrid.load(mapFile, regions, ring, blend).withSites(sites).withImport(inner);
             LOGGER.info("[ttl] canon map loaded in {} ms: {}", (System.nanoTime() - start) / 1_000_000, grid.describe());
             return grid;
         } catch (Exception e) {

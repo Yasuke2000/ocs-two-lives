@@ -66,6 +66,8 @@ tasks.register('selfCheck', JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     javaLauncher = selfCheckLauncher
     mainClass = 'com.yasuke.ttl.world.DesignSelfCheck'
+    // WP-W1's real rasters when tools/world/build.py has written them (git-ignored; skipped when absent).
+    args = [file('../world/build').absolutePath]
     // Minecraft's bootstrap (tried for the density-function check) writes logs/ into the working directory.
     def dir = layout.buildDirectory.dir('selfcheck').get().asFile
     workingDir = dir

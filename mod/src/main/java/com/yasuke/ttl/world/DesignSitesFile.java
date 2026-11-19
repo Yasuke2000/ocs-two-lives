@@ -91,6 +91,32 @@ public final class DesignSitesFile {
         return out;
     }
 
+    /**
+     * The site table of index.json ({@code sites: [{id, kind, x, z, r, plated, y, fade, cover}]}): every plated site and
+     * every carve site (sites.json leaves carve sites out), for /ttlsite. Empty when the legend has none.
+     */
+    public static List<Info> infosFromIndex(JsonObject legend, Consumer<String> warn) {
+        List<Info> out = new ArrayList<>();
+        if (!legend.has("sites") || !legend.get("sites").isJsonArray()) return out;
+        for (JsonElement e : legend.getAsJsonArray("sites")) {
+            if (!e.isJsonObject()) continue;
+            JsonObject s = e.getAsJsonObject();
+            try {
+                String kind = s.has("kind") ? s.get("kind").getAsString() : "clearing";
+                boolean plated = s.has("plated") && s.get("plated").getAsBoolean();
+                if (!plated && !kind.equals("carve")) continue; // pins and spots only name a point
+                out.add(new Info(s.get("id").getAsString(), s.get("x").getAsDouble(), s.get("z").getAsDouble(), s.get("r").getAsDouble(),
+                        s.has("fade") && !s.get("fade").isJsonNull() ? s.get("fade").getAsDouble() : 0,
+                        s.has("y") && !s.get("y").isJsonNull() ? s.get("y").getAsInt() : null, kind,
+                        s.has("cover") && !s.get("cover").isJsonNull() ? s.get("cover").getAsInt() : null,
+                        s.has("roof") && !s.get("roof").isJsonNull() ? s.get("roof").getAsInt() : null));
+            } catch (RuntimeException ex) {
+                warn.accept("design sites: index.json entry skipped (" + ex + "): " + s);
+            }
+        }
+        return out;
+    }
+
     /** Sites of {@code a} followed by those of {@code b} whose names {@code a} does not have. */
     public static CanonSites merge(CanonSites a, CanonSites b) {
         if (b.isEmpty()) return a;

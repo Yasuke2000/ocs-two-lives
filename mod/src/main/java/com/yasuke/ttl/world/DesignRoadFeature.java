@@ -32,9 +32,9 @@ import org.jetbrains.annotations.Nullable;
  *   <li>a bottom slab of the palette where a neighbouring road column is one block higher, so a grade walks without jumping;</li>
  *   <li>bridges (bridge pixels over water): a deck 2 above the water's top block, fence railings on the edge columns
  *       (connected along the edge), log pillars down to the bed every 5 blocks along it;</li>
- *   <li>a fence post with a lantern beside main roads: at the road raster's {@code lantern} pixels when the converter
- *       wrote them, else the edge column nearest a hashed point of every {@code lantern_every} x {@code lantern_every}
- *       cell the road passes (about one per {@code lantern_every} blocks, sides alternating at random).</li>
+ *   <li>a fence post with a lantern beside main roads: every 40 blocks along roads.json's centre lines, sides
+ *       alternating; without roads.json at the road raster's {@code lantern} pixels, else the edge column nearest a
+ *       hashed point of every {@code lantern_every} x {@code lantern_every} cell the road passes.</li>
  * </ul>
  * Everything is decided from the rasters and the column's own blocks, so chunks agree at their borders whatever order
  * they generate in. Only in the Tensura world's generator and only with design rasters.
@@ -97,14 +97,15 @@ public final class DesignRoadFeature extends Feature<DesignRoadFeature.Config> {
         int minY = level.getMinBuildHeight();
         boolean[] bridge = new boolean[1];
         boolean any = false;
-        boolean marked = r.hasLanternClass();
+        boolean fromRoads = r.hasRoadLanterns(), marked = !fromRoads && r.hasLanternClass();
         Map<Long, Long> lanternCells = new HashMap<>();
         for (int dz = 0; dz < 16; dz++) {
             for (int dx = 0; dx < 16; dx++) {
                 int x = x0 + dx, z = z0 + dz;
                 int kind = r.road(x, z, bridge);
                 if (kind < 0) {
-                    boolean lantern = marked ? r.lanternMarked(x, z) : c.lanternEvery() > 0 && heuristicLantern(r, c.lanternEvery(), x, z, lanternCells);
+                    boolean lantern = fromRoads ? r.lanternAt(x, z) : marked ? r.lanternMarked(x, z)
+                            : c.lanternEvery() > 0 && heuristicLantern(r, c.lanternEvery(), x, z, lanternCells);
                     if (lantern) any |= post(level, r, b, pos, x, z, minY);
                     continue;
                 }

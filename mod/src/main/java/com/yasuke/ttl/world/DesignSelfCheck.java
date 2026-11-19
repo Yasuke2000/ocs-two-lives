@@ -50,6 +50,8 @@ public final class DesignSelfCheck {
             sitesFile();
             calibrationMap(tmp.resolve("calibration"));
             densityFallback();
+            if (args.length >= 1 && Files.isDirectory(Path.of(args[0])) && Files.isRegularFile(Path.of(args[0], "index.json"))) realRasters(Path.of(args[0]));
+            else System.out.println("real rasters: none given (run tools/world/build.py; gradlew selfCheck then reads world/build/)");
             System.out.println("design self-check passed");
         } finally {
             try (var walk = Files.walk(tmp)) {
@@ -186,8 +188,10 @@ public final class DesignSelfCheck {
     }
 
     private static void factorAndJaggedness() {
-        check(DesignTerrain.factor(0) == 8 && DesignTerrain.factor(0.2) == 5 && DesignTerrain.factor(0.4) == 3
-                && DesignTerrain.factor(0.8) == 1.5 && DesignTerrain.factor(1) == 1.5, "factor knots flat/rolling/hills/alpine");
+        check(DesignTerrain.factor(0) == 8 && DesignTerrain.factor(0.1) == 8 && DesignTerrain.factor(0.3) == 5 && DesignTerrain.factor(0.6) == 3
+                && DesignTerrain.factor(0.8) == 1.5 && DesignTerrain.factor(1) == 1.5, "factor knots of own-world.md 3.8");
+        for (double r = 0; r <= 1.0001; r += 0.05)
+            check(Math.abs(DesignTerrain.factor(r) - DesignTerrain.curve(DesignTerrain.FACTOR_CURVE, r)) < 1e-12, "factor = the 3.8 curve at " + r);
         double prev = 99;
         for (double r = 0; r <= 1.0001; r += 0.01) {
             double f = DesignTerrain.factor(r);
@@ -195,12 +199,12 @@ public final class DesignSelfCheck {
             prev = f;
         }
         check(DesignTerrain.factor(-1) == 8 && DesignTerrain.factor(2) == 1.5, "factor clamps");
-        check(DesignTerrain.jaggedness(0.7, 100, 0.6) == 0 && DesignTerrain.jaggedness(0.4, 100, 0.6) == 0, "no jaggedness below rugged 0.7");
-        check(Math.abs(DesignTerrain.jaggedness(0.8, 100, 0.6) - 0.3) < 1e-9 && Math.abs(DesignTerrain.jaggedness(1, 100, 0.6) - 0.6) < 1e-9, "jaggedness 0.3 at 0.8, 0.6 at 1");
+        check(DesignTerrain.jaggedness(0.8, 100, 0.6) == 0 && DesignTerrain.jaggedness(0.4, 100, 0.6) == 0, "no jaggedness up to rugged 0.8");
+        check(Math.abs(DesignTerrain.jaggedness(0.9, 100, 0.6) - 0.3) < 1e-9 && Math.abs(DesignTerrain.jaggedness(1, 100, 0.6) - 0.6) < 1e-9, "jaggedness 0.3 at 0.9, 0.6 at 1");
         check(Math.abs(DesignTerrain.jaggedness(1, 300, 0.6) - 10 / 128.0) < 1e-9 && DesignTerrain.jaggedness(1, 320, 0.6) == 0, "jaggedness capped under y 310");
         check(DesignTerrain.slide(240, 304, 320) == 1 && DesignTerrain.slide(312, 304, 320) == 0.5 && DesignTerrain.slide(330, 304, 320) == 0, "top slide");
         check(DesignTerrain.blend(1, 3, 0) == 1 && DesignTerrain.blend(1, 3, 1) == 3 && DesignTerrain.blend(1, 3, 0.5) == 2, "blend");
-        System.out.println("factor: 8/5/3/1.5 at rugged 0/0.2/0.4/0.8, monotone; jaggedness 0 below 0.7, 0.3 at 0.8, 0.6 at 1, capped under y 310");
+        System.out.println("factor: 8/8/5/3/1.5 at rugged 0/0.1/0.3/0.6/0.8, monotone; jaggedness 0 up to 0.8, 0.6 at 1, capped under y 310");
     }
 
     // ---- loader, samplers, masks, exclusion ----
@@ -401,8 +405,79 @@ public final class DesignSelfCheck {
         boolean[] b = new boolean[1];
         check(r.road(-234, -800, b) == CanonRasters.ROAD_MAIN && !b[0] && r.road(-234, -384, b) == CanonRasters.ROAD_MAIN && b[0], "the road and its bridge");
         check((r.mask(-600, 100) & (CanonRasters.SITE | CanonRasters.DRY)) != 0 && (r.mask(-300, 100) & CanonRasters.CAVITY) != 0, "site and cavity masks");
+        check(r.road(-234 + 8, -800, b) == -1 && (r.mask(-234 + 8, -800) & CanonRasters.ROAD) != 0, "the corridor: no surface, but no structures either");
         check(r.height(-600, 100) > 145, "the flat site stands on a bump the plate must level");
+        check(r.factorCurve() != null && r.jaggedCurve() != null && r.seaLevel() == 63 && "calib_site".equals(r.siteAt(-600, 100)), "index.json curves, sea level, site names");
+        check(r.lanternCount() >= 15 && r.lanternCount() <= 20 && !r.lanternAt(-234, -800), "lantern posts every 40 blocks off the centre line: " + r.lanternCount());
+        int left = 0;
+        for (int z = -1050; z <= -250; z++) if (r.lanternAt(-234 - 4, z)) left++;
+        check(left > 5 && r.lanternCount() - left > 5, "lanterns alternate sides: " + left + " west of " + r.lanternCount());
         System.out.println("calibration map: " + r.describe());
+    }
+
+    /** WP-W1's real output (world/build/ from tools/world/build.py): loads, is fast and small enough, and agrees with index.json. */
+    private static void realRasters(Path dir) throws IOException {
+        Runtime rt = Runtime.getRuntime();
+        System.gc();
+        long before = rt.totalMemory() - rt.freeMemory(), t0 = System.nanoTime();
+        List<String> warnings = new ArrayList<>();
+        CanonRasters r = CanonRasters.load(dir, warnings::add);
+        long ms = (System.nanoTime() - t0) / 1_000_000;
+        System.gc();
+        long mb = (rt.totalMemory() - rt.freeMemory() - before) >> 20;
+        check(r != null && warnings.isEmpty(), "world/build loads cleanly: " + warnings);
+        JsonObject box = r.legend().getAsJsonObject("box");
+        check(r.boxX0() == box.get("x0").getAsInt() && r.boxZ0() == box.get("z0").getAsInt() && r.boxX1() == box.get("x1").getAsInt() && r.boxZ1() == box.get("z1").getAsInt(),
+                "the box of index.json: " + r.describe());
+        check(r.factorCurve() != null && r.jaggedCurve() != null && r.biomeTableSize() > 1 && r.biomeId(0) == null, "curves and the biome table (0 = #ocean = auto)");
+        List<String> problems = new ArrayList<>();
+        int plates = 0;
+        for (var e : r.legend().getAsJsonArray("sites")) {
+            JsonObject site = e.getAsJsonObject();
+            if (!site.get("plated").getAsBoolean() || site.get("kind").getAsString().equals("carve")) continue;
+            double x = site.get("x").getAsDouble(), z = site.get("z").getAsDouble(), y = site.get("y").getAsDouble();
+            plates++;
+            if (Math.abs(r.height(x, z) - y) > 0.5) problems.add(site.get("id").getAsString() + " plate y " + y + " but height " + r.height(x, z));
+            if ((r.mask((int) x, (int) z) & (CanonRasters.SITE | CanonRasters.DRY)) != (CanonRasters.SITE | CanonRasters.DRY)) problems.add(site.get("id").getAsString() + " not site+dry in the mask");
+            if (r.excludes((int) x - 4, (int) y - 2, (int) z - 4, (int) x + 4, (int) y + 10, (int) z + 4, 16) == 0) problems.add(site.get("id").getAsString() + " allows a structure start");
+            String id = r.siteAt((int) x, (int) z);
+            if (!site.get("id").getAsString().equals(id)) problems.add(site.get("id").getAsString() + " named " + id + " in sites.png");
+        }
+        check(problems.isEmpty() && plates > 20, plates + " plated sites agree with the rasters: " + problems);
+        // The sea at the box edge is the raster's deep floor, blended into CanonGrid's ocean over most of the sea margin.
+        check(r.height(r.boxX0() + 2, r.boxZ0() + 2) < 0 && r.weight(r.boxX0() + 2, r.boxZ0() + 500) < 0.05 && r.weight(r.boxX0() + 1100, r.boxZ0() + 1100) == 1,
+                "edge: deep sea, blend over " + r.edgeBlend + " blocks");
+        double[][] fc = r.factorCurve();
+        int jag = 0, dry = 0, ex = 0, n = 0;
+        for (int z = r.boxZ0() + 2; z < r.boxZ1(); z += 64) {
+            for (int x = r.boxX0() + 2; x < r.boxX1(); x += 64) {
+                double rug = r.rugged(x, z, 0), f = DesignTerrain.curve(fc, rug);
+                check(f >= 1.5 && f <= 8, "factor in range at " + x + "," + z);
+                double h = r.height(x, z);
+                check(h > -64 && h < 320, "height in the world at " + x + "," + z + ": " + h);
+                if (DesignTerrain.curve(r.jaggedCurve(), rug) > 0) jag++;
+                if ((r.mask(x, z) & CanonRasters.DRY) != 0) dry++;
+                if ((r.mask(x, z) & (CanonRasters.SITE | CanonRasters.ROAD | CanonRasters.CAVITY)) != 0) ex++;
+                n++;
+            }
+        }
+        int roads = 0;
+        boolean[] b = new boolean[1];
+        for (var e : JsonParser.parseString(Files.readString(dir.resolve("roads.json"), StandardCharsets.UTF_8)).getAsJsonObject().getAsJsonArray("roads")) {
+            JsonArray pts = e.getAsJsonObject().getAsJsonArray("points");
+            for (int i = 2; i < pts.size() - 2; i += 10) {
+                JsonArray pt = pts.get(i).getAsJsonArray();
+                int x = (int) Math.floor(pt.get(0).getAsDouble()), z = (int) Math.floor(pt.get(1).getAsDouble());
+                if (r.road(x, z, b) >= 0 || r.road(x + 1, z, b) >= 0 || r.road(x, z + 1, b) >= 0) roads++;
+                else problems.add("no road surface at " + x + "," + z + " of " + e.getAsJsonObject().get("id").getAsString());
+                if (Math.abs(r.height(x, z) - pt.get(2).getAsDouble()) > 1.5) problems.add("road " + e.getAsJsonObject().get("id").getAsString() + " at " + x + "," + z + ": height " + r.height(x, z) + " vs profile " + pt.get(2));
+            }
+        }
+        // Map content, not format: report (a carve massif drawn over a road lifts the corridor there, for instance).
+        check(problems.stream().noneMatch(t -> t.startsWith("no road surface")), "roads.json centre lines lie on road pixels: " + problems);
+        if (!problems.isEmpty()) System.out.println("real rasters: road profile vs height raster differs by > 1.5 at " + problems);
+        System.out.printf(Locale.ROOT, "real rasters (%s): loaded in %d ms, ~%d MB; %s; %d plated sites agree; %d road points on the raster (%d off); lattice 64: jagged %d, dry %d, excluded %d of %d; %d lantern posts%n",
+                dir, ms, mb, r.describe(), plates, roads, problems.size(), jag, dry, ex, n, r.lanternCount());
     }
 
     // ---- the calibration map of the WP-W2 gate ----
@@ -412,7 +487,7 @@ public final class DesignSelfCheck {
     /** West strips (x < -64): flat 66, 90, 140, 220; east strips (x >= 64): rolling 100, hills 110, alpine 160. */
     static double[] calStrip(double x, double z) {
         double[][] west = {{-1100, -640, 66, 0}, {-576, -192, 90, 0}, {-128, 320, 140, 0}, {384, 1100, 220, 0}};
-        double[][] east = {{-1100, -384, 100, 0.2}, {-320, 320, 110, 0.4}, {384, 1100, 160, 0.9}};
+        double[][] east = {{-1100, -384, 100, 0.3}, {-320, 320, 110, 0.6}, {384, 1100, 160, 0.9}};
         double[] wv = strip(west, z), ev = strip(east, z);
         double t = Math.max(0, Math.min(1, (x + 64) / 128));
         return new double[] {wv[0] + (ev[0] - wv[0]) * t, wv[1] + (ev[1] - wv[1]) * t};
@@ -431,10 +506,16 @@ public final class DesignSelfCheck {
         return new double[] {last[2], last[3]};
     }
 
+    /**
+     * The calibration map, in WP-W1's own format (own-world.md §3.8, index.json): height {@code round((H + 64) * 16)},
+     * rugged {@code * 255}, water {@code level + 64}, road classes 0 none, 1 corridor, 2 trail, 3 main, 4/5 bridges,
+     * biome indices into {@code files.biome.biomes} (0 = {@code #ocean}), sites.png 1-based into {@code sites},
+     * exclude.png bits (1 site r + 48, 2 road corridor + 8, 4 cavity), sites.json (flat sites only).
+     */
     static void writeCalibration(Path dir) throws IOException {
         Files.createDirectories(dir);
         int n = CAL_PX * CAL_PX;
-        int[] height = new int[n], rugged = new int[n], water = new int[n], road = new int[n], biome = new int[n], site = new int[n], cavity = new int[n];
+        int[] height = new int[n], rugged = new int[n], water = new int[n], road = new int[n], biome = new int[n], site = new int[n], exclude = new int[n];
         int[][] reaches = {{-310, -260, 89}, {-260, -210, 88}, {-210, -160, 86}, {-160, -110, 85}};
         for (int pz = 0; pz < CAL_PX; pz++) {
             for (int px = 0; px < CAL_PX; px++) {
@@ -442,8 +523,8 @@ public final class DesignSelfCheck {
                 double x = CAL_X0 + px * 4 + 2, z = CAL_Z0 + pz * 4 + 2;
                 double[] s = calStrip(x, z);
                 double hgt = s[0], rug = s[1];
-                int lvl = 0, bio;
-                // Biomes by strip: plains, forest, meadow, snowy plains | Tensura ancient forest, windswept hills, stony peaks.
+                int lvl = 0, bio, ex = 0;
+                // Biomes by strip: plains, forest, meadow, snowy plains | Tensura ancient forest, windswept forest, stony peaks.
                 if (x < 0) bio = z < -608 ? 1 : z < -160 ? 2 : z < 352 ? 3 : 4;
                 else bio = z < -352 ? 8 : z < 352 ? 5 : 6;
                 // The lake at 90 (r 90, rim to 122 at 92) and the river's stepped reaches (bed level - 4, banks level + 2).
@@ -472,13 +553,18 @@ public final class DesignSelfCheck {
                     site[i] = 1;
                     bio = 1;
                 }
+                if (ds < 64 + 48) ex |= 1;
                 double dc = Math.hypot(x + 300, z - 100);
-                if (dc < 40) {
-                    site[i] = 2;
-                    cavity[i] = 1;
+                if (dc < 40) site[i] = 2;
+                if (dc < 40 + 48) ex |= 1;
+                if (dc < 40 + 8) ex |= 4;
+                // The road: north-south at x -234 from z -1050 to -250 (main, a bridge over the river), corridor 2 px each side.
+                double dr = Math.abs(x + 234);
+                if (z >= -1050 && z <= -250) {
+                    if (dr <= 3) road[i] = lvl > 0 ? 5 : 3;
+                    else if (dr <= 11) road[i] = 1;
+                    if (dr <= 11 + 8) ex |= 2;
                 }
-                // The road: north-south at x -234 from z -1050 to -250, a bridge where it crosses the river.
-                if (Math.abs(x + 234) <= 3 && z >= -1050 && z <= -250) road[i] = lvl > 0 ? 3 : 1;
                 // Coast: the land rectangle |x|, |z| <= 1100 falls to 63 over its outer 96 blocks, the sea to -20 over 300.
                 double e = Math.min(LAND - Math.abs(x), LAND - Math.abs(z));
                 if (e < 96) {
@@ -492,46 +578,59 @@ public final class DesignSelfCheck {
                     bio = e < 0 ? 0 : bio;
                     road[i] = e < 0 ? 0 : road[i];
                 }
-                height[i] = (int) Math.round(hgt + 64);
+                height[i] = (int) Math.round((hgt + 64) * 16);
                 rugged[i] = (int) Math.round(Math.max(0, Math.min(1, rug)) * 255);
                 water[i] = lvl > 0 ? lvl + 64 : 0;
                 biome[i] = bio;
+                exclude[i] = ex;
             }
         }
         writePng(dir.resolve("height.png"), CAL_PX, CAL_PX, 16, 0, height);
         writePng(dir.resolve("rugged.png"), CAL_PX, CAL_PX, 8, 0, rugged);
         writePng(dir.resolve("water.png"), CAL_PX, CAL_PX, 16, 0, water);
-        writePng(dir.resolve("road.png"), CAL_PX, CAL_PX, 8, 3, road);
+        writePng(dir.resolve("road.png"), CAL_PX, CAL_PX, 8, 0, road);
         writePng(dir.resolve("biome.png"), CAL_PX, CAL_PX, 8, 3, biome);
-        writePng(dir.resolve("site.png"), CAL_PX, CAL_PX, 8, 3, site);
-        writePng(dir.resolve("cavity.png"), CAL_PX, CAL_PX, 8, 0, cavity);
-        JsonObject legend = JsonParser.parseString("""
-                {"_doc": "WP-W2 calibration map (DesignSelfCheck write-calibration): not a world design",
-                 "scale": 4, "origin_block": [-1536, -1536], "edge_blend": 64,
-                 "height.png": {"type": "16-bit gray", "value": "y + 64 (first air above the ground)"},
-                 "rugged.png": {"type": "8-bit gray", "value": "rugged * 255"},
-                 "water.png": {"type": "16-bit gray", "value": "level + 64; 0 = dry"},
-                 "road.png": {"type": "8-bit palette", "classes": {"0": "none", "1": "main", "2": "trail", "3": "bridge"}},
-                 "biome.png": {"type": "8-bit palette", "biomes": [
-                    {"index": 0, "id": "auto"}, {"index": 1, "id": "minecraft:plains"}, {"index": 2, "id": "minecraft:forest"},
-                    {"index": 3, "id": "minecraft:meadow"}, {"index": 4, "id": "minecraft:snowy_plains"}, {"index": 5, "id": "minecraft:windswept_hills"},
-                    {"index": 6, "id": "minecraft:stony_peaks"}, {"index": 7, "id": "minecraft:river"}, {"index": 8, "id": "tensura:ancient_forest"}]},
-                 "site.png": {"type": "8-bit palette", "sites": {"1": "calib_site", "2": "calib_cave"}},
-                 "cavity.png": {"type": "8-bit gray", "value": "non-zero = cavity"},
+        writePng(dir.resolve("sites.png"), CAL_PX, CAL_PX, 8, 0, site);
+        writePng(dir.resolve("exclude.png"), CAL_PX, CAL_PX, 8, 0, exclude);
+        JsonObject index = JsonParser.parseString("""
+                {"what": "WP-W2 calibration map (DesignSelfCheck write-calibration), in the format of own-world.md 3.8: not a world design",
+                 "version": 1,
+                 "box": {"x0": -1536, "z0": -1536, "x1": 1536, "z1": 1536, "width_px": 768, "height_px": 768, "sea_margin": 436},
+                 "pixel": {"blocks": 4, "sample": "centre"},
+                 "sea_level": 63,
+                 "edge_blend": 256,
+                 "files": {
+                   "height": {"file": "height.png", "format": "gray16", "value": "round((H + 64) * 16)", "scale": 16, "offset": 64},
+                   "rugged": {"file": "rugged.png", "format": "gray8", "value": "round(rugged * 255)",
+                              "factor": [[0.0, 8.0], [0.1, 8.0], [0.3, 5.0], [0.6, 3.0], [0.8, 1.5], [1.0, 1.5]],
+                              "jaggedness": [[0.0, 0.0], [0.8, 0.0], [1.0, 0.6]]},
+                   "water": {"file": "water.png", "format": "gray16", "value": "0 = dry, else level + 64", "offset": 64},
+                   "road": {"file": "road.png", "format": "gray8", "classes": {"none": 0, "corridor": 1, "trail": 2, "main": 3, "trail_bridge": 4, "main_bridge": 5}},
+                   "biome": {"file": "biome.png", "format": "palette8", "biomes": ["#ocean", "minecraft:plains", "minecraft:forest", "minecraft:meadow",
+                             "minecraft:snowy_plains", "minecraft:windswept_forest", "minecraft:stony_peaks", "minecraft:river", "tensura:ancient_forest"]},
+                   "sites": {"file": "sites.png", "format": "gray8", "value": "1-based index into sites"},
+                   "exclude": {"file": "exclude.png", "format": "gray8", "bits": {"site": 1, "road": 2, "cavity": 4}}},
+                 "sites": [
+                   {"id": "calib_site", "kind": "clearing", "x": -600, "z": 100, "r": 64, "plated": true, "y": 140, "index": 1, "fade": 32},
+                   {"id": "calib_cave", "kind": "carve", "x": -300, "z": 100, "r": 40, "plated": true, "y": 120, "index": 2, "fade": 20, "cover": 6}],
                  "calibration": {"bands": [
                     {"name": "flat66", "box": [-1030, -1030, -300, -660], "y": 66, "rugged": 0, "tol": 1.5},
                     {"name": "flat90", "box": [-1030, -560, -560, -210], "y": 90, "rugged": 0, "tol": 1.5},
                     {"name": "flat140", "box": [-1030, -100, -720, 300], "y": 140, "rugged": 0, "tol": 1.5},
                     {"name": "flat220", "box": [-1030, 420, -100, 1030], "y": 220, "rugged": 0, "tol": 1.5},
-                    {"name": "rolling100", "box": [100, -1030, 1030, -420], "y": 100, "rugged": 0.2, "tol": 3, "max_sd": 4},
-                    {"name": "hills110", "box": [100, -280, 1030, 280], "y": 110, "rugged": 0.4, "tol": 6, "max_sd": 8},
+                    {"name": "rolling100", "box": [100, -1030, 1030, -420], "y": 100, "rugged": 0.3, "tol": 3, "max_sd": 4},
+                    {"name": "hills110", "box": [100, -280, 1030, 280], "y": 110, "rugged": 0.6, "tol": 6, "max_sd": 8},
                     {"name": "alpine160", "box": [100, 420, 1030, 1030], "y": 160, "rugged": 0.9, "tol": 40, "min_sd": 3}]}}
                 """).getAsJsonObject();
-        Files.writeString(dir.resolve("legend.json"), new GsonBuilder().setPrettyPrinting().create().toJson(legend));
+        Files.writeString(dir.resolve("index.json"), new GsonBuilder().setPrettyPrinting().create().toJson(index));
         Files.writeString(dir.resolve("sites.json"), """
-                {"sites": [
-                  {"name": "calib_site", "x": -600, "z": 100, "radius": 64, "fade": 32, "terrain": "flat", "ground": 140, "kind": "clearing"},
-                  {"name": "calib_cave", "x": -300, "z": 100, "radius": 40, "kind": "carve", "ground": 120, "min_cover": 6}]}
+                {"_doc": "flat sites (CanonSites schema); carve sites are left out",
+                 "sites": [{"name": "calib_site", "centre": [-600, 100], "radius": 64, "fade": 32, "terrain": "flat", "ground": 140,
+                            "biomes": [["minecraft:plains", 1]]}]}
+                """);
+        Files.writeString(dir.resolve("roads.json"), """
+                {"roads": [{"id": "calib_road", "kind": "main", "half": 2, "corridor": 5, "points": [[-234, -1050, 66, 0], [-234, -640, 66, 0],
+                  [-234, -576, 90, 0], [-234, -390, 90, 1], [-234, -378, 90, 1], [-234, -250, 90, 0]]}]}
                 """);
     }
 

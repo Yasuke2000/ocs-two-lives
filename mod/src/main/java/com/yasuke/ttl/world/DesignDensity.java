@@ -92,7 +92,7 @@ public final class DesignDensity {
         }
     }
 
-    /** {@code ttl:design_factor}: from the rugged raster (flat 8, rolling 5, hills 3, alpine 1.5 by default). */
+    /** {@code ttl:design_factor}: from the rugged raster: index.json's curve, else flat 8, rolling 5, hills 3, alpine 1.5 at 0.1/0.3/0.6/0.8. */
     public record Factor(DensityFunction outside, double flat, double rolling, double hills, double alpine, double fallback) implements Column {
         public static final MapCodec<Factor> MAP_CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
                 DensityFunction.HOLDER_HELPER_CODEC.fieldOf("outside").forGetter(Factor::outside),
@@ -106,7 +106,9 @@ public final class DesignDensity {
 
         @Override
         public double design(CanonRasters r, int x, int z, double outside) {
-            return DesignTerrain.factor(r.rugged(x, z, fallback), flat, rolling, hills, alpine);
+            double rugged = r.rugged(x, z, fallback);
+            double[][] curve = r.factorCurve();
+            return curve != null ? DesignTerrain.curve(curve, rugged) : DesignTerrain.factor(rugged, flat, rolling, hills, alpine);
         }
 
         @Override
@@ -141,7 +143,9 @@ public final class DesignDensity {
         @Override
         public double design(CanonRasters r, int x, int z, double outside) {
             double rugged = r.rugged(x, z, 0);
-            return rugged <= 0.7 ? 0 : DesignTerrain.jaggedness(rugged, r.height(x, z), max);
+            double[][] curve = r.jaggedCurve();
+            double j = curve != null ? Math.min(max, DesignTerrain.curve(curve, rugged)) : DesignTerrain.jaggedness(rugged, 0, max);
+            return j <= 0 ? 0 : DesignTerrain.capJag(j, r.height(x, z));
         }
 
         @Override
