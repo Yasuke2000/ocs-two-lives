@@ -11,6 +11,7 @@ Type these commands in Minecraft chat. Replace text inside `< >` with a name, ID
 | `/ttl status` | Check which life or transition you are in. |
 | `/ttl life` | Read your personal karma and tier information. |
 | `/ttl menu` | Reopen the current Spirit Corridor choice. |
+| `/ttl where <place>` | Which way a known place lies and roughly how far (rounded, no coordinates). Tab completes the names, e.g. `/ttl where tempest`. Only works in the Tensura overworld. |
 | `/ttl talk` | Speak to the Voice of the World in the Corridor or open the guide elsewhere. |
 | `/bug <what happened>` | Send a report from the game. Include what you did and what you expected. |
 

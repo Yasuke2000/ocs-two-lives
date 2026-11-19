@@ -87,6 +87,15 @@
       Type:"STANDARD"
     },
     EasyNPCVersion:3,
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {
+        id:"tensura:low_magic_staff",
+        count:1
+      },
+      {}
+    ],
     Invulnerable:1b,
     ObjectiveData:{
       ObjectiveDataSet:[
@@ -106,12 +115,27 @@
         {
           SpeedModifier:0.6d,
           Type:"MOVE_BACK_TO_HOME"
+        },
+        {
+          SpeedModifier:0.8d,
+          Type:"MELEE_ATTACK"
+        },
+        {
+          SpeedModifier:0.8d,
+          Type:"ATTACK_MOB_WITHOUT_CREEPER"
+        },
+        {
+          Type:"HURT_BY_TARGET"
         }
       ]
     },
     PersistenceRequired:1b,
     PresetUUID:[I;1382799891,1188779930,-1711920475,1320790058],
     VariantType:"MAGE_01",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_guild_mage_2.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid_slim"
   }
 }

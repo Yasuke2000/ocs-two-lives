@@ -123,6 +123,15 @@
       Type:"STANDARD"
     },
     EasyNPCVersion:3,
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {
+        id:"minecraft:iron_axe",
+        count:1
+      },
+      {}
+    ],
     Invulnerable:0b,
     ObjectiveData:{
       ObjectiveDataSet:[
@@ -157,6 +166,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;1038868543,-2008119,-1608066016,78012902],
     VariantType:"STEVE",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_dwarf_warrior_3.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

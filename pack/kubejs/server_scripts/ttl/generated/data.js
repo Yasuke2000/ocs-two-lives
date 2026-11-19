@@ -6409,6 +6409,141 @@ const TtlData = {
       ]
     }
   },
+  "npc_gear": {
+    "ai": {
+      "civilian": {
+        "easy_npc": [
+          "FLEE_MONSTER",
+          "PANIC"
+        ]
+      },
+      "fighter": {
+        "easy_npc": [
+          "MELEE_ATTACK",
+          "ATTACK_MOB_WITHOUT_CREEPER",
+          "HURT_BY_TARGET"
+        ]
+      },
+      "guard": {
+        "easy_npc": [
+          "MELEE_ATTACK",
+          "ATTACK_MOB_WITHOUT_CREEPER",
+          "HURT_BY_TARGET"
+        ]
+      },
+      "none": {
+        "easy_npc": []
+      }
+    },
+    "residents": {
+      "tempest": {
+        "goblin": "tempest_guard",
+        "gobta": "tempest_rider",
+        "haruna": "tempest_healer",
+        "rigur": "tempest_captain",
+        "rigurd": "tempest_elder"
+      }
+    },
+    "role": [
+      {
+        "ai": "guard",
+        "id": "tempest_guard",
+        "main": "tensura:iron_katana"
+      },
+      {
+        "ai": "guard",
+        "id": "tempest_captain",
+        "main": "tensura:iron_long_sword",
+        "off": "minecraft:shield"
+      },
+      {
+        "ai": "guard",
+        "id": "tempest_rider",
+        "main": "tensura:iron_kodachi"
+      },
+      {
+        "ai": "guard",
+        "id": "tempest_elder",
+        "main": "tensura:goblin_club"
+      },
+      {
+        "ai": "none",
+        "id": "tempest_healer"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_rookie",
+        "main": "minecraft:stone_sword"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_fighter",
+        "main": "minecraft:iron_sword"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_knight",
+        "main": "minecraft:iron_sword",
+        "off": "minecraft:shield"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_scout",
+        "main": "tensura:iron_short_sword"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_hunter",
+        "main": "tensura:iron_spear"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_caster",
+        "main": "tensura:low_magic_staff"
+      },
+      {
+        "ai": "fighter",
+        "id": "guild_elite",
+        "main": "tensura:mithril_long_sword",
+        "off": "minecraft:shield"
+      },
+      {
+        "ai": "fighter",
+        "id": "otherworlder",
+        "main": "tensura:iron_katana"
+      },
+      {
+        "ai": "fighter",
+        "id": "dwarf_fighter",
+        "main": "minecraft:iron_axe"
+      },
+      {
+        "ai": "guard",
+        "id": "dwarf_guard",
+        "main": "minecraft:iron_axe",
+        "off": "minecraft:shield"
+      },
+      {
+        "ai": "civilian",
+        "id": "merchant"
+      },
+      {
+        "ai": "civilian",
+        "id": "civilian"
+      }
+    ],
+    "settings": {
+      "guard_check_ticks": 40,
+      "guard_ignore_tags": [
+        "ttl.legion",
+        "ttl.scene",
+        "ttl.boss",
+        "ttl.arena.mob"
+      ],
+      "guard_radius": 16,
+      "rev": 1
+    }
+  },
   "npcs": {
     "hook": [
       {
@@ -6582,8 +6717,9 @@ const TtlData = {
         "id": "outcast_contact",
         "name": "The Outcast",
         "name_color": "#6B6B6B",
-        "skin": "NOOR",
-        "talk": "outcast_contact"
+        "skin": "ttl:textures/entity/npc/look_outcast_1.png",
+        "talk": "outcast_contact",
+        "variant": "NOOR"
       },
       {
         "description": "Kabal, a rank B swordsman of the Free Guild (story NPC).",
@@ -6795,7 +6931,7 @@ const TtlData = {
       "check_ticks": 200,
       "interact_cooldown_ms": 600,
       "preset_prefix": "ttl_guild_",
-      "rev": 3,
+      "rev": 4,
       "sneak_bypass": true,
       "start_delay_ticks": 200
     },
@@ -7457,9 +7593,11 @@ const TtlData = {
           "If you see a slime, let me have it. I need the points.",
           "My mother wanted me to be a baker."
         ],
+        "look": "guild_rookie",
         "model": "humanoid",
         "name": "Bram",
         "name_color": "#9BC53D",
+        "role": "guild_rookie",
         "skin": "FARMER_01",
         "title": "F-rank swordsman"
       },
@@ -7482,9 +7620,11 @@ const TtlData = {
           "A shield is worth more than a sharp blade.",
           "The guildmaster pays fairly. Remember that when the job turns ugly."
         ],
+        "look": "guild_veteran",
         "model": "humanoid",
         "name": "Olric",
         "name_color": "#4F86C6",
+        "role": "guild_knight",
         "skin": "KNIGHT_02",
         "title": "C-rank knight"
       },
@@ -7506,9 +7646,11 @@ const TtlData = {
           "I map the roads. Somebody has to.",
           "Ants under the fields again. I hate ants."
         ],
+        "look": "guild_scout",
         "model": "humanoid_slim",
         "name": "Lyra",
         "name_color": "#2BB5A0",
+        "role": "guild_scout",
         "skin": "EFE",
         "title": "D-rank scout"
       },
@@ -7530,9 +7672,11 @@ const TtlData = {
           "Bring me ore and I'll show you an edge.",
           "Never trust a bridge you didn't build."
         ],
+        "look": "dwarf_warrior",
         "model": "humanoid",
         "name": "Borin",
         "name_color": "#C8963E",
+        "role": "dwarf_fighter",
         "skin": "STEVE",
         "title": "D-rank axe-hand"
       },
@@ -7555,10 +7699,12 @@ const TtlData = {
           "I sell pelts in Blumund and stories for free.",
           "The rim is safe. The middle of the forest is not."
         ],
+        "look": "guild_scout",
         "model": "humanoid",
         "name": "Hald",
         "name_color": "#8C5A3C",
-        "skin": "SECURITY_01",
+        "role": "guild_hunter",
+        "skin": "FARMER_01",
         "title": "C-rank monster hunter"
       },
       {
@@ -7569,9 +7715,11 @@ const TtlData = {
           "The academy in Englassia takes only the gifted. I'm working on it.",
           "Never chant near a slime. Long story."
         ],
+        "look": "guild_mage",
         "model": "humanoid_slim",
         "name": "Mira",
         "name_color": "#B57EDC",
+        "role": "guild_caster",
         "skin": "MAGE_01",
         "title": "E-rank mage"
       },
@@ -7583,9 +7731,11 @@ const TtlData = {
           "Hold still, it only stings for a moment.",
           "A low potion and a prayer. That's my whole job."
         ],
+        "look": "luminist_cleric",
         "model": "humanoid_slim",
         "name": "Anne",
         "name_color": "#F2E8CF",
+        "role": "guild_caster",
         "skin": "ALEX",
         "title": "E-rank cleric"
       },
@@ -7598,9 +7748,11 @@ const TtlData = {
           "If one more person says 'reincarnated', I'm going home. Somehow.",
           "The food is good, at least. The slimes are... friendly?"
         ],
+        "look": "otherworlder",
         "model": "humanoid",
         "name": "Sho",
         "name_color": "#E4572E",
+        "role": "otherworlder",
         "skin": "JAYJASONBO",
         "title": "otherworlder"
       },
@@ -7612,9 +7764,11 @@ const TtlData = {
           "Everything has a price. Even a slime's favour.",
           "I never haggle. I negotiate."
         ],
+        "look": "merchant",
         "model": "humanoid",
         "name": "Marlo",
         "name_color": "#E8C547",
+        "role": "merchant",
         "skin": "ZURI",
         "title": "travelling merchant"
       },
@@ -7626,9 +7780,11 @@ const TtlData = {
           "Tip the bard, and the bard sings you brave.",
           "Every guild hall has a story. Most of them are mine."
         ],
+        "look": "bard",
         "model": "humanoid",
         "name": "Pip",
         "name_color": "#FF8FAB",
+        "role": "civilian",
         "skin": "KAI",
         "title": "wandering bard"
       }
@@ -7639,7 +7795,7 @@ const TtlData = {
       "enabled": true,
       "night_end": 23500,
       "night_start": 13000,
-      "rev": 1
+      "rev": 3
     },
     "client": [
       {
@@ -7649,9 +7805,12 @@ const TtlData = {
           "Is that a wolf? Tell me that isn't a wolf.",
           "Almost there. I can smell the forges."
         ],
+        "look": "merchant",
+        "look_name": "Marlo",
         "model": "humanoid",
         "name": "Merchant Marlo",
         "name_color": "#E8C547",
+        "role": "merchant",
         "skin": "ZURI"
       },
       {
@@ -7661,9 +7820,11 @@ const TtlData = {
           "Keep the beasts off the carts!",
           "Dwarves don't run. We walk fast."
         ],
+        "look": "dwarf_trader",
         "model": "humanoid",
         "name": "Caravan Master Durn",
         "name_color": "#C8963E",
+        "role": "dwarf_fighter",
         "skin": "FARMER_01"
       },
       {
@@ -7673,9 +7834,11 @@ const TtlData = {
           "My party ran. I don't blame them.",
           "Please, just get me back to the camp."
         ],
+        "look": "guild_rookie",
         "model": "humanoid",
         "name": "Tomas, missing rookie",
         "name_color": "#9BC53D",
+        "role": "civilian",
         "skin": "STEVE"
       },
       {
@@ -7685,9 +7848,11 @@ const TtlData = {
           "Do slow down, I am writing.",
           "The academy will want every word of this."
         ],
+        "look": "scholar",
         "model": "humanoid_slim",
         "name": "Scholar Ilse",
         "name_color": "#B57EDC",
+        "role": "civilian",
         "skin": "MAKENA"
       },
       {
@@ -7697,9 +7862,11 @@ const TtlData = {
           "My cart wheel squeaks. Sorry.",
           "The guild said you were good. Are you good?"
         ],
+        "look": "commoner",
         "model": "humanoid",
         "name": "Carter Wil",
         "name_color": "#E3B23C",
+        "role": "civilian",
         "skin": "SUNNY"
       }
     ],

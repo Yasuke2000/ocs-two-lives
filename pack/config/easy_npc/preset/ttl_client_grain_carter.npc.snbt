@@ -99,6 +99,12 @@
       Type:"STANDARD"
     },
     EasyNPCVersion:3,
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {},
+      {}
+    ],
     Invulnerable:0b,
     ObjectiveData:{
       ObjectiveDataSet:[
@@ -110,12 +116,24 @@
         },
         {
           Type:"FLOAT"
+        },
+        {
+          SpeedModifier:1.0d,
+          Type:"FLEE_MONSTER"
+        },
+        {
+          SpeedModifier:1.2d,
+          Type:"PANIC"
         }
       ]
     },
     PersistenceRequired:1b,
     PresetUUID:[I;504585001,1177309446,-1167460352,1692497821],
     VariantType:"SUNNY",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_commoner_2.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

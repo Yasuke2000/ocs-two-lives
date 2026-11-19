@@ -87,6 +87,12 @@
       Type:"STANDARD"
     },
     EasyNPCVersion:3,
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {},
+      {}
+    ],
     Invulnerable:1b,
     ObjectiveData:{
       ObjectiveDataSet:[
@@ -106,12 +112,24 @@
         {
           SpeedModifier:0.6d,
           Type:"MOVE_BACK_TO_HOME"
+        },
+        {
+          SpeedModifier:1.0d,
+          Type:"FLEE_MONSTER"
+        },
+        {
+          SpeedModifier:1.2d,
+          Type:"PANIC"
         }
       ]
     },
     PersistenceRequired:1b,
     PresetUUID:[I;-1481173462,986603000,-1125017445,-605183770],
     VariantType:"KAI",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_bard_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

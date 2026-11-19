@@ -1,0 +1,17 @@
+# /locate place <id> (ops, life/locate.js) and /ttl where <id> (players): the reply format, on RCON (the console stands at the
+# overworld spawn). Tempest and Dwargon are placed exactly on their anchors (life/tempest.js LANDMARK, life/dwargon.js GATE), so
+# their reply carries the anchor numbers whether or not the placers have run; a spot (a place only the anchor table knows) and a
+# pin always do. Reply: "The nearest <name> is at [x, ~, z] (N blocks away)", a planned spot adds " - planned spot, not placed yet".
+@expect 10 ^The nearest Tempest is at \[${anchor:tempest.x}, ~, ${anchor:tempest.z}\] \([0-9]+ blocks away\) :: locate place tempest
+@expect 10 ^The nearest Dwargon is at \[${anchor:dwargon.x}, ~, ${anchor:dwargon.z}\] \([0-9]+ blocks away\) :: locate place dwargon
+@expect 10 ^The nearest .* is at \[${anchor:old_well.x}, ~, ${anchor:old_well.z}\] \([0-9]+ blocks away\) :: locate place old_well
+@expect 10 ^The nearest Great Ameld River source is at \[${anchor:ameld_source.x}, ~, ${anchor:ameld_source.z}\] \([0-9]+ blocks away\) :: locate place ameld_source
+@expect 10 ^Unknown place 'nowhere' :: locate place nowhere
+# A player's version: direction and a rounded distance, no coordinates. From the arrival, Tempest lies south and Dwargon north-east.
+@expect 10 ^Tempest lies about [0-9,]+ blocks south of you\.$ :: execute in minecraft:overworld positioned ${anchor:arrival.x} 64 ${anchor:arrival.z} run ttl where tempest
+@expect 10 ^Dwargon lies about [0-9,]+ blocks north(-east)? of you\.$ :: execute in minecraft:overworld positioned ${anchor:arrival.x} 64 ${anchor:arrival.z} run ttl where dwargon
+@expect 10 ^Tempest ligt ongeveer [0-9.]+ blokken ten zuiden van je\.$ :: execute in minecraft:overworld positioned ${anchor:arrival.x} 64 ${anchor:arrival.z} run ttl where tempest
+@expect 10 ^Tempest is very close :: execute in minecraft:overworld positioned ${anchor:tempest.x} 64 ${anchor:tempest.z} run ttl where tempest
+# Internal spots stay out of the players' list; other dimensions cannot tell.
+@expect 10 ^You know of no place called 'old_well' :: ttl where old_well
+@expect 10 ^From here you cannot tell where anything :: execute in ttl:mortal_realm run ttl where tempest

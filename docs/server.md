@@ -123,7 +123,7 @@ its capture file and only the forceloads it added). The comparison is unit-teste
 `python -I -m unittest discover -s tests`.
 
 **Canon landmarks** (`design/data/landmarks.toml`, `life/landmarks.js`): Tensura's own structures (goblin,
-lizardmen, orc and dwarf villages, a burnt tower, a giant ancient tree) placed with `/place structure` at
+lizardmen, orc and dwarf villages, a burnt tower, a giant ancient tree) generated as `/place structure` would, at
 canon_regions.json landmarks, once, about 45 s after start (one at a time) and again after an overworld reset.
 Log lines: `[ttl] landmark <name> placed: <structure> at X Y Z (…, box …)` or `could not be placed`.
 The placer grounds every rigid group of pieces on the real terrain (a jigsaw alone would use the generator's
@@ -134,6 +134,41 @@ out the current copy block for block, `life/unplace.js`). To move a landmark for
 the old spot in its TOML `remove` (taken out once on the next start: `[ttl] unplace landmark <name> old copy ...`),
 then `python tools/gen_data.py`. A build whose x/z, anchor or `beside` changes has its old copy taken out the same way
 before it is surveyed again (`[ttl] build <name>: old copy taken out`).
+Finding places: `/locate place <id>` (op, vanilla `/locate` style, tab-completes every anchor id plus placed builds and landmarks without an anchor; recorded placement first, else the anchor) and `/ttl where <id>` for players (direction and rounded distance only; `life/locate.js`).
+
+## Forests and trade roads (one-time world works)
+
+`life/works.js` runs two kinds of one-time works on the Life 2 overworld, one job at a time, about 2 minutes after
+start and only once the landmarks and canon builds have placed (it waits up to 15 minutes for their queues):
+
+- **Forests** (`life/forests.js`, `design/data/forests/patches.toml`): Jura's forest round Tempest (r 60..250, outside
+  the city box) and Treyni's old wood (r 25..180). Tensura's ancient-forest giants (`place template`, roots 5 deep) and
+  vanilla tree features (`place feature`) on spots planned offline; every tree is checked again on the live terrain.
+- **Trade roads** (`life/trade_roads.js`, `design/data/trade_roads/roads.toml`): the Dwarven Road, Tempest -> Dwargon,
+  1,478 blocks with lantern posts.
+
+Each job works in pieces (a 64 x 64 forest tile, a 48-block road stretch) whose chunks are held with tickets
+(`life/chunk_hold.js`), never a synchronous forceload, under 25 ms of commands per tick. Progress is saved per piece
+(`ttl.forest.<id>.piece`, `ttl.troad.<id>.piece`), so a restart resumes; a finished job records its version and never
+runs again. Log lines: `[ttl] forest <id> planted: G giants, U understory trees, S skipped (...)` and
+`[ttl] trade road <id> laid: N columns, B bridge columns, L lanterns, S kept clear`. Both keep clear of Tempest's and
+Dwargon's boxes, every placed build and landmark (recorded boxes) and Lerfing's keepouts. A world reset of the
+overworld (`world_reset.js`) runs them again.
+
+| Command | What |
+| --- | --- |
+| `/ttl works list` | every forest and road with its state |
+| `/ttl works run <forest\|road> <id> [force]` | queue one (force: again, over what is there) |
+| `/ttl works expect forest <id> planted <min giants>` / `expect road <id> laid` / `expect road <id> surface <arc>` | test checks (`tests/ingame/works.rcon`) |
+| `/ttl works where road <id> <arc>` | position and tp command of the road at that arc length |
+
+**Changing a forest or road.** Edit the TOML, plan again on the imported world, regenerate, bump `version`:
+`python -I tools/lerfing/trade_roads.py plan <id> --world <import dir>` (roads first: forests keep off them),
+`python -I tools/lerfing/forests.py plan <id> --world <import dir>`, `python -I tools/lerfing/forests.py measure <id>
+--world <import dir>` (tree cover before/after per ring), `python tools/gen_placements.py`, and the preview
+`python tools/lerfing/works_preview.py --world <import dir>` (Pillow) -> `docs/previews/tempest-forest-road.png`.
+`gen_placements.py --check` (in `validate.py`) refuses a plan that no longer matches its config. A new road (Tempest ->
+Blumund) is a new `[id]` in `roads.toml` plus its plan; nothing in the scripts changes.
 
 ## Permissions
 
@@ -755,6 +790,27 @@ Setup notes:
   (e.g. `neoforge tps`) show only the first.
 - Ops in game: `/ttl recap preview | now`, `/ttl discordroles <player> [dry | expect <keys>]`, `/ttl staff status | registry`.
   Test: `tests/ingame/discord.rcon`.
+
+### The `/ttl` command reference (`#dev-chat`)
+
+[`docs/dev/ttl-commands.md`](dev/ttl-commands.md) lists every `/ttl` command (and `/locate place`) by system with what it
+does, what it is for (**PLAYER**, staff, test bot) and its arguments. The command tree and the op level come from the
+KubeJS registration source; the descriptions are in `docs/dev/ttl-commands.toml`. After adding or changing a command:
+
+```sh
+python tools/gen_ttl_commands.py                  # rewrites docs/dev/ttl-commands.md; lists what the toml still lacks
+python tools/gen_ttl_commands.py --check          # exit 1 when the md is stale or the toml and the source disagree
+python tools/gen_ttl_commands.py --compare-help help.txt   # against a pasted `/help ttl` of the live server
+```
+
+The Discord copy is one pinned header plus a few messages per group in `#dev-chat`. The script finds its own messages by
+their last line, edits them in place and never doubles them (more messages than before: the extras go at the bottom;
+fewer: the surplus is deleted):
+
+```sh
+python tools/gen_ttl_commands.py --discord | ssh -o LogLevel=ERROR root@100.109.28.21 'cat > /tmp/ttl-commands-discord.md'
+ssh -o LogLevel=ERROR root@100.109.28.21 'bash -s -- /tmp/ttl-commands-discord.md' < tools/post_ttl_commands.sh
+```
 
 ## Roadmap and suggestions
 

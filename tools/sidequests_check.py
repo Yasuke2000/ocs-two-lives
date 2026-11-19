@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import anchor_refs  # noqa: E402
+import npc_looks  # noqa: E402
 BUILDS = ROOT / "design" / "builds"
 CANON_MAP = ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
 ID = re.compile(r"^[a-z][a-z0-9_]*$")
@@ -73,6 +74,16 @@ def check_look(where: str, k: dict) -> None:
         fail(f"{where}: name_color must be #RRGGBB")
     if not k.get("name") or "'" in k["name"] or '"' in k["name"] or len(k["name"]) > 32:
         fail(f"{where}: name is needed, up to 32 characters, no quotes")
+    if "look" in k or "look_name" in k:
+        for why in npc_looks.problems(k.get("look"), model, k.get("look_name", k["name"])):
+            fail(f"{where}: {why}")
+
+
+def check_role(where: str, k: dict, data: dict) -> None:
+    """`role` names a [[role]] of npc_gear.toml: the NPC's weapon and whether it fights or flees."""
+    roles = {r["id"] for r in data.get("npc_gear", {}).get("role", [])}
+    if k.get("role") not in roles:
+        fail(f"{where}: role {k.get('role')!r} must be a [[role]] of npc_gear.toml ({', '.join(sorted(roles))})")
 
 
 def check_sidequests(sq: dict, data: dict) -> None:
@@ -116,6 +127,7 @@ def check_sidequests(sq: dict, data: dict) -> None:
             fail(f"{w}: id must be unique [a-z0-9_]")
         advs[k["id"]] = k
         check_look(w, k)
+        check_role(w, k, data)
         if not k.get("title") or len(k["title"]) > 32:
             fail(f"{w}: title (up to 32 characters) is needed")
         check_lines(w, k.get("lines"))
@@ -139,6 +151,7 @@ def check_sidequests(sq: dict, data: dict) -> None:
             fail(f"{w}: id must be unique [a-z0-9_]")
         clients[k["id"]] = k
         check_look(w, k)
+        check_role(w, k, data)
         check_lines(w, k.get("lines"))
 
     places = {}

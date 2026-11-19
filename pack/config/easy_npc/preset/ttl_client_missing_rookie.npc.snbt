@@ -99,6 +99,12 @@
       Type:"STANDARD"
     },
     EasyNPCVersion:3,
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {},
+      {}
+    ],
     Invulnerable:0b,
     ObjectiveData:{
       ObjectiveDataSet:[
@@ -110,12 +116,24 @@
         },
         {
           Type:"FLOAT"
+        },
+        {
+          SpeedModifier:1.0d,
+          Type:"FLEE_MONSTER"
+        },
+        {
+          SpeedModifier:1.2d,
+          Type:"PANIC"
         }
       ]
     },
     PersistenceRequired:1b,
     PresetUUID:[I;-1063026590,2046317619,-1253110714,-2032725769],
     VariantType:"STEVE",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_guild_rookie_3.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

@@ -830,43 +830,43 @@ hash = "3f871a556a9f1d11baa6e86e46240e22d98ae364f3112f44678571a677d5abd0"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_apprentice_mage.npc.snbt"
-hash = "4034e32391d1348b523a0c84e678871fd9e9eaf6929393fe4636da6bd4e66c0e"
+hash = "9bd5074703cec93ce018b3c73752231ea56df846ccbaf7a34b52ddcb5eb84a37"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_bard.npc.snbt"
-hash = "5b449b950f86cc097199b972c35de225d90dea39536740ad1794f5f17067ea82"
+hash = "b3e0c51a9d3c89614ae4bb8798dba58265e4b821c226dacb832a13b437d07c04"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_cleric.npc.snbt"
-hash = "e67fc0f0b3a5e1d823a14072af7a12d574c1fb181a7eddc9620c3932f386a463"
+hash = "8f72709cf45040853b996f6ccd5ff4ca330119f0c089e7b174a68de997931ba8"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_dwarf_axe.npc.snbt"
-hash = "ecd2910082225cd9de901abdde0f04fe8819d50fa0b5503c909b2c7218a490f6"
+hash = "80764e3aa3258e47c967f8d61c0e3ac808e2e14d1850f3b7ba403764a5e60826"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_hunter.npc.snbt"
-hash = "a0963130103cffba5d3b2737068a2490aadc13cd2b074288352acc1e95edf72c"
+hash = "57832499ef4360ac45113ca6251d57cc978eeaffc8863179965c34307e6a1130"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_merchant.npc.snbt"
-hash = "914a34e4014329e7294222d66ad59b990fc0d21122818cae40ac1f219c84e652"
+hash = "201e57a178600c85f577844007967d72f41d42f4ff877cb5460e6d574f6d88d2"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_otherworlder.npc.snbt"
-hash = "b2577a590ba343d1139afea37fb506c34d96a2eac7a211bb82419277395826ec"
+hash = "34437d6b29c351481666a03b21d40d26d273c180d14b15c13d37e0d65475c4c0"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_rookie_swordsman.npc.snbt"
-hash = "583932ddf85df021d8cd80c7574e4345f67e4a972feae68a1e1e012acb77217c"
+hash = "b1453fdbd9c1d668c05e55f677a9439734c66c7f8e6ead1c679fd783f874e6a4"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_scout.npc.snbt"
-hash = "a1e099812286c147786703a2ff884a0b8c97cbe9f5cb6679f5051092a08ff3c7"
+hash = "4372d1ee3152d2df9160b7116590ac4c0115dab252c220f4182298cb24a12b1c"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_adv_veteran_knight.npc.snbt"
-hash = "241c9bcecafa176493a27fc75fc111822628e1dcecf1d6e2c76cf3b38673974d"
+hash = "2c7f8f46022002dfad9cfaab8b032ba930b6f451f3b1fd352f8025952f43a1f8"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_benimaru.npc.snbt"
@@ -930,7 +930,7 @@ hash = "16f6c5a72d13a285b56f78e2ef80b2b1a485410988ef71935680a8af6bf20f87"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_outcast_contact.npc.snbt"
-hash = "4df9229ed2a272cdf2409f860d6a0a89eb1507f487c55c47ea89eb991086d7ce"
+hash = "bc520cf0784e68da7193ac7e65cd805d1b0d7ac4783bb5cdb6512c2f86ef6730"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_cast_ramiris.npc.snbt"
@@ -962,43 +962,43 @@ hash = "013fdcfb2ebe262d650552adaa60f3fdaabfe1cac28dcce4b877cced722acea6"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_caravan_master.npc.snbt"
-hash = "eeb52d34e6d8a79a41570a0f2e6891fc72cd2c7ae6d1d244c9fec62137da6a39"
+hash = "e21609aa53c9b0552014ab252ccbc5032ef8f2ce768ac82834048afd417c3453"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_grain_carter.npc.snbt"
-hash = "8dd528161c8a562eee7329e5c28bd295e3949b24697f170523de5d1a5c443421"
+hash = "898f5160f3602e0cf0d1e34934974f78ecaf89541c9553a55dcf079d51ab70e7"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_merchant.npc.snbt"
-hash = "3d0c62beb86cdcaac64b0b5ee1018598bffa95a12c586eff7fbcbcbfadad1898"
+hash = "e92d9ff2269540e782594c890cffba35984acc1fc067a93cccfb792383fa5387"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_missing_rookie.npc.snbt"
-hash = "65cc3afeb0b6e1c39c3ab5a6d4742c92dfe364229474517a516830d859ac81c4"
+hash = "43257b13d9bf01af00d547f2d6cca8c16ffa651eca1602ceeaf82ccc7ebd26a0"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_client_scholar.npc.snbt"
-hash = "4398bc86b834a8691f992e105207a86a84b6103a6dc5086bed70d28ef4a7d3c3"
+hash = "719131c5cda1862dfde9b97bda268af4f5210a6c97ed211a9247d75f0356bd44"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_dwarf_axe.npc.snbt"
-hash = "97ce1b0ce860025581ccc12fdc7142c016e171dce8bc89fc87f79edad51e0d0b"
+hash = "ca27e7f41b56cae6ddd62dc3bf824d28c96db4f778482e6e342732f6e98bb4fb"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_hunter.npc.snbt"
-hash = "fc92edff3c0b1ce33f49b808952d9ef93c3dad96bf76e81735dac6b88342f7c3"
+hash = "499bc60ebc1682584888935a60e2c8626a6f0dc33687149a3140e70beae64e62"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_rookie_swordsman.npc.snbt"
-hash = "560a04a8f43fed8265582e8b9efd0b60c28871629b2d7440e88625ffaeac4b73"
+hash = "0a7327e85d2bd249584bd9a0fdab98dae984c18b97b34e97d1f1afabe61257b3"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_scout.npc.snbt"
-hash = "b7f049c21d613777484c5188e44d6753b02096be5fc1775b93beb42bd59f1de3"
+hash = "841e1093bbf4c6a7eb6f69e8dfb8b1ec5259e282aa0ffd358e339cc197344ab5"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_comp_veteran_knight.npc.snbt"
-hash = "f4b7220de17571959fed9242064ef9bbac0b84fa76f3d5ed4bce58e43b0822d6"
+hash = "2c743855694646c145867906795c0881777d806ada3b5051f22f1ddf2ab943bb"
 
 [[files]]
 file = "config/easy_npc/preset/ttl_guild_fuze.npc.snbt"
@@ -1679,6 +1679,206 @@ hash = "a88b1e4b9ed917d6c5f3adcbc87b163f689566245ec620165e9b58306b8442cb"
 [[files]]
 file = "kubejs/assets/ttl/textures/entity/npc/leon.png"
 hash = "92ef3f433d72271ac47d978bb89460dc895ab1410ce2d5ad16dc4fe52693deab"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_bard_1.png"
+hash = "0bf6a17814613f4c467ffbaa1b81a81bc5241d344f106b93f7c7a1610659b423"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_bard_2.png"
+hash = "c33f8c189a46d88fa89b140408e00e2154ebdf81384cc92d8ff9a7b1d41a7bc1"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_commoner_1.png"
+hash = "d3662ca012c8a5e531227944099fc836dc8191565cd1633d173cd46ccb6a9a25"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_commoner_2.png"
+hash = "a7ddad70e83c71eca9942765bfbf35177e022136d4460009baa5280c43858a24"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_dwarf_smith_1.png"
+hash = "839859a5a0a06ae11a9a61a83635d2e9b2c21d0ad838d84214280d48fe8f43a3"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_dwarf_smith_2.png"
+hash = "04e17793ac392781862339871c725eccdd939e199a2bd213c6b97fa2ff830c24"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_dwarf_trader_1.png"
+hash = "6a148098127159d1d6345b864bad89c132227aedf67a4ba396b223b402ded896"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_dwarf_trader_2.png"
+hash = "e147bfa5a6403fcaf24c2e0ccfb6afa642c6f1e8c8f899ea214705869baaa905"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_dwarf_warrior_1.png"
+hash = "232141322991e9870a9b73ed08c2e13bee8f9078d23697b96e7bdd23415e3f10"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_dwarf_warrior_2.png"
+hash = "4ccbd52ba38dc2ee35e311a0e8846b17caadd8160fe1e08e5d13a5a96ec9aef2"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_dwarf_warrior_3.png"
+hash = "5921e326b17fd968ce08721c6b50b4e8ab640d2386b7d16f6af49659429a4450"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_englassia_knight_1.png"
+hash = "71215f4e6bbca13ee03cd9711253557c0ab62b5543b1442950cc283ba8ba280e"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_englassia_knight_2.png"
+hash = "f4fa2e00a42ab1707679d874f77ef67ec88a3ecf77fc81f53e06cd18ba672ddd"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_goblin_1.png"
+hash = "fad5f7385c1b79a6046292cf8037f4f7d895368a925a262b30a3f1b92ca351c9"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_goblin_2.png"
+hash = "f83713c97d9cfab8fa493894eb13b50865d500789bbd02628ffb1743984394c6"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_elite_1.png"
+hash = "8b06500d45877b413459f429cc7b1fe2b5434acd1c585b4e8b45d00177b720df"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_elite_2.png"
+hash = "07e347213b4b0f6de091bc0e4b5bd2ca31ae03579f95e99744cad7ba15be7508"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_mage_1.png"
+hash = "a51f0d19a7b4c70d1662e8495bad7a42e563f72325f0456df0e576ad403889f1"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_mage_2.png"
+hash = "57ecf0ba00cf7654fd59fc7a80f473e7e54d2e7a4522bfa42d0c2e05aa818d56"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_mage_3.png"
+hash = "6165352cd5286f8fb494919c78515f16ae8bd935f3fa63d0fd07d6d1120e149b"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_rookie_1.png"
+hash = "2837e47b5ecbb0b8488672cba5cc0e4e344ff8e85489551baa0d28902c909577"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_rookie_2.png"
+hash = "ee47905ffaf6cffc0a1353834a9b5e8fa210ff68db3cbc9e56500f82166ac79e"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_rookie_3.png"
+hash = "d2d2971a80b2a92b77068b68c4da3cc8f2a1c3b87f7ada255994472d05582e85"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_scout_1.png"
+hash = "b4d324e5ca30741e2ea453e71a3a7e18e754334603c71df38c810d28712ef7e6"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_scout_2.png"
+hash = "b7c795ca1f02c47b840ee483818e2f7ed2c30c74028e36517fd546d14edb758f"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_scout_3.png"
+hash = "90aa44653d22a5cc4573deaf60c414170e1ada9543dd541db5b98fe1c8d3d9fb"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_veteran_1.png"
+hash = "24711d889eb746cc3b9d58faf12927a3eb64a94ce30857cf181b858b770b261f"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_veteran_2.png"
+hash = "5263b2404532ef5abce66c98f742d58a692988305d501b7420b36a453f57ea31"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_guild_veteran_3.png"
+hash = "d177d7f0d6708a02fa90d54814d6179ff0a17814fe3d25725f035805bd8a47ba"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_hobgoblin_1.png"
+hash = "8c34323d65fc252f54373eaabb2b5d3cd3af74f571521524bdda0322a07c547c"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_hobgoblin_2.png"
+hash = "63495d4e521065d214a2f913d9016543659f11830fbcd265b684a6946e37d9c6"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_holy_knight_1.png"
+hash = "14f3064a56dd2a45959c4b8d0d782f2bece4d1e9af3c3cca241cfa7038a2eca8"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_holy_knight_2.png"
+hash = "1141797618bdc5bc449c03c6377349b034e7675e64456d5f7b1b13dfbfac0b6a"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_kijin_1.png"
+hash = "a50f2c44da769920d9d1a218d60174bea64652df6bfcd01462da627e9fd2857e"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_kijin_2.png"
+hash = "ae1e15de375b55137685738b2643e366417ea0a1f68e6c5bf7f20167ac99fe75"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_lizardman_1.png"
+hash = "8972dbb18a02f5036cbd8963d79e23a34bfe83ba5bfc910305bead17e26cb8d2"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_lizardman_2.png"
+hash = "e265a0c5b71a48f18d54098958d91cac9afedb91d70629871757ec41cba11fd9"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_luminist_cleric_1.png"
+hash = "3b383075a1fab7f192483b808b4119c9be35498ffc55fd9c00be89474f0bc9b6"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_luminist_cleric_2.png"
+hash = "ee87256100db52daada077f40a1c83e4c0a8110797cbf0208064d43ba3c8a881"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_luminist_cleric_3.png"
+hash = "0cf89a866c115b42ea9144808768b6067583a6702b5e3b9323ccc7a2a10bc0a0"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_merchant_1.png"
+hash = "470d8a47c833adba887843ef686bf49ef19dc0d50c07eb8c18602faae2028883"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_merchant_2.png"
+hash = "d0bb24408e1e4206653cb555d513b9b9b42d6d6f316d40efbe555a4948cd6056"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_merchant_3.png"
+hash = "b30724cc4c1a770882b8c03a84aec6a19be36351e5afe6951542f180a5aea24f"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_otherworlder_1.png"
+hash = "0bce5debd9561dbc9276c938b601a4b1ad9c857df9adc4fee687da25dfd337a6"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_otherworlder_2.png"
+hash = "3de1d4c394d6b7bfb4aa9188daf0c274fdddd04bb0df11b69c523ee5580c88f2"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_outcast_1.png"
+hash = "40f1596667438efd147a9de809d75f4725ab0733316811b24a38cbb88eddaa67"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_scholar_1.png"
+hash = "1a442bb0fd99cb3f869836684066adadcf46b78d2a4450cdf2b4ef8918792d6a"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_scholar_2.png"
+hash = "124360a8cdaa127e067249acf2b7e4dfcdc9272c013e5113b7bd0ca7f11eeb5b"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_tempest_citizen_1.png"
+hash = "da5bd8c7272b82764fbb52fbe0fb8692fb0e4f8ce796c47862003fa4208724c5"
+
+[[files]]
+file = "kubejs/assets/ttl/textures/entity/npc/look_tempest_citizen_2.png"
+hash = "377fdcaf67c49651461f831ec372a596578054877e59f6dd7a13a2841a261d4f"
 
 [[files]]
 file = "kubejs/assets/ttl/textures/entity/npc/louis.png"
@@ -2550,7 +2750,7 @@ hash = "44c5a0c6a9221e480417711c1e474689396917eefe4a56b473cc84554b0921a2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "373b243bece5854d096f0a28c0af7079590af6ea2b1b1248ef0bbb3cd9d25f3d"
+hash = "bc06bc09a7861a01a88682f95090173d85de8666bd6e747205161869cd7313a9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -2638,7 +2838,7 @@ hash = "aba724b81546b1b73b253460418b272ac2ee350f2ba0761423c847bd4900585a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/anchors.js"
-hash = "18d560bd0a2b110a99bbac58f1e1168a6b744dad878b0a733a7dbee1fed3ebd4"
+hash = "83bfb553ef523bf6bef2b162de6c7096f52af5d3cfe7dcf396ae1dbacafc8a45"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
@@ -2646,7 +2846,7 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "a28ca3999b4e1522297face89fabdf92f878978721df1e6b33097f582db725b1"
+hash = "cc8cee62fae6b5184cea98fe0f059d41aea298aa328bf616351561ace7f056dc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2655,6 +2855,10 @@ hash = "05244557f351f6ab0fe130edcc769994acbc0b6351fea2247dab42d8398dc4b0"
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
 hash = "be431726c5095293051c1560bcaaa5c8d12f054860fa2beae60017d5ffa0aaa8"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/generated/placements.js"
+hash = "0a0900401cc0841136e6eb1fafa0b81ee8e7e5db5c06b678f37f9a185657a107"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
@@ -2733,6 +2937,10 @@ file = "kubejs/server_scripts/ttl/life/dwargon.js"
 hash = "69ec14c060a6773312d52d5d535589f2d97bfd63290164bc6338a4b1ce422a9a"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/forests.js"
+hash = "38528c60378950ccfb3c6af15fb3d65a9942ce814e0f38cb81a845e6d6957479"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
 hash = "1868626097386a971ec1f54d4b1b8386b19ba1a1b40a4d29ec9161c5fc46823d"
 
@@ -2747,6 +2955,10 @@ hash = "632a216919c81c8bff7e7f4ff9bcc82aa383653750780fde9e6cc116c5be2fa2"
 [[files]]
 file = "kubejs/server_scripts/ttl/life/landmarks.js"
 hash = "6d3a6b2044ed9f9093b7d254b042a31ec902fec030c60e4d87e2fde6f753b277"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/life/locate.js"
+hash = "02ddd334b4b393d54dd44a5865ad7f6694c2c8047a58e23b78ffdca8faf1ce0b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_banned.js"
@@ -2785,6 +2997,10 @@ file = "kubejs/server_scripts/ttl/life/tempest.js"
 hash = "22ec61ad1d72422435b3fb5236879750a14da5a12c05fc22c6a30c0988e0c695"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/trade_roads.js"
+hash = "9decbfd006745988053afe109721c22b24f50ce8194129a72fa5ff1fe885199c"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/trial.js"
 hash = "53ec9a2f128025a2528acfed5dee1cc7f542f938931acbdff9b6c42f9f5c9ed4"
 
@@ -2805,8 +3021,12 @@ file = "kubejs/server_scripts/ttl/life/wishes.js"
 hash = "63b90a9c199668c971c2465617cb1b7c3cb61459251bf16bd687a98f5b0b724f"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/works.js"
+hash = "30f35cd9c15176393b2956a1de0e6cb8ac401c581a6e09148d72463bf2922874"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/world_reset.js"
-hash = "61474dab6c64c29cfaaa9ddf77613fc1dbaeeb6f68430020857ee54dbe90b2a5"
+hash = "9124659ba08dc072cacde21b217b0b831ee2a167869d3ffbbc192608a1d80ce8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/manas.js"
@@ -2902,7 +3122,7 @@ hash = "12e82ddb0bcf9c97b26eff8b1df6cc86dfbe2b0e1c374b68ab14639bdf3652e2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/adventurers.js"
-hash = "8cb8574421e68b700f259cb3ad4a07fb879273c426f4f224b88dfa35156fcc41"
+hash = "56c71bca67f95add075873efa024397ed4863f03fa8364f9b81e9a849991ddc3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/commands.js"
@@ -2910,11 +3130,11 @@ hash = "eb61e0232c321cb59dbe60a708de1c4bfab359cfd8173367f1dcadb6e7d1be40"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/companions.js"
-hash = "c68e4b045512b041fbc4aa57bba2ba6fef1c0d626cad304a5ee42bd67cc65989"
+hash = "c1c89194706d0304ded67111c0d26629e3ef07d0b9a7b8eae5a2e25d772347a4"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/places.js"
-hash = "43bd0294897addc64a25c7c0fa76c021fe065cddb855efcc3cc51bcab7632a89"
+hash = "2fc2d9be986906e88092545e92777b1db789431000258546fa68fabac53ddc27"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/sidequests/side.js"
@@ -2946,7 +3166,11 @@ hash = "9bd3c2ed771384e906149dd6a9c0b51d70302fba5a175628c098fe876d7c1f5a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/domains.js"
-hash = "6519393bb49238a07c860af3da91e0b30748442e08dfca2f650fdeae33aeeaad"
+hash = "3830760471ca0f3d76fab948fcc95fd9e957085a4c78021def70298322e4e7d1"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/world/npc_gear.js"
+hash = "9819faa10afa2a25662fd8c623d9c0eb6d804a1e871406d64b7a8cd24a690019"
 
 [[files]]
 file = "kubejs/startup_scripts/ttl/blocks.js"

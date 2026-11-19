@@ -4,348 +4,450 @@ const TtlAnchors = {
   "ameld_mouth": {
     "kind": "pin",
     "region": "MB",
+    "title": "Great Ameld River mouth",
     "x": 4580,
     "z": 2300
   },
   "ameld_source": {
     "kind": "pin",
     "region": "D",
+    "title": "Great Ameld River source",
     "x": 2500,
     "z": -200
   },
   "amrita": {
+    "build": "amrita",
     "kind": "build",
     "region": "P",
+    "title": "Amrita",
     "x": 6100,
     "z": -650
   },
   "arrival": {
     "kind": "arrival",
     "region": "J",
+    "title": "Life 2 arrival",
     "x": 1660,
     "z": -100
   },
   "ballachia": {
+    "build": "ballachia",
     "kind": "build",
     "region": "G",
+    "title": "Ballachia",
     "x": -1660,
     "z": -460
   },
   "blumund": {
+    "build": "blumund",
     "kind": "build",
     "region": "R",
+    "title": "Blumund",
     "x": -450,
     "z": 150
   },
   "blumund_road": {
     "kind": "spot",
+    "map": false,
     "region": "R",
+    "title": "Blumund road camp at Jura's edge",
     "x": -250,
     "z": 250
   },
   "clayman_castle": {
+    "build": "clayman_castle",
     "kind": "build",
     "region": "P",
+    "title": "Clayman's Castle",
     "x": 5620,
     "z": -900
   },
   "coleus": {
+    "build": "coleus",
     "kind": "build",
     "region": "V",
+    "title": "Coleus",
     "x": -3080,
     "z": 600
   },
   "dragons_nest": {
+    "build": "dragons_nest",
     "kind": "build",
     "region": "D",
+    "title": "Dragon's Nest",
     "x": 2420,
     "z": -1536
   },
   "dwarf_village": {
     "kind": "landmark",
+    "landmark": "dwarf_village",
     "region": "D",
+    "title": "Dwarf village on the road to Dwargon",
     "x": 2000,
     "z": -110
   },
   "dwargo": {
     "kind": "pin",
     "region": "D",
+    "title": "Dwargo",
     "x": 1878,
     "z": -644
   },
   "dwargon": {
     "kind": "settlement",
     "region": "D",
+    "title": "Dwargon",
     "x": 1878,
     "z": -544
   },
   "dwargon_throne": {
     "kind": "spot",
+    "map": false,
     "region": "D",
+    "title": "Gazel's throne room",
     "x": 1878,
     "z": -650
   },
   "dwarven_arena": {
+    "build": "dwarven_arena",
     "kind": "build",
     "region": "D",
+    "title": "Dwarven Arena",
     "x": 2100,
     "z": -90
   },
   "el_dorado": {
+    "build": "el_dorado",
     "kind": "build",
     "region": "X",
+    "title": "Golden City of El Dorado",
     "x": -3300,
     "z": 4300
   },
   "el_dorado_volcano": {
     "kind": "pin",
     "region": "X",
+    "title": "El Dorado volcano",
     "x": -2850,
     "z": 4600
   },
   "elmine": {
+    "build": "elmine",
     "kind": "build",
     "region": "S",
+    "title": "Elmine",
     "x": 1100,
     "z": 2760
   },
   "englassia": {
+    "build": "englassia",
     "kind": "build",
     "region": "G",
+    "title": "Englassia",
     "x": -2150,
     "z": -410
   },
   "englassia_road": {
     "kind": "spot",
+    "map": false,
     "region": "G",
+    "title": "Englassia road post",
     "x": -1880,
     "z": -500
   },
   "filtwood": {
     "kind": "pin",
     "region": "U",
+    "title": "Filtwood",
     "x": -900,
     "z": 700
   },
   "forgotten_dragon_city": {
+    "build": "forgotten_dragon_city",
     "kind": "build",
     "region": "M",
+    "title": "City of the Forgotten Dragon",
     "x": 4680,
     "z": 840
   },
   "frost_palace": {
+    "build": "frost_palace",
     "kind": "build",
     "region": "I",
+    "title": "Frost Palace",
     "x": -1980,
     "z": -4300
   },
   "ghastone": {
     "kind": "pin",
     "region": "G",
+    "title": "Ghastone",
     "x": -2000,
     "z": 300
   },
   "goblin_village": {
     "kind": "landmark",
+    "landmark": "goblin_village",
     "region": "J",
+    "title": "Old goblin village",
     "x": 1390,
     "z": 710
   },
   "great_holy_mountain": {
+    "build": "great_holy_mountain",
     "kind": "build",
     "region": "E",
+    "title": "Great Holy Mountain",
     "x": 5120,
     "z": -1860
   },
   "heaven_tower": {
+    "build": "heaven_tower",
     "kind": "build",
     "region": "V",
+    "title": "Heaven Tower",
     "x": -4500,
     "z": 560
   },
   "jia": {
+    "build": "jia",
     "kind": "build",
     "region": "H",
+    "title": "Jia",
     "x": -2700,
     "z": 1500
   },
   "kaijin_smithy": {
     "kind": "spot",
+    "map": false,
     "region": "D",
+    "title": "Kaijin's smithy",
     "x": 1866,
     "z": -628
   },
   "lake_siss": {
     "kind": "pin",
     "region": "W",
+    "title": "Lake Siss",
     "x": 3050,
     "z": 750
   },
   "laura": {
+    "build": "laura",
     "kind": "build",
     "region": "B",
+    "title": "Laura",
     "x": 3300,
     "z": 2600
   },
   "lizardmen_caverns": {
     "kind": "landmark",
+    "landmark": "lizardmen_caverns",
     "region": "W",
+    "title": "Lizardmen's caverns",
     "x": 3300,
     "z": 1200
   },
   "lizardmen_village": {
     "kind": "landmark",
+    "landmark": "lizardmen_village",
     "region": "W",
+    "title": "Lizardmen's stilt village",
     "x": 3184,
     "z": 988
   },
   "lubelius": {
+    "build": "lubelius",
     "kind": "build",
     "region": "L",
+    "title": "Holy City Lubelius",
     "x": -2550,
     "z": -700
   },
   "marris": {
+    "build": "marris",
     "kind": "build",
     "region": "F",
+    "title": "Marris",
     "x": -2000,
     "z": -1450
   },
   "morgdahl": {
+    "build": "morgdahl",
     "kind": "build",
     "region": "O",
+    "title": "Morgdahl",
     "x": -2440,
     "z": 740
   },
   "nasca": {
+    "build": "nasca",
     "kind": "build",
     "region": "E",
+    "title": "Nasca",
     "x": 5100,
     "z": -2680
   },
   "nostraille": {
+    "build": "nostraille",
     "kind": "build",
     "region": "N",
+    "title": "Nostraille",
     "x": -1780,
     "z": 550
   },
   "ogre_village_ruin": {
     "kind": "landmark",
+    "landmark": "ogre_village_ruin",
     "region": "J",
+    "title": "Hidden ogre village",
     "x": 2150,
     "z": 400
   },
   "old_well": {
     "kind": "spot",
+    "map": false,
     "region": "J",
+    "title": "The old well on the Blumund road",
     "x": 300,
     "z": 410
   },
   "orc_camp": {
     "kind": "landmark",
+    "landmark": "orc_camp",
     "region": "W",
+    "title": "Orc War battlefield",
     "x": 3600,
     "z": 1250
   },
   "outcast_road": {
     "kind": "spot",
+    "map": false,
     "region": "J",
+    "title": "The Outcast on Tempest's south road",
     "x": 1720,
     "z": 952
   },
   "raja": {
+    "build": "raja",
     "kind": "build",
     "region": "A",
+    "title": "Raja",
     "x": -2050,
     "z": 760
   },
   "rookie_camp": {
     "kind": "spot",
+    "map": false,
     "region": "J",
+    "title": "The abandoned rookie camp",
     "x": 1550,
     "z": -60
   },
   "rostia": {
     "kind": "pin",
     "region": "A",
+    "title": "Rostia",
     "x": -2100,
     "z": 1000
   },
   "sacred_mountain": {
+    "build": "sacred_mountain",
     "kind": "build",
     "region": "L",
+    "title": "Sacred Mountain",
     "x": -2980,
     "z": -900
   },
   "sainte_malukshure": {
     "kind": "pin",
     "region": "H",
+    "title": "Sainte Malukshure",
     "x": -2500,
     "z": 1300
   },
   "sealed_cave": {
+    "build": "sealed_cave",
     "kind": "build",
     "region": "J",
+    "title": "Sealed Cave",
     "x": 1380,
     "z": 560
   },
   "shizu_spawn": {
     "kind": "spot",
+    "map": false,
     "region": "J",
+    "title": "Hinata's ambush west of Tempest",
     "x": 1300,
     "z": 820
   },
   "siltrosso": {
+    "build": "siltrosso",
     "kind": "build",
     "region": "F",
+    "title": "Siltrosso",
     "x": -2450,
     "z": -1650
   },
   "spirit_gate": {
+    "build": "spirit_gate",
     "kind": "build",
     "region": "J",
+    "title": "Spirit Gate",
     "x": 1570,
     "z": 1130
   },
   "tempest": {
     "kind": "settlement",
     "region": "J",
+    "title": "Tempest",
     "x": 1720,
     "z": 900
   },
   "treyni_grove": {
     "kind": "landmark",
+    "landmark": "treyni_grove",
     "region": "J",
+    "title": "Treyni's grove",
     "x": 1920,
     "z": 1540
   },
   "treyni_shrine": {
+    "build": "treyni_shrine",
     "kind": "build",
     "region": "J",
+    "title": "Treyni's shrine",
     "x": 1958,
     "z": 1540
   },
   "ulgr_nature_park": {
+    "build": "ulgr_nature_park",
     "kind": "build",
     "region": "U",
+    "title": "Galut / Ulgr Nature Park",
     "x": -1040,
     "z": 1060
   },
   "wayfarers_camp": {
     "kind": "spot",
+    "map": false,
     "region": "J",
+    "title": "Wayfarers' camp on Jura's rim",
     "x": 1675,
     "z": -85
   },
   "yggdonia": {
     "kind": "pin",
     "region": "Q",
+    "title": "Yggdonia",
     "x": -1400,
     "z": 300
   },
   "yuzalgh": {
     "kind": "pin",
     "region": "Y",
+    "title": "Yuzalgh",
     "x": -1580,
     "z": 650
   }

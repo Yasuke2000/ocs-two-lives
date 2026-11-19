@@ -16,6 +16,59 @@ then `landmark ... placed ... grounded by`, `build dwarven_arena: old copy taken
 **Not touched**: lizardmen_village, lizardmen_caverns, ogre_village_ruin, treyni_grove keep their ungrounded v1 copies
 (staging placed each at try 1 and nobody reported them); bump their version to re-place them grounded.
 
+## 19/11 evening — Tempest in the forest, the Dwarven Road, Treyni's old wood (Claude, branch `tempest-forest-road`)
+
+Owner requests: Tempest stands on open grass (it should be deep in the forest), no road to Dwargon, Treyni's shrine in the open.
+Cause of the bare core: Tensura's ancient-forest trees are jigsaw structures, and the import counts structure steps as done.
+New: `life/works.js` (one-time world works runner: chunk tickets per piece, 25 ms/tick, resumable, versioned), `life/forests.js`
+(patches `tempest` r 60..250 and `treyni` r 25..180), `life/trade_roads.js` (`tempest_dwargon`, 1,478 blocks); data in
+`design/data/forests/` and `design/data/trade_roads/`, planned offline by `tools/lerfing/forests.py` / `trade_roads.py` on the
+imported world, `tools/gen_placements.py` -> `generated/placements.js`; preview `docs/previews/tempest-forest-road.png`;
+docs/server.md "Forests and trade roads". **Verified offline**: `tests/test_works.py` + `tests/works.js` (JS geometry equals the
+planners', commands on synthetic terrain), `tools/check.sh`. **Not verified in game yet**: the local Lerfing server was
+owned by the landmark agent; next is `tools/local.sh sync` + `test works` on a slot, then staging after the deploy
+(`tools/server.sh test works`, log lines `[ttl] trade road tempest_dwargon laid` / `[ttl] forest <id> planted`). Next
+possible: Tempest -> Blumund as a second `roads.toml` entry (crosses the Blumund channel: a long bridge).
+
+## 19/11 evening — NPC weapons and self-defence (branch `npc-gear-ai`, Claude)
+
+Yasuke: the Tempest guards and the NPCs had no weapons and did not defend themselves. `design/data/npc_gear.toml` (roles:
+items + ai), `tools/npc_gear_check.py`, `world/npc_gear.js` (resident equipment, guard loop, drop filter, `/ttl npcgear`).
+Tempest goblins were summoned with NBT, so Tensura never armed them; now guards hold iron katanas, Rigur a long sword and
+shield, Gobta a kodachi, Rigurd a goblin club, and the guards are set on monsters near their post through their
+SmartBrainLib brain (`BrainUtils.setTargetOfEntity`, falls back to `setTarget`). Easy NPC adventurers fight
+(MELEE_ATTACK, ATTACK_MOB_WITHOUT_CREEPER, HURT_BY_TARGET), merchants and civilian clients flee (FLEE_MONSTER, PANIC).
+**Verified offline only** (check.sh, `tests/test_npc_gear.py`). **Needs a local-server slot**: `bash tools/local.sh test
+npc_defend` (and `domains`, `companions`, `sidequests`). Unverified in game, in order of risk: the brain target on Tensura
+goblins (if the husk survives, look for the "BrainUtils cannot be loaded" warning); `EntityEvents.drops` firing for a
+goblin (the katana check); Easy NPC reading HandItems from the preset (`equipSide` sets them anyway after the import).
+
+## 19/11 evening — Tensura looks for the generic NPCs (branch `tensura-npc-skins`, Claude)
+
+Yasuke: the generic NPCs (Hald, Marlo, ...) wore Easy NPC's default modern skins. Now `tools/npc_looks.py` (catalogue,
+stdlib) + `tools/gen_npc_looks.py` (Pillow composer) give 23 archetypes / 50 original skins
+(`pack/kubejs/assets/ttl/textures/entity/npc/look_*.png`), plus Tensura's own `falmuth_knight` texture referenced at
+runtime. All 10 adventurers, 5 companions, 5 escort clients and the Outcast contact wear one (`look` in
+`sidequests.toml`, variant = CRC-32 of the name). Contact sheet `docs/previews/npc_skins.png` (**waits for Yasuke's
+approval**); ChatGPT prompts for hand-made art `docs/art/npc-skin-prompts.md`; sources and licences in
+`design/lore/skins.md` "Generic looks". The ambient spawner (`sidequests/adventurers.js`) now prefers a kind not yet at
+the place. **Refresh**: `[ambient] rev` 1 → 2 (the minute sweep, or `/ttl adventurers sweep`, removes the old ones and
+`populate` refills; hired companions take the new look at their next summon, e.g. relog), `npcs.toml rev` 3 → 4 (guild
+and cast NPCs respawn on the next check). **Verified offline only** (check.sh, `tests/test_npc_looks.py`,
+`gen_npc_looks.py --check`); the local server was busy (another agent). **To check in game after the deploy**: skins
+render on a client (front/back, slim arms of Lyra/Mira/Anne/Ilse), `tests/ingame/sidequests.rcon` and
+`guild_npcs.rcon`, and that a town no longer shows the same adventurer twice.
+
+## 19/11 evening — `/ttl` command reference (branch `ttl-command-docs`, Claude, for Yasuke)
+
+**`docs/dev/ttl-commands.md`**: every `/ttl` command (68, plus `/locate place`) by system, PLAYER / staff / test, with its
+arguments. `tools/gen_ttl_commands.py` reads the command tree and the op level from the KubeJS registration source (it
+matched the live `/help ttl`, 67 entries, on 19/11/2026) and the descriptions from `docs/dev/ttl-commands.toml`; a command
+without a row makes it exit 1 (`--check`). **`tools/post_ttl_commands.sh`** posts it to `#dev-chat` (pinned header, one or
+more messages per group, edited in place on a re-run); docs/server.md "The /ttl command reference". **Not in CI**:
+`--check` is not in `validate.py` on purpose (it would turn every open branch with a new command red); add it there once
+the branches have landed. After a new command: add its row to the toml, regenerate, re-post.
+
 ## 19/11 afternoon — local test loop runs on this PC (branch `local-up-wait`, Claude)
 
 **Verified on the workstation**: `local.sh up` cold 384 s, warm restart 48-63 s, clean stop 6-9 s ("All dimensions are

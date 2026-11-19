@@ -63,6 +63,18 @@ const TtlAdventurers = {
     return TtlCmd.run(server, `execute in ${pos.dim} if entity @e[tag=${this.TAG}.p.${place.id},x=${pos.x},y=${pos.y},z=${pos.z},distance=..96]`)
   },
 
+  // A kind that is not at the place yet (one adventurer is one named person with one look), else any of them.
+  pickKind(server, place, pos, kinds) {
+    var free = []
+    for (var i = 0; i < kinds.length; i++) {
+      var k = String(kinds[i])
+      var sel = `@e[tag=${this.TAG}.p.${place.id},tag=${this.TAG}.k.${k},x=${pos.x},y=${pos.y},z=${pos.z},distance=..96]`
+      if (!(TtlCmd.run(server, `execute in ${pos.dim} if entity ${sel}`) > 0)) free.push(k)
+    }
+    var from = free.length ? free : kinds
+    return String(from[Math.floor(Math.random() * from.length)])
+  },
+
   // The home an adventurer of this place should have now: the inn at night (when the place has one), else the day spot.
   homeOf(server, place, night) {
     if (night && place.inn) return TtlSidePlaces.resolve(server, place, place.inn)
@@ -87,7 +99,7 @@ const TtlAdventurers = {
     if (have >= Number(place.cap)) return 'full'
     var kinds = place.kinds || []
     if (kinds.length === 0) return 'off'
-    var kind = String(kinds[Math.floor(Math.random() * kinds.length)])
+    var kind = this.pickKind(server, place, pos, kinds)
     var at = { dim: pos.dim, x: pos.x, y: pos.y, z: pos.z }
     var r = Number(place.radius || 0)
     if (pos.surface && r > 0) {

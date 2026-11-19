@@ -124,6 +124,18 @@
       Type:"STANDARD"
     },
     EasyNPCVersion:3,
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {
+        id:"minecraft:iron_sword",
+        count:1
+      },
+      {
+        id:"minecraft:shield",
+        count:1
+      }
+    ],
     Invulnerable:0b,
     ObjectiveData:{
       ObjectiveDataSet:[
@@ -158,6 +170,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;1058804544,-764849443,-1988270820,-983156546],
     VariantType:"KNIGHT_02",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_guild_veteran_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }
