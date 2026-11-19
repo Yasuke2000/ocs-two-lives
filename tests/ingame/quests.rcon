@@ -233,11 +233,9 @@ ftbquests change_progress TtlBotSagaL complete 2B15187EE73E8DC2
 ttl story expect TtlBotSagaL act 5 yes
 # An unawakened visitor enters the real hall through a solo booking before Act VI.
 execute as TtlBotSagaL run ttl arena join walpurgis
-@sleep 2
-ttl walpurgis expect TtlBotSagaL in
+@until 20 ttl walpurgis expect TtlBotSagaL in
 execute as TtlBotSagaL run ttl arena leave
-@sleep 2
-ttl walpurgis expect TtlBotSagaL out
+@until 20 ttl walpurgis expect TtlBotSagaL out
 ftbquests change_progress TtlBotSagaL complete 641D39B5FFE38B84
 @sleep 2
 ttl story expect TtlBotSagaL act 6 yes

@@ -45,6 +45,13 @@ Fixed in the tests: knockback resistance for the arena bot; the vengeance bot ge
 nemesis with `@until`, kills it at once and waits for `ttl.trial.passed`. Both pass alone after the fix. Note: `@until`
 retries log a `[ttl] ... command failed` line per failed attempt, so after a test run the log grep for `failed` shows
 those waits too (only the last reply counts).
+**Test-all 12:15-12:55 on `b13d7cd`**: 69/71: `arrival` (bot 3 blocks off right after rebirth) and `quests` (the Walpurgis
+leave took longer than the fixed 2 s). Causes: three wild `tensura:direwolf` stood within 16 blocks of the arrival point
+(272 -623) and attacked/knocked the bot (also the 10:49 "36 blocks" failure); walpurgis join/leave teleports are
+asynchronous. Fixed in the tests: arrival.rcon kills direwolves within 96 of the arrival first; quests.rcon and
+walpurgis.rcon wait with `@until` for in/out. All three pass alone. **Owner question**: wild direwolves (hostile) spawn
+right at the Life 2 arrival on the "safe rim": should the arrival get a hostile-spawn-free radius like Tempest and
+Wayfarer's Rest (`life/mortal_spawns.js`)? Not changed (gameplay decision).
 
 ## 19/11 night — overworld reset done: every build verified on the new world, terrain repaired by hand, test-all 70/70, pregen running (Claude)
 
