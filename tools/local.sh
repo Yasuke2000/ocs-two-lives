@@ -266,8 +266,12 @@ configure() {
   set_prop white-list false
   set_prop enforce-whitelist false
   set_prop motd "OCS Tensura: Two Lives - local"
-  # Staging: MEMORY=8G + USE_AIKAR_FLAGS (itzg's G1 set for heaps under 12 GB).
+  # Staging: MEMORY=8G + USE_AIKAR_FLAGS (itzg's G1 set for heaps under 12 GB). The container's JVM runs in en_US;
+  # Windows hands Java the PC's locale (nl_BE prints "1,00"), and replies such as /ttlmap's "canon weight 1.00"
+  # format numbers with it, so tests that match them fail here only.
   cat > "$SRV/user_jvm_args.txt" <<EOF
+-Duser.language=en
+-Duser.country=US
 -Xms$MEMORY
 -Xmx$MEMORY
 -XX:+UseG1GC
