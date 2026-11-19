@@ -49,7 +49,10 @@ structure = "tensura:villages/lizardmen_village/water"
 canon = "Lake Siss"
 reach = 48
 surface = "water"
-version = 1
+version = 2
+# Staging (Lerfing import) placed version 1 with the old placer, on the generator's heights, not the real ground
+# (19/11/2026, `ttl landmark where`: placed at x 3207, z 965): that copy goes, version 2 is grounded with a foundation.
+remove = [{ id = "lerfing_1", x = 3207, z = 965 }]
 notes = "Stilt village on the south shore of Lake Siss (anchors.toml lizardmen_village: 45 % water within 48, clear of Lerfing's hut clusters). The canon point (Lake Siss) is mid-lake."
 
 [[landmark]]
@@ -59,7 +62,10 @@ structure = "tensura:villages/lizardmen_village/underground"
 canon = "Lizardmen's caverns (Gabiru, Avalos)"
 reach = 56
 surface = "land"
-version = 1
+version = 2
+# Staging (Lerfing import) placed version 1 with the old placer, on the generator's heights, not the real ground
+# (19/11/2026, `ttl landmark where`: placed at x 3323, z 1177): that copy goes, version 2 is grounded with a foundation.
+remove = [{ id = "lerfing_1", x = 3323, z = 1177 }]
 notes = "Underground village (entrance on the surface) in the marsh on the south shore of Lake Siss."
 
 [[landmark]]
@@ -95,7 +101,10 @@ structure = "tensura:ruin/wizard_tower/burnt"
 canon = "Hidden ogre village (Kijin homeland, burned)"
 reach = 24
 surface = "land"
-version = 1
+version = 2
+# Staging (Lerfing import) placed version 1 with the old placer, on the generator's heights, not the real ground
+# (19/11/2026, `ttl landmark where`: placed at x 2150, z 400): that copy goes, version 2 is grounded with a foundation.
+remove = [{ id = "lerfing_1", x = 2150, z = 400 }]
 notes = "The Kijin homeland the orcs burned; a burnt tower ruin marks the site (canon position unverified)."
 
 [[landmark]]
@@ -105,5 +114,8 @@ structure = "tensura:ancient_forest/tree"
 canon = "Treyni's grove (Dryad sanctuary)"
 reach = 48
 surface = "land"
-version = 1
+version = 2
+# Staging (Lerfing import) placed version 1 with the old placer, on the generator's heights, not the real ground
+# (19/11/2026, `ttl landmark where`: placed at x 1920, z 1540): that copy goes, version 2 is grounded with a foundation.
+remove = [{ id = "lerfing_1", x = 1920, z = 1540 }]
 notes = "A giant ancient-forest tree for the dryad sanctuary east of the Ameld."
