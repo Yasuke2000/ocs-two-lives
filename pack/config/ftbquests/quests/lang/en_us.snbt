@@ -47,7 +47,7 @@
 	chapter.378BD420FE635504.title: "Daily Deeds: Jura"
 	chapter.3CFEA682A10FDD1C.chapter_subtitle: [
 		"Dwargon: a kingdom of smiths behind a white gate."
-		"A thousand blocks north of Tempest, at the foot of the Great Canaat Mountains, lies the dwarf kingdom of Dwargon: a neutral trade hub inside a cavern, ruled for three hundred years by the Hero King Gazel Dwargo. It is where Kaijin was judged, and where every smith in the world wants to work."
+		"About 1,400 blocks north of Tempest, cut into the southern face of the Great Canaat Mountains, lies the dwarf kingdom of Dwargon: a neutral trade hub inside a cavern, ruled for three hundred years by the Hero King Gazel Dwargo. It is where Kaijin was judged, and where every smith in the world wants to work."
 	]
 	chapter.3CFEA682A10FDD1C.title: "The Armed Nation"
 	chapter.3DD6FBE383605A48.chapter_subtitle: [
@@ -141,7 +141,7 @@
 	chapter.738ADA3283D061B5.title: "A Life That Counts"
 	chapter.7BD0671B53FE48F5.chapter_subtitle: [
 		"Your second life begins in the Forest of Jura."
-		"Your soul has crossed. The Forest of Jura, the monster town of Tempest, the dwarves of Dwargon to the north and Lake Siss to the east: this is the world of Tensura, and you are part of it now."
+		"Your soul has crossed. The Forest of Jura, the monster town of Tempest, the dwarves of Dwargon far to the north and Lake Siss to the east: this is the world of Tensura, and you are part of it now."
 	]
 	chapter.7BD0671B53FE48F5.title: "Reborn"
 	file.0000000000000001.title: "OCS Tensura: Two Lives"
@@ -427,7 +427,7 @@
 	quest.0C9933D5EB683ACC.quest_subtitle: "Wander"
 	quest.0C9933D5EB683ACC.title: "Into the Dark Forest"
 	quest.0D4D0DF9B4020101.quest_desc: [
-		"At x −400, z −60 on the Blumund road, use /ttl story fight hinata_sakaguchi. Hinata once learned from Shizu. She believes she has found the monster responsible for her teacher’s death. Behind you, Tempest’s defenders are losing their magic to another barrier."
+		"On the west road to Blumund, at x 1300, z 820, use /ttl story fight hinata_sakaguchi. Hinata once learned from Shizu. She believes she has found the monster responsible for her teacher’s death. Behind you, Tempest’s defenders are losing their magic to another barrier."
 		""
 		"A credited victory over Hinata costs 30 Holy Church reputation. That cost applies to either oath."
 		""
@@ -589,7 +589,7 @@
 	quest.1585311527965ABC.quest_subtitle: "Act III"
 	quest.1585311527965ABC.title: "The Orc War"
 	quest.16275F334E658FCF.quest_desc: [
-		"At the Sealed Cave, near x −256, z −343, stand by its placed entrance and claim the trial. Veldora answers someone who helped defeat Charybdis. If the encounter is cooling down, return later and use /ttl story fight veldora. In the anime Raphael analyzes the prison and Rimuru releases his friend. The trial is our version of that return."
+		"At the Sealed Cave, near x 1380, z 560, stand by its placed entrance and claim the trial. Veldora answers someone who helped defeat Charybdis. If the encounter is cooling down, return later and use /ttl story fight veldora. In the anime Raphael analyzes the prison and Rimuru releases his friend. The trial is our version of that return."
 		""
 		"&7&o“Unlimited Imprisonment was the first problem Rimuru promised to solve for a friend.”&r"
 	]
@@ -816,7 +816,7 @@
 	quest.1E7D098A7387BF0C.quest_subtitle: "Capstone"
 	quest.1E7D098A7387BF0C.title: "Friend of the Forges"
 	quest.1ECB5979C243CC5A.quest_desc: [
-		"Go to Tempest’s south gate near x 0, z 40 and use /ttl story fight folgen. In this telling the field commander leads Falmuth’s attack. The people behind the gate need the road held long enough to get the wounded indoors."
+		"Go to Tempest’s south gate near x 1720, z 940 and use /ttl story fight folgen. In this telling the field commander leads Falmuth’s attack. The people behind the gate need the road held long enough to get the wounded indoors."
 		""
 		"&7&o“On the Blumund road one barrier closed around Rimuru. At home another stripped Tempest’s defenders of their strength.”&r"
 	]
@@ -824,7 +824,7 @@
 	quest.1F70B3D16096430C.quest_desc: [
 		"Tempest's allies gathered at the water while Vesta's full potions came off the bench (anime season 1, episode 17). A shore camp has to be fed and mended before anything rises out of the lake."
 		""
-		"Walk to the lake's western shore, where the forest ends, and hand in six low potions for the line."
+		"Walk to the lake's western shore, where the forest gives way to the marsh, and hand in six low potions for the line."
 	]
 	quest.1F70B3D16096430C.quest_subtitle: "Potions for the line"
 	quest.1F70B3D16096430C.title: "The Shore Camp"
@@ -1291,7 +1291,7 @@
 	]
 	quest.34884FFE5F8393B9.title: "Wrecks and Ruins"
 	quest.34D00D4FD0D457A5.quest_desc: [
-		"A rookie named Tomas never came back from his first hunt. His party says the camp is south of the rim, deeper in the forest where the trees turn dark. Bring him home alive."
+		"A rookie named Tomas never came back from his first hunt. His party says the camp is off the road, west of the rim camp, where the forest closes in. Bring him home alive."
 		""
 		"&7&o“Rescue the lost adventurer: the job nobody posts, and everybody takes.”&r"
 	]
@@ -1426,7 +1426,7 @@
 	]
 	quest.3E7E77BB944CF7E0.title: "Pigs on Two Legs"
 	quest.3E952054AC18967B.quest_desc: [
-		"Carry the honey offering to the City of the Forgotten Dragon, about 2,500 blocks east of Tempest."
+		"Carry the honey offering to the City of the Forgotten Dragon, about 3,000 blocks east of Tempest."
 		""
 		"&7&o“The offering was accepted. The jar was licked clean before you reached the gate on your way out.”&r"
 	]
@@ -1476,7 +1476,7 @@
 	]
 	quest.4132F2C686AF15E9.title: "Where the Stone Goes Dark"
 	quest.41478DC3F02993DE.quest_desc: [
-		"East of Tempest lies Lake Siss and its marsh, home of the lizardmen."
+		"To the east of Tempest lies Lake Siss and its marsh, home of the lizardmen."
 	]
 	quest.41478DC3F02993DE.title: "Lake Siss"
 	quest.41D840952480F245.quest_desc: [
@@ -1673,12 +1673,12 @@
 	quest.4D84DCDECB3CCFDC.quest_desc: [
 		"Dwargon's word is only worth what is carried back to the people it was given for. The green in Tempest is where Rimuru's council meets, and the stew is better than the King's."
 		""
-		"Take the pact north and stand on the village green."
+		"Take the pact south, back down the road, and stand on the village green."
 	]
 	quest.4D84DCDECB3CCFDC.quest_subtitle: "Carry it home"
 	quest.4D84DCDECB3CCFDC.title: "The King's Word"
 	quest.4EEF90989EF8A2DA.quest_desc: [
-		"South-east of Tempest, past Lake Siss, the lizardmen keep their caverns. Visitors are tolerated, if they are polite."
+		"To the east of Tempest, past Lake Siss, the lizardmen keep their caverns in the marsh. Visitors are tolerated, if they are polite."
 		""
 		"&7&o“A young lizardman with a fine spear told you he would be chief one day. He told everyone.”&r"
 	]
@@ -1726,7 +1726,7 @@
 	quest.5038971436C2EC7B.quest_subtitle: "Accept"
 	quest.5038971436C2EC7B.title: "Job: The Mail Run"
 	quest.50CBFF631DD567A4.quest_desc: [
-		"Follow the road north through the mountains to the gate of the Armed Nation of Dwargon, where King Gazel rules and the best smiths of the continent work."
+		"Follow the road north out of Jura and up into the grey foothills of the Canaat Mountains, to the gate of the Armed Nation of Dwargon, where King Gazel rules and the best smiths of the continent work."
 	]
 	quest.50CBFF631DD567A4.title: "The Dwarven Road"
 	quest.50ED07BC02E5FED6.quest_desc: [
@@ -1773,7 +1773,7 @@
 	quest.51BE6D1FFA78B4AF.quest_subtitle: "Five ways of life"
 	quest.51BE6D1FFA78B4AF.title: "The Ledger"
 	quest.51FF35F087F1E23D.quest_desc: [
-		"Milim arrived at Tempest like a storm and stayed for the honey: Rimuru calmed the Dragonoid Demon Lord with something sweet and she called him a friend (anime season 1, episode 16). A friend of Tempest is worth a few jars. Take eight bottles of honey to Milim's domain, in the lands to the far south-east (about 2,500 blocks from Tempest), and ask what she thinks of the lake."
+		"Milim arrived at Tempest like a storm and stayed for the honey: Rimuru calmed the Dragonoid Demon Lord with something sweet and she called him a friend (anime season 1, episode 16). A friend of Tempest is worth a few jars. Take eight bottles of honey to Milim's domain, in the badlands far to the east, beyond Lake Siss (about 3,000 blocks from Tempest), and ask what she thinks of the lake."
 		""
 		"Hand in eight honey bottles in the City of the Forgotten Dragon, where Milim keeps her court."
 	]
@@ -1804,9 +1804,9 @@
 	quest.531A7A2DD9F75DC8.quest_desc: [
 		"In the story Milim hits Charybdis when Rimuru asks (anime season 1, episode 19). In Tempest's world she is on the far side of the map, and the lake is still yours to hold. Anyone may fight Charybdis, whatever road they walk."
 		""
-		"Stand on the shore and claim the reward to bring it up. It rises over the water, summons nothing but waves, and turns furious at 60% and again at 30% of its health. Bring a party, and stay out of the water."
+		"Take a boat out to the middle of the lake (open water, about a hundred blocks from any shore) and claim the reward to bring it up. It rises over the water, summons nothing but waves, and turns furious at 60% and again at 30% of its health. Bring a party and keep the boat steady."
 		""
-		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis on the shore, within 96 blocks of the arena's centre (635, 145)."
+		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis from your boat, within 96 blocks of the arena's centre (x 3050, z 750)."
 	]
 	quest.531A7A2DD9F75DC8.quest_subtitle: "Begin the fight"
 	quest.531A7A2DD9F75DC8.title: "Face the Whirlpool"
@@ -1925,7 +1925,7 @@
 	]
 	quest.595C87BDF9A55477.title: "A Reader at the Lectern"
 	quest.59608580FB3801D4.quest_desc: [
-		"Before Rimuru named them, the ogres had a hidden village in the north-east hills. The orcs burned it and killed most of its people; the six survivors came to Tempest. A burned tower marks the site. This position is our own estimate from the fan map, so look around the hills if you do not find it at once."
+		"Before Rimuru named them, the ogres had a hidden village in the north-east hills. The orcs burned it and killed most of its people; the six survivors came to Tempest. A burned tower marks the site. This position is our own reading of Lerfing's map, so look around the hills if you do not find it at once."
 	]
 	quest.59608580FB3801D4.title: "Ashes of the Kijin Village"
 	quest.59A17C1D26897630.quest_desc: [
@@ -1939,9 +1939,9 @@
 	quest.59F4870034DD1420.quest_desc: [
 		"In the anime the harlequins persuade Phobio to let Charybdis possess him, and the seal breaks (anime season 1, episode 18). Here the seal breaks because you broke it: Charybdis is Clayman's weapon, and the dark road holds the knife. Anyone may fight Charybdis, whatever road they walk."
 		""
-		"Stand on the shore and claim the reward to bring it up. It rises over the water and turns furious at 60% and again at 30% of its health. The claim also records the story flag \"charybdis_woke\"."
+		"Take a boat out to the middle of the lake and claim the reward to bring it up. It rises over the water and turns furious at 60% and again at 30% of its health. The claim also records the story flag \"charybdis_woke\"."
 		""
-		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis on the shore, within 96 blocks of the arena's centre (635, 145)."
+		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis from your boat, within 96 blocks of the arena's centre (x 3050, z 750)."
 	]
 	quest.59F4870034DD1420.quest_subtitle: "Begin the fight"
 	quest.59F4870034DD1420.title: "Wake the Calamity"
@@ -1959,7 +1959,7 @@
 	]
 	quest.5A428C02809011D3.title: "Fire and Bone"
 	quest.5AC90B7245A5B5DC.quest_desc: [
-		"Halfway up the road, inside the dwarves' border, stands a village of stone and spruce with copper roofs: smithy, library and market in one. It is the first sign that you have left the forest behind."
+		"On the last stretch of the road, just inside the dwarves' border, stands a village of stone and spruce with copper roofs: smithy, library and market in one. It is the first sign that you have left the forest behind."
 	]
 	quest.5AC90B7245A5B5DC.title: "A Dwarven Waystation"
 	quest.5B4ED5D772DCDF7D.quest_desc: [
@@ -2111,7 +2111,7 @@
 	]
 	quest.60226F8162DAD560.title: "A Box That Bites"
 	quest.603D7332235307E3.quest_desc: [
-		"Wayfarers and rookie adventurers camp on Jura's rim, north of where reborn souls wake: the forest's safe edge. Find the camp."
+		"Wayfarers and rookie adventurers camp on Jura's northern rim, a few steps from where reborn souls wake: the forest's safe edge. Find the camp."
 		""
 		"&7&o“A fire, a pot, and four strangers arguing about which way Tempest is. You have found the rim.”&r"
 	]
@@ -2438,7 +2438,7 @@
 	]
 	quest.6F54281B6FBEDD14.title: "The Stronghold"
 	quest.7070BCCFF604CC3C.quest_desc: [
-		"North-west of Tempest lies the cave where the Storm Dragon Veldora was sealed for three hundred years, and where a slime woke up with a Great Sage in his head."
+		"To the north-west of Tempest lies the cave where the Storm Dragon Veldora was sealed for three hundred years, and where a slime woke up with a Great Sage in his head."
 	]
 	quest.7070BCCFF604CC3C.title: "The Sealed Cave"
 	quest.7084AFF4A1F3AAC4.quest_desc: [
@@ -2560,11 +2560,11 @@
 	]
 	quest.7797476042AAC217.title: "A Hazard to Others"
 	quest.77B55FED87C57904.quest_desc: [
-		"Treyni is the dryad who keeps the forest, the one who first asked Rimuru to end the Orc Lord (anime season 1, episode 11). Her shrine is on the far eastern edge of the forest, well beyond the orc camp. She knows the calamity's name and she will say it once."
+		"Treyni is the dryad who keeps the forest, the one who first asked Rimuru to end the Orc Lord (anime season 1, episode 11). Her shrine lies in the south of the forest, beyond the river that drains Jura's lakes. She knows the calamity's name and she will say it once."
 		""
-		"The way is long (the shrine is about two thousand blocks east of Tempest). Go to the grove and stand in her shrine."
+		"The way is not short (the shrine is about 700 blocks south of Tempest, and the road leaves the dark forest behind only at the end). Go to the grove and stand in her shrine."
 	]
-	quest.77B55FED87C57904.quest_subtitle: "A long road east (optional)"
+	quest.77B55FED87C57904.quest_subtitle: "A road south (optional)"
 	quest.77B55FED87C57904.title: "Treyni's Warning"
 	quest.77FAE029ED2DC6B6.quest_desc: [
 		"At the placed Marris plaza challenge the three summoned fighters in any order. Use /ttl story fight followed by kyoya_tachibana, shogo_taguchi or kirara_mizutani. In the anime the three bring violence to Tempest. Here Razen tests you against them before he entrusts you with the march."
@@ -2573,7 +2573,7 @@
 	]
 	quest.77FAE029ED2DC6B6.title: "The King’s Otherworlders"
 	quest.782264F2B6B57D9D.quest_desc: [
-		"Treyni, the dryad who guards the forest, keeps a shrine far to the east of Tempest. Pilgrims leave flowers; adventurers leave quietly."
+		"Treyni, the dryad who guards the forest, keeps a shrine in the south of the forest, about 700 blocks south of Tempest. Pilgrims leave flowers; adventurers leave quietly."
 		""
 		"&7&o“The trees leaned in to listen. You chose your words carefully.”&r"
 	]
@@ -2758,7 +2758,7 @@
 	task.0115BA7420C399EC.title: "Defeat an Orc Lord"
 	task.02034A12C6521724.title: "Before the throne"
 	task.0262CD470ABDFDBE.title: "The West knows your name"
-	task.041C77726FDC891F.title: "The lake shore"
+	task.041C77726FDC891F.title: "The lake's western shore"
 	task.04D35BB1D70BA4E7.title: "Return to the placed castle"
 	task.05168D3419679E35.title: "Close Act III"
 	task.05F084AF7B6754F0.title: "Carry the witness of Luminous"
@@ -2788,7 +2788,7 @@
 	task.0EFAAD40DFFF3188.title: "Defeat Ifrit at Tempest"
 	task.0FA0085B5F5E7E3A.title: "The village green"
 	task.0FD940179FF540EB.title: "The crossroads at the south gate"
-	task.0FDE011CBE35FB64.title: "The lake shore"
+	task.0FDE011CBE35FB64.title: "The lake's western shore"
 	task.104B8021F4B0D46F.title: "Close Act VI"
 	task.10A9B0D9FDB07716.title: "Close Act II"
 	task.10CC2F1B73E2BFF4.title: "Defeat Gazel Dwargo"
@@ -2841,11 +2841,11 @@
 	task.28CC04BFB74B238D.title: "Smelt or find a silver ingot"
 	task.2A159AD1736C8263.title: "Defeat Rimuru at Tempest"
 	task.2A628644BD864405.title: "Close Act I"
-	task.2A6E537C92A3D4F3.title: "On the shore"
+	task.2A6E537C92A3D4F3.title: "Out on the lake"
 	task.2AE43221C471AC1C.title: "Return to the green"
 	task.2AE6D3268926D1AB.title: "Reach 3,000 EP"
 	task.2AE9FF4F367986E8.title: "Survive 15 days"
-	task.2B292CFA3D6EDC1E.title: "On the shore"
+	task.2B292CFA3D6EDC1E.title: "Out on the lake"
 	task.2B3C7083647CF215.title: "Eat a slice of cake"
 	task.2BBC1A6F1C0DE312.title: "Accept the job"
 	task.2CB561EFB9E44122.title: "Defeat the Orc Lord"

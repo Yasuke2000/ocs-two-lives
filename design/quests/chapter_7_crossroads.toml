@@ -12,9 +12,9 @@
 # Rewards stay modest (food, a little XP, bronze/silver coins) and NEVER grant skills, races, evolutions or uniques
 # (design/manas-integration.md §5(d)). Reputation comes only from the Oath (design/data/story.toml [oath.*]) and the act deltas.
 #
-# Places (Tempest: blueprint (45, 57) = world (0, 0), blueprints/tempest.py, see chapter 2):
+# Places (Tempest: blueprint (45, 57) = the `tempest` anchor, blueprints/tempest.py, see chapter 2; offsets are dx, dz from it):
 #   south gate (palisade) (0, 23)          Rigurd's chief hut (22, -39)       goblins' campfire (22, -30)
-#   Old goblin village landmark (-164, -234) radius 64 (as chapter 1)          Sealed Cave (-256, -343) radius 90 (as chapter 1)
+#   Old goblin village landmark `goblin_village` radius 64 (as chapter 1)      Sealed Cave build `sealed_cave` radius 150 (as chapter 1)
 #   Outcast contact: the road fork 30 blocks south of the gate, (0, 52). OUR CHOICE (the architecture doc names the contact
 #   but no spot): WP-S4 should stand the `outcast_contact` NPC there, and the radius (14) tolerates a few blocks of drift.
 # Our interpretation (not canon): the Outcast Society (an original faction of rejected reincarnators, master plan D7), the
@@ -58,7 +58,7 @@ only a later Atonement or Corruption can turn you, once.
 &6Why it matters:&r the light Oath gives Tempest +20; the dark Oath gives Outcast Society +20 and Orc Horde +15 and costs
 Tempest 20. Both lanes below are full quest lines of the same size.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [0, 23], radius = 12, title = "The crossroads at the south gate" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = 23 }, radius = 12, title = "The crossroads at the south gate" }]
 rewards = [
   { type = "command", command = "ttl story oath", feedback = "The crossroads waits. Choose your Oath." },
   { type = "item", item = "tensura:bronze_coin", count = 2 },
@@ -82,7 +82,7 @@ story he is the one who says what Tempest needs and keeps his word to the end. A
 
 Stand at his door: the Oath is only words until someone sees you keep it.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [22, -39], radius = 8, title = "Rigurd's chief hut" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 22, dz = -39 }, radius = 8, title = "Rigurd's chief hut" }]
 rewards = [{ type = "item", item = "minecraft:bread", count = 6 }, { type = "item", item = "tensura:bronze_coin", count = 3 }, { type = "xp", xp = 50 }]
 
 [[quests]]
@@ -139,7 +139,7 @@ pot; nobody asks what you have done, only whether you came with hands full.
 Stand at the campfire and hand in eight cooked beef.
 """
 tasks = [
-  { type = "location", dimension = "minecraft:overworld", at = [22, -30], radius = 6, title = "The goblins' campfire" },
+  { type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 22, dz = -30 }, radius = 6, title = "The goblins' campfire" },
   { type = "item", item = "minecraft:cooked_beef", count = 8, consume = true },
 ]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "item", item = "minecraft:golden_carrot", count = 4 }, { type = "xp", xp = 80 }]
@@ -162,7 +162,7 @@ where the road forks, out of the town's lamplight, and never gives a name.
 
 Go to the fork south of the gate and be seen to come alone.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [0, 52], radius = 14, title = "The Outcast contact on the south road" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { anchor = "tempest", dx = 0, dz = 52 }, radius = 14, title = "The Outcast contact on the south road" }]
 rewards = [{ type = "item", item = "minecraft:bread", count = 6 }, { type = "item", item = "tensura:bronze_coin", count = 3 }, { type = "xp", xp = 50 }]
 
 [[quests]]
@@ -218,7 +218,7 @@ blade, and he already knows yours.
 
 Walk the abandoned goblin village and wait for him.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [-164, -234], radius = 64, title = "The old goblin village" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { landmark = "goblin_village" }, radius = 64, title = "The old goblin village" }]
 rewards = [{ type = "item", item = "tensura:silver_coin", count = 1 }, { type = "item", item = "minecraft:cooked_beef", count = 4 }, { type = "xp", xp = 80 }]
 
 # ---- Join ----------------------------------------------------------------------------------------------
@@ -259,7 +259,7 @@ is what is left of it. Anyone may fight it, whatever road they walk.
 
 Stand in the cave's antechamber and claim the reward to wake it. It must be started within 96 blocks of the altar.
 """
-tasks = [{ type = "location", dimension = "minecraft:overworld", at = [-256, -343], radius = 90, title = "The Sealed Cave" }]
+tasks = [{ type = "location", dimension = "minecraft:overworld", at = { build = "sealed_cave" }, radius = 150, title = "The Sealed Cave" }]
 rewards = [{ type = "command", command = "ttl story fight supermassive_slime", feedback = "The cave answers." }]
 
 [[quests]]
