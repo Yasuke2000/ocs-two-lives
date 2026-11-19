@@ -266,7 +266,7 @@ class Town:
         """Timber-frame house: stone footing, plaster panels between a dark frame, windows with shutters, floors and
         a loft ceiling, ladder up, tiled gable roof. Returns (top roof y, door position).
         Furnished houses get a bed in the loft (storeys > 1) or, in a one-storey house, on the ground floor against the
-        wall opposite the door (`beds` of them, default 1; two if the room is wide enough), in a colour of `bed_colours`."""
+        wall opposite the door (`beds` of them, default 1, three blocks apart), in a colour of `bed_colours`."""
         F, G = self.F, self.G
         h = storey_h * storeys
         axis = axis or ("x" if (x1 - x0) >= (z1 - z0) else "z")
