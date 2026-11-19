@@ -30,6 +30,9 @@ ttl walpurgis tp TtlBotWalA
 @until 20 ttl walpurgis expect TtlBotWalA in
 @sleep 5
 ttl walpurgis walk TtlBotWalA back
+# The arch sends the soul out on the hall's next poll: the first `expect out` came too early on staging (19/11 19:09:47,
+# one "[ttl] walpurgis command failed" line in the log, then out the same second; the test passed).
+@sleep 2
 @until 20 ttl walpurgis expect TtlBotWalA out
 ttl walpurgis uninvite TtlBotWalA
 ttl walpurgis expect TtlBotWalA allowed no

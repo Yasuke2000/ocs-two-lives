@@ -481,7 +481,14 @@ const TtlDwargon = {
     var n = 0
     var self = this
     TtlDwargonRoyal.banners.forEach(e => {
-      if (self.run(server, `data merge block ${b.x0 + e[0]} ${base + e[1]} ${b.z0 + e[2]} {patterns:${e[3]}}`) > 0) n++
+      // TtlCmd: runCommandSilent returns nothing in KubeJS 2101, so every banner counted as failed ("0/10 patterned" on
+      // staging and locally, the banners patterned all the same)
+      var at = TtlCmd.attempt(server, `execute in ${TtlLife.OVERWORLD} run data merge block ${b.x0 + e[0]} ${base + e[1]} ${b.z0 + e[2]} {patterns:${e[3]}}`)
+      if (at.result > 0 || at.error.indexOf('Nothing changed') >= 0) n++
+      else if (!self.bannerTold) {
+        self.bannerTold = true
+        console.warn(`[ttl] dwargon: throne room banner at ${b.x0 + e[0]} ${base + e[1]} ${b.z0 + e[2]} not patterned: ${at.error || 'no result'}`)
+      }
     })
     console.info(`[ttl] dwargon: ${n}/${TtlDwargonRoyal.banners.length} throne room banners patterned`)
   },

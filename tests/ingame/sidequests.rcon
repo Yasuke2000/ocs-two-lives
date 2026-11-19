@@ -80,11 +80,16 @@ ttl sidequest poll TtlBotSideA
 ttl sidequest expect TtlBotSideA phase merchant_escort go
 ttl sidequest expect TtlBotSideA client merchant_escort alive
 ttl sidequest goto TtlBotSideA dwarf_road
+# The client is teleported into the bot's chunk: hold it as well, or the client can land in a chunk whose entities are
+# not loaded yet and is saved away (staging 19/11/2026: done = no right after the bring; locally the chunk was warm).
+execute at TtlBotSideA run forceload add ~ ~
 @sleep 3
 ttl sidequest bring TtlBotSideA
 execute in minecraft:overworld run forceload remove ${anchor:wayfarers_camp}
 ttl sidequest poll TtlBotSideA
-ttl sidequest expect TtlBotSideA done merchant_escort yes
+# The 2-second poll may finish it first (Easy NPC's FOLLOW_PLAYER teleports the client to the bot): "0 client(s) brought".
+@until 10 ttl sidequest expect TtlBotSideA done merchant_escort yes
+execute at TtlBotSideA run forceload remove ~ ~
 ttl sidequest expect TtlBotSideA stage merchant_escort yes
 # Escort failure: the client of a second run dies; the job is gone, not done.
 ttl sidequest reset TtlBotSideA

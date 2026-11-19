@@ -56,6 +56,9 @@ execute in minecraft:overworld run forceload add ${anchor:tempest.x+100} ${ancho
 @until 120 execute in minecraft:overworld if loaded ${anchor:tempest.x+300} 64 ${anchor:tempest.z+100}
 execute in minecraft:overworld positioned ${anchor:tempest.x+100} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotNatA ~ ~ ~
 execute in minecraft:overworld positioned ${anchor:tempest.x+102} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotNatB ~ ~ ~
+# Tempest stands in Jura's forest now (life/forests.js): its mobs (a Barghest killed A here, 19/11) must not end the test.
+effect give TtlBotNatA minecraft:resistance 900 4 true
+effect give TtlBotNatB minecraft:resistance 900 4 true
 ttl nation expect TtlBotNatA try_found_TtlBotLand noparty
 ttl as TtlBotNatA ftbteams party create TtlBotNatParty
 ttl nation expect TtlBotNatA try_found_TtlBotLand members
@@ -153,6 +156,7 @@ ttl nation expect TtlBotNatA yield_here 1
 ttl nation test TtlBotNatD life2
 ttl nation test TtlBotNatE life2
 execute in minecraft:overworld positioned ${anchor:tempest.x+300} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotNatD ~ ~ ~
+effect give TtlBotNatD minecraft:resistance 900 4 true
 ttl nation test TtlBotNatD boss1
 ttl econ give TtlBotNatD 5000
 ttl as TtlBotNatD ftbteams party create TtlBotNatParty2
