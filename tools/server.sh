@@ -33,28 +33,9 @@ humans() {
 ' <<<"$all" | grep -vxF -f <(tr ',' '
 ' <<<"$bots") | grep -v '^$' | paste -sd, - || true
 }
-FAILED_RE='Unknown or incomplete|Incorrect argument|An unexpected error|ttl: |Test failed'
-run_test() {
-  # `@sleep N` lines wait N seconds (game time has to pass between some steps). `@until N <command>` runs the command once
-  # a second until its reply holds (no "ttl: ..." / "Test failed" / command error), for at most N seconds, and prints the
-  # last reply: a step that waits on the server (a boss that has to spawn and be polled) waits as long as it needs, not a
-  # fixed guess that a lag spike can beat.
-  grep -vE '^\s*(#|$)' "$1" | while IFS= read -r cmd; do
-    case "$cmd" in
-      @sleep\ *) sleep "${cmd#@sleep }" ;;
-      @until\ *)
-        rest=${cmd#@until }; secs=${rest%% *}; c=${rest#* }
-        echo "> $c (until it holds, ${secs}s at most)"
-        for ((i = 0; i < secs; i++)); do
-          out=$(rcon "$c" < /dev/null)
-          grep -qE "$FAILED_RE" <<<"$(plain <<<"$out")" || break
-          sleep 1
-        done
-        echo "$out" ;;
-      *) echo "> $cmd"; rcon "$cmd" ;;
-    esac
-  done
-}
+# run_test, the `@sleep` / `@until` / `@expect` / `@import` lines and the ${anchor:...} / ${probe:...} tokens of tests/ingame/*.rcon:
+# tools/test_lib.sh (documented there; sourced with a fake `rcon` by tests/test_lerfing_tests.py).
+source "$(dirname "$0")/test_lib.sh"
 
 case "${1:-}" in
   status)  k get pods,svc -o wide ;;
@@ -110,13 +91,15 @@ case "${1:-}" in
       out=$(run_test "$f" 2>&1 | plain)
       verdict=ok
       if grep -qE 'Unknown or incomplete|Incorrect argument|An unexpected error|ttl: ' <<<"$out"; then verdict="command error"; fi
+      # `@import` tests (lerfing*.rcon) skip themselves on a world that is not Lerfing's import: not a failure.
+      if [ "$verdict" = ok ] && grep -q '^skipped: ' <<<"$out"; then verdict="skipped (not Lerfing's import)"; fi
       if [[ $name == trial_* ]]; then
         bot=$(grep -m1 -oE 'ttlbot spawn [A-Za-z0-9_]+' "$f" | cut -d' ' -f3)
         result=$(k exec deploy/mc -- grep -E "$(rq "$bot (passed|failed) the")" /data/logs/latest.log | tail -1 | grep -oE 'passed|failed' || true)
         want=passed; [[ $name == *_fail ]] && want=failed
         [ "$result" = "$want" ] || verdict="expected $want, got ${result:-nothing}"
       fi
-      [ "$verdict" = ok ] || fails=$((fails + 1))
+      [ "$verdict" = ok ] || [[ $verdict == skipped* ]] || fails=$((fails + 1))
       printf '%-24s %s
 ' "$name" "$verdict"
     done

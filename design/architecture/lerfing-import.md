@@ -20,7 +20,7 @@
 | Export | WorldPainter, every chunk DataVersion 2860 (1.18.0), 1,474,944 chunks in 1,470 region files, 9.40 GB on disk | DFU upgrade 1.18 → 1.21.1 (3955) on load; no `poi/`; `entities/` holds 15 files with 11 dropped items and 14 creepers only (not copied) |
 | Inner tiles | x −8064..8192, z −6016..6528 = regions r.−16..15 × r.−12..12 = **800 files, 6.70 GB**, status `liquid_carvers` (proto chunks, "allow Minecraft to populate") | populate = ores (Tensura magic ore via biome modifiers), vegetation features, heightmaps, light, initial mobs |
 | Outer border | 2,560 blocks of flat shallow sea (floor y 47–51), 670 files, 2.69 GB, status `full` | WorldPainter's automatic border, not part of the drawn map |
-| Land | x −7400..7640, z −5540..5832 (15,040 × 11,372); sea level 64 (vanilla `sea_level` 63 in our noise settings); peak y 316 at (2502, −1432) | a 1-block sea step at any seam unless our generator's sea level becomes 64; world build limit 320 caps anything on the summit |
+| Land | x −7400..7640, z −5540..5832 (15,040 × 11,372); water surface y 64, i.e. top water block y 64 (vanilla `sea_level` 63 tops water at y 62); peak y 316 at (2502, −1432) | a 1-block sea step at any seam unless our generator's `sea_level` becomes 65; world build limit 320 caps anything on the summit |
 | Biomes on land | plains 10.1 % (almost all land), snowy_plains (Ice), badlands (Milim, El Dorado), desert (Damargania), **soul_sand_valley** 1.14 % (the grey Canaat), **nether_wastes** 0.30 % (red NE crater + patches in the SW crystal hills, bbox −3820..6268), **the_end** 0.71 % (grey-teal far west), jungle (SE peninsula), swamp (round Lake Siss), mushroom_fields (small, Canaat edges) | three Nether/End biomes to repaint offline; everything else stays |
 | Nothing else | no structures, no Tensura blocks, no villages; 8,288 legacy banners (NE, dropped), 674 flower pots (dropped), 13 "built by Paulzero" signs (giant trees at ~ (610, 2930)), one chest at (−453, 73, 979) (Lerfing's spawn kit), Lerfing's own small builds: a lake village at Lake Siss (brown glass/oak fence, 2900..3600 × 400..1000), an ice structure on the water at (−1900, −4480), pots on the north islet | keep all of them (owner: 1:1); nothing of ours overlaps them |
 | Status strings | 1.21.1 has no `liquid_carvers`; `ChunkStatus.byName` on an unknown name returns **EMPTY** → the chunk would be regenerated from scratch by our generator and Lerfing's terrain overwritten | the status MUST be rewritten offline to `minecraft:carvers` before the first boot (§1.2). This is the one step that cannot be done in game |
@@ -83,14 +83,15 @@ WorldUpgrader, all 796k chunks before the level opens, ~15–40 min on 2 CPU; ra
 
 - Files go where the overworld already lives: `/data/world-ttl/region/` (overworld terrain is the world folder itself;
   `WorldReset.move` shows which folders belong to it: `region`, `entities`, `poi`, `data/DistantHorizons*`).
-- Upload: tar the 800 files (6.7 GB) and stream into the pod (`kubectl exec -i deploy/mc -- sh -c "tar -C /data/import -xf -"`,
-  `MSYS2_ARG_CONV_EXCL=/data` from Git Bash) or scp to node3 and copy from a debug pod on the volume; expect 30–60 min over
-  Tailscale. Verify the file count and the sha256 manifest the tool wrote before the swap.
-- Swap only with the server scaled to 0 (runbook §6.3). The mod gets a new marker `ttl-import.txt` (§2.4): like
+- Upload: `tools/import_world.sh` (WP-L10) streams the 800 files (6.59 GB) into the running pod with tar over
+  `kubectl exec`, in resumable batches, then checks the sha256 manifest on the pod. Measured on 19/11/2026: 8.3 MB/s,
+  about 14 min. `/data/import` is not part of the world, so the server keeps running.
+- The swap needs no scale to 0: the marker is read at server start, before the levels load, so the restart is the normal
+  deploy (runbook §6.3). The mod gets a new marker `ttl-import.txt` (§2.4): like
   `ttl-reset.txt` it moves the old overworld (`region`, `entities`, `poi`, DH sqlite) to `ttl-backup/<time>/`, but then
   **moves `/data/import/region` into place instead of leaving the folder empty**, and triggers `/ttl worldreset
   minecraft:overworld` so the scripts re-place Tempest, Dwargon, landmarks, builds and the arrival and move players.
-- Upgrade: lazy DFU + populate on first load (pregen, §5). The pack's `noise_settings/overworld.json` gets `sea_level: 64`
+- Upgrade: lazy DFU + populate on first load (pregen, §5). The pack's `noise_settings/overworld.json` gets `sea_level: 65`
   so the generated ring matches the import (§2.1).
 
 ### 1.4 Disk budget (30 Gi today)
@@ -104,21 +105,25 @@ WorldUpgrader, all 796k chunks before the level opens, ~15–40 min on 2 CPU; ra
 | `ttl-backup/<time>/` of the current generated overworld (the November reset world + its pregen) | 3–6 GB until deleted |
 | **Total** | **18–30 GB** |
 
-Recommendation (Q1): grow `mc-data` to **60 Gi** (Longhorn expansion: scale to 0, edit the PVC in the Homelab manifest,
-ArgoCD syncs; Longhorn grows the filesystem on next attach), and move the old overworld backup to the NAS (Longhorn backup
+Recommendation (Q1): grow `mc-data` to **60 Gi** (Longhorn expansion: edit the PVC in the Homelab manifest (PR #60, WP-L10),
+ArgoCD syncs; Longhorn grows an attached volume online, else at the next attach), and move the old overworld backup to the NAS (Longhorn backup
 target) before deleting `ttl-backup/<time>/` from the PVC. ttl-ops already pauses the pregen at 85 % disk.
 
 ### 1.5 Backup and rollback
 
-- Before: a manual Longhorn snapshot + backup of `mc-data` (the nightly 03:00 snapshot and the 04:30 NAS backup exist;
-  trigger one by hand), `tools/server.sh rcon "save-all flush"`, scale to 0.
+- Before: the nightly 03:00 Longhorn snapshot and the 04:30 NAS backup of `mc-data` exist, and a manual one (Yasuke,
+  Longhorn UI) is optional. No scale to 0: the marker is applied at the next start, and the restart's shutdown saves the
+  world first.
 - The marker keeps the old overworld in `ttl-backup/<time>/` (nothing deleted); the DH sqlite goes with it; BlueMap is purged.
-- Rollback = scale to 0, move `ttl-backup/<time>/{region,entities,poi,DistantHorizons*}` back, delete the import's
-  `region/`, `git revert` the data commits (anchors) on `main`, start. Player positions on the old terrain are restored by the
-  scripts' epoch logic (`world_reset.js`: players whose position belongs to the old epoch are moved to spawn on login —
-  after a rollback bump nothing; they log in where they were).
-- The runbook (§6.3) does the import on a night with nobody online and does not delete `ttl-backup` until the bot tests
-  are green and the owner has looked at the map.
+- Rollback (WP-L10, `docs/server.md` "World import", "Rollback") uses the same marker. Revert the data commits (anchors,
+  grid, `sea_level`) on `main` and keep ttl-portals 0.9.0; once that is deployed, move
+  `ttl-backup/<time>/minecraft/overworld/{region,entities,poi}` to `/data/rollback` (a rename; the marker refuses a source
+  inside `ttl-backup`), write `minecraft:overworld rollback <count>` and restart. Lerfing's map goes to a new
+  `ttl-backup/<time>/`. No scale to 0 is needed. The old DH database only goes back by hand, with the server stopped. Like any import, the
+  rollback runs `/ttl worldreset`, so players are moved to spawn when they log in (`world_reset.js` epoch).
+- The runbook (§6.3) does the import at any time when nobody is online (owner, 19/11/2026: test as soon as possible). It
+  does not delete `ttl-backup` until the bot tests are green and the owner has looked at the map. Only the pregen waits for
+  the night.
 
 ## 2. Worldgen outside the import
 
@@ -134,8 +139,8 @@ target) before deleting `ttl-backup/<time>/` from the PVC. ttl-ops already pause
   1,300–1,500 blocks of open sea on every side, and vanilla land can begin ~2,100–2,300 blocks from Lerfing's coast
   (a boat trip of a few minutes; the owner's "ocean ring, then vanilla"). Climate channels (`erosion`, `temperature`,
   `vegetation`) fade to vanilla over the sea as today (`SEA_CLIMATE` 300) — they no longer shape any land.
-- **Sea level**: `pack/kubejs/data/minecraft/worldgen/noise_settings/overworld.json` `sea_level` 63 → **64**, so the generated
-  ring's top water block is y 63 like the import's (a 1-block step would let a 7-block fringe of flowing water creep over the
+- **Sea level**: `pack/kubejs/data/minecraft/worldgen/noise_settings/overworld.json` `sea_level` 63 → **65**, so the generated
+  ring's top water block is y 64 like the import's (a 1-block step would let a 7-block fringe of flowing water creep over the
   generated sea along the whole seam). Vanilla beaches/aquifers in the ring and the free lands simply sit one block higher.
 - **Beyond the ring**: vanilla (TerraBlender regions where installed) as today; the free lands are never pregenerated.
 - **Edge seams**: the generator never touches an existing chunk, and the chunk pipeline's neighbour requirements at the edge
@@ -368,7 +373,7 @@ seeded patch jitter); `J.zones` in `canon_regions.json` keeps the geometry for `
 | `canon_regions.json` landmarks | `ref` pixels | `at` world coords (§3.4) | §3.5 |
 | `sites` | 43 | none | §2.2 |
 | `ring` / `blend` | 1600 / 800 | 2000 / 800 | §2.1 |
-| `sea_level` | 63 | 64 | §2.1 |
+| `sea_level` | 63 | 65 | §2.1 |
 | Tempest | (0, 0) | (1720, 900) | §3.2 |
 | Dwargon gate | (435, −1000) | (1900, −500) | §3.3 |
 | Arrival | (271, −624) | (1780, −150), yaw −161 | §3.2 |
@@ -418,8 +423,8 @@ about the free lands, not a strait). No script changes: every consumer (`boss.js
 | Memory and IO during population | DFU allocation churn + features + light per chunk on 7 G heap, 2 CPU; the IO-worker `CompoundTag.write` spin seen on 19/11 | populate only during the night pregen (DH `INTERNAL_SERVER`, `BALANCED`); ttl-ops stops on a crash or at 85 % disk; watch `neoforge tps` and pod RSS the first night; if GC thrashes, `PREGEN_THREADS` 2 and heap 8 G (pod limit 10 Gi allows it) |
 | Watchdog on fresh terrain | placers waiting for FULL chunks; an imported chunk needs populate + light to reach FULL | `life/chunk_hold.js` tickets (no synchronous forceload) already; 600-chunk areas took 7.5 s/100 chunks on generation, populate is cheaper; nothing of ours runs `forceload add` on first boot |
 | Populate changes the look | `dark_forest`/`jungle`/`forest` cells get vanilla trees on top of Lerfing's; Jura's band gets dark oak; the core gets labyrinth trees | accepted for the Jura rings (owner decision, Q4); jungle/forest are Lerfing's own intent; plains (10 % of the map) only get grass and the rare tree |
-| Sea-level seam | 1-block water step along 4 × 16k blocks of seam | `sea_level` 64 (§2.1); the tool prints the edge histogram |
-| BlueMap render size | 1.5× the old mask; the first full render takes hours in the game JVM at 1 thread | purge + `force-update` on the import night; render mask = inner tiles; `min-inhabited-time` 0 so pregen'd chunks render; watch tiles size |
+| Sea-level seam | 1-block water step along 4 × 16k blocks of seam | `sea_level` 65 (§2.1); the tool prints the edge histogram |
+| BlueMap render size | 1.5× the old mask; the first full render takes hours in the game JVM at 1 thread | purge + `force-update` on the import day; render mask = inner tiles; `min-inhabited-time` 0 so pregen'd chunks render; watch tiles size |
 | DH | a fresh LOD db for 1.5× the area; clients keep stale LODs of the old terrain | move the server sqlite with the backup (marker does it); tell players to clear the DH client cache for the server (known from the 19/11 reset) |
 | Pregen of the outer ring | the ring is generated, not imported: deep ocean, cheap; the vanilla free lands beyond must NOT be pregenerated | `PREGEN_X=64, PREGEN_Z=256, PREGEN_RADIUS=520` chunks (covers the inner tiles; the square's corners are ring sea); ~1.0 M chunks; at 60–100 cps (populate, not generation) 3–5 h → one or two nights |
 | Disk | §1.4 | PVC 60 Gi (Q1), backup to NAS, delete `ttl-backup` after sign-off |
@@ -438,7 +443,7 @@ Wave A is offline and parallel; B needs A's anchor table; C needs B; D is the ni
 | --- | --- | --- | --- | --- |
 | **WP-L1 Import tool** | A | `tools/lerfing/import.py` (status rename, repaint from `repaint.json` + J rings, inner tiles only, rasters, report, sha256 manifest, `--verify`); `tools/lerfing/probe.py x z [half]` (land/water/height/biome/relief from the rasters, or exact columns with `--world`/`--zip`); NBT reader/writer | `tools/lerfing/{import,probe,nbt,common}.py`, `design/data/lerfing/{repaint.json,landmask16.png,heights16.png,biomes16.png,legend.json}`, `tests/test_lerfing_import.py` | unit test green on a synthetic region; a real run on the zip reports 796,544 chunks, 0 × `liquid_carvers`, 0 × nether/end biomes; rasters committed |
 | **WP-L2 Grid and regions** | A | `tools/lerfing_grid.py` (land mask + polygons → `canon_map.txt`); `canon_regions.json` rewrite (lerfing block, polygons of §3.1, `at` landmarks, no sites, ring 2000, J radius zones); `gen_data.py` landmark/anchor table + `anchors.toml`; `gen_map.py` on `at`; `tests/test_lerfing_anchors.py` replaces `test_canon_sites.py` | `tools/lerfing_grid.py`, `pack/config/ttl/canon_map.txt`, `pack/config/ttl/canon_regions.json`, `tools/gen_data.py` (anchor section), `tools/gen_map.py`, `design/data/anchors.toml` (generated), `tests/test_lerfing_anchors.py`, `tools/canon_map.py` (deleted) | `validate.py` passes; `CanonGrid` self-check passes on the new grid with the arrival; every landmark on land; the BlueMap conf regenerated |
-| **WP-L3 Mod 0.9.0** | A | `ttl-import.txt` marker in `WorldReset`; `/ttlmap` imported branch; `/ttlregion` from stored biome; `CanonGrid.main` anchor checks; `sea_level` 64 in the pack's noise settings | `mod/.../WorldReset.java`, `CanonMapCommand.java`, `RegionTitles.java`/`CanonGrid.java` (main), `pack/kubejs/data/minecraft/worldgen/noise_settings/overworld.json`, `tools/release_mod.py` run | `gradlew build`; self-check; released as mod-v0.9.0 before the pack commit |
+| **WP-L3 Mod 0.9.0** | A | `ttl-import.txt` marker in `WorldReset`; `/ttlmap` imported branch; `/ttlregion` from stored biome; `CanonGrid.main` anchor checks; `sea_level` 65 in the pack's noise settings | `mod/.../WorldReset.java`, `CanonMapCommand.java`, `RegionTitles.java`/`CanonGrid.java` (main), `pack/kubejs/data/minecraft/worldgen/noise_settings/overworld.json`, `tools/release_mod.py` run | `gradlew build`; self-check; released as mod-v0.9.0 before the pack commit |
 | **WP-L7 Dwargon in the mountain** | A (blueprint) / B (placer) | `dwargon.py` grey palette switch, version 7; `dwargon.js` carve mode + bands from data; Dragon's Nest height assert; lore `dwargon.md` | `blueprints/dwargon.py`, `blueprints/_dwargon_lib.py`, `pack/kubejs/server_scripts/ttl/life/dwargon.js`, `design/lore/dwargon.md`, `tests/ingame/builds.rcon` (dwargon cells) | structures rebuilt; `builds.rcon` dwargon cells green on staging after the import; `verify_build.py dwargon --min 98` |
 | **WP-L4 Data re-anchoring** | B | `world.toml [anchors]` (tempest, dwargon, arrival) read by `tempest.js`/`dwargon.js`/`arrival.toml`; new x/z in all 28 build TOMLs and `landmarks.toml`; NPC and sidequest world spots; `bosses.toml` anchored spawns; `artifice.toml` smithy; `gen_data` anchor syntax for `check_arena`; `generated/anchors.js` | `design/data/{world,arrival,landmarks,npcs,sidequests,bosses,artifice}.toml`, `design/builds/*.toml` (x/z/search/beside only), `tools/gen_data.py` (anchor syntax), `generated/*` regenerated, `life/tempest.js` + `life/dwargon.js` (read the anchor: two lines) | `validate.py`, unit tests, `test_lerfing_anchors.py` green; every spot probed with `tools/lerfing/probe.py` (land, water < max_wet, relief noted in the TOML `notes`) |
 | **WP-L5 Quests** | B | `gen_quests.py` anchor syntax; rewrite the overworld location tasks of chapters 1–13, 20–23; comments updated | `tools/gen_quests.py`, `design/quests/*.toml`, FTB SNBT regenerated, `tests/test_story_chapters_*.py` | `quest_graph.py --check`: 21 chapters, 304 quests; `quests.rcon` sections 1–7 green after the import |
@@ -455,30 +460,41 @@ Wave A is offline and parallel; B needs A's anchor table; C needs B; D is the ni
 ### 6.2 Order on `main`
 
 L1, L2, L3 (mod released first), L7-blueprint → one merge; L4, L5, L8, L7-placer → one merge (data + structures regenerated
-together, `validate.py`, `--check` generators); L6, L10 → merge; then L9 on the night. ttl-ops deploys `main` only when
-nobody is online; the import night is a manual step on top (it needs the server scaled to 0).
+together, `validate.py`, `--check` generators); L6, L10 → merge; then L9 (any time nobody is online). ttl-ops deploys `main` only when
+nobody is online. The import is a manual step on top (`tools/import_world.sh` and a deploy restart, §6.3). It needs nobody
+online, but not a night and not a stopped server (WP-L10).
 
-### 6.3 Reset / import runbook (lead, in this order, nobody online)
+### 6.3 Import runbook (lead, in this order; any time nobody is online — WP-L10)
 
-1. Offline: `python -I tools/lerfing/import.py "<zip>" --out <dir>`, then `… --out <dir> --verify` → check `<dir>/report.json` (796,544 chunks, statuses, biomes,
-   edge histogram), commit the rasters. `python tools/validate.py`, `python -m unittest discover -s tests`.
-2. Upload `<dir>/region/` to `/data/import/region/` on the PVC (tar stream or scp + debug pod); verify the sha256 manifest.
-3. Homelab PR merged: PVC 60 Gi (Q1), pregen env, BlueMap mask. Wait for ArgoCD; confirm `df -h /data` shows the new size.
-4. `bash tools/server.sh rcon "dh pregen stop"`, `rcon "save-all flush"`, Longhorn manual snapshot + backup, then
-   `kubectl … scale deploy/mc --replicas=0`.
-5. From a debug pod on the volume: `echo "minecraft:overworld import" > /data/world-ttl/ttl-import.txt`; make sure
-   `/data/ttl-pregen.done` is gone; `rm -f /data/world-ttl/data/DistantHorizons.sqlite*` is done by the marker (check after boot).
-6. Scale to 1. Log must show `[ttl] world import: minecraft:overworld from import; old terrain in ttl-backup/<time>`, then
-   `[ttl] arrival grounded at 1780 … −150`, `[ttl] tempest placed`, `[ttl] dwargon placed`, the 7 landmarks and 28 builds
+The import is pre-made terrain, so it no longer waits for a night. Only the pregen stays night-only (owner rule).
+The step-by-step version, with the log lines, is `docs/server.md` "World import".
+
+1. Offline: `python -I tools/lerfing/import.py "<zip>" --out <dir>`, then `… --out <dir> --verify`. Check
+   `<dir>/report.json` (796,544 chunks, statuses, biomes, edge histogram) and commit the rasters. Run
+   `python tools/validate.py` and `python -m unittest discover -s tests`.
+2. `main` is ready: mod-v0.9.0 is released and `main` carries it with the Lerfing grid, `sea_level` 65 and the anchor
+   table (L1–L8 merged, §6.2). ttl-ops deploys it when nobody is online.
+3. Disk: merge the Homelab PR (PVC 60 Gi, pregen `64 256 520`) and confirm `df -h /data` shows the new size. 30 Gi holds
+   the upload (about 90 % used afterwards), but no pregen runs above 85 %.
+4. `bash tools/import_world.sh --dry-run`, then `bash tools/import_world.sh`. The script refuses while anyone is online,
+   checks the free space, uploads to `/data/import/region` (resumable), checks sha256 on the pod, writes
+   `minecraft:overworld import 800` to `/data/world-ttl/ttl-import.txt` (only if `main` is ready) and removes
+   `/data/ttl-pregen.done`. The server keeps running throughout.
+5. Restart with the normal deploy: `bash tools/server.sh deploy` (or ttl-ops' own deploy of a new `main`). No scale to 0
+   and no debug pod. The nightly Longhorn snapshot plus `ttl-backup/<time>/` are the safety net.
+6. The log must show `[ttl] world import: source OK: 800 region files (6.59 GB), 796544 chunks; …`, then
+   `[ttl] world import: minecraft:overworld from import; old terrain in ttl-backup/<time> (moved); …`, then
+   `[ttl] arrival grounded at 1780 … −150`, `[ttl] tempest placed`, `[ttl] dwargon placed`, the 7 landmarks and the 28 builds
    (`[ttl] chunks: holding …` lines, no watchdog). First checks: `ttlmap 1720 900` = imported chunk;
-   `execute in minecraft:overworld if block -453 73 979 minecraft:chest` = Lerfing's spawn chest still there (proof that
+   `execute in minecraft:overworld if block -453 73 979 minecraft:chest` = Lerfing's spawn chest is still there (proof that
    no proto chunk was regenerated); `/ttl world expect continent 1720 900 yes`, `… 9000 0 no`.
-7. `bluemap purge tensura`, `bluemap force-update tensura`; `/ttl build list`, `/ttl landmark list` all placed;
-   `verify_build.py <name> --log --min 98` for dwargon, tempest and a sample of six builds (one per quadrant);
+7. `bluemap purge tensura`, `bluemap force-update tensura`; `/ttl build list` and `/ttl landmark list` show everything
+   placed; `verify_build.py <name> --log --min 98` for dwargon, tempest and a sample of six builds (one per quadrant);
    `MSYS2_ARG_CONV_EXCL=/data bash tools/server.sh test-all` = 0 failing.
-8. Start the pregen by hand (`dh config generation.chunkMode INTERNAL_SERVER`, `common.threadPreset BALANCED`,
-   `dh pregen start minecraft:overworld 64 256 520`) or let ttl-ops take the night; watch TPS, RSS, `df`.
-9. Owner looks at https://map.daviddelporte.com; then delete `ttl-backup/<time>/` from the PVC (the NAS backup keeps it).
+8. Players can test at once: chunks are populated on first load. The pregen (`64 256 520`: every imported tile plus the
+   ring north and south) is run only by ttl-ops at night, 23:00–07:00, with nobody online and the disk under 85 %.
+9. The owner looks at https://map.daviddelporte.com. Then delete `ttl-backup/<time>/` from the PVC (the NAS backup
+   keeps it). Rollback, if he does not want it: `docs/server.md` "World import", "Rollback".
 10. `docs/HANDOFF.md`, `decisions.md`, `roadmap-public.md`.
 
 ## 7. Open questions for the owner (with recommendations)

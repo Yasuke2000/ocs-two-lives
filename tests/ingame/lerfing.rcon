@@ -1,0 +1,80 @@
+# Lerfing's map as the Life 2 overworld (design/architecture/lerfing-import.md, WP-L6): the checks of the import night, run
+# against the imported world. `@import` skips the whole test on any other world (test-all prints "lerfing skipped", not a
+# failure); TTL_IMPORTED=1 forces it. Every coordinate comes from tests/anchors.env, written by tools/gen_data.py from
+# design/data/anchors.toml (${anchor:...}) and design/data/lerfing/probes.toml (${probe:...}); nothing is hard-coded here.
+# `@expect N <regex> :: <command>` retries a reply that only prints (/ttlmap, /ttlregion), `execute if ...` prints "Test passed" /
+# "Test failed" (tools/test_lib.sh documents the syntax; tests/test_lerfing_tests.py runs it offline).
+#
+# 1. The chunks are Lerfing's, not regenerated: his proto chunks carry status minecraft:carvers since the offline rename
+#    (liquid_carvers is an unknown status in 1.21.1: it would read as EMPTY and the chunk would be generated from scratch, his
+#    terrain gone). So the block at three landmarks of his map must still be his: the spawn chest, the gravel summit of the
+#    Canaat (y 316), a trunk block of Paulzero's giant tree.
+# 2. /ttlmap reports "imported chunk: stored biome ..." and /ttlregion names the Jura rings from the STORED biome: the core
+#    at Tempest (ancient_forest), the dark band at the old goblin village (dark_forest), the rim at the arrival.
+# 3. The arrival (anchor `arrival`) is on the rim and dry; Dwargon's gate area (anchor `dwargon`) is stony_peaks (his
+#    soul_sand_valley, repainted); the far west is barren_land (his the_end, repainted).
+# 4. Beyond the inner tiles the generator makes the ring: deep ocean, canon weight 1 up to ring (2000) from the land, 0 from
+#    ring + blend (2800) on, where the vanilla world begins. (The sea level at the seam is lerfing_sea.rcon.)
+# Expect in the log: no "[ttl] ... failed", and no chunk regenerated ("Unknown chunk status" / "liquid_carvers" never appears).
+# Needs the placers done (Tempest, Dwargon, the landmarks): the blocks checked in 1 lie outside every build.
+@import
+ttlbot spawn TtlBotLerf
+@sleep 2
+ttl reset TtlBotLerf
+gamemode creative TtlBotLerf
+kubejs stages add TtlBotLerf ttl.life2
+# ---- load the chunks (imported chunks populate on first load: features, light; a minute at most each) ----
+execute in minecraft:overworld run forceload add ${probe:chest.x} ${probe:chest.z}
+execute in minecraft:overworld run forceload add ${probe:canaat_summit.x} ${probe:canaat_summit.z}
+execute in minecraft:overworld run forceload add ${probe:paulzero_trunk.x} ${probe:paulzero_trunk.z}
+execute in minecraft:overworld run forceload add ${probe:barren_lands.x} ${probe:barren_lands.z}
+execute in minecraft:overworld run forceload add ${anchor:tempest}
+execute in minecraft:overworld run forceload add ${anchor:dwargon}
+@until 120 execute in minecraft:overworld if loaded ${probe:chest.x} ${probe:chest.y} ${probe:chest.z}
+@until 120 execute in minecraft:overworld if loaded ${probe:canaat_summit.x} ${probe:canaat_summit.y} ${probe:canaat_summit.z}
+@until 120 execute in minecraft:overworld if loaded ${probe:paulzero_trunk.x} ${probe:paulzero_trunk.y} ${probe:paulzero_trunk.z}
+@until 120 execute in minecraft:overworld if loaded ${probe:barren_lands.x} 64 ${probe:barren_lands.z}
+@until 120 execute in minecraft:overworld if loaded ${anchor:tempest.x} 64 ${anchor:tempest.z}
+@until 120 execute in minecraft:overworld if loaded ${anchor:dwargon.x} 64 ${anchor:dwargon.z}
+# ---- 1. no liquid_carvers regeneration: his blocks ----
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:chest} ${probe:chest.block}
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:canaat_summit} ${probe:canaat_summit.block}
+@expect 5 Test passed :: execute in minecraft:overworld if block ${probe:paulzero_trunk} ${probe:paulzero_trunk.block}
+# ---- 2. /ttlmap says imported; the stored biome is what the import tool painted ----
+@expect 30 imported chunk: stored biome tensura:ancient_forest :: ttlmap ${anchor:tempest}
+@expect 30 imported chunk: stored biome ${probe:canaat_summit.biome} :: ttlmap ${probe:canaat_summit.x} ${probe:canaat_summit.z}
+@expect 30 imported chunk: stored biome ${probe:barren_lands.biome} :: ttlmap ${probe:barren_lands.x} ${probe:barren_lands.z}
+# ---- 3. Dwargon's gate area is the Canaat's rock; /ttlregion names the Jura rings; the arrival is dry ----
+@expect 30 : 'D' :: ttlmap ${anchor:dwargon}
+@expect 30 imported chunk: stored biome minecraft:stony_peaks :: ttlmap ${anchor:dwargon}
+execute in minecraft:overworld positioned ${anchor:tempest.x} 0 ${anchor:tempest.z} positioned over motion_blocking_no_leaves run tp TtlBotLerf ~ ~ ~
+@sleep 1
+@expect 10 at ${anchor:tempest.x} ${anchor:tempest.z}: Jura.*stored biome tensura:ancient_forest, zone core :: ttlregion TtlBotLerf
+execute in minecraft:overworld positioned ${anchor:goblin_village.x} 0 ${anchor:goblin_village.z} positioned over motion_blocking_no_leaves run tp TtlBotLerf ~ ~ ~
+@sleep 1
+@expect 10 at ${anchor:goblin_village.x} ${anchor:goblin_village.z}: Jura.*stored biome minecraft:dark_forest, zone dark band :: ttlregion TtlBotLerf
+execute in minecraft:overworld positioned ${anchor:arrival.x} 0 ${anchor:arrival.z} positioned over motion_blocking_no_leaves run tp TtlBotLerf ~ ~ ~
+@sleep 1
+@expect 10 at ${anchor:arrival.x} ${anchor:arrival.z}: Jura.*zone rim \(safe\) :: ttlregion TtlBotLerf
+@expect 5 Test passed :: execute as TtlBotLerf at @s unless block ~ ~ ~ minecraft:water unless block ~ ~-1 ~ minecraft:water unless block ~ ~-1 ~ minecraft:lava
+# ---- 4. the ocean ring and the vanilla world beyond it ----
+@expect 5 '\.' open sea, canon weight 1\.00 :: ttlmap ${probe:ring_east}
+@expect 5 band: deep ocean :: ttlmap ${probe:ring_east}
+@expect 5 canon weight 1\.00 :: ttlmap ${probe:ring_south}
+@expect 5 band: deep ocean :: ttlmap ${probe:ring_south}
+@expect 5 canon weight 1\.00 :: ttlmap ${probe:ring_west}
+@expect 5 band: deep ocean :: ttlmap ${probe:ring_west}
+@expect 5 canon weight 0\.00 :: ttlmap ${probe:vanilla_east}
+@expect 5 canon weight 0\.00 :: ttlmap ${probe:vanilla_south}
+ttl world expect continent ${probe:ring_east} no
+ttl world expect continent ${probe:vanilla_east} no
+# ---- clean up ----
+execute in minecraft:overworld run forceload remove ${probe:chest.x} ${probe:chest.z}
+execute in minecraft:overworld run forceload remove ${probe:canaat_summit.x} ${probe:canaat_summit.z}
+execute in minecraft:overworld run forceload remove ${probe:paulzero_trunk.x} ${probe:paulzero_trunk.z}
+execute in minecraft:overworld run forceload remove ${probe:barren_lands.x} ${probe:barren_lands.z}
+execute in minecraft:overworld run forceload remove ${anchor:tempest}
+execute in minecraft:overworld run forceload remove ${anchor:dwargon}
+kubejs stages remove TtlBotLerf ttl.life2
+ttl reset TtlBotLerf
+ttlbot remove TtlBotLerf
