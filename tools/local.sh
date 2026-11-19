@@ -57,9 +57,12 @@ rcon_password() {
 }
 rcon_once() { "$PY" -I "$(winpath "$ROOT/tools/rcon.py")" --port "$RCON_PORT" --password-file "$(winpath "$STATE/rcon.password")" "$1"; }
 # One connection for a whole test run (tools/rcon.py --serve), on fds 7/8 so the runner's subshells can use it.
+# Each command starts TTL_LOCAL_TICKS game ticks after the previous one ended: on staging a command is a kubectl exec
+# (~0.17 s, 3 ticks), and tests count on what a script schedules a tick later (the Corridor after a `kill`) being done.
+TICKS=${TTL_LOCAL_TICKS:-1}
 RCON_OPEN=
 rcon_open() {
-  coproc RCONP { "$PY" -I "$(winpath "$ROOT/tools/rcon.py")" --serve --port "$RCON_PORT" --password-file "$(winpath "$STATE/rcon.password")"; }
+  coproc RCONP { "$PY" -I "$(winpath "$ROOT/tools/rcon.py")" --serve --ticks "$TICKS" --port "$RCON_PORT" --password-file "$(winpath "$STATE/rcon.password")"; }
   exec 7>&"${RCONP[1]}" 8<&"${RCONP[0]}"
   RCON_OPEN=1
 }
@@ -95,6 +98,7 @@ wait_ready() {  # until RCON answers and the log says Done, or the process dies
     fi
     if grep -q 'Done (' "$SRV/logs/latest.log" 2>/dev/null && rcon_once "list" >/dev/null 2>&1; then
       say "ready in $(( $(now) - t0 ))s ($(grep -m1 -o 'Done ([0-9.]*s)' "$SRV/logs/latest.log"))"
+      now > "$STATE/ready.at"
       return 0
     fi
     [ $(( $(now) - t0 )) -lt "$deadline" ] || die "not ready after ${deadline}s; see tools/local.sh logs"
@@ -131,8 +135,8 @@ stop_server() {
   pid_alive || { say "not running"; rm -f "$STATE/server.pid"; return 0; }
   local p t0
   p=$(cat "$STATE/server.pid"); t0=$(now)
-  say "stopping (save-all, stop)"
-  rcon_once "stop" >/dev/null 2>&1 || true
+  say "stopping (stop saves every level, then exits)"
+  rcon_once "stop" >/dev/null 2>&1 || say "RCON did not take 'stop'; waiting for the process anyway"
   while pid_alive; do
     if [ $(( $(now) - t0 )) -gt 120 ]; then
       say "no clean stop after 120s; killing pid $p"
@@ -141,8 +145,30 @@ stop_server() {
     fi
     sleep 1
   done
-  rm -f "$STATE/server.pid"
-  say "stopped in $(( $(now) - t0 ))s"
+  rm -f "$STATE/server.pid" "$STATE/ready.at"
+  if grep -q 'All dimensions are saved' "$SRV/logs/latest.log" 2>/dev/null; then say "stopped in $(( $(now) - t0 ))s (all levels saved)"
+  else say "stopped in $(( $(now) - t0 ))s, but the log does not say the levels were saved: a snapshot now may be torn"; fi
+}
+
+# The start-up placers (Tempest, Dwargon, landmarks, then the canon builds from tick 1800, builds.js START_DELAY) run
+# one by one in the background for many minutes on a fresh world; tests that place or expect a build queue behind
+# them and fail. Staging's world finished them long ago. Waits until the builds queue is empty.
+wait_settled() {
+  local deadline=${1:-3600} t0 up left n last=
+  t0=$(now)
+  up=$(( t0 - $(cat "$STATE/ready.at" 2>/dev/null || echo 0) ))
+  if [ "$up" -lt 100 ]; then say "waiting $(( 100 - up ))s for the build queue to start (builds.js START_DELAY)"; sleep $(( 100 - up )); fi
+  while :; do
+    left=$(rcon_once "ttl build list" | grep -E 'pending|FAILED' || true)
+    n=$(grep -c 'pending' <<<"$left" || true)
+    [ "$n" -gt 0 ] || break
+    [ $(( $(now) - t0 )) -lt "$deadline" ] || { printf '%s
+' "$left" >&2; die "start-up builds still pending after ${deadline}s"; }
+    [ "$n" = "$last" ] || say "waiting for $n start-up build(s) to place ($(grep -m1 -o '^[a-z_]*' <<<"$left") ...)"
+    last=$n
+    sleep 10
+  done
+  [ $(( $(now) - t0 )) -lt 2 ] || say "start-up placements done in $(( $(now) - t0 ))s"
 }
 
 # --- install ---------------------------------------------------------------------------------------------
@@ -405,8 +431,8 @@ do_up() {
   wait_ready
   if [ -n "$first" ] && [ ! -d "$SNAPS/base" ]; then
     # Let the start-up placements (mortal spawn, landmarks ~45 s after start) finish, then keep this world.
-    say "first boot: waiting 90s for start-up placements, then saving snapshot 'base'"
-    sleep 90
+    say "first boot: waiting for the start-up placements, then saving snapshot 'base'"
+    wait_settled 5400
     stop_server; snapshot_save base; start_server; wait_ready
   fi
   say "up in $(( $(now) - t0 ))s"
@@ -432,6 +458,7 @@ case "${1:-}" in
   sync)     t0=$(now); sync_pack; say "sync in $(( $(now) - t0 ))s" ;;
   test)
     running || die "the local server is not running (tools/local.sh up)"
+    wait_settled
     rcon_open
     if [ "${2:?usage: local.sh test <name>|all}" = all ]; then
       mkdir -p "$D/test-out"; rm -f "$D/test-out"/*.out
