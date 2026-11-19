@@ -62,7 +62,7 @@
 					dimension: "minecraft:overworld"
 					id: "739C0C4660E84210"
 					ignore_dimension: false
-					position: [I; 1888, -64, -603]
+					position: [I; 1866, -64, -647]
 					size: [I; 25, 384, 25]
 					type: "location"
 				}
@@ -101,7 +101,7 @@
 					dimension: "minecraft:overworld"
 					id: "57A7CE013047253E"
 					ignore_dimension: false
-					position: [I; 1880, -64, -592]
+					position: [I; 1858, -64, -636]
 					size: [I; 17, 384, 17]
 					type: "location"
 				}
@@ -194,7 +194,7 @@
 					dimension: "minecraft:overworld"
 					id: "02034A12C6521724"
 					ignore_dimension: false
-					position: [I; 1888, -64, -618]
+					position: [I; 1866, -64, -662]
 					size: [I; 25, 384, 25]
 					type: "location"
 				}
@@ -235,7 +235,7 @@
 					dimension: "minecraft:overworld"
 					id: "5F0DAD5ED3490D05"
 					ignore_dimension: false
-					position: [I; 1888, -64, -618]
+					position: [I; 1866, -64, -662]
 					size: [I; 25, 384, 25]
 					type: "location"
 				}
@@ -347,7 +347,7 @@
 					dimension: "minecraft:overworld"
 					id: "2234CA3D4DD600F1"
 					ignore_dimension: false
-					position: [I; 1880, -64, -592]
+					position: [I; 1858, -64, -636]
 					size: [I; 17, 384, 17]
 					type: "location"
 				}
@@ -481,7 +481,7 @@
 					dimension: "minecraft:overworld"
 					id: "063051C7D7133F39"
 					ignore_dimension: false
-					position: [I; 1884, -64, -582]
+					position: [I; 1862, -64, -626]
 					size: [I; 33, 384, 33]
 					type: "location"
 				}
@@ -539,7 +539,7 @@
 					dimension: "minecraft:overworld"
 					id: "3D4FA01442F6EF0C"
 					ignore_dimension: false
-					position: [I; 1868, -64, -576]
+					position: [I; 1846, -64, -620]
 					size: [I; 21, 384, 21]
 					type: "location"
 				}
@@ -547,7 +547,7 @@
 					dimension: "minecraft:overworld"
 					id: "4C90030DC29DA12C"
 					ignore_dimension: false
-					position: [I; 1912, -64, -576]
+					position: [I; 1890, -64, -620]
 					size: [I; 21, 384, 21]
 					type: "location"
 				}
@@ -598,7 +598,7 @@
 					dimension: "minecraft:overworld"
 					id: "1E4A998DF8D59E82"
 					ignore_dimension: false
-					position: [I; 1888, -64, -618]
+					position: [I; 1866, -64, -662]
 					size: [I; 25, 384, 25]
 					type: "location"
 				}

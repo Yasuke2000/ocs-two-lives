@@ -62,9 +62,9 @@ class TextTokens(unittest.TestCase):
         self.assertEqual(gen_quests.expand("t", "${anchor:tempest.x-400}"), str(t["x"] - 400))
         self.assertEqual(gen_quests.expand("t", "${dir:tempest>dwargon}"), "north")
         self.assertEqual(gen_quests.expand("t", "${dir:dwargon>tempest}"), "south")
-        self.assertEqual(gen_quests.expand("t", "${dist:tempest>dwargon}"), "1,400")
+        self.assertEqual(gen_quests.expand("t", "${dist:tempest>dwargon}"), "1,500")
         self.assertEqual(gen_quests.expand("t", "no tokens, 100% plain"), "no tokens, 100% plain")
-        self.assertEqual((d["x"] - t["x"], d["z"] - t["z"]), (180, -1400))
+        self.assertEqual((d["x"] - t["x"], d["z"] - t["z"]), (158, -1444))
 
     def test_compass_axes(self):
         self.assertEqual([gen_quests.compass(*v) for v in ((0, -5), (5, -5), (5, 0), (5, 5), (0, 5), (-5, 5), (-5, 0), (-5, -5))],
@@ -103,7 +103,7 @@ class RealBook(unittest.TestCase):
         files = gen_quests.render()
         lang = next(v for p, v in files.items() if p.name == "en_us.snbt")
         self.assertNotIn("${", lang)
-        self.assertIn("About 1,400 blocks north of Tempest", lang)
+        self.assertIn("About 1,500 blocks north of Tempest", lang)
 
     def test_no_old_world_places_left_in_the_text(self):
         # the 14,000-block fan map put Tempest at 0, 0 and Dwargon's gate at 435, -1000; neither exists any more
@@ -141,7 +141,7 @@ class WikiAndGuide(unittest.TestCase):
                 text = (ROOT / "docs" / "wiki" / lang / f"{name}.md").read_text(encoding="utf-8")
                 self.assertIn(f"{a['x']}, ", text, f"{lang}/{name}")
                 self.assertNotIn("271", text, f"{lang}/{name} still cites the old arrival")
-        self.assertEqual((a["x"], a["z"], g["x"], g["z"], t["x"], t["z"]), (1780, -150, 1900, -500, 1720, 900))
+        self.assertEqual((a["x"], a["z"], g["x"], g["z"], t["x"], t["z"]), (1780, -150, 1878, -544, 1720, 900))
 
     def test_guide_directions(self):
         guide = (ROOT / "design" / "data" / "guide.toml").read_text(encoding="utf-8")

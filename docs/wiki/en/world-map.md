@@ -6,7 +6,7 @@ Positions are the middle of a place; the exact doorway depends on the ground and
 
 ## Your first steps
 
-You arrive at **(1780, −150)** on the northern edge of Jura, on the road between the two places every soul hears about first. **Dwargon’s white gate is north** at **(1900, −500)**, a short walk uphill (about 370 blocks). **Tempest is south** at **(1720, 900)**, 1,050 blocks away across the forest’s dangerous inner rings. Read [the rings of Jura](jura-rings.md) before you walk south.
+You arrive at **(1780, −150)** on the northern edge of Jura, on the road between the two places every soul hears about first. **Dwargon’s white gate is north** at **(1878, −544)**, a short walk uphill (about 400 blocks). **Tempest is south** at **(1720, 900)**, 1,050 blocks away across the forest’s dangerous inner rings. Read [the rings of Jura](jura-rings.md) before you walk south.
 
 For the whole continent use [BlueMap](https://map.daviddelporte.com) (select **Tensura (Life 2)**; terrain and markers, no live player dots) or the [regions and anchors atlas](../../previews/lerfing_regions.png), which works when the web map is offline.
 
@@ -40,8 +40,8 @@ Lerfing drew the lands; the pack decides which nation each part is. A few readin
 | Hidden ogre village (burned ruin) | 2150, 400 | Jura | `ogre_village_ruin` |
 | Treyni’s grove (dryad sanctuary) | 1920, 1540 | Jura | `treyni_grove` |
 | Treyni’s shrine | 1958, 1540 | Jura | `treyni_shrine` |
-| Dwargon main gate | 1900, −500 | Dwargon | `dwargon` |
-| Dwargo, the cavern capital | 1900, −600 | Dwargon |  |
+| Dwargon main gate | 1878, −544 | Dwargon | `dwargon` |
+| Dwargo, the cavern capital | 1878, −644 | Dwargon |  |
 | Dwarf village on the road to Dwargon | 2000, −110 | Dwargon | `dwarf_village` |
 | Dwarven Arena | 2200, −80 | Dwargon | `dwarven_arena` |
 | Great Ameld River, source | 2500, −200 | Dwargon |  |

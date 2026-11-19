@@ -6,7 +6,7 @@ De posities wijzen het midden van een plek aan; de precieze ingang hangt van de 
 
 ## Je eerste stappen
 
-Je komt aan bij **(1780, −150)** aan de noordrand van Jura, op de weg tussen de twee plekken waar elke ziel het eerst van hoort. **De witte poort van Dwargon ligt in het noorden** op **(1900, −500)**, een korte klim (ongeveer 370 blokken). **Tempest ligt in het zuiden** op **(1720, 900)**, 1.050 blokken verderop, voorbij de gevaarlijke binnenringen van het bos. Lees [de ringen van Jura](jura-rings.md) voor je naar het zuiden loopt.
+Je komt aan bij **(1780, −150)** aan de noordrand van Jura, op de weg tussen de twee plekken waar elke ziel het eerst van hoort. **De witte poort van Dwargon ligt in het noorden** op **(1878, −544)**, een korte klim (ongeveer 400 blokken). **Tempest ligt in het zuiden** op **(1720, 900)**, 1.050 blokken verderop, voorbij de gevaarlijke binnenringen van het bos. Lees [de ringen van Jura](jura-rings.md) voor je naar het zuiden loopt.
 
 Voor het hele continent gebruik je [BlueMap](https://map.daviddelporte.com) (kies **Tensura (Life 2)**; landschap en markeringen, geen live spelersposities) of de [atlas met regio’s en ankerpunten](../../previews/lerfing_regions.png), die ook werkt als de webkaart offline is.
 
@@ -40,8 +40,8 @@ Lerfing tekende de landen; de pack bepaalt welk land welk deel is. Enkele keuzes
 | Verborgen ogerdorp (afgebrande ruïne) | 2150, 400 | Jura | `ogre_village_ruin` |
 | Treyni’s bos, toevluchtsoord van de dryaden | 1920, 1540 | Jura | `treyni_grove` |
 | Heiligdom van Treyni | 1958, 1540 | Jura | `treyni_shrine` |
-| Hoofdpoort van Dwargon | 1900, −500 | Dwargon | `dwargon` |
-| Dwargo, de grottenhoofdstad | 1900, −600 | Dwargon |  |
+| Hoofdpoort van Dwargon | 1878, −544 | Dwargon | `dwargon` |
+| Dwargo, de grottenhoofdstad | 1878, −644 | Dwargon |  |
 | Dwergendorp aan de weg naar Dwargon | 2000, −110 | Dwargon | `dwarf_village` |
 | Dwergenarena | 2200, −80 | Dwargon | `dwarven_arena` |
 | Grote Ameld, bron | 2500, −200 | Dwargon |  |

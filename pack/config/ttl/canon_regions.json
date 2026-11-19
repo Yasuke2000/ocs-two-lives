@@ -332,12 +332,12 @@
     {
       "name": "Dwargo (Dwargon cavern capital)",
       "kind": "capital",
-      "at": [1900, -600]
+      "at": [1878, -644]
     },
     {
       "name": "Dwargon main gate",
       "kind": "gate",
-      "at": [1900, -500]
+      "at": [1878, -544]
     },
     {
       "name": "Dragon's Nest (highest peak of the Great Canaat Mountains)",

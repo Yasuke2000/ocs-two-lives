@@ -1,32 +1,41 @@
 // Places the Armed Nation of Dwargon (blueprints/dwargon.py → structures ttl:dwargon_0..n, one z slab each) in
-// the Tensura world, in the southern mountains of Dwargon on the canon map (pack/config/ttl/canon_map.txt), its
-// gate facing Jura and world spawn. Bump TTL_DWARGON_VERSION after changing the blueprint; a world reset of the
-// overworld places it again on the new terrain (world_reset.js).
+// Lerfing's grey Canaat massif: carved INTO the real mountain (owner, 19/11/2026; WP-L7b), the gate facing south
+// onto the apron and the road to Tempest. Bump TTL_DWARGON_VERSION after changing the blueprint or the placement; a
+// world reset or the import of the overworld places it again (world_reset.js).
 //
-// Grounding (TtlDwargonFootprint, generated/dwargon_footprint.js, written by tools/build_structures.py):
+// Carve (TtlDwargonFootprint, generated/dwargon_footprint.js, written by tools/build_structures.py): the structures
+// hold the city, the cavern's air with a 2-block lining of rock, and the open air of the cleft in front of the gate
+// and of the skylight crack up to the top of the box; the rest of the box is left out, so Lerfing's rock stays above
+// and around the city. GATE and BASE were chosen offline on the real heights (tools/lerfing/dwargon_fit.py: >= 6
+// blocks of rock over every closed column, the forecourt running out onto the apron at the south edge).
 // 1. hold the box + margin with chunk tickets (life/chunk_hold.js: generated in the background, no synchronous
 //    `forceload` burst), wait at least 10 s and until every chunk is FULL (at most 10 min, then not placed);
-// 2. read the real ground per column (heightmaps) BEFORE placing; the base layer is chosen so the road in
-//    front of the gate sits at the median ground height of the approach probes;
-// 3. place the slabs, one every 2 ticks;
-// 4. clear terrain above the open-sky columns (road, ravine, skylight crack) and cut 1:1 slopes round them;
-// 5. fill the gap under every footprint column down to the ground (nothing floats), plus a 1:1 talus skirt
-//    round the edges, in banded Canaat rock like the mountain; FILLS_PER_TICK one-column fills per tick.
-// 5b. terrain repair (life/repair.js): caves, lava and water under the city filled, the plain continued at the road
-//    level in box columns the blueprint leaves empty, pits and crevices in the talus and the margin closed (no second
-//    slab pass here, so the repair never touches a block the blueprint defines, explicit air included: `bottom`).
+// 2. read the real ground per column (heightmaps) BEFORE placing; the base layer is BASE (without it: the road in
+//    front of the gate at the median ground height of the approach probes); log the rock cover over the city;
+// 3. place the slabs, one every 2 ticks (the structure air carves the cavern, the cleft and the crack);
+// 4. clear terrain above the open-sky columns that the box top does not reach (none on Lerfing's massif);
+// 5. fill only gaps: under footprint columns down to the ground (the forecourt where the apron is lower than the
+//    road) plus a 1:1 talus skirt round the edges, in the Canaat bands of WP-L7a; FILLS_PER_TICK fills per tick.
+// 5b. terrain repair (life/repair.js): caves, lava and water under the city filled; columns the blueprint leaves
+//    empty are the real mountain, so they only get the ring rules (pits and crevices closed, never above the road
+//    level), all in the Canaat palette (no second slab pass, so the repair never touches a block the blueprint
+//    defines, explicit air included: `bottom`).
 // 6. the throne room's banners get their canon Dwargon patterns (TtlDwargonRoyal.banners; structure files built
 //    from code carry no block entity data).
 // King Gazel (TtlDwargonGazel): tensura:gazel_dwargo seated on his throne, checked every 30 s while the throne
 // is loaded and summoned again when missing. He shows a boss bar and wakes on right-click unless tamed, so he
 // gets a dummy Owner (no real player), NoAI, Invulnerable, Silent, PersistenceRequired; Phase 0 = seated.
-const TTL_DWARGON_VERSION = 7
+const TTL_DWARGON_VERSION = 8
 
 const TtlDwargon = {
-  // The arrival point in front of the gate; its blueprint coordinates are TtlDwargonFootprint.arrival.
-  // At the foot of the Canaat Mountains (lore: the city fills a hollow at their base), ~270 blocks inside
-  // Dwargon's southern border at the 14,000-block scale, facing the highway to Tempest.
-  GATE: { x: 435, z: -1000 },
+  // The arrival point in front of the gate (blueprint TtlDwargonFootprint.arrival), rotation none: the gate faces
+  // south. At the foot of the escarpment on the Canaat's south flank (the plateau above it at y 200-215 holds the
+  // cavern), 1,440 blocks north of Tempest (design/data/anchors.toml dwargon; tools/lerfing/dwargon_fit.py).
+  GATE: { x: 1878, z: -544 },
+  // World y of the blueprint's layer 0 (the road at y BASE + 3, the arrival at BASE + 4): the road meets the apron
+  // at the box's south edge and the rock over the city is 7 blocks at its thinnest (median 28). null = old fit.
+  BASE: 142,
+  COVER: 6,
   PROBE: 'ttl_dwargon_probe',
   FILLS_PER_TICK: 150,
   FALLBACK_DEPTH: 48,
@@ -89,7 +98,8 @@ const TtlDwargon = {
     return y
   },
 
-  // Base layer: arrival y (one above the road block) at the median ground height of the approach probes.
+  // Base layer: BASE when set (the carve), else the arrival y (one above the road block) at the median ground height
+  // of the approach probes. The probes are logged either way.
   chooseBase(server, hm) {
     var f = TtlDwargonFootprint
     var b = this.box()
@@ -104,7 +114,31 @@ const TtlDwargon = {
     ys.sort((a, c) => a - c)
     var median = ys[Math.floor(ys.length / 2)]
     console.info(`[ttl] dwargon: approach ground ${ys[0]}..${ys[ys.length - 1]} over ${ys.length} probes, median ${median}`)
+    if (typeof this.BASE === 'number') return this.BASE
     return median - f.arrival[1]
+  },
+
+  // Rock over the city from the heightmaps read before placing (footprint `roof` = highest interior air per closed
+  // column): logged, and a warning when any column has less than COVER blocks (the import is not what the fit saw).
+  coverReport(hm, base) {
+    var f = TtlDwargonFootprint
+    if (!hm || !f.roof) return null
+    var b = this.box()
+    var w = f.grid[0]
+    var roof = this.decode(f.roof, w * f.grid[1])
+    var cov = []
+    for (var i = 0; i < roof.length; i++) {
+      if (roof[i] === f.none) continue
+      cov.push(hm.ground(b.ax0 + i % w, b.az0 + Math.floor(i / w)) - 1 - (base + roof[i]))
+    }
+    if (cov.length === 0) return null
+    cov.sort((a, c) => a - c)
+    var thin = 0
+    for (var k = 0; k < cov.length && cov[k] < this.COVER; k++) thin++
+    var line = `rock cover over ${cov.length} columns min ${cov[0]}, median ${cov[Math.floor(cov.length / 2)]}, ${thin} under ${this.COVER}`
+    if (thin > 0) console.warn(`[ttl] dwargon: ${line} (the skirt fills what it can; see tools/lerfing/dwargon_fit.py)`)
+    else console.info(`[ttl] dwargon: ${line}`)
+    return line
   },
 
   hash(x, z) {
@@ -173,17 +207,20 @@ const TtlDwargon = {
     var n = w * f.grid[1]
     var fill = this.decode(f.fill, n)
     var bottom = f.bottom ? this.decode(f.bottom, n) : fill
+    var carve = typeof this.BASE === 'number'
     var m = f.margin
     return {
       label: 'dwargon', enabled: true, dimension: TtlLife.OVERWORLD, ring: m, x0: b.ax0, z0: b.az0, w: w, l: f.grid[1],
       ground: base + f.arrival[1] - 1, depth: TtlRepair.DEPTH, keepWater: false,
-      mat: { top: 'minecraft:grass_block', fill: 'minecraft:dirt', deep: 'minecraft:stone' },
+      // The Canaat's own blocks (WP-L7a): clay and tuff, which do not fall like its gravel would over a filled gap.
+      mat: { top: 'minecraft:clay', fill: 'minecraft:tuff', deep: 'minecraft:stone' },
       col: (gx, gz) => {
         var i = gz * w + gx
         var inBox = gx >= m && gz >= m && gx < m + f.size[0] && gz < m + f.size[2]
         if (inBox && bottom[i] !== f.none) return { t: 'build', bottom: base + bottom[i] }
         if (fill[i] !== f.none) return { t: 'ring', slope: base + fill[i] - 1 }
-        return inBox ? { t: 'ground' } : { t: 'ring', slope: null }
+        // Carved: an empty box column is Lerfing's mountain, not a plain to continue at the road level.
+        return inBox && !carve ? { t: 'ground' } : { t: 'ring', slope: null }
       }
     }
   },
@@ -216,6 +253,7 @@ const TtlDwargon = {
       done(false)
       return
     }
+    var cover = this.coverReport(hm, base)
     var cmds = this.terrainCommands(hm, base)
     var self = this
     var part = 0
@@ -242,6 +280,7 @@ const TtlDwargon = {
           server.persistentData.putInt('ttl.dwargon.version', TTL_DWARGON_VERSION)
           server.persistentData.putInt('ttl.dwargon.base', base)
           server.persistentData.putString('ttl.dwargon.gate', `${self.GATE.x + 0.5} ${gy} ${self.GATE.z + 0.5}`)
+          server.persistentData.putString('ttl.dwargon.cover', cover || '')
           TtlDwargonGazel.replace(server)
         }
         console.info(`[ttl] dwargon placed: corner ${b.x0} ${base} ${b.z0}, gate at ${self.GATE.x} ${gy} ${self.GATE.z} (version ${TTL_DWARGON_VERSION}, terrain ${ok ? 'done' : 'FAILED'})`)

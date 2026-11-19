@@ -135,7 +135,7 @@ class LerfingAnchors(unittest.TestCase):
         a = self.anchors
         self.assertEqual((a["tempest"]["x"], a["tempest"]["z"]), (1720, 900))
         self.assertEqual(self.cell(1720, 900), "J")
-        self.assertEqual((a["dwargon"]["x"], a["dwargon"]["z"]), (1900, -500))
+        self.assertEqual((a["dwargon"]["x"], a["dwargon"]["z"]), (1878, -544))
         for aid in ("dwargon", "dwargo", "dwargon_throne", "kaijin_smithy", "dragons_nest"):
             self.assertEqual(self.cell(a[aid]["x"], a[aid]["z"]), "D", aid)
         # The gate faces south down the road to Tempest: the city lies north of the gate, Tempest straight south.

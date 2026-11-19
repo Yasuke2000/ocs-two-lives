@@ -1,11 +1,13 @@
 """The Armed Nation of Dwargon: the dwarf kingdom in a great cavern inside Lerfing's grey Canaat mountain.
 
 Lore notes and sources: design/lore/dwargon.md. SIZE (148, 92, 168), saved as three z slabs dwargon_0..2
-(z 0-55, 56-111, 112-167; PARTS) placed side by side by life/dwargon.js. The gate faces south (+z). The
-mountain is part of the build (a stepped massif in the Canaat's own surface mix, see CANAAT_*, two spurs
-flanking the gate); outside the mountain and the approach the corners are left empty and terrain stays.
-Grounding: outputs() writes generated/dwargon_footprint.js (lowest block per column, open-sky columns),
-which dwargon.js uses to fill the ground under the build and clear hills off the road (see there).
+(z 0-55, 56-111, 112-167; PARTS) placed side by side by life/dwargon.js. The gate faces south (+z). Carved
+into Lerfing's Canaat massif (CARVE, WP-L7b): the city, the cavern's air with a LINING of rock, the cleft in
+front of the gate and the skylight crack are in the structure, the rest of the box is left to the real
+mountain (the stepped massif in the Canaat's own surface mix, CANAAT_*, is only built in memory for the layout).
+Grounding: outputs() writes generated/dwargon_footprint.js (lowest block per column, open-sky columns, the
+roof over the city), which dwargon.js uses to fill gaps under the forecourt and log the rock cover (see there;
+tools/lerfing/dwargon_fit.py checks the placement on the real heights).
 Outer road: from the south edge (z 167) past a checkpoint arch (z 160) and a road tower with a banner
 (z 148-152, west), then fenced queue lanes for the gate inspection (z 114-125) between two guard booths, to
 the white gate wall (back z 104, front face z 107, towers out to z 111 and up to y 29, yellow banners with
@@ -40,6 +42,12 @@ CX = 74         # street centre line (x)
 PLAZA_Z = 54    # plaza centre (z)
 CAV_N, CAV_S = 14, 100
 GATE_Z = 104    # back of the gate wall (front face at GATE_Z + 3)
+# Carve mode (WP-L7b, owner 19/11/2026: Dwargon INSIDE Lerfing's Canaat): the structure keeps only the city, the
+# cavern's air, a LINING of rock round it (the cavern walls' look, glow stones, no loose gravel over the street),
+# and the open air of the cleft and the skylight crack up to the top of the box. Every other block of the shell is
+# left out, so Lerfing's mountain stays above and around the city (see carve()).
+CARVE = True
+LINING = 2
 
 
 def M(name: str) -> str:
@@ -110,8 +118,9 @@ def cav_half(z: int, h: int, side: int) -> float:
     return base + (noise2(h, z, 4, 40 + side) - 0.5) * 3.0
 
 
-def cave_set(H: dict) -> set:
-    """Cavern, entrance tunnel and the skylight crack above the street and plaza."""
+def cave_set(H: dict):
+    """Cavern, entrance tunnel and the skylight crack above the street and plaza; also the crack positions that
+    lie above the cavern proper (open sky, so the carve lines no rock round them)."""
     out = set()
     for z in range(CAV_N, CAV_S + 1):
         for h in range(1, 54):
@@ -127,6 +136,7 @@ def cave_set(H: dict) -> set:
             half = 4 if h <= 9 else 3 if h == 10 else 1
             for x in range(CX - half, CX + half + 1):
                 out.add((x, G + h, z))
+    crack_only = set()
     for (x, z), top in H.items():
         crack = False
         if 26 <= z <= CAV_S - 4:
@@ -136,15 +146,31 @@ def cave_set(H: dict) -> set:
             crack = True
         if crack:
             for y in range(G + 20, top + 1):
+                if (x, y, z) not in out:
+                    crack_only.add((x, y, z))
                 out.add((x, y, z))
-    return out
+    return out, crack_only
+
+
+def cleft_floor(x: int, z: int) -> bool:
+    """Carve mode: the forecourt's open floor (the cleft at street level, within the approach's width)."""
+    return abs(x - CX) <= 44 and in_cleft(x, G + 1, z)
+
+
+def decor_spot(x: int, z: int, H: dict) -> bool:
+    """A boulder or bush beside the road: on open ground (the cleft's floor when carving, else off the massif)."""
+    if CARVE:
+        return all(cleft_floor(x + dx, z + dz) for dx in (-1, 0, 1, 2) for dz in (-1, 0, 1, 2))
+    return (x, z) not in H
 
 
 def in_cleft(x: int, y: int, z: int) -> bool:
-    start = GATE_Z if y <= G + 21 else GATE_Z - int(noise2(x, y, 4, 61) * 3)
+    # Carving through the real escarpment, the walls stand steeper (less of Lerfing's slope cut away) and the back
+    # wall never steps over the gate (the rock between the cleft and the cavern's south end stays >= 3 thick).
+    start = GATE_Z if y <= G + 21 or CARVE else GATE_Z - int(noise2(x, y, 4, 61) * 3)
     if z < start:
         return False
-    hw = 24 + max(0, z - GATE_Z) * 0.5 + (y - G) * 0.22 + (noise2(y, z, 5, 60) - 0.5) * 3
+    hw = 24 + max(0, z - GATE_Z) * 0.5 + (y - G) * (0.12 if CARVE else 0.22) + (noise2(y, z, 5, 60) - 0.5) * 3
     return abs(x - CX) <= hw
 
 
@@ -231,7 +257,7 @@ class City:
 def terrain(c: City):
     bp = c.bp
     H = heights()
-    cave = cave_set(H)
+    cave, c.crack = cave_set(H)
     cleft_cols = set()
     for (x, z), top in H.items():
         nb = [H.get((x + dx, z + dz), G) for dx, dz in ((-1, 0), (1, 0), (0, -1), (0, 1), (-2, 0), (2, 0), (0, -2), (0, 2))]
@@ -303,11 +329,19 @@ def approach(c: City, H: dict):
         for z in range(GATE_Z, SZ):
             mountain = (x, z) in H
             open_floor = mountain and bp.blocks.get((x, G + 1, z)) == AIR
-            if mountain and not open_floor:
+            if CARVE:
+                # Carved into the real slope: the forecourt is the cleft's floor only; elsewhere the slope stays.
+                if not cleft_floor(x, z):
+                    continue
+                for y in range(G):
+                    bp.set(x, y, z, M("stone") if y == 0 else canaat_block(canaat_pick(x, z, True), False))
+                    c.rock.discard((x, y, z))
+            elif mountain and not open_floor:
                 continue
-            for y in range(G):
-                if (x, y, z) not in bp.blocks or not mountain:
-                    bp.set(x, y, z, M("stone") if y == 0 else M("dirt"))
+            else:
+                for y in range(G):
+                    if (x, y, z) not in bp.blocks or not mountain:
+                        bp.set(x, y, z, M("stone") if y == 0 else M("dirt"))
             bp.set(x, G, z, canaat_block(canaat_pick(x, z, True), True))
             c.rock.discard((x, G, z))
             top = max(G + 16, H.get((x, z), 0))
@@ -337,7 +371,7 @@ def approach(c: City, H: dict):
     # A few boulders and bushes beside the road.
     for i, (bx, bz) in enumerate(((CX - 14, GATE_Z + 18), (CX + 15, GATE_Z + 23), (CX - 22, GATE_Z + 29), (CX + 9, GATE_Z + 32), (CX - 9, GATE_Z + 11),
                                      (CX + 24, GATE_Z + 41), (CX - 30, GATE_Z + 47), (CX + 12, GATE_Z + 58))):
-        if (bx, bz) in H:
+        if not decor_spot(bx, bz, H):
             continue
         for dx in (0, 1):
             for dz in (0, 1):
@@ -345,7 +379,7 @@ def approach(c: City, H: dict):
         bp.set(bx, G + 2, bz, M("tuff"))
     for i, (bx, bz) in enumerate(((CX - 18, GATE_Z + 13), (CX + 20, GATE_Z + 16), (CX + 13, GATE_Z + 29), (CX - 27, GATE_Z + 22), (CX + 26, GATE_Z + 31),
                                      (CX - 16, GATE_Z + 39), (CX + 32, GATE_Z + 52), (CX - 24, GATE_Z + 58), (CX + 18, GATE_Z + 45))):
-        if (bx, bz) in H:
+        if not decor_spot(bx, bz, H):
             continue
         for dx, dz, dy in ((0, 0, 1), (1, 0, 1), (0, 1, 1), (-1, 0, 1), (0, -1, 1), (0, 0, 2)):
             bp.set(bx + dx, G + dy, bz + dz, M("oak_leaves[persistent=true]") if i % 2 else M("spruce_leaves[persistent=true]"))
@@ -1167,6 +1201,61 @@ def light_city(c: City):
     raise RuntimeError("dwargon: could not light every spawnable spot")
 
 
+def _dilate(points, r: int) -> set:
+    out = set(points)
+    for axis in range(3):
+        grown = set()
+        for p in out:
+            for d in range(-r, r + 1):
+                q = list(p)
+                q[axis] += d
+                grown.add(tuple(q))
+        out = grown
+    return out
+
+
+def carve(c: City):
+    """Drop the built mountain: keep the city, its interior air and a LINING of rock round it; open the cleft in
+    front of the gate and the skylight crack up to the top of the box (dwargon.js never clears above that, Lerfing's
+    massif is lower there; tools/lerfing/dwargon_fit.py checks it). bp.roof = the highest interior air of every
+    column without crack air, which Lerfing's rock closes (the cover check in dwargon_fit.py and dwargon.js)."""
+    bp = c.bp
+    inner = [p for p, s in bp.blocks.items()
+             if s == AIR and p not in c.outside and p not in c.crack and p[2] < GATE_Z + 4]
+    keep = _dilate(inner, LINING)
+    for p in [p for p in c.rock if p not in keep]:
+        bp.blocks.pop(p, None)
+    c.rock &= keep
+    for p in c.outside:
+        if bp.blocks.get(p) == AIR:
+            del bp.blocks[p]
+    c.outside = set()
+    for x in range(CX - 44, CX + 45):
+        for z in range(GATE_Z - 3, SZ):
+            for y in range(G + 1, SY):
+                if (x, y, z) not in bp.blocks and in_cleft(x, y, z):
+                    bp.blocks[(x, y, z)] = AIR
+                    c.outside.add((x, y, z))
+    top = {}
+    for (x, y, z) in bp.blocks:
+        if y > top.get((x, z), -1):
+            top[(x, z)] = y
+    crack_cols = {(x, z) for (x, y, z) in c.crack if bp.blocks.get((x, y, z)) == AIR}
+    for (x, z) in crack_cols:
+        if bp.blocks[(x, top[(x, z)], z)] != AIR:
+            continue
+        for y in range(top[(x, z)] + 1, SY):
+            bp.blocks[(x, y, z)] = AIR
+            c.crack.add((x, y, z))
+        top[(x, z)] = SY - 1
+    roof = {}
+    for (x, y, z) in inner:
+        if (x, z) not in crack_cols and y > roof.get((x, z), -1):
+            roof[(x, z)] = y
+    bp.roof = roof
+    c.open_holes = sum(1 for (x, y, z) in inner if (x, y + 1, z) in c.outside)
+
+
 def build(bp):
     c = City(bp)
     H, cave = terrain(c)
@@ -1184,9 +1273,13 @@ def build(bp):
     bridges(c)
     outpost(c)
     light_city(c)
+    if CARVE:
+        carve(c)
     bp.stats = dict(homes=len(c.homes), ladders=c.ladders, bridges=c.bridges)
     bp.banner_patterns = c.banner_patterns
-    if c.breaches:
+    if CARVE and c.open_holes:
+        print(f"dwargon: warning, {c.open_holes} cavern air blocks are open to the sky outside the crack")
+    if not CARVE and c.breaches:
         print(f"dwargon: warning, {c.breaches} cavern blocks break the mountain surface")
 
 

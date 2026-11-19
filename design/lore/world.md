@@ -37,7 +37,7 @@ anchors in blocks.
   **Tempest** stands in its middle at (1720, 900).
 - **The Canaat Mountains and Dwargon (D)** rise directly **north** of Jura. The grey massif begins at about z −250 and climbs
   to the summit (y 316) at (2502, −1432); its lava lake sits at the top (x 2250..2500, z −1450..−1300). **Dwargon's gate**
-  is at (1900, −500), 1,400 blocks due north of Tempest, with the city carved into the apron.
+  is at (1878, −544), about 1,450 blocks north of Tempest, with the city carved into the foot of the south-flank escarpment.
 - **Lake Siss and its marsh (W)** lie **east of Jura**: the lake at (3050, 750), 1,340 blocks east of Tempest, ringed by the swamp x 2350..3950.
   The Great Ameld rises at the apron foot (2500, −200), feeds the lake and runs on to the eastern sea at (4580, 2300).
 - **Milim's Domain (M)** is the huge badland to the **east** of the lake, x 3950..7700. **Jistav (P)** is its north-eastern
@@ -112,10 +112,10 @@ Grid letter, name, `banner_subtitle`, then lore, terrain on Lerfing's map and la
   peak. The range makes invasion over the mountains impractical.
 - **Terrain.** Lerfing's Canaat is a 2,900 × 2,100-block grey dome (gravel, clay, tuff, cobblestone, stone; stored biome
   stony peaks, 76 % of the region) from y ~90 at z −250 to the summit y 316 at (2502, −1432), with a lava lake at its top.
-  Its south face is a long apron, not a cliff. Dwargon itself is **inside the mountain** (owner, 19/11/2026): the city body
-  is carved into the apron with the mountain closing over it. See [dwargon.md](dwargon.md).
-- **Landmarks:** the gate (1900, −500), base y ≈ 146, facing south down the road to Tempest (1,400 blocks, straight south);
-  Dwargo, the capital (1900, −600); Gazel's throne room (1900, −606); Kaijin's smithy (1888, −584); the dwarf village
+  Its south face is a long apron, not a cliff, broken by escarpments. Dwargon itself is **inside the mountain** (owner,
+  19/11/2026): the city is carved into the plateau behind one escarpment, 7 to 64 blocks of rock over it (WP-L7b). See [dwargon.md](dwargon.md).
+- **Landmarks:** the gate (1878, −544), road y 145, facing south down the road to Tempest (about 1,450 blocks, south);
+  Dwargo, the capital (1878, −644); Gazel's throne room (1878, −650); Kaijin's smithy (1866, −628); the dwarf village
   (2000, −110) on the apron foot, 150 blocks east of the road; the Dwarven Arena (2200, −80); the Dragon's Nest on the
   summit shoulder (2420, −1536, y 273), 100 blocks north of the lava lake.
 - **Distances.** The trip from the goblin village to Dwargon takes about two months on foot and three days on
@@ -336,7 +336,7 @@ backdrop, the mesa field for the Sealed Cave to the north-west. The runner-up is
 | Treyni's grove | (1920, 1540) | 671 |
 | Life 2 arrival | (1780, −150) | 1,052 |
 | Lake Siss | (3050, 750) | 1,338 |
-| Dwargon gate | (1900, −500) | 1,412 |
+| Dwargon gate | (1878, −544) | 1,453 |
 | Blumund capital | (−450, 150) | 2,296 |
 | Laura | (3300, 2600) | 2,321 |
 | City of the Forgotten Dragon | (4680, 840) | 2,961 |

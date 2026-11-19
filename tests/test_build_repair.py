@@ -103,7 +103,10 @@ class Footprints(unittest.TestCase):
         grid = unrle(f["bottom"])
         self.assertEqual(len(grid), w * l)
         box = [grid[(z + m) * w + x + m] for z in range(f["size"][2]) for x in range(f["size"][0])]
-        self.assertEqual(box, unrle(fp["bottom"]))
+        # A box column of air alone (the cleft's upper walls in carve mode, WP-L7b) counts as undefined: the repair must
+        # not lay a foundation under air that hangs over Lerfing's lower ground.
+        want = [b if low != fp["none"] else fp["none"] for b, low in zip(unrle(fp["bottom"]), unrle(fp["fill"]))]
+        self.assertEqual(box, want)
         margin = [grid[i] for i in range(w * l) if not (m <= i % w < m + f["size"][0] and m <= i // w < m + f["size"][2])]
         self.assertEqual(set(margin), {f["none"]})
 

@@ -4639,8 +4639,8 @@ const TtlData = {
           ],
           "capital": "dwargon",
           "center": [
-            1900,
-            -536
+            1878,
+            -580
           ]
         },
         "id": "dwargon",
