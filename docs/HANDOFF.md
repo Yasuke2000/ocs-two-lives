@@ -13,6 +13,19 @@ Sacred Mountain terraces, ogre ruin, the orange patch near the arrival); `locate
 "Cannot call property dimension" in life/locate.js); `sidequests` merchant_escort done/stage fail locally (also before);
 `arena_dwarven` duel step "not in a running match" fails locally since 19/11 evening (arenas.rcon passes).
 
+## 19/11 — Own world: first authored SVG (ChatGPT, `chatgpt/map-round-one`)
+
+Replaced the schematic map with an original coast and three landmasses, six lakes, six rivers, five mountain
+footprints, seven hill areas, twelve forests, twelve biome areas and all 22 national regions. Preserved all 58 site IDs
+and their checker-approved positions except Frost Palace, moved 50 blocks north to its new coastal ledge.
+Twenty road/trail corridors include all required routes and local approaches; six bridgeable wet crossings.
+**Verified:** `python -I tools/world/map_check.py world/map.svg --preview world/preview.png`: 0 errors, 0 warnings,
+56 canon relations passed. Inspected preview. Design box 12,288 x 10,240, mainland 9,623 x 5,830.
+`bash tools/check.sh`: validation passed, 417 fast-tier tests passed (25 skips).
+**Next:** region book, place art and painting over this exact preview; review the painting, then refine the SVG.
+No worldgen, placement, mod, tools or runtime data edits. This is map round 1, not a terrain or server acceptance.
+
+
 ## 19/11 evening — Lerfing placements: grounded landmarks, no duplicates, arena in the dwarf village (branch `fix-lerfing-placements`, Claude)
 
 **Fixed** (design/decisions.md 19/11 "Lerfing placements"): landmarks are grounded on the real terrain with a foundation
