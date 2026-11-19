@@ -1,8 +1,9 @@
 # The Dragon's Nest (highest peak of the Great Canaat Mountains)
 
 Build: `blueprints/dragons_nest.py` (73 x 46 x 73, anchor (36, 9, 62) at the south gap of the nest wall), `design/builds/dragons_nest.toml`
-on the landmark "Dragon's Nest (highest peak of the Great Canaat Mountains)" (ref [1860, 700] -> world about (370, -2402), inside
-Dwargon's region D).
+at world (2420, -1536) on Lerfing's map: the summit shoulder of the Canaat, y 273, relief 6 over 90 x 90, 100 blocks north of the
+lava lake and under the y 316 peak at (2502, -1432); inside Dwargon's region D. The build is 46 high with its floor at layer 8,
+so its top stays below the world limit of 320.
 
 ## Canon (what is and is not known)
 

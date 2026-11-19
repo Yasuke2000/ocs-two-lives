@@ -1,8 +1,8 @@
 # Treyni's shrine (dryad altar beside the ancient tree)
 
 Build: `blueprints/treyni_shrine.py` (33 x 22 x 33, anchor (16, 5, 16) = the centre of the dais), `design/builds/treyni_shrine.toml`
-at world about (1988, -223): the canon landmark "Treyni's grove (Dryad sanctuary)" (ref [2150, 1100] -> (1950, -223), east of
-the Great Ameld) plus 38 blocks east. The ancient tree is Tensura's own `tensura:ancient_forest/tree` placed by
+at world about (1958, 1540): the canon landmark "Treyni's grove (Dryad sanctuary)" at (1920, 1540) on Lerfing's map (plains, relief 3, east of the
+river that drains Jura's lakes, 670 blocks south-east of Tempest) plus 38 blocks east. The ancient tree is Tensura's own `tensura:ancient_forest/tree` placed by
 `life/landmarks.js` (landmark `treyni_grove`, up to 39 x 42 x 41 blocks, spot surveyed within 64 blocks of the nominal one), so
 the shrine's survey starts 38 blocks east and searches up to 132 blocks. The placer checks the actual tree position, its 48-block reach, the shrine box and margin, and a 24-block separation. The shrine's final direction from the tree depends on the dry land it finds.
 

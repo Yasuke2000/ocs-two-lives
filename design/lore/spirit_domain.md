@@ -2,14 +2,14 @@
 
 Owner request (18/11/2026): "an entrance to the spirit domain", later decided to teleport into its own dimension.
 
-Builds: `blueprints/spirit_gate.py` (57 x 40 x 57, overworld, `design/builds/spirit_gate.toml`, world about (-210, 130)) and
+Builds: `blueprints/spirit_gate.py` (57 x 40 x 57, overworld, `design/builds/spirit_gate.toml`, world about (1540, 1080), 255 blocks south-west of Tempest) and
 `blueprints/spirit_dwelling.py` (89 x 64 x 89, `design/builds/spirit_dwelling.toml`, dimension `ttl:spirit_domain`, fixed y 64).
 Entrance logic: `pack/kubejs/server_scripts/ttl/life/spirit_domain.js`. Test: `tests/ingame/spirit_domain.rcon`.
 
 ## Canon
 
 - In the children's story, the entrance is in **Ulg Nature Park in the far north of the Republic of Ulgracia**. The official map names the park and the country in adjacent entries. Volume 4 and anime episodes 22–23 cover Rimuru's visit with Shizu’s pupils. Stills in episode 22 show a dark, stone-built chamber and Ramiris’s guardian. In episode 23 the children take turns at the pedestal, and Chloe receives a different kind of presence. [Official map, country](https://www.ten-sura.com/map/#A-72) · [Official map, park](https://www.ten-sura.com/map/#A-73) · [Episode 22](https://www.ten-sura.com/anime/tensura/story/no22) · [Episode 23](https://www.ten-sura.com/anime/tensura/story/no23)
-- Ramiris later establishes a dungeon in Tempest. The pack gives Life 2 players access to its separate spirit dimension from the **Jura gateway at (−210, 130)**. That gameplay placement is recorded in the decision log. The canon grid also has a distinct “Galut / Ulgr Nature Park (Ulgracia)” landmark. [Ramiris chronology](https://ja.wikipedia.org/wiki/転生したらスライムだった件#ラミリス) · [Pack decisions](../decisions.md) · [Mapped landmarks](../../pack/config/ttl/canon_regions.json)
+- Ramiris later establishes a dungeon in Tempest. The pack gives Life 2 players access to its separate spirit dimension from the **Jura gateway at (1540, 1080)**, 255 blocks south-west of Tempest in the dark-forest band by the lake shore. That gameplay placement is recorded in the decision log. The canon grid also has a distinct “Galut / Ulgr Nature Park (Ulgracia)” landmark. [Ramiris chronology](https://ja.wikipedia.org/wiki/転生したらスライムだった件#ラミリス) · [Pack decisions](../decisions.md) · [Mapped landmarks](../../pack/config/ttl/canon_regions.json)
 
 ## What we built (our interpretation of appearance)
 

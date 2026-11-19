@@ -69,6 +69,10 @@ generated).
 | `tensura` (Life 2) | `minecraft:overworld` of `world-ttl` | canon continent + 1,000 blocks of sea (x -10,088..5,912, z -6,680..5,448) | 22 region labels (shown when zoomed out), 43 canon landmarks |
 | `mortal_realm` (Life 1) | `ttl:mortal_realm` | 3,000-block square around Wayfarer's Rest | Wayfarer's Rest |
 
+**Credit.** The `tensura` map renders *Tensura by Lerfing* (giant trees by Paulzero); see `CREDITS.md`. Owner
+decision 19/11/2026: the map **stays public after the import** although Lerfing's licence is still unknown; asking
+Lerfing (and Paulzero) for permission is still Yasuke's TODO in `CREDITS.md`.
+
 The Spirit Corridor, Mortal Nether and Mortal End are not mapped. `python tools/gen_map.py` rewrites the two map
 files from `canon_regions.json` and `canon_map.txt` (`--check` tells if they are stale); the knobs (world name, sea
 padding, Mortal radius, marker distances) are constants at the top of the script. Tempest and the Dwargon gate are
