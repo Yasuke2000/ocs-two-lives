@@ -2622,7 +2622,7 @@ hash = "5be721009daa4fe3b83d3be9a1a1de67999de47694689a8ceef75e4d1237bbcc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/director.js"
-hash = "38ab9dc29285abba24c08395ba1c059acb3e2e6d00ff260d33c9d512383a8afe"
+hash = "e870f33901b5691e936ce04bcc74ce2b5c1cf29d3256fbaf5667a09250dff5a6"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/favor.js"
@@ -2702,7 +2702,7 @@ hash = "a9a20fd625f9f3b7e0567e72578c5a9728111dca40efeb513f39a5f107b92c44"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
-hash = "2130a35e34ed7f0b0337ff56674d8f1697379528eb303951f7ca1e4101b8c866"
+hash = "1a8e37139f054a1a2a64f5746759d9c8172b184f799ecad4fea7b26e9719b478"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
@@ -2934,7 +2934,7 @@ hash = "7ccba9a500d6dec5c269a9ebefdae245599533f69547a0ee1c747f3e7d3f920e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/chronicle.js"
-hash = "77d1cfcde382e3dc78e64b4a2920f51bfc1b28143923cfc363a6e7bd425316e1"
+hash = "825e8c4ce818fca5bfe295a6b94eab2d108965b1e065ffc481c9d4f1d6c93b95"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/commands.js"
