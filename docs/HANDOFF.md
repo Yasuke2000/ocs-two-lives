@@ -1,5 +1,21 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 evening — Tensura looks for the generic NPCs (branch `tensura-npc-skins`, Claude)
+
+Yasuke: the generic NPCs (Hald, Marlo, ...) wore Easy NPC's default modern skins. Now `tools/npc_looks.py` (catalogue,
+stdlib) + `tools/gen_npc_looks.py` (Pillow composer) give 23 archetypes / 50 original skins
+(`pack/kubejs/assets/ttl/textures/entity/npc/look_*.png`), plus Tensura's own `falmuth_knight` texture referenced at
+runtime. All 10 adventurers, 5 companions, 5 escort clients and the Outcast contact wear one (`look` in
+`sidequests.toml`, variant = CRC-32 of the name). Contact sheet `docs/previews/npc_skins.png` (**waits for Yasuke's
+approval**); ChatGPT prompts for hand-made art `docs/art/npc-skin-prompts.md`; sources and licences in
+`design/lore/skins.md` "Generic looks". The ambient spawner (`sidequests/adventurers.js`) now prefers a kind not yet at
+the place. **Refresh**: `[ambient] rev` 1 → 2 (the minute sweep, or `/ttl adventurers sweep`, removes the old ones and
+`populate` refills; hired companions take the new look at their next summon, e.g. relog), `npcs.toml rev` 3 → 4 (guild
+and cast NPCs respawn on the next check). **Verified offline only** (check.sh, `tests/test_npc_looks.py`,
+`gen_npc_looks.py --check`); the local server was busy (another agent). **To check in game after the deploy**: skins
+render on a client (front/back, slim arms of Lyra/Mira/Anne/Ilse), `tests/ingame/sidequests.rcon` and
+`guild_npcs.rcon`, and that a town no longer shows the same adventurer twice.
+
 ## 19/11 afternoon — local test loop runs on this PC (branch `local-up-wait`, Claude)
 
 **Verified on the workstation**: `local.sh up` cold 384 s, warm restart 48-63 s, clean stop 6-9 s ("All dimensions are

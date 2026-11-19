@@ -26,7 +26,7 @@
 [settings]
 # Bump to replace every NPC with a fresh one from the current preset on the next check (also what to do after a
 # dialog, look or statue change: the NPC already in the world keeps the dialog it was spawned with).
-rev = 3
+rev = 4
 # The spots are checked this many ticks apart, and once this many ticks after the server has started. A spot whose build is
 # not placed or whose chunk is not loaded costs one command; the NPC of a far town appears within this time of a player's arrival.
 check_ticks = 200
@@ -47,7 +47,8 @@ sneak_bypass = true
 # (pack/kubejs/assets/ttl/textures/entity/npc/<kind id>.png, drawn by tools/gen_skins.py), which gen_npcs.py writes into
 # the preset as SkinData RESOURCE_LOCATION. `model` must match the arm width the PNG is drawn with (gen_skins.py `slim`).
 # carrion.png, louis.png, rigurd.png and gobta.png have no Easy NPC kind (Carrion and Luminous are mod-entity statues,
-# Rigurd and Gobta are hooked goblins of Tempest); they ship for later use.
+# Rigurd and Gobta are hooked goblins of Tempest); they ship for later use. The Outcast is no canon character: it wears a
+# generic look of tools/npc_looks.py (`skin` = the look's PNG, `variant` = the fallback), drawn by tools/gen_npc_looks.py.
 
 [[kind]]
 id = "fuze"
@@ -301,7 +302,8 @@ text = "Mildo is measuring a post twice. He glances at you, then back at the pos
 id = "outcast_contact"
 name = "The Outcast"
 name_color = "#6B6B6B"
-skin = "NOOR"
+skin = "ttl:textures/entity/npc/look_outcast_1.png"   # tools/npc_looks.py "outcast": hood and purple cloak
+variant = "NOOR"
 talk = "outcast_contact"
 description = "The Outcast Society's hooded contact on Tempest's south road (story NPC, the dark path)."
 [kind.dialog]

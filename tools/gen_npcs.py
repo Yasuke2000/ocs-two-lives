@@ -17,6 +17,9 @@ pack/kubejs/assets/ttl/textures/entity/npc/<kind id>.png (64x64), written into t
 those tags; KubeJS assets ship to every client). `skin = "ttl:textures/entity/npc/<name>.png"` points a kind at another file; the
 built-in variant is then given by `variant`. A PNG that is added later is picked up by the next run of this script.
 
+Side content wears a `look` (tools/npc_looks.py): the variant its name picks, a skin of tools/gen_npc_looks.py or a mod's
+own player-layout texture, goes into SkinData the same way.
+
 Side content (design/data/sidequests.toml, sidequests work package): one preset per [[adventurer]] (ttl_adv_<id>: strolls
 round its home, speech-bubble lines, Hire / Work / Farewell buttons), per hireable adventurer (ttl_comp_<id>: vulnerable,
 melee, fights what attacks it or its owner; owner and FOLLOW_OWNER are set by sidequests/companions.js after the import)
@@ -39,6 +42,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))  # python -I
 import anchor_refs  # noqa: E402
+import npc_looks  # noqa: E402
 
 DATA = ROOT / "design" / "data"
 TARGET = ROOT / "pack" / "config" / "easy_npc" / "preset"
@@ -255,8 +259,17 @@ SIDE_PREFIXES = {"adventurer": "ttl_adv_", "companion": "ttl_comp_", "client": "
 
 
 def side_look(kind: dict, own: str) -> dict:
-    """Built-in variant, plus our PNG ttl:textures/entity/npc/<own>.png when it exists."""
+    """Built-in variant, plus the skin of the kind's `look` (tools/npc_looks.py: the variant its name picks), else our
+    PNG ttl:textures/entity/npc/<own>.png when it exists."""
     out = {"VariantType": kind["skin"]}
+    if kind.get("look"):
+        n = npc_looks.pick(kind["look"], kind.get("look_name", kind["name"]), kind.get("model", "humanoid"))
+        rl = npc_looks.texture(kind["look"], n)
+        ns, path = rl.split(":", 1)
+        if ns == "ttl" and not (ASSETS / ns / path).is_file():
+            raise SystemExit(f"sidequests.toml: {kind['id']}: look {kind['look']} #{n} has no {rl}: run python tools/gen_npc_looks.py")
+        out["SkinData"] = {"Texture": rl, "Type": "RESOURCE_LOCATION"}
+        return out
     rl = f"ttl:textures/entity/npc/{own}.png"
     if (ASSETS / "ttl" / rl.split(":", 1)[1]).is_file():
         out["SkinData"] = {"Texture": rl, "Type": "RESOURCE_LOCATION"}

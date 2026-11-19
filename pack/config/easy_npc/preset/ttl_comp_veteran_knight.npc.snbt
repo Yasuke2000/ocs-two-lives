@@ -158,6 +158,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;1058804544,-764849443,-1988270820,-983156546],
     VariantType:"KNIGHT_02",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_guild_veteran_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

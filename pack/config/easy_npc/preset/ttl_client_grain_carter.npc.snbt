@@ -116,6 +116,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;504585001,1177309446,-1167460352,1692497821],
     VariantType:"SUNNY",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_commoner_2.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

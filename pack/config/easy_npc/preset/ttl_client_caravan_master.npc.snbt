@@ -116,6 +116,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;755445694,-806463570,-2098709197,1558389431],
     VariantType:"FARMER_01",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_dwarf_trader_2.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid"
   }
 }

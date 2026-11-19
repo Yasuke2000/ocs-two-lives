@@ -116,6 +116,10 @@
     PersistenceRequired:1b,
     PresetUUID:[I;1500174275,-1247521850,-1676431010,194929],
     VariantType:"MAKENA",
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_scholar_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
     id:"easy_npc:humanoid_slim"
   }
 }
