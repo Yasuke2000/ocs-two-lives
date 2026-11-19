@@ -33,6 +33,7 @@ import json
 import math
 from pathlib import Path
 
+from _beds import CULTURE, pick, place_bed
 from _dwargon_lib import AIR, dark_spots, fbm2, noise2, noise3, rnd
 
 SIZE = (148, 92, 168)
@@ -48,6 +49,7 @@ GATE_Z = 104    # back of the gate wall (front face at GATE_Z + 3)
 # left out, so Lerfing's mountain stays above and around the city (see carve()).
 CARVE = True
 LINING = 2
+BEDS = CULTURE["dwargon"]  # red and gray wool beds (owner, 19/11/2026)
 
 
 def M(name: str) -> str:
@@ -614,6 +616,14 @@ def house(c: City, west: bool, z0: int, w: int, storeys: int, style: int, chimne
             c.put(X(d - 2), y, cz, M("bricks") if smithy else M("cobbled_deepslate"))
         c.put(X(d - 2), ytop - 1, cz, M("hay_block[axis=y]"))
         c.put(X(d - 2), ytop, cz, M("campfire[facing=north,lit=true,signal_fire=true]"))
+    # Beds (the cabaret has none): on up to two living floors, the topmost first. A shop's ground floor is not lived in.
+    # The bed lies along the room beside the chimney wall (the ladder and its foot stay free), head to the back wall
+    # (or one block short of it beside the chimney).
+    if style % len(STYLES) != 4:
+        living = [k for k in range(storeys) if k >= 1 or not sign]
+        for k in sorted(living, reverse=True)[:2]:
+            place_bed(c.put, c.get, X(d - 3 if chimney else d - 2), G + 4 * k + 1, z0 + 1, inn,
+                      pick(BEDS, X(0), z0 + 4 * k))
 
 
 def dwellings(c: City):
@@ -670,6 +680,10 @@ def dwellings(c: City):
             for z in (z0 + 1, z1 - 1):
                 c.put(X(0), y0 + 2, z, M("orange_stained_glass_pane"))
             c.put(X(3), y0 + 1, zm, M("lantern[hanging=false]"))
+            # One bed along the side wall, head to the back wall, and a barrel in the far corner; the door's landing,
+            # the lantern and the middle of the room stay free.
+            place_bed(c.put, c.get, X(4), y0 + 1, z0 + 1, back, pick(BEDS, X(0), z0 + y0))
+            c.put(X(4), y0 + 1, z1 - 1, M("barrel[facing=up,open=false]"))
             c.put(X(-2), y0 + 2, z0 + 1, M("lantern[hanging=false]"))  # keep ladder landings clear
             if i % 3 == 0:
                 c.put(X(-1), y0 + 3, z1, M(f"dark_oak_wall_hanging_sign[facing=north]"))

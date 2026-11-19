@@ -2150,19 +2150,19 @@ hash = "3c6a95e11dfac11f878751531da508897659bc96df95352505d20d9c2c1ab116"
 
 [[files]]
 file = "kubejs/data/ttl/structure/ballachia_1.nbt"
-hash = "7ad3ed83fbd0a799a20ba7c46e4b2f6fec2c1559e6389d082c71f0187b8be624"
+hash = "0952db6185bc3cfd7738408930be46142e7707278286032f8375a94951f35e10"
 
 [[files]]
 file = "kubejs/data/ttl/structure/blumund_0.nbt"
-hash = "a48ac8f7886af5f3876931b7d61a8e42e161b6a9f7d95c4ef4b794dbf79ddfe3"
+hash = "1c107c1dd5fa7e3abab186813a4e4fa521f7f958a645b12d23774fa49b7ca1ad"
 
 [[files]]
 file = "kubejs/data/ttl/structure/blumund_1.nbt"
-hash = "cadbeed844edb7408709f63d9d5f2392e95bc3fc5c0f1a4c68a476bb867d2e13"
+hash = "2cf956820e5a819a7e795c62205e540ee8a1839f815cea621c528ee4ff9e84da"
 
 [[files]]
 file = "kubejs/data/ttl/structure/blumund_2.nbt"
-hash = "5110213c30ea755ed5c42ce5304f80fef485d7ce1b42c317757b00dcd107dc57"
+hash = "acc1fc2ab165d07825c56226051fa9a9350cf4f86065ede02d09fbf15c80134d"
 
 [[files]]
 file = "kubejs/data/ttl/structure/clayman_castle_0.nbt"
@@ -2202,11 +2202,11 @@ hash = "ce66b4e1e87890da08df057b464d545b3965191756d62a1de23ba41b0995da58"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_0.nbt"
-hash = "9367582a00fbbdeb4f2abfb0453707cffc4a24f6f4a8651a91cfadad42cdc7f6"
+hash = "b7256ed85a25ecff180d7736ee3ded58100e1fbcd44ffd98fc39d3ea51ff793e"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_1.nbt"
-hash = "10293e36c4cb1a4853ed518e7c04d0d8d31dc890314bf73220e919b3d8186ab1"
+hash = "5097e4574f6c9f7e119fb497d84281d63353a533237103ea556599f1091e0404"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_2.nbt"
@@ -2246,11 +2246,11 @@ hash = "b14e96a8ca95569dc63e6e78d417a6ae04fca56439ef240355ff87f33fa0020b"
 
 [[files]]
 file = "kubejs/data/ttl/structure/englassia_1.nbt"
-hash = "c3faf59321a3c0fc988aafd8c5dded4d970014101aa18d99771f45431c6cdd1a"
+hash = "486bede8f3853422f350b31cd4f230ce966361439a3620e5b38e4b7e694a93ba"
 
 [[files]]
 file = "kubejs/data/ttl/structure/englassia_2.nbt"
-hash = "55242d2499286147b260a76fc6635eb1e697869e07f00646d520aa7f538b24ef"
+hash = "a01b1f9a072324b2b2a679248c5d95afa0a76095644a345603e425bb2c0ec5b3"
 
 [[files]]
 file = "kubejs/data/ttl/structure/forgotten_dragon_city_0.nbt"
@@ -2338,15 +2338,15 @@ hash = "2bb962f56185c5e2f58ccbf66d360d38229bd8888284952016a8888c64a58af8"
 
 [[files]]
 file = "kubejs/data/ttl/structure/marris_0.nbt"
-hash = "5177c5857c22d6feb7c5b33d5cfcd4ada4c016553dd4ee6e570e154a02cffebb"
+hash = "be3c7f07bf9cc046c4c01cfe80fb30227e2d1ca759111eb975ab7d6a723b3d19"
 
 [[files]]
 file = "kubejs/data/ttl/structure/marris_1.nbt"
-hash = "fcc5ba9837188ee105e8e55f578b4a1ad71b0e66c86090b4148ea51b93a4ed14"
+hash = "93b6a7e1601774c8fe7c4e4934407468504c6dd594f7ec37ee22a9ea88619868"
 
 [[files]]
 file = "kubejs/data/ttl/structure/marris_2.nbt"
-hash = "bd9bed47931321af356c1a61ecfbdb55077f4adc8485636ee04fe6f8baef931e"
+hash = "fef51223d3a55aa141c9e615fcc51a4a620ab02786d4332fa7c5c938ae2677dd"
 
 [[files]]
 file = "kubejs/data/ttl/structure/morgdahl_0.nbt"
@@ -2510,11 +2510,11 @@ hash = "99cd0e5312ce36718bf0d94a6fe1c12c9a9608a1e7b6b54f6ab1165f93173444"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_1.nbt"
-hash = "ea243db09e17b5978d5bd121ebafabde072e3dcc6751664f5bc4d0839b870981"
+hash = "675bc91d9ecacf12000fab4d9bca906d4cb62c6c11fea5b6b4bea4f42cc6b85e"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_2.nbt"
-hash = "746bc34f7373ac3262e807f52f8db2b2e8c7e0321ee5e69499f824b397cdc2a7"
+hash = "0234aee8fe606874a39cadedd2c33e15c08220e4c001caa22bf0ca2f2a4aec6c"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_3.nbt"
@@ -2538,15 +2538,15 @@ hash = "ae9948b1966664c34c6d9e3c26445b273d9ba8cf7051e5a699856939b43a36ae"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_city_2.nbt"
-hash = "21977fb24569d2decbd3b47cb9fc10501e236d776b47c02eecdf8a866e9f36ec"
+hash = "57e237abf9aa003bc0731ca3cebf350ff3ef93b2ff3413df4955fb8126f201d3"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_city_3.nbt"
-hash = "52f1877ded16fc537b5a2d4fc30c281bacc91a7d381cde5dce5b35e753e71650"
+hash = "508a0f9de4a0309265ed2d177e65e04ea9f2d420c79261e51614f6f989622eba"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_city_4.nbt"
-hash = "9f72836c5ebf9bce933e949ecaaaf2f52cb1a9d14876b9a3db16b779a4cd6294"
+hash = "c29f8610068986e06beff862479cc55a790f04fb08ff99aefcac7b239fdb1466"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_city_5.nbt"
@@ -2554,23 +2554,23 @@ hash = "4b4669cbfb77739557971206771ea622e120f6c3b855b3d3d77cb0eb40dd379b"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_city_6.nbt"
-hash = "35688c43b1b1ee1a06a4b1cd2cf86fffdff5b3edc0af9eb7b945798b4ac57f95"
+hash = "0f61310e3cf02ef62afa8ea6dc1dfc8452bf1666dda4e313b38d2eef10a750f9"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_city_7.nbt"
-hash = "2dd91fffb4387a8a40ea15ad6129b56088007b9b7207cc2325afbd943f0e2f91"
+hash = "dd5b1a9421e3688ba76478308e498a9157770fee6efbbebc16714bfa16ff9165"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_city_8.nbt"
-hash = "f4e731f66a49d59bc35feb45ffe443bd80769458f142a31610def0a32dc0190a"
+hash = "468ecf30f2f78945a376186f4663de955a4ea3df3a9b5978a39a0cab40963292"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_city_9.nbt"
-hash = "b86126e3a1d51655f1d7dd6d1085b0560de30be076f6cde1cfd4445bd5d8df40"
+hash = "2e18428dd72af835ec64af77471d91562385ba183f20ab9b1cf97abf37401b8e"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_town_0.nbt"
-hash = "941f1a2bc7a256f992c9239b20e7f6f3b400340742757bb6f37a012fc9f87d68"
+hash = "a341240cae903e2caf1c54f76b8a04415ad645633fdcd0427c9064e3e595d967"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_town_1.nbt"
@@ -2582,15 +2582,15 @@ hash = "31825f42bb52cc9ccecd32e3490a822839cc695280bc39d14935f88fc34337c9"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_town_3.nbt"
-hash = "ebc5d18a3a791f81b58fbc693314bc6d667bce05504eeedf56740e2a2bbc2665"
+hash = "6814f4c816b2cc5a0bcc95aea65785d4e0ebc33c5b0036d18f26cbcb51030033"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_town_4.nbt"
-hash = "ebd98bd5cb7cdc4dad29300116d41963dd0354f54d46c348eaeb93339f9b55f2"
+hash = "ac26ca067085493e0ccc342cdb5ddda286cdb5805d8276e7dfa7d092b61b7f3c"
 
 [[files]]
 file = "kubejs/data/ttl/structure/tempest_town_5.nbt"
-hash = "ca7dc842b537ff155b220a47d7de3cc28a71fc9ebebe3d4288fe9d6d1a6a9aff"
+hash = "151e948aa0204eb13eaf6aa25296d852a7eeda174079244305b0f4d9a324c6dd"
 
 [[files]]
 file = "kubejs/data/ttl/structure/test_hut.nbt"
@@ -2854,11 +2854,11 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "cc8cee62fae6b5184cea98fe0f059d41aea298aa328bf616351561ace7f056dc"
+hash = "501fda872113a48854a2b7b950b991413a83028c7944a5b2ed5589910e8c66c0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
-hash = "05244557f351f6ab0fe130edcc769994acbc0b6351fea2247dab42d8398dc4b0"
+hash = "43cf8e60a8ae044f47d7bb1a3851663c8930cac79c31d519505fc042b4b26128"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
@@ -2913,6 +2913,10 @@ file = "kubejs/server_scripts/ttl/life/arrival.js"
 hash = "a9a20fd625f9f3b7e0567e72578c5a9728111dca40efeb513f39a5f107b92c44"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/bed_spawn.js"
+hash = "8bee3b9217d34ca324be17a497392713a8c23d468f1e5bc76b96abd30f7d2973"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/builds.js"
 hash = "1421a85d2bcd6b39d98a4b3a7f202eb5888f6c4024efc2ee7ca905f452962036"
 
@@ -2942,7 +2946,7 @@ hash = "b439e7faa512766d89afa38225fbb6efeb37b99c56316f26034322d38d7d4f6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "69ec14c060a6773312d52d5d535589f2d97bfd63290164bc6338a4b1ce422a9a"
+hash = "908bef7f5b5545706ad39ba01b5d0dc3597f98e035a86309c5b62703ed1d0f9d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/forests.js"
@@ -3002,7 +3006,7 @@ hash = "685ffbc46d46a5debf5571fc115bf2a86812a1f0efce7182ae51f9d85f402334"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/tempest.js"
-hash = "22ec61ad1d72422435b3fb5236879750a14da5a12c05fc22c6a30c0988e0c695"
+hash = "b1ae790dd7c9ab5aa3a86e497060f851ec86b3de4c94fc9b79858f150c3f3891"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trade_roads.js"

@@ -25,7 +25,7 @@
 // King Gazel (TtlDwargonGazel): tensura:gazel_dwargo seated on his throne, checked every 30 s while the throne
 // is loaded and summoned again when missing. He shows a boss bar and wakes on right-click unless tamed, so he
 // gets a dummy Owner (no real player), NoAI, Invulnerable, Silent, PersistenceRequired; Phase 0 = seated.
-const TTL_DWARGON_VERSION = 8
+const TTL_DWARGON_VERSION = 9
 
 const TtlDwargon = {
   // The arrival point in front of the gate (blueprint TtlDwargonFootprint.arrival), rotation none: the gate faces
