@@ -1994,15 +1994,15 @@ hash = "ce66b4e1e87890da08df057b464d545b3965191756d62a1de23ba41b0995da58"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_0.nbt"
-hash = "895214ab8b11521e676a2989f73e3b3a1990197d4a1a12d55ddc69bc14ef6371"
+hash = "7a674c6daca853c7cb25e88ee60fdce89d057749a9a83f0e5a5e39453f79e6b8"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_1.nbt"
-hash = "f607944fac6838f08b933aecac2f6a514266c31d794c19487424541d54b9ca8b"
+hash = "954b47ae3e6de001b81fa92aad0049ce11948a5321d1b4968718ca5449f52689"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwargon_2.nbt"
-hash = "b2821ec441f0a515659d5e0572c5aaa25cd17f7dba7b27ac63dbb65114f77b0d"
+hash = "5a0d0ae61181ad7a3df6ffd9beb9d59bccd748ecf80167099fc459ab93b2368d"
 
 [[files]]
 file = "kubejs/data/ttl/structure/dwarven_arena.nbt"
@@ -2646,7 +2646,7 @@ hash = "de027721a92f2f0eac9178999f170857a3e2773c24d12832aa74875c4eaa1c06"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
-hash = "abaf058d8abd126852c591a4a6be9a5ae15ca67edf3955afdbbfb4d3545d8c7e"
+hash = "22fc65468f176eab967b51a92341570d173c503f80d6eef3161256e300841411"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
@@ -2726,7 +2726,7 @@ hash = "b439e7faa512766d89afa38225fbb6efeb37b99c56316f26034322d38d7d4f6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "45884f450927473aecb7bcac32e6cf45a0eee72125addda09ceac19ec23e9bfb"
+hash = "1cf30e0b9872ed6e08111740767f00341cfd8a31e8e0748f2fc701a959a5e8c1"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/gamerules.js"
