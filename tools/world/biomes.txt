@@ -1,0 +1,48 @@
+# Biome ids a `data-biome` in world/map.svg may use (one per line; `#` starts a comment; a bare name means minecraft:).
+# Source: design/architecture/own-world.md section 2.2.1. The Tensura ids are the four canon_regions.json already uses and
+# exist in tensura-neoforge-2.0.1.5.jar (`map_check.py --jar` verifies it; /dump-ids rule: never an id that is not in a jar).
+# NOT allowed by hand, the converter assigns them: river, frozen_river, beach, snowy_beach, stony_shore and every ocean biome.
+
+# Tensura 2.0.1.5
+tensura:ancient_forest
+tensura:barren_land
+tensura:desert_of_death
+tensura:miasmic_plains
+
+# Vanilla 1.21.1 overworld
+minecraft:plains
+minecraft:sunflower_plains
+minecraft:meadow
+minecraft:forest
+minecraft:flower_forest
+minecraft:birch_forest
+minecraft:old_growth_birch_forest
+minecraft:dark_forest
+minecraft:taiga
+minecraft:old_growth_pine_taiga
+minecraft:old_growth_spruce_taiga
+minecraft:snowy_taiga
+minecraft:grove
+minecraft:cherry_grove
+minecraft:swamp
+minecraft:mangrove_swamp
+minecraft:jungle
+minecraft:sparse_jungle
+minecraft:bamboo_jungle
+minecraft:savanna
+minecraft:savanna_plateau
+minecraft:windswept_savanna
+minecraft:desert
+minecraft:badlands
+minecraft:eroded_badlands
+minecraft:wooded_badlands
+minecraft:windswept_hills
+minecraft:windswept_forest
+minecraft:windswept_gravelly_hills
+minecraft:stony_peaks
+minecraft:jagged_peaks
+minecraft:frozen_peaks
+minecraft:snowy_slopes
+minecraft:snowy_plains
+minecraft:ice_spikes
+minecraft:mushroom_fields
