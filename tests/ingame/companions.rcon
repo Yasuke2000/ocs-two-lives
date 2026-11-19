@@ -34,33 +34,33 @@ ttl sidequest goto TtlBotCompB tempest_green
 ttl sidequest goto TtlBotCompL tempest_green
 @sleep 3
 # Who may hire: Life 1 never; no coins, no companion; 2 gold buys the C-rank knight.
-ttl companion expect TtlBotCompL can_hire rookie_swordsman:life
-ttl companion expect TtlBotCompB can_hire veteran_knight:fee
+ttl companion expect TtlBotCompL can_hire "rookie_swordsman:life"
+ttl companion expect TtlBotCompB can_hire "veteran_knight:fee"
 give TtlBotCompB tensura:gold_coin 2
-ttl companion expect TtlBotCompB can_hire veteran_knight:yes
-ttl companion expect TtlBotCompB can_hire apprentice_mage:kind
+ttl companion expect TtlBotCompB can_hire "veteran_knight:yes"
+ttl companion expect TtlBotCompB can_hire "apprentice_mage:kind"
 # A granted companion (test hook: no fee): one per soul.
 ttl companion grant TtlBotCompA rookie_swordsman 30
 ttl companion expect TtlBotCompA count 1
 ttl companion expect TtlBotCompA kind rookie_swordsman
 ttl companion expect TtlBotCompA alive yes
-ttl companion expect TtlBotCompA can_hire scout:max
+ttl companion expect TtlBotCompA can_hire "scout:max"
 # The party cap: A, B, C and D in one party (4) plus A's companion (1) = 5: B may not hire a sixth fighter.
 ttl as TtlBotCompA ftbteams party create CompTest
 ttl as TtlBotCompA ftbteams party invite TtlBotCompB
 ttl as TtlBotCompB ftbteams party join TtlBotCompA
 ttl as TtlBotCompA ftbteams party invite TtlBotCompC
 ttl as TtlBotCompC ftbteams party join TtlBotCompA
-ttl companion expect TtlBotCompB can_hire veteran_knight:yes
+ttl companion expect TtlBotCompB can_hire "veteran_knight:yes"
 ttl as TtlBotCompA ftbteams party invite TtlBotCompD
 ttl as TtlBotCompD ftbteams party join TtlBotCompA
-ttl companion expect TtlBotCompB can_hire veteran_knight:cap
+ttl companion expect TtlBotCompB can_hire "veteran_knight:cap"
 # A's companion falls: the contract ends, and B may hire again.
 execute as TtlBotCompA at @s run kill @e[tag=ttl.comp,distance=..16]
 @sleep 1
 ttl sidequest poll TtlBotCompA
 ttl companion expect TtlBotCompA count 0
-ttl companion expect TtlBotCompB can_hire veteran_knight:yes
+ttl companion expect TtlBotCompB can_hire "veteran_knight:yes"
 # The status line and dismiss (the companion dialog's buttons run these as the player). Hiring from a town adventurer
 # (`/ttl companion hire`, the "Join my party" button) picks the nearest hireable one; the green's kinds are random, so
 # that path is a manual check in game (stand next to a hireable adventurer on the green and press the button).

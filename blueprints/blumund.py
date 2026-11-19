@@ -27,6 +27,7 @@ Block light is checked for every spawnable spot inside the walls and the approac
 """
 import math
 
+from _beds import CULTURE
 from _dwargon_lib import AIR, noise2, rnd
 from _town_lib import (M, Town, banner, bed, door, fence_gate, lantern_floor, lantern_hung, log, slab, stair,
                        trapdoor, wall_banner)
@@ -41,6 +42,7 @@ CX = 62
 WALL_H = 7      # wall body height (F..F+6), walkway layer at F+7
 PLASTERS = ("calcite", "calcite", "smooth_sandstone", "white_terracotta", "calcite")
 ROOFS_H = ("brick", "brick", "brick", "mud", "nether")
+BEDS = CULTURE["blumund"]  # blue and white wool beds (owner, 19/11/2026)
 FENCE = "spruce_fence[east=false,north=false,south=false,waterlogged=false,west=false]"
 
 
@@ -178,7 +180,7 @@ def row_x(t: Town, x_from, x_to, z0, z1, door_side, seed, widths=(7, 8, 9, 10), 
         st = storeys[int(rnd(x, z0, seed, 2) * len(storeys))]
         pi = int(rnd(x, z0, seed, 3) * 5)
         t.house(x, z0, x + w - 1, z1, door_side, st, plaster=PLASTERS[pi], roof=ROOFS_H[int(rnd(x, z0, seed, 4) * 5)],
-                axis="x")
+                axis="x", bed_colours=BEDS)
         x += w + gap
         n += 1
         if x > x_to:
@@ -196,7 +198,7 @@ def row_z(t: Town, z_from, z_to, x0, x1, door_side, seed, depths=(7, 8, 9), stor
         st = storeys[int(rnd(z, x0, seed, 2) * len(storeys))]
         pi = int(rnd(z, x0, seed, 3) * 5)
         t.house(x0, z, x1, z + d - 1, door_side, st, plaster=PLASTERS[pi], roof=ROOFS_H[int(rnd(z, x0, seed, 4) * 5)],
-                axis="z")
+                axis="z", bed_colours=BEDS)
         z += d + gap
         if z > z_to:
             break
@@ -477,8 +479,13 @@ def royal_castle(t: Town):
             if t.get(x, G, z) == M("grass_block") and (x + z) % 7 == 0 and not (55 <= x <= 69):
                 pass
     well(t, 50, 38)
-    t.house(35, 36, 45, 44, "e", 1, plaster="calcite", roof="slate", axis="z")
-    t.house(78, 34, 90, 43, "w", 1, plaster="smooth_sandstone", roof="dark", axis="z")
+    # The barracks sleep the castle guard in two rows of beds with a barrel at each end of the aisle; the stable
+    # (hay below) has no bed.
+    t.house(35, 36, 45, 44, "e", 1, plaster="calcite", roof="slate", axis="z", furnish=False)
+    t.dorm(35, 36, 45, 44, "e", BEDS)
+    for z in (39, 41):
+        t.put(36, F, z, M("barrel[facing=up,open=false]"))
+    t.house(78, 34, 90, 43, "w", 1, plaster="smooth_sandstone", roof="dark", axis="z", beds=0)
     for x in range(80, 89, 2):
         t.put(x, F, 36, M("hay_block[axis=y]")) if t.get(x, F, 36) == AIR else None
     # garden beds

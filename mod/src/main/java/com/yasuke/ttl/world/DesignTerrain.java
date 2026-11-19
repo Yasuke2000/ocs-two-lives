@@ -14,16 +14,20 @@ package com.yasuke.ttl.world;
  * {@code a = 8c / (32 - 3c)} for a crossing c above y0. {@code offset = (T - 128) / 128} is vanilla's convention.
  * {@code bias} (blocks) is the measured mean lift of the 3-D noise (the calibration gate reports it).
  *
- * <p><b>Factor</b> (how tightly the ground hugs the offset) from ruggedness: flat 8, rolling 5, hills 3, alpine 1.5 at
- * rugged 0, 0.2, 0.4, 0.8, linear in between. <b>Jaggedness</b>: 0 below rugged 0.7, 0.3 at 0.8, 0.6 at 1, never
- * enough to push a spike above {@link #JAG_CEILING}.
+ * <p><b>Factor</b> (how tightly the ground hugs the offset) from ruggedness, own-world.md §3.8: piecewise-linear
+ * 0 -> 8, 0.1 -> 8, 0.3 -> 5, 0.6 -> 3, 0.8 -> 1.5 (flat 8, rolling 5, hills 3, alpine 1.5); <b>jaggedness</b> 0 below
+ * rugged 0.8, rising to 0.6 at 1, never enough to push a spike above {@link #JAG_CEILING}. index.json repeats both
+ * curves; when it has them, they are used ({@link #curve}).
  */
 public final class DesignTerrain {
     private DesignTerrain() {}
 
     public static final double FLAT = 8, ROLLING = 5, HILLS = 3, ALPINE = 1.5;
-    /** Ruggedness knots of the factor curve. */
-    static final double[] RUGGED_KNOTS = {0, 0.2, 0.4, 0.8, 1.0};
+    /** Ruggedness knots of the factor curve (values flat, flat, rolling, hills, alpine, alpine). */
+    static final double[] RUGGED_KNOTS = {0, 0.1, 0.3, 0.6, 0.8, 1.0};
+    /** The default curves of own-world.md §3.8. */
+    public static final double[][] FACTOR_CURVE = {{0, 8}, {0.1, 8}, {0.3, 5}, {0.6, 3}, {0.8, 1.5}, {1, 1.5}};
+    public static final double[][] JAGGED_CURVE = {{0, 0}, {0.8, 0}, {1, 0.6}};
     /** Highest y a jagged spike may reach (one block of jaggedness lifts the ground by up to 128 * jaggedness). */
     static final double JAG_CEILING = 310;
     static final int CELL = 8, MIN_Y = -64;
@@ -50,7 +54,7 @@ public final class DesignTerrain {
     /** Factor from ruggedness with the given flat/rolling/hills/alpine values. */
     public static double factor(double rugged, double flat, double rolling, double hills, double alpine) {
         double r = Math.max(0, Math.min(1, rugged));
-        double[] v = {flat, rolling, hills, alpine, alpine};
+        double[] v = {flat, flat, rolling, hills, alpine, alpine};
         for (int i = 1; i < RUGGED_KNOTS.length; i++) {
             if (r <= RUGGED_KNOTS[i]) {
                 double t = (r - RUGGED_KNOTS[i - 1]) / (RUGGED_KNOTS[i] - RUGGED_KNOTS[i - 1]);
@@ -64,13 +68,25 @@ public final class DesignTerrain {
         return factor(rugged, FLAT, ROLLING, HILLS, ALPINE);
     }
 
-    /** Jaggedness from ruggedness, capped so a spike over a surface at {@code h} stays under {@link #JAG_CEILING}. */
+    /** Piecewise-linear curve [[x, y], ...] (x ascending) at x, clamped to its ends. */
+    public static double curve(double[][] pts, double x) {
+        if (x <= pts[0][0]) return pts[0][1];
+        for (int i = 1; i < pts.length; i++) {
+            if (x <= pts[i][0]) {
+                double span = pts[i][0] - pts[i - 1][0];
+                return span <= 0 ? pts[i][1] : pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * (x - pts[i - 1][0]) / span;
+            }
+        }
+        return pts[pts.length - 1][1];
+    }
+
+    /** Jaggedness from ruggedness (§3.8 curve scaled to {@code max}), capped so a spike over H stays under {@link #JAG_CEILING}. */
     public static double jaggedness(double rugged, double h, double max) {
-        double j; // the curve for max 0.6, scaled to max
-        if (rugged <= 0.7) j = 0;
-        else if (rugged <= 0.8) j = 0.3 * (rugged - 0.7) / 0.1;
-        else j = 0.3 + 0.3 * Math.min(1, (rugged - 0.8) / 0.2);
-        j *= max / 0.6;
+        return capJag(curve(JAGGED_CURVE, rugged) * max / 0.6, h);
+    }
+
+    /** Caps a jaggedness so a spike over a surface at {@code h} stays under {@link #JAG_CEILING}. */
+    public static double capJag(double j, double h) {
         double cap = Math.max(0, (JAG_CEILING - h) / 128);
         return Math.max(0, Math.min(j, cap));
     }

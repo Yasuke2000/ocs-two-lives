@@ -26,7 +26,7 @@
 //    on Tensura's own goblin spawn points: hobgoblins (EvoState 1; every goblin evolved when Rimuru named them),
 //    persistent, tagged RESIDENT. Residents from an earlier version are removed first, so each version spawns
 //    them once; world/domains.js then tags them and keeps them (anchors Invulnerable, the rest respawned after death).
-const TTL_TEMPEST_VERSION = 3
+const TTL_TEMPEST_VERSION = 4
 
 const TtlTempest = {
   // World position of the arrival point (anchors.toml tempest); its blueprint coordinates are TtlTempestFootprint.arrival.

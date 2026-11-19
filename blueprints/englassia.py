@@ -15,6 +15,7 @@ timber, oxidised-copper roofs on the Academy, slate roofs on the gate and the Gu
 the Guild is the sturdy working half. Every spawnable spot inside the plot has block light (checked when this
 builds). The exact architecture is our interpretation (canon gives a walled capital with two gates).
 """
+from _beds import CULTURE, bed_row
 from _citylib import AIR, M, Mat, Site
 from _dwargon_lib import noise2, rnd
 
@@ -36,6 +37,7 @@ LOG = Mat("dark_oak_log")
 PLASTER = Mat("white_terracotta")
 QUARTZ = Mat("smooth_quartz", "smooth_quartz_stairs", "smooth_quartz_slab")
 OAK = Mat("oak_planks", "oak_stairs", "oak_slab")
+BEDS = CULTURE["englassia"]  # blue and white wool beds (owner, 19/11/2026)
 COBBLE = Mat("cobblestone", "cobblestone_stairs", "cobblestone_slab", "cobblestone_wall")
 
 
@@ -207,7 +209,17 @@ def stall(s, x, z, colour="red"):
 def west_row(s):
     z = 67
     for i, (zz0, zz1, floors) in enumerate(((67, 75, 3), (77, 85, 2), (87, 93, 2), (95, 99, 2))):
-        townhouse(s, 24 + (i % 2) * 2, zz0, 36, zz1, floors=floors, door="e")
+        x0 = 24 + (i % 2) * 2
+        townhouse(s, x0, zz0, 36, zz1, floors=floors, door="e")
+        # The upper floors are closed rooms, so the beds stand on the ground floor, heads to the west wall: two in
+        # the large house, one in the small ones, and four in the tavern (second house) with a barrel at each end.
+        n, step = (4, 2) if i == 1 else (2, 3) if i == 0 else (1, 3)
+        got = bed_row(s.put, s.get, F, "west", x0 + 1, (zz0 + 1, zz0 + 1 + step * (n - 1)), BEDS, step)
+        if got != n:
+            raise ValueError(f"englassia townhouse {i}: {got} of {n} beds")
+        if i == 1:
+            for z in (zz0 + 1, zz1 - 1):
+                s.put(35, F, z, "barrel[facing=up,open=false]")
     # a tavern sign pole in front of the second house
     s.fill(38, F, 80, 38, F + 3, 80, "oak_fence")
     for zz in (69, 82, 96):

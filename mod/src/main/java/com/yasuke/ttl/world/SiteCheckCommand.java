@@ -77,7 +77,12 @@ public final class SiteCheckCommand {
         }
         long[] ex = DesignWorld.excludedCounts();
         ServerLevel level = ctx.getSource().getServer().overworld();
-        say(ctx, "[ttl] own world: " + l.rasters().describe() + "; " + l.infos().size() + " sites; generator "
+        Integer designSea = l.rasters().seaLevel();
+        int seaLevel = level.getChunkSource().getGenerator().getSeaLevel();
+        say(ctx, "[ttl] own world: " + l.rasters().describe() + "; " + l.infos().size() + " sites; "
+                + l.rasters().lanternCount() + " lantern posts from roads.json; sea level " + seaLevel
+                + (designSea == null ? "" : designSea == seaLevel ? " (as designed)" : " (the rasters were designed for " + designSea + ": set sea_level in the noise settings)")
+                + "; generator "
                 + (DesignWorld.designGenerator(level.getChunkSource().getGenerator()) ? "ttl:canon_biomes (design active)" : "NOT ttl:canon_biomes (design inactive)")
                 + String.format(Locale.ROOT, "; structure starts kept out: %d site, %d road, %d cavity", ex[0], ex[1], ex[2]));
         return 1;
@@ -171,10 +176,12 @@ public final class SiteCheckCommand {
         } else {
             double[] cover = heights.stream().mapToDouble(h -> h - (s.roof() != null ? s.roof() : ground)).sorted().toArray();
             double min = cover.length == 0 ? 0 : cover[0], median = cover.length == 0 ? 0 : cover[cover.length / 2];
-            boolean enough = s.minCover() == null || min >= s.minCover();
+            // Without the roof height the cover over the whole disc includes the approach ravine: report only.
+            boolean enough = s.minCover() == null || s.roof() == null || min >= s.minCover();
             ok &= enough;
             t.append(String.format(Locale.ROOT, "cover over %s %d: min %.0f median %.0f%s %s", s.roof() != null ? "roof" : "ground",
-                    s.roof() != null ? s.roof() : ground, min, median, s.minCover() == null ? "" : " (min_cover " + s.minCover() + ")", enough ? "OK" : "FAIL"));
+                    s.roof() != null ? s.roof() : ground, min, median, s.minCover() == null ? "" : " (min_cover " + s.minCover() + (s.roof() == null ? ", reported only: no roof y" : "") + ")",
+                    enough ? "OK" : "FAIL"));
         }
         // Coast and lakeside plates touch water on purpose (their box reaches the shore); only lava fails them.
         boolean shore = s.kind().equalsIgnoreCase("coast") || s.kind().equalsIgnoreCase("lakeside");

@@ -120,6 +120,8 @@ public final class DesignWorld {
                 LOGGER.warn("[ttl] own world: sites.json unreadable ({}); no design sites", e.toString());
             }
         }
+        List<DesignSitesFile.Info> indexed = DesignSitesFile.infosFromIndex(rasters.legend(), msg -> LOGGER.warn("[ttl] {}", msg));
+        if (!indexed.isEmpty()) infos = indexed; // index.json also lists the carve sites
         LOGGER.info("[ttl] own world: design rasters loaded in {} ms: {}; {} sites ({} flat plates)",
                 (System.nanoTime() - start) / 1_000_000, rasters.describe(), infos.size(), countFlat(sites));
         return new Loaded(rasters, sites, infos);

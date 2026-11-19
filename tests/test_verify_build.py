@@ -128,6 +128,16 @@ class CompareTests(unittest.TestCase):
         r = vb.compare(expected, actual)
         self.assertEqual((r["defined"], r["percent"]), (2, 100.0))
 
+    def test_unexpected_fluids_are_counted(self):
+        # Dwargon on staging, 19/11/2026: 99.67 % match although a spring flooded the throne hall.
+        expected = {(0, 0, 0): "minecraft:air", (1, 0, 0): "minecraft:red_carpet", (2, 0, 0): "minecraft:water[level=0]",
+                    (3, 0, 0): "minecraft:air"}
+        actual = {(0, 0, 0): "minecraft:water[level=3]", (1, 0, 0): "minecraft:water[level=0]",
+                  (2, 0, 0): "minecraft:water[level=0]", (3, 0, 0): "minecraft:lava[level=0]"}
+        r = vb.compare(expected, actual)
+        self.assertEqual(r["fluids"], 3)
+        self.assertIn("unexpected fluids: 3", vb.report("x", r, None, [("x", 0, 1)], 5))
+
     def test_missing_capture_positions_are_mismatches(self):
         blocks = dict(self.expected)
         gone = next(iter(blocks))

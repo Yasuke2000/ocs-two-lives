@@ -20,6 +20,7 @@ from pathlib import Path
 
 import blueprint as _blueprint
 import nbt
+from _beds import CULTURE, pick, place_bed
 from _dwargon_lib import AIR, dark_spots, noise2, rnd
 from _footprint import settlement_footprint
 
@@ -291,7 +292,7 @@ def walls(v: Village, x0, z0, x1, z1, door, wall, post, height=3, windows=True):
 
 
 def house(v: Village, x0, z0, x1, z1, door="s", roof="thatch", wall="oak_planks", post="oak_log",
-          chimney=False, stage="done", furnish=True):
+          chimney=False, stage="done", furnish=True, bed=None):
     w = M(wall)
     axis = "x" if x1 - x0 >= z1 - z0 else "z"
     walls(v, x0, z0, x1, z1, door, w, post)
@@ -300,8 +301,9 @@ def house(v: Village, x0, z0, x1, z1, door="s", roof="thatch", wall="oak_planks"
         # Bed in the back corner, a barrel with a lantern, a crafting table.
         bx, bz = (x0 + 1, z0 + 1) if door != "n" else (x0 + 1, z1 - 1)
         head, foot, facing = ((bx, bz), (bx, bz + 1), "north") if door != "n" else ((bx, bz), (bx, bz - 1), "south")
-        v.put(head[0], F, head[1], M(f"brown_bed[facing={facing},part=head,occupied=false]"))
-        v.put(foot[0], F, foot[1], M(f"brown_bed[facing={facing},part=foot,occupied=false]"))
+        colour = bed or pick(CULTURE["tempest"], x0, z0)
+        v.put(head[0], F, head[1], M(f"{colour}_bed[facing={facing},part=head,occupied=false]"))
+        v.put(foot[0], F, foot[1], M(f"{colour}_bed[facing={facing},part=foot,occupied=false]"))
         v.put(x1 - 1, F, z0 + 1 if door != "n" else z1 - 1, M("barrel[facing=up,open=false]"))
         v.put(x1 - 1, F + 1, z0 + 1 if door != "n" else z1 - 1, M("lantern[hanging=false]"))
         v.put(x1 - 1, F, z1 - 1 if door != "n" else z0 + 1, M("crafting_table"))
@@ -452,7 +454,8 @@ def longhouse(v: Village):
 
 
 def rimuru_house(v: Village):
-    house(v, 41, 22, 49, 28, door="s", roof="plank", wall="spruce_planks", post="stripped_dark_oak_log", chimney=True)
+    house(v, 41, 22, 49, 28, door="s", roof="plank", wall="spruce_planks", post="stripped_dark_oak_log", chimney=True,
+          bed="light_blue")  # Rimuru's own bed in his colour
     v.put(43, F, 27, M("light_blue_carpet"))
 
 
@@ -507,6 +510,10 @@ def forge(v: Village):
     v.put(20, F, 52, M("raw_iron_block"))
     # Workshop house (Kaijin and the three dwarf brothers: Garm armour, Dold crafts, Mildo building).
     house(v, 14, 29, 23, 36, door="s", roof="dark", wall="spruce_planks", post="stripped_dark_oak_log", furnish=False)
+    # Four plain gray beds, two to a side wall (heads to the wall), for Kaijin and the three brothers.
+    for z in (32, 34):
+        place_bed(v.put, v.get, 15, F, z, "west", "gray")
+        place_bed(v.put, v.get, 22, F, z, "east", "gray")
     v.put(15, F, 30, M("crafting_table"))
     v.put(16, F, 30, M("loom[facing=south]"))
     v.put(17, F, 30, M("fletching_table"))

@@ -57,11 +57,13 @@ import org.jetbrains.annotations.Nullable;
  */
 public final class CanonRasters {
     public static final byte SITE = 1, ROAD = 2, CAVITY = 4, DRY = 8;
-    public static final int ROAD_NONE = 0, ROAD_MAIN = 1, ROAD_TRAIL = 2, ROAD_LANTERN = 3;
+    public static final int ROAD_NONE = 0, ROAD_MAIN = 1, ROAD_TRAIL = 2, ROAD_LANTERN = 3, ROAD_CORRIDOR = 4;
     /** Defaults (blocks) for the derived masks and the box-edge blend. */
     static final int SITE_MARGIN = 16, ROAD_MARGIN = 8, DRY_MARGIN = 24, EDGE_BLEND = 64;
     /** Pixel tile for the coarse "any mask bit here" index (structure boxes are tested against it first). */
     static final int TILE = 16;
+    /** Blocks between lantern posts along a main road (roads.json). */
+    static final int LANTERN_EVERY = 40;
 
     /** One decoded raster in its own geometry. Values are unsigned; {@link #raw} is -1 outside. */
     static final class Layer {
@@ -142,6 +144,11 @@ public final class CanonRasters {
     final int tilesW, tilesH;
     final int boxX0, boxZ0, boxX1, boxZ1, edgeBlend;
     final int siteMargin, roadMargin, dryMargin;
+    /** The legend's factor and jaggedness curves over ruggedness ([[rugged, value], ...]); null = DesignTerrain's defaults. */
+    @Nullable final double[][] factorCurve, jaggedCurve;
+    @Nullable final Integer seaLevel;
+    /** Lantern posts from roads.json (block x, z packed); empty without it. Set once by {@link #load}. */
+    java.util.Set<Long> lanterns = java.util.Set.of();
     /** The raw legend (calibration bands and anything else a command wants to read). */
     final JsonObject legend;
     final String summary;
@@ -166,7 +173,13 @@ public final class CanonRasters {
         this.boxZ0 = height.z0;
         this.boxX1 = height.x0 + height.w * height.scale;
         this.boxZ1 = height.z0 + height.h * height.scale;
-        this.edgeBlend = Math.max(0, intKey(legend, "edge_blend", EDGE_BLEND));
+        // The raster's open sea falls to -20; blend it into CanonGrid's outer ocean over most of the sea margin.
+        int seaMargin = legend.has("box") && legend.get("box").isJsonObject() ? intKey(legend.getAsJsonObject("box"), "sea_margin", 0) : 0;
+        this.edgeBlend = Math.max(0, intKey(legend, "edge_blend", seaMargin > 0 ? Math.max(EDGE_BLEND, seaMargin - 200) : EDGE_BLEND));
+        JsonObject ruggedEntry = rugged == null ? null : entry(legend, rugged.name);
+        this.factorCurve = curve(ruggedEntry, "factor");
+        this.jaggedCurve = curve(ruggedEntry, "jaggedness");
+        this.seaLevel = legend.has("sea_level") && legend.get("sea_level").isJsonPrimitive() ? Integer.valueOf(legend.get("sea_level").getAsInt()) : null;
         JsonObject ex = legend.has("exclusion") && legend.get("exclusion").isJsonObject() ? legend.getAsJsonObject("exclusion") : new JsonObject();
         this.siteMargin = Math.max(0, intKey(ex, "site_margin", intKey(legend, "site_margin", SITE_MARGIN)));
         this.roadMargin = Math.max(0, intKey(ex, "road_margin", intKey(legend, "road_margin", ROAD_MARGIN)));
@@ -306,6 +319,7 @@ public final class CanonRasters {
             String name = e.getValue().toLowerCase(Locale.ROOT);
             roadBridge[k] = name.contains("bridge");
             roadClass[k] = name.contains("lantern") || name.contains("post") ? ROAD_LANTERN
+                    : name.contains("corridor") || name.contains("verge") ? ROAD_CORRIDOR
                     : name.contains("trail") || name.contains("path") ? ROAD_TRAIL
                     : name.contains("main") || name.contains("paved") || name.contains("road") || name.contains("bridge") ? ROAD_MAIN
                     : ROAD_NONE;
@@ -314,6 +328,47 @@ public final class CanonRasters {
         }
         roadClass[0] = ROAD_NONE;
         roadBridge[0] = false;
+    }
+
+    @Nullable
+    static double[][] curve(@Nullable JsonObject entry, String key) {
+        if (entry == null || !entry.has(key) || !entry.get(key).isJsonArray()) return null;
+        List<double[]> pts = new ArrayList<>();
+        for (JsonElement e : entry.getAsJsonArray(key)) {
+            if (!e.isJsonArray() || e.getAsJsonArray().size() < 2) return null;
+            pts.add(new double[] {e.getAsJsonArray().get(0).getAsDouble(), e.getAsJsonArray().get(1).getAsDouble()});
+        }
+        for (int i = 1; i < pts.size(); i++) if (pts.get(i)[0] < pts.get(i - 1)[0]) return null;
+        return pts.isEmpty() ? null : pts.toArray(double[][]::new);
+    }
+
+    @Nullable
+    public double[][] factorCurve() {
+        return factorCurve;
+    }
+
+    @Nullable
+    public double[][] jaggedCurve() {
+        return jaggedCurve;
+    }
+
+    /** The sea level the converter designed for (index.json {@code sea_level}), or null. */
+    @Nullable
+    public Integer seaLevel() {
+        return seaLevel;
+    }
+
+    /** True when roads.json puts a lantern post on this column. */
+    public boolean lanternAt(int x, int z) {
+        return lanterns.contains(((long) x << 32) ^ (z & 0xFFFFFFFFL));
+    }
+
+    public int lanternCount() {
+        return lanterns.size();
+    }
+
+    public boolean hasRoadLanterns() {
+        return !lanterns.isEmpty();
     }
 
     // ---- geometry and samplers (block coordinates) ----
@@ -408,7 +463,7 @@ public final class CanonRasters {
         if (l == null) return -1;
         if (l.scale == 1) {
             int v = l.at(x, z);
-            if (v <= 0 || roadClass[v] == ROAD_LANTERN) return -1;
+            if (v <= 0 || roadClass[v] == ROAD_LANTERN || roadClass[v] == ROAD_CORRIDOR && !roadBridge[v]) return -1;
             bridge[0] = roadBridge[v];
             return roadClass[v] == ROAD_NONE ? (roadBridge[v] ? ROAD_MAIN : -1) : roadClass[v];
         }
@@ -532,6 +587,49 @@ public final class CanonRasters {
                 (m & DRY) != 0 ? " dry" : "", weight(x, z));
     }
 
+    /**
+     * Lantern posts along every main road of roads.json ({@code roads: [{kind, half, points: [[x, z, y, bridge], ...]}]}):
+     * every {@code every} blocks of arc length, alternating sides, {@code half + 2} from the centre line, none within
+     * 8 blocks of a bridge point or of the ends.
+     */
+    static java.util.Set<Long> lanternPosts(JsonElement root, int every) {
+        java.util.Set<Long> out = new java.util.HashSet<>();
+        JsonArray roads = root.isJsonObject() && root.getAsJsonObject().has("roads") ? root.getAsJsonObject().getAsJsonArray("roads") : new JsonArray();
+        for (JsonElement re : roads) {
+            JsonObject road = re.getAsJsonObject();
+            String kind = road.has("kind") ? road.get("kind").getAsString() : "main";
+            if (!kind.equals("main") || !road.has("points")) continue;
+            double half = road.has("half") ? road.get("half").getAsDouble() : 2;
+            JsonArray pts = road.getAsJsonArray("points");
+            int n = pts.size();
+            if (n < 2) continue;
+            double[] px = new double[n], pz = new double[n], arc = new double[n];
+            boolean[] bridge = new boolean[n];
+            for (int i = 0; i < n; i++) {
+                JsonArray p = pts.get(i).getAsJsonArray();
+                px[i] = p.get(0).getAsDouble();
+                pz[i] = p.get(1).getAsDouble();
+                bridge[i] = p.size() > 3 && p.get(3).getAsDouble() != 0;
+                if (i > 0) arc[i] = arc[i - 1] + Math.hypot(px[i] - px[i - 1], pz[i] - pz[i - 1]);
+            }
+            double total = arc[n - 1];
+            int side = 1, j = 0;
+            for (double a = every; a < total - every / 2.0; a += every) {
+                while (j < n - 2 && arc[j + 1] < a) j++;
+                boolean nearBridge = false;
+                for (int k = 0; k < n; k++) if (bridge[k] && Math.abs(arc[k] - a) <= 8) nearBridge = true;
+                if (nearBridge) continue;
+                double seg = Math.max(1e-9, arc[j + 1] - arc[j]), t = (a - arc[j]) / seg;
+                double cx = px[j] + (px[j + 1] - px[j]) * t, cz = pz[j] + (pz[j + 1] - pz[j]) * t;
+                double dx = (px[j + 1] - px[j]) / seg, dz = (pz[j + 1] - pz[j]) / seg, off = (half + 2) * side;
+                long x = (long) Math.floor(cx - dz * off + 0.5), z = (long) Math.floor(cz + dx * off + 0.5);
+                out.add((x << 32) ^ (z & 0xFFFFFFFFL));
+                side = -side;
+            }
+        }
+        return out;
+    }
+
     // ---- loading ----
 
     /**
@@ -541,9 +639,10 @@ public final class CanonRasters {
     @Nullable
     public static CanonRasters load(Path dir, Consumer<String> warn) {
         if (!Files.isDirectory(dir)) return null;
-        Path legendFile = dir.resolve("legend.json");
+        Path legendFile = dir.resolve("index.json"); // WP-W1's legend; legend.json is accepted too
+        if (!Files.isRegularFile(legendFile)) legendFile = dir.resolve("legend.json");
         if (!Files.isRegularFile(legendFile)) {
-            warn.accept("design rasters: " + dir + " has no legend.json; not used");
+            warn.accept("design rasters: " + dir + " has no index.json or legend.json; not used");
             return null;
         }
         JsonObject legend;
@@ -558,7 +657,7 @@ public final class CanonRasters {
             warn.accept("design rasters: no height layer in " + dir + "; not used");
             return null;
         }
-        int scale = intKey(legend, "scale", 4);
+        int scale = legend.has("pixel") && legend.get("pixel").isJsonObject() ? intKey(legend.getAsJsonObject("pixel"), "blocks", 4) : intKey(legend, "scale", 4);
         int[] origin = origin(legend);
         try {
             Layer height = layer(dir, legend, files.get("height"), "height", scale, origin);
@@ -576,7 +675,16 @@ public final class CanonRasters {
             String[] biomeIds = biome == null ? null : biomeTable(entry(legend, biome.name), legend, warn);
             Map<Integer, String> siteIds = site == null ? Map.of() : siteTable(entry(legend, site.name), legend);
             int[] bits = exclusionBits(exclusion == null ? null : entry(legend, exclusion.name));
-            return new CanonRasters(legend, height, he, rugged, re, water, we, road, biome, biomeIds, site, siteIds, exclusion, bits, cavity, warn);
+            CanonRasters r = new CanonRasters(legend, height, he, rugged, re, water, we, road, biome, biomeIds, site, siteIds, exclusion, bits, cavity, warn);
+            Path roads = dir.resolve("roads.json");
+            if (Files.isRegularFile(roads)) {
+                try {
+                    r.lanterns = lanternPosts(JsonParser.parseString(Files.readString(roads, StandardCharsets.UTF_8)), LANTERN_EVERY);
+                } catch (IOException | RuntimeException e) {
+                    warn.accept("design rasters: roads.json unreadable (" + e + "); lanterns by the per-cell rule");
+                }
+            }
+            return r;
         } catch (IOException | RuntimeException e) {
             warn.accept("design rasters: " + e.getMessage() + "; not used");
             return null;
@@ -589,7 +697,9 @@ public final class CanonRasters {
         if (legend.has("files") && legend.get("files").isJsonObject()) {
             for (Map.Entry<String, JsonElement> e : legend.getAsJsonObject("files").entrySet()) {
                 String role = role(e.getKey());
-                if (role != null && e.getValue().isJsonPrimitive()) out.putIfAbsent(role, e.getValue().getAsString());
+                JsonElement v = e.getValue();
+                if (role != null && v.isJsonPrimitive()) out.putIfAbsent(role, v.getAsString());
+                else if (role != null && v.isJsonObject() && v.getAsJsonObject().has("file")) out.putIfAbsent(role, v.getAsJsonObject().get("file").getAsString());
             }
         }
         if (legend.has("layers") && legend.get("layers").isJsonObject()) {
@@ -650,7 +760,7 @@ public final class CanonRasters {
 
     private static Layer layer(Path dir, JsonObject legend, String file, String role, int scale, @Nullable int[] origin) throws IOException {
         JsonObject e = entry(legend, file);
-        int s = e != null ? intKey(e, "scale", scale) : scale;
+        int s = e != null ? intKey(e, "blocks", scale) : scale; // per-layer pixel size; an entry's "scale" is its value scale
         int[] o = e != null && origin(e) != null ? origin(e) : origin;
         Png png = Png.decode(Files.readAllBytes(dir.resolve(file)), file);
         if (s <= 0) throw new IllegalArgumentException(role + ": scale must be > 0");
@@ -663,10 +773,13 @@ public final class CanonRasters {
     static JsonObject entry(JsonObject legend, String file) {
         if (legend.has(file) && legend.get(file).isJsonObject()) return legend.getAsJsonObject(file);
         String role = role(file);
-        for (String group : new String[] {"layers", "rasters"}) {
+        for (String group : new String[] {"layers", "rasters", "files"}) {
             if (!legend.has(group) || !legend.get(group).isJsonObject()) continue;
             for (Map.Entry<String, JsonElement> e : legend.getAsJsonObject(group).entrySet()) {
-                if (e.getValue().isJsonObject() && (e.getKey().equals(file) || role != null && role.equals(role(e.getKey())))) return e.getValue().getAsJsonObject();
+                if (!e.getValue().isJsonObject()) continue;
+                JsonObject o = e.getValue().getAsJsonObject();
+                String named = o.has("file") && o.get("file").isJsonPrimitive() ? o.get("file").getAsString() : null;
+                if (e.getKey().equals(file) || file.equals(named) || role != null && role.equals(role(e.getKey()))) return o;
             }
         }
         for (Map.Entry<String, JsonElement> e : legend.entrySet()) {
@@ -685,6 +798,8 @@ public final class CanonRasters {
         for (String key : new String[] {"box", "design_box", "bbox"}) {
             if (o.has(key) && o.get(key).isJsonArray() && o.getAsJsonArray(key).size() >= 4)
                 return new int[] {o.getAsJsonArray(key).get(0).getAsInt(), o.getAsJsonArray(key).get(1).getAsInt()};
+            if (o.has(key) && o.get(key).isJsonObject() && o.getAsJsonObject(key).has("x0") && o.getAsJsonObject(key).has("z0"))
+                return new int[] {o.getAsJsonObject(key).get("x0").getAsInt(), o.getAsJsonObject(key).get("z0").getAsInt()};
         }
         return null;
     }
@@ -707,6 +822,7 @@ public final class CanonRasters {
             Matcher plus = PLUS.matcher(head);
             if (plus.find()) offset = Double.parseDouble(plus.group(2)) * (plus.group(1).equals("-") ? -1 : 1);
             if (e.has("max")) divisor = e.get("max").getAsDouble();
+            if (e.has("scale") && e.get("scale").isJsonPrimitive()) divisor = e.get("scale").getAsDouble(); // index.json: the value scale
             if (e.has("multiplier")) divisor = e.get("multiplier").getAsDouble();
             if (e.has("divisor")) divisor = e.get("divisor").getAsDouble();
             if (e.has("offset")) offset = e.get("offset").getAsDouble();
@@ -746,7 +862,7 @@ public final class CanonRasters {
         for (Map.Entry<Integer, String> e : ids.entrySet()) {
             if (e.getKey() < 0 || e.getKey() >= out.length) continue;
             String id = e.getValue().trim();
-            if (id.isEmpty() || id.equalsIgnoreCase("auto") || id.equalsIgnoreCase("none") || id.equalsIgnoreCase("vanilla")) continue;
+            if (id.isEmpty() || id.startsWith("#") || id.equalsIgnoreCase("auto") || id.equalsIgnoreCase("none") || id.equalsIgnoreCase("vanilla")) continue;
             out[e.getKey()] = id.contains(":") ? id : "minecraft:" + id;
         }
         return out;
@@ -754,17 +870,20 @@ public final class CanonRasters {
 
     static Map<Integer, String> siteTable(@Nullable JsonObject entry, JsonObject legend) {
         Map<Integer, String> out = new HashMap<>();
-        JsonElement v = entry != null && entry.has("sites") ? entry.get("sites") : entry != null && entry.has("ids") ? entry.get("ids") : null;
+        JsonElement v = entry != null && entry.has("sites") ? entry.get("sites") : entry != null && entry.has("ids") ? entry.get("ids") : legend.get("sites");
         if (v == null) return out;
         if (v.isJsonArray()) {
             JsonArray a = v.getAsJsonArray();
+            boolean indexed = false; // index.json: only plated sites carry an index; the others are not in the raster
+            for (JsonElement e : a) indexed |= e.isJsonObject() && e.getAsJsonObject().has("index");
             for (int i = 0; i < a.size(); i++) {
                 JsonElement e = a.get(i);
                 if (e.isJsonPrimitive()) out.put(i, e.getAsString());
                 else if (e.isJsonObject()) {
                     JsonObject o = e.getAsJsonObject();
                     String id = text(o, "id", text(o, "name", null));
-                    if (id != null) out.put(o.has("index") ? o.get("index").getAsInt() : i, id);
+                    if (id == null || indexed && !o.has("index")) continue;
+                    out.put(o.has("index") ? o.get("index").getAsInt() : i, id);
                 }
             }
         } else if (v.isJsonObject()) {
