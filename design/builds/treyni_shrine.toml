@@ -1,15 +1,13 @@
 # Dryad altar beside Treyni's ancient tree (blueprints/treyni_shrine.py, design/lore/treyni_shrine.md). The tree itself is
 # the landmark treyni_grove (design/data/landmarks.toml, tensura:ancient_forest/tree, about 38 x 41 blocks, surveyed up to
-# 64 blocks from its nominal spot). x/z are the landmark's world spot (canon ref [2150, 1100] -> 1950, -223) plus 38 east,
-# the centre of the shrine's flower-forest site (canon_regions.json "treyni_shrine"). `beside` lets the shrine stand
+# 64 blocks from its nominal spot). Its nominal spot is design/data/anchors.toml treyni_shrine: the grove's anchor
+# (1920, 1540, Lerfing's map) plus 38 east, as on the old continent. `beside` lets the shrine stand
 # next to the tree: the placer keeps only its terrain margin off the tree's recorded bounding box (instead of the 24-block
 # keepout every other placed thing gets), so it lands just east of the crown and inside the site, not 61 blocks east in
 # Jura's ancient forest as version 3 did (19/11/2026).
 name = "treyni_shrine"
 title = "Treyni's shrine"
 landmark = "Treyni's grove (Dryad sanctuary)"
-x = 1988
-z = -223
 anchor = [16, 5, 16]
 ground = "survey"
 search = 48

@@ -168,7 +168,7 @@ class TestRun(unittest.TestCase):
 
     def test_a_wet_arrival_fails(self):
         def override(x, z):
-            if abs(x - 1780) < 6 and abs(z + 150) < 6:
+            if abs(x - jc.ARRIVAL[0]) < 6 and abs(z - jc.ARRIVAL[1]) < 6:
                 return col(wet=True)
             return None
         code, out = self.run_with(FakeWorld(override))

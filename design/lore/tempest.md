@@ -86,7 +86,7 @@ replace the copies with in-game `place template tensura:goblin_village/...` befo
 Tempest's arrival point (blueprint (45, 5, 57), the south edge of the village green at the signpost) is anchored at
 **world (1720, 900)** on Lerfing's map: `design/data/anchors.toml` `[tempest]`, the middle of Jura (see [world.md](world.md#j-jura-tempest-federation-ジュラ・テンペスト連邦国)).
 `TtlTempest.LANDMARK` in `life/tempest.js` reads it. Tempest is no longer the Life 2 world spawn: souls are reborn on the
-rim at (1780, −150), 1,050 blocks north, and walk the road south.
+rim at (1660, −100), 1,000 blocks north, and walk the road south.
 
 **The ground under it** (`python -I tools/lerfing/jura_check.py`, exact columns of the imported world at 2-block steps,
 terrain-fit margin 8 included; 19/11/2026):

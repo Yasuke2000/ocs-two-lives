@@ -129,8 +129,8 @@ npc_types = ["tensura:dwarf"]
 kill_penalty = { npc = 15, player = 5 }
 decay_per_week = 2
 territory = "domain"
-# Not the dwarf village on the Dwarven Road: its reach square (116) comes within a block of the Life 2 arrival (271, -624),
-# where newcomers must be able to gather and build (gen_data refuses a domain over the arrival).
+# Not the dwarf village on the Dwarven Road: it is the open road-side village newcomers reach first from the Life 2 arrival
+# (220 blocks west of it on Lerfing's map), where they must be able to trade and build (gen_data refuses a domain over the arrival).
 domain = { capital = "dwargon", builds = ["dwargon"] }
 throne = { boss = "gazel_dwargo", statue = "gazel_throne", seat = "dwargon" }
 [faction.seed]
@@ -209,7 +209,7 @@ npc_types = []
 kill_penalty = { npc = 15, player = 5 }
 decay_per_week = 2
 territory = "domain"
-# 128, not 256: the Orc War battlefield (orc_camp, 1106 539) stays outside; it is the horde's ground (WP-W14).
+# 128, not 256: the Orc War battlefield (anchors.toml orc_camp, 300 east of the caverns) stays outside; it is the horde's ground (WP-W14).
 domain = { capital = "landmark:lizardmen_caverns", capital_radius = 128, landmarks = ["lizardmen_village", "lizardmen_caverns"] }
 [faction.seed]
 race = { lizardman = 20, dragonewt = 5 }

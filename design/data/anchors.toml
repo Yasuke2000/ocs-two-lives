@@ -16,16 +16,21 @@
 #            or camp point)
 #   surface  land (dry ground in the land mask), water (a lake, river or sea), shore (either), any
 #   canon    the pack/config/ttl/canon_regions.json landmark it positions (its `at` must equal x, z)
-#   build    the design/builds/<name>.toml it positions (WP-L4 writes x/z there from this table)
-#   landmark the design/data/landmarks.toml name it positions
+#   build    the design/builds/<name>.toml it positions (gen_data takes the build's x/z from here; the build file has none)
+#   landmark the design/data/landmarks.toml name it positions (likewise)
 #   of, dx, dz  relative anchors: x = <of>.x + dx, z = <of>.z + dz (the scripts keep the offsets, the table the result)
 #   old_x, old_z  the position on the old generated continent (for the translation; nothing reads it at runtime)
 #   map      false = no BlueMap marker (internal spots)
 #   notes    why here (the probe numbers are from Lerfing's analysis rasters: ground y p10/p50/p90 over 96 x 96)
 #
 # [keepout.<id>] (x0, z0, x1, z1; no x/z, so the self-check skips them): Lerfing's and Paulzero's own builds, kept 1:1
-# (owner, 19/11/2026). No build, landmark or settlement anchor may stand inside one, and no build's box may reach one;
-# pins and water spots may (Lake Siss is the lake village's lake).
+# (owner, 19/11/2026). No build, landmark or settlement anchor may stand inside one, no build's box + margin + search may
+# reach one and no landmark's reach + 64 (gen_data); pins and water spots may (Lake Siss is the lake village's lake).
+#
+# Other data names an anchor instead of repeating its numbers (tools/anchor_refs.py): builds and landmarks through the
+# `build`/`landmark` fields here, arrival.toml / npcs.toml / sidequests.toml with at = "<id>", bosses.toml arenas and
+# artifice.toml's smithy with { anchor = "<id>", dx, dz }. gen_data writes the resolved x/z into generated/data.js and
+# this table into generated/anchors.js (TtlAnchors; life/tempest.js reads Tempest's position from it).
 
 # --- Jura ------------------------------------------------------------------------------------------------------------
 
@@ -42,20 +47,20 @@ old_z = 0
 notes = "Middle of Jura (§3.2): y 63/65/68, relief 5, the lake at x 1500..1600 just west (running water nearby), plains."
 
 [arrival]
-name = "Life 2 arrival (world spawn), yaw -161"
-x = 1780
-z = -150
+name = "Life 2 arrival (world spawn), yaw -149"
+x = 1660
+z = -100
 region = "J"
 kind = "arrival"
 surface = "land"
 old_x = 271
 old_z = -624
-notes = "On the road Tempest -> Dwargon gate, 1,050 N of Tempest, ~120 blocks inside Jura's border with the Canaat apron; dry, relief 12. Outside the dark band (r 600 + 50)."
+notes = "Jura's safe outer rim on the way from Tempest to the Dwargon gate, 1,000 N of Tempest, ~175 blocks inside Jura's border with the Canaat apron; outside the dark band (r 600 + 50). WP-L4 moved it from the design's (1780, -150), where 42 % of the 40-block area was the repainted Canaat apron (stony_peaks: Tensura mountain spawns such as the basilisk) from 6 blocks east: here 100 % plains within 64 blocks and 98 % within 100 (the rest badlands, no stony_peaks), no water within 128, ground y 71/73/75 within 40 on the imported world. Hostile-spawn-free radius 48 (arrival.toml safe_radius, owner 19/11/2026)."
 
 [wayfarers_camp]
 name = "Wayfarers' camp on Jura's rim (sidequests rim_camp)"
-x = 1795
-z = -135
+x = 1675
+z = -85
 region = "J"
 kind = "spot"
 surface = "land"
@@ -95,18 +100,18 @@ notes = "Moved from the design's (1480, 720), which is 45 % lake: 90 blocks west
 
 [spirit_gate]
 name = "Spirit Gate (Ramiris' doorway)"
-x = 1540
-z = 1080
+x = 1570
+z = 1130
 region = "J"
 kind = "build"
 surface = "land"
 build = "spirit_gate"
 old_x = -210
 old_z = 130
-notes = "250 SW of Tempest, as today; y 63/66/70."
+notes = "275 SSW of Tempest (WP-L4: moved from the design's (1540, 1080), whose 57 x 57 box is 18 % lake, 30 E / 50 S onto dry dark-forest ground: box water 0 %, ground y 69/71/72 on the imported world); the lake 60 blocks north-west."
 
 [shizu_spawn]
-name = "Shizu quest spawn (r 48)"
+name = "Hinata's ambush west of Tempest (bosses.toml hinata_sakaguchi spawn, r 48)"
 x = 1300
 z = 820
 region = "J"
@@ -118,7 +123,7 @@ dz = -80
 old_x = -400
 old_z = -60
 map = false
-notes = "West of the lake, as today's (-400, -60)."
+notes = "West of the lake, as today's (-400, -60). The id is the design's (§3.2 'Shizu quest spawn'); the only user is Hinata's quest spawn (bosses.toml), Shizu fights at Tempest."
 
 [outcast_road]
 name = "The Outcast on Tempest's south road"
@@ -244,7 +249,7 @@ notes = "150 east of the road on the apron foot, y 78/81/88, dry."
 
 [dwarven_arena]
 name = "Dwarven Arena"
-x = 2200
+x = 2260
 z = -80
 region = "D"
 kind = "build"
@@ -252,7 +257,7 @@ surface = "land"
 build = "dwarven_arena"
 old_x = -30
 old_z = -850
-notes = "Outside the dwarf village's keepout, in D; y 78/82/84; survey 24."
+notes = "East of the dwarf village, in D: WP-L4 moved it 60 east of the design's (2200, -80) so the box + search stays outside the village's keepout (spot + 116 reach + 64 offset + 24) wherever the village lands; box ground y 75/76/77, dry gravel and grass; survey 24."
 
 [dragons_nest]
 name = "Dragon's Nest (highest peak of the Great Canaat Mountains)"
@@ -307,15 +312,15 @@ notes = "Lerfing's lake with its marsh ring and his stilt-hut village on the wat
 
 [lizardmen_village]
 name = "Lizardmen's stilt village"
-x = 2900
-z = 1020
+x = 3184
+z = 988
 region = "W"
 kind = "landmark"
 surface = "shore"
 landmark = "lizardmen_village"
 old_x = 700
 old_z = 344
-notes = "South-west shore, swamp, part water (surface = water in landmarks.toml)."
+notes = "South shore of Lake Siss, swamp, part water (surface = water in landmarks.toml): 45 % water and ground y 60/64/70 within 48 on the imported world. WP-L4 moved it from the design's (2900, 1020), which lies among Lerfing's south-west huts (keepout lerfing_lake_village_sw); every hut cluster stays more than reach 48 + 64 away."
 
 [lizardmen_caverns]
 name = "Lizardmen's caverns (Gabiru, Avalos)"
@@ -776,12 +781,71 @@ notes = "On the rim between the arrival and Tempest, 230 blocks from the arrival
 
 # --- Lerfing's and Paulzero's own builds (kept 1:1) -------------------------------------------------------------------
 
-[keepout.lerfing_lake_village]
-name = "Lerfing's stilt-hut village on Lake Siss (brown glass, oak fence)"
-x0 = 2900
-z0 = 400
-x1 = 3600
-z1 = 1000
+# Lerfing's stilt-hut village on Lake Siss is nine hut clusters round the lake (brown stained glass roofs, oak fences),
+# measured on the imported world (WP-L4: every column whose top block is brown_stained_glass, clustered, + 8 blocks).
+# The design's single box (2900..3600 x 400..1000) missed four clusters and covered the whole lake.
+[keepout.lerfing_lake_village_sw]
+name = "Lerfing's lake village: south-west huts"
+x0 = 2814
+z0 = 982
+x1 = 2886
+z1 = 1050
+
+[keepout.lerfing_lake_village_w]
+name = "Lerfing's lake village: west huts"
+x0 = 2700
+z0 = 816
+x1 = 2768
+z1 = 880
+
+[keepout.lerfing_lake_village_c]
+name = "Lerfing's lake village: central huts (north)"
+x0 = 3228
+z0 = 566
+x1 = 3298
+z1 = 644
+
+[keepout.lerfing_lake_village_cs]
+name = "Lerfing's lake village: central huts (south)"
+x0 = 3248
+z0 = 794
+x1 = 3314
+z1 = 862
+
+[keepout.lerfing_lake_village_e]
+name = "Lerfing's lake village: east huts (the main quarter)"
+x0 = 3536
+z0 = 544
+x1 = 3748
+z1 = 792
+
+[keepout.lerfing_lake_village_ne1]
+name = "Lerfing's lake village: north-east huts"
+x0 = 3836
+z0 = 690
+x1 = 3902
+z1 = 758
+
+[keepout.lerfing_lake_village_ne2]
+name = "Lerfing's lake village: north-east huts"
+x0 = 3914
+z0 = 376
+x1 = 3980
+z1 = 442
+
+[keepout.lerfing_lake_village_ne3]
+name = "Lerfing's lake village: north-east huts"
+x0 = 4024
+z0 = 326
+x1 = 4090
+z1 = 394
+
+[keepout.lerfing_lake_village_ne4]
+name = "Lerfing's lake village: north-east huts"
+x0 = 4250
+z0 = 416
+x1 = 4318
+z1 = 486
 
 [keepout.paulzero_grove]
 name = "Paulzero's giant trees (the Divine Tree; 13 'built by Paulzero' signs)"
@@ -792,9 +856,11 @@ z1 = 3150
 
 [keepout.lerfing_ice]
 name = "Lerfing's ice crystals on the Ice Continent's south shore (white concrete, glass panes)"
+# WP-L4: measured on the imported world (white concrete / glass panes at -1858..-1586 x -4450..-4308, + 8), joined with
+# the design's box.
 x0 = -1870
-z0 = -4420
-x1 = -1700
+z0 = -4458
+x1 = -1578
 z1 = -4280
 
 [keepout.lerfing_north_islet]

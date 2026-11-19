@@ -2,18 +2,9 @@ name = "forgotten_dragon_city"
 title = "City of the Forgotten Dragon — Milim's domain"
 landmark = "City of the Forgotten Dragon (Milim)"
 # Canon (tensura.fandom.com City_of_the_Forgotten_Dragon, Great_Ameld_River): Milim's capital lies south of the Jura
-# Forest and east of the Beast Kingdom of Eurazania, on the plains of the continent's southern edge that the Great
-# Ameld River waters. The landmark pixel converts to (2462, 839) on the 14,000-block map, which is inside the painted
-# lake and river channels of Milim's land ('~' in canon_map.txt; 18/11/2026 the real terrain there was lakes at sea
-# level, at least 34 % water everywhere within 160 blocks). Lore pass 18/11/2026: the survey now starts at 2340 905,
-# 170 blocks south-west of the canon pixel on the lake's western shore and the Ameld's south bank. In canon_map.txt
-# every chunk within 80 blocks of it is dry 'M' (the nearest '~' is the lake 100 blocks east and the river 60 blocks
-# north), it stays 200 blocks east of Eurazania's border (B) and 60 blocks north of the diagonal B/M line, so the
-# city keeps canon's "south of Jura, east of Eurazania, by the river". The previous start 2510 575 (version 2) was
-# 276 blocks NORTH of the canon pixel, dry but away from the river and lake; its placed copy stays in the staging
-# world until that terrain is reset. search 128 lets the placer find the flattest dry ground round the new start.
-x = 2340
-z = 905
+# Forest and east of the Beast Kingdom of Eurazania, on the plains that the Great Ameld River waters. On Lerfing's map
+# (design/data/anchors.toml forgotten_dragon_city, the landmark's `at`): the lake-and-river plain of the badlands, relief 2,
+# dry within the box + search (1 % water on the imported world). search 128 lets the placer find the flattest dry ground.
 anchor = [60, 5, 118]
 ground = "survey"
 search = 128

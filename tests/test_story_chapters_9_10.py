@@ -14,6 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import anchor_refs  # noqa: E402
 import gen_quests  # noqa: E402
 
 TENSURA_JAR = Path(os.environ.get("TENSURA_JAR", r"C:\Users\david\AppData\Roaming\PrismLauncher\instances\OCs\minecraft\mods\tensura-neoforge-2.0.1.5.jar"))
@@ -31,7 +32,8 @@ def chapter(name: str) -> dict:
 CH9 = chapter("chapter_9_two_hundred_thousand.toml")
 CH10 = chapter("chapter_10_whirlpool.toml")
 STORY = load(ROOT / "design" / "data" / "story.toml")
-BOSSES = {b["id"]: b for b in load(ROOT / "design" / "data" / "bosses.toml")["boss"]}
+# Boss places name design/data/anchors.toml anchors (tools/anchor_refs.py writes their x/z, as gen_data does).
+BOSSES = {b["id"]: b for b in anchor_refs.resolve_data({"bosses": load(ROOT / "design" / "data" / "bosses.toml")})["bosses"]["boss"]}
 FACTIONS = {f["id"] for f in load(ROOT / "design" / "data" / "factions.toml")["faction"]}
 ACTS = {a["id"]: a for a in STORY["act"]}
 FLAGS = STORY["flag"]

@@ -83,10 +83,10 @@ Grid letter, name, `banner_subtitle`, then lore, terrain on Lerfing's map and la
   - Sealed Cave (Veldora, Rimuru's birthplace; later a hipokute farm and dungeon): (1380, 560), 480 blocks north-west of Tempest,
     on a mesa of the spire field in the dark band ("a rocky hill in a clearing, the mouth in its south face"); Veldora's leak is the band.
   - Old goblin village (Rigurd's tribe): (1390, 710), 380 blocks north-west, between the lake and the cave.
-  - Spirit Gate: (1540, 1080), 255 blocks south-west.
+  - Spirit Gate: (1570, 1130), 275 blocks south-south-west.
   - Treyni's grove, the dryad sanctuary, and her shrine: (1920, 1540) / (1958, 1540), 670 blocks south-east, on the plain east of the river that drains Jura's lakes.
   - Hidden ogre village (the Kijin homeland, burned by the orcs): (2150, 400), at the north foot of the east massif ("north-eastern hills", *placement unverified*).
-  - Life 2 arrival: (1780, −150), 1,050 blocks north of Tempest on the road to Dwargon.
+  - Life 2 arrival: (1660, −100), 1,000 blocks north of Tempest on the way to Dwargon, on pure plains.
   - Source of the Great Ameld River: (2500, −200), in D.
 - Sources: https://tensura.fandom.com/wiki/Great_Jura_Forest, https://tensura.fandom.com/wiki/Lake_Siss,
   https://tensura.fandom.com/wiki/Great_Ameld_River, https://tensura.fandom.com/wiki/Orc_War,
@@ -98,7 +98,7 @@ Grid letter, name, `banner_subtitle`, then lore, terrain on Lerfing's map and la
   labyrinth that is the lizardmen's fortress and seat of government. The lizardmen live off the lake's fish.
 - **Terrain.** Lerfing's round lake (floor y 34–50, `swamp` biome all over it) with the swamp ring x 2350..3950, z 290..1230. Stored biomes:
   plains 61 %, swamp 36 %. **Lerfing's stilt-hut village** stands on the lake's west shore (x 2900..3600, z 400..1000, kept as he built it).
-- **Landmarks:** Lake Siss (3050, 750; the Charybdis arena is the lake itself, r 96); the lizardmen's stilt village (2900, 1020) on the south-west shore;
+- **Landmarks:** Lake Siss (3050, 750; the Charybdis arena is the lake itself, r 96); the lizardmen's stilt village (3184, 988) on the south shore;
   the lizardmen's caverns (3300, 1200) on the south shore; the Orc War battlefield (3600, 1250) at the south-east,
   where the marsh meets Eurazania's jungle: Geld's horde came up from the south.
 - Lake Siss is the lizardmen's lake, far off from Tempest (1,340 blocks): reaching it needed an envoy (Gabiru) and an army march.
@@ -328,13 +328,13 @@ backdrop, the mesa field for the Sealed Cave to the north-west. The runner-up is
 
 | Destination | World x, z | Distance in blocks |
 | --- | --- | ---: |
-| Spirit Gate | (1540, 1080) | 255 |
+| Spirit Gate | (1570, 1130) | 275 |
 | Old goblin village | (1390, 710) | 381 |
 | Shizu's meeting place | (1300, 820) | 428 |
 | Sealed Cave | (1380, 560) | 481 |
 | Hidden ogre village | (2150, 400) | 659 |
 | Treyni's grove | (1920, 1540) | 671 |
-| Life 2 arrival | (1780, −150) | 1,052 |
+| Life 2 arrival | (1660, −100) | 1,002 |
 | Lake Siss | (3050, 750) | 1,338 |
 | Dwargon gate | (1878, −544) | 1,453 |
 | Blumund capital | (−450, 150) | 2,296 |
@@ -354,7 +354,7 @@ radius 800 round (1720, 900), 40,000 samples), also drawn in [docs/previews/jura
 | Band r 250..550: every land sample is dark forest | 11,041 of 11,041 |
 | Rim beyond r 650: no ancient or dark forest | 0 of 9,033 |
 | Every sample equals what `repaint.json` says | 40,000 of 40,000 |
-| Arrival (1780, −150): dry, rim, non-deadly | ground y 86, gravel, biome plains, 0 % water within 40 blocks; 42 % of that 40-block area is stony peaks (the Canaat apron, 500 magicule) |
+| Arrival (1660, −100): dry, rim, non-deadly | biome plains in all of the 40-block area (0 % stony peaks; WP-L4 moved it off the design's (1780, −150), 42 % stony peaks), 0 % water; `tools/lerfing/jura_check.py` 11 checks, 0 failed |
 | Beach in the core | 16 % of the dry land (37 % inside r 100, 8–10 % beyond r 100); assessment in the [decisions](../decisions.md) row of 19/11/2026 |
 
 Our interpretation of the beach in the core: Lerfing's lake shores are the one place where Veldora's magicule thins

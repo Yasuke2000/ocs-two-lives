@@ -6,7 +6,7 @@ Positions are the middle of a place; the exact doorway depends on the ground and
 
 ## Your first steps
 
-You arrive at **(1780, −150)** on the northern edge of Jura, on the road between the two places every soul hears about first. **Dwargon’s white gate is north** at **(1878, −544)**, a short walk uphill (about 400 blocks). **Tempest is south** at **(1720, 900)**, 1,050 blocks away across the forest’s dangerous inner rings. Read [the rings of Jura](jura-rings.md) before you walk south.
+You arrive at **(1660, −100)** on the northern edge of Jura, on the road between the two places every soul hears about first. **Dwargon’s white gate is north** at **(1878, −544)**, a walk uphill (about 500 blocks, a little east of north). **Tempest is south** at **(1720, 900)**, 1,000 blocks away across the forest’s dangerous inner rings. Read [the rings of Jura](jura-rings.md) before you walk south.
 
 For the whole continent use [BlueMap](https://map.daviddelporte.com) (select **Tensura (Life 2)**; terrain and markers, no live player dots) or the [regions and anchors atlas](../../previews/lerfing_regions.png), which works when the web map is offline.
 
@@ -32,9 +32,9 @@ Lerfing drew the lands; the pack decides which nation each part is. A few readin
 
 | Place | X, Z | Region | ID |
 | --- | --- | --- | --- |
-| Life 2 arrival on the rim of Jura | 1780, −150 | Jura |  |
+| Life 2 arrival on the rim of Jura | 1660, −100 | Jura |  |
 | Tempest, Rimuru’s capital | 1720, 900 | Jura | `tempest` |
-| Gate to the Dwelling of the Spirits | 1540, 1080 | Jura | `spirit_gate` |
+| Gate to the Dwelling of the Spirits | 1570, 1130 | Jura | `spirit_gate` |
 | Old goblin village (Rigurd’s tribe) | 1390, 710 | Jura | `goblin_village` |
 | Sealed Cave (Veldora’s prison, Rimuru’s birthplace) | 1380, 560 | Jura | `sealed_cave` |
 | Hidden ogre village (burned ruin) | 2150, 400 | Jura | `ogre_village_ruin` |
@@ -43,11 +43,11 @@ Lerfing drew the lands; the pack decides which nation each part is. A few readin
 | Dwargon main gate | 1878, −544 | Dwargon | `dwargon` |
 | Dwargo, the cavern capital | 1878, −644 | Dwargon |  |
 | Dwarf village on the road to Dwargon | 2000, −110 | Dwargon | `dwarf_village` |
-| Dwarven Arena | 2200, −80 | Dwargon | `dwarven_arena` |
+| Dwarven Arena | 2260, −80 | Dwargon | `dwarven_arena` |
 | Great Ameld River, source | 2500, −200 | Dwargon |  |
 | Dragon’s Nest (highest peak of the Canaat) | 2420, −1536 | Dwargon | `dragons_nest` |
 | Lake Siss | 3050, 750 | Lake Siss marsh |  |
-| Lizardmen’s stilt village | 2900, 1020 | Lake Siss marsh | `lizardmen_village` |
+| Lizardmen’s stilt village | 3184, 988 | Lake Siss marsh | `lizardmen_village` |
 | Lizardmen’s caverns (Gabiru, Avalos) | 3300, 1200 | Lake Siss marsh | `lizardmen_caverns` |
 | Orc War battlefield | 3600, 1250 | Lake Siss marsh | `orc_camp` |
 | Great Ameld River, mouth | 4580, 2300 | Milim’s Domain |  |

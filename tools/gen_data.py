@@ -18,11 +18,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))  # python -I (validate.py) does not put the script's folder on the path
 import nbt  # noqa: E402
+import anchor_refs  # noqa: E402
 import anchors_env  # noqa: E402 (tests/anchors.env, WP-L6)
 
 SOURCES = ROOT / "design" / "data"
 BUILDS = ROOT / "design" / "builds"
 TARGET = ROOT / "pack" / "kubejs" / "server_scripts" / "ttl" / "generated" / "data.js"
+ANCHORS_JS = ROOT / "pack" / "kubejs" / "server_scripts" / "ttl" / "generated" / "anchors.js"
 FOOTPRINTS = ROOT / "pack" / "kubejs" / "server_scripts" / "ttl" / "generated" / "builds.js"
 CANON = ROOT / "pack" / "config" / "ttl" / "canon_regions.json"
 CANON_MAP = ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
@@ -239,6 +241,7 @@ ITEM_ID = re.compile(r"[a-z0-9_.-]+:[a-z0-9_/.-]+")
 def check_artifice(art: dict, data: dict) -> None:
     # artifice/*.js reads these by name; a typo in an id, a faction, a band or a road would silently do nothing in game.
     where = "artifice.toml"
+    anchor_refs.resolve_data({"artifice": art})
     facs = {f["id"] for f in data.get("factions", {}).get("faction", [])}
     bands = {"hostile", "unfriendly", "neutral", "friendly", "honored", "exalted"}
     coins = data.get("economy", {}).get("coins", {}).get("chain", [])
@@ -408,7 +411,7 @@ def check_artifice(art: dict, data: dict) -> None:
 
     st = art["steal"]
     if not (isinstance(st.get("smithy"), dict) and is_int(st["smithy"].get("x")) and is_int(st["smithy"].get("z"))):
-        raise SystemExit(f"{where}: [steal] smithy must be {{ x = n, z = n }}")
+        raise SystemExit(f"{where}: [steal] smithy must be {{ anchor = \"<anchors.toml id>\" }} or {{ x = n, z = n }}")
     night = st.get("night")
     if not (isinstance(night, list) and len(night) == 2 and all(is_int(t) and 0 <= t < 24000 for t in night)):
         raise SystemExit(f"{where}: [steal] night must be [from, to] day-time ticks 0..23999")
@@ -893,13 +896,17 @@ def check_arena(where: str, label: str, a: dict, landmarks: set, builds: set, al
             raise SystemExit(f"{where}: a build {label} takes no other field")
     else:
         if not all(isinstance(a.get(k), int) for k in "xz") or not isinstance(a.get("y", 0), int):
-            raise SystemExit(f"{where}: {label} needs a landmark, a build or integer x and z (y optional)")
+            raise SystemExit(f"{where}: {label} needs a landmark, a build, an anchor or integer x and z (y optional)")
         if "radius" in a and (not isinstance(a["radius"], int) or not 4 <= a["radius"] <= 256):
             raise SystemExit(f"{where}: {label} radius must be an integer 4..256")
         if "dim" in a and not re.fullmatch(ident, str(a["dim"])):
             raise SystemExit(f"{where}: {label} dim must be a namespaced id")
-        if set(a) - {"x", "y", "z", "dim", "radius"}:
-            raise SystemExit(f"{where}: {label} knows x, y, z, dim and radius only")
+        if "anchor" in a and a.get("dim", "minecraft:overworld") != "minecraft:overworld":
+            raise SystemExit(f"{where}: {label} anchor names an overworld place (anchors.toml); drop dim")
+        if ("dx" in a or "dz" in a) and "anchor" not in a:
+            raise SystemExit(f"{where}: {label} dx/dz only go with an anchor")
+        if set(a) - {"x", "y", "z", "dim", "radius", "anchor", "dx", "dz"}:
+            raise SystemExit(f"{where}: {label} knows anchor (+ dx, dz), x, y, z, dim and radius only")
 
 
 def check_wild_knobs(w: dict | None) -> None:
@@ -947,6 +954,7 @@ def check_wild(where: str, w: dict, letters: set, boss: dict) -> None:
 def check_bosses(bosses: dict, landmarks: dict | None, factions: dict | None = None) -> None:
     # bosses/boss.js summons these; a typo would fail only when a quest or altar summons the boss.
     ident = r"[a-z0-9_.-]+:[a-z0-9_/.-]+"
+    anchor_refs.resolve_data({"bosses": bosses})
     names = {lm["name"] for lm in (landmarks or {}).get("landmark", [])}
     fw = bosses.get("framework", {})
     for key, kind in (("block_natural", bool), ("untame", bool), ("proxy_bosses", bool), ("idle_minutes", int),
@@ -1248,6 +1256,7 @@ def check_story(story: dict, factions: dict | None, bosses: dict | None, skills:
 def check_arrival(arrival: dict) -> None:
     # life/arrival.js grounds [life2] at x, z and TtlLife.toOverworld teleports there; a wrong type would only
     # show up as a bad `tp` at the first rebirth.
+    anchor_refs.resolve_data({"arrival": arrival})
     spot = arrival.get("life2")
     if not isinstance(spot, dict):
         raise SystemExit("arrival.toml: [life2] missing")
@@ -1256,24 +1265,34 @@ def check_arrival(arrival: dict) -> None:
             raise SystemExit(f"arrival.toml: life2.{key} must be a number")
     if not -180 <= spot["yaw"] <= 360:
         raise SystemExit("arrival.toml: life2.yaw is a Minecraft yaw in degrees (-180..360)")
+    if not is_int(spot.get("safe_radius", 0)) or not 0 <= spot.get("safe_radius", 0) <= 128:
+        raise SystemExit("arrival.toml: life2.safe_radius must be a whole number from 0 to 128 (0 = no hostile-free zone)")
     for key, top in (("search", 48), ("version", 1_000_000)):
         if not isinstance(spot.get(key), int) or isinstance(spot.get(key), bool) or not 0 <= spot[key] <= top or (key == "version" and spot[key] < 1):
             raise SystemExit(f"arrival.toml: life2.{key} must be a whole number" + (" from 0 to 48" if key == "search" else " from 1"))
     x0, z0, x1, z1 = json.loads(CANON.read_text(encoding="utf-8"))["lerfing"]["inner"]
     if not (x0 <= spot["x"] < x1 and z0 <= spot["z"] < z1):
         raise SystemExit(f"arrival.toml: life2 x/z ({spot['x']}, {spot['z']}) lies outside Lerfing's map {x0}..{x1} x {z0}..{z1}")
+    at = anchor_table().get("arrival")
+    if at and (spot["x"], spot["z"]) != (at["x"], at["z"]):
+        raise SystemExit(f"arrival.toml: life2 must stand on the anchors.toml arrival ({at['x']}, {at['z']}): "
+                         f"write at = \"arrival\" instead of x/z")
 
 
 def settlement_box(script: str, anchor: str, footprint: str) -> tuple[int, int, int, int]:
     """World box (x0, z0, x1, z1, margin included) of Tempest or Dwargon, as their scripts compute it, at the position
-    design/data/anchors.toml gives them (the source of truth since the Lerfing import; WP-L4 makes the scripts read it)."""
-    m = re.search(anchor + r":\s*\{\s*x:\s*(-?\d+),\s*z:\s*(-?\d+)", (SCRIPTS / "life" / script).read_text(encoding="utf-8"))
+    design/data/anchors.toml gives them (the source of truth since the Lerfing import). The script's literal (tempest.js:
+    the fallback next to TtlAnchors.tempest; dwargon.js: GATE itself) must equal the anchor."""
+    text = (SCRIPTS / "life" / script).read_text(encoding="utf-8")
+    m = re.search(r"\b" + anchor + r":[^\n]*?\{\s*x:\s*(-?\d+),\s*z:\s*(-?\d+)\s*\}", text)
     sx, sz = int(m.group(1)), int(m.group(2))
-    at = anchor_table().get(script.removesuffix(".js"))
+    aid = script.removesuffix(".js")
+    at = anchor_table().get(aid)
     if at and (at["x"], at["z"]) != (sx, sz):
-        warn_once(f"warn: life/{script} {anchor} ({sx}, {sz}) differs from anchors.toml {at['id']} ({at['x']}, {at['z']}); "
-                  f"the checks use the anchor (WP-L4 makes the script read it)")
-        sx, sz = at["x"], at["z"]
+        # tempest.js reads TtlAnchors.tempest (the literal is its fallback); dwargon.js (WP-L7b) keeps GATE as a literal
+        # chosen on the real heights. Either way the number must be the anchor, or the checks and the game disagree.
+        raise SystemExit(f"life/{script} {anchor} ({sx}, {sz}) differs from anchors.toml {at['id']} ({at['x']}, {at['z']}): "
+                         f"move them together")
     line = next(t for t in (SCRIPTS / "generated" / footprint).read_text(encoding="utf-8").splitlines()
                 if t.startswith("const ") and "Footprint = " in t)
     f = json.loads(line[line.index("{"):])
@@ -1303,10 +1322,21 @@ def warn_once(msg: str) -> None:
 @functools.lru_cache(maxsize=1)
 def anchor_table() -> dict:
     """{id: anchor} from design/data/anchors.toml ({} when the file is missing)."""
-    path = SOURCES / "anchors.toml"
-    if not path.is_file():
-        return {}
-    return anchor_rows(tomllib.loads(path.read_text(encoding="utf-8")))
+    return anchor_refs.table()
+
+
+def box_gap(box: tuple, k: dict) -> float:
+    """Blocks between a world box (x0, z0, x1, z1) and a keepout ({} with x0..z1); 0 when they touch or overlap."""
+    return math.hypot(max(k["x0"] - box[2], 0, box[0] - k["x1"]), max(k["z0"] - box[3], 0, box[1] - k["z1"]))
+
+
+def anchors_js() -> str:
+    """generated/anchors.js: TtlAnchors = {id: {x, z, region, kind}} (life/tempest.js, life/mortal_spawns.js read it)."""
+    rows = {a["id"]: {"x": a["x"], "z": a["z"], "region": a["region"], "kind": a["kind"]}
+            for a in anchor_table().values()}
+    return ("// priority: 200\n"
+            "// GENERATED by tools/gen_data.py from design/data/anchors.toml (Lerfing's coordinates). Do not edit.\n"
+            f"const TtlAnchors = {json.dumps(rows, indent=2, ensure_ascii=False, sort_keys=True)}\n")
 
 
 def anchor_rows(table: dict) -> dict:
@@ -1435,10 +1465,24 @@ def check_landmarks(landmarks: dict) -> None:
             raise SystemExit(f"{where}: canon landmark {lm['canon']!r} not in canon_regions.json")
         if ("x" in lm) != ("z" in lm):
             raise SystemExit(f"{where}: give both x and z, or neither")
-        if "x" not in lm:
+        # Where: the anchors.toml anchor that names this landmark, else x/z, else the canon landmark's `at`.
+        linked = anchor_refs.linked("landmark", name)
+        if linked and "x" in lm and (lm["x"], lm["z"]) != (linked["x"], linked["z"]):
+            raise SystemExit(f"{where}: anchors.toml {linked['id']} positions it at ({linked['x']}, {linked['z']}); "
+                             f"drop x/z here")
+        if linked:
+            lm["x"], lm["z"] = linked["x"], linked["z"]
+        elif "x" not in lm:
             if "canon" not in lm:
                 raise SystemExit(f"{where}: needs x/z or canon")
             lm["x"], lm["z"] = landmark_world(refs[lm["canon"]])
+        # Lerfing's and Paulzero's builds: the structure spreads `reach` round a spot up to 64 blocks off the nominal one
+        # (life/landmarks.js OFFSETS).
+        spread = lm["reach"] + 64
+        for k in anchor_refs.keepouts():
+            if box_gap((lm["x"] - spread, lm["z"] - spread, lm["x"] + spread, lm["z"] + spread), k) == 0:
+                raise SystemExit(f"{where}: ({lm['x']}, {lm['z']}) reach {lm['reach']} + 64 can reach anchors.toml "
+                                 f"keepout {k['id']} ({k['name']})")
         for label, (x0, z0, x1, z1) in boxes.items():
             gap = math.hypot(max(x0 - lm["x"], 0, lm["x"] - x1), max(z0 - lm["z"], 0, lm["z"] - z1))
             if gap < landmarks["keepout"] + lm["reach"]:
@@ -2138,10 +2182,21 @@ def check_builds() -> tuple[list[dict], dict]:
         if isinstance(b["max_wet"], bool) or not isinstance(b["max_wet"], (int, float)) or not 0 <= b["max_wet"] <= 0.5:
             raise SystemExit(f"{where}: max_wet must be a fraction 0..0.5 (share of the build's columns over water)")
 
-        # Where: x/z win, else the canon landmark's `at` (anchors.toml).
+        # Where: the anchors.toml anchor that names this build (every overworld build has one), else x/z (the other
+        # dimensions), else the canon landmark's `at`.
         if ("x" in b) != ("z" in b):
             raise SystemExit(f"{where}: give both x and z, or neither")
-        if "x" in b:
+        linked = anchor_refs.linked("build", name)
+        if linked and "x" in b:
+            raise SystemExit(f"{where}: anchors.toml {linked['id']} positions this build at ({linked['x']}, {linked['z']}); "
+                             f"drop x/z here")
+        if linked:
+            if b["dimension"] != "minecraft:overworld":
+                raise SystemExit(f"{where}: anchors.toml {linked['id']} places it in the overworld, the build is in {b['dimension']}")
+            b["x"], b["z"] = linked["x"], linked["z"]
+        elif b["dimension"] == "minecraft:overworld" and anchor_table():
+            raise SystemExit(f"{where}: an overworld build needs its anchor in design/data/anchors.toml (build = \"{name}\")")
+        elif "x" in b:
             if not is_int(b["x"]) or not is_int(b["z"]):
                 raise SystemExit(f"{where}: x and z must be integers")
         elif "landmark" in b:
@@ -2170,6 +2225,15 @@ def check_builds() -> tuple[list[dict], dict]:
         b["size"] = size
 
         if b["dimension"] == "minecraft:overworld":
+            # Lerfing's and Paulzero's builds (anchors.toml keepouts): whatever spot the survey picks within `search`,
+            # the box with its terrain and repair margin stays off them.
+            reach = max(b["margin"], b["repair_margin"]) + b["search"]
+            x0, z0 = b["x"] - anchor[0], b["z"] - anchor[2]
+            box = (x0 - reach, z0 - reach, x0 + size[0] - 1 + reach, z0 + size[2] - 1 + reach)
+            for k in anchor_refs.keepouts():
+                if box_gap(box, k) == 0:
+                    raise SystemExit(f"{where}: the box + margin + search {box} reaches anchors.toml keepout {k['id']} "
+                                     f"({k['name']})")
             ch = canon_char(b["x"], b["z"])
             if ch is None or ch == ".":
                 print(f"warn: {where}: ({b['x']}, {b['z']}) is open sea or outside canon_map.txt", file=sys.stderr)
@@ -2260,12 +2324,9 @@ def check_domains(fac: dict, data: dict, builds: list[dict]) -> None:
 
     # The Life 2 arrival must stay free ground: newcomers gather and build there. A landmark may land up to 64 blocks off
     # its nominal spot (life/landmarks.js OFFSETS), so its square is widened by that much.
-    arrival = data.get("arrival", {}).get("life2")
+    # arrival.toml [life2] is at = "arrival" (check_arrival): the anchor is the position.
     anchored = anchor_table().get("arrival")
-    if anchored and (not arrival or (arrival["x"], arrival["z"]) != (anchored["x"], anchored["z"])):
-        warn_once(f"warn: arrival.toml life2 differs from anchors.toml arrival ({anchored['x']}, {anchored['z']}); "
-                  f"the checks use the anchor (WP-L4 moves arrival.toml)")
-        arrival = {"x": anchored["x"], "z": anchored["z"]}
+    arrival = {"x": anchored["x"], "z": anchored["z"]} if anchored else data.get("arrival", {}).get("life2")
 
     def covers_arrival(cx: int, cz: int, r: int) -> bool:
         return bool(arrival) and abs(arrival["x"] - cx) <= r and abs(arrival["z"] - cz) <= r
@@ -2364,6 +2425,11 @@ def render() -> dict[Path, str]:
         if "charter" in data["economy"].get("sinks", {}):
             raise SystemExit("economy.toml: remove [sinks].charter, nations.toml rules.charter_cost is the only source")
         data["economy"]["sinks"]["charter"] = data["nations"]["rules"]["charter_cost"]
+    # anchors.toml is not a script table (generated/anchors.js holds it as TtlAnchors): check it, then write the anchors'
+    # x/z into every table that names one (tools/anchor_refs.py), before the per-file checks read x/z.
+    if "anchors" in data:
+        check_anchors(data.pop("anchors"))
+    anchor_refs.resolve_data(data)
     if "skills" in data:
         check_skills(data["skills"])
     if "guide" in data:
@@ -2380,8 +2446,6 @@ def render() -> dict[Path, str]:
         check_choices(data["choices"], data)
     if "events" in data:
         check_events(data["events"])
-    if "anchors" in data:
-        check_anchors(data.pop("anchors"))  # not a script table: WP-L4 generates TtlAnchors from it
     if "arrival" in data:
         check_arrival(data["arrival"])
     if "landmarks" in data:
@@ -2421,6 +2485,7 @@ def render() -> dict[Path, str]:
             "// GENERATED by tools/gen_data.py from design/builds/*.toml and their structure files (pack/kubejs/data/ttl/structure). Do not edit.\n"
             f"const TtlBuildFootprints = {grids}\n"
         ),
+        ANCHORS_JS: anchors_js(),
     }
 
 

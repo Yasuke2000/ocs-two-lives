@@ -1,9 +1,8 @@
 # Gate to the Dwelling of the Spirits (blueprints/spirit_gate.py, design/lore/spirit_domain.md). The doorway teleports
-# a Life 2 soul into ttl:spirit_domain (life/spirit_domain.js reads this build's anchor from persistentData).
+# a Life 2 soul into ttl:spirit_domain (life/spirit_domain.js reads this build's anchor from persistentData). Position:
+# design/data/anchors.toml spirit_gate (Lerfing's map).
 name = "spirit_gate"
 title = "The gate to the Dwelling of the Spirits"
-x = -210
-z = 130
 anchor = [28, 5, 24]
 ground = "survey"
 search = 64
@@ -11,4 +10,4 @@ dimension = "minecraft:overworld"
 version = 2
 clear_above = true
 margin = 8
-notes = "Pack access point about 250 blocks southwest of Tempest in Jura. The early-story entrance visited by Rimuru and the children is in Ulg Nature Park, Ulgracia; see design/lore/spirit_domain.md."
+notes = "Pack access point about 275 blocks south-south-west of Tempest in Jura. The early-story entrance visited by Rimuru and the children is in Ulg Nature Park, Ulgracia; see design/lore/spirit_domain.md."

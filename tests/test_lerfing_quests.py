@@ -141,7 +141,7 @@ class WikiAndGuide(unittest.TestCase):
                 text = (ROOT / "docs" / "wiki" / lang / f"{name}.md").read_text(encoding="utf-8")
                 self.assertIn(f"{a['x']}, ", text, f"{lang}/{name}")
                 self.assertNotIn("271", text, f"{lang}/{name} still cites the old arrival")
-        self.assertEqual((a["x"], a["z"], g["x"], g["z"], t["x"], t["z"]), (1780, -150, 1878, -544, 1720, 900))
+        self.assertEqual((a["x"], a["z"], g["x"], g["z"], t["x"], t["z"]), (1660, -100, 1878, -544, 1720, 900))  # WP-L4 moved the arrival onto plains
 
     def test_guide_directions(self):
         guide = (ROOT / "design" / "data" / "guide.toml").read_text(encoding="utf-8")

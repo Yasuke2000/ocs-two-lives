@@ -106,8 +106,10 @@ ids = [
 #   tier      = 1..4, gives the stage ttl.boss.t<tier>
 #   title     = lore name: custom name and boss bar (no quotes or backslashes)
 #   arena     = where it is summoned by default: { landmark = "<name in landmarks.toml>" } (surface at that landmark,
-#               Overworld), or { x, z } (+ optional y = else the surface, dim = default minecraft:overworld, radius = bound
-#               arena: summons outside it are refused and a boss pulled further than 2 x radius is put back).
+#               Overworld), { anchor = "<design/data/anchors.toml id>", dx, dz } (an overworld place of Lerfing's map;
+#               dx/dz optional; gen_data writes x/z) or { x, z } (other dimensions); + optional y = else the surface,
+#               dim = default minecraft:overworld, radius = bound arena: summons outside it are refused and a boss pulled
+#               further than 2 x radius is put back.
 #               Without an arena it is summoned where the command or altar says (`/ttl boss summon <id> <x y z>`,
 #               or at the player who runs it).
 #   spawn     = { kind, at, stages }: the fixed encounter. kind = quest (a quest command reward or `/ttl story fight <id>`
@@ -226,7 +228,7 @@ entity = "tensura:ifrit"
 tier = 2
 title = "Ifrit, the Flame Spirit"
 requires = ["shizu"]
-spawn = { kind = "quest", at = { x = 0, z = 0, radius = 48 } }
+spawn = { kind = "quest", at = { anchor = "tempest", radius = 48 } }
 wild = { chance_per_day = 0.01, regions = ["M", "E"] }
 hp_mult = 3.0
 per_player_mult = 0.75
@@ -244,7 +246,7 @@ entity = "tensura:orc_disaster"
 tier = 2
 title = "The Orc Disaster"
 requires = ["orc_lord"]
-spawn = { kind = "quest", at = { x = 1106, z = 539, radius = 64 } }
+spawn = { kind = "quest", at = { anchor = "orc_camp", radius = 64 } }
 wild = { chance_per_day = 0.01, regions = ["W", "V"] }
 hp_mult = 3.0
 per_player_mult = 0.75
@@ -278,7 +280,7 @@ id = "folgen"
 entity = "tensura:folgen"
 tier = 2
 title = "Folgen, Field Commander of Falmuth"
-spawn = { kind = "event", at = { x = 0, z = 40, radius = 48 } }
+spawn = { kind = "event", at = { anchor = "tempest", dz = 40, radius = 48 } }
 wild = { chance_per_day = 0.005, regions = ["F", "R"] }
 hp_mult = 3.0
 per_player_mult = 0.75
@@ -338,8 +340,8 @@ phases = [
 ]
 rewards = { coins = { gold = 3 } }
 
-# ---- Jura forest story bosses: both fights happen AT TEMPEST (Overworld, village centre 0 0 = TtlTempest.LANDMARK in
-# life/tempest.js; move arena x/z together with it). Players reach Tempest through the dangerous magicule of the forest,
+# ---- Jura forest story bosses: both fights happen AT TEMPEST (Overworld, the village green = the tempest anchor of
+# design/data/anchors.toml, which TtlTempest.LANDMARK reads too, so arena and village move together). Players reach Tempest through the dangerous magicule of the forest,
 # so getting there is part of the challenge. `radius` binds the arena: a summon is refused outside it (ops included,
 # unless they give coordinates inside it), and a boss pulled further than 2 x radius is put back.
 # Shizu first; Rimuru only answers a summoner who holds the stage ttl.defeated.shizu (`requires`; ops bypass it).
@@ -352,7 +354,7 @@ id = "shizu"
 entity = "tensura:shizu"
 tier = 2
 title = "Shizu, the Flame Tyrant"
-arena = { x = 0, z = 0, radius = 48 }
+arena = { anchor = "tempest", radius = 48 }
 spawn = { kind = "quest" }
 wild = { chance_per_day = 0.01, regions = ["J"] }
 hp_mult = 3.0
@@ -420,7 +422,7 @@ id = "charybdis"
 entity = "tensura:charybdis"
 tier = 3
 title = "Charybdis, the Whirlpool Calamity"
-spawn = { kind = "quest", at = { x = 635, z = 145, radius = 96 } }
+spawn = { kind = "quest", at = { anchor = "lake_siss", radius = 96 } }
 wild = { chance_per_day = 0.003, regions = ["W", "J"], surface = "water" }
 hp_mult = 4.0
 per_player_mult = 1.0
@@ -441,7 +443,7 @@ id = "gazel_dwargo"
 entity = "tensura:gazel_dwargo"
 tier = 3
 title = "Gazel Dwargo, the Dwarf King"
-spawn = { kind = "statue", at = { x = 435, z = -1106, radius = 40 }, statue = "ttl_gazel" }
+spawn = { kind = "statue", at = { anchor = "dwargon_throne", radius = 40 }, statue = "ttl_gazel" }
 wild = { chance_per_day = 0.0, regions = ["D"] }
 kill_rep = { dwargon = -60, flag = "regicide", unless_flag = "honour_duel" }
 hp_mult = 4.0
@@ -460,7 +462,7 @@ id = "hinata_sakaguchi"
 entity = "tensura:hinata_sakaguchi"
 tier = 3
 title = "Hinata Sakaguchi, the Saint"
-spawn = { kind = "quest", at = { x = -400, z = -60, radius = 48 }, stages = ["ttl.defeated.shizu"] }
+spawn = { kind = "quest", at = { anchor = "shizu_spawn", radius = 48 }, stages = ["ttl.defeated.shizu"] }
 wild = { chance_per_day = 0.005, regions = ["F", "R", "G", "L"], path_mult = { dark = 3 } }
 kill_rep = { holy_church = -30 }
 hp_mult = 4.0
@@ -493,7 +495,7 @@ id = "rimuru_ogre_fight"
 entity = "tensura_neb:rimuru_ogre_fight"
 tier = 3
 title = "Rimuru Tempest"
-arena = { x = 0, z = 0, radius = 48 }
+arena = { anchor = "tempest", radius = 48 }
 spawn = { kind = "quest" }
 requires = ["shizu"]
 kill_rep = { tempest = -40 }

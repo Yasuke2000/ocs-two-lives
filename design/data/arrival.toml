@@ -2,27 +2,31 @@
 # the scripts read it as TtlData.arrival (life/arrival.js, used by TtlLife.toOverworld in life/state.js).
 #
 # Veldora's leaked magicule soaks the Jura forest, so a weak newcomer must not appear in (or stroll to) Tempest,
-# where the Shizu and Rimuru fights will happen. Jura's biomes form rings (pack/config/ttl/canon_regions.json,
-# J "zones"): a safe rim (forest/birch/plains, 500 area magicule) along the whole border, a dark-forest middle
-# (2,000) and an ancient-forest core (20,000) around Tempest. Souls arrive on the rim, on the road that runs
-# from Tempest to the Dwargon gate (life/dwargon.js GATE 435, -1000), 80 blocks inside Jura's northern border.
-# A world reset places the arrival again on the new terrain; the old Tempest green stays a fallback until then.
+# where the Shizu and Rimuru fights will happen. Jura's rings (pack/config/ttl/canon_regions.json J "zones", owner Q4):
+# an ancient-forest core (20,000 area magicule) within 200 blocks of Tempest, a dark-forest band (2,000) to 600, and
+# Lerfing's own biomes (safe, 500) beyond. Souls arrive on that safe rim, on the road from Tempest to the Dwargon gate,
+# about 1,000 blocks north of Tempest on pure plains, ~175 blocks inside Jura's border with the Canaat apron
+# (design/architecture/lerfing-import.md §3.2; WP-L4 moved it 120 W / 50 S off the apron's stony_peaks). A world reset places the arrival again on the new terrain.
 #
-#   x, z    = world position (blocks). Must lie in the rim, away from water: the canon-grid self-check
+#   at      = the design/data/anchors.toml anchor that gives x/z ("arrival"; gen_data writes x/z into TtlData). It must
+#             lie in the rim, away from water: tests/test_lerfing_anchors.py and the canon-grid self-check
 #             (`java -cp mod/build/classes/java/main com.yasuke.ttl.world.CanonGrid pack/config/ttl/canon_map.txt
-#             pack/config/ttl/canon_regions.json <x> <z>`, Gson on the class path) verifies it.
+#             pack/config/ttl/canon_regions.json <x> <z>`, Gson on the class path) verify it.
 #   yaw     = facing in degrees (Minecraft yaw: 0 south, 90 west, 180/-180 north, -90 east). Here: toward the gate.
 #   search  = blocks around x, z in which the script looks for open, level, natural ground (a clearing) the first
 #             time; it falls back to the plain surface at x, z when nothing fits. Keep it <= 48 (the self-check
 #             covers the rim 48 blocks around the point).
 #   version = bump to ground the arrival (and the world spawn) again on the next start.
+#   safe_radius = no hostile mob spawns naturally within this many blocks of x/z (life/mortal_spawns.js TtlSafeSpawns,
+#             the same zones as Tempest and Wayfarer's Rest; wild bosses also keep off it). Owner 19/11/2026: 48, after
+#             wild direwolves spawned right on the arrival point; outside it the rim stays wild. 0 = no zone.
 #   grace_seconds = seconds after the rebirth during which the soul takes no damage (life/mortal_immunity.js): Blade
 #             Tigers and Barghests roam the rim and killed fresh souls 2–6 s after landing. 0 = off.
 
 [life2]
-x = 271
-z = -624
-yaw = -156
+at = "arrival"
+yaw = -149
 search = 40
 version = 1
+safe_radius = 48
 grace_seconds = 20

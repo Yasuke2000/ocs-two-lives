@@ -9,7 +9,7 @@ exactly where the import tool decided the repaint, and checks the owner's rings 
   * band 200..600 = minecraft:dark_forest, same exceptions;
   * the rim (Jura's outline beyond the band) has no ancient_forest and no dark_forest;
   * every sample equals what rules.area_biome says (the import applied exactly the rule);
-  * the Life 2 arrival (1780, -150) is dry, on the rim, in a non-deadly biome, and its 40-block search area too.
+  * the Life 2 arrival (anchors.toml arrival) is dry, on the rim, in a non-deadly biome, and its 40-block search area too.
 
 Then the two assessments of WP-L8: the beach in the core (how much of it, whether it lets a soul skirt the ancient
 forest on the way to the green) and Tempest's own footprints (early village, town, city) for slope and water.
@@ -26,9 +26,11 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from lerfing.common import RULES, Rules, write_png  # noqa: E402
 from lerfing.probe import World  # noqa: E402
+import anchor_refs  # noqa: E402
 
-TEMPEST = (1720, 900)
-ARRIVAL = (1780, -150)
+# design/data/anchors.toml (WP-L4): the check follows the anchors the pack data uses.
+TEMPEST = anchor_refs.point('anchors.toml', 'tempest')
+ARRIVAL = anchor_refs.point('anchors.toml', 'arrival')
 GREEN = 56                       # the Life 2 magicule shelter round Tempest (life/mortal_immunity.js)
 CORE_BIOME = 'tensura:ancient_forest'
 BAND_BIOME = 'minecraft:dark_forest'

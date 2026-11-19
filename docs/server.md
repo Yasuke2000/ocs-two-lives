@@ -268,7 +268,7 @@ import is pre-made terrain, and only the **pregen** waits for the night. The ful
    - `[ttl] world import: checking /data/import for minecraft:overworld`
    - `[ttl] world import: source OK: 800 region files (6.59 GB), 796544 chunks; ...`
    - `[ttl] world import: minecraft:overworld from import; old terrain in ttl-backup/<time> (moved); /ttl worldreset minecraft:overworld follows once the server has started`
-   - the placers: `[ttl] arrival grounded at 1780 ... -150`, `tempest placed`, `dwargon placed`, the landmarks and
+   - the placers: `[ttl] arrival grounded at 1660 ... -100`, `tempest placed`, `dwargon placed`, the landmarks and
      builds, `[ttl] chunks: holding ...`, and no watchdog.
 
    On `REFUSED`, `FAILED and was undone`, or a start that stops on `ttl-import.journal exists`, see the table above.
@@ -335,7 +335,7 @@ dark band, anything else the safe rim).
 every refusal, a full swap, the undo after an injected failure, a failed undo keeping the journal, the cross-volume
 copy, a non-overworld dimension) ends with `world import self-check passed`. `java -cp
 "mod/build/classes/java/main;<gson.jar>" com.yasuke.ttl.world.CanonGrid pack/config/ttl/canon_map.txt
-pack/config/ttl/canon_regions.json 1780 -150 design/data/anchors.toml` understands both formats: with a `lerfing`
+pack/config/ttl/canon_regions.json 1660 -100 design/data/anchors.toml` understands both formats: with a `lerfing`
 block it checks the import box against the grid, the deep-ocean seam, no sites, Jura's radius rings round Tempest, the
 arrival in the safe outer ring, and every landmark `at` and anchor on the continent (land, lake, river or coastal
 water); without one it runs the old site and depth-rim checks.

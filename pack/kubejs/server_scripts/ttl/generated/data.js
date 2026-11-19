@@ -663,12 +663,14 @@ const TtlData = {
   },
   "arrival": {
     "life2": {
+      "at": "arrival",
       "grace_seconds": 20,
+      "safe_radius": 48,
       "search": 40,
       "version": 1,
-      "x": 271,
-      "yaw": -156,
-      "z": -624
+      "x": 1660,
+      "yaw": -149,
+      "z": -100
     }
   },
   "artifice": {
@@ -1170,8 +1172,9 @@ const TtlData = {
       ],
       "radius": 48,
       "smithy": {
-        "x": 423,
-        "z": -1084
+        "anchor": "kaijin_smithy",
+        "x": 1866,
+        "z": -628
       }
     }
   },
@@ -1289,9 +1292,10 @@ const TtlData = {
         },
         "spawn": {
           "at": {
+            "anchor": "tempest",
             "radius": 48,
-            "x": 0,
-            "z": 0
+            "x": 1720,
+            "z": 900
           },
           "kind": "quest"
         },
@@ -1338,9 +1342,10 @@ const TtlData = {
         },
         "spawn": {
           "at": {
+            "anchor": "orc_camp",
             "radius": 64,
-            "x": 1106,
-            "z": 539
+            "x": 3600,
+            "z": 1250
           },
           "kind": "quest"
         },
@@ -1410,9 +1415,11 @@ const TtlData = {
         },
         "spawn": {
           "at": {
+            "anchor": "tempest",
+            "dz": 40,
             "radius": 48,
-            "x": 0,
-            "z": 40
+            "x": 1720,
+            "z": 940
           },
           "kind": "event"
         },
@@ -1530,9 +1537,10 @@ const TtlData = {
       },
       {
         "arena": {
+          "anchor": "tempest",
           "radius": 48,
-          "x": 0,
-          "z": 0
+          "x": 1720,
+          "z": 900
         },
         "cooldown_hours": 48,
         "entity": "tensura:shizu",
@@ -1683,9 +1691,10 @@ const TtlData = {
         },
         "spawn": {
           "at": {
+            "anchor": "lake_siss",
             "radius": 96,
-            "x": 635,
-            "z": 145
+            "x": 3050,
+            "z": 750
           },
           "kind": "quest"
         },
@@ -1727,9 +1736,10 @@ const TtlData = {
         },
         "spawn": {
           "at": {
+            "anchor": "dwargon_throne",
             "radius": 40,
-            "x": 435,
-            "z": -1106
+            "x": 1878,
+            "z": -650
           },
           "kind": "statue",
           "statue": "ttl_gazel"
@@ -1768,9 +1778,10 @@ const TtlData = {
         },
         "spawn": {
           "at": {
+            "anchor": "shizu_spawn",
             "radius": 48,
-            "x": -400,
-            "z": -60
+            "x": 1300,
+            "z": 820
           },
           "kind": "quest",
           "stages": [
@@ -1829,9 +1840,10 @@ const TtlData = {
       },
       {
         "arena": {
+          "anchor": "tempest",
           "radius": 48,
-          "x": 0,
-          "z": 0
+          "x": 1720,
+          "z": 900
         },
         "cooldown_hours": 72,
         "entity": "tensura_neb:rimuru_ogre_fight",
@@ -2289,7 +2301,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 16,
+      "search": 24,
       "size": [
         75,
         26,
@@ -2297,8 +2309,8 @@ const TtlData = {
       ],
       "title": "The Dwarven Arena",
       "version": 1,
-      "x": -30,
-      "z": -850
+      "x": 2260,
+      "z": -80
     },
     {
       "anchor": [
@@ -2325,8 +2337,8 @@ const TtlData = {
       ],
       "title": "Golden City of El Dorado — Leon’s Audience Court",
       "version": 1,
-      "x": -4808,
-      "z": 3240
+      "x": -3300,
+      "z": 4300
     },
     {
       "anchor": [
@@ -2342,11 +2354,12 @@ const TtlData = {
       "margin": 8,
       "max_wet": 0.05,
       "name": "elmine",
+      "notes": "Lerfing's map: anchors.toml elmine, the open terrace east of Paulzero's grove (ground y 72..74 over the box on the imported world). search 0: the terrace is flat, and any survey step west would let the box (clear_above) reach the grove's keepout (its trees end ~40 blocks west of the box).",
       "repair": true,
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 32,
+      "search": 0,
       "size": [
         75,
         60,
@@ -2413,8 +2426,8 @@ const TtlData = {
       ],
       "title": "City of the Forgotten Dragon — Milim's domain",
       "version": 3,
-      "x": 2340,
-      "z": 905
+      "x": 4680,
+      "z": 840
     },
     {
       "anchor": [
@@ -2443,8 +2456,8 @@ const TtlData = {
       ],
       "title": "The Frost Palace — Guy Crimson's gate",
       "version": 1,
-      "x": -2435,
-      "z": -4314
+      "x": -1980,
+      "z": -4300
     },
     {
       "anchor": [
@@ -3049,7 +3062,7 @@ const TtlData = {
       "margin": 8,
       "max_wet": 0.1,
       "name": "spirit_gate",
-      "notes": "Pack access point about 250 blocks southwest of Tempest in Jura. The early-story entrance visited by Rimuru and the children is in Ulg Nature Park, Ulgracia; see design/lore/spirit_domain.md.",
+      "notes": "Pack access point about 275 blocks south-south-west of Tempest in Jura. The early-story entrance visited by Rimuru and the children is in Ulg Nature Park, Ulgracia; see design/lore/spirit_domain.md.",
       "repair": true,
       "repair_depth": 48,
       "repair_keep_water": false,
@@ -3062,8 +3075,8 @@ const TtlData = {
       ],
       "title": "The gate to the Dwelling of the Spirits",
       "version": 2,
-      "x": -210,
-      "z": 130
+      "x": 1570,
+      "z": 1130
     },
     {
       "anchor": [
@@ -3122,8 +3135,8 @@ const TtlData = {
       ],
       "title": "Treyni's shrine",
       "version": 4,
-      "x": 1988,
-      "z": -223
+      "x": 1958,
+      "z": 1540
     },
     {
       "anchor": [
@@ -5811,14 +5824,14 @@ const TtlData = {
       {
         "canon": "Lake Siss",
         "name": "lizardmen_village",
-        "notes": "Stilt village on the south-west shore of Lake Siss (canon_map.txt: water from x 656 on row z 336, marsh W south of it). The canon point is mid-lake.",
+        "notes": "Stilt village on the south shore of Lake Siss (anchors.toml lizardmen_village: 45 % water within 48, clear of Lerfing's hut clusters). The canon point (Lake Siss) is mid-lake.",
         "reach": 48,
         "structure": "tensura:villages/lizardmen_village/water",
         "surface": "water",
         "title": "Lizardmen's village on Lake Siss",
         "version": 1,
-        "x": 700,
-        "z": 344
+        "x": 3184,
+        "z": 988
       },
       {
         "canon": "Lizardmen's caverns (Gabiru, Avalos)",
@@ -5846,14 +5859,14 @@ const TtlData = {
       },
       {
         "name": "dwarf_village",
-        "notes": "Beside the road from Tempest (0, 0) to Dwargon's gate (435, -1000), just inside Dwargon's border (D on canon_map.txt), about 60 blocks west of the straight line.",
+        "notes": "Beside the road from Tempest to Dwargon's gate, on the Canaat apron foot just inside Dwargon's border (D), about 150 blocks east of the road (anchors.toml dwarf_village).",
         "reach": 116,
         "structure": "tensura:villages/dwarf_village",
         "surface": "land",
         "title": "Dwarf village on the Dwarven Road",
         "version": 1,
-        "x": 250,
-        "z": -740
+        "x": 2000,
+        "z": -110
       },
       {
         "canon": "Hidden ogre village (Kijin homeland, burned)",
@@ -6919,16 +6932,17 @@ const TtlData = {
       },
       {
         "anchor": "world",
+        "at": "outcast_road",
         "dim": "minecraft:overworld",
         "enabled": true,
         "id": "outcast_road",
         "kind": "outcast_contact",
         "surface": true,
         "tag": "ttl.npc.outcast_contact",
-        "x": 0,
+        "x": 1720,
         "y": 64,
         "yaw": 180,
-        "z": 52
+        "z": 952
       },
       {
         "anchor": "build",
@@ -7773,6 +7787,7 @@ const TtlData = {
       },
       {
         "anchor": "world",
+        "at": "wayfarers_camp",
         "cap": 2,
         "discover": true,
         "id": "rim_camp",
@@ -7784,9 +7799,9 @@ const TtlData = {
         ],
         "radius": 10,
         "title": "the wayfarers' camp on Jura's rim",
-        "x": 1795,
+        "x": 1675,
         "y": 0,
-        "z": -135
+        "z": -85
       },
       {
         "anchor": "landmark",
@@ -7804,6 +7819,7 @@ const TtlData = {
       },
       {
         "anchor": "world",
+        "at": "blumund_road",
         "cap": 2,
         "discover": true,
         "id": "blumund_road",
@@ -7820,6 +7836,7 @@ const TtlData = {
       },
       {
         "anchor": "world",
+        "at": "englassia_road",
         "cap": 1,
         "discover": true,
         "id": "englassia_road",
@@ -7868,6 +7885,7 @@ const TtlData = {
       },
       {
         "anchor": "world",
+        "at": "old_well",
         "cap": 0,
         "id": "old_well",
         "title": "the old well on the Blumund road",
@@ -7877,6 +7895,7 @@ const TtlData = {
       },
       {
         "anchor": "world",
+        "at": "rookie_camp",
         "cap": 0,
         "id": "rookie_camp",
         "title": "the abandoned rookie camp",
