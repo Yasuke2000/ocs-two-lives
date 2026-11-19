@@ -2,8 +2,8 @@
 
 Build: `blueprints/sealed_cave.py` (88 x 50 x 88, anchor (44, 5, 82) on the path outside the cave mouth), placed by
 `design/builds/sealed_cave.toml` on the canon landmark "Sealed Cave (Veldora's prison, Rimuru's birthplace)"
-(ref [1745, 1078] -> world about (-256, -343) at the 14,000-block continent width; Jura forest, north-west of Tempest,
-land in `canon_map.txt`).
+at world (1380, 560) on Lerfing's map: a mesa of Jura's spire field (ground y 79, relief 50, y 75..125), 480 blocks
+north-west of Tempest (1720, 900) in the dark-forest band (2,000 magicule); the survey radius is 128.
 
 ## Canon (what the sources say)
 
@@ -28,7 +28,7 @@ Canon gives the place, the seal and the magicules; it does not give a floor plan
   (the runes of the seal, dim and cracked); a black dais where the dragon lay with snapped chains, claw gouges scoring the
   floor, six standing stones (two toppled) and an armillary of three light-blue glass rings, broken into arcs. A small
   basin by the wall marks where a slime woke up.
-- Lore link to the Tempest zone: the magicule that is deadly around world (0, 0) comes from this cave in canon. No game
+- Lore link to the Tempest zone: the magicule that is deadly around Tempest (1720, 900) comes from this cave in canon (the core is r 200 round Tempest, the band to r 600 takes in the cave). No game
   logic is attached to that.
 
 ## References and sources

@@ -18,9 +18,9 @@ are ours. The full findings of the pass are in [lore-pass-2026-11.md](lore-pass-
 | Milim "忘れられた竜の都に居城を持ち、民から信仰の対象として崇められている" (has her castle in the City of the Forgotten Dragon and is worshipped by its people) | [Japanese Wikipedia, ミリム・ナーヴァ](https://ja.wikipedia.org/wiki/転生したらスライムだった件) |
 | After Walpurgis Clayman's Jistav is jointly ruled by Rimuru and Milim; Carrion's Eurazania becomes her vassal state | world.md §P, Japanese Wikipedia (カリオン: Milim's vassal and commander) |
 
-On our map that puts the capital in region M, south of Jura, east of Eurazania (B) and south-west of Jistav (P). The
-landmark pixel [2244, 1295] converts to (2462, 839), inside the painted lake; the build surveys from (2340, 905) on the
-lake's western shore and the Ameld's south bank (see the toml for the reasoning).
+On Lerfing's map that puts the capital in region M, east of Lake Siss and Jura, north-east of Eurazania (B) and south-west of Jistav (P). The
+build surveys from (4680, 840), 2,960 blocks east of Tempest on the lake-and-river plain of the badlands (relief 2, stored biome
+badlands and plains), see the toml for the reasoning.
 
 ## What it is (canon)
 
