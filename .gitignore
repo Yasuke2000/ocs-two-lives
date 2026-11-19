@@ -10,3 +10,6 @@ mod/.gradle/
 mod/.vscode/
 
 .local-server/
+
+# own world: staging output of tools/world/build.py (without --apply)
+world/build/

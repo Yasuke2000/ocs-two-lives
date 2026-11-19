@@ -1308,7 +1308,7 @@ def landmark_world(at) -> tuple[int, int]:
     return int(at[0]), int(at[1])
 
 
-ANCHOR_KEYS = {"id", "name", "title", "x", "z", "region", "kind", "surface", "canon", "build", "landmark", "of", "dx", "dz",
+ANCHOR_KEYS = {"id", "name", "title", "x", "z", "y", "region", "kind", "surface", "canon", "build", "landmark", "of", "dx", "dz",
                "old_x", "old_z", "map", "notes"}
 ANCHOR_KINDS = {"settlement", "arrival", "build", "landmark", "pin", "spot"}
 ANCHOR_SURFACES = {"land", "water", "shore", "any"}
@@ -1390,6 +1390,9 @@ def check_anchors(anchors: dict) -> None:
         for key in ("x", "z"):
             if not is_int(a.get(key)):
                 raise SystemExit(f"{where}: {key} must be an integer")
+        if "y" in a and not (is_int(a["y"]) and -64 <= a["y"] < 320):
+            # y: the site's walking level, written by tools/world/build.py from the own-world rasters
+            raise SystemExit(f"{where}: y must be an integer -64..319")
         if not (ix0 <= a["x"] < ix1 and iz0 <= a["z"] < iz1):
             raise SystemExit(f"{where}: ({a['x']}, {a['z']}) lies outside Lerfing's inner tiles {ix0}..{ix1} x {iz0}..{iz1}")
         if not str(a.get("name", "")).strip():
