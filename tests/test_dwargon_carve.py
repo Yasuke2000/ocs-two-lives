@@ -1,4 +1,4 @@
-"""Dwargon is carved into Lerfing's Canaat (WP-L7b, TTL_DWARGON_VERSION 8): python -I -m unittest discover -s tests
+"""Dwargon is carved into Lerfing's Canaat (WP-L7b, TTL_DWARGON_VERSION 8, sealed rim since 9): python -I -m unittest discover -s tests
 
 The structure keeps no mountain shell over the city (only a lining of LINING blocks), the placement in life/dwargon.js
 matches design/data/anchors.toml, and on the committed exact ground sample (design/data/lerfing/dwargon_ground.png,
@@ -34,7 +34,7 @@ class DwargonCarveTests(unittest.TestCase):
 
     def test_placement_matches_the_anchor_table(self):
         text = SCRIPT.read_text(encoding="utf-8")
-        self.assertGreaterEqual(int(re.search(r"TTL_DWARGON_VERSION = (\d+)", text).group(1)), 8)
+        self.assertGreaterEqual(int(re.search(r"TTL_DWARGON_VERSION = (\d+)", text).group(1)), 9)
         self.assertTrue(dwargon.CARVE)
         self.assertIsInstance(self.base, int, "the carve needs a fixed BASE")
         anchors = tomllib.loads((ROOT / "design" / "data" / "anchors.toml").read_text(encoding="utf-8"))
@@ -73,3 +73,21 @@ class DwargonCarveTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+    def test_shell_covers_the_staging_leaks(self):
+        # Staging 19/11/2026 (place audit): Lerfing's springs at the skylight crack's rim and the lava pocket at the
+        # cleft's west wall touch the carved air; dwargon.js seals every water and lava cell of the footprint shell.
+        f = self.f
+        w, m = f["grid"][0], f["margin"]
+        cells = set()
+        s = f["shell"]
+        for k in range(0, len(s), 3):
+            x, z = s[k] % w - m, s[k] // w - m
+            for y in range(s[k + 1], s[k + 2] + 1):
+                cells.add((x, y, z))
+        corner = (1804, 142, -664)  # dwargon placed: corner 1804 142 -664 (staging log, version 8)
+        leaks = [(1888, 200, -629), (1888, 201, -630), (1836, 149, -527), (1837, 149, -528), (1835, 150, -526),
+                 (1836, 150, -528), (1836, 150, -527)]
+        for wx, wy, wz in leaks:
+            self.assertIn((wx - corner[0], wy - corner[1], wz - corner[2]), cells, f"leak at {wx} {wy} {wz}")
+        self.assertLess(len(cells), 60000)

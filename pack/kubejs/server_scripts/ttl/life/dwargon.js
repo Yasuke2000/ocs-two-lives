@@ -20,12 +20,15 @@
 //    empty are the real mountain, so they only get the ring rules (pits and crevices closed, never above the road
 //    level), all in the Canaat palette (no second slab pass, so the repair never touches a block the blueprint
 //    defines, explicit air included: `bottom`).
+// 5c. seal (carve mode): water, lava and waterlogged blocks in the real mountain's cells that touch the carved air
+//    become tuff (footprint `shell`, seal()); every fluid in the city's own cells goes (drain()); the slabs are laid
+//    again. Twice, for fluid still on its way through a cave behind the rim.
 // 6. the throne room's banners get their canon Dwargon patterns (TtlDwargonRoyal.banners; structure files built
 //    from code carry no block entity data).
 // King Gazel (TtlDwargonGazel): tensura:gazel_dwargo seated on his throne, checked every 30 s while the throne
 // is loaded and summoned again when missing. He shows a boss bar and wakes on right-click unless tamed, so he
 // gets a dummy Owner (no real player), NoAI, Invulnerable, Silent, PersistenceRequired; Phase 0 = seated.
-const TTL_DWARGON_VERSION = 9
+const TTL_DWARGON_VERSION = 12
 
 const TtlDwargon = {
   // The arrival point in front of the gate (blueprint TtlDwargonFootprint.arrival), rotation none: the gate faces
@@ -38,6 +41,7 @@ const TtlDwargon = {
   COVER: 6,
   PROBE: 'ttl_dwargon_probe',
   FILLS_PER_TICK: 150,
+  SEAL_MS: 15,
   FALLBACK_DEPTH: 48,
   BANDED: 12,
   // The Canaat's sloping-ground mix (blueprints/dwargon.py CANAAT_SLOPE, sampled from Lerfing's map), one entry
@@ -293,11 +297,184 @@ const TtlDwargon = {
         }
         TtlRepair.repair(server, self.repairSpec(base), res => {
           server.persistentData.putString('ttl.dwargon.repair', res ? `${res.foundation} ${res.skirt} ${res.lava}` : '')
-          after(true)
+          // 5c: seal the rim, drain the city, lay the slabs again (carpets back), and all that once more for fluid
+          // that was on its way through a cave behind the rim while the first round ran.
+          var round = (k, log, next) => self.seal(server, b, base, s => self.drain(server, b, base, d => self.slabs(server, b, base, () => {
+            log.push(s ? `${s.water} water, ${s.lava} lava sealed, ${d === null ? '?' : d} drained` : 'failed')
+            if (k > 1) round(k - 1, log, next)
+            else next(log)
+          })))
+          round(2, [], log => {
+            server.persistentData.putString('ttl.dwargon.seal', log.join(' / '))
+            after(true)
+          })
         })
       })
     }
     placeNext()
+  },
+
+  // The slabs once more (one every 2 ticks), then next(): every cell the blueprint defines, explicit air included, is
+  // set again, so water or lava that flowed into the carve before the seal is gone and the carpets are back.
+  slabs(server, b, base, next) {
+    var f = TtlDwargonFootprint
+    var self = this
+    var part = 0
+    var step = () => {
+      try {
+        if (part < f.parts.length) {
+          var name = f.parts.length > 1 ? `ttl:dwargon_${part}` : 'ttl:dwargon'
+          self.run(server, `place template ${name} ${b.x0} ${base} ${b.z0 + f.parts[part]}`)
+          part++
+          server.scheduleInTicks(2, step)
+          return
+        }
+      } catch (e) {
+        console.error(`[ttl] dwargon: slab pass failed at ${part}: ${e}`)
+      }
+      next()
+    }
+    step()
+  },
+
+  // 5c. Seal (carve mode): every cell of the footprint's `shell` (the real mountain's cells touching the carved air) that
+  // holds water or lava becomes rock. Lerfing's map has springs and lava pockets inside the Canaat; cut open, they
+  // poured into the city (staging 19/11/2026: two springs at the skylight crack's rim at y 200 flooded 2,253 cells of the
+  // throne hall and the forge street; lava pockets at the cleft's west wall ran into the gate court). Budgeted per tick;
+  // done({water, lava}) or done(null).
+  seal(server, b, base, done) {
+    var f = TtlDwargonFootprint
+    var shell = f.shell || []
+    var res = { water: 0, lava: 0 }
+    if (shell.length === 0) {
+      done(res)
+      return
+    }
+    var self = this
+    var level = server.getLevel(TtlLife.OVERWORLD)
+    var BlockPos
+    var rock
+    try {
+      BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
+      rock = Java.loadClass('net.minecraft.world.level.block.Blocks').TUFF.defaultBlockState()
+    } catch (e) {
+      console.error(`[ttl] dwargon: seal unavailable (${e})`)
+      done(null)
+      return
+    }
+    var w = f.grid[0]
+    var k = 0
+    var y = null
+    var step = () => {
+      var t0 = Date.now()
+      try {
+        while (k < shell.length) {
+          var x = b.ax0 + shell[k] % w
+          var z = b.az0 + Math.floor(shell[k] / w)
+          if (y === null) y = base + shell[k + 1]
+          var y2 = base + shell[k + 2]
+          while (y <= y2) {
+            // Any fluid: a water or lava block, and a waterlogged block too (locally the crack's spring was a
+            // waterlogged glow lichen in a cave at the rim, y 201).
+            var pos = new BlockPos(x, y, z)
+            var fs = level.getFluidState(pos)
+            if (!fs.isEmpty()) {
+              level.setBlock(pos, rock, 2)
+              if (String(fs.getType()).indexOf('lava') >= 0) res.lava++
+              else res.water++
+            }
+            y++
+            if (Date.now() - t0 >= self.SEAL_MS) {
+              server.scheduleInTicks(1, step)
+              return
+            }
+          }
+          k += 3
+          y = null
+        }
+      } catch (e) {
+        console.error(`[ttl] dwargon: seal failed: ${e}`)
+        done(null)
+        return
+      }
+      console.info(`[ttl] dwargon: sealed the carve's rim: ${res.water} water and ${res.lava} lava cells turned to tuff ` +
+        `(${shell.length / 3} shell runs)`)
+      done(res)
+    }
+    step()
+  },
+
+  // 5c, before each slab pass: every fluid inside the city's columns (from the lowest defined block up to the highest
+  // interior air, or to the box top over the cleft and the crack: cells the blueprint defines) goes. Water and lava
+  // blocks become air, waterlogged blocks dry. Without it the slab pass sets the lanterns, chains and cogwheels it
+  // places into flowing water waterlogged (`place template` keeps liquids), and each is a spring of its own. The
+  // pass then sets what the blueprint really has there (the fountain's water, the waterlogged throne runner).
+  // done(cells) or done(null).
+  drain(server, b, base, done) {
+    var f = TtlDwargonFootprint
+    var self = this
+    var level = server.getLevel(TtlLife.OVERWORLD)
+    var BlockPos
+    var AIR
+    var WET
+    var DRY
+    try {
+      BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
+      AIR = Java.loadClass('net.minecraft.world.level.block.Blocks').AIR.defaultBlockState()
+      WET = Java.loadClass('net.minecraft.world.level.block.state.properties.BlockStateProperties').WATERLOGGED
+      DRY = Java.loadClass('java.lang.Boolean').FALSE
+    } catch (e) {
+      console.error(`[ttl] dwargon: drain unavailable (${e})`)
+      done(null)
+      return
+    }
+    var w = f.grid[0]
+    var m = f.margin
+    var n = w * f.grid[1]
+    var bottom = this.decode(f.bottom, n)
+    var roof = this.decode(f.roof, n)
+    var clear = this.decode(f.clear, n)
+    var i = 0
+    var y = null
+    var cells = 0
+    var step = () => {
+      var t0 = Date.now()
+      try {
+        while (i < n) {
+          var gx = i % w
+          var gz = Math.floor(i / w)
+          var inBox = gx >= m && gz >= m && gx < m + f.size[0] && gz < m + f.size[2]
+          var top = roof[i] !== f.none ? roof[i] : clear[i] !== f.none ? f.size[1] - 1 : null
+          if (!inBox || bottom[i] === f.none || top === null) {
+            i++
+            continue
+          }
+          if (y === null) y = base + bottom[i]
+          while (y <= base + top) {
+            var pos = new BlockPos(b.ax0 + gx, y, b.az0 + gz)
+            if (!level.getFluidState(pos).isEmpty()) {
+              var st = level.getBlockState(pos)
+              level.setBlock(pos, st.hasProperty(WET) ? st.setValue(WET, DRY) : AIR, 2)
+              cells++
+            }
+            y++
+            if (Date.now() - t0 >= self.SEAL_MS) {
+              server.scheduleInTicks(1, step)
+              return
+            }
+          }
+          i++
+          y = null
+        }
+      } catch (e) {
+        console.error(`[ttl] dwargon: drain failed: ${e}`)
+        done(null)
+        return
+      }
+      console.info(`[ttl] dwargon: drained ${cells} fluid cells inside the city before the slab pass`)
+      done(cells)
+    }
+    step()
   },
 
   royalBanners(server, b, base) {

@@ -78,7 +78,7 @@ ttl necro expect TtlBotRankA rank4req no
 ttl necro expect TtlBotRankA rank 3
 tensura edit race TtlBotRankA set tensura:wight_king
 @sleep 1
-ttl necro expect TtlBotRankA race tensura:wight_king
+ttl necro expect TtlBotRankA race "tensura:wight_king"
 ttl necro expect TtlBotRankA rank4req yes
 ttl necro expect TtlBotRankA rank 4
 ttl necro expect TtlBotRankA title Overlord

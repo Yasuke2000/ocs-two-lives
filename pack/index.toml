@@ -2858,7 +2858,7 @@ hash = "501fda872113a48854a2b7b950b991413a83028c7944a5b2ed5589910e8c66c0"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
-hash = "43cf8e60a8ae044f47d7bb1a3851663c8930cac79c31d519505fc042b4b26128"
+hash = "3d73977d12555ff820bbd48574a4ba41857487cceb6430dc6ad1b7cf7e2106ce"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/mortal_spawn_footprint.js"
@@ -2946,7 +2946,7 @@ hash = "b439e7faa512766d89afa38225fbb6efeb37b99c56316f26034322d38d7d4f6b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "908bef7f5b5545706ad39ba01b5d0dc3597f98e035a86309c5b62703ed1d0f9d"
+hash = "07af9b7be27491961b2f2bb2e30266ce62966f8b94f4942429734d9134c2dd63"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/forests.js"

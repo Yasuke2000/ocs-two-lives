@@ -7,7 +7,8 @@ Usage:
                                                     (`[ttl] tempest placed: corner X Y Z`, dwargon likewise;
                                                     `mortal spawn placed at y Y` for mortal_spawn)
   verify_build.py <name> --capture <file.nbt> [<x> <y> <z>]   compare a capture already on disk (offline)
-Options: --min <percent> pass mark (default 98), --top <n> mismatch pairs to list (default 12),
+Options: --min <percent> pass mark (default 98), --max-fluids <n> water/lava positions the structure does not have
+         (default 0: a flood fails whatever the %), --top <n> mismatch pairs to list (default 12),
          --keep <file.nbt> keep the downloaded capture.
 
 <name> is a structure in pack/kubejs/data/ttl/structure/: <name>.nbt, or the slabs <name>_0.nbt, <name>_1.nbt, ...
@@ -19,7 +20,7 @@ Only positions the structure defines count (explicit air included; positions it 
 Differences the game makes itself count as matches (listed as "adjusted"): fence/wall/pane/bars/redstone
 connections, stair shapes, power and lit-by-power, leaf distance/persistence, waterlogging, snowy grass, crop
 and sapling growth, fluid levels, note-block instrument, fence gates in walls, dripstone thickness, plus a few
-block swaps the world does on its own (grass <-> dirt, farmland -> dirt, air variants). Exit code 1 below --min.
+block swaps the world does on its own (grass <-> dirt, farmland -> dirt, air variants). Exit code 1 below --min or with more unexpected fluids than --max-fluids.
 """
 import re
 import subprocess
@@ -151,9 +152,14 @@ def soft_equal(a: str, b: str) -> bool:
     return any(na in group and nb in group for group in SOFT)
 
 
+FLUIDS = ("minecraft:water", "minecraft:lava", "minecraft:bubble_column")
+
+
 def compare(expected: dict, actual: dict) -> dict:
-    """Block-by-block over the positions `expected` defines. Missing positions in `actual` count as mismatches."""
-    exact = adjusted = soft = 0
+    """Block-by-block over the positions `expected` defines. Missing positions in `actual` count as mismatches.
+    `fluids` counts the positions the structure does not fill with a fluid that hold one now (a flood or a lava leak):
+    main() fails on them whatever the match % (Dwargon was 99.67 % with 2,253 flooded cells, staging 19/11/2026)."""
+    exact = adjusted = soft = fluids = 0
     pairs, samples, by_z = Counter(), {}, Counter()
     for pos, want in expected.items():
         got = actual.get(pos, "(not captured)")
@@ -164,6 +170,8 @@ def compare(expected: dict, actual: dict) -> dict:
         elif got != "(not captured)" and soft_equal(got, want):
             soft += 1
         else:
+            if got.split("[")[0] in FLUIDS and want.split("[")[0] not in FLUIDS:
+                fluids += 1
             key = (normalize(want), normalize(got) if got != "(not captured)" else got)
             pairs[key] += 1
             samples.setdefault(key, [])
@@ -173,7 +181,7 @@ def compare(expected: dict, actual: dict) -> dict:
     total = len(expected)
     matched = exact + adjusted + soft
     return {"defined": total, "exact": exact, "adjusted": adjusted, "soft": soft, "mismatched": total - matched,
-            "percent": 100.0 * matched / total if total else 100.0, "pairs": pairs, "samples": samples, "by_z": by_z}
+            "percent": 100.0 * matched / total if total else 100.0, "fluids": fluids, "pairs": pairs, "samples": samples, "by_z": by_z}
 
 
 def short(state: str) -> str:
@@ -186,6 +194,8 @@ def report(name: str, result: dict, corner, slabs, top: int) -> str:
     lines = [f"{name}: {result['percent']:.2f}% match over {result['defined']} defined positions "
              f"({result['exact']} exact, {result['adjusted']} adjusted by the game, {result['soft']} soft swaps, "
              f"{result['mismatched']} mismatched)"]
+    if result.get("fluids"):
+        lines.append(f"unexpected fluids: {result['fluids']} position(s) hold water or lava the structure does not have")
     if len(slabs) > 1:
         per = ", ".join(f"{s}: {sum(n for z, n in result['by_z'].items() if z0 <= z < z1)}" for s, z0, z1 in slabs)
         lines.append(f"mismatches per slab: {per}")
@@ -285,6 +295,7 @@ def main(argv: list[str]) -> int:
         print(__doc__)
         return 2
     minimum = float(option(args, "--min", "98"))
+    max_fluids = int(option(args, "--max-fluids", "0"))
     top = int(option(args, "--top", "12"))
     keep = option(args, "--keep")
     capture = option(args, "--capture")
@@ -316,8 +327,8 @@ def main(argv: list[str]) -> int:
         print(f"note: capture is {csize}, structure box is {size}")
     result = compare(expected, actual)
     print(report(name, result, corner, slabs, top))
-    passed = result["percent"] >= minimum
-    print(f"{'PASS' if passed else 'FAIL'} (pass mark {minimum}%)")
+    passed = result["percent"] >= minimum and result["fluids"] <= max_fluids
+    print(f"{'PASS' if passed else 'FAIL'} (pass mark {minimum}%, at most {max_fluids} unexpected fluid position(s))")
     return 0 if passed else 1
 
 
