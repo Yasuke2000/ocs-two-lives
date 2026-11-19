@@ -686,8 +686,18 @@ const TtlChronicle = {
   },
 
   titleAll(server, titles) {
-    var text = JSON.stringify({ text: String(titles[titles.length - 1]), color: 'gold' })
-    this.life2Online(server).forEach(p => server.runCommandSilent(`title ${p.username} title ${text}`))
+    var line = String(titles[titles.length - 1])
+    var text = JSON.stringify({ text: line, color: 'gold' })
+    // A vanilla title is fixed at a large scale: long text goes in the subtitle (normal size) under an empty title.
+    var long = line.length > 24
+    this.life2Online(server).forEach(p => {
+      if (long) {
+        server.runCommandSilent(`title ${p.username} subtitle ${text}`)
+        server.runCommandSilent(`title ${p.username} title {"text":""}`)
+      } else {
+        server.runCommandSilent(`title ${p.username} title ${text}`)
+      }
+    })
   },
 
   life2Online(server) {

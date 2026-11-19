@@ -734,8 +734,11 @@ const TtlBuilds = {
         if (p.persistentData.getInt(mark) === r.b.version) return
         p.persistentData.putInt(mark, r.b.version)
         server.runCommandSilent(`title ${p.username} times 10 70 20`)
-        server.runCommandSilent(`title ${p.username} subtitle {"text":"Canon location","color":"gray"}`)
-        server.runCommandSilent(`title ${p.username} title {"text":${JSON.stringify(r.b.title)},"color":"gold"}`)
+        // The name goes in the subtitle (normal size) under an empty title: a vanilla title is drawn at a fixed large
+        // scale and a long build name was cut off at both screen edges.
+        server.runCommandSilent(`title ${p.username} subtitle {"text":${JSON.stringify(r.b.title)},"color":"gold"}`)
+        server.runCommandSilent(`title ${p.username} title {"text":""}`)
+        server.runCommandSilent(`title ${p.username} actionbar {"text":"Canon location","color":"gray"}`)
       })
     })
   },

@@ -602,8 +602,15 @@ const TtlEvents = {
       try {
         if (title) {
           server.runCommandSilent(`title ${name} times 10 80 30`)
-          if (subtitle) server.runCommandSilent(`title ${name} subtitle ${self.json(subtitle)}`)
-          server.runCommandSilent(`title ${name} title ${JSON.stringify({ text: title, color: color })}`)
+          if (title.length > 24) {
+            // A vanilla title is fixed at a large scale and gets cut off at the screen edges: long text becomes the subtitle.
+            server.runCommandSilent(`title ${name} subtitle ${JSON.stringify({ text: title, color: color })}`)
+            server.runCommandSilent(`title ${name} title {"text":""}`)
+            if (subtitle) server.runCommandSilent(`title ${name} actionbar ${JSON.stringify({ text: subtitle, color: 'gray' })}`)
+          } else {
+            if (subtitle) server.runCommandSilent(`title ${name} subtitle ${self.json(subtitle)}`)
+            server.runCommandSilent(`title ${name} title ${JSON.stringify({ text: title, color: color })}`)
+          }
         }
         if (start && a.sound) server.runCommandSilent(`playsound ${a.sound} master ${name} ~ ~ ~ 1 1`)
         if (chat && !self.muted(p)) {

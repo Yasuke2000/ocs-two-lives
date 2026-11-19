@@ -11,6 +11,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket;
@@ -27,7 +28,8 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
 /**
  * Anime-style arrival banners in the Tensura world (minecraft:overworld): entering a nation of the canon map
- * shows its name (gold) and {@code banner_subtitle} (gray) from canon_regions.json with a soft chime; leaving the
+ * shows its name (gold, as the subtitle under an empty title, so it is normal-sized) and {@code banner_subtitle}
+ * (gray, on the action bar) from canon_regions.json with a soft chime; leaving the
  * land shows "The Open Sea", passing the ring "Uncharted Lands". Checked once a second per player; a new region
  * must hold for {@link #CONFIRM} checks so walking along a border doesn't spam. {@code /ttlregion <player>} reports, including
  * the distance ring (zone) of a nation that has them; on Lerfing's imported map the ring is named from the stored
@@ -119,10 +121,13 @@ public final class RegionTitles {
     static void show(ServerPlayer player, CanonGrid grid, char key) {
         boolean nation = key != SEA && key != UNCHARTED;
         player.connection.send(new ClientboundSetTitlesAnimationPacket(20, 70, 30));
-        player.connection.send(new ClientboundSetSubtitleTextPacket(Component.literal(subtitle(grid, key))
-                .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC)));
-        player.connection.send(new ClientboundSetTitleTextPacket(Component.literal(title(grid, key))
+        // The name is the subtitle (normal size) under an empty title: a vanilla title is drawn at a fixed large scale
+        // and long names ("Elmine - Terrace of the Divine Tree") were cut off at both screen edges.
+        player.connection.send(new ClientboundSetSubtitleTextPacket(Component.literal(title(grid, key))
                 .withStyle(nation ? ChatFormatting.GOLD : ChatFormatting.AQUA)));
+        player.connection.send(new ClientboundSetTitleTextPacket(Component.empty()));
+        player.connection.send(new ClientboundSetActionBarTextPacket(Component.literal(subtitle(grid, key))
+                .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC)));
         player.playNotifySound(nation ? SoundEvents.AMETHYST_BLOCK_RESONATE : SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.AMBIENT, 0.6f, 0.8f);
     }
 
