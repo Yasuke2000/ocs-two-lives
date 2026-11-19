@@ -3,7 +3,7 @@
 Yasuke explicitly chose **anime and wiki geography over earlier server liberties** after supplying the map image,
 the interactive reference below and a wiki excerpt. Fulbrosia now lies south of Jura, while Ulgracia lies south
 of Sarion. These decisions supersede the corresponding southwest-Fulbrosia and Blumund-adjacent-Ulgracia answers
-in `design/architecture/own-world.md`; the technical agent must reconcile those earlier documents and constraints.
+in `design/architecture/own-world.md`; the owner-authorized five data-rule corrections and superseding owner clarification now record that change.
 
 ## References actually inspected
 
@@ -59,17 +59,21 @@ independent kingdom whereas the current F region groups its coastal marker with 
 reference marks Velgrynd's mountain north of Nasca while the server brief places it south. The supplied wiki
 only establishes adjacency. No new sovereign status or confirmed compass bearing is invented here.
 
-## Constraint handoff
+## Adopted geography corrections
 
-`world/canon-relations-anime.toml` preserves all 56 relation entries plus the site and sea-gap rules, changing
-only five relations affected by the explicit owner correction. Distances in the four Fulbrosia/Ulgracia entries are playable
-compression limits, not measurements from canon. The alternate file is a visible creative proposal for Claude
-to reconcile with the default matrix in `tools/`, which ChatGPT is forbidden to edit.
+Yasuke explicitly authorized updating **only five data entries** in `tools/world/canon_relations.toml`.
+The default matrix now contains the proposed corrections, with sources under
+[design/lore/world-map-corrections.md](../design/lore/world-map-corrections.md). All other 51 relation
+entries, site rules, sea-gap rules and checker code are unchanged. Compression ranges remain design choices.
+`world/canon-relations-anime.toml` is the historical proposal, now identical in data to the default matrix.
 
-Run `python -I tools/world/map_check.py world/map.svg --relations world/canon-relations-anime.toml --preview world/preview.png`.
-The old default matrix will still reject the five deliberately corrected relations; do not describe it as passing.
-If the staging raster build uses `--skip-check`, it must follow this successful explicit check, solely because
-`build.py` does not yet forward an alternate relation path. This is not permission to skip geometry validation.
+The standard command passes with zero errors and two disclosed warnings:
 
-The drawn coast and relative terrain are original. The sea ring remains generated beyond the authored land.
-The approved gameplay magicule bands are retained; their exact radii and the playable world scale are not canon facts.
+```
+python -I tools/world/map_check.py world/map.svg --preview world/preview.png
+```
+
+The official source supports country adjacency but does not make every exact site coordinate canonical.
+In particular the ogre ruin's precise southeast bearing and Jia's compressed separation from Laura remain
+secondary-reference adaptations under the owner choice. See the research confidence fields and conflicts.
+The coast and terrain geometry are original; the surrounding ocean is generated beyond the authored land.

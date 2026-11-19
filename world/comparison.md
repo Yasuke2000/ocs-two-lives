@@ -12,5 +12,5 @@ Visual review: the northern bay and southern gulf now appear in both broad silho
 smoother; the western body and Canaat are broadened to preserve the required sites. Relative sizes and positions
 are compressed nonuniformly around server constraints. This is an original adaptation, not a traced or surveyed map.
 
-**Default checker: five errors remain.** The alternate owner-approved geography matrix passes with two disclosed
-warnings. These screenshots do not prove default-gate acceptance or a playable generated Minecraft world.
+**Default map checker: zero errors, two disclosed warnings**, after exactly five owner-authorized data-rule
+corrections. These screenshots do not prove source completeness, proportional fidelity or Minecraft runtime acceptance.

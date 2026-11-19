@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8000 -6000 16000 12000" width="1600" height="1200">
   <!-- Research round: OFF-001 / WN13-003..004 / WN31-002..003 establish the Ameld corridor; MAP-002 and MAP-004 support northern bay and southern gulf. Coordinates and precise shoreline are our interpretation, compressed around fixed server footprints. -->
-  <!-- Owner-authorized canon alternatives to old checker rules: Jia (200,2450), Ulgr park (-950,2850), Ogre ruin (500,300). Default matrix conflicts are disclosed in research contradictions C01,C02,C04 and PR; tools are not changed. -->
+  <!-- Owner-authorized canon alternatives to old checker rules: Jia (200,2450), Ulgr park (-950,2850), Ogre ruin (500,300). The owner approved exactly five default data-rule corrections; source: design/lore/world-map-corrections.md. All other technical rules and code remain unchanged. -->
   <!-- Original world map, creative round 1. Coordinates are Minecraft blocks, Tempest 0,0. No imported map geometry. -->
   <rect x="-8000" y="-6000" width="16000" height="12000" fill="#bad4ea" />
   <g id="coast" fill="#e4ddbd" stroke="#354a4a" stroke-width="6">

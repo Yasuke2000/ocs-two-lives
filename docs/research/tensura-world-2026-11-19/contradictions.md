@@ -14,7 +14,7 @@ Licensed LN volume 1/2 publisher listings and the Google Books volume-1 listing 
 
 | ID | Evidence or conflict | Decision / remaining work |
 | --- | --- | --- |
-| C01 | Old brief puts Ulgracia south of Blumund / northwest of Elmine; official guide says directly south of Sarion. | Follow the official guide and Yasuke's explicit answer. The old checker relations need technical reconciliation. |
+| C01 | Old brief puts Ulgracia south of Blumund / northwest of Elmine; official guide says directly south of Sarion. | Follow the official guide and Yasuke's explicit answer. Yasuke approved exactly five default data-rule changes; these are now adopted in the default matrix. |
 | C02 | Old brief puts Fulbrosia southwest; supplied map and pinned marker put Jia south of Jura. Official guide establishes cold high mountains, not an exact bearing. | Use southern placement per owner; retain high relief. Exact compass bearing remains map evidence rather than a verified LN statement. |
 | C03 | WN northbound Ameld journey and eastward bend differ from the present short eastern headwater line. Official guide establishes inflow into Siss, not the precise outlet route. | Northern river corridor redrawn from verified WN evidence, explicitly provisional pending the LN version where legally available. Preserve source-to-lake flow. Label sea outlet geometry as interpretation. |
 | C04 | Old checker says ogre village northeast of Tempest. Fan marker is southeast; supplied wiki associates the village with Khusha. WN says west of the invasion route, not west/northeast of Tempest. | Owner-authorized southeast remains provisional secondary placement. Do not pretend the WN sentence proves its precise bearing. |
@@ -29,6 +29,6 @@ Licensed LN volume 1/2 publisher listings and the Google Books volume-1 listing 
 
 ## Review status
 
-The current visible map is PR #74 on `chatgpt/world-map`, still a draft. Earlier PR #69 remains historical reference. Its alternate owner-approved relation matrix passes; the default checker rejects five obsolete relations. No Minecraft world or deployment is claimed. This research checkpoint does not resolve those technical constraints or complete the requested map.
+The current visible map is PR #74 on `chatgpt/world-map`, still a draft. Earlier PR #69 remains historical reference. The owner-approved five corrections are now in the default matrix; the standard map checker passes with two disclosed warnings. No Minecraft world or deployment is claimed. The five technical geography conflicts are resolved by the explicit owner exception; source coverage and proportional-fidelity review remain incomplete.
 
 Reference comparison: [official introductory map](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) · [current original atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/world-map/world/atlas.png). Images remain linked, not copied into this dossier.

@@ -7,10 +7,11 @@ relief, waters, habitats and roads. [Numbered atlas](atlas.png), [checker previe
 [reference comparison](comparison.md), [evidence ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv)
 and [deliberate differences](regions.md).
 
-**Not ready to apply:** the default checker rejects five old geographic relations that conflict with the owner's
-anime/wiki placement choice. `canon-relations-anime.toml` is an explicit review alternative, not a change to the
-default checker. Local draft rasters were generated without applying them to the pack; no Minecraft chunks or
-server changes are claimed. See [review.md](review.md) for results and remaining work.
+The owner explicitly approved exactly five data-rule corrections to the default geography matrix.
+The **standard map checker passes** with two disclosed warnings; source coverage and proportional fidelity
+remain under review. The local terrain build is staged only: no Minecraft chunks, pack apply or server
+changes are claimed. `canon-relations-anime.toml` records the adopted proposal as history; the technical
+source of truth is `tools/world/canon_relations.toml`. See [review.md](review.md).
 
 ## Format in short
 

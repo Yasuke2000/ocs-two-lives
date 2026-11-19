@@ -1,9 +1,9 @@
 {
-  "stage": "draft terrain rasters only; not applied",
-  "source_sha256": "f762213a2c6877fce20546497002008f14f8c1d11357e42427f1e813cf559cfc",
+  "stage": "normal checked staging build; not applied",
+  "source_sha256": "ad960cbcb32d011b0d7a44ddcd0af39dcba44814f4512249ace0b6cd8e561b60",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
-  "default_checker_errors": 5,
+  "default_checker_errors": 0,
   "alternate_checker_errors": 0,
   "checker_warnings": 2,
   "converter_warnings": [],
@@ -12,11 +12,12 @@
     3072,
     2688
   ],
-  "build_seconds": 68.8,
+  "build_seconds": 60.5,
   "repository_gate": {
     "tests": 456,
-    "failures": 3,
+    "failures": 0,
     "skips": 26,
-    "failure_cause": "five default geography relations; see world/review.md"
-  }
+    "validation": "passed"
+  },
+  "build_command": "python -I tools/world/build.py"
 }

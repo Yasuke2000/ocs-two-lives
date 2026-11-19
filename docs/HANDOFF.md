@@ -1,5 +1,19 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 19/11 — Five owner-approved geography corrections; normal gate green (ChatGPT, PR #74)
+
+Yasuke explicitly approved an exception for **only five data entries** in `tools/world/canon_relations.toml`.
+Adopted the Jia/Ulgracia/ogre proposal, with a [lore source note](../design/lore/world-map-corrections.md).
+Other 51 relations, site/sea rules, checker code and tests unchanged. Added superseding owner clarification
+to own-world.md; precise distances/bearings remain server adaptation where evidence is secondary.
+**Verified current state:** standard map checker 0 errors/2 disclosed warnings; normal `build.py` (no skip)
+60.5s, 0 converter warnings, matching source SHA, 58/58 coordinates/minima/exact relative offsets;
+`tools/check.sh` via Git Bash passes validation and 456 tests (26 skips). Preview/atlas refreshed.
+See [review](../world/review.md), [comparison](../world/comparison.md), [region differences](../world/regions.md).
+**Remaining:** source/proportion review and open lore questions; no runtime Minecraft acceptance, pack apply,
+merge or deployment. The red-gate status in older handoff entries is historical and superseded by this result.
+
+
 ## 19/11 — Research-driven map round 4 (ChatGPT, `chatgpt/world-map`, PR #74)
 
 Replaced the starter with the current authored map and corrected its northern bay, southern gulf,

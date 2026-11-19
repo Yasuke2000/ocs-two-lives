@@ -31,8 +31,8 @@ Compared visually with the [official introductory map](https://www.ten-sura.com/
 - The fixed deadly forest rings, arrival clearing, Treyni shrine, Spirit Gate by Tempest, minor camps and
   specific biomes are server content. In particular the guide places the Spirit Dwelling entrance in northern
   Ulgracia (`OFF-005..006`); the near-Tempest portal is a separate server adaptation.
-- The old default checker still rejects five owner-authorized placements for Jia, Ulgracia and the ogre ruin.
-  The alternate matrix is a review aid only. This map remains a draft until the normal gate passes.
+- Yasuke explicitly approved updating the five default data rules for Jia, Ulgracia and the ogre ruin.
+  The standard map checker now passes; the map remains a draft for source/fidelity review.
 
 Borders in this book are gameplay coverage polygons. No precise sovereign boundary, independent-state
 subordination or early/late-story political continuity can be inferred from them. C05 (Velgrynd's mountain
@@ -326,7 +326,7 @@ Early Tempest depicts the village after the ogres join. Later capitals and ruins
 
 ## Open lore and implementation questions
 
-- The owner explicitly reversed the earlier Fulbrosia and Ulgracia liberties. Use the anime-aligned positions and reconcile the old default checker matrix.
+- The owner explicitly reversed the earlier Fulbrosia and Ulgracia liberties. The anime-aligned positions are now adopted into the five owner-approved default data rules.
 - Several small-state identities and capital names rely on secondary repo research. No new flags, rulers or political borders are asserted as verified canon here.
 - Drawn site radii now meet all footprint minima from `world/sites.toml`, including Tempest r148 and Dwargon r127. Relative internal anchors remain within their parent complexes. Final in-game ground, cover and water containment still need technical acceptance.
 - Treyni’s shrine is an original pack interpretation; the separated grove and shrine sites follow the accepted checker, replacing the old imported-world +38 offset.

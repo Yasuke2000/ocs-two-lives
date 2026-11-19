@@ -1,4 +1,5 @@
-# Owner-approved anime correction, 19/11/2026. Exactly five relations differ from the current default matrix.
+# Historical proposal adopted into the default matrix by explicit owner permission, 19/11/2026.
+# Authoritative rules: tools/world/canon_relations.toml. This snapshot now has identical data.
 # Canon relations of the new Tensura world map (checked by tools/world/map_check.py against the sites of world/map.svg).
 # Design: design/architecture/own-world.md section 2.4 (canon geography) and 6.1 rule 6.
 #
@@ -117,7 +118,7 @@ dir = "SE"
 b = "tempest"
 min = 400
 max = 900
-source = "world/anime-reference-notes.md"
+source = "design/lore/world-map-corrections.md"
 note = "The supplied wiki places the ogre village at the Khusha foothills; the pinned reference marker is southeast of Rimuru City, not northeast."
 
 [[relation]]
@@ -347,7 +348,7 @@ b = "tempest"
 tol = 35
 min = 2000
 max = 4350
-source = "world/anime-reference-notes.md"
+source = "design/lore/world-map-corrections.md"
 note = "Owner correction: Fulbrosia is south of Jura, following the supplied anime map."
 
 [[relation]]
@@ -356,7 +357,7 @@ dir = "W"
 b = "laura"
 min = 900
 max = 2600
-source = "world/anime-reference-notes.md"
+source = "design/lore/world-map-corrections.md"
 note = "Fulbrosia is west/southwest of Eurazania; distances reflect playable compression."
 
 [[relation]]
@@ -532,7 +533,7 @@ dir = "S"
 b = "blumund"
 min = 2400
 max = 4000
-source = "world/anime-reference-notes.md"
+source = "design/lore/world-map-corrections.md"
 note = "Ulgracia is far south beyond Sarion, rather than adjacent to Blumund."
 
 [[relation]]
@@ -541,7 +542,7 @@ dir = "S"
 b = "elmine"
 min = 800
 max = 1600
-source = "world/anime-reference-notes.md"
+source = "design/lore/world-map-corrections.md"
 note = "Owner correction: Ulgracia lies south of Sarion, as in the official guide and supplied anime reference."
 
 [[site_rule]]

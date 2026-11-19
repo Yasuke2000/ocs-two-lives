@@ -17,5 +17,5 @@ Use directly verified LN > WN > manga > anime > official map > wiki when actual 
 
 [Draft PR #74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) carries the current redraw:
 [new marked atlas](../../../world/atlas.png), [reference comparison](../../../world/comparison.md),
-[deliberate differences](../../../world/regions.md). Five default-checker relations remain unresolved;
-the alternate review matrix does not make the normal gate pass. No playable Minecraft world is claimed.
+[deliberate differences](../../../world/regions.md). The five owner-approved geography corrections are now in the default matrix;
+the standard map checker passes with two disclosed warnings. Source/fidelity review remains open. No playable Minecraft world is claimed.
