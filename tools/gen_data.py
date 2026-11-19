@@ -7,6 +7,7 @@ footprint of every build's structure files goes to generated/builds.js (`TtlBuil
 Usage: gen_data.py            write the files
        gen_data.py --check    exit 1 if a file is out of date (used by validate.py)
 """
+import functools
 import json
 import math
 import re
@@ -1257,32 +1258,162 @@ def check_arrival(arrival: dict) -> None:
     for key, top in (("search", 48), ("version", 1_000_000)):
         if not isinstance(spot.get(key), int) or isinstance(spot.get(key), bool) or not 0 <= spot[key] <= top or (key == "version" and spot[key] < 1):
             raise SystemExit(f"arrival.toml: life2.{key} must be a whole number" + (" from 0 to 48" if key == "search" else " from 1"))
-    canon = json.loads(CANON.read_text(encoding="utf-8"))
-    if abs(spot["x"]) > canon["width"] or abs(spot["z"]) > canon["width"]:
-        raise SystemExit(f"arrival.toml: life2 x/z ({spot['x']}, {spot['z']}) lies outside the {canon['width']}-block continent")
+    x0, z0, x1, z1 = json.loads(CANON.read_text(encoding="utf-8"))["lerfing"]["inner"]
+    if not (x0 <= spot["x"] < x1 and z0 <= spot["z"] < z1):
+        raise SystemExit(f"arrival.toml: life2 x/z ({spot['x']}, {spot['z']}) lies outside Lerfing's map {x0}..{x1} x {z0}..{z1}")
 
 
 def settlement_box(script: str, anchor: str, footprint: str) -> tuple[int, int, int, int]:
-    """World box (x0, z0, x1, z1, margin included) of Tempest or Dwargon, as their scripts compute it."""
+    """World box (x0, z0, x1, z1, margin included) of Tempest or Dwargon, as their scripts compute it, at the position
+    design/data/anchors.toml gives them (the source of truth since the Lerfing import; WP-L4 makes the scripts read it)."""
     m = re.search(anchor + r":\s*\{\s*x:\s*(-?\d+),\s*z:\s*(-?\d+)", (SCRIPTS / "life" / script).read_text(encoding="utf-8"))
+    sx, sz = int(m.group(1)), int(m.group(2))
+    at = anchor_table().get(script.removesuffix(".js"))
+    if at and (at["x"], at["z"]) != (sx, sz):
+        warn_once(f"warn: life/{script} {anchor} ({sx}, {sz}) differs from anchors.toml {at['id']} ({at['x']}, {at['z']}); "
+                  f"the checks use the anchor (WP-L4 makes the script read it)")
+        sx, sz = at["x"], at["z"]
     line = next(t for t in (SCRIPTS / "generated" / footprint).read_text(encoding="utf-8").splitlines()
                 if t.startswith("const ") and "Footprint = " in t)
     f = json.loads(line[line.index("{"):])
-    x0, z0 = int(m.group(1)) - f["arrival"][0], int(m.group(2)) - f["arrival"][2]
+    x0, z0 = sx - f["arrival"][0], sz - f["arrival"][2]
     return x0 - f["margin"], z0 - f["margin"], x0 + f["size"][0] + f["margin"] - 1, z0 + f["size"][2] + f["margin"] - 1
 
 
-def ref_to_world(canon: dict, ref) -> tuple[int, int]:
-    """Reference-map pixel -> world x/z: (ref - origin) x width / 2570 (canon_regions.json "_doc")."""
-    scale = canon["width"] / 2570
-    return round((ref[0] - canon["origin"][0]) * scale), round((ref[1] - canon["origin"][1]) * scale)
+def landmark_world(at) -> tuple[int, int]:
+    """A canon_regions.json landmark's `at` (world [x, z] on Lerfing's map, checked against anchors.toml)."""
+    return int(at[0]), int(at[1])
+
+
+ANCHOR_KEYS = {"id", "name", "x", "z", "region", "kind", "surface", "canon", "build", "landmark", "of", "dx", "dz",
+               "old_x", "old_z", "map", "notes"}
+ANCHOR_KINDS = {"settlement", "arrival", "build", "landmark", "pin", "spot"}
+ANCHOR_SURFACES = {"land", "water", "shore", "any"}
+KEEPOUT_KEYS = {"id", "name", "x0", "z0", "x1", "z1"}
+_warned: set = set()
+
+
+def warn_once(msg: str) -> None:
+    if msg not in _warned:
+        _warned.add(msg)
+        print(msg, file=sys.stderr)
+
+
+@functools.lru_cache(maxsize=1)
+def anchor_table() -> dict:
+    """{id: anchor} from design/data/anchors.toml ({} when the file is missing)."""
+    path = SOURCES / "anchors.toml"
+    if not path.is_file():
+        return {}
+    return anchor_rows(tomllib.loads(path.read_text(encoding="utf-8")))
+
+
+def anchor_rows(table: dict) -> dict:
+    """anchors.toml -> {id: anchor with "id"}; [<id>] tables are anchors, [keepout.<id>] tables Lerfing's builds."""
+    return {k: dict(v, id=k) for k, v in table.items() if k != "keepout" and isinstance(v, dict)}
+
+
+def check_anchors(anchors: dict) -> None:
+    # design/data/anchors.toml: every canon place in Lerfing's coordinates (design/architecture/lerfing-import.md §3.5),
+    # the table builds, landmarks, NPC spots, bosses, quests and tests translate from. tests/test_lerfing_anchors.py
+    # adds the land-mask and nearest-owner checks.
+    canon = json.loads(CANON.read_text(encoding="utf-8"))
+    letters = set(canon["regions"])
+    ix0, iz0, ix1, iz1 = canon["lerfing"]["inner"]
+    landmark_at = {lm["name"]: tuple(lm["at"]) for lm in canon["landmarks"]}
+    lm_names = {lm["name"] for lm in tomllib.loads((SOURCES / "landmarks.toml").read_text(encoding="utf-8")).get("landmark", [])}
+    builds = {p.stem for p in BUILDS.glob("*.toml") if not p.name.startswith("_")}
+    loose = [k for k, v in anchors.items() if not isinstance(v, dict)]
+    if loose:
+        raise SystemExit(f"anchors.toml: top-level keys {loose} must be [<id>] tables")
+    rows = list(anchor_rows(anchors).values())
+    by_id: dict[str, dict] = {}
+    for a in rows:
+        aid = a.get("id", "?")
+        where = f"anchors.toml: {aid}"
+        if not re.fullmatch(r"[a-z0-9_]+", str(aid)):
+            raise SystemExit(f"{where}: the table name must be [a-z0-9_]")
+        by_id[aid] = a
+        unknown = set(a) - ANCHOR_KEYS
+        if unknown:
+            raise SystemExit(f"{where}: unknown field(s) {sorted(unknown)} (known: {', '.join(sorted(ANCHOR_KEYS))})")
+        for key, value in a.items():
+            if isinstance(value, (list, dict, float)):
+                raise SystemExit(f"{where}: {key} must be an integer, boolean or string (the file stays flat)")
+        for key in ("x", "z"):
+            if not is_int(a.get(key)):
+                raise SystemExit(f"{where}: {key} must be an integer")
+        if not (ix0 <= a["x"] < ix1 and iz0 <= a["z"] < iz1):
+            raise SystemExit(f"{where}: ({a['x']}, {a['z']}) lies outside Lerfing's inner tiles {ix0}..{ix1} x {iz0}..{iz1}")
+        if not str(a.get("name", "")).strip():
+            raise SystemExit(f"{where}: name is missing")
+        region = a.get("region")
+        if not isinstance(region, str) or not region or not set(region) <= letters:
+            raise SystemExit(f"{where}: region must be one or more canon region letters ({''.join(sorted(letters))})")
+        if a.get("kind") not in ANCHOR_KINDS:
+            raise SystemExit(f"{where}: kind must be one of {', '.join(sorted(ANCHOR_KINDS))}")
+        if a.get("surface") not in ANCHOR_SURFACES:
+            raise SystemExit(f"{where}: surface must be one of {', '.join(sorted(ANCHOR_SURFACES))}")
+        if "map" in a and not isinstance(a["map"], bool):
+            raise SystemExit(f"{where}: map must be true or false")
+        if ("old_x" in a) != ("old_z" in a) or any(k in a and not is_int(a[k]) for k in ("old_x", "old_z")):
+            raise SystemExit(f"{where}: old_x and old_z are integers, both or neither")
+        if "canon" in a:
+            if a["canon"] not in landmark_at:
+                raise SystemExit(f"{where}: canon {a['canon']!r} is not a canon_regions.json landmark")
+            if landmark_at[a["canon"]] != (a["x"], a["z"]):
+                raise SystemExit(f"{where}: canon_regions.json landmark {a['canon']!r} is at {list(landmark_at[a['canon']])}, "
+                                 f"the anchor at [{a['x']}, {a['z']}]: set its `at` to the anchor")
+        if "build" in a and a["build"] not in builds:
+            raise SystemExit(f"{where}: build {a['build']!r} is not a design/builds name")
+        if "landmark" in a and a["landmark"] not in lm_names:
+            raise SystemExit(f"{where}: landmark {a['landmark']!r} is not a landmarks.toml name")
+        if (a["kind"] == "build" and "build" not in a) or (a["kind"] == "landmark" and "landmark" not in a):
+            raise SystemExit(f"{where}: a {a['kind']} anchor names its {a['kind']}")
+        ch = canon_char(a["x"], a["z"])
+        if a["surface"] == "land" and (ch is None or ch not in region):
+            raise SystemExit(f"{where}: ({a['x']}, {a['z']}) reads {ch!r} in canon_map.txt, not land of {region}")
+        if a["surface"] == "water" and ch not in ("~", "."):
+            raise SystemExit(f"{where}: ({a['x']}, {a['z']}) reads {ch!r} in canon_map.txt, not water")
+        if a["surface"] in ("shore", "any") and ch not in ("~", ".") and (ch is None or ch not in region):
+            raise SystemExit(f"{where}: ({a['x']}, {a['z']}) reads {ch!r} in canon_map.txt, not {region} or water")
+    for a in rows:
+        where = f"anchors.toml: {a['id']}"
+        if ("of" in a) != ("dx" in a) or ("dx" in a) != ("dz" in a):
+            raise SystemExit(f"{where}: of, dx and dz go together")
+        if "of" in a:
+            base = by_id.get(a["of"])
+            if not base or "of" in base:
+                raise SystemExit(f"{where}: of {a['of']!r} must name an anchor that is not relative itself")
+            if not is_int(a["dx"]) or not is_int(a["dz"]) or (base["x"] + a["dx"], base["z"] + a["dz"]) != (a["x"], a["z"]):
+                raise SystemExit(f"{where}: x, z must equal {a['of']} + (dx, dz) = "
+                                 f"({base['x'] + a.get('dx', 0)}, {base['z'] + a.get('dz', 0)})")
+    for need, kind in (("tempest", "settlement"), ("dwargon", "settlement"), ("arrival", "arrival")):
+        if by_id.get(need, {}).get("kind") != kind:
+            raise SystemExit(f"anchors.toml: needs the {kind} anchor {need!r}")
+    missing = set(landmark_at) - {a["canon"] for a in rows if "canon" in a}
+    if missing:
+        raise SystemExit(f"anchors.toml: no anchor for canon landmark(s) {sorted(missing)}")
+    zones = canon["regions"]["J"].get("zones", {})
+    if tuple(zones.get("centre", ())) != (by_id["tempest"]["x"], by_id["tempest"]["z"]):
+        raise SystemExit("canon_regions.json: J zones centre must be the tempest anchor")
+    for kid, k in anchors.get("keepout", {}).items():
+        k = dict(k, id=kid)
+        where = f"anchors.toml: keepout.{kid}"
+        if set(k) - KEEPOUT_KEYS or not re.fullmatch(r"[a-z0-9_]+", kid) or "x" in k or "z" in k:
+            raise SystemExit(f"{where}: keys are {', '.join(sorted(KEEPOUT_KEYS - {'id'}))}; the name [a-z0-9_]")
+        if not all(is_int(k.get(c)) for c in ("x0", "z0", "x1", "z1")) or k["x0"] >= k["x1"] or k["z0"] >= k["z1"]:
+            raise SystemExit(f"{where}: x0 < x1 and z0 < z1 (integers)")
+        for a in rows:
+            if a["kind"] in ("settlement", "arrival", "build", "landmark") and k["x0"] <= a["x"] <= k["x1"] and k["z0"] <= a["z"] <= k["z1"]:
+                raise SystemExit(f"anchors.toml: {a['id']} ({a['x']}, {a['z']}) stands inside {k['id']} ({k['name']})")
 
 
 def check_landmarks(landmarks: dict) -> None:
-    # life/landmarks.js places these; x/z come from canon_regions.json unless given, and every landmark keeps
+    # life/landmarks.js places these; x/z come from canon_regions.json (`at`) unless given, and every landmark keeps
     # `keepout` blocks (plus its reach) clear of Tempest's and Dwargon's boxes.
     canon = json.loads(CANON.read_text(encoding="utf-8"))
-    refs = {lm["name"]: lm["ref"] for lm in canon["landmarks"]}
+    refs = {lm["name"]: lm["at"] for lm in canon["landmarks"]}
     boxes = {"Tempest": settlement_box("tempest.js", "LANDMARK", "tempest_footprint.js"),
              "Dwargon": settlement_box("dwargon.js", "GATE", "dwargon_footprint.js")}
     seen = set()
@@ -1306,7 +1437,7 @@ def check_landmarks(landmarks: dict) -> None:
         if "x" not in lm:
             if "canon" not in lm:
                 raise SystemExit(f"{where}: needs x/z or canon")
-            lm["x"], lm["z"] = ref_to_world(canon, refs[lm["canon"]])
+            lm["x"], lm["z"] = landmark_world(refs[lm["canon"]])
         for label, (x0, z0, x1, z1) in boxes.items():
             gap = math.hypot(max(x0 - lm["x"], 0, lm["x"] - x1), max(z0 - lm["z"], 0, lm["z"] - z1))
             if gap < landmarks["keepout"] + lm["reach"]:
@@ -1929,12 +2060,16 @@ def read_footprint(files: list[Path]) -> dict:
             "bottom": rle([bottom.get(c, NONE) for c in cells])}
 
 
-def canon_char(x: int, z: int) -> str | None:
-    """The canon_map.txt character (a chunk) at world x/z, None outside the grid."""
+@functools.lru_cache(maxsize=1)
+def canon_rows() -> tuple[int, int, list[str]]:
     lines = CANON_MAP.read_text(encoding="utf-8").splitlines()
     origin = next(t for t in lines if t.startswith("# origin")).split()
-    ox, oy = int(origin[2]), int(origin[3])
-    rows = [t for t in lines if not t.startswith("#")]
+    return int(origin[2]), int(origin[3]), [t for t in lines if not t.startswith("#")]
+
+
+def canon_char(x: int, z: int) -> str | None:
+    """The canon_map.txt character (a chunk) at world x/z, None outside the grid."""
+    ox, oy, rows = canon_rows()
     row, col = oy + (z >> 4), ox + (x >> 4)
     return rows[row][col] if 0 <= row < len(rows) and 0 <= col < len(rows[row]) else None
 
@@ -1942,7 +2077,7 @@ def canon_char(x: int, z: int) -> str | None:
 def check_builds() -> tuple[list[dict], dict]:
     """design/builds/<name>.toml -> (TtlData.builds, footprints); files starting with `_` are examples."""
     canon = json.loads(CANON.read_text(encoding="utf-8"))
-    refs = {lm["name"]: lm["ref"] for lm in canon["landmarks"]}
+    refs = {lm["name"]: lm["at"] for lm in canon["landmarks"]}
     landmark_names = {lm["name"] for lm in tomllib.loads((SOURCES / "landmarks.toml").read_text(encoding="utf-8")).get("landmark", [])}
     builds, footprints = [], {}
     for path in sorted(BUILDS.glob("*.toml")) if BUILDS.exists() else []:
@@ -2002,7 +2137,7 @@ def check_builds() -> tuple[list[dict], dict]:
         if isinstance(b["max_wet"], bool) or not isinstance(b["max_wet"], (int, float)) or not 0 <= b["max_wet"] <= 0.5:
             raise SystemExit(f"{where}: max_wet must be a fraction 0..0.5 (share of the build's columns over water)")
 
-        # Where: x/z win, else the canon landmark's reference pixel.
+        # Where: x/z win, else the canon landmark's `at` (anchors.toml).
         if ("x" in b) != ("z" in b):
             raise SystemExit(f"{where}: give both x and z, or neither")
         if "x" in b:
@@ -2012,7 +2147,7 @@ def check_builds() -> tuple[list[dict], dict]:
             if b["landmark"] not in refs:
                 raise SystemExit(f"{where}: landmark {b['landmark']!r} is not in canon_regions.json "
                                  f"(names are matched exactly)")
-            b["x"], b["z"] = ref_to_world(canon, refs[b["landmark"]])
+            b["x"], b["z"] = landmark_world(refs[b["landmark"]])
         else:
             raise SystemExit(f"{where}: needs a landmark or x and z")
 
@@ -2096,7 +2231,7 @@ def check_domains(fac: dict, data: dict, builds: list[dict]) -> None:
     overworld = world.get("continent", {}).get("overworld", "minecraft:overworld")
     modes = set(world.get("rule", {}).get("modes", ["vassal", "usurper"]))
     canon = json.loads(CANON.read_text(encoding="utf-8"))
-    refs = {lm["name"]: lm["ref"] for lm in canon["landmarks"]}
+    refs = {lm["name"]: lm["at"] for lm in canon["landmarks"]}
     by_build = {b["name"]: b for b in builds}
     landmarks = {lm["name"]: lm for lm in data.get("landmarks", {}).get("landmark", [])}
     bosses = {b.get("id") for b in data.get("bosses", {}).get("boss", [])}
@@ -2125,6 +2260,11 @@ def check_domains(fac: dict, data: dict, builds: list[dict]) -> None:
     # The Life 2 arrival must stay free ground: newcomers gather and build there. A landmark may land up to 64 blocks off
     # its nominal spot (life/landmarks.js OFFSETS), so its square is widened by that much.
     arrival = data.get("arrival", {}).get("life2")
+    anchored = anchor_table().get("arrival")
+    if anchored and (not arrival or (arrival["x"], arrival["z"]) != (anchored["x"], anchored["z"])):
+        warn_once(f"warn: arrival.toml life2 differs from anchors.toml arrival ({anchored['x']}, {anchored['z']}); "
+                  f"the checks use the anchor (WP-L4 moves arrival.toml)")
+        arrival = {"x": anchored["x"], "z": anchored["z"]}
 
     def covers_arrival(cx: int, cz: int, r: int) -> bool:
         return bool(arrival) and abs(arrival["x"] - cx) <= r and abs(arrival["z"] - cz) <= r
@@ -2150,7 +2290,7 @@ def check_domains(fac: dict, data: dict, builds: list[dict]) -> None:
             if cap is None:
                 if f.get("capital") not in refs:
                     raise SystemExit(f"{where}: a domain without capital needs the faction's canon capital")
-                center = ref_to_world(canon, refs[f["capital"]])
+                center = landmark_world(refs[f["capital"]])
             elif cap in SETTLEMENTS:
                 center = settlement_center(cap)
             elif isinstance(cap, str) and cap.startswith("build:"):
@@ -2239,6 +2379,8 @@ def render() -> dict[Path, str]:
         check_choices(data["choices"], data)
     if "events" in data:
         check_events(data["events"])
+    if "anchors" in data:
+        check_anchors(data.pop("anchors"))  # not a script table: WP-L4 generates TtlAnchors from it
     if "arrival" in data:
         check_arrival(data["arrival"])
     if "landmarks" in data:

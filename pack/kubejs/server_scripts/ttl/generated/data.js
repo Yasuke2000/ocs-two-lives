@@ -2119,8 +2119,8 @@ const TtlData = {
       ],
       "title": "Amrita — Buried Gallery of Jistav",
       "version": 1,
-      "x": 3552,
-      "z": -703
+      "x": 6100,
+      "z": -650
     },
     {
       "anchor": [
@@ -2149,8 +2149,8 @@ const TtlData = {
       ],
       "title": "Ballachia — The Freed Travellers' Yard",
       "version": 1,
-      "x": -1384,
-      "z": -212
+      "x": -1660,
+      "z": -460
     },
     {
       "anchor": [
@@ -2178,8 +2178,8 @@ const TtlData = {
       ],
       "title": "Blumund — Londo",
       "version": 3,
-      "x": -1024,
-      "z": -120
+      "x": -450,
+      "z": 150
     },
     {
       "anchor": [
@@ -2208,8 +2208,8 @@ const TtlData = {
       ],
       "title": "Clayman's Castle — the Puppet Nation of Jistav",
       "version": 2,
-      "x": 3693,
-      "z": -959
+      "x": 5620,
+      "z": -900
     },
     {
       "anchor": [
@@ -2238,8 +2238,8 @@ const TtlData = {
       ],
       "title": "Coleus — The Palace of Herbaria",
       "version": 1,
-      "x": -4151,
-      "z": 370
+      "x": -3080,
+      "z": 600
     },
     {
       "anchor": [
@@ -2268,8 +2268,8 @@ const TtlData = {
       ],
       "title": "The Dragon's Nest",
       "version": 2,
-      "x": 370,
-      "z": -2402
+      "x": 2420,
+      "z": -1536
     },
     {
       "anchor": [
@@ -2354,8 +2354,8 @@ const TtlData = {
       ],
       "title": "Elmine — Terrace of the Divine Tree",
       "version": 1,
-      "x": -1471,
-      "z": 1629
+      "x": 1100,
+      "z": 2760
     },
     {
       "anchor": [
@@ -2383,8 +2383,8 @@ const TtlData = {
       ],
       "title": "Englassia — Lura",
       "version": 3,
-      "x": -2626,
-      "z": -300
+      "x": -2150,
+      "z": -410
     },
     {
       "anchor": [
@@ -2472,8 +2472,8 @@ const TtlData = {
       ],
       "title": "Scorching God Mountain — Velgrynd’s sanctuary",
       "version": 1,
-      "x": 2386,
-      "z": -2511
+      "x": 5120,
+      "z": -1860
     },
     {
       "anchor": [
@@ -2502,8 +2502,8 @@ const TtlData = {
       ],
       "title": "Heaven Tower — Holy Void of Damargania",
       "version": 1,
-      "x": -7507,
-      "z": 245
+      "x": -4500,
+      "z": 560
     },
     {
       "anchor": [
@@ -2532,8 +2532,8 @@ const TtlData = {
       ],
       "title": "Jia — Frey's Landing Court",
       "version": 1,
-      "x": 349,
-      "z": 1819
+      "x": -2700,
+      "z": 1500
     },
     {
       "anchor": [
@@ -2562,8 +2562,8 @@ const TtlData = {
       ],
       "title": "Laura — capital of the Beast Kingdom of Eurazania",
       "version": 3,
-      "x": 1689,
-      "z": 1302
+      "x": 3300,
+      "z": 2600
     },
     {
       "anchor": [
@@ -2591,8 +2591,8 @@ const TtlData = {
       ],
       "title": "Holy City Lubelius — Lune",
       "version": 2,
-      "x": -3977,
-      "z": -659
+      "x": -2550,
+      "z": -700
     },
     {
       "anchor": [
@@ -2620,8 +2620,8 @@ const TtlData = {
       ],
       "title": "Marris — Falmuth",
       "version": 3,
-      "x": -1286,
-      "z": -1040
+      "x": -2000,
+      "z": -1450
     },
     {
       "anchor": [
@@ -2650,8 +2650,8 @@ const TtlData = {
       ],
       "title": "Morgdahl — The Timber Landing",
       "version": 1,
-      "x": -4009,
-      "z": 1002
+      "x": -2440,
+      "z": 740
     },
     {
       "anchor": [
@@ -2854,8 +2854,8 @@ const TtlData = {
       ],
       "title": "Nasca — Imperial audience court",
       "version": 1,
-      "x": 2631,
-      "z": -2059
+      "x": 5100,
+      "z": -2680
     },
     {
       "anchor": [
@@ -2884,8 +2884,8 @@ const TtlData = {
       ],
       "title": "Nostraille — The Wool Hall",
       "version": 1,
-      "x": -2560,
-      "z": 360
+      "x": -1780,
+      "z": 550
     },
     {
       "anchor": [
@@ -2914,8 +2914,8 @@ const TtlData = {
       ],
       "title": "Raja — The Old Lakeside Workings",
       "version": 1,
-      "x": -1084,
-      "z": 763
+      "x": -2050,
+      "z": 760
     },
     {
       "anchor": [
@@ -2943,8 +2943,8 @@ const TtlData = {
       ],
       "title": "Sacred Mountain — the seal of the Inner Sanctum",
       "version": 1,
-      "x": -4423,
-      "z": -1286
+      "x": -2980,
+      "z": -900
     },
     {
       "anchor": [
@@ -2973,8 +2973,8 @@ const TtlData = {
       ],
       "title": "The Sealed Cave: Veldora's prison, Rimuru's birthplace",
       "version": 2,
-      "x": -256,
-      "z": -343
+      "x": 1380,
+      "z": 560
     },
     {
       "anchor": [
@@ -3003,8 +3003,8 @@ const TtlData = {
       ],
       "title": "Siltrosso — The Rosso counting court",
       "version": 1,
-      "x": -2026,
-      "z": -921
+      "x": -2450,
+      "z": -1650
     },
     {
       "anchor": [
@@ -3152,8 +3152,8 @@ const TtlData = {
       ],
       "title": "Ulgr Nature Park — The Spirit Trail",
       "version": 1,
-      "x": -1171,
-      "z": 2152
+      "x": -1040,
+      "z": 1060
     },
     {
       "anchor": [
@@ -4590,8 +4590,8 @@ const TtlData = {
           ],
           "capital": "tempest",
           "center": [
-            0,
-            -12
+            1720,
+            888
           ],
           "landmarks": [
             "goblin_village",
@@ -4639,8 +4639,8 @@ const TtlData = {
           ],
           "capital": "dwargon",
           "center": [
-            434,
-            -1036
+            1900,
+            -536
           ]
         },
         "id": "dwargon",
@@ -4681,8 +4681,8 @@ const TtlData = {
           ],
           "capital": "build:blumund",
           "center": [
-            -1024,
-            -120
+            -450,
+            150
           ]
         },
         "id": "blumund",
@@ -4716,8 +4716,8 @@ const TtlData = {
           ],
           "capital": "build:marris",
           "center": [
-            -1286,
-            -1040
+            -2000,
+            -1450
           ]
         },
         "id": "falmuth",
@@ -4756,8 +4756,8 @@ const TtlData = {
           ],
           "capital": "build:lubelius",
           "center": [
-            -3977,
-            -659
+            -2550,
+            -700
           ]
         },
         "id": "holy_church",
@@ -4826,8 +4826,8 @@ const TtlData = {
           "capital": "landmark:lizardmen_caverns",
           "capital_radius": 128,
           "center": [
-            926,
-            398
+            3300,
+            1200
           ],
           "landmarks": [
             "lizardmen_village",
@@ -4864,8 +4864,8 @@ const TtlData = {
           ],
           "capital": "build:laura",
           "center": [
-            1689,
-            1302
+            3300,
+            2600
           ]
         },
         "id": "eurazania",
@@ -5801,8 +5801,8 @@ const TtlData = {
         "surface": "land",
         "title": "Old goblin village (Rigurd's tribe)",
         "version": 1,
-        "x": -163,
-        "z": -234
+        "x": 1390,
+        "z": 710
       },
       {
         "canon": "Lake Siss",
@@ -5825,8 +5825,8 @@ const TtlData = {
         "surface": "land",
         "title": "Lizardmen's caverns (Gabiru, Avalos)",
         "version": 1,
-        "x": 926,
-        "z": 398
+        "x": 3300,
+        "z": 1200
       },
       {
         "canon": "Orc War battlefield (Lake Siss marsh)",
@@ -5837,8 +5837,8 @@ const TtlData = {
         "surface": "land",
         "title": "Orc camp at the Orc War battlefield",
         "version": 1,
-        "x": 1106,
-        "z": 539
+        "x": 3600,
+        "z": 1250
       },
       {
         "name": "dwarf_village",
@@ -5860,8 +5860,8 @@ const TtlData = {
         "surface": "land",
         "title": "Burned ruin at the hidden ogre village",
         "version": 1,
-        "x": 1460,
-        "z": -959
+        "x": 2150,
+        "z": 400
       },
       {
         "canon": "Treyni's grove (Dryad sanctuary)",
@@ -5872,8 +5872,8 @@ const TtlData = {
         "surface": "land",
         "title": "Treyni's grove (dryad sanctuary)",
         "version": 1,
-        "x": 1950,
-        "z": -223
+        "x": 1920,
+        "z": 1540
       }
     ]
   },
@@ -7780,9 +7780,9 @@ const TtlData = {
         ],
         "radius": 10,
         "title": "the wayfarers' camp on Jura's rim",
-        "x": 285,
+        "x": 1795,
         "y": 0,
-        "z": -612
+        "z": -135
       },
       {
         "anchor": "landmark",
@@ -7810,9 +7810,9 @@ const TtlData = {
         ],
         "radius": 10,
         "title": "the Blumund road camp at Jura's edge",
-        "x": -850,
+        "x": -250,
         "y": 0,
-        "z": -110
+        "z": 250
       },
       {
         "anchor": "world",
@@ -7826,9 +7826,9 @@ const TtlData = {
         ],
         "radius": 10,
         "title": "the Englassia road post",
-        "x": -1900,
+        "x": -1880,
         "y": 0,
-        "z": -260
+        "z": -500
       },
       {
         "anchor": "landmark",
@@ -7867,18 +7867,18 @@ const TtlData = {
         "cap": 0,
         "id": "old_well",
         "title": "the old well on the Blumund road",
-        "x": -930,
+        "x": 300,
         "y": 0,
-        "z": -60
+        "z": 410
       },
       {
         "anchor": "world",
         "cap": 0,
         "id": "rookie_camp",
         "title": "the abandoned rookie camp",
-        "x": 140,
+        "x": 1550,
         "y": 0,
-        "z": -420
+        "z": -60
       }
     ],
     "quest": [
