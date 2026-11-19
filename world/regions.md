@@ -27,7 +27,7 @@ Compared visually with the [official introductory map](https://www.ten-sura.com/
 - The server requires Dwargon due north and Nasca at least x3000. Consequently the atlas is **not a uniform
   scaled copy** of official point spacing. Northern relief is wider and the eastern lowland is expanded.
 - Islands are compressed to the fixed design box, not a claim of faithful world-scale island size.
-  The mainland is about 9653 by 6130 blocks; the total design box is 12288 by 10752, 512 taller than the preferred target.
+  The mainland is about 9653 by 6250 blocks; the total design box is 12288 by 10752, 512 taller than the preferred target.
 - The fixed deadly forest rings, arrival clearing, Treyni shrine, Spirit Gate by Tempest, minor camps and
   specific biomes are server content. In particular the guide places the Spirit Dwelling entrance in northern
   Ulgracia (`OFF-005..006`); the near-Tempest portal is a separate server adaptation.
@@ -54,6 +54,36 @@ The north-of-Nasca mountain trial and an illustrative independent Siltrosso poly
 an **inert comment in map.svg**, as requested when source geography and fixed rules conflict.
 They do not alter terrain. Siltrosso's capital is labelled Shia, independently of the F gameplay mask.
 No surveyed political boundary or primary-confirmed volcano bearing is invented.
+
+## Proportions, coast and safe approaches — round 6
+
+The current [before/after benchmark](proportion-audit.csv) compares secondary marker proportions, not surveyed canon:
+
+| Site | Previous centre | Current centre | Distance-ratio discrepancy before → after |
+| --- | --- | --- | --- |
+| Blumund | (-1900,-300) | (-1500,-620) | +57.4% → +32.8% |
+| Marris / Falmuth | (-2600,-1700) | (-1800,-1650) | +41.8% → +11.4% |
+| Sealed Cave | (-260,-430) | (-120,-400) | +24.3% → +3.3% |
+
+The bay bank, Shia landing (-2297,-1370), western road junctions and
+cave hill move with those placements. The brook stays west of the cave footprint; all 1116 sampled
+footprint pixels are dry in the final water raster. These exact placements and watercourse choices are
+**our interpretation**, constrained by build sizes and fixed travel ranges.
+
+The northeastern shore now has the reference's recognizable hooked inlet; an eastern bay replaces the
+previous rounded edge. Exact vertices are authored interpretation. The P/M gameplay boundary moves to
+about y-400 so the coastal tongue remains connected; no surveyed sovereign frontier is claimed.
+The continent is about 9653 × 6250 blocks. All 58 IDs, footprint minima and internal offsets remain.
+
+The [reference-scaled study](proportion-study.png) is also drawn inside `map.svg` comments. At the common
+Tempest–Siss scale, the reference Blumund distance is about 1223 blocks versus the fixed minimum of 1600;
+the reference Dwargon point exceeds both the fixed 1600 maximum and north-bearing tolerance. These
+alternatives are **our interpretation of secondary marker geometry**, not primary-confirmed coordinates.
+The active map keeps the fixed rules, and the PR makes this deliberate distortion explicit.
+
+Climb routes retain the sketched corridors with short constructed landings. All 21 exported road profiles
+now respect the 1:2 grade limit; the longest generated bridge run is 24 blocks. This validates
+the delivered road data, not an in-game acceptance claim.
 
 ## Source and era policy
 

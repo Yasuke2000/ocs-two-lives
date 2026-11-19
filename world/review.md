@@ -1,28 +1,24 @@
-# Research-driven map review — round 5
+# Research-driven map review — round 6
 
-**Standard map checker and repository gate pass.** The PR remains a draft for source coverage and
-proportional-fidelity review; passing geometry tests does not prove every canon claim or in-game acceptance.
+The standard checker and repository gate pass. This remains a source-qualified, server-scale adaptation:
+exact vertices, heights and point coordinates are interpretation. Primary-source coverage and the
+remaining owner-facing lore/scale alternatives are kept explicit rather than called proven canon.
 
-## Current drawing
+## Current drawing and evidence
 
-Restored the northern bay west of Canaat, introduced a southern gulf between the peninsulas and gave the
-west coast a projecting tongue and inward bay. Ameld starts at `(200,-1240)`, runs south beside the northern
-forest road and bends east into Siss, following the WN route and official guide inflow. The Jia trail detours
-around the gulf head. The west-Jura brook drains into the new gulf. All 58 footprints/relative offsets remain.
-Exact vertices are authored interpretation; [regions.md](regions.md) lists deliberate adaptations.
+Western placements now follow the supplied point pattern more closely within unchanged server ranges:
+Blumund `(-1500,-620)`, Marris `(-1800,-1650)`, and the Sealed Cave `(-120,-400)`. The northern bay bank,
+Shia landing, western junction and cave hill/stream move with them. The northeastern coast has a hooked
+inlet and the east coast a bay; P/M gameplay coverage follows the new connected land tongue.
+All 58 site IDs, radius minima and relative internal offsets are retained.
 
-[Claim ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
-[contradictions](../docs/research/tensura-world-2026-11-19/contradictions.md),
-[source access](../docs/research/tensura-world-2026-11-19/source-access.csv),
-[side-by-side links](comparison.md). Source images remain external links.
+[Regions and deliberate differences](regions.md), [claim ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
+[publisher LN findings](../docs/research/tensura-world-2026-11-19/ln-sample-findings.md),
+[source access](../docs/research/tensura-world-2026-11-19/source-access.csv), [reference comparison](comparison.md).
+The ledger contains **125 records: 67 thematic/design records and 58 site-coordinate interpretations**,
+including 11 directly read LN claims; not all records are verified canon.
 
-## Owner-authorized correction and validation
-
-Yasuke explicitly authorized editing **only five data entries** in `tools/world/canon_relations.toml`.
-They adopt the previously proposed Jia/Ulgracia/ogre placements. All other 51 relations, site rules, sea
-rules, checker code and tests are unchanged. Sources now point to the proper
-[design/lore note](../design/lore/world-map-corrections.md). The former alternate matrix is retained only
-as proposal history and now has identical parsed data to the default matrix.
+## Measured verification
 
 ```
 python -I tools/world/map_check.py world/map.svg --preview world/preview.png
@@ -30,60 +26,40 @@ python -I tools/world/build.py
 bash tools/check.sh
 ```
 
-- Standard map checker: **0 errors, 2 warnings**, all 56 relations pass. Warnings are Laura's intentional
-  mountain-waterfall crossing and a 12288 by 10752 design box, 512 taller than preferred but below the hard cap.
-- Normal build, **without `--skip-check`**: 54.2 seconds, 3072 by 2688 pixels at 4 blocks/pixel,
-  **0 converter warnings**. No `--apply` performed.
-- Final normalized source SHA matches the SVG. Generated anchors match **58/58** drawn x/z coordinates;
-  every radius meets `min_r` and every relative anchor keeps its exact parent offset.
-- Repository gate: validation passes; **456 tests pass, 26 skipped**. Installed Git Bash runs the script
-  because the system `bash` points at a missing WSL shell. No tests were weakened or bypassed.
-- Final checker preview, terrain preview and numbered atlas inspected visually against the linked reference.
+- Required standard checker after every SVG edit: **0 errors, all 56 relations pass**. Two warnings:
+  Laura's intended mountain-waterfall crossing and a 12288 by 10752 box, 512 taller than preferred but
+  below the hard cap. Mainland about 9653 by 6250 blocks.
+- Final normal build, without skip-check: **57.6 seconds, 0 converter warnings**, 3072 by 2688 pixels.
+  The normalized source SHA matches the current SVG. No apply performed.
+- **58/58** generated x/z positions match the drawing; all effective radii meet footprint minima;
+  every internal anchor keeps its exact parent offset.
+- Actual water raster: **0 wet pixels out of 1116** sampled over the cave's complete radius-75 disc.
+- Actual exported profiles: **21 roads, maximum grade 0.5 (1:2)**, allowing only numerical float epsilon;
+  longest generated bridge run **24 blocks**, below the 64-block limit.
+- Repository gate on the integrated main-a1848be branch: validation passes; **462 tests, 0 failures,
+  26 skips**. Installed Git Bash is used because system bash points at missing WSL. No tests changed.
+- All 22 regional biome-mix target lists sum to 100; they are design targets, not raster measurements.
+- Checker preview, converter terrain, numbered atlas and reference/alternative drawings inspected.
+  Source art is linked only in the repo; combined reference screenshots remain outside it.
 
-Earlier draft runs failed the five geography rules; an intermediate run also rejected source paths outside
-`design/lore/`. Those issues are resolved in the current state. Temporary draft builds used `--skip-check`
-only for inspection before permission arrived; the final build uses the normal command above.
+An additional profile audit found ten old climb routes slightly above 1:2 despite zero converter warnings.
+Only authored road geometry was changed: short axis or rational diagonal segments stay within nine blocks
+of the sketched corridor and make four-block centreline intervals exact. Final exported profiles satisfy
+the real distance-based slope limit. No grading algorithm or tool code was edited.
 
-## Remaining review
+## Proportion and lore alternatives
 
-Eleven geographic claims are now directly verified in publisher-hosted LN2/3/5/6/10 fragments.
-Further LN passages, manga page-level evidence and exact anime timestamps remain unverified.
-The official guide and author's WN chapters are distinguished in the ledger. Velgrynd's mountain bearing,
-Siltrosso representation, the provisional ogre bearing and nonuniform compression remain explicit review items.
-No Minecraft chunks, runtime build acceptance, pack application, merge or deployment are claimed.
+[Before/after audit](proportion-audit.csv): distance-ratio discrepancies drop **57.4 → 32.8%** for Blumund,
+**41.8 → 11.4%** for Marris and **24.3 → 3.3%** for the cave. These compare secondary marker pixels with an
+unknown projection, not a surveyed canonical coordinate system.
+[Reference-scaled study](proportion-study.png) shows why remaining differences cannot silently be removed
+under the fixed ranges/bearings. The three trial circles are also inside an inert map.svg comment.
+[Other lore alternatives](lore-alternatives.png) likewise show C05/C06 without applying unverified terrain.
 
+The owner specifically authorized five data-entry corrections in tools/world/canon_relations.toml.
+Other 51 relations, site/sea rules, checker code and tests remain unchanged; no further technical file
+differs from the integrated main. See design/lore/world-map-corrections.md.
 
-## Round 5 evidence and interpretation review
-
-[Publisher LN findings](../docs/research/tensura-world-2026-11-19/ln-sample-findings.md) add eleven direct
-claims. The ledger has **122 records: 64 thematic/design records and 58 site-coordinate interpretations**;
-this is not a claim of 122 independently verified canon facts.
-
-The S/U border moves to about y2720 so Ulgr Nature Park lies in northern Ulgracia, as the official guide
-states. All 58 coordinates/footprints stay fixed. The atlas no longer conflates that park with Galut and
-labels Shia/Siltrosso's independent political status separately from gameplay F coverage.
-
-C05/C06 alternatives are drawn in an inert SVG comment and in the [review diagram](lore-alternatives.png).
-The north-mountain bearing is secondary evidence, and the independent-state outline is illustrative.
-No unconfirmed alternative is applied to terrain or smuggled into a new region letter.
-
-The standard checker still passes with 0 errors/2 disclosed warnings. Normal build: 54.2s, no converter
-warnings, matching source SHA, 58 coordinate/radius/relative-offset checks pass. Final preview, numbered
-atlas and review diagram inspected. Full repository gate passes validation and 456 tests (26 skips).
-The technical matrix is unchanged from the previous owner-approved five-entry correction.
-
-Fetched current main (`a1848be`) before submission; its intervening commits do not change the world
-format, site-size table, map tools or relation matrix. Integration into this branch is checked separately.
-
-
-## Integration and proportion benchmark
-
-Integrated main `a1848be` on the map branch, preserving both sides of the two append-only documentation
-conflicts. No upstream technical code was edited by hand. The integrated gate passes validation and
-**462 tests (26 skips)**. Relative to current main, the only technical file changed remains the five
-owner-authorized entries in `tools/world/canon_relations.toml`.
-
-[Fourteen-site proportion audit](proportion-audit.md) records differences from the supplied secondary
-marker reference. Normalizing to Tempest–Siss exposes particularly large western-distance differences.
-This is a diagnostic benchmark with an unknown illustration projection, not a surveyed canon map.
-Further proportional revision remains necessary; a passing checker alone does not complete that review.
+Further relevant WN/LN geography, manga page-level sources and exact anime timestamps still warrant
+primary-source review. Unavailable licensed fragments are not presented as read. No Minecraft chunks,
+runtime acceptance, pack application, merge to main or deployment are claimed.

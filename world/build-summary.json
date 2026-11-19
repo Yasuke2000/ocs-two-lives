@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "7142b5837af98cd2b12d64c443561d003fec6d8793e8fa86e3a1720122f9b2c4",
+  "source_sha256": "529f1e752faa638cb689764277414bd3f5ffaba86d3a1e53806f1101f27dbb70",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,7 +12,7 @@
     3072,
     2688
   ],
-  "build_seconds": 54.2,
+  "build_seconds": 57.6,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
@@ -21,8 +21,19 @@
     "base_main": "a1848be"
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 122,
+  "research_claim_records": 125,
   "directly_verified_LN_claims": 11,
   "reference_alternatives_inert": true,
-  "proportion_review": "open; world/proportion-audit.csv"
+  "proportion_review": "round 6: western/cave corrections made; residual fixed-rule alternatives drawn",
+  "cave_footprint_water": {
+    "wet_pixels": 0,
+    "sampled_pixels": 1116
+  },
+  "mainland_blocks": [
+    9653,
+    6250
+  ],
+  "road_profiles_verified": 21,
+  "max_road_grade": 0.5,
+  "max_bridge_blocks": 24
 }

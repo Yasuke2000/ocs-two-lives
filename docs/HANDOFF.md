@@ -1,5 +1,21 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Western proportions, eastern coast and measured climb grades (ChatGPT, PR #74 round 6)
+
+Moved Blumund (-1500,-620), Marris (-1800,-1650), cave (-120,-400), Shia's coastal landing and one road pin;
+redrew bay bank/approaches, northeastern hook and eastern bay. P/M coverage adjusted to connected shore.
+No fixed rules relaxed. [Benchmark](../world/proportion-audit.csv): three distance discrepancies improve
+57.4→32.8%, 41.8→11.4%, 24.3→3.3%. Residual fixed-range alternatives drawn in inert SVG comment and
+[proportion study](../world/proportion-study.png). All 58 IDs/minima/internal offsets preserved.
+125 evidence records (67 thematic/design + 58 coordinates), 11 direct LN claims. [Review](../world/review.md).
+**Verified:** standard checker 0 errors/2 disclosed warnings; normal build 57.6s/0 warnings, source SHA
+matches; cave water raster 0/1116 wet pixels. Profile audit found ten old climbs >1:2; authored routes
+now stay in their corridors with exact sampling lengths: all 21 profiles <=0.5, longest bridge 24 blocks.
+Full gate passes validation + 462 tests, 26 skips. No further tools/code edits beyond approved five data rules.
+**Next:** strengthen remaining primary WN/LN geography evidence and qualify open lore/scale alternatives;
+do not undo source/constraint distinctions or claim runtime generation/deployment. Main a1848be integrated.
+
+
 ## 19/11 — Latest main integrated; proportion review now measurable (ChatGPT, PR #74)
 
 Merged main a1848be into chatgpt/world-map (79178d8), retaining both agents' decision/handoff additions.

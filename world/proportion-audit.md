@@ -14,6 +14,11 @@ site footprints, parent offsets and route constraints still apply; do not loosen
 five specifically approved entries. Any source-supported alternative that cannot fit those constraints must
 be drawn in a comment and explained in the PR, as required by the task.
 
-Next review: prioritize the central Jura/Dwargon/Siss/Blumund relationships and the western/eastern share of
-the continent, rather than treating a green checker as proof of faithful proportions. Changing a centre
-requires updating connected terrain, waters and roads, preserving all footprints, then rechecking and looking.
+Round 6 corrects Blumund, Marris and the Sealed Cave, with matching coast/approach changes. Before/after
+columns preserve the baseline at commit 4c99877. The three distance-ratio discrepancies fall from
+57.4% to 32.8%, 41.8% to 11.4% and 24.3% to 3.3% respectively.
+
+[Reference-scaled study](proportion-study.png) and the inert `reference-proportion-*` circles inside
+map.svg show where fixed rules prevent a single common scale. The trial coordinates are **our interpretation**
+of secondary marker pixels with an unknown projection; they do not prove primary canon coordinates.
+Further changes should follow stronger source evidence or an explicit owner choice on those conflicts.
