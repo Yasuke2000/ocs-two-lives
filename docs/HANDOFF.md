@@ -8,7 +8,11 @@ row) and pack.toml (regenerated with packwiz refresh); gen_data, gen_quests, gen
 config_index all re-run, validate passed.
 **Tests**: ttl-ops on `eca49d2` = 69/70: only `events` failed (`command error`), the new tests trial_climb, race_lock and
 arena_dwarven passed; `bash tools/server.sh test events` on the same pack passes (no error line), so it is a flake of the
-full run (not reproduced, cause unknown: watch it in the next run). 70 test files, 157 offline unit tests OK.
+full run (not reproduced, cause unknown). ttl-ops on `cf7ad82` (the build fixes) = 69/70: `events` green this time, but
+`arena_dwarven` failed deterministically (3 of 3 by hand): the bot stands 5 blocks from a mob spot and does not fight back, wave 2's
+armorsaurus felled it before the test cleared the wave, so wave 3 never spawned (the first run passed by luck). Test fix: the
+bot gets resistance after `ttl arena start`; arena rules and spots unchanged (a real player faces the same wave 2: if it is too
+hard for the Dwargon tier, rebalance `arenas.toml`). 70 test files, 157 offline unit tests OK.
 **Verified in the world** (`verify_build.py <name> --log --min 98`; none under 98 %): dwarven_arena 100.00, amrita 99.92 (100.00
 after the fix), coleus 99.96, elmine 100.00, great_holy_mountain 100.00, jia 100.00, morgdahl 100.00, nasca 100.00,
 nostraille 100.00, raja 100.00, siltrosso 100.00, ulgr_nature_park 100.00, walpurgis_hall 100.00 (corner given by hand:

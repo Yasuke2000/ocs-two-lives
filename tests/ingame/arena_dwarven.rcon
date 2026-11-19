@@ -38,6 +38,9 @@ ttl arena expect arena dwarven state lobby
 ttl arena expect arena dwarven players 2
 ttl arena expect player TtlBotDwA inarena yes
 execute as TtlBotDwA run ttl arena start
+# The bot stands 5 blocks from a mob spot and does not fight back: the armorsaurus of wave 2 felled it before the test cleared the wave
+# (the first full run passed by luck). Resistance keeps it standing; the arena rules stay untouched.
+effect give TtlBotDwA minecraft:resistance 200 255 true
 @sleep 7
 ttl arena expect arena dwarven state fight
 ttl arena defeat TtlBotDwB TtlBotDwA

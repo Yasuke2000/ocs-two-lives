@@ -15,7 +15,7 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 
 | Metric | Value | How to measure |
 | --- | --- | --- |
-| In-game bot tests | 70 test files (69/70 on ttl-ops `eca49d2`, 19/11: `events` flaked in the full run, green alone; 67/67 on `bae23df`) | `bash tools/server.sh test-all` |
+| In-game bot tests | 70 test files (69/70 on ttl-ops `cf7ad82`, 19/11: `arena_dwarven` fixed in the test since; 67/67 on `bae23df`) | `bash tools/server.sh test-all` |
 | Offline unit tests | 157 green | `python -m unittest discover -s tests` |
 | Validation | must say "validation passed" | `python tools/validate.py` |
 | Builds verified 1:1 in the world | 33 builds + 7 Tensura landmarks, all ≥ 99.9 % (38 build manifests; the 11 canon landmarks, Walpurgis Hall and the Dwarven Arena verified 19/11; 6 Mortal Realm waypoints still to verify) | `python tools/verify_build.py <name> --log` |
