@@ -121,8 +121,16 @@ const TtlEra = {
     return 1
   },
 
+  // A mark that is already there belongs to a test run that never reached its testrestore (the server restarted
+  // mid-run): it is KEPT, so this run's testrestore puts the era back to where it was before both runs. Overwriting
+  // it is how staging drifted from era 1 to era 3 (18-19/11/2026: a legendary run cut off after two `era next`).
   testMark(server) {
     var d = server.persistentData
+    var old = TtlRegistry.load(server, this.MARK, null)
+    if (old) {
+      console.warn(`[ttl] era: a test mark from an unfinished run is still set (era ${old.season}); kept, testrestore returns there`)
+      return Number(old.season)
+    }
     var mark = {
       season: this.number(server),
       started: String(d.getString('ttl.era.started')),

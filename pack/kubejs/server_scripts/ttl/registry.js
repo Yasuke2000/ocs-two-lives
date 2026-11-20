@@ -54,15 +54,18 @@ const TtlRegistry = {
     return n > 0 ? n : 1
   },
 
-  // Test hook (/ttl registry legendcap): {max, slots} replacing the two TOML knobs until `legendcap reset`.
-  testCaps(server) {
+  // Test hook (/ttl registry legendcap): {max, slots} replacing the two TOML knobs until `legendcap reset`. With an `id`
+  // they apply to test bots only: a real player always gets the shipped knobs, even when a test run was cut off before
+  // its `legendcap reset`. Without an id (status lines, the test assertions) the test caps show while set.
+  testCaps(server, id) {
+    if (id !== undefined && id !== null && !this.isBotId(server, id)) return null
     return this.load(server, 'ttl.reg.testcaps', null)
   },
 
   // The global ceiling (owner decision: the Ten Great Demon Lords): at most this many DIFFERENT players hold a
   // Legendary unique at once, whatever the era. skills.toml [legendary] max_holders; 0 = no ceiling.
-  maxHolders(server) {
-    var o = this.testCaps(server)
+  maxHolders(server, id) {
+    var o = this.testCaps(server, id)
     if (o && o.max !== undefined) return Number(o.max)
     var n = Number((TtlData.skills.legendary || {}).max_holders)
     return n >= 0 ? n : 10
@@ -70,11 +73,11 @@ const TtlRegistry = {
 
   // Optional per-era throttle on NEW Legendary holders from rebirth picks (skills.toml [legendary] slots_per_era);
   // 0 = none, and it can never exceed the global ceiling. Returns 0 for "no throttle".
-  slotsPerEra(server) {
-    var o = this.testCaps(server)
+  slotsPerEra(server, id) {
+    var o = this.testCaps(server, id)
     var n = o && o.slots !== undefined ? Number(o.slots) : Number((TtlData.skills.legendary || {}).slots_per_era)
     if (!(n > 0)) return 0
-    var max = this.maxHolders(server)
+    var max = this.maxHolders(server, id)
     return max > 0 ? Math.min(n, max) : n
   },
 
@@ -87,8 +90,8 @@ const TtlRegistry = {
   },
 
   // Slots left this era; -1 when there is no per-era throttle.
-  slotsLeft(server) {
-    var per = this.slotsPerEra(server)
+  slotsLeft(server, id) {
+    var per = this.slotsPerEra(server, id)
     return per > 0 ? Math.max(0, per - this.slotsUsed(server)) : -1
   },
 
@@ -108,7 +111,7 @@ const TtlRegistry = {
   // May `id` hold a Legendary unique under the global ceiling? Yes when they already hold one (a second Legendary
   // adds no new holder) or when fewer than max_holders players do.
   canHoldLegendary(server, id, recs) {
-    var max = this.maxHolders(server)
+    var max = this.maxHolders(server, id)
     if (!(max > 0)) return true
     var holders = this.legendaryHoldersIn(this.scoped(server, recs || this.records(server), id))
     return holders.indexOf(id) >= 0 || holders.length < max
@@ -120,8 +123,8 @@ const TtlRegistry = {
   },
 
   // Is a Legendary slot free this era? (Rebirth Legend picks.) Always true without a per-era throttle.
-  legendarySlotFree(server) {
-    return this.slotsPerEra(server) === 0 || this.slotsLeft(server) > 0
+  legendarySlotFree(server, id) {
+    return this.slotsPerEra(server, id) === 0 || this.slotsLeft(server, id) > 0
   },
 
   // Spends one slot of the current era; returns how many are used now. Eras more than nine back leave the ledger.
@@ -495,11 +498,11 @@ const TtlRegistry = {
     var slot = !!(opts && opts.slot) && this.rarityOf(skill) === 'legendary'
     this.migrate(server, false)
     if (this.rarityOf(skill) === 'legendary' && !this.canHoldLegendary(server, id)) {
-      console.warn(`[ttl] registry: refused ${skill} for ${name}: ${this.legendaryHoldersFor(server, id).length}/${this.maxHolders(server)} Legendary holders already`)
+      console.warn(`[ttl] registry: refused ${skill} for ${name}: ${this.legendaryHoldersFor(server, id).length}/${this.maxHolders(server, id)} Legendary holders already`)
       return false
     }
-    if (slot && !this.legendarySlotFree(server)) {
-      console.warn(`[ttl] registry: refused ${skill} for ${name}: no Legendary slot left in era ${this.era(server)} (${this.slotsUsed(server)}/${this.slotsPerEra(server)})`)
+    if (slot && !this.legendarySlotFree(server, id)) {
+      console.warn(`[ttl] registry: refused ${skill} for ${name}: no Legendary slot left in era ${this.era(server)} (${this.slotsUsed(server)}/${this.slotsPerEra(server, id)})`)
       return false
     }
     if (this.available(server, [skill], id, true).length === 0) {
@@ -521,7 +524,7 @@ const TtlRegistry = {
     this.remember(server, player)
     console.info(`[ttl] registry: ${skill} -> ${name} (${this.scoped(server, recs, id)[skill].length}/${this.capOf(skill)})`)
     var used = slot ? this.useSlot(server) : 0
-    this.log(server, 'grant', skill, id, `${reason || 'granted through the registry'}${slot ? ` (Legendary slot ${used}/${this.slotsPerEra(server) || 'unlimited'}, era ${this.era(server)})` : ''}`)
+    this.log(server, 'grant', skill, id, `${reason || 'granted through the registry'}${slot ? ` (Legendary slot ${used}/${this.slotsPerEra(server, id) || 'unlimited'}, era ${this.era(server)})` : ''}`)
     return true
   },
 
@@ -730,7 +733,7 @@ const TtlRegistry = {
     if (this.rarityOf(skill) === 'legendary' && !this.canHoldLegendary(server, dst.id, recs)) {
       // The receiver is a new Legendary holder at the ceiling: allowed only if the giver stops being one.
       var stays = this.heldBy(recs, src.id).filter(sk => sk !== skill && this.rarityOf(sk) === 'legendary').length > 0
-      if (stays) return refuse(`${this.legendaryHoldersFor(server, dst.id).length}/${this.maxHolders(server)} Legendary holders already`)
+      if (stays) return refuse(`${this.legendaryHoldersFor(server, dst.id).length}/${this.maxHolders(server, dst.id)} Legendary holders already`)
     }
     var fromName = this.nameOf(server, src.id)
     if (src.player) {
