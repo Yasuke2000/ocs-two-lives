@@ -11,7 +11,7 @@ issue with the label `server` or ask Yasuke.
 | World | `world-ttl` (reset 17/11/2026 for Two Lives) |
 | Memory | 7 GB heap (pod limit 10 GiB), 2 CPU guaranteed |
 | Max players | 15 |
-| View / simulation distance | 16 / 8 chunks (Distant Horizons draws further) |
+| View / simulation distance | 16 / 7 chunks (Distant Horizons draws further) |
 | Difficulty | hard |
 | PvP | open everywhere, Life 1 included (owner decision 18/11/2026). Another player can end your only first life; killing players darkens karma (`player_kills` is a Chaos stat in `design/data/karma.toml`). The guide says so. |
 | Whitelist | on — send Yasuke your Minecraft name |
@@ -76,7 +76,7 @@ prints it.
 | `down`, `restart`, `status`, `logs [n]`, `follow`, `rcon "<cmd>"` | As in `server.sh`; the log of the run before the last start is `logs/previous.log`. `status` also says whether a `local.sh` holds the server (and which) |
 | `snapshot [name]`, `reset [name]` | Save the stopped world / put it back (default `base`). `stop` says whether the log has "All dimensions are saved" |
 
-Same as staging: NeoForge version, server-side mods and configs, datapack, `world-ttl`, hard, simulation distance 8,
+Same as staging: NeoForge version, server-side mods and configs, datapack, `world-ttl`, hard, simulation distance 7,
 flight on, no whitelist, spawn protection 0, Aikar flags. Different on purpose: game and RCON bound to 127.0.0.1,
 offline mode (join from the Prism instance at `localhost`), a random RCON password in `state/`, no Discord token
 (Simple Discord Link stays offline; tests mute Discord anyway), no GitHub token (`/bug` saves to `ttl-reports/`),

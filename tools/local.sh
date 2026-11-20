@@ -4,7 +4,7 @@
 # Python 3 and packwiz (~/go/bin is searched). docs/server.md "Local testing" explains the loop.
 #
 # Same as staging: NeoForge + the pack's server-side mods installed by packwiz-installer (what the itzg image runs),
-# the world datapack, level world-ttl, hard, 8 simulation chunks, flight on, Aikar flags. Different on purpose:
+# the world datapack, level world-ttl, hard, 7 simulation chunks, flight on, Aikar flags. Different on purpose:
 # bound to 127.0.0.1 (game and RCON), offline mode, no Discord token, a random RCON password in the server
 # folder, the ttl-portals jar from mod/ (your build), a fixed seed, a smaller heap and view distance.
 # Everything lives in $TTL_LOCAL_DIR (default %LOCALAPPDATA%\ocs-two-lives\local-server), never in git.
@@ -299,7 +299,7 @@ configure() {
   set_prop difficulty hard
   set_prop max-players 15
   set_prop view-distance "$VIEW"
-  set_prop simulation-distance 8
+  set_prop simulation-distance 7
   set_prop spawn-protection 0
   set_prop allow-flight true
   set_prop white-list false
