@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "d63e382eefe5a7d8ea82bc23bee2ed4a72fd396cb8709b5b195e8ad77ba67cdd",
+  "source_sha256": "0d3b7723fb7e2775d24bd429031430684ca3fac361e909707c510fb0be9eb166",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,7 +12,7 @@
     3072,
     2688
   ],
-  "build_seconds": 54.3,
+  "build_seconds": 54.4,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
@@ -21,7 +21,7 @@
     "base_main": "a1848be"
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 186,
+  "research_claim_records": 187,
   "directly_verified_LN_claims": 11,
   "reference_alternatives_inert": true,
   "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
@@ -36,12 +36,12 @@
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
   "max_bridge_blocks": 40,
-  "current_svg_sha256": "d63e382eefe5a7d8ea82bc23bee2ed4a72fd396cb8709b5b195e8ad77ba67cdd",
+  "current_svg_sha256": "0d3b7723fb7e2775d24bd429031430684ca3fac361e909707c510fb0be9eb166",
   "staging_provenance_note": "Fresh normal build of the current SVG completed after restored session permissions; index source SHA verified. Terrain-preview bytes match this build.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
   "forest_shapes": 12,
-  "biome_shapes": 14,
+  "biome_shapes": 18,
   "current_svg_matches_staged_source": true,
   "lake_shore_revision": "round 8: elongated east-west basin; source premise corrected",
   "water_footprint_audit": {
@@ -118,10 +118,10 @@
   "terrain_unchanged_from_previous_commit": false,
   "source_alternatives": "C10 no-red alternative and preceding political/site alternatives remain inert",
   "changed_terrain_features": [
-    "sites/site-forgotten_dragon_city",
-    "labels/Forgotten Dragon City",
-    "roads/milim_river_road",
-    "roads/jistav_border_road"
+    "biomes/eurazania-orchard-fringe",
+    "biomes/eurazania-field-north",
+    "biomes/eurazania-field-east",
+    "biomes/eurazania-field-west"
   ],
   "milim_red_biome_raster_pixels": 13374,
   "milim_red_polygon_areas_blocks2": [
@@ -178,5 +178,45 @@
     "radius_blocks": 100,
     "other_site_centres_and_radii_unchanged": 57,
     "source_status": "Wiki territory bearings and secondary marker comparison; exact city point and route geometry are interpretation"
+  },
+  "eurazania_cultivation": {
+    "outer_polygon_area_blocks2": 523300,
+    "nested_not_disjoint": true,
+    "all58_sites_and21_road_profiles_unchanged": true,
+    "full_height_and_water_png_bytes_unchanged": true,
+    "samples": [
+      {
+        "x": 1560,
+        "z": 1950,
+        "biome": "minecraft:sparse_jungle"
+      },
+      {
+        "x": 1350,
+        "z": 1850,
+        "biome": "minecraft:plains"
+      },
+      {
+        "x": 1610,
+        "z": 2200,
+        "biome": "minecraft:plains"
+      },
+      {
+        "x": 1310,
+        "z": 2250,
+        "biome": "minecraft:plains"
+      },
+      {
+        "x": 950,
+        "z": 2100,
+        "biome": "minecraft:jungle"
+      }
+    ],
+    "limit": "Authored biome reservation, not canonical parcel layout or planted crops.",
+    "polygon_areas_blocks2": {
+      "eurazania-orchard-fringe": 523300,
+      "eurazania-field-north": 65016,
+      "eurazania-field-east": 57796,
+      "eurazania-field-west": 44617
+    }
   }
 }
