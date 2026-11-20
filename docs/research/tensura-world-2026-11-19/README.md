@@ -56,3 +56,9 @@ Yasuke selected the moment immediately after Kijin naming (anime S1 episode10). 
 [Mainland scope audit](mainland-coverage-audit.md) routes all126 inventory entries preserving all29 review obligations; three already have authored parent designs; [city coverage study](../../../world/city-coverage-study.md) separates seven city/interior gaps from new continent locations.
 
 [River plan measurements](../../../world/river-centreline-review.csv) qualify the rounded-channel edit as server geometry, not new canonical hydrography.
+
+## Jura/marsh visual-source review — round26
+
+[Eight visual/design reference records](jura-marsh-art-reference-review.csv) accompany the four revised original place concepts in [draft PR93](https://github.com/Yasuke2000/ocs-two-lives/pull/93). Official early-episode stills and secondary forest-village/Siss frames were inspected. The records distinguish explicit frame content, uncertain attribution and authored architecture. They are a visual-design supplement, not eight new measured geographic facts; the main ledger remains196 records/12 directly read LN claims. Surface stilt architecture is a project/mod adaptation; a limited cavern background does not survey the full labyrinth. Exact site positions remain the existing58 server interpretations. No new active map geometry or completeness credit follows.
+
+Round26 visual-supplement/pointer gate: repository validation and462 tests pass (26 skips,zero failures,44.310s test tier). This changes no SVG, terrain build or runtime files.
