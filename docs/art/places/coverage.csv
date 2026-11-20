@@ -11,11 +11,11 @@ treyni_grove,320,470,56.0,village,,,True,True,Review existing local candidate ag
 treyni_shrine,500,600,36.0,clearing,treyni_shrine.png,treyni_shrine.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 ogre_village_ruin,500,300,32.0,village,ogre_village_ruin.png,ogre_village_ruin.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 dwargon,0,-1550,127.0,carve,dwargon.png,dwargon.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
-dwargo,0.0,-1650.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
-dwargon_throne,0.0,-1656.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
-kaijin_smithy,-12.0,-1634.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+dwargo,0.0,-1650.0,8.0,clearing,dwargo.png,dwargo.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+dwargon_throne,0.0,-1656.0,8.0,clearing,dwargon_throne.png,dwargon_throne.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+kaijin_smithy,-12.0,-1634.0,8.0,clearing,kaijin_smithy.png,kaijin_smithy.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 dwarf_village,400,-1200,124.0,village,dwarf_village.png,dwarf_village.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
-dwarven_arena,500.0,-1180.0,58.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+dwarven_arena,500.0,-1180.0,58.0,clearing,dwarven_arena.png,dwarven_arena.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 dragons_nest,350,-2000,64.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 ameld_source,200,-1240,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 ameld_mouth,2150,1250,8.0,coast,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
