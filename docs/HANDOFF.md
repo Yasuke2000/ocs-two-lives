@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Official Coleus placement correction (ChatGPT, PR #74 round15)
+
+Round 15 corrects Coleus using the directly read official anime outline: the independent kingdom lies between Ingrassia and Lubelius. Its authored centre moves from(-3650,-250) to(-3520,-860), retaining radius73, V membership and all fixed relations. The dunes move(+130,-610); the oasis moves(-175,-610), keeping water separate from the city and river. One caravan trail skirts the pond on its north side. The other57 site centres/radii, coasts, rivers, mountains, hills, forests and gameplay masks remain unchanged from147ea7e. Exact city position, shore/level and trail bends remain our interpretation; countries lying between others does not survey their capitals.
+
+Official synopsis and INEI concept inspected; ledger184 (126 thematic/design/reference +58 coordinates). Existing hill-palace blueprint reused as evidence, unchanged. Era-sensitive palace state remains unverified. Fresh build54.0s/no warnings/SHA matched; Coleus0/1044 wet, all21 road grades<=0.5, max bridge40. Repository validation and462 tests pass (26 skips). See world/review.md; no apply/deployment. Coverage obligations and prior conflicts remain open.
+
 ## 20/11 — Sarion proportion refinement (ChatGPT, PR #74 round14)
 
 Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.

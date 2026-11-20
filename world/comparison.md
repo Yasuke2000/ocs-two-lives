@@ -1,4 +1,6 @@
-# Reference comparison — research round 14 / post-Kijin snapshot
+# Reference comparison — research round 15 / post-Kijin snapshot
+
+Round 15 corrects Coleus using the directly read official anime outline: the independent kingdom lies between Ingrassia and Lubelius. Its authored centre moves from(-3650,-250) to(-3520,-860), retaining radius73, V membership and all fixed relations. The dunes move(+130,-610); the oasis moves(-175,-610), keeping water separate from the city and river. One caravan trail skirts the pond on its north side. The other57 site centres/radii, coasts, rivers, mountains, hills, forests and gameplay masks remain unchanged from147ea7e. Exact city position, shore/level and trail bends remain our interpretation; countries lying between others does not survey their capitals.
 
 Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
@@ -34,3 +36,5 @@ Round11 reduces the authored Milim red-biome accent69.8% while retaining the fix
 Round13 rounds five existing river reaches within14.17 blocks of the previous lines, retaining all control points/endpoints and hydraulic metadata. Exact meanders remain interpretation; broad continental hydrography and source conflicts are unchanged. [Measurements](river-centreline-review.csv).
 
 A small western trail waypoint adjustment within20 blocks corrects the actual exported grade after the river change; its old route points and endpoints remain. This is authored game geometry, not a new canonical travel claim.
+
+Coleus detail: [official INEI production panorama and source/placement review](../docs/research/tensura-world-2026-11-19/coleus-placement-review.md). The panorama supplies local visual character; the official outline supplies the between-country relationship. Neither supplies surveyed coordinates.

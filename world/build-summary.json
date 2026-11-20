@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "3d38056947bded5010918aa61f51bb7add9b296f08dc99d7c79ad205e7b6685c",
+  "source_sha256": "be70c2a96561bcbd9ecbcf0908928bf4a4115957a93902bedab30efde2f33e35",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,7 +12,7 @@
     3072,
     2688
   ],
-  "build_seconds": 54.6,
+  "build_seconds": 54.0,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
@@ -21,10 +21,10 @@
     "base_main": "a1848be"
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 181,
+  "research_claim_records": 184,
   "directly_verified_LN_claims": 11,
   "reference_alternatives_inert": true,
-  "proportion_review": "round 14: Elmine moved within fixed constraints; other 57 site centres/radii retained",
+  "proportion_review": "round15: official Coleus between-country placement improved; round14 Sarion improvement retained",
   "cave_footprint_water": {
     "wet_pixels": 0,
     "sampled_pixels": 1116
@@ -36,7 +36,7 @@
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
   "max_bridge_blocks": 40,
-  "current_svg_sha256": "3d38056947bded5010918aa61f51bb7add9b296f08dc99d7c79ad205e7b6685c",
+  "current_svg_sha256": "be70c2a96561bcbd9ecbcf0908928bf4a4115957a93902bedab30efde2f33e35",
   "staging_provenance_note": "Fresh normal build of the current SVG completed after restored session permissions; index source SHA verified. Terrain-preview bytes match this build.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
@@ -73,6 +73,11 @@
       "wet_pixels": 0,
       "sampled_pixels": 1976,
       "water_levels": []
+    },
+    "coleus": {
+      "wet_pixels": 0,
+      "sampled_pixels": 1044,
+      "water_levels": []
     }
   },
   "hill_shapes": 6,
@@ -108,13 +113,11 @@
   "terrain_unchanged_from_previous_commit": false,
   "source_alternatives": "C10 no-red alternative and preceding political/site alternatives remain inert",
   "changed_terrain_features": [
-    "sites/site-elmine",
-    "labels/Elmine",
-    "lakes/elmine-root-lake",
-    "hills/sarion-hills",
-    "roads/southern_royal_road",
-    "roads/ulgracia_south_road",
-    "roads/fulbrosia_stair"
+    "sites/site-coleus",
+    "labels/Coleus",
+    "lakes/coleus-oasis",
+    "biomes/coleus-dunes",
+    "roads/western_desert_caravan"
   ],
   "milim_red_biome_raster_pixels": 13374,
   "milim_red_polygon_areas_blocks2": [
@@ -145,5 +148,18 @@
     "radius_blocks": 100,
     "other_site_centres_and_radii_unchanged": 57,
     "reference_status": "secondary marker projection unknown; exact placement is our interpretation"
+  },
+  "coleus_refinement": {
+    "previous_centre": [
+      -3650,
+      -250
+    ],
+    "current_centre": [
+      -3520,
+      -860
+    ],
+    "radius_blocks": 73,
+    "other_site_centres_and_radii_unchanged": 57,
+    "source_status": "Official synopsis explicitly places country between Ingrassia/Lubelius; exact server city point remains interpretation"
   }
 }

@@ -41,6 +41,8 @@ Licensed LN volume 1/2 publisher listings and the Google Books volume-1 listing 
 
 | C20 | Knowledge pack calls Filtwood an Ulgracia town. Official episode24 calls it a kingdom in a pre-Rimuru story; wiki places it near Jura. Current anchor requires U. | Correct the prose and era/crosswalk claims. Retain the U binding; draw an illustrative Jura-edge footprint in an SVG comment/study. Exact side remains unverified. |
 
+| C21 | Older imported-map Coleus placement sits outside the intervening Ingrassia/Lubelius corridor despite the official outline stating the country lies between them. | Round15 moves the active city/dunes/oasis within all unchanged fixed rules; the other57 site centres/radii remain. V is a terrain selector, not sovereign membership. Exact city coordinates, border shape and initial-era palace state remain interpretation/unverified. [Source review](coleus-placement-review.md). |
+
 ## Review status
 
 The current visible map is PR #74 on `chatgpt/world-map`, still a draft. Earlier PR #69 remains historical reference. The owner-approved five corrections are now in the default matrix; the standard map checker passes with two disclosed warnings. No Minecraft world or deployment is claimed. The five technical geography conflicts are resolved by the explicit owner exception; source coverage and proportional-fidelity review remain incomplete.

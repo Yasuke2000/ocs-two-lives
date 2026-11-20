@@ -15,3 +15,7 @@ Coleus is an independent kingdom. The official anime places it between Ingrassia
 ## Build references
 
 The hill, stair, chambers, planting and furnishing are original block geometry. The blueprint uses the pack's existing light check and stair helpers. The local blueprints and assets and the 77 pinned mod inventories contained no named Coleus or Herbaria template. Specific comparisons were Towns and Towers' desert mimic pyramid (CC BY-NC-ND 4.0), Iron's Spells ’n Spellbooks' catacomb balcony (All Rights Reserved) and Tensura: Reincarnated's dwarf plaza fountain (All Rights Reserved). The published community desert-palace example was a dome-colour comparison only. Its page identifies BrekoBuilds as the maker. No third-party schematic, texture or anime illustration is included. [Community dome study](https://www.planetminecraft.com/project/desert-palace-downloadable-schematic-and-world/) · [Structure credit policy](../../CREDITS.md)
+
+## New authored world — 20 November 2026
+
+The world-map branch relocates the anchor to(-3520,-860), radius73, closer to the official between-Ingrassia-and-Lubelius setting. The oasis and dunes follow a separately reviewed layout; the existing palace hill is supplied by the blueprint. The preceding survey coordinates describe the retired imported map. Gameplay V remains a terrain binding; Coleus remains independent. Exact coordinates and water shape are our interpretation. [Current source/placement review](../../docs/research/tensura-world-2026-11-19/coleus-placement-review.md).
