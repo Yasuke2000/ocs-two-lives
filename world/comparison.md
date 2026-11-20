@@ -52,3 +52,7 @@ Three eastern forest boundaries now use restrained broad bays/lobes rather than 
 ## Amrita access / Soma identity comparison — round24
 
 Official episode81 synopsis and five stills plus the legal LN10 historical passage were inspected. The source supports a beneath-castle relationship and distinct older Soma, not a measured external entrance or whole-city centroid. Active geography remains identical; an inert castle-linked access alternative and a game-reservation label expose C07. Current checker/terrain previews and the official base illustration were reinspected; no new coastline, mountain, forest or political-border difference is introduced. [Plan/section study and limits](amrita-placement-review.md).
+
+## Third painting/SVG review — round25
+
+[Draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92) compares current geometry/terrain with a third original painting. A compact southern massif and more open Imperial plains reduce pictorial overstatement. An invented stream is removed before8 exact native source courses are restored;3 coast/8 lake/21 road vectors and58 anchors pass audit. The source SVG is retained: illustrative errors supply no source-backed reason to change actual terrain. No new deliberate continental-geography difference is introduced. Official base illustration reinspected; previous source/constraint differences remain open.

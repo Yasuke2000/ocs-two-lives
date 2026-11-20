@@ -4,7 +4,7 @@
 
 Round24 gate passes validation and462 tests (26 skips,zero failures,43.869s test tier). The current checker JSON is generated at `world/map_check.json`.
 
-The refreshed second painting is separately delivered in [draft PR90](https://github.com/Yasuke2000/ocs-two-lives/pull/90), source efa2cc8. Exact native coast/water/road vectors and58 anchors pass registration audit; pictorial tree/ridge strokes are not measured terrain. A third coupled review remains open.
+The [third painting/SVG review is delivered in draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92), source60297bd/SHA2518f19c. It corrects pictorial southern relief/Imperial woodland and removes invented river strokes before restoring8 exact native watercourses. All3 coasts/8 lakes/21 roads/58 anchors pass audit; number bubbles have clearance. The active SVG is retained after review because illustration errors do not justify new terrain. Three review passes are documented, with source gaps, fixed-rule decisions, place art, owner approval and technical/in-game acceptance still open. Earlier painting PR88/PR90 remain historical at their recorded sources.
 
 [Forest edge review](forest-edge-review.md) revises only three existing woodland boundaries after comparing the terrain preview and first painting. All58 sites,9 other forests and all non-forest SVG layers remain unchanged. Full height/water PNGs and21 road profiles are byte-identical;11850 biome cells change only within the authored boundary differences. The stronger trial was rejected; selected patches retain89.4..91.0% of previous area. Exact edges are interpretation, not a new canonical vegetation survey. The old painting is historical at its recorded hash; second painting is separately delivered in PR90 and the final coupled review remains open.
 
@@ -87,3 +87,5 @@ future-ready road metadata and later content capacity. Runtime era gating is not
 [Proportion alternatives](proportion-study.png) retain unresolved fixed-range distortions.
 Only the five explicitly approved TOML relation entries are changed in tools/. The 126-entry wiki inventory
 still contains missing or uncertain places; neither the complete wiki nor the faithful-continent goal is finished.
+
+Round25 painting-pointer documentation gate passes validation and462 tests (26 skips,zero failures,43.526s test tier). This changes no production or staging bytes.
