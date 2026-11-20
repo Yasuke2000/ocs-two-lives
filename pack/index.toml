@@ -2682,7 +2682,7 @@ hash = "031ca3f63e21a0a7ebbbb316fab928f27a9544afc6ce68dd0acf8776a74e3bdc"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/absorb/absorb.js"
-hash = "28c165131accd325f19fefc3c3110ee4995f8e0423f14c568ba34529b3bce768"
+hash = "419185bd34c9c85627171b8028725b32d2f6e80551e648b38e1624298b799f50"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/absorb/liability.js"
@@ -2818,7 +2818,7 @@ hash = "01896f2aad3bc265bbb3274ab0730e264125115e429e55c8a7adda618077c417"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/era/era.js"
-hash = "480b538839ef70fdf154fb4b4b2357d04dd31bc93c51cfe253874b1c5495d010"
+hash = "d2351421e076322172c9567b23cb8edce348f70a682bd8abf73a095ff7537078"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/events/calamity.js"
@@ -2938,7 +2938,7 @@ hash = "4c02a6443994d03ea455d18b8b2a0bd6e3bd74fea5f8fb23c6365b435dcab0bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/corridor_flow.js"
-hash = "a6abe95ed443464912899ac5eda6b8054541cd149984e582069f87d97512930d"
+hash = "5945516ca3d786614c94b386b1687a57da6fb2d22575273ce4567a028aa7bf2d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/death.js"
@@ -3118,7 +3118,7 @@ hash = "dbdcf85a6979080cb90d351ff461afb055c38d282b1ad4a15e0c51f4dbac534d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "3734cedfef7be9321c3dd95a64605380b7335af8efa7492cbcc22848a59220ec"
+hash = "fa6eb6272442a61ec28fb26dc432aa31615adc2a42753b6811207eea560465ef"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/commands.js"

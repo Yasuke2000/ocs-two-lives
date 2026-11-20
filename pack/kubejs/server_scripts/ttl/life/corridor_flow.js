@@ -114,7 +114,7 @@ const TtlCorridor = {
       if (conf.allow_dark === false && TtlKarma.isDark(player)) return null
       var echo = TtlWishes.echo(String(player.persistentData.getString('ttl.wish')))
       if (!echo) return null
-      if (!TtlRegistry.legendarySlotFree(server)) return null
+      if (!TtlRegistry.legendarySlotFree(server, TtlRegistry.uid(player))) return null
       if (TtlRegistry.available(server, [echo], TtlRegistry.uid(player), true).length === 0) return null
       return echo
     } catch (e) {

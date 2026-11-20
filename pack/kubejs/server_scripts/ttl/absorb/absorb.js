@@ -519,7 +519,7 @@ const TtlAbsorb = {
   claimable(server, player) {
     var conf = this.route('awakening')
     var out = []
-    if (!conf.enabled || conf.own.claim === false || !TtlRegistry.legendarySlotFree(server)) return out
+    if (!conf.enabled || conf.own.claim === false || !TtlRegistry.legendarySlotFree(server, TtlRegistry.uid(player))) return out
     var table = conf.own.claim_skills || {}
     var id = TtlRegistry.uid(player)
     this.openKinds(player).forEach(kind => {
@@ -540,7 +540,7 @@ const TtlAbsorb = {
     var table = conf.own.claim_skills || {}
     var kinds = this.openKinds(player).filter(k => (table[k] || []).indexOf(full.replace(/^.*:/, '')) >= 0)
     if (kinds.length === 0) return 'You have no awakening that lets you claim that skill (True Demon Lord or True Hero, once each).'
-    if (!TtlRegistry.legendarySlotFree(server)) return 'The Legendary places of this era are taken.'
+    if (!TtlRegistry.legendarySlotFree(server, TtlRegistry.uid(player))) return 'The Legendary places of this era are taken.'
     var spend = conf.own.spend_slot !== false
     if (!TtlRegistry.grant(server, player, full, `awakening (${kinds[0]}): a free Legendary place`, spend ? { slot: true } : undefined)) {
       return 'The world has no room for that Legendary now (the ceiling of ten, or its holders are complete).'

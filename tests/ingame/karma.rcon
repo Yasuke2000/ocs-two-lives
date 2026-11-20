@@ -120,7 +120,7 @@ ttlbot remove TtlBotKarmaD
 # Anti-farming (karma.toml [activity], [explore], [kill_cap]). TtlBotKarmaF starts a clean Life 1 (ttl reset).
 # `sample` runs one activity sample as if the 20 s timer fired (400 ticks when the bot was active), `act` marks an
 # action (breaking, placing, using, chat) since the last sample. Bots do not move on their own, so idle samples
-# must add nothing. The timer may sample the bot between two commands (rarely): rerun if `active` is off by 400.
+# must add nothing.
 ttlbot spawn TtlBotKarmaF
 @sleep 2
 ttl reset TtlBotKarmaF
@@ -145,8 +145,12 @@ ttl karma TtlBotKarmaF set kill.zombie 0
 ttl karma TtlBotKarmaF set mob_kills 50
 ttl karma TtlBotKarmaF expect kills 50
 # Active time: the first sample takes a baseline, an idle sample adds nothing, an action or 2+ blocks moved adds 400.
-ttl karma TtlBotKarmaF set play_time 0
+# The baseline is taken after the bot has landed and the counter is zeroed after it: a fresh bot that is still falling
+# from its spawn (the Lerfing world, verify 20/11), or the 5-minute timer sampling it first, added 400 to "idle".
 ttl karma TtlBotKarmaF sample
+@sleep 3
+ttl karma TtlBotKarmaF sample
+ttl karma TtlBotKarmaF set play_time 0
 ttl karma TtlBotKarmaF sample
 ttl karma TtlBotKarmaF expect active 0
 ttl karma TtlBotKarmaF act
