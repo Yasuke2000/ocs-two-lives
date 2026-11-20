@@ -1,0 +1,95 @@
+{
+  "base_art_commit": "aa9268c",
+  "main_map_reservation_cross_check_commit": "6a66e5d",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "goblin_village",
+      "file": "goblin_village.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2851606,
+      "sha256": "a9cb73709750dc561d864b4d0852e55eed1e2cf9a1553edd802fa8622062284b",
+      "generated_original_basename": "exec-3fd46462-e9ea-40e6-a69c-b753002a0ae0.png",
+      "generated_original_sha256": "725766ae5adfb655740d50a3906df6a66d31326e5c3f1d7386d66417b4865044",
+      "legacy_input_sha256": "5ed5a152055224a08bc6d2011c0cc677ba17884269469e8ea65e38ede4e7d908",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-530",
+        "cy": "-220",
+        "r": "56.0",
+        "data-site": "village",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "ogre_village_ruin",
+      "file": "ogre_village_ruin.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2982178,
+      "sha256": "fb6a0481f72e5d7b4226f530a5eb6e58473a95072079da941fa9d89ec3ebaf1c",
+      "generated_original_basename": "exec-557cab12-05de-4fda-bb90-c36404d1dadc.png",
+      "generated_original_sha256": "6c17a751790256f17ae76cfd9b519cd6fae76f6e8a4040ecd3681ee54fa50b2d",
+      "legacy_input_sha256": "959c434644bb9d7c3a4345bc98a02104c5816ebb23eb74ddc8a8ea318047d4e0",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "500",
+        "cy": "300",
+        "r": "32.0",
+        "data-site": "village",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "lizardmen_village",
+      "file": "lizardmen_village.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2598475,
+      "sha256": "4e9128ae9368e22363ef28c7f80d5f935b27c2627a096339c5125d2af3d5c3df",
+      "generated_original_basename": "exec-09bb3fd4-2760-4193-9a3d-10a2306d20c1.png",
+      "generated_original_sha256": "4ae4c9090d9363e76b5be98d41362a2ade0eac6a73789b720b7401dee72b9a9c",
+      "legacy_input_sha256": "b2933000273d51c19a2f0b549a8e4d9b5af7dbd197452d2a4573920f2fd9652f",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "1100",
+        "cy": "265",
+        "r": "60.0",
+        "data-site": "lakeside",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "lizardmen_caverns",
+      "file": "lizardmen_caverns.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2339952,
+      "sha256": "2e85c5b9db3a98c3f8c9b42f0d77030a8cc79a9b9710c364e0b149fe7b21ec90",
+      "generated_original_basename": "exec-06988c59-a026-4628-a784-0f65f8582930.png",
+      "generated_original_sha256": "a833dfd15c37614906c843a87da62bab4f9e3a9960d6943ebe171b62d5aa7987",
+      "legacy_input_sha256": "075ccd97a2d449d84ea9bcda844515bb559acb1a56351bf96242a9e83b18ba54",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "1300",
+        "cy": "520",
+        "r": "64.0",
+        "data-site": "carve",
+        "data-margin": "48"
+      }
+    }
+  ],
+  "limits": "Original architectural interpretations, not new canonical location measurements or runtime acceptance. Surface stilt hamlet is a project/mod adaptation."
+}

@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Jura/marsh place concepts (ChatGPT, round26, stacked on art PR91)
+
+Four revised image/sheet pairs: goblin_village,ogre_village_ruin,lizardmen_village,lizardmen_caverns. Inspected official early-episode stills and secondary forest-village/Siss frames; reference CSV separates direct cues, uncertain secondary attribution and authored architecture. Removed invented spire/streams, wizard tower/shrine/graveyard, marsh cliff/emblems and cavern waterfall/skylight/large lake. Stilt hamlet is a project/mod adaptation; no exact anime plan or named early roster claimed. All58 reservations match6a66e5d; art branch retains older map/source files. Four outputs1536x1024 RGB,<3,000,000 bytes, original RGB pixels preserved.20/58 delivered,38 remain. Source/fit/runtime obligations and26 missing representations/3 parent-design reviews remain open. Third painting/SVG review in PR92. No world/tools/runtime/blueprint/apply/merge/deploy changes. Gate result in docs/art/places/README.md.
+
 ## 20/11 — Southern/Imperial place concepts (ChatGPT, round23, stacked on art PR89)
 
 Four original image/sheet pairs: elmine,jia,laura,nasca. Reinspected secondary anime tree/spire/waterfall frames; episode/timestamps remain unverified. Laura uses the intact old pale-stone capital context; later timber reconstruction excluded. Nasca is explicitly interpreted, with no verified anime palace exterior or canonical chair trio. All four outputs1536x1024 RGB,under3,000,000 bytes; lossless packaging preserves every original RGB pixel. Current reservation attributes match main-map052f262 for all58 IDs, though this art branch does not include the later map/source commits. Sources, exact prompts and manifest in docs/art/places/.
