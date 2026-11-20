@@ -20,6 +20,8 @@ source of truth is `tools/world/canon_relations.toml`. See [review.md](review.md
 
 Latest place-art stack reaches36/58 in [PR97](https://github.com/Yasuke2000/ocs-two-lives/pull/97),with22 remaining. [Round31 Orbic review](orbic-terrain-review.md) now adds a bounded active depleted habitat; country/capital coverage remains incomplete. Current atlas is regenerated. The three earlier painting reviews predate this local habitat change and remain historical source comparisons.
 
+[Round32 Ice coast review](ice-coast-review.md) now refines three local inlets; the fixed palace shore and mainland remain. Current atlas/preview reflects both this change and Orbic. Earlier painted reviews remain historical.
+
 ## Format in short
 
 - Block coordinates. `viewBox="-8000 -6000 16000 12000"` is only the canvas (the converter crops to the content plus

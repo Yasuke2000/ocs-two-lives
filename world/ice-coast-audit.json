@@ -1,0 +1,52 @@
+{
+  "points_before": 60,
+  "points_after": 105,
+  "area_before": 2146278.0607000007,
+  "area_after": 2017862.6331389998,
+  "area_retained_fraction": 0.9401683174643648,
+  "symmetric_difference_area": 128415.42756100002,
+  "max_boundary_shift": 208.02382765851286,
+  "palace_centre_distance_to_coast_before": 55.36075530207789,
+  "palace_centre_distance_to_coast_after": 55.36075530207789,
+  "source_sha256": "d10aa45699bbbf17c6a37280b075f80fbb5f4ed39b9fc742ebc9346f81102b00",
+  "baseline_commit": "5260630",
+  "all58_site_attributes_equal": true,
+  "all_mainland_and_el_dorado_geometry_equal": true,
+  "all21_road_profiles_and_site_outputs_byte_identical": true,
+  "all_height_water_biome_rows_south_of_z_minus2800_equal": true,
+  "palace_square_halfwidth115_height_water_biome_equal": true,
+  "coast_gap_to_mainland_blocks": 916.984724082141,
+  "new_ice_centroid": [
+    -1647.3336490884303,
+    -3823.556664002035
+  ],
+  "inert_C22_proposal_distance_to_new_centroid": 13.156226823766568,
+  "raster_changes": {
+    "height.png": {
+      "changed_pixels": 75421,
+      "changed_pixel_centres_bounds": [
+        -3186.0,
+        -4566.0,
+        -90.0,
+        -3006.0
+      ]
+    },
+    "water.png": {
+      "changed_pixels": 0,
+      "changed_pixel_centres_bounds": null
+    },
+    "biome.png": {
+      "changed_pixels": 8352,
+      "changed_pixel_centres_bounds": [
+        -2914.0,
+        -4270.0,
+        -382.0,
+        -3270.0
+      ]
+    }
+  },
+  "converter_warnings": [],
+  "checker_errors": 0,
+  "checker_warnings": 2,
+  "runtime_acceptance": false
+}

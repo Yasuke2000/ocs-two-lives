@@ -1,5 +1,8 @@
 # Reference comparison — research round 17 / post-Kijin snapshot
 
+Round32 comparison: [Ice coast review](ice-coast-review.md) adds three limited irregular inlets to the earlier smooth envelope. The official illustration is a visual reference, not a surveyed source for those precise bays. Fixed palace shore,58 reservations,21 roads,mainland and El Dorado geometry remain; sea gap916.98 blocks. Checker preview, fresh atlas and native before/after were visually inspected. Earlier painted passes predate this shoreline and Orbic habitat update.
+
+
 Round31 comparison: [Orbic review](orbic-terrain-review.md) adds a small interpreted depleted-ground habitat and opens the overlapping jungle edge. Official continental illustration and fresh preview/atlas were visually compared; no surveyed Orbic boundary follows from that illustration. All58 sites/coasts/relief/waters/roads/masks remain unchanged. Earlier painted reviews predate this local vegetation change; current atlas/checker preview governs terrain.
 
 

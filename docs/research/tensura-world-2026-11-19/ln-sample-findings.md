@@ -21,3 +21,5 @@ specific mound height. Neither finding gives permission to invent precise sovere
 
 The [8.5 guidebook publisher listing](https://gcnovels.jp/book/47) identifies an official world map and
 country profiles. The listing alone is not the map content. No copyrighted text or image is stored here.
+
+Round32 access check: current publisher-linked guide8.5/LN14 BookWalker trial routes and LN16/English retailer leads did not yield relevant readable story pages. See source-access.csv and world/ice-coast-review.md. The directly verified LN claim count remains13; no full book or new palace/mountain statement is claimed.

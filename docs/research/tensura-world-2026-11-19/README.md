@@ -1,4 +1,7 @@
-# Tensura geography research — round31 Orbic terrain interpretation
+# Tensura geography research — round32 Ice Continent coast interpretation
+
+Current ledger: 204 records (146 thematic/design/reference + 58 coordinate interpretations), with 13 directly read LN claims. [Ice coast review](../../../world/ice-coast-review.md) records three authored inlets after official-map visual comparison, retaining the fixed palace precinct and required sea gap. Exact coastline remains interpretation. Current publisher-linked BookWalker trials and licensed English retailer leads did not expose relevant story pages; C05/C22 primary gaps stay open. No new primary claim is inferred from metadata. Coverage remains 25 missing representations, 1 partial Orbic habitat and 3 unverified parent designs; art remains 36/58.
+
 
 Current ledger203(145 thematic/design/reference+58 coordinate interpretations),13 directly read LN claims. Existing public LN2 famine/junction evidence is reread without duplicating primary claims. DES-ORB-031 records a bounded depleted-ground terrain proxy,not surveyed Orbic borders. [Review and measured before/after](../../../world/orbic-terrain-review.md). Orbic becomes partial active terrain coverage;25 wholly missing representations,1 partial Orbic and3 unverified parent designs preserve all29 follow-ups. Fifteen official Coleus stills do not verify the Long Wall's course or exterior. Place art remains36/58;22 concepts remain. Source/fixed-rule/whole-country/fit/runtime obligations remain open.
 
@@ -25,8 +28,8 @@ Round 15 corrects Coleus using the directly read official anime outline: the ind
 Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 145 thematic/design/reference claims plus58 exact site-placement
-records explicitly marked **our interpretation**, not203 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 146 thematic/design/reference claims plus58 exact site-placement
+records explicitly marked **our interpretation**, not204 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and
