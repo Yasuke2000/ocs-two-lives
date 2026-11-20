@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Current-geometry continent painting (ChatGPT, round19)
+
+Branch `chatgpt/continent-painting-r19` stacks presentation art on `chatgpt/world-map` at0e5bd64. [Painted atlas](../world/painted-atlas.png) includes all58 current markers and an era-qualified key; [clean painting and provenance](../world/painting/README.md) explain the original image, current-preview guides and exact native vector composition. No production geometry changed. Exact3 coast/8 lake/8 river/21 road vectors and all58 projected site anchors pass the presentation audit. Native source-width rivers and true coastal clipping constrain the illustration; painted ridge/tree strokes remain pictorial, not measured terrain or new evidence. The old wrongly labeled study remains preserved in the separate legacy worktree.
+
+Default checker passes0 errors/all56 relations/2 existing warnings. First current-geometry painting review completed; three coupled painting/SVG rounds, remaining place art, missing-location/source coverage and fixed-rule conflicts remain open. No terrain apply, runtime change or deployment. Full repository gate result is recorded in the painting PR.
+
 ## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
 
 Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
