@@ -1,0 +1,91 @@
+{
+  "base_art_commit": "5b25e92",
+  "active_geometry_commit": "fc36e38",
+  "site_attributes_cross_checked_against": "a997f81",
+  "all58_site_attributes_equal": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10; earlier architectural states explicitly unverified where applicable.",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "englassia",
+      "file": "englassia.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2866954,
+      "sha256": "ed83fc018034f906ff05d2b0dc68d3f42b8acdc1999fbbb024559864caccbb5d",
+      "generated_original_basename": "exec-a4db49a0-bdcd-49b5-841d-b0e7009d4aa8.png",
+      "generated_original_sha256": "11311782296b03d3c0f310faaa1612010ce5e800725827a52ebff3e68efdf155",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-2900",
+        "cy": "-550",
+        "r": "98.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "marris",
+      "file": "marris.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2880362,
+      "sha256": "a1c7eae558955b3f49b0053dd70fa7981a3ad449cfcc8398803a60cfcba13b54",
+      "generated_original_basename": "exec-0f149683-285f-47d1-b401-cf8fdac4747c.png",
+      "generated_original_sha256": "08edc2eee683b1750679cb81bdc9df370302633ac28fe664b6e73c451b5bdfd3",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-1800",
+        "cy": "-1650",
+        "r": "101.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "coleus",
+      "file": "coleus.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2654559,
+      "sha256": "e43d50adf10486316afd4750024e7b25fc2bc1b531a36952ee4c0088709f1a36",
+      "generated_original_basename": "exec-f02f6f45-49d5-4075-bbc0-9c0815b62d83.png",
+      "generated_original_sha256": "e43d50adf10486316afd4750024e7b25fc2bc1b531a36952ee4c0088709f1a36",
+      "lossless_repackaged": false,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-3520",
+        "cy": "-860",
+        "r": "73.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "siltrosso",
+      "file": "siltrosso.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2695893,
+      "sha256": "ee764899c5a28090bdb0a58120fa8f6f9a712e7a27299c7fdc27d9ab006e452f",
+      "generated_original_basename": "exec-9b8c3aeb-0099-40da-a0d0-c409810ba1c5.png",
+      "generated_original_sha256": "ee764899c5a28090bdb0a58120fa8f6f9a712e7a27299c7fdc27d9ab006e452f",
+      "lossless_repackaged": false,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-2297",
+        "cy": "-1370",
+        "r": "66.0",
+        "data-site": "coast",
+        "data-margin": "48"
+      }
+    }
+  ],
+  "source_limits": "No new canon geography claims are inferred from concept art. References cited; raw copyrighted material remains outside repository."
+}
