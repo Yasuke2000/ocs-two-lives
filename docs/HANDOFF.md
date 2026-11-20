@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Jura approach and summit concepts (ChatGPT, round33, stacked on art PR97)
+
+Four pairs: arrival,wayfarers_camp,spirit_gate,dragons_nest. Edits to own candidates remove invented stream/large stairs,overlarge camp,open portal/realm view,and valley-fortress nest. Arrival route follows current SVG; radius8 camp is parent-relative; Jura gate remains server adaptation distinct from Ulgr; nest summit evidence is wiki-level with LN12ch2/4 unread. Seven source/design records and exact current edits/input hashes preserve limits. All58 reservations match e619fb7;40/58 pairs,nine manifests verified,18 remain. New four RGB1536×1024<3MB,selected pixels unchanged by packaging. Legacy candidates intact. Source/coverage/fixed-rule/fit/runtime obligations remain; gate in art README. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.
+
 ## 20/11 — Western sanctuaries (ChatGPT, round30, stacked on art PR96)
 
 Four pairs: lubelius,sacred_mountain,heaven_tower,ulgr_nature_park. Direct LN6 shrine/cathedral size contrast; ten official stills inspected but no verified exterior plans. Tower LN18/19 citations remain secondary/unread; intact lower precinct avoids late damage. Park threshold distinct from Galut/Jura gate. Authored architecture and no later visitors/encounters.36/58 delivered,22 remain; all58 reservations match06a0323. All36 pairs/eight manifests checked, RGB<3MB; Ulgr native1362x1155, others1536x1024; packaging preserves selected output pixels. Source/fixed-rule/coverage/fit/runtime obligations remain. Gate result in art README. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.
