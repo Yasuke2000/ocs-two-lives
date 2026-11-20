@@ -1,4 +1,7 @@
-# Post-Kijin place concepts — forty-six delivered locations
+# Post-Kijin place concepts — fifty-two delivered locations
+
+Latest round36: shizu_spawn,outcast_road,treyni_grove,blumund_road,englassia_road and rookie_camp bring delivery to52/58,with6 remaining. All58 attributes match map48b0846. Three own-image revisions remove unsupported water,settlement/fort scenery and future residents; three new small route vignettes remain server design. The rookie pin is in the current dark band,not the old safe-rim meadow. The natural tree is not an entire treant settlement. Earlier summaries below are historical.
+
 
 Latest: Ballachia,Morgdahl,Raja,Nostraille,Yuzalgh and Yggdonia bring delivery to46/58,with12 remaining. All58 site attributes match13f4cfb. Sources distinguish later event/country-map leads from authored cart court,timber frontage,mine approach,wool hall and two small pin vignettes. No later liberation or film cure is depicted.
 
@@ -153,3 +156,18 @@ Six pairs: Ballachia replaces the own liberation-yard candidate with a neutral c
 [Nine source/design records](western-states-reference-review.csv), [exact prompts](western-states-prompts.json), six fiches and [manifest](western-states-asset-manifest.json) preserve scope. Ballachia edits only our prior original,whose first prompt is unavailable; other five are new generations. No copyrighted image was supplied as generation input. Legacy materials stay intact. Small pin scenes do not represent entire countries or approve new blueprints.
 
 All46 pairs/ten manifests/58-row coverage checked; all58 attributes match13f4cfb. Six new RGB1536×1024 PNGs<3MB,selected decoded pixels preserved by lossless packaging. This art branch retains older map/source files; PR74 governs geography. Source/coverage/era/structure-fit/water/roof/lighting/runtime obligations remain open. No world/tools/mod/pack/blueprint/apply/merge/deploy changes. Round34 repository validation and462 tests pass (26 skips,zero failures,43.864s test tier).
+
+## Jura and western route vignettes â€” round36
+
+| Place | Image | Source and terrain sheet |
+| --- | --- | --- |
+| Empty future encounter reservation | [PNG](shizu_spawn.png) | [Sheet](shizu_spawn.md) |
+| Village contact corner | [PNG](outcast_road.png) | [Sheet](outcast_road.md) |
+| Ancient landmark tree | [PNG](treyni_grove.png) | [Sheet](treyni_grove.md) |
+| Blumund road camp | [PNG](blumund_road.png) | [Sheet](blumund_road.md) |
+| Englassia road post | [PNG](englassia_road.png) | [Sheet](englassia_road.md) |
+| Abandoned rookie camp | [PNG](rookie_camp.png) | [Sheet](rookie_camp.md) |
+
+[Nine reference/design records](jura-route-reference-review.csv),[exact prompts](jura-route-prompts.json),six fiches and [manifest](jura-route-asset-manifest.json) preserve scope. Original official episode9 forest frames and selected episode12 stills were inspected; no anime raster was a generation input. Three legacy originals remain intact. The single ancient-tree adaptation does not represent a surveyed treant settlement or later Dungeon floor.
+
+All52 pairs/eleven manifests/58-row coverage checked; six new RGB1536Ã—1024 PNGs<3MB preserve selected decoded pixels. All58 site attributes match current map48b0846; this art branch retains older map/source files. Remaining six: filtwood,ghastone,rostia,sainte_malukshure,forgotten_dragon_city,old_well. Source/coverage/era/fit/runtime obligations remain open. Repository validation and462 tests pass (26 skips,zero failures,43.827s test tier); no world/tools/mod/pack/blueprint/apply/deploy changes.

@@ -1,5 +1,10 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 â€” Jura and western route concepts (ChatGPT, round36, stacked on art PR99)
+
+Six original/revised image+sheet pairs:shizu_spawn,outcast_road,treyni_grove,blumund_road,englassia_road,rookie_camp. Three earlier own candidates revised; three new originals. Future encounter/contact views have no named resident or later fortress; tree remains a natural mod-landmark interpretation,not a whole treant settlement. Rookie pin is in current dark band573 blocks from Tempest,not the legacy safe meadow. Nine qualified reference/design records; exact prompts/input/output hashes in docs/art/places. All52 pairs/eleven manifests/58-row coverage checked; all58 site attributes match map48b0846,though this branch retains older map/source files. Six images1536Ã—1024 RGB<3MB,pixels preserved. Six pairs remain; full geography/source/fit/runtime obligations stay open. Gate in art README/new PR. No world/tools/mod/pack/blueprint/apply/deploy edits.
+
+
 ## 20/11 — Smaller western precinct concepts (ChatGPT, round34, stacked on art PR98)
 
 Six pairs: ballachia,morgdahl,raja,nostraille,yuzalgh,yggdonia. Ballachia removes later liberation chains/cages/memorial; other five originals distinguish authored timber/wool/pin designs from secondary country-name/map leads. Raja public distributor sheet confirms film west/gold/lake context; no precise early condition or cure inferred. Official65/76 ten stills inspected; no verified four-country map/exterior plan in that selection.46/58 delivered,12 remain; all58 attrs match13f4cfb.46 pairs/ten manifests verified,new six RGB1536×1024<3MB,pixels preserved; original candidates intact. Nine source/design records/exact prompts/input hashes preserve limits. All source/coverage/fixed-rule/fit/runtime obligations remain. Gate in art README. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.

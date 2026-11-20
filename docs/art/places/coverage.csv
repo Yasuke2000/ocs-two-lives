@@ -5,9 +5,9 @@ wayfarers_camp,15.0,-985.0,8.0,clearing,wayfarers_camp.png,wayfarers_camp.md,Tru
 sealed_cave,-120,-400,75.0,carve,sealed_cave.png,sealed_cave.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 goblin_village,-530,-220,56.0,village,goblin_village.png,goblin_village.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 spirit_gate,-285,350,70.0,lakeside,spirit_gate.png,spirit_gate.md,True,True,Review source/era/build fit; representative concept is not runtime acceptance.
-shizu_spawn,-420.0,-80.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
-outcast_road,0.0,52.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
-treyni_grove,320,470,56.0,village,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+shizu_spawn,-420.0,-80.0,8.0,clearing,shizu_spawn.png,shizu_spawn.md,True,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+outcast_road,0.0,52.0,8.0,clearing,outcast_road.png,outcast_road.md,True,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+treyni_grove,320,470,56.0,village,treyni_grove.png,treyni_grove.md,True,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
 treyni_shrine,500,600,36.0,clearing,treyni_shrine.png,treyni_shrine.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 ogre_village_ruin,500,300,32.0,village,ogre_village_ruin.png,ogre_village_ruin.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 dwargon,0,-1550,127.0,carve,dwargon.png,dwargon.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
@@ -53,7 +53,7 @@ great_holy_mountain,3350,-1350,80.0,clearing,great_holy_mountain.png,great_holy_
 el_dorado,-4300,3000,100.0,clearing,el_dorado.png,el_dorado.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
 el_dorado_volcano,-3900,3200,8.0,clearing,el_dorado_volcano.png,el_dorado_volcano.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
 frost_palace,-1500,-3310,67.0,coast,frost_palace.png,frost_palace.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
-blumund_road,-1340,-520,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-englassia_road,-2650,-520,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
+blumund_road,-1340,-520,8.0,clearing,blumund_road.png,blumund_road.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+englassia_road,-2650,-520,8.0,clearing,englassia_road.png,englassia_road.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
 old_well,-1000,-340,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-rookie_camp,-120,-560,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
+rookie_camp,-120,-560,8.0,clearing,rookie_camp.png,rookie_camp.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
