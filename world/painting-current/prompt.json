@@ -1,0 +1,22 @@
+{
+  "operation": "edit-own-original",
+  "tool": "built-in image_gen",
+  "prompt": "Update our own painted continent study to the CURRENT original source guides. INPUT ROLES: image1 is our prior original painting and EDIT TARGET; image2 is the current authoritative terrain/habitat guide; image3 is the current checker geometry guide. All are our project originals. Keep the exact 1536x1024 north-up rectangular world projection, continent positions and painterly illustrated atlas style of image1. This is a limited CURRENT-STATE UPDATE, not a new continent layout. Match three specific source changes: (1) the northern Ice Continent has small irregular northwest/east/southwest coastal inlets in the current guides; preserve its mountain spine and local southern palace-shore reservation context, no new islands. (2) a modest tan-grey DEPLETED-GROUND PATCH immediately north of the southeastern jungle,around pixel846,642 in this projection, replaces the prior green ground there; sparse exhausted earth,not a huge desert,rift,crater,city or battlefield. Use the brown footprint in guide2 for extent and preserve surrounding jungle. This is an authored Orbic habitat proxy,not a whole kingdom. (3) add the small horizontal unnamed Imperial lake around pixel1150,417,east/southeast of the northeastern volcanic cone,matching the guide silhouette. It is a small unlabelled lake,not Silberia or a town. Preserve all EIGHT earlier lake positions and sizes plus this ninth lake; do not invent any other waterbody. VERY IMPORTANT: paint NO thin blue river strokes,tributaries,streams or drainage connections anywhere. Exact rivers and roads will be applied later as native SVG paths; leave continuous land texture between lakes,including between the Imperial cone and the lower Jistav lake. Do not copy guide grid,site discs,hatching,roads,text,labels or numeric markers. Do not add architecture,people,bone gates,ports,castles,ships,compass roses,flags or borders. Keep northern Imperial and old Dragon City plains open; no extra long Fulbrosia ridge to the southern coast. Preserve the ancient/dark Jura core,modest western oasis,small Sarion pond,southern gulf and southwest volcanic island. Broader readable painted land/water masses and gentle atmospheric ridge/tree strokes; no noisy photoreal textures. No caption,frame,UI or watermark. No copyrighted references or third-party imagery were supplied.",
+  "inputs": [
+    {
+      "role": "edit target: earlier own painting",
+      "source_pr": "https://github.com/Yasuke2000/ocs-two-lives/pull/92",
+      "file": "world/painting-round3/paint-r25.png"
+    },
+    {
+      "role": "current terrain/habitat guide",
+      "file": "terrain-guide.png"
+    },
+    {
+      "role": "current checker geometry guide",
+      "file": "geometry-guide.png"
+    }
+  ],
+  "selected_output": "exec-06350dc7-6d7e-4200-9502-23e547e4443b.png",
+  "copyrighted_image_inputs": false
+}

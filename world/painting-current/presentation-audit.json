@@ -1,0 +1,30 @@
+{
+  "source_map_commit": "dc92845",
+  "source_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "production_svg_and_checker_preview_unchanged_from": "dc92845",
+  "native_source_vector_counts_verified": {
+    "coast": 3,
+    "biomes": 1,
+    "lakes": 9,
+    "rivers": 8,
+    "roads": 21
+  },
+  "coast_clip_and_ocean_mask_match_current_source": true,
+  "raw_blue_pigment_suppressed_before_native_water_overlay": true,
+  "site_world_coordinates_and_pixel_projection_verified": 58,
+  "minimum_number_bubble_centre_spacing_px": 32.47054606006467,
+  "atlas_embeds_current_composition_bytes": true,
+  "raw_painting_rgb_pixels_equal_generated_output": true,
+  "clean_painting_pixels": [
+    1536,
+    1024
+  ],
+  "marked_atlas_pixels": [
+    2200,
+    2147
+  ],
+  "tracked_terrain_preview_equals_current_staged_preview": true,
+  "staged_source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "terrain_export_regenerated": false,
+  "limit": "Exact native vectors,source masks and marker anchors are verified. Pictorial tree/ridge/lake-bank strokes are not surveyed height/vegetation,canonical borders or whole-place/runtime acceptance."
+}

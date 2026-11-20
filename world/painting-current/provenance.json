@@ -1,0 +1,43 @@
+{
+  "map_commit": "dc92845",
+  "source_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "guide_pixels": [
+    1536,
+    1024
+  ],
+  "terrain_preview_sha256": "c903806683fedd7f7a2435c2fa722ea4e5f8dc423bdc8fba6dc1914436487fbc",
+  "staged_index_source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "purpose": "Original current checker/terrain guides only. Presentation is not a terrain source.",
+  "prior_painting_source": "60297bd / PR92",
+  "prior_painting_raw_sha256": "c0862bdd638cee4c935653b4c3878bc9a40cb004cb4d311526a91a7223d1741a",
+  "changes_to_show": [
+    "round31 Orbic depleted-ground patch",
+    "round32 limited Ice coast inlets",
+    "round35 unnamed Imperial basin"
+  ],
+  "production_terrain_geometry_unchanged": true,
+  "original_generated_output": "exec-06350dc7-6d7e-4200-9502-23e547e4443b.png",
+  "original_generated_output_sha256": "1e26c665affd665df45ec9972e4b8e81c7de44b4a8bd0d59d34e7e3fd5d27d21",
+  "packaged_painting_sha256": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+  "raw_output_pixels_are_original": true,
+  "image_generation_input_hashes": {
+    "terrain-guide.png": "9372613e57b9985709f90ab6405f14dadcfea1456a9e0a578aa348cd3379684e",
+    "geometry-guide.png": "80206531e254ace301ecc9c65876993c591f8ab316477439454163f59cb445c0"
+  },
+  "generated_painting_sha256": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+  "native_overlay_counts": {
+    "coast": 3,
+    "lakes": 9,
+    "rivers": 8,
+    "roads": 21,
+    "biomes": 1
+  },
+  "presentation_rule": "Raster provides pictorial texture only. Native clipping/ocean wash and exact coast/water/road vectors define visible geometry. Tree/ridge strokes remain pictorial, not measured terrain.",
+  "original_geometry_unchanged": true
+}
