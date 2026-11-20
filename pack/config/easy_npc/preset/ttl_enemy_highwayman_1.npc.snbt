@@ -1,0 +1,112 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Enemy",
+    created:1790000000000L,
+    description:"enemy: Highwayman (design/data/enemies.toml), look highwayman #1",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Highwayman",
+    variantType:"STEVE",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_HURT:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:20
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "Stand and deliver!",
+                "Empty your purse, traveller.",
+                "You should have taken the long way round."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ],
+        ON_INTERACTION:[
+          {
+            Msg:{
+              T:4b,
+              Texts:[
+                "Stand and deliver!",
+                "Empty your purse, traveller.",
+                "You should have taken the long way round."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    CustomName:'{"color":"#C0392B","text":"Highwayman"}',
+    CustomNameVisible:1b,
+    DeathLootTable:"ttl:entities/enemy_highwayman",
+    EasyNPCVersion:3,
+    EntityAttribute:{
+      IsAttackableByMonsters:1b,
+      IsAttackableByPlayers:1b,
+      IsInvulnerable:0b
+    },
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {
+        id:"minecraft:bow",
+        count:1
+      },
+      {}
+    ],
+    Invulnerable:0b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"FLOAT"
+        },
+        {
+          SpeedModifier:1.0d,
+          Type:"BOW_ATTACK"
+        },
+        {
+          Type:"HURT_BY_TARGET"
+        },
+        {
+          Type:"ATTACK_PLAYER"
+        },
+        {
+          SpeedModifier:0.6d,
+          Type:"MOVE_BACK_TO_HOME"
+        },
+        {
+          SpeedModifier:0.5d,
+          Type:"RANDOM_STROLL_AROUND_HOME"
+        },
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_RANDOM_AROUND"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-1357939899,-128296657,-1534750970,-237310379],
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_highwayman_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
+    VariantType:"STEVE",
+    id:"easy_npc:humanoid"
+  }
+}

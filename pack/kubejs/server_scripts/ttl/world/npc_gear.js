@@ -11,9 +11,11 @@
 // the tag `ttl.gear.r<settings.rev>`, or whose hands are not its role's (a goblin picks up loot into its hand), gets its
 // role's items (drop chance 0, CanPickUpLoot off) and, for a guard, the tag `ttl.npc.guard`.
 // THE GUARD LOOP (every settings.guard_check_ticks, only while someone is online and Tempest is placed): a guard without a
-// living target is set on the nearest monster (KubeJS isMonster(): an Enemy; never a player, a Tensura goblin, wolf or other
-// tameable, nor an entity with one of settings.guard_ignore_tags) within settings.guard_radius of its POST, so it defends
-// the residents around it and does not wander off after a far mob. Tensura's goblins think with SmartBrainLib: the target
+// living target is set on the nearest foe (TtlNpcGear.foe: a monster by KubeJS isMonster() or an enemy of the roads,
+// world/enemies.js; never a player, a resident, a guild or story NPC, a tame or owned creature, nor an entity with one of
+// settings.guard_ignore_tags) within settings.guard_radius of its POST, so it defends the residents around it and does not
+// wander off after a far mob. A guard with nothing to fight that strayed more than settings.guard_leash from its post walks
+// back (teleported past 3 x the leash). Tensura's goblins think with SmartBrainLib: the target
 // goes into their brain (BrainUtils.setTargetOfEntity), Mob.setTarget when that class cannot be loaded. Players only meet
 // a guard's blade through Tensura's own retaliation (a soul that hits a resident), which kill_penalty.npc already prices
 // (rep/guards.js).
@@ -120,6 +122,30 @@ const TtlNpcGear = {
     return false
   },
 
+  // Somebody's own creature (a Tensura tame, a named monster, a wolf): never a guard's foe, whatever isMonster() says.
+  owned(e) {
+    try {
+      if (typeof e.isTame === 'function' && e.isTame()) return true
+    } catch (x) {
+      // not tameable
+    }
+    try {
+      if (typeof e.getOwnerUUID === 'function' && e.getOwnerUUID()) return true
+    } catch (x) {
+      // no owner
+    }
+    return false
+  },
+
+  // A guard's foe: a monster (an Enemy) or one of the enemies of the roads (world/enemies.js, Easy NPCs: not Enemy), never a
+  // player, a resident, a guild or story NPC, a tame or anything with a guard_ignore_tags tag.
+  foe(e) {
+    var tags = e.getTags()
+    if (tags.contains(this.GUARD) || tags.contains('ttl_tempest_resident') || tags.contains('ttl.npc')) return false
+    if (!(e.isMonster() || tags.contains('ttl.enemy'))) return false
+    return !this.ignored(e) && !this.owned(e)
+  },
+
   utils() {
     if (this.brainUtils === undefined) {
       try {
@@ -173,13 +199,39 @@ const TtlNpcGear = {
     var guards = []
     var foes = []
     var self = this
-    level.getEntitiesWithin(new AABB(x0 - radius, y - 24, z0 - radius, x1 + radius, y + 24, z1 + radius)).forEach(e => {
+    var leash = Number(this.conf().settings.guard_leash || 0)
+    level.getEntitiesWithin(new AABB(x0 - radius - leash * 3, y - 24, z0 - radius - leash * 3, x1 + radius + leash * 3, y + 24, z1 + radius + leash * 3)).forEach(e => {
       if (!e.isAlive() || e.isPlayer()) return
       if (e.getTags().contains(self.GUARD)) guards.push(e)
-      else if (e.isMonster() && !self.ignored(e)) foes.push(e)
+      else if (self.foe(e)) foes.push(e)
     })
     out.guards = guards.length
-    if (!foes.length) return out
+    out.away = 0
+    guards.forEach(g => {
+      var cur = self.targetOf(g)
+      if (cur && cur.isAlive()) return
+      var post = posts[TtlDomains.residentId(g)]
+      if (!post) return
+      // Back to the post when it wandered off with nothing to fight (Tensura's goblins stroll; the guard loop only
+      // defends within guard_radius of the post).
+      var hx = g.getX() - post.x
+      var hz = g.getZ() - post.z
+      var off = Math.sqrt(hx * hx + hz * hz)
+      if (leash > 0 && off > leash) {
+        out.away++
+        try {
+          if (off > 3 * leash) g.teleportTo(post.x + 0.5, post.y, post.z + 0.5)
+          else g.getNavigation().moveTo(post.x + 0.5, post.y, post.z + 0.5, 1.0)
+        } catch (x) {
+          if (!self.warned) console.warn(`[ttl] npc gear: could not send guard ${TtlDomains.residentId(g)} back to its post (${x})`)
+          self.warned = true
+        }
+      }
+    })
+    if (!foes.length) {
+      this.last = out
+      return out
+    }
     guards.forEach(g => {
       var cur = self.targetOf(g)
       if (cur && cur.isAlive()) return
@@ -291,7 +343,7 @@ ServerEvents.commandRegistry(event => {
 
   var guards = ctx => {
     var r = TtlNpcGear.guardPass(server(ctx))
-    say(ctx, `npc gear: ${r.guards} guard(s) near their posts, ${r.engaged} set on a monster`)
+    say(ctx, `npc gear: ${r.guards} guard(s) near their posts, ${r.engaged} set on a foe, ${r.away || 0} sent back to their post`)
     return 1
   }
 

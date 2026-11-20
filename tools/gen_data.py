@@ -2570,6 +2570,9 @@ def render() -> dict[Path, str]:
     data["builds"], footprints = check_builds()
     if "factions" in data:
         check_domains(data["factions"], data, data["builds"])
+    if "enemies" in data:
+        from enemies_check import check_enemies  # noqa: E402 (tools/ is on sys.path above)
+        check_enemies(data["enemies"], data)
     body = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
     grids = json.dumps(footprints, separators=(",", ":"), sort_keys=True)
     return {
