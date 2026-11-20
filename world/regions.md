@@ -485,3 +485,7 @@ The official Johann profile establishes the Kingdom of Rostia (OFF-ROS-037); the
 ## Long Wall proposal correction — round40
 
 The [revised inert corridor](long-wall-corridor-review.md) follows the existing authored Desert of Death boundary toward Coleus/Lubelius. The earlier route cut through the desert interior. Exact endpoints,width,wall design and a gate at the existing caravan trail remain **our interpretation**. No active coast,biome,region,road or site changes. Official map and current checker preview were visually compared; no new licensed coastline or surveyed national boundary is inferred. Source-comment hash changes only; current terrain/painted registration remains valid. C15/full source/era/structure-fit/runtime obligations remain open.
+
+## Geographical atlas labels and index — round41
+
+The [atlas/index review](location-index-review.md) adds broad readable names to existing terrain contexts,not surveyed country boundaries. Fifteen labels sit inside existing gameplay contexts; Ulgracia uses a sea-side name callout ending inside U. The separate list retains32 missing/partial/unverified representations,with all129 inventory names linked in the full index. Text placement is **our interpretation**. No active geography,source claim,site/road,terrain export or early political state changes. Existing deliberate differences and missing-place obligations remain.

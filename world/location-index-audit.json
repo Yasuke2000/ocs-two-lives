@@ -1,0 +1,821 @@
+{
+  "baseline_commit": "f232fc1",
+  "source_sha256": "a24cea9b46a751dbaa9b6765e2c1a5a8d829624744c980d8a9d65d159bb51295",
+  "presentation_only": true,
+  "production_svg_changed": false,
+  "terrain_image_bytes_retained": true,
+  "terrain_image_sha256": "c903806683fedd7f7a2435c2fa722ea4e5f8dc423bdc8fba6dc1914436487fbc",
+  "existing_numbered_reservations": 58,
+  "geographic_labels": [
+    {
+      "label": "Eastern Empire",
+      "gameplay_context": "E",
+      "claims": "OFF-010;MAP-003",
+      "world_label_position_interpreted": [
+        3850,
+        -1950
+      ],
+      "font_size": 25,
+      "display_box": [
+        1696.7903645833335,
+        769.0872395833334,
+        1881.7903645833335,
+        809.3372395833334
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Canaat Mountains",
+      "gameplay_context": "D",
+      "claims": "WN13-003;WN13-006",
+      "world_label_position_interpreted": [
+        1000,
+        -1660
+      ],
+      "font_size": 25,
+      "display_box": [
+        1170.5364583333335,
+        821.0078125,
+        1387.5364583333335,
+        861.2578125
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Great Jura Forest",
+      "gameplay_context": "J",
+      "claims": "OFF-003",
+      "world_label_position_interpreted": [
+        -200,
+        750
+      ],
+      "font_size": 25,
+      "display_box": [
+        961.1927083333335,
+        1252.4856770833335,
+        1167.1927083333335,
+        1292.7356770833335
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Jistav",
+      "gameplay_context": "P",
+      "claims": "OFF-AMR-001",
+      "world_label_position_interpreted": [
+        3600,
+        -850
+      ],
+      "font_size": 25,
+      "display_box": [
+        1706.03125,
+        966.02734375,
+        1783.03125,
+        1006.27734375
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Milim's Domain",
+      "gameplay_context": "M",
+      "claims": "OFF-015;MAP-001",
+      "world_label_position_interpreted": [
+        3500,
+        1150
+      ],
+      "font_size": 25,
+      "display_box": [
+        1632.1276041666667,
+        1324.1002604166667,
+        1821.1276041666667,
+        1364.3502604166667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Eurazania",
+      "gameplay_context": "B",
+      "claims": "OFF-008",
+      "world_label_position_interpreted": [
+        1520,
+        1250
+      ],
+      "font_size": 25,
+      "display_box": [
+        1310.1354166666667,
+        1342.00390625,
+        1434.1354166666667,
+        1382.25390625
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Fulbrosia",
+      "gameplay_context": "H",
+      "claims": "OFF-009;FAN-001",
+      "world_label_position_interpreted": [
+        300,
+        2850
+      ],
+      "font_size": 25,
+      "display_box": [
+        1095.7109375,
+        1628.4622395833335,
+        1211.7109375,
+        1668.7122395833335
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Sarion",
+      "gameplay_context": "S",
+      "claims": "FAN-010",
+      "world_label_position_interpreted": [
+        -1550,
+        2050
+      ],
+      "font_size": 25,
+      "display_box": [
+        780.4934895833334,
+        1485.2330729166667,
+        864.4934895833334,
+        1525.4830729166667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Ulgracia",
+      "gameplay_context": "U",
+      "claims": "OFF-004",
+      "world_label_position_interpreted": [
+        -2200,
+        2980
+      ],
+      "font_size": 23,
+      "display_box": [
+        657.1197916666667,
+        1652.9469791666668,
+        755.1197916666667,
+        1690.7769791666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": {
+        "leader_endpoint_world": [
+          -850,
+          3125
+        ],
+        "endpoint_inside_existing_U_mask": true,
+        "endpoint_number_box_clearance_pixels": 28.232265625000082
+      }
+    },
+    {
+      "label": "Blumund",
+      "gameplay_context": "R",
+      "claims": "OFF-012",
+      "world_label_position_interpreted": [
+        -1800,
+        400
+      ],
+      "font_size": 25,
+      "display_box": [
+        720.734375,
+        1189.8229166666667,
+        834.734375,
+        1230.0729166666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Englassia",
+      "gameplay_context": "G",
+      "claims": "OFF-013",
+      "world_label_position_interpreted": [
+        -2850,
+        -800
+      ],
+      "font_size": 25,
+      "display_box": [
+        530.74609375,
+        974.9791666666667,
+        648.74609375,
+        1015.2291666666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Falmuth",
+      "gameplay_context": "F",
+      "claims": "OFF-014",
+      "world_label_position_interpreted": [
+        -1400,
+        -1880
+      ],
+      "font_size": 25,
+      "display_box": [
+        795.8489583333334,
+        781.6197916666667,
+        902.8489583333334,
+        821.8697916666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Lubelius",
+      "gameplay_context": "L",
+      "claims": "WIK-WAL-001;LN06-004",
+      "world_label_position_interpreted": [
+        -3750,
+        -1900
+      ],
+      "font_size": 25,
+      "display_box": [
+        375.61328125,
+        778.0390625,
+        481.61328125,
+        818.2890625
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Desert of Death",
+      "gameplay_context": "V",
+      "claims": "WIK-WAL-001",
+      "world_label_position_interpreted": [
+        -4200,
+        -650
+      ],
+      "font_size": 25,
+      "display_box": [
+        255.046875,
+        1001.8346354166667,
+        441.046875,
+        1042.0846354166667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Ice Continent",
+      "gameplay_context": "I",
+      "claims": "OFF-011;MAP-005",
+      "world_label_position_interpreted": [
+        -1650,
+        -3980
+      ],
+      "font_size": 25,
+      "display_box": [
+        723.58984375,
+        405.6432291666667,
+        885.58984375,
+        445.8932291666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "El Dorado",
+      "gameplay_context": "X",
+      "claims": "MAP-006",
+      "world_label_position_interpreted": [
+        -4000,
+        2740
+      ],
+      "font_size": 25,
+      "display_box": [
+        322.3541666666667,
+        1608.7682291666667,
+        445.3541666666667,
+        1649.0182291666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    }
+  ],
+  "in_mask_text_labels": 15,
+  "callouts_with_endpoint_in_mask": 1,
+  "all_label_boxes_disjoint_from_58_padded_number_bubbles": true,
+  "all_label_boxes_pairwise_disjoint": true,
+  "inventory_rows_preserved": 129,
+  "open_rows_preserved": 32,
+  "open_name_status_rows": [
+    {
+      "name": "Butterflies of the Night",
+      "status": "parent-design-present-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Council headquarters",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Destroyed Imperial frontier city",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Duchy of Laquia",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Dwargon East city",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Dwargon West city",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Englassia royal castle",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Free Guild headquarters",
+      "status": "parent-design-present-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Freedom Academy",
+      "status": "parent-design-present-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Galut",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "General Kingdom of Doran",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Carnada",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Ghastone",
+      "status": "pin-present-country-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Kingdom of Grada",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Kaien",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Larbach",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Malbarath",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Morapha",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Rostia",
+      "status": "pin-present-country-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Kingdom of Silberia",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Spiru",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Long Wall",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Magic Tower",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Orc Kingdom of Orbic",
+      "status": "partial-terrain-representation",
+      "display_code": "P"
+    },
+    {
+      "name": "Republic of Boruss",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Republic of Zamund",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Resort Island",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Soma ruins",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Tengu settlement",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Town of Guratol",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Treant Settlement",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Unnamed Imperial vassal town",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    }
+  ],
+  "new_geographical_claims": 0,
+  "runtime_acceptance": false,
+  "actual_browser_geographic_label_boxes": [
+    {
+      "text": "Eastern Empire",
+      "x": 1702.3994140625,
+      "y": 775.2100219726562,
+      "width": 173.78125,
+      "height": 28
+    },
+    {
+      "text": "Canaat Mountains",
+      "x": 1177.4306640625,
+      "y": 827.1300048828125,
+      "width": 203.4072265625,
+      "height": 28
+    },
+    {
+      "text": "Great Jura Forest",
+      "x": 967.12744140625,
+      "y": 1258.6099853515625,
+      "width": 194.48583984375,
+      "height": 28
+    },
+    {
+      "text": "Jistav",
+      "x": 1711.170654296875,
+      "y": 972.1500244140625,
+      "width": 67.294921875,
+      "height": 28
+    },
+    {
+      "text": "Milim's Domain",
+      "x": 1637.5596923828125,
+      "y": 1330.22998046875,
+      "width": 178.36669921875,
+      "height": 28
+    },
+    {
+      "text": "Eurazania",
+      "x": 1316.1634521484375,
+      "y": 1348.1300048828125,
+      "width": 112.3408203125,
+      "height": 28
+    },
+    {
+      "text": "Fulbrosia",
+      "x": 1101.2255859375,
+      "y": 1634.5899658203125,
+      "width": 105.3583984375,
+      "height": 28
+    },
+    {
+      "text": "Sarion",
+      "x": 786.271240234375,
+      "y": 1491.3599853515625,
+      "width": 72.666015625,
+      "height": 28
+    },
+    {
+      "text": "Ulgracia",
+      "x": 663.3778076171875,
+      "y": 1658.8599853515625,
+      "width": 85.88525390625,
+      "height": 26
+    },
+    {
+      "text": "Blumund",
+      "x": 726.02685546875,
+      "y": 1195.949951171875,
+      "width": 104.05029296875,
+      "height": 28
+    },
+    {
+      "text": "Englassia",
+      "x": 537.1875,
+      "y": 981.0999755859375,
+      "width": 105.51708984375,
+      "height": 28
+    },
+    {
+      "text": "Falmuth",
+      "x": 802.1937255859375,
+      "y": 787.739990234375,
+      "width": 94.7607421875,
+      "height": 28
+    },
+    {
+      "text": "Lubelius",
+      "x": 381.0006103515625,
+      "y": 784.1599731445312,
+      "width": 95.41162109375,
+      "height": 28
+    },
+    {
+      "text": "Desert of Death",
+      "x": 261.63592529296875,
+      "y": 1007.9600219726562,
+      "width": 173.2763671875,
+      "height": 27.99993896484375
+    },
+    {
+      "text": "Ice Continent",
+      "x": 729.7228393554688,
+      "y": 411.7699890136719,
+      "width": 150.0888671875,
+      "height": 28
+    },
+    {
+      "text": "El Dorado",
+      "x": 327.6546936035156,
+      "y": 1614.8900146484375,
+      "width": 112.390625,
+      "height": 28
+    }
+  ],
+  "actual_browser_open_row_boxes": [
+    {
+      "text": "U  Butterflies of the Night",
+      "x": 65,
+      "y": 2787,
+      "width": 196.08984375,
+      "height": 20
+    },
+    {
+      "text": "M  Council headquarters",
+      "x": 65,
+      "y": 2818,
+      "width": 191.109375,
+      "height": 20
+    },
+    {
+      "text": "M  Destroyed Imperial frontier city",
+      "x": 65,
+      "y": 2849,
+      "width": 265.076171875,
+      "height": 20
+    },
+    {
+      "text": "M  Duchy of Laquia",
+      "x": 65,
+      "y": 2880,
+      "width": 150.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Dwargon East city",
+      "x": 65,
+      "y": 2911,
+      "width": 166.0498046875,
+      "height": 20
+    },
+    {
+      "text": "M  Dwargon West city",
+      "x": 65,
+      "y": 2942,
+      "width": 170.7080078125,
+      "height": 20
+    },
+    {
+      "text": "M  Englassia royal castle",
+      "x": 65,
+      "y": 2973,
+      "width": 194.09375,
+      "height": 20
+    },
+    {
+      "text": "U  Free Guild headquarters",
+      "x": 65,
+      "y": 3004,
+      "width": 213.109375,
+      "height": 20
+    },
+    {
+      "text": "U  Freedom Academy",
+      "x": 595,
+      "y": 2787,
+      "width": 170.06640625,
+      "height": 20
+    },
+    {
+      "text": "M  Galut",
+      "x": 595,
+      "y": 2818,
+      "width": 64.0166015625,
+      "height": 20
+    },
+    {
+      "text": "M  General Kingdom of Doran",
+      "x": 595,
+      "y": 2849,
+      "width": 234.125,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Carnada",
+      "x": 595,
+      "y": 2880,
+      "width": 185.109375,
+      "height": 20
+    },
+    {
+      "text": "U  Kingdom of Ghastone",
+      "x": 595,
+      "y": 2911,
+      "width": 192.125,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Grada",
+      "x": 595,
+      "y": 2942,
+      "width": 166.078125,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Kaien",
+      "x": 595,
+      "y": 2973,
+      "width": 162.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Larbach",
+      "x": 595,
+      "y": 3004,
+      "width": 181.109375,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Malbarath",
+      "x": 1125,
+      "y": 2787,
+      "width": 196.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Morapha",
+      "x": 1125,
+      "y": 2818,
+      "width": 187.09375,
+      "height": 20
+    },
+    {
+      "text": "U  Kingdom of Rostia",
+      "x": 1125,
+      "y": 2849,
+      "width": 165.078125,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Silberia",
+      "x": 1125,
+      "y": 2880,
+      "width": 176.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Spiru",
+      "x": 1125,
+      "y": 2911,
+      "width": 158.078125,
+      "height": 20
+    },
+    {
+      "text": "M  Long Wall",
+      "x": 1125,
+      "y": 2942,
+      "width": 99.375,
+      "height": 20
+    },
+    {
+      "text": "M  Magic Tower",
+      "x": 1125,
+      "y": 2973,
+      "width": 121.7060546875,
+      "height": 20
+    },
+    {
+      "text": "P  Orc Kingdom of Orbic",
+      "x": 1125,
+      "y": 3004,
+      "width": 190.73828125,
+      "height": 20
+    },
+    {
+      "text": "M  Republic of Boruss",
+      "x": 1655,
+      "y": 2787,
+      "width": 171.078125,
+      "height": 20
+    },
+    {
+      "text": "M  Republic of Zamund",
+      "x": 1655,
+      "y": 2818,
+      "width": 181.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Resort Island",
+      "x": 1655,
+      "y": 2849,
+      "width": 126.046875,
+      "height": 20
+    },
+    {
+      "text": "M  Soma ruins",
+      "x": 1655,
+      "y": 2880,
+      "width": 111.046875,
+      "height": 20
+    },
+    {
+      "text": "M  Tengu settlement",
+      "x": 1655,
+      "y": 2911,
+      "width": 157.751953125,
+      "height": 20
+    },
+    {
+      "text": "M  Town of Guratol",
+      "x": 1655,
+      "y": 2942,
+      "width": 145.734375,
+      "height": 20
+    },
+    {
+      "text": "M  Treant Settlement",
+      "x": 1655,
+      "y": 2973,
+      "width": 163.0693359375,
+      "height": 20
+    },
+    {
+      "text": "M  Unnamed Imperial vassal town",
+      "x": 1655,
+      "y": 3004,
+      "width": 266.109375,
+      "height": 20
+    }
+  ],
+  "browser_label_boxes_with_2px_stroke_clear_of_7px_padded_number_bubbles": true,
+  "all_58_original_numbered_groups_byte_equivalent": true,
+  "all_32_open_rows_fit_panel": true,
+  "actual_browser_non_callout_text_bounds_with_stroke_inside_context": 15,
+  "ulgracia_leader_with_1px_buffer_clear_of_padded_number_boxes": true
+}

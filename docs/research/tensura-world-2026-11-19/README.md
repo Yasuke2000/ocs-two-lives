@@ -1,4 +1,6 @@
-# Tensura geography research — round40 Long Wall corridor correction
+# Tensura geography research — round41 atlas/index coverage
+
+Current round41: [complete geographical reader index](../../../world/location-index.md),[presentation review](../../../world/location-index-review.md) and16 regional atlas labels expose the existing32 missing/partial/unverified representations. All129 inventory names are retained without fabricated coordinates. Stale displayed wiki-coverage counts are reconciled. No source/terrain/coverage classification changes:215claims/14directLN,58registered art pairs and sourcea24cea9b remain.
 
 Current round40: [Long Wall corridor correction](../../../world/long-wall-corridor-review.md) fixes an inert proposal crossing the authored desert,including a dry detour around the Coleus oasis. No active terrain changes; fresh normal export remains identical. Ledger215/14directLN,inventory129/32follow-ups and58art pairs unchanged. Current source-comment SHAa24cea9b,same active geometry as1ea6782d.
 

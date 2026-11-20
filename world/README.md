@@ -26,6 +26,8 @@ The registered place-art stack reaches58/58 in [PR101](https://github.com/Yasuke
 
 The [current painted atlas in PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) now follows source SHA1ea6782d,including the Orbic habitat,Ice inlets and unnamed Imperial basin. The three earlier painting reviews remain historical. The standalone [terrain preview](terrain-preview.png) is refreshed from the same normal export already used by this branch's numbered atlas; [provenance](terrain-preview-provenance.json) records its exact source/hash. Neither presentation changes terrain or proves source/runtime acceptance.
 
+The [complete location index](location-index.md) preserves129 source/scope entries. The current atlas adds16 geographical context names and lists32 open representations separately; [layout/source review](location-index-review.md) distinguishes them from the58 numbered server reservations. No new point or terrain is inferred from an unlocated name.
+
 ## Format in short
 
 - Block coordinates. `viewBox="-8000 -6000 16000 12000"` is only the canvas (the converter crops to the content plus

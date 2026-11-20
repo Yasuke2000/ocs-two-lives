@@ -1,4 +1,6 @@
-# Current map review — round40 Long Wall proposal correction
+# Current map review — round41 geographical atlas/index
+
+Round41 adds16 geographical orientation labels and a separate32-entry open-coverage panel to the terrain atlas,plus a complete129-entry source/scope index. Original58 numbered groups and embedded terrain bytes retained. Actual Chrome text bounds verify separation from padded number bubbles; full atlas visually inspected. No production geometry/export/source/painted/runtime change; sourcea24cea9b. Ledger215/14directLN,129inventory/32follow-ups and58art pairs unchanged. Repository validation and472 tests pass (26 skips,zero failures,43.889s test tier). Full geography/source/fixed-rule/era/build-fit/runtime requirements remain open.
 
 Round40 corrects the inert Long Wall corridor to the existing desert edge; the old proposal ran856.63blocks through its interior. Current source SHAa24cea9b46a751dbaa9b6765e2c1a5a8d829624744c980d8a9d65d159bb51295. All11 active layers/58sites/checker preview and9 normal exports are byte-identical to5bb2467. Fresh checker0errors/56relations/same2warnings; fresh normal build no warnings. Ledger215/14directLN,129inventory/32follow-ups and58art pairs retained. Repository validation and472 tests pass (26 skips,zero failures,44.129s test tier). No apply/deploy; C15/full source/geography/era/fit/runtime obligations remain open.
 
