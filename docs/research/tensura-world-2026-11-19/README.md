@@ -1,8 +1,8 @@
 # Tensura geography research — map round 6
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 83 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 141 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 101 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 159 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and
@@ -26,3 +26,7 @@ The author-linked [WN sketch](https://8371.mitemin.net/userpageimage/viewimagebi
 ## Wiki-wide location coverage
 
 [Coverage audit](wiki-coverage.md), [126-entry inventory](wiki-location-coverage.csv), [source access/traversal](wiki-source-audit.csv) and [58-site crosswalk](server-site-crosswalk.csv). This expands the original server brief and explicitly lists missing places; it does not certify the entire wiki as read.
+
+## Initial era
+
+Yasuke selected the moment immediately after Kijin naming (anime S1 episode10). [Era policy](../../../world/era.md) and [58-site state overlay](era-site-state.csv) supersede the previous mixed-era presentation. Later sources remain qualified in the ledger snapshot_use column.

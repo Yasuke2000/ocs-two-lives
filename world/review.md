@@ -1,73 +1,53 @@
-# Research-driven map review — round 6
+# Current map review — round 7, post-Kijin snapshot
 
-The standard checker and repository gate pass. This remains a source-qualified, server-scale adaptation:
-exact vertices, heights and point coordinates are interpretation. Primary-source coverage and the
-remaining owner-facing lore/scale alternatives are kept explicit rather than called proven canon.
+Yasuke selected **immediately after the Kijin naming, anime S 1 episode 10**. [Era policy](era.md)
+and [58-site state overlay](../docs/research/tensura-world-2026-11-19/era-site-state.csv) supersede mixed-era
+presentation. Rimuru leads a young village; the Orc Lord conflict is unresolved. Later nation-building,
+conquests, damage, construction and resident rosters are not the initial world state.
 
-## Current drawing and evidence
+## Drawing and evidence
 
-Western placements now follow the supplied point pattern more closely within unchanged server ranges:
-Blumund `(-1500,-620)`, Marris `(-1800,-1650)`, and the Sealed Cave `(-120,-400)`. The northern bay bank,
-Shia landing, western junction and cave hill/stream move with them. The northeastern coast has a hooked
-inlet and the east coast a bay; P/M gameplay coverage follows the new connected land tongue.
-All 58 site IDs, radius minima and relative internal offsets are retained.
+The live map adds irregular light woodland north of Siss toward the eastern Canaat foothills and an open
+fringe toward the Empire. Exact habitat outlines are **our interpretation**. No new military ruin position,
+road, sovereign frontier, river or height is invented. Coast and all 58 registered site positions are retained.
+The atlas uses the early village label and calls the footprints terrain reservations.
 
-[Regions and deliberate differences](regions.md), [claim ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
-[publisher LN findings](../docs/research/tensura-world-2026-11-19/ln-sample-findings.md),
-[source access](../docs/research/tensura-world-2026-11-19/source-access.csv), [reference comparison](comparison.md).
-The ledger contains **141 records: 83 thematic/design records and 58 site-coordinate interpretations**,
-including 11 directly read LN claims; not all records are verified canon.
+The ledger contains **159 records: 101 thematic/design/reference records plus 58 coordinate interpretations**.
+Eleven directly read LN claims and nine newly read WN claims remain qualified by continuity and snapshot_use.
+[WN findings](../docs/research/tensura-world-2026-11-19/wn-geography-followup.md),
+[ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
+[wiki coverage](../docs/research/tensura-world-2026-11-19/wiki-coverage.md).
+Supplied official-map chapter screenshots were inspected separately from live controls. Early/later markers
+are not conflated, and unexplained highlights are not treated as timeless sovereign borders. Direct web
+retrieval exceeded the content limit; a local live-page request was declined. Live controls were not operated.
 
-## Measured verification
+## Verification and exact limits
 
-```
-python -I tools/world/map_check.py world/map.svg --preview world/preview.png
-python -I tools/world/build.py
-bash tools/check.sh
-```
+- Standard checker after each SVG edit: **0 errors, all 56 relations pass**, two disclosed warnings:
+  Laura waterfall crosses its escarpment; box 12288 by 10752 is 512 above preferred height, below the hard cap.
+  Mainland about 9653 by 6250; 12 forests and 14 biome polygons.
+- Latest successful normal converter: **53.9 seconds, no warnings**, 3072 by 2688 pixels. This includes the
+  eastern habitat edits. A requested repeat after era-only metadata was declined (tool returned
+  `rejected by user`, with no explanatory reason). No generated index was patched or bypass used.
+- Current raw SVG SHA differs from staging. Removing only C18 comment/root data-era and restoring two
+  cosmetic labels reconstructs the exact staged SHA. Active geographic geometry matches that successful
+  build. This does not turn an earlier run into a claimed rerun.
+- **58/58** centres verified against index.json; sites.json contains only the 34 runtime plate entries,
+  not every marker. All 159 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
+- Actual current exported profiles: **21 roads, maximum grade 0.5** within float epsilon. Road geometry
+  is unchanged; the earlier measured 24-block bridge maximum remains unchanged-route evidence.
+- Repository gate: validation passes, **462 tests,26 skips,0 failures**.
+- Checker preview, numbered atlas and side-by-side official-base comparison visually inspected. Copyrighted
+  reference art remains outside the repository; [comparison](comparison.md) links the official source.
 
-- Required standard checker after every SVG edit: **0 errors, all 56 relations pass**. Two warnings:
-  Laura's intended mountain-waterfall crossing and a 12288 by 10752 box, 512 taller than preferred but
-  below the hard cap. Mainland about 9653 by 6250 blocks.
-- Final normal build, without skip-check: **54.6 seconds, 0 converter warnings**, 3072 by 2688 pixels.
-  The normalized source SHA matches the current SVG. No apply performed.
-- **58/58** generated x/z positions match the drawing; all effective radii meet footprint minima;
-  every internal anchor keeps its exact parent offset.
-- Actual water raster: **0 wet pixels out of 1116** sampled over the cave's complete radius-75 disc.
-- Actual exported profiles: **21 roads, maximum grade 0.5 (1:2)**, allowing only numerical float epsilon;
-  longest generated bridge run **24 blocks**, below the 64-block limit.
-- Repository gate on the integrated main-a1848be branch: validation passes; **462 tests, 0 failures,
-  26 skips**. Installed Git Bash is used because system bash points at missing WSL. No tests changed.
-- All 22 regional biome-mix target lists sum to 100; they are design targets, not raster measurements.
-- Checker preview, converter terrain, numbered atlas and reference/alternative drawings inspected.
-  Source art is linked only in the repo; combined reference screenshots remain outside it.
+No apply, Minecraft chunks, in-game acceptance, main merge or server deployment is claimed.
 
-An additional profile audit found ten old climb routes slightly above 1:2 despite zero converter warnings.
-Only authored road geometry was changed: short axis or rational diagonal segments stay within nine blocks
-of the sketched corridor and make four-block centreline intervals exact. Final exported profiles satisfy
-the real distance-based slope limit. No grading algorithm or tool code was edited.
+## Remaining fidelity decisions
 
-## Proportion and lore alternatives
-
-[Before/after audit](proportion-audit.csv): distance-ratio discrepancies drop **57.4 → 32.8%** for Blumund,
-**41.8 → 11.4%** for Marris and **24.3 → 3.3%** for the cave. These compare secondary marker pixels with an
-unknown projection, not a surveyed canonical coordinate system.
-[Reference-scaled study](proportion-study.png) shows why remaining differences cannot silently be removed
-under the fixed ranges/bearings. The three trial circles are also inside an inert map.svg comment.
-[Other lore alternatives](lore-alternatives.png) likewise show C05/C06 without applying unverified terrain.
-
-The owner specifically authorized five data-entry corrections in tools/world/canon_relations.toml.
-Other 51 relations, site/sea rules, checker code and tests remain unchanged; no further technical file
-differs from the integrated main. See design/lore/world-map-corrections.md.
-
-Further relevant WN/LN geography, manga page-level sources and exact anime timestamps still warrant
-primary-source review. Unavailable licensed fragments are not presented as read. No Minecraft chunks,
-runtime acceptance, pack application, merge to main or deployment are claimed.
-
-## Wiki coverage audit
-
-The [126-entry audit](../docs/research/tensura-world-2026-11-19/wiki-coverage.md) enumerates all 31 owner-listed Location entries and the 44-entry Countries index, plus related geography. It identifies 29 entries without distinct production representation. These include interior and historical candidates, not 29 automatically approved new continent sites. Eastern Empire region E and its two markers are present; exhaustive city/interior coverage is not. No production geometry changed in this documentation pass.
-
-## C14/C15 evidence and drawn alternatives
-
-[Five proposed additions/corrections](additional-locations.md) are drawn in an original SVG/PNG study and inert production-SVG comment. One official manga synopsis and seven carefully qualified wiki relationships add evidence; five proposal geometry records remain interpretation. Ledger: 141 records (83 thematic/design plus 58 coordinate interpretations). The current build source hash matches staging. Checker and terrain preview pixels are byte-identical to the previous production drawing: the live geometry did not change. Normal build: 54.6 seconds, no converter warnings. Repository gate rerun passes validation and 462 tests, 26 skips. The Sainte-Malukshure H-region conflict is disclosed for owner review; no extra technical data changes.
+[Additional proposals](additional-locations.md) remain inert. C14 exposes Sainte-Malukshure's H/Fulbrosia
+anchor conflict; C15 separates new locations from the 58-site contract; C16 keeps WN Tengu access distinct;
+C17 flags Englassia's lake/castle interior. C18 distinguishes the early village/trails from mandatory
+future-ready road metadata and later content capacity. Runtime era gating is not implemented.
+[Proportion alternatives](proportion-study.png) retain unresolved fixed-range distortions.
+Only the five explicitly approved TOML relation entries are changed in tools/. The 126-entry wiki inventory
+still contains missing or uncertain places; neither the complete wiki nor the faithful-continent goal is finished.

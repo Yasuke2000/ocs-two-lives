@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Initial era after Kijin naming and eastern landscape (ChatGPT, PR #74)
+
+Owner selected immediately after the six ogres are named: official anime S1E10 synopsis verified. [Era policy](../world/era.md) and 58-site overlay supersede mixed-era presentation. Atlas: Rimuru's village, unresolved orc approach, future/server reservations. Falmuth, Frey, Carrion, Clayman and Rudra baseline; no later Tempest metropolis or ruler outcomes. Supplied official map chapters1/2/3/4/6/9 inspected separately from live controls.
+Live geometry adds only eastern Jura/Canaat light woodland and open fringe. All58 sites, roads, heights, waters and political masks retained. Ledger159 records (101 thematic/design +58 coordinates); every row has snapshot_use, with nine new direct WN claims. C16/17 qualify WN access and city water; C18 exposes future highway/content contract versus the early snapshot.
+Verified: checker0 errors/all56 relations pass/2 prior warnings; normal build53.9s/no warnings includes habitats. Later converter repeat declined; removing only era metadata/cosmetic labels exactly reconstructs staged source SHA. Generated index unchanged. All58 centres verified from index.json (sites.json has34 plate entries); actual21 road profiles <=0.5. Validation and462 tests pass,26 skips. [Current review](../world/review.md). No runtime apply. Next: close source/wiki gaps and reconcile era construction/residents with the runtime team; do not claim future content already exists.
+
 ## 20/11 — Coastal Malukshure evidence and additional-location drawings (ChatGPT, PR #74)
 
 [Five proposals](../world/additional-locations.md), [view](../world/additional-location-study.png): Galut, Tengu summit settlement, coastal Sainte-Malukshure, offshore Magic Tower, western Long Wall corridor. Exact geometry is interpretation and remains inert in map.svg comment. New primary official manga synopsis places the tower in Malukshure waters; wiki neighbours/coast remain qualified. C14 exposes current Sainte pin in H/Fulbrosia versus coastal/west-of-Sarion source alternative. C15 keeps proposed places separate from the fixed 58-site contract. No additional tool/anchor/runtime changes. Ledger now 141 records, 11 direct LN claims.

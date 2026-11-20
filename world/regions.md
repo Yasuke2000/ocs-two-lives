@@ -89,9 +89,9 @@ the delivered road data, not an in-game acceptance claim.
 
 The official guide and episode stills are reference links only; no official artwork is copied into this repository. Still links were extracted from the corresponding official episode pages on 19/11/2026; they provide shared series visual vocabulary and do not necessarily depict every minor nation. Where a place has no verified dedicated canonical image, the linked stills are mood references, not geographic evidence. Canon summaries below are paraphrases of the repo lore and the primary guide.
 
-Early Tempest depicts the village after the ogres join. Later capitals and ruins exist as game destinations; the map does not assert a single unchanged political moment for every quest. Charybdis’s combat arena at Siss is a game placement; do not describe Charybdis as a canonical lake-whirlpool species.
+**Owner-selected initial snapshot: immediately after the Kijin naming, anime S1 episode 10.** Rimuru leads a young village; the later federation/metropolis and postwar political changes are not the initial state. Existing faraway capitals remain, but later construction/events are reservations. See [era policy](era.md) and the [58-site state overlay](../docs/research/tensura-world-2026-11-19/era-site-state.csv). Charybdis's Siss arena remains a server reservation, not an event already completed.
 
-## J — Jura-Tempest Federation
+## J — Jura Forest / Rimuru's village (gameplay J)
 
 **Landform and heights.** Temperate lowlands 68–88; rocky shoulders 95–105. Tempest grows beside the west brook inside a small clearing. The road rises north through the safe rim to the Canaat apron.
 
@@ -103,7 +103,7 @@ Early Tempest depicts the village after the ogres join. Later capitals and ruins
 
 **Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 9, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img1.jpg), [episode 9, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img2.jpg).
 
-**Anime frames actually inspected.** [rimuru city](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/rimuru_city.webp), [sealed cave](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/sealed_cave.webp), [khusha mountains](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/khusha_mountains.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md).
+**Anime frames actually inspected.** [rimuru city](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/rimuru_city.webp), [sealed cave](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/sealed_cave.webp), [khusha mountains](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/khusha_mountains.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md). The later planned Rimuru-city frame is visual context only; the initial village follows episode9/10 references in [era.md](era.md).
 
 ## D — Armed Nation of Dwargon
 
@@ -387,3 +387,7 @@ The ogre ruin is placed at the southeastern Khusha foothills, using the supplied
 ## Additional-location source review — C14/C15
 
 [Evidence and measured proposals](additional-locations.md), [original study](additional-location-study.png). The Galut capital, Tengu summit settlement, coastal Sainte-Malukshure, offshore Magic Tower and Long Wall corridor are drawn as inert alternatives inside map.svg. Exact coordinates and dimensions are **our interpretation**. No active geography was changed in this pass. The official Vacation manga volume-2 synopsis supports the tower in Malukshure waters; the coastal city and neighbour relationship remain wiki-qualified. The current Sainte pin is inland/east of Sarion and tied to H/Fulbrosia by anchor data. That contradiction is disclosed as C14, not called canon. The new-location proposals remain outside the fixed 58-site registry (C15).
+
+## Eastern foothill landscape — round 7
+
+The [direct WN follow-up](../docs/research/tensura-world-2026-11-19/wn-geography-followup.md) supports an eastern Jura frontier history; the wiki describes Eastern Plains shared by Jura and the Empire. The live drawing now adds light foothill woodland north of Siss and an irregular grassland fringe toward the eastern approach. Exact forest/plains outlines and biome choice are **our interpretation**. Geographical Jura does not have to equal the Tempest gameplay polygon. The shapes preserve the Siss marsh, mountains, roads, all 58 sites and all political masks. No frontier ruin coordinate is asserted. This deliberately fills the earlier empty transition, rather than leaving the geographical forest extent implicit in a political region name. WN102 gate access (C16) and WN56 capital water (C17) remain qualified continuity/interior matters.

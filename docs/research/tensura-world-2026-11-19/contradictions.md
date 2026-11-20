@@ -32,6 +32,11 @@ Licensed LN volume 1/2 publisher listings and the Google Books volume-1 listing 
 | C14 | Sainte-Malukshure is bound to H/Fulbrosia in the active anchor data; wiki places the coastal capital west of Sarion, and an official synopsis places the Magic Tower in its waters. | Coastal capital and offshore tower alternatives are drawn in the map.svg comment and additional-location study. Keep the live constraint pending owner reconciliation; exact proposal geometry is interpretation. |
 | C15 | The 58 registered sites omit distinct Galut, Tengu settlement and the Long Wall, among other wiki candidates. | Original proposal footprints/corridor are drawn separately and in inert map.svg comment. They do not become live sites or prove the entire wiki complete. |
 
+| C16 | WN102 describes a Tengu summit gateway leading to the settlement; wiki/LN-oriented summary only supports the summit setting so far. | Keep WN access as separate evidence; do not silently turn the proposed LN/anime settlement into a WN dimension. |
+| C17 | WN56 describes Englassia castle in a central lake, whereas the active registered capital is a dry build footprint. | Record as an interior/build reconciliation item; retain the current dry footprint pending reviewed water/structure design and continuity check. |
+
+| C18 | Owner now fixes the world immediately after Kijin naming (anime S1E10), whereas older mixed-era descriptions and mandatory built highways imply later development. | Early village/political state is now authoritative. All 58 site states are qualified; a trail alternative is drawn in the SVG comment. Runtime construction/resident gating is a handoff, not silently implemented or claimed complete. |
+
 ## Review status
 
 The current visible map is PR #74 on `chatgpt/world-map`, still a draft. Earlier PR #69 remains historical reference. The owner-approved five corrections are now in the default matrix; the standard map checker passes with two disclosed warnings. No Minecraft world or deployment is claimed. The five technical geography conflicts are resolved by the explicit owner exception; source coverage and proportional-fidelity review remain incomplete.

@@ -1,4 +1,4 @@
-# Reference comparison — draft research round 6
+# Reference comparison — research round 7 / post-Kijin snapshot
 
 | Authored Minecraft geometry | Official visual reference |
 | --- | --- |
@@ -20,3 +20,5 @@ corrections. These screenshots do not prove source completeness, proportional fi
 Round 6 improves western/cave proportions, the northern bay bank and the hooked northeastern/eastern shore. [Constrained proportion alternatives](proportion-study.png) are drawn for owner review; exact reference-scaled points stay inert.
 
 [Additional-location study](additional-location-study.png) draws C14/C15 coastal, summit, city and wall proposals in context. These are proposed interpretation geometry, not edits to the active terrain.
+
+Current initial state: [immediately after Kijin naming](era.md), S1 episode10. Later chapter screenshots are comparisons, not initial politics. Round7 adds interpreted eastern foothill woodland/open ground. Raster provenance after subsequent era-only metadata is qualified in [review](review.md).
