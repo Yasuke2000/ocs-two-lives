@@ -44,3 +44,7 @@ A small western trail waypoint adjustment within20 blocks corrects the actual ex
 Coleus detail: [official INEI production panorama and source/placement review](../docs/research/tensura-world-2026-11-19/coleus-placement-review.md). The panorama supplies local visual character; the official outline supplies the between-country relationship. Neither supplies surveyed coordinates.
 
 Round20 adds an official episode64 Tengu source review and an inert ridge/terrace proposal. Current preview and official base map were reinspected; all live geometry and preview bytes remain unchanged. [Study and exact evidence limits](tengu-settlement-study.md). No new continental-geography claim is inferred from the illustrative plan.
+
+## Forest/painting comparison — round22
+
+Three eastern forest boundaries now use restrained broad bays/lobes rather than smooth oval/ribbon edges. All sites, water, relief, roads, gameplay masks and nine other forests remain unchanged. The official base illustration, first painted study and new checker/terrain previews were compared; precise woodland boundaries are still our interpretation. [Before/after measurements and deliberate differences](forest-edge-review.md). No new sovereign border, canonical acreage or climate zone is inferred.

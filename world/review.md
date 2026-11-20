@@ -1,4 +1,8 @@
-# Current map review — round20 Tengu source/proposal review, post-Kijin snapshot
+# Current map review — round22 eastern forest edges, post-Kijin snapshot
+
+Round22 gate passes validation and462 tests (26 skips,zero failures,45.068s test tier). The current checker JSON is generated at `world/map_check.json`.
+
+[Forest edge review](forest-edge-review.md) revises only three existing woodland boundaries after comparing the terrain preview and first painting. All58 sites,9 other forests and all non-forest SVG layers remain unchanged. Full height/water PNGs and21 road profiles are byte-identical;11850 biome cells change only within the authored boundary differences. The stronger trial was rejected; selected patches retain89.4..91.0% of previous area. Exact edges are interpretation, not a new canonical vegetation survey. The old painting is now historical at its recorded hash; refreshed painting and final coupled review remain open.
 
 Round20 offline gate passes validation and462 tests (26 skips,zero failures,44.952s test tier). Both126-entry coverage inventories retain26 missing representations and3 existing parent designs awaiting verification; no completeness credit comes from the new proposal.
 
@@ -35,7 +39,7 @@ Round 9 replaces the long equal-height Canaat crest with a shorter bent high spi
 
 [Empire follow-up](../docs/research/tensura-world-2026-11-19/eastern-empire-followup.md) keeps Silberia unlocated and its S1E10 state unverified. Publisher guide13.5 listing was read; the licensed trial did not render. Historical WN predecessor states and the frontier ruin are not silently turned into contemporary anime sites.
 
-The ledger contains **191 records: 133 thematic/design/reference records plus 58 coordinate interpretations**.
+The ledger contains **192 records: 134 thematic/design/reference records plus 58 coordinate interpretations**.
 Eleven directly read LN claims and nine newly read WN claims remain qualified by continuity and snapshot_use.
 [WN findings](../docs/research/tensura-world-2026-11-19/wn-geography-followup.md),
 [ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
@@ -51,11 +55,11 @@ view. This does not establish surveyed borders or make omitted countries nonexis
 - Standard checker after each SVG edit: **0 errors, all 56 relations pass**, two disclosed warnings:
   Laura waterfall crosses its escarpment; box 12288 by 10752 is 512 above preferred height, below the hard cap.
   Mainland about 9653 by 6250; 10 mountains, 6 hills, 12 forests and 18 biome polygons.
-- Fresh normal converter build of the **current SVG**: **56.4 seconds, no warnings**, 3072 by 2688
+- Fresh normal converter build of the **current SVG**: **55.7 seconds, no warnings**, 3072 by 2688
   pixels. All current labels/comments and preceding terrain revisions are included. The source SHA matches staging;
   published terrain-preview bytes match the fresh output. Earlier permission limitations are resolved.
 - **58/58** centres verified against index.json; sites.json contains only the 34 runtime plate entries,
-  not every marker. All 191 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
+  not every marker. All 192 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
 - Actual current exported profiles: **21 roads, maximum grade 0.5** within float epsilon. Round 16 reroutes two old Dragon City approaches; prior Coleus, southern and western corrections remain; current bridge metadata has a 40-block maximum, below the 64-block limit.
 - Raster footprint check: Siss water1804/1804 pixels; lizardmen intentional water plate710/710 at level66
   (`sites.toml` surface=water, for stilt construction); cave dry0/1116 wet pixels; goblin village0/612 wet; Elmine0/1976 wet; Coleus0/1044 wet; old Dragon City0/1954 wet.

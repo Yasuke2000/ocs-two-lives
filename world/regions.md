@@ -449,3 +449,7 @@ The outer authored area is about523300 square blocks; separated field areas abou
 ## Tengu source/proposal comparison — round20
 
 Round20 comparison note: the official map and current preview were reinspected. The Tengu review changes only an inert proposal comment,160 blocks north to an existing Khusha ridge; all active geography and58 markers remain identical. The official episode64 synopsis independently confirms Khusha residence and a later proposed tunnel. [The original terrace study](tengu-settlement-study.md) uses limited official stills and clearly authored buildings/paths. It does not add a new sovereign border, a completed later tunnel, a WN dimensional gateway or a pink forest biome. Existing continental scale/binding differences remain open; no new deliberate terrain difference is introduced.
+
+## Eastern forest edges — round22
+
+Three eastern forest boundaries now use restrained broad bays/lobes rather than smooth oval/ribbon edges. All sites, water, relief, roads, gameplay masks and nine other forests remain unchanged. The official base illustration, first painted study and new checker/terrain previews were compared; precise woodland boundaries are still our interpretation. [Before/after measurements and deliberate differences](forest-edge-review.md). No new sovereign border, canonical acreage or climate zone is inferred.
