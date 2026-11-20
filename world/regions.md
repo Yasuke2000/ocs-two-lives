@@ -403,3 +403,9 @@ The official illustrated relief is read as a concentrated northern summit mass w
 All 58 site centres/radii, the coastline, lakes, rivers, roads, gameplay masks and the post-Kijin snapshot are retained. The Ameld headwater marker stays at the southern foot outside the mountain polygon. Exact entrance bearings and valley positions remain interpretations. Road profiles and underground reservations are verified against the new staging output in [review](review.md).
 
 The [Empire follow-up](../docs/research/tensura-world-2026-11-19/eastern-empire-followup.md) keeps Silberia as an unlocated research gap. Wiki political membership is not a geographical coordinate or a reliable S1E10 survival date. The publisher confirms guide 13.5 includes the lakeshore story, but its trial did not load. No unread passage, unnamed city grid or present-day Namrium/Ulmeria capital is invented. Eastern settlement and interior coverage remains incomplete.
+
+## Filtwood and Orbic — round 10 source correction
+
+[New source/constraint diagram](southern-location-study.png) separates the active Filtwood U anchor from an illustrative Jura-edge alternative, and the depleted Orc homeland from the Siss battlefield. C20 corrects the unsupported Ulgracia-town claim: official episode 24 names a kingdom in a pre-Rimuru story; wiki supplies only Jura proximity. The exact side of Jura remains unknown. All trial coordinates and the Orbic vicinity outline are **our interpretation**. Neither alternative is active terrain or a new sovereign region. Detailed evidence and era limits are in [the study](southern-location-study.md).
+
+All live terrain and registered sites remain unchanged in this round; only the disputed Filtwood label and inert comment are added. Do not relocate the production anchor without reconciling its required U binding, or use the homeland study as a source-confirmed capital plan.

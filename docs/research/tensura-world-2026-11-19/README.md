@@ -1,8 +1,8 @@
-# Tensura geography research — map round 9
+# Tensura geography research — map round 10
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 107 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 165 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 112 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 170 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and
@@ -34,3 +34,5 @@ Yasuke selected the moment immediately after Kijin naming (anime S1 episode10). 
 [Official interactive-map live verification](official-interactive-map.md) now closes the earlier live-control access gap. Chapter2 is coarser than the selected episode10 event.
 
 [Empire follow-up and relief review](eastern-empire-followup.md): Silberia remains unlocated and initial-era status is open; the licensed guide13.5 trial did not render.
+
+[Filtwood and Orbic study](../../../world/southern-location-study.md) corrects the unsupported Ulgracia-town claim and distinguishes homeland from battlefield.

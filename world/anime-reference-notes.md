@@ -77,3 +77,7 @@ The official source supports country adjacency but does not make every exact sit
 In particular the ogre ruin's precise southeast bearing and Jia's compressed separation from Laura remain
 secondary-reference adaptations under the owner choice. See the research confidence fields and conflicts.
 The coast and terrain geometry are original; the surrounding ocean is generated beyond the authored land.
+
+## Episode24 follow-up
+
+Official synopsis and all five linked official stills were inspected. The synopsis names Filtwood kingdom and dates the story before Rimuru; stills3/4 show an ornate interior, not an exterior country plan. No geographical bearing or current resident roster is inferred. See [source study](southern-location-study.md).

@@ -45,3 +45,5 @@ Do not add invented IDs to the fixed 58-site registry, change technical code, or
 The current production SVG and checker preview are unchanged in this audit. The two disclosed checker warnings and unresolved Nasca/mountain bearing remain in the existing review. This inventory is the backlog for the next completeness pass, not permission to label the current map exhaustive.
 
 [Empire follow-up](eastern-empire-followup.md) distinguishes the unlocated Silberia/vassal leads, historical WN predecessors and unread licensed story from active mapped terrain. It does not upgrade missing locations to production coverage.
+
+[Southern follow-up](../../../world/southern-location-study.md) corrects Filtwood's unsupported U/Ulgracia identity and draws an inert Orbic homeland vicinity. Inventory counts are unchanged: a proposal is not active terrain coverage.

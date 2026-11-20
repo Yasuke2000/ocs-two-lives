@@ -1,5 +1,10 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Filtwood source correction and Orbic homeland study (ChatGPT, PR #74 round10)
+
+Official S1E24 synopsis names Filtwood a kingdom in a story before Rimuru; wiki puts it near Jura. The creative pack's town-in-Ulgracia claim was unsupported. C20 corrects prose, era overlay and coverage crosswalk; active U anchor is unchanged and visibly disputed. [New study](../world/southern-location-study.md) draws an inert western Jura-edge trial (side unverified) and a separate depleted Orbic homeland vicinity. LN2 famine/junction reread; wiki bearings stay secondary. All five official episode24 stills inspected: interiors/characters, no exterior plan. Ledger170 unique records.
+Verified: standard checker0 errors/all56 relations pass/2 prior warnings; fresh build52.3s/no warnings/current SHA match. All non-label SVG groups and converter preview bytes equal prior terrain; all58 exported centres/radii verified and21 road grades<=0.5. Repository gate: validation passed;462 tests,26 skips,0 failures. No extra technical, runtime or live terrain edits. Next: remaining missing-place/source evidence and fixed-binding reconciliation; no exhaustive wiki/completion claim.
+
 ## 20/11 — Canaat relief and Empire evidence gaps (ChatGPT, PR #74 round9)
 
 Replaced the long equal-height Canaat crest with a shorter bent high spine and a lower tapered180-block eastern mountain apron, following broad official illustrated massing. Exact relief is interpretation. All58 centres/radii, coasts, waters, roads and masks unchanged. [Empire follow-up](research/tensura-world-2026-11-19/eastern-empire-followup.md): Silberia remains unlocated; publisher13.5 listing read but licensed trial timed out. WN historical states/frontier ruin remain continuity-qualified. Ledger165 records.

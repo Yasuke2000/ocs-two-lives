@@ -1,4 +1,4 @@
-# Reference comparison — research round 9 / post-Kijin snapshot
+# Reference comparison — research round 10 / post-Kijin snapshot
 
 | Authored Minecraft geometry | Official visual reference |
 | --- | --- |
@@ -24,3 +24,5 @@ Round 6 improves western/cave proportions, the northern bay bank and the hooked 
 Current initial state: [immediately after Kijin naming](era.md), S1 episode10. Later chapter screenshots are comparisons, not initial politics. Round7 adds interpreted eastern foothill woodland/open ground. Round8 lengthens Siss east–west and corrects the false aquatic-whirlpool premise; exact shore shape remains interpretation. The current SVG has a fresh, SHA-matched staging build; details in [review](review.md).
 
 Round9 replaces the broad equal-height Canaat wall with a concentrated summit spine and lower tapered eastern spurs. Fixed anchors still force compression relative to the official map; exact relief and elevations remain interpretation. [Empire evidence gaps](../docs/research/tensura-world-2026-11-19/eastern-empire-followup.md) stay explicit.
+
+Round10 changes only a disputed label and inert source alternatives. [Filtwood/Orbic study](southern-location-study.png) shows the unresolved U binding and separate homeland vicinity. The official base image alone does not locate those missing settlements.

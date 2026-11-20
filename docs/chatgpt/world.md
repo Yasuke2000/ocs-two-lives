@@ -375,7 +375,7 @@ long canon note in `design/lore/`.
 | [Siltrosso](places/siltrosso.md) | F | build | −2450, −1650 | 4,890 blocks NW | Siltrosso, the small kingdom of the Rosso family (Granbell, Mariabell). | [siltrosso.md](../../design/lore/siltrosso.md) |
 | [Holy City Lubelius (Lune)](places/lubelius.md) | L | build | −2550, −700 | 4,560 blocks W | The holy city Lubelius (Lune), seat of the Western Holy Church and secret domain of Luminous. | [lubelius.md](../../design/lore/lubelius.md) |
 | [Sacred Mountain (Inner Sanctum, Luminous)](places/sacred_mountain.md) | L | build | −2980, −900 | 5,030 blocks W | The Sacred Mountain and the sealed Inner Sanctum gate of Lubelius. | [sacred_mountain.md](../../design/lore/sacred_mountain.md) |
-| [Filtwood](places/filtwood.md) | U | pin | −900, 700 | 2,630 blocks W | Filtwood, a pin in Ulgracia's woodland. | [world.md](../../design/lore/world.md) |
+| [Filtwood](places/filtwood.md) | U | pin | −900, 700 | 2,630 blocks W | Server U pin; canonical kingdom near Jura, placement disputed (C20). | [world.md](../../design/lore/world.md) |
 | [Ghastone](places/ghastone.md) | G | pin | −2000, 300 | 3,770 blocks W | Ghastone, a pin on Englassia's western plain. | [world.md](../../design/lore/world.md) |
 | [Galut / Ulgr Nature Park (Ulgracia)](places/ulgr_nature_park.md) | U | build | −1040, 1060 | 2,760 blocks W | Galut / Ulgr Nature Park, Ulgracia's woodland park and the entrance to the Dwelling of the Spirits in the series. | [ulgr_nature_park.md](../../design/lore/ulgr_nature_park.md) |
 | [Blumund road camp at Jura's edge (sidequests blumund_road)](places/blumund_road.md) | R | spot | −250, 250 | 2,070 blocks W | Road camp on the Londo-Tempest road, at Jura's edge. | [world.md](../../design/lore/world.md) |

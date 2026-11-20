@@ -1,6 +1,6 @@
 # Filtwood
 
-`id: filtwood` · map pin only · region **U** (Republic of Ulgracia)
+`id: filtwood` · server pin · required gameplay **U** binding disputed (C20)
 
 | | |
 |---|---|
@@ -10,11 +10,11 @@
 
 ## Lore (canon)
 
-A town in the Republic of Ulgracia on the pack's map. Pin only.
+The [official episode 24 synopsis](https://www.ten-sura.com/anime/tensura/story/no24) calls Filtwood a kingdom visited by Shizu and dates the story before Rimuru reincarnates. Wiki places it near Jura; exact side and capital location are unverified. The U/Ulgracia pin is a server binding, not evidence of a canonical Ulgracia town. See [study](../../../world/southern-location-study.md).
 
 ## What it should look like
 
-Pin only.
+No source-confirmed exterior or country plan is established. Official episode 24 stills 3–5 are interiors. Keep the pin reserved and review the inert Jura-edge alternative before moving anything. Initial-era residents need separate verification.
 
 
 ## Current state: BlueMap audit of 19/11/2026
