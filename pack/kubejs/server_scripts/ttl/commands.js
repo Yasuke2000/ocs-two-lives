@@ -137,6 +137,12 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var registryTestClear = ctx => {
+    var n = TtlRegistry.clearBots(ctx.source.getServer())
+    say(ctx, `registry: dropped ${n} test-bot record${n === 1 ? '' : 's'} (real players untouched)`)
+    return 1
+  }
+
   var registryMigrate = ctx => {
     var n = TtlRegistry.migrate(ctx.source.getServer(), true)
     say(ctx, `Migrated ${n} name-keyed record${n === 1 ? '' : 's'} to UUIDs`)
@@ -164,12 +170,15 @@ ServerEvents.commandRegistry(event => {
     if (v !== 'true' && v !== 'false') throw `${name} must be true or false`
     return v === 'true'
   }
+  // Counts test bots only (TtlBot*): real players' records live in their own pool (registry.js scoped()), so what
+  // real players hold on staging never moves a test.
   var expectCount = ctx => {
+    var server = ctx.source.getServer()
     var skill = `tensura:${word(ctx, 'skill')}`
     var want = Number(Arguments.INTEGER.getResult(ctx, 'n'))
-    var got = (TtlRegistry.records(ctx.source.getServer())[skill] || []).length
-    if (got !== want) throw `expected ${skill} to have ${want} holders, it has ${got}`
-    say(ctx, `registry: ${skill} has ${want} holders as expected`)
+    var got = (TtlRegistry.ofKind(server, TtlRegistry.records(server), true)[skill] || []).length
+    if (got !== want) throw `expected ${skill} to have ${want} test-bot holders, it has ${got}`
+    say(ctx, `registry: ${skill} has ${want} test-bot holders as expected`)
     return 1
   }
   var expectHolds = ctx => {
@@ -318,6 +327,7 @@ ServerEvents.commandRegistry(event => {
         .then(skillArg().executes(logged(registryHistory(true)))))
       .then(Commands.literal('sweep').executes(logged(registrySweep)))
       .then(Commands.literal('migrate').executes(logged(registryMigrate)))
+      .then(Commands.literal('testclear').executes(logged(registryTestClear)))
       .then(Commands.literal('seen')
         .then(playerArg().then(Commands.argument('days', Arguments.INTEGER.create(event)).executes(logged(registrySeen)))))
       .then(Commands.literal('legacy')

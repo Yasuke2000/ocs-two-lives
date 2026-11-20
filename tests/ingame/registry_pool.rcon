@@ -8,6 +8,8 @@
 ttlbot spawn TtlBotPoolP
 ttlbot spawn TtlBotPoolQ
 @sleep 3
+# Records a cut-off earlier run left on test bots would count against the caps below (staging 20/11 00:48).
+ttl registry testclear
 ttl grant TtlBotPoolP berserker
 ttl grant TtlBotPoolP seeker
 ttl grant TtlBotPoolQ seeker

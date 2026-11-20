@@ -1,0 +1,277 @@
+# Enemies of the roads: hostile humanoid NPCs players MAY kill (Yasuke 20/11/2026: "add killable NPCs as well").
+# Bandits on the Dwarven Road, highwaymen on the Blumund road, Falmuth deserters on the western border, rogue adventurers in
+# the wilds (our interpretation: the light novel's Western Nations are full of brigands, deserters and adventurers gone bad;
+# design/lore/enemies.md). Friendly quest NPCs stay protected (world/npc_protect.js).
+# Consumers:
+#   python tools/gen_data.py   -> TtlData.enemies (checked by tools/enemies_check.py: looks, camps on canon land, outside
+#                                 every domain, site and spawn zone, bounty targets)
+#   python tools/gen_npcs.py   -> one Easy NPC preset per archetype and look variant (ttl_enemy_<archetype>_<n>.npc.snbt)
+#                                 and the loot table of each archetype (pack/kubejs/data/ttl/loot_table/entities/enemy_<id>.json)
+#   pack/kubejs/server_scripts/ttl/world/enemies.js -> spawns, despawns and credits the kills
+#   design/data/economy.toml   -> kill bounties with target = "ttl:<archetype>" (any of them) or "ttl:<group>" (any enemy of
+#                                 the camps of that group)
+#
+# HOW A CAMP LIVES (world/enemies.js). Every settings.check_ticks while a Life 2 soul is online:
+#   - a camp is AWAKE while a soul (Life 2, overworld, not a spectator) is within `wake_radius` of its centre. An awake camp
+#     tops up to min(count, stock) living members, each on open ground within the camp's `radius`, never within
+#     `min_player_distance` of a soul, never in a domain, a safe square or a town spawn zone, at most settings.max_total
+#     enemies on the server and at most settings.spawn_per_check per check;
+#   - a kill takes one from the camp's `stock`; the stock grows back by one every `regen_minutes` up to `count`, so a camp
+#     cleared by a party stays empty for a while (no farming) and its population never grows;
+#   - a camp with no soul within `sleep_radius` for `sleep_checks` checks in a row SLEEPS: its living members are removed
+#     (no loot, no credit) and go back into the stock;
+#   - a member further than `leash` from its camp is walked home by Easy NPC (MOVE_BACK_TO_HOME); one further than
+#     2 x `leash` with no soul near it is removed. One left in a chunk that unloads is removed when it is next seen;
+#     extra members beyond `count` are removed, the farthest first.
+# Kill credit: the soul that struck the killing blow (EntityEvents.death), or the last soul that hurt it within
+# settings.credit_seconds when the death event did not fire. A credited kill adds 1 to the guild scoreboard objectives
+# `ttl.g.ttl_<archetype>` and `ttl.g.ttl_<group>` (the kill bounties), takes the good road of roads.toml `enemies.slay`
+# (karma ledger order, a light deed, + `rep` with the camp's protecting faction) and tells the soul.
+
+[settings]
+# Bump to replace every living enemy at the next check (a preset change only reaches new spawns).
+rev = 1
+check_ticks = 100
+wake_radius = 72
+sleep_radius = 112
+sleep_checks = 6
+min_player_distance = 20
+leash = 40
+max_total = 24
+spawn_per_check = 2
+credit_seconds = 15
+# Spot rules for every camp (tools/enemies_check.py): the centre at least this far from every anchor of anchors.toml
+# (builds, landmarks, towns, quest spots) and from every domain square, and outside every spawns.toml zone's
+# reduced_radius plus this margin.
+anchor_margin = 160
+domain_margin = 64
+zone_margin = 32
+
+# Kill rewards beyond the bounty: the roads.toml choice the kill takes (good = an enemy, dark = a peaceful NPC, rep/guards.js).
+road = "enemies.slay"
+
+# Peaceful NPCs (rep/guards.js): a Life 2 soul that kills one takes the DARK road of `road` (karma ledger chaos, a dark
+# deed, renown when witnessed) on top of the faction's kill_penalty. Peaceful = an entity with one of `tags`, or one of the
+# factions.toml npc_tags, or of `types`; never an enemy of this file. Soldiers (tensura:falmuth_knight) only cost rep.
+[peaceful]
+tags = ["ttl_tempest_resident", "ttl.side.client", "ttl.adv"]
+types = ["tensura:dwarf"]
+
+# Archetypes. Fields:
+#   id                [a-z0-9_], also a bounty target ttl:<id>
+#   name, plural      shown over the head (looked at) and on the board ("Kill 5 bandits")
+#   look              tools/npc_looks.py look; every variant of the model's arm width gets its own preset
+#   model             humanoid | humanoid_slim (Easy NPC)
+#   main, off         items in the hands (never dropped: drop chance 0 and the drop filter)
+#   health, damage, armor, speed   generic.max_health, attack_damage (base, the weapon adds its own), armor, movement_speed
+#   ranged            true: BOW_ATTACK with a bow in `main` instead of MELEE_ATTACK
+#   lines             1-6 speech-bubble lines (a right-click, and now and then when hurt; Easy NPC MESSAGE)
+#   loot              the archetype's loot table: [[archetype.loot]] item, min, max, chance (0..1). Small on purpose; the
+#                     coins are part of the economy's faucet (economy.toml header)
+[[archetype]]
+id = "bandit"
+name = "Bandit"
+plural = "bandits"
+look = "bandit"
+model = "humanoid"
+main = "minecraft:iron_axe"
+lines = ["Your coin or your life!", "Nobody walks this road for free.", "Get them!"]
+health = 24
+damage = 2
+armor = 2
+speed = 0.28
+[[archetype.loot]]
+item = "tensura:bronze_coin"
+min = 1
+max = 3
+chance = 0.6
+[[archetype.loot]]
+item = "minecraft:bread"
+min = 1
+max = 2
+chance = 0.4
+[[archetype.loot]]
+item = "minecraft:leather"
+min = 1
+max = 1
+chance = 0.25
+
+[[archetype]]
+id = "highwayman"
+name = "Highwayman"
+plural = "highwaymen"
+look = "highwayman"
+model = "humanoid"
+main = "minecraft:bow"
+ranged = true
+lines = ["Stand and deliver!", "Empty your purse, traveller.", "You should have taken the long way round."]
+health = 22
+damage = 2
+armor = 2
+speed = 0.29
+[[archetype.loot]]
+item = "tensura:bronze_coin"
+min = 1
+max = 4
+chance = 0.7
+[[archetype.loot]]
+item = "minecraft:arrow"
+min = 2
+max = 6
+chance = 0.5
+
+[[archetype]]
+id = "deserter"
+name = "Falmuth Deserter"
+plural = "Falmuth deserters"
+look = "deserter"
+model = "humanoid"
+main = "minecraft:iron_sword"
+off = "minecraft:shield"
+lines = ["Falmuth sent you? Then Falmuth can bury you.", "We are done dying for a king.", "No witnesses."]
+health = 30
+damage = 2
+armor = 6
+speed = 0.26
+[[archetype.loot]]
+item = "tensura:bronze_coin"
+min = 2
+max = 4
+chance = 0.6
+[[archetype.loot]]
+item = "minecraft:iron_nugget"
+min = 2
+max = 6
+chance = 0.5
+
+[[archetype]]
+id = "rogue_adventurer"
+name = "Rogue Adventurer"
+plural = "rogue adventurers"
+look = "rogue_adventurer"
+model = "humanoid"
+main = "tensura:iron_short_sword"
+lines = ["The Guild struck my name. I keep the bounty for myself now.", "Another rookie with a full pack.", "Nothing personal."]
+health = 32
+damage = 3
+armor = 4
+speed = 0.31
+[[archetype.loot]]
+item = "tensura:silver_coin"
+min = 1
+max = 1
+chance = 0.3
+[[archetype.loot]]
+item = "minecraft:cooked_beef"
+min = 1
+max = 2
+chance = 0.5
+
+# Groups: a bounty target ttl:<group> counts every enemy of the camps of that group.
+[group.dwarven_road]
+title = "outlaws on the Dwarven Road"
+[group.blumund_road]
+title = "outlaws on the Blumund road"
+[group.falmuth_border]
+title = "outlaws on the Falmuth border"
+[group.wilds]
+title = "outlaws in the wilds"
+
+# Camps. Fields: id, title (shown to staff and in the kill line), group, x / z (centre), radius (members spawn and stroll
+# within it), count (members at most), regen_minutes (one member of stock back), mix = { <archetype> = weight },
+# faction (optional, factions.toml id whose roads they prey on: the good road's `victim` rep goes to it). Coordinates were checked
+# on Lerfing's map (canon_map.txt: land of the region named in the comment) and sit beside the road, not on it.
+[[camp]]
+id = "dwarven_road_south"
+title = "bandit camp south of the Dwarven Road's bend"   # J, 489 N of Tempest, 70 E of the road (x 1790)
+group = "dwarven_road"
+x = 1818
+z = 420
+radius = 10
+count = 4
+regen_minutes = 8
+mix = { bandit = 3, highwayman = 1 }
+faction = "dwargon"
+
+[[camp]]
+id = "dwarven_road_north"
+title = "bandit camp north of the Dwarven Road's bend"   # J, 300 S of the arrival, beside the road (x 1816-1822)
+group = "dwarven_road"
+x = 1800
+z = 170
+radius = 10
+count = 3
+regen_minutes = 8
+mix = { bandit = 1 }
+faction = "dwargon"
+
+[[camp]]
+id = "blumund_road_east"
+title = "highwaymen's hide on the Blumund road"          # J, Jura's west woods, on the line Blumund - Tempest
+group = "blumund_road"
+x = 700
+z = 548
+radius = 10
+count = 3
+regen_minutes = 8
+mix = { highwayman = 2, bandit = 1 }
+faction = "blumund"
+
+[[camp]]
+id = "blumund_road_west"
+title = "highwaymen's hide near Blumund's border"        # J, 250 E of the old well
+group = "blumund_road"
+x = 60
+z = 330
+radius = 10
+count = 3
+regen_minutes = 8
+mix = { highwayman = 1, bandit = 1 }
+faction = "blumund"
+
+[[camp]]
+id = "falmuth_border_road"
+title = "deserters' camp on the Falmuth border"          # F, south edge of Falmuth's western lands, north of Englassia
+group = "falmuth_border"
+x = -2050
+z = -860
+radius = 12
+count = 4
+regen_minutes = 10
+mix = { deserter = 1 }
+faction = "falmuth"
+
+[[camp]]
+id = "falmuth_border_woods"
+title = "deserters' hollow on the Falmuth border"        # F, 130 north-west of the road camp
+group = "falmuth_border"
+x = -2160
+z = -960
+radius = 10
+count = 3
+regen_minutes = 10
+mix = { deserter = 1 }
+faction = "falmuth"
+
+[[camp]]
+id = "jura_rogues"
+title = "rogue adventurers' camp in Jura's west woods"   # J, the forest track to the Sealed Cave
+group = "wilds"
+x = 1100
+z = 420
+radius = 10
+count = 3
+regen_minutes = 12
+mix = { rogue_adventurer = 1 }
+faction = "tempest"
+
+[[camp]]
+id = "englassia_rogues"
+title = "rogue adventurers' camp east of Englassia"      # G, between Ballachia and the Englassia road post
+group = "wilds"
+x = -1750
+z = -160
+radius = 10
+count = 3
+regen_minutes = 12
+mix = { rogue_adventurer = 2, bandit = 1 }

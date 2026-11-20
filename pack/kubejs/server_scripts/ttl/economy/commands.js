@@ -15,6 +15,7 @@
 //   /ttl guild post <id>                  put a bounty into the first slot of its period (test hook)
 //   /ttl guild sample <player>            sample kills and visits now instead of waiting poll_ticks
 //   /ttl guild test <player> life2        test hook: give a bot the Life 2 stage
+//   /ttl guild test <player> points_<n>   test hook: set the bot's lifetime guild points (and so its rank)
 //   /ttl guild reset <player>             test hook: forget the player's guild record (bots keep data between runs)
 //   /ttl guild desk add <x> <y> <z> | remove <x> <y> <z> | list   interim guild desks (Tensura overworld blocks)
 //   /ttl guild npc list | ensure [spot] | spawn <spot> | remove <spot> | goto <player> <spot> | expect <field> <value>
@@ -22,13 +23,14 @@
 //   /ttl guild expect <player> <field> <value>
 //        fields: points, done, rank, active, ready, board (slots on the desk board; board_all, board_fuze, board_desk),
 //        balance (bronze), stage (rank letter of
-//        the one ttl.guild.* stage), accepted_<id>, ready_<id> (true/false), rep_<faction> (needs the reputation package),
+//        the one ttl.guild.* stage), accepted_<id>, ready_<id> (true/false), got_<id> (kills or visits counted so far, none when not accepted), rep_<faction> (needs the reputation package),
 //        refuse_take (what taking slot 1 answers: life2only / allowed, real effect when allowed),
 //        take_<giver>_<id> (what `take <id> <giver>` answers: wrong_giver / life2only / rank / allowed (real effect) / other: ...),
 //        giver_<id> (desk or fuze), turnin_<desk|fuze|any>_<id> (who takes it back: allowed / lore / wrong_giver; no effect)
 //   /ttl merit test <player> <block> [n]  count n (default 1) placed blocks at the player's feet (`stone_bricks` = minecraft:stone_bricks)
 //   /ttl merit reset <player> · /ttl merit expect <player> <field> <value>
-//        fields: total, week, works (how many Public Works chunks they keep), builder (true/false)
+//        fields: total, week, works (how many Public Works chunks they keep), faction (the faction id the chunk under the
+//        player pays, or none), builder (true/false)
 //   /ttl econ                             this week's faucet / sink counters (bronze) and the last weeks
 //   /ttl econ give <player> <bronze> | take <player> <bronze>
 //   /ttl econ expect <player> <field> <value>   fields: balance, faucet, sink, fee_<name> (bronze), can_<bronze> (true/false),
@@ -123,7 +125,16 @@ ServerEvents.commandRegistry(event => {
 
   var testHook = ctx => {
     var p = target(ctx)
-    if (str(ctx, 'what') !== 'life2') throw 'test hooks: life2'
+    var pts = /^points_(\d+)$/.exec(str(ctx, 'what'))
+    if (pts) {
+      var g = TtlGuild.read(p)
+      g.points = Number(pts[1])
+      TtlGuild.write(p, g)
+      TtlGuild.sync(server(ctx), p, g)
+      say(ctx, `guild ${p.username}: ${g.points} points, rank ${TtlGuild.rankOf(g).id} (test hook)`)
+      return 1
+    }
+    if (str(ctx, 'what') !== 'life2') throw 'test hooks: life2 | points_<n>'
     if (!p.stages.has('ttl.life2')) p.stages.add('ttl.life2')
     say(ctx, `guild ${p.username}: stage ttl.life2 added (test hook)`)
     return 1
@@ -178,11 +189,13 @@ ServerEvents.commandRegistry(event => {
         return text === 'wrong_giver' ? 'wrong_giver' : text === 'Life 2 only' ? 'life2only' : /needs guild rank/.test(text) ? 'rank' : `other: ${text}`
       }
     }
-    var dyn = /^(accepted|ready|rep)_(.+)$/.exec(field)
+    var dyn = /^(accepted|ready|rep|got)_(.+)$/.exec(field)
     if (dyn) {
       if (dyn[1] === 'rep') return typeof TtlRep === 'undefined' ? 'n/a' : String(TtlRep.get(p, dyn[2]))
       var found = keys.filter(k => g.taken[k].id === dyn[2])
       if (dyn[1] === 'accepted') return String(found.length > 0)
+      if (dyn[1] === 'got') return found.length ? String(TtlGuild.progress(p, g.taken[found[0]], TtlGuild.find(dyn[2])).have) : 'none'
+
       return String(found.some(k => TtlGuild.ready(p, g.taken[k], TtlGuild.find(dyn[2]))))
     }
     var all = {
@@ -209,7 +222,7 @@ ServerEvents.commandRegistry(event => {
         }
       }
     }
-    if (!(field in all)) throw `unknown field ${field} (one of ${Object.keys(all).join(', ')}, accepted_<id>, ready_<id>, rep_<faction>, giver_<id>, take_<giver>_<id>)`
+    if (!(field in all)) throw `unknown field ${field} (one of ${Object.keys(all).join(', ')}, accepted_<id>, ready_<id>, got_<id>, rep_<faction>, giver_<id>, take_<giver>_<id>)`
     return all[field]()
   }
 
@@ -260,6 +273,13 @@ ServerEvents.commandRegistry(event => {
       total: () => String(m.total),
       week: () => String(m.week),
       works: () => String(Object.keys(w).filter(k => w[k].by === me).length),
+      // The faction id the Public Works chunk under the player pays ('none': not marked, or no faction region).
+      faction: () => {
+        var x = Math.floor(p.getX())
+        var z = Math.floor(p.getZ())
+        var rec = w[TtlMerit.chunkKey(TtlLife.dimensionOf(p), x, z)]
+        return (rec && TtlMerit.worksFaction(rec, x, z)) || 'none'
+      },
       builder: () => String(p.stages.has('ttl.title.builder'))
     }
     if (!(field in all)) throw `unknown field ${field} (one of ${Object.keys(all).join(', ')})`

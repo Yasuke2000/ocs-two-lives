@@ -126,3 +126,21 @@ balance = "dark_deed"
 rep = { holy_church = -3 }
 renown = -1
 story = "A daemon walks in a golem's body in {region}."
+
+# ---- the enemies of the roads and the peaceful folk (world/enemies.js, rep/guards.js; design/data/enemies.toml) --------
+# good: a soul killed a bandit, highwayman, deserter or rogue adventurer (enemies.toml); `victim` goes to the faction whose
+# roads the camp preys on (the camp's `faction`). dark: a soul killed a peaceful NPC (a resident, a faction's NPC, an escort
+# client); its faction's own kill_penalty (factions.toml) is paid by rep/guards.js on top, so this route has no rep.
+[[choice]]
+id = "enemies.slay"
+label = "Who you put to the sword"
+fair = "good"
+[choice.good]
+order = 1
+balance = "light_deed"
+victim = 1
+[choice.dark]
+chaos = 3
+balance = "dark_deed"
+renown = -1
+story = "A soul in {region} has cut down people who meant it no harm."

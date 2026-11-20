@@ -26,7 +26,7 @@
 [settings]
 # Bump to replace every NPC with a fresh one from the current preset on the next check (also what to do after a
 # dialog, look or statue change: the NPC already in the world keeps the dialog it was spawned with).
-rev = 4
+rev = 5
 # The spots are checked this many ticks apart, and once this many ticks after the server has started. A spot whose build is
 # not placed or whose chunk is not loaded costs one command; the NPC of a far town appears within this time of a player's arrival.
 check_ticks = 200

@@ -16,8 +16,8 @@ ttl boss reset TtlBotWildA
 ttl boss abort
 @sleep 2
 # Tidy up after bosses.rcon (a story cooldown no longer blocks a wild roll; the clears only leave a known state).
-ttl boss cooldown clear orc_lord
-ttl boss cooldown clear shizu
+ttl boss cooldown clear orc_lord tests
+ttl boss cooldown clear shizu tests
 ttl events expect registered wild_boss true
 ttl events expect scheduled wild_boss false
 ttl boss wild

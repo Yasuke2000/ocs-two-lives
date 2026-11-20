@@ -519,7 +519,7 @@ const TtlAbsorb = {
   claimable(server, player) {
     var conf = this.route('awakening')
     var out = []
-    if (!conf.enabled || conf.own.claim === false || !TtlRegistry.legendarySlotFree(server)) return out
+    if (!conf.enabled || conf.own.claim === false || !TtlRegistry.legendarySlotFree(server, TtlRegistry.uid(player))) return out
     var table = conf.own.claim_skills || {}
     var id = TtlRegistry.uid(player)
     this.openKinds(player).forEach(kind => {
@@ -540,7 +540,7 @@ const TtlAbsorb = {
     var table = conf.own.claim_skills || {}
     var kinds = this.openKinds(player).filter(k => (table[k] || []).indexOf(full.replace(/^.*:/, '')) >= 0)
     if (kinds.length === 0) return 'You have no awakening that lets you claim that skill (True Demon Lord or True Hero, once each).'
-    if (!TtlRegistry.legendarySlotFree(server)) return 'The Legendary places of this era are taken.'
+    if (!TtlRegistry.legendarySlotFree(server, TtlRegistry.uid(player))) return 'The Legendary places of this era are taken.'
     var spend = conf.own.spend_slot !== false
     if (!TtlRegistry.grant(server, player, full, `awakening (${kinds[0]}): a free Legendary place`, spend ? { slot: true } : undefined)) {
       return 'The world has no room for that Legendary now (the ceiling of ten, or its holders are complete).'
@@ -823,9 +823,10 @@ ServerEvents.commandRegistry(event => {
       .then(Commands.literal('testwipe').requires(op)
         .then(playerArg('target').executes(logged(wipeLocal))))
       .then(Commands.literal('expect').requires(op)
+        // Test bots' pacts and war flags only (a party is a TtlBot*): real players' duels never move a test.
         .then(Commands.literal('pacts').then(intArg('n').executes(logged(ctx =>
-          check(ctx, 'live pacts', TtlAbsorb.live(server(ctx)).length, num(ctx, 'n'))))))
+          check(ctx, 'live test-bot pacts', TtlAbsorb.live(server(ctx)).filter(p => TtlRegistry.isBotId(server(ctx), p.a) || TtlRegistry.isBotId(server(ctx), p.b)).length, num(ctx, 'n'))))))
         .then(Commands.literal('wars').then(intArg('n').executes(logged(ctx =>
-          check(ctx, 'staff war flags', TtlAbsorb.wars(server(ctx)).length, num(ctx, 'n'))))))
+          check(ctx, 'test-bot staff war flags', TtlAbsorb.wars(server(ctx)).filter(w => TtlRegistry.isBotId(server(ctx), w[0]) || TtlRegistry.isBotId(server(ctx), w[1])).length, num(ctx, 'n'))))))
         .then(expectTarget))))
 })

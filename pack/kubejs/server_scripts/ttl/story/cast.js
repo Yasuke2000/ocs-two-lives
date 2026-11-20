@@ -15,7 +15,8 @@
 // Staff and test commands (ops): /ttl cast list | load | unload | verify <spot|all> | interact <player> <spot|hook> <talk id> |
 //   expect <field> <value>.   `load` force-loads the chunk of every placed spot (a chunk that is only loaded because a bot was
 //   teleported there does not tick its entities), `unload` removes those tickets again, `verify` runs the check of a spot and
-//   prints "ttl: ..." when it fails (a spot whose build is not placed is skipped), `interact` does what a right-click on that
+//   prints "ttl: ..." when it fails (a spot whose build is not placed is skipped; it checks one entity per spot, its type,
+//   tags, invulnerability, NoAI for a statue, the ground (no wall, no water, not floating) and an Easy NPC's skin), `interact` does what a right-click on that
 //   spot's entity does, for a player, and checks the story id it talks with. tests/ingame/cast.rcon uses all of them.
 const TtlCast = {
   TALK_TAG: 'ttl.talk.',
@@ -184,7 +185,56 @@ const TtlCast = {
       }
       if (!noai) return 'is not NoAI'
     }
+    var ground = this.ground(e)
+    if (ground) return ground
+    if (!kind.statue) {
+      var skin = this.skinOf(e)
+      var want2 = this.skinWanted(kind)
+      if (skin !== want2) return `wears ${skin || 'no skin of ours'}, expected ${want2} (an NPC from an old preset: bump npcs.toml rev)`
+    }
     return ''
+  },
+
+  // '' when the entity stands on solid ground with its feet and head in open air, else what is wrong (audit 20/11/2026:
+  // "not stuck in a wall, floating, or in water"). A statue is NoAI: it never falls, so a spot above air floats for ever.
+  ground(e) {
+    try {
+      var level = e.level
+      var x = Math.floor(e.getX())
+      // The block the feet are in: an NPC on a path block or a slab stands at y + 0.9375 / + 0.5, so round up.
+      var y = Math.ceil(e.getY() - 0.01)
+      var z = Math.floor(e.getZ())
+      var BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
+      var at = dy => level.getBlockState(new BlockPos(x, y + dy, z))
+      var name = st => String(st.getBlock().getDescriptionId()).replace(/^block\.minecraft\./, '')
+      var below = at(-1)
+      var feet = at(0)
+      var head = at(1)
+      if (!feet.getFluidState().isEmpty() || !head.getFluidState().isEmpty()) return `stands in water or lava at ${x} ${y} ${z}`
+      if (feet.blocksMotion() || head.blocksMotion()) return `is inside a block at ${x} ${y} ${z} (${name(feet)} / ${name(head)})`
+      if (!below.blocksMotion() && !below.getFluidState().isEmpty()) return `stands on water at ${x} ${y - 1} ${z}`
+      if (!below.blocksMotion()) return `floats above ${name(below)} at ${x} ${y - 1} ${z}`
+      return ''
+    } catch (x) {
+      return `ground check failed: ${x}`
+    }
+  },
+
+  // The SkinData texture an Easy NPC wears ('' = none of its own).
+  skinOf(e) {
+    try {
+      var nbt = e.getNbt()
+      return nbt.contains('SkinData') ? String(nbt.getCompound('SkinData').getString('Texture')) : ''
+    } catch (x) {
+      return ''
+    }
+  },
+
+  // What tools/gen_npcs.py writes into the kind's preset: `skin` when it names a texture, else ttl:textures/entity/npc/<id>.png
+  // (every Easy NPC kind of npcs.toml has its own PNG, PR #53).
+  skinWanted(kind) {
+    var skin = String(kind.skin || '')
+    return skin.indexOf(':') > 0 ? skin : `ttl:textures/entity/npc/${kind.id}.png`
   },
 
   fact(server, field) {

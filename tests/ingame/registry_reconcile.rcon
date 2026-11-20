@@ -9,6 +9,8 @@ ttlbot spawn TtlBotRecC
 ttlbot spawn TtlBotRecD
 ttlbot spawn TtlBotRecE
 @sleep 4
+# Records a cut-off earlier run left on test bots would count against the caps below (staging 20/11 00:48).
+ttl registry testclear
 ttl grant TtlBotRecA berserker
 ttl grant TtlBotRecB berserker
 ttl grant TtlBotRecC berserker

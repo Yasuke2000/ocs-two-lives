@@ -14,10 +14,13 @@
 # revs (sidequests.toml [ambient] rev, a client is new per escort, a companion at its next summon).
 rev = 2
 # The guard loop (world/npc_gear.js): how often, and how far from its post a guard looks for a monster to fight. A guard
-# fights a monster (an Enemy: vanilla and Tensura monsters, never a Tensura goblin, wolf or other tameable) within
-# `guard_radius` of its post; it never picks a player. Players it meets only through Tensura's own retaliation.
+# fights a monster (an Enemy: vanilla and Tensura monsters, never a Tensura goblin, wolf, tame or owned creature) or an
+# enemy of the roads (enemies.toml: bandits, highwaymen, deserters, rogue adventurers) within `guard_radius` of its post;
+# it never picks a player, a resident or another NPC. Players it meets only through Tensura's own retaliation.
 guard_check_ticks = 40
 guard_radius = 16
+# A guard with nothing to fight that is further than this from its post walks back to it (teleported past 3 x); 0 = off.
+guard_leash = 16
 # Monsters with one of these entity tags are never picked: a soul's legion, a choice scene's actors, story bosses, arena waves.
 guard_ignore_tags = ["ttl.legion", "ttl.scene", "ttl.boss", "ttl.arena.mob"]
 

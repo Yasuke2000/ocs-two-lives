@@ -21,7 +21,7 @@
 //            /ttl registry legendcap <max> <slots> | reset (test hook: replaces max_holders / slots_per_era)
 //            /ttl core open <player> (no item) · /ttl core odds <player> · and the assertions
 //            /ttl era expect number|slots|free <n> (free -1 = no per-era slots) · titles <player> <n>
-//            /ttl registry expect moved <from> <to> <skill> · routed <to> <skill> <route> · holders <n> (Legendary holders)
+//            /ttl registry expect moved <from> <to> <skill> · routed <to> <skill> <route> · holders <n> (Legendary holders among the test bots)
 //            /ttl core expect <player> <n> (how many uniques the registry lists for them)
 const TtlEra = {
   ARCHIVE_MAX: 20,
@@ -121,8 +121,16 @@ const TtlEra = {
     return 1
   },
 
+  // A mark that is already there belongs to a test run that never reached its testrestore (the server restarted
+  // mid-run): it is KEPT, so this run's testrestore puts the era back to where it was before both runs. Overwriting
+  // it is how staging drifted from era 1 to era 3 (18-19/11/2026: a legendary run cut off after two `era next`).
   testMark(server) {
     var d = server.persistentData
+    var old = TtlRegistry.load(server, this.MARK, null)
+    if (old) {
+      console.warn(`[ttl] era: a test mark from an unfinished run is still set (era ${old.season}); kept, testrestore returns there`)
+      return Number(old.season)
+    }
     var mark = {
       season: this.number(server),
       started: String(d.getString('ttl.era.started')),
@@ -427,8 +435,9 @@ ServerEvents.commandRegistry(event => {
       .then(Commands.literal('legend')
         .then(playerArg('target').then(stringArg('skill').executes(logged(legend)))))
       .then(Commands.literal('expect')
+        // Test bots only: real players' Legendary holders are a separate pool (registry.js scoped()).
         .then(Commands.literal('holders').then(intArg('n').executes(logged(ctx =>
-          check(ctx, 'Legendary holders', TtlRegistry.legendaryHolders(ctx.source.getServer()).length, num(ctx, 'n'))))))
+          check(ctx, 'Legendary test-bot holders', TtlRegistry.legendaryHoldersIn(TtlRegistry.ofKind(ctx.source.getServer(), TtlRegistry.records(ctx.source.getServer()), true)).length, num(ctx, 'n'))))))
         .then(Commands.literal('routed')
           .then(playerArg('to').then(stringArg('skill').then(stringArg('route').executes(logged(expectRouted))))))
         .then(Commands.literal('moved')

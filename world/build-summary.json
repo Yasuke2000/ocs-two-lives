@@ -14,12 +14,12 @@
   ],
   "build_seconds": 55.0,
   "repository_gate": {
-    "tests": 462,
+    "tests": 472,
     "failures": 0,
     "skips": 26,
     "validation": "passed",
-    "base_main": "a1848be",
-    "test_seconds": 43.732
+    "base_main": "09ca601",
+    "test_seconds": 44.221
   },
   "build_command": "python -I tools/world/build.py",
   "research_claim_records": 210,
@@ -565,5 +565,17 @@
     "checker_errors": 0,
     "checker_warnings": 2,
     "runtime_acceptance": false
+  },
+  "branch_integration": {
+    "upstream_main": "09ca601",
+    "resolved_documents": [
+      "design/decisions.md",
+      "docs/HANDOFF.md"
+    ],
+    "both_complete_conflict_sides_retained": true,
+    "runtime_scripts_and_mod_equal_upstream_main": true,
+    "tools_diff_only_five_approved_relation_entries": true,
+    "world_converter_code_unchanged": true,
+    "pr_merged_to_main": false
   }
 }

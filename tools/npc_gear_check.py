@@ -39,6 +39,8 @@ def check_npc_gear(g: dict) -> None:
         fail("[settings] guard_check_ticks >= 20")
     if not isinstance(s.get("guard_radius"), int) or not 4 <= s["guard_radius"] <= 48:
         fail("[settings] guard_radius is 4-48 blocks")
+    if not isinstance(s.get("guard_leash", 0), int) or not 0 <= s.get("guard_leash", 0) <= 64:
+        fail("[settings] guard_leash is 0-64 blocks (0 = off)")
     tags = s.get("guard_ignore_tags")
     if not isinstance(tags, list) or not all(isinstance(t, str) and re.fullmatch(r"[A-Za-z0-9_.]+", t) for t in tags):
         fail("[settings] guard_ignore_tags is a list of entity tags")

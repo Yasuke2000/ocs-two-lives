@@ -20,6 +20,8 @@
 //   TtlRep.atMost(player, f, band)      true when it is `band` or worse
 //   TtlRep.add(server, player, f, delta, reason)   change by delta, clamp, sync, log; returns the new value (null: unknown faction)
 //   TtlRep.set(server, player, f, n, reason)       same, absolute
+//   (add/set take the faction id string; a faction table or {faction: id} is reduced to its id, anything else logs
+//    "[ttl] rep: not a faction id" and returns null: TtlRep.idOf(f, reason))
 //   TtlRep.seed(server, player, race)   rebirth: overwrite every faction from race + Life 1 karma ([faction.seed]); race optional (ttl.race)
 //   TtlRep.sync(server, player, mirror) rewrite scoreboard + stages (+ Tensura scalar when mirror is true) from the stored values
 //   TtlRep.guardsHostile(player, f)     true when guards of f attack this player (rules.guard_attack_at)
@@ -174,7 +176,29 @@ const TtlRep = {
 
   // ---- changing --------------------------------------------------------------------------------------------
 
+  // A faction id from what a caller passed: the id string itself, or a faction table / {faction: id} record (TtlRep.factionAt
+  // returns the table, not the id; merit and the Public Works record handed that table to add() and no reputation was
+  // granted, 20/11/2026). null (and a clear error with the caller's reason) for anything else.
+  idOf(f, reason) {
+    var v = f
+    for (var depth = 0; depth < 3 && v !== null && v !== undefined && typeof v === 'object'; depth++) {
+      if (v.id !== undefined && v.id !== null) v = v.id
+      else if (v.faction !== undefined && v.faction !== null) v = v.faction
+      else break
+    }
+    var s = v === null || v === undefined ? '' : String(v)
+    if (s === '' || s === '[object Object]' || s === 'undefined' || s === 'null') {
+      var shown = ''
+      try { shown = typeof f === 'object' && f !== null ? `object with keys ${Object.keys(f).join(',') || 'none'}` : String(f) } catch (e) { shown = typeof f }
+      console.error(`[ttl] rep: not a faction id: ${shown} (reason: ${reason || 'none'}); pass the id string, e.g. TtlRep.factionAt(x, z).id`)
+      return null
+    }
+    return s
+  },
+
   set(server, player, f, n, reason) {
+    f = this.idOf(f, reason)
+    if (f === null) return null
     if (!this.faction(f)) {
       console.warn(`[ttl] rep: unknown faction ${f} (reason: ${reason || 'none'})`)
       return null
@@ -193,6 +217,8 @@ const TtlRep = {
   },
 
   add(server, player, f, delta, reason) {
+    f = this.idOf(f, reason)
+    if (f === null) return null
     if (!this.faction(f)) {
       console.warn(`[ttl] rep: unknown faction ${f} (reason: ${reason || 'none'})`)
       return null

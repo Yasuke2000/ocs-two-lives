@@ -1,0 +1,112 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"OCS Two Lives",
+    category:"Enemy",
+    created:1790000000000L,
+    description:"enemy: Rogue Adventurer (design/data/enemies.toml), look rogue_adventurer #1",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1790000000000L,
+    name:"Rogue Adventurer",
+    variantType:"STEVE",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_HURT:[
+          {
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Type:"CHANCE",
+                  Value:20
+                }
+              ]
+            },
+            Msg:{
+              T:4b,
+              Texts:[
+                "The Guild struck my name. I keep the bounty for myself now.",
+                "Another rookie with a full pack.",
+                "Nothing personal."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ],
+        ON_INTERACTION:[
+          {
+            Msg:{
+              T:4b,
+              Texts:[
+                "The Guild struck my name. I keep the bounty for myself now.",
+                "Another rookie with a full pack.",
+                "Nothing personal."
+              ]
+            },
+            Type:"MESSAGE"
+          }
+        ]
+      }
+    },
+    ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],
+    CustomName:'{"color":"#C0392B","text":"Rogue Adventurer"}',
+    CustomNameVisible:1b,
+    DeathLootTable:"ttl:entities/enemy_rogue_adventurer",
+    EasyNPCVersion:3,
+    EntityAttribute:{
+      IsAttackableByMonsters:1b,
+      IsAttackableByPlayers:1b,
+      IsInvulnerable:0b
+    },
+    HandDropChances:[0.0f,0.0f],
+    HandItems:[
+      {
+        id:"tensura:iron_short_sword",
+        count:1
+      },
+      {}
+    ],
+    Invulnerable:0b,
+    ObjectiveData:{
+      ObjectiveDataSet:[
+        {
+          Type:"FLOAT"
+        },
+        {
+          SpeedModifier:1.0d,
+          Type:"MELEE_ATTACK"
+        },
+        {
+          Type:"HURT_BY_TARGET"
+        },
+        {
+          Type:"ATTACK_PLAYER"
+        },
+        {
+          SpeedModifier:0.6d,
+          Type:"MOVE_BACK_TO_HOME"
+        },
+        {
+          SpeedModifier:0.5d,
+          Type:"RANDOM_STROLL_AROUND_HOME"
+        },
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_RANDOM_AROUND"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    PresetUUID:[I;-273003652,909136027,-1676520641,28624113],
+    SkinData:{
+      Texture:"ttl:textures/entity/npc/look_rogue_adventurer_1.png",
+      Type:"RESOURCE_LOCATION"
+    },
+    VariantType:"STEVE",
+    id:"easy_npc:humanoid"
+  }
+}

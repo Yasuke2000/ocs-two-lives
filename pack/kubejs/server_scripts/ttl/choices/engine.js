@@ -32,6 +32,9 @@
 //           ttl.choices.seq      int, the last scene number (sid = "s<n>")
 //           ttl.choices.state    JSON {roll, spawn, last} last natural roll, last natural spawn, last sid
 //           ttl.choices.testonline  int test hook: Life 2 souls online for the scale (0 = count them)
+//           ttl.choices.testonly    string millis: until then (a test run, `ttl choice testonly on`, 30 min at most) open(),
+//                                the caps, the spot clash and clearAll() see only test scenes (spawned by ops or for a
+//                                TtlBot*): real players' scenes are neither counted nor cleared by a test
 //   player  ttl.choices          JSON {done: {event: {good, grey, dark, last}}, tide: {day, dark}, last: {sid, event, route, road, at}}
 //           ttl.choices.testskills  "a,b" test hook: skills/`necro` the soul counts as having
 //   entity tags  ttl.scene, ttl.scene.<sid>, ttl.role.<role> (+ whatever the scene adds: ttl.horde, ttl.wants_name)
@@ -68,6 +71,8 @@ const TtlChoices = {
   SEQ: 'ttl.choices.seq',
   STATE: 'ttl.choices.state',
   TESTONLINE: 'ttl.choices.testonline',
+  TESTONLY: 'ttl.choices.testonly',
+  TESTONLY_MS: 1800000,
   P_KEY: 'ttl.choices',
   P_SKILLS: 'ttl.choices.testskills',
   OVERWORLD: 'minecraft:overworld',
@@ -183,7 +188,20 @@ const TtlChoices = {
 
   open(server) {
     var all = this.scenes(server)
-    return Object.keys(all).map(k => all[k]).filter(s => s.state === 'open')
+    var only = this.testOnly(server)
+    var self = this
+    return Object.keys(all).map(k => all[k]).filter(s => s.state === 'open' && (!only || self.isTestScene(s)))
+  },
+
+  // A scene a test (or staff) made: spawned by command (`by` ops) or for a test bot.
+  isTestScene(scene) {
+    var by = String(scene.by || '')
+    return by === 'ops' || /^TtlBot/.test(by)
+  },
+
+  // Test hook in force (`ttl choice testonly on`, expires on its own so an aborted run cannot leave it on).
+  testOnly(server) {
+    return Number(String(server.persistentData.getString(this.TESTONLY)) || 0) > Date.now()
   },
 
   near(server, player, radius) {
@@ -957,8 +975,10 @@ const TtlChoices = {
   clearAll(server) {
     var all = this.scenes(server)
     var self = this
+    var only = this.testOnly(server)
     var n = 0
     Object.keys(all).forEach(sid => {
+      if (only && !self.isTestScene(all[sid])) return
       self.finish(server, all[sid])
       n++
     })

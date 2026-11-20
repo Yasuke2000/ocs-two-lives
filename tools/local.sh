@@ -4,7 +4,7 @@
 # Python 3 and packwiz (~/go/bin is searched). docs/server.md "Local testing" explains the loop.
 #
 # Same as staging: NeoForge + the pack's server-side mods installed by packwiz-installer (what the itzg image runs),
-# the world datapack, level world-ttl, hard, 8 simulation chunks, flight on, Aikar flags. Different on purpose:
+# the world datapack, level world-ttl, hard, 7 simulation chunks, flight on, Aikar flags. Different on purpose:
 # bound to 127.0.0.1 (game and RCON), offline mode, no Discord token, a random RCON password in the server
 # folder, the ttl-portals jar from mod/ (your build), a fixed seed, a smaller heap and view distance.
 # Everything lives in $TTL_LOCAL_DIR (default %LOCALAPPDATA%\ocs-two-lives\local-server), never in git.
@@ -36,6 +36,36 @@ winpath() { if [ -n "$WIN" ]; then cygpath -w "$1"; else printf '%s' "$1"; fi; }
 say() { printf '[local] %s\n' "$*" >&2; }
 die() { say "$*"; exit 1; }
 now() { date +%s; }
+
+# --- one user at a time ----------------------------------------------------------------------------------
+# Every command that changes the server or talks to it for long (up, down, restart, sync, test, snapshot, reset, verify)
+# holds $STATE/lock for its run: two agents' syncs or test runs on one server overwrite each other's scripts and bots.
+# A lock whose process is gone is stale and taken over. `verify` hands its token to the local.sh of its worktree
+# (TTL_LOCAL_LOCK_HELD), which then runs under the same lock.
+LOCK=$STATE/lock
+LOCK_TOKEN=
+lock_owner() { cat "$LOCK/owner" 2>/dev/null || true; }
+lock_take() {  # what
+  mkdir -p "$STATE"
+  if [ -n "${TTL_LOCAL_LOCK_HELD:-}" ] && [ "$(cat "$LOCK/token" 2>/dev/null)" = "$TTL_LOCAL_LOCK_HELD" ]; then return 0; fi
+  if ! mkdir "$LOCK" 2>/dev/null; then
+    local owner pid
+    owner=$(lock_owner); pid=${owner%% *}
+    if [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null; then
+      die "the local server is busy: pid $owner. One user at a time: wait for it (tools/local.sh status shows the holder)"
+    fi
+    say "taking over a stale lock (${owner:-no owner})"
+    rm -rf "$LOCK"; mkdir "$LOCK" || die "cannot take $LOCK"
+  fi
+  LOCK_TOKEN="$$-$RANDOM-$(now)"
+  printf '%s\n' "$LOCK_TOKEN" > "$LOCK/token"
+  printf '%s %s since %s (%s)\n' "$$" "$1" "$(date '+%d/%m %H:%M')" "$ROOT" > "$LOCK/owner"
+  trap lock_release EXIT
+}
+lock_release() {
+  if [ -n "$LOCK_TOKEN" ] && [ "$(cat "$LOCK/token" 2>/dev/null)" = "$LOCK_TOKEN" ]; then rm -rf "$LOCK"; fi
+  LOCK_TOKEN=
+}
 
 find_java() {
   local c
@@ -238,7 +268,14 @@ install_mod() {
   jar=$(ls -t "$ROOT"/mod/build/libs/ttl-portals-*.jar | grep -vE -- '-(sources|javadoc)\.jar$' | head -1)
   rm -f "$SRV"/mods/ttl-portals-*.jar
   cp "$jar" "$SRV/mods/ttl-portals-local.jar"
+  mod_hash > "$STATE/mod.sha"
   say "ttl-portals: local build $(basename "$jar")"
+}
+# The mod's sources by content, not file times: a checkout of another branch or worktree (verify) with older files
+# still counts as a change, so the jar on the server is always the build of the sources the checkout has.
+mod_hash() {
+  (cd "$ROOT/mod" && find src build.gradle gradle.properties settings.gradle -type f 2>/dev/null | LC_ALL=C sort \
+     | while IFS= read -r f; do printf '%s ' "$f"; sha256sum < "$f"; done) | sha256sum | cut -d' ' -f1
 }
 
 set_prop() {  # key value: in server.properties
@@ -262,7 +299,7 @@ configure() {
   set_prop difficulty hard
   set_prop max-players 15
   set_prop view-distance "$VIEW"
-  set_prop simulation-distance 8
+  set_prop simulation-distance 7
   set_prop spawn-protection 0
   set_prop allow-flight true
   set_prop white-list false
@@ -357,7 +394,7 @@ mods_changed() {
   [ "$(mods_hash)" != "$(cat "$STATE/mods.sha" 2>/dev/null)" ] && return 0
   [ "${TTL_LOCAL_MOD:-build}" = release ] && return 1
   [ -f "$SRV/mods/ttl-portals-local.jar" ] || return 0
-  [ -n "$(find "$ROOT/mod/src" "$ROOT/mod/build.gradle" "$ROOT/mod/gradle.properties" -newer "$SRV/mods/ttl-portals-local.jar" -type f 2>/dev/null | head -1)" ]
+  [ "$(mod_hash)" != "$(cat "$STATE/mod.sha" 2>/dev/null)" ]
 }
 
 # Copies the changes into the server and the baseline; sets NEED to none, reload or restart and N to the count.
@@ -469,11 +506,68 @@ ingame_skip_reason() {
   esac
 }
 
+# verify [<ref>]: the integration gate before a deploy (docs/server.md "Local testing", "The deploy gate"). Checks out the
+# exact commit (default: origin/main after a fetch) in a dedicated worktree ($D/verify-src, reused: only changed files are
+# rewritten), restarts this server on it with that worktree's own local.sh (pack, mods, the ttl-portals build), runs test all
+# and posts the GitHub commit status `local-test-all` on that SHA: success, or failure with the failing tests' names.
+# ttl-ops deploys a main commit to staging only when it carries `local-test-all = success` (or `deploy-override`).
+# TTL_VERIFY_NO_STATUS=1 runs it without posting. The full output is kept in $D/verify/<sha>.txt.
+VERIFY_CONTEXT=local-test-all
+post_status() {  # sha state description
+  [ -z "${TTL_VERIFY_NO_STATUS:-}" ] || { say "status not posted (TTL_VERIFY_NO_STATUS): $2 $3"; return 0; }
+  command -v gh >/dev/null || die "gh (GitHub CLI) not found; the status cannot be posted"
+  (cd "$ROOT" && gh api -X POST "repos/{owner}/{repo}/statuses/$1" -f state="$2" -f context="$VERIFY_CONTEXT" \
+     -f description="$(printf '%s' "$3" | cut -c1-139)" >/dev/null) || die "posting the $VERIFY_CONTEXT status failed"
+  say "status $VERIFY_CONTEXT = $2 on ${1:0:7}: $3"
+}
+do_verify() {
+  local ref=${1:-origin/main} sha vw out log rc fails names t0
+  t0=$(now)
+  git -C "$ROOT" fetch -q origin || die "git fetch failed"
+  sha=$(git -C "$ROOT" rev-parse --verify -q "$ref^{commit}") || die "unknown ref $ref"
+  vw=$D/verify-src
+  if git -C "$vw" rev-parse --git-dir >/dev/null 2>&1; then
+    git -C "$vw" checkout -q -f --detach "$sha" && git -C "$vw" clean -qfd -e mod/build -e mod/.gradle || die "cannot check out $sha in $vw"
+  else
+    rm -rf "$vw"; git -C "$ROOT" worktree prune
+    git -C "$ROOT" worktree add -q --detach "$vw" "$sha" || die "cannot add the worktree $vw"
+  fi
+  say "verify ${sha:0:7} ($(git -C "$vw" log -1 --format=%s | cut -c1-70)) in $(winpath "$vw")"
+  mkdir -p "$D/verify"
+  log=$D/verify/$sha.txt
+  # The worktree's own local.sh: its pack, its mod/ and its tests, on this server, under this run's lock. A restart, not a
+  # /reload: staging's deploy is a restart too, and state that scripts keep in memory (TtlDiscordStory's per-bot line
+  # counters) did not survive the reloads of a sync (verify of 4addb5b, `bosses`: "boss lines: expected 1, got 0").
+  export TTL_LOCAL_DIR=$D TTL_LOCAL_LOCK_HELD=$LOCK_TOKEN
+  if pid_alive; then bash "$vw/tools/local.sh" restart || die "restart at ${sha:0:7} failed; no status posted"
+  else bash "$vw/tools/local.sh" up || die "up at ${sha:0:7} failed; no status posted"; fi
+  rc=0
+  bash "$vw/tools/local.sh" test all 2>&1 | tee "$log" || rc=$?
+  [ "$(git -C "$vw" rev-parse HEAD)" = "$sha" ] || die "the verify worktree moved during the run; no status posted"
+  if ! grep -qE '^[0-9]+ failing$' "$log"; then
+    die "test all did not finish (no 'N failing' line; see $(winpath "$log")); no status posted"
+  fi
+  fails=$(grep -E '^[0-9]+ failing$' "$log" | tail -1 | cut -d' ' -f1)
+  if [ "$rc" -eq 0 ] && [ "$fails" = 0 ]; then
+    post_status "$sha" success "test-all green on the local Lerfing server ($(( ($(now) - t0) / 60 )) min)"
+  else
+    names=$(grep -vE '^[0-9]+ failing$| ok$| skipped' "$log" | grep -E '^[a-z0-9_]+ +' | awk '{print $1}' | paste -sd, - | sed 's/,/, /g')
+    post_status "$sha" failure "$fails failing: ${names:-see the local log}"
+    return 1
+  fi
+}
+
+case "${1:-}" in
+  up|down|restart|sync|test|snapshot|reset|verify) lock_take "$*" ;;
+esac
 case "${1:-}" in
   up)       do_up ;;
   down)     stop_server ;;
   restart)  t0=$(now); stop_server; do_up; say "restart in $(( $(now) - t0 ))s" ;;
-  status)   if running; then say "running (pid $(cat "$STATE/server.pid")), $(rcon_once list | head -1)"; else say "not running"; fi; say "folder: $(winpath "$D")" ;;
+  status)   if running; then say "running (pid $(cat "$STATE/server.pid")), $(rcon_once list | head -1)"; else say "not running"; fi
+            if [ -d "$LOCK" ]; then say "in use: pid $(lock_owner)"; else say "free (no local.sh holds it)"; fi
+            say "folder: $(winpath "$D")" ;;
+  verify)   do_verify "${2:-}" ;;
   logs)     tail -n "${2:-300}" "$SRV/logs/latest.log" ;;
   follow)   tail -n 50 -f "$SRV/logs/latest.log" ;;
   rcon)     rcon_once "${2:?usage: local.sh rcon \"<command>\"}" ;;
@@ -493,5 +587,5 @@ case "${1:-}" in
   snapshot) running && stop_server && was=1 || was=; snapshot_save "${2:-base}"; [ -z "$was" ] || { start_server; wait_ready; } ;;
   reset)    t0=$(now); stop_server; snapshot_restore "${2:-base}"; configure; start_server; wait_ready; say "reset in $(( $(now) - t0 ))s" ;;
   where)    winpath "$D"; echo ;;
-  *) echo "usage: local.sh up|down|restart|status|logs [n]|follow|rcon \"<cmd>\"|sync|test <name>|all|snapshot [name]|reset [name]|where" >&2; exit 2 ;;
+  *) echo "usage: local.sh up|down|restart|status|logs [n]|follow|rcon \"<cmd>\"|sync|test <name>|all|verify [<ref>]|snapshot [name]|reset [name]|where" >&2; exit 2 ;;
 esac

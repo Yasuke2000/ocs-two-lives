@@ -1,5 +1,8 @@
 # Current map review — round35 Imperial basin, post-Kijin snapshot
 
+Integration with upstream main09ca601 retains both complete documentation additions. Updated repository validation,20 JS syntax checks and472 tests pass (26 skips,zero failures,44.221s test tier). Runtime scripts/mod files exactly match upstream main; tools differ only in the five approved matrix entries. Converter code and current SVG/source/export are unchanged by the branch integration. No PR merge to main or server action ran.
+
+
 Round35 [Imperial basin review](imperial-basin-review.md) adds one modest unnamed inland water cue from the official illustration,at canon-implied visual confidence. Exact28-vertex shore/355×122 extent/level68/depth5 are authored; no Silberia name,outlet or city inferred;C05 remains. Fresh normal build55.0s/no warnings/SHA 1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5. All58 reservations/21 road profiles and other live layers retained;1892 local height/water/biome cells change. Ledger210(152+58),13 direct LN;art46/58 unchanged. Repository validation and462 tests pass (26 skips,zero failures,43.732s test tier). No apply/deploy;coverage/source/fixed-rule/fit/runtime obligations remain.
 
 

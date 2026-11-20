@@ -18,7 +18,7 @@ ttlbot spawn TtlBotArnE
 @sleep 2
 ttl arena reset
 ttl arena testmode on
-ttl boss cooldown clear elemental_colossus
+ttl boss cooldown clear elemental_colossus tests
 ttl arena clear TtlBotArnA
 ttl arena clear TtlBotArnB
 ttl arena clear TtlBotArnC
@@ -37,6 +37,8 @@ execute in minecraft:overworld run ttl arena testat labyrinth 20200 163 19500
 @sleep 2
 ttl arena list
 
+# Every "becomes" check (fight, wave n, result, free) is an `@until`: the arena counts in game ticks and a lag spike
+# stretches it (arena_dwarven on staging 19/11). The one fixed wait left checks that a party battle goes on.
 # ---- duel in the Walpurgis Hall: A opens, B joins, E (not Life 2) is refused --------------------------------------------
 execute as TtlBotArnA run ttl arena join walpurgis duel
 execute as TtlBotArnB run ttl arena join walpurgis
@@ -52,19 +54,16 @@ ttl liability expect arena TtlBotArnE no
 ttl arena expect player TtlBotArnA back yes
 ttl arena expect player TtlBotArnE back no
 execute as TtlBotArnA run ttl arena start
-@sleep 7
-ttl arena expect arena walpurgis state fight
-ttl arena defeat TtlBotArnB TtlBotArnA
-@sleep 2
-ttl arena expect arena walpurgis result a
-ttl arena expect player TtlBotArnA wins 1
-ttl arena expect player TtlBotArnA streak 1
-ttl arena expect player TtlBotArnB losses 1
-ttl arena expect player TtlBotArnA cooldown walpurgis duel yes
-ttl arena expect player TtlBotArnB cooldown walpurgis duel yes
-ttl arena expect player TtlBotArnB inarena no
-@sleep 6
-ttl arena expect arena walpurgis state free
+@until 60 ttl arena expect arena walpurgis state fight
+@until 60 ttl arena defeat TtlBotArnB TtlBotArnA
+@until 60 ttl arena expect arena walpurgis result a
+@until 60 ttl arena expect player TtlBotArnA wins 1
+@until 60 ttl arena expect player TtlBotArnA streak 1
+@until 60 ttl arena expect player TtlBotArnB losses 1
+@until 60 ttl arena expect player TtlBotArnA cooldown walpurgis duel yes
+@until 60 ttl arena expect player TtlBotArnB cooldown walpurgis duel yes
+@until 60 ttl arena expect player TtlBotArnB inarena no
+@until 60 ttl arena expect arena walpurgis state free
 ttl arena expect player TtlBotArnA inarena no
 ttl arena expect player TtlBotArnA back no
 
@@ -83,51 +82,44 @@ execute as TtlBotArnD run ttl arena join walpurgis party b
 ttl arena expect arena walpurgis mode party
 ttl arena expect arena walpurgis players 4
 execute as TtlBotArnA run ttl arena start
-@sleep 7
-ttl arena expect arena walpurgis state fight
-ttl arena defeat TtlBotArnC TtlBotArnA
+@until 60 ttl arena expect arena walpurgis state fight
+@until 60 ttl arena defeat TtlBotArnC TtlBotArnA
 @sleep 2
 ttl arena expect arena walpurgis state fight
 ttl arena defeat TtlBotArnD TtlBotArnB
-@sleep 2
-ttl arena expect arena walpurgis result a
-ttl arena expect player TtlBotArnA wins 2
-ttl arena expect player TtlBotArnA streak 1
-ttl arena expect player TtlBotArnB wins 1
-ttl arena expect player TtlBotArnC losses 1
-ttl arena expect player TtlBotArnD cooldown walpurgis party yes
-@sleep 6
-ttl arena expect arena walpurgis state free
+@until 60 ttl arena expect arena walpurgis result a
+@until 60 ttl arena expect player TtlBotArnA wins 2
+@until 60 ttl arena expect player TtlBotArnA streak 1
+@until 60 ttl arena expect player TtlBotArnB wins 1
+@until 60 ttl arena expect player TtlBotArnC losses 1
+@until 60 ttl arena expect player TtlBotArnD cooldown walpurgis party yes
+@until 60 ttl arena expect arena walpurgis state free
 
 # ---- challenge in Ramiris's Labyrinth (test spot): three waves, then the Elemental Colossus through the boss framework.
 # The boss is aborted, so the challenge ends "partial" (all waves, the boss not felled) once it is gone for 15 s.
 execute as TtlBotArnC run ttl arena join labyrinth challenge
 ttl arena expect arena labyrinth mode challenge
 execute as TtlBotArnC run ttl arena start
-@sleep 7
-ttl arena expect arena labyrinth state fight
-ttl arena expect arena labyrinth phase waves
-ttl arena expect arena labyrinth wave 1
+@until 60 ttl arena expect arena labyrinth state fight
+@until 60 ttl arena expect arena labyrinth phase waves
+@until 60 ttl arena expect arena labyrinth wave 1
 ttl arena wave labyrinth clear
-@sleep 2
-ttl arena expect arena labyrinth wave 2
+@until 60 ttl arena expect arena labyrinth wave 2
 ttl arena wave labyrinth clear
-@sleep 2
-ttl arena expect arena labyrinth wave 3
+@until 60 ttl arena expect arena labyrinth wave 3
 ttl arena wave labyrinth clear
-@sleep 4
-ttl arena expect arena labyrinth phase boss
+@until 60 ttl arena expect arena labyrinth phase boss
+# The phase turns to boss when the summon is asked for; the Colossus itself comes a moment later. Abort only a live one.
+@until 60 ttl boss expect TtlBotArnC active elemental_colossus yes
 ttl boss abort elemental_colossus
-@sleep 18
-ttl arena expect arena labyrinth result partial
-ttl arena expect player TtlBotArnC clears 0
-ttl arena expect player TtlBotArnC cooldown labyrinth challenge yes
-@sleep 6
-ttl arena expect arena labyrinth state free
+@until 60 ttl arena expect arena labyrinth result partial
+@until 60 ttl arena expect player TtlBotArnC clears 0
+@until 60 ttl arena expect player TtlBotArnC cooldown labyrinth challenge yes
+@until 60 ttl arena expect arena labyrinth state free
 
 # ---- clean up --------------------------------------------------------------------------------------------------------
 ttl arena reset
-ttl boss cooldown clear elemental_colossus
+ttl boss cooldown clear elemental_colossus tests
 execute in minecraft:overworld run fill 20075 200 20023 20109 200 20057 minecraft:air
 execute in minecraft:overworld run fill 20176 200 19997 20256 200 20077 minecraft:air
 execute in minecraft:overworld run forceload remove 20064 20016 20112 20064
