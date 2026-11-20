@@ -1,8 +1,10 @@
-# Tensura geography research — map round 13
+# Tensura geography research — map round 14
+
+Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 122 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 180 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 123 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 181 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and

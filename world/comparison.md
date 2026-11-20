@@ -1,4 +1,6 @@
-# Reference comparison — research round 13 / post-Kijin snapshot
+# Reference comparison — research round 14 / post-Kijin snapshot
+
+Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 | Authored Minecraft geometry | Official visual reference |
 | --- | --- |

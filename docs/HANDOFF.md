@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Sarion proportion refinement (ChatGPT, PR #74 round14)
+
+Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
+
+Verified: default checker 0 errors / 56 relations pass / 2 prior warnings; fresh normal build 54.6s, no converter warnings, source SHA matches. All 21 road grades <=0.5 with float epsilon; max bridge 40 <64. Elmine 0/1976 wet; cave 0/1116; goblin 0/612; Siss 1804/1804 and lizardmen stilt plate 710/710 wet. Ledger 181 (123 thematic/design/reference +58 coordinate interpretations). Repository gate: validation passed; 462 tests, 26 skips, 0 failures. No apply/deployment. Remaining source/location conflicts and the 29 coverage follow-ups stay open.
+
 ## 20/11 — Rounded river bends and measured western trail grade (ChatGPT, PR #74 round13)
 
 Five existing reaches (Ameld head/outlet, Tempest upper brook, Jura–Sarion, western trade river) now have rounded bends. All original control points/endpoints, widths and head/mouth levels retained; measured maximum plan deviation14.17 blocks. Exact channels are interpretation under C03. [Measurements](../world/river-centreline-review.csv). One western trail waypoint within20 blocks corrects an exported grade0.5022 after the river change; old path points/endpoints retained. All58 sites/radii and other geometry unchanged. Ledger180 records.

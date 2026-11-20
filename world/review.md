@@ -1,4 +1,6 @@
-# Current map review — round 13 river refinement, post-Kijin snapshot
+# Current map review — round 14 river refinement, post-Kijin snapshot
+
+Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 Yasuke selected **immediately after the Kijin naming, anime S 1 episode 10**. [Era policy](era.md)
 and [58-site state overlay](../docs/research/tensura-world-2026-11-19/era-site-state.csv) supersede mixed-era
@@ -23,7 +25,7 @@ Round 9 replaces the long equal-height Canaat crest with a shorter bent high spi
 
 [Empire follow-up](../docs/research/tensura-world-2026-11-19/eastern-empire-followup.md) keeps Silberia unlocated and its S1E10 state unverified. Publisher guide13.5 listing was read; the licensed trial did not render. Historical WN predecessor states and the frontier ruin are not silently turned into contemporary anime sites.
 
-The ledger contains **180 records: 122 thematic/design/reference records plus 58 coordinate interpretations**.
+The ledger contains **181 records: 123 thematic/design/reference records plus 58 coordinate interpretations**.
 Eleven directly read LN claims and nine newly read WN claims remain qualified by continuity and snapshot_use.
 [WN findings](../docs/research/tensura-world-2026-11-19/wn-geography-followup.md),
 [ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
@@ -39,14 +41,14 @@ view. This does not establish surveyed borders or make omitted countries nonexis
 - Standard checker after each SVG edit: **0 errors, all 56 relations pass**, two disclosed warnings:
   Laura waterfall crosses its escarpment; box 12288 by 10752 is 512 above preferred height, below the hard cap.
   Mainland about 9653 by 6250; 10 mountains, 6 hills, 12 forests and 14 biome polygons.
-- Fresh normal converter build of the **current SVG**: **54.0 seconds, no warnings**, 3072 by 2688
+- Fresh normal converter build of the **current SVG**: **54.6 seconds, no warnings**, 3072 by 2688
   pixels. All current labels/comments and preceding terrain revisions are included. The source SHA matches staging;
   published terrain-preview bytes match the fresh output. Earlier permission limitations are resolved.
 - **58/58** centres verified against index.json; sites.json contains only the 34 runtime plate entries,
-  not every marker. All 180 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
-- Actual current exported profiles: **21 roads, maximum grade 0.5** within float epsilon. Only the disclosed western approach waypoint changes road geometry; current bridge metadata has a 40-block maximum, below the 64-block limit.
+  not every marker. All 181 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
+- Actual current exported profiles: **21 roads, maximum grade 0.5** within float epsilon. Round 14 reconnects three southern trails; the preceding western approach waypoint remains; current bridge metadata has a 40-block maximum, below the 64-block limit.
 - Raster footprint check: Siss water1804/1804 pixels; lizardmen intentional water plate710/710 at level66
-  (`sites.toml` surface=water, for stilt construction); cave dry0/1116 wet pixels; goblin village0/612 wet.
+  (`sites.toml` surface=water, for stilt construction); cave dry0/1116 wet pixels; goblin village0/612 wet; Elmine0/1976 wet.
 - Current terrain samples: Dragon Nest surface 272; eastern-spur transect 91.6–109.5. These are
   server raster readings, not canonical elevations. Dwargon/carve reservations export without warnings.
 - Prior Milim biome revision remains intact. Wooded-badlands raster: 13374 cells;
