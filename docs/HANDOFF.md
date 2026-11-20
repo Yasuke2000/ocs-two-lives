@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Natural landmark concepts (ChatGPT, round29, stacked on art PR95)
+
+Four pairs: ameld_source,ameld_mouth,el_dorado_volcano,great_holy_mountain. Existing spring/delta candidates lose unsupported nest/bones, oversized falls/pool, red mesas and invented buildings/fields/distributaries. New volcanic dome/adit and small interpreted holy-mountain gallery; targeted edit removes unrequested lava fissures. Official Ameld glossary/cache and broad map reinspected; direct wiki access blocked, indexed leads qualified. No verified exact anime close-up claimed. All58 reservations match0f154fc; art branch retains older map/source files.32/58 delivered,26 remain; C03/C05 and full-feature/gallery/fit/runtime/source obligations open. Four selected RGB1536x1024 images<3,000,000 bytes, original pixels preserved;32 pairs/seven manifests checked. Gate result in docs/art/places/README.md. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.
+
 ## 20/11 — Demon-seat/gallery concepts (ChatGPT, round28, stacked on art PR94)
 
 Four new original pairs: clayman_castle,amrita,frost_palace,el_dorado. Intact woodland fortress, dormant buried gallery, enclosed ice corridor and representative pale/gold/purple court. Official selected anime stills and public LN/WN context inspected; references/prompts separate direct cues, secondary attribution and authored plans. C07 east-marker/access and C22 coast/inland source/type decisions remain open. No later visitors/raids/active wards/NPC roster. All58 reservations match8ea1e96; art branch retains older map/source files.28/58 delivered,30 remain. Four RGB1536x1024 outputs,<3,000,000 bytes, original pixels preserved;28 pairs/six manifests checked. Full-city/palace/source/roof/water/fit/runtime obligations remain open. Gate result in docs/art/places/README.md. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.
