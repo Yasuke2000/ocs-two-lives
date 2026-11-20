@@ -2950,7 +2950,7 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "54479bce9a73a8a1407c31fd3c50fd76b8c8cf2d966994bdb2b8f7f0a0dc8502"
+hash = "468cd25bb663e81466d2133709d24e4df80e92aab33a3615439370425a3fa92b"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -3258,7 +3258,7 @@ hash = "3e29fb479412d19a3c7e75b279cb9f6441c7f041b970b367c1bf68b88b1e3045"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/cast.js"
-hash = "6637e8a3992cd60fd3408422ac36a661537396785f06df5ef11e68d969cf1f58"
+hash = "8c9d83143881d806c0f444f1617fbb5d8d5d8f86a7e47cb511d752ea345a8c2a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/story/commands.js"
@@ -3294,7 +3294,7 @@ hash = "4465bced891b6ae95f3daa3711e98d3a0128da624bf7bc15cfd342016cf2d705"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/world/npc_protect.js"
-hash = "ee031e80a3878b7a441906d3a8e261213c786f1ef8e6841cccdddf3873411e1d"
+hash = "a9f4b1b228b0ce0ffcf68effb2d10d343a0a17fd7347082de8d4b55c156401db"
 
 [[files]]
 file = "kubejs/startup_scripts/ttl/blocks.js"

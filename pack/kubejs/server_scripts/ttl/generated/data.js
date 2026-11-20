@@ -7398,7 +7398,7 @@ const TtlData = {
       "check_ticks": 200,
       "interact_cooldown_ms": 600,
       "preset_prefix": "ttl_guild_",
-      "rev": 4,
+      "rev": 5,
       "sneak_bypass": true,
       "start_delay_ticks": 200
     },

@@ -83,16 +83,19 @@ ttl enemies expect alive test 1
 ttl npcgear guards
 @until 40 ttl enemies expect alive test 0
 ttl enemies expect killedby resident
-# Severance passes vanilla invulnerability: the shield keeps Rigur and an adventurer alive (a /kill still works).
+# Severance passes vanilla invulnerability and Easy NPC's own: the shield keeps Rigur and the guild's receptionist alive.
 ttl npcprotect expect ttl.resident.rigur protected
 ttl npcprotect expect ttl.resident.goblin_3 open
 damage @e[tag=ttl.resident.rigur,limit=1] 1000 tensura:severance by TtlBotEnemyA
 execute if entity @e[tag=ttl.resident.rigur]
+ttl guild npc ensure receptionist_tempest
+@until 20 ttl npcprotect expect ttl.npc.spot.receptionist_tempest protected
+damage @e[tag=ttl.npc.spot.receptionist_tempest,limit=1] 1000 tensura:severance by TtlBotEnemyA
+execute if entity @e[tag=ttl.npc.spot.receptionist_tempest]
+# A vulnerable NPC (a test adventurer without the town tag ttl.adv, like an escort client) is not shielded.
 ttl npcgear testclear
 execute in minecraft:overworld positioned ${anchor:tempest.x} 0 ${anchor:tempest.z-7} positioned over motion_blocking_no_leaves run ttl npcgear testspawn veteran_knight ~ ~ ~
-ttl npcprotect expect ttl.test.gear.veteran_knight protected
-damage @e[tag=ttl.test.gear.veteran_knight,limit=1] 1000 tensura:severance by TtlBotEnemyA
-execute if entity @e[tag=ttl.test.gear.veteran_knight]
+ttl npcprotect expect ttl.test.gear.veteran_knight open
 ttl npcgear testclear
 # Killing a peaceful resident: the dark road (chaos 3) and Tempest's kill_penalty (15).
 ttl rep set TtlBotEnemyA tempest 0

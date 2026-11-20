@@ -201,7 +201,8 @@ const TtlCast = {
     try {
       var level = e.level
       var x = Math.floor(e.getX())
-      var y = Math.floor(e.getY() + 0.01)
+      // The block the feet are in: an NPC on a path block or a slab stands at y + 0.9375 / + 0.5, so round up.
+      var y = Math.ceil(e.getY() - 0.01)
       var z = Math.floor(e.getZ())
       var BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
       var at = dy => level.getBlockState(new BlockPos(x, y + dy, z))
