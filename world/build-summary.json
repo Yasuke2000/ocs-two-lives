@@ -19,10 +19,10 @@
     "skips": 26,
     "validation": "passed",
     "base_main": "a1848be",
-    "test_seconds": 43.673
+    "test_seconds": 43.844
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 199,
+  "research_claim_records": 201,
   "directly_verified_LN_claims": 12,
   "reference_alternatives_inert": true,
   "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
@@ -251,6 +251,7 @@
     "C07": "Official episode81 below-castle relationship; separate eastern game reservation retained. Inert access projection only; depth/whole footprint unknown.",
     "Soma": "Identity directly supported by LN10; exact location/footprint open, western association wiki-backed.",
     "all58_sites_and_geometry_unchanged": true,
-    "C22": "WN78 centrally placed White Ice Palace versus coast-kind game reservation; inert near-centroid alternative only. LN agreement not verified."
+    "C22": "WN78 centrally placed White Ice Palace versus coast-kind game reservation; inert near-centroid alternative only. LN agreement not verified.",
+    "round29": "Two qualified fan-wiki volcano/mountain records and OFF-001 cached official glossary reinspection; no SVG/build changes."
   }
 }

@@ -1,4 +1,6 @@
-# Current map review — round28 Frost Palace WN/source reconciliation, post-Kijin snapshot
+# Current map review — round29 source qualification, post-Kijin snapshot
+
+Round29 source qualification adds WIK-ELD-029/WIK-HOL-029 at fan-wiki confidence and rechecks the cached official Ameld glossary without duplicating OFF-001. Ledger201(143 thematic/design/reference+58 coordinates),12 directly read LN claims. Source/site/C03/C05 limits remain. SVG, terrain export and source SHA32aa6e10 remain unchanged; no fresh converter run needed for a research-only update. Four natural-landmark concepts are separately delivered in PR96, total32/58 with26 remaining.
 
 Round28 [Frost Palace WN source review](frost-palace-source-review.md) adds an inert inland alternative/C22. All active XML/58 site attributes, complete height/water/biome/21-road outputs and both previews match046d7c3; fresh normal build55.1s/no warnings/current SHA32aa6e10 matches. Ledger199(141 thematic/design/reference+58 coordinate interpretations),12 directly read LN claims. WN continuity remains separate; LN agreement and site-kind/entry-versus-palace representation remain open.
 
@@ -93,3 +95,5 @@ still contains missing or uncertain places; neither the complete wiki nor the fa
 Round25 painting-pointer documentation gate passes validation and462 tests (26 skips,zero failures,43.526s test tier). This changes no production or staging bytes.
 
 Round28 source/inert-alternative gate passes repository validation and462 tests (26 skips,zero failures,43.673s test tier). Active geography stays unchanged.
+
+Round29 source/supplement/pointer gate passes repository validation and462 tests (26 skips,zero failures,43.844s test tier). No SVG/terrain/runtime bytes change.
