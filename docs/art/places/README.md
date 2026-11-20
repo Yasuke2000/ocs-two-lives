@@ -1,4 +1,7 @@
-# Post-Kijin place concepts — fifty-two delivered locations
+# Post-Kijin place concepts — all fifty-eight delivered locations
+
+Round37 completes the58 registered image/sheet pairs: Filtwood,Ghastone,Rostia,Sainte-Malukshure,old Forgotten Dragon City and the old well. **This completes art-file coverage only.** Sainte depicts the inert C14 coastal alternative,not the current inland pin. Filtwood's C20 placement conflict,country geography,full structure fit,source certainty and runtime acceptance remain open. All58 attributes match map1209e38. Earlier summaries below are historical.
+
 
 Latest round36: shizu_spawn,outcast_road,treyni_grove,blumund_road,englassia_road and rookie_camp bring delivery to52/58,with6 remaining. All58 attributes match map48b0846. Three own-image revisions remove unsupported water,settlement/fort scenery and future residents; three new small route vignettes remain server design. The rookie pin is in the current dark band,not the old safe-rim meadow. The natural tree is not an entire treant settlement. Earlier summaries below are historical.
 
@@ -171,3 +174,18 @@ All46 pairs/ten manifests/58-row coverage checked; all58 attributes match13f4cfb
 [Nine reference/design records](jura-route-reference-review.csv),[exact prompts](jura-route-prompts.json),six fiches and [manifest](jura-route-asset-manifest.json) preserve scope. Original official episode9 forest frames and selected episode12 stills were inspected; no anime raster was a generation input. Three legacy originals remain intact. The single ancient-tree adaptation does not represent a surveyed treant settlement or later Dungeon floor.
 
 All52 pairs/eleven manifests/58-row coverage checked; six new RGB1536Ã—1024 PNGs<3MB preserve selected decoded pixels. All58 site attributes match current map48b0846; this art branch retains older map/source files. Remaining six: filtwood,ghastone,rostia,sainte_malukshure,forgotten_dragon_city,old_well. Source/coverage/era/fit/runtime obligations remain open. Repository validation and462 tests pass (26 skips,zero failures,43.827s test tier); no world/tools/mod/pack/blueprint/apply/deploy changes.
+
+## Final six registered place concepts — round37
+
+| Place | Image | Source and terrain sheet |
+| --- | --- | --- |
+| Filtwood room/window interpretation | [PNG](filtwood.png) | [Sheet](filtwood.md) |
+| Ghastone country-road vignette | [PNG](ghastone.png) | [Sheet](ghastone.md) |
+| Rostia country-road vignette | [PNG](rostia.png) | [Sheet](rostia.md) |
+| Sainte-Malukshure coastal C14 alternative | [PNG](sainte_malukshure.png) | [Sheet](sainte_malukshure.md) |
+| Old Forgotten Dragon City goods-yard precinct | [PNG](forgotten_dragon_city.png) | [Sheet](forgotten_dragon_city.md) |
+| Old well | [PNG](old_well.png) | [Sheet](old_well.md) |
+
+[Eleven source/design records](final-places-reference-review.csv),[exact prompts](final-places-prompts.json) and [manifest](final-places-asset-manifest.json) qualify all six originals. Official profiles directly establish Rostia's kingdom identity and the old city's temple; architecture remains interpretation. Selected official episode24 frames were inspected. Episode45's five selected stills do not verify a Dragon City exterior. No copyrighted image is a generation input. Legacy sheets remain untouched; no older PNG candidate existed for these six IDs.
+
+All58 pairs/twelve manifests/58-row coverage checked. Six new RGB1536×1024 PNGs<3MB preserve selected decoded pixels. All58 site attributes match current map1209e38; this art branch retains older map/source files. C14's image is explicitly an alternative; country/capital/initial-state/source/structure-fit/runtime requirements remain open. Repository validation and462 tests pass (26 skips,zero failures,44.337s test tier). No world/tools/mod/pack/blueprint/apply/deploy changes.

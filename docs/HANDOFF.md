@@ -1,5 +1,10 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — final six registered place-art pairs (ChatGPT, round37, stacked on PR100)
+
+Adds Filtwood,Ghastone,Rostia,Sainte-Malukshure,old Forgotten Dragon City and old well:58/58 PNG/sheet pairs,twelve manifests and58-row coverage. This closes art-file coverage only. All58 site attributes match main1209e38,though this art branch retains older map/source files. Six new originals,1536×1024 RGB<3MB,decoded pixels preserved. Sainte depicts the inert C14 coastal proposal,not the active inland H pin; Filtwood C20 remains. Rostia's kingdom and Dragon City's temple have direct official profile support; no capital/bone-city architecture is certified. Eleven source/design records,exact prompts and manifest in docs/art/places. Full geometry/source/era/structure-fit/runtime requirements stay open. Gate in art README/new PR. No world/tools/mod/pack/blueprint/apply/deploy edits.
+
+
 ## 20/11 â€” Jura and western route concepts (ChatGPT, round36, stacked on art PR99)
 
 Six original/revised image+sheet pairs:shizu_spawn,outcast_road,treyni_grove,blumund_road,englassia_road,rookie_camp. Three earlier own candidates revised; three new originals. Future encounter/contact views have no named resident or later fortress; tree remains a natural mod-landmark interpretation,not a whole treant settlement. Rookie pin is in current dark band573 blocks from Tempest,not the legacy safe meadow. Nine qualified reference/design records; exact prompts/input/output hashes in docs/art/places. All52 pairs/eleven manifests/58-row coverage checked; all58 site attributes match map48b0846,though this branch retains older map/source files. Six images1536Ã—1024 RGB<3MB,pixels preserved. Six pairs remain; full geography/source/fit/runtime obligations stay open. Gate in art README/new PR. No world/tools/mod/pack/blueprint/apply/deploy edits.

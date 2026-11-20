@@ -1,0 +1,156 @@
+{
+  "base_art_commit": "96e1069",
+  "main_map_reservation_cross_check_commit": "1209e38",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming,S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "filtwood",
+      "file": "filtwood.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 1823998,
+      "sha256": "e3a77cd6707560a69cd305502a56d25206937e43e88f19db0f2cf34e92ab7db6",
+      "generated_original_basename": "exec-cc8977fb-bf0d-4236-a891-881ce13a149f.png",
+      "generated_original_sha256": "b1bff8cd83c7d0002f47382b3e8cf6543a4762241a5ac8b73f16cd920cd19379",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-1200",
+        "cy": "2750",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      },
+      "depicts_active_reservation": true,
+      "depicted_alternative": null
+    },
+    {
+      "id": "ghastone",
+      "file": "ghastone.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2250769,
+      "sha256": "8fa7153e10b7155a1e5c2e419459e28cd5b49b0a32dd603f07a32caa30039506",
+      "generated_original_basename": "exec-42ec7076-542d-4266-8688-2adf6f1d07ba.png",
+      "generated_original_sha256": "be25d2a7ad29ce47b3a2f22e41f6932c840391a3dde29eb911b02a739dc49a0a",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-3200",
+        "cy": "-300",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      },
+      "depicts_active_reservation": true,
+      "depicted_alternative": null
+    },
+    {
+      "id": "rostia",
+      "file": "rostia.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2023645,
+      "sha256": "df753fe5bec72a360999df872965ab866afeefeefae36fcf95474671e7f17f87",
+      "generated_original_basename": "exec-ba9951ba-d348-41dd-bf7f-8ea5de6f5136.png",
+      "generated_original_sha256": "aa15ff1cc74bcd351ec1afa44809a8f4b6e76a450ff97cb8e68b9d6a1110f8f7",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-2780",
+        "cy": "200",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      },
+      "depicts_active_reservation": true,
+      "depicted_alternative": null
+    },
+    {
+      "id": "sainte_malukshure",
+      "file": "sainte_malukshure.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 1777177,
+      "sha256": "ffa75b7abfb55f2e9a7eea3f97104752170658fcb814b916e825153922f8fb9b",
+      "generated_original_basename": "exec-1f7b09c0-f80b-4ed4-9029-27e30eb16ead.png",
+      "generated_original_sha256": "0d16836d77692710253d068bfac724918a1d1a0d648a67b249a842283acc15b7",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-100",
+        "cy": "2000",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      },
+      "depicts_active_reservation": false,
+      "depicted_alternative": {
+        "centre": [
+          -2320,
+          1645
+        ],
+        "radius": 64,
+        "conflict": "C14"
+      }
+    },
+    {
+      "id": "forgotten_dragon_city",
+      "file": "forgotten_dragon_city.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2264913,
+      "sha256": "23e85886229ea0c46d4a2208394578a5ab1926a8e5989b8deb50c397c192980a",
+      "generated_original_basename": "exec-2ab58f8f-7c3a-40ac-b8e0-5aab49d03067.png",
+      "generated_original_sha256": "eb841e22fd58a228b47791179e28b43dedd63ecab306323667a0003b98359964",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "2650",
+        "cy": "800",
+        "r": "100.0",
+        "data-site": "clearing",
+        "data-margin": "64"
+      },
+      "depicts_active_reservation": true,
+      "depicted_alternative": null
+    },
+    {
+      "id": "old_well",
+      "file": "old_well.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2709474,
+      "sha256": "98cf8cdfd28a41e09c112979dcc30cb313b0edb47d6e59b9705b22b64706fb1a",
+      "generated_original_basename": "exec-bd8a5747-2455-4882-979a-46f8c443ff2d.png",
+      "generated_original_sha256": "30919d6d8bc09c194f378882cf7246a820e07a888dc2480bf30f19b7cebb2163",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-1000",
+        "cy": "-340",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      },
+      "depicts_active_reservation": true,
+      "depicted_alternative": null
+    }
+  ],
+  "limits": "All six are original interpretations. Sainte depicts inert C14 coastal alternative. Complete art coverage is not proof of complete country/source/build/runtime fidelity."
+}
