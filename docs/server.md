@@ -72,7 +72,7 @@ prints it.
 | `up` | Installs NeoForge from `pack/pack.toml`, the pack's server side with packwiz-installer (what the itzg image does for `PACKWIZ_URL`, from a refreshed copy of your working tree, so uncommitted edits count), your `mod/` build of ttl-portals in place of the released jar, the `ttl-overrides` datapack into the world; starts and waits for RCON. The first boot waits until the start-up placements are done (`ttl build list` has nothing pending, ~15 min on a fresh world) and saves the world as snapshot `base`. Later `up`s only redo what changed (packwiz-installer when the mod list or versions changed, gradle when `mod/` changed; `TTL_LOCAL_FULL=1` forces both) |
 | `sync` | Copies what changed in `pack/` since the last up/sync into the running server and applies it: `kubejs/server_scripts`, `kubejs/data`, `datapacks`, `config/ttl`, `config/ftbquests` → `/reload` (waits for "Reloaded with"; like `server.sh push-scripts`, so commands re-register); startup scripts or other config → restart; mods or `mod/` → full `up`. Prints new KubeJS/`[ttl]` errors and exits 1 on them |
 | `test <name>` / `test all` | The same `tests/ingame/*.rcon` through the same runner as `tools/server.sh` (`tools/ingame.sh`), on one RCON connection (`tools/rcon.py --serve`), each command 2 game ticks after the previous one (`TTL_LOCAL_TICKS`; staging's kubectl exec takes ~3). Waits first while start-up builds are still pending. `test all` keeps each output in `test-out/` |
-| `verify [<ref>]` | The deploy gate (below): `main`'s exact commit (or `<ref>`) in its own worktree `verify-src/`, the server synced to it, `test all`, and the GitHub status `local-test-all` posted on that SHA (success, or failure with the failing tests). Output in `verify/<sha>.txt`; `TTL_VERIFY_NO_STATUS=1` posts nothing |
+| `verify [<ref>]` | The deploy gate (below): `main`'s exact commit (or `<ref>`) in its own worktree `verify-src/`, the server restarted on it (like a staging deploy, never a `/reload`), `test all`, and the GitHub status `local-test-all` posted on that SHA (success, or failure with the failing tests). Output in `verify/<sha>.txt`; `TTL_VERIFY_NO_STATUS=1` posts nothing |
 | `down`, `restart`, `status`, `logs [n]`, `follow`, `rcon "<cmd>"` | As in `server.sh`; the log of the run before the last start is `logs/previous.log`. `status` also says whether a `local.sh` holds the server (and which) |
 | `snapshot [name]`, `reset [name]` | Save the stopped world / put it back (default `base`). `stop` says whether the log has "All dimensions are saved" |
 
@@ -128,8 +128,8 @@ happen, because we first do stuff locally?" (Yasuke). Now it cannot:
 2. **After a merge**, someone runs `bash tools/local.sh verify` on the local Lerfing server
    (`TTL_LOCAL_DIR=/c/Users/david/AppData/Local/ocs-two-lives/local-lerfing`; check `status` first). It fetches,
    checks out `origin/main`'s exact commit in `$TTL_LOCAL_DIR/verify-src` (a worktree of its own, never your
-   checkout), syncs the server to it with that worktree's `local.sh` (scripts, data, configs, mods and the
-   ttl-portals build of that commit), runs `test all` (~25 min) and posts the commit status `local-test-all`:
+   checkout), restarts the server on it with that worktree's `local.sh` (scripts, data, configs, mods and the
+   ttl-portals build of that commit; a restart like staging's deploy, not a `/reload`), runs `test all` (~25 min) and posts the commit status `local-test-all`:
    `success` ("test-all green on the local Lerfing server"), or `failure` with "N failing: name, name". A run that
    does not finish posts nothing. When `main` moved on meanwhile, verify the new head: only the head is deployed.
 3. **ttl-ops** (Homelab repo, `apps/ocs-two-lives/manifests/ops.yaml`, `gate_open` in `loop.sh`) deploys a new pack

@@ -508,7 +508,7 @@ ingame_skip_reason() {
 
 # verify [<ref>]: the integration gate before a deploy (docs/server.md "Local testing", "The deploy gate"). Checks out the
 # exact commit (default: origin/main after a fetch) in a dedicated worktree ($D/verify-src, reused: only changed files are
-# rewritten), syncs this server to it with that worktree's own local.sh (pack, mods, the ttl-portals build), runs test all
+# rewritten), restarts this server on it with that worktree's own local.sh (pack, mods, the ttl-portals build), runs test all
 # and posts the GitHub commit status `local-test-all` on that SHA: success, or failure with the failing tests' names.
 # ttl-ops deploys a main commit to staging only when it carries `local-test-all = success` (or `deploy-override`).
 # TTL_VERIFY_NO_STATUS=1 runs it without posting. The full output is kept in $D/verify/<sha>.txt.
@@ -535,9 +535,11 @@ do_verify() {
   say "verify ${sha:0:7} ($(git -C "$vw" log -1 --format=%s | cut -c1-70)) in $(winpath "$vw")"
   mkdir -p "$D/verify"
   log=$D/verify/$sha.txt
-  # The worktree's own local.sh: its pack, its mod/ and its tests, on this server, under this run's lock.
+  # The worktree's own local.sh: its pack, its mod/ and its tests, on this server, under this run's lock. A restart, not a
+  # /reload: staging's deploy is a restart too, and state that scripts keep in memory (TtlDiscordStory's per-bot line
+  # counters) did not survive the reloads of a sync (verify of 4addb5b, `bosses`: "boss lines: expected 1, got 0").
   export TTL_LOCAL_DIR=$D TTL_LOCAL_LOCK_HELD=$LOCK_TOKEN
-  if pid_alive; then bash "$vw/tools/local.sh" sync || die "sync to ${sha:0:7} failed (KubeJS errors above); no status posted"
+  if pid_alive; then bash "$vw/tools/local.sh" restart || die "restart at ${sha:0:7} failed; no status posted"
   else bash "$vw/tools/local.sh" up || die "up at ${sha:0:7} failed; no status posted"; fi
   rc=0
   bash "$vw/tools/local.sh" test all 2>&1 | tee "$log" || rc=$?
