@@ -1,4 +1,10 @@
-# Reference comparison — research round 17 / post-Kijin snapshot
+# Reference comparison — round35 / post-Kijin snapshot
+
+## Imperial water cue — round35
+
+[Current before/after](imperial-basin-study.png) adds the previously omitted unlabelled basin shown east/southeast of the Imperial cone in the official base illustration. This is a visual inference; exact shore/position/level/depth are our interpretation. No named LN lake, Silberia coordinate or drainage route is claimed. [Evidence and unchanged-site/road/raster checks](imperial-basin-review.md). The current atlas includes it; earlier painted atlases remain historical.
+
+Earlier numbered comparisons below are historical at their stated sources.
 
 Round32 comparison: [Ice coast review](ice-coast-review.md) adds three limited irregular inlets to the earlier smooth envelope. The official illustration is a visual reference, not a surveyed source for those precise bays. Fixed palace shore,58 reservations,21 roads,mainland and El Dorado geometry remain; sea gap916.98 blocks. Checker preview, fresh atlas and native before/after were visually inspected. Earlier painted passes predate this shoreline and Orbic habitat update.
 

@@ -1,4 +1,7 @@
-# Current map review — round34 western source/art follow-up, post-Kijin snapshot
+# Current map review — round35 Imperial basin, post-Kijin snapshot
+
+Round35 [Imperial basin review](imperial-basin-review.md) adds one modest unnamed inland water cue from the official illustration,at canon-implied visual confidence. Exact28-vertex shore/355×122 extent/level68/depth5 are authored; no Silberia name,outlet or city inferred;C05 remains. Fresh normal build55.0s/no warnings/SHA 1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5. All58 reservations/21 road profiles and other live layers retained;1892 local height/water/biome cells change. Ledger210(152+58),13 direct LN;art46/58 unchanged. Repository validation and462 tests pass (26 skips,zero failures,43.732s test tier). No apply/deploy;coverage/source/fixed-rule/fit/runtime obligations remain.
+
 
 Round34 source/art follow-up adds OFF-RAJ-034 (official distributor west/gold/lake film context,not initial cure/state) and FAN-WES-034 (secondary four-state name/order lead). Ledger208(150+58),13 direct LN;52 visual/design supplements. Six original/revised western concepts bring art to46/58,12 remaining. Creative briefs correct manga108 versus LN and later liberation/film-cure assumptions. Current SVG/source SHA d10aa456,58 reservations and terrain unchanged; no new converter run required. All geographic/source/fixed-rule/coverage/fit/runtime obligations remain. Repository validation and462 tests pass (26 skips,zero failures,43.735s test tier). No apply/deploy.
 

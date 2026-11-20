@@ -17,3 +17,7 @@ Direct licensed geography passages, city layouts and Silberia's initial-era stat
 ## Connected relief improvement
 
 The former Canaat crest spanned 2240 blocks horizontally at one designed height. Comparing it to the official illustrated relief exposed an avoidable authored distortion. Round 9 shortens the high spine near the fixed Dragon Nest and reshapes the southern foot, with a separate lower, tapered eastern mountain apron. The image supports the broad massing; exact vertices/heights and server compression are **our interpretation**. No site or sovereign boundary is moved. See MAP-CANAAT-001, DES-CANAAT-003 and the [current review](../../../world/review.md).
+
+## Round35: unnamed illustrated water cue
+
+The original official base illustration was visually reinspected. MAP-IMP-035 records a small unlabelled lake-like basin east/southeast of the volcanic cone at canon-implied confidence. [The active terrain addition](../../../world/imperial-basin-review.md) uses an original355×122-block shore and authored level/depth; it is not a new named place or a located Silberia lake. C05, vassal/frontier cities, initial-era status and direct LN geography remain open. All58 registered reservations and21 road profiles are retained.

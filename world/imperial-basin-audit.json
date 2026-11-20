@@ -1,0 +1,71 @@
+{
+  "baseline_commit": "cd89e26",
+  "baseline_source_sha256": "d10aa45699bbbf17c6a37280b075f80fbb5f4ed39b9fc742ebc9346f81102b00",
+  "source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "lake_id": "imperial-unnamed-basin",
+  "vertices": 28,
+  "area_blocks2": 30230.0,
+  "bounds": [
+    3830.0,
+    -1320.0,
+    4185.0,
+    -1198.0
+  ],
+  "authored_water_level": 68,
+  "authored_depth": 5,
+  "water_encoding": 132,
+  "all_sampled_lake_pixels_wet": true,
+  "sampled_lake_pixels": 1888,
+  "all_other_active_layers_equal": true,
+  "all_previous_8_lakes_equal": true,
+  "all_58_site_attributes_equal": true,
+  "byte_identical_exports": [
+    "roads.json",
+    "sites.json",
+    "road.png",
+    "sites.png",
+    "exclude.png"
+  ],
+  "nearest_site_edge": {
+    "id": "great_holy_mountain",
+    "blocks": 406.6210024238576
+  },
+  "nearest_road_centreline": {
+    "id": "imperial_volcano_road",
+    "blocks": 484.9824739101404
+  },
+  "all_raster_changes_within_lake_buffer_blocks": 96,
+  "raster_changes": {
+    "height.png": {
+      "changed_pixels": 1892,
+      "pixel_centre_bounds": [
+        3830.0,
+        -1318.0,
+        4182.0,
+        -1202.0
+      ]
+    },
+    "water.png": {
+      "changed_pixels": 1892,
+      "pixel_centre_bounds": [
+        3830.0,
+        -1318.0,
+        4182.0,
+        -1202.0
+      ]
+    },
+    "biome.png": {
+      "changed_pixels": 1892,
+      "pixel_centre_bounds": [
+        3830.0,
+        -1318.0,
+        4182.0,
+        -1202.0
+      ]
+    }
+  },
+  "converter_warnings": [],
+  "checker_errors": 0,
+  "checker_warnings": 2,
+  "runtime_acceptance": false
+}

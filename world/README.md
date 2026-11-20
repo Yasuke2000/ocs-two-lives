@@ -118,3 +118,5 @@ same table for readers (id, kind, min_r).
 - Rules only the converter can judge (height continuity, river reach steps) are not here.
 
 [Mainland scope audit](../docs/research/tensura-world-2026-11-19/mainland-coverage-audit.md) preserves all missing obligations; [city coverage study](city-coverage-study.md) distinguishes country terrain reservations from unbuilt city/internal geography. These documents do not certify source completeness or activate new terrain.
+
+[Round35 Imperial basin review](imperial-basin-review.md) adds an unnamed illustrated-map water cue with authored shore/level/depth. Current atlas includes9 lakes. Earlier painting passes remain historical; missing Imperial city/vassal coverage is not closed.

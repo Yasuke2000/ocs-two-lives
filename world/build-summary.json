@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "d10aa45699bbbf17c6a37280b075f80fbb5f4ed39b9fc742ebc9346f81102b00",
+  "source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,17 +12,17 @@
     3072,
     2688
   ],
-  "build_seconds": 55.1,
+  "build_seconds": 55.0,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
     "skips": 26,
     "validation": "passed",
     "base_main": "a1848be",
-    "test_seconds": 43.735
+    "test_seconds": 43.732
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 208,
+  "research_claim_records": 210,
   "directly_verified_LN_claims": 13,
   "reference_alternatives_inert": true,
   "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
@@ -37,8 +37,8 @@
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
   "max_bridge_blocks": 40,
-  "current_svg_sha256": "d10aa45699bbbf17c6a37280b075f80fbb5f4ed39b9fc742ebc9346f81102b00",
-  "staging_provenance_note": "Fresh normal build55.1s after round32 Ice coast revision; index hash matched. All58 reservations and21 road profiles retained; northern shoreline height/biome changes are documented in ice_coast_review. Round34 only updates source qualifications and creative briefs.",
+  "current_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "staging_provenance_note": "Fresh normal build55.0s after round35 Imperial unnamed basin; index hash matched. All58 site attributes,21 road profiles and all other active layers retained; local1892-cell height/water/biome changes documented in imperial_basin_review.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
   "forest_shapes": 12,
@@ -248,15 +248,12 @@
     "remaining": "Exact vegetation extents are interpretation; no measured canonical shares or new sovereign borders."
   },
   "documentation_review": {
-    "C07": "Official episode81 below-castle relationship; separate eastern game reservation retained. Inert access projection only; depth/whole footprint unknown.",
-    "Soma": "Identity directly supported by LN10; exact location/footprint open, western association wiki-backed.",
-    "all58_sites_and_geometry_unchanged": false,
-    "C22": "WN78 centrally placed White Ice Palace versus coast-kind game reservation; inert near-centroid alternative only. LN agreement not verified.",
-    "round29": "Two qualified fan-wiki volcano/mountain records and OFF-001 cached official glossary reinspection; no SVG/build changes.",
-    "round31": "All58 site attributes retained; one biome and one forest edge changed. Prior three painting reviews predate this habitat change.",
-    "round32": "Three authored Ice shore inlets; all58 sites/mainland/ElDorado/roads and local palace rasters retained. Earlier painting reviews predate latest coast and Orbic.",
-    "round33": "Jura approach concepts40/58; summit wiki lead and official Council meeting-country context qualified. No SVG/terrain change.",
-    "round34": "Six smaller western concepts46/58; official Raja film geography and qualified country-name comparison; creative chapter/era errors corrected. SVG/terrain unchanged."
+    "round": 35,
+    "subject": "Official illustrated unnamed Imperial basin and local export audit",
+    "source_ledger_records": 210,
+    "direct_LN_claims": 13,
+    "place_art_pairs_delivered": 46,
+    "place_art_pairs_remaining": 12
   },
   "orbic_terrain_review": {
     "patch_points": [
@@ -490,6 +487,77 @@
           -4270.0,
           -382.0,
           -3270.0
+        ]
+      }
+    },
+    "converter_warnings": [],
+    "checker_errors": 0,
+    "checker_warnings": 2,
+    "runtime_acceptance": false
+  },
+  "imperial_basin_review": {
+    "baseline_commit": "cd89e26",
+    "baseline_source_sha256": "d10aa45699bbbf17c6a37280b075f80fbb5f4ed39b9fc742ebc9346f81102b00",
+    "source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+    "lake_id": "imperial-unnamed-basin",
+    "vertices": 28,
+    "area_blocks2": 30230.0,
+    "bounds": [
+      3830.0,
+      -1320.0,
+      4185.0,
+      -1198.0
+    ],
+    "authored_water_level": 68,
+    "authored_depth": 5,
+    "water_encoding": 132,
+    "all_sampled_lake_pixels_wet": true,
+    "sampled_lake_pixels": 1888,
+    "all_other_active_layers_equal": true,
+    "all_previous_8_lakes_equal": true,
+    "all_58_site_attributes_equal": true,
+    "byte_identical_exports": [
+      "roads.json",
+      "sites.json",
+      "road.png",
+      "sites.png",
+      "exclude.png"
+    ],
+    "nearest_site_edge": {
+      "id": "great_holy_mountain",
+      "blocks": 406.6210024238576
+    },
+    "nearest_road_centreline": {
+      "id": "imperial_volcano_road",
+      "blocks": 484.9824739101404
+    },
+    "all_raster_changes_within_lake_buffer_blocks": 96,
+    "raster_changes": {
+      "height.png": {
+        "changed_pixels": 1892,
+        "pixel_centre_bounds": [
+          3830.0,
+          -1318.0,
+          4182.0,
+          -1202.0
+        ]
+      },
+      "water.png": {
+        "changed_pixels": 1892,
+        "pixel_centre_bounds": [
+          3830.0,
+          -1318.0,
+          4182.0,
+          -1202.0
+        ]
+      },
+      "biome.png": {
+        "changed_pixels": 1892,
+        "pixel_centre_bounds": [
+          3830.0,
+          -1318.0,
+          4182.0,
+          -1202.0
         ]
       }
     },

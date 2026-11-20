@@ -1,5 +1,8 @@
 # Tensura geography research — round34 smaller western precinct sources
 
+Current round35:210 claim records (152 thematic/design/reference+58 coordinate interpretations),13 directly read LN claims. [Imperial basin source/export review](../../../world/imperial-basin-review.md) adds one unnamed illustrated water cue at canon-implied confidence; exact shore/position/level/depth are authored, not a named Silberia lake. Fresh staging source SHA1ea6782d; all58 reservations/21 road profiles and other active layers retained. Coverage25 missing+1 partial+3 parent,art46/58 and source/fixed-rule/fit/runtime obligations remain open. Earlier round summaries below are historical at their stated hashes.
+
+
 Current ledger: 208 records (150 thematic/design/reference +58 coordinate interpretations),13 directly read LN claims. OFF-RAJ-034 directly reads the official distributor's west/gold/lake film context; exact initial condition remains unverified. FAN-WES-034 keeps four small-state names/order at secondary comparison confidence,not a surveyed map. Ten official episode65/76 stills provide limited context. [Nine source/design records](western-states-art-reference-review.csv) bring supplements to52; [PR99](https://github.com/Yasuke2000/ocs-two-lives/pull/99) delivers six concepts,total46/58,12 remaining. Ballachia's chapter108 medium and later rescue state are corrected; Raja's after-crisis initial-state implication is removed. Current SVG/source SHA d10aa456 and terrain unchanged. Existing source/fixed-rule/coverage/fit/runtime obligations remain open.
 
 
