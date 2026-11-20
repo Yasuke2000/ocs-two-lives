@@ -42,13 +42,13 @@ ghastone,-3200,-300,8.0,clearing,,,False,True,Create source-qualified concept ar
 rostia,-2780,200,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 sainte_malukshure,-100,2000,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 ulgr_nature_park,-950,2850,63.0,plateau,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-elmine,-1680,1740,100.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-jia,200,2450,68.0,plateau,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-laura,1500,1600,100.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
+elmine,-1680,1740,100.0,clearing,elmine.png,elmine.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+jia,200,2450,68.0,plateau,jia.png,jia.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+laura,1500,1600,100.0,clearing,laura.png,laura.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
 forgotten_dragon_city,2650,800,100.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 clayman_castle,3300,-600,90.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 amrita,3800,-500,63.0,carve,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-nasca,3200,-1800,90.0,plateau,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
+nasca,3200,-1800,90.0,plateau,nasca.png,nasca.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
 great_holy_mountain,3350,-1350,80.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 el_dorado,-4300,3000,100.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 el_dorado_volcano,-3900,3200,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
