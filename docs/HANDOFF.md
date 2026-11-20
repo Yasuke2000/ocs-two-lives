@@ -6,6 +6,17 @@ Eurazania now has a sparse-jungle transition and three separated open field rese
 
 Fresh build54.4s/no warnings/source SHA matched. All58 sites/21 profiles verified; max grade0.5 and bridge40 unchanged. Sparse/plains/retained-jungle sample cells checked. Ledger187 (129 thematic/design/reference +58 coordinates). Laura creative docs distinguish old capital from later reconstruction. Repository validation and462 tests pass (26 skips); current gate: world/review.md. No apply/deployment; missing places and technical-era handoff remain open.
 
+**Art follow-up:** [draft PR #87](https://github.com/Yasuke2000/ocs-two-lives/pull/87), branch
+`chatgpt/post-kijin-place-art-r18`, worktree `C:/Users/david/Documents/ocs-place-art`, delivers eight
+current image/sheet pairs based on fc36e38 (tempest, dwargon, blumund, lake_siss, treyni_shrine,
+sealed_cave, dwarf_village, orc_camp). All are 1536x1024 RGB PNGs below 3,000,000 bytes; pixels of
+losslessly repackaged files were verified unchanged. The original built-in image-generation outputs
+remain under `.codex/generated_images/01a1f4df-fe07-7eb1-b3ee-abe4feb653a6`.
+The older `chatgpt/priority-place-art` / `ocs-art-map` worktree has 29 PNG candidates and 58 sheets,
+many untracked; these were left intact. Use the new art coverage table before generating replacements.
+Only eight pairs are delivered in PR #87; remaining art, the current continent painting and research
+gaps remain open. Map geometry is unchanged by this delivery.
+
 ## 20/11 — Old Dragon City southeastern proportion correction (ChatGPT, PR #74 round16)
 
 Round 16 moves the old Forgotten Dragon City from(2500,150) to(2650,800), retaining radius100, M membership and all fixed relations. This follows the official illustration's broad southeastern pattern and the wiki territory relationship south of Jura/east of Eurazania. The pinned secondary marker distance discrepancy improves from-9.8% to-0.3% and bearing discrepancy from-13.3 to+0.1 degrees; projection and precision remain unknown. Exact city coordinates and two rerouted approach trails are our interpretation. All other57 site centres/radii and every coast, lake, river, mountain, hill, forest, biome and gameplay polygon remain unchanged frome129131. This is the old settlement, not the later city/castle built at Laura.

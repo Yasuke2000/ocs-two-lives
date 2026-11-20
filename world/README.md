@@ -7,6 +7,11 @@ relief, waters, habitats and roads. [Numbered atlas](atlas.png), [checker previe
 [reference comparison](comparison.md), [evidence ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv)
 and [deliberate differences](regions.md).
 
+The eight post-Kijin priority concept images and terrain sheets are delivered separately in
+[draft art PR #87](https://github.com/Yasuke2000/ocs-two-lives/pull/87), targeting this map branch.
+Its 58-ID coverage table also records older local candidates that still need source/era/geometry review.
+The illustrations are design references; the SVG remains the terrain source.
+
 The owner explicitly approved exactly five data-rule corrections to the default geography matrix.
 The **standard map checker passes** with two disclosed warnings; source coverage and proportional fidelity
 remain under review. The local terrain build is staged only: no Minecraft chunks, pack apply or server
