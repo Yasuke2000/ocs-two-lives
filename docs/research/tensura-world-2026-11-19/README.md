@@ -1,8 +1,8 @@
-# Tensura geography research — map round 12
+# Tensura geography research — map round 13
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 120 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 178 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 122 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 180 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and
@@ -40,3 +40,5 @@ Yasuke selected the moment immediately after Kijin naming (anime S1 episode10). 
 [Official episode locators](anime-episode-locators.csv) separate page routes from displayed episode numbers; generic still links are contextual leads, not verified landscape references.
 
 [Mainland scope audit](mainland-coverage-audit.md) routes all126 inventory entries preserving all29 review obligations; three already have authored parent designs; [city coverage study](../../../world/city-coverage-study.md) separates seven city/interior gaps from new continent locations.
+
+[River plan measurements](../../../world/river-centreline-review.csv) qualify the rounded-channel edit as server geometry, not new canonical hydrography.

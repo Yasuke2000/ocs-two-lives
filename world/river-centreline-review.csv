@@ -1,0 +1,6 @@
+id,old_points,new_points,old_length,new_length,max_deviation_blocks,confidence,measurement_basis
+great-ameld-headwaters,9,41,1541.1,1545.0,10.16,our interpretation,SVG plan geometry versus commit9c71909; not canonical distances
+great-ameld-outlet,11,51,1520.1,1527.6,7.74,our interpretation,SVG plan geometry versus commit9c71909; not canonical distances
+tempest-brook-upper,7,31,968.6,973.6,8.24,our interpretation,SVG plan geometry versus commit9c71909; not canonical distances
+jura-sarion-river,14,66,2807.9,2830.2,14.17,our interpretation,SVG plan geometry versus commit9c71909; not canonical distances
+western-trade-river,13,61,2879.5,2901.9,11.85,our interpretation,SVG plan geometry versus commit9c71909; not canonical distances

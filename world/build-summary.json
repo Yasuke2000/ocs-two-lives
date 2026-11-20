@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "d8fb2e23c3e85e53fe506a35f0c6f01f9c8ea6d3a8006316921506ad44ab091f",
+  "source_sha256": "86869b8aeed605bfae0847ac81fa15e9758a82d87a302d7e57160ddfbd82687f",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,7 +12,7 @@
     3072,
     2688
   ],
-  "build_seconds": 52.6,
+  "build_seconds": 54.0,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
@@ -21,7 +21,7 @@
     "base_main": "a1848be"
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 178,
+  "research_claim_records": 180,
   "directly_verified_LN_claims": 11,
   "reference_alternatives_inert": true,
   "proportion_review": "round 6: western/cave corrections made; residual fixed-rule alternatives drawn",
@@ -35,8 +35,8 @@
   ],
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
-  "max_bridge_blocks": 24,
-  "current_svg_sha256": "d8fb2e23c3e85e53fe506a35f0c6f01f9c8ea6d3a8006316921506ad44ab091f",
+  "max_bridge_blocks": 40,
+  "current_svg_sha256": "86869b8aeed605bfae0847ac81fa15e9758a82d87a302d7e57160ddfbd82687f",
   "staging_provenance_note": "Fresh normal build of the current SVG completed after restored session permissions; index source SHA verified. Terrain-preview bytes match this build.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
@@ -62,6 +62,11 @@
     "sealed_cave": {
       "wet_pixels": 0,
       "sampled_pixels": 1116,
+      "water_levels": []
+    },
+    "goblin_village": {
+      "wet_pixels": 0,
+      "sampled_pixels": 612,
       "water_levels": []
     }
   },
@@ -98,7 +103,12 @@
   "terrain_unchanged_from_previous_commit": false,
   "source_alternatives": "C10 no-red alternative and preceding political/site alternatives remain inert",
   "changed_terrain_features": [
-    "biomes/milim-red-crescent"
+    "rivers/great-ameld-headwaters",
+    "rivers/great-ameld-outlet",
+    "rivers/jura-sarion-river",
+    "rivers/tempest-brook-upper",
+    "rivers/western-trade-river",
+    "roads/blumund_englassia_lubelius"
   ],
   "milim_red_biome_raster_pixels": 13374,
   "milim_red_polygon_areas_blocks2": [
@@ -110,5 +120,11 @@
     "z": 614,
     "biome": "minecraft:plains"
   },
-  "documentation_review": "round12:126-entry mainland scope audit and non-geographical city schematic; production SVG and build unchanged"
+  "river_refinement": {
+    "reaches": 5,
+    "max_plan_deviation_blocks": 14.17,
+    "old_control_points_and_endpoints_retained": true,
+    "widths_and_head_mouth_levels_retained": true,
+    "western_road_waypoint_within_blocks": 20
+  }
 }

@@ -1,4 +1,4 @@
-# Reference comparison — research round 11 / post-Kijin snapshot
+# Reference comparison — research round 13 / post-Kijin snapshot
 
 | Authored Minecraft geometry | Official visual reference |
 | --- | --- |
@@ -28,3 +28,7 @@ Round9 replaces the broad equal-height Canaat wall with a concentrated summit sp
 Round10 changes only a disputed label and inert source alternatives. [Filtwood/Orbic study](southern-location-study.png) shows the unresolved U binding and separate homeland vicinity. The official base image alone does not locate those missing settlements.
 
 Round11 reduces the authored Milim red-biome accent69.8% while retaining the fixed brief's small red crescent. This is a disclosed server palette, not a verified canonical desert. [Episode locators](../docs/research/tensura-world-2026-11-19/anime-episode-locators.csv) correct the generic still labels and their evidential limits.
+
+Round13 rounds five existing river reaches within14.17 blocks of the previous lines, retaining all control points/endpoints and hydraulic metadata. Exact meanders remain interpretation; broad continental hydrography and source conflicts are unchanged. [Measurements](river-centreline-review.csv).
+
+A small western trail waypoint adjustment within20 blocks corrects the actual exported grade after the river change; its old route points and endpoints remain. This is authored game geometry, not a new canonical travel claim.
