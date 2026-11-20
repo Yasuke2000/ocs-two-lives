@@ -1,40 +1,5 @@
 # Handoff — current state of the work (update this when you stop)
 
-## 20/11 — world-map branch integration with upstream main (ChatGPT, round35)
-
-The map feature branch incorporates upstream main09ca601, preserving both complete additions in the two overlapping documentation hunks (this handoff and design/decisions.md). No pull request was merged into main and no server action ran. Runtime scripts/mod files exactly match upstream main; the sole tools difference remains the five owner-approved canon_relations.toml data corrections. World converter code/SVG source hash/normal staging exports are unchanged by this integration. Current map build/source review is world/imperial-basin-review.md; integration validation is recorded in world/review.md. Repository validation,20 JS syntax checks and472 tests pass (26 skips,zero failures,44.221s test tier). Mainline's new local-server/deploy-gate instructions are retained. Full geography/source/site/build-fit/runtime obligations remain open.
-
-
-## 20/11 — bounty boards, NPCs and guards audit; killable enemies of the roads (branch `bounties-npcs-enemies`, Claude, for Yasuke)
-
-Yasuke: "Also check the bounty boards, NPCs and the guards; add killable NPCs as well." **Audit fixes**: Tensura's Severance,
-Disintegration, Death Wish, ... are in `minecraft:bypasses_invulnerability`, so the "invulnerable" named residents and
-statues could be killed by a soul (proved locally on an invulnerable husk): `world/npc_protect.js` shields `ttl.npc`,
-`ttl.adv` and the invulnerable residents from everything but /kill; guards now also fight the enemies, never tames, owned
-mobs or other NPCs, and walk back to a post they strayed 16+ from (`npc_gear.toml guard_leash`); `fz_ravager_herd` retired
-(ravagers need a raid, none on Lerfing's map); a region-bound bounty (`jura_direwolves`) so PR #80's fix is tested in game
-(`guild.rcon`); `ttl cast verify` also checks the ground (no wall, water, floating) and the skin. **New**: enemies of the
-roads (`design/data/enemies.toml`, `world/enemies.js`, decision row 20/11 "Killable NPCs"), 8 camps, bounty targets
-`ttl:<archetype|group>`, the road `enemies.slay` (good for outlaws, dark for peaceful kills), test `enemies`.
-**Verified locally**: see the PR. **Not done**: orc raiders (no orc look in the skin generator); a Tensura skill that eats
-an entity whole (Predator) is not a damage event and is not shielded; `docs/dev/ttl-commands.md` is not regenerated (main's
-toml already misses rows for bedspawn, drops, spawns, ...; the enemies and npcprotect rows are in the toml).
-**On staging after the deploy**: `ttl enemies list` (all camps asleep, stock full), then walk a Life 2 soul to the Dwarven
-Road camp (1818, 420): bandits appear at ~70 blocks, `[ttl] enemies: <name> killed bandit of dwarven_road_south` on a kill.
-
-## 20/11 — deploy gate and tests independent of real players (branch `test-isolation-gate`, Claude, for Yasuke)
-
-Staging failed `registry` (real holders of berserker/gluttony/great_sage counted against the bots) and `arena_dwarven`
-(a deploy re-placed dwarf_village during test-all; the lag outran a fixed 7 s). **Done** (decision row 20/11 "Deploy
-gate"): test bots and real players count in separate registry pools (`scoped()`), bot-only test assertions, test scopes
-for boss cooldown clears and choice scenes, `@until` arena waits, test-all waits for start-up placements;
-`tools/local.sh verify` + lock; ttl-ops gate in the Homelab PR `ttl-ops-local-gate`. **Verified locally** (Lerfing
-server, with a simulated real player holding berserker, gluttony, seeker and great_sage and an open real choice scene,
-both untouched afterwards): registry, legendary, absorb, registry_pool, registry_reconcile, choices, arena_dwarven,
-arenas2, bosses, wild, story, events_pack, quests. **Next**: after every merge run `local.sh verify` (AGENTS.md).
-Not covered (low risk, noted): `nations` claims a chunk 100 blocks from Tempest (fails if a real player claimed it);
-`events` ends a real running event (`ttl events end`) and `ttl arena reset` resets every arena (both only while nobody
-is online).
 ## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
 
 Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
@@ -104,6 +69,41 @@ PR99 (558b032,stacked on PR98) delivers six concepts,total46/58,12 remain;all58 
 
 Adds one active unnamed basin east/southeast of the fixed Imperial cone after direct visual comparison with official base. MAP-IMP-035 is canon-implied; DES-IMP-035 qualifies all28 vertices/355×122-block extent/level68/depth5. No Silberia name,city,outlet or C05 resolution. Fresh normal build55.0s,no warnings,SHA1ea6782d. All58 site attributes/21 road profiles and other active layers retained; roads/sites/exclusion exports byte-identical to cd89e26. Height/water/biome each change1892 local cells;1888 strictly interior samples wet. Checker0 errors/56 relations/same2 warnings. Current preview/atlas/study visually inspected; see world/imperial-basin-review.md and audit.json. Ledger210(152+58),13 direct LN;art46/58,12 remain. Coverage25 missing+1 partial+3 parent and source/fixed-rule/fit/runtime obligations stay open. Earlier paintings predate this change. Gate in world/review.md; no apply/deploy. Previous round34 made progress; no blocking condition repeated.
 
+## 20/11 — world-map branch integration with upstream main (ChatGPT, round35)
+
+The map feature branch incorporates upstream main09ca601, preserving both complete additions in the two overlapping documentation hunks (this handoff and design/decisions.md). No pull request was merged into main and no server action ran. Runtime scripts/mod files exactly match upstream main; the sole tools difference remains the five owner-approved canon_relations.toml data corrections. World converter code/SVG source hash/normal staging exports are unchanged by this integration. Current map build/source review is world/imperial-basin-review.md; integration validation is recorded in world/review.md. Repository validation,20 JS syntax checks and472 tests pass (26 skips,zero failures,44.221s test tier). Mainline's new local-server/deploy-gate instructions are retained. Full geography/source/site/build-fit/runtime obligations remain open.
+
+
+## 20/11 — bounty boards, NPCs and guards audit; killable enemies of the roads (branch `bounties-npcs-enemies`, Claude, for Yasuke)
+
+Yasuke: "Also check the bounty boards, NPCs and the guards; add killable NPCs as well." **Audit fixes**: Tensura's Severance,
+Disintegration, Death Wish, ... are in `minecraft:bypasses_invulnerability`, so the "invulnerable" named residents and
+statues could be killed by a soul (proved locally on an invulnerable husk): `world/npc_protect.js` shields `ttl.npc`,
+`ttl.adv` and the invulnerable residents from everything but /kill; guards now also fight the enemies, never tames, owned
+mobs or other NPCs, and walk back to a post they strayed 16+ from (`npc_gear.toml guard_leash`); `fz_ravager_herd` retired
+(ravagers need a raid, none on Lerfing's map); a region-bound bounty (`jura_direwolves`) so PR #80's fix is tested in game
+(`guild.rcon`); `ttl cast verify` also checks the ground (no wall, water, floating) and the skin. **New**: enemies of the
+roads (`design/data/enemies.toml`, `world/enemies.js`, decision row 20/11 "Killable NPCs"), 8 camps, bounty targets
+`ttl:<archetype|group>`, the road `enemies.slay` (good for outlaws, dark for peaceful kills), test `enemies`.
+**Verified locally**: see the PR. **Not done**: orc raiders (no orc look in the skin generator); a Tensura skill that eats
+an entity whole (Predator) is not a damage event and is not shielded; `docs/dev/ttl-commands.md` is not regenerated (main's
+toml already misses rows for bedspawn, drops, spawns, ...; the enemies and npcprotect rows are in the toml).
+**On staging after the deploy**: `ttl enemies list` (all camps asleep, stock full), then walk a Life 2 soul to the Dwarven
+Road camp (1818, 420): bandits appear at ~70 blocks, `[ttl] enemies: <name> killed bandit of dwarven_road_south` on a kill.
+
+## 20/11 — deploy gate and tests independent of real players (branch `test-isolation-gate`, Claude, for Yasuke)
+
+Staging failed `registry` (real holders of berserker/gluttony/great_sage counted against the bots) and `arena_dwarven`
+(a deploy re-placed dwarf_village during test-all; the lag outran a fixed 7 s). **Done** (decision row 20/11 "Deploy
+gate"): test bots and real players count in separate registry pools (`scoped()`), bot-only test assertions, test scopes
+for boss cooldown clears and choice scenes, `@until` arena waits, test-all waits for start-up placements;
+`tools/local.sh verify` + lock; ttl-ops gate in the Homelab PR `ttl-ops-local-gate`. **Verified locally** (Lerfing
+server, with a simulated real player holding berserker, gluttony, seeker and great_sage and an open real choice scene,
+both untouched afterwards): registry, legendary, absorb, registry_pool, registry_reconcile, choices, arena_dwarven,
+arenas2, bosses, wild, story, events_pack, quests. **Next**: after every merge run `local.sh verify` (AGENTS.md).
+Not covered (low risk, noted): `nations` claims a chunk 100 blocks from Tempest (fails if a real player claimed it);
+`events` ends a real running event (`ttl events end`) and `ttl arena reset` resets every arena (both only while nobody
+is online).
 ## 20/11 — Old Dragon City southeastern proportion correction (ChatGPT, PR #74 round16)
 
 Round 16 moves the old Forgotten Dragon City from(2500,150) to(2650,800), retaining radius100, M membership and all fixed relations. This follows the official illustration's broad southeastern pattern and the wiki territory relationship south of Jura/east of Eurazania. The pinned secondary marker distance discrepancy improves from-9.8% to-0.3% and bearing discrepancy from-13.3 to+0.1 degrees; projection and precision remain unknown. Exact city coordinates and two rerouted approach trails are our interpretation. All other57 site centres/radii and every coast, lake, river, mountain, hill, forest, biome and gameplay polygon remain unchanged frome129131. This is the old settlement, not the later city/castle built at Laura.
