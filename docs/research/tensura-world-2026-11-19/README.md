@@ -70,3 +70,9 @@ Round26 visual-supplement/pointer gate: repository validation and462 tests pass 
 [Six further visual/design records](dwargon-interior-art-reference-review.csv) accompany [draft PR94](https://github.com/Yasuke2000/ocs-two-lives/pull/94). Official episode4/5 synopses and10 stills were inspected; limited entry, brick/tool-wall and court cues are separated from authored street/room plans. The three small city spots belong to the parent Dwargon reservation; the separate village arena is a project/mod adaptation. Total14 supplemental visual/design records across rounds26/27 are separate from the unchanged196-record geographic ledger and12 directly read LN claims. New concepts do not survey the city, add live geography or resolve full-city/nested-placement/runtime review.
 
 Round27 visual-supplement/pointer gate: repository validation and462 tests pass (26 skips,zero failures,43.631s test tier). No SVG, terrain build or runtime bytes change.
+
+## Demon-seat/gallery visual-source supplement — round28
+
+[Nine further reference/design records](demon-seats-art-reference-review.csv) accompany [draft PR95](https://github.com/Yasuke2000/ocs-two-lives/pull/95): intact castle, dormant buried gallery, ice corridor and representative El Dorado court. Selected official stills, secondary castle frame and public LN/WN passages are qualified separately from authored architecture. The three visual-design supplements total23 records; the core geographic ledger is199 records/12 directly read LN claims. C07/C22 source/access/type decisions and full-city/palace/fit/runtime obligations remain open.28/58 concepts delivered;30 remain.
+
+Round28 visual-supplement/pointer gate passes repository validation and462 tests (26 skips,zero failures,43.669s test tier). No further SVG/build/runtime change follows this documentation update.
