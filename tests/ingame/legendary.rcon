@@ -17,6 +17,8 @@ ttlbot spawn TtlBotLegD
 ttlbot spawn TtlBotLegE
 ttlbot spawn TtlBotLegF
 @sleep 2
+# Records a cut-off earlier run left on test bots would count against the caps below (staging 20/11 00:48).
+ttl registry testclear
 ttl registry legendcap 3 2
 ttl era testmark
 ttl era next silent

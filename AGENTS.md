@@ -69,7 +69,7 @@ Every agent tested its own branch, nobody tested `main` after several PRs landed
 - **Never merge a PR that was only tested offline** (validate + unit tests) unless it changes no in-game behaviour:
   docs, tools, unit tests, design notes. Scripts, data, configs, mods, structures and `tests/ingame/` need a local run.
 - **After merging to `main`, run `bash tools/local.sh verify`** on the local Lerfing server. It checks out `main`'s
-  exact commit in its own worktree, syncs the server to it, runs `test all` and posts the commit status
+  exact commit in its own worktree, restarts the server on it, runs `test all` and posts the commit status
   `local-test-all` (success, or failure with the failing tests). ttl-ops deploys only a commit with
   `local-test-all = success`; until then it posts once to Discord "<sha> waiting for local test-all". When `main`
   moved on during your run, verify the new head too (only the newest commit is deployed).
