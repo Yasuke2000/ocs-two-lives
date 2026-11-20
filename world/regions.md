@@ -121,7 +121,7 @@ The official guide and episode stills are reference links only; no official artw
 
 ## W — Lake Siss marsh
 
-**Landform and heights.** Lake level 66, depth 12; reed shores 68–74; limestone above the southern caverns to 103. The Ameld enters from the north and exits southeast.
+**Landform and heights.** An elongated basin about858 by410 blocks, lake level66 and depth12; reed shores68–74 and limestone above the southern caverns to103. The Ameld enters from the north and exits on the east before turning southeast. These dimensions/heights and exact joins are our interpretation.
 
 **Target biome mix.** `minecraft:swamp` 60%, `minecraft:mangrove_swamp` 10%, `minecraft:plains` 20%, `minecraft:forest` 10%.
 
@@ -391,3 +391,7 @@ The ogre ruin is placed at the southeastern Khusha foothills, using the supplied
 ## Eastern foothill landscape — round 7
 
 The [direct WN follow-up](../docs/research/tensura-world-2026-11-19/wn-geography-followup.md) supports an eastern Jura frontier history; the wiki describes Eastern Plains shared by Jura and the Empire. The live drawing now adds light foothill woodland north of Siss and an irregular grassland fringe toward the eastern approach. Exact forest/plains outlines and biome choice are **our interpretation**. Geographical Jura does not have to equal the Tempest gameplay polygon. The shapes preserve the Siss marsh, mountains, roads, all 58 sites and all political masks. No frontier ruin coordinate is asserted. This deliberately fills the earlier empty transition, rather than leaving the geographical forest extent implicit in a political region name. WN102 gate access (C16) and WN56 capital water (C17) remain qualified continuity/interior matters.
+
+## Lake Siss shape and source correction — round 8
+
+The official illustrated basin is read as elongated east–west. The authored shore now follows that character, rather than the older round-arena premise. Bounds change from about696 by549 to858 by410 blocks. The full fixed radius96 water reservation remains inside the lake, and the southern lizardmen access is preserved. Northern inlet and eastern outlet joins move with the shore. All58 site coordinates, roads and region masks are retained. Exact vertices and dimensions are **our interpretation**. C19 corrects the older aquatic-whirlpool claim: the official glossary describes Charybdis as an aerial calamity; any lake arena is later server adaptation, not a physical-geography source.

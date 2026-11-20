@@ -1,8 +1,8 @@
-# Tensura geography research — map round 6
+# Tensura geography research — map round 8
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 101 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 159 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 104 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 162 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and

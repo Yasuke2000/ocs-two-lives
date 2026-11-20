@@ -99,7 +99,7 @@ goblin village to Dwargon takes about **two months on foot** or **three days on 
 | **Great Canaat Mountains** | North of Jura. Largest range; a grey massif; summit with a lava lake; the Dragon's Nest on the highest shoulder. Dwargon lies inside it. |
 | **Dwargon in the mountain** | A cavern city carved into the massif behind one escarpment, gate on the south flank facing the apron and the road to Tempest, a skylight crack above the main street (section 6). |
 | **Great Ameld River** | Rises at the Canaat's foothills (north-east of the Dwargon gate), feeds the Jura lakes (our reading) and Lake Siss, and runs on to the eastern sea between Milim's land and Eurazania. In canon it runs from the Canaat foot to the southern ocean through Milim's plains. |
-| **Lake Siss** | East of Jura: the lizardmen's round lake with a swamp ring; Charybdis (the whirlpool boss) lives in it; stilt villages on its shores. |
+| **Lake Siss** | East of Jura: the lizardmen's broad lake with wetlands and limestone caves; any Charybdis encounter here is a later server adaptation, not a canonical aquatic habitat. |
 | **Jura lakes** | A lake just west of Tempest (so the village has running water nearby) and a pond south of it; a river that drains Jura's lakes passes west of Treyni's grove. |
 | **Sealed Cave** | A cave in a rocky hill (a mesa of the spire field) in the forest north-west of Tempest; the mouth in the south face. Veldora's seal. |
 | **Rock spires / mesas of Jura** | Forested mesas with grey terracotta tops; the goblin village stands at the foot of one. |
@@ -142,7 +142,7 @@ Extent = bounding box on the current map (x0..x1, z0..z1).
 - **Colour** `#468C6E` · **banner** シス湖 — 蜥蜴人族の湿地帯 · **extent** x 2400..4304, z 304..1312
 - **Lore.** A large expanse of marsh and limestone on the shores of Lake Siss. Its caverns form a labyrinth that is the lizardmen's fortress and seat of government; they live off the lake's fish.
 - **Faction.** Faction `lizardmen` (capital: the lizardmen's caverns).
-- **Terrain (current).** a round lake with a swamp ring (mangrove, swamp).
+- **Terrain (imported-world history).** the old imported lake was round. The own-world drawing uses a broad elongated basin; exact shores are interpretation, with wetlands and low southern village access.
 - **Places.** [Lake Siss](places/lake_siss.md), [Lizardmen's stilt village](places/lizardmen_village.md), [Lizardmen's caverns](places/lizardmen_caverns.md), [Orc War battlefield](places/orc_camp.md)
 
 ### M: Milim's Domain
@@ -341,7 +341,7 @@ long canon note in `design/lore/`.
 
 | Place | Region | Kind | x, z | From Tempest | Lore summary | Lore page |
 |---|---|---|---|---|---|---|
-| [Lake Siss (Charybdis arena centre, r 96)](places/lake_siss.md) | W | pin | 3050, 750 | 1,340 blocks E | Lake Siss, the lizardmen's lake, with its marsh ring and the arena of the whirlpool boss Charybdis. | [world.md](../../design/lore/world.md) |
+| [Lake Siss (Charybdis arena centre, r 96)](places/lake_siss.md) | W | pin | 3050, 750 | 1,340 blocks E | Lake Siss and its wetlands; the radius96 encounter slot is a later server reservation. Charybdis is an aerial calamity. | [world.md](../../design/lore/world.md) |
 | [Lizardmen's stilt village](places/lizardmen_village.md) | W | landmark | 3184, 988 | 1,470 blocks E | The lizardmen's stilt village on the south shore of Lake Siss. | [world.md](../../design/lore/world.md) |
 | [Lizardmen's caverns (Gabiru, Avalos)](places/lizardmen_caverns.md) | W | landmark | 3300, 1200 | 1,610 blocks E | The lizardmen's underground caverns: fortress and seat of government (Gabiru, Avalos). | [world.md](../../design/lore/world.md) |
 | [Orc War battlefield (Orc Lord, Orc Disaster)](places/orc_camp.md) | W | landmark | 3600, 1250 | 1,910 blocks E | The Orc War battlefield, where Geld's horde gathered south-east of Lake Siss. | [world.md](../../design/lore/world.md) |

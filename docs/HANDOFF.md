@@ -1,5 +1,10 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Lake Siss source correction and elongated basin (ChatGPT, PR #74 round8)
+
+Official glossary A-77 describes Charybdis as an aerial calamity; the older creative pack's aquatic-whirlpool/circular-lake premise was false. Corrected that prose and episode reference, retaining later server arena reservations. Official illustrated lake character supports a broad east–west basin; exact authored858 by410 blocks is interpretation. Shore/inlet/outlet revised, all58 site positions/radii and roads retained. Ledger162 records; C19 records the correction.
+Verified: checker0 errors/all56 relations pass/2 prior warnings; normal current-SVG build52.4s/no warnings, source SHA matches. Raster: lake1804/1804 wet; village710/710 intentionally water per sites.toml for stilts; cave0/1116 wet. All21 road grades<=0.5, max bridge24. Updated atlas/comparison; full repository gate passes validation and462 tests (26 skips). No apply or deployment. Continue primary-source/wiki coverage and fixed-rule fidelity decisions.
+
 ## 20/11 — Official live map verified; current-SVG staging rebuilt (ChatGPT, PR #74)
 
 Restored session permissions remove earlier operational limits. Fresh normal build of current SVG:53.7s, no converter warnings, source SHA matches index; published terrain-preview bytes match output. No generated index patched and no apply.

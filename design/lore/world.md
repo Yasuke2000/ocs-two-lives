@@ -114,11 +114,13 @@ Grid letter, name, `banner_subtitle`, then lore, terrain on Lerfing's map and la
 
 ### W: Lizardmen's Marsh of Lake Siss (シス湖 — 蜥蜴人族の湿地帯), Lerfing's swamp
 
+Own-world correction: the [current source-based lake](../../world/map.svg) is elongated rather than defined by a circular arena. Charybdis is an aerial calamity; see [official glossary](https://www.ten-sura.com/keyword/#A-77). Imported coordinates below remain historical context.
+
 - **Lore.** A large expanse of marsh and limestone formations on the shores of Lake Siss. Its caverns form a natural
   labyrinth that is the lizardmen's fortress and seat of government. The lizardmen live off the lake's fish.
-- **Terrain.** Lerfing's round lake (floor y 34–50, `swamp` biome all over it) with the swamp ring x 2350..3950, z 290..1230. Stored biomes:
+- **Imported-world terrain (historical, not canon shape evidence).** Lerfing's round lake (floor y 34–50, `swamp` biome all over it) with the swamp ring x 2350..3950, z 290..1230. Stored biomes:
   plains 61 %, swamp 36 %. **Lerfing's stilt-hut village** stands on the lake's west shore (x 2900..3600, z 400..1000, kept as he built it).
-- **Landmarks:** Lake Siss (3050, 750; the Charybdis arena is the lake itself, r 96); the lizardmen's stilt village (3184, 988) on the south shore;
+- **Landmarks:** Lake Siss (3050, 750; later server Charybdis encounter reservation, r 96; not proof of canonical aquatic habitat); the lizardmen's stilt village (3184, 988) on the south shore;
   the lizardmen's caverns (3300, 1200) on the south shore; the Orc War battlefield (3600, 1250) at the south-east,
   where the marsh meets Eurazania's jungle: Geld's horde came up from the south.
 - Lake Siss is the lizardmen's lake, far off from Tempest (1,340 blocks): reaching it needed an envoy (Gabiru) and an army march.
