@@ -477,3 +477,7 @@ The wiki describes a separate isolated treant settlement in Jura (WIK-TRE-036,fa
 ## Country pins and old Dragon City temple — round37
 
 The official Johann profile establishes the Kingdom of Rostia (OFF-ROS-037); the wiki western-state list names the Kingdom of Ghastone (WIK-GHA-037). Current A/G gameplay pins are authored positions,not proof of Raja/Englassia sovereignty or surveyed capitals. No unsupported national outline is drawn. The official Middray profile directly establishes a temple in the old Dragon City (OFF-FDC-037),not the project's giant bones,pyramid or precise layout. [Evidence and limits](../docs/research/tensura-world-2026-11-19/final-place-source-review.md). Sainte's new concept illustrates only the existing C14 coastal proposal. Terrain/58-ID geometry remains unchanged; the atlas legend clarifies two country pins.
+
+## Current painting review — round38
+
+[PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) refreshes original pictorial texture against the current source,with exact native coast/water/road geometry and the Orbic highlight. No illustration finding justifies new active terrain; the current SVG and exports are retained. Pictorial mountains,forest edges,bank shading and snow do not supersede these authored landform/biome specifications. Fixed/source/era/coverage/fit/runtime limits remain unchanged. The separately tracked terrain-preview copy now equals the existing current normal export byte for byte.

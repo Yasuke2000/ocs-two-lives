@@ -1,5 +1,8 @@
 # Tensura geography research — round34 smaller western precinct sources
 
+Current presentation follow-up round38: [painted map PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) now matches the current source1ea6782d native coast/water/road vectors and all58 anchors. The standalone terrain preview is refreshed from the existing current normal export. This adds no new geographical claim or accepted location:ledger214,13 direct LN,72 visual/design supplements,inventory129/32 follow-ups and58/58 registered art files remain. Pictorial relief/canopy is not surveyed terrain. Earlier source/review summaries retain their dates/hashes.
+
+
 Current round37: **214 claim records =156 thematic/design/reference records +58 coordinate interpretations**, with13 directly read LN claims and72 visual/design supplements. Official profiles establish Rostia's kingdom identity and a temple in the old Dragon City; Ghastone's kingdom identity remains wiki-level. [Source distinctions](final-place-source-review.md) correct the country-versus-gameplay-binding assumptions. Inventory129 retains26 missing representations,1 partial Orbic,2 unverified country pins and3 parent designs:32 follow-up obligations.
 
 [PR101](https://github.com/Yasuke2000/ocs-two-lives/pull/101) completes **58/58 registered image/sheet pairs** in twelve stacked art drafts. This closes art-file coverage only. Sainte depicts the inert C14 coastal alternative,not the current inland H pin; C20 and source/initial-state/build-fit/runtime requirements remain open. Current terrain SVG/source SHA1ea6782d is unchanged; the atlas legend clarifies two country pins. Earlier summaries below are historical.

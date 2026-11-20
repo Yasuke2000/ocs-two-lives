@@ -1,0 +1,12 @@
+{
+  "source_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "staged_index_source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "preview_sha256": "c903806683fedd7f7a2435c2fa722ea4e5f8dc423bdc8fba6dc1914436487fbc",
+  "normal_build_seconds": 55.0,
+  "original_preview_pixels": [
+    1536,
+    1344
+  ],
+  "copied_without_pixel_modification": true,
+  "applied_to_runtime": false
+}

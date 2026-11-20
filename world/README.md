@@ -22,6 +22,8 @@ The registered place-art stack reaches58/58 in [PR101](https://github.com/Yasuke
 
 [Round32 Ice coast review](ice-coast-review.md) now refines three local inlets; the fixed palace shore and mainland remain. Current atlas/preview reflects both this change and Orbic. Earlier painted reviews remain historical.
 
+The [current painted atlas in PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) now follows source SHA1ea6782d,including the Orbic habitat,Ice inlets and unnamed Imperial basin. The three earlier painting reviews remain historical. The standalone [terrain preview](terrain-preview.png) is refreshed from the same normal export already used by this branch's numbered atlas; [provenance](terrain-preview-provenance.json) records its exact source/hash. Neither presentation changes terrain or proves source/runtime acceptance.
+
 ## Format in short
 
 - Block coordinates. `viewBox="-8000 -6000 16000 12000"` is only the canvas (the converter crops to the content plus

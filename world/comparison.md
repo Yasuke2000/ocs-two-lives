@@ -1,4 +1,7 @@
-# Reference comparison — round35 / post-Kijin snapshot
+# Reference comparison — current round38 presentation / post-Kijin snapshot
+
+Current presentation: [painted atlas PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) · [side-by-side reference links](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-current/comparison.md). It follows the current1ea6782d source with3 coasts/9 lakes/8 river reaches/21 roads/1 Orbic highlight/58 anchors. Native masks/vectors are audited; underlying tree/ridge/snow/bank strokes are pictorial. The production SVG and terrain exports are retained after review. The standalone terrain preview is refreshed byte-identically from the current normal export; the main numbered atlas already used those pixels. Earlier numbered comparisons below remain historical. Exact server geometry and fixed/source conflicts stay qualified.
+
 
 ## Imperial water cue — round35
 
