@@ -1,4 +1,6 @@
-# Tensura geography research — round39 publisher sample screening
+# Tensura geography research — round40 Long Wall corridor correction
+
+Current round40: [Long Wall corridor correction](../../../world/long-wall-corridor-review.md) fixes an inert proposal crossing the authored desert,including a dry detour around the Coleus oasis. No active terrain changes; fresh normal export remains identical. Ledger215/14directLN,inventory129/32follow-ups and58art pairs unchanged. Current source-comment SHAa24cea9b,same active geometry as1ea6782d.
 
 Current research follow-up round39: [public LN sample review](primary-sample-screening-r39.md) adds one narrow later road-patrol fact (LN07-001), with explicit initial-era limits. Ledger215(157+58),14 direct LN claims. Four accessible publisher fragments do not establish new small-country coordinates. Inventory129/32 follow-ups,58 registered art pairs and current geometry remain unchanged.
 

@@ -1,5 +1,7 @@
 # world/ — the own world map
 
+Round40 [Long Wall review](long-wall-corridor-review.md) corrects only the inert proposal comment. New source hasha24cea9b has identical active geometry and normal-export bytes to1ea6782d; PR102 painting remains registered. No generated wall is delivered.
+
 `world/map.svg` is the single source of the new, fully own Tensura world (design: [own-world.md](../design/architecture/own-world.md),
 sections 2 and 6.1). ChatGPT draws it, `tools/world/map_check.py` validates it, a converter later turns it into rasters.
 This branch contains a **draft research-driven redraw**, with all 58 footprint-sized sites, authored coasts,

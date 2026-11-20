@@ -1,4 +1,6 @@
-# Current map review — round39 public LN screening, post-Kijin snapshot
+# Current map review — round40 Long Wall proposal correction
+
+Round40 corrects the inert Long Wall corridor to the existing desert edge; the old proposal ran856.63blocks through its interior. Current source SHAa24cea9b46a751dbaa9b6765e2c1a5a8d829624744c980d8a9d65d159bb51295. All11 active layers/58sites/checker preview and9 normal exports are byte-identical to5bb2467. Fresh checker0errors/56relations/same2warnings; fresh normal build no warnings. Ledger215/14directLN,129inventory/32follow-ups and58art pairs retained. Repository validation and472 tests pass (26 skips,zero failures,44.129s test tier). No apply/deploy; C15/full source/geography/era/fit/runtime obligations remain open.
 
 Round39 checks four public GC publisher fragments and adds LN07-001: organized road patrols observed after Walpurgis, not evidence for initial post-Kijin paving or security. Ledger215(157+58),14 direct LN; inventory129/32 follow-ups,58 art pairs and production source1ea6782d unchanged. No SVG, checker preview, terrain export or runtime edits; no converter rerun. Repository validation and472 tests pass (26 skips,zero failures,44.131s). The full geographical/source/fixed-rule/era/build-fit/runtime audit remains open. No merge/apply/deploy.
 

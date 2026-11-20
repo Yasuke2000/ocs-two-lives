@@ -481,3 +481,7 @@ The official Johann profile establishes the Kingdom of Rostia (OFF-ROS-037); the
 ## Current painting review — round38
 
 [PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) refreshes original pictorial texture against the current source,with exact native coast/water/road geometry and the Orbic highlight. No illustration finding justifies new active terrain; the current SVG and exports are retained. Pictorial mountains,forest edges,bank shading and snow do not supersede these authored landform/biome specifications. Fixed/source/era/coverage/fit/runtime limits remain unchanged. The separately tracked terrain-preview copy now equals the existing current normal export byte for byte.
+
+## Long Wall proposal correction — round40
+
+The [revised inert corridor](long-wall-corridor-review.md) follows the existing authored Desert of Death boundary toward Coleus/Lubelius. The earlier route cut through the desert interior. Exact endpoints,width,wall design and a gate at the existing caravan trail remain **our interpretation**. No active coast,biome,region,road or site changes. Official map and current checker preview were visually compared; no new licensed coastline or surveyed national boundary is inferred. Source-comment hash changes only; current terrain/painted registration remains valid. C15/full source/era/structure-fit/runtime obligations remain open.
