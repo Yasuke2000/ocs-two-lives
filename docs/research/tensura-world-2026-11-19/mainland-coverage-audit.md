@@ -48,3 +48,5 @@ Offshore places and alternate or spiritual worlds remain recorded for continuity
 The default checker proves format, site constraints and its56 encoded relations. It does not establish missing-place coverage, every kingdom's borders, anime fidelity, interior construction, or the entire wiki having been read. The current map retains unresolved C05/C06/C10/C12/C14/C15/C16/C17/C18/C20 decisions. Each source-backed alternative and fixed-binding conflict must remain visible in the PR. No final acceptance, apply or deployment is claimed.
 
 Three formerly missing map entries now have verified local authored design evidence within their parent. The remaining25 missing representations,1 partial Orbic representation and3 unverified parent designs preserve all29 follow-up obligations; none is marked complete.
+
+Round33 source refinement: official episode77/route82 directly confirms a later Council meeting in Englassia (OFF-COW-033). Exact city parcel/permanent HQ/initial building state remains unverified. No missing representation or parent-design obligation is closed.

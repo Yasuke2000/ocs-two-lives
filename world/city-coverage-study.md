@@ -22,3 +22,7 @@ The `englassia` reservation is a capital terrain slot. [englassia.py](../bluepri
 All seven city-related follow-ups remain open: three have existing authored designs (elf venue, guild and academy), while four remain missing distinct representations. The [local evidence manifest](../docs/research/tensura-world-2026-11-19/city-design-evidence.csv) records file hashes and its verification limits. The [126-entry scope audit](../docs/research/tensura-world-2026-11-19/mainland-coverage-audit.md) keeps these distinct from unlocated countries such as Doran, from offshore places, and from other worlds. A source-backed parent country is useful design context; it is not equivalent to completed internal geography or runtime acceptance.
 
 The production SVG, current terrain build and existing preview are unchanged in this documentation pass. No technical scripts, generated map data, new IDs, runtime placement or deployment are changed.
+
+## Direct country-context follow-up — round33
+
+The [official episode77 synopsis, route82](https://www.ten-sura.com/anime/tensura/story/no82) directly places Rimuru's party in Englassia for the Council meeting (OFF-COW-033). This strengthens the country-level setting independently of the wiki. It does not name a surveyed Lura parcel, prove permanent headquarters architecture, or establish the same building/attendance/political situation at the initial post-Kijin snapshot. No additional city pin or geometry is justified, and all seven city-related follow-ups remain open.

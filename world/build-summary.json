@@ -19,10 +19,10 @@
     "skips": 26,
     "validation": "passed",
     "base_main": "a1848be",
-    "test_seconds": 43.834
+    "test_seconds": 43.617
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 204,
+  "research_claim_records": 206,
   "directly_verified_LN_claims": 13,
   "reference_alternatives_inert": true,
   "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
@@ -254,7 +254,8 @@
     "C22": "WN78 centrally placed White Ice Palace versus coast-kind game reservation; inert near-centroid alternative only. LN agreement not verified.",
     "round29": "Two qualified fan-wiki volcano/mountain records and OFF-001 cached official glossary reinspection; no SVG/build changes.",
     "round31": "All58 site attributes retained; one biome and one forest edge changed. Prior three painting reviews predate this habitat change.",
-    "round32": "Three authored Ice shore inlets; all58 sites/mainland/ElDorado/roads and local palace rasters retained. Earlier painting reviews predate latest coast and Orbic."
+    "round32": "Three authored Ice shore inlets; all58 sites/mainland/ElDorado/roads and local palace rasters retained. Earlier painting reviews predate latest coast and Orbic.",
+    "round33": "Jura approach concepts40/58; summit wiki lead and official Council meeting-country context qualified. No SVG/terrain change."
   },
   "orbic_terrain_review": {
     "patch_points": [
