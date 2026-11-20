@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Old Dragon City southeastern proportion correction (ChatGPT, PR #74 round16)
+
+Round 16 moves the old Forgotten Dragon City from(2500,150) to(2650,800), retaining radius100, M membership and all fixed relations. This follows the official illustration's broad southeastern pattern and the wiki territory relationship south of Jura/east of Eurazania. The pinned secondary marker distance discrepancy improves from-9.8% to-0.3% and bearing discrepancy from-13.3 to+0.1 degrees; projection and precision remain unknown. Exact city coordinates and two rerouted approach trails are our interpretation. All other57 site centres/radii and every coast, lake, river, mountain, hill, forest, biome and gameplay polygon remain unchanged frome129131. This is the old settlement, not the later city/castle built at Laura.
+
+Ledger186 (128 thematic/design/reference +58 coordinates). Doran remains unlocated beyond west-of-Jura; licensed Trinity chapter25 story pages not accessed. Fresh normal export54.3s/no warnings/source SHA matches; old Dragon City0/1954 wet, all21 road profiles<=0.5, max bridge40. Repository validation and462 tests pass (26 skips). See world/review.md. No apply/deployment; previous constraints and coverage gaps remain open.
+
 ## 20/11 — Official Coleus placement correction (ChatGPT, PR #74 round15)
 
 Round 15 corrects Coleus using the directly read official anime outline: the independent kingdom lies between Ingrassia and Lubelius. Its authored centre moves from(-3650,-250) to(-3520,-860), retaining radius73, V membership and all fixed relations. The dunes move(+130,-610); the oasis moves(-175,-610), keeping water separate from the city and river. One caravan trail skirts the pond on its north side. The other57 site centres/radii, coasts, rivers, mountains, hills, forests and gameplay masks remain unchanged from147ea7e. Exact city position, shore/level and trail bends remain our interpretation; countries lying between others does not survey their capitals.

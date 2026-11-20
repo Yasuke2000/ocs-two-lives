@@ -1,4 +1,6 @@
-# Current map review — round 15 Coleus correction, post-Kijin snapshot
+# Current map review — round 16 old Dragon City correction, post-Kijin snapshot
+
+Round 16 moves the old Forgotten Dragon City from(2500,150) to(2650,800), retaining radius100, M membership and all fixed relations. This follows the official illustration's broad southeastern pattern and the wiki territory relationship south of Jura/east of Eurazania. The pinned secondary marker distance discrepancy improves from-9.8% to-0.3% and bearing discrepancy from-13.3 to+0.1 degrees; projection and precision remain unknown. Exact city coordinates and two rerouted approach trails are our interpretation. All other57 site centres/radii and every coast, lake, river, mountain, hill, forest, biome and gameplay polygon remain unchanged frome129131. This is the old settlement, not the later city/castle built at Laura.
 
 Round 15 corrects Coleus using the directly read official anime outline: the independent kingdom lies between Ingrassia and Lubelius. Its authored centre moves from(-3650,-250) to(-3520,-860), retaining radius73, V membership and all fixed relations. The dunes move(+130,-610); the oasis moves(-175,-610), keeping water separate from the city and river. One caravan trail skirts the pond on its north side. The other57 site centres/radii, coasts, rivers, mountains, hills, forests and gameplay masks remain unchanged from147ea7e. Exact city position, shore/level and trail bends remain our interpretation; countries lying between others does not survey their capitals.
 
@@ -27,7 +29,7 @@ Round 9 replaces the long equal-height Canaat crest with a shorter bent high spi
 
 [Empire follow-up](../docs/research/tensura-world-2026-11-19/eastern-empire-followup.md) keeps Silberia unlocated and its S1E10 state unverified. Publisher guide13.5 listing was read; the licensed trial did not render. Historical WN predecessor states and the frontier ruin are not silently turned into contemporary anime sites.
 
-The ledger contains **184 records: 126 thematic/design/reference records plus 58 coordinate interpretations**.
+The ledger contains **186 records: 128 thematic/design/reference records plus 58 coordinate interpretations**.
 Eleven directly read LN claims and nine newly read WN claims remain qualified by continuity and snapshot_use.
 [WN findings](../docs/research/tensura-world-2026-11-19/wn-geography-followup.md),
 [ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
@@ -43,14 +45,14 @@ view. This does not establish surveyed borders or make omitted countries nonexis
 - Standard checker after each SVG edit: **0 errors, all 56 relations pass**, two disclosed warnings:
   Laura waterfall crosses its escarpment; box 12288 by 10752 is 512 above preferred height, below the hard cap.
   Mainland about 9653 by 6250; 10 mountains, 6 hills, 12 forests and 14 biome polygons.
-- Fresh normal converter build of the **current SVG**: **54.0 seconds, no warnings**, 3072 by 2688
+- Fresh normal converter build of the **current SVG**: **54.3 seconds, no warnings**, 3072 by 2688
   pixels. All current labels/comments and preceding terrain revisions are included. The source SHA matches staging;
   published terrain-preview bytes match the fresh output. Earlier permission limitations are resolved.
 - **58/58** centres verified against index.json; sites.json contains only the 34 runtime plate entries,
-  not every marker. All 184 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
-- Actual current exported profiles: **21 roads, maximum grade 0.5** within float epsilon. Round 15 reroutes the Coleus caravan trail; preceding southern and western trail corrections remain; current bridge metadata has a 40-block maximum, below the 64-block limit.
+  not every marker. All 186 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
+- Actual current exported profiles: **21 roads, maximum grade 0.5** within float epsilon. Round 16 reroutes two old Dragon City approaches; prior Coleus, southern and western corrections remain; current bridge metadata has a 40-block maximum, below the 64-block limit.
 - Raster footprint check: Siss water1804/1804 pixels; lizardmen intentional water plate710/710 at level66
-  (`sites.toml` surface=water, for stilt construction); cave dry0/1116 wet pixels; goblin village0/612 wet; Elmine0/1976 wet; Coleus0/1044 wet.
+  (`sites.toml` surface=water, for stilt construction); cave dry0/1116 wet pixels; goblin village0/612 wet; Elmine0/1976 wet; Coleus0/1044 wet; old Dragon City0/1954 wet.
 - Current terrain samples: Dragon Nest surface 272; eastern-spur transect 91.6–109.5. These are
   server raster readings, not canonical elevations. Dwargon/carve reservations export without warnings.
 - Prior Milim biome revision remains intact. Wooded-badlands raster: 13374 cells;

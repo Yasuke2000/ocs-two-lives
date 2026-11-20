@@ -1,12 +1,14 @@
-# Tensura geography research — map round 15
+# Tensura geography research — map round 16
+
+Round 16 moves the old Forgotten Dragon City from(2500,150) to(2650,800), retaining radius100, M membership and all fixed relations. This follows the official illustration's broad southeastern pattern and the wiki territory relationship south of Jura/east of Eurazania. The pinned secondary marker distance discrepancy improves from-9.8% to-0.3% and bearing discrepancy from-13.3 to+0.1 degrees; projection and precision remain unknown. Exact city coordinates and two rerouted approach trails are our interpretation. All other57 site centres/radii and every coast, lake, river, mountain, hill, forest, biome and gameplay polygon remain unchanged frome129131. This is the old settlement, not the later city/castle built at Laura.
 
 Round 15 corrects Coleus using the directly read official anime outline: the independent kingdom lies between Ingrassia and Lubelius. Its authored centre moves from(-3650,-250) to(-3520,-860), retaining radius73, V membership and all fixed relations. The dunes move(+130,-610); the oasis moves(-175,-610), keeping water separate from the city and river. One caravan trail skirts the pond on its north side. The other57 site centres/radii, coasts, rivers, mountains, hills, forests and gameplay masks remain unchanged from147ea7e. Exact city position, shore/level and trail bends remain our interpretation; countries lying between others does not survey their capitals.
 
 Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 126 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 184 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 128 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 186 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and

@@ -22,3 +22,11 @@ columns preserve the baseline at commit 4c99877. The three distance-ratio discre
 map.svg show where fixed rules prevent a single common scale. The trial coordinates are **our interpretation**
 of secondary marker pixels with an unknown projection; they do not prove primary canon coordinates.
 Further changes should follow stronger source evidence or an explicit owner choice on those conflicts.
+
+Rounds 14 and 16 improve two further locations within the unchanged fixed rules. Elmine moves to
+(-1680,1740); its secondary distance discrepancy changes from -13.0% to -0.3%, and bearing discrepancy
+from -17.5 to -4.9 degrees. The old Forgotten Dragon City moves to (2650,800); its corresponding values
+change from -9.8% to -0.3% and from -13.3 to +0.1 degrees. The CSV retains the original baseline columns.
+These near matches do not establish canonical survey accuracy: marker projection and placement precision
+remain unknown. Exact coordinates and approach roads are our interpretation. The Dragon City change
+concerns Milim's old settlement, not the later capital built at Laura.

@@ -12,6 +12,11 @@
 
 ## Lore (canon)
 
+Own-world placement update (20 November 2026): the authored map now reserves this old settlement at
+**(2650,800), radius 100**. This improves its southeastern reference proportions while keeping all fixed
+rules. The preceding coordinates describe the retired imported map. Exact server placement remains our
+interpretation. At the post-Kijin baseline this is separate from the later city/castle constructed at Laura.
+
 Milim's domain on the south-eastern edge of the continent is fertile river plain fed by the Ameld; the Dragon Faithful run the city with no government: head priest Middray and priest Hermes gather what the people produce at the Central Temple and hand it out evenly; the temple is Milim's castle. Wyverns live in the city. Primitive and poor until Tempest develops it.
 
 ## What it should look like
