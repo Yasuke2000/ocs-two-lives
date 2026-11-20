@@ -18,3 +18,5 @@ corrections. These screenshots do not prove source completeness, proportional fi
 [Unresolved lore alternatives](lore-alternatives.png) are drawn as a separate review diagram and inert SVG comments; they do not change the active map.
 
 Round 6 improves western/cave proportions, the northern bay bank and the hooked northeastern/eastern shore. [Constrained proportion alternatives](proportion-study.png) are drawn for owner review; exact reference-scaled points stay inert.
+
+[Additional-location study](additional-location-study.png) draws C14/C15 coastal, summit, city and wall proposals in context. These are proposed interpretation geometry, not edits to the active terrain.

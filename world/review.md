@@ -15,7 +15,7 @@ All 58 site IDs, radius minima and relative internal offsets are retained.
 [Regions and deliberate differences](regions.md), [claim ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
 [publisher LN findings](../docs/research/tensura-world-2026-11-19/ln-sample-findings.md),
 [source access](../docs/research/tensura-world-2026-11-19/source-access.csv), [reference comparison](comparison.md).
-The ledger contains **128 records: 70 thematic/design records and 58 site-coordinate interpretations**,
+The ledger contains **141 records: 83 thematic/design records and 58 site-coordinate interpretations**,
 including 11 directly read LN claims; not all records are verified canon.
 
 ## Measured verification
@@ -29,7 +29,7 @@ bash tools/check.sh
 - Required standard checker after every SVG edit: **0 errors, all 56 relations pass**. Two warnings:
   Laura's intended mountain-waterfall crossing and a 12288 by 10752 box, 512 taller than preferred but
   below the hard cap. Mainland about 9653 by 6250 blocks.
-- Final normal build, without skip-check: **57.6 seconds, 0 converter warnings**, 3072 by 2688 pixels.
+- Final normal build, without skip-check: **54.6 seconds, 0 converter warnings**, 3072 by 2688 pixels.
   The normalized source SHA matches the current SVG. No apply performed.
 - **58/58** generated x/z positions match the drawing; all effective radii meet footprint minima;
   every internal anchor keeps its exact parent offset.
@@ -67,3 +67,7 @@ runtime acceptance, pack application, merge to main or deployment are claimed.
 ## Wiki coverage audit
 
 The [126-entry audit](../docs/research/tensura-world-2026-11-19/wiki-coverage.md) enumerates all 31 owner-listed Location entries and the 44-entry Countries index, plus related geography. It identifies 29 entries without distinct production representation. These include interior and historical candidates, not 29 automatically approved new continent sites. Eastern Empire region E and its two markers are present; exhaustive city/interior coverage is not. No production geometry changed in this documentation pass.
+
+## C14/C15 evidence and drawn alternatives
+
+[Five proposed additions/corrections](additional-locations.md) are drawn in an original SVG/PNG study and inert production-SVG comment. One official manga synopsis and seven carefully qualified wiki relationships add evidence; five proposal geometry records remain interpretation. Ledger: 141 records (83 thematic/design plus 58 coordinate interpretations). The current build source hash matches staging. Checker and terrain preview pixels are byte-identical to the previous production drawing: the live geometry did not change. Normal build: 54.6 seconds, no converter warnings. Repository gate rerun passes validation and 462 tests, 26 skips. The Sainte-Malukshure H-region conflict is disclosed for owner review; no extra technical data changes.

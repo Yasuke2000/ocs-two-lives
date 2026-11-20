@@ -29,6 +29,9 @@ Licensed LN volume 1/2 publisher listings and the Google Books volume-1 listing 
 
 | C13 | The author also supplies a rough WN-era map, with explanatory eastern-gate and subterranean-habitat notes. | Retain as WN-specific evidence. Do not replace later anime geography, invent bridge coordinates, or derive exact proportions from this explicitly approximate sketch. |
 
+| C14 | Sainte-Malukshure is bound to H/Fulbrosia in the active anchor data; wiki places the coastal capital west of Sarion, and an official synopsis places the Magic Tower in its waters. | Coastal capital and offshore tower alternatives are drawn in the map.svg comment and additional-location study. Keep the live constraint pending owner reconciliation; exact proposal geometry is interpretation. |
+| C15 | The 58 registered sites omit distinct Galut, Tengu settlement and the Long Wall, among other wiki candidates. | Original proposal footprints/corridor are drawn separately and in inert map.svg comment. They do not become live sites or prove the entire wiki complete. |
+
 ## Review status
 
 The current visible map is PR #74 on `chatgpt/world-map`, still a draft. Earlier PR #69 remains historical reference. The owner-approved five corrections are now in the default matrix; the standard map checker passes with two disclosed warnings. No Minecraft world or deployment is claimed. The five technical geography conflicts are resolved by the explicit owner exception; source coverage and proportional-fidelity review remain incomplete.
