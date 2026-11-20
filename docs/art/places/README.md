@@ -1,6 +1,6 @@
-# Post-Kijin place concepts — twenty delivered locations
+# Post-Kijin place concepts — twenty-four delivered locations
 
-The latest four Jura/marsh revisions compare all58 site attributes against main-map6a66e5d and bring delivery to20/58, with38 remaining. [Third painting/SVG review](https://github.com/Yasuke2000/ocs-two-lives/pull/92) is separately delivered.
+Four further Dwargon/interior revisions now bring delivery to24/58, with34 remaining; their58 reservation attributes match24897fa. The prior Jura/marsh revisions compare all58 site attributes against main-map6a66e5d and previously brought delivery to20/58. [Third painting/SVG review](https://github.com/Yasuke2000/ocs-two-lives/pull/92) is separately delivered.
 
 These original illustrations and their fiches use the owner-selected instant immediately after Kijin naming. The first eight use reservation source`fc36e38`; the western four were checked against`a997f81`; the southern/Imperial four check all58 reservation attributes against`052f262` (current main terrain geometry`efa2cc8`). This art branch stacks on the earlier art delivery and does not include later map/source commits. These are design references, not in-game screenshots or a new source of canonical geography.
 
@@ -26,10 +26,14 @@ These original illustrations and their fiches use the owner-selected instant imm
 | Recently destroyed ogre village | [PNG](ogre_village_ruin.png) | [Sheet](ogre_village_ruin.md) |
 | Siss stilt hamlet — project/mod adaptation | [PNG](lizardmen_village.png) | [Sheet](lizardmen_village.md) |
 | Lizardmen labyrinth chamber | [PNG](lizardmen_caverns.png) | [Sheet](lizardmen_caverns.md) |
+| Dwargon inner-city precinct | [PNG](dwargo.png) | [Sheet](dwargo.md) |
+| Dwargon audience chamber | [PNG](dwargon_throne.png) | [Sheet](dwargon_throne.md) |
+| Kaijin's former workshop | [PNG](kaijin_smithy.png) | [Sheet](kaijin_smithy.md) |
+| Dwarf-village arena — server adaptation | [PNG](dwarven_arena.png) | [Sheet](dwarven_arena.md) |
 
 The earlier `chatgpt/priority-place-art` branch and local `C:/Users/david/Documents/ocs-art-map` candidates remain untouched. That worktree contains 29 candidate PNGs and 58 sheets; many are untracked and have not been accepted against the current map. The old Tempest sheet uses radius 110, while this pass reads the current SVG. The old Orc camp depicts a large organized fortification; the selected revision depicts a small temporary advance reservation appropriate to the early baseline. The existing candidates are not counted as delivered or discarded.
 
-[Coverage](coverage.csv) keeps all 58 IDs: twenty image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Thirty-eight image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
+[Coverage](coverage.csv) keeps all 58 IDs: twenty-four image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Thirty-four image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
 
 The image format is 1536x1024, RGB, opaque, below 3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
 
@@ -64,3 +68,11 @@ Four revised original project images remove unsupported spectacular set dressing
 Official episode2/9/10/12/13 stills inspected; selected evidence and confidence are in [reference review](jura-marsh-reference-review.csv). Secondary ogre-village/Siss frames remain attribution-limited. New images used only original project candidates as edit inputs; copyrighted references remain outside the repo. [Exact prompts](jura-marsh-prompts.json), four sheets and [manifest](jura-marsh-asset-manifest.json) record the scope and output/input hashes. Current58 reservations match6a66e5d. Geometry is supplied by current map PR74, not the older world files retained in this stacked art branch. No actual terrain, structure or runtime change.
 
 All20 delivered image/sheet pairs and their manifests/coverage table are checked. Four new images are1536x1024 RGB,under3,000,000 bytes; lossless packaging preserves every original output RGB pixel. Full-settlement fidelity, current blueprint fit, cave roof/drainage, stilt foundation and runtime-era review remain open. No named early resident roster is asserted. Round26 gate passes repository validation and462 tests (26 skips,zero failures,44.523s test tier).
+
+## Dwargon interiors and village hall — round27
+
+The registered dwargo city-centre pin receives a new internal street/plaza vignette instead of a duplicate exterior gate. The throne hall closes its unverified mountain-view windows and removes the figure/emblems. Kaijin's old smithy becomes a compact covered cavern-city shop with the warm brick/tool-wall cue from official episode4 still4; the selected era does not put Kaijin back in Dwargon. The separate server arena is grounded beside dwarf cottages rather than a cliff/ravine/dragon-nest panorama. It remains an explicit gameplay interpretation.
+
+[Six visual/design records](dwargon-interior-reference-review.csv), [exact prompts](dwargon-interior-prompts.json), four sheets and [manifest](dwargon-interior-asset-manifest.json) distinguish direct official episode4/5 context from authored plans. All10 stills visually inspected; no playback timestamps claimed. The city-centre image is new original generation; the other three edit only older original project candidates. Copyrighted frames are cached outside the repo and were not generation inputs. Old candidates remain intact.
+
+All58 reservations match main-map24897fa, though this stacked art branch retains older map/source files. The three radius8 spots belong to the parent cavern city and do not define separate16-block-wide cities or independent surface pads. All24 image/sheet pairs match five manifests and coverage; four new RGB1536x1024 PNGs are under3,000,000 bytes and preserve selected output pixels through lossless packaging. Full city/hall/workshop source fidelity, roof/ventilation, build fit, nested placement and runtime-era acceptance remain open. Third continent painting/SVG review is in PR92. Round27 gate passes repository validation and462 tests (26 skips,zero failures,44.770s test tier); no world/tools/mod/pack/blueprint changes or apply/deployment.

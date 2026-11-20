@@ -1,0 +1,95 @@
+{
+  "base_art_commit": "464d2eb",
+  "main_map_reservation_cross_check_commit": "24897fa",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "dwargo",
+      "file": "dwargo.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2093826,
+      "sha256": "081819d95755bf7a559af41f537dde600e1d6d44d2116acb812be4bb72787a5c",
+      "generated_original_basename": "exec-bcc57c00-a613-49dd-b934-2346636cd53a.png",
+      "generated_original_sha256": "8da91f867b1a4a3566349e1e86bdff5cb42daa194d40ec882ffa7bcd969b0a67",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "0.0",
+        "cy": "-1650.0",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "dwargon_throne",
+      "file": "dwargon_throne.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2131737,
+      "sha256": "aafe30019887958770ddee251cf3a525eda4090571f1f1da756fe1c883c66167",
+      "generated_original_basename": "exec-ff6788a8-c323-4260-ba0b-6ebf41df82ec.png",
+      "generated_original_sha256": "3d7c8cacce38510e186f0078805713bec8b8c989aa5ef3e5197bbcd08c4f07cb",
+      "legacy_input_sha256": "d9fbdb1622dcfadae1a5244aa32a31191faac22e0dd75af3b8aaf30b826ee117",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "0.0",
+        "cy": "-1656.0",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "kaijin_smithy",
+      "file": "kaijin_smithy.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2233546,
+      "sha256": "a8d970026e1372eed18254671d121f9ac4092478aaccd537f976c22b7a9b97ac",
+      "generated_original_basename": "exec-2d7b5cdc-c3b5-4361-995f-7aceea936ca2.png",
+      "generated_original_sha256": "c42914067cd657b0ee595ae6bf4454211fa05903ad32c39c8ce9b6facf2aab8d",
+      "legacy_input_sha256": "6367627eb01c0c126be55c06cb06f669d5d193702cdce385268758adb15c69de",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-12.0",
+        "cy": "-1634.0",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "dwarven_arena",
+      "file": "dwarven_arena.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2779890,
+      "sha256": "ce75daaadd2c98f3bb75146b63e400f6c61e25bf4ff3b0c09e1693ec8723c481",
+      "generated_original_basename": "exec-4510a851-6b6f-4fda-a634-178e428187e9.png",
+      "generated_original_sha256": "268809cfab0f2c39ed7f104434972b430c9c72162625b8d7b9d40e76a6613942",
+      "legacy_input_sha256": "d7daec28e7d6ad2f8f272776fc76e882f84e9cabe7c7c60b17c0a140402738a7",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "500.0",
+        "cy": "-1180.0",
+        "r": "58.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    }
+  ],
+  "limits": "Original architectural interpretations, not new canonical location measurements or runtime acceptance. Village arena is a project/mod adaptation; three city spots belong to the parent cavern city."
+}
