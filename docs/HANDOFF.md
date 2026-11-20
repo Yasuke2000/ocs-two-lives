@@ -1,5 +1,10 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Canaat relief and Empire evidence gaps (ChatGPT, PR #74 round9)
+
+Replaced the long equal-height Canaat crest with a shorter bent high spine and a lower tapered180-block eastern mountain apron, following broad official illustrated massing. Exact relief is interpretation. All58 centres/radii, coasts, waters, roads and masks unchanged. [Empire follow-up](research/tensura-world-2026-11-19/eastern-empire-followup.md): Silberia remains unlocated; publisher13.5 listing read but licensed trial timed out. WN historical states/frontier ruin remain continuity-qualified. Ledger165 records.
+Verified: checker0 errors/all56 relations pass/2 prior warnings; fresh build52.2s/no warnings/current SHA match; all58 sites match, all21 grades<=0.5, max bridge24. Lake/village intentional wet footprints and dry cave retained. Atlas/comparison refreshed. Full repository gate: validation passed;462 tests,26 skips,0 failures. No apply/deployment. Next: remaining source/era/coverage gaps and fixed-rule alternatives; do not claim exhaustive wiki or final fidelity acceptance.
+
 ## 20/11 — Lake Siss source correction and elongated basin (ChatGPT, PR #74 round8)
 
 Official glossary A-77 describes Charybdis as an aerial calamity; the older creative pack's aquatic-whirlpool/circular-lake premise was false. Corrected that prose and episode reference, retaining later server arena reservations. Official illustrated lake character supports a broad east–west basin; exact authored858 by410 blocks is interpretation. Shore/inlet/outlet revised, all58 site positions/radii and roads retained. Ledger162 records; C19 records the correction.

@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "3179f4286cbdf5078d6ff1c4134742ddc723180f3879f0a91b162ed896d21b50",
+  "source_sha256": "0a68ecfb5a767029ce723309db0d06e22ae65546799326dc238dab5b01862278",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,7 +12,7 @@
     3072,
     2688
   ],
-  "build_seconds": 52.4,
+  "build_seconds": 52.2,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
@@ -21,7 +21,7 @@
     "base_main": "a1848be"
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 162,
+  "research_claim_records": 165,
   "directly_verified_LN_claims": 11,
   "reference_alternatives_inert": true,
   "proportion_review": "round 6: western/cave corrections made; residual fixed-rule alternatives drawn",
@@ -36,7 +36,7 @@
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
   "max_bridge_blocks": 24,
-  "current_svg_sha256": "3179f4286cbdf5078d6ff1c4134742ddc723180f3879f0a91b162ed896d21b50",
+  "current_svg_sha256": "0a68ecfb5a767029ce723309db0d06e22ae65546799326dc238dab5b01862278",
   "staging_provenance_note": "Fresh normal build of the current SVG completed after restored session permissions; index source SHA verified. Terrain-preview bytes match this build.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
@@ -64,5 +64,35 @@
       "sampled_pixels": 1116,
       "water_levels": []
     }
-  }
+  },
+  "hill_shapes": 6,
+  "relief_review": "round 9: concentrated Canaat high core and tapered180-block eastern mountain apron; fixed sites unchanged",
+  "canaat_height_transect": [
+    {
+      "x": 350,
+      "z": -2000,
+      "surface_y": 272.0
+    },
+    {
+      "x": 850,
+      "z": -1990,
+      "surface_y": 91.625
+    },
+    {
+      "x": 1340,
+      "z": -1890,
+      "surface_y": 109.5
+    },
+    {
+      "x": 1660,
+      "z": -1760,
+      "surface_y": 94.625
+    },
+    {
+      "x": 1800,
+      "z": -1600,
+      "surface_y": 92.125
+    }
+  ],
+  "mountain_shapes": 10
 }

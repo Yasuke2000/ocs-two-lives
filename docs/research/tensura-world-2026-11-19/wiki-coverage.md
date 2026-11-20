@@ -43,3 +43,5 @@ Inventory labels are a map coverage assessment. All wiki evidence remains `fan-w
 Do not add invented IDs to the fixed 58-site registry, change technical code, or replace missing evidence with canonical-sounding coordinates. Research missing main-world entries first; then supply an authored additional-location overlay/proposal with source confidence and interpretations. Technical registration and dimensional interiors require reconciliation with the server systems. Preserve the owner's five approved relation corrections; no additional tool-file changes are authorized by this audit.
 
 The current production SVG and checker preview are unchanged in this audit. The two disclosed checker warnings and unresolved Nasca/mountain bearing remain in the existing review. This inventory is the backlog for the next completeness pass, not permission to label the current map exhaustive.
+
+[Empire follow-up](eastern-empire-followup.md) distinguishes the unlocated Silberia/vassal leads, historical WN predecessors and unread licensed story from active mapped terrain. It does not upgrade missing locations to production coverage.

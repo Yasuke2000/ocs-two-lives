@@ -107,7 +107,7 @@ The official guide and episode stills are reference links only; no official artw
 
 ## D — Armed Nation of Dwargon
 
-**Landform and heights.** Grey alpine massif to y280; apron 95–145, south-facing escarpment at the gate. A ravine frames the entrance. The summit shoulder carries the Dragon’s Nest; natural ridges continue above the buried city.
+**Landform and heights.** Grey alpine core to y280; lower eastern mountain spurs to y180, with foothill approaches around75–145. A south-facing escarpment frames the gate. A ravine frames the entrance. The summit shoulder carries the Dragon’s Nest; natural ridges continue above the buried city.
 
 **Target biome mix.** `minecraft:stony_peaks` 40%, `minecraft:meadow` 25%, `minecraft:windswept_gravelly_hills` 20%, `minecraft:forest` 10%, `minecraft:jagged_peaks` 5%.
 
@@ -394,4 +394,12 @@ The [direct WN follow-up](../docs/research/tensura-world-2026-11-19/wn-geography
 
 ## Lake Siss shape and source correction — round 8
 
-The official illustrated basin is read as elongated east–west. The authored shore now follows that character, rather than the older round-arena premise. Bounds change from about696 by549 to858 by410 blocks. The full fixed radius96 water reservation remains inside the lake, and the southern lizardmen access is preserved. Northern inlet and eastern outlet joins move with the shore. All58 site coordinates, roads and region masks are retained. Exact vertices and dimensions are **our interpretation**. C19 corrects the older aquatic-whirlpool claim: the official glossary describes Charybdis as an aerial calamity; any lake arena is later server adaptation, not a physical-geography source.
+The official illustrated basin is read as elongated east–west. The authored shore now follows that character, rather than the older round-arena premise. Bounds change from about696 by549 to858 by410 blocks. The full fixed radius96 water reservation remains inside the lake, and the southern lizardmen access is preserved. Northern inlet and eastern outlet joins move with the shore. All 58 site coordinates, roads and region masks are retained. Exact vertices and dimensions are **our interpretation**. C19 corrects the older aquatic-whirlpool claim: the official glossary describes Charybdis as an aerial calamity; any lake arena is later server adaptation, not a physical-geography source.
+
+## Canaat relief and Empire evidence — round 9
+
+The official illustrated relief is read as a concentrated northern summit mass with a southern foot and lower lateral spurs. The earlier authored crest spanned 2240 blocks horizontally at a single specified 280-block height. It has been replaced by a shorter bent crest around the fixed Dragon Nest, a more compact high core, and a separate tapered eastern mountain polygon with peak 180. No broad flat hill plateau is used for the eastern spurs. The mountain footprint and all elevations are **our interpretation**, not surveyed canon. The image supplies broad massing only (MAP-CANAAT-001/DES-CANAAT-003).
+
+All 58 site centres/radii, the coastline, lakes, rivers, roads, gameplay masks and the post-Kijin snapshot are retained. The Ameld headwater marker stays at the southern foot outside the mountain polygon. Exact entrance bearings and valley positions remain interpretations. Road profiles and underground reservations are verified against the new staging output in [review](review.md).
+
+The [Empire follow-up](../docs/research/tensura-world-2026-11-19/eastern-empire-followup.md) keeps Silberia as an unlocated research gap. Wiki political membership is not a geographical coordinate or a reliable S1E10 survival date. The publisher confirms guide 13.5 includes the lakeshore story, but its trial did not load. No unread passage, unnamed city grid or present-day Namrium/Ulmeria capital is invented. Eastern settlement and interior coverage remains incomplete.

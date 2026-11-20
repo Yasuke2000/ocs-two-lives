@@ -1,4 +1,4 @@
-# Current map review — round 8, post-Kijin snapshot
+# Current map review — round 9, post-Kijin snapshot
 
 Yasuke selected **immediately after the Kijin naming, anime S 1 episode 10**. [Era policy](era.md)
 and [58-site state overlay](../docs/research/tensura-world-2026-11-19/era-site-state.csv) supersede mixed-era
@@ -9,12 +9,11 @@ conquests, damage, construction and resident rosters are not the initial world s
 
 Lake Siss now has an elongated east–west outline (about858 by410 blocks), following the official illustrated character. Exact shoreline, level and joins are our interpretation. C19 removes the false round-whirlpool premise. All 58 coordinates/radii are unchanged.
 
-The previous round added irregular light woodland north of Siss toward the eastern Canaat foothills and an open
-fringe toward the Empire. Exact habitat outlines are **our interpretation**. No new military ruin position,
-road, sovereign frontier, river or height is invented. Coast and all 58 registered site positions are retained.
-The atlas uses the early village label and calls the footprints terrain reservations.
+Round 9 replaces the long equal-height Canaat crest with a shorter bent high spine near the fixed Dragon Nest and a tapered eastern mountain apron (designed peak 180). This follows the official illustration's broad relief character. The first apron trial was visually rejected as too flat; the delivered apron is a mountain polygon, not a broad hill plate. Exact vertices, elevations and entrance bearings are **our interpretation**. All 58 site centres/radii, coast, rivers, lake geometry, roads and gameplay masks are retained. The preceding eastern woodland/open fringe remains.
 
-The ledger contains **162 records: 104 thematic/design/reference records plus 58 coordinate interpretations**.
+[Empire follow-up](../docs/research/tensura-world-2026-11-19/eastern-empire-followup.md) keeps Silberia unlocated and its S1E10 state unverified. Publisher guide13.5 listing was read; the licensed trial did not render. Historical WN predecessor states and the frontier ruin are not silently turned into contemporary anime sites.
+
+The ledger contains **165 records: 107 thematic/design/reference records plus 58 coordinate interpretations**.
 Eleven directly read LN claims and nine newly read WN claims remain qualified by continuity and snapshot_use.
 [WN findings](../docs/research/tensura-world-2026-11-19/wn-geography-followup.md),
 [ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
@@ -29,16 +28,18 @@ view. This does not establish surveyed borders or make omitted countries nonexis
 
 - Standard checker after each SVG edit: **0 errors, all 56 relations pass**, two disclosed warnings:
   Laura waterfall crosses its escarpment; box 12288 by 10752 is 512 above preferred height, below the hard cap.
-  Mainland about 9653 by 6250; 12 forests and 14 biome polygons.
-- Fresh normal converter build of the **current SVG**: **52.4 seconds, no warnings**, 3072 by 2688
-  pixels. The lake revision, eastern habitats and era metadata are included. The source SHA matches staging;
+  Mainland about 9653 by 6250; 10 mountains, 6 hills, 12 forests and 14 biome polygons.
+- Fresh normal converter build of the **current SVG**: **52.2 seconds, no warnings**, 3072 by 2688
+  pixels. The Canaat relief revision, lake shape, eastern habitats and era metadata are included. The source SHA matches staging;
   published terrain-preview bytes match the fresh output. Earlier permission limitations are resolved.
 - **58/58** centres verified against index.json; sites.json contains only the 34 runtime plate entries,
-  not every marker. All 162 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
+  not every marker. All 165 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
 - Actual current exported profiles: **21 roads, maximum grade 0.5** within float epsilon. Road geometry
   is unchanged; current bridge metadata has a 24-block maximum.
 - Raster footprint check: Siss water1804/1804 pixels; lizardmen intentional water plate710/710 at level66
   (`sites.toml` surface=water, for stilt construction); cave dry0/1116 wet pixels.
+- Current terrain samples: Dragon Nest surface 272; eastern-spur transect 91.6–109.5. These are
+  server raster readings, not canonical elevations. Dwargon/carve reservations export without warnings.
 - Repository gate: validation passes, **462 tests,26 skips,0 failures**.
 - Checker preview, numbered atlas and side-by-side official-base comparison visually inspected. Copyrighted
   reference art remains outside the repository; [comparison](comparison.md) links the official source.
