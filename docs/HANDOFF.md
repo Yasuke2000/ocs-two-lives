@@ -1,5 +1,22 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Post-Kijin priority place-art revisions (ChatGPT, stacked art PR)
+
+Eight current image/sheet pairs in `docs/art/places/`: tempest, dwargon, blumund, lake_siss,
+treyni_shrine, sealed_cave, dwarf_village and orc_camp. All are original built-in image_gen outputs,
+1536x1024 RGB PNGs below 3,000,000 bytes. The selected dwarf-village revision removes an invented
+surface palace. Exact coordinates/radii come from map commit fc36e38; the small Orc advance camp,
+spent cave and early village follow the post-Kijin baseline. Fiches separate canonical context,
+server interpretations, unknown frame attribution and non-authoritative artistic set dressing.
+
+`coverage.csv` retains all 58 IDs. The older `chatgpt/priority-place-art` / `ocs-art-map` worktree
+contains 29 PNG candidates and 58 sheets, many untracked; it is untouched. Review those candidates
+before generating more images. Only these eight pairs are delivered in this branch. The old Tempest
+sheet's radius110 is obsolete; the old grand Orc fort is not the selected advance-camp concept.
+Manifest hashes/dimensions/encoding/size and all 58 current reservations checked; repository validation
+and 462 tests pass (26 skips). SVG and terrain source are unchanged. Remaining art, whole-continent
+painting and geography coverage/constraint decisions remain open. No runtime or server changes.
+
 ## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
 
 Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
