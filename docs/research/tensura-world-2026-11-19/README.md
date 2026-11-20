@@ -1,4 +1,7 @@
-# Tensura geography research — round33 Jura concepts and Council country context
+# Tensura geography research — round34 smaller western precinct sources
+
+Current ledger: 208 records (150 thematic/design/reference +58 coordinate interpretations),13 directly read LN claims. OFF-RAJ-034 directly reads the official distributor's west/gold/lake film context; exact initial condition remains unverified. FAN-WES-034 keeps four small-state names/order at secondary comparison confidence,not a surveyed map. Ten official episode65/76 stills provide limited context. [Nine source/design records](western-states-art-reference-review.csv) bring supplements to52; [PR99](https://github.com/Yasuke2000/ocs-two-lives/pull/99) delivers six concepts,total46/58,12 remaining. Ballachia's chapter108 medium and later rescue state are corrected; Raja's after-crisis initial-state implication is removed. Current SVG/source SHA d10aa456 and terrain unchanged. Existing source/fixed-rule/coverage/fit/runtime obligations remain open.
+
 
 Current ledger: 206 records (148 thematic/design/reference + 58 coordinate interpretations), with 13 directly read LN claims. WIK-CAN-033 qualifies the Dragon Nest summit association as wiki-level with LN12ch2/4 unread. OFF-COW-033 directly reads official episode77/route82's Englassia meeting-country context; it does not locate a permanent HQ parcel or establish an early event. [Seven source/design records](jura-approach-art-reference-review.csv) bring visual supplements to43. [PR98](https://github.com/Yasuke2000/ocs-two-lives/pull/98) delivers four revised Jura/approach concepts, bringing delivery to40/58, with18 remaining. All58 reservations match e619fb7; SVG/source SHA d10aa456 and current terrain unchanged. Existing source/fixed-rule/coverage/fit/runtime obligations stay open.
 
@@ -31,8 +34,8 @@ Round 15 corrects Coleus using the directly read official anime outline: the ind
 Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 148 thematic/design/reference claims plus58 exact site-placement
-records explicitly marked **our interpretation**, not206 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 150 thematic/design/reference claims plus58 exact site-placement
+records explicitly marked **our interpretation**, not208 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and

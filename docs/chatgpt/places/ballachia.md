@@ -10,13 +10,13 @@
 | Preview (blueprint only) | ![ballachia](../../previews/ballachia-iso.png) |
 | Lore page | [`design/lore/ballachia.md`](../../../design/lore/ballachia.md) |
 
-## Lore (canon)
+## Source context and initial-era limit
 
-After Masayuki's party exposes Orthrus in the small kingdom of Ballachia, the freed elves need safe passage to the Jura forest (light novel chapter 108, anime episode 65).
+Official [episode65/route69](https://www.ten-sura.com/anime/tensura/story/no69) reports Masayuki's later defeat of Orthrus. The Ballachia association comes from project/secondary frame and manga leads; chapter108 is a **manga** chapter, not a light-novel chapter. Its story pages were not read in this pass. These later events do not establish the initial post-Kijin state.
 
 ## What it should look like
 
-The yard imagines the freed travellers' departure: a colonnade under a long eave, a ribbed slate-blue dome above a ring of tall windows, small domes with slender smoking chimneys, a deep round arch and a glowing circular tracery window; six open bays with remnants of iron partitions; parted chain links in the paving leading to a canvas-topped wagon; an eastbound road, lodging house, carters' shelter and memorial.
+For the initial snapshot, use a neutral covered cart court with restrained dome/eave/window cues as original architecture. Do not show a completed rescue,broken chains,freed-traveller procession or liberation memorial. The earlier six-bay departure-yard blueprint remains later scenario design requiring era review; its existence does not prove a canonical initial building plan.
 
 Why it stands here (anchor table, Lerfing coordinates): On the eastbound road between Londo and Lura, Englassian side; flat.
 

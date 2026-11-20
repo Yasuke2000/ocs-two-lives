@@ -18,7 +18,7 @@ remain under review. The local terrain build is staged only: no Minecraft chunks
 changes are claimed. `canon-relations-anime.toml` records the adopted proposal as history; the technical
 source of truth is `tools/world/canon_relations.toml`. See [review.md](review.md).
 
-Latest place-art stack reaches40/58 in [PR98](https://github.com/Yasuke2000/ocs-two-lives/pull/98),with18 remaining. [Round31 Orbic review](orbic-terrain-review.md) now adds a bounded active depleted habitat; country/capital coverage remains incomplete. Current atlas is regenerated. The three earlier painting reviews predate this local habitat change and remain historical source comparisons.
+Latest place-art stack reaches46/58 in [PR99](https://github.com/Yasuke2000/ocs-two-lives/pull/99),with12 remaining. [Round31 Orbic review](orbic-terrain-review.md) now adds a bounded active depleted habitat; country/capital coverage remains incomplete. Current atlas is regenerated. The three earlier painting reviews predate this local habitat change and remain historical source comparisons.
 
 [Round32 Ice coast review](ice-coast-review.md) now refines three local inlets; the fixed palace shore and mainland remain. Current atlas/preview reflects both this change and Orbic. Earlier painted reviews remain historical.
 

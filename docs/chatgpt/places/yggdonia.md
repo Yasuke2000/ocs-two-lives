@@ -8,13 +8,15 @@
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section O, N, Y, Q, A |
 
-## Lore (canon)
+## Source context (qualified)
 
 On the Western Council map; no canon detail (pack epithet). Pin only.
 
+A community comparison reports this name on a later Council map (FAN-WES-034). The selected official episode76 stills inspected here do not expose that map; exact borders/capital and S1E10 buildings/industries remain unverified. The project role below is our interpretation,not canonical national architecture or economy.
+
 ## What it should look like
 
-Pin only. Open for concept art: a birch-forest realm.
+Pin only. A small birch-edge resting vignette may illustrate the project epithet; it does not establish a canonical national biome or city.
 
 
 ## Current state: BlueMap audit of 19/11/2026

@@ -19,10 +19,10 @@
     "skips": 26,
     "validation": "passed",
     "base_main": "a1848be",
-    "test_seconds": 43.617
+    "test_seconds": 43.735
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 206,
+  "research_claim_records": 208,
   "directly_verified_LN_claims": 13,
   "reference_alternatives_inert": true,
   "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
@@ -37,12 +37,12 @@
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
   "max_bridge_blocks": 40,
-  "current_svg_sha256": "32aa6e1053142d54075694a87bce1b658d86b96db5ef545b0fd440b0864cb02c",
-  "staging_provenance_note": "Fresh normal build55.1s after inert WN Frost Palace proposal; index hash matched. All active XML/all58 sites and complete height/water/biome/21-road/terrain/checker previews identical to046d7c3.",
+  "current_svg_sha256": "d10aa45699bbbf17c6a37280b075f80fbb5f4ed39b9fc742ebc9346f81102b00",
+  "staging_provenance_note": "Fresh normal build55.1s after round32 Ice coast revision; index hash matched. All58 reservations and21 road profiles retained; northern shoreline height/biome changes are documented in ice_coast_review. Round34 only updates source qualifications and creative briefs.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
   "forest_shapes": 12,
-  "biome_shapes": 18,
+  "biome_shapes": 19,
   "current_svg_matches_staged_source": true,
   "lake_shore_revision": "round 8: elongated east-west basin; source premise corrected",
   "water_footprint_audit": {
@@ -255,7 +255,8 @@
     "round29": "Two qualified fan-wiki volcano/mountain records and OFF-001 cached official glossary reinspection; no SVG/build changes.",
     "round31": "All58 site attributes retained; one biome and one forest edge changed. Prior three painting reviews predate this habitat change.",
     "round32": "Three authored Ice shore inlets; all58 sites/mainland/ElDorado/roads and local palace rasters retained. Earlier painting reviews predate latest coast and Orbic.",
-    "round33": "Jura approach concepts40/58; summit wiki lead and official Council meeting-country context qualified. No SVG/terrain change."
+    "round33": "Jura approach concepts40/58; summit wiki lead and official Council meeting-country context qualified. No SVG/terrain change.",
+    "round34": "Six smaller western concepts46/58; official Raja film geography and qualified country-name comparison; creative chapter/era errors corrected. SVG/terrain unchanged."
   },
   "orbic_terrain_review": {
     "patch_points": [
