@@ -1,10 +1,10 @@
 id,x,z,radius,kind,delivered_image,delivered_sheet,legacy_local_image_exists,legacy_local_sheet_exists,next_action
 tempest,0,0,148.0,clearing,tempest.png,tempest.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
-arrival,0,-1000,60.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
-wayfarers_camp,15.0,-985.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+arrival,0,-1000,60.0,clearing,arrival.png,arrival.md,True,True,Review source/era/build fit; representative concept is not runtime acceptance.
+wayfarers_camp,15.0,-985.0,8.0,clearing,wayfarers_camp.png,wayfarers_camp.md,True,True,Review source/era/build fit; representative concept is not runtime acceptance.
 sealed_cave,-120,-400,75.0,carve,sealed_cave.png,sealed_cave.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 goblin_village,-530,-220,56.0,village,goblin_village.png,goblin_village.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
-spirit_gate,-285,350,70.0,lakeside,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+spirit_gate,-285,350,70.0,lakeside,spirit_gate.png,spirit_gate.md,True,True,Review source/era/build fit; representative concept is not runtime acceptance.
 shizu_spawn,-420.0,-80.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 outcast_road,0.0,52.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 treyni_grove,320,470,56.0,village,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
@@ -16,7 +16,7 @@ dwargon_throne,0.0,-1656.0,8.0,clearing,dwargon_throne.png,dwargon_throne.md,Tru
 kaijin_smithy,-12.0,-1634.0,8.0,clearing,kaijin_smithy.png,kaijin_smithy.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 dwarf_village,400,-1200,124.0,village,dwarf_village.png,dwarf_village.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 dwarven_arena,500.0,-1180.0,58.0,clearing,dwarven_arena.png,dwarven_arena.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
-dragons_nest,350,-2000,64.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+dragons_nest,350,-2000,64.0,clearing,dragons_nest.png,dragons_nest.md,True,True,Review source/era/build fit; representative concept is not runtime acceptance.
 ameld_source,200,-1240,8.0,clearing,ameld_source.png,ameld_source.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 ameld_mouth,2150,1250,8.0,coast,ameld_mouth.png,ameld_mouth.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 lake_siss,1100,-100,96.0,lakeside,lake_siss.png,lake_siss.md,True,True,Review source/era/build fit; concept is not runtime acceptance.

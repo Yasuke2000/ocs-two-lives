@@ -1,6 +1,9 @@
-# Post-Kijin place concepts — thirty-six delivered locations
+# Post-Kijin place concepts — forty delivered locations
 
-Latest: Lubelius, Sacred Mountain, Heaven Tower and Ulgr Nature Park bring delivery to36/58, with22 remaining. All58 reservation attributes match main06a0323. LN6 directly distinguishes the smaller, lavish summit shrine from the cathedral; exact architecture remains interpretation.
+Latest: arrival, wayfarers_camp, spirit_gate and dragons_nest bring delivery to40/58, with18 remaining. All58 reservation attributes match current main map e619fb7. Revised own candidates remove unsupported water, oversized shelter/fortress and open other-world views. The arrival/camp/Jura gateway are server designs; nest architecture remains interpretation.
+
+
+Previous: Lubelius, Sacred Mountain, Heaven Tower and Ulgr Nature Park bring delivery to36/58, with22 remaining. All58 reservation attributes match main06a0323. LN6 directly distinguishes the smaller, lavish summit shrine from the cathedral; exact architecture remains interpretation.
 
 Previous: four natural-landmark concepts bring delivery to32/58, with26 remaining. All58 reservation attributes match current map0f154fc; C03/C05 river-topology/mountain-bearing decisions remain open.
 
@@ -50,11 +53,16 @@ These original illustrations and their fiches use the owner-selected instant imm
 | Intact lower Heaven Tower | [PNG](heaven_tower.png) | [Sheet](heaven_tower.md) |
 | Ulgr Nature Park woodland threshold | [PNG](ulgr_nature_park.png) | [Sheet](ulgr_nature_park.md) |
 
+| Dry Life 2 arrival clearing | [PNG](arrival.png) | [Sheet](arrival.md) |
+| Small wayside camp | [PNG](wayfarers_camp.png) | [Sheet](wayfarers_camp.md) |
+| Closed Jura server Spirit Gate | [PNG](spirit_gate.png) | [Sheet](spirit_gate.md) |
+| Compact summit roost | [PNG](dragons_nest.png) | [Sheet](dragons_nest.md) |
+
 The earlier `chatgpt/priority-place-art` branch and local `C:/Users/david/Documents/ocs-art-map` candidates remain untouched. That worktree contains 29 candidate PNGs and 58 sheets; many are untracked and have not been accepted against the current map. The old Tempest sheet uses radius 110, while this pass reads the current SVG. The old Orc camp depicts a large organized fortification; the selected revision depicts a small temporary advance reservation appropriate to the early baseline. The existing candidates are not counted as delivered or discarded.
 
-[Coverage](coverage.csv) keeps all 58 IDs: thirty-six image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Twenty-two image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
+[Coverage](coverage.csv) keeps all 58 IDs: forty image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Eighteen image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
 
-The first35 images are1536x1024; Ulgr Nature Park retains its native1362x1155. All are RGB, opaque, below3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
+All images except Ulgr Nature Park are1536x1024; Ulgr Nature Park retains its native1362x1155. All are RGB, opaque, below3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
 
 The terrain/biome/road source is unchanged. These images do not verify foundations, structure placement, cave water, detailed shore alignment, NPC rosters or runtime era gates. [Map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) remains the geometry review.
 
@@ -119,3 +127,11 @@ Four original concepts distinguish the human cathedral precinct, a smaller summi
 [Seven source/design records](western-sanctuary-reference-review.csv), [generation prompts](western-sanctuary-prompts.json), [one own-image correction](western-sanctuary-edit-prompts.json) and [manifest](western-sanctuary-asset-manifest.json) retain evidence limits. Lubelius loses unsupported cross finials. Official/copyrighted art was not a generation input. Ulgr keeps its native1362x1155 instead of being resized; all other new outputs1536x1024, opaque RGB,<3MB and pixel-identical to their selected outputs after lossless packaging. Existing legacy materials remain intact.
 
 All36 pairs/eight manifests/58-row coverage are checked. Current58 site attributes match main06a0323; this branch retains older map/source files. Full city/shrine/tower/park geometry, source, fit and runtime obligations remain open. No world/tools/mod/pack/blueprint/apply/merge/deploy changes. Round30 gate passes repository validation and462 tests (26 skips,zero failures,44.069s test tier).
+
+## Jura approach and summit — round33
+
+Four revised own candidates: dry arrival clearing, compact two-shelter camp, inactive Jura gateway and a summit roost rather than a valley fortress. The invented water/large formal stairs and portal view are removed. Current SVG road crosses arrival; the old imported brief's separate eastern road is retired. The radius8 camp belongs to its parent clearing. Spirit Gate's five-plinth court is server design, distinct from Ulgr park; closed concept art does not change runtime portal behavior. Dragon Nest uses wiki-level summit evidence; LN12ch2/4 remain unread and exact architecture is authored.
+
+[Seven reference/design records](jura-approach-reference-review.csv), [exact current edit prompts](jura-approach-prompts.json) and [manifest](jura-approach-asset-manifest.json) preserve scope. Inputs are only our earlier originals; legacy candidates remain untouched, and their first-generation prompts are unavailable. Official episode4 stills and limited episode22 masonry cues/secondary gate frame were reinspected without supplying copyrighted images to generation. No exact anime nest exterior or surveyed camp/portal plan claimed.
+
+All40 pairs/nine manifests/58-row coverage verified. New four RGB1536×1024 PNGs<3,000,000 bytes; decoded pixels equal selected outputs after lossless packaging. All58 site attributes match e619fb7; art branch retains older map/source files. Full source/geometry/fit/roof/water/lighting/era/runtime obligations remain. No world/tools/mod/pack/blueprint/apply/merge/deploy changes. Round33 repository validation and462 tests pass (26 skips,zero failures,43.819s test tier).
