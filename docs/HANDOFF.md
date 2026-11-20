@@ -1,9 +1,5 @@
 # Handoff — current state of the work (update this when you stop)
 
-## 20/11 — Amrita/Soma source and access review (ChatGPT, PR #74 round24)
-
- Official episode81(no86) explicitly places Amrita beneath Clayman's former castle; all5 stills inspected (mural/doorway/cavern context, not plans). LN10 historical passage directly verifies Soma as older ruined homeland, Amrita as distant later refuge. [Plan/section and review](../world/amrita-placement-review.md) draws inert castle-linked access projection(3300,-600), r8, depth/whole footprint unknown; eastern chambers possible. Active E350..700 reservation(3800,-500),r63 remains fixed and labelled as game adaptation/C07. No sixth data-rule change authorized/applied. Every non-label layer/all58 sites unchanged; current build56.3s/no warnings/SHA matched, complete height/water/biome/21-road/terrain-preview bytes identical to052f262. Ledger196(138 thematic/design/reference+58 coordinates),12 direct LN claims. Source versus access/marker semantics remains an owner/technical decision. Soma exact placement, other gaps and full underground design remain open; no runtime/apply/deployment. Gate result in world/review.md.
-
 ## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
 
 Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
@@ -31,6 +27,10 @@ not complete. Map geometry is unchanged by either art delivery; no runtime apply
 ## 20/11 — Eastern forest edge refinement (ChatGPT, PR #74 round22)
 
  [Eastern forest edge review](../world/forest-edge-review.md) reshapes only3 forest point lists: Jistav darkwood,northern Imperial woodland and eastern Jura foothill woodland. Selected areas retain89.4..91.0%, max boundary shift63.7; stronger21.8..24.8% removal trial rejected. Existing forest types retained;9 other forests and all other layers identical. All58 sites/radii and21 road profiles unchanged; complete height/water PNGs byte-identical. Current normal build55.7s/no warnings/hash matched.11850 biome cells change, all within old/new boundary differences. Full discs of Clayman's castle/Amrita remain in darkwood. DES-FOR-022 marks exact extents as interpretation; ledger192(134 thematic/design/reference+58 coordinates). First painting now historical; refreshed painting/final coupled round remain open. No runtime/apply/deploy. Gate result in world/review.md.
+
+## 20/11 — Amrita/Soma source and access review (ChatGPT, PR #74 round24)
+
+ Official episode81(no86) explicitly places Amrita beneath Clayman's former castle; all5 stills inspected (mural/doorway/cavern context, not plans). LN10 historical passage directly verifies Soma as older ruined homeland, Amrita as distant later refuge. [Plan/section and review](../world/amrita-placement-review.md) draws inert castle-linked access projection(3300,-600), r8, depth/whole footprint unknown; eastern chambers possible. Active E350..700 reservation(3800,-500),r63 remains fixed and labelled as game adaptation/C07. No sixth data-rule change authorized/applied. Every non-label layer/all58 sites unchanged; current build56.3s/no warnings/SHA matched, complete height/water/biome/21-road/terrain-preview bytes identical to052f262. Ledger196(138 thematic/design/reference+58 coordinates),12 direct LN claims. Source versus access/marker semantics remains an owner/technical decision. Soma exact placement, other gaps and full underground design remain open; no runtime/apply/deployment. Gate result in world/review.md.
 
 ## 20/11 — Tengu official source and ridge proposal (ChatGPT, PR #74 round20)
 
