@@ -62,3 +62,9 @@ Yasuke selected the moment immediately after Kijin naming (anime S1 episode10). 
 [Eight visual/design reference records](jura-marsh-art-reference-review.csv) accompany the four revised original place concepts in [draft PR93](https://github.com/Yasuke2000/ocs-two-lives/pull/93). Official early-episode stills and secondary forest-village/Siss frames were inspected. The records distinguish explicit frame content, uncertain attribution and authored architecture. They are a visual-design supplement, not eight new measured geographic facts; the main ledger remains196 records/12 directly read LN claims. Surface stilt architecture is a project/mod adaptation; a limited cavern background does not survey the full labyrinth. Exact site positions remain the existing58 server interpretations. No new active map geometry or completeness credit follows.
 
 Round26 visual-supplement/pointer gate: repository validation and462 tests pass (26 skips,zero failures,44.310s test tier). This changes no SVG, terrain build or runtime files.
+
+## Dwargon visual-source review — round27
+
+[Six further visual/design records](dwargon-interior-art-reference-review.csv) accompany [draft PR94](https://github.com/Yasuke2000/ocs-two-lives/pull/94). Official episode4/5 synopses and10 stills were inspected; limited entry, brick/tool-wall and court cues are separated from authored street/room plans. The three small city spots belong to the parent Dwargon reservation; the separate village arena is a project/mod adaptation. Total14 supplemental visual/design records across rounds26/27 are separate from the unchanged196-record geographic ledger and12 directly read LN claims. New concepts do not survey the city, add live geography or resolve full-city/nested-placement/runtime review.
+
+Round27 visual-supplement/pointer gate: repository validation and462 tests pass (26 skips,zero failures,43.631s test tier). No SVG, terrain build or runtime bytes change.
