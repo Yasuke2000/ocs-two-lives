@@ -1,0 +1,20 @@
+{
+  "source_svg_sha256": "0d3b7723fb7e2775d24bd429031430684ca3fac361e909707c510fb0be9eb166",
+  "production_svg_checker_preview_and_terrain_preview_unchanged_from": "0e5bd64",
+  "native_source_vector_counts_verified": {
+    "coast": 3,
+    "lakes": 8,
+    "rivers": 8,
+    "roads": 21
+  },
+  "site_world_coordinates_and_pixel_projection_verified": 58,
+  "raw_painting_pixels": [
+    1536,
+    1024
+  ],
+  "marked_atlas_pixels": [
+    2200,
+    2147
+  ],
+  "limit": "Exact native vectors/marker anchors verified; pictorial tree/ridge strokes and perspective heights are not measured terrain or primary geography evidence."
+}

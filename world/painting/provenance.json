@@ -1,0 +1,24 @@
+{
+  "map_commit": "0e5bd64",
+  "source_svg_sha256": "0d3b7723fb7e2775d24bd429031430684ca3fac361e909707c510fb0be9eb166",
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "guide_pixels": [
+    1536,
+    1024
+  ],
+  "purpose": "Original preview/terrain guides only; painting is presentation, not a terrain source.",
+  "generated_painting_sha256": "ab68ac31ac4baaa0f9eb12ba20eea6dc090f43ed7f72679985c3247f581098b6",
+  "native_overlay_counts": {
+    "coast": 3,
+    "lakes": 8,
+    "rivers": 8,
+    "roads": 21
+  },
+  "presentation_rule": "Raster provides pictorial texture only. Native clipping/ocean wash and exact coast/water/road vectors define visible geometry. Tree/ridge strokes remain pictorial, not measured terrain.",
+  "original_geometry_unchanged": true
+}
