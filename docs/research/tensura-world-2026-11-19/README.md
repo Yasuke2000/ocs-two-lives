@@ -1,4 +1,6 @@
-# Tensura geography research — map round 17
+# Tensura geography research — round20 Tengu source/proposal review
+
+The [Tengu ridge study](../../../world/tengu-settlement-study.md) now uses directly read official episode64 synopsis and limited setting cues from five visually inspected official stills. Exact ridge coordinates, compact village plan and terraces remain interpretation. The former hillside point moves only inside the inert SVG proposal comment; active terrain and all58 sites remain unchanged. No later tunnel or WN dimensional gateway is installed. LN8 chapter4 remains unread. The source ledger adds OFF-TEN-001..003 and DES-TEN-020, retaining all missing-location obligations.
 
 Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
 
@@ -9,8 +11,8 @@ Round 15 corrects Coleus using the directly read official anime outline: the ind
 Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 129 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 187 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 133 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 191 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and

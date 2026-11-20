@@ -42,3 +42,5 @@ Round13 rounds five existing river reaches within14.17 blocks of the previous li
 A small western trail waypoint adjustment within20 blocks corrects the actual exported grade after the river change; its old route points and endpoints remain. This is authored game geometry, not a new canonical travel claim.
 
 Coleus detail: [official INEI production panorama and source/placement review](../docs/research/tensura-world-2026-11-19/coleus-placement-review.md). The panorama supplies local visual character; the official outline supplies the between-country relationship. Neither supplies surveyed coordinates.
+
+Round20 adds an official episode64 Tengu source review and an inert ridge/terrace proposal. Current preview and official base map were reinspected; all live geometry and preview bytes remain unchanged. [Study and exact evidence limits](tengu-settlement-study.md). No new continental-geography claim is inferred from the illustrative plan.

@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "0d3b7723fb7e2775d24bd429031430684ca3fac361e909707c510fb0be9eb166",
+  "source_sha256": "c3ca6a55fe98c1e080726d0e941ba2a72f289076265a91df0e6daadbc6aa4009",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,7 +12,7 @@
     3072,
     2688
   ],
-  "build_seconds": 54.4,
+  "build_seconds": 56.4,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
@@ -21,7 +21,7 @@
     "base_main": "a1848be"
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 187,
+  "research_claim_records": 191,
   "directly_verified_LN_claims": 11,
   "reference_alternatives_inert": true,
   "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
@@ -36,8 +36,8 @@
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
   "max_bridge_blocks": 40,
-  "current_svg_sha256": "0d3b7723fb7e2775d24bd429031430684ca3fac361e909707c510fb0be9eb166",
-  "staging_provenance_note": "Fresh normal build of the current SVG completed after restored session permissions; index source SHA verified. Terrain-preview bytes match this build.",
+  "current_svg_sha256": "c3ca6a55fe98c1e080726d0e941ba2a72f289076265a91df0e6daadbc6aa4009",
+  "staging_provenance_note": "Fresh normal current-SVG build56.4s after inert Tengu-comment correction; all live XML elements and terrain/checker preview bytes equal0b8c1d9. Index source hash verified.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
   "forest_shapes": 12,
@@ -218,5 +218,25 @@
       "eurazania-field-east": 57796,
       "eurazania-field-west": 44617
     }
+  },
+  "tengu_proposal_review": {
+    "centre": [
+      -1000,
+      940
+    ],
+    "radius": 40,
+    "prior_centre": [
+      -1000,
+      1100
+    ],
+    "live_xml_elements_unchanged": true,
+    "terrain_and_checker_previews_unchanged": true,
+    "source_claims": [
+      "OFF-TEN-001",
+      "OFF-TEN-002",
+      "OFF-TEN-003",
+      "DES-TEN-020"
+    ],
+    "remaining": "Registration, terracing and access still open."
   }
 }

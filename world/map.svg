@@ -4,7 +4,7 @@
 C14: WIK-MAL-001/002 describe a coastal capital west of Sarion; PUB-MAL-001 independently places the Magic Tower in Malukshure waters. The current Sainte-Malukshure anchor is constrained to gameplay H (Fulbrosia); do not silently move it to another region.
 C15: Galut is distinct from the nature park; Tengu need a summit settlement; the western wall needs an era-specific physical design. See world/additional-locations.md for sources and review questions.
 <circle id="proposal-galut" cx="-900" cy="3050" r="60" data-source-claims="WIK-ULG-001" />
-<circle id="proposal-tengu_settlement" cx="-1000" cy="1100" r="40" data-source-claims="WIK-TEN-001;WIK-KHU-001" />
+<circle id="proposal-tengu_settlement" cx="-1000" cy="940" r="40" data-source-claims="WIK-TEN-001;WIK-KHU-001;OFF-TEN-001;OFF-TEN-002;DES-TEN-020" />
 <circle id="proposal-sainte_malukshure" cx="-2320" cy="1645" r="64" data-source-claims="WIK-MAL-001;WIK-MAL-002" />
 <circle id="proposal-magic_tower" cx="-2440" cy="1840" r="40" data-source-claims="PUB-MAL-001;WIK-MAL-001" />
 <polyline id="proposal-long-wall" points="-4250,-1700 -4270,-1450 -4220,-1100 -4140,-850 -4070,-600 -3980,-350 -3940,-100" data-source-claims="WIK-WAL-001" />

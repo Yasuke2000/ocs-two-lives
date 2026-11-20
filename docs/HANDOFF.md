@@ -22,6 +22,10 @@ audit, checker and repository gate pass (462 tests,26 skips). Pictorial relief r
 This is the first painting review coupled to current geometry; three requested painting/SVG rounds are
 not complete. Map geometry is unchanged by either art delivery; no runtime apply or deployment.
 
+## 20/11 — Tengu official source and ridge proposal (ChatGPT, PR #74 round20)
+
+ Official episode64 (route no68) synopsis directly confirms Tengu residence in Khusha and a later road-tunnel proposal. All five official stills visually inspected; still2/5 give limited outdoor/gateway/fence/blossom cues, not a surveyed village plan. [Original ridge/terrace study](../world/tengu-settlement-study.md) moves only the inert Tengu proposal from(-1000,1100) to(-1000,940), radius40. Old centre sampled96.75 versus new188.5; new disc remains steep146.5..189.75 and needs terrace/access design.58 live sites and all live XML elements unchanged. Fresh normal build56.4s/no converter warnings/current SHA match; terrain/checker preview bytes unchanged. Ledger191(133 thematic/design/reference+58 coordinate interpretations). LN8 chapter4 unread; WN access remains separate. Registration, source gaps and three painting/SVG rounds remain open; no runtime apply/deployment.
+
 ## 20/11 — Old Dragon City southeastern proportion correction (ChatGPT, PR #74 round16)
 
 Round 16 moves the old Forgotten Dragon City from(2500,150) to(2650,800), retaining radius100, M membership and all fixed relations. This follows the official illustration's broad southeastern pattern and the wiki territory relationship south of Jura/east of Eurazania. The pinned secondary marker distance discrepancy improves from-9.8% to-0.3% and bearing discrepancy from-13.3 to+0.1 degrees; projection and precision remain unknown. Exact city coordinates and two rerouted approach trails are our interpretation. All other57 site centres/radii and every coast, lake, river, mountain, hill, forest, biome and gameplay polygon remain unchanged frome129131. This is the old settlement, not the later city/castle built at Laura.
