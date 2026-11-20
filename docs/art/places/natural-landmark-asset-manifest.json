@@ -1,0 +1,96 @@
+{
+  "base_art_commit": "187d28d",
+  "main_map_reservation_cross_check_commit": "0f154fc",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "ameld_source",
+      "file": "ameld_source.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2780959,
+      "sha256": "df40d632c64279119a89eea10b204dbacb1e9b4ed5281053846af859adf83525",
+      "generated_original_basename": "exec-5aa4a91e-c608-42d1-a530-03bb1ad8d66b.png",
+      "generated_original_sha256": "ddb95bfcd5e8853454b45fce15f758062c68615c4c51115415d49cc746b168c3",
+      "legacy_input_sha256": "83ddc5e004494a9e7680da04f9083198d9fb13c2cec96005df9333278abad99c",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "200",
+        "cy": "-1240",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "ameld_mouth",
+      "file": "ameld_mouth.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2184473,
+      "sha256": "d311ac05d41c85c0169f9f6c4f1fe3e3d02ab73af60cfb9154c8d3efe9df6274",
+      "generated_original_basename": "exec-f9aecbe4-35d5-4f92-8d73-4c00647e686c.png",
+      "generated_original_sha256": "0660dc802b85a070771ed92715f0900111d5a2f77577dea2a444ae4046e9bdea",
+      "legacy_input_sha256": "7586b8e7b8028d9713b59782a60bc4c0d44b7f2d1c52a6f66d8ab4b19195f8c5",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "2150",
+        "cy": "1250",
+        "r": "8.0",
+        "data-site": "coast",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "el_dorado_volcano",
+      "file": "el_dorado_volcano.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2421084,
+      "sha256": "588b0fb53693199eb37ff656873f0491a6cf036d076ee95530c0af7429f684c1",
+      "generated_original_basename": "exec-f65dcd79-f22a-4c90-9d02-9053ef085e4d.png",
+      "generated_original_sha256": "cb5788c02fbac147cd9915e47008259b6e4d88fc61eb54f57f61d2f33497d68d",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-3900",
+        "cy": "3200",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "great_holy_mountain",
+      "file": "great_holy_mountain.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2104168,
+      "sha256": "25c732a59ecc10f43f0fbdf6ed5bed09c55483b60cf4db773ecb90818ea896c6",
+      "generated_original_basename": "exec-acb7296d-acde-4e35-ad72-ffa5f26b2ddc.png",
+      "generated_original_sha256": "40ebb6997e649aa9df06611c1499c7ca0b8516d89c59284c3506c7c1e4bace19",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "3350",
+        "cy": "-1350",
+        "r": "80.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      },
+      "intermediate_original_basename": "exec-47dd2a2f-ca98-4b5a-adcf-9b066f0afc2e.png"
+    }
+  ],
+  "limits": "Original architectural interpretations, not new canonical location measurements or runtime acceptance. C03 river topology and C05 mountain bearing remain open; spring,outlet,vent/mine and gallery details are interpretations."
+}

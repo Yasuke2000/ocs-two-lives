@@ -1,4 +1,6 @@
-# Post-Kijin place concepts — twenty-eight delivered locations
+# Post-Kijin place concepts — thirty-two delivered locations
+
+Latest: four natural-landmark concepts bring delivery to32/58, with26 remaining. All58 reservation attributes match current map0f154fc; C03/C05 river-topology/mountain-bearing decisions remain open.
 
 Latest: four original demon-seat/ruin concepts bring delivery to28/58, with30 remaining. All58 reservation attributes match main-map8ea1e96. C07 and C22 remain explicit source/access/type decisions, not resolved by concept pictures.
 
@@ -36,10 +38,14 @@ These original illustrations and their fiches use the owner-selected instant imm
 | Ancient Amrita gallery | [PNG](amrita.png) | [Sheet](amrita.md) |
 | White Ice Palace corridor | [PNG](frost_palace.png) | [Sheet](frost_palace.md) |
 | El Dorado court precinct | [PNG](el_dorado.png) | [Sheet](el_dorado.md) |
+| Ameld headwater | [PNG](ameld_source.png) | [Sheet](ameld_source.md) |
+| Ameld coastal mouth | [PNG](ameld_mouth.png) | [Sheet](ameld_mouth.md) |
+| El Dorado volcanic dome | [PNG](el_dorado_volcano.png) | [Sheet](el_dorado_volcano.md) |
+| Great Holy Mountain gallery — interpretation | [PNG](great_holy_mountain.png) | [Sheet](great_holy_mountain.md) |
 
 The earlier `chatgpt/priority-place-art` branch and local `C:/Users/david/Documents/ocs-art-map` candidates remain untouched. That worktree contains 29 candidate PNGs and 58 sheets; many are untracked and have not been accepted against the current map. The old Tempest sheet uses radius 110, while this pass reads the current SVG. The old Orc camp depicts a large organized fortification; the selected revision depicts a small temporary advance reservation appropriate to the early baseline. The existing candidates are not counted as delivered or discarded.
 
-[Coverage](coverage.csv) keeps all 58 IDs: twenty-eight image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Thirty image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
+[Coverage](coverage.csv) keeps all 58 IDs: thirty-two image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Twenty-six image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
 
 The image format is 1536x1024, RGB, opaque, below 3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
 
@@ -90,3 +96,11 @@ Four new originals: clayman_castle,amrita,frost_palace,el_dorado. Source-qualifi
 [Nine reference/design records](demon-seats-reference-review.csv), [exact prompts](demon-seats-prompts.json), four sheets and [manifest](demon-seats-asset-manifest.json) preserve evidence limits. WN continuity remains separate; public LN10 evidence does not measure Amrita's entrance or depth. Later El Dorado interiors do not certify exact early architecture. C07/C22 and full city/palace/source/roof/water/build-fit/runtime obligations stay open. Current58 reservation attributes match8ea1e96; this art branch retains older map/source files, so current terrain/source decisions belong to map PR74.
 
 All28 pairs match six manifests/coverage. The four new images are1536x1024 RGB,<3,000,000 bytes; lossless PNG packaging preserves every original output pixel. Existing legacy materials are untouched. Third continent painting/SVG review is separately in PR92. Round28 art gate passes repository validation and462 tests (26 skips,zero failures,43.977s test tier). No world/tools/mod/pack/blueprint/apply/deploy changes.
+
+## Natural landmarks — round29
+
+Two original river candidates are revised: the source loses its giant nest/bones, heavy lowland snow, broad pool and oversized waterfall; the mouth loses the unsupported distributary delta, red mesas, ruins, farms and settlements. Two new volcanic vignettes show a restrained El Dorado dome/flank adit and a compact interpreted gallery on Great Holy Mountain. A targeted edit removes invented glowing mountain fissures from the latter; only its local gallery motif stays bright.
+
+[Six reference/design records](natural-landmark-reference-review.csv), [exact prompts and cleanup](natural-landmark-prompts.json), four sheets and [manifest](natural-landmark-asset-manifest.json) distinguish official broad geography, indexed wiki leads and authored close-up design. The original Japanese official Ameld glossary was re-extracted from the existing cached official HTML and directly read. Direct Fandom fetches returned402/robots; indexed text is not direct LN reading. No independently verified anime close-up of these exact precincts was found. Official map artwork remains outside the repo and was not supplied to image generation.
+
+All58 reservations match0f154fc; this stacked art branch retains older map/source files. Eight-block pins identify landscape features, not tiny full-mountain or settlement footprints. The current10-block headwater,18-block outlet and230-block dome crest are authored terrain parameters; art perspective cannot override river levels, profiles, masks or source continuity. C03/C05 and natural-feature/gallery/source/fit/runtime obligations remain open.32/58 pairs delivered,26 remain. All32 pairs match seven manifests/coverage. Four new selected RGB1536x1024 PNGs are<3,000,000 bytes and lossless packaging preserves original pixels. Prior assets and legacy candidates remain untouched. Round29 art gate passes repository validation and462 tests (26 skips,zero failures,43.960s test tier); no world/tools/mod/pack/blueprint changes, apply or deployment.
