@@ -2,7 +2,9 @@
 
 Round22 gate passes validation and462 tests (26 skips,zero failures,45.068s test tier). The current checker JSON is generated at `world/map_check.json`.
 
-[Forest edge review](forest-edge-review.md) revises only three existing woodland boundaries after comparing the terrain preview and first painting. All58 sites,9 other forests and all non-forest SVG layers remain unchanged. Full height/water PNGs and21 road profiles are byte-identical;11850 biome cells change only within the authored boundary differences. The stronger trial was rejected; selected patches retain89.4..91.0% of previous area. Exact edges are interpretation, not a new canonical vegetation survey. The old painting is now historical at its recorded hash; refreshed painting and final coupled review remain open.
+The refreshed second painting is separately delivered in [draft PR90](https://github.com/Yasuke2000/ocs-two-lives/pull/90), source efa2cc8. Exact native coast/water/road vectors and58 anchors pass registration audit; pictorial tree/ridge strokes are not measured terrain. A third coupled review remains open.
+
+[Forest edge review](forest-edge-review.md) revises only three existing woodland boundaries after comparing the terrain preview and first painting. All58 sites,9 other forests and all non-forest SVG layers remain unchanged. Full height/water PNGs and21 road profiles are byte-identical;11850 biome cells change only within the authored boundary differences. The stronger trial was rejected; selected patches retain89.4..91.0% of previous area. Exact edges are interpretation, not a new canonical vegetation survey. The old painting is historical at its recorded hash; second painting is separately delivered in PR90 and the final coupled review remains open.
 
 Round20 offline gate passes validation and462 tests (26 skips,zero failures,44.952s test tier). Both126-entry coverage inventories retain26 missing representations and3 existing parent designs awaiting verification; no completeness credit comes from the new proposal.
 
