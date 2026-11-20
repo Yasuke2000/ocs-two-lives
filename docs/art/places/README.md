@@ -1,4 +1,6 @@
-# Post-Kijin place concepts — twenty-four delivered locations
+# Post-Kijin place concepts — twenty-eight delivered locations
+
+Latest: four original demon-seat/ruin concepts bring delivery to28/58, with30 remaining. All58 reservation attributes match main-map8ea1e96. C07 and C22 remain explicit source/access/type decisions, not resolved by concept pictures.
 
 Four further Dwargon/interior revisions now bring delivery to24/58, with34 remaining; their58 reservation attributes match24897fa. The prior Jura/marsh revisions compare all58 site attributes against main-map6a66e5d and previously brought delivery to20/58. [Third painting/SVG review](https://github.com/Yasuke2000/ocs-two-lives/pull/92) is separately delivered.
 
@@ -30,10 +32,14 @@ These original illustrations and their fiches use the owner-selected instant imm
 | Dwargon audience chamber | [PNG](dwargon_throne.png) | [Sheet](dwargon_throne.md) |
 | Kaijin's former workshop | [PNG](kaijin_smithy.png) | [Sheet](kaijin_smithy.md) |
 | Dwarf-village arena — server adaptation | [PNG](dwarven_arena.png) | [Sheet](dwarven_arena.md) |
+| Clayman's intact castle | [PNG](clayman_castle.png) | [Sheet](clayman_castle.md) |
+| Ancient Amrita gallery | [PNG](amrita.png) | [Sheet](amrita.md) |
+| White Ice Palace corridor | [PNG](frost_palace.png) | [Sheet](frost_palace.md) |
+| El Dorado court precinct | [PNG](el_dorado.png) | [Sheet](el_dorado.md) |
 
 The earlier `chatgpt/priority-place-art` branch and local `C:/Users/david/Documents/ocs-art-map` candidates remain untouched. That worktree contains 29 candidate PNGs and 58 sheets; many are untracked and have not been accepted against the current map. The old Tempest sheet uses radius 110, while this pass reads the current SVG. The old Orc camp depicts a large organized fortification; the selected revision depicts a small temporary advance reservation appropriate to the early baseline. The existing candidates are not counted as delivered or discarded.
 
-[Coverage](coverage.csv) keeps all 58 IDs: twenty-four image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Thirty-four image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
+[Coverage](coverage.csv) keeps all 58 IDs: twenty-eight image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Thirty image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
 
 The image format is 1536x1024, RGB, opaque, below 3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
 
@@ -76,3 +82,11 @@ The registered dwargo city-centre pin receives a new internal street/plaza vigne
 [Six visual/design records](dwargon-interior-reference-review.csv), [exact prompts](dwargon-interior-prompts.json), four sheets and [manifest](dwargon-interior-asset-manifest.json) distinguish direct official episode4/5 context from authored plans. All10 stills visually inspected; no playback timestamps claimed. The city-centre image is new original generation; the other three edit only older original project candidates. Copyrighted frames are cached outside the repo and were not generation inputs. Old candidates remain intact.
 
 All58 reservations match main-map24897fa, though this stacked art branch retains older map/source files. The three radius8 spots belong to the parent cavern city and do not define separate16-block-wide cities or independent surface pads. All24 image/sheet pairs match five manifests and coverage; four new RGB1536x1024 PNGs are under3,000,000 bytes and preserve selected output pixels through lossless packaging. Full city/hall/workshop source fidelity, roof/ventilation, build fit, nested placement and runtime-era acceptance remain open. Third continent painting/SVG review is in PR92. Round27 gate passes repository validation and462 tests (26 skips,zero failures,44.770s test tier); no world/tools/mod/pack/blueprint changes or apply/deployment.
+
+## Demon seats and ancient gallery — round28
+
+Four new originals: clayman_castle,amrita,frost_palace,el_dorado. Source-qualified written prompts use inspected official anime contexts and public LN/WN evidence without supplying copyrighted images to generation. Castle architecture is an intact original forest fortress; Amrita is a dormant subsurface gallery rather than a public mound; Frost Palace is an interior avoiding the unresolved coast/inland dispute; El Dorado is one pale/gold/purple court precinct rather than the entire city. No later visitors, raids, active wards or fixed NPC roster are depicted.
+
+[Nine reference/design records](demon-seats-reference-review.csv), [exact prompts](demon-seats-prompts.json), four sheets and [manifest](demon-seats-asset-manifest.json) preserve evidence limits. WN continuity remains separate; public LN10 evidence does not measure Amrita's entrance or depth. Later El Dorado interiors do not certify exact early architecture. C07/C22 and full city/palace/source/roof/water/build-fit/runtime obligations stay open. Current58 reservation attributes match8ea1e96; this art branch retains older map/source files, so current terrain/source decisions belong to map PR74.
+
+All28 pairs match six manifests/coverage. The four new images are1536x1024 RGB,<3,000,000 bytes; lossless PNG packaging preserves every original output pixel. Existing legacy materials are untouched. Third continent painting/SVG review is separately in PR92. Round28 art gate passes repository validation and462 tests (26 skips,zero failures,43.977s test tier). No world/tools/mod/pack/blueprint/apply/deploy changes.

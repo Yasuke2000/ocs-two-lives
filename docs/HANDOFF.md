@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Demon-seat/gallery concepts (ChatGPT, round28, stacked on art PR94)
+
+Four new original pairs: clayman_castle,amrita,frost_palace,el_dorado. Intact woodland fortress, dormant buried gallery, enclosed ice corridor and representative pale/gold/purple court. Official selected anime stills and public LN/WN context inspected; references/prompts separate direct cues, secondary attribution and authored plans. C07 east-marker/access and C22 coast/inland source/type decisions remain open. No later visitors/raids/active wards/NPC roster. All58 reservations match8ea1e96; art branch retains older map/source files.28/58 delivered,30 remain. Four RGB1536x1024 outputs,<3,000,000 bytes, original pixels preserved;28 pairs/six manifests checked. Full-city/palace/source/roof/water/fit/runtime obligations remain open. Gate result in docs/art/places/README.md. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.
+
 ## 20/11 — Dwargon interior/village hall concepts (ChatGPT, round27, stacked on art PR93)
 
 Four pairs: dwargo,dwargon_throne,kaijin_smithy,dwarven_arena. Inner-city street replaces duplicate exterior gate; throne hall closes outdoor views/removes figure/emblems; former smithy uses modest brick/tool-wall context with no Kaijin resident; village arena loses cliff/ravine/dragon nest and meets village ground. Official episode4/5 synopses and10 stills inspected; limited cues and original plans separated in reference CSV. Three radius8 spots belong to parent city; arena is server adaptation. All58 reservations match24897fa; art branch retains older map/source files. Four outputs1536x1024 RGB,<3,000,000 bytes, original pixels preserved.24/58 delivered,34 remain; full-city/hall/roof/ventilation/nesting/runtime and other source/coverage/fixed-rule obligations remain open. Gate result in docs/art/places/README.md. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.
