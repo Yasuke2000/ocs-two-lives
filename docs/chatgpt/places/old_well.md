@@ -1,5 +1,11 @@
 # The old well on the Blumund road (sidequests old_well)
 
+## Current own-world/source correction — round37
+
+Current(-1000,-340),radius8. This is authored small quest scenery outside the dark core; exact well construction/groundwater are not canon. No surface river or new settlement follows from the image. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
+
+Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
+
 `id: old_well` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
 
 | | |
@@ -8,7 +14,7 @@
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section J |
 
-## Lore (canon)
+## Source context and project interpretation
 
 Side-quest spot (`old_well`) on the road Londo to Tempest, west Jura, outside the dark band.
 

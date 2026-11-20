@@ -1,4 +1,7 @@
-# Current map review — round36 Jura/source/art follow-up, post-Kijin snapshot
+# Current map review — round37 registered art/source follow-up, post-Kijin snapshot
+
+Round37 adds OFF-ROS-037 (official kingdom identity),WIK-GHA-037 (wiki kingdom list) and OFF-FDC-037 (official city temple). Ledger214(156+58),13 direct LN;72 visual/design supplements. Inventory129 retains26 missing+1 partial Orbic+2 unverified country pins+3 parent designs,32 follow-ups. Six source-qualified originals in PR101 complete58/58 registered image/sheet pairs/twelve manifests; art-file completion does not certify countries or builds. Sainte's image is the inert C14 coastal alternative; C20 remains. Creative briefs and two atlas legend names clarify source versus server interpretation. Terrain SVG/source SHA1ea6782d,58 reservations and exports remain unchanged; no new converter run needed. Repository validation and472 tests pass (26 skips,zero failures,44.039s test tier). No apply/deploy;full source/geometry/initial-state/fit/runtime requirements remain open.
+
 
 Round36 adds WIK-TRE-036 at fan-wiki confidence and separates the canonical treant community from the one-tree server adaptation. Ledger211(153+58),13 direct LN;61 visual/design supplements. Inventory127 retains26 missing+1 partial+3 parent designs,30 follow-ups. Six creative briefs correct legacy coordinates/era/rim assumptions. Six own-image/new-original concepts in PR100 bring art to52/58,6 remaining; all58 attributes match48b0846. SVG/source SHA1ea6782d,terrain,roads and reservations remain unchanged; no new converter run needed. Repository validation and472 tests pass (26 skips,zero failures,44.032s test tier). No apply/deploy;full source/fixed-rule/geometry/fit/runtime obligations remain open.
 

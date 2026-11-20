@@ -473,3 +473,7 @@ The [official base illustration](https://www.ten-sura.com/4GfGdAp7/wp-content/th
 ## Treant community and server grove — round36
 
 The wiki describes a separate isolated treant settlement in Jura (WIK-TRE-036,fan-wiki,indexed subsection read; direct page402). Its precise initial location/extent remains unknown. The `treyni_grove` mod landmark is one authored natural-tree adaptation,not a surveyed community or proof of complete village coverage. [Source distinction and new inventory obligation](../docs/research/tensura-world-2026-11-19/treant-settlement-source-review.md). No live SVG geometry or58-ID contract is changed; a new settlement pin is not invented.
+
+## Country pins and old Dragon City temple — round37
+
+The official Johann profile establishes the Kingdom of Rostia (OFF-ROS-037); the wiki western-state list names the Kingdom of Ghastone (WIK-GHA-037). Current A/G gameplay pins are authored positions,not proof of Raja/Englassia sovereignty or surveyed capitals. No unsupported national outline is drawn. The official Middray profile directly establishes a temple in the old Dragon City (OFF-FDC-037),not the project's giant bones,pyramid or precise layout. [Evidence and limits](../docs/research/tensura-world-2026-11-19/final-place-source-review.md). Sainte's new concept illustrates only the existing C14 coastal proposal. Terrain/58-ID geometry remains unchanged; the atlas legend clarifies two country pins.

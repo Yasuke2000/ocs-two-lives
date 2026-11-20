@@ -1,5 +1,10 @@
 # Tensura geography research — round34 smaller western precinct sources
 
+Current round37: **214 claim records =156 thematic/design/reference records +58 coordinate interpretations**, with13 directly read LN claims and72 visual/design supplements. Official profiles establish Rostia's kingdom identity and a temple in the old Dragon City; Ghastone's kingdom identity remains wiki-level. [Source distinctions](final-place-source-review.md) correct the country-versus-gameplay-binding assumptions. Inventory129 retains26 missing representations,1 partial Orbic,2 unverified country pins and3 parent designs:32 follow-up obligations.
+
+[PR101](https://github.com/Yasuke2000/ocs-two-lives/pull/101) completes **58/58 registered image/sheet pairs** in twelve stacked art drafts. This closes art-file coverage only. Sainte depicts the inert C14 coastal alternative,not the current inland H pin; C20 and source/initial-state/build-fit/runtime requirements remain open. Current terrain SVG/source SHA1ea6782d is unchanged; the atlas legend clarifies two country pins. Earlier summaries below are historical.
+
+
 Current round36:211 claim records (153 thematic/design/reference+58 coordinate interpretations),13 directly read LN claims;61 visual/design supplements. The distinct [Treant Settlement](treant-settlement-source-review.md) is newly tracked at fan-wiki confidence. Inventory127 now retains26 missing representations+1 partial Orbic+3 unverified parent designs,30 follow-up obligations. A single mod tree does not complete that community. [PR100](https://github.com/Yasuke2000/ocs-two-lives/pull/100) delivers six source-qualified Jura/route concepts,bringing art to52/58,with6 remaining. Six current place briefs correct imported coordinates,initial residents,tree/settlement equivalence and the obsolete rookie safe-meadow claim. Current SVG/source SHA1ea6782d and terrain unchanged; no converter rerun required. Earlier round summaries below are historical. Full source/fixed-rule/geometry/fit/runtime obligations remain.
 
 

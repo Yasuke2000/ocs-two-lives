@@ -1,5 +1,11 @@
 # Rostia
 
+## Current own-world/source correction — round37
+
+Current(-2780,200),radius8,A gameplay binding. The official Johann profile names the Kingdom of Rostia; it is not established as a Raja town. The rain-shelter/cart vignette is original; exact national geometry and early state remain open. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
+
+Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
+
 `id: rostia` · map pin only · region **A** (Raja)
 
 | | |
@@ -8,9 +14,9 @@
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section O, N, Y, Q, A |
 
-## Lore (canon)
+## Source context and project interpretation
 
-A town in the western belt. Pin only.
+The official profile establishes the Kingdom of Rostia; the western-belt pin is authored and does not locate a canonical capital.
 
 ## What it should look like
 

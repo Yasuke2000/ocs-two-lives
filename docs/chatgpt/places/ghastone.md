@@ -1,5 +1,11 @@
 # Ghastone
 
+## Current own-world/source correction — round37
+
+Current(-3200,-300),radius8,G gameplay binding. Indexed wiki lists the Kingdom of Ghastone among western states; no verified Englassia subordination,capital or precise bearing. The rural rest-point art is an interpretation,not a country survey. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
+
+Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
+
 `id: ghastone` · map pin only · region **G** (Kingdom of Englassia)
 
 | | |
@@ -8,9 +14,9 @@
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section G |
 
-## Lore (canon)
+## Source context and project interpretation
 
-A town in the Kingdom of Englassia on the pack's map. Pin only.
+The old pack assigned a pin to gameplay G; the country identity is Ghastone. The G assignment is not proof of sovereign Englassia membership.
 
 ## What it should look like
 

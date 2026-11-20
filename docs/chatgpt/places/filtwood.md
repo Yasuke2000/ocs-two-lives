@@ -1,5 +1,11 @@
 # Filtwood
 
+## Current own-world/source correction — round37
+
+Current(-1200,2750),radius8,U binding disputed(C20). The room/window concept is original neutral architecture,not the flashback castle frame or a verified post-flashback room. Kingdom identity is official; exact Jura-side/capital/borders remain unverified. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
+
+Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
+
 `id: filtwood` · server pin · required gameplay **U** binding disputed (C20)
 
 | | |
@@ -8,7 +14,7 @@
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section U |
 
-## Lore (canon)
+## Source context and project interpretation
 
 The [official episode 24 synopsis](https://www.ten-sura.com/anime/tensura/story/no24) calls Filtwood a kingdom visited by Shizu and dates the story before Rimuru reincarnates. Wiki places it near Jura; exact side and capital location are unverified. The U/Ulgracia pin is a server binding, not evidence of a canonical Ulgracia town. See [study](../../../world/southern-location-study.md).
 

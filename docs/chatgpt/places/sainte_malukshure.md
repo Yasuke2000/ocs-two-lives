@@ -1,5 +1,11 @@
 # Sainte Malukshure
 
+## Current own-world/source correction — round37
+
+Current(-100,2000),radius8,H binding conflicts with the source-preferred coastal city(C14). The new art depicts only the inert coastal alternative(-2320,1645),radius64,not the current inland site. Exact quay/tower/shore dimensions are interpretation; no move or country-mask change is applied. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
+
+Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
+
 `id: sainte_malukshure` · map pin only · region **H** (Harpy Queendom of Fulbrosia)
 
 | | |
@@ -8,9 +14,9 @@
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section O, N, Y, Q, A |
 
-## Lore (canon)
+## Source context and project interpretation
 
-A town in Fulbrosia's neighbourhood on the pack's map. Pin only.
+The source-preferred city is coastal in Malukshure,not a verified Fulbrosia town. Current H membership is a fixed gameplay binding; C14 remains.
 
 ## What it should look like
 

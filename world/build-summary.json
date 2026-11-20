@@ -19,10 +19,10 @@
     "skips": 26,
     "validation": "passed",
     "base_main": "09ca601",
-    "test_seconds": 44.032
+    "test_seconds": 44.039
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 211,
+  "research_claim_records": 214,
   "directly_verified_LN_claims": 13,
   "reference_alternatives_inert": true,
   "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
@@ -248,18 +248,22 @@
     "remaining": "Exact vegetation extents are interpretation; no measured canonical shares or new sovereign borders."
   },
   "documentation_review": {
-    "round": 36,
-    "subject": "Treant settlement versus one-tree adaptation; Jura/route art and early-era brief corrections",
-    "source_ledger_records": 211,
+    "round": 37,
+    "subject": "Registered art-file coverage complete; kingdom identities and old Dragon City temple qualified",
+    "source_ledger_records": 214,
     "direct_LN_claims": 13,
-    "visual_design_supplement_records": 61,
-    "coverage_inventory_entries": 127,
+    "visual_design_supplement_records": 72,
+    "coverage_inventory_entries": 129,
     "missing_representations": 26,
-    "partial_representations": 1,
+    "partial_orbic_representation": 1,
+    "unverified_country_pins": 2,
     "unverified_parent_designs": 3,
-    "place_art_pairs_delivered": 52,
-    "place_art_pairs_remaining": 6,
-    "current_geometry_unchanged": true
+    "place_art_pairs_delivered": 58,
+    "place_art_pairs_remaining": 0,
+    "art_file_coverage_complete": true,
+    "full_geography_source_build_runtime_acceptance": false,
+    "current_terrain_geometry_unchanged": true,
+    "atlas_only_clarifies_two_country_pin_names": true
   },
   "orbic_terrain_review": {
     "patch_points": [

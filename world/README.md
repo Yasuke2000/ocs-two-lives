@@ -18,7 +18,7 @@ remain under review. The local terrain build is staged only: no Minecraft chunks
 changes are claimed. `canon-relations-anime.toml` records the adopted proposal as history; the technical
 source of truth is `tools/world/canon_relations.toml`. See [review.md](review.md).
 
-Latest place-art stack reaches52/58 in [PR100](https://github.com/Yasuke2000/ocs-two-lives/pull/100),with6 remaining. [Round31 Orbic review](orbic-terrain-review.md) now adds a bounded active depleted habitat; country/capital coverage remains incomplete. Current atlas is regenerated. The three earlier painting reviews predate this local habitat change and remain historical source comparisons.
+The registered place-art stack reaches58/58 in [PR101](https://github.com/Yasuke2000/ocs-two-lives/pull/101). This completes art-file coverage only; Sainte depicts the inert C14 coastal alternative and full source/geometry/build/runtime requirements remain open. [Round31 Orbic review](orbic-terrain-review.md) now adds a bounded active depleted habitat; country/capital coverage remains incomplete. Current atlas is regenerated. The three earlier painting reviews predate this local habitat change and remain historical source comparisons.
 
 [Round32 Ice coast review](ice-coast-review.md) now refines three local inlets; the fixed palace shore and mainland remain. Current atlas/preview reflects both this change and Orbic. Earlier painted reviews remain historical.
 
@@ -122,3 +122,5 @@ same table for readers (id, kind, min_r).
 [Round35 Imperial basin review](imperial-basin-review.md) adds an unnamed illustrated-map water cue with authored shore/level/depth. Current atlas includes9 lakes. Earlier painting passes remain historical; missing Imperial city/vassal coverage is not closed.
 
 [Round36 treant-source review](../docs/research/tensura-world-2026-11-19/treant-settlement-source-review.md) distinguishes the one-tree server adaptation from the separately tracked community. Inventory127 retains26 missing+1 partial+3 parent designs. Current geometry is unchanged.
+
+[Round37 source distinctions](../docs/research/tensura-world-2026-11-19/final-place-source-review.md) separate Rostia/Ghastone kingdom identities from G/A gameplay bindings and qualify the old Dragon City temple architecture. Inventory129 retains32 follow-ups; current terrain is unchanged.
