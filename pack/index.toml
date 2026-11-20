@@ -2794,11 +2794,11 @@ hash = "dce03b32ffae353c36390b04c7f87459418fe6beed9045e0b57df7396c356196"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/commands.js"
-hash = "447a432d0691cd9477ce54c1d8c78995a706628c0a20ffe256b0781b2d2052c5"
+hash = "ccf1e65f78700e8f4a6f13b90ad9c3a17aa28c20713fc0716dd207087f9bdfe3"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/guild.js"
-hash = "141d73ca40f51cb2be66a3ca4a61df1e630ae80fa9a3dba852c1197d089e116f"
+hash = "5c2cd0ebafbe3ecb98bc08a637cd500c0a5ef4e56da3c2e4cb7c9be79379ce08"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/guild_npcs.js"
@@ -2806,7 +2806,7 @@ hash = "752270164b64fb53142460910fed8dd6be771834730ba4626ca1a3e9ca45147d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/merit.js"
-hash = "3eebe65b71a10a278272b12ccdb0df3d90f24ad3f57b18515c435a614b65edf1"
+hash = "25b104817b2619d933cee284a6a0d260cf8a1015d88109372a9f9889a271a2de"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/economy/recipes.js"
@@ -3130,7 +3130,7 @@ hash = "b725127be99318ce45cf0f5165a222c54bdcc0c73a3a403ae33e3ae6cfcbb0d2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/rep.js"
-hash = "ca9a3c01be77ec5fafc5fbcbb3468c7a9854ec2d08e824b4012b21ed0a83328b"
+hash = "7e956773bca38f09f061288b9de7028c0180b6431362fa8173ebaa3607689b08"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/roads/commands.js"

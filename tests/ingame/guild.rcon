@@ -13,6 +13,7 @@ ttl guild test TtlBotGuildA life2
 ttl guild reset TtlBotGuildA
 ttl merit reset TtlBotGuildA
 ttl rep set TtlBotGuildA dwargon 0
+ttl rep set TtlBotGuildA tempest 0
 clear TtlBotGuildA
 # `positioned over` needs the chunk loaded ("That position is not loaded": the bot stayed in the Mortal Realm and could
 # not mark Public Works, local test-all 19/11); the forest's mobs must not end the test.
@@ -65,10 +66,18 @@ ttl merit test TtlBotGuildA stone_bricks 3
 ttl merit expect TtlBotGuildA total 0
 execute as TtlBotGuildA run ttl merit works mark
 ttl merit expect TtlBotGuildA works 1
+# The chunk pays the faction ID of its canon region (here J = tempest), never the faction table ("[object Object]",
+# 20/11/2026). 100 merit = rep_per_100 (1) reputation with it: the value must really move, 99 merit pays nothing.
+ttl merit expect TtlBotGuildA faction tempest
+ttl rep set TtlBotGuildA tempest 0
 ttl merit test TtlBotGuildA dirt 5
 ttl merit expect TtlBotGuildA total 0
-ttl merit test TtlBotGuildA stone_bricks 100
+ttl merit test TtlBotGuildA stone_bricks 99
+ttl rep expect TtlBotGuildA tempest value 0
+ttl merit test TtlBotGuildA stone_bricks 1
 ttl merit expect TtlBotGuildA total 100
+ttl rep expect TtlBotGuildA tempest value 1
+ttl rep expect TtlBotGuildA tempest score 1
 ttl merit test TtlBotGuildA stone_bricks 5
 ttl merit expect TtlBotGuildA total 100
 ttl merit expect TtlBotGuildA builder false
