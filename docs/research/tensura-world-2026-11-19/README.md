@@ -1,4 +1,7 @@
-# Tensura geography research — round29 natural-landmark sources
+# Tensura geography research — round30 sanctuary scale and source limits
+
+Current ledger202(144 thematic/design/reference+58 coordinate interpretations),13 directly read LN claims. LN06-004 directly confirms the summit shrine is smaller than the cathedral but more lavish; exact architecture and NW bearing remain interpretation. Ten official episode22/50 stills supply limited interior/palette cues, not verified exterior plans. Tower LN18/19 story citations remain unread and current late damage is excluded. [Seven visual/design records](western-sanctuary-art-reference-review.csv) bring supplemental records to36. [PR97](https://github.com/Yasuke2000/ocs-two-lives/pull/97) delivers four new concepts, bringing place delivery to36/58, with22 remaining. Active SVG/source SHA32aa6e10 and terrain unchanged; source/coverage/fixed-rule/fit/runtime obligations remain open.
+
 
 Current ledger201(143 thematic/design/reference+58 coordinate interpretations),12 directly read LN claims. Two new explicitly fan-wiki records qualify El Dorado's volcanic/mineral context and Great Holy Mountain's near-Nasca/Velgrynd association; indexed text is not direct LN reading. Official cached Ameld glossary reread confirms OFF-001. [Six new visual/design records](natural-landmark-art-reference-review.csv) accompany [PR96](https://github.com/Yasuke2000/ocs-two-lives/pull/96), bringing supplemental records to29 and place concepts to32/58. Exact spring/outlet/vent/adit/gallery remain interpretation; C03/C05 and other obligations stay open.
 
@@ -19,12 +22,12 @@ Round 15 corrects Coleus using the directly read official anime outline: the ind
 Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 141 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 196 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 144 thematic/design/reference claims plus58 exact site-placement
+records explicitly marked **our interpretation**, not202 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and
-11 previously referenced anime frames were visually inspected. Publisher-hosted LN2/3/5/6/10 passages now directly support twelve qualified claims; see
+11 previously referenced anime frames were visually inspected. Publisher-hosted LN2/3/5/6/10 passages now directly support thirteen qualified claims; see
 [findings](ln-sample-findings.md). The public LN1 sample is only a prologue. The licensed guidebook trial
 stalled before pages could be inspected. A publisher listing alone is not geographic evidence.
 

@@ -1,4 +1,7 @@
-# Current map review — round29 source qualification, post-Kijin snapshot
+# Current map review — round30 sanctuary source qualification, post-Kijin snapshot
+
+Round30 directly rereads public LN6 summit-arrival paragraphs246-248: the shrine is smaller than the cathedral but more lavish (LN06-004). Ledger202(144 thematic/design/reference+58 coordinates),13 direct LN claims;36 supplemental visual/design records. Official episode22/50 stills do not verify park/cathedral/shrine exterior plans. Heaven Tower LN18/19 citations remain secondary/unread; no initial late damage inferred. Four concepts separately bring delivery to36/58,22 remaining. Active SVG and terrain/source SHA32aa6e10 unchanged; no converter rerun for this source-only update. Existing map/checker/source/site/fixed-rule/runtime limits remain open.
+
 
 Round29 source qualification adds WIK-ELD-029/WIK-HOL-029 at fan-wiki confidence and rechecks the cached official Ameld glossary without duplicating OFF-001. Ledger201(143 thematic/design/reference+58 coordinates),12 directly read LN claims. Source/site/C03/C05 limits remain. SVG, terrain export and source SHA32aa6e10 remain unchanged; no fresh converter run needed for a research-only update. Four natural-landmark concepts are separately delivered in PR96, total32/58 with26 remaining.
 
@@ -97,3 +100,5 @@ Round25 painting-pointer documentation gate passes validation and462 tests (26 s
 Round28 source/inert-alternative gate passes repository validation and462 tests (26 skips,zero failures,43.673s test tier). Active geography stays unchanged.
 
 Round29 source/supplement/pointer gate passes repository validation and462 tests (26 skips,zero failures,43.844s test tier). No SVG/terrain/runtime bytes change.
+
+Round30 source/art-pointer gate passes repository validation and462 tests (26 skips,zero failures,43.885s test tier). SVG, preview and terrain bytes unchanged.
