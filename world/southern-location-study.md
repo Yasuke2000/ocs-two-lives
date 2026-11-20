@@ -24,3 +24,5 @@ At the chosen initial era the Orc Lord conflict is unresolved. This review depic
 ## Verification limits
 
 The live map changes only its Filtwood label and inert source alternatives. All terrain, 58 registered positions/radii, roads and masks remain unchanged. The default checker and current staging provenance are recorded in [review](review.md). This study improves source fidelity and makes unresolved choices visible; it does not prove the entire wiki or all continent geography complete.
+
+Round31 update: the earlier inactive vicinity now contains a bounded active depleted-ground habitat proxy. See [terrain review](orbic-terrain-review.md); full country/capital coverage,registration and runtime remain open. Earlier statements about wholly absent terrain describe the historical study state.

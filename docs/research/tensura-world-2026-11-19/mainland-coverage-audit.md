@@ -29,15 +29,17 @@ This routes every one of the 126 existing inventory entries to a type of work. I
 | Type | Missing entries | Consequence |
 | --- | ---: | --- |
 | city-or-city-interior | 4 | Proposal/source/build work still required; no completeness credit. |
-| mainland-feature | 19 | Proposal/source/build work still required; no completeness credit. |
+| mainland-feature | 18 | Proposal/source/build work still required; no completeness credit. |
 | offshore-location-review | 2 | Proposal/source/build work still required; no completeness credit. |
 | offshore-structure-proposal | 1 | Proposal/source/build work still required; no completeness credit. |
+
+One additional mainland entry, Orbic, now has a partial active depleted-ground habitat representation. Its capital/full extent/internal geography/runtime remain unverified. This preserves its follow-up obligation; it is not complete-country credit. [Terrain/source review](../../../world/orbic-terrain-review.md).
 
 The seven city-related records are: Dwargon's East/West cities and elf bar, plus Englassia's guild/council premises, academy and castle. Three have existing local design evidence (guild, academy and elf venue); four remain missing in the inventory. This is city/interior review inside country context, not seven new mainland settlements. [City coverage diagram](../../../world/city-coverage-study.png) is a non-geographical schematic. The existing blueprints and non-empty NBT files are recorded in city-design-evidence.csv. Their presence does not certify source accuracy, whole-city completeness, fit in the new terrain or runtime placement. Do not rebuild them merely because no separate SVG circle exists.
 
 Doran remains a distinct mainland country gap. The indexed article supports only western-region placement west of Jura/Tempest; it does not supply a capital, shape or north/south bearing. The small-country names from the owner's excerpts likewise stay unlocated until stronger evidence is read. Do not pack them into unused regions with invented sovereign boundaries.
 
-Other physical gaps include the Long Wall, Galut, Tengu settlement, Orbic, Silberia and the Imperial vassal/frontier sites. Existing proposal diagrams do not close those gaps. Soma's historical identity is now directly supported by the public LN10 prologue (LN10-003), distinct from Amrita's later distant refounding. Its far-west association remains wiki-backed; exact ruin placement/footprint remains open before an extra site is committed. [Amrita/Soma review](../../../world/amrita-placement-review.md).
+Other physical gaps include the Long Wall, Galut, Tengu settlement, Silberia and the Imperial vassal/frontier sites. Existing proposal diagrams do not close those gaps. Soma's historical identity is now directly supported by the public LN10 prologue (LN10-003), distinct from Amrita's later distant refounding. Its far-west association remains wiki-backed; exact ruin placement/footprint remains open before an extra site is committed. [Amrita/Soma review](../../../world/amrita-placement-review.md).
 
 Offshore places and alternate or spiritual worlds remain recorded for continuity/access review. They must not be inserted as invented mainland points. Their classification does not prove them irrelevant to the broader server or complete their design. Horn Empire remains explicitly unverified.
 
@@ -45,4 +47,4 @@ Offshore places and alternate or spiritual worlds remain recorded for continuity
 
 The default checker proves format, site constraints and its56 encoded relations. It does not establish missing-place coverage, every kingdom's borders, anime fidelity, interior construction, or the entire wiki having been read. The current map retains unresolved C05/C06/C10/C12/C14/C15/C16/C17/C18/C20 decisions. Each source-backed alternative and fixed-binding conflict must remain visible in the PR. No final acceptance, apply or deployment is claimed.
 
-Three formerly missing map entries now have verified local authored design evidence within their parent. The remaining 26 missing representations plus these 3 unverified parent designs preserve all 29 follow-up obligations; none is marked complete.
+Three formerly missing map entries now have verified local authored design evidence within their parent. The remaining25 missing representations,1 partial Orbic representation and3 unverified parent designs preserve all29 follow-up obligations; none is marked complete.

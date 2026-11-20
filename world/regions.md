@@ -457,3 +457,7 @@ Three eastern forest boundaries now use restrained broad bays/lobes rather than 
 ## Frost Palace continuity/placement difference — round28
 
 The active coastal palace reserve remains a server interpretation. WN78 supplies an inland relationship; LN agreement is unread. C22 draws an inert near-centroid alternative, with no exact canonical coordinate or active site-kind change. Review coastal arrival versus inland palace representation before changing terrain or build data. [Source study](frost-palace-source-review.md).
+
+## Orbic depleted ground — round31
+
+[Source/terrain review](orbic-terrain-review.md) adds one rounded barren habitat patch south of Jura and north of the main Eurazania/Fulbrosia settlements, distinct from orc_camp. Public LN2 supports exhausted land/famine; broad bearings remain wiki-backed. Exact239623-block² extent and tensura:barren_land selection are our interpretation, not sovereign borders, a canonical biome name, a complete kingdom or a capital. About141942 blocks² is trimmed from one overlapping jungle edge; other11 forests,all58 sites/21 roads,height/water and gameplay masks remain unchanged. Every changed raster biome cell lies within the patch. The official map does not survey this boundary; checker/terrain previews and fresh atlas were visually compared with it. Existing continental distortions remain disclosed. Earlier three painted reviews predate this small vegetation change. No rift,tribal villages,later restoration or runtime acceptance is inferred.

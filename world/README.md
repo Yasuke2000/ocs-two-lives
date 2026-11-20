@@ -7,7 +7,7 @@ relief, waters, habitats and roads. [Numbered atlas](atlas.png), [checker previe
 [reference comparison](comparison.md), [evidence ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv)
 and [deliberate differences](regions.md).
 
-The eight post-Kijin priority concept images and terrain sheets are delivered separately in
+The first eight post-Kijin priority concept images and terrain sheets are delivered separately in
 [draft art PR #87](https://github.com/Yasuke2000/ocs-two-lives/pull/87), targeting this map branch.
 Its 58-ID coverage table also records older local candidates that still need source/era/geometry review.
 The illustrations are design references; the SVG remains the terrain source.
@@ -17,6 +17,8 @@ The **standard map checker passes** with two disclosed warnings; source coverage
 remain under review. The local terrain build is staged only: no Minecraft chunks, pack apply or server
 changes are claimed. `canon-relations-anime.toml` records the adopted proposal as history; the technical
 source of truth is `tools/world/canon_relations.toml`. See [review.md](review.md).
+
+Latest place-art stack reaches36/58 in [PR97](https://github.com/Yasuke2000/ocs-two-lives/pull/97),with22 remaining. [Round31 Orbic review](orbic-terrain-review.md) now adds a bounded active depleted habitat; country/capital coverage remains incomplete. Current atlas is regenerated. The three earlier painting reviews predate this local habitat change and remain historical source comparisons.
 
 ## Format in short
 

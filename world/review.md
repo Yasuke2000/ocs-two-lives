@@ -1,4 +1,7 @@
-# Current map review — round30 sanctuary source qualification, post-Kijin snapshot
+# Current map review — round31 Orbic habitat, post-Kijin snapshot
+
+Round31 [Orbic terrain review](orbic-terrain-review.md) implements one bounded depleted-ground habitat and removes its overlapping jungle canopy. LN2 depletion/junction evidence is direct; secondary compass bearings and authored extent/biome remain qualified. Ledger203(145+58),13 direct LN claims. Fresh build54.9s,source SHA bfe13bca6d27adb9cb19517e86f8387242beb77edc160d41bf82db2cc95496b0,no converter warnings. All58 sites/21 roads/height/water/site/exclusion outputs retained;14975 biome cells change only inside the patch. Standard checker0 errors/all56 relations/same2 warnings. Preview,atlas and before/after study visually reviewed against official base map.25 missing+1 partial Orbic+3 parent designs remain open. Earlier painting reviews predate this habitat change. Repository validation and462 tests pass (26 skips,zero failures,43.521s test tier); no apply/deploy.
+
 
 Round30 directly rereads public LN6 summit-arrival paragraphs246-248: the shrine is smaller than the cathedral but more lavish (LN06-004). Ledger202(144 thematic/design/reference+58 coordinates),13 direct LN claims;36 supplemental visual/design records. Official episode22/50 stills do not verify park/cathedral/shrine exterior plans. Heaven Tower LN18/19 citations remain secondary/unread; no initial late damage inferred. Four concepts separately bring delivery to36/58,22 remaining. Active SVG and terrain/source SHA32aa6e10 unchanged; no converter rerun for this source-only update. Existing map/checker/source/site/fixed-rule/runtime limits remain open.
 
