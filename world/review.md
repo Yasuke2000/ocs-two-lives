@@ -17,21 +17,20 @@ Eleven directly read LN claims and nine newly read WN claims remain qualified by
 [WN findings](../docs/research/tensura-world-2026-11-19/wn-geography-followup.md),
 [ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv),
 [wiki coverage](../docs/research/tensura-world-2026-11-19/wiki-coverage.md).
-Supplied official-map chapter screenshots were inspected separately from live controls. Early/later markers
-are not conflated, and unexplained highlights are not treated as timeless sovereign borders. Direct web
-retrieval exceeded the content limit; a local live-page request was declined. Live controls were not operated.
+The supplied official-map chapter screenshots remain reference evidence. Live chapter2 story and
+World/character controls have now also been operated. The four story stops link to episodes9/12/14/15;
+the episode10 naming event is not a standalone stop. Character selection opens an affiliation-area
+view. This does not establish surveyed borders or make omitted countries nonexistent.
+[Live verification](../docs/research/tensura-world-2026-11-19/official-interactive-map.md).
 
 ## Verification and exact limits
 
 - Standard checker after each SVG edit: **0 errors, all 56 relations pass**, two disclosed warnings:
   Laura waterfall crosses its escarpment; box 12288 by 10752 is 512 above preferred height, below the hard cap.
   Mainland about 9653 by 6250; 12 forests and 14 biome polygons.
-- Latest successful normal converter: **53.9 seconds, no warnings**, 3072 by 2688 pixels. This includes the
-  eastern habitat edits. A requested repeat after era-only metadata was declined (tool returned
-  `rejected by user`, with no explanatory reason). No generated index was patched or bypass used.
-- Current raw SVG SHA differs from staging. Removing only C18 comment/root data-era and restoring two
-  cosmetic labels reconstructs the exact staged SHA. Active geographic geometry matches that successful
-  build. This does not turn an earlier run into a claimed rerun.
+- Fresh normal converter build of the **current SVG**: **53.7 seconds, no warnings**, 3072 by 2688
+  pixels. Both the eastern habitat edits and era metadata are included. The source SHA matches staging;
+  published terrain-preview bytes match the fresh output. Earlier permission limitations are resolved.
 - **58/58** centres verified against index.json; sites.json contains only the 34 runtime plate entries,
   not every marker. All 159 claim IDs are unique and carry snapshot qualification; all 58 sites have era rows.
 - Actual current exported profiles: **21 roads, maximum grade 0.5** within float epsilon. Road geometry

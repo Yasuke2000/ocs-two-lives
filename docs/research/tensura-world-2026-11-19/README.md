@@ -30,3 +30,5 @@ The author-linked [WN sketch](https://8371.mitemin.net/userpageimage/viewimagebi
 ## Initial era
 
 Yasuke selected the moment immediately after Kijin naming (anime S1 episode10). [Era policy](../../../world/era.md) and [58-site state overlay](era-site-state.csv) supersede the previous mixed-era presentation. Later sources remain qualified in the ledger snapshot_use column.
+
+[Official interactive-map live verification](official-interactive-map.md) now closes the earlier live-control access gap. Chapter2 is coarser than the selected episode10 event.

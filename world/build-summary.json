@@ -1,6 +1,6 @@
 {
-  "stage": "last successful normal raster build; subsequent era-only metadata qualified",
-  "source_sha256": "079ed0dea3232dfe27677651dd3045ceb62ced0687e44d274f13fd859d62f048",
+  "stage": "normal checked staging build; not applied",
+  "source_sha256": "90120d0c694732c02f8eada339a72dbcf72c6136a9bfcbafdafe512c494c4a05",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,7 +12,7 @@
     3072,
     2688
   ],
-  "build_seconds": 53.9,
+  "build_seconds": 53.7,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
@@ -37,10 +37,10 @@
   "max_road_grade": 0.5,
   "max_bridge_blocks": 24,
   "current_svg_sha256": "90120d0c694732c02f8eada339a72dbcf72c6136a9bfcbafdafe512c494c4a05",
-  "current_svg_differs_only_in_snapshot_metadata_from_staged_source": true,
-  "staging_provenance_note": "Removing C18 comment, data-era and two cosmetic labels reconstructs the exact staged source SHA. No generated index was patched. A requested later converter run was declined.",
+  "staging_provenance_note": "Fresh normal build of the current SVG completed after restored session permissions; index source SHA verified. Terrain-preview bytes match this build.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
   "forest_shapes": 12,
-  "biome_shapes": 14
+  "biome_shapes": 14,
+  "current_svg_matches_staged_source": true
 }

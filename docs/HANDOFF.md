@@ -1,5 +1,10 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Official live map verified; current-SVG staging rebuilt (ChatGPT, PR #74)
+
+Restored session permissions remove earlier operational limits. Fresh normal build of current SVG:53.7s, no converter warnings, source SHA matches index; published terrain-preview bytes match output. No generated index patched and no apply.
+Official interactive map operated in Chrome: enter/tutorial, chapter2, all four story stops (episodes9/12/14/15), World mode and Gazel/Rimuru affiliation selection. [Notes](research/tensura-world-2026-11-19/official-interactive-map.md). There is no separate episode10 navigation stop; keep naming-event synopsis as precise snapshot anchor. Affiliation highlighting is not a surveyed sovereign border, and omitted countries are not nonexistent. Live screenshots/trace stay outside repo. Ledger remains159 records, with one previously indirect label claim upgraded to directly observed official display evidence. Main/source/geometry unchanged.
+
 ## 20/11 — Initial era after Kijin naming and eastern landscape (ChatGPT, PR #74)
 
 Owner selected immediately after the six ogres are named: official anime S1E10 synopsis verified. [Era policy](../world/era.md) and 58-site overlay supersede mixed-era presentation. Atlas: Rimuru's village, unresolved orc approach, future/server reservations. Falmuth, Frey, Carrion, Clayman and Rudra baseline; no later Tempest metropolis or ruler outcomes. Supplied official map chapters1/2/3/4/6/9 inspected separately from live controls.

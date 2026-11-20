@@ -49,4 +49,8 @@ continue; the era choice does not justify removing old countries or inventing un
 
 ## Official interactive-map chapter references
 
-The owner supplied chapter states1/2/3/4/6/9 from [the official interactive map](https://www.ten-sura.com/map). Early states show the village name; later markers and labels reflect progression. These were visually inspected as supplied screenshots. Live controls were not independently operated, and highlighted outlines are not treated as verified timeless borders. The initial instant remains the naming event within the earlier arc, rather than its end-state.
+The owner supplied chapter states1/2/3/4/6/9 from [the official interactive map](https://www.ten-sura.com/map).
+These remain visual references. Chapter2 controls were subsequently tested live: its story stops link to
+episodes9/12/14/15, so the chosen episode10 instant is finer than the chapter navigation. World mode and
+Gazel/Rimuru affiliation selections were also verified. A highlight is not a surveyed country frontier;
+marker omission does not mean a place did not exist. [Interaction notes](../docs/research/tensura-world-2026-11-19/official-interactive-map.md).
