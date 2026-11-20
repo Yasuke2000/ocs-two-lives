@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Western place concepts (ChatGPT, round21, stacked on art PR87)
+
+Four additional current image/sheet pairs: englassia,marris,coleus,siltrosso. Englassia/Marris use compact dry precincts; Coleus draws on inspected official hill-palace concept with initial architectural state still unverified. Siltrosso edits the older original court to remove unsupported snowy peaks; kingdom sovereignty remains independent despite gameplayF. All58 reservation attributes match current map reviewa997f81. All4 images1536x1024 RGB,under3,000,000 bytes; two lossless packaging results match original RGB pixels. Official episode20 and28/no30 stills inspected; they do not verify proposed city exterior plans. Exact prompts/manifests/reference limits recorded in docs/art/places/.
+
+Coverage now12/58 delivered pairs;46 remain, with older candidates preserved. World SVG/terrain and prior8 assets unchanged. Full repository gate result belongs in the western art PR. No runtime, tool, mod, pack apply or server changes. The continent painting is separately in draft PR88; coupled painting/SVG rounds and source/coverage gaps remain open.
+
 ## 20/11 — Post-Kijin priority place-art revisions (ChatGPT, stacked art PR)
 
 Eight current image/sheet pairs in `docs/art/places/`: tempest, dwargon, blumund, lake_siss,

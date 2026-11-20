@@ -25,12 +25,12 @@ lizardmen_caverns,1300,520,64.0,carve,,,True,True,Review existing local candidat
 orc_camp,1750,550,60.0,village,orc_camp.png,orc_camp.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 blumund,-1500,-620,97.0,clearing,blumund.png,blumund.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 ballachia,-2450,-450,68.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
-englassia,-2900,-550,98.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
-marris,-1800,-1650,101.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
-siltrosso,-2297,-1370,66.0,coast,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+englassia,-2900,-550,98.0,clearing,englassia.png,englassia.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+marris,-1800,-1650,101.0,clearing,marris.png,marris.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+siltrosso,-2297,-1370,66.0,coast,siltrosso.png,siltrosso.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 lubelius,-3600,-1300,97.0,plateau,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 sacred_mountain,-3900,-1600,80.0,plateau,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-coleus,-3520,-860,73.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
+coleus,-3520,-860,73.0,clearing,coleus.png,coleus.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
 heaven_tower,-4200,-200,84.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 morgdahl,-3200,330,61.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 raja,-2850,360,71.0,lakeside,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
