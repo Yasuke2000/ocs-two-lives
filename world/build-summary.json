@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "55c6e7db5f80dd96d89daa45d4fbbfb51215289dae14d2bdf41e9d6b6b345b64",
+  "source_sha256": "d8fb2e23c3e85e53fe506a35f0c6f01f9c8ea6d3a8006316921506ad44ab091f",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,7 +12,7 @@
     3072,
     2688
   ],
-  "build_seconds": 52.3,
+  "build_seconds": 52.6,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
@@ -21,7 +21,7 @@
     "base_main": "a1848be"
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 170,
+  "research_claim_records": 172,
   "directly_verified_LN_claims": 11,
   "reference_alternatives_inert": true,
   "proportion_review": "round 6: western/cave corrections made; residual fixed-rule alternatives drawn",
@@ -36,7 +36,7 @@
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
   "max_bridge_blocks": 24,
-  "current_svg_sha256": "55c6e7db5f80dd96d89daa45d4fbbfb51215289dae14d2bdf41e9d6b6b345b64",
+  "current_svg_sha256": "d8fb2e23c3e85e53fe506a35f0c6f01f9c8ea6d3a8006316921506ad44ab091f",
   "staging_provenance_note": "Fresh normal build of the current SVG completed after restored session permissions; index source SHA verified. Terrain-preview bytes match this build.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
@@ -95,6 +95,19 @@
     }
   ],
   "mountain_shapes": 10,
-  "terrain_unchanged_from_previous_commit": true,
-  "source_alternatives": "round 10: C20 Filtwood disputed U binding and separate Orbic vicinity; both inert"
+  "terrain_unchanged_from_previous_commit": false,
+  "source_alternatives": "C10 no-red alternative and preceding political/site alternatives remain inert",
+  "changed_terrain_features": [
+    "biomes/milim-red-crescent"
+  ],
+  "milim_red_biome_raster_pixels": 13374,
+  "milim_red_polygon_areas_blocks2": [
+    707757,
+    213883
+  ],
+  "milim_released_ground_sample": {
+    "x": 4034,
+    "z": 614,
+    "biome": "minecraft:plains"
+  }
 }

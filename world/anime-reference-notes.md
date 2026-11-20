@@ -81,3 +81,7 @@ The coast and terrain geometry are original; the surrounding ocean is generated 
 ## Episode24 follow-up
 
 Official synopsis and all five linked official stills were inspected. The synopsis names Filtwood kingdom and dates the story before Rimuru; stills3/4 show an ornate interior, not an exterior country plan. No geographical bearing or current resident roster is inferred. See [source study](southern-location-study.md).
+
+## Official route/episode correction
+
+The [locator audit](../docs/research/tensura-world-2026-11-19/anime-episode-locators.csv) checks all eight official still-routes in the region book. Routes count recap/special entries, so no28/no30/no42/no48 display episodes26/28/39/45. Episode41 is route no44, not no41. Five no44 stills were inspected: army/character views, no verified city exterior. The pinned city-frame fetch returned403; no primary attribution upgrade is claimed. Generic still links are now contextual leads rather than claimed terrain evidence.

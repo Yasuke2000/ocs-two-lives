@@ -1,4 +1,4 @@
-# Reference comparison — research round 10 / post-Kijin snapshot
+# Reference comparison — research round 11 / post-Kijin snapshot
 
 | Authored Minecraft geometry | Official visual reference |
 | --- | --- |
@@ -26,3 +26,5 @@ Current initial state: [immediately after Kijin naming](era.md), S1 episode10. L
 Round9 replaces the broad equal-height Canaat wall with a concentrated summit spine and lower tapered eastern spurs. Fixed anchors still force compression relative to the official map; exact relief and elevations remain interpretation. [Empire evidence gaps](../docs/research/tensura-world-2026-11-19/eastern-empire-followup.md) stay explicit.
 
 Round10 changes only a disputed label and inert source alternatives. [Filtwood/Orbic study](southern-location-study.png) shows the unresolved U binding and separate homeland vicinity. The official base image alone does not locate those missing settlements.
+
+Round11 reduces the authored Milim red-biome accent69.8% while retaining the fixed brief's small red crescent. This is a disclosed server palette, not a verified canonical desert. [Episode locators](../docs/research/tensura-world-2026-11-19/anime-episode-locators.csv) correct the generic still labels and their evidential limits.

@@ -1,5 +1,10 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Restrained Milim biome scope and episode-source audit (ChatGPT, PR #74 round11)
+
+C10: narrow red accent remains per fixed brief, but authored area drops707757 to213884 blocks2 (69.8%). No other biome polygon, site, coast, height, water, road or mask changes. A conservative no-red replacement is drawn inert for review; no claim of canonical desert or exact ecosystem. [Locator audit](research/tensura-world-2026-11-19/anime-episode-locators.csv) checks eight region-book routes: no28/30/42/48 actually display episodes26/28/39/45. Episode41 is no44, not no41. Generic still links now contextual leads. Five official no44 stills inspected; no city exterior verified. Pinned secondary city-frame raw fetch403. Ledger172 unique records.
+Verified: checker0 errors/all56 relations pass/2 prior warnings; current build52.6s/no warnings/SHA match. All58 centres/radii and21 grade profiles verified. Current wooded-badlands raster13374 cells; released-ground sample4034,614 is plains. Full gate passes validation and462 tests (26 skips). Atlas and official comparison refreshed. No tool/runtime edits or server apply. Continue missing-place/primary-source coverage and fixed-rule reconciliation; do not claim full fidelity/completeness.
+
 ## 20/11 — Filtwood source correction and Orbic homeland study (ChatGPT, PR #74 round10)
 
 Official S1E24 synopsis names Filtwood a kingdom in a story before Rimuru; wiki puts it near Jura. The creative pack's town-in-Ulgracia claim was unsupported. C20 corrects prose, era overlay and coverage crosswalk; active U anchor is unchanged and visibly disputed. [New study](../world/southern-location-study.md) draws an inert western Jura-edge trial (side unverified) and a separate depleted Orbic homeland vicinity. LN2 famine/junction reread; wiki bearings stay secondary. All five official episode24 stills inspected: interiors/characters, no exterior plan. Ledger170 unique records.

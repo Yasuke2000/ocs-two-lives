@@ -101,7 +101,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Dwargon is north of Jura, Siss east, and Tempest stands in a forest clearing with running water. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 9, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img1.jpg), [episode 9, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 9, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img1.jpg), [episode 9, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img2.jpg).
 
 **Anime frames actually inspected.** [rimuru city](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/rimuru_city.webp), [sealed cave](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/sealed_cave.webp), [khusha mountains](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/khusha_mountains.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md). The later planned Rimuru-city frame is visual context only; the initial village follows episode9/10 references in [era.md](era.md).
 
@@ -115,7 +115,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Dwargon occupies a natural cavern at the foot of the Canaat Mountains; the south-facing gate and exact ravine are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 4, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img1.jpg), [episode 4, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 4, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img1.jpg), [episode 4, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img2.jpg).
 
 **Anime frames actually inspected.** [dwargon gate](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/dwargon_gate.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md).
 
@@ -129,7 +129,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The official guide identifies Siss in Jura and the Ameld flowing into it; episode 10 places the lizardmen in its wetlands. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 10, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no10/img1.jpg), [episode 10, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no10/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 10, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no10/img1.jpg), [episode 10, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no10/img2.jpg).
 
 **Anime frames actually inspected.** [lake siss](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/lake_siss.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md).
 
@@ -143,7 +143,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Blumund is Jura’s western human neighbour; the dry land connection is retained from the reference geography. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 **Anime frames actually inspected.** [londo](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md).
 
@@ -157,7 +157,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The official guide names Englassia a western cultural centre and the seat of the Free Guild headquarters. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 ## F — Kingdom of Falmuth
 
@@ -169,7 +169,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Falmuth is a western trade gateway west of Dwargon and north of Blumund; exact coast and harbours are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 ## L — Holy Empire of Lubelius
 
@@ -181,7 +181,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The pack locates Lubelius northwest of Jura and its sacred sanctuary above Lune. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 42, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no42/img1.jpg), [episode 42, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no42/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 39, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no42/img1.jpg), [episode 39, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no42/img2.jpg).
 
 ## V — Damargania / western wastes
 
@@ -193,7 +193,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Damargania is the far-west barren territory; the oasis layout and desert transitions are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 ## O — Morgdahl
 
@@ -205,7 +205,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The repo places Morgdahl in the western river belt; the settlement form is our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 ## A — Raja
 
@@ -217,7 +217,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The pack places Raja west of Tempest in the small-state belt; its exact lake and gardens are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 ## N — Nostraille
 
@@ -229,7 +229,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The repo’s west-to-east ordering places Nostraille east of Morgdahl and west of Yuzalgh. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 ## Y — Yuzalgh
 
@@ -241,7 +241,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Yuzalgh belongs in the western sequence east of Nostraille; its architecture and borders are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 ## Q — Yggdonia
 
@@ -253,7 +253,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Yggdonia’s position and birch identity are pack interpretation, not independently established canon. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 ## U — Ulgracia
 
@@ -265,7 +265,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The official guide and supplied reference place Ulgracia south of Sarion. Yasuke explicitly chose this over the earlier Blumund-adjacent server liberty. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 17, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img1.jpg), [episode 17, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no17/img2.jpg).
 
 ## S — Sorcerous Dynasty of Sarion
 
@@ -277,7 +277,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Sarion lies on Jura’s southern border; the single colossal tree and its waterside setting follow the supplied anime frame; exact build and size are our playable interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 28, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no28/img1.jpg), [episode 28, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no28/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 26, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no28/img1.jpg), [episode 26, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no28/img2.jpg).
 
 **Anime frames actually inspected.** [elmine](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/elmine.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md).
 
@@ -291,7 +291,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Frey’s territory lies south of Jura in the supplied reference, west/southwest of Eurazania. This supersedes the earlier far-southwest mesa liberty. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 30, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img1.jpg), [episode 30, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 28, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img1.jpg), [episode 28, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img2.jpg).
 
 **Anime frames actually inspected.** [jia](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/jia.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md).
 
@@ -305,21 +305,21 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** Eurazania lies south/southeast of Jura. LN5 supports the castle mountain backdrop and town below (`LN05-001..002`). The supplied Laura frame shows the waterfall; the wiki excerpt describes fruit plantations. Exact waterfall reaches and playable elevations are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 30, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img1.jpg), [episode 30, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 28, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img1.jpg), [episode 28, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img2.jpg).
 
 **Anime frames actually inspected.** [laura](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/laura.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md).
 
-## M — Milim’s Domain
+## M — Milim's old domain
 
-**Landform and heights.** Eastern fertile lowlands 65–90, edged by a red badlands crescent. The Forgotten Dragon City sits in the green inner plain.
+**Landform and heights.** Eastern lowlands65–90 with a narrow red crescent retained solely as the fixed brief's server accent. The large former red-biome footprint is reduced from707,757 to213,884 square blocks of authored polygon area (69.8% smaller). Surrounding land follows existing default grassland/forest priorities. No new hill, river or settlement is added.
 
-**Target biome mix.** `minecraft:plains` 50%, `minecraft:wooded_badlands` 25%, `minecraft:badlands` 15%, `minecraft:savanna` 10%.
+**Target biome mix (our interpretation).** `minecraft:plains`85%, `minecraft:wooded_badlands`10%, `minecraft:forest`5%. These are palette targets, not measured raster percentages or canonical biome shares. The red biome remains a server adaptation, not evidence of an arid country.
 
-**Palette, vegetation and crossings.** Green river grass, red sediment, mud brick and pink cloth. The eastern road moves from wet Jura margins to broad fields beneath a warm red ridge.
+**Palette, vegetation and crossings.** Green lowlands and established woodland, with a restrained warm-soil accent near the eastern coast. Exact tree species, settlement palette and field layout remain interpretation.
 
-**Canon basis and interpretation.** Milim’s land lies east beyond Siss; fertile plains and a badlands crescent implement the owner’s geography brief. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Canon basis and limits.** The official guide identifies Milim's old dragonewt settlement and its unusual social organisation; it does not define a red desert. The official illustrated map is a broad visual reference, not a biome survey. The fixed [brief](../design/architecture/own-world.md) explicitly retains some red badlands. C10 now draws an inert grassland replacement for the former large footprint, so the remaining design liberty is visible. No later annexation or new castle is treated as initial geography.
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 30, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img1.jpg), [episode 30, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no30/img2.jpg).
+**References.** [Official world guide](https://www.ten-sura.com/map), [official base image](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp), [city source notes](../design/lore/forgotten_dragon_city.md). Official episode41 is at [route no44](https://www.ten-sura.com/anime/tensura/story/no44); its five inspected stills do not establish a city exterior or biome footprint. The pinned fan metadata's city frame could not be re-fetched this round, so its episode attribution remains secondary.
 
 ## P — Jistav
 
@@ -331,7 +331,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The official guide identifies Jistav as Clayman’s territory. LN10 prologue distinguishes the Amrita ruins from the surface city (`LN10-001..002`); exact basin, moat, mound and eastward game offset are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 48, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img1.jpg), [episode 48, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 45, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img1.jpg), [episode 45, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img2.jpg).
 
 **Anime frames actually inspected.** [amrita](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/amrita.webp). Frame provenance and limitations are recorded in [anime reference notes](anime-reference-notes.md).
 
@@ -345,7 +345,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The Empire occupies the far northeast; the brief fixes Nasca’s valley north of Velgrynd’s volcano. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 48, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img1.jpg), [episode 48, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 45, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img1.jpg), [episode 45, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img2.jpg).
 
 ## I — Ice Continent
 
@@ -357,7 +357,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** The Ice Continent is northern and contains Guy’s Frost Palace; the playable shoreline and causeway are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 48, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img1.jpg), [episode 48, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 45, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img1.jpg), [episode 45, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img2.jpg).
 
 ## X — El Dorado
 
@@ -369,7 +369,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Canon basis and interpretation.** El Dorado lies on a southwestern continent; its playable island compression is an explicit owner liberty. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Visual references (3).** [official world guide](https://www.ten-sura.com/map), [episode 48, still 1](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img1.jpg), [episode 48, still 2](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img2.jpg).
+**Reference links (stills are contextual leads unless separately verified).** [official world guide](https://www.ten-sura.com/map), [episode 45, still 1; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img1.jpg), [episode 45, still 2; contextual lead](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no48/img2.jpg).
 
 ## Open lore and implementation questions
 
@@ -409,3 +409,9 @@ The [Empire follow-up](../docs/research/tensura-world-2026-11-19/eastern-empire-
 [New source/constraint diagram](southern-location-study.png) separates the active Filtwood U anchor from an illustrative Jura-edge alternative, and the depleted Orc homeland from the Siss battlefield. C20 corrects the unsupported Ulgracia-town claim: official episode 24 names a kingdom in a pre-Rimuru story; wiki supplies only Jura proximity. The exact side of Jura remains unknown. All trial coordinates and the Orbic vicinity outline are **our interpretation**. Neither alternative is active terrain or a new sovereign region. Detailed evidence and era limits are in [the study](southern-location-study.md).
 
 All live terrain and registered sites remain unchanged in this round; only the disputed Filtwood label and inert comment are added. Do not relocate the production anchor without reconciling its required U binding, or use the homeland study as a source-confirmed capital plan.
+
+## Biome scope and anime locators — round 11
+
+C10 retains the brief's red accent while reducing its unverified authored extent by69.8%. A no-red alternative is drawn in an inert SVG comment rather than silently breaking the brief. All58 sites/radii, coasts, relief, waters, roads and gameplay masks remain fixed. Exact soil/biome choices are **our interpretation**; this revision does not assert that absent evidence proves a particular canonical ecosystem.
+
+The [episode-locator audit](../docs/research/tensura-world-2026-11-19/anime-episode-locators.csv) checks every distinct official still-route used in this region book. Recap/special entries mean the route number can differ from the displayed episode. Labels now match the official header: no28=episode26, no30=28, no42=39 and no48=45. Generic still links are explicitly contextual leads, not proof of each region's terrain. This corrects overconfident image attribution without inventing timestamps or exterior views.
