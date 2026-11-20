@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Western sanctuaries (ChatGPT, round30, stacked on art PR96)
+
+Four pairs: lubelius,sacred_mountain,heaven_tower,ulgr_nature_park. Direct LN6 shrine/cathedral size contrast; ten official stills inspected but no verified exterior plans. Tower LN18/19 citations remain secondary/unread; intact lower precinct avoids late damage. Park threshold distinct from Galut/Jura gate. Authored architecture and no later visitors/encounters.36/58 delivered,22 remain; all58 reservations match06a0323. All36 pairs/eight manifests checked, RGB<3MB; Ulgr native1362x1155, others1536x1024; packaging preserves selected output pixels. Source/fixed-rule/coverage/fit/runtime obligations remain. Gate result in art README. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.
+
 ## 20/11 — Natural landmark concepts (ChatGPT, round29, stacked on art PR95)
 
 Four pairs: ameld_source,ameld_mouth,el_dorado_volcano,great_holy_mountain. Existing spring/delta candidates lose unsupported nest/bones, oversized falls/pool, red mesas and invented buildings/fields/distributaries. New volcanic dome/adit and small interpreted holy-mountain gallery; targeted edit removes unrequested lava fissures. Official Ameld glossary/cache and broad map reinspected; direct wiki access blocked, indexed leads qualified. No verified exact anime close-up claimed. All58 reservations match0f154fc; art branch retains older map/source files.32/58 delivered,26 remain; C03/C05 and full-feature/gallery/fit/runtime/source obligations open. Four selected RGB1536x1024 images<3,000,000 bytes, original pixels preserved;32 pairs/seven manifests checked. Gate result in docs/art/places/README.md. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.

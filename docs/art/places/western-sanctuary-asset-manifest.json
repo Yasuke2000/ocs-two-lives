@@ -1,0 +1,104 @@
+{
+  "base_art_commit": "7ece431",
+  "main_map_reservation_cross_check_commit": "06a0323",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "lubelius",
+      "file": "lubelius.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2076711,
+      "sha256": "aca5c28222a6fe1347a52c05d9928e615f32b6d938ba1f181363f279231a9110",
+      "generated_original_basename": "exec-fd0bbacb-1b64-429f-904d-3314181738f5.png",
+      "generated_original_sha256": "f7c4a4a48d22cd45ae58e45307fd47691d437584aaefa9792f0b5d951bc03eed",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-3600",
+        "cy": "-1300",
+        "r": "97.0",
+        "data-site": "plateau",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "sacred_mountain",
+      "file": "sacred_mountain.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2673164,
+      "sha256": "a70502dd0a782ae19443d0fbd781ddd6fe0383aebd50928dba688f8f7726beb8",
+      "generated_original_basename": "exec-e3fd27dc-84b4-4098-8ce0-dfa250f039e7.png",
+      "generated_original_sha256": "5fdd146500aa0be8907da5885496bbc62a3e217913d0af6b44404cd318577e99",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-3900",
+        "cy": "-1600",
+        "r": "80.0",
+        "data-site": "plateau",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "heaven_tower",
+      "file": "heaven_tower.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2458241,
+      "sha256": "7304f0047d826dde6d737e717d165c1a0227e4376c53bac75b41b7981d475f64",
+      "generated_original_basename": "exec-132207c2-7716-4ebf-8818-4a26ff75a748.png",
+      "generated_original_sha256": "560022ccd902f69f59e14b75c2426717f8a43ded9f4608e613ea2a327a0c4cb8",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-4200",
+        "cy": "-200",
+        "r": "84.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "ulgr_nature_park",
+      "file": "ulgr_nature_park.png",
+      "width": 1362,
+      "height": 1155,
+      "mode": "RGB",
+      "bytes": 2285414,
+      "sha256": "fd156227502cd4c089d31745ad92420865212b4dea45d50f35dde17b3d7e1e12",
+      "generated_original_basename": "exec-f5e5b17b-c776-4517-85b7-00ec1b68b617.png",
+      "generated_original_sha256": "e28d4dc513cc30fbeeabe8a9a94a1ad139412b0fb7a80ff3f8a5fb9c73d1e684",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-950",
+        "cy": "2850",
+        "r": "63.0",
+        "data-site": "plateau",
+        "data-margin": "48"
+      }
+    }
+  ],
+  "limits": "Original architectural interpretations, not new canonical location measurements or runtime acceptance. Exact city/shrine/tower/park plans remain interpretations; tower primary story passages and full site/realm review remain open.",
+  "native_dimensions_note": "Ulgr park remains native1362x1155; other three1536x1024. No resizing/cropping or pixel edits during packaging.",
+  "own_output_edits": [
+    {
+      "id": "lubelius",
+      "input": "exec-14686c36-c5df-4dcc-adf6-69913d636f8a.png",
+      "input_sha256": "e50ce3748e5be69517051fdab38a129e76b8f9007c7c744a5c8cb30492634612",
+      "purpose": "Remove unsupported cross finials; no copyrighted input."
+    }
+  ]
+}

@@ -1,6 +1,8 @@
-# Post-Kijin place concepts — thirty-two delivered locations
+# Post-Kijin place concepts — thirty-six delivered locations
 
-Latest: four natural-landmark concepts bring delivery to32/58, with26 remaining. All58 reservation attributes match current map0f154fc; C03/C05 river-topology/mountain-bearing decisions remain open.
+Latest: Lubelius, Sacred Mountain, Heaven Tower and Ulgr Nature Park bring delivery to36/58, with22 remaining. All58 reservation attributes match main06a0323. LN6 directly distinguishes the smaller, lavish summit shrine from the cathedral; exact architecture remains interpretation.
+
+Previous: four natural-landmark concepts bring delivery to32/58, with26 remaining. All58 reservation attributes match current map0f154fc; C03/C05 river-topology/mountain-bearing decisions remain open.
 
 Latest: four original demon-seat/ruin concepts bring delivery to28/58, with30 remaining. All58 reservation attributes match main-map8ea1e96. C07 and C22 remain explicit source/access/type decisions, not resolved by concept pictures.
 
@@ -43,11 +45,16 @@ These original illustrations and their fiches use the owner-selected instant imm
 | El Dorado volcanic dome | [PNG](el_dorado_volcano.png) | [Sheet](el_dorado_volcano.md) |
 | Great Holy Mountain gallery — interpretation | [PNG](great_holy_mountain.png) | [Sheet](great_holy_mountain.md) |
 
+| Lubelius cathedral precinct | [PNG](lubelius.png) | [Sheet](lubelius.md) |
+| Small summit shrine | [PNG](sacred_mountain.png) | [Sheet](sacred_mountain.md) |
+| Intact lower Heaven Tower | [PNG](heaven_tower.png) | [Sheet](heaven_tower.md) |
+| Ulgr Nature Park woodland threshold | [PNG](ulgr_nature_park.png) | [Sheet](ulgr_nature_park.md) |
+
 The earlier `chatgpt/priority-place-art` branch and local `C:/Users/david/Documents/ocs-art-map` candidates remain untouched. That worktree contains 29 candidate PNGs and 58 sheets; many are untracked and have not been accepted against the current map. The old Tempest sheet uses radius 110, while this pass reads the current SVG. The old Orc camp depicts a large organized fortification; the selected revision depicts a small temporary advance reservation appropriate to the early baseline. The existing candidates are not counted as delivered or discarded.
 
-[Coverage](coverage.csv) keeps all 58 IDs: thirty-two image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Twenty-six image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
+[Coverage](coverage.csv) keeps all 58 IDs: thirty-six image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Twenty-two image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
 
-The image format is 1536x1024, RGB, opaque, below 3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
+The first35 images are1536x1024; Ulgr Nature Park retains its native1362x1155. All are RGB, opaque, below3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
 
 The terrain/biome/road source is unchanged. These images do not verify foundations, structure placement, cave water, detailed shore alignment, NPC rosters or runtime era gates. [Map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) remains the geometry review.
 
@@ -104,3 +111,11 @@ Two original river candidates are revised: the source loses its giant nest/bones
 [Six reference/design records](natural-landmark-reference-review.csv), [exact prompts and cleanup](natural-landmark-prompts.json), four sheets and [manifest](natural-landmark-asset-manifest.json) distinguish official broad geography, indexed wiki leads and authored close-up design. The original Japanese official Ameld glossary was re-extracted from the existing cached official HTML and directly read. Direct Fandom fetches returned402/robots; indexed text is not direct LN reading. No independently verified anime close-up of these exact precincts was found. Official map artwork remains outside the repo and was not supplied to image generation.
 
 All58 reservations match0f154fc; this stacked art branch retains older map/source files. Eight-block pins identify landscape features, not tiny full-mountain or settlement footprints. The current10-block headwater,18-block outlet and230-block dome crest are authored terrain parameters; art perspective cannot override river levels, profiles, masks or source continuity. C03/C05 and natural-feature/gallery/source/fit/runtime obligations remain open.32/58 pairs delivered,26 remain. All32 pairs match seven manifests/coverage. Four new selected RGB1536x1024 PNGs are<3,000,000 bytes and lossless packaging preserves original pixels. Prior assets and legacy candidates remain untouched. Round29 art gate passes repository validation and462 tests (26 skips,zero failures,43.960s test tier); no world/tools/mod/pack/blueprint changes, apply or deployment.
+
+## Western sanctuaries and realm thresholds — round30
+
+Four original concepts distinguish the human cathedral precinct, a smaller summit shrine, the intact lower tower and a quiet park threshold. Public LN6 arrival paragraphs246-248 directly establish the shrine/cathedral size contrast. Ten official episode22/50 stills supply limited interior/palette context, not verified exterior plans. Heaven Tower's secondary LN18/19 citations remain unread; later damage is excluded. Ulgr entrance is distinct from Galut and the server Jura gate. No new site, portal, named resident or later encounter is introduced.
+
+[Seven source/design records](western-sanctuary-reference-review.csv), [generation prompts](western-sanctuary-prompts.json), [one own-image correction](western-sanctuary-edit-prompts.json) and [manifest](western-sanctuary-asset-manifest.json) retain evidence limits. Lubelius loses unsupported cross finials. Official/copyrighted art was not a generation input. Ulgr keeps its native1362x1155 instead of being resized; all other new outputs1536x1024, opaque RGB,<3MB and pixel-identical to their selected outputs after lossless packaging. Existing legacy materials remain intact.
+
+All36 pairs/eight manifests/58-row coverage are checked. Current58 site attributes match main06a0323; this branch retains older map/source files. Full city/shrine/tower/park geometry, source, fit and runtime obligations remain open. No world/tools/mod/pack/blueprint/apply/merge/deploy changes. Round30 gate passes repository validation and462 tests (26 skips,zero failures,44.069s test tier).
