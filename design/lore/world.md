@@ -393,3 +393,7 @@ The owner chose to take Lerfing's scale as drawn: land 15,040 × 11,372 blocks; 
 chunks. Jura is 23,954 chunks (about 2,400 × 2,600 blocks), the Canaat and Dwargon 21,895, Milim's Domain 32,769, the
 Ice Continent 31,689. The old traced grid (14,016 × 10,128 blocks, Tempest at 0, 0) and its 10,000- and 14,000-block
 coordinates are gone; git history keeps those notes.
+
+## Own-world Amrita/Soma access correction — 20 November 2026
+
+The older imported-map coordinates and eastward distance above are server placement history. Official episode81 places Amrita ruins beneath Clayman's former castle; LN10 directly distinguishes older Soma from the later distant Amrita refuge-city. The current separate eastern circle remains a mandatory game reservation under C07, not a source-established public surface entrance. Depth/full ruin extent and exact entrance coordinates are unknown; eastern chambers remain possible. [Concrete source/access review](../../world/amrita-placement-review.md). No technical data, active site position or runtime access is changed.

@@ -48,3 +48,7 @@ Round20 adds an official episode64 Tengu source review and an inert ridge/terrac
 ## Forest/painting comparison — round22
 
 Three eastern forest boundaries now use restrained broad bays/lobes rather than smooth oval/ribbon edges. All sites, water, relief, roads, gameplay masks and nine other forests remain unchanged. The official base illustration, first painted study and new checker/terrain previews were compared; precise woodland boundaries are still our interpretation. [Before/after measurements and deliberate differences](forest-edge-review.md). No new sovereign border, canonical acreage or climate zone is inferred.
+
+## Amrita access / Soma identity comparison — round24
+
+Official episode81 synopsis and five stills plus the legal LN10 historical passage were inspected. The source supports a beneath-castle relationship and distinct older Soma, not a measured external entrance or whole-city centroid. Active geography remains identical; an inert castle-linked access alternative and a game-reservation label expose C07. Current checker/terrain previews and the official base illustration were reinspected; no new coastline, mountain, forest or political-border difference is introduced. [Plan/section study and limits](amrita-placement-review.md).

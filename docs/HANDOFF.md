@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Amrita/Soma source and access review (ChatGPT, PR #74 round24)
+
+ Official episode81(no86) explicitly places Amrita beneath Clayman's former castle; all5 stills inspected (mural/doorway/cavern context, not plans). LN10 historical passage directly verifies Soma as older ruined homeland, Amrita as distant later refuge. [Plan/section and review](../world/amrita-placement-review.md) draws inert castle-linked access projection(3300,-600), r8, depth/whole footprint unknown; eastern chambers possible. Active E350..700 reservation(3800,-500),r63 remains fixed and labelled as game adaptation/C07. No sixth data-rule change authorized/applied. Every non-label layer/all58 sites unchanged; current build56.3s/no warnings/SHA matched, complete height/water/biome/21-road/terrain-preview bytes identical to052f262. Ledger196(138 thematic/design/reference+58 coordinates),12 direct LN claims. Source versus access/marker semantics remains an owner/technical decision. Soma exact placement, other gaps and full underground design remain open; no runtime/apply/deployment. Gate result in world/review.md.
+
 ## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
 
 Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
@@ -14,8 +18,8 @@ losslessly repackaged files were verified unchanged. The original built-in image
 remain under `.codex/generated_images/01a1f4df-fe07-7eb1-b3ee-abe4feb653a6`.
 The older `chatgpt/priority-place-art` / `ocs-art-map` worktree has 29 PNG candidates and 58 sheets,
 many untracked; these were left intact. Use the new art coverage table before generating replacements.
-Eight priority pairs are in PR #87; four further western pairs are in [draft PR #89](https://github.com/Yasuke2000/ocs-two-lives/pull/89), branch `chatgpt/western-place-art-r21`, worktree `C:/Users/david/Documents/ocs-western-place-art`. Total12/58,46 remain. Its manifest/source sheets and gate pass; no terrain changes. Remaining place art and research gaps remain open.
-The current-geometry [painted atlas is delivered in draft PR #88](https://github.com/Yasuke2000/ocs-two-lives/pull/88),
+Eight priority pairs are in PR #87; four further western pairs are in [draft PR #89](https://github.com/Yasuke2000/ocs-two-lives/pull/89), branch `chatgpt/western-place-art-r21`, worktree `C:/Users/david/Documents/ocs-western-place-art`. Four southern/Imperial pairs are additionally in [draft PR #91](https://github.com/Yasuke2000/ocs-two-lives/pull/91), branch `chatgpt/southern-imperial-place-art-r23`, worktree `C:/Users/david/Documents/ocs-southern-imperial-art`. Total16/58,42 remain. Its manifest/source sheets and gate pass; no terrain changes. Remaining place art and research gaps remain open.
+The first historical [painted atlas is delivered in draft PR #88](https://github.com/Yasuke2000/ocs-two-lives/pull/88),
 branch `chatgpt/continent-painting-r19`, worktree `C:/Users/david/Documents/ocs-continent-painting`.
 Its native composition preserves3 coasts/8 lakes/8 rivers/21 roads and all58 source anchors; registration
 audit, checker and repository gate pass (462 tests,26 skips). Pictorial relief remains interpretation.

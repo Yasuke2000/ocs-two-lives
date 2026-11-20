@@ -37,7 +37,7 @@ The seven city-related records are: Dwargon's East/West cities and elf bar, plus
 
 Doran remains a distinct mainland country gap. The indexed article supports only western-region placement west of Jura/Tempest; it does not supply a capital, shape or north/south bearing. The small-country names from the owner's excerpts likewise stay unlocated until stronger evidence is read. Do not pack them into unused regions with invented sovereign boundaries.
 
-Other physical gaps include the Long Wall, Galut, Tengu settlement, Orbic, Silberia and the Imperial vassal/frontier sites. Existing proposal diagrams do not close those gaps. Soma's historical identity/ruin setting requires direct-source reconciliation before an extra ruin footprint is committed.
+Other physical gaps include the Long Wall, Galut, Tengu settlement, Orbic, Silberia and the Imperial vassal/frontier sites. Existing proposal diagrams do not close those gaps. Soma's historical identity is now directly supported by the public LN10 prologue (LN10-003), distinct from Amrita's later distant refounding. Its far-west association remains wiki-backed; exact ruin placement/footprint remains open before an extra site is committed. [Amrita/Soma review](../../../world/amrita-placement-review.md).
 
 Offshore places and alternate or spiritual worlds remain recorded for continuity/access review. They must not be inserted as invented mainland points. Their classification does not prove them irrelevant to the broader server or complete their design. Horn Empire remains explicitly unverified.
 

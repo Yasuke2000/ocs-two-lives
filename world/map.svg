@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8000 -6000 16000 12000" width="1600" height="1200" data-era="post-kijin-naming-s1e10">
+  <!-- C07 Amrita subsurface-access alternative. INERT REVIEW GEOMETRY, not generated terrain or a registered site.
+OFF-AMR-001: official anime episode81 (route no86) places Amrita ruins beneath Clayman's former castle. LN10-001/002 distinguishes defended ruins/surface city and distant refounding after Soma; LN10-003 verifies Soma as the older destroyed homeland.
+<circle id="canon-amrita-access-trial" cx="3300" cy="-600" r="8" data-role="castle-linked-subsurface-access-projection" data-depth="unknown" data-full-footprint="unverified" data-source-claims="OFF-AMR-001;LN10-001;DES-AMR-024" />
+The centre above projects the authored castle centre for access review only. It is not a surveyed centre/extent of the entire ancient city; depth is not assigned. Eastern underground chambers remain possible.
+The active amrita circle at(3800,-500), r63 is a separate server reservation because the unchanged relation requires E350..700 from clayman_castle. The independent external mound/public shaft is an adaptation, not supported as the canonical entrance by this synopsis. Resolve C07 access/marker semantics and technical nesting before moving active sites or changing tools data. Only the five earlier relation corrections are authorized.
+-->
   <!-- C14/C15 additional-location alternatives. All coordinates and radii below are OUR INTERPRETATION, not measured canon. No proposed element is live terrain or a registered site.
 C14: WIK-MAL-001/002 describe a coastal capital west of Sarion; PUB-MAL-001 independently places the Magic Tower in Malukshure waters. The current Sainte-Malukshure anchor is constrained to gameplay H (Fulbrosia); do not silently move it to another region.
 C15: Galut is distinct from the nature park; Tengu need a summit settlement; the western wall needs an era-specific physical design. See world/additional-locations.md for sources and review questions.
@@ -288,7 +294,7 @@ The live S/U frontier now approaches the park from the north, but its exact y272
     <text x="1620.0" y="1612.0" font-size="40" fill="#243439">Laura</text>
     <text x="2770.0" y="812.0" font-size="40" fill="#243439">Forgotten Dragon City</text>
     <text x="3410.0" y="-588.0" font-size="40" fill="#243439">Clayman Castle</text>
-    <text x="3883.0" y="-488.0" font-size="40" fill="#243439">Amrita</text>
+    <text x="3883.0" y="-488.0" font-size="40" fill="#243439">Amrita game reservation (C07)</text>
     <text x="3310.0" y="-1788.0" font-size="40" fill="#243439">Nasca</text>
     <text x="3450.0" y="-1338.0" font-size="40" fill="#243439">Great Holy Mountain</text>
     <text x="-4180.0" y="3012.0" font-size="40" fill="#243439">El Dorado</text>

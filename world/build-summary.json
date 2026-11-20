@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "5e736ccc68f73ad533028c6263a5fe81459551683796ef70cfdcc1e45be632e8",
+  "source_sha256": "2518f19c20593d85c13581c61b58f9a25125f7a79ce94152119ec3464524360b",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,17 +12,18 @@
     3072,
     2688
   ],
-  "build_seconds": 55.7,
+  "build_seconds": 56.3,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
     "skips": 26,
     "validation": "passed",
-    "base_main": "a1848be"
+    "base_main": "a1848be",
+    "test_seconds": 43.869
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 192,
-  "directly_verified_LN_claims": 11,
+  "research_claim_records": 196,
+  "directly_verified_LN_claims": 12,
   "reference_alternatives_inert": true,
   "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
   "cave_footprint_water": {
@@ -36,8 +37,8 @@
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
   "max_bridge_blocks": 40,
-  "current_svg_sha256": "5e736ccc68f73ad533028c6263a5fe81459551683796ef70cfdcc1e45be632e8",
-  "staging_provenance_note": "Fresh normal current-SVG build55.7s; index source SHA verified. Only three forest point lists change; complete height/water PNGs and21 road profiles byte-identical to a997f81.",
+  "current_svg_sha256": "2518f19c20593d85c13581c61b58f9a25125f7a79ce94152119ec3464524360b",
+  "staging_provenance_note": "Fresh normal build56.3s after C07 inert comment/label review; index hash matched. All non-label layers, full height/water/biome PNGs,21 road profiles and terrain preview identical to052f262.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
   "forest_shapes": 12,
@@ -245,5 +246,10 @@
     "changed_biome_pixels": 11850,
     "max_boundary_shift_blocks": 63.65398327840427,
     "remaining": "Exact vegetation extents are interpretation; no measured canonical shares or new sovereign borders."
+  },
+  "documentation_review": {
+    "C07": "Official episode81 below-castle relationship; separate eastern game reservation retained. Inert access projection only; depth/whole footprint unknown.",
+    "Soma": "Identity directly supported by LN10; exact location/footprint open, western association wiki-backed.",
+    "all58_sites_and_geometry_unchanged": true
   }
 }

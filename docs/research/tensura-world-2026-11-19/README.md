@@ -1,4 +1,6 @@
-# Tensura geography research — round22 forest-edge design review
+# Tensura geography research — round24 Amrita/Soma source review
+
+[Amrita/Soma placement review](../../../world/amrita-placement-review.md) adds official episode81 below-castle evidence and direct LN10 Soma-identity evidence. C07 preserves a separate mandatory eastern game reservation while drawing a castle-linked access alternative, with depth/full extent unverified. Soma remains a distinct missing ruin footprint; only its identity is primary-confirmed, while the western-area association stays wiki-backed. All source/coverage obligations remain open.
 
 DES-FOR-022 records the [three eastern woodland edge refinements](../../../world/forest-edge-review.md) as our interpretation. All sites/water/heights/roads remain unchanged; precise vegetation boundaries and areas are authored, not a newly verified canonical survey. All prior source/coverage limits remain open.
 
@@ -13,12 +15,12 @@ Round 15 corrects Coleus using the directly read official anime outline: the ind
 Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 134 thematic/design claims plus 58 exact site-placement
-records explicitly marked **our interpretation**, not 192 verified canon facts. Coverage is incomplete;
+and [source-access log](source-access.csv). There are 138 thematic/design claims plus 58 exact site-placement
+records explicitly marked **our interpretation**, not 196 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
 The author's WN chapters 13 and 31, the unnumbered Map instalment (47th web entry), and the official anime guide were read; the official base map and
-11 referenced anime frames were visually inspected. Publisher-hosted LN2/3/5/6/10 passages now directly support eleven additional claims; see
+11 previously referenced anime frames were visually inspected. Publisher-hosted LN2/3/5/6/10 passages now directly support twelve qualified claims; see
 [findings](ln-sample-findings.md). The public LN1 sample is only a prologue. The licensed guidebook trial
 stalled before pages could be inspected. A publisher listing alone is not geographic evidence.
 
