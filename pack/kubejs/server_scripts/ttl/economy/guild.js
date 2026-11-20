@@ -381,7 +381,8 @@ const TtlGuild = {
   regionOf(player) {
     try {
       if (typeof TtlRep === 'undefined' || TtlLife.dimensionOf(player) !== TtlLife.OVERWORLD) return null
-      return TtlRep.factionAt(Math.floor(player.getX()), Math.floor(player.getZ()))
+      var f = TtlRep.factionAt(Math.floor(player.getX()), Math.floor(player.getZ()))
+      return f ? String(f.id) : null
     } catch (e) {
       return null
     }

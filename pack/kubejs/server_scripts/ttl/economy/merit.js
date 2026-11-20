@@ -60,12 +60,24 @@ const TtlMerit = {
     player.persistentData.putString(this.KEY, JSON.stringify(m))
   },
 
+  // The faction ID of the canon region at x, z ('' for none). TtlRep.factionAt returns the faction table, not the id.
   faction(x, z) {
     try {
-      return typeof TtlRep !== 'undefined' ? TtlRep.factionAt(x, z) : null
+      var f = typeof TtlRep !== 'undefined' ? TtlRep.factionAt(x, z) : null
+      return f ? String(f.id) : ''
     } catch (e) {
-      return null
+      return ''
     }
+  },
+
+  // The faction a Public Works record pays: its stored id, or (an old record kept the whole faction table, a
+  // string like "[object Object]" or nothing) the region of the chunk the block went into.
+  worksFaction(rec, x, z) {
+    var f = rec ? rec.faction : null
+    if (f && typeof f === 'object') f = f.id
+    f = f ? String(f) : ''
+    if (f && typeof TtlRep !== 'undefined' && TtlRep.faction(f)) return f
+    return this.faction(x, z)
   },
 
   mark(server, player) {
@@ -77,15 +89,15 @@ const TtlMerit = {
     var key = this.chunkKey(dim, x, z)
     var w = this.works(server)
     var me = TtlLife.uuid(player)
-    if (w[key] && w[key].by === me) return { key: key, faction: w[key].faction || null, already: true }
+    if (w[key] && w[key].by === me) return { key: key, faction: this.worksFaction(w[key], x, z) || null, already: true }
     if (w[key]) throw 'this chunk is already Public Works of someone else'
     var mine = Object.keys(w).filter(k => w[k].by === me).length
     var max = Number(this.conf().works_per_player)
     if (mine >= max) throw `you already keep ${max} Public Works chunks (/ttl merit works unmark first)`
     var f = this.faction(x, z)
-    w[key] = { by: me, faction: f || '' }
+    w[key] = { by: me, faction: f }
     this.saveWorks(server, w)
-    return { key: key, faction: f }
+    return { key: key, faction: f || null }
   },
 
   unmark(server, player) {
@@ -116,7 +128,7 @@ const TtlMerit = {
     var owed = Math.floor(m.total / 100) - m.paid
     if (owed > 0) {
       m.paid += owed
-      var f = String(w[key].faction || '')
+      var f = this.worksFaction(w[key], x, z)
       var rep = owed * Number(c.rep_per_100)
       try {
         if (f && typeof TtlRep !== 'undefined') TtlRep.add(server, player, f, rep, 'merit')

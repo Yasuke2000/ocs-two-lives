@@ -28,7 +28,8 @@
 //        giver_<id> (desk or fuze), turnin_<desk|fuze|any>_<id> (who takes it back: allowed / lore / wrong_giver; no effect)
 //   /ttl merit test <player> <block> [n]  count n (default 1) placed blocks at the player's feet (`stone_bricks` = minecraft:stone_bricks)
 //   /ttl merit reset <player> · /ttl merit expect <player> <field> <value>
-//        fields: total, week, works (how many Public Works chunks they keep), builder (true/false)
+//        fields: total, week, works (how many Public Works chunks they keep), faction (the faction id the chunk under the
+//        player pays, or none), builder (true/false)
 //   /ttl econ                             this week's faucet / sink counters (bronze) and the last weeks
 //   /ttl econ give <player> <bronze> | take <player> <bronze>
 //   /ttl econ expect <player> <field> <value>   fields: balance, faucet, sink, fee_<name> (bronze), can_<bronze> (true/false),
@@ -260,6 +261,13 @@ ServerEvents.commandRegistry(event => {
       total: () => String(m.total),
       week: () => String(m.week),
       works: () => String(Object.keys(w).filter(k => w[k].by === me).length),
+      // The faction id the Public Works chunk under the player pays ('none': not marked, or no faction region).
+      faction: () => {
+        var x = Math.floor(p.getX())
+        var z = Math.floor(p.getZ())
+        var rec = w[TtlMerit.chunkKey(TtlLife.dimensionOf(p), x, z)]
+        return (rec && TtlMerit.worksFaction(rec, x, z)) || 'none'
+      },
       builder: () => String(p.stages.has('ttl.title.builder'))
     }
     if (!(field in all)) throw `unknown field ${field} (one of ${Object.keys(all).join(', ')})`
