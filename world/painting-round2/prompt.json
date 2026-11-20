@@ -1,0 +1,12 @@
+{
+  "tool": "image_gen.imagegen",
+  "inputs": [
+    "Original project painting from draft PR88, world/painting/continent.png",
+    "geometry-guide.png",
+    "terrain-guide.png"
+  ],
+  "prompt": "Revise the FIRST attached image, our own original unlabelled painted continent atlas, using the SECOND and THIRD attached project images as the CURRENT registered geometry/terrain guides. Keep exactly the same1536x1024 landscape framing, north-up orientation, continent position, three landmasses, proportions, sea, every coastline, eight lakes, all river routes and mountain locations. This is a second current-geometry painting review, not a new world design. Main refinement: the current third guide has slightly more irregular boundaries for three EASTERN forest patches: the small northern-Imperial coastal woodland in the northeast, Jistav dark woodland around the eastern castle reservation, and the long eastern Jura foothill woodland north/northeast of the central lake. Paint a few broad meadow bays, uneven tree clumps and small woodland fingers at these edges instead of smooth filled ovals or a uniform ribbon. Retain their broad location, species character and most existing forest coverage. No new huge clearing, red desert, city, road, island, lake, river, mountain or northern political border. The ancient central Jura, Sarion southern forest, Eurazania orchard clearings, cold southern Fulbrosia spur, frozen northern island and southwest volcanic island retain their current broad habitats. Treat the guides as spatial references, remove their labels/grid/site circles/hatching from the painted result. Print NO words, numbers, symbols, banners, city icons, dragons, captions, borders or watermark. Preserve the restrained original ochre/olive/forest-green watercolor washes and dark blue continuous sea texture. Mountains are fine grey/brown cartographic ridge strokes within the guided relief areas, not giant vertical peaks; do not invent extra foothill ranges because tree shadows resemble ridges. No tilted/isometric world view. Early post-Kijin geographic study. This is original presentation art; accurate native coast, water, road vectors and58 labels will be added separately, so draw landscape only.",
+  "output": "paint-r22.png",
+  "purpose": "Second current-geometry painted review after three authored forest-boundary refinements",
+  "presentation_only": true
+}
