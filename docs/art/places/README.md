@@ -1,6 +1,9 @@
-# Post-Kijin place concepts — forty delivered locations
+# Post-Kijin place concepts — forty-six delivered locations
 
-Latest: arrival, wayfarers_camp, spirit_gate and dragons_nest bring delivery to40/58, with18 remaining. All58 reservation attributes match current main map e619fb7. Revised own candidates remove unsupported water, oversized shelter/fortress and open other-world views. The arrival/camp/Jura gateway are server designs; nest architecture remains interpretation.
+Latest: Ballachia,Morgdahl,Raja,Nostraille,Yuzalgh and Yggdonia bring delivery to46/58,with12 remaining. All58 site attributes match13f4cfb. Sources distinguish later event/country-map leads from authored cart court,timber frontage,mine approach,wool hall and two small pin vignettes. No later liberation or film cure is depicted.
+
+
+Previous: arrival, wayfarers_camp, spirit_gate and dragons_nest bring delivery to40/58, with18 remaining. All58 reservation attributes match current main map e619fb7. Revised own candidates remove unsupported water, oversized shelter/fortress and open other-world views. The arrival/camp/Jura gateway are server designs; nest architecture remains interpretation.
 
 
 Previous: Lubelius, Sacred Mountain, Heaven Tower and Ulgr Nature Park bring delivery to36/58, with22 remaining. All58 reservation attributes match main06a0323. LN6 directly distinguishes the smaller, lavish summit shrine from the cathedral; exact architecture remains interpretation.
@@ -58,9 +61,16 @@ These original illustrations and their fiches use the owner-selected instant imm
 | Closed Jura server Spirit Gate | [PNG](spirit_gate.png) | [Sheet](spirit_gate.md) |
 | Compact summit roost | [PNG](dragons_nest.png) | [Sheet](dragons_nest.md) |
 
+| Ballachia neutral cart court | [PNG](ballachia.png) | [Sheet](ballachia.md) |
+| Morgdahl timber frontage | [PNG](morgdahl.png) | [Sheet](morgdahl.md) |
+| Raja old mine approach | [PNG](raja.png) | [Sheet](raja.md) |
+| Nostraille wool hall interpretation | [PNG](nostraille.png) | [Sheet](nostraille.md) |
+| Yuzalgh tiny trade pause | [PNG](yuzalgh.png) | [Sheet](yuzalgh.md) |
+| Yggdonia birch-edge rest | [PNG](yggdonia.png) | [Sheet](yggdonia.md) |
+
 The earlier `chatgpt/priority-place-art` branch and local `C:/Users/david/Documents/ocs-art-map` candidates remain untouched. That worktree contains 29 candidate PNGs and 58 sheets; many are untracked and have not been accepted against the current map. The old Tempest sheet uses radius 110, while this pass reads the current SVG. The old Orc camp depicts a large organized fortification; the selected revision depicts a small temporary advance reservation appropriate to the early baseline. The existing candidates are not counted as delivered or discarded.
 
-[Coverage](coverage.csv) keeps all 58 IDs: forty image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Eighteen image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
+[Coverage](coverage.csv) keeps all 58 IDs: forty-six image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Twelve image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
 
 All images except Ulgr Nature Park are1536x1024; Ulgr Nature Park retains its native1362x1155. All are RGB, opaque, below3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
 
@@ -135,3 +145,11 @@ Four revised own candidates: dry arrival clearing, compact two-shelter camp, ina
 [Seven reference/design records](jura-approach-reference-review.csv), [exact current edit prompts](jura-approach-prompts.json) and [manifest](jura-approach-asset-manifest.json) preserve scope. Inputs are only our earlier originals; legacy candidates remain untouched, and their first-generation prompts are unavailable. Official episode4 stills and limited episode22 masonry cues/secondary gate frame were reinspected without supplying copyrighted images to generation. No exact anime nest exterior or surveyed camp/portal plan claimed.
 
 All40 pairs/nine manifests/58-row coverage verified. New four RGB1536×1024 PNGs<3,000,000 bytes; decoded pixels equal selected outputs after lossless packaging. All58 site attributes match e619fb7; art branch retains older map/source files. Full source/geometry/fit/roof/water/lighting/era/runtime obligations remain. No world/tools/mod/pack/blueprint/apply/merge/deploy changes. Round33 repository validation and462 tests pass (26 skips,zero failures,43.819s test tier).
+
+## Smaller western precincts — round34
+
+Six pairs: Ballachia replaces the own liberation-yard candidate with a neutral cart court; five new originals supply Morgdahl timber frontage,Raja old mine approach,Nostraille wool hall and two tiny dry pin vignettes. Architecture/industries are qualified project interpretation. The four-country sequence is a secondary later-map lead; inspected official episode76 stills do not show that map. Official episode65 supplies later Orthrus/wagon context,not an early exterior survey. Bandai Namco Filmworks page2 directly supports Raja west/gold/poisoned-lake film context; exact initial condition remains unverified. No cured lake,ritual,queen,liberation memorial,named people or invented new river is included.
+
+[Nine source/design records](western-states-reference-review.csv), [exact prompts](western-states-prompts.json), six fiches and [manifest](western-states-asset-manifest.json) preserve scope. Ballachia edits only our prior original,whose first prompt is unavailable; other five are new generations. No copyrighted image was supplied as generation input. Legacy materials stay intact. Small pin scenes do not represent entire countries or approve new blueprints.
+
+All46 pairs/ten manifests/58-row coverage checked; all58 attributes match13f4cfb. Six new RGB1536×1024 PNGs<3MB,selected decoded pixels preserved by lossless packaging. This art branch retains older map/source files; PR74 governs geography. Source/coverage/era/structure-fit/water/roof/lighting/runtime obligations remain open. No world/tools/mod/pack/blueprint/apply/merge/deploy changes. Round34 repository validation and462 tests pass (26 skips,zero failures,43.864s test tier).

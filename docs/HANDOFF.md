@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Smaller western precinct concepts (ChatGPT, round34, stacked on art PR98)
+
+Six pairs: ballachia,morgdahl,raja,nostraille,yuzalgh,yggdonia. Ballachia removes later liberation chains/cages/memorial; other five originals distinguish authored timber/wool/pin designs from secondary country-name/map leads. Raja public distributor sheet confirms film west/gold/lake context; no precise early condition or cure inferred. Official65/76 ten stills inspected; no verified four-country map/exterior plan in that selection.46/58 delivered,12 remain; all58 attrs match13f4cfb.46 pairs/ten manifests verified,new six RGB1536×1024<3MB,pixels preserved; original candidates intact. Nine source/design records/exact prompts/input hashes preserve limits. All source/coverage/fixed-rule/fit/runtime obligations remain. Gate in art README. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.
+
 ## 20/11 — Jura approach and summit concepts (ChatGPT, round33, stacked on art PR97)
 
 Four pairs: arrival,wayfarers_camp,spirit_gate,dragons_nest. Edits to own candidates remove invented stream/large stairs,overlarge camp,open portal/realm view,and valley-fortress nest. Arrival route follows current SVG; radius8 camp is parent-relative; Jura gate remains server adaptation distinct from Ulgr; nest summit evidence is wiki-level with LN12ch2/4 unread. Seven source/design records and exact current edits/input hashes preserve limits. All58 reservations match e619fb7;40/58 pairs,nine manifests verified,18 remain. New four RGB1536×1024<3MB,selected pixels unchanged by packaging. Legacy candidates intact. Source/coverage/fixed-rule/fit/runtime obligations remain; gate in art README. No world/tools/mod/pack/blueprint/apply/merge/deploy changes.

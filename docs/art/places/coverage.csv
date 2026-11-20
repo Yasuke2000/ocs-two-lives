@@ -24,7 +24,7 @@ lizardmen_village,1100,265,60.0,lakeside,lizardmen_village.png,lizardmen_village
 lizardmen_caverns,1300,520,64.0,carve,lizardmen_caverns.png,lizardmen_caverns.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 orc_camp,1750,550,60.0,village,orc_camp.png,orc_camp.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 blumund,-1500,-620,97.0,clearing,blumund.png,blumund.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
-ballachia,-2450,-450,68.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+ballachia,-2450,-450,68.0,clearing,ballachia.png,ballachia.md,True,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
 englassia,-2900,-550,98.0,clearing,englassia.png,englassia.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 marris,-1800,-1650,101.0,clearing,marris.png,marris.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 siltrosso,-2297,-1370,66.0,coast,siltrosso.png,siltrosso.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
@@ -32,11 +32,11 @@ lubelius,-3600,-1300,97.0,plateau,lubelius.png,lubelius.md,False,True,Review sou
 sacred_mountain,-3900,-1600,80.0,plateau,sacred_mountain.png,sacred_mountain.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
 coleus,-3520,-860,73.0,clearing,coleus.png,coleus.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
 heaven_tower,-4200,-200,84.0,clearing,heaven_tower.png,heaven_tower.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
-morgdahl,-3200,330,61.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-raja,-2850,360,71.0,lakeside,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-nostraille,-2550,330,66.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-yuzalgh,-2350,300,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
-yggdonia,-2150,-80,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
+morgdahl,-3200,330,61.0,clearing,morgdahl.png,morgdahl.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+raja,-2850,360,71.0,lakeside,raja.png,raja.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+nostraille,-2550,330,66.0,clearing,nostraille.png,nostraille.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+yuzalgh,-2350,300,8.0,clearing,yuzalgh.png,yuzalgh.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+yggdonia,-2150,-80,8.0,clearing,yggdonia.png,yggdonia.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
 filtwood,-1200,2750,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 ghastone,-3200,-300,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
 rostia,-2780,200,8.0,clearing,,,False,True,Create source-qualified concept art; existing local sheet still needs current geometry/era review.
