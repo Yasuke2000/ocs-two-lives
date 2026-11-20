@@ -1,4 +1,6 @@
-# Tensura geography research — round24 Amrita/Soma source review
+# Tensura geography research — round28 Frost Palace WN source review
+
+[New Frost Palace source review](../../../world/frost-palace-source-review.md) directly reads WN78's central-continent palace relationship and corridor/carved-door/upper-terrace context. C22 separates this continuity from the active coast-kind game reservation; an inert near-centroid alternative is drawn. No exact LN agreement or canonical server coordinate is claimed. Ledger199(141 thematic/design/reference+58 coordinate interpretations),12 directly read LN claims. All active geography remains unchanged; unread LN passages and previous scope gaps remain open.
 
 [Amrita/Soma placement review](../../../world/amrita-placement-review.md) adds official episode81 below-castle evidence and direct LN10 Soma-identity evidence. C07 preserves a separate mandatory eastern game reservation while drawing a castle-linked access alternative, with depth/full extent unverified. Soma remains a distinct missing ruin footprint; only its identity is primary-confirmed, while the western-area association stays wiki-backed. All source/coverage obligations remain open.
 
@@ -15,7 +17,7 @@ Round 15 corrects Coleus using the directly read official anime outline: the ind
 Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
 
 Start with [the claim ledger](geography-facts.csv), [contradictions / access limits](contradictions.md)
-and [source-access log](source-access.csv). There are 138 thematic/design claims plus 58 exact site-placement
+and [source-access log](source-access.csv). There are 141 thematic/design claims plus 58 exact site-placement
 records explicitly marked **our interpretation**, not 196 verified canon facts. Coverage is incomplete;
 remaining LN geography passages, manga page numbers and anime timestamps are not invented.
 
@@ -59,7 +61,7 @@ Yasuke selected the moment immediately after Kijin naming (anime S1 episode10). 
 
 ## Jura/marsh visual-source review — round26
 
-[Eight visual/design reference records](jura-marsh-art-reference-review.csv) accompany the four revised original place concepts in [draft PR93](https://github.com/Yasuke2000/ocs-two-lives/pull/93). Official early-episode stills and secondary forest-village/Siss frames were inspected. The records distinguish explicit frame content, uncertain attribution and authored architecture. They are a visual-design supplement, not eight new measured geographic facts; the main ledger remains196 records/12 directly read LN claims. Surface stilt architecture is a project/mod adaptation; a limited cavern background does not survey the full labyrinth. Exact site positions remain the existing58 server interpretations. No new active map geometry or completeness credit follows.
+[Eight visual/design reference records](jura-marsh-art-reference-review.csv) accompany the four revised original place concepts in [draft PR93](https://github.com/Yasuke2000/ocs-two-lives/pull/93). Official early-episode stills and secondary forest-village/Siss frames were inspected. The records distinguish explicit frame content, uncertain attribution and authored architecture. They are a visual-design supplement, not eight new measured geographic facts; the main ledger remains199 records/12 directly read LN claims. Surface stilt architecture is a project/mod adaptation; a limited cavern background does not survey the full labyrinth. Exact site positions remain the existing58 server interpretations. No new active map geometry or completeness credit follows.
 
 Round26 visual-supplement/pointer gate: repository validation and462 tests pass (26 skips,zero failures,44.310s test tier). This changes no SVG, terrain build or runtime files.
 

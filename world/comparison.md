@@ -56,3 +56,7 @@ Official episode81 synopsis and five stills plus the legal LN10 historical passa
 ## Third painting/SVG review — round25
 
 [Draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92) compares current geometry/terrain with a third original painting. A compact southern massif and more open Imperial plains reduce pictorial overstatement. An invented stream is removed before8 exact native source courses are restored;3 coast/8 lake/21 road vectors and58 anchors pass audit. The source SVG is retained: illustrative errors supply no source-backed reason to change actual terrain. No new deliberate continental-geography difference is introduced. Official base illustration reinspected; previous source/constraint differences remain open.
+
+## Frozen-continent palace review — round28
+
+A newly read WN78 passage supplies an inland palace relationship distinct from the active south-coast reservation. The current preview, official base and original C22 study were compared; the source alternative stays inert. All active geography and58 sites remain unchanged. Exact server centroid is interpretation and LN equivalence remains unverified. [Study and limitations](frost-palace-source-review.md).

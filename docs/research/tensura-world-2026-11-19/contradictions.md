@@ -43,6 +43,8 @@ Licensed LN volume 1/2 publisher listings and the Google Books volume-1 listing 
 
 | C21 | Older imported-map Coleus placement sits outside the intervening Ingrassia/Lubelius corridor despite the official outline stating the country lies between them. | Round15 moves the active city/dunes/oasis within all unchanged fixed rules; the other57 site centres/radii remain. V is a terrain selector, not sovereign membership. Exact city coordinates, border shape and initial-era palace state remain interpretation/unverified. [Source review](coleus-placement-review.md). |
 
+| C22 | Original WN78 places White Ice Palace centrally on the frozen continent; the mandatory frost_palace site kind is coast and the authored reserve stands on the south coast. LN6 interlude/LN16 epilogue have not been directly read. | Preserve WN continuity separately. An inert inland radius67 proposal is near the authored island centroid, not a surveyed canonical coordinate. Reconcile coastal entry versus inland palace and site-kind/build representation before changing active terrain or technical data. [Source review](../../../world/frost-palace-source-review.md). |
+
 ## Review status
 
 The current visible map is PR #74 on `chatgpt/world-map`, still a draft. Earlier PR #69 remains historical reference. The owner-approved five corrections are now in the default matrix; the standard map checker passes with two disclosed warnings. No Minecraft world or deployment is claimed. The five technical geography conflicts are resolved by the explicit owner exception; source coverage and proportional-fidelity review remain incomplete.

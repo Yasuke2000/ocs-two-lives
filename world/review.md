@@ -1,4 +1,6 @@
-# Current map review — round24 Amrita/Soma source reconciliation, post-Kijin snapshot
+# Current map review — round28 Frost Palace WN/source reconciliation, post-Kijin snapshot
+
+Round28 [Frost Palace WN source review](frost-palace-source-review.md) adds an inert inland alternative/C22. All active XML/58 site attributes, complete height/water/biome/21-road outputs and both previews match046d7c3; fresh normal build55.1s/no warnings/current SHA32aa6e10 matches. Ledger199(141 thematic/design/reference+58 coordinate interpretations),12 directly read LN claims. WN continuity remains separate; LN agreement and site-kind/entry-versus-palace representation remain open.
 
 [Amrita/Soma review](amrita-placement-review.md) adds direct official episode81 below-castle evidence and LN10 Soma-identity evidence. C07 now distinguishes castle-linked access from the separate mandatory eastern game reservation; exact depth/whole ruin extent are unverified. An inert access projection and label qualify the adaptation. Every live non-label layer, all58 site attributes and full height/water/biome/road/terrain-preview bytes remain unchanged from052f262. A fresh normal build refreshes source provenance after this comment/label edit. No tool relation or runtime placement changed.
 
@@ -89,3 +91,5 @@ Only the five explicitly approved TOML relation entries are changed in tools/. T
 still contains missing or uncertain places; neither the complete wiki nor the faithful-continent goal is finished.
 
 Round25 painting-pointer documentation gate passes validation and462 tests (26 skips,zero failures,43.526s test tier). This changes no production or staging bytes.
+
+Round28 source/inert-alternative gate passes repository validation and462 tests (26 skips,zero failures,43.673s test tier). Active geography stays unchanged.

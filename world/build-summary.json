@@ -1,6 +1,6 @@
 {
   "stage": "normal checked staging build; not applied",
-  "source_sha256": "2518f19c20593d85c13581c61b58f9a25125f7a79ce94152119ec3464524360b",
+  "source_sha256": "32aa6e1053142d54075694a87bce1b658d86b96db5ef545b0fd440b0864cb02c",
   "site_coordinates_verified": 58,
   "site_radii_and_relative_offsets_verified": true,
   "default_checker_errors": 0,
@@ -12,17 +12,17 @@
     3072,
     2688
   ],
-  "build_seconds": 56.3,
+  "build_seconds": 55.1,
   "repository_gate": {
     "tests": 462,
     "failures": 0,
     "skips": 26,
     "validation": "passed",
     "base_main": "a1848be",
-    "test_seconds": 43.869
+    "test_seconds": 43.673
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 196,
+  "research_claim_records": 199,
   "directly_verified_LN_claims": 12,
   "reference_alternatives_inert": true,
   "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
@@ -37,8 +37,8 @@
   "road_profiles_verified": 21,
   "max_road_grade": 0.5000000000000455,
   "max_bridge_blocks": 40,
-  "current_svg_sha256": "2518f19c20593d85c13581c61b58f9a25125f7a79ce94152119ec3464524360b",
-  "staging_provenance_note": "Fresh normal build56.3s after C07 inert comment/label review; index hash matched. All non-label layers, full height/water/biome PNGs,21 road profiles and terrain preview identical to052f262.",
+  "current_svg_sha256": "32aa6e1053142d54075694a87bce1b658d86b96db5ef545b0fd440b0864cb02c",
+  "staging_provenance_note": "Fresh normal build55.1s after inert WN Frost Palace proposal; index hash matched. All active XML/all58 sites and complete height/water/biome/21-road/terrain/checker previews identical to046d7c3.",
   "snapshot": "immediately after Kijin naming, anime S1E10",
   "snapshot_site_assessments": 58,
   "forest_shapes": 12,
@@ -250,6 +250,7 @@
   "documentation_review": {
     "C07": "Official episode81 below-castle relationship; separate eastern game reservation retained. Inert access projection only; depth/whole footprint unknown.",
     "Soma": "Identity directly supported by LN10; exact location/footprint open, western association wiki-backed.",
-    "all58_sites_and_geometry_unchanged": true
+    "all58_sites_and_geometry_unchanged": true,
+    "C22": "WN78 centrally placed White Ice Palace versus coast-kind game reservation; inert near-centroid alternative only. LN agreement not verified."
   }
 }

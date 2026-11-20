@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8000 -6000 16000 12000" width="1600" height="1200" data-era="post-kijin-naming-s1e10">
+  <!-- C22 Frost Palace WN-only inland alternative. INERT REVIEW GEOMETRY, not a registered site or generated terrain.
+WN078-001: Fuse's original web novel chapter78 (URL /81/), passage beginning hyosetsu fukisusabu gokkan no tairiku, places the palace in the centre of the frozen continent. WN078-002 describes a corridor and carved audience door; no exact LN plan or coast bearing is verified.
+<circle id="wn-frost-central-trial" cx="-1660" cy="-3820" r="67" data-role="inland-palace-reservation-alternative" data-source-claims="WN078-001;DES-FRO-028" data-required-site-kind-review="coast to inland type; not applied" />
+The trial centre is near this authored island's geometric centroid, not a measured canonical coordinate. WN continuity stays separate; LN6 interlude/LN16 epilogue are not directly read here. The current active frost_palace(-1500,-3310),r67 keeps its fixed coast kind and southern approach reservation. No sixth rule or generated site-data edit is authorized. Reconcile coastal entry versus inland palace marker and build/terrain contract before replacing the active site. Exact height/access and full-palace footprint remain unverified.
+-->
   <!-- C07 Amrita subsurface-access alternative. INERT REVIEW GEOMETRY, not generated terrain or a registered site.
 OFF-AMR-001: official anime episode81 (route no86) places Amrita ruins beneath Clayman's former castle. LN10-001/002 distinguishes defended ruins/surface city and distant refounding after Soma; LN10-003 verifies Soma as the older destroyed homeland.
 <circle id="canon-amrita-access-trial" cx="3300" cy="-600" r="8" data-role="castle-linked-subsurface-access-projection" data-depth="unknown" data-full-footprint="unverified" data-source-claims="OFF-AMR-001;LN10-001;DES-AMR-024" />

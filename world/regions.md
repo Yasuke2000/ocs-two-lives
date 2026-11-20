@@ -453,3 +453,7 @@ Round20 comparison note: the official map and current preview were reinspected. 
 ## Eastern forest edges — round22
 
 Three eastern forest boundaries now use restrained broad bays/lobes rather than smooth oval/ribbon edges. All sites, water, relief, roads, gameplay masks and nine other forests remain unchanged. The official base illustration, first painted study and new checker/terrain previews were compared; precise woodland boundaries are still our interpretation. [Before/after measurements and deliberate differences](forest-edge-review.md). No new sovereign border, canonical acreage or climate zone is inferred.
+
+## Frost Palace continuity/placement difference — round28
+
+The active coastal palace reserve remains a server interpretation. WN78 supplies an inland relationship; LN agreement is unread. C22 draws an inert near-centroid alternative, with no exact canonical coordinate or active site-kind change. Review coastal arrival versus inland palace representation before changing terrain or build data. [Source study](frost-palace-source-review.md).
