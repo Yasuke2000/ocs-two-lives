@@ -2758,7 +2758,7 @@ hash = "44c5a0c6a9221e480417711c1e474689396917eefe4a56b473cc84554b0921a2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/commands.js"
-hash = "7a32dc8ff40aca6ebad0f03ff9b0d71e29d3b36847cc48066c84eb9c5bc8fe5b"
+hash = "ab894171ebb4b58e5eb2b39829027576d0b6bb12617ab892fff1562ccb264771"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/compat/tombstone_bosses.js"
@@ -3118,7 +3118,7 @@ hash = "dbdcf85a6979080cb90d351ff461afb055c38d282b1ad4a15e0c51f4dbac534d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "fa6eb6272442a61ec28fb26dc432aa31615adc2a42753b6811207eea560465ef"
+hash = "986df10d51be8e4bf320277b64502fa4307137f85df14111dcbbf3e13f1b8e67"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/commands.js"

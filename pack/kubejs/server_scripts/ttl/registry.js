@@ -807,6 +807,30 @@ const TtlRegistry = {
     return this.sweep(server)
   },
 
+  // Test hook (/ttl registry testclear): forget every test bot's record, return and pending take-back (TtlBot* only;
+  // a real player's entry is never touched). A test run cut off before its `ttl reset`s (a server or ttl-ops restart)
+  // leaves bots holding uniques that the next run's caps would count. Returns how many records were dropped.
+  clearBots(server) {
+    var names = this.names(server)
+    var recs = this.records(server)
+    var n = 0
+    Object.keys(recs).forEach(skill => {
+      var keep = recs[skill].filter(h => !this.isBotId(server, h, names))
+      n += recs[skill].length - keep.length
+      if (keep.length > 0) recs[skill] = keep
+      else delete recs[skill]
+    })
+    this.save(server, recs)
+    ;['ttl.reg.returned', 'ttl.reg.taken'].forEach(key => {
+      var m = this.load(server, key, {})
+      Object.keys(m).forEach(id => { if (this.isBotId(server, id, names)) delete m[id] })
+      this.store(server, key, m)
+    })
+    server.getPlayerList().getPlayers().forEach(p => { if (this.isBot(p.username)) this.remember(server, p) })
+    if (n > 0) console.info(`[ttl] registry: test clear dropped ${n} test-bot record(s) left by an earlier run`)
+    return n
+  },
+
   // Admin: drop every record of `skill` (its holders left or were reset by hand).
   free(server, skill) {
     var recs = this.records(server)

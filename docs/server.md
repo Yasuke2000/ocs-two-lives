@@ -158,6 +158,15 @@ deploy that bumps a build's version re-places it for minutes, and the lag stretc
 its fixed wait (staging 19/11 22:33). Arena tests wait with `@until`, never a fixed `@sleep`, for anything the server
 counts in game ticks.
 
+**Cut-off runs.** A test run that stops halfway (a server restart, or a ttl-ops pod restart: any env change on its
+Deployment) leaves its state behind. The hooks survive that: `era testmark` and `world testmark` keep a mark an
+unfinished run left (the next run's restore goes back to the state before both), `legendcap` caps count for test bots
+only, and the registry tests start with `ttl registry testclear` (drops every TtlBot* record, never a real one).
+Staging's era drifted that way to 3 (18-19/11) and 4 (20/11 00:48, ttl-ops restarted by the deploy-gate merge during
+`absorb`). Putting it back to era 1 before launch is Yasuke's call, while no test runs: `bash tools/server.sh rcon
+"ttl era reset"` (era 1; clears the Legendary slot ledger, era titles, the era archive and any test mark) or, keeping
+titles and archive, `bash tools/server.sh rcon "ttl era set 1 silent"`.
+
 ## Checking placed builds and landmarks
 
 **Does a build transfer well?** `python tools/verify_build.py <name> --log` (or `tools/server.sh verify <name>`)
