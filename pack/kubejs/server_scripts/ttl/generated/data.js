@@ -4082,6 +4082,110 @@ const TtlData = {
         "weight": 5
       },
       {
+        "count": 5,
+        "giver": "desk",
+        "id": "bandits_dwarven_road",
+        "kind": "kill",
+        "min_rank": "E",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 6
+          },
+          "rep": {
+            "dwargon": 1,
+            "tempest": 1
+          }
+        },
+        "target": "ttl:dwarven_road",
+        "title": "Bandits on the Dwarven Road",
+        "weight": 8
+      },
+      {
+        "count": 4,
+        "giver": "desk",
+        "id": "highwaymen_blumund_road",
+        "kind": "kill",
+        "min_rank": "E",
+        "period": "daily",
+        "points": 2,
+        "reward": {
+          "coins": {
+            "silver": 6
+          },
+          "rep": {
+            "blumund": 2
+          }
+        },
+        "target": "ttl:blumund_road",
+        "title": "Highwaymen on the Blumund Road",
+        "weight": 8
+      },
+      {
+        "count": 5,
+        "giver": "desk",
+        "id": "jura_direwolves",
+        "kind": "kill",
+        "min_rank": "F",
+        "period": "daily",
+        "points": 2,
+        "region": "tempest",
+        "reward": {
+          "coins": {
+            "silver": 5
+          },
+          "rep": {
+            "tempest": 1
+          }
+        },
+        "target": "tensura:direwolf",
+        "title": "Direwolves in the Jura Forest",
+        "weight": 6
+      },
+      {
+        "count": 8,
+        "giver": "desk",
+        "id": "week_deserters",
+        "kind": "kill",
+        "min_rank": "C",
+        "period": "weekly",
+        "points": 6,
+        "reward": {
+          "coins": {
+            "gold": 2
+          },
+          "rep": {
+            "blumund": 1,
+            "falmuth": 2
+          }
+        },
+        "target": "ttl:deserter",
+        "title": "Deserters on the Falmuth Border",
+        "weight": 6
+      },
+      {
+        "count": 6,
+        "giver": "desk",
+        "id": "week_rogues",
+        "kind": "kill",
+        "min_rank": "D",
+        "period": "weekly",
+        "points": 5,
+        "reward": {
+          "coins": {
+            "gold": 1,
+            "silver": 5
+          },
+          "rep": {
+            "blumund": 2
+          }
+        },
+        "target": "ttl:rogue_adventurer",
+        "title": "Rogue Adventurers",
+        "weight": 6
+      },
+      {
         "count": 25,
         "giver": "fuze",
         "id": "fz_caterpillar_plague",
@@ -4178,6 +4282,27 @@ const TtlData = {
         "weight": 6
       },
       {
+        "count": 15,
+        "giver": "fuze",
+        "id": "fz_deserter_captains",
+        "kind": "kill",
+        "min_rank": "A",
+        "period": "weekly",
+        "points": 12,
+        "reward": {
+          "coins": {
+            "gold": 5
+          },
+          "rep": {
+            "blumund": 3,
+            "falmuth": 3
+          }
+        },
+        "target": "ttl:falmuth_border",
+        "title": "Contract: The Deserter Captains",
+        "weight": 5
+      },
+      {
         "count": 6,
         "giver": "fuze",
         "id": "fz_ravager_herd",
@@ -4195,7 +4320,7 @@ const TtlData = {
         },
         "target": "minecraft:ravager",
         "title": "Contract: Break the Ravager Herd",
-        "weight": 5
+        "weight": 0
       },
       {
         "count": 24,
@@ -4342,6 +4467,319 @@ const TtlData = {
       "upkeep_per_chunk_week": {
         "silver": 1
       }
+    }
+  },
+  "enemies": {
+    "archetype": [
+      {
+        "armor": 2,
+        "damage": 2,
+        "health": 24,
+        "id": "bandit",
+        "lines": [
+          "Your coin or your life!",
+          "Nobody walks this road for free.",
+          "Get them!"
+        ],
+        "look": "bandit",
+        "loot": [
+          {
+            "chance": 0.6,
+            "item": "tensura:bronze_coin",
+            "max": 3,
+            "min": 1
+          },
+          {
+            "chance": 0.4,
+            "item": "minecraft:bread",
+            "max": 2,
+            "min": 1
+          },
+          {
+            "chance": 0.25,
+            "item": "minecraft:leather",
+            "max": 1,
+            "min": 1
+          }
+        ],
+        "main": "minecraft:iron_axe",
+        "model": "humanoid",
+        "name": "Bandit",
+        "plural": "bandits",
+        "speed": 0.28
+      },
+      {
+        "armor": 2,
+        "damage": 2,
+        "health": 22,
+        "id": "highwayman",
+        "lines": [
+          "Stand and deliver!",
+          "Empty your purse, traveller.",
+          "You should have taken the long way round."
+        ],
+        "look": "highwayman",
+        "loot": [
+          {
+            "chance": 0.7,
+            "item": "tensura:bronze_coin",
+            "max": 4,
+            "min": 1
+          },
+          {
+            "chance": 0.5,
+            "item": "minecraft:arrow",
+            "max": 6,
+            "min": 2
+          }
+        ],
+        "main": "minecraft:bow",
+        "model": "humanoid",
+        "name": "Highwayman",
+        "plural": "highwaymen",
+        "ranged": true,
+        "speed": 0.29
+      },
+      {
+        "armor": 6,
+        "damage": 2,
+        "health": 30,
+        "id": "deserter",
+        "lines": [
+          "Falmuth sent you? Then Falmuth can bury you.",
+          "We are done dying for a king.",
+          "No witnesses."
+        ],
+        "look": "deserter",
+        "loot": [
+          {
+            "chance": 0.6,
+            "item": "tensura:bronze_coin",
+            "max": 4,
+            "min": 2
+          },
+          {
+            "chance": 0.5,
+            "item": "minecraft:iron_nugget",
+            "max": 6,
+            "min": 2
+          }
+        ],
+        "main": "minecraft:iron_sword",
+        "model": "humanoid",
+        "name": "Falmuth Deserter",
+        "off": "minecraft:shield",
+        "plural": "Falmuth deserters",
+        "speed": 0.26
+      },
+      {
+        "armor": 4,
+        "damage": 3,
+        "health": 32,
+        "id": "rogue_adventurer",
+        "lines": [
+          "The Guild struck my name. I keep the bounty for myself now.",
+          "Another rookie with a full pack.",
+          "Nothing personal."
+        ],
+        "look": "rogue_adventurer",
+        "loot": [
+          {
+            "chance": 0.3,
+            "item": "tensura:silver_coin",
+            "max": 1,
+            "min": 1
+          },
+          {
+            "chance": 0.5,
+            "item": "minecraft:cooked_beef",
+            "max": 2,
+            "min": 1
+          }
+        ],
+        "main": "tensura:iron_short_sword",
+        "model": "humanoid",
+        "name": "Rogue Adventurer",
+        "plural": "rogue adventurers",
+        "speed": 0.31
+      }
+    ],
+    "camp": [
+      {
+        "count": 4,
+        "faction": "dwargon",
+        "group": "dwarven_road",
+        "id": "dwarven_road_south",
+        "mix": {
+          "bandit": 3,
+          "highwayman": 1
+        },
+        "radius": 10,
+        "regen_minutes": 8,
+        "title": "bandit camp south of the Dwarven Road's bend",
+        "x": 1818,
+        "z": 420
+      },
+      {
+        "count": 3,
+        "faction": "dwargon",
+        "group": "dwarven_road",
+        "id": "dwarven_road_north",
+        "mix": {
+          "bandit": 1
+        },
+        "radius": 10,
+        "regen_minutes": 8,
+        "title": "bandit camp north of the Dwarven Road's bend",
+        "x": 1800,
+        "z": 170
+      },
+      {
+        "count": 3,
+        "faction": "blumund",
+        "group": "blumund_road",
+        "id": "blumund_road_east",
+        "mix": {
+          "bandit": 1,
+          "highwayman": 2
+        },
+        "radius": 10,
+        "regen_minutes": 8,
+        "title": "highwaymen's hide on the Blumund road",
+        "x": 700,
+        "z": 548
+      },
+      {
+        "count": 3,
+        "faction": "blumund",
+        "group": "blumund_road",
+        "id": "blumund_road_west",
+        "mix": {
+          "bandit": 1,
+          "highwayman": 1
+        },
+        "radius": 10,
+        "regen_minutes": 8,
+        "title": "highwaymen's hide near Blumund's border",
+        "x": 60,
+        "z": 330
+      },
+      {
+        "count": 4,
+        "faction": "falmuth",
+        "group": "falmuth_border",
+        "id": "falmuth_border_road",
+        "mix": {
+          "deserter": 1
+        },
+        "radius": 12,
+        "regen_minutes": 10,
+        "title": "deserters' camp on the Falmuth border",
+        "x": -2050,
+        "z": -860
+      },
+      {
+        "count": 3,
+        "faction": "falmuth",
+        "group": "falmuth_border",
+        "id": "falmuth_border_woods",
+        "mix": {
+          "deserter": 1
+        },
+        "radius": 10,
+        "regen_minutes": 10,
+        "title": "deserters' hollow on the Falmuth border",
+        "x": -2160,
+        "z": -960
+      },
+      {
+        "count": 3,
+        "faction": "tempest",
+        "group": "wilds",
+        "id": "jura_rogues",
+        "mix": {
+          "rogue_adventurer": 1
+        },
+        "radius": 10,
+        "regen_minutes": 12,
+        "title": "rogue adventurers' camp in Jura's west woods",
+        "x": 1100,
+        "z": 420
+      },
+      {
+        "count": 3,
+        "group": "wilds",
+        "id": "englassia_rogues",
+        "mix": {
+          "bandit": 1,
+          "rogue_adventurer": 2
+        },
+        "radius": 10,
+        "regen_minutes": 12,
+        "title": "rogue adventurers' camp east of Englassia",
+        "x": -1750,
+        "z": -160
+      }
+    ],
+    "group": {
+      "blumund_road": {
+        "title": "outlaws on the Blumund road"
+      },
+      "dwarven_road": {
+        "title": "outlaws on the Dwarven Road"
+      },
+      "falmuth_border": {
+        "title": "outlaws on the Falmuth border"
+      },
+      "wilds": {
+        "title": "outlaws in the wilds"
+      }
+    },
+    "peaceful": {
+      "tags": [
+        "ttl_tempest_resident",
+        "ttl.side.client",
+        "ttl.adv"
+      ],
+      "types": [
+        "tensura:dwarf"
+      ]
+    },
+    "presets": {
+      "bandit": [
+        "ttl_enemy_bandit_1",
+        "ttl_enemy_bandit_2",
+        "ttl_enemy_bandit_3"
+      ],
+      "deserter": [
+        "ttl_enemy_deserter_1",
+        "ttl_enemy_deserter_2",
+        "ttl_enemy_deserter_3"
+      ],
+      "highwayman": [
+        "ttl_enemy_highwayman_1",
+        "ttl_enemy_highwayman_2"
+      ],
+      "rogue_adventurer": [
+        "ttl_enemy_rogue_adventurer_1",
+        "ttl_enemy_rogue_adventurer_2"
+      ]
+    },
+    "settings": {
+      "anchor_margin": 160,
+      "check_ticks": 100,
+      "credit_seconds": 15,
+      "domain_margin": 64,
+      "leash": 40,
+      "max_total": 24,
+      "min_player_distance": 20,
+      "rev": 1,
+      "road": "enemies.slay",
+      "sleep_checks": 6,
+      "sleep_radius": 112,
+      "spawn_per_check": 2,
+      "wake_radius": 72,
+      "zone_margin": 32
     }
   },
   "events": {
@@ -6568,6 +7006,7 @@ const TtlData = {
         "ttl.boss",
         "ttl.arena.mob"
       ],
+      "guard_leash": 16,
       "guard_radius": 16,
       "rev": 2
     }
@@ -7578,6 +8017,22 @@ const TtlData = {
         },
         "id": "artifice.possess",
         "label": "Let a daemon possess a golem"
+      },
+      {
+        "dark": {
+          "balance": "dark_deed",
+          "chaos": 3,
+          "renown": -1,
+          "story": "A soul in {region} has cut down people who meant it no harm."
+        },
+        "fair": "good",
+        "good": {
+          "balance": "light_deed",
+          "order": 1,
+          "victim": 1
+        },
+        "id": "enemies.slay",
+        "label": "Who you put to the sword"
       }
     ],
     "defaults": {

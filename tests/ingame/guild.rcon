@@ -51,11 +51,33 @@ execute as TtlBotGuildA run ttl guild turnin
 ttl guild expect TtlBotGuildA done 2
 ttl guild expect TtlBotGuildA points 2
 ttl guild expect TtlBotGuildA balance 50
+# A region-bound kill bounty (jura_direwolves, region tempest = canon J): kills count only while the soul is in Jura.
+# guild.js regionOf compared the faction TABLE with the id until PR #80, so no region-bound kill ever counted.
+ttl guild post jura_direwolves
+execute as TtlBotGuildA run ttl guild take jura_direwolves
+scoreboard players add TtlBotGuildA ttl.g.tensura_direwolf 2
+ttl guild sample TtlBotGuildA
+ttl guild expect TtlBotGuildA got_jura_direwolves 2
+# In Blumund's region (R) three more kills do not count.
+tp TtlBotGuildA -300 200 150
+scoreboard players add TtlBotGuildA ttl.g.tensura_direwolf 3
+ttl guild sample TtlBotGuildA
+ttl guild expect TtlBotGuildA got_jura_direwolves 2
+ttl guild expect TtlBotGuildA ready_jura_direwolves false
+execute in minecraft:overworld positioned ${anchor:tempest.x+100} 0 ${anchor:tempest.z+100} positioned over motion_blocking_no_leaves run tp TtlBotGuildA ~ ~ ~
+scoreboard players add TtlBotGuildA ttl.g.tensura_direwolf 3
+ttl guild sample TtlBotGuildA
+ttl guild expect TtlBotGuildA got_jura_direwolves 5
+ttl guild expect TtlBotGuildA ready_jura_direwolves true
+execute as TtlBotGuildA run ttl guild turnin
+ttl guild expect TtlBotGuildA done 3
+ttl guild expect TtlBotGuildA points 4
+ttl guild expect TtlBotGuildA balance 100
 # Sinks: a fee is charged from the carried coins and the change comes back; a poor player is refused.
 ttl econ expect TtlBotGuildA fee_charter 5000
-ttl econ expect TtlBotGuildA can_50 true
-ttl econ expect TtlBotGuildA can_51 false
-ttl econ take TtlBotGuildA 25
+ttl econ expect TtlBotGuildA can_100 true
+ttl econ expect TtlBotGuildA can_101 false
+ttl econ take TtlBotGuildA 75
 ttl econ expect TtlBotGuildA balance 25
 ttl econ give TtlBotGuildA 5
 ttl econ expect TtlBotGuildA balance 30

@@ -26,6 +26,11 @@ melee, fights what attacks it or its owner; owner and FOLLOW_OWNER are set by si
 and per [[client]] (ttl_client_<id>: an escort client, vulnerable; FOLLOW_PLAYER is set by sidequests/side.js). `--spots`
 also checks the build-, Tempest- and Dwargon-anchored [[place]] homes and inns of that file.
 
+Enemies (design/data/enemies.toml, world/enemies.js): one preset per archetype and fitting look variant
+(ttl_enemy_<archetype>_<n>: vulnerable, attacks souls and whatever hurts it, strolls round the spot it was imported at, hands
+from the archetype, drop chance 0, attackable by players and monsters (EntityAttribute), DeathLootTable ttl:entities/enemy_<archetype>) and that loot table
+(pack/kubejs/data/ttl/loot_table/entities/enemy_<archetype>.json: only when a soul made the kill).
+
 Usage: gen_npcs.py           write the presets
        gen_npcs.py --check   exit 1 if a preset is stale (used by validate.py)
        gen_npcs.py --spots   also check every spot against the structure files of its build (slow: reads the .nbt files):
@@ -400,6 +405,88 @@ def render_side() -> dict:
     return out
 
 
+LOOT = ROOT / "pack" / "kubejs" / "data" / "ttl" / "loot_table" / "entities"
+
+
+def enemy_preset(a: dict, n: int, base: str) -> str:
+    """A hostile Easy NPC of enemies.toml: melee (or bow) against souls and anyone who hurts it, never invulnerable."""
+    model = a.get("model", "humanoid")
+    attack = {"SpeedModifier": Raw("1.0d"), "Type": "BOW_ATTACK" if a.get("ranged") else "MELEE_ATTACK"}
+    objectives = [{"Type": "FLOAT"}, attack, {"Type": "HURT_BY_TARGET"}, {"Type": "ATTACK_PLAYER"},
+                  {"SpeedModifier": Raw("0.6d"), "Type": "MOVE_BACK_TO_HOME"},
+                  {"SpeedModifier": Raw("0.5d"), "Type": "RANDOM_STROLL_AROUND_HOME"},
+                  {"Type": "LOOK_AT_PLAYER"}, {"Type": "LOOK_RANDOM_AROUND"}]
+    role = {"main": a["main"], "off": a.get("off", "")}
+    custom_name = json.dumps({"color": "#C0392B", "text": a["name"]}, separators=(",", ":"))
+    # Easy NPC keeps players' blows off every NPC unless EntityAttribute IsAttackableByPlayers (its shipped
+    # trainings_dummy preset has the format); a right-click shows a line instead of Easy NPC's default dialog and trade.
+    events = {"ON_HURT": [message(a["lines"], 20)], "ON_INTERACTION": [message(a["lines"], None)]}
+    data = {
+        "ActionData": {"ActionEventSet": events},
+        "ArmorDropChances": Raw("[0.0f,0.0f,0.0f,0.0f]"),
+        "CustomName": Raw("'" + custom_name.replace("'", "\'") + "'"),
+        "CustomNameVisible": True,
+        "DeathLootTable": f"ttl:entities/enemy_{a['id']}",
+        "EasyNPCVersion": 3,
+        "EntityAttribute": {"IsAttackableByMonsters": True, "IsAttackableByPlayers": True, "IsInvulnerable": False},
+        "HandDropChances": Raw("[0.0f,0.0f]"),
+        "HandItems": npc_gear_check.hand_items(role),
+        "Invulnerable": False,
+        "ObjectiveData": {"ObjectiveDataSet": objectives},
+        "PersistenceRequired": True,
+        "PresetUUID": preset_uuid(f"enemy:{a['id']}:{n}"),
+        "SkinData": {"Texture": npc_looks.texture(a["look"], n), "Type": "RESOURCE_LOCATION"},
+        "VariantType": "STEVE" if model == "humanoid" else "ALEX",
+        "id": "easy_npc:" + model,
+    }
+    meta = {
+        "access": "PUBLIC",
+        "author": "OCS Two Lives",
+        "category": "Enemy",
+        "created": Raw("1790000000000L"),
+        "description": f"enemy: {a['name']} (design/data/enemies.toml), look {a['look']} #{n}",
+        "entityTypeId": data["id"],
+        "modified": Raw("1790000000000L"),
+        "name": a["name"],
+        "variantType": data["VariantType"],
+        "version": "1.0.0",
+    }
+    return snbt({"PresetMetadata": meta, "data": data}) + "\n"
+
+
+def loot_table(a: dict) -> str:
+    """The archetype's loot: one pool per entry, only for a kill by a soul (a guard's kill drops nothing)."""
+    pools = []
+    for e in a.get("loot", []):
+        count = e["min"] if e["min"] == e["max"] else {"type": "minecraft:uniform", "min": e["min"], "max": e["max"]}
+        pools.append({
+            "conditions": [{"condition": "minecraft:killed_by_player"},
+                           {"chance": e["chance"], "condition": "minecraft:random_chance"}],
+            "entries": [{"functions": [{"count": count, "function": "minecraft:set_count"}], "name": e["item"],
+                         "type": "minecraft:item"}],
+            "rolls": 1,
+        })
+    return json.dumps({"pools": pools, "type": "minecraft:entity"}, indent=2) + "\n"
+
+
+def render_enemies() -> dict:
+    path = DATA / "enemies.toml"
+    if not path.is_file():
+        return {}
+    import enemies_check  # noqa: E402 (tools/ is on sys.path above)
+    en = tomllib.loads(path.read_text(encoding="utf-8"))
+    out = {}
+    for a, n, base in enemies_check.presets(en):
+        rl = npc_looks.texture(a["look"], n)
+        ns, rel = rl.split(":", 1)
+        if ns == "ttl" and not (ASSETS / ns / rel).is_file():
+            raise SystemExit(f"enemies.toml: {a['id']}: look {a['look']} #{n} has no {rl}: run python tools/gen_npc_looks.py")
+        out[TARGET / f"{base}.npc.snbt"] = enemy_preset(a, n, base)
+    for a in en.get("archetype", []):
+        out[LOOT / f"enemy_{a['id']}.json"] = loot_table(a)
+    return out
+
+
 def check_places() -> list:
     """Homes and inns of sidequests.toml places anchored to a build, Tempest or Dwargon: solid floor, two free blocks."""
     path = DATA / "sidequests.toml"
@@ -608,13 +695,15 @@ def render() -> dict:
         else:
             out[TARGET / f"{npcs['settings']['preset_prefix']}{k['id']}.npc.snbt"] = build(k, eco["guild"])
     out.update(render_side())
+    out.update(render_enemies())
     return out
 
 
 def stale_files(files: dict) -> list:
     """Presets that are missing or differ, and generated presets of kinds that no longer exist."""
     stale = [p for p, text in files.items() if not p.exists() or p.read_text(encoding="utf-8") != text]
-    ours = [p for p in TARGET.glob("*.npc.snbt") if p.name.startswith(("ttl_guild_", "ttl_cast_") + tuple(SIDE_PREFIXES.values()))] if TARGET.is_dir() else []
+    ours = [p for p in TARGET.glob("*.npc.snbt") if p.name.startswith(("ttl_guild_", "ttl_cast_", "ttl_enemy_") + tuple(SIDE_PREFIXES.values()))] if TARGET.is_dir() else []
+    ours += list(LOOT.glob("enemy_*.json")) if LOOT.is_dir() else []
     return stale + [p for p in ours if p not in files]
 
 
@@ -634,6 +723,7 @@ def main() -> None:
             print(f"FAIL {p.relative_to(ROOT)} is stale: run python tools/gen_npcs.py")
         sys.exit(1 if stale or problems else 0)
     TARGET.mkdir(parents=True, exist_ok=True)
+    LOOT.mkdir(parents=True, exist_ok=True)
     for p in stale_files(files):
         if p not in files:
             p.unlink()

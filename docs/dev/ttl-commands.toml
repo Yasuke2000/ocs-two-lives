@@ -342,6 +342,29 @@ subs = [
   ["expect", "test", "Assert a resident's or test NPC's main or offhand item, or that nothing with a tag is alive."],
 ]
 
+[enemies]
+group = "world"
+who = "staff"
+does = "The enemies of the roads (design/data/enemies.toml): bandit, highwayman, deserter and rogue-adventurer camps that wake near Life 2 souls."
+subs = [
+  ["list", "staff", "Every camp: members, stock and regrowth, kills, the nearest soul, asleep or not."],
+  ["check", "staff", "Run the camp pass now (wake, top up, sleep, leash)."],
+  ["spawn", "staff", "Wake a camp now and spawn up to n members, ignoring the distance rules."],
+  ["sleep", "staff", "Put a camp to sleep: its living members are removed (no loot, no credit)."],
+  ["testspawn", "test", "Spawn one enemy of an archetype at a position, tagged as a test enemy (no camp)."],
+  ["clear", "staff", "Remove the enemies of one camp, the test enemies or all of them."],
+  ["reset", "staff", "Give a camp its full stock back and forget its members."],
+  ["expect", "test", "Assert a camp's alive, stock, kills or members count, whether a spot may hold an enemy, or who killed the last one."],
+]
+
+[npcprotect]
+group = "world"
+who = "staff"
+does = "The shield of the friendly NPCs: an invulnerable NPC with a ttl tag takes no damage except /kill, not even Tensura's Severance."
+subs = [
+  ["expect", "test", "Assert that the NPC with a tag is protected or open."],
+]
+
 [events]
 group = "world"
 who = "staff"

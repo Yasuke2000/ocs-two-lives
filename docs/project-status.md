@@ -90,6 +90,11 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
   dark lanes (Crossroads, The King's Test, the Orc War, Charybdis, Mask and Blade, Walpurgis, the Harvest Festival);
   side chapters 20–23 (47 side jobs: escort, delivery, travel, fetch, cull); 398 quests total in one connected web.
 - Side content: ambient adventurers in the towns, hireable Easy NPC companions. Generic NPCs wear Tensura looks (guild ranks, merchants, dwarves, Church, knights, goblins and more; 50 original skins, `tools/gen_npc_looks.py`, contact sheet `docs/previews/npc_skins.png`) instead of Easy NPC's default skins. They carry weapons by role and defend themselves: Tempest's guards fight monsters near their posts, adventurers fight, merchants and civilians flee (`design/data/npc_gear.toml`).
+- Enemies of the roads (20/11): killable bandits, highwaymen, Falmuth deserters and rogue adventurers in 8 camps that wake
+  only near a Life 2 soul (cap 24, stock that grows back, no spawns in towns or spawn zones), guild kill bounties on them
+  (`ttl:<archetype|group>` targets), the good/dark road `enemies.slay` (outlaw vs peaceful kills), guards that fight them;
+  friendly NPCs are shielded from Tensura's invulnerability-piercing skills (`design/data/enemies.toml`, `world/enemies.js`,
+  `world/npc_protect.js`, test `enemies`).
 - Player paths (`/ttl paths`): the two roads (slow good, fast dark, Life 2 karma ledger), the Necromancer (Bone Altar,
   legion, Death Knights, player-built tombs, four ranks, the Church's Sense and the exorcist licence), the Artificer
   (Workshop Bench, charter, maker's stamp, commissions, four ranks), moral-choice scenes (4 events).

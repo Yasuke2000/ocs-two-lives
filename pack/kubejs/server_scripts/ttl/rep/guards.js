@@ -10,6 +10,10 @@
 // knows WHO struck the NPC, so it is tried first; if it does not fire for an Easy NPC in your test, give the NPC's own
 // on-death action the command `/ttl rep add <killer> <faction> -15` (ops command, runs as the server).
 //
+// Peaceful NPCs (design/data/enemies.toml [peaceful]): a Life 2 soul that kills one also takes the dark road `enemies.slay`
+// of roads.toml (karma ledger chaos, a dark deed, renown when witnessed); killing an enemy of the roads is the good road
+// (world/enemies.js).
+//
 // Guards: an entity tagged `ttl.guard.<faction>` within `reach` blocks of a Life 2 player whose band with that faction
 // is rules.guard_attack_at or worse is aimed at the player. Easy NPC guards need their own attack setup for the hit
 // itself (their attack/dialog settings); this only gives them the target. Verify in game: Mob.setTarget on an Easy NPC.
@@ -40,6 +44,25 @@ const TtlRepGuards = {
     return null
   },
 
+  // A peaceful NPC (enemies.toml [peaceful]: its tags, any faction's npc_tags, its types), never an enemy of the roads.
+  peaceful(victim) {
+    var tags = this.tags(victim)
+    if (tags.indexOf('ttl.enemy') >= 0) return false
+    var p = (TtlData.enemies && TtlData.enemies.peaceful) || {}
+    if ((p.tags || []).some(t => tags.indexOf(String(t)) >= 0)) return true
+    if ((p.types || []).some(t => String(t) === String(victim.type))) return true
+    return TtlRep.list().some(f => (f.npc_tags || []).some(t => tags.indexOf(String(t)) >= 0))
+  },
+
+  // The dark road of enemies.toml `road` (karma ledger chaos, a dark deed, renown when witnessed): the soul cut down
+  // someone who meant it no harm.
+  darkDeed(server, killer, victim) {
+    if (typeof TtlRoads === 'undefined' || !TtlData.enemies) return
+    var road = String((TtlData.enemies.settings || {}).road || 'enemies.slay')
+    TtlRoads.pay(server, killer, { id: road, road: 'dark', reason: `killed ${String(victim.type)}`,
+      dim: TtlLife.dimensionOf(victim), pos: { x: victim.x, y: victim.y, z: victim.z } })
+  },
+
   onDeath(event) {
     var victim = event.entity
     var killer = null
@@ -50,6 +73,13 @@ const TtlRepGuards = {
     }
     if (!killer || !killer.isPlayer() || killer === victim) return
     if (TtlLife.phase(killer) !== 'life2') return
+    if (!victim.isPlayer() && this.peaceful(victim)) {
+      try {
+        this.darkDeed(event.server, killer, victim)
+      } catch (e) {
+        console.error(`[ttl] rep: dark road for ${killer.username} failed: ${e}`)
+      }
+    }
     // R11: no kill penalty outside the canon continent.
     try { if (typeof TtlWorld !== 'undefined' && !TtlWorld.onContinent(TtlLife.dimensionOf(victim), victim.x, victim.z)) return } catch (e) { console.error(`[ttl] rep: continent test failed, the penalty applies: ${e}`) }
     var fac = null

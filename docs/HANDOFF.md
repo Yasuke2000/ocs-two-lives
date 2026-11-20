@@ -1,5 +1,22 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — bounty boards, NPCs and guards audit; killable enemies of the roads (branch `bounties-npcs-enemies`, Claude, for Yasuke)
+
+Yasuke: "Also check the bounty boards, NPCs and the guards; add killable NPCs as well." **Audit fixes**: Tensura's Severance,
+Disintegration, Death Wish, ... are in `minecraft:bypasses_invulnerability`, so the "invulnerable" named residents and
+statues could be killed by a soul (proved locally on an invulnerable husk): `world/npc_protect.js` shields `ttl.npc`,
+`ttl.adv` and the invulnerable residents from everything but /kill; guards now also fight the enemies, never tames, owned
+mobs or other NPCs, and walk back to a post they strayed 16+ from (`npc_gear.toml guard_leash`); `fz_ravager_herd` retired
+(ravagers need a raid, none on Lerfing's map); a region-bound bounty (`jura_direwolves`) so PR #80's fix is tested in game
+(`guild.rcon`); `ttl cast verify` also checks the ground (no wall, water, floating) and the skin. **New**: enemies of the
+roads (`design/data/enemies.toml`, `world/enemies.js`, decision row 20/11 "Killable NPCs"), 8 camps, bounty targets
+`ttl:<archetype|group>`, the road `enemies.slay` (good for outlaws, dark for peaceful kills), test `enemies`.
+**Verified locally**: see the PR. **Not done**: orc raiders (no orc look in the skin generator); a Tensura skill that eats
+an entity whole (Predator) is not a damage event and is not shielded; `docs/dev/ttl-commands.md` is not regenerated (main's
+toml already misses rows for bedspawn, drops, spawns, ...; the enemies and npcprotect rows are in the toml).
+**On staging after the deploy**: `ttl enemies list` (all camps asleep, stock full), then walk a Life 2 soul to the Dwarven
+Road camp (1818, 420): bandits appear at ~70 blocks, `[ttl] enemies: <name> killed bandit of dwarven_road_south` on a kill.
+
 ## 20/11 — deploy gate and tests independent of real players (branch `test-isolation-gate`, Claude, for Yasuke)
 
 Staging failed `registry` (real holders of berserker/gluttony/great_sage counted against the bots) and `arena_dwarven`

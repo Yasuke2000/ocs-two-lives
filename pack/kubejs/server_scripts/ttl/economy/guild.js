@@ -13,6 +13,9 @@
 //            guild.poll_ticks (EntityEvents.death is unreliable for mobs here): the growth since the last sample counts
 //            (only while the player is in the bounty's `region`, when it has one). Visits count within guild.visit_radius
 //            blocks of the landmark (its placed position from `ttl.landmark.<name>.at`, else the planned x/z).
+//            A target `ttl:<archetype>` or `ttl:<group>` (design/data/enemies.toml) is a dummy objective of the same name
+//            that world/enemies.js adds 1 to for every credited kill of such an enemy (an Easy NPC has no kill statistic of
+//            its own: every humanoid Easy NPC is the same entity type).
 //            Deliveries are checked and taken from the inventory at hand-in.
 //   Rewards  coins (TtlEcon.pay) + reputation (TtlRep.add, only when the reputation package is loaded) + guild points.
 //
@@ -113,7 +116,22 @@ const TtlGuild = {
     return path.split('_').map(w => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w)).join(' ')
   },
 
+  // An enemies.toml target (ttl:<archetype> or ttl:<group>), or null.
+  enemyLabel(target) {
+    var m = /^ttl:([a-z0-9_]+)$/.exec(String(target))
+    var en = TtlData.enemies
+    if (!m || !en) return null
+    var arch = en.archetype || []
+    for (var i = 0; i < arch.length; i++) {
+      if (String(arch[i].id) === m[1]) return String(arch[i].plural)
+    }
+    var g = (en.group || {})[m[1]]
+    return g ? String(g.title) : null
+  },
+
   what(b) {
+    var enemy = b.kind === 'kill' ? this.enemyLabel(b.target) : null
+    if (enemy) return `Kill ${b.count} ${enemy}`
     if (b.kind === 'kill') return `Kill ${b.count} ${this.pretty(b.target)}`
     if (b.kind === 'deliver') return `Deliver ${b.count} ${this.pretty(b.target)}`
     return `Visit the ${this.pretty(b.target)}`
@@ -131,6 +149,7 @@ const TtlGuild = {
   },
 
   criterion(target) {
+    if (/^ttl:/.test(String(target))) return 'dummy'
     return 'minecraft.killed:' + String(target).replace(':', '.')
   },
 

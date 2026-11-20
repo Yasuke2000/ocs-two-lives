@@ -19,7 +19,7 @@ At Hostile, faction guards can target you. Dwargon's score feeds Tensura's own d
 
 ## Change your standing
 
-Your starting race and Life 1 deeds can count in different places. For instance, Dwargon values dwarves and craftsmanship. After rebirth, guild contracts show which faction rewards them. Story choices can help one side while alienating another. If you kill a protected faction NPC, you lose standing with its faction. Killing another Life 2 player on a faction's territory can cost local standing too. A wild enemy's species alone does not make it a protected citizen.
+Your starting race and Life 1 deeds can count in different places. For instance, Dwargon values dwarves and craftsmanship. After rebirth, guild contracts show which faction rewards them. Story choices can help one side while alienating another. If you kill a protected faction NPC, you lose standing with its faction. Killing another Life 2 player on a faction's territory can cost local standing too. A wild enemy's species alone does not make it a protected citizen. Killing a peaceful townsperson also weighs on your soul for the next Life 1; killing an outlaw of the roads (bandits, highwaymen, deserters, rogue adventurers) does the opposite and earns a little standing with the nation whose road it robbed.
 
 For a peaceful route, stand in the Tensura overworld, run `/ttl merit works mark` and place qualifying infrastructure there. Stone bricks, lanterns and oak fences are examples. Check your total with `/ttl merit`. The current award is one point of local reputation per 100 merit where a faction exists, subject to weekly caps (may change).
 

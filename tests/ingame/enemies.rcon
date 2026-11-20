@@ -1,0 +1,117 @@
+# The enemies of the roads and the protected NPCs (world/enemies.js, world/npc_protect.js, rep/guards.js, design/data/enemies.toml).
+# Every `ttl ... expect` prints "ttl: ..." when it does not hold; `execute if|unless` prints "Test failed".
+# Checked: a bandit camp on the Dwarven Road wakes for a Life 2 soul and spawns its bandits (never in Tempest's domain or
+# spawn zone); a soul's kill counts for the guild bounty "Bandits on the Dwarven Road", pays the bounty (6 silver, rep)
+# and the good road (karma order, rep with Dwargon); the bandit drops no axe; the camp's stock drops; a Tempest guard kills
+# a bandit at its post; Severance (a Tensura damage type that passes vanilla invulnerability) does not kill Rigur or an
+# adventurer; killing a peaceful resident takes the dark road (chaos) and costs Tempest reputation; a camp nobody is near
+# goes to sleep and its bandits are removed.
+# Needs Tempest placed (life/tempest.js) at the `tempest` anchor, like npc_defend.rcon (goblin_3 at (23, -29), Rigur).
+# Expect in the log: "[ttl] enemies: TtlBotEnemyA killed bandit of dwarven_road_south", "[ttl] roads: TtlBotEnemyA took
+# enemies.slay good", "... took enemies.slay dark".
+ttlbot spawn TtlBotEnemyA
+@sleep 2
+ttl guild test TtlBotEnemyA life2
+ttl guild reset TtlBotEnemyA
+ttl guild test TtlBotEnemyA points_10
+ttl roads test TtlBotEnemyA reset
+ttl roads test TtlBotEnemyA life2
+ttl rep set TtlBotEnemyA dwargon 0
+ttl rep set TtlBotEnemyA tempest 0
+clear TtlBotEnemyA
+ttl enemies clear test
+ttl enemies reset dwarven_road_south
+# Spot rules: never inside Tempest (domain, safe square, spawn zone), open ground at the camp is allowed.
+ttl enemies expect spot ${anchor:tempest.x} ${anchor:tempest.z} refused
+ttl enemies expect spot ${anchor:tempest.x} ${anchor:tempest.z-300} refused
+execute in minecraft:overworld run forceload add 1790 390 1870 450
+@sleep 3
+ttl enemies expect spot 1818 420 ok
+# The camp wakes for a Life 2 soul within wake_radius (72) and spawns at most spawn_per_check (2) a check.
+execute in minecraft:overworld positioned 1868 0 420 positioned over motion_blocking_no_leaves run tp TtlBotEnemyA ~ ~ ~
+effect give TtlBotEnemyA minecraft:resistance 900 4 true
+ttl enemies check
+@until 20 ttl enemies expect alive dwarven_road_south >=2
+ttl enemies expect members dwarven_road_south >=2
+# The bounty: accepted, one bandit really killed by the soul, four more on the objective, handed in.
+ttl guild post bandits_dwarven_road
+execute as TtlBotEnemyA run ttl guild take bandits_dwarven_road
+ttl guild expect TtlBotEnemyA accepted_bandits_dwarven_road true
+execute in minecraft:overworld run kill @e[type=minecraft:item,x=1790,y=-64,z=390,dx=80,dy=400,dz=60]
+damage @e[tag=ttl.camp.dwarven_road_south,limit=1] 1000 minecraft:player_attack by TtlBotEnemyA
+@sleep 1
+ttl guild sample TtlBotEnemyA
+ttl guild expect TtlBotEnemyA got_bandits_dwarven_road 1
+ttl enemies expect kills dwarven_road_south 1
+ttl enemies expect stock dwarven_road_south 3
+ttl enemies expect killedby player
+ttl roads expect TtlBotEnemyA count_enemies.slay.good 1
+ttl roads expect TtlBotEnemyA order2 1
+ttl rep expect TtlBotEnemyA dwargon value 1
+execute in minecraft:overworld unless entity @e[type=minecraft:item,x=1790,y=-64,z=390,dx=80,dy=400,dz=60,nbt={Item:{id:"minecraft:iron_axe"}}]
+execute in minecraft:overworld unless entity @e[type=minecraft:item,x=1790,y=-64,z=390,dx=80,dy=400,dz=60,nbt={Item:{id:"minecraft:bow"}}]
+scoreboard players add TtlBotEnemyA ttl.g.ttl_dwarven_road 4
+ttl guild sample TtlBotEnemyA
+ttl guild expect TtlBotEnemyA ready_bandits_dwarven_road true
+execute as TtlBotEnemyA run ttl guild turnin
+ttl guild expect TtlBotEnemyA done 1
+ttl guild expect TtlBotEnemyA balance 60
+ttl rep expect TtlBotEnemyA dwargon value 2
+# A camp with no soul within sleep_radius (112) for sleep_checks (6) checks sleeps: its bandits are removed, no credit.
+tp TtlBotEnemyA 1818 200 700
+ttl enemies check
+ttl enemies check
+ttl enemies check
+ttl enemies check
+ttl enemies check
+ttl enemies check
+ttl enemies expect alive dwarven_road_south 0
+ttl enemies expect members dwarven_road_south 0
+ttl enemies expect kills dwarven_road_south 1
+execute in minecraft:overworld run forceload remove 1790 390 1870 450
+# Tempest: the guards and the protected residents.
+execute in minecraft:overworld run forceload add ${anchor:tempest.x-16} ${anchor:tempest.z-48} ${anchor:tempest.x+47} ${anchor:tempest.z}
+@sleep 3
+ttl domain testdelay 0
+ttl domain respawn
+ttl domain respawn
+ttl npcgear refresh
+execute in minecraft:overworld positioned ${anchor:tempest.x} 0 ${anchor:tempest.z+60} positioned over motion_blocking_no_leaves run tp TtlBotEnemyA ~ ~ ~
+# A guard fights a bandit at its post (goblin_3's) and the bandit dies by a resident's hand.
+execute in minecraft:overworld positioned ${anchor:tempest.x+23} 0 ${anchor:tempest.z-29} positioned over motion_blocking_no_leaves run ttl enemies testspawn bandit ~ ~ ~
+ttl enemies expect alive test 1
+ttl npcgear guards
+@until 40 ttl enemies expect alive test 0
+ttl enemies expect killedby resident
+# Severance passes vanilla invulnerability: the shield keeps Rigur and an adventurer alive (a /kill still works).
+ttl npcprotect expect ttl.resident.rigur protected
+ttl npcprotect expect ttl.resident.goblin_3 open
+damage @e[tag=ttl.resident.rigur,limit=1] 1000 tensura:severance by TtlBotEnemyA
+execute if entity @e[tag=ttl.resident.rigur]
+ttl npcgear testclear
+execute in minecraft:overworld positioned ${anchor:tempest.x} 0 ${anchor:tempest.z-7} positioned over motion_blocking_no_leaves run ttl npcgear testspawn veteran_knight ~ ~ ~
+ttl npcprotect expect ttl.test.gear.veteran_knight protected
+damage @e[tag=ttl.test.gear.veteran_knight,limit=1] 1000 tensura:severance by TtlBotEnemyA
+execute if entity @e[tag=ttl.test.gear.veteran_knight]
+ttl npcgear testclear
+# Killing a peaceful resident: the dark road (chaos 3) and Tempest's kill_penalty (15).
+ttl rep set TtlBotEnemyA tempest 0
+damage @e[tag=ttl.resident.goblin_3,limit=1] 1000 minecraft:player_attack by TtlBotEnemyA
+@sleep 1
+ttl roads expect TtlBotEnemyA count_enemies.slay.dark 1
+ttl roads expect TtlBotEnemyA chaos2 3
+ttl rep expect TtlBotEnemyA tempest value -15
+ttl domain respawn
+ttl domain respawn
+@until 20 ttl npcgear expect hand goblin_3 main tensura:iron_katana
+ttl domain testdelay reset
+# Clean up.
+ttl enemies clear test
+ttl enemies reset dwarven_road_south
+ttl guild reset TtlBotEnemyA
+ttl roads test TtlBotEnemyA reset
+ttl rep set TtlBotEnemyA dwargon 0
+ttl rep set TtlBotEnemyA tempest 0
+clear TtlBotEnemyA
+ttlbot remove TtlBotEnemyA
+execute in minecraft:overworld run forceload remove ${anchor:tempest.x-16} ${anchor:tempest.z-48} ${anchor:tempest.x+47} ${anchor:tempest.z}

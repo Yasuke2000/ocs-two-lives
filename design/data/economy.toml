@@ -97,7 +97,8 @@ points = 400
 #   title     shown on the board
 #   giver     desk (guild receptionists, the default when missing) | fuze (the guild master, ranks fuze_min_rank and up)
 #   kind      kill | deliver | visit
-#   target    kill: entity id · deliver: item id · visit: a landmark name from landmarks.toml
+#   target    kill: entity id, or ttl:<archetype> / ttl:<group> of enemies.toml (the enemies of the roads, credited by
+#             world/enemies.js) · deliver: item id · visit: a landmark name from landmarks.toml
 #   count     kills or items (1 for a visit)
 #   period    daily | weekly
 #   min_rank  guild rank needed to accept it
@@ -410,6 +411,75 @@ points = 6
 weight = 5
 reward = { coins = { gold = 2 }, rep = { blumund = 2 } }
 
+# The enemies of the roads (design/data/enemies.toml, world/enemies.js): target ttl:<archetype> counts that kind of enemy
+# anywhere, ttl:<group> every enemy of the camps of that group. Kills are credited to the soul that struck the blow.
+
+[[bounty]]
+id = "bandits_dwarven_road"
+title = "Bandits on the Dwarven Road"
+giver = "desk"
+kind = "kill"
+target = "ttl:dwarven_road"
+count = 5
+period = "daily"
+min_rank = "E"
+points = 2
+weight = 8
+reward = { coins = { silver = 6 }, rep = { dwargon = 1, tempest = 1 } }
+
+[[bounty]]
+id = "highwaymen_blumund_road"
+title = "Highwaymen on the Blumund Road"
+giver = "desk"
+kind = "kill"
+target = "ttl:blumund_road"
+count = 4
+period = "daily"
+min_rank = "E"
+points = 2
+weight = 8
+reward = { coins = { silver = 6 }, rep = { blumund = 2 } }
+
+[[bounty]]
+id = "jura_direwolves"
+title = "Direwolves in the Jura Forest"
+giver = "desk"
+kind = "kill"
+target = "tensura:direwolf"
+count = 5
+period = "daily"
+min_rank = "F"
+region = "tempest"
+points = 2
+weight = 6
+reward = { coins = { silver = 5 }, rep = { tempest = 1 } }
+
+[[bounty]]
+id = "week_deserters"
+title = "Deserters on the Falmuth Border"
+giver = "desk"
+kind = "kill"
+target = "ttl:deserter"
+count = 8
+period = "weekly"
+min_rank = "C"
+points = 6
+weight = 6
+reward = { coins = { gold = 2 }, rep = { falmuth = 2, blumund = 1 } }
+
+[[bounty]]
+id = "week_rogues"
+title = "Rogue Adventurers"
+giver = "desk"
+kind = "kill"
+target = "ttl:rogue_adventurer"
+count = 6
+period = "weekly"
+min_rank = "D"
+points = 5
+weight = 6
+reward = { coins = { gold = 1, silver = 5 }, rep = { blumund = 2 } }
+
 # Fuze's contracts (giver = "fuze"): weekly, rank B and up, named. Rewards are gold, a step above the desk's weekly
 # ones, because only the few who reached B (140 points) see them. If /ttl econ shows the faucet running hot,
 # lower these first.
@@ -482,6 +552,21 @@ weight = 6
 reward = { coins = { gold = 5 } }
 
 [[bounty]]
+id = "fz_deserter_captains"
+title = "Contract: The Deserter Captains"
+giver = "fuze"
+kind = "kill"
+target = "ttl:falmuth_border"
+count = 15
+period = "weekly"
+min_rank = "A"
+points = 12
+weight = 5
+reward = { coins = { gold = 5 }, rep = { falmuth = 3, blumund = 3 } }
+
+# Retired 20/11/2026 (weight 0): ravagers only come with a raid, and Lerfing's map has no villages for one; nobody on
+# staging had killed a ravager. "Contract: The Deserter Captains" below takes its place on Fuze's board.
+[[bounty]]
 id = "fz_ravager_herd"
 title = "Contract: Break the Ravager Herd"
 giver = "fuze"
@@ -491,7 +576,7 @@ count = 6
 period = "weekly"
 min_rank = "A"
 points = 12
-weight = 5
+weight = 0
 reward = { coins = { gold = 5 }, rep = { blumund = 5 } }
 
 [[bounty]]

@@ -270,6 +270,53 @@ LOOKS = {
             v(slim=True, skin=MEDIUM, hair=CHESTNUT, hair_style="long", eyes="#4a6a3a", body="kimono", main="#6a8a5a",
               second="#e8dcc0", trim="#3a5a8a", belt="#3a5a8a", legs="#5a6a4a", boots="#5a4632"),
         ]),
+    # ---- The enemies of the roads (design/data/enemies.toml; our interpretation): patched, mud-coloured, no guild plate --
+    "bandit": dict(
+        title="bandit of the trade roads",
+        variants=[
+            v(skin=TAN, hair=DARK, hair_style="crop", beard=DARK, beard_style="short", eyes="#4a3a2a", head="bandana",
+              head_color="#6a2a22", body="rags", main="#6a5a42", second="#4a3e30", trim="#3a2e22", belt=DARK_LEATHER,
+              legs="#4a4034", boots=BOOT, sash="#6a2a22", gloves=DARK_LEATHER),
+            v(skin=LIGHT, hair=CHESTNUT, hair_style="long", eyes="#4a5a3a", head="hood", head_color="#4a4a32",
+              body="jerkin", main="#5a4a32", second="#7a6a4a", trim="#2f2418", belt=LEATHER, legs="#3f3a2c",
+              boots=BOOT, cloak="#4a4a32"),
+            v(skin=DEEP, hair=BLACK, hair_style="bald", beard=BLACK, beard_style="goatee", eyes="#3a2a22", body="vest",
+              main="#3a3026", second="#8a7a5a", trim="#2a221a", belt=DARK_LEATHER, legs="#4a3a2c", boots=BOOT,
+              pauldrons=IRON, sash=DARK_LEATHER),
+        ]),
+    "highwayman": dict(
+        title="highwayman of the Blumund road",
+        variants=[
+            v(skin=FAIR, hair=BLACK, hair_style="tied", eyes="#3f5f7a", head="cap", head_color="#2a2226", body="coat",
+              main="#2f2a30", second="#8a2f2a", trim="#b8913f", belt=DARK_LEATHER, legs="#2a2630", boots=BOOT,
+              cloak="#1f1c22", gloves="#2a2226"),
+            v(skin=MEDIUM, hair=RED, hair_style="swept", beard=RED, beard_style="moustache", eyes="#4a3a2a",
+              head="hood", head_color="#3a2f2a", body="coat", main="#4a2f2a", second="#d8ccb0", trim="#7d858d",
+              belt=DARK_LEATHER, legs="#2f2a26", boots=BOOT, cloak="#3a2f2a", sash="#8a2f2a", gloves=DARK_LEATHER),
+        ]),
+    "deserter": dict(
+        title="Falmuth deserter (a torn royal tabard)",
+        variants=[
+            v(skin=LIGHT, hair=BROWN, hair_style="crop", beard=BROWN, beard_style="short", eyes="#4a5a6a", body="chain",
+              main=IRON, second="#3a3a3a", trim="#486c99", belt=DARK_LEATHER, legs="#3a3630", boots=BOOT,
+              tabard="#283c67", emblem="#6a6450", gloves=DARK_LEATHER),
+            v(skin=RUDDY, hair=BLOND, hair_style="short", eyes="#3f6d8f", head="coif", head_color=IRON, body="chain",
+              main="#6d747a", second="#283c67", trim="#5a5040", belt=LEATHER, legs="#2f3340", boots=BOOT,
+              cloak="#4a4438", tabard="#283c67", emblem="#b5d1dc"),
+            v(skin=TAN, hair=GREY, hair_style="bald", beard=GREY, beard_style="full", eyes="#4a3a2a", body="jerkin",
+              main=DARK_LEATHER, second="#283c67", trim=IRON, belt=DARK_LEATHER, legs="#3a3630", boots=BOOT,
+              pauldrons=IRON, sash="#283c67"),
+        ]),
+    "rogue_adventurer": dict(
+        title="rogue adventurer (struck from the Free Guild's rolls)",
+        variants=[
+            v(skin=LIGHT, hair="#3a3438", hair_style="swept", eyes="#6a3a3a", head="hood", head_color="#2a2a2e",
+              body="jerkin", main="#2a2a2e", second="#5a2a2a", trim=STEEL, belt=DARK_LEATHER, legs="#26262a",
+              boots=BOOT, cloak="#2a2a2e", sash="#5a2a2a", gloves=DARK_LEATHER),
+            v(skin=MEDIUM, hair=BLOND, hair_style="short", beard=BLOND, beard_style="goatee", eyes="#4a6a3a",
+              body="chain", main=IRON, second="#3a2f3a", trim="#5a2a2a", belt=DARK_LEATHER, legs="#2f2a30", boots=BOOT,
+              cloak="#4a2a2a", gloves=DARK_LEATHER),
+        ]),
     # ---- Outcast Society (the pack's own faction): a hooded, purple-cloaked contact ---------------------------------
     "outcast": dict(
         title="hooded contact of the Outcast Society",
