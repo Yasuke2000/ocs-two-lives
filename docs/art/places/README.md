@@ -1,4 +1,6 @@
-# Post-Kijin place concepts — sixteen delivered locations
+# Post-Kijin place concepts — twenty delivered locations
+
+The latest four Jura/marsh revisions compare all58 site attributes against main-map6a66e5d and bring delivery to20/58, with38 remaining. [Third painting/SVG review](https://github.com/Yasuke2000/ocs-two-lives/pull/92) is separately delivered.
 
 These original illustrations and their fiches use the owner-selected instant immediately after Kijin naming. The first eight use reservation source`fc36e38`; the western four were checked against`a997f81`; the southern/Imperial four check all58 reservation attributes against`052f262` (current main terrain geometry`efa2cc8`). This art branch stacks on the earlier art delivery and does not include later map/source commits. These are design references, not in-game screenshots or a new source of canonical geography.
 
@@ -20,14 +22,20 @@ These original illustrations and their fiches use the owner-selected instant imm
 | Jia / Fulbrosia cliff court | [PNG](jia.png) | [Sheet](jia.md) |
 | Undestroyed old Laura / Eurazania | [PNG](laura.png) | [Sheet](laura.md) |
 | Nasca / interpreted Imperial court | [PNG](nasca.png) | [Sheet](nasca.md) |
+| Old goblin village | [PNG](goblin_village.png) | [Sheet](goblin_village.md) |
+| Recently destroyed ogre village | [PNG](ogre_village_ruin.png) | [Sheet](ogre_village_ruin.md) |
+| Siss stilt hamlet — project/mod adaptation | [PNG](lizardmen_village.png) | [Sheet](lizardmen_village.md) |
+| Lizardmen labyrinth chamber | [PNG](lizardmen_caverns.png) | [Sheet](lizardmen_caverns.md) |
 
 The earlier `chatgpt/priority-place-art` branch and local `C:/Users/david/Documents/ocs-art-map` candidates remain untouched. That worktree contains 29 candidate PNGs and 58 sheets; many are untracked and have not been accepted against the current map. The old Tempest sheet uses radius 110, while this pass reads the current SVG. The old Orc camp depicts a large organized fortification; the selected revision depicts a small temporary advance reservation appropriate to the early baseline. The existing candidates are not counted as delivered or discarded.
 
-[Coverage](coverage.csv) keeps all 58 IDs: sixteen image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Forty-two image/sheet pairs remain undelivered. Country/location research remains open; the current-geometry continent painting is separately delivered in [draft PR88](https://github.com/Yasuke2000/ocs-two-lives/pull/88), with further coupled review rounds still open.
+[Coverage](coverage.csv) keeps all 58 IDs: twenty image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Thirty-eight image/sheet pairs remain undelivered. Country/location research remains open; the third painted atlas and SVG review is separately delivered in [draft PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92). Prior PR88/PR90 remain historical.
 
 The image format is 1536x1024, RGB, opaque, below 3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
 
 The terrain/biome/road source is unchanged. These images do not verify foundations, structure placement, cave water, detailed shore alignment, NPC rosters or runtime era gates. [Map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) remains the geometry review.
+
+
 
 ## Western revisions — round21
 
@@ -48,3 +56,11 @@ Elmine,Jia,Laura and Nasca add four current original image/sheet pairs. The cach
 All58 reservation attributes match current main-map review052f262 (geometryefa2cc8). This art branch stacks on840c26f and does not contain the later map/source commits; use [map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) for current terrain. The [second painted atlas is in PR90](https://github.com/Yasuke2000/ocs-two-lives/pull/90); PR88 is historical. A third coupled review and other source/location gaps remain open. The earlier manifests remain historical deliveries; total16/58 concepts are delivered,42 remain. Concepts do not complete city/tree/cliff builds, terrain fit or runtime acceptance.
 
 Round23 gate: validation passed;462 tests in44.845s,26 skipped,zero failures. All16 PNG/sheet pairs match their three manifests and the58-ID coverage table; every image is RGB1536x1024 below3,000,000 bytes. World/tools/mod/pack remain unchanged from840c26f. No in-game acceptance is claimed.
+
+## Jura and marsh revisions — round26
+
+Four revised original project images remove unsupported spectacular set dressing: goblin spire/brook; ogre wizard tower, shrine/memorial and stream; marsh cliff wall/flags; cavern waterfall/skylight/flags/huge lake. Recent ogre destruction, dry forest goblin reserve, wet stilt supports and a restrained underground chamber fit the selected baseline more closely. The surface hamlet remains a project/mod adaptation, not an anime-verified plan. Original legacy candidates remain untouched.
+
+Official episode2/9/10/12/13 stills inspected; selected evidence and confidence are in [reference review](jura-marsh-reference-review.csv). Secondary ogre-village/Siss frames remain attribution-limited. New images used only original project candidates as edit inputs; copyrighted references remain outside the repo. [Exact prompts](jura-marsh-prompts.json), four sheets and [manifest](jura-marsh-asset-manifest.json) record the scope and output/input hashes. Current58 reservations match6a66e5d. Geometry is supplied by current map PR74, not the older world files retained in this stacked art branch. No actual terrain, structure or runtime change.
+
+All20 delivered image/sheet pairs and their manifests/coverage table are checked. Four new images are1536x1024 RGB,under3,000,000 bytes; lossless packaging preserves every original output RGB pixel. Full-settlement fidelity, current blueprint fit, cave roof/drainage, stilt foundation and runtime-era review remain open. No named early resident roster is asserted. Round26 gate passes repository validation and462 tests (26 skips,zero failures,44.523s test tier).

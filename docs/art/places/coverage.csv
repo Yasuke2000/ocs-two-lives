@@ -3,13 +3,13 @@ tempest,0,0,148.0,clearing,tempest.png,tempest.md,True,True,Review source/era/bu
 arrival,0,-1000,60.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 wayfarers_camp,15.0,-985.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 sealed_cave,-120,-400,75.0,carve,sealed_cave.png,sealed_cave.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
-goblin_village,-530,-220,56.0,village,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+goblin_village,-530,-220,56.0,village,goblin_village.png,goblin_village.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 spirit_gate,-285,350,70.0,lakeside,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 shizu_spawn,-420.0,-80.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 outcast_road,0.0,52.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 treyni_grove,320,470,56.0,village,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 treyni_shrine,500,600,36.0,clearing,treyni_shrine.png,treyni_shrine.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
-ogre_village_ruin,500,300,32.0,village,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+ogre_village_ruin,500,300,32.0,village,ogre_village_ruin.png,ogre_village_ruin.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 dwargon,0,-1550,127.0,carve,dwargon.png,dwargon.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 dwargo,0.0,-1650.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 dwargon_throne,0.0,-1656.0,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
@@ -20,8 +20,8 @@ dragons_nest,350,-2000,64.0,clearing,,,True,True,Review existing local candidate
 ameld_source,200,-1240,8.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 ameld_mouth,2150,1250,8.0,coast,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
 lake_siss,1100,-100,96.0,lakeside,lake_siss.png,lake_siss.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
-lizardmen_village,1100,265,60.0,lakeside,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
-lizardmen_caverns,1300,520,64.0,carve,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
+lizardmen_village,1100,265,60.0,lakeside,lizardmen_village.png,lizardmen_village.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+lizardmen_caverns,1300,520,64.0,carve,lizardmen_caverns.png,lizardmen_caverns.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 orc_camp,1750,550,60.0,village,orc_camp.png,orc_camp.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 blumund,-1500,-620,97.0,clearing,blumund.png,blumund.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
 ballachia,-2450,-450,68.0,clearing,,,True,True,Review existing local candidate against current geometry/era before generating a replacement.
