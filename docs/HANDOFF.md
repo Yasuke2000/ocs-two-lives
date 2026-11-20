@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Southern/Imperial place concepts (ChatGPT, round23, stacked on art PR89)
+
+Four original image/sheet pairs: elmine,jia,laura,nasca. Reinspected secondary anime tree/spire/waterfall frames; episode/timestamps remain unverified. Laura uses the intact old pale-stone capital context; later timber reconstruction excluded. Nasca is explicitly interpreted, with no verified anime palace exterior or canonical chair trio. All four outputs1536x1024 RGB,under3,000,000 bytes; lossless packaging preserves every original RGB pixel. Current reservation attributes match main-map052f262 for all58 IDs, though this art branch does not include the later map/source commits. Sources, exact prompts and manifest in docs/art/places/.
+
+Coverage now16/58 delivered pairs;42 remain. Full city/tree/cliff design, terrain/access fit, source gaps and runtime-era gating remain open. SVG/terrain/tools/runtime and prior12 assets unchanged. Full repository gate result belongs in the new art PR. Second current painting is in draft PR90; third coupled review remains open. No apply, merge or deployment.
+
 ## 20/11 — Western place concepts (ChatGPT, round21, stacked on art PR87)
 
 Four additional current image/sheet pairs: englassia,marris,coleus,siltrosso. Englassia/Marris use compact dry precincts; Coleus draws on inspected official hill-palace concept with initial architectural state still unverified. Siltrosso edits the older original court to remove unsupported snowy peaks; kingdom sovereignty remains independent despite gameplayF. All58 reservation attributes match current map reviewa997f81. All4 images1536x1024 RGB,under3,000,000 bytes; two lossless packaging results match original RGB pixels. Official episode20 and28/no30 stills inspected; they do not verify proposed city exterior plans. Exact prompts/manifests/reference limits recorded in docs/art/places/.

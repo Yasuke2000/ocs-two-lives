@@ -1,6 +1,6 @@
-# Post-Kijin place concepts — twelve delivered locations
+# Post-Kijin place concepts — sixteen delivered locations
 
-These original illustrations and their fiches use the current map reservations at `fc36e38` and the owner-selected instant immediately after Kijin naming. The four western concepts additionally verify all58 reservation attributes against current map review`a997f81`; active geometry is unchanged. They are design references, not in-game screenshots or a new source of canonical geography.
+These original illustrations and their fiches use the owner-selected instant immediately after Kijin naming. The first eight use reservation source`fc36e38`; the western four were checked against`a997f81`; the southern/Imperial four check all58 reservation attributes against`052f262` (current main terrain geometry`efa2cc8`). This art branch stacks on the earlier art delivery and does not include later map/source commits. These are design references, not in-game screenshots or a new source of canonical geography.
 
 | Place | Image | Source and terrain sheet |
 | --- | --- | --- |
@@ -16,12 +16,16 @@ These original illustrations and their fiches use the current map reservations a
 | Marris / early Falmuth royal precinct | [PNG](marris.png) | [Sheet](marris.md) |
 | Coleus / Herbaria hill-palace precinct | [PNG](coleus.png) | [Sheet](coleus.md) |
 | Shia / Siltrosso counting court — interpretation | [PNG](siltrosso.png) | [Sheet](siltrosso.md) |
+| Elmine / Divine Tree public terrace | [PNG](elmine.png) | [Sheet](elmine.md) |
+| Jia / Fulbrosia cliff court | [PNG](jia.png) | [Sheet](jia.md) |
+| Undestroyed old Laura / Eurazania | [PNG](laura.png) | [Sheet](laura.md) |
+| Nasca / interpreted Imperial court | [PNG](nasca.png) | [Sheet](nasca.md) |
 
 The earlier `chatgpt/priority-place-art` branch and local `C:/Users/david/Documents/ocs-art-map` candidates remain untouched. That worktree contains 29 candidate PNGs and 58 sheets; many are untracked and have not been accepted against the current map. The old Tempest sheet uses radius 110, while this pass reads the current SVG. The old Orc camp depicts a large organized fortification; the selected revision depicts a small temporary advance reservation appropriate to the early baseline. The existing candidates are not counted as delivered or discarded.
 
-[Coverage](coverage.csv) keeps all 58 IDs: twelve image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Forty-six image/sheet pairs remain undelivered. Country/location research remains open; the current-geometry continent painting is separately delivered in [draft PR88](https://github.com/Yasuke2000/ocs-two-lives/pull/88), with further coupled review rounds still open.
+[Coverage](coverage.csv) keeps all 58 IDs: sixteen image/sheet pairs delivered in this branch, with existing local candidates explicitly recorded for the remainder. Do not regenerate those candidates blindly. No complete 58-image set is claimed. Forty-two image/sheet pairs remain undelivered. Country/location research remains open; the current-geometry continent painting is separately delivered in [draft PR88](https://github.com/Yasuke2000/ocs-two-lives/pull/88), with further coupled review rounds still open.
 
-The image format is 1536x1024, RGB, opaque, below 3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
+The image format is 1536x1024, RGB, opaque, below 3,000,000 bytes per PNG; [manifest](asset-manifest.json) records exact sizes and hashes. Among the first eight, three PNGs were losslessly repackaged; decoded RGB pixels match their original generated outputs. The selected dwarf-village correction removes an invented surface palace from its background. No mod texture, official frame, proprietary structure or map is copied into these images. The fiches distinguish canon context, server interpretations and unknown episode attribution.
 
 The terrain/biome/road source is unchanged. These images do not verify foundations, structure placement, cave water, detailed shore alignment, NPC rosters or runtime era gates. [Map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) remains the geometry review.
 
@@ -34,3 +38,13 @@ All five official episode20 and episode28/no30 stills were inspected: they provi
 [Western manifest](western-asset-manifest.json) records four asset hashes, original output hashes, exact reservation attributes and RGB pixel-preserving packaging checks; [western prompts](western-prompts.json) records exact current prompts. The earlier eight-asset manifest remains unchanged. Englassia and Marris were losslessly recompressed under3,000,000 bytes without changing a single RGB pixel. These representative scenes are not whole-city surveys, blueprints, terrain alterations or runtime acceptance.
 
 Round21 verification: all12 PNG/sheet pairs match their manifests and the58-row coverage table; all images are RGB1536x1024 below3,000,000 bytes. Repository gate passes validation and462 tests (26 skips,zero failures,44.871s test tier). `world/`, `tools/`, `mod/` and `pack/` are unchanged from the base art branch. No in-game acceptance or deployment is claimed.
+
+## Southern and Imperial revisions — round23
+
+Elmine,Jia,Laura and Nasca add four current original image/sheet pairs. The cached secondary anime frames for the first three were reinspected; their exact episode/timestamps remain unverified. Elmine shows only a compressed lower tree precinct, Jia one supported cliff court, and Laura an intact pale-stone old-capital precinct distinct from the later reconstructed timber city. LN5 castle/town/mountain evidence and the official climate/cultivation guide remain separate from secondary visual cues and our exact architecture. Nasca remains an explicit server court interpretation: no independently verified anime exterior was found. The three empty chairs do not identify a canonical trio.
+
+[Southern/Imperial manifest](southern-imperial-asset-manifest.json) records original/output hashes, dimensions, byte sizes and current reservation attributes. [Exact prompts](southern-imperial-prompts.json) are retained. All four outputs were visually inspected and losslessly packaged; decoded RGB pixels match the original generated files exactly. Copyrighted references stay outside the repo and were not generation inputs. No named ruler/resident roster, war damage, later technology or Tempest reconstruction banners are depicted.
+
+All58 reservation attributes match current main-map review052f262 (geometryefa2cc8). This art branch stacks on840c26f and does not contain the later map/source commits; use [map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) for current terrain. The [second painted atlas is in PR90](https://github.com/Yasuke2000/ocs-two-lives/pull/90); PR88 is historical. A third coupled review and other source/location gaps remain open. The earlier manifests remain historical deliveries; total16/58 concepts are delivered,42 remain. Concepts do not complete city/tree/cliff builds, terrain fit or runtime acceptance.
+
+Round23 gate: validation passed;462 tests in44.845s,26 skipped,zero failures. All16 PNG/sheet pairs match their three manifests and the58-ID coverage table; every image is RGB1536x1024 below3,000,000 bytes. World/tools/mod/pack remain unchanged from840c26f. No in-game acceptance is claimed.
