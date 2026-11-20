@@ -1,4 +1,6 @@
-# Tensura geography research — round34 smaller western precinct sources
+# Tensura geography research — round39 publisher sample screening
+
+Current research follow-up round39: [public LN sample review](primary-sample-screening-r39.md) adds one narrow later road-patrol fact (LN07-001), with explicit initial-era limits. Ledger215(157+58),14 direct LN claims. Four accessible publisher fragments do not establish new small-country coordinates. Inventory129/32 follow-ups,58 registered art pairs and current geometry remain unchanged.
 
 Current presentation follow-up round38: [painted map PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) now matches the current source1ea6782d native coast/water/road vectors and all58 anchors. The standalone terrain preview is refreshed from the existing current normal export. This adds no new geographical claim or accepted location:ledger214,13 direct LN,72 visual/design supplements,inventory129/32 follow-ups and58/58 registered art files remain. Pictorial relief/canopy is not surveyed terrain. Earlier source/review summaries retain their dates/hashes.
 
