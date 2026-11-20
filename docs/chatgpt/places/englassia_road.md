@@ -1,4 +1,10 @@
-# Englassia road post (sidequests englassia_road)
+# Englassia road resting post
+
+## Current own-world design — round36
+
+Current pin(-2650,-520),radius8. Roof,bench,unlettered sign and trough are authored small props,not a verified anime checkpoint,capital gate or country frontier. No new landscape water is implied. [Current map and era](../../../world/era.md).
+
+The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
 
 `id: englassia_road` · spot (NPC, boss or quest point) · region **G** (Kingdom of Englassia)
 
@@ -8,7 +14,7 @@
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section G |
 
-## Lore (canon)
+## Source context and project role
 
 Side-quest stop (`englassia_road`).
 

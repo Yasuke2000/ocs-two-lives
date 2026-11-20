@@ -1,4 +1,7 @@
-# Current map review — round35 Imperial basin, post-Kijin snapshot
+# Current map review — round36 Jura/source/art follow-up, post-Kijin snapshot
+
+Round36 adds WIK-TRE-036 at fan-wiki confidence and separates the canonical treant community from the one-tree server adaptation. Ledger211(153+58),13 direct LN;61 visual/design supplements. Inventory127 retains26 missing+1 partial+3 parent designs,30 follow-ups. Six creative briefs correct legacy coordinates/era/rim assumptions. Six own-image/new-original concepts in PR100 bring art to52/58,6 remaining; all58 attributes match48b0846. SVG/source SHA1ea6782d,terrain,roads and reservations remain unchanged; no new converter run needed. Repository validation and472 tests pass (26 skips,zero failures,44.032s test tier). No apply/deploy;full source/fixed-rule/geometry/fit/runtime obligations remain open.
+
 
 Integration with upstream main09ca601 retains both complete documentation additions. Updated repository validation,20 JS syntax checks and472 tests pass (26 skips,zero failures,44.221s test tier). Runtime scripts/mod files exactly match upstream main; tools differ only in the five approved matrix entries. Converter code and current SVG/source/export are unchanged by the branch integration. No PR merge to main or server action ran.
 

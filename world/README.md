@@ -18,7 +18,7 @@ remain under review. The local terrain build is staged only: no Minecraft chunks
 changes are claimed. `canon-relations-anime.toml` records the adopted proposal as history; the technical
 source of truth is `tools/world/canon_relations.toml`. See [review.md](review.md).
 
-Latest place-art stack reaches46/58 in [PR99](https://github.com/Yasuke2000/ocs-two-lives/pull/99),with12 remaining. [Round31 Orbic review](orbic-terrain-review.md) now adds a bounded active depleted habitat; country/capital coverage remains incomplete. Current atlas is regenerated. The three earlier painting reviews predate this local habitat change and remain historical source comparisons.
+Latest place-art stack reaches52/58 in [PR100](https://github.com/Yasuke2000/ocs-two-lives/pull/100),with6 remaining. [Round31 Orbic review](orbic-terrain-review.md) now adds a bounded active depleted habitat; country/capital coverage remains incomplete. Current atlas is regenerated. The three earlier painting reviews predate this local habitat change and remain historical source comparisons.
 
 [Round32 Ice coast review](ice-coast-review.md) now refines three local inlets; the fixed palace shore and mainland remain. Current atlas/preview reflects both this change and Orbic. Earlier painted reviews remain historical.
 
@@ -120,3 +120,5 @@ same table for readers (id, kind, min_r).
 [Mainland scope audit](../docs/research/tensura-world-2026-11-19/mainland-coverage-audit.md) preserves all missing obligations; [city coverage study](city-coverage-study.md) distinguishes country terrain reservations from unbuilt city/internal geography. These documents do not certify source completeness or activate new terrain.
 
 [Round35 Imperial basin review](imperial-basin-review.md) adds an unnamed illustrated-map water cue with authored shore/level/depth. Current atlas includes9 lakes. Earlier painting passes remain historical; missing Imperial city/vassal coverage is not closed.
+
+[Round36 treant-source review](../docs/research/tensura-world-2026-11-19/treant-settlement-source-review.md) distinguishes the one-tree server adaptation from the separately tracked community. Inventory127 retains26 missing+1 partial+3 parent designs. Current geometry is unchanged.

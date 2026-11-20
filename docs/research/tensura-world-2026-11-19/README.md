@@ -1,5 +1,8 @@
 # Tensura geography research — round34 smaller western precinct sources
 
+Current round36:211 claim records (153 thematic/design/reference+58 coordinate interpretations),13 directly read LN claims;61 visual/design supplements. The distinct [Treant Settlement](treant-settlement-source-review.md) is newly tracked at fan-wiki confidence. Inventory127 now retains26 missing representations+1 partial Orbic+3 unverified parent designs,30 follow-up obligations. A single mod tree does not complete that community. [PR100](https://github.com/Yasuke2000/ocs-two-lives/pull/100) delivers six source-qualified Jura/route concepts,bringing art to52/58,with6 remaining. Six current place briefs correct imported coordinates,initial residents,tree/settlement equivalence and the obsolete rookie safe-meadow claim. Current SVG/source SHA1ea6782d and terrain unchanged; no converter rerun required. Earlier round summaries below are historical. Full source/fixed-rule/geometry/fit/runtime obligations remain.
+
+
 Current round35:210 claim records (152 thematic/design/reference+58 coordinate interpretations),13 directly read LN claims. [Imperial basin source/export review](../../../world/imperial-basin-review.md) adds one unnamed illustrated water cue at canon-implied confidence; exact shore/position/level/depth are authored, not a named Silberia lake. Fresh staging source SHA1ea6782d; all58 reservations/21 road profiles and other active layers retained. Coverage25 missing+1 partial+3 parent,art46/58 and source/fixed-rule/fit/runtime obligations remain open. Earlier round summaries below are historical at their stated hashes.
 
 

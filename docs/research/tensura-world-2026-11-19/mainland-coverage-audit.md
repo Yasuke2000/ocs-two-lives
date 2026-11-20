@@ -1,8 +1,8 @@
 # Mainland coverage audit — 20 November 2026
 
-This routes every one of the 126 existing inventory entries to a type of work. It preserves the full inventory and every unresolved obligation, including three newly located parent designs. **It does not narrow the goal, remove missing countries, or count proposed geometry as delivered terrain.** Classification is our scope interpretation; the original source confidence and traversal limits remain unchanged.
+This routes every one of the 127 existing inventory entries to a type of work. It preserves the full inventory and every unresolved obligation, including three newly located parent designs. **It does not narrow the goal, remove missing countries, or count proposed geometry as delivered terrain.** Classification is our scope interpretation; the original source confidence and traversal limits remain unchanged.
 
-[All 126 rows](mainland-coverage-audit.csv) · [original inventory](wiki-location-coverage.csv) · [current map review](../../../world/review.md).
+[All 127 rows](mainland-coverage-audit.csv) · [original inventory](wiki-location-coverage.csv) · [current map review](../../../world/review.md).
 
 ## Scope routing
 
@@ -15,7 +15,7 @@ This routes every one of the 126 existing inventory entries to a type of work. I
 | existing-neighbouring-island | 3 |
 | historical-state | 2 |
 | index-route | 18 |
-| mainland-feature | 65 |
+| mainland-feature | 66 |
 | offshore-location-review | 2 |
 | offshore-structure-proposal | 1 |
 | organisation | 4 |
@@ -29,7 +29,7 @@ This routes every one of the 126 existing inventory entries to a type of work. I
 | Type | Missing entries | Consequence |
 | --- | ---: | --- |
 | city-or-city-interior | 4 | Proposal/source/build work still required; no completeness credit. |
-| mainland-feature | 18 | Proposal/source/build work still required; no completeness credit. |
+| mainland-feature | 19 | Proposal/source/build work still required; no completeness credit. |
 | offshore-location-review | 2 | Proposal/source/build work still required; no completeness credit. |
 | offshore-structure-proposal | 1 | Proposal/source/build work still required; no completeness credit. |
 
@@ -47,6 +47,8 @@ Offshore places and alternate or spiritual worlds remain recorded for continuity
 
 The default checker proves format, site constraints and its56 encoded relations. It does not establish missing-place coverage, every kingdom's borders, anime fidelity, interior construction, or the entire wiki having been read. The current map retains unresolved C05/C06/C10/C12/C14/C15/C16/C17/C18/C20 decisions. Each source-backed alternative and fixed-binding conflict must remain visible in the PR. No final acceptance, apply or deployment is claimed.
 
-Three formerly missing map entries now have verified local authored design evidence within their parent. The remaining25 missing representations,1 partial Orbic representation and3 unverified parent designs preserve all29 follow-up obligations; none is marked complete.
+Three formerly missing map entries now have verified local authored design evidence within their parent. The remaining26 missing representations,1 partial Orbic representation and3 unverified parent designs preserve all30 follow-up obligations; none is marked complete.
 
 Round33 source refinement: official episode77/route82 directly confirms a later Council meeting in Englassia (OFF-COW-033). Exact city parcel/permanent HQ/initial building state remains unverified. No missing representation or parent-design obligation is closed.
+
+Round36 adds the separately described Treant Settlement,previously absent from this inventory. The single `treyni_grove` landmark tree is not a settlement plan. Its exact direction/outline and initial state remain unverified; no new active58-ID site is invented. Inventory now127;26 missing representations+1 partial Orbic+3 unverified parent designs preserve30 follow-up obligations. [Source distinction](treant-settlement-source-review.md).

@@ -469,3 +469,7 @@ The active coastal palace reserve remains a server interpretation. WN78 supplies
 ## Imperial illustrated basin — round35
 
 The [official base illustration](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) shows an unnamed lake-like basin east/southeast of the Imperial cone (MAP-IMP-035,canon-implied visual reading). The new modest inland lake is **our interpretation**:28 original shore vertices,355×122 blocks,level68,depth5. No named lake,Silberia association,outlet or capital is inferred; initial-era water state is not directly dated. C05's fixed volcano bearing remains unresolved. All58 reservations/21 road profiles and all other active geography are retained. [Source limits, previews and local export audit](imperial-basin-review.md).
+
+## Treant community and server grove — round36
+
+The wiki describes a separate isolated treant settlement in Jura (WIK-TRE-036,fan-wiki,indexed subsection read; direct page402). Its precise initial location/extent remains unknown. The `treyni_grove` mod landmark is one authored natural-tree adaptation,not a surveyed community or proof of complete village coverage. [Source distinction and new inventory obligation](../docs/research/tensura-world-2026-11-19/treant-settlement-source-review.md). No live SVG geometry or58-ID contract is changed; a new settlement pin is not invented.
