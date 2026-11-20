@@ -107,3 +107,5 @@ same table for readers (id, kind, min_r).
 - Roads: the checker samples every 4 blocks; a wet run is lake, ocean or a river corridor (half the river width on each
   side). The road grade (1 in 2) is not checked yet: it needs the height estimate of the converter.
 - Rules only the converter can judge (height continuity, river reach steps) are not here.
+
+[Mainland scope audit](../docs/research/tensura-world-2026-11-19/mainland-coverage-audit.md) preserves all missing obligations; [city coverage study](city-coverage-study.md) distinguishes country terrain reservations from unbuilt city/internal geography. These documents do not certify source completeness or activate new terrain.

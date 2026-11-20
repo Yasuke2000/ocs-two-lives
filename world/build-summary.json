@@ -21,7 +21,7 @@
     "base_main": "a1848be"
   },
   "build_command": "python -I tools/world/build.py",
-  "research_claim_records": 172,
+  "research_claim_records": 178,
   "directly_verified_LN_claims": 11,
   "reference_alternatives_inert": true,
   "proportion_review": "round 6: western/cave corrections made; residual fixed-rule alternatives drawn",
@@ -109,5 +109,6 @@
     "x": 4034,
     "z": 614,
     "biome": "minecraft:plains"
-  }
+  },
+  "documentation_review": "round12:126-entry mainland scope audit and non-geographical city schematic; production SVG and build unchanged"
 }

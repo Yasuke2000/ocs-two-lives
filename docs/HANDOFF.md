@@ -1,5 +1,10 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 20/11 — Mainland scope routing and city coverage study (ChatGPT, PR #74 round12)
+
+All126 inventory entries routed without dropping any obligation. All29 review obligations retained:26 missing representations (19 mainland,4 city/interior,3 offshore) plus3 parent designs found in blueprints/NBT. Elf venue in dwargon.py; guild()/academy() in englassia.py. Reuse existing designs after source/fit review; do not confuse absent SVG submarkers with absent implementations. [Audit](research/tensura-world-2026-11-19/mainland-coverage-audit.md). [City schematic](../world/city-coverage-study.md) groups Dwargon East/West/bar and Englassia guild/council/academy/castle; box layout is not geographical geometry. Six new claims (ledger178) preserve wiki confidence and official ep20's limited school context. Doran remains west-of-Jura only, with no fabricated capital/outline. Licensed LN1 retailer preview did not expose book pages; no LN evidence upgrade.
+Production SVG/rasters unchanged from f42bdbf; current source/preview provenance and all178 unique claim IDs checked. Full gate passes validation and462 tests (26 skips). No new IDs, tool changes or runtime work. Next: resolve remaining physical gaps, source placement and fixed-binding choices; internal city plans and placements remain open, not counted complete by this classification.
+
 ## 20/11 — Restrained Milim biome scope and episode-source audit (ChatGPT, PR #74 round11)
 
 C10: narrow red accent remains per fixed brief, but authored area drops707757 to213884 blocks2 (69.8%). No other biome polygon, site, coast, height, water, road or mask changes. A conservative no-red replacement is drawn inert for review; no claim of canonical desert or exact ecosystem. [Locator audit](research/tensura-world-2026-11-19/anime-episode-locators.csv) checks eight region-book routes: no28/30/42/48 actually display episodes26/28/39/45. Episode41 is no44, not no41. Generic still links now contextual leads. Five official no44 stills inspected; no city exterior verified. Pinned secondary city-frame raw fetch403. Ledger172 unique records.

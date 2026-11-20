@@ -20,8 +20,9 @@ Inventory labels are a map coverage assessment. All wiki evidence remains `fan-w
 | game-continuity-review | 4 |
 | historical-review | 2 |
 | interior-or-portal-review | 2 |
-| missing-distinct-representation | 29 |
+| missing-distinct-representation | 26 |
 | organisation-review | 4 |
+| parent-design-present-unverified | 3 |
 | partial | 7 |
 | region-present | 15 |
 | separate-world-review | 12 |
@@ -47,3 +48,7 @@ The current production SVG and checker preview are unchanged in this audit. The 
 [Empire follow-up](eastern-empire-followup.md) distinguishes the unlocated Silberia/vassal leads, historical WN predecessors and unread licensed story from active mapped terrain. It does not upgrade missing locations to production coverage.
 
 [Southern follow-up](../../../world/southern-location-study.md) corrects Filtwood's unsupported U/Ulgracia identity and draws an inert Orbic homeland vicinity. Inventory counts are unchanged: a proposal is not active terrain coverage.
+
+[Mainland routing audit](mainland-coverage-audit.md) preserves all126 entries and all29 follow-ups:26 still lack distinct representation (19 mainland,4 city/interior,3 offshore), while3 have existing authored designs within parent sites. The guild and academy occur in englassia.py, and the elf venue in dwargon.py; six non-empty NBT files also exist. Source fidelity, current-terrain fit and runtime placement are unverified. This is scope routing, not fewer missing obligations or a claim that all articles were read. [City study](../../../world/city-coverage-study.md) explains the parent-country context and unresolved plans.
+
+[Local city design evidence](city-design-evidence.csv) prevents treating those three existing designs as wholly absent. The manifest records presence, not proof of correct or deployed structure contents.
