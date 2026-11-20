@@ -14,8 +14,13 @@ losslessly repackaged files were verified unchanged. The original built-in image
 remain under `.codex/generated_images/01a1f4df-fe07-7eb1-b3ee-abe4feb653a6`.
 The older `chatgpt/priority-place-art` / `ocs-art-map` worktree has 29 PNG candidates and 58 sheets,
 many untracked; these were left intact. Use the new art coverage table before generating replacements.
-Only eight pairs are delivered in PR #87; remaining art, the current continent painting and research
-gaps remain open. Map geometry is unchanged by this delivery.
+Only eight pairs are delivered in PR #87; remaining place art and research gaps remain open.
+The current-geometry [painted atlas is delivered in draft PR #88](https://github.com/Yasuke2000/ocs-two-lives/pull/88),
+branch `chatgpt/continent-painting-r19`, worktree `C:/Users/david/Documents/ocs-continent-painting`.
+Its native composition preserves3 coasts/8 lakes/8 rivers/21 roads and all58 source anchors; registration
+audit, checker and repository gate pass (462 tests,26 skips). Pictorial relief remains interpretation.
+This is the first painting review coupled to current geometry; three requested painting/SVG rounds are
+not complete. Map geometry is unchanged by either art delivery; no runtime apply or deployment.
 
 ## 20/11 — Old Dragon City southeastern proportion correction (ChatGPT, PR #74 round16)
 
