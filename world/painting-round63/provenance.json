@@ -1,0 +1,39 @@
+{
+  "round": 63,
+  "source_map_commit": "80c1198",
+  "source_svg_sha256": "0b211ec7761e1813ccfaee1e336f754ab7712495da6a991c79638d642a546839",
+  "baseline_source_svg_sha256": "7a30cf4176971609db820acee59e2a72903bed1e102e7e9e95dbb9f063b5a60a",
+  "previous_composition": "../painting-round61/continent.svg",
+  "original_art_provenance": "../painting-round61/provenance.json",
+  "method": "Native SVG lighting from current-minus-baseline designed-height gradients. Mask follows the union of all changed height-raster cells plus16-block blending,including the high-pass grade propagation. Original raster textures retained; no raw raster image edited.",
+  "new_image_generation": false,
+  "copyrighted_reference_images_used_as_generation_inputs": false,
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "current_height_sha256": "6fdea0285fb9fe51f68c928d4f77278e827e99d14846d3c31a15622f95eb1e90",
+  "baseline_height_sha256": "1d0c73f25ee82e42f377736319acf9b960457dde5b87866894012829c6274e1f",
+  "normal_terrain_preview_sha256": "60567c46ec0410e38bd78412879cd1bf1f0e9f18aea6b15e33ac64c31b326d53",
+  "raw_original_art": {
+    "world\\painting-current\\paint-current.png": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+    "world\\painting-round43\\paint-r43.png": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e"
+  },
+  "light_direction_rule": "Normal(-dx,1,-dz) under northwest light adds positive(dx+dz). Signed light=clamp(0.18*(delta_dx+delta_dz),-0.16,0.16);alpha quantized1/4096.",
+  "step_world": 8,
+  "input_changed_height_cells": 2507,
+  "changed_height_cells_outside_site_fade": 205,
+  "mask_blend_buffer_world": 16,
+  "mask_bounds_world": [
+    208.0,
+    -2144.0,
+    608.0,
+    -1832.0
+  ],
+  "feather_sigma_world": 4,
+  "production_svg_changed_in_this_round": false,
+  "whole_source_equivalence_to_R61": false,
+  "limits": "The R62 radius and summit/approach heights changed. This is an illustrative lighting update,not a metric heightmap or canon nest architecture. Other depicted ridge/tree strokes remain stylised; runtime fit and early-era residents are not tested."
+}
