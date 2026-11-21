@@ -1,5 +1,7 @@
 # Atlas geographical labels and complete index — round41
 
+Round42 registration follow-up: the original label/number/list groups are reprojected over the wider current export by uniform0.96scale and origin offset. Current audit/browser bounds replace the earlier screen boxes;129 entries and32 open classifications are preserved. The underlying headland change is reviewed separately in [western-cape-review.md](western-cape-review.md). Earlier paragraphs below describe round41.
+
 [Current atlas](atlas.png) · [full129-entry source/scope index](location-index.md) · [layout audit](location-index-audit.json).
 
 The earlier numbered atlas named the 58 server reservations but gave little direct geographical orientation. It also hid the remaining inventory gaps from someone looking only at the map. The revised presentation adds16 large geographical labels,including the Eastern Empire,Jura,Canaat,Sarion,Eurazania,Fulbrosia and the western kingdoms. Existing source-claim IDs are attached to the label elements; text locations are **our interpretation**,not new canonical coordinates. Fifteen label boxes fit within their existing gameplay context. Narrow Ulgracia uses an offshore text callout with its endpoint inside U; it does not create an offshore country. Current source/gameplay conflicts,including Siltrosso,remain disclosed. The labels neither survey country boundaries nor promote later political outcomes into the post-Kijin snapshot.

@@ -1,4 +1,6 @@
-# Current map review — round41 geographical atlas/index
+# Current map review — round42 western headland
+
+Round42 adds the interpreted northwestern headland from the official visual cue. Source7d021766:mainland9989x6250,design12800x10752,one new barren habitat; all58 sites/21 routes and earlier waters/relief/forests retained. Fresh checker0errors/56relations/same2warning categories; normal build57.0s/no warnings. Coordinate-aligned audit preserves water/road/site/exclusion rasters and all58 site-disc heights. Sacred trail34 profile heights change by at most0.04blocks;20other profiles match. Atlas58/16/32 registration refreshed. Ledger217(159+58)/14directLN;129inventory/32follow-ups,58art pairs. PR102 painting is historical until refreshed. Repository validation and472 tests pass (26 skips,zero failures,44.401s test tier). Full source/geography/fixed-rule/era/fit/runtime requirements remain;no apply/deploy.
 
 Round41 adds16 geographical orientation labels and a separate32-entry open-coverage panel to the terrain atlas,plus a complete129-entry source/scope index. Original58 numbered groups and embedded terrain bytes retained. Actual Chrome text bounds verify separation from padded number bubbles; full atlas visually inspected. No production geometry/export/source/painted/runtime change; sourcea24cea9b. Ledger215/14directLN,129inventory/32follow-ups and58art pairs unchanged. Repository validation and472 tests pass (26 skips,zero failures,43.889s test tier). Full geography/source/fixed-rule/era/build-fit/runtime requirements remain open.
 

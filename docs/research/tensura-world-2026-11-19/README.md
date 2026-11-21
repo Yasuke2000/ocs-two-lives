@@ -1,4 +1,6 @@
-# Tensura geography research — round41 atlas/index coverage
+# Tensura geography research — round42 northwestern headland
+
+Current round42: [western headland review](../../../world/western-cape-review.md) improves the mainland silhouette after direct visual comparison with the official reference. Two qualified claims bring the ledger to217(159+58),14directLN. Current source7d021766;atlas and standalone normal-export preview refreshed. The current R38 painting PR102 predates this coast and needs refresh. Inventory129/32follow-ups and58art pairs remain;exact course/habitat/gameplay assignment are interpretation.
 
 Current round41: [complete geographical reader index](../../../world/location-index.md),[presentation review](../../../world/location-index-review.md) and16 regional atlas labels expose the existing32 missing/partial/unverified representations. All129 inventory names are retained without fabricated coordinates. Stale displayed wiki-coverage counts are reconciled. No source/terrain/coverage classification changes:215claims/14directLN,58registered art pairs and sourcea24cea9b remain.
 

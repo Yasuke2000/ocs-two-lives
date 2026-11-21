@@ -1,10 +1,10 @@
 {
   "baseline_commit": "f232fc1",
-  "source_sha256": "a24cea9b46a751dbaa9b6765e2c1a5a8d829624744c980d8a9d65d159bb51295",
-  "presentation_only": true,
-  "production_svg_changed": false,
-  "terrain_image_bytes_retained": true,
-  "terrain_image_sha256": "c903806683fedd7f7a2435c2fa722ea4e5f8dc423bdc8fba6dc1914436487fbc",
+  "source_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "presentation_only": false,
+  "production_svg_changed": true,
+  "terrain_image_bytes_retained": false,
+  "terrain_image_sha256": "866d93c964eb6650747f8541e2ca771eea3b609369e06aef7db90b26ed03df9d",
   "existing_numbered_reservations": 58,
   "geographic_labels": [
     {
@@ -471,344 +471,343 @@
       "display_code": "M"
     }
   ],
-  "new_geographical_claims": 0,
   "runtime_acceptance": false,
   "actual_browser_geographic_label_boxes": [
     {
       "text": "Eastern Empire",
-      "x": 1702.3994140625,
-      "y": 775.2100219726562,
-      "width": 173.78125,
-      "height": 28
+      "x": 1722.304443359375,
+      "y": 749.3416748046875,
+      "width": 167.2265625,
+      "height": 27
     },
     {
       "text": "Canaat Mountains",
-      "x": 1177.4306640625,
-      "y": 827.1300048828125,
-      "width": 203.4072265625,
-      "height": 28
+      "x": 1218.3316650390625,
+      "y": 799.184814453125,
+      "width": 195.0938720703125,
+      "height": 27
     },
     {
       "text": "Great Jura Forest",
-      "x": 967.12744140625,
-      "y": 1258.6099853515625,
-      "width": 194.48583984375,
-      "height": 28
+      "x": 1016.4427490234375,
+      "y": 1213.4056396484375,
+      "width": 187.06640625,
+      "height": 27
     },
     {
       "text": "Jistav",
-      "x": 1711.170654296875,
-      "y": 972.1500244140625,
-      "width": 67.294921875,
-      "height": 28
+      "x": 1730.6864013671875,
+      "y": 938.404052734375,
+      "width": 64.203125,
+      "height": 27
     },
     {
       "text": "Milim's Domain",
-      "x": 1637.5596923828125,
-      "y": 1330.22998046875,
-      "width": 178.36669921875,
-      "height": 28
+      "x": 1660.0570068359375,
+      "y": 1282.160888671875,
+      "width": 171.015625,
+      "height": 27
     },
     {
       "text": "Eurazania",
-      "x": 1316.1634521484375,
-      "y": 1348.1300048828125,
-      "width": 112.3408203125,
-      "height": 28
+      "x": 1351.5201416015625,
+      "y": 1299.3448486328125,
+      "width": 108.3671875,
+      "height": 27
     },
     {
       "text": "Fulbrosia",
-      "x": 1101.2255859375,
-      "y": 1634.5899658203125,
-      "width": 105.3583984375,
-      "height": 28
+      "x": 1145.1788330078125,
+      "y": 1574.346435546875,
+      "width": 101.6640625,
+      "height": 27
     },
     {
       "text": "Sarion",
-      "x": 786.271240234375,
-      "y": 1491.3599853515625,
-      "width": 72.666015625,
-      "height": 28
+      "x": 842.8169555664062,
+      "y": 1436.845703125,
+      "width": 69.546875,
+      "height": 27
     },
     {
       "text": "Ulgracia",
-      "x": 663.3778076171875,
-      "y": 1658.8599853515625,
-      "width": 85.88525390625,
-      "height": 26
+      "x": 724.843994140625,
+      "y": 1597.6856689453125,
+      "width": 82.9298095703125,
+      "height": 24.9998779296875
     },
     {
       "text": "Blumund",
-      "x": 726.02685546875,
-      "y": 1195.949951171875,
-      "width": 104.05029296875,
-      "height": 28
+      "x": 784.9801635742188,
+      "y": 1153.251953125,
+      "width": 99.48828125,
+      "height": 27
     },
     {
       "text": "Englassia",
-      "x": 537.1875,
-      "y": 981.0999755859375,
-      "width": 105.51708984375,
-      "height": 28
+      "x": 603.6990966796875,
+      "y": 946.9960327148438,
+      "width": 101.81640625,
+      "height": 27
     },
     {
       "text": "Falmuth",
-      "x": 802.1937255859375,
-      "y": 787.739990234375,
-      "width": 94.7607421875,
-      "height": 28
+      "x": 858.1026000976562,
+      "y": 761.3704223632812,
+      "width": 90.5703125,
+      "height": 27
     },
     {
       "text": "Lubelius",
-      "x": 381.0006103515625,
-      "y": 784.1599731445312,
-      "width": 95.41162109375,
-      "height": 28
+      "x": 453.7624816894531,
+      "y": 757.93359375,
+      "width": 91.40621948242188,
+      "height": 27
     },
     {
       "text": "Desert of Death",
-      "x": 261.63592529296875,
-      "y": 1007.9600219726562,
-      "width": 173.2763671875,
-      "height": 27.99993896484375
+      "x": 339.16705322265625,
+      "y": 972.7816772460938,
+      "width": 165.94528198242188,
+      "height": 26.99993896484375
     },
     {
       "text": "Ice Continent",
-      "x": 729.7228393554688,
-      "y": 411.7699890136719,
-      "width": 150.0888671875,
-      "height": 28
+      "x": 788.5392456054688,
+      "y": 400.439208984375,
+      "width": 144.4453125,
+      "height": 27
     },
     {
       "text": "El Dorado",
-      "x": 327.6546936035156,
-      "y": 1614.8900146484375,
-      "width": 112.390625,
-      "height": 28
+      "x": 402.54290771484375,
+      "y": 1555.4344482421875,
+      "width": 107.95703125,
+      "height": 27
     }
   ],
   "actual_browser_open_row_boxes": [
     {
       "text": "U  Butterflies of the Night",
       "x": 65,
-      "y": 2787,
+      "y": 2710,
       "width": 196.08984375,
       "height": 20
     },
     {
       "text": "M  Council headquarters",
       "x": 65,
-      "y": 2818,
+      "y": 2741,
       "width": 191.109375,
       "height": 20
     },
     {
       "text": "M  Destroyed Imperial frontier city",
       "x": 65,
-      "y": 2849,
+      "y": 2772,
       "width": 265.076171875,
       "height": 20
     },
     {
       "text": "M  Duchy of Laquia",
       "x": 65,
-      "y": 2880,
+      "y": 2803,
       "width": 150.09375,
       "height": 20
     },
     {
       "text": "M  Dwargon East city",
       "x": 65,
-      "y": 2911,
+      "y": 2834,
       "width": 166.0498046875,
       "height": 20
     },
     {
       "text": "M  Dwargon West city",
       "x": 65,
-      "y": 2942,
+      "y": 2865,
       "width": 170.7080078125,
       "height": 20
     },
     {
       "text": "M  Englassia royal castle",
       "x": 65,
-      "y": 2973,
+      "y": 2896,
       "width": 194.09375,
       "height": 20
     },
     {
       "text": "U  Free Guild headquarters",
       "x": 65,
-      "y": 3004,
+      "y": 2927,
       "width": 213.109375,
       "height": 20
     },
     {
       "text": "U  Freedom Academy",
       "x": 595,
-      "y": 2787,
+      "y": 2710,
       "width": 170.06640625,
       "height": 20
     },
     {
       "text": "M  Galut",
       "x": 595,
-      "y": 2818,
+      "y": 2741,
       "width": 64.0166015625,
       "height": 20
     },
     {
       "text": "M  General Kingdom of Doran",
       "x": 595,
-      "y": 2849,
+      "y": 2772,
       "width": 234.125,
       "height": 20
     },
     {
       "text": "M  Kingdom of Carnada",
       "x": 595,
-      "y": 2880,
+      "y": 2803,
       "width": 185.109375,
       "height": 20
     },
     {
       "text": "U  Kingdom of Ghastone",
       "x": 595,
-      "y": 2911,
+      "y": 2834,
       "width": 192.125,
       "height": 20
     },
     {
       "text": "M  Kingdom of Grada",
       "x": 595,
-      "y": 2942,
+      "y": 2865,
       "width": 166.078125,
       "height": 20
     },
     {
       "text": "M  Kingdom of Kaien",
       "x": 595,
-      "y": 2973,
+      "y": 2896,
       "width": 162.09375,
       "height": 20
     },
     {
       "text": "M  Kingdom of Larbach",
       "x": 595,
-      "y": 3004,
+      "y": 2927,
       "width": 181.109375,
       "height": 20
     },
     {
       "text": "M  Kingdom of Malbarath",
       "x": 1125,
-      "y": 2787,
+      "y": 2710,
       "width": 196.09375,
       "height": 20
     },
     {
       "text": "M  Kingdom of Morapha",
       "x": 1125,
-      "y": 2818,
+      "y": 2741,
       "width": 187.09375,
       "height": 20
     },
     {
       "text": "U  Kingdom of Rostia",
       "x": 1125,
-      "y": 2849,
+      "y": 2772,
       "width": 165.078125,
       "height": 20
     },
     {
       "text": "M  Kingdom of Silberia",
       "x": 1125,
-      "y": 2880,
+      "y": 2803,
       "width": 176.09375,
       "height": 20
     },
     {
       "text": "M  Kingdom of Spiru",
       "x": 1125,
-      "y": 2911,
+      "y": 2834,
       "width": 158.078125,
       "height": 20
     },
     {
       "text": "M  Long Wall",
       "x": 1125,
-      "y": 2942,
+      "y": 2865,
       "width": 99.375,
       "height": 20
     },
     {
       "text": "M  Magic Tower",
       "x": 1125,
-      "y": 2973,
+      "y": 2896,
       "width": 121.7060546875,
       "height": 20
     },
     {
       "text": "P  Orc Kingdom of Orbic",
       "x": 1125,
-      "y": 3004,
+      "y": 2927,
       "width": 190.73828125,
       "height": 20
     },
     {
       "text": "M  Republic of Boruss",
       "x": 1655,
-      "y": 2787,
+      "y": 2710,
       "width": 171.078125,
       "height": 20
     },
     {
       "text": "M  Republic of Zamund",
       "x": 1655,
-      "y": 2818,
+      "y": 2741,
       "width": 181.09375,
       "height": 20
     },
     {
       "text": "M  Resort Island",
       "x": 1655,
-      "y": 2849,
+      "y": 2772,
       "width": 126.046875,
       "height": 20
     },
     {
       "text": "M  Soma ruins",
       "x": 1655,
-      "y": 2880,
+      "y": 2803,
       "width": 111.046875,
       "height": 20
     },
     {
       "text": "M  Tengu settlement",
       "x": 1655,
-      "y": 2911,
+      "y": 2834,
       "width": 157.751953125,
       "height": 20
     },
     {
       "text": "M  Town of Guratol",
       "x": 1655,
-      "y": 2942,
+      "y": 2865,
       "width": 145.734375,
       "height": 20
     },
     {
       "text": "M  Treant Settlement",
       "x": 1655,
-      "y": 2973,
+      "y": 2896,
       "width": 163.0693359375,
       "height": 20
     },
     {
       "text": "M  Unnamed Imperial vassal town",
       "x": 1655,
-      "y": 3004,
+      "y": 2927,
       "width": 266.109375,
       "height": 20
     }
@@ -817,5 +816,662 @@
   "all_58_original_numbered_groups_byte_equivalent": true,
   "all_32_open_rows_fit_panel": true,
   "actual_browser_non_callout_text_bounds_with_stroke_inside_context": 15,
-  "ulgracia_leader_with_1px_buffer_clear_of_padded_number_boxes": true
+  "ulgracia_leader_with_1px_buffer_clear_of_padded_number_boxes": true,
+  "previous_layout_source_sha256": "a24cea9b46a751dbaa9b6765e2c1a5a8d829624744c980d8a9d65d159bb51295",
+  "registration_from_r41": {
+    "scale": 0.96,
+    "translate_x": 88,
+    "translate_y": 5.2,
+    "legend_y_shift": -77
+  },
+  "display_box_coordinate_space": "Historical r41 local coordinates; apply registration_from_r41. Actual browser boxes below are current global coordinates.",
+  "actual_browser_number_boxes": [
+    {
+      "text": "",
+      "x": 1130.56005859375,
+      "y": 1084.5567626953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1130.56005859375,
+      "y": 912.6880493164062,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1155.452880859375,
+      "y": 934.0672607421875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1109.939208984375,
+      "y": 1015.8112182617188,
+      "width": 26.8800048828125,
+      "height": 26.87994384765625
+    },
+    {
+      "text": "",
+      "x": 1039.465576171875,
+      "y": 1046.751953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1081.5711669921875,
+      "y": 1144.7200927734375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1077.568115234375,
+      "y": 1070.8096923828125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1124.6080322265625,
+      "y": 1115.6512451171875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1185.5584716796875,
+      "y": 1165.3408203125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1216.499267578125,
+      "y": 1187.689697265625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1216.499267578125,
+      "y": 1136.1185302734375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1130.56005859375,
+      "y": 818.1568603515625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1132.3455810546875,
+      "y": 780.592041015625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1100.78076171875,
+      "y": 801.1648559570312,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1160.511962890625,
+      "y": 808.0192260742188,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1199.3056640625,
+      "y": 878.3104248046875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1235.69921875,
+      "y": 881.7472534179688,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1190.713623046875,
+      "y": 740.8096313476562,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1164.937744140625,
+      "y": 871.4368286132812,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1500.0928955078125,
+      "y": 1299.4049072265625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1319.6224365234375,
+      "y": 1067.3729248046875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1319.6224365234375,
+      "y": 1130.10888671875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1354,
+      "y": 1173.932861328125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1431.3377685546875,
+      "y": 1179.088134765625,
+      "width": 26.8798828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 872.7520141601562,
+      "y": 977.996826171875,
+      "width": 26.8800048828125,
+      "height": 26.87994384765625
+    },
+    {
+      "text": "",
+      "x": 709.4656372070312,
+      "y": 1007.21923828125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 632.118408203125,
+      "y": 990.025634765625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 821.1807861328125,
+      "y": 800.9631958007812,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 735.760009765625,
+      "y": 849.0880126953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 511.81121826171875,
+      "y": 861.12646484375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 460.2496337890625,
+      "y": 809.5648193359375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 525.5584106445312,
+      "y": 936.74560546875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 408.68798828125,
+      "y": 1050.1888427734375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 580.5568237304688,
+      "y": 1141.2833251953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 640.7200317382812,
+      "y": 1146.4384765625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 692.2816162109375,
+      "y": 1141.2833251953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 726.649658203125,
+      "y": 1136.1185302734375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 761.0272216796875,
+      "y": 1070.8096923828125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 924.3135986328125,
+      "y": 1557.212890625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 580.5568237304688,
+      "y": 1032.9952392578125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 654.534423828125,
+      "y": 1098.563232421875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1113.3759765625,
+      "y": 1428.313720703125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 967.283203125,
+      "y": 1574.4063720703125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 841.8112182617188,
+      "y": 1383.6256103515625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1164.937744140625,
+      "y": 1505.6512451171875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1388.3680419921875,
+      "y": 1359.5584716796875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1586.031982421875,
+      "y": 1222.0577392578125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1697.7471923828125,
+      "y": 981.4336547851562,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1783.6864013671875,
+      "y": 998.627197265625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1680.5633544921875,
+      "y": 775.187255859375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1706.3392333984375,
+      "y": 852.5248413085938,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 391.4944152832031,
+      "y": 1600.182373046875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 460.2496337890625,
+      "y": 1634.56005859375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 872.7520141601562,
+      "y": 515.6511840820312,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 900.2464599609375,
+      "y": 995.1808471679688,
+      "width": 26.8800048828125,
+      "height": 26.87994384765625
+    },
+    {
+      "text": "",
+      "x": 675.0880126953125,
+      "y": 995.1808471679688,
+      "width": 26.8800048828125,
+      "height": 26.87994384765625
+    },
+    {
+      "text": "",
+      "x": 958.681640625,
+      "y": 1026.12158203125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    },
+    {
+      "text": "",
+      "x": 1129.1392822265625,
+      "y": 988.3071899414062,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125
+    }
+  ],
+  "production_change_review": "world/western-cape-review.md",
+  "previous_snapshot_terrain_image_replaced_by_current_normal_export": true,
+  "new_label_geographical_claims": 0,
+  "linked_terrain_claims_added": [
+    "MAP-WES-042",
+    "DES-WES-042"
+  ],
+  "all58_actual_world_anchor_registration_matches": [
+    {
+      "id": "tempest",
+      "projected_anchor_error_blocks": 0.01861818181896524
+    },
+    {
+      "id": "arrival",
+      "projected_anchor_error_blocks": 0.017454545453801984
+    },
+    {
+      "id": "wayfarers_camp",
+      "projected_anchor_error_blocks": 0.028313241944531043
+    },
+    {
+      "id": "sealed_cave",
+      "projected_anchor_error_blocks": 0.025414201794423913
+    },
+    {
+      "id": "goblin_village",
+      "projected_anchor_error_blocks": 0.026453539499564943
+    },
+    {
+      "id": "spirit_gate",
+      "projected_anchor_error_blocks": 0.03374702190837001
+    },
+    {
+      "id": "shizu_spawn",
+      "projected_anchor_error_blocks": 0.026285049013448723
+    },
+    {
+      "id": "outcast_road",
+      "projected_anchor_error_blocks": 0.018036363635474117
+    },
+    {
+      "id": "treyni_grove",
+      "projected_anchor_error_blocks": 0.00967026626290046
+    },
+    {
+      "id": "treyni_shrine",
+      "projected_anchor_error_blocks": 0.028532828707221052
+    },
+    {
+      "id": "ogre_village_ruin",
+      "projected_anchor_error_blocks": 0.025823815006898575
+    },
+    {
+      "id": "dwargon",
+      "projected_anchor_error_blocks": 0.017745454545547545
+    },
+    {
+      "id": "dwargo",
+      "projected_anchor_error_blocks": 0.017745454545547545
+    },
+    {
+      "id": "dwargon_throne",
+      "projected_anchor_error_blocks": 0.0058181818185403245
+    },
+    {
+      "id": "kaijin_smithy",
+      "projected_anchor_error_blocks": 0.01525262746672081
+    },
+    {
+      "id": "dwarf_village",
+      "projected_anchor_error_blocks": 0.025705567458151293
+    },
+    {
+      "id": "dwarven_arena",
+      "projected_anchor_error_blocks": 0.010043739055660804
+    },
+    {
+      "id": "dragons_nest",
+      "projected_anchor_error_blocks": 0.015592835820268679
+    },
+    {
+      "id": "ameld_source",
+      "projected_anchor_error_blocks": 0.01839870638561217
+    },
+    {
+      "id": "ameld_mouth",
+      "projected_anchor_error_blocks": 0.010892593586322247
+    },
+    {
+      "id": "lake_siss",
+      "projected_anchor_error_blocks": 0.0018398706390443979
+    },
+    {
+      "id": "lizardmen_village",
+      "projected_anchor_error_blocks": 0.011215101978790307
+    },
+    {
+      "id": "lizardmen_caverns",
+      "projected_anchor_error_blocks": 0.019375506391346116
+    },
+    {
+      "id": "orc_camp",
+      "projected_anchor_error_blocks": 0.028434782564703446
+    },
+    {
+      "id": "blumund",
+      "projected_anchor_error_blocks": 0.026496692448909745
+    },
+    {
+      "id": "ballachia",
+      "projected_anchor_error_blocks": 0.017575339597292433
+    },
+    {
+      "id": "englassia",
+      "projected_anchor_error_blocks": 0.030082025605566443
+    },
+    {
+      "id": "marris",
+      "projected_anchor_error_blocks": 0.03019995074181494
+    },
+    {
+      "id": "siltrosso",
+      "projected_anchor_error_blocks": 0.0262322746134762
+    },
+    {
+      "id": "lubelius",
+      "projected_anchor_error_blocks": 0.02374074852486495
+    },
+    {
+      "id": "sacred_mountain",
+      "projected_anchor_error_blocks": 0.03048305314339915
+    },
+    {
+      "id": "coleus",
+      "projected_anchor_error_blocks": 0.014452063823779527
+    },
+    {
+      "id": "heaven_tower",
+      "projected_anchor_error_blocks": 0.028168653816275625
+    },
+    {
+      "id": "morgdahl",
+      "projected_anchor_error_blocks": 0.03189005907495508
+    },
+    {
+      "id": "raja",
+      "projected_anchor_error_blocks": 0.02945086396777393
+    },
+    {
+      "id": "nostraille",
+      "projected_anchor_error_blocks": 0.03074566421125796
+    },
+    {
+      "id": "yuzalgh",
+      "projected_anchor_error_blocks": 0.03394174883653455
+    },
+    {
+      "id": "yggdonia",
+      "projected_anchor_error_blocks": 0.009313635253871152
+    },
+    {
+      "id": "filtwood",
+      "projected_anchor_error_blocks": 0.02901079878714185
+    },
+    {
+      "id": "ghastone",
+      "projected_anchor_error_blocks": 0.022928361303610093
+    },
+    {
+      "id": "rostia",
+      "projected_anchor_error_blocks": 0.008330368617781097
+    },
+    {
+      "id": "sainte_malukshure",
+      "projected_anchor_error_blocks": 0.029212835398407345
+    },
+    {
+      "id": "ulgr_nature_park",
+      "projected_anchor_error_blocks": 0.030134025687222697
+    },
+    {
+      "id": "elmine",
+      "projected_anchor_error_blocks": 0.019340532524104587
+    },
+    {
+      "id": "jia",
+      "projected_anchor_error_blocks": 0.02118848899947346
+    },
+    {
+      "id": "laura",
+      "projected_anchor_error_blocks": 0.02778752916068691
+    },
+    {
+      "id": "forgotten_dragon_city",
+      "projected_anchor_error_blocks": 0.0235061026019778
+    },
+    {
+      "id": "clayman_castle",
+      "projected_anchor_error_blocks": 0.008330368617812858
+    },
+    {
+      "id": "amrita",
+      "projected_anchor_error_blocks": 0.02853282870692432
+    },
+    {
+      "id": "nasca",
+      "projected_anchor_error_blocks": 0.022593731304131334
+    },
+    {
+      "id": "great_holy_mountain",
+      "projected_anchor_error_blocks": 0.025892543360892927
+    },
+    {
+      "id": "el_dorado",
+      "projected_anchor_error_blocks": 0.023540280231644048
+    },
+    {
+      "id": "el_dorado_volcano",
+      "projected_anchor_error_blocks": 0.012218181818298035
+    },
+    {
+      "id": "frost_palace",
+      "projected_anchor_error_blocks": 0.030093276478797944
+    },
+    {
+      "id": "blumund_road",
+      "projected_anchor_error_blocks": 0.02526055953004669
+    },
+    {
+      "id": "englassia_road",
+      "projected_anchor_error_blocks": 0.03089805150515296
+    },
+    {
+      "id": "old_well",
+      "projected_anchor_error_blocks": 0.02046313355011785
+    },
+    {
+      "id": "rookie_camp",
+      "projected_anchor_error_blocks": 0.029368854025288358
+    }
+  ]
 }

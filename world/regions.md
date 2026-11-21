@@ -489,3 +489,7 @@ The [revised inert corridor](long-wall-corridor-review.md) follows the existing 
 ## Geographical atlas labels and index — round41
 
 The [atlas/index review](location-index-review.md) adds broad readable names to existing terrain contexts,not surveyed country boundaries. Fifteen labels sit inside existing gameplay contexts; Ulgracia uses a sea-side name callout ending inside U. The separate list retains32 missing/partial/unverified representations,with all129 inventory names linked in the full index. Text placement is **our interpretation**. No active geography,source claim,site/road,terrain export or early political state changes. Existing deliberate differences and missing-place obligations remain.
+
+## Northwestern headland — round42
+
+The [official-image silhouette review](western-cape-review.md) adds an original broad western projection and recessed bay. Exact shore,new barren habitat and V assignment are **our interpretation**. All earlier waters,relief,forests,21 routes and58 site attributes retain their geometry; existing sites retain their sampled ground levels. Mainland9989x6250 and design12800x10752 remain below hard limits but differ from preferred targets; C12 remains. The current terrain atlas is reprojected; PR102's R38 painting predates this headland and needs refresh. No new named port,capital,wall extension or measured political border is inferred.

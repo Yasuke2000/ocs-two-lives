@@ -1,12 +1,22 @@
 {
-  "source_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
-  "staged_index_source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
-  "preview_sha256": "c903806683fedd7f7a2435c2fa722ea4e5f8dc423bdc8fba6dc1914436487fbc",
-  "normal_build_seconds": 55.0,
+  "source_svg_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "staged_index_source_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "preview_sha256": "866d93c964eb6650747f8541e2ca771eea3b609369e06aef7db90b26ed03df9d",
+  "normal_build_seconds": 57.0,
   "original_preview_pixels": [
-    1536,
+    1600,
     1344
   ],
   "copied_without_pixel_modification": true,
-  "applied_to_runtime": false
+  "applied_to_runtime": false,
+  "previous_preview_source_sha256": "a24cea9b46a751dbaa9b6765e2c1a5a8d829624744c980d8a9d65d159bb51295",
+  "registration": {
+    "scale_from_r41": 0.96,
+    "translate_x": 88.0,
+    "translate_y": 5.200000000000005,
+    "legend_y_shift": -77.0,
+    "existing_58_marker_groups_retained": true,
+    "existing_16_context_labels_retained": true,
+    "existing_32_open_rows_retained": true
+  }
 }

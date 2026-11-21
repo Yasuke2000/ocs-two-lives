@@ -1,5 +1,7 @@
 # world/ — the own world map
 
+Current round42 source7d021766 adds an original [northwestern headland](western-cape-review.md). The current terrain atlas/preview includes it; PR102's R38 painting is now historical and needs a coast/registration refresh. Main size9989x6250 and design box12800x10752 retain the stated hard limits; preferred scale/design targets remain disclosed. Earlier dated paragraphs describe their own versions.
+
 Round40 [Long Wall review](long-wall-corridor-review.md) corrects only the inert proposal comment. New source hasha24cea9b has identical active geometry and normal-export bytes to1ea6782d; PR102 painting remains registered. No generated wall is delivered.
 
 `world/map.svg` is the single source of the new, fully own Tensura world (design: [own-world.md](../design/architecture/own-world.md),
