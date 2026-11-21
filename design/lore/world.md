@@ -1,5 +1,7 @@
 # The Tensura world: canon geography for Life 2
 
+> Historical imported-world survey: the Lerfing coordinates and country-mask groupings below are not the current own-world source. Use `world/map.svg` and `world/regions.md` for current geometry. In particular, the Ghastone G and Rostia A bindings do not prove Englassia/Raja sovereignty or locate their capitals; see [R96 identity review](../../world/western-country-identity-r96.md).
+
 The Life 2 overworld is **Lerfing's Tensura map**, imported 1:1 (credit: [CREDITS.md](../../CREDITS.md); design:
 [lerfing-import.md](../architecture/lerfing-import.md)). The land is Lerfing's terrain block for block; what we add is
 the canon reading of it: which part of his continent is which nation, and where each canon place stands. **World

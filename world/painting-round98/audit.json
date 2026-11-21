@@ -1,0 +1,52 @@
+{
+  "source_sha256": "bb0e4b295dc1b75b8ac2778dd4f8b5240b69c26af5c4da35beac785595e6aaca",
+  "map_commit": "ddfc721ffcb0daeb360ad79db36c09d710dc409a",
+  "exact_R95_underpainting": true,
+  "retained_R95_native_XML_exact": true,
+  "outer_history_base_directory": "../painting-round95/",
+  "source_mainland_boundary_and_clip_exact": true,
+  "source_biome_shapes_checked": 4,
+  "checked_texture_mesh_triangles": 3201,
+  "max_affine_vertex_error_world_blocks": 3.637978807091713e-12,
+  "checked_height_light_samples": 32050,
+  "changed_continent_pixels": 42499,
+  "max_RGB_channel_change": 242,
+  "changed_pixel_bounds": [
+    231,
+    300,
+    414,
+    657
+  ],
+  "max_changed_pixel_centre_distance_outside_support": 0.0,
+  "antialias_tolerance_world_blocks": 8.5,
+  "registered_sites": 58,
+  "all_site_attributes_world_coordinates_and_projections_checked": true,
+  "context_names": 19,
+  "all_markers_leaders_context_labels_and42_rows_XML_retained": true,
+  "context_metadata_matches_SVG": true,
+  "minimum_bubble_spacing": 32.470561517449696,
+  "label_overlap": false,
+  "atlas_embeds_exact_new_continent": true,
+  "production_source_and_previews_unchanged_after_adoption": true,
+  "inventory": 138,
+  "ledger_unique": 304,
+  "physical_followups": 42,
+  "historical_art_and_protected_paths_unchanged": true,
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "runtime_applied": false,
+  "adopted_source_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "limits": "Original texture warp,palette and light are illustration,not a canonical coast survey,absolute height,sovereignty or runtime coastline. Exact native source geometry governs.",
+  "clip_overlap_world_blocks": 6,
+  "clip_overlap_geometry_verified": true,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.532
+  }
+}

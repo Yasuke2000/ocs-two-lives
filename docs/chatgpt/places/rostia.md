@@ -1,8 +1,10 @@
 # Rostia
 
-## Current own-world/source correction — round37
+## Current own-world/source correction — round96
 
-Current(-2780,200),radius8,A gameplay binding. The official Johann profile names the Kingdom of Rostia; it is not established as a Raja town. The rain-shelter/cart vignette is original; exact national geometry and early state remain open. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
+Current own-world pin (-2780, 200), radius 8, gameplay mask A. The official Johann profile names the Kingdom of Rostia and calls Johann its duke. This rereads the identity evidence already recorded in round37; it supplies no capital, bearing, boundary or Raja subordination.
+
+The pin is authored placement, not a canonical capital. The original rest-point/rain-shelter art is a local interpretation, not a country survey. Later source characters and events are not part of the S1E10 initial roster. [Source review](../../../world/western-country-identity-r96.md).
 
 Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
 
@@ -23,9 +25,9 @@ The official profile establishes the Kingdom of Rostia; the western-belt pin is 
 Pin only.
 
 
-## Current state: BlueMap audit of 19/11/2026
+## Historical imported-map state: BlueMap audit of 19/11/2026
 
-Map: Tensura by Lerfing (current, being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
+Historical map: Tensura by Lerfing (being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
 
 - **Status:** not rendered on the map yet
 - **Placed:** not applicable (no structure: pin)

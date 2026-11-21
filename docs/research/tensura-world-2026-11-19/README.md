@@ -1,3 +1,11 @@
+## 21/11 - Western peninsula follows the illustrated outline (R97)
+
+[Western coast review](../../../world/western-peninsula-r97.md) restores the western lobe beyond a shortened northwestern headland. Source `bb0e4b29`; mainland9983x6250/design12800x10752; checker0errors/56relations/2prior warnings. The wider10443 trial failed the repository width gate and remains an inactive C12 alternative. Normal66.5s; all58 XML site attributes retained. Heaven Tower staged ground71to73, with bounded road-profile changes. Atlas58/19/42 retained; ledger304/inventory138/42. R95 painting needs alignment. Repository gate: 472 tests, 26 skipped, zero failures (63.383s); zero changed JavaScript.
+
+## 21/11 — Published painting follows Ice coastal source (R95)
+
+[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/02ac2f8231e5712505df3bde787e03ee949b5d47/world/painting-round95/README.md) follows source `63df7185`: five exact source coasts, 1,869 checked height-light samples, all 58 registrations and 19 context names. Caption138/42 and ledger301 agree with current source scope. Painting gate472 tests,26 skipped,zero failures(63.796s). [Alignment evidence](painting-alignment-r95.md). Earlier pending-painting notes below are historical. Main documentation gate **472 tests, 26 skipped, zero failures (63.631s)**; zero changed JavaScript.
+
 ## 21/11 — Illustrated Ice offshore group added (R94)
 
 [R94 source/terrain review](../../../world/ice-islets-r94.md) adds five original representative islet coasts with cold biome/admin coverage. Source `63df7185`; checker 0 errors/56 relations/2 existing warnings; final normal66.687s. Every old land height/biome/ruggedness and58 reservation is retained. Atlas:19 names,138-entry caption,42 open rows. Ledger301. R93 painting source43fed303 predates the islets and requires alignment; numeric58 registration remains valid. Required repository gate: 472 tests, 26 skipped, zero failures (63.298s); zero changed JavaScript.
