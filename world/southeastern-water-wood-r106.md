@@ -62,8 +62,7 @@ Ledger312 unique; inventory142 retains every prior140 row/classification and all
 wiki traversal,complete cities or initial-state construction.
 
 The checker preview,terrain comparison and atlas were visually reviewed beside
-the official reference. R105/source e785c2b0 painting predates these two additions
-and the142-entry caption; it requires alignment. Existing place art remains
+the official reference. [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) now follows these additions and the142-entry caption. R105/source e785c2b0 is historical. Existing place art remains
 unchanged. C12/C22 and the broader source/physical/initial-era obligations remain
 open; Yasuke's palace-placement response is still pending.
 

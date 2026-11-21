@@ -1,3 +1,9 @@
+## 21/11 — Published painting follows southeastern landscape (R107)
+
+[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows source `b2750950`:exact36 lake/66 woodland vertices,55 original clipped tree symbols,2213 changed continent pixels and all58 registrations checked.20 names/42 rows,caption142 andledger312 agree. Milim orientation text follows the source southward move; other text/number geometry retained. R105 is historical; painting alignment is complete. [Evidence](research/tensura-world-2026-11-19/painting-alignment-r107.md).
+
+Painting e28b579 gate472tests,26skipped,zero failures(65.227s); source checker0errors/56relations/2prior warnings. Main documentation gate472tests,26skipped,zero failures(64.716s); zero changed JavaScript. Main geometry/terrain remains unchanged from b0e38d0. Broader source/geography/physical/initial-era obligations remain open; C22 owner choice pending. No runtime action. Next: substantive remaining requirements,not repeated alignment/counter/gate work without changed geography or a new failure.
+
 ## 21/11 — Southeastern water and woodland restored (R106)
 
 [Source/terrain review](../world/southeastern-water-wood-r106.md) restores the official illustration's unnamed southeastern water and woodland to its north/northwest. Exact36/66-vertex outlines,positions,level68/depth4 and light tree choice are interpretation. A wrong-side preliminary forest draft was corrected after direct image reinspection. Source `b2750950`; checker0errors/56relations/2prior warnings; normal67.7s. All previous XML and58 site/22 route exports retained exactly. No apply.

@@ -1,6 +1,6 @@
 ## Current source — R106
 
-[Southeastern illustrated water and woodland](../../../world/southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger312; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; R105 painting/source e785c2b0 predates this addition and needs alignment. This does not certify exhaustive wiki or primary-source coverage. Earlier round status notes below are historical.
+[Southeastern illustrated water and woodland](../../../world/southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger312; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows these additions and142-entry caption. R105 is historical. This does not certify exhaustive wiki or primary-source coverage. Earlier round status notes below are historical.
 
 ## What was checked
 
