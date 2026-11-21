@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Actual creative deliverables andart metadata audit (ChatGPT,round73)
+
+R73 [creative delivery audit](../world/delivery-audit-r73.md) checks the full brief andretains incomplete status. All58 art pairs exist;[PR101 metadata](https://github.com/Yasuke2000/ocs-two-lives/blob/7d5699b/docs/art/places/current-map-registration-r73.md) now corrects three stale radii without changing any PNG. The132-row coverage table is reconciled,with41 follow-ups retained. A concrete remaining drawing is C17’s qualified Englassia lake/castle alternative. Technical conversion/placement remains Claude’s handoff. Source90ee15b1,terrain,R69 painting and268-record ledger are unchanged.
+
+Fresh checker0 errors/56 relations/2 existing warnings;preview/reference inspected. Art-branch gate462 tests(26 skipped,zero failures,44.559s). Main audit validation and472 tests pass(26 skipped,zero failures,62.503s);input/count/history/registration checks pass. Next:C17 drawn alternative,then actual geographical/source/era gaps;no new technical-agent task is silently added tocreative scope.
+
 ## 21/11 — Long Wall physical contour and road opening (ChatGPT,round72)
 
 R72 [Long Wall contour and gate proposal](../world/long-wall-build-plan.md) samples the current source and fits an opening to both native/exported caravan-road projections. The5-block body follows the existing grade;exact dimensions are authored. Still inert andmissing in active coverage. Ledger268 unique(210+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Source90ee15b1,normal terrain and R69 painting remain unchanged. Validation and472 tests pass(26 skipped,zero failures,62.489s);both diagrams inspected;independent source/geometry/scope checks pass.
