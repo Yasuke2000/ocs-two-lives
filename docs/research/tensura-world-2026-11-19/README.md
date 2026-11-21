@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+R81 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/96b3972/world/painting-round81/README.md) now integrates the R80 El Dorado lake and bank. The exact lake polygon and 648 checked lighting samples update 361 continent pixels, within 10.75 blocks of the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows remain checked; the inventory caption is 134. Source 9fd0c5fb and the 280-record ledger remain unchanged. Painting integration is closed; broader source, location and initial-era questions remain open.
+
 R80 [El Dorado eastern lake](../../../world/el-dorado-lake-review.md) restores an unnamed inland water cue visible in the official illustration. Original 26-vertex shore, 274×138 blocks, level 68/depth 5 and closed drainage are authored; name/outlet/initial water state remain unverified. Source 9fd0c5fb; 10 lakes, 58 sites/21 roads retained. Checker 0 errors/56 relations/2 warnings; normal 65.6s. Ledger 280(222+58), inventory 134/41 follow-ups. Terrain atlas refreshed; R78 painting requires integration.
 
 R79 [Orbic/Ulgracia scope and delivery-link review](orbic-ulgr-source-review-r79.md) records the wiki royal-capital/ten-tribe distinction without invented town coordinates. Both child-category routes remain unverified. Atlas path spaces are repaired. Ledger 278(220+58),inventory 133/41 follow-ups;source e8f17470 and R78 art remain unchanged.

@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Current painting follows the lake (ChatGPT, round 81)
+
+R81 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/96b3972/world/painting-round81/README.md) now integrates the R80 El Dorado lake and bank. The exact lake polygon and 648 checked lighting samples update 361 continent pixels, within 10.75 blocks of the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows remain checked; the inventory caption is 134. Source 9fd0c5fb and the 280-record ledger remain unchanged. Painting integration is closed; broader source, location and initial-era questions remain open.
+
+Painting gate: 472 tests, 26 skipped, zero failures (63.039s). Map-branch documentation gate: 472 tests, 26 skipped, zero failures (62.876s). No production SVG change, converter rerun, runtime application or deployment. Next: remaining actual source/location/initial-era questions.
+
 ## 21/11 — Illustrated eastern El Dorado lake drawn (ChatGPT, round 80)
 
 R80 [El Dorado eastern lake](../world/el-dorado-lake-review.md) restores an unnamed inland water cue visible in the official illustration. Original 26-vertex shore, 274×138 blocks, level 68/depth 5 and closed drainage are authored; name/outlet/initial water state remain unverified. Source 9fd0c5fb; 10 lakes, 58 sites/21 roads retained. Checker 0 errors/56 relations/2 warnings; normal 65.6s. Ledger 280(222+58), inventory 134/41 follow-ups. Terrain atlas refreshed; R78 painting requires integration.
