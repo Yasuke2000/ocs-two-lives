@@ -1,5 +1,13 @@
 # Current handoff
 
+## 21/11 — Initial-era place briefs reconciled (R121)
+
+Ten targeted narratives now separate the S1E10 post-Kijin instant from later outcomes: village/new Kijin workshops, former Kaijin premises, old goblin template occupancy, Falmuth/Farmenas, unresolved Orc invasion, lizardman allegiance/naming, Englassia teaching, Clayman raid, Coleus mission and the earlier Dwargon court visit. Thirteen Jura headers no longer imply an already formed federation. Knowledge-pack/lore guides link the priority snapshot policy. All58 state-overlay IDs/state categories remain; four notes/bases clarified. Full58 narrative/concept/architecture review remains unproved.
+
+Official episode5/6/9/10/11 synopses reread; three new event/location records and one explicitly secondary Abiru naming record. Ledger328;inventory142/42. All map/site/preview/atlas/terrain artifacts remain byte-identical to R119/source4093; R120 painting PR108 remains aligned and is adopted without another image/counter copy. No source SVG edit, tools/mod/pack change, runtime spawn/quest action, world apply, chunks, main merge or deploy. Remaining source gaps, proportions, concept/initial architecture and C23/C18 implementation boundaries remain open. Required gate: 472 tests, 26 skipped, zero failures in 63.649 seconds; validation and diff check pass. No new terrain build/checker run is claimed for unchanged source. Branch chatgpt/initial-era-briefs-r121 is stacked over the R119 source branch.
+
+# Current handoff
+
 ## 21/11 — Ulgr brook now descends inland to shore (R119)
 
 Only ulgr-spring-brook points change in source `4093f844`; all other native attributes/text, 58 sites and 22 roads remain. Old line: 53.25 blocks land / 305.43 offshore. New route: 577.63 wholly inland, native-shore mouth. First exported difference reduces 37→11 blocks; Laura 17 unchanged. All 202 river wet sample centres connect cardinally to the spring; finite mouth continuation samples are below sea level 63. All 13 lake bank/contact cases and eight designed links pass. No final-noise or Minecraft fluid acceptance claim.

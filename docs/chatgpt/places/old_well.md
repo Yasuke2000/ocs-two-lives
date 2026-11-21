@@ -6,7 +6,7 @@ Current(-1000,-340),radius8. This is authored small quest scenery outside the da
 
 Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
 
-`id: old_well` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
+`id: old_well` · spot (NPC, boss or quest point) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

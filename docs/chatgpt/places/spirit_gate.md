@@ -1,6 +1,6 @@
 # Spirit Gate (Ramiris' doorway)
 
-`id: spirit_gate` · build (our blueprint) · region **J** (Jura-Tempest Federation)
+`id: spirit_gate` · build (our blueprint) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

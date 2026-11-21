@@ -6,7 +6,7 @@ Current pin(0,52),radius8 lies inside Tempest's radius148 parent reservation. Th
 
 The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
 
-`id: outcast_road` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
+`id: outcast_road` · spot (NPC, boss or quest point) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

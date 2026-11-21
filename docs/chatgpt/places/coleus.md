@@ -12,7 +12,7 @@
 
 ## Lore (canon)
 
-In the Visions of Coleus OVA Yuuki sends Rimuru to settle the succession dispute between two princes; Princess Zenobia lives in the palace.
+The Visions of Coleus OVA supplies a later mission and palace reference involving Rimuru, Yuuki and the succession dispute. It is not proof that Rimuru is already on that mission at the selected S1E10 instant. Keep the country/palace interpretation separate from that later encounter; exact initial court roster and political condition remain unverified here.
 
 ## What it should look like
 

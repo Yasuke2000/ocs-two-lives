@@ -12,7 +12,7 @@
 
 ## Lore (canon)
 
-King Edmaris started the Tempest Holy War and lost; the kingdom became Farmenas under Yohm. The Western Holy Church sided with Falmuth.
+At the selected S1E10 snapshot, this is Marris in the Kingdom of Falmuth under Edmaris. The later war with Tempest, Edmaris's defeat and Youm's Farmenas belong to later story phases. Retain the old capital without showing those outcomes as completed. See [era policy](../../../world/era.md); no exact early palace plan follows from that chronology.
 
 ## What it should look like
 

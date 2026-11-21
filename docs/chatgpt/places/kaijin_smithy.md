@@ -13,7 +13,7 @@
 
 ## Lore (canon)
 
-Kaijin, master blacksmith, was exiled by King Gazel and then joined Rimuru. His smithy in Dwargon is where the pack's Artificer path starts.
+By the selected snapshot, Kaijin and his apprentices have already joined Rimuru's village ([official episode6](https://www.ten-sura.com/anime/tensura/story/no6)); episode9 places their building work there. This Dwargon pin represents his former premises, not a second current Kaijin residence. The Artificer path starting here is a server adaptation, not canon geography. The workshop's post-departure occupant is unverified; do not place another Kaijin here for the initial world.
 
 ## What it should look like
 

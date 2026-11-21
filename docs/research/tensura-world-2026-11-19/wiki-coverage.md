@@ -1,6 +1,8 @@
-## Current source — R119
+## Current geometry R119; initial-era follow-up R121
 
-[Ulgr brook review](../../../world/ulgr-brook-r119.md) corrects the former offshore route as an explicit terrain interpretation. Source `4093f844`; ledger 324; inventory 142/42. Author WN61’s park-door passage is reread without inventing a source-backed brook course or waterfall height. All 13 lake cases pass; first Ulgr exported transition decreases 37→11 blocks, with C23 style/fluid review still open. R118 painting needs brook alignment. Child-category source coverage, global proportions and initial-era semantics remain incomplete; earlier dated notes describe their own snapshots.
+[Era brief review](era-brief-review-r121.md) corrects ten selected narratives and thirteen Jura headers, retaining all58 registered places and the same source `4093f844`. Ledger328; location inventory142 with42 physical follow-ups. The [R120 painting proposal](https://github.com/Yasuke2000/ocs-two-lives/pull/108) already follows this geometry; its original metadata remains historical rather than being recopied just for the ledger change.
+
+The [Ulgr route correction](../../../world/ulgr-brook-r119.md) remains: inland descent, finite all13 lake checks, head transitions11/17 still disclosed for style/fluid review. No full58 narrative/concept, whole-wiki, global proportion or in-game acceptance claim. Earlier dated notes below retain their own snapshot scope.
 
 ## What was checked
 

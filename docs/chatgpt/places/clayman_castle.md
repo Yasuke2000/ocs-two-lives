@@ -12,7 +12,7 @@
 
 ## Lore (canon)
 
-A defended stronghold; the raid had to coincide with Walpurgis so that he was away. A wight king guards it; Shuna, Souei and Hakurou approach through a thick fog (anime episode 45). The Walpurgis gate is inside in our design.
+At the initial snapshot, the stronghold belongs to Clayman; the later raid by Shuna, Souei and Hakurou has not happened. Its raid/fog reference describes later visual context, not an active initial deployment, defeated garrison or completed capture. A Walpurgis gate inside this build is a server interpretation, not proof that the later banquet or attack is already underway. Exact early garrison and room layout still need source review; see [era policy](../../../world/era.md).
 
 ## What it should look like
 

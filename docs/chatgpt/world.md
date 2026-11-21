@@ -1,5 +1,7 @@
 # World guide: canon geography of the Tensura world
 
+> **Selected initial era:** immediately after Kijin naming, S1E10. [Era policy](../../world/era.md) and [targeted brief corrections](../research/tensura-world-2026-11-19/era-brief-review-r121.md) take precedence over later events, faction titles and imported-world audit descriptions below.
+
 > Ghastone and Rostia are kingdom identities, not verified Englassia/Raja towns. Their G/A bindings and imported coordinates below are historical gameplay records. Current authored pins do not locate capitals or country boundaries. [R96 source review](../../world/western-country-identity-r96.md).
 
 > **Read this first.** Every coordinate in this file comes from **Lerfing's imported map** (*Tensura by Lerfing*, the
@@ -30,7 +32,7 @@ Read it from **Tempest**, in the middle of Jura (the Great Jura Forest). Distanc
 
 | Direction | What lies there | Distance from Tempest |
 |---|---|---|
-| Centre | **Jura** (Jura-Tempest Federation): forest, plains with forested mesas, small lakes. The Sealed Cave (north-west), the old goblin village, the Spirit Gate (south-south-west), Treyni's grove (south-east), the hidden ogre village (north-east foot of the east massif). | 0 to about 600 |
+| Centre | **Jura** (Rimuru’s village; later federation): forest, plains with forested mesas, small lakes. The Sealed Cave (north-west), the old goblin village, the Spirit Gate (south-south-west), Treyni's grove (south-east), the destroyed ogre-village reservation (east/southeast of Rimuru’s village in the current authored map). | 0 to about 600 |
 | North | The **Canaat Mountains** and **Dwargon**: a grey massif, the largest range of the continent, climbing to the world's highest point; a lava lake near the top; the **Dragon's Nest** on the highest shoulder. Dwargon's gate is on the south flank; the city lies **inside the mountain**. The **Great Ameld River** rises at the mountain's foot. The Life 2 arrival is between the two, on Jura's rim. | Dwargon gate 1,450; arrival 1,000; Dragon's Nest about 2,540 |
 | East | **Lake Siss** and the lizardmen's marsh (the Orc War battlefield at its south-east), then **Milim's Domain**, a huge red-and-green badland. | Lake Siss 1,340; Forgotten Dragon city 2,960 |
 | North-east | **Jistav** (Clayman's Castle, Amrita) is the north-eastern corner of Milim's badland; the **Eastern Empire** (Nasca, the red volcano of the Great Holy Mountain) is the landmass beyond it, north of Jistav. | Clayman's Castle about 4,300, Amrita 4,650; Nasca about 4,900 |
@@ -123,11 +125,11 @@ subtitle** is the Japanese name shown on screen. The terrain line describes Lerf
 Extent = bounding box on the current map (x0..x1, z0..z1).
 
 
-### J: Jura-Tempest Federation
+### J: Jura / Rimuru's village (later Jura-Tempest Federation)
 
 - **Colour** `#E472D2` · **banner** ジュラ・テンペスト連邦国 · **extent** x −416..2416, z −720..2256
-- **Lore.** The Great Jura Forest, Veldora's old hunting ground. After Veldora was sealed it filled with goblins, direwolves, ogres, lizardmen, dryads and orcs. Rimuru united them into the Jura-Tempest Federation, a monster nation that trades with Dwargon and Blumund.
-- **Faction.** Faction `tempest` (capital Tempest). Hostile or friendly NPCs: goblins, hobgoblins, kijin, Tempest Wolves, dryads.
+- **Lore.** The Great Jura Forest, Veldora's old hunting ground. After Veldora was sealed it filled with goblins, direwolves, ogres, lizardmen, dryads and orcs. At the selected post-Kijin instant Rimuru leads a young village. The later federation and its diplomatic/trade relationships must not be presented as completed initial state. The imported faction/banner below is a legacy gameplay identifier, not a contemporaneous sovereign border.
+- **Faction.** Gameplay faction `tempest`; Rimuru's early village, with later capital capacity reserved. Hostile or friendly NPCs: goblins, hobgoblins, kijin, Tempest Wolves, dryads.
 - **Terrain (current).** rolling plains with forested mesas (spires, grey terracotta tops) and small lakes, low in the south, rising to a massif on the east side; open grass with scattered woods on Lerfing's map, so the Great Jura Forest of the lore is planted on top of it (section 6).
 - **Places.** [Tempest](places/tempest.md), [Life 2 arrival](places/arrival.md), [Wayfarers' camp on Jura's rim](places/wayfarers_camp.md), [Sealed Cave](places/sealed_cave.md), [Old goblin village](places/goblin_village.md), [Spirit Gate](places/spirit_gate.md), [Hinata's ambush west of Tempest](places/shizu_spawn.md), [The Outcast on Tempest's south road](places/outcast_road.md), [Treyni's grove](places/treyni_grove.md), [Treyni's shrine](places/treyni_shrine.md), [Hidden ogre village](places/ogre_village_ruin.md), [The old well on the Blumund road](places/old_well.md), [The abandoned rookie camp](places/rookie_camp.md)
 
@@ -312,7 +314,7 @@ long canon note in `design/lore/`.
 
 | Place | Region | Kind | x, z | From Tempest | Lore summary | Lore page |
 |---|---|---|---|---|---|---|
-| [Tempest (Rimuru, capital of the Federation)](places/tempest.md) | J | settlement | 1720, 900 | Tempest itself | Rimuru's capital, the Jura-Tempest Federation. Built as the early hobgoblin village just after the six ogres were named, then grown in two later rings (trade town, festival capital). | [tempest.md](../../design/lore/tempest.md) |
+| [Rimuru's village (future Tempest)](places/tempest.md) | J | settlement | 1720, 900 | Tempest itself | Initial village immediately after the six ogres were named; trade-town and festival-capital rings are later reserved phases, not current state. | [tempest.md](../../design/lore/tempest.md) |
 | [Life 2 arrival (world spawn), yaw -149](places/arrival.md) | J | arrival | 1660, −100 | 1,000 blocks N | Where every Life 2 soul wakes. On the safe rim of Jura, on the road between Tempest and Dwargon. | [world.md](../../design/lore/world.md) |
 | [Wayfarers' camp on Jura's rim (sidequests rim_camp)](places/wayfarers_camp.md) | J | spot | 1675, −85 | 990 blocks N | Small camp beside the arrival where wayfarers and the first side quests wait. | [world.md](../../design/lore/world.md) |
 | [Sealed Cave (Veldora's prison, Rimuru's birthplace)](places/sealed_cave.md) | J | build | 1380, 560 | 480 blocks NW | Veldora's prison and Rimuru's birthplace, a cave in a rocky hill of the Jura forest. | [sealed_cave.md](../../design/lore/sealed_cave.md) |

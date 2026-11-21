@@ -1,6 +1,6 @@
 # Sealed Cave (Veldora's prison, Rimuru's birthplace)
 
-`id: sealed_cave` · build (our blueprint) · region **J** (Jura-Tempest Federation)
+`id: sealed_cave` · build (our blueprint) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

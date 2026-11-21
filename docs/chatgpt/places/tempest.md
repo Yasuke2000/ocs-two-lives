@@ -1,6 +1,6 @@
-# Tempest (Rimuru, capital of the Federation)
+# Rimuru's village (future Tempest)
 
-`id: tempest` · settlement (own scripts) · region **J** (Jura-Tempest Federation)
+`id: tempest` · settlement (own scripts) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|
@@ -28,7 +28,7 @@ Rimuru moves the goblin village to open ground near water and the cave. The dwar
 
 ## What it should look like
 
-A construction site, not a city: hide tents ringing the build area, first log and plank houses with thatch or shingle roofs, some only framed and scaffolded; Kaijin's open forge with anvils and quench tubs; Shuna's weaving house with looms and dye vats; a covered council longhouse on the village green; Rimuru's modest house; a wolf pen; a palisade gate on the forest road. It stands in a cleared hollow of a dense old forest (oak, dark oak, giant ancient-forest trees; Jura is never jungle), with a lake to the west and a pond to the south in the legacy/project landscape (those bearings are our interpretation). Our interpretation: the later rings (137 and 191 blocks wide) turn the green into a trade town with a west gate to Blumund and a north gate to Dwargon, then a festival capital with promenade, guild, inn, bath gardens and Ramiris's entrance court.
+A construction site, not a city: hide tents ringing the build area, first log and plank houses with thatch or shingle roofs, some only framed and scaffolded; Kaijin's open forge with anvils and quench tubs; space for Shuna's future weaving workshop (a completed dedicated house is not established immediately after naming); a covered council longhouse on the village green; Rimuru's modest house; a wolf pen; a palisade gate on the forest road. It stands in a cleared hollow of a dense old forest (oak, dark oak, giant ancient-forest trees; Jura is never jungle), with a lake to the west and a pond to the south in the legacy/project landscape (those bearings are our interpretation). Our interpretation: the later rings (137 and 191 blocks wide) turn the green into a trade town with a west gate to Blumund and a north gate to Dwargon, then a festival capital with promenade, guild, inn, bath gardens and Ramiris's entrance court.
 
 Why it stands here (anchor table, Lerfing coordinates): Middle of Jura (§3.2): y 63/65/68, relief 5, the lake at x 1500..1600 just west (running water nearby), plains.
 

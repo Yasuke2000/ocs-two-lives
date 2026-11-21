@@ -1,6 +1,6 @@
 # Life 2 arrival (world spawn), yaw -149
 
-`id: arrival` · Life 2 arrival · region **J** (Jura-Tempest Federation)
+`id: arrival` · Life 2 arrival · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

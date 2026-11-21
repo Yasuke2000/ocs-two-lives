@@ -6,7 +6,7 @@ Current pin(-120,-560),radius8,about573 blocks from Tempest. It lies in the auth
 
 The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
 
-`id: rookie_camp` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
+`id: rookie_camp` · spot (NPC, boss or quest point) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|
