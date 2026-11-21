@@ -1,5 +1,7 @@
 # Current painted continent — round43
 
+Historical source7d021766 presentation. The current shared-curve presentation is [round50](../painting-round50/README.md). Original pixels, prompt and generation provenance below are retained.
+
 [Marked atlas](atlas.png) · [clean continent](continent.png) · [editable composition](continent.svg) · [prompt and inputs](prompt.json) · [provenance](provenance.json) · [geometry/layout audit](presentation-audit.json) · [official reference comparison](comparison.md).
 
 This painting follows the current map geometry at source SHA `7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa` (western headland, map feature commit50e0715). The built-in `image_gen` tool edited the prior original R38 painting using only that artwork and fresh own checker/terrain guides. No copyrighted anime or official map image was supplied to generation. The selected generated PNG is retained byte-for-byte as `paint-r43.png`. The exact prompt, input roles and output filename/hash are in `prompt.json`.

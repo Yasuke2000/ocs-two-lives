@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1050" viewBox="0 0 1400 1050">
+<defs><pattern id="canopy" width="32" height="32" patternUnits="userSpaceOnUse"><rect width="32" height="32" fill="#294f3b"/><circle cx="8" cy="11" r="7" fill="#37674b"/><circle cx="25" cy="27" r="8" fill="#315d43"/></pattern></defs>
+<rect width="1400" height="1050" fill="#f2ead8"/>
+<g font-family="Segoe UI,Arial,sans-serif" fill="#233d32">
+<text x="60" y="52" font-size="30" font-weight="700">Rimuru's village: early landscape / future capacity</text>
+<text x="60" y="85" font-size="17">C18 review proposal · immediately after Kijin naming · one SVG unit in the plots = one block</text>
+
+<text x="70" y="133" font-size="22" font-weight="700">A · Current terrain reservation</text>
+<g transform="translate(350,445)"><rect x="-280" y="-280" width="560" height="560" rx="8" fill="url(#canopy)"/>
+<circle r="148" fill="#c2b98b" stroke="#f5edd5" stroke-width="3"/>
+<circle r="212" fill="none" stroke="#b5cfb7" stroke-width="2" stroke-dasharray="3 7"/>
+<rect x="-45.5" y="-57.5" width="91" height="91" fill="#8c7051" stroke="#fff6df" stroke-width="2"/>
+<rect x="-53.5" y="-65.5" width="107" height="107" fill="none" stroke="#fff6df" stroke-dasharray="3 4"/>
+<path d="M -12 0 H 12 M 0 -12 V 12" stroke="#9a2922" stroke-width="2"/>
+<path d="M 0 0 H 148" stroke="#6a4225" stroke-width="2"/><text x="74.0" y="-15" text-anchor="middle" font-size="16" fill="#392d1d">r 148</text>
+<path d="M -245 -210 V -248 l -7 12 M -245 -248 l 7 12" fill="none" stroke="#f4eedb" stroke-width="2"/><text x="-227" y="-235" fill="#f4eedb" font-size="16">N</text>
+<path d="M -245 245 h 100 m -100 -5 v 10 m 100 -10 v 10" stroke="#fff4da" stroke-width="3"/><text x="-195" y="230" text-anchor="middle" fill="#fff4da" font-size="15">100 blocks</text></g>
+<text x="70" y="760" font-size="17">148-block minimum includes the future growth square.</text>
+<text x="70" y="787" font-size="17">The early 91 × 91 blueprint occupies only the centre.</text>
+<text x="70" y="814" font-size="17">The site also has a separate 64-block exclusion margin.</text>
+<text x="770" y="133" font-size="22" font-weight="700">B · Proposed initial surface</text>
+<g transform="translate(1050,445)"><rect x="-280" y="-280" width="560" height="560" rx="8" fill="url(#canopy)"/>
+<circle r="85" fill="#c2b98b" stroke="#f5edd5" stroke-width="3"/>
+<circle r="148" fill="none" stroke="#ebcd87" stroke-width="2" stroke-dasharray="9 7"/>
+<circle r="212" fill="none" stroke="#b5cfb7" stroke-width="2" stroke-dasharray="3 7"/>
+<rect x="-45.5" y="-57.5" width="91" height="91" fill="#8c7051" stroke="#fff6df" stroke-width="2"/>
+<rect x="-53.5" y="-65.5" width="107" height="107" fill="none" stroke="#fff6df" stroke-dasharray="3 4"/>
+<path d="M -12 0 H 12 M 0 -12 V 12" stroke="#9a2922" stroke-width="2"/>
+<path d="M 0 0 H 85" stroke="#6a4225" stroke-width="2"/><text x="42.5" y="-15" text-anchor="middle" font-size="16" fill="#392d1d">r 85</text>
+<path d="M -245 -210 V -248 l -7 12 M -245 -248 l 7 12" fill="none" stroke="#f4eedb" stroke-width="2"/><text x="-227" y="-235" fill="#f4eedb" font-size="16">N</text>
+<path d="M -245 245 h 100 m -100 -5 v 10 m 100 -10 v 10" stroke="#fff4da" stroke-width="3"/><text x="-195" y="230" text-anchor="middle" fill="#fff4da" font-size="15">100 blocks</text></g>
+<text x="770" y="760" font-size="17">85-block surface radius is an engineering proposal.</text>
+<text x="770" y="787" font-size="17">Retain future 148-block reservation around it.</text>
+<text x="770" y="814" font-size="17">The outer annulus could keep forest until expansion.</text>
+<path d="M 60 850 H 1340" stroke="#c2b79e"/>
+<text x="60" y="885" font-size="19" font-weight="700">What is verified</text>
+<text x="60" y="915" font-size="17">WN chapter 20: Rimuru selects open ground near water and near the cave. No compass bearing or radius is given.</text>
+<text x="60" y="944" font-size="17">The 85-block study includes the blueprint's offset arrival point and its 8-block buffer; it is not a canon dimension.</text>
+<text x="60" y="973" font-size="17">Canopy dots are a schematic, not tree placements. Both plots retain the same source anchor at (0, 0).</text>
+<text x="60" y="1011" font-size="18" font-weight="700">NOT APPLIED: map.svg, mandatory minimums, converter, runtime and all 58 registrations remain unchanged.</text>
+</g></svg>

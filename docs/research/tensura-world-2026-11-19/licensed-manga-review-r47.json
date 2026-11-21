@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-21",
+  "reader_url": "https://comic-days.com/episode/10834108156644708045",
+  "public_chapter": true,
+  "reader_positions_inspected": [
+    9,
+    11,
+    13
+  ],
+  "position_type": "Horizontal reader UI counter,not printed volume page",
+  "claim_ids": [
+    "MNG01-001",
+    "MNG01-002",
+    "OFF-CAV-047"
+  ],
+  "cache_hashes": {
+    "comicdays-1-step8.png": "d26b2f68faae2deae40988cc342b9713618df7635d7818f76e80b4fe30f0029e",
+    "comicdays-1-step10.png": "0249daaa9a733e7b45bf76c36139d8e0fb019758488bf13617445d5ae1a460c0",
+    "comicdays-1-step12.png": "823cf7831cbd8ee49f525f86f24e71a3f29baf24f24f177c9a362d872fde4760",
+    "comicdays-1-reading.json": "670d01c26afd1b642342e9ee44e39f1c64ce1dcde7fa4afffe5d3fbc77ee28b1",
+    "official-episode2.html": "b735c6d864da3e8e29eca6395ff5e27ecf56dfd0f07d6b226e359630cf7b9362"
+  },
+  "access_limits": "Chapter2 login/ticket/145-point gate; no story read. Blank later rapid-navigation captures are not evidence. No full chapter/volume reading asserted.",
+  "unchanged_map_source_text_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "repository_gate": {
+    "validation": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 44.606
+  }
+}
