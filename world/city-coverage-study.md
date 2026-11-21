@@ -1,5 +1,7 @@
 # Dwargon and Englassia — city coverage study
 
+Round60 [Englassia fit review](englassia-fit-review.md) decodes the existing capital fragment and expands only its preparation radius98→124 for the offset template plus eight-block margin. Academy/guild already fitted; the corrected outer corners are a small terrain-preparation issue. All18,432 buffered columns are now level76;58 x/z centres stay fixed and only Englassia changes exported y75→76. Current terrain atlas is refreshed; R53 painting remains historical pending explicit integration. Ledger248 unique(190+58),14 direct LN plus3 author-side-story claims;129 inventory/32 follow-ups remain open.
+
 Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit interpreted East/West cavern geometry and deeper gallery/stair planning. It remains inert; the two cities are still missing active representations. The old round51 approach mismatch below was resolved by the round52 foothill correction; that historical finding is not the current gate interface.
 
 [Original schematic](city-coverage-study.png) · [Editable vector](city-coverage-study.svg).

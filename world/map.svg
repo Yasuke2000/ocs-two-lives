@@ -239,7 +239,7 @@ The live S/U frontier now approaches the park from the north, but its exact y272
     <circle data-id="orc_camp" data-site="village" data-margin="48" cx="1750" cy="550" r="60.0" id="site-orc_camp" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="blumund" data-site="clearing" data-margin="48" cx="-1500" cy="-620" r="97.0" id="site-blumund" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="ballachia" data-site="clearing" data-margin="48" cx="-2450" cy="-450" r="68.0" id="site-ballachia" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
-    <circle data-id="englassia" data-site="clearing" data-margin="48" cx="-2900" cy="-550" r="98.0" id="site-englassia" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
+    <circle data-id="englassia" data-site="clearing" data-margin="48" cx="-2900" cy="-550" r="124.0" id="site-englassia" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="marris" data-site="clearing" data-margin="48" cx="-1800" cy="-1650" r="101.0" id="site-marris" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="siltrosso" data-site="coast" data-margin="48" cx="-2297" cy="-1370" r="66.0" data-name="Shia - independent Siltrosso; F is gameplay coverage" id="site-siltrosso" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="lubelius" data-site="plateau" data-margin="48" cx="-3600" cy="-1300" r="97.0" id="site-lubelius" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />

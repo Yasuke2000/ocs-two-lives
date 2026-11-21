@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Englassia offset-template preparation (ChatGPT, round60)
+
+Round60 [Englassia fit review](../world/englassia-fit-review.md) decodes the existing capital fragment and expands only its preparation radius98→124 for the offset template plus eight-block margin. Academy/guild already fitted; the corrected outer corners are a small terrain-preparation issue. All18,432 buffered columns are now level76;58 x/z centres stay fixed and only Englassia changes exported y75→76. Current terrain atlas is refreshed; R53 painting remains historical pending explicit integration. Ledger248 unique(190+58),14 direct LN plus3 author-side-story claims;129 inventory/32 follow-ups remain open.
+
+Next: explicit current-source painting integration; other parent-city fit/source checks; registered extra locations and local runtime acceptance remain open. The mapper did not change tools or runtime to fix the centred-footprint minimum.
+
 ## 21/11 — Regional visual reference curation (ChatGPT, round59)
 
 Round59 [regional image review](research/tensura-world-2026-11-19/region-image-review-r59.md) curates69 role-labelled references across22 regions (24 distinct assets). Shared maps, local settings, interiors and cross-region analogies are explicit; country-specific landscape gaps remain. Five narrow visual records bring the ledger to247 unique(189+58);14 direct printed-LN and3 author-side-story records remain. Source1b9e151a,production geometry,terrain and R53 painting are unchanged;129 inventory/32 coverage follow-ups remain open.

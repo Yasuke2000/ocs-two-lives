@@ -88,3 +88,8 @@ The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects 
 ## Round59: visual analogies do not close country evidence
 
 [Regional image curation](region-image-review-r59.md) separates visible materials from geographical proof. Polar meeting interiors do not settle C22; persona colours do not establish El Dorado buildings; Coleus massing does not prove Falmuth or Imperial climates. The four unread403 country assets and all32 spatial coverage follow-ups remain open.
+
+
+## Round60: preparation radius is not capital geography
+
+[Englassia offset fit](../../../world/englassia-fit-review.md) enlarges one authored preparation disc to contain its existing buffered template. Only this capital exports a new height; source country positions and the fixed58 x/z registry are retained. This does not close the missing royal castle/lake setting,Council headquarters,complete capital or runtime questions. Whole-source painting equivalence is not asserted for the changed active geometry.
