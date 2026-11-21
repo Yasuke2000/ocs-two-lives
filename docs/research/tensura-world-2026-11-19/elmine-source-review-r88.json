@@ -1,0 +1,54 @@
+{
+  "reference_files": [
+    {
+      "file": "story.html",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no65",
+      "sha256": "b4c630078bd7b1105d2f9afefbb5394537b33408da50917b4bbcd4aa2f862469",
+      "bytes": 126378
+    },
+    {
+      "file": "img1.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no65/img1.jpg",
+      "sha256": "93c1278623b294a6c1efef461f177915610b6d1e7a6984736e1ada6a4e5a0ea2",
+      "bytes": 151319
+    },
+    {
+      "file": "img2.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no65/img2.jpg",
+      "sha256": "5642fd5d9bd020f107d4579fcaf8ab888cfd8734dc814937b169889f1b03dd0e",
+      "bytes": 168035
+    },
+    {
+      "file": "img3.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no65/img3.jpg",
+      "sha256": "fab87452452dc3e15c72a036a3452ec065ed2d56c5b1e487b0de74a4189d4a7c",
+      "bytes": 184346
+    },
+    {
+      "file": "img4.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no65/img4.jpg",
+      "sha256": "198eb9951d947adb2a076d97603e8bf1a177e784976efbbba9132632905d03ef",
+      "bytes": 174282
+    },
+    {
+      "file": "img5.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no65/img5.jpg",
+      "sha256": "1f3164a7f8cd42f7d881386ab53a2de43bbc9751264921468852e8b58f4fdb5e",
+      "bytes": 194977
+    }
+  ],
+  "images_in_repository": false,
+  "selected_stills_viewed": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_continuity": "official anime later visual context; not S1E10 state proof",
+  "ledger_records": [
+    "OFF-ELM-088",
+    "WIK-DIV-088",
+    "DES-ELM-088"
+  ]
+}
