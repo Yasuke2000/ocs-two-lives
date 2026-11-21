@@ -1,5 +1,7 @@
 # Current painted continent — round53
 
+Round56 [current-source equivalence audit](current-source-equivalence-r56.json): the current source e886217d adds only an inert Malukshure capital/cape alternative. Its complete active XML tree and normal height export match the original painting source8c24a349. All58 sites/projections and all SVG/PNG bytes are retained. The original provenance below remains unchanged; the new cape is not active or painted. The normal export was checked in the map worktree,not regenerated in this painting worktree.
+
 Source-register erratum (round54): the [current ledger review](../../docs/research/tensura-world-2026-11-19/empire-source-review-r54.md) restores unique claim keys and records233 unique entries. Original WN13-005/006 keep their earlier meanings; trade/cavern records are007/008. The original art,terrain source8c24a349,projections and numerical lighting provenance below remain unchanged.
 
 [Marked atlas](atlas.png) · [clean continent](continent.png) · [editable native composition](continent.svg) · [provenance](provenance.json) · [height samples](relief-samples.json) · [geometry/layout audit](presentation-audit.json) · [official comparison](comparison.md).
