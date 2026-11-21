@@ -1,6 +1,6 @@
 ## Current source — R106
 
-[Southeastern illustrated water and woodland](southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger313; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows these additions and142-entry caption. R105 is historical. This does not certify exhaustive wiki or primary-source coverage. [Measured design-biome shares](region-biomes-r108.md) now replace the old per-region targets. Earlier round status notes below are historical.
+[Southeastern illustrated water and woodland](southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger314; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows these additions and142-entry caption. R105 is historical. This does not certify exhaustive wiki or primary-source coverage. [Measured design-biome shares](region-biomes-r109.md) now replace the old per-region targets. Earlier round status notes below are historical.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 
@@ -192,7 +192,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Temperate lowlands 68–88; rocky shoulders 95–105. Tempest grows beside the west brook inside a small clearing. The road rises north through the safe rim to the Canaat apron.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:forest` 40.67%, `minecraft:plains` 29.52%, `minecraft:dark_forest` 23.72%, `tensura:ancient_forest` 2.38%, `minecraft:old_growth_spruce_taiga` 1.80%, `minecraft:old_growth_birch_forest` 1.00%, `minecraft:stony_peaks` 0.63%, `minecraft:river` 0.17%, `minecraft:meadow` 0.11%.
+**Current designed biome mix (R109; gameplay mask).** forest 40.7%, plains 29.5%, dark_forest 23.7%, tensura:ancient_forest 2.4%, old_growth_spruce_taiga 1.8%, old_growth_birch_forest 1.0%, stony_peaks 0.6%, river 0.2%, meadow 0.1%.
 
 **Palette, vegetation and crossings.** Sage and deep green, blue-grey bark, warm oak clearings. Open farmland gives way to an interlocked canopy; southeast paths disappear into Treyni’s old wood.
 
@@ -206,7 +206,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Grey alpine core to y280; lower eastern mountain spurs to y180, with foothill approaches around75–145. A south-facing escarpment frames the gate. A ravine frames the entrance. The summit shoulder carries the Dragon’s Nest; natural ridges continue above the buried city.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 73.55%, `minecraft:forest` 16.19%, `minecraft:stony_peaks` 4.71%, `minecraft:jagged_peaks` 1.62%, `minecraft:snowy_slopes` 1.19%, `minecraft:meadow` 1.02%, `minecraft:frozen_peaks` 1.00%, `minecraft:beach` 0.69%, `minecraft:river` 0.03%.
+**Current designed biome mix (R109; gameplay mask).** plains 73.5%, forest 16.2%, stony_peaks 4.7%, jagged_peaks 1.6%, snowy_slopes 1.2%, meadow 1.0%, frozen_peaks 1.0%, beach 0.7%, river 0.0%.
 
 **Palette, vegetation and crossings.** Tuff grey, warm yellow and anvil red. Forest thins to meadow and stone; gate lanterns replace daylight beneath the mountain.
 
@@ -220,7 +220,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** An elongated basin about858 by410 blocks, lake level66 and depth12; reed shores68–74 and limestone above the southern caverns to103. The Ameld enters from the north and exits on the east before turning southeast. These dimensions/heights and exact joins are our interpretation.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:swamp` 59.69%, `minecraft:plains` 29.68%, `minecraft:forest` 4.49%, `minecraft:dark_forest` 3.05%, `minecraft:old_growth_spruce_taiga` 2.63%, `minecraft:river` 0.46%.
+**Current designed biome mix (R109; gameplay mask).** swamp 59.7%, plains 29.7%, forest 4.5%, dark_forest 3.0%, old_growth_spruce_taiga 2.6%, river 0.5%.
 
 **Palette, vegetation and crossings.** Teal water, green reeds, pale limestone and weathered timber. Dry woodland opens into reed bays and flooded roots, then rises to a dry orc battlefield.
 
@@ -234,7 +234,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Low agricultural ground 68–82, with Londo on a dry trade terrace. Jura is connected by land; the west road reaches Ballachia and Englassia.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 93.02%, `minecraft:river` 5.41%, `minecraft:birch_forest` 1.57%.
+**Current designed biome mix (R109; gameplay mask).** plains 93.0%, river 5.4%, birch_forest 1.6%.
 
 **Palette, vegetation and crossings.** Cream masonry, red cloth, grain gold and orchard green. The traveller leaves the heavy canopy for fields and a small walled market capital.
 
@@ -248,7 +248,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Broad west-country river plains 65–85; low groves along the guild road. Lura and Ballachia remain compact, separated by agricultural country.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 68.82%, `minecraft:forest` 26.59%, `minecraft:desert` 2.22%, `minecraft:river` 1.19%, `minecraft:birch_forest` 1.18%.
+**Current designed biome mix (R109; gameplay mask).** plains 68.8%, forest 26.6%, desert 2.2%, river 1.2%, birch_forest 1.2%.
 
 **Palette, vegetation and crossings.** Slate, pale stone, navy banners and oxidized copper. Lanes widen toward the guild and academy; the western ridge closes the horizon beyond Lura.
 
@@ -262,7 +262,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Northern coastal lowlands 65–90. Marris sits inland behind Siltrosso’s coastal arm; the eastward land route reaches the Canaat gate.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 98.24%, `minecraft:beach` 1.76%.
+**Current designed biome mix (R109; gameplay mask).** plains 98.2%, beach 1.8%.
 
 **Palette, vegetation and crossings.** Blue and white, pale stone and green copper. Grain fields become exposed coastal grass; roads converge at a guarded commercial town.
 
@@ -276,7 +276,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Western ridge to 205, with Lune on a terrace at its foot. The sacred approach climbs a separate trail toward the mountain sanctuary.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 94.22%, `minecraft:desert` 3.06%, `minecraft:stony_peaks` 1.59%, `minecraft:beach` 0.60%, `minecraft:snowy_slopes` 0.43%, `minecraft:river` 0.11%.
+**Current designed biome mix (R109; gameplay mask).** plains 94.2%, desert 3.1%, stony_peaks 1.6%, beach 0.6%, snowy_slopes 0.4%, river 0.1%.
 
 **Palette, vegetation and crossings.** Ivory, muted gold, pale blue and cool stone. Open farms tighten into terraced slopes and a ceremonial stair beneath a grey ridge.
 
@@ -290,7 +290,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Arid west lowlands 65–100; Coleus has a bounded oasis at level75. Desert gives way to a separate barren belt around the Heaven Tower.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 44.47%, `tensura:desert_of_death` 39.67%, `tensura:barren_land` 10.44%, `minecraft:desert` 4.18%, `minecraft:beach` 1.13%, `minecraft:river` 0.07%, `minecraft:forest` 0.03%.
+**Current designed biome mix (R109; gameplay mask).** plains 44.5%, tensura:desert_of_death 39.7%, tensura:barren_land 10.4%, desert 4.2%, beach 1.1%, river 0.1%, forest 0.0%.
 
 **Palette, vegetation and crossings.** Ochre, chalk, pale sand and ash grey. Green caravan roads end at a small oasis; farther west the horizon is bare and weathered.
 
@@ -304,7 +304,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Western river-bank lowland 65–78; slightly raised wharves and a dry landing approach.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 97.64%, `minecraft:river` 1.71%, `minecraft:beach` 0.64%.
+**Current designed biome mix (R109; gameplay mask).** plains 97.6%, river 1.7%, beach 0.6%.
 
 **Palette, vegetation and crossings.** Wet slate, river blue and willow green. The western road follows the river through landing fields rather than cutting across a mountain.
 
@@ -318,7 +318,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Small cultivated basin 70–85 with a rimmed lake at level72. Rostia stays on the northern approach rather than inside the water.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 91.55%, `minecraft:river` 8.45%.
+**Current designed biome mix (R109; gameplay mask).** plains 91.5%, river 8.5%.
 
 **Palette, vegetation and crossings.** Lake blue, earth brown and soft green. Hedges open toward a still inland lake and a modest waterside town.
 
@@ -332,7 +332,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Gentle valley floor 70–90 between the western river landing and Yuzalgh.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 99.84%, `minecraft:river` 0.16%.
+**Current designed biome mix (R109; gameplay mask).** plains 99.8%, river 0.2%.
 
 **Palette, vegetation and crossings.** Muted greens, timber brown and pale stone. Small tilled fields alternate with low wooded shoulders.
 
@@ -346,7 +346,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Narrow lowland state 70–90 with an uninterrupted through-road.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 99.89%, `minecraft:birch_forest` 0.11%.
+**Current designed biome mix (R109; gameplay mask).** plains 99.9%, birch_forest 0.1%.
 
 **Palette, vegetation and crossings.** Field green and grey-brown boundary stone. A traveller crosses a shallow valley and clustered farms without encountering a defensive sea gap.
 
@@ -360,7 +360,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Small birch country 72–90 between the western towns and Blumund’s southern edge.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:birch_forest` 98.88%, `minecraft:plains` 1.12%.
+**Current designed biome mix (R109; gameplay mask).** birch_forest 98.9%, plains 1.1%.
 
 **Palette, vegetation and crossings.** White bark, pale green and straw. A light canopy softens the transition from town fields to Jura’s darker woodland.
 
@@ -374,7 +374,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Wooded coastal bluff to112, south of Sarion. An authored spring sits at102 with a contained rim; the brook descends to the southern coast.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:old_growth_birch_forest` 93.53%, `minecraft:plains` 5.59%, `minecraft:beach` 0.85%, `minecraft:river` 0.03%.
+**Current designed biome mix (R109; gameplay mask).** old_growth_birch_forest 93.5%, plains 5.6%, beach 0.8%, river 0.0%.
 
 **Palette, vegetation and crossings.** Moss green, silver water and weathered rock. The southbound road leaves Sarion’s forest and climbs onto a wooded coastal overlook.
 
@@ -388,7 +388,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Southwestern forest peninsula 70–105, shaped around the river and one colossal Divine Tree at Elmine.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:old_growth_birch_forest` 75.89%, `minecraft:plains` 22.86%, `minecraft:stony_peaks` 0.88%, `minecraft:beach` 0.32%, `minecraft:river` 0.04%.
+**Current designed biome mix (R109; gameplay mask).** old_growth_birch_forest 75.9%, plains 22.9%, stony_peaks 0.9%, beach 0.3%, river 0.0%.
 
 **Palette, vegetation and crossings.** Gold-green canopy, ivory wood and quiet water. Deep forest opens into a living-tree city; the river runs beside, not through, its dry site.
 
@@ -402,7 +402,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Southern spire country rising to235, between Sarion and Eurazania. Jia occupies ledges on a high, narrow rock pillar, with a winding ascent. The supplied anime still shows cliff dwellings rather than a conventional flat town.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 65.30%, `minecraft:windswept_hills` 24.35%, `minecraft:jungle` 8.25%, `minecraft:beach` 1.10%, `minecraft:river` 0.55%, `minecraft:old_growth_birch_forest` 0.45%.
+**Current designed biome mix (R109; gameplay mask).** plains 65.3%, windswept_hills 24.4%, jungle 8.3%, beach 1.1%, river 0.5%, old_growth_birch_forest 0.4%.
 
 **Palette, vegetation and crossings.** Cool stone, muted violet shadow and highland grass. Low fields give way to exposed ledges and wind-swept platforms.
 
@@ -416,7 +416,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Southeastern peninsula 68–100 with orchards and Laura’s dry clearing in jungle country. A north-facing escarpment behind Laura rises to225, with a headwater basin at154 feeding a stepped waterfall river past the dry city site.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:jungle` 44.69%, `minecraft:plains` 34.76%, `minecraft:sparse_jungle` 10.43%, `tensura:barren_land` 7.02%, `minecraft:swamp` 1.37%, `minecraft:beach` 0.60%, `minecraft:stony_peaks` 0.40%, `minecraft:river` 0.34%, `minecraft:snowy_slopes` 0.20%, `minecraft:old_growth_spruce_taiga` 0.19%.
+**Current designed biome mix (R109; gameplay mask).** jungle 44.7%, plains 34.8%, sparse_jungle 10.4%, tensura:barren_land 7.0%, swamp 1.4%, beach 0.6%, stony_peaks 0.4%, river 0.3%, snowy_slopes 0.2%, old_growth_spruce_taiga 0.2%.
 
 **Palette, vegetation and crossings.** Jungle green, golden fruit, brown timber and thatch. Reeds recede behind low wooded ridges and cultivated fruit groves.
 
@@ -430,7 +430,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Eastern lowlands65–90 with a narrow red crescent retained solely as the fixed brief's server accent. The large former red-biome footprint is reduced from707,757 to213,884 square blocks of authored polygon area (69.8% smaller). Surrounding land follows existing default grassland/forest priorities. No new hill, river or settlement is added.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 87.30%, `minecraft:forest` 4.70%, `minecraft:wooded_badlands` 4.44%, `minecraft:river` 1.50%, `minecraft:dark_forest` 1.40%, `minecraft:beach` 0.66%.
+**Current designed biome mix (R109; gameplay mask).** plains 87.3%, forest 4.7%, wooded_badlands 4.4%, river 1.5%, dark_forest 1.4%, beach 0.7%.
 
 **Palette, vegetation and crossings.** Green lowlands and established woodland, with a restrained warm-soil accent near the eastern coast. Exact tree species, settlement palette and field layout remain interpretation.
 
@@ -446,7 +446,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Northeastern dark-wood basin 72–95, castle on a dry site beside its separate moat; the separate Amrita ruin footprint uses an authored low mound to93.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 54.96%, `minecraft:dark_forest` 43.96%, `minecraft:stony_peaks` 0.72%, `minecraft:beach` 0.36%.
+**Current designed biome mix (R109; gameplay mask).** plains 55.0%, dark_forest 44.0%, stony_peaks 0.7%, beach 0.4%.
 
 **Palette, vegetation and crossings.** Deep green, muted violet, grey stone and cold lantern light. The road enters a closed canopy before reaching the castle clearing and eastern ruin.
 
@@ -460,7 +460,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Far-eastern northern valley 75–110, with Nasca north of a volcanic sanctuary rising to250.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 86.12%, `minecraft:snowy_slopes` 5.08%, `minecraft:stony_peaks` 3.43%, `minecraft:forest` 2.65%, `minecraft:beach` 1.48%, `minecraft:river` 1.20%, `minecraft:frozen_peaks` 0.05%.
+**Current designed biome mix (R109; gameplay mask).** plains 86.1%, snowy_slopes 5.1%, stony_peaks 3.4%, forest 2.7%, beach 1.5%, river 1.2%, frozen_peaks 0.0%.
 
 **Palette, vegetation and crossings.** Dark green roofs, red devices, copper and amber glass. Open plains are interrupted by long volcanic spurs rather than a continuous impassable wall.
 
@@ -472,13 +472,13 @@ The official guide and episode stills are reference links only; no official artw
 
 ## I — Ice Continent
 
-**Landform and heights.** Separate frozen island, 900–1,200 blocks of sea from the mainland; low ice ledges rise toward a210 spine. Frost Palace occupies the southern coastal plate.
+**Landform and heights.** Separate frozen island, 900–1,200 blocks of sea from the mainland; low ice ledges rise toward a210 spine. Following Yasuke’s R109 decision, Frost Palace occupies the central snowfield at(-1530,-3680), with an original89-block inland clearing for the existing entrance and its preparation buffer. The old coastal palace plate is retired in the drawing; this does not establish a full palace footprint.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:snowy_plains` 76.72%, `minecraft:frozen_peaks` 23.28%.
+**Current designed biome mix (R109; gameplay mask).** snowy_plains 76.7%, frozen_peaks 23.3%.
 
 **Palette, vegetation and crossings.** Blue ice, white rock and violet lights. A cold crossing ends at a coastal palace below an empty frozen interior.
 
-**Canon basis and interpretation.** The Ice Continent is northern and contains Guy’s Frost Palace; the playable shoreline and causeway are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Canon basis and interpretation.** The Ice Continent is northern and contains Guy’s Frost Palace. Fuse’s WN78 supplies a central-continent relationship; LN agreement remains unread. Yasuke chose inland placement in R109; the exact snowfield coordinate,clearing,shoreline and entrance forecourt are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
 **Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [associated official interior: Leon before a blue fractured-looking wall; no exterior panorama.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no45/img3.jpg) — Cold blue wall material only; no confirmed exterior palace or coastline.; [associated official interior: Velzard on a blue fractured-looking floor; no coastline.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no45/img4.jpg) — Cold blue floor material only; no measured island geometry or C22 resolution.
 
@@ -488,7 +488,7 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Separate southwest volcanic island, roughly 1, 850 by1, 400; Leon’s city lies northwest of the volcano, which rises to230. R80 adds an interpreted unnamed inland lake east of the cone, water first-air 68 anddepth 5; its natural rim and exact outline are authored.
 
-**Current designed biome mix (R108; gameplay mask).** `minecraft:plains` 92.36%, `minecraft:beach` 2.60%, `minecraft:river` 1.88%, `minecraft:snowy_slopes` 1.73%, `minecraft:stony_peaks` 1.43%.
+**Current designed biome mix (R109; gameplay mask).** plains 92.4%, beach 2.6%, river 1.9%, snowy_slopes 1.7%, stony_peaks 1.4%.
 
 **Palette, vegetation and crossings.** White and gold, green foothills, black volcanic stone and purple-red interiors. The sea crossing reaches a sheltered city plain below the caldera.
 
@@ -583,7 +583,7 @@ Three eastern forest boundaries now use restrained broad bays/lobes rather than 
 
 ## Frost Palace continuity/placement difference — round28
 
-The active coastal palace reserve remains a server interpretation. WN78 supplies an inland relationship; LN agreement is unread. C22 draws an inert near-centroid alternative, with no exact canonical coordinate or active site-kind change. Review coastal arrival versus inland palace representation before changing terrain or build data. [Source study](frost-palace-source-review.md).
+Historical R28 coastal reserve and near-centroid sketch are superseded by Yasuke’s R109 inland decision. The active drawing uses the reviewed central snowfield at(-1530,-3680),kind clearing,r89; generated staging supplies the matching registration. WN78 supports the central relationship; LN agreement,whole-palace design and runtime acceptance remain open. [Current decision and checks](frost-palace-inland-r109.md) · [historical source study](frost-palace-source-review.md).
 
 ## Orbic depleted ground — round31
 

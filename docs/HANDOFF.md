@@ -1,3 +1,9 @@
+# Current handoff
+
+## 21/11 — Owner-approved inland Frost Palace (R109)
+
+Owner answered inland palace and adjust coastal registration. SVG site54 now(-1530,-3680),clearing,r89;local forecourt and label follow. Other57 sites and all native geography masks remain. Checker0errors/56relations/2priorwarnings;normal67.3s/no warnings;8585 entrance-buffer samples level71,no water. world/frost-palace-inland-r109.md and exact generated table provide Claude’s integration handoff. Owner-approved generator updates only Frost Palace kind/r and its size row;live anchor/y/build/runtime integration remains with Claude. Do not apply the world here. C22 owner choice resolved; LN agreement,complete palace/access/runtime remain open. Required gate472/26skip/0fail65.002s;stale generated coastal-table failures corrected with existing generator. Ledger314;inventory142/42. Current measured shares are R109;R108 stays historical. R107 painting needs site/forecourt re-registration before called current.
+
 ## 21/11 — Region prose matches actual designed biomes (R108)
 
 [Reproducible native-region biome census](../world/region-biomes-r108.md) replaces22 obsolete target mixes in regions.md with107 measured region/biome rows.22 original targets preserved as history. The fixed200-block ancient core occupies about2.4% of J,not the old20% target; do not resize protected rings to chase a stale proportion. All percentages describe native gameplay masks,not sovereign country climates. Converter river/beach IDs are automatic,not hand-SVG biome instructions.

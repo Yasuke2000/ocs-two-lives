@@ -1,0 +1,15 @@
+# Exact generated staging table from tools/world/build.py; not a live registry application.
+# Source 0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b; owner chose inland placement on 2026-11-21.
+[frost_palace]
+site = "clearing"
+r = 89
+min_r = 67
+box = [85, 69]
+plate = [101, 85]
+margin = 8
+height = 46
+biome = "minecraft:snowy_plains"
+facing = "auto"
+ground = "fixed"
+y = 71
+

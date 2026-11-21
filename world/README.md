@@ -1,6 +1,6 @@
 ## Current source — R106
 
-[Southeastern illustrated water and woodland](southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger313; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows these additions and142-entry caption. R105 is historical. This does not certify exhaustive wiki or primary-source coverage. [Current regional biome shares](region-biomes-r108.md) replace old aspirational targets with measured design output. Earlier round status notes below are historical.
+[Owner-approved inland Frost Palace](frost-palace-inland-r109.md) is active in source `0ae040ec`:site54 moves to the central snowfield(-1530,-3680),clearing,r89;local forecourt follows. Other57 sites and all native landform/habitat/region geometry remain. Fresh normal staging and atlas reflect the change;[generated registration](frost-palace-registration-r109.toml) is ready for Claude integration. Ledger314;inventory142/42. [Current biome shares](region-biomes-r109.md) are remeasured;R108 stays historical. R107 painting predates this site move and needs re-registration. Earlier round notes below are historical;full source/era/whole-palace/runtime obligations remain open.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 

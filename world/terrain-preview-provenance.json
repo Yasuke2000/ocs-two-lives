@@ -1,7 +1,7 @@
 {
-  "source_svg_sha256": "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1",
-  "staged_index_source_sha256": "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1",
-  "preview_sha256": "201ad3800fd091e229438e0d16269c91bcde454f320caa28f2f5e8592ed8fcac",
+  "source_svg_sha256": "0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b",
+  "staged_index_source_sha256": "0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b",
+  "preview_sha256": "0a2413d0a550da399d79e9ef833deb775ae00b786d2643d378a1e9dddf49b4f5",
   "original_preview_pixels": [
     1600,
     1344
@@ -18,5 +18,6 @@
     "inventory": 138,
     "physical_followups": 42
   },
-  "comment_only_source_change": false
+  "comment_only_source_change": false,
+  "round": 109
 }
