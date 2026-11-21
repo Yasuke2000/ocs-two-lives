@@ -1,0 +1,44 @@
+{
+  "source_sha256": "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1",
+  "normal_build_seconds": 67.7,
+  "checker_errors": 0,
+  "relations": 56,
+  "existing_warnings": 2,
+  "all_previous_XML_retained": true,
+  "lake_vertices": 36,
+  "lake_area_blocks2": 70513.4087,
+  "lake_bounds": [
+    3184.89,
+    944.47,
+    3698.39,
+    1125.15
+  ],
+  "woodland_vertices": 66,
+  "woodland_area_blocks2": 155470.88335000002,
+  "woodland_bounds": [
+    2888.61,
+    607.2,
+    3550.0,
+    941.18
+  ],
+  "woodland_centroid_northwest_of_water": true,
+  "lake_woodland_gap_blocks": 6.582752014118212,
+  "height_changed_cells": 4406,
+  "height_maximum_change_distance_to_new_features": 0.0,
+  "water_changed_cells": 4406,
+  "water_maximum_change_distance_to_new_features": 0.0,
+  "biome_changed_cells": 14122,
+  "biome_maximum_change_distance_to_new_features": 0.0,
+  "rugged_changed_cells": 5041,
+  "rugged_maximum_change_distance_to_new_features": 8.91885624714699,
+  "sites.json_byte_identical": true,
+  "roads.json_byte_identical": true,
+  "lake_core_cells": 4406,
+  "lake_core_all_water68": true,
+  "lake_core_designed_bed_range": [
+    64.0,
+    66.75
+  ],
+  "woodland_cells": 9714,
+  "minimum_site_edge_clearance_to_lake": 497.03453911813165
+}

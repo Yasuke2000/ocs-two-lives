@@ -1,0 +1,39 @@
+{
+  "source_sha256": "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1",
+  "map_commit": "b0e38d0",
+  "source_lake_and_woodland_points_exact": true,
+  "native_tree_centres_inside_forest": 55,
+  "native_canopy_clipped_to_exact_source_woodland": true,
+  "R105_native_XML_retained_except_declared_overlay_definitions_metadata": true,
+  "changed_continent_pixels": 2213,
+  "maximum_RGB_channel_change": 152,
+  "changed_pixel_bounds": [
+    1043,
+    594,
+    1120,
+    644
+  ],
+  "all_changed_pixel_centres_inside_16block_support": true,
+  "all_exterior_pixels_identical": true,
+  "all_other_atlas_XML_retained_except_image_source_caption_panel_Milim_text": true,
+  "registered_sites": 58,
+  "site_attributes_world_positions_and_projections_checked": true,
+  "context_names": 20,
+  "actual_context_positions_and_browser_boxes_checked": true,
+  "inventory": 142,
+  "ledger_unique": 312,
+  "physical_followups": 42,
+  "minimum_circle_spacing": 32.470561517449696,
+  "label_overlap": false,
+  "atlas_embeds_exact_final_continent": true,
+  "source_and_current_previews_match_main": true,
+  "source_checker": {
+    "errors": 0,
+    "relations": 56,
+    "existing_warnings": 2
+  },
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "runtime_applied": false,
+  "limits": "Original illustrated canopy/palette; not actual tree count/species/density,named lake,surveyed coast or in-game placement proof."
+}

@@ -1,3 +1,11 @@
+## 21/11 — Painting aligned with southeastern landscape (R107)
+
+[Current painted atlas](../world/painting-round107/README.md) follows R106 source `b2750950`/map commit b0e38d0. Exact36 lake/66 woodland vertices retained;55 original scattered tree symbols clip inside the source forest. A regular-row trial was replaced after visual review. All R105 native composition remains except declared overlay/definitions/root metadata.2213 continent pixels change; all exterior pixels are identical outside16-block support. No global relief resampling claim.
+
+58 site attributes/world/projection records retained;20 context names/42 open rows browser-checked without overlap;minimum circle spacing32.47px. Caption/panel142/42 andledger312 agree. Milim orientation text moves south to match source; all other text/number geometry retained. Full continent,atlas/detail and enlarged comparison inspected. Fresh adopted source/checker/terrain previews match main exactly; checker0errors/56relations/2prior warnings. R105 is historical; painting alignment is complete. Source/initial-era/physical/C12/C22 obligations remain open; owner palace decision pending.
+
+Required gate472tests,26skipped,zero failures(65.227s); validation,zero changed JavaScript and diff/hash/XML/geometry checks pass. No historical art/prompt or protected edit,normal terrain rebuild,apply,world chunks,merge,deploy or in-game acceptance. Next: publish source-branch handoff links to R107,then substantive remaining map/source obligations; do not repeat this alignment or passed checks without a new reason.
+
 ## 21/11 — Painting aligned with western basin (R105)
 
 [Current painted atlas](../world/painting-round105/README.md) follows R104 source `e785c2b0`/map commit b36f284. Exact40 lake/36 outlet vertices preserved; original water grain clips to the source shore. All R100 native XML retained except the declared overlay/definitions/root metadata.1304 continent pixels change; all exterior pixels are identical outside16-block ink/antialias support. Source checker0errors/56relations/2prior warnings; fresh source/checker/terrain previews match the map branch exactly.

@@ -1,3 +1,9 @@
+# Current coverage: R106
+
+The southeastern basin and isolated woodland add two unnamed terrain records:
+**142 inventory entries**,with **42 prior physical follow-ups retained**.
+[Source/terrain review](southeastern-water-wood-r106.md). Earlier counts are historical.
+
 # Current coverage: R104
 
 The western illustrated basin and outlet add two unnamed terrain records: **140 inventory entries**,with **42 existing physical follow-ups retained**. [Source/terrain review](western-basin-r104.md). Earlier round counts below are historical.
@@ -185,3 +191,10 @@ R64 adds three source/scope entries and two new current gaps. Seven existing par
 ## How to read the atlas
 
 Numbers01–58 identify the existing server reservations. Large geographical labels identify broad existing areas; their text anchors and dimensions are layout choices. The separate M/P/U list has no map numbers or coordinates. It remains visible because geographical and source coverage are incomplete. Exact initial-state construction,source disagreements and fixed constraints stay in the linked reviews.
+
+## Additional unnamed southeastern features (R106)
+
+| Feature | Scope | Representation | Source |
+|---|---|---|---|
+| Unnamed southeastern inland basin | Mainland water | Terrain present; precise shore interpreted | MAP-SE-106 |
+| Southeastern isolated woodland | Mainland woodland | Terrain present; precise extent/type interpreted | DES-SE-106 |
