@@ -1,0 +1,71 @@
+{
+  "round": 71,
+  "source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+  "production_svg_edit": false,
+  "wn_source": {
+    "url": "https://ncode.syosetu.com/n6316bn/64/",
+    "displayed_chapter": 61,
+    "url_episode": 64,
+    "private_cache_sha256": "fa84af8a56e424e509808fbdd04031485c5d2f1003e841b8bac4aeee5ffe4a6d",
+    "selected_actual_html_paragraphs": [
+      "L1",
+      "L29",
+      "L30",
+      "L31",
+      "L32",
+      "L76",
+      "L77",
+      "L78",
+      "L79",
+      "L80",
+      "L81"
+    ],
+    "scope": "Selected paragraphs directly read;not a whole-volume read or LN continuity verification."
+  },
+  "official_stills": [
+    {
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no21/img1.jpg",
+      "private_file_sha256": "3c54dca9f93f079fc709f992dcc1ffb165e27147a78f990b17d6b5353ae17e6e",
+      "visually_inspected": true,
+      "scope": "Not a surveyed park exterior or route;no frame timestamp claimed."
+    },
+    {
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no21/img2.jpg",
+      "private_file_sha256": "1162ac3e32a91d455acec58fb7fc62ae0c8f5146f4391aad06c61b20cd8983ed",
+      "visually_inspected": true,
+      "scope": "Not a surveyed park exterior or route;no frame timestamp claimed."
+    },
+    {
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no21/img3.jpg",
+      "private_file_sha256": "faa32f857624c068b2c5e36f83bddbfbeb8a9894349b6b49c0b662763518f161",
+      "visually_inspected": true,
+      "scope": "Not a surveyed park exterior or route;no frame timestamp claimed."
+    },
+    {
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no21/img4.jpg",
+      "private_file_sha256": "059ff25c5bb548045d0370e75efde87649cc5a78a381eb144dc3d2c4ce9b604e",
+      "visually_inspected": true,
+      "scope": "Not a surveyed park exterior or route;no frame timestamp claimed."
+    },
+    {
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no21/img5.jpg",
+      "private_file_sha256": "4159592b5f7ec5c6a666119643bbfe53fafa3e9783296000a9b047eaa9f8f5eb",
+      "visually_inspected": true,
+      "scope": "Not a surveyed park exterior or route;no frame timestamp claimed."
+    }
+  ],
+  "diagram_scope": "Original relational layout only;not world coordinates,scaled map,registered location or active geometry.",
+  "ledger_unique": 265,
+  "inventory_entries": 132,
+  "physical_followups": 41,
+  "verification": {
+    "repository_validation": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.792,
+    "changed_javascript_files": 0,
+    "diagram_visually_inspected": true,
+    "independent_scope_checks": "265 unique keys;132 unchanged scope classifications;58 unchanged source sites;park reservation matches;input provenance;valid XML;protected/terrain paths unchanged."
+  }
+}

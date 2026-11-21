@@ -10,6 +10,12 @@ are ours. The full findings of the pass are in [lore-pass-2026-11.md](lore-pass-
 
 ## Where it is (canon)
 
+**Own-world placement, 20 November 2026:** the current authored anchor is (2650,800), radius 100.
+The broad territory relationship below remains wiki-level evidence; exact city coordinates and the two
+approach trails are our interpretation. The secondary marker benchmark is in
+[proportion-audit.csv](../../world/proportion-audit.csv). This old settlement is distinct from later
+capital construction at Laura; no later annexation or castle is applied to the post-Kijin baseline.
+
 | Fact | Source |
 | --- | --- |
 | The city is "Milim Nava's domain, sitting south of Jura Forest and east of the Beast Kingdom of Eurazania" | [Fandom: City_of_the_Forgotten_Dragon](https://tensura.fandom.com/wiki/City_of_the_Forgotten_Dragon) (search extract) |

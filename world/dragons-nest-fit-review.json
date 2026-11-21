@@ -1,0 +1,266 @@
+{
+  "round": 62,
+  "source_sha256": "0b211ec7761e1813ccfaee1e336f754ab7712495da6a991c79638d642a546839",
+  "baseline_source_sha256": "7a30cf4176971609db820acee59e2a72903bed1e102e7e9e95dbb9f063b5a60a",
+  "baseline_commit": "99846b8",
+  "proposal": {
+    "source_sha256": "7a30cf4176971609db820acee59e2a72903bed1e102e7e9e95dbb9f063b5a60a",
+    "id": "dragons_nest",
+    "centre": [
+      350,
+      -2000
+    ],
+    "before_radius": 64,
+    "geometric_rectangle_minimum_radius": 84,
+    "maximum_bilinear_corner_distance": 84.87638069569178,
+    "proposed_radius": 85,
+    "first_air_kept": 272,
+    "reason": "Contain the actual offset73x73 template plus eight-block margin and all four source height-raster neighbours used for interpolation at every integer column centre.",
+    "not_canon_scale_or_new_location": true
+  },
+  "before": {
+    "id": "dragons_nest",
+    "kind": "clearing",
+    "radius": 64,
+    "walking_y": 272,
+    "box_x": 73,
+    "box_z": 73,
+    "anchor_x": 36,
+    "anchor_z": 62,
+    "margin": 8,
+    "world_corner_x": 314,
+    "world_corner_z": -2062,
+    "build": "dragons_nest",
+    "underwater_allowed": false,
+    "carve_exempt_from_flat_surface_assumption": false,
+    "template_columns": 5329,
+    "template_outside_radius": 161,
+    "template_maximum_centre_distance": 71.51573253487655,
+    "template_maximum_height_difference_from_walking_y": 10.5859375,
+    "template_columns_over_half_block_difference": 118,
+    "template_designed_water_columns": 0,
+    "template_columns_outside_own_site_mask": 194,
+    "template_minimum_height": 261.4140625,
+    "template_maximum_height": 272.0,
+    "template_worst_column": [
+      386.5,
+      -2061.5
+    ],
+    "buffered_columns": 7921,
+    "buffered_outside_radius": 1028,
+    "buffered_maximum_centre_distance": 82.52575355608697,
+    "buffered_maximum_height_difference_from_walking_y": 52.64453125,
+    "buffered_columns_over_half_block_difference": 927,
+    "buffered_designed_water_columns": 0,
+    "buffered_columns_outside_own_site_mask": 1062,
+    "buffered_minimum_height": 219.35546875,
+    "buffered_maximum_height": 272.0,
+    "buffered_worst_column": [
+      394.5,
+      -2069.5
+    ],
+    "radius_to_contain_buffered_rectangle": 84
+  },
+  "after": {
+    "id": "dragons_nest",
+    "kind": "clearing",
+    "radius": 85,
+    "walking_y": 272,
+    "box_x": 73,
+    "box_z": 73,
+    "anchor_x": 36,
+    "anchor_z": 62,
+    "margin": 8,
+    "world_corner_x": 314,
+    "world_corner_z": -2062,
+    "build": "dragons_nest",
+    "underwater_allowed": false,
+    "carve_exempt_from_flat_surface_assumption": false,
+    "template_columns": 5329,
+    "template_outside_radius": 0,
+    "template_maximum_centre_distance": 71.51573253487655,
+    "template_maximum_height_difference_from_walking_y": 0.0,
+    "template_columns_over_half_block_difference": 0,
+    "template_designed_water_columns": 0,
+    "template_columns_outside_own_site_mask": 0,
+    "template_minimum_height": 272.0,
+    "template_maximum_height": 272.0,
+    "template_worst_column": [
+      314.5,
+      -2061.5
+    ],
+    "buffered_columns": 7921,
+    "buffered_outside_radius": 0,
+    "buffered_maximum_centre_distance": 82.52575355608697,
+    "buffered_maximum_height_difference_from_walking_y": 0.0,
+    "buffered_columns_over_half_block_difference": 0,
+    "buffered_designed_water_columns": 0,
+    "buffered_columns_outside_own_site_mask": 0,
+    "buffered_minimum_height": 272.0,
+    "buffered_maximum_height": 272.0,
+    "buffered_worst_column": [
+      306.5,
+      -2069.5
+    ],
+    "radius_to_contain_buffered_rectangle": 84
+  },
+  "normal_build_seconds": 65.6,
+  "normal_build_warnings": [],
+  "active_xml_only_change": "dragons_nest radius64 to85;all58 IDs,x/z centres and walking levels retained.",
+  "all_58_anchor_records_byte_identical": true,
+  "road_profile_audit": {
+    "all_21_centrelines_and_bridge_flags_retained": true,
+    "unchanged_profiles": 20,
+    "changed_profiles": [
+      {
+        "id": "canaat_high_pass",
+        "changed_points": 55,
+        "maximum_height_difference": 5.490000000000009
+      }
+    ],
+    "maximum_grade_from_rounded_export": 0.5000000000000491
+  },
+  "byte_identical_exports": [
+    "anchors.toml",
+    "canon_map.txt",
+    "road.png",
+    "water.png"
+  ],
+  "changed_exports": [
+    "biome.png",
+    "exclude.png",
+    "height.png",
+    "index.json",
+    "preview.png",
+    "roads.json",
+    "rugged.png",
+    "sites.json",
+    "sites.png",
+    "sites.toml"
+  ],
+  "raster_deltas": {
+    "biome.png": {
+      "changed_pixels": 1644,
+      "max_encoded_absolute_delta": 11.0,
+      "world_pixel_extent": [
+        232,
+        -2128,
+        556,
+        -1864
+      ]
+    },
+    "exclude.png": {
+      "changed_pixels": 1018,
+      "max_encoded_absolute_delta": 1.0,
+      "world_pixel_extent": [
+        216,
+        -2132,
+        484,
+        -1868
+      ]
+    },
+    "height.png": {
+      "changed_pixels": 2507,
+      "max_encoded_absolute_delta": 1347.0,
+      "world_pixel_extent": [
+        224,
+        -2128,
+        592,
+        -1848
+      ],
+      "maximum_absolute_height_delta_blocks": 84.1875,
+      "minimum_signed_height_delta_blocks": -6.4375,
+      "maximum_signed_height_delta_blocks": 84.1875
+    },
+    "road.png": {
+      "changed_pixels": 0,
+      "max_encoded_absolute_delta": 0.0
+    },
+    "rugged.png": {
+      "changed_pixels": 2234,
+      "max_encoded_absolute_delta": 192.0,
+      "world_pixel_extent": [
+        224,
+        -2128,
+        476,
+        -1872
+      ]
+    },
+    "sites.png": {
+      "changed_pixels": 622,
+      "max_encoded_absolute_delta": 12.0,
+      "world_pixel_extent": [
+        264,
+        -2084,
+        436,
+        -1916
+      ]
+    },
+    "water.png": {
+      "changed_pixels": 0,
+      "max_encoded_absolute_delta": 0.0
+    }
+  },
+  "decoded_template": {
+    "size": [
+      73,
+      46,
+      73
+    ],
+    "anchor": [
+      36,
+      9,
+      62
+    ],
+    "slabs": [
+      [
+        "dragons_nest_0",
+        0,
+        37
+      ],
+      [
+        "dragons_nest_1",
+        37,
+        73
+      ]
+    ],
+    "defined_block_entries": 245134,
+    "nonair_entries": 53342,
+    "highest_local_nonair_y": 30,
+    "planned_corner": [
+      314,
+      263,
+      -2062
+    ],
+    "highest_world_nonair_y": 293
+  },
+  "default_checker": {
+    "errors": 0,
+    "relations_checked": 56,
+    "warnings": 2
+  },
+  "geographical_source": "WIK-NEST-062:public indexed wiki Background,with LN12 chapter4 citation retained as an unread primary lead. Exact coordinates,size,plate level and roost architecture are our interpretation.",
+  "runtime_placement_tested": false,
+  "painting_status": "R61 source7a30cf41 remains historical for this new height/reservation. Current terrain atlas refreshed;explicit painting integration is next.",
+  "visual_review": {
+    "checker_preview_inspected": true,
+    "cached_official_map_inspected": true,
+    "difference": "Broader original summit preparation supports the existing authored plot;the national setting and retained server compression do not change.",
+    "terrain_atlas_inspected": true,
+    "plan_and_section_inspected_after_layout_correction": true
+  },
+  "height_grade_propagation": {
+    "height_pixels_outside_85_plus42_fade": 205,
+    "farthest_changed_height_pixel_centre_from_nest": 280.9199174141983,
+    "reason": "The high-pass grade adjustment propagates beyond the site fade along the unchanged road corridor; a future painting overlay must cover those measured changes too."
+  },
+  "validation": {
+    "repository_validation": "passed",
+    "tests_run": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 62.286,
+    "changed_JS_files": 0,
+    "in_game_run": false
+  }
+}

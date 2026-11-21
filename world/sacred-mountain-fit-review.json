@@ -1,0 +1,2148 @@
+{
+  "round": 68,
+  "source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+  "baseline_source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+  "baseline_commit": "68bb81e",
+  "active_source_change": "Only sacred_mountain radius80 to95. Automatic first-air changes179 to175;no authored x/z move.",
+  "before": {
+    "round": 68,
+    "source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+    "site": {
+      "id": "sacred_mountain",
+      "kind": "plateau",
+      "x": -3900,
+      "z": -1600,
+      "r": 80,
+      "plated": true,
+      "y": 179,
+      "index": 22,
+      "fade": 40,
+      "biome": null,
+      "margin": 48.0
+    },
+    "size": [
+      81,
+      57,
+      81
+    ],
+    "anchor": [
+      40,
+      4,
+      76
+    ],
+    "template_corner": [
+      -3940,
+      175,
+      -1676
+    ],
+    "defined_entries": 83337,
+    "nonair_blocks": 80912,
+    "nonair_columns": {
+      "columns": 6561,
+      "outside_r80": 97,
+      "bicubic_min": 176.47942781448364,
+      "bicubic_max": 182.29172617197037,
+      "bicubic_max_abs_difference": 3.2917261719703674,
+      "bilinear_max_abs_difference": 3.287109375,
+      "bicubic_over_half_block": 58,
+      "worst_local": [
+        77,
+        0
+      ],
+      "worst_world": [
+        -3862.5,
+        -1675.5
+      ],
+      "geometric_radius_to_contain": 86,
+      "radius_to_contain_all16_sampler_neighbours": 95
+    },
+    "perimeter_columns": {
+      "columns": 320,
+      "outside_r80": 40,
+      "bicubic_min": 176.47942781448364,
+      "bicubic_max": 182.29172617197037,
+      "bicubic_max_abs_difference": 3.2917261719703674,
+      "bilinear_max_abs_difference": 3.287109375,
+      "bicubic_over_half_block": 28,
+      "worst_local": [
+        77,
+        0
+      ],
+      "worst_world": [
+        -3862.5,
+        -1675.5
+      ],
+      "geometric_radius_to_contain": 86,
+      "radius_to_contain_all16_sampler_neighbours": 95
+    },
+    "perimeter_terrain_skin_at_local3": true,
+    "functional_support_boxes": {
+      "lower_track": {
+        "columns": 42,
+        "outside_r80": 0,
+        "bicubic_min": 179.0,
+        "bicubic_max": 179.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          38,
+          74
+        ],
+        "worst_world": [
+          -3901.5,
+          -1601.5
+        ],
+        "geometric_radius_to_contain": 6,
+        "radius_to_contain_all16_sampler_neighbours": 15
+      },
+      "lower_flight": {
+        "columns": 168,
+        "outside_r80": 0,
+        "bicubic_min": 179.0,
+        "bicubic_max": 179.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          30,
+          63
+        ],
+        "worst_world": [
+          -3909.5,
+          -1612.5
+        ],
+        "geometric_radius_to_contain": 17,
+        "radius_to_contain_all16_sampler_neighbours": 26
+      },
+      "middle_court": {
+        "columns": 310,
+        "outside_r80": 0,
+        "bicubic_min": 179.0,
+        "bicubic_max": 179.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          25,
+          53
+        ],
+        "worst_world": [
+          -3914.5,
+          -1622.5
+        ],
+        "geometric_radius_to_contain": 28,
+        "radius_to_contain_all16_sampler_neighbours": 38
+      },
+      "upper_flight": {
+        "columns": 189,
+        "outside_r80": 0,
+        "bicubic_min": 179.0,
+        "bicubic_max": 179.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          30,
+          44
+        ],
+        "worst_world": [
+          -3909.5,
+          -1631.5
+        ],
+        "geometric_radius_to_contain": 34,
+        "radius_to_contain_all16_sampler_neighbours": 43
+      },
+      "upper_court": {
+        "columns": 465,
+        "outside_r80": 0,
+        "bicubic_min": 179.0,
+        "bicubic_max": 179.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          25,
+          29
+        ],
+        "worst_world": [
+          -3914.5,
+          -1646.5
+        ],
+        "geometric_radius_to_contain": 50,
+        "radius_to_contain_all16_sampler_neighbours": 59
+      },
+      "summit_gate": {
+        "columns": 490,
+        "outside_r80": 0,
+        "bicubic_min": 179.0,
+        "bicubic_max": 179.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          16,
+          21
+        ],
+        "worst_world": [
+          -3923.5,
+          -1654.5
+        ],
+        "geometric_radius_to_contain": 60,
+        "radius_to_contain_all16_sampler_neighbours": 69
+      }
+    },
+    "source_files": [
+      {
+        "path": "pack/kubejs/data/ttl/structure/sacred_mountain_0.nbt",
+        "sha256": "eff5f5a73c9a4f564c7feb796108f2bac965fa67f3535e615bbc72c236ac8366"
+      },
+      {
+        "path": "pack/kubejs/data/ttl/structure/sacred_mountain_1.nbt",
+        "sha256": "c030c946dd3083b0de53a91a6eea5333274c0d5eb60411f3c2ccce8175642fdb"
+      },
+      {
+        "path": "pack/kubejs/data/ttl/structure/sacred_mountain_2.nbt",
+        "sha256": "306d8bfc999bc7e64322ead99f2834c5e91ee607bac08910481698ae19def76f"
+      }
+    ],
+    "maximum_defined_world_y": 225,
+    "runtime_reference": "CanonRasters.height/cubic;read-only formula comparison,not runtime density/noise or placement.",
+    "ascent_centreline": [
+      {
+        "local": [
+          41,
+          3,
+          80
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          178,
+          -1596
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          41,
+          3,
+          79
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          178,
+          -1597
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          41,
+          3,
+          78
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          178,
+          -1598
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          41,
+          3,
+          77
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          178,
+          -1599
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          41,
+          3,
+          76
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          178,
+          -1600
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          75
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3900,
+          178,
+          -1601
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          74
+        ],
+        "floor_state": "minecraft:andesite",
+        "world": [
+          -3900,
+          178,
+          -1602
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          73
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          178,
+          -1603
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          72
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          178,
+          -1604
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          71
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          178,
+          -1605
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          70
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          178,
+          -1606
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          4,
+          69
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          179,
+          -1607
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          5,
+          68
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          180,
+          -1608
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          6,
+          67
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          181,
+          -1609
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          7,
+          66
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          182,
+          -1610
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          8,
+          65
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          183,
+          -1611
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          9,
+          64
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          184,
+          -1612
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          63
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          185,
+          -1613
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          62
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          185,
+          -1614
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          61
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          185,
+          -1615
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          60
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          185,
+          -1616
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          59
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          185,
+          -1617
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          58
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          185,
+          -1618
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          57
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          185,
+          -1619
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          56
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          185,
+          -1620
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          55
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          185,
+          -1621
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          54
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          185,
+          -1622
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          53
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          185,
+          -1623
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          52
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          185,
+          -1624
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          11,
+          51
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          186,
+          -1625
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          12,
+          50
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          187,
+          -1626
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          13,
+          49
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          188,
+          -1627
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          14,
+          48
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          189,
+          -1628
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          15,
+          47
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          190,
+          -1629
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          16,
+          46
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          191,
+          -1630
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          17,
+          45
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          192,
+          -1631
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          44
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          193,
+          -1632
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          43
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          193,
+          -1633
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          42
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          193,
+          -1634
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          41
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          193,
+          -1635
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          40
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          193,
+          -1636
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          39
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          193,
+          -1637
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          38
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          193,
+          -1638
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          37
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          193,
+          -1639
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          36
+        ],
+        "floor_state": "minecraft:chiseled_quartz_block",
+        "world": [
+          -3900,
+          193,
+          -1640
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          35
+        ],
+        "floor_state": "minecraft:sea_lantern",
+        "world": [
+          -3900,
+          193,
+          -1641
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          34
+        ],
+        "floor_state": "minecraft:gold_block",
+        "world": [
+          -3900,
+          193,
+          -1642
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          33
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          193,
+          -1643
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          32
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          193,
+          -1644
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          31
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          193,
+          -1645
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          30
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          193,
+          -1646
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          29
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          193,
+          -1647
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          28
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          193,
+          -1648
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          27
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          193,
+          -1649
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          26
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          193,
+          -1650
+        ],
+        "model_headroom_air_or_undefined": false
+      },
+      {
+        "local": [
+          40,
+          18,
+          25
+        ],
+        "floor_state": "minecraft:quartz_bricks",
+        "world": [
+          -3900,
+          193,
+          -1651
+        ],
+        "model_headroom_air_or_undefined": false
+      }
+    ]
+  },
+  "after": {
+    "round": 68,
+    "source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+    "site": {
+      "id": "sacred_mountain",
+      "kind": "plateau",
+      "x": -3900,
+      "z": -1600,
+      "r": 95,
+      "plated": true,
+      "y": 175,
+      "index": 22,
+      "fade": 48,
+      "biome": null,
+      "margin": 48.0
+    },
+    "size": [
+      81,
+      57,
+      81
+    ],
+    "anchor": [
+      40,
+      4,
+      76
+    ],
+    "template_corner": [
+      -3940,
+      171,
+      -1676
+    ],
+    "defined_entries": 83337,
+    "nonair_blocks": 80912,
+    "nonair_columns": {
+      "columns": 6561,
+      "outside_drawn_radius": 0,
+      "bicubic_min": 175.0,
+      "bicubic_max": 175.0,
+      "bicubic_max_abs_difference": 0.0,
+      "bilinear_max_abs_difference": 0.0,
+      "bicubic_over_half_block": 0,
+      "worst_local": [
+        0,
+        0
+      ],
+      "worst_world": [
+        -3939.5,
+        -1675.5
+      ],
+      "geometric_radius_to_contain": 86,
+      "radius_to_contain_all16_sampler_neighbours": 95
+    },
+    "perimeter_columns": {
+      "columns": 320,
+      "outside_drawn_radius": 0,
+      "bicubic_min": 175.0,
+      "bicubic_max": 175.0,
+      "bicubic_max_abs_difference": 0.0,
+      "bilinear_max_abs_difference": 0.0,
+      "bicubic_over_half_block": 0,
+      "worst_local": [
+        0,
+        0
+      ],
+      "worst_world": [
+        -3939.5,
+        -1675.5
+      ],
+      "geometric_radius_to_contain": 86,
+      "radius_to_contain_all16_sampler_neighbours": 95
+    },
+    "perimeter_terrain_skin_at_local3": true,
+    "functional_support_boxes": {
+      "lower_track": {
+        "columns": 42,
+        "outside_drawn_radius": 0,
+        "bicubic_min": 175.0,
+        "bicubic_max": 175.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          38,
+          74
+        ],
+        "worst_world": [
+          -3901.5,
+          -1601.5
+        ],
+        "geometric_radius_to_contain": 6,
+        "radius_to_contain_all16_sampler_neighbours": 15
+      },
+      "lower_flight": {
+        "columns": 168,
+        "outside_drawn_radius": 0,
+        "bicubic_min": 175.0,
+        "bicubic_max": 175.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          30,
+          63
+        ],
+        "worst_world": [
+          -3909.5,
+          -1612.5
+        ],
+        "geometric_radius_to_contain": 17,
+        "radius_to_contain_all16_sampler_neighbours": 26
+      },
+      "middle_court": {
+        "columns": 310,
+        "outside_drawn_radius": 0,
+        "bicubic_min": 175.0,
+        "bicubic_max": 175.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          25,
+          53
+        ],
+        "worst_world": [
+          -3914.5,
+          -1622.5
+        ],
+        "geometric_radius_to_contain": 28,
+        "radius_to_contain_all16_sampler_neighbours": 38
+      },
+      "upper_flight": {
+        "columns": 189,
+        "outside_drawn_radius": 0,
+        "bicubic_min": 175.0,
+        "bicubic_max": 175.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          30,
+          44
+        ],
+        "worst_world": [
+          -3909.5,
+          -1631.5
+        ],
+        "geometric_radius_to_contain": 34,
+        "radius_to_contain_all16_sampler_neighbours": 43
+      },
+      "upper_court": {
+        "columns": 465,
+        "outside_drawn_radius": 0,
+        "bicubic_min": 175.0,
+        "bicubic_max": 175.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          25,
+          29
+        ],
+        "worst_world": [
+          -3914.5,
+          -1646.5
+        ],
+        "geometric_radius_to_contain": 50,
+        "radius_to_contain_all16_sampler_neighbours": 59
+      },
+      "summit_gate": {
+        "columns": 490,
+        "outside_drawn_radius": 0,
+        "bicubic_min": 175.0,
+        "bicubic_max": 175.0,
+        "bicubic_max_abs_difference": 0.0,
+        "bilinear_max_abs_difference": 0.0,
+        "bicubic_over_half_block": 0,
+        "worst_local": [
+          16,
+          21
+        ],
+        "worst_world": [
+          -3923.5,
+          -1654.5
+        ],
+        "geometric_radius_to_contain": 60,
+        "radius_to_contain_all16_sampler_neighbours": 69
+      }
+    },
+    "source_files": [
+      {
+        "path": "pack/kubejs/data/ttl/structure/sacred_mountain_0.nbt",
+        "sha256": "eff5f5a73c9a4f564c7feb796108f2bac965fa67f3535e615bbc72c236ac8366"
+      },
+      {
+        "path": "pack/kubejs/data/ttl/structure/sacred_mountain_1.nbt",
+        "sha256": "c030c946dd3083b0de53a91a6eea5333274c0d5eb60411f3c2ccce8175642fdb"
+      },
+      {
+        "path": "pack/kubejs/data/ttl/structure/sacred_mountain_2.nbt",
+        "sha256": "306d8bfc999bc7e64322ead99f2834c5e91ee607bac08910481698ae19def76f"
+      }
+    ],
+    "maximum_defined_world_y": 221,
+    "runtime_reference": "CanonRasters.height/cubic;read-only formula comparison,not runtime density/noise or placement.",
+    "ascent_centreline": [
+      {
+        "local": [
+          41,
+          3,
+          80
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          174,
+          -1596
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          41,
+          3,
+          79
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          174,
+          -1597
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          41,
+          3,
+          78
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          174,
+          -1598
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          41,
+          3,
+          77
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          174,
+          -1599
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          41,
+          3,
+          76
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3899,
+          174,
+          -1600
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          75
+        ],
+        "floor_state": "minecraft:coarse_dirt",
+        "world": [
+          -3900,
+          174,
+          -1601
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          74
+        ],
+        "floor_state": "minecraft:andesite",
+        "world": [
+          -3900,
+          174,
+          -1602
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          73
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          174,
+          -1603
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          72
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          174,
+          -1604
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          71
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          174,
+          -1605
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          3,
+          70
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          174,
+          -1606
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          4,
+          69
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          175,
+          -1607
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          5,
+          68
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          176,
+          -1608
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          6,
+          67
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          177,
+          -1609
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          7,
+          66
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          178,
+          -1610
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          8,
+          65
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          179,
+          -1611
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          9,
+          64
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          180,
+          -1612
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          63
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          181,
+          -1613
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          62
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          181,
+          -1614
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          61
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          181,
+          -1615
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          60
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          181,
+          -1616
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          59
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          181,
+          -1617
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          58
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          181,
+          -1618
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          57
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          181,
+          -1619
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          56
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          181,
+          -1620
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          55
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          181,
+          -1621
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          54
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          181,
+          -1622
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          53
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          181,
+          -1623
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          10,
+          52
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          181,
+          -1624
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          11,
+          51
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          182,
+          -1625
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          12,
+          50
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          183,
+          -1626
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          13,
+          49
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          184,
+          -1627
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          14,
+          48
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          185,
+          -1628
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          15,
+          47
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          186,
+          -1629
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          16,
+          46
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          187,
+          -1630
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          17,
+          45
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          188,
+          -1631
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          44
+        ],
+        "floor_state": "minecraft:smooth_quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+        "world": [
+          -3900,
+          189,
+          -1632
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          43
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          189,
+          -1633
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          42
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          189,
+          -1634
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          41
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          189,
+          -1635
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          40
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          189,
+          -1636
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          39
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          189,
+          -1637
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          38
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          189,
+          -1638
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          37
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          189,
+          -1639
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          36
+        ],
+        "floor_state": "minecraft:chiseled_quartz_block",
+        "world": [
+          -3900,
+          189,
+          -1640
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          35
+        ],
+        "floor_state": "minecraft:sea_lantern",
+        "world": [
+          -3900,
+          189,
+          -1641
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          34
+        ],
+        "floor_state": "minecraft:gold_block",
+        "world": [
+          -3900,
+          189,
+          -1642
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          33
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          189,
+          -1643
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          32
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          189,
+          -1644
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          31
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          189,
+          -1645
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          30
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          189,
+          -1646
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          29
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          189,
+          -1647
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          28
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          189,
+          -1648
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          27
+        ],
+        "floor_state": "minecraft:smooth_quartz",
+        "world": [
+          -3900,
+          189,
+          -1649
+        ],
+        "model_headroom_air_or_undefined": true
+      },
+      {
+        "local": [
+          40,
+          18,
+          26
+        ],
+        "floor_state": "minecraft:calcite",
+        "world": [
+          -3900,
+          189,
+          -1650
+        ],
+        "model_headroom_air_or_undefined": false
+      },
+      {
+        "local": [
+          40,
+          18,
+          25
+        ],
+        "floor_state": "minecraft:quartz_bricks",
+        "world": [
+          -3900,
+          189,
+          -1651
+        ],
+        "model_headroom_air_or_undefined": false
+      }
+    ]
+  },
+  "normal_build_seconds": 66.6,
+  "normal_build_warnings": [],
+  "changed_site_records": [
+    {
+      "id": "sacred_mountain",
+      "fields": {
+        "y": [
+          179,
+          175
+        ],
+        "r": [
+          80,
+          95
+        ],
+        "fade": [
+          40,
+          48
+        ]
+      }
+    }
+  ],
+  "road_profile_audit": {
+    "all21_centrelines_and_bridge_flags_retained": true,
+    "changed_profiles": [
+      {
+        "id": "sacred_mountain_trail",
+        "points_changed": 60,
+        "maximum_height_delta": 2.5799999999999983
+      }
+    ],
+    "unchanged_profiles": 20,
+    "maximum_grade": 0.5000000000000455
+  },
+  "raster_deltas": {
+    "biome.png": {
+      "changed_cells": 1291,
+      "maximum_encoded_abs_delta": 5.0,
+      "world_pixel_bounds": [
+        -4044,
+        -1736,
+        -3756,
+        -1456
+      ]
+    },
+    "exclude.png": {
+      "changed_cells": 792,
+      "maximum_encoded_abs_delta": 1.0,
+      "world_pixel_bounds": [
+        -4044,
+        -1744,
+        -3756,
+        -1456
+      ]
+    },
+    "height.png": {
+      "changed_cells": 4483,
+      "maximum_encoded_abs_delta": 817.0,
+      "world_pixel_bounds": [
+        -4060,
+        -1744,
+        -3688,
+        -1400
+      ],
+      "maximum_abs_blocks": 51.0625,
+      "minimum_signed_blocks": -29.75,
+      "maximum_signed_blocks": 51.0625
+    },
+    "road.png": {
+      "changed_cells": 0,
+      "maximum_encoded_abs_delta": 0.0
+    },
+    "rugged.png": {
+      "changed_cells": 2586,
+      "maximum_encoded_abs_delta": 102.0,
+      "world_pixel_bounds": [
+        -4040,
+        -1740,
+        -3760,
+        -1460
+      ]
+    },
+    "sites.png": {
+      "changed_cells": 516,
+      "maximum_encoded_abs_delta": 22.0,
+      "world_pixel_bounds": [
+        -3996,
+        -1696,
+        -3804,
+        -1504
+      ]
+    },
+    "water.png": {
+      "changed_cells": 0,
+      "maximum_encoded_abs_delta": 0.0
+    }
+  },
+  "byte_identical_exports": [
+    "canon_map.txt",
+    "road.png",
+    "water.png"
+  ],
+  "changed_exports": [
+    "anchors.toml",
+    "biome.png",
+    "exclude.png",
+    "height.png",
+    "index.json",
+    "preview.png",
+    "roads.json",
+    "rugged.png",
+    "sites.json",
+    "sites.png",
+    "sites.toml"
+  ],
+  "checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "canonical_scale": "Exact radius,level and architecture are authored server interpretation. Existing selected LN6 summit/stair relationship is unchanged.",
+  "geometry_partition_current": {
+    "land_uncovered_area": 0,
+    "region_outside_land_area": 0,
+    "pair_overlap_area": 0,
+    "method": "Current native16-step parsed polygons;unchanged coast and region elements."
+  },
+  "painting_status": "R64 sourcec2f806a9 is historical for this changed height and preparation radius. Its old files are retained;explicit native height-lighting integration is next.",
+  "visual_review": "Checker preview inspected beside cached official base. Broad continental relations unchanged;expanded local preparation is original adaptation.",
+  "runtime_placement_tested": false,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.335,
+    "validation_passed": true,
+    "changed_JS_files": 0
+  },
+  "derived_site_sync": {
+    "command": "python -I tools/world/sites_from_builds.py",
+    "only_generated_difference": "world/sites.toml sacred_mountain.r80 to95",
+    "hand_edited": false,
+    "initial_stale_file_failure_corrected": true
+  },
+  "atlas_legend_qualifications": [
+    {
+      "text": "42 \u00c2\u00b7 Sainte game pin (C14)",
+      "x": 1129,
+      "y": 2318,
+      "right": 1370.466796875,
+      "bottom": 2340
+    },
+    {
+      "text": "54 \u00c2\u00b7 Frost Palace coastal reserve (C22)",
+      "x": 1665,
+      "y": 2234,
+      "right": 2014.36328125,
+      "bottom": 2256
+    }
+  ]
+}

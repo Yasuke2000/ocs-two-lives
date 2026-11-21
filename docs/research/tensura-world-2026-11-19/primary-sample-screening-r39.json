@@ -1,0 +1,31 @@
+{
+  "accessed": "2026-11-21",
+  "locator_convention": "Zero-based HTML p elements including empty elements; local cache outside repository.",
+  "reading_scope": "Selected geographic terms and relevant context, not full novels.",
+  "sources": [
+    {
+      "volume": 4,
+      "url": "https://gcnovels.jp/reading/slime4.htm",
+      "html_sha256": "030129d2219683ad295b835fcbf2bde1913385f2e004f64d3ab60efeef4f7cfe",
+      "paragraph_count": 79
+    },
+    {
+      "volume": 7,
+      "url": "https://gcnovels.jp/reading/slime7.htm",
+      "html_sha256": "ff9fa62e57f8efb9ef4609ff8eda2889046f1af366d97a480ba50d65b09b2ee9",
+      "paragraph_count": 231
+    },
+    {
+      "volume": 8,
+      "url": "https://gcnovels.jp/reading/slime8.htm",
+      "html_sha256": "fcae1f641db0a5946383f157793f2d577ba06d84132d6d598f536bc5c79eac30",
+      "paragraph_count": 163
+    },
+    {
+      "volume": 9,
+      "url": "https://gcnovels.jp/reading/slime9.htm",
+      "html_sha256": "3952adba7d40a245ed18be32c5c0c3d63b0d1281e08a549ef6d16133e12f98f0",
+      "paragraph_count": 295
+    }
+  ]
+}

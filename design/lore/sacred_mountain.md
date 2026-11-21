@@ -1,5 +1,7 @@
 # Sacred Mountain — the sealed gate of the Inner Sanctum
 
+Own-world R68 [support review](../../world/sacred-mountain-fit-review.md):fixed centre(-3900,-1600),preparation r95,first-air175. The old Lerfing survey coordinates and placement discussion below remain historical;runtime registration is not switched here. Exact levels,threshold architecture and model scale are our interpretation. The source/initial-era and actual-placement qualifications still apply.
+
 A pilgrim approaching from the south can see the blue and gold seal between the limestone peaks before setting foot on the first stair. The lower flight climbs seven blocks to a rose court. The second climbs eight to the threshold, where three courses of white stone and gold frame dark double leaves. A single gold ring spans their seam. The timber line ends below the gate.
 
 ## Canon and sources

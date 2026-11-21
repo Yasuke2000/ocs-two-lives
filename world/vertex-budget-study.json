@@ -1,0 +1,808 @@
+{
+  "source": "world/map.svg",
+  "over_budget": [
+    {
+      "layer": "coast",
+      "id": "Magic Continent",
+      "vertices": 388,
+      "options": [
+        {
+          "tolerance": 1,
+          "vertices": 383,
+          "hausdorff_blocks": 0.779131665371004,
+          "area_changed_blocks2": 112.85220000001402,
+          "valid": true
+        },
+        {
+          "tolerance": 2,
+          "vertices": 372,
+          "hausdorff_blocks": 1.9903384142362863,
+          "area_changed_blocks2": 1980.9659000000147,
+          "valid": true
+        },
+        {
+          "tolerance": 4,
+          "vertices": 352,
+          "hausdorff_blocks": 3.9541672538764265,
+          "area_changed_blocks2": 8450.564750000074,
+          "valid": true
+        },
+        {
+          "tolerance": 6,
+          "vertices": 304,
+          "hausdorff_blocks": 5.993642253046117,
+          "area_changed_blocks2": 29239.94808250177,
+          "valid": true
+        },
+        {
+          "tolerance": 8,
+          "vertices": 267,
+          "hausdorff_blocks": 7.910379067218444,
+          "area_changed_blocks2": 52417.77776360716,
+          "valid": true
+        },
+        {
+          "tolerance": 10,
+          "vertices": 236,
+          "hausdorff_blocks": 9.934494610613733,
+          "area_changed_blocks2": 78830.07180690412,
+          "valid": true
+        },
+        {
+          "tolerance": 12,
+          "vertices": 210,
+          "hausdorff_blocks": 11.891653471636733,
+          "area_changed_blocks2": 103978.71162079427,
+          "valid": true
+        },
+        {
+          "tolerance": 16,
+          "vertices": 177,
+          "hausdorff_blocks": 15.995099860193903,
+          "area_changed_blocks2": 144818.18037016137,
+          "valid": true
+        },
+        {
+          "tolerance": 20,
+          "vertices": 157,
+          "hausdorff_blocks": 19.819907555136368,
+          "area_changed_blocks2": 186602.67933587573,
+          "valid": true
+        },
+        {
+          "tolerance": 24,
+          "vertices": 140,
+          "hausdorff_blocks": 23.986710987175087,
+          "area_changed_blocks2": 234784.18786623864,
+          "valid": true
+        },
+        {
+          "tolerance": 32,
+          "vertices": 120,
+          "hausdorff_blocks": 31.951334124043818,
+          "area_changed_blocks2": 320719.1631096706,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "layer": "forests",
+      "id": "jura-eastern-foothill-woodland",
+      "vertices": 212,
+      "options": [
+        {
+          "tolerance": 1,
+          "vertices": 90,
+          "hausdorff_blocks": 0.9987945470911163,
+          "area_changed_blocks2": 1368.492843570818,
+          "valid": true
+        },
+        {
+          "tolerance": 2,
+          "vertices": 68,
+          "hausdorff_blocks": 1.9184804998857388,
+          "area_changed_blocks2": 2724.1812544231125,
+          "valid": true
+        },
+        {
+          "tolerance": 4,
+          "vertices": 45,
+          "hausdorff_blocks": 3.8878586455197466,
+          "area_changed_blocks2": 6173.74385351198,
+          "valid": true
+        },
+        {
+          "tolerance": 6,
+          "vertices": 40,
+          "hausdorff_blocks": 5.44751559513801,
+          "area_changed_blocks2": 7797.555315896252,
+          "valid": true
+        },
+        {
+          "tolerance": 8,
+          "vertices": 31,
+          "hausdorff_blocks": 7.486814019621156,
+          "area_changed_blocks2": 14961.6315544878,
+          "valid": true
+        },
+        {
+          "tolerance": 10,
+          "vertices": 31,
+          "hausdorff_blocks": 7.486814019621156,
+          "area_changed_blocks2": 14961.6315544878,
+          "valid": true
+        },
+        {
+          "tolerance": 12,
+          "vertices": 26,
+          "hausdorff_blocks": 11.477918788596957,
+          "area_changed_blocks2": 21190.039125323347,
+          "valid": true
+        },
+        {
+          "tolerance": 16,
+          "vertices": 21,
+          "hausdorff_blocks": 19.12338809758938,
+          "area_changed_blocks2": 30088.081782398287,
+          "valid": true
+        },
+        {
+          "tolerance": 20,
+          "vertices": 21,
+          "hausdorff_blocks": 17.741849500788184,
+          "area_changed_blocks2": 29291.400282398285,
+          "valid": true
+        },
+        {
+          "tolerance": 24,
+          "vertices": 19,
+          "hausdorff_blocks": 21.88445655434372,
+          "area_changed_blocks2": 40262.14607341465,
+          "valid": true
+        },
+        {
+          "tolerance": 32,
+          "vertices": 17,
+          "hausdorff_blocks": 27.495380163178407,
+          "area_changed_blocks2": 45079.14107341464,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "layer": "regions",
+      "id": "V",
+      "vertices": 170,
+      "options": [
+        {
+          "tolerance": 1,
+          "vertices": 143,
+          "hausdorff_blocks": 0.9464736596857357,
+          "area_changed_blocks2": 620.6931155297848,
+          "valid": true
+        },
+        {
+          "tolerance": 2,
+          "vertices": 117,
+          "hausdorff_blocks": 1.9903384142362863,
+          "area_changed_blocks2": 3145.86210056418,
+          "valid": true
+        },
+        {
+          "tolerance": 4,
+          "vertices": 105,
+          "hausdorff_blocks": 3.773511505050555,
+          "area_changed_blocks2": 5863.306217365821,
+          "valid": true
+        },
+        {
+          "tolerance": 6,
+          "vertices": 89,
+          "hausdorff_blocks": 6.380240997936127,
+          "area_changed_blocks2": 13994.763695781607,
+          "valid": true
+        },
+        {
+          "tolerance": 8,
+          "vertices": 81,
+          "hausdorff_blocks": 7.734517918462849,
+          "area_changed_blocks2": 18555.87149243109,
+          "valid": true
+        },
+        {
+          "tolerance": 10,
+          "vertices": 72,
+          "hausdorff_blocks": 10.0,
+          "area_changed_blocks2": 25802.46256443564,
+          "valid": true
+        },
+        {
+          "tolerance": 12,
+          "vertices": 68,
+          "hausdorff_blocks": 11.607598030949541,
+          "area_changed_blocks2": 29932.176142599837,
+          "valid": true
+        },
+        {
+          "tolerance": 16,
+          "vertices": 54,
+          "hausdorff_blocks": 15.877560175939253,
+          "area_changed_blocks2": 50922.09877197196,
+          "valid": true
+        },
+        {
+          "tolerance": 20,
+          "vertices": 46,
+          "hausdorff_blocks": 21.683398129747232,
+          "area_changed_blocks2": 71108.48165124419,
+          "valid": true
+        },
+        {
+          "tolerance": 24,
+          "vertices": 44,
+          "hausdorff_blocks": 22.436552765520844,
+          "area_changed_blocks2": 77424.96663937645,
+          "valid": true
+        },
+        {
+          "tolerance": 32,
+          "vertices": 34,
+          "hausdorff_blocks": 31.935450521325155,
+          "area_changed_blocks2": 107341.7427526089,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "layer": "regions",
+      "id": "F",
+      "vertices": 140,
+      "options": [
+        {
+          "tolerance": 1,
+          "vertices": 100,
+          "hausdorff_blocks": 0.9965564774659876,
+          "area_changed_blocks2": 1009.7839128853869,
+          "valid": true
+        },
+        {
+          "tolerance": 2,
+          "vertices": 74,
+          "hausdorff_blocks": 1.9922807762989965,
+          "area_changed_blocks2": 3604.0997803689424,
+          "valid": true
+        },
+        {
+          "tolerance": 4,
+          "vertices": 62,
+          "hausdorff_blocks": 3.5839661688268896,
+          "area_changed_blocks2": 6825.584752977902,
+          "valid": true
+        },
+        {
+          "tolerance": 6,
+          "vertices": 51,
+          "hausdorff_blocks": 5.998373438959681,
+          "area_changed_blocks2": 13798.328315383125,
+          "valid": true
+        },
+        {
+          "tolerance": 8,
+          "vertices": 44,
+          "hausdorff_blocks": 7.357605470745444,
+          "area_changed_blocks2": 18107.59251538313,
+          "valid": true
+        },
+        {
+          "tolerance": 10,
+          "vertices": 40,
+          "hausdorff_blocks": 9.93053888213639,
+          "area_changed_blocks2": 22180.573877503088,
+          "valid": true
+        },
+        {
+          "tolerance": 12,
+          "vertices": 36,
+          "hausdorff_blocks": 11.99002679993688,
+          "area_changed_blocks2": 27663.671204590293,
+          "valid": true
+        },
+        {
+          "tolerance": 16,
+          "vertices": 32,
+          "hausdorff_blocks": 14.199278374455483,
+          "area_changed_blocks2": 33850.7970045903,
+          "valid": true
+        },
+        {
+          "tolerance": 20,
+          "vertices": 30,
+          "hausdorff_blocks": 18.3269841951288,
+          "area_changed_blocks2": 42257.79224332302,
+          "valid": true
+        },
+        {
+          "tolerance": 24,
+          "vertices": 29,
+          "hausdorff_blocks": 20.996437018008475,
+          "area_changed_blocks2": 44373.06278311267,
+          "valid": true
+        },
+        {
+          "tolerance": 32,
+          "vertices": 23,
+          "hausdorff_blocks": 31.951334124043818,
+          "area_changed_blocks2": 79955.40491679644,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "layer": "regions",
+      "id": "D",
+      "vertices": 168,
+      "options": [
+        {
+          "tolerance": 1,
+          "vertices": 115,
+          "hausdorff_blocks": 0.9935457089982709,
+          "area_changed_blocks2": 1503.629952173214,
+          "valid": true
+        },
+        {
+          "tolerance": 2,
+          "vertices": 86,
+          "hausdorff_blocks": 1.9922807762989965,
+          "area_changed_blocks2": 5100.101276546944,
+          "valid": true
+        },
+        {
+          "tolerance": 4,
+          "vertices": 70,
+          "hausdorff_blocks": 3.822754771208324,
+          "area_changed_blocks2": 8956.247954103565,
+          "valid": true
+        },
+        {
+          "tolerance": 6,
+          "vertices": 56,
+          "hausdorff_blocks": 5.856950175291876,
+          "area_changed_blocks2": 15902.383627716126,
+          "valid": true
+        },
+        {
+          "tolerance": 8,
+          "vertices": 46,
+          "hausdorff_blocks": 7.4262449724101325,
+          "area_changed_blocks2": 24619.45621886351,
+          "valid": true
+        },
+        {
+          "tolerance": 10,
+          "vertices": 43,
+          "hausdorff_blocks": 8.839902939622304,
+          "area_changed_blocks2": 26771.249491427945,
+          "valid": true
+        },
+        {
+          "tolerance": 12,
+          "vertices": 36,
+          "hausdorff_blocks": 11.53525374244428,
+          "area_changed_blocks2": 37210.17436555028,
+          "valid": true
+        },
+        {
+          "tolerance": 16,
+          "vertices": 32,
+          "hausdorff_blocks": 15.661744777392578,
+          "area_changed_blocks2": 48135.41857071192,
+          "valid": true
+        },
+        {
+          "tolerance": 20,
+          "vertices": 31,
+          "hausdorff_blocks": 16.20921459108113,
+          "area_changed_blocks2": 51775.764632174716,
+          "valid": true
+        },
+        {
+          "tolerance": 24,
+          "vertices": 28,
+          "hausdorff_blocks": 22.459590968251742,
+          "area_changed_blocks2": 64008.146440482655,
+          "valid": true
+        },
+        {
+          "tolerance": 32,
+          "vertices": 26,
+          "hausdorff_blocks": 31.128942241891444,
+          "area_changed_blocks2": 73461.92923920453,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "layer": "regions",
+      "id": "J",
+      "vertices": 182,
+      "options": [
+        {
+          "tolerance": 1,
+          "vertices": 113,
+          "hausdorff_blocks": 0.998148747242535,
+          "area_changed_blocks2": 1644.1441058882046,
+          "valid": true
+        },
+        {
+          "tolerance": 2,
+          "vertices": 80,
+          "hausdorff_blocks": 1.9827769908235562,
+          "area_changed_blocks2": 5094.447461196572,
+          "valid": true
+        },
+        {
+          "tolerance": 4,
+          "vertices": 54,
+          "hausdorff_blocks": 3.999197967862904,
+          "area_changed_blocks2": 10516.606369472198,
+          "valid": true
+        },
+        {
+          "tolerance": 6,
+          "vertices": 46,
+          "hausdorff_blocks": 6.641528588697916,
+          "area_changed_blocks2": 14812.769537553435,
+          "valid": true
+        },
+        {
+          "tolerance": 8,
+          "vertices": 36,
+          "hausdorff_blocks": 7.778892705322157,
+          "area_changed_blocks2": 23613.835697566483,
+          "valid": true
+        },
+        {
+          "tolerance": 10,
+          "vertices": 30,
+          "hausdorff_blocks": 9.794958230260132,
+          "area_changed_blocks2": 29659.00873478337,
+          "valid": true
+        },
+        {
+          "tolerance": 12,
+          "vertices": 29,
+          "hausdorff_blocks": 10.043710170375185,
+          "area_changed_blocks2": 31395.79578878121,
+          "valid": true
+        },
+        {
+          "tolerance": 16,
+          "vertices": 26,
+          "hausdorff_blocks": 14.44100946012549,
+          "area_changed_blocks2": 36520.405603368206,
+          "valid": true
+        },
+        {
+          "tolerance": 20,
+          "vertices": 26,
+          "hausdorff_blocks": 14.44100946012549,
+          "area_changed_blocks2": 36520.405603368206,
+          "valid": true
+        },
+        {
+          "tolerance": 24,
+          "vertices": 19,
+          "hausdorff_blocks": 27.125966070216744,
+          "area_changed_blocks2": 65640.269804621,
+          "valid": true
+        },
+        {
+          "tolerance": 32,
+          "vertices": 18,
+          "hausdorff_blocks": 27.125966070216744,
+          "area_changed_blocks2": 70906.5759247461,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "layer": "regions",
+      "id": "M",
+      "vertices": 170,
+      "options": [
+        {
+          "tolerance": 1,
+          "vertices": 127,
+          "hausdorff_blocks": 1.1413101093827611,
+          "area_changed_blocks2": 1089.6758723322303,
+          "valid": true
+        },
+        {
+          "tolerance": 2,
+          "vertices": 104,
+          "hausdorff_blocks": 2.37715715363461,
+          "area_changed_blocks2": 3405.887468614227,
+          "valid": true
+        },
+        {
+          "tolerance": 4,
+          "vertices": 85,
+          "hausdorff_blocks": 3.988876829553557,
+          "area_changed_blocks2": 7523.0578883614035,
+          "valid": true
+        },
+        {
+          "tolerance": 6,
+          "vertices": 71,
+          "hausdorff_blocks": 6.336392684080717,
+          "area_changed_blocks2": 13713.58922103422,
+          "valid": true
+        },
+        {
+          "tolerance": 8,
+          "vertices": 61,
+          "hausdorff_blocks": 7.910379067218444,
+          "area_changed_blocks2": 20160.263950370965,
+          "valid": true
+        },
+        {
+          "tolerance": 10,
+          "vertices": 54,
+          "hausdorff_blocks": 9.83147745567416,
+          "area_changed_blocks2": 24873.39770583402,
+          "valid": true
+        },
+        {
+          "tolerance": 12,
+          "vertices": 49,
+          "hausdorff_blocks": 11.52965151746371,
+          "area_changed_blocks2": 32753.024437470776,
+          "valid": true
+        },
+        {
+          "tolerance": 16,
+          "vertices": 43,
+          "hausdorff_blocks": 13.497111700561167,
+          "area_changed_blocks2": 40872.56451316286,
+          "valid": true
+        },
+        {
+          "tolerance": 20,
+          "vertices": 40,
+          "hausdorff_blocks": 20.983386598421625,
+          "area_changed_blocks2": 51301.24986971639,
+          "valid": true
+        },
+        {
+          "tolerance": 24,
+          "vertices": 36,
+          "hausdorff_blocks": 22.22731801980841,
+          "area_changed_blocks2": 63304.76550909066,
+          "valid": true
+        },
+        {
+          "tolerance": 32,
+          "vertices": 29,
+          "hausdorff_blocks": 31.503317578484655,
+          "area_changed_blocks2": 82460.01721526007,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "layer": "regions",
+      "id": "B",
+      "vertices": 134,
+      "options": [
+        {
+          "tolerance": 1,
+          "vertices": 106,
+          "hausdorff_blocks": 0.9102165035916722,
+          "area_changed_blocks2": 593.9695275810313,
+          "valid": true
+        },
+        {
+          "tolerance": 2,
+          "vertices": 81,
+          "hausdorff_blocks": 1.9821350120550048,
+          "area_changed_blocks2": 2902.262328293133,
+          "valid": true
+        },
+        {
+          "tolerance": 4,
+          "vertices": 62,
+          "hausdorff_blocks": 3.999197967862904,
+          "area_changed_blocks2": 7013.071040271514,
+          "valid": true
+        },
+        {
+          "tolerance": 6,
+          "vertices": 57,
+          "hausdorff_blocks": 4.564021690313763,
+          "area_changed_blocks2": 8300.492311711996,
+          "valid": true
+        },
+        {
+          "tolerance": 8,
+          "vertices": 49,
+          "hausdorff_blocks": 7.758374191498858,
+          "area_changed_blocks2": 14676.209030438122,
+          "valid": true
+        },
+        {
+          "tolerance": 10,
+          "vertices": 43,
+          "hausdorff_blocks": 9.643272436409857,
+          "area_changed_blocks2": 18316.20510972596,
+          "valid": true
+        },
+        {
+          "tolerance": 12,
+          "vertices": 43,
+          "hausdorff_blocks": 9.643272436409857,
+          "area_changed_blocks2": 18316.20510972596,
+          "valid": true
+        },
+        {
+          "tolerance": 16,
+          "vertices": 37,
+          "hausdorff_blocks": 15.858144344121692,
+          "area_changed_blocks2": 28277.243147200115,
+          "valid": true
+        },
+        {
+          "tolerance": 20,
+          "vertices": 32,
+          "hausdorff_blocks": 19.93720711072677,
+          "area_changed_blocks2": 40714.61299222833,
+          "valid": true
+        },
+        {
+          "tolerance": 24,
+          "vertices": 28,
+          "hausdorff_blocks": 22.57718462836614,
+          "area_changed_blocks2": 57781.529438323945,
+          "valid": true
+        },
+        {
+          "tolerance": 32,
+          "vertices": 20,
+          "hausdorff_blocks": 31.97700879057959,
+          "area_changed_blocks2": 88190.28882636226,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "layer": "regions",
+      "id": "R",
+      "vertices": 128,
+      "options": [
+        {
+          "tolerance": 1,
+          "vertices": 76,
+          "hausdorff_blocks": 0.9804813955124576,
+          "area_changed_blocks2": 1309.9007653410558,
+          "valid": true
+        },
+        {
+          "tolerance": 2,
+          "vertices": 58,
+          "hausdorff_blocks": 1.9231284103301585,
+          "area_changed_blocks2": 2929.3245343714925,
+          "valid": true
+        },
+        {
+          "tolerance": 4,
+          "vertices": 41,
+          "hausdorff_blocks": 3.867394320663956,
+          "area_changed_blocks2": 6378.719096606698,
+          "valid": true
+        },
+        {
+          "tolerance": 6,
+          "vertices": 29,
+          "hausdorff_blocks": 5.998373438959681,
+          "area_changed_blocks2": 13249.109585511047,
+          "valid": true
+        },
+        {
+          "tolerance": 8,
+          "vertices": 23,
+          "hausdorff_blocks": 7.745492096647658,
+          "area_changed_blocks2": 17196.648231923115,
+          "valid": true
+        },
+        {
+          "tolerance": 10,
+          "vertices": 22,
+          "hausdorff_blocks": 9.171035388338392,
+          "area_changed_blocks2": 18309.963831722955,
+          "valid": true
+        },
+        {
+          "tolerance": 12,
+          "vertices": 19,
+          "hausdorff_blocks": 11.547962711642858,
+          "area_changed_blocks2": 23435.327030767574,
+          "valid": true
+        },
+        {
+          "tolerance": 16,
+          "vertices": 19,
+          "hausdorff_blocks": 11.547962711642858,
+          "area_changed_blocks2": 23435.327030767574,
+          "valid": true
+        },
+        {
+          "tolerance": 20,
+          "vertices": 16,
+          "hausdorff_blocks": 17.240052995898314,
+          "area_changed_blocks2": 33478.6645235033,
+          "valid": true
+        },
+        {
+          "tolerance": 24,
+          "vertices": 14,
+          "hausdorff_blocks": 25.07793696433639,
+          "area_changed_blocks2": 45652.03692102927,
+          "valid": true
+        },
+        {
+          "tolerance": 32,
+          "vertices": 14,
+          "hausdorff_blocks": 25.07793696433639,
+          "area_changed_blocks2": 45652.03692102927,
+          "valid": true
+        }
+      ]
+    }
+  ],
+  "region_coverage_valid": false,
+  "invalid_coverage_edges": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    577.5125990620377,
+    0.0,
+    0.0,
+    0.0,
+    1586.6142353041155,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    972.7033036960319,
+    0.0,
+    0.0,
+    0.0,
+    112.66970095309786,
+    0.0,
+    0.0
+  ],
+  "region_land_gap_area": 53.044765872467345,
+  "region_outside_land_area": 0.7123361477669761,
+  "overlap_pairs": [
+    {
+      "a": "J",
+      "b": "S",
+      "area": 7.730188498597767
+    },
+    {
+      "a": "S",
+      "b": "O",
+      "area": 40.66807298986979
+    },
+    {
+      "a": "S",
+      "b": "H",
+      "area": 2.2802182362755588
+    }
+  ],
+  "source_text_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "method": "Shapely 2.2.0 / GEOS 3.14.1, independent Douglas-Peucker polygon simplification with preserve_topology=True; no production candidate adopted",
+  "scope": "Diagnostic only. Candidate validity is individual-polygon validity, not proof of shared boundary, raster, road, water or site preservation."
+}

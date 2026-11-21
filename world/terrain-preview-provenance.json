@@ -1,0 +1,24 @@
+{
+  "source_svg_sha256": "bb0e4b295dc1b75b8ac2778dd4f8b5240b69c26af5c4da35beac785595e6aaca",
+  "staged_index_source_sha256": "bb0e4b295dc1b75b8ac2778dd4f8b5240b69c26af5c4da35beac785595e6aaca",
+  "preview_sha256": "ca491719a4ae54a68bb2f489f74c2049c414a7a6fac8328974533f2d773a9b24",
+  "original_preview_pixels": [
+    1600,
+    1344
+  ],
+  "copied_without_pixel_modification": true,
+  "applied_to_runtime": false,
+  "previous_preview_source_sha256": "63df718534438fa803fc39a8a0b16c46bf9648edf1c58cc62fff30ad75f37806",
+  "source_change_review": "world/western-peninsula-r97.md",
+  "registration": {
+    "scale_from_r95": 1.0,
+    "translate_x": 0.0,
+    "translate_y": 0.0,
+    "legend_y_shift": 0.0,
+    "existing_58_marker_groups_retained": true,
+    "existing_19_context_labels_retained": true,
+    "inventory_caption": 138,
+    "open_physical_rows": 42
+  },
+  "normal_build_seconds": 66.5
+}

@@ -1,0 +1,65 @@
+{
+  "WN": {
+    "url": "https://ncode.syosetu.com/n6316bn/59/",
+    "private_cache_file": "../englassia-castle-r74/wn56.html",
+    "cache_sha256": "a7802cf1fe2bef6a1fbc5b104d40f995e82f2d91c477c83622ab91cd434c5741",
+    "verification": "Selected cached original paragraphs read against live web-reader source; native refetch returned403 and was not retried."
+  },
+  "publisher_access": [
+    {
+      "volume": 11,
+      "url": "https://gcnovels.jp/reading/slime11.htm",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "volume": 12,
+      "url": "https://gcnovels.jp/reading/slime12.htm",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "official_stills": [
+    {
+      "file": "episode20-img1.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no20/img1.jpg",
+      "status": 200,
+      "sha256": "c4683d5f97aa117382244444bc2c7869ff3e70dbdd0d43307b98fc303b5f2133",
+      "bytes": 74070
+    },
+    {
+      "file": "episode20-img2.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no20/img2.jpg",
+      "status": 200,
+      "sha256": "f973c8530407ef54169e5c4064ecbf76109c82fa3f443a8cad154e2b66f9613f",
+      "bytes": 53022
+    },
+    {
+      "file": "episode20-img3.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no20/img3.jpg",
+      "status": 200,
+      "sha256": "0b113fc52f68b2055de638fbbc51c619ec0ed0a36419556fc05c5463f17d658d",
+      "bytes": 67521
+    },
+    {
+      "file": "episode20-img4.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no20/img4.jpg",
+      "status": 200,
+      "sha256": "27dd4c58ca43b57bc14ad1113845845a1c9593401115e4023abdb5937d944bd2",
+      "bytes": 69311
+    },
+    {
+      "file": "episode20-img5.jpg",
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no20/img5.jpg",
+      "status": 200,
+      "sha256": "07c158ffe28f1b427266f3ae50042da5a1dce5bc3ffd04179e06752889e99897",
+      "bytes": 75762
+    }
+  ],
+  "selected_official_images_viewed": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "copyrighted_images_in_repository": false
+}

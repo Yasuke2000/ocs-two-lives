@@ -1,5 +1,13 @@
 # Ghastone
 
+## Current own-world/source correction — round96
+
+Current own-world pin (-3200, -300), radius 8, gameplay mask G. The official manga volume 27 release announcement names Gaston Kingdom and identifies Muese as one of its nobles. Ghastone is our existing wiki/server English crosswalk, not a newly verified official English spelling. The western-state listing remains wiki evidence; no capital, bearing, boundary or Englassia subordination is established.
+
+The pin is authored placement, not a canonical capital. The original rest-point/rain-shelter art is a local interpretation, not a country survey. Later source characters and events are not part of the S1E10 initial roster. [Source review](../../../world/western-country-identity-r96.md).
+
+Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
+
 `id: ghastone` · map pin only · region **G** (Kingdom of Englassia)
 
 | | |
@@ -8,18 +16,18 @@
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section G |
 
-## Lore (canon)
+## Source context and project interpretation
 
-A town in the Kingdom of Englassia on the pack's map. Pin only.
+The old pack assigned a pin to gameplay G; the country identity is Ghastone. The G assignment is not proof of sovereign Englassia membership.
 
 ## What it should look like
 
 Pin only.
 
 
-## Current state: BlueMap audit of 19/11/2026
+## Historical imported-map state: BlueMap audit of 19/11/2026
 
-Map: Tensura by Lerfing (current, being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
+Historical map: Tensura by Lerfing (being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
 
 - **Status:** not rendered on the map yet
 - **Placed:** not applicable (no structure: pin)

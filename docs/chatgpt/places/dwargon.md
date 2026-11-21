@@ -1,5 +1,7 @@
 # Dwargon main gate (TtlDwargon.GATE)
 
+**Current authored world reservation (R86):** `(780,-1390)`, radius127; [current geography and fit](../../../world/dwargon-relocation-r86.md). Legacy Lerfing coordinates below are historical.
+
 `id: dwargon` · settlement (own scripts) · region **D** (Armed Nation of Dwargon)
 
 | | |
@@ -48,3 +50,10 @@ Map: Tensura by Lerfing (current, being replaced). The screenshots are from the 
 - Lore and quest text in EN and NL for this place (see [tasks.md](../tasks.md)).
 
 Back to the [world guide](../world.md) · [knowledge pack](../README.md)
+
+
+## Direct entrance context and current map interface — round51
+
+[WN14](https://ncode.syosetu.com/n6316bn/15/), selected gate paragraphs, directly distinguishes the usually closed large gate from smaller ordinary access doors and a left-side queue. The right passage serving important visitors is Rimuru's guess; left/right are viewed passage positions, not verified compass directions. The existing blueprint's in/out lane assignment remains our design. This source is WN, not independently verified LN/anime layout.
+
+The [current approach audit](../../../world/dwargon-approach-study.md) measures an unresolved road/template join; do not call the gate walkable or the cavern placed on the basis of the roof-cover pass. Preserve fixed base142 and route the authored approach to its first-air146 before local acceptance. East/West city coordinates and extra tunnel/gate positions remain unverified.

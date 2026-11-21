@@ -1,0 +1,322 @@
+{
+  "source_text_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "candidate_text_sha256": "5af7c17533cdc1c6c6a2cd80d5deda7026a2b233e91417183c5cdd824d32c1fd",
+  "adopted": false,
+  "candidate_checker_errors": [
+    "[water] rivers <polyline> #5 (western-trade-river) ends at (-3341, 1508), 17 blocks out at sea (a mouth is at most 16 outside the coast)",
+    "  [water] rivers <polyline> #8 (laura-mountain-falls) ends at (2095, 2115), 16 blocks out at sea (a mouth is at most 16 outside the coast)",
+    "  [region] 45 of 26614 land samples (every 40 blocks) belong to no region, first (4541, -2535): regions must cover all land"
+  ],
+  "candidate_checker_relations": {
+    "checked": 56,
+    "failed": 0
+  },
+  "method": "Recursive chord-length least-squares cubic fits with shared source tangents,original corners above35 degrees preserved,and per-segment sampled Hausdorff checking. Single-edge segments stay straight. Outlines fitted independently.",
+  "selected_trials": [
+    {
+      "layer": "coast",
+      "id": "mainland",
+      "tolerance": 12,
+      "segments": 113,
+      "svg_nodes": 114,
+      "valid": true,
+      "hausdorff_blocks": 11.770421084435089,
+      "area_change_blocks2": 108604.93643922894
+    },
+    {
+      "layer": "forests",
+      "id": "jura-eastern-foothill-woodland",
+      "tolerance": 0.5,
+      "segments": 96,
+      "svg_nodes": 97,
+      "valid": true,
+      "hausdorff_blocks": 0.49354603047643125,
+      "area_change_blocks2": 570.6004728738126
+    },
+    {
+      "layer": "regions",
+      "id": "nation-V",
+      "tolerance": 2,
+      "segments": 99,
+      "svg_nodes": 100,
+      "valid": true,
+      "hausdorff_blocks": 1.9092581007803322,
+      "area_change_blocks2": 2565.965846600412
+    },
+    {
+      "layer": "regions",
+      "id": "nation-F",
+      "tolerance": 0.25,
+      "segments": 107,
+      "svg_nodes": 108,
+      "valid": true,
+      "hausdorff_blocks": 0.2444391103377005,
+      "area_change_blocks2": 177.83952501017177
+    },
+    {
+      "layer": "regions",
+      "id": "nation-D",
+      "tolerance": 0.25,
+      "segments": 119,
+      "svg_nodes": 120,
+      "valid": true,
+      "hausdorff_blocks": 0.2486132111406033,
+      "area_change_blocks2": 274.0827827225333
+    },
+    {
+      "layer": "regions",
+      "id": "nation-J",
+      "tolerance": 0.25,
+      "segments": 117,
+      "svg_nodes": 118,
+      "valid": true,
+      "hausdorff_blocks": 0.2486132111406033,
+      "area_change_blocks2": 402.3682805940027
+    },
+    {
+      "layer": "regions",
+      "id": "nation-M",
+      "tolerance": 0.5,
+      "segments": 109,
+      "svg_nodes": 110,
+      "valid": true,
+      "hausdorff_blocks": 0.4771622678840841,
+      "area_change_blocks2": 556.8752700558088
+    },
+    {
+      "layer": "regions",
+      "id": "nation-B",
+      "tolerance": 0.25,
+      "segments": 118,
+      "svg_nodes": 119,
+      "valid": true,
+      "hausdorff_blocks": 0.2488673951681629,
+      "area_change_blocks2": 112.22195236145166
+    },
+    {
+      "layer": "regions",
+      "id": "nation-R",
+      "tolerance": 0.25,
+      "segments": 90,
+      "svg_nodes": 91,
+      "valid": true,
+      "hausdorff_blocks": 0.2475617205702137,
+      "area_change_blocks2": 223.07112866065893
+    }
+  ],
+  "native_parser_audit": {
+    "candidate_text_sha256": "5af7c17533cdc1c6c6a2cd80d5deda7026a2b233e91417183c5cdd824d32c1fd",
+    "source_text_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+    "parser": "Repository svgparse, native C flattening at16 steps per segment; no parser changes.",
+    "changed_candidate_layers": [
+      "coast",
+      "forests",
+      "regions"
+    ],
+    "source_candidate_sites_equal": true,
+    "source_candidate_road_geometry_equal": true,
+    "source_candidate_waters_equal": true,
+    "source_region_land_gap_area": 53.044765872467345,
+    "candidate_region_land_gap_area": 60217.923289318795,
+    "candidate_region_outside_land_area": 48383.279109808405,
+    "candidate_coverage_valid": false,
+    "candidate_coast_displacement_blocks": 11.86847158004965,
+    "candidate_land_changed_blocks2": 108119.189430978,
+    "candidate_overlap_pairs": [
+      {
+        "a": "nation-V",
+        "b": "nation-L",
+        "area": 132.24415944336948
+      },
+      {
+        "a": "nation-V",
+        "b": "nation-G",
+        "area": 366.15617368830186
+      },
+      {
+        "a": "nation-V",
+        "b": "nation-O",
+        "area": 247.25493977476307
+      },
+      {
+        "a": "nation-L",
+        "b": "nation-F",
+        "area": 0.5310808424941232
+      },
+      {
+        "a": "nation-F",
+        "b": "nation-D",
+        "area": 4.745783741086456
+      },
+      {
+        "a": "nation-F",
+        "b": "nation-J",
+        "area": 7.9375147556391
+      },
+      {
+        "a": "nation-F",
+        "b": "nation-G",
+        "area": 7.423648915882104
+      },
+      {
+        "a": "nation-D",
+        "b": "nation-E",
+        "area": 0.0015374706914350195
+      },
+      {
+        "a": "nation-D",
+        "b": "nation-J",
+        "area": 11.54778719650438
+      },
+      {
+        "a": "nation-D",
+        "b": "nation-W",
+        "area": 37.842120997250596
+      },
+      {
+        "a": "nation-D",
+        "b": "nation-M",
+        "area": 107.69919265874306
+      },
+      {
+        "a": "nation-P",
+        "b": "nation-M",
+        "area": 100.29438471628693
+      },
+      {
+        "a": "nation-J",
+        "b": "nation-W",
+        "area": 0.0020972724592318095
+      },
+      {
+        "a": "nation-J",
+        "b": "nation-B",
+        "area": 2.0101010357172084
+      },
+      {
+        "a": "nation-J",
+        "b": "nation-S",
+        "area": 32.32198766893069
+      },
+      {
+        "a": "nation-J",
+        "b": "nation-R",
+        "area": 35.24644361412549
+      },
+      {
+        "a": "nation-J",
+        "b": "nation-H",
+        "area": 24.77399214124191
+      },
+      {
+        "a": "nation-W",
+        "b": "nation-M",
+        "area": 91.96980330852773
+      },
+      {
+        "a": "nation-W",
+        "b": "nation-B",
+        "area": 0.0192467526811939
+      },
+      {
+        "a": "nation-B",
+        "b": "nation-H",
+        "area": 42.20731606418722
+      },
+      {
+        "a": "nation-S",
+        "b": "nation-R",
+        "area": 51.540609431947416
+      },
+      {
+        "a": "nation-S",
+        "b": "nation-O",
+        "area": 40.66807298986979
+      },
+      {
+        "a": "nation-S",
+        "b": "nation-H",
+        "area": 2.2802182362755588
+      },
+      {
+        "a": "nation-R",
+        "b": "nation-Q",
+        "area": 8.42473341398137
+      },
+      {
+        "a": "nation-R",
+        "b": "nation-G",
+        "area": 0.0016423989257144944
+      },
+      {
+        "a": "nation-R",
+        "b": "nation-O",
+        "area": 8.487260433539362
+      },
+      {
+        "a": "nation-R",
+        "b": "nation-Y",
+        "area": 0.00075027832729464
+      }
+    ],
+    "adopted": false,
+    "limit": "Sampled tool geometry,not an analytic continuous-curve bound or generated Minecraft terrain."
+  },
+  "coordinate_precision_probes": [
+    {
+      "grid": 0.01,
+      "coverage_valid": false,
+      "gap_area": 51.63885000000543,
+      "outside_area": 0.0
+    },
+    {
+      "grid": 0.05,
+      "coverage_valid": false,
+      "gap_area": 54.433749999992,
+      "outside_area": 2.2837500000063926
+    },
+    {
+      "grid": 0.1,
+      "coverage_valid": false,
+      "gap_area": 58.15500000000743,
+      "outside_area": 1.8199999999990304
+    },
+    {
+      "grid": 0.25,
+      "coverage_valid": false,
+      "gap_area": 57.0625,
+      "outside_area": 0.0
+    },
+    {
+      "grid": 0.5,
+      "coverage_valid": false,
+      "gap_area": 68.625,
+      "outside_area": 0.0
+    },
+    {
+      "grid": 1,
+      "coverage_valid": false,
+      "gap_area": 107.5,
+      "outside_area": 0.0
+    },
+    {
+      "grid": 2,
+      "coverage_valid": false,
+      "gap_area": 98.0,
+      "outside_area": 0.0
+    }
+  ],
+  "diagram_sha256": {
+    "curve-simplification-review.svg": "9a9b880db2879ec27955df2228d9bcf3527e34f41eceaba071092bcf8030e531",
+    "curve-simplification-review.png": "85d96f7bfdcc1b44e69fcd3f009d8e80161f31a086757ead9cbe8b9b7595df2c"
+  },
+  "limit": "All reported curve deviations are sampled comparisons,not analytic continuous-curve bounds. No converter or Minecraft generation was run for the failed candidate.",
+  "retained_branch_repository_gate": {
+    "validation": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 44.833,
+    "scope": "Retained production source and diagnostic documentation; external candidate remains rejected with3 checker errors."
+  }
+}

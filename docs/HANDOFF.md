@@ -1,4 +1,388 @@
+## 21/11 - Published painting follows the western coast (R98)
+
+[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/e9cf188ea08d0306d4803de7f2a75ceb9f8cf5b6/world/painting-round98/README.md) follows source `bb0e4b29`: exact mainland boundary/four biome shapes, 3,201 checked texture triangles and 32,050 checked height-light samples. All 58 registrations, 19 names and the 138/42 panel retain layout. R95 is historical; western painting alignment is complete. [Alignment evidence](research/tensura-world-2026-11-19/painting-alignment-r98.md). Painting gate: 472 tests, 26 skipped, zero failures (63.532s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.304s); zero changed JavaScript. Broader source/location/initial-era obligations remain open.
+
+## 21/11 - Western peninsula follows the illustrated outline (R97)
+
+[Western coast review](../world/western-peninsula-r97.md) restores the western lobe beyond a shortened northwestern headland. Source `bb0e4b29`; mainland9983x6250/design12800x10752; checker0errors/56relations/2prior warnings. The wider10443 trial failed the repository width gate and remains an inactive C12 alternative. Normal66.5s; all58 XML site attributes retained. Heaven Tower staged ground71to73, with bounded road-profile changes. Atlas58/19/42 retained; ledger304/inventory138/42. R95 painting needs alignment. Repository gate: 472 tests, 26 skipped, zero failures (63.383s); zero changed JavaScript.
+
+## 21/11 - Western country identity review (R96)
+
+[Source review](../world/western-country-identity-r96.md) adds official manga-release evidence that Gaston/Ghastone is a named kingdom. The western-state listing remains wiki evidence; the English crosswalk is qualified. Rostia profile reread adds no spatial claim. Neither country's capital or boundary is verified; G/A gameplay bindings do not establish sovereign membership. Five official episode72 stills were reviewed without extracting geography from an unidentified tabletop model. Later events/characters are not backdated to S1E10.
+
+Ledger302; inventory138 and42 physical follow-ups unchanged. Source `63df7185`, all58 sites, terrain/painting/PNG/prompt records retained. Current painting remains R95. Repository gate: 472 tests, 26 skipped, zero failures (63.711s); zero changed JavaScript. Next: source-backed spatial/initial-state work on the open physical inventory; no runtime action.
+
+## 21/11 — Published painting follows Ice coastal source (R95)
+
+[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/02ac2f8231e5712505df3bde787e03ee949b5d47/world/painting-round95/README.md) follows source `63df7185`: five exact source coasts, 1,869 checked height-light samples, all 58 registrations and 19 context names. Caption138/42 and ledger301 agree with current source scope. Painting gate472 tests,26 skipped,zero failures(63.796s). [Alignment evidence](research/tensura-world-2026-11-19/painting-alignment-r95.md). Earlier pending-painting notes below are historical. Main documentation gate **472 tests, 26 skipped, zero failures (63.631s)**; zero changed JavaScript.
+
+## 21/11 — Illustrated Ice offshore group added (R94)
+
+[R94 source/terrain review](../world/ice-islets-r94.md) adds five original representative islet coasts with cold biome/admin coverage. Source `63df7185`; checker 0 errors/56 relations/2 existing warnings; final normal66.687s. Every old land height/biome/ruggedness and58 reservation is retained. Atlas:19 names,138-entry caption,42 open rows. Ledger301. R93 painting source43fed303 predates the islets and requires alignment; numeric58 registration remains valid. Required repository gate: 472 tests, 26 skipped, zero failures (63.298s); zero changed JavaScript.
+
+## 21/11 — Empire source and initial-era distinction (R93)
+
+[Source/era review](../world/empire-chronology-r93.md) corrects the Nasca lore handoff and records qualified capital/history/later-development evidence. Ledger299; inventory137 includes one future-only town, with42 physical follow-ups unchanged. All58 reservations,18 context names and actual terrain remain unchanged. The atlas caption is137; the R92 painted geography remains valid. [Current painted caption](https://github.com/Yasuke2000/ocs-two-lives/pull/102) is a separate presentation update. Required repository gate: 472 tests, 26 skipped, zero failures (64.404s); zero changed JavaScript.
+
+## 21/11 — Current painting follows Englassia water (R92)
+
+[Published painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/8e47ccbef3a8f0bc36caef3a4bb4d8b01cfa2e7c/world/painting-round92/README.md) now follows R91 source `43fed303`:58 unchanged registrations,18 context names,136-entry caption and42 open physical rows. Exact lake/court vertices and22 native road records checked; WN/continuity/initial-construction limits remain. Painting gate472 tests,26 skipped,zero failures(64.466s). [Alignment evidence](research/tensura-world-2026-11-19/painting-alignment-r92.md). Main documentation gate **472 tests,26 skipped,zero failures (64.586s)**; zero changed JavaScript.
+
 # Handoff — current state of the work (update this when you stop)
+
+## 21/11 — Englassia capital water reconciled with dry precinct (round91)
+
+R91 [Englassia capital-water review](../world/englassia-lake-r91.md) adds a separately placed WN-derived lake and dry court, one northern land access and three short water crossings. The existing academy/Guild precinct and all 58 reservations remain. Source `43fed303`; 22 roads, 11 lakes, 18 context names; ledger 294 and inventory 136/42. The castle and full capital remain incomplete. R90 painting predates the new local water/roads and needs alignment.
+
+Checker 0 errors/56 relations/2 prior warnings; normal50.942s without warnings. All new water cells are below level70 in one connected basin; all registered plate heights and flat-site JSON records remain. Final comparison/source preview/atlas reviewed. Gate: 472 tests, 26 skipped, zero failures (66.962s); zero changed JavaScript. Next: painted water/road integration; remaining capital/source/era/registration work. No runtime action.
+
+## 21/11 — Painting aligned with current Khusha (round90)
+
+R90 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/f0b91746124104cdfc7c141dd17762a9d8783410/world/painting-round90/README.md) integrates R89 Khusha relief for source `2ce669a0`: 3,446 checked illustrative light samples, 117 rocky-biome cells and 1,859 changed continent pixels within buffered height support. All 58 registrations, 17 context names and the unchanged 135/42 panel are checked. Context-position metadata is refreshed from visible SVG coordinates. This closes only the painting alignment; broader source/location/era obligations remain open.
+
+Source SVG, checker preview, terrain preview and terrain atlas remain unchanged. Final visual comparison identified no further production correction. Map documentation gate: 472 tests, 26 skipped, zero failures (62.560s). Painting gate: 472 tests, 26 skipped, zero failures (62.994s). Next: unresolved source/location/initial-state inventory; no runtime action.
+
+## 21/11 — Khusha extends towards Sarion (round89)
+
+R89 [Khusha continuation](../world/khusha-continuation-r89.md) connects western Khusha relief towards Sarion with an original lower envelope and two unequal summits. Source `2ce669a0`; checker: 0 errors / 56 relations / 2 existing warnings; normal export 47.565s. All 58 sites, roads, water and prior active shapes retained. Current atlas has 17 context names. Ledger 290; inventory 135/42 unchanged. R87 painting predates this new local relief and needs alignment.
+
+Final current checker preview, official reference and original before/after study inspected. Final normal preview explicitly rerendered; old baseline reproduction changes0pixels. No runtime action. Gate: 472 tests, 26 skipped, zero failures (63.975s). Next: align painted Khusha relief, then remaining source/location/era obligations.
+
+## 21/11 — Elmine current geography and tree study (round88)
+
+R88 [Elmine source and larger-tree study](../world/elmine-tree-study-r88.md) corrects the retired Paulzero-grove handoff and lake bearing (east/southeast). A current-site north-facing terrace trial and original larger tree remain proposals; the Divine Tree stays partial. Five official episode 61 stills inspected, with bounded pavilion cues from 2/5. Ledger 289; inventory 135/42 unchanged; source `355d1a33` unchanged.
+
+No production SVG, terrain, blueprint or placement configuration changed. Next: whole-tree/capital design and remaining source/location/initial-state questions. Gate: 472 tests, 26 skipped, zero failures (63.908s); zero changed JS.
+
+## 21/11 — Published painting aligned with R86 (round 87)
+
+R87 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/d98513e79e386b493410ab219d110c5d5bd1fa61/world/painting-round87/README.md) aligns R86 northeast Dwargon: six moved site groups, three revised roads and local illustrative relief. All 58 registrations and 16 context names are checked; the 135-entry inventory and 42-row coverage panel remain current. Source `355d1a33` and ledger 286 are unchanged. Painting gate: 472 tests, 26 skipped, zero failures (63.210s). This supersedes earlier pending painting notes only; broader source/location/era questions remain open.
+
+No production SVG, normal export, place-concept PNG or runtime change. Next work is the unresolved source/location/initial-state inventory. Map documentation gate: 472 tests, 26 skipped, zero failures (62.901s).
+
+## 21/11 — Dwargon moves northeast within existing rules (ChatGPT, round86)
+
+R86 [Dwargon northeast relocation](../world/dwargon-relocation-r86.md) moves the gate to (780,−1390), retaining all 56 relations and 58 footprints. The secondary bearing discrepancy improves 35.31°→6.01°. Six related site records, two local relief shapes and three roads are aligned; water and all other native geography remain. Source355d1a33; ledger 286/inventory 135/42 follow-ups. R85 painting needs alignment; all 58 concept reservations are checked in the [art audit](https://github.com/Yasuke2000/ocs-two-lives/blob/120f5d5/docs/art/registration-r86.md).
+
+Checker0errors/56relations/2existing warnings; normal66.1s; all 21 profiles≤1:2,3179 roof columns≥6cover. Next: painting/registration alignment; source/location/era questions remain. No protected or runtime change.
+
+Validation: 472 tests, 26 skipped, zero failures (62.842s). Art branch: 462 tests,26 skipped,zero failures (45.465s). Current source/exports, all 58 atlas registrations and concept reservations, 3179 roof columns,21 road profiles and unchanged water are independently checked.
+
+## 21/11 — Painting coverage follows the current inventory (ChatGPT, round85)
+
+R85 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/cfb8055/world/painting-round85/README.md) now shows the current 135-entry inventory and 42 open rows. All noncoverage XML, the R81 continent, 58 numbered registrations and 16 context names remain unchanged. Ledger285/source9fd0c5fb retained; the painting-panel follow-up is closed. Actual source/location/initial-era questions remain open.
+
+Painting gate: 472 tests,26 skipped,zero failures (63.024s). Map documentation gate: 472 tests,26 skipped,zero failures (62.525s). Independent XML/pixel/browser checks pass; all changes stay inside the panel. Next: actual source/location/initial-era questions. No active geography,converter,apply,chunks,protected edit or deployment.
+
+## 21/11 — Dwargon crossing tracked separately (ChatGPT, round84)
+
+R84 [Dwargon crossing source review](../world/dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory 135/42 follow-ups; ledger285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
+
+Validation: 472 tests, 26 skipped, zero failures (62.667s). All previous 284 claims and 134 inventory rows/statuses preserved. Browser checks 58 numbers, 16 context names and 42 non-overlapping panel rows; PNG changes stay inside the panel. New panel viewed.
+
+Next: coverage-panel refresh on the painting; actual source/location/initial-state questions remain. No active geography or runtime change.
+
+## 21/11 — Eastern Plains source and terrain assessment (ChatGPT, round 83)
+
+R83 [Eastern Plains source/terrain review](../world/eastern-plains-source-review.md) adds two qualified WN records and a measured original current-geometry study. Coverage remains partial; source 9fd0c5fb and R81 painting remain unchanged. Ledger 284 (226+58), inventory 134/41 physical follow-ups.
+
+Validation: 472 tests, 26 skipped, zero failures (62.851s). Independent checks retain all 282 prior facts, all 134 inventory rows/statuses and unchanged production/atlas files. Study and official geography visually inspected.
+
+Next: resolve broader extent, continuity and actual missing locations. No runtime change or deployment.
+
+## 21/11 — Guratol official setting evidence (ChatGPT, round 82)
+
+R82 [Guratol source review](../world/guratol-source-review.md) verifies the official OAD mansion/cave task sequence and records the unanchored table map, with all 15 selected stills inspected. It supplies no invented global coordinates, administrative borders or S1E10 construction date. Ledger 282 (224+58); inventory 134/41 follow-ups unchanged. Source 9fd0c5fb and R81 painting remain unchanged.
+
+Validation: 472 tests, 26 skipped, zero failures (64.055s); independent 282-record/134-row preservation, 15 image hashes and unchanged production/atlas checks pass.
+
+Next: geographical anchoring and actual missing locations; no runtime application or deployment.
+
+## 21/11 — Current painting follows the lake (ChatGPT, round 81)
+
+R81 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/96b3972/world/painting-round81/README.md) now integrates the R80 El Dorado lake and bank. The exact lake polygon and 648 checked lighting samples update 361 continent pixels, within 10.75 blocks of the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows remain checked; the inventory caption is 134. Source 9fd0c5fb and the 280-record ledger remain unchanged. Painting integration is closed; broader source, location and initial-era questions remain open.
+
+Painting gate: 472 tests, 26 skipped, zero failures (63.039s). Map-branch documentation gate: 472 tests, 26 skipped, zero failures (62.876s). No production SVG change, converter rerun, runtime application or deployment. Next: remaining actual source/location/initial-era questions.
+
+## 21/11 — Illustrated eastern El Dorado lake drawn (ChatGPT, round 80)
+
+R80 [El Dorado eastern lake](../world/el-dorado-lake-review.md) restores an unnamed inland water cue visible in the official illustration. Original 26-vertex shore, 274×138 blocks, level 68/depth 5 and closed drainage are authored; name/outlet/initial water state remain unverified. Source 9fd0c5fb; 10 lakes, 58 sites/21 roads retained. Checker 0 errors/56 relations/2 warnings; normal 65.6s. Ledger 280(222+58), inventory 134/41 follow-ups. Terrain atlas refreshed; R78 painting requires integration.
+
+Validation:472 tests,26 skipped,zero failures(62.581s). Existing geometry/58 anchors/road profiles retained;280 IDs,134 inventory rows with previous133 unchanged,water/rim/locality and exact atlas image/layout checks pass. Configured depth5 is nominal:sampled wet depths1.3125..5,local dry rim first-air70. Preview,study,terrain atlas and official reference viewed.
+
+Next: R78 painting integration for the new lake/bank; remaining actual source/location/initial-era questions. No protected edit, apply, main merge, chunks or deployment.
+
+## 21/11 — Orbic internal-country scope and atlas links (ChatGPT,round 79)
+
+R79 [Orbic/Ulgracia scope and delivery-link review](research/tensura-world-2026-11-19/orbic-ulgr-source-review-r79.md) records the wiki royal-capital/ten-tribe distinction without invented town coordinates. Both child-category routes remain unverified. Atlas path spaces are repaired. Ledger 278(220+58),inventory 133/41 follow-ups;source e8f17470 and R78 art remain unchanged.
+
+Validation:472 tests,26 skipped,zero failures(65.238s);link audit21 valid references;278 unique IDs and unchanged source/inventory statuses checked. Painting-link branch independently passes472/26/zero failures(65.145s).
+
+Next: actual source/location/initial-state questions; child listings remain open. No production geometry, protected edit, apply, chunks or deployment.
+
+## 21/11 — Current painting includes the northern island (ChatGPT, round 78)
+
+R78 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md) now integrates source e8f17470 and the R77 fourth coast. The verified R69 underpainting plus native island/water layers change 5171 pixels, all inside the actual height-change footprint; all 58 registrations, 16 context names and 41 open rows retain layout. No production SVG change. Ledger 277/inventory 133/41 physical follow-ups remain; only the painting-integration follow-up is closed.
+
+Feature validation:472 tests, 26 skipped, zero failures(62.794s); inherited checker 0 errors/56 relations/2 warnings. Source vectors/masks, underpainting hash, 2100 land samples, 2436 water samples, 5171 local changed pixels and browser registration independently checked; final preview/painting/reference visually compared. No additional source-SVG correction found in this island review.
+
+Map reference-branch validation also passed:472 tests,26 skipped,zero failures(62.842s). Production source SHA remains e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91.
+
+Next: remaining actual source/location/initial-era questions. No apply, main merge, chunks, protected edits or deployment.
+
+## 21/11 — Missing illustrated northern island drawn (ChatGPT, round 77)
+
+R77 [unnamed northern island](../world/northern-island-review.md) adds a source-visible landmass omitted from the earlier three-coast drawing. Exact shore, 615×350 scale, rolling hill and F administrative coverage are authored; ownership/name/early state remain unverified. Source e8f17470; 4 coasts, 23 region polygons, 58 sites/21 roads. Checker 0 errors/56 relations/2 existing warnings; normal 65.8s. Inventory 133/41 physical follow-ups; ledger 277(219+58), printed-LN14/author6. Terrain atlas refreshed; R69 painting requires integration.
+
+Validation passed: 472 tests / 26 skipped / zero failures (62.818s). Native region partition, existing-shape/anchor/export preservation, raster delta locality, 277 unique IDs, 133 inventory records and exact atlas-image/layout checks passed. Final checker, source reference, study and atlas visually inspected.
+
+Next: explicit R69 painting integration for the new fourth coast and bathymetry; remaining source/location/initial-state questions. No protected edit, apply, main merge, chunks or deployment.
+
+## 21/11 — Nasca gate/access evidence and Empire category screen (ChatGPT, round 76)
+
+R76 [Nasca source/access review](../world/nasca-source-topology.md) adds direct WN gates-on-four-sides and near-capital forest-road evidence, without exact bearings or initial-state claims. The 55 returned Eastern Empire category titles are enumerated; article bodies, military/child routes and unlocated settlements remain open. Ledger 275 (217+58); inventory 132/41 physical follow-ups retained. Source 82135855, terrain, R69 painting and R73 art registration are unchanged.
+
+Validation passed: 472 tests / 26 skipped / zero failures (62.734s). Independent source-ID/hash, category, inventory and unchanged-source checks passed; original diagram PNG visually inspected.
+
+Next: direct revised-city geography, initial state and remaining military/child-category or settlement leads. No production geometry or protected edits.
+
+## 21/11 — Underwater Kaien andseparate later island visit (ChatGPT, round 75)
+
+R75 [Kaien/Resort Island source review](../world/kaien-resort-source-review.md) adds scoped official movie evidence and three inspected promotional-image references. The existing two inventory entries stay open; Kaien is now explicitly an underwater-country review. Exact location, depth and initial state remain unverified. Ledger 273 unique(215+58); inventory 132/41 physical follow-ups unchanged. Source 82135855, normal terrain, R69 painting and R73 art metadata remain unchanged.
+
+Validation: repository gate passed, 472 tests / 26 skipped / zero failures (62.807s); independent source, inventory and private-hash checks passed. Original diagram PNG inspected.
+
+Next: remaining source/location and initial-era questions. No guessed surface islands orcoordinates; no location is marked implemented by the classification change. Technical placement remains Claude’s handoff.
+
+## 21/11 — Englassia central-lake castle alternative drawn (ChatGPT,round74)
+
+R74 [Englassia central-lake castle alternative](../world/englassia-castle-lake-study.md) supplies the missing C17 review geometry inside an inert source comment. One basin,four hole-free water sectors,dry plinth,castle-footprint trial andfour urban links remain authored interpretations of WN56-003. Active XML,checker preview andall13 non-index normal exports remain identical;only index source provenance changes. Current source82135855,normal65.6s. Ledger269 unique(211+58);inventory132/41 follow-ups retained. Continuity,water/model/road priority andactual castle implementation remain open. R69 painting andR73 art numeric metadata remain valid by active-geometry equivalence.
+
+Default checker0 errors/56 relations/2 existing warnings;preview/reference andoriginal plan inspected. Validation and472 tests pass(26 skipped,zero failures,62.465s);actual-comment geometry and13-export equivalence independently checked. Next:actual source/location/era gaps andthe documented C17/C15 decisions. This closes the missing review drawing only;no protected edit,main merge,apply,chunks ordeployment.
+
+## 21/11 — Actual creative deliverables andart metadata audit (ChatGPT,round73)
+
+R73 [creative delivery audit](../world/delivery-audit-r73.md) checks the full brief andretains incomplete status. All58 art pairs exist;[PR101 metadata](https://github.com/Yasuke2000/ocs-two-lives/blob/7d5699b/docs/art/places/current-map-registration-r73.md) now corrects three stale radii without changing any PNG. The132-row coverage table is reconciled,with41 follow-ups retained. A concrete remaining drawing is C17’s qualified Englassia lake/castle alternative. Technical conversion/placement remains Claude’s handoff. Source90ee15b1,terrain,R69 painting and268-record ledger are unchanged.
+
+Fresh checker0 errors/56 relations/2 existing warnings;preview/reference inspected. Art-branch gate462 tests(26 skipped,zero failures,44.559s). Main audit validation and472 tests pass(26 skipped,zero failures,62.503s);input/count/history/registration checks pass. Next:C17 drawn alternative,then actual geographical/source/era gaps;no new technical-agent task is silently added tocreative scope.
+
+## 21/11 — Long Wall physical contour and road opening (ChatGPT,round72)
+
+R72 [Long Wall contour and gate proposal](../world/long-wall-build-plan.md) samples the current source and fits an opening to both native/exported caravan-road projections. The5-block body follows the existing grade;exact dimensions are authored. Still inert andmissing in active coverage. Ledger268 unique(210+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Source90ee15b1,normal terrain and R69 painting remain unchanged. Validation and472 tests pass(26 skipped,zero failures,62.489s);both diagrams inspected;independent source/geometry/scope checks pass.
+
+Next:final gate corner/structure-exclusion/foundation/era/registration review and remaining locations. No generated wall or gameplay barrier;protected Jura magicule core unchanged.
+
+## 21/11 — Ulgracia identity and threshold source review (ChatGPT,round71)
+
+R71 [Ulgracia source/identity review](../world/ulgr-spatial-source-review.md) adds three scoped WN61 claims and an original relational diagram. Corrected capital/park labels and the unsupported capital-associated spring wording;Galut and the extra-location/portal decisions remain open. Source90ee15b1,normal terrain and R69 painting are unchanged. Validation and472 tests pass(26 skipped,zero failures,62.792s);five official stills and original diagram inspected;independent scope/input checks pass. Ledger265 unique(207+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier summaries below are historical.
+
+Next:verify remaining actual locations and initial-era/source/registration questions. Do not turn the WN unnamed town into an identified Galut parcel or an ordinary physical labyrinth. No protected edit,terrain apply,main merge,chunks or deployment.
+
+## 21/11 — Dwarven arena occupied rear shell review (ChatGPT,round70)
+
+[R70 actual-model review](../world/dwarven-arena-fit-review.md) retains r58. Forecourt,entry,pit and stair context are exactly75 with both samplers;rear variation belongs to the enclosed raised model rather than an exposed common-level plaza. All3,343 occupied columns have SITE exclusion and source surface between their lowest solid base and highest solid top. Seven declared spawn points have explicit model floors/air. This rejects rectangle-only radius84 flattening,not runtime/collision/whole-interior acceptance. Legacy survey/beside placement still needs fixed-map reconciliation. Validation and472 tests pass(26 skipped,zero failures,62.737s);original diagram visually inspected;input/footprint/source checks pass.
+
+Source90ee15b1,normal terrain and R69 painting unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Next:remaining source/location/fit gaps and technical placement interfaces. No protected edit, apply, chunks,main merge or deployment.
+
+## 21/11 — Painting follows Sacred Mountain and approach terrain (ChatGPT,round69)
+
+R69 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round69/README.md) integrates source90ee15b1 and R68’s Sacred Mountain shoulder/approach change. Its mask covers all4,483 changed height cells,including1,003 beyond the preparation/fade envelope;1,335 gradient samples are independently checked. Only473 continent pixels change,max28/255 per RGB channel,all within16.30 blocks of the measured footprint. All58 projections,16 context names and41 inventory rows remain checked;earlier R53/R61/R63/R64 art is retained. Production geometry is unchanged in this presentation round. Ledger261;inventory132/41 physical follow-ups remain open. Earlier R68 painting-pending statements below are historical and superseded by this integration.
+
+Next:other actual template-fit and source/location gaps. Keep initial-era,fixed-rule/extra-location decisions and local runtime acceptance open. This is a painting update,not a new source geography or completed missing location.
+
+
+## 21/11 — Sacred Mountain built-perimeter accommodation (ChatGPT,round68)
+
+[R68 support review](../world/sacred-mountain-fit-review.md) changes only the Sacred Mountain radius80→95. All6,561 occupied columns and320 built-perimeter columns are now exactly level175 with bilinear andCatmull-Rom sampling. The automatic first-air falls179→175 andfade40→48;the existing15-block model ascent remains. Current source90ee15b1/default checker0 errors,56 relations,2 warnings;normal66.6s export has no converter warnings. Height changes4,483 cells,range-29.75..+51.0625,including the shoulder/approach. All58 x/z centres and21 horizontal road routes remain;only one site record and the Sacred Mountain trail profile change. This is a real terrain change,not a tiny visual patch.
+
+Terrain preview/numbered atlas are refreshed. R64 painting remains historical for this new source;explicit native lighting integration is next. Ledger261 unique(203+58),14 direct printed-LN plus6 author-side-story claims;inventory132/41 follow-ups unchanged. Other source,fixed-rule,era,coverage,fit and Minecraft placement obligations remain open. No protected edit,main merge,apply,chunks or deployment. Current coast/region partition was also rechecked:zero uncovered/outside/overlap area;the old R44 seams were already fixed inR49.
+
+
+## 21/11 — Coleus actual occupied footprint rejects unnecessary flattening (ChatGPT,round67)
+
+[R67 decoded fit review](../world/coleus-fit-review.md) reads the actual85 ×47 ×79 model. Seven functional support boxes are exactly75 with bilinear and current Catmull-Rom sampling. Seven of eight rectangle flags are empty;one is a four-block outer rock column. All5,313 occupied columns have exported SITE exclusion. The40-position ascent centreline retains defined floors74..90 and model-level headroom. Retain r73;the old rectangle-plus-margin98 is not a demonstrated need to flatten this hill. This resolves that proposed enlargement reason,not whole-city/era/runtime acceptance.
+
+Ledger260 unique(202+58),14 direct printed-LN plus6 author-side-story claims;inventory132/41 follow-ups unchanged. Source c2f806a9,all terrain and R64 atlas unchanged. No converter rerun,protected edit,main merge,apply or deployment. Next:review other actual occupied/functional fits and source/location gaps;do not generalize flat rectangle criteria to intentionally stepped models or claim bilinear planning values are exact runtime heights.
+
+
+## 21/11 — Source-backed Malukshure districts and tower interfaces (ChatGPT,round66)
+
+[R66 source layout](../world/malukshure-source-layout.md) directly reads author-side-story episode02 L81,episode05 L36-L40 andepisode07 L300-L316. It separates the outer general district,protected capital-side fishing harbour,offshore rooftop arrival and transferred hall. The original diagram is topological,not a scaled plan or implementation. Construction date and unchanged S1E10 state remain unverified;later visit/crisis/damage is not activated. C14/C15 and actual city/tower coverage remain open.
+
+Ledger259 unique(201+58),14 directly read printed-LN plus6 separately classified author-side-story claims. Inventory132/41 physical follow-ups unchanged. Source c2f806a9,all terrain and R64 atlas unchanged;no converter rerun,main merge,apply or deployment. Next:continue actual missing-location,source/fixed-rule and template-fit work;source relations do not prove completed architecture.
+
+
+## 21/11 — Official named Night Garden interior reference (ChatGPT,round65)
+
+[R65 material brief](../world/night-garden-visual-brief.md) directly reads the official Coleus announcement and opening00:01/00:03. The article names the chaise scene as Night Garden;visible blue-grey masonry,burgundy seating and cool dim light now supply a local interior reference. Original swatches/symbols are schematic,not copied frames or room geometry. The00:05 crystal shot does not prove adjacency or access. Underground relationship and initial chamber state remain separately qualified.
+
+Ledger256 unique(198+58),14 direct printed-LN plus3 author-side-story claims;inventory132/41 physical follow-ups unchanged. Source c2f806a9,all terrain and R64 painting remain unchanged. Night Garden/chamber are still missing active representations;C15 remains open. No converter rerun,main merge,terrain application or deployment. Next:continue primary-source/location and actual fit work;do not equate a visual reference with a completed city.
+
+
+## 21/11 — Hidden Lubelius locations and full partial-location panel (ChatGPT, round64)
+
+Round64 [Night Garden study](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/world-map/world/night-garden-plan.md) adds the underground city, nested burial chamber and separate historical Night Rose to the inventory. The source relationship is fan-wiki-qualified; depth, dimensions and initial room state are unverified. City/room geometry stays inside the existing C15 comment. Production source c2f806a9 has exactly the same active XML as0b211ec7. Normal export65.9s:13 non-index files identical, index source hash only; checker0 errors,56 relations,2 existing warnings.
+
+The [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round64/README.md) retains the R63 landscape unchanged and updates only its coverage panel. Inventory132;41 physical follow-ups include seven formerly omitted partial records, plus broader historical/source queues. Ledger254 unique(196+58),14 direct printed-LN plus3 author-side-story claims;58 original place-art pairs retained. No new active location or Minecraft application.
+
+Next: verify primary hidden-city evidence and remaining distinct locations/template-fit issues. Inert proposals are not completed locations. Keep post-Kijin era, source/fixed-rule decisions and technical/runtime acceptance open.
+
+
+## 21/11 — Painting follows summit and high-pass terrain (ChatGPT, round63)
+
+Round63 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round63/README.md) integrates source 0b211ec7 and the R62 summit/high-pass update. The native blend mask covers all 2,507 changed height cells, including 205 beyond the site fade; 863 lighting samples are independently checked. Only 402 continent pixels change, at most 28/255 per RGB channel, all local to the measured footprint. All 58 projections, 16 context names and 32 open rows remain verified; original R53/R61 art is retained. Production geometry is unchanged in this presentation round. Ledger: 250 unique records; inventory: 129 entries with 32 coverage follow-ups. Earlier painting-pending notes are historical and superseded by this integration.
+
+Next: other measured template-fit issues,missing distinct locations and primary evidence. Keep the post-Kijin state and fixed-rule/source distinctions;local runtime acceptance remains open.
+
+## 21/11 — Dragon's Nest support and offset-template survey (ChatGPT,round62)
+
+Round62 [Dragon's Nest fit and30-template audit](../world/dragons-nest-fit-review.md) enlarges only the nest preparation radius64→85 at its unchanged centre/first-air272. All7,921 buffered columns are now level;all 58 exported anchor records stay byte-identical. The normal terrain atlas is refreshed for source0b211ec7;R61 painting is historical pending explicit integration. Other offset-template findings are queued with carve/water/initial-era exceptions. Two site-radius summaries are corrected;all 58 numeric coordinate records now match. Ledger250 unique(192+58),14 direct LN plus3 author-side-story claims;129 inventory/32 coverage follow-ups remain open.
+
+Next: current-source painting integration;review dwarven-arena/sacred-mountain and other actual template variation. Do not apply a flat-surface criterion to cavern roofs,water templates or later Tempest capacity. Existing coverage/source/fixed-rule/runtime work stays open.
+
+## 21/11 — Painting integrates Englassia terrain update (ChatGPT, round61)
+
+Round61 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round61/README.md) explicitly integrates source 7a30cf41 and R60's Englassia preparation update. Native SVG lighting from 1,634 measured height-difference samples changes only 31 continent pixels, at most 2/255 per RGB channel, all local to Englassia. All 58 projections, 16 context labels and 32 open rows remain verified; original R53 files and textures are retained. Production geometry and terrain are unchanged in this presentation round. Ledger: 248 unique records; inventory: 129 entries with 32 coverage follow-ups. Earlier R60 painting-pending notes below are historical and superseded by this reviewed integration.
+
+Next: other parent-template fit/source audits and distinct missing locations. The selected post-Kijin era,source conflicts and technical registration/runtime work remain open; no completeness claim.
+
+## 21/11 — Englassia offset-template preparation (ChatGPT, round60)
+
+Round60 [Englassia fit review](../world/englassia-fit-review.md) decodes the existing capital fragment and expands only its preparation radius98→124 for the offset template plus eight-block margin. Academy/guild already fitted; the corrected outer corners are a small terrain-preparation issue. All18,432 buffered columns are now level76;58 x/z centres stay fixed and only Englassia changes exported y75→76. Current terrain atlas is refreshed; R53 painting remains historical pending explicit integration. Ledger248 unique(190+58),14 direct LN plus3 author-side-story claims;129 inventory/32 follow-ups remain open.
+
+Next: explicit current-source painting integration; other parent-city fit/source checks; registered extra locations and local runtime acceptance remain open. The mapper did not change tools or runtime to fix the centred-footprint minimum.
+
+## 21/11 — Regional visual reference curation (ChatGPT, round59)
+
+Round59 [regional image review](research/tensura-world-2026-11-19/region-image-review-r59.md) curates69 role-labelled references across22 regions (24 distinct assets). Shared maps, local settings, interiors and cross-region analogies are explicit; country-specific landscape gaps remain. Five narrow visual records bring the ledger to247 unique(189+58);14 direct printed-LN and3 author-side-story records remain. Source1b9e151a,production geometry,terrain and R53 painting are unchanged;129 inventory/32 coverage follow-ups remain open.
+
+## 21/11 — Dwargon East/West spatial proposals (ChatGPT, round58)
+
+Round58 [Dwargon additional-city plan](../world/dwargon-cities-plan.md) draws interpreted East/West cavern reservations,deep galleries and stair shafts in the inert C15 comment. Two shallow routes are rejected for negative surface cover. All lined room/gallery/shaft columns are checked against the current height raster; existing occupied voxels,carving and landings remain untested. City identities remain wiki-backed; no licensed LN story passage became readable. Ledger242 unique(184+58),14 direct LN plus3 author-side-story claims;129 inventory/32 follow-ups and 58 art pairs remain. Active SVG geometry/terrain/registry are retained; full goal stays open. Current source1b9e151a changes only the inert comment. The normal65.1s export retains all13 non-index files byte-for-byte;index differs only in source_sha256. Validation and472 tests pass (26 skips,zero failures,62.588s);no changed JS or in-game run. Protected implementation paths and active preview/terrain/atlas bytes are unchanged.
+
+Next:underground registration/carving,capital landing/occupied-voxel fit and primary city/gate evidence remain open. The current proposals do not add live sites or alter fixed template base142. R57/R58 made progress.
+
+## 21/11 — treant routes and unsupported territorial claim corrected (ChatGPT, round57)
+
+Round57 [treant source/route review](research/tensura-world-2026-11-19/treant-route-context-r57.md) adds4 qualified primary records. WN43 supplies sanctuary-limited movement and a conditional wetland food-transport comparison; neither establishes a Tempest cart distance. The old lore page's east-of-Ameld sovereign half and profile sister-count attribution are corrected. Ledger241 unique(183+58),14 direct printed-LN plus3 LN-aligned author-side-story claims;129 inventory/32 follow-ups and 58 art pairs remain. Source e886217d and all production geometry/terrain/painting remain unchanged. Full goal stays open. Repository validation and472 tests pass (26 skips,zero failures,62.329s);no changed JavaScript or in-game run. The source diagram was visually inspected. Source/preview/terrain/atlas and implementation paths are unchanged from485ef65; no converter rerun.
+
+Next:continue actual source/coverage work; no arbitrary settlement parcel or Tempest supply road follows from the new comparison. R56/R57 made concrete progress.
+
+## 21/11 — coastal capital proposal reaches its cape (ChatGPT, round56)
+
+Round56 [Malukshure cape alternative](../world/malukshure-cape-study.md) corrects the old city disc that stopped58.7 blocks before the current shore. A connected city envelope and36-block cape remain inert C14/C15 geometry; tower disc retains30.3 blocks of sea clearance. The active SVG tree,all 58 sites and21 roads remain identical; only the source comment changes. Ledger237 unique(179+58),14 direct printed-LN plus3 selected LN-aligned author-web claims;129 inventory/32 follow-ups and 58 art pairs remain. Full goal is open. Current source e886217d is a comment-only revision of8c24a349. A normal65.5s export confirms all13 non-index files byte-identical; index differs only in source_sha256. Current preview/terrain/atlas and R53 painting geometry are retained. Repository validation and472 tests pass (26 skips,zero failures,62.583s);no changed JS or in-game run.
+
+Next:continue primary-source and actual coverage/fit work; keep C14/H reconciliation open. An inert geometry correction is not a mapped city or runtime acceptance. R55/R56 made progress.
+
+## 21/11 — primary Malukshure coastal evidence (ChatGPT, round55)
+
+Round55 [Vacation author-source review](research/tensura-world-2026-11-19/vacation-source-review-r55.md) verifies the Malukshure capital cape,offshore tower and Sarion adjacency in the author public LN-aligned side serial. Exact west bearing remains wiki-qualified; C14 active binding stays open. Ledger236 unique (178+58),14 printed-LN claims plus3 new author-side-story records;129 inventory/32 follow-ups and 58 art pairs retained. Source8c24a349/geometry/terrain/R53 painting unchanged. No main merge,apply,chunks or deploy. Repository validation and472 tests pass (26 skips,zero failures,62.584s test tier);no changed JavaScript or in-game run. This validates repository integrity,not full lore coverage or runtime placement.
+
+Next:inspect remaining source-backed location/era gaps. Keep C14 coordinates/binding qualified; do not import the later vacation trip or claim printed-LN access from a web serial. This round found new primary evidence; full goal remains active.
+
+## 21/11 — source-key correction and anonymous Imperial geography (ChatGPT, round54)
+
+Round54 [Imperial source and claim-key review](research/tensura-world-2026-11-19/empire-source-review-r54.md) repairs two reused keys:originalWN13-005/006 preserved,new trade/cavern records007/008;actual HTML locators verified. Direct WN147 supports an anonymous lakeside Imperial vassal,without proving Silberia identity or a map-basin position. Galut remains separate in Ulgracia. Ledger233 unique records(175+58),14directLN;129inventory/32follow-ups and 58art pairs retained. Source8c24a349/SVG/terrain/art/protected paths unchanged;no converter rerun,apply,main merge or deploy. Full goal remains open. Repository validation and472 tests pass (26 skips,zero failures,64.641s test tier);no changed JavaScript or in-game test run. Source-key integrity and current reference checks pass;these do not certify complete lore coverage.
+
+Next:continue primary-source/identity review,especially unlocated Imperial and western-country candidates;do not rename the basin from an event parallel. R53/R54 made progress;no repeated blocker.
+
+## 21/11 — current Dwargon relief presented in original atlas (ChatGPT, round53)
+
+Round53 [current-source painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round53/README.md) adds native analytical lighting for the round52 Dwargon foothill/forecourt. Both source masks and666 bilinear height samples verified;1387 composition pixels change,max RGB channel32/255,all inside a96-block relief buffer. Original R38/R43 raster textures and generation records retained;no new image generation. Source8c24a349,all 58 projections,16 names and32 open rows verified;all 15 full non-callout text boxes fit current masks. Production SVG/current terrain exports/protected paths unchanged;no converter rerun,apply,main merge or deploy. Ledger231/14directLN,129inventory/32follow-ups and 58art pairs retained. Full source/era/binding/coverage/fit/runtime goal remains open. Repository validation and472 tests pass on both feature branches (26 skips,zero failures): painting64.352s,map-pointer64.333s. Final native lighting/geometry/browser audits pass;no changed JavaScript or in-game test run.
+
+Next:continue unresolved primary-source/mainland and fixed-rule/initial-era/fit/runtime obligations. R52 andR53 make concrete progress;no repeated blocker.
+
+## 21/11 — authored Dwargon access graded to fixed template (ChatGPT, round52)
+
+Round52 [Dwargon approach correction](../world/dwargon-approach-fix.md) adopts a rounded foothill and low forecourt shoulder. Both road access points and sampled join widths now meet fixed first-air146/base142; maximum exported grade0.5. All3179 roof samples,58 exported site records,water/biome/road/site/exclusion/ruggedness rasters and19 other road profiles retained. Height9893cells and2profiles change; fresh normal build65.2s/no warnings. Checker0errors/all 56relations/same2warnings. Current terrain atlas/preview refreshed;R50 painting predates this relief change. Source8c24a349,ledger231(173+58)/14directLN;129inventory/32follow-ups and 58art pairs. Full goal remains open;no apply,main merge or deploy. Repository validation and472 tests pass on final source8c24a349 (26 skips,zero failures,62.421s test tier); no changed JavaScript files. Local Minecraft placement/repair/era and walkability tests remain pending.
+
+Next:review the local relief in PR102 painting,then continue source/binding/coverage and technical local-placement acceptance. R51 andR52 made concrete progress;no repeated blocker.
+
+## 21/11 — Dwargon approach mismatch measured (ChatGPT, round51)
+
+Round51 [Dwargon source and approach review](../world/dwargon-approach-study.md) adds four qualified direct WN claims and a measured offline interface finding. Current road endpoint y71.33 is seven blocks from the fixed template south boundary at first-air146; roof cover passes for all3179 columns but does not verify this join. Next: grade the authored approach to fixed base142 and verify exports/local walkability. Sourcecb07cce7 and all 58 site tuples retained; no production or protected-path edit, converter rerun,apply or deploy. Ledger230(172+58),14directLN;129inventory/32follow-ups,58art pairs. Full goal remains open. Repository validation and472 tests pass (26 skips,zero failures,62.692s test tier); no changed JavaScript files. These offline checks do not verify the road/template join or live placement.
+
+Previous goal turn50 delivered current-source painting; progress. This turn adds source evidence and identifies a concrete next terrain correction, not a repeated blocker.
+
+## 21/11 — shared-curve painted presentation refreshed (ChatGPT, round50)
+
+Round50 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round50/README.md) refreshes the native land/sea masks and coast outlines against sourcecb07cce7 (06de1b2). Original R38/R43 texture PNGs and their generation records are retained; this round uses no new image generation. Exact3coasts/9lakes/8rivers/21roads/2habitat overlays,58 source positions,16 context names and32 open rows pass the geometry/browser audit. All15 full non-callout text boxes remain inside their current sampled masks; Ulgracia's callout endpoint remains inside U. The atlas keeps every non-image element and the32.47px number spacing. The composition changes7,109 pixels from R43; no local-headland-only change claim is made for this coast refresh. Painting/checker/official-reference visual review retains production geometry. Fresh checker0errors/all 56relations/same2warnings. No production SVG,terrain export or protected path edits; no converter rerun,apply,main merge or deploy. Ledger225/14directLN,inventory129/32follow-ups and 58art pairs retained. Full source/era/binding/coverage/build-fit/runtime obligations remain open. Repository validation and472 tests pass on both feature branches (26 skips,zero failures): painting64.588s, map-pointer63.704s. No changed JavaScript files or in-game test run. These are offline checks.
+
+Next: continue the unresolved mainland-source and fixed-rule/era/fit obligations. R49 and R50 made concrete progress; no repeated blocker.
+
+## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
+
+Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all 21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
+
+Fresh build54.4s/no warnings/source SHA matched. All58 sites/21 profiles verified; max grade0.5 and bridge40 unchanged. Sparse/plains/retained-jungle sample cells checked. Ledger187 (129 thematic/design/reference +58 coordinates). Laura creative docs distinguish old capital from later reconstruction. Repository validation and462 tests pass (26 skips); current gate: world/review.md. No apply/deployment; missing places and technical-era handoff remain open.
+
+**Art follow-up:** [draft PR #87](https://github.com/Yasuke2000/ocs-two-lives/pull/87), branch
+`chatgpt/post-kijin-place-art-r18`, worktree `C:/Users/david/Documents/ocs-place-art`, delivers eight
+current image/sheet pairs based on fc36e38 (tempest, dwargon, blumund, lake_siss, treyni_shrine,
+sealed_cave, dwarf_village, orc_camp). All are 1536x1024 RGB PNGs below 3,000,000 bytes; pixels of
+losslessly repackaged files were verified unchanged. The original built-in image-generation outputs
+remain under `.codex/generated_images/01a1f4df-fe07-7eb1-b3ee-abe4feb653a6`.
+The older `chatgpt/priority-place-art` / `ocs-art-map` worktree has 29 PNG candidates and 58 sheets,
+many untracked; these were left intact. Use the new art coverage table before generating replacements.
+Current art delivery:58/58 registered PNG/sheet pairs in twelve stacked drafts through [PR101](https://github.com/Yasuke2000/ocs-two-lives/pull/101). Art-file coverage is complete; full geography/source/build/runtime acceptance remains open. Latest branch `chatgpt/final-place-art-r37`,worktree `C:/Users/david/Documents/ocs-final-place-art`,commit975c210. All58 reservation attributes match1209e38;58 pairs/twelve manifests/58-row coverage verified. Six new originals: Filtwood,Ghastone,Rostia,Sainte-Malukshure,old Dragon City,old well. Sainte depicts inert C14 coastal alternative,not inland H pin; C20 remains. All RGB<3MB;Ulgr native1362×1155,other57 images1536×1024;selected pixels preserved. Art validation/462 tests/26 skips pass (44.337s). Existing bone-avenue blueprint is outside the modest goods-yard camera and separately unverified. No terrain change in this art delivery.
+
+The first historical [painted atlas is delivered in draft PR #88](https://github.com/Yasuke2000/ocs-two-lives/pull/88),
+branch `chatgpt/continent-painting-r19`, worktree `C:/Users/david/Documents/ocs-continent-painting`.
+Its native composition preserves3 coasts/8 lakes/8 rivers/21 roads and all 58 source anchors; registration
+audit, checker and repository gate pass (462 tests,26 skips). Pictorial relief remains interpretation.
+This is the first painting review coupled to current geometry; three requested painting/SVG rounds are
+not complete. Map geometry is unchanged by either art delivery; no runtime apply or deployment.
+
+**Updated painting:** [draft PR #90](https://github.com/Yasuke2000/ocs-two-lives/pull/90), branch `chatgpt/continent-painting-r22`, worktree `C:/Users/david/Documents/ocs-continent-painting-r22`, delivers the second painted atlas at efa2cc8 after the round22 forest refinement. Source SHA5e736ccc; native3 coast/8 lake/8 river/21 road vectors and all 58 projected anchors pass audit. Clean/marked images inspected; validation/462 tests pass (26 skips). Use its `world/painting-round2/` index for the current painting; PR88 remains historical. The [third painted atlas and SVG review is now delivered in PR92](https://github.com/Yasuke2000/ocs-two-lives/pull/92), branch `chatgpt/continent-painting-r25`, worktree `C:/Users/david/Documents/ocs-continent-painting-r25`, commit8cfd2c3/source60297bd. It corrects pictorial southern relief/Imperial woodland, restores8 exact native rivers after removing an invented stream, and keeps the C07 game-reservation label. Native3 coasts/8 lakes/21 roads/58 anchors and bubble clearance pass audit; validation/462 tests/26 skips pass. Current active SVG retained after review. Three painting/SVG passes documented; source/site/fixed-rule gaps,26 concepts, owner approval and technical/in-game acceptance remain open. No production change by painting or deployment.
+
+## 20/11 — Eastern forest edge refinement (ChatGPT, PR #74 round22)
+
+ [Eastern forest edge review](../world/forest-edge-review.md) reshapes only3 forest point lists: Jistav darkwood,northern Imperial woodland and eastern Jura foothill woodland. Selected areas retain89.4..91.0%, max boundary shift63.7; stronger21.8..24.8% removal trial rejected. Existing forest types retained;9 other forests and all other layers identical. All58 sites/radii and21 road profiles unchanged; complete height/water PNGs byte-identical. Current normal build55.7s/no warnings/hash matched.11850 biome cells change, all within old/new boundary differences. Full discs of Clayman's castle/Amrita remain in darkwood. DES-FOR-022 marks exact extents as interpretation; ledger192(134 thematic/design/reference+58 coordinates). First painting now historical; refreshed painting/final coupled round remain open. No runtime/apply/deploy. Gate result in world/review.md.
+
+## 20/11 — Amrita/Soma source and access review (ChatGPT, PR #74 round24)
+
+ Official episode81(no86) explicitly places Amrita beneath Clayman's former castle; all5 stills inspected (mural/doorway/cavern context, not plans). LN10 historical passage directly verifies Soma as older ruined homeland, Amrita as distant later refuge. [Plan/section and review](../world/amrita-placement-review.md) draws inert castle-linked access projection(3300,-600), r8, depth/whole footprint unknown; eastern chambers possible. Active E350..700 reservation(3800,-500),r63 remains fixed and labelled as game adaptation/C07. No sixth data-rule change authorized/applied. Every non-label layer/all 58 sites unchanged; current build56.3s/no warnings/SHA matched, complete height/water/biome/21-road/terrain-preview bytes identical to052f262. Ledger196(138 thematic/design/reference+58 coordinates),12 direct LN claims. Source versus access/marker semantics remains an owner/technical decision. Soma exact placement, other gaps and full underground design remain open; no runtime/apply/deployment. Gate result in world/review.md.
+
+## 20/11 — Tengu official source and ridge proposal (ChatGPT, PR #74 round20)
+
+ Official episode64 (route no68) synopsis directly confirms Tengu residence in Khusha and a later road-tunnel proposal. All five official stills visually inspected; still2/5 give limited outdoor/gateway/fence/blossom cues, not a surveyed village plan. [Original ridge/terrace study](../world/tengu-settlement-study.md) moves only the inert Tengu proposal from(-1000,1100) to(-1000,940), radius40. Old centre sampled96.75 versus new188.5; new disc remains steep146.5..189.75 and needs terrace/access design.58 live sites and all live XML elements unchanged. Fresh normal build56.4s/no converter warnings/current SHA match; terrain/checker preview bytes unchanged. Ledger191(133 thematic/design/reference+58 coordinate interpretations). LN8 chapter4 unread; WN access remains separate. Registration, source gaps and three painting/SVG rounds remain open; no runtime apply/deployment.
+
+## 20/11 — Frost Palace WN/source review (ChatGPT, round28)
+
+WN78 directly read: central frozen-continent setting and limited corridor/carved-door/top-terrace context. WN078-001/002 and DES-FRO-028 bring ledger199(141 thematic/design/reference+58 coordinates),12 direct LN claims. C22 contrasts fixed coast-kind reserve(-1500,-3310),r67 with inert inland near-centroid proposal(-1660,-3820),r67. Exact canonical coordinate/LN agreement/height/access remain unverified; decide coastal entry versus inland palace and site-kind/build contract. All live XML/58 sites unchanged; fresh build55.1s/no warnings/SHA32aa6e10 matched. Complete height/water/biome/21-road/terrain/checker previews identical to046d7c3. Gate result in world/review.md; no tools/runtime/apply/deploy changes.
+
+## 20/11 — Natural-landmark source qualification (ChatGPT, round29)
+
+WIK-ELD-029/WIK-HOL-029 record indexed volcano/mineral and near-Nasca/Velgrynd context as fan-wiki; cited LN story passages remain unread. Cached official Ameld glossary reread verifies OFF-001 without duplicate claim. Ledger201(143 thematic/design/reference+58 coordinates),12 direct LN claims;29 supplemental visual/design records. PR96 four natural-feature pairs bring art to32/58,26 remaining; masks/58 sites/SHA32aa6e10 unchanged. No new build required for source-only update. C03/C05 and other scope/fit/runtime/fixed-rule obligations remain open. Gate result in world/review.md; no apply/deploy.
+
+## 20/11 — Sanctuary scale/source qualification (ChatGPT, round30)
+
+LN06-004 directly rereads public LN6 summit-arrival paragraphs246-248: shrine smaller than cathedral but more lavish. Ledger202(144 thematic/design/reference+58 coordinates),13 directly read LN claims;36 supplemental visual/design records. Ten official stills do not survey exteriors. Heaven Tower LN18/19 citations remain secondary/unread; later damage excluded. PR97 brings art to36/58,22 remaining. Active SVG/58 sites/source SHA32aa6e10 unchanged; no converter rerun for research-only update. Fixed-rule/source/coverage/fit/runtime obligations remain open. Gate result in world/review.md; no apply/deploy.
+
+## 20/11 — Orbic depleted-ground habitat (ChatGPT, round31)
+
+Active orbic-depleted-ground biome and matching eurazania-jungle edge opening now partially represent exhausted homeland distinct from orc_camp. Direct LN2 depletion/junction reread; wiki bearings and exact239623-block² patch/mod biome remain interpretation. No capital,rift,new anchor or sovereign border. All58 sites/21 roads/height/water/site/exclusion outputs unchanged;14975 biome cells change only inside patch. Fresh build54.9s/no warnings/SHA bfe13bca;checker0 errors/56 relations/same2 warnings. Preview,atlas and native before/after inspected. Ledger203(145+58),13 direct LN.25 missing+1 partial Orbic+3 parent designs retain all29 obligations; art36/58 remains. Fifteen official Coleus stills do not verify Long Wall course/exterior. Earlier painted reviews predate this habitat change. Gate result world/review.md. No apply/deploy. Do not rerun legacy external author_canon_map.py blindly: production SVG is authoritative and later edits are not all reproduced by that old helper.
+
+## 20/11 — Ice Continent local coast review (ChatGPT, round32)
+
+Three authored inlets refine smooth island envelope after official-map comparison;94.02% area retained,105 vertices,max shift208 blocks. Exact coast remains interpretation. Fixed palace shore/58 site attributes/mainland/ElDorado/21 roads retained;sea gap916.98. Fresh build55.1s/no warnings/SHA d10aa456;checker0 errors/56 relations/same2 warnings. Complete water/road/site/exclusion outputs unchanged;all height/biome rows south ofz-2800 and palace230×230 square identical. Preview/atlas/native study inspected. Ledger204(146+58),13 direct LN. Current BookWalker guide8.5/LN14 trials and licensed English retailer leads remain unread;C05/C22 not resolved. Coverage25 missing+1 partial+3 parent;art36/58 unchanged. Earlier painted passes predate this shoreline/Orbic. Gate world/review.md. No apply/deploy;production SVG authoritative over old external author helper.
+
+## 20/11 — Jura approach art and Council country source (ChatGPT, round33)
+
+PR98 (f335f38,stacked on PR97) brings art to40/58,18 remain. Four corrections preserve current58 reservations/e619fb7; nine manifests and all40 pairs verified. WIK-CAN-033 keeps summit association at wiki confidence,LN12ch2/4 unread; OFF-COW-033 directly reads official episode77/route82 country-level Englassia meeting context without assigning an HQ parcel or early event. Ledger206(148+58),13 direct LN;43 visual/design supplements. Current SVG/source SHA d10aa456 and terrain unchanged; no new converter run required. Coverage25 missing+1 partial+3 parent and other source/fixed-rule/fit/runtime requirements stay open. Gate result in world/review.md; no apply/deploy.
+
+## 20/11 — Smaller western source/art follow-up (ChatGPT, round34)
+
+PR99 (558b032,stacked on PR98) delivers six concepts,total46/58,12 remain;all 58 attrs match13f4cfb.46 pairs/ten manifests verified. OFF-RAJ-034 directly reads distributor page2 west/gold/lake film context; FAN-WES-034 qualifies later four-country map names/order as secondary. Official65/76 ten stills inspected,not verified map/exterior surveys. Six creative briefs qualify project industries/birch/trade context,correct manga108 versus LN and exclude later Ballachia liberation/Raja cure from initial snapshot. Ledger208(150+58),13 direct LN;52 visual/design supplements. SVG/source SHA d10aa456 and terrain unchanged; no new converter run. Coverage25 missing+1 partial+3 parent and other source/fixed-rule/fit/runtime obligations remain. Gate world/review.md;no apply/deploy.
+
+## 20/11 — Imperial illustrated basin (ChatGPT, PR #74 round35)
+
+Adds one active unnamed basin east/southeast of the fixed Imperial cone after direct visual comparison with official base. MAP-IMP-035 is canon-implied; DES-IMP-035 qualifies all28 vertices/355×122-block extent/level68/depth5. No Silberia name,city,outlet or C05 resolution. Fresh normal build55.0s,no warnings,SHA1ea6782d. All58 site attributes/21 road profiles and other active layers retained; roads/sites/exclusion exports byte-identical to cd89e26. Height/water/biome each change1892 local cells;1888 strictly interior samples wet. Checker0 errors/56 relations/same2 warnings. Current preview/atlas/study visually inspected; see world/imperial-basin-review.md and audit.json. Ledger210(152+58),13 direct LN;art46/58,12 remain. Coverage25 missing+1 partial+3 parent and source/fixed-rule/fit/runtime obligations stay open. Earlier paintings predate this change. Gate in world/review.md; no apply/deploy. Previous round34 made progress; no blocking condition repeated.
+
+## 20/11 — world-map branch integration with upstream main (ChatGPT, round35)
+
+The map feature branch incorporates upstream main09ca601, preserving both complete additions in the two overlapping documentation hunks (this handoff and design/decisions.md). No pull request was merged into main and no server action ran. Runtime scripts/mod files exactly match upstream main; the sole tools difference remains the five owner-approved canon_relations.toml data corrections. World converter code/SVG source hash/normal staging exports are unchanged by this integration. Current map build/source review is world/imperial-basin-review.md; integration validation is recorded in world/review.md. Repository validation,20 JS syntax checks and472 tests pass (26 skips,zero failures,44.221s test tier). Mainline's new local-server/deploy-gate instructions are retained. Full geography/source/site/build-fit/runtime obligations remain open.
+
 
 ## 20/11 — bounty boards, NPCs and guards audit; killable enemies of the roads (branch `bounties-npcs-enemies`, Claude, for Yasuke)
 
@@ -30,6 +414,195 @@ arenas2, bosses, wild, story, events_pack, quests. **Next**: after every merge r
 Not covered (low risk, noted): `nations` claims a chunk 100 blocks from Tempest (fails if a real player claimed it);
 `events` ends a real running event (`ttl events end`) and `ttl arena reset` resets every arena (both only while nobody
 is online).
+## 20/11 — Jura route art and treant-source distinction (ChatGPT, round36)
+
+PR100/96e1069 delivers six revised/new original pairs (shizu_spawn,outcast_road,treyni_grove,blumund_road,englassia_road,rookie_camp),total52/58,6 remaining. Main creative briefs correct legacy coordinates,initial residents,tree/settlement equivalence and false safe-rim context; no runtime changes. WIK-TRE-036 is secondary indexed geography,not a directly read LN passage. The distinct treant community gains an explicit missing mainland row;127 inventory entries,26 missing+1 partial+3 parent,30 follow-up obligations. Ledger211(153+58),13 direct LN;61 visual/design supplements. All58 attributes match48b0846; current SVG/source SHA1ea6782d and terrain unchanged,no converter rerun. Exact prompts,readability cleanup and selected/own-input hashes in the art stack. Main gate in world/review.md. No apply/deploy;full geographic/source/fixed-rule/fit/runtime requirements remain. Previous round35 made progress; no blocking condition repeated.
+
+## 20/11 — registered art coverage and final-place source distinctions (ChatGPT, round37)
+
+PR101/975c210 completes58 registered PNG/sheet pairs and twelve manifests,not full world acceptance. All58 attributes match1209e38. Six creative briefs correct country identities and source/era/architecture limits; Sainte art depicts only inert C14 coastal proposal. Official Johann and Middray profiles directly establish Rostia kingdom and Dragon City temple; Ghastone list is wiki-level. Ledger214(156+58),13 direct LN;72 visual/design supplements. Two newly inventoried country pins remain unverified:129 entries,26 missing+1 partial Orbic+2 country pins+3 parent designs,32 follow-ups. Current terrain/source SHA1ea6782d,exports and 58 reservations unchanged,no converter rerun. Two atlas legend entries clarify country pins. Main gate in world/review.md. Full geometry/source/fixed-rule/era/fit/runtime requirements remain open; no apply/deploy. Previous round36 made progress; no repeating blocker.
+
+## 21/11 — current painting and standalone preview refresh (ChatGPT, round38)
+
+Draft PR102,branch chatgpt/current-painted-map-r38,worktree C:/Users/david/Documents/ocs-current-painted-map,commit31cc28e. Refreshes the third original painting using current own guides against dc92845/source1ea6782d. Native3 coasts/9 lakes/8 rivers/21 roads/1 Orbic highlight and 58 projected anchors verified; number spacing32.47px. Current clipping/raw-blue suppression prevents painted water defining new geography. Source/era/conflict labels retained. Fresh checker0 errors/56 relations/same2 warnings; painting branch validation/472 tests/26 skips pass (44.520s). Production SVG/checker preview/protected paths unchanged; no converter rerun. Main atlas already used the correct export; standalone terrain-preview.png had last changed at efa2cc8 and is now copied byte-identically from current normal build,with provenance. Main gate in world/review.md. Earlier3 painting/SVG passes remain historical.214 claims/13 direct LN/72 supplements/129 inventory entries/32 follow-ups/58 art pairs unchanged;full source/geometry/fixed-rule/era/fit/runtime requirements remain. No apply/deploy. Previous round37 made progress; no repeating blocker.
+
+## 21/11 — public LN fragment screening (ChatGPT, round39)
+
+Four public GC publisher fragments accessed; selected geographic passages/context read, not complete volumes. LN07-001 records later organized Tempest road patrols after Walpurgis, without backdating paving/security to the initial Kijin snapshot. No new small-country location established. All eighteen names in the wiki western-state list already occur in the inventory. Ledger215(157+58),14 direct LN; inventory129/32 follow-ups and 58 art pairs unchanged. Access manifest stores hashes only, copyrighted cache outside repo. Production SVG/terrain/painting/runtime bytes unchanged; source1ea6782d, current presentation PR102. Full goal remains active; no repeating blocker, merge, apply or deploy. Validation recorded in world/review.md.
+
+## 21/11 — Long Wall border-corridor correction (ChatGPT, round40)
+
+Corrects DES-ADD-wall and its inert SVG proposal; old route crossed856.63blocks of desert interior,now follows existing NE/east boundary with a dry oasis detour. Original before/after vector study,measured audit and future caravan-gate obligation in world/long-wall-corridor-review.md. Sourcea24cea9b changes only a comment: all11active layers/58sites/checker preview/9normal exports identical to5bb2467. Fresh checker0errors/56relations/2warnings; normal build no warnings; repository gate in world/review.md. Ledger215/14directLN,inventory129/32follow-ups,58art pairs unchanged. Wall stays absent from production,full source/era/fit/runtime requirements remain. No merge/apply/deploy. Previous round39 made progress;no repeating blocker.
+
+## 21/11 — geographical atlas labels and full index (ChatGPT, round41)
+
+Current numbered atlas adds16 broad context names,including Eastern Empire,and a separate32-entry M/P/U panel. Full world/location-index.md preserves all129 inventory source/scope rows. Wiki-coverage display now matches current129 rather than stale126. All58 number groups/terrain image bytes retained; actual Chrome text boxes verify no overlap with padded number bubbles and all32 appendix rows fit. Fifteen labels fit gameplay contexts; Ulgracia callout ends inside U. No new capitals/borders/coordinates inferred; none of32 obligations closed. Production sourcea24cea9b,exports/painting/runtime unchanged. Ledger215/14directLN and 58art pairs retained. Gate in world/review.md;full goal remains open. No merge/apply/deploy. Previous round40 made progress;no repeating blocker.
+
+## 21/11 — western mainland headland (ChatGPT, round42)
+
+Active source7d021766 adds the original northwestern cape after official-image comparison. Mainland9989x6250/design12800x10752 below hard limits;preferred target deviations remain C12. All58site attributes/earlier waters/relief/forests/21routes/21other masks retained. Fresh checker0errors/56relations/2warnings;normal build57.0s/no warnings. Wider raster origin needs128-column alignment:water/road/site/exclusion match;all 58site-disc heights match;20road profiles match,Sacred trail34heights change at most0.04blocks. Current atlas reprojected0.96plusorigin;16labels/58numbers/32open rows retained. Ledger217(159+58)/14directLN;inventory129/32follow-ups;58art pairs. PR102 R38 painting is historical; its basis now integrates map50e0715 in painting head4847edd. Shared preview/provenance conflicts are resolved; normalized text and byte-identical previews verified. Painting basis build58.7s/no warnings and472tests/26skips pass (45.880s). Next:refresh actual painting pixels/native registration from current7d021766 guides. Main gate in world/review.md. Full goal remains active;no merge/apply/deploy. Previous round41 made progress;no repeating blocker.
+
+## 21/11 — current-source painted headland delivered (ChatGPT, round43)
+
+PR102 adds world/painting-round43:built-in image_gen edit using only original R38 painting and own current checker/terrain guides. Local native feathered mask limits the new texture to the source headland; R38 pixels/provenance retained historically. Source7d021766 unchanged. Exact3coasts/9lakes/8rivers/21roads/2habitat overlays,58source projections,16context labels and32open names audited. Larger pixel changes within320-block headland buffer;12outside edge pixels differ at most2/255. Leader lines now behind all number bubbles; spacing32.47px. Browser text bounds clear padded bubbles. Painting/checker/official-reference visual review retains geometry. Painting gate472tests/26skips/0failures (44.683s); pointer gate472tests/26skips/0failures (44.328s). Next:remaining mainland/source/binding obligations; repeat painting only if the source geometry changes. Living contradiction summary updated to14directLN claims and the current C12 coast/scale status; all 58 coordinate-ledger centres/radii match the current SVG. Ledger217/14directLN,129inventory/32follow-ups,58art pairs retained;full goal remains open. No source/terrain/runtime apply or deploy. Previous round42 made progress;no repeating blocker.
+
+## 20/11 — Old Dragon City southeastern proportion correction (ChatGPT, PR #74 round16)
+
+Round 16 moves the old Forgotten Dragon City from(2500,150) to(2650,800), retaining radius100, M membership and all fixed relations. This follows the official illustration's broad southeastern pattern and the wiki territory relationship south of Jura/east of Eurazania. The pinned secondary marker distance discrepancy improves from-9.8% to-0.3% and bearing discrepancy from-13.3 to+0.1 degrees; projection and precision remain unknown. Exact city coordinates and two rerouted approach trails are our interpretation. All other57 site centres/radii and every coast, lake, river, mountain, hill, forest, biome and gameplay polygon remain unchanged frome129131. This is the old settlement, not the later city/castle built at Laura.
+
+Ledger186 (128 thematic/design/reference +58 coordinates). Doran remains unlocated beyond west-of-Jura; licensed Trinity chapter25 story pages not accessed. Fresh normal export54.3s/no warnings/source SHA matches; old Dragon City0/1954 wet, all 21 road profiles<=0.5, max bridge40. Repository validation and462 tests pass (26 skips). See world/review.md. No apply/deployment; previous constraints and coverage gaps remain open.
+
+## 20/11 — Official Coleus placement correction (ChatGPT, PR #74 round15)
+
+Round 15 corrects Coleus using the directly read official anime outline: the independent kingdom lies between Ingrassia and Lubelius. Its authored centre moves from(-3650,-250) to(-3520,-860), retaining radius73, V membership and all fixed relations. The dunes move(+130,-610); the oasis moves(-175,-610), keeping water separate from the city and river. One caravan trail skirts the pond on its north side. The other57 site centres/radii, coasts, rivers, mountains, hills, forests and gameplay masks remain unchanged from147ea7e. Exact city position, shore/level and trail bends remain our interpretation; countries lying between others does not survey their capitals.
+
+Official synopsis and INEI concept inspected; ledger184 (126 thematic/design/reference +58 coordinates). Existing hill-palace blueprint reused as evidence, unchanged. Era-sensitive palace state remains unverified. Fresh build54.0s/no warnings/SHA matched; Coleus0/1044 wet, all 21 road grades<=0.5, max bridge40. Repository validation and462 tests pass (26 skips). See world/review.md; no apply/deployment. Coverage obligations and prior conflicts remain open.
+
+## 20/11 — Sarion proportion refinement (ChatGPT, PR #74 round14)
+
+Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
+
+Verified: default checker 0 errors / 56 relations pass / 2 prior warnings; fresh normal build 54.6s, no converter warnings, source SHA matches. All 21 road grades <=0.5 with float epsilon; max bridge 40 <64. Elmine 0/1976 wet; cave 0/1116; goblin 0/612; Siss 1804/1804 and lizardmen stilt plate 710/710 wet. Ledger 181 (123 thematic/design/reference +58 coordinate interpretations). Repository gate: validation passed; 462 tests, 26 skips, 0 failures. No apply/deployment. Remaining source/location conflicts and the 29 coverage follow-ups stay open.
+
+## 20/11 — Rounded river bends and measured western trail grade (ChatGPT, PR #74 round13)
+
+Five existing reaches (Ameld head/outlet, Tempest upper brook, Jura–Sarion, western trade river) now have rounded bends. All original control points/endpoints, widths and head/mouth levels retained; measured maximum plan deviation14.17 blocks. Exact channels are interpretation under C03. [Measurements](../world/river-centreline-review.csv). One western trail waypoint within20 blocks corrects an exported grade0.5022 after the river change; old path points/endpoints retained. All58 sites/radii and other geometry unchanged. Ledger180 records.
+Verified: default checker0 errors/all 56 relations pass/2 prior warnings; fresh build54.0s/no warnings/current source SHA match. All21 actual road grades<=0.5 with float epsilon; max bridge40<64. Water: cave0/1116 and goblin0/612 wet; Siss1804/1804 and intentional lizardmen plate710/710 wet, level66. Current atlas/official comparison refreshed. Repository gate: validation passed;462 tests,26 skips,0 failures. No apply/deployment or new canonical hydrography claim. Continue missing places, source evidence and fixed-binding review.
+
+## 20/11 — Mainland scope routing and city coverage study (ChatGPT, PR #74 round12)
+
+All126 inventory entries routed without dropping any obligation. All29 review obligations retained:26 missing representations (19 mainland,4 city/interior,3 offshore) plus3 parent designs found in blueprints/NBT. Elf venue in dwargon.py; guild()/academy() in englassia.py. Reuse existing designs after source/fit review; do not confuse absent SVG submarkers with absent implementations. [Audit](research/tensura-world-2026-11-19/mainland-coverage-audit.md). [City schematic](../world/city-coverage-study.md) groups Dwargon East/West/bar and Englassia guild/council/academy/castle; box layout is not geographical geometry. Six new claims (ledger178) preserve wiki confidence and official ep20's limited school context. Doran remains west-of-Jura only, with no fabricated capital/outline. Licensed LN1 retailer preview did not expose book pages; no LN evidence upgrade.
+Production SVG/rasters unchanged from f42bdbf; current source/preview provenance and all178 unique claim IDs checked. Full gate passes validation and462 tests (26 skips). No new IDs, tool changes or runtime work. Next: resolve remaining physical gaps, source placement and fixed-binding choices; internal city plans and placements remain open, not counted complete by this classification.
+
+## 20/11 — Restrained Milim biome scope and episode-source audit (ChatGPT, PR #74 round11)
+
+C10: narrow red accent remains per fixed brief, but authored area drops707757 to213884 blocks2 (69.8%). No other biome polygon, site, coast, height, water, road or mask changes. A conservative no-red replacement is drawn inert for review; no claim of canonical desert or exact ecosystem. [Locator audit](research/tensura-world-2026-11-19/anime-episode-locators.csv) checks eight region-book routes: no28/30/42/48 actually display episodes26/28/39/45. Episode41 is no44, not no41. Generic still links now contextual leads. Five official no44 stills inspected; no city exterior verified. Pinned secondary city-frame raw fetch403. Ledger172 unique records.
+Verified: checker0 errors/all 56 relations pass/2 prior warnings; current build52.6s/no warnings/SHA match. All58 centres/radii and21 grade profiles verified. Current wooded-badlands raster13374 cells; released-ground sample4034,614 is plains. Full gate passes validation and462 tests (26 skips). Atlas and official comparison refreshed. No tool/runtime edits or server apply. Continue missing-place/primary-source coverage and fixed-rule reconciliation; do not claim full fidelity/completeness.
+
+## 20/11 — Filtwood source correction and Orbic homeland study (ChatGPT, PR #74 round10)
+
+Official S1E24 synopsis names Filtwood a kingdom in a story before Rimuru; wiki puts it near Jura. The creative pack's town-in-Ulgracia claim was unsupported. C20 corrects prose, era overlay and coverage crosswalk; active U anchor is unchanged and visibly disputed. [New study](../world/southern-location-study.md) draws an inert western Jura-edge trial (side unverified) and a separate depleted Orbic homeland vicinity. LN2 famine/junction reread; wiki bearings stay secondary. All five official episode24 stills inspected: interiors/characters, no exterior plan. Ledger170 unique records.
+Verified: standard checker0 errors/all 56 relations pass/2 prior warnings; fresh build52.3s/no warnings/current SHA match. All non-label SVG groups and converter preview bytes equal prior terrain; all 58 exported centres/radii verified and21 road grades<=0.5. Repository gate: validation passed;462 tests,26 skips,0 failures. No extra technical, runtime or live terrain edits. Next: remaining missing-place/source evidence and fixed-binding reconciliation; no exhaustive wiki/completion claim.
+
+## 20/11 — Canaat relief and Empire evidence gaps (ChatGPT, PR #74 round9)
+
+Replaced the long equal-height Canaat crest with a shorter bent high spine and a lower tapered180-block eastern mountain apron, following broad official illustrated massing. Exact relief is interpretation. All58 centres/radii, coasts, waters, roads and masks unchanged. [Empire follow-up](research/tensura-world-2026-11-19/eastern-empire-followup.md): Silberia remains unlocated; publisher13.5 listing read but licensed trial timed out. WN historical states/frontier ruin remain continuity-qualified. Ledger165 records.
+Verified: checker0 errors/all 56 relations pass/2 prior warnings; fresh build52.2s/no warnings/current SHA match; all 58 sites match, all 21 grades<=0.5, max bridge24. Lake/village intentional wet footprints and dry cave retained. Atlas/comparison refreshed. Full repository gate: validation passed;462 tests,26 skips,0 failures. No apply/deployment. Next: remaining source/era/coverage gaps and fixed-rule alternatives; do not claim exhaustive wiki or final fidelity acceptance.
+
+## 20/11 — Lake Siss source correction and elongated basin (ChatGPT, PR #74 round8)
+
+Official glossary A-77 describes Charybdis as an aerial calamity; the older creative pack's aquatic-whirlpool/circular-lake premise was false. Corrected that prose and episode reference, retaining later server arena reservations. Official illustrated lake character supports a broad east–west basin; exact authored858 by410 blocks is interpretation. Shore/inlet/outlet revised, all 58 site positions/radii and roads retained. Ledger162 records; C19 records the correction.
+Verified: checker0 errors/all 56 relations pass/2 prior warnings; normal current-SVG build52.4s/no warnings, source SHA matches. Raster: lake1804/1804 wet; village710/710 intentionally water per sites.toml for stilts; cave0/1116 wet. All21 road grades<=0.5, max bridge24. Updated atlas/comparison; full repository gate passes validation and462 tests (26 skips). No apply or deployment. Continue primary-source/wiki coverage and fixed-rule fidelity decisions.
+
+## 20/11 — Official live map verified; current-SVG staging rebuilt (ChatGPT, PR #74)
+
+Restored session permissions remove earlier operational limits. Fresh normal build of current SVG:53.7s, no converter warnings, source SHA matches index; published terrain-preview bytes match output. No generated index patched and no apply.
+Official interactive map operated in Chrome: enter/tutorial, chapter2, all four story stops (episodes9/12/14/15), World mode and Gazel/Rimuru affiliation selection. [Notes](research/tensura-world-2026-11-19/official-interactive-map.md). There is no separate episode10 navigation stop; keep naming-event synopsis as precise snapshot anchor. Affiliation highlighting is not a surveyed sovereign border, and omitted countries are not nonexistent. Live screenshots/trace stay outside repo. Ledger remains159 records, with one previously indirect label claim upgraded to directly observed official display evidence. Main/source/geometry unchanged.
+
+## 20/11 — Initial era after Kijin naming and eastern landscape (ChatGPT, PR #74)
+
+Owner selected immediately after the six ogres are named: official anime S1E10 synopsis verified. [Era policy](../world/era.md) and 58-site overlay supersede mixed-era presentation. Atlas: Rimuru's village, unresolved orc approach, future/server reservations. Falmuth, Frey, Carrion, Clayman and Rudra baseline; no later Tempest metropolis or ruler outcomes. Supplied official map chapters1/2/3/4/6/9 inspected separately from live controls.
+Live geometry adds only eastern Jura/Canaat light woodland and open fringe. All58 sites, roads, heights, waters and political masks retained. Ledger159 records (101 thematic/design +58 coordinates); every row has snapshot_use, with nine new direct WN claims. C16/17 qualify WN access and city water; C18 exposes future highway/content contract versus the early snapshot.
+Verified: checker0 errors/all 56 relations pass/2 prior warnings; normal build53.9s/no warnings includes habitats. Later converter repeat declined; removing only era metadata/cosmetic labels exactly reconstructs staged source SHA. Generated index unchanged. All58 centres verified from index.json (sites.json has34 plate entries); actual21 road profiles <=0.5. Validation and462 tests pass,26 skips. [Current review](../world/review.md). No runtime apply. Next: close source/wiki gaps and reconcile era construction/residents with the runtime team; do not claim future content already exists.
+
+## 20/11 — Coastal Malukshure evidence and additional-location drawings (ChatGPT, PR #74)
+
+[Five proposals](../world/additional-locations.md), [view](../world/additional-location-study.png): Galut, Tengu summit settlement, coastal Sainte-Malukshure, offshore Magic Tower, western Long Wall corridor. Exact geometry is interpretation and remains inert in map.svg comment. New primary official manga synopsis places the tower in Malukshure waters; wiki neighbours/coast remain qualified. C14 exposes current Sainte pin in H/Fulbrosia versus coastal/west-of-Sarion source alternative. C15 keeps proposed places separate from the fixed 58-site contract. No additional tool/anchor/runtime changes. Ledger now 141 records, 11 direct LN claims.
+Verified: standard checker 0 errors/2 disclosed warnings; normal build 54.6s, source hash matches staging; checker and converter previews byte-identical to prior live geometry. Repository gate passes validation and 462 tests, 26 skips. Current goal active; owner requests continued autonomous overnight work. Next: primary-source strengthening and further missing-mainland geography; keep C14/15 interpretation/registration limits explicit.
+
+## 20/11 — Wiki completeness audit (ChatGPT, PR #74)
+
+Owner asks to check the whole wiki geography, beyond the original 58 sites. [Audit](research/tensura-world-2026-11-19/wiki-coverage.md): all 31 owner-listed Locations entries, all 44 accessible Countries index entries, linked indexes/article geography; 126 deduplicated records, 29 missing distinct representations. 58 actual SVG sites cross-referenced; all map references validated against SVG identifiers. Empire E/Nasca/Velgrynd mountain exist, but Silberia, frontier settlements and interiors are not comprehensively represented. Long Wall, Magic Tower, Galut, Tengu settlement, Orbic and ocean/movie destinations need further coverage. Category access and Horn Empire are qualified; do not say the entire wiki or every primary source was read. No SVG/tool/runtime changes. Next: close source/traversal gaps and research additional-location proposals before final fidelity acceptance.
+
+## 20/11 — Western proportions, eastern coast and measured climb grades (ChatGPT, PR #74 round 6)
+
+Moved Blumund (-1500,-620), Marris (-1800,-1650), cave (-120,-400), Shia's coastal landing and one road pin;
+redrew bay bank/approaches, northeastern hook and eastern bay. P/M coverage adjusted to connected shore.
+No fixed rules relaxed. [Benchmark](../world/proportion-audit.csv): three distance discrepancies improve
+57.4→32.8%, 41.8→11.4%, 24.3→3.3%. Residual fixed-range alternatives drawn in inert SVG comment and
+[proportion study](../world/proportion-study.png). All 58 IDs/minima/internal offsets preserved.
+128 evidence records (70 thematic/design + 58 coordinates), 11 direct LN claims. [Review](../world/review.md).
+**Verified:** standard checker 0 errors/2 disclosed warnings; normal build 57.6s/0 warnings, source SHA
+matches; cave water raster 0/1116 wet pixels. Profile audit found ten old climbs >1:2; authored routes
+now stay in their corridors with exact sampling lengths: all 21 profiles <=0.5, longest bridge 24 blocks.
+Full gate passes validation + 462 tests, 26 skips. No further tools/code edits beyond approved five data rules.
+**Next:** strengthen remaining primary WN/LN geography evidence and qualify open lore/scale alternatives;
+do not undo source/constraint distinctions or claim runtime generation/deployment. Main a1848be integrated.
+
+
+## 19/11 — Latest main integrated; proportion review now measurable (ChatGPT, PR #74)
+
+Merged main a1848be into chatgpt/world-map (79178d8), retaining both agents' decision/handoff additions.
+Integrated gate passes validation and **462 tests (26 skips)**. World format, site-size table and map tools
+unchanged upstream; only the previously authorized five relation entries differ technically from main.
+[14-site audit](../world/proportion-audit.md) normalizes reference and authored distances to Tempest–Siss.
+Blumund +57.4% and Marris +41.8% in this secondary benchmark are clear review signals, not canonical survey
+errors. Next: revise western/central proportions within fixed constraints, updating coast/roads/regions
+and checking every geometry edit; draw/explain source alternatives where constraints prevent fidelity.
+The earlier source-evidence and round-5 entries remain current; do not mark the full goal complete yet.
+
+
+## 19/11 — LN evidence and northern Ulgr park (ChatGPT, PR #74 round 5)
+
+Read relevant publisher-hosted Japanese LN2/3/5/6/10 passages: 11 direct geography claims added.
+[Findings](research/tensura-world-2026-11-19/ln-sample-findings.md). Ledger now 122 records (64 thematic/design,
+58 coordinate interpretations), with access limits. Guidebook 8.5 trial loader stalled; no pages claimed read.
+Moved only S/U border to about y2720 for the officially northern park; preserved all 58 coordinates/radii.
+Atlas separates park/Spirit Dwelling entrance from Galut and labels independent Shia/Siltrosso. C05/C06
+alternatives drawn inside inert SVG comment plus [review diagram](../world/lore-alternatives.png).
+**Verified:** standard checker 0 errors/2 disclosed warnings; normal build 54.2s/0 warnings, matching SHA,
+58 coordinate/minimum-radius/offset checks; full gate passes validation + 456 tests (26 skips); previews inspected.
+No further tools changes; only the previously approved five data entries differ from main. Fetched a1848be:
+world format/tools/sizes unchanged; integrating main before next push. Source/fidelity review stays open.
+
+
+## 19/11 — Five owner-approved geography corrections; normal gate green (ChatGPT, PR #74)
+
+Yasuke explicitly approved an exception for **only five data entries** in `tools/world/canon_relations.toml`.
+Adopted the Jia/Ulgracia/ogre proposal, with a [lore source note](../design/lore/world-map-corrections.md).
+Other 51 relations, site/sea rules, checker code and tests unchanged. Added superseding owner clarification
+to own-world.md; precise distances/bearings remain server adaptation where evidence is secondary.
+**Verified current state:** standard map checker 0 errors/2 disclosed warnings; normal `build.py` (no skip)
+60.5s, 0 converter warnings, matching source SHA, 58/58 coordinates/minima/exact relative offsets;
+`tools/check.sh` via Git Bash passes validation and 456 tests (26 skips). Preview/atlas refreshed.
+See [review](../world/review.md), [comparison](../world/comparison.md), [region differences](../world/regions.md).
+**Remaining:** source/proportion review and open lore questions; no runtime Minecraft acceptance, pack apply,
+merge or deployment. The red-gate status in older handoff entries is historical and superseded by this result.
+
+
+## 19/11 — Research-driven map round 4 (ChatGPT, `chatgpt/world-map`, PR #74)
+
+Replaced the starter with the current authored map and corrected its northern bay, southern gulf,
+western coastal tongue and Ameld foothill corridor/eastward bend. Trail to Jia detours around the gulf.
+All 58 footprint-sized sites retained; exact parent offsets verified. [Numbered atlas](../world/atlas.png),
+[comparison](../world/comparison.md), [review](../world/review.md), [region differences](../world/regions.md).
+Research ledger: 50 thematic claims plus 58 coordinate interpretations, not 108 verified canon facts.
+Added access log: publisher LN1 sample read (prologue only); licensed BookWalker trial timed out.
+**Verified:** default checker after each SVG edit and preview inspection; five known canon-rule errors;
+alternate 56-rule matrix 0 errors/2 disclosed warnings; final converter 68.8s/0 warnings; source hash
+matches; 58/58 generated coordinates, radii minima and relative offsets match SVG. Gate via Git Bash:
+456 tests, 3 failures/26 skips; failures only on the same five default-map relations. Gate remains red.
+**Next:** reconcile technical matrix with owner geography choice (tools edits forbidden to this agent),
+strengthen primary LN/manga/anime evidence and audit remaining nonuniform proportions/open lore questions.
+Do not apply, merge or deploy until default gate passes and the map review is accepted. No runtime
+code, tools, pack configuration, Minecraft chunks or server state changed. PR #69 is prior reference.
+
+
+## 19/11 — Primary geography evidence checkpoint (ChatGPT, `chatgpt/world-map`)
+
+Yasuke confirmed anime/wiki placement over earlier server liberties: Fulbrosia south of Jura and
+Ulgracia south of Sarion. Pulled main through `4b304cd` into a separate `ocs-map-canon` worktree.
+[Research ledger](research/tensura-world-2026-11-19/geography-facts.csv): 50 claims with explicit
+continuity, confidence, locator, verification and map action; [12 conflict topics](research/tensura-world-2026-11-19/contradictions.md).
+Read the author's public WN chapters 13 and 31 and the official anime world guide; visually inspected
+the official introductory map. Found a northern Ameld travel corridor/eastward bend and a large northern
+coastal bay missing from the previous draft. LN geography passages and exact anime timestamps remain
+unverified; publisher listings are not treated as evidence. Files store original paraphrases and links.
+**Verified:** CSV parsing, 50 unique claim IDs, required fields, permitted confidence values, HTTPS links.
+**Next:** extend LN/manga/anime coverage, redraw silhouette and river corridor against verified evidence,
+retain all 58 markers/footprints, then run the default checker and inspect preview. The existing map
+is still draft PR #69 and fails five default relations superseded by owner geography corrections.
+No map, runtime, tools, generated terrain or server files changed in this research checkpoint.
 
 ## 19/11 night — no junk from placement, spawn zones round Tempest, staging profiled (branch `perf-and-spawns`, Claude)
 
@@ -601,3 +1174,39 @@ Offline: validate passes, 49 unit tests OK, all structures rebuilt. In game afte
 - The town and city are additive structure sets with no runtime registration. See [the growth plan](../design/lore/tempest_growth.md) for the world anchor, slab order, preserved core and full comparison. Stage-test the phase switch when it lands, including a previously inhabited village with containers, quest NPCs and the Outcast contact.
 - Wait for all six Mortal surveys, run `tools/server.sh test mortal_waypoints`, then `python tools/verify_build.py <name> --dimension ttl:mortal_realm --log --min 98`. Check the actual terrain joins, ferry water containment, tower climb and market workstations at night. The coordinates listed in the quest notes are survey centres.
 - The [balance audit](audits/balance-2026-11.md) is for Yasuke to review before any tuning. For heraldry, try each banner command as a staging player and retrieve a marker from the BlueMap webroot. The map generator still needs a separate integration.
+
+## 21/11 — vertex-budget diagnostic, source retained (ChatGPT, round44)
+
+Read-only study in world/vertex-budget-study.md/json counts9 outlines above preferred120 but within mandatory400. Independent DP simplification would require the tested32-block tolerance to reduce mainland388 to120 (Hausdorff31.951;320719 square blocks change), so no candidate adopted. Exact current-mask union has53.045 square blocks of land gaps,0.712 outside land,and J/S7.730,S/O40.668,S/H2.280 overlaps; these areas are not raster/runtime failure counts. Future shared-edge/curve approaches remain untested. Viewed unchanged checker preview beside cached official map; no source/preview/export/art/ledger edits or converter rerun. Corrected historical/current summary labels and painting refresh pointer. Full source/geography/fixed-rule/era/fit/runtime obligations remain. No merge/apply/deploy.
+
+Round44 repository gate: validation and 472 tests pass, 26 skipped, zero failures (45.027s test tier); no changed JS.
+
+## 21/11 — direct WN treant evidence (ChatGPT, round45)
+
+Directly read author WN chapter42 (URL episode44; HTML L279,L299,L309-L312): guarded treants cannot move themselves and have limited outside contact. WN42-001 supports a distinct community, not a surveyed parcel/capital/tree plan. Post-Orc WN meeting/alliance timing does not replace anime S1E10. Ledger218 (160+58),14 direct LN; inventory129/32 follow-ups unchanged. Current publisher LN20/21 trial links identified; browser attempt produced no readable pages/status/title and its own hanging helper/descendants were stopped. Long Wall chapter locators remain secondary. Same routes need changed access evidence before another attempt. Source7d021766/58 sites/previews/terrain/art unchanged; no converter/runtime action. Previous round44 produced diagnostic evidence; full goal remains active.
+
+Round45 repository gate: validation and 472 tests pass, 26 skipped, zero failures (44.579s test tier). Ledger uniqueness, all 58 prior coordinate rows, unchanged inventory classifications and retained source/presentation bytes were verified; research files mirrored to the local research checkout.
+
+## 21/11 — early Tempest landscape/capacity study (ChatGPT, round46)
+
+Native SVG/PNG study in world/tempest-early-landscape.md compares current r148 future reservation with inert r85 initial surface. Existing91×91 core, arrival45,57 and margin8 require84.5725 to enclose padded cell-edge corners;85 is an engineering proposal, not canon. Current requirements include192 future growth, so merely shrinking SVG radius fails/gets raised again. C18 technical handoff: separate initial surface from future capacity, preserve future city envelope, test inhabited-era transitions; no tools/generated/site rules edited. WN20-001/002 directly verify cave/water/open-ground setting and survey/planning context without compass bearings or completed-sewer certification. Legacy place guide now qualifies its lake/pond bearings and links current snapshot. Ledger221 (163+58),14 direct LN;129 inventory/32 follow-ups,58 art pairs and source7d021766 unchanged. No SVG/preview/export/runtime mutation, converter rerun, main merge or deployment. Previous round45 made primary-source progress.
+
+Round46 gate: fresh checker 0 errors/all 56 relations/same2 warnings; preview byte-identical. Validation and472 tests pass,26 skipped,zero failures (44.674s). Native study SVG/PNG inspected; all prior218 ledger rows/58 coordinate rows retained, current221 unique, source/atlas/terrain preview/protected paths unchanged.
+
+## 21/11 — licensed manga cave-setting review (ChatGPT, round47)
+
+Public Comic DAYS chapter1 normal unauthenticated viewer rendered selected story panels; reader positions9/11/13 support natural pointed formations,plants and underground water. MNG01-001/002 record narrow visual claims,not printed page numbers,full chapter reading or surveyed geometry. Later blank rapid-navigation captures are not evidence. Chapter2 remains login/ticket/145-point gated; no story read/login/purchase. Official ep2 OFF-CAV-047 confirms absorption/cave exit,not destroyed skill or physical chains. Corrected spent-seal wording and original-decoration qualifications in lore/place briefs; era overlay cave row strengthened without moving any site. Ledger224 (166+58),14 direct LN;129 inventory/32 follow-ups,58 art pairs and source7d021766 unchanged. Dry cave plate retained; no converter,blueprint/runtime correction,main merge,apply or deploy. Previous round46 delivered a concrete landscape study.
+
+Round47 gate: validation and472 tests pass,26 skipped,zero failures (44.606s). All prior221 ledger rows and 58 coordinate rows retained; inventory129 classifications unchanged; only sealed_cave era row revised. Source/preview/atlas/terrain/art,blueprints and protected paths unchanged. Dossier files mirrored locally; no full manga/source/goal completion claimed.
+
+## 21/11 — coupled geography required for curve simplification (ChatGPT, round48)
+
+Read-only external cubic prototype reduces all9 over-budget outlines; mainland113 segments/114 nodes,dense measured deviation11.770,native16-step deviation11.868. Candidate5af7c175 fails3 mandatory checks: western/Laura river mouths and45 uncovered land samples,all 56 site relations pass. Exact native gaps60217.923/outside48383.279 square blocks; not affected runtime-column counts. Do not adopt. world/curve-simplification-review.md/json/svg/png records rejection; actual failing candidate stays outside repo. Shared coast/region arcs plus river-mouth anchors must be fitted jointly next. Independent old-mask grid snapping0.01..2 never yields valid coverage. No production/source/preview/export/art/registry/protected-path changes; source7d021766,224 ledger/14 direct LN,129 inventory/32 follow-ups,58 art pairs retained. No main merge/apply/chunks/deploy. PR74 discussion has only bot draft notice,no new owner decision. Limited local filename search found no matching ebook; not a full-storage search,unverified video not used. Previous round47 made primary-source progress; no blocker streak.
+
+Round48 retained-branch repository gate: validation and472 tests pass,26 skipped,zero failures (44.833s). This gate applies to source7d021766 plus diagnostic docs; the external candidate still fails3 map checks. Production source/presentation/protected paths and224-record ledger are unchanged.
+
+## 21/11 — shared curves adopted with exact sampled coverage (ChatGPT, round49)
+
+Sourcecb07cce7 replaces source7d021766 using57 common arcs; coast120 nodes,woodland97,all9 upper overruns closed (eight simple outlines still below preferred20). Actual native16-step masks form valid exact coverage with zero land gaps/outside/overlapping interiors. Protected5 mouths,near-collinear coastal junctions and site contacts; Siltrosso full66-disc retained. All58 site tuples/21 route geometry/prior waters/relief/biomes/other11 forests/island coasts unchanged. Default production checker0errors/56relations/same2warnings; normal build65.6s,no converter warnings,58 anchors. Site/road/exclusion rasters and34-entry sites.json identical.55 site discs heights match; Filtwood0.0625,Sainte0.25,oneAmrita cell0.0625 change.13 road profiles match,8 max0.32; grade0.5. Water12 cells change (7 levels/5 newly wet); derived height899865 cells,max11.5,median0.1875; no false all-terrain-identical claim. Same raster box; atlas only embedded image changes,all 58 number groups/16 labels/32 rows retained,full15 text boxes andUcallout endpoint insideupdatedmasks. Source/terrain/atlas audits in world/shared-curve-review.md/json. Ledger225 (167+58),14 direct LN;129 inventory/32 follow-ups,58 art pairs. R43 painting now historical: NEXT refresh native painted masks/source registration fromcb07cce7 without treating old pixels as new canonical geometry. No technical rule edits,apply,chunks,main merge or deployment. Previous round48 produced actionable rejection evidence; full goal remains active.
+
+Round49 gate: validation and472 tests pass,26 skipped,zero failures (62.509s). All58 exported anchor positions/ground y and anchors.toml bytes match. Site/road/exclusion rasters and sites.json are identical; other terrain deltas remain disclosed. Native atlas visually inspected; next is current-source painted mask refresh.

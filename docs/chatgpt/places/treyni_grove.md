@@ -1,4 +1,12 @@
-# Treyni's grove (Dryad sanctuary)
+# Treyni-related ancient landmark tree
+
+Round57 [source/route review](../../research/tensura-world-2026-11-19/treant-route-context-r57.md): current grove(320,470),r56,and shrine(500,600),r36,are project reservations. The treant settlement remains distinct and unlocated. Do not turn the WN wetland relief estimate into a Tempest cart-road distance,an east-of-Ameld sovereign boundary or an initial-era supply event. WN43 qualifies treant movement as within their sanctuary. Imported coordinates and +38 offset below are historical.
+
+## Current own-world design — round36
+
+Current natural-tree reservation(320,470),radius56,village kind. The separate shrine is(500,600); the imported +38 offset is retired. Giant tree/old-wood setting is a project interpretation; no verified canonical sanctuary border or complete treant settlement follows from this one mod tree. [Current map and era](../../../world/era.md).
+
+The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
 
 `id: treyni_grove` · landmark (a Tensura mod structure placed in game) · region **J** (Jura-Tempest Federation)
 
@@ -9,9 +17,9 @@
 | Placed from | Tensura mod structure `tensura:ancient_forest/tree` (`design/data/landmarks.toml`) |
 | Lore page | [`design/lore/treyni_shrine.md`](../../../design/lore/treyni_shrine.md) |
 
-## Lore (canon)
+## Source context and project role
 
-Treyni is the eldest of the three dryad sisters (Treyni, Trya, Doris), guardian and manager of the Great Jura Forest under Veldora. The sanctuary is east of the Ameld in the dryad-governed half of Jura.
+Treyni is the eldest of the three dryad sisters (Treyni, Trya, Doris), guardian and manager of the Great Jura Forest under Veldora. The old server design assigned a sanctuary east of an imported river; that is not a verified sovereign or canonical sanctuary boundary and does not locate the distinct treant settlement.
 
 ## What it should look like
 

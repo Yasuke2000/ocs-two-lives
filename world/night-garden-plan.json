@@ -1,0 +1,272 @@
+{
+  "round": 64,
+  "baseline_source_sha256": "0b211ec7761e1813ccfaee1e336f754ab7712495da6a991c79638d642a546839",
+  "height_input_sha256": "6fdea0285fb9fe51f68c928d4f77278e827e99d14846d3c31a15622f95eb1e90",
+  "parent_registered_site": "lubelius",
+  "parent_centre": [
+    -3600,
+    -1300
+  ],
+  "parent_walking_level": 71,
+  "city": {
+    "centre": [
+      -3600,
+      -1335
+    ],
+    "outline": [
+      [
+        -3546.925,
+        -1335.0
+      ],
+      [
+        -3547.2005517325697,
+        -1323.596439459162
+      ],
+      [
+        -3549.2493433076743,
+        -1312.513789150785
+      ],
+      [
+        -3552.7546388957235,
+        -1302.1735720183867
+      ],
+      [
+        -3557.3383473483646,
+        -1292.7334023185374
+      ],
+      [
+        -3562.778670683003,
+        -1284.2436418404584
+      ],
+      [
+        -3569.0384715737164,
+        -1276.888789150785
+      ],
+      [
+        -3576.1118072571367,
+        -1271.0683390436245
+      ],
+      [
+        -3583.8486720175515,
+        -1267.2154414975912
+      ],
+      [
+        -3591.9266942853574,
+        -1265.4915733850992
+      ],
+      [
+        -3600.0,
+        -1265.625
+      ],
+      [
+        -3607.8907895274247,
+        -1267.0629759126
+      ],
+      [
+        -3615.6414499417297,
+        -1269.3553186592553
+      ],
+      [
+        -3623.358510137279,
+        -1272.4859217431283
+      ],
+      [
+        -3630.9615284262836,
+        -1276.888789150785
+      ],
+      [
+        -3638.046329316997,
+        -1283.1186418404584
+      ],
+      [
+        -3643.996530692354,
+        -1291.4108855008792
+      ],
+      [
+        -3648.2849217505795,
+        -1301.4512775562264
+      ],
+      [
+        -3650.7506566923257,
+        -1312.513789150785
+      ],
+      [
+        -3651.6470864139296,
+        -1323.8453251690048
+      ],
+      [
+        -3651.425,
+        -1335.0
+      ],
+      [
+        -3650.413983324762,
+        -1345.888350727395
+      ],
+      [
+        -3648.6347492605178,
+        -1356.548710849215
+      ],
+      [
+        -3645.864820673408,
+        -1366.867218231272
+      ],
+      [
+        -3641.880623260546,
+        -1376.4928007702147
+      ],
+      [
+        -3636.671329316997,
+        -1385.0063581595416
+      ],
+      [
+        -3630.4620304382797,
+        -1392.173710849215
+      ],
+      [
+        -3623.5538144799193,
+        -1398.0367687404669
+      ],
+      [
+        -3616.1409479297336,
+        -1402.7409950696506
+      ],
+      [
+        -3608.2740958820614,
+        -1406.2371619199064
+      ],
+      [
+        -3600.0,
+        -1408.125
+      ],
+      [
+        -3591.5433879307207,
+        -1407.8085644474072
+      ],
+      [
+        -3583.3491740295476,
+        -1404.8808722313147
+      ],
+      [
+        -3575.9165029144965,
+        -1399.4543514399709
+      ],
+      [
+        -3569.5379695617203,
+        -1392.173710849215
+      ],
+      [
+        -3564.153670683003,
+        -1383.8813581595416
+      ],
+      [
+        -3559.4542547801725,
+        -1375.1702839525567
+      ],
+      [
+        -3555.1747399728947,
+        -1366.144923769112
+      ],
+      [
+        -3551.3652507394822,
+        -1356.548710849215
+      ],
+      [
+        -3548.4336548217375,
+        -1346.1372364372376
+      ]
+    ],
+    "first_air": 20,
+    "ceiling_block_y": 44,
+    "floor_lining_bottom": 18,
+    "roof_lining_top_exclusive": 46,
+    "lining_width": 2,
+    "lined_integer_column_centres_sampled": 12444,
+    "minimum_designed_surface": 71.0,
+    "minimum_surface_allowance_above_roof_lining": 25.0,
+    "entire_lined_outline_in_gameplay_L": true,
+    "overlap_fraction_with_existing_capital_fragment": 0.9253612532688678,
+    "meaning": "Compressed original study envelope,not the full source city or a canon footprint."
+  },
+  "burial_chamber": {
+    "bounds": [
+      -3590.0,
+      -1361.0,
+      -3574.0,
+      -1341.0
+    ],
+    "first_air": 20,
+    "interior_ceiling": 32,
+    "inside_proposed_city": true,
+    "meaning": "Original nested functional reservation inside the city volume,not proof of a separate rock cavity or its canonical position."
+  },
+  "source_claims": [
+    "WIK-NG-064",
+    "WIK-NGROOM-064"
+  ],
+  "design_claim": "DES-NG-064",
+  "source_confidence": "fan-wiki for named relationships;our interpretation for all geometry and levels.",
+  "source_scope": "Public indexed Holy Empire article Night Garden/History;no primary Night Garden story passage verified. Selected cached LN6 fragment supports the separate sanctuary ascent,not this underground-city plan.",
+  "access_geometry": "Unresolved:no surveyed entrance,stairs,cathedral opening or existing-template join asserted.",
+  "initial_era": "Persistent secret-city premise is wiki-backed;exact initial room/Ark state is unverified. No later reveal or resident/event is activated.",
+  "actual_underground_voxels_fluids_and_carving_tested": false,
+  "registered": false,
+  "runtime_applied": false,
+  "current_source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+  "inventory_records": 132,
+  "open_coverage_followups": 41,
+  "ledger_unique": 254,
+  "normal_export_equivalence": {
+    "round": 64,
+    "source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+    "baseline_source_sha256": "0b211ec7761e1813ccfaee1e336f754ab7712495da6a991c79638d642a546839",
+    "active_XML_tree_identical": true,
+    "source_change_is_inside_existing_C15_comment": true,
+    "normal_build_seconds": 65.9,
+    "all13_non_index_normal_exports_byte_identical": [
+      "anchors.toml",
+      "biome.png",
+      "canon_map.txt",
+      "exclude.png",
+      "height.png",
+      "preview.png",
+      "road.png",
+      "roads.json",
+      "rugged.png",
+      "sites.json",
+      "sites.png",
+      "sites.toml",
+      "water.png"
+    ],
+    "normal_index_only_difference": "source_sha256",
+    "checker_preview_byte_identical": true,
+    "all58_active_site_attributes_retained": true,
+    "all21_road_profiles_retained": true,
+    "height_input_sha256": "6fdea0285fb9fe51f68c928d4f77278e827e99d14846d3c31a15622f95eb1e90",
+    "terrain_preview_sha256": "60567c46ec0410e38bd78412879cd1bf1f0e9f18aea6b15e33ac64c31b326d53",
+    "landscape_source": "../painting-round63/continent.png",
+    "landscape_PNG_sha256": "d3d5afc454b7769cb267b87565319c61e8a1a5a89bb2fa9bf863e2bc051b07d5",
+    "new_AI_image_generation": false,
+    "coverage_inventory": 132,
+    "current_physical_followups": 41,
+    "old32_names_retained": true,
+    "additional_displayed_names": [
+      "Divine Tree",
+      "Eastern Plains",
+      "Kingdom of Ballachia",
+      "Kingdom of Coleus",
+      "Kingdom of Filtwood",
+      "Kingdom of Malukshure",
+      "Kingdom of Siltrosso",
+      "Night Garden",
+      "Night Garden burial chamber"
+    ],
+    "ledger_unique": 254,
+    "new_registered_sites": 0,
+    "runtime_applied": false
+  },
+  "default_checker": {
+    "errors": 0,
+    "relations_checked": 56,
+    "warnings": 2
+  }
+}

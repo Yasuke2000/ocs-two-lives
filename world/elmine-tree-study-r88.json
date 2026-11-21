@@ -1,0 +1,201 @@
+{
+  "source_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
+  "site": {
+    "x": -1680.0,
+    "z": 1740.0,
+    "r": 100.0,
+    "margin": 64,
+    "walking_first_air": 104
+  },
+  "lake_bounding_box": [
+    -1529.28,
+    1659.66,
+    -1325.95,
+    1965.95
+  ],
+  "lake_direction_from_site": "east/southeast; not southwest",
+  "lake_clearance_from_reserved_disc": 57.66129582113672,
+  "old_template": {
+    "size": [
+      75,
+      60,
+      75
+    ],
+    "walking_anchor": [
+      37,
+      4,
+      67
+    ],
+    "proposed_rotation_degrees": 180,
+    "rotation_status": "review only; no placement configuration changed",
+    "rotated_corners_relative_to_walking_anchor": [
+      [
+        37,
+        67
+      ],
+      [
+        37,
+        -7
+      ],
+      [
+        -37,
+        67
+      ],
+      [
+        -37,
+        -7
+      ]
+    ],
+    "max_corner_radius": 76.53757247260981,
+    "vertical_envelope_at_current_walking_datum": [
+      100,
+      159
+    ]
+  },
+  "original_full_tree_study": {
+    "implemented": false,
+    "terrain_changed": false,
+    "roots_relative_to_site": [
+      [
+        -18,
+        -58
+      ],
+      [
+        -9,
+        -78
+      ],
+      [
+        6,
+        -68
+      ],
+      [
+        18,
+        -34
+      ],
+      [
+        50,
+        -49
+      ],
+      [
+        74,
+        -37
+      ],
+      [
+        55,
+        -19
+      ],
+      [
+        86,
+        5
+      ],
+      [
+        58,
+        19
+      ],
+      [
+        72,
+        52
+      ],
+      [
+        44,
+        49
+      ],
+      [
+        38,
+        80
+      ],
+      [
+        14,
+        94
+      ],
+      [
+        -1,
+        64
+      ],
+      [
+        -34,
+        82
+      ],
+      [
+        -31,
+        53
+      ],
+      [
+        -68,
+        61
+      ],
+      [
+        -49,
+        32
+      ],
+      [
+        -80,
+        14
+      ],
+      [
+        -55,
+        -4
+      ],
+      [
+        -75,
+        -29
+      ],
+      [
+        -42,
+        -22
+      ]
+    ],
+    "root_max_radius": 95.03683496413377,
+    "crown_ellipse": {
+      "centre": [
+        0,
+        15
+      ],
+      "radii": [
+        82,
+        74
+      ]
+    },
+    "sampled_crown_max_radius": 89.08568594418297,
+    "minimum_crown_disc_clearance": 10.91431405581703,
+    "trunk_centre_relative_to_site": [
+      0,
+      35
+    ],
+    "crown_top_y": 300,
+    "height_above_walking_datum": 196,
+    "terrace_y": [
+      120,
+      147,
+      174,
+      201,
+      228
+    ],
+    "dimension_confidence": "our interpretation; not canon measurements",
+    "analytic_crown_max_radius": 89.08568692772491,
+    "analytic_crown_clearance": 10.914313072275093
+  },
+  "limits": [
+    "Existing small terrace is not the complete tree/capital.",
+    "No structural, voxel, collision, foliage, template or initial-state acceptance.",
+    "Ground and crown fit are separate from current surface foundations.",
+    "No global road or terrain modification."
+  ],
+  "independent_checks": {
+    "ledger_unique": 289,
+    "inventory": 135,
+    "Divine_Tree_partial_retained": true,
+    "production_and_protected_paths_unchanged": true,
+    "diagram_visually_inspected": true,
+    "crown_exact_max_radius": 89.08568692772491,
+    "all286_prior_ledger_records_unchanged": true,
+    "all135_coverage_classifications_unchanged": true,
+    "root_outline_valid": true
+  },
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.908
+  }
+}

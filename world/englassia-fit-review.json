@@ -1,0 +1,423 @@
+{
+  "round": 60,
+  "baseline_commit": "55c8feb",
+  "baseline_source_sha256": "1b9e151ae3a179d0127421f456167f29ec592b7009b850fe0293256428e03116",
+  "source_sha256": "7a30cf4176971609db820acee59e2a72903bed1e102e7e9e95dbb9f063b5a60a",
+  "method": "Decode three existing structure NBT slabs; use registry anchor subtraction,then sample every integer column centre bilinearly from the normal four-block designed surface. Native geometry change is only Englassia radius98 to124.",
+  "before": {
+    "round": 60,
+    "source_sha256": "1b9e151ae3a179d0127421f456167f29ec592b7009b850fe0293256428e03116",
+    "site": {
+      "id": "englassia",
+      "kind": "clearing",
+      "x": -2900,
+      "z": -550,
+      "r": 98,
+      "plated": true,
+      "y": 75,
+      "index": 18,
+      "fade": 49,
+      "biome": null,
+      "margin": 48.0
+    },
+    "blueprint_size": [
+      128,
+      60,
+      112
+    ],
+    "anchor": [
+      64,
+      5,
+      92
+    ],
+    "template_corner": [
+      -2964,
+      70,
+      -642
+    ],
+    "slabs": [
+      [
+        "englassia_0",
+        0,
+        40
+      ],
+      [
+        "englassia_1",
+        40,
+        80
+      ],
+      [
+        "englassia_2",
+        80,
+        112
+      ]
+    ],
+    "decoded_blocks": 139978,
+    "non_air_blocks": 103061,
+    "areas": {
+      "whole_template": {
+        "columns": 14336,
+        "outside_site_radius": 464,
+        "maximum_anchor_distance": 111.37549102024197,
+        "height_min": 74.8828125,
+        "height_max": 75.1796875,
+        "max_absolute_difference_from_plate": 0.1796875,
+        "worst_column": [
+          -2963.5,
+          -641.5
+        ],
+        "corner_extent": [
+          -2964,
+          -642,
+          -2836,
+          -530
+        ]
+      },
+      "template_plus_8_margin": {
+        "columns": 18432,
+        "outside_site_radius": 1688,
+        "maximum_anchor_distance": 122.52550754842846,
+        "height_min": 74.6953125,
+        "height_max": 75.3671875,
+        "max_absolute_difference_from_plate": 0.3671875,
+        "worst_column": [
+          -2971.5,
+          -649.5
+        ],
+        "corner_extent": [
+          -2972,
+          -650,
+          -2828,
+          -522
+        ]
+      },
+      "academy": {
+        "columns": 4814,
+        "outside_site_radius": 0,
+        "maximum_anchor_distance": 94.14085191881365,
+        "height_min": 75.0,
+        "height_max": 75.0,
+        "max_absolute_difference_from_plate": 0.0,
+        "worst_column": [
+          -2940.5,
+          -634.5
+        ],
+        "corner_extent": [
+          -2941,
+          -635,
+          -2858,
+          -577
+        ]
+      },
+      "guild": {
+        "columns": 1292,
+        "outside_site_radius": 0,
+        "maximum_anchor_distance": 65.13447627792827,
+        "height_min": 75.0,
+        "height_max": 75.0,
+        "max_absolute_difference_from_plate": 0.0,
+        "worst_column": [
+          -2877.5,
+          -576.5
+        ],
+        "corner_extent": [
+          -2878,
+          -577,
+          -2840,
+          -543
+        ]
+      }
+    },
+    "expected_geometric_minimum_radius_including_margin": 124,
+    "reads_only": true,
+    "in_game_placement_checked": false
+  },
+  "after": {
+    "round": 60,
+    "source_sha256": "7a30cf4176971609db820acee59e2a72903bed1e102e7e9e95dbb9f063b5a60a",
+    "site": {
+      "id": "englassia",
+      "kind": "clearing",
+      "x": -2900,
+      "z": -550,
+      "r": 124,
+      "plated": true,
+      "y": 76,
+      "index": 18,
+      "fade": 62,
+      "biome": null,
+      "margin": 48.0
+    },
+    "blueprint_size": [
+      128,
+      60,
+      112
+    ],
+    "anchor": [
+      64,
+      5,
+      92
+    ],
+    "template_corner": [
+      -2964,
+      71,
+      -642
+    ],
+    "slabs": [
+      [
+        "englassia_0",
+        0,
+        40
+      ],
+      [
+        "englassia_1",
+        40,
+        80
+      ],
+      [
+        "englassia_2",
+        80,
+        112
+      ]
+    ],
+    "decoded_blocks": 139978,
+    "non_air_blocks": 103061,
+    "areas": {
+      "whole_template": {
+        "columns": 14336,
+        "outside_site_radius": 0,
+        "maximum_anchor_distance": 111.37549102024197,
+        "height_min": 76.0,
+        "height_max": 76.0,
+        "max_absolute_difference_from_plate": 0.0,
+        "worst_column": [
+          -2963.5,
+          -641.5
+        ],
+        "corner_extent": [
+          -2964,
+          -642,
+          -2836,
+          -530
+        ]
+      },
+      "template_plus_8_margin": {
+        "columns": 18432,
+        "outside_site_radius": 0,
+        "maximum_anchor_distance": 122.52550754842846,
+        "height_min": 76.0,
+        "height_max": 76.0,
+        "max_absolute_difference_from_plate": 0.0,
+        "worst_column": [
+          -2971.5,
+          -649.5
+        ],
+        "corner_extent": [
+          -2972,
+          -650,
+          -2828,
+          -522
+        ]
+      },
+      "academy": {
+        "columns": 4814,
+        "outside_site_radius": 0,
+        "maximum_anchor_distance": 94.14085191881365,
+        "height_min": 76.0,
+        "height_max": 76.0,
+        "max_absolute_difference_from_plate": 0.0,
+        "worst_column": [
+          -2940.5,
+          -634.5
+        ],
+        "corner_extent": [
+          -2941,
+          -635,
+          -2858,
+          -577
+        ]
+      },
+      "guild": {
+        "columns": 1292,
+        "outside_site_radius": 0,
+        "maximum_anchor_distance": 65.13447627792827,
+        "height_min": 76.0,
+        "height_max": 76.0,
+        "max_absolute_difference_from_plate": 0.0,
+        "worst_column": [
+          -2877.5,
+          -576.5
+        ],
+        "corner_extent": [
+          -2878,
+          -577,
+          -2840,
+          -543
+        ]
+      }
+    },
+    "expected_geometric_minimum_radius_including_margin": 124,
+    "reads_only": true,
+    "in_game_placement_checked": false
+  },
+  "active_xml_only_change": "Englassia r98 ->124;all58 IDs and x/z positions retained.",
+  "normal_build_seconds": 66.2,
+  "normal_build_warnings": [],
+  "raster_deltas": {
+    "biome.png": {
+      "changed_pixels": 1136,
+      "max_encoded_absolute_delta": 7.0,
+      "pixel_bbox": [
+        908,
+        1240,
+        970,
+        1301
+      ],
+      "world_pixel_extent": [
+        -3024,
+        -672,
+        -2776,
+        -428
+      ]
+    },
+    "exclude.png": {
+      "changed_pixels": 1624,
+      "max_encoded_absolute_delta": 1.0,
+      "pixel_bbox": [
+        896,
+        1228,
+        982,
+        1313
+      ],
+      "world_pixel_extent": [
+        -3072,
+        -720,
+        -2728,
+        -380
+      ]
+    },
+    "height.png": {
+      "changed_pixels": 6267,
+      "max_encoded_absolute_delta": 26.0,
+      "pixel_bbox": [
+        893,
+        1225,
+        985,
+        1317
+      ],
+      "world_pixel_extent": [
+        -3084,
+        -732,
+        -2716,
+        -364
+      ],
+      "maximum_absolute_height_delta_blocks": 1.625
+    },
+    "road.png": {
+      "changed_pixels": 0,
+      "max_encoded_absolute_delta": 0.0
+    },
+    "rugged.png": {
+      "changed_pixels": 4397,
+      "max_encoded_absolute_delta": 40.0,
+      "pixel_bbox": [
+        893,
+        1225,
+        985,
+        1316
+      ],
+      "world_pixel_extent": [
+        -3084,
+        -732,
+        -2716,
+        -368
+      ]
+    },
+    "sites.png": {
+      "changed_pixels": 1136,
+      "max_encoded_absolute_delta": 18.0,
+      "pixel_bbox": [
+        908,
+        1240,
+        970,
+        1301
+      ],
+      "world_pixel_extent": [
+        -3024,
+        -672,
+        -2776,
+        -428
+      ]
+    },
+    "water.png": {
+      "changed_pixels": 0,
+      "max_encoded_absolute_delta": 0.0
+    }
+  },
+  "byte_identical_exports": [
+    "canon_map.txt",
+    "road.png",
+    "water.png"
+  ],
+  "changed_exports": [
+    "anchors.toml",
+    "biome.png",
+    "exclude.png",
+    "height.png",
+    "index.json",
+    "preview.png",
+    "roads.json",
+    "rugged.png",
+    "sites.json",
+    "sites.png",
+    "sites.toml"
+  ],
+  "anchor_changes": {
+    "englassia": {
+      "y": [
+        75,
+        76
+      ]
+    }
+  },
+  "default_checker": {
+    "errors": 0,
+    "relations_checked": 56,
+    "warnings": 2
+  },
+  "source_scope": "This is original build accommodation,not a canon city size,street survey or national border. WIK-GUI-002 and OFF-EDU-001 support institutions/setting; OFF-VIS-G-059 supplies classroom material context.",
+  "runtime_placement_tested": false,
+  "inventory_classifications_changed": false,
+  "painting_status": "R53 remains historical and is not claimed byte-equivalent to the revised height/reservation. A current terrain atlas is refreshed; painting integration requires an explicit new audit.",
+  "road_profile_audit": {
+    "centrelines_and_bridge_flags_identical": true,
+    "changed_profiles": [
+      "blumund_englassia_lubelius"
+    ],
+    "maximum_grade_from_rounded_export": 0.5000000000000491,
+    "note": "Rounding of exported coordinates can slightly exceed0.5; no route-centreline change."
+  },
+  "visual_review": {
+    "checker_preview_inspected": true,
+    "official_cached_world_map_inspected": true,
+    "fit_diagram_inspected": true,
+    "deliberate_difference": "The larger circle prepares an existing authored capital fragment,not a canonical urban border. Country placement and non-uniform server compression stay unchanged.",
+    "painted_presentation": "R53 is retained as historical; current-source equivalence is not claimed after this real height/reservation change."
+  },
+  "generated_site_metadata": {
+    "command": "python -I tools/world/sites_from_builds.py",
+    "changed": "world/sites.toml Englassia r98 to124",
+    "minimum_and_site_sizes_unchanged": true,
+    "initial_repository_run": "472 tests;one stale-site-metadata failure;26 skipped.",
+    "runtime_apply": false
+  },
+  "validation": {
+    "repository_validation": "passed",
+    "tests_run": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.351,
+    "changed_JS": 0,
+    "in_game_run": false
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "source_before_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
+  "source_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
+  "new_elements": [
+    "khusha-southwest-continuation",
+    "khusha-western-crown",
+    "khusha-sarion-shoulder"
+  ],
+  "all_existing_active_elements_unchanged": true,
+  "all58_site_attributes_unchanged": true,
+  "coasts_hydro_sites_roads_regions_forests_biomes_unchanged": true,
+  "new_polygon_inside_land": true,
+  "nested_summits_inside_continuation": true,
+  "minimum_coast_distance": 480.5303346302762,
+  "nearest_road_distance": 122.04562726757209,
+  "nearest_site_disc_clearance": 174.97026866308408,
+  "site_records_byte_identical": true,
+  "road_records_byte_identical": true,
+  "max_road_grade": 0.5000000000000455,
+  "road_grades": {
+    "tempest_dwargon": 0.5000000000000085,
+    "tempest_blumund": 0.4145593141157564,
+    "blumund_englassia_lubelius": 0.49999999999998856,
+    "dwargon_dwarf_village": 0.5000000000000113,
+    "sacred_mountain_trail": 0.5000000000000455,
+    "treyni_marsh_trail": 0.3817938730705282,
+    "siss_cavern_and_orc_trail": 0.5000000000000114,
+    "ogre_foothill_trail": 0.5000000000000008,
+    "canaat_high_pass": 0.5000000000000171,
+    "falmuth_road": 0.07925304884756149,
+    "western_belt_road": 0.17164391531122264,
+    "western_desert_caravan": 0.3825000000000003,
+    "fulbrosia_stair": 0.5000000000000199,
+    "southern_royal_road": 0.5000000000000171,
+    "ulgracia_south_road": 0.5000000000000113,
+    "eurazania_road": 0.5000000000000113,
+    "milim_river_road": 0.4900000000000187,
+    "jistav_border_road": 0.4295003937545196,
+    "imperial_volcano_road": 0.5000000000000455,
+    "el_dorado_volcanic_way": 0.5000000000000455,
+    "frost_palace_forecourt": 0.0
+  },
+  "raster_deltas": {
+    "height": {
+      "changed_cells": 12575,
+      "bounds": [
+        -2022,
+        970,
+        -1114,
+        1430
+      ],
+      "byte_identical": false,
+      "max_rise": 108.0625,
+      "min_rise": 0.0625,
+      "new_height_range": [
+        67.6875,
+        179.25
+      ],
+      "max_changed_cell_centre_distance_from_new_polygon": 18.4
+    },
+    "rugged": {
+      "changed_cells": 16610,
+      "bounds": [
+        -2038,
+        954,
+        -1098,
+        1526
+      ],
+      "byte_identical": false,
+      "max_changed_cell_centre_distance_from_new_polygon": 39.15928580081013
+    },
+    "water": {
+      "changed_cells": 0,
+      "bounds": null,
+      "byte_identical": true
+    },
+    "biome": {
+      "changed_cells": 117,
+      "bounds": [
+        -1478,
+        1178,
+        -1422,
+        1222
+      ],
+      "byte_identical": false
+    },
+    "sites": {
+      "changed_cells": 0,
+      "bounds": null,
+      "byte_identical": true
+    },
+    "road": {
+      "changed_cells": 0,
+      "bounds": null,
+      "byte_identical": true
+    },
+    "exclude": {
+      "changed_cells": 0,
+      "bounds": null,
+      "byte_identical": true
+    }
+  },
+  "source_basis": "OFF-007; official live World Guide dl#B-172; geometry/heights/ruggedness interpreted",
+  "rejected_trial": "Uniform175 ridge replaced after visual review with150 envelope and nested182/163 summits. Rejected preview/source archived privately; not final output.",
+  "baseline_preview_rerender_zero_changed_pixels": true,
+  "normal_preview_step": "raster_preview.py run separately against the final normal rasters; earlier stale draft preview discarded before publication.",
+  "normal_build_pending": false,
+  "painting_followup_pending": true,
+  "runtime_applied": false,
+  "normal_build_seconds": 47.565,
+  "final_normal_export_complete": true,
+  "normal_generated_files": [
+    "biome.png",
+    "canon_map.txt",
+    "exclude.png",
+    "height.png",
+    "road.png",
+    "roads.json",
+    "rugged.png",
+    "sites.json",
+    "sites.png",
+    "water.png"
+  ],
+  "default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "atlas_audit": {
+    "registration_count": 58,
+    "context_names": 17,
+    "coverage_rows": 42,
+    "minimum_bubble_spacing": 31.621008835113628,
+    "names_clear_numbers_and_other_names": true,
+    "embedded_preview_exact": true,
+    "all_previous_nonimage_XML_unchanged_except_new_Khusha_label": true
+  },
+  "ledger_unique": 290,
+  "prior288_ledger_rows_unchanged": true,
+  "OFF007_only_locator_and_verification_refined": true,
+  "inventory": 135,
+  "physical_followups": 42,
+  "source_preview_and_local_study_visually_compared": true,
+  "normal_preview_sha256": "66e1cda35c31cb0dc7ec1e551e48c3e78aa7f8915f8cb70e4bb9ed402a6407e3",
+  "protected_paths_unchanged": true,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.975
+  }
+}

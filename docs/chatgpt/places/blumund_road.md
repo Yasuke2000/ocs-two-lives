@@ -1,4 +1,10 @@
-# Blumund road camp at Jura's edge (sidequests blumund_road)
+# Blumund road traveller rest
+
+## Current own-world design — round36
+
+Current pin(-1340,-520),radius8. The small canvas/cart/fire vignette is server quest scenery,not a source-located anime camp or surveyed sovereign border. Precise camp layout and initial road construction remain design/runtime questions. [Current map and era](../../../world/era.md).
+
+The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
 
 `id: blumund_road` · spot (NPC, boss or quest point) · region **R** (Kingdom of Blumund)
 
@@ -8,7 +14,7 @@
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section R |
 
-## Lore (canon)
+## Source context and project role
 
 Side-quest stop (`blumund_road`): the first camp for a traveller who comes from Blumund.
 

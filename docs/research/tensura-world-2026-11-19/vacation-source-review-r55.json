@@ -1,0 +1,42 @@
+{
+  "round": 55,
+  "rows": 236,
+  "unique_claim_ids": 236,
+  "new_records": [
+    "AUTH-VAC-001",
+    "AUTH-VAC-002",
+    "AUTH-VAC-003"
+  ],
+  "required_fields_checked": [
+    "claim_id",
+    "subject",
+    "claim",
+    "source_type",
+    "continuity",
+    "source_title",
+    "locator",
+    "url",
+    "confidence",
+    "verification",
+    "map_action",
+    "snapshot_use"
+  ],
+  "missing_required_fields": [],
+  "direct_printed_ln_claims": 14,
+  "new_author_ln_aligned_side_serial_claims": 3,
+  "continuity_verified_at": "https://ncode.syosetu.com/novelview/infotop/ncode/n7972ib/",
+  "production_source_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
+  "production_svg_changed": false,
+  "coordinate_or_inventory_change": false,
+  "bookwalker_trial_story_read": false,
+  "scope": "Selected public author paragraphs,not a full serial or printed novel reading.",
+  "repository_gate": {
+    "validation": "pass",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.584,
+    "changed_javascript_files": 0,
+    "ingame_run": false
+  }
+}

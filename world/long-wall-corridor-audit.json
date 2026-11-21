@@ -1,0 +1,163 @@
+{
+  "baseline_commit": "5bb2467",
+  "proposal_only": true,
+  "active_geometry_changed": false,
+  "wall_width_blocks_interpreted": 16,
+  "old_points": [
+    [
+      -4250.0,
+      -1700.0
+    ],
+    [
+      -4270.0,
+      -1450.0
+    ],
+    [
+      -4220.0,
+      -1100.0
+    ],
+    [
+      -4140.0,
+      -850.0
+    ],
+    [
+      -4070.0,
+      -600.0
+    ],
+    [
+      -3980.0,
+      -350.0
+    ],
+    [
+      -3940.0,
+      -100.0
+    ]
+  ],
+  "new_points": [
+    [
+      -4045.4,
+      -947.08
+    ],
+    [
+      -3950.45,
+      -932.0
+    ],
+    [
+      -3862.83,
+      -889.32
+    ],
+    [
+      -3820,
+      -870
+    ],
+    [
+      -3815,
+      -810
+    ],
+    [
+      -3810,
+      -750
+    ],
+    [
+      -3785,
+      -690
+    ],
+    [
+      -3730,
+      -625
+    ],
+    [
+      -3627.72,
+      -582.77
+    ],
+    [
+      -3596.66,
+      -491.25
+    ],
+    [
+      -3551.56,
+      -400.97
+    ],
+    [
+      -3519.13,
+      -300.0
+    ],
+    [
+      -3525.82,
+      -194.62
+    ],
+    [
+      -3561.61,
+      -96.41
+    ],
+    [
+      -3604.5,
+      -4.41
+    ],
+    [
+      -3655.67,
+      81.21
+    ],
+    [
+      -3724.58,
+      150.03
+    ],
+    [
+      -3801.89,
+      204.15
+    ]
+  ],
+  "old_length_blocks": 1645.3416924912117,
+  "new_length_blocks": 1528.553953200362,
+  "old_length_inside_desert_blocks": 856.6288780290811,
+  "new_length_inside_desert_blocks": 372.6355152816325,
+  "new_max_sampled_distance_to_authored_desert_boundary_blocks": 107.99421655210791,
+  "new_buffer_all_on_land": true,
+  "nearest_site_edge_after_8_block_half_width": {
+    "id": "coleus",
+    "blocks": 216.3570394326378
+  },
+  "road_crossings_requiring_future_gate_design": [
+    {
+      "road": "western_desert_caravan",
+      "geometry": "POINT (-3819.75 -867)"
+    }
+  ],
+  "primary_LN20_21_read": false,
+  "source_confidence": "fan-wiki; exact corridor our interpretation",
+  "runtime_acceptance": false,
+  "source_sha256": "a24cea9b46a751dbaa9b6765e2c1a5a8d829624744c980d8a9d65d159bb51295",
+  "all_11_active_layers_equal": true,
+  "all_58_site_attributes_equal": true,
+  "checker_preview_byte_identical": true,
+  "byte_identical_normal_exports": [
+    "height.png",
+    "water.png",
+    "biome.png",
+    "road.png",
+    "sites.png",
+    "exclude.png",
+    "roads.json",
+    "sites.json",
+    "preview.png"
+  ],
+  "normal_build_warnings": [],
+  "checker_errors": 0,
+  "checker_relations_passed": 56,
+  "checker_warnings": 2,
+  "additional_study_backdrop_current_layer_counts": {
+    "coast": 3,
+    "mountains": 14,
+    "hills": 6,
+    "forests": 12,
+    "biomes": 5,
+    "lakes": 9,
+    "rivers": 8,
+    "roads": 21
+  },
+  "new_minimum_distance_to_lake_blocks": 46.58000000000014,
+  "new_24_block_buffer_avoids_all_lakes": true,
+  "earlier_boundary_only_proposal_crossed_oasis_blocks": 146.16351256736343,
+  "normal_build_seconds": 55.4,
+  "final_detour_active_layers_and_all_9_exports_reverified": true
+}

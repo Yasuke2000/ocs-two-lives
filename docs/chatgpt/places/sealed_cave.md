@@ -10,9 +10,20 @@
 | Preview (blueprint only) | ![sealed_cave](../../previews/sealed_cave-iso.png) |
 | Lore page | [`design/lore/sealed_cave.md`](../../../design/lore/sealed_cave.md) |
 
+## Replacement-world source and era note — round47
+
+The table/screenshots describe the legacy Lerfing world. The current SVG uses
+`(-120,-400),r75` with a dry approach and a carve reservation. Selected public
+[manga chapter1 panels](https://comic-days.com/episode/10834108156644708045) support
+natural cave formations,plants and underground water,not this exterior's dimensions
+or south-facing entrance. [Source/locator review](../../../docs/research/tensura-world-2026-11-19/licensed-manga-review-r47.md).
+The double rune ring,hexagram,dais,snapped chains,standing stones and broken glass
+armillary below are original server motifs,not a reconstructed canonical floor plan.
+Their presence in the existing blueprint is not acceptance for the initial era.
+
 ## Lore (canon)
 
-Veldora Tempest was sealed here about 300 years before the story by the Unlimited Imprisonment; Rimuru wakes in the same cave and meets him. Veldora's aura soaked the rock with magicules (magic ore, hipokute grass); later it becomes Tempest's hipokute farm. In Life 2 Rimuru has already swallowed Veldora, so the seal is spent.
+Veldora Tempest was sealed here about 300 years before the story by the Unlimited Imprisonment; Rimuru wakes in the same cave and meets him. Veldora's aura soaked the rock with magicules (magic ore, hipokute grass); later it becomes Tempest's hipokute farm. At the selected Life2 baseline Rimuru has already absorbed Veldora and left the cave. [Official episode2](https://www.ten-sura.com/anime/tensura/story/no2) supports that absence; it does not prove destroyed sealing magic or physical broken-prison remains.
 
 ## What it should look like
 

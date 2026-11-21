@@ -567,6 +567,13 @@ go to `pack/kubejs/assets/ttl/textures/...` as 16 × 16 PNGs; never edit anythin
 
 ## Owner answers (Yasuke, 19/11/2026)
 
+**Superseding owner clarification:** follow anime/wiki geography where the earlier liberties differ.
+Fulbrosia is south of Jura and Ulgracia south of Sarion. The owner separately authorized updating only
+five relation entries in `tools/world/canon_relations.toml`; see [world-map-corrections.md](../lore/world-map-corrections.md).
+Their exact block ranges are server compression, not canonical measurements. The older Q6 directional
+answers below are retained as history and are superseded for these corrected relations.
+
+
 - **Q1 Scale:** smaller, as recommended: ~9,500 × 7,000 mainland in a ~12,288 × 10,240 design box.
 - **Q2 Origin:** Tempest = (0, 0), spawn = the arrival on the north rim. Not asked; the recommended default is adopted.
 - **Q3 Water:** flat reaches with small waterfalls, and lakes filled by a deterministic feature, as recommended.

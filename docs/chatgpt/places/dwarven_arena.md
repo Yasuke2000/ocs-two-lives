@@ -1,5 +1,7 @@
 # Dwarven Arena
 
+**Current authored world reservation (R86):** `(1100,-980)`, radius58; [current geography and fit](../../../world/dwargon-relocation-r86.md). Legacy Lerfing coordinates below are historical.
+
 `id: dwarven_arena` · build (our blueprint) · region **D** (Armed Nation of Dwargon)
 
 | | |

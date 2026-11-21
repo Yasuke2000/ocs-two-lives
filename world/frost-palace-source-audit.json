@@ -1,0 +1,23 @@
+{
+  "base_commit": "046d7c3",
+  "source_sha256": "32aa6e1053142d54075694a87bce1b658d86b96db5ef545b0fd440b0864cb02c",
+  "all_active_XML_and58_site_attributes_equal": true,
+  "height_water_biome_road_terrain_and_checker_preview_bytes_equal": true,
+  "build_seconds": 55.1,
+  "checker_errors": 0,
+  "relations_passed": 56,
+  "previous_warnings": 2,
+  "inert_proposal": {
+    "x": -1660,
+    "z": -3820,
+    "radius": 67,
+    "meaning": "near authored island centroid,not a surveyed canonical centre"
+  },
+  "active_site": {
+    "x": -1500,
+    "z": -3310,
+    "radius": 67,
+    "kind": "coast"
+  },
+  "limit": "WN continuity only; LN6 interlude/LN16 epilogue unread; no registration,type change or apply."
+}

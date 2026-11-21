@@ -1,5 +1,9 @@
 # Englassia capital (Lura): Freedom Academy, Free Guild HQ
 
+**Current own-world handoff (R91):** centre(−2900,−550), r124, walking first-air76; existing academy/Guild precinct. [Current water/route review](../../../world/englassia-lake-r91.md) places a separate WN-derived royal lake northwest, preserving the dry model. Castle and whole-capital registration remain open. The imported-world positions and audit below are historical; later teacher/visit state is not the S1E10 baseline.
+
+## Historical imported-world brief
+
 `id: englassia` · build (our blueprint) · region **G** (Kingdom of Englassia)
 
 | | |

@@ -1,0 +1,10 @@
+file,bytes,sha256,evidence_limit
+blueprints/dwargon.py,63696,35308888affb5a3ab6f4632351ff0118e92bc3ebdf8adb3f2ec9e0e0990c092e,"Blueprint/registry and non-empty structure presence; not decoded content, current terrain fit or in-game placement."
+blueprints/englassia.py,27066,e354ba9800fa677edb41914fcfa7b769fa0baaaa4634b0dcf6e2d1ef08781e28,"Blueprint/registry and non-empty structure presence; not decoded content, current terrain fit or in-game placement."
+design/builds/englassia.toml,600,85273b5921516b9d3d7de2892e075e66834e4906bd5fa512892c2acc4ce40718,"Blueprint/registry and non-empty structure presence; not decoded content, current terrain fit or in-game placement."
+pack/kubejs/data/ttl/structure/dwargon_0.nbt,386401,b7256ed85a25ecff180d7736ee3ded58100e1fbcd44ffd98fc39d3ea51ff793e,"Blueprint/registry and non-empty structure presence; not decoded content, current terrain fit or in-game placement."
+pack/kubejs/data/ttl/structure/dwargon_1.nbt,569619,5097e4574f6c9f7e119fb497d84281d63353a533237103ea556599f1091e0404,"Blueprint/registry and non-empty structure presence; not decoded content, current terrain fit or in-game placement."
+pack/kubejs/data/ttl/structure/dwargon_2.nbt,1205296,f5ecead5006c2be0d7badfa989120755e39e4d8869acfd4aa29cc81477816973,"Blueprint/registry and non-empty structure presence; not decoded content, current terrain fit or in-game placement."
+pack/kubejs/data/ttl/structure/englassia_0.nbt,164133,b14e96a8ca95569dc63e6e78d417a6ae04fca56439ef240355ff87f33fa0020b,"Blueprint/registry and non-empty structure presence; not decoded content, current terrain fit or in-game placement."
+pack/kubejs/data/ttl/structure/englassia_1.nbt,130450,486bede8f3853422f350b31cd4f230ce966361439a3620e5b38e4b7e694a93ba,"Blueprint/registry and non-empty structure presence; not decoded content, current terrain fit or in-game placement."
+pack/kubejs/data/ttl/structure/englassia_2.nbt,103818,a01b1f9a072324b2b2a679248c5d95afa0a76095644a345603e425bb2c0ec5b3,"Blueprint/registry and non-empty structure presence; not decoded content, current terrain fit or in-game placement."

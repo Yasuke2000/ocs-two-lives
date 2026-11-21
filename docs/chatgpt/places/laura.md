@@ -1,4 +1,4 @@
-# Laura (Eurazania capital, rebuilt)
+# Laura (Eurazania's pre-destruction capital)
 
 `id: laura` · build (our blueprint) · region **B** (Beast Kingdom of Eurazania)
 
@@ -12,11 +12,13 @@
 
 ## Lore (canon)
 
-An agricultural kingdom with fertile soil and a tropical climate, famous for fruit. Milim destroyed the old capital and Tempest helped build Laura. Carrion is a lion beastman.
+Eurazania is a warm agricultural kingdom known for its fruit orchards. At the selected post-Kijin baseline, Carrion rules and Laura is still the undestroyed capital. Milim's later attack and Tempest's subsequent reconstruction assistance are future events, not the initial state. See [era policy](../../../world/era.md), OFF-008 and LN05-001..003 in the [claim ledger](../../research/tensura-world-2026-11-19/geography-facts.csv).
 
 ## What it should look like
 
-A timber longhouse-style hall with a tall thatch roof and a lion's head in the south gable, totem pillars with lion caps, stilt houses with ladders, orchards of jungle trees with cocoa on the trunks, melon and berry rows, a fruit market with eight stalls, a young stone wall with towers and a gate, Tempest light-blue banners at the gate and beside the throne. Gold-and-brown palette.
+The existing blueprint is a later reconstruction interpretation: a timber hall, lion motifs, stilt houses, orchard details and a fruit market, with new walls and Tempest banners. Its banners, alliance imagery and reconstruction history must not be used for the initial era. The pre-destruction castle/town form still needs a separate source/architecture review; this blueprint is not proof of it. Gold-and-brown materials and fruit-growing landscape are design references, with exact details marked as our interpretation.
+
+The authored world keeps Laura at (1500,1600), radius100. Its wider valley now has sparse-jungle and open-field biome reservations. Their exact shapes are our interpretation; biome selection alone does not place orchards or verify the old city. The coordinates and screenshots below describe the retired imported-map audit.
 
 Why it stands here (anchor table, Lerfing coordinates): Heart of the jungle peninsula, y 74/81/84.
 

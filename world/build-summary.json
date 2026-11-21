@@ -1,0 +1,621 @@
+{
+  "stage": "normal checked staging build; not applied",
+  "source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "site_coordinates_verified": 58,
+  "site_radii_and_relative_offsets_verified": true,
+  "default_checker_errors": 0,
+  "alternate_checker_errors": 0,
+  "checker_warnings": 2,
+  "converter_warnings": [],
+  "pixel_size_blocks": 4,
+  "raster_size": [
+    3072,
+    2688
+  ],
+  "build_seconds": 55.0,
+  "repository_gate": {
+    "tests": 472,
+    "failures": 0,
+    "skips": 26,
+    "validation": "passed",
+    "base_main": "09ca601",
+    "test_seconds": 44.384
+  },
+  "build_command": "python -I tools/world/build.py",
+  "research_claim_records": 214,
+  "directly_verified_LN_claims": 13,
+  "reference_alternatives_inert": true,
+  "proportion_review": "round16: old Dragon City southeast proportion correction; prior Coleus/Sarion corrections retained",
+  "cave_footprint_water": {
+    "wet_pixels": 0,
+    "sampled_pixels": 1116
+  },
+  "mainland_blocks": [
+    9653,
+    6250
+  ],
+  "road_profiles_verified": 21,
+  "max_road_grade": 0.5000000000000455,
+  "max_bridge_blocks": 40,
+  "current_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "staging_provenance_note": "Fresh normal build55.0s after round35 Imperial unnamed basin; index hash matched. All58 site attributes,21 road profiles and all other active layers retained; local1892-cell height/water/biome changes documented in imperial_basin_review.",
+  "snapshot": "immediately after Kijin naming, anime S1E10",
+  "snapshot_site_assessments": 58,
+  "forest_shapes": 12,
+  "biome_shapes": 19,
+  "current_svg_matches_staged_source": true,
+  "lake_shore_revision": "round 8: elongated east-west basin; source premise corrected",
+  "water_footprint_audit": {
+    "lake_siss": {
+      "wet_pixels": 1804,
+      "sampled_pixels": 1804,
+      "water_levels": [
+        66
+      ]
+    },
+    "lizardmen_village": {
+      "wet_pixels": 710,
+      "sampled_pixels": 710,
+      "water_levels": [
+        66
+      ]
+    },
+    "sealed_cave": {
+      "wet_pixels": 0,
+      "sampled_pixels": 1116,
+      "water_levels": []
+    },
+    "goblin_village": {
+      "wet_pixels": 0,
+      "sampled_pixels": 612,
+      "water_levels": []
+    },
+    "elmine": {
+      "wet_pixels": 0,
+      "sampled_pixels": 1976,
+      "water_levels": []
+    },
+    "coleus": {
+      "wet_pixels": 0,
+      "sampled_pixels": 1044,
+      "water_levels": []
+    },
+    "forgotten_dragon_city": {
+      "wet_pixels": 0,
+      "sampled_pixels": 1954,
+      "water_levels": []
+    }
+  },
+  "hill_shapes": 6,
+  "relief_review": "round 9: concentrated Canaat high core and tapered180-block eastern mountain apron; fixed sites unchanged",
+  "canaat_height_transect": [
+    {
+      "x": 350,
+      "z": -2000,
+      "surface_y": 272.0
+    },
+    {
+      "x": 850,
+      "z": -1990,
+      "surface_y": 91.625
+    },
+    {
+      "x": 1340,
+      "z": -1890,
+      "surface_y": 109.5
+    },
+    {
+      "x": 1660,
+      "z": -1760,
+      "surface_y": 94.625
+    },
+    {
+      "x": 1800,
+      "z": -1600,
+      "surface_y": 92.125
+    }
+  ],
+  "mountain_shapes": 10,
+  "terrain_unchanged_from_previous_commit": false,
+  "source_alternatives": "C10 no-red alternative and preceding political/site alternatives remain inert",
+  "changed_terrain_features": [
+    "forests/imperial-northern-forest",
+    "forests/jistav-darkwood",
+    "forests/jura-eastern-foothill-woodland"
+  ],
+  "milim_red_biome_raster_pixels": 13374,
+  "milim_red_polygon_areas_blocks2": [
+    707757,
+    213883
+  ],
+  "milim_released_ground_sample": {
+    "x": 4034,
+    "z": 614,
+    "biome": "minecraft:plains"
+  },
+  "river_refinement": {
+    "reaches": 5,
+    "max_plan_deviation_blocks": 14.17,
+    "old_control_points_and_endpoints_retained": true,
+    "widths_and_head_mouth_levels_retained": true,
+    "western_road_waypoint_within_blocks": 20
+  },
+  "sarion_refinement": {
+    "previous_centre": [
+      -1100,
+      1800
+    ],
+    "current_centre": [
+      -1680,
+      1740
+    ],
+    "radius_blocks": 100,
+    "other_site_centres_and_radii_unchanged": 57,
+    "reference_status": "secondary marker projection unknown; exact placement is our interpretation"
+  },
+  "coleus_refinement": {
+    "previous_centre": [
+      -3650,
+      -250
+    ],
+    "current_centre": [
+      -3520,
+      -860
+    ],
+    "radius_blocks": 73,
+    "other_site_centres_and_radii_unchanged": 57,
+    "source_status": "Official synopsis explicitly places country between Ingrassia/Lubelius; exact server city point remains interpretation"
+  },
+  "dragon_city_refinement": {
+    "previous_centre": [
+      2500,
+      150
+    ],
+    "current_centre": [
+      2650,
+      800
+    ],
+    "radius_blocks": 100,
+    "other_site_centres_and_radii_unchanged": 57,
+    "source_status": "Wiki territory bearings and secondary marker comparison; exact city point and route geometry are interpretation"
+  },
+  "eurazania_cultivation": {
+    "outer_polygon_area_blocks2": 523300,
+    "nested_not_disjoint": true,
+    "all58_sites_and21_road_profiles_unchanged": true,
+    "full_height_and_water_png_bytes_unchanged": true,
+    "samples": [
+      {
+        "x": 1560,
+        "z": 1950,
+        "biome": "minecraft:sparse_jungle"
+      },
+      {
+        "x": 1350,
+        "z": 1850,
+        "biome": "minecraft:plains"
+      },
+      {
+        "x": 1610,
+        "z": 2200,
+        "biome": "minecraft:plains"
+      },
+      {
+        "x": 1310,
+        "z": 2250,
+        "biome": "minecraft:plains"
+      },
+      {
+        "x": 950,
+        "z": 2100,
+        "biome": "minecraft:jungle"
+      }
+    ],
+    "limit": "Authored biome reservation, not canonical parcel layout or planted crops.",
+    "polygon_areas_blocks2": {
+      "eurazania-orchard-fringe": 523300,
+      "eurazania-field-north": 65016,
+      "eurazania-field-east": 57796,
+      "eurazania-field-west": 44617
+    }
+  },
+  "tengu_proposal_review": {
+    "centre": [
+      -1000,
+      940
+    ],
+    "radius": 40,
+    "prior_centre": [
+      -1000,
+      1100
+    ],
+    "live_xml_elements_unchanged": true,
+    "terrain_and_checker_previews_unchanged": true,
+    "source_claims": [
+      "OFF-TEN-001",
+      "OFF-TEN-002",
+      "OFF-TEN-003",
+      "DES-TEN-020"
+    ],
+    "remaining": "Registration, terracing and access still open."
+  },
+  "forest_edge_review": {
+    "features": 3,
+    "other9_forests_retained": true,
+    "height_water_road_bytes_identical": true,
+    "changed_biome_pixels": 11850,
+    "max_boundary_shift_blocks": 63.65398327840427,
+    "remaining": "Exact vegetation extents are interpretation; no measured canonical shares or new sovereign borders."
+  },
+  "documentation_review": {
+    "round": 38,
+    "subject": "Current painted presentation,source registration and stale standalone preview refresh",
+    "source_ledger_records": 214,
+    "direct_LN_claims": 13,
+    "visual_design_supplement_records": 72,
+    "coverage_inventory_entries": 129,
+    "missing_representations": 26,
+    "partial_orbic_representation": 1,
+    "unverified_country_pins": 2,
+    "unverified_parent_designs": 3,
+    "place_art_pairs_delivered": 58,
+    "place_art_pairs_remaining": 0,
+    "art_file_coverage_complete": true,
+    "full_geography_source_build_runtime_acceptance": false,
+    "current_terrain_geometry_unchanged": true,
+    "atlas_only_clarifies_two_country_pin_names": true
+  },
+  "orbic_terrain_review": {
+    "patch_points": [
+      [
+        501.25,
+        962.5
+      ],
+      [
+        548.75,
+        937.5
+      ],
+      [
+        603.125,
+        920.0
+      ],
+      [
+        664.375,
+        910.0
+      ],
+      [
+        732.5,
+        907.5
+      ],
+      [
+        807.5,
+        912.5
+      ],
+      [
+        878.75,
+        923.75
+      ],
+      [
+        946.25,
+        941.25
+      ],
+      [
+        1010.0,
+        965.0
+      ],
+      [
+        1070.0,
+        995.0
+      ],
+      [
+        1117.5,
+        1027.5
+      ],
+      [
+        1152.5,
+        1062.5
+      ],
+      [
+        1175.0,
+        1100.0
+      ],
+      [
+        1185.0,
+        1140.0
+      ],
+      [
+        1181.25,
+        1177.5
+      ],
+      [
+        1163.75,
+        1212.5
+      ],
+      [
+        1132.5,
+        1245.0
+      ],
+      [
+        1087.5,
+        1275.0
+      ],
+      [
+        1035.625,
+        1298.75
+      ],
+      [
+        976.875,
+        1316.25
+      ],
+      [
+        911.25,
+        1327.5
+      ],
+      [
+        838.75,
+        1332.5
+      ],
+      [
+        770.0,
+        1328.75
+      ],
+      [
+        705.0,
+        1316.25
+      ],
+      [
+        643.75,
+        1295.0
+      ],
+      [
+        586.25,
+        1265.0
+      ],
+      [
+        538.75,
+        1228.75
+      ],
+      [
+        501.25,
+        1186.25
+      ],
+      [
+        473.75,
+        1137.5
+      ],
+      [
+        456.25,
+        1082.5
+      ],
+      [
+        455.0,
+        1035.0
+      ],
+      [
+        470.0,
+        995.0
+      ]
+    ],
+    "patch_area_blocks2": 239623.4375,
+    "forest_area_before": 2376178.129,
+    "forest_area_after": 2234235.7080981294,
+    "forest_removed_blocks2": 141942.42090187082,
+    "note": "Authored terrain proxy, not sovereign extent.",
+    "source_sha256": "bfe13bca6d27adb9cb19517e86f8387242beb77edc160d41bf82db2cc95496b0",
+    "baseline_commit": "ecd1284",
+    "baseline_source_sha256": "32aa6e1053142d54075694a87bce1b658d86b96db5ef545b0fd440b0864cb02c",
+    "all58_sites_and21_roads_equal": true,
+    "unchanged_raster_or_profile_files": [
+      "height.png",
+      "water.png",
+      "road.png",
+      "roads.json",
+      "sites.json",
+      "exclude.png",
+      "sites.png"
+    ],
+    "changed_biome_pixels": 14975,
+    "all_changed_biome_centres_within_authored_patch": true,
+    "changed_to": "tensura:barren_land",
+    "previous_biomes": {
+      "minecraft:jungle": 8875,
+      "minecraft:plains": 6100
+    },
+    "nearest_site_edge_clearances": [
+      {
+        "id": "treyni_shrine",
+        "edge_distance": 300.2048793639057,
+        "required_margin": 48.0
+      },
+      {
+        "id": "laura",
+        "edge_distance": 410.96110419483006,
+        "required_margin": 64.0
+      },
+      {
+        "id": "lizardmen_caverns",
+        "edge_distance": 463.7120426899503,
+        "required_margin": 48.0
+      },
+      {
+        "id": "treyni_grove",
+        "edge_distance": 464.4640357411836,
+        "required_margin": 48.0
+      },
+      {
+        "id": "ogre_village_ruin",
+        "edge_distance": 596.5170915734909,
+        "required_margin": 48.0
+      }
+    ],
+    "checker_errors": 0,
+    "checker_warnings": 2,
+    "build_seconds": 54.9,
+    "runtime_or_whole_country_acceptance": false
+  },
+  "ice_coast_review": {
+    "points_before": 60,
+    "points_after": 105,
+    "area_before": 2146278.0607000007,
+    "area_after": 2017862.6331389998,
+    "area_retained_fraction": 0.9401683174643648,
+    "symmetric_difference_area": 128415.42756100002,
+    "max_boundary_shift": 208.02382765851286,
+    "palace_centre_distance_to_coast_before": 55.36075530207789,
+    "palace_centre_distance_to_coast_after": 55.36075530207789,
+    "source_sha256": "d10aa45699bbbf17c6a37280b075f80fbb5f4ed39b9fc742ebc9346f81102b00",
+    "baseline_commit": "5260630",
+    "all58_site_attributes_equal": true,
+    "all_mainland_and_el_dorado_geometry_equal": true,
+    "all21_road_profiles_and_site_outputs_byte_identical": true,
+    "all_height_water_biome_rows_south_of_z_minus2800_equal": true,
+    "palace_square_halfwidth115_height_water_biome_equal": true,
+    "coast_gap_to_mainland_blocks": 916.984724082141,
+    "new_ice_centroid": [
+      -1647.3336490884303,
+      -3823.556664002035
+    ],
+    "inert_C22_proposal_distance_to_new_centroid": 13.156226823766568,
+    "raster_changes": {
+      "height.png": {
+        "changed_pixels": 75421,
+        "changed_pixel_centres_bounds": [
+          -3186.0,
+          -4566.0,
+          -90.0,
+          -3006.0
+        ]
+      },
+      "water.png": {
+        "changed_pixels": 0,
+        "changed_pixel_centres_bounds": null
+      },
+      "biome.png": {
+        "changed_pixels": 8352,
+        "changed_pixel_centres_bounds": [
+          -2914.0,
+          -4270.0,
+          -382.0,
+          -3270.0
+        ]
+      }
+    },
+    "converter_warnings": [],
+    "checker_errors": 0,
+    "checker_warnings": 2,
+    "runtime_acceptance": false
+  },
+  "imperial_basin_review": {
+    "baseline_commit": "cd89e26",
+    "baseline_source_sha256": "d10aa45699bbbf17c6a37280b075f80fbb5f4ed39b9fc742ebc9346f81102b00",
+    "source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+    "lake_id": "imperial-unnamed-basin",
+    "vertices": 28,
+    "area_blocks2": 30230.0,
+    "bounds": [
+      3830.0,
+      -1320.0,
+      4185.0,
+      -1198.0
+    ],
+    "authored_water_level": 68,
+    "authored_depth": 5,
+    "water_encoding": 132,
+    "all_sampled_lake_pixels_wet": true,
+    "sampled_lake_pixels": 1888,
+    "all_other_active_layers_equal": true,
+    "all_previous_8_lakes_equal": true,
+    "all_58_site_attributes_equal": true,
+    "byte_identical_exports": [
+      "roads.json",
+      "sites.json",
+      "road.png",
+      "sites.png",
+      "exclude.png"
+    ],
+    "nearest_site_edge": {
+      "id": "great_holy_mountain",
+      "blocks": 406.6210024238576
+    },
+    "nearest_road_centreline": {
+      "id": "imperial_volcano_road",
+      "blocks": 484.9824739101404
+    },
+    "all_raster_changes_within_lake_buffer_blocks": 96,
+    "raster_changes": {
+      "height.png": {
+        "changed_pixels": 1892,
+        "pixel_centre_bounds": [
+          3830.0,
+          -1318.0,
+          4182.0,
+          -1202.0
+        ]
+      },
+      "water.png": {
+        "changed_pixels": 1892,
+        "pixel_centre_bounds": [
+          3830.0,
+          -1318.0,
+          4182.0,
+          -1202.0
+        ]
+      },
+      "biome.png": {
+        "changed_pixels": 1892,
+        "pixel_centre_bounds": [
+          3830.0,
+          -1318.0,
+          4182.0,
+          -1202.0
+        ]
+      }
+    },
+    "converter_warnings": [],
+    "checker_errors": 0,
+    "checker_warnings": 2,
+    "runtime_acceptance": false
+  },
+  "branch_integration": {
+    "upstream_main": "09ca601",
+    "resolved_documents": [
+      "design/decisions.md",
+      "docs/HANDOFF.md"
+    ],
+    "both_complete_conflict_sides_retained": true,
+    "runtime_scripts_and_mod_equal_upstream_main": true,
+    "tools_diff_only_five_approved_relation_entries": true,
+    "world_converter_code_unchanged": true,
+    "pr_merged_to_main": false
+  },
+  "painting_current": {
+    "pr": "https://github.com/Yasuke2000/ocs-two-lives/pull/102",
+    "branch": "chatgpt/current-painted-map-r38",
+    "commit": "31cc28e",
+    "source_map_commit": "dc92845",
+    "source_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+    "native_vector_counts_verified": {
+      "coast": 3,
+      "biomes": 1,
+      "lakes": 9,
+      "rivers": 8,
+      "roads": 21
+    },
+    "site_anchors_verified": 58,
+    "minimum_label_spacing_px": 32.47054606006467,
+    "production_geometry_retained": true,
+    "pictorial_height_vegetation_are_not_surveyed": true
+  },
+  "tracked_terrain_preview": {
+    "source_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+    "staged_index_source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+    "preview_sha256": "c903806683fedd7f7a2435c2fa722ea4e5f8dc423bdc8fba6dc1914436487fbc",
+    "normal_build_seconds": 55.0,
+    "original_preview_pixels": [
+      1536,
+      1344
+    ],
+    "copied_without_pixel_modification": true,
+    "applied_to_runtime": false
+  }
+}

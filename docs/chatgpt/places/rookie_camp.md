@@ -1,4 +1,10 @@
-# The abandoned rookie camp (sidequests rookie_camp)
+# Abandoned rookie camp in the dark band
+
+## Current own-world design — round36
+
+Current pin(-120,-560),radius8,about573 blocks from Tempest. It lies in the authored outer dark band,not an open safe-rim meadow. The missing party/tent/token are server quest fiction; no body,attack cause or fixed initial event is asserted. [Current map and era](../../../world/era.md).
+
+The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
 
 `id: rookie_camp` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
 
@@ -8,7 +14,7 @@
 | Audit status (19/11/2026) | **OK** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section J |
 
-## Lore (canon)
+## Source context and project role
 
 Side-quest spot (`rookie_camp`): a Free Guild rookie party camped here and never came back.
 
@@ -16,7 +22,7 @@ Side-quest spot (`rookie_camp`): a Free Guild rookie party camped here and never
 
 Nothing specified. Suggestion: a cold fire pit, torn tents, a dropped rank-F plate, a few arrows. No build yet; small build or concept art welcome.
 
-Why it stands here (anchor table, Lerfing coordinates): On the rim between the arrival and Tempest, 230 blocks from the arrival, 960 from Tempest (safe rim).
+Why it stands here (anchor table, Lerfing coordinates): Retired imported-world rationale: rim between the old arrival and Tempest. Those distances and the safe-rim claim are superseded by the current573-block dark-band placement.
 
 ## Current state: BlueMap audit of 19/11/2026
 

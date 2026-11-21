@@ -1,0 +1,74 @@
+{
+  "round": 96,
+  "access_date": "2026-11-21",
+  "sources": [
+    {
+      "name": "comic27-news",
+      "url": "https://www.ten-sura.com/news/comic/gourmet-story/news/post/10534",
+      "status": 200,
+      "sha256": "36ddef824c03019fdf1b8df2b3c2c01df70aa5e64e59a250d17e9d9ae0689eea",
+      "bytes": 130131,
+      "selected_term_present": true
+    },
+    {
+      "name": "johann-profile",
+      "url": "https://www.ten-sura.com/character/johann_rostia",
+      "status": 200,
+      "sha256": "8114c924ccf4c89e28cdda892b77459308ef226670ac68f8683520168d6ef083",
+      "bytes": 123534
+    },
+    {
+      "name": "episode72",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no77",
+      "status": 200,
+      "sha256": "89db7db7284be2f102dfb679b5ca7b43865e69c3ae52eae37a2ccbd4f5304160",
+      "bytes": 126104,
+      "images": [
+        {
+          "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no77/img1.jpg",
+          "file": "episode72-1.jpg",
+          "sha256": "b6dea3fd9afeaec5e9e9f3705cd69ad96f7da87965338dde7c6da504373130dc",
+          "bytes": 227655
+        },
+        {
+          "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no77/img2.jpg",
+          "file": "episode72-2.jpg",
+          "sha256": "9a53dbb83f105b6c879f005d0d5a113d094a4951beec6a5ba1ac5a670e8c38e6",
+          "bytes": 297247
+        },
+        {
+          "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no77/img3.jpg",
+          "file": "episode72-3.jpg",
+          "sha256": "544f97aca514b9c4b34940f2b6bfba1324c183bfb3e72b9bad81a92d7760a9a5",
+          "bytes": 167155
+        },
+        {
+          "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no77/img4.jpg",
+          "file": "episode72-4.jpg",
+          "sha256": "881a1c526af5353122c5b96252a868710c4c6f766e3ef844987119aede702178",
+          "bytes": 294126
+        },
+        {
+          "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no77/img5.jpg",
+          "file": "episode72-5.jpg",
+          "sha256": "081b0b2d559d8b8f31b8724e22395cc800a1675426c417754e92c22456dc0ad5",
+          "bytes": 263558
+        }
+      ]
+    }
+  ],
+  "images_reviewed": [
+    "episode72-1.jpg",
+    "episode72-2.jpg",
+    "episode72-3.jpg",
+    "episode72-4.jpg",
+    "episode72-5.jpg"
+  ],
+  "new_claim": "OFF-GHA-096",
+  "unchanged_source_sha256": "63df718534438fa803fc39a8a0b16c46bf9648edf1c58cc62fff30ad75f37806",
+  "publisher_detail": {
+    "url": "https://kc.kodansha.co.jp/product?item=0000397430",
+    "status": 403,
+    "panels_read": false
+  }
+}

@@ -1,5 +1,7 @@
 # Frost Palace (Guy Crimson)
 
+**Own-world source correction (round28):** directly read WN78 places the palace centrally on the frozen continent; LN agreement remains unverified. The active coast-kind reserve is a server interpretation. An inert inland alternative and entry-versus-palace decision are recorded in [C22 source review](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/world-map/world/frost-palace-source-review.md). No active placement/type change is made. Earlier Lerfing coordinates and the southern causeway are not surveyed canon.
+
 `id: frost_palace` · build (our blueprint) · region **I** (Ice Continent)
 
 | | |

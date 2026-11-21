@@ -1,0 +1,702 @@
+{
+  "source_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
+  "sites": [
+    {
+      "id": "tempest",
+      "number": 1,
+      "world": [
+        0.0,
+        0.0
+      ],
+      "projected_dot": [
+        1144.0,
+        1097.9968
+      ]
+    },
+    {
+      "id": "arrival",
+      "number": 2,
+      "world": [
+        0.0,
+        -1000.0
+      ],
+      "projected_dot": [
+        1144.0,
+        926.1279999999999
+      ]
+    },
+    {
+      "id": "wayfarers_camp",
+      "number": 3,
+      "world": [
+        15.0,
+        -985.0
+      ],
+      "projected_dot": [
+        1146.5824,
+        928.7008000000001
+      ]
+    },
+    {
+      "id": "sealed_cave",
+      "number": 4,
+      "world": [
+        -120.0,
+        -400.0
+      ],
+      "projected_dot": [
+        1123.3791999999999,
+        1029.2512
+      ]
+    },
+    {
+      "id": "goblin_village",
+      "number": 5,
+      "world": [
+        -530.0,
+        -220.0
+      ],
+      "projected_dot": [
+        1052.9056,
+        1060.192
+      ]
+    },
+    {
+      "id": "spirit_gate",
+      "number": 6,
+      "world": [
+        -285.0,
+        350.0
+      ],
+      "projected_dot": [
+        1095.0112,
+        1158.16
+      ]
+    },
+    {
+      "id": "shizu_spawn",
+      "number": 7,
+      "world": [
+        -420.0,
+        -80.0
+      ],
+      "projected_dot": [
+        1071.808,
+        1084.2496
+      ]
+    },
+    {
+      "id": "outcast_road",
+      "number": 8,
+      "world": [
+        0.0,
+        52.0
+      ],
+      "projected_dot": [
+        1144.0,
+        1106.9344
+      ]
+    },
+    {
+      "id": "treyni_grove",
+      "number": 9,
+      "world": [
+        320.0,
+        470.0
+      ],
+      "projected_dot": [
+        1198.9984,
+        1178.7808
+      ]
+    },
+    {
+      "id": "treyni_shrine",
+      "number": 10,
+      "world": [
+        500.0,
+        600.0
+      ],
+      "projected_dot": [
+        1229.9392,
+        1201.1296
+      ]
+    },
+    {
+      "id": "ogre_village_ruin",
+      "number": 11,
+      "world": [
+        500.0,
+        300.0
+      ],
+      "projected_dot": [
+        1229.9392,
+        1149.5584
+      ]
+    },
+    {
+      "id": "dwargon",
+      "number": 12,
+      "world": [
+        780.0,
+        -1390.0
+      ],
+      "projected_dot": [
+        1278.06250048,
+        859.09679968
+      ]
+    },
+    {
+      "id": "dwargo",
+      "number": 13,
+      "world": [
+        780.0,
+        -1490.0
+      ],
+      "projected_dot": [
+        1278.06250048,
+        841.9031996800001
+      ]
+    },
+    {
+      "id": "dwargon_throne",
+      "number": 14,
+      "world": [
+        780.0,
+        -1496.0
+      ],
+      "projected_dot": [
+        1278.06250048,
+        840.87599968
+      ]
+    },
+    {
+      "id": "kaijin_smithy",
+      "number": 15,
+      "world": [
+        768.0,
+        -1474.0
+      ],
+      "projected_dot": [
+        1275.99849952,
+        844.65839968
+      ]
+    },
+    {
+      "id": "dwarf_village",
+      "number": 16,
+      "world": [
+        1000.0,
+        -1000.0
+      ],
+      "projected_dot": [
+        1315.8706,
+        926.12540032
+      ]
+    },
+    {
+      "id": "dwarven_arena",
+      "number": 17,
+      "world": [
+        1100.0,
+        -980.0
+      ],
+      "projected_dot": [
+        1333.0642,
+        929.56220032
+      ]
+    },
+    {
+      "id": "dragons_nest",
+      "number": 18,
+      "world": [
+        350.0,
+        -2000.0
+      ],
+      "projected_dot": [
+        1204.1536,
+        754.2496
+      ]
+    },
+    {
+      "id": "ameld_source",
+      "number": 19,
+      "world": [
+        200.0,
+        -1240.0
+      ],
+      "projected_dot": [
+        1178.3775999999998,
+        884.8768
+      ]
+    },
+    {
+      "id": "ameld_mouth",
+      "number": 20,
+      "world": [
+        2150.0,
+        1250.0
+      ],
+      "projected_dot": [
+        1513.5328,
+        1312.8448
+      ]
+    },
+    {
+      "id": "lake_siss",
+      "number": 21,
+      "world": [
+        1100.0,
+        -100.0
+      ],
+      "projected_dot": [
+        1333.0624,
+        1080.8128000000002
+      ]
+    },
+    {
+      "id": "lizardmen_village",
+      "number": 22,
+      "world": [
+        1100.0,
+        265.0
+      ],
+      "projected_dot": [
+        1333.0624,
+        1143.5488
+      ]
+    },
+    {
+      "id": "lizardmen_caverns",
+      "number": 23,
+      "world": [
+        1300.0,
+        520.0
+      ],
+      "projected_dot": [
+        1367.44,
+        1187.3728
+      ]
+    },
+    {
+      "id": "orc_camp",
+      "number": 24,
+      "world": [
+        1750.0,
+        550.0
+      ],
+      "projected_dot": [
+        1444.7776,
+        1192.528
+      ]
+    },
+    {
+      "id": "blumund",
+      "number": 25,
+      "world": [
+        -1500.0,
+        -620.0
+      ],
+      "projected_dot": [
+        886.192,
+        991.4368
+      ]
+    },
+    {
+      "id": "ballachia",
+      "number": 26,
+      "world": [
+        -2450.0,
+        -450.0
+      ],
+      "projected_dot": [
+        722.9055999999999,
+        1020.6591999999999
+      ]
+    },
+    {
+      "id": "englassia",
+      "number": 27,
+      "world": [
+        -2900.0,
+        -550.0
+      ],
+      "projected_dot": [
+        645.5583999999999,
+        1003.4655999999999
+      ]
+    },
+    {
+      "id": "marris",
+      "number": 28,
+      "world": [
+        -1800.0,
+        -1650.0
+      ],
+      "projected_dot": [
+        834.6208,
+        814.4032
+      ]
+    },
+    {
+      "id": "siltrosso",
+      "number": 29,
+      "world": [
+        -2297.0,
+        -1370.0
+      ],
+      "projected_dot": [
+        749.1999999999999,
+        862.528
+      ]
+    },
+    {
+      "id": "lubelius",
+      "number": 30,
+      "world": [
+        -3600.0,
+        -1300.0
+      ],
+      "projected_dot": [
+        525.2511999999999,
+        874.5664
+      ]
+    },
+    {
+      "id": "sacred_mountain",
+      "number": 31,
+      "world": [
+        -3900.0,
+        -1600.0
+      ],
+      "projected_dot": [
+        473.6896,
+        823.0048
+      ]
+    },
+    {
+      "id": "coleus",
+      "number": 32,
+      "world": [
+        -3520.0,
+        -860.0
+      ],
+      "projected_dot": [
+        538.9984,
+        950.1856
+      ]
+    },
+    {
+      "id": "heaven_tower",
+      "number": 33,
+      "world": [
+        -4200.0,
+        -200.0
+      ],
+      "projected_dot": [
+        422.128,
+        1063.6288
+      ]
+    },
+    {
+      "id": "morgdahl",
+      "number": 34,
+      "world": [
+        -3200.0,
+        330.0
+      ],
+      "projected_dot": [
+        593.9968,
+        1154.7232000000001
+      ]
+    },
+    {
+      "id": "raja",
+      "number": 35,
+      "world": [
+        -2850.0,
+        360.0
+      ],
+      "projected_dot": [
+        654.16,
+        1159.8784
+      ]
+    },
+    {
+      "id": "nostraille",
+      "number": 36,
+      "world": [
+        -2550.0,
+        330.0
+      ],
+      "projected_dot": [
+        705.7216,
+        1154.7232000000001
+      ]
+    },
+    {
+      "id": "yuzalgh",
+      "number": 37,
+      "world": [
+        -2350.0,
+        300.0
+      ],
+      "projected_dot": [
+        740.0896,
+        1149.5584
+      ]
+    },
+    {
+      "id": "yggdonia",
+      "number": 38,
+      "world": [
+        -2150.0,
+        -80.0
+      ],
+      "projected_dot": [
+        774.4672,
+        1084.2496
+      ]
+    },
+    {
+      "id": "filtwood",
+      "number": 39,
+      "world": [
+        -1200.0,
+        2750.0
+      ],
+      "projected_dot": [
+        937.7535999999999,
+        1570.6528
+      ]
+    },
+    {
+      "id": "ghastone",
+      "number": 40,
+      "world": [
+        -3200.0,
+        -300.0
+      ],
+      "projected_dot": [
+        593.9968,
+        1046.4352
+      ]
+    },
+    {
+      "id": "rostia",
+      "number": 41,
+      "world": [
+        -2780.0,
+        200.0
+      ],
+      "projected_dot": [
+        666.1887999999999,
+        1132.3744000000002
+      ]
+    },
+    {
+      "id": "sainte_malukshure",
+      "number": 42,
+      "world": [
+        -100.0,
+        2000.0
+      ],
+      "projected_dot": [
+        1126.8159999999998,
+        1441.7536
+      ]
+    },
+    {
+      "id": "ulgr_nature_park",
+      "number": 43,
+      "world": [
+        -950.0,
+        2850.0
+      ],
+      "projected_dot": [
+        980.7231999999999,
+        1587.8464
+      ]
+    },
+    {
+      "id": "elmine",
+      "number": 44,
+      "world": [
+        -1680.0,
+        1740.0
+      ],
+      "projected_dot": [
+        855.2512,
+        1397.0656
+      ]
+    },
+    {
+      "id": "jia",
+      "number": 45,
+      "world": [
+        200.0,
+        2450.0
+      ],
+      "projected_dot": [
+        1178.3775999999998,
+        1519.0912
+      ]
+    },
+    {
+      "id": "laura",
+      "number": 46,
+      "world": [
+        1500.0,
+        1600.0
+      ],
+      "projected_dot": [
+        1401.808,
+        1372.9984
+      ]
+    },
+    {
+      "id": "forgotten_dragon_city",
+      "number": 47,
+      "world": [
+        2650.0,
+        800.0
+      ],
+      "projected_dot": [
+        1599.472,
+        1235.4976
+      ]
+    },
+    {
+      "id": "clayman_castle",
+      "number": 48,
+      "world": [
+        3300.0,
+        -600.0
+      ],
+      "projected_dot": [
+        1711.1871999999998,
+        994.8736000000001
+      ]
+    },
+    {
+      "id": "amrita",
+      "number": 49,
+      "world": [
+        3800.0,
+        -500.0
+      ],
+      "projected_dot": [
+        1797.1263999999999,
+        1012.0672
+      ]
+    },
+    {
+      "id": "nasca",
+      "number": 50,
+      "world": [
+        3200.0,
+        -1800.0
+      ],
+      "projected_dot": [
+        1694.0032,
+        788.6272
+      ]
+    },
+    {
+      "id": "great_holy_mountain",
+      "number": 51,
+      "world": [
+        3350.0,
+        -1350.0
+      ],
+      "projected_dot": [
+        1719.7792,
+        865.9648
+      ]
+    },
+    {
+      "id": "el_dorado",
+      "number": 52,
+      "world": [
+        -4300.0,
+        3000.0
+      ],
+      "projected_dot": [
+        404.9344,
+        1613.6224
+      ]
+    },
+    {
+      "id": "el_dorado_volcano",
+      "number": 53,
+      "world": [
+        -3900.0,
+        3200.0
+      ],
+      "projected_dot": [
+        473.6896,
+        1648.0
+      ]
+    },
+    {
+      "id": "frost_palace",
+      "number": 54,
+      "world": [
+        -1500.0,
+        -3310.0
+      ],
+      "projected_dot": [
+        886.192,
+        529.0912000000001
+      ]
+    },
+    {
+      "id": "blumund_road",
+      "number": 55,
+      "world": [
+        -1340.0,
+        -520.0
+      ],
+      "projected_dot": [
+        913.6864,
+        1008.6208
+      ]
+    },
+    {
+      "id": "englassia_road",
+      "number": 56,
+      "world": [
+        -2650.0,
+        -520.0
+      ],
+      "projected_dot": [
+        688.5279999999999,
+        1008.6208
+      ]
+    },
+    {
+      "id": "old_well",
+      "number": 57,
+      "world": [
+        -1000.0,
+        -340.0
+      ],
+      "projected_dot": [
+        972.1216000000001,
+        1039.5616
+      ]
+    },
+    {
+      "id": "rookie_camp",
+      "number": 58,
+      "world": [
+        -120.0,
+        -560.0
+      ],
+      "projected_dot": [
+        1123.3791999999999,
+        1001.7471999999999
+      ]
+    }
+  ],
+  "registration_note": "All58 world/projected coordinates unchanged from R86; R89 changes relief only. Current embedded normal preview."
+}

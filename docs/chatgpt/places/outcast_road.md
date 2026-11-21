@@ -1,4 +1,10 @@
-# The Outcast on Tempest's south road
+# The Outcast contact reservation near the early village
+
+## Current own-world design — round36
+
+Current pin(0,52),radius8 lies inside Tempest's radius148 parent reservation. The Outcast Society is project fiction. The empty contact-corner concept does not prescribe an initial NPC,canonical faction headquarters,river or remote mountain road. [Current map and era](../../../world/era.md).
+
+The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
 
 `id: outcast_road` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
 
@@ -9,7 +15,7 @@
 | Relative to | `tempest` + (0, 52) |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section J |
 
-## Lore (canon)
+## Source context and project role
 
 The Outcast Society is the pack's own hidden faction: reincarnators rejected by every nation. Its contact NPC stands on the south road next to Tempest.
 

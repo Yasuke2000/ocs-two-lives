@@ -1,0 +1,51 @@
+{
+  "base_commit": "a997f81",
+  "changed_forests": [
+    {
+      "id": "jistav-darkwood",
+      "old_area_blocks2": 676410.59585,
+      "rejected_trial_area_blocks2": 528860.9390999998,
+      "selected_area_blocks2": 615402.7009499999,
+      "selected_retained_area_fraction": 0.9098064174714241,
+      "vertices": 120,
+      "boundary_hausdorff_blocks": 53.13260955618511,
+      "authorship": "Hand-authored broad bays/lobes, rounded twice; conservative blend toward old boundary. No random seed or canonical survey."
+    },
+    {
+      "id": "imperial-northern-forest",
+      "old_area_blocks2": 499548.3499500001,
+      "rejected_trial_area_blocks2": 379120.4837500001,
+      "selected_area_blocks2": 446752.7647999999,
+      "selected_retained_area_fraction": 0.8943133629501838,
+      "vertices": 108,
+      "boundary_hausdorff_blocks": 46.07030810995817,
+      "authorship": "Hand-authored broad bays/lobes, rounded twice; conservative blend toward old boundary. No random seed or canonical survey."
+    },
+    {
+      "id": "jura-eastern-foothill-woodland",
+      "old_area_blocks2": 1236310.3298,
+      "rejected_trial_area_blocks2": 929451.806250001,
+      "selected_area_blocks2": 1108206.7836500008,
+      "selected_retained_area_fraction": 0.8963823701362079,
+      "vertices": 212,
+      "boundary_hausdorff_blocks": 63.65398327840427,
+      "authorship": "Hand-authored broad bays/lobes, rounded twice; conservative blend toward old boundary. No random seed or canonical survey."
+    }
+  ],
+  "limit": "Authored vegetation-boundary refinement; no new canon extent or ecosystem percentage is established.",
+  "source_sha256": "5e736ccc68f73ad533028c6263a5fe81459551683796ef70cfdcc1e45be632e8",
+  "only_three_forest_point_lists_changed": true,
+  "all58_sites_and_radii_match": true,
+  "other9_forests_and_all_other_layers_equal": true,
+  "height_water_and_all21_road_profiles_byte_identical": true,
+  "max_road_grade": 0.5000000000000455,
+  "changed_biome_pixels": 11850,
+  "all_changed_biome_centres_in_authored_boundary_difference": true,
+  "biome_index_transitions": {
+    "5->12": 7982,
+    "5->1": 42,
+    "3->12": 3813,
+    "5->13": 13
+  },
+  "jistav_castle_and_amrita_full_discs_still_in_darkwood": true
+}

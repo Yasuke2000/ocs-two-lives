@@ -1,0 +1,132 @@
+{
+  "round": 79,
+  "validated_round78_links": 21,
+  "checks": [
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/HANDOFF.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/orbic-ulgr-source-review-r79.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/painting-integration-r78.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/atlas.png"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/painting-integration-r78.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/atlas.svg"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/painting-integration-r78.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/continent.png"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/painting-integration-r78.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/continent.svg"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/painting-integration-r78.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/audit.json"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/painting-integration-r78.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/provenance.json"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/painting-integration-r78.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/relief-samples.json"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/painting-integration-r78.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/change-mask.json"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/painting-integration-r78.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/site-registration.json"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "docs/research/tensura-world-2026-11-19/README.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "world/northern-island-review.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "world/README.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "world/regions.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-map-canon",
+      "file": "world/review.md",
+      "target": "https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-current-painted-map",
+      "file": "docs/HANDOFF.md",
+      "target": "../world/painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-current-painted-map",
+      "file": "world/northern-island-review.md",
+      "target": "painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-current-painted-map",
+      "file": "world/README.md",
+      "target": "painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-current-painted-map",
+      "file": "world/regions.md",
+      "target": "painting-round78/README.md"
+    },
+    {
+      "worktree": "ocs-current-painted-map",
+      "file": "world/review.md",
+      "target": "painting-round78/README.md"
+    }
+  ],
+  "ledger_unique": 278,
+  "inventory_records": 133,
+  "status_classifications_unchanged": true,
+  "source_svg_unchanged_in_both_worktrees": true,
+  "printed_ln_claims": 14,
+  "author_side_story_claims": 6,
+  "category_traversal_closed": false,
+  "map_repository_gate": {
+    "result": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 65.238
+  },
+  "painting_repository_gate": {
+    "result": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 65.145
+  }
+}

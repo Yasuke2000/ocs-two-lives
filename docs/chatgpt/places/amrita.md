@@ -1,5 +1,7 @@
 # Amrita (Jistav capital)
 
+**Own-world source correction:** the current circle(3800,-500), radius63, is an eastern **game reservation**, not a verified independent surface-city/entrance coordinate. Official episode81 places the ancient ruins beneath Clayman's former castle. Current rule E350..700 and the existing external mound/shaft need C07 access/marker reconciliation; only an inert alternative is drawn, with no assigned depth. Later expedition/access/NPC states are not the initial post-Kijin world. The positions in the retired Lerfing audit below do not define canonical geography. [Source and placement study](../../../world/amrita-placement-review.md).
+
 `id: amrita` · build (our blueprint) · region **P** (Puppet Nation of Jistav)
 
 | | |

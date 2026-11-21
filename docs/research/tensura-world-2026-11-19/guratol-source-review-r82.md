@@ -1,0 +1,19 @@
+# Guratol mansion, cave and unanchored local map — round 82
+
+The [official OAD5 synopsis](https://www.ten-sura.com/anime/oad/story/no5) directly identifies Count Guratol's mansion as the destination and cave exploration as the next task. **OAD-GUR-082 is canon-explicit in the anime continuity.** This is local sequence, not a cave bearing, distance, proof of adjacency or an administrative map. The inventory's inherited “Town of Guratol” label does not by itself establish an independent state or a separate town polygon.
+
+[OAD3](https://www.ten-sura.com/anime/oad/story/no3) and [OAD4](https://www.ten-sura.com/anime/oad/story/no4) identify the annual outdoor training and travel exercise. All five selected official stills from each of OAD3/4/5 were viewed (15 total). The [image review](guratol-image-review-r82.csv) supplies exact URLs, SHA256 hashes and bounded observations. Original media and HTML are cached outside the repository under `ocs-world-research/references/guratol-r82/`; only links, hashes and paraphrases are committed.
+
+OAD4 still4 shows an illustrated table map with watercourse-like strokes, terrain hatching and symbols. **OAD-MAP-082** records what is visible. No readable place names, scale or north arrow establish a global registration in this 832×468 still. Rotating it onto the continent or assigning its symbols to a castle, Guratol, Englassia or a known river would add an unsupported identification. No outline is traced. The sepia cliff/cart image in OAD3 still4 and ridge in OAD4 still2 give visual leads, but no global location or demonstrated present-journey alignment. Cave interiors are visible in OAD4 still5 and OAD5 still1/3; their exterior entrance and exact system are not surveyed.
+
+The **teacher arc is later than the chosen post-Kijin S1E10 snapshot**. Enduring local geography can guide a future build, but these sources do not date the mansion's construction, prove its initial condition or authorize importing the later field-trip residents, kidnappers or battles. No full episode was played and no scene timestamp is claimed. LN > WN > manga > anime precedence remains intact: no directly read higher-priority passage was found for this site in this review.
+
+## Grada lead and rejected sources
+
+The [official BD catalogue](https://www.ten-sura.com/anime/tensura/bd_dvd), first-season Blu-ray1 special booklet description, confirms a Fuse-authored four-part Shizu-past story. It is a publication/access lead, not a reading of the story or proof of Grada's position. Search surfaced an unlicensed translated booklet, fanfiction and a community map with speculative country areas; none was opened or used as geographic evidence. The unrelated Syosetu novels returned by a broad Japanese name search are not Fuse's Tensura. Grada remains a distinct unlocated obligation; no coordinates, border or size are invented.
+
+## Active-map consequence
+
+The inherited Guratol inventory row is strengthened with the official evidence and explicit unknowns. It remains **missing distinct representation**. The active SVG, 58 sites, terrain, R81 painting and 58 place concepts are unchanged. No source SVG edit or converter rerun is needed. Ledger **282 unique records (224 thematic/design/reference + 58 coordinate interpretations)**; inventory **134 records, 41 physical follow-ups**. This review does not close global/wiki completeness. Next evidence needed: geographical anchor, town/estate relationship, cave entrance/route and initial condition. Registration of extra physical locations remains C15's open decision.
+
+Verification: the [review audit](guratol-review-audit-r82.json) checks all 280 previous facts unchanged, two new unique records, all 134 inventory records and every coverage status retained, only the Guratol evidence row changed, all 15 cached image hashes, and unchanged production/atlas files.

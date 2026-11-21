@@ -1,20 +1,25 @@
-# Lake Siss (Charybdis arena centre, r 96)
+# Lake Siss — water marker and later server arena reservation
 
 `id: lake_siss` · map pin only · region **W** (Lizardmen's Marsh of Lake Siss)
 
 | | |
 |---|---|
-| Anchor (Lerfing's map, x, z) | **3050, 750** (x grows east, z grows south) |
+| Historical anchor (Lerfing's map, x, z) | **3050, 750** (x grows east, z grows south) |
 | Audit status (19/11/2026) | **not rendered on the map yet** |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section W |
 
 ## Lore (canon)
 
-A large expanse of marsh and limestone on the shores of the lake, home of the lizardmen who live off its fish. In canon it is far from Tempest: reaching it needs an envoy (Gabiru) and an army march. Charybdis, the lake's whirlpool monster, wakes in chapter 10.
+Lake Siss and its surrounding wetlands are lizardmen territory. The official episode10 synopsis places the orc advance in those wetlands at the selected initial era. The [official glossary, Charybdis A-77](https://www.ten-sura.com/keyword/#A-77), describes an aerial calamity associated with Veldora's magicules; it is not a lake whirlpool. Its later attack appears in [episode19](https://www.ten-sura.com/anime/tensura/story/no19). Any circular lake encounter space is a future server adaptation, not a canonical shoreline requirement.
 
 ## What it should look like
 
-A round lake (the Charybdis arena has radius 96) with swamp and mangrove shores and stilt-hut villages on the water. The huts on the lake are Lerfing's own builds (kept) and will not survive a new world unless Yasuke decides so.
+The own-world drawing uses a broad east–west basin with reed bays and low shores, following the official
+map's visual character. Exact geometry is our interpretation. The fixed water marker remains `(1100,-100)`
+with radius96 reserved; the full disc fits the new shoreline. The lizardmen's southern shore remains accessible.
+[Current map](../../../world/map.svg), [region book](../../../world/regions.md), [initial-era policy](../../../world/era.md).
+The earlier imported-map huts and coordinates below are historical server context, not authoritative
+coordinates or structures for the new map.
 
 Why it stands here (anchor table, Lerfing coordinates): Lerfing's lake with its marsh ring and his stilt-hut village on the water.
 

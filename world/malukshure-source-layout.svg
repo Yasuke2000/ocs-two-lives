@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1120" viewBox="0 0 1700 1120"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#536c7b" /></marker></defs><rect width="1700" height="1120" fill="#eee9da" /><g font-family="Arial,sans-serif" fill="#273e49"><text x="50" y="60" font-size="30">MALUKSHURE · SOURCE RELATIONSHIPS FOR THE CITY HANDOFF</text><text x="50" y="101" font-size="21">R66 · Topological diagram: no compass,no scale,no surveyed boundaries,no placement geometry</text>
+<rect x="45" y="160" width="730" height="530" rx="16" fill="#d8dfc9" stroke="#889788" stroke-width="2" />
+<text x="70" y="198" font-size="25">OUTER GENERAL DISTRICT</text>
+<text x="70" y="231" font-size="20">Public approach / Church branch / Free Guild</text>
+<text x="70" y="266" font-size="18">Source: episode02 L81</text>
+<rect x="200" y="315" width="545" height="340" rx="16" fill="#e6dcbf" stroke="#889788" stroke-width="2" />
+<text x="225" y="354" font-size="25">INNER CAPITAL</text>
+<text x="225" y="387" font-size="19">Admission distinct from the outer district</text>
+<rect x="225" y="425" width="210" height="125" rx="16" fill="#c8dbd8" stroke="#889788" stroke-width="2" />
+<text x="245" y="459" font-size="21">Fishing harbour</text>
+<text x="245" y="492" font-size="17">Protected capital side</text>
+<text x="245" y="522" font-size="17">Episode05 L36-L40</text>
+<rect x="475" y="425" width="240" height="125" rx="16" fill="#d2d8bd" stroke="#889788" stroke-width="2" />
+<text x="495" y="459" font-size="21">Capital cape</text>
+<text x="495" y="492" font-size="18">Earlier source: R55</text>
+<text x="495" y="522" font-size="17">Exact outline authored</text>
+<path d="M90 470 H195" stroke="#536c7b" stroke-width="3" marker-end="url(#arrow)" />
+<text x="70" y="292" font-size="17">Outer/inner is a relationship;no annular wall is surveyed.</text>
+<rect x="815" y="160" width="835" height="530" rx="16" fill="#cbdce4" stroke="#889788" stroke-width="2" />
+<text x="840" y="198" font-size="25">SEA / OFFSHORE TOWER</text>
+<text x="840" y="231" font-size="20">No permanent land connection is established.</text>
+<rect x="1060" y="305" width="320" height="140" rx="16" fill="#d7cddc" stroke="#889788" stroke-width="2" />
+<text x="1085" y="343" font-size="23">TOP ARRIVAL SPACE</text>
+<text x="1085" y="378" font-size="20">Circular magic array</text>
+<text x="1085" y="412" font-size="18">Episode07 L300-L301</text>
+<rect x="1060" y="520" width="320" height="125" rx="16" fill="#e4d8c9" stroke="#889788" stroke-width="2" />
+<text x="1085" y="556" font-size="23">TRANSFERRED HALL</text>
+<text x="1085" y="588" font-size="20">Wall-side spiral stairs</text>
+<text x="1085" y="620" font-size="18">Episode07 L311-L316</text>
+<path d="M720 475 C860 475 875 375 1050 375" stroke="#536c7b" fill="none" stroke-width="3" stroke-dasharray="9 8" marker-end="url(#arrow)" />
+<text x="840" y="500" font-size="17">Conditional sea approach</text>
+<path d="M1220 451 V510" stroke="#536c7b" stroke-width="3" marker-end="url(#arrow)" />
+<text x="1250" y="487" font-size="17">Transfer,not a surveyed stair join</text>
+<text x="50" y="750" font-size="20">DIRECT RELATIONSHIPS: surrounding general district;protected-side fishing harbour;rooftop arrival and transferred hall.</text>
+<text x="50" y="800" font-size="20">UNPROVED: district polygons,harbour bearing,barrier radius,tower height,floor count and physical interior-to-roof alignment.</text>
+<text x="50" y="850" font-size="20">ERA: later author account;no construction date or identical S1E10 barrier/room state established.</text>
+<text x="50" y="900" font-size="20">C14: active Sainte game pin still conflicts with the coastal-capital alternative. C15: extra-location registration is unresolved.</text>
+<text x="50" y="950" font-size="20">CURRENT MAP: production source c2f806a9 and the R64 atlas are unchanged. No city,tower,portal or road is generated.</text>
+<text x="50" y="1030" font-size="20">Original diagram;copyrighted source text remains outside the repository. Ledger259 / inventory132 /41 physical follow-ups.</text>
+</g></svg>

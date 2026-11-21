@@ -13,7 +13,7 @@ north-west of Tempest (1720, 900) in the dark-forest band (2,000 magicule); the 
 - Rimuru wakes in the same cave after his death and meets Veldora there; the two take the name Tempest.
 - Veldora's aura filled the cave with magicules, which is why magic ore and hipokute grass grow there. Later it became
   Tempest's hipokute farm under Gabiru's supervision (and a dungeon in the wiki's terms).
-- In our Life 2 timeline Rimuru has already swallowed Veldora and left, so the seal is spent and the dragon is gone.
+- In our Life 2 timeline Rimuru has already swallowed Veldora and left, so the dragon no longer occupies the cave. This does not establish a destroyed sealing skill or source-confirmed broken prison architecture. See [official episode2](https://www.ten-sura.com/anime/tensura/story/no2).
 
 ## What we built (and which parts are our interpretation)
 
@@ -30,6 +30,18 @@ Canon gives the place, the seal and the magicules; it does not give a floor plan
   basin by the wall marks where a slime woke up.
 - Lore link to the Tempest zone: the magicule that is deadly around Tempest (1720, 900) comes from this cave in canon (the core is r 200 round Tempest, the band to r 600 takes in the cave). No game
   logic is attached to that.
+
+## Current source/terrain qualification — round47
+
+The coordinates and danger-band figures above describe the legacy imported-map
+implementation; they are not canonical measurements. The current replacement SVG
+governs positions. Its exact radii and deadly forest zones remain server choices.
+The [licensed manga review](../../docs/research/tensura-world-2026-11-19/licensed-manga-review-r47.md)
+adds directly inspected cave-formation/plant/underground-water cues without a surveyed
+plan. Keep interior water separate from the dry entrance plate; do not convert the
+existing authored rune/chain decoration into a primary-source claim. The developed
+farm is later content and still requires era gating; no blueprint/runtime correction
+is implemented by this note.
 
 ## References and sources
 
