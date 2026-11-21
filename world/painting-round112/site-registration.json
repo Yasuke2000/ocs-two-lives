@@ -946,7 +946,7 @@
     }
   ],
   "open_inventory_rows": 41,
-  "source_sha256": "89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b",
+  "source_sha256": "5938a8239068ccdd98c8ad64220147dfbdc82ca6d6d7e54364fc902fb1e9ebe7",
   "khusha_orientation_label": {
     "world_x": -1340.5090909090904,
     "world_z": 958.8363636363638,
@@ -964,8 +964,9 @@
   "geographic_context_label_count": 20,
   "inventory": 142,
   "physical_followups": 42,
-  "ledger_unique": 321,
+  "ledger_unique": 323,
   "note_r110": "Only54 world/anchor/label and forecourt follow owner-approved inland clearing. Other57 marker positions retained;142/42 inventory and314 current ledger.",
   "note_r112": "All58 marker world/anchor/number positions unchanged;20 contexts/42 open rows retained;exact El Dorado canopy overlay. Inventory142/42.",
-  "note_r116": "All58 world/anchor/number positions retained;20contexts/42rows unchanged. Only2river first vertices follow R115. Original R112 snapshot retained in Git atdfd66c1."
+  "note_r116": "All58 world/anchor/number positions retained;20contexts/42rows unchanged. Only2river first vertices follow R115. Original R112 snapshot retained in Git atdfd66c1.",
+  "note_r118": "Exact R117 coast overlay; all 58 site coordinates/projections and context/row geometry retained. No global terrain-height identity."
 }

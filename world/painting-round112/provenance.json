@@ -1,14 +1,17 @@
 {
-  "source_sha256": "89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b",
+  "round": 118,
+  "source_sha256": "5938a8239068ccdd98c8ad64220147dfbdc82ca6d6d7e54364fc902fb1e9ebe7",
+  "map_commit": "98b438f0c8056fd8ccd8a245707e57323049ae2e",
   "native_basis": "world/painting-round112/continent.svg at baseline commit",
-  "original_tree_symbols": 35,
+  "native_basis_commit": "b5a2fa4124ba2732f43a6bd11157d3e436f025e3",
+  "historical_component_metadata_retained": true,
+  "original_underpainting": "r98-original-r95-texture; retained native embedded original image",
+  "sea_texture": "Existing r98-original-ocean-wash pattern; no new bitmap or reference pixels",
+  "exact_current_mainland_mask": true,
   "new_AI_images": 0,
   "raw_raster_editing": false,
   "copyrighted_source_pixels_embedded": false,
   "PNG_method": "Chrome native SVG render",
   "global_relief_resampled": false,
-  "runtime_applied": false,
-  "native_basis_commit": "dfd66c17c654ec6dd94cab6eed285e3889f0d567",
-  "historical_component_metadata_retained": true,
-  "map_commit": "3b6993d45a6eebaf61f88c119bc621ab059b9b6d"
+  "runtime_applied": false
 }

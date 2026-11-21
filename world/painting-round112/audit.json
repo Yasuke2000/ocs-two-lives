@@ -1,32 +1,48 @@
 {
-  "round": 116,
-  "source_sha256": "89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b",
-  "baseline_commit": "dfd66c17c654ec6dd94cab6eed285e3889f0d567",
-  "baseline_delivery": "R112; immutable in Git history",
-  "changed_native_river_heads": [
-    "ulgr-spring-brook",
-    "laura-mountain-falls"
+  "round": 118,
+  "source_sha256": "5938a8239068ccdd98c8ad64220147dfbdc82ca6d6d7e54364fc902fb1e9ebe7",
+  "map_commit": "98b438f0c8056fd8ccd8a245707e57323049ae2e",
+  "baseline_commit": "b5a2fa4124ba2732f43a6bd11157d3e436f025e3",
+  "baseline_native_children_exact": true,
+  "added_root_children": [
+    "r118-southern-coast-definitions",
+    "r118-southern-coast-alignment"
   ],
-  "all_other_native_elements_and_historical_metadata_retained": true,
-  "changed_continent_pixels": 0,
+  "global_relief_resampled": false,
+  "exact_current_mainland_sea_mask_and_shore": true,
+  "changed_continent_pixels": 16989,
+  "changed_pixel_bounds": [
+    773,
+    727,
+    992,
+    908
+  ],
+  "max_RGB_channel_change": 248,
+  "all_changed_centres_inside_support_plus16blocks": true,
+  "all_exterior_pixels_identical": true,
+  "all_nonimage_atlas_XML_retained_except_root_metadata": true,
   "registered_sites": 58,
-  "all_site_registration_rows_retained": true,
+  "all_site_rows_retained": true,
   "context_names": 20,
   "open_rows": 42,
-  "ledger_unique": 321,
-  "inventory": 142,
-  "physical_followups": 42,
-  "global_relief_resampled": false,
-  "open_review": "C23: adjacent exported head transitions 37/17 blocks; diagnostic is not an owner-defined cap. No runtime fluid acceptance.",
-  "map_commit": "3b6993d45a6eebaf61f88c119bc621ab059b9b6d",
   "minimum_circle_spacing": 32.470561517449696,
   "label_overlap": false,
-  "all_other_atlas_XML_retained_except_root_and_site54_legend": true,
-  "site54_legend_correction": "Frost Palace inland clearing",
+  "ledger_unique": 323,
+  "inventory": 142,
+  "physical_followups": 42,
+  "open_review": "C23 waterfall character/fluid placement, full proportions, initial-era semantics and missing-source coverage remain open.",
+  "removed_land_inset32block_sample_pixels": 6128,
+  "all_inset_removed_land_pixels_blue_dominant": true,
   "required_gate": {
     "tests": 472,
     "skipped": 26,
     "failures": 0,
-    "seconds": 64.817
-  }
+    "seconds": 63.715
+  },
+  "default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "normal_staging_adopted_seconds": 67.0
 }
