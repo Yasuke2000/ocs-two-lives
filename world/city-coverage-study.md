@@ -26,3 +26,8 @@ The production SVG, current terrain build and existing preview are unchanged in 
 ## Direct country-context follow-up — round33
 
 The [official episode77 synopsis, route82](https://www.ten-sura.com/anime/tensura/story/no82) directly places Rimuru's party in Englassia for the Council meeting (OFF-COW-033). This strengthens the country-level setting independently of the wiki. It does not name a surveyed Lura parcel, prove permanent headquarters architecture, or establish the same building/attendance/political situation at the initial post-Kijin snapshot. No additional city pin or geometry is justified, and all seven city-related follow-ups remain open.
+
+
+## Direct gate context and terrain interface — round51
+
+The [source/terrain follow-up](dwargon-approach-study.md) separates the visited ordinary entry passages from the large main gate. The already recorded WN eastern entrance is not a surveyed East city position. East/West remain missing. Roof cover checks pass, but the exported road and fixed template approach have a74.67-block reference-height mismatch seven blocks from the southern box boundary; placement repair and actual walkability remain untested. No extra city coordinate, tunnel or verified interior floor is inferred.
