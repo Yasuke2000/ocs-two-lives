@@ -1,5 +1,7 @@
 # Location index — map coverage and source scope
 
+R93 directly records one later-only WN railway town: **137 inventory entries**, still **42 initial physical follow-ups**. No initial town or coordinate is inferred. [Source/era review](empire-chronology-r93.md). Earlier count notes below are historical.
+
 R91 adds the WN-derived Englassia capital lake: **136 entries**, with all **42 existing physical follow-ups retained**. [Water/precinct review](englassia-lake-r91.md). The castle and wider city remain incomplete; guild/church subsidiary-premise source questions extend beyond this indexed count.
 
 R84 tracks the WN-qualified Dwargon eastern entrance/bridge separately: inventory135,42 physical follow-ups. [Source review](dwargon-crossing-source-review.md).
@@ -16,7 +18,7 @@ Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit in
 
 Round57 [treant source context](../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) adds primary route/sanctuary detail but no surveyed parcel. The existing32 coverage classifications remain unchanged; one tree and an authored altar do not cover the whole community.
 
-Companion to the [numbered terrain atlas](atlas.png). All 136 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
+Companion to the [numbered terrain atlas](atlas.png). All 137 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
 
 Round45 directly verifies the immobile guarded treant community in [WN chapter42](https://ncode.syosetu.com/n6316bn/44/#L309). It does not locate its parcel or complete settlement coverage; the 32 open classifications are retained.
 
@@ -156,6 +158,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Tripartite Alliance](https://tensura.fandom.com/wiki/Tripartite_Alliance) | organisation | organisation review | — |
 | [United States of Azalea](https://tensura.fandom.com/wiki/Homeworld_of_Hazy_Style) | separate world | separate world review | — |
 | [Unnamed Imperial vassal town](https://tensura.fandom.com/wiki/Nasca_Namrium_Ulmeria_United_Eastern_Empire) | mainland feature | missing distinct representation | — |
+| [Unnamed WN railway relay town (later development)](https://ncode.syosetu.com/n6316bn/141/#L108) | later mainland development | later development review | — |
 | [Unnamed eastern El Dorado lake (official illustration)](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) | illustrated unidentified waterbody | terrain present | el-dorado-eastern-lake |
 | [Unnamed northern island (official illustration)](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) | illustrated unidentified landmass | terrain present | northern-unnamed-island |
 | [Western General Trading Company](https://tensura.fandom.com/wiki/Western_General_Trading_Company) | organisation | organisation review | — |

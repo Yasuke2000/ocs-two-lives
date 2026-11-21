@@ -132,3 +132,7 @@ Official OAD5 establishes mansion destination then cave task, while OAD4 still4 
 ## Round91: capital water versus representative precinct
 
 [The current review](../../../world/englassia-lake-r91.md) keeps the old academy/Guild model dry while drawing a separate WN-derived capital lake/court. One northern land access and three crossings are authored, not proof of the source bridge construction. Sector-water and over-steep trials were rejected. No LN/initial-state equivalence, complete capital or extra registered site is claimed. New Guild/church/entry-office source roles remain parent-capital review obligations.
+
+## R93 Empire and later-development distinction
+
+[Direct original-author review](../../../world/empire-chronology-r93.md) separates capital identity,historical frontier evidence,later railway-town development and the later Dungeon interior. C05,C08,C15 andC18 remain open within their stated scope. No ruin coordinate,Ameld identification,initial railway town or full-capital plan is inferred. Earlier count notes are historical; current ledger299 and inventory137 retain42 physical follow-ups.

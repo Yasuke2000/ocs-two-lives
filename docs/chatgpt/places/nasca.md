@@ -12,9 +12,9 @@
 | Preview (blueprint only) | ![nasca](../../previews/nasca-iso.png) |
 | Lore page | [`design/lore/nasca.md`](../../../design/lore/nasca.md) |
 
-## Lore (canon)
+## Source-qualified setting and original court design
 
-The vast military empire of the east; political and military power sit with Rudra; the Imperial Guardians protect him. The capital stands beside the Great Holy Mountain.
+The broad eastern polity is officially described; Nasca capital identity is directly supported within WN continuity. [R93 source/era review](../../../world/empire-chronology-r93.md). Mountain adjacency/bearing remains separately qualified; the existing court is an original fragment, not a verified capital plan.
 
 ## What it should look like
 
@@ -24,17 +24,17 @@ Why it stands here (anchor table, Lerfing coordinates): The valley north of the 
 
 ## Current state: BlueMap audit of 19/11/2026
 
-Map: Tensura by Lerfing (current, being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
+Historical map: Tensura by Lerfing (being replaced). The screenshots are from the public BlueMap; positions and terrain are retired. Qualified lore and original design intent are distinguished above.
 
 - **Status:** OK
 - **Placed:** 5100 70 -2680 (corner 5058 65 -2746)
 - Imperial court near the coast; verify 100 %.
 
 ![nasca: Top-down, about 300 blocks across](img/nasca-top.jpg)  
-*Top-down, about 300 blocks across. Map: Tensura by Lerfing (current, being replaced).*
+*Top-down, about 300 blocks across. Historical map: Tensura by Lerfing (being replaced).*
 
 ![nasca: 3D perspective, about 100 blocks](img/nasca-3d.jpg)  
-*3D perspective, about 100 blocks. Map: Tensura by Lerfing (current, being replaced).*
+*3D perspective, about 100 blocks. Historical map: Tensura by Lerfing (being replaced).*
 
 ## What ChatGPT can deliver for this place
 
