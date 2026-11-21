@@ -116,3 +116,7 @@ Official OAD5 establishes mansion destination then cave task, while OAD4 still4 
 ## Round 83: Eastern Plains scope and source continuity
 
 [Source/terrain assessment](eastern-plains-source-review-r83.md) separates WN10 evidence, wiki extent, authored masks and current exported biome coverage. No LN-equivalence or whole-feature completion follows. Keep the unresolved extent and initial-state qualifications; the current source is unchanged.
+
+## Round84: Dwargon entrance versus city
+
+[The source review](dwargon-crossing-source-review-r84.md) separates WN entrance/crossing context from wiki city identity and original C15 interior plans. No directly read LN replacement or global registration is claimed. C13/C15 remain open.

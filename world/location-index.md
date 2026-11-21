@@ -1,5 +1,7 @@
 # Location index — map coverage and source scope
 
+R84 tracks the WN-qualified Dwargon eastern entrance/bridge separately: inventory135,42 physical follow-ups. [Source review](dwargon-crossing-source-review.md).
+
 R80 adds the unnamed eastern El Dorado lake from direct official-image review. Current inventory 134; 41 existing physical follow-ups remain. [Source and terrain review](el-dorado-lake-review.md).
 
 R77 adds one source-illustrated landmass to the previous 132 entries:133 total, with 41 physical follow-ups retained. Its F coverage is administrative and does not establish an owner. [Island review](northern-island-review.md).
@@ -12,11 +14,11 @@ Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit in
 
 Round57 [treant source context](../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) adds primary route/sanctuary detail but no surveyed parcel. The existing32 coverage classifications remain unchanged; one tree and an authored altar do not cover the whole community.
 
-Companion to the [numbered terrain atlas](atlas.png). All 134 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
+Companion to the [numbered terrain atlas](atlas.png). All 135 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
 
 Round45 directly verifies the immobile guarded treant community in [WN chapter42](https://ncode.syosetu.com/n6316bn/44/#L309). It does not locate its parcel or complete settlement coverage; the 32 open classifications are retained.
 
-The atlas names 16 major geographical contexts and lists 41 open representations separately. Regional typography is our interpretation within existing gameplay masks; Ulgracia uses a sea-side callout ending within its narrow mask. These labels do not survey political borders. Falmuth naming stays at the initial post-Kijin snapshot. The separate Siltrosso identity/binding conflict remains C06. No unverified Doran or Silberia capital is positioned.
+The atlas names 16 major geographical contexts and lists 42 open representations separately. Regional typography is our interpretation within existing gameplay masks; Ulgracia uses a sea-side callout ending within its narrow mask. These labels do not survey political borders. Falmuth naming stays at the initial post-Kijin snapshot. The separate Siltrosso identity/binding conflict remains C06. No unverified Doran or Silberia capital is positioned.
 
 Sources/confidence/details remain in the [geography ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv), [coverage inventory](../docs/research/tensura-world-2026-11-19/wiki-location-coverage.csv) and [scope audit](../docs/research/tensura-world-2026-11-19/mainland-coverage-audit.csv). This index is not a claim that every wiki article or primary source has been read.
 
@@ -55,6 +57,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Duchy of Laquia](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | missing distinct representation | — |
 | [Dungeon](https://tensura.fandom.com/wiki/Dungeon) | portal or interior | interior or portal review | tempest |
 | [Dwargon Central](https://tensura.fandom.com/wiki/Armed_Nation_of_Dwargon) | mainland feature | site present | dwargon |
+| [Dwargon eastern entrance / bridge (WN)](dwargon-crossing-source-review.md) | mainland feature | missing distinct representation | — |
 | [Dwargon East city](https://tensura.fandom.com/wiki/Armed_Nation_of_Dwargon) | city or city interior | missing distinct representation | — |
 | [Dwargon West city](https://tensura.fandom.com/wiki/Armed_Nation_of_Dwargon) | city or city interior | missing distinct representation | — |
 | [Dwelling of the Elementals](https://tensura.fandom.com/wiki/Dwelling_of_the_Elementals) | portal or interior | interior or portal review | ulgr_nature_park;spirit_gate |

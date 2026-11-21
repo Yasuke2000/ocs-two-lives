@@ -1,5 +1,7 @@
 # Region book — anime-led Minecraft world
 
+R84 [Dwargon crossing source review](dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory135/42 follow-ups; ledger285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
+
 R83 [Eastern Plains source/terrain review](eastern-plains-source-review.md) adds two qualified WN records and a measured original current-geometry study. Coverage remains partial; source 9fd0c5fb and R81 painting remain unchanged. Ledger 284 (226+58), inventory 134/41 physical follow-ups.
 
 R82 [Guratol source review](guratol-source-review.md) verifies the official OAD mansion/cave task sequence and records the unanchored table map, with all 15 selected stills inspected. It supplies no invented global coordinates, administrative borders or S1E10 construction date. Ledger 282 (224+58); inventory 134/41 follow-ups unchanged. Source 9fd0c5fb and R81 painting remain unchanged.

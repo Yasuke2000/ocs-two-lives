@@ -1,5 +1,13 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Dwargon crossing tracked separately (ChatGPT, round84)
+
+R84 [Dwargon crossing source review](../world/dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory135/42 follow-ups; ledger285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
+
+Validation: 472 tests, 26 skipped, zero failures (62.667s). All previous 284 claims and 134 inventory rows/statuses preserved. Browser checks 58 numbers, 16 context names and 42 non-overlapping panel rows; PNG changes stay inside the panel. New panel viewed.
+
+Next: coverage-panel refresh on the painting; actual source/location/initial-state questions remain. No active geography or runtime change.
+
 ## 21/11 — Eastern Plains source and terrain assessment (ChatGPT, round 83)
 
 R83 [Eastern Plains source/terrain review](../world/eastern-plains-source-review.md) adds two qualified WN records and a measured original current-geometry study. Coverage remains partial; source 9fd0c5fb and R81 painting remain unchanged. Ledger 284 (226+58), inventory 134/41 physical follow-ups.
