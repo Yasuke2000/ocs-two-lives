@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — coastal capital proposal reaches its cape (ChatGPT, round56)
+
+Round56 [Malukshure cape alternative](../world/malukshure-cape-study.md) corrects the old city disc that stopped58.7 blocks before the current shore. A connected city envelope and36-block cape remain inert C14/C15 geometry; tower disc retains30.3 blocks of sea clearance. The active SVG tree,all58 sites and21 roads remain identical; only the source comment changes. Ledger237 unique(179+58),14 direct printed-LN plus3 selected LN-aligned author-web claims;129 inventory/32 follow-ups and58 art pairs remain. Full goal is open. Current source e886217d is a comment-only revision of8c24a349. A normal65.5s export confirms all13 non-index files byte-identical; index differs only in source_sha256. Current preview/terrain/atlas and R53 painting geometry are retained. Repository validation and472 tests pass (26 skips,zero failures,62.583s);no changed JS or in-game run.
+
+Next:continue primary-source and actual coverage/fit work; keep C14/H reconciliation open. An inert geometry correction is not a mapped city or runtime acceptance. R55/R56 made progress.
+
 ## 21/11 — primary Malukshure coastal evidence (ChatGPT, round55)
 
 Round55 [Vacation author-source review](research/tensura-world-2026-11-19/vacation-source-review-r55.md) verifies the Malukshure capital cape,offshore tower and Sarion adjacency in the author public LN-aligned side serial. Exact west bearing remains wiki-qualified; C14 active binding stays open. Ledger236 unique (178+58),14 printed-LN claims plus3 new author-side-story records;129 inventory/32 follow-ups and58 art pairs retained. Source8c24a349/geometry/terrain/R53 painting unchanged. No main merge,apply,chunks or deploy. Repository validation and472 tests pass (26 skips,zero failures,62.584s test tier);no changed JavaScript or in-game run. This validates repository integrity,not full lore coverage or runtime placement.

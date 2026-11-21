@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+Round56 [Malukshure cape alternative](../../../world/malukshure-cape-study.md) corrects the old city disc that stopped58.7 blocks before the current shore. A connected city envelope and36-block cape remain inert C14/C15 geometry; tower disc retains30.3 blocks of sea clearance. The active SVG tree,all58 sites and21 roads remain identical; only the source comment changes. Ledger237 unique(179+58),14 direct printed-LN plus3 selected LN-aligned author-web claims;129 inventory/32 follow-ups and58 art pairs remain. Full goal is open.
+
 Round55 [Vacation author-source review](vacation-source-review-r55.md) verifies the Malukshure capital cape,offshore tower and Sarion adjacency in the author public LN-aligned side serial. Exact west bearing remains wiki-qualified; C14 active binding stays open. Ledger236 unique (178+58),14 printed-LN claims plus3 new author-side-story records;129 inventory/32 follow-ups and58 art pairs retained. Source8c24a349/geometry/terrain/R53 painting unchanged. No main merge,apply,chunks or deploy.
 
 Round54 [Imperial source/key review](empire-source-review-r54.md) corrects the R51 duplicate IDs and ambiguous line locators,then adds one direct anonymous WN lake-country record and one wiki vassal-list record. Ledger233 unique records(175+58),14directLN;current source8c24a349,129inventory/32follow-ups and58art pairs unchanged. The R53 painting remains current;this research does not change terrain.
