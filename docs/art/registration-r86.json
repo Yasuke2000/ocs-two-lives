@@ -1,0 +1,724 @@
+{
+  "source_svg_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
+  "authoritative_map_PR": "https://github.com/Yasuke2000/ocs-two-lives/pull/74",
+  "source_authority": "Current map branch; the independent art branch retains its historical map checkout.",
+  "verified_reservations": 58,
+  "updated_metadata": [
+    "dwarf_village",
+    "dwargo",
+    "dwargon",
+    "dwargon_throne",
+    "dwarven_arena",
+    "kaijin_smithy"
+  ],
+  "new_images": 0,
+  "all_original_prompts_retained": true,
+  "reservations": [
+    {
+      "id": "tempest",
+      "centre": [
+        0.0,
+        0.0
+      ],
+      "radius": 148.0,
+      "kind": "clearing",
+      "margin": 64.0,
+      "png_sha256": "ac8c107788442eeda88718337a455630966401baa88a9bbfdc4d83ad1b56ee30",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "arrival",
+      "centre": [
+        0.0,
+        -1000.0
+      ],
+      "radius": 60.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "a11798d0681b080d99f4b4c14405d9bab579607485408d5c9b41ce76c9cf8b0a",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "wayfarers_camp",
+      "centre": [
+        15.0,
+        -985.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "7358001c41a73c76bfbf718c37e07f99e48a4f7b60010832b4a2dfdac98ed2c9",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "sealed_cave",
+      "centre": [
+        -120.0,
+        -400.0
+      ],
+      "radius": 75.0,
+      "kind": "carve",
+      "margin": 48.0,
+      "png_sha256": "84fcd82c0f7d58c0e39200f039b4b4541a22c1637b98547cd3e4ee01227f9cb0",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "goblin_village",
+      "centre": [
+        -530.0,
+        -220.0
+      ],
+      "radius": 56.0,
+      "kind": "village",
+      "margin": 48.0,
+      "png_sha256": "a9cb73709750dc561d864b4d0852e55eed1e2cf9a1553edd802fa8622062284b",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "spirit_gate",
+      "centre": [
+        -285.0,
+        350.0
+      ],
+      "radius": 70.0,
+      "kind": "lakeside",
+      "margin": 48.0,
+      "png_sha256": "27c7d08f7808514bfba2d3a20cbd712387ce1186bc9a8892744b39400ece12cd",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "shizu_spawn",
+      "centre": [
+        -420.0,
+        -80.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "afb94a169f80908d7aae13984c6a1d993cdd15f97de2d185ce72f9c529cb68c4",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "outcast_road",
+      "centre": [
+        0.0,
+        52.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "2bdd6f3d601355866a8fe867f666dfef31befbc180f0598b1bdbbef1311ab218",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "treyni_grove",
+      "centre": [
+        320.0,
+        470.0
+      ],
+      "radius": 56.0,
+      "kind": "village",
+      "margin": 48.0,
+      "png_sha256": "6591d97d912d54fc2d530d409c2b3e8572735a30afe67eac0dafd4fe19f48f31",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "treyni_shrine",
+      "centre": [
+        500.0,
+        600.0
+      ],
+      "radius": 36.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "a2dc94e6a29a890923ae5a9e7b16eff8a6b133e352130988a48e7d4d22625dc7",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "ogre_village_ruin",
+      "centre": [
+        500.0,
+        300.0
+      ],
+      "radius": 32.0,
+      "kind": "village",
+      "margin": 48.0,
+      "png_sha256": "fb6a0481f72e5d7b4226f530a5eb6e58473a95072079da941fa9d89ec3ebaf1c",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "dwargon",
+      "centre": [
+        780.0,
+        -1390.0
+      ],
+      "radius": 127.0,
+      "kind": "carve",
+      "margin": 48.0,
+      "png_sha256": "ecb46d4de40f2a1aff5506ac49dd04ed1ce46f193a78aa710df53c5718ecb060",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "dwargo",
+      "centre": [
+        780.0,
+        -1490.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "081819d95755bf7a559af41f537dde600e1d6d44d2116acb812be4bb72787a5c",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "dwargon_throne",
+      "centre": [
+        780.0,
+        -1496.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "aafe30019887958770ddee251cf3a525eda4090571f1f1da756fe1c883c66167",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "kaijin_smithy",
+      "centre": [
+        768.0,
+        -1474.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "a8d970026e1372eed18254671d121f9ac4092478aaccd537f976c22b7a9b97ac",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "dwarf_village",
+      "centre": [
+        1000.0,
+        -1000.0
+      ],
+      "radius": 124.0,
+      "kind": "village",
+      "margin": 64.0,
+      "png_sha256": "d6b26c74cabe5a24b007880c00591e71241c90ad408f48233ed468c636645d26",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "dwarven_arena",
+      "centre": [
+        1100.0,
+        -980.0
+      ],
+      "radius": 58.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "ce75daaadd2c98f3bb75146b63e400f6c61e25bf4ff3b0c09e1693ec8723c481",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "dragons_nest",
+      "centre": [
+        350.0,
+        -2000.0
+      ],
+      "radius": 85.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "c7cf976c054442baec2583813d8263b2b0c7718b6bd5d9e8bf5d10679a870f09",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "ameld_source",
+      "centre": [
+        200.0,
+        -1240.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "df40d632c64279119a89eea10b204dbacb1e9b4ed5281053846af859adf83525",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "ameld_mouth",
+      "centre": [
+        2150.0,
+        1250.0
+      ],
+      "radius": 8.0,
+      "kind": "coast",
+      "margin": 24.0,
+      "png_sha256": "d311ac05d41c85c0169f9f6c4f1fe3e3d02ab73af60cfb9154c8d3efe9df6274",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "lake_siss",
+      "centre": [
+        1100.0,
+        -100.0
+      ],
+      "radius": 96.0,
+      "kind": "lakeside",
+      "margin": 48.0,
+      "png_sha256": "1464c8f73f38a1000b045da1538549a5be477c26d0e4efba3e76b743f32ad1f1",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "lizardmen_village",
+      "centre": [
+        1100.0,
+        265.0
+      ],
+      "radius": 60.0,
+      "kind": "lakeside",
+      "margin": 48.0,
+      "png_sha256": "4e9128ae9368e22363ef28c7f80d5f935b27c2627a096339c5125d2af3d5c3df",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "lizardmen_caverns",
+      "centre": [
+        1300.0,
+        520.0
+      ],
+      "radius": 64.0,
+      "kind": "carve",
+      "margin": 48.0,
+      "png_sha256": "2e85c5b9db3a98c3f8c9b42f0d77030a8cc79a9b9710c364e0b149fe7b21ec90",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "orc_camp",
+      "centre": [
+        1750.0,
+        550.0
+      ],
+      "radius": 60.0,
+      "kind": "village",
+      "margin": 48.0,
+      "png_sha256": "a7ab23dee287857a3b65a5524d8f65219c8182e50ca407a0bd3d4b3dff527730",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "blumund",
+      "centre": [
+        -1500.0,
+        -620.0
+      ],
+      "radius": 97.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "cfac73e29ba82869529ff78c4083c451c60f0cfd5dbf9ed774c56df24b8d0775",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "ballachia",
+      "centre": [
+        -2450.0,
+        -450.0
+      ],
+      "radius": 68.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "da456eabb1edb33144d1629c1b5645d3185e9a197ccf822a36a2f57c2a589cee",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "englassia",
+      "centre": [
+        -2900.0,
+        -550.0
+      ],
+      "radius": 124.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "ed83fc018034f906ff05d2b0dc68d3f42b8acdc1999fbbb024559864caccbb5d",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "marris",
+      "centre": [
+        -1800.0,
+        -1650.0
+      ],
+      "radius": 101.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "a1c7eae558955b3f49b0053dd70fa7981a3ad449cfcc8398803a60cfcba13b54",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "siltrosso",
+      "centre": [
+        -2297.0,
+        -1370.0
+      ],
+      "radius": 66.0,
+      "kind": "coast",
+      "margin": 48.0,
+      "png_sha256": "ee764899c5a28090bdb0a58120fa8f6f9a712e7a27299c7fdc27d9ab006e452f",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "lubelius",
+      "centre": [
+        -3600.0,
+        -1300.0
+      ],
+      "radius": 97.0,
+      "kind": "plateau",
+      "margin": 48.0,
+      "png_sha256": "aca5c28222a6fe1347a52c05d9928e615f32b6d938ba1f181363f279231a9110",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "sacred_mountain",
+      "centre": [
+        -3900.0,
+        -1600.0
+      ],
+      "radius": 95.0,
+      "kind": "plateau",
+      "margin": 48.0,
+      "png_sha256": "a70502dd0a782ae19443d0fbd781ddd6fe0383aebd50928dba688f8f7726beb8",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "coleus",
+      "centre": [
+        -3520.0,
+        -860.0
+      ],
+      "radius": 73.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "e43d50adf10486316afd4750024e7b25fc2bc1b531a36952ee4c0088709f1a36",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "heaven_tower",
+      "centre": [
+        -4200.0,
+        -200.0
+      ],
+      "radius": 84.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "7304f0047d826dde6d737e717d165c1a0227e4376c53bac75b41b7981d475f64",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "morgdahl",
+      "centre": [
+        -3200.0,
+        330.0
+      ],
+      "radius": 61.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "9a635473dae1d9a31255f06c540f66f9afccda5ed258b752352810ba72a83973",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "raja",
+      "centre": [
+        -2850.0,
+        360.0
+      ],
+      "radius": 71.0,
+      "kind": "lakeside",
+      "margin": 48.0,
+      "png_sha256": "111a6d58bdbcf1bb77fe43a5d6e7c70e5d9c41e749b8a3a93828a46330ff991c",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "nostraille",
+      "centre": [
+        -2550.0,
+        330.0
+      ],
+      "radius": 66.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "dfe2332c7c8affc8456ad2330fa794903693b47de7c901dd6f6ed4d380e2001f",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "yuzalgh",
+      "centre": [
+        -2350.0,
+        300.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "d338af1796df3d2201e3c85a9431362f2b9479ded9a6ee96c4e453ebfccff275",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "yggdonia",
+      "centre": [
+        -2150.0,
+        -80.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "82350483fa15001f529a8ad4ceede4d57312cba326b902d61d489eb50cdf2271",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "filtwood",
+      "centre": [
+        -1200.0,
+        2750.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "e3a77cd6707560a69cd305502a56d25206937e43e88f19db0f2cf34e92ab7db6",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "ghastone",
+      "centre": [
+        -3200.0,
+        -300.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "8fa7153e10b7155a1e5c2e419459e28cd5b49b0a32dd603f07a32caa30039506",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "rostia",
+      "centre": [
+        -2780.0,
+        200.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "df753fe5bec72a360999df872965ab866afeefeefae36fcf95474671e7f17f87",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "sainte_malukshure",
+      "centre": [
+        -100.0,
+        2000.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "ffa75b7abfb55f2e9a7eea3f97104752170658fcb814b916e825153922f8fb9b",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "ulgr_nature_park",
+      "centre": [
+        -950.0,
+        2850.0
+      ],
+      "radius": 63.0,
+      "kind": "plateau",
+      "margin": 48.0,
+      "png_sha256": "fd156227502cd4c089d31745ad92420865212b4dea45d50f35dde17b3d7e1e12",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "elmine",
+      "centre": [
+        -1680.0,
+        1740.0
+      ],
+      "radius": 100.0,
+      "kind": "clearing",
+      "margin": 64.0,
+      "png_sha256": "26cd73aec643f1e97ae1bb2eebc191468bb5bdaa779e60bfac1d0af4f4bf4193",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "jia",
+      "centre": [
+        200.0,
+        2450.0
+      ],
+      "radius": 68.0,
+      "kind": "plateau",
+      "margin": 48.0,
+      "png_sha256": "00832280dece56006497aa79e7194fb21feefb7f2a0cb120cbf6444c22f0712d",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "laura",
+      "centre": [
+        1500.0,
+        1600.0
+      ],
+      "radius": 100.0,
+      "kind": "clearing",
+      "margin": 64.0,
+      "png_sha256": "8939b4ba79c1670ad41cd491cb9688f85321bb06c00a1abc474d6d83bcad45de",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "forgotten_dragon_city",
+      "centre": [
+        2650.0,
+        800.0
+      ],
+      "radius": 100.0,
+      "kind": "clearing",
+      "margin": 64.0,
+      "png_sha256": "23e85886229ea0c46d4a2208394578a5ab1926a8e5989b8deb50c397c192980a",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "clayman_castle",
+      "centre": [
+        3300.0,
+        -600.0
+      ],
+      "radius": 90.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "5e3d4afb78b06b57a56c3d019cdf9ded5885c6d048530d6fadc8405b9998a903",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "amrita",
+      "centre": [
+        3800.0,
+        -500.0
+      ],
+      "radius": 63.0,
+      "kind": "carve",
+      "margin": 48.0,
+      "png_sha256": "694c22e1817a11fbb41936c4488db300eba70e3f1f0489a6255de73a86cf4280",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "nasca",
+      "centre": [
+        3200.0,
+        -1800.0
+      ],
+      "radius": 90.0,
+      "kind": "plateau",
+      "margin": 48.0,
+      "png_sha256": "1dafc87a05b7a2b39b112598f775cc67c34e0973cfe280c00156d5d152e64a6a",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "great_holy_mountain",
+      "centre": [
+        3350.0,
+        -1350.0
+      ],
+      "radius": 80.0,
+      "kind": "clearing",
+      "margin": 48.0,
+      "png_sha256": "25c732a59ecc10f43f0fbdf6ed5bed09c55483b60cf4db773ecb90818ea896c6",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "el_dorado",
+      "centre": [
+        -4300.0,
+        3000.0
+      ],
+      "radius": 100.0,
+      "kind": "clearing",
+      "margin": 64.0,
+      "png_sha256": "0070aa8ea02a4d46552e408077bfd2dfe30abc9555d4b2e3a8314f2c62d2ec63",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "el_dorado_volcano",
+      "centre": [
+        -3900.0,
+        3200.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "588b0fb53693199eb37ff656873f0491a6cf036d076ee95530c0af7429f684c1",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "frost_palace",
+      "centre": [
+        -1500.0,
+        -3310.0
+      ],
+      "radius": 67.0,
+      "kind": "coast",
+      "margin": 48.0,
+      "png_sha256": "1076ab872ec17edcc5676c03f25d3d82a28b0bb82e37143dce85a6b0063abd24",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "blumund_road",
+      "centre": [
+        -1340.0,
+        -520.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "d4be4e8ab2b8b0a752b399a3a6b5f55f0bd80eccf1f33ce1fff860ccffe823ed",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "englassia_road",
+      "centre": [
+        -2650.0,
+        -520.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "52a04a12ece32a968b45bc5a92b46c6115babf30432fafdc5f45e749d39467d5",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "old_well",
+      "centre": [
+        -1000.0,
+        -340.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "98cf8cdfd28a41e09c112979dcc30cb313b0edb47d6e59b9705b22b64706fb1a",
+      "png_and_prompt_unchanged": true
+    },
+    {
+      "id": "rookie_camp",
+      "centre": [
+        -120.0,
+        -560.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": 24.0,
+      "png_sha256": "98e6958f9618d95bd00cbc43e34d60cc73ca5952cbe01c793d2108a9f93ca877",
+      "png_and_prompt_unchanged": true
+    }
+  ],
+  "all58_PNGs_match_baseline_git_blobs": true,
+  "all58_prompt_sections_match_baseline": true,
+  "art_baseline_commit": "7d5699be95ab7de426f3cabb8976a036ea7f66e6",
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 462,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 45.465
+  }
+}

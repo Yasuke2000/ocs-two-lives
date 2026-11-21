@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Concept reservations aligned with northeast Dwargon (ChatGPT, round86)
+
+[Current registration review](art/registration-r86.md) updates six metadata rows and verifies all 58 reservations against source355d1a33. All original PNGs and prompts remain unchanged. Map PR74 supplies authoritative geography. Next: actual source/location/era work and matching painting.
+
+Validation: 462 tests, 26 skipped, zero failures (45.465s) on this older art branch. Independent checks compare all 58 reservations against source355d1a33, all 58 PNGs against baseline git blobs and all 58 original prompt sections.
+
 ## 21/11 — Place sheets match current map reservation metadata (ChatGPT,round73)
 
 R73 [current-source metadata audit](art/places/current-map-registration-r73.md) checks all58 PNG/sheet pairs against map40c7833/source90ee15b1. Three stale radii are corrected:Englassia98→124,Dragon’s Nest64→85,Sacred Mountain80→95. All58 x/z/kind/margin fields andthe other55 radii already agree. AllPNG bytes remain unchanged;the original prompts/provenance remain historical. Art-branch validation and462 tests pass(26 skipped,zero failures,44.559s);independent58-row metadata/git-blob/prompt checks pass. This is metadata registration,not metric image geometry orruntime acceptance. Earlier source-comparison statements below are historical.

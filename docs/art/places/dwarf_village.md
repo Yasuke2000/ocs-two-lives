@@ -1,5 +1,7 @@
 # Dwarf meadow village — pack interpretation (`dwarf_village`): concept art
 
+**R86 reservation alignment:** [current map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) relocates this reservation within the same setting. Original PNG and prompt are retained; this is not a geographically registered terrain render.
+
 ![Original concept illustration](dwarf_village.png)
 
 - **Brief:** South/southwest village approach looking north-northeast toward the natural foothills. One coherent environment view at the post-Kijin baseline.
@@ -7,8 +9,8 @@
 - **Our interpretation:** Every cottage, terrace, farm, forge and local street is our interpretation. The existing Tensura dwarf-village template remains the technical placement source; this concept does not reproduce it.
 - **Block notes:** Cobblestone/tuff, oak/dark oak, hay-block crop proxy and lanterns. Buildable cubic silhouettes, stairs/slabs and grounded foundations; artistic light is a cue, not verified block lighting or an in-game render.
 - **Terrain:** Grassy apron below natural grey crags; cottages follow short terrace steps and have grounded foundations. The distant massif has no surface palace.
-- **Current reservation:** centre(400,-1200), radius124.0, kind`village`, margin64. These are authored server coordinates from map commit`fc36e38`, not canon measurements.
-- **Facing / surroundings:** South/southwest village approach looking north-northeast toward the natural foothills. This camera and orientation are our interpretation. Read [production SVG](../../../world/map.svg), [era policy](../../../world/era.md) and the [place brief](../../chatgpt/places/dwarf_village.md); legacy imported-map coordinates do not govern this image.
+- **Current reservation:** centre(1000,-1000), radius124.0, kind`village`, margin64. These are authored server coordinates from source SHA`355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7`, not canon measurements.
+- **Facing / surroundings:** South/southwest village approach looking north-northeast toward the natural foothills. This camera and orientation are our interpretation. Read [current production SVG](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/world-map/world/map.svg), [era policy](../../../world/era.md) and the [place brief](../../chatgpt/places/dwarf_village.md); legacy imported-map coordinates do not govern this image.
 - **Reference inspection:** The Dwargon gate reference supplies mountain character only. A first generated background with an exterior palace was rejected and corrected; the selected image is the correction. Secondary reference files came from the pinned [TensuraMap commit](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6). No episode or timestamp attribution is upgraded here.
 - **Geometry limit:** this is original concept art, not a blueprint, surveyed site plan, generated Minecraft terrain or runtime acceptance. Perspective and nearby set dressing cannot override the SVG, dry build plates or source qualifications.
 - **Provenance:** built-in image_gen, original written brief, 1536x1024 RGB PNG. No copyrighted reference image was supplied as generation input. The dwarf-village correction edits only our generated image. Lossless PNG packaging, where used, preserves every RGB pixel.
