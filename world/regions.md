@@ -1,4 +1,8 @@
-## Current source — R114
+## Current source — R115
+
+[Collective lake-bank audit](lake-banks-r115.md) covers all13 lakes in source `89b01c4c`. Two short land-side river-head adjustments restore the Ulgr/Laura contacts;all lake shapes,water levels,58 sites and22 roads remain. Ledger321;inventory142/42. R114 biome percentages below are explicitly adopted:the entire biome PNG andall native biome/administrative masks are unchanged,so no duplicate census is issued. The R114 snapshot retains its original source2463d771. Current painting needs the two native river-head updates;all other geometry andthe rocky-cone appearance remain. Earlier dated notes are historical.
+
+## Historical source note — R114
 
 [Local rocky-cone review](el-dorado-rock-cone-r114.md) records source `2463d771`: 13 lakes,15 forests,28 explicit biome polygons,58 sites and22 routes. Only the cone biome changes in R114;all heights,water,site androad exports remain. Ledger318;inventory142/42. All22 regional biome mixes use the [R114 measured census](region-biomes-r114.md). The R112 painting’s rocky cone is adopted unchanged;its original source metadata remains historical. The R113 place-sheet audit corrects the approved inland palace registration. Exact design proportions,biome choices andunverified source/era details remain qualified. Earlier dated status notes below describe their own versions.
 
@@ -669,3 +673,8 @@ Exact36/66-vertex outlines,positions,scale,level68/depth4 and light tree choice
 are **our interpretation**. No name,outlet,capital or sovereign boundary is
 inferred. All previous XML,58 site reservations and22 roads retained.312 ledger,
 142 inventory/42 follow-ups; R105 painting needs alignment to these additions.
+
+
+## Collective lake banks andsource-head contacts — R115
+
+[Report andfour-block limits](lake-banks-r115.md) verifies dry-bank freeboard>=2,positive wet-bed depth,8 exact-boundary dry samples andall8 designed river–lake contacts across13 lakes. Only the Ulgr/Laura first vertices move2/6blocks north,remaining outside their lakes but within the wet channel widths. Exact coordinates,levels andshores remain our interpretation;no new canonical geography or initial water state is claimed. Allother active source attributes andthe R114 biome mix remain.

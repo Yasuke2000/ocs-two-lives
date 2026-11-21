@@ -1,0 +1,118 @@
+{
+  "round": 115,
+  "source_sha256": "89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b",
+  "baseline_source_sha256": "2463d771cd28cff62138fe2e87ae0dc0dd8bccc7c3d02bc21f6bd6bbb3ed7426",
+  "changed_source_vertices": [
+    {
+      "id": "ulgr-spring-brook",
+      "before": "-800.00,3037.00",
+      "after": "-800.00,3035.00"
+    },
+    {
+      "id": "laura-mountain-falls",
+      "before": "1490.00,1068.00",
+      "after": "1490.00,1062.00"
+    }
+  ],
+  "raster_changes": {
+    "height": {
+      "changed_cells": 188,
+      "max_distance_to_old_or_new_river_centrelines": 33.33350291424802
+    },
+    "rugged": {
+      "changed_cells": 247,
+      "max_distance_to_old_or_new_river_centrelines": 19.936305570722503
+    },
+    "water": {
+      "changed_cells": 26,
+      "max_distance_to_old_or_new_river_centrelines": 4.0
+    },
+    "road": {
+      "changed_cells": 0,
+      "max_distance_to_old_or_new_river_centrelines": 0
+    },
+    "biome": {
+      "changed_cells": 0,
+      "max_distance_to_old_or_new_river_centrelines": 0
+    },
+    "sites": {
+      "changed_cells": 0,
+      "max_distance_to_old_or_new_river_centrelines": 0
+    },
+    "exclude": {
+      "changed_cells": 0,
+      "max_distance_to_old_or_new_river_centrelines": 0
+    }
+  },
+  "unchanged_export_files": [
+    "anchors.toml",
+    "biome.png",
+    "exclude.png",
+    "road.png",
+    "roads.json",
+    "sites.json",
+    "sites.png",
+    "sites.toml"
+  ],
+  "normal_seconds": 67.0,
+  "baseline_lake_audit_summary": {
+    "lakes": 13,
+    "passing_lakes": 11,
+    "passing_bank_checks": 13,
+    "passing_connection_checks": 11,
+    "external_dry_bank_samples": 2545,
+    "internal_dry_boundary_bank_samples": 8,
+    "source_samples": 42768,
+    "source_wet_samples": 42760,
+    "dry_boundary_samples": 8,
+    "missing_expected_connections": 2,
+    "observed_river_lake_links": 6,
+    "external_wet_contact_samples": 15,
+    "overall_pass": false
+  },
+  "baseline_missing_contacts": [
+    {
+      "lake": "ulgr-spring",
+      "missing_rivers": [
+        "ulgr-spring-brook"
+      ]
+    },
+    {
+      "lake": "laura-headwater-basin",
+      "missing_rivers": [
+        "laura-mountain-falls"
+      ]
+    }
+  ],
+  "current_lake_audit_summary": {
+    "lakes": 13,
+    "passing_lakes": 13,
+    "passing_bank_checks": 13,
+    "passing_connection_checks": 13,
+    "external_dry_bank_samples": 2540,
+    "internal_dry_boundary_bank_samples": 8,
+    "source_samples": 42768,
+    "source_wet_samples": 42760,
+    "dry_boundary_samples": 8,
+    "missing_expected_connections": 0,
+    "observed_river_lake_links": 8,
+    "external_wet_contact_samples": 20,
+    "overall_pass": true
+  },
+  "R114_biome_census_adopted_by_exact_input_invariance": true,
+  "changed_height_cells_inside_any_site_disc_ids": [],
+  "height_delta_min_max": [
+    -41.375,
+    41.3125
+  ],
+  "retained_R114_biome_raw_sha256": "7fac73fca333a55506c9d5220c0b3f2662c793626be295e0293529fadc96acca",
+  "open_head_level_conflict": "C23:river-head profile diagnostic exits1;6/8small-step interfaces pass,Ulgr/Laura fail37/17. Bank/contact scope only.",
+  "baseline_first_reach_levels": {
+    "ulgr-spring-brook": 65,
+    "laura-mountain-falls": 135
+  },
+  "corrected_first_reach_levels": {
+    "ulgr-spring-brook": 65,
+    "laura-mountain-falls": 137
+  }
+}

@@ -1,5 +1,13 @@
 # Current handoff
 
+## 21/11 — Lake banks and two source contacts (R115)
+
+Source `89b01c4c` moves only the Ulgr/Laura first river vertices 2/6 blocks north, remaining on land. All 13 lake bank/depth checks pass; the two missing plan contacts are repaired, giving 8/8 designed connections. Normal staging took 67.0 seconds without converter warnings; the checker reports zero errors, 56 relations and two prior warnings. Changes affect 188 height, 247 ruggedness and 26 water cells. Height deltas range from −41.375 to +41.3125 blocks at moving cliff cuts, outside all site discs. Roads, biomes, sites, exclusion and site/road/anchor exports are identical. Adopt the unchanged R114 biome census and R113 art reservations. Ledger: 321; inventory: 142 with 42 physical follow-ups. Required gate: 472 tests, 26 skipped, zero failures in 64.793 seconds.
+
+C23 remains a style/source and technical review: adjacent lake/river export differences are 37 blocks at Ulgr and 17 at Laura. The two-block diagnostic is not an owner-defined cap. Assess waterfall character and fluid placement; do not create artificial routes just to satisfy that threshold. Bank/contact results do not establish final terrain or in-game fluid acceptance. Painting requires the same two native head updates. Other source, proportion and era checks remain open. No protected implementation, world apply, chunk generation, main merge or deployment action.
+
+# Current handoff
+
 ## 21/11 — Map deliverables and art registration reconciled (R114/R113)
 
 Source2463d771/mapbf0ba98 andart8d468a2 published. Only Frost Palace sheet changed;all58 image/sheet pairs andnumeric fields checked,57 other sheets/all58 PNG bytes/exact palace prompt retained. Source local rock-cone choice is interpretation;LN11 sample routes exposed no story. R112 painted rock appearance adopted unchanged,its original source metadata remains historical. Source gate472/26skip/0fail64.499s;art gate462/26skip/0fail44.459s;main handoff gate472/26skip/0fail64.428s. See art-registration-r113.md anddeliverable-readiness-r114.md in current research directory. Next substantive checks:all13 lake banks as one audit;Orbic/Ulgracia child-location traversal;global proportional/contract andinitial-era review. Keep Claude-owned runtime/whole-city building separate from creative map acceptance. No new geometry orcounter-only painting/art generation in this handoff;no protected/runtime/merge/deploy action.

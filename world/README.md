@@ -1,6 +1,6 @@
 ## Current source — R106
 
-[R114 rocky-cone review](el-dorado-rock-cone-r114.md) adds one local stony_peaks biome over El Dorado’s exact existing cone. Source2463d771:28 biome polygons,15 forests,58 unchanged sites and22 unchanged roads. Only4577 biome cells change;all height/water/road/site exports remain identical. Ledger318;inventory142/42 retained. [Current census](region-biomes-r114.md). R112 painting’s existing rocky appearance is retained by explicit adoption;its original metadata remains historical. The R113 art audit corrects Frost Palace’s stale coastal sheet. Canon climate,LN11 passage,source/proportion/initial-era andtechnical acceptance remain qualified.
+[R115 collective lake audit](lake-banks-r115.md) verifies all13 native lakes andrepairs the Ulgr/Laura river contacts by moving only2 first vertices(2/6blocks north). Source89b01c4c:all lake shapes/levels,58 sites and22 roads retained.13/13bank/depth checks,8/8designed plan contacts;[C23 diagnostic](river-head-profiles-r115.md) flags2larger head transitions(37/17blocks)for style/source review. R114 biome raster/masks are exact andits census is adopted;no duplicate count-only report. Ledger321;inventory142/42. Terrain atlas/preview are refreshed;painting requires the two native head updates. Source/era/global-proportion andtechnical acceptance remain open.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 
