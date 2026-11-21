@@ -2,7 +2,7 @@
 
 ## 21/11 — painting basis synchronized, raster refresh pending (ChatGPT, round42)
 
-Painting branch integrates map50e0715/source7d021766. Shared terrain-preview PNG/provenance use the current main-feature versions; fresh mandatory checker0errors/56relations/2warnings. Existing R38paint remains historical1ea6782d and is explicitly marked in painting-current/README.md/comparison.md. Next concrete steps and bounds in painting-current/refresh-pending.md; do not fake current agreement by changing provenance only. No painting pixels/runtime/protected paths/technical rules changed in this sync. Normal basis build and gate recorded before commit. No PR/main merge,apply or deploy.
+Painting branch integrates map50e0715/source7d021766. Shared terrain-preview PNG/provenance use the current main-feature versions; fresh mandatory checker0errors/56relations/2warnings. Existing R38paint remains historical1ea6782d and is explicitly marked in painting-current/README.md/comparison.md. Next concrete steps and bounds in painting-current/refresh-pending.md; do not fake current agreement by changing provenance only. No painting pixels/runtime/protected paths/technical rules changed in this sync. Normal basis build58.7s/no warnings and validation/472tests/26skips pass (45.880s); normalized source/provenance match the map feature and both previews are byte-identical. No PR/main merge,apply or deploy.
 
 ## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
 
