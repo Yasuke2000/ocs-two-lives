@@ -1,6 +1,8 @@
-# Tensura geography research — round43 current painted comparison
+# Tensura geography research — round45 primary-source review
 
-Current round43: [painted atlas/comparison](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) now follows source7d021766,closing the stale-presentation follow-up from round42. It introduces no geographical claim or accepted location:217claims/14directLN,129inventory/32explicit follow-ups and58art pairs remain. Exact native masks/projections are checked; pictorial vegetation/relief remains interpretation.
+Round45 [primary-source review](primary-source-review-r45.md) adds WN42-001 for the guarded immobile treant community, without assigning a location. Ledger218 (160+58),14 direct LN claims;129 inventory entries/32 follow-ups unchanged. Current official LN20/21 trial routes were identified but neither trial became readable. SVG/terrain/art remain unchanged.
+
+Historical round43: [painted atlas/comparison](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) now follows source7d021766,closing the stale-presentation follow-up from round42. It introduces no geographical claim or accepted location:217claims/14directLN,129inventory/32explicit follow-ups and58art pairs remain. Exact native masks/projections are checked; pictorial vegetation/relief remains interpretation.
 
 Current round42: [western headland review](../../../world/western-cape-review.md) improves the mainland silhouette after direct visual comparison with the official reference. Two qualified claims bring the ledger to217(159+58),14directLN. Current source7d021766;atlas and standalone normal-export preview refreshed. The current R38 painting PR102 predates this coast and needs refresh. Inventory129/32follow-ups and58art pairs remain;exact course/habitat/gameplay assignment are interpretation.
 

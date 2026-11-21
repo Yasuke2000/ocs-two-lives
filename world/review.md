@@ -1,4 +1,6 @@
-# Current map review — round44 vertex-budget study
+# Current map review — round45 primary-source review
+
+Round45 [primary-source review](../docs/research/tensura-world-2026-11-19/primary-source-review-r45.md) adds WN42-001 for the guarded immobile treant community. No bearing or settlement plan is inferred; WN post-battle contact timing is kept separate from the anime snapshot. Ledger218 (160+58),14 direct LN claims; inventory129/32 follow-ups and58 art pairs retained. Publisher-linked LN20/21 trials identified but unread; Long Wall references remain secondary. Production source7d021766, previews, terrain exports and art unchanged; no converter rerun or runtime action. Repository validation and 472 tests pass (26 skipped, zero failures, 44.579s test tier).
 
 Round44 [vertex-budget study](vertex-budget-study.md) retains source7d021766. Nine outlines exceed the preferred120 vertices; all remain within the mandatory400 ceiling. Independent straight-line simplification reaches120 mainland vertices only at the tested32-block tolerance (31.951-block boundary displacement); no candidate adopted. Exact existing-mask coverage diagnostics expose small positive-area seams/overlaps without claiming runtime impact. Current checker preview and cached official map visually compared. Source geometry, previews, exports, art and ledger unchanged. Repository validation and 472 tests pass (26 skips, zero failures, 45.027s test tier). Full goal remains open; no apply/deploy.
 

@@ -2,6 +2,8 @@
 
 Companion to the [numbered terrain atlas](atlas.png). All 129 current inventory records are listed below;58 numbered terrain reservations are a different registry. Category routes,organisations,other worlds and later-era references are retained as scope entries,not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
 
+Round45 directly verifies the immobile guarded treant community in [WN chapter42](https://ncode.syosetu.com/n6316bn/44/#L309). It does not locate its parcel or complete settlement coverage; the 32 open classifications are retained.
+
 The atlas names 16 major geographical contexts and lists 32 open representations separately. Regional typography is our interpretation within existing gameplay masks; Ulgracia uses a sea-side callout ending within its narrow mask. These labels do not survey political borders. Falmuth naming stays at the initial post-Kijin snapshot. The separate Siltrosso identity/binding conflict remains C06. No unverified Doran or Silberia capital is positioned.
 
 Sources/confidence/details remain in the [geography ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv), [coverage inventory](../docs/research/tensura-world-2026-11-19/wiki-location-coverage.csv) and [scope audit](../docs/research/tensura-world-2026-11-19/mainland-coverage-audit.csv). This index is not a claim that every wiki article or primary source has been read.

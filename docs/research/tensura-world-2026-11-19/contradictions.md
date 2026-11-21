@@ -10,6 +10,8 @@ The author's public Japanese WN chapters 13 and 31 were read. They support a nor
 
 Licensed LN volume 1/2 publisher listings and the Google Books volume-1 listing were located. The GC Novels public volume-1 sample was read, but contains only the prologue. Its publisher-linked BookWalker trial did not load (browser timeout). None exposed the necessary geography passages. Relevant publisher-hosted LN2/3/5/6/7/10 fragments have since been read directly, adding fourteen narrowly scoped verified claims; see ln-sample-findings.md and primary-sample-screening-r39.md. The LN7 road-security passage is later-era evidence,not proof of initial paving or a complete-volume reading. These do not verify the remaining LN river bearings or exact map distances. Manga page numbers and anime timestamps remain unverified. Do not invent them or cite a publisher blurb as a map source.
 
+Round45 directly reads WN42 for the immobile treant community (WN42-001). Its post-Orc battle introduction/alliance timing is kept separate from the anime S1E10 snapshot; no new compass bearing or LN agreement is established. The publisher-linked LN20/21 trials still supplied no readable story pages, so the Long Wall references remain secondary leads.
+
 ## Contradictions and decisions
 
 | ID | Evidence or conflict | Decision / remaining work |

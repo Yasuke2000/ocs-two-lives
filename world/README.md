@@ -1,5 +1,7 @@
 # world/ — the own world map
 
+Round45 [primary-source review](../docs/research/tensura-world-2026-11-19/primary-source-review-r45.md) directly supports the guarded immobile treant community without locating it. Ledger218,14 direct LN claims; inventory129/32 follow-ups unchanged. Current LN20/21 trial links were found but story pages remain unread. Source geometry and presentation are retained.
+
 Round44 [vertex-budget study](vertex-budget-study.md) retains the current source and documents why independent straight-line simplification was not adopted. Nine outlines still exceed the preferred120-vertex range; all stay within the mandatory400 ceiling. Exact mask seams are disclosed in the diagnostic rather than described as perfect coverage.
 
 Current round43 [painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) in PR102 now matches source7d021766,including the northwestern headland. Native coast/water/road vectors,58 marker projections,16 context names and32 open rows are audited. R38 and earlier paintings remain historical. This presentation does not change source terrain or close the full geographical/source/era/build-fit/runtime obligations.
