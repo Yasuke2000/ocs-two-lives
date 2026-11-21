@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Englassia central-lake castle alternative drawn (ChatGPT,round74)
+
+R74 [Englassia central-lake castle alternative](../world/englassia-castle-lake-study.md) supplies the missing C17 review geometry inside an inert source comment. One basin,four hole-free water sectors,dry plinth,castle-footprint trial andfour urban links remain authored interpretations of WN56-003. Active XML,checker preview andall13 non-index normal exports remain identical;only index source provenance changes. Current source82135855,normal65.6s. Ledger269 unique(211+58);inventory132/41 follow-ups retained. Continuity,water/model/road priority andactual castle implementation remain open. R69 painting andR73 art numeric metadata remain valid by active-geometry equivalence.
+
+Default checker0 errors/56 relations/2 existing warnings;preview/reference andoriginal plan inspected. Validation and472 tests pass(26 skipped,zero failures,62.465s);actual-comment geometry and13-export equivalence independently checked. Next:actual source/location/era gaps andthe documented C17/C15 decisions. This closes the missing review drawing only;no protected edit,main merge,apply,chunks ordeployment.
+
 ## 21/11 — Actual creative deliverables andart metadata audit (ChatGPT,round73)
 
 R73 [creative delivery audit](../world/delivery-audit-r73.md) checks the full brief andretains incomplete status. All58 art pairs exist;[PR101 metadata](https://github.com/Yasuke2000/ocs-two-lives/blob/7d5699b/docs/art/places/current-map-registration-r73.md) now corrects three stale radii without changing any PNG. The132-row coverage table is reconciled,with41 follow-ups retained. A concrete remaining drawing is C17’s qualified Englassia lake/castle alternative. Technical conversion/placement remains Claude’s handoff. Source90ee15b1,terrain,R69 painting and268-record ledger are unchanged.

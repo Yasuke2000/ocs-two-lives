@@ -1,5 +1,7 @@
 # Creative delivery audit — round73
 
+**R74 follow-up:**the [C17 alternative](englassia-castle-lake-study.md) is now drawn inertly. The missing-drawing finding below records the R73 snapshot andis superseded for that item only;physical castle/continuity/registration andthe full faithful-map goal remain incomplete.
+
 [Machine-readable evidence](delivery-audit-r73.json) · [current painted map](https://github.com/Yasuke2000/ocs-two-lives/blob/1eaa081/world/painting-round69/atlas.png) · [source SVG](map.svg) · [official comparison](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp)
 
 **The faithful-map goal remains incomplete.** This audit checks the actual deliverables against own-world.md §8 andthe user's source-first brief. It does not replace geography work with a file count. It also does not make Claude's technical placement work a new creative-agent requirement.
