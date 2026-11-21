@@ -78,3 +78,8 @@ The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects 
 ## Round57: treant sanctuary and route qualifications
 
 [Selected primary passages](treant-route-context-r57.md) qualify WN42 immobility with WN43 sanctuary-limited movement. The latter food transport is to the wetland naming operation; its conditional two-month cart detour is not a measured Tempest distance. The old shrine lore page's east-of-Ameld political half is corrected as unsupported. Guardianship is independently official-anime-backed. C15 placement/registration and initial-era state remain open; no exact parcel is inferred.
+
+
+## Round58: C15 Dwargon cities have explicit planning geometry
+
+[City reservations and deep galleries](../../../world/dwargon-cities-plan.md) are measured original proposals,not surveyed locations or registered cities. Wiki city identity and directly read WN cavern context remain distinct from unread licensed LN passages. Shallow routes fail current topography; deeper galleries require original stair and capital-landing work. No additional external entrance is asserted. The active registry/geometry and32 coverage obligations remain unchanged.

@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Dwargon East/West spatial proposals (ChatGPT, round58)
+
+Round58 [Dwargon additional-city plan](../world/dwargon-cities-plan.md) draws interpreted East/West cavern reservations,deep galleries and stair shafts in the inert C15 comment. Two shallow routes are rejected for negative surface cover. All lined room/gallery/shaft columns are checked against the current height raster; existing occupied voxels,carving and landings remain untested. City identities remain wiki-backed; no licensed LN story passage became readable. Ledger242 unique(184+58),14 direct LN plus3 author-side-story claims;129 inventory/32 follow-ups and58 art pairs remain. Active SVG geometry/terrain/registry are retained; full goal stays open. Current source1b9e151a changes only the inert comment. The normal65.1s export retains all13 non-index files byte-for-byte;index differs only in source_sha256. Validation and472 tests pass (26 skips,zero failures,62.588s);no changed JS or in-game run. Protected implementation paths and active preview/terrain/atlas bytes are unchanged.
+
+Next:underground registration/carving,capital landing/occupied-voxel fit and primary city/gate evidence remain open. The current proposals do not add live sites or alter fixed template base142. R57/R58 made progress.
+
 ## 21/11 — treant routes and unsupported territorial claim corrected (ChatGPT, round57)
 
 Round57 [treant source/route review](research/tensura-world-2026-11-19/treant-route-context-r57.md) adds4 qualified primary records. WN43 supplies sanctuary-limited movement and a conditional wetland food-transport comparison; neither establishes a Tempest cart distance. The old lore page's east-of-Ameld sovereign half and profile sister-count attribution are corrected. Ledger241 unique(183+58),14 direct printed-LN plus3 LN-aligned author-side-story claims;129 inventory/32 follow-ups and58 art pairs remain. Source e886217d and all production geometry/terrain/painting remain unchanged. Full goal stays open. Repository validation and472 tests pass (26 skips,zero failures,62.329s);no changed JavaScript or in-game run. The source diagram was visually inspected. Source/preview/terrain/atlas and implementation paths are unchanged from485ef65; no converter rerun.
