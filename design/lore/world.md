@@ -218,8 +218,8 @@ Own-world correction: the [current source-based lake](../../world/map.svg) is el
 
 - **Lore.** A republic south of Sarion and near Jura that lives from trade with Sarion and from farming. Its
   citizens are elemental magic users, and citizenship requires a spirit-contract ceremony. Its capital is Galut.
-- **Terrain.** The woodland south of Blumund, x −1600..−100, z 600..2150 (plains 76 %, forest 17 %); Lerfing's own spawn (−456, 976) is here. Our reading: north-west of Sarion rather than south of it.
-- **Landmark.** Galut / Ulgr Nature Park (−1040, 1060). The fan map's dot is "Ulgr Nature Park", so Galut's exact site is *unverified*; Filtwood (−900, 700) is a historical server pin. C20 disputes its U binding: official episode24 names a kingdom and wiki places it near Jura. See [study](../../world/southern-location-study.md).
+- **Terrain (historical Lerfing survey).** Woodland south of Blumund, x −1600..−100, z 600..2150 (plains 76 %, forest 17 %); Lerfing's spawn (−456, 976) is here. This imported-world survey does not override the official south-of-Sarion geography or the proposed own-world placement.
+- **Landmark.** Ulgr Nature Park (−1040, 1060). The fan map's dot is "Ulgr Nature Park", so Galut's exact site is *unverified*; Filtwood (−900, 700) is a historical server pin. C20 disputes its U binding: official episode24 names a kingdom and wiki places it near Jura. See [study](../../world/southern-location-study.md).
 - Source: https://tensura.fandom.com/wiki/Republic_of_Ulgracia
 
 ### R: Kingdom of Blumund (ブルムンド王国)

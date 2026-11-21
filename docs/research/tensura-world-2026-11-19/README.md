@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+R71 [Ulgracia source/identity review](ulgr-spatial-source-review-r71.md) adds three scoped WN61 claims and an original relational diagram. Corrected capital/park labels and the unsupported capital-associated spring wording;Galut and the extra-location/portal decisions remain open. Source90ee15b1,normal terrain and R69 painting are unchanged. Ledger265 unique(207+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier summaries below are historical.
+
 R70 [decoded dwarven-arena review](dwarven-arena-fit-review-r70.md) retains r58:the actual enclosed rear model does not justify a flat whole-rectangle expansion. Forecourt/entry/pit support and seven explicit spawn headrooms are checked;full interior and runtime placement remain open. Production source90ee15b1,normal exports and R69 painting are unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier version-specific summaries below are historical.
 
 R68 [Sacred Mountain support](sacred-mountain-fit-review-r68.md):source90ee15b1,radius80→95,automatic first-air179→175. Exact preparation is our interpretation. Terrain atlas is refreshed;R64 painting needs explicit height integration. Ledger261;inventory132/41 follow-ups and full source/era/fixed-rule/runtime scope remain open. Earlier version-specific statements below are historical.

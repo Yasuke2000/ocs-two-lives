@@ -98,3 +98,8 @@ The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects 
 ## Round62: template support is not canonical summit dimensions
 
 [The offset-footprint audit](../../../world/dragons-nest-fit-review.md) treats the nest diameter,level,platform and architecture as authored accommodation. The summit setting remains wiki-backed;LN12 chapter4 is not directly read. C18 prevents a blanket preparation expansion for the later Tempest metropolis. Cave roofs and intended water templates need different fit criteria. Exact placement/runtime acceptance and the32 coverage gaps remain open;older R61 art is not falsely certified against new0b211ec7 terrain.
+
+
+## Round71: C09/C15 town identity and threshold topology
+
+[Selected WN61 paragraphs](../../../world/ulgr-spatial-source-review.md) distinguish city altar and park doorway without naming Galut. The new diagram is relational,not a surveyed city/park plan. Combined labels and the unsupported capital-associated spring wording are corrected. Existing58 IDs/source90ee15b1/terrain/R69 painting remain unchanged;separate capital registration and the near-Tempest adaptation remain open. No LN corroboration,door architecture or initial-era event is inferred.

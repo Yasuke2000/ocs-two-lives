@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Ulgracia identity and threshold source review (ChatGPT,round71)
+
+R71 [Ulgracia source/identity review](../world/ulgr-spatial-source-review.md) adds three scoped WN61 claims and an original relational diagram. Corrected capital/park labels and the unsupported capital-associated spring wording;Galut and the extra-location/portal decisions remain open. Source90ee15b1,normal terrain and R69 painting are unchanged. Validation and472 tests pass(26 skipped,zero failures,62.792s);five official stills and original diagram inspected;independent scope/input checks pass. Ledger265 unique(207+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier summaries below are historical.
+
+Next:verify remaining actual locations and initial-era/source/registration questions. Do not turn the WN unnamed town into an identified Galut parcel or an ordinary physical labyrinth. No protected edit,terrain apply,main merge,chunks or deployment.
+
 ## 21/11 — Dwarven arena occupied rear shell review (ChatGPT,round70)
 
 [R70 actual-model review](../world/dwarven-arena-fit-review.md) retains r58. Forecourt,entry,pit and stair context are exactly75 with both samplers;rear variation belongs to the enclosed raised model rather than an exposed common-level plaza. All3,343 occupied columns have SITE exclusion and source surface between their lowest solid base and highest solid top. Seven declared spawn points have explicit model floors/air. This rejects rectangle-only radius84 flattening,not runtime/collision/whole-interior acceptance. Legacy survey/beside placement still needs fixed-map reconciliation. Validation and472 tests pass(26 skipped,zero failures,62.737s);original diagram visually inspected;input/footprint/source checks pass.

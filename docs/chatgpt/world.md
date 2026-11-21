@@ -199,7 +199,7 @@ Extent = bounding box on the current map (x0..x1, z0..z1).
 - **Lore.** A republic south of Sarion and near Jura that lives from trade with Sarion and from farming. Citizens are elemental magic users; citizenship needs a spirit-contract ceremony. Capital Galut; Ulgr Nature Park holds the entrance to Ramiris's Dwelling of the Spirits in the series.
 - **Faction.** No faction in the pack yet.
 - **Terrain (current).** woodland and plains south of Blumund.
-- **Places.** [Filtwood](places/filtwood.md), [Galut / Ulgr Nature Park](places/ulgr_nature_park.md)
+- **Places.** [Filtwood](places/filtwood.md), [Ulgr Nature Park](places/ulgr_nature_park.md)
 
 ### F: Kingdom of Falmuth
 
@@ -377,7 +377,7 @@ long canon note in `design/lore/`.
 | [Sacred Mountain (Inner Sanctum, Luminous)](places/sacred_mountain.md) | L | build | −2980, −900 | 5,030 blocks W | The Sacred Mountain and the sealed Inner Sanctum gate of Lubelius. | [sacred_mountain.md](../../design/lore/sacred_mountain.md) |
 | [Filtwood](places/filtwood.md) | U | pin | −900, 700 | 2,630 blocks W | Server U pin; canonical kingdom near Jura, placement disputed (C20). | [world.md](../../design/lore/world.md) |
 | [Ghastone](places/ghastone.md) | G | pin | −2000, 300 | 3,770 blocks W | Ghastone, a pin on Englassia's western plain. | [world.md](../../design/lore/world.md) |
-| [Galut / Ulgr Nature Park (Ulgracia)](places/ulgr_nature_park.md) | U | build | −1040, 1060 | 2,760 blocks W | Galut / Ulgr Nature Park, Ulgracia's woodland park and the entrance to the Dwelling of the Spirits in the series. | [ulgr_nature_park.md](../../design/lore/ulgr_nature_park.md) |
+| [Ulgr Nature Park (Ulgracia)](places/ulgr_nature_park.md) | U | build | −1040, 1060 | 2,760 blocks W | Ulgr Nature Park, Ulgracia's woodland park and the entrance to the Dwelling of the Spirits in the series. | [ulgr_nature_park.md](../../design/lore/ulgr_nature_park.md) |
 | [Blumund road camp at Jura's edge (sidequests blumund_road)](places/blumund_road.md) | R | spot | −250, 250 | 2,070 blocks W | Road camp on the Londo-Tempest road, at Jura's edge. | [world.md](../../design/lore/world.md) |
 | [Englassia road post (sidequests englassia_road)](places/englassia_road.md) | G | spot | −1880, −500 | 3,860 blocks W | Road post on the eastbound road between Ballachia and Lura. | [world.md](../../design/lore/world.md) |
 
