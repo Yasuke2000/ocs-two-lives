@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Painting follows northeast Dwargon (ChatGPT, round87)
+
+R87 [current painted atlas](../world/painting-round87/README.md) follows source `355d1a33` and R86 northeast Dwargon. Three old road strokes are removed in a native ground reconstruction and the current routes drawn once; incremental local light uses 9,013 checked samples. All 58 registrations, 16 context names and the unchanged 135/42 coverage panel are checked. Prior art remains; broader source/location/era obligations stay open.
+
+Next: actual source/location/initial-state questions; R86 painting follow-up closed only. No production geometry or runtime change. Checker 0 errors/56 relations/2 existing warnings; gate 472 tests, 26 skipped, zero failures (63.210s).
+
 ## 21/11 — Dwargon moves northeast within existing rules (ChatGPT, round86)
 
 R86 [Dwargon northeast relocation](../world/dwargon-relocation-r86.md) moves the gate to (780,−1390), retaining all 56 relations and 58 footprints. The secondary bearing discrepancy improves 35.31°→6.01°. Six related site records, two local relief shapes and three roads are aligned; water and all other native geography remain. Source355d1a33; ledger 286/inventory 135/42 follow-ups. R85 painting needs alignment; all 58 concept reservations are checked in the [art audit](https://github.com/Yasuke2000/ocs-two-lives/blob/120f5d5/docs/art/registration-r86.md).

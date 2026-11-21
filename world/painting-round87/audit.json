@@ -1,0 +1,66 @@
+{
+  "round": 87,
+  "source_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
+  "map_commit": "7cd04dcbcb10c13c63bfb72dec09c8b05b75a813",
+  "source_vectors": {
+    "roads_current": 21,
+    "unchanged_native_roads": 18,
+    "old_moved_roads_removed_from_ground": [
+      "canaat_high_pass",
+      "dwargon_dwarf_village",
+      "tempest_dwargon"
+    ],
+    "current_moved_roads_drawn_once": [
+      "canaat_high_pass",
+      "dwargon_dwarf_village",
+      "tempest_dwargon"
+    ],
+    "unchanged_hydrography": true
+  },
+  "native_ground_other_nodes_exactly_retained": true,
+  "R69_baseline_rerender_changed_pixels": 0,
+  "shader_samples_independently_checked": 9013,
+  "retained_R81_native_nodes_exact": true,
+  "continent_pixels_changed": 3769,
+  "max_rgb_delta": 83,
+  "changed_pixel_bounds": [
+    743,
+    349,
+    880,
+    526
+  ],
+  "max_changed_pixel_distance_from_combined_support": 5.077901795294698,
+  "support_scope": "Height-change cells plus16; complete old/current moved-route stroke buffers12, including shared sections for coherent dash phase/edge rounding.",
+  "registration_sites": 58,
+  "moved_site_groups": 6,
+  "unmoved_site_groups": 52,
+  "context_names": 16,
+  "minimum_bubble_spacing": 32.470561517449696,
+  "names_clear_padded_number_boxes": true,
+  "all15_full_stroked_inmask_names_fit": true,
+  "Ulgracia_callout_unchanged": true,
+  "coverage_panel_XML_unchanged": true,
+  "inventory": 135,
+  "physical_followups": 42,
+  "ledger_unique": 286,
+  "atlas_embeds_exact_new_continent": true,
+  "prior_art_unchanged": true,
+  "source_svg_and_protected_paths_unchanged_after_merge": true,
+  "new_AI_images": 0,
+  "runtime_applied": false,
+  "sampler_scope": "Illustrative incremental light, not absolute elevation, biome-voxel or runtime water/density acceptance.",
+  "leader_paths_independently_checked": 58,
+  "source_svg_preview_protected_paths_unchanged_after_merge": true,
+  "prior_R81_definitions_exactly_retained": true,
+  "default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.21
+  }
+}
