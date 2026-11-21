@@ -1,0 +1,65 @@
+{
+  "round": 103,
+  "source_sha256": "dbef5ac01a2e22f6aca9182527fc6610295f385da9fec2058ccf2f52cd833197",
+  "height_raw_sha256": "fc395c2c3851bf38d26ac13735a5ecb62a9a045640ac5b8de61c8e8bd8bde6cb",
+  "current_land_centroid": [
+    -1647.3336490884303,
+    -3823.556664002035
+  ],
+  "method": "Every integer buffered column centre; bilinear four-block normal height; containing-cell water; unrotated existing entrance model, not full palace. Trial floor is rounded median, not an applied terrace.",
+  "candidates": [
+    {
+      "label": "Current coast",
+      "x": -1500,
+      "z": -3310,
+      "centre_distance_to_current_land_centroid": 534.2730119467125,
+      "centre_distance_to_coast": 55.36075530207789,
+      "buffered_columns": 8585,
+      "minimum_first_air": 64.8125,
+      "maximum_first_air": 65.5390625,
+      "relief": 0.7265625,
+      "median_first_air": 65.0,
+      "trial_first_air": 65.0,
+      "maximum_absolute_height_difference_to_trial_floor": 0.5390625,
+      "sampled_water_columns": 0,
+      "buffered_corner_radius": 88.35440000362178,
+      "minimum_integer_radius_for_rectangle": 89
+    },
+    {
+      "label": "Earlier centroid proposal",
+      "x": -1660,
+      "z": -3820,
+      "centre_distance_to_current_land_centroid": 13.156226823766568,
+      "centre_distance_to_coast": 475.97125963654554,
+      "buffered_columns": 8585,
+      "minimum_first_air": 91.4970703125,
+      "maximum_first_air": 167.71875,
+      "relief": 76.2216796875,
+      "median_first_air": 124.875,
+      "trial_first_air": 125.0,
+      "maximum_absolute_height_difference_to_trial_floor": 42.71875,
+      "sampled_water_columns": 0,
+      "buffered_corner_radius": 88.35440000362178,
+      "minimum_integer_radius_for_rectangle": 89
+    },
+    {
+      "label": "Central snowfield alternative",
+      "x": -1530,
+      "z": -3680,
+      "centre_distance_to_current_land_centroid": 185.40685259126786,
+      "centre_distance_to_coast": 374.5749581859416,
+      "buffered_columns": 8585,
+      "minimum_first_air": 69.5654296875,
+      "maximum_first_air": 71.5234375,
+      "relief": 1.9580078125,
+      "median_first_air": 70.5234375,
+      "trial_first_air": 71.0,
+      "maximum_absolute_height_difference_to_trial_floor": 1.4345703125,
+      "sampled_water_columns": 0,
+      "buffered_corner_radius": 88.35440000362178,
+      "minimum_integer_radius_for_rectangle": 89
+    }
+  ],
+  "active_map_changed": false,
+  "limits": "No final noise, voxel support, density, collision, path or whole-palace fit proof. Snowfield alternative is original geography interpretation, not a canonical coordinate. Existing generated coast preparation affects the coast comparison."
+}

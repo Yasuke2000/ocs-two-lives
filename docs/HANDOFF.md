@@ -1,3 +1,11 @@
+## 21/11 — Frost Palace current-terrain alternatives (R103)
+
+[Original comparison and reproducible survey](../world/frost-palace-fit-r103.md) finds76.22 blocks of relief under the old inert centroid proposal and1.96 under an alternative at(-1530,-3680),185.41 blocks from the current island centroid. All8585 buffered entrance-column centres sampled; trial floor71 has at most1.435 blocks height difference. This is the existing entrance model,not a full palace or runtime fit proof. Current coast already includes site preparation; rectangle89-radius budget does not mandate enlargement.
+
+Yasuke was asked to choose inland palace,coast arrival plus inland palace,or await LN confirmation; response pending. C22 current coast contract remains unchanged. No dependent active map/data edit. Source `dbef5ac0`,58 sites,22 roads,terrain,R100 painting andinventory138/42 retained. Ledger308 unique(250+58); new row is original design interpretation. Required gate472 tests,26 skipped,zero failures(63.753s), validation and zero changed JavaScript passed; SVG/PNG inspected,source hash and sample/count assertions passed. No new converter/checker run needed for this inert study.
+
+Next: apply the owner's placement choice when received,then resolve actual site kind,preparation,local forecourt/access and whole-palace scope through the permitted creative/technical contract. Do not simply activate the steep old centroid or duplicate site IDs. Other source/geography obligations remain open; no generated structure,world apply,merge,deploy or in-game acceptance.
+
 ## 21/11 — Council capital source and anime references (R102)
 
 [Primary-source review](research/tensura-world-2026-11-19/council-capital-source-r102.md) adds WN139-COW-102: a later Council meeting in Englassia royal capital, beyond earlier country-only evidence. OFF-COW-102 records limited visible interior cues from official episode77 still1; all five gallery originals were individually viewed and retained privately. Permanent headquarters, exact parcel and S1E10 state remain unverified. The Council physical task stays missing and distinct from guild/academy/castle.
