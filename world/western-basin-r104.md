@@ -50,8 +50,7 @@ source metadata and140-entry inventory caption change. The Blumund orientation
 text moves north so that it does not read as the new lake’s name; numbered
 markers and other context text positions stay fixed. Inventory140/42 open
 physical follow-ups; all previous classifications retained. Ledger310 unique.
-R100 painting predates this lake/outlet and needs alignment; its old registration
-and coverage caption must not be described as current. Existing art pairs remain
+[R105 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/8b4bbf6/world/painting-round105/README.md) now follows this lake/outlet and the140-entry caption. R100 and its prior source/caption are historical. Existing art pairs remain
 unchanged. Source `e785c2b0`; current atlas/checker/terrain previews inspected.
 
 The earlier coastline,scale,political,initial-era and C22 differences remain

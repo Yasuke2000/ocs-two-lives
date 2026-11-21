@@ -1,6 +1,6 @@
 ## Current source — R104
 
-[Western illustrated basin and outlet](../../../world/western-basin-r104.md) are active in source `e785c2b0`:12 lakes,9 rivers,58 unchanged places and22 unchanged routes. Ledger310; inventory140/42 physical follow-ups. The current terrain atlas is refreshed; R100 painting predates this addition and needs alignment. This is no claim of exhaustive wiki/primary-source coverage. Earlier round status notes below are historical.
+[Western illustrated basin and outlet](../../../world/western-basin-r104.md) are active in source `e785c2b0`:12 lakes,9 rivers,58 unchanged places and22 unchanged routes. Ledger310; inventory140/42 physical follow-ups. The current terrain atlas is refreshed; [R105 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/8b4bbf6/world/painting-round105/README.md) follows this addition and the140-entry caption. R100 is historical. This is no claim of exhaustive wiki/primary-source coverage. Earlier round status notes below are historical.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 

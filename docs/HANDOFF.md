@@ -1,3 +1,9 @@
+## 21/11 — Published painting follows western water (R105)
+
+[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/8b4bbf6/world/painting-round105/README.md) follows source `e785c2b0`:exact40 lake/36 outlet vertices,1304 changed continent pixels and all58 registrations checked.20 context names/42 open rows,caption140 andledger310 agree. Blumund orientation text clears the painted projection with an explicit20px east layout adjustment; no place moves. R100 is historical and painting alignment is complete. [Evidence](research/tensura-world-2026-11-19/painting-alignment-r105.md).
+
+Painting commit8b4bbf6 gate472tests,26skipped,zero failures(64.430s); source checker0errors/56relations/2prior warnings. Main documentation gate472tests,26skipped,zero failures(64.256s); zero changed JavaScript. Main source/terrain geometry remains unchanged from b36f284. Broader geographical/source/initial-era/physical obligations remain open; C22 owner decision pending. No world apply or runtime action. Next: substantive remaining map/source work,not another alignment/counter round without changed geography.
+
 ## 21/11 — Western illustrated basin restored (R104)
 
 [Source/terrain review](../world/western-basin-r104.md) adds an original unnamed western lake and southwest outlet after direct visual comparison with the official introductory illustration. Source `e785c2b0`; 12 lakes/9 rivers. Checker0errors/56relations/2prior warnings; normal staging67.6s. Existing58 exported site records and22 route records remain byte-identical; all previous XML retained. Height changes7203cells within5.61blocks of new water; water/biome change6739cells inside it. Explicit inland water plus implicit sea are four-neighbour connected. No world apply.

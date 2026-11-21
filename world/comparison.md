@@ -38,8 +38,8 @@ that all proportions or minor locations are correct.
 - Initial snapshot: immediately after Kijin naming,S1E10. Later anime/wiki maps
   may establish persistent landforms but do not authorize later federation
   borders,festival metropolis,Dungeon,railways or completed conquests.
-- The current terrain atlas follows source `e785c2b0`. The R100 painted atlas
-  predates this water addition and140-entry caption; painting alignment is due.
+- The current terrain atlas follows source `e785c2b0`. The [R105 painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/8b4bbf6/world/painting-round105/README.md)
+  follows this water addition and140-entry caption. R100 is historical.
   Existing original place art remains a separate design deliverable.
 
 Final source check:0errors/56relations/2prior warnings. Normal staging build
