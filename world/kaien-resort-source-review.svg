@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860">
+<defs><linearGradient id="sea" x2="0" y2="1"><stop stop-color="#24576a"/><stop offset="1" stop-color="#102b40"/></linearGradient></defs>
+<rect width="1280" height="860" fill="#eee7d6"/>
+<g font-family="Arial,sans-serif" fill="#233d42">
+<text x="52" y="58" font-size="29" font-weight="bold">Kaien &amp; Resort Island — source scope</text>
+<text x="52" y="91" font-size="17">Official second-film evidence · original explanatory diagram · round 75</text>
+<text x="52" y="125" font-size="16" font-weight="bold">Separate panels: no shared location, world coordinates, scale or numeric depth.</text>
+<rect x="52" y="152" width="556" height="400" rx="15" fill="#fffaf0" stroke="#b9b1a0"/>
+<rect x="672" y="152" width="556" height="400" rx="15" fill="#fffaf0" stroke="#b9b1a0"/>
+<text x="78" y="190" font-size="23" font-weight="bold">Surface setting: Resort Island</text>
+<text x="698" y="190" font-size="23" font-weight="bold">Sea-floor setting: Kaien</text>
+<path d="M78 337 Q125 329 173 337 T269 337 T365 337 T461 337 T582 337 L582 429 L78 429Z" fill="#78aab0"/>
+<path d="M193 337 Q211 318 241 311 Q256 285 282 286 Q316 278 339 304 Q375 308 400 337Z" fill="#71835e" stroke="#526249" stroke-width="2"/>
+<path d="M182 340 Q283 327 409 340" fill="none" stroke="#d6c599" stroke-width="7"/>
+<text x="97" y="380" font-size="16" fill="#173c50">Island symbol only — no surveyed shoreline</text>
+<text x="78" y="468" font-size="18">Elmesia’s ownership: officially stated.</text>
+<text x="78" y="500" font-size="16">Mainland bearing and early construction: unknown.</text>
+<rect x="698" y="224" width="504" height="205" fill="url(#sea)"/>
+<path d="M698 402 Q764 386 817 404 T927 403 T1039 401 T1202 402 L1202 429 L698 429Z" fill="#5f7776"/>
+<text x="731" y="274" font-size="18" fill="#e7f3ef">Water column — depth unspecified</text>
+<text x="844" y="352" font-size="26" font-weight="bold" fill="#fff1c9">KAIEN</text>
+<text x="784" y="381" font-size="16" fill="#d3e4dc">Sea-floor country; no city plan drawn</text>
+<text x="698" y="468" font-size="18">Underwater setting: officially stated.</text>
+<text x="698" y="500" font-size="16">Position beneath Resort Island: not established.</text>
+<text x="52" y="599" font-size="21" font-weight="bold">Story timing — not a founding-date diagram</text>
+<path d="M92 652 H1170" stroke="#a29a82" stroke-width="3"/>
+<circle cx="116" cy="652" r="9" fill="#48746c"/><circle cx="665" cy="652" r="9" fill="#8c8065"/><circle cx="1105" cy="652" r="9" fill="#8c8065"/>
+<text x="52" y="630" font-size="17">Chosen starting snapshot</text>
+<text x="52" y="689" font-size="17" font-weight="bold">S1E10: Kijin named</text>
+<text x="557" y="630" font-size="17">Later opening festival</text>
+<text x="987" y="689" font-size="17">Film vacation follows</text>
+<text x="52" y="748" font-size="17">Later visitation does not prove absence or identical site state at the early snapshot.</text>
+<text x="52" y="784" font-size="17">Both inventory entries remain open. No production terrain or coordinates changed.</text>
+<text x="52" y="824" font-size="14">Sources: movie02.ten-sura.com STORY / Elmesia profile; official character announcement, 6 January 2026.</text>
+</g></svg>

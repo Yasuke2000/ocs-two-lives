@@ -97,7 +97,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Kingdom of Filtwood](https://tensura.fandom.com/wiki/Kingdom_of_Filtwood) | mainland feature | partial | filtwood |
 | [Kingdom of Ghastone](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | pin present country unverified | ghastone |
 | [Kingdom of Grada](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | missing distinct representation | — |
-| [Kingdom of Kaien](https://tensura.fandom.com/wiki/Kingdom_of_Kaien) | offshore location review | missing distinct representation | — |
+| [Kingdom of Kaien](https://tensura.fandom.com/wiki/Kingdom_of_Kaien) | underwater country / movie review | missing distinct representation | — |
 | [Kingdom of Larbach](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | missing distinct representation | — |
 | [Kingdom of Malbarath](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | missing distinct representation | — |
 | [Kingdom of Malukshure](https://tensura.fandom.com/wiki/Kingdom_of_Malukshure) | mainland feature | partial | sainte_malukshure |
@@ -130,7 +130,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Republic of Boruss](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | missing distinct representation | — |
 | [Republic of Ulgracia](https://tensura.fandom.com/wiki/Republic_of_Ulgracia) | mainland feature | region present | nation-U |
 | [Republic of Zamund](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | missing distinct representation | — |
-| [Resort Island](https://tensura.fandom.com/wiki/Resort_Island) | offshore location review | missing distinct representation | — |
+| [Resort Island](https://tensura.fandom.com/wiki/Resort_Island) | offshore island / movie review | missing distinct representation | — |
 | [Rimuru City](https://tensura.fandom.com/wiki/Rimuru_City) | mainland feature | site present | tempest |
 | [Rival Chiefs Republic of China](https://tensura.fandom.com/wiki/Homeworld_of_Hazy_Style) | separate world | separate world review | — |
 | [Rondo](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | site present | blumund |

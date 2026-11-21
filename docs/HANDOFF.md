@@ -1,5 +1,13 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Underwater Kaien andseparate later island visit (ChatGPT, round 75)
+
+R75 [Kaien/Resort Island source review](../world/kaien-resort-source-review.md) adds scoped official movie evidence and three inspected promotional-image references. The existing two inventory entries stay open; Kaien is now explicitly an underwater-country review. Exact location, depth and initial state remain unverified. Ledger 273 unique(215+58); inventory 132/41 physical follow-ups unchanged. Source 82135855, normal terrain, R69 painting and R73 art metadata remain unchanged.
+
+Validation: repository gate passed, 472 tests / 26 skipped / zero failures (62.807s); independent source, inventory and private-hash checks passed. Original diagram PNG inspected.
+
+Next: remaining source/location and initial-era questions. No guessed surface islands orcoordinates; no location is marked implemented by the classification change. Technical placement remains Claude’s handoff.
+
 ## 21/11 — Englassia central-lake castle alternative drawn (ChatGPT,round74)
 
 R74 [Englassia central-lake castle alternative](../world/englassia-castle-lake-study.md) supplies the missing C17 review geometry inside an inert source comment. One basin,four hole-free water sectors,dry plinth,castle-footprint trial andfour urban links remain authored interpretations of WN56-003. Active XML,checker preview andall13 non-index normal exports remain identical;only index source provenance changes. Current source82135855,normal65.6s. Ledger269 unique(211+58);inventory132/41 follow-ups retained. Continuity,water/model/road priority andactual castle implementation remain open. R69 painting andR73 art numeric metadata remain valid by active-geometry equivalence.

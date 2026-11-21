@@ -1,0 +1,79 @@
+{
+  "round": 75,
+  "production_source_sha256": "82135855d80430f1e4a723f92c86d9802b45c79e03fe2cd2c8c03503bfb6da2e",
+  "source_svg_changed": false,
+  "official_pages": [
+    {
+      "url": "https://movie02.ten-sura.com/",
+      "private_sha256": "ab2d4c8cd7ac17015f976ac7c432bccb0c67803a2eef0c88f01a48f53a76cbc5",
+      "locators": [
+        ".home_story_text",
+        "CHARACTER:Elmesia ownership paragraph"
+      ],
+      "scope": "Selected synopsis/profile text only;not a full film viewing."
+    },
+    {
+      "url": "https://movie02.ten-sura.com/news/154/",
+      "private_sha256": "b980ea8c7cf5a983a38ab22e888a263473e75e7b54ff2d66bbe4b3b24f1be099",
+      "locator": "6 January 2026;opening Kaien/Yura announcement paragraph"
+    }
+  ],
+  "visuals": [
+    {
+      "image_url": "https://movie02.ten-sura.com/H9cpin45/wp-content/themes/movie02_ten_sura/assets/img/home/kv_image1.webp?v=2",
+      "sha256": "f2bcac3b2203c8bc61480724f7eae693440b8066a12db9cd5f2da665244a99f4",
+      "width": 1600,
+      "height": 2262,
+      "inspection": "Pixels viewed directly;private original outside repo.",
+      "role_and_limit": "Underwater promotional scene with marine life;no country plan,depth or scale.",
+      "not_generation_input": true
+    },
+    {
+      "image_url": "https://movie02.ten-sura.com/H9cpin45/wp-content/themes/movie02_ten_sura/assets/img/home/kv_image2.webp?v=2",
+      "sha256": "f7c81a6732e6da648442a34a509880597192fab30a61f88d03f54a279a3397fa",
+      "width": 1600,
+      "height": 2262,
+      "inspection": "Pixels viewed directly;private original outside repo.",
+      "role_and_limit": "Coastal promotional backdrop;place identity and measured layout unverified.",
+      "not_generation_input": true
+    },
+    {
+      "image_url": "https://movie02.ten-sura.com/H9cpin45/wp-content/themes/movie02_ten_sura/assets/img/home/kv_image3.webp?v=2",
+      "sha256": "1a5e29d21f970a920ee3281b7fc6182d4fe3f685587a8a0ebe0b2726d48043f7",
+      "width": 1600,
+      "height": 2262,
+      "inspection": "Pixels viewed directly;private original outside repo.",
+      "role_and_limit": "Composite character/action key visual;not a geographic map or initial-era roster.",
+      "not_generation_input": true
+    }
+  ],
+  "new_claim_ids": [
+    "MOV-KAI-075",
+    "MOV-RES-075",
+    "MOV-ERA-075",
+    "OFF-AZVIS-075"
+  ],
+  "inventory_entries": 132,
+  "physical_followups": 41,
+  "new_coordinates_or_depths_assigned": false,
+  "country_scope": "Kaien is a sea-floor movie setting;the exact country/continent relation and initial state remain unverified.",
+  "island_scope": "Resort ownership does not locate the island;later visit chronology does not date construction.",
+  "production_geometry_or_runtime_changed": false,
+  "verification": {
+    "repository_gate": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 62.807,
+    "unique_ledger_ids": 273,
+    "printed_ln_claims": 14,
+    "author_side_story_claims": 6,
+    "inventory_rows": 132,
+    "changed_inventory_rows": 2,
+    "coverage_statuses_unchanged": true,
+    "private_page_image_hashes_checked": 5,
+    "diagram_visual_review": "PNG viewed; labels, separate panels and chronology inspected.",
+    "production_source_and_export_provenance_unchanged": true,
+    "reference_images_embedded": false
+  }
+}
