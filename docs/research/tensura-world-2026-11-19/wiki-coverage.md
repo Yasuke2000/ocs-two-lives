@@ -1,16 +1,6 @@
-## Current source — R104
+## Current source — R106
 
-[Western illustrated basin and outlet](../../../world/western-basin-r104.md) are active in source `e785c2b0`:12 lakes,9 rivers,58 unchanged places and22 unchanged routes. Ledger310; inventory140/42 physical follow-ups. The current terrain atlas is refreshed; [R105 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/8b4bbf6/world/painting-round105/README.md) follows this addition and the140-entry caption. R100 is historical. This is no claim of exhaustive wiki/primary-source coverage. Earlier round status notes below are historical.
-
-# Wiki location coverage audit — updated 21 November 2026
-
-R80 adds one qualified lake-terrain record. Current inventory 134; the 41 existing physical follow-ups remain open. [Review](../../../world/el-dorado-lake-review.md). Earlier inventory counts below are historical.
-
-R77 adds one active, qualified island terrain record from the official illustration. Current inventory 133; the 41 physical follow-ups remain unchanged. The older R73 count below is historical. [Review](../../../world/northern-island-review.md).
-
-R73 delivery audit:the current132-row inventory has41 physical follow-ups(28 missing,8 partial,2 unverified country pins and3 parent designs). These are distinct from the already delivered58 original art pairs andfrom Claude’s future technical placement work. Current counts below are recomputed from the CSV;earlier round-specific appendices remain historical. The Horn Empire entry andOrbic/Ulgracia child-category traversal remain unverified;parent-index sightings do not prove child-category inspection. No missing location is reclassified as complete.
-
-The Eastern Empire is present as gameplay region E, with Nasca and the mountain marker. This is not an exhaustive model of its cities, institutions or historical states. The 58 registered production sites were the server brief, not a claim to cover every notable wiki location.
+[Southeastern illustrated water and woodland](../../../world/southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger312; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; R105 painting/source e785c2b0 predates this addition and needs alignment. This does not certify exhaustive wiki or primary-source coverage. Earlier round status notes below are historical.
 
 ## What was checked
 

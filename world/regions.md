@@ -1,6 +1,6 @@
-## Current source — R104
+## Current source — R106
 
-[Western illustrated basin and outlet](western-basin-r104.md) are active in source `e785c2b0`:12 lakes,9 rivers,58 unchanged places and22 unchanged routes. Ledger310; inventory140/42 physical follow-ups. The current terrain atlas is refreshed; [R105 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/8b4bbf6/world/painting-round105/README.md) follows this addition and the140-entry caption. R100 is historical. This is no claim of exhaustive wiki/primary-source coverage. Earlier round status notes below are historical.
+[Southeastern illustrated water and woodland](southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger312; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; R105 painting/source e785c2b0 predates this addition and needs alignment. This does not certify exhaustive wiki or primary-source coverage. Earlier round status notes below are historical.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 
@@ -656,3 +656,12 @@ interpretation**,not a named/surveyed LN lake. It remains separate from Raja and
 the WN royal lake. All prior58 sites/22 roads and source elements retained;
 normal sites/roads exports byte-identical. No national boundary or initial-era
 city inferred. Ledger310,inventory140/42. R100 painting predates this addition.
+
+## Southeastern water and woodland — round106
+
+[Source/terrain review](southeastern-water-wood-r106.md) restores the small
+illustrated southeastern water and isolated woodland to its north/northwest.
+Exact36/66-vertex outlines,positions,scale,level68/depth4 and light tree choice
+are **our interpretation**. No name,outlet,capital or sovereign boundary is
+inferred. All previous XML,58 site reservations and22 roads retained.312 ledger,
+142 inventory/42 follow-ups; R105 painting needs alignment to these additions.

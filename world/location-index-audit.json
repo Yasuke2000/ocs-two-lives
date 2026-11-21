@@ -1,10 +1,10 @@
 {
   "baseline_commit": "f118b6e",
-  "source_sha256": "e785c2b0a37105994f29ed4eae0f48fa8884b57d334a80c0811a350bfac7ed74",
+  "source_sha256": "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1",
   "presentation_only": false,
   "production_svg_changed": true,
   "terrain_image_bytes_retained": false,
-  "terrain_image_sha256": "d627780a70752df311dfc70c72380d8b55b312765521197b79095774073b603f",
+  "terrain_image_sha256": "201ad3800fd091e229438e0d16269c91bcde454f320caa28f2f5e8592ed8fcac",
   "existing_numbered_reservations": 58,
   "geographic_labels": [
     {
@@ -84,15 +84,15 @@
       "gameplay_context": "M",
       "claims": "OFF-015;MAP-001",
       "world_label_position_interpreted": [
-        3500,
-        1150
+        3500.013381818182,
+        1433.6000000000013
       ],
       "font_size": 25,
       "display_box": [
-        1632.1276041666667,
-        1324.1002604166667,
-        1821.1276041666667,
-        1364.3502604166667
+        1660.0570068359375,
+        1330.9000244140625,
+        1831.0726318359375,
+        1357.9000244140625
       ],
       "marker_clearance_padding_pixels": 7,
       "callout": null
@@ -1657,7 +1657,7 @@
   "r60_only_atlas_embedded_image_changed": true,
   "r62_only_atlas_embedded_image_changed": true,
   "r64_only_open_panel_changed": true,
-  "current_inventory_records": 140,
+  "current_inventory_records": 142,
   "current_open_rows": 42,
   "r68_only_atlas_embedded_image_changed": false,
   "r68_atlas_changes": {
@@ -1859,5 +1859,175 @@
     "Blumund_text_moved_from_local_y": 1209.95,
     "Blumund_text_moved_to_local_y": 1160,
     "prior_round_fields_are_historical": true
+  },
+  "r106_current_browser_review": {
+    "source_sha256": "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1",
+    "context_names": 20,
+    "numbered_circles": 58,
+    "open_rows": 42,
+    "minimum_number_spacing_px": 31.621008835113628,
+    "label_overlap": false,
+    "all_prior_text_and_number_geometry_retained": false,
+    "panel_metadata_corrected_from_stale138_to142": true,
+    "all_numbered_and_other_text_geometry_retained": true,
+    "declared_orientation_text_adjustment": "Milim domain y1344.23->1395; avoids overlap with new water.",
+    "labels": [
+      {
+        "x": 1722.304443359375,
+        "y": 749.3416748046875,
+        "width": 167.2265625,
+        "height": 27,
+        "text": "Eastern Empire",
+        "region": "E"
+      },
+      {
+        "x": 1363.253173828125,
+        "y": 855.7000122070312,
+        "width": 195.09375,
+        "height": 27,
+        "text": "Canaat Mountains",
+        "region": "D"
+      },
+      {
+        "x": 1016.4427490234375,
+        "y": 1213.4056396484375,
+        "width": 187.06640625,
+        "height": 27,
+        "text": "Great Jura Forest",
+        "region": "J"
+      },
+      {
+        "x": 1730.6864013671875,
+        "y": 938.404052734375,
+        "width": 64.203125,
+        "height": 27,
+        "text": "Jistav",
+        "region": "P"
+      },
+      {
+        "x": 1660.0570068359375,
+        "y": 1330.9000244140625,
+        "width": 171.015625,
+        "height": 27,
+        "text": "Milim's Domain",
+        "region": "M"
+      },
+      {
+        "x": 1351.5201416015625,
+        "y": 1299.3448486328125,
+        "width": 108.3671875,
+        "height": 27,
+        "text": "Eurazania",
+        "region": "B"
+      },
+      {
+        "x": 1145.1788330078125,
+        "y": 1574.346435546875,
+        "width": 101.6640625,
+        "height": 27,
+        "text": "Fulbrosia",
+        "region": "H"
+      },
+      {
+        "x": 842.8169555664062,
+        "y": 1436.845703125,
+        "width": 69.546875,
+        "height": 27,
+        "text": "Sarion",
+        "region": "S"
+      },
+      {
+        "x": 724.843994140625,
+        "y": 1597.6856689453125,
+        "width": 82.9298095703125,
+        "height": 24.9998779296875,
+        "text": "Ulgracia",
+        "region": "U"
+      },
+      {
+        "x": 784.9801635742188,
+        "y": 1105.300048828125,
+        "width": 99.48828125,
+        "height": 27,
+        "text": "Blumund",
+        "region": "R"
+      },
+      {
+        "x": 603.6990966796875,
+        "y": 946.9960327148438,
+        "width": 101.81640625,
+        "height": 27,
+        "text": "Englassia",
+        "region": "G"
+      },
+      {
+        "x": 858.1026000976562,
+        "y": 761.3704223632812,
+        "width": 90.5703125,
+        "height": 27,
+        "text": "Falmuth",
+        "region": "F"
+      },
+      {
+        "x": 453.7624816894531,
+        "y": 757.93359375,
+        "width": 91.40621948242188,
+        "height": 27,
+        "text": "Lubelius",
+        "region": "L"
+      },
+      {
+        "x": 339.16705322265625,
+        "y": 972.7816772460938,
+        "width": 165.94528198242188,
+        "height": 26.99993896484375,
+        "text": "Desert of Death",
+        "region": "V"
+      },
+      {
+        "x": 788.5392456054688,
+        "y": 400.439208984375,
+        "width": 144.4453125,
+        "height": 27,
+        "text": "Ice Continent",
+        "region": "I"
+      },
+      {
+        "x": 402.54290771484375,
+        "y": 1555.4344482421875,
+        "width": 107.95703125,
+        "height": 27,
+        "text": "El Dorado",
+        "region": "X"
+      },
+      {
+        "x": 724.7719116210938,
+        "y": 1303.0999755859375,
+        "width": 185.65625,
+        "height": 25,
+        "text": "Khusha Mountains"
+      },
+      {
+        "x": 529.9921875,
+        "y": 902,
+        "width": 190.015625,
+        "height": 20,
+        "text": "Royal lake (WN-derived)"
+      },
+      {
+        "x": 1046.1953125,
+        "y": 605,
+        "width": 207.6092529296875,
+        "height": 19.99993896484375,
+        "text": "Ice-coast islets (illustrated)"
+      },
+      {
+        "x": 650.8828125,
+        "y": 1200.0001220703125,
+        "width": 197.234375,
+        "height": 20,
+        "text": "Tengu glade (interpreted)"
+      }
+    ]
   }
 }

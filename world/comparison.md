@@ -1,4 +1,4 @@
-# Current source comparison — R104
+# Current source comparison — R106
 
 | Current original Minecraft geometry | Official illustrated reference (remote link only) |
 |---|---|
@@ -9,7 +9,16 @@
 [claim ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) ·
 [contradictions](../docs/research/tensura-world-2026-11-19/contradictions.md).
 
-## Current visual correction
+## Current visual correction — southeast (R106)
+
+The [southeastern terrain review](southeastern-water-wood-r106.md) restores a
+small inland water and the isolated woodland to its north/northwest. The
+preliminary wrong-side forest draft was corrected after direct reinspection.
+These are unnamed visual features; exact shore,type,density,scale,water level
+and position remain original adaptation. All prior registered places and routes
+are retained. No settlement identity,national boundary or outlet is inferred.
+
+## Western water correction retained (R104)
 
 The [western basin review](western-basin-r104.md) restores a distinct broad inland
 water cue west of Jura and a course toward the southwest coast. Its shore,scale,
@@ -34,16 +43,16 @@ that all proportions or minor locations are correct.
   await Yasuke's coast/inland/arrival decision. No silent relocation.
 - Gameplay region letters and subdivided masks do not establish sovereign
   national borders.58 reservations and20 unnumbered context names are not an
-  exhaustive settlement network. Inventory140 has42 physical follow-ups.
+  exhaustive settlement network. Inventory142 has42 physical follow-ups.
 - Initial snapshot: immediately after Kijin naming,S1E10. Later anime/wiki maps
   may establish persistent landforms but do not authorize later federation
   borders,festival metropolis,Dungeon,railways or completed conquests.
-- The current terrain atlas follows source `e785c2b0`. The [R105 painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/8b4bbf6/world/painting-round105/README.md)
-  follows this water addition and140-entry caption. R100 is historical.
+- The current terrain atlas follows source `b2750950`. The [R105 painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/8b4bbf6/world/painting-round105/README.md)
+  predates the southeastern water/woodland and142-entry caption; alignment is due.
   Existing original place art remains a separate design deliverable.
 
 Final source check:0errors/56relations/2prior warnings. Normal staging build
-67.6s; no world application or in-game acceptance. Refer to the linked reviews
+67.7s; no world application or in-game acceptance. Refer to the linked reviews
 for narrowly scoped source evidence and measurements.
 
 [Earlier comparison history through R103](comparison-history-r103.md) preserves
