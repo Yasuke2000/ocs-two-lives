@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Dwarven arena occupied rear shell review (ChatGPT,round70)
+
+[R70 actual-model review](../world/dwarven-arena-fit-review.md) retains r58. Forecourt,entry,pit and stair context are exactly75 with both samplers;rear variation belongs to the enclosed raised model rather than an exposed common-level plaza. All3,343 occupied columns have SITE exclusion and source surface between their lowest solid base and highest solid top. Seven declared spawn points have explicit model floors/air. This rejects rectangle-only radius84 flattening,not runtime/collision/whole-interior acceptance. Legacy survey/beside placement still needs fixed-map reconciliation. Validation and472 tests pass(26 skipped,zero failures,62.737s);original diagram visually inspected;input/footprint/source checks pass.
+
+Source90ee15b1,normal terrain and R69 painting unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Next:remaining source/location/fit gaps and technical placement interfaces. No protected edit,apply,chunks,main merge or deployment.
+
 ## 21/11 — Painting follows Sacred Mountain and approach terrain (ChatGPT,round69)
 
 R69 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round69/README.md) integrates source90ee15b1 and R68’s Sacred Mountain shoulder/approach change. Its mask covers all4,483 changed height cells,including1,003 beyond the preparation/fade envelope;1,335 gradient samples are independently checked. Only473 continent pixels change,max28/255 per RGB channel,all within16.30 blocks of the measured footprint. All58 projections,16 context names and41 inventory rows remain checked;earlier R53/R61/R63/R64 art is retained. Production geometry is unchanged in this presentation round. Ledger261;inventory132/41 physical follow-ups remain open. Earlier R68 painting-pending statements below are historical and superseded by this integration.
