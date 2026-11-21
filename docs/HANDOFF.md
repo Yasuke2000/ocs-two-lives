@@ -1,8 +1,16 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Orbic internal-country scope and atlas links (ChatGPT,round 79)
+
+R79 [Orbic/Ulgracia scope and delivery-link review](research/tensura-world-2026-11-19/orbic-ulgr-source-review-r79.md) records the wiki royal-capital/ten-tribe distinction without invented town coordinates. Both child-category routes remain unverified. Atlas path spaces are repaired. Ledger 278(220+58),inventory 133/41 follow-ups;source e8f17470 and R78 art remain unchanged.
+
+Validation:472 tests,26 skipped,zero failures(65.238s);link audit21 valid references;278 unique IDs and unchanged source/inventory statuses checked. Painting-link branch independently passes472/26/zero failures(65.145s).
+
+Next: actual source/location/initial-state questions; child listings remain open. No production geometry, protected edit, apply, chunks or deployment.
+
 ## 21/11 — Current painting includes the northern island (ChatGPT, round 78)
 
-R78 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round 78/README.md) now integrates source e8f17470 and the R77 fourth coast. The verified R69 underpainting plus native island/water layers change 5171 pixels, all inside the actual height-change footprint; all 58 registrations, 16 context names and 41 open rows retain layout. No production SVG change. Ledger 277/inventory 133/41 physical follow-ups remain; only the painting-integration follow-up is closed.
+R78 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md) now integrates source e8f17470 and the R77 fourth coast. The verified R69 underpainting plus native island/water layers change 5171 pixels, all inside the actual height-change footprint; all 58 registrations, 16 context names and 41 open rows retain layout. No production SVG change. Ledger 277/inventory 133/41 physical follow-ups remain; only the painting-integration follow-up is closed.
 
 Feature validation:472 tests, 26 skipped, zero failures(62.794s); inherited checker 0 errors/56 relations/2 warnings. Source vectors/masks, underpainting hash, 2100 land samples, 2436 water samples, 5171 local changed pixels and browser registration independently checked; final preview/painting/reference visually compared. No additional source-SVG correction found in this island review.
 
@@ -62,7 +70,7 @@ Next:verify remaining actual locations and initial-era/source/registration quest
 
 [R70 actual-model review](../world/dwarven-arena-fit-review.md) retains r58. Forecourt,entry,pit and stair context are exactly75 with both samplers;rear variation belongs to the enclosed raised model rather than an exposed common-level plaza. All3,343 occupied columns have SITE exclusion and source surface between their lowest solid base and highest solid top. Seven declared spawn points have explicit model floors/air. This rejects rectangle-only radius84 flattening,not runtime/collision/whole-interior acceptance. Legacy survey/beside placement still needs fixed-map reconciliation. Validation and472 tests pass(26 skipped,zero failures,62.737s);original diagram visually inspected;input/footprint/source checks pass.
 
-Source90ee15b1,normal terrain and R69 painting unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Next:remaining source/location/fit gaps and technical placement interfaces. No protected edit,apply,chunks,main merge or deployment.
+Source90ee15b1,normal terrain and R69 painting unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Next:remaining source/location/fit gaps and technical placement interfaces. No protected edit, apply, chunks,main merge or deployment.
 
 ## 21/11 — Painting follows Sacred Mountain and approach terrain (ChatGPT,round69)
 
