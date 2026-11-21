@@ -1,3 +1,11 @@
+## 21/11 — Ballachia initial-era correction (R101)
+
+[Source review and original comparison plan](../world/ballachia-initial-r101.md) correct the later rescue narrative and unsupported establishing-frame claim in Ballachia's lore. Ten licensed episode65 frames were individually inspected and retained privately; the publisher review names Ballachia but supplies no capital/border survey. The current reservation is (-2450,-450), radius68, gameplayG; the old Lerfing survey is historical.
+
+An unregistered creative candidate outside `blueprints/` replaces exactly142 blocks:80 partition blocks to air,16 western-wall blocks to bricks,46 memorial paving blocks to the existing plaza palette. All other voxels match; bounds and repeated-build determinism checked. Original blueprint/generated structures, map/terrain/painting/art stay unchanged. Claude still owns generation, registration and in-game acceptance. Ballachia stays partial; ledger305/inventory138/42 unchanged. Current painted atlas remains R100/source `dbef5ac0`.
+
+Repository gate: **472 tests,26 skipped,zero failures (64.150s)**; validation and zero changed JavaScript checks pass. `git diff --check` passes. No runtime action. Next: remaining source-backed physical/initial-era requirements; do not treat this neutral precinct proposal as verified kingdom extent or capital.
+
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 
 [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/260f1501ad0a009879b671291fd0e73b63fef497/world/painting-round100/README.md) follows source `dbef5ac0`: exact meadow shape,15 changed continent pixels,20 context names and all58 registrations checked. Khusha text and the Tengu partial row now agree with the main atlas. R98 is historical; painting alignment is complete. [Evidence](research/tensura-world-2026-11-19/painting-alignment-r100.md). Ledger305/inventory138/42 remain. Painting gate472 tests,26 skipped,zero failures(63.658s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.549s); zero changed JavaScript. Broader source/location/initial-era obligations stay open.
