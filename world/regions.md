@@ -1,6 +1,12 @@
+## 21/11 — Painted Englassia water aligned (round 92)
+
+[R92 painted atlas](painting-round92/README.md) now follows current R91 source `43fed303`: exact lake/court vertices and22 native road records, all58 registrations retained,18 context names and136/42 coverage caption. The WN-derived setting and authored local construction remain qualified; no castle building or complete capital is accepted. Ledger294 and42 physical follow-ups remain. Historical R90 files stay unchanged. Required repository gate: 472 tests,26 skipped,zero failures (64.466s); zero changed JavaScript.
+
 # Region book — anime-led Minecraft world
 
-R90 [current painted atlas](painting-round90/README.md) follows source `2ce669a0` and R89 Khusha relief. The local native layer uses 3,446 checked light samples and the 117 changed rocky-biome cells; 1,859 continent pixels change within the buffered height support. All 58 registrations, 17 context names and the unchanged 135/42 panel are checked. Context-position metadata is refreshed from actual visible labels. This closes only the painting follow-up; broader source/location/era obligations remain open.
+R91 [Englassia capital-water review](englassia-lake-r91.md) adds a separately placed WN-derived lake and dry court, one northern land access and three short water crossings. The existing academy/Guild precinct and all 58 reservations remain. Source `43fed303`; 22 roads, 11 lakes, 18 context names; ledger 294 and inventory 136/42. The castle and full capital remain incomplete. R90 painting predates the new local water/roads and needs alignment.
+
+R90 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/f0b91746124104cdfc7c141dd17762a9d8783410/world/painting-round90/README.md) integrates R89 Khusha relief for source `2ce669a0`: 3,446 checked illustrative light samples, 117 rocky-biome cells and 1,859 changed continent pixels within buffered height support. All 58 registrations, 17 context names and the unchanged 135/42 panel are checked. Context-position metadata is refreshed from visible SVG coordinates. This closes only the painting alignment; broader source/location/era obligations remain open.
 
 R89 [Khusha continuation](khusha-continuation-r89.md) connects western Khusha relief towards Sarion with an original lower envelope and two unequal summits. Source `2ce669a0`; checker: 0 errors / 56 relations / 2 existing warnings; normal export 47.565s. All 58 sites, roads, water and prior active shapes retained. Current atlas has 17 context names. Ledger 290; inventory 135/42 unchanged. R87 painting predates this new local relief and needs alignment.
 

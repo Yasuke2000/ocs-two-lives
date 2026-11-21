@@ -1,10 +1,20 @@
+## 21/11 — Painted Englassia water aligned (round 92)
+
+[R92 painted atlas](../world/painting-round92/README.md) now follows current R91 source `43fed303`: exact lake/court vertices and22 native road records, all58 registrations retained,18 context names and136/42 coverage caption. The WN-derived setting and authored local construction remain qualified; no castle building or complete capital is accepted. Ledger294 and42 physical follow-ups remain. Historical R90 files stay unchanged. Required repository gate: 472 tests,26 skipped,zero failures (64.466s); zero changed JavaScript.
+
 # Handoff — current state of the work (update this when you stop)
 
-## 21/11 — Painted Khusha follows current geography (round90)
+## 21/11 — Englassia capital water reconciled with dry precinct (round91)
 
-R90 [current painted atlas](../world/painting-round90/README.md) follows source `2ce669a0` and R89 Khusha relief. The local native layer uses 3,446 checked light samples and the 117 changed rocky-biome cells; 1,859 continent pixels change within the buffered height support. All 58 registrations, 17 context names and the unchanged 135/42 panel are checked. Context-position metadata is refreshed from actual visible labels. This closes only the painting follow-up; broader source/location/era obligations remain open.
+R91 [Englassia capital-water review](../world/englassia-lake-r91.md) adds a separately placed WN-derived lake and dry court, one northern land access and three short water crossings. The existing academy/Guild precinct and all 58 reservations remain. Source `43fed303`; 22 roads, 11 lakes, 18 context names; ledger 294 and inventory 136/42. The castle and full capital remain incomplete. R90 painting predates the new local water/roads and needs alignment.
 
-Checker after adoption: 0 errors/56 relations/2 existing warnings. Current source preview, local detail and full atlas viewed; no further production correction identified. Gate: 472 tests, 26 skipped, zero failures (62.994s). Next: unresolved source/location/initial-state coverage; no runtime action.
+Checker 0 errors/56 relations/2 prior warnings; normal50.942s without warnings. All new water cells are below level70 in one connected basin; all registered plate heights and flat-site JSON records remain. Final comparison/source preview/atlas reviewed. Gate: 472 tests, 26 skipped, zero failures (66.962s); zero changed JavaScript. Next: painted water/road integration; remaining capital/source/era/registration work. No runtime action.
+
+## 21/11 — Painting aligned with current Khusha (round90)
+
+R90 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/f0b91746124104cdfc7c141dd17762a9d8783410/world/painting-round90/README.md) integrates R89 Khusha relief for source `2ce669a0`: 3,446 checked illustrative light samples, 117 rocky-biome cells and 1,859 changed continent pixels within buffered height support. All 58 registrations, 17 context names and the unchanged 135/42 panel are checked. Context-position metadata is refreshed from visible SVG coordinates. This closes only the painting alignment; broader source/location/era obligations remain open.
+
+Source SVG, checker preview, terrain preview and terrain atlas remain unchanged. Final visual comparison identified no further production correction. Map documentation gate: 472 tests, 26 skipped, zero failures (62.560s). Painting gate: 472 tests, 26 skipped, zero failures (62.994s). Next: unresolved source/location/initial-state inventory; no runtime action.
 
 ## 21/11 — Khusha extends towards Sarion (round89)
 

@@ -1,5 +1,7 @@
 # Location index — map coverage and source scope
 
+R91 adds the WN-derived Englassia capital lake: **136 entries**, with all **42 existing physical follow-ups retained**. [Water/precinct review](englassia-lake-r91.md). The castle and wider city remain incomplete; guild/church subsidiary-premise source questions extend beyond this indexed count.
+
 R84 tracks the WN-qualified Dwargon eastern entrance/bridge separately: inventory135,42 physical follow-ups. [Source review](dwargon-crossing-source-review.md).
 
 R80 adds the unnamed eastern El Dorado lake from direct official-image review. Current inventory 134; 41 existing physical follow-ups remain. [Source and terrain review](el-dorado-lake-review.md).
@@ -14,7 +16,7 @@ Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit in
 
 Round57 [treant source context](../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) adds primary route/sanctuary detail but no surveyed parcel. The existing32 coverage classifications remain unchanged; one tree and an authored altar do not cover the whole community.
 
-Companion to the [numbered terrain atlas](atlas.png). All 135 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
+Companion to the [numbered terrain atlas](atlas.png). All 136 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
 
 Round45 directly verifies the immobile guarded treant community in [WN chapter42](https://ncode.syosetu.com/n6316bn/44/#L309). It does not locate its parcel or complete settlement coverage; the 32 open classifications are retained.
 
@@ -65,6 +67,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Eastern Union of Ulmeria](https://tensura.fandom.com/wiki/Nasca_Namrium_Ulmeria_United_Eastern_Empire) | historical state | historical review | — |
 | [Elemental Realm](https://tensura.fandom.com/wiki/Elemental_Realm) | separate world | separate world review | — |
 | [Elmine Sarion](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | site present | elmine |
+| [Englassia capital lake (WN-derived)](https://ncode.syosetu.com/n6316bn/59/#L21) | mainland feature | terrain present | englassia-capital-lake; englassia-royal-court-clearing |
 | [Englassia royal castle](https://tensura.fandom.com/wiki/Kingdom_of_Englassia) | city or city interior | missing distinct representation | — |
 | [Four Nations Trade Alliance](https://tensura.fandom.com/wiki/Four_Nations_Trade_Alliance) | organisation | organisation review | — |
 | [Free Guild headquarters](https://tensura.fandom.com/wiki/Kingdom_of_Englassia) | city or city interior | parent design present unverified | englassia |

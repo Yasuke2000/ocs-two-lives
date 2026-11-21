@@ -1,5 +1,7 @@
 # Englassia: central-lake castle alternative — round74
 
+**R91 current handoff:** [active separate capital lake](englassia-lake-r91.md) avoids the dry-precinct overlap with a different original layout. This R74 in-precinct drawing remains historical/inert. Its castle and continuity limits are not thereby closed.
+
 [Original plan and section](englassia-castle-lake-study.png) · [editable SVG](englassia-castle-lake-study.svg) · [geometry/export audit](englassia-castle-lake-study.json)
 
 This supplies the **drawn C17 alternative** missing in R73's delivery audit. It is inside an inert comment in [map.svg](map.svg),not an active lake,castle,road orregistered site. The existing dry Englassia reservation andits guild/academy model remain.

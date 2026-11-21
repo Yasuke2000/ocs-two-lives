@@ -35,7 +35,7 @@ Round45 directly reads WN42 for the immobile treant community (WN42-001). Its po
 | C15 | The 58 registered sites omit distinct Galut, Tengu settlement and the Long Wall, among other wiki candidates. | Original proposal footprints/corridor are drawn separately and in inert map.svg comment. They do not become live sites or prove the entire wiki complete. |
 
 | C16 | WN102 describes a Tengu summit gateway leading to the settlement. Official anime episode64 directly confirms Khusha residence and a later proposed road tunnel, but not a dimensional gateway; wiki supplies the difficult summit description. | Keep WN access separate. The [ridge proposal](../../../world/tengu-settlement-study.md) uses limited official setting cues without importing WN dimensional access or installing the later tunnel. LN8 chapter4 remains unread. |
-| C17 | WN56 describes Englassia castle in a central lake, whereas the active registered capital is a dry build footprint. | [R74 inert basin/castle drawing](../../../world/englassia-castle-lake-study.md) now supplies the missing geometry. Keep the current dry footprint pending WN/LN continuity,water/site preparation,existing model andbridge/road reconciliation;no active lake orcastle is claimed. |
+| C17 | WN56 describes Englassia castle in a central lake, whereas the active registered capital is a dry build footprint. | [R91 separate WN-derived lake/court](../../../world/englassia-lake-r91.md) is active outside the unchanged dry academy/Guild reservation, with four approaches. This avoids the old water/model overlap. The castle remains unbuilt/unregistered; source continuity, exact initial-era state, foundations and whole-capital layout remain open. R74 in-precinct geometry is historical/inert. |
 
 | C18 | Owner now fixes the world immediately after Kijin naming (anime S1E10), whereas older mixed-era descriptions and mandatory built highways imply later development. | Early village/political state is now authoritative. All 58 site states are qualified; a trail alternative is drawn in the SVG comment. Runtime construction/resident gating is a handoff, not silently implemented or claimed complete. |
 
@@ -128,3 +128,7 @@ Official OAD5 establishes mansion destination then cave task, while OAD4 still4 
 ## Round88: imported grove versus authored Divine Tree
 
 [Current-site review](elmine-source-review-r88.md) removes reliance on Paulzero’s retired imported-world grove. Official selected pavilion stills do not verify the complete tree/city or initial state. The root lake lies east/southeast in current geometry; exact shore and full-tree dimensions remain interpretation. Larger-tree massing and180° terrace orientation remain unimplemented proposals; partial coverage is retained.
+
+## Round91: capital water versus representative precinct
+
+[The current review](../../../world/englassia-lake-r91.md) keeps the old academy/Guild model dry while drawing a separate WN-derived capital lake/court. One northern land access and three crossings are authored, not proof of the source bridge construction. Sector-water and over-steep trials were rejected. No LN/initial-state equivalence, complete capital or extra registered site is claimed. New Guild/church/entry-office source roles remain parent-capital review obligations.

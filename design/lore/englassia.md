@@ -1,21 +1,16 @@
-# Englassia: the capital Lura, the Freedom Academy and the Free Guild headquarters
+# Englassia: Lura, the Freedom Academy and Free Guild precinct
 
-Blueprint `blueprints/englassia.py` (structure `englassia_0..2`), placement `design/builds/englassia.toml`.
-World position (14000 wide, landmark "Englassia capital (Lura): Freedom Academy, Free Guild HQ"): about x -2626, z -300, nation G.
+The current own-world reservation is **(−2900,−550), radius124**, designed walking first-air76. It represents the existing academy/Guild fragment, not the entire capital. [R91 current geography](../../world/englassia-lake-r91.md) adds a separate WN-derived royal lake northwest of it while preserving the dry template. Old imported-map placement coordinates are retired; use [world/map.svg](../../world/map.svg).
 
-## What canon says (verified)
-Read through search results; the Fandom pages themselves answered HTTP 402 to our fetch tool, so only the quoted
-facts are checked, not the full articles.
-- Englassia is the most advanced human nation west of the Jura Forest before Tempest rises. The Council of the West and the
-  Free Guild headquarters are stationed there, and the royal capital is large, **walled, with two gates**.
-  (https://tensura.fandom.com/wiki/Kingdom_of_Englassia, via search snippet; our `design/lore/world.md` section G agrees)
-- The Free Guild stands outside any country's system; branches test up to rank B, ranks B+ and above are examined at
-  headquarters only. (https://tensura.fandom.com/wiki/Free_Guild)
-- Class S, Shizu's students, belonged to the Freedom Academy; after Shizu, Rimuru became their teacher.
-  (https://tensura.fandom.com/wiki/Class_S, https://tensura.fandom.com/wiki/Extra:_Rimuru's_Glamorous_Life_as_a_Teacher,_Part_2)
-- The guild master of the Free Guild is Yuuki Kagurazaka (world.md; Free Guild headquarters in the capital).
+## Sources and limits
 
-## Our interpretation (canon gives no architecture)
+The [official world guide](https://www.ten-sura.com/map) locates the Guild headquarters in Englassia. The selected [author WN56](https://ncode.syosetu.com/n6316bn/59/) relationships and exact paragraph locators are recorded in the ledger and [current review](../../world/englassia-lake-r91.md). These separately qualified WN leads do not survey district bearings or prove LN/initial-era equivalence.
+
+The existing model's school/classroom and headquarters context also uses [secondary Academy/Class S material](https://tensura.fandom.com/wiki/Class_S). Teacher/resident/event details remain era-qualified; Rimuru's later teaching visit is not activated at the post-Kijin start. The [official episode20 synopsis and selected stills](https://www.ten-sura.com/anime/tensura/story/no20) are later visual references and do not verify a complete royal-lake plan. No new Guild entry mechanic is implemented by this prose.
+
+The lake/court offset, single northern land access, three water crossings and all footprints are our interpretation. The royal castle, full wall, second gate, church and subsidiary-premise coverage remain unimplemented or unverified. Existing architecture, palette and room layout below are original precinct design choices.
+
+## Existing precinct design (our interpretation)
 Refined academic city. Stone brick walls with dark oak timber; the Academy under oxidised-copper (teal) roofs, the Guild
 and the gate under slate. Blue banners for the city and the Academy, red for the Guild.
 - **City wall and gate** (z 100-106): crenellated wall with buttresses, two gate towers with slate hip roofs, a 7 wide
