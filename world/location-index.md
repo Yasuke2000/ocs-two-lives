@@ -1,14 +1,16 @@
 # Location index — map coverage and source scope
 
+Round64 [hidden-location review](../docs/research/tensura-world-2026-11-19/lubelius-hidden-locations-r64.md) adds Night Garden,its burial chamber and historical Night Rose. Inventory132;41 current physical-coverage follow-ups include seven previously unlisted partial records. Historical material remains,primary evidence and initial-state questions remain open. The city/room proposal is inert and receives no active terrain number.
+
 Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit interpreted East/West cavern geometry and deeper gallery/stair planning. It remains inert; the two cities are still missing active representations. The old round51 approach mismatch below was resolved by the round52 foothill correction; that historical finding is not the current gate interface.
 
 Round57 [treant source context](../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) adds primary route/sanctuary detail but no surveyed parcel. The existing32 coverage classifications remain unchanged; one tree and an authored altar do not cover the whole community.
 
-Companion to the [numbered terrain atlas](atlas.png). All 129 current inventory records are listed below;58 numbered terrain reservations are a different registry. Category routes,organisations,other worlds and later-era references are retained as scope entries,not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
+Companion to the [numbered terrain atlas](atlas.png). All 132 current inventory records are listed below;58 numbered terrain reservations are a different registry. Category routes,organisations,other worlds and later-era references are retained as scope entries,not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
 
 Round45 directly verifies the immobile guarded treant community in [WN chapter42](https://ncode.syosetu.com/n6316bn/44/#L309). It does not locate its parcel or complete settlement coverage; the 32 open classifications are retained.
 
-The atlas names 16 major geographical contexts and lists 32 open representations separately. Regional typography is our interpretation within existing gameplay masks; Ulgracia uses a sea-side callout ending within its narrow mask. These labels do not survey political borders. Falmuth naming stays at the initial post-Kijin snapshot. The separate Siltrosso identity/binding conflict remains C06. No unverified Doran or Silberia capital is positioned.
+The atlas names 16 major geographical contexts and lists 41 open representations separately. Regional typography is our interpretation within existing gameplay masks; Ulgracia uses a sea-side callout ending within its narrow mask. These labels do not survey political borders. Falmuth naming stays at the initial post-Kijin snapshot. The separate Siltrosso identity/binding conflict remains C06. No unverified Doran or Silberia capital is positioned.
 
 Sources/confidence/details remain in the [geography ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv), [coverage inventory](../docs/research/tensura-world-2026-11-19/wiki-location-coverage.csv) and [scope audit](../docs/research/tensura-world-2026-11-19/mainland-coverage-audit.csv). This index is not a claim that every wiki article or primary source has been read.
 
@@ -116,6 +118,9 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Marris](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | site present | marris |
 | [Mirror World](https://tensura.fandom.com/wiki/Mirror_World) | alternate continuity review | game continuity review | — |
 | [Nasca Namrium Ulmeria United Eastern Empire](https://tensura.fandom.com/wiki/Nasca_Namrium_Ulmeria_United_Eastern_Empire) | mainland feature | region present | nation-E |
+| [Night Garden](https://tensura.fandom.com/wiki/Holy_Empire_of_Lubelius#Night_Garden) | city or city interior | missing distinct representation | — |
+| [Night Garden burial chamber](https://tensura.fandom.com/wiki/Holy_Empire_of_Lubelius#Night_Garden) | city or city interior | missing distinct representation | — |
+| [Night Rose (former castle)](https://tensura.fandom.com/wiki/Holy_Empire_of_Lubelius#History) | historical location review | historical review | — |
 | [Ogre Village](https://tensura.fandom.com/wiki/Ogre_Village) | mainland feature | site present | ogre_village_ruin |
 | [Orc Kingdom of Orbic](https://tensura.fandom.com/wiki/Orc_Kingdom_of_Orbic) | mainland feature | partial terrain representation | orbic-depleted-ground;eurazania-jungle |
 | [Otherworld](https://tensura.fandom.com/wiki/Otherworld) | separate world | separate world review | — |
@@ -144,7 +149,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [WN:Tempest](https://tensura.fandom.com/wiki/WN:Tempest) | WN version reference | WN continuity review | — |
 | [World](https://tensura.fandom.com/wiki/World) | world container | container | — |
 
-No production SVG,source claim,terrain export,58-site attributes,painting or runtime state changes in this presentation round. The inventory and32 obligations are preserved.
+R64 adds three source/scope entries and two new current gaps. Seven existing partial records are added to the displayed queue. Underground geometry is inert;all58 active site attributes and terrain remain unchanged. Prior inventory obligations are retained.
 
 ## How to read the atlas
 

@@ -1,8 +1,8 @@
-# Mainland coverage audit — 20 November 2026
+# Mainland coverage audit — current inventory, round64
 
-This routes every one of the 129 existing inventory entries to a type of work. It preserves the full inventory and every unresolved obligation, including three newly located parent designs. **It does not narrow the goal, remove missing countries, or count proposed geometry as delivered terrain.** Classification is our scope interpretation; the original source confidence and traversal limits remain unchanged.
+All132 inventory entries are retained and routed below. Three new Lubelius-related entries correct an omission;two add current city/interior coverage obligations. Inert proposals and parent context are not implemented terrain.
 
-[All 129 rows](mainland-coverage-audit.csv) · [original inventory](wiki-location-coverage.csv) · [current map review](../../../world/review.md).
+[All132 rows](mainland-coverage-audit.csv) · [inventory](wiki-location-coverage.csv) · [R64 source review](lubelius-hidden-locations-r64.md)
 
 ## Scope routing
 
@@ -10,9 +10,10 @@ This routes every one of the 129 existing inventory entries to a type of work. I
 | --- | ---: |
 | WN-version-reference | 2 |
 | alternate-continuity-review | 4 |
-| city-or-city-interior | 7 |
+| city-or-city-interior | 9 |
 | era-dependent-successor | 1 |
 | existing-neighbouring-island | 3 |
+| historical-location-review | 1 |
 | historical-state | 2 |
 | index-route | 18 |
 | mainland-feature | 68 |
@@ -24,30 +25,15 @@ This routes every one of the 129 existing inventory entries to a type of work. I
 | unverified-entry | 1 |
 | world-container | 2 |
 
-## Missing representations and existing parent designs
+## Coverage and retained obligations
 
-| Type | Missing entries | Consequence |
-| --- | ---: | --- |
-| city-or-city-interior | 4 | Proposal/source/build work still required; no completeness credit. |
-| mainland-feature | 19 | Proposal/source/build work still required; no completeness credit. |
-| offshore-location-review | 2 | Proposal/source/build work still required; no completeness credit. |
-| offshore-structure-proposal | 1 | Proposal/source/build work still required; no completeness credit. |
+There are28 missing distinct representations,8 partial records,2 unverified country pins and3 unverified parent designs:41 current physical-coverage follow-ups. Night Garden and its burial chamber are new missing city/interior entries. Seven other partial records already existed in the CSV but were absent from the old panel;they are now displayed. Every earlier32 obligation is retained. Night Rose is a historical-location review with no verified surviving ruin or current coordinates;its source/material-remains question stays open beyond this physical-coverage count.
 
-One additional mainland entry, Orbic, now has a partial active depleted-ground habitat representation. Its capital/full extent/internal geography/runtime remain unverified. This preserves its follow-up obligation; it is not complete-country credit. [Terrain/source review](../../../world/orbic-terrain-review.md).
+Existing guild,academy and elf-venue designs remain unverified parent-design evidence rather than new missing blueprints. Dwargon East/West,Council premises,the royal castle and the two new underground locations still need distinct active representation. An inert plan is not registration or a placed structure.
 
-The seven city-related records are: Dwargon's East/West cities and elf bar, plus Englassia's guild/council premises, academy and castle. Three have existing local design evidence (guild, academy and elf venue); four remain missing in the inventory. This is city/interior review inside country context, not seven new mainland settlements. [City coverage diagram](../../../world/city-coverage-study.png) is a non-geographical schematic. The existing blueprints and non-empty NBT files are recorded in city-design-evidence.csv. Their presence does not certify source accuracy, whole-city completeness, fit in the new terrain or runtime placement. Do not rebuild them merely because no separate SVG circle exists.
+Unlocated western countries,offshore/spiritual/alternate settings,the source hierarchy,fixed-rule conflicts,the post-Kijin era,other measured template-fit issues and runtime acceptance remain in scope. Do not treat a broad country pin or a green checker as complete geography. The checker verifies its format/site contract and56 relations,not the whole wiki.
 
-Doran remains a distinct mainland country gap. The indexed article supports only western-region placement west of Jura/Tempest; it does not supply a capital, shape or north/south bearing. The small-country names from the owner's excerpts likewise stay unlocated until stronger evidence is read. Do not pack them into unused regions with invented sovereign boundaries.
-
-Other physical gaps include the Long Wall, Galut, Tengu settlement, Silberia and the Imperial vassal/frontier sites. Existing proposal diagrams do not close those gaps. Soma's historical identity is now directly supported by the public LN10 prologue (LN10-003), distinct from Amrita's later distant refounding. Its far-west association remains wiki-backed; exact ruin placement/footprint remains open before an extra site is committed. [Amrita/Soma review](../../../world/amrita-placement-review.md).
-
-Offshore places and alternate or spiritual worlds remain recorded for continuity/access review. They must not be inserted as invented mainland points. Their classification does not prove them irrelevant to the broader server or complete their design. Horn Empire remains explicitly unverified.
-
-## Evidence versus completion
-
-The default checker proves format, site constraints and its56 encoded relations. It does not establish missing-place coverage, every kingdom's borders, anime fidelity, interior construction, or the entire wiki having been read. The current map retains unresolved C05/C06/C10/C12/C14/C15/C16/C17/C18/C20 decisions. Each source-backed alternative and fixed-binding conflict must remain visible in the PR. No final acceptance, apply or deployment is claimed.
-
-Three formerly missing map entries now have verified local authored design evidence within their parent. The current26 missing representations,1 partial Orbic representation,2 unverified country-pin representations and3 unverified parent designs preserve32 follow-up obligations; none is marked complete.
+## Earlier source refinements (historical counts)
 
 Round33 source refinement: official episode77/route82 directly confirms a later Council meeting in Englassia (OFF-COW-033). Exact city parcel/permanent HQ/initial building state remains unverified. No missing representation or parent-design obligation is closed.
 

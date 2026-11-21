@@ -1,6 +1,6 @@
 {
   "baseline_commit": "f118b6e",
-  "source_sha256": "0b211ec7761e1813ccfaee1e336f754ab7712495da6a991c79638d642a546839",
+  "source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
   "presentation_only": false,
   "production_svg_changed": true,
   "terrain_image_bytes_retained": false,
@@ -817,7 +817,7 @@
   "all_32_open_rows_fit_panel": true,
   "actual_browser_non_callout_text_bounds_with_stroke_inside_context": 15,
   "ulgracia_leader_with_1px_buffer_clear_of_padded_number_boxes": true,
-  "previous_layout_source_sha256": "7a30cf4176971609db820acee59e2a72903bed1e102e7e9e95dbb9f063b5a60a",
+  "previous_layout_source_sha256": "0b211ec7761e1813ccfaee1e336f754ab7712495da6a991c79638d642a546839",
   "registration_from_r41": {
     "scale": 0.96,
     "translate_x": 88,
@@ -1233,7 +1233,7 @@
       "height": 26.8800048828125
     }
   ],
-  "production_change_review": "world/dragons-nest-fit-review.md",
+  "production_change_review": "world/night-garden-plan.md",
   "previous_snapshot_terrain_image_replaced_by_current_normal_export": true,
   "new_label_geographical_claims": 0,
   "linked_terrain_claims_added": [
@@ -1541,5 +1541,8 @@
   "r58_active_geometry_and_atlas_unchanged": true,
   "r58_comparison_baseline_commit": "42cc64a",
   "r60_only_atlas_embedded_image_changed": true,
-  "r62_only_atlas_embedded_image_changed": true
+  "r62_only_atlas_embedded_image_changed": true,
+  "r64_only_open_panel_changed": true,
+  "current_inventory_records": 132,
+  "current_open_rows": 41
 }

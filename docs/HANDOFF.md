@@ -1,5 +1,14 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Hidden Lubelius locations and full partial-location panel (ChatGPT, round64)
+
+Round64 [Night Garden study](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/world-map/world/night-garden-plan.md) adds the underground city, nested burial chamber and separate historical Night Rose to the inventory. The source relationship is fan-wiki-qualified; depth, dimensions and initial room state are unverified. City/room geometry stays inside the existing C15 comment. Production source c2f806a9 has exactly the same active XML as0b211ec7. Normal export65.9s:13 non-index files identical, index source hash only; checker0 errors,56 relations,2 existing warnings.
+
+The [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round64/README.md) retains the R63 landscape unchanged and updates only its coverage panel. Inventory132;41 physical follow-ups include seven formerly omitted partial records, plus broader historical/source queues. Ledger254 unique(196+58),14 direct printed-LN plus3 author-side-story claims;58 original place-art pairs retained. No new active location or Minecraft application.
+
+Next: verify primary hidden-city evidence and remaining distinct locations/template-fit issues. Inert proposals are not completed locations. Keep post-Kijin era, source/fixed-rule decisions and technical/runtime acceptance open.
+
+
 ## 21/11 — Painting follows summit and high-pass terrain (ChatGPT, round63)
 
 Round63 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round63/README.md) integrates source 0b211ec7 and the R62 summit/high-pass update. The native blend mask covers all 2,507 changed height cells, including 205 beyond the site fade; 863 lighting samples are independently checked. Only 402 continent pixels change, at most 28/255 per RGB channel, all local to the measured footprint. All 58 projections, 16 context names and 32 open rows remain verified; original R53/R61 art is retained. Production geometry is unchanged in this presentation round. Ledger: 250 unique records; inventory: 129 entries with 32 coverage follow-ups. Earlier painting-pending notes are historical and superseded by this integration.
