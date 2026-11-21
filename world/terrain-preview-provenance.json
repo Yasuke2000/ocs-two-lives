@@ -1,14 +1,14 @@
 {
-  "source_svg_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
-  "staged_index_source_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
-  "preview_sha256": "4d02826f2ee39b13116e6cb9a38fa17504128d112cb3f295e4e7475d9b62dfff",
+  "source_svg_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
+  "staged_index_source_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
+  "preview_sha256": "66e1cda35c31cb0dc7ec1e551e48c3e78aa7f8915f8cb70e4bb9ed402a6407e3",
   "original_preview_pixels": [
     1600,
     1344
   ],
   "copied_without_pixel_modification": true,
   "applied_to_runtime": false,
-  "previous_preview_source_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "previous_preview_source_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
   "registration": {
     "scale_from_r41": 0.96,
     "translate_x": 88.0,
@@ -16,9 +16,11 @@
     "legend_y_shift": -77.0,
     "existing_58_marker_groups_retained": true,
     "existing_16_context_labels_retained": true,
-    "existing_32_open_rows_retained": true
+    "existing_42_open_rows_retained": true,
+    "context_name_count": 17,
+    "new_feature_label": "Khusha Mountains"
   },
-  "normal_build_seconds": 66.1,
-  "source_change_review": "world/dwargon-relocation-r86.md",
+  "normal_build_seconds": 47.565,
+  "source_change_review": "world/khusha-continuation-r89.md",
   "comment_only_source_change": false
 }

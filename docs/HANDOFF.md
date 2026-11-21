@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Khusha extends towards Sarion (round89)
+
+R89 [Khusha continuation](../world/khusha-continuation-r89.md) connects western Khusha relief towards Sarion with an original lower envelope and two unequal summits. Source `2ce669a0`; checker: 0 errors / 56 relations / 2 existing warnings; normal export 47.565s. All 58 sites, roads, water and prior active shapes retained. Current atlas has 17 context names. Ledger 290; inventory 135/42 unchanged. R87 painting predates this new local relief and needs alignment.
+
+Final current checker preview, official reference and original before/after study inspected. Final normal preview explicitly rerendered; old baseline reproduction changes0pixels. No runtime action. Gate: 472 tests, 26 skipped, zero failures (63.975s). Next: align painted Khusha relief, then remaining source/location/era obligations.
+
 ## 21/11 — Elmine current geography and tree study (round88)
 
 R88 [Elmine source and larger-tree study](../world/elmine-tree-study-r88.md) corrects the retired Paulzero-grove handoff and lake bearing (east/southeast). A current-site north-facing terrace trial and original larger tree remain proposals; the Divine Tree stays partial. Five official episode 61 stills inspected, with bounded pavilion cues from 2/5. Ledger 289; inventory 135/42 unchanged; source `355d1a33` unchanged.

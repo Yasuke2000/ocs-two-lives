@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+R89 [Khusha continuation](../../../world/khusha-continuation-r89.md) connects western Khusha relief towards Sarion with an original lower envelope and two unequal summits. Source `2ce669a0`; checker: 0 errors / 56 relations / 2 existing warnings; normal export 47.565s. All 58 sites, roads, water and prior active shapes retained. Current atlas has 17 context names. Ledger 290; inventory 135/42 unchanged. R87 painting predates this new local relief and needs alignment.
+
 R88 [Elmine source and current-site review](elmine-source-review-r88.md) corrects the retired grove handoff and lake bearing; original larger-tree/approach study remains unimplemented. Ledger289; source355d1a33 and inventory135/42 unchanged.
 
 R87 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/d98513e79e386b493410ab219d110c5d5bd1fa61/world/painting-round87/README.md) aligns R86 northeast Dwargon: six moved site groups, three revised roads and local illustrative relief. All 58 registrations and 16 context names are checked; the 135-entry inventory and 42-row coverage panel remain current. Source `355d1a33` and ledger 286 are unchanged. Painting gate: 472 tests, 26 skipped, zero failures (63.210s). This supersedes earlier pending painting notes only; broader source/location/era questions remain open.
