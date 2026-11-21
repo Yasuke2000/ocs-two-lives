@@ -1,0 +1,38 @@
+{
+  "round": 58,
+  "original_painting_source_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
+  "current_source_sha256": "1b9e151ae3a179d0127421f456167f29ec592b7009b850fe0293256428e03116",
+  "source_difference": "Only inert C14/C15 proposal comments differ from the original painting source; no active geometry change.",
+  "active_svg_xml_sha256": "10e2f8dddb947ea3c2ace8f0170ec5bca81b832ee74e4908fe6b08bd78e74f7b",
+  "active_svg_tree_byte_identical": true,
+  "painted_svg_png_files_unchanged_from_commit": "12b3197",
+  "retained_file_sha256": {
+    "atlas.png": "35a41d06cc3392457e95a0e27faa82defc2a966d11b49e5ac0517cc457031568",
+    "atlas.svg": "117d53395ae24bcfa1f4277e9105359baa995c0874bfe7ee8fde55f8c3e41042",
+    "continent.png": "c713ef90bdbbe5d85215c62248d9fd3fa677355b4fedee173ba380f3f441deec",
+    "continent.svg": "dba17fad94db0e859dcd94b06c4d7bf467b9c31c55a0345011e1567198944eb4"
+  },
+  "current_normal_export_checked_in_worktree": "C:\\Users\\david\\Documents\\ocs-map-canon",
+  "current_normal_export_source_matches": true,
+  "current_height_sha256": "1575b7dca87fcade3c3923e01b39026f05bd90c18d918e037f8395b69ffb7a9d",
+  "lighting_input_height_identical": true,
+  "registered_sites_and_projections_verified": 58,
+  "original_provenance_unchanged": true,
+  "new_raster_generation": false,
+  "new_converter_run_in_painting_worktree": false,
+  "geometry_coverage_or_initial_era_claim_upgraded": false,
+  "limitations": [
+    "Only source equivalence and presentation registration checked here.",
+    "C14/C15 and initial-era access remain open.",
+    "No terrain apply,chunks,main merge or runtime acceptance."
+  ],
+  "repository_gate": {
+    "validation": "pass",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.28,
+    "changed_js": 0,
+    "ingame_run": false
+  }
+}
