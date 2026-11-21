@@ -1,0 +1,14 @@
+{
+  "method": "built-in image_gen edit",
+  "source_svg_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "prompt": "Edit target: the FIRST image is our own original fantasy-continent painting from the previous approved study. Supporting reference SECOND image is our own current SVG geometry guide; THIRD image is our own current Minecraft terrain guide. All three have identical fixed world framing, 1536x1024 landscape. Update the painting to the current guides while preserving its painterly fantasy-atlas brushwork, rich blue ocean wash, natural vegetation and overall composition. The required change is the distinct broad, low, BARREN NORTHWESTERN HEADLAND projecting WEST from the mainland's upper-left shoulder, just northwest of the isolated Sacred Mountain. It is visible tan/brown in both guides at approximately pixels x267..390,y333..392. Add that original coast projection and its recessed bay accurately at that location. The added headland is dry stony/barren coastal ground with subtle low texture, no new mountain peak, forest, settlement, port, wall or landmark. Preserve the rest of the mainland and both separate islands. Preserve all existing nine inland lakes, mountain placements, forest extents, southern peninsulas, southeast depleted Orbic patch, eastern volcanic basin, frozen northern island and southwest volcanic island according to the current guides. Do not add lakes, river branches, inland seas, settlements, towers, roads or additional islands. Render natural transitions instead of diagram outlines. No labels, numbers, captions, grid, marker circles, hatched exclusions or border frame. Same overhead cartographic perspective and same exact canvas/world framing. This is original design art for a Minecraft world set immediately after the six ogres are named Kijin; no later cities or political events. Match the edit target closely everywhere outside the northwestern coast addition. Exact coast, water and road SVG vectors will be composited after generation, so provide coherent painted terrain texture beneath them rather than inventing geography. Output 1536x1024.",
+  "referenced_image_paths": [
+    "C:/Users/david/Documents/ocs-current-painted-map/world/painting-current/paint-current.png",
+    "C:/Users/david/Documents/ocs-current-painted-map/world/painting-round43/geometry-guide.png",
+    "C:/Users/david/Documents/ocs-current-painted-map/world/painting-round43/terrain-guide.png"
+  ],
+  "transparent_background": false,
+  "copyrighted_reference_images_used": false,
+  "selected_output": "exec-7a184f53-5d02-49e3-9088-b7c2de1084e5.png",
+  "selected_output_sha256": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e"
+}

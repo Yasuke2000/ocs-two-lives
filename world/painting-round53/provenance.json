@@ -1,0 +1,51 @@
+{
+  "source_map_commit": "d02956c",
+  "source_svg_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
+  "method": "Deterministic native SVG relief-lighting overlay from current minus baseline designed height samples, with exact current foothill/forecourt masks. Existing original raster textures retained.",
+  "new_image_generation": false,
+  "new_or_modified_raw_painting_png": false,
+  "original_art_provenance": "../painting-round43/provenance.json",
+  "original_generation_prompt": "../painting-round43/prompt.json",
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "previous_composition": "../painting-round50/continent.svg",
+  "previous_source_svg_sha256": "cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371",
+  "current_height_sha256": "1575b7dca87fcade3c3923e01b39026f05bd90c18d918e037f8395b69ffb7a9d",
+  "baseline_height_sha256": "6fcd09dfd4e2bfc44779665eedb3dbaa068e7b444ac5142fcf279a80622dd9fd",
+  "height_sampling": "Bilinear quart height at16-block cell centres; delta-gradient lighting,quantized alpha in1/64 increments,maximum0.15625. No terrain changes.",
+  "shade_bbox_world": [
+    -288,
+    -1712,
+    272,
+    -1184
+  ],
+  "step_world": 16,
+  "mask_stroke_width_world": 48,
+  "feather_sigma_world": 8,
+  "native_relief_features": [
+    {
+      "layer": "mountains",
+      "id": "dwargon-gate-apron",
+      "points_sha256": "7661358da40d9f6526aaf08cf1ea9bf3885a67e52b4cb096c21c30e5548948bd"
+    },
+    {
+      "layer": "hills",
+      "id": "dwargon-forecourt-shoulder",
+      "points_sha256": "c398afbdc81973c99c14e7268eea05ed88c3c675baf0837f24e94278e745e506"
+    }
+  ],
+  "raw_original_art": {
+    "world\\painting-current\\paint-current.png": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+    "world\\painting-round43\\paint-r43.png": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e"
+  },
+  "normal_terrain_preview_sha256": "6335d5f59075defbe55b8d34181462bfcb00fee75db978c7b7cde7ea8e8d6e81",
+  "production_svg_changed_in_this_round": false,
+  "copyrighted_reference_images_used_as_generation_inputs": false,
+  "limits": "Lighting shows a local interpreted terrain correction. Existing painted ridges/trees remain illustrative; no full painted metric heightmap,extra city,voxel placement or runtime acceptance is implied.",
+  "northwest_light_verified": true,
+  "light_direction_rule": "For normal(-dx,1,-dz),a northwest light adds positive(dx+dz); light=clamp(0.18*(delta_dx+delta_dz),-0.16,0.16),alpha quantized1/64. Zero-alpha cell sign has no rendered effect."
+}

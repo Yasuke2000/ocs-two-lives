@@ -1,0 +1,30 @@
+{
+  "source_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
+  "map_commit": "7cd04dcbcb10c13c63bfb72dec09c8b05b75a813",
+  "baseline_continent": "../painting-round81/continent.png",
+  "baseline_continent_sha256": "975dc93d146065f069479d5872a8b0f43c6e6bcdff254b3c1efdfbc4b7093d56",
+  "native_patch_basis": "../painting-round69/continent.svg",
+  "original_prior_art_unchanged": true,
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "new_pngs": "Browser exports of original native SVG compositions.",
+  "height_samples": 9013,
+  "road_updates": [
+    "tempest_dwargon",
+    "dwargon_dwarf_village",
+    "canaat_high_pass"
+  ],
+  "runtime_applied": false,
+  "native_ground_removed_road_ids": [
+    "canaat_high_pass",
+    "dwargon_dwarf_village",
+    "tempest_dwargon"
+  ],
+  "current_road_ids_drawn_once": [
+    "canaat_high_pass",
+    "dwargon_dwarf_village",
+    "tempest_dwargon"
+  ],
+  "light_separate_from_native_ground": true,
+  "baseline_renderer": "Chrome headless --disable-gpu; exact R69 native baseline rerender has zero changed pixels."
+}

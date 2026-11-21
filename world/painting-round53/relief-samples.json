@@ -1,0 +1,5334 @@
+{
+  "source_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
+  "baseline_source_sha256": "cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371",
+  "cells": [
+    {
+      "x": -56,
+      "z": -1688,
+      "baseline_surface": 113.21875,
+      "current_surface": 113.234375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1672,
+      "baseline_surface": 104.859375,
+      "current_surface": 104.890625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1672,
+      "baseline_surface": 105.828125,
+      "current_surface": 106.125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1672,
+      "baseline_surface": 107.1875,
+      "current_surface": 107.59375,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1672,
+      "baseline_surface": 108.046875,
+      "current_surface": 108.609375,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1672,
+      "baseline_surface": 108.578125,
+      "current_surface": 109.484375,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1656,
+      "baseline_surface": 99.84375,
+      "current_surface": 99.90625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1656,
+      "baseline_surface": 99.453125,
+      "current_surface": 99.796875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1656,
+      "baseline_surface": 99.75,
+      "current_surface": 100.9375,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1656,
+      "baseline_surface": 100.8125,
+      "current_surface": 105.8125,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1656,
+      "baseline_surface": 102.265625,
+      "current_surface": 108.90625,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1656,
+      "baseline_surface": 103.390625,
+      "current_surface": 111.890625,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1656,
+      "baseline_surface": 133.28125,
+      "current_surface": 138.265625,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -168,
+      "z": -1640,
+      "baseline_surface": 95.671875,
+      "current_surface": 95.84375,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1640,
+      "baseline_surface": 95.203125,
+      "current_surface": 96.65625,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1640,
+      "baseline_surface": 95.015625,
+      "current_surface": 100.765625,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1640,
+      "baseline_surface": 95.359375,
+      "current_surface": 105.6875,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1640,
+      "baseline_surface": 96.3125,
+      "current_surface": 110.359375,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1640,
+      "baseline_surface": 97.84375,
+      "current_surface": 114.625,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1640,
+      "baseline_surface": 99.296875,
+      "current_surface": 117.3125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 72,
+      "z": -1640,
+      "baseline_surface": 125.953125,
+      "current_surface": 126.046875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1624,
+      "baseline_surface": 90.5625,
+      "current_surface": 90.578125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1624,
+      "baseline_surface": 91.25,
+      "current_surface": 91.5625,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1624,
+      "baseline_surface": 91.109375,
+      "current_surface": 93.515625,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1624,
+      "baseline_surface": 91.0,
+      "current_surface": 99.875,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1624,
+      "baseline_surface": 91.0625,
+      "current_surface": 105.953125,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1624,
+      "baseline_surface": 91.5,
+      "current_surface": 110.640625,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1624,
+      "baseline_surface": 92.328125,
+      "current_surface": 115.328125,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1624,
+      "baseline_surface": 94.109375,
+      "current_surface": 119.375,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1624,
+      "baseline_surface": 95.078125,
+      "current_surface": 122.53125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1624,
+      "baseline_surface": 121.203125,
+      "current_surface": 123.171875,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": 88,
+      "z": -1624,
+      "baseline_surface": 126.109375,
+      "current_surface": 126.390625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 104,
+      "z": -1624,
+      "baseline_surface": 131.328125,
+      "current_surface": 131.34375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1608,
+      "baseline_surface": 86.40625,
+      "current_surface": 86.765625,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1608,
+      "baseline_surface": 86.8125,
+      "current_surface": 90.484375,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1608,
+      "baseline_surface": 86.875,
+      "current_surface": 96.234375,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1608,
+      "baseline_surface": 87.03125,
+      "current_surface": 102.71875,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1608,
+      "baseline_surface": 87.34375,
+      "current_surface": 109.140625,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1608,
+      "baseline_surface": 87.921875,
+      "current_surface": 115.03125,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1608,
+      "baseline_surface": 89.1875,
+      "current_surface": 119.578125,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1608,
+      "baseline_surface": 90.359375,
+      "current_surface": 123.71875,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1608,
+      "baseline_surface": 90.890625,
+      "current_surface": 127.21875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1608,
+      "baseline_surface": 116.203125,
+      "current_surface": 127.09375,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": 88,
+      "z": -1608,
+      "baseline_surface": 120.578125,
+      "current_surface": 124.3125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 104,
+      "z": -1608,
+      "baseline_surface": 125.71875,
+      "current_surface": 126.09375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": 120,
+      "z": -1608,
+      "baseline_surface": 131.75,
+      "current_surface": 131.765625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -232,
+      "z": -1592,
+      "baseline_surface": 80.515625,
+      "current_surface": 80.546875,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1592,
+      "baseline_surface": 81.578125,
+      "current_surface": 82.046875,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1592,
+      "baseline_surface": 82.953125,
+      "current_surface": 86.15625,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1592,
+      "baseline_surface": 82.953125,
+      "current_surface": 92.796875,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1592,
+      "baseline_surface": 83.03125,
+      "current_surface": 99.875,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1592,
+      "baseline_surface": 83.234375,
+      "current_surface": 106.3125,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1592,
+      "baseline_surface": 83.65625,
+      "current_surface": 112.15625,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1592,
+      "baseline_surface": 84.65625,
+      "current_surface": 117.703125,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1592,
+      "baseline_surface": 86.078125,
+      "current_surface": 122.828125,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1592,
+      "baseline_surface": 86.6875,
+      "current_surface": 127.375,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1592,
+      "baseline_surface": 87.03125,
+      "current_surface": 131.0,
+      "light_opacity": 0.15625,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1592,
+      "baseline_surface": 110.78125,
+      "current_surface": 130.90625,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": 88,
+      "z": -1592,
+      "baseline_surface": 114.65625,
+      "current_surface": 127.28125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 104,
+      "z": -1592,
+      "baseline_surface": 119.5625,
+      "current_surface": 123.53125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1592,
+      "baseline_surface": 125.453125,
+      "current_surface": 125.78125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1592,
+      "baseline_surface": 132.03125,
+      "current_surface": 132.046875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -232,
+      "z": -1576,
+      "baseline_surface": 77.734375,
+      "current_surface": 78.125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1576,
+      "baseline_surface": 78.984375,
+      "current_surface": 84.125,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1576,
+      "baseline_surface": 80.015625,
+      "current_surface": 90.421875,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1576,
+      "baseline_surface": 79.953125,
+      "current_surface": 96.40625,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1576,
+      "baseline_surface": 79.828125,
+      "current_surface": 102.765625,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1576,
+      "baseline_surface": 79.765625,
+      "current_surface": 109.078125,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1576,
+      "baseline_surface": 80.203125,
+      "current_surface": 115.1875,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1576,
+      "baseline_surface": 81.40625,
+      "current_surface": 120.609375,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1576,
+      "baseline_surface": 83.0,
+      "current_surface": 125.40625,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1576,
+      "baseline_surface": 83.21875,
+      "current_surface": 129.90625,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1576,
+      "baseline_surface": 83.46875,
+      "current_surface": 133.96875,
+      "light_opacity": 0.125,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1576,
+      "baseline_surface": 141.890625,
+      "current_surface": 155.28125,
+      "light_opacity": 0.125,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1576,
+      "baseline_surface": 146.78125,
+      "current_surface": 155.765625,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": 72,
+      "z": -1576,
+      "baseline_surface": 105.09375,
+      "current_surface": 133.90625,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": 88,
+      "z": -1576,
+      "baseline_surface": 108.53125,
+      "current_surface": 129.84375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": 104,
+      "z": -1576,
+      "baseline_surface": 113.109375,
+      "current_surface": 125.390625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1576,
+      "baseline_surface": 118.78125,
+      "current_surface": 121.609375,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1576,
+      "baseline_surface": 125.09375,
+      "current_surface": 125.265625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -248,
+      "z": -1560,
+      "baseline_surface": 75.03125,
+      "current_surface": 75.109375,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1560,
+      "baseline_surface": 75.75,
+      "current_surface": 77.296875,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1560,
+      "baseline_surface": 77.203125,
+      "current_surface": 84.78125,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1560,
+      "baseline_surface": 77.765625,
+      "current_surface": 92.40625,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1560,
+      "baseline_surface": 77.625,
+      "current_surface": 99.59375,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1560,
+      "baseline_surface": 77.21875,
+      "current_surface": 106.34375,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1560,
+      "baseline_surface": 76.8125,
+      "current_surface": 111.953125,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1560,
+      "baseline_surface": 77.0625,
+      "current_surface": 117.5,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1560,
+      "baseline_surface": 78.28125,
+      "current_surface": 122.921875,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1560,
+      "baseline_surface": 79.5625,
+      "current_surface": 127.90625,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1560,
+      "baseline_surface": 79.8125,
+      "current_surface": 132.25,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1560,
+      "baseline_surface": 80.078125,
+      "current_surface": 136.015625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1560,
+      "baseline_surface": 119.71875,
+      "current_surface": 149.046875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1560,
+      "baseline_surface": 127.90625,
+      "current_surface": 149.03125,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": 72,
+      "z": -1560,
+      "baseline_surface": 99.234375,
+      "current_surface": 135.96875,
+      "light_opacity": 0.140625,
+      "light": true
+    },
+    {
+      "x": 88,
+      "z": -1560,
+      "baseline_surface": 102.1875,
+      "current_surface": 132.25,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 104,
+      "z": -1560,
+      "baseline_surface": 106.4375,
+      "current_surface": 127.984375,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1560,
+      "baseline_surface": 111.8125,
+      "current_surface": 123.078125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1560,
+      "baseline_surface": 117.265625,
+      "current_surface": 118.8125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1560,
+      "baseline_surface": 122.140625,
+      "current_surface": 122.203125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -248,
+      "z": -1544,
+      "baseline_surface": 73.625,
+      "current_surface": 73.796875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1544,
+      "baseline_surface": 74.4375,
+      "current_surface": 77.484375,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1544,
+      "baseline_surface": 75.65625,
+      "current_surface": 85.1875,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1544,
+      "baseline_surface": 75.90625,
+      "current_surface": 92.90625,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1544,
+      "baseline_surface": 75.6875,
+      "current_surface": 100.09375,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1544,
+      "baseline_surface": 75.078125,
+      "current_surface": 106.8125,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1544,
+      "baseline_surface": 74.390625,
+      "current_surface": 113.09375,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1544,
+      "baseline_surface": 74.375,
+      "current_surface": 119.15625,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1544,
+      "baseline_surface": 75.640625,
+      "current_surface": 124.875,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1544,
+      "baseline_surface": 76.3125,
+      "current_surface": 129.859375,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1544,
+      "baseline_surface": 76.59375,
+      "current_surface": 134.125,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1544,
+      "baseline_surface": 76.8125,
+      "current_surface": 138.328125,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1544,
+      "baseline_surface": 77.109375,
+      "current_surface": 144.453125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1544,
+      "baseline_surface": 91.421875,
+      "current_surface": 144.4375,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": 72,
+      "z": -1544,
+      "baseline_surface": 93.15625,
+      "current_surface": 138.328125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": 88,
+      "z": -1544,
+      "baseline_surface": 95.65625,
+      "current_surface": 134.15625,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": 104,
+      "z": -1544,
+      "baseline_surface": 99.625,
+      "current_surface": 129.96875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1544,
+      "baseline_surface": 104.78125,
+      "current_surface": 125.109375,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1544,
+      "baseline_surface": 109.0625,
+      "current_surface": 119.421875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1544,
+      "baseline_surface": 113.53125,
+      "current_surface": 114.640625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1544,
+      "baseline_surface": 119.15625,
+      "current_surface": 119.203125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -264,
+      "z": -1528,
+      "baseline_surface": 72.96875,
+      "current_surface": 72.984375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -248,
+      "z": -1528,
+      "baseline_surface": 73.140625,
+      "current_surface": 73.5625,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1528,
+      "baseline_surface": 73.75,
+      "current_surface": 77.6875,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1528,
+      "baseline_surface": 74.15625,
+      "current_surface": 85.40625,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1528,
+      "baseline_surface": 74.359375,
+      "current_surface": 93.046875,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1528,
+      "baseline_surface": 74.125,
+      "current_surface": 100.234375,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1528,
+      "baseline_surface": 73.46875,
+      "current_surface": 106.90625,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1528,
+      "baseline_surface": 72.625,
+      "current_surface": 113.234375,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1528,
+      "baseline_surface": 72.59375,
+      "current_surface": 119.296875,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1528,
+      "baseline_surface": 73.4375,
+      "current_surface": 125.03125,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1528,
+      "baseline_surface": 73.546875,
+      "current_surface": 130.265625,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1528,
+      "baseline_surface": 73.65625,
+      "current_surface": 135.21875,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1528,
+      "baseline_surface": 73.765625,
+      "current_surface": 143.421875,
+      "light_opacity": 0.125,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1528,
+      "baseline_surface": 73.859375,
+      "current_surface": 145.8125,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -40,
+      "z": -1528,
+      "baseline_surface": 74.90625,
+      "current_surface": 146.0,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": -24,
+      "z": -1528,
+      "baseline_surface": 77.25,
+      "current_surface": 146.0,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": -8,
+      "z": -1528,
+      "baseline_surface": 78.546875,
+      "current_surface": 146.0,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": 8,
+      "z": -1528,
+      "baseline_surface": 79.125,
+      "current_surface": 146.0,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": 24,
+      "z": -1528,
+      "baseline_surface": 80.296875,
+      "current_surface": 146.0,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": 40,
+      "z": -1528,
+      "baseline_surface": 82.875,
+      "current_surface": 146.0,
+      "light_opacity": 0.15625,
+      "light": true
+    },
+    {
+      "x": 56,
+      "z": -1528,
+      "baseline_surface": 85.515625,
+      "current_surface": 145.8125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": 72,
+      "z": -1528,
+      "baseline_surface": 86.796875,
+      "current_surface": 143.40625,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": 88,
+      "z": -1528,
+      "baseline_surface": 89.0,
+      "current_surface": 135.21875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1528,
+      "baseline_surface": 92.84375,
+      "current_surface": 130.375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1528,
+      "baseline_surface": 97.84375,
+      "current_surface": 125.28125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1528,
+      "baseline_surface": 100.796875,
+      "current_surface": 119.53125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1528,
+      "baseline_surface": 104.890625,
+      "current_surface": 113.515625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1528,
+      "baseline_surface": 110.234375,
+      "current_surface": 111.046875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1528,
+      "baseline_surface": 114.609375,
+      "current_surface": 114.625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -264,
+      "z": -1512,
+      "baseline_surface": 72.6875,
+      "current_surface": 72.921875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -248,
+      "z": -1512,
+      "baseline_surface": 72.8125,
+      "current_surface": 76.515625,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1512,
+      "baseline_surface": 73.203125,
+      "current_surface": 80.578125,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1512,
+      "baseline_surface": 73.640625,
+      "current_surface": 87.234375,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1512,
+      "baseline_surface": 73.890625,
+      "current_surface": 94.34375,
+      "light_opacity": 0.109375,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1512,
+      "baseline_surface": 73.671875,
+      "current_surface": 101.1875,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1512,
+      "baseline_surface": 73.0625,
+      "current_surface": 107.671875,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1512,
+      "baseline_surface": 72.3125,
+      "current_surface": 113.90625,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1512,
+      "baseline_surface": 72.0625,
+      "current_surface": 119.84375,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1512,
+      "baseline_surface": 71.84375,
+      "current_surface": 125.484375,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1512,
+      "baseline_surface": 71.71875,
+      "current_surface": 130.671875,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1512,
+      "baseline_surface": 71.625,
+      "current_surface": 136.515625,
+      "light_opacity": 0.09375,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1512,
+      "baseline_surface": 71.546875,
+      "current_surface": 145.1875,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1512,
+      "baseline_surface": 71.5,
+      "current_surface": 146.0,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -40,
+      "z": -1512,
+      "baseline_surface": 72.453125,
+      "current_surface": 146.0,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -24,
+      "z": -1512,
+      "baseline_surface": 74.171875,
+      "current_surface": 146.0,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -8,
+      "z": -1512,
+      "baseline_surface": 74.65625,
+      "current_surface": 146.0,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": 8,
+      "z": -1512,
+      "baseline_surface": 74.9375,
+      "current_surface": 146.0,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": 24,
+      "z": -1512,
+      "baseline_surface": 76.0,
+      "current_surface": 146.0,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 40,
+      "z": -1512,
+      "baseline_surface": 78.484375,
+      "current_surface": 146.0,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": 56,
+      "z": -1512,
+      "baseline_surface": 79.78125,
+      "current_surface": 146.0,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": 72,
+      "z": -1512,
+      "baseline_surface": 80.609375,
+      "current_surface": 145.1875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1512,
+      "baseline_surface": 82.65625,
+      "current_surface": 136.5,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1512,
+      "baseline_surface": 86.515625,
+      "current_surface": 130.71875,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1512,
+      "baseline_surface": 90.34375,
+      "current_surface": 125.640625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1512,
+      "baseline_surface": 92.78125,
+      "current_surface": 119.984375,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1512,
+      "baseline_surface": 96.625,
+      "current_surface": 113.796875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1512,
+      "baseline_surface": 101.671875,
+      "current_surface": 107.640625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1512,
+      "baseline_surface": 104.515625,
+      "current_surface": 105.28125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 200,
+      "z": -1512,
+      "baseline_surface": 108.515625,
+      "current_surface": 108.546875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -264,
+      "z": -1496,
+      "baseline_surface": 72.375,
+      "current_surface": 72.625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -248,
+      "z": -1496,
+      "baseline_surface": 72.5,
+      "current_surface": 76.65625,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1496,
+      "baseline_surface": 72.96875,
+      "current_surface": 84.046875,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1496,
+      "baseline_surface": 73.515625,
+      "current_surface": 90.875,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1496,
+      "baseline_surface": 73.875,
+      "current_surface": 97.09375,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1496,
+      "baseline_surface": 73.703125,
+      "current_surface": 103.296875,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1496,
+      "baseline_surface": 73.171875,
+      "current_surface": 109.375,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1496,
+      "baseline_surface": 72.53125,
+      "current_surface": 115.328125,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1496,
+      "baseline_surface": 72.0,
+      "current_surface": 121.03125,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1496,
+      "baseline_surface": 71.671875,
+      "current_surface": 126.421875,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1496,
+      "baseline_surface": 71.40625,
+      "current_surface": 131.34375,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1496,
+      "baseline_surface": 71.21875,
+      "current_surface": 135.96875,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1496,
+      "baseline_surface": 71.0,
+      "current_surface": 143.546875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1496,
+      "baseline_surface": 70.875,
+      "current_surface": 145.875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -40,
+      "z": -1496,
+      "baseline_surface": 71.40625,
+      "current_surface": 146.0,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -24,
+      "z": -1496,
+      "baseline_surface": 71.640625,
+      "current_surface": 146.0,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -8,
+      "z": -1496,
+      "baseline_surface": 71.78125,
+      "current_surface": 146.0,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 8,
+      "z": -1496,
+      "baseline_surface": 71.875,
+      "current_surface": 146.0,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 24,
+      "z": -1496,
+      "baseline_surface": 72.765625,
+      "current_surface": 146.0,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 40,
+      "z": -1496,
+      "baseline_surface": 74.453125,
+      "current_surface": 146.0,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": 56,
+      "z": -1496,
+      "baseline_surface": 74.65625,
+      "current_surface": 145.875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": 72,
+      "z": -1496,
+      "baseline_surface": 75.171875,
+      "current_surface": 143.5,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1496,
+      "baseline_surface": 77.1875,
+      "current_surface": 135.90625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1496,
+      "baseline_surface": 81.125,
+      "current_surface": 131.3125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1496,
+      "baseline_surface": 83.421875,
+      "current_surface": 126.46875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1496,
+      "baseline_surface": 85.515625,
+      "current_surface": 121.03125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1496,
+      "baseline_surface": 89.1875,
+      "current_surface": 115.078125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1496,
+      "baseline_surface": 92.765625,
+      "current_surface": 108.71875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1496,
+      "baseline_surface": 95.0,
+      "current_surface": 102.609375,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1496,
+      "baseline_surface": 98.859375,
+      "current_surface": 99.4375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -264,
+      "z": -1480,
+      "baseline_surface": 72.1875,
+      "current_surface": 72.421875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -248,
+      "z": -1480,
+      "baseline_surface": 72.34375,
+      "current_surface": 76.03125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1480,
+      "baseline_surface": 72.84375,
+      "current_surface": 80.28125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1480,
+      "baseline_surface": 73.5,
+      "current_surface": 87.109375,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1480,
+      "baseline_surface": 73.90625,
+      "current_surface": 94.359375,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1480,
+      "baseline_surface": 73.78125,
+      "current_surface": 101.25,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1480,
+      "baseline_surface": 73.328125,
+      "current_surface": 107.84375,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1480,
+      "baseline_surface": 72.78125,
+      "current_surface": 114.125,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1480,
+      "baseline_surface": 72.28125,
+      "current_surface": 120.125,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1480,
+      "baseline_surface": 71.96875,
+      "current_surface": 125.6875,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1480,
+      "baseline_surface": 71.6875,
+      "current_surface": 130.71875,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1480,
+      "baseline_surface": 71.375,
+      "current_surface": 135.15625,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1480,
+      "baseline_surface": 71.109375,
+      "current_surface": 139.375,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1480,
+      "baseline_surface": 70.921875,
+      "current_surface": 145.328125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -40,
+      "z": -1480,
+      "baseline_surface": 70.90625,
+      "current_surface": 145.890625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1480,
+      "baseline_surface": 70.921875,
+      "current_surface": 146.0,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -8,
+      "z": -1480,
+      "baseline_surface": 70.96875,
+      "current_surface": 146.0,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": 8,
+      "z": -1480,
+      "baseline_surface": 70.96875,
+      "current_surface": 146.0,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": 24,
+      "z": -1480,
+      "baseline_surface": 71.328125,
+      "current_surface": 146.0,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 40,
+      "z": -1480,
+      "baseline_surface": 71.140625,
+      "current_surface": 145.890625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": 56,
+      "z": -1480,
+      "baseline_surface": 70.9375,
+      "current_surface": 145.328125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1480,
+      "baseline_surface": 71.21875,
+      "current_surface": 139.28125,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1480,
+      "baseline_surface": 73.234375,
+      "current_surface": 135.046875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1480,
+      "baseline_surface": 76.359375,
+      "current_surface": 130.65625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1480,
+      "baseline_surface": 77.546875,
+      "current_surface": 125.65625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1480,
+      "baseline_surface": 79.4375,
+      "current_surface": 120.015625,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1480,
+      "baseline_surface": 83.03125,
+      "current_surface": 113.75,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1480,
+      "baseline_surface": 84.796875,
+      "current_surface": 107.015625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1480,
+      "baseline_surface": 86.640625,
+      "current_surface": 99.953125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1480,
+      "baseline_surface": 90.46875,
+      "current_surface": 93.484375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1480,
+      "baseline_surface": 94.6875,
+      "current_surface": 94.84375,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -264,
+      "z": -1464,
+      "baseline_surface": 72.359375,
+      "current_surface": 72.375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -248,
+      "z": -1464,
+      "baseline_surface": 72.484375,
+      "current_surface": 72.953125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1464,
+      "baseline_surface": 72.96875,
+      "current_surface": 77.3125,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1464,
+      "baseline_surface": 73.5625,
+      "current_surface": 85.28125,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1464,
+      "baseline_surface": 73.953125,
+      "current_surface": 93.109375,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1464,
+      "baseline_surface": 73.8125,
+      "current_surface": 100.328125,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1464,
+      "baseline_surface": 73.40625,
+      "current_surface": 107.140625,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1464,
+      "baseline_surface": 72.921875,
+      "current_surface": 113.625,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1464,
+      "baseline_surface": 72.46875,
+      "current_surface": 119.703125,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1464,
+      "baseline_surface": 72.15625,
+      "current_surface": 125.375,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1464,
+      "baseline_surface": 71.828125,
+      "current_surface": 130.4375,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1464,
+      "baseline_surface": 71.5,
+      "current_surface": 134.921875,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1464,
+      "baseline_surface": 71.25,
+      "current_surface": 138.703125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1464,
+      "baseline_surface": 71.015625,
+      "current_surface": 141.9375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -40,
+      "z": -1464,
+      "baseline_surface": 70.9375,
+      "current_surface": 144.15625,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -24,
+      "z": -1464,
+      "baseline_surface": 70.90625,
+      "current_surface": 145.8125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -8,
+      "z": -1464,
+      "baseline_surface": 70.90625,
+      "current_surface": 145.953125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1464,
+      "baseline_surface": 70.84375,
+      "current_surface": 145.953125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1464,
+      "baseline_surface": 70.578125,
+      "current_surface": 145.8125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1464,
+      "baseline_surface": 70.1875,
+      "current_surface": 144.125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1464,
+      "baseline_surface": 69.9375,
+      "current_surface": 141.875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1464,
+      "baseline_surface": 70.15625,
+      "current_surface": 138.578125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1464,
+      "baseline_surface": 71.5625,
+      "current_surface": 134.765625,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1464,
+      "baseline_surface": 72.328125,
+      "current_surface": 130.6875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1464,
+      "baseline_surface": 73.359375,
+      "current_surface": 125.328125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1464,
+      "baseline_surface": 75.171875,
+      "current_surface": 119.59375,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1464,
+      "baseline_surface": 77.765625,
+      "current_surface": 113.21875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1464,
+      "baseline_surface": 78.203125,
+      "current_surface": 106.328125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1464,
+      "baseline_surface": 79.890625,
+      "current_surface": 99.046875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1464,
+      "baseline_surface": 83.765625,
+      "current_surface": 91.71875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1464,
+      "baseline_surface": 86.46875,
+      "current_surface": 87.15625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 232,
+      "z": -1464,
+      "baseline_surface": 89.78125,
+      "current_surface": 89.796875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -248,
+      "z": -1448,
+      "baseline_surface": 73.125,
+      "current_surface": 73.375,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1448,
+      "baseline_surface": 73.359375,
+      "current_surface": 77.5,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1448,
+      "baseline_surface": 73.65625,
+      "current_surface": 85.25,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1448,
+      "baseline_surface": 73.78125,
+      "current_surface": 92.921875,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1448,
+      "baseline_surface": 73.625,
+      "current_surface": 100.171875,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1448,
+      "baseline_surface": 73.359375,
+      "current_surface": 107.078125,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1448,
+      "baseline_surface": 73.046875,
+      "current_surface": 113.578125,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1448,
+      "baseline_surface": 72.75,
+      "current_surface": 119.65625,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1448,
+      "baseline_surface": 72.4375,
+      "current_surface": 125.28125,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1448,
+      "baseline_surface": 72.09375,
+      "current_surface": 130.125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1448,
+      "baseline_surface": 71.75,
+      "current_surface": 134.265625,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1448,
+      "baseline_surface": 71.453125,
+      "current_surface": 137.875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1448,
+      "baseline_surface": 71.234375,
+      "current_surface": 140.78125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -40,
+      "z": -1448,
+      "baseline_surface": 70.96875,
+      "current_surface": 143.046875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -24,
+      "z": -1448,
+      "baseline_surface": 70.6875,
+      "current_surface": 144.640625,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -8,
+      "z": -1448,
+      "baseline_surface": 70.53125,
+      "current_surface": 145.265625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1448,
+      "baseline_surface": 70.453125,
+      "current_surface": 145.265625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1448,
+      "baseline_surface": 70.25,
+      "current_surface": 144.625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1448,
+      "baseline_surface": 70.03125,
+      "current_surface": 143.0,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1448,
+      "baseline_surface": 69.9375,
+      "current_surface": 140.6875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1448,
+      "baseline_surface": 70.09375,
+      "current_surface": 137.734375,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1448,
+      "baseline_surface": 70.71875,
+      "current_surface": 134.09375,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1448,
+      "baseline_surface": 71.4375,
+      "current_surface": 129.96875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1448,
+      "baseline_surface": 72.171875,
+      "current_surface": 125.0,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1448,
+      "baseline_surface": 73.09375,
+      "current_surface": 119.578125,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1448,
+      "baseline_surface": 73.390625,
+      "current_surface": 113.125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1448,
+      "baseline_surface": 73.375,
+      "current_surface": 106.265625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1448,
+      "baseline_surface": 74.984375,
+      "current_surface": 98.953125,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1448,
+      "baseline_surface": 77.890625,
+      "current_surface": 91.421875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1448,
+      "baseline_surface": 79.703125,
+      "current_surface": 84.15625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 232,
+      "z": -1448,
+      "baseline_surface": 83.4375,
+      "current_surface": 83.703125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -248,
+      "z": -1432,
+      "baseline_surface": 73.96875,
+      "current_surface": 74.21875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1432,
+      "baseline_surface": 73.875,
+      "current_surface": 77.96875,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1432,
+      "baseline_surface": 73.734375,
+      "current_surface": 85.3125,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1432,
+      "baseline_surface": 73.546875,
+      "current_surface": 92.671875,
+      "light_opacity": 0.078125,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1432,
+      "baseline_surface": 73.359375,
+      "current_surface": 99.8125,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1432,
+      "baseline_surface": 73.25,
+      "current_surface": 106.734375,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1432,
+      "baseline_surface": 73.171875,
+      "current_surface": 112.5,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1432,
+      "baseline_surface": 73.0625,
+      "current_surface": 118.09375,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1432,
+      "baseline_surface": 72.765625,
+      "current_surface": 123.390625,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1432,
+      "baseline_surface": 72.421875,
+      "current_surface": 128.28125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1432,
+      "baseline_surface": 72.0625,
+      "current_surface": 132.515625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1432,
+      "baseline_surface": 71.75,
+      "current_surface": 136.171875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1432,
+      "baseline_surface": 71.453125,
+      "current_surface": 139.3125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -40,
+      "z": -1432,
+      "baseline_surface": 70.9375,
+      "current_surface": 141.75,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -24,
+      "z": -1432,
+      "baseline_surface": 70.40625,
+      "current_surface": 143.0,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1432,
+      "baseline_surface": 70.0,
+      "current_surface": 143.90625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1432,
+      "baseline_surface": 69.921875,
+      "current_surface": 143.90625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1432,
+      "baseline_surface": 69.90625,
+      "current_surface": 143.0,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1432,
+      "baseline_surface": 69.875,
+      "current_surface": 141.671875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1432,
+      "baseline_surface": 69.953125,
+      "current_surface": 139.1875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1432,
+      "baseline_surface": 70.15625,
+      "current_surface": 135.96875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1432,
+      "baseline_surface": 70.6875,
+      "current_surface": 132.265625,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1432,
+      "baseline_surface": 71.34375,
+      "current_surface": 128.03125,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1432,
+      "baseline_surface": 71.90625,
+      "current_surface": 123.125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1432,
+      "baseline_surface": 72.21875,
+      "current_surface": 117.578125,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1432,
+      "baseline_surface": 72.046875,
+      "current_surface": 112.109375,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1432,
+      "baseline_surface": 71.875,
+      "current_surface": 105.90625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1432,
+      "baseline_surface": 72.703125,
+      "current_surface": 98.671875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1432,
+      "baseline_surface": 73.1875,
+      "current_surface": 91.265625,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1432,
+      "baseline_surface": 74.984375,
+      "current_surface": 83.796875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 232,
+      "z": -1432,
+      "baseline_surface": 79.03125,
+      "current_surface": 79.640625,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -248,
+      "z": -1416,
+      "baseline_surface": 74.609375,
+      "current_surface": 74.84375,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1416,
+      "baseline_surface": 74.28125,
+      "current_surface": 78.359375,
+      "light_opacity": 0.0625,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1416,
+      "baseline_surface": 73.828125,
+      "current_surface": 85.0625,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1416,
+      "baseline_surface": 73.40625,
+      "current_surface": 91.140625,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1416,
+      "baseline_surface": 73.1875,
+      "current_surface": 97.015625,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1416,
+      "baseline_surface": 73.21875,
+      "current_surface": 103.390625,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1416,
+      "baseline_surface": 73.3125,
+      "current_surface": 109.703125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1416,
+      "baseline_surface": 73.3125,
+      "current_surface": 115.75,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1416,
+      "baseline_surface": 73.0625,
+      "current_surface": 121.09375,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1416,
+      "baseline_surface": 72.703125,
+      "current_surface": 125.875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1416,
+      "baseline_surface": 72.328125,
+      "current_surface": 130.3125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1416,
+      "baseline_surface": 72.0,
+      "current_surface": 134.28125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1416,
+      "baseline_surface": 71.65625,
+      "current_surface": 137.3125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -40,
+      "z": -1416,
+      "baseline_surface": 70.96875,
+      "current_surface": 139.28125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1416,
+      "baseline_surface": 70.203125,
+      "current_surface": 140.71875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1416,
+      "baseline_surface": 69.6875,
+      "current_surface": 141.578125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1416,
+      "baseline_surface": 69.53125,
+      "current_surface": 141.59375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1416,
+      "baseline_surface": 69.640625,
+      "current_surface": 140.6875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1416,
+      "baseline_surface": 69.828125,
+      "current_surface": 139.15625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1416,
+      "baseline_surface": 70.0,
+      "current_surface": 137.140625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1416,
+      "baseline_surface": 70.265625,
+      "current_surface": 134.015625,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1416,
+      "baseline_surface": 70.765625,
+      "current_surface": 129.96875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1416,
+      "baseline_surface": 71.390625,
+      "current_surface": 125.5,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1416,
+      "baseline_surface": 71.921875,
+      "current_surface": 120.71875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1416,
+      "baseline_surface": 72.140625,
+      "current_surface": 115.28125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1416,
+      "baseline_surface": 72.0,
+      "current_surface": 109.0625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1416,
+      "baseline_surface": 71.75,
+      "current_surface": 102.640625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1416,
+      "baseline_surface": 71.625,
+      "current_surface": 95.90625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1416,
+      "baseline_surface": 71.796875,
+      "current_surface": 89.8125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1416,
+      "baseline_surface": 73.046875,
+      "current_surface": 83.359375,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 232,
+      "z": -1416,
+      "baseline_surface": 75.09375,
+      "current_surface": 76.796875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 248,
+      "z": -1416,
+      "baseline_surface": 78.984375,
+      "current_surface": 79.046875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -248,
+      "z": -1400,
+      "baseline_surface": 74.75,
+      "current_surface": 74.984375,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1400,
+      "baseline_surface": 74.390625,
+      "current_surface": 77.984375,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1400,
+      "baseline_surface": 73.875,
+      "current_surface": 81.21875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1400,
+      "baseline_surface": 73.421875,
+      "current_surface": 87.078125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1400,
+      "baseline_surface": 73.203125,
+      "current_surface": 93.78125,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1400,
+      "baseline_surface": 73.234375,
+      "current_surface": 100.703125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1400,
+      "baseline_surface": 73.34375,
+      "current_surface": 106.96875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1400,
+      "baseline_surface": 73.328125,
+      "current_surface": 112.6875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1400,
+      "baseline_surface": 73.0625,
+      "current_surface": 118.171875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1400,
+      "baseline_surface": 72.734375,
+      "current_surface": 123.328125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1400,
+      "baseline_surface": 72.390625,
+      "current_surface": 127.890625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1400,
+      "baseline_surface": 72.09375,
+      "current_surface": 131.5,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -56,
+      "z": -1400,
+      "baseline_surface": 71.75,
+      "current_surface": 134.25,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1400,
+      "baseline_surface": 71.0625,
+      "current_surface": 136.09375,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1400,
+      "baseline_surface": 70.265625,
+      "current_surface": 137.75,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1400,
+      "baseline_surface": 69.78125,
+      "current_surface": 138.484375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1400,
+      "baseline_surface": 69.625,
+      "current_surface": 138.5,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1400,
+      "baseline_surface": 69.75,
+      "current_surface": 137.6875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1400,
+      "baseline_surface": 69.96875,
+      "current_surface": 135.9375,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1400,
+      "baseline_surface": 70.21875,
+      "current_surface": 134.015625,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1400,
+      "baseline_surface": 70.484375,
+      "current_surface": 131.1875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1400,
+      "baseline_surface": 70.984375,
+      "current_surface": 127.546875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1400,
+      "baseline_surface": 71.59375,
+      "current_surface": 123.0,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1400,
+      "baseline_surface": 72.140625,
+      "current_surface": 117.828125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1400,
+      "baseline_surface": 72.359375,
+      "current_surface": 112.265625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1400,
+      "baseline_surface": 72.265625,
+      "current_surface": 106.40625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1400,
+      "baseline_surface": 72.03125,
+      "current_surface": 99.953125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1400,
+      "baseline_surface": 71.875,
+      "current_surface": 92.703125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1400,
+      "baseline_surface": 72.03125,
+      "current_surface": 85.9375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1400,
+      "baseline_surface": 72.359375,
+      "current_surface": 79.734375,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 232,
+      "z": -1400,
+      "baseline_surface": 73.59375,
+      "current_surface": 76.296875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 248,
+      "z": -1400,
+      "baseline_surface": 75.46875,
+      "current_surface": 75.625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -248,
+      "z": -1384,
+      "baseline_surface": 74.265625,
+      "current_surface": 74.28125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -232,
+      "z": -1384,
+      "baseline_surface": 74.0,
+      "current_surface": 74.46875,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1384,
+      "baseline_surface": 73.625,
+      "current_surface": 77.921875,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1384,
+      "baseline_surface": 73.25,
+      "current_surface": 84.671875,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1384,
+      "baseline_surface": 73.03125,
+      "current_surface": 90.921875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1384,
+      "baseline_surface": 72.9375,
+      "current_surface": 96.890625,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1384,
+      "baseline_surface": 72.875,
+      "current_surface": 103.171875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1384,
+      "baseline_surface": 72.75,
+      "current_surface": 109.4375,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1384,
+      "baseline_surface": 72.5,
+      "current_surface": 115.3125,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1384,
+      "baseline_surface": 72.28125,
+      "current_surface": 120.0,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1384,
+      "baseline_surface": 72.125,
+      "current_surface": 124.25,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -72,
+      "z": -1384,
+      "baseline_surface": 71.953125,
+      "current_surface": 127.78125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1384,
+      "baseline_surface": 71.671875,
+      "current_surface": 130.15625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1384,
+      "baseline_surface": 71.140625,
+      "current_surface": 132.375,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1384,
+      "baseline_surface": 70.53125,
+      "current_surface": 134.078125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1384,
+      "baseline_surface": 70.171875,
+      "current_surface": 134.671875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1384,
+      "baseline_surface": 70.0625,
+      "current_surface": 134.6875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1384,
+      "baseline_surface": 70.21875,
+      "current_surface": 134.03125,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1384,
+      "baseline_surface": 70.5,
+      "current_surface": 132.25,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1384,
+      "baseline_surface": 70.75,
+      "current_surface": 129.96875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1384,
+      "baseline_surface": 71.015625,
+      "current_surface": 127.5625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1384,
+      "baseline_surface": 71.5,
+      "current_surface": 124.0625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1384,
+      "baseline_surface": 72.0625,
+      "current_surface": 119.90625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1384,
+      "baseline_surface": 72.515625,
+      "current_surface": 115.328125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1384,
+      "baseline_surface": 72.78125,
+      "current_surface": 109.453125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1384,
+      "baseline_surface": 72.8125,
+      "current_surface": 103.171875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1384,
+      "baseline_surface": 72.765625,
+      "current_surface": 96.78125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1384,
+      "baseline_surface": 72.75,
+      "current_surface": 90.734375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1384,
+      "baseline_surface": 72.875,
+      "current_surface": 84.046875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1384,
+      "baseline_surface": 73.203125,
+      "current_surface": 77.796875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 232,
+      "z": -1384,
+      "baseline_surface": 73.46875,
+      "current_surface": 73.890625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 248,
+      "z": -1384,
+      "baseline_surface": 74.53125,
+      "current_surface": 74.546875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -232,
+      "z": -1368,
+      "baseline_surface": 73.40625,
+      "current_surface": 73.640625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1368,
+      "baseline_surface": 73.21875,
+      "current_surface": 76.875,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1368,
+      "baseline_surface": 73.0,
+      "current_surface": 80.390625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1368,
+      "baseline_surface": 72.75,
+      "current_surface": 86.515625,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1368,
+      "baseline_surface": 72.484375,
+      "current_surface": 93.25,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1368,
+      "baseline_surface": 72.21875,
+      "current_surface": 100.046875,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1368,
+      "baseline_surface": 71.9375,
+      "current_surface": 106.078125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1368,
+      "baseline_surface": 71.6875,
+      "current_surface": 110.75,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1368,
+      "baseline_surface": 71.640625,
+      "current_surface": 115.59375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -88,
+      "z": -1368,
+      "baseline_surface": 71.734375,
+      "current_surface": 119.8125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1368,
+      "baseline_surface": 71.75,
+      "current_surface": 123.015625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1368,
+      "baseline_surface": 71.546875,
+      "current_surface": 125.53125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1368,
+      "baseline_surface": 71.203125,
+      "current_surface": 128.0,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1368,
+      "baseline_surface": 70.875,
+      "current_surface": 129.875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1368,
+      "baseline_surface": 70.671875,
+      "current_surface": 130.234375,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1368,
+      "baseline_surface": 70.65625,
+      "current_surface": 130.1875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1368,
+      "baseline_surface": 70.84375,
+      "current_surface": 129.875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1368,
+      "baseline_surface": 71.140625,
+      "current_surface": 127.96875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1368,
+      "baseline_surface": 71.4375,
+      "current_surface": 125.53125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1368,
+      "baseline_surface": 71.71875,
+      "current_surface": 123.03125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1368,
+      "baseline_surface": 72.109375,
+      "current_surface": 119.921875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1368,
+      "baseline_surface": 72.5625,
+      "current_surface": 115.953125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1368,
+      "baseline_surface": 72.96875,
+      "current_surface": 111.390625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1368,
+      "baseline_surface": 73.28125,
+      "current_surface": 106.8125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1368,
+      "baseline_surface": 73.484375,
+      "current_surface": 100.84375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1368,
+      "baseline_surface": 73.65625,
+      "current_surface": 94.09375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1368,
+      "baseline_surface": 73.84375,
+      "current_surface": 87.40625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1368,
+      "baseline_surface": 74.03125,
+      "current_surface": 81.359375,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1368,
+      "baseline_surface": 74.125,
+      "current_surface": 77.421875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 232,
+      "z": -1368,
+      "baseline_surface": 74.484375,
+      "current_surface": 74.875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -232,
+      "z": -1352,
+      "baseline_surface": 73.015625,
+      "current_surface": 73.03125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -216,
+      "z": -1352,
+      "baseline_surface": 72.9375,
+      "current_surface": 73.40625,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1352,
+      "baseline_surface": 72.78125,
+      "current_surface": 77.15625,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1352,
+      "baseline_surface": 72.546875,
+      "current_surface": 84.078125,
+      "light_opacity": 0.046875,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1352,
+      "baseline_surface": 72.171875,
+      "current_surface": 90.296875,
+      "light_opacity": 0.03125,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1352,
+      "baseline_surface": 71.71875,
+      "current_surface": 95.859375,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1352,
+      "baseline_surface": 71.328125,
+      "current_surface": 100.59375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1352,
+      "baseline_surface": 71.078125,
+      "current_surface": 105.78125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -104,
+      "z": -1352,
+      "baseline_surface": 71.1875,
+      "current_surface": 110.515625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -88,
+      "z": -1352,
+      "baseline_surface": 71.46875,
+      "current_surface": 114.875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1352,
+      "baseline_surface": 71.625,
+      "current_surface": 117.609375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1352,
+      "baseline_surface": 71.46875,
+      "current_surface": 120.5625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1352,
+      "baseline_surface": 71.28125,
+      "current_surface": 122.9375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1352,
+      "baseline_surface": 71.140625,
+      "current_surface": 124.921875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1352,
+      "baseline_surface": 71.0625,
+      "current_surface": 125.0625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1352,
+      "baseline_surface": 71.09375,
+      "current_surface": 125.0625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1352,
+      "baseline_surface": 71.3125,
+      "current_surface": 124.96875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1352,
+      "baseline_surface": 71.640625,
+      "current_surface": 123.046875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1352,
+      "baseline_surface": 71.984375,
+      "current_surface": 120.734375,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1352,
+      "baseline_surface": 72.25,
+      "current_surface": 117.859375,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1352,
+      "baseline_surface": 72.578125,
+      "current_surface": 115.359375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1352,
+      "baseline_surface": 72.96875,
+      "current_surface": 111.375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1352,
+      "baseline_surface": 73.34375,
+      "current_surface": 107.0,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1352,
+      "baseline_surface": 73.65625,
+      "current_surface": 102.015625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1352,
+      "baseline_surface": 74.015625,
+      "current_surface": 97.375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1352,
+      "baseline_surface": 74.34375,
+      "current_surface": 91.921875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1352,
+      "baseline_surface": 74.65625,
+      "current_surface": 85.875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1352,
+      "baseline_surface": 74.90625,
+      "current_surface": 79.125,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1352,
+      "baseline_surface": 75.125,
+      "current_surface": 75.59375,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 232,
+      "z": -1352,
+      "baseline_surface": 75.296875,
+      "current_surface": 75.34375,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -216,
+      "z": -1336,
+      "baseline_surface": 73.078125,
+      "current_surface": 73.3125,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -200,
+      "z": -1336,
+      "baseline_surface": 72.96875,
+      "current_surface": 76.65625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1336,
+      "baseline_surface": 72.71875,
+      "current_surface": 80.15625,
+      "light_opacity": 0.015625,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1336,
+      "baseline_surface": 72.28125,
+      "current_surface": 85.765625,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1336,
+      "baseline_surface": 71.78125,
+      "current_surface": 90.28125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1336,
+      "baseline_surface": 71.296875,
+      "current_surface": 95.609375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1336,
+      "baseline_surface": 71.046875,
+      "current_surface": 100.421875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -104,
+      "z": -1336,
+      "baseline_surface": 71.15625,
+      "current_surface": 105.65625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -88,
+      "z": -1336,
+      "baseline_surface": 71.46875,
+      "current_surface": 108.78125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1336,
+      "baseline_surface": 71.65625,
+      "current_surface": 111.921875,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1336,
+      "baseline_surface": 71.515625,
+      "current_surface": 115.015625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1336,
+      "baseline_surface": 71.34375,
+      "current_surface": 117.4375,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1336,
+      "baseline_surface": 71.21875,
+      "current_surface": 119.015625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1336,
+      "baseline_surface": 71.1875,
+      "current_surface": 119.21875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1336,
+      "baseline_surface": 71.1875,
+      "current_surface": 119.21875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1336,
+      "baseline_surface": 71.40625,
+      "current_surface": 119.1875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1336,
+      "baseline_surface": 71.734375,
+      "current_surface": 117.59375,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1336,
+      "baseline_surface": 72.078125,
+      "current_surface": 115.25,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1336,
+      "baseline_surface": 72.359375,
+      "current_surface": 112.234375,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1336,
+      "baseline_surface": 72.703125,
+      "current_surface": 109.40625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1336,
+      "baseline_surface": 73.078125,
+      "current_surface": 106.6875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1336,
+      "baseline_surface": 73.453125,
+      "current_surface": 101.90625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1336,
+      "baseline_surface": 73.796875,
+      "current_surface": 97.296875,
+      "light_opacity": 0.125,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1336,
+      "baseline_surface": 74.1875,
+      "current_surface": 92.09375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1336,
+      "baseline_surface": 74.59375,
+      "current_surface": 87.625,
+      "light_opacity": 0.125,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1336,
+      "baseline_surface": 74.921875,
+      "current_surface": 82.125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1336,
+      "baseline_surface": 75.1875,
+      "current_surface": 78.75,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1336,
+      "baseline_surface": 75.40625,
+      "current_surface": 75.640625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -200,
+      "z": -1320,
+      "baseline_surface": 73.6875,
+      "current_surface": 74.15625,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -184,
+      "z": -1320,
+      "baseline_surface": 73.40625,
+      "current_surface": 77.265625,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -168,
+      "z": -1320,
+      "baseline_surface": 72.8125,
+      "current_surface": 80.34375,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1320,
+      "baseline_surface": 72.0625,
+      "current_surface": 85.578125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1320,
+      "baseline_surface": 71.4375,
+      "current_surface": 90.03125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -120,
+      "z": -1320,
+      "baseline_surface": 71.140625,
+      "current_surface": 95.453125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -104,
+      "z": -1320,
+      "baseline_surface": 71.28125,
+      "current_surface": 99.484375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -88,
+      "z": -1320,
+      "baseline_surface": 71.5625,
+      "current_surface": 102.421875,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1320,
+      "baseline_surface": 71.75,
+      "current_surface": 106.15625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1320,
+      "baseline_surface": 71.59375,
+      "current_surface": 108.875,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1320,
+      "baseline_surface": 71.34375,
+      "current_surface": 111.65625,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1320,
+      "baseline_surface": 71.15625,
+      "current_surface": 112.65625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1320,
+      "baseline_surface": 71.03125,
+      "current_surface": 112.71875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1320,
+      "baseline_surface": 71.046875,
+      "current_surface": 112.734375,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1320,
+      "baseline_surface": 71.21875,
+      "current_surface": 112.734375,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1320,
+      "baseline_surface": 71.484375,
+      "current_surface": 111.703125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1320,
+      "baseline_surface": 71.78125,
+      "current_surface": 108.96875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1320,
+      "baseline_surface": 72.046875,
+      "current_surface": 106.28125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1320,
+      "baseline_surface": 72.421875,
+      "current_surface": 102.921875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1320,
+      "baseline_surface": 72.828125,
+      "current_surface": 100.453125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1320,
+      "baseline_surface": 73.21875,
+      "current_surface": 96.859375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1320,
+      "baseline_surface": 73.59375,
+      "current_surface": 91.640625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1320,
+      "baseline_surface": 74.0,
+      "current_surface": 87.125,
+      "light_opacity": 0.125,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1320,
+      "baseline_surface": 74.4375,
+      "current_surface": 81.78125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1320,
+      "baseline_surface": 74.8125,
+      "current_surface": 78.578125,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1320,
+      "baseline_surface": 75.0625,
+      "current_surface": 75.5,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 216,
+      "z": -1320,
+      "baseline_surface": 75.15625,
+      "current_surface": 75.171875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -200,
+      "z": -1304,
+      "baseline_surface": 74.609375,
+      "current_surface": 74.625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -184,
+      "z": -1304,
+      "baseline_surface": 74.28125,
+      "current_surface": 74.734375,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -168,
+      "z": -1304,
+      "baseline_surface": 73.484375,
+      "current_surface": 77.3125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1304,
+      "baseline_surface": 72.453125,
+      "current_surface": 80.03125,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -136,
+      "z": -1304,
+      "baseline_surface": 71.578125,
+      "current_surface": 85.1875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -120,
+      "z": -1304,
+      "baseline_surface": 71.25,
+      "current_surface": 89.578125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -104,
+      "z": -1304,
+      "baseline_surface": 71.359375,
+      "current_surface": 92.46875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -88,
+      "z": -1304,
+      "baseline_surface": 71.65625,
+      "current_surface": 96.0625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1304,
+      "baseline_surface": 71.8125,
+      "current_surface": 99.8125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1304,
+      "baseline_surface": 71.65625,
+      "current_surface": 102.46875,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1304,
+      "baseline_surface": 71.34375,
+      "current_surface": 105.703125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1304,
+      "baseline_surface": 71.0,
+      "current_surface": 105.6875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1304,
+      "baseline_surface": 70.84375,
+      "current_surface": 105.71875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1304,
+      "baseline_surface": 70.828125,
+      "current_surface": 105.71875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1304,
+      "baseline_surface": 70.90625,
+      "current_surface": 105.78125,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1304,
+      "baseline_surface": 71.078125,
+      "current_surface": 105.5625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1304,
+      "baseline_surface": 71.3125,
+      "current_surface": 102.28125,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1304,
+      "baseline_surface": 71.59375,
+      "current_surface": 99.6875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1304,
+      "baseline_surface": 71.953125,
+      "current_surface": 96.25,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1304,
+      "baseline_surface": 72.40625,
+      "current_surface": 93.1875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1304,
+      "baseline_surface": 72.828125,
+      "current_surface": 90.765625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1304,
+      "baseline_surface": 73.203125,
+      "current_surface": 86.484375,
+      "light_opacity": 0.125,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1304,
+      "baseline_surface": 73.65625,
+      "current_surface": 81.09375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1304,
+      "baseline_surface": 74.109375,
+      "current_surface": 77.921875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1304,
+      "baseline_surface": 74.5,
+      "current_surface": 74.953125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 200,
+      "z": -1304,
+      "baseline_surface": 74.734375,
+      "current_surface": 74.75,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -184,
+      "z": -1288,
+      "baseline_surface": 74.9375,
+      "current_surface": 74.953125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -168,
+      "z": -1288,
+      "baseline_surface": 73.96875,
+      "current_surface": 74.40625,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1288,
+      "baseline_surface": 72.703125,
+      "current_surface": 76.59375,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -136,
+      "z": -1288,
+      "baseline_surface": 71.703125,
+      "current_surface": 79.234375,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -120,
+      "z": -1288,
+      "baseline_surface": 71.328125,
+      "current_surface": 83.0625,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -104,
+      "z": -1288,
+      "baseline_surface": 71.4375,
+      "current_surface": 85.46875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -88,
+      "z": -1288,
+      "baseline_surface": 71.71875,
+      "current_surface": 89.9375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1288,
+      "baseline_surface": 71.875,
+      "current_surface": 92.8125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1288,
+      "baseline_surface": 71.65625,
+      "current_surface": 96.0,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1288,
+      "baseline_surface": 71.3125,
+      "current_surface": 98.515625,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1288,
+      "baseline_surface": 70.9375,
+      "current_surface": 98.421875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1288,
+      "baseline_surface": 70.671875,
+      "current_surface": 98.296875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1288,
+      "baseline_surface": 70.625,
+      "current_surface": 98.25,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1288,
+      "baseline_surface": 70.671875,
+      "current_surface": 98.296875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1288,
+      "baseline_surface": 70.78125,
+      "current_surface": 98.171875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1288,
+      "baseline_surface": 70.9375,
+      "current_surface": 95.5,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1288,
+      "baseline_surface": 71.234375,
+      "current_surface": 92.375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1288,
+      "baseline_surface": 71.609375,
+      "current_surface": 89.84375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1288,
+      "baseline_surface": 72.078125,
+      "current_surface": 85.984375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1288,
+      "baseline_surface": 72.515625,
+      "current_surface": 84.046875,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1288,
+      "baseline_surface": 72.90625,
+      "current_surface": 80.296875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1288,
+      "baseline_surface": 73.375,
+      "current_surface": 77.203125,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1288,
+      "baseline_surface": 73.84375,
+      "current_surface": 74.296875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 184,
+      "z": -1288,
+      "baseline_surface": 74.265625,
+      "current_surface": 74.28125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -168,
+      "z": -1272,
+      "baseline_surface": 74.03125,
+      "current_surface": 74.046875,
+      "light_opacity": 0.0,
+      "light": true
+    },
+    {
+      "x": -152,
+      "z": -1272,
+      "baseline_surface": 72.84375,
+      "current_surface": 73.296875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -136,
+      "z": -1272,
+      "baseline_surface": 71.859375,
+      "current_surface": 75.59375,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -120,
+      "z": -1272,
+      "baseline_surface": 71.484375,
+      "current_surface": 75.921875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -104,
+      "z": -1272,
+      "baseline_surface": 71.53125,
+      "current_surface": 79.078125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -88,
+      "z": -1272,
+      "baseline_surface": 71.71875,
+      "current_surface": 83.390625,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1272,
+      "baseline_surface": 71.828125,
+      "current_surface": 85.78125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1272,
+      "baseline_surface": 71.625,
+      "current_surface": 89.78125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1272,
+      "baseline_surface": 71.28125,
+      "current_surface": 90.984375,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1272,
+      "baseline_surface": 70.9375,
+      "current_surface": 90.890625,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1272,
+      "baseline_surface": 70.671875,
+      "current_surface": 90.640625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1272,
+      "baseline_surface": 70.625,
+      "current_surface": 90.59375,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1272,
+      "baseline_surface": 70.671875,
+      "current_surface": 90.625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1272,
+      "baseline_surface": 70.734375,
+      "current_surface": 90.578125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1272,
+      "baseline_surface": 70.90625,
+      "current_surface": 89.234375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1272,
+      "baseline_surface": 71.15625,
+      "current_surface": 85.234375,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1272,
+      "baseline_surface": 71.5625,
+      "current_surface": 83.25,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1272,
+      "baseline_surface": 72.0,
+      "current_surface": 79.546875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1272,
+      "baseline_surface": 72.453125,
+      "current_surface": 76.84375,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1272,
+      "baseline_surface": 72.875,
+      "current_surface": 76.53125,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1272,
+      "baseline_surface": 73.3125,
+      "current_surface": 73.78125,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 168,
+      "z": -1272,
+      "baseline_surface": 73.828125,
+      "current_surface": 73.84375,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -152,
+      "z": -1256,
+      "baseline_surface": 73.171875,
+      "current_surface": 73.1875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -136,
+      "z": -1256,
+      "baseline_surface": 72.53125,
+      "current_surface": 72.765625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -120,
+      "z": -1256,
+      "baseline_surface": 72.1875,
+      "current_surface": 72.65625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -104,
+      "z": -1256,
+      "baseline_surface": 71.953125,
+      "current_surface": 75.65625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -88,
+      "z": -1256,
+      "baseline_surface": 71.765625,
+      "current_surface": 76.1875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1256,
+      "baseline_surface": 71.5625,
+      "current_surface": 79.125,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1256,
+      "baseline_surface": 71.375,
+      "current_surface": 82.96875,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1256,
+      "baseline_surface": 71.15625,
+      "current_surface": 83.140625,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1256,
+      "baseline_surface": 71.0,
+      "current_surface": 83.125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1256,
+      "baseline_surface": 70.90625,
+      "current_surface": 82.921875,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1256,
+      "baseline_surface": 70.859375,
+      "current_surface": 82.90625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1256,
+      "baseline_surface": 70.84375,
+      "current_surface": 82.90625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1256,
+      "baseline_surface": 70.84375,
+      "current_surface": 82.90625,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1256,
+      "baseline_surface": 70.96875,
+      "current_surface": 82.640625,
+      "light_opacity": 0.109375,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1256,
+      "baseline_surface": 71.21875,
+      "current_surface": 78.8125,
+      "light_opacity": 0.09375,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1256,
+      "baseline_surface": 71.625,
+      "current_surface": 76.046875,
+      "light_opacity": 0.078125,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1256,
+      "baseline_surface": 72.09375,
+      "current_surface": 75.796875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1256,
+      "baseline_surface": 72.546875,
+      "current_surface": 73.015625,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 136,
+      "z": -1256,
+      "baseline_surface": 72.9375,
+      "current_surface": 73.171875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 152,
+      "z": -1256,
+      "baseline_surface": 73.453125,
+      "current_surface": 73.46875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -120,
+      "z": -1240,
+      "baseline_surface": 73.125,
+      "current_surface": 73.140625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -104,
+      "z": -1240,
+      "baseline_surface": 72.53125,
+      "current_surface": 72.765625,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -88,
+      "z": -1240,
+      "baseline_surface": 71.828125,
+      "current_surface": 72.3125,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1240,
+      "baseline_surface": 71.28125,
+      "current_surface": 75.046875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1240,
+      "baseline_surface": 71.0625,
+      "current_surface": 75.3125,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1240,
+      "baseline_surface": 71.0625,
+      "current_surface": 75.3125,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1240,
+      "baseline_surface": 71.140625,
+      "current_surface": 75.46875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1240,
+      "baseline_surface": 71.25,
+      "current_surface": 75.5,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1240,
+      "baseline_surface": 71.25,
+      "current_surface": 75.5,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1240,
+      "baseline_surface": 71.15625,
+      "current_surface": 75.421875,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1240,
+      "baseline_surface": 71.09375,
+      "current_surface": 75.34375,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1240,
+      "baseline_surface": 71.125,
+      "current_surface": 75.375,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1240,
+      "baseline_surface": 71.359375,
+      "current_surface": 75.109375,
+      "light_opacity": 0.0625,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1240,
+      "baseline_surface": 71.765625,
+      "current_surface": 72.25,
+      "light_opacity": 0.046875,
+      "light": false
+    },
+    {
+      "x": 104,
+      "z": -1240,
+      "baseline_surface": 72.234375,
+      "current_surface": 72.46875,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 120,
+      "z": -1240,
+      "baseline_surface": 72.703125,
+      "current_surface": 72.71875,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -88,
+      "z": -1224,
+      "baseline_surface": 72.0,
+      "current_surface": 72.015625,
+      "light_opacity": 0.0,
+      "light": false
+    },
+    {
+      "x": -72,
+      "z": -1224,
+      "baseline_surface": 71.1875,
+      "current_surface": 71.421875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": -56,
+      "z": -1224,
+      "baseline_surface": 70.96875,
+      "current_surface": 71.21875,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -40,
+      "z": -1224,
+      "baseline_surface": 71.125,
+      "current_surface": 71.375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -24,
+      "z": -1224,
+      "baseline_surface": 71.390625,
+      "current_surface": 71.703125,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": -8,
+      "z": -1224,
+      "baseline_surface": 71.65625,
+      "current_surface": 71.90625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 8,
+      "z": -1224,
+      "baseline_surface": 71.6875,
+      "current_surface": 71.9375,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 24,
+      "z": -1224,
+      "baseline_surface": 71.546875,
+      "current_surface": 71.796875,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 40,
+      "z": -1224,
+      "baseline_surface": 71.390625,
+      "current_surface": 71.640625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 56,
+      "z": -1224,
+      "baseline_surface": 71.359375,
+      "current_surface": 71.625,
+      "light_opacity": 0.03125,
+      "light": false
+    },
+    {
+      "x": 72,
+      "z": -1224,
+      "baseline_surface": 71.5625,
+      "current_surface": 71.796875,
+      "light_opacity": 0.015625,
+      "light": false
+    },
+    {
+      "x": 88,
+      "z": -1224,
+      "baseline_surface": 71.96875,
+      "current_surface": 71.984375,
+      "light_opacity": 0.0,
+      "light": false
+    }
+  ]
+}

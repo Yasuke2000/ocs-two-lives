@@ -1,0 +1,43 @@
+{
+  "source_map_commit": "50e0715",
+  "presentation_basis_commit": "4847edd",
+  "source_svg_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "guide_pixels": [
+    1536,
+    1024
+  ],
+  "normal_export_box": [
+    -6656,
+    -5632,
+    12800,
+    10752
+  ],
+  "normal_preview_sha256": "866d93c964eb6650747f8541e2ca771eea3b609369e06aef7db90b26ed03df9d",
+  "prior_painting": "world/painting-current/paint-current.png",
+  "prior_painting_source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+  "prior_painting_png_sha256": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+  "production_svg_changes_in_this_painting_round": false,
+  "copyrighted_reference_images_used_as_generation_inputs": false,
+  "generation_method": "built-in image_gen edit of prior original painting with own current checker and terrain guides",
+  "required_change": "Current northwestern headland,at the same fixed world frame; existing geography retained.",
+  "generated_painting_sha256": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e",
+  "native_overlay_counts": {
+    "coast": 3,
+    "lakes": 9,
+    "rivers": 8,
+    "roads": 21,
+    "biomes": 2
+  },
+  "base_texture_reference": "../painting-current/paint-current.png",
+  "new_generated_texture_use": "Only within the native headland mask and its feathered transition; previous original painting retained elsewhere.",
+  "headland_mask_stroke_width_world": 128,
+  "headland_mask_gaussian_sigma_world": 32,
+  "current_source_geometry_unchanged_during_round43": true,
+  "presentation_rule": "Native source masks and coast/water/road vectors govern geography; pictorial tree,ridge,bank strokes are not surveyed terrain."
+}

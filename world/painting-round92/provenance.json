@@ -1,0 +1,19 @@
+{
+  "source_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
+  "map_commit": "f0e1d63e7d1668c42c9152047f604cea2ff55331",
+  "baseline": "../painting-round90/continent.png",
+  "baseline_sha256": "b26f557305ddf6c68e6defbc8363cf0d8bd153b07c87eb59e7bd21f64ae3c641",
+  "native_patch_basis": "../painting-round69/continent.svg",
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "PNG_method": "Browser export of original native SVG compositions",
+  "copyrighted_reference_pixels_embedded": false,
+  "runtime_applied": false,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.466
+  },
+  "final_atlas_detail_comparison_and_source_preview_visually_inspected": true
+}

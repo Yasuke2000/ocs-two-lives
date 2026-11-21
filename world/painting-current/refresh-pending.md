@@ -1,0 +1,13 @@
+# Current painting refresh required after round42
+
+**Round43 update:** the current-source painting refresh is now delivered in [painting-round43/README.md](../painting-round43/README.md),including the new cape and audited source7d021766 registration. This folder retains the historical R38 images/provenance; the earlier pending instructions below are history.
+
+The painting branch now integrates map feature commit50e0715,source `7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa`. The two shared preview conflicts were resolved using that feature branch's current normal-export PNG and provenance. No PR was merged into main and no runtime apply or deployment occurred.
+
+Existing R38 painting files still describe their original1ea6782d source. Keep those hashes,inputs and prompt history accurate. The new northwestern headland is absent from that raster; a metadata-only change cannot make the painting agree with the current map.
+
+Next work: prepare fresh own checker/terrain/geometry guides from the current source and normal build. The current box is(-6656,-5632)..(6144,5120),12800×10752; its normal preview is1600×1344. Native geometry has3coasts,9lakes,8rivers,20biomes,21roads and58site anchors. Generate the revised original painting using only prior original art and these own guides. Do not feed copyrighted official/anime art into generation. Recompose exact native coasts/water/roads and projected markers over the revised raster. Keep the post-Kijin era and open source/binding distinctions. Audit masks,anchors and actual render,compare against the linked official reference,then review whether the SVG needs another correction.
+
+The terrain atlas was already reprojected by uniform0.96scale plus(88,5.2) offset; its58marker groups,16context labels and32open rows remain. The painted composition may have a different canvas/projection: derive its registration from current bounds rather than blindly reusing that display transform. Main research now has217claims/14directLN,129inventory entries/32explicit follow-ups and58registered art pairs; none is closed by this basis sync.
+
+Basis verification: checker0errors/56relations/2warnings; normal branch build58.7seconds/no converter warnings. Normalized SVG/provenance text matches the map feature; both preview PNGs are byte-identical. CRLF/LF checkout differences are excluded from text comparison. Repository validation and472tests pass (26skips,zero failures,45.880s). These checks synchronize the basis; they do not validate the older painting against the new cape.

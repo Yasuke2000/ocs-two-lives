@@ -1,0 +1,39 @@
+{
+  "round": 69,
+  "source_map_commit": "f98dd7b",
+  "source_svg_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+  "baseline_source_svg_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+  "previous_composition": "../painting-round63/continent.svg",
+  "original_art_provenance": "../painting-round63/provenance.json",
+  "method": "Native SVG lighting from current-minus-baseline designed-height gradients. Mask follows the union of all changed height-raster cells plus16-block blending,including the Sacred Mountain approach and shoulder changes. Original raster textures retained; no raw raster image edited.",
+  "new_image_generation": false,
+  "copyrighted_reference_images_used_as_generation_inputs": false,
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "current_height_sha256": "9674d560e06d7310ba9a2b9c56a7027d083b73edb12e4023a8b72f0111a483a2",
+  "baseline_height_sha256": "6fdea0285fb9fe51f68c928d4f77278e827e99d14846d3c31a15622f95eb1e90",
+  "normal_terrain_preview_sha256": "bd6c12f657337ab899fbd566541fa1c23589cc090a7b31fe2824717f4da5b660",
+  "raw_original_art": {
+    "world\\painting-current\\paint-current.png": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+    "world\\painting-round43\\paint-r43.png": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e"
+  },
+  "light_direction_rule": "Normal(-dx,1,-dz) under northwest light adds positive(dx+dz). Signed light=clamp(0.18*(delta_dx+delta_dz),-0.16,0.16);alpha quantized1/4096.",
+  "step_world": 8,
+  "input_changed_height_cells": 4483,
+  "changed_height_cells_outside_site_fade": 1003,
+  "mask_blend_buffer_world": 16,
+  "mask_bounds_world": [
+    -4076.0,
+    -1760.0,
+    -3672.0,
+    -1384.0
+  ],
+  "feather_sigma_world": 4,
+  "production_svg_changed_in_this_round": false,
+  "whole_source_equivalence_to_R64": false,
+  "limits": "The R68 preparation radius,automatic first-air and shoulder/approach heights changed. This is an illustrative lighting update from bilinear samples of normal height inputs,not a metric heightmap,runtime sampler or canon sanctuary architecture. Other depicted ridge/tree strokes remain stylised; runtime fit and early-era residents are not tested."
+}

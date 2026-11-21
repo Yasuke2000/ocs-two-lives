@@ -1,0 +1,27 @@
+{
+  "source_map_commit": "06de1b2",
+  "source_svg_sha256": "cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371",
+  "method": "Native SVG mask and shoreline refresh; existing original raster textures retained byte-for-byte.",
+  "new_image_generation_in_round50": false,
+  "original_generation_provenance": "../painting-round43/provenance.json",
+  "original_generation_prompt": "../painting-round43/prompt.json",
+  "raw_original_art": {
+    "world\\painting-current\\paint-current.png": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+    "world\\painting-round43\\paint-r43.png": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e"
+  },
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "production_svg_changed_during_this_round": false,
+  "normal_terrain_preview_sha256": "11cad65f1bfb3e134667f7a679ac5fa53b75319a2a8527f42c0e44304de72097",
+  "coast_copies_registered": {
+    "mainland": 4,
+    "ice-continent": 4,
+    "el-dorado-island": 4
+  },
+  "interpretation": "Native coast masks, water vectors and roads govern the presentation. Painted canopy, ridge and soil strokes remain illustrative; they are not additional surveyed terrain.",
+  "historical_round43_preserved": true
+}
