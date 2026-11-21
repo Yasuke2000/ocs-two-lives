@@ -460,8 +460,8 @@ r = 8
 min_r = 8
 
 [frost_palace]
-site = "coast"
-r = 67
+site = "clearing"
+r = 89
 min_r = 67
 box = [85, 69]
 plate = [101, 85]

@@ -1,5 +1,7 @@
 # Frost Palace: current-terrain placement comparison — R103
 
+**R109 superseding owner decision:** Yasuke chose inland placement and adjustment of the coastal registration. The active drawing now uses the R103 central snowfield at(-1530,-3680),clearing,r89. See [current implementation and limits](frost-palace-inland-r109.md). The remaining text records the earlier review state; pending-choice statements below are historical.
+
 ![Original comparison](frost-palace-fit-r103.png)
 
 The earlier inland proposal is near the authored island centroid but intersects

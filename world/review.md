@@ -1,3 +1,7 @@
+# Current review — R109 inland palace
+
+See [owner decision and verification](frost-palace-inland-r109.md). Source0ae040ec;checker0errors/56relations/2prior warnings;normal67.3s/no converter warnings. All8585 entrance-buffer samples level71 and dry;source57other sites/native landforms retained. Before/after and checker preview visually inspected;browser58numbers/20names/42rows,no label overlaps,min31.62px. Owner-approved kind/r registration regenerated with the existing generator;staged y71 supplied,not applied to runtime. R107 painting predates the move. Earlier reviews below are history.
+
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 
 [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/260f1501ad0a009879b671291fd0e73b63fef497/world/painting-round100/README.md) follows source `dbef5ac0`: exact meadow shape,15 changed continent pixels,20 context names and all58 registrations checked. Khusha text and the Tengu partial row now agree with the main atlas. R98 is historical; painting alignment is complete. [Evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r100.md). Ledger305/inventory138/42 remain. Painting gate472 tests,26 skipped,zero failures(63.658s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.549s); zero changed JavaScript. Broader source/location/initial-era obligations stay open.

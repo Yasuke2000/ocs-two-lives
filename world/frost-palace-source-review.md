@@ -1,5 +1,7 @@
 # Frost Palace: inland WN setting versus coastal reservation
 
+**R109 superseding owner decision:** Yasuke chose inland placement and adjustment of the coastal registration. The active drawing now uses the R103 central snowfield at(-1530,-3680),clearing,r89. See [current implementation and limits](frost-palace-inland-r109.md). The remaining text records the earlier review state; pending-choice statements below are historical.
+
 [Original placement study](frost-palace-source-study.png) · [editable diagram](frost-palace-source-study.svg) · [geometry/export audit](frost-palace-source-audit.json).
 
 Fuse's directly read [original WN chapter78, URL81](https://ncode.syosetu.com/n6316bn/81/) places White Ice Palace centrally on the frozen continent (WN078-001). The corridor/carved-door and upper ice-terrace passages provide limited architectural context (WN078-002). These are **WN-continuity** statements. LN6's interlude and LN16's epilogue have not been directly read here; their listings and older secondary citations do not establish agreement. Official anime episode42 stills3/4 show blue faceted interior cues, without surveying a continental position or complete palace plan.

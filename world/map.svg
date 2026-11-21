@@ -19,10 +19,11 @@ Four simple water polygons exactly partition ONE proposed basin minus the plinth
 <polyline id="wn-englassia-north-link-trial" points="-2900,-562 -2900,-628" data-role="inert-urban-link-bridge-projection" data-proposed-width="4" data-proposed-walking-first-air="76" data-source-claims="WN56-003;DES-ENGCAST-074" />
 The active englassia clearing remains(-2900,-550),r124 with designed first-air76 and its existing dry guild/academy model. These trial waters overlap that dry reservation and the interurban trail;do not activate by copying them into layers. C17/C15 requires continuity choice,city/model layout,water versus preparation priority andbridge/road semantics first. No checker/rule exception or extra registered ID is applied. See world/englassia-castle-lake-study.md.
 -->
-  <!-- C22 Frost Palace WN-only inland alternative. INERT REVIEW GEOMETRY, not a registered site or generated terrain.
+  <!-- C22 HISTORICAL Frost Palace WN-only centroid alternative. R109 owner chose the R103 central snowfield at(-1530,-3680); active site is now an inland clearing, r89. The old coastal registration is superseded in the drawing; staged generated registration accompanies this change. WN continuity and unread LN agreement remain qualified. The following centroid sketch is historical and inert.
+C22 Frost Palace WN-only inland alternative. INERT REVIEW GEOMETRY, not a registered site or generated terrain.
 WN078-001: Fuse's original web novel chapter78 (URL /81/), passage beginning hyosetsu fukisusabu gokkan no tairiku, places the palace in the centre of the frozen continent. WN078-002 describes a corridor and carved audience door; no exact LN plan or coast bearing is verified.
 <circle id="wn-frost-central-trial" cx="-1660" cy="-3820" r="67" data-role="inland-palace-reservation-alternative" data-source-claims="WN078-001;DES-FRO-028" data-required-site-kind-review="coast to inland type; not applied" />
-The trial centre is near this authored island's geometric centroid, not a measured canonical coordinate. WN continuity stays separate; LN6 interlude/LN16 epilogue are not directly read here. The current active frost_palace(-1500,-3310),r67 keeps its fixed coast kind and southern approach reservation. No sixth rule or generated site-data edit is authorized. Reconcile coastal entry versus inland palace marker and build/terrain contract before replacing the active site. Exact height/access and full-palace footprint remain unverified.
+The trial centre is near this authored island's geometric centroid, not a measured canonical coordinate. WN continuity stays separate; LN6 interlude/LN16 epilogue are not directly read here. HISTORICAL R28 status: frost_palace(-1500,-3310),r67 kept the old coast kind and southern approach. R109 owner instruction supersedes the coast placement; no tools rule edit is needed. Reconcile coastal entry versus inland palace marker and build/terrain contract before replacing the active site. Exact height/access and full-palace footprint remain unverified.
 -->
   <!-- C07 Amrita subsurface-access alternative. INERT REVIEW GEOMETRY, not generated terrain or a registered site.
 OFF-AMR-001: official anime episode81 (route no86) places Amrita ruins beneath Clayman's former castle. LN10-001/002 distinguishes defended ruins/surface city and distant refounding after Soma; LN10-003 verifies Soma as the older destroyed homeland.
@@ -276,7 +277,7 @@ The live S/U frontier now approaches the park from the north, but its exact y272
     <polyline id="jistav_border_road" points="2710,720 2950,400 2950,-130 3000,-350 3220,-550 3460,-480 3740,-500" data-kind="trail" data-id="jistav_border_road" data-margin="16" />
     <polyline id="imperial_volcano_road" points="3300,-680 3120,-920 3120,-964 3132,-980 3132,-1040 3144,-1056 3144,-1116 3156,-1132 3156,-1176 3160,-1176 3160,-1180 3176,-1192 3188,-1208 3236,-1244 3248,-1260 3280,-1284 3292,-1300 3324,-1324 3336,-1340 3352,-1352 3316,-1400 3300,-1412 3252,-1476 3236,-1488 3176,-1568 3160,-1580 3160,-1584 3156,-1584 3156,-1588 3152,-1588 3152,-1596 3164,-1612 3164,-1628 3176,-1644 3176,-1656 3188,-1672 3188,-1688 3200,-1704 3200,-1712" data-kind="trail" data-id="imperial_volcano_road" data-margin="16" />
     <polyline id="el_dorado_volcanic_way" points="-4200,3000 -4112,3000 -4096,2988 -4084,2988 -4084,2992 -4080,2992 -4048,3016 -4036,3032 -3988,3068 -3976,3084 -3972,3084 -3972,3088 -3968,3088 -3932,3136 -3932,3140 -3920,3156 -3920,3164 -3908,3180 -3908,3192 -3904,3192 -3904,3196 -3900,3196 -3900,3200" data-kind="trail" data-id="el_dorado_volcanic_way" data-margin="16" />
-    <polyline id="frost_palace_forecourt" points="-1540,-3310 -1500,-3310 -1460,-3310" data-kind="trail" data-id="frost_palace_forecourt" data-margin="16" />
+    <polyline id="frost_palace_forecourt" points="-1570,-3680 -1530,-3680 -1490,-3680" data-kind="trail" data-id="frost_palace_forecourt" data-margin="16" />
     <polyline id="englassia_coleus_royal_approach" data-id="englassia_coleus_royal_approach" data-kind="trail" data-margin="16" points="-2900,-550 -3004,-550 -3070,-585 -3200,-594 -3200,-706 -3252,-706 -3252,-750 -3396,-750 -3440,-620 -3520,-620 -3520,-787" />
   </g>
   <g id="sites" fill="#cd1414" fill-opacity="0.5" stroke="#8b0000" stroke-width="6">
@@ -333,7 +334,7 @@ The live S/U frontier now approaches the park from the north, but its exact y272
     <circle data-id="great_holy_mountain" data-site="clearing" data-margin="48" cx="3350" cy="-1350" r="80.0" id="site-great_holy_mountain" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="el_dorado" data-site="clearing" data-margin="64" cx="-4300" cy="3000" r="100.0" id="site-el_dorado" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="el_dorado_volcano" data-site="clearing" data-margin="24" cx="-3900" cy="3200" r="8.0" id="site-el_dorado_volcano" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
-    <circle data-id="frost_palace" data-site="coast" data-margin="48" cx="-1500" cy="-3310" r="67.0" id="site-frost_palace" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
+    <circle data-id="frost_palace" data-site="clearing" data-margin="48" cx="-1530" cy="-3680" r="89.0" id="site-frost_palace" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="blumund_road" data-site="clearing" data-margin="24" cx="-1340" cy="-520" r="8.0" id="site-blumund_road" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="englassia_road" data-site="clearing" data-margin="24" cx="-2650" cy="-520" r="8.0" id="site-englassia_road" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="old_well" data-site="clearing" data-margin="24" cx="-1000" cy="-340" r="8.0" id="site-old_well" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
@@ -393,7 +394,7 @@ The live S/U frontier now approaches the park from the north, but its exact y272
     <text x="3450.0" y="-1338.0" font-size="40" fill="#243439">Great Holy Mountain</text>
     <text x="-4180.0" y="3012.0" font-size="40" fill="#243439">El Dorado</text>
     <text x="-3872.0" y="3212.0" font-size="40" fill="#243439">El Dorado Volcano</text>
-    <text x="-1413.0" y="-3298.0" font-size="40" fill="#243439">Frost Palace</text>
+    <text x="-1421.0" y="-3668.0" font-size="40" fill="#243439">Frost Palace</text>
     <text x="-1312.0" y="-508.0" font-size="40" fill="#243439">Blumund Road</text>
     <text x="-2622.0" y="-508.0" font-size="40" fill="#243439">Englassia Road</text>
     <text x="-972.0" y="-328.0" font-size="40" fill="#243439">Old Well</text>
