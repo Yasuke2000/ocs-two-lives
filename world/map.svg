@@ -230,7 +230,7 @@ The live S/U frontier now approaches the park from the north, but its exact y272
     <circle data-id="kaijin_smithy" data-site="clearing" data-margin="24" cx="-12.0" cy="-1634.0" r="8.0" id="site-kaijin_smithy" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="dwarf_village" data-site="village" data-margin="64" cx="400" cy="-1200" r="124.0" id="site-dwarf_village" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="dwarven_arena" data-site="clearing" data-margin="48" cx="500.0" cy="-1180.0" r="58.0" id="site-dwarven_arena" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
-    <circle data-id="dragons_nest" data-site="clearing" data-margin="48" cx="350" cy="-2000" r="64.0" id="site-dragons_nest" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
+    <circle data-id="dragons_nest" data-site="clearing" data-margin="48" cx="350" cy="-2000" r="85.0" id="site-dragons_nest" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="ameld_source" data-site="clearing" data-margin="24" cx="200" cy="-1240" r="8.0" id="site-ameld_source" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="ameld_mouth" data-site="coast" data-margin="24" cx="2150" cy="1250" r="8.0" id="site-ameld_mouth" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="lake_siss" data-site="lakeside" data-margin="48" cx="1100" cy="-100" r="96.0" id="site-lake_siss" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />

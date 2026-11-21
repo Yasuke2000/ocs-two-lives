@@ -1,0 +1,37 @@
+{
+  "round": 62,
+  "source_sha256": "0b211ec7761e1813ccfaee1e336f754ab7712495da6a991c79638d642a546839",
+  "all_58_numeric_site_claims_match_current_source": true,
+  "semantic_corrections": [
+    {
+      "claim_id": "SITE-018",
+      "id": "dragons_nest",
+      "old_values": [
+        350.0,
+        -2000.0,
+        64.0
+      ],
+      "current_values": [
+        350.0,
+        -2000.0,
+        85.0
+      ]
+    },
+    {
+      "claim_id": "SITE-027",
+      "id": "englassia",
+      "old_values": [
+        -2900.0,
+        -550.0,
+        98.0
+      ],
+      "current_values": [
+        -2900.0,
+        -550.0,
+        124.0
+      ]
+    }
+  ],
+  "format_only_differences_not_counted_as_stale_facts": true,
+  "ledger_unique": 250
+}

@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Dragon's Nest support and offset-template survey (ChatGPT,round62)
+
+Round62 [Dragon's Nest fit and30-template audit](../world/dragons-nest-fit-review.md) enlarges only the nest preparation radius64→85 at its unchanged centre/first-air272. All7,921 buffered columns are now level;all58 exported anchor records stay byte-identical. The normal terrain atlas is refreshed for source0b211ec7;R61 painting is historical pending explicit integration. Other offset-template findings are queued with carve/water/initial-era exceptions. Two site-radius summaries are corrected;all58 numeric coordinate records now match. Ledger250 unique(192+58),14 direct LN plus3 author-side-story claims;129 inventory/32 coverage follow-ups remain open.
+
+Next: current-source painting integration;review dwarven-arena/sacred-mountain and other actual template variation. Do not apply a flat-surface criterion to cavern roofs,water templates or later Tempest capacity. Existing coverage/source/fixed-rule/runtime work stays open.
+
 ## 21/11 — Painting integrates Englassia terrain update (ChatGPT, round61)
 
 Round61 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round61/README.md) explicitly integrates source 7a30cf41 and R60's Englassia preparation update. Native SVG lighting from 1,634 measured height-difference samples changes only 31 continent pixels, at most 2/255 per RGB channel, all local to Englassia. All 58 projections, 16 context labels and 32 open rows remain verified; original R53 files and textures are retained. Production geometry and terrain are unchanged in this presentation round. Ledger: 248 unique records; inventory: 129 entries with 32 coverage follow-ups. Earlier R60 painting-pending notes below are historical and superseded by this reviewed integration.
