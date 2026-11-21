@@ -1,3 +1,7 @@
+## R125 — El Dorado island silhouette
+
+[Original coast review](el-dorado-coast-r125.md) broadens the formerly diagonal island in response to the official illustration; exact curves remain our interpretation. Sourcea637;only the coast/X mask change. City/volcano first-air72→73/196→197; all58 source-site attributes retained. [R125 census](region-biomes-r125.md) replaces current shares. The R124 painting and two old concept-registration elevations require matching follow-up. Ledger330;inventory142/42.
+
 ## Atlas clarification — R123
 
 [Amrita association review](amrita-atlas-r123.md) labels the buried ruins below castle48 without relocating the separate game reservation49. Exact depth/extent/access and C07 technical nesting remain open. This is an atlas annotation; native geometry stays R119/source4093.

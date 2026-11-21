@@ -1,3 +1,7 @@
+## R125 — El Dorado silhouette and actual terrain
+
+[Coast/export review](../../../world/el-dorado-coast-r125.md) adds one official visual cue andone explicitly authored design record;330unique ledger IDs. Sourcea637. All58site attributes retained;two stagedheight values rise1block. Exact coast/projection remain interpreted. Full22region census and13lake audit rerun;painting/2concept-height follow-ups remain. Inventory142/42.
+
 ## R123 — Visible Amrita association
 
 [Atlas review](../../../world/amrita-atlas-r123.md) visibly associates the buried ruins with castle48. Marker49 remains an authored game reservation; C07 technical nesting/access is open. Existing LN10-001 refined and the brief’s exact founding age qualified; ledger328 retained. Source4093 and all terrain remain unchanged.

@@ -1,3 +1,7 @@
+## R125 — Current native island coast
+
+[El Dorado coast correction](el-dorado-coast-r125.md) follows the broader official island silhouette with original curves. Sourcea637;checker0errors/56relations/2standing warnings;normal67.5s;all13lake audits pass. Mainland/designbounds andall58sites retained,with two exported height values rising1block. R124 painting needs actual coast alignment. Ledger330;inventory142/42.
+
 ## Current source — R119
 
 [Ulgr brook correction](ulgr-brook-r119.md) keeps the stream inland until its native-shore mouth. Only one river’s points change; all 58 locations, 22 roads and other native shapes remain. Source `4093f844`; first head transition decreases 37→11 blocks. [Lake audit](lake-banks-r119.json) passes all 13 cases; [R119 census](region-biomes-r119.md) supplies current mixes. C23 style/fluid review remains open. [Published R120 painting proposal](https://github.com/Yasuke2000/ocs-two-lives/pull/108) follows the current route. Ledger 328; inventory 142/42. [R121 era review](../docs/research/tensura-world-2026-11-19/era-brief-review-r121.md) clarifies the narrative handoff; geometry and current image deliverables remain unchanged. Wider canon/era/proportion review remains incomplete.

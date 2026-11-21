@@ -1,3 +1,7 @@
+## 21/11 — El Dorado island proportion corrected (R125)
+
+[Source/export review](../world/el-dorado-coast-r125.md) replaces a narrow diagonal island with a broader original coast informed by the official silhouette. Only islandcoast/Xmask change;all58site attributes/22courses retained. Sourcea637;normal67.5s;checker0errors/56relations/2warnings;all13lake audits pass. City/volcano stagedfirst-air72→73/196→197;only corresponding volcanic-way height profile changes,maxgrade stays0.5. R124painting needs actual coastline alignment andtwo historical concept-registration elevations need review. Ledger330;inventory142/42. No live apply or protected-file edit. Required gate: 472 tests, 26 skipped, zero failures in 65.006s; validation and diff check pass.
+
 ## 21/11 — Amrita association visible on atlas (R123)
 
 [Atlas/source review](../world/amrita-atlas-r123.md) adds a below-castle48 callout while marker49 remains the game reservation. LN10-001 is refined from the reread publisher prologue; the brief’s exact founding age is qualified, not disproved across the full novel. Ledger328 retained. Source4093, all58 sites, checker preview and terrain exports unchanged. C07 nesting/access remains open; painting continent remains aligned, its caption follow-up remains pending. Required gate passed:472 tests,26 skipped,zero failures in64.023s; validation and diff check pass.
