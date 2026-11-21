@@ -1,0 +1,652 @@
+{
+  "round": 128,
+  "profile": "corrected",
+  "source_sha256": "8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b",
+  "height_raw_sha256": "49d6244b82bc41df2ba4438ef8c605ecd87a24327c60480bc192824553125109",
+  "water_raw_sha256": "55b731044b599880524ed9d481d6ff2b88aadb6f2fad1059a15c3ad3e5e2cea2",
+  "method": "All four-block pixel centres inside each native lake;cardinal four-neighbor ring around matching lake water. Separate exact-boundary dry samples. Compare dry-bank first-air with designed water first-air+2;all wet bed samples below water. Classify wet exits by actual river half-width(max(width/2,2.9));candidate links have a source endpoint within8blocks of lake.",
+  "limits": "Normal raster evidence only;not continuous bank,diagonal/final-noise,per-block fluid,chunk placement or in-game leak acceptance. Source-endpoint proximity is a finite designed-connection rule,not a canonical geographical claim.",
+  "summary": {
+    "lakes": 13,
+    "passing_lakes": 13,
+    "passing_bank_checks": 13,
+    "passing_connection_checks": 13,
+    "external_dry_bank_samples": 2539,
+    "internal_dry_boundary_bank_samples": 8,
+    "source_samples": 42768,
+    "source_wet_samples": 42760,
+    "dry_boundary_samples": 8,
+    "missing_expected_connections": 0,
+    "observed_river_lake_links": 8,
+    "external_wet_contact_samples": 21,
+    "overall_pass": true
+  },
+  "lakes": [
+    {
+      "id": "tempest-west-lake",
+      "water_first_air": 68,
+      "nominal_depth": 6,
+      "source_samples": 3564,
+      "source_wet_samples": 3562,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 2,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 210,
+      "internal_dry_boundary_bank_samples": 2,
+      "minimum_external_freeboard": 2.0,
+      "minimum_all_dry_bank_freeboard": 2.0,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.375,
+      "maximum_sampled_depth": 6.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 4,
+      "observed_river_ids": [
+        "jura-sarion-river",
+        "tempest-brook-upper"
+      ],
+      "expected_near_endpoint_river_ids": [
+        "jura-sarion-river",
+        "tempest-brook-upper"
+      ],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [
+        {
+          "x": -170.0,
+          "z": 110.0,
+          "boundary_distance": 0.0,
+          "strictly_interior": false,
+          "first_air": 72.0625
+        },
+        {
+          "x": -250.0,
+          "z": 250.0,
+          "boundary_distance": 0.0,
+          "strictly_interior": false,
+          "first_air": 74.4375
+        }
+      ],
+      "wet_contacts": [
+        {
+          "x": -350.0,
+          "z": -42.0,
+          "water_first_air": 68,
+          "rivers": [
+            "tempest-brook-upper"
+          ]
+        },
+        {
+          "x": -326.0,
+          "z": 238.0,
+          "water_first_air": 68,
+          "rivers": [
+            "jura-sarion-river"
+          ]
+        },
+        {
+          "x": -322.0,
+          "z": 242.0,
+          "water_first_air": 68,
+          "rivers": [
+            "jura-sarion-river"
+          ]
+        },
+        {
+          "x": -322.0,
+          "z": 246.0,
+          "water_first_air": 68,
+          "rivers": [
+            "jura-sarion-river"
+          ]
+        }
+      ],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "lake-siss",
+      "water_first_air": 66,
+      "nominal_depth": 12,
+      "source_samples": 16986,
+      "source_wet_samples": 16985,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 1,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 468,
+      "internal_dry_boundary_bank_samples": 1,
+      "minimum_external_freeboard": 2.0,
+      "minimum_all_dry_bank_freeboard": 2.0,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.8125,
+      "maximum_sampled_depth": 12.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 7,
+      "observed_river_ids": [
+        "great-ameld-headwaters",
+        "great-ameld-outlet"
+      ],
+      "expected_near_endpoint_river_ids": [
+        "great-ameld-headwaters",
+        "great-ameld-outlet"
+      ],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [
+        {
+          "x": 1110.0,
+          "z": 190.0,
+          "boundary_distance": 0.0,
+          "strictly_interior": false,
+          "first_air": 70.0625
+        }
+      ],
+      "wet_contacts": [
+        {
+          "x": 1082.0,
+          "z": -222.0,
+          "water_first_air": 66,
+          "rivers": [
+            "great-ameld-headwaters"
+          ]
+        },
+        {
+          "x": 1086.0,
+          "z": -222.0,
+          "water_first_air": 66,
+          "rivers": [
+            "great-ameld-headwaters"
+          ]
+        },
+        {
+          "x": 1550.0,
+          "z": -50.0,
+          "water_first_air": 66,
+          "rivers": [
+            "great-ameld-outlet"
+          ]
+        },
+        {
+          "x": 1550.0,
+          "z": -46.0,
+          "water_first_air": 66,
+          "rivers": [
+            "great-ameld-outlet"
+          ]
+        },
+        {
+          "x": 1550.0,
+          "z": -42.0,
+          "water_first_air": 66,
+          "rivers": [
+            "great-ameld-outlet"
+          ]
+        },
+        {
+          "x": 1550.0,
+          "z": -38.0,
+          "water_first_air": 66,
+          "rivers": [
+            "great-ameld-outlet"
+          ]
+        },
+        {
+          "x": 1550.0,
+          "z": -34.0,
+          "water_first_air": 66,
+          "rivers": [
+            "great-ameld-outlet"
+          ]
+        }
+      ],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "raja-lake",
+      "water_first_air": 72,
+      "nominal_depth": 4,
+      "source_samples": 628,
+      "source_wet_samples": 628,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 0,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 86,
+      "internal_dry_boundary_bank_samples": 0,
+      "minimum_external_freeboard": 2.0,
+      "minimum_all_dry_bank_freeboard": 2.0,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.25,
+      "maximum_sampled_depth": 4.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 2,
+      "observed_river_ids": [
+        "raja-stream"
+      ],
+      "expected_near_endpoint_river_ids": [
+        "raja-stream"
+      ],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [],
+      "wet_contacts": [
+        {
+          "x": -2786.0,
+          "z": 426.0,
+          "water_first_air": 72,
+          "rivers": [
+            "raja-stream"
+          ]
+        },
+        {
+          "x": -2782.0,
+          "z": 426.0,
+          "water_first_air": 72,
+          "rivers": [
+            "raja-stream"
+          ]
+        }
+      ],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "coleus-oasis",
+      "water_first_air": 75,
+      "nominal_depth": 5,
+      "source_samples": 1142,
+      "source_wet_samples": 1142,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 0,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 113,
+      "internal_dry_boundary_bank_samples": 0,
+      "minimum_external_freeboard": 2.0,
+      "minimum_all_dry_bank_freeboard": 2.0,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.3125,
+      "maximum_sampled_depth": 5.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 0,
+      "observed_river_ids": [],
+      "expected_near_endpoint_river_ids": [],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [],
+      "wet_contacts": [],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "ulgr-spring",
+      "water_first_air": 102,
+      "nominal_depth": 4,
+      "source_samples": 509,
+      "source_wet_samples": 509,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 0,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 74,
+      "internal_dry_boundary_bank_samples": 0,
+      "minimum_external_freeboard": 2.0,
+      "minimum_all_dry_bank_freeboard": 2.0,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.25,
+      "maximum_sampled_depth": 4.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 3,
+      "observed_river_ids": [
+        "ulgr-spring-brook"
+      ],
+      "expected_near_endpoint_river_ids": [
+        "ulgr-spring-brook"
+      ],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [],
+      "wet_contacts": [
+        {
+          "x": -802.0,
+          "z": 3034.0,
+          "water_first_air": 91,
+          "rivers": [
+            "ulgr-spring-brook"
+          ]
+        },
+        {
+          "x": -798.0,
+          "z": 3034.0,
+          "water_first_air": 91,
+          "rivers": [
+            "ulgr-spring-brook"
+          ]
+        },
+        {
+          "x": -806.0,
+          "z": 3038.0,
+          "water_first_air": 91,
+          "rivers": [
+            "ulgr-spring-brook"
+          ]
+        }
+      ],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "clayman-moat",
+      "water_first_air": 76,
+      "nominal_depth": 5,
+      "source_samples": 1012,
+      "source_wet_samples": 1012,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 0,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 121,
+      "internal_dry_boundary_bank_samples": 0,
+      "minimum_external_freeboard": 2.0,
+      "minimum_all_dry_bank_freeboard": 2.0,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.3125,
+      "maximum_sampled_depth": 5.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 0,
+      "observed_river_ids": [],
+      "expected_near_endpoint_river_ids": [],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [],
+      "wet_contacts": [],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "laura-headwater-basin",
+      "water_first_air": 154,
+      "nominal_depth": 5,
+      "source_samples": 311,
+      "source_wet_samples": 311,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 0,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 55,
+      "internal_dry_boundary_bank_samples": 0,
+      "minimum_external_freeboard": 2.0,
+      "minimum_all_dry_bank_freeboard": 2.0,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.3125,
+      "maximum_sampled_depth": 5.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 3,
+      "observed_river_ids": [
+        "laura-mountain-falls"
+      ],
+      "expected_near_endpoint_river_ids": [
+        "laura-mountain-falls"
+      ],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [],
+      "wet_contacts": [
+        {
+          "x": 1486.0,
+          "z": 1062.0,
+          "water_first_air": 137,
+          "rivers": [
+            "laura-mountain-falls"
+          ]
+        },
+        {
+          "x": 1490.0,
+          "z": 1062.0,
+          "water_first_air": 137,
+          "rivers": [
+            "laura-mountain-falls"
+          ]
+        },
+        {
+          "x": 1494.0,
+          "z": 1062.0,
+          "water_first_air": 137,
+          "rivers": [
+            "laura-mountain-falls"
+          ]
+        }
+      ],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "elmine-root-lake",
+      "water_first_air": 68,
+      "nominal_depth": 6,
+      "source_samples": 2930,
+      "source_wet_samples": 2930,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 0,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 183,
+      "internal_dry_boundary_bank_samples": 0,
+      "minimum_external_freeboard": 2.0,
+      "minimum_all_dry_bank_freeboard": 2.0,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.375,
+      "maximum_sampled_depth": 6.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 0,
+      "observed_river_ids": [],
+      "expected_near_endpoint_river_ids": [],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [],
+      "wet_contacts": [],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "imperial-unnamed-basin",
+      "water_first_air": 68,
+      "nominal_depth": 5,
+      "source_samples": 1893,
+      "source_wet_samples": 1892,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 1,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 188,
+      "internal_dry_boundary_bank_samples": 1,
+      "minimum_external_freeboard": 2.0625,
+      "minimum_all_dry_bank_freeboard": 2.0625,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.3125,
+      "maximum_sampled_depth": 5.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 0,
+      "observed_river_ids": [],
+      "expected_near_endpoint_river_ids": [],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [
+        {
+          "x": 4142.0,
+          "z": -1230.0,
+          "boundary_distance": 0.0,
+          "strictly_interior": false,
+          "first_air": 71.625
+        }
+      ],
+      "wet_contacts": [],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "el-dorado-eastern-lake",
+      "water_first_air": 68,
+      "nominal_depth": 5,
+      "source_samples": 1672,
+      "source_wet_samples": 1668,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 4,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 153,
+      "internal_dry_boundary_bank_samples": 4,
+      "minimum_external_freeboard": 2.0,
+      "minimum_all_dry_bank_freeboard": 2.0,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.3125,
+      "maximum_sampled_depth": 5.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 0,
+      "observed_river_ids": [],
+      "expected_near_endpoint_river_ids": [],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [
+        {
+          "x": -3574.0,
+          "z": 3054.0,
+          "boundary_distance": 0.0,
+          "strictly_interior": false,
+          "first_air": 70.0
+        },
+        {
+          "x": -3406.0,
+          "z": 3086.0,
+          "boundary_distance": 0.0,
+          "strictly_interior": false,
+          "first_air": 70.0
+        },
+        {
+          "x": -3390.0,
+          "z": 3090.0,
+          "boundary_distance": 0.0,
+          "strictly_interior": false,
+          "first_air": 70.0
+        },
+        {
+          "x": -3410.0,
+          "z": 3166.0,
+          "boundary_distance": 0.0,
+          "strictly_interior": false,
+          "first_air": 70.0
+        }
+      ],
+      "wet_contacts": [],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "englassia-capital-lake",
+      "water_first_air": 70,
+      "nominal_depth": 5,
+      "source_samples": 1624,
+      "source_wet_samples": 1624,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 0,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 312,
+      "internal_dry_boundary_bank_samples": 0,
+      "minimum_external_freeboard": 2.0625,
+      "minimum_all_dry_bank_freeboard": 2.0625,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.3125,
+      "maximum_sampled_depth": 5.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 0,
+      "observed_river_ids": [],
+      "expected_near_endpoint_river_ids": [],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [],
+      "wet_contacts": [],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "western-unnamed-basin",
+      "water_first_air": 68,
+      "nominal_depth": 5,
+      "source_samples": 6091,
+      "source_wet_samples": 6091,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 0,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 301,
+      "internal_dry_boundary_bank_samples": 0,
+      "minimum_external_freeboard": 2.5625,
+      "minimum_all_dry_bank_freeboard": 2.5625,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.3125,
+      "maximum_sampled_depth": 5.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 2,
+      "observed_river_ids": [
+        "western-basin-outlet"
+      ],
+      "expected_near_endpoint_river_ids": [
+        "western-basin-outlet"
+      ],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [],
+      "wet_contacts": [
+        {
+          "x": -2162.0,
+          "z": 538.0,
+          "water_first_air": 68,
+          "rivers": [
+            "western-basin-outlet"
+          ]
+        },
+        {
+          "x": -2158.0,
+          "z": 542.0,
+          "water_first_air": 68,
+          "rivers": [
+            "western-basin-outlet"
+          ]
+        }
+      ],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    },
+    {
+      "id": "southeastern-unnamed-basin",
+      "water_first_air": 68,
+      "nominal_depth": 4,
+      "source_samples": 4406,
+      "source_wet_samples": 4406,
+      "strict_interior_missing_water": 0,
+      "dry_boundary_samples": 0,
+      "wrong_water_level_samples": 0,
+      "external_dry_bank_samples": 275,
+      "internal_dry_boundary_bank_samples": 0,
+      "minimum_external_freeboard": 2.125,
+      "minimum_all_dry_bank_freeboard": 2.125,
+      "dry_bank_below_plus2": 0,
+      "minimum_sampled_depth": 1.25,
+      "maximum_sampled_depth": 4.0,
+      "nonpositive_depth_samples": 0,
+      "external_wet_samples": 0,
+      "observed_river_ids": [],
+      "expected_near_endpoint_river_ids": [],
+      "missing_expected_river_ids": [],
+      "unclassified_wet_contacts": [],
+      "boundary_samples": [],
+      "wet_contacts": [],
+      "bank_pass": true,
+      "connection_pass": true,
+      "pass": true
+    }
+  ]
+}

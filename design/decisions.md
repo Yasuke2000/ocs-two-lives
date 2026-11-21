@@ -290,4 +290,6 @@ changes and new decisions with a date.
 
 21Nov2026 — R125: redraw the El Dorado coast andmatching Xmask toward the official broad island silhouette,retaining all registered positions. Exact curves remain authored;record the actual1block stagedcity/volcano height changes andpainting follow-up. [Evidence](../world/el-dorado-coast-r125.md).
 
-21Nov2026 — R126: align the painted El Dorado silhouette to R125 while retaining fixed interior landscape and all cartographic anchors. Reject the repeating texture trial; use an original low-opacity wash and native grass brushes. [Current delivery](../world/painting-round112/README.md).
+22Nov2026 — R128: reshape only the western ice shore and matching snow/I coverage toward the official lower-arm silhouette; retain all ridge,site,road andislet geometry and Yasuke’s approved inland palace. Exact curves are authored. [Evidence](../world/ice-west-arm-r128.md).
+
+22Nov2026 — R129: align the painted western ice shore to R128, retain the approved inland palace and all prior cartographic anchors, and disclose the measured one-level ridge/peak colour differences. Final softer snow wash replaces the repeating trial. [Delivery](../world/painting-round112/README.md).

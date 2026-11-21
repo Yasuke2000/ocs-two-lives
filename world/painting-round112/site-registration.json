@@ -946,7 +946,7 @@
     }
   ],
   "open_inventory_rows": 41,
-  "source_sha256": "a637aa5ce39fea793ec2ca9aa4d12e6b328c7f67d074cdd537a941e293307ef0",
+  "source_sha256": "8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b",
   "khusha_orientation_label": {
     "world_x": -1340.5090909090904,
     "world_z": 958.8363636363638,
@@ -964,11 +964,12 @@
   "geographic_context_label_count": 20,
   "inventory": 142,
   "physical_followups": 42,
-  "ledger_unique": 330,
+  "ledger_unique": 332,
   "note_r110": "Only54 world/anchor/label and forecourt follow owner-approved inland clearing. Other57 marker positions retained;142/42 inventory and314 current ledger.",
   "note_r112": "All58 marker world/anchor/number positions unchanged;20 contexts/42 open rows retained;exact El Dorado canopy overlay. Inventory142/42.",
   "note_r116": "All58 world/anchor/number positions retained;20contexts/42rows unchanged. Only2river first vertices follow R115. Original R112 snapshot retained in Git atdfd66c1.",
   "note_r118": "Exact R117 coast overlay; all 58 site coordinates/projections and context/row geometry retained. No global terrain-height identity.",
   "note_r120": "Exact current R119 visible inland brook; old land outlet closed with native bank ink. All58 site rows/context/legend layout retained; original historical components remain.",
-  "note_r126": "R125 coast adopted;all58 site rows/20 context names/42 inventory rows retained;3-line Amrita association retained from R124;two stagedheight changes are source metadata,not relocated cartographic anchors."
+  "note_r126": "R125 coast adopted;all58 site rows/20 context names/42 inventory rows retained;3-line Amrita association retained from R124;two stagedheight changes are source metadata,not relocated cartographic anchors.",
+  "note_r129": "R128 western ice coast adopted;all58 site rows/20 context names/3Amrita lines/42 inventory rows retained. Normal site heights match R127 art-registration proposal without another metadata rewrite."
 }

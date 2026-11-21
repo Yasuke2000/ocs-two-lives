@@ -1,45 +1,69 @@
 {
-  "round": 126,
-  "source_sha256": "a637aa5ce39fea793ec2ca9aa4d12e6b328c7f67d074cdd537a941e293307ef0",
-  "map_commit": "8f8c2948bc0ef0521820f6128e2099bf2b2aa686",
-  "baseline_painting_commit": "c5f715d00a758d9f01a1cb2c4d10d55bf644c96a",
+  "round": 129,
+  "source_sha256": "8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b",
+  "map_commit": "b053e13b4fdd98eab5a804ea704cc59105df4e1e",
+  "baseline_painting_commit": "c2b326c33f6d9466e6fd145b1a65d7fcbf0fdc04",
   "all_baseline_native_children_retained": true,
   "appended_native_children": 2,
-  "visible_el_dorado_coast_path_exact": true,
+  "visible_ice_coast_path_exact": true,
   "historical_components_retained_as_history": true,
-  "changed_continent_pixels": 32150,
+  "changed_continent_pixels": 10618,
   "changed_pixel_bounds": [
-    238,
-    701,
-    526,
-    902
+    461,
+    100,
+    588,
+    239
   ],
-  "max_RGB_channel_change": 246,
-  "maximum_changed_centre_distance_from_old_new_island_union": 320.0216911993785,
+  "max_RGB_channel_change": 241,
+  "maximum_changed_centre_distance_from_shore_change_area": 319.4467402528932,
   "declared_local_audit_envelope_blocks": 400,
   "all_exterior_pixels_identical": true,
-  "fixed_landscape_interior_pixel_review": [
+  "fixed_ice_landscape_interior_pixel_review": [
     {
-      "id": "el-dorado-eastern-lake",
-      "interior_sample_pixels": 159,
+      "id": "ice-spine",
+      "interior_sample_pixels": 6209,
+      "changed_pixels": 475,
+      "maximum_RGB_delta": 1
+    },
+    {
+      "id": "ice-high-peaks",
+      "interior_sample_pixels": 3906,
+      "changed_pixels": 445,
+      "maximum_RGB_delta": 1
+    },
+    {
+      "id": "ice-coastal-islet-1",
+      "interior_sample_pixels": 55,
       "changed_pixels": 0,
       "maximum_RGB_delta": 0
     },
     {
-      "id": "el-dorado-northwestern-woodland",
-      "interior_sample_pixels": 342,
+      "id": "ice-coastal-islet-2",
+      "interior_sample_pixels": 20,
       "changed_pixels": 0,
       "maximum_RGB_delta": 0
     },
     {
-      "id": "el-dorado-eastern-lakeside-woodland",
-      "interior_sample_pixels": 130,
+      "id": "ice-coastal-islet-3",
+      "interior_sample_pixels": 32,
       "changed_pixels": 0,
       "maximum_RGB_delta": 0
     },
     {
-      "id": "el-dorado-volcano",
-      "interior_sample_pixels": 698,
+      "id": "ice-coastal-islet-4",
+      "interior_sample_pixels": 13,
+      "changed_pixels": 0,
+      "maximum_RGB_delta": 0
+    },
+    {
+      "id": "ice-coastal-islet-5",
+      "interior_sample_pixels": 2,
+      "changed_pixels": 0,
+      "maximum_RGB_delta": 0
+    },
+    {
+      "id": "frost_palace_disc",
+      "interior_sample_pixels": 157,
       "changed_pixels": 0,
       "maximum_RGB_delta": 0
     }
@@ -48,28 +72,11 @@
   "new_AI_images": 0,
   "raw_raster_editing": false,
   "copyrighted_reference_pixels": false,
-  "original_ocean_and_grass_wash_reused": true,
-  "normal_staging_adopted_seconds": 67.5,
-  "limits": "Illustration/pixel/source-geometry checks;not canonical texture,height reconstruction,whole-wiki or in-game acceptance.",
-  "registered_sites": 58,
-  "context_names": 20,
-  "association_caption_lines": 3,
-  "open_rows": 42,
-  "ledger_unique": 330,
-  "inventory": 142,
-  "physical_followups": 42,
-  "minimum_circle_spacing": 32.470561517449696,
-  "label_overlap": false,
-  "default_checker": "0 errors;56relations;2standing warnings",
-  "all_nonimage_atlas_XML_retained_except_root_metadata": true,
-  "atlas_embeds_exact_final_continent": true,
+  "original_owned_ocean_and_snow_washes_reused": true,
+  "normal_staging_adopted_seconds": 67.6,
   "source_adoption": {
-    "reviewed_source_commit": "8f8c2948bc0ef0521820f6128e2099bf2b2aa686",
-    "source_PRs": [
-      109,
-      111,
-      113
-    ],
+    "source_commit": "b053e13b4fdd98eab5a804ea704cc59105df4e1e",
+    "source_PR": 116,
     "source_map_byte_exact": true,
     "normal_files_byte_exact": [
       "anchors.toml",
@@ -89,12 +96,25 @@
     ],
     "normal_not_rerun": true
   },
+  "limits": "Finite illustration/pixel/source-geometry checks;not a surveyed coast,complete height reconstruction,whole-wiki or in-game acceptance.",
+  "registered_sites": 58,
+  "context_names": 20,
+  "association_caption_lines": 3,
+  "open_rows": 42,
+  "ledger_unique": 332,
+  "inventory": 142,
+  "physical_followups": 42,
+  "minimum_circle_spacing": 32.470561517449696,
+  "label_overlap": false,
+  "default_checker": "zero errors;all56 relations;two standing warnings",
+  "all_nonimage_atlas_XML_retained_except_root_metadata": true,
+  "atlas_embeds_exact_final_continent": true,
   "required_gate": {
     "command": "bash tools/check.sh",
     "tests": 472,
     "skipped": 26,
     "failures": 0,
-    "seconds": 64.945,
+    "seconds": 65.22,
     "validation": "pass",
     "changed_js": 0
   }

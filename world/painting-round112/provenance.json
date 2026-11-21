@@ -1,17 +1,17 @@
 {
-  "round": 126,
-  "source_sha256": "a637aa5ce39fea793ec2ca9aa4d12e6b328c7f67d074cdd537a941e293307ef0",
-  "map_commit": "8f8c2948bc0ef0521820f6128e2099bf2b2aa686",
-  "native_basis_commit": "c5f715d00a758d9f01a1cb2c4d10d55bf644c96a",
-  "native_basis": "world/painting-round112/continent.svg and its unedited original rendered PNG at baseline",
-  "owned_baseline_PNG_sha256": "d22806cda044143b6e05345d0dbb43bb965d07b634a6a5b0e04b6c98e7cb6d60",
+  "round": 129,
+  "source_sha256": "8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b",
+  "map_commit": "b053e13b4fdd98eab5a804ea704cc59105df4e1e",
+  "native_basis_commit": "c2b326c33f6d9466e6fd145b1a65d7fcbf0fdc04",
+  "native_basis": "Original R126 native composition and its unedited rendered PNG;all original native child trees retained.",
+  "owned_baseline_PNG_sha256": "4eb40341530f5c80e476a534a5359028692428dff83821123262731812e9adb1",
   "historical_component_metadata_retained": true,
-  "new_native_geometry": "Exact visible R125 island path;original ocean/grass washes,interpreted lowland tint and grass brush strokes;fixed interior retained",
+  "new_native_geometry": "Exact R128 western ice shore,owned local ocean/snow wash and original snow-brush variation;masked unchanged ice interior.",
   "new_AI_images": 0,
   "raw_raster_editing": false,
   "copyrighted_reference_pixels_embedded": false,
   "PNG_method": "Chrome native SVG render",
   "global_relief_resampled": false,
   "runtime_applied": false,
-  "visual_iteration": "Full-opacity repeated grass texture rejected;final low-opacity wash and original grass brushes inspected."
+  "visual_iteration": "Stronger repeated snow texture rejected;final softer wash visually inspected."
 }

@@ -1,0 +1,127 @@
+{
+  "round": 128,
+  "source_sha256": "8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b",
+  "baseline_source_sha256": "a637aa5ce39fea793ec2ca9aa4d12e6b328c7f67d074cdd537a941e293307ef0",
+  "baseline_commit": "8f8c2948bc0ef0521820f6128e2099bf2b2aa686",
+  "changed_native_leaf_elements": [
+    "ice-continent",
+    "ice-permafrost",
+    "nation-I"
+  ],
+  "all58_source_site_attributes_unchanged": true,
+  "all22_source_road_courses_unchanged": true,
+  "old_ice_bounds": [
+    -2910.0,
+    -4375.6,
+    -391.85,
+    -3246.58
+  ],
+  "new_ice_bounds": [
+    -2910.0,
+    -4375.6,
+    -391.85,
+    -3246.58
+  ],
+  "old_land_area_blocks2": 2017862.1203000005,
+  "new_land_area_blocks2": 1945132.924478785,
+  "added_land_blocks2": 20226.036781382696,
+  "removed_land_blocks2": 92955.23260259851,
+  "westernmost_point_before": [
+    -2910,
+    -3796
+  ],
+  "westernmost_point_after": [
+    -2910,
+    -3500
+  ],
+  "old_western_nodes_replaced": "0..24 and102..104;other77source nodes retained",
+  "new_original_cubic_reaches": 5,
+  "normal_seconds": 67.6,
+  "rasters": {
+    "height": {
+      "changed_cells": 62452,
+      "maximum_delta_blocks": 72.75,
+      "changed_sample_bounds": [
+        -3206.0,
+        -4566.0,
+        -1966.0,
+        -3146.0
+      ],
+      "maximum_changed_sample_distance_from_old_new_ice_union": 305.1706709384073
+    },
+    "rugged": {
+      "changed_cells": 11718,
+      "maximum_delta": 25.0
+    },
+    "water": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "biome": {
+      "changed_cells": 7160,
+      "maximum_delta": 14.0
+    },
+    "road": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "sites": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "exclude": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    }
+  },
+  "height_changes_inside_registered_discs": {},
+  "height_changes_inside_lakes_plus8": {},
+  "normal_byte_identical_files": [
+    "water.png",
+    "road.png",
+    "sites.png",
+    "exclude.png",
+    "sites.json",
+    "roads.json",
+    "anchors.toml",
+    "sites.toml"
+  ],
+  "changed_normal_site_records": [],
+  "fixed_landscape_containment": [
+    {
+      "id": "ice-spine",
+      "outside_land_area": 0.0,
+      "coast_clearance_blocks": 43.59667410631115
+    },
+    {
+      "id": "ice-high-peaks",
+      "outside_land_area": 0.0,
+      "coast_clearance_blocks": 9.007591898889277
+    }
+  ],
+  "palace_centre_to_coast_blocks": 374.5749581859416,
+  "palace_registered_radius": 89,
+  "palace_margin": 48,
+  "limits": "Original west-arm interpretation informed by official silhouette;no traced shoreline,canonical coordinate precision or final noise/fluid acceptance.",
+  "atlas": {
+    "embedded_current_normal_preview_exact": true,
+    "all_nonimage_nodes_retained": true,
+    "numbers": 58,
+    "context_names": 20,
+    "association_caption_lines": 3,
+    "inventory_rows": 42,
+    "label_overlap": false,
+    "minimum_number_spacing_px": 31.621008835113628
+  },
+  "all13_current_lake_audits_pass": true,
+  "current_census": "22regions;106biome rows;no unassigned inland samples",
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.431,
+    "validation": "pass",
+    "changed_js": 0
+  }
+}

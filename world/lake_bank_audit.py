@@ -18,12 +18,13 @@ ap.add_argument('--svg',type=Path,default=ROOT/'world/map.svg')
 ap.add_argument('--rasters',type=Path,default=ROOT/'world/build')
 ap.add_argument('--out-base',type=Path)
 ap.add_argument('--baseline',action='store_true')
-ap.add_argument('--round',type=int,choices=(115,119,125),default=115)
+ap.add_argument('--round',type=int,choices=(115,119,125,128),default=115)
 args=ap.parse_args()
 assert not args.baseline or args.out_base is not None,'Baseline output needs an explicit destination'
 assert not args.baseline or args.round==115,'Historical baseline belongs to R115'
 out=args.out_base or ROOT/f'world/lake-banks-r{args.round}'
 expected='2463d771cd28cff62138fe2e87ae0dc0dd8bccc7c3d02bc21f6bd6bbb3ed7426' if args.baseline else '89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b'
+if args.round==128:expected='8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b'
 if args.round==125:expected='a637aa5ce39fea793ec2ca9aa4d12e6b328c7f67d074cdd537a941e293307ef0'
 if args.round==119:expected='4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89'
 sha=hashlib.sha256(args.svg.read_text(encoding='utf-8').encode()).hexdigest()
