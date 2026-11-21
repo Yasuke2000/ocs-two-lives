@@ -1,14 +1,14 @@
 {
-  "source_svg_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
-  "staged_index_source_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
-  "preview_sha256": "80cb447d8dad1b4f2e42a5d55f2d41855ed145a0d55afda1fefbda1b9c7b0d67",
+  "source_svg_sha256": "63df718534438fa803fc39a8a0b16c46bf9648edf1c58cc62fff30ad75f37806",
+  "staged_index_source_sha256": "63df718534438fa803fc39a8a0b16c46bf9648edf1c58cc62fff30ad75f37806",
+  "preview_sha256": "ad40922d9aaf564132d8de490a9e1f62432d5394b952319c5a6004d2de8555d8",
   "original_preview_pixels": [
     1600,
     1344
   ],
   "copied_without_pixel_modification": true,
   "applied_to_runtime": false,
-  "previous_preview_source_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
+  "previous_preview_source_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
   "registration": {
     "scale_from_r41": 0.96,
     "translate_x": 88.0,
@@ -17,10 +17,14 @@
     "existing_58_marker_groups_retained": true,
     "existing_16_context_labels_retained": true,
     "existing_42_open_rows_retained": true,
-    "context_name_count": 18,
-    "new_feature_label": "Royal lake (WN-derived)"
+    "context_name_count": 19,
+    "new_feature_label": "Ice-coast islets (illustrated)",
+    "existing_18_context_labels_retained": true,
+    "inventory_caption": 138,
+    "open_physical_rows": 42
   },
-  "normal_build_seconds": 50.942,
-  "source_change_review": "world/englassia-lake-r91.md",
-  "comment_only_source_change": false
+  "normal_build_seconds": 66.687,
+  "source_change_review": "world/ice-islets-r94.md",
+  "comment_only_source_change": false,
+  "whitespace_only_final_export_non_index_files_byte_identical": 13
 }

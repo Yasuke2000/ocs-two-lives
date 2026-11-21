@@ -1,6 +1,10 @@
-## 21/11 — Painted inventory caption follows R93 source scope
+## 21/11 — Painted Ice offshore geography aligned (R95)
 
-[R93 current painted atlas](../world/painting-round93/README.md) retains the exact R92 geography and all58 registrations/18 names/42 open rows. Only the inventory caption and panel metadata now say137 after adding an unlocated future-only WN town. No initial settlement,route or terrain change. Main source review gate472 tests,26 skipped,zero failures(64.404s); painting gate: 472 tests, 26 skipped, zero failures (64.176s); zero changed JavaScript.
+[R95 painted atlas](../world/painting-round95/README.md) follows current source `63df7185`: five exact source coast polygons,1,869 checked height-light samples and455 changed continent pixels within local support. All58 registrations,old18 context labels and42 open rows retain layout; current atlas has19 names and138-entry caption. Representative count,scale,coasts,palette and ownership remain qualified. No production SVG correction or runtime action. Required repository gate: 472 tests, 26 skipped, zero failures (63.796s); zero changed JavaScript.
+
+## 21/11 — Illustrated Ice offshore group added (R94)
+
+[R94 source/terrain review](../world/ice-islets-r94.md) adds five original representative islet coasts with cold biome/admin coverage. Source `63df7185`; checker 0 errors/56 relations/2 existing warnings; final normal66.687s. Every old land height/biome/ruggedness and58 reservation is retained. Atlas:19 names,138-entry caption,42 open rows. Ledger301. R93 painting source43fed303 predates the islets and requires alignment; numeric58 registration remains valid. Required repository gate: 472 tests, 26 skipped, zero failures (63.298s); zero changed JavaScript.
 
 ## 21/11 — Empire source and initial-era distinction (R93)
 

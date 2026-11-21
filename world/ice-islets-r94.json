@@ -1,0 +1,263 @@
+{
+  "source_sha256": "63df718534438fa803fc39a8a0b16c46bf9648edf1c58cc62fff30ad75f37806",
+  "previous_source_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
+  "normal_build_seconds": 66.687,
+  "coasts": 9,
+  "new_islets": 5,
+  "all_preexisting_source_shapes_and58_sites_retained": true,
+  "all_changed_raster_centres_outside_old_land": true,
+  "raster_changes": {
+    "height.png": {
+      "cells": 34338,
+      "byte_identical": false,
+      "bounds": [
+        -694,
+        -3866,
+        278,
+        -3050
+      ],
+      "changed_centres_on_old_land": 0
+    },
+    "rugged.png": {
+      "cells": 4725,
+      "byte_identical": false,
+      "bounds": [
+        -562,
+        -3618,
+        2,
+        -3326
+      ],
+      "changed_centres_on_old_land": 0
+    },
+    "water.png": {
+      "cells": 0,
+      "byte_identical": true
+    },
+    "biome.png": {
+      "cells": 2348,
+      "byte_identical": false,
+      "bounds": [
+        -546,
+        -3606,
+        -22,
+        -3350
+      ],
+      "changed_centres_on_old_land": 0
+    },
+    "sites.png": {
+      "cells": 0,
+      "byte_identical": true
+    },
+    "road.png": {
+      "cells": 0,
+      "byte_identical": true
+    },
+    "exclude.png": {
+      "cells": 0,
+      "byte_identical": true
+    }
+  },
+  "sites_roads_anchors_and_site_grounds_byte_identical": true,
+  "sampled_islets": [
+    {
+      "id": "ice-coastal-islet-1",
+      "strict_interior_centres": 731,
+      "height_range": [
+        60.875,
+        69.3125
+      ],
+      "biome_codes": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "ice-coastal-islet-2",
+      "strict_interior_centres": 369,
+      "height_range": [
+        61.1875,
+        64.4375
+      ],
+      "biome_codes": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "ice-coastal-islet-3",
+      "strict_interior_centres": 504,
+      "height_range": [
+        60.75,
+        66.5
+      ],
+      "biome_codes": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "ice-coastal-islet-4",
+      "strict_interior_centres": 291,
+      "height_range": [
+        63.25,
+        64.6875
+      ],
+      "biome_codes": [
+        14
+      ]
+    },
+    {
+      "id": "ice-coastal-islet-5",
+      "strict_interior_centres": 147,
+      "height_range": [
+        61.3125,
+        64.5
+      ],
+      "biome_codes": [
+        0,
+        14
+      ]
+    }
+  ],
+  "new_land_area_blocks2": 32691.54879999999,
+  "mainland_distance_from_each_new_islet": [
+    1097.173537419215,
+    1103.9345481361001,
+    977.2252707726494,
+    956.752968349165,
+    972.332426980093
+  ],
+  "box_unchanged": true,
+  "default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "runtime_applied": false,
+  "all_prior_exported_non_ocean_biome_cells_retained": true,
+  "emergent_land_components": [
+    {
+      "cells": 7665,
+      "isles": [],
+      "bounds": [
+        -850,
+        -3918,
+        -390,
+        -3398
+      ]
+    },
+    {
+      "cells": 26,
+      "isles": [],
+      "bounds": [
+        -666,
+        -3918,
+        -626,
+        -3906
+      ]
+    },
+    {
+      "cells": 579,
+      "isles": [
+        "ice-coastal-islet-1"
+      ],
+      "bounds": [
+        -482,
+        -3590,
+        -346,
+        -3490
+      ]
+    },
+    {
+      "cells": 238,
+      "isles": [
+        "ice-coastal-islet-2"
+      ],
+      "bounds": [
+        -302,
+        -3582,
+        -222,
+        -3518
+      ]
+    },
+    {
+      "cells": 305,
+      "isles": [
+        "ice-coastal-islet-3"
+      ],
+      "bounds": [
+        -138,
+        -3466,
+        -30,
+        -3402
+      ]
+    },
+    {
+      "cells": 270,
+      "isles": [
+        "ice-coastal-islet-4"
+      ],
+      "bounds": [
+        -350,
+        -3422,
+        -262,
+        -3366
+      ]
+    },
+    {
+      "cells": 39,
+      "isles": [
+        "ice-coastal-islet-5"
+      ],
+      "bounds": [
+        -534,
+        -3382,
+        -502,
+        -3362
+      ]
+    }
+  ],
+  "new_emergent_island_components": 5,
+  "new_islets_separate_from_existing_Ice_in_exported_dry_mask": true,
+  "normal_low_shoulder_heights_are_nominal_not_sampled_crests": true,
+  "emergent_mask_definition": "Non-ocean biome and decoded normal height>=64; conservative offline candidate land,not runtime coastline acceptance.",
+  "all5_source_islets_have_separate_height64_components": true,
+  "parsed_native_Ice_mainland_distance": 916.5549572293946,
+  "parsed_native_frozen_group_mainland_distance": 916.5549572293946,
+  "new_islet_Ice_distances": [
+    48.13031756026995,
+    238.627834736551,
+    417.4786569193624,
+    231.30555656965944,
+    85.98186690532086
+  ],
+  "prior299_ledger_rows_unchanged": true,
+  "prior137_inventory_records_unchanged": true,
+  "index138_unique_names": true,
+  "physical_followups": 42,
+  "context_names": 19,
+  "all58_markers_old18_labels_and42_rows_retained": true,
+  "atlas_embeds_exact_final_normal": true,
+  "atlas_label_overlap": false,
+  "minimum_bubble_spacing": 31.621008835113628,
+  "protected_paths_unchanged": true,
+  "whitespace_only_final_export_non_index_files_byte_identical": 13,
+  "final_checker_preview_atlas_detail_original_study_and_separate_source_visually_inspected": true,
+  "final_normal_source_matches_SVG": true,
+  "sampled_biome_codes": {
+    "0": "#ocean",
+    "14": "minecraft:snowy_plains"
+  },
+  "rejected_trial": {
+    "old_Ice_ruggedness_cells_changed": 50,
+    "max_change_out_of255": 3,
+    "height_changes_on_old_land": 0,
+    "correction": "Only first islet plus its own biome/coverage/shoulder moved35 blocks east; final old-land invariants pass."
+  },
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.298
+  }
+}

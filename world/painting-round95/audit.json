@@ -1,0 +1,48 @@
+{
+  "source_sha256": "63df718534438fa803fc39a8a0b16c46bf9648edf1c58cc62fff30ad75f37806",
+  "map_commit": "b7a19f2d4a728ef20db730e2f8c01be70d4f3d2b",
+  "exact_R92_continent_underpainting": true,
+  "retained_R92_native_XML_exact": true,
+  "retained_relative_resources_resolve_to_R92": true,
+  "source_islet_polygons_checked": 5,
+  "checked_height_light_samples": 1869,
+  "changed_continent_pixels": 455,
+  "max_RGB_channel_change": 219,
+  "changed_pixel_bounds": [
+    715,
+    193,
+    766,
+    218
+  ],
+  "max_changed_pixel_centre_distance_from_16block_support": 0.0,
+  "antialias_tolerance_world_blocks": 8.5,
+  "registered_sites": 58,
+  "all_site_attributes_world_coordinates_and_projections_checked": true,
+  "context_names": 19,
+  "prior18_labels_all_markers_leaders_and42_rows_retained": true,
+  "context_metadata_matches_SVG": true,
+  "minimum_bubble_spacing": 32.470561517449696,
+  "label_overlap": false,
+  "atlas_embeds_exact_new_continent": true,
+  "source_and_terrain_previews_unchanged_after_adoption": true,
+  "inventory": 138,
+  "ledger_unique": 301,
+  "physical_followups": 42,
+  "historical_art_unchanged": true,
+  "protected_paths_unchanged": true,
+  "new_AI_images": 0,
+  "runtime_applied": false,
+  "checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "limits": "Original representative count,shore,scale,cold palette and directional light; not canonical survey,absolute height,political ownership or runtime coastline acceptance.",
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.796
+  },
+  "final_full_atlas_detail_comparison_and_source_preview_visually_inspected": true
+}

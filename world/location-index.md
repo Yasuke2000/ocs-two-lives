@@ -1,5 +1,7 @@
 # Location index — map coverage and source scope
 
+R94 adds the illustrated Ice coastal group as original terrain: **138 entries**, with all **42 existing physical follow-ups retained**. Five representative coasts are not five newly named places. [Source/terrain review](ice-islets-r94.md). Earlier count notes below are historical.
+
 R93 directly records one later-only WN railway town: **137 inventory entries**, still **42 initial physical follow-ups**. No initial town or coordinate is inferred. [Source/era review](empire-chronology-r93.md). Earlier count notes below are historical.
 
 R91 adds the WN-derived Englassia capital lake: **136 entries**, with all **42 existing physical follow-ups retained**. [Water/precinct review](englassia-lake-r91.md). The castle and wider city remain incomplete; guild/church subsidiary-premise source questions extend beyond this indexed count.
@@ -18,7 +20,7 @@ Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit in
 
 Round57 [treant source context](../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) adds primary route/sanctuary detail but no surveyed parcel. The existing32 coverage classifications remain unchanged; one tree and an authored altar do not cover the whole community.
 
-Companion to the [numbered terrain atlas](atlas.png). All 137 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
+Companion to the [numbered terrain atlas](atlas.png). All 138 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
 
 Round45 directly verifies the immobile guarded treant community in [WN chapter42](https://ncode.syosetu.com/n6316bn/44/#L309). It does not locate its parcel or complete settlement coverage; the 32 open classifications are retained.
 
@@ -94,6 +96,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Homeworld of Hazy Style](https://tensura.fandom.com/wiki/Homeworld_of_Hazy_Style) | separate world | separate world review | — |
 | [Horn Empire](https://tensura.fandom.com/wiki/Horn_Empire) | unverified entry | unverified new entry | — |
 | [Ice Continent](https://tensura.fandom.com/wiki/Ice_Continent) | existing neighbouring island | terrain present | nation-I |
+| [Ice coastal islets (official illustration)](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) | illustrated offshore rocky group | terrain present | ice-coastal-islet-1;ice-coastal-islet-2;ice-coastal-islet-3;ice-coastal-islet-4;ice-coastal-islet-5 |
 | [Imaginary Space](https://tensura.fandom.com/wiki/Imaginary_Space) | separate world | separate world review | — |
 | [Imperial Capital Nasca](https://tensura.fandom.com/wiki/Nasca_Namrium_Ulmeria_United_Eastern_Empire) | mainland feature | site present | nasca |
 | [Jia](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | site present | jia |
