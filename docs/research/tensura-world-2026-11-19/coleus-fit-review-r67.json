@@ -1,0 +1,32 @@
+{
+  "round": 67,
+  "source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+  "decision": "Retain r73. Seven functional support areas are flat75 with both interpolation methods. One slightly varying occupied corner is a four-block rock-edge column;all5313 occupied columns already have exported SITE exclusion. The rectangular survey alone does not justify widening/flattening the natural collar.",
+  "limitations": "No occupied-world voxels,noise-density sampling,full-width collision walk,placement,residents or initial-era architecture acceptance. NBT undefined headroom is not proof of air in a generated world. Outer rock terrain is not perfectly flat;do not claim the entire template is level75.",
+  "runtime_reference": {
+    "file": "mod/src/main/java/com/yasuke/ttl/world/CanonRasters.java",
+    "sha256": "ca964a28894b3d373c2117c34a1ae13ef95a585097b1b5a45216ccd11facce0b",
+    "locator": "height and cubic methods"
+  },
+  "repository_gate": {
+    "validation_passed": true,
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.234,
+    "changed_JS_files": 0,
+    "in_game_run": false
+  },
+  "retained_artifact_hashes": {
+    "world/map.svg": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+    "world/preview.png": "1c6538d8cc9c1da11dd328556a44f1cd5217d0049d8e1b85dd54f8216cd1f317",
+    "world/terrain-preview.png": "60567c46ec0410e38bd78412879cd1bf1f0e9f18aea6b15e33ac64c31b326d53",
+    "world/atlas.svg": "bfc9c95850556bb866d30f099e48ceb7205c7d439599b0fbc6f5b100b63544ed",
+    "world/atlas.png": "202dacfecb571300f123738d77fe41c6f9d2cbee063a1b6da1c08edd39a6dd3f"
+  },
+  "handoff_history_retained": true,
+  "visual_review": "Native occupied-footprint/ascent figure inspected against its data;two labels moved clear of lines;UTF-8 characters verified in final render.",
+  "ledger_unique": 260,
+  "full_audit": "../../../world/coleus-fit-review.json",
+  "full_audit_sha256": "fd9f87c84545616bea8a6e4bf813511f3ab0330dc8bddfd2289a01b73c7429a9"
+}
