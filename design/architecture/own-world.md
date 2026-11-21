@@ -192,6 +192,8 @@ continent rule, owners and the ring, so none of the ~10 script consumers of `own
 
 ### 3.3 Build sites by construction
 
+**Owner update R109 (21/11/2026):** Yasuke chose “Paleis naar binnenland; kustregistratie laten aanpassen”. Frost Palace now uses the reviewed central snowfield(-1530,-3680),an inland clearing,r89,staged first-air71. This supersedes its historical coast classification in the table below. The existing generator regenerates its kind/r registration;Claude integrates the live anchor/build preparation. WN central-continent evidence remains separate from unread LN agreement. [Current source/fit review](../../world/frost-palace-inland-r109.md).
+
 Every anchor is a **site** in the SVG (`data-site`, `r`), with Claude-owned overrides in `world/sites.toml` (per id:
 `ground`, `fade`, `biome`, `facing`, `min_cover`, `notes`):
 
@@ -315,7 +317,7 @@ terrain asks, audited 19/11), carried by the ChatGPT brief as fixed:
 | Laura | clearing in jungle, orchard rings |
 | Clayman's Castle | clearing in a bowl of `dark_forest`, moat lake polygon |
 | Great Holy Mountain, Dragon's Nest | clearings on mountain polygons (crater rim; shoulder at 272) |
-| El Dorado, Frost Palace, Siltrosso | coast plates |
+| El Dorado, Siltrosso | coast plates; Frost Palace superseded by Yasuke’s R109 inland-clearing decision |
 
 ### 4.2 Landmark templates (Tensura villages) and blueprints
 

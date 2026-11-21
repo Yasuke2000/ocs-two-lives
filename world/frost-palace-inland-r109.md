@@ -22,6 +22,6 @@ Standard checker: **0 errors,56 relations pass,2 existing warnings** (Laura rive
 
 All58 identities remain; only Frost Palace’s active site attributes,its local forecourt and its label change. Coast,lake,river,mountain,hill,forest,biome and region XML remain exact. Height changes5,210cells,rugged4,923,road156,biome108;water is identical. Old coastal preparation is removed and new inland preparation introduced. Current preview,terrain atlas and the new before/after are regenerated;[R109 biome census](region-biomes-r109.md) replaces current descriptive shares while retaining R108 history.
 
-R107 painting predates this site/forecourt move and must be re-registered before it is called current. Source/era/whole-map obligations remain open.
+[R110 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e3963e24ed15157d524cc39d3243c69526dbeebc/world/painting-round110/README.md) now follows this site/forecourt move;R107 is historical. Source/era/whole-map obligations remain open.
 
 Required repository gate:472tests,26skipped,zero failures(65.002s);validation and zero changed-JavaScript pass. Initial gate caught the stale coastal generated tables;running the existing generator resolved both failures. `git diff --check` passes.
