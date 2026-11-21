@@ -1319,5 +1319,15 @@
       "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
     }
   ],
-  "reference_label_correction": "The volcano sheet previously labelled its fandom.com link as official episode context;the link is now explicitly secondary fan-wiki context."
+  "reference_label_correction": "The volcano sheet previously labelled its fandom.com link as official episode context;the link is now explicitly secondary fan-wiki context.",
+  "required_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 462,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 42.969,
+    "validation": "pass",
+    "changed_js": 0
+  },
+  "final_hash_and_prompt_recheck": "All58 PNG/sheet hashes checked;56 whole normalized sheets retained;2 changed sheets retain exact prompt tails. Historical prompt-heading variants do not weaken comparison."
 }
