@@ -1,6 +1,6 @@
 # El Dorado eastern lake-like basin — round 80
 
-**R81 follow-up:** [the current painted atlas](painting-round81/README.md) now includes this exact lake and the local bank change. Earlier pending statements below record the R80 handoff and are superseded for painting integration only.
+**R81 follow-up:** [the published current painting](https://github.com/Yasuke2000/ocs-two-lives/blob/96b3972/world/painting-round81/README.md) includes this exact lake and local bank change. Earlier pending statements below record the R80 handoff and are superseded for painting integration only.
 
 [Original before/after study](el-dorado-lake-study.png) · [editable study](el-dorado-lake-study.svg) · [terrain audit](el-dorado-lake-audit.json) · [current terrain atlas](atlas.png)
 

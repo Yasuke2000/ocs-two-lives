@@ -1,0 +1,40 @@
+{
+  "round": 83,
+  "source_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "normal_export_source_matches": true,
+  "plain_bounds": [
+    1640.0,
+    -1150.0,
+    2907.41,
+    -297.04
+  ],
+  "plain_polygon_area": 416585.5543499998,
+  "plain_empire_mask_overlap_area": 16856.342552796243,
+  "plain_woodland_source_overlap_area": 54423.817233064714,
+  "strictly_interior_4block_centres": 26029,
+  "biome_counts": {
+    "minecraft:plains": 26029
+  },
+  "designed_first_air_range": [
+    69.125,
+    76.6875
+  ],
+  "wet_centres": 0,
+  "geographical_extent_verified": false,
+  "grain_district_registered": false,
+  "runtime_acceptance": false,
+  "previous_claims_preserved": 282,
+  "unique_claims": 284,
+  "inventory_rows": 134,
+  "only_coverage_evidence_row_changed": "Eastern Plains",
+  "all_coverage_statuses_retained": true,
+  "source_and_atlas_unchanged": true,
+  "visual_review": "Original study and official introductory geography viewed; crop is authored geometry and separate diagram has no global registration.",
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.851
+  }
+}

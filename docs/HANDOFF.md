@@ -1,12 +1,34 @@
 # Handoff — current state of the work (update this when you stop)
 
-## 21/11 — Painting follows the El Dorado lake and bank (ChatGPT, round81)
+## 21/11 — Dwargon crossing tracked separately (ChatGPT, round84)
 
-R 81 [current painted atlas](../world/painting-round81/README.md) integrates the R 80 El Dorado lake and bank from source 9fd 0c 5fb. Exact new lake geometry and 648 checked bank-light samples over verified R 78 underpainting change 361 continent pixels, all within 10.75 blocks of the actual height-change footprint. All 58 registrations,16 context names and 41 open rows retain layout; inventory caption 134. Prior art remains unchanged. Ledger 280/inventory 134/41 follow-ups; full source/era/location goal remains open.
+R84 [Dwargon crossing source review](../world/dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory135/42 follow-ups; ledger285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
 
-Validation: `tools/check.sh` passed: 472 tests, 26 skipped, zero failures (63.039s). Required source checker after R80 adoption passed with 0 errors, 56/56 relations and the two existing warnings. Composition, registration, locality and browser-label audits pass. No in-game acceptance is claimed.
+Validation: 472 tests, 26 skipped, zero failures (62.667s). All previous 284 claims and 134 inventory rows/statuses preserved. Browser checks 58 numbers, 16 context names and 42 non-overlapping panel rows; PNG changes stay inside the panel. New panel viewed.
 
-Next: remaining actual source/location/initial-era questions. R80 painting-integration follow-up closed only; no further source SVG change,apply,chunks,protected edit or deployment.
+Next: coverage-panel refresh on the painting; actual source/location/initial-state questions remain. No active geography or runtime change.
+
+## 21/11 — Eastern Plains source and terrain assessment (ChatGPT, round 83)
+
+R83 [Eastern Plains source/terrain review](../world/eastern-plains-source-review.md) adds two qualified WN records and a measured original current-geometry study. Coverage remains partial; source 9fd0c5fb and R81 painting remain unchanged. Ledger 284 (226+58), inventory 134/41 physical follow-ups.
+
+Validation: 472 tests, 26 skipped, zero failures (62.851s). Independent checks retain all 282 prior facts, all 134 inventory rows/statuses and unchanged production/atlas files. Study and official geography visually inspected.
+
+Next: resolve broader extent, continuity and actual missing locations. No runtime change or deployment.
+
+## 21/11 — Guratol official setting evidence (ChatGPT, round 82)
+
+R82 [Guratol source review](../world/guratol-source-review.md) verifies the official OAD mansion/cave task sequence and records the unanchored table map, with all 15 selected stills inspected. It supplies no invented global coordinates, administrative borders or S1E10 construction date. Ledger 282 (224+58); inventory 134/41 follow-ups unchanged. Source 9fd0c5fb and R81 painting remain unchanged.
+
+Validation: 472 tests, 26 skipped, zero failures (64.055s); independent 282-record/134-row preservation, 15 image hashes and unchanged production/atlas checks pass.
+
+Next: geographical anchoring and actual missing locations; no runtime application or deployment.
+
+## 21/11 — Current painting follows the lake (ChatGPT, round 81)
+
+R81 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/96b3972/world/painting-round81/README.md) now integrates the R80 El Dorado lake and bank. The exact lake polygon and 648 checked lighting samples update 361 continent pixels, within 10.75 blocks of the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows remain checked; the inventory caption is 134. Source 9fd0c5fb and the 280-record ledger remain unchanged. Painting integration is closed; broader source, location and initial-era questions remain open.
+
+Painting gate: 472 tests, 26 skipped, zero failures (63.039s). Map-branch documentation gate: 472 tests, 26 skipped, zero failures (62.876s). No production SVG change, converter rerun, runtime application or deployment. Next: remaining actual source/location/initial-era questions.
 
 ## 21/11 — Illustrated eastern El Dorado lake drawn (ChatGPT, round 80)
 
