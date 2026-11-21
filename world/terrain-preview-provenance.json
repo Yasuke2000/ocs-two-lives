@@ -1,14 +1,14 @@
 {
-  "source_svg_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
-  "staged_index_source_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
-  "preview_sha256": "66e1cda35c31cb0dc7ec1e551e48c3e78aa7f8915f8cb70e4bb9ed402a6407e3",
+  "source_svg_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
+  "staged_index_source_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
+  "preview_sha256": "80cb447d8dad1b4f2e42a5d55f2d41855ed145a0d55afda1fefbda1b9c7b0d67",
   "original_preview_pixels": [
     1600,
     1344
   ],
   "copied_without_pixel_modification": true,
   "applied_to_runtime": false,
-  "previous_preview_source_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
+  "previous_preview_source_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
   "registration": {
     "scale_from_r41": 0.96,
     "translate_x": 88.0,
@@ -17,10 +17,10 @@
     "existing_58_marker_groups_retained": true,
     "existing_16_context_labels_retained": true,
     "existing_42_open_rows_retained": true,
-    "context_name_count": 17,
-    "new_feature_label": "Khusha Mountains"
+    "context_name_count": 18,
+    "new_feature_label": "Royal lake (WN-derived)"
   },
-  "normal_build_seconds": 47.565,
-  "source_change_review": "world/khusha-continuation-r89.md",
+  "normal_build_seconds": 50.942,
+  "source_change_review": "world/englassia-lake-r91.md",
   "comment_only_source_change": false
 }

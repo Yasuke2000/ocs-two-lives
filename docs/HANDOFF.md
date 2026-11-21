@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Englassia capital water reconciled with dry precinct (round91)
+
+R91 [Englassia capital-water review](../world/englassia-lake-r91.md) adds a separately placed WN-derived lake and dry court, one northern land access and three short water crossings. The existing academy/Guild precinct and all 58 reservations remain. Source `43fed303`; 22 roads, 11 lakes, 18 context names; ledger 294 and inventory 136/42. The castle and full capital remain incomplete. R90 painting predates the new local water/roads and needs alignment.
+
+Checker 0 errors/56 relations/2 prior warnings; normal50.942s without warnings. All new water cells are below level70 in one connected basin; all registered plate heights and flat-site JSON records remain. Final comparison/source preview/atlas reviewed. Gate: 472 tests, 26 skipped, zero failures (66.962s); zero changed JavaScript. Next: painted water/road integration; remaining capital/source/era/registration work. No runtime action.
+
 ## 21/11 — Painting aligned with current Khusha (round90)
 
 R90 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/f0b91746124104cdfc7c141dd17762a9d8783410/world/painting-round90/README.md) integrates R89 Khusha relief for source `2ce669a0`: 3,446 checked illustrative light samples, 117 rocky-biome cells and 1,859 changed continent pixels within buffered height support. All 58 registrations, 17 context names and the unchanged 135/42 panel are checked. Context-position metadata is refreshed from visible SVG coordinates. This closes only the painting alignment; broader source/location/era obligations remain open.

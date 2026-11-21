@@ -1,0 +1,203 @@
+{
+  "source_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
+  "baseline_source_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
+  "normal_build_seconds": 50.942,
+  "active_element_changes": {
+    "lakes": {
+      "changed": [],
+      "added": [
+        "englassia-capital-lake"
+      ]
+    },
+    "biomes": {
+      "changed": [],
+      "added": [
+        "englassia-royal-court-clearing"
+      ]
+    },
+    "roads": {
+      "changed": [
+        "blumund_englassia_lubelius"
+      ],
+      "added": [
+        "englassia_coleus_royal_approach"
+      ]
+    }
+  },
+  "all58_site_attributes_and_flat_site_JSON_unchanged": true,
+  "old20_other_road_records_unchanged": true,
+  "all_registered_plated_height_cells_unchanged": true,
+  "all_coasts_rivers_relief_forests_regions_and_prior_biome_polygons_unchanged": true,
+  "lake_polygon_vertices": 96,
+  "lake_simple_and_hole_free": true,
+  "whole_basin_inside_G": true,
+  "native_water_area": 25851.668719999983,
+  "new_wet_cells": 1624,
+  "water_level": 70,
+  "sampled_new_lake_bed_range": [
+    65.0,
+    68.6875
+  ],
+  "sampled_water_depth_range": [
+    1.3125,
+    5.0
+  ],
+  "four_connected_wet_components": [
+    1624
+  ],
+  "northern_land_access_dry_above_level": true,
+  "castle_proposal_footprint_dry": true,
+  "castle_footprint_height_range": [
+    74.375,
+    76.5625
+  ],
+  "castle_implemented_or_registered": false,
+  "lake_bridge_runs": [
+    {
+      "id": "blumund_englassia_lubelius",
+      "start": 1652,
+      "length": 44,
+      "midpoint": [
+        -3076.0,
+        -750.0
+      ]
+    },
+    {
+      "id": "englassia_coleus_royal_approach",
+      "start": 352,
+      "length": 36,
+      "midpoint": [
+        -3200.0,
+        -650.0
+      ]
+    },
+    {
+      "id": "englassia_coleus_royal_approach",
+      "start": 576,
+      "length": 40,
+      "midpoint": [
+        -3328.0,
+        -750.0
+      ]
+    }
+  ],
+  "max_bridge_run_all_roads": 44,
+  "road_max_grades": {
+    "tempest_dwargon": 0.5000000000000085,
+    "tempest_blumund": 0.4145593141157564,
+    "blumund_englassia_lubelius": 0.5,
+    "dwargon_dwarf_village": 0.5000000000000113,
+    "sacred_mountain_trail": 0.5000000000000455,
+    "treyni_marsh_trail": 0.3817938730705282,
+    "siss_cavern_and_orc_trail": 0.5000000000000114,
+    "ogre_foothill_trail": 0.5000000000000008,
+    "canaat_high_pass": 0.5000000000000171,
+    "falmuth_road": 0.07925304884756149,
+    "western_belt_road": 0.17164391531122264,
+    "western_desert_caravan": 0.3825000000000003,
+    "fulbrosia_stair": 0.5000000000000199,
+    "southern_royal_road": 0.5000000000000171,
+    "ulgracia_south_road": 0.5000000000000113,
+    "eurazania_road": 0.5000000000000113,
+    "milim_river_road": 0.4900000000000187,
+    "jistav_border_road": 0.4295003937545196,
+    "imperial_volcano_road": 0.5000000000000455,
+    "el_dorado_volcanic_way": 0.5000000000000455,
+    "frost_palace_forecourt": 0.0,
+    "englassia_coleus_royal_approach": 0.5
+  },
+  "max_road_grade": 0.5000000000000455,
+  "raster_deltas": {
+    "height": {
+      "changed_cells": 2072,
+      "bounds": [
+        -3522,
+        -930,
+        -2962,
+        -566
+      ]
+    },
+    "rugged": {
+      "changed_cells": 3663,
+      "bounds": [
+        -3446,
+        -938,
+        -2958,
+        -562
+      ]
+    },
+    "water": {
+      "changed_cells": 1624,
+      "bounds": [
+        -3342,
+        -862,
+        -3054,
+        -630
+      ]
+    },
+    "biome": {
+      "changed_cells": 1317,
+      "bounds": [
+        -3286,
+        -862,
+        -3070,
+        -690
+      ]
+    },
+    "sites": {
+      "changed_cells": 0,
+      "bounds": null
+    },
+    "road": {
+      "changed_cells": 1474,
+      "bounds": [
+        -3442,
+        -934,
+        -2898,
+        -546
+      ]
+    },
+    "exclude": {
+      "changed_cells": 3778,
+      "bounds": [
+        -3450,
+        -946,
+        -2890,
+        -530
+      ]
+    }
+  },
+  "default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "scope": "WN-derived original capital geography; no measured LN location, complete city, foundation, density or runtime acceptance.",
+  "rejected_trials": [
+    "Four lake sectors created raised internal rims; no connected water surface despite one water mask.",
+    "Separate urban-link endpoints lacked registered destinations; replaced by two meaningful town-to-town routes.",
+    "143-block bridge approach yielded rounded3.9-block steps and grade0.51282; final integer-length approach corrected."
+  ],
+  "painting_followup_pending": true,
+  "runtime_applied": false,
+  "ledger_unique": 294,
+  "inventory": 136,
+  "physical_followups": 42,
+  "all_prior135_inventory_classifications_retained": true,
+  "prior289_ledger_rows_unchanged": true,
+  "atlas_embeds_exact_new_normal": true,
+  "old58_marker_groups_and17_labels_retained": true,
+  "atlas_context_names": 18,
+  "atlas_minimum_bubble_spacing": 31.621008835113628,
+  "atlas_label_overlap": false,
+  "old42_row_panel_retained": true,
+  "inventory_caption_updated_to136": true,
+  "protected_paths_unchanged": true,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 66.962
+  },
+  "final_preview_comparison_and_atlas_visually_inspected": true
+}
