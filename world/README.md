@@ -1,6 +1,6 @@
-## Current source — R106
+## Current source — R117
 
-[R115 collective lake audit](lake-banks-r115.md) verifies all13 native lakes andrepairs the Ulgr/Laura river contacts by moving only2 first vertices(2/6blocks north). Source89b01c4c:all lake shapes/levels,58 sites and22 roads retained.13/13bank/depth checks,8/8designed plan contacts;[C23 diagnostic](river-head-profiles-r115.md) flags2larger head transitions(37/17blocks)for style/source review. R114 biome raster/masks are exact andits census is adopted;no duplicate count-only report. Ledger321;inventory142/42. Terrain atlas/preview are refreshed;painting requires the two native head updates. Source/era/global-proportion andtechnical acceptance remain open.
+[Southern coast correction](southern-coast-r117.md) follows the official illustrated taper, with an original shoreline and clipped B/H gameplay coverage/forest. Source `5938a823`; all 58 locations, 22 roads and water/relief shapes remain. [R117 census](region-biomes-r117.md) supplies current regional mixes. R116 painting is historical until its silhouette follows this source. Ledger: 323; inventory: 142/42. Other source, proportion, era and fluid-placement reviews remain open.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 

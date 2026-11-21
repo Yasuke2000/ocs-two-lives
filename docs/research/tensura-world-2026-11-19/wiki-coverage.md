@@ -1,6 +1,6 @@
-## Current source — R106
+## Current source — R117
 
-[Southeastern illustrated water and woodland](../../../world/southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger321; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows these additions and142-entry caption. R105 is historical. This does not certify exhaustive wiki or primary-source coverage. Earlier round status notes below are historical.
+[Southern coast review](../../../world/southern-coast-r117.md) narrows the illustrated mainland taper in source `5938a823`. Ledger: 323; inventory: 142 with 42 physical follow-ups. Source shapes, normal export, current atlas and regional census are checked; R116 painting needs silhouette alignment. The Orbic/Ulgracia child-category enumerations remain unavailable; indexed parent articles do not prove complete coverage. Full source, proportion and initial-era review remains open. Older dated notes below describe their own versions.
 
 ## What was checked
 

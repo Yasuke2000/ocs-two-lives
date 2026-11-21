@@ -1,0 +1,97 @@
+{
+  "round": 117,
+  "source_sha256": "5938a8239068ccdd98c8ad64220147dfbdc82ca6d6d7e54364fc902fb1e9ebe7",
+  "baseline_source_sha256": "89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b",
+  "changed_native_elements": [
+    "mainland",
+    "eurazania-jungle",
+    "nation-B",
+    "nation-H"
+  ],
+  "all_other_native_attributes_and_text_retained": true,
+  "removed_land_blocks2": 819604.4816427699,
+  "added_land_blocks2": 0.0,
+  "bounds_retained": true,
+  "raster_changes": {
+    "height": {
+      "changed_cells": 172196,
+      "changed_bounds_world": [
+        174.0,
+        1870.0,
+        2342.0,
+        3798.0
+      ]
+    },
+    "rugged": {
+      "changed_cells": 59213,
+      "changed_bounds_world": [
+        394.0,
+        2346.0,
+        2070.0,
+        3606.0
+      ]
+    },
+    "water": {
+      "changed_cells": 0
+    },
+    "road": {
+      "changed_cells": 0
+    },
+    "biome": {
+      "changed_cells": 52514,
+      "changed_bounds_world": [
+        398.0,
+        2362.0,
+        2046.0,
+        3602.0
+      ]
+    },
+    "sites": {
+      "changed_cells": 0
+    },
+    "exclude": {
+      "changed_cells": 0
+    }
+  },
+  "unchanged_exports": [
+    "anchors.toml",
+    "exclude.png",
+    "road.png",
+    "roads.json",
+    "sites.json",
+    "sites.png",
+    "sites.toml",
+    "water.png"
+  ],
+  "widths": [
+    {
+      "world_z": 2800,
+      "before_width": 2418.0961589079666,
+      "after_width": 1508.4749967275434
+    },
+    {
+      "world_z": 3000,
+      "before_width": 2339.42713248994,
+      "after_width": 1158.8749107118183
+    },
+    {
+      "world_z": 3200,
+      "before_width": 1943.7952605763223,
+      "after_width": 762.8989163841695
+    },
+    {
+      "world_z": 3400,
+      "before_width": 528.605797224207,
+      "after_width": 452.9780447915721
+    }
+  ],
+  "maximum_height_delta_blocks": 92.4375,
+  "changed_height_cells_inside_site_discs": 0,
+  "changed_height_cells_inside_all_lake_polygons_plus_8block_buffer": 0,
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.173
+  }
+}

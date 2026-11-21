@@ -1,5 +1,13 @@
 # Current handoff
 
+## 21/11 — Southern mainland taper follows official silhouette (R117)
+
+Source `5938a823` replaces the broad southeastern foot with five original cubic coast reaches. B/H masks and the Eurazania forest follow the new shore; all other native attributes/text, 58 sites, 22 roads and water/relief shapes are retained. Normal staging: 67.0 seconds; no converter warnings. Checker: zero errors, 56 relations, two prior warnings. Native land loss: 819,604.48 square blocks; no added land. Height changes affect 172,196 cells (max 92.4375 blocks), outside all site discs. Water/road/site/exclusion PNGs and site/road/anchor exports are byte-identical. R117 census measures all 22 masks with zero unassigned inland biome samples. Atlas browser check: 58 numbers, 20 labels, 42 rows, no overlaps, minimum spacing 31.62 pixels.
+
+The approved inland palace remains. C23 stays open; the old lake/contact evidence is retained through identical water. R113 place-art reservations remain valid; R116 painting now needs actual southern silhouette alignment. Ledger 323; inventory 142/42. Orbic/Ulgracia category enumeration remains inaccessible; do not claim complete source coverage. Global proportions, initial-era semantics and runtime integration remain open. Required gate: 472 tests, 26 skipped, zero failures in 64.173 seconds. This correction is delivered on `chatgpt/southern-coast-r117`, stacked over `chatgpt/world-map`; the existing base map/painting PRs retain their earlier snapshot. No protected implementation, world apply, chunks, main merge or deploy.
+
+# Current handoff
+
 ## 21/11 — Lake banks and two source contacts (R115)
 
 Source `89b01c4c` moves only the Ulgr/Laura first river vertices 2/6 blocks north, remaining on land. All 13 lake bank/depth checks pass; the two missing plan contacts are repaired, giving 8/8 designed connections. Normal staging took 67.0 seconds without converter warnings; the checker reports zero errors, 56 relations and two prior warnings. Changes affect 188 height, 247 ruggedness and 26 water cells. Height deltas range from −41.375 to +41.3125 blocks at moving cliff cuts, outside all site discs. Roads, biomes, sites, exclusion and site/road/anchor exports are identical. Adopt the unchanged R114 biome census and R113 art reservations. Ledger: 321; inventory: 142 with 42 physical follow-ups. Required gate: 472 tests, 26 skipped, zero failures in 64.793 seconds.
