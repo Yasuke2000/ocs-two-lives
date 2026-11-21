@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — painting basis synchronized, raster refresh pending (ChatGPT, round42)
+
+Painting branch integrates map50e0715/source7d021766. Shared terrain-preview PNG/provenance use the current main-feature versions; fresh mandatory checker0errors/56relations/2warnings. Existing R38paint remains historical1ea6782d and is explicitly marked in painting-current/README.md/comparison.md. Next concrete steps and bounds in painting-current/refresh-pending.md; do not fake current agreement by changing provenance only. No painting pixels/runtime/protected paths/technical rules changed in this sync. Normal basis build and gate recorded before commit. No PR/main merge,apply or deploy.
+
 ## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
 
 Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
@@ -115,6 +119,26 @@ Refreshes the original third-round painting against dc92845/source SHA1ea6782d u
 ## 20/11 — registered art coverage and final-place source distinctions (ChatGPT, round37)
 
 PR101/975c210 completes58 registered PNG/sheet pairs and twelve manifests,not full world acceptance. All58 attributes match1209e38. Six creative briefs correct country identities and source/era/architecture limits; Sainte art depicts only inert C14 coastal proposal. Official Johann and Middray profiles directly establish Rostia kingdom and Dragon City temple; Ghastone list is wiki-level. Ledger214(156+58),13 direct LN;72 visual/design supplements. Two newly inventoried country pins remain unverified:129 entries,26 missing+1 partial Orbic+2 country pins+3 parent designs,32 follow-ups. Current terrain/source SHA1ea6782d,exports and58 reservations unchanged,no converter rerun. Two atlas legend entries clarify country pins. Main gate in world/review.md. Full geometry/source/fixed-rule/era/fit/runtime requirements remain open; no apply/deploy. Previous round36 made progress; no repeating blocker.
+
+## 21/11 — current painting and standalone preview refresh (ChatGPT, round38)
+
+Draft PR102,branch chatgpt/current-painted-map-r38,worktree C:/Users/david/Documents/ocs-current-painted-map,commit31cc28e. Refreshes the third original painting using current own guides against dc92845/source1ea6782d. Native3 coasts/9 lakes/8 rivers/21 roads/1 Orbic highlight and58 projected anchors verified; number spacing32.47px. Current clipping/raw-blue suppression prevents painted water defining new geography. Source/era/conflict labels retained. Fresh checker0 errors/56 relations/same2 warnings; painting branch validation/472 tests/26 skips pass (44.520s). Production SVG/checker preview/protected paths unchanged; no converter rerun. Main atlas already used the correct export; standalone terrain-preview.png had last changed at efa2cc8 and is now copied byte-identically from current normal build,with provenance. Main gate in world/review.md. Earlier3 painting/SVG passes remain historical.214 claims/13 direct LN/72 supplements/129 inventory entries/32 follow-ups/58 art pairs unchanged;full source/geometry/fixed-rule/era/fit/runtime requirements remain. No apply/deploy. Previous round37 made progress; no repeating blocker.
+
+## 21/11 — public LN fragment screening (ChatGPT, round39)
+
+Four public GC publisher fragments accessed; selected geographic passages/context read, not complete volumes. LN07-001 records later organized Tempest road patrols after Walpurgis, without backdating paving/security to the initial Kijin snapshot. No new small-country location established. All eighteen names in the wiki western-state list already occur in the inventory. Ledger215(157+58),14 direct LN; inventory129/32 follow-ups and58 art pairs unchanged. Access manifest stores hashes only, copyrighted cache outside repo. Production SVG/terrain/painting/runtime bytes unchanged; source1ea6782d, current presentation PR102. Full goal remains active; no repeating blocker, merge, apply or deploy. Validation recorded in world/review.md.
+
+## 21/11 — Long Wall border-corridor correction (ChatGPT, round40)
+
+Corrects DES-ADD-wall and its inert SVG proposal; old route crossed856.63blocks of desert interior,now follows existing NE/east boundary with a dry oasis detour. Original before/after vector study,measured audit and future caravan-gate obligation in world/long-wall-corridor-review.md. Sourcea24cea9b changes only a comment: all11active layers/58sites/checker preview/9normal exports identical to5bb2467. Fresh checker0errors/56relations/2warnings; normal build no warnings; repository gate in world/review.md. Ledger215/14directLN,inventory129/32follow-ups,58art pairs unchanged. Wall stays absent from production,full source/era/fit/runtime requirements remain. No merge/apply/deploy. Previous round39 made progress;no repeating blocker.
+
+## 21/11 — geographical atlas labels and full index (ChatGPT, round41)
+
+Current numbered atlas adds16 broad context names,including Eastern Empire,and a separate32-entry M/P/U panel. Full world/location-index.md preserves all129 inventory source/scope rows. Wiki-coverage display now matches current129 rather than stale126. All58 number groups/terrain image bytes retained; actual Chrome text boxes verify no overlap with padded number bubbles and all32 appendix rows fit. Fifteen labels fit gameplay contexts; Ulgracia callout ends inside U. No new capitals/borders/coordinates inferred; none of32 obligations closed. Production sourcea24cea9b,exports/painting/runtime unchanged. Ledger215/14directLN and58art pairs retained. Gate in world/review.md;full goal remains open. No merge/apply/deploy. Previous round40 made progress;no repeating blocker.
+
+## 21/11 — western mainland headland (ChatGPT, round42)
+
+Active source7d021766 adds the original northwestern cape after official-image comparison. Mainland9989x6250/design12800x10752 below hard limits;preferred target deviations remain C12. All58site attributes/earlier waters/relief/forests/21routes/21other masks retained. Fresh checker0errors/56relations/2warnings;normal build57.0s/no warnings. Wider raster origin needs128-column alignment:water/road/site/exclusion match;all58site-disc heights match;20road profiles match,Sacred trail34heights change at most0.04blocks. Current atlas reprojected0.96plusorigin;16labels/58numbers/32open rows retained. Ledger217(159+58)/14directLN;inventory129/32follow-ups;58art pairs. PR102 R38 painting now historical:refresh coast/registration next,resolve shared preview provenance when rebasing that draft. Main gate in world/review.md. Full goal remains active;no merge/apply/deploy. Previous round41 made progress;no repeating blocker.
 
 ## 20/11 — Old Dragon City southeastern proportion correction (ChatGPT, PR #74 round16)
 

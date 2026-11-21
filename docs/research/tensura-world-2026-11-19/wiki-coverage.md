@@ -1,10 +1,10 @@
-# Wiki location coverage audit — 20 November 2026
+# Wiki location coverage audit — updated 21 November 2026
 
 The Eastern Empire is present as gameplay region E, with Nasca and the mountain marker. This is not an exhaustive model of its cities, institutions or historical states. The 58 registered production sites were the server brief, not a claim to cover every notable wiki location.
 
 ## What was checked
 
-The owner-supplied 31-entry Locations list is fully enumerated in [the coverage inventory](wiki-location-coverage.csv), together with all 44 entries of the accessible Countries index, Landmarks and Worlds, regional category candidates and geographical details from linked article text. After deduplication there are **126 inventory records**. Some are categories, organisations, aliases or separate-world entries, not 126 physical destinations. The [source audit](wiki-source-audit.csv) distinguishes index inspection, article-text inspection and inaccessible routes. The [58-site crosswalk](server-site-crosswalk.csv) is derived from the current production SVG.
+The owner-supplied 31-entry Locations list is fully enumerated in [the coverage inventory](wiki-location-coverage.csv), together with all 44 entries of the accessible Countries index, Landmarks and Worlds, regional category candidates and geographical details from linked article text. After deduplication there are **129 inventory records**. Some are categories, organisations, aliases or separate-world entries, not 126 physical destinations. The [source audit](wiki-source-audit.csv) distinguishes index inspection, article-text inspection and inaccessible routes. The [58-site crosswalk](server-site-crosswalk.csv) is derived from the current production SVG.
 
 **This is not a claim that the entire wiki, every article, or every primary source has been read.** Direct Fandom requests return access errors, and some indexed copies are months old. The owner list includes Horn Empire, which is absent from the accessible 30-item cached Locations index. That entry and two regional category routes remain open. Character and ability category counts cannot establish geographical completeness. Individual country/interior articles and newly added pages may disclose additional locations.
 
@@ -24,6 +24,8 @@ Inventory labels are a map coverage assessment. All wiki evidence remains `fan-w
 | organisation-review | 4 |
 | parent-design-present-unverified | 3 |
 | partial | 7 |
+| partial-terrain-representation | 1 |
+| pin-present-country-unverified | 2 |
 | region-present | 15 |
 | separate-world-review | 12 |
 | site-present | 22 |
@@ -52,3 +54,5 @@ The current production SVG and checker preview are unchanged in this audit. The 
 [Mainland routing audit](mainland-coverage-audit.md) preserves all126 entries and all29 follow-ups:26 still lack distinct representation (19 mainland,4 city/interior,3 offshore), while3 have existing authored designs within parent sites. The guild and academy occur in englassia.py, and the elf venue in dwargon.py; six non-empty NBT files also exist. Source fidelity, current-terrain fit and runtime placement are unverified. This is scope routing, not fewer missing obligations or a claim that all articles were read. [City study](../../../world/city-coverage-study.md) explains the parent-country context and unresolved plans.
 
 [Local city design evidence](city-design-evidence.csv) prevents treating those three existing designs as wholly absent. The manifest records presence, not proof of correct or deployed structure contents.
+
+Round41 reconciles the displayed counts with the129-row authoritative inventory and adds the [complete reader index](../../../world/location-index.md). The numbered atlas now shows16 large geographical context names and a separate32-entry M/P/U list. This makes existing gaps visible; it closes none of them. No new country coordinate,border,source confidence or complete-wiki claim is introduced.

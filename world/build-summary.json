@@ -19,7 +19,7 @@
     "skips": 26,
     "validation": "passed",
     "base_main": "09ca601",
-    "test_seconds": 44.039
+    "test_seconds": 44.384
   },
   "build_command": "python -I tools/world/build.py",
   "research_claim_records": 214,
@@ -248,8 +248,8 @@
     "remaining": "Exact vegetation extents are interpretation; no measured canonical shares or new sovereign borders."
   },
   "documentation_review": {
-    "round": 37,
-    "subject": "Registered art-file coverage complete; kingdom identities and old Dragon City temple qualified",
+    "round": 38,
+    "subject": "Current painted presentation,source registration and stale standalone preview refresh",
     "source_ledger_records": 214,
     "direct_LN_claims": 13,
     "visual_design_supplement_records": 72,
@@ -587,5 +587,35 @@
     "tools_diff_only_five_approved_relation_entries": true,
     "world_converter_code_unchanged": true,
     "pr_merged_to_main": false
+  },
+  "painting_current": {
+    "pr": "https://github.com/Yasuke2000/ocs-two-lives/pull/102",
+    "branch": "chatgpt/current-painted-map-r38",
+    "commit": "31cc28e",
+    "source_map_commit": "dc92845",
+    "source_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+    "native_vector_counts_verified": {
+      "coast": 3,
+      "biomes": 1,
+      "lakes": 9,
+      "rivers": 8,
+      "roads": 21
+    },
+    "site_anchors_verified": 58,
+    "minimum_label_spacing_px": 32.47054606006467,
+    "production_geometry_retained": true,
+    "pictorial_height_vegetation_are_not_surveyed": true
+  },
+  "tracked_terrain_preview": {
+    "source_svg_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+    "staged_index_source_sha256": "1ea6782d789523627c6c7c5469742fea26a1f1fb772ba5ac3a400c5da4c8ebf5",
+    "preview_sha256": "c903806683fedd7f7a2435c2fa722ea4e5f8dc423bdc8fba6dc1914436487fbc",
+    "normal_build_seconds": 55.0,
+    "original_preview_pixels": [
+      1536,
+      1344
+    ],
+    "copied_without_pixel_modification": true,
+    "applied_to_runtime": false
   }
 }

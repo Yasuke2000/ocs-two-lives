@@ -1,4 +1,6 @@
-# Current painting and official geographical reference
+# Historical R38 painting and official geographical reference
+
+**Round42 status:** the repository map now follows source7d021766 with a new northwestern headland and a wider normal-export box. This R38 painting and its recorded1ea6782d provenance predate that change. They remain a historical snapshot,not an overlay of the current coast. The SVG/normal terrain atlas governs until [the painting refresh](refresh-pending.md) is delivered. No painting pixels or historical source hashes are relabelled here.
 
 | Current original presentation | Official illustrated reference |
 | --- | --- |

@@ -1,5 +1,9 @@
 # world/ — the own world map
 
+Current round42 source7d021766 adds an original [northwestern headland](western-cape-review.md). The current terrain atlas/preview includes it; PR102's R38 painting is now historical and needs a coast/registration refresh. Main size9989x6250 and design box12800x10752 retain the stated hard limits; preferred scale/design targets remain disclosed. Earlier dated paragraphs describe their own versions.
+
+Round40 [Long Wall review](long-wall-corridor-review.md) corrects only the inert proposal comment. New source hasha24cea9b has identical active geometry and normal-export bytes to1ea6782d; PR102 painting remains registered. No generated wall is delivered.
+
 `world/map.svg` is the single source of the new, fully own Tensura world (design: [own-world.md](../design/architecture/own-world.md),
 sections 2 and 6.1). ChatGPT draws it, `tools/world/map_check.py` validates it, a converter later turns it into rasters.
 This branch contains a **draft research-driven redraw**, with all 58 footprint-sized sites, authored coasts,
@@ -21,6 +25,10 @@ source of truth is `tools/world/canon_relations.toml`. See [review.md](review.md
 The registered place-art stack reaches58/58 in [PR101](https://github.com/Yasuke2000/ocs-two-lives/pull/101). This completes art-file coverage only; Sainte depicts the inert C14 coastal alternative and full source/geometry/build/runtime requirements remain open. [Round31 Orbic review](orbic-terrain-review.md) now adds a bounded active depleted habitat; country/capital coverage remains incomplete. Current atlas is regenerated. The three earlier painting reviews predate this local habitat change and remain historical source comparisons.
 
 [Round32 Ice coast review](ice-coast-review.md) now refines three local inlets; the fixed palace shore and mainland remain. Current atlas/preview reflects both this change and Orbic. Earlier painted reviews remain historical.
+
+The [current painted atlas in PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) now follows source SHA1ea6782d,including the Orbic habitat,Ice inlets and unnamed Imperial basin. The three earlier painting reviews remain historical. The standalone [terrain preview](terrain-preview.png) is refreshed from the same normal export already used by this branch's numbered atlas; [provenance](terrain-preview-provenance.json) records its exact source/hash. Neither presentation changes terrain or proves source/runtime acceptance.
+
+The [complete location index](location-index.md) preserves129 source/scope entries. The current atlas adds16 geographical context names and lists32 open representations separately; [layout/source review](location-index-review.md) distinguishes them from the58 numbered server reservations. No new point or terrain is inferred from an unlocated name.
 
 ## Format in short
 

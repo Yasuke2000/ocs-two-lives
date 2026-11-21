@@ -12,7 +12,7 @@ comment in [map.svg](map.svg). Production still has exactly 58 registered sites.
 | Tengu settlement | Official episode64 confirms Khusha residence (`OFF-TEN-001`); the difficult summit description remains wiki-backed (`WIK-TEN-001`). | Revised centre `(-1000,940)`, radius40, on the existing western Khusha ridge. | [Measured ridge/terrace study](tengu-settlement-study.md) replaces the earlier hillside proposal. Height/access/build design and registration remain open. No later tunnel applied. |
 | Sainte-Malukshure | Wiki describes a coastal capital near its tower, with Sarion to the east (`WIK-MAL-001..002`). | Centre `(-2320,1645)`, radius 64, west of Elmine. | C14: current anchor requires H, which is Fulbrosia. This alternative lies in current gameplay O. Do not silently reassign the country, anchor or gameplay mask. |
 | Magic Tower | Official volume-2 manga synopsis places it in Malukshure waters (`PUB-MAL-001`). | Centre `(-2440,1840)`, radius 40, off the proposed capital shore. | Offshore structure/access proposal only. No speculative island added to the three-landmass production map. |
-| Long Wall | Wiki places the barrier between the desert and Coleus/Lubelius (`WIK-WAL-001`). | Dashed corridor from `(-4250,-1700)` to `(-3940,-100)`; bends in SVG comment. | Era and engineered wall need a separate structure/terrain decision. It is not an arbitrary mountain range. |
+| Long Wall | Wiki places the barrier between the desert and Coleus/Lubelius (`WIK-WAL-001`). | Revised boundary corridor from `(-4045.40,-947.08)` to `(-3801.89,204.15)`; [measured review](long-wall-corridor-review.md). | Era and engineered wall need a separate structure/terrain decision. It is not an arbitrary mountain range. |
 
 The official synopsis is [Tensura portal, 9 September 2024, Vacation manga volume 2 section](https://www.ten-sura.com/news/comic/tensura-comic/news/post/10534).
 It directly supports the maritime setting, not our exact shore or measurements. Manga story pages were not read.
@@ -42,3 +42,7 @@ flat circular village. Their drawn circles are review footprints. The original 5
 remain intact. Matching wiki inventory rows remain missing in production even though a proposal now exists.
 Orbic, Silberia and the other inventory gaps still need their own sourced treatment; this sheet does not
 claim the larger wiki audit or the faithful-continent goal complete.
+
+Round40 corrects the earlier Long Wall proposal: it now follows the authored desert edge with a local dry detour west of the Coleus oasis. The existing caravan-road crossing needs a future gate; exact wall course/width/endpoints remain our interpretation. All active terrain and58 reservations are retained.
+
+The additional-location study backdrop is refreshed from the current active SVG layers,including the moved Coleus oasis,current roads and desert habitat. Its older backdrop predated several terrain revisions. Proposal markers remain alternatives; this presentation refresh changes no production geometry.

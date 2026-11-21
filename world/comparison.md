@@ -1,4 +1,9 @@
-# Reference comparison — round35 / post-Kijin snapshot
+# Reference comparison — round42 western headland / post-Kijin snapshot
+
+Current comparison: [western before/after](western-cape-study.png) · [terrain atlas](atlas.png) · [source and export review](western-cape-review.md). The official introductory image supports a broad western projection; exact shore,habitat and V assignment remain our interpretation. Production source7d021766 retains all58 sites and earlier physical layers. PR102's R38 painting does not yet contain this new coast and must not be treated as a current-source overlay. Earlier descriptions below are historical.
+
+Current presentation: [painted atlas PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) · [side-by-side reference links](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-current/comparison.md). It follows the current1ea6782d source with3 coasts/9 lakes/8 river reaches/21 roads/1 Orbic highlight/58 anchors. Native masks/vectors are audited; underlying tree/ridge/snow/bank strokes are pictorial. The production SVG and terrain exports are retained after review. The standalone terrain preview is refreshed byte-identically from the current normal export; the main numbered atlas already used those pixels. Earlier numbered comparisons below remain historical. Exact server geometry and fixed/source conflicts stay qualified.
+
 
 ## Imperial water cue — round35
 

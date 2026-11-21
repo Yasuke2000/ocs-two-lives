@@ -1,4 +1,15 @@
-# Tensura geography research — round34 smaller western precinct sources
+# Tensura geography research — round42 northwestern headland
+
+Current round42: [western headland review](../../../world/western-cape-review.md) improves the mainland silhouette after direct visual comparison with the official reference. Two qualified claims bring the ledger to217(159+58),14directLN. Current source7d021766;atlas and standalone normal-export preview refreshed. The current R38 painting PR102 predates this coast and needs refresh. Inventory129/32follow-ups and58art pairs remain;exact course/habitat/gameplay assignment are interpretation.
+
+Current round41: [complete geographical reader index](../../../world/location-index.md),[presentation review](../../../world/location-index-review.md) and16 regional atlas labels expose the existing32 missing/partial/unverified representations. All129 inventory names are retained without fabricated coordinates. Stale displayed wiki-coverage counts are reconciled. No source/terrain/coverage classification changes:215claims/14directLN,58registered art pairs and sourcea24cea9b remain.
+
+Current round40: [Long Wall corridor correction](../../../world/long-wall-corridor-review.md) fixes an inert proposal crossing the authored desert,including a dry detour around the Coleus oasis. No active terrain changes; fresh normal export remains identical. Ledger215/14directLN,inventory129/32follow-ups and58art pairs unchanged. Current source-comment SHAa24cea9b,same active geometry as1ea6782d.
+
+Current research follow-up round39: [public LN sample review](primary-sample-screening-r39.md) adds one narrow later road-patrol fact (LN07-001), with explicit initial-era limits. Ledger215(157+58),14 direct LN claims. Four accessible publisher fragments do not establish new small-country coordinates. Inventory129/32 follow-ups,58 registered art pairs and current geometry remain unchanged.
+
+Current presentation follow-up round38: [painted map PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) now matches the current source1ea6782d native coast/water/road vectors and all58 anchors. The standalone terrain preview is refreshed from the existing current normal export. This adds no new geographical claim or accepted location:ledger214,13 direct LN,72 visual/design supplements,inventory129/32 follow-ups and58/58 registered art files remain. Pictorial relief/canopy is not surveyed terrain. Earlier source/review summaries retain their dates/hashes.
+
 
 Current round37: **214 claim records =156 thematic/design/reference records +58 coordinate interpretations**, with13 directly read LN claims and72 visual/design supplements. Official profiles establish Rostia's kingdom identity and a temple in the old Dragon City; Ghastone's kingdom identity remains wiki-level. [Source distinctions](final-place-source-review.md) correct the country-versus-gameplay-binding assumptions. Inventory129 retains26 missing representations,1 partial Orbic,2 unverified country pins and3 parent designs:32 follow-up obligations.
 

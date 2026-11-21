@@ -477,3 +477,19 @@ The wiki describes a separate isolated treant settlement in Jura (WIK-TRE-036,fa
 ## Country pins and old Dragon City temple — round37
 
 The official Johann profile establishes the Kingdom of Rostia (OFF-ROS-037); the wiki western-state list names the Kingdom of Ghastone (WIK-GHA-037). Current A/G gameplay pins are authored positions,not proof of Raja/Englassia sovereignty or surveyed capitals. No unsupported national outline is drawn. The official Middray profile directly establishes a temple in the old Dragon City (OFF-FDC-037),not the project's giant bones,pyramid or precise layout. [Evidence and limits](../docs/research/tensura-world-2026-11-19/final-place-source-review.md). Sainte's new concept illustrates only the existing C14 coastal proposal. Terrain/58-ID geometry remains unchanged; the atlas legend clarifies two country pins.
+
+## Current painting review — round38
+
+[PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) refreshes original pictorial texture against the current source,with exact native coast/water/road geometry and the Orbic highlight. No illustration finding justifies new active terrain; the current SVG and exports are retained. Pictorial mountains,forest edges,bank shading and snow do not supersede these authored landform/biome specifications. Fixed/source/era/coverage/fit/runtime limits remain unchanged. The separately tracked terrain-preview copy now equals the existing current normal export byte for byte.
+
+## Long Wall proposal correction — round40
+
+The [revised inert corridor](long-wall-corridor-review.md) follows the existing authored Desert of Death boundary toward Coleus/Lubelius. The earlier route cut through the desert interior. Exact endpoints,width,wall design and a gate at the existing caravan trail remain **our interpretation**. No active coast,biome,region,road or site changes. Official map and current checker preview were visually compared; no new licensed coastline or surveyed national boundary is inferred. Source-comment hash changes only; current terrain/painted registration remains valid. C15/full source/era/structure-fit/runtime obligations remain open.
+
+## Geographical atlas labels and index — round41
+
+The [atlas/index review](location-index-review.md) adds broad readable names to existing terrain contexts,not surveyed country boundaries. Fifteen labels sit inside existing gameplay contexts; Ulgracia uses a sea-side name callout ending inside U. The separate list retains32 missing/partial/unverified representations,with all129 inventory names linked in the full index. Text placement is **our interpretation**. No active geography,source claim,site/road,terrain export or early political state changes. Existing deliberate differences and missing-place obligations remain.
+
+## Northwestern headland — round42
+
+The [official-image silhouette review](western-cape-review.md) adds an original broad western projection and recessed bay. Exact shore,new barren habitat and V assignment are **our interpretation**. All earlier waters,relief,forests,21 routes and58 site attributes retain their geometry; existing sites retain their sampled ground levels. Mainland9989x6250 and design12800x10752 remain below hard limits but differ from preferred targets; C12 remains. The current terrain atlas is reprojected; PR102's R38 painting predates this headland and needs refresh. No new named port,capital,wall extension or measured political border is inferred.
