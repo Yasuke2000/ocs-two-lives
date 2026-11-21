@@ -1,5 +1,7 @@
 # Dwargon southern mountain gate (`dwargon`): concept art
 
+**R86 reservation alignment:** [current map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) relocates this reservation within the same setting. Original PNG and prompt are retained; this is not a geographically registered terrain render.
+
 ![Original concept illustration](dwargon.png)
 
 - **Brief:** Southern trade approach looking into the northward cleft. One coherent environment view at the post-Kijin baseline.
@@ -7,8 +9,8 @@
 - **Our interpretation:** Exact gate facade, four-tower arrangement, copper details, tunnel glimpse and road are our interpretation; no interior city plan is certified.
 - **Block notes:** Tuff, cobblestone, pale stone/quartz proxy, dark oak and copper/lantern accents. Buildable cubic silhouettes, stairs/slabs and grounded foundations; artistic light is a cue, not verified block lighting or an in-game render.
 - **Terrain:** Continuous mountain mass encloses the entrance; grey cliff, buttresses and scree dominate the modest pale gate.
-- **Current reservation:** centre(0,-1550), radius127.0, kind`carve`, margin48. These are authored server coordinates from map commit`fc36e38`, not canon measurements.
-- **Facing / surroundings:** Southern trade approach looking into the northward cleft. This camera and orientation are our interpretation. Read [production SVG](../../../world/map.svg), [era policy](../../../world/era.md) and the [place brief](../../chatgpt/places/dwargon.md); legacy imported-map coordinates do not govern this image.
+- **Current reservation:** centre(780,-1390), radius127.0, kind`carve`, margin48. These are authored server coordinates from source SHA`355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7`, not canon measurements.
+- **Facing / surroundings:** Southern trade approach looking into the northward cleft. This camera and orientation are our interpretation. Read [current production SVG](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/world-map/world/map.svg), [era policy](../../../world/era.md) and the [place brief](../../chatgpt/places/dwargon.md); legacy imported-map coordinates do not govern this image.
 - **Reference inspection:** Pinned secondary dwargon_gate.webp was visually inspected. It supports the pale-gate/large-rock relationship; its exact episode/timestamp remains unverified. Secondary reference files came from the pinned [TensuraMap commit](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6). No episode or timestamp attribution is upgraded here.
 - **Geometry limit:** this is original concept art, not a blueprint, surveyed site plan, generated Minecraft terrain or runtime acceptance. Perspective and nearby set dressing cannot override the SVG, dry build plates or source qualifications.
 - **Provenance:** built-in image_gen, original written brief, 1536x1024 RGB PNG. No copyrighted reference image was supplied as generation input. The dwarf-village correction edits only our generated image. Lossless PNG packaging, where used, preserves every RGB pixel.

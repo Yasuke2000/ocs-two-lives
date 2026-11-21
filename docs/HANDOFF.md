@@ -1,5 +1,30 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Englassia precinct concept follows R91 source limits
+
+The Englassia sheet now distinguishes its unchanged dry academy/Guild precinct from the separate WN-derived royal lake/court in current map source 43fed303. All reservation values, original PNG and exact prompt remain unchanged. No completed castle/capital or LN/initial-state acceptance. Required gate passed: 462 tests, 26 skipped, 0 failures (45.493 s).
+
+## 21/11 — Elmine lake direction corrected (R88)
+
+The Elmine concept sheet now identifies its source lake east/southeast, correcting southwest. Original PNG and exact prompt retained; official episode61 pavilion evidence stays bounded. Main-map source355d1a33 and all58 concept reservation values unchanged. Whole-tree/capital coverage remains partial. Gate: 462 tests, 26 skipped, zero failures (45.441s).
+
+## 21/11 — Concept reservations aligned with northeast Dwargon (ChatGPT, round86)
+
+[Current registration review](art/registration-r86.md) updates six metadata rows and verifies all 58 reservations against source355d1a33. All original PNGs and prompts remain unchanged. Map PR74 supplies authoritative geography. Next: actual source/location/era work and matching painting.
+
+Validation: 462 tests, 26 skipped, zero failures (45.465s) on this older art branch. Independent checks compare all 58 reservations against source355d1a33, all 58 PNGs against baseline git blobs and all 58 original prompt sections.
+
+## 21/11 — Place sheets match current map reservation metadata (ChatGPT,round73)
+
+R73 [current-source metadata audit](art/places/current-map-registration-r73.md) checks all58 PNG/sheet pairs against map40c7833/source90ee15b1. Three stale radii are corrected:Englassia98→124,Dragon’s Nest64→85,Sacred Mountain80→95. All58 x/z/kind/margin fields andthe other55 radii already agree. AllPNG bytes remain unchanged;the original prompts/provenance remain historical. Art-branch validation and462 tests pass(26 skipped,zero failures,44.559s);independent58-row metadata/git-blob/prompt checks pass. This is metadata registration,not metric image geometry orruntime acceptance. Earlier source-comparison statements below are historical.
+
+Next:remaining source/location/era/fixed-rule questions;technical conversion andlocal placement remain Claude’s handoff. All58 art pairs are present;no new physical location is claimed.
+
+## 20/11 — final six registered place-art pairs (ChatGPT, round37, stacked on PR100)
+
+Adds Filtwood,Ghastone,Rostia,Sainte-Malukshure,old Forgotten Dragon City and old well:58/58 PNG/sheet pairs,twelve manifests and58-row coverage. This closes art-file coverage only. All58 site attributes match main1209e38,though this art branch retains older map/source files. Six new originals,1536×1024 RGB<3MB,decoded pixels preserved. Sainte depicts the inert C14 coastal proposal,not the active inland H pin; Filtwood C20 remains. Rostia's kingdom and Dragon City's temple have direct official profile support; no capital/bone-city architecture is certified. Eleven source/design records,exact prompts and manifest in docs/art/places. Full geometry/source/era/structure-fit/runtime requirements stay open. Gate in art README/new PR. No world/tools/mod/pack/blueprint/apply/deploy edits.
+
+
 ## 20/11 â€” Jura and western route concepts (ChatGPT, round36, stacked on art PR99)
 
 Six original/revised image+sheet pairs:shizu_spawn,outcast_road,treyni_grove,blumund_road,englassia_road,rookie_camp. Three earlier own candidates revised; three new originals. Future encounter/contact views have no named resident or later fortress; tree remains a natural mod-landmark interpretation,not a whole treant settlement. Rookie pin is in current dark band573 blocks from Tempest,not the legacy safe meadow. Nine qualified reference/design records; exact prompts/input/output hashes in docs/art/places. All52 pairs/eleven manifests/58-row coverage checked; all58 site attributes match map48b0846,though this branch retains older map/source files. Six images1536Ã—1024 RGB<3MB,pixels preserved. Six pairs remain; full geography/source/fit/runtime obligations stay open. Gate in art README/new PR. No world/tools/mod/pack/blueprint/apply/deploy edits.

@@ -1,12 +1,14 @@
 # Dwargon audience chamber / empty throne vignette (`dwargon_throne`): concept art
 
+**R86 reservation alignment:** [current map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74) relocates this reservation within the same setting. Original PNG and prompt are retained; this is not a geographically registered terrain render.
+
 ![Original revised concept](dwargon_throne.png)
 
 - **Brief:** Southern internal doorway toward a compact northern dais and empty throne. Early snapshot immediately after Kijin naming, anime S1E10.
 - **Canon / source scope:** Official episode5 synopsis directly identifies a trial before King Gazel; still4 shows Gazel seated in close-up and still5 a chained Rimuru with a geometric floor. These verify court context, not the complete room plan, ceiling, colour scheme or windows.
 - **Our interpretation and revision:** Retain the server's grey masonry/red-runner/copper-light palette while replacing outside mountain views with internal recesses. Remove the figure and royal banners; an empty throne avoids asserting an exact statue/NPC model. Dais, columns, vault and circulation are authored architecture, not a reproduced anime court.
 - **Terrain and fit:** The radius8 spot belongs to the parent city. Exact room dimensions, roof cover and integration with the existing mod-derived hall require technical fit review. The image cannot authorize an independent outdoor palace or new mountain-view windows.
-- **Current reservation:** centre(0.0,-1656.0), radius8.0, kind`clearing`, margin24. Exact coordinates/radii are server interpretations (SITE records in the main ledger), not surveyed canon. All58 site attributes match current map review`24897fa`; this art branch stacks on`464d2eb` and does not carry later map/source commits. Use [map PR74](https://github.com/Yasuke2000/ocs-two-lives/pull/74), not retired Lerfing coordinates.
+- **Current reservation:** centre(780,-1496), radius8.0, kind`clearing`, margin24. These are authored server coordinates from source SHA`355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7`, not canon measurements.
 - **Palette / approach:** Grey masonry, dark red runner/throne upholstery, restrained copper and warm practical lamps. No exterior landscape is prescribed. Camera direction, apparent dimensions and exact materials are illustrative; no mod IDs or blueprint bounding boxes are asserted. A visible entrance/viewpoint is not a newly registered site.
 - **Era limits:** No fixed named early resident roster, trial reenactment, later alliance or reconstructed Tempest city is depicted. Kaijin has already left the city; the orc crisis remains unresolved. Existing place-brief references to later names/alliances do not establish initial state.
 - **References:** [Official episode context](https://www.ten-sura.com/anime/tensura/story/no5) · [project place brief](../../chatgpt/places/dwargon_throne.md) · [reference review and confidence](dwargon-interior-reference-review.csv). Official episode4/5 stills were visually inspected and remain cached outside the repo; the arena uses the explicit project brief. No playback timestamp is claimed.
