@@ -1,0 +1,14 @@
+{
+  "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+  "native_basis": "world/painting-round110/continent.svg",
+  "original_tree_symbols": 35,
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "copyrighted_source_pixels_embedded": false,
+  "PNG_method": "Chrome native SVG render",
+  "global_relief_resampled": false,
+  "runtime_applied": false,
+  "map_commit": "6c9ece17d4e6f7f91cefd9927c721beca71e2da9",
+  "native_basis_commit": "e3963e24ed15157d524cc39d3243c69526dbeebc",
+  "historical_component_metadata_retained": true
+}

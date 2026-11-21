@@ -1,6 +1,6 @@
 ## Current source — R106
 
-[Owner-approved inland Frost Palace](frost-palace-inland-r109.md) is active in source `0ae040ec`:site54 moves to the central snowfield(-1530,-3680),clearing,r89;local forecourt follows. Other57 sites and all native landform/habitat/region geometry remain. Fresh normal staging and atlas reflect the change;[generated registration](frost-palace-registration-r109.toml) is ready for Claude integration. Ledger314;inventory142/42. [Current biome shares](region-biomes-r109.md) are remeasured;R108 stays historical. R107 painting predates this site move and needs re-registration. Earlier round notes below are historical;full source/era/whole-palace/runtime obligations remain open.
+[El Dorado woodland review](el-dorado-woodland-r111.md) restores two source-informed bounded canopies in source `74d63267`:15 forests,58 unchanged sites and22 unchanged roads. Corrected eastern group is east/southeast of the lake. Only4,788 biome cells change;all height/water/road/site exports remain identical. Ledger316;inventory142/42 retained. [Current biome census](region-biomes-r111.md) measures5.3940% forest in X. R110 painting predates the two masks and needs native canopy alignment. Earlier dated notes below are history;full source/era/whole-city/runtime obligations remain open.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 

@@ -1,5 +1,17 @@
 # Current handoff
 
+## 21/11 — El Dorado source woodland restored (R111)
+
+Fresh official original and enlarged island inspected;NW woodland and east/southeast lakeside group missing from source. First eastern northern draft corrected before delivery. Added72/60-vertex light-forest polygons;all old shape attributes/text,58 site attributes,22 roads retained. Source74d63267;checker0errors/56relations/2priorwarnings;normal67.0s/no converter warnings.4,788 biome cells become forest inside new polygons;all height/rugged/water/road/site/exclusion rasters and site/road/anchor exports identical. X measured forest5.3940%;no stale20% target. Required gate472/26skip/0fail64.832s;browser58/20/42,no overlaps,min31.62px. Ledger316;existing El Dorado inventory row gains evidence,142/42 classifications unchanged. R110 painting needs exact new canopy integration;source height/volcanic snow versus painting is a separate remaining review. No protected edit/runtime action.
+
+# Current handoff
+
+## 21/11 — Inland palace painting synchronized (R110)
+
+R109 source0ae040ec/map5026a0d and R110 painting e3963e2 agree. Painting PR102 visibly moves only marker54 and its pointer;exact native forecourt follows,all other57 groups/20names/42rows retained. Continent pixels stay identical at this scale;no global height claim. Gate472/26skip/0fail64.953s;browser min32.47px/no labels overlap. See docs/research/tensura-world-2026-11-19/painting-alignment-r110.md. Owner’s inland choice is implemented in drawing and generated kind/r registry;staged y71/live anchor/build/runtime integration stays with Claude. LN agreement/complete palace/access remain open. Ledger314;inventory142/42. Main handoff gate472/26skip/0fail64.991s;architecture brief records owner override. No geometry/counter/art change in this handoff. Next substantive check: El Dorado illustrated woodland versus actual terrain;do not blanket-fill stale20%target. All previous dated status notes are historical.
+
+# Current handoff
+
 ## 21/11 — Owner-approved inland Frost Palace (R109)
 
 Owner answered inland palace and adjust coastal registration. SVG site54 now(-1530,-3680),clearing,r89;local forecourt and label follow. Other57 sites and all native geography masks remain. Checker0errors/56relations/2priorwarnings;normal67.3s/no warnings;8585 entrance-buffer samples level71,no water. world/frost-palace-inland-r109.md and exact generated table provide Claude’s integration handoff. Owner-approved generator updates only Frost Palace kind/r and its size row;live anchor/y/build/runtime integration remains with Claude. Do not apply the world here. C22 owner choice resolved; LN agreement,complete palace/access/runtime remain open. Required gate472/26skip/0fail65.002s;stale generated coastal-table failures corrected with existing generator. Ledger314;inventory142/42. Current measured shares are R109;R108 stays historical. R107 painting needs site/forecourt re-registration before called current.

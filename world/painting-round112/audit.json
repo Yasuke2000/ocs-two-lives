@@ -1,0 +1,36 @@
+{
+  "round": 112,
+  "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+  "map_commit": "6c9ece17d4e6f7f91cefd9927c721beca71e2da9",
+  "exact_source_canopy_clips": true,
+  "all_R110_native_elements_retained_except_source_metadata": true,
+  "original_tree_symbols": 35,
+  "all_tree_centres_inside_source_polygons": true,
+  "changed_continent_pixels": 759,
+  "changed_pixel_bounds": [
+    341,
+    781,
+    467,
+    849
+  ],
+  "max_RGB_channel_change": 115,
+  "all_changed_centres_inside_16block_canopy_support": true,
+  "all_exterior_pixels_identical": true,
+  "all_non_image_atlas_XML_retained_except_root_source_metadata": true,
+  "registered_sites": 58,
+  "all_world_positions_and_projections_checked": true,
+  "context_names": 20,
+  "open_rows": 42,
+  "minimum_circle_spacing": 32.470561517449696,
+  "label_overlap": false,
+  "ledger_unique": 316,
+  "inventory": 142,
+  "physical_followups": 42,
+  "global_relief_resampled": false,
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.464
+  }
+}

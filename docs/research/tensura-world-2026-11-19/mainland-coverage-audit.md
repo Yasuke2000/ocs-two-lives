@@ -1,12 +1,12 @@
-# Mainland coverage audit — current inventory R108
+# Mainland coverage audit — current inventory R111
 
 [All142 entries](mainland-coverage-audit.csv) · [source inventory](wiki-location-coverage.csv) ·
-[current region-biome census](../../../world/region-biomes-r108.md).
+[current region-biome census](../../../world/region-biomes-r111.md).
 
 The inventory has142 entries and **42 physical follow-ups**. It includes
 countries,landforms,organisations,index routes,interiors,other worlds and aliases.
 It is not142 completed destinations or proof that every wiki article was read.
-The R104/R106 unnamed water/woodland additions are terrain records; every older
+R111 adds woodland evidence to the existing El Dorado entry without changing its classification. The R104/R106 unnamed water/woodland additions are terrain records; every older
 classification and unresolved location remains.
 
 | Physical coverage classification | Entries |
