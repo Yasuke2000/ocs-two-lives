@@ -1,5 +1,11 @@
 # Current handoff
 
+## 21/11 — El Dorado woodland source/painting aligned (R112)
+
+R111 source74d63267/map6c9ece1 and R112 painting dfd66c1 agree. Exact72/60canopy clips,35 original scattered trees;759 changed continent pixels,maxRGB115,all inside16block support;exterior pixels identical. All58 marker groups/20context names/42open rows retain geometry;browser min32.47px,no label overlap. Native historical component metadata retained;only current root metadata refreshes. Gate472/26skip/0fail65.464s;source gate64.832s;sourcechecker0/56/2 andnormal67.0s adopted. Main handoff gate472/26skip/0fail64.731s. Ledger316;inventory142/42 unchanged;census reproduces byte-identically. No further canopy geometry correction found. Source/native volcano climate mismatch remains for source-first review;also reassess outstanding map-deliverable requirements separately from Claude-owned runtime/full-build tasks. No protected edit,world/chunk/main-merge/deploy action. Older dated notes below are history.
+
+# Current handoff
+
 ## 21/11 — El Dorado source woodland restored (R111)
 
 Fresh official original and enlarged island inspected;NW woodland and east/southeast lakeside group missing from source. First eastern northern draft corrected before delivery. Added72/60-vertex light-forest polygons;all old shape attributes/text,58 site attributes,22 roads retained. Source74d63267;checker0errors/56relations/2priorwarnings;normal67.0s/no converter warnings.4,788 biome cells become forest inside new polygons;all height/rugged/water/road/site/exclusion rasters and site/road/anchor exports identical. X measured forest5.3940%;no stale20% target. Required gate472/26skip/0fail64.832s;browser58/20/42,no overlaps,min31.62px. Ledger316;existing El Dorado inventory row gains evidence,142/42 classifications unchanged. R110 painting needs exact new canopy integration;source height/volcanic snow versus painting is a separate remaining review. No protected edit/runtime action.
