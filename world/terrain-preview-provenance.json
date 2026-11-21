@@ -1,7 +1,7 @@
 {
-  "source_svg_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
-  "staged_index_source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
-  "preview_sha256": "f2591c7d1ffa27a6286ca2fa5f5ad0eab5830956df2d24c8f522e817ba8c31c7",
+  "source_svg_sha256": "2463d771cd28cff62138fe2e87ae0dc0dd8bccc7c3d02bc21f6bd6bbb3ed7426",
+  "staged_index_source_sha256": "2463d771cd28cff62138fe2e87ae0dc0dd8bccc7c3d02bc21f6bd6bbb3ed7426",
+  "preview_sha256": "331e352d231268dee813fae586e48735211102447331479192c4fd292d06ab91",
   "original_preview_pixels": [
     1600,
     1344
@@ -19,5 +19,5 @@
     "physical_followups": 42
   },
   "comment_only_source_change": false,
-  "round": 111
+  "round": 114
 }

@@ -26,9 +26,9 @@ source = (ROOT / "world/map.svg").read_text(encoding="utf-8")
 sha = hashlib.sha256(source.encode()).hexdigest()
 index = json.loads((ROOT / "world/build/index.json").read_text(encoding="utf-8"))
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument("--round", type=int, choices=(108,109,111), default=108)
+parser.add_argument("--round", type=int, choices=(108,109,111,114), default=108)
 round_number = parser.parse_args().round
-pinned_sources = {108: "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1", 109: "0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b", 111: "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079"}
+pinned_sources = {108: "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1", 109: "0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b", 111: "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079", 114: "2463d771cd28cff62138fe2e87ae0dc0dd8bccc7c3d02bc21f6bd6bbb3ed7426"}
 assert sha == pinned_sources[round_number], "Census round is pinned to its reviewed source; choose the matching round"
 assert sha == index["source_sha256"], "Normal staging rasters must match source"
 biome_path = ROOT / "world/build/biome.png"

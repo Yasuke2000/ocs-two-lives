@@ -1,0 +1,71 @@
+{
+  "round": 114,
+  "source_sha256": "2463d771cd28cff62138fe2e87ae0dc0dd8bccc7c3d02bc21f6bd6bbb3ed7426",
+  "new_biome": "minecraft:stony_peaks",
+  "cone_vertices": 40,
+  "cone_area_blocks2": 93590.73534999996,
+  "exact_existing_cone_geometry": true,
+  "all_prior_active_shapes_retained": true,
+  "all58_site_attributes_and22_routes_retained": true,
+  "normal_seconds": 67.0,
+  "checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "raster_changes": {
+    "height": {
+      "changed_cells": 0
+    },
+    "rugged": {
+      "changed_cells": 0
+    },
+    "water": {
+      "changed_cells": 0
+    },
+    "road": {
+      "changed_cells": 0
+    },
+    "biome": {
+      "changed_cells": 4577,
+      "all_changed_centres_inside_cone": true,
+      "before": {
+        "minecraft:plains": 3039,
+        "minecraft:snowy_slopes": 1538
+      },
+      "after": {
+        "minecraft:stony_peaks": 4577
+      },
+      "all_cone_sample_biomes": {
+        "minecraft:stony_peaks": 5850
+      }
+    }
+  },
+  "unchanged_export_files": [
+    "anchors.toml",
+    "canon_map.txt",
+    "exclude.png",
+    "height.png",
+    "road.png",
+    "roads.json",
+    "rugged.png",
+    "sites.json",
+    "sites.png",
+    "sites.toml",
+    "water.png"
+  ],
+  "limits": "Authored rocky-cone biome choice,not a canonical biome or proof of island climate,initial snow cover or runtime precipitation. LN11 passage unread;wiki active-volcano description remains secondary.",
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.499
+  },
+  "browser": {
+    "numbers": 58,
+    "labels": 20,
+    "open_rows": 42,
+    "label_overlap": false,
+    "minimum_spacing": 31.621008835113628
+  }
+}

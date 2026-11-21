@@ -1,6 +1,6 @@
 ## Current source — R106
 
-[El Dorado woodland review](el-dorado-woodland-r111.md) restores two source-informed bounded canopies in source `74d63267`:15 forests,58 unchanged sites and22 unchanged roads. Corrected eastern group is east/southeast of the lake. Only4,788 biome cells change;all height/water/road/site exports remain identical. Ledger316;inventory142/42 retained. [Current biome census](region-biomes-r111.md) measures5.3940% forest in X. [R112 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/dfd66c17c654ec6dd94cab6eed285e3889f0d567/world/painting-round112/README.md) now aligns with both masks;R110 remains historical. Earlier dated notes below are history;full source/era/whole-city/runtime obligations remain open.
+[R114 rocky-cone review](el-dorado-rock-cone-r114.md) adds one local stony_peaks biome over El Dorado’s exact existing cone. Source2463d771:28 biome polygons,15 forests,58 unchanged sites and22 unchanged roads. Only4577 biome cells change;all height/water/road/site exports remain identical. Ledger318;inventory142/42 retained. [Current census](region-biomes-r114.md). R112 painting’s existing rocky appearance is retained by explicit adoption;its original metadata remains historical. The R113 art audit corrects Frost Palace’s stale coastal sheet. Canon climate,LN11 passage,source/proportion/initial-era andtechnical acceptance remain qualified.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 

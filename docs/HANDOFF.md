@@ -1,5 +1,11 @@
 # Current handoff
 
+## 21/11 — Local rocky cone and place-sheet audit (R114/R113)
+
+Source2463d771 adds only one stony_peaks polygon over the exact existing40-vertex El Dorado cone.4577biome samples change(3039plains+1538snowy_slopes);all5850cone centres stony_peaks. All height/rugged/water/road/site/exclusion andsite/road/anchor exports retained;all58site attributes/22routes unchanged. Checker0/56/2;normal67.0s,no warnings. Required gate472/26skip/0fail64.499s;browser58/20/42,no overlap,min31.62px. Ledger318;inventory142/42. Local authored rock choice,not proven canon climate or runtime snow absence;LN11 retailer routes exposed no story passage. Existing R112 painting appearance adopted unchanged,its metadata stays historical. R113 art audit:57 numerical sheets already matched,only Frost Palace’s inland registration corrected;all58 PNGs andoriginal prompt retained. Full goal stays open;next map deliverable checks are in readiness audit,distinct from Claude-owned runtime/full-build integration.
+
+# Current handoff
+
 ## 21/11 — El Dorado woodland source/painting aligned (R112)
 
 R111 source74d63267/map6c9ece1 and R112 painting dfd66c1 agree. Exact72/60canopy clips,35 original scattered trees;759 changed continent pixels,maxRGB115,all inside16block support;exterior pixels identical. All58 marker groups/20context names/42open rows retain geometry;browser min32.47px,no label overlap. Native historical component metadata retained;only current root metadata refreshes. Gate472/26skip/0fail65.464s;source gate64.832s;sourcechecker0/56/2 andnormal67.0s adopted. Main handoff gate472/26skip/0fail64.731s. Ledger316;inventory142/42 unchanged;census reproduces byte-identically. No further canopy geometry correction found. Source/native volcano climate mismatch remains for source-first review;also reassess outstanding map-deliverable requirements separately from Claude-owned runtime/full-build tasks. No protected edit,world/chunk/main-merge/deploy action. Older dated notes below are history.
