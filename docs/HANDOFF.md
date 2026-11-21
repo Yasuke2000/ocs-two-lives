@@ -1,8 +1,16 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Repair current painting review links (ChatGPT, round 79)
+
+Restored the exact painting-round78 path in four Markdown files after a prose-spacing replacement inserted a space. All R78 references in the affected worktrees were checked against local files or committed Git objects (21 links in total). Source e8f17470,all R78 images/native composition,58 registrations and the historical277-record evidence snapshot remain unchanged. The separate map branch adds the scoped Orbic wiki note; this art branch does not claim that new record as its own source snapshot.
+
+Validation:472 tests,26 skipped,zero failures(65.145s). The shared21-link audit resolves current R78 references to local files/committed artifacts. Source and all image/native assets remain unchanged.
+
+Next: remaining source/location/early-state work on the map branch. No geometry or image edits,protected change,apply,chunks or deployment.
+
 ## 21/11 — Northern island painting follows the R77 terrain (ChatGPT, round 78)
 
-R78 [current painted atlas](../world/painting-round 78/README.md) integrates the R77 northern island and surrounding water from source e8f17470. Verified R69 underpainting plus exact new native coast/height/depth layers change 5171 continent pixels, all inside the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows are retained; inventory caption 133. Prior editable art/texture files remain unchanged. Ledger 277/inventory 133/41 follow-ups; full geography/source/era goal remains open.
+R78 [current painted atlas](../world/painting-round78/README.md) integrates the R77 northern island and surrounding water from source e8f17470. Verified R69 underpainting plus exact new native coast/height/depth layers change 5171 continent pixels, all inside the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows are retained; inventory caption 133. Prior editable art/texture files remain unchanged. Ledger 277/inventory 133/41 follow-ups; full geography/source/era goal remains open.
 
 Validation: 472 tests / 26 skipped / zero failures (62.794s); checker0 errors/56 relations/2 existing warnings. Independent source/mask/sample/hash/pixel-locality and registration checks pass. Final painting/preview/reference comparison found no additional source-SVG correction for this island.
 
