@@ -1,3 +1,5 @@
+**R95 follow-up:** [published painting](https://github.com/Yasuke2000/ocs-two-lives/blob/02ac2f8231e5712505df3bde787e03ee949b5d47/world/painting-round95/README.md) now aligns these five coasts, retains all58 registrations, and uses19 context names/138-entry caption. [Independent audit](https://github.com/Yasuke2000/ocs-two-lives/blob/02ac2f8231e5712505df3bde787e03ee949b5d47/world/painting-round95/audit.json). Earlier pending-painting statements below describe the R94 handoff; source/count/scale/ownership qualifications remain.
+
 # Ice coastal islets — original geography, R94
 
 [Current terrain atlas](atlas.png) · [original before/after](ice-islets-r94.png) · [editable study](ice-islets-r94.svg) · [independent measurements](ice-islets-r94.json) · [58-site registration](atlas-registration-r94.json) · [source/hash provenance](../docs/research/tensura-world-2026-11-19/ice-islets-source-provenance-r94.json)

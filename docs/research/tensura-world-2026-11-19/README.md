@@ -1,3 +1,7 @@
+## 21/11 — Published painting follows Ice coastal source (R95)
+
+[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/02ac2f8231e5712505df3bde787e03ee949b5d47/world/painting-round95/README.md) follows source `63df7185`: five exact source coasts, 1,869 checked height-light samples, all 58 registrations and 19 context names. Caption138/42 and ledger301 agree with current source scope. Painting gate472 tests,26 skipped,zero failures(63.796s). [Alignment evidence](painting-alignment-r95.md). Earlier pending-painting notes below are historical. Main documentation gate **472 tests, 26 skipped, zero failures (63.631s)**; zero changed JavaScript.
+
 ## 21/11 — Illustrated Ice offshore group added (R94)
 
 [R94 source/terrain review](../../../world/ice-islets-r94.md) adds five original representative islet coasts with cold biome/admin coverage. Source `63df7185`; checker 0 errors/56 relations/2 existing warnings; final normal66.687s. Every old land height/biome/ruggedness and58 reservation is retained. Atlas:19 names,138-entry caption,42 open rows. Ledger301. R93 painting source43fed303 predates the islets and requires alignment; numeric58 registration remains valid. Required repository gate: 472 tests, 26 skipped, zero failures (63.298s); zero changed JavaScript.
