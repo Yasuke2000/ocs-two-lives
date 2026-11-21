@@ -1,4 +1,6 @@
-# Tensura geography research — round46 initial-village landscape
+# Tensura geography research — round47 licensed manga review
+
+Round47 [licensed manga review](licensed-manga-review-r47.md) directly inspects selected public chapter1 cave panels,with reader positions and access limits. Official episode2 corrects the overstrong spent-seal wording. Ledger224 (166+58),14 direct LN; source geometry,129 inventory/32 follow-ups and58 art pairs retained.
 
 Round46 [initial Tempest study](../../../world/tempest-early-landscape.md) adds two directly read WN20 planning/setting claims and an explicitly interpreted surface/capacity proposal. Ledger221 (163+58),14 direct LN claims. Source geometry,129 inventory entries/32 follow-ups and58 art pairs retained; no technical or runtime change.
 

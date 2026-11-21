@@ -1,5 +1,7 @@
 # world/ — the own world map
 
+Round47 [licensed cave references](../docs/research/tensura-world-2026-11-19/licensed-manga-review-r47.md) add selected public manga panels and correct spent-seal wording without changing terrain. Ledger224,14 direct LN; source/era/coverage/build/runtime obligations remain open.
+
 Round46 [early Tempest landscape](tempest-early-landscape.md) supplies a scaled initial-surface/future-capacity study and direct WN20 context. The mandatory radius148 and current terrain remain unchanged; proposed85 is not an active setting. Ledger221,14 direct LN claims; full geography/era/technical obligations remain open.
 
 Round45 [primary-source review](../docs/research/tensura-world-2026-11-19/primary-source-review-r45.md) directly supports the guarded immobile treant community without locating it. Ledger218,14 direct LN claims; inventory129/32 follow-ups unchanged. Current LN20/21 trial links were found but story pages remain unread. Source geometry and presentation are retained.

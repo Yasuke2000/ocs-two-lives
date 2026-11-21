@@ -58,3 +58,7 @@ marker omission does not mean a place did not exist. [Interaction notes](../docs
 ## Early landscape versus reserved city capacity — round46
 
 The [scaled Tempest study](tempest-early-landscape.md) separates a proposed initial r85 surface from the mandatory r148 future reservation. WN20 directly supports cave-adjacent open ground near water, without a canonical radius or compass orientation. The source blueprint has an offset arrival point, which the proposal containment check includes. No active radius/terrain or technical rule changed; separate era-dependent surface treatment still needs Claude implementation and in-game verification under C18.
+
+## Cave setting and absent occupant — round47
+
+The [licensed-source review](../docs/research/tensura-world-2026-11-19/licensed-manga-review-r47.md) separates early manga cave-setting cues from later event state. Veldora has been absorbed at the chosen baseline; no occupied prison or verified shattered physical seal is asserted. Underground water does not make the surface carve reservation a lake. Legacy decorative runes/chains and the developed farm still require source/era review; no runtime correction is claimed.
