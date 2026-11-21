@@ -1,3 +1,9 @@
+## 21/11 — Council capital source and anime references (R102)
+
+[Primary-source review](research/tensura-world-2026-11-19/council-capital-source-r102.md) adds WN139-COW-102: a later Council meeting in Englassia royal capital, beyond earlier country-only evidence. OFF-COW-102 records limited visible interior cues from official episode77 still1; all five gallery originals were individually viewed and retained privately. Permanent headquarters, exact parcel and S1E10 state remain unverified. The Council physical task stays missing and distinct from guild/academy/castle.
+
+Ledger307 unique(249+58); inventory138/42 unchanged. Source `dbef5ac0`,58 sites,22 roads,terrain and R100 painting retained. No active SVG edit or new map/terrain check required. Gate472 tests,26 skipped,zero failures(63.818s); validation and zero changed JavaScript passed. Doran searches do not supply reliable geometry; C22 central-WN-palace versus coastal-site conflict remains unresolved. Next: source-backed geographical or initial-state work; Council room references now support a separate original design after footprint/era review. No generation,world apply,merge,deploy or in-game acceptance.
+
 ## 21/11 — Ballachia initial-era correction (R101)
 
 [Source review and original comparison plan](../world/ballachia-initial-r101.md) correct the later rescue narrative and unsupported establishing-frame claim in Ballachia's lore. Ten licensed episode65 frames were individually inspected and retained privately; the publisher review names Ballachia but supplies no capital/border survey. The current reservation is (-2450,-450), radius68, gameplayG; the old Lerfing survey is historical.
