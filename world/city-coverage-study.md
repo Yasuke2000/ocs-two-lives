@@ -1,5 +1,7 @@
 # Dwargon and Englassia — city coverage study
 
+Round64 adds Night Garden and its burial chamber to the city/interior queue:there are now9 such records,6 missing distinct representations and3 unverified parent designs. The original seven-city review below remains historical;its existing blueprints do not implement the new underground city. [Source/scope review](../docs/research/tensura-world-2026-11-19/lubelius-hidden-locations-r64.md).
+
 Round60 [Englassia fit review](englassia-fit-review.md) decodes the existing capital fragment and expands only its preparation radius98→124 for the offset template plus eight-block margin. Academy/guild already fitted; the corrected outer corners are a small terrain-preparation issue. All18,432 buffered columns are now level76;58 x/z centres stay fixed and only Englassia changes exported y75→76. Current terrain atlas is refreshed; R53 painting remains historical pending explicit integration. Ledger248 unique(190+58),14 direct LN plus3 author-side-story claims;129 inventory/32 follow-ups remain open.
 
 Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit interpreted East/West cavern geometry and deeper gallery/stair planning. It remains inert; the two cities are still missing active representations. The old round51 approach mismatch below was resolved by the round52 foothill correction; that historical finding is not the current gate interface.

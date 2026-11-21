@@ -1,10 +1,12 @@
 # Holy City Lubelius (Lune): the cathedral and its square
 
+R64 separates human Lune,the summit sanctuary and wiki-backed Night Garden. Current own-map Lune is authored at(-3600,-1300),first-air71;the imported survey coordinates below are historical. [Hidden-city proposal and source limits](../../world/night-garden-plan.md). Night Garden and its room are not implemented by this surface blueprint;the initial Ark state remains unverified.
+
 Blueprint `blueprints/lubelius.py` (structure `lubelius_0..2`), placement `design/builds/lubelius.toml`.
 World position (14000 wide, landmark "Holy City Lubelius (Lune)"): about x -3977, z -659, nation L.
 The nearby "Sacred Mountain (Inner Sanctum, Luminous)" landmark (about x -4423, z -1286) is **not built** here.
 
-## What canon says (verified)
+## Source-qualified setting
 Fandom answered our fetch tool with HTTP 402, so these come from search snippets plus `design/lore/world.md` section L.
 - Lubelius is the theocratic headquarters of the Western Holy Church, the Luminous faith's holy land; the wiki compares
   it to the Catholic Church and Vatican City. Its capital Lune is "one of the most well developed human cities ever
