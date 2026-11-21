@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — current Dwargon relief presented in original atlas (ChatGPT, round53)
+
+Round53 [current-source painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round53/README.md) adds native analytical lighting for the round52 Dwargon foothill/forecourt. Both source masks and666 bilinear height samples verified;1387 composition pixels change,max RGB channel32/255,all inside a96-block relief buffer. Original R38/R43 raster textures and generation records retained;no new image generation. Source8c24a349,all58 projections,16 names and32 open rows verified;all15 full non-callout text boxes fit current masks. Production SVG/current terrain exports/protected paths unchanged;no converter rerun,apply,main merge or deploy. Ledger231/14directLN,129inventory/32follow-ups and58art pairs retained. Full source/era/binding/coverage/fit/runtime goal remains open. Repository validation and472 tests pass on both feature branches (26 skips,zero failures): painting64.352s,map-pointer64.333s. Final native lighting/geometry/browser audits pass;no changed JavaScript or in-game test run.
+
+Next:continue unresolved primary-source/mainland and fixed-rule/initial-era/fit/runtime obligations. R52 andR53 make concrete progress;no repeated blocker.
+
 ## 21/11 — authored Dwargon access graded to fixed template (ChatGPT, round52)
 
 Round52 [Dwargon approach correction](../world/dwargon-approach-fix.md) adopts a rounded foothill and low forecourt shoulder. Both road access points and sampled join widths now meet fixed first-air146/base142; maximum exported grade0.5. All3179 roof samples,58 exported site records,water/biome/road/site/exclusion/ruggedness rasters and19 other road profiles retained. Height9893cells and2profiles change; fresh normal build65.2s/no warnings. Checker0errors/all56relations/same2warnings. Current terrain atlas/preview refreshed;R50 painting predates this relief change. Source8c24a349,ledger231(173+58)/14directLN;129inventory/32follow-ups and58art pairs. Full goal remains open;no apply,main merge or deploy. Repository validation and472 tests pass on final source8c24a349 (26 skips,zero failures,62.421s test tier); no changed JavaScript files. Local Minecraft placement/repair/era and walkability tests remain pending.

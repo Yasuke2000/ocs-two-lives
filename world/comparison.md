@@ -1,5 +1,7 @@
 # Reference comparison — round43 current painted headland / post-Kijin snapshot
 
+Current presentation: [round53 native relief layer](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round53/comparison.md),source8c24a349. R50 and earlier statements below retain their historical sources. No production terrain change occurs in this presentation review.
+
 Current source8c24a349 includes the [round52 Dwargon approach correction](dwargon-approach-fix.md). Official continent silhouettes and C12 departures are unchanged;the exact local foothill ramp is an authored fit,not a canonical survey. R50 painting retains its recorded sourcecb07cce7 and needs local-relief review.
 
 Current presentation: [round50 native-mask refresh](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round50/comparison.md), sourcecb07cce7. R43 and earlier round statements below are historical. The original painting follows the current source without a new image-generation pass.
