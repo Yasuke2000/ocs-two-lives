@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Painting follows summit and high-pass terrain (ChatGPT, round63)
+
+Round63 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round63/README.md) integrates source 0b211ec7 and the R62 summit/high-pass update. The native blend mask covers all 2,507 changed height cells, including 205 beyond the site fade; 863 lighting samples are independently checked. Only 402 continent pixels change, at most 28/255 per RGB channel, all local to the measured footprint. All 58 projections, 16 context names and 32 open rows remain verified; original R53/R61 art is retained. Production geometry is unchanged in this presentation round. Ledger: 250 unique records; inventory: 129 entries with 32 coverage follow-ups. Earlier painting-pending notes are historical and superseded by this integration.
+
+Next: other measured template-fit issues,missing distinct locations and primary evidence. Keep the post-Kijin state and fixed-rule/source distinctions;local runtime acceptance remains open.
+
 ## 21/11 — Dragon's Nest support and offset-template survey (ChatGPT,round62)
 
 Round62 [Dragon's Nest fit and30-template audit](../world/dragons-nest-fit-review.md) enlarges only the nest preparation radius64→85 at its unchanged centre/first-air272. All7,921 buffered columns are now level;all58 exported anchor records stay byte-identical. The normal terrain atlas is refreshed for source0b211ec7;R61 painting is historical pending explicit integration. Other offset-template findings are queued with carve/water/initial-era exceptions. Two site-radius summaries are corrected;all58 numeric coordinate records now match. Ledger250 unique(192+58),14 direct LN plus3 author-side-story claims;129 inventory/32 coverage follow-ups remain open.
