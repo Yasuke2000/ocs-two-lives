@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+R67 [Coleus occupied-template review](coleus-fit-review-r67.md) retains r73:seven functional support boxes are level75 with both interpolation methods;the rectangular warning does not justify flattening the natural collar. Ledger260;inventory132/41 follow-ups and source c2f806a9/R64 atlas remain unchanged. Runtime/whole-city/era acceptance stays open.
+
 R66 [Malukshure district/harbour/tower source layout](malukshure-source-layout-r66.md) adds three directly read author-side-story relationships. Ledger259 unique;14 direct printed-LN plus6 author-side-story claims. Inventory132/41 follow-ups and source c2f806a9/R64 atlas remain unchanged. Exact initial state,dimensions and C14/C15 stay open.
 
 Latest source review: **round65**, [official named Night Garden interior](night-garden-reference-r65.md). Ledger256 unique;inventory132/41 physical follow-ups unchanged. Production source c2f806a9 and R64 painting remain current. Earlier round counts below are historical.

@@ -1,5 +1,12 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Coleus actual occupied footprint rejects unnecessary flattening (ChatGPT,round67)
+
+[R67 decoded fit review](../world/coleus-fit-review.md) reads the actual85 ×47 ×79 model. Seven functional support boxes are exactly75 with bilinear and current Catmull-Rom sampling. Seven of eight rectangle flags are empty;one is a four-block outer rock column. All5,313 occupied columns have exported SITE exclusion. The40-position ascent centreline retains defined floors74..90 and model-level headroom. Retain r73;the old rectangle-plus-margin98 is not a demonstrated need to flatten this hill. This resolves that proposed enlargement reason,not whole-city/era/runtime acceptance.
+
+Ledger260 unique(202+58),14 direct printed-LN plus6 author-side-story claims;inventory132/41 follow-ups unchanged. Source c2f806a9,all terrain and R64 atlas unchanged. No converter rerun,protected edit,main merge,apply or deployment. Next:review other actual occupied/functional fits and source/location gaps;do not generalize flat rectangle criteria to intentionally stepped models or claim bilinear planning values are exact runtime heights.
+
+
 ## 21/11 — Source-backed Malukshure districts and tower interfaces (ChatGPT,round66)
 
 [R66 source layout](../world/malukshure-source-layout.md) directly reads author-side-story episode02 L81,episode05 L36-L40 andepisode07 L300-L316. It separates the outer general district,protected capital-side fishing harbour,offshore rooftop arrival and transferred hall. The original diagram is topological,not a scaled plan or implementation. Construction date and unchanged S1E10 state remain unverified;later visit/crisis/damage is not activated. C14/C15 and actual city/tower coverage remain open.
