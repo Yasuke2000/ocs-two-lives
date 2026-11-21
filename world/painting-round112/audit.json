@@ -1,48 +1,47 @@
 {
-  "round": 118,
-  "source_sha256": "5938a8239068ccdd98c8ad64220147dfbdc82ca6d6d7e54364fc902fb1e9ebe7",
-  "map_commit": "98b438f0c8056fd8ccd8a245707e57323049ae2e",
-  "baseline_commit": "b5a2fa4124ba2732f43a6bd11157d3e436f025e3",
-  "baseline_native_children_exact": true,
-  "added_root_children": [
-    "r118-southern-coast-definitions",
-    "r118-southern-coast-alignment"
+  "round": 120,
+  "source_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
+  "map_commit": "6b866fd8f5e7a4e4e94d72889ef526ee4f0a0888",
+  "baseline_painting_commit": "e5b262e2365489690a35375417110a518a358785",
+  "all_baseline_native_children_retained": true,
+  "appended_native_children": [
+    "r120-old-outlet-cleanup-definitions",
+    "r120-ulgr-brook-alignment"
   ],
-  "global_relief_resampled": false,
-  "exact_current_mainland_sea_mask_and_shore": true,
-  "changed_continent_pixels": 16989,
+  "visible_brook_points_and_width_exact": true,
+  "historical_components_retained_as_history": true,
+  "changed_continent_pixels": 166,
   "changed_pixel_bounds": [
-    773,
-    727,
-    992,
-    908
+    641,
+    805,
+    694,
+    830
   ],
-  "max_RGB_channel_change": 248,
-  "all_changed_centres_inside_support_plus16blocks": true,
+  "max_RGB_channel_change": 128,
+  "all_changed_centres_inside_new_route_or_old_land_outlet_plus40blocks": true,
   "all_exterior_pixels_identical": true,
+  "maximum_change_distance_from_new_or_old_land_route": 16.230642151042378,
+  "global_relief_resampled": false,
   "all_nonimage_atlas_XML_retained_except_root_metadata": true,
+  "atlas_embeds_exact_final_continent": true,
   "registered_sites": 58,
-  "all_site_rows_retained": true,
   "context_names": 20,
   "open_rows": 42,
-  "minimum_circle_spacing": 32.470561517449696,
-  "label_overlap": false,
-  "ledger_unique": 323,
+  "ledger_unique": 324,
   "inventory": 142,
   "physical_followups": 42,
-  "open_review": "C23 waterfall character/fluid placement, full proportions, initial-era semantics and missing-source coverage remain open.",
-  "removed_land_inset32block_sample_pixels": 6128,
-  "all_inset_removed_land_pixels_blue_dominant": true,
+  "minimum_circle_spacing": 32.470561517449696,
+  "label_overlap": false,
   "required_gate": {
     "tests": 472,
     "skipped": 26,
     "failures": 0,
-    "seconds": 63.715
+    "seconds": 64.136
   },
   "default_checker": {
     "errors": 0,
     "relations": 56,
     "warnings": 2
   },
-  "normal_staging_adopted_seconds": 67.0
+  "normal_staging_adopted_seconds": 66.4
 }
