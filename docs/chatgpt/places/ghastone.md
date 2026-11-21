@@ -1,8 +1,10 @@
 # Ghastone
 
-## Current own-world/source correction — round37
+## Current own-world/source correction — round96
 
-Current(-3200,-300),radius8,G gameplay binding. Indexed wiki lists the Kingdom of Ghastone among western states; no verified Englassia subordination,capital or precise bearing. The rural rest-point art is an interpretation,not a country survey. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
+Current own-world pin (-3200, -300), radius 8, gameplay mask G. The official manga volume 27 release announcement names Gaston Kingdom and identifies Muese as one of its nobles. Ghastone is our existing wiki/server English crosswalk, not a newly verified official English spelling. The western-state listing remains wiki evidence; no capital, bearing, boundary or Englassia subordination is established.
+
+The pin is authored placement, not a canonical capital. The original rest-point/rain-shelter art is a local interpretation, not a country survey. Later source characters and events are not part of the S1E10 initial roster. [Source review](../../../world/western-country-identity-r96.md).
 
 Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
 
@@ -23,9 +25,9 @@ The old pack assigned a pin to gameplay G; the country identity is Ghastone. The
 Pin only.
 
 
-## Current state: BlueMap audit of 19/11/2026
+## Historical imported-map state: BlueMap audit of 19/11/2026
 
-Map: Tensura by Lerfing (current, being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
+Historical map: Tensura by Lerfing (being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
 
 - **Status:** not rendered on the map yet
 - **Placed:** not applicable (no structure: pin)

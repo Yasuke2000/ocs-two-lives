@@ -1,3 +1,9 @@
+## 21/11 - Western country identity review (R96)
+
+[Source review](../world/western-country-identity-r96.md) adds official manga-release evidence that Gaston/Ghastone is a named kingdom. The western-state listing remains wiki evidence; the English crosswalk is qualified. Rostia profile reread adds no spatial claim. Neither country's capital or boundary is verified; G/A gameplay bindings do not establish sovereign membership. Five official episode72 stills were reviewed without extracting geography from an unidentified tabletop model. Later events/characters are not backdated to S1E10.
+
+Ledger302; inventory138 and42 physical follow-ups unchanged. Source `63df7185`, all58 sites, terrain/painting/PNG/prompt records retained. Current painting remains R95. Repository gate: 472 tests, 26 skipped, zero failures (63.711s); zero changed JavaScript. Next: source-backed spatial/initial-state work on the open physical inventory; no runtime action.
+
 ## 21/11 — Published painting follows Ice coastal source (R95)
 
 [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/02ac2f8231e5712505df3bde787e03ee949b5d47/world/painting-round95/README.md) follows source `63df7185`: five exact source coasts, 1,869 checked height-light samples, all 58 registrations and 19 context names. Caption138/42 and ledger301 agree with current source scope. Painting gate472 tests,26 skipped,zero failures(63.796s). [Alignment evidence](research/tensura-world-2026-11-19/painting-alignment-r95.md). Earlier pending-painting notes below are historical. Main documentation gate **472 tests, 26 skipped, zero failures (63.631s)**; zero changed JavaScript.

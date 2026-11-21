@@ -1,5 +1,7 @@
 # World guide: canon geography of the Tensura world
 
+> Ghastone and Rostia are kingdom identities, not verified Englassia/Raja towns. Their G/A bindings and imported coordinates below are historical gameplay records. Current authored pins do not locate capitals or country boundaries. [R96 source review](../../world/western-country-identity-r96.md).
+
 > **Read this first.** Every coordinate in this file comes from **Lerfing's imported map** (*Tensura by Lerfing*, the
 > current Life 2 world). That map **is being replaced** by a new, fully own world (owner decision of 19/11/2026), so the
 > coordinates will change. **What matters is the geography relations**: what lies north, south, east and west of
