@@ -8,7 +8,7 @@ Current natural-tree reservation(320,470),radius56,village kind. The separate sh
 
 The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
 
-`id: treyni_grove` · landmark (a Tensura mod structure placed in game) · region **J** (Jura-Tempest Federation)
+`id: treyni_grove` · landmark (a Tensura mod structure placed in game) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

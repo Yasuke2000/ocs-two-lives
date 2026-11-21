@@ -1,6 +1,16 @@
-## Current source — R119
+## R125 — El Dorado silhouette and actual terrain
 
-[Ulgr brook review](../../../world/ulgr-brook-r119.md) corrects the former offshore route as an explicit terrain interpretation. Source `4093f844`; ledger 324; inventory 142/42. Author WN61’s park-door passage is reread without inventing a source-backed brook course or waterfall height. All 13 lake cases pass; first Ulgr exported transition decreases 37→11 blocks, with C23 style/fluid review still open. [R120 painting](painting-alignment-r120.md) on this branch follows the brook. Child-category source coverage, global proportions and initial-era semantics remain incomplete; earlier dated notes describe their own snapshots.
+[Coast/export review](../../../world/el-dorado-coast-r125.md) adds one official visual cue andone explicitly authored design record;330unique ledger IDs. Sourcea637. All58site attributes retained;two stagedheight values rise1block. Exact coast/projection remain interpreted. Full22region census and13lake audit rerun;[R126 painting](../../../world/painting-round112/README.md) completes this coast alignment; two concept-height follow-ups remain. Inventory142/42.
+
+## R123 — Visible Amrita association
+
+[Atlas review](../../../world/amrita-atlas-r123.md) visibly associates the buried ruins with castle48. Marker49 remains an authored game reservation; C07 technical nesting/access is open. Existing LN10-001 refined and the brief’s exact founding age qualified; ledger328 retained. Source4093 and all terrain remain unchanged.
+
+## Current geometry R119; initial-era follow-up R121
+
+[Era brief review](era-brief-review-r121.md) corrects ten selected narratives and thirteen Jura headers, retaining all58 registered places and the same source `4093f844`. Ledger328; location inventory142 with42 physical follow-ups. The [R120 painting proposal](https://github.com/Yasuke2000/ocs-two-lives/pull/108) already follows this geometry; its original metadata remains historical rather than being recopied just for the ledger change.
+
+The [Ulgr route correction](../../../world/ulgr-brook-r119.md) remains: inland descent, finite all13 lake checks, head transitions11/17 still disclosed for style/fluid review. No full58 narrative/concept, whole-wiki, global proportion or in-game acceptance claim. Earlier dated notes below retain their own snapshot scope.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 

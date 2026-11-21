@@ -1,8 +1,16 @@
+## R125 — El Dorado island silhouette
+
+[Original coast review](el-dorado-coast-r125.md) broadens the formerly diagonal island in response to the official illustration; exact curves remain our interpretation. Sourcea637;only the coast/X mask change. City/volcano first-air72→73/196→197; all58 source-site attributes retained. [R125 census](region-biomes-r125.md) replaces current shares. [R126 painting](painting-round112/README.md) now follows this coast. Two old concept-registration elevations require matching review. Ledger330;inventory142/42.
+
+## Atlas clarification — R123
+
+[Amrita association review](amrita-atlas-r123.md) labels the buried ruins below castle48 without relocating the separate game reservation49. Exact depth/extent/access and C07 technical nesting remain open. This is an atlas annotation; native geometry stays R119/source4093.
+
 ## Current source — R119
 
 [Ulgr brook review](ulgr-brook-r119.md) replaces a largely offshore source course with a curved, wholly inland descent to the existing shore. Source `4093f844`: only that river’s points change; spring level 102, all 58 sites, 22 roads and other native geometry remain. First exported water difference decreases from 37 to 11 blocks; this is an authored terrain choice, not a canonical height. All 13 lake cases and eight designed contacts pass their finite export audit. C23 style/fluid review remains open, including unchanged Laura 17.
 
-Ledger 324; inventory 142/42. [R119 census](region-biomes-r119.md) supplies current mixes after four biome cells change. R113 art reservations remain valid via identical site exports; [R120 painting](painting-round112/README.md) on this branch follows the new native brook route. The R117 southern taper remains. Wider source, proportion, early-era and in-game acceptance are unproved.
+Ledger 328; inventory 142/42. [R121 targeted era review](../docs/research/tensura-world-2026-11-19/era-brief-review-r121.md) clarifies future country/event labels without changing the source drawing. [R119 census](region-biomes-r119.md) supplies current mixes after four biome cells change. R113 art reservations remain valid via identical site exports; [Published R120 painting proposal](https://github.com/Yasuke2000/ocs-two-lives/pull/108) follows the new native brook route. The R117 southern taper remains. Wider source, proportion, early-era and in-game acceptance are unproved.
 
 ## Historical source note — R114
 

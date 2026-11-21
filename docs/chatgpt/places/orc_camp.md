@@ -1,4 +1,4 @@
-# Orc War battlefield (Orc Lord, Orc Disaster)
+# Orc advance reservation (future Orc War battlefield)
 
 `id: orc_camp` · landmark (a Tensura mod structure placed in game) · region **W** (Lizardmen's Marsh of Lake Siss)
 
@@ -11,11 +11,11 @@
 
 ## Lore (canon)
 
-The Orc Lord (Geld) leads 200,000 orcs north through the swamp to the lizardmen and the Jura forest; the Orc Disaster boss fight (chapters 4 and 9) is here.
+The [official episode10 synopsis](https://www.ten-sura.com/anime/tensura/story/no10) places an orc invasion against the lizardmen of the Siss wetlands during the naming episode. At this initial instant the conflict is unresolved. This pin reserves an approach/encounter location; neither the future Orc Disaster encounter nor the pack's quest-chapter numbering establishes a completed battle or surveyed camp here.
 
 ## What it should look like
 
-Wanted: a huge sprawling orc camp on the marsh edge. Suggestion: trampled mud, crude tents and pens, bone piles, skull banners, smoke, a command pavilion for the Orc Lord. Tensura's own orc village structure is the current stand-in and its placement failed (see current state). **Open blueprint task** (a pack-owned `orc_camp` build instead of Tensura's jigsaw).
+Interpreted encounter capacity: a sprawling orc camp on the marsh edge, not a source-confirmed fully occupied initial deployment. Suggestion: trampled mud, crude tents and pens, bone piles, skull banners, smoke, a command pavilion for the Orc Lord. Tensura's own orc village structure is the current stand-in and its placement failed (see current state). **Open blueprint task** (a pack-owned `orc_camp` build instead of Tensura's jigsaw).
 
 Why it stands here (anchor table, Lerfing coordinates): South-east of the lake where the marsh meets Eurazania's jungle: Geld's horde came up from the south.
 

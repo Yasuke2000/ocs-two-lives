@@ -1,4 +1,4 @@
-# Lizardmen's caverns (Gabiru, Avalos)
+# Lizardmen's caverns (Gabiru's tribe)
 
 `id: lizardmen_caverns` · landmark (a Tensura mod structure placed in game) · region **W** (Lizardmen's Marsh of Lake Siss)
 
@@ -11,7 +11,7 @@
 
 ## Lore (canon)
 
-Their caverns form a natural labyrinth that is both fortress and government of the lizardmen. Avalos is their chief, Gabiru his son who allies with Tempest.
+The caves serve the lizardmen as a defensive and administrative place. At the chosen instant, refer to the lizardman chieftain as Gabiru's father; the official episode10 synopsis identifies those roles. Gabiru's arrival at Rimuru's village is the following episode11, so do not backdate his later allegiance or service to Rimuru. The [Abiru wiki entry](https://tensura.fandom.com/wiki/Abiru) places the chief's naming/evolution later; that is secondary evidence, not a verified LN passage. The older brief's Avalos label is not verified as his canonical name at this snapshot and must not dictate an initial evolved resident model.
 
 ## What it should look like
 

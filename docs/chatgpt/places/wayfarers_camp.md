@@ -1,6 +1,6 @@
 # Wayfarers' camp on Jura's rim (sidequests rim_camp)
 
-`id: wayfarers_camp` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
+`id: wayfarers_camp` · spot (NPC, boss or quest point) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

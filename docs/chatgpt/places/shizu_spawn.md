@@ -6,7 +6,7 @@ Current own-world pin(-420,-80),radius8; the legacy boss encounter radius48 is a
 
 The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
 
-`id: shizu_spawn` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
+`id: shizu_spawn` · spot (NPC, boss or quest point) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

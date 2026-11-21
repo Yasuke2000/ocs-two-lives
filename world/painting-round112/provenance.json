@@ -1,15 +1,17 @@
 {
-  "round": 120,
-  "source_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
-  "map_commit": "6b866fd8f5e7a4e4e94d72889ef526ee4f0a0888",
-  "native_basis_commit": "e5b262e2365489690a35375417110a518a358785",
-  "native_basis": "world/painting-round112/continent.svg at baseline commit",
+  "round": 126,
+  "source_sha256": "a637aa5ce39fea793ec2ca9aa4d12e6b328c7f67d074cdd537a941e293307ef0",
+  "map_commit": "8f8c2948bc0ef0521820f6128e2099bf2b2aa686",
+  "native_basis_commit": "c5f715d00a758d9f01a1cb2c4d10d55bf644c96a",
+  "native_basis": "world/painting-round112/continent.svg and its unedited original rendered PNG at baseline",
+  "owned_baseline_PNG_sha256": "d22806cda044143b6e05345d0dbb43bb965d07b634a6a5b0e04b6c98e7cb6d60",
   "historical_component_metadata_retained": true,
-  "new_native_geometry": "Exact current visible Ulgr polyline; local closed old land outlet",
+  "new_native_geometry": "Exact visible R125 island path;original ocean/grass washes,interpreted lowland tint and grass brush strokes;fixed interior retained",
   "new_AI_images": 0,
   "raw_raster_editing": false,
   "copyrighted_reference_pixels_embedded": false,
   "PNG_method": "Chrome native SVG render",
   "global_relief_resampled": false,
-  "runtime_applied": false
+  "runtime_applied": false,
+  "visual_iteration": "Full-opacity repeated grass texture rejected;final low-opacity wash and original grass brushes inspected."
 }

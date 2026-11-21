@@ -16,7 +16,7 @@
 
 ## Lore (canon)
 
-The leading power of the Western Nations: a large walled capital with two gates, home of the Council of the West, the Free Guild HQ (Yuuki) and the Freedom Academy where Rimuru taught Shizu's students.
+The leading power of the Western Nations: a large walled capital with two gates, home of the Council of the West, the Free Guild HQ (Yuuki) and the Freedom Academy where Rimuru teaches Shizu's students later. At S1E10 he is not yet stationed here as their teacher; the later classroom visit is not an initial resident/event state.
 
 ## What it should look like
 

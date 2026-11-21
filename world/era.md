@@ -1,5 +1,7 @@
 # World snapshot: immediately after the Kijin naming
 
+[R121 targeted brief review](../docs/research/tensura-world-2026-11-19/era-brief-review-r121.md) corrects ten era-sensitive narratives and thirteen Jura headers, retaining all58 registered places and map geometry. Kaijin is not duplicated in Dwargon; later war/raid/teaching outcomes are not initial state. This does not certify all other prose, architecture, concept images or runtime gating.
+
 R75 [official movie setting/chronology review](kaien-resort-source-review.md) separates the later vacation from proof of earlier site existence. Kaien requires underwater-country review; Resort Island remains a separate unlocated shore setting. No film visit or roster is activated, and no founding date or S1E10 city/resort state is inferred.
 
 R66 [Malukshure district/harbour/tower source layout](malukshure-source-layout.md) adds three directly read author-side-story relationships. Ledger259 unique;14 direct printed-LN plus6 author-side-story claims. Inventory132/41 follow-ups and source c2f806a9/R64 atlas remain unchanged. Exact initial state,dimensions and C14/C15 stay open.

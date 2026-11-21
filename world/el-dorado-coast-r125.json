@@ -1,0 +1,134 @@
+{
+  "source_sha256": "a637aa5ce39fea793ec2ca9aa4d12e6b328c7f67d074cdd537a941e293307ef0",
+  "baseline_source_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
+  "baseline_commit": "be7ed8aea280c3019e643c9270a2c4b354b5ffca",
+  "changed_native_leaf_elements": [
+    "el-dorado-island",
+    "nation-X"
+  ],
+  "all58_site_attributes_unchanged": true,
+  "roads_unchanged": 22,
+  "old_island": {
+    "bounds": [
+      -4934.81,
+      2040.0,
+      -3090.0,
+      3380.0
+    ],
+    "area_blocks2": 1437474.9932,
+    "aspect_ratio": 1.3767238805970152
+  },
+  "new_island": {
+    "bounds": [
+      -5250.498046875,
+      2249.609375,
+      -2850.0,
+      3530.15625
+    ],
+    "area_blocks2": 1620289.0563964844,
+    "aspect_ratio": 1.8745881886401075
+  },
+  "added_land_blocks2": 430654.8873266312,
+  "removed_land_blocks2": 247840.82413014674,
+  "normal_seconds": 67.5,
+  "rasters": {
+    "height": {
+      "changed_cells": 248590,
+      "maximum_delta_blocks": 84.625,
+      "maximum_changed_sample_distance_from_island_union": 305.1245204387431,
+      "changed_sample_bounds": [
+        -5542.0,
+        1754.0,
+        -2554.0,
+        3830.0
+      ]
+    },
+    "rugged": {
+      "changed_cells": 59772,
+      "maximum_delta": 25.0
+    },
+    "water": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "biome": {
+      "changed_cells": 44356,
+      "maximum_delta": 12.0
+    },
+    "road": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "sites": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "exclude": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    }
+  },
+  "byte_identical_normal_files": [
+    "water.png",
+    "road.png",
+    "sites.png",
+    "exclude.png"
+  ],
+  "height_changes_inside_registered_discs": {
+    "el_dorado": {
+      "changed_cells": 1968,
+      "maximum_height_difference": 1.0
+    },
+    "el_dorado_volcano": {
+      "changed_cells": 12,
+      "maximum_height_difference": 1.125
+    }
+  },
+  "height_changes_inside_lakes_plus8": {
+    "el-dorado-eastern-lake": {
+      "changed_cells_in_lake_plus8": 3,
+      "maximum_height_difference": 0.4375
+    }
+  },
+  "changed_site_first_air": [
+    {
+      "id": "el_dorado",
+      "before_first_air": 72,
+      "after_first_air": 73
+    },
+    {
+      "id": "el_dorado_volcano",
+      "before_first_air": 196,
+      "after_first_air": 197
+    }
+  ],
+  "all13_lake_audits": "pass; see lake-banks-r125.json",
+  "interpretation": "Original authored coast informed by broad west-east official silhouette; not exact tracing or canonical survey ratio.",
+  "road_profile_changes": [
+    {
+      "id": "el_dorado_volcanic_way",
+      "changed_height_points": 106,
+      "maximum_grade_before": 0.5000000000000455,
+      "maximum_grade_after": 0.5000000000000455,
+      "scope": "Finite exported point profile; no in-game navigation test."
+    }
+  ],
+  "atlas": {
+    "all_nonimage_children_unchanged": true,
+    "embedded_preview_byte_exact": true,
+    "numbers": 58,
+    "context_and_caption_lines": 23,
+    "inventory_rows": 42,
+    "minimum_number_spacing_px": 31.621008835113628,
+    "overlap": false
+  },
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.006,
+    "validation": "pass",
+    "changed_js": 0
+  }
+}

@@ -13,7 +13,7 @@
 
 ## Lore (canon)
 
-King Gazel Dwargo, the Hero King, receives Rimuru here. In the pack the room is cut from Tensura's own dwarf arena structure (credited in CREDITS.md).
+Gazel rules Dwargon. The official episode5 synopsis places Rimuru and Kaijin's dispute before his court; that earlier visit is not a claim that Rimuru remains here while the initial village scene is active. The throne-room reserve can persist without replaying the trial or later diplomatic ceremonies. The pack's room is adapted from Tensura's dwarf arena structure (CREDITS.md), an implementation choice rather than a canon floor plan.
 
 ## What it should look like
 
