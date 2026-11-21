@@ -83,3 +83,8 @@ The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects 
 ## Round58: C15 Dwargon cities have explicit planning geometry
 
 [City reservations and deep galleries](../../../world/dwargon-cities-plan.md) are measured original proposals,not surveyed locations or registered cities. Wiki city identity and directly read WN cavern context remain distinct from unread licensed LN passages. Shallow routes fail current topography; deeper galleries require original stair and capital-landing work. No additional external entrance is asserted. The active registry/geometry and32 coverage obligations remain unchanged.
+
+
+## Round59: visual analogies do not close country evidence
+
+[Regional image curation](region-image-review-r59.md) separates visible materials from geographical proof. Polar meeting interiors do not settle C22; persona colours do not establish El Dorado buildings; Coleus massing does not prove Falmuth or Imperial climates. The four unread403 country assets and all32 spatial coverage follow-ups remain open.
