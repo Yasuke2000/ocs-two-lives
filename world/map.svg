@@ -250,7 +250,7 @@ The live S/U frontier now approaches the park from the north, but its exact y272
     <circle data-id="marris" data-site="clearing" data-margin="48" cx="-1800" cy="-1650" r="101.0" id="site-marris" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="siltrosso" data-site="coast" data-margin="48" cx="-2297" cy="-1370" r="66.0" data-name="Shia - independent Siltrosso; F is gameplay coverage" id="site-siltrosso" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="lubelius" data-site="plateau" data-margin="48" cx="-3600" cy="-1300" r="97.0" id="site-lubelius" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
-    <circle data-id="sacred_mountain" data-site="plateau" data-margin="48" cx="-3900" cy="-1600" r="80.0" id="site-sacred_mountain" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
+    <circle data-id="sacred_mountain" data-site="plateau" data-margin="48" cx="-3900" cy="-1600" r="95.0" id="site-sacred_mountain" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="coleus" data-site="clearing" data-margin="48" cx="-3520" cy="-860" r="73.0" id="site-coleus" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="heaven_tower" data-site="clearing" data-margin="48" cx="-4200" cy="-200" r="84.0" id="site-heaven_tower" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />
     <circle data-id="morgdahl" data-site="clearing" data-margin="48" cx="-3200" cy="330" r="61.0" id="site-morgdahl" fill="#9f3531" fill-opacity=".8" stroke="#f7ead2" stroke-width="5" />

@@ -257,7 +257,7 @@ ground = "fixed"
 
 [sacred_mountain]
 site = "plateau"
-r = 80
+r = 95
 min_r = 80
 box = [81, 81]
 plate = [113, 113]

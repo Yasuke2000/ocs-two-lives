@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="1240" viewBox="0 0 1460 1240"><rect width="1460" height="1240" fill="#f2eee0"/>
+<text x="50" y="55" font-family="Arial,sans-serif" font-size="30" fill="#273e49">SACRED MOUNTAIN · SUPPORT THE BUILT PERIMETER</text>
+<text x="50" y="98" font-family="Arial,sans-serif" font-size="20" fill="#273e49">R68 · Original terrain/model study; exact radii and block heights are server interpretation</text>
+<g transform="translate(365 430) scale(2.8)"><circle r="95" fill="#d4ddc9" stroke="#71866b" stroke-width=".8"/><circle r="80" fill="none" stroke="#b1865a" stroke-width="1" stroke-dasharray="3 2"/><rect x="-40" y="-76" width="81" height="81" fill="#d7d2be" stroke="#617985" stroke-width="1"/><path d="M-3 0H3 M0 -3V3" stroke="#9a5143" stroke-width="1"/></g>
+<text x="735" y="165" font-family="Arial,sans-serif" font-size="24" fill="#273e49">CURRENT PREPARATION</text>
+<text x="735" y="197" font-family="Arial,sans-serif" font-size="20" fill="#273e49">Green: radius95;dashed: previous80.</text>
+<text x="735" y="229" font-family="Arial,sans-serif" font-size="20" fill="#273e49">Box: actual81 ×81 saved perimeter.</text>
+<text x="735" y="261" font-family="Arial,sans-serif" font-size="20" fill="#273e49">Anchor x/z stays(-3900,-1600).</text>
+<text x="735" y="293" font-family="Arial,sans-serif" font-size="20" fill="#273e49"></text>
+<text x="735" y="325" font-family="Arial,sans-serif" font-size="24" fill="#273e49">AUTO LEVEL AND MODEL</text>
+<text x="735" y="357" font-family="Arial,sans-serif" font-size="20" fill="#273e49">First air179 →175;fade40 →48.</text>
+<text x="735" y="389" font-family="Arial,sans-serif" font-size="20" fill="#273e49">All6,561 columns now level175.</text>
+<text x="735" y="421" font-family="Arial,sans-serif" font-size="20" fill="#273e49">All320 perimeter columns level175.</text>
+<text x="735" y="453" font-family="Arial,sans-serif" font-size="20" fill="#273e49">Two-flight model rise remains15 blocks.</text>
+<text x="735" y="485" font-family="Arial,sans-serif" font-size="20" fill="#273e49">Highest saved block225 →221.</text>
+<text x="735" y="517" font-family="Arial,sans-serif" font-size="20" fill="#273e49"></text>
+<text x="735" y="549" font-family="Arial,sans-serif" font-size="24" fill="#273e49">REAL TERRAIN CONSEQUENCES</text>
+<text x="735" y="581" font-family="Arial,sans-serif" font-size="20" fill="#273e49">4,483 height cells change.</text>
+<text x="735" y="613" font-family="Arial,sans-serif" font-size="20" fill="#273e49">Range:-29.75 to+51.0625 blocks.</text>
+<text x="735" y="645" font-family="Arial,sans-serif" font-size="20" fill="#273e49">Shoulder and approach change too.</text>
+<text x="50" y="752" font-family="Arial,sans-serif" font-size="22" fill="#273e49">NORTHERN PERIMETER SECTION · LOCAL z0.5</text>
+<path d="M110 960H1250" stroke="#cbc5b7"/>
+<text x="60" y="965" font-family="Arial,sans-serif" font-size="16" fill="#273e49">175</text>
+<path d="M110 896H1250" stroke="#cbc5b7"/>
+<text x="60" y="901" font-family="Arial,sans-serif" font-size="16" fill="#273e49">179</text>
+<path d="M110 832H1250" stroke="#cbc5b7"/>
+<text x="60" y="837" font-family="Arial,sans-serif" font-size="16" fill="#273e49">183</text>
+<polyline points="117.00,936.33 131.00,930.78 145.00,924.20 159.00,915.86 173.00,907.17 187.00,899.79 201.00,895.22 215.00,893.08 229.00,892.38 243.00,892.23 257.00,891.92 271.00,891.98 285.00,892.41 299.00,893.03 313.00,893.72 327.00,894.68 341.00,895.76 355.00,896.76 369.00,897.52 383.00,898.15 397.00,898.67 411.00,899.04 425.00,899.24 439.00,899.22 453.00,899.07 467.00,898.91 481.00,898.82 495.00,898.74 509.00,898.65 523.00,898.58 537.00,898.52 551.00,898.47 565.00,898.42 579.00,898.39 593.00,898.36 607.00,898.34 621.00,898.34 635.00,898.36 649.00,898.40 663.00,898.47 677.00,898.56 691.00,898.67 705.00,898.79 719.00,898.92 733.00,899.08 747.00,899.25 761.00,899.43 775.00,899.63 789.00,899.84 803.00,900.08 817.00,900.36 831.00,900.67 845.00,901.01 859.00,901.38 873.00,901.82 887.00,902.45 901.00,903.07 915.00,903.42 929.00,903.34 943.00,903.01 957.00,902.35 971.00,901.21 985.00,899.45 999.00,897.02 1013.00,894.13 1027.00,891.01 1041.00,887.85 1055.00,884.58 1069.00,881.10 1083.00,877.33 1097.00,873.14 1111.00,868.33 1125.00,863.30 1139.00,858.53 1153.00,854.28 1167.00,849.72 1181.00,845.70 1195.00,843.33 1209.00,843.55 1223.00,845.93 1237.00,850.10" fill="none" stroke="#ad8962" stroke-width="3"/>
+<polyline points="117.00,960.00 131.00,960.00 145.00,960.00 159.00,960.00 173.00,960.00 187.00,960.00 201.00,960.00 215.00,960.00 229.00,960.00 243.00,960.00 257.00,960.00 271.00,960.00 285.00,960.00 299.00,960.00 313.00,960.00 327.00,960.00 341.00,960.00 355.00,960.00 369.00,960.00 383.00,960.00 397.00,960.00 411.00,960.00 425.00,960.00 439.00,960.00 453.00,960.00 467.00,960.00 481.00,960.00 495.00,960.00 509.00,960.00 523.00,960.00 537.00,960.00 551.00,960.00 565.00,960.00 579.00,960.00 593.00,960.00 607.00,960.00 621.00,960.00 635.00,960.00 649.00,960.00 663.00,960.00 677.00,960.00 691.00,960.00 705.00,960.00 719.00,960.00 733.00,960.00 747.00,960.00 761.00,960.00 775.00,960.00 789.00,960.00 803.00,960.00 817.00,960.00 831.00,960.00 845.00,960.00 859.00,960.00 873.00,960.00 887.00,960.00 901.00,960.00 915.00,960.00 929.00,960.00 943.00,960.00 957.00,960.00 971.00,960.00 985.00,960.00 999.00,960.00 1013.00,960.00 1027.00,960.00 1041.00,960.00 1055.00,960.00 1069.00,960.00 1083.00,960.00 1097.00,960.00 1111.00,960.00 1125.00,960.00 1139.00,960.00 1153.00,960.00 1167.00,960.00 1181.00,960.00 1195.00,960.00 1209.00,960.00 1223.00,960.00 1237.00,960.00" fill="none" stroke="#426d67" stroke-width="3"/>
+<text x="105" y="1000" font-family="Arial,sans-serif" font-size="17" fill="#273e49">x-3940</text>
+<text x="1190" y="1000" font-family="Arial,sans-serif" font-size="17" fill="#273e49">x-3859</text>
+<text x="50" y="1040" font-family="Arial,sans-serif" font-size="19" fill="#273e49">Brown: former designed first air. Green: new designed first air;the saved perimeter skin now meets it.</text>
+<text x="50" y="1080" font-family="Arial,sans-serif" font-size="19" fill="#273e49">The full model retains its original rock shoulders and two stair flights. This is not an in-game walk test.</text>
+<text x="50" y="1120" font-family="Arial,sans-serif" font-size="19" fill="#273e49">Current terrain atlas is refreshed. R64 painting is retained as history pending explicit height integration.</text>
+<text x="50" y="1160" font-family="Arial,sans-serif" font-size="19" fill="#273e49">Coast/regions/road centrelines and58 x/z positions stay fixed. Other source/era/registration work remains open.</text>
+</svg>

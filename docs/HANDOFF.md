@@ -1,5 +1,12 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Sacred Mountain built-perimeter accommodation (ChatGPT,round68)
+
+[R68 support review](../world/sacred-mountain-fit-review.md) changes only the Sacred Mountain radius80→95. All6,561 occupied columns and320 built-perimeter columns are now exactly level175 with bilinear andCatmull-Rom sampling. The automatic first-air falls179→175 andfade40→48;the existing15-block model ascent remains. Current source90ee15b1/default checker0 errors,56 relations,2 warnings;normal66.6s export has no converter warnings. Height changes4,483 cells,range-29.75..+51.0625,including the shoulder/approach. All58 x/z centres and21 horizontal road routes remain;only one site record and the Sacred Mountain trail profile change. This is a real terrain change,not a tiny visual patch.
+
+Terrain preview/numbered atlas are refreshed. R64 painting remains historical for this new source;explicit native lighting integration is next. Ledger261 unique(203+58),14 direct printed-LN plus6 author-side-story claims;inventory132/41 follow-ups unchanged. Other source,fixed-rule,era,coverage,fit and Minecraft placement obligations remain open. No protected edit,main merge,apply,chunks or deployment. Current coast/region partition was also rechecked:zero uncovered/outside/overlap area;the old R44 seams were already fixed inR49.
+
+
 ## 21/11 — Coleus actual occupied footprint rejects unnecessary flattening (ChatGPT,round67)
 
 [R67 decoded fit review](../world/coleus-fit-review.md) reads the actual85 ×47 ×79 model. Seven functional support boxes are exactly75 with bilinear and current Catmull-Rom sampling. Seven of eight rectangle flags are empty;one is a four-block outer rock column. All5,313 occupied columns have exported SITE exclusion. The40-position ascent centreline retains defined floors74..90 and model-level headroom. Retain r73;the old rectangle-plus-margin98 is not a demonstrated need to flatten this hill. This resolves that proposed enlargement reason,not whole-city/era/runtime acceptance.

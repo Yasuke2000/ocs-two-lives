@@ -1,10 +1,10 @@
 {
   "baseline_commit": "f118b6e",
-  "source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+  "source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
   "presentation_only": false,
   "production_svg_changed": true,
   "terrain_image_bytes_retained": false,
-  "terrain_image_sha256": "60567c46ec0410e38bd78412879cd1bf1f0e9f18aea6b15e33ac64c31b326d53",
+  "terrain_image_sha256": "bd6c12f657337ab899fbd566541fa1c23589cc090a7b31fe2824717f4da5b660",
   "existing_numbered_reservations": 58,
   "geographic_labels": [
     {
@@ -817,7 +817,7 @@
   "all_32_open_rows_fit_panel": true,
   "actual_browser_non_callout_text_bounds_with_stroke_inside_context": 15,
   "ulgracia_leader_with_1px_buffer_clear_of_padded_number_boxes": true,
-  "previous_layout_source_sha256": "0b211ec7761e1813ccfaee1e336f754ab7712495da6a991c79638d642a546839",
+  "previous_layout_source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
   "registration_from_r41": {
     "scale": 0.96,
     "translate_x": 88,
@@ -1233,7 +1233,7 @@
       "height": 26.8800048828125
     }
   ],
-  "production_change_review": "world/night-garden-plan.md",
+  "production_change_review": "world/sacred-mountain-fit-review.md",
   "previous_snapshot_terrain_image_replaced_by_current_normal_export": true,
   "new_label_geographical_claims": 0,
   "linked_terrain_claims_added": [
@@ -1544,5 +1544,20 @@
   "r62_only_atlas_embedded_image_changed": true,
   "r64_only_open_panel_changed": true,
   "current_inventory_records": 132,
-  "current_open_rows": 41
+  "current_open_rows": 41,
+  "r68_only_atlas_embedded_image_changed": false,
+  "r68_atlas_changes": {
+    "embedded_current_terrain": true,
+    "legend_qualifications": [
+      [
+        "42 \u00b7 Sainte Malukshure",
+        "42 \u00b7 Sainte game pin (C14)"
+      ],
+      [
+        "54 \u00b7 Frost Palace",
+        "54 \u00b7 Frost Palace coastal reserve (C22)"
+      ]
+    ],
+    "all_label_positions_retained": true
+  }
 }

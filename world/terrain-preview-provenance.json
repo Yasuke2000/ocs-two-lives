@@ -1,14 +1,14 @@
 {
-  "source_svg_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
-  "staged_index_source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
-  "preview_sha256": "60567c46ec0410e38bd78412879cd1bf1f0e9f18aea6b15e33ac64c31b326d53",
+  "source_svg_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+  "staged_index_source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+  "preview_sha256": "bd6c12f657337ab899fbd566541fa1c23589cc090a7b31fe2824717f4da5b660",
   "original_preview_pixels": [
     1600,
     1344
   ],
   "copied_without_pixel_modification": true,
   "applied_to_runtime": false,
-  "previous_preview_source_sha256": "0b211ec7761e1813ccfaee1e336f754ab7712495da6a991c79638d642a546839",
+  "previous_preview_source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
   "registration": {
     "scale_from_r41": 0.96,
     "translate_x": 88.0,
@@ -18,7 +18,7 @@
     "existing_16_context_labels_retained": true,
     "existing_32_open_rows_retained": true
   },
-  "normal_build_seconds": 65.9,
-  "source_change_review": "world/night-garden-plan.md",
-  "comment_only_source_change": true
+  "normal_build_seconds": 66.6,
+  "source_change_review": "world/sacred-mountain-fit-review.md",
+  "comment_only_source_change": false
 }
