@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="880" viewBox="0 0 1280 880">
+<rect width="1280" height="880" fill="#eee8d8"/>
+<g font-family="Arial,sans-serif" fill="#263c40">
+<text x="48" y="54" font-size="29" font-weight="bold">Nasca — evidence for a capital beyond its court</text>
+<text x="48" y="89" font-size="17">WN spatial relationships · original topology sketch · round 76</text>
+<rect x="48" y="113" width="1184" height="53" rx="8" fill="#fff9eb"/>
+<text x="68" y="146" font-size="18" font-weight="bold">Not a terrain plan: no scale, compass bearings, exact gate count or construction date.</text>
+<rect x="48" y="192" width="712" height="422" rx="14" fill="#faf7ef" stroke="#b6ad96"/>
+<text x="75" y="229" font-size="21" font-weight="bold">Later WN setting — relationships only</text>
+<rect x="230" y="283" width="353" height="256" rx="36" fill="#ddd5bf" stroke="#81775d" stroke-width="2"/>
+<text x="292" y="353" font-size="24" font-weight="bold">Imperial capital</text>
+<rect x="291" y="378" width="232" height="82" rx="9" fill="#faf1dc" stroke="#aa9674" stroke-dasharray="7 5"/>
+<text x="323" y="410" font-size="18">Existing court fragment</text>
+<text x="324" y="438" font-size="15">Position inside city unknown</text>
+<g stroke="#9e5745" stroke-width="6"><path d="M382 283 H430"/><path d="M583 390 V434"/><path d="M382 539 H430"/><path d="M230 390 V434"/></g>
+<text x="305" y="266" font-size="16">Gate access on four sides</text>
+<path d="M100 350 Q161 370 160 438 T206 546" fill="none" stroke="#6a805a" stroke-width="7" stroke-dasharray="13 8"/>
+<circle cx="112" cy="405" r="18" fill="#7c936b"/><circle cx="117" cy="458" r="22" fill="#6d855a"/><circle cx="195" cy="475" r="17" fill="#8a9e76"/>
+<text x="78" y="579" font-size="16">Nearby forest road; the sketch’s side and curve are arbitrary.</text>
+<rect x="791" y="192" width="441" height="422" rx="14" fill="#fffaf0" stroke="#b6ad96"/>
+<text x="817" y="231" font-size="21" font-weight="bold">What changes in the brief</text>
+<text x="817" y="277" font-size="18">Court model ≠ full capital.</text>
+<text x="817" y="318" font-size="17">WN166: gate access on four sides.</text>
+<text x="817" y="357" font-size="17">WN167: a forest road near the city.</text>
+<text x="817" y="411" font-size="17">Not yet established:</text>
+<text x="817" y="444" font-size="17">• Revised LN / anime city plan</text>
+<text x="817" y="477" font-size="17">• Gate number, bearings and dimensions</text>
+<text x="817" y="510" font-size="17">• Identical construction at S1E10</text>
+<text x="817" y="564" font-size="16">No army or coup event in the initial world.</text>
+<text x="48" y="664" font-size="22" font-weight="bold">Eastern Empire category screen</text>
+<text x="48" y="703" font-size="18">55 indexed titles: 38 characters · 12 organisations · 2 child categories</text>
+<text x="48" y="733" font-size="18">1 country article · 1 military article · 1 geographic feature</text>
+<text x="48" y="774" font-size="17">Title enumeration is complete for that returned listing; article-body geography remains open.</text>
+<text x="48" y="810" font-size="17">Production source, 58 registered sites and current terrain unchanged. Inventory: 132 entries / 41 follow-ups.</text>
+<text x="48" y="851" font-size="14">Sources: author WN /172/ HTML L35,L51; /173/ L1. Indexed wiki category is secondary and not a live completeness claim.</text>
+</g></svg>

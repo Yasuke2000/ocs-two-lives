@@ -1,5 +1,7 @@
 # Nasca (Eastern Empire capital)
 
+**Own-world clarification (R76):** the current authored plateau is (3200, -1800), radius 90. The audience court is a fragment rather than a verified full capital. Direct WN166/167 prose supports gate access on four sides and a near-capital forest road in later scenes, without surveyed bearings or proof of identical S1E10 construction. [Source and topology review](../../../world/nasca-source-topology.md). The Lerfing coordinates and coastal audit below are retired placement evidence, not canonical geography. C05’s mountain-bearing conflict remains open.
+
 `id: nasca` · build (our blueprint) · region **E** (Eastern Empire)
 
 | | |
