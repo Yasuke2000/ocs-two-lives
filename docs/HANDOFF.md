@@ -1,5 +1,13 @@
 # Current handoff
 
+## 21/11 — Ulgr brook now descends inland to shore (R119)
+
+Only ulgr-spring-brook points change in source `4093f844`; all other native attributes/text, 58 sites and 22 roads remain. Old line: 53.25 blocks land / 305.43 offshore. New route: 577.63 wholly inland, native-shore mouth. First exported difference reduces 37→11 blocks; Laura 17 unchanged. All 202 river wet sample centres connect cardinally to the spring; finite mouth continuation samples are below sea level 63. All 13 lake bank/contact cases and eight designed links pass. No final-noise or Minecraft fluid acceptance claim.
+
+Normal staging: 66.4 seconds, no converter warnings. Checker: zero errors, 56 relations, two prior warnings. Height/rugged/water/biome changes: 1729/785/220/4 cells; maximum height delta 44.875 blocks, none inside any site disc. Road/site/exclusion PNGs and site/road/anchor exports are byte-identical. R119 census covers all 22 masks with no unassigned inland sample. Art reservations remain; R118 painting needs exact new brook alignment. Ledger 324; inventory 142/42. WN61 park doorway passage reread; route and numerical heights remain our interpretation. C23 style/fluid, source coverage, proportions and initial era remain open. No protected implementation, world apply, chunks, main merge or deploy. Required gate: 472 tests, 26 skipped, zero failures in 63.829 seconds. Read-only connectivity passes; the two flagged head transitions remain a separate diagnostic, not a failing repository gate. Branch chatgpt/ulgr-brook-r119 is stacked over the R117 source branch.
+
+# Current handoff
+
 ## 21/11 — Southern mainland taper follows official silhouette (R117)
 
 Source `5938a823` replaces the broad southeastern foot with five original cubic coast reaches. B/H masks and the Eurazania forest follow the new shore; all other native attributes/text, 58 sites, 22 roads and water/relief shapes are retained. Normal staging: 67.0 seconds; no converter warnings. Checker: zero errors, 56 relations, two prior warnings. Native land loss: 819,604.48 square blocks; no added land. Height changes affect 172,196 cells (max 92.4375 blocks), outside all site discs. Water/road/site/exclusion PNGs and site/road/anchor exports are byte-identical. R117 census measures all 22 masks with zero unassigned inland biome samples. Atlas browser check: 58 numbers, 20 labels, 42 rows, no overlaps, minimum spacing 31.62 pixels.

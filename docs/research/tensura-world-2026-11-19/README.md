@@ -1,6 +1,6 @@
-## Current source — R117
+## Current source — R119
 
-[Southern coast review](../../../world/southern-coast-r117.md) narrows the illustrated mainland taper in source `5938a823`. Ledger: 323; inventory: 142 with 42 physical follow-ups. Source shapes, normal export, current atlas and regional census are checked; R116 painting needs silhouette alignment. The Orbic/Ulgracia child-category enumerations remain unavailable; indexed parent articles do not prove complete coverage. Full source, proportion and initial-era review remains open. Older dated notes below describe their own versions.
+[Ulgr brook review](../../../world/ulgr-brook-r119.md) corrects the former offshore route as an explicit terrain interpretation. Source `4093f844`; ledger 324; inventory 142/42. Author WN61’s park-door passage is reread without inventing a source-backed brook course or waterfall height. All 13 lake cases pass; first Ulgr exported transition decreases 37→11 blocks, with C23 style/fluid review still open. R118 painting needs brook alignment. Child-category source coverage, global proportions and initial-era semantics remain incomplete; earlier dated notes describe their own snapshots.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 

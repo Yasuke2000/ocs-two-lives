@@ -1,0 +1,134 @@
+{
+  "round": 119,
+  "source_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
+  "baseline_source_sha256": "5938a8239068ccdd98c8ad64220147dfbdc82ca6d6d7e54364fc902fb1e9ebe7",
+  "only_native_change": "ulgr-spring-brook points; all other attributes/text retained",
+  "baseline_route_length": 358.6811808326436,
+  "baseline_land_length": 53.24671820404388,
+  "baseline_offshore_length": 305.4344626285997,
+  "corrected_route_length": 577.6308764505692,
+  "corrected_offshore_length": 0.0,
+  "raster_changes": {
+    "height": {
+      "changed_cells": 1729,
+      "bounds_world": [
+        -1310.0,
+        2830.0,
+        -766.0,
+        3082.0
+      ]
+    },
+    "rugged": {
+      "changed_cells": 785,
+      "bounds_world": [
+        -1310.0,
+        2830.0,
+        -770.0,
+        3082.0
+      ]
+    },
+    "water": {
+      "changed_cells": 220,
+      "bounds_world": [
+        -1310.0,
+        2838.0,
+        -774.0,
+        3078.0
+      ]
+    },
+    "biome": {
+      "changed_cells": 4,
+      "bounds_world": [
+        -778.0,
+        3070.0,
+        -774.0,
+        3078.0
+      ]
+    },
+    "road": {
+      "changed_cells": 0
+    },
+    "sites": {
+      "changed_cells": 0
+    },
+    "exclude": {
+      "changed_cells": 0
+    }
+  },
+  "unchanged_exports": [
+    "anchors.toml",
+    "exclude.png",
+    "road.png",
+    "roads.json",
+    "sites.json",
+    "sites.png",
+    "sites.toml"
+  ],
+  "maximum_height_delta_blocks": 44.875,
+  "changed_height_samples_inside_site_discs": 0,
+  "cardinal_river_connectivity": {
+    "river_wet_sample_centres": 202,
+    "connected_to_lake": 202,
+    "nearest_level63_river_cell_shore_distance": 5.163168602304663,
+    "shore_distance_scope": "Within two four-block grid cells, not a new fixed owner limit."
+  },
+  "mouth_continuation": {
+    "distances_from_native_mouth": [
+      -12,
+      -8,
+      -4,
+      0,
+      4,
+      8,
+      12
+    ],
+    "first_air": [
+      59.25,
+      61.8125,
+      61.875,
+      61.5625,
+      61.1875,
+      60.875,
+      60.9375
+    ],
+    "sea_first_air": 63,
+    "limits": "Containing four-block samples along final segment continuation; no above-sea barrier in these samples. Not final noise or runtime fluid acceptance."
+  },
+  "lake_audit": {
+    "lakes": 13,
+    "passing_lakes": 13,
+    "passing_bank_checks": 13,
+    "passing_connection_checks": 13,
+    "external_dry_bank_samples": 2539,
+    "internal_dry_boundary_bank_samples": 8,
+    "source_samples": 42768,
+    "source_wet_samples": 42760,
+    "dry_boundary_samples": 8,
+    "missing_expected_connections": 0,
+    "observed_river_lake_links": 8,
+    "external_wet_contact_samples": 21,
+    "overall_pass": true
+  },
+  "head_level_differences": {
+    "jura-sarion-river": 0,
+    "tempest-brook-upper": 0,
+    "great-ameld-headwaters": 0,
+    "great-ameld-outlet": 0,
+    "raja-stream": 0,
+    "ulgr-spring-brook": 11,
+    "laura-mountain-falls": 17,
+    "western-basin-outlet": 0
+  },
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.829
+  },
+  "normal_staging_seconds": 66.4,
+  "default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  }
+}

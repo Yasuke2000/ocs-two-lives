@@ -1,6 +1,6 @@
-## Current source — R117
+## Current source — R119
 
-[Southern coast correction](southern-coast-r117.md) follows the official illustrated taper, with an original shoreline and clipped B/H gameplay coverage/forest. Source `5938a823`; all 58 locations, 22 roads and water/relief shapes remain. [R117 census](region-biomes-r117.md) supplies current regional mixes. R116 painting is historical until its silhouette follows this source. Ledger: 323; inventory: 142/42. Other source, proportion, era and fluid-placement reviews remain open.
+[Ulgr brook correction](ulgr-brook-r119.md) keeps the stream inland until its native-shore mouth. Only one river’s points change; all 58 locations, 22 roads and other native shapes remain. Source `4093f844`; first head transition decreases 37→11 blocks. [Lake audit](lake-banks-r119.json) passes all 13 cases; [R119 census](region-biomes-r119.md) supplies current mixes. C23 style/fluid review remains open. R118 painting needs the new brook route. Ledger 324; inventory 142/42. Wider canon/era/proportion review remains incomplete.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 

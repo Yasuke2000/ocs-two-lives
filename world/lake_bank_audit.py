@@ -18,10 +18,13 @@ ap.add_argument('--svg',type=Path,default=ROOT/'world/map.svg')
 ap.add_argument('--rasters',type=Path,default=ROOT/'world/build')
 ap.add_argument('--out-base',type=Path)
 ap.add_argument('--baseline',action='store_true')
+ap.add_argument('--round',type=int,choices=(115,119),default=115)
 args=ap.parse_args()
 assert not args.baseline or args.out_base is not None,'Baseline output needs an explicit destination'
-out=args.out_base or ROOT/'world/lake-banks-r115'
+assert not args.baseline or args.round==115,'Historical baseline belongs to R115'
+out=args.out_base or ROOT/f'world/lake-banks-r{args.round}'
 expected='2463d771cd28cff62138fe2e87ae0dc0dd8bccc7c3d02bc21f6bd6bbb3ed7426' if args.baseline else '89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b'
+if args.round==119:expected='4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89'
 sha=hashlib.sha256(args.svg.read_text(encoding='utf-8').encode()).hexdigest()
 index=json.loads((args.rasters/'index.json').read_text(encoding='utf-8'))
 assert sha==expected==index['source_sha256'],'Audit profile and normal staging must match source'
@@ -64,7 +67,7 @@ for e in root.find('s:g[@id="lakes"]',ns):
     rows.append(row)
 assert len(rows)==13
 summary={'lakes':len(rows),'passing_lakes':sum(x['pass'] for x in rows),'passing_bank_checks':sum(x['bank_pass'] for x in rows),'passing_connection_checks':sum(x['connection_pass'] for x in rows),'external_dry_bank_samples':sum(x['external_dry_bank_samples'] for x in rows),'internal_dry_boundary_bank_samples':sum(x['internal_dry_boundary_bank_samples'] for x in rows),'source_samples':sum(x['source_samples'] for x in rows),'source_wet_samples':sum(x['source_wet_samples'] for x in rows),'dry_boundary_samples':sum(x['dry_boundary_samples'] for x in rows),'missing_expected_connections':sum(len(x['missing_expected_river_ids']) for x in rows),'observed_river_lake_links':sum(len(x['observed_river_ids']) for x in rows),'external_wet_contact_samples':sum(x['external_wet_samples'] for x in rows),'overall_pass':all(x['pass'] for x in rows)}
-report={'round':115,'profile':'baseline' if args.baseline else 'corrected','source_sha256':sha,'height_raw_sha256':hashlib.sha256((args.rasters/'height.png').read_bytes()).hexdigest(),'water_raw_sha256':hashlib.sha256((args.rasters/'water.png').read_bytes()).hexdigest(),'method':'All four-block pixel centres inside each native lake;cardinal four-neighbor ring around matching lake water. Separate exact-boundary dry samples. Compare dry-bank first-air with designed water first-air+2;all wet bed samples below water. Classify wet exits by actual river half-width(max(width/2,2.9));candidate links have a source endpoint within8blocks of lake.','limits':'Normal raster evidence only;not continuous bank,diagonal/final-noise,per-block fluid,chunk placement or in-game leak acceptance. Source-endpoint proximity is a finite designed-connection rule,not a canonical geographical claim.','summary':summary,'lakes':rows}
+report={'round':args.round,'profile':'baseline' if args.baseline else 'corrected','source_sha256':sha,'height_raw_sha256':hashlib.sha256((args.rasters/'height.png').read_bytes()).hexdigest(),'water_raw_sha256':hashlib.sha256((args.rasters/'water.png').read_bytes()).hexdigest(),'method':'All four-block pixel centres inside each native lake;cardinal four-neighbor ring around matching lake water. Separate exact-boundary dry samples. Compare dry-bank first-air with designed water first-air+2;all wet bed samples below water. Classify wet exits by actual river half-width(max(width/2,2.9));candidate links have a source endpoint within8blocks of lake.','limits':'Normal raster evidence only;not continuous bank,diagonal/final-noise,per-block fluid,chunk placement or in-game leak acceptance. Source-endpoint proximity is a finite designed-connection rule,not a canonical geographical claim.','summary':summary,'lakes':rows}
 out.parent.mkdir(parents=True,exist_ok=True)
 out.with_suffix('.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 fields=[k for k,v in rows[0].items() if not isinstance(v,(list,dict))]+['observed_river_ids','missing_expected_river_ids']
