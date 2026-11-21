@@ -1,5 +1,7 @@
 # Current map review — round49 shared curves adopted
 
+R68 [Sacred Mountain support](sacred-mountain-fit-review.md):source90ee15b1,radius80→95,automatic first-air179→175. Exact preparation is our interpretation. Terrain atlas is refreshed;R64 painting needs explicit height integration. Ledger261;inventory132/41 follow-ups and full source/era/fixed-rule/runtime scope remain open. Earlier version-specific statements below are historical.
+
 Current review: **round64**. [Night Garden and chamber proposal](night-garden-plan.md) is inert, not generated. Source c2f806a9 retains the complete previous active map; checker0 errors/56 relations/2 existing warnings and normal65.9s export pass. Inventory132, physical follow-ups41 (including seven partial records omitted from the earlier panel); historical/source questions remain open. Ledger254 unique. [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round64/README.md) retains the R63 landscape and changes only the coverage panel. Initial era remains S1E10 after Kijin naming.
 
 

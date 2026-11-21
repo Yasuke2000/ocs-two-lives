@@ -1,0 +1,124 @@
+{
+  "round": 68,
+  "source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+  "baseline_source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+  "active_source_change": "Only sacred_mountain radius80 to95. Automatic first-air changes179 to175;no authored x/z move.",
+  "normal_build_seconds": 66.6,
+  "normal_build_warnings": [],
+  "changed_site_records": [
+    {
+      "id": "sacred_mountain",
+      "fields": {
+        "y": [
+          179,
+          175
+        ],
+        "r": [
+          80,
+          95
+        ],
+        "fade": [
+          40,
+          48
+        ]
+      }
+    }
+  ],
+  "road_profile_audit": {
+    "all21_centrelines_and_bridge_flags_retained": true,
+    "changed_profiles": [
+      {
+        "id": "sacred_mountain_trail",
+        "points_changed": 60,
+        "maximum_height_delta": 2.5799999999999983
+      }
+    ],
+    "unchanged_profiles": 20,
+    "maximum_grade": 0.5000000000000455
+  },
+  "raster_deltas": {
+    "biome.png": {
+      "changed_cells": 1291,
+      "maximum_encoded_abs_delta": 5.0,
+      "world_pixel_bounds": [
+        -4044,
+        -1736,
+        -3756,
+        -1456
+      ]
+    },
+    "exclude.png": {
+      "changed_cells": 792,
+      "maximum_encoded_abs_delta": 1.0,
+      "world_pixel_bounds": [
+        -4044,
+        -1744,
+        -3756,
+        -1456
+      ]
+    },
+    "height.png": {
+      "changed_cells": 4483,
+      "maximum_encoded_abs_delta": 817.0,
+      "world_pixel_bounds": [
+        -4060,
+        -1744,
+        -3688,
+        -1400
+      ],
+      "maximum_abs_blocks": 51.0625,
+      "minimum_signed_blocks": -29.75,
+      "maximum_signed_blocks": 51.0625
+    },
+    "road.png": {
+      "changed_cells": 0,
+      "maximum_encoded_abs_delta": 0.0
+    },
+    "rugged.png": {
+      "changed_cells": 2586,
+      "maximum_encoded_abs_delta": 102.0,
+      "world_pixel_bounds": [
+        -4040,
+        -1740,
+        -3760,
+        -1460
+      ]
+    },
+    "sites.png": {
+      "changed_cells": 516,
+      "maximum_encoded_abs_delta": 22.0,
+      "world_pixel_bounds": [
+        -3996,
+        -1696,
+        -3804,
+        -1504
+      ]
+    },
+    "water.png": {
+      "changed_cells": 0,
+      "maximum_encoded_abs_delta": 0.0
+    }
+  },
+  "checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "painting_status": "R64 sourcec2f806a9 is historical for this changed height and preparation radius. Its old files are retained;explicit native height-lighting integration is next.",
+  "runtime_placement_tested": false,
+  "full_audit": "../../../world/sacred-mountain-fit-review.json",
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.335,
+    "validation_passed": true,
+    "changed_JS_files": 0
+  },
+  "derived_site_sync": {
+    "command": "python -I tools/world/sites_from_builds.py",
+    "only_generated_difference": "world/sites.toml sacred_mountain.r80 to95",
+    "hand_edited": false,
+    "initial_stale_file_failure_corrected": true
+  }
+}

@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+R68 [Sacred Mountain support](sacred-mountain-fit-review-r68.md):source90ee15b1,radius80→95,automatic first-air179→175. Exact preparation is our interpretation. Terrain atlas is refreshed;R64 painting needs explicit height integration. Ledger261;inventory132/41 follow-ups and full source/era/fixed-rule/runtime scope remain open. Earlier version-specific statements below are historical.
+
 R67 [Coleus occupied-template review](coleus-fit-review-r67.md) retains r73:seven functional support boxes are level75 with both interpolation methods;the rectangular warning does not justify flattening the natural collar. Ledger260;inventory132/41 follow-ups and source c2f806a9/R64 atlas remain unchanged. Runtime/whole-city/era acceptance stays open.
 
 R66 [Malukshure district/harbour/tower source layout](malukshure-source-layout-r66.md) adds three directly read author-side-story relationships. Ledger259 unique;14 direct printed-LN plus6 author-side-story claims. Inventory132/41 follow-ups and source c2f806a9/R64 atlas remain unchanged. Exact initial state,dimensions and C14/C15 stay open.
