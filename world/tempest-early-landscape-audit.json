@@ -1,0 +1,64 @@
+{
+  "source_text_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "source_claim": "WN20-001",
+  "public_source_url": "https://ncode.syosetu.com/n6316bn/22/",
+  "cached_source_sha256": "b5c866b6a5cefd3ca9fc0d15b251667958700db4105a1c6b17826323e49045fb",
+  "passage_ids": [
+    "L143",
+    "L145",
+    "L161",
+    "L162",
+    "L164",
+    "L178",
+    "L226"
+  ],
+  "current_registered_radius": 148,
+  "current_min_radius": 148,
+  "future_growth_square": 192,
+  "early_blueprint_size": [
+    91,
+    91
+  ],
+  "arrival_offset": [
+    45,
+    57
+  ],
+  "cell_edge_bounds_relative_to_anchor": [
+    -45.5,
+    -57.5,
+    45.5,
+    33.5
+  ],
+  "margin_blocks": 8,
+  "padded_bounds_relative_to_anchor": [
+    -53.5,
+    -65.5,
+    53.5,
+    41.5
+  ],
+  "max_padded_corner_distance": 84.57245414436073,
+  "proposed_early_surface_radius": 85,
+  "existing_registration_retained": true,
+  "circle_area_reduction_fraction": 0.6701515704894083,
+  "limit": "Engineering/art proposal only, not a canon measurement or runnable converter setting. No formal minimum or runtime rule changed.",
+  "diagram_sha256": {
+    "tempest-early-landscape-study.svg": "3179c436430a1d5e5f4f6ecc399e8d79d40b28e40521640261b6815a64e26e14",
+    "tempest-early-landscape-study.png": "444b0e3f23e07bdb020f0dbd850c29709493f785c4ac54372a72a7f2efec36e0"
+  },
+  "checker": {
+    "errors": 0,
+    "relations_checked": 56,
+    "relations_failed": 0,
+    "warnings": [
+      "Laura river/escarpment crossing",
+      "Design box12800x10752 above preferred12288x10240, below hard14336x11264"
+    ]
+  },
+  "repository_gate": {
+    "validation": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 44.674
+  }
+}

@@ -11,13 +11,24 @@
 | Later phases | [`blueprints/tempest_town.py`](../../../blueprints/tempest_town.py) (137 x 40 x 137, trade town), [`blueprints/tempest_city.py`](../../../blueprints/tempest_city.py) (191 x 40 x 191, festival capital); previews `tempest_town-iso.png`, `tempest_city-iso.png`, `tempest-growth.jpg` in [docs/previews](../../previews/) |
 | Lore page | [`design/lore/tempest.md`](../../../design/lore/tempest.md), [`design/lore/tempest_growth.md`](../../../design/lore/tempest_growth.md) |
 
+## Replacement-world source and era note — round46
+
+The coordinates/audit screenshots below describe the **legacy Lerfing world**. The
+replacement SVG anchors the village at `(0,0)`; its radius148 reserves later city
+capacity. [Early landscape study](../../../world/tempest-early-landscape.md) draws
+a separate proposed initial surface, without applying it. WN20 directly supports
+open ground near water and near the cave; it does not establish the western-lake /
+southern-pond bearings below. Those waters and exact forest mix are project landscape
+choices, not verified compass facts. Read the [snapshot](../../../world/era.md) before
+using later capital, council or Dungeon references as initial-state content.
+
 ## Lore (canon)
 
-Rimuru moves the goblin village to open ground with room to grow and running water nearby, and has the dwarf artisans from Dwargon (Kaijin and the brothers Garm, Dold and Mildo) lay out proper housing, roads and sanitation. Ogres turned kijin (Benimaru, Shuna, Shion, Souei, Hakurou, Kurobe), Rigurd's goblins, the Tempest Wolves and Rimuru himself live here. Later it becomes a trading city, the seat of the council and the entrance of Ramiris's dungeon.
+Rimuru moves the goblin village to open ground near water and the cave. The dwarf artisans from Dwargon (Kaijin and the brothers Garm, Dold and Mildo) help develop the settlement. [WN20](https://ncode.syosetu.com/n6316bn/22/#L143) describes the survey and sanitation plans; that passage alone does not certify completed infrastructure at the selected anime instant. Ogres turned kijin (Benimaru, Shuna, Shion, Souei, Hakurou, Kurobe), Rigurd's goblins, the Tempest Wolves and Rimuru himself live here. Later it becomes a trading city, the seat of the council and the entrance of Ramiris's dungeon.
 
 ## What it should look like
 
-A construction site, not a city: hide tents ringing the build area, first log and plank houses with thatch or shingle roofs, some only framed and scaffolded; Kaijin's open forge with anvils and quench tubs; Shuna's weaving house with looms and dye vats; a covered council longhouse on the village green; Rimuru's modest house; a wolf pen; a palisade gate on the forest road. It stands in a cleared hollow of a dense old forest (oak, dark oak, giant ancient-forest trees; Jura is never jungle), with a lake to the west and a pond to the south. Our interpretation: the later rings (137 and 191 blocks wide) turn the green into a trade town with a west gate to Blumund and a north gate to Dwargon, then a festival capital with promenade, guild, inn, bath gardens and Ramiris's entrance court.
+A construction site, not a city: hide tents ringing the build area, first log and plank houses with thatch or shingle roofs, some only framed and scaffolded; Kaijin's open forge with anvils and quench tubs; Shuna's weaving house with looms and dye vats; a covered council longhouse on the village green; Rimuru's modest house; a wolf pen; a palisade gate on the forest road. It stands in a cleared hollow of a dense old forest (oak, dark oak, giant ancient-forest trees; Jura is never jungle), with a lake to the west and a pond to the south in the legacy/project landscape (those bearings are our interpretation). Our interpretation: the later rings (137 and 191 blocks wide) turn the green into a trade town with a west gate to Blumund and a north gate to Dwargon, then a festival capital with promenade, guild, inn, bath gardens and Ramiris's entrance court.
 
 Why it stands here (anchor table, Lerfing coordinates): Middle of Jura (§3.2): y 63/65/68, relief 5, the lake at x 1500..1600 just west (running water nearby), plains.
 

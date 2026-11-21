@@ -1,5 +1,7 @@
 # world/ — the own world map
 
+Round46 [early Tempest landscape](tempest-early-landscape.md) supplies a scaled initial-surface/future-capacity study and direct WN20 context. The mandatory radius148 and current terrain remain unchanged; proposed85 is not an active setting. Ledger221,14 direct LN claims; full geography/era/technical obligations remain open.
+
 Round45 [primary-source review](../docs/research/tensura-world-2026-11-19/primary-source-review-r45.md) directly supports the guarded immobile treant community without locating it. Ledger218,14 direct LN claims; inventory129/32 follow-ups unchanged. Current LN20/21 trial links were found but story pages remain unread. Source geometry and presentation are retained.
 
 Round44 [vertex-budget study](vertex-budget-study.md) retains the current source and documents why independent straight-line simplification was not adopted. Nine outlines still exceed the preferred120-vertex range; all stay within the mandatory400 ceiling. Exact mask seams are disclosed in the diagnostic rather than described as perfect coverage.

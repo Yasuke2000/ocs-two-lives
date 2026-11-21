@@ -1,4 +1,6 @@
-# Tensura geography research — round45 primary-source review
+# Tensura geography research — round46 initial-village landscape
+
+Round46 [initial Tempest study](../../../world/tempest-early-landscape.md) adds two directly read WN20 planning/setting claims and an explicitly interpreted surface/capacity proposal. Ledger221 (163+58),14 direct LN claims. Source geometry,129 inventory entries/32 follow-ups and58 art pairs retained; no technical or runtime change.
 
 Round45 [primary-source review](primary-source-review-r45.md) adds WN42-001 for the guarded immobile treant community, without assigning a location. Ledger218 (160+58),14 direct LN claims;129 inventory entries/32 follow-ups unchanged. Current official LN20/21 trial routes were identified but neither trial became readable. SVG/terrain/art remain unchanged.
 
