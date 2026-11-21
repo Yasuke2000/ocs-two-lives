@@ -1,5 +1,7 @@
 # Reference comparison — round43 current painted headland / post-Kijin snapshot
 
+Current presentation: [round50 native-mask refresh](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round50/comparison.md), sourcecb07cce7. R43 and earlier round statements below are historical. The original painting follows the current source without a new image-generation pass.
+
 Round49 [shared-curve review](shared-curve-review.md) retains the official broad silhouette cues while making coast and region boundaries agree exactly in native sampled geometry. Current sourcecb07cce7/120 mainland nodes replaces source7d021766; all58 markers stay fixed. Current checker/terrain atlas were visually compared with the linked official base; proportional compromises remain C12. R43 painting retains the earlier shoreline and is historical until refreshed.
 
 Current presentation: [source7d021766 painting and linked official comparison](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) · [comparison table](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/comparison.md). The new headland now has original painted texture under exact native coast/water/road overlays. The active SVG is retained after visual review; no additional geography is inferred. R38 and earlier statements below retain their historical dates/hashes.

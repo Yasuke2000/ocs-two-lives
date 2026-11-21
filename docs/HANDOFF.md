@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — shared-curve painted presentation refreshed (ChatGPT, round50)
+
+Round50 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round50/README.md) refreshes the native land/sea masks and coast outlines against sourcecb07cce7 (06de1b2). Original R38/R43 texture PNGs and their generation records are retained; this round uses no new image generation. Exact3coasts/9lakes/8rivers/21roads/2habitat overlays,58 source positions,16 context names and32 open rows pass the geometry/browser audit. All15 full non-callout text boxes remain inside their current sampled masks; Ulgracia's callout endpoint remains inside U. The atlas keeps every non-image element and the32.47px number spacing. The composition changes7,109 pixels from R43; no local-headland-only change claim is made for this coast refresh. Painting/checker/official-reference visual review retains production geometry. Fresh checker0errors/all56relations/same2warnings. No production SVG,terrain export or protected path edits; no converter rerun,apply,main merge or deploy. Ledger225/14directLN,inventory129/32follow-ups and58art pairs retained. Full source/era/binding/coverage/build-fit/runtime obligations remain open. Repository validation and472 tests pass on both feature branches (26 skips,zero failures): painting64.588s, map-pointer63.704s. No changed JavaScript files or in-game test run. These are offline checks.
+
+Next: continue the unresolved mainland-source and fixed-rule/era/fit obligations. R49 and R50 made concrete progress; no repeated blocker.
+
 ## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
 
 Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
