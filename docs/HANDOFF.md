@@ -1,5 +1,31 @@
 # Current handoff
 
+## 21/11 — Lake banks and two source contacts (R115)
+
+Source `89b01c4c` moves only the Ulgr/Laura first river vertices 2/6 blocks north, remaining on land. All 13 lake bank/depth checks pass; the two missing plan contacts are repaired, giving 8/8 designed connections. Normal staging took 67.0 seconds without converter warnings; the checker reports zero errors, 56 relations and two prior warnings. Changes affect 188 height, 247 ruggedness and 26 water cells. Height deltas range from −41.375 to +41.3125 blocks at moving cliff cuts, outside all site discs. Roads, biomes, sites, exclusion and site/road/anchor exports are identical. Adopt the unchanged R114 biome census and R113 art reservations. Ledger: 321; inventory: 142 with 42 physical follow-ups. Required gate: 472 tests, 26 skipped, zero failures in 64.793 seconds.
+
+C23 remains a style/source and technical review: adjacent lake/river export differences are 37 blocks at Ulgr and 17 at Laura. The two-block diagnostic is not an owner-defined cap. Assess waterfall character and fluid placement; do not create artificial routes just to satisfy that threshold. Bank/contact results do not establish final terrain or in-game fluid acceptance. Painting requires the same two native head updates. Visual review also found a stale coastal description in atlas legend row 54; it now reads Frost Palace inland clearing, matching the approved registration. Other source, proportion and era checks remain open. No protected implementation, world apply, chunk generation, main merge or deployment action.
+
+# Current handoff
+
+## 21/11 — Map deliverables and art registration reconciled (R114/R113)
+
+Source2463d771/mapbf0ba98 andart8d468a2 published. Only Frost Palace sheet changed;all58 image/sheet pairs andnumeric fields checked,57 other sheets/all58 PNG bytes/exact palace prompt retained. Source local rock-cone choice is interpretation;LN11 sample routes exposed no story. R112 painted rock appearance adopted unchanged,its original source metadata remains historical. Source gate472/26skip/0fail64.499s;art gate462/26skip/0fail44.459s;main handoff gate472/26skip/0fail64.428s. See art-registration-r113.md anddeliverable-readiness-r114.md in current research directory. Next substantive checks:all13 lake banks as one audit;Orbic/Ulgracia child-location traversal;global proportional/contract andinitial-era review. Keep Claude-owned runtime/whole-city building separate from creative map acceptance. No new geometry orcounter-only painting/art generation in this handoff;no protected/runtime/merge/deploy action.
+
+# Current handoff
+
+## 21/11 — Local rocky cone and place-sheet audit (R114/R113)
+
+Source2463d771 adds only one stony_peaks polygon over the exact existing40-vertex El Dorado cone.4577biome samples change(3039plains+1538snowy_slopes);all5850cone centres stony_peaks. All height/rugged/water/road/site/exclusion andsite/road/anchor exports retained;all58site attributes/22routes unchanged. Checker0/56/2;normal67.0s,no warnings. Required gate472/26skip/0fail64.499s;browser58/20/42,no overlap,min31.62px. Ledger318;inventory142/42. Local authored rock choice,not proven canon climate or runtime snow absence;LN11 retailer routes exposed no story passage. Existing R112 painting appearance adopted unchanged,its metadata stays historical. R113 art audit:57 numerical sheets already matched,only Frost Palace’s inland registration corrected;all58 PNGs andoriginal prompt retained. Full goal stays open;next map deliverable checks are in readiness audit,distinct from Claude-owned runtime/full-build integration.
+
+# Current handoff
+
+## 21/11 — El Dorado woodland source/painting aligned (R112)
+
+R111 source74d63267/map6c9ece1 and R112 painting dfd66c1 agree. Exact72/60canopy clips,35 original scattered trees;759 changed continent pixels,maxRGB115,all inside16block support;exterior pixels identical. All58 marker groups/20context names/42open rows retain geometry;browser min32.47px,no label overlap. Native historical component metadata retained;only current root metadata refreshes. Gate472/26skip/0fail65.464s;source gate64.832s;sourcechecker0/56/2 andnormal67.0s adopted. Main handoff gate472/26skip/0fail64.731s. Ledger316;inventory142/42 unchanged;census reproduces byte-identically. No further canopy geometry correction found. Source/native volcano climate mismatch remains for source-first review;also reassess outstanding map-deliverable requirements separately from Claude-owned runtime/full-build tasks. No protected edit,world/chunk/main-merge/deploy action. Older dated notes below are history.
+
+# Current handoff
+
 ## 21/11 — El Dorado source woodland restored (R111)
 
 Fresh official original and enlarged island inspected;NW woodland and east/southeast lakeside group missing from source. First eastern northern draft corrected before delivery. Added72/60-vertex light-forest polygons;all old shape attributes/text,58 site attributes,22 roads retained. Source74d63267;checker0errors/56relations/2priorwarnings;normal67.0s/no converter warnings.4,788 biome cells become forest inside new polygons;all height/rugged/water/road/site/exclusion rasters and site/road/anchor exports identical. X measured forest5.3940%;no stale20% target. Required gate472/26skip/0fail64.832s;browser58/20/42,no overlaps,min31.62px. Ledger316;existing El Dorado inventory row gains evidence,142/42 classifications unchanged. R110 painting needs exact new canopy integration;source height/volcanic snow versus painting is a separate remaining review. No protected edit/runtime action.

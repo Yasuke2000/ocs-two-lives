@@ -946,7 +946,7 @@
     }
   ],
   "open_inventory_rows": 41,
-  "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+  "source_sha256": "89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b",
   "khusha_orientation_label": {
     "world_x": -1340.5090909090904,
     "world_z": 958.8363636363638,
@@ -964,7 +964,8 @@
   "geographic_context_label_count": 20,
   "inventory": 142,
   "physical_followups": 42,
-  "ledger_unique": 316,
+  "ledger_unique": 321,
   "note_r110": "Only54 world/anchor/label and forecourt follow owner-approved inland clearing. Other57 marker positions retained;142/42 inventory and314 current ledger.",
-  "note_r112": "All58 marker world/anchor/number positions unchanged;20 contexts/42 open rows retained;exact El Dorado canopy overlay. Inventory142/42."
+  "note_r112": "All58 marker world/anchor/number positions unchanged;20 contexts/42 open rows retained;exact El Dorado canopy overlay. Inventory142/42.",
+  "note_r116": "All58 world/anchor/number positions retained;20contexts/42rows unchanged. Only2river first vertices follow R115. Original R112 snapshot retained in Git atdfd66c1."
 }

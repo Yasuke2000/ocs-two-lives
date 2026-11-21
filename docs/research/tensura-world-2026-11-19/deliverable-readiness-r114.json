@@ -1,0 +1,239 @@
+{
+  "source_sha256": "2463d771cd28cff62138fe2e87ae0dc0dd8bccc7c3d02bc21f6bd6bbb3ed7426",
+  "ledger_unique": 318,
+  "regions": [
+    {
+      "region": "J",
+      "name": "Jura Forest / Rimuru's village (gameplay J)",
+      "reference_links": 5,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "D",
+      "name": "Armed Nation of Dwargon",
+      "reference_links": 4,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "W",
+      "name": "Lake Siss marsh",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "R",
+      "name": "Kingdom of Blumund",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "G",
+      "name": "Kingdom of Englassia",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "F",
+      "name": "Kingdom of Falmuth",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "L",
+      "name": "Holy Empire of Lubelius",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "V",
+      "name": "Damargania / western wastes",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "O",
+      "name": "Morgdahl",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "A",
+      "name": "Raja",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "N",
+      "name": "Nostraille",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "Y",
+      "name": "Yuzalgh",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "Q",
+      "name": "Yggdonia",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "U",
+      "name": "Ulgracia",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "S",
+      "name": "Sorcerous Dynasty of Sarion",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "H",
+      "name": "Harpy Queendom of Fulbrosia",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "B",
+      "name": "Beast Kingdom of Eurazania",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "M",
+      "name": "Milim's old domain",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification.",
+      "accepted_heading_variant": "Canon basis and limits"
+    },
+    {
+      "region": "P",
+      "name": "Jistav",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "E",
+      "name": "Eastern Empire",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "I",
+      "name": "Ice Continent",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    },
+    {
+      "region": "X",
+      "name": "El Dorado",
+      "reference_links": 3,
+      "has_landform": true,
+      "has_measured_mix": true,
+      "has_palette_vegetation_crossings": true,
+      "has_canon_basis": true,
+      "scope": "Section/link-format check,not semantic source or traversal/mood quality verification."
+    }
+  ],
+  "required_named_roads_present": [
+    "tempest_dwargon",
+    "tempest_blumund",
+    "blumund_englassia_lubelius",
+    "dwargon_dwarf_village"
+  ],
+  "sacred_mountain_route_ids": [
+    "sacred_mountain_trail"
+  ],
+  "registered_sites": 58,
+  "lake_polygons": 13,
+  "conclusion": "Finite artifact/format evidence only;full faithful-map completion is not proved."
+}

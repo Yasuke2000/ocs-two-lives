@@ -1,6 +1,6 @@
 ## Current source — R106
 
-[El Dorado woodland review](el-dorado-woodland-r111.md) restores two source-informed bounded canopies in source `74d63267`:15 forests,58 unchanged sites and22 unchanged roads. Corrected eastern group is east/southeast of the lake. Only4,788 biome cells change;all height/water/road/site exports remain identical. Ledger316;inventory142/42 retained. [Current biome census](region-biomes-r111.md) measures5.3940% forest in X. R110 painting predates the two masks and needs native canopy alignment. Earlier dated notes below are history;full source/era/whole-city/runtime obligations remain open.
+[R115 collective lake audit](lake-banks-r115.md) verifies all13 native lakes andrepairs the Ulgr/Laura river contacts by moving only2 first vertices(2/6blocks north). Source89b01c4c:all lake shapes/levels,58 sites and22 roads retained.13/13bank/depth checks,8/8designed plan contacts;[C23 diagnostic](river-head-profiles-r115.md) flags2larger head transitions(37/17blocks)for style/source review. R114 biome raster/masks are exact andits census is adopted;no duplicate count-only report. Ledger321;inventory142/42. Terrain atlas/preview are refreshed;painting requires the two native head updates. Source/era/global-proportion andtechnical acceptance remain open.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 
