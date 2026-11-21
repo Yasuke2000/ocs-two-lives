@@ -1,3 +1,7 @@
+## 21/11 — Amrita association visible on atlas (R123)
+
+[Atlas/source review](../world/amrita-atlas-r123.md) adds a below-castle48 callout while marker49 remains the game reservation. LN10-001 is refined from the reread publisher prologue; the brief’s exact founding age is qualified, not disproved across the full novel. Ledger328 retained. Source4093, all58 sites, checker preview and terrain exports unchanged. C07 nesting/access remains open; painting continent remains aligned, its caption follow-up remains pending. Required gate passed:472 tests,26 skipped,zero failures in64.023s; validation and diff check pass.
+
 # Current handoff
 
 ## 21/11 — Initial-era place briefs reconciled (R121)

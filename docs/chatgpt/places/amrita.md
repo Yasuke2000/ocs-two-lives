@@ -14,7 +14,7 @@
 
 ## Lore (canon)
 
-Founded 2,000 years ago as a haven for dark elves, modelled on Soma by Kazalim, with magical defences including golems (light novel vol. 10).
+The publisher-hosted [LN10 prologue](https://gcnovels.jp/reading/slime10.htm) describes Kazalim founding Amrita as a refuge-city modelled on the lost homeland after fleeing Soma. It distinguishes the wards/golems defending Amrita from Adalman’s surface-city defence. The checked passage supplies no exact founding year; the earlier 2,000-year figure is unverified here. The [official episode81 synopsis](https://www.ten-sura.com/anime/tensura/story/no86) places the ruins beneath Clayman’s former castle. Exact depth, full extent and initial access remain unverified; later investigation or defense activation is not an initial S1E10 event.
 
 ## What it should look like
 

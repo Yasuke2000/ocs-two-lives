@@ -1,3 +1,7 @@
+## R123 — Visible Amrita association
+
+[Atlas review](../../../world/amrita-atlas-r123.md) visibly associates the buried ruins with castle48. Marker49 remains an authored game reservation; C07 technical nesting/access is open. Existing LN10-001 refined and the brief’s exact founding age qualified; ledger328 retained. Source4093 and all terrain remain unchanged.
+
 ## Current geometry R119; initial-era follow-up R121
 
 [Era brief review](era-brief-review-r121.md) corrects ten selected narratives and thirteen Jura headers, retaining all58 registered places and the same source `4093f844`. Ledger328; location inventory142 with42 physical follow-ups. The [R120 painting proposal](https://github.com/Yasuke2000/ocs-two-lives/pull/108) already follows this geometry; its original metadata remains historical rather than being recopied just for the ledger change.
