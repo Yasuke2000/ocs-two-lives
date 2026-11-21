@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Elmine lake direction corrected (R88)
+
+The Elmine concept sheet now identifies its source lake east/southeast, correcting southwest. Original PNG and exact prompt retained; official episode61 pavilion evidence stays bounded. Main-map source355d1a33 and all58 concept reservation values unchanged. Whole-tree/capital coverage remains partial. Gate: 462 tests, 26 skipped, zero failures (45.441s).
+
 ## 21/11 — Concept reservations aligned with northeast Dwargon (ChatGPT, round86)
 
 [Current registration review](art/registration-r86.md) updates six metadata rows and verifies all 58 reservations against source355d1a33. All original PNGs and prompts remain unchanged. Map PR74 supplies authoritative geography. Next: actual source/location/era work and matching painting.
