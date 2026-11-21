@@ -145,7 +145,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Sorcerous Dynasty of Sarion](https://tensura.fandom.com/wiki/Sorcerous_Dynasty_of_Sarion) | mainland feature | region present | nation-S |
 | [Spooky Palace](https://tensura.fandom.com/wiki/Spooky_Palace) | separate world | separate world review | — |
 | [Tengu settlement](https://tensura.fandom.com/wiki/Tengu) | mainland feature | missing distinct representation | — |
-| [Town of Guratol](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | missing distinct representation | — |
+| [Town of Guratol — official setting review](guratol-source-review.md) | mainland feature | missing distinct representation | — |
 | [Treant Settlement](https://tensura.fandom.com/wiki/Great_Jura_Forest#Treant_Settlement) | mainland feature | missing distinct representation | — |
 | [Tripartite Alliance](https://tensura.fandom.com/wiki/Tripartite_Alliance) | organisation | organisation review | — |
 | [United States of Azalea](https://tensura.fandom.com/wiki/Homeworld_of_Hazy_Style) | separate world | separate world review | — |

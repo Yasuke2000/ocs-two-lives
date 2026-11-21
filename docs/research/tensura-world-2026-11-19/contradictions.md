@@ -108,3 +108,7 @@ The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects 
 ## Round72: C15 physical wall versus magical boundaries
 
 [The contour/gate proposal](../../../world/long-wall-build-plan.md) supplies bounded physical planning geometry,not a registered wall. WN205 separates country,settled-area andcity-wall defences;it does not establish the LN Long Wall course. The new age/creator fields remain fan-wiki. Keep road-exclusion crossing,gate corner/voxel construction,initial-era corroboration andruntime barrier decisions open. The current source,terrain andpainting remain unchanged.
+
+## Round 82: Guratol local sequence versus global placement
+
+Official OAD5 establishes mansion destination then cave task, while OAD4 still4 contains a map without readable global anchors. Neither supports a compass bearing, independent-country polygon or construction date at S1E10. Keep C15 registration and initial-state decisions open; later field-trip events stay inactive. See [source review](guratol-source-review-r82.md).

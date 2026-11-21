@@ -1,0 +1,38 @@
+{
+  "round": 82,
+  "previous_claims_preserved": 280,
+  "unique_claims": 282,
+  "new_claims": [
+    "OAD-GUR-082",
+    "OAD-MAP-082"
+  ],
+  "inventory_rows": 134,
+  "coverage_rows_changed": {
+    "mainland-coverage-audit.csv": [
+      "Town of Guratol"
+    ],
+    "wiki-location-coverage.csv": [
+      "Town of Guratol"
+    ]
+  },
+  "all_coverage_statuses_unchanged": true,
+  "original_stills_viewed_and_hash_checked": 15,
+  "copyrighted_media_committed": false,
+  "source_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "production_and_atlas_files_unchanged": [
+    "world/map.svg",
+    "world/preview.png",
+    "world/atlas.svg",
+    "world/atlas.png",
+    "world/terrain-preview.png"
+  ],
+  "global_registration_proved": false,
+  "initial_era_condition_proved": false,
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.055
+  }
+}

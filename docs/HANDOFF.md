@@ -1,5 +1,13 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Guratol official setting evidence (ChatGPT, round 82)
+
+R82 [Guratol source review](../world/guratol-source-review.md) verifies the official OAD mansion/cave task sequence and records the unanchored table map, with all 15 selected stills inspected. It supplies no invented global coordinates, administrative borders or S1E10 construction date. Ledger 282 (224+58); inventory 134/41 follow-ups unchanged. Source 9fd0c5fb and R81 painting remain unchanged.
+
+Validation: 472 tests, 26 skipped, zero failures (64.055s); independent 282-record/134-row preservation, 15 image hashes and unchanged production/atlas checks pass.
+
+Next: geographical anchoring and actual missing locations; no runtime application or deployment.
+
 ## 21/11 — Current painting follows the lake (ChatGPT, round 81)
 
 R81 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/96b3972/world/painting-round81/README.md) now integrates the R80 El Dorado lake and bank. The exact lake polygon and 648 checked lighting samples update 361 continent pixels, within 10.75 blocks of the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows remain checked; the inventory caption is 134. Source 9fd0c5fb and the 280-record ledger remain unchanged. Painting integration is closed; broader source, location and initial-era questions remain open.
