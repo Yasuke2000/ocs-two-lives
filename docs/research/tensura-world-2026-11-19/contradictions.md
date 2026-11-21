@@ -31,7 +31,7 @@ Round45 directly reads WN42 for the immobile treant community (WN42-001). Its po
 
 | C13 | The author also supplies a rough WN-era map, with explanatory eastern-gate and subterranean-habitat notes. | Retain as WN-specific evidence. Do not replace later anime geography, invent bridge coordinates, or derive exact proportions from this explicitly approximate sketch. |
 
-| C14 | Sainte-Malukshure is bound to H/Fulbrosia in the active anchor data; wiki places the coastal capital west of Sarion, and an official synopsis places the Magic Tower in its waters. | Coastal capital and offshore tower alternatives are drawn in the map.svg comment and additional-location study. Keep the live constraint pending owner reconciliation; exact proposal geometry is interpretation. |
+| C14 | Sainte-Malukshure is bound to H/Fulbrosia in the active anchor data; the author LN-aligned Vacation side serial places a capital cape by the sea and Malukshure bordering Sarion; the exact west bearing remains wiki-qualified. | Coastal capital and offshore tower alternatives are drawn in the map.svg comment and additional-location study. Keep the live constraint pending owner reconciliation; exact proposal geometry is interpretation. |
 | C15 | The 58 registered sites omit distinct Galut, Tengu settlement and the Long Wall, among other wiki candidates. | Original proposal footprints/corridor are drawn separately and in inert map.svg comment. They do not become live sites or prove the entire wiki complete. |
 
 | C16 | WN102 describes a Tengu summit gateway leading to the settlement. Official anime episode64 directly confirms Khusha residence and a later proposed road tunnel, but not a dimensional gateway; wiki supplies the difficult summit description. | Keep WN access separate. The [ridge proposal](../../../world/tengu-settlement-study.md) uses limited official setting cues without importing WN dimensional access or installing the later tunnel. LN8 chapter4 remains unread. |
@@ -63,3 +63,8 @@ Round47 C18 cave detail: selected public manga1 panels support natural formation
 ## Round54: anonymous Imperial lakeside setting and source-key erratum
 
 [Direct WN147 review](empire-source-review-r54.md) supports an unnamed lakeside vassal kingdom,not a verified Silberia coordinate or an identification of the existing basin. Its later narrated past does not date the destruction to S1E10. C08/C05 remain open. Galut remains a separate Ulgracia capital candidate. R51 trade/cavern records receive unique IDsWN13-007/WN13-008;earlier005/006 retain their original meanings. Verified actual HTML anchors replace ambiguous extracted-line locators. No geographical geometry or coverage classification changes.
+
+
+## Round55: C14 coastal setting strengthened by the author
+
+[Vacation source review](vacation-source-review-r55.md) directly reads selected public author paragraphs in explicit book continuity. Coastal capital cape,offshore tower and Malukshure/Sarion adjacency are primary-backed; west bearing and coordinates remain qualified. The H/Fulbrosia binding is still unresolved. The new-moon access account does not justify a permanent island or a later event at S1E10. Ledger236 unique;14 printed-LN claims remain.

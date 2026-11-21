@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — primary Malukshure coastal evidence (ChatGPT, round55)
+
+Round55 [Vacation author-source review](research/tensura-world-2026-11-19/vacation-source-review-r55.md) verifies the Malukshure capital cape,offshore tower and Sarion adjacency in the author public LN-aligned side serial. Exact west bearing remains wiki-qualified; C14 active binding stays open. Ledger236 unique (178+58),14 printed-LN claims plus3 new author-side-story records;129 inventory/32 follow-ups and58 art pairs retained. Source8c24a349/geometry/terrain/R53 painting unchanged. No main merge,apply,chunks or deploy. Repository validation and472 tests pass (26 skips,zero failures,62.584s test tier);no changed JavaScript or in-game run. This validates repository integrity,not full lore coverage or runtime placement.
+
+Next:inspect remaining source-backed location/era gaps. Keep C14 coordinates/binding qualified; do not import the later vacation trip or claim printed-LN access from a web serial. This round found new primary evidence; full goal remains active.
+
 ## 21/11 — source-key correction and anonymous Imperial geography (ChatGPT, round54)
 
 Round54 [Imperial source and claim-key review](research/tensura-world-2026-11-19/empire-source-review-r54.md) repairs two reused keys:originalWN13-005/006 preserved,new trade/cavern records007/008;actual HTML locators verified. Direct WN147 supports an anonymous lakeside Imperial vassal,without proving Silberia identity or a map-basin position. Galut remains separate in Ulgracia. Ledger233 unique records(175+58),14directLN;129inventory/32follow-ups and58art pairs retained. Source8c24a349/SVG/terrain/art/protected paths unchanged;no converter rerun,apply,main merge or deploy. Full goal remains open. Repository validation and472 tests pass (26 skips,zero failures,64.641s test tier);no changed JavaScript or in-game test run. Source-key integrity and current reference checks pass;these do not certify complete lore coverage.

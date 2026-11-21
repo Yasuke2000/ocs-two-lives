@@ -1,5 +1,7 @@
 # Additional mainland locations — evidence and drawing proposals
 
+Round55 [author source review](../docs/research/tensura-world-2026-11-19/vacation-source-review-r55.md) verifies the coastal capital cape,offshore tower and Malukshure/Sarion adjacency. The west bearing and exact proposal geometry remain qualified. The active C14 binding and fixed58 registry remain unchanged.
+
 [Original vector study](additional-location-study.svg) · [PNG preview](additional-location-study.png).
 All orange marks are proposals, not generated terrain. The matching geometry is inside an inert C14/C15
 comment in [map.svg](map.svg). Production still has exactly 58 registered sites.
@@ -10,8 +12,8 @@ comment in [map.svg](map.svg). Production still has exactly 58 registered sites.
 | --- | --- | --- | --- |
 | Galut | Wiki identifies it as Ulgracia's capital (`WIK-ULG-001`). | Centre `(-900,3050)`, radius 60; a separate city south of the existing park. | Current U coverage; distinct from the park/Spirit Dwelling entrance. New registration and a city design remain required. |
 | Tengu settlement | Official episode64 confirms Khusha residence (`OFF-TEN-001`); the difficult summit description remains wiki-backed (`WIK-TEN-001`). | Revised centre `(-1000,940)`, radius40, on the existing western Khusha ridge. | [Measured ridge/terrace study](tengu-settlement-study.md) replaces the earlier hillside proposal. Height/access/build design and registration remain open. No later tunnel applied. |
-| Sainte-Malukshure | Wiki describes a coastal capital near its tower, with Sarion to the east (`WIK-MAL-001..002`). | Centre `(-2320,1645)`, radius 64, west of Elmine. | C14: current anchor requires H, which is Fulbrosia. This alternative lies in current gameplay O. Do not silently reassign the country, anchor or gameplay mask. |
-| Magic Tower | Official volume-2 manga synopsis places it in Malukshure waters (`PUB-MAL-001`). | Centre `(-2440,1840)`, radius 40, off the proposed capital shore. | Offshore structure/access proposal only. No speculative island added to the three-landmass production map. |
+| Sainte-Malukshure | Author confirms a capital cape and Sarion adjacency (`AUTH-VAC-001..002`); Sarion specifically to the east remains wiki-qualified (`WIK-MAL-002`). | Centre `(-2320,1645)`, radius 64, west of Elmine. | C14: current anchor requires H, which is Fulbrosia. This alternative lies in current gameplay O. Do not silently reassign the country, anchor or gameplay mask. |
+| Magic Tower | Author describes the offshore tower and new-moon approach (`AUTH-VAC-002..003`),consistent with the official manga synopsis (`PUB-MAL-001`). | Centre `(-2440,1840)`, radius 40, off the proposed capital shore. | Offshore structure/access proposal only. No speculative island added to the three-landmass production map. |
 | Long Wall | Wiki places the barrier between the desert and Coleus/Lubelius (`WIK-WAL-001`). | Revised boundary corridor from `(-4045.40,-947.08)` to `(-3801.89,204.15)`; [measured review](long-wall-corridor-review.md). | Era and engineered wall need a separate structure/terrain decision. It is not an arbitrary mountain range. |
 
 The official synopsis is [Tensura portal, 9 September 2024, Vacation manga volume 2 section](https://www.ten-sura.com/news/comic/tensura-comic/news/post/10534).

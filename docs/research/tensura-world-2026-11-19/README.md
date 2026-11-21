@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+Round55 [Vacation author-source review](vacation-source-review-r55.md) verifies the Malukshure capital cape,offshore tower and Sarion adjacency in the author public LN-aligned side serial. Exact west bearing remains wiki-qualified; C14 active binding stays open. Ledger236 unique (178+58),14 printed-LN claims plus3 new author-side-story records;129 inventory/32 follow-ups and58 art pairs retained. Source8c24a349/geometry/terrain/R53 painting unchanged. No main merge,apply,chunks or deploy.
+
 Round54 [Imperial source/key review](empire-source-review-r54.md) corrects the R51 duplicate IDs and ambiguous line locators,then adds one direct anonymous WN lake-country record and one wiki vassal-list record. Ledger233 unique records(175+58),14directLN;current source8c24a349,129inventory/32follow-ups and58art pairs unchanged. The R53 painting remains current;this research does not change terrain.
 
 Round52 [Dwargon terrain correction](../../../world/dwargon-approach-fix.md) adds DES-DWG-052,an explicitly interpreted native foothill/forecourt fit. Ledger231(173+58),14directLN. Both access-road endpoints now meet fixed first-air146;roof and other reservations retained. Current source8c24a349;R50 painting awaits local-relief review. Inventory129/32 follow-ups and58art pairs remain.
