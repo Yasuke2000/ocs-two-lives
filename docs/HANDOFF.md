@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — All58 place sheets checked against current map (R113)
+
+Only Frost Palace numerical reservation was stale;now(-1530,-3680),r89,clearing,margin48,first-air71 with explicit owner decision. Interior PNG visually fits inland setting;all58 PNG baseline Git blobs and57 unchanged sheets verified. Exact prompt/history retained andexplicitly qualified. See docs/art/places/current-map-registration-r113.md. Current source2463d771/mapbf0ba98 remains external authority;older local art-branch map unchanged. No source/terrain/runtime action or new canon claim.
+
 ## 21/11 — Englassia precinct concept follows R91 source limits
 
 The Englassia sheet now distinguishes its unchanged dry academy/Guild precinct from the separate WN-derived royal lake/court in current map source 43fed303. All reservation values, original PNG and exact prompt remain unchanged. No completed castle/capital or LN/initial-state acceptance. Required gate passed: 462 tests, 26 skipped, 0 failures (45.493 s).
