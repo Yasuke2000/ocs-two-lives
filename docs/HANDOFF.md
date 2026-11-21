@@ -1,3 +1,7 @@
+## 21/11 — Painted atlas carries Amrita association (R124)
+
+[Atlas note](../world/painting-round112/amrita-association-r124.md) adds the below-castle48 association from source PR111. All prior atlas children and continent artifacts retained;58 numbers/20 prior context names/3 new caption lines/42 inventory rows checked without overlaps. Geometry stays source4093/R120; C07 technical nesting/access remains open. No new terrain, runtime or placement action. Required gate passed:472 tests,26 skipped,zero failures in63.870s;validation and diff check pass.
+
 # Current handoff
 
 ## 21/11 — Painted Ulgr brook follows source (R120)

@@ -1,3 +1,7 @@
+## R124 — Amrita relationship now visible
+
+The [painted atlas clarification](amrita-association-r124.md) follows source PR111: ruins below castle48; marker49 remains the game reservation. No continent repaint or relocation. The original R120 evidence below remains historical and unchanged in scope.
+
 # Painted atlas: inland Ulgr spring brook (R120)
 
 ![Current painted atlas](atlas.png)
