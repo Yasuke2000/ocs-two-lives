@@ -27,7 +27,9 @@ Compared visually with the [official introductory map](https://www.ten-sura.com/
 - The server requires Dwargon due north and Nasca at least x3000. Consequently the atlas is **not a uniform
   scaled copy** of official point spacing. Northern relief is wider and the eastern lowland is expanded.
 - Islands are compressed to the fixed design box, not a claim of faithful world-scale island size.
-  The mainland is about 9653 by 6250 blocks; the total design box is 12288 by 10752, 512 taller than the preferred target.
+  The current mainland is about 9,989 by 6,250 blocks; the design box is 12,800 by 10,752,
+  512 above each preferred box dimension. The [vertex study](vertex-budget-study.md) records
+  the retained complexity tradeoff. Earlier rounds used a smaller western extent.
 - The fixed deadly forest rings, arrival clearing, Treyni shrine, Spirit Gate by Tempest, minor camps and
   specific biomes are server content. In particular the guide places the Spirit Dwelling entrance in northern
   Ulgracia (`OFF-005..006`); the near-Tempest portal is a separate server adaptation.
