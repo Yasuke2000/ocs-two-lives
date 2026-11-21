@@ -1,5 +1,12 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Painting follows Sacred Mountain and approach terrain (ChatGPT,round69)
+
+R69 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round69/README.md) integrates source90ee15b1 and R68’s Sacred Mountain shoulder/approach change. Its mask covers all4,483 changed height cells,including1,003 beyond the preparation/fade envelope;1,335 gradient samples are independently checked. Only473 continent pixels change,max28/255 per RGB channel,all within16.30 blocks of the measured footprint. All58 projections,16 context names and41 inventory rows remain checked;earlier R53/R61/R63/R64 art is retained. Production geometry is unchanged in this presentation round. Ledger261;inventory132/41 physical follow-ups remain open. Earlier R68 painting-pending statements below are historical and superseded by this integration.
+
+Next:other actual template-fit and source/location gaps. Keep initial-era,fixed-rule/extra-location decisions and local runtime acceptance open. This is a painting update,not a new source geography or completed missing location.
+
+
 ## 21/11 — Sacred Mountain built-perimeter accommodation (ChatGPT,round68)
 
 [R68 support review](../world/sacred-mountain-fit-review.md) changes only the Sacred Mountain radius80→95. All6,561 occupied columns and320 built-perimeter columns are now exactly level175 with bilinear andCatmull-Rom sampling. The automatic first-air falls179→175 andfade40→48;the existing15-block model ascent remains. Current source90ee15b1/default checker0 errors,56 relations,2 warnings;normal66.6s export has no converter warnings. Height changes4,483 cells,range-29.75..+51.0625,including the shoulder/approach. All58 x/z centres and21 horizontal road routes remain;only one site record and the Sacred Mountain trail profile change. This is a real terrain change,not a tiny visual patch.
