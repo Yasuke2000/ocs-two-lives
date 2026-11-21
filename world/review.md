@@ -1,4 +1,6 @@
-# Current map review — round43 current-source painting
+# Current map review — round44 vertex-budget study
+
+Round44 [vertex-budget study](vertex-budget-study.md) retains source7d021766. Nine outlines exceed the preferred120 vertices; all remain within the mandatory400 ceiling. Independent straight-line simplification reaches120 mainland vertices only at the tested32-block tolerance (31.951-block boundary displacement); no candidate adopted. Exact existing-mask coverage diagnostics expose small positive-area seams/overlaps without claiming runtime impact. Current checker preview and cached official map visually compared. Source geometry, previews, exports, art and ledger unchanged. Repository validation and 472 tests pass (26 skips, zero failures, 45.027s test tier). Full goal remains open; no apply/deploy.
 
 Round43 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) updates the northwestern headland against source7d021766 with a localized original texture edit and exact native masks/vectors. All58 source anchors,16 context labels and32 open rows verified; number spacing32.47px. Larger picture changes stay within the headland review buffer;12outside edge pixels differ at most2/255 per channel. Painting review retains the active SVG. Fresh checker0errors/all56relations/same2warnings. No production SVG/preview,terrain export or protected path changes; no converter rerun. Ledger217/14directLN,inventory129/32follow-ups and58art pairs retained. Repository validation and472 tests pass (26 skips,zero failures,44.683s test tier). Map-pointer branch validation and472 tests also pass (26 skips,zero failures,44.328s). Full goal remains open;no apply/deploy.
 
@@ -98,7 +100,9 @@ the episode10 naming event is not a standalone stop. Character selection opens a
 view. This does not establish surveyed borders or make omitted countries nonexistent.
 [Live verification](../docs/research/tensura-world-2026-11-19/official-interactive-map.md).
 
-## Verification and exact limits
+## Historical verification — round24
+
+This section records that earlier source. Current verification is recorded in the dated round44, round43 and round42 paragraphs above.
 
 - Standard checker after each SVG edit: **0 errors, all 56 relations pass**, two disclosed warnings:
   Laura waterfall crosses its escarpment; box 12288 by 10752 is 512 above preferred height, below the hard cap.
