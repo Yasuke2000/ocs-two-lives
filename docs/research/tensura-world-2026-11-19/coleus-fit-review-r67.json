@@ -28,5 +28,6 @@
   "visual_review": "Native occupied-footprint/ascent figure inspected against its data;two labels moved clear of lines;UTF-8 characters verified in final render.",
   "ledger_unique": 260,
   "full_audit": "../../../world/coleus-fit-review.json",
-  "full_audit_sha256": "fd9f87c84545616bea8a6e4bf813511f3ab0330dc8bddfd2289a01b73c7429a9"
+  "full_audit_sha256": "28d33fa5139ff53a0a985093dd71b176563a9c2694707fb7603bf609b06e8114",
+  "footprint_storage": "Lossless local row runs;5313 expanded columns verified against original decoded footprint."
 }
