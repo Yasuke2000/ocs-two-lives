@@ -216,7 +216,7 @@ ground = "fixed"
 
 [englassia]
 site = "clearing"
-r = 98
+r = 124
 min_r = 98
 box = [128, 112]
 plate = [144, 128]
