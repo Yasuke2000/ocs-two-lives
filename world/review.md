@@ -1,6 +1,6 @@
-## 21/11 - Painted Tengu terrain context aligned (R100)
+## 21/11 - Published painting follows Tengu terrain context (R100)
 
-[R100 painted atlas](painting-round100/README.md) follows source `dbef5ac0`: exact meadow shape, 15 changed continent pixels,20 context names and unchanged58 registered sites. Khusha text and the Tengu M-to-P row follow the main atlas; inventory138/42 and ledger305 remain. No village or active footpath is added. Source/terrain retained; no further production correction identified. Repository gate: 472 tests, 26 skipped, zero failures (63.658s); zero changed JavaScript.
+[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/260f1501ad0a009879b671291fd0e73b63fef497/world/painting-round100/README.md) follows source `dbef5ac0`: exact meadow shape,15 changed continent pixels,20 context names and all58 registrations checked. Khusha text and the Tengu partial row now agree with the main atlas. R98 is historical; painting alignment is complete. [Evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r100.md). Ledger305/inventory138/42 remain. Painting gate472 tests,26 skipped,zero failures(63.658s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.549s); zero changed JavaScript. Broader source/location/initial-era obligations stay open.
 
 ## 21/11 - Tengu ridge gains partial terrain context (R99)
 
@@ -10,10 +10,6 @@
 
 [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/e9cf188ea08d0306d4803de7f2a75ceb9f8cf5b6/world/painting-round98/README.md) follows source `bb0e4b29`: exact mainland boundary/four biome shapes, 3,201 checked texture triangles and 32,050 checked height-light samples. All 58 registrations, 19 names and the 138/42 panel retain layout. R95 is historical; western painting alignment is complete. [Alignment evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r98.md). Painting gate: 472 tests, 26 skipped, zero failures (63.532s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.304s); zero changed JavaScript. Broader source/location/initial-era obligations remain open.
 
-## 21/11 - Painted western coast aligned with terrain (R98)
-
-[R98 painted atlas](painting-round98/README.md) follows source `bb0e4b29`: exact current mainland path and four biome shapes, 3,201 checked texture triangles and 32,050 checked height-light samples. All 58 registrations, 19 names and the 138/42 coverage panel retain layout. Differences stay inside western support; broader source/era/location obligations remain. R95 is historical. Production SVG and current terrain previews remain unchanged after adoption. Repository gate: 472 tests, 26 skipped, zero failures (63.532s); zero changed JavaScript.
-
 ## 21/11 - Western peninsula follows the illustrated outline (R97)
 
 [Western coast review](western-peninsula-r97.md) restores the western lobe beyond a shortened northwestern headland. Source `bb0e4b29`; mainland9983x6250/design12800x10752; checker0errors/56relations/2prior warnings. The wider10443 trial failed the repository width gate and remains an inactive C12 alternative. Normal66.5s; all58 XML site attributes retained. Heaven Tower staged ground71to73, with bounded road-profile changes. Atlas58/19/42 retained; ledger304/inventory138/42. R95 painting needs alignment. Repository gate: 472 tests, 26 skipped, zero failures (63.383s); zero changed JavaScript.
@@ -21,10 +17,6 @@
 ## 21/11 — Published painting follows Ice coastal source (R95)
 
 [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/02ac2f8231e5712505df3bde787e03ee949b5d47/world/painting-round95/README.md) follows source `63df7185`: five exact source coasts, 1,869 checked height-light samples, all 58 registrations and 19 context names. Caption138/42 and ledger301 agree with current source scope. Painting gate472 tests,26 skipped,zero failures(63.796s). [Alignment evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r95.md). Earlier pending-painting notes below are historical. Main documentation gate **472 tests, 26 skipped, zero failures (63.631s)**; zero changed JavaScript.
-
-## 21/11 — Painted Ice offshore geography aligned (R95)
-
-[R95 painted atlas](painting-round95/README.md) follows current source `63df7185`: five exact source coast polygons,1,869 checked height-light samples and455 changed continent pixels within local support. All58 registrations,old18 context labels and42 open rows retain layout; current atlas has19 names and138-entry caption. Representative count,scale,coasts,palette and ownership remain qualified. No production SVG correction or runtime action. Required repository gate: 472 tests, 26 skipped, zero failures (63.796s); zero changed JavaScript.
 
 ## 21/11 — Illustrated Ice offshore group added (R94)
 

@@ -48,7 +48,7 @@ that all proportions or minor locations are correct.
   may establish persistent landforms but do not authorize later federation
   borders,festival metropolis,Dungeon,railways or completed conquests.
 - The current terrain atlas follows source `b2750950`. The [R105 painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/8b4bbf6/world/painting-round105/README.md)
-  predates the southeastern water/woodland and142-entry caption; alignment is due.
+  is historical; the [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows current southeastern water/woodland and142-entry caption.
   Existing original place art remains a separate design deliverable.
 
 Final source check:0errors/56relations/2prior warnings. Normal staging build
