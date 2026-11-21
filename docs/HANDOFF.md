@@ -1,5 +1,13 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Northern island painting follows the R77 terrain (ChatGPT, round 78)
+
+R78 [current painted atlas](../world/painting-round 78/README.md) integrates the R77 northern island and surrounding water from source e8f17470. Verified R69 underpainting plus exact new native coast/height/depth layers change 5171 continent pixels, all inside the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows are retained; inventory caption 133. Prior editable art/texture files remain unchanged. Ledger 277/inventory 133/41 follow-ups; full geography/source/era goal remains open.
+
+Validation: 472 tests / 26 skipped / zero failures (62.794s); checker0 errors/56 relations/2 existing warnings. Independent source/mask/sample/hash/pixel-locality and registration checks pass. Final painting/preview/reference comparison found no additional source-SVG correction for this island.
+
+Next: remaining actual source/location/initial-era questions. R77 painting-integration follow-up closed only; no production SVG change,apply,chunks,protected edits or deployment.
+
 ## 21/11 — Missing illustrated northern island drawn (ChatGPT, round 77)
 
 R77 [unnamed northern island](../world/northern-island-review.md) adds a source-visible landmass omitted from the earlier three-coast drawing. Exact shore, 615×350 scale, rolling hill and F administrative coverage are authored; ownership/name/early state remain unverified. Source e8f17470; 4 coasts, 23 region polygons, 58 sites/21 roads. Checker 0 errors/56 relations/2 existing warnings; normal 65.8s. Inventory 133/41 physical follow-ups; ledger 277(219+58), printed-LN14/author6. Terrain atlas refreshed; R69 painting requires integration.
