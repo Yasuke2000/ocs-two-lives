@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — treant routes and unsupported territorial claim corrected (ChatGPT, round57)
+
+Round57 [treant source/route review](research/tensura-world-2026-11-19/treant-route-context-r57.md) adds4 qualified primary records. WN43 supplies sanctuary-limited movement and a conditional wetland food-transport comparison; neither establishes a Tempest cart distance. The old lore page's east-of-Ameld sovereign half and profile sister-count attribution are corrected. Ledger241 unique(183+58),14 direct printed-LN plus3 LN-aligned author-side-story claims;129 inventory/32 follow-ups and58 art pairs remain. Source e886217d and all production geometry/terrain/painting remain unchanged. Full goal stays open. Repository validation and472 tests pass (26 skips,zero failures,62.329s);no changed JavaScript or in-game run. The source diagram was visually inspected. Source/preview/terrain/atlas and implementation paths are unchanged from485ef65; no converter rerun.
+
+Next:continue actual source/coverage work; no arbitrary settlement parcel or Tempest supply road follows from the new comparison. R56/R57 made concrete progress.
+
 ## 21/11 — coastal capital proposal reaches its cape (ChatGPT, round56)
 
 Round56 [Malukshure cape alternative](../world/malukshure-cape-study.md) corrects the old city disc that stopped58.7 blocks before the current shore. A connected city envelope and36-block cape remain inert C14/C15 geometry; tower disc retains30.3 blocks of sea clearance. The active SVG tree,all58 sites and21 roads remain identical; only the source comment changes. Ledger237 unique(179+58),14 direct printed-LN plus3 selected LN-aligned author-web claims;129 inventory/32 follow-ups and58 art pairs remain. Full goal is open. Current source e886217d is a comment-only revision of8c24a349. A normal65.5s export confirms all13 non-index files byte-identical; index differs only in source_sha256. Current preview/terrain/atlas and R53 painting geometry are retained. Repository validation and472 tests pass (26 skips,zero failures,62.583s);no changed JS or in-game run.

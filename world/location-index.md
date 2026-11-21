@@ -1,5 +1,7 @@
 # Location index — map coverage and source scope
 
+Round57 [treant source context](../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) adds primary route/sanctuary detail but no surveyed parcel. The existing32 coverage classifications remain unchanged; one tree and an authored altar do not cover the whole community.
+
 Companion to the [numbered terrain atlas](atlas.png). All 129 current inventory records are listed below;58 numbered terrain reservations are a different registry. Category routes,organisations,other worlds and later-era references are retained as scope entries,not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
 
 Round45 directly verifies the immobile guarded treant community in [WN chapter42](https://ncode.syosetu.com/n6316bn/44/#L309). It does not locate its parcel or complete settlement coverage; the 32 open classifications are retained.

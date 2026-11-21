@@ -1,5 +1,7 @@
 # Lore pass, 18/11/2026: canon accuracy and tone
 
+Round57 source correction: the historical Treyni row below called the eastern-half claim correct. The [current primary-source review](../../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) does not establish that political boundary or sanctuary parcel. Current own-world reservations and source limits supersede the imported-map coordinates; this table remains a historical assessment, not current geographical verification.
+
 Owner request (decisions.md, 18/11 afternoon): "make sure our pseudo-lore-accurate vibes are right" and "make the City
 of the Forgotten Dragon lore accurate". Scope: the City of the Forgotten Dragon (placement, look), the player-facing
 text (story.toml, npcs.toml, quests, guide.toml, Voice of the World lines in the scripts, region and build titles) and
