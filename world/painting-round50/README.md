@@ -1,5 +1,7 @@
 # Current painted continent — round 50
 
+Historical sourcecb07cce7 presentation. The [round53 atlas](../painting-round53/README.md) follows source8c24a349 with native local-relief lighting; original R50 pixels and provenance remain intact.
+
 [Marked atlas](atlas.png) · [clean continent](continent.png) · [editable composition](continent.svg) · [provenance](provenance.json) · [geometry and layout audit](presentation-audit.json) · [official comparison](comparison.md).
 
 This native SVG presentation follows production source `cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371` at map commit `06de1b2`. The three coast outlines, land clip and sea mask use the actual current source shapes, including its cubic mainland path. Nine lake outlines, eight rivers with source widths, all 21 roads and two interpreted habitat highlights retain their source geometry. The world frame is unchanged at (-8064,-5632,16128,10752).

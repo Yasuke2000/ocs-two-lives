@@ -1,5 +1,9 @@
 # Tensura geography research — round49 shared-curve geography
 
+Round52 [Dwargon terrain correction](../../../world/dwargon-approach-fix.md) adds DES-DWG-052,an explicitly interpreted native foothill/forecourt fit. Ledger231(173+58),14directLN. Both access-road endpoints now meet fixed first-air146;roof and other reservations retained. Current source8c24a349;R50 painting awaits local-relief review. Inventory129/32 follow-ups and58art pairs remain.
+
+Round51 [Dwargon source review](dwargon-source-review-r51.md) adds four qualified author-WN claims and one original terrain-interface audit record. Ledger230(172+58),14directLN. The road/template join needs correction; production geometry/exports,129inventory/32follow-ups and58art pairs remain unchanged. Current original painting is round50 in PR102, matched to sourcecb07cce7.
+
 Round49 [shared curves](../../../world/shared-curve-review.md) adds one interpreted geometry record,DES-CUR-049. Ledger225 (167+58),14 direct LN claims. Sourcecb07cce7 adopts120-node mainland/shared region arcs with exact native sampled coverage; all58 site tuples remain. Updated terrain atlas/preview are current; R43 painting is historical until native refresh. Inventory129/32 follow-ups and58 art pairs remain.
 
 Round47 [licensed manga review](licensed-manga-review-r47.md) directly inspects selected public chapter1 cave panels,with reader positions and access limits. Official episode2 corrects the overstrong spent-seal wording. Ledger224 (166+58),14 direct LN; source geometry,129 inventory/32 follow-ups and58 art pairs retained.
