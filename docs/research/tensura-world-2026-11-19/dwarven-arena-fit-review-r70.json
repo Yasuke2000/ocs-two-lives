@@ -1,0 +1,654 @@
+{
+  "round": 70,
+  "source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+  "site": {
+    "id": "dwarven_arena",
+    "kind": "clearing",
+    "x": 500,
+    "z": -1180,
+    "r": 58,
+    "plated": true,
+    "y": 75,
+    "index": 11,
+    "fade": 29,
+    "biome": "minecraft:meadow",
+    "margin": 48.0
+  },
+  "size": [
+    75,
+    26,
+    51
+  ],
+  "anchor": [
+    3,
+    1,
+    25
+  ],
+  "template_corner": [
+    497,
+    74,
+    -1205
+  ],
+  "defined_entries": 64466,
+  "nonair_blocks": 25856,
+  "nonair_columns": {
+    "columns": 3343,
+    "outside_drawn_radius": 810,
+    "bicubic_min": 74.95823919773102,
+    "bicubic_max": 83.3603230714798,
+    "bicubic_max_abs_difference": 8.360323071479797,
+    "bilinear_max_abs_difference": 8.3974609375,
+    "bicubic_over_half_block": 561,
+    "worst_local": [
+      74,
+      0
+    ],
+    "worst_world": [
+      571.5,
+      -1204.5
+    ],
+    "geometric_radius_to_contain": 76,
+    "radius_to_contain_all16_sampler_neighbours": 84
+  },
+  "perimeter_columns": {
+    "columns": 186,
+    "outside_drawn_radius": 88,
+    "bicubic_min": 74.97340738773346,
+    "bicubic_max": 83.3603230714798,
+    "bicubic_max_abs_difference": 8.360323071479797,
+    "bilinear_max_abs_difference": 8.3974609375,
+    "bicubic_over_half_block": 77,
+    "worst_local": [
+      74,
+      0
+    ],
+    "worst_world": [
+      571.5,
+      -1204.5
+    ],
+    "geometric_radius_to_contain": 76,
+    "radius_to_contain_all16_sampler_neighbours": 84
+  },
+  "functional_support_boxes": {
+    "forecourt": {
+      "columns": 54,
+      "outside_drawn_radius": 0,
+      "bicubic_min": 75.0,
+      "bicubic_max": 75.0,
+      "bicubic_max_abs_difference": 0.0,
+      "bilinear_max_abs_difference": 0.0,
+      "bicubic_over_half_block": 0,
+      "worst_local": [
+        0,
+        21
+      ],
+      "worst_world": [
+        497.5,
+        -1183.5
+      ],
+      "geometric_radius_to_contain": 6,
+      "radius_to_contain_all16_sampler_neighbours": 15
+    },
+    "west_entrance": {
+      "columns": 15,
+      "outside_drawn_radius": 0,
+      "bicubic_min": 75.0,
+      "bicubic_max": 75.0,
+      "bicubic_max_abs_difference": 0.0,
+      "bilinear_max_abs_difference": 0.0,
+      "bicubic_over_half_block": 0,
+      "worst_local": [
+        6,
+        24
+      ],
+      "worst_world": [
+        503.5,
+        -1180.5
+      ],
+      "geometric_radius_to_contain": 8,
+      "radius_to_contain_all16_sampler_neighbours": 16
+    },
+    "pit": {
+      "columns": 1476,
+      "outside_drawn_radius": 0,
+      "bicubic_min": 75.0,
+      "bicubic_max": 75.0,
+      "bicubic_max_abs_difference": 0.0,
+      "bilinear_max_abs_difference": 0.0,
+      "bicubic_over_half_block": 0,
+      "worst_local": [
+        11,
+        5
+      ],
+      "worst_world": [
+        508.5,
+        -1199.5
+      ],
+      "geometric_radius_to_contain": 49,
+      "radius_to_contain_all16_sampler_neighbours": 57
+    },
+    "stairs": {
+      "columns": 105,
+      "outside_drawn_radius": 0,
+      "bicubic_min": 75.0,
+      "bicubic_max": 75.0,
+      "bicubic_max_abs_difference": 0.0,
+      "bilinear_max_abs_difference": 0.0,
+      "bicubic_over_half_block": 0,
+      "worst_local": [
+        47,
+        8
+      ],
+      "worst_world": [
+        544.5,
+        -1196.5
+      ],
+      "geometric_radius_to_contain": 50,
+      "radius_to_contain_all16_sampler_neighbours": 59
+    },
+    "dais": {
+      "columns": 665,
+      "outside_drawn_radius": 309,
+      "bicubic_min": 74.95823919773102,
+      "bicubic_max": 77.44328880310059,
+      "bicubic_max_abs_difference": 2.443288803100586,
+      "bilinear_max_abs_difference": 2.51171875,
+      "bicubic_over_half_block": 145,
+      "worst_local": [
+        68,
+        8
+      ],
+      "worst_world": [
+        565.5,
+        -1196.5
+      ],
+      "geometric_radius_to_contain": 68,
+      "radius_to_contain_all16_sampler_neighbours": 74
+    }
+  },
+  "source_files": [
+    {
+      "path": "pack/kubejs/data/ttl/structure/dwarven_arena.nbt",
+      "sha256": "78e5403398e521b0faf880e5b9d5ea01c19dfe61edf905757208b3529f870d5a"
+    }
+  ],
+  "maximum_defined_world_y": 99,
+  "runtime_reference": "CanonRasters.height/cubic;read-only formula comparison,not runtime density/noise or placement.",
+  "terrain_vs_model": {
+    "columns_designed_first_air_above_highest_solid_first_air": 0,
+    "maximum_terrain_above_highest_solid_first_air": 0.0,
+    "columns_designed_first_air_below_lowest_solid_block": 0,
+    "minimum_first_air_minus_lowest_solid_block": 0.9582391977310181
+  },
+  "occupied_column_masks": {
+    "exclude": {
+      "containing_pixel_value_counts": {
+        "1": 3343
+      },
+      "all_have_SITE_bit": true
+    },
+    "water": {
+      "containing_pixel_value_counts": {
+        "0": 3343
+      }
+    },
+    "sites": {
+      "containing_pixel_value_counts": {
+        "0": 860,
+        "11": 2483
+      }
+    }
+  },
+  "spawn_floor_and_headroom": [
+    {
+      "id": "spawn_a",
+      "local": [
+        15,
+        1,
+        25
+      ],
+      "floor_state": "minecraft:crimson_stem[axis=x]",
+      "feet_and_head_states": [
+        "minecraft:air",
+        "minecraft:air",
+        "minecraft:air"
+      ],
+      "all_three_explicit_air": true,
+      "world_feet": [
+        512,
+        75,
+        -1180
+      ]
+    },
+    {
+      "id": "spawn_b",
+      "local": [
+        43,
+        1,
+        25
+      ],
+      "floor_state": "minecraft:crimson_stem[axis=z]",
+      "feet_and_head_states": [
+        "minecraft:air",
+        "minecraft:air",
+        "minecraft:air"
+      ],
+      "all_three_explicit_air": true,
+      "world_feet": [
+        540,
+        75,
+        -1180
+      ]
+    },
+    {
+      "id": "mob_0",
+      "local": [
+        30,
+        1,
+        25
+      ],
+      "floor_state": "minecraft:crimson_stem[axis=x]",
+      "feet_and_head_states": [
+        "minecraft:air",
+        "minecraft:air",
+        "minecraft:air"
+      ],
+      "all_three_explicit_air": true,
+      "world_feet": [
+        527,
+        75,
+        -1180
+      ]
+    },
+    {
+      "id": "mob_1",
+      "local": [
+        20,
+        1,
+        25
+      ],
+      "floor_state": "minecraft:crimson_stem[axis=x]",
+      "feet_and_head_states": [
+        "minecraft:air",
+        "minecraft:air",
+        "minecraft:air"
+      ],
+      "all_three_explicit_air": true,
+      "world_feet": [
+        517,
+        75,
+        -1180
+      ]
+    },
+    {
+      "id": "mob_2",
+      "local": [
+        40,
+        1,
+        25
+      ],
+      "floor_state": "minecraft:crimson_stem[axis=x]",
+      "feet_and_head_states": [
+        "minecraft:air",
+        "minecraft:air",
+        "minecraft:air"
+      ],
+      "all_three_explicit_air": true,
+      "world_feet": [
+        537,
+        75,
+        -1180
+      ]
+    },
+    {
+      "id": "mob_3",
+      "local": [
+        30,
+        1,
+        11
+      ],
+      "floor_state": "minecraft:stone",
+      "feet_and_head_states": [
+        "minecraft:air",
+        "minecraft:air",
+        "minecraft:air"
+      ],
+      "all_three_explicit_air": true,
+      "world_feet": [
+        527,
+        75,
+        -1194
+      ]
+    },
+    {
+      "id": "mob_4",
+      "local": [
+        30,
+        1,
+        39
+      ],
+      "floor_state": "minecraft:stone",
+      "feet_and_head_states": [
+        "minecraft:air",
+        "minecraft:air",
+        "minecraft:air"
+      ],
+      "all_three_explicit_air": true,
+      "world_feet": [
+        527,
+        75,
+        -1166
+      ]
+    }
+  ],
+  "scope": "Current designed height and decoded model only; source raster is not final noise/density or tree/placement simulation. Ground survey and fit code are read as interface evidence,not executed. Raised dais comparisons to entrance first-air are not a level-floor criterion.",
+  "decision": "Retain r58 for now: main pit/entry are flat; elevated rear shell is not an exposed common-level plaza. No occupied column has terrain above its highest solid first-air or below its lowest solid block; all occupied columns have SITE exclusion. Explicit spawn headroom is checked. This does not prove whole-interior walkability,all undefined cells safe,or runtime placement. Do not enlarge to r84 solely to flatten the complete rectangle.",
+  "read_only_inputs": [
+    {
+      "path": "blueprints/dwarven_arena.py",
+      "sha256": "78213e665a34ed35e84497d30126c8ed4c52dddeddb2634f4a4fcc021cfa1971"
+    },
+    {
+      "path": "design/builds/dwarven_arena.toml",
+      "sha256": "b61cc18ac43e4ac68ed039c7709bc372c8cb485296ad9ace24ae6897e78c34c1"
+    },
+    {
+      "path": "pack/kubejs/server_scripts/ttl/life/builds.js",
+      "sha256": "1421a85d2bcd6b39d98a4b3a7f202eb5888f6c4024efc2ee7ca905f452962036"
+    },
+    {
+      "path": "mod/src/main/java/com/yasuke/ttl/world/CanonRasters.java",
+      "sha256": "ca964a28894b3d373c2117c34a1ae13ef95a585097b1b5a45216ccd11facce0b"
+    }
+  ],
+  "occupied_columns_lossless_z_x0_x1_exclusive": [
+    [
+      0,
+      11,
+      75
+    ],
+    [
+      1,
+      11,
+      75
+    ],
+    [
+      2,
+      11,
+      75
+    ],
+    [
+      3,
+      11,
+      75
+    ],
+    [
+      4,
+      11,
+      75
+    ],
+    [
+      5,
+      11,
+      75
+    ],
+    [
+      6,
+      11,
+      75
+    ],
+    [
+      7,
+      11,
+      75
+    ],
+    [
+      8,
+      11,
+      75
+    ],
+    [
+      9,
+      11,
+      75
+    ],
+    [
+      10,
+      11,
+      75
+    ],
+    [
+      11,
+      11,
+      75
+    ],
+    [
+      12,
+      11,
+      75
+    ],
+    [
+      13,
+      11,
+      75
+    ],
+    [
+      14,
+      11,
+      75
+    ],
+    [
+      15,
+      11,
+      75
+    ],
+    [
+      16,
+      11,
+      75
+    ],
+    [
+      17,
+      11,
+      75
+    ],
+    [
+      18,
+      11,
+      75
+    ],
+    [
+      19,
+      11,
+      75
+    ],
+    [
+      20,
+      11,
+      75
+    ],
+    [
+      21,
+      0,
+      6
+    ],
+    [
+      21,
+      11,
+      75
+    ],
+    [
+      22,
+      0,
+      6
+    ],
+    [
+      22,
+      11,
+      75
+    ],
+    [
+      23,
+      0,
+      75
+    ],
+    [
+      24,
+      0,
+      75
+    ],
+    [
+      25,
+      0,
+      75
+    ],
+    [
+      26,
+      0,
+      75
+    ],
+    [
+      27,
+      0,
+      75
+    ],
+    [
+      28,
+      0,
+      6
+    ],
+    [
+      28,
+      11,
+      75
+    ],
+    [
+      29,
+      0,
+      6
+    ],
+    [
+      29,
+      11,
+      75
+    ],
+    [
+      30,
+      11,
+      75
+    ],
+    [
+      31,
+      11,
+      75
+    ],
+    [
+      32,
+      11,
+      75
+    ],
+    [
+      33,
+      11,
+      75
+    ],
+    [
+      34,
+      11,
+      75
+    ],
+    [
+      35,
+      11,
+      75
+    ],
+    [
+      36,
+      11,
+      75
+    ],
+    [
+      37,
+      11,
+      75
+    ],
+    [
+      38,
+      11,
+      75
+    ],
+    [
+      39,
+      11,
+      75
+    ],
+    [
+      40,
+      11,
+      75
+    ],
+    [
+      41,
+      11,
+      75
+    ],
+    [
+      42,
+      11,
+      75
+    ],
+    [
+      43,
+      11,
+      75
+    ],
+    [
+      44,
+      11,
+      75
+    ],
+    [
+      45,
+      11,
+      75
+    ],
+    [
+      46,
+      11,
+      75
+    ],
+    [
+      47,
+      11,
+      75
+    ],
+    [
+      48,
+      11,
+      75
+    ],
+    [
+      49,
+      11,
+      75
+    ],
+    [
+      50,
+      11,
+      75
+    ]
+  ],
+  "height_input_sha256": "9674d560e06d7310ba9a2b9c56a7027d083b73edb12e4023a8b72f0111a483a2",
+  "source_unchanged": true,
+  "hypothetical_full_rectangle_radius84_is_not_a_required_change": true,
+  "verification": {
+    "repository_validation": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.737,
+    "changed_javascript_files": 0,
+    "visual_review": "Original plan and exact solid/air section inspected;disc/footprint contained;source unchanged.",
+    "independent_inputs_and_scope_checks": "passed"
+  }
+}

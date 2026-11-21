@@ -1,5 +1,7 @@
 # Dwargon and Englassia — city coverage study
 
+[R74 castle/lake alternative](englassia-castle-lake-study.md) now makes C17 reviewable geometry. It remains inert;the dry capital,guild/academy model andactive coverage classifications stay unchanged. WN evidence is not promoted to verified LN/anime architecture.
+
 R65 [official named anime interior reference](night-garden-visual-brief.md) adds local material vocabulary. The underground relationship,dimensions,access and initial room state remain separately qualified;the proposal is still inert.
 
 Round64 adds Night Garden and its burial chamber to the city/interior queue:there are now9 such records,6 missing distinct representations and3 unverified parent designs. The original seven-city review below remains historical;its existing blueprints do not implement the new underground city. [Source/scope review](../docs/research/tensura-world-2026-11-19/lubelius-hidden-locations-r64.md).

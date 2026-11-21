@@ -1,0 +1,114 @@
+{
+  "source_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
+  "baseline_source_sha256": "82135855d80430f1e4a723f92c86d9802b45c79e03fe2cd2c8c03503bfb6da2e",
+  "bounds": [
+    -2445.0,
+    -2310.0,
+    -1830.0,
+    -1960.0
+  ],
+  "area": 134050.0,
+  "shore_vertices": 27,
+  "hill_vertices": 26,
+  "gap_to_previous_landmasses": {
+    "mainland": 111.36820818149928,
+    "ice-continent": 991.831618774074,
+    "el-dorado-island": 4749.718412706168
+  },
+  "raster_deltas": {
+    "height.png": {
+      "changed_cells": 38397,
+      "world_centres_bounds": [
+        -2662,
+        -2598,
+        -1738,
+        -1722
+      ],
+      "max_distance_from_new_island": 305.94934221207274,
+      "centres_in_preexisting_land": 0,
+      "delta_min": -6.0,
+      "delta_max": 1817.0,
+      "height_delta_blocks": [
+        -0.375,
+        113.5625
+      ]
+    },
+    "rugged.png": {
+      "changed_cells": 10847,
+      "world_centres_bounds": [
+        -2466,
+        -2326,
+        -1806,
+        -1946
+      ],
+      "max_distance_from_new_island": 31.11269837220809,
+      "centres_in_preexisting_land": 0,
+      "delta_min": 1.0,
+      "delta_max": 76.0
+    },
+    "water.png": {
+      "changed_cells": 0
+    },
+    "biome.png": {
+      "changed_cells": 8290,
+      "world_centres_bounds": [
+        -2446,
+        -2314,
+        -1850,
+        -1958
+      ],
+      "max_distance_from_new_island": 13.416407864998739,
+      "centres_in_preexisting_land": 0,
+      "delta_min": 1.0,
+      "delta_max": 12.0
+    },
+    "sites.png": {
+      "changed_cells": 0
+    },
+    "road.png": {
+      "changed_cells": 0
+    },
+    "exclude.png": {
+      "changed_cells": 0
+    }
+  },
+  "byte_identical_exports": [
+    "sites.json",
+    "sites.toml",
+    "anchors.toml",
+    "roads.json",
+    "water.png",
+    "sites.png",
+    "road.png",
+    "exclude.png"
+  ],
+  "all_existing_parsed_shapes_unchanged": true,
+  "site_count": 58,
+  "normal_build_seconds": 65.8,
+  "normal_converter_warnings": 0,
+  "painting_status": "R69 painting predates the fourth coast; explicit integration remains required.",
+  "exact_native_region_cover": {
+    "uncovered_area": 0.0,
+    "outside_area": 0.0,
+    "overlap_area": 2.2351741790771484e-08
+  },
+  "inventory_records": 133,
+  "physical_followups": 41,
+  "unique_ledger_records": 277,
+  "official_reference": {
+    "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp",
+    "sha256": "d306892d8ca705742628ec75c2163082ab40da1ef4b1e691903a5926bc4a3f7a",
+    "visual_review": "Directly viewed beside old/new checker previews and the current terrain atlas.",
+    "interpretation_limit": "Image establishes a detached unlabelled island,not a name,owner,surveyed shore,climate orinitial-era state."
+  },
+  "atlas_check": "Embedded own-terrain PNG byte-exact;58 marker/16 context/41 open-row positions retained;caption count133.",
+  "all_non_image_atlas_elements_unchanged_except_inventory_caption": true,
+  "repository_gate": {
+    "result": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 62.818
+  },
+  "visual_review": "Final checker preview,official introductory illustration,before/after native study and current terrain atlas viewed. Final atlas caption133 inspected;new fourth coast visible."
+}

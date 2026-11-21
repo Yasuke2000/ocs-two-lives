@@ -1,5 +1,59 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Missing illustrated northern island drawn (ChatGPT, round 77)
+
+R77 [unnamed northern island](../world/northern-island-review.md) adds a source-visible landmass omitted from the earlier three-coast drawing. Exact shore, 615×350 scale, rolling hill and F administrative coverage are authored; ownership/name/early state remain unverified. Source e8f17470; 4 coasts, 23 region polygons, 58 sites/21 roads. Checker 0 errors/56 relations/2 existing warnings; normal 65.8s. Inventory 133/41 physical follow-ups; ledger 277(219+58), printed-LN14/author6. Terrain atlas refreshed; R69 painting requires integration.
+
+Validation passed: 472 tests / 26 skipped / zero failures (62.818s). Native region partition, existing-shape/anchor/export preservation, raster delta locality, 277 unique IDs, 133 inventory records and exact atlas-image/layout checks passed. Final checker, source reference, study and atlas visually inspected.
+
+Next: explicit R69 painting integration for the new fourth coast and bathymetry; remaining source/location/initial-state questions. No protected edit, apply, main merge, chunks or deployment.
+
+## 21/11 — Nasca gate/access evidence and Empire category screen (ChatGPT, round 76)
+
+R76 [Nasca source/access review](../world/nasca-source-topology.md) adds direct WN gates-on-four-sides and near-capital forest-road evidence, without exact bearings or initial-state claims. The 55 returned Eastern Empire category titles are enumerated; article bodies, military/child routes and unlocated settlements remain open. Ledger 275 (217+58); inventory 132/41 physical follow-ups retained. Source 82135855, terrain, R69 painting and R73 art registration are unchanged.
+
+Validation passed: 472 tests / 26 skipped / zero failures (62.734s). Independent source-ID/hash, category, inventory and unchanged-source checks passed; original diagram PNG visually inspected.
+
+Next: direct revised-city geography, initial state and remaining military/child-category or settlement leads. No production geometry or protected edits.
+
+## 21/11 — Underwater Kaien andseparate later island visit (ChatGPT, round 75)
+
+R75 [Kaien/Resort Island source review](../world/kaien-resort-source-review.md) adds scoped official movie evidence and three inspected promotional-image references. The existing two inventory entries stay open; Kaien is now explicitly an underwater-country review. Exact location, depth and initial state remain unverified. Ledger 273 unique(215+58); inventory 132/41 physical follow-ups unchanged. Source 82135855, normal terrain, R69 painting and R73 art metadata remain unchanged.
+
+Validation: repository gate passed, 472 tests / 26 skipped / zero failures (62.807s); independent source, inventory and private-hash checks passed. Original diagram PNG inspected.
+
+Next: remaining source/location and initial-era questions. No guessed surface islands orcoordinates; no location is marked implemented by the classification change. Technical placement remains Claude’s handoff.
+
+## 21/11 — Englassia central-lake castle alternative drawn (ChatGPT,round74)
+
+R74 [Englassia central-lake castle alternative](../world/englassia-castle-lake-study.md) supplies the missing C17 review geometry inside an inert source comment. One basin,four hole-free water sectors,dry plinth,castle-footprint trial andfour urban links remain authored interpretations of WN56-003. Active XML,checker preview andall13 non-index normal exports remain identical;only index source provenance changes. Current source82135855,normal65.6s. Ledger269 unique(211+58);inventory132/41 follow-ups retained. Continuity,water/model/road priority andactual castle implementation remain open. R69 painting andR73 art numeric metadata remain valid by active-geometry equivalence.
+
+Default checker0 errors/56 relations/2 existing warnings;preview/reference andoriginal plan inspected. Validation and472 tests pass(26 skipped,zero failures,62.465s);actual-comment geometry and13-export equivalence independently checked. Next:actual source/location/era gaps andthe documented C17/C15 decisions. This closes the missing review drawing only;no protected edit,main merge,apply,chunks ordeployment.
+
+## 21/11 — Actual creative deliverables andart metadata audit (ChatGPT,round73)
+
+R73 [creative delivery audit](../world/delivery-audit-r73.md) checks the full brief andretains incomplete status. All58 art pairs exist;[PR101 metadata](https://github.com/Yasuke2000/ocs-two-lives/blob/7d5699b/docs/art/places/current-map-registration-r73.md) now corrects three stale radii without changing any PNG. The132-row coverage table is reconciled,with41 follow-ups retained. A concrete remaining drawing is C17’s qualified Englassia lake/castle alternative. Technical conversion/placement remains Claude’s handoff. Source90ee15b1,terrain,R69 painting and268-record ledger are unchanged.
+
+Fresh checker0 errors/56 relations/2 existing warnings;preview/reference inspected. Art-branch gate462 tests(26 skipped,zero failures,44.559s). Main audit validation and472 tests pass(26 skipped,zero failures,62.503s);input/count/history/registration checks pass. Next:C17 drawn alternative,then actual geographical/source/era gaps;no new technical-agent task is silently added tocreative scope.
+
+## 21/11 — Long Wall physical contour and road opening (ChatGPT,round72)
+
+R72 [Long Wall contour and gate proposal](../world/long-wall-build-plan.md) samples the current source and fits an opening to both native/exported caravan-road projections. The5-block body follows the existing grade;exact dimensions are authored. Still inert andmissing in active coverage. Ledger268 unique(210+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Source90ee15b1,normal terrain and R69 painting remain unchanged. Validation and472 tests pass(26 skipped,zero failures,62.489s);both diagrams inspected;independent source/geometry/scope checks pass.
+
+Next:final gate corner/structure-exclusion/foundation/era/registration review and remaining locations. No generated wall or gameplay barrier;protected Jura magicule core unchanged.
+
+## 21/11 — Ulgracia identity and threshold source review (ChatGPT,round71)
+
+R71 [Ulgracia source/identity review](../world/ulgr-spatial-source-review.md) adds three scoped WN61 claims and an original relational diagram. Corrected capital/park labels and the unsupported capital-associated spring wording;Galut and the extra-location/portal decisions remain open. Source90ee15b1,normal terrain and R69 painting are unchanged. Validation and472 tests pass(26 skipped,zero failures,62.792s);five official stills and original diagram inspected;independent scope/input checks pass. Ledger265 unique(207+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier summaries below are historical.
+
+Next:verify remaining actual locations and initial-era/source/registration questions. Do not turn the WN unnamed town into an identified Galut parcel or an ordinary physical labyrinth. No protected edit,terrain apply,main merge,chunks or deployment.
+
+## 21/11 — Dwarven arena occupied rear shell review (ChatGPT,round70)
+
+[R70 actual-model review](../world/dwarven-arena-fit-review.md) retains r58. Forecourt,entry,pit and stair context are exactly75 with both samplers;rear variation belongs to the enclosed raised model rather than an exposed common-level plaza. All3,343 occupied columns have SITE exclusion and source surface between their lowest solid base and highest solid top. Seven declared spawn points have explicit model floors/air. This rejects rectangle-only radius84 flattening,not runtime/collision/whole-interior acceptance. Legacy survey/beside placement still needs fixed-map reconciliation. Validation and472 tests pass(26 skipped,zero failures,62.737s);original diagram visually inspected;input/footprint/source checks pass.
+
+Source90ee15b1,normal terrain and R69 painting unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Next:remaining source/location/fit gaps and technical placement interfaces. No protected edit,apply,chunks,main merge or deployment.
+
 ## 21/11 — Painting follows Sacred Mountain and approach terrain (ChatGPT,round69)
 
 R69 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round69/README.md) integrates source90ee15b1 and R68’s Sacred Mountain shoulder/approach change. Its mask covers all4,483 changed height cells,including1,003 beyond the preparation/fade envelope;1,335 gradient samples are independently checked. Only473 continent pixels change,max28/255 per RGB channel,all within16.30 blocks of the measured footprint. All58 projections,16 context names and41 inventory rows remain checked;earlier R53/R61/R63/R64 art is retained. Production geometry is unchanged in this presentation round. Ledger261;inventory132/41 physical follow-ups remain open. Earlier R68 painting-pending statements below are historical and superseded by this integration.

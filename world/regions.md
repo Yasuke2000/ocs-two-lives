@@ -1,5 +1,15 @@
 # Region book — anime-led Minecraft world
 
+R77 [unnamed northern island](northern-island-review.md) adds a source-visible landmass omitted from the earlier three-coast drawing. Exact shore, 615×350 scale, rolling hill and F administrative coverage are authored; ownership/name/early state remain unverified. Source e8f17470; 4 coasts, 23 region polygons, 58 sites/21 roads. Checker 0 errors/56 relations/2 existing warnings; normal 65.8s. Inventory 133/41 physical follow-ups; ledger 277(219+58), printed-LN14/author6. Terrain atlas refreshed; R69 painting requires integration.
+
+R74 [Englassia central-lake castle alternative](englassia-castle-lake-study.md) supplies the missing C17 review geometry inside an inert source comment. One basin,four hole-free water sectors,dry plinth,castle-footprint trial andfour urban links remain authored interpretations of WN56-003. Active XML,checker preview andall13 non-index normal exports remain identical;only index source provenance changes. Current source82135855,normal65.6s. Ledger269 unique(211+58);inventory132/41 follow-ups retained. Continuity,water/model/road priority andactual castle implementation remain open. R69 painting andR73 art numeric metadata remain valid by active-geometry equivalence.
+
+R72 [Long Wall contour and gate proposal](long-wall-build-plan.md) samples the current source and fits an opening to both native/exported caravan-road projections. The5-block body follows the existing grade;exact dimensions are authored. Still inert andmissing in active coverage. Ledger268 unique(210+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Source90ee15b1,normal terrain and R69 painting remain unchanged.
+
+R71 [Ulgracia source/identity review](ulgr-spatial-source-review.md) adds three scoped WN61 claims and an original relational diagram. Corrected capital/park labels and the unsupported capital-associated spring wording;Galut and the extra-location/portal decisions remain open. Source90ee15b1,normal terrain and R69 painting are unchanged. Ledger265 unique(207+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier summaries below are historical.
+
+R70 [decoded dwarven-arena review](dwarven-arena-fit-review.md) retains r58:the actual enclosed rear model does not justify a flat whole-rectangle expansion. Forecourt/entry/pit support and seven explicit spawn headrooms are checked;full interior and runtime placement remain open. Production source90ee15b1,normal exports and R69 painting are unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier version-specific summaries below are historical.
+
 R69 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round69/README.md) integrates source90ee15b1 and R68’s Sacred Mountain shoulder/approach change. Its mask covers all4,483 changed height cells,including1,003 beyond the preparation/fade envelope;1,335 gradient samples are independently checked. Only473 continent pixels change,max28/255 per RGB channel,all within16.30 blocks of the measured footprint. All58 projections,16 context names and41 inventory rows remain checked;earlier R53/R61/R63/R64 art is retained. Production geometry is unchanged in this presentation round. Ledger261;inventory132/41 physical follow-ups remain open. Earlier R68 painting-pending statements below are historical and superseded by this integration.
 
 R68 [Sacred Mountain support](sacred-mountain-fit-review.md):source90ee15b1,radius80→95,automatic first-air179→175. Exact preparation is our interpretation. Terrain atlas is refreshed;R64 painting needs explicit height integration. Ledger261;inventory132/41 follow-ups and full source/era/fixed-rule/runtime scope remain open. Earlier version-specific statements below are historical.
@@ -300,7 +310,7 @@ The official guide and episode stills are reference links only; no official artw
 
 ## U — Ulgracia
 
-**Landform and heights.** Wooded coastal bluff to112, south of Sarion. Galut’s spring sits at102 with a contained rim; the brook descends to the southern coast.
+**Landform and heights.** Wooded coastal bluff to112, south of Sarion. An authored spring sits at102 with a contained rim; the brook descends to the southern coast.
 
 **Target biome mix.** `minecraft:forest` 35%, `minecraft:dark_forest` 25%, `minecraft:old_growth_birch_forest` 20%, `minecraft:plains` 20%.
 
@@ -566,3 +576,7 @@ Direct WN13/14 records in the [source review](../docs/research/tensura-world-202
 ## Round52: interpreted Dwargon foothill and forecourt correction
 
 DES-DWG-052 adds one peak146 dome and one top146 rolling shoulder;exact outlines/elevations are our interpretation for the fixed base142 city blueprint. WN13-006 and WN13-008 support open foothill/cavern context,not numerical ramp dimensions. The [current measured join](dwargon-approach-fix.md) now reaches first-air146 from both main and village roads;all sampled width strips match. Water,other57 site discs,all58 anchor records and roof samples remain. The known mainland proportions and country positions are unchanged. R51 above records the previous mismatch;actual placement/repairs/walkability and early-era gating remain unverified.
+
+## Northern island: unassigned identity, F gameplay coverage — round 77
+
+The official illustration visibly includes a detached island in the northern inland sea. [R77 source/terrain review](northern-island-review.md) records the original shore and rolling hill. Exact outline, dimensions, position, height and default grassland are our interpretation. The matching F polygon is only the required generator coverage, not proof of Falmuth sovereignty; no mainland national border changes. No named place or settlement is inferred, and S1E10 conditions remain undated. Current fourth-coast terrain supersedes historical three-landmass counts; R69 painting still needs integration.

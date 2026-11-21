@@ -1,5 +1,7 @@
 # Eastern Empire follow-up — 20 November 2026
 
+R76 [source/access update](../../../world/nasca-source-topology.md) supplies two direct WN spatial claims and the 55-title category screen. Current source and inventory totals are unchanged; the source ledger is now 275. Older text below records previous review states.
+
 The current map contains the eastern continental lobe, gameplay region E, Nasca and the Great Holy Mountain. It does not yet contain a sourced, exhaustive network of Imperial cities. The official illustrated map and country overview establish the broad eastern setting, not a hundred surveyed town locations.
 
 | Subject | Evidence actually read | Consequence for this map |

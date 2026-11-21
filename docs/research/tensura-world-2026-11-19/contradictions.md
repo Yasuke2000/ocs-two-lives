@@ -35,7 +35,7 @@ Round45 directly reads WN42 for the immobile treant community (WN42-001). Its po
 | C15 | The 58 registered sites omit distinct Galut, Tengu settlement and the Long Wall, among other wiki candidates. | Original proposal footprints/corridor are drawn separately and in inert map.svg comment. They do not become live sites or prove the entire wiki complete. |
 
 | C16 | WN102 describes a Tengu summit gateway leading to the settlement. Official anime episode64 directly confirms Khusha residence and a later proposed road tunnel, but not a dimensional gateway; wiki supplies the difficult summit description. | Keep WN access separate. The [ridge proposal](../../../world/tengu-settlement-study.md) uses limited official setting cues without importing WN dimensional access or installing the later tunnel. LN8 chapter4 remains unread. |
-| C17 | WN56 describes Englassia castle in a central lake, whereas the active registered capital is a dry build footprint. | Record as an interior/build reconciliation item; retain the current dry footprint pending reviewed water/structure design and continuity check. |
+| C17 | WN56 describes Englassia castle in a central lake, whereas the active registered capital is a dry build footprint. | [R74 inert basin/castle drawing](../../../world/englassia-castle-lake-study.md) now supplies the missing geometry. Keep the current dry footprint pending WN/LN continuity,water/site preparation,existing model andbridge/road reconciliation;no active lake orcastle is claimed. |
 
 | C18 | Owner now fixes the world immediately after Kijin naming (anime S1E10), whereas older mixed-era descriptions and mandatory built highways imply later development. | Early village/political state is now authoritative. All 58 site states are qualified; a trail alternative is drawn in the SVG comment. Runtime construction/resident gating is a handoff, not silently implemented or claimed complete. |
 
@@ -98,3 +98,13 @@ The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects 
 ## Round62: template support is not canonical summit dimensions
 
 [The offset-footprint audit](../../../world/dragons-nest-fit-review.md) treats the nest diameter,level,platform and architecture as authored accommodation. The summit setting remains wiki-backed;LN12 chapter4 is not directly read. C18 prevents a blanket preparation expansion for the later Tempest metropolis. Cave roofs and intended water templates need different fit criteria. Exact placement/runtime acceptance and the32 coverage gaps remain open;older R61 art is not falsely certified against new0b211ec7 terrain.
+
+
+## Round71: C09/C15 town identity and threshold topology
+
+[Selected WN61 paragraphs](../../../world/ulgr-spatial-source-review.md) distinguish city altar and park doorway without naming Galut. The new diagram is relational,not a surveyed city/park plan. Combined labels and the unsupported capital-associated spring wording are corrected. Existing58 IDs/source90ee15b1/terrain/R69 painting remain unchanged;separate capital registration and the near-Tempest adaptation remain open. No LN corroboration,door architecture or initial-era event is inferred.
+
+
+## Round72: C15 physical wall versus magical boundaries
+
+[The contour/gate proposal](../../../world/long-wall-build-plan.md) supplies bounded physical planning geometry,not a registered wall. WN205 separates country,settled-area andcity-wall defences;it does not establish the LN Long Wall course. The new age/creator fields remain fan-wiki. Keep road-exclusion crossing,gate corner/voxel construction,initial-era corroboration andruntime barrier decisions open. The current source,terrain andpainting remain unchanged.

@@ -1,10 +1,14 @@
 # Wiki location coverage audit — updated 21 November 2026
 
+R77 adds one active, qualified island terrain record from the official illustration. Current inventory 133; the 41 physical follow-ups remain unchanged. The older R73 count below is historical. [Review](../../../world/northern-island-review.md).
+
+R73 delivery audit:the current132-row inventory has41 physical follow-ups(28 missing,8 partial,2 unverified country pins and3 parent designs). These are distinct from the already delivered58 original art pairs andfrom Claude’s future technical placement work. Current counts below are recomputed from the CSV;earlier round-specific appendices remain historical. The Horn Empire entry andOrbic/Ulgracia child-category traversal remain unverified;parent-index sightings do not prove child-category inspection. No missing location is reclassified as complete.
+
 The Eastern Empire is present as gameplay region E, with Nasca and the mountain marker. This is not an exhaustive model of its cities, institutions or historical states. The 58 registered production sites were the server brief, not a claim to cover every notable wiki location.
 
 ## What was checked
 
-The owner-supplied 31-entry Locations list is fully enumerated in [the coverage inventory](wiki-location-coverage.csv), together with all 44 entries of the accessible Countries index, Landmarks and Worlds, regional category candidates and geographical details from linked article text. After deduplication there are **129 inventory records**. Some are categories, organisations, aliases or separate-world entries, not 126 physical destinations. The [source audit](wiki-source-audit.csv) distinguishes index inspection, article-text inspection and inaccessible routes. The [58-site crosswalk](server-site-crosswalk.csv) is derived from the current production SVG.
+The owner-supplied 31-entry Locations list is fully enumerated in [the coverage inventory](wiki-location-coverage.csv), together with all 44 entries of the accessible Countries index, Landmarks and Worlds, regional category candidates and geographical details from linked article text. The prior routes yielded132 records. R77 adds one unlabelled landmass from direct official-image review: **133 current inventory records**. Some are categories, organisations, aliases or separate-world entries, rather than physical destinations. The [source audit](wiki-source-audit.csv) distinguishes index inspection, article-text inspection and inaccessible routes. The [58-site crosswalk](server-site-crosswalk.csv) is derived from the current production SVG.
 
 **This is not a claim that the entire wiki, every article, or every primary source has been read.** Direct Fandom requests return access errors, and some indexed copies are months old. The owner list includes Horn Empire, which is absent from the accessible 30-item cached Locations index. That entry and two regional category routes remain open. Character and ability category counts cannot establish geographical completeness. Individual country/interior articles and newly added pages may disclose additional locations.
 
@@ -18,9 +22,9 @@ Inventory labels are a map coverage assessment. All wiki evidence remains `fan-w
 | category-route | 18 |
 | container | 2 |
 | game-continuity-review | 4 |
-| historical-review | 2 |
+| historical-review | 3 |
 | interior-or-portal-review | 2 |
-| missing-distinct-representation | 26 |
+| missing-distinct-representation | 28 |
 | organisation-review | 4 |
 | parent-design-present-unverified | 3 |
 | partial | 7 |
@@ -29,7 +33,7 @@ Inventory labels are a map coverage assessment. All wiki evidence remains `fan-w
 | region-present | 15 |
 | separate-world-review | 12 |
 | site-present | 22 |
-| terrain-present | 6 |
+| terrain-present | 7 |
 | unverified-new-entry | 1 |
 
 ## Priority gaps before calling the continent complete
@@ -38,7 +42,7 @@ Inventory labels are a map coverage assessment. All wiki evidence remains `fan-w
 2. **Western terrain and settlements:** Long Wall, Magic Tower, Galut, Doran and the smaller states in the owner's excerpt lack distinct representations. Exact polygons and coordinates need evidence. [Wall](https://tensura.fandom.com/wiki/Long_Wall), [tower](https://tensura.fandom.com/wiki/Magic_Tower), [Ulgracia](https://tensura.fandom.com/wiki/Republic_of_Ulgracia).
 3. **Jura and the southern approaches:** add a separate Tengu settlement proposal; distinguish historical Orbic from the current orc battlefield. Mountain terrain alone is not settlement coverage. [Tengu](https://tensura.fandom.com/wiki/Tengu), [Orbic](https://tensura.fandom.com/wiki/Orc_Kingdom_of_Orbic).
 4. **City detail:** Dwargon's East and West cities and named premises, Englassia's headquarters/academy/castle, and Tempest's Dungeon need their own coverage review. These may be city interiors or dimensional content rather than additional continent circles.
-5. **Ocean:** Resort Island and Kaien are movie geography candidates missing from the current three-landmass drawing. Keep their continuity and unverified offshore position explicit. [Island](https://tensura.fandom.com/wiki/Resort_Island), [Kaien](https://tensura.fandom.com/wiki/Kingdom_of_Kaien).
+5. **Ocean:** [R75 official-source review](../../../world/kaien-resort-source-review.md) distinguishes the underwater Kaien setting from Resort Island. Their precise location and initial-era state remain unverified; do not turn them into guessed extra surface landmasses. Both physical-coverage obligations remain open. [Island](https://tensura.fandom.com/wiki/Resort_Island), [Kaien](https://tensura.fandom.com/wiki/Kingdom_of_Kaien).
 6. **Other worlds and games:** Heavenly Star Palace, the Hazy homeworld, Otherworld and spiritual realms must not acquire invented mainland coordinates. Game-world entries are tracked for continuity review. Horn Empire remains unverified rather than silently excluded.
 
 ## Production handoff

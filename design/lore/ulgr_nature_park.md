@@ -1,5 +1,9 @@
 # Ulgr Nature Park — The Spirit Trail
 
+**Proposed own-world reservation:** x−950,z2850,r63 in [map.svg](../../world/map.svg),source90ee15b1. These are authored server coordinates. Older Lerfing survey/placement values below are historical and do not locate Galut.
+
+[R71 source/identity review](../../world/ulgr-spatial-source-review.md) distinguishes the WN town altar from the park doorway. The selected town passage does not name Galut. The local model and near-Tempest server portal remain separate interpretations;no dimension connection or exact S1E10 state is established.
+
 A gravel trail crosses a spring on a spruce footbridge and enters a wooded chalk bluff. Three interior ribs lead walkers from the mouth of the vault to a pair of dark stone leaves trimmed with aged copper. Warm lights flank the passage. A smaller bank path skirts a shallow pool, with a bench at the fork.
 
 The official map places Ulg Nature Park at the northern edge of Ulgracia and locates the entrance to Ramiris’s Dwelling of Spirits there. In episode 22 Rimuru brings Shizu’s students to the dwelling. The official stills show dark masonry with warm points of light inside. The stream, footbridge, shell of pale rock and sealed doorway are **our interpretation** of the outdoor approach. [Official park entry](https://www.ten-sura.com/map/#A-73) · [Official Ulgracia entry](https://www.ten-sura.com/map/#A-72) · [Episode 22 and stills](https://www.ten-sura.com/anime/tensura/story/no22)

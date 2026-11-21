@@ -1,4 +1,6 @@
-# Galut / Ulgr Nature Park (Ulgracia)
+# Ulgr Nature Park (Ulgracia)
+
+**Proposed own-world reservation:** x−950,z2850,r63 in [map.svg](../../../world/map.svg),source90ee15b1. These are authored server coordinates. Older Lerfing survey/placement values below are historical and do not locate Galut.
 
 `id: ulgr_nature_park` · build (our blueprint) · region **U** (Republic of Ulgracia)
 
@@ -10,9 +12,13 @@
 | Preview (blueprint only) | ![ulgr_nature_park](../../previews/ulgr_nature_park-iso.png) |
 | Lore page | [`design/lore/ulgr_nature_park.md`](../../../design/lore/ulgr_nature_park.md) |
 
-## Lore (canon)
+## Source scope
 
-The republic of elemental magic users lives from trade with Sarion and from farming; its capital is Galut. In the children's story the entrance to Ramiris's spirit dwelling is in Ulgr Nature Park (anime episodes 22-23).
+[R71 primary-source separation](../../../world/ulgr-spatial-source-review.md) keeps the unnamed town altar,park threshold and server portal distinct. This marker does not locate Galut. WN evidence is separately classified;the existing outdoor design remains our interpretation.
+
+## Lore and source limits
+
+The republic of elemental magic users lives from trade with Sarion and from farming; its capital is Galut (wiki-backed identity;the park marker does not locate it). In the children's story the entrance to Ramiris's spirit dwelling is in Ulgr Nature Park (anime episodes 22-23).
 
 ## What it should look like
 

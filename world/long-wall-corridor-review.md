@@ -1,5 +1,7 @@
 # Long Wall corridor correction — round40
 
+[R72 physical proposal](long-wall-build-plan.md) rechecks this corridor against current source90ee15b1 and adds bounded contour/gate geometry. Original R40 values below are historical;current measured plan clearances agree. The wall remains unregistered and missing in active terrain.
+
 [Before/after study](long-wall-corridor-study.png) · [editable original](long-wall-corridor-study.svg) · [measured audit](long-wall-corridor-audit.json).
 
 The [wiki Long Wall article](https://tensura.fandom.com/wiki/Long_Wall), Background, describes a barrier separating Coleus and Lubelius from the Desert of Death. The indexed paragraph was read again; its LN20 chapter3 and LN21 chapter1 citations are leads, not direct novel readings. The legacy GC publisher URLs for volumes20/21 returned404 on21November2026. This bounded result says nothing about other licensed preview routes. The broad source relationship retains fan-wiki confidence; the exact route remains **our interpretation**.
