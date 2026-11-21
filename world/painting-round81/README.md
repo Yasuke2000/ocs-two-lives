@@ -31,3 +31,5 @@ The snapshot remains immediately after Kijin naming, anime S1E10. No later city 
 R81 closes R80â€™s painting-integration follow-up. It does not complete the faithful-world goal. Other source, location, initial-state and fixed-rule decisions remain open. Technical conversion and placement remain Claudeâ€™s handoff. No converter rerun, terrain application, chunks, main merge, protected runtime/tool edit or deployment in this presentation round.
 
 Visual review: the current continent, complete atlas, local lake detail and official reference were inspected. The lake stays east of the cone; markers remain readable. No additional production SVG correction was identified.
+
+Validation: `tools/check.sh` passed: 472 tests, 26 skipped, zero failures (63.039s). Required source checker after R80 adoption passed with 0 errors, 56/56 relations and the two existing warnings. Composition, registration, locality and browser-label audits pass. No in-game acceptance is claimed.

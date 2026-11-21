@@ -4,6 +4,8 @@
 
 R 81 [current painted atlas](../world/painting-round81/README.md) integrates the R 80 El Dorado lake and bank from source 9fd 0c 5fb. Exact new lake geometry and 648 checked bank-light samples over verified R 78 underpainting change 361 continent pixels, all within 10.75 blocks of the actual height-change footprint. All 58 registrations,16 context names and 41 open rows retain layout; inventory caption 134. Prior art remains unchanged. Ledger 280/inventory 134/41 follow-ups; full source/era/location goal remains open.
 
+Validation: `tools/check.sh` passed: 472 tests, 26 skipped, zero failures (63.039s). Required source checker after R80 adoption passed with 0 errors, 56/56 relations and the two existing warnings. Composition, registration, locality and browser-label audits pass. No in-game acceptance is claimed.
+
 Next: remaining actual source/location/initial-era questions. R80 painting-integration follow-up closed only; no further source SVG change,apply,chunks,protected edit or deployment.
 
 ## 21/11 — Illustrated eastern El Dorado lake drawn (ChatGPT, round 80)
