@@ -1,24 +1,21 @@
 {
-  "source_svg_sha256": "bb0e4b295dc1b75b8ac2778dd4f8b5240b69c26af5c4da35beac785595e6aaca",
-  "staged_index_source_sha256": "bb0e4b295dc1b75b8ac2778dd4f8b5240b69c26af5c4da35beac785595e6aaca",
-  "preview_sha256": "ca491719a4ae54a68bb2f489f74c2049c414a7a6fac8328974533f2d773a9b24",
+  "source_svg_sha256": "dbef5ac01a2e22f6aca9182527fc6610295f385da9fec2058ccf2f52cd833197",
+  "staged_index_source_sha256": "dbef5ac01a2e22f6aca9182527fc6610295f385da9fec2058ccf2f52cd833197",
+  "preview_sha256": "5406f65a94fa2e683cb71ccec1a13989615e55e394452090bbe668b4314567c4",
   "original_preview_pixels": [
     1600,
     1344
   ],
   "copied_without_pixel_modification": true,
   "applied_to_runtime": false,
-  "previous_preview_source_sha256": "63df718534438fa803fc39a8a0b16c46bf9648edf1c58cc62fff30ad75f37806",
-  "source_change_review": "world/western-peninsula-r97.md",
+  "previous_preview_source_sha256": "bb0e4b295dc1b75b8ac2778dd4f8b5240b69c26af5c4da35beac785595e6aaca",
+  "normal_build_seconds": 67.3,
+  "source_change_review": "world/tengu-glade-r99.md",
   "registration": {
-    "scale_from_r95": 1.0,
-    "translate_x": 0.0,
-    "translate_y": 0.0,
-    "legend_y_shift": 0.0,
-    "existing_58_marker_groups_retained": true,
-    "existing_19_context_labels_retained": true,
-    "inventory_caption": 138,
-    "open_physical_rows": 42
-  },
-  "normal_build_seconds": 66.5
+    "existing58_numeric_groups_retained": true,
+    "context_names": 20,
+    "relocated_context": "Khusha Mountains",
+    "inventory": 138,
+    "physical_followups": 42
+  }
 }

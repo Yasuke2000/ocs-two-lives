@@ -1,3 +1,15 @@
+## 21/11 - Painted Tengu terrain context aligned (R100)
+
+[R100 painted atlas](painting-round100/README.md) follows source `dbef5ac0`: exact meadow shape, 15 changed continent pixels,20 context names and unchanged58 registered sites. Khusha text and the Tengu M-to-P row follow the main atlas; inventory138/42 and ledger305 remain. No village or active footpath is added. Source/terrain retained; no further production correction identified. Repository gate: 472 tests, 26 skipped, zero failures (63.658s); zero changed JavaScript.
+
+## 21/11 - Tengu ridge gains partial terrain context (R99)
+
+[Current glade/access review](tengu-glade-r99.md) adds a small authored meadow selector on the existing Khusha ridge: 43 dry biome cells; all height, site, road, water and other normal exports retained. The proposed surface path fails endpoint registration and remains inactive under C15, with natural grade0.612 requiring future design. All58 sites/22 roads remain; atlas20 context names. Tengu becomes partial, with inventory138/42 still open; ledger305. R98 painting needs biome/context alignment. Checker0errors/56relations/2prior warnings; normal67.3s. Repository gate: 472 tests, 26 skipped, zero failures (64.356s); zero changed JavaScript.
+
+## 21/11 - Published painting follows the western coast (R98)
+
+[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/e9cf188ea08d0306d4803de7f2a75ceb9f8cf5b6/world/painting-round98/README.md) follows source `bb0e4b29`: exact mainland boundary/four biome shapes, 3,201 checked texture triangles and 32,050 checked height-light samples. All 58 registrations, 19 names and the 138/42 panel retain layout. R95 is historical; western painting alignment is complete. [Alignment evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r98.md). Painting gate: 472 tests, 26 skipped, zero failures (63.532s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.304s); zero changed JavaScript. Broader source/location/initial-era obligations remain open.
+
 ## 21/11 - Painted western coast aligned with terrain (R98)
 
 [R98 painted atlas](painting-round98/README.md) follows source `bb0e4b29`: exact current mainland path and four biome shapes, 3,201 checked texture triangles and 32,050 checked height-light samples. All 58 registrations, 19 names and the 138/42 coverage panel retain layout. Differences stay inside western support; broader source/era/location obligations remain. R95 is historical. Production SVG and current terrain previews remain unchanged after adoption. Repository gate: 472 tests, 26 skipped, zero failures (63.532s); zero changed JavaScript.

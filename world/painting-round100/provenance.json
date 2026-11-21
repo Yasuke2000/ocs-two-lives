@@ -1,0 +1,14 @@
+{
+  "source_sha256": "dbef5ac01a2e22f6aca9182527fc6610295f385da9fec2058ccf2f52cd833197",
+  "map_commit": "696115d8f9947f9d00e4daab3294190a2de0d75a",
+  "native_basis": "../painting-round98/continent.svg",
+  "native_basis_normalized_sha256": "8161995bbff8cd46d355f58c25321970b261fef69e71dcf011adec96aba8dca1",
+  "prior_continent": "../painting-round98/continent.png",
+  "prior_continent_sha256": "5d18eb0af0eb7b7d19b72c749bcba9e01b442324752785e58533be768d6494c1",
+  "current_height_matches_R98_light_basis": true,
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "copyrighted_reference_pixels_embedded": false,
+  "PNG_method": "Browser export of original native SVG composition",
+  "runtime_applied": false
+}
