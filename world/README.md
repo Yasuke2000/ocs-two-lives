@@ -1,5 +1,7 @@
 # world/ — the own world map
 
+Current round43 [painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) in PR102 now matches source7d021766,including the northwestern headland. Native coast/water/road vectors,58 marker projections,16 context names and32 open rows are audited. R38 and earlier paintings remain historical. This presentation does not change source terrain or close the full geographical/source/era/build-fit/runtime obligations.
+
 Current round42 source7d021766 adds an original [northwestern headland](western-cape-review.md). The current terrain atlas/preview includes it; PR102's R38 painting is now historical and needs a coast/registration refresh. Main size9989x6250 and design box12800x10752 retain the stated hard limits; preferred scale/design targets remain disclosed. Earlier dated paragraphs describe their own versions.
 
 Round40 [Long Wall review](long-wall-corridor-review.md) corrects only the inert proposal comment. New source hasha24cea9b has identical active geometry and normal-export bytes to1ea6782d; PR102 painting remains registered. No generated wall is delivered.
