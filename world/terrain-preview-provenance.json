@@ -1,14 +1,14 @@
 {
-  "source_svg_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
-  "staged_index_source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
-  "preview_sha256": "bd6c12f657337ab899fbd566541fa1c23589cc090a7b31fe2824717f4da5b660",
+  "source_svg_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
+  "staged_index_source_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
+  "preview_sha256": "2158f4e3c24657de83d84a9ddca959a1b369213c0365808d4ff342b56d0a4670",
   "original_preview_pixels": [
     1600,
     1344
   ],
   "copied_without_pixel_modification": true,
   "applied_to_runtime": false,
-  "previous_preview_source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+  "previous_preview_source_sha256": "82135855d80430f1e4a723f92c86d9802b45c79e03fe2cd2c8c03503bfb6da2e",
   "registration": {
     "scale_from_r41": 0.96,
     "translate_x": 88.0,
@@ -18,7 +18,7 @@
     "existing_16_context_labels_retained": true,
     "existing_32_open_rows_retained": true
   },
-  "normal_build_seconds": 66.6,
-  "source_change_review": "world/sacred-mountain-fit-review.md",
+  "normal_build_seconds": 65.8,
+  "source_change_review": "world/northern-island-review.md",
   "comment_only_source_change": false
 }

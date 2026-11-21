@@ -1,5 +1,13 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Missing illustrated northern island drawn (ChatGPT, round 77)
+
+R77 [unnamed northern island](../world/northern-island-review.md) adds a source-visible landmass omitted from the earlier three-coast drawing. Exact shore, 615×350 scale, rolling hill and F administrative coverage are authored; ownership/name/early state remain unverified. Source e8f17470; 4 coasts, 23 region polygons, 58 sites/21 roads. Checker 0 errors/56 relations/2 existing warnings; normal 65.8s. Inventory 133/41 physical follow-ups; ledger 277(219+58), printed-LN14/author6. Terrain atlas refreshed; R69 painting requires integration.
+
+Validation passed: 472 tests / 26 skipped / zero failures (62.818s). Native region partition, existing-shape/anchor/export preservation, raster delta locality, 277 unique IDs, 133 inventory records and exact atlas-image/layout checks passed. Final checker, source reference, study and atlas visually inspected.
+
+Next: explicit R69 painting integration for the new fourth coast and bathymetry; remaining source/location/initial-state questions. No protected edit, apply, main merge, chunks or deployment.
+
 ## 21/11 — Nasca gate/access evidence and Empire category screen (ChatGPT, round 76)
 
 R76 [Nasca source/access review](../world/nasca-source-topology.md) adds direct WN gates-on-four-sides and near-capital forest-road evidence, without exact bearings or initial-state claims. The 55 returned Eastern Empire category titles are enumerated; article bodies, military/child routes and unlocated settlements remain open. Ledger 275 (217+58); inventory 132/41 physical follow-ups retained. Source 82135855, terrain, R69 painting and R73 art registration are unchanged.

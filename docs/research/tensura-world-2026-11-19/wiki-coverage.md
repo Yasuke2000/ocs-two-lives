@@ -1,12 +1,14 @@
 # Wiki location coverage audit — updated 21 November 2026
 
+R77 adds one active, qualified island terrain record from the official illustration. Current inventory 133; the 41 physical follow-ups remain unchanged. The older R73 count below is historical. [Review](../../../world/northern-island-review.md).
+
 R73 delivery audit:the current132-row inventory has41 physical follow-ups(28 missing,8 partial,2 unverified country pins and3 parent designs). These are distinct from the already delivered58 original art pairs andfrom Claude’s future technical placement work. Current counts below are recomputed from the CSV;earlier round-specific appendices remain historical. The Horn Empire entry andOrbic/Ulgracia child-category traversal remain unverified;parent-index sightings do not prove child-category inspection. No missing location is reclassified as complete.
 
 The Eastern Empire is present as gameplay region E, with Nasca and the mountain marker. This is not an exhaustive model of its cities, institutions or historical states. The 58 registered production sites were the server brief, not a claim to cover every notable wiki location.
 
 ## What was checked
 
-The owner-supplied 31-entry Locations list is fully enumerated in [the coverage inventory](wiki-location-coverage.csv), together with all 44 entries of the accessible Countries index, Landmarks and Worlds, regional category candidates and geographical details from linked article text. After deduplication there are **132 inventory records**. Some are categories, organisations, aliases or separate-world entries, not132 physical destinations. The [source audit](wiki-source-audit.csv) distinguishes index inspection, article-text inspection and inaccessible routes. The [58-site crosswalk](server-site-crosswalk.csv) is derived from the current production SVG.
+The owner-supplied 31-entry Locations list is fully enumerated in [the coverage inventory](wiki-location-coverage.csv), together with all 44 entries of the accessible Countries index, Landmarks and Worlds, regional category candidates and geographical details from linked article text. The prior routes yielded132 records. R77 adds one unlabelled landmass from direct official-image review: **133 current inventory records**. Some are categories, organisations, aliases or separate-world entries, rather than physical destinations. The [source audit](wiki-source-audit.csv) distinguishes index inspection, article-text inspection and inaccessible routes. The [58-site crosswalk](server-site-crosswalk.csv) is derived from the current production SVG.
 
 **This is not a claim that the entire wiki, every article, or every primary source has been read.** Direct Fandom requests return access errors, and some indexed copies are months old. The owner list includes Horn Empire, which is absent from the accessible 30-item cached Locations index. That entry and two regional category routes remain open. Character and ability category counts cannot establish geographical completeness. Individual country/interior articles and newly added pages may disclose additional locations.
 
@@ -31,7 +33,7 @@ Inventory labels are a map coverage assessment. All wiki evidence remains `fan-w
 | region-present | 15 |
 | separate-world-review | 12 |
 | site-present | 22 |
-| terrain-present | 6 |
+| terrain-present | 7 |
 | unverified-new-entry | 1 |
 
 ## Priority gaps before calling the continent complete

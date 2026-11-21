@@ -1,5 +1,7 @@
 # Current map review — round49 shared curves adopted
 
+R77 [unnamed northern island](northern-island-review.md) adds a source-visible landmass omitted from the earlier three-coast drawing. Exact shore, 615×350 scale, rolling hill and F administrative coverage are authored; ownership/name/early state remain unverified. Source e8f17470; 4 coasts, 23 region polygons, 58 sites/21 roads. Checker 0 errors/56 relations/2 existing warnings; normal 65.8s. Inventory 133/41 physical follow-ups; ledger 277(219+58), printed-LN14/author6. Terrain atlas refreshed; R69 painting requires integration.
+
 R76 [Nasca source/access review](nasca-source-topology.md) adds direct WN gates-on-four-sides and near-capital forest-road evidence, without exact bearings or initial-state claims. The 55 returned Eastern Empire category titles are enumerated; article bodies, military/child routes and unlocated settlements remain open. Ledger 275 (217+58); inventory 132/41 physical follow-ups retained. Source 82135855, terrain, R69 painting and R73 art registration are unchanged.
 
 R75 [Kaien/Resort Island source review](kaien-resort-source-review.md) adds scoped official movie evidence and three inspected promotional-image references. The existing two inventory entries stay open; Kaien is now explicitly an underwater-country review. Exact location, depth and initial state remain unverified. Ledger 273 unique(215+58); inventory 132/41 physical follow-ups unchanged. Source 82135855, normal terrain, R69 painting and R73 art metadata remain unchanged.
