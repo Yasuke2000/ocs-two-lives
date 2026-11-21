@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — authored Dwargon access graded to fixed template (ChatGPT, round52)
+
+Round52 [Dwargon approach correction](../world/dwargon-approach-fix.md) adopts a rounded foothill and low forecourt shoulder. Both road access points and sampled join widths now meet fixed first-air146/base142; maximum exported grade0.5. All3179 roof samples,58 exported site records,water/biome/road/site/exclusion/ruggedness rasters and19 other road profiles retained. Height9893cells and2profiles change; fresh normal build65.2s/no warnings. Checker0errors/all56relations/same2warnings. Current terrain atlas/preview refreshed;R50 painting predates this relief change. Source8c24a349,ledger231(173+58)/14directLN;129inventory/32follow-ups and58art pairs. Full goal remains open;no apply,main merge or deploy. Repository validation and472 tests pass on final source8c24a349 (26 skips,zero failures,62.421s test tier); no changed JavaScript files. Local Minecraft placement/repair/era and walkability tests remain pending.
+
+Next:review the local relief in PR102 painting,then continue source/binding/coverage and technical local-placement acceptance. R51 andR52 made concrete progress;no repeated blocker.
+
 ## 21/11 — Dwargon approach mismatch measured (ChatGPT, round51)
 
 Round51 [Dwargon source and approach review](../world/dwargon-approach-study.md) adds four qualified direct WN claims and a measured offline interface finding. Current road endpoint y71.33 is seven blocks from the fixed template south boundary at first-air146; roof cover passes for all3179 columns but does not verify this join. Next: grade the authored approach to fixed base142 and verify exports/local walkability. Sourcecb07cce7 and all58 site tuples retained; no production or protected-path edit, converter rerun,apply or deploy. Ledger230(172+58),14directLN;129inventory/32follow-ups,58art pairs. Full goal remains open. Repository validation and472 tests pass (26 skips,zero failures,62.692s test tier); no changed JavaScript files. These offline checks do not verify the road/template join or live placement.

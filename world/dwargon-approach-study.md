@@ -1,5 +1,7 @@
 # Dwargon approach: roof cover is not entrance continuity — round51
 
+Historical round51 finding,sourcecb07cce7. The authored terrain interface is corrected in [round52](dwargon-approach-fix.md); the original measurements below are retained. Runtime placement/walkability remains unverified.
+
 [Measured section](dwargon-approach-study.png) · [editable vector](dwargon-approach-study.svg) · [audit and samples](dwargon-approach-audit.json) · [direct-source review](../docs/research/tensura-world-2026-11-19/dwargon-source-review-r51.md).
 
 The production source is unchanged at `cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371`. This read-only study consumes the existing matching normal build, its road profile, and the actual generated Dwargon footprint. The section at x0 has equal horizontal/vertical scale; its gate reference is a blueprint arrival coordinate, not an exterior surface promise.

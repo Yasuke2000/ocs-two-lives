@@ -508,3 +508,8 @@ The [shared-curve review](shared-curve-review.md) replaces independent outlines 
 ## Round51: Dwargon approach and city-scope follow-up
 
 Direct WN13/14 records in the [source review](../docs/research/tensura-world-2026-11-19/dwargon-source-review-r51.md) strengthen the open foothill/cavern distinction and ordinary gate-door context. These do not locate East or West city. The [offline study](dwargon-approach-study.md) identifies the current road/template height mismatch; all3179 roof columns satisfy six-block cover, which does not verify the join. A graded native approach is still required before local acceptance. Exact ramp/pasture geometry remains our interpretation. Production source and reference-scale departures above remain unchanged.
+
+
+## Round52: interpreted Dwargon foothill and forecourt correction
+
+DES-DWG-052 adds one peak146 dome and one top146 rolling shoulder;exact outlines/elevations are our interpretation for the fixed base142 city blueprint. WN13-006 supports open foothill/cavern context,not numerical ramp dimensions. The [current measured join](dwargon-approach-fix.md) now reaches first-air146 from both main and village roads;all sampled width strips match. Water,other57 site discs,all58 anchor records and roof samples remain. The known mainland proportions and country positions are unchanged. R51 above records the previous mismatch;actual placement/repairs/walkability and early-era gating remain unverified.
