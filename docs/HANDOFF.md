@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — source-key correction and anonymous Imperial geography (ChatGPT, round54)
+
+Round54 [Imperial source and claim-key review](research/tensura-world-2026-11-19/empire-source-review-r54.md) repairs two reused keys:originalWN13-005/006 preserved,new trade/cavern records007/008;actual HTML locators verified. Direct WN147 supports an anonymous lakeside Imperial vassal,without proving Silberia identity or a map-basin position. Galut remains separate in Ulgracia. Ledger233 unique records(175+58),14directLN;129inventory/32follow-ups and58art pairs retained. Source8c24a349/SVG/terrain/art/protected paths unchanged;no converter rerun,apply,main merge or deploy. Full goal remains open. Repository validation and472 tests pass (26 skips,zero failures,64.641s test tier);no changed JavaScript or in-game test run. Source-key integrity and current reference checks pass;these do not certify complete lore coverage.
+
+Next:continue primary-source/identity review,especially unlocated Imperial and western-country candidates;do not rename the basin from an event parallel. R53/R54 made progress;no repeated blocker.
+
 ## 21/11 — current Dwargon relief presented in original atlas (ChatGPT, round53)
 
 Round53 [current-source painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round53/README.md) adds native analytical lighting for the round52 Dwargon foothill/forecourt. Both source masks and666 bilinear height samples verified;1387 composition pixels change,max RGB channel32/255,all inside a96-block relief buffer. Original R38/R43 raster textures and generation records retained;no new image generation. Source8c24a349,all58 projections,16 names and32 open rows verified;all15 full non-callout text boxes fit current masks. Production SVG/current terrain exports/protected paths unchanged;no converter rerun,apply,main merge or deploy. Ledger231/14directLN,129inventory/32follow-ups and58art pairs retained. Full source/era/binding/coverage/fit/runtime goal remains open. Repository validation and472 tests pass on both feature branches (26 skips,zero failures): painting64.352s,map-pointer64.333s. Final native lighting/geometry/browser audits pass;no changed JavaScript or in-game test run.

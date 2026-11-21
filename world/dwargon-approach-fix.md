@@ -2,7 +2,7 @@
 
 [Before/after section](dwargon-approach-fix.png) · [editable vector](dwargon-approach-fix.svg) · [measured audit](dwargon-approach-fix.json) · [current terrain atlas](atlas.png) · [original finding](dwargon-approach-study.md).
 
-The production SVG now includes a40-node rounded foothill (`dwargon-gate-apron`, peak146, dome, rugged0) and a32-node low forecourt shoulder (`dwargon-forecourt-shoulder`, top146, rolling, rugged0). Their exact500×540 and280×240 outlines and elevations are **our interpretation** for the existing fixed blueprint fit. They follow the open-foothill/cavern context in WN13-006 without claiming a measured canon ramp. The early post-Kijin snapshot and C18 road-development qualifications remain.
+The production SVG now includes a40-node rounded foothill (`dwargon-gate-apron`, peak146, dome, rugged0) and a32-node low forecourt shoulder (`dwargon-forecourt-shoulder`, top146, rolling, rugged0). Their exact500×540 and280×240 outlines and elevations are **our interpretation** for the existing fixed blueprint fit. They follow the open-foothill/cavern context in WN13-006 and WN13-008 without claiming a measured canon ramp. The early post-Kijin snapshot and C18 road-development qualifications remain.
 
 The source SHA is `8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6`. Only these two relief features were added. All existing elements,58 site attributes,21 route geometries,coasts,regions,waters,forests and biome polygons remain identical. No protected runtime/tool path or fixed blueprint base changes. Default checker passes:0errors,all56 relations,same2 warnings (Laura river/escarpment crossing and preferred design-box size).
 
