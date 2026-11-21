@@ -1,0 +1,35 @@
+{
+  "review_date": "2026-11-21",
+  "access": [
+    {
+      "url": "https://www.ten-sura.com/anime/tensura/story/no68",
+      "status": 200,
+      "sha256": "eb2216d527bc2ddd8b865dae286e2983391e776274e7b8f8eaf928ebe6121486",
+      "bytes": 126220
+    },
+    {
+      "url": "https://www.ten-sura.com/character/momiji",
+      "status": 200,
+      "sha256": "c3edaed32d5a080a9ab00e4ca330dc33502abbacdd68fc2e46064b179c42aa2c",
+      "bytes": 123558
+    },
+    {
+      "url": "https://www.ten-sura.com/character/kaede",
+      "status": 200,
+      "sha256": "ee95e6e52892ffd3c6e8ea546d1cb311f795f904ad6e6852bd817791c3de2b0b",
+      "bytes": 123623
+    },
+    {
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no68/img2.jpg",
+      "cache_sha256": "e80e3e685c794550e5adf06575dc95d90025c4a3599637ab3d230433bb2ed268",
+      "review": "Existing cached original reread in R99; not a full episode or timestamp."
+    },
+    {
+      "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no68/img5.jpg",
+      "cache_sha256": "1c2c8e2edfe367929e3aaecdf72fecbabb877dc86ecf85651b3d6e17deb19a9a",
+      "review": "Existing cached original reread in R99; not a full episode or timestamp."
+    }
+  ],
+  "scope": "Official mountain/tunnel/visual facts retain existing OFF-TEN-001..003. Selected stills2/5 reread; character profiles do not provide geography,initial building date or initial roster. No new primary geography claim.",
+  "copyrighted_originals_in_repository": false
+}

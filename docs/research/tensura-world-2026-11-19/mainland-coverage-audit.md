@@ -1,4 +1,48 @@
-# Mainland coverage audit — current inventory, round64
+# Mainland coverage audit - current inventory R99
+
+[All 138 rows](mainland-coverage-audit.csv) · [source inventory](wiki-location-coverage.csv) · [R99 Tengu review](../../../world/tengu-glade-r99.md)
+
+The current CSV tracks 138 entries and **42 physical follow-ups**. The Tengu entry now has a small authored biome reservation, changing from missing to partial. Its registration, buildings, terraces, initial state and approach remain open. This closes no physical obligation. Existing statuses describe coverage, not comprehensive primary-source verification.
+
+| Physical coverage classification | Entries |
+| --- | ---: |
+| Missing distinct representation | 28 |
+| Partial place or terrain | 9 |
+| Country pin, national geography unverified | 2 |
+| Parent design still unverified | 3 |
+| **Total open physical follow-ups** | **42** |
+
+Other entries retain their own source, history, continuity, offshore, interior or identity review. They are not all completed merely because they fall outside this physical count. Horn Empire remains an unverified identity lead. No separate world is silently mapped onto the continent.
+
+## Current scope routing
+
+| Assessment | Entries |
+| --- | ---: |
+| WN-version-reference | 2 |
+| alternate-continuity-review | 4 |
+| city-or-city-interior | 9 |
+| era-dependent-successor | 1 |
+| existing-neighbouring-island | 3 |
+| historical-location-review | 1 |
+| historical-state | 2 |
+| illustrated-offshore-rocky-group | 1 |
+| illustrated-unidentified-landmass | 1 |
+| illustrated-unidentified-waterbody | 1 |
+| index-route | 18 |
+| later-mainland-development | 1 |
+| mainland-feature | 70 |
+| offshore-island-movie-review | 1 |
+| offshore-structure-proposal | 1 |
+| organisation | 4 |
+| portal-or-interior | 2 |
+| separate-world | 12 |
+| underwater-country-movie-review | 1 |
+| unverified-entry | 1 |
+| world-container | 2 |
+
+The retained review below is historical R64 and earlier evidence, including its then-current counts. Use the current CSV and table above for present scope. A green map checker checks the format/site contract and 56 relations; it does not certify every wiki location, initial building or story state.
+
+## Historical round64 coverage snapshot
 
 All132 inventory entries are retained and routed below. Three new Lubelius-related entries correct an omission;two add current city/interior coverage obligations. Inert proposals and parent context are not implemented terrain.
 

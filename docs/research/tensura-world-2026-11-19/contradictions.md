@@ -144,3 +144,7 @@ Official OAD5 establishes mansion destination then cave task, while OAD4 still4 
 ## R97 western silhouette and C12
 
 The [western peninsula](../../../world/western-peninsula-r97.md) now reaches beyond a shortened northwestern headland. The wider10443 trial passed the checker but failed the repository10000-width gate; its original coast is retained in an inactive source comment. Final mainland9983x6250/design12800x10752 satisfy both gates with2prior warnings. Exact shapes and scale remain authored; C12 and country/capital coverage questions stay open.
+
+## R99 Tengu terrain and C15
+
+The [authored ridge glade](../../../world/tengu-glade-r99.md) supplies partial biome context only. The surface-path trial fails registered-site endpoint checks at both ends and remains an inactive source comment. Its natural grade also needs design. No tool/site exception, tunnel, WN gate, village buildings or initial roster is inferred; registration and full settlement coverage remain open.

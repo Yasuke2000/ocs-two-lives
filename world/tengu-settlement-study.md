@@ -1,5 +1,8 @@
 # Tengu settlement — official-source and ridge review
 
+
+**R99 follow-up:** the active source now contains a small interpreted meadow glade on the same ridge. The village, terraces and surface approach remain unregistered/unbuilt. The new [current-terrain and access review](tengu-glade-r99.md) supersedes the missing-only coverage description below; older source qualifications and historical counts remain.
+
 [Original plan and measured profile](tengu-settlement-study.png) · [editable SVG](tengu-settlement-study.svg) · [terrain samples](tengu-terrain-review.json).
 
 This improves an additional-location proposal; it does not add a registered settlement to the active 58-site map. The proposed ridge, building layout and paths are our interpretation. Missing Tengu settlement coverage remains open until registration, terrain/access design and source/era fit are resolved.
