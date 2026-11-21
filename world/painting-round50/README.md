@@ -17,3 +17,5 @@ The selected initial era remains immediately after the six ogres become Kijin. L
 Ledger225 claims, including14 directly read LN claims; inventory129 entries with32 explicit follow-ups;58 original art pairs. The full faithful-continent/source/era/binding/build-fit/runtime goal remains open. No production SVG, current terrain export or protected path changed in this round; no converter rerun, terrain apply, Minecraft chunk generation, main merge or deployment.
 
 Repository validation and472 tests pass on both feature branches (26 skips,zero failures): painting64.588s, map-pointer63.704s. No changed JavaScript files or in-game test run. These are offline checks.
+
+Map-pointer integration retains the historical painting handoff sections; validation and472 tests pass again (26 skips,zero failures,62.349s). Production source and exports remain unchanged.

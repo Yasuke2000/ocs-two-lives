@@ -183,6 +183,15 @@
     "changed_js_files": 0,
     "ingame_tests_run": false,
     "runtime_applied": false,
-    "deployed": false
+    "deployed": false,
+    "map_pointer_integration": {
+      "map_commit": "475abb9",
+      "validation_passed": true,
+      "tests": 472,
+      "skipped": 26,
+      "failures": 0,
+      "test_seconds": 62.349,
+      "resolution": "Retained historical painting handoff sections alongside identical round50 verification. No production or protected-path change."
+    }
   }
 }
