@@ -1,3 +1,7 @@
+## 21/11 — All58 art registrations checked against R125 (R127)
+
+[Current audit](art/places/current-map-registration-r127.md) compares every x/z/r/kind/margin and staged first-air to external source8f8c294/hash a637aa5c. Exactly two height changes: El Dorado72→73, volcano196→197. Two current sheet lines updated;volcano wiki reference relabelled secondary instead of official; all58 PNG bytes/RGB hashes/dimensions and both exact prompt tails retained;56 other sheets unchanged after line-ending normalization. Both images viewed full resolution: no island coastline; no new bitmap needed for the broader coast. R113 remains historical. Source PR113 and matching painting PR114 are separate. This branch keeps older technical files; no map/runtime change. Wider source/architecture/initial-era/build acceptance remains open.
+
 # Current handoff
 
 ## 21/11 — Actual concept pixels screened for initial era (R122)

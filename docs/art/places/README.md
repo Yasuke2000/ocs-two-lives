@@ -1,3 +1,7 @@
+## Current numerical registration — R127
+
+[All 58 records](current-map-registration-r127.md) match external source8f8c294/hash a637aa5c. All positions/radii/kinds/margins are retained; the city/volcano designed first-air values are now73/197, replacing72/196 in the older R113 report. The two current-reservation lines are updated; the volcano’s wiki link is now correctly labelled secondary. All58 PNG bytes and all exact prompts remain; the two images were inspected at full resolution and show no island coastline. This is numerical registration and scoped framing review, not full canon/era/build acceptance. Older source assertions and audits below are historical; use R127 for current project coordinates/heights.
+
 # Post-Kijin place concepts — all fifty-eight delivered locations
 
 R113 [current registration audit](current-map-registration-r113.md) compares all58 concepts with mapbf0ba98/source2463d771. Only Frost Palace changes:the approved inland clearing replaces its obsolete coastal metadata. All57 other numerical sheets andall58 PNG bytes are unchanged;the original prompt remains historical. Earlier dated audits below describe their own source versions.

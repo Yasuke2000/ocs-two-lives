@@ -1,0 +1,1323 @@
+{
+  "round": 127,
+  "art_baseline_commit": "5cf742f3fcb97eea33af8356f1edc10ce3a1aaf2",
+  "comparison_previous_audit": "current-map-registration-r113.json",
+  "current_map_commit": "8f8c2948bc0ef0521820f6128e2099bf2b2aa686",
+  "current_source_sha256": "a637aa5ce39fea793ec2ca9aa4d12e6b328c7f67d074cdd537a941e293307ef0",
+  "registered_sites": 58,
+  "png_sheet_pairs": 58,
+  "all58_reservation_tuples_unchanged": true,
+  "changed_designed_heights": [
+    {
+      "id": "el_dorado",
+      "before": 72,
+      "after": 73
+    },
+    {
+      "id": "el_dorado_volcano",
+      "before": 196,
+      "after": 197
+    }
+  ],
+  "changed_sheets": [
+    "el_dorado",
+    "el_dorado_volcano"
+  ],
+  "unchanged_sheets": 56,
+  "all_png_bytes_equal_baseline_git_blobs": true,
+  "all_decoded_RGB_hashes_equal_R113": true,
+  "all_prompt_tails_retained": true,
+  "source_terrain_or_runtime_changed": false,
+  "visual_followup": [
+    {
+      "id": "el_dorado",
+      "view": "Full-resolution image inspected: empty palace/garden arcade; no island coast or visible volcano/sea relationship.",
+      "scope": "Compatible framing for changed island coast;exact floor plan and initial architecture remain interpreted."
+    },
+    {
+      "id": "el_dorado_volcano",
+      "view": "Full-resolution image inspected: rocky dome/scrub, restrained plume and authored adit; no surveyed shoreline or island outline.",
+      "scope": "Compatible framing for changed island coast;not a measured profile,verified initial vent/adit position or actual first-air visualization."
+    }
+  ],
+  "era_review": "R122 remains a separate finite visual screen;these two added full-resolution checks do not certify all58 canonical architecture or residents.",
+  "items": [
+    {
+      "id": "tempest",
+      "current_reservation_x_z_r_kind_margin": [
+        0.0,
+        0.0,
+        148.0,
+        "clearing",
+        64.0
+      ],
+      "previous_designed_first_air": 70,
+      "current_designed_first_air": 70,
+      "height_changed": false,
+      "png_sha256": "ac8c107788442eeda88718337a455630966401baa88a9bbfdc4d83ad1b56ee30",
+      "decoded_rgb_sha256": "3f1cba222fcfda727501d79a439b8eee8f7e096c41e2ea4ac3bf467aa723b38a",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "25d19cf2c5001fe998ca94dc4f547aadd87e50358bfd689f260730ef04d4c5b1",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "arrival",
+      "current_reservation_x_z_r_kind_margin": [
+        0.0,
+        -1000.0,
+        60.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 76,
+      "current_designed_first_air": 76,
+      "height_changed": false,
+      "png_sha256": "a11798d0681b080d99f4b4c14405d9bab579607485408d5c9b41ce76c9cf8b0a",
+      "decoded_rgb_sha256": "2bc2274d0818c1a4b4e50f1d6027ee3bf0c90d0ff77068ec04b9952c36e89093",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "9bb01b6bbcba5d5c1a82ef201f66ec3172cdc676ff0814c938efd9f67d496b90",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "wayfarers_camp",
+      "current_reservation_x_z_r_kind_margin": [
+        15.0,
+        -985.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 76,
+      "current_designed_first_air": 76,
+      "height_changed": false,
+      "png_sha256": "7358001c41a73c76bfbf718c37e07f99e48a4f7b60010832b4a2dfdac98ed2c9",
+      "decoded_rgb_sha256": "d185f38eca0f348876ca08b168809324d682563d7ee2ea5a9d3edc9b611b261c",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "0ef3cc1a14eff4a1bf203b6cfe64db85265fd2eba7258ebe8daed79419a07f95",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "sealed_cave",
+      "current_reservation_x_z_r_kind_margin": [
+        -120.0,
+        -400.0,
+        75.0,
+        "carve",
+        48.0
+      ],
+      "previous_designed_first_air": 77,
+      "current_designed_first_air": 77,
+      "height_changed": false,
+      "png_sha256": "84fcd82c0f7d58c0e39200f039b4b4541a22c1637b98547cd3e4ee01227f9cb0",
+      "decoded_rgb_sha256": "7cd65133852d1c7d67397433f10af658a13492ba688e7b160c05c0f490e4fa67",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "cd62f4b669d1c5bc576cda0b98a3e909240f07da66c9cbbe4792033b64772c5c",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "goblin_village",
+      "current_reservation_x_z_r_kind_margin": [
+        -530.0,
+        -220.0,
+        56.0,
+        "village",
+        48.0
+      ],
+      "previous_designed_first_air": 73,
+      "current_designed_first_air": 73,
+      "height_changed": false,
+      "png_sha256": "a9cb73709750dc561d864b4d0852e55eed1e2cf9a1553edd802fa8622062284b",
+      "decoded_rgb_sha256": "35b433aa2cccae31860189b9734ebd0deec99e6663a8ebdd28fe1c7410744793",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "9651b2ea27f9e02c14259e2226d3dec2eae998ddb22c0805f156ec9fc33b6b34",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "spirit_gate",
+      "current_reservation_x_z_r_kind_margin": [
+        -285.0,
+        350.0,
+        70.0,
+        "lakeside",
+        48.0
+      ],
+      "previous_designed_first_air": 70,
+      "current_designed_first_air": 70,
+      "height_changed": false,
+      "png_sha256": "27c7d08f7808514bfba2d3a20cbd712387ce1186bc9a8892744b39400ece12cd",
+      "decoded_rgb_sha256": "5388f4cc33c8c2b745d33febc33a087b34b24f2b90bfb66366eff2c43232c410",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "184250f58f4dc63d87d3ed0e38a1f46b93d5cb5fcb72688df4c128bfdbead8b3",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "shizu_spawn",
+      "current_reservation_x_z_r_kind_margin": [
+        -420.0,
+        -80.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 72,
+      "current_designed_first_air": 72,
+      "height_changed": false,
+      "png_sha256": "afb94a169f80908d7aae13984c6a1d993cdd15f97de2d185ce72f9c529cb68c4",
+      "decoded_rgb_sha256": "cb70d262697b51566a3184321a2b7288b669c21ddb838bd8a13a1b243deb96e4",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "acd843e4f8897fcdb007977c67026abd529920668a8332e25e33f89661c5ccb2",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "outcast_road",
+      "current_reservation_x_z_r_kind_margin": [
+        0.0,
+        52.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 70,
+      "current_designed_first_air": 70,
+      "height_changed": false,
+      "png_sha256": "2bdd6f3d601355866a8fe867f666dfef31befbc180f0598b1bdbbef1311ab218",
+      "decoded_rgb_sha256": "914c912630d839692b0ca2cc1a6f72cb6fb3857cf4b5d1448ac5f05e01e79404",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "14405d20ac7a1d473d9744ef0b8429d532e3308fce9ca135e1e55030faddc819",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "treyni_grove",
+      "current_reservation_x_z_r_kind_margin": [
+        320.0,
+        470.0,
+        56.0,
+        "village",
+        48.0
+      ],
+      "previous_designed_first_air": 72,
+      "current_designed_first_air": 72,
+      "height_changed": false,
+      "png_sha256": "6591d97d912d54fc2d530d409c2b3e8572735a30afe67eac0dafd4fe19f48f31",
+      "decoded_rgb_sha256": "edf1d8d3c9b1ffe1b4cb3f4d5737dd6f1282c2729fc5172771ae69024f136dcf",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "6d7ec41fd353874dcdc0a3456068a0b56d5280f962053cbfc581707b4202feaa",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "treyni_shrine",
+      "current_reservation_x_z_r_kind_margin": [
+        500.0,
+        600.0,
+        36.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 71,
+      "current_designed_first_air": 71,
+      "height_changed": false,
+      "png_sha256": "a2dc94e6a29a890923ae5a9e7b16eff8a6b133e352130988a48e7d4d22625dc7",
+      "decoded_rgb_sha256": "0e198d5e3bd2f02e95d645b7020abbc5cb3ba923d1ba2db15a104eb2d3930a5b",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "b7ce04b2b6906b121a86276d13baa7d49715e6f147c3d7afcf492a270cafb8cb",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "ogre_village_ruin",
+      "current_reservation_x_z_r_kind_margin": [
+        500.0,
+        300.0,
+        32.0,
+        "village",
+        48.0
+      ],
+      "previous_designed_first_air": 105,
+      "current_designed_first_air": 105,
+      "height_changed": false,
+      "png_sha256": "fb6a0481f72e5d7b4226f530a5eb6e58473a95072079da941fa9d89ec3ebaf1c",
+      "decoded_rgb_sha256": "e9f10816135a96e3d54c1855f775b3477ee53d0b60c906f4402fa9cbcc96154a",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "23cacce1e7dff0059af84bbc15469d4ae0331b72561a9447131f1828754c9d7a",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "dwargon",
+      "current_reservation_x_z_r_kind_margin": [
+        780.0,
+        -1390.0,
+        127.0,
+        "carve",
+        48.0
+      ],
+      "previous_designed_first_air": 146,
+      "current_designed_first_air": 146,
+      "height_changed": false,
+      "png_sha256": "ecb46d4de40f2a1aff5506ac49dd04ed1ce46f193a78aa710df53c5718ecb060",
+      "decoded_rgb_sha256": "5d014e8fd0777af4c2294471c2ecd21174819beba37c5bab8132285e00075ab2",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "5975fa0797b2b729d7888c008f5507633514cad161142d5d1a35c21ede3905e5",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "dwargo",
+      "current_reservation_x_z_r_kind_margin": [
+        780.0,
+        -1490.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 188,
+      "current_designed_first_air": 188,
+      "height_changed": false,
+      "png_sha256": "081819d95755bf7a559af41f537dde600e1d6d44d2116acb812be4bb72787a5c",
+      "decoded_rgb_sha256": "38342a4cc54c9969284ef190291619316611ee2cddb39e3fd3970dc4c743e186",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "d20a0d7a3cdecc7b4239d9b54826a5e45a81394e2c9a2dc48fd26ae66ad49351",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "dwargon_throne",
+      "current_reservation_x_z_r_kind_margin": [
+        780.0,
+        -1496.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 182,
+      "current_designed_first_air": 182,
+      "height_changed": false,
+      "png_sha256": "aafe30019887958770ddee251cf3a525eda4090571f1f1da756fe1c883c66167",
+      "decoded_rgb_sha256": "9f59b620bb138804fc7ce9c387df0dbb6597700c65a293c777a124f74df01411",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "9bc8fd459c1645932cea930e3c0e529bbe605f81bc2ccb3201e9456317231f90",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "kaijin_smithy",
+      "current_reservation_x_z_r_kind_margin": [
+        768.0,
+        -1474.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 198,
+      "current_designed_first_air": 198,
+      "height_changed": false,
+      "png_sha256": "a8d970026e1372eed18254671d121f9ac4092478aaccd537f976c22b7a9b97ac",
+      "decoded_rgb_sha256": "2ad904ab457b645d89de34f21fbb4563539fe16446b656eea1b11bab52233155",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "f97adbde9ecc70850b5884696ed5872bdb6b648f0f4a92cb4eaacf3274ea118a",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "dwarf_village",
+      "current_reservation_x_z_r_kind_margin": [
+        1000.0,
+        -1000.0,
+        124.0,
+        "village",
+        64.0
+      ],
+      "previous_designed_first_air": 73,
+      "current_designed_first_air": 73,
+      "height_changed": false,
+      "png_sha256": "d6b26c74cabe5a24b007880c00591e71241c90ad408f48233ed468c636645d26",
+      "decoded_rgb_sha256": "7c05daa38e976404b004866bc1f257307e24e57f6337ed4a4d09569f68842ca3",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "2cd7a3c17a7fc0e99d18c749fc6112acd68fee051472fa77fb4797a7e1dfabf6",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "dwarven_arena",
+      "current_reservation_x_z_r_kind_margin": [
+        1100.0,
+        -980.0,
+        58.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 73,
+      "current_designed_first_air": 73,
+      "height_changed": false,
+      "png_sha256": "ce75daaadd2c98f3bb75146b63e400f6c61e25bf4ff3b0c09e1693ec8723c481",
+      "decoded_rgb_sha256": "1f55018838ed92033021ec817713310d7efd6090c8151f9c7b4aef7a36261fba",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "93971678abb735cfefa1cdd69e76472d2c19ffa9f8454cbd625cd2ebb5e6fd31",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "dragons_nest",
+      "current_reservation_x_z_r_kind_margin": [
+        350.0,
+        -2000.0,
+        85.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 272,
+      "current_designed_first_air": 272,
+      "height_changed": false,
+      "png_sha256": "c7cf976c054442baec2583813d8263b2b0c7718b6bd5d9e8bf5d10679a870f09",
+      "decoded_rgb_sha256": "45b6dd0884cebcf9ee9524ed6a4fa102228de14fc506b492a6a294f5703c6e63",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "110e1acd1d2c57b4d0badbe1b8f917fa45b6f1c700fc6b2d344889599d1d91b7",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "ameld_source",
+      "current_reservation_x_z_r_kind_margin": [
+        200.0,
+        -1240.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 91,
+      "current_designed_first_air": 91,
+      "height_changed": false,
+      "png_sha256": "df40d632c64279119a89eea10b204dbacb1e9b4ed5281053846af859adf83525",
+      "decoded_rgb_sha256": "62b373d2dbcb2003a13a47ad18ab2cf0e9756adca0c4286efcd7562a33102c7e",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "d0e296b0b7bc07f7a0d9f929b173cf4011050029776aeff48b799295431c2542",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "ameld_mouth",
+      "current_reservation_x_z_r_kind_margin": [
+        2150.0,
+        1250.0,
+        8.0,
+        "coast",
+        24.0
+      ],
+      "previous_designed_first_air": 63,
+      "current_designed_first_air": 63,
+      "height_changed": false,
+      "png_sha256": "d311ac05d41c85c0169f9f6c4f1fe3e3d02ab73af60cfb9154c8d3efe9df6274",
+      "decoded_rgb_sha256": "b3886115f26e9bab9e6fb76f41a3b89560f8c48b7de80a30e7865d72a590c3cf",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "b3dfe8810bfd19dee747e6cc36140886c07b89dc5c67b532dfb3547656eb9343",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "lake_siss",
+      "current_reservation_x_z_r_kind_margin": [
+        1100.0,
+        -100.0,
+        96.0,
+        "lakeside",
+        48.0
+      ],
+      "previous_designed_first_air": 66,
+      "current_designed_first_air": 66,
+      "height_changed": false,
+      "png_sha256": "1464c8f73f38a1000b045da1538549a5be477c26d0e4efba3e76b743f32ad1f1",
+      "decoded_rgb_sha256": "4d573bb71565081715b409be6d532451a44f67009f788d3b787ff6c72a593899",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "31dcbcba5c10bd5ee6a65ba13ff45848c01486541832d2bb3e0c1622c364d9b4",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "lizardmen_village",
+      "current_reservation_x_z_r_kind_margin": [
+        1100.0,
+        265.0,
+        60.0,
+        "lakeside",
+        48.0
+      ],
+      "previous_designed_first_air": 65,
+      "current_designed_first_air": 65,
+      "height_changed": false,
+      "png_sha256": "4e9128ae9368e22363ef28c7f80d5f935b27c2627a096339c5125d2af3d5c3df",
+      "decoded_rgb_sha256": "736853e9d8cb569cb0840f0d466ecc78864726c224dff9719dcf05114ad74dc9",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "e50e8519e2b87aaac22ccb341fefcef5fc59b5e756b6e72f7d43e726ae8a93cf",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "lizardmen_caverns",
+      "current_reservation_x_z_r_kind_margin": [
+        1300.0,
+        520.0,
+        64.0,
+        "carve",
+        48.0
+      ],
+      "previous_designed_first_air": 102,
+      "current_designed_first_air": 102,
+      "height_changed": false,
+      "png_sha256": "2e85c5b9db3a98c3f8c9b42f0d77030a8cc79a9b9710c364e0b149fe7b21ec90",
+      "decoded_rgb_sha256": "dd77966adfc6bf5911bb444da938ed689fc42065c32d8d52829c801fd84222ab",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "a5613666bbb8846cbce7f99ec9f4110fd7efc6f9de9fe647331a5978ced13c86",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "orc_camp",
+      "current_reservation_x_z_r_kind_margin": [
+        1750.0,
+        550.0,
+        60.0,
+        "village",
+        48.0
+      ],
+      "previous_designed_first_air": 72,
+      "current_designed_first_air": 72,
+      "height_changed": false,
+      "png_sha256": "a7ab23dee287857a3b65a5524d8f65219c8182e50ca407a0bd3d4b3dff527730",
+      "decoded_rgb_sha256": "f0378d8ad60a1c48c8d1a636c1969f250198c98acc41d9a7f0494b966e742538",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "36de1ed00a260260783b02ec10ac158fb471f8a1c57db2542db5d1b67f65cf34",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "blumund",
+      "current_reservation_x_z_r_kind_margin": [
+        -1500.0,
+        -620.0,
+        97.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 72,
+      "current_designed_first_air": 72,
+      "height_changed": false,
+      "png_sha256": "cfac73e29ba82869529ff78c4083c451c60f0cfd5dbf9ed774c56df24b8d0775",
+      "decoded_rgb_sha256": "245ee1c8cae0ce9766719855295fc14224f7cb298b2e8e0888e598af29d60715",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "5d0051a063feee6321ae85e4220924e0158868728f892547b04509f63c109194",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "ballachia",
+      "current_reservation_x_z_r_kind_margin": [
+        -2450.0,
+        -450.0,
+        68.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 72,
+      "current_designed_first_air": 72,
+      "height_changed": false,
+      "png_sha256": "da456eabb1edb33144d1629c1b5645d3185e9a197ccf822a36a2f57c2a589cee",
+      "decoded_rgb_sha256": "44fc4e7c1d4e3a3e79982c27a79f942223b1eeaa648be820690d8b913e212c12",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "bc89d18de06c7f40858f8900a3e203f4ee0bb80ff2d67ee33d953e1b9f9381ab",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "englassia",
+      "current_reservation_x_z_r_kind_margin": [
+        -2900.0,
+        -550.0,
+        124.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 76,
+      "current_designed_first_air": 76,
+      "height_changed": false,
+      "png_sha256": "ed83fc018034f906ff05d2b0dc68d3f42b8acdc1999fbbb024559864caccbb5d",
+      "decoded_rgb_sha256": "214657c5c402004417d2a15503bb433c4b095edb8e4b6260013ce0db1fcc7c17",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "51fabdea69aadca27abde7429d5f2c46ac22c4561b1b471fef748209b85a4a31",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "marris",
+      "current_reservation_x_z_r_kind_margin": [
+        -1800.0,
+        -1650.0,
+        101.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 67,
+      "current_designed_first_air": 67,
+      "height_changed": false,
+      "png_sha256": "a1c7eae558955b3f49b0053dd70fa7981a3ad449cfcc8398803a60cfcba13b54",
+      "decoded_rgb_sha256": "223450f23a789e602fe2f0b42d3d18efc9004ea97b711b95f3ca4335a146ce3b",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "6aa1467269ee03bfd1415f6f5ecd3dc7a1ecad2615189afefe51f80cf2ee5133",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "siltrosso",
+      "current_reservation_x_z_r_kind_margin": [
+        -2297.0,
+        -1370.0,
+        66.0,
+        "coast",
+        48.0
+      ],
+      "previous_designed_first_air": 65,
+      "current_designed_first_air": 65,
+      "height_changed": false,
+      "png_sha256": "ee764899c5a28090bdb0a58120fa8f6f9a712e7a27299c7fdc27d9ab006e452f",
+      "decoded_rgb_sha256": "08717708b532a1903323f957b10789f8e54677c11f0c087997da80a643a688f3",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "dce1ad43f8f21c5a167428c5882bcca69140834a66ad331c2579af36610e0f73",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "lubelius",
+      "current_reservation_x_z_r_kind_margin": [
+        -3600.0,
+        -1300.0,
+        97.0,
+        "plateau",
+        48.0
+      ],
+      "previous_designed_first_air": 71,
+      "current_designed_first_air": 71,
+      "height_changed": false,
+      "png_sha256": "aca5c28222a6fe1347a52c05d9928e615f32b6d938ba1f181363f279231a9110",
+      "decoded_rgb_sha256": "c257b39193aef3c7c58a6cc9cfefc715d7908073b89aa0a22c757bf863658a4c",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "8dff1003b5784153ac419dca65b06947cea8fa6c56690d2ab3495a40386dab68",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "sacred_mountain",
+      "current_reservation_x_z_r_kind_margin": [
+        -3900.0,
+        -1600.0,
+        95.0,
+        "plateau",
+        48.0
+      ],
+      "previous_designed_first_air": 175,
+      "current_designed_first_air": 175,
+      "height_changed": false,
+      "png_sha256": "a70502dd0a782ae19443d0fbd781ddd6fe0383aebd50928dba688f8f7726beb8",
+      "decoded_rgb_sha256": "6d6da90a1b446ce8a1e0f64a5c75eb217f8bdf873d5d6bc29aab3b88949b8122",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "6eabe4d592ae8e873b2e17c3c86127fd191d6703cf39a8f4b1efd64579b803f4",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "coleus",
+      "current_reservation_x_z_r_kind_margin": [
+        -3520.0,
+        -860.0,
+        73.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 75,
+      "current_designed_first_air": 75,
+      "height_changed": false,
+      "png_sha256": "e43d50adf10486316afd4750024e7b25fc2bc1b531a36952ee4c0088709f1a36",
+      "decoded_rgb_sha256": "c1dafa0b65194cd8e7463d0bec63179dca16ca14b6aca2c6e825757c5093c2fa",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "b85a88938eef0edba77aee2890f82acacc6292502a882bb4780dcd88f55cc083",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "heaven_tower",
+      "current_reservation_x_z_r_kind_margin": [
+        -4200.0,
+        -200.0,
+        84.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 73,
+      "current_designed_first_air": 73,
+      "height_changed": false,
+      "png_sha256": "7304f0047d826dde6d737e717d165c1a0227e4376c53bac75b41b7981d475f64",
+      "decoded_rgb_sha256": "f201c6452f5080bdc986747466805e62f38480b9a14ec643fe2ff8322556ade5",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "649ff094276a5df4046bbf6d2c7113e2d5ee618e931b244c77c4330fe331f98d",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "morgdahl",
+      "current_reservation_x_z_r_kind_margin": [
+        -3200.0,
+        330.0,
+        61.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 72,
+      "current_designed_first_air": 72,
+      "height_changed": false,
+      "png_sha256": "9a635473dae1d9a31255f06c540f66f9afccda5ed258b752352810ba72a83973",
+      "decoded_rgb_sha256": "8c3b78b9a046a85263a270494dd736d336e928a09e55058fce445e9ce4464cc5",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "5c9c54ac04766d66a4d38df93295cd2ed863a6b8e817a325b4001a3b815df0bb",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "raja",
+      "current_reservation_x_z_r_kind_margin": [
+        -2850.0,
+        360.0,
+        71.0,
+        "lakeside",
+        48.0
+      ],
+      "previous_designed_first_air": 74,
+      "current_designed_first_air": 74,
+      "height_changed": false,
+      "png_sha256": "111a6d58bdbcf1bb77fe43a5d6e7c70e5d9c41e749b8a3a93828a46330ff991c",
+      "decoded_rgb_sha256": "7c8002016cb313f52859627633d1b25a42bb59add8b1e887804cef7cda25f722",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "756aa8ae00b243fb9909e7b9945bfbc47245c09f554b0b85f2f28094797fc6b6",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "nostraille",
+      "current_reservation_x_z_r_kind_margin": [
+        -2550.0,
+        330.0,
+        66.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 76,
+      "current_designed_first_air": 76,
+      "height_changed": false,
+      "png_sha256": "dfe2332c7c8affc8456ad2330fa794903693b47de7c901dd6f6ed4d380e2001f",
+      "decoded_rgb_sha256": "2bbd5fa4135245dfe33d6a2849183918e8adb1c1c93fa7f5053ea475ce0ab11a",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "266c7d2f0eed748487b3d9e7d7d622ec4c332ade3274a8b546e930140f714781",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "yuzalgh",
+      "current_reservation_x_z_r_kind_margin": [
+        -2350.0,
+        300.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 76,
+      "current_designed_first_air": 76,
+      "height_changed": false,
+      "png_sha256": "d338af1796df3d2201e3c85a9431362f2b9479ded9a6ee96c4e453ebfccff275",
+      "decoded_rgb_sha256": "c9bfd717db276184b558f96a2ab2074702874f7290cd783b5e95a895a0339adc",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "58d7b6c7da21e724ec995b6173559664848e900251fbc4aa3142ad2012e423ec",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "yggdonia",
+      "current_reservation_x_z_r_kind_margin": [
+        -2150.0,
+        -80.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 75,
+      "current_designed_first_air": 75,
+      "height_changed": false,
+      "png_sha256": "82350483fa15001f529a8ad4ceede4d57312cba326b902d61d489eb50cdf2271",
+      "decoded_rgb_sha256": "16df51a1bd86e42cec2b0aa30bb8fdc360b7ef071aea49a6669300d8b851d30a",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "3be931874f68ce27dca246b4cfda4e36c360f413149a7a31e6fbd5774510093b",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "filtwood",
+      "current_reservation_x_z_r_kind_margin": [
+        -1200.0,
+        2750.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 65,
+      "current_designed_first_air": 65,
+      "height_changed": false,
+      "png_sha256": "e3a77cd6707560a69cd305502a56d25206937e43e88f19db0f2cf34e92ab7db6",
+      "decoded_rgb_sha256": "c95284f5cc429dc5d46ff36e0bb2dc8b7949b05340ac165664e629e31fb71c07",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "0a95d2bdc7d3b6b719f6a14e7108489dc822123cf708923e44848a8487d1d046",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "ghastone",
+      "current_reservation_x_z_r_kind_margin": [
+        -3200.0,
+        -300.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 72,
+      "current_designed_first_air": 72,
+      "height_changed": false,
+      "png_sha256": "8fa7153e10b7155a1e5c2e419459e28cd5b49b0a32dd603f07a32caa30039506",
+      "decoded_rgb_sha256": "5c62b80fd3a559bb22e0f046fc2273b075753886707b543a25d8d4d00ff9db0b",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "9d85a26f9421fcbb3f47728149487e5cfed9b20f56b133f853090dd4355a17cc",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "rostia",
+      "current_reservation_x_z_r_kind_margin": [
+        -2780.0,
+        200.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 73,
+      "current_designed_first_air": 73,
+      "height_changed": false,
+      "png_sha256": "df753fe5bec72a360999df872965ab866afeefeefae36fcf95474671e7f17f87",
+      "decoded_rgb_sha256": "7fe6f7eb3b074f63398d20060673a5c690ca8b670ee985c7ef338b3d24bae113",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "df17a9eb7e454f04e7f563ae9d6751f9da8ab6cfbd838f6f314f26b725edbea0",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "sainte_malukshure",
+      "current_reservation_x_z_r_kind_margin": [
+        -100.0,
+        2000.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 69,
+      "current_designed_first_air": 69,
+      "height_changed": false,
+      "png_sha256": "ffa75b7abfb55f2e9a7eea3f97104752170658fcb814b916e825153922f8fb9b",
+      "decoded_rgb_sha256": "bcca671b0d33843f0d353f976b0f2317dcc9d3426531169afa54dc3c043e37d0",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "a36806acf93dbde45c087d5482653da3fe2dc19031fc823d40308f41d8a410b1",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "ulgr_nature_park",
+      "current_reservation_x_z_r_kind_margin": [
+        -950.0,
+        2850.0,
+        63.0,
+        "plateau",
+        48.0
+      ],
+      "previous_designed_first_air": 112,
+      "current_designed_first_air": 112,
+      "height_changed": false,
+      "png_sha256": "fd156227502cd4c089d31745ad92420865212b4dea45d50f35dde17b3d7e1e12",
+      "decoded_rgb_sha256": "01955200b10f1a92768a2e4dd91ad073bc0891892b3083e06953cb11ae03b4e0",
+      "native_dimensions": [
+        1362,
+        1155
+      ],
+      "normalized_sheet_sha256": "1c7da37f106f38cef4d21c4fd2e30657612cefd63bc28385c8f4c17b6ecf1ac3",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "elmine",
+      "current_reservation_x_z_r_kind_margin": [
+        -1680.0,
+        1740.0,
+        100.0,
+        "clearing",
+        64.0
+      ],
+      "previous_designed_first_air": 104,
+      "current_designed_first_air": 104,
+      "height_changed": false,
+      "png_sha256": "26cd73aec643f1e97ae1bb2eebc191468bb5bdaa779e60bfac1d0af4f4bf4193",
+      "decoded_rgb_sha256": "d27a26ca66bbad848c9eb2245d1982bc0126d06326487b056b854317b32e985f",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "a4059999b0375207943d79992d5a4d1deb1dfe1cb408077fc921fa8146049bca",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "jia",
+      "current_reservation_x_z_r_kind_margin": [
+        200.0,
+        2450.0,
+        68.0,
+        "plateau",
+        48.0
+      ],
+      "previous_designed_first_air": 235,
+      "current_designed_first_air": 235,
+      "height_changed": false,
+      "png_sha256": "00832280dece56006497aa79e7194fb21feefb7f2a0cb120cbf6444c22f0712d",
+      "decoded_rgb_sha256": "e5d83affb628756946cd454e3ea75d6daf0f6e9434baf27c38238efa18ec550d",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "62ed1c2acb5d392bf397e833298380aabcf8143d2029a4f979e2319adcf40d6c",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "laura",
+      "current_reservation_x_z_r_kind_margin": [
+        1500.0,
+        1600.0,
+        100.0,
+        "clearing",
+        64.0
+      ],
+      "previous_designed_first_air": 71,
+      "current_designed_first_air": 71,
+      "height_changed": false,
+      "png_sha256": "8939b4ba79c1670ad41cd491cb9688f85321bb06c00a1abc474d6d83bcad45de",
+      "decoded_rgb_sha256": "fb0fccd6a523d1d1c938537e9bb4da8defd366f9b6ee72e6ef3361ba813c0d31",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "ad1d2fee85749e3ab6c1d6c4ac6486aed780a78321814f3661546b7f61a3eb1d",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "forgotten_dragon_city",
+      "current_reservation_x_z_r_kind_margin": [
+        2650.0,
+        800.0,
+        100.0,
+        "clearing",
+        64.0
+      ],
+      "previous_designed_first_air": 75,
+      "current_designed_first_air": 75,
+      "height_changed": false,
+      "png_sha256": "23e85886229ea0c46d4a2208394578a5ab1926a8e5989b8deb50c397c192980a",
+      "decoded_rgb_sha256": "a93a0a2cfd4739d20351b6306c9ae95fbdbc15a2e8a1d65b4d59e08683218893",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "6d6e50aec55fc91d5c3282bb16ee0abcdf3decec13f6d12fe580c2dceeacd0dc",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "clayman_castle",
+      "current_reservation_x_z_r_kind_margin": [
+        3300.0,
+        -600.0,
+        90.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 73,
+      "current_designed_first_air": 73,
+      "height_changed": false,
+      "png_sha256": "5e3d4afb78b06b57a56c3d019cdf9ded5885c6d048530d6fadc8405b9998a903",
+      "decoded_rgb_sha256": "b0f8e36e5d1394aba388942711e071dae8a41214a6b4d6b53ff2a29e1f51a036",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "4759c1b292d337aa209bb5354bbbf0c45addd5875753e431c50e14edbb834f75",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "amrita",
+      "current_reservation_x_z_r_kind_margin": [
+        3800.0,
+        -500.0,
+        63.0,
+        "carve",
+        48.0
+      ],
+      "previous_designed_first_air": 89,
+      "current_designed_first_air": 89,
+      "height_changed": false,
+      "png_sha256": "694c22e1817a11fbb41936c4488db300eba70e3f1f0489a6255de73a86cf4280",
+      "decoded_rgb_sha256": "c817930e74818db242eefafca556af8480a417c895fbc491e7b130493a45e0f4",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "a58d6fda4264726d68f93ead0020408162f26139cce261cdcd4898320cb3fdb4",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "nasca",
+      "current_reservation_x_z_r_kind_margin": [
+        3200.0,
+        -1800.0,
+        90.0,
+        "plateau",
+        48.0
+      ],
+      "previous_designed_first_air": 75,
+      "current_designed_first_air": 75,
+      "height_changed": false,
+      "png_sha256": "1dafc87a05b7a2b39b112598f775cc67c34e0973cfe280c00156d5d152e64a6a",
+      "decoded_rgb_sha256": "8ce6852a47af0510a9485aa9c5447986e444349b15e8fff3219590671193e754",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "0858b9e4e75fde25cd8d4fa60b181cc33d1283e96b04d4b86e9083a65aaf736a",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "great_holy_mountain",
+      "current_reservation_x_z_r_kind_margin": [
+        3350.0,
+        -1350.0,
+        80.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 247,
+      "current_designed_first_air": 247,
+      "height_changed": false,
+      "png_sha256": "25c732a59ecc10f43f0fbdf6ed5bed09c55483b60cf4db773ecb90818ea896c6",
+      "decoded_rgb_sha256": "1d50ce3f69b92a3e39caa71aeb6babd286a4771e60ad57a65c0707b8600b4c8d",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "fb9359062192086953b41c6ad7c32354268976e23cf54a99451ad28d21b99b21",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "el_dorado",
+      "current_reservation_x_z_r_kind_margin": [
+        -4300.0,
+        3000.0,
+        100.0,
+        "clearing",
+        64.0
+      ],
+      "previous_designed_first_air": 72,
+      "current_designed_first_air": 73,
+      "height_changed": true,
+      "png_sha256": "0070aa8ea02a4d46552e408077bfd2dfe30abc9555d4b2e3a8314f2c62d2ec63",
+      "decoded_rgb_sha256": "5df5880cc54b3991fb7dc489b5164ca308e2ecd2db25ff7d2376ba591c4bd2ae",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "11c67f261e50c225f8e758616d35abe70f45284c96421b977ff9e1db658cfac7",
+      "sheet_changed": true,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "el_dorado_volcano",
+      "current_reservation_x_z_r_kind_margin": [
+        -3900.0,
+        3200.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 196,
+      "current_designed_first_air": 197,
+      "height_changed": true,
+      "png_sha256": "588b0fb53693199eb37ff656873f0491a6cf036d076ee95530c0af7429f684c1",
+      "decoded_rgb_sha256": "87304b104874c8cb3bb8fb275765761ef602a9dc06cfcb16e49ba6468bb27f87",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "ed53b45486586fb909b4f6dfcde82ee4be9d0bd8c356312ee6f04aae136af3dc",
+      "sheet_changed": true,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "frost_palace",
+      "current_reservation_x_z_r_kind_margin": [
+        -1530.0,
+        -3680.0,
+        89.0,
+        "clearing",
+        48.0
+      ],
+      "previous_designed_first_air": 71,
+      "current_designed_first_air": 71,
+      "height_changed": false,
+      "png_sha256": "1076ab872ec17edcc5676c03f25d3d82a28b0bb82e37143dce85a6b0063abd24",
+      "decoded_rgb_sha256": "8553f446a3c749e25e7c896c11293942c184dc670085374d74f16770c3293f2e",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "04bb9d921e607ebf509a298612e7c9fd49f5eca53cb4bac868d8b1f454cc0312",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "blumund_road",
+      "current_reservation_x_z_r_kind_margin": [
+        -1340.0,
+        -520.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 71,
+      "current_designed_first_air": 71,
+      "height_changed": false,
+      "png_sha256": "d4be4e8ab2b8b0a752b399a3a6b5f55f0bd80eccf1f33ce1fff860ccffe823ed",
+      "decoded_rgb_sha256": "31deb6f7459b03baf93eddbad2637cd801feaccc178489027a885bbb44bc7a65",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "688c6c60e6505b83b2b89d5dc6565c71d92a471426bda46d55ab104bd38ea183",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "englassia_road",
+      "current_reservation_x_z_r_kind_margin": [
+        -2650.0,
+        -520.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 73,
+      "current_designed_first_air": 73,
+      "height_changed": false,
+      "png_sha256": "52a04a12ece32a968b45bc5a92b46c6115babf30432fafdc5f45e749d39467d5",
+      "decoded_rgb_sha256": "9d436cc97073e989e64857c486d688def9a691731cb9038e7ca98208142879e5",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "3dcf2c7ef451a37ba1bb50af1ed8ce36a31aec3f227a16f10d09e8523bbb5b25",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "old_well",
+      "current_reservation_x_z_r_kind_margin": [
+        -1000.0,
+        -340.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 76,
+      "current_designed_first_air": 76,
+      "height_changed": false,
+      "png_sha256": "98cf8cdfd28a41e09c112979dcc30cb313b0edb47d6e59b9705b22b64706fb1a",
+      "decoded_rgb_sha256": "0090747487cf6db58fc4bfafc99fdb6df9b400e3279a659a7c61da3a1ee5ef80",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "5156445bbb95dcd8fe63802b1613d167e2364ccf0a2829207b75d08a555522fb",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    },
+    {
+      "id": "rookie_camp",
+      "current_reservation_x_z_r_kind_margin": [
+        -120.0,
+        -560.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "previous_designed_first_air": 73,
+      "current_designed_first_air": 73,
+      "height_changed": false,
+      "png_sha256": "98e6958f9618d95bd00cbc43e34d60cc73ca5952cbe01c793d2108a9f93ca877",
+      "decoded_rgb_sha256": "e65bc991c3e0186994b77c8015e9b2427b9a8ac45ccb4471357639601ea87f6a",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "normalized_sheet_sha256": "d0cb47cdc8212aac3e4d5cea56c8776bee5f18c69289272f1d82975a7c774052",
+      "sheet_changed": false,
+      "scope": "Numerical project registration only; not metric image geometry,source/era completeness or in-game acceptance."
+    }
+  ],
+  "reference_label_correction": "The volcano sheet previously labelled its fandom.com link as official episode context;the link is now explicitly secondary fan-wiki context."
+}

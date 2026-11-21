@@ -276,3 +276,5 @@ changes and new decisions with a date.
 | 19/11/2026 | — | Source review round 5: publisher LN fragments distinguish confirmed adjacency/terrain from exact server coordinates; Ulgr park is labelled separately from Galut and placed near the authored northern U boundary. Unresolved north-of-Nasca and independent Siltrosso outlines remain inert comment/review alternatives, not terrain edits. No further technical matrix changes. |
 
 | 20/11/2026 | — | World-map round 6 improves western/cave proportions within existing ranges, redraws associated shore/roads and the northeast hook/east bay. Remaining reference-scaled positions stay in inert comments for owner review. Authored climb geometry now meets 1:2 in the actual exported profiles; no grading-tool changes. All source uncertainty and gameplay-boundary interpretation remain explicit. |
+
+21Nov2026 — R127: retain the original El Dorado court/volcano concepts after full-resolution framing review; update their current designed first-air metadata to73/197 and verify all58 reservations against source8f8c294. Exact prompts remain historical. [Current registration](../docs/art/places/current-map-registration-r127.md).
