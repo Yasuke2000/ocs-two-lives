@@ -1,0 +1,38 @@
+{
+  "source_sha256": "e785c2b0a37105994f29ed4eae0f48fa8884b57d334a80c0811a350bfac7ed74",
+  "map_commit": "b36f284",
+  "source_lake_and_outlet_points_exact": true,
+  "R100_native_XML_retained_except_declared_overlay_and_root_metadata": true,
+  "changed_continent_pixels": 1304,
+  "maximum_RGB_channel_change": 158,
+  "changed_pixel_bounds": [
+    505,
+    567,
+    610,
+    695
+  ],
+  "all_changed_pixel_centres_inside_16block_support": true,
+  "all_exterior_pixels_identical": true,
+  "registered_sites": 58,
+  "site_attributes_world_positions_and_projections_checked": true,
+  "context_names": 20,
+  "context_positions_and_browser_boxes_verified": true,
+  "all_other_atlas_XML_retained": true,
+  "inventory": 140,
+  "ledger_unique": 310,
+  "physical_followups": 42,
+  "minimum_number_spacing": 32.470561517449696,
+  "browser_label_overlap": false,
+  "source_and_terrain_previews_match_main": true,
+  "source_checker": {
+    "errors": 0,
+    "relations": 56,
+    "existing_warnings": 2
+  },
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "runtime_applied": false,
+  "limits": "Painting water/bank alignment only; not a named canonical lake,surveyed shore,complete geography or in-game world proof.",
+  "original_procedural_water_wash_clipped_to_exact_shore": true,
+  "atlas_embeds_exact_final_continent": true
+}

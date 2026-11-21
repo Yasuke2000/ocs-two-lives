@@ -1,21 +1,22 @@
 {
-  "source_svg_sha256": "dbef5ac01a2e22f6aca9182527fc6610295f385da9fec2058ccf2f52cd833197",
-  "staged_index_source_sha256": "dbef5ac01a2e22f6aca9182527fc6610295f385da9fec2058ccf2f52cd833197",
-  "preview_sha256": "5406f65a94fa2e683cb71ccec1a13989615e55e394452090bbe668b4314567c4",
+  "source_svg_sha256": "e785c2b0a37105994f29ed4eae0f48fa8884b57d334a80c0811a350bfac7ed74",
+  "staged_index_source_sha256": "e785c2b0a37105994f29ed4eae0f48fa8884b57d334a80c0811a350bfac7ed74",
+  "preview_sha256": "d627780a70752df311dfc70c72380d8b55b312765521197b79095774073b603f",
   "original_preview_pixels": [
     1600,
     1344
   ],
   "copied_without_pixel_modification": true,
   "applied_to_runtime": false,
-  "previous_preview_source_sha256": "bb0e4b295dc1b75b8ac2778dd4f8b5240b69c26af5c4da35beac785595e6aaca",
-  "normal_build_seconds": 67.3,
-  "source_change_review": "world/tengu-glade-r99.md",
+  "previous_preview_source_sha256": "dbef5ac01a2e22f6aca9182527fc6610295f385da9fec2058ccf2f52cd833197",
+  "normal_build_seconds": 67.6,
+  "source_change_review": "world/western-basin-r104.md",
   "registration": {
     "existing58_numeric_groups_retained": true,
     "context_names": 20,
     "relocated_context": "Khusha Mountains",
     "inventory": 138,
     "physical_followups": 42
-  }
+  },
+  "comment_only_source_change": false
 }

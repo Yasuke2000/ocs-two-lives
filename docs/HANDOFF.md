@@ -1,3 +1,11 @@
+## 21/11 — Painting aligned with western basin (R105)
+
+[Current painted atlas](../world/painting-round105/README.md) follows R104 source `e785c2b0`/map commit b36f284. Exact40 lake/36 outlet vertices preserved; original water grain clips to the source shore. All R100 native XML retained except the declared overlay/definitions/root metadata.1304 continent pixels change; all exterior pixels are identical outside16-block ink/antialias support. Source checker0errors/56relations/2prior warnings; fresh source/checker/terrain previews match the map branch exactly.
+
+58 source site attributes/world/projection records retained;20 context names/42 open rows browser-checked with no label overlaps and32.47px minimum circle spacing. Caption140/42 andledger310 agree. Blumund orientation follows the source northward move plus20px eastward layout offset to clear marker37; metadata/browser boxes reflect the actual position. No place moved. Native continent,full atlas,detail and enlarged comparison inspected. R100 is historical; painting alignment is complete. Whole-map source/physical/era obligations and C22 owner choice remain open.
+
+Required gate472tests,26skipped,zero failures(64.430s); validation,zero changed JavaScript and diff check passed. No historical art/prompt or protected edit,normal terrain rerun,world apply,structure generation,merge,deploy or in-game acceptance. Next: publish/align main handoff links to R105,then continue substantive geographical/source/initial-state obligations. Do not repeat passed source/normal/paint checks without a new reason.
+
 ## 21/11 - Painted Tengu terrain context aligned (R100)
 
 [R100 painted atlas](../world/painting-round100/README.md) follows source `dbef5ac0`: exact meadow shape, 15 changed continent pixels,20 context names and unchanged58 registered sites. Khusha text and the Tengu M-to-P row follow the main atlas; inventory138/42 and ledger305 remain. No village or active footpath is added. Source/terrain retained; no further production correction identified. Repository gate: 472 tests, 26 skipped, zero failures (63.658s); zero changed JavaScript.

@@ -41,3 +41,13 @@ The [official episode77 synopsis, route82](https://www.ten-sura.com/anime/tensur
 ## Direct gate context and terrain interface — round51
 
 The [source/terrain follow-up](dwargon-approach-study.md) separates the visited ordinary entry passages from the large main gate. The already recorded WN eastern entrance is not a surveyed East city position. East/West remain missing. Roof cover checks pass, but the exported road and fixed template approach have a74.67-block reference-height mismatch seven blocks from the southern box boundary; placement repair and actual walkability remain untested. No extra city coordinate, tunnel or verified interior floor is inferred.
+
+## R102: primary WN capital meeting context
+
+[Selected author passages](../docs/research/tensura-world-2026-11-19/council-capital-source-r102.md)
+now directly place a later Council meeting in Englassia's royal capital
+(WN139-COW-102). This strengthens the earlier country-level evidence without
+verifying a permanent headquarters, English capital name, street parcel or
+S1E10 building state. Keep Council premises distinct from guild/academy/castle
+and still missing in the physical inventory. No duplicate capital marker or
+active geometry follows. Ledger307; inventory138/42 physical follow-ups retained.

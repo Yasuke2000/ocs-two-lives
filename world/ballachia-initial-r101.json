@@ -1,0 +1,1308 @@
+{
+  "round": 101,
+  "candidate": "world/build-proposals/ballachia_initial.py",
+  "registered": false,
+  "size": [
+    76,
+    38,
+    66
+  ],
+  "local_anchor": [
+    38,
+    4,
+    41
+  ],
+  "changed_voxels": 142,
+  "by_replacement": {
+    "minecraft:air": 80,
+    "minecraft:andesite": 5,
+    "minecraft:bricks": 16,
+    "minecraft:cracked_stone_bricks": 4,
+    "minecraft:polished_andesite": 21,
+    "minecraft:stone_bricks": 16
+  },
+  "all_changes_in_declared_regions": true,
+  "all_other_voxels_identical": true,
+  "repeat_deterministic": true,
+  "old_blueprint_sha256": "bb08f6d7b572b476471890b1c4173c78ff253df8445e3677c0fa7e212d3a9115",
+  "changes": [
+    {
+      "xyz": [
+        10,
+        4,
+        8
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        4,
+        9
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        4,
+        10
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        4,
+        11
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        4,
+        12
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        4,
+        13
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        4,
+        14
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        4,
+        15
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        5,
+        8
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        5,
+        9
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        5,
+        10
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        5,
+        11
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        5,
+        12
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        5,
+        13
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        5,
+        14
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        10,
+        5,
+        15
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:bricks"
+    },
+    {
+      "xyz": [
+        18,
+        4,
+        8
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        4,
+        9
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        4,
+        10
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        4,
+        11
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        4,
+        12
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        4,
+        13
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        4,
+        14
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        4,
+        15
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        5,
+        8
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        5,
+        9
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        5,
+        10
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        5,
+        11
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        5,
+        12
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        5,
+        13
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        5,
+        14
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        18,
+        5,
+        15
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        4,
+        8
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        4,
+        9
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        4,
+        10
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        4,
+        11
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        4,
+        12
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        4,
+        13
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        4,
+        14
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        4,
+        15
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        5,
+        8
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        5,
+        9
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        5,
+        10
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        5,
+        11
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        5,
+        12
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        5,
+        13
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        5,
+        14
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        26,
+        5,
+        15
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        27,
+        3,
+        32
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        27,
+        3,
+        33
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        27,
+        3,
+        34
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        28,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        28,
+        3,
+        32
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        28,
+        3,
+        34
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        28,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        29,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        29,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        30,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        30,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        31,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        31,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        32,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:andesite"
+    },
+    {
+      "xyz": [
+        32,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        33,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        33,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        34,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        34,
+        3,
+        32
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        34,
+        3,
+        34
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        34,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        34,
+        4,
+        8
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        4,
+        9
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        4,
+        10
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        4,
+        11
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        4,
+        12
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        4,
+        13
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        4,
+        14
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        4,
+        15
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        5,
+        8
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        5,
+        9
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        5,
+        10
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        5,
+        11
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        5,
+        12
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        5,
+        13
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        5,
+        14
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        34,
+        5,
+        15
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        35,
+        3,
+        32
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        35,
+        3,
+        34
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        38,
+        3,
+        32
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        38,
+        3,
+        34
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        39,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:cracked_stone_bricks"
+    },
+    {
+      "xyz": [
+        39,
+        3,
+        32
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:andesite"
+    },
+    {
+      "xyz": [
+        39,
+        3,
+        34
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        39,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        40,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:andesite"
+    },
+    {
+      "xyz": [
+        40,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        41,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        41,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        42,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:cracked_stone_bricks"
+    },
+    {
+      "xyz": [
+        42,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:cracked_stone_bricks"
+    },
+    {
+      "xyz": [
+        42,
+        4,
+        8
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        4,
+        9
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        4,
+        10
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        4,
+        11
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        4,
+        12
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        4,
+        13
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        4,
+        14
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        4,
+        15
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        5,
+        8
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        5,
+        9
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        5,
+        10
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        5,
+        11
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        5,
+        12
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        5,
+        13
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        5,
+        14
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        42,
+        5,
+        15
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        43,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        43,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        44,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:andesite"
+    },
+    {
+      "xyz": [
+        44,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        45,
+        3,
+        31
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        45,
+        3,
+        32
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "xyz": [
+        45,
+        3,
+        34
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        45,
+        3,
+        35
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:andesite"
+    },
+    {
+      "xyz": [
+        46,
+        3,
+        32
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        46,
+        3,
+        33
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:polished_andesite"
+    },
+    {
+      "xyz": [
+        46,
+        3,
+        34
+      ],
+      "old": "minecraft:polished_deepslate",
+      "new": "minecraft:cracked_stone_bricks"
+    },
+    {
+      "xyz": [
+        50,
+        4,
+        8
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        4,
+        9
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        4,
+        10
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        4,
+        11
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        4,
+        12
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        4,
+        13
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        4,
+        14
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        4,
+        15
+      ],
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        5,
+        8
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        5,
+        9
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        5,
+        10
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        5,
+        11
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        5,
+        12
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        5,
+        13
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        5,
+        14
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    },
+    {
+      "xyz": [
+        50,
+        5,
+        15
+      ],
+      "old": "minecraft:iron_bars[north=true,south=true]",
+      "new": "minecraft:air"
+    }
+  ]
+}

@@ -1,3 +1,7 @@
+## Current source — R104
+
+[Western illustrated basin and outlet](../../../world/western-basin-r104.md) are active in source `e785c2b0`:12 lakes,9 rivers,58 unchanged places and22 unchanged routes. Ledger310; inventory140/42 physical follow-ups. The current terrain atlas is refreshed; R100 painting predates this addition and needs alignment. This is no claim of exhaustive wiki/primary-source coverage. Earlier round status notes below are historical.
+
 # Wiki location coverage audit — updated 21 November 2026
 
 R80 adds one qualified lake-terrain record. Current inventory 134; the 41 existing physical follow-ups remain open. [Review](../../../world/el-dorado-lake-review.md). Earlier inventory counts below are historical.
