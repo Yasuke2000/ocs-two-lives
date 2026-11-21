@@ -73,3 +73,8 @@ Round47 C18 cave detail: selected public manga1 panels support natural formation
 ## Round56: the coastal capital alternative now reaches its cape
 
 The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects the prior inland-only r64 city footprint. Both capital envelope and offshore clearance are measured against current coast geometry. Shape and dimensions remain interpretation; C14 H-binding,C15 registration and initial-era visibility/access remain open. No active coast or registered place moves.
+
+
+## Round57: treant sanctuary and route qualifications
+
+[Selected primary passages](treant-route-context-r57.md) qualify WN42 immobility with WN43 sanctuary-limited movement. The latter food transport is to the wetland naming operation; its conditional two-month cart detour is not a measured Tempest distance. The old shrine lore page's east-of-Ameld political half is corrected as unsupported. Guardianship is independently official-anime-backed. C15 placement/registration and initial-era state remain open; no exact parcel is inferred.

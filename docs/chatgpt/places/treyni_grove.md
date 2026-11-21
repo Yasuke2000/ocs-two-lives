@@ -1,5 +1,7 @@
 # Treyni-related ancient landmark tree
 
+Round57 [source/route review](../../research/tensura-world-2026-11-19/treant-route-context-r57.md): current grove(320,470),r56,and shrine(500,600),r36,are project reservations. The treant settlement remains distinct and unlocated. Do not turn the WN wetland relief estimate into a Tempest cart-road distance,an east-of-Ameld sovereign boundary or an initial-era supply event. WN43 qualifies treant movement as within their sanctuary. Imported coordinates and +38 offset below are historical.
+
 ## Current own-world design — round36
 
 Current natural-tree reservation(320,470),radius56,village kind. The separate shrine is(500,600); the imported +38 offset is retired. Giant tree/old-wood setting is a project interpretation; no verified canonical sanctuary border or complete treant settlement follows from this one mod tree. [Current map and era](../../../world/era.md).

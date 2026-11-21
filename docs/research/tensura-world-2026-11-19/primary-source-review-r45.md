@@ -1,5 +1,7 @@
 # Primary source review — round 45
 
+Round57 [source qualification](treant-route-context-r57.md): WN43 explicitly describes within-sanctuary movement. The immobility wording below reports the earlier WN42 speech,not an absolute rule for every location. The community remains unlocated.
+
 ## Treants: direct WN evidence, location still open
 
 [Fuse's public chapter 42](https://ncode.syosetu.com/n6316bn/44/#L309) directly supports
