@@ -1,5 +1,7 @@
 # Location index — map coverage and source scope
 
+R65 [official Night Garden interior reference](night-garden-visual-brief.md) verifies the named anime scene and visible materials. The underground relationship and initial room state remain separately qualified. Current ledger256 unique;inventory132/41 physical follow-ups retained. Production source c2f806a9,terrain and R64 atlas are unchanged.
+
 Round64 [hidden-location review](../docs/research/tensura-world-2026-11-19/lubelius-hidden-locations-r64.md) adds Night Garden,its burial chamber and historical Night Rose. Inventory132;41 current physical-coverage follow-ups include seven previously unlisted partial records. Historical material remains,primary evidence and initial-state questions remain open. The city/room proposal is inert and receives no active terrain number.
 
 Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit interpreted East/West cavern geometry and deeper gallery/stair planning. It remains inert; the two cities are still missing active representations. The old round51 approach mismatch below was resolved by the round52 foothill correction; that historical finding is not the current gate interface.
