@@ -1,5 +1,7 @@
 # Holy City Lubelius (Lune): the cathedral and its square
 
+R65 [official Night Garden interior reference](../../world/night-garden-visual-brief.md) verifies the named anime scene and visible materials. The underground relationship and initial room state remain separately qualified. Current ledger256 unique;inventory132/41 physical follow-ups retained. Production source c2f806a9,terrain and R64 atlas are unchanged.
+
 R64 separates human Lune,the summit sanctuary and wiki-backed Night Garden. Current own-map Lune is authored at(-3600,-1300),first-air71;the imported survey coordinates below are historical. [Hidden-city proposal and source limits](../../world/night-garden-plan.md). Night Garden and its room are not implemented by this surface blueprint;the initial Ark state remains unverified.
 
 Blueprint `blueprints/lubelius.py` (structure `lubelius_0..2`), placement `design/builds/lubelius.toml`.

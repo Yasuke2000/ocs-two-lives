@@ -1,5 +1,7 @@
 # Night Garden and a nested chamber — original planning proposal, round64
 
+R65 [official named anime interior reference](night-garden-visual-brief.md) adds local material vocabulary. The underground relationship,dimensions,access and initial room state remain separately qualified;the proposal is still inert.
+
 [Original plan and section](night-garden-plan.png) · [editable SVG](night-garden-plan.svg) · [measured geometry](night-garden-plan.json) · [source/scope review](../docs/research/tensura-world-2026-11-19/lubelius-hidden-locations-r64.md)
 
 Night Garden was mentioned in the existing Lubelius lore but absent from the location inventory. The indexed country article supplies its underground-capital relationship and a burial-chamber association at fan-wiki confidence. It does not supply the dimensions,depth or entrance used here. The selected legal LN6 passage supports the separate summit-sanctuary approach;it is not primary verification of this underground city. Exact initial room/Ark state remains open.

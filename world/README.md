@@ -1,5 +1,7 @@
 # world/ — the own world map
 
+R65 [official Night Garden interior reference](night-garden-visual-brief.md) verifies the named anime scene and visible materials. The underground relationship and initial room state remain separately qualified. Current ledger256 unique;inventory132/41 physical follow-ups retained. Production source c2f806a9,terrain and R64 atlas are unchanged.
+
 Current review: **round64**. [Night Garden and chamber proposal](night-garden-plan.md) is inert, not generated. Source c2f806a9 retains the complete previous active map; checker0 errors/56 relations/2 existing warnings and normal65.9s export pass. Inventory132, physical follow-ups41 (including seven partial records omitted from the earlier panel); historical/source questions remain open. Ledger254 unique. [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round64/README.md) retains the R63 landscape and changes only the coverage panel. Initial era remains S1E10 after Kijin naming.
 
 

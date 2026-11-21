@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+Latest source review: **round65**, [official named Night Garden interior](night-garden-reference-r65.md). Ledger256 unique;inventory132/41 physical follow-ups unchanged. Production source c2f806a9 and R64 painting remain current. Earlier round counts below are historical.
+
 Current review: **round64**. [Night Garden and chamber proposal](../../../world/night-garden-plan.md) is inert, not generated. Source c2f806a9 retains the complete previous active map; checker0 errors/56 relations/2 existing warnings and normal65.9s export pass. Inventory132, physical follow-ups41 (including seven partial records omitted from the earlier panel); historical/source questions remain open. Ledger254 unique. [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round64/README.md) retains the R63 landscape and changes only the coverage panel. Initial era remains S1E10 after Kijin naming.
 
 

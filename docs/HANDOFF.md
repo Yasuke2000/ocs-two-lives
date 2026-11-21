@@ -1,5 +1,12 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Official named Night Garden interior reference (ChatGPT,round65)
+
+[R65 material brief](../world/night-garden-visual-brief.md) directly reads the official Coleus announcement and opening00:01/00:03. The article names the chaise scene as Night Garden;visible blue-grey masonry,burgundy seating and cool dim light now supply a local interior reference. Original swatches/symbols are schematic,not copied frames or room geometry. The00:05 crystal shot does not prove adjacency or access. Underground relationship and initial chamber state remain separately qualified.
+
+Ledger256 unique(198+58),14 direct printed-LN plus3 author-side-story claims;inventory132/41 physical follow-ups unchanged. Source c2f806a9,all terrain and R64 painting remain unchanged. Night Garden/chamber are still missing active representations;C15 remains open. No converter rerun,main merge,terrain application or deployment. Next:continue primary-source/location and actual fit work;do not equate a visual reference with a completed city.
+
+
 ## 21/11 — Hidden Lubelius locations and full partial-location panel (ChatGPT, round64)
 
 Round64 [Night Garden study](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/world-map/world/night-garden-plan.md) adds the underground city, nested burial chamber and separate historical Night Rose to the inventory. The source relationship is fan-wiki-qualified; depth, dimensions and initial room state are unverified. City/room geometry stays inside the existing C15 comment. Production source c2f806a9 has exactly the same active XML as0b211ec7. Normal export65.9s:13 non-index files identical, index source hash only; checker0 errors,56 relations,2 existing warnings.
