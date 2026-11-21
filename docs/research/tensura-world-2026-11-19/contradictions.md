@@ -58,3 +58,8 @@ Round32 source-access note: current publisher-linked guide8.5/LN14 trial routes 
 Round46 C18 detail: the current radius148 minimum includes future192-block growth, while the initial blueprint is91×91 with offset arrival45,57. An inert r85 initial-surface study fits its buffered horizontal footprint, but needs separate technical representation; it cannot replace the mandatory reservation. WN20 confirms cave/water/open-ground context, not numerical radius, compass orientation or completed sanitation at S1E10. See world/tempest-early-landscape.md.
 
 Round47 C18 cave detail: selected public manga1 panels support natural formations/plants and underground water,not a surveyed floor plan or surface lake. Official episode2 establishes Veldora absorption/cave exit,not destroyed sealing magic or broken physical chains. The spent-seal wording is corrected in lore/place briefs; original decoration and the later farm remain unaccepted initial-era content. See licensed-manga-review-r47.md.
+
+
+## Round54: anonymous Imperial lakeside setting and source-key erratum
+
+[Direct WN147 review](empire-source-review-r54.md) supports an unnamed lakeside vassal kingdom,not a verified Silberia coordinate or an identification of the existing basin. Its later narrated past does not date the destruction to S1E10. C08/C05 remain open. Galut remains a separate Ulgracia capital candidate. R51 trade/cavern records receive unique IDsWN13-007/WN13-008;earlier005/006 retain their original meanings. Verified actual HTML anchors replace ambiguous extracted-line locators. No geographical geometry or coverage classification changes.

@@ -1,5 +1,7 @@
 # Current painted continent — round53
 
+Source-register erratum (round54): the [current ledger review](../../docs/research/tensura-world-2026-11-19/empire-source-review-r54.md) restores unique claim keys and records233 unique entries. Original WN13-005/006 keep their earlier meanings; trade/cavern records are007/008. The original art,terrain source8c24a349,projections and numerical lighting provenance below remain unchanged.
+
 [Marked atlas](atlas.png) · [clean continent](continent.png) · [editable native composition](continent.svg) · [provenance](provenance.json) · [height samples](relief-samples.json) · [geometry/layout audit](presentation-audit.json) · [official comparison](comparison.md).
 
 This presentation follows production source `8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6`, map commit `d02956c`. The [round52 correction](../dwargon-approach-fix.md) graded the Dwargon access roads to the fixed template. The current native composition now includes both actual foothill/forecourt masks and a local lighting layer derived from the changed height surface.
@@ -25,3 +27,5 @@ The production SVG and current checker/terrain outputs remain byte-identical to 
 Ledger231 records,including14 directly read LN claims;129 inventory entries/32 follow-ups and58 original art pairs. Full source completeness,fixed-rule conflicts,initial-era implementation,structure fit and local runtime acceptance remain open. No new terrain geometry,extra site ID,Minecraft chunk generation,main merge,terrain apply or deployment.
 
 Repository validation and472 tests pass on both feature branches (26 skips,zero failures): painting64.352s,map-pointer64.333s. Final native lighting/geometry/browser audits pass;no changed JavaScript or in-game test run.
+
+The round54 source-register backport passes validation and472 tests (26 skips,zero failures,62.483s). Art renders,native composition,terrain source and numerical lighting inputs remain unchanged.

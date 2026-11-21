@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+Round54 [Imperial source/key review](empire-source-review-r54.md) corrects the R51 duplicate IDs and ambiguous line locators,then adds one direct anonymous WN lake-country record and one wiki vassal-list record. Ledger233 unique records(175+58),14directLN;current source8c24a349,129inventory/32follow-ups and58art pairs unchanged. The R53 painting remains current;this research does not change terrain.
+
 Round52 [Dwargon terrain correction](../../../world/dwargon-approach-fix.md) adds DES-DWG-052,an explicitly interpreted native foothill/forecourt fit. Ledger231(173+58),14directLN. Both access-road endpoints now meet fixed first-air146;roof and other reservations retained. Current source8c24a349;R50 painting awaits local-relief review. Inventory129/32 follow-ups and58art pairs remain.
 
 Round51 [Dwargon source review](dwargon-source-review-r51.md) adds four qualified author-WN claims and one original terrain-interface audit record. Ledger230(172+58),14directLN. The road/template join needs correction; production geometry/exports,129inventory/32follow-ups and58art pairs remain unchanged. Current original painting is round50 in PR102, matched to sourcecb07cce7.
