@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Painting integrates Englassia terrain update (ChatGPT, round61)
+
+Round61 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round61/README.md) explicitly integrates source 7a30cf41 and R60's Englassia preparation update. Native SVG lighting from 1,634 measured height-difference samples changes only 31 continent pixels, at most 2/255 per RGB channel, all local to Englassia. All 58 projections, 16 context labels and 32 open rows remain verified; original R53 files and textures are retained. Production geometry and terrain are unchanged in this presentation round. Ledger: 248 unique records; inventory: 129 entries with 32 coverage follow-ups. Earlier R60 painting-pending notes below are historical and superseded by this reviewed integration.
+
+Next: other parent-template fit/source audits and distinct missing locations. The selected post-Kijin era,source conflicts and technical registration/runtime work remain open; no completeness claim.
+
 ## 21/11 — Englassia offset-template preparation (ChatGPT, round60)
 
 Round60 [Englassia fit review](../world/englassia-fit-review.md) decodes the existing capital fragment and expands only its preparation radius98→124 for the offset template plus eight-block margin. Academy/guild already fitted; the corrected outer corners are a small terrain-preparation issue. All18,432 buffered columns are now level76;58 x/z centres stay fixed and only Englassia changes exported y75→76. Current terrain atlas is refreshed; R53 painting remains historical pending explicit integration. Ledger248 unique(190+58),14 direct LN plus3 author-side-story claims;129 inventory/32 follow-ups remain open.

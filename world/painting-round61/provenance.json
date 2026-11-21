@@ -1,0 +1,39 @@
+{
+  "round": 61,
+  "source_map_commit": "121b8fc",
+  "source_svg_sha256": "7a30cf4176971609db820acee59e2a72903bed1e102e7e9e95dbb9f063b5a60a",
+  "baseline_source_svg_sha256": "1b9e151ae3a179d0127421f456167f29ec592b7009b850fe0293256428e03116",
+  "previous_composition": "../painting-round53/continent.svg",
+  "original_art_provenance": "../painting-round53/provenance.json",
+  "method": "Native SVG lighting layer derived from current-minus-baseline designed surface gradients around Englassia; original raster textures and all existing native source vectors retained. No raw raster image edited.",
+  "new_image_generation": false,
+  "copyrighted_reference_images_used_as_generation_inputs": false,
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "current_height_sha256": "1d0c73f25ee82e42f377736319acf9b960457dde5b87866894012829c6274e1f",
+  "baseline_height_sha256": "1575b7dca87fcade3c3923e01b39026f05bd90c18d918e037f8395b69ffb7a9d",
+  "normal_terrain_preview_sha256": "51a5112d4ae449bce9535c70f19af2c46d7d5adf39988e6176257755849a2241",
+  "raw_original_art": {
+    "world\\painting-current\\paint-current.png": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+    "world\\painting-round43\\paint-r43.png": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e"
+  },
+  "light_direction_rule": "Normal(-dx,1,-dz) under northwest light adds positive(dx+dz). Signed light=clamp(0.18*(delta_dx+delta_dz),-0.16,0.16); alpha quantized1/4096 to retain the small height change.",
+  "step_world": 8,
+  "shade_bbox_world": [
+    -3104,
+    -752,
+    -2696,
+    -344
+  ],
+  "preparation_radius": 124,
+  "fade_world": 62,
+  "mask_circle_radius": 186,
+  "feather_sigma_world": 4,
+  "production_svg_changed_in_this_round": false,
+  "whole_source_equivalence_to_R53": false,
+  "limits": "The source radius and walking height changed in R60. This illustrative lighting is not a metric heightmap,canonical capital boundary or complete capital model. Existing neighbouring painted trees/ridges remain stylised; in-game fit and initial-era residents are not tested."
+}
