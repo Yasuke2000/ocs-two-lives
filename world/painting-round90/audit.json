@@ -1,0 +1,47 @@
+{
+  "source_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
+  "unchanged_source_after_adoption": true,
+  "retained_R87_native_SVG_exact": true,
+  "baseline_R87_PNG_exact": true,
+  "light_samples": 3446,
+  "light_samples_independently_checked": true,
+  "actual_new_rock_biome_cells": 117,
+  "changed_continent_pixels": 1859,
+  "max_RGB_channel_change": 94,
+  "changed_pixel_bounds": [
+    575,
+    629,
+    661,
+    673
+  ],
+  "max_changed_pixel_centre_distance_from_buffered_support": 0.0,
+  "support_scope": "Actual height-change cells plus16 blocks, hydro buffers excluded; antialiasing tolerance8.5 blocks.",
+  "registered_sites": 58,
+  "all_site_records_and_world_projections_checked": true,
+  "context_names": 17,
+  "all_context_position_metadata_refreshed_from_actual_SVG": true,
+  "minimum_number_spacing": 32.470561517449696,
+  "old16_labels_marker_groups_leaders_and_42_panel_exactly_retained": true,
+  "atlas_embeds_exact_new_continent": true,
+  "previous15_country_mask_fits_preserved_by_unchanged_geometry": true,
+  "new_Khusha_label_is_geographical_not_country_mask": true,
+  "inventory": 135,
+  "physical_followups": 42,
+  "ledger_unique": 290,
+  "historical_art_unchanged": true,
+  "protected_paths_unchanged": true,
+  "default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "new_AI_images": 0,
+  "runtime_applied": false,
+  "scope": "Illustrative incremental relief; no absolute-height, voxel, foliage, collision or whole-goal acceptance.",
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.994
+  }
+}

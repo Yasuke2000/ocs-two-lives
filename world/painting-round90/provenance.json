@@ -1,0 +1,14 @@
+{
+  "source_sha256": "2ce669a04d878cf18c4ae9ed7b22ccd48f9e2dfcefdc944deeeba07091431b5f",
+  "map_commit": "6a21005ef1efb31f4345c56deae5953d11c637de",
+  "baseline_continent": "../painting-round87/continent.png",
+  "baseline_continent_sha256": "c341434168001cdec48db86fa815e2e61e7d7e2ce4c9207761f112433e3e7709",
+  "previous_native_SVG_retained_exactly": true,
+  "current_height_png_sha256": "a72dcdcfbf6fbff7230dcb1f185f90b691c574663cb666367905d8e3f899aad3",
+  "prior_height_png_sha256": "aa66774ae39e1b73418c5abfd9497ead4552d499dd19ce1c1be2fd1cea48f770",
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "new_pngs": "Browser exports of original native SVG compositions.",
+  "runtime_applied": false,
+  "sampler_scope": "Illustrative incremental light, not absolute height or voxel acceptance."
+}

@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Painted Khusha follows current geography (round90)
+
+R90 [current painted atlas](../world/painting-round90/README.md) follows source `2ce669a0` and R89 Khusha relief. The local native layer uses 3,446 checked light samples and the 117 changed rocky-biome cells; 1,859 continent pixels change within the buffered height support. All 58 registrations, 17 context names and the unchanged 135/42 panel are checked. Context-position metadata is refreshed from actual visible labels. This closes only the painting follow-up; broader source/location/era obligations remain open.
+
+Checker after adoption: 0 errors/56 relations/2 existing warnings. Current source preview, local detail and full atlas viewed; no further production correction identified. Gate: 472 tests, 26 skipped, zero failures (62.994s). Next: unresolved source/location/initial-state coverage; no runtime action.
+
 ## 21/11 — Khusha extends towards Sarion (round89)
 
 R89 [Khusha continuation](../world/khusha-continuation-r89.md) connects western Khusha relief towards Sarion with an original lower envelope and two unequal summits. Source `2ce669a0`; checker: 0 errors / 56 relations / 2 existing warnings; normal export 47.565s. All 58 sites, roads, water and prior active shapes retained. Current atlas has 17 context names. Ledger 290; inventory 135/42 unchanged. R87 painting predates this new local relief and needs alignment.

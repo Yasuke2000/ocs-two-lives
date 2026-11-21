@@ -1,5 +1,7 @@
 # Region book — anime-led Minecraft world
 
+R90 [current painted atlas](painting-round90/README.md) follows source `2ce669a0` and R89 Khusha relief. The local native layer uses 3,446 checked light samples and the 117 changed rocky-biome cells; 1,859 continent pixels change within the buffered height support. All 58 registrations, 17 context names and the unchanged 135/42 panel are checked. Context-position metadata is refreshed from actual visible labels. This closes only the painting follow-up; broader source/location/era obligations remain open.
+
 R89 [Khusha continuation](khusha-continuation-r89.md) connects western Khusha relief towards Sarion with an original lower envelope and two unequal summits. Source `2ce669a0`; checker: 0 errors / 56 relations / 2 existing warnings; normal export 47.565s. All 58 sites, roads, water and prior active shapes retained. Current atlas has 17 context names. Ledger 290; inventory 135/42 unchanged. R87 painting predates this new local relief and needs alignment.
 
 R88 [Elmine source and larger-tree study](elmine-tree-study-r88.md) corrects the retired Paulzero-grove handoff and lake bearing (east/southeast). A current-site north-facing terrace trial and original larger tree remain proposals; the Divine Tree stays partial. Five official episode 61 stills inspected, with bounded pavilion cues from 2/5. Ledger 289; inventory 135/42 unchanged; source `355d1a33` unchanged.

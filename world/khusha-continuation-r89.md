@@ -1,5 +1,7 @@
 # Khusha continues towards Sarion — round 89
 
+**R90 painting follow-up closed:** [current painting](painting-round90/README.md) integrates this relief and the Khusha label. Earlier pending statements below retain their historical R89 context.
+
 ![Original before/after terrain study](khusha-continuation-r89.png)
 
 [Editable study](khusha-continuation-r89.svg) · [independent audit](khusha-continuation-r89.json) · [current terrain atlas](atlas.png) · [58 registrations](atlas-registration-r89.json)
