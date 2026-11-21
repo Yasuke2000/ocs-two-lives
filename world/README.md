@@ -1,3 +1,7 @@
+## R128 — Current native western ice arm
+
+[Ice shore review](ice-west-arm-r128.md) replaces the broad northwest shoulder with original lower-arm curves. Source8c41e924; all58 sites,normal heights and22 routes retained. Checker0errors/56relations/2standing warnings;normal67.6s;all13fresh lake audits pass. The approved inland palace and R127 art-registration values remain. R126 painting requires a real ice-coast follow-up. Ledger332;inventory142/42.
+
 ## R125 — Current native island coast
 
 [El Dorado coast correction](el-dorado-coast-r125.md) follows the broader official island silhouette with original curves. Sourcea637;checker0errors/56relations/2standing warnings;normal67.5s;all13lake audits pass. Mainland/designbounds andall58sites retained,with two exported height values rising1block. R124 painting needs actual coast alignment. Ledger330;inventory142/42.

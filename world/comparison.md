@@ -1,3 +1,7 @@
+## Current R128 comparison
+
+[Original before/after](ice-west-arm-r128.png) · [current checker preview](preview.png) · [terrain atlas](atlas.png) · [official reference link](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp). The lower western arm is an original interpretation of the illustrated silhouette;exact projection and curves remain unverified. Approved inland palace,ridge,high-peaks selector,islets andoverall bounds retained. [Actual terrain evidence](ice-west-arm-r128.md). No copyrighted reference panel is stored here.
+
 ## Current R125 comparison
 
 [Our before/after image](el-dorado-coast-r125.png) · [current checker preview](preview.png) · [terrain atlas](atlas.png) · [official reference image link](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp). The reference remains externally linked;no copyrighted panel is stored here. The original coast now reflects the broad west-east island silhouette,with a western arm and eastern tip. Exact curves and aspect ratio are interpretation;fixed site relationships and global projection/compression differences remain. [Review](el-dorado-coast-r125.md).

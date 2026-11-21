@@ -289,3 +289,5 @@ changes and new decisions with a date.
 21Nov2026 — Make Amrita’s source-backed below-castle association visible in the atlas, retaining the separate gameplay reservation and open C07 nesting/access review. No site, terrain or rule change. See [review](../world/amrita-atlas-r123.md).
 
 21Nov2026 — R125: redraw the El Dorado coast andmatching Xmask toward the official broad island silhouette,retaining all registered positions. Exact curves remain authored;record the actual1block stagedcity/volcano height changes andpainting follow-up. [Evidence](../world/el-dorado-coast-r125.md).
+
+22Nov2026 — R128: reshape only the western ice shore and matching snow/I coverage toward the official lower-arm silhouette; retain all ridge,site,road andislet geometry and Yasuke’s approved inland palace. Exact curves are authored. [Evidence](../world/ice-west-arm-r128.md).

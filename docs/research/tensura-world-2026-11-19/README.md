@@ -1,3 +1,7 @@
+## R128 — Original lower western ice arm
+
+[Coast/source review](../../../world/ice-west-arm-r128.md) adds one official visual cue andone explicitly authored geometry record;332unique ledger IDs. Source8c41e924. Overall bounds,ridge,islets,palace andall58 site values retained;normal67.6s. All13lake andfull22-region/106row census checks rerun. R126 painting requires ice-shore alignment;prior art numerical registration remains applicable. Inventory142/42.
+
 ## R125 — El Dorado silhouette and actual terrain
 
 [Coast/export review](../../../world/el-dorado-coast-r125.md) adds one official visual cue andone explicitly authored design record;330unique ledger IDs. Sourcea637. All58site attributes retained;two stagedheight values rise1block. Exact coast/projection remain interpreted. Full22region census and13lake audit rerun;painting/2concept-height follow-ups remain. Inventory142/42.

@@ -1,3 +1,7 @@
+## R128 — Western Ice Continent arm
+
+[Original shore review](ice-west-arm-r128.md) lowers the western arm to follow the illustrated silhouette more closely;exact curves remain our interpretation. Source8c41e924; only coast/snow selector/I mask change. All58 site attributes and normal heights retain R125/R127 values,including the approved inland palace at first-air71. [Current census](region-biomes-r128.md) replaces shares after the local land change. R126 painting needs actual ice-arm alignment;El Dorado remains aligned. Ledger332;inventory142/42.
+
 ## R125 — El Dorado island silhouette
 
 [Original coast review](el-dorado-coast-r125.md) broadens the formerly diagonal island in response to the official illustration; exact curves remain our interpretation. Sourcea637;only the coast/X mask change. City/volcano first-air72→73/196→197; all58 source-site attributes retained. [R125 census](region-biomes-r125.md) replaces current shares. The R124 painting and two old concept-registration elevations require matching follow-up. Ledger330;inventory142/42.
