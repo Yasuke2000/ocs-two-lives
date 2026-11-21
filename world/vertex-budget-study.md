@@ -63,3 +63,7 @@ The current numbered [terrain atlas](atlas.png) and
 remain valid presentations of the retained source. All 58 site tuples and the 217-entry
 ledger remain unchanged; 129 inventory entries still include 32 tracked follow-ups.
 No main merge, apply, chunk generation or deployment occurred.
+
+## Follow-up — round48
+
+The [curve experiment](curve-simplification-review.md) tests the previously open cubic approach. An external114-node mainland trial reduces sampled displacement to11.868 blocks with the native parser, but independent fitting creates three mandatory errors and larger region gaps. It is rejected. Joint shared-arc fitting and river-mouth preservation are the next action; active geometry remains unchanged.
