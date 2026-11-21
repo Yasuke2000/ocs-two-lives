@@ -68,3 +68,8 @@ Round47 C18 cave detail: selected public manga1 panels support natural formation
 ## Round55: C14 coastal setting strengthened by the author
 
 [Vacation source review](vacation-source-review-r55.md) directly reads selected public author paragraphs in explicit book continuity. Coastal capital cape,offshore tower and Malukshure/Sarion adjacency are primary-backed; west bearing and coordinates remain qualified. The H/Fulbrosia binding is still unresolved. The new-moon access account does not justify a permanent island or a later event at S1E10. Ledger236 unique;14 printed-LN claims remain.
+
+
+## Round56: the coastal capital alternative now reaches its cape
+
+The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects the prior inland-only r64 city footprint. Both capital envelope and offshore clearance are measured against current coast geometry. Shape and dimensions remain interpretation; C14 H-binding,C15 registration and initial-era visibility/access remain open. No active coast or registered place moves.

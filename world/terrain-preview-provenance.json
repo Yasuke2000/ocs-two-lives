@@ -1,6 +1,6 @@
 {
-  "source_svg_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
-  "staged_index_source_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
+  "source_svg_sha256": "e886217dd39aae8eded8fc6fb76859d4db0c6d029c56ba8cdb9f5e19c7b023e0",
+  "staged_index_source_sha256": "e886217dd39aae8eded8fc6fb76859d4db0c6d029c56ba8cdb9f5e19c7b023e0",
   "preview_sha256": "6335d5f59075defbe55b8d34181462bfcb00fee75db978c7b7cde7ea8e8d6e81",
   "original_preview_pixels": [
     1600,
@@ -8,7 +8,7 @@
   ],
   "copied_without_pixel_modification": true,
   "applied_to_runtime": false,
-  "previous_preview_source_sha256": "cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371",
+  "previous_preview_source_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
   "registration": {
     "scale_from_r41": 0.96,
     "translate_x": 88.0,
@@ -18,5 +18,7 @@
     "existing_16_context_labels_retained": true,
     "existing_32_open_rows_retained": true
   },
-  "normal_build_seconds": 65.2
+  "normal_build_seconds": 65.5,
+  "source_change_review": "world/malukshure-cape-study.md",
+  "comment_only_source_change": true
 }
