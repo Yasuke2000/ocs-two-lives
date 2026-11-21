@@ -1,6 +1,6 @@
 {
   "baseline_commit": "f118b6e",
-  "source_sha256": "e886217dd39aae8eded8fc6fb76859d4db0c6d029c56ba8cdb9f5e19c7b023e0",
+  "source_sha256": "1b9e151ae3a179d0127421f456167f29ec592b7009b850fe0293256428e03116",
   "presentation_only": false,
   "production_svg_changed": true,
   "terrain_image_bytes_retained": false,
@@ -817,7 +817,7 @@
   "all_32_open_rows_fit_panel": true,
   "actual_browser_non_callout_text_bounds_with_stroke_inside_context": 15,
   "ulgracia_leader_with_1px_buffer_clear_of_padded_number_boxes": true,
-  "previous_layout_source_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
+  "previous_layout_source_sha256": "e886217dd39aae8eded8fc6fb76859d4db0c6d029c56ba8cdb9f5e19c7b023e0",
   "registration_from_r41": {
     "scale": 0.96,
     "translate_x": 88,
@@ -1233,7 +1233,7 @@
       "height": 26.8800048828125
     }
   ],
-  "production_change_review": "world/malukshure-cape-study.md",
+  "production_change_review": "world/dwargon-cities-plan.md",
   "previous_snapshot_terrain_image_replaced_by_current_normal_export": true,
   "new_label_geographical_claims": 0,
   "linked_terrain_claims_added": [
@@ -1537,5 +1537,7 @@
     }
   ],
   "r52_non_image_atlas_elements_unchanged": true,
-  "r56_active_geometry_and_atlas_unchanged": true
+  "r56_active_geometry_and_atlas_unchanged": true,
+  "r58_active_geometry_and_atlas_unchanged": true,
+  "r58_comparison_baseline_commit": "42cc64a"
 }

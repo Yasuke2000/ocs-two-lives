@@ -1,5 +1,7 @@
 # Dwargon and Englassia — city coverage study
 
+Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit interpreted East/West cavern geometry and deeper gallery/stair planning. It remains inert; the two cities are still missing active representations. The old round51 approach mismatch below was resolved by the round52 foothill correction; that historical finding is not the current gate interface.
+
 [Original schematic](city-coverage-study.png) · [Editable vector](city-coverage-study.svg).
 This is a **non-geographical scope diagram**. Box positions, grouping and sizes are page layout, not terrain, compass bearings, street coordinates, rooms, routes or tunnels. Nothing in it registers or places content. Production remains the same 58-site map.
 

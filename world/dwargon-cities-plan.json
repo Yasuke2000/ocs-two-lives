@@ -1,0 +1,897 @@
+{
+  "round": 58,
+  "baseline_source_sha256": "e886217dd39aae8eded8fc6fb76859d4db0c6d029c56ba8cdb9f5e19c7b023e0",
+  "source_claims": [
+    "WIK-DWG-002",
+    "WN13-008",
+    "WN14-001"
+  ],
+  "source_scope": "Three-city identity remains wiki-backed. Original WN supplies cavern/gate context,not these city coordinates or connections. No new licensed LN story page was read.",
+  "plan_scope": "Two original underground city reservations with internal connection proposals; all geometry remains inert.",
+  "city_rows": [
+    {
+      "id": "west",
+      "centre": [
+        -220,
+        -1880
+      ],
+      "radii": [
+        60,
+        90
+      ],
+      "first_air": 110,
+      "ceiling_block_y": 140,
+      "room_outline": [
+        [
+          -162.1,
+          -1880.0
+        ],
+        [
+          -162.40060189007625,
+          -1866.3157273509944
+        ],
+        [
+          -164.63564724473554,
+          -1853.016546980942
+        ],
+        [
+          -168.45960606806202,
+          -1840.608286422064
+        ],
+        [
+          -173.46001528912473,
+          -1829.2800827822448
+        ],
+        [
+          -179.3949134723668,
+          -1819.0923702085502
+        ],
+        [
+          -186.22378717132702,
+          -1810.266546980942
+        ],
+        [
+          -193.9401533714219,
+          -1803.2820068523495
+        ],
+        [
+          -202.38036947369255,
+          -1798.6585297971096
+        ],
+        [
+          -211.19275740220786,
+          -1796.5898880621191
+        ],
+        [
+          -220.0,
+          -1796.75
+        ],
+        [
+          -228.6081340299179,
+          -1798.4755710951201
+        ],
+        [
+          -237.06339993643255,
+          -1801.2263823911064
+        ],
+        [
+          -245.4820110588499,
+          -1804.983106091754
+        ],
+        [
+          -253.77621282867295,
+          -1810.266546980942
+        ],
+        [
+          -261.5050865276332,
+          -1817.7423702085503
+        ],
+        [
+          -267.9962153007502,
+          -1827.693062601055
+        ],
+        [
+          -272.6744600915411,
+          -1839.7415330674717
+        ],
+        [
+          -275.36435275526446,
+          -1853.016546980942
+        ],
+        [
+          -276.3422760879231,
+          -1866.6143902028057
+        ],
+        [
+          -276.1,
+          -1880.0
+        ],
+        [
+          -274.9970727179219,
+          -1893.0660208728739
+        ],
+        [
+          -273.05609010238305,
+          -1905.858453019058
+        ],
+        [
+          -270.0343498255359,
+          -1918.2406618775265
+        ],
+        [
+          -265.6879526478687,
+          -1929.7913609242576
+        ],
+        [
+          -260.00508652763324,
+          -1940.0076297914497
+        ],
+        [
+          -253.23130593266896,
+          -1948.608453019058
+        ],
+        [
+          -245.69507034173023,
+          -1955.6441224885602
+        ],
+        [
+          -237.60830683243657,
+          -1961.2891940835807
+        ],
+        [
+          -229.0262864167942,
+          -1965.4845943038877
+        ],
+        [
+          -220.0,
+          -1967.75
+        ],
+        [
+          -210.7746050153316,
+          -1967.3702773368886
+        ],
+        [
+          -201.83546257768853,
+          -1963.8570466775777
+        ],
+        [
+          -193.7270940885416,
+          -1957.345221727965
+        ],
+        [
+          -186.76869406733107,
+          -1948.608453019058
+        ],
+        [
+          -180.8949134723668,
+          -1938.6576297914498
+        ],
+        [
+          -175.7682779420062,
+          -1928.204340743068
+        ],
+        [
+          -171.09971633406715,
+          -1917.3739085229342
+        ],
+        [
+          -166.94390989761698,
+          -1905.858453019058
+        ],
+        [
+          -163.7458052600774,
+          -1893.3646837246852
+        ],
+        [
+          -162.1,
+          -1880.0
+        ]
+      ],
+      "room_area": 15253.715504656808,
+      "room_with_lining_columns": 16167,
+      "lining_width": 2,
+      "minimum_surface": 153.984375,
+      "minimum_roof_cover": 13.984375,
+      "inside_current_D_and_mountain_masks": true,
+      "overlaps_current_capital_template_box": false,
+      "corridor": {
+        "points": [
+          [
+            -20.0,
+            -1616.0
+          ],
+          [
+            -21.055555555555554,
+            -1622.5462962962963
+          ],
+          [
+            -22.666666666666668,
+            -1631.2592592592594
+          ],
+          [
+            -24.5,
+            -1641.75
+          ],
+          [
+            -26.22222222222222,
+            -1653.6296296296296
+          ],
+          [
+            -27.499999999999996,
+            -1666.5092592592591
+          ],
+          [
+            -28.0,
+            -1680.0
+          ],
+          [
+            -26.574074074074073,
+            -1695.0462962962965
+          ],
+          [
+            -23.25925925925926,
+            -1712.148148148148
+          ],
+          [
+            -19.5,
+            -1730.25
+          ],
+          [
+            -16.74074074074074,
+            -1748.2962962962963
+          ],
+          [
+            -16.425925925925924,
+            -1765.2314814814815
+          ],
+          [
+            -20.0,
+            -1780.0
+          ],
+          [
+            -28.47222222222222,
+            -1793.0092592592591
+          ],
+          [
+            -40.888888888888886,
+            -1805.1851851851852
+          ],
+          [
+            -55.75,
+            -1816.25
+          ],
+          [
+            -71.55555555555554,
+            -1825.9259259259259
+          ],
+          [
+            -86.80555555555556,
+            -1833.9351851851854
+          ],
+          [
+            -100.0,
+            -1840.0
+          ],
+          [
+            -111.50462962962963,
+            -1843.4722222222222
+          ],
+          [
+            -122.59259259259258,
+            -1844.4444444444443
+          ],
+          [
+            -133.125,
+            -1843.75
+          ],
+          [
+            -142.96296296296293,
+            -1842.2222222222222
+          ],
+          [
+            -151.9675925925926,
+            -1840.6944444444443
+          ],
+          [
+            -160.0,
+            -1840.0
+          ],
+          [
+            -167.08333333333334,
+            -1840.0
+          ],
+          [
+            -173.33333333333334,
+            -1840.0
+          ],
+          [
+            -178.75,
+            -1840.0
+          ],
+          [
+            -183.33333333333334,
+            -1840.0
+          ],
+          [
+            -187.08333333333334,
+            -1840.0
+          ],
+          [
+            -190.0,
+            -1840.0
+          ]
+        ],
+        "width": 6,
+        "lining": 2,
+        "length": 358.57543641609436,
+        "start_first_air": 80,
+        "end_first_air": 80,
+        "vertical_access": {
+          "shared_capital_shaft": {
+            "centre": [
+              -20,
+              -1616
+            ],
+            "bottom": 80,
+            "top": 146,
+            "radius": 8
+          },
+          "city_shaft": {
+            "centre": [
+              -190.0,
+              -1840.0
+            ],
+            "bottom": 80,
+            "top": 110,
+            "radius": 8
+          },
+          "stair_pitch_per_turn": 8,
+          "stair_centreline_radius": 6,
+          "nominal_helix_grade": 0.2122065907891938,
+          "voxelized_stairs_tested": false
+        },
+        "air_height": 8,
+        "uniform_grade": 0.0,
+        "sampled_columns": 3665,
+        "minimum_surface_cover_above_roof": 30.880859375,
+        "inside_capital_template_overlap_area": 585.0163272218375,
+        "existing_occupied_voxel_conflicts_checked": false,
+        "existing_template_stair_landing_implemented": false
+      },
+      "assumptions": "Room assignment,shape,level,corridor and use are original planning. Six-block surface cover is an offline reference,not a local voxel acceptance."
+    },
+    {
+      "id": "east",
+      "centre": [
+        280,
+        -1850
+      ],
+      "radii": [
+        85,
+        110
+      ],
+      "first_air": 134,
+      "ceiling_block_y": 164,
+      "room_outline": [
+        [
+          362.025,
+          -1850.0
+        ],
+        [
+          361.599147322392,
+          -1833.2747778734376
+        ],
+        [
+          358.432833069958,
+          -1817.020224087818
+        ],
+        [
+          353.0155580702455,
+          -1801.8545722936337
+        ],
+        [
+          345.9316450070733,
+          -1788.008990067188
+        ],
+        [
+          337.5238725808137,
+          -1775.5573413660059
+        ],
+        [
+          327.84963484062007,
+          -1764.770224087818
+        ],
+        [
+          316.9181160571523,
+          -1756.2335639306493
+        ],
+        [
+          304.9611432456022,
+          -1750.5826475298006
+        ],
+        [
+          292.47692701353884,
+          -1748.0543076314789
+        ],
+        [
+          280.0,
+          -1748.25
+        ],
+        [
+          267.80514345761634,
+          -1750.3590313384802
+        ],
+        [
+          255.8268500900539,
+          -1753.7211340335746
+        ],
+        [
+          243.90048433329596,
+          -1758.312685223255
+        ],
+        [
+          232.15036515937996,
+          -1764.770224087818
+        ],
+        [
+          221.2011274191863,
+          -1773.9073413660058
+        ],
+        [
+          212.00536165727058,
+          -1786.0692987346229
+        ],
+        [
+          205.37784820365013,
+          -1800.7952070824654
+        ],
+        [
+          201.567166930042,
+          -1817.020224087818
+        ],
+        [
+          200.181775542109,
+          -1833.6398102478736
+        ],
+        [
+          200.525,
+          -1850.0
+        ],
+        [
+          202.08748031627727,
+          -1865.9695810668459
+        ],
+        [
+          204.83720568829068,
+          -1881.604775912182
+        ],
+        [
+          209.11800441382408,
+          -1896.738586739199
+        ],
+        [
+          215.2754004155193,
+          -1910.856107796315
+        ],
+        [
+          223.32612741918626,
+          -1923.3426586339942
+        ],
+        [
+          232.92231659538564,
+          -1933.854775912182
+        ],
+        [
+          243.5986503492155,
+          -1942.4539274860183
+        ],
+        [
+          255.0548986540482,
+          -1949.3534594354876
+        ],
+        [
+          267.21276090954154,
+          -1954.4811708158627
+        ],
+        [
+          280.0,
+          -1957.25
+        ],
+        [
+          293.0693095616136,
+          -1956.7858945228638
+        ],
+        [
+          305.7330946816079,
+          -1952.4919459392618
+        ],
+        [
+          317.2199500412327,
+          -1944.5330487786239
+        ],
+        [
+          327.07768340461433,
+          -1933.854775912182
+        ],
+        [
+          335.3988725808137,
+          -1921.6926586339941
+        ],
+        [
+          342.66160624882457,
+          -1908.9164164637498
+        ],
+        [
+          349.2754018600715,
+          -1895.6792215280307
+        ],
+        [
+          355.16279431170926,
+          -1881.604775912182
+        ],
+        [
+          359.69344254822374,
+          -1866.3346134412818
+        ],
+        [
+          362.025,
+          -1850.0
+        ]
+      ],
+      "room_area": 26411.525920100215,
+      "room_with_lining_columns": 27610,
+      "lining_width": 2,
+      "minimum_surface": 178.091796875,
+      "minimum_roof_cover": 14.091796875,
+      "inside_current_D_and_mountain_masks": true,
+      "overlaps_current_capital_template_box": false,
+      "corridor": {
+        "points": [
+          [
+            -20.0,
+            -1616.0
+          ],
+          [
+            -13.703703703703704,
+            -1624.0972222222222
+          ],
+          [
+            -5.185185185185186,
+            -1635.3333333333333
+          ],
+          [
+            5.0,
+            -1648.625
+          ],
+          [
+            16.296296296296294,
+            -1662.888888888889
+          ],
+          [
+            28.148148148148152,
+            -1677.0416666666667
+          ],
+          [
+            40.0,
+            -1690.0
+          ],
+          [
+            51.94444444444444,
+            -1702.361111111111
+          ],
+          [
+            64.44444444444444,
+            -1715.111111111111
+          ],
+          [
+            77.5,
+            -1727.75
+          ],
+          [
+            91.1111111111111,
+            -1739.7777777777778
+          ],
+          [
+            105.27777777777779,
+            -1750.6944444444443
+          ],
+          [
+            120.0,
+            -1760.0
+          ],
+          [
+            135.97222222222223,
+            -1767.7777777777776
+          ],
+          [
+            153.33333333333334,
+            -1774.4444444444446
+          ],
+          [
+            171.25,
+            -1780.0
+          ],
+          [
+            188.88888888888889,
+            -1784.4444444444443
+          ],
+          [
+            205.41666666666666,
+            -1787.7777777777778
+          ],
+          [
+            220.0,
+            -1790.0
+          ],
+          [
+            233.00925925925927,
+            -1790.5324074074074
+          ],
+          [
+            245.18518518518516,
+            -1789.2592592592591
+          ],
+          [
+            256.25,
+            -1786.875
+          ],
+          [
+            265.92592592592587,
+            -1784.0740740740741
+          ],
+          [
+            273.9351851851852,
+            -1781.5509259259259
+          ],
+          [
+            280.0,
+            -1780.0
+          ]
+        ],
+        "width": 6,
+        "lining": 2,
+        "length": 368.23433802884296,
+        "start_first_air": 80,
+        "end_first_air": 80,
+        "vertical_access": {
+          "shared_capital_shaft": {
+            "centre": [
+              -20,
+              -1616
+            ],
+            "bottom": 80,
+            "top": 146,
+            "radius": 8
+          },
+          "city_shaft": {
+            "centre": [
+              280.0,
+              -1780.0
+            ],
+            "bottom": 80,
+            "top": 134,
+            "radius": 8
+          },
+          "stair_pitch_per_turn": 8,
+          "stair_centreline_radius": 6,
+          "nominal_helix_grade": 0.2122065907891938,
+          "voxelized_stairs_tested": false
+        },
+        "air_height": 8,
+        "uniform_grade": 0.0,
+        "sampled_columns": 3760,
+        "minimum_surface_cover_above_roof": 42.9521484375,
+        "inside_capital_template_overlap_area": 724.9374015745942,
+        "existing_occupied_voxel_conflicts_checked": false,
+        "existing_template_stair_landing_implemented": false
+      },
+      "assumptions": "Room assignment,shape,level,corridor and use are original planning. Six-block surface cover is an offline reference,not a local voxel acceptance."
+    }
+  ],
+  "central_template_box": [
+    -74.0,
+    -1670.0,
+    74.0,
+    -1502.0
+  ],
+  "central_first_air": 146,
+  "gallery_first_air": 80,
+  "rejected_shallow_routes": [
+    {
+      "kind": "directwest",
+      "minimum_cover": -36.740279993601774,
+      "at": [
+        -94.5,
+        -1664.5
+      ],
+      "points": [
+        [
+          -32,
+          -1616
+        ],
+        [
+          -75,
+          -1650
+        ],
+        [
+          -120,
+          -1700
+        ],
+        [
+          -180,
+          -1740
+        ],
+        [
+          -220,
+          -1810
+        ]
+      ],
+      "floor_law": "First-air146 to110,linear by cumulative path length;6-block gallery width,2-block lining,8-block air height; Catmull-Rom sampled6 steps per span."
+    },
+    {
+      "kind": "northernwest",
+      "minimum_cover": -26.438551479390583,
+      "at": [
+        -29.5,
+        -1702.5
+      ],
+      "points": [
+        [
+          -20,
+          -1616
+        ],
+        [
+          -28,
+          -1680
+        ],
+        [
+          -20,
+          -1780
+        ],
+        [
+          -100,
+          -1840
+        ],
+        [
+          -160,
+          -1840
+        ],
+        [
+          -190,
+          -1840
+        ]
+      ],
+      "floor_law": "First-air146 to110,linear by cumulative path length;6-block gallery width,2-block lining,8-block air height; Catmull-Rom sampled6 steps per span."
+    }
+  ],
+  "registry_additions": 0,
+  "external_gate_design": "Unresolved; this plan does not establish the number or placement of all external entrances.",
+  "snapshot": "Enduring city planning only; no later alliance,war,railway or future Tempest construction.",
+  "geometry_source": "Current four-block height raster,bilinearly sampled at every integer column centre inside the lined room/corridor footprints. Natural cave voids and actual voxels are untested.",
+  "not_runtime_accepted": true,
+  "stair_shaft_rows": [
+    {
+      "id": "capital",
+      "centre": [
+        -20,
+        -1616
+      ],
+      "bottom_first_air": 80,
+      "top_first_air": 146,
+      "void_radius": 8,
+      "lining": 2,
+      "columns": 316,
+      "minimum_surface_allowance_above_top": 43.375,
+      "occupied_voxels_checked": false
+    },
+    {
+      "id": "west",
+      "centre": [
+        -190.0,
+        -1840.0
+      ],
+      "bottom_first_air": 80,
+      "top_first_air": 110,
+      "void_radius": 8,
+      "lining": 2,
+      "columns": 316,
+      "minimum_surface_allowance_above_top": 56.9716796875,
+      "occupied_voxels_checked": false
+    },
+    {
+      "id": "east",
+      "centre": [
+        280.0,
+        -1780.0
+      ],
+      "bottom_first_air": 80,
+      "top_first_air": 134,
+      "void_radius": 8,
+      "lining": 2,
+      "columns": 316,
+      "minimum_surface_allowance_above_top": 84.4697265625,
+      "occupied_voxels_checked": false
+    }
+  ],
+  "stair_geometry": {
+    "centreline_radius": 6,
+    "rise_per_turn": 8,
+    "nominal_grade": 0.2122065907891938,
+    "clear_headroom_target": 4,
+    "voxelization_verified": false,
+    "capital_landing_requires_existing_template_redesign": true
+  },
+  "source_sha256": "1b9e151ae3a179d0127421f456167f29ec592b7009b850fe0293256428e03116",
+  "active_xml_tree_byte_identical": true,
+  "default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "normal_export": {
+    "seconds": 65.1,
+    "source_sha256": "1b9e151ae3a179d0127421f456167f29ec592b7009b850fe0293256428e03116",
+    "converter_warnings": [],
+    "byte_identical_files": [
+      "anchors.toml",
+      "biome.png",
+      "canon_map.txt",
+      "exclude.png",
+      "height.png",
+      "preview.png",
+      "road.png",
+      "roads.json",
+      "rugged.png",
+      "sites.json",
+      "sites.png",
+      "sites.toml",
+      "water.png"
+    ],
+    "index_only_difference": "source_sha256",
+    "sites_and_anchors_identical": true,
+    "preview_and_terrain_bytes_identical": true,
+    "applied": false
+  },
+  "ledger_integrity": {
+    "rows": 242,
+    "unique": 242,
+    "direct_ln": 14,
+    "required_fields_nonempty": true
+  },
+  "visual_review": {
+    "plan_png_inspected": true,
+    "production_preview_and_private_official_map_inspected": true,
+    "official_image_cannot_locate_interior_cities": true,
+    "original_svg_text_encoding_corrected_before_delivery": true
+  },
+  "licensed_sample_access": [
+    {
+      "volume": 13,
+      "url": "https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/getSampleDownload?cc=us&id=1582405808&pg=default&pricingParameters=STDQ",
+      "status": 200,
+      "story_read": false,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4918,
+      "sha256": "470484b2cb75632874a40067dfefbba0107e9cb2c6c6024bdc74dbc9e577d982"
+    },
+    {
+      "volume": 17,
+      "url": "https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/getSampleDownload?cc=us&id=6452587196&pg=default&pricingParameters=STDQ",
+      "status": 200,
+      "story_read": false,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4918,
+      "sha256": "e94271abfdfe45be0e12cbabd67eaa6aef41b36282ceba71ffd0ad63c6b46fbb"
+    }
+  ],
+  "repository_gate": {
+    "validation": "pass",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.588,
+    "changed_js": 0,
+    "ingame_run": false
+  },
+  "protected_paths_and_active_images_unchanged_from_commit": "42cc64a"
+}
