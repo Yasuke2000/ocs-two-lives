@@ -1,5 +1,7 @@
 # Malukshure capital cape alternative — round56
 
+R66 [Malukshure district/harbour/tower source layout](malukshure-source-layout.md) adds three directly read author-side-story relationships. Ledger259 unique;14 direct printed-LN plus6 author-side-story claims. Inventory132/41 follow-ups and source c2f806a9/R64 atlas remain unchanged. Exact initial state,dimensions and C14/C15 stay open.
+
 [Original vector study](malukshure-cape-study.svg) · [PNG](malukshure-cape-study.png) · [measured audit](malukshure-cape-study.json)
 
 The [author's LN-aligned side story](https://ncode.syosetu.com/n7972ib/2/#L39) puts a cape inside the royal capital. The previous radius64 proposal was only a landward circle: on the current native16-step coast its centre is122.706 blocks inland and its edge stops58.706 blocks before the shore. Calling that circle the whole coastal capital was insufficient. The old116/113-block capital/tower measurements predated the current shared coast curves and are superseded here.

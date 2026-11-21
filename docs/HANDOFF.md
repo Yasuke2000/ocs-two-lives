@@ -1,5 +1,12 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Source-backed Malukshure districts and tower interfaces (ChatGPT,round66)
+
+[R66 source layout](../world/malukshure-source-layout.md) directly reads author-side-story episode02 L81,episode05 L36-L40 andepisode07 L300-L316. It separates the outer general district,protected capital-side fishing harbour,offshore rooftop arrival and transferred hall. The original diagram is topological,not a scaled plan or implementation. Construction date and unchanged S1E10 state remain unverified;later visit/crisis/damage is not activated. C14/C15 and actual city/tower coverage remain open.
+
+Ledger259 unique(201+58),14 directly read printed-LN plus6 separately classified author-side-story claims. Inventory132/41 physical follow-ups unchanged. Source c2f806a9,all terrain and R64 atlas unchanged;no converter rerun,main merge,apply or deployment. Next:continue actual missing-location,source/fixed-rule and template-fit work;source relations do not prove completed architecture.
+
+
 ## 21/11 — Official named Night Garden interior reference (ChatGPT,round65)
 
 [R65 material brief](../world/night-garden-visual-brief.md) directly reads the official Coleus announcement and opening00:01/00:03. The article names the chaise scene as Night Garden;visible blue-grey masonry,burgundy seating and cool dim light now supply a local interior reference. Original swatches/symbols are schematic,not copied frames or room geometry. The00:05 crystal shot does not prove adjacency or access. Underground relationship and initial chamber state remain separately qualified.

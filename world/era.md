@@ -1,5 +1,7 @@
 # World snapshot: immediately after the Kijin naming
 
+R66 [Malukshure district/harbour/tower source layout](malukshure-source-layout.md) adds three directly read author-side-story relationships. Ledger259 unique;14 direct printed-LN plus6 author-side-story claims. Inventory132/41 follow-ups and source c2f806a9/R64 atlas remain unchanged. Exact initial state,dimensions and C14/C15 stay open.
+
 Yasuke selected this baseline on 20 November 2026: immediately after Rimuru names the six ogre survivors
 and they evolve into Kijin. This is the naming event in **anime season 1, episode 10**, before the Orc Lord
 conflict is resolved. No exact playback timestamp is claimed; the official synopsis was directly read.
