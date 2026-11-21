@@ -145,7 +145,7 @@ ground = "fixed"
 
 [dragons_nest]
 site = "clearing"
-r = 64
+r = 85
 min_r = 64
 box = [73, 73]
 plate = [89, 89]

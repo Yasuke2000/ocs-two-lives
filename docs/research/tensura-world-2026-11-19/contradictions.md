@@ -93,3 +93,8 @@ The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects 
 ## Round60: preparation radius is not capital geography
 
 [Englassia offset fit](../../../world/englassia-fit-review.md) enlarges one authored preparation disc to contain its existing buffered template. Only this capital exports a new height; source country positions and the fixed58 x/z registry are retained. This does not close the missing royal castle/lake setting,Council headquarters,complete capital or runtime questions. Whole-source painting equivalence is not asserted for the changed active geometry.
+
+
+## Round62: template support is not canonical summit dimensions
+
+[The offset-footprint audit](../../../world/dragons-nest-fit-review.md) treats the nest diameter,level,platform and architecture as authored accommodation. The summit setting remains wiki-backed;LN12 chapter4 is not directly read. C18 prevents a blanket preparation expansion for the later Tempest metropolis. Cave roofs and intended water templates need different fit criteria. Exact placement/runtime acceptance and the32 coverage gaps remain open;older R61 art is not falsely certified against new0b211ec7 terrain.

@@ -1,15 +1,15 @@
 # The Dragon's Nest (highest peak of the Great Canaat Mountains)
 
+Current own-map review: [R62 fit audit](../../world/dragons-nest-fit-review.md) uses authored centre(350,-2000),first-air272,radius85. The imported Lerfing survey coordinates and heights in the next paragraph are historical,not the current proposed terrain. Summit setting remains fan-wiki-backed (WIK-NEST-062);LN12 chapter4 is an unread primary lead. Exact appearance and dimensions remain our interpretation.
+
 Build: `blueprints/dragons_nest.py` (73 x 46 x 73, anchor (36, 9, 62) at the south gap of the nest wall), `design/builds/dragons_nest.toml`
 at world (2420, -1536) on Lerfing's map: the summit shoulder of the Canaat, y 273, relief 6 over 90 x 90, 100 blocks north of the
 lava lake and under the y 316 peak at (2502, -1432); inside Dwargon's region D. The build is 46 high with its floor at layer 8,
 so its top stays below the world limit of 320.
 
-## Canon (what is and is not known)
+## Wiki-backed setting and unverified appearance
 
-- The Great Canaat Mountains are the largest range on the Magic Continent. The Dragon lords rule it from the Dragon's Nest on
-  the summit of its tallest mountain; dragons grow stronger the higher up the range they live, up to the Nest. The wiki's Magic
-  Continent page places the Nest on the large mountain that covers about 90% of Dwargon.
+- The indexed wiki Background places the nest on Canaat's highest peak. Its LN12 chapter4 citation is a source lead,not a directly read novel passage. The exact block position and elevation are server choices.
 - **No appearance, size or architecture is given** in the sources we could reach (Magic Continent, Central World and Great
   Canaat Mountains pages via search extracts; Veldanava's page does not link it). So canon supports the *existence and
   place* of the nest, not what it looks like.
