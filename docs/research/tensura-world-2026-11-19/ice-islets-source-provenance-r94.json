@@ -1,0 +1,27 @@
+{
+  "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp",
+  "status": 200,
+  "sha256": "d306892d8ca705742628ec75c2163082ab40da1ef4b1e691903a5926bc4a3f7a",
+  "bytes": 214134,
+  "same_as_privately_viewed_R42_source": true,
+  "visual_locator": "Small detached outlined rocky forms just southeast of the northern Ice Continent; browser-enlarged selected area viewed.",
+  "scope": "Visual geography only; exact number,scale,shorelines,ownership and S1E10 state unverified.",
+  "source_svg_sha256": "63df718534438fa803fc39a8a0b16c46bf9648edf1c58cc62fff30ad75f37806",
+  "new_ledger_ids": [
+    "MAP-ICE-094",
+    "DES-ICE-094"
+  ],
+  "ledger_unique": 301,
+  "inventory": 138,
+  "physical_followups": 42,
+  "registered_sites": 58,
+  "exact_number_and_geometry_interpreted": true,
+  "copyrighted_reference_pixels_committed": false,
+  "mainland_and_existing_coasts_unchanged": true,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.298
+  }
+}

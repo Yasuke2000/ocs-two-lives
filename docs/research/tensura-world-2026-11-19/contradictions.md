@@ -136,3 +136,7 @@ Official OAD5 establishes mansion destination then cave task, while OAD4 still4 
 ## R93 Empire and later-development distinction
 
 [Direct original-author review](../../../world/empire-chronology-r93.md) separates capital identity,historical frontier evidence,later railway-town development and the later Dungeon interior. C05,C08,C15 andC18 remain open within their stated scope. No ruin coordinate,Ameld identification,initial railway town or full-capital plan is inferred. Earlier count notes are historical; current ledger299 and inventory137 retain42 physical follow-ups.
+
+## R94 Ice coastal illustration
+
+[Five original representative islets](../../../world/ice-islets-r94.md) address omitted offshore forms visible in the official illustration. C12 scale and C22 palace questions remain; no exact source count,ownership or initial construction is inferred. Main continent and all existing site attributes are retained. Current ledger301/inventory138 retain42 physical follow-ups.
