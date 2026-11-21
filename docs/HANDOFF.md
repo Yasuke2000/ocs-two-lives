@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Painting follows the El Dorado lake and bank (ChatGPT, round81)
+
+R 81 [current painted atlas](../world/painting-round81/README.md) integrates the R 80 El Dorado lake and bank from source 9fd 0c 5fb. Exact new lake geometry and 648 checked bank-light samples over verified R 78 underpainting change 361 continent pixels, all within 10.75 blocks of the actual height-change footprint. All 58 registrations,16 context names and 41 open rows retain layout; inventory caption 134. Prior art remains unchanged. Ledger 280/inventory 134/41 follow-ups; full source/era/location goal remains open.
+
+Next: remaining actual source/location/initial-era questions. R80 painting-integration follow-up closed only; no further source SVG change,apply,chunks,protected edit or deployment.
+
 ## 21/11 — Illustrated eastern El Dorado lake drawn (ChatGPT, round 80)
 
 R80 [El Dorado eastern lake](../world/el-dorado-lake-review.md) restores an unnamed inland water cue visible in the official illustration. Original 26-vertex shore, 274×138 blocks, level 68/depth 5 and closed drainage are authored; name/outlet/initial water state remain unverified. Source 9fd0c5fb; 10 lakes, 58 sites/21 roads retained. Checker 0 errors/56 relations/2 warnings; normal 65.6s. Ledger 280(222+58), inventory 134/41 follow-ups. Terrain atlas refreshed; R78 painting requires integration.

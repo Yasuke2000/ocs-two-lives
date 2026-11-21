@@ -1,5 +1,7 @@
 # Region book — anime-led Minecraft world
 
+R 81 [current painted atlas](painting-round81/README.md) integrates the R 80 El Dorado lake and bank from source 9fd 0c 5fb. Exact new lake geometry and 648 checked bank-light samples over verified R 78 underpainting change 361 continent pixels, all within 10.75 blocks of the actual height-change footprint. All 58 registrations,16 context names and 41 open rows retain layout; inventory caption 134. Prior art remains unchanged. Ledger 280/inventory 134/41 follow-ups; full source/era/location goal remains open.
+
 R80 [El Dorado eastern lake](el-dorado-lake-review.md) restores an unnamed inland water cue visible in the official illustration. Original 26-vertex shore, 274×138 blocks, level 68/depth 5 and closed drainage are authored; name/outlet/initial water state remain unverified. Source 9fd0c5fb; 10 lakes, 58 sites/21 roads retained. Checker 0 errors/56 relations/2 warnings; normal 65.6s. Ledger 280(222+58), inventory 134/41 follow-ups. Terrain atlas refreshed; R78 painting requires integration.
 
 R78 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md) now integrates source e8f17470 and the R77 fourth coast. The verified R69 underpainting plus native island/water layers change 5171 pixels, all inside the actual height-change footprint; all 58 registrations, 16 context names and 41 open rows retain layout. No production SVG change. Ledger 277/inventory 133/41 physical follow-ups remain; only the painting-integration follow-up is closed.
