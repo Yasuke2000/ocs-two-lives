@@ -1,5 +1,13 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Illustrated eastern El Dorado lake drawn (ChatGPT, round 80)
+
+R80 [El Dorado eastern lake](../world/el-dorado-lake-review.md) restores an unnamed inland water cue visible in the official illustration. Original 26-vertex shore, 274×138 blocks, level 68/depth 5 and closed drainage are authored; name/outlet/initial water state remain unverified. Source 9fd0c5fb; 10 lakes, 58 sites/21 roads retained. Checker 0 errors/56 relations/2 warnings; normal 65.6s. Ledger 280(222+58), inventory 134/41 follow-ups. Terrain atlas refreshed; R78 painting requires integration.
+
+Validation:472 tests,26 skipped,zero failures(62.581s). Existing geometry/58 anchors/road profiles retained;280 IDs,134 inventory rows with previous133 unchanged,water/rim/locality and exact atlas image/layout checks pass. Configured depth5 is nominal:sampled wet depths1.3125..5,local dry rim first-air70. Preview,study,terrain atlas and official reference viewed.
+
+Next: R78 painting integration for the new lake/bank; remaining actual source/location/initial-era questions. No protected edit, apply, main merge, chunks or deployment.
+
 ## 21/11 — Orbic internal-country scope and atlas links (ChatGPT,round 79)
 
 R79 [Orbic/Ulgracia scope and delivery-link review](research/tensura-world-2026-11-19/orbic-ulgr-source-review-r79.md) records the wiki royal-capital/ten-tribe distinction without invented town coordinates. Both child-category routes remain unverified. Atlas path spaces are repaired. Ledger 278(220+58),inventory 133/41 follow-ups;source e8f17470 and R78 art remain unchanged.

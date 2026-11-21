@@ -1,14 +1,14 @@
 {
-  "source_svg_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
-  "staged_index_source_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
-  "preview_sha256": "2158f4e3c24657de83d84a9ddca959a1b369213c0365808d4ff342b56d0a4670",
+  "source_svg_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "staged_index_source_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "preview_sha256": "9cad2e8a8bbc7b863a996d0152419b3ff8a73936fefa6e4b3b6d0e345a26cb5e",
   "original_preview_pixels": [
     1600,
     1344
   ],
   "copied_without_pixel_modification": true,
   "applied_to_runtime": false,
-  "previous_preview_source_sha256": "82135855d80430f1e4a723f92c86d9802b45c79e03fe2cd2c8c03503bfb6da2e",
+  "previous_preview_source_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
   "registration": {
     "scale_from_r41": 0.96,
     "translate_x": 88.0,
@@ -18,7 +18,7 @@
     "existing_16_context_labels_retained": true,
     "existing_32_open_rows_retained": true
   },
-  "normal_build_seconds": 65.8,
-  "source_change_review": "world/northern-island-review.md",
+  "normal_build_seconds": 65.6,
+  "source_change_review": "world/el-dorado-lake-review.md",
   "comment_only_source_change": false
 }

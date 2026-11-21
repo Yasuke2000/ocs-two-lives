@@ -1,5 +1,7 @@
 # Region book — anime-led Minecraft world
 
+R80 [El Dorado eastern lake](el-dorado-lake-review.md) restores an unnamed inland water cue visible in the official illustration. Original 26-vertex shore, 274×138 blocks, level 68/depth 5 and closed drainage are authored; name/outlet/initial water state remain unverified. Source 9fd0c5fb; 10 lakes, 58 sites/21 roads retained. Checker 0 errors/56 relations/2 warnings; normal 65.6s. Ledger 280(222+58), inventory 134/41 follow-ups. Terrain atlas refreshed; R78 painting requires integration.
+
 R78 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md) now integrates source e8f17470 and the R77 fourth coast. The verified R69 underpainting plus native island/water layers change 5171 pixels, all inside the actual height-change footprint; all 58 registrations, 16 context names and 41 open rows retain layout. No production SVG change. Ledger 277/inventory 133/41 physical follow-ups remain; only the painting-integration follow-up is closed.
 
 R77 [unnamed northern island](northern-island-review.md) adds a source-visible landmass omitted from the earlier three-coast drawing. Exact shore, 615×350 scale, rolling hill and F administrative coverage are authored; ownership/name/early state remain unverified. Source e8f17470; 4 coasts, 23 region polygons, 58 sites/21 roads. Checker 0 errors/56 relations/2 existing warnings; normal 65.8s. Inventory 133/41 physical follow-ups; ledger 277(219+58), printed-LN14/author6. Terrain atlas refreshed; R69 painting requires integration.
@@ -426,7 +428,7 @@ The official guide and episode stills are reference links only; no official artw
 
 ## X — El Dorado
 
-**Landform and heights.** Separate southwest volcanic island, roughly 1,850 by1,400; Leon’s city lies northwest of the volcano, which rises to230.
+**Landform and heights.** Separate southwest volcanic island, roughly 1, 850 by1, 400; Leon’s city lies northwest of the volcano, which rises to230. R80 adds an interpreted unnamed inland lake east of the cone, water first-air 68 anddepth 5; its natural rim and exact outline are authored.
 
 **Target biome mix.** `minecraft:plains` 45%, `minecraft:meadow` 20%, `minecraft:forest` 20%, `minecraft:stony_peaks` 10%, `minecraft:flower_forest` 5%.
 
@@ -582,3 +584,7 @@ DES-DWG-052 adds one peak146 dome and one top146 rolling shoulder;exact outlines
 ## Northern island: unassigned identity, F gameplay coverage — round 77
 
 The official illustration visibly includes a detached island in the northern inland sea. [R77 source/terrain review](northern-island-review.md) records the original shore and rolling hill. Exact outline, dimensions, position, height and default grassland are our interpretation. The matching F polygon is only the required generator coverage, not proof of Falmuth sovereignty; no mainland national border changes. No named place or settlement is inferred, and S1E10 conditions remain undated. Current fourth-coast terrain supersedes historical three-landmass counts; R69 painting still needs integration.
+
+## El Dorado illustrated inland water — round 80
+
+The [R80 visual/source and export review](el-dorado-lake-review.md) adds the water cue missing from the earlier source. Exact outline, 274×138-block scale, water first-air 68, depth 5 and closed drainage are our interpretation; the official illustration supplies no lake name, outlet or dated S1E10 condition. The shore stays inland and clear of all reserved sites/roads. Existing coasts, regions and every other source feature remain unchanged. The current terrain atlas is refreshed; R78 painting still needs lake integration.

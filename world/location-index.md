@@ -1,5 +1,7 @@
 # Location index — map coverage and source scope
 
+R80 adds the unnamed eastern El Dorado lake from direct official-image review. Current inventory 134; 41 existing physical follow-ups remain. [Source and terrain review](el-dorado-lake-review.md).
+
 R77 adds one source-illustrated landmass to the previous 132 entries:133 total, with 41 physical follow-ups retained. Its F coverage is administrative and does not establish an owner. [Island review](northern-island-review.md).
 
 R65 [official Night Garden interior reference](night-garden-visual-brief.md) verifies the named anime scene and visible materials. The underground relationship and initial room state remain separately qualified. Current ledger256 unique;inventory132/41 physical follow-ups retained. Production source c2f806a9,terrain and R64 atlas are unchanged.
@@ -10,7 +12,7 @@ Round58 [spatial city proposal](dwargon-cities-plan.md) now supplies explicit in
 
 Round57 [treant source context](../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) adds primary route/sanctuary detail but no surveyed parcel. The existing32 coverage classifications remain unchanged; one tree and an authored altar do not cover the whole community.
 
-Companion to the [numbered terrain atlas](atlas.png). All 133 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
+Companion to the [numbered terrain atlas](atlas.png). All 134 current inventory records are listed below; 58 numbered terrain reservations are a different registry. Category routes, organisations, other worlds and later-era references are retained as scope entries, not invented mainland points. A country pin or an existing design does not prove complete national geography or a placed structure.
 
 Round45 directly verifies the immobile guarded treant community in [WN chapter42](https://ncode.syosetu.com/n6316bn/44/#L309). It does not locate its parcel or complete settlement coverage; the 32 open classifications are retained.
 
@@ -148,6 +150,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Tripartite Alliance](https://tensura.fandom.com/wiki/Tripartite_Alliance) | organisation | organisation review | — |
 | [United States of Azalea](https://tensura.fandom.com/wiki/Homeworld_of_Hazy_Style) | separate world | separate world review | — |
 | [Unnamed Imperial vassal town](https://tensura.fandom.com/wiki/Nasca_Namrium_Ulmeria_United_Eastern_Empire) | mainland feature | missing distinct representation | — |
+| [Unnamed eastern El Dorado lake (official illustration)](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) | illustrated unidentified waterbody | terrain present | el-dorado-eastern-lake |
 | [Unnamed northern island (official illustration)](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) | illustrated unidentified landmass | terrain present | northern-unnamed-island |
 | [Western General Trading Company](https://tensura.fandom.com/wiki/Western_General_Trading_Company) | organisation | organisation review | — |
 | [WN:El Dorado](https://tensura.fandom.com/wiki/WN:El_Dorado) | WN version reference | WN continuity review | — |
