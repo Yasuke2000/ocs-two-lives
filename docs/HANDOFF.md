@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Place sheets match current map reservation metadata (ChatGPT,round73)
+
+R73 [current-source metadata audit](art/places/current-map-registration-r73.md) checks all58 PNG/sheet pairs against map40c7833/source90ee15b1. Three stale radii are corrected:Englassia98→124,Dragon’s Nest64→85,Sacred Mountain80→95. All58 x/z/kind/margin fields andthe other55 radii already agree. AllPNG bytes remain unchanged;the original prompts/provenance remain historical. Art-branch validation and462 tests pass(26 skipped,zero failures,44.559s);independent58-row metadata/git-blob/prompt checks pass. This is metadata registration,not metric image geometry orruntime acceptance. Earlier source-comparison statements below are historical.
+
+Next:remaining source/location/era/fixed-rule questions;technical conversion andlocal placement remain Claude’s handoff. All58 art pairs are present;no new physical location is claimed.
+
 ## 20/11 — final six registered place-art pairs (ChatGPT, round37, stacked on PR100)
 
 Adds Filtwood,Ghastone,Rostia,Sainte-Malukshure,old Forgotten Dragon City and old well:58/58 PNG/sheet pairs,twelve manifests and58-row coverage. This closes art-file coverage only. All58 site attributes match main1209e38,though this art branch retains older map/source files. Six new originals,1536×1024 RGB<3MB,decoded pixels preserved. Sainte depicts the inert C14 coastal proposal,not the active inland H pin; Filtwood C20 remains. Rostia's kingdom and Dragon City's temple have direct official profile support; no capital/bone-city architecture is certified. Eleven source/design records,exact prompts and manifest in docs/art/places. Full geometry/source/era/structure-fit/runtime requirements stay open. Gate in art README/new PR. No world/tools/mod/pack/blueprint/apply/deploy edits.

@@ -1,5 +1,7 @@
 # Post-Kijin place concepts — all fifty-eight delivered locations
 
+R73 [current-source metadata audit](current-map-registration-r73.md) checks all58 PNG/sheet pairs against map40c7833/source90ee15b1. Three stale radii are corrected:Englassia98→124,Dragon’s Nest64→85,Sacred Mountain80→95. All58 x/z/kind/margin fields andthe other55 radii already agree. AllPNG bytes remain unchanged;the original prompts/provenance remain historical. This is metadata registration,not metric image geometry orruntime acceptance. Earlier source-comparison statements below are historical.
+
 Round37 completes the58 registered image/sheet pairs: Filtwood,Ghastone,Rostia,Sainte-Malukshure,old Forgotten Dragon City and the old well. **This completes art-file coverage only.** Sainte depicts the inert C14 coastal alternative,not the current inland pin. Filtwood's C20 placement conflict,country geography,full structure fit,source certainty and runtime acceptance remain open. All58 attributes match map1209e38. Earlier summaries below are historical.
 
 
