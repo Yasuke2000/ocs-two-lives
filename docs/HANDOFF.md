@@ -1,5 +1,13 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Eastern Plains source and terrain assessment (ChatGPT, round 83)
+
+R83 [Eastern Plains source/terrain review](../world/eastern-plains-source-review.md) adds two qualified WN records and a measured original current-geometry study. Coverage remains partial; source 9fd0c5fb and R81 painting remain unchanged. Ledger 284 (226+58), inventory 134/41 physical follow-ups.
+
+Validation: 472 tests, 26 skipped, zero failures (62.851s). Independent checks retain all 282 prior facts, all 134 inventory rows/statuses and unchanged production/atlas files. Study and official geography visually inspected.
+
+Next: resolve broader extent, continuity and actual missing locations. No runtime change or deployment.
+
 ## 21/11 — Guratol official setting evidence (ChatGPT, round 82)
 
 R82 [Guratol source review](../world/guratol-source-review.md) verifies the official OAD mansion/cave task sequence and records the unanchored table map, with all 15 selected stills inspected. It supplies no invented global coordinates, administrative borders or S1E10 construction date. Ledger 282 (224+58); inventory 134/41 follow-ups unchanged. Source 9fd0c5fb and R81 painting remain unchanged.

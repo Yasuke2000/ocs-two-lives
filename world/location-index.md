@@ -58,7 +58,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Dwargon East city](https://tensura.fandom.com/wiki/Armed_Nation_of_Dwargon) | city or city interior | missing distinct representation | — |
 | [Dwargon West city](https://tensura.fandom.com/wiki/Armed_Nation_of_Dwargon) | city or city interior | missing distinct representation | — |
 | [Dwelling of the Elementals](https://tensura.fandom.com/wiki/Dwelling_of_the_Elementals) | portal or interior | interior or portal review | ulgr_nature_park;spirit_gate |
-| [Eastern Plains](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | partial | nation-E;nation-J;eastern-approach-plains;jura-eastern-foothill-woodland |
+| [Eastern Plains — source/terrain review](eastern-plains-source-review.md) | mainland feature | partial | nation-E;nation-J;eastern-approach-plains;jura-eastern-foothill-woodland |
 | [Eastern Union of Ulmeria](https://tensura.fandom.com/wiki/Nasca_Namrium_Ulmeria_United_Eastern_Empire) | historical state | historical review | — |
 | [Elemental Realm](https://tensura.fandom.com/wiki/Elemental_Realm) | separate world | separate world review | — |
 | [Elmine Sarion](https://tensura.fandom.com/wiki/Magic_Continent) | mainland feature | site present | elmine |
