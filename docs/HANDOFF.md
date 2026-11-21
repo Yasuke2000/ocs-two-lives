@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Long Wall physical contour and road opening (ChatGPT,round72)
+
+R72 [Long Wall contour and gate proposal](../world/long-wall-build-plan.md) samples the current source and fits an opening to both native/exported caravan-road projections. The5-block body follows the existing grade;exact dimensions are authored. Still inert andmissing in active coverage. Ledger268 unique(210+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Source90ee15b1,normal terrain and R69 painting remain unchanged. Validation and472 tests pass(26 skipped,zero failures,62.489s);both diagrams inspected;independent source/geometry/scope checks pass.
+
+Next:final gate corner/structure-exclusion/foundation/era/registration review and remaining locations. No generated wall or gameplay barrier;protected Jura magicule core unchanged.
+
 ## 21/11 — Ulgracia identity and threshold source review (ChatGPT,round71)
 
 R71 [Ulgracia source/identity review](../world/ulgr-spatial-source-review.md) adds three scoped WN61 claims and an original relational diagram. Corrected capital/park labels and the unsupported capital-associated spring wording;Galut and the extra-location/portal decisions remain open. Source90ee15b1,normal terrain and R69 painting are unchanged. Validation and472 tests pass(26 skipped,zero failures,62.792s);five official stills and original diagram inspected;independent scope/input checks pass. Ledger265 unique(207+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier summaries below are historical.

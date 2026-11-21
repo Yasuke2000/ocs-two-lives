@@ -1,5 +1,7 @@
 # Region book — anime-led Minecraft world
 
+R72 [Long Wall contour and gate proposal](long-wall-build-plan.md) samples the current source and fits an opening to both native/exported caravan-road projections. The5-block body follows the existing grade;exact dimensions are authored. Still inert andmissing in active coverage. Ledger268 unique(210+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Source90ee15b1,normal terrain and R69 painting remain unchanged.
+
 R71 [Ulgracia source/identity review](ulgr-spatial-source-review.md) adds three scoped WN61 claims and an original relational diagram. Corrected capital/park labels and the unsupported capital-associated spring wording;Galut and the extra-location/portal decisions remain open. Source90ee15b1,normal terrain and R69 painting are unchanged. Ledger265 unique(207+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier summaries below are historical.
 
 R70 [decoded dwarven-arena review](dwarven-arena-fit-review.md) retains r58:the actual enclosed rear model does not justify a flat whole-rectangle expansion. Forecourt/entry/pit support and seven explicit spawn headrooms are checked;full interior and runtime placement remain open. Production source90ee15b1,normal exports and R69 painting are unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier version-specific summaries below are historical.

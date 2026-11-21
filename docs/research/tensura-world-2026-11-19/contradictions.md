@@ -103,3 +103,8 @@ The [inert city/cape drawing](../../../world/malukshure-cape-study.md) corrects 
 ## Round71: C09/C15 town identity and threshold topology
 
 [Selected WN61 paragraphs](../../../world/ulgr-spatial-source-review.md) distinguish city altar and park doorway without naming Galut. The new diagram is relational,not a surveyed city/park plan. Combined labels and the unsupported capital-associated spring wording are corrected. Existing58 IDs/source90ee15b1/terrain/R69 painting remain unchanged;separate capital registration and the near-Tempest adaptation remain open. No LN corroboration,door architecture or initial-era event is inferred.
+
+
+## Round72: C15 physical wall versus magical boundaries
+
+[The contour/gate proposal](../../../world/long-wall-build-plan.md) supplies bounded physical planning geometry,not a registered wall. WN205 separates country,settled-area andcity-wall defences;it does not establish the LN Long Wall course. The new age/creator fields remain fan-wiki. Keep road-exclusion crossing,gate corner/voxel construction,initial-era corroboration andruntime barrier decisions open. The current source,terrain andpainting remain unchanged.
