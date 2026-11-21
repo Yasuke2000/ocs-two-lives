@@ -1,0 +1,40 @@
+{
+  "source_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
+  "production_geometry_and_terrain_unchanged": true,
+  "source_map_commit": "20acd01bed125ae2815f5d5841298a5c5f50aa0e",
+  "inventory": 137,
+  "physical_followups": 42,
+  "ledger_unique": 299,
+  "registered_sites": 58,
+  "context_names": 18,
+  "R92_continent_PNG_embedded_exactly": true,
+  "only_atlas_caption_and_panel_count_round_attributes_changed": true,
+  "site_registration_differs_only_inventory_count": true,
+  "changed_atlas_pixels": 138,
+  "changed_pixel_bounds": [
+    670,
+    2238,
+    680,
+    2252
+  ],
+  "max_RGB_channel_change": 201,
+  "old_marker_leader_context_name_and42_rows_exact": true,
+  "historical_R92_art_unchanged": true,
+  "protected_paths_unchanged": true,
+  "new_initial_settlement_coordinates": 0,
+  "runtime_applied": false,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.176
+  },
+  "full_atlas_and_scope_panel_visually_inspected": true,
+  "browser": {
+    "numbers": 58,
+    "context_names": 18,
+    "rows": 42,
+    "minimum_bubble_spacing": 32.470561517449696,
+    "label_overlap": false
+  }
+}

@@ -1,6 +1,14 @@
-## 21/11 — Painted Englassia water aligned (round 92)
+## 21/11 — Painted inventory caption follows R93 source scope
 
-[R92 painted atlas](painting-round92/README.md) now follows current R91 source `43fed303`: exact lake/court vertices and22 native road records, all58 registrations retained,18 context names and136/42 coverage caption. The WN-derived setting and authored local construction remain qualified; no castle building or complete capital is accepted. Ledger294 and42 physical follow-ups remain. Historical R90 files stay unchanged. Required repository gate: 472 tests,26 skipped,zero failures (64.466s); zero changed JavaScript.
+[R93 current painted atlas](painting-round93/README.md) retains the exact R92 geography and all58 registrations/18 names/42 open rows. Only the inventory caption and panel metadata now say137 after adding an unlocated future-only WN town. No initial settlement,route or terrain change. Main source review gate472 tests,26 skipped,zero failures(64.404s); painting gate: 472 tests, 26 skipped, zero failures (64.176s); zero changed JavaScript.
+
+## 21/11 — Empire source and initial-era distinction (R93)
+
+[Source/era review](empire-chronology-r93.md) corrects the Nasca lore handoff and records qualified capital/history/later-development evidence. Ledger299; inventory137 includes one future-only town, with42 physical follow-ups unchanged. All58 reservations,18 context names and actual terrain remain unchanged. The atlas caption is137; the R92 painted geography remains valid. [Current painted caption](https://github.com/Yasuke2000/ocs-two-lives/pull/102) is a separate presentation update. Required repository gate: 472 tests, 26 skipped, zero failures (64.404s); zero changed JavaScript.
+
+## 21/11 — Current painting follows Englassia water (R92)
+
+[Published painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/8e47ccbef3a8f0bc36caef3a4bb4d8b01cfa2e7c/world/painting-round92/README.md) now follows R91 source `43fed303`:58 unchanged registrations,18 context names,136-entry caption and42 open physical rows. Exact lake/court vertices and22 native road records checked; WN/continuity/initial-construction limits remain. Painting gate472 tests,26 skipped,zero failures(64.466s). [Alignment evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r92.md). Main documentation gate **472 tests,26 skipped,zero failures (64.586s)**; zero changed JavaScript.
 
 # world/ — the own world map
 

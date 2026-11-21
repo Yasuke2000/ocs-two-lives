@@ -1,3 +1,11 @@
+## 21/11 — Empire source and initial-era distinction (R93)
+
+[Source/era review](../../../world/empire-chronology-r93.md) corrects the Nasca lore handoff and records qualified capital/history/later-development evidence. Ledger299; inventory137 includes one future-only town, with42 physical follow-ups unchanged. All58 reservations,18 context names and actual terrain remain unchanged. The atlas caption is137; the R92 painted geography remains valid. [Current painted caption](https://github.com/Yasuke2000/ocs-two-lives/pull/102) is a separate presentation update. Required repository gate: 472 tests, 26 skipped, zero failures (64.404s); zero changed JavaScript.
+
+## 21/11 — Current painting follows Englassia water (R92)
+
+[Published painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/8e47ccbef3a8f0bc36caef3a4bb4d8b01cfa2e7c/world/painting-round92/README.md) now follows R91 source `43fed303`:58 unchanged registrations,18 context names,136-entry caption and42 open physical rows. Exact lake/court vertices and22 native road records checked; WN/continuity/initial-construction limits remain. Painting gate472 tests,26 skipped,zero failures(64.466s). [Alignment evidence](../../../docs/research/tensura-world-2026-11-19/painting-alignment-r92.md). Main documentation gate **472 tests,26 skipped,zero failures (64.586s)**; zero changed JavaScript.
+
 # Tensura geography research — round49 shared-curve geography
 
 R91 [Englassia capital-water review](../../../world/englassia-lake-r91.md) adds a separately placed WN-derived lake and dry court, one northern land access and three short water crossings. The existing academy/Guild precinct and all 58 reservations remain. Source `43fed303`; 22 roads, 11 lakes, 18 context names; ledger 294 and inventory 136/42. The castle and full capital remain incomplete. R90 painting predates the new local water/roads and needs alignment.
