@@ -1,5 +1,7 @@
 # world/ — the own world map
 
+R69 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round69/README.md) integrates source90ee15b1 and R68’s Sacred Mountain shoulder/approach change. Its mask covers all4,483 changed height cells,including1,003 beyond the preparation/fade envelope;1,335 gradient samples are independently checked. Only473 continent pixels change,max28/255 per RGB channel,all within16.30 blocks of the measured footprint. All58 projections,16 context names and41 inventory rows remain checked;earlier R53/R61/R63/R64 art is retained. Production geometry is unchanged in this presentation round. Ledger261;inventory132/41 physical follow-ups remain open. Earlier R68 painting-pending statements below are historical and superseded by this integration.
+
 R68 [Sacred Mountain support](sacred-mountain-fit-review.md):source90ee15b1,radius80→95,automatic first-air179→175. Exact preparation is our interpretation. Terrain atlas is refreshed;R64 painting needs explicit height integration. Ledger261;inventory132/41 follow-ups and full source/era/fixed-rule/runtime scope remain open. Earlier version-specific statements below are historical.
 
 R67 [Coleus occupied-template review](coleus-fit-review.md) retains r73:seven functional support boxes are level75 with both interpolation methods;the rectangular warning does not justify flattening the natural collar. Ledger260;inventory132/41 follow-ups and source c2f806a9/R64 atlas remain unchanged. Runtime/whole-city/era acceptance stays open.
