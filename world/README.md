@@ -1,5 +1,7 @@
 # world/ — the own world map
 
+Current round49 [shared curves](shared-curve-review.md): sourcecb07cce7,120-node mainland and exact native sampled region coverage. All formerly over120 outlines are reduced;58 site tuples stay fixed. Current checker/terrain atlas/preview are refreshed and pass. R43 painted presentation still uses source7d021766 and is historical until its native masks are refreshed. Ledger225/14 direct LN; full source/era/binding/coverage/runtime goal remains open.
+
 Round48 [curve simplification study](curve-simplification-review.md) rejects an external low-node candidate after three mandatory failures. Production geometry is retained; shared coast/region arcs and river contacts must be fitted together before adoption.
 
 Round47 [licensed cave references](../docs/research/tensura-world-2026-11-19/licensed-manga-review-r47.md) add selected public manga panels and correct spent-seal wording without changing terrain. Ledger224,14 direct LN; source/era/coverage/build/runtime obligations remain open.
@@ -10,7 +12,7 @@ Round45 [primary-source review](../docs/research/tensura-world-2026-11-19/primar
 
 Round44 [vertex-budget study](vertex-budget-study.md) retains the current source and documents why independent straight-line simplification was not adopted. Nine outlines still exceed the preferred120-vertex range; all stay within the mandatory400 ceiling. Exact mask seams are disclosed in the diagnostic rather than described as perfect coverage.
 
-Current round43 [painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) in PR102 now matches source7d021766,including the northwestern headland. Native coast/water/road vectors,58 marker projections,16 context names and32 open rows are audited. R38 and earlier paintings remain historical. This presentation does not change source terrain or close the full geographical/source/era/build-fit/runtime obligations.
+Historical round43 [painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) in PR102 now matches source7d021766,including the northwestern headland. Native coast/water/road vectors,58 marker projections,16 context names and32 open rows are audited. R38 and earlier paintings remain historical. This presentation does not change source terrain or close the full geographical/source/era/build-fit/runtime obligations.
 
 Current round42 source7d021766 adds an original [northwestern headland](western-cape-review.md). The current terrain atlas/preview includes it; PR102's R38 painting is historical; the round43 bundle linked above supplies the matching coast/registration refresh. Main size9989x6250 and design box12800x10752 retain the stated hard limits; preferred scale/design targets remain disclosed. Earlier dated paragraphs describe their own versions.
 

@@ -67,3 +67,7 @@ No main merge, apply, chunk generation or deployment occurred.
 ## Follow-up — round48
 
 The [curve experiment](curve-simplification-review.md) tests the previously open cubic approach. An external114-node mainland trial reduces sampled displacement to11.868 blocks with the native parser, but independent fitting creates three mandatory errors and larger region gaps. It is rejected. Joint shared-arc fitting and river-mouth preservation are the next action; active geometry remains unchanged.
+
+## Adopted follow-up — round49
+
+The [shared-curve implementation](shared-curve-review.md) closes the nine upper-budget overruns while preserving river/junction/site contacts and exact native sampled coverage. Production now has120 mainland nodes and all closed outlines at most120. Eight simple outlines remain below preferred20. The earlier independent straight-line/curve rejections above remain historical. Sourcecb07cce7/default checker and normal staging export pass; no runtime apply.

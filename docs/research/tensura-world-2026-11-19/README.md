@@ -1,4 +1,6 @@
-# Tensura geography research — round47 licensed manga review
+# Tensura geography research — round49 shared-curve geography
+
+Round49 [shared curves](../../../world/shared-curve-review.md) adds one interpreted geometry record,DES-CUR-049. Ledger225 (167+58),14 direct LN claims. Sourcecb07cce7 adopts120-node mainland/shared region arcs with exact native sampled coverage; all58 site tuples remain. Updated terrain atlas/preview are current; R43 painting is historical until native refresh. Inventory129/32 follow-ups and58 art pairs remain.
 
 Round47 [licensed manga review](licensed-manga-review-r47.md) directly inspects selected public chapter1 cave panels,with reader positions and access limits. Official episode2 corrects the overstrong spent-seal wording. Ledger224 (166+58),14 direct LN; source geometry,129 inventory/32 follow-ups and58 art pairs retained.
 

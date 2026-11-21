@@ -1,10 +1,10 @@
 {
-  "baseline_commit": "f232fc1",
-  "source_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "baseline_commit": "78ca1c8",
+  "source_sha256": "cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371",
   "presentation_only": false,
   "production_svg_changed": true,
   "terrain_image_bytes_retained": false,
-  "terrain_image_sha256": "866d93c964eb6650747f8541e2ca771eea3b609369e06aef7db90b26ed03df9d",
+  "terrain_image_sha256": "11cad65f1bfb3e134667f7a679ac5fa53b75319a2a8527f42c0e44304de72097",
   "existing_numbered_reservations": 58,
   "geographic_labels": [
     {
@@ -817,7 +817,7 @@
   "all_32_open_rows_fit_panel": true,
   "actual_browser_non_callout_text_bounds_with_stroke_inside_context": 15,
   "ulgracia_leader_with_1px_buffer_clear_of_padded_number_boxes": true,
-  "previous_layout_source_sha256": "a24cea9b46a751dbaa9b6765e2c1a5a8d829624744c980d8a9d65d159bb51295",
+  "previous_layout_source_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
   "registration_from_r41": {
     "scale": 0.96,
     "translate_x": 88,
@@ -1233,12 +1233,11 @@
       "height": 26.8800048828125
     }
   ],
-  "production_change_review": "world/western-cape-review.md",
+  "production_change_review": "world/shared-curve-review.md",
   "previous_snapshot_terrain_image_replaced_by_current_normal_export": true,
   "new_label_geographical_claims": 0,
   "linked_terrain_claims_added": [
-    "MAP-WES-042",
-    "DES-WES-042"
+    "DES-CUR-049"
   ],
   "all58_actual_world_anchor_registration_matches": [
     {
@@ -1472,6 +1471,69 @@
     {
       "id": "rookie_camp",
       "projected_anchor_error_blocks": 0.029368854025288358
+    }
+  ],
+  "r49_existing_layout_unchanged": true,
+  "r49_full_stroked_text_boxes_in_updated_masks": [
+    {
+      "label": "Eastern Empire",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Canaat Mountains",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Great Jura Forest",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Jistav",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Milim's Domain",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Eurazania",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Fulbrosia",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Sarion",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Blumund",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Englassia",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Falmuth",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Lubelius",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Desert of Death",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Ice Continent",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "El Dorado",
+      "full_stroked_box_in_updated_mask": true
     }
   ]
 }
