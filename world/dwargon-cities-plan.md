@@ -1,5 +1,7 @@
 # Dwargon East and West: underground planning alternative — round58
 
+**R86 supersedes the coordinates/terrain context below:** [current relocation and fit](dwargon-relocation-r86.md). Earlier tables and images retain their historical source.
+
 [Original plan](dwargon-cities-plan.svg) · [PNG](dwargon-cities-plan.png) · [geometry and measured allowances](dwargon-cities-plan.json)
 
 The wiki city list establishes Central,East and West only at `fan-wiki` confidence (WIK-DWG-002). The directly read WN provides a natural-cavern setting (WN13-008) and visited gate context (WN14-001). These do not survey the two other cities. This plan makes a plausible **our interpretation** choice where precise geometry is unavailable; it does not upgrade the city list to directly read LN evidence. Exterior entrances,distances and the relationship between every gate and city remain unresolved.

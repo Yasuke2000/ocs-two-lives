@@ -1,6 +1,6 @@
 # Dwargon entrance/crossing versus city identity — round 84
 
-**R85 follow-up:** [current painting](painting-round85/README.md) now shows 135/42. Earlier pending-panel statements below record the historical R84 handoff and are superseded for this presentation task only.
+**R85 follow-up:** [published current painting](https://github.com/Yasuke2000/ocs-two-lives/blob/cfb8055/world/painting-round85/README.md) now shows135/42. Earlier pending statements below describe the historical R84 handoff and are superseded for the panel refresh only.
 
 ## Source and location scope
 

@@ -1,5 +1,7 @@
 # Dwargo (Dwargon cavern capital)
 
+**Current authored world reservation (R86):** `(780,-1490)`, radius8; [current geography and fit](../../../world/dwargon-relocation-r86.md). Legacy Lerfing coordinates below are historical.
+
 `id: dwargo` · map pin only · region **D** (Armed Nation of Dwargon)
 
 | | |

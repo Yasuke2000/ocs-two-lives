@@ -1,5 +1,7 @@
 # Relative-position audit — provisional reference benchmark
 
+R86 [Dwargon northeast relocation](dwargon-relocation-r86.md) moves the gate to (780,−1390), retaining all 56 relations and 58 footprints. The secondary bearing discrepancy improves 35.31°→6.01°. Six related site records, two local relief shapes and three roads are aligned; water and all other native geography remain. Source355d1a33; ledger 286/inventory 135/42 follow-ups. R85 painting needs alignment; all 58 concept reservations are checked in the [art audit](https://github.com/Yasuke2000/ocs-two-lives/blob/120f5d5/docs/art/registration-r86.md).
+
 [CSV](proportion-audit.csv) compares 14 authored sites with the user-supplied pinned interactive reference.
 Distances are normalized to Tempest–Siss in each coordinate system, so absolute block scaling cancels out.
 Bearings use north-up image pixels and north-up world coordinates. Values are computed from the source

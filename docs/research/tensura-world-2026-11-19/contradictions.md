@@ -120,3 +120,7 @@ Official OAD5 establishes mansion destination then cave task, while OAD4 still4 
 ## Round84: Dwargon entrance versus city
 
 [The source review](dwargon-crossing-source-review-r84.md) separates WN entrance/crossing context from wiki city identity and original C15 interior plans. No directly read LN replacement or global registration is claimed. C13/C15 remain open.
+
+## Round86: C12 improved inside the existing contract
+
+[Current constrained relocation](dwargon-relocation-r86.md) improves the secondary benchmark while preserving all56 relations. Exact common-scale coordinates still exceed the fixed bounds and remain inert. C15 city geometry is updated and still unregistered; source continuity and actual placement are not proved by this fit.
