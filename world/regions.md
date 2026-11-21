@@ -1,6 +1,10 @@
-## Current source — R106
+## Current source — R114
 
-[Southeastern illustrated water and woodland](southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger318; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows these additions and142-entry caption. R105 is historical. This does not certify exhaustive wiki or primary-source coverage. [Measured design-biome shares](region-biomes-r114.md) now replace the old per-region targets. Earlier round status notes below are historical.
+[Local rocky-cone review](el-dorado-rock-cone-r114.md) records source `2463d771`: 13 lakes,15 forests,28 explicit biome polygons,58 sites and22 routes. Only the cone biome changes in R114;all heights,water,site androad exports remain. Ledger318;inventory142/42. All22 regional biome mixes use the [R114 measured census](region-biomes-r114.md). The R112 painting’s rocky cone is adopted unchanged;its original source metadata remains historical. The R113 place-sheet audit corrects the approved inland palace registration. Exact design proportions,biome choices andunverified source/era details remain qualified. Earlier dated status notes below describe their own versions.
+
+## Historical source note — R106
+
+[Southeastern illustrated water and woodland](southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger312; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows these additions and142-entry caption. R105 is historical. This does not certify exhaustive wiki or primary-source coverage. Earlier round status notes below are historical.
 
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 

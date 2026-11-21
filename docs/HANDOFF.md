@@ -1,5 +1,11 @@
 # Current handoff
 
+## 21/11 — Map deliverables and art registration reconciled (R114/R113)
+
+Source2463d771/mapbf0ba98 andart8d468a2 published. Only Frost Palace sheet changed;all58 image/sheet pairs andnumeric fields checked,57 other sheets/all58 PNG bytes/exact palace prompt retained. Source local rock-cone choice is interpretation;LN11 sample routes exposed no story. R112 painted rock appearance adopted unchanged,its original source metadata remains historical. Source gate472/26skip/0fail64.499s;art gate462/26skip/0fail44.459s;main handoff gate472/26skip/0fail64.428s. See art-registration-r113.md anddeliverable-readiness-r114.md in current research directory. Next substantive checks:all13 lake banks as one audit;Orbic/Ulgracia child-location traversal;global proportional/contract andinitial-era review. Keep Claude-owned runtime/whole-city building separate from creative map acceptance. No new geometry orcounter-only painting/art generation in this handoff;no protected/runtime/merge/deploy action.
+
+# Current handoff
+
 ## 21/11 — Local rocky cone and place-sheet audit (R114/R113)
 
 Source2463d771 adds only one stony_peaks polygon over the exact existing40-vertex El Dorado cone.4577biome samples change(3039plains+1538snowy_slopes);all5850cone centres stony_peaks. All height/rugged/water/road/site/exclusion andsite/road/anchor exports retained;all58site attributes/22routes unchanged. Checker0/56/2;normal67.0s,no warnings. Required gate472/26skip/0fail64.499s;browser58/20/42,no overlap,min31.62px. Ledger318;inventory142/42. Local authored rock choice,not proven canon climate or runtime snow absence;LN11 retailer routes exposed no story passage. Existing R112 painting appearance adopted unchanged,its metadata stays historical. R113 art audit:57 numerical sheets already matched,only Frost Palace’s inland registration corrected;all58 PNGs andoriginal prompt retained. Full goal stays open;next map deliverable checks are in readiness audit,distinct from Claude-owned runtime/full-build integration.
