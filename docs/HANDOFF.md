@@ -1,5 +1,9 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Englassia precinct concept follows R91 source limits
+
+The Englassia sheet now distinguishes its unchanged dry academy/Guild precinct from the separate WN-derived royal lake/court in current map source 43fed303. All reservation values, original PNG and exact prompt remain unchanged. No completed castle/capital or LN/initial-state acceptance. Required gate passed: 462 tests, 26 skipped, 0 failures (45.493 s).
+
 ## 21/11 — Elmine lake direction corrected (R88)
 
 The Elmine concept sheet now identifies its source lake east/southeast, correcting southwest. Original PNG and exact prompt retained; official episode61 pavilion evidence stays bounded. Main-map source355d1a33 and all58 concept reservation values unchanged. Whole-tree/capital coverage remains partial. Gate: 462 tests, 26 skipped, zero failures (45.441s).
