@@ -124,3 +124,7 @@ Official OAD5 establishes mansion destination then cave task, while OAD4 still4 
 ## Round86: C12 improved inside the existing contract
 
 [Current constrained relocation](dwargon-relocation-r86.md) improves the secondary benchmark while preserving all56 relations. Exact common-scale coordinates still exceed the fixed bounds and remain inert. C15 city geometry is updated and still unregistered; source continuity and actual placement are not proved by this fit.
+
+## Round88: imported grove versus authored Divine Tree
+
+[Current-site review](elmine-source-review-r88.md) removes reliance on Paulzero’s retired imported-world grove. Official selected pavilion stills do not verify the complete tree/city or initial state. The root lake lies east/southeast in current geometry; exact shore and full-tree dimensions remain interpretation. Larger-tree massing and180° terrace orientation remain unimplemented proposals; partial coverage is retained.

@@ -1,10 +1,22 @@
 # Handoff — current state of the work (update this when you stop)
 
-## 21/11 — Painting follows northeast Dwargon (ChatGPT, round87)
+## 21/11 — Khusha extends towards Sarion (round89)
 
-R87 [current painted atlas](../world/painting-round87/README.md) follows source `355d1a33` and R86 northeast Dwargon. Three old road strokes are removed in a native ground reconstruction and the current routes drawn once; incremental local light uses 9,013 checked samples. All 58 registrations, 16 context names and the unchanged 135/42 coverage panel are checked. Prior art remains; broader source/location/era obligations stay open.
+R89 [Khusha continuation](../world/khusha-continuation-r89.md) connects western Khusha relief towards Sarion with an original lower envelope and two unequal summits. Source `2ce669a0`; checker: 0 errors / 56 relations / 2 existing warnings; normal export 47.565s. All 58 sites, roads, water and prior active shapes retained. Current atlas has 17 context names. Ledger 290; inventory 135/42 unchanged. R87 painting predates this new local relief and needs alignment.
 
-Next: actual source/location/initial-state questions; R86 painting follow-up closed only. No production geometry or runtime change. Checker 0 errors/56 relations/2 existing warnings; gate 472 tests, 26 skipped, zero failures (63.210s).
+Final current checker preview, official reference and original before/after study inspected. Final normal preview explicitly rerendered; old baseline reproduction changes0pixels. No runtime action. Gate: 472 tests, 26 skipped, zero failures (63.975s). Next: align painted Khusha relief, then remaining source/location/era obligations.
+
+## 21/11 — Elmine current geography and tree study (round88)
+
+R88 [Elmine source and larger-tree study](../world/elmine-tree-study-r88.md) corrects the retired Paulzero-grove handoff and lake bearing (east/southeast). A current-site north-facing terrace trial and original larger tree remain proposals; the Divine Tree stays partial. Five official episode 61 stills inspected, with bounded pavilion cues from 2/5. Ledger 289; inventory 135/42 unchanged; source `355d1a33` unchanged.
+
+No production SVG, terrain, blueprint or placement configuration changed. Next: whole-tree/capital design and remaining source/location/initial-state questions. Gate: 472 tests, 26 skipped, zero failures (63.908s); zero changed JS.
+
+## 21/11 — Published painting aligned with R86 (round 87)
+
+R87 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/d98513e79e386b493410ab219d110c5d5bd1fa61/world/painting-round87/README.md) aligns R86 northeast Dwargon: six moved site groups, three revised roads and local illustrative relief. All 58 registrations and 16 context names are checked; the 135-entry inventory and 42-row coverage panel remain current. Source `355d1a33` and ledger 286 are unchanged. Painting gate: 472 tests, 26 skipped, zero failures (63.210s). This supersedes earlier pending painting notes only; broader source/location/era questions remain open.
+
+No production SVG, normal export, place-concept PNG or runtime change. Next work is the unresolved source/location/initial-state inventory. Map documentation gate: 472 tests, 26 skipped, zero failures (62.901s).
 
 ## 21/11 — Dwargon moves northeast within existing rules (ChatGPT, round86)
 

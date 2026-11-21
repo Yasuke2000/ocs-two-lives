@@ -1,6 +1,6 @@
 # Dwargon moves northeast within the unchanged contract — round 86
 
-**R87 follow-up:** [current painting](painting-round87/README.md) aligns the local relief, revised routes and six moved registrations. Earlier pending statements below record the historical R86 handoff and are superseded for this presentation task only.
+**R87 painting follow-up closed:** [published current painting](https://github.com/Yasuke2000/ocs-two-lives/blob/d98513e79e386b493410ab219d110c5d5bd1fa61/world/painting-round87/README.md) aligns the moved relief, roads and six site groups. Earlier pending notes below retain their historical R86 context.
 
 [Original before/after study](dwargon-relocation-study-r86.png) · [editable study](dwargon-relocation-study-r86.svg) · [independent audit](dwargon-relocation-audit-r86.json) · [current terrain atlas](atlas.png) · [58-site registration](atlas-registration-r86.json)
 
