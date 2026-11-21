@@ -1,3 +1,11 @@
+# Current handoff
+
+## 21/11 — Actual concept pixels screened for initial era (R122)
+
+All58 originals viewed in overview layouts; twelve sensitive images also viewed at original resolution. No definite late-state trigger requiring bitmap revision identified within this scope. Per-file observations/hashes: docs/art/places/era-visual-review-r122.*; era-gallery-r122.md links originals. Forty-six remain overview-only; no all58 source/architecture/roster acceptance. All58 PNG bytes and normalized sheet/prompt text match art baseline8d468a2; original files unchanged. External R121/source4093 retains site attributes from R113’s registration source, without another art/registration copy.
+
+Branch chatgpt/era-art-review-r122 stacks over final-place-art-r37 and deliberately does not carry later source/converter commits. Source PR107, era PR109 and painted PR108 remain separate. Required art-branch gate: 462 tests,26 skipped,zero failures in43.113 seconds; validation and diff check pass. No new geographic claim, bitmap generation, protected path, source geometry, runtime placement, world apply, chunks, main merge or deployment. Source/physical/architecture, remaining initial-era detail and C18/C23 assessments remain open.
+
 # Handoff — current state of the work (update this when you stop)
 
 ## 21/11 — All58 place sheets checked against current map (R113)
