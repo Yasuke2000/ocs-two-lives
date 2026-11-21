@@ -1,5 +1,7 @@
 # Dwargon entrance/crossing versus city identity — round 84
 
+**R85 follow-up:** [current painting](painting-round85/README.md) now shows 135/42. Earlier pending-panel statements below record the historical R84 handoff and are superseded for this presentation task only.
+
 ## Source and location scope
 
 [The author's map note](https://ncode.syosetu.com/n6316bn/47/#L14), actual HTML L11-L16, distinguishes a right-side entrance, large bridge and neighbouring boundary pasture; alternative crossings require small boats. WN-MAP-02 already records the bridge/pasture context; WN-MAP-04 adds the crossing consequence. The sketch is explicitly rough and labelled for the Orc-invasion era. Exact span, water identity, shoreline, named-city correspondence and global registration are unverified. This is WN evidence, not a directly read LN passage or an anime-era placement.

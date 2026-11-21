@@ -1,8 +1,16 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Painted atlas coverage synchronized (ChatGPT, round85)
+
+R85 [current painted atlas](../world/painting-round85/README.md) refreshes the coverage panel to 135 entries/42 open rows after R84. All noncoverage XML and the embedded R81 continent remain unchanged, including 58 numbered registrations and 16 context names. Source9fd0c5fb and ledger 285 remain; no new geographic claim or active terrain. This closes only the panel-refresh follow-up.
+
+Validation: `tools/check.sh` passes: 472 tests, 26 skipped, zero failures (63.024s). Historical R81 art is unchanged against commit2c62a5e. No in-game acceptance is claimed.
+
+Next: actual source/location/initial-era questions; full goal remains open.
+
 ## 21/11 — Dwargon crossing tracked separately (ChatGPT, round84)
 
-R84 [Dwargon crossing source review](../world/dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory135/42 follow-ups; ledger285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
+R84 [Dwargon crossing source review](../world/dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory135/42 follow-ups; ledger 285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
 
 Validation: 472 tests, 26 skipped, zero failures (62.667s). All previous 284 claims and 134 inventory rows/statuses preserved. Browser checks 58 numbers, 16 context names and 42 non-overlapping panel rows; PNG changes stay inside the panel. New panel viewed.
 

@@ -1,6 +1,8 @@
 # Current map review — round49 shared curves adopted
 
-R84 [Dwargon crossing source review](dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory135/42 follow-ups; ledger285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
+R85 [current painted atlas](painting-round85/README.md) refreshes the coverage panel to 135 entries/42 open rows after R84. All noncoverage XML and the embedded R81 continent remain unchanged, including 58 numbered registrations and 16 context names. Source9fd0c5fb and ledger 285 remain; no new geographic claim or active terrain. This closes only the panel-refresh follow-up.
+
+R84 [Dwargon crossing source review](dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory135/42 follow-ups; ledger 285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
 
 R83 [Eastern Plains source/terrain review](eastern-plains-source-review.md) adds two qualified WN records and a measured original current-geometry study. Coverage remains partial; source 9fd0c5fb and R81 painting remain unchanged. Ledger 284 (226+58), inventory 134/41 physical follow-ups.
 
