@@ -1,3 +1,7 @@
+## 21/11 - Western peninsula follows the illustrated outline (R97)
+
+[Western coast review](../world/western-peninsula-r97.md) restores the western lobe beyond a shortened northwestern headland. Source `bb0e4b29`; mainland9983x6250/design12800x10752; checker0errors/56relations/2prior warnings. The wider10443 trial failed the repository width gate and remains an inactive C12 alternative. Normal66.5s; all58 XML site attributes retained. Heaven Tower staged ground71to73, with bounded road-profile changes. Atlas58/19/42 retained; ledger304/inventory138/42. R95 painting needs alignment. Repository gate: 472 tests, 26 skipped, zero failures (63.383s); zero changed JavaScript.
+
 ## 21/11 - Western country identity review (R96)
 
 [Source review](../world/western-country-identity-r96.md) adds official manga-release evidence that Gaston/Ghastone is a named kingdom. The western-state listing remains wiki evidence; the English crosswalk is qualified. Rostia profile reread adds no spatial claim. Neither country's capital or boundary is verified; G/A gameplay bindings do not establish sovereign membership. Five official episode72 stills were reviewed without extracting geography from an unidentified tabletop model. Later events/characters are not backdated to S1E10.
