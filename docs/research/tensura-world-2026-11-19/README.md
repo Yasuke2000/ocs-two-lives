@@ -1,3 +1,7 @@
+## Current source — R104
+
+[Western illustrated basin and outlet](../../../world/western-basin-r104.md) are active in source `e785c2b0`:12 lakes,9 rivers,58 unchanged places and22 unchanged routes. Ledger310; inventory140/42 physical follow-ups. The current terrain atlas is refreshed; R100 painting predates this addition and needs alignment. This is no claim of exhaustive wiki/primary-source coverage. Earlier round status notes below are historical.
+
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 
 [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/260f1501ad0a009879b671291fd0e73b63fef497/world/painting-round100/README.md) follows source `dbef5ac0`: exact meadow shape,15 changed continent pixels,20 context names and all58 registrations checked. Khusha text and the Tengu partial row now agree with the main atlas. R98 is historical; painting alignment is complete. [Evidence](painting-alignment-r100.md). Ledger305/inventory138/42 remain. Painting gate472 tests,26 skipped,zero failures(63.658s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.549s); zero changed JavaScript. Broader source/location/initial-era obligations stay open.

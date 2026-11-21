@@ -1,3 +1,7 @@
+## Current source — R104
+
+[Western illustrated basin and outlet](western-basin-r104.md) are active in source `e785c2b0`:12 lakes,9 rivers,58 unchanged places and22 unchanged routes. Ledger310; inventory140/42 physical follow-ups. The current terrain atlas is refreshed; R100 painting predates this addition and needs alignment. This is no claim of exhaustive wiki/primary-source coverage. Earlier round status notes below are historical.
+
 ## 21/11 - Published painting follows Tengu terrain context (R100)
 
 [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/260f1501ad0a009879b671291fd0e73b63fef497/world/painting-round100/README.md) follows source `dbef5ac0`: exact meadow shape,15 changed continent pixels,20 context names and all58 registrations checked. Khusha text and the Tengu partial row now agree with the main atlas. R98 is historical; painting alignment is complete. [Evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r100.md). Ledger305/inventory138/42 remain. Painting gate472 tests,26 skipped,zero failures(63.658s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.549s); zero changed JavaScript. Broader source/location/initial-era obligations stay open.
@@ -642,3 +646,13 @@ The official illustration visibly includes a detached island in the northern inl
 ## El Dorado illustrated inland water — round 80
 
 The [R80 visual/source and export review](el-dorado-lake-review.md) adds the water cue missing from the earlier source. Exact outline, 274×138-block scale, water first-air 68, depth 5 and closed drainage are our interpretation; the official illustration supplies no lake name, outlet or dated S1E10 condition. The shore stays inland and clear of all reserved sites/roads. Existing coasts, regions and every other source feature remain unchanged. The current terrain atlas is refreshed; R78 painting still needs lake integration.
+
+## Unnamed western illustrated basin — round104
+
+[Source/terrain review](western-basin-r104.md) restores a distinct broad western
+lake-like water cue and southwest course from the official illustration. Exact
+553×230 shore geometry,level68/depth5,8-block outlet and location are **our
+interpretation**,not a named/surveyed LN lake. It remains separate from Raja and
+the WN royal lake. All prior58 sites/22 roads and source elements retained;
+normal sites/roads exports byte-identical. No national boundary or initial-era
+city inferred. Ledger310,inventory140/42. R100 painting predates this addition.

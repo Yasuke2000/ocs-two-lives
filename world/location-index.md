@@ -1,3 +1,7 @@
+# Current coverage: R104
+
+The western illustrated basin and outlet add two unnamed terrain records: **140 inventory entries**,with **42 existing physical follow-ups retained**. [Source/terrain review](western-basin-r104.md). Earlier round counts below are historical.
+
 # Location index — map coverage and source scope
 
 R94 adds the illustrated Ice coastal group as original terrain: **138 entries**, with all **42 existing physical follow-ups retained**. Five representative coasts are not five newly named places. [Source/terrain review](ice-islets-r94.md). Earlier count notes below are historical.
@@ -170,6 +174,13 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [World](https://tensura.fandom.com/wiki/World) | world container | container | — |
 
 R64 adds three source/scope entries and two new current gaps. Seven existing partial records are added to the displayed queue. Underground geometry is inert;all58 active site attributes and terrain remain unchanged. Prior inventory obligations are retained.
+
+## Additional unnamed physical features (R104)
+
+| Feature | Scope | Current representation | Source |
+|---|---|---|---|
+| Unnamed western inland basin | Mainland water | Terrain present; exact shape interpreted | MAP-WES-WATER-104 |
+| Unnamed western basin outlet | Mainland water | Terrain present; exact course interpreted | DES-WES-WATER-104 |
 
 ## How to read the atlas
 
