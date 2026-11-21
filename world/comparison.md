@@ -1,4 +1,6 @@
-# Reference comparison — round42 western headland / post-Kijin snapshot
+# Reference comparison — round43 current painted headland / post-Kijin snapshot
+
+Current presentation: [source7d021766 painting and linked official comparison](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) · [comparison table](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/comparison.md). The new headland now has original painted texture under exact native coast/water/road overlays. The active SVG is retained after visual review; no additional geography is inferred. R38 and earlier statements below retain their historical dates/hashes.
 
 Current comparison: [western before/after](western-cape-study.png) · [terrain atlas](atlas.png) · [source and export review](western-cape-review.md). The official introductory image supports a broad western projection; exact shore,habitat and V assignment remain our interpretation. Production source7d021766 retains all58 sites and earlier physical layers. PR102's R38 painting does not yet contain this new coast and must not be treated as a current-source overlay. Earlier descriptions below are historical.
 

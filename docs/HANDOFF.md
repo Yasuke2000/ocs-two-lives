@@ -1,5 +1,10 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — current-source painted headland delivered (ChatGPT, round43)
+
+PR102 adds world/painting-round43:built-in image_gen edit using only original R38 painting and own current checker/terrain guides. Local native feathered mask limits the new texture to the source headland; R38 pixels/provenance retained historically. Source7d021766 unchanged. Exact3coasts/9lakes/8rivers/21roads/2habitat overlays,58source projections,16context labels and32open names audited. Larger pixel changes within320-block headland buffer;12outside edge pixels differ at most2/255. Leader lines now behind all number bubbles; spacing32.47px. Browser text bounds clear padded bubbles. Painting/checker/official-reference visual review retains geometry. Painting gate472tests/26skips/0failures (44.683s); pointer gate472tests/26skips/0failures (44.328s). Next:remaining mainland/source/binding obligations; repeat painting only if the source geometry changes. Ledger217/14directLN,129inventory/32follow-ups,58art pairs retained;full goal remains open. No source/terrain/runtime apply or deploy. Previous round42 made progress;no repeating blocker.
+
+
 ## 21/11 — painting basis synchronized, raster refresh pending (ChatGPT, round42)
 
 Painting branch integrates map50e0715/source7d021766. Shared terrain-preview PNG/provenance use the current main-feature versions; fresh mandatory checker0errors/56relations/2warnings. Existing R38paint remains historical1ea6782d and is explicitly marked in painting-current/README.md/comparison.md. Next concrete steps and bounds in painting-current/refresh-pending.md; do not fake current agreement by changing provenance only. No painting pixels/runtime/protected paths/technical rules changed in this sync. Normal basis build58.7s/no warnings and validation/472tests/26skips pass (45.880s); normalized source/provenance match the map feature and both previews are byte-identical. No PR/main merge,apply or deploy.

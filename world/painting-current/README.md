@@ -1,5 +1,7 @@
 # Historical R38 painted map — terrain source 1ea6782d
 
+**Round43 update:** the current-source painting refresh is now delivered in [painting-round43/README.md](../painting-round43/README.md),including the new cape and audited source7d021766 registration. This folder retains the historical R38 images/provenance; the earlier pending instructions below are history.
+
 **Round42 status:** the repository map now follows source7d021766 with a new northwestern headland and a wider normal-export box. This R38 painting and its recorded1ea6782d provenance predate that change. They remain a historical snapshot,not an overlay of the current coast. The SVG/normal terrain atlas governs until [the painting refresh](refresh-pending.md) is delivered. No painting pixels or historical source hashes are relabelled here.
 
 [Numbered atlas](atlas.png) · [clean painting](continent.png) · [editable composition](continent.svg) · [reference comparison](comparison.md) · [registration audit](presentation-audit.json).

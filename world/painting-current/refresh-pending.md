@@ -1,5 +1,7 @@
 # Current painting refresh required after round42
 
+**Round43 update:** the current-source painting refresh is now delivered in [painting-round43/README.md](../painting-round43/README.md),including the new cape and audited source7d021766 registration. This folder retains the historical R38 images/provenance; the earlier pending instructions below are history.
+
 The painting branch now integrates map feature commit50e0715,source `7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa`. The two shared preview conflicts were resolved using that feature branch's current normal-export PNG and provenance. No PR was merged into main and no runtime apply or deployment occurred.
 
 Existing R38 painting files still describe their original1ea6782d source. Keep those hashes,inputs and prompt history accurate. The new northwestern headland is absent from that raster; a metadata-only change cannot make the painting agree with the current map.
