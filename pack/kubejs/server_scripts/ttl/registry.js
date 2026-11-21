@@ -624,9 +624,13 @@ const TtlRegistry = {
     added.forEach(skill => this.log(server, 'grant', skill, id, 'gained outside the registry (Reset Counter bonus, wish or admin)'))
     refused.forEach(skill => {
       var rarity = self.rarityOf(skill)
-      console.warn(`[ttl] registry: ${name} gained ${skill} outside the registry over its cap (${rarity}); taking it back`)
+      if (rarity === 'legendary') {
+        console.warn(`[ttl] registry: ${name} gained Legendary ${skill} outside the registry (not granted through it); taking it back. Staff: grant it with /ttl grant ${name} ${skill} (counts toward the ${self.maxHolders(server, id)}-holder ceiling)`)
+      } else {
+        console.warn(`[ttl] registry: ${name} gained ${skill} outside the registry over its cap (${rarity}); taking it back`)
+      }
       server.runCommandSilent(`quietly tensura edit ability revoke ${name} ${skill}`)
-      self.log(server, 'revoke', skill, id, `taken back: ${rarity} unique over its cap`, true)
+      self.log(server, 'revoke', skill, id, rarity === 'legendary' ? 'taken back: Legendary not granted through the registry' : `taken back: ${rarity} unique over its cap`, true)
       var pool = rarity === 'legendary' ? [] : TtlData.skills[rarity].skills.map(p => `tensura:${p}`)
       var instead = self.draw(server, pool, 1, id)
       if (instead.length > 0 && self.grant(server, player, instead[0], `given instead of ${skill} (over its cap)`)) {
