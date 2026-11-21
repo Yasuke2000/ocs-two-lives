@@ -1,5 +1,7 @@
 # Dwargon main gate (TtlDwargon.GATE)
 
+**Current authored world reservation (R86):** `(780,-1390)`, radius127; [current geography and fit](../../../world/dwargon-relocation-r86.md). Legacy Lerfing coordinates below are historical.
+
 `id: dwargon` · settlement (own scripts) · region **D** (Armed Nation of Dwargon)
 
 | | |

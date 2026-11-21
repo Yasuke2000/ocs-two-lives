@@ -1,5 +1,7 @@
 # Kaijin's smithy
 
+**Current authored world reservation (R86):** `(768,-1474)`, radius8; [current geography and fit](../../../world/dwargon-relocation-r86.md). Legacy Lerfing coordinates below are historical.
+
 `id: kaijin_smithy` · spot (NPC, boss or quest point) · region **D** (Armed Nation of Dwargon)
 
 | | |

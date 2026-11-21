@@ -1,5 +1,7 @@
 # Gazel's throne room (statue)
 
+**Current authored world reservation (R86):** `(780,-1496)`, radius8; [current geography and fit](../../../world/dwargon-relocation-r86.md). Legacy Lerfing coordinates below are historical.
+
 `id: dwargon_throne` · spot (NPC, boss or quest point) · region **D** (Armed Nation of Dwargon)
 
 | | |

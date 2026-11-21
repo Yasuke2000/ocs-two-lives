@@ -1,5 +1,7 @@
 # Dwargon road and forecourt connection — round52
 
+**R86 supersedes the coordinates/terrain context below:** [current relocation and fit](dwargon-relocation-r86.md). Earlier tables and images retain their historical source.
+
 [Before/after section](dwargon-approach-fix.png) · [editable vector](dwargon-approach-fix.svg) · [measured audit](dwargon-approach-fix.json) · [current terrain atlas](atlas.png) · [original finding](dwargon-approach-study.md).
 
 The production SVG now includes a40-node rounded foothill (`dwargon-gate-apron`, peak146, dome, rugged0) and a32-node low forecourt shoulder (`dwargon-forecourt-shoulder`, top146, rolling, rugged0). Their exact500×540 and280×240 outlines and elevations are **our interpretation** for the existing fixed blueprint fit. They follow the open-foothill/cavern context in WN13-006 and WN13-008 without claiming a measured canon ramp. The early post-Kijin snapshot and C18 road-development qualifications remain.
