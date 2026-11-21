@@ -1,5 +1,11 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 21/11 — Painting coverage follows the current inventory (ChatGPT, round85)
+
+R85 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/cfb8055/world/painting-round85/README.md) now shows the current 135-entry inventory and 42 open rows. All noncoverage XML, the R81 continent, 58 numbered registrations and 16 context names remain unchanged. Ledger285/source9fd0c5fb retained; the painting-panel follow-up is closed. Actual source/location/initial-era questions remain open.
+
+Painting gate: 472 tests,26 skipped,zero failures (63.024s). Map documentation gate: 472 tests,26 skipped,zero failures (62.525s). Independent XML/pixel/browser checks pass; all changes stay inside the panel. Next: actual source/location/initial-era questions. No active geography,converter,apply,chunks,protected edit or deployment.
+
 ## 21/11 — Dwargon crossing tracked separately (ChatGPT, round84)
 
 R84 [Dwargon crossing source review](../world/dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory135/42 follow-ups; ledger285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.

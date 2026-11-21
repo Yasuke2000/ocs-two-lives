@@ -1,5 +1,7 @@
 # Tensura geography research — round49 shared-curve geography
 
+R85 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/cfb8055/world/painting-round85/README.md) now shows the current 135-entry inventory and 42 open rows. All noncoverage XML, the R81 continent, 58 numbered registrations and 16 context names remain unchanged. Ledger285/source9fd0c5fb retained; the painting-panel follow-up is closed. Actual source/location/initial-era questions remain open.
+
 R84 [Dwargon crossing source review](dwargon-crossing-source-review-r84.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory135/42 follow-ups; ledger285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
 
 R83 [Eastern Plains source/terrain review](eastern-plains-source-review-r83.md) adds two qualified WN records and a measured original current-geometry study. Coverage remains partial; source 9fd0c5fb and R81 painting remain unchanged. Ledger 284 (226+58), inventory 134/41 physical follow-ups.
