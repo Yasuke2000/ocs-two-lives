@@ -1,20 +1,30 @@
 # Handoff — current state of the work (update this when you stop)
 
-## 21/11 — Repair current painting review links (ChatGPT, round 79)
+## 21/11 — Illustrated eastern El Dorado lake drawn (ChatGPT, round 80)
 
-Restored the exact painting-round78 path in four Markdown files after a prose-spacing replacement inserted a space. All R78 references in the affected worktrees were checked against local files or committed Git objects (21 links in total). Source e8f17470,all R78 images/native composition,58 registrations and the historical277-record evidence snapshot remain unchanged. The separate map branch adds the scoped Orbic wiki note; this art branch does not claim that new record as its own source snapshot.
+R80 [El Dorado eastern lake](../world/el-dorado-lake-review.md) restores an unnamed inland water cue visible in the official illustration. Original 26-vertex shore, 274×138 blocks, level 68/depth 5 and closed drainage are authored; name/outlet/initial water state remain unverified. Source 9fd0c5fb; 10 lakes, 58 sites/21 roads retained. Checker 0 errors/56 relations/2 warnings; normal 65.6s. Ledger 280(222+58), inventory 134/41 follow-ups. Terrain atlas refreshed; R78 painting requires integration.
 
-Validation:472 tests,26 skipped,zero failures(65.145s). The shared21-link audit resolves current R78 references to local files/committed artifacts. Source and all image/native assets remain unchanged.
+Validation:472 tests,26 skipped,zero failures(62.581s). Existing geometry/58 anchors/road profiles retained;280 IDs,134 inventory rows with previous133 unchanged,water/rim/locality and exact atlas image/layout checks pass. Configured depth5 is nominal:sampled wet depths1.3125..5,local dry rim first-air70. Preview,study,terrain atlas and official reference viewed.
 
-Next: remaining source/location/early-state work on the map branch. No geometry or image edits,protected change,apply,chunks or deployment.
+Next: R78 painting integration for the new lake/bank; remaining actual source/location/initial-era questions. No protected edit, apply, main merge, chunks or deployment.
 
-## 21/11 — Northern island painting follows the R77 terrain (ChatGPT, round 78)
+## 21/11 — Orbic internal-country scope and atlas links (ChatGPT,round 79)
 
-R78 [current painted atlas](../world/painting-round78/README.md) integrates the R77 northern island and surrounding water from source e8f17470. Verified R69 underpainting plus exact new native coast/height/depth layers change 5171 continent pixels, all inside the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows are retained; inventory caption 133. Prior editable art/texture files remain unchanged. Ledger 277/inventory 133/41 follow-ups; full geography/source/era goal remains open.
+R79 [Orbic/Ulgracia scope and delivery-link review](research/tensura-world-2026-11-19/orbic-ulgr-source-review-r79.md) records the wiki royal-capital/ten-tribe distinction without invented town coordinates. Both child-category routes remain unverified. Atlas path spaces are repaired. Ledger 278(220+58),inventory 133/41 follow-ups;source e8f17470 and R78 art remain unchanged.
 
-Validation: 472 tests / 26 skipped / zero failures (62.794s); checker0 errors/56 relations/2 existing warnings. Independent source/mask/sample/hash/pixel-locality and registration checks pass. Final painting/preview/reference comparison found no additional source-SVG correction for this island.
+Validation:472 tests,26 skipped,zero failures(65.238s);link audit21 valid references;278 unique IDs and unchanged source/inventory statuses checked. Painting-link branch independently passes472/26/zero failures(65.145s).
 
-Next: remaining actual source/location/initial-era questions. R77 painting-integration follow-up closed only; no production SVG change,apply,chunks,protected edits or deployment.
+Next: actual source/location/initial-state questions; child listings remain open. No production geometry, protected edit, apply, chunks or deployment.
+
+## 21/11 — Current painting includes the northern island (ChatGPT, round 78)
+
+R78 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md) now integrates source e8f17470 and the R77 fourth coast. The verified R69 underpainting plus native island/water layers change 5171 pixels, all inside the actual height-change footprint; all 58 registrations, 16 context names and 41 open rows retain layout. No production SVG change. Ledger 277/inventory 133/41 physical follow-ups remain; only the painting-integration follow-up is closed.
+
+Feature validation:472 tests, 26 skipped, zero failures(62.794s); inherited checker 0 errors/56 relations/2 warnings. Source vectors/masks, underpainting hash, 2100 land samples, 2436 water samples, 5171 local changed pixels and browser registration independently checked; final preview/painting/reference visually compared. No additional source-SVG correction found in this island review.
+
+Map reference-branch validation also passed:472 tests,26 skipped,zero failures(62.842s). Production source SHA remains e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91.
+
+Next: remaining actual source/location/initial-era questions. No apply, main merge, chunks, protected edits or deployment.
 
 ## 21/11 — Missing illustrated northern island drawn (ChatGPT, round 77)
 
@@ -68,7 +78,7 @@ Next:verify remaining actual locations and initial-era/source/registration quest
 
 [R70 actual-model review](../world/dwarven-arena-fit-review.md) retains r58. Forecourt,entry,pit and stair context are exactly75 with both samplers;rear variation belongs to the enclosed raised model rather than an exposed common-level plaza. All3,343 occupied columns have SITE exclusion and source surface between their lowest solid base and highest solid top. Seven declared spawn points have explicit model floors/air. This rejects rectangle-only radius84 flattening,not runtime/collision/whole-interior acceptance. Legacy survey/beside placement still needs fixed-map reconciliation. Validation and472 tests pass(26 skipped,zero failures,62.737s);original diagram visually inspected;input/footprint/source checks pass.
 
-Source90ee15b1,normal terrain and R69 painting unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Next:remaining source/location/fit gaps and technical placement interfaces. No protected edit,apply,chunks,main merge or deployment.
+Source90ee15b1,normal terrain and R69 painting unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Next:remaining source/location/fit gaps and technical placement interfaces. No protected edit, apply, chunks,main merge or deployment.
 
 ## 21/11 — Painting follows Sacred Mountain and approach terrain (ChatGPT,round69)
 
@@ -196,15 +206,6 @@ Round50 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob
 
 Next: continue the unresolved mainland-source and fixed-rule/era/fit obligations. R49 and R50 made concrete progress; no repeated blocker.
 
-## 21/11 — current-source painted headland delivered (ChatGPT, round43)
-
-PR102 adds world/painting-round43:built-in image_gen edit using only original R38 painting and own current checker/terrain guides. Local native feathered mask limits the new texture to the source headland; R38 pixels/provenance retained historically. Source7d021766 unchanged. Exact3coasts/9lakes/8rivers/21roads/2habitat overlays,58source projections,16context labels and32open names audited. Larger pixel changes within320-block headland buffer;12outside edge pixels differ at most2/255. Leader lines now behind all number bubbles; spacing32.47px. Browser text bounds clear padded bubbles. Painting/checker/official-reference visual review retains geometry. Painting gate472tests/26skips/0failures (44.683s); pointer gate472tests/26skips/0failures (44.328s). Next:remaining mainland/source/binding obligations; repeat painting only if the source geometry changes. Living contradiction summary updated to14directLN claims and the current C12 coast/scale status; all58 coordinate-ledger centres/radii match the current SVG. Ledger217/14directLN,129inventory/32follow-ups,58art pairs retained;full goal remains open. No source/terrain/runtime apply or deploy. Previous round42 made progress;no repeating blocker.
-
-
-## 21/11 — painting basis synchronized, raster refresh pending (ChatGPT, round42)
-
-Painting branch integrates map50e0715/source7d021766. Shared terrain-preview PNG/provenance use the current main-feature versions; fresh mandatory checker0errors/56relations/2warnings. Existing R38paint remains historical1ea6782d and is explicitly marked in painting-current/README.md/comparison.md. Next concrete steps and bounds in painting-current/refresh-pending.md; do not fake current agreement by changing provenance only. No painting pixels/runtime/protected paths/technical rules changed in this sync. Normal basis build58.7s/no warnings and validation/472tests/26skips pass (45.880s); normalized source/provenance match the map feature and both previews are byte-identical. No PR/main merge,apply or deploy.
-
 ## 20/11 — Eurazania cultivation and Laura era correction (ChatGPT, PR #74 round17)
 
 Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
@@ -312,10 +313,6 @@ is online).
 ## 20/11 — Jura route art and treant-source distinction (ChatGPT, round36)
 
 PR100/96e1069 delivers six revised/new original pairs (shizu_spawn,outcast_road,treyni_grove,blumund_road,englassia_road,rookie_camp),total52/58,6 remaining. Main creative briefs correct legacy coordinates,initial residents,tree/settlement equivalence and false safe-rim context; no runtime changes. WIK-TRE-036 is secondary indexed geography,not a directly read LN passage. The distinct treant community gains an explicit missing mainland row;127 inventory entries,26 missing+1 partial+3 parent,30 follow-up obligations. Ledger211(153+58),13 direct LN;61 visual/design supplements. All58 attributes match48b0846; current SVG/source SHA1ea6782d and terrain unchanged,no converter rerun. Exact prompts,readability cleanup and selected/own-input hashes in the art stack. Main gate in world/review.md. No apply/deploy;full geographic/source/fixed-rule/fit/runtime requirements remain. Previous round35 made progress; no blocking condition repeated.
-
-## 21/11 — current painted-map presentation (ChatGPT, round38)
-
-Refreshes the original third-round painting against dc92845/source SHA1ea6782d using only own prior painting and current checker/terrain guides. Native composition verifies3 coasts/9 lakes/8 rivers/21 roads/1 Orbic highlight,all58 anchors and32.47px minimum number-bubble spacing. Current coast clips/ocean mask and blue-pigment suppression prevent freehand water from defining geography. Current atlas preserves C07/C14/C20/C22/country-pin qualifications. The tracked terrain-preview copy had lagged the normal export; it is refreshed byte-identically from the current staging build with provenance. Main terrain atlas already used that export. Active SVG/checker preview/protected paths remain unchanged from dc92845; no new converter run needed. Exact prompts,source/registration audit and comparison in world/painting-current. Gate in its README/new PR. Prior three painting/SVG reviews remain historical. Source/coverage/era/fixed-rule/build-fit/runtime obligations and214/129/58 art status remain; no apply/deploy.
 
 ## 20/11 — registered art coverage and final-place source distinctions (ChatGPT, round37)
 

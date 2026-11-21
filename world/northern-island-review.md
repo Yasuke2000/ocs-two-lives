@@ -1,6 +1,6 @@
 # Unnamed northern island — round 77
 
-**R78 follow-up:** [the current painted atlas](painting-round78/README.md) now integrates this fourth coast and surrounding water. Earlier pending statements below describe the R77 handoff and are superseded for painting integration only.
+**R78 follow-up:** [the painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md) now includes this fourth coast and surrounding water. Earlier pending statements below record the R77 handoff and are superseded for painting integration only.
 
 [Original before/after study](northern-island-study.png) · [editable study](northern-island-study.svg) · [terrain delta audit](northern-island-audit.json) · [current terrain atlas](atlas.png)
 
