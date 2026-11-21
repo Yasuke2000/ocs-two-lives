@@ -3214,7 +3214,7 @@ hash = "dbdcf85a6979080cb90d351ff461afb055c38d282b1ad4a15e0c51f4dbac534d"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/registry.js"
-hash = "986df10d51be8e4bf320277b64502fa4307137f85df14111dcbbf3e13f1b8e67"
+hash = "adc97b60aaa981c81133353af4c1954a3f43c9061b87f9751dbd98a6586f03bf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/rep/commands.js"
