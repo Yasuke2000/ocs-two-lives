@@ -1,3 +1,7 @@
+# Current coverage: R111
+
+The existing El Dorado entry now links two source-informed woodland masks;no new named destination is inferred. **142 inventory entries and42 physical follow-ups** remain. [Source and terrain review](el-dorado-woodland-r111.md). Earlier counts/notes below are historical.
+
 # Current coverage: R106
 
 The southeastern basin and isolated woodland add two unnamed terrain records:

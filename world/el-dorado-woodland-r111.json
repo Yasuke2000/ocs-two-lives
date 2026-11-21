@@ -1,0 +1,105 @@
+{
+  "round": 111,
+  "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+  "previous_source_sha256": "0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b",
+  "added_forests": [
+    {
+      "id": "el-dorado-northwestern-woodland",
+      "vertices": 72,
+      "area_blocks2": 53848.265550000004,
+      "bounds": [
+        -4483.12,
+        2576.56,
+        -4030.62,
+        2827.5
+      ],
+      "coast_edge_gap": 137.56428847143604,
+      "lake_edge_gap": 582.5288995406149,
+      "nearest_site_edge_gap": 102.65190870060889
+    },
+    {
+      "id": "el-dorado-eastern-lakeside-woodland",
+      "vertices": 60,
+      "area_blocks2": 22845.86249999999,
+      "bounds": [
+        -3333.75,
+        3080.31,
+        -3154.38,
+        3284.38
+      ],
+      "coast_edge_gap": 31.207195446903228,
+      "lake_edge_gap": 48.23553565577986,
+      "nearest_site_edge_gap": 561.0677429796913,
+      "source_reinspection": "Enlarged official original puts this tree group east/southeast of lake;preliminary north-of-lake draft corrected."
+    }
+  ],
+  "all_prior_active_shape_attributes_text_and_child_counts_retained": true,
+  "registered_sites": 58,
+  "all_site_attributes_unchanged": true,
+  "all_22_roads_unchanged": true,
+  "raster_deltas": {
+    "height": {
+      "changed_cells": 0,
+      "pixel_bounds": null
+    },
+    "rugged": {
+      "changed_cells": 0,
+      "pixel_bounds": null
+    },
+    "water": {
+      "changed_cells": 0,
+      "pixel_bounds": null
+    },
+    "road": {
+      "changed_cells": 0,
+      "pixel_bounds": null
+    },
+    "biome": {
+      "changed_cells": 4788,
+      "pixel_bounds": [
+        543,
+        2052,
+        874,
+        2228
+      ],
+      "all_changed_centres_inside_new_forest": true,
+      "new_biomes": {
+        "minecraft:forest": 4788
+      }
+    }
+  },
+  "unchanged_export_files": [
+    "anchors.toml",
+    "canon_map.txt",
+    "exclude.png",
+    "height.png",
+    "road.png",
+    "roads.json",
+    "rugged.png",
+    "sites.json",
+    "sites.png",
+    "sites.toml",
+    "water.png"
+  ],
+  "normal_seconds": 67.0,
+  "checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "source_url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp",
+  "limits": "Undated illustrative tree groups;exact canopy geometry,tree type and S1E10 cover are interpretation. Not canonical forest percentages or actual in-game trees. No new location/site/border/settlement.",
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.832
+  },
+  "browser": {
+    "numbers": 58,
+    "labels": 20,
+    "open_rows": 42,
+    "minimum_spacing": 31.621008835113628,
+    "label_overlap": false
+  }
+}
