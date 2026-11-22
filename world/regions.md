@@ -1,6 +1,6 @@
-# Regional terrain guide — current source R130
+# Current terrain guide — Coleus dune relief
 
-This is the current creative guide for `world/map.svg`. Its active geometry remains R130, terrain-export source `ade502105956db450831e0991b2f10e6b29f8b73a1827f1d0184299c505917bb`; the later inert island study changes comments only. One SVG unit is one block; east is +x and south is +z. Rimuru’s village is at (0,0). The mainland measures 9,983 × 6,250 blocks; the normal export box is 12,800 × 10,752. Those are authored server dimensions, not a canonical survey.
+This is the current creative guide for `world/map.svg`, source `0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e`. The [Coleus dune review](coleus-dune-relief.md) adds one local rolling ridge to the R130 active geometry; both larger-island alternatives remain comments. One SVG unit is one block; east is +x and south is +z. Rimuru’s village is at (0,0). The mainland measures 9,983 × 6,250 blocks; the normal export box is 12,800 × 10,752. Those are authored server dimensions, not a canonical survey.
 
 Use the **[post-Kijin S1E10 snapshot](era.md)**: the Kijin have just been named, the Orc Lord conflict is unresolved, Falmuth still exists, and Clayman, Frey and Carrion retain their earlier countries. A site reservation supplies capacity; it does not instantiate a future city, event or resident. See the [58-site era overlay](../docs/research/tensura-world-2026-11-19/era-site-state.csv).
 
@@ -8,9 +8,9 @@ The 22 lettered regions below are **gameplay terrain masks**, not surveyed natio
 
 **Deliberate proportion difference (C12).** The Ice Continent and El Dorado remain relatively smaller than their broad extents in the official illustration, following the server island-size brief. The [original side-by-side island study](island-proportion-review.md) compares current widths with a coast-only alternative drawn in an SVG comment. Initial trial A exceeds the hard design-box height; trial B fits after western shifts, while both remain outside the smaller island-size recommendation. Neither is active terrain or accepted new island geometry.
 
-**Current numeric basis.** All 22 biome mixes use the [R128 census](region-biomes-r128.md), retained for R130 because the normal biome PNG and every region polygon are byte-identical. Rounded percentages may sum slightly away from 100%; exact values remain in the CSV/JSON. The [R130 water review](ulgr-spring-level-r130.md) lowers only the authored Ulgr spring/head from 102 to 92. Every source vertex, all 58 site records/heights and all 22 road courses/profiles remain. Every exported road profile stays within the owner’s 1:2 grade, using a small floating-point tolerance; this does not substitute for final-noise or in-game travel checks.
+**Current numeric basis.** All 22 biome mixes use the [R128 census](region-biomes-r128.md), retained because the biome PNG and every region polygon remain byte-identical. Rounded percentages may sum slightly away from 100%; exact values remain in the CSV/JSON. The [R130 water review](ulgr-spring-level-r130.md) remains the Ulgr foundation. The current [Coleus dune export](coleus-dune-relief.json) adds one 22-vertex hill, changing 661 height samples by at most 11.25 blocks. All 58 site exports/heights and all 22 road courses remain; ten western caravan profile heights change by at most 0.09. All 22 finite exported point profiles remain within the owner’s 1:2 grade, using floating-point tolerance. This does not substitute for final-noise or in-game travel checks.
 
-**Current visual companions.** [Terrain atlas](atlas.png) · [checked preview](preview.png) · [painted atlas proposal PR117](https://github.com/Yasuke2000/ocs-two-lives/pull/117) · [58-place art registration PR115](https://github.com/Yasuke2000/ocs-two-lives/pull/115). The painting keeps its original R129 source pin; its unchanged plan-view appearance is adopted here, without claiming a new image or an exact vertical-height reconstruction. The R127 art registration remains numerically applicable because every site export is unchanged.
+**Current visual companions.** [Terrain atlas](atlas.png) · [checked preview](preview.png) · [painted atlas proposal PR117](https://github.com/Yasuke2000/ocs-two-lives/pull/117) · [58-place art registration PR115](https://github.com/Yasuke2000/ocs-two-lives/pull/115). The painting retains its original source pin and predates the new Coleus dune; a native local relief alignment remains open. The R127 art registration remains numerically applicable because every site export is unchanged.
 
 Earlier iteration notes are preserved in [the previous guide](https://github.com/Yasuke2000/ocs-two-lives/blob/b053e13b4fdd98eab5a804ea704cc59105df4e1e/world/regions.md) and Git history. They are history, not competing current instructions. This guide keeps all 22 region narratives and all curated image links while removing superseded status preambles.
 
@@ -128,7 +128,7 @@ Earlier iteration notes are preserved in [the previous guide](https://github.com
 
 ## V — Damargania / western wastes
 
-**Landform and heights.** Arid west lowlands 65–100; Coleus has a bounded oasis at level75. Desert gives way to a separate barren belt around the Heaven Tower.
+**Landform and heights.** Arid west lowlands 65–100; Coleus has a bounded oasis at level75. A small authored northern dune reaches81.5 in the current export; its110 height control is attenuated by the hill blend. Desert gives way to a separate barren belt around the Heaven Tower.
 
 **Current designed biome mix (R128 census; retained in R130).** plains 44.47%, tensura:desert_of_death 39.67%, tensura:barren_land 10.44%, desert 4.18%, beach 1.13%, river 0.07%, forest 0.03%.
 
@@ -136,7 +136,7 @@ Earlier iteration notes are preserved in [the previous guide](https://github.com
 
 **Mood (our interpretation).** Dry wind, bare horizons and long gaps between useful paths.
 
-**Canon basis and interpretation.** Damargania is the far-west barren territory; the oasis layout and desert transitions are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Canon basis and interpretation.** Damargania is the far-west barren territory; the oasis layout and desert transitions are our interpretation. The [official Coleus PV at00:25](https://www.youtube.com/watch?v=WuIDVoKdVGU&t=25s) supplies sand-dune vocabulary; the new ridge’s exact course, scale and northern placement are [our interpretation](coleus-dune-relief.md). See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
 **Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [named regional component: Coleus production panorama: hill palace, ramp, lower town, arid mountain backdrop and foreground vegetation.](https://www.ten-sura.com/4GfGdAp7/wp-content/uploads/2023/05/bf4a714bd04266b501beea54ae574464.jpg) — Coleus component only; not all Damargania or Dagruel's capital.; [cross-region rock analogy: Travellers queue beside a pale rock wall and entrance architecture.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img3.jpg) — Dwargon pale rock only; does not locate a western settlement.
 

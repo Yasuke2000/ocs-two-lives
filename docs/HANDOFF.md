@@ -1,3 +1,7 @@
+## 22/11 — Coleus receives actual surrounding dune relief
+
+Official linked PV WuIDVoKdVGU viewed privately at14 sampled frames;00:25 shows caravan dunes,00:08 corroborates the already-recorded hill palace. Four later seeks failed;no full episode/continuous trailer claim. New original22-vertex northern dune inside existing desert selector changes661height samples,max11.25,actualcrest81.5 (110iscontrolonly). Source0b8bcf56;normal67.5s;checker0errors/56relations/2standingwarnings;requiredgate472tests/26skipped/0failures65.253s. No site-disc or13lake+8buffer height changes;all58site exports retained;biome/water/road/site/exclusion/rugged PNGs unchanged. Ten westerncaravan profile heights shift<=0.09,all22grades<=0.5. Native atlas terrain image updated;all nonimageXML retained. Current region guide/ledger337 updated;inventory142/42 unchanged. Existing painting needs local dune alignment;all place-art numericregistrations remain applicable. Source/section/preview inspected. No protected/runtime/world/chunk/merge/deploy action.
+
 ## 22/11 — Larger island coast trial fits without relaxing box limits
 
 Verification:472tests/26skipped/0failures in65.277seconds; checker0/56/2; preview byte-identical and original fit diagram inspected.
