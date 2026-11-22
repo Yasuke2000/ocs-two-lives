@@ -1,3 +1,7 @@
+## 22/11 — Regional guide reconciled with current islet terrain
+
+The explicit `world/regions.md` deliverable now pins the current 50c27a6f source and fresh western-islet census instead of claiming the old biome PNG is unchanged. All 22 displayed biome mixes checked against exact current counts; all curated image URLs and 22 region narratives retained. Expanded inventory is 143/42; paired painting PR130 is linked. Source geometry, normal staging, site records and images are unchanged. Required repository gate: 472 tests, 26 skipped, zero failures in 65.338 seconds; validation and diff check pass. Older entries below describe their original delivery state.
+
 ## 22/11 — Western offshore illustrated rocks gain actual terrain
 
 Three original24-vertex coast/rock/biome/Xcoverage footprints added from the directly reviewed official image;no source pixels copied. Normal67.6s;all58site exports,22road exports,lake/rivers profiles and lake+8height/water retained. Fresh22-mask census zero unassigned inland samples;21other regions exact. Ledger346;expanded inventory143/42. Exact shape/position/heights and Xgameplay assignment are interpretation. Current painting needs local rock-islet alignment. Source/diagram/atlas inspected;required gate472tests/26skipped/0failures65.543s;checker0errors/56relations/2standing warnings;normal warnings empty. Raw biome indices shift173123cells but only574 change biome name;all3islets have at least one first-air64+sample. Diff check passes. No protected/runtime/chunk/merge/deploy action.

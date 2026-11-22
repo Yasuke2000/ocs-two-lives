@@ -20,7 +20,7 @@ Height/rugged cells change 31474/2091. Raw biome indices differ at173123cells be
 
 ## Rendering and remaining scope
 
-The source atlas uses the fresh normal terrain image and one unnumbered offshore-rock callout. All58 numbered reservations remain. The expanded location inventory becomes143entries,with42prior physical follow-ups;the source discovery table has139rows because the expanded inventory includes additional scope-routing entries. Ledger346. The current painted atlas needs the actual local islet follow-up;it is not silently called aligned with new coasts.
+The source atlas uses the fresh normal terrain image and one unnumbered offshore-rock callout. All58 numbered reservations remain. The expanded location inventory becomes143entries,with42prior physical follow-ups;the source discovery table has139rows because the expanded inventory includes additional scope-routing entries. Ledger346. The actual local islet painting is available in [companion PR130](https://github.com/Yasuke2000/ocs-two-lives/pull/130), with its own pixel/provenance audit; the source-aligned [regional guide](regions.md) uses the fresh census.
 
 Normal rasters do not establish final noise,fluid behaviour or Minecraft chunk acceptance. The smallest rock is low;its survival and appearance after technical noise remain an integration check. No runtime files,tools,mods,pack assets,main merge,world apply,chunk generation or deployment were changed. This is source authoring for Claude's converter/integration work.
 

@@ -1,6 +1,6 @@
 ## Current terrain: western offshore rocks
 
-[Three original islets](western-offshore-islets.md) now represent small offshore forms south of the western coast and north of El Dorado. Source50c27a6f;normal67.6s. All58site/22road exports,existing lake/river profiles and lake+8height/water retained. Fresh22-mask census:zero unassigned inland samples;21region counts exact. Ledger346;expanded inventory143/42. Shapes and Xgameplay assignment remain interpretation. Current painting needs a local islet follow-up.
+[Three original islets](western-offshore-islets.md) now represent small offshore forms south of the western coast and north of El Dorado. Source50c27a6f;normal67.6s. All58site/22road exports,existing lake/river profiles and lake+8height/water retained. Fresh22-mask census:zero unassigned inland samples;21region counts exact. Ledger346;expanded inventory143/42. Shapes and Xgameplay assignment remain interpretation. The source-aligned painted atlas is available in [PR130](https://github.com/Yasuke2000/ocs-two-lives/pull/130); the [regional guide](regions.md) now uses this source and its fresh 22-mask census.
 
 ## Current source review — licensed guide8.5
 
