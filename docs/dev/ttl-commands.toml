@@ -108,7 +108,7 @@ group = "life"
 who = "test"
 does = "Test hooks of sleeping through the night in the Mortal Realm (the night slept away there moves the shared clock)."
 subs = [
-  ["<target>", "test", "`bed`: a bed in the sky above the soul and the soul asleep in it (fails when Minecraft refuses); `clear`: that bed removed; `expect awake|mortal`: the soul is awake / in the Mortal Realm."],
+  ["<target>", "test", "`bed`: a bed in the sky above the soul and the soul asleep in it (fails when Minecraft refuses); `clear`: that bed removed; `expect morning`: the morning came for it (a soul woken early by a late teleport is put back to bed); `expect awake|mortal`: the soul is awake / in the Mortal Realm."],
   ["expect", "test", "`expect morning`: the shared clock is in the early morning."],
 ]
 

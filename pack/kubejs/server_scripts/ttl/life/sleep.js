@@ -9,7 +9,7 @@
 // in the Mortal Realm is over in the Tensura world too, exactly as a night slept away in the Tensura world already ended it
 // in the Mortal Realm.
 // Ops (test hooks): /ttl sleep <player> bed  (a bed in the sky above the soul, the soul in it: "ttl: ..." when Minecraft
-//   refuses) · /ttl sleep <player> clear (the bed gone) · /ttl sleep expect morning · /ttl sleep <player> expect awake|mortal
+//   refuses) · /ttl sleep <player> clear (the bed gone) · /ttl sleep expect morning · /ttl sleep <player> expect morning (back to bed when woken early) | awake | mortal
 const TtlSleep = {
   SLEEP_PERCENT: 50,
   // The test bed: this high above the soul, out of the way of builds; removed by `clear`.
@@ -90,13 +90,38 @@ ServerEvents.commandRegistry(event => {
     var at = `execute in ${dim} run`
     TtlCmd.run(server, `${at} setblock ${x} ${y} ${z} minecraft:red_bed[facing=south,part=foot]`)
     TtlCmd.run(server, `${at} setblock ${x} ${y} ${z + 1} minecraft:red_bed[facing=south,part=head]`)
-    TtlCmd.run(server, `${at} tp ${p.username} ${x + 0.5} ${y + 1} ${z + 0.5}`)
-    TtlSleep.lastBed[p.username] = { dim: dim, x: x, y: y, z: z }
-    var BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
-    var r = p.startSleepInBed(BlockPos.containing(x, y, z))
-    if (r.left().isPresent()) throw `${p.username} could not sleep in ${dim}: ${r.left().get()}`
+    var b = { dim: dim, x: x, y: y, z: z }
+    TtlSleep.lastBed[p.username] = b
+    intoBed(server, p, b)
     say(ctx, `sleep ${p.username}: asleep in a bed at ${x} ${y} ${z} in ${dim} (time of day ${TtlSleep.timeOfDay(server)})`)
     return 1
+  }
+
+  var intoBed = (server, p, b) => {
+    TtlCmd.run(server, `execute in ${b.dim} run tp ${p.username} ${b.x + 0.5} ${b.y + 1} ${b.z + 0.5}`)
+    var BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
+    var r = p.startSleepInBed(BlockPos.containing(b.x, b.y, b.z))
+    if (r.left().isPresent()) throw `${p.username} could not sleep in ${b.dim}: ${r.left().get()}`
+  }
+
+  // The morning, for a soul asleep in its test bed. A soul woken without the morning (a late teleport: the Life 2 arrival
+  // moves a reborn soul once its chunks are ready, on a freshly started server seconds after the rebirth) is put back to
+  // bed and the check fails this time; `@until` asks again.
+  var morningFor = ctx => {
+    var server = ctx.source.getServer()
+    var p = target(ctx)
+    var t = TtlSleep.timeOfDay(server)
+    if (t < 2000) {
+      say(ctx, `sleep ${p.username}: morning (time of day ${t}) as expected`)
+      return 1
+    }
+    var b = TtlSleep.lastBed[p.username]
+    if (!b) throw `no test bed of ${p.username}`
+    if (!p.isSleeping()) {
+      intoBed(server, p, b)
+      throw `not morning yet (time of day ${t}); ${p.username} had woken up, back to bed`
+    }
+    throw `not morning yet (time of day ${t}), ${p.username} asleep`
   }
 
   var clear = ctx => {
@@ -145,5 +170,6 @@ ServerEvents.commandRegistry(event => {
         .then(Commands.literal('clear').executes(logged(clear)))
         .then(Commands.literal('expect')
           .then(Commands.literal('awake').executes(logged(awake)))
+          .then(Commands.literal('morning').executes(logged(morningFor)))
           .then(Commands.literal('mortal').executes(logged(mortal)))))))
 })

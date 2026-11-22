@@ -3106,7 +3106,7 @@ hash = "69125c865796aef170db40e232b33de697e88991598160f984e4a1381dcec03c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/sleep.js"
-hash = "059580372306d0969036d052b3b69f07f0d249fad5bdf27f5dda78b9dd48aa07"
+hash = "85740c4244b60260de0bfe4d27631d176c57a38e8dfcc3f247327ce1475c1322"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/soul_wipe.js"
