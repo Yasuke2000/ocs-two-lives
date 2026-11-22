@@ -1,0 +1,9 @@
+{
+  "tool": "built-in image_gen",
+  "mode": "precise-object-edit",
+  "edit_target": "orc_camp.png",
+  "output": "orc_camp-v2.png",
+  "prompt": "Edit target: the supplied ORIGINAL owned Minecraft environment concept, not an anime screenshot. Produce a faithful second version of this same image, landscape 1536x1024 opaque RGB. Precise-object edit: replace ALL visible generic green flat-faced humanoid figures with anonymous pig-headed ORC SOLDIERS suitable for Tensura's pre-Orc-Lord-defeat army. Each visible head should read as a stout boar/pig head with a short projecting broad snout, small ears and restrained tusks; retain cubic Minecraft proportions and the existing small background/medium-distance figure scale. Dress them in plain worn dark steel-grey plate armour with simple shoulders and chest plates, no emblems. Do not depict named Geld, named leaders, evolved peaceful High Orc villagers, goblins, humans or later Tempest uniforms. Preserve each original figure's approximate location, scale and pose; add no people. Preserve the entire existing temporary hide/canvas tent camp, stockpiles, cooking pot/fire/smoke, marsh/reeds/water, dry muddy rise, rough southern path, trees, camera, weather, time of day, composition, colors and painterly voxel style as closely as possible. Do not add a fortress, battle, corpses, attack fire, victory monument, text, logos or UI. This is an original setting interpretation; do not reproduce any anime frame or copyrighted art.",
+  "reference_images_supplied": [],
+  "notes": "Only the owned original camp was supplied as image input. Official episode10 synopsis and still2 were inspected separately for pig-headed armored troops; no external pixels were supplied or copied."
+}

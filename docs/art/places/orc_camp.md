@@ -1,6 +1,6 @@
 # Orc advance camp — encounter reservation (`orc_camp`): concept art
 
-![Original concept illustration](orc_camp.png)
+![Revised original concept illustration](orc_camp-v2.png)
 
 - **Brief:** Northern reed edge looking south-southeast toward a firm muddy rise. One coherent environment view at the post-Kijin baseline.
 - **Canon / scope:** The orc advance threatens the lizardmen wetlands at the selected era; the conflict is unresolved. [Source/context1](https://www.ten-sura.com/anime/tensura/story/no10) · [Source/context2](https://www.ten-sura.com/anime/tensura/story/no11).
@@ -12,6 +12,12 @@
 - **Reference inspection:** Official episode10 still1/2 were inspected for the crisis context; they do not depict or establish this camp layout. Secondary reference files came from the pinned [TensuraMap commit](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6). No episode or timestamp attribution is upgraded here.
 - **Geometry limit:** this is original concept art, not a blueprint, surveyed site plan, generated Minecraft terrain or runtime acceptance. Perspective and nearby set dressing cannot override the SVG, dry build plates or source qualifications.
 - **Provenance:** built-in image_gen, original written brief, 1536x1024 RGB PNG. No copyrighted reference image was supplied as generation input. The dwarf-village correction edits only our generated image. Lossless PNG packaging, where used, preserves every RGB pixel.
+
+## Full-resolution follow-up — 22 November 2026
+
+Original figures have generic flat green faces without clear boar snouts. Version2 makes five anonymous soldiers recognizably pig-headed and armoured,retaining the temporary tent/marsh/dry-rise composition. No named leader,peaceful High Orc state or completed battle is depicted. Camp layout and exact roster remain authored.
+
+Current reference: [version2](orc_camp-v2.png),made with built-in image_gen from our owned original only;[exact edit prompt](orc-camp-v2-prompt.json). [Original](orc_camp.png) and original prompt below remain historical. [Official episode10](https://www.ten-sura.com/anime/tensura/story/no10) describes pig-headed orks in plate armour;its [second still](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no10/img2.jpg) was freshly inspected. Combat,victims and attack flames are not transferred into this camp. No source pixels were supplied to the editor or committed.
 
 ## Prompt
 

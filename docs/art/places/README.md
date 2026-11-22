@@ -1,3 +1,7 @@
+## Current Jura concept correction
+
+[Four full-resolution reviews](jura-full-resolution-followup.md) correct ambiguous orc-camp figures to pig-headed armoured soldiers in a separate [version2](orc_camp-v2.png),using only our owned original as image input. All58original PNGs/prompts remain. All58R127numeric tuples/heights still match external combined sourceef20c017;the older local technical baseline is not relabelled. Full source/era/architecture/fit acceptance remains open.
+
 ## Current numerical registration — R127
 
 [All 58 records](current-map-registration-r127.md) match external source8f8c294/hash a637aa5c. All positions/radii/kinds/margins are retained; the city/volcano designed first-air values are now73/197, replacing72/196 in the older R113 report. The two current-reservation lines are updated; the volcano’s wiki link is now correctly labelled secondary. All58 PNG bytes and all exact prompts remain; the two images were inspected at full resolution and show no island coastline. This is numerical registration and scoped framing review, not full canon/era/build acceptance. Older source assertions and audits below are historical; use R127 for current project coordinates/heights.
@@ -39,7 +43,7 @@ These original illustrations and their fiches use the owner-selected instant imm
 | Treyni's shrine — server interpretation | [PNG](treyni_shrine.png) | [Sheet](treyni_shrine.md) |
 | Sealed Cave exterior approach | [PNG](sealed_cave.png) | [Sheet](sealed_cave.md) |
 | Dwarf meadow village — pack interpretation | [PNG](dwarf_village.png) | [Sheet](dwarf_village.md) |
-| Orc advance camp — encounter reservation | [PNG](orc_camp.png) | [Sheet](orc_camp.md) |
+| Orc advance camp — encounter reservation | [PNG](orc_camp-v2.png) | [Sheet](orc_camp.md) |
 | Lura / Englassia capital precinct | [PNG](englassia.png) | [Sheet](englassia.md) |
 | Marris / early Falmuth royal precinct | [PNG](marris.png) | [Sheet](marris.md) |
 | Coleus / Herbaria hill-palace precinct | [PNG](coleus.png) | [Sheet](coleus.md) |
