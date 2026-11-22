@@ -965,6 +965,32 @@
           1165
         ]
       }
+    },
+    {
+      "label": "Eastern Plains (fringe)",
+      "world_anchor_interpreted": [
+        2400,
+        -690
+      ],
+      "source_display_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+      "font_size": 19,
+      "display_box": [
+        1323.203125,
+        830,
+        1512.796875,
+        851
+      ],
+      "callout": {
+        "from": [
+          1427.3809523809525,
+          824
+        ],
+        "to": [
+          1427.3809523809525,
+          804.1319444444445
+        ]
+      },
+      "scope": "Current authored open fringe only;not whole plain,farmland or political boundary."
     }
   ],
   "open_inventory_rows": 41,
@@ -983,7 +1009,7 @@
       5.2
     ]
   },
-  "geographic_context_label_count": 21,
+  "geographic_context_label_count": 22,
   "inventory": 143,
   "physical_followups": 42,
   "ledger_unique": 346,
@@ -996,5 +1022,13 @@
   "note_r129": "R128 western ice coast adopted;all58 site rows/20 context names/3Amrita lines/42 inventory rows retained. Normal site heights match R127 art-registration proposal without another metadata rewrite.",
   "note_coleus_dune": "Current source97716c0 adopted;58marker rows/20context names/3Amrita caption lines/42inventory rows retain placement. Local original dune shading follows exact authored footprint;no early roster or country-boundary claim.",
   "note_guide85": "Guide8.5 neutral display name Carrion capital;all58 numeric registrations unchanged;Galut naming primary-supported but location unverified.",
-  "note_western_islets": "Exact source coast footprints added;all58numerical registrations retained;no new settlement or official name."
+  "note_western_islets": "Exact source coast footprints added;all58numerical registrations retained;no new settlement or official name.",
+  "note_eastern_plains_label": {
+    "source_PR": 136,
+    "external_source_ledger_count": 349,
+    "local_baseline_ledger_count_retained": 346,
+    "full_source_adoption": false,
+    "component_height_basis_retained": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+    "current_plan_compatibility": "All58 source site attributes and exported registration records match the current source;plain selector and biome raster are unchanged. This follow-up adds context only,not a new height reconstruction."
+  }
 }

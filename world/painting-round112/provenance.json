@@ -25,5 +25,15 @@
     "PNG_method": "Chrome native SVG rendering",
     "global_relief_resampled": false,
     "scope": "Three low offshore rock additions;not full height or runtime reconstruction."
+  },
+  "eastern_plains_context_followup": {
+    "source_display_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+    "source_commit": "5dbd409",
+    "current_source_terrain_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+    "source_PR": 136,
+    "full_source_adoption": false,
+    "new_native_or_bitmap_geometry": false,
+    "component_height_basis_retained": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+    "scope": "New original context label/leader only. Existing native/painted continent and58numeric registrations retained. Source-height correction and later source dossiers are not copied into this historical painting branch."
   }
 }

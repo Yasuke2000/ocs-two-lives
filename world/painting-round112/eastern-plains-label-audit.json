@@ -1,0 +1,62 @@
+{
+  "context_source_display_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "context_source_commit": "5dbd409",
+  "source_PR": 136,
+  "full_source_adoption": false,
+  "native_continent_and_component_height_basis_retained": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+  "external_current_terrain_source": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "local_baseline_ledger_count": 346,
+  "external_source_ledger_count": 349,
+  "all58_numeric_site_records_retained": true,
+  "all58_current_source_site_attributes_and_exports_match": true,
+  "plain_selector_and_biome_raster_match_current_source": true,
+  "old21_context_records_and42_open_rows_retained": true,
+  "geographic_context_count": 22,
+  "atlas_normalisation_proof": "Remove only new context group and restore inventory metadata143to142:all previous XML is identical. Visible inventory caption was already143.",
+  "panel_layout_before": {
+    "texts": 46,
+    "clipped": 0,
+    "metadata_inventory_count": 142
+  },
+  "panel_layout_after": {
+    "texts": 46,
+    "clipped": 0,
+    "metadata_inventory_count": 143
+  },
+  "label_layout": {
+    "box": {
+      "x": 1323.203125,
+      "y": 830,
+      "w": 189.59375,
+      "h": 21
+    },
+    "overlaps": [],
+    "panel_texts": 46,
+    "panel_clipped": [],
+    "panel_inventory_count": "143"
+  },
+  "pixel_change": {
+    "changed_pixels": 2913,
+    "bounds": [
+      1321,
+      804,
+      1514,
+      852
+    ],
+    "outside_context_envelope_pixels": 0,
+    "outside_context_envelope_maximum_RGB_difference": 0
+  },
+  "no_new_bitmap_or_native_geometry": true,
+  "new_normal_conversion": false,
+  "runtime_acceptance": false,
+  "limits": "Label only for authored fringe;whole plain,grain district,source/era questions and42physical follow-ups remain open. Component is a plan illustration,not a new height reconstruction.",
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "duration_seconds": 65.396,
+    "validation": "passed",
+    "diff_check": "passed"
+  },
+  "full_atlas_visually_inspected": true
+}
