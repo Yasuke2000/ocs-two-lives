@@ -301,3 +301,5 @@ changes and new decisions with a date.
 22Nov2026 — Keep the regional guide pinned to the actual current source and semantic biome census; palette-index renumbering is not a landscape-wide biome change. Preserve the 22 region narratives and all curated image references while replacing superseded current-version claims. [Current guide](../world/regions.md).
 
 22Nov2026 — Lower the authored Laura basin/head154→139 to implement the small-fall brief beside the unchanged river137,retaining all plan geometry and site/road exports. This is a server-height choice,not a newly measured anime waterfall. [Fresh evidence](../world/laura-headwater-level.md).
+
+22Nov2026 — Give each curated reference its own displayed-episode/initial-state limits;do not reuse episode9woodland wording for Dwargon or later interiors. Preserve source confidence and cross-region application limits. [Attribution correction](../docs/research/tensura-world-2026-11-19/reference-era-attribution.md).
