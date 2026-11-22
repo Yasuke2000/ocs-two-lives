@@ -420,6 +420,34 @@ normal = ["ghoul", "wight"]
 elite = ["high_orc", "lesser_daemon"]
 legendary = ["vampire"]
 
+# ---- Life 1 status presets (#75) --------------------------------------------------------------------
+# `/ttl life1 status <player> <preset>` (ops; karma/life1_status.js) jumps a Life 1 soul to a karma tier so staff and
+# testers can try what a tier unlocks (offers, unique choices, the Legend bonus, a Dark soul) without living it out.
+# A preset sets these Life 1 stats exactly (counted from the soul's Life 1 start, like `/ttl karma <p> set`); every stat
+# named in any preset is set to 0 first, so presets can be applied in any order. `tier` / `dark` = the verdict the
+# preset must give: the command checks it at once, and tests/life1_status.js checks every preset offline. Same numbers
+# as tests/ingame/karma.rcon.
+[presets.underdog]
+tier = "underdog"
+stats = {}
+
+[presets.normal]
+tier = "normal"
+stats = { play_time = 216000, mob_kills = 80, far = 1500, trades = 10, advancements = 15 }
+
+[presets.elite]
+tier = "elite"
+stats = { play_time = 720000, mob_kills = 300, far = 3000, nether = 1, trades = 60, deepslate_diamond_ore = 30, enchants = 15, advancements = 35 }
+
+[presets.legendary]
+tier = "legendary"
+stats = { play_time = 900000, mob_kills = 800, far = 6000, nether = 1, end = 1, ender_dragon = 1, wither = 1, trades = 200, raids_won = 2, deepslate_diamond_ore = 60, ancient_debris = 10, enchants = 50, advancements = 60 }
+
+[presets.dark]
+tier = "normal"
+dark = true
+stats = { play_time = 216000, mob_kills = 60, villagers = 8, advancements = 10 }
+
 # ---- Life screen -------------------------------------------------------------------------------------
 # Shown in the Spirit Corridor right after death (and with /ttl life): one item per group.
 [[groups]]

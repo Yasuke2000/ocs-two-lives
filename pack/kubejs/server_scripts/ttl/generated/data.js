@@ -5905,6 +5905,63 @@ const TtlData = {
       "stat": "mob_kills",
       "tail": 0.15
     },
+    "presets": {
+      "dark": {
+        "dark": true,
+        "stats": {
+          "advancements": 10,
+          "mob_kills": 60,
+          "play_time": 216000,
+          "villagers": 8
+        },
+        "tier": "normal"
+      },
+      "elite": {
+        "stats": {
+          "advancements": 35,
+          "deepslate_diamond_ore": 30,
+          "enchants": 15,
+          "far": 3000,
+          "mob_kills": 300,
+          "nether": 1,
+          "play_time": 720000,
+          "trades": 60
+        },
+        "tier": "elite"
+      },
+      "legendary": {
+        "stats": {
+          "advancements": 60,
+          "ancient_debris": 10,
+          "deepslate_diamond_ore": 60,
+          "enchants": 50,
+          "end": 1,
+          "ender_dragon": 1,
+          "far": 6000,
+          "mob_kills": 800,
+          "nether": 1,
+          "play_time": 900000,
+          "raids_won": 2,
+          "trades": 200,
+          "wither": 1
+        },
+        "tier": "legendary"
+      },
+      "normal": {
+        "stats": {
+          "advancements": 15,
+          "far": 1500,
+          "mob_kills": 80,
+          "play_time": 216000,
+          "trades": 10
+        },
+        "tier": "normal"
+      },
+      "underdog": {
+        "stats": {},
+        "tier": "underdog"
+      }
+    },
     "stats": [
       {
         "axis": "longevity",

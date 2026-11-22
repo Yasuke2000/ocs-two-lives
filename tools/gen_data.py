@@ -783,6 +783,36 @@ def check_carryover(carry: dict, karma: dict | None) -> None:
         raise SystemExit(f"carryover.toml: book.axis {book.get('axis')!r} is not an axis in karma.toml ({', '.join(karma['axes'])})")
 
 
+def check_karma_presets(karma: dict) -> None:
+    # karma/life1_status.js (/ttl life1 status, #75) sets these stats with TtlKarma.set, which refuses an unknown key at
+    # run time; check them here so a typo fails the build, not a tester's command.
+    presets = karma.get("presets")
+    if presets is None:
+        return
+    if not isinstance(presets, dict) or not presets:
+        raise SystemExit("karma.toml: [presets] must be a table of named presets")
+    tiers = [t["id"] for t in karma["tiers"]]
+    keys = {s["key"] for s in karma["stats"]}
+    keys |= {"kill." + str(i).split(":")[-1] for i in karma.get("hostiles", {}).get("ids", [])}
+    for name, p in presets.items():
+        where = f"karma.toml: presets.{name}"
+        if not isinstance(p, dict) or p.get("tier") not in tiers:
+            raise SystemExit(f"{where}.tier must be a tier id ({', '.join(tiers)})")
+        if "dark" in p and not isinstance(p["dark"], bool):
+            raise SystemExit(f"{where}.dark must be true or false")
+        stats = p.get("stats")
+        if not isinstance(stats, dict):
+            raise SystemExit(f"{where}.stats must be a table (use {{}} for none)")
+        for key, n in stats.items():
+            if key not in keys:
+                raise SystemExit(f"{where}.stats.{key} is not a karma stat")
+            if not is_int(n) or n < 0:
+                raise SystemExit(f"{where}.stats.{key} must be a whole number >= 0")
+        extra = set(p) - {"tier", "dark", "stats"}
+        if extra:
+            raise SystemExit(f"{where}: unknown keys {', '.join(sorted(extra))}")
+
+
 def check_factions(fac: dict, karma: dict | None) -> None:
     # rep/rep.js reads these by name; a typo in a band, region, race or axis would silently seed or gate nothing.
     canon = json.loads(CANON.read_text(encoding="utf-8"))
@@ -2547,6 +2577,8 @@ def render() -> dict[Path, str]:
         check_landmarks(data["landmarks"])
     if "carryover" in data:
         check_carryover(data["carryover"], data.get("karma"))
+    if "karma" in data:
+        check_karma_presets(data["karma"])
     if "factions" in data:
         check_factions(data["factions"], data.get("karma"))
     if "bosses" in data:

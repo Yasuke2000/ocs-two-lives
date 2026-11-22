@@ -75,13 +75,13 @@ ServerEvents.commandRegistry(event => {
     var name = target.username
     ;['ttl.life1', 'ttl.corridor', 'ttl.life2'].forEach(s => target.stages.remove(s))
     TtlCorridor.KEYS.forEach(k => target.persistentData.remove(k))
-    TtlRegistry.revokeAll(server, target)
     server.runCommandSilent(`quietly clear ${name}`)
     server.runCommandSilent(`quietly gamemode survival ${name}`)
+    // Uniques through the registry, every other ability, EP and the body back to a fresh Human (life/soul_wipe.js, #72 #73).
+    var wiped = TtlSoulWipe.full(server, target, 'character reset')
     target.stages.add('ttl.life1')
     // Karma v1: a fresh Life 1 forgets the old verdict and starts counting again.
     TtlKarma.startLife(server, target)
-    TtlLife.makeHuman(server, target)
     life.toMortal(server, target)
     // Soul carryover (WP1), reputation (WP3) and story state (WP-S1) belong to the old soul; guarded so a missing script cannot break a reset.
     try {
@@ -100,7 +100,7 @@ ServerEvents.commandRegistry(event => {
       console.error(`[ttl] reset of the artificer data for ${name} failed: ${e}`)
     }
     console.info(`[ttl] ${name} reset to Life 1`)
-    ctx.source.sendSystemMessage(Text.of(`${name} reset to Life 1`))
+    ctx.source.sendSystemMessage(Text.of(`${name} reset to Life 1 (${wiped})`))
     return 1
   }
 

@@ -84,7 +84,33 @@ subs = [
 [reset]
 group = "life"
 who = "staff"
-does = "Sends a soul back to a fresh Life 1: clears items, stages, registry holds, karma, soul, reputation, story, absorb and artificer data. With `/ttl absorb clear` the only way to give a soul its awakening claim back."
+does = "Sends a soul back to a fresh Life 1: clears items, stages, registry holds, every other Tensura ability (skills, magic, arts, race intrinsics; resistances back to the start of learning), the body (EP, existence, spirits) back to a fresh Human, karma, soul, reputation, story, absorb and artificer data. With `/ttl absorb clear` the only way to give a soul its awakening claim back."
+
+[wipe]
+group = "life"
+who = "test"
+does = "The abilities ManasCore keeps on a soul, with their mastery, and its max magicule (what `/ttl reset` and the Life 1 death take off)."
+subs = [
+  ["expect", "test", "Assert a held ability (`has <skill> yes|no`), the number of held abilities (`count`), or a max magicule ceiling (`magicule`)."],
+]
+
+[life1]
+group = "life"
+who = "staff"
+does = "Life 1 status for staff and testers: jump a Life 1 soul to a karma tier to try what it unlocks. Logged and stamped on the soul."
+subs = [
+  ["status", "staff", "Without a preset: tier, score, days, Dark and the staff stamp. With a preset (`underdog`, `normal`, `elite`, `legendary`, `dark`, karma.toml [presets]): set the Life 1 stats that reach it."],
+  ["days", "staff", "Set the days survived in Life 1."],
+]
+
+[sleep]
+group = "life"
+who = "test"
+does = "Test hooks of sleeping through the night in the Mortal Realm (the night slept away there moves the shared clock)."
+subs = [
+  ["<target>", "test", "`bed`: a bed in the sky above the soul and the soul asleep in it (fails when Minecraft refuses); `clear`: that bed removed; `expect awake|mortal`: the soul is awake / in the Mortal Realm."],
+  ["expect", "test", "`expect morning`: the shared clock is in the early morning."],
+]
 
 [soul]
 group = "life"
