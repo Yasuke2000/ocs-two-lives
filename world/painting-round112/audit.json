@@ -1,121 +1,37 @@
 {
-  "round": 129,
-  "source_sha256": "8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b",
-  "map_commit": "b053e13b4fdd98eab5a804ea704cc59105df4e1e",
-  "baseline_painting_commit": "c2b326c33f6d9466e6fd145b1a65d7fcbf0fdc04",
-  "all_baseline_native_children_retained": true,
-  "appended_native_children": 2,
-  "visible_ice_coast_path_exact": true,
-  "historical_components_retained_as_history": true,
-  "changed_continent_pixels": 10618,
-  "changed_pixel_bounds": [
-    461,
-    100,
-    588,
-    239
+  "source_sha256": "0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e",
+  "baseline_painting_commit": "2aa27e5a18ee7868b69e835c503d1b3b2d253c35",
+  "source_commit": "97716c0",
+  "all_prior_native_child_trees_retained": true,
+  "appended_child_trees": 2,
+  "exact_authored_dune_footprint": true,
+  "changed_pixels": 73,
+  "changed_pixel_bbox": [
+    423,
+    435,
+    437,
+    442
   ],
-  "max_RGB_channel_change": 241,
-  "maximum_changed_centre_distance_from_shore_change_area": 319.4467402528932,
-  "declared_local_audit_envelope_blocks": 400,
-  "all_exterior_pixels_identical": true,
-  "fixed_ice_landscape_interior_pixel_review": [
-    {
-      "id": "ice-spine",
-      "interior_sample_pixels": 6209,
-      "changed_pixels": 475,
-      "maximum_RGB_delta": 1
-    },
-    {
-      "id": "ice-high-peaks",
-      "interior_sample_pixels": 3906,
-      "changed_pixels": 445,
-      "maximum_RGB_delta": 1
-    },
-    {
-      "id": "ice-coastal-islet-1",
-      "interior_sample_pixels": 55,
-      "changed_pixels": 0,
-      "maximum_RGB_delta": 0
-    },
-    {
-      "id": "ice-coastal-islet-2",
-      "interior_sample_pixels": 20,
-      "changed_pixels": 0,
-      "maximum_RGB_delta": 0
-    },
-    {
-      "id": "ice-coastal-islet-3",
-      "interior_sample_pixels": 32,
-      "changed_pixels": 0,
-      "maximum_RGB_delta": 0
-    },
-    {
-      "id": "ice-coastal-islet-4",
-      "interior_sample_pixels": 13,
-      "changed_pixels": 0,
-      "maximum_RGB_delta": 0
-    },
-    {
-      "id": "ice-coastal-islet-5",
-      "interior_sample_pixels": 2,
-      "changed_pixels": 0,
-      "maximum_RGB_delta": 0
-    },
-    {
-      "id": "frost_palace_disc",
-      "interior_sample_pixels": 157,
-      "changed_pixels": 0,
-      "maximum_RGB_delta": 0
-    }
-  ],
-  "global_relief_resampled": false,
+  "maximum_RGB_difference": 72,
+  "maximum_changed_centre_distance_from_dune_blocks": 3.382005639313723,
+  "outside_15_block_envelope_identical": true,
   "new_AI_images": 0,
   "raw_raster_editing": false,
-  "copyrighted_reference_pixels": false,
-  "original_owned_ocean_and_snow_washes_reused": true,
-  "normal_staging_adopted_seconds": 67.6,
-  "source_adoption": {
-    "source_commit": "b053e13b4fdd98eab5a804ea704cc59105df4e1e",
-    "source_PR": 116,
-    "source_map_byte_exact": true,
-    "normal_files_byte_exact": [
-      "anchors.toml",
-      "biome.png",
-      "canon_map.txt",
-      "exclude.png",
-      "height.png",
-      "index.json",
-      "preview.png",
-      "road.png",
-      "roads.json",
-      "rugged.png",
-      "sites.json",
-      "sites.png",
-      "sites.toml",
-      "water.png"
-    ],
-    "normal_not_rerun": true
-  },
-  "limits": "Finite illustration/pixel/source-geometry checks;not a surveyed coast,complete height reconstruction,whole-wiki or in-game acceptance.",
-  "registered_sites": 58,
-  "context_names": 20,
-  "association_caption_lines": 3,
-  "open_rows": 42,
-  "ledger_unique": 332,
-  "inventory": 142,
-  "physical_followups": 42,
-  "minimum_circle_spacing": 32.470561517449696,
-  "label_overlap": false,
-  "default_checker": "zero errors;all56 relations;two standing warnings",
-  "all_nonimage_atlas_XML_retained_except_root_metadata": true,
-  "atlas_embeds_exact_final_continent": true,
-  "required_gate": {
-    "command": "bash tools/check.sh",
-    "tests": 472,
-    "skipped": 26,
-    "failures": 0,
-    "seconds": 65.22,
-    "validation": "pass",
-    "changed_js": 0
-  }
+  "copyrighted_reference_pixels_embedded": false,
+  "global_height_resampling": false,
+  "source_adoption_file_count": 40,
+  "normal_staging_files_adopted": 14,
+  "all58_site_rows_retained": true,
+  "all_other_atlas_XML_retained": true,
+  "browser_numbers": 58,
+  "browser_context_texts": 23,
+  "browser_inventory_rows": 42,
+  "browser_minimum_number_spacing": 32.470561517449696,
+  "browser_label_overlap": false,
+  "source_adoption_current_byte_equal_files": 37,
+  "source_adoption_companion_prose_updates": [
+    "docs/HANDOFF.md",
+    "world/coleus-dune-relief.md",
+    "world/regions.md"
+  ]
 }

@@ -1,226 +1,32 @@
-## R128 — Western Ice Continent arm
+# Current terrain guide — Coleus dune relief
 
-[Original shore review](ice-west-arm-r128.md) lowers the western arm to follow the illustrated silhouette more closely;exact curves remain our interpretation. Source8c41e924; only coast/snow selector/I mask change. All58 site attributes and normal heights retain R125/R127 values,including the approved inland palace at first-air71. [Current census](region-biomes-r128.md) replaces shares after the local land change. [R129 painting](painting-round112/README.md) now follows this ice arm and retains the El Dorado correction. Ledger332;inventory142/42.
+This is the current creative guide for `world/map.svg`, source `0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e`. The [Coleus dune review](coleus-dune-relief.md) adds one local rolling ridge to the R130 active geometry; both larger-island alternatives remain comments. One SVG unit is one block; east is +x and south is +z. Rimuru’s village is at (0,0). The mainland measures 9,983 × 6,250 blocks; the normal export box is 12,800 × 10,752. Those are authored server dimensions, not a canonical survey.
 
-## R125 — El Dorado island silhouette
+Use the **[post-Kijin S1E10 snapshot](era.md)**: the Kijin have just been named, the Orc Lord conflict is unresolved, Falmuth still exists, and Clayman, Frey and Carrion retain their earlier countries. A site reservation supplies capacity; it does not instantiate a future city, event or resident. See the [58-site era overlay](../docs/research/tensura-world-2026-11-19/era-site-state.csv).
 
-[Original coast review](el-dorado-coast-r125.md) broadens the formerly diagonal island in response to the official illustration; exact curves remain our interpretation. Sourcea637;only the coast/X mask change. City/volcano first-air72→73/196→197; all58 source-site attributes retained. [R125 census](region-biomes-r125.md) replaces current shares. The R124 painting and two old concept-registration elevations require matching follow-up. Ledger330;inventory142/42.
+The 22 lettered regions below are **gameplay terrain masks**, not surveyed national borders. Country pins do not establish a capital’s location. Exact shores, block heights, biome choices, travel mood and unspecified local geometry are **our interpretation**. The claim ledger distinguishes `canon-explicit`, `canon-implied`, `fan-wiki` and `our interpretation`; prefer directly verified LN > WN > manga > anime > official map > wiki. Reference images remain links, with their specific roles and limits stated below.
 
-## Atlas clarification — R123
+**Deliberate proportion difference (C12).** The Ice Continent and El Dorado remain relatively smaller than their broad extents in the official illustration, following the server island-size brief. The [original side-by-side island study](island-proportion-review.md) compares current widths with a coast-only alternative drawn in an SVG comment. Initial trial A exceeds the hard design-box height; trial B fits after western shifts, while both remain outside the smaller island-size recommendation. Neither is active terrain or accepted new island geometry.
 
-[Amrita association review](amrita-atlas-r123.md) labels the buried ruins below castle48 without relocating the separate game reservation49. Exact depth/extent/access and C07 technical nesting remain open. This is an atlas annotation; native geometry stays R119/source4093.
+**Current numeric basis.** All 22 biome mixes use the [R128 census](region-biomes-r128.md), retained because the biome PNG and every region polygon remain byte-identical. Rounded percentages may sum slightly away from 100%; exact values remain in the CSV/JSON. The [R130 water review](ulgr-spring-level-r130.md) remains the Ulgr foundation. The current [Coleus dune export](coleus-dune-relief.json) adds one 22-vertex hill, changing 661 height samples by at most 11.25 blocks. All 58 site exports/heights and all 22 road courses remain; ten western caravan profile heights change by at most 0.09. All 22 finite exported point profiles remain within the owner’s 1:2 grade, using floating-point tolerance. This does not substitute for final-noise or in-game travel checks.
 
-## Current source — R119
+**Current visual companions.** [Terrain atlas](atlas.png) · [checked preview](preview.png) · [painted atlas proposal PR117](https://github.com/Yasuke2000/ocs-two-lives/pull/117) · [58-place art registration PR115](https://github.com/Yasuke2000/ocs-two-lives/pull/115). The [current native painting](painting-round112/README.md) includes the Coleus dune and retains historical component metadata. Its light/shade is interpretive rather than an exact height reconstruction. The R127 art registration remains numerically applicable because every site export is unchanged.
 
-[Ulgr brook review](ulgr-brook-r119.md) replaces a largely offshore source course with a curved, wholly inland descent to the existing shore. Source `4093f844`: only that river’s points change; spring level 102, all 58 sites, 22 roads and other native geometry remain. First exported water difference decreases from 37 to 11 blocks; this is an authored terrain choice, not a canonical height. All 13 lake cases and eight designed contacts pass their finite export audit. C23 style/fluid review remains open, including unchanged Laura 17.
-
-Ledger 328; inventory 142/42. [R121 targeted era review](../docs/research/tensura-world-2026-11-19/era-brief-review-r121.md) clarifies future country/event labels without changing the source drawing. [R119 census](region-biomes-r119.md) supplies current mixes after four biome cells change. R113 art reservations remain valid via identical site exports; [Published R120 painting proposal](https://github.com/Yasuke2000/ocs-two-lives/pull/108) follows the new native brook route. The R117 southern taper remains. Wider source, proportion, early-era and in-game acceptance are unproved.
-
-## Historical source note — R114
-
-[Local rocky-cone review](el-dorado-rock-cone-r114.md) records source `2463d771`: 13 lakes,15 forests,28 explicit biome polygons,58 sites and22 routes. Only the cone biome changes in R114;all heights,water,site androad exports remain. Ledger318;inventory142/42. All22 regional biome mixes use the [R114 measured census](region-biomes-r114.md). The R112 painting’s rocky cone is adopted unchanged;its original source metadata remains historical. The R113 place-sheet audit corrects the approved inland palace registration. Exact design proportions,biome choices andunverified source/era details remain qualified. Earlier dated status notes below describe their own versions.
-
-## Historical source note — R106
-
-[Southeastern illustrated water and woodland](southeastern-water-wood-r106.md) are active in source `b2750950`:13 lakes,13 forests,58 unchanged places and22 unchanged routes. Ledger312; inventory142/42 physical follow-ups. Terrain atlas and matching metadata are refreshed; [R107 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e28b579/world/painting-round107/README.md) follows these additions and142-entry caption. R105 is historical. This does not certify exhaustive wiki or primary-source coverage. Earlier round status notes below are historical.
-
-## 21/11 - Published painting follows Tengu terrain context (R100)
-
-[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/260f1501ad0a009879b671291fd0e73b63fef497/world/painting-round100/README.md) follows source `dbef5ac0`: exact meadow shape,15 changed continent pixels,20 context names and all58 registrations checked. Khusha text and the Tengu partial row now agree with the main atlas. R98 is historical; painting alignment is complete. [Evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r100.md). Ledger305/inventory138/42 remain. Painting gate472 tests,26 skipped,zero failures(63.658s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.549s); zero changed JavaScript. Broader source/location/initial-era obligations stay open.
-
-## 21/11 - Tengu ridge gains partial terrain context (R99)
-
-[Current glade/access review](tengu-glade-r99.md) adds a small authored meadow selector on the existing Khusha ridge: 43 dry biome cells; all height, site, road, water and other normal exports retained. The proposed surface path fails endpoint registration and remains inactive under C15, with natural grade0.612 requiring future design. All58 sites/22 roads remain; atlas20 context names. Tengu becomes partial, with inventory138/42 still open; ledger305. R98 painting needs biome/context alignment. Checker0errors/56relations/2prior warnings; normal67.3s. Repository gate: 472 tests, 26 skipped, zero failures (64.356s); zero changed JavaScript.
-
-## 21/11 - Published painting follows the western coast (R98)
-
-[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/e9cf188ea08d0306d4803de7f2a75ceb9f8cf5b6/world/painting-round98/README.md) follows source `bb0e4b29`: exact mainland boundary/four biome shapes, 3,201 checked texture triangles and 32,050 checked height-light samples. All 58 registrations, 19 names and the 138/42 panel retain layout. R95 is historical; western painting alignment is complete. [Alignment evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r98.md). Painting gate: 472 tests, 26 skipped, zero failures (63.532s). Main documentation gate: 472 tests, 26 skipped, zero failures (63.304s); zero changed JavaScript. Broader source/location/initial-era obligations remain open.
-
-## 21/11 - Western peninsula follows the illustrated outline (R97)
-
-[Western coast review](western-peninsula-r97.md) restores the western lobe beyond a shortened northwestern headland. Source `bb0e4b29`; mainland9983x6250/design12800x10752; checker0errors/56relations/2prior warnings. The wider10443 trial failed the repository width gate and remains an inactive C12 alternative. Normal66.5s; all58 XML site attributes retained. Heaven Tower staged ground71to73, with bounded road-profile changes. Atlas58/19/42 retained; ledger304/inventory138/42. R95 painting needs alignment. Repository gate: 472 tests, 26 skipped, zero failures (63.383s); zero changed JavaScript.
-
-## 21/11 — Published painting follows Ice coastal source (R95)
-
-[Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/02ac2f8231e5712505df3bde787e03ee949b5d47/world/painting-round95/README.md) follows source `63df7185`: five exact source coasts, 1,869 checked height-light samples, all 58 registrations and 19 context names. Caption138/42 and ledger301 agree with current source scope. Painting gate472 tests,26 skipped,zero failures(63.796s). [Alignment evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r95.md). Earlier pending-painting notes below are historical. Main documentation gate **472 tests, 26 skipped, zero failures (63.631s)**; zero changed JavaScript.
-
-## 21/11 — Illustrated Ice offshore group added (R94)
-
-[R94 source/terrain review](ice-islets-r94.md) adds five original representative islet coasts with cold biome/admin coverage. Source `63df7185`; checker 0 errors/56 relations/2 existing warnings; final normal66.687s. Every old land height/biome/ruggedness and58 reservation is retained. Atlas:19 names,138-entry caption,42 open rows. Ledger301. R93 painting source43fed303 predates the islets and requires alignment; numeric58 registration remains valid. Required repository gate: 472 tests, 26 skipped, zero failures (63.298s); zero changed JavaScript.
-
-## 21/11 — Empire source and initial-era distinction (R93)
-
-[Source/era review](empire-chronology-r93.md) corrects the Nasca lore handoff and records qualified capital/history/later-development evidence. Ledger299; inventory137 includes one future-only town, with42 physical follow-ups unchanged. All58 reservations,18 context names and actual terrain remain unchanged. The atlas caption is137; the R92 painted geography remains valid. [Current painted caption](https://github.com/Yasuke2000/ocs-two-lives/pull/102) is a separate presentation update. Required repository gate: 472 tests, 26 skipped, zero failures (64.404s); zero changed JavaScript.
-
-## 21/11 — Current painting follows Englassia water (R92)
-
-[Published painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/8e47ccbef3a8f0bc36caef3a4bb4d8b01cfa2e7c/world/painting-round92/README.md) now follows R91 source `43fed303`:58 unchanged registrations,18 context names,136-entry caption and42 open physical rows. Exact lake/court vertices and22 native road records checked; WN/continuity/initial-construction limits remain. Painting gate472 tests,26 skipped,zero failures(64.466s). [Alignment evidence](../docs/research/tensura-world-2026-11-19/painting-alignment-r92.md). Main documentation gate **472 tests,26 skipped,zero failures (64.586s)**; zero changed JavaScript.
-
-# Region book — anime-led Minecraft world
-
-R91 [Englassia capital-water review](englassia-lake-r91.md) adds a separately placed WN-derived lake and dry court, one northern land access and three short water crossings. The existing academy/Guild precinct and all 58 reservations remain. Source `43fed303`; 22 roads, 11 lakes, 18 context names; ledger 294 and inventory 136/42. The castle and full capital remain incomplete. R90 painting predates the new local water/roads and needs alignment.
-
-R90 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/f0b91746124104cdfc7c141dd17762a9d8783410/world/painting-round90/README.md) integrates R89 Khusha relief for source `2ce669a0`: 3,446 checked illustrative light samples, 117 rocky-biome cells and 1,859 changed continent pixels within buffered height support. All 58 registrations, 17 context names and the unchanged 135/42 panel are checked. Context-position metadata is refreshed from visible SVG coordinates. This closes only the painting alignment; broader source/location/era obligations remain open.
-
-R89 [Khusha continuation](khusha-continuation-r89.md) connects western Khusha relief towards Sarion with an original lower envelope and two unequal summits. Source `2ce669a0`; checker: 0 errors / 56 relations / 2 existing warnings; normal export 47.565s. All 58 sites, roads, water and prior active shapes retained. Current atlas has 17 context names. Ledger 290; inventory 135/42 unchanged. R87 painting predates this new local relief and needs alignment.
-
-R88 [Elmine source and larger-tree study](elmine-tree-study-r88.md) corrects the retired Paulzero-grove handoff and lake bearing (east/southeast). A current-site north-facing terrace trial and original larger tree remain proposals; the Divine Tree stays partial. Five official episode 61 stills inspected, with bounded pavilion cues from 2/5. Ledger 289; inventory 135/42 unchanged; source `355d1a33` unchanged.
-
-R87 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/d98513e79e386b493410ab219d110c5d5bd1fa61/world/painting-round87/README.md) aligns R86 northeast Dwargon: six moved site groups, three revised roads and local illustrative relief. All 58 registrations and 16 context names are checked; the 135-entry inventory and 42-row coverage panel remain current. Source `355d1a33` and ledger 286 are unchanged. Painting gate: 472 tests, 26 skipped, zero failures (63.210s). This supersedes earlier pending painting notes only; broader source/location/era questions remain open.
-
-R86 [Dwargon northeast relocation](dwargon-relocation-r86.md) moves the gate to (780,−1390), retaining all 56 relations and 58 footprints. The secondary bearing discrepancy improves 35.31°→6.01°. Six related site records, two local relief shapes and three roads are aligned; water and all other native geography remain. Source355d1a33; ledger 286/inventory 135/42 follow-ups. R85 painting needs alignment; all 58 concept reservations are checked in the [art audit](https://github.com/Yasuke2000/ocs-two-lives/blob/120f5d5/docs/art/registration-r86.md).
-
-R85 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/cfb8055/world/painting-round85/README.md) now shows the current 135-entry inventory and 42 open rows. All noncoverage XML, the R81 continent, 58 numbered registrations and 16 context names remain unchanged. Ledger285/source9fd0c5fb retained; the painting-panel follow-up is closed. Actual source/location/initial-era questions remain open.
-
-R84 [Dwargon crossing source review](dwargon-crossing-source-review.md) distinguishes the WN entrance/bridge from the two interior-city proposals. A newly explicit missing complex brings inventory 135/42 follow-ups; ledger285 (227+58). Terrain atlas coverage panel is current. Source9fd0c5fb remains unchanged; R81 painting still shows its historical134/41 panel, requiring a coverage-only refresh.
-
-R83 [Eastern Plains source/terrain review](eastern-plains-source-review.md) adds two qualified WN records and a measured original current-geometry study. Coverage remains partial; source 9fd0c5fb and R81 painting remain unchanged. Ledger 284 (226+58), inventory 134/41 physical follow-ups.
-
-R82 [Guratol source review](guratol-source-review.md) verifies the official OAD mansion/cave task sequence and records the unanchored table map, with all 15 selected stills inspected. It supplies no invented global coordinates, administrative borders or S1E10 construction date. Ledger 282 (224+58); inventory 134/41 follow-ups unchanged. Source 9fd0c5fb and R81 painting remain unchanged.
-
-R81 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/96b3972/world/painting-round81/README.md) now integrates the R80 El Dorado lake and bank. The exact lake polygon and 648 checked lighting samples update 361 continent pixels, within 10.75 blocks of the actual height-change footprint. All 58 registrations, 16 context names and 41 open rows remain checked; the inventory caption is 134. Source 9fd0c5fb and the 280-record ledger remain unchanged. Painting integration is closed; broader source, location and initial-era questions remain open.
-
-R80 [El Dorado eastern lake](el-dorado-lake-review.md) restores an unnamed inland water cue visible in the official illustration. Original 26-vertex shore, 274×138 blocks, level 68/depth 5 and closed drainage are authored; name/outlet/initial water state remain unverified. Source 9fd0c5fb; 10 lakes, 58 sites/21 roads retained. Checker 0 errors/56 relations/2 warnings; normal 65.6s. Ledger 280(222+58), inventory 134/41 follow-ups. Terrain atlas refreshed; R78 painting requires integration.
-
-R78 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/bc54ebe/world/painting-round78/README.md) now integrates source e8f17470 and the R77 fourth coast. The verified R69 underpainting plus native island/water layers change 5171 pixels, all inside the actual height-change footprint; all 58 registrations, 16 context names and 41 open rows retain layout. No production SVG change. Ledger 277/inventory 133/41 physical follow-ups remain; only the painting-integration follow-up is closed.
-
-R77 [unnamed northern island](northern-island-review.md) adds a source-visible landmass omitted from the earlier three-coast drawing. Exact shore, 615×350 scale, rolling hill and F administrative coverage are authored; ownership/name/early state remain unverified. Source e8f17470; 4 coasts, 23 region polygons, 58 sites/21 roads. Checker 0 errors/56 relations/2 existing warnings; normal 65.8s. Inventory 133/41 physical follow-ups; ledger 277(219+58), printed-LN14/author6. Terrain atlas refreshed; R69 painting requires integration.
-
-R74 [Englassia central-lake castle alternative](englassia-castle-lake-study.md) supplies the missing C17 review geometry inside an inert source comment. One basin,four hole-free water sectors,dry plinth,castle-footprint trial andfour urban links remain authored interpretations of WN56-003. Active XML,checker preview andall13 non-index normal exports remain identical;only index source provenance changes. Current source82135855,normal65.6s. Ledger269 unique(211+58);inventory132/41 follow-ups retained. Continuity,water/model/road priority andactual castle implementation remain open. R69 painting andR73 art numeric metadata remain valid by active-geometry equivalence.
-
-R72 [Long Wall contour and gate proposal](long-wall-build-plan.md) samples the current source and fits an opening to both native/exported caravan-road projections. The5-block body follows the existing grade;exact dimensions are authored. Still inert andmissing in active coverage. Ledger268 unique(210+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 follow-ups unchanged. Source90ee15b1,normal terrain and R69 painting remain unchanged.
-
-R71 [Ulgracia source/identity review](ulgr-spatial-source-review.md) adds three scoped WN61 claims and an original relational diagram. Corrected capital/park labels and the unsupported capital-associated spring wording;Galut and the extra-location/portal decisions remain open. Source90ee15b1,normal terrain and R69 painting are unchanged. Ledger265 unique(207+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier summaries below are historical.
-
-R70 [decoded dwarven-arena review](dwarven-arena-fit-review.md) retains r58:the actual enclosed rear model does not justify a flat whole-rectangle expansion. Forecourt/entry/pit support and seven explicit spawn headrooms are checked;full interior and runtime placement remain open. Production source90ee15b1,normal exports and R69 painting are unchanged. Ledger262 unique(204+58),14 direct printed-LN and6 author-side-story claims;inventory132/41 physical follow-ups unchanged. Earlier version-specific summaries below are historical.
-
-R69 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round69/README.md) integrates source90ee15b1 and R68’s Sacred Mountain shoulder/approach change. Its mask covers all4,483 changed height cells,including1,003 beyond the preparation/fade envelope;1,335 gradient samples are independently checked. Only473 continent pixels change,max28/255 per RGB channel,all within16.30 blocks of the measured footprint. All58 projections,16 context names and41 inventory rows remain checked;earlier R53/R61/R63/R64 art is retained. Production geometry is unchanged in this presentation round. Ledger261;inventory132/41 physical follow-ups remain open. Earlier R68 painting-pending statements below are historical and superseded by this integration.
-
-R68 [Sacred Mountain support](sacred-mountain-fit-review.md):source90ee15b1,radius80→95,automatic first-air179→175. Exact preparation is our interpretation. Terrain atlas is refreshed;R64 painting needs explicit height integration. Ledger261;inventory132/41 follow-ups and full source/era/fixed-rule/runtime scope remain open. Earlier version-specific statements below are historical.
-
-Current review: **round64**. [Night Garden and chamber proposal](night-garden-plan.md) is inert, not generated. Source c2f806a9 retains the complete previous active map; checker0 errors/56 relations/2 existing warnings and normal65.9s export pass. Inventory132, physical follow-ups41 (including seven partial records omitted from the earlier panel); historical/source questions remain open. Ledger254 unique. [Current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round64/README.md) retains the R63 landscape and changes only the coverage panel. Initial era remains S1E10 after Kijin naming.
-
-
-Round63 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round63/README.md) integrates source 0b211ec7 and the R62 summit/high-pass update. The native blend mask covers all 2,507 changed height cells, including 205 beyond the site fade; 863 lighting samples are independently checked. Only 402 continent pixels change, at most 28/255 per RGB channel, all local to the measured footprint. All 58 projections, 16 context names and 32 open rows remain verified; original R53/R61 art is retained. Production geometry is unchanged in this presentation round. Ledger: 250 unique records; inventory: 129 entries with 32 coverage follow-ups. Earlier painting-pending notes are historical and superseded by this integration.
-
-Round62 [Dragon's Nest fit and30-template audit](dragons-nest-fit-review.md) enlarges only the nest preparation radius64→85 at its unchanged centre/first-air272. All7,921 buffered columns are now level;all 58 exported anchor records stay byte-identical. The normal terrain atlas is refreshed for source0b211ec7;R61 painting is historical pending explicit integration. Other offset-template findings are queued with carve/water/initial-era exceptions. Two site-radius summaries are corrected;all 58 numeric coordinate records now match. Ledger250 unique(192+58),14 direct LN plus3 author-side-story claims;129 inventory/32 coverage follow-ups remain open.
-
-Round61 [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round61/README.md) explicitly integrates source 7a30cf41 and R60's Englassia preparation update. Native SVG lighting from 1,634 measured height-difference samples changes only 31 continent pixels, at most 2/255 per RGB channel, all local to Englassia. All 58 projections, 16 context labels and 32 open rows remain verified; original R53 files and textures are retained. Production geometry and terrain are unchanged in this presentation round. Ledger: 248 unique records; inventory: 129 entries with 32 coverage follow-ups. Earlier R60 painting-pending notes below are historical and superseded by this reviewed integration.
-
-Round60 [Englassia fit review](englassia-fit-review.md) decodes the existing capital fragment and expands only its preparation radius98→124 for the offset template plus eight-block margin. Academy/guild already fitted; the corrected outer corners are a small terrain-preparation issue. All18,432 buffered columns are now level76;58 x/z centres stay fixed and only Englassia changes exported y75→76. Current terrain atlas is refreshed; R53 painting remains historical pending explicit integration. Ledger248 unique(190+58),14 direct LN plus3 author-side-story claims;129 inventory/32 follow-ups remain open.
-
-Round59 [regional image review](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) curates69 role-labelled references across22 regions (24 distinct assets). Shared maps, local settings, interiors and cross-region analogies are explicit; country-specific landscape gaps remain. Five narrow visual records bring the ledger to247 unique(189+58);14 direct printed-LN and3 author-side-story records remain. Source1b9e151a,production geometry,terrain and R53 painting are unchanged;129 inventory/32 coverage follow-ups remain open.
-
-Round58 [Dwargon additional-city plan](dwargon-cities-plan.md) draws interpreted East/West cavern reservations,deep galleries and stair shafts in the inert C15 comment. Two shallow routes are rejected for negative surface cover. All lined room/gallery/shaft columns are checked against the current height raster; existing occupied voxels,carving and landings remain untested. City identities remain wiki-backed; no licensed LN story passage became readable. Ledger242 unique(184+58),14 direct LN plus3 author-side-story claims;129 inventory/32 follow-ups and 58 art pairs remain. Active SVG geometry/terrain/registry are retained; full goal stays open.
-
-Round57 [treant source/route review](../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) adds4 qualified primary records. WN43 supplies sanctuary-limited movement and a conditional wetland food-transport comparison; neither establishes a Tempest cart distance. The old lore page's east-of-Ameld sovereign half and profile sister-count attribution are corrected. Ledger241 unique(183+58),14 direct printed-LN plus3 LN-aligned author-side-story claims;129 inventory/32 follow-ups and 58 art pairs remain. Source e886217d and all production geometry/terrain/painting remain unchanged. Full goal stays open.
-
-Round56 [Malukshure cape alternative](malukshure-cape-study.md) corrects the old city disc that stopped58.7 blocks before the current shore. A connected city envelope and36-block cape remain inert C14/C15 geometry; tower disc retains30.3 blocks of sea clearance. The active SVG tree,all 58 sites and21 roads remain identical; only the source comment changes. Ledger237 unique(179+58),14 direct printed-LN plus3 selected LN-aligned author-web claims;129 inventory/32 follow-ups and 58 art pairs remain. Full goal is open.
-
-This book accompanies `world/map.svg`. Heights are proposed Minecraft y values, not measured terrain. Biome percentages are **art-direction targets**, sum to 100 per region, and are not claimed raster statistics. Every unverified boundary, elevation, palette, architectural detail and habitat share is **our interpretation**. Yasuke now prefers anime/wiki geography where the older server brief differs. The SVG and its validated site geometry govern conversion; this book must not silently override them.
-
-## Research round 4 — source traceability and deliberate differences
-
-Read [geography-facts.csv](../docs/research/tensura-world-2026-11-19/geography-facts.csv) and
-[contradictions](../docs/research/tensura-world-2026-11-19/contradictions.md) for evidence, continuity and access limits.
-The `SITE-*` rows record all 58 exact placements as **our interpretation**, not canonical measurements.
-The thematic `OFF-*`, `WN13-*`, `WN31-*`, `MAP-*` and `FAN-*` rows distinguish direct evidence from secondary references.
-All numeric heights, habitat percentages, drawn borders, road corridors and shoreline vertices below are
-**our interpretation** unless a specific evidence row says otherwise. Mood stills do not prove geography.
-
-Compared visually with the [official introductory map](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp):
-
-- Restored the northern bay west of Canaat (`MAP-002`), rather than a nearly continuous full northern shore.
-  Its depth and exact outline are adapted to the Falmuth/Siltrosso footprints.
-- Added the deep southern gulf between the Sarion/Ulgracia peninsula and the Fulbrosia/Eurazania side (`MAP-004`).
-  The Fulbrosia trail detours around the head of the gulf; it does not become a long sea bridge.
-- The west coast now has an inward bay and a projecting land tongue. Its exact indentations are original,
-  and the western body remains broader and smoother than the official silhouette to fit the required western sites.
-- Ameld now starts at `(200,-1240)`, near the dwarven foothills, runs south beside the northern forest road,
-  then bends east into Siss (`WN13-003..004`, `WN31-002..003`, `OFF-001`). The guide establishes the lake inflow;
-  the WN establishes the route, not these coordinates. The LN version has not been directly verified.
-- The invented west-Jura brook now drains into the newly drawn gulf. Habitat polygons and Ulgr's bluff
-  are clipped to the new coast. These are hydrological/design adaptations, not new canon claims.
-- The server requires Dwargon due north and Nasca at least x3000. Consequently the atlas is **not a uniform
-  scaled copy** of official point spacing. Northern relief is wider and the eastern lowland is expanded.
-- Islands are compressed to the fixed design box, not a claim of faithful world-scale island size.
-  The current mainland is about 9,989 by 6,250 blocks; the design box is 12,800 by 10,752,
-  512 above each preferred box dimension. The [vertex study](vertex-budget-study.md) records
-  the retained complexity tradeoff. Earlier rounds used a smaller western extent.
-- The fixed deadly forest rings, arrival clearing, Treyni shrine, Spirit Gate by Tempest, minor camps and
-  specific biomes are server content. In particular the guide places the Spirit Dwelling entrance in northern
-  Ulgracia (`OFF-005..006`); the near-Tempest portal is a separate server adaptation.
-- Yasuke explicitly approved updating the five default data rules for Jia, Ulgracia and the ogre ruin.
-  The standard map checker now passes; the map remains a draft for source/fidelity review.
-
-Borders in this book are gameplay coverage polygons. No precise sovereign boundary, independent-state
-subordination or early/late-story political continuity can be inferred from them. C05 (Velgrynd's mountain
-bearing) and C06 (Siltrosso representation) remain open; source detail is insufficient to replace the fixed constraints.
-
-## LN evidence and unresolved alternatives — round 5
-
-Eleven directly read publisher-hosted LN claims (`LN02-*`, `LN03-*`, `LN05-*`, `LN06-*`, `LN10-*`)
-now strengthen the ledger; [passage access and limits](../docs/research/tensura-world-2026-11-19/ln-sample-findings.md).
-They support Frey's Jura adjacency, Carrion's mountain backdrop, the sacred stair approach and Amrita's
-ruin/surface distinction. Exact bearings and heights remain interpretation.
-
-The official guide puts Ulgr Nature Park in northernmost Ulgracia. Its marker is **not Galut**.
-The authored S/U boundary now passes about y2720, placing the unchanged park near Ulgracia's northern edge.
-This border course is **our interpretation**; the park's separate northern location is source-supported.
-
-[Review diagram](lore-alternatives.png) and [editable version](lore-alternatives.svg) show C05/C06.
-The north-of-Nasca mountain trial and an illustrative independent Siltrosso polygon are drawn inside
-an **inert comment in map.svg**, as requested when source geography and fixed rules conflict.
-They do not alter terrain. Siltrosso's capital is labelled Shia, independently of the F gameplay mask.
-No surveyed political boundary or primary-confirmed volcano bearing is invented.
-
-## Proportions, coast and safe approaches — round 6
-
-The current [before/after benchmark](proportion-audit.csv) compares secondary marker proportions, not surveyed canon:
-
-| Site | Previous centre | Current centre | Distance-ratio discrepancy before → after |
-| --- | --- | --- | --- |
-| Blumund | (-1900,-300) | (-1500,-620) | +57.4% → +32.8% |
-| Marris / Falmuth | (-2600,-1700) | (-1800,-1650) | +41.8% → +11.4% |
-| Sealed Cave | (-260,-430) | (-120,-400) | +24.3% → +3.3% |
-
-The bay bank, Shia landing (-2297,-1370), western road junctions and
-cave hill move with those placements. The brook stays west of the cave footprint; all 1116 sampled
-footprint pixels are dry in the final water raster. These exact placements and watercourse choices are
-**our interpretation**, constrained by build sizes and fixed travel ranges.
-
-The northeastern shore now has the reference's recognizable hooked inlet; an eastern bay replaces the
-previous rounded edge. Exact vertices are authored interpretation. The P/M gameplay boundary moves to
-about y-400 so the coastal tongue remains connected; no surveyed sovereign frontier is claimed.
-The continent is about 9653 × 6250 blocks. All 58 IDs, footprint minima and internal offsets remain.
-
-The [reference-scaled study](proportion-study.png) is also drawn inside `map.svg` comments. At the common
-Tempest–Siss scale, the reference Blumund distance is about 1223 blocks versus the fixed minimum of 1600;
-the reference Dwargon point exceeds both the fixed 1600 maximum and north-bearing tolerance. These
-alternatives are **our interpretation of secondary marker geometry**, not primary-confirmed coordinates.
-The active map keeps the fixed rules, and the PR makes this deliberate distortion explicit.
-
-Climb routes retain the sketched corridors with short constructed landings. All 21 exported road profiles
-now respect the 1:2 grade limit; the longest generated bridge run is 24 blocks. This validates
-the delivered road data, not an in-game acceptance claim.
-
-## Source and era policy
-
-The official guide and episode stills are reference links only; no official artwork is copied into this repository. Still links were extracted from the corresponding official episode pages on 19/11/2026; they provide shared series visual vocabulary and do not necessarily depict every minor nation. Where a place has no verified dedicated canonical image, the linked stills are mood references, not geographic evidence. Canon summaries below are paraphrases of the repo lore and the primary guide.
-
-**Owner-selected initial snapshot: immediately after the Kijin naming, anime S1 episode 10.** Rimuru leads a young village; the later federation/metropolis and postwar political changes are not the initial state. Existing faraway capitals remain, but later construction/events are reservations. See [era policy](era.md) and the [58-site state overlay](../docs/research/tensura-world-2026-11-19/era-site-state.csv). Charybdis's Siss arena remains a server reservation, not an event already completed.
+Earlier iteration notes are preserved in [the previous guide](https://github.com/Yasuke2000/ocs-two-lives/blob/b053e13b4fdd98eab5a804ea704cc59105df4e1e/world/regions.md) and Git history. They are history, not competing current instructions. This guide keeps all 22 region narratives and all curated image links while removing superseded status preambles.
 
 ## J — Jura Forest / Rimuru's village (gameplay J)
 
 **Landform and heights.** Temperate lowlands 68–88; rocky shoulders 95–105. Tempest grows beside the west brook inside a small clearing. The road rises north through the safe rim to the Canaat apron.
 
-**Current designed biome mix (R119; gameplay mask).** forest 40.67%, plains 29.52%, dark_forest 23.72%, tensura:ancient_forest 2.38%, old_growth_spruce_taiga 1.80%, old_growth_birch_forest 1.00%, stony_peaks 0.63%, river 0.17%, meadow 0.11%.
+**Current designed biome mix (R128 census; retained in R130).** forest 40.67%, plains 29.52%, dark_forest 23.72%, tensura:ancient_forest 2.38%, old_growth_spruce_taiga 1.80%, old_growth_birch_forest 1.00%, stony_peaks 0.63%, river 0.17%, meadow 0.11%.
 
-**Palette, vegetation and crossings.** Sage and deep green, blue-grey bark, warm oak clearings. Open farmland gives way to an interlocked canopy; southeast paths disappear into Treyni’s old wood.
+**Palette, vegetation and crossings.** Sage and deep green, blue-grey bark, warm oak clearings. Open edge clearings give way to an interlocked canopy; southeast paths disappear into Treyni’s old wood.
+
+**Mood (our interpretation).** Light at the forest edge fades into a close, dangerous old canopy.
 
 **Canon basis and interpretation.** Dwargon is north of Jura, Siss east, and Tempest stands in a forest clearing with running water. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local official woodland: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Early woodland setting, not a surveyed Tempest clearing.; [local official woodland: The ogres among trees and undergrowth.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img4.jpg) — Ogre encounter vegetation; no exact route coordinates.; [local secondary setting: Irregular dark cave opening with luminous mineral accents.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/sealed_cave.webp) — Cave visual vocabulary; attribution qualified.; [later local secondary setting: A later large planned town in a green mountain basin.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/rimuru_city.webp) — Later basin and expansion context only; no metropolis at initial snapshot.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local official woodland: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Early woodland setting, not a surveyed Tempest clearing.; [local official woodland: The ogres among trees and undergrowth.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img4.jpg) — Ogre encounter vegetation; no exact route coordinates.; [local secondary setting: Irregular dark cave opening with luminous mineral accents.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/sealed_cave.webp) — Cave visual vocabulary; attribution qualified.; [later local secondary setting: A later large planned town in a green mountain basin.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/rimuru_city.webp) — Later basin and expansion context only; no metropolis at initial snapshot.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -228,13 +34,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Grey alpine core to y280; lower eastern mountain spurs to y180, with foothill approaches around75–145. A south-facing escarpment frames the gate. A ravine frames the entrance. The summit shoulder carries the Dragon’s Nest; natural ridges continue above the buried city.
 
-**Current designed biome mix (R119; gameplay mask).** plains 73.55%, forest 16.19%, stony_peaks 4.71%, jagged_peaks 1.62%, snowy_slopes 1.19%, meadow 1.02%, frozen_peaks 1.00%, beach 0.69%, river 0.03%.
+**Current designed biome mix (R128 census; retained in R130).** plains 73.55%, forest 16.19%, stony_peaks 4.71%, jagged_peaks 1.62%, snowy_slopes 1.19%, meadow 1.02%, frozen_peaks 1.00%, beach 0.69%, river 0.03%.
 
 **Palette, vegetation and crossings.** Tuff grey, warm yellow and anvil red. Forest thins to meadow and stone; gate lanterns replace daylight beneath the mountain.
 
+**Mood (our interpretation).** A stone approach narrows into mountain shelter and enclosed city space.
+
 **Canon basis and interpretation.** Dwargon occupies a natural cavern at the foot of the Canaat Mountains; the south-facing gate and exact ravine are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local official approach: Travellers queue beside a pale rock wall and entrance architecture.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img3.jpg) — Rock and entrance vocabulary; no measured gate bearing.; [local official interior: Kaijin at a workshop with masonry and tools.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img4.jpg) — Workshop masonry/tools; not city street geometry.; [local secondary setting: Small gateway in a pale rocky mountain with a grassy approach.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/dwargon_gate.webp) — Gate/apron appearance, not exact scale.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local official approach: Travellers queue beside a pale rock wall and entrance architecture.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img3.jpg) — Rock and entrance vocabulary; no measured gate bearing.; [local official interior: Kaijin at a workshop with masonry and tools.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img4.jpg) — Workshop masonry/tools; not city street geometry.; [local secondary setting: Small gateway in a pale rocky mountain with a grassy approach.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/dwargon_gate.webp) — Gate/apron appearance, not exact scale.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -242,13 +50,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** An elongated basin about858 by410 blocks, lake level66 and depth12; reed shores68–74 and limestone above the southern caverns to103. The Ameld enters from the north and exits on the east before turning southeast. These dimensions/heights and exact joins are our interpretation.
 
-**Current designed biome mix (R119; gameplay mask).** swamp 59.69%, plains 29.68%, forest 4.49%, dark_forest 3.05%, old_growth_spruce_taiga 2.63%, river 0.46%.
+**Current designed biome mix (R128 census; retained in R130).** swamp 59.69%, plains 29.68%, forest 4.49%, dark_forest 3.05%, old_growth_spruce_taiga 2.63%, river 0.46%.
 
 **Palette, vegetation and crossings.** Teal water, green reeds, pale limestone and weathered timber. Dry woodland opens into reed bays and flooded roots, then rises to a dry orc battlefield.
 
+**Mood (our interpretation).** Humid quiet, reeds and broken wet footing.
+
 **Canon basis and interpretation.** The official guide identifies Siss in Jura and the Ameld flowing into it; episode 10 places the lizardmen in its wetlands. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: Dark reed-lined water; title overlay obscures part of the view.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/lake_siss.webp) — Reed/water appearance only; not lake boundaries.; [regional vegetation context: Gabiru against grassy woodland; no lake outline.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no10/img5.jpg) — Grass and woodland background only; character pose does not locate a shoreline.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: Dark reed-lined water; title overlay obscures part of the view.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/lake_siss.webp) — Reed/water appearance only; not lake boundaries.; [regional vegetation context: Gabiru against grassy woodland; no lake outline.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no10/img5.jpg) — Grass and woodland background only; character pose does not locate a shoreline.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -256,13 +66,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Low agricultural ground 68–82, with Londo on a dry trade terrace. Jura is connected by land; the west road reaches Ballachia and Englassia.
 
-**Current designed biome mix (R119; gameplay mask).** plains 93.02%, river 5.41%, birch_forest 1.57%.
+**Current designed biome mix (R128 census; retained in R130).** plains 93.02%, river 5.41%, birch_forest 1.57%.
 
 **Palette, vegetation and crossings.** Cream masonry, red cloth, grain gold and orchard green. The traveller leaves the heavy canopy for fields and a small walled market capital.
 
+**Mood (our interpretation).** A small border kingdom offers a calmer pause outside the great forest.
+
 **Canon basis and interpretation.** Blumund is Jura’s western human neighbour; the dry land connection is retained from the reference geography. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Fields and low wall appearance; no exact capital plan.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Fields and low wall appearance; no exact capital plan.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -270,13 +82,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Broad west-country river plains 65–85; low groves along the guild road. Lura and Ballachia remain compact, separated by agricultural country.
 
-**Current designed biome mix (R119; gameplay mask).** plains 68.82%, forest 26.59%, desert 2.22%, river 1.19%, birch_forest 1.18%.
+**Current designed biome mix (R128 census; retained in R130).** plains 68.82%, forest 26.59%, desert 2.22%, river 1.19%, birch_forest 1.18%.
 
 **Palette, vegetation and crossings.** Slate, pale stone, navy banners and oxidized copper. Lanes widen toward the guild and academy; the western ridge closes the horizon beyond Lura.
 
+**Mood (our interpretation).** Human roads, open fields and an old royal centre.
+
 **Canon basis and interpretation.** The official guide names Englassia a western cultural centre and the seat of the Free Guild headquarters. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [regional official interior: Yuuki in a light and brown office interior.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no20/img2.jpg) — Yuuki office context only; no capital exterior.; [regional official interior: Children, desks and tall wooden classroom windows.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no21/img3.jpg) — Academy classroom materials; not city or campus coordinates.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [regional official interior: Yuuki in a light and brown office interior.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no20/img2.jpg) — Yuuki office context only; no capital exterior.; [regional official interior: Children, desks and tall wooden classroom windows.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no21/img3.jpg) — Academy classroom materials; not city or campus coordinates.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -284,13 +98,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Northern coastal lowlands 65–90. Marris sits inland behind Siltrosso’s coastal arm; the eastward land route reaches the Canaat gate.
 
-**Current designed biome mix (R119; gameplay mask).** plains 98.24%, beach 1.76%.
+**Current designed biome mix (R128 census; retained in R130).** plains 98.24%, beach 1.76%.
 
 **Palette, vegetation and crossings.** Blue and white, pale stone and green copper. Grain fields become exposed coastal grass; roads converge at a guarded commercial town.
 
+**Mood (our interpretation).** Sea wind crosses exposed northern fields and guarded approaches.
+
 **Canon basis and interpretation.** Falmuth is a western trade gateway west of Dwargon and north of Blumund; exact coast and harbours are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region urban analogy: Coleus production panorama: hill palace, ramp, lower town, arid mountain backdrop and foreground vegetation.](https://www.ten-sura.com/4GfGdAp7/wp-content/uploads/2023/05/bf4a714bd04266b501beea54ae574464.jpg) — Stepped town massing and rock colour only; do not transplant Coleus palace, domes or arid climate.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region urban analogy: Coleus production panorama: hill palace, ramp, lower town, arid mountain backdrop and foreground vegetation.](https://www.ten-sura.com/4GfGdAp7/wp-content/uploads/2023/05/bf4a714bd04266b501beea54ae574464.jpg) — Stepped town massing and rock colour only; do not transplant Coleus palace, domes or arid climate.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -298,27 +114,31 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Western ridge to 205, with Lune on a terrace at its foot. The sacred approach climbs a separate trail toward the mountain sanctuary.
 
-**Current designed biome mix (R119; gameplay mask).** plains 94.22%, desert 3.06%, stony_peaks 1.59%, beach 0.60%, snowy_slopes 0.43%, river 0.11%.
+**Current designed biome mix (R128 census; retained in R130).** plains 94.22%, desert 3.06%, stony_peaks 1.59%, beach 0.60%, snowy_slopes 0.43%, river 0.11%.
 
 **Palette, vegetation and crossings.** Ivory, muted gold, pale blue and cool stone. Open farms tighten into terraced slopes and a ceremonial stair beneath a grey ridge.
 
+**Mood (our interpretation).** A sober foothill ascent leads toward the high sanctuary.
+
 **Canon basis and interpretation.** The pack locates Lubelius northwest of Jura and its sacred sanctuary above Lune. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [regional official interior: Knights and tall stone columns in a conference scene.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no57/img3.jpg) — Lubelius meeting columns; not a capital or sacred-stair layout.; [regional official interior: Louis and Hinata in a gold-tracery interior.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no54/img5.jpg) — Gold-tracery material context; not exterior geography.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [regional official interior: Knights and tall stone columns in a conference scene.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no57/img3.jpg) — Lubelius meeting columns; not a capital or sacred-stair layout.; [regional official interior: Louis and Hinata in a gold-tracery interior.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no54/img5.jpg) — Gold-tracery material context; not exterior geography.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
 ## V — Damargania / western wastes
 
-**Landform and heights.** Arid west lowlands 65–100; Coleus has a bounded oasis at level75. Desert gives way to a separate barren belt around the Heaven Tower.
+**Landform and heights.** Arid west lowlands 65–100; Coleus has a bounded oasis at level75. A small authored northern dune reaches81.5 in the current export; its110 height control is attenuated by the hill blend. Desert gives way to a separate barren belt around the Heaven Tower.
 
-**Current designed biome mix (R119; gameplay mask).** plains 44.47%, tensura:desert_of_death 39.67%, tensura:barren_land 10.44%, desert 4.18%, beach 1.13%, river 0.07%, forest 0.03%.
+**Current designed biome mix (R128 census; retained in R130).** plains 44.47%, tensura:desert_of_death 39.67%, tensura:barren_land 10.44%, desert 4.18%, beach 1.13%, river 0.07%, forest 0.03%.
 
 **Palette, vegetation and crossings.** Ochre, chalk, pale sand and ash grey. Green caravan roads end at a small oasis; farther west the horizon is bare and weathered.
 
-**Canon basis and interpretation.** Damargania is the far-west barren territory; the oasis layout and desert transitions are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Mood (our interpretation).** Dry wind, bare horizons and long gaps between useful paths.
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [named regional component: Coleus production panorama: hill palace, ramp, lower town, arid mountain backdrop and foreground vegetation.](https://www.ten-sura.com/4GfGdAp7/wp-content/uploads/2023/05/bf4a714bd04266b501beea54ae574464.jpg) — Coleus component only; not all Damargania or Dagruel's capital.; [cross-region rock analogy: Travellers queue beside a pale rock wall and entrance architecture.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img3.jpg) — Dwargon pale rock only; does not locate a western settlement.
+**Canon basis and interpretation.** Damargania is the far-west barren territory; the oasis layout and desert transitions are our interpretation. The [official Coleus PV at00:25](https://www.youtube.com/watch?v=WuIDVoKdVGU&t=25s) supplies sand-dune vocabulary; the new ridge’s exact course, scale and northern placement are [our interpretation](coleus-dune-relief.md). See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [named regional component: Coleus production panorama: hill palace, ramp, lower town, arid mountain backdrop and foreground vegetation.](https://www.ten-sura.com/4GfGdAp7/wp-content/uploads/2023/05/bf4a714bd04266b501beea54ae574464.jpg) — Coleus component only; not all Damargania or Dagruel's capital.; [cross-region rock analogy: Travellers queue beside a pale rock wall and entrance architecture.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img3.jpg) — Dwargon pale rock only; does not locate a western settlement.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -326,13 +146,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Western river-bank lowland 65–78; slightly raised wharves and a dry landing approach.
 
-**Current designed biome mix (R119; gameplay mask).** plains 97.64%, river 1.71%, beach 0.64%.
+**Current designed biome mix (R128 census; retained in R130).** plains 97.64%, river 1.71%, beach 0.64%.
 
 **Palette, vegetation and crossings.** Wet slate, river blue and willow green. The western road follows the river through landing fields rather than cutting across a mountain.
 
-**Canon basis and interpretation.** The repo places Morgdahl in the western river belt; the settlement form is our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Mood (our interpretation).** A settled pocket interrupts the dry western country.
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region waterbank analogy: Dark reed-lined water; title overlay obscures part of the view.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/lake_siss.webp) — Reeds/bank material only; not proof of local lakes or coast.
+**Canon basis and interpretation.** The community Council-map comparison reports Morgdahl first in a west-to-east sequence with Nostraille, Yuzalgh and Yggdonia (FAN-WES-034); the underlying map frame has not been independently authenticated here. The river-belt position, wharves and settlement form are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Continental silhouette and major-country context only; this image does not establish the four small-state names, their order or borders.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region waterbank analogy: Dark reed-lined water; title overlay obscures part of the view.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/lake_siss.webp) — Reeds/bank material only; not proof of local lakes or coast.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -340,13 +162,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Small cultivated basin 70–85 with a rimmed lake at level72. Rostia stays on the northern approach rather than inside the water.
 
-**Current designed biome mix (R119; gameplay mask).** plains 91.55%, river 8.45%.
+**Current designed biome mix (R128 census; retained in R130).** plains 91.55%, river 8.45%.
 
 **Palette, vegetation and crossings.** Lake blue, earth brown and soft green. Hedges open toward a still inland lake and a modest waterside town.
 
+**Mood (our interpretation).** Water and cultivated clearings soften the small-country travel belt.
+
 **Canon basis and interpretation.** The pack places Raja west of Tempest in the small-state belt; its exact lake and gardens are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region waterbank analogy: Dark reed-lined water; title overlay obscures part of the view.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/lake_siss.webp) — Reeds/bank material only; no local hydrology claim.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region waterbank analogy: Dark reed-lined water; title overlay obscures part of the view.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/lake_siss.webp) — Reeds/bank material only; no local hydrology claim.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -354,13 +178,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Gentle valley floor 70–90 between the western river landing and Yuzalgh.
 
-**Current designed biome mix (R119; gameplay mask).** plains 99.84%, river 0.16%.
+**Current designed biome mix (R128 census; retained in R130).** plains 99.84%, river 0.16%.
 
 **Palette, vegetation and crossings.** Muted greens, timber brown and pale stone. Small tilled fields alternate with low wooded shoulders.
 
-**Canon basis and interpretation.** The repo’s west-to-east ordering places Nostraille east of Morgdahl and west of Yuzalgh. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Mood (our interpretation).** Low ridges and tree cover keep the next settlement out of sight.
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
+**Canon basis and interpretation.** The west-to-east sequence is reported by a community Council-map comparison (FAN-WES-034), not directly verified from an episode frame here. Our marker order follows that lead; the valley, fields, woods and exact national extent are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Continental silhouette and major-country context only; this image does not establish the four small-state names, their order or borders.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -368,13 +194,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Narrow lowland state 70–90 with an uninterrupted through-road.
 
-**Current designed biome mix (R119; gameplay mask).** plains 99.89%, birch_forest 0.11%.
+**Current designed biome mix (R128 census; retained in R130).** plains 99.89%, birch_forest 0.11%.
 
 **Palette, vegetation and crossings.** Field green and grey-brown boundary stone. A traveller crosses a shallow valley and clustered farms without encountering a defensive sea gap.
 
-**Canon basis and interpretation.** Yuzalgh belongs in the western sequence east of Nostraille; its architecture and borders are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Mood (our interpretation).** Open ground and river crossings set a slower pace.
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
+**Canon basis and interpretation.** A community Council-map comparison reports Yuzalgh east of Nostraille and west of Yggdonia (FAN-WES-034). This remains secondary evidence. Exact placement, farms, architecture and borders are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Continental silhouette and major-country context only; this image does not establish the four small-state names, their order or borders.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -382,27 +210,31 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Small birch country 72–90 between the western towns and Blumund’s southern edge.
 
-**Current designed biome mix (R119; gameplay mask).** birch_forest 98.88%, plains 1.12%.
+**Current designed biome mix (R128 census; retained in R130).** birch_forest 98.88%, plains 1.12%.
 
 **Palette, vegetation and crossings.** White bark, pale green and straw. A light canopy softens the transition from town fields to Jura’s darker woodland.
 
-**Canon basis and interpretation.** Yggdonia’s position and birch identity are pack interpretation, not independently established canon. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Mood (our interpretation).** Quiet wet lowlands break the route into short crossings.
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
+**Canon basis and interpretation.** A community Council-map comparison reports Yggdonia east of Yuzalgh (FAN-WES-034). This remains secondary evidence. Its exact position beside Blumund, birch identity and local extent are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Continental silhouette and major-country context only; this image does not establish the four small-state names, their order or borders.; [cross-region agrarian analogy: A low walled town beyond cultivated fields and green hills.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/londo.webp) — Blumund fields/town massing only; not a view of this country or proof of its climate.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
 ## U — Ulgracia
 
-**Landform and heights.** Wooded coastal bluff to112, south of Sarion. An authored spring sits at102 with a contained rim; the authored brook curves west/northwest inland to the coast; its first exported difference is 11 blocks (R119), not a canonical height.
+**Landform and heights.** Wooded coastal bluff to 112, south of Sarion. The authored spring is now at 92, still 29 blocks above the sea, with a contained rim and a steeper wooded bowl. The unchanged inland brook begins at 91, a one-block difference, then descends in existing stepped reaches to the shore. These are server elevations, not canonical measurements. [Actual terrain and bank review](ulgr-spring-level-r130.md).
 
-**Current designed biome mix (R119; gameplay mask).** old_growth_birch_forest 93.53%, plains 5.60%, beach 0.87%.
+**Current designed biome mix (R128 census; retained in R130).** old_growth_birch_forest 93.53%, plains 5.60%, beach 0.87%.
 
 **Palette, vegetation and crossings.** Moss green, silver water and weathered rock. The southbound road leaves Sarion’s forest and climbs onto a wooded coastal overlook.
 
-**Canon basis and interpretation.** The official guide and supplied reference place Ulgracia south of Sarion. Yasuke explicitly chose this over the earlier Blumund-adjacent server liberty. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+**Mood (our interpretation).** A wooded bluff shelters a lower spring bowl and an old rock threshold.
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [associated official interior: Rimuru and Ramiris in a dark masonry interior.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no22/img5.jpg) — Spirit Dwelling masonry context only; not Ulgr park, Galut or mainland entrance placement.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
+**Canon basis and interpretation.** The official guide and supplied reference place Ulgracia south of Sarion. Yasuke explicitly chose this over the earlier Blumund-adjacent server liberty. The park marker is not the unlocated capital Galut. WN61 describes a doorway in a large rock, not this pond’s measured altitude; retain its separate continuity and later-scene limits (`WN61-002`). See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
+
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [associated official interior: Rimuru and Ramiris in a dark masonry interior.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no22/img5.jpg) — Spirit Dwelling masonry context only; not Ulgr park, Galut or mainland entrance placement.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -410,13 +242,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Southwestern forest peninsula 70–105, shaped around the river and one colossal Divine Tree at Elmine.
 
-**Current designed biome mix (R119; gameplay mask).** old_growth_birch_forest 75.89%, plains 22.86%, stony_peaks 0.88%, beach 0.32%, river 0.04%.
+**Current designed biome mix (R128 census; retained in R130).** old_growth_birch_forest 75.89%, plains 22.86%, stony_peaks 0.88%, beach 0.32%, river 0.04%.
 
 **Palette, vegetation and crossings.** Gold-green canopy, ivory wood and quiet water. Deep forest opens into a living-tree city; the river runs beside, not through, its dry site.
 
+**Mood (our interpretation).** Dense green approaches frame an older elven court landscape.
+
 **Canon basis and interpretation.** Sarion lies on Jura’s southern border; the single colossal tree and its waterside setting follow the supplied anime frame; exact build and size are our playable interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: A giant tree above an elevated settlement, with water in the foreground.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/elmine.webp) — Giant-tree city visual; episode/era unverified.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: A giant tree above an elevated settlement, with water in the foreground.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/elmine.webp) — Giant-tree city visual; episode/era unverified.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -424,13 +258,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Southern spire country rising to235, between Sarion and Eurazania. Jia occupies ledges on a high, narrow rock pillar, with a winding ascent. The supplied anime still shows cliff dwellings rather than a conventional flat town.
 
-**Current designed biome mix (R119; gameplay mask).** plains 63.92%, windswept_hills 25.54%, jungle 8.41%, beach 1.09%, river 0.57%, old_growth_birch_forest 0.47%.
+**Current designed biome mix (R128 census; retained in R130).** plains 63.92%, windswept_hills 25.54%, jungle 8.41%, beach 1.09%, river 0.57%, old_growth_birch_forest 0.47%.
 
 **Palette, vegetation and crossings.** Cool stone, muted violet shadow and highland grass. Low fields give way to exposed ledges and wind-swept platforms.
 
+**Mood (our interpretation).** Exposed ledges and high rock platforms feel windy and distant.
+
 **Canon basis and interpretation.** Frey’s territory lies south of Jura in the supplied reference, west/southwest of Eurazania. This supersedes the earlier far-southwest mesa liberty. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: A compact city on tall rocky cliff ledges.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/jia.webp) — Cliff city vocabulary, not measured height or bearing.; [cross-region rock analogy: Narrow tall rock spires rising above mist.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/khusha_mountains.webp) — Rock spires only; not a Fulbrosia panorama or exact site.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: A compact city on tall rocky cliff ledges.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/jia.webp) — Cliff city vocabulary, not measured height or bearing.; [cross-region rock analogy: Narrow tall rock spires rising above mist.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/khusha_mountains.webp) — Rock spires only; not a Fulbrosia panorama or exact site.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -438,13 +274,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Southeastern peninsula 68–100 with orchards and Laura’s dry clearing in jungle country. A north-facing escarpment behind Laura rises to225, with a headwater basin at154 feeding a stepped waterfall river past the dry city site.
 
-**Current designed biome mix (R119; gameplay mask).** jungle 43.70%, plains 30.61%, sparse_jungle 13.21%, tensura:barren_land 8.89%, swamp 1.74%, stony_peaks 0.51%, river 0.43%, beach 0.42%, snowy_slopes 0.26%, old_growth_spruce_taiga 0.24%.
+**Current designed biome mix (R128 census; retained in R130).** jungle 43.70%, plains 30.61%, sparse_jungle 13.21%, tensura:barren_land 8.89%, swamp 1.74%, stony_peaks 0.51%, river 0.43%, beach 0.42%, snowy_slopes 0.26%, old_growth_spruce_taiga 0.24%.
 
 **Palette, vegetation and crossings.** Jungle green, golden fruit, brown timber and thatch. Reeds recede behind low wooded ridges and cultivated fruit groves.
 
+**Mood (our interpretation).** Fruit-growing lowlands meet steep mountain and waterfall country.
+
 **Canon basis and interpretation.** Eurazania lies south/southeast of Jura. LN5 supports the castle mountain backdrop and town below (`LN05-001..002`). The supplied Laura frame shows the waterfall; the wiki excerpt describes fruit plantations. Exact waterfall reaches and playable elevations are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: A waterfall between sharp peaks behind a city and cultivated foreground.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/laura.webp) — Intact waterfall city, not a surveyed plan; attribution qualified.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [local secondary setting: A waterfall between sharp peaks behind a city and cultivated foreground.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/laura.webp) — Intact waterfall city, not a surveyed plan; attribution qualified.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -452,15 +290,17 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Eastern lowlands65–90 with a narrow red crescent retained solely as the fixed brief's server accent. The large former red-biome footprint is reduced from707,757 to213,884 square blocks of authored polygon area (69.8% smaller). Surrounding land follows existing default grassland/forest priorities. No new hill, river or settlement is added.
 
-**Current designed biome mix (R119; gameplay mask).** plains 87.30%, forest 4.70%, wooded_badlands 4.44%, river 1.50%, dark_forest 1.40%, beach 0.66%.
+**Current designed biome mix (R128 census; retained in R130).** plains 87.30%, forest 4.70%, wooded_badlands 4.44%, river 1.50%, dark_forest 1.40%, beach 0.66%.
 
 **Palette, vegetation and crossings.** Green lowlands and established woodland, with a restrained warm-soil accent near the eastern coast. Exact tree species, settlement palette and field layout remain interpretation.
+
+**Mood (our interpretation).** Open green plains are interrupted by the authored red-rock accent.
 
 **Canon basis and limits.** The official guide identifies Milim's old dragonewt settlement and its unusual social organisation; it does not define a red desert. The official illustrated map is a broad visual reference, not a biome survey. The fixed [brief](../design/architecture/own-world.md) explicitly retains some red badlands. C10 now draws an inert grassland replacement for the former large footprint, so the remaining design liberty is visible. No later annexation or new castle is treated as initial geography.
 
 **References.** [Official world guide](https://www.ten-sura.com/map), [official base image](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp), [city source notes](../design/lore/forgotten_dragon_city.md). Official episode41 is at [route no44](https://www.ten-sura.com/anime/tensura/story/no44); its five inspected stills do not establish a city exterior or biome footprint. The pinned fan metadata's city frame could not be re-fetched this round, so its episode attribution remains secondary.
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [neighbouring valley analogy: A waterfall between sharp peaks behind a city and cultivated foreground.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/laura.webp) — Cultivated valley vocabulary only; not Milim's temple or local city.; [cross-region urban analogy: Coleus production panorama: hill palace, ramp, lower town, arid mountain backdrop and foreground vegetation.](https://www.ten-sura.com/4GfGdAp7/wp-content/uploads/2023/05/bf4a714bd04266b501beea54ae574464.jpg) — Stepped town massing and rock colour only; do not transplant Coleus palace, domes or arid climate.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [neighbouring valley analogy: A waterfall between sharp peaks behind a city and cultivated foreground.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/laura.webp) — Cultivated valley vocabulary only; not Milim's temple or local city.; [cross-region urban analogy: Coleus production panorama: hill palace, ramp, lower town, arid mountain backdrop and foreground vegetation.](https://www.ten-sura.com/4GfGdAp7/wp-content/uploads/2023/05/bf4a714bd04266b501beea54ae574464.jpg) — Stepped town massing and rock colour only; do not transplant Coleus palace, domes or arid climate.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -468,13 +308,15 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Northeastern dark-wood basin 72–95, castle on a dry site beside its separate moat; the separate Amrita ruin footprint uses an authored low mound to93.
 
-**Current designed biome mix (R119; gameplay mask).** plains 54.96%, dark_forest 43.96%, stony_peaks 0.72%, beach 0.36%.
+**Current designed biome mix (R128 census; retained in R130).** plains 54.96%, dark_forest 43.96%, stony_peaks 0.72%, beach 0.36%.
 
 **Palette, vegetation and crossings.** Deep green, muted violet, grey stone and cold lantern light. The road enters a closed canopy before reaching the castle clearing and eastern ruin.
 
+**Mood (our interpretation).** Dark woods and old stone suggest a guarded eastern domain.
+
 **Canon basis and interpretation.** The official guide identifies Jistav as Clayman’s territory. LN10 distinguishes Amrita from the surface city and older Soma homeland (`LN10-001..003`); official episode81 explicitly places the ruins beneath the former castle (`OFF-AMR-001`). The separate eastern circle is a mandatory game reservation under C07, not a verified independent surface entrance. An inert castle-linked access projection is drawn; exact depth/full footprint/entrance coordinates remain unknown and eastern chambers remain possible. Basin, moat and external mound are authored. [Access/reservation study](amrita-placement-review.md) · [existing lore](../design/lore/world.md) · [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [associated secondary surface setting: A dark castle and wooded wet basin; not an underground city plan.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/amrita.webp) — Clayman castle/wet basin context; not the underground Amrita city layout.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [associated secondary surface setting: A dark castle and wooded wet basin; not an underground city plan.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/amrita.webp) — Clayman castle/wet basin context; not the underground Amrita city layout.; [cross-region vegetation analogy: Rimuru, Rigur and Ranga in leafy woodland.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no9/img3.jpg) — Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
@@ -482,213 +324,60 @@ The official guide and episode stills are reference links only; no official artw
 
 **Landform and heights.** Far-eastern northern valley 75–110, with Nasca north of a volcanic sanctuary rising to250.
 
-**Current designed biome mix (R119; gameplay mask).** plains 86.12%, snowy_slopes 5.08%, stony_peaks 3.43%, forest 2.65%, beach 1.48%, river 1.20%, frozen_peaks 0.05%.
+**Current designed biome mix (R128 census; retained in R130).** plains 86.12%, snowy_slopes 5.08%, stony_peaks 3.43%, forest 2.65%, beach 1.48%, river 1.20%, frozen_peaks 0.05%.
 
 **Palette, vegetation and crossings.** Dark green roofs, red devices, copper and amber glass. Open plains are interrupted by long volcanic spurs rather than a continuous impassable wall.
 
+**Mood (our interpretation).** Broad eastern approaches give way to woodland and volcanic ground.
+
 **Canon basis and interpretation.** The Empire occupies the far northeast; the brief fixes Nasca’s valley north of Velgrynd’s volcano. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region valley analogy: A waterfall between sharp peaks behind a city and cultivated foreground.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/laura.webp) — Valley/farmland vocabulary only; not an Imperial settlement.; [cross-region rock analogy: Travellers queue beside a pale rock wall and entrance architecture.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img3.jpg) — Canaat rock material only; not Nasca or an Empire panorama.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region valley analogy: A waterfall between sharp peaks behind a city and cultivated foreground.](https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6/public/img/locations/laura.webp) — Valley/farmland vocabulary only; not an Imperial settlement.; [cross-region rock analogy: Travellers queue beside a pale rock wall and entrance architecture.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img3.jpg) — Canaat rock material only; not Nasca or an Empire panorama.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
 ## I — Ice Continent
 
-**Landform and heights.** Separate frozen island, 900–1,200 blocks of sea from the mainland; low ice ledges rise toward a210 spine. Following Yasuke’s R109 decision, Frost Palace occupies the central snowfield at(-1530,-3680), with an original89-block inland clearing for the existing entrance and its preparation buffer. The old coastal palace plate is retired in the drawing; this does not establish a full palace footprint.
+**Landform and heights.** Separate frozen landmass with a lower western arm and five offshore islets. The current coast is an original R128 interpretation of the official silhouette. It lies 900–1,200 blocks of sea from the mainland; low ice ledges rise toward a210 spine. Following Yasuke’s R109 decision, Frost Palace occupies the central snowfield at(-1530,-3680), with an original89-block inland clearing for the existing entrance and its preparation buffer. The old coastal palace plate is retired in the drawing; this does not establish a full palace footprint.
 
-**Current designed biome mix (R119; gameplay mask).** snowy_plains 76.71%, frozen_peaks 23.29%.
+**Current designed biome mix (R128 census; retained in R130).** snowy_plains 75.84%, frozen_peaks 24.16%.
 
-**Palette, vegetation and crossings.** Blue ice, white rock and violet lights. A cold crossing ends at a coastal palace below an empty frozen interior.
+**Palette, vegetation and crossings.** Blue ice, white rock and violet shadow. A cold sea crossing reaches bare coastal ice; travel then continues across the interior to the approved palace snowfield. No new coastal palace or arrival facility is registered.
+
+**Mood (our interpretation).** A cold sea crossing reaches bare ice; the palace remains inland.
 
 **Canon basis and interpretation.** The Ice Continent is northern and contains Guy’s Frost Palace. Fuse’s WN78 supplies a central-continent relationship; LN agreement remains unread. Yasuke chose inland placement in R109; the exact snowfield coordinate,clearing,shoreline and entrance forecourt are our interpretation. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [associated official interior: Leon before a blue fractured-looking wall; no exterior panorama.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no45/img3.jpg) — Cold blue wall material only; no confirmed exterior palace or coastline.; [associated official interior: Velzard on a blue fractured-looking floor; no coastline.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no45/img4.jpg) — Cold blue floor material only; no measured island geometry or C22 resolution.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [associated official interior: Leon before a blue fractured-looking wall; no exterior panorama.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no45/img3.jpg) — Cold blue wall material only; no confirmed exterior palace or coastline.; [associated official interior: Velzard on a blue fractured-looking floor; no coastline.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no45/img4.jpg) — Cold blue floor material only; no measured island geometry or C22 resolution.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
 ## X — El Dorado
 
-**Landform and heights.** Separate southwest volcanic island, roughly 1, 850 by1, 400; Leon’s city lies northwest of the volcano, which rises to230. R114 selects a local stony_peaks biome over the exact cone outline;the rock treatment is our interpretation,not proof of canonical climate or absence of runtime snow. [Review](el-dorado-rock-cone-r114.md). R80 adds an interpreted unnamed inland lake east of the cone, water first-air 68 anddepth 5; its natural rim and exact outline are authored.
+**Landform and heights.** Separate southwest volcanic island with authored bounds about 2,400.5 × 1,280.5 blocks after the R125 coast correction; Leon’s city lies northwest of the volcano, which rises to 230. R114 selects a local stony_peaks biome over the exact cone outline;the rock treatment is our interpretation,not proof of canonical climate or absence of runtime snow. [Review](el-dorado-rock-cone-r114.md). R80 adds an interpreted unnamed inland lake east of the cone, water first-air 68 and depth 5; its natural rim and exact outline are authored.
 
-**Current designed biome mix (R119; gameplay mask).** plains 83.54%, stony_peaks 6.59%, forest 5.39%, beach 2.60%, river 1.88%.
+**Current designed biome mix (R128 census; retained in R130).** plains 85.06%, stony_peaks 5.85%, forest 4.79%, beach 2.62%, river 1.67%.
 
 **Palette, vegetation and crossings.** White and gold, green foothills, black volcanic stone and purple-red interiors. Two source-informed wooded patches lie northwest of the cone and east/southeast of the eastern lake. Rounded outlines and generic forest type are our interpretation;no tree species,density or dated logging claim. The sea crossing reaches a sheltered city plain below the caldera. [R111 source/terrain review](el-dorado-woodland-r111.md).
 
+**Mood (our interpretation).** Green island foothills lead toward pale court stone and a rocky cone.
+
 **Canon basis and interpretation.** El Dorado lies on a southwestern continent; its playable island compression is an explicit owner liberty. See [existing lore](../design/lore/world.md) and the [owner brief](../design/architecture/own-world.md#8-chatgpt-brief--the-world-map-drawing-and-its-layer-specification).
 
-**Curated image references (round59).** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region urban analogy: Coleus production panorama: hill palace, ramp, lower town, arid mountain backdrop and foreground vegetation.](https://www.ten-sura.com/4GfGdAp7/wp-content/uploads/2023/05/bf4a714bd04266b501beea54ae574464.jpg) — Stepped town massing and rock colour only; do not transplant Coleus palace, domes or arid climate.; [persona palette only: Leon before a blue fractured-looking wall; no exterior panorama.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no45/img3.jpg) — Leon's colour association only; meeting-room wall is not El Dorado architecture or geography.
+**Curated image references.** [broad map context: Official illustrated world silhouette and named-country context.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) — Country placement and continental silhouette only; no surveyed border, height, street or exact distance.; [cross-region urban analogy: Coleus production panorama: hill palace, ramp, lower town, arid mountain backdrop and foreground vegetation.](https://www.ten-sura.com/4GfGdAp7/wp-content/uploads/2023/05/bf4a714bd04266b501beea54ae574464.jpg) — Stepped town massing and rock colour only; do not transplant Coleus palace, domes or arid climate.; [persona palette only: Leon before a blue fractured-looking wall; no exterior panorama.](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no45/img3.jpg) — Leon's colour association only; meeting-room wall is not El Dorado architecture or geography.
 
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
-## Open lore and implementation questions
-
-- The owner explicitly reversed the earlier Fulbrosia and Ulgracia liberties. The anime-aligned positions are now adopted into the five owner-approved default data rules.
-- Several small-state identities and capital names rely on secondary repo research. No new flags, rulers or political borders are asserted as verified canon here.
-- Drawn site radii now meet all footprint minima from `world/sites.toml`, including Tempest r148 and Dwargon r127. Relative internal anchors remain within their parent complexes. Final in-game ground, cover and water containment still need technical acceptance.
-- Treyni’s shrine is an original pack interpretation; the separated grove and shrine sites follow the accepted checker, replacing the old imported-world +38 offset.
-- Preserve the Lerfing and Paulzero credit history for the prior world attempt. The new coast and artwork are original, with no copied paid terrain.
-
-EN: The continent has fixed story geography; the outer ocean and free lands are generated around it.
-NL: Het continent heeft vaste verhaalgeografie; de buitenste oceaan en vrije gebieden worden eromheen gegenereerd.
-
-The ogre ruin is placed at the southeastern Khusha foothills, using the supplied wiki and pinned reference marker instead of the older northeastern guess. Siltrosso is an independent kingdom in the supplied wiki; the existing F region groups its coastal marker for game data and does not establish Falmuth sovereignty. Its separate nation metadata needs Claude’s reconciliation. The interactive reference places Velgrynd’s mountain north of Nasca, while the old server brief places it south; the supplied wiki only says adjacent. This unresolved compass detail is retained as a PR lore question, not claimed as confirmed canon.
-
-## Additional-location source review — C14/C15
-
-[Evidence and measured proposals](additional-locations.md), [original study](additional-location-study.png). The Galut capital, Tengu summit settlement, coastal Sainte-Malukshure, offshore Magic Tower and Long Wall corridor are drawn as inert alternatives inside map.svg. Exact coordinates and dimensions are **our interpretation**. No active geography was changed in this pass. The [round55 author-source review](../docs/research/tensura-world-2026-11-19/vacation-source-review-r55.md) now verifies a capital cape,offshore tower and Malukshure/Sarion adjacency in the LN-aligned public side serial (AUTH-VAC-001..003). The west bearing remains wiki-qualified; exact coordinates remain interpretation. The current Sainte pin is inland/east of Sarion and tied to H/Fulbrosia by anchor data. That contradiction is disclosed as C14, not called canon. The new-location proposals remain outside the fixed 58-site registry (C15).
-
-## Eastern foothill landscape — round 7
-
-The [direct WN follow-up](../docs/research/tensura-world-2026-11-19/wn-geography-followup.md) supports an eastern Jura frontier history; the wiki describes Eastern Plains shared by Jura and the Empire. The live drawing now adds light foothill woodland north of Siss and an irregular grassland fringe toward the eastern approach. Exact forest/plains outlines and biome choice are **our interpretation**. Geographical Jura does not have to equal the Tempest gameplay polygon. The shapes preserve the Siss marsh, mountains, roads, all 58 sites and all political masks. No frontier ruin coordinate is asserted. This deliberately fills the earlier empty transition, rather than leaving the geographical forest extent implicit in a political region name. WN102 gate access (C16) and WN56 capital water (C17) remain qualified continuity/interior matters.
-
-## Lake Siss shape and source correction — round 8
-
-The official illustrated basin is read as elongated east–west. The authored shore now follows that character, rather than the older round-arena premise. Bounds change from about696 by549 to858 by410 blocks. The full fixed radius96 water reservation remains inside the lake, and the southern lizardmen access is preserved. Northern inlet and eastern outlet joins move with the shore. All 58 site coordinates, roads and region masks are retained. Exact vertices and dimensions are **our interpretation**. C19 corrects the older aquatic-whirlpool claim: the official glossary describes Charybdis as an aerial calamity; any lake arena is later server adaptation, not a physical-geography source.
-
-## Canaat relief and Empire evidence — round 9
-
-The official illustrated relief is read as a concentrated northern summit mass with a southern foot and lower lateral spurs. The earlier authored crest spanned 2240 blocks horizontally at a single specified 280-block height. It has been replaced by a shorter bent crest around the fixed Dragon Nest, a more compact high core, and a separate tapered eastern mountain polygon with peak 180. No broad flat hill plateau is used for the eastern spurs. The mountain footprint and all elevations are **our interpretation**, not surveyed canon. The image supplies broad massing only (MAP-CANAAT-001/DES-CANAAT-003).
-
-All 58 site centres/radii, the coastline, lakes, rivers, roads, gameplay masks and the post-Kijin snapshot are retained. The Ameld headwater marker stays at the southern foot outside the mountain polygon. Exact entrance bearings and valley positions remain interpretations. Road profiles and underground reservations are verified against the new staging output in [review](review.md).
-
-The [Empire follow-up](../docs/research/tensura-world-2026-11-19/eastern-empire-followup.md) keeps Silberia as an unlocated research gap. Wiki political membership is not a geographical coordinate or a reliable S1E10 survival date. The publisher confirms guide 13.5 includes the lakeshore story, but its trial did not load. No unread passage, unnamed city grid or present-day Namrium/Ulmeria capital is invented. Eastern settlement and interior coverage remains incomplete.
-
-## Filtwood and Orbic — round 10 source correction
-
-[New source/constraint diagram](southern-location-study.png) separates the active Filtwood U anchor from an illustrative Jura-edge alternative, and the depleted Orc homeland from the Siss battlefield. C20 corrects the unsupported Ulgracia-town claim: official episode 24 names a kingdom in a pre-Rimuru story; wiki supplies only Jura proximity. The exact side of Jura remains unknown. All trial coordinates and the Orbic vicinity outline are **our interpretation**. Neither alternative is active terrain or a new sovereign region. Detailed evidence and era limits are in [the study](southern-location-study.md).
-
-All live terrain and registered sites remain unchanged in this round; only the disputed Filtwood label and inert comment are added. Do not relocate the production anchor without reconciling its required U binding, or use the homeland study as a source-confirmed capital plan.
-
-## Biome scope and anime locators — round 11
-
-C10 retains the brief's red accent while reducing its unverified authored extent by69.8%. A no-red alternative is drawn in an inert SVG comment rather than silently breaking the brief. All58 sites/radii, coasts, relief, waters, roads and gameplay masks remain fixed. Exact soil/biome choices are **our interpretation**; this revision does not assert that absent evidence proves a particular canonical ecosystem.
-
-The [episode-locator audit](../docs/research/tensura-world-2026-11-19/anime-episode-locators.csv) checks every distinct official still-route used in this region book. Recap/special entries mean the route number can differ from the displayed episode. Labels now match the official header: no28=episode26, no30=28, no42=39 and no48=45. Generic still links are explicitly contextual leads, not proof of each region's terrain. This corrects overconfident image attribution without inventing timestamps or exterior views.
-
-## Rounded river bends — round 13
-
-The two Great Ameld reaches, Tempest's upper brook, the Jura–Sarion river and the western trade river now have rounded bends instead of long sharp joins. The [plan measurements](river-centreline-review.csv) compare the authored lines with commit9c71909. Maximum deviation is14.17 blocks; every former control point and endpoint, source/mouth level and width is retained. No new river, valley, lake, story location or country border is inferred.
-
-These exact channels remain **our interpretation** under the existing C03 continuity limits. The interpolated vertices improve the physical drawing, rather than claim a surveyed canonical meander. The Raja stream, Ulgr spring and Laura waterfall are unchanged. All58 site centres/radii, coasts, relief, biomes and region masks are retained. One western trail approach gains a waypoint within20 blocks of its old line, keeping all former route points/endpoints and correcting an exported climb overshoot (DES-ROAD-013); final water/bridge/site checks are recorded in [review](review.md).
-
-## Sarion proportion refinement — round 14
-
-Round 14 moves Elmine from (-1100,1800) to (-1680,1740), retaining its 100-block radius and all fixed relations. Relative to the pinned fan marker pattern, its Siss-normalized distance discrepancy improves from -13.0% to -0.3% and bearing discrepancy from -17.5 to -4.9 degrees. Unknown projection and marker precision limit this comparison: exact server coordinates remain our interpretation. The pond follows the city (-580,-60); the hill shifts (-480,-60) to remain on the existing coast. Three trails approach the north edge and skirt the pond. The other 57 site centres/radii, coast, rivers, mountains, forests, biomes and gameplay regions remain unchanged from a2748f3.
-
-Validation: all 56 relations pass, no checker errors and the same two disclosed warnings. Fresh normal export: 54.6 seconds, no converter warnings; all 21 actual road grades <=0.5 (floating-point tolerance), longest bridge 40 blocks. Elmine is dry over all 1,976 sampled footprint pixels. No terrain apply or in-game validation.
-
-## Coleus official-source placement correction — round 15
-
-Round 15 corrects Coleus using the directly read official anime outline: the independent kingdom lies between Ingrassia and Lubelius. Its authored centre moves from(-3650,-250) to(-3520,-860), retaining radius73, V membership and all fixed relations. The dunes move(+130,-610); the oasis moves(-175,-610), keeping water separate from the city and river. One caravan trail skirts the pond on its north side. The other57 site centres/radii, coasts, rivers, mountains, hills, forests and gameplay masks remain unchanged from147ea7e. Exact city position, shore/level and trail bends remain our interpretation; countries lying between others does not survey their capitals.
-
-The official INEI concept board shows the palace hill, lower town and oasis setting. Existing blueprints/coleus.py already builds an original sandstone hill and approach, so no duplicate hill terrain is added. The concept is later OVA design evidence, not a measured plan or S1E10 building-state guarantee. Country sovereignty is independent; gameplay V is only its existing terrain binding. No invented sovereign border is drawn. [Source/fit review](../docs/research/tensura-world-2026-11-19/coleus-placement-review.md).
-
-## Old Dragon City southeastern proportion correction — round 16
-
-Round 16 moves the old Forgotten Dragon City from(2500,150) to(2650,800), retaining radius100, M membership and all fixed relations. This follows the official illustration's broad southeastern pattern and the wiki territory relationship south of Jura/east of Eurazania. The pinned secondary marker distance discrepancy improves from-9.8% to-0.3% and bearing discrepancy from-13.3 to+0.1 degrees; projection and precision remain unknown. Exact city coordinates and two rerouted approach trails are our interpretation. All other57 site centres/radii and every coast, lake, river, mountain, hill, forest, biome and gameplay polygon remain unchanged frome129131. This is the old settlement, not the later city/castle built at Laura.
-
-WIK-FDC-001 is wiki-level territorial evidence; DES-FDC-001 records exact authored geometry. No LN or manga story page was read for the bearing. The licensed Trinity chapter25 listing is a research lead, not a read chapter. Earlier server red-biome liberty and the initial-era building/roster qualifications remain. [Proportion audit](proportion-audit.csv).
-
-## Eurazania cultivation reservation — round 17
-
-Eurazania now has a sparse-jungle transition and three separated open field reservations within its existing southern woodland. This follows the official guide's warm climate/fruit-orchard premise (OFF-008); exact cultivation extent, vegetation species and polygon boundaries are our interpretation (DES-EUR-017). The overlays reserve a more open setting rather than automatically planting fruit crops. All58 site centres/radii and all 21 road profiles are retained; the complete height/water PNGs are byte-identical to5afa13d's staged build. No coast, river, relief, forest boundary or gameplay mask changes.
-
-The outer authored area is about523300 square blocks; separated field areas about65016/57796/44617, overlapping the fringe. The source supplies neither parcel locations nor ecosystem percentages. Existing Laura blueprint orchard details are reusable design work, but its later Tempest banners and post-destruction reconstruction are not the selected initial era. Current samples: (1560,1950) sparse jungle; (1350,1850)/(1610,2200)/(1310,2250) plains; (950,2100) retained jungle. These are server raster readings. No crop placement or in-game result is claimed.
-
-## Tengu source/proposal comparison — round20
-
-Round20 comparison note: the official map and current preview were reinspected. The Tengu review changes only an inert proposal comment,160 blocks north to an existing Khusha ridge; all active geography and 58 markers remain identical. The official episode64 synopsis independently confirms Khusha residence and a later proposed tunnel. [The original terrace study](tengu-settlement-study.md) uses limited official stills and clearly authored buildings/paths. It does not add a new sovereign border, a completed later tunnel, a WN dimensional gateway or a pink forest biome. Existing continental scale/binding differences remain open; no new deliberate terrain difference is introduced.
-
-## Eastern forest edges — round22
-
-Three eastern forest boundaries now use restrained broad bays/lobes rather than smooth oval/ribbon edges. All sites, water, relief, roads, gameplay masks and nine other forests remain unchanged. The official base illustration, first painted study and new checker/terrain previews were compared; precise woodland boundaries are still our interpretation. [Before/after measurements and deliberate differences](forest-edge-review.md). No new sovereign border, canonical acreage or climate zone is inferred.
-
-## Frost Palace continuity/placement difference — round28
-
-Historical R28 coastal reserve and near-centroid sketch are superseded by Yasuke’s R109 inland decision. The active drawing uses the reviewed central snowfield at(-1530,-3680),kind clearing,r89; generated staging supplies the matching registration. WN78 supports the central relationship; LN agreement,whole-palace design and runtime acceptance remain open. [Current decision and checks](frost-palace-inland-r109.md) · [historical source study](frost-palace-source-review.md).
-
-## Orbic depleted ground — round31
-
-[Source/terrain review](orbic-terrain-review.md) adds one rounded barren habitat patch south of Jura and north of the main Eurazania/Fulbrosia settlements, distinct from orc_camp. Public LN2 supports exhausted land/famine; broad bearings remain wiki-backed. Exact239623-block² extent and tensura:barren_land selection are our interpretation, not sovereign borders, a canonical biome name, a complete kingdom or a capital. About141942 blocks² is trimmed from one overlapping jungle edge; other11 forests,all 58 sites/21 roads,height/water and gameplay masks remain unchanged. Every changed raster biome cell lies within the patch. The official map does not survey this boundary; checker/terrain previews and fresh atlas were visually compared with it. Existing continental distortions remain disclosed. Earlier three painted reviews predate this small vegetation change. No rift,tribal villages,later restoration or runtime acceptance is inferred.
-
-## Ice Continent shoreline — round 32
-
-[Source and measured review](ice-coast-review.md) replaces three parts of the rounded coastal envelope with limited irregular inlets after visual comparison with the official illustrated map. Exact bays and vertices are our interpretation, not surveyed canon. About94.02% of prior island area remains; maximum displacement208 blocks. The I gameplay mask and permafrost edge follow the coast. Frost Palace and its southern shore segment remain fixed, as do all 58 site attributes and the916.98-block mainland strait. C22 remains unresolved; the inert inland proposal is still near the authored centroid. All mainland/El Dorado geography and21 roads remain unchanged. The fresh atlas/checker preview and before/after study were inspected; earlier paintings predate this coast and the Orbic habitat change. No new fjord name, port, island, structure or resident is inferred.
-
-## Imperial illustrated basin — round35
-
-The [official base illustration](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) shows an unnamed lake-like basin east/southeast of the Imperial cone (MAP-IMP-035,canon-implied visual reading). The new modest inland lake is **our interpretation**:28 original shore vertices,355×122 blocks,level68,depth5. No named lake,Silberia association,outlet or capital is inferred; initial-era water state is not directly dated. C05's fixed volcano bearing remains unresolved. All58 reservations/21 road profiles and all other active geography are retained. [Source limits, previews and local export audit](imperial-basin-review.md).
-
-## Treant community and server grove — round36
-
-The wiki describes a separate isolated treant settlement in Jura (WIK-TRE-036,fan-wiki,indexed subsection read; direct page402). Its precise initial location/extent remains unknown. The `treyni_grove` mod landmark is one authored natural-tree adaptation,not a surveyed community or proof of complete village coverage. [Source distinction and new inventory obligation](../docs/research/tensura-world-2026-11-19/treant-settlement-source-review.md). No live SVG geometry or58-ID contract is changed; a new settlement pin is not invented.
-
-## Country pins and old Dragon City temple — round37
-
-The official Johann profile establishes the Kingdom of Rostia (OFF-ROS-037); the wiki western-state list names the Kingdom of Ghastone (WIK-GHA-037). Current A/G gameplay pins are authored positions,not proof of Raja/Englassia sovereignty or surveyed capitals. No unsupported national outline is drawn. The official Middray profile directly establishes a temple in the old Dragon City (OFF-FDC-037),not the project's giant bones,pyramid or precise layout. [Evidence and limits](../docs/research/tensura-world-2026-11-19/final-place-source-review.md). Sainte's new concept illustrates only the existing C14 coastal proposal. Terrain/58-ID geometry remains unchanged; the atlas legend clarifies two country pins.
-
-## Current painting review — round38
-
-[PR102](https://github.com/Yasuke2000/ocs-two-lives/pull/102) refreshes original pictorial texture against the current source,with exact native coast/water/road geometry and the Orbic highlight. No illustration finding justifies new active terrain; the current SVG and exports are retained. Pictorial mountains,forest edges,bank shading and snow do not supersede these authored landform/biome specifications. Fixed/source/era/coverage/fit/runtime limits remain unchanged. The separately tracked terrain-preview copy now equals the existing current normal export byte for byte.
-
-## Long Wall proposal correction — round40
-
-The [revised inert corridor](long-wall-corridor-review.md) follows the existing authored Desert of Death boundary toward Coleus/Lubelius. The earlier route cut through the desert interior. Exact endpoints,width,wall design and a gate at the existing caravan trail remain **our interpretation**. No active coast,biome,region,road or site changes. Official map and current checker preview were visually compared; no new licensed coastline or surveyed national boundary is inferred. Source-comment hash changes only; current terrain/painted registration remains valid. C15/full source/era/structure-fit/runtime obligations remain open.
-
-## Geographical atlas labels and index — round41
-
-The [atlas/index review](location-index-review.md) adds broad readable names to existing terrain contexts,not surveyed country boundaries. Fifteen labels sit inside existing gameplay contexts; Ulgracia uses a sea-side name callout ending inside U. The separate list retains32 missing/partial/unverified representations,with all129 inventory names linked in the full index. Text placement is **our interpretation**. No active geography,source claim,site/road,terrain export or early political state changes. Existing deliberate differences and missing-place obligations remain.
-
-## Northwestern headland — round42
-
-The [official-image silhouette review](western-cape-review.md) adds an original broad western projection and recessed bay. Exact shore,new barren habitat and V assignment are **our interpretation**. All earlier waters,relief,forests,21 routes and 58 site attributes retain their geometry; existing sites retain their sampled ground levels. Mainland9989x6250 and design12800x10752 remain below hard limits but differ from preferred targets; C12 remains. The current terrain atlas is reprojected; PR102's R38 painting predates this headland and needs refresh. No new named port,capital,wall extension or measured political border is inferred.
-
-## Current painted headland review — round43
-
-The [current painted atlas](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/current-painted-map-r38/world/painting-round43/README.md) now includes the original northwestern cape texture inside the current native source shore. Coast/water/road vectors and all 58 marker projections remain source-derived. Sixteen orientation labels and32 open coverage names are retained. Exact bare-ground brushwork and text layout are **our interpretation**; existing source/binding/scale/era distinctions remain. No new source geometry correction was justified after visual comparison with the checker/terrain guides and official reference. Production source7d021766 and staging exports are retained.
-
-## Shared coast and gameplay boundaries — round49
-
-The [shared-curve review](shared-curve-review.md) replaces independent outlines with common arcs,closing native sampled mask seams without changing country identities,58 site tuples or road/water geometry. Exact curves and minor shore changes are **our interpretation / DES-CUR-049**,not new canonical coast/border evidence. Mainland120 nodes; all outlines at most120,with eight simple masks below preferred20. Native maximum shore displacement15.959 blocks; eastern woodland0.499. The9989×6250 mainland and12800×10752 box remain. Derived terrain/12 water-cell/road-height changes are disclosed in the review. Updated terrain atlas/preview govern; R43 painting is historical until its native masks are refreshed. All existing canon/fixed-rule/era/binding differences remain; no runtime application is claimed.
-
-
-## Round51: Dwargon approach and city-scope follow-up
-
-Direct WN13/14 records in the [source review](../docs/research/tensura-world-2026-11-19/dwargon-source-review-r51.md) strengthen the open foothill/cavern distinction and ordinary gate-door context. These do not locate East or West city. The [offline study](dwargon-approach-study.md) identifies the current road/template height mismatch; all3179 roof columns satisfy six-block cover, which does not verify the join. A graded native approach is still required before local acceptance. Exact ramp/pasture geometry remains our interpretation. Production source and reference-scale departures above remain unchanged.
-
-
-## Round52: interpreted Dwargon foothill and forecourt correction
-
-DES-DWG-052 adds one peak146 dome and one top146 rolling shoulder;exact outlines/elevations are our interpretation for the fixed base142 city blueprint. WN13-006 and WN13-008 support open foothill/cavern context,not numerical ramp dimensions. The [current measured join](dwargon-approach-fix.md) now reaches first-air146 from both main and village roads;all sampled width strips match. Water,other57 site discs,all 58 anchor records and roof samples remain. The known mainland proportions and country positions are unchanged. R51 above records the previous mismatch;actual placement/repairs/walkability and early-era gating remain unverified.
-
-## Northern island: unassigned identity, F gameplay coverage — round 77
-
-The official illustration visibly includes a detached island in the northern inland sea. [R77 source/terrain review](northern-island-review.md) records the original shore and rolling hill. Exact outline, dimensions, position, height and default grassland are our interpretation. The matching F polygon is only the required generator coverage, not proof of Falmuth sovereignty; no mainland national border changes. No named place or settlement is inferred, and S1E10 conditions remain undated. Current fourth-coast terrain supersedes historical three-landmass counts; R69 painting still needs integration.
-
-## El Dorado illustrated inland water — round 80
-
-The [R80 visual/source and export review](el-dorado-lake-review.md) adds the water cue missing from the earlier source. Exact outline, 274×138-block scale, water first-air 68, depth 5 and closed drainage are our interpretation; the official illustration supplies no lake name, outlet or dated S1E10 condition. The shore stays inland and clear of all reserved sites/roads. Existing coasts, regions and every other source feature remain unchanged. The current terrain atlas is refreshed; R78 painting still needs lake integration.
-
-## Unnamed western illustrated basin — round104
-
-[Source/terrain review](western-basin-r104.md) restores a distinct broad western
-lake-like water cue and southwest course from the official illustration. Exact
-553×230 shore geometry,level68/depth5,8-block outlet and location are **our
-interpretation**,not a named/surveyed LN lake. It remains separate from Raja and
-the WN royal lake. All prior58 sites/22 roads and source elements retained;
-normal sites/roads exports byte-identical. No national boundary or initial-era
-city inferred. Ledger310,inventory140/42. R100 painting predates this addition.
-
-## Southeastern water and woodland — round106
-
-[Source/terrain review](southeastern-water-wood-r106.md) restores the small
-illustrated southeastern water and isolated woodland to its north/northwest.
-Exact36/66-vertex outlines,positions,scale,level68/depth4 and light tree choice
-are **our interpretation**. No name,outlet,capital or sovereign boundary is
-inferred. All previous XML,58 site reservations and22 roads retained.312 ledger,
-142 inventory/42 follow-ups; R105 painting needs alignment to these additions.
-
-
-## Collective lake banks andsource-head contacts — R115
-
-[Report andfour-block limits](lake-banks-r115.md) verifies dry-bank freeboard>=2,positive wet-bed depth,8 exact-boundary dry samples andall8 designed river–lake contacts across13 lakes. Only the Ulgr/Laura first vertices move2/6blocks north,remaining outside their lakes but within the wet channel widths. Exact coordinates,levels andshores remain our interpretation;no new canonical geography or initial water state is claimed. Allother active source attributes andthe R114 biome mix remain.
+## Deliberate differences and open source questions
+
+| Topic | Current treatment |
+| --- | --- |
+| Scale and projections (C12) | Fixed site distances, template reservations and the unknown illustrated projection prevent a claim of one exact canonical scale. Compare the [current native/reference links](comparison.md) and [proportion study](proportion-audit.md). Shores remain original interpretations. |
+| Owner corrections | Fulbrosia lies south of Jura, Ulgracia south of Sarion, and Frost Palace occupies its approved inland snowfield. The five specifically approved relation changes remain the only technical-rule exception; no new rule is edited. |
+| Contract versus canon | Read the [contradictions](../docs/research/tensura-world-2026-11-19/contradictions.md) and inert SVG alternatives for the Imperial mountain bearing, Amrita’s below-castle relation versus eastern reserve, Sainte’s coastal setting, Filtwood’s binding and other fixed-contract differences. Do not silently treat a gameplay mask or reserved entrance as surveyed canon. |
+| Initial roads and future capacity (C18) | The fixed source contract retains mandatory main-road corridors and representative city capacity. Their presence does not assert that Tempest’s later paved highways or developed capital already exist at S1E10. The inert early-trail alternative and runtime gating remain Claude’s integration work. |
+| Water style (C23) | The Ulgr interface is now 92→91. Laura’s unchanged 154→137 head transition remains a 17-block style/fluid review, separately source-qualified as mountain-waterfall context. The diagnostic’s ordinary two-block threshold is not an owner-set exact waterfall cap. All 13 finite lake bank/depth/contact checks pass; final fluid columns/noise remain separate. |
+| Biomes and climate (C10) | Jungle saturation, Minecraft habitat shares and the retained small red badlands crescent are authored/server choices, not proof of canonical climate. Source roles and the inert no-red alternative remain explicit. |
+| Missing or partial places | The [location inventory](location-index.md) has 142 entries and 42 physical follow-ups, including unlocated capitals, minor countries and city interiors. It is not a claim that the entire wiki was read or that 58 markers represent 58 complete cities. Keep source-backed proposals distinct from registered terrain and put unresolved lore/contract choices in the PR. |
+
+All technical conversion, live structure placement, final-noise/fluid acceptance and deployment belong to Claude’s handoff. This creative guide does not claim those tasks complete.

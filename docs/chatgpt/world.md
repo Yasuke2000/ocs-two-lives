@@ -2,6 +2,8 @@
 
 > **Selected initial era:** immediately after Kijin naming, S1E10. [Era policy](../../world/era.md) and [targeted brief corrections](../research/tensura-world-2026-11-19/era-brief-review-r121.md) take precedence over later events, faction titles and imported-world audit descriptions below.
 
+> **Small western states:** the Council-map order is a community-reported lead, not an independently authenticated anime frame. The river belt, birch identity, industries and imported adjacency table below are project interpretations. Use the [current evidence review](../research/tensura-world-2026-11-19/western-country-evidence.md) before treating them as canon.
+
 > Ghastone and Rostia are kingdom identities, not verified Englassia/Raja towns. Their G/A bindings and imported coordinates below are historical gameplay records. Current authored pins do not locate capitals or country boundaries. [R96 source review](../../world/western-country-identity-r96.md).
 
 > **Read this first.** Every coordinate in this file comes from **Lerfing's imported map** (*Tensura by Lerfing*, the

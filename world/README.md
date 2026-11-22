@@ -1,6 +1,10 @@
+## R130 — Current source and readable region guide
+
+[Ulgr water/guide reconciliation](ulgr-spring-level-r130.md) lowers the authored spring/head102→92;the unchanged river91 now meets it by1block. Source ade50210; all58 site records/heights andall22 road profiles retained. All13 lake cases pass;head diagnostic7/8 ordinary interfaces (Laura17 still open). The [current regional guide](regions.md) retains22 narratives/69 image links anduses the byte-identical R128 biome census;stale palace/El Dorado prose corrected. [Whole-deliverable review](../docs/research/tensura-world-2026-11-19/delivery-review-r130.md). R129 illustration adopted for unchanged plan geometry,not relabelled as new height reconstruction. Ledger333;inventory142/42.
+
 ## R128 — Current native western ice arm
 
-[Ice shore review](ice-west-arm-r128.md) replaces the broad northwest shoulder with original lower-arm curves. Source8c41e924; all58 sites,normal heights and22 routes retained. Checker0errors/56relations/2standing warnings;normal67.6s;all13fresh lake audits pass. The approved inland palace and R127 art-registration values remain. [R129 painting](painting-round112/README.md) now supplies actual ice-shore alignment. Ledger332;inventory142/42.
+[Ice shore review](ice-west-arm-r128.md) replaces the broad northwest shoulder with original lower-arm curves. Source8c41e924; all58 sites,normal heights and22 routes retained. Checker0errors/56relations/2standing warnings;normal67.6s;all13fresh lake audits pass. The approved inland palace and R127 art-registration values remain. R126 painting requires a real ice-coast follow-up. Ledger332;inventory142/42.
 
 ## R125 — Current native island coast
 

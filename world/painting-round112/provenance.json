@@ -1,17 +1,15 @@
 {
-  "round": 129,
-  "source_sha256": "8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b",
-  "map_commit": "b053e13b4fdd98eab5a804ea704cc59105df4e1e",
-  "native_basis_commit": "c2b326c33f6d9466e6fd145b1a65d7fcbf0fdc04",
-  "native_basis": "Original R126 native composition and its unedited rendered PNG;all original native child trees retained.",
-  "owned_baseline_PNG_sha256": "4eb40341530f5c80e476a534a5359028692428dff83821123262731812e9adb1",
-  "historical_component_metadata_retained": true,
-  "new_native_geometry": "Exact R128 western ice shore,owned local ocean/snow wash and original snow-brush variation;masked unchanged ice interior.",
+  "source_sha256": "0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e",
+  "map_commit": "97716c0",
+  "native_basis_commit": "2aa27e5a18ee7868b69e835c503d1b3b2d253c35",
+  "native_basis": "Original R129 composition;all previous native child trees and historical component metadata retained.",
+  "owned_baseline_PNG_sha256": "bc51a9278d6d9c89625b9b8d33fc83a0e4c38a2ed940fd4335deed39b4b67682",
+  "new_native_geometry": "Exact authored Coleus dune footprint;original northwest sand light and southeast shade,clipped to that footprint.",
   "new_AI_images": 0,
   "raw_raster_editing": false,
   "copyrighted_reference_pixels_embedded": false,
   "PNG_method": "Chrome native SVG render",
   "global_relief_resampled": false,
   "runtime_applied": false,
-  "visual_iteration": "Stronger repeated snow texture rejected;final softer wash visually inspected."
+  "vertical_limit": "This illustration is not an exact height reconstruction;R130 pond height is adopted as plan context and the dune has interpretive light/shade."
 }

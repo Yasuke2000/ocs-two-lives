@@ -47,7 +47,7 @@ Round45 directly reads WN42 for the immobile treant community (WN42-001). Its po
 
 | C22 | WN78 places White Ice Palace centrally on the frozen continent; LN6 interlude/LN16 epilogue remain unread. Historical world/sites.toml coast contract predates the owner choice. | **Owner choice resolved R109:** Yasuke chose inland placement and adjustment of coastal registration. Active SVG: central snowfield(-1530,-3680),clearing,r89; exact generated staging table accompanies it. Existing entrance buffer8585columns is level71; no complete palace or runtime acceptance claim. Claude integrates the generated registration and preparation. LN agreement,initial architecture and access remain open. [Current review](../../../world/frost-palace-inland-r109.md). |
 
-| C23 | Small-fall intent versus larger exported head transitions; the two-block diagnostic is not an owner cap. | R119 repairs the Ulgr route formerly 305 blocks offshore: 578 blocks now remain inland, with spring 102 meeting river 91 (11-block difference instead of 37). Laura remains 154→137 (17). All 13 lake cases pass their finite audit. The route error is corrected; waterfall-character and actual fluid-placement review stay open. No canonical numeric height or automatic violation is inferred. [Current evidence](../../../world/ulgr-brook-r119.md). |
+| C23 | The brief asks for flat reaches and small falls; an initial export compressed the Ulgr and Laura lake-head descent. The ordinary two-block diagnostic is not an owner-set exact waterfall cap. | [R130](../../../world/ulgr-spring-level-r130.md) lowers the authored Ulgr spring/head102→92 while retaining its inland course; adjacent river91 gives a1-block interface. All13 lake cases and202 wet route samples pass finite checks. Laura154→137 remains17blocks and needs a source/style andactual fluid-column review. No tool implementation orruntime acceptance is claimed. |
 
 ## Review status
 
@@ -150,3 +150,9 @@ The [western peninsula](../../../world/western-peninsula-r97.md) now reaches bey
 ## R99 Tengu terrain and C15
 
 The [authored ridge glade](../../../world/tengu-glade-r99.md) supplies partial biome context only. The surface-path trial fails registered-site endpoint checks at both ends and remains an inactive source comment. Its natural grade also needs design. No tool/site exception, tunnel, WN gate, village buildings or initial roster is inferred; registration and full settlement coverage remain open.
+
+## C12 follow-up: relative island size
+
+The [island proportion study](../../../world/island-proportion-review.md) distinguishes previous coast-shape improvements from relative island scale. Active Ice/El Dorado widths are25.22%/24.04% of the mainland; broad official-image readings are about40–43%/31–34%, with unknown projection. An original coast-only alternative is drawn inside an SVG comment. Its13,312×12,288 sea-margin box exceeds the11,264 hard height limit by1,024 blocks. Keep current server-size geometry active; the trial exposes a reviewable conflict, not surveyed canon dimensions or proof that all rearrangements fail. No internal layer, site or era state is moved.
+
+**C12 trial-B follow-up:** westward shifts permit the same larger original island proportions inside a13,824×11,264 sea-margin box, with927.76/961.91blocks nearest mainland sea. The initial trial’s height overrun is not a universal impossibility. See the linked study’s trial-B section. Active smaller islands remain because recommended island dimensions and complete layout fidelity are separate unresolved requirements; no tools rule or terrain is changed.

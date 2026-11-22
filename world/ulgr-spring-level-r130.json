@@ -1,0 +1,325 @@
+{
+  "round": 130,
+  "source_sha256": "ade502105956db450831e0991b2f10e6b29f8b73a1827f1d0184299c505917bb",
+  "baseline_source_sha256": "8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b",
+  "changed_native_attributes": [
+    {
+      "id": "ulgr-spring",
+      "fields": [
+        "data-level"
+      ]
+    },
+    {
+      "id": "ulgr-spring-brook",
+      "fields": [
+        "data-head"
+      ]
+    }
+  ],
+  "all_plan_vertices_and_other_attributes_retained": true,
+  "all58_site_records_and_heights_unchanged": true,
+  "spring_water_first_air_before": 102,
+  "spring_water_first_air_after": 92,
+  "spring_depth_retained": 4,
+  "river_reaches_byte_identical_in_index": true,
+  "head_transition_before": 11,
+  "head_transition_after": 1,
+  "normal_seconds": 67.5,
+  "rasters": {
+    "height": {
+      "changed_cells": 693,
+      "maximum_delta_blocks": 10.0,
+      "changed_sample_bounds": [
+        -850.0,
+        2910.0,
+        -746.0,
+        3058.0
+      ]
+    },
+    "rugged": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "water": {
+      "changed_cells": 509,
+      "maximum_delta": 10.0
+    },
+    "biome": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "road": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "sites": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    },
+    "exclude": {
+      "changed_cells": 0,
+      "maximum_delta": 0.0
+    }
+  },
+  "changed_height_samples_inside_registered_discs": {},
+  "normal_byte_identical_files": [
+    "biome.png",
+    "road.png",
+    "sites.png",
+    "exclude.png",
+    "sites.json",
+    "roads.json",
+    "sites.toml",
+    "anchors.toml"
+  ],
+  "biome_census_adoption": "R128 biome PNG andnative region geometry are byte-exact;all22 existing percentages remain applicable without duplicate census outputs.",
+  "bank_review": {
+    "dry_samples": 175,
+    "minimum_freeboard_before": 1.0625,
+    "maximum_freeboard_before": 10.0,
+    "minimum_freeboard_after": 1.0625,
+    "maximum_freeboard_after": 20.0,
+    "scope": "Finite existing dry bank centres within8blocks,including the designed outlet corridor. Ordinary-bank admissibility is checked separately by the all13-lake audit. Lower water leaves a steeper wooded bowl;not a survey or runtime/noise guarantee."
+  },
+  "road_grade_profiles": [
+    {
+      "id": "tempest_dwargon",
+      "samples": 458,
+      "maximum_grade": 0.5000000000000085,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "tempest_blumund",
+      "samples": 401,
+      "maximum_grade": 0.4145593141157564,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "blumund_englassia_lubelius",
+      "samples": 628,
+      "maximum_grade": 0.5,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "dwargon_dwarf_village",
+      "samples": 76,
+      "maximum_grade": 0.5000000000000114,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "sacred_mountain_trail",
+      "samples": 74,
+      "maximum_grade": 0.5000000000000455,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "treyni_marsh_trail",
+      "samples": 351,
+      "maximum_grade": 0.38179387307052826,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "siss_cavern_and_orc_trail",
+      "samples": 213,
+      "maximum_grade": 0.5000000000000114,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "ogre_foothill_trail",
+      "samples": 123,
+      "maximum_grade": 0.5000000000000008,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "canaat_high_pass",
+      "samples": 207,
+      "maximum_grade": 0.5000000000000171,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "falmuth_road",
+      "samples": 423,
+      "maximum_grade": 0.07925304884756149,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "western_belt_road",
+      "samples": 698,
+      "maximum_grade": 0.17164391531122264,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "western_desert_caravan",
+      "samples": 500,
+      "maximum_grade": 0.3825000000000003,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "fulbrosia_stair",
+      "samples": 899,
+      "maximum_grade": 0.5000000000000199,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "southern_royal_road",
+      "samples": 713,
+      "maximum_grade": 0.5000000000000171,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "ulgracia_south_road",
+      "samples": 495,
+      "maximum_grade": 0.5000000000000114,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "eurazania_road",
+      "samples": 346,
+      "maximum_grade": 0.5000000000000114,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "milim_river_road",
+      "samples": 235,
+      "maximum_grade": 0.4900000000000187,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "jistav_border_road",
+      "samples": 500,
+      "maximum_grade": 0.42950039375451965,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "imperial_volcano_road",
+      "samples": 324,
+      "maximum_grade": 0.5000000000000455,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "el_dorado_volcanic_way",
+      "samples": 106,
+      "maximum_grade": 0.5000000000000455,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "frost_palace_forecourt",
+      "samples": 21,
+      "maximum_grade": 0,
+      "vertical_duplicate_segments": 0
+    },
+    {
+      "id": "englassia_coleus_royal_approach",
+      "samples": 264,
+      "maximum_grade": 0.5,
+      "vertical_duplicate_segments": 0
+    }
+  ],
+  "lake_head_diagnostic": {
+    "passing": 7,
+    "interfaces": 8,
+    "remaining_flag": "Laura17",
+    "scope": "2block ordinary-step diagnostic is not an owner-set waterfall-height cap."
+  },
+  "ulgr_connectivity": {
+    "source_sha256": "ade502105956db450831e0991b2f10e6b29f8b73a1827f1d0184299c505917bb",
+    "river_wet_sample_centres": 202,
+    "connected_to_spring": 202,
+    "nearest_level63_river_cell_shore_distance": 5.163168602304663,
+    "sampled_river_levels": [
+      63,
+      65,
+      67,
+      69,
+      71,
+      73,
+      75,
+      77,
+      79,
+      81,
+      83,
+      85,
+      87,
+      89,
+      91
+    ],
+    "mouth_continuation": [
+      {
+        "distance": -12,
+        "cell_x": -1310.0,
+        "cell_z": 2838.0,
+        "first_air": 59.25,
+        "explicit_water_first_air": 63
+      },
+      {
+        "distance": -8,
+        "cell_x": -1314.0,
+        "cell_z": 2838.0,
+        "first_air": 61.8125,
+        "explicit_water_first_air": null
+      },
+      {
+        "distance": -4,
+        "cell_x": -1314.0,
+        "cell_z": 2834.0,
+        "first_air": 61.875,
+        "explicit_water_first_air": null
+      },
+      {
+        "distance": 0,
+        "cell_x": -1318.0,
+        "cell_z": 2830.0,
+        "first_air": 61.5625,
+        "explicit_water_first_air": null
+      },
+      {
+        "distance": 4,
+        "cell_x": -1322.0,
+        "cell_z": 2830.0,
+        "first_air": 61.1875,
+        "explicit_water_first_air": null
+      },
+      {
+        "distance": 8,
+        "cell_x": -1326.0,
+        "cell_z": 2826.0,
+        "first_air": 60.875,
+        "explicit_water_first_air": null
+      },
+      {
+        "distance": 12,
+        "cell_x": -1326.0,
+        "cell_z": 2822.0,
+        "first_air": 60.9375,
+        "explicit_water_first_air": null
+      }
+    ],
+    "limits": "Finite native/raster evidence. No final-noise, actual fluid column or in-game acceptance."
+  },
+  "limits": "Authored water-height choice,not canonical spring altitude. No tool implementation,runtime fluids or in-game acceptance.",
+  "biome_census_adoption_proof": {
+    "source_round": 128,
+    "census_source_sha256": "8c41e92478fc1c63b2dab7fe55c024a27be4eae0869647807822184bf7eea53b",
+    "biome_png_sha256": "6dd426879552daaec2c06fdea675ae9e7d4c2bbea47f30fbb0f1498818268bb5",
+    "all_region_nodes_byte_equal": true
+  },
+  "atlas": {
+    "embedded_current_normal_preview_exact": true,
+    "all_nonimage_nodes_retained": true,
+    "numbers": 58,
+    "context_names": 20,
+    "association_caption_lines": 3,
+    "inventory_rows": 42,
+    "label_overlap": false,
+    "minimum_number_spacing_px": 31.621008835113628
+  },
+  "required_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.094,
+    "validation": "pass",
+    "changed_js": 0
+  }
+}

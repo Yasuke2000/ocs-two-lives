@@ -1,11 +1,12 @@
-"""Read-only R119 Ulgr river connectivity and coast-transition measurement.
+"""Read-only Ulgr river connectivity and coast-transition measurement.
 
-Run python -B world/ulgr_brook_connectivity.py after matching normal staging.
+Run python -B world/ulgr_brook_connectivity.py --round 130 after matching current staging.
+The default119 profile remains historical.
 Checks four-block water neighbours and containing-cell heights, not runtime fluids.
 """
 from pathlib import Path
 from collections import deque
-import hashlib,json,runpy,xml.etree.ElementTree as ET
+import hashlib,json,runpy,xml.etree.ElementTree as ET,argparse
 import numpy as np
 from PIL import Image
 import shapely
@@ -13,7 +14,9 @@ from shapely.geometry import Polygon,LineString
 ROOT=Path(__file__).resolve().parent.parent
 source=(ROOT/'world/map.svg').read_text(encoding='utf-8')
 sha=hashlib.sha256(source.encode()).hexdigest()
-assert sha=='4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89'
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--round',type=int,choices=(119,130),default=119);round_number=parser.parse_args().round
+pinned={119:'4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89',130:'ade502105956db450831e0991b2f10e6b29f8b73a1827f1d0184299c505917bb'}
+assert sha==pinned[round_number]
 index=json.loads((ROOT/'world/build/index.json').read_text())
 assert index['source_sha256']==sha
 root=ET.fromstring(source)
@@ -33,7 +36,8 @@ X=index['box']['x0']+(np.arange(i0,i1)+.5)*4
 Z=index['box']['z0']+(np.arange(j0,j1)+.5)*4
 q=shapely.points(X[None,:],Z[:,None]);w=W[j0:j1,i0:i1]
 cells=shapely.covers(route.buffer(3.000001),q)&(w>0)
-start=tuple(np.argwhere(shapely.covers(lake,q)&(w==166))[0])
+lake_water=int(byid['ulgr-spring'].get('data-level'))+64
+start=tuple(np.argwhere(shapely.covers(lake,q)&(w==lake_water))[0])
 seen=np.zeros(w.shape,bool);seen[start]=True;queue=deque([start])
 while queue:
     y,x=queue.popleft()

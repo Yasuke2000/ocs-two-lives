@@ -10,9 +10,9 @@ from PIL import Image
 from shapely.geometry import Polygon,Point
 ROOT=Path(__file__).resolve().parent.parent
 parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--round',type=int,choices=(115,119),default=115)
+parser.add_argument('--round',type=int,choices=(115,119,130),default=115)
 round_number=parser.parse_args().round
-pinned={115:'89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b',119:'4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89'}
+pinned={130: 'ade502105956db450831e0991b2f10e6b29f8b73a1827f1d0184299c505917bb', 115:'89b01c4c960b6347f680c50114debaa979c1a11c7bfd1f77b35c5268f03c847b',119:'4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89'}
 sha=hashlib.sha256((ROOT/'world/map.svg').read_text(encoding='utf-8').encode()).hexdigest()
 assert sha==pinned[round_number]
 index=json.loads((ROOT/'world/build/index.json').read_text(encoding='utf-8'))
@@ -53,7 +53,7 @@ for col,river in enumerate(['ulgr-spring-brook','laura-mountain-falls']):
     for height in range(low,high+1,10):
         px,py=xy(-40,height);svg.extend([f'<path d="M{ox},{py:.2f} H{ox+480}" stroke="#d4dbce"/>',f'<text x="{ox-8}" y="{py+5:.2f}" font-size="13" text-anchor="end">{height}</text>'])
     svg.extend([f'<polyline points="{" ".join(terrain)}" fill="none" stroke="#907148" stroke-width="2.5"/>',*water,f'<text x="{ox}" y="561" font-size="15">distance relative to current source head:−40 to+70 blocks</text>',f'<text x="{ox}" y="591" font-size="17">Lake {selected["lake_first_air"]};adjacent river {"/".join(map(str,selected["adjacent_river_first_airs"]))};difference {selected["maximum_level_difference"]}</text>'])
-svg.append('<text x="28" y="634" font-size="15">Bank/contact checks pass; the 2-block diagnostic flags two larger head transitions. Assess waterfall intent and fluid placement separately.</text></g></svg>')
+svg.append(f'<text x="28" y="634" font-size="15">Bank/contact checks pass; the 2-block diagnostic flags {report["interfaces"]-report["passing_interfaces"]} larger head transition(s). Assess waterfall intent and fluid placement separately.</text></g></svg>')
 (ROOT/f'world/river-head-profiles-r{round_number}.svg').write_text(''.join(svg),encoding='utf-8',newline='\n')
 print(json.dumps({'interfaces':8,'passing':report['passing_interfaces'],'failures':[v for v in rows if not v['small_step_pass']]}))
 sys.exit(0 if report['overall_pass'] else 1)

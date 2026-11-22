@@ -1,6 +1,10 @@
+## R130 — Whole-deliverable review finds water and prose defects
+
+[Review against the owner brief](delivery-review-r130.md) distinguishes direct evidence from open source/era/proportion work. [Ulgr study](../../../world/ulgr-spring-level-r130.md) lowers an authored spring/head102→92,retaining all plan vertices/site heights. Interface11→1;all13 lake cases pass;Laura17 remains open. All22 road profiles meet1:2 within floating-point tolerance. Current [regional guide](../../../world/regions.md) keeps22 narratives/69 image links while removing stale chronology andfixing palace/El Dorado/biome text. R128 census andR129 illustration are adopted within their scope;no duplicate geographic claim or image generation. Ledger333 (one new authored design record),inventory142/42.
+
 ## R128 — Original lower western ice arm
 
-[Coast/source review](../../../world/ice-west-arm-r128.md) adds one official visual cue andone explicitly authored geometry record;332unique ledger IDs. Source8c41e924. Overall bounds,ridge,islets,palace andall58 site values retained;normal67.6s. All13lake andfull22-region/106row census checks rerun. [R129 painting](../../../world/painting-round112/README.md) now follows this coast; prior art numerical registration remains applicable. Inventory142/42.
+[Coast/source review](../../../world/ice-west-arm-r128.md) adds one official visual cue andone explicitly authored geometry record;332unique ledger IDs. Source8c41e924. Overall bounds,ridge,islets,palace andall58 site values retained;normal67.6s. All13lake andfull22-region/106row census checks rerun. R126 painting requires ice-shore alignment;prior art numerical registration remains applicable. Inventory142/42.
 
 ## R125 — El Dorado silhouette and actual terrain
 
