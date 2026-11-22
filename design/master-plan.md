@@ -4,7 +4,7 @@ Nov 15, 2026 · @Yasuke
 
 > **Status 18/11/2026.** This is the original design of 15/11/2026 and it stays the statement of intent. Where the
 > build went another way, the values in the text were changed and the section carries a "Status 18/11/2026" note.
-> Why: `decisions.md`. What is done: `roadmap.md`. The data schema in force: `CLAUDE.md`. Work is planned in
+> Why: `decisions.md`. What is done: `roadmap.md`. The data schema in force: `docs/dev/data-schema.md`. Work is planned in
 > Sprints 1-4 (`roadmap.md`) instead of the Phases below.
 
 | Topic | Plan (15/11) | Now (18/11) |
