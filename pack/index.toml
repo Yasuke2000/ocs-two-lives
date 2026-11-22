@@ -2998,7 +2998,7 @@ hash = "ad55738a7566badce17d6cf63ece9f88834c51271029648c7b0e7548c6989885"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/karma/life1_status.js"
-hash = "17c1ef9dcfa0c5ef366cccf0c49a553d45a1b0c20fc7f1fcb82080af8c3be1e7"
+hash = "30a1582d0f14cbf64b9a5aa426a83bf39e3358b29c59d1bd70ea731cb19e2856"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/karma/tracking.js"

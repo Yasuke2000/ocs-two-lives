@@ -97,10 +97,11 @@ subs = [
 [life1]
 group = "life"
 who = "staff"
-does = "Life 1 status for staff and testers: jump a Life 1 soul to a karma tier to try what it unlocks. Logged and stamped on the soul."
+does = "Life 1 progression for staff and testers (op only, never a player command; every use logged, posted to the staff channel and stamped on the soul): jump a soul past the Life 1 gates to test what they unlock. A tier needs a karma score, days of ACTIVE play (idle time and tick speed do not count: the Legend's 30 days are ~10 real hours) and, for Legend, a major boss; the Trial of the Soul decides 1-of-3 uniques or a random one."
 subs = [
-  ["status", "staff", "Without a preset: tier, score, days, Dark and the staff stamp. With a preset (`underdog`, `normal`, `elite`, `legendary`, `dark`, karma.toml [presets]): set the Life 1 stats that reach it."],
-  ["days", "staff", "Set the days survived in Life 1."],
+  ["status", "staff", "Without a preset: tier, score, active days, bosses, Dark, what each higher tier still needs, the Corridor step and Trial, staff stamps. With a preset (`underdog`, `normal`, `elite`, `legendary`, `dark`; karma.toml [presets]): set the Life 1 stats that reach it, e.g. `/ttl life1 status <p> legendary` (Life 1 only)."],
+  ["days", "staff", "Set the days of active play in Life 1, e.g. `/ttl life1 days <p> 30` for the Legend's 30 (Life 1 only; score and bosses unchanged)."],
+  ["trial", "staff", "`pass` or `fail`: the Trial of the Soul's result, in the Corridor after the Last Wish (a running Trial ends with it). The Last Wish has no gate (`/ttl wish`)."],
 ]
 
 [sleep]
