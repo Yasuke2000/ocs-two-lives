@@ -161,3 +161,8 @@ The [island proportion study](../../../world/island-proportion-review.md) distin
 ## C09/C15 follow-up: Galut is not a ready park-side clearing
 
 [Current original fit study](../../../world/galut-site-review.md) marks the old(-900,3050),r60proposal requires-redesign:brook overlap,39.959blocks coast-edge clearance and43.625blocks sampled relief. No alternate city centre accepted. The existing wiki capital identity remains secondary;new WN61-004 directly supports Sarion trade only. Park threshold,town altar,capital and server portal retain separate meanings. This updates proposal readiness without moving active geography or treating gameplay U as a sovereign survey.
+
+
+## C14 follow-up: complete conditional coastal access
+
+[Current candidate](../../../world/malukshure-coastal-access.md) tests the earlier cape with a749-block approach and the existing8-block country marker. Its actual spatial mask is O;canonical anchors still require H. The default checker rejects that one binding;the explicit proposed-checker input passes,with fresh finite terrain/route/lake evidence. It remains inactive pending the binding choice;no Morgdahl ownership,complete city,harbour or initial tower state is inferred. Ledger348adds one original-design record,not new canon geography.
