@@ -1,3 +1,5 @@
+> Owner update22November2026: Yasuke approved this proposal and the U-to-J binding. See [current adoption](filtwood-approved.md). Conditional results below are historical.
+
 # Filtwood: concrete western Jura-edge candidate
 
 ![Active and proposed location](filtwood-jura-comparison.png)

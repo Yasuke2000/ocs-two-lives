@@ -48,5 +48,14 @@
     "native_pixels_retained": true,
     "height_reconstruction": false,
     "scope": "Complete current source dossier and matching normal outputs adopted. Illustration plan remains compatible; historical brushwork and height basis are retained,not relabelled as a reconstruction of current numerical heights."
+  },
+  "approved_filtwood_update": {
+    "date": "2026-11-22",
+    "source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+    "normal_source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+    "native_vector_trail_added": true,
+    "root_source_metadata_corrected": true,
+    "historical_component_height_basis_retained": true,
+    "runtime_applied": false
   }
 }

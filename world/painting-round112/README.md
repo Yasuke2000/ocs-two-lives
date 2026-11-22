@@ -1,3 +1,5 @@
+> Current update22November2026: [approved Filtwood forest-edge adoption](../filtwood-approved.md). Pin(-1050,74,600),J;updated maps and23roads. Standard map checker passes; repository gate has two legacy-map failures. Earlier dated source/hash/check statements below remain historical.
+
 # Current source and painted map together
 
 ![Named painted atlas](atlas.png)

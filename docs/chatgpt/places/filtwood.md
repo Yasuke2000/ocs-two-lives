@@ -2,11 +2,11 @@
 
 ## Current own-world/source correction — round37
 
-Current(-1200,2750),radius8,U binding disputed(C20). The room/window concept is original neutral architecture,not the flashback castle frame or a verified post-flashback room. Kingdom identity is official; exact Jura-side/capital/borders remain unverified. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
+Current(-1050,600),radius8,J gameplay binding: western forest-edge proposal approved by Yasuke on22November2026 (C20). Exact westward bearing remains an interpretation. The room/window concept is original neutral architecture,not the flashback castle frame or a verified post-flashback room. Kingdom identity is official; exact Jura-side/capital/borders remain unverified. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
 
 Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
 
-`id: filtwood` · server pin · required gameplay **U** binding disputed (C20)
+`id: filtwood` · server pin · approved gameplay **J** binding (C20; independent kingdom)
 
 | | |
 |---|---|
@@ -20,7 +20,7 @@ The [official episode 24 synopsis](https://www.ten-sura.com/anime/tensura/story/
 
 ## What it should look like
 
-No source-confirmed exterior or country plan is established. Official episode 24 stills 3–5 are interiors. Keep the pin reserved and review the inert Jura-edge alternative before moving anything. Initial-era residents need separate verification.
+No source-confirmed exterior or country plan is established. Official episode 24 stills 3–5 are interiors. Keep the8-block pin reserved; the approved forest-edge map and approach do not constitute a completed kingdom. Initial-era residents need separate verification.
 
 
 ## Current state: BlueMap audit of 19/11/2026

@@ -386,7 +386,7 @@ Earlier iteration notes are preserved in [the previous guide](https://github.com
 | --- | --- |
 | Scale and projections (C12) | Fixed site distances, template reservations and the unknown illustrated projection prevent a claim of one exact canonical scale. Compare the [current native/reference links](comparison.md) and [proportion study](proportion-audit.md). Shores remain original interpretations. |
 | Owner corrections | Fulbrosia lies south of Jura, Ulgracia south of Sarion, and Frost Palace occupies its approved inland snowfield. The five specifically approved relation changes remain the only technical-rule exception; no new rule is edited. |
-| Contract versus canon | Read the [contradictions](../docs/research/tensura-world-2026-11-19/contradictions.md) and inert SVG alternatives for the Imperial mountain bearing, Amrita’s below-castle relation versus eastern reserve, Sainte’s coastal setting, Filtwood’s binding and other fixed-contract differences. Do not silently treat a gameplay mask or reserved entrance as surveyed canon. The [full Malukshure coastal candidate](malukshure-coastal-access.md) supplies cape/access geometry and an explicit proposed H→O checker input;it remains inactive pending that binding choice. |
+| Contract versus canon | Read the [contradictions](../docs/research/tensura-world-2026-11-19/contradictions.md) and inert SVG alternatives for the Imperial mountain bearing, Amrita’s below-castle relation versus eastern reserve, Sainte’s coastal setting, the historical Filtwood binding and other fixed-contract differences. Do not silently treat a gameplay mask or reserved entrance as surveyed canon. The [full Malukshure coastal candidate](malukshure-coastal-access.md) supplies cape/access geometry and an explicit proposed H→O checker input;it remains inactive pending that binding choice. |
 | Initial roads and future capacity (C18) | The fixed source contract retains mandatory main-road corridors and representative city capacity. Their presence does not assert that Tempest’s later paved highways or developed capital already exist at S1E10. The inert early-trail alternative and runtime gating remain Claude’s integration work. |
 | Water style (C23) | Ulgr92→91 and the [authored Laura correction](laura-headwater-level.md)139→137 now meet the ordinary small-step diagnostic at all8interfaces. All13 fresh finite lake cases pass. The lower bowl is an explicit server interpretation,not a measured anime waterfall;two blocks is not an owner-set exact cap. Final fluid columns/noise and landscape acceptance remain open. |
 | Biomes and climate (C10) | Jungle saturation, Minecraft habitat shares and the retained small red badlands crescent are authored/server choices, not proof of canonical climate. Source roles and the inert no-red alternative remain explicit. |
@@ -394,9 +394,9 @@ Earlier iteration notes are preserved in [the previous guide](https://github.com
 
 All technical conversion, live structure placement, final-noise/fluid acceptance and deployment belong to Claude’s handoff. This creative guide does not claim those tasks complete.
 
-## Conditional Filtwood forest-edge proposal
+## Approved Filtwood forest-edge placement
 
-The [complete C20candidate](filtwood-jura-edge-candidate.md) moves only the existing pin to the already-illustrated western Jura-edge setting and supplies a measured curved trail. It passes with an explicit alternate U→J gameplay binding;default checker still rejects that one contract difference. Source bearing remains interpreted,kingdom identity primary,near-Jura setting secondary. Active geometry and current guide biome shares remain unchanged.
+Yasuke approved the [C20forest-edge proposal](filtwood-approved.md) on22November2026: existing radius8 pin at(-1050,600),gameplay J,and the measured1102-block woodland trail. Exact western bearing remains interpreted,kingdom identity primary,near-Jura setting secondary. Gameplay J does not make the kingdom politically part of Jura. Historical candidate checks remain scoped to their earlier source.
 
 ## Unregistered Galut precinct study
 

@@ -1,0 +1,211 @@
+{
+  "source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+  "previous_display_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "baseline_normal_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "normal_without_skip_check": true,
+  "normal_seconds": 71.9,
+  "standard_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "old_filtwood_site": {
+    "id": "filtwood",
+    "kind": "clearing",
+    "x": -1200,
+    "z": 2750,
+    "r": 8,
+    "plated": false,
+    "y": 65
+  },
+  "approved_filtwood_site": {
+    "id": "filtwood",
+    "kind": "clearing",
+    "x": -1050,
+    "z": 600,
+    "r": 8,
+    "plated": false,
+    "y": 74
+  },
+  "generated_filtwood_anchor": {
+    "name": "Filtwood",
+    "x": -1050,
+    "z": 600,
+    "y": 74,
+    "region": "J",
+    "kind": "pin",
+    "surface": "land",
+    "canon": "Filtwood",
+    "old_x": -1062,
+    "old_z": 616
+  },
+  "other57_exported_sites_exact": true,
+  "old22_road_exports_exact": true,
+  "road_profiles": [
+    {
+      "id": "tempest_dwargon",
+      "maximum_exported_grade": 0.5000000000000085,
+      "wet_sample_cells": 3
+    },
+    {
+      "id": "tempest_blumund",
+      "maximum_exported_grade": 0.4145593141157564,
+      "wet_sample_cells": 1
+    },
+    {
+      "id": "blumund_englassia_lubelius",
+      "maximum_exported_grade": 0.5,
+      "wet_sample_cells": 21
+    },
+    {
+      "id": "dwargon_dwarf_village",
+      "maximum_exported_grade": 0.5000000000000114,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "sacred_mountain_trail",
+      "maximum_exported_grade": 0.5000000000000455,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "treyni_marsh_trail",
+      "maximum_exported_grade": 0.38179387307052826,
+      "wet_sample_cells": 3
+    },
+    {
+      "id": "siss_cavern_and_orc_trail",
+      "maximum_exported_grade": 0.5000000000000114,
+      "wet_sample_cells": 4
+    },
+    {
+      "id": "ogre_foothill_trail",
+      "maximum_exported_grade": 0.5000000000000008,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "canaat_high_pass",
+      "maximum_exported_grade": 0.5000000000000171,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "falmuth_road",
+      "maximum_exported_grade": 0.07925304884756149,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "western_belt_road",
+      "maximum_exported_grade": 0.17164391531122264,
+      "wet_sample_cells": 2
+    },
+    {
+      "id": "western_desert_caravan",
+      "maximum_exported_grade": 0.3825000000000003,
+      "wet_sample_cells": 3
+    },
+    {
+      "id": "fulbrosia_stair",
+      "maximum_exported_grade": 0.5000000000000199,
+      "wet_sample_cells": 3
+    },
+    {
+      "id": "southern_royal_road",
+      "maximum_exported_grade": 0.5000000000000171,
+      "wet_sample_cells": 3
+    },
+    {
+      "id": "ulgracia_south_road",
+      "maximum_exported_grade": 0.5000000000000114,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "eurazania_road",
+      "maximum_exported_grade": 0.5000000000000114,
+      "wet_sample_cells": 2
+    },
+    {
+      "id": "milim_river_road",
+      "maximum_exported_grade": 0.4900000000000187,
+      "wet_sample_cells": 7
+    },
+    {
+      "id": "jistav_border_road",
+      "maximum_exported_grade": 0.42950039375451965,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "imperial_volcano_road",
+      "maximum_exported_grade": 0.5000000000000455,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "el_dorado_volcanic_way",
+      "maximum_exported_grade": 0.5000000000000455,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "frost_palace_forecourt",
+      "maximum_exported_grade": 0,
+      "wet_sample_cells": 0
+    },
+    {
+      "id": "englassia_coleus_royal_approach",
+      "maximum_exported_grade": 0.5,
+      "wet_sample_cells": 22
+    },
+    {
+      "id": "filtwood_jura_trail",
+      "maximum_exported_grade": 0.03999999999999915,
+      "wet_sample_cells": 0
+    }
+  ],
+  "changed_height_centres": 241,
+  "water_png_byte_exact": true,
+  "biome_png_byte_exact": true,
+  "all13_lake_plus8_height_centres_unchanged": [
+    "tempest-west-lake",
+    "lake-siss",
+    "raja-lake",
+    "coleus-oasis",
+    "ulgr-spring",
+    "clayman-moat",
+    "laura-headwater-basin",
+    "elmine-root-lake",
+    "imperial-unnamed-basin",
+    "el-dorado-eastern-lake",
+    "englassia-capital-lake",
+    "western-unnamed-basin",
+    "southeastern-unnamed-basin"
+  ],
+  "normal_artifact_sha256": {
+    "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
+    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+    "exclude.png": "4a0a34de0ad7e321f61eda127b160c7726e6accf8b69436d6dfa298402368073",
+    "height.png": "01497626185e8eddd6638c4004c6a8f1bbe396c78e5e885c309e7ed85caa63de",
+    "index.json": "248e58c4d52806042a07009ba04a974d1384ca7bb22f8b53c2386652542b718d",
+    "preview.png": "2e278f2cff317735e4b201c12c0abb91fb57b86471d13147349ba63015175bdc",
+    "road.png": "3795fca905892db86f0c6a2211a743c845afa1b71e90c1c9c2957295a17c0074",
+    "roads.json": "53a0a24647294d37df7278b3fa7941dcf29249a38d5dde488d886cba003bcab8",
+    "rugged.png": "f787bd2db68be75cc4500fed8feeb0558ec42657d14944f9df074645ce579009",
+    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+    "sites.toml": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
+    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+  },
+  "runtime_applied": false,
+  "repository_gate": {
+    "passed": false,
+    "tests": 472,
+    "skipped": 26,
+    "failures": 2,
+    "seconds": 70.131,
+    "validation_failures": [
+      "Legacy canon_map.txt reads U at retained Lerfing anchor(-900,700),source region now J."
+    ],
+    "failed_tests": [
+      "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+      "test_gen_data_check_covers_the_env_file"
+    ],
+    "protected_paths_edited": false
+  }
+}

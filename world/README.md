@@ -1,3 +1,5 @@
+> Current update22November2026: [approved Filtwood forest-edge adoption](filtwood-approved.md). Pin(-1050,74,600),J;updated maps and23roads. Standard map checker passes; repository gate has two legacy-map failures. Earlier dated source/hash/check statements below remain historical.
+
 ## Start here: current map review bundle
 
 [One current delivery index](DELIVERY.md) joins the source map,marked painting,all58place concepts,353-record source ledger and open choices. [Current reference comparison](comparison.md) replaces the mixed chronological comparison page;its previous text is preserved as history. The machine-readable manifest verifies local numeric registrations and exact existing normal artifacts.

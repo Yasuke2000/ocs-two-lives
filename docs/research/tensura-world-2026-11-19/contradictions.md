@@ -41,7 +41,7 @@ Round45 directly reads WN42 for the immobile treant community (WN42-001). Its po
 
 | C19 | Old knowledge-pack prose calls Charybdis a lake whirlpool and uses its circular server arena to prescribe a round Siss. Official glossary describes an aerial calamity; the illustrated lake is elongated. | Correct the creative prose and draw an elongated basin. Preserve the existing water marker/radius reservation and southern village, while marking exact shore geometry as interpretation. |
 
-| C20 | Knowledge pack calls Filtwood an Ulgracia town. Official episode24 calls it a kingdom in a pre-Rimuru story; wiki places it near Jura. Current anchor requires U. | Correct the prose and era/crosswalk claims. Retain the U binding; draw an illustrative Jura-edge footprint in an SVG comment/study. Exact side remains unverified. |
+| C20 | Knowledge pack calls Filtwood an Ulgracia town. Official episode24 calls it a kingdom in a pre-Rimuru story; wiki places it near Jura. Current anchor requires U. | Owner selected the western forest-edge proposal and U-to-J gameplay binding on22November2026. Current pin(-1050,600),radius8. Kingdom independence remains explicit; exact canonical side, capital and initial architecture remain unverified. |
 
 | C21 | Older imported-map Coleus placement sits outside the intervening Ingrassia/Lubelius corridor despite the official outline stating the country lies between them. | Round15 moves the active city/dunes/oasis within all unchanged fixed rules; the other57 site centres/radii remain. V is a terrain selector, not sovereign membership. Exact city coordinates, border shape and initial-era palace state remain interpretation/unverified. [Source review](coleus-placement-review.md). |
 

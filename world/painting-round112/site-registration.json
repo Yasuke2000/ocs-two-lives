@@ -394,12 +394,12 @@
     {
       "number": 39,
       "id": "filtwood",
-      "world_x": -1200.0,
-      "world_z": 2750.0,
-      "anchor_px": 936.3095238095237,
-      "anchor_py": 1273.3779761904761,
-      "label_px": 936.3095238095237,
-      "label_py": 1273.3779761904761
+      "world_x": -1050.0,
+      "world_z": 600.0,
+      "anchor_px": 956.7708333333334,
+      "anchor_py": 980.0992063492064,
+      "label_px": 956.7708333333334,
+      "label_py": 980.0992063492064
     },
     {
       "number": 40,
@@ -1043,5 +1043,12 @@
     "native_pixels_retained": true,
     "height_reconstruction": false,
     "scope": "Complete current source dossier and matching normal outputs adopted. Illustration plan remains compatible; historical brushwork and height basis are retained,not relabelled as a reconstruction of current numerical heights."
+  },
+  "approved_filtwood_update": {
+    "date": "2026-11-22",
+    "source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+    "number": 39,
+    "region": "J",
+    "other57_records_retained": true
   }
 }

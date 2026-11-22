@@ -1,3 +1,5 @@
+> Current update22November2026: [approved Filtwood forest-edge adoption](../../../world/filtwood-approved.md). Pin(-1050,74,600),J;updated maps and23roads. Standard map checker passes; repository gate has two legacy-map failures. Earlier dated source/hash/check statements below remain historical.
+
 ## Current combined-map delivery
 
 The [single delivery index](../../../world/DELIVERY.md) now accompanies these58image/sheet pairs locally with sourceb48666e9,normal terraina9b6b970and353source records. [Exact current manifest](../../../world/current-delivery.json) checks all58numeric reservations/heights against the R127art audit. Orc camp uses the separately versioned revision;the58original PNGs/prompts remain. Earlier statements below about this art branch's older local technical baseline describe its historical delivery,not this combined checkout. Full image/source/era/build acceptance remains open.

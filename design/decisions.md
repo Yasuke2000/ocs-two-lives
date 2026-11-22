@@ -314,3 +314,5 @@ changes and new decisions with a date.
 ## Art-branch history retained with the combined delivery
 
 21Nov2026 — R127: retain the original El Dorado court/volcano concepts after full-resolution framing review; update their current designed first-air metadata to73/197 and verify all58 reservations against source8f8c294. Exact prompts remain historical. [Current registration](../docs/art/places/current-map-registration-r127.md).
+
+| 2026-11-22 | Yasuke: "Bosrandvoorstel gebruiken; Filtwood U → J" | Adopt the tested western Jura forest-edge Filtwood pin(-1050,600),radius8,and1102-block approach; source region U→J. Western bearing remains our interpretation; independent kingdom,not Jura sovereignty. No runtime apply. |
