@@ -20,3 +20,9 @@ The current source hash is `5464a71af3c33374424a04dbf5596ff5b10786709f76daa734f0
 Legal source images are kept only in the private research directory with SHA256/capture provenance. This repository contains links and paraphrases only. The source map and copyrighted page layout are not traced,copied or embedded here. The user's reference hierarchy remains; uncertain edition wording does not silently override verified novel events.
 
 Required repository gate passed:472tests,26skipped,zero failures in65.175seconds. Standard checker:0errors,56relations pass,2standing warnings. Preview and atlas inspected; new atlas row has6pixels vertical clearance to its neighbour. All58site attributes and all non-label active geometry are identical;344unique qualified records;diff check passes.
+
+## Further licensed-reader limits
+
+The [Japanese LN1 public trial](https://ebookjapan.yahoo.co.jp/viewer/trial/B00080279641/) renders a39-page reflow sample; selected cover/title/notice/contents/prologue pages were inspected. Chapter3,Dwargon,is listed in the contents but its narrative passage was not read. A public progress-bar probe stayed on the cover,so it is not evidence of reaching the sample end. No LN Ameld bearing is inferred;C03 remains WN-qualified.
+
+The [guide13.5 trial](https://ebookjapan.yahoo.co.jp/viewer/trial/B00182106333/) renders10-page navigation;selected title and contents spreads were inspected before its purchase boundary. The contents list World Guide at printed147 and country entries later,including Eurazania/Jistav at208. Those body pages were not accessed. This supplies no capital-name correction or geography from chapter headings. No full preview/volume reading,purchase or unlicensed mirror is claimed. Private captures are research evidence only.
