@@ -1,3 +1,5 @@
+> Historical read-only profile review. The154→137baseline below is superseded by the [authored139→137correction](laura-headwater-level.md). Source qualification and the explanation of the converter cap remain applicable;the old instruction to retain154provisionally is not the current drawing decision.
+
 # Laura waterfall: source and exported-profile review
 
 ![Current exported water profile](laura-waterfall-review.png)

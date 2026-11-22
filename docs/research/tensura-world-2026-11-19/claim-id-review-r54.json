@@ -100,14 +100,5 @@
     "failures": 0,
     "seconds": 64.641,
     "ingame_run": false
-  },
-  "painting_branch_backport_validation": {
-    "passed": true,
-    "tests": 472,
-    "skipped": 26,
-    "failures": 0,
-    "seconds": 62.483,
-    "art_renders_changed": false,
-    "ingame_run": false
   }
 }

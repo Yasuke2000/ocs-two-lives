@@ -24,7 +24,7 @@ The western desert caravan's source course is unchanged. Ten exported profile he
 
 ## Companion artifacts and era
 
-The atlas replaces only its embedded normal terrain image; existing numbering and annotations retain their geometry. All22 region polygons and the biome PNG are unchanged, so the R128 regional census remains applicable. The current place-art registration remains applicable because every site export is unchanged. The [current native painted companion](painting-round112/README.md) now includes the new small dune. Its light/shade is interpretive, and it must not be described as an exact height reconstruction of this source.
+The atlas replaces only its embedded normal terrain image; existing numbering and annotations retain their geometry. All22 region polygons and the biome PNG are unchanged, so the R128 regional census remains applicable. The current place-art registration remains applicable because every site export is unchanged. The existing painted atlas predates this new small dune and needs a native relief alignment; it must not be described as an exact rendering of this source.
 
 The new source SHA256 is `0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e`. The checker reports zero errors, all56 relations and two standing warnings. The preview and original measured section were inspected. The post-Kijin S1E10 snapshot is retained; no later Coleus story party, ruler, night lighting, quest or event is instantiated. Coleus remains partial in the location inventory: this is one surrounding landform, not the whole country or city.
 

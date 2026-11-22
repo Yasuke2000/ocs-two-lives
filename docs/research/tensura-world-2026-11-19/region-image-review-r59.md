@@ -1,3 +1,5 @@
+> Current attribution follow-up:the [per-image era correction](reference-era-attribution.md) replaces the generic snapshot text and supplies directly checked displayed episode numbers. The original visual roles,pixel inspections and confidence limits below remain;this does not claim fresh pixel inspection of the other referenced assets.
+
 # Regional image curation — round59
 
 The region book now selects 69 role-labelled references across 22 regions, using 24 unique image assets. Previously 14 sections had fewer than three direct image links, and several others reused uninspected character stills. Each section now has three references (Dwargon four, Jura five), but **this is not 22 complete sets of dedicated canonical landscapes**. A shared continent map is one contextual image, reused openly. Cross-region borrowing is our art-direction choice, never source proof.

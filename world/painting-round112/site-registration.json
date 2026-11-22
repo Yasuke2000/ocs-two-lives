@@ -993,8 +993,8 @@
       "scope": "Current authored open fringe only;not whole plain,farmland or political boundary."
     }
   ],
-  "open_inventory_rows": 41,
-  "source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+  "open_inventory_rows": 42,
+  "source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
   "khusha_orientation_label": {
     "world_x": -1340.5090909090904,
     "world_z": 958.8363636363638,
@@ -1012,7 +1012,7 @@
   "geographic_context_label_count": 22,
   "inventory": 143,
   "physical_followups": 42,
-  "ledger_unique": 346,
+  "ledger_unique": 351,
   "note_r110": "Only54 world/anchor/label and forecourt follow owner-approved inland clearing. Other57 marker positions retained;142/42 inventory and314 current ledger.",
   "note_r112": "All58 marker world/anchor/number positions unchanged;20 contexts/42 open rows retained;exact El Dorado canopy overlay. Inventory142/42.",
   "note_r116": "All58 world/anchor/number positions retained;20contexts/42rows unchanged. Only2river first vertices follow R115. Original R112 snapshot retained in Git atdfd66c1.",
@@ -1030,5 +1030,18 @@
     "full_source_adoption": false,
     "component_height_basis_retained": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
     "current_plan_compatibility": "All58 source site attributes and exported registration records match the current source;plain selector and biome raster are unchanged. This follow-up adds context only,not a new height reconstruction."
+  },
+  "current_full_source_adoption": {
+    "source_commit": "d1f488242f1b15d8155ad88034c15dc81f88a132",
+    "display_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+    "terrain_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+    "ledger_records": 351,
+    "inventory_records": 143,
+    "physical_followups": 42,
+    "normal_artifacts_adopted": 14,
+    "previous_painting_commit": "7446b2be7bfc3622c4762b745e05f41a6009d9a9",
+    "native_pixels_retained": true,
+    "height_reconstruction": false,
+    "scope": "Complete current source dossier and matching normal outputs adopted. Illustration plan remains compatible; historical brushwork and height basis are retained,not relabelled as a reconstruction of current numerical heights."
   }
 }

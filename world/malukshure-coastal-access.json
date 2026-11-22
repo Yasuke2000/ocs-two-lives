@@ -1,0 +1,1366 @@
+{
+  "active_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "conditional_source_sha256": "2383ed5a312dc8fcfbb8ca293b2120bce1b023583871b3fb95c5b8ce8ff7925b",
+  "normal_seconds": 70.2,
+  "default_checker": {
+    "file": "world/malukshure-coastal-alternative.svg",
+    "ok": false,
+    "errors": [
+      {
+        "rule": "site",
+        "message": "site sainte_malukshure at (-2320, 1645) is in region O, anchors.toml says region H"
+      }
+    ],
+    "warnings": [
+      {
+        "rule": "water",
+        "message": "rivers <polyline> #8 (laura-mountain-falls) crosses the mountain mountains <polygon> #13 (laura-waterfall-escarpment)"
+      },
+      {
+        "rule": "size",
+        "message": "the design box is 12800 x 10752, above the target 12288 x 10240 (cap 14336 x 11264)"
+      }
+    ],
+    "stats": {
+      "bridges": 13,
+      "road_main_blocks": 3697,
+      "road_trail_blocks": 29053,
+      "mainland_bbox": [
+        9983,
+        6250
+      ],
+      "design_box": {
+        "x0": -6656.0,
+        "y0": -5632.0,
+        "x1": 6144.0,
+        "y1": 5120.0,
+        "width": 12800.0,
+        "height": 10752.0
+      },
+      "land_share_of_box": 0.304,
+      "land_area_blocks2": 41870792,
+      "land_area_km2": 41.87,
+      "lake_area_km2": 0.68,
+      "coast_length_blocks": 53280,
+      "river_length_blocks": 13554,
+      "count_coast": 12,
+      "count_lakes": 13,
+      "count_rivers": 9,
+      "count_mountains": 14,
+      "count_hills": 14,
+      "count_forests": 15,
+      "count_biomes": 32,
+      "count_regions": 31,
+      "count_roads": 23,
+      "count_sites": 58,
+      "count_ridges": 4
+    },
+    "distances": [
+      {
+        "id": "outcast_road",
+        "kind": "clearing",
+        "distance": 52,
+        "bearing": 180,
+        "wind": "S"
+      },
+      {
+        "id": "sealed_cave",
+        "kind": "carve",
+        "distance": 418,
+        "bearing": 343,
+        "wind": "NNW"
+      },
+      {
+        "id": "shizu_spawn",
+        "kind": "clearing",
+        "distance": 428,
+        "bearing": 281,
+        "wind": "W"
+      },
+      {
+        "id": "spirit_gate",
+        "kind": "lakeside",
+        "distance": 451,
+        "bearing": 219,
+        "wind": "SW"
+      },
+      {
+        "id": "treyni_grove",
+        "kind": "village",
+        "distance": 569,
+        "bearing": 146,
+        "wind": "SE"
+      },
+      {
+        "id": "rookie_camp",
+        "kind": "clearing",
+        "distance": 573,
+        "bearing": 348,
+        "wind": "NNW"
+      },
+      {
+        "id": "goblin_village",
+        "kind": "village",
+        "distance": 574,
+        "bearing": 293,
+        "wind": "WNW"
+      },
+      {
+        "id": "ogre_village_ruin",
+        "kind": "village",
+        "distance": 583,
+        "bearing": 121,
+        "wind": "ESE"
+      },
+      {
+        "id": "treyni_shrine",
+        "kind": "clearing",
+        "distance": 781,
+        "bearing": 140,
+        "wind": "SE"
+      },
+      {
+        "id": "wayfarers_camp",
+        "kind": "clearing",
+        "distance": 985,
+        "bearing": 1,
+        "wind": "N"
+      },
+      {
+        "id": "arrival",
+        "kind": "clearing",
+        "distance": 1000,
+        "bearing": 0,
+        "wind": "N"
+      },
+      {
+        "id": "old_well",
+        "kind": "clearing",
+        "distance": 1056,
+        "bearing": 289,
+        "wind": "WNW"
+      },
+      {
+        "id": "lake_siss",
+        "kind": "lakeside",
+        "distance": 1105,
+        "bearing": 85,
+        "wind": "E"
+      },
+      {
+        "id": "lizardmen_village",
+        "kind": "lakeside",
+        "distance": 1131,
+        "bearing": 104,
+        "wind": "ESE"
+      },
+      {
+        "id": "ameld_source",
+        "kind": "clearing",
+        "distance": 1256,
+        "bearing": 9,
+        "wind": "N"
+      },
+      {
+        "id": "lizardmen_caverns",
+        "kind": "carve",
+        "distance": 1400,
+        "bearing": 112,
+        "wind": "ESE"
+      },
+      {
+        "id": "dwarf_village",
+        "kind": "village",
+        "distance": 1414,
+        "bearing": 45,
+        "wind": "NE"
+      },
+      {
+        "id": "blumund_road",
+        "kind": "clearing",
+        "distance": 1437,
+        "bearing": 291,
+        "wind": "WNW"
+      },
+      {
+        "id": "dwarven_arena",
+        "kind": "clearing",
+        "distance": 1473,
+        "bearing": 48,
+        "wind": "NE"
+      },
+      {
+        "id": "dwargon",
+        "kind": "carve",
+        "distance": 1594,
+        "bearing": 29,
+        "wind": "NNE"
+      },
+      {
+        "id": "blumund",
+        "kind": "clearing",
+        "distance": 1623,
+        "bearing": 292,
+        "wind": "WNW"
+      },
+      {
+        "id": "kaijin_smithy",
+        "kind": "clearing",
+        "distance": 1662,
+        "bearing": 28,
+        "wind": "NNE"
+      },
+      {
+        "id": "dwargo",
+        "kind": "clearing",
+        "distance": 1682,
+        "bearing": 28,
+        "wind": "NNE"
+      },
+      {
+        "id": "dwargon_throne",
+        "kind": "clearing",
+        "distance": 1687,
+        "bearing": 28,
+        "wind": "NNE"
+      },
+      {
+        "id": "orc_camp",
+        "kind": "village",
+        "distance": 1834,
+        "bearing": 107,
+        "wind": "ESE"
+      },
+      {
+        "id": "dragons_nest",
+        "kind": "clearing",
+        "distance": 2030,
+        "bearing": 10,
+        "wind": "N"
+      },
+      {
+        "id": "yggdonia",
+        "kind": "clearing",
+        "distance": 2151,
+        "bearing": 272,
+        "wind": "W"
+      },
+      {
+        "id": "laura",
+        "kind": "clearing",
+        "distance": 2193,
+        "bearing": 137,
+        "wind": "SE"
+      },
+      {
+        "id": "yuzalgh",
+        "kind": "clearing",
+        "distance": 2369,
+        "bearing": 263,
+        "wind": "W"
+      },
+      {
+        "id": "elmine",
+        "kind": "clearing",
+        "distance": 2419,
+        "bearing": 224,
+        "wind": "SW"
+      },
+      {
+        "id": "marris",
+        "kind": "clearing",
+        "distance": 2442,
+        "bearing": 313,
+        "wind": "NW"
+      },
+      {
+        "id": "jia",
+        "kind": "plateau",
+        "distance": 2458,
+        "bearing": 175,
+        "wind": "S"
+      },
+      {
+        "id": "ameld_mouth",
+        "kind": "coast",
+        "distance": 2487,
+        "bearing": 120,
+        "wind": "ESE"
+      },
+      {
+        "id": "ballachia",
+        "kind": "clearing",
+        "distance": 2491,
+        "bearing": 280,
+        "wind": "W"
+      },
+      {
+        "id": "nostraille",
+        "kind": "clearing",
+        "distance": 2571,
+        "bearing": 263,
+        "wind": "W"
+      },
+      {
+        "id": "siltrosso",
+        "kind": "coast",
+        "distance": 2675,
+        "bearing": 301,
+        "wind": "WNW"
+      },
+      {
+        "id": "englassia_road",
+        "kind": "clearing",
+        "distance": 2701,
+        "bearing": 281,
+        "wind": "W"
+      },
+      {
+        "id": "forgotten_dragon_city",
+        "kind": "clearing",
+        "distance": 2768,
+        "bearing": 107,
+        "wind": "ESE"
+      },
+      {
+        "id": "rostia",
+        "kind": "clearing",
+        "distance": 2787,
+        "bearing": 266,
+        "wind": "W"
+      },
+      {
+        "id": "sainte_malukshure",
+        "kind": "clearing",
+        "distance": 2844,
+        "bearing": 235,
+        "wind": "SW"
+      },
+      {
+        "id": "raja",
+        "kind": "lakeside",
+        "distance": 2873,
+        "bearing": 263,
+        "wind": "W"
+      },
+      {
+        "id": "englassia",
+        "kind": "clearing",
+        "distance": 2952,
+        "bearing": 281,
+        "wind": "W"
+      },
+      {
+        "id": "filtwood",
+        "kind": "clearing",
+        "distance": 3000,
+        "bearing": 204,
+        "wind": "SSW"
+      },
+      {
+        "id": "ulgr_nature_park",
+        "kind": "plateau",
+        "distance": 3004,
+        "bearing": 198,
+        "wind": "SSW"
+      },
+      {
+        "id": "ghastone",
+        "kind": "clearing",
+        "distance": 3214,
+        "bearing": 275,
+        "wind": "W"
+      },
+      {
+        "id": "morgdahl",
+        "kind": "clearing",
+        "distance": 3217,
+        "bearing": 264,
+        "wind": "W"
+      },
+      {
+        "id": "clayman_castle",
+        "kind": "clearing",
+        "distance": 3354,
+        "bearing": 80,
+        "wind": "E"
+      },
+      {
+        "id": "great_holy_mountain",
+        "kind": "clearing",
+        "distance": 3612,
+        "bearing": 68,
+        "wind": "ENE"
+      },
+      {
+        "id": "coleus",
+        "kind": "clearing",
+        "distance": 3624,
+        "bearing": 284,
+        "wind": "WNW"
+      },
+      {
+        "id": "nasca",
+        "kind": "plateau",
+        "distance": 3672,
+        "bearing": 61,
+        "wind": "ENE"
+      },
+      {
+        "id": "lubelius",
+        "kind": "plateau",
+        "distance": 3828,
+        "bearing": 290,
+        "wind": "WNW"
+      },
+      {
+        "id": "amrita",
+        "kind": "carve",
+        "distance": 3833,
+        "bearing": 83,
+        "wind": "E"
+      },
+      {
+        "id": "frost_palace",
+        "kind": "clearing",
+        "distance": 3985,
+        "bearing": 337,
+        "wind": "NNW"
+      },
+      {
+        "id": "heaven_tower",
+        "kind": "clearing",
+        "distance": 4205,
+        "bearing": 273,
+        "wind": "W"
+      },
+      {
+        "id": "sacred_mountain",
+        "kind": "plateau",
+        "distance": 4215,
+        "bearing": 292,
+        "wind": "WNW"
+      },
+      {
+        "id": "el_dorado_volcano",
+        "kind": "clearing",
+        "distance": 5045,
+        "bearing": 231,
+        "wind": "SW"
+      },
+      {
+        "id": "el_dorado",
+        "kind": "clearing",
+        "distance": 5243,
+        "bearing": 235,
+        "wind": "SW"
+      }
+    ],
+    "relations": [
+      {
+        "a": "dwargon",
+        "b": "tempest",
+        "dir": "N",
+        "min": 1200,
+        "max": 1600,
+        "distance": 1594,
+        "bearing": 29,
+        "wind": "NNE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "arrival",
+        "b": "tempest",
+        "dir": "N",
+        "min": 900,
+        "max": 1100,
+        "distance": 1000,
+        "bearing": 0,
+        "wind": "N",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "sealed_cave",
+        "b": "tempest",
+        "dir": "NW",
+        "min": 350,
+        "max": 600,
+        "distance": 418,
+        "bearing": 343,
+        "wind": "NNW",
+        "ok": true,
+        "source": "design/lore/sealed_cave.md"
+      },
+      {
+        "a": "goblin_village",
+        "b": "tempest",
+        "dir": "NW",
+        "min": 300,
+        "max": 650,
+        "distance": 574,
+        "bearing": 293,
+        "wind": "WNW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "goblin_village",
+        "b": "sealed_cave",
+        "dir": "any",
+        "min": 150,
+        "max": 500,
+        "distance": 448,
+        "bearing": 246,
+        "wind": "WSW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "spirit_gate",
+        "b": "tempest",
+        "dir": "SSW",
+        "min": 250,
+        "max": 550,
+        "distance": 451,
+        "bearing": 219,
+        "wind": "SW",
+        "ok": true,
+        "source": "design/lore/spirit_domain.md"
+      },
+      {
+        "a": "treyni_grove",
+        "b": "tempest",
+        "dir": "any",
+        "min": 500,
+        "max": 800,
+        "distance": 569,
+        "bearing": 146,
+        "wind": "SE",
+        "ok": true,
+        "source": "design/lore/treyni_shrine.md"
+      },
+      {
+        "a": "treyni_shrine",
+        "b": "tempest",
+        "dir": "any",
+        "min": 500,
+        "max": 800,
+        "distance": 781,
+        "bearing": 140,
+        "wind": "SE",
+        "ok": true,
+        "source": "design/lore/treyni_shrine.md"
+      },
+      {
+        "a": "treyni_shrine",
+        "b": "treyni_grove",
+        "dir": "E",
+        "min": 150,
+        "max": 500,
+        "distance": 222,
+        "bearing": 126,
+        "wind": "SE",
+        "ok": true,
+        "source": "design/lore/treyni_shrine.md"
+      },
+      {
+        "a": "ogre_village_ruin",
+        "b": "tempest",
+        "dir": "SE",
+        "min": 400,
+        "max": 900,
+        "distance": 583,
+        "bearing": 121,
+        "wind": "ESE",
+        "ok": true,
+        "source": "design/lore/world-map-corrections.md"
+      },
+      {
+        "a": "dwarf_village",
+        "b": "tempest",
+        "dir": "N",
+        "min": 800,
+        "max": 1750,
+        "distance": 1414,
+        "bearing": 45,
+        "wind": "NE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "dwarf_village",
+        "b": "dwargon",
+        "dir": "S",
+        "min": 300,
+        "max": 700,
+        "distance": 448,
+        "bearing": 151,
+        "wind": "SSE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "dwarven_arena",
+        "b": "dwarf_village",
+        "dir": "any",
+        "min": 60,
+        "max": 700,
+        "distance": 102,
+        "bearing": 101,
+        "wind": "ESE",
+        "ok": true,
+        "source": "design/lore/dwarven_arena.md"
+      },
+      {
+        "a": "dragons_nest",
+        "b": "dwargon",
+        "dir": "N",
+        "min": 350,
+        "max": 800,
+        "distance": 746,
+        "bearing": 325,
+        "wind": "NW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "dwargo",
+        "b": "dwargon",
+        "dir": "N",
+        "min": 100,
+        "max": 400,
+        "distance": 100,
+        "bearing": 0,
+        "wind": "N",
+        "ok": true,
+        "source": "design/lore/dwargon.md"
+      },
+      {
+        "a": "dwargon_throne",
+        "b": "dwargon",
+        "dir": "any",
+        "min": 100,
+        "max": 500,
+        "distance": 106,
+        "bearing": 0,
+        "wind": "N",
+        "ok": true,
+        "source": "design/lore/dwargon.md"
+      },
+      {
+        "a": "kaijin_smithy",
+        "b": "dwargon",
+        "dir": "any",
+        "min": 60,
+        "max": 500,
+        "distance": 85,
+        "bearing": 352,
+        "wind": "N",
+        "ok": true,
+        "source": "design/lore/dwargon.md"
+      },
+      {
+        "a": "ameld_source",
+        "b": "dwargon",
+        "dir": "any",
+        "min": 200,
+        "max": 1600,
+        "distance": 599,
+        "bearing": 255,
+        "wind": "WSW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "lake_siss",
+        "b": "tempest",
+        "dir": "E",
+        "min": 900,
+        "max": 1300,
+        "distance": 1105,
+        "bearing": 85,
+        "wind": "E",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "lizardmen_village",
+        "b": "lake_siss",
+        "dir": "S",
+        "min": 150,
+        "max": 900,
+        "distance": 365,
+        "bearing": 180,
+        "wind": "S",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "lizardmen_caverns",
+        "b": "lake_siss",
+        "dir": "S",
+        "min": 150,
+        "max": 1000,
+        "distance": 651,
+        "bearing": 162,
+        "wind": "SSE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "orc_camp",
+        "b": "lake_siss",
+        "dir": "SE",
+        "min": 600,
+        "max": 1300,
+        "distance": 919,
+        "bearing": 135,
+        "wind": "SE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "ameld_mouth",
+        "b": "ameld_source",
+        "dir": "SE",
+        "min": 1650,
+        "max": 3600,
+        "distance": 3163,
+        "bearing": 142,
+        "wind": "SE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "ameld_mouth",
+        "b": "lake_siss",
+        "dir": "SE",
+        "min": 1100,
+        "max": 2400,
+        "distance": 1710,
+        "bearing": 142,
+        "wind": "SE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "forgotten_dragon_city",
+        "b": "tempest",
+        "dir": "E",
+        "min": 1650,
+        "max": 3500,
+        "distance": 2768,
+        "bearing": 107,
+        "wind": "ESE",
+        "ok": true,
+        "source": "design/lore/forgotten_dragon_city.md"
+      },
+      {
+        "a": "forgotten_dragon_city",
+        "b": "lake_siss",
+        "dir": "E",
+        "min": 900,
+        "max": 2000,
+        "distance": 1792,
+        "bearing": 120,
+        "wind": "ESE",
+        "ok": true,
+        "source": "design/lore/forgotten_dragon_city.md"
+      },
+      {
+        "a": "clayman_castle",
+        "b": "forgotten_dragon_city",
+        "dir": "NE",
+        "min": 700,
+        "max": 1550,
+        "distance": 1544,
+        "bearing": 25,
+        "wind": "NNE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "amrita",
+        "b": "clayman_castle",
+        "dir": "E",
+        "min": 350,
+        "max": 700,
+        "distance": 510,
+        "bearing": 101,
+        "wind": "ESE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "nasca",
+        "b": "clayman_castle",
+        "dir": "N",
+        "min": 800,
+        "max": 1700,
+        "distance": 1204,
+        "bearing": 355,
+        "wind": "N",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "nasca",
+        "b": "tempest",
+        "dir": "NE",
+        "min": 2400,
+        "max": 5150,
+        "distance": 3672,
+        "bearing": 61,
+        "wind": "ENE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "great_holy_mountain",
+        "b": "nasca",
+        "dir": "S",
+        "min": 300,
+        "max": 650,
+        "distance": 474,
+        "bearing": 162,
+        "wind": "SSE",
+        "ok": true,
+        "source": "design/lore/nasca.md"
+      },
+      {
+        "a": "laura",
+        "b": "tempest",
+        "dir": "SE",
+        "min": 1450,
+        "max": 3050,
+        "distance": 2193,
+        "bearing": 137,
+        "wind": "SE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "laura",
+        "b": "lake_siss",
+        "dir": "S",
+        "min": 1150,
+        "max": 2450,
+        "distance": 1746,
+        "bearing": 167,
+        "wind": "SSE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "elmine",
+        "b": "tempest",
+        "dir": "S",
+        "min": 1250,
+        "max": 2700,
+        "distance": 2419,
+        "bearing": 224,
+        "wind": "SW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "jia",
+        "b": "tempest",
+        "dir": "S",
+        "min": 2000,
+        "max": 4350,
+        "distance": 2458,
+        "bearing": 175,
+        "wind": "S",
+        "ok": true,
+        "source": "design/lore/world-map-corrections.md"
+      },
+      {
+        "a": "jia",
+        "b": "laura",
+        "dir": "W",
+        "min": 900,
+        "max": 2600,
+        "distance": 1553,
+        "bearing": 237,
+        "wind": "WSW",
+        "ok": true,
+        "source": "design/lore/world-map-corrections.md"
+      },
+      {
+        "a": "el_dorado",
+        "b": "tempest",
+        "dir": "SW",
+        "min": 3400,
+        "max": 7350,
+        "distance": 5243,
+        "bearing": 235,
+        "wind": "SW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "el_dorado_volcano",
+        "b": "el_dorado",
+        "dir": "SE",
+        "min": 150,
+        "max": 1500,
+        "distance": 447,
+        "bearing": 117,
+        "wind": "ESE",
+        "ok": true,
+        "source": "design/lore/el_dorado.md"
+      },
+      {
+        "a": "frost_palace",
+        "b": "tempest",
+        "dir": "N",
+        "min": 2350,
+        "max": 5000,
+        "distance": 3985,
+        "bearing": 337,
+        "wind": "NNW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "blumund",
+        "b": "tempest",
+        "dir": "W",
+        "min": 1600,
+        "max": 2200,
+        "distance": 1623,
+        "bearing": 292,
+        "wind": "WNW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "marris",
+        "b": "blumund",
+        "dir": "NW",
+        "min": 1000,
+        "max": 2200,
+        "distance": 1073,
+        "bearing": 344,
+        "wind": "NNW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "marris",
+        "b": "dwargon",
+        "dir": "W",
+        "min": 1700,
+        "max": 3650,
+        "distance": 2593,
+        "bearing": 276,
+        "wind": "W",
+        "ok": true,
+        "source": "design/lore/marris.md"
+      },
+      {
+        "a": "siltrosso",
+        "b": "marris",
+        "dir": "W",
+        "min": 150,
+        "max": 900,
+        "distance": 570,
+        "bearing": 241,
+        "wind": "WSW",
+        "ok": true,
+        "source": "design/lore/siltrosso.md"
+      },
+      {
+        "a": "englassia",
+        "b": "blumund",
+        "dir": "W",
+        "min": 650,
+        "max": 1450,
+        "distance": 1402,
+        "bearing": 267,
+        "wind": "W",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "englassia",
+        "b": "tempest",
+        "dir": "W",
+        "min": 1900,
+        "max": 4150,
+        "distance": 2952,
+        "bearing": 281,
+        "wind": "W",
+        "ok": true,
+        "source": "design/lore/englassia.md"
+      },
+      {
+        "a": "ballachia",
+        "b": "englassia",
+        "dir": "E",
+        "min": 150,
+        "max": 1500,
+        "distance": 461,
+        "bearing": 103,
+        "wind": "ESE",
+        "ok": true,
+        "source": "design/lore/ballachia.md"
+      },
+      {
+        "a": "ballachia",
+        "b": "blumund",
+        "dir": "W",
+        "min": 300,
+        "max": 1500,
+        "distance": 965,
+        "bearing": 260,
+        "wind": "W",
+        "ok": true,
+        "source": "design/lore/ballachia.md"
+      },
+      {
+        "a": "lubelius",
+        "b": "tempest",
+        "dir": "NW",
+        "min": 2500,
+        "max": 5350,
+        "distance": 3828,
+        "bearing": 290,
+        "wind": "WNW",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "sacred_mountain",
+        "b": "lubelius",
+        "dir": "NW",
+        "min": 150,
+        "max": 900,
+        "distance": 424,
+        "bearing": 315,
+        "wind": "NW",
+        "ok": true,
+        "source": "design/lore/sacred_mountain.md"
+      },
+      {
+        "a": "heaven_tower",
+        "b": "tempest",
+        "dir": "W",
+        "min": 2750,
+        "max": 5900,
+        "distance": 4205,
+        "bearing": 273,
+        "wind": "W",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "coleus",
+        "b": "heaven_tower",
+        "dir": "E",
+        "min": 400,
+        "max": 2000,
+        "distance": 948,
+        "bearing": 46,
+        "wind": "NE",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "raja",
+        "b": "tempest",
+        "dir": "W",
+        "min": 1850,
+        "max": 4000,
+        "distance": 2873,
+        "bearing": 263,
+        "wind": "W",
+        "ok": true,
+        "source": "design/lore/raja.md"
+      },
+      {
+        "a": "nostraille",
+        "b": "morgdahl",
+        "dir": "E",
+        "min": 150,
+        "max": 1500,
+        "distance": 650,
+        "bearing": 90,
+        "wind": "E",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "yuzalgh",
+        "b": "nostraille",
+        "dir": "E",
+        "min": 150,
+        "max": 900,
+        "distance": 202,
+        "bearing": 81,
+        "wind": "E",
+        "ok": true,
+        "source": "design/lore/world.md"
+      },
+      {
+        "a": "ulgr_nature_park",
+        "b": "blumund",
+        "dir": "S",
+        "min": 2400,
+        "max": 4000,
+        "distance": 3513,
+        "bearing": 171,
+        "wind": "S",
+        "ok": true,
+        "source": "design/lore/world-map-corrections.md"
+      },
+      {
+        "a": "ulgr_nature_park",
+        "b": "elmine",
+        "dir": "S",
+        "min": 800,
+        "max": 1600,
+        "distance": 1329,
+        "bearing": 147,
+        "wind": "SSE",
+        "ok": true,
+        "source": "design/lore/world-map-corrections.md"
+      }
+    ]
+  },
+  "with_proposed_anchor_binding": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "normal_skip_check_used": true,
+  "skip_check_reason": "Build CLI has no alternate-anchor argument;default check rejects precisely the declared H/O conflict. Separate map_check --anchors proposed-file passes. Nothing applied.",
+  "required_binding_diff": {
+    "anchor": "sainte_malukshure",
+    "field": "region",
+    "before": "H",
+    "proposed": "O",
+    "meaning": "Existing spatial gameplay mask only;not canonical Morgdahl sovereignty."
+  },
+  "normal_generated_anchor_binding": "H",
+  "separately_generated_proposed_registration": {
+    "method": "Unmodified tools/world/build.py anchor_coords/update_anchors applied to reviewed proposed input. Normal generated anchors are not hand-edited.",
+    "sha256": "8b3e4340c0123fb5537a438f3d21b03e68270e2a65008c0514880da214974c93",
+    "sainte": {
+      "name": "Sainte Malukshure",
+      "x": -2320,
+      "z": 1645,
+      "y": 64,
+      "region": "O",
+      "kind": "pin",
+      "surface": "land",
+      "canon": "Sainte Malukshure",
+      "old_x": -2996,
+      "old_z": 1291
+    }
+  },
+  "site_records": {
+    "retained": 57,
+    "changed": {
+      "before": {
+        "id": "sainte_malukshure",
+        "kind": "clearing",
+        "x": -100,
+        "z": 2000,
+        "r": 8,
+        "plated": false,
+        "y": 69
+      },
+      "proposed": {
+        "id": "sainte_malukshure",
+        "kind": "clearing",
+        "x": -2320,
+        "z": 1645,
+        "r": 8,
+        "plated": false,
+        "y": 64
+      }
+    },
+    "radius8_is_country_pin_not_capital": true
+  },
+  "roads": {
+    "existing22_exports_retained": true,
+    "new_route_length": 749.0,
+    "new_route_wet_samples": 0,
+    "grades": [
+      {
+        "id": "tempest_dwargon",
+        "maximum_exported_grade": 0.5000000000000085
+      },
+      {
+        "id": "tempest_blumund",
+        "maximum_exported_grade": 0.4145593141157564
+      },
+      {
+        "id": "blumund_englassia_lubelius",
+        "maximum_exported_grade": 0.5
+      },
+      {
+        "id": "dwargon_dwarf_village",
+        "maximum_exported_grade": 0.5000000000000114
+      },
+      {
+        "id": "sacred_mountain_trail",
+        "maximum_exported_grade": 0.5000000000000455
+      },
+      {
+        "id": "treyni_marsh_trail",
+        "maximum_exported_grade": 0.38179387307052826
+      },
+      {
+        "id": "siss_cavern_and_orc_trail",
+        "maximum_exported_grade": 0.5000000000000114
+      },
+      {
+        "id": "ogre_foothill_trail",
+        "maximum_exported_grade": 0.5000000000000008
+      },
+      {
+        "id": "canaat_high_pass",
+        "maximum_exported_grade": 0.5000000000000171
+      },
+      {
+        "id": "falmuth_road",
+        "maximum_exported_grade": 0.07925304884756149
+      },
+      {
+        "id": "western_belt_road",
+        "maximum_exported_grade": 0.17164391531122264
+      },
+      {
+        "id": "western_desert_caravan",
+        "maximum_exported_grade": 0.3825000000000003
+      },
+      {
+        "id": "fulbrosia_stair",
+        "maximum_exported_grade": 0.5000000000000199
+      },
+      {
+        "id": "southern_royal_road",
+        "maximum_exported_grade": 0.5000000000000171
+      },
+      {
+        "id": "ulgracia_south_road",
+        "maximum_exported_grade": 0.5000000000000114
+      },
+      {
+        "id": "eurazania_road",
+        "maximum_exported_grade": 0.5000000000000114
+      },
+      {
+        "id": "milim_river_road",
+        "maximum_exported_grade": 0.4900000000000187
+      },
+      {
+        "id": "jistav_border_road",
+        "maximum_exported_grade": 0.42950039375451965
+      },
+      {
+        "id": "imperial_volcano_road",
+        "maximum_exported_grade": 0.5000000000000455
+      },
+      {
+        "id": "el_dorado_volcanic_way",
+        "maximum_exported_grade": 0.5000000000000455
+      },
+      {
+        "id": "frost_palace_forecourt",
+        "maximum_exported_grade": 0.0
+      },
+      {
+        "id": "englassia_coleus_royal_approach",
+        "maximum_exported_grade": 0.5
+      },
+      {
+        "id": "malukshure_coastal_approach",
+        "maximum_exported_grade": 0.5
+      }
+    ],
+    "design": "Gentle curved foothill waypoints,discretised to four-block cardinal source steps;maximum northward departure about48blocks from the earlier straight corridor."
+  },
+  "coast": {
+    "added_native_land": 1970.8859590349712,
+    "removed_native_land": 0.0,
+    "local_mainland_curve_splice": 26,
+    "local_reversed_O_boundary_curve_splice": 62,
+    "all_other_curve_commands_retained": true
+  },
+  "capital_study": {
+    "core64_radius_dry": true,
+    "core_to_shore": 124.88276953788632,
+    "capital_envelope_outside_native_land": 0.0,
+    "tower_disc_in_sea": true,
+    "tower_disc_to_shore": 30.35330537902231,
+    "no_active_tower_or_causeway": true
+  },
+  "coverage": {
+    "unassigned_native_land_centres": 0,
+    "scope": "All four-block centres in flattened native coasts intersect a gameplay mask;not sovereign borders."
+  },
+  "lakes": {
+    "lakes": 13,
+    "passing_lakes": 13,
+    "passing_bank_checks": 13,
+    "passing_connection_checks": 13,
+    "external_dry_bank_samples": 2539,
+    "internal_dry_boundary_bank_samples": 8,
+    "source_samples": 42768,
+    "source_wet_samples": 42760,
+    "dry_boundary_samples": 8,
+    "missing_expected_connections": 0,
+    "observed_river_lake_links": 8,
+    "external_wet_contact_samples": 21,
+    "overall_pass": true
+  },
+  "all9_river_profiles_unchanged": true,
+  "box": {
+    "x0": -6656,
+    "z0": -5632,
+    "x1": 6144,
+    "z1": 5120,
+    "width_px": 3200,
+    "height_px": 2688,
+    "content": [
+      -5253,
+      -4376,
+      4730,
+      3670
+    ],
+    "sea_margin": 1200,
+    "region": 512
+  },
+  "converter_warnings": [],
+  "normal_artifact_hashes": {
+    "anchors.toml": "8fe268d3786fcda7172ea4065d7844d77e4f9b16e654f42f8e198b44c180d4d2",
+    "biome.png": "6630f8676d99b7d405b99ba4c0931ceaa4ac32968b3080d05d0e74de2f3d4022",
+    "canon_map.txt": "e34cde4e6a6618d3e0a6788875a26d0d4453de8b6d74e78eafb2475a431729a5",
+    "exclude.png": "536d5d7a8bf48d108ad1020446c492ad13733519fa57022b867448ba5e0f370c",
+    "height.png": "16c9d50ab81beb507fe814b10298165e0097a76cbfe3cf05939fef5879c80350",
+    "index.json": "3559df7fe58f4793b174317fff1c4c1f325bcd7735c638d6f77fe77e0613fd0d",
+    "preview.png": "401fe1fad1b78b67c932e3ab450fd9d78a85a9c8e99b479bd55b98670d1cfc85",
+    "road.png": "2b19cb891ec5e931f926693954264b2e985e85cd66cd14e5158ea539bba9e4e5",
+    "roads.json": "9b55000116082f28a8efb2401c6059d803b6958d946d5256f5982849bf2d99df",
+    "rugged.png": "f19dd40df5724c2506d80b4b3d3181ed900dbd682ab15812c3cffabfd6bfda68",
+    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+    "sites.toml": "d46d030e6a7fd2cb367b4b9b86d80f7fba3ec51ad9ba20ff4048b79c222164bd",
+    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+  },
+  "limits": "Conditional reviewed source,not active/accepted map. Source-backed coast/adjacency does not prove exact placement,borders,full capital architecture,initial-era tower state,fluid/noise or runtime acceptance.",
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "duration_seconds": 65.778,
+    "validation": "passed",
+    "diff_check": "passed"
+  }
+}

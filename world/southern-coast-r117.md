@@ -20,6 +20,6 @@ The default checker passes zero errors and all 56 relations, with the two existi
 
 ## Remaining work
 
-At source review R117, the R116 painting still depicted the previous southern foot. [R118 on this proposal branch](painting-round112/README.md) now aligns the silhouette, with the prior snapshot retained in Git history. Full proportional fidelity, initial-era semantics, missing settlements and C23 waterfall-character/fluid-placement review remain open. Source access attempts could not enumerate the Orbic/Ulgracia child categories; parent article results do not establish complete coverage. No protected implementation, new registry ID, live world apply, chunk generation, main merge or deployment is included.
+R116 painting still depicts the previous southern foot and must be aligned before it is called current geometry. Full proportional fidelity, initial-era semantics, missing settlements and C23 waterfall-character/fluid-placement review remain open. Source access attempts could not enumerate the Orbic/Ulgracia child categories; parent article results do not establish complete coverage. No protected implementation, new registry ID, live world apply, chunk generation, main merge or deployment is included.
 
 Required repository gate: 472 tests, 26 skipped, zero failures in 64.173 seconds. Validation and `git diff --check` pass. The source correction is a separate stacked draft over `chatgpt/world-map`; no main merge is performed.

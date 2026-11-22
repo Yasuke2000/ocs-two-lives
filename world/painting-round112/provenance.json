@@ -12,8 +12,8 @@
   "global_relief_resampled": false,
   "runtime_applied": false,
   "vertical_limit": "This illustration is not an exact height reconstruction;R130 pond height is adopted as plan context and the dune has interpretive light/shade.",
-  "current_display_source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
-  "current_source_commit": "7b70e71",
+  "current_display_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "current_source_commit": "d1f4882",
   "display_followup": "Only capital display wording and root source metadata refreshed;the original terrain composition and continent PNG are retained. The earlier source_sha256/map_commit still identify the actual Coleus terrain/brushwork basis.",
   "western_islet_followup": {
     "source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
@@ -35,5 +35,18 @@
     "new_native_or_bitmap_geometry": false,
     "component_height_basis_retained": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
     "scope": "New original context label/leader only. Existing native/painted continent and58numeric registrations retained. Source-height correction and later source dossiers are not copied into this historical painting branch."
+  },
+  "current_full_source_adoption": {
+    "source_commit": "d1f488242f1b15d8155ad88034c15dc81f88a132",
+    "display_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+    "terrain_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+    "ledger_records": 351,
+    "inventory_records": 143,
+    "physical_followups": 42,
+    "normal_artifacts_adopted": 14,
+    "previous_painting_commit": "7446b2be7bfc3622c4762b745e05f41a6009d9a9",
+    "native_pixels_retained": true,
+    "height_reconstruction": false,
+    "scope": "Complete current source dossier and matching normal outputs adopted. Illustration plan remains compatible; historical brushwork and height basis are retained,not relabelled as a reconstruction of current numerical heights."
   }
 }

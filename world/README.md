@@ -1,6 +1,18 @@
+## Combined current source and painted delivery
+
+[Named painted atlas and same-frame comparison](painting-round112/README.md) now accompany the current351-record source dossier,displayb48666e9and normal terraina9b6b970in one branch. All14normal files are adopted unchanged; original painting pixels/components keep their historical height provenance. The later Laura source correction is present locally without pretending that the illustration is a numerical height reconstruction. Pending alternatives remain inactive.
+
+## Current display — Eastern Plains fringe
+
+[Named grassland context](eastern-plains-label.md) adds one unnumbered label to the existing open strip. Displayb48666e9;normal terrain staysa9b6b970with all14 artifacts and actual parsed geometry exact. Fresh read-only sampling:26029plains centres,height69.125..76.6875,no wet cells. Atlas label has no text overlap;all58 markers and143/42panel retained. This does not close the wider plain/grain-district scope or claim a new conversion. Earlier source/version headings below retain their original delivery scope.
+
+## Current source — smaller Laura headwater fall
+
+[Measured correction](laura-headwater-level.md):only basin/head154→139;adjacent river137gives2blocks. Sourcea9b6b970;fresh normal67.6s;all58 site heights/records and22road exports retained. All13 fresh lake cases and8head diagnostics pass. Current atlas updated;PR130painting retained as a plan illustration with its historical height basis. Earlier current/version headings below describe their original delivery state. The inactive larger-island PR132 remains a separate earlier-baseline proposal.
+
 ## Current terrain: western offshore rocks
 
-[Three original islets](western-offshore-islets.md) now represent small offshore forms south of the western coast and north of El Dorado. Source50c27a6f;normal67.6s. All58site/22road exports,existing lake/river profiles and lake+8height/water retained. Fresh22-mask census:zero unassigned inland samples;21region counts exact. Ledger346;expanded inventory143/42. Shapes and Xgameplay assignment remain interpretation. The paired native painting on this branch follows those exact coast footprints;see [painted atlas](painting-round112/README.md).
+[Three original islets](western-offshore-islets.md) now represent small offshore forms south of the western coast and north of El Dorado. Source50c27a6f;normal67.6s. All58site/22road exports,existing lake/river profiles and lake+8height/water retained. Fresh22-mask census:zero unassigned inland samples;21region counts exact. Ledger346;expanded inventory143/42. Shapes and Xgameplay assignment remain interpretation. The source-aligned painted atlas is available in [PR130](https://github.com/Yasuke2000/ocs-two-lives/pull/130); the [regional guide](regions.md) now uses this source and its fresh 22-mask census.
 
 ## Current source review — licensed guide8.5
 

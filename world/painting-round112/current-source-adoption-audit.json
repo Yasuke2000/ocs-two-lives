@@ -1,0 +1,67 @@
+{
+  "source_display_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "normal_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "normal_artifact_sha256": {
+    "anchors.toml": "dd9a8509fe36b15f7514518f0737cd4a6ad830cc5a68a1390926ab3a8a7de7c4",
+    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+    "exclude.png": "072b49b48f706144729f6dd3ffb5c85ff46211f9afa3ad0824c83c5435983e78",
+    "height.png": "23f9db2c21da88c2e8861b2b68c476cf2cd819eb54a1d41645282b0416c78c19",
+    "index.json": "44ba520e87a708fc0880cb611df6f114e32c844a0c272015fb3188fab3d67f47",
+    "preview.png": "8fe008ebe5901a84df9badd989710d175869afc6f5834ecf92d5a400f7f913fc",
+    "road.png": "6ae1649947d9b952af925f00ad5c62acf56beaba84c89f2abd332d1784f0b42c",
+    "roads.json": "e9e995848146d18dac189af5cc3ee260fe3cfd60a9f7ddf2dd290da32730b9cd",
+    "rugged.png": "92be3acd3fc4c1e39367d4a3bc67c36fcbcfcd9624a4964cbc8d57c496a757ee",
+    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+    "sites.toml": "3b45ae32faf2b93e35eb72990ea3e8e8f87c35adac9caa4052cd09b25e0f8130",
+    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+  },
+  "terrain_conversion_rerun": false,
+  "normal_export_adopted_exactly": true,
+  "native_bitmap_before_sha256": "b55ce6d85058bb3340ad20c60e44d2196934dd86a55962ce69b4a9aa3246a012",
+  "atlas_bitmap_before_sha256": "dfef09e301b7f629a233736c07997752783d8598662a310af9558ca6cccc2c6f",
+  "source_ledger_records": 351,
+  "inventory": 143,
+  "physical_followups": 42,
+  "numeric_site_records": 58,
+  "new_AI_images": 0,
+  "new_reference_pixels": false,
+  "runtime_apply": false,
+  "all_prior_native_and_atlas_child_trees_exact": true,
+  "native_and_atlas_bitmap_bytes_exact": true,
+  "all58_source_site_attributes_exact": true,
+  "all58_numeric_registration_records_exact": true,
+  "all22_context_records_exact": true,
+  "all42_open_XML_rows_exact": true,
+  "open_row_metadata_corrected": {
+    "before": 41,
+    "after": 42,
+    "XML_rows": 42
+  },
+  "current_source_ledger_exact_records": 351,
+  "unexpected_source_differences": [],
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.65
+  },
+  "browser_layout": {
+    "box": {
+      "x": 1323.203125,
+      "y": 830,
+      "w": 189.59375,
+      "h": 21
+    },
+    "overlaps": [],
+    "panel_texts": 46,
+    "panel_clipped": [],
+    "panel_inventory_count": "143"
+  },
+  "visually_inspected": [
+    "world/preview.png",
+    "world/painting-round112/atlas.png",
+    "world/painting-round112/current-source-comparison.png"
+  ]
+}

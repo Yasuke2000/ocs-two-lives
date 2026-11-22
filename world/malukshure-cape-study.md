@@ -1,3 +1,5 @@
+> Current full-source follow-up:[coastal access candidate](malukshure-coastal-access.md) rechecks this cape on the present map,adds a tested approach and exposes its actual O-mask/H-binding conflict. It remains inactive;the original historical measurements and source limits below retain their scope.
+
 # Malukshure capital cape alternative — round56
 
 R66 [Malukshure district/harbour/tower source layout](malukshure-source-layout.md) adds three directly read author-side-story relationships. Ledger259 unique;14 direct printed-LN plus6 author-side-story claims. Inventory132/41 follow-ups and source c2f806a9/R64 atlas remain unchanged. Exact initial state,dimensions and C14/C15 stay open.

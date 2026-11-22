@@ -1,0 +1,39 @@
+{
+  "reader_url": "https://ebookjapan.yahoo.co.jp/viewer/trial/B00182145939/",
+  "store_url": "https://ebookjapan.yahoo.co.jp/books/247818/A002145939/",
+  "publisher_url": "https://gcnovels.jp/book/157",
+  "viewport": [
+    1800,
+    1300
+  ],
+  "directly_viewed_captures": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "geographic_claims": {
+    "LN14-ROUTE-001": "step-9.png",
+    "LN14-MILIM-001": "step-11.png"
+  },
+  "private_evidence_sha256": {
+    "step-6.png": "21f34f05091e1add87606d66f461fbaf1894f26e7d7f486803d8244c8dbc0e14",
+    "step-7.png": "3c8aca7fea6cc9095f7b08213011f7b12aadc3ce6b4049fcfbc20efa6019b2e2",
+    "step-9.png": "8274639ecccf7176f3c0fe72037543de8bb3ef75c0f0a7ca641bcd7b08ae7c3f",
+    "step-11.png": "cc7a2676767a81dccb856077be2090ea6bed320fa466e316b4798e27942fa92e"
+  },
+  "not_verified": [
+    "C05 mountain bearing",
+    "chapter2 body",
+    "chapter3 body",
+    "whole volume",
+    "complete sample",
+    "printed page numbers for reflow captures"
+  ],
+  "map_changed": false,
+  "ledger_records": 351
+}

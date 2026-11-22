@@ -47,7 +47,7 @@ Round45 directly reads WN42 for the immobile treant community (WN42-001). Its po
 
 | C22 | WN78 places White Ice Palace centrally on the frozen continent; LN6 interlude/LN16 epilogue remain unread. Historical world/sites.toml coast contract predates the owner choice. | **Owner choice resolved R109:** Yasuke chose inland placement and adjustment of coastal registration. Active SVG: central snowfield(-1530,-3680),clearing,r89; exact generated staging table accompanies it. Existing entrance buffer8585columns is level71; no complete palace or runtime acceptance claim. Claude integrates the generated registration and preparation. LN agreement,initial architecture and access remain open. [Current review](../../../world/frost-palace-inland-r109.md). |
 
-| C23 | The brief asks for flat reaches and small falls; an initial export compressed the Ulgr and Laura lake-head descent. The ordinary two-block diagnostic is not an owner-set exact waterfall cap. | [R130](../../../world/ulgr-spring-level-r130.md) lowers the authored Ulgr spring/head102→92 while retaining its inland course; adjacent river91 gives a1-block interface. All13 lake cases and202 wet route samples pass finite checks. Laura154→137 remains17blocks and needs a source/style andactual fluid-column review. No tool implementation orruntime acceptance is claimed. |
+| C23 | The brief asks for flat reaches and small falls;the original Ulgr and Laura lake-head descent exceeded the ordinary two-block diagnostic,which is not an owner-set exact cap. | Ulgr92→91 remains;the [Laura authored correction](../../../world/laura-headwater-level.md) lowers its basin/head154→139,next to river137. All8interfaces and13fresh finite lake cases pass. This server-height choice is not a canonical waterfall measurement. Actual vertical water columns,final noise and landscape acceptance remain open. |
 | C24 | Licensed electronic guide8.5 map card prints Rondo for Eurazania and also for Blumund; wiki calls Eurazania's capital Laura. Printed-edition,errata and relevant LN prose are unverified. | Use Carrion's capital as neutral display;retain laura ID,position and radius. Preserve both readings rather than assume a typo or canonically rename the city. [Direct guide review](../../../world/guide85-source-review.md). |
 
 ## Review status
@@ -161,3 +161,12 @@ The [island proportion study](../../../world/island-proportion-review.md) distin
 ## C09/C15 follow-up: Galut is not a ready park-side clearing
 
 [Current original fit study](../../../world/galut-site-review.md) marks the old(-900,3050),r60proposal requires-redesign:brook overlap,39.959blocks coast-edge clearance and43.625blocks sampled relief. No alternate city centre accepted. The existing wiki capital identity remains secondary;new WN61-004 directly supports Sarion trade only. Park threshold,town altar,capital and server portal retain separate meanings. This updates proposal readiness without moving active geography or treating gameplay U as a sovereign survey.
+
+
+## C14 follow-up: complete conditional coastal access
+
+[Current candidate](../../../world/malukshure-coastal-access.md) tests the earlier cape with a749-block approach and the existing8-block country marker. Its actual spatial mask is O;canonical anchors still require H. The default checker rejects that one binding;the explicit proposed-checker input passes,with fresh finite terrain/route/lake evidence. It remains inactive pending the binding choice;no Morgdahl ownership,complete city,harbour or initial tower state is inferred. Ledger348adds one original-design record,not new canon geography.
+
+## LN14 licensed trial: selected prose is now readable
+
+The [new public-trial review](ln14-public-sample-review.md) supersedes the old access failure only for selected rendered title,contents and opening prologue pages. LN14-ROUTE-001 corroborates an intended Imperial passage through Jura toward the Western Nations; LN14-MILIM-001 explicitly describes later southern Milim dominion. Neither supplies the missing Nasca/mountain bearing. Chapter2/3 bodies remain unread. Preserve C05 and keep the later ownership out of the initial S1E10 state under C08/C18. Current ledger351; no map,site,inventory or terrain change.

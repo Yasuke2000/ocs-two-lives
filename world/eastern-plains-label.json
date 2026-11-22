@@ -1,0 +1,48 @@
+{
+  "terrain_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "plain_bounds": [
+    1640.0,
+    -1150.0,
+    2907.41,
+    -297.04
+  ],
+  "plain_polygon_area": 416585.5543499998,
+  "strict_interior_centres": 26029,
+  "designed_first_air_range": [
+    69.125,
+    76.6875
+  ],
+  "wet_centres": 0,
+  "label_world_anchor": [
+    2400,
+    -690
+  ],
+  "label_anchor_strictly_inside": true,
+  "limits": "Label marks the authored open fringe,not a surveyed whole plain,grain district or sovereign frontier. Existing WN and wiki claims retain their separate confidence.",
+  "biome_counts": {
+    "minecraft:plains": 26029
+  },
+  "display_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "all_parsed_terrain_road_site_shapes_unchanged": true,
+  "all14_normal_artifacts_unchanged": true,
+  "atlas_only_new_context_and_display_source_pin": true,
+  "layout": {
+    "box": {
+      "x": 1435.234375,
+      "y": 1004,
+      "w": 219.53125,
+      "h": 25
+    },
+    "overlaps": []
+  },
+  "checker_preview_byte_identical": true,
+  "no_new_normal_export": true,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "duration_seconds": 65.402,
+    "validation": "passed",
+    "diff_check": "passed"
+  }
+}
