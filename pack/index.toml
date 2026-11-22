@@ -2950,7 +2950,7 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "0ed2ba9c782f98e7beb273a4407c85f910f4a6b0fb2fa223adafc04954508aad"
+hash = "e4599d8536f64a29e56a5cf8b38d4e63383f0e74d906754df296acfa7b7bcef2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -3022,7 +3022,7 @@ hash = "1421a85d2bcd6b39d98a4b3a7f202eb5888f6c4024efc2ee7ca905f452962036"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/carryover.js"
-hash = "334854051204d3da6eab0d2927aaf4e32db1b5e24fe61def8bec0d9e744a5baa"
+hash = "4713098b073b5f59968cf46a4c758ca4acd89e84b854f3d5afd43fb865592fdf"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/chunk_hold.js"
@@ -3078,7 +3078,7 @@ hash = "6bd316b9dc0b0d79fea6785095e49c4b905e406eb2cfb3b1d5e47db0620944c2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_banned.js"
-hash = "a8e723defcf3e7e038357a9109482a64958a75ae54ecd783a923f42d05a513b1"
+hash = "95930bdc50aca978272f9409db6e17291df6ad02e9ee6f4366d6e6aa7d8f5dba"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/mortal_immunity.js"
@@ -3701,7 +3701,7 @@ metafile = true
 
 [[files]]
 file = "mods/ttl-portals.pw.toml"
-hash = "7c7d70115a86de56fceaefd01eb4ac8dcdddad337df28a500dad57d86e5f2f7e"
+hash = "15c3f1f6d1f7bc9d22b4fc3c43c55b2c924475452d3c6e275a6f5dbd37a2a024"
 metafile = true
 
 [[files]]

@@ -63,6 +63,10 @@ Each named one gets its own design later in the same shape (R12/R13, a `design/d
 
 ### 0.2 Life 1 stays mortal (owner rule, `mortal_banned.toml`)
 
+*Update 22/11/2026 (owner, issue #145):* Occultism is no longer banned by namespace; only its ritual items are (chalks,
+ritual bowls, chalices, ritual satchels, books of binding and calling, familiar ring, magic lamp, miner spirits). See
+`design/decisions.md`.
+
 Today `namespaces = ["tensura", "tensura_neb", "greatsage", "lightmanscurrency"]`: Tensura's necromancy, naming, golems and
 smithing bench are already impossible in `ttl:mortal_*`. **Not banned today**: Iron's blood school (`raise_dead`, `devour`,
 `ray_of_siphoning` …) and Occultism's rituals (`possess_skeleton`, `wild_hunt`, `resurrect_mob`), which both exist in

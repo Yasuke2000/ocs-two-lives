@@ -89,7 +89,7 @@ kill TtlBotRoadsA
 ttl karma TtlBotRoadsA expect phase corridor
 ttl karma TtlBotRoadsA expect carried_chaos 9
 ttl karma TtlBotRoadsA expect chaos2 0
-# 7. O-N1, Life 1 stays mortal: Occultism (namespace) and the path items (tag ttl:paths) go to the soul stash within 2 s,
+# 7. O-N1, Life 1 stays mortal: Occultism's ritual items (chalk) and the path items (tag ttl:paths) go to the soul stash within 2 s,
 #    and Iron's blood and eldritch casts are refused in the Mortal dimensions only.
 give TtlBotRoadsL occultism:chalk_white
 give TtlBotRoadsL ttl:soul_ash 2

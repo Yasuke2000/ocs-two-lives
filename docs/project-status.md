@@ -68,7 +68,8 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - Karma that counts active play (anti-farming), Life 1 deaths judged into tiers (Wanderer → Legend, Fallen).
 - 119 Life 1 quests in 10 chapters ending in "A Life That Counted"; the Mortal Nether/End and the Mortal Dragon.
 - Life 1 items do not carry over (ender chest and Curios emptied); soulbound items + the Soul Gem do.
-- Tensura content banned in Life 1 (`design/data/mortal_banned.toml`, one line per mod).
+- Tensura content banned in Life 1 (`design/data/mortal_banned.toml`, one line per mod); of Occultism only the ritual items.
+- Only the Soul Gem (`ttl:soulbound`) crosses to Life 2; Tombstone's Soulbound is not offered in Life 1.
 - Iron's Spells work in Life 1 on Iron's own mana (the Tensura magicule bridge only in Life 2); Nether portal frames light in the
   Mortal Realm and Mortal Nether (ttl-portals 0.9.2).
 - Sleeping skips the night in the Mortal Realm too (50 % of the souls there; one shared clock with the Tensura world).
