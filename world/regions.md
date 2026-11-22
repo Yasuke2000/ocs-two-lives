@@ -397,3 +397,7 @@ All technical conversion, live structure placement, final-noise/fluid acceptance
 ## Conditional Filtwood forest-edge proposal
 
 The [complete C20candidate](filtwood-jura-edge-candidate.md) moves only the existing pin to the already-illustrated western Jura-edge setting and supplies a measured curved trail. It passes with an explicit alternate U→J gameplay binding;default checker still rejects that one contract difference. Source bearing remains interpreted,kingdom identity primary,near-Jura setting secondary. Active geometry and current guide biome shares remain unchanged.
+
+## Unregistered Galut precinct study
+
+[Terraced layout and profiles](galut-terraced-precinct.md) examine the existing near-coast ridge without moving the nature park,flattening the whole disc or accepting a capital coordinate. Court/walk surfaces are proposed design,not current terrain. Capital-name evidence remains primary;the exact location and C15contract are open. Active region geometry and biome shares remain unchanged.

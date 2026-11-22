@@ -1,3 +1,5 @@
+**Further layout study:** the [terraced precinct](galut-terraced-precinct.md) retains the60-radius envelope and follows the nearly flat west interior plus stepped northeast edge. It does not accept the failed old flat-city plan or close location/registration/foundation questions. Earlier measurements below retain their original source pins.
+
 # Galut: reject the old circle as a ready dry-site plan
 
 **New primary naming evidence:** the licensed guide8.5 map card directly names Galut (`GUIDE85-GALUT-001`). The earlier wiki-only identity assessment below is historical. Exact location and every terrain-fit objection remain unresolved. [Direct guide review](guide85-source-review.md).

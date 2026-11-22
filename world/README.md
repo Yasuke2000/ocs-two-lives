@@ -1,3 +1,7 @@
+## Galut topographic planning study
+
+[Three terraces and a connected walk](galut-terraced-precinct.md) develop the existing radius60diagnostic into an original planning diagram. Actual source/normal remain unchanged;the precinct is not a registered city or a new terrain export. Ledger353;inventory143/42still open.
+
 ## Conditional Filtwood forest-edge candidate
 
 [Source/terrain/access comparison](filtwood-jura-edge-candidate.md) develops the existing C20comment into a measured proposal:pin(-1050,74,600),1102-block curved trail,57other site records and22old road exports retained. Default checker fails only the unapproved U/J binding;conditional check passes. Active map/current painting stay unchanged;ledger352/inventory143-42.
