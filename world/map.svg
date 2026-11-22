@@ -34,7 +34,7 @@ The active amrita circle at(3800,-500), r63 is a separate server reservation bec
   <!-- C14/C15 additional-location alternatives. All coordinates and radii below are OUR INTERPRETATION, not measured canon. No proposed element is live terrain or a registered site.
 C14: AUTH-VAC-001/002 directly support a Malukshure capital cape,offshore tower and Sarion adjacency in the author LN-aligned side serial. WIK-MAL-002 supplies the still-qualified west bearing. AUTH-VAC-003 describes new-moon access,not a permanent land bridge. The current Sainte-Malukshure anchor is constrained to gameplay H (Fulbrosia); do not silently move it to another region.
 C15: Galut is distinct from the nature park; Tengu need a summit settlement; the western wall needs an era-specific physical design. See world/additional-locations.md for sources and review questions.
-<circle id="proposal-galut" cx="-900" cy="3050" r="60" data-source-claims="WIK-ULG-001" />
+<circle id="proposal-galut" cx="-900" cy="3050" r="60" data-source-claims="WIK-ULG-001" data-review-status="requires-redesign" data-review="world/galut-site-review.md" />
 <circle id="proposal-tengu_settlement" cx="-1000" cy="940" r="40" data-source-claims="WIK-TEN-001;WIK-KHU-001;OFF-TEN-001;OFF-TEN-002;DES-TEN-020" />
 <circle id="proposal-sainte_malukshure" cx="-2320" cy="1645" r="64" data-source-claims="AUTH-VAC-001;AUTH-VAC-002;WIK-MAL-002" />
 <circle id="proposal-magic_tower" cx="-2440" cy="1840" r="40" data-source-claims="AUTH-VAC-002;AUTH-VAC-003;PUB-MAL-001" />
