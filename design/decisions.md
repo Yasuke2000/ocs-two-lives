@@ -305,3 +305,5 @@ changes and new decisions with a date.
 22Nov2026 — Give each curated reference its own displayed-episode/initial-state limits;do not reuse episode9woodland wording for Dwargon or later interiors. Preserve source confidence and cross-region application limits. [Attribution correction](../docs/research/tensura-world-2026-11-19/reference-era-attribution.md).
 
 22Nov2026 — Make the Malukshure coast/access proposal concrete under an explicit conditional H→O checker input,retaining the active game slot until the owner chooses. Ocoverage is spatial gameplay,not national ownership;an8-block pin does not implement the capital. [Measured proposal](../world/malukshure-coastal-access.md).
+
+22Nov2026 — Label the measured Eastern Plains fringe in the native/readable map while keeping the whole-plain and grain-district uncertainty explicit. Preserve all actual terrain and numerical registration;do not convert WN context into an initial farming district. [Audit](../world/eastern-plains-label.md).

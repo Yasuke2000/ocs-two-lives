@@ -1,3 +1,5 @@
+> Current follow-up:[the named fringe and fresh sampling](eastern-plains-label.md) retain this source distinction and the partial status. The older R83 hashes/count notes below describe that original review;the normal export was not silently relabelled.
+
 # Eastern Plains — source and terrain review, round 83
 
 [Original current-geometry study](eastern-plains-source-study.png) · [editable SVG](eastern-plains-source-study.svg) · [measurements](eastern-plains-audit-r83.json)

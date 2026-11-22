@@ -1,6 +1,6 @@
-# Current terrain guide — Laura headwater level
+# Current terrain guide — labelled Eastern Plains fringe
 
-This is the current creative guide for `world/map.svg`, source and normal-export SHA256 `a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb`. The [western offshore rocks](western-offshore-islets.md) add three original small coasts to the existing mainland, Coleus dune and island terrain. Both larger-island alternatives remain comments. One SVG unit is one block; east is +x and south is +z. Rimuru’s village is at (0,0). The mainland measures 9,983 × 6,250 blocks; the normal export box is 12,800 × 10,752. Those are authored server dimensions, not a canonical survey.
+This is the current creative guide for `world/map.svg`, display-source SHA256 `b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661`; the identical parsed terrain retains normal-export source `a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb`. The [western offshore rocks](western-offshore-islets.md) add three original small coasts to the existing mainland, Coleus dune and island terrain. Both larger-island alternatives remain comments. One SVG unit is one block; east is +x and south is +z. Rimuru’s village is at (0,0). The mainland measures 9,983 × 6,250 blocks; the normal export box is 12,800 × 10,752. Those are authored server dimensions, not a canonical survey.
 
 Use the **[post-Kijin S1E10 snapshot](era.md)**: the Kijin have just been named, the Orc Lord conflict is unresolved, Falmuth still exists, and Clayman, Frey and Carrion retain their earlier countries. A site reservation supplies capacity; it does not instantiate a future city, event or resident. See the [58-site era overlay](../docs/research/tensura-world-2026-11-19/era-site-state.csv).
 
@@ -329,6 +329,8 @@ Earlier iteration notes are preserved in [the previous guide](https://github.com
 **Evidence limit.** A shared world map, an interior or a cross-region analogy is not a dedicated landscape reference for this country. See the [reference-role audit](../docs/research/tensura-world-2026-11-19/region-image-review-r59.md) and its CSV for provenance, confidence and outstanding gaps.
 
 ## E — Eastern Empire
+
+**Named geographical context.** [Eastern Plains (fringe)](eastern-plains-label.md) marks the existing measured open approach near the forest/Empire side,not a surveyed whole-plain boundary. The wider extent and adjoining WN grain district remain partial/unplaced. The label’s exact anchor is authored;it is not a new crop district or initial wolf encounter.
 
 **Landform and heights.** Far-eastern northern valley 75–110, with Nasca north of a volcanic sanctuary rising to250.
 

@@ -1,3 +1,7 @@
+## Current display — Eastern Plains fringe
+
+[Named grassland context](eastern-plains-label.md) adds one unnumbered label to the existing open strip. Displayb48666e9;normal terrain staysa9b6b970with all14 artifacts and actual parsed geometry exact. Fresh read-only sampling:26029plains centres,height69.125..76.6875,no wet cells. Atlas label has no text overlap;all58 markers and143/42panel retained. This does not close the wider plain/grain-district scope or claim a new conversion. Earlier source/version headings below retain their original delivery scope.
+
 ## Current source — smaller Laura headwater fall
 
 [Measured correction](laura-headwater-level.md):only basin/head154→139;adjacent river137gives2blocks. Sourcea9b6b970;fresh normal67.6s;all58 site heights/records and22road exports retained. All13 fresh lake cases and8head diagnostics pass. Current atlas updated;PR130painting retained as a plan illustration with its historical height basis. Earlier current/version headings below describe their original delivery state. The inactive larger-island PR132 remains a separate earlier-baseline proposal.
