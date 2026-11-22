@@ -1,5 +1,20 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 22/11 — tester issues #72 #73 #75 #86 #144 (branch `fix-reset-sleep-l2h`, Claude, for Yasuke)
+
+**#73/#72 reset kept skills**: `/ttl reset` revoked only uniques and set the race with `tensura edit race set` (keeps every
+other ability, the old race's intrinsics and the EP). Now `life/soul_wipe.js`: registry `revokeAll`, every other ability
+one at a time, `tensura reset <p> race tensura:human` (EP, existence, spirits, statistics; no race menu). Tensura never
+forgets a resistance: a revoke puts it back to the start of learning (negative mastery, inactive), counted as not held.
+The Life 1 death strips the abilities the Human learned; the command rebirth rolls the new race's EP (`... set <race> true`).
+**#86**: the Mortal Realm reads the overworld clock and vanilla's sleep there could not move it; `life/sleep.js` moves it on
+NeoForge's `SleepFinishedTimeEvent`; gamerule `playersSleepingPercentage` 50 (applied at server start). **#144**: L2H Life 1
+caps 100/150/200 (owner call open: remove them?). **#75**: `/ttl life1 status <player> [<preset>]`, `/ttl life1 days`
+(karma.toml [presets]). `TtlKarma.set` now goes through the dispatcher (runCommandSilent landed a moment later).
+**Verified locally** (Lerfing): reset_full, sleep (Mortal Realm and overworld), life1_status, karma, race_lock, rebirth,
+rebirth_scene, two_lives, registry, registry_reconcile, soul, carryover, bed_spawn, roads, absorb, legendary,
+trial_knowledge, trial_strength, necro_ranks, quests. **Not done**: L2Archery (suggested in #144) needs `/add-mod` and an owner yes.
+
 ## 20/11 — bounty boards, NPCs and guards audit; killable enemies of the roads (branch `bounties-npcs-enemies`, Claude, for Yasuke)
 
 Yasuke: "Also check the bounty boards, NPCs and the guards; add killable NPCs as well." **Audit fixes**: Tensura's Severance,

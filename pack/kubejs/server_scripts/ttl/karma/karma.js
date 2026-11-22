@@ -373,7 +373,9 @@ const TtlKarma = {
       return
     }
     var base = this.base(player)[key] || 0
-    server.runCommandSilent(`scoreboard players set ${player.username} ${this.OBJ}${key} ${base + n}`)
+    // Through the dispatcher, not runCommandSilent: the score must be there when the caller reads the verdict right after
+    // (/ttl life1 status checks the tier at once; runCommandSilent's command landed a moment later).
+    TtlCmd.run(server, `scoreboard players set ${player.username} ${this.OBJ}${key} ${base + n}`)
   },
 
   // One line for /ttl inspect.
