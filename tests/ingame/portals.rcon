@@ -3,6 +3,9 @@
 # portal contact is only checked while an entity moves, and items keep falling.
 # Expect: "Test passed" for the Mortal Nether and Mortal End checks, "Test failed" for the vanilla
 # Nether and End checks, then cleanup.
+# Second part (issue #85): a Life 1 bot lights an obsidian frame with flint and steel, in the Mortal Realm and in the Mortal
+# Nether, and gets a portal (ttl-portals BaseFireBlockMixin; vanilla lights frames only in the Overworld and the Nether).
+# `ttl useon expect` prints "ttl: ..." when the block is not the portal, which test-all counts as a failure.
 execute in ttl:mortal_realm run forceload add 992 992 1023 1023
 execute in ttl:mortal_realm run fill 1000 200 1000 1003 204 1000 minecraft:obsidian
 execute in ttl:mortal_realm run fill 1001 201 1000 1002 203 1000 minecraft:nether_portal[axis=x]
@@ -19,3 +22,35 @@ kill @e[tag=ttltest]
 execute in ttl:mortal_realm run fill 1000 200 1000 1003 204 1000 minecraft:air
 execute in ttl:mortal_realm run fill 1010 199 1010 1010 200 1010 minecraft:air
 execute in ttl:mortal_realm run forceload remove 992 992 1023 1023
+# ---- lighting a frame (issue #85) ----
+ttlbot spawn TtlBotPortal
+@sleep 4
+execute as TtlBotPortal run ttl reset TtlBotPortal
+@sleep 2
+execute in ttl:mortal_realm run forceload add 992 1008 1023 1023
+execute in ttl:mortal_realm run fill 998 199 1010 1005 199 1018 minecraft:stone
+execute in ttl:mortal_realm run fill 1000 200 1015 1003 204 1015 minecraft:obsidian
+execute in ttl:mortal_realm run fill 1001 201 1015 1002 203 1015 minecraft:air
+execute in ttl:mortal_realm run tp TtlBotPortal 1001.5 200 1012.5 0 0
+item replace entity TtlBotPortal weapon.mainhand with minecraft:flint_and_steel
+ttl useon TtlBotPortal 1001 200 1015 up
+@sleep 1
+ttl useon expect TtlBotPortal 1001 201 1015 minecraft:nether_portal
+ttl useon expect TtlBotPortal 1002 203 1015 minecraft:nether_portal
+execute in ttl:mortal_realm run fill 998 199 1010 1005 204 1018 minecraft:air
+execute in ttl:mortal_realm run forceload remove 992 1008 1023 1023
+# The same frame in the Mortal Nether (above its roof, so nothing of the terrain is in the way).
+execute in ttl:mortal_nether run forceload add 992 1008 1023 1023
+execute in ttl:mortal_nether run fill 998 199 1010 1005 199 1018 minecraft:stone
+execute in ttl:mortal_nether run fill 1000 200 1015 1003 204 1015 minecraft:obsidian
+execute in ttl:mortal_nether run fill 1001 201 1015 1002 203 1015 minecraft:air
+execute in ttl:mortal_nether run tp TtlBotPortal 1001.5 200 1012.5 0 0
+item replace entity TtlBotPortal weapon.mainhand with minecraft:flint_and_steel
+ttl useon TtlBotPortal 1001 200 1015 up
+@sleep 1
+ttl useon expect TtlBotPortal 1001 201 1015 minecraft:nether_portal
+ttl useon expect TtlBotPortal 1002 203 1015 minecraft:nether_portal
+execute in ttl:mortal_nether run fill 998 199 1010 1005 204 1018 minecraft:air
+execute in ttl:mortal_nether run forceload remove 992 1008 1023 1023
+ttl reset TtlBotPortal
+ttlbot remove TtlBotPortal

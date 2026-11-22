@@ -1,0 +1,54 @@
+# Iron's Spells in Life 1 (issue #104, life/mortal_spells.js, ttl-portals SpellManaMixin + TensuraIronCastMixin).
+# The Tensura bridge pays spells from magicules (50 x the mana cost); a Life 1 Human holds 50-70, so every spellbook cast
+# in the Mortal Realm used to fail with "Not enough mana". In the Mortal dimensions Iron's now spends its own mana; outside
+# them the bridge is untouched. Blood and eldritch stay refused there (O-N1, mortal_banned.toml spell_schools).
+# `ttl spells ...` and `ttl stash ... spell` print "ttl: ..." when something does not hold (a test-all failure).
+ttlbot spawn TtlBotSpell
+@sleep 4
+execute as TtlBotSpell run ttl reset TtlBotSpell
+@sleep 2
+ttl spells TtlBotSpell
+ttl racelock TtlBotSpell expect tensura:human
+# ---- the Mortal Realm: Iron's own mana, no magicule conversion ----
+ttl spells TtlBotSpell mana 100
+ttl spells TtlBotSpell cost irons_spellbooks:firebolt plain
+ttl spells TtlBotSpell cancast irons_spellbooks:firebolt yes
+ttl spells TtlBotSpell cancast irons_spellbooks:heal yes
+# A real cast (heal: instant, on itself) goes off on the next tick and costs its plain mana, not a single magicule.
+ttl spells TtlBotSpell cast irons_spellbooks:heal yes
+@sleep 1
+ttl spells TtlBotSpell spent
+# Without the mana it is still refused, as anywhere in Iron's.
+ttl spells TtlBotSpell mana 0
+ttl spells TtlBotSpell cancast irons_spellbooks:firebolt no
+ttl spells TtlBotSpell cast irons_spellbooks:heal no
+# The necromancer's and the abyss's schools stay vetoed in the Mortal dimensions; the others are free.
+ttl stash TtlBotSpell spell irons_spellbooks:blood yes
+ttl stash TtlBotSpell spell irons_spellbooks:eldritch yes
+ttl stash TtlBotSpell spell irons_spellbooks:fire no
+ttl stash TtlBotSpell spell irons_spellbooks:holy no
+# A Life 1 body that does hold the magicules still pays in Iron's mana there: the bridge's cast handler is skipped too.
+tensura edit stat TtlBotSpell magicule max set 100000
+tensura edit stat TtlBotSpell magicule current set 100000
+clearCooldowns player TtlBotSpell
+ttl spells TtlBotSpell mana 100
+ttl spells TtlBotSpell cast irons_spellbooks:heal yes
+@sleep 1
+ttl spells TtlBotSpell spent
+tensura edit stat TtlBotSpell magicule max set 50
+tensura edit stat TtlBotSpell magicule current set 50
+# A summon spell works too, even inside Wayfarer's Rest's safe-spawn square (life/mortal_spawns.js).
+clearCooldowns player TtlBotSpell
+ttl spells TtlBotSpell mana 100
+ttl spells TtlBotSpell cast irons_spellbooks:summon_vex yes
+@sleep 1
+ttl spells TtlBotSpell summons 1
+execute as TtlBotSpell at @s run kill @e[type=irons_spellbooks:summoned_vex,distance=..32]
+# ---- outside the Mortal dimensions the bridge still applies: 50 magicules are not enough for a firebolt ----
+# (the Spirit Corridor: not mortal, and life/confine.js leaves a soul there)
+execute in ttl:spirit_corridor run tp TtlBotSpell 0.5 65 0.5
+@sleep 1
+ttl spells TtlBotSpell mana 100
+ttl spells TtlBotSpell cancast irons_spellbooks:firebolt no
+ttl reset TtlBotSpell
+ttlbot remove TtlBotSpell

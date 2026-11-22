@@ -136,6 +136,19 @@ subs = [
   ["expect", "test", "Assert a stash field."],
 ]
 
+[spells]
+group = "life"
+who = "staff"
+does = "Iron's Spells in Life 1: in the Mortal dimensions Iron's spends its own mana, not Tensura magicules (issue #104). Without a subcommand: magicules, Iron's mana and max mana."
+subs = [
+  ["mana", "test", "Set the player's Iron's mana."],
+  ["cancast", "test", "Assert whether a spellbook cast of a spell passes Iron's checks (mana, cooldown, learning) where the player stands."],
+  ["cost", "test", "Assert the Iron's mana a spellbook cast asks for (`plain` = the spell's own cost)."],
+  ["cast", "test", "Start a real spellbook cast of a spell (an instant one goes off on the next tick)."],
+  ["spent", "test", "Assert that the last `cast` took its plain mana and no magicules."],
+  ["summons", "test", "Assert that at least n spell summons of the player stand within 16 blocks."],
+]
+
 [racelock]
 group = "life"
 who = "staff"
@@ -814,6 +827,15 @@ who = "test"
 does = "The command log of /ttl and the other ops commands (literal paths only, never free text, selectors or NBT)."
 subs = [
   ["expect", "test", "Assert the last logged command path: `expect cmdlog last <path>`."],
+]
+
+[useon]
+group = "ops"
+who = "test"
+does = "The player right-clicks a block face with its main-hand item, the way a real click arrives (test bots cannot click). First used for flint and steel on a portal frame."
+subs = [
+  ["<target>", "test", "Right-click the block face at x y z with what the player holds."],
+  ["expect", "test", "Assert the block at a position in the player's dimension."],
 ]
 
 [guideforget]
