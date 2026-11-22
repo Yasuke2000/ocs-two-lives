@@ -1,0 +1,38 @@
+# #72 #73: /ttl reset is a full character reset (life/soul_wipe.js). Expect no "ttl:" failure lines.
+# A Life 2 Slime with a common skill, a resistance, an extra skill and 50,000 max magicule comes back to Life 1 as a
+# fresh Human: none of those abilities, Human's own EP (max magicule 50-70), race Human. Then a Life 1 death takes the
+# abilities the Human body learned in Life 1 (here a granted resistance) before the Corridor.
+ttlbot spawn TtlBotWipe
+@sleep 4
+kill TtlBotWipe
+execute as TtlBotWipe run ttl wish knowledge
+execute as TtlBotWipe run ttl choose slime
+@sleep 2
+tensura edit ability grant TtlBotWipe tensura:telepathy
+tensura edit ability grant TtlBotWipe tensura:cold_resistance
+tensura edit ability grant TtlBotWipe tensura:magic_sense
+tensura edit stat TtlBotWipe magicule max set 50000
+ttl wipe TtlBotWipe expect has tensura:telepathy yes
+ttl wipe TtlBotWipe expect has tensura:cold_resistance yes
+ttl wipe TtlBotWipe expect has tensura:magic_sense yes
+ttl wipe TtlBotWipe
+ttl reset TtlBotWipe
+@sleep 2
+ttl wipe TtlBotWipe
+ttl wipe TtlBotWipe expect has tensura:telepathy no
+ttl wipe TtlBotWipe expect has tensura:cold_resistance no
+ttl wipe TtlBotWipe expect has tensura:magic_sense no
+ttl wipe TtlBotWipe expect count 0
+# Tensura never forgets a resistance: it drops back to the start of learning (negative mastery), which is not held.
+ttl wipe TtlBotWipe expect magicule 70
+ttl racelock TtlBotWipe expect tensura:human
+ttl karma TtlBotWipe expect phase life1
+# The Life 1 death strip: a resistance learned in Life 1 does not reach the Corridor (and Life 2).
+tensura edit ability grant TtlBotWipe tensura:cold_resistance
+ttl wipe TtlBotWipe expect has tensura:cold_resistance yes
+kill TtlBotWipe
+@sleep 1
+ttl karma TtlBotWipe expect phase corridor
+ttl wipe TtlBotWipe expect has tensura:cold_resistance no
+ttl reset TtlBotWipe
+ttlbot remove TtlBotWipe

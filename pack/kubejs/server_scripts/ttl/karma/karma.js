@@ -20,7 +20,7 @@ const TtlKarma = {
   TRACKED: { active: 'ttl.l1.active', far: 'ttl.l1.far', nether: 'ttl.l1.nether', end: 'ttl.l1.end', advancements: 'ttl.l1.adv' },
   // Bookkeeping of the tracked stats above (visited squares and today's count), reset with them.
   TRACK_EXTRA: ['ttl.l1.cells', 'ttl.l1.cellDay', 'ttl.l1.cellsToday'],
-  KEYS: ['ttl.karma.base', 'ttl.karma.life1', 'ttl.karma.score', 'ttl.karma.dark', 'ttl.karma.bonus', 'ttl.tier', 'ttl.l1.days'],
+  KEYS: ['ttl.karma.base', 'ttl.karma.life1', 'ttl.karma.score', 'ttl.karma.dark', 'ttl.karma.bonus', 'ttl.tier', 'ttl.l1.days', 'ttl.l1.staffset'],
 
   conf() {
     return TtlData.karma

@@ -1,0 +1,15 @@
+# #86: sleeping skips the night in the Mortal Realm (life/sleep.js). Expect no "ttl:" failure lines, and in the log
+# "[ttl] sleep: the night was slept away in ttl:mortal_realm". The Mortal Realm reads the overworld's clock and vanilla
+# never wrote a night slept away there back to it: the sleepers were woken and it stayed night.
+# A fresh bot starts Life 1 in the Mortal Realm; it is the only soul there, so it alone is the 50 %.
+ttlbot spawn TtlBotSleep
+@sleep 4
+ttl sleep TtlBotSleep expect mortal
+time set 18000
+ttl sleep TtlBotSleep bed
+# Vanilla waits until the sleeper has slept 100 ticks (5 s), then the morning comes.
+@until 20 ttl sleep expect morning
+ttl sleep TtlBotSleep expect awake
+ttl sleep TtlBotSleep clear
+ttl reset TtlBotSleep
+ttlbot remove TtlBotSleep

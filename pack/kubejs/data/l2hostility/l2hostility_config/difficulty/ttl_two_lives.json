@@ -48,30 +48,30 @@
   "levelDefaultTraits": {
     "ttl:mortal_realm": [
       {
-        "_comment": "Life 1 overworld: level cap 40 (only the cheap level-20/40 traits can roll), max 2 traits, half the per-level damage bonus so early mobs never one-shot a Human.",
+        "_comment": "Life 1 overworld: level cap 100 (was 40, issue #144: L2H traits unlock at their own min levels, 20 to 600, and most trait drops need the level 50-100 traits; 40 left only the six cheapest). Levels still grow from 0 at Wayfarer's Rest with distance from 0,0 (+6 per 1000 blocks) and the soul's own L2H level, so the hard mobs are the far ones. Max 3 traits (was 2), half the per-level damage bonus kept: one life, a Human body.",
         "difficulty": { "min": 0, "base": 0, "variation": 0.0, "scale": 0.0, "apply_chance": 1.0, "trait_chance": 1.0, "suppression": 0.0 },
-        "maxLevel": 40,
-        "maxTraitCount": 2,
+        "maxLevel": 100,
+        "maxTraitCount": 3,
         "attackScale": 0.5,
         "healthScale": 1.0
       }
     ],
     "ttl:mortal_nether": [
       {
-        "_comment": "Life 1 nether: level cap 50, max 3 traits, half the per-level damage bonus.",
+        "_comment": "Life 1 nether: level cap 150 (was 50, #144), max 4 traits (was 3), half the per-level damage bonus.",
         "difficulty": { "min": 0, "base": 0, "variation": 0.0, "scale": 0.0, "apply_chance": 1.0, "trait_chance": 1.0, "suppression": 0.0 },
-        "maxLevel": 50,
-        "maxTraitCount": 3,
+        "maxLevel": 150,
+        "maxTraitCount": 4,
         "attackScale": 0.5,
         "healthScale": 1.0
       }
     ],
     "ttl:mortal_end": [
       {
-        "_comment": "Life 1 end: level cap 60, max 3 traits, half the per-level damage bonus.",
+        "_comment": "Life 1 end: level cap 200 (was 60, #144), max 4 traits (was 3), half the per-level damage bonus.",
         "difficulty": { "min": 0, "base": 0, "variation": 0.0, "scale": 0.0, "apply_chance": 1.0, "trait_chance": 1.0, "suppression": 0.0 },
-        "maxLevel": 60,
-        "maxTraitCount": 3,
+        "maxLevel": 200,
+        "maxTraitCount": 4,
         "attackScale": 0.5,
         "healthScale": 1.0
       }

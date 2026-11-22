@@ -320,8 +320,9 @@ const TtlCorridor = {
     var data = player.persistentData
     var name = player.username
     var race = data.getString('ttl.race')
-    // Set by the reincarnation menu already when the rebirth went through the Great Sage scene.
-    if (!data.getBoolean('ttl.raceSet')) server.runCommandSilent(`quietly tensura edit race ${name} set tensura:${race}`)
+    // Set by the reincarnation menu already when the rebirth went through the Great Sage scene. `true` = resetExistenceStats:
+    // the new body rolls its own race's EP instead of keeping the Human's (master plan §4: race and stats reset, #72).
+    if (!data.getBoolean('ttl.raceSet')) server.runCommandSilent(`quietly tensura edit race ${name} set tensura:${race} true`)
     // The Great Sage addon announces the granted skill itself (overlay + name clip).
     var legend = !!skill && TtlRegistry.rarityOf(skill) === 'legendary'
     // A Legend pick is a NEW Legendary holder: it spends a slot of this era (registry.grant opts.slot).
