@@ -37,7 +37,7 @@ ttl spells TtlBotSpell cast irons_spellbooks:heal yes
 ttl spells TtlBotSpell spent
 tensura edit stat TtlBotSpell magicule max set 50
 tensura edit stat TtlBotSpell magicule current set 50
-# A summon at Wayfarer's Rest (the safe-spawn square of life/mortal_spawns.js) stays: it is cast, not a natural spawn.
+# A summon spell works too, even inside Wayfarer's Rest's safe-spawn square (life/mortal_spawns.js).
 clearCooldowns player TtlBotSpell
 ttl spells TtlBotSpell mana 100
 ttl spells TtlBotSpell cast irons_spellbooks:summon_vex yes

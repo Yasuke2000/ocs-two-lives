@@ -18,8 +18,7 @@
 //                                                                 pre-cast event); yes = it started. Use an instant spell: Iron's
 //                                                                 casts it on the next tick (SpellOnCastEvent, mana spent)
 //              /ttl spells <player> summons <n>                   test assertion: at least n spell summons (Iron's IMagicSummon)
-//                                                                 of this player stand within 16 blocks (summons near Wayfarer's
-//                                                                 Rest used to be removed as natural spawns, life/mortal_spawns.js)
+//                                                                 of this player stand within 16 blocks
 //              /ttl spells <player> spent                         test assertion, a tick or more after `cast ... yes`: the cast
 //                                                                 took its plain mana (minus at most 5 regenerated meanwhile)
 //                                                                 and not a single magicule
