@@ -1,3 +1,31 @@
+## 22/11 — Painted atlas matches guide8.5 capital wording
+
+Adopt source261c796research/briefs and the label-only5464a71amap over the prior0b8bcf56geometry. Preserve painting decision/handoff history. Native painted-atlas row46nowCarrion capital;all58 numeric registrations retained. ContinentPNG and every native child tree remain exact;source metadata separates currentdisplay and unchangedterrainbasis. Ledger344;inventory142/42. Source reader follow-ups remain bounded;C03/C24/actualcity placement remain open. Currentlabel audit links provenance;no protected/runtime/normal-run/merge/deploy change. Required gate472tests/26skipped/0failures65.459s;checker0errors/56relations/2standing warnings. Current atlas inspected;1487 changed pixels confined to capital row,bbox[1705,1632,1864,1651];6px row clearance. All14existing normal files match source;no new conversion. Diff check passes.
+
+## 22/11 — Licensed guide8.5 map finally viewed;capital labels qualified
+
+[Direct source review](../world/guide85-source-review.md):different legal ebookjapan trial renders;unnumbered map spreadcounter4/10 inspected. Four selected records bring ledger344. Southern layout reinforced;Galutname now primary companion-guide-supported,location still open. Electronic guide prints Rondo for both Eurazania/Blumund;wiki Laura not silently merged. New C24;source text/atlas row use Carrion capital with same laura ID/geometry. No typo,novel-prose or full-guide reading claimed. C07 and city placement remain unresolved. Private source images only,links/paraphrases in repo. Initial gate472tests/26skipped/0failures65.175s;map checker0errors/56relations/2standing warnings;preview/atlas inspected. Follow-up licensedLN1/guide13.5reader access recorded without verifiedDwargon passage/country-body pages or new facts;C03/C24 stay open. Final follow-up gate472tests/26skipped/0failures65.505s;diff check passes.
+
+## 22/11 — Laura head drop traced to remaining-reach cap
+
+[Source/profile review](../world/laura-waterfall-review.md) separates the authored17-block transition from canonical waterfall scale. Existing371-sample profile starts137 because63+2*floor(1480/40)=137;38reaches. Twenty official episode stills and6PV announcement images inspected,no broad waterfall confirmation;official PV playback country-restricted,zero frames. FAN-009 remains secondary and its action is qualified. No geometry/export/runtime change;C23 open. Required gate passed:472tests,26skipped,zero failures in65.284seconds;diff check passes.
+
+## 22/11 — Frost Palace briefs match the approved inland map
+
+Correct two stale round28 headers in the knowledge-pack and lore place pages: current own-world anchor(-1530,71,-3680),clearing,r89; coastal/Lerfing placement is historical. Link the existing R109 implementation and registration. The 85x69 model is an entrance,not a whole-palace footprint. WN central-continent support remains distinct from unread LN agreement. No new map/site/terrain/art/runtime change or live integration claim. Existing source/export evidence is retained without another terrain run. Required repository gate passed:472tests,26skipped,zero failures in65.152seconds;validation and diff check pass.
+
+## 22/11 — Licensed English LN1 cave passages directly read
+
+Requiredgate472tests/26skipped/0failures65.042seconds;diff/protectedchecks passed.
+
+Tapas official serialization/notice identifies first5serialized episodes free,later paid. Selected PartThree/PartFour primary text now directly supports natural hipokute/high-local-magic and the interior water encounter,with blind-narrator lake inference qualified. Add LN01-CAVE-001/002;ledger340. No completeLN1/LN6/series read or printed page invented. Local TapasGET403;public index primary text readable,no bypass/unlock. DivineTree follow-up remains unverified:GC LN6fragment not tree passage;YenPresslisting metadataonly;Google metadata429;normalPlayreader redirects regional-unavailable. ElminePNG inspected fullresolution as lower-trunk vignette,not fulltree proof. Lore/knowledge/Juraguide and source-access notes updated;no source map,terrain,art,runtime/protected/merge/deploy change. See licensed-ln1-cave-followup.md in current research directory.
+
+## 22/11 — Galut dry-circle proposal explicitly requires redesign
+
+Requiredgate472tests/26skipped/0failures in65.109seconds;diff/protectedchecks passed.
+
+The old inert(-900,3050),r60proposal intersects Ulgr brook,has39.959coast-edge clearance(<48)and43.625sampled relief. Marked requires-redesign without active XML change. Declared dry-centre search has1709.82blocks²space,104sampledcentres;best sampledrelief23.4375withonly0.263coastslack. No replacement accepted,smaller radius or whole-capital impossibility claimed. WN61L45directly supports Sarion trade;Galutname/location remain wiki-qualified. Source a5e1c2f6 comments only,active export0b8bcf56 retained;checker0/56/2andpreview byte-identical. Ledger338;inventory142/42 unchanged. Current pairedpaintingPR122alreadyincludesColeus,andguidecompanionlink refreshed without new bitmap. See world/galut-site-review.md. No protected/runtime/world/chunk/merge/deploy action.
+
 ## 22/11 — Painted Coleus dune follows current source
 
 Requiredgate472tests/26skipped/0failures65.144seconds;diff/protectedchecks passed.

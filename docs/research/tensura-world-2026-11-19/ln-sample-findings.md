@@ -1,5 +1,7 @@
 # Publisher-hosted LN evidence
 
+**22Nov2026 addition:** [licensed Tapas LN1 free segments](licensed-ln1-cave-followup.md) now supply two direct cave-environment observations. Earlier GC volume1 access notes describe that particular prologue route,not the absence of other licensed excerpts. Only the first five serialized Tapas episodes are free;the whole LN/series is not thereby read.
+
 The original Japanese public fragments for volumes 2–10 are legally published by GC Novels.
 Relevant passages from volumes 2, 3, 5, 6 and 10 were directly read. They add thirteen narrowly scoped
 `LN*` claims to the ledger; they do not verify complete volumes, English page numbers or absent bearings.

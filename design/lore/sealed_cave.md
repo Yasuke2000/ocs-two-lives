@@ -51,3 +51,7 @@ is implemented by this note.
 - Visual references only, nothing copied: the mod structures `irons_spellbooks:ice_spider_den/cavern/cavern_extension/circle_henge`
   (standing stones), `irons_spellbooks:mountain_tower`, and Tensura's `charybdis_cave/charybdis_entrance` and
   `ruin/tower/ruined_wizard_tower` (mossy stone palette, cave mouth shape).
+
+## Direct licensed LN1 follow-up
+
+The [free licensed serialization review](../../docs/research/tensura-world-2026-11-19/licensed-ln1-cave-followup.md) directly supports naturally occurring cave hipokute and an interior water encounter. The blind narrator’s apparent-lake inference is not a surveyed river/lake plan. Retain the dry entrance and qualify the authored pond,basin,runes and chains;do not add a surface lake or instantiate the later developed farm. These earlier observations do not fix the exact post-Kijin interior condition. No blueprint,runtime or terrain change accompanies this source update.

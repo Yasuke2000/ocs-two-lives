@@ -1,6 +1,10 @@
-# Painted atlas: current Coleus dune alignment
+# Painted atlas: current licensed-guide name clarification
 
 ![Current painted atlas](atlas.png)
+
+The current [source review](../guide85-source-review.md) directly inspects the licensed guide8.5 map. The Eurazania capital card prints Rondo,while the wiki uses Laura;C24 remains unresolved. The painted atlas now uses **Carrion's capital**,matching the source label,with all58 numeric registrations unchanged. This is a text clarification,not a new terrain painting. [Current label/source audit](guide85-label-audit.json).
+
+Current display/source pin is `5464a71af3c33374424a04dbf5596ff5b10786709f76daa734f001edf4415f35`. The actual terrain/brushwork basis remains `0b8bcf56`:the entire continent PNG and all original native continent child trees are byte-identical to the previous painting. The older Coleus pixel audit below retains its historical scope. No normal conversion,global height repaint or source-reference pixels are introduced. LN1/guide13.5 reader follow-ups did not verify the Dwargon passage or later geography body pages. Galut's name has guide support;its missing city placement is still open. Ledger344;inventory142/42.
 
 [Original before/after detail](coleus-dune-comparison.png) · [Editable comparison](coleus-dune-comparison.svg) · [Native continent](continent.svg) · [Editable atlas](atlas.svg) · [Pixel/source audit](audit.json) · [58-site registration](site-registration.json) · [Provenance](provenance.json).
 
@@ -17,3 +21,5 @@ The branch adopts40reviewed source/research files from commit97716c0, followed b
 This closes the local **painting alignment** only. It does not certify every location, canonical proportion, initial-era building, completed city, final noise, fluid or in-game travel. See the source guide and contradiction ledger for the remaining obligations. Historical R129 composition and measurements remain in [Git history](https://github.com/Yasuke2000/ocs-two-lives/blob/2aa27e5a18ee7868b69e835c503d1b3b2d253c35/world/painting-round112/README.md) and the retained native component metadata. No protected tools/mod/pack edit, terrain apply, chunks, main merge or deployment.
 
 Required repository gate: validation passed;472tests in65.144seconds,26skipped,zero failures. `git diff --check` passed. Source checker/staging adopted from source PR121;all14normal files and source SVG verified byte-exact. Actual atlas detail,full atlas and original comparison were visually inspected.
+
+Current label-revision verification:472tests,26skipped,zero failures(65.459s);map checker0errors,56relations,2standing warnings. Atlas visually inspected;1487 changed pixels lie entirely in the capital row. The14 existing normal files match the source. No new terrain run or continent-image change.

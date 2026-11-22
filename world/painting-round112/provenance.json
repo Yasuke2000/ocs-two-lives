@@ -11,5 +11,8 @@
   "PNG_method": "Chrome native SVG render",
   "global_relief_resampled": false,
   "runtime_applied": false,
-  "vertical_limit": "This illustration is not an exact height reconstruction;R130 pond height is adopted as plan context and the dune has interpretive light/shade."
+  "vertical_limit": "This illustration is not an exact height reconstruction;R130 pond height is adopted as plan context and the dune has interpretive light/shade.",
+  "current_display_source_sha256": "5464a71af3c33374424a04dbf5596ff5b10786709f76daa734f001edf4415f35",
+  "current_source_commit": "261c796",
+  "display_followup": "Only capital display wording and root source metadata refreshed;the original terrain composition and continent PNG are retained. The earlier source_sha256/map_commit still identify the actual Coleus terrain/brushwork basis."
 }

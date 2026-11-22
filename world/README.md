@@ -1,3 +1,7 @@
+## Current source review — licensed guide8.5
+
+[Directly inspected guide map](guide85-source-review.md) reinforces the southern arrangement and confirms Galut as capital by name. Electronic guide Rondo versus wiki Laura remains C24; [readable atlas](atlas.png) now uses Carrion's capital with the unchanged `laura` site. Current source5464a71a differs only in display text from the prior active drawing; normal terrain remains pinned to0b8bcf56. No new terrain run or city relocation. Earlier source snapshots below remain historical.
+
 ## R130 — Current source and readable region guide
 
 [Ulgr water/guide reconciliation](ulgr-spring-level-r130.md) lowers the authored spring/head102→92;the unchanged river91 now meets it by1block. Source ade50210; all58 site records/heights andall22 road profiles retained. All13 lake cases pass;head diagnostic7/8 ordinary interfaces (Laura17 still open). The [current regional guide](regions.md) retains22 narratives/69 image links anduses the byte-identical R128 biome census;stale palace/El Dorado prose corrected. [Whole-deliverable review](../docs/research/tensura-world-2026-11-19/delivery-review-r130.md). R129 illustration adopted for unchanged plan geometry,not relabelled as new height reconstruction. Ledger333;inventory142/42.

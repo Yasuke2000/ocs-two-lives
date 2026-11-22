@@ -55,3 +55,7 @@ Map: Tensura by Lerfing (current, being replaced). The screenshots are from the 
 - Lore and quest text in EN and NL for this place (see [tasks.md](../tasks.md)).
 
 Back to the [world guide](../world.md) · [knowledge pack](../README.md)
+
+## Direct licensed LN1 follow-up
+
+The [free licensed serialization review](../../research/tensura-world-2026-11-19/licensed-ln1-cave-followup.md) directly supports naturally occurring cave hipokute and an interior water encounter. The blind narrator’s apparent-lake inference is not a surveyed river/lake plan. Retain the dry entrance and qualify the authored pond,basin,runes and chains;do not add a surface lake or instantiate the later developed farm. These earlier observations do not fix the exact post-Kijin interior condition. No blueprint,runtime or terrain change accompanies this source update.

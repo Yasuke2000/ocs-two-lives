@@ -1,4 +1,6 @@
-# Laura (Eurazania's pre-destruction capital)
+# Carrion's capital in Eurazania (legacy site ID: laura)
+
+**Capital name under review (C24).** The licensed electronic guide8.5 card prints Rondo, also printed for Blumund; the wiki uses Laura. No printing error or novel-prose resolution is verified. Current map display uses Carrion's capital; `laura` remains the technical ID. Later mentions of Laura on this page retain that legacy/wiki name, not independent primary confirmation. [Source comparison](../../../world/guide85-source-review.md).
 
 `id: laura` · build (our blueprint) · region **B** (Beast Kingdom of Eurazania)
 
