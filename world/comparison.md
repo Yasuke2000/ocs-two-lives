@@ -1,3 +1,7 @@
+# Current comparison: western offshore rocks
+
+[Original before/after study](western-offshore-islets.png) · [current source atlas](atlas.png) · [official reference as link](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp). Three unlabelled forms now have representative original terrain;no source pixels embedded. Coordinates,scale,relief and Xgameplay coverage remain interpretation. [Finite export evidence](western-offshore-islets.json). Earlier comparisons below remain historical.
+
 ## Current R128 comparison
 
 [Original before/after](ice-west-arm-r128.png) · [current checker preview](preview.png) · [terrain atlas](atlas.png) · [official reference link](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp). The lower western arm is an original interpretation of the illustrated silhouette;exact projection and curves remain unverified. Approved inland palace,ridge,high-peaks selector,islets andoverall bounds retained. [Actual terrain evidence](ice-west-arm-r128.md). No copyrighted reference panel is stored here.

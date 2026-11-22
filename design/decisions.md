@@ -295,3 +295,5 @@ changes and new decisions with a date.
 22Nov2026 — R130: lower the authored Ulgr spring/head to92 for a one-block river interface without lengthening the course. Preserve all site heights,show the steeper bowl,and reconcile the current regional guide instead of retaining superseded status prose. [Evidence](../world/ulgr-spring-level-r130.md).
 
 22Nov2026 — Guide8.5 source review: use Carrion's capital as neutral cartographic text while the licensed electronic guide's Rondo and wiki Laura conflict. Preserve the laura technical ID and exact geometry; do not assume an erratum or rename canon. Galut has directly read companion-guide name evidence,not a located city footprint. [Evidence](../world/guide85-source-review.md).
+
+22Nov2026 — Add three original small offshore rock islets suggested by the official illustration between the western southern shore and El Dorado. Keep all existing sites,roads and geography;label dimensions/heights and nearest-island Xcoverage as interpretation rather than sovereign ownership. [Evidence](../world/western-offshore-islets.md).

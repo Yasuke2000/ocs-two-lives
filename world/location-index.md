@@ -1,3 +1,7 @@
+# Current coverage: western offshore rocks
+
+**143 expanded inventory entries;42 existing physical follow-ups.** One illustrated offshore-rock group now has original active terrain. It is not a new numbered destination or confirmed country territory. [Source and export review](western-offshore-islets.md). Earlier counts below are historical. The source discovery table has139rows;the expanded mainland inventory also retains its additional scope-routing records.
+
 # Current coverage: R111
 
 The existing El Dorado entry now links two source-informed woodland masks;no new named destination is inferred. **142 inventory entries and42 physical follow-ups** remain. [Source and terrain review](el-dorado-woodland-r111.md). Earlier counts/notes below are historical.
@@ -202,3 +206,7 @@ Numbers01–58 identify the existing server reservations. Large geographical lab
 |---|---|---|---|
 | Unnamed southeastern inland basin | Mainland water | Terrain present; precise shore interpreted | MAP-SE-106 |
 | Southeastern isolated woodland | Mainland woodland | Terrain present; precise extent/type interpreted | DES-SE-106 |
+
+## Western offshore rocks (illustrated;additional inventory group)
+
+Three original coast/relief/biome footprints are active between the western southern shore and El Dorado. No extra numbered site or settlement. Exact dimensions and Xgameplay coverage are interpretation. [Review](western-offshore-islets.md) · [Official reference link](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp).
