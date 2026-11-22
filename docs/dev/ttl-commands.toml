@@ -120,6 +120,7 @@ subs = [
   ["<target> give", "staff", "Issue a Soul Gem if the body holds none."],
   ["<target> use", "test", "The Life 2 echo (short Regeneration + Resistance), as a right-click would."],
   ["<target> clear", "staff", "Forget the gem flag, the remembered enchantment and the cooldown."],
+  ["table", "test", "Assert whether an enchanting table where the player stands offers Tombstone's Soulbound (real EnchantmentMenu, n rolls)."],
   ["expect", "test", "Assert a soul field, or how many stacks of an item the body holds."],
 ]
 
@@ -133,6 +134,7 @@ subs = [
   ["equip", "test", "Put one item into the first free Curios slot."],
   ["soulbound", "test", "Treat that item id as soulbound until the next script reload."],
   ["spell", "test", "Assert whether a cast of an Iron's Spells school is refused where the player stands."],
+  ["check", "test", "Assert that every item id and tag in mortal_banned.toml exists (a typo would ban nothing)."],
   ["expect", "test", "Assert a stash field."],
 ]
 

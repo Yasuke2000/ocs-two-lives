@@ -1,4 +1,4 @@
-"""Life 1 tester issues #85 and #104: python -I -m unittest discover -s tests
+"""Life 1 tester issues #85, #104, #145 and #70: python -I -m unittest discover -s tests
 
 #104: the Tensura bridge (tensura_iron_spells) pays Iron's spells from magicules at manaConversionMultiplier x the cost. A
 Life 1 Human cannot pay even the cheapest spell that way, so ttl-portals must keep its SpellManaMixin (Iron's own mana in
@@ -58,6 +58,32 @@ class IronsSpellsInLife1(unittest.TestCase):
         rcon = (ROOT / "tests" / "ingame" / "life1_spells.rcon").read_text(encoding="utf-8")
         for line in ("cancast irons_spellbooks:firebolt yes", "cast irons_spellbooks:heal yes", "spent",
                      "spell irons_spellbooks:blood yes", "ttl:spirit_corridor"):
+            self.assertIn(line, rcon)
+
+
+class OccultismAndSoulbound(unittest.TestCase):
+    """#145 (owner 22/11/2026): Occultism allowed in Life 1 except its ritual items. #70: Soulbound not offered in Life 1."""
+
+    def test_occultism_banned_per_item_not_by_namespace(self):
+        banned = toml("design", "data", "mortal_banned.toml")
+        self.assertNotIn("occultism", banned["namespaces"])
+        self.assertIn("occultism:tools/chalk", banned["tags"])
+        for item in ("occultism:golden_sacrificial_bowl", "occultism:familiar_ring", "occultism:ritual_satchel_t1",
+                     "occultism:book_of_binding_bound_foliot"):
+            self.assertIn(item, banned["items"])
+        # normal Occultism items stay usable
+        for item in ("occultism:silver_ingot", "occultism:otherworld_goggles", "occultism:soul_gem"):
+            self.assertNotIn(item, banned["items"])
+
+    def test_soulbound_book_waits_and_table_filter_is_registered(self):
+        banned = toml("design", "data", "mortal_banned.toml")
+        self.assertIn("tombstone:book_of_soulbound", banned["items"])
+        self.assertIn("EnchantmentMenuMixin", mixin_config()["mixins"])
+        src = (MIXINS / "EnchantmentMenuMixin.java").read_text(encoding="utf-8")
+        self.assertIn('"tombstone", "soulbound"', src)
+        self.assertIn("TtlDimensions.isMortal", src)
+        rcon = (ROOT / "tests" / "ingame" / "life1_bans.rcon").read_text(encoding="utf-8")
+        for line in ("ttl stash check", "ttl soul table TtlBotBans 300 no", "ttl soul table TtlBotBans 300 yes"):
             self.assertIn(line, rcon)
 
 

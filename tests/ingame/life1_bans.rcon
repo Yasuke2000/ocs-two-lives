@@ -1,0 +1,49 @@
+# Life 1 bans after the owner's calls of 22/11/2026 (design/data/mortal_banned.toml, life/mortal_banned.js):
+#   #145: Occultism is allowed in Life 1, only its ritual items are banned (chalks, ritual bowls, books of binding and calling,
+#         familiar ring, magic lamp, miner spirits, ...);
+#   #70:  only ttl:soulbound items (the Soul Gem) cross to Life 2, so Tombstone's Soulbound is not offered in Life 1: the
+#         enchanting table leaves it out in the Mortal dimensions (ttl-portals EnchantmentMenuMixin) and the Book of
+#         Soulbound waits in the soul stash until Life 2.
+# `ttl stash ...` and `ttl soul ...` print "ttl: ..." when something does not hold (a test-all failure).
+ttlbot spawn TtlBotBans
+@sleep 4
+execute as TtlBotBans run ttl reset TtlBotBans
+@sleep 2
+ttl stash TtlBotBans clear
+# Every id and tag of the ban list exists (a typo would ban nothing).
+ttl stash check
+# ---- #145: normal Occultism items stay on a Life 1 body in the Mortal Realm ----
+give TtlBotBans occultism:silver_ingot 3
+give TtlBotBans occultism:otherworld_goggles 1
+give TtlBotBans occultism:butcher_knife 1
+give TtlBotBans occultism:dictionary_of_spirits 1
+ttl stash TtlBotBans sweep
+@sleep 3
+ttl soul expect TtlBotBans has silver_ingot 1
+ttl soul expect TtlBotBans has otherworld_goggles 1
+ttl soul expect TtlBotBans has butcher_knife 1
+ttl soul expect TtlBotBans has dictionary_of_spirits 1
+ttl stash TtlBotBans expect banned 0
+ttl stash TtlBotBans expect stash 0
+# ---- #145: ritual items go to the soul stash (the manual sweep, or the 2 second loop if it ran first) ----
+give TtlBotBans occultism:chalk_white 1
+give TtlBotBans occultism:golden_sacrificial_bowl 1
+give TtlBotBans occultism:book_of_binding_foliot 1
+give TtlBotBans occultism:familiar_ring 1
+ttl stash TtlBotBans sweep
+ttl stash TtlBotBans expect banned 0
+ttl stash TtlBotBans expect stash 4
+ttl soul expect TtlBotBans has chalk_white no
+ttl soul expect TtlBotBans has silver_ingot 1
+# ---- #70: the Book of Soulbound is stashed, the enchanting table never offers Soulbound in the Mortal Realm ----
+give TtlBotBans tombstone:book_of_soulbound 1
+ttl stash TtlBotBans sweep
+ttl stash TtlBotBans expect stash 5
+ttl soul table TtlBotBans 300 no
+# The same table outside the Mortal dimensions still offers it (the Spirit Corridor: not mortal, confine.js leaves it).
+execute in ttl:spirit_corridor run tp TtlBotBans 0.5 65 0.5
+@sleep 1
+ttl soul table TtlBotBans 300 yes
+ttl stash TtlBotBans clear
+ttl reset TtlBotBans
+ttlbot remove TtlBotBans

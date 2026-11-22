@@ -1,5 +1,13 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 22/11 — owner calls on #145 and #70 (branch `life1-occultism-soulbound`, Claude)
+
+**#145** Occultism allowed in Life 1, ritual items banned per item/tag in `mortal_banned.toml` (list and reasons in the file
+and `design/decisions.md`); `/ttl stash check` asserts every id/tag exists. **#70** only `ttl:soulbound` crosses; ttl-portals
+0.9.3 `EnchantmentMenuMixin` keeps Tombstone's Soulbound off enchanting tables in the Mortal dimensions, the Book of Soulbound
+is stashed until Life 2; guide + wiki two-lives EN/NL explain it. Test `life1_bans.rcon` (hook `/ttl soul table`). Open edge:
+a Soulbound book from a Life 1 villager or loot can still be applied with an anvil (harmless, explained in the guide).
+
 ## 22/11 — Life 1 tester issues #85 #104 (fixed) and #70 #145 (owner calls), branch `fix-life1-issues`, PR #148, Claude
 
 **#104** Iron's spells failed in Life 1: the Tensura bridge (`manaConversionMultiplier = 50`) asks a Life 1 Human (50-70

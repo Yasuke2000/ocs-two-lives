@@ -235,6 +235,11 @@ ItemEvents.rightClicked(event => {
 //        fields: gem (Soul Gems on the body), book (remembered-enchantment books on the body), ender (ender chest
 //                stacks), curios (Curios stacks), memory (an enchantment is remembered from the death), flag (the
 //                gem was issued), cooling (the echo is on cooldown)
+//      /ttl soul table <player> <trials> <yes|no>           test assertion (issue #70): an enchanting table where the player
+//                                                           stands offers Tombstone's Soulbound for a diamond sword in at
+//                                                           least one of <trials> rolls (yes) or never (no). Runs the real
+//                                                           EnchantmentMenu (no bookshelves) and reads its three clues;
+//                                                           reseeds the player's enchantment seed (test bots only)
 //      /ttl soul expect <player> has <item> <value>         stacks of an item on the body (full id, or just the
 //                                                           path: diamond, soul_gem), same values
 ServerEvents.commandRegistry(event => {
@@ -313,6 +318,42 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var table = ctx => {
+    var p = target(ctx)
+    var trials = Number(Arguments.INTEGER.getResult(ctx, 'trials'))
+    var want = arg(ctx, 'want') === 'yes'
+    var Menu = Java.loadClass('net.minecraft.world.inventory.EnchantmentMenu')
+    var Access = Java.loadClass('net.minecraft.world.inventory.ContainerLevelAccess')
+    var Registries = Java.loadClass('net.minecraft.core.registries.Registries')
+    var ResourceKey = Java.loadClass('net.minecraft.resources.ResourceKey')
+    var RL = Java.loadClass('net.minecraft.resources.ResourceLocation')
+    var ItemStack = Java.loadClass('net.minecraft.world.item.ItemStack')
+    var level = p.level
+    var registry = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
+    var holder = registry['getHolder(net.minecraft.resources.ResourceKey)'](ResourceKey.create(Registries.ENCHANTMENT, RL.parse('tombstone:soulbound')))
+    if (!holder.isPresent()) throw 'tombstone:soulbound is not registered'
+    var soulbound = registry.asHolderIdMap().getId(holder.get())
+    var access = Access.create(level, p.blockPosition())
+    var seen = 0
+    var offers = 0
+    for (var i = 0; i < trials; i++) {
+      p.onEnchantmentPerformed(ItemStack.EMPTY, 0)
+      var menu = new Menu(0, p.getInventory(), access)
+      menu.getSlot(0).set(Item.of('minecraft:diamond_sword'))
+      for (var k = 0; k < 3; k++) {
+        var clue = Number(menu.enchantClue[k])
+        if (clue >= 0) offers++
+        if (clue === soulbound) seen++
+      }
+      menu.getSlot(0).set(ItemStack.EMPTY)
+    }
+    var line = `Soulbound in ${seen} of ${offers} enchanting-table offers in ${TtlLife.dimensionOf(p)}`
+    if (offers === 0) throw `${p.username}: the table made no offer at all in ${trials} rolls`
+    if ((seen > 0) !== want) throw `${p.username}: ${line}, expected ${want ? 'at least one' : 'none'}`
+    say(ctx, `soul ${p.username}: ${line} as expected`)
+    return 1
+  }
+
   var has = ctx => {
     var p = target(ctx)
     var item = arg(ctx, 'item')
@@ -325,6 +366,10 @@ ServerEvents.commandRegistry(event => {
   event.register(Commands.literal('ttl')
     .then(Commands.literal('soul')
       .requires(src => src.hasPermission(2))
+      .then(Commands.literal('table')
+        .then(Commands.argument('target', Arguments.PLAYER.create(event))
+          .then(Commands.argument('trials', Arguments.INTEGER.create(event))
+            .then(Commands.argument('want', Arguments.STRING.create(event)).executes(logged(table))))))
       .then(Commands.literal('expect')
         .then(Commands.argument('target', Arguments.PLAYER.create(event))
           .then(Commands.literal('has')

@@ -318,6 +318,8 @@ ServerEvents.loaded(event => {
 //      /ttl stash <player> equip <item>             test hook: put one item into the first free Curios slot
 //      /ttl stash <player> soulbound <item>         test hook: treat that item id as soulbound until the next reload
 //      /ttl stash <player> clear                    empty the soul stash and the kept list (a /ttl reset leaves them)
+//      /ttl stash check                             test assertion: every id in mortal_banned.toml `items`/`allow` is a real item and
+//                                                   every `tags` entry a real, non-empty item tag (a typo would ban nothing)
 //      /ttl stash <player> spell <school> <yes|no>  test assertion: is a cast of that Iron's school refused where the player
 //                                                   stands; also fails when the SpellPreCastEvent veto is not registered
 ServerEvents.commandRegistry(event => {
@@ -398,6 +400,27 @@ ServerEvents.commandRegistry(event => {
     return 1
   }
 
+  var check = ctx => {
+    var data = TtlData.mortal_banned || {}
+    var BuiltIn = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
+    var Registries = Java.loadClass('net.minecraft.core.registries.Registries')
+    var TagKey = Java.loadClass('net.minecraft.tags.TagKey')
+    var RL = Java.loadClass('net.minecraft.resources.ResourceLocation')
+    var bad = []
+    ;(data.items || []).concat(data.allow || []).forEach(id => {
+      if (!BuiltIn.ITEM.containsKey(RL.parse(String(id)))) bad.push(`item ${id}`)
+    })
+    var tags = 0
+    ;(data.tags || []).forEach(t => {
+      var named = BuiltIn.ITEM.getTag(TagKey.create(Registries.ITEM, RL.parse(String(t))))
+      if (!named.isPresent() || named.get().size() === 0) bad.push(`tag #${t}`)
+      else tags++
+    })
+    if (bad.length) throw `mortal_banned.toml names what does not exist: ${bad.join(', ')}`
+    say(ctx, `stash: ${(data.items || []).length} items, ${(data.allow || []).length} allowed and ${tags} tags all exist`)
+    return 1
+  }
+
   var clear = ctx => {
     var p = target(ctx)
     p.persistentData.remove(TtlStash.BANNED)
@@ -411,6 +434,7 @@ ServerEvents.commandRegistry(event => {
   event.register(Commands.literal('ttl')
     .then(Commands.literal('stash')
       .requires(src => src.hasPermission(2))
+      .then(Commands.literal('check').executes(logged(check)))
       .then(Commands.argument('target', Arguments.PLAYER.create(event))
         .executes(logged(show))
         .then(Commands.literal('sweep').executes(logged(sweep)))
