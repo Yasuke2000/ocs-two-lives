@@ -28,10 +28,12 @@
   "browser_inventory_rows": 42,
   "browser_minimum_number_spacing": 32.470561517449696,
   "browser_label_overlap": false,
-  "source_adoption_current_byte_equal_files": 37,
+  "source_adoption_current_byte_equal_files": 36,
   "source_adoption_companion_prose_updates": [
     "docs/HANDOFF.md",
     "world/coleus-dune-relief.md",
-    "world/regions.md"
-  ]
+    "world/regions.md",
+    "design/decisions.md"
+  ],
+  "decision_log_merge": "Both prior R129 painting and source R130 entries retained;append-only merge."
 }

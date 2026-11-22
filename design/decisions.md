@@ -293,3 +293,5 @@ changes and new decisions with a date.
 22Nov2026 — R128: reshape only the western ice shore and matching snow/I coverage toward the official lower-arm silhouette; retain all ridge,site,road andislet geometry and Yasuke’s approved inland palace. Exact curves are authored. [Evidence](../world/ice-west-arm-r128.md).
 
 22Nov2026 — R129: align the painted western ice shore to R128, retain the approved inland palace and all prior cartographic anchors, and disclose the measured one-level ridge/peak colour differences. Final softer snow wash replaces the repeating trial. [Delivery](../world/painting-round112/README.md).
+
+22Nov2026 — R130: lower the authored Ulgr spring/head to92 for a one-block river interface without lengthening the course. Preserve all site heights,show the steeper bowl,and reconcile the current regional guide instead of retaining superseded status prose. [Evidence](../world/ulgr-spring-level-r130.md).
