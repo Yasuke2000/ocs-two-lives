@@ -69,6 +69,8 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - 119 Life 1 quests in 10 chapters ending in "A Life That Counted"; the Mortal Nether/End and the Mortal Dragon.
 - Life 1 items do not carry over (ender chest and Curios emptied); soulbound items + the Soul Gem do.
 - Tensura content banned in Life 1 (`design/data/mortal_banned.toml`, one line per mod).
+- Iron's Spells work in Life 1 on Iron's own mana (the Tensura magicule bridge only in Life 2); Nether portal frames light in the
+  Mortal Realm and Mortal Nether (ttl-portals 0.9.2).
 - Sleeping skips the night in the Mortal Realm too (50 % of the souls there; one shared clock with the Tensura world).
 - `/ttl reset` is a full character reset (every ability, EP and the body back to a fresh Human); abilities a Human learns
   in Life 1 stay behind at the Life 1 death. `/ttl life1 status <player> <preset>` jumps a tester to a karma tier.

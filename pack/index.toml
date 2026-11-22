@@ -3093,6 +3093,10 @@ file = "kubejs/server_scripts/ttl/life/mortal_spawns.js"
 hash = "f60fa053ca281ebf21d495157bd0cf580cce730aa2c0973bae9d9b510f9812c6"
 
 [[files]]
+file = "kubejs/server_scripts/ttl/life/mortal_spells.js"
+hash = "49be636f80338c549d8ec9528c29545d349d4ce9caab3eac301a532c75e2ad56"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/life/race_lock.js"
 hash = "1bafd26113ed71a0718e56ca7776c3547bb24dc73ddde6f39a28739721954ca3"
 
@@ -3203,6 +3207,10 @@ hash = "78615e9178ab97ac28bddd83fa86318b1e3ff8538eec054441627b63b24b975c"
 [[files]]
 file = "kubejs/server_scripts/ttl/ops/cmdlog.js"
 hash = "6ea2736ed76de0648119e25a785d9d93ba1b5e83f4310047f030938199e8ef2f"
+
+[[files]]
+file = "kubejs/server_scripts/ttl/ops/useon.js"
+hash = "bc3ddb4f13bb1552f87f3dec348e6ef0f157dd6ef52b7aa3b9f71c0458e70df7"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/party/commands.js"
@@ -3693,7 +3701,7 @@ metafile = true
 
 [[files]]
 file = "mods/ttl-portals.pw.toml"
-hash = "f448f03be320ac8aca862122560cb584b3a7f5f7095375e4adae71a852e8289c"
+hash = "7c7d70115a86de56fceaefd01eb4ac8dcdddad337df28a500dad57d86e5f2f7e"
 metafile = true
 
 [[files]]

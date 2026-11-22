@@ -17,13 +17,14 @@ neoForge {
 }
 
 repositories {
-    // Tensura, ManasCore and Architectury are only compiled against; the pack ships them.
+    // Tensura, ManasCore, Architectury and Iron's Spells are only compiled against; the pack ships them.
     maven { url = 'https://api.modrinth.com/maven' }
 }
 
 dependencies {
     compileOnly 'maven.modrinth:Br0kXPwc:WuoYFS45'   // Tensura: Reincarnated 2.0.1.5
     compileOnly 'maven.modrinth:lhGA9TYQ:xGfBrBzj'   // Architectury 13.0.12
+    compileOnly 'maven.modrinth:s4OWxYQQ:slKLosTb'   // Iron's Spells 'n Spellbooks 3.16.3 (Life 1 mana, SpellManaMixin)
 }
 
 // ManasCore ships its modules (race, skill, ...) as nested jars; compile against the extracted ones.

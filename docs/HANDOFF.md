@@ -1,5 +1,16 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 22/11 — Life 1 tester issues #85 #104 (fixed) and #70 #145 (owner calls), branch `fix-life1-issues`, PR #148, Claude
+
+**#104** Iron's spells failed in Life 1: the Tensura bridge (`manaConversionMultiplier = 50`) asks a Life 1 Human (50-70
+magicules) for 50 x the cost; ttl-portals 0.9.2 `SpellManaMixin` + `TensuraIronCastMixin` make Iron's use its own mana in
+the Mortal dimensions (Life 2 keeps the bridge; blood/eldritch veto O-N1 kept). **#85** frames did not light in the Mortal
+Realm (vanilla `BaseFireBlock.inPortalDimension`): `BaseFireBlockMixin`. Hooks `/ttl spells`, `/ttl useon`; tests
+`life1_spells.rcon`, `portals.rcon` part 2, `tests/test_life1_rules.py`. **Verified locally** (release jar 0.9.2):
+life1_spells, portals, carryover, soul, race_lock, paths_items, life1_status, two_lives. **Open for Yasuke** (options on the
+issues): #145 Occultism banned in Life 1 by O-N1; #70 Tombstone's Soulbound does not cross to Life 2 (only `ttl:soulbound`).
+Client side not done: the bridge hides Iron's mana bar, also in Life 1 (a client mixin on `ManaBarOverlay` would fix it).
+
 ## 22/11 — tester issues #72 #73 #75 #86 #144 (branch `fix-reset-sleep-l2h`, Claude, for Yasuke)
 
 **#73/#72 reset kept skills**: `/ttl reset` revoked only uniques and set the race with `tensura edit race set` (keeps every
