@@ -41,6 +41,8 @@ allow = []
 # SpellPreCastEvent before every player cast (scrolls and spellbooks alike), life/mortal_banned.js cancels it for these
 # schools. Blood (raise_dead, devour, sacrifice, ...) and eldritch are the necromancer's and the abyss's magic. The rest
 # of Iron's stays usable in Life 1, and what a soul learns there carries over (D4). Empty list = no veto.
+# In the Mortal dimensions Iron's spends its own mana, not Tensura magicules (issue #104: ttl-portals SpellManaMixin,
+# life/mortal_spells.js); a Life 1 Human's 50-70 magicules could not pay a single spell through the Tensura bridge.
 # Fallback if the veto cannot be registered (the log says "[ttl] stash: Iron's spell veto NOT registered"): put
 # "irons_spellbooks" into `namespaces` (the master plan's Q13 "Iron's in Life 1: off").
 spell_schools = ["irons_spellbooks:blood", "irons_spellbooks:eldritch"]

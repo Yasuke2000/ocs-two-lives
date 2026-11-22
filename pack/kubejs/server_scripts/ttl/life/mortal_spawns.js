@@ -26,6 +26,25 @@ const TtlSafeSpawns = {
     }
   },
 
+  // A spell's summon (Iron's IMagicSummon: summon_vex's vexes, raise_dead's undead, ...) carries no tag but is cast by a
+  // player, not spawned by the world: a Life 1 soul summoning vexes at Wayfarer's Rest saw them vanish (issue #104).
+  summonType: undefined,
+  summoned(entity) {
+    if (this.summonType === undefined) {
+      try {
+        this.summonType = Java.loadClass('io.redspace.ironsspellbooks.entity.mobs.IMagicSummon')
+      } catch (e) {
+        console.warn(`[ttl] spawns: Iron's IMagicSummon not found, spell summons count as natural spawns: ${e}`)
+        this.summonType = null
+      }
+    }
+    try {
+      return !!this.summonType && entity instanceof this.summonType
+    } catch (e) {
+      return false
+    }
+  },
+
   inZone(entity) {
     var dim = String(entity.level.dimension)
     var x = entity.getX()
@@ -41,8 +60,9 @@ EntityEvents.spawned(event => {
     event.cancel()
     return
   }
-  // Only natural spawns are refused: trial mobs, summons and spawner mobs carry tags or come from commands.
-  if (TtlSafeSpawns.hostile(entity) && entity.getTags().isEmpty() && TtlSafeSpawns.inZone(entity)) event.cancel()
+  // Only natural spawns are refused: trial mobs and spawner mobs carry tags or come from commands, spell summons are
+  // recognised by their type.
+  if (TtlSafeSpawns.hostile(entity) && entity.getTags().isEmpty() && TtlSafeSpawns.inZone(entity) && !TtlSafeSpawns.summoned(entity)) event.cancel()
 })
 
 // Graded zones round the Life 2 towns (design/data/spawns.toml, TtlData.spawns; owner 19/11/2026: fewer mobs next to
