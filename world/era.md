@@ -68,3 +68,7 @@ The [scaled Tempest study](tempest-early-landscape.md) separates a proposed init
 ## Cave setting and absent occupant — round47
 
 The [licensed-source review](../docs/research/tensura-world-2026-11-19/licensed-manga-review-r47.md) separates early manga cave-setting cues from later event state. Veldora has been absorbed at the chosen baseline; no occupied prison or verified shattered physical seal is asserted. Underground water does not make the surface carve reservation a lake. Legacy decorative runes/chains and the developed farm still require source/era review; no runtime correction is claimed.
+
+## LN14 later southern dominion
+
+[Directly read LN14 prologue](../docs/research/tensura-world-2026-11-19/ln14-public-sample-review.md),claim LN14-MILIM-001,describes Milim's extensive territory south of Jura in that later narrative. This supports the reason to distinguish historical ownership overlays: it does not replace initial Carrion,Frey and Clayman labels. The accompanying Imperial invasion route is also later-campaign context,not initial troop or road placement. No source-map layer changes.

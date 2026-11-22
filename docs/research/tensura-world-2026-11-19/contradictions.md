@@ -166,3 +166,7 @@ The [island proportion study](../../../world/island-proportion-review.md) distin
 ## C14 follow-up: complete conditional coastal access
 
 [Current candidate](../../../world/malukshure-coastal-access.md) tests the earlier cape with a749-block approach and the existing8-block country marker. Its actual spatial mask is O;canonical anchors still require H. The default checker rejects that one binding;the explicit proposed-checker input passes,with fresh finite terrain/route/lake evidence. It remains inactive pending the binding choice;no Morgdahl ownership,complete city,harbour or initial tower state is inferred. Ledger348adds one original-design record,not new canon geography.
+
+## LN14 licensed trial: selected prose is now readable
+
+The [new public-trial review](ln14-public-sample-review.md) supersedes the old access failure only for selected rendered title,contents and opening prologue pages. LN14-ROUTE-001 corroborates an intended Imperial passage through Jura toward the Western Nations; LN14-MILIM-001 explicitly describes later southern Milim dominion. Neither supplies the missing Nasca/mountain bearing. Chapter2/3 bodies remain unread. Preserve C05 and keep the later ownership out of the initial S1E10 state under C08/C18. Current ledger351; no map,site,inventory or terrain change.
