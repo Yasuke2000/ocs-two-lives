@@ -1,0 +1,6 @@
+# Build bridge (ttl-portals `bridge/`, docs/dev/build-bridge.md): the op command is registered and answers, also while
+# the HTTP side is off (the default: config/ttl/bridge.json "enabled": false). The HTTP API itself needs the token and
+# is tested from tools/forge (tests/test_forge.py offline; the end-to-end run against a dev server is in the PR).
+@expect 5 ttlbridge: (listening on|HTTP off) :: ttlbridge status
+@expect 5 ttlbridge: no jobs|j[0-9]{8}-[0-9]{6}-[0-9]+ :: ttlbridge jobs
+@expect 5 no snapshot for job ttl_test_missing :: ttlbridge undo ttl_test_missing

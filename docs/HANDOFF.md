@@ -1,5 +1,17 @@
 # Handoff — current state of the work (update this when you stop)
 
+## 22/11 — AI build bridge (branch `ccr-92df5619-1ronqe`, Claude, for Yasuke)
+
+Claude can now read terrain, preview, place and undo builds on a running server: ttl-portals `bridge/` (HTTP on
+127.0.0.1, token, off by default) + the MCP sidecar `tools/forge/mcp_server.py` (`.mcp.json`, server `ttl-forge`).
+Guide: `docs/dev/build-bridge.md`. **Verified** on a NeoForge 21.1.266 dev server with only the bridge loaded (Tensura
+and Iron's are not on the dev classpath): every MCP tool end to end, undo after a restart, a 1.44M-cell job at ≤ 5.1 ms
+average tick; `tests/test_forge.py` (offline, fake bridge). **Not verified**: the real pack. **Next**: release ttl-portals
+(`python tools/release_mod.py`), `tools/local.sh test build_bridge`. To use it, set `"enabled": true` plus a zone in the
+local server's `config/ttl/bridge.json`, then `get_registry refresh=true` (commit that dump: it is the first real
+`design/dumps/` registry with the `tensura:` ids). Hooks in `.claude/settings.json` now use `$CLAUDE_PROJECT_DIR` (a `cd mod`
+used to make every tool call fail).
+
 ## 22/11 — owner calls on #145 and #70 (branch `life1-occultism-soulbound`, Claude)
 
 **#145** Occultism allowed in Life 1, ritual items banned per item/tag in `mortal_banned.toml` (list and reasons in the file

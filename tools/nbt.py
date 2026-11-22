@@ -23,13 +23,17 @@ class Double(float):
     pass
 
 
-_IDS = {Byte: 1, Short: 2, int: 3, Long: 4, float: 5, Double: 6, bytes: 7, str: 8, list: 9, dict: 10}
+class IntArray(list):
+    """An Int_Array tag (a plain list of ints is a List of Int tags)."""
+
+
+_IDS = {Byte: 1, Short: 2, int: 3, Long: 4, float: 5, Double: 6, bytes: 7, str: 8, list: 9, dict: 10, IntArray: 11}
 
 
 def _tag_id(value) -> int:
     if isinstance(value, bool):
         return 1
-    for kind in (Byte, Short, Long, Double):
+    for kind in (Byte, Short, Long, Double, IntArray):
         if type(value) is kind:
             return _IDS[kind]
     return _IDS[type(value)]
@@ -58,6 +62,8 @@ def _payload(value) -> bytes:
         return struct.pack(">i", len(value)) + bytes(value)
     if tag == 8:
         return _string(value)
+    if tag == 11:
+        return struct.pack(">i", len(value)) + struct.pack(f">{len(value)}i", *value)
     if tag == 9:
         element = _tag_id(value[0]) if value else 0
         return bytes([element]) + struct.pack(">i", len(value)) + b"".join(_payload(v) for v in value)

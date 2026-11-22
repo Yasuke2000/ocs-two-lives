@@ -1,6 +1,7 @@
 package com.yasuke.ttl;
 
 import com.yasuke.ttl.bot.TestBots;
+import com.yasuke.ttl.bridge.Bridge;
 import com.yasuke.ttl.build.Capture;
 import com.yasuke.ttl.rebirth.Rebirth;
 import com.yasuke.ttl.rebirth.RebirthOffersPayload;
@@ -42,5 +43,9 @@ public final class TtlPortals {
         NeoForge.EVENT_BUS.addListener(CanonMap::onServerAboutToStart);
         NeoForge.EVENT_BUS.addListener(SiteCheckCommand::registerCommands);
         NeoForge.EVENT_BUS.addListener(CanonMapCommand::registerCommands);
+        NeoForge.EVENT_BUS.addListener(Bridge::registerCommands);
+        NeoForge.EVENT_BUS.addListener(Bridge::onServerStarted);
+        NeoForge.EVENT_BUS.addListener(Bridge::onServerStopping);
+        NeoForge.EVENT_BUS.addListener(Bridge::onServerTick);
     }
 }

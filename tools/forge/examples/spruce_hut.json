@@ -1,0 +1,10 @@
+{"name": "spruce_hut", "size": [11, 10, 11],
+ "palette": {"wall": "minecraft:spruce_planks", "roof": "minecraft:dark_oak_stairs"},
+ "ops": [
+  {"op": "fill", "from": [1, 0, 1], "to": [9, 0, 7], "block": "minecraft:cobblestone"},
+  {"op": "walls", "from": [1, 1, 1], "to": [9, 4, 7], "block": "$wall"},
+  {"op": "window_grid", "from": [1, 1, 1], "to": [9, 4, 1], "block": "minecraft:glass_pane"},
+  {"op": "door", "at": [5, 1, 7], "facing": "south", "block": "minecraft:spruce_door"},
+  {"op": "set", "at": [3, 1, 4], "block": "minecraft:chest[facing=east]{Items:[{Slot:0b,id:\"minecraft:bread\",count:5}]}"},
+  {"op": "line", "from": [0, 0, 10], "to": [3, 0, 10], "block": "minecraft:spruce_fence"},
+  {"op": "roof", "from": [0, 5, 0], "to": [10, 5, 8], "style": "gable", "axis": "x", "stairs": "$roof", "fill": "$wall"}]}

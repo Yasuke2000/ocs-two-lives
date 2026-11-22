@@ -13,3 +13,6 @@ mod/.vscode/
 
 # own world: staging output of tools/world/build.py (without --apply)
 world/build/
+
+# tools/forge output (previews, exports, region renders)
+build/

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ttl-forge": {
+      "command": "python",
+      "args": ["-I", "tools/forge/mcp_server.py"]
+    }
+  }
+}

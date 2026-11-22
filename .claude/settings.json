@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python tools/hooks/guard_edit.py"
+            "command": "python \"$CLAUDE_PROJECT_DIR/tools/hooks/guard_edit.py\""
           }
         ]
       },
@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python tools/hooks/guard_bash.py"
+            "command": "python \"$CLAUDE_PROJECT_DIR/tools/hooks/guard_bash.py\""
           }
         ]
       }
@@ -26,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python tools/hooks/check_file.py"
+            "command": "python \"$CLAUDE_PROJECT_DIR/tools/hooks/check_file.py\""
           }
         ]
       }
