@@ -393,3 +393,7 @@ Earlier iteration notes are preserved in [the previous guide](https://github.com
 | Missing or partial places | The [location inventory](location-index.md) has 143 entries and 42 physical follow-ups, including unlocated capitals, minor countries and city interiors. It is not a claim that the entire wiki was read or that 58 markers represent 58 complete cities. Keep source-backed proposals distinct from registered terrain and put unresolved lore/contract choices in the PR. |
 
 All technical conversion, live structure placement, final-noise/fluid acceptance and deployment belong to Claude’s handoff. This creative guide does not claim those tasks complete.
+
+## Conditional Filtwood forest-edge proposal
+
+The [complete C20candidate](filtwood-jura-edge-candidate.md) moves only the existing pin to the already-illustrated western Jura-edge setting and supplies a measured curved trail. It passes with an explicit alternate U→J gameplay binding;default checker still rejects that one contract difference. Source bearing remains interpreted,kingdom identity primary,near-Jura setting secondary. Active geometry and current guide biome shares remain unchanged.

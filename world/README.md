@@ -1,3 +1,7 @@
+## Conditional Filtwood forest-edge candidate
+
+[Source/terrain/access comparison](filtwood-jura-edge-candidate.md) develops the existing C20comment into a measured proposal:pin(-1050,74,600),1102-block curved trail,57other site records and22old road exports retained. Default checker fails only the unapproved U/J binding;conditional check passes. Active map/current painting stay unchanged;ledger352/inventory143-42.
+
 ## Combined current source and painted delivery
 
 [Named painted atlas and same-frame comparison](painting-round112/README.md) now accompany the current351-record source dossier,displayb48666e9and normal terraina9b6b970in one branch. All14normal files are adopted unchanged; original painting pixels/components keep their historical height provenance. The later Laura source correction is present locally without pretending that the illustration is a numerical height reconstruction. Pending alternatives remain inactive.
