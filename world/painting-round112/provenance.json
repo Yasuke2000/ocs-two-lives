@@ -12,7 +12,18 @@
   "global_relief_resampled": false,
   "runtime_applied": false,
   "vertical_limit": "This illustration is not an exact height reconstruction;R130 pond height is adopted as plan context and the dune has interpretive light/shade.",
-  "current_display_source_sha256": "5464a71af3c33374424a04dbf5596ff5b10786709f76daa734f001edf4415f35",
-  "current_source_commit": "261c796",
-  "display_followup": "Only capital display wording and root source metadata refreshed;the original terrain composition and continent PNG are retained. The earlier source_sha256/map_commit still identify the actual Coleus terrain/brushwork basis."
+  "current_display_source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+  "current_source_commit": "7b70e71",
+  "display_followup": "Only capital display wording and root source metadata refreshed;the original terrain composition and continent PNG are retained. The earlier source_sha256/map_commit still identify the actual Coleus terrain/brushwork basis.",
+  "western_islet_followup": {
+    "source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+    "baseline_commit": "ce511ee",
+    "native_children_appended": 2,
+    "all19_prior_native_children_retained": true,
+    "source_coast_footprints_exact": true,
+    "new_AI_images": 0,
+    "PNG_method": "Chrome native SVG rendering",
+    "global_relief_resampled": false,
+    "scope": "Three low offshore rock additions;not full height or runtime reconstruction."
+  }
 }

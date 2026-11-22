@@ -360,9 +360,11 @@ Earlier iteration notes are preserved in [the previous guide](https://github.com
 
 ## X — El Dorado
 
+**Nearby offshore context.** Three small original rock islets represent the unlabelled forms between the western southern coast and El Dorado in the official illustration. Exact coastlines,coordinates and heights are authored. The Xmask is the nearest-island gameplay assignment,not evidence that Leon owns them. [Source/export review](western-offshore-islets.md) · [fresh22-mask biome census](region-biomes-western-islets.json).
+
 **Landform and heights.** Separate southwest volcanic island with authored bounds about 2,400.5 × 1,280.5 blocks after the R125 coast correction; Leon’s city lies northwest of the volcano, which rises to 230. R114 selects a local stony_peaks biome over the exact cone outline;the rock treatment is our interpretation,not proof of canonical climate or absence of runtime snow. [Review](el-dorado-rock-cone-r114.md). R80 adds an interpreted unnamed inland lake east of the cone, water first-air 68 and depth 5; its natural rim and exact outline are authored.
 
-**Current designed biome mix (R128 census; retained in R130).** plains 85.06%, stony_peaks 5.85%, forest 4.79%, beach 2.62%, river 1.67%.
+**Current designed biome mix (western-islet census).** plains 84.62%, stony_peaks 5.82%, forest 4.77%, beach 2.61%, river 1.66%, windswept_gravelly_hills 0.52%.
 
 **Palette, vegetation and crossings.** White and gold, green foothills, black volcanic stone and purple-red interiors. Two source-informed wooded patches lie northwest of the cone and east/southeast of the eastern lake. Rounded outlines and generic forest type are our interpretation;no tree species,density or dated logging claim. The sea crossing reaches a sheltered city plain below the caldera. [R111 source/terrain review](el-dorado-woodland-r111.md).
 

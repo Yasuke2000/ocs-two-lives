@@ -1,0 +1,485 @@
+{
+  "source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+  "baseline_source_sha256": "5464a71af3c33374424a04dbf5596ff5b10786709f76daa734f001edf4415f35",
+  "normal_staging_seconds": 67.6,
+  "source_elements_retained": true,
+  "new_elements": {
+    "coast": 3,
+    "hills": 3,
+    "biomes": 3,
+    "regions": 3
+  },
+  "features": [
+    {
+      "id": "western-south-islet-1",
+      "centre": [
+        -4300,
+        1825
+      ],
+      "authored_radii": [
+        55,
+        24
+      ],
+      "peak_control": 80,
+      "vertices": [
+        [
+          -4239.37,
+          1825.0
+        ],
+        [
+          -4240.85,
+          1831.92
+        ],
+        [
+          -4250.87,
+          1837.38
+        ],
+        [
+          -4260.4,
+          1842.28
+        ],
+        [
+          -4273.17,
+          1845.28
+        ],
+        [
+          -4287.61,
+          1845.17
+        ],
+        [
+          -4300.0,
+          1846.58
+        ],
+        [
+          -4314.72,
+          1848.98
+        ],
+        [
+          -4329.33,
+          1847.17
+        ],
+        [
+          -4341.06,
+          1842.92
+        ],
+        [
+          -4352.26,
+          1838.17
+        ],
+        [
+          -4355.35,
+          1831.47
+        ],
+        [
+          -4349.37,
+          1825.0
+        ],
+        [
+          -4347.11,
+          1819.49
+        ],
+        [
+          -4346.13,
+          1813.38
+        ],
+        [
+          -4338.19,
+          1808.34
+        ],
+        [
+          -4328.17,
+          1803.71
+        ],
+        [
+          -4316.08,
+          1798.81
+        ],
+        [
+          -4300.0,
+          1798.58
+        ],
+        [
+          -4286.25,
+          1802.61
+        ],
+        [
+          -4274.33,
+          1805.6
+        ],
+        [
+          -4263.27,
+          1808.97
+        ],
+        [
+          -4256.99,
+          1814.17
+        ],
+        [
+          -4249.1,
+          1819.05
+        ]
+      ],
+      "biome": "minecraft:windswept_gravelly_hills",
+      "gameplay_coverage": "X as nearest neighbouring island gameplay zone; no canonical ownership claim",
+      "rock_footprint_scale": 0.65,
+      "native_coast_height_samples": {
+        "count": 255,
+        "minimum": 61.5625,
+        "maximum": 65.3125,
+        "at_least64": 117
+      }
+    },
+    {
+      "id": "western-south-islet-2",
+      "centre": [
+        -4500,
+        1950
+      ],
+      "authored_radii": [
+        20,
+        18
+      ],
+      "peak_control": 90,
+      "vertices": [
+        [
+          -4477.21,
+          1950.0
+        ],
+        [
+          -4479.66,
+          1954.91
+        ],
+        [
+          -4482.84,
+          1958.92
+        ],
+        [
+          -4486.08,
+          1962.53
+        ],
+        [
+          -4490.94,
+          1964.12
+        ],
+        [
+          -4495.48,
+          1965.19
+        ],
+        [
+          -4500.0,
+          1968.03
+        ],
+        [
+          -4505.65,
+          1968.99
+        ],
+        [
+          -4510.62,
+          1966.55
+        ],
+        [
+          -4515.08,
+          1963.57
+        ],
+        [
+          -4518.39,
+          1959.56
+        ],
+        [
+          -4518.06,
+          1954.36
+        ],
+        [
+          -4517.21,
+          1950.0
+        ],
+        [
+          -4518.29,
+          1945.59
+        ],
+        [
+          -4517.48,
+          1940.92
+        ],
+        [
+          -4514.36,
+          1937.07
+        ],
+        [
+          -4510.94,
+          1932.94
+        ],
+        [
+          -4505.83,
+          1930.42
+        ],
+        [
+          -4500.0,
+          1932.03
+        ],
+        [
+          -4495.3,
+          1934.22
+        ],
+        [
+          -4490.62,
+          1935.38
+        ],
+        [
+          -4486.79,
+          1938.11
+        ],
+        [
+          -4483.75,
+          1941.56
+        ],
+        [
+          -4479.42,
+          1945.04
+        ]
+      ],
+      "biome": "minecraft:windswept_gravelly_hills",
+      "gameplay_coverage": "X as nearest neighbouring island gameplay zone; no canonical ownership claim",
+      "rock_footprint_scale": 0.65,
+      "native_coast_height_samples": {
+        "count": 69,
+        "minimum": 60.4375,
+        "maximum": 64.0,
+        "at_least64": 1
+      }
+    },
+    {
+      "id": "western-south-islet-3",
+      "centre": [
+        -4450,
+        2120
+      ],
+      "authored_radii": [
+        28,
+        75
+      ],
+      "peak_control": 87,
+      "vertices": [
+        [
+          -4419.41,
+          2120.0
+        ],
+        [
+          -4423.48,
+          2139.04
+        ],
+        [
+          -4426.57,
+          2156.24
+        ],
+        [
+          -4431.4,
+          2169.81
+        ],
+        [
+          -4437.7,
+          2177.05
+        ],
+        [
+          -4443.06,
+          2189.33
+        ],
+        [
+          -4450.0,
+          2202.13
+        ],
+        [
+          -4457.91,
+          2199.06
+        ],
+        [
+          -4464.62,
+          2187.85
+        ],
+        [
+          -4470.84,
+          2175.81
+        ],
+        [
+          -4473.7,
+          2156.65
+        ],
+        [
+          -4473.31,
+          2136.73
+        ],
+        [
+          -4475.41,
+          2120.0
+        ],
+        [
+          -4477.57,
+          2100.21
+        ],
+        [
+          -4475.07,
+          2081.24
+        ],
+        [
+          -4471.0,
+          2063.75
+        ],
+        [
+          -4465.7,
+          2047.14
+        ],
+        [
+          -4457.56,
+          2044.44
+        ],
+        [
+          -4450.0,
+          2052.13
+        ],
+        [
+          -4443.42,
+          2054.17
+        ],
+        [
+          -4436.62,
+          2057.94
+        ],
+        [
+          -4431.24,
+          2069.74
+        ],
+        [
+          -4425.2,
+          2081.65
+        ],
+        [
+          -4419.22,
+          2097.91
+        ]
+      ],
+      "biome": "minecraft:windswept_gravelly_hills",
+      "gameplay_coverage": "X as nearest neighbouring island gameplay zone; no canonical ownership claim",
+      "rock_footprint_scale": 0.65,
+      "native_coast_height_samples": {
+        "count": 406,
+        "minimum": 60.75,
+        "maximum": 65.4375,
+        "at_least64": 216
+      }
+    }
+  ],
+  "native_added_land_blocks2": 11778.887050002813,
+  "old_land_removed_blocks2": 0.0,
+  "minimum_islet_gap_to_old_land": 212.29996325953513,
+  "layer_changes": {
+    "height": {
+      "changed_cells": 31474,
+      "maximum_value_difference": 85.375,
+      "world_centre_bbox": [
+        -4806,
+        1514,
+        -3946,
+        2358
+      ]
+    },
+    "rugged": {
+      "changed_cells": 2091,
+      "maximum_value_difference": 25.0,
+      "world_centre_bbox": [
+        -4530,
+        1774,
+        -4222,
+        2210
+      ]
+    },
+    "water": {
+      "changed_cells": 0,
+      "maximum_value_difference": 0.0,
+      "world_centre_bbox": null
+    },
+    "biome": {
+      "changed_cells": 173123,
+      "maximum_value_difference": 19.0,
+      "world_centre_bbox": [
+        -4970,
+        -2114,
+        4342,
+        2966
+      ],
+      "raw_palette_index_changes": 173123,
+      "semantic_changed_cells": 574,
+      "new_palette_names": [
+        "minecraft:windswept_gravelly_hills"
+      ],
+      "semantic_world_centre_bbox": [
+        -4502,
+        1798,
+        -4246,
+        2190
+      ],
+      "scope": "Raw indices also shift due to a new palette entry;semantic names measured separately."
+    },
+    "road": {
+      "changed_cells": 0,
+      "maximum_value_difference": 0.0,
+      "world_centre_bbox": null
+    },
+    "sites": {
+      "changed_cells": 0,
+      "maximum_value_difference": 0.0,
+      "world_centre_bbox": null
+    },
+    "exclude": {
+      "changed_cells": 0,
+      "maximum_value_difference": 0.0,
+      "world_centre_bbox": null
+    }
+  },
+  "all58_site_exports_and_heights_retained": true,
+  "all22_road_exports_retained": true,
+  "all13_lakes_and_8_block_neighbourhood_height_water_retained": true,
+  "river_levels_and_reaches_retained": true,
+  "normal_conversion_scope": "Fresh normal staging only;no final-noise,fluid,chunk or runtime claim.",
+  "biome_census": {
+    "source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+    "biome_png_sha256": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+    "region_count": 22,
+    "biome_rows": 107,
+    "non_ocean_cells": 2658142,
+    "assigned_non_ocean_cells": 2649201,
+    "shared_boundary_non_ocean_cells": 26,
+    "unassigned_inland_non_ocean_cells": 0,
+    "outside_native_coast_non_ocean_cells": 8941,
+    "outside_native_coast_biomes": {
+      "minecraft:beach": 8038,
+      "minecraft:forest": 1,
+      "minecraft:old_growth_birch_forest": 27,
+      "minecraft:plains": 605,
+      "minecraft:river": 15,
+      "tensura:barren_land": 255
+    }
+  },
+  "all_other21_region_counts_retained": true,
+  "converter_warnings": [],
+  "atlas_callout": {
+    "text": "Western rocks (illustrated)",
+    "box": {
+      "x": 64,
+      "y": 1434,
+      "w": 187.203125,
+      "h": 17
+    },
+    "overlaps": []
+  },
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.543
+  },
+  "map_checker": {
+    "errors": 0,
+    "relations_passed": 56,
+    "standing_warnings": 2
+  }
+}

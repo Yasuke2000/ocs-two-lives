@@ -1,3 +1,7 @@
+## Current terrain: western offshore rocks
+
+[Three original islets](western-offshore-islets.md) now represent small offshore forms south of the western coast and north of El Dorado. Source50c27a6f;normal67.6s. All58site/22road exports,existing lake/river profiles and lake+8height/water retained. Fresh22-mask census:zero unassigned inland samples;21region counts exact. Ledger346;expanded inventory143/42. Shapes and Xgameplay assignment remain interpretation. The paired native painting on this branch follows those exact coast footprints;see [painted atlas](painting-round112/README.md).
+
 ## Current source review — licensed guide8.5
 
 [Directly inspected guide map](guide85-source-review.md) reinforces the southern arrangement and confirms Galut as capital by name. Electronic guide Rondo versus wiki Laura remains C24; [readable atlas](atlas.png) now uses Carrion's capital with the unchanged `laura` site. Current source5464a71a differs only in display text from the prior active drawing; normal terrain remains pinned to0b8bcf56. No new terrain run or city relocation. Earlier source snapshots below remain historical.
