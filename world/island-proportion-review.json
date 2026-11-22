@@ -1,0 +1,97 @@
+{
+  "baseline_source_sha256": "ade502105956db450831e0991b2f10e6b29f8b73a1827f1d0184299c505917bb",
+  "mainland_bounds": [
+    -5253.414943194785,
+    -2580.0,
+    4730.0,
+    3670.0
+  ],
+  "mainland_width": 9983.414943194784,
+  "reference_url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp",
+  "reference_method": "Broad visual horizontal-span bands from privately viewed official illustration; approximate, not a traced outline or surveyed projection.",
+  "alternatives": [
+    {
+      "id": "ice-continent",
+      "current_bounds": [
+        -2910.0,
+        -4375.6,
+        -391.85,
+        -3246.58
+      ],
+      "current_width_ratio": 0.252233330411304,
+      "visual_reference_width_band": [
+        0.4,
+        0.43
+      ],
+      "chosen_trial_width_ratio": 0.415,
+      "scale": 1.6453019881364634,
+      "translation_z": -377.6840905535508,
+      "trial_bounds": [
+        -3800.5167436283195,
+        -5202.156153501275,
+        342.600457797516,
+        -3344.577302855445
+      ],
+      "nearest_mainland_sea": 1000.0000000000008
+    },
+    {
+      "id": "el-dorado-island",
+      "current_bounds": [
+        -5250.498046875,
+        2249.609375,
+        -2850.0,
+        3530.15625
+      ],
+      "current_width_ratio": 0.24044859003995467,
+      "visual_reference_width_band": [
+        0.31,
+        0.34
+      ],
+      "chosen_trial_width_ratio": 0.325,
+      "scale": 1.3516402817999293,
+      "translation_z": 420.39986404247287,
+      "trial_bounds": [
+        -5584.731447928408,
+        2406.1416682074478,
+        -2340.1215913901024,
+        4136.980407190466
+      ],
+      "nearest_mainland_sea": 1000.0000000000006
+    }
+  ],
+  "active_land_bounds": [
+    -5253.414943194785,
+    -4375.6,
+    4730.0,
+    3670.0
+  ],
+  "trial_land_bounds": [
+    -5584.731447928408,
+    -5202.156153501275,
+    4730.0,
+    4136.980407190466
+  ],
+  "trial_box": [
+    -7168,
+    -6656,
+    6144,
+    5632
+  ],
+  "trial_box_dimensions": [
+    13312,
+    12288
+  ],
+  "hard_box_limit": [
+    14336,
+    11264
+  ],
+  "scope": "Inert coast-only alternatives. Internal relief, biomes, roads, sites and art are not rescaled or accepted.",
+  "comment_only_source_sha256": "016977e5c503277d1f741599c1d4c98b84386cc1fe3f9417ae2b4f18cd895bb3",
+  "standard_check": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2,
+    "preview_byte_identical": true,
+    "active_xml_signature_identical": true
+  }
+}

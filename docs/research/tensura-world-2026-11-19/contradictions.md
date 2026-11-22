@@ -150,3 +150,7 @@ The [western peninsula](../../../world/western-peninsula-r97.md) now reaches bey
 ## R99 Tengu terrain and C15
 
 The [authored ridge glade](../../../world/tengu-glade-r99.md) supplies partial biome context only. The surface-path trial fails registered-site endpoint checks at both ends and remains an inactive source comment. Its natural grade also needs design. No tool/site exception, tunnel, WN gate, village buildings or initial roster is inferred; registration and full settlement coverage remain open.
+
+## C12 follow-up: relative island size
+
+The [island proportion study](../../../world/island-proportion-review.md) distinguishes previous coast-shape improvements from relative island scale. Active Ice/El Dorado widths are25.22%/24.04% of the mainland; broad official-image readings are about40–43%/31–34%, with unknown projection. An original coast-only alternative is drawn inside an SVG comment. Its13,312×12,288 sea-margin box exceeds the11,264 hard height limit by1,024 blocks. Keep current server-size geometry active; the trial exposes a reviewable conflict, not surveyed canon dimensions or proof that all rearrangements fail. No internal layer, site or era state is moved.
