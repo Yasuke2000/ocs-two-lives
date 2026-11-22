@@ -161,3 +161,8 @@ The [island proportion study](../../../world/island-proportion-review.md) distin
 ## C09/C15 follow-up: Galut is not a ready park-side clearing
 
 [Current original fit study](../../../world/galut-site-review.md) marks the old(-900,3050),r60proposal requires-redesign:brook overlap,39.959blocks coast-edge clearance and43.625blocks sampled relief. No alternate city centre accepted. The existing wiki capital identity remains secondary;new WN61-004 directly supports Sarion trade only. Park threshold,town altar,capital and server portal retain separate meanings. This updates proposal readiness without moving active geography or treating gameplay U as a sovereign survey.
+
+
+## C12 follow-up: complete island source alternative
+
+[Full-layer trial](../../../world/island-proportion-alternative.md) extends the earlier coast-only option to all island-specific layers and three site centres, retaining all radii. The final normal export passes finite road/lake/coverage checks and fits the hard box;the smaller island-size and preferred-box choices still differ. It remains inactive pending Yasuke’s choice. This is one additional original-design record (ledger347),not new primary evidence or a resolved canonical projection.
