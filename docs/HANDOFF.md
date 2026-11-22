@@ -1,3 +1,9 @@
+## 22/11 — Larger island coast trial fits without relaxing box limits
+
+Verification:472tests/26skipped/0failures in65.277seconds; checker0/56/2; preview byte-identical and original fit diagram inspected.
+
+PR120 follow-up: trialB keeps41.5%/32.5%mainland-relative island widths and shifts both600blocks west. Nearest mainland sea927.76/961.91; box13824×11264 fits hard14336×11264. TrialA’s height overrun is not universal. Selected unchanged three site discs and four relief/rock selectors remain contained; all internal-layer/era/bearing acceptance is not claimed. Both coast proposals remain SVG comments because smaller recommended island sizes still differ. Current source9dbec534 changes comments only; active XML and preview remain identical to R130. Original normal/painting/art pins are retained without a new export. Ledger335, no new canon claims. No protected/runtime/world/chunk/merge/deploy action.
+
 ## 22/11 — Relative island size conflict drawn for review
 
 An original side-by-side coast study now shows remaining Ice/ElDorado compression against broad official-image extent. Active widths25.22%/24.04%ofmainland; chosen inert trial41.5%/32.5%. Commented original paths in map.svg alter no active element, site, road or terrain layer. At1000-block mainland sea gaps this trial requires13312×12288 including sea margins, exceeding hard height11264 by1024. This does not prove every rearrangement impossible. See world/island-proportion-review.md. Fresh checker0errors/56relations/2standingwarnings; preview byte-identical and inspected. Required gate472tests/26skipped/0failures65.313seconds. Ledger335; no duplicated canon dimensions. Original R130 normal export and existing painting/art are adopted for identical active geometry; their original hashes remain. No protected/runtime/world/chunk/merge/deploy action.
