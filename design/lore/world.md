@@ -292,7 +292,7 @@ Own-world correction: the [current source-based lake](../../world/map.svg) is el
 
 ### O, N, Y, Q, A: small Western Nations (Morgdahl, Nostraille, Yuzalgh, Yggdonia, Raja)
 
-The anime map seen at the Western Council supports the west-to-east sequence Morgdahl, Nostraille, Yuzalgh and Yggdonia. The fan cartographer identifies Raja's exact position as speculative. The English epithets are pack choices. [Council map comparison](https://www.reddit.com/r/TenseiSlime/comments/1suz7yb/new_countries/) · [Cartographer's account](https://www.reddit.com/r/TenseiSlime/comments/1um7i81/i_created_a_bunch_of_tensura_political_maps/)
+A community post reports the west-to-east sequence Morgdahl, Nostraille, Yuzalgh and Yggdonia on a later Western Council anime map. This is secondary evidence (FAN-WES-034): the post text was read, but the underlying frame and exact timestamp have not been independently authenticated here. The five official episode 76 stills do not show that map; this does not prove its absence from the full episode. The fan cartographer identifies Raja's exact position as speculative. The English epithets are pack choices. [Council map comparison](https://www.reddit.com/r/TenseiSlime/comments/1suz7yb/new_countries/) · [Cartographer's account](https://www.reddit.com/r/TenseiSlime/comments/1um7i81/i_created_a_bunch_of_tensura_political_maps/)
 
 They share the river-and-lake belt (z 500..1000) between Englassia and the Fulbrosia hills, from west to east:
 
