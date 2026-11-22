@@ -1,0 +1,117 @@
+{
+  "round": null,
+  "profile": "Laura lower headwater",
+  "source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "criterion": "Diagnostic 2-block threshold matches ordinary converter MAX_STEP. The brief asks for small falls but sets no exact numeric cap;larger headwaterfalls require style/source assessment, not automatic rejection.",
+  "passing_interfaces": 8,
+  "interfaces": 8,
+  "open_conflict": "C23",
+  "overall_pass": true,
+  "rows": [
+    {
+      "lake": "tempest-west-lake",
+      "river": "jura-sarion-river",
+      "direction": "outlet",
+      "lake_first_air": 68,
+      "adjacent_river_first_airs": [
+        68
+      ],
+      "maximum_level_difference": 0,
+      "normal_step_threshold": 2,
+      "small_step_pass": true,
+      "scope": "Adjacent exported water first-air;not runtime fluid simulation."
+    },
+    {
+      "lake": "tempest-west-lake",
+      "river": "tempest-brook-upper",
+      "direction": "inlet",
+      "lake_first_air": 68,
+      "adjacent_river_first_airs": [
+        68
+      ],
+      "maximum_level_difference": 0,
+      "normal_step_threshold": 2,
+      "small_step_pass": true,
+      "scope": "Adjacent exported water first-air;not runtime fluid simulation."
+    },
+    {
+      "lake": "lake-siss",
+      "river": "great-ameld-headwaters",
+      "direction": "inlet",
+      "lake_first_air": 66,
+      "adjacent_river_first_airs": [
+        66
+      ],
+      "maximum_level_difference": 0,
+      "normal_step_threshold": 2,
+      "small_step_pass": true,
+      "scope": "Adjacent exported water first-air;not runtime fluid simulation."
+    },
+    {
+      "lake": "lake-siss",
+      "river": "great-ameld-outlet",
+      "direction": "outlet",
+      "lake_first_air": 66,
+      "adjacent_river_first_airs": [
+        66
+      ],
+      "maximum_level_difference": 0,
+      "normal_step_threshold": 2,
+      "small_step_pass": true,
+      "scope": "Adjacent exported water first-air;not runtime fluid simulation."
+    },
+    {
+      "lake": "raja-lake",
+      "river": "raja-stream",
+      "direction": "inlet",
+      "lake_first_air": 72,
+      "adjacent_river_first_airs": [
+        72
+      ],
+      "maximum_level_difference": 0,
+      "normal_step_threshold": 2,
+      "small_step_pass": true,
+      "scope": "Adjacent exported water first-air;not runtime fluid simulation."
+    },
+    {
+      "lake": "ulgr-spring",
+      "river": "ulgr-spring-brook",
+      "direction": "outlet",
+      "lake_first_air": 92,
+      "adjacent_river_first_airs": [
+        91
+      ],
+      "maximum_level_difference": 1,
+      "normal_step_threshold": 2,
+      "small_step_pass": true,
+      "scope": "Adjacent exported water first-air;not runtime fluid simulation."
+    },
+    {
+      "lake": "laura-headwater-basin",
+      "river": "laura-mountain-falls",
+      "direction": "outlet",
+      "lake_first_air": 139,
+      "adjacent_river_first_airs": [
+        137
+      ],
+      "maximum_level_difference": 2,
+      "normal_step_threshold": 2,
+      "small_step_pass": true,
+      "scope": "Adjacent exported water first-air;not runtime fluid simulation."
+    },
+    {
+      "lake": "western-unnamed-basin",
+      "river": "western-basin-outlet",
+      "direction": "outlet",
+      "lake_first_air": 68,
+      "adjacent_river_first_airs": [
+        68
+      ],
+      "maximum_level_difference": 0,
+      "normal_step_threshold": 2,
+      "small_step_pass": true,
+      "scope": "Adjacent exported water first-air;not runtime fluid simulation."
+    }
+  ],
+  "limits": "Containing four-block export samples;does not simulate a filled vertical fall,fluid updates or final terrain noise."
+}

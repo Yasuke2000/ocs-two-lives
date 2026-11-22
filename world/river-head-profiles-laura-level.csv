@@ -1,0 +1,9 @@
+lake,river,direction,lake_first_air,adjacent_river_first_airs,maximum_level_difference,normal_step_threshold,small_step_pass
+tempest-west-lake,jura-sarion-river,outlet,68,68,0,2,True
+tempest-west-lake,tempest-brook-upper,inlet,68,68,0,2,True
+lake-siss,great-ameld-headwaters,inlet,66,66,0,2,True
+lake-siss,great-ameld-outlet,outlet,66,66,0,2,True
+raja-lake,raja-stream,inlet,72,72,0,2,True
+ulgr-spring,ulgr-spring-brook,outlet,92,91,1,2,True
+laura-headwater-basin,laura-mountain-falls,outlet,139,137,2,2,True
+western-unnamed-basin,western-basin-outlet,outlet,68,68,0,2,True

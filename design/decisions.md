@@ -299,3 +299,5 @@ changes and new decisions with a date.
 22Nov2026 — Add three original small offshore rock islets suggested by the official illustration between the western southern shore and El Dorado. Keep all existing sites,roads and geography;label dimensions/heights and nearest-island Xcoverage as interpretation rather than sovereign ownership. [Evidence](../world/western-offshore-islets.md).
 
 22Nov2026 — Keep the regional guide pinned to the actual current source and semantic biome census; palette-index renumbering is not a landscape-wide biome change. Preserve the 22 region narratives and all curated image references while replacing superseded current-version claims. [Current guide](../world/regions.md).
+
+22Nov2026 — Lower the authored Laura basin/head154→139 to implement the small-fall brief beside the unchanged river137,retaining all plan geometry and site/road exports. This is a server-height choice,not a newly measured anime waterfall. [Fresh evidence](../world/laura-headwater-level.md).
