@@ -1,3 +1,7 @@
+## 22/11 — Laura head drop traced to remaining-reach cap
+
+[Source/profile review](../world/laura-waterfall-review.md) separates the authored17-block transition from canonical waterfall scale. Existing371-sample profile starts137 because63+2*floor(1480/40)=137;38reaches. Twenty official episode stills and6PV announcement images inspected,no broad waterfall confirmation;official PV playback country-restricted,zero frames. FAN-009 remains secondary and its action is qualified. No geometry/export/runtime change;C23 open. Required gate passed:472tests,26skipped,zero failures in65.284seconds;diff check passes.
+
 ## 22/11 — Frost Palace briefs match the approved inland map
 
 Correct two stale round28 headers in the knowledge-pack and lore place pages: current own-world anchor(-1530,71,-3680),clearing,r89; coastal/Lerfing placement is historical. Link the existing R109 implementation and registration. The 85x69 model is an entrance,not a whole-palace footprint. WN central-continent support remains distinct from unread LN agreement. No new map/site/terrain/art/runtime change or live integration claim. Existing source/export evidence is retained without another terrain run. Required repository gate passed:472tests,26skipped,zero failures in65.152seconds;validation and diff check pass.

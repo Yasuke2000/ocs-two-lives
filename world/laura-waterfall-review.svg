@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540">
+<rect width="1200" height="540" fill="#f6f3e9"/>
+<g font-family="sans-serif" fill="#243c42">
+<text x="40" y="35" font-size="24">Laura: current lake-to-sea water profile</text>
+<text x="40" y="59" font-size="15">Original diagram of staged first-air levels; no canonical heights or runtime fluid acceptance inferred.</text>
+<path d="M90 395.00H1100" stroke="#d0d4ce"/>
+<text x="40" y="400.00" font-size="14">60</text>
+<path d="M90 333.00H1100" stroke="#d0d4ce"/>
+<text x="40" y="338.00" font-size="14">80</text>
+<path d="M90 271.00H1100" stroke="#d0d4ce"/>
+<text x="40" y="276.00" font-size="14">100</text>
+<path d="M90 209.00H1100" stroke="#d0d4ce"/>
+<text x="40" y="214.00" font-size="14">120</text>
+<path d="M90 147.00H1100" stroke="#d0d4ce"/>
+<text x="40" y="152.00" font-size="14">140</text>
+<path d="M90 103.60H1100" stroke="#d0d4ce"/>
+<text x="40" y="108.60" font-size="14">154</text>
+<text x="90.00" y="430" font-size="14">0</text>
+<text x="359.54" y="430" font-size="14">400</text>
+<text x="629.08" y="430" font-size="14">800</text>
+<text x="898.63" y="430" font-size="14">1200</text>
+<text x="1090.00" y="430" font-size="14">1484</text>
+<polyline points="70.00,103.60 90.00,103.60 90.00,156.30 90.00,156.30 92.70,156.30 92.70,162.50 119.65,162.50 119.65,168.70 146.60,168.70 146.60,174.90 173.56,174.90 173.56,181.10 200.51,181.10 200.51,187.30 227.47,187.30 227.47,193.50 254.42,193.50 254.42,199.70 281.37,199.70 281.37,205.90 308.33,205.90 308.33,212.10 335.28,212.10 335.28,218.30 362.24,218.30 362.24,224.50 389.19,224.50 389.19,230.70 416.15,230.70 416.15,236.90 443.10,236.90 443.10,243.10 470.05,243.10 470.05,249.30 497.01,249.30 497.01,255.50 523.96,255.50 523.96,261.70 550.92,261.70 550.92,267.90 577.87,267.90 577.87,274.10 604.82,274.10 604.82,280.30 631.78,280.30 631.78,286.50 658.73,286.50 658.73,292.70 685.69,292.70 685.69,298.90 712.64,298.90 712.64,305.10 739.60,305.10 739.60,311.30 766.55,311.30 766.55,317.50 793.50,317.50 793.50,323.70 820.46,323.70 820.46,329.90 847.41,329.90 847.41,336.10 874.37,336.10 874.37,342.30 901.32,342.30 901.32,348.50 928.27,348.50 928.27,354.70 955.23,354.70 955.23,360.90 982.18,360.90 982.18,367.10 1009.14,367.10 1009.14,373.30 1036.09,373.30 1036.09,379.50 1063.05,379.50 1063.05,385.70 1090.00,385.70" fill="none" stroke="#2379a1" stroke-width="3"/>
+<text x="113" y="100" font-size="16">Lake 154 → river 137: 17-block head step</text>
+<text x="113" y="125" font-size="14">Initial cap = 63 + 2 × floor(1480 / 40) = 137</text>
+<text x="480" y="455" font-size="15">Cumulative represented reach length (blocks)</text>
+<text x="40" y="490" font-size="15">The later profile descends in 2-block steps. The larger initial drop is forced by remaining reach capacity.</text>
+<text x="40" y="516" font-size="15">C23 remains open: verify the waterfall scene and intended landscape before changing the lake or valley.</text>
+</g></svg>

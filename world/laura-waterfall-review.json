@@ -1,0 +1,477 @@
+{
+  "source_svg_sha256": "a5e1c2f6d811ff367da3da90aa60871ce421a99a9bfeb564501a0e533cda9c3a",
+  "staged_source_sha256": "0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e",
+  "river": "laura-mountain-falls",
+  "lake_level": 154,
+  "river_first_level": 137,
+  "head_step": 17,
+  "sample_spacing": 4,
+  "sample_count": 371,
+  "remaining_span_at_first_sample": 1480,
+  "minimum_reach": 40,
+  "ordinary_max_step": 2,
+  "mouth": 63,
+  "initial_remaining_reach_cap": 137,
+  "reaches": [
+    {
+      "level": 137,
+      "from": [
+        1490,
+        1062
+      ],
+      "to": [
+        1490,
+        1062
+      ],
+      "length": 4
+    },
+    {
+      "level": 135,
+      "from": [
+        1489,
+        1066
+      ],
+      "to": [
+        1475,
+        1098
+      ],
+      "length": 40
+    },
+    {
+      "level": 133,
+      "from": [
+        1474,
+        1102
+      ],
+      "to": [
+        1460,
+        1135
+      ],
+      "length": 40
+    },
+    {
+      "level": 131,
+      "from": [
+        1459,
+        1138
+      ],
+      "to": [
+        1446,
+        1171
+      ],
+      "length": 40
+    },
+    {
+      "level": 129,
+      "from": [
+        1445,
+        1175
+      ],
+      "to": [
+        1434,
+        1209
+      ],
+      "length": 40
+    },
+    {
+      "level": 127,
+      "from": [
+        1432,
+        1212
+      ],
+      "to": [
+        1421,
+        1246
+      ],
+      "length": 40
+    },
+    {
+      "level": 125,
+      "from": [
+        1420,
+        1250
+      ],
+      "to": [
+        1408,
+        1283
+      ],
+      "length": 40
+    },
+    {
+      "level": 123,
+      "from": [
+        1406,
+        1287
+      ],
+      "to": [
+        1388,
+        1317
+      ],
+      "length": 40
+    },
+    {
+      "level": 121,
+      "from": [
+        1386,
+        1320
+      ],
+      "to": [
+        1368,
+        1350
+      ],
+      "length": 40
+    },
+    {
+      "level": 119,
+      "from": [
+        1366,
+        1353
+      ],
+      "to": [
+        1350,
+        1384
+      ],
+      "length": 40
+    },
+    {
+      "level": 117,
+      "from": [
+        1350,
+        1388
+      ],
+      "to": [
+        1350,
+        1423
+      ],
+      "length": 40
+    },
+    {
+      "level": 115,
+      "from": [
+        1350,
+        1427
+      ],
+      "to": [
+        1350,
+        1463
+      ],
+      "length": 40
+    },
+    {
+      "level": 113,
+      "from": [
+        1350,
+        1467
+      ],
+      "to": [
+        1350,
+        1502
+      ],
+      "length": 40
+    },
+    {
+      "level": 111,
+      "from": [
+        1350,
+        1506
+      ],
+      "to": [
+        1354,
+        1541
+      ],
+      "length": 40
+    },
+    {
+      "level": 109,
+      "from": [
+        1356,
+        1545
+      ],
+      "to": [
+        1368,
+        1578
+      ],
+      "length": 40
+    },
+    {
+      "level": 107,
+      "from": [
+        1370,
+        1582
+      ],
+      "to": [
+        1382,
+        1616
+      ],
+      "length": 40
+    },
+    {
+      "level": 105,
+      "from": [
+        1383,
+        1619
+      ],
+      "to": [
+        1396,
+        1653
+      ],
+      "length": 40
+    },
+    {
+      "level": 103,
+      "from": [
+        1397,
+        1657
+      ],
+      "to": [
+        1410,
+        1690
+      ],
+      "length": 40
+    },
+    {
+      "level": 101,
+      "from": [
+        1413,
+        1692
+      ],
+      "to": [
+        1442,
+        1713
+      ],
+      "length": 40
+    },
+    {
+      "level": 99,
+      "from": [
+        1445,
+        1715
+      ],
+      "to": [
+        1474,
+        1735
+      ],
+      "length": 40
+    },
+    {
+      "level": 97,
+      "from": [
+        1477,
+        1738
+      ],
+      "to": [
+        1506,
+        1758
+      ],
+      "length": 40
+    },
+    {
+      "level": 95,
+      "from": [
+        1509,
+        1760
+      ],
+      "to": [
+        1538,
+        1781
+      ],
+      "length": 40
+    },
+    {
+      "level": 93,
+      "from": [
+        1542,
+        1783
+      ],
+      "to": [
+        1570,
+        1803
+      ],
+      "length": 40
+    },
+    {
+      "level": 91,
+      "from": [
+        1574,
+        1805
+      ],
+      "to": [
+        1601,
+        1829
+      ],
+      "length": 40
+    },
+    {
+      "level": 89,
+      "from": [
+        1604,
+        1831
+      ],
+      "to": [
+        1630,
+        1855
+      ],
+      "length": 40
+    },
+    {
+      "level": 87,
+      "from": [
+        1633,
+        1858
+      ],
+      "to": [
+        1659,
+        1881
+      ],
+      "length": 40
+    },
+    {
+      "level": 85,
+      "from": [
+        1662,
+        1884
+      ],
+      "to": [
+        1689,
+        1908
+      ],
+      "length": 40
+    },
+    {
+      "level": 83,
+      "from": [
+        1692,
+        1911
+      ],
+      "to": [
+        1718,
+        1934
+      ],
+      "length": 40
+    },
+    {
+      "level": 81,
+      "from": [
+        1721,
+        1937
+      ],
+      "to": [
+        1748,
+        1961
+      ],
+      "length": 40
+    },
+    {
+      "level": 79,
+      "from": [
+        1751,
+        1964
+      ],
+      "to": [
+        1777,
+        1987
+      ],
+      "length": 40
+    },
+    {
+      "level": 77,
+      "from": [
+        1780,
+        1990
+      ],
+      "to": [
+        1813,
+        2003
+      ],
+      "length": 40
+    },
+    {
+      "level": 75,
+      "from": [
+        1817,
+        2005
+      ],
+      "to": [
+        1850,
+        2018
+      ],
+      "length": 40
+    },
+    {
+      "level": 73,
+      "from": [
+        1854,
+        2019
+      ],
+      "to": [
+        1887,
+        2033
+      ],
+      "length": 40
+    },
+    {
+      "level": 71,
+      "from": [
+        1891,
+        2034
+      ],
+      "to": [
+        1925,
+        2047
+      ],
+      "length": 40
+    },
+    {
+      "level": 69,
+      "from": [
+        1928,
+        2049
+      ],
+      "to": [
+        1962,
+        2062
+      ],
+      "length": 40
+    },
+    {
+      "level": 67,
+      "from": [
+        1965,
+        2063
+      ],
+      "to": [
+        1999,
+        2077
+      ],
+      "length": 40
+    },
+    {
+      "level": 65,
+      "from": [
+        2002,
+        2078
+      ],
+      "to": [
+        2036,
+        2091
+      ],
+      "length": 40
+    },
+    {
+      "level": 63,
+      "from": [
+        2039,
+        2093
+      ],
+      "to": [
+        2073,
+        2106
+      ],
+      "length": 40
+    }
+  ],
+  "scope": "Existing staged water profile and read-only converter formula; not fresh staging, final noise or Minecraft fluid simulation.",
+  "primary_waterfall_confirmation": false,
+  "decision": "Keep active geometry provisional; do not lower the lake or extend the river solely to pass a 2-block diagnostic. C23 remains open.",
+  "staged_index_sha256": "a50fb8f1eecf9cbd6dac8aaad60ab200afea285d333a2564f046b26da5ba99e5"
+}
