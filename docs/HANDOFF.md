@@ -1,3 +1,9 @@
+## 22/11 — Licensed English LN1 cave passages directly read
+
+Requiredgate472tests/26skipped/0failures65.042seconds;diff/protectedchecks passed.
+
+Tapas official serialization/notice identifies first5serialized episodes free,later paid. Selected PartThree/PartFour primary text now directly supports natural hipokute/high-local-magic and the interior water encounter,with blind-narrator lake inference qualified. Add LN01-CAVE-001/002;ledger340. No completeLN1/LN6/series read or printed page invented. Local TapasGET403;public index primary text readable,no bypass/unlock. DivineTree follow-up remains unverified:GC LN6fragment not tree passage;YenPresslisting metadataonly;Google metadata429;normalPlayreader redirects regional-unavailable. ElminePNG inspected fullresolution as lower-trunk vignette,not fulltree proof. Lore/knowledge/Juraguide and source-access notes updated;no source map,terrain,art,runtime/protected/merge/deploy change. See licensed-ln1-cave-followup.md in current research directory.
+
 ## 22/11 — Galut dry-circle proposal explicitly requires redesign
 
 Requiredgate472tests/26skipped/0failures in65.109seconds;diff/protectedchecks passed.
