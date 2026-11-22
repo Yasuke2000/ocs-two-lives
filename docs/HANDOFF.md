@@ -1,3 +1,7 @@
+## 22/11 — Licensed guide8.5 map finally viewed;capital labels qualified
+
+[Direct source review](../world/guide85-source-review.md):different legal ebookjapan trial renders;unnumbered map spreadcounter4/10 inspected. Four selected records bring ledger344. Southern layout reinforced;Galutname now primary companion-guide-supported,location still open. Electronic guide prints Rondo for both Eurazania/Blumund;wiki Laura not silently merged. New C24;source text/atlas row use Carrion capital with same laura ID/geometry. No typo,novel-prose or full-guide reading claimed. C07 and city placement remain unresolved. Private source images only,links/paraphrases in repo. Required gate passed:472tests,26skipped,zero failures in65.175seconds;map checker0errors/56relations/2standing warnings;preview/atlas inspected;diff check passes.
+
 ## 22/11 — Laura head drop traced to remaining-reach cap
 
 [Source/profile review](../world/laura-waterfall-review.md) separates the authored17-block transition from canonical waterfall scale. Existing371-sample profile starts137 because63+2*floor(1480/40)=137;38reaches. Twenty official episode stills and6PV announcement images inspected,no broad waterfall confirmation;official PV playback country-restricted,zero frames. FAN-009 remains secondary and its action is qualified. No geometry/export/runtime change;C23 open. Required gate passed:472tests,26skipped,zero failures in65.284seconds;diff check passes.
