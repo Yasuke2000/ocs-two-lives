@@ -1,8 +1,8 @@
 # AGENTS.md — OCS Tensura: Two Lives
 
 Instructions for any coding agent (Codex, ChatGPT, Claude, …) working in this repo. The project rules are
-the same for every agent: **read `CLAUDE.md` first** (pinned versions, golden rules, data schema, KubeJS
-conventions, test server, testing protocol). This file adds what a newcomer agent needs to pick up work, and
+the same for every agent: **read `CLAUDE.md` first** (pinned versions, golden rules, KubeJS
+conventions, test server, testing protocol) and `docs/dev/data-schema.md` before touching a `ttl` key. This file adds what a newcomer agent needs to pick up work, and
 `docs/HANDOFF.md` holds the current state of the work in progress.
 
 ## What this is
