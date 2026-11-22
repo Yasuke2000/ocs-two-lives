@@ -1,31 +1,15 @@
-# Current comparison: western offshore rocks
+# Current continent comparison
 
-[Original before/after study](western-offshore-islets.png) · [current source atlas](atlas.png) · [official reference as link](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp). Three unlabelled forms now have representative original terrain;no source pixels embedded. Coordinates,scale,relief and Xgameplay coverage remain interpretation. [Finite export evidence](western-offshore-islets.json). Earlier comparisons below remain historical.
-
-## Current R128 comparison
-
-[Original before/after](ice-west-arm-r128.png) · [current checker preview](preview.png) · [terrain atlas](atlas.png) · [official reference link](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp). The lower western arm is an original interpretation of the illustrated silhouette;exact projection and curves remain unverified. Approved inland palace,ridge,high-peaks selector,islets andoverall bounds retained. [Actual terrain evidence](ice-west-arm-r128.md). No copyrighted reference panel is stored here.
-
-## Current R125 comparison
-
-[Our before/after image](el-dorado-coast-r125.png) · [current checker preview](preview.png) · [terrain atlas](atlas.png) · [official reference image link](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp). The reference remains externally linked;no copyrighted panel is stored here. The original coast now reflects the broad west-east island silhouette,with a western arm and eastern tip. Exact curves and aspect ratio are interpretation;fixed site relationships and global projection/compression differences remain. [Review](el-dorado-coast-r125.md).
-
-# Current source comparison — R119
-
-| Current original Minecraft geometry | Official illustrated reference (remote link only) |
+| Original current painted continent | Official introductory geography reference |
 | --- | --- |
-| [![Checker preview](preview.png)](preview.png) | [![Official introductory map](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp)](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp) |
+| [![Original painted continent](painting-round112/continent.png)](painting-round112/atlas.png) | [![Official map: remote image only](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp)](https://www.ten-sura.com/map) |
 
-[Numbered terrain atlas](atlas.png) · [Production SVG](map.svg) · [Regions and interpretations](regions.md) · [Source ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv).
+The official panel is a remote link;no copyrighted reference pixels are copied into this repository. Our coast,relief and painting remain original. The [same-frame current terrain/painting comparison](painting-round112/current-source-comparison.png) shows the actual numerical export beside the illustration. [Numbered atlas](painting-round112/atlas.png) identifies all58places.
 
-The [Ulgr brook correction](ulgr-brook-r119.md) now keeps the spring’s outflow inland to the native shore. Exact route and elevations are authored; the selected WN park passage does not establish them. All 58 sites and all broader coast geometry remain. The adjacent exported head transition reduces 37→11 blocks; Laura remains 17. C23 remains a style/fluid-placement review, not an imposed two-block cap.
+Current display sourceb48666e9,normal terraina9b6b970;mainland9983x6250,designbox12800x10752. This fits the hard14336x11264cap while exceeding the ordinary targetbox. Absolute distances,coast curves,biome edges and gameplay masks are server interpretations. The smaller Ice/ElDorado proportions remain a disclosed difference;the [larger-island proposal](https://github.com/Yasuke2000/ocs-two-lives/pull/132) awaits an owner choice and requires current-source/painting/art reconciliation before activation.
 
-The [southern coast correction](southern-coast-r117.md) replaces a broad southeastern foot with a narrower curved taper. The southern tip, western inlet and all 58 locations remain. Coastline vertices, scale and habitat boundaries are authored adaptations, not surveyed canon. The full official original, checked preview and original before/after were visually compared.
+The selected state is immediately after Kijin naming,anime S1E10. Fulbrosia is south of Jura;Ulgracia south of Sarion. The approved inland palace,western islets and small Ulgr/Laura head interfaces are represented in current source. The painting keeps historical brushwork/height provenance and is not an exact vertical reconstruction. Politics,later buildings and roads retain their [era limits](era.md).
 
-The approved [Frost Palace](frost-palace-inland-r109.md) is inland at (-1530,-3680), with clearing registration and radius 89. Its old coastal legend has been corrected. Previous references to an undecided coastal palace describe historical proposals.
+Remaining source/contract questions include the Imperial mountain bearing,Amrita nesting/reserve,Malukshure coast binding,Filtwood and extra-location registration. [Contradictions](../docs/research/tensura-world-2026-11-19/contradictions.md),353record [source ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) and143/42 [location index](location-index.md) keep these visible. Whole-wiki coverage,all architectural details and Minecraft acceptance remain unproved.
 
-Mainland bounds remain 9983×6250; design box 12800×10752. Fixed server distances and unknown reference projection still limit uniform proportions (C12). Gameplay masks are not sovereign borders. The inventory has 142 entries and 42 physical follow-ups; no exhaustive wiki or primary-source claim is made.
-
-The snapshot remains immediately after Kijin naming, S1E10. Later references can inform enduring terrain without activating later cities, federation borders, conquests or infrastructure. [Published R120 painting](https://github.com/Yasuke2000/ocs-two-lives/tree/2738634558684a28998b1a61bdab2cbd010a2f24/world/painting-round112) follows the R119 inland brook and retains the R117 southern taper. Older R116/R118 snapshots remain historical. All 58 site positions remain compatible with its registration.
-
-Default checker: zero errors, 56 relations, two existing warnings. Normal staging: 66.4 seconds. Offline geometry/export evidence does not establish Minecraft placement or fluid acceptance. C23 and the wider source, proportion and era reviews remain open.
+Start with the [current delivery index](DELIVERY.md). [Earlier comparisons](comparison-history-through-r143.md) retain their original source versions and historical counts.

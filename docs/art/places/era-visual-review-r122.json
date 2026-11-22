@@ -1,0 +1,38 @@
+{
+  "review": "R122 initial-era visual screen",
+  "art_baseline_commit": "8d468a242b2dde7738f97b76b4ac8b65f6a6f775",
+  "external_source_commit": "501ffd88127620db838115309b7e2f71b00d99b4",
+  "external_geometry_source_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
+  "initial_snapshot": "Immediately after Kijin naming; anime S1E10",
+  "registered_concepts": 58,
+  "overview_screened": 58,
+  "full_resolution_reviewed": [
+    "tempest",
+    "laura",
+    "kaijin_smithy",
+    "orc_camp",
+    "goblin_village",
+    "lizardmen_caverns",
+    "marris",
+    "clayman_castle",
+    "englassia",
+    "coleus",
+    "dwargon_throne",
+    "sealed_cave"
+  ],
+  "full_resolution_count": 12,
+  "unchanged_png_bytes": 58,
+  "unchanged_sheet_and_prompt_normalized_text": 58,
+  "sheet_hash_normalization": "UTF-8 text with LF; original working files are not rewritten",
+  "site_attributes_equal_R113_registration_source": true,
+  "bitmap_regeneration_required_by_this_screen": false,
+  "new_artwork_or_raster_edits": false,
+  "all58_full_source_era_or_architecture_acceptance": false,
+  "limits": "Overview scale may miss small symbols or occupants. Twelve full-resolution views are visual observations, not source verification, exact initial rosters, geometry fits, whole-city architecture or Minecraft placement.",
+  "required_gate": {
+    "tests": 462,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 43.113
+  }
+}

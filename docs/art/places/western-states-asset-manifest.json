@@ -1,0 +1,137 @@
+{
+  "base_art_commit": "f335f38",
+  "main_map_reservation_cross_check_commit": "13f4cfb",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "ballachia",
+      "file": "ballachia.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2829972,
+      "sha256": "da456eabb1edb33144d1629c1b5645d3185e9a197ccf822a36a2f57c2a589cee",
+      "generated_original_basename": "exec-79018fa0-e97b-4972-ac41-b6836fc4bfc6.png",
+      "generated_original_sha256": "65dccf84841494644c13c27d1e16f14e218e40f123f005a9b4288d400b2bb3b0",
+      "legacy_input_sha256": "6735a14dd0834ee62afb5836dc52364a21c7d11d886b11e542f68a77a98328f3",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-2450",
+        "cy": "-450",
+        "r": "68.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "morgdahl",
+      "file": "morgdahl.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2603184,
+      "sha256": "9a635473dae1d9a31255f06c540f66f9afccda5ed258b752352810ba72a83973",
+      "generated_original_basename": "exec-258028d5-90ec-45ea-a0ba-a44d9711d5e6.png",
+      "generated_original_sha256": "087583670bfc573a1a32a6896d9fba5b49e00da93f1dfb3b789f9c55ae7464f7",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-3200",
+        "cy": "330",
+        "r": "61.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "raja",
+      "file": "raja.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2109147,
+      "sha256": "111a6d58bdbcf1bb77fe43a5d6e7c70e5d9c41e749b8a3a93828a46330ff991c",
+      "generated_original_basename": "exec-8c747fd3-d43c-444c-9983-228b9f11f9f4.png",
+      "generated_original_sha256": "14c2e3360583a9414fb5c3873f60710e7a8f33f5ffdcca55e53091298d751310",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-2850",
+        "cy": "360",
+        "r": "71.0",
+        "data-site": "lakeside",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "nostraille",
+      "file": "nostraille.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2548222,
+      "sha256": "dfe2332c7c8affc8456ad2330fa794903693b47de7c901dd6f6ed4d380e2001f",
+      "generated_original_basename": "exec-927df343-e9ec-4333-8426-5d3518d88e24.png",
+      "generated_original_sha256": "a7aadf93d6c1371ff6c87666081215a6efdae3e3f2f71124525bd6a82b798eb0",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-2550",
+        "cy": "330",
+        "r": "66.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "yuzalgh",
+      "file": "yuzalgh.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2225868,
+      "sha256": "d338af1796df3d2201e3c85a9431362f2b9479ded9a6ee96c4e453ebfccff275",
+      "generated_original_basename": "exec-f4f3f364-8e4a-45eb-aa89-71ddc856872e.png",
+      "generated_original_sha256": "87892540da10ad73915dfb353b9efc54080bd68e64098ecfd8dac935e37de930",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-2350",
+        "cy": "300",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "yggdonia",
+      "file": "yggdonia.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2301320,
+      "sha256": "82350483fa15001f529a8ad4ceede4d57312cba326b902d61d489eb50cdf2271",
+      "generated_original_basename": "exec-bea02f5f-89a3-499b-a0e0-d4c2eae2d3fb.png",
+      "generated_original_sha256": "578ad6ab19cbe1532b893ef02103aa88aa9558ce1ac7ed40a31da85e911d5d9a",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-2150",
+        "cy": "-80",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    }
+  ],
+  "limits": "One own-image edit plus five new originals; source-qualified representative designs,not complete countries,canonical architecture or runtime acceptance."
+}

@@ -1,0 +1,62 @@
+{
+  "full_resolution_pass": [
+    {
+      "site_id": "lizardmen_village",
+      "current_image": "lizardmen_village.png",
+      "png_sha256": "4e9128ae9368e22363ef28c7f80d5f935b27c2627a096339c5125d2af3d5c3df",
+      "dimensions": "1536x1024",
+      "inspection_scope": "full-resolution",
+      "observation": "Full-resolution view: small thatched stilt huts,water supports,net racks,baskets and rough boardwalk among reeds. No named ruler,Gabiru,winged dragonnewt or later Tempest banner is depicted. This remains an authored mod/server hamlet,not a verified canonical stilt-village plan. Water access and support geometry need build review.",
+      "canon_architecture_or_runtime_acceptance": "False"
+    },
+    {
+      "site_id": "lizardmen_caverns",
+      "current_image": "lizardmen_caverns.png",
+      "png_sha256": "2e85c5b9db3a98c3f8c9b42f0d77030a8cc79a9b9710c364e0b149fe7b21ec90",
+      "dimensions": "1536x1024",
+      "inspection_scope": "full-resolution",
+      "observation": "Full-resolution view: dry terraced chamber,small shelters,fire bowls and narrow water channel. No coup,victory tableau or named participant is depicted. Channel,ceiling,connected entrances,ventilation and chamber fit remain original design,not a surveyed labyrinth.",
+      "canon_architecture_or_runtime_acceptance": "False"
+    },
+    {
+      "site_id": "ogre_village_ruin",
+      "current_image": "ogre_village_ruin.png",
+      "png_sha256": "fb6a0481f72e5d7b4226f530a5eb6e58473a95072079da941fa9d89ec3ebaf1c",
+      "dimensions": "1536x1024",
+      "inspection_scope": "full-resolution",
+      "observation": "Full-resolution view: burned timber,partly standing huts,broken roofs and empty woodland lanes. No residents,reconstruction works or later Orc Lord victory is depicted. Standing fragments are interpretation;destruction does not prove every wall was razed.",
+      "canon_architecture_or_runtime_acceptance": "False"
+    },
+    {
+      "site_id": "orc_camp",
+      "current_image": "orc_camp-v2.png",
+      "png_sha256": "cfb392cc56913b4891b629c339a9d5da6375d376d88d9ea49580a128657bc6ec",
+      "dimensions": "1536x1024",
+      "inspection_scope": "full-resolution",
+      "observation": "Original figures have generic flat green faces without clear boar snouts. Version2 makes five anonymous soldiers recognizably pig-headed and armoured,retaining the temporary tent/marsh/dry-rise composition. No named leader,peaceful High Orc state or completed battle is depicted. Camp layout and exact roster remain authored.",
+      "canon_architecture_or_runtime_acceptance": "False"
+    }
+  ],
+  "original58_PNG_and_prompt_tails_retained": true,
+  "versioned_new_asset": "orc_camp-v2.png",
+  "new_asset_sha256": "cfb392cc56913b4891b629c339a9d5da6375d376d88d9ea49580a128657bc6ec",
+  "external_source_commit": "ef20c017009c2527e0258b3ebe098f45eaeef175",
+  "source_map_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "normal_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "all58_numeric_tuples_and_heights_match_R127": true,
+  "official_reference": {
+    "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no10/img2.jpg",
+    "status": 200,
+    "sha256": "2c10aa66789cad0bcfe74de7bc4e38cdabd64c8139ce5b688f2ce30c4be4fdb4"
+  },
+  "new_bitmap_method": "built-in image_gen;no post-generation pixel editing",
+  "exact_background_pixel_retention_claimed": false,
+  "all58_canon_era_architecture_acceptance": false,
+  "map_terrain_runtime_changed": false,
+  "required_gate": {
+    "tests": 462,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 43.628
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "base_art_commit": "d8a6355",
+  "main_map_reservation_cross_check_commit": "e619fb7",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "arrival",
+      "file": "arrival.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2372627,
+      "sha256": "a11798d0681b080d99f4b4c14405d9bab579607485408d5c9b41ce76c9cf8b0a",
+      "generated_original_basename": "exec-77845f2b-a623-46d9-9db2-0074de214fc1.png",
+      "generated_original_sha256": "59c5bdb895d67f9d10b8acf65d76dfc693eb2c2dfa3a9d2ffc5dd92a73aa44b1",
+      "legacy_input_sha256": "f9b37d1d06df8dfe54041f39ad515cc19062875a8f655817acf34f1700e07213",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "0",
+        "cy": "-1000",
+        "r": "60.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "wayfarers_camp",
+      "file": "wayfarers_camp.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2580228,
+      "sha256": "7358001c41a73c76bfbf718c37e07f99e48a4f7b60010832b4a2dfdac98ed2c9",
+      "generated_original_basename": "exec-283f1454-52c6-41cd-976c-646a2100755a.png",
+      "generated_original_sha256": "4c7ad637ee111023348b4140f0bd19a7439e8f8325e2fd9db812e168ccfdbef1",
+      "legacy_input_sha256": "b76333a6ad3613af868ebede247e585e6052a18ee9cf65d7983e7d8aba88f67b",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "15.0",
+        "cy": "-985.0",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "spirit_gate",
+      "file": "spirit_gate.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2805459,
+      "sha256": "27c7d08f7808514bfba2d3a20cbd712387ce1186bc9a8892744b39400ece12cd",
+      "generated_original_basename": "exec-d63b6b06-3be2-427c-9a76-ea6b1db80199.png",
+      "generated_original_sha256": "b186674f21e474aeaa417b437447178de417fccf6478b12da94f3b1d42c7c612",
+      "legacy_input_sha256": "af36233f7d45ca8f1d3b2dc0b9315c4f7ad79b37e0aa17d222e2b6825c217b50",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-285",
+        "cy": "350",
+        "r": "70.0",
+        "data-site": "lakeside",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "dragons_nest",
+      "file": "dragons_nest.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2392820,
+      "sha256": "c7cf976c054442baec2583813d8263b2b0c7718b6bd5d9e8bf5d10679a870f09",
+      "generated_original_basename": "exec-d441cb7d-35c7-46a5-a7b2-1695205d63c9.png",
+      "generated_original_sha256": "9e327874ab38a4d76654fb4f17db9dd9fa2481054811c2b2727ac07447fa305c",
+      "legacy_input_sha256": "e539c08921642918bd692ebb6c4713287924cf74dde6c28830de5ed9e7d49508",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "350",
+        "cy": "-2000",
+        "r": "64.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    }
+  ],
+  "limits": "Edited own candidates; source-qualified representative server designs, not new canonical places/geometry/runtime acceptance."
+}

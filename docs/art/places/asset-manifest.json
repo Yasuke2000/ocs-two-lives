@@ -1,0 +1,79 @@
+{
+  "map_commit": "fc36e38",
+  "snapshot": "immediately after Kijin naming; anime S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "tempest",
+      "file": "tempest.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2888754,
+      "sha256": "ac8c107788442eeda88718337a455630966401baa88a9bbfdc4d83ad1b56ee30"
+    },
+    {
+      "id": "dwargon",
+      "file": "dwargon.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2983683,
+      "sha256": "ecb46d4de40f2a1aff5506ac49dd04ed1ce46f193a78aa710df53c5718ecb060"
+    },
+    {
+      "id": "blumund",
+      "file": "blumund.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2766870,
+      "sha256": "cfac73e29ba82869529ff78c4083c451c60f0cfd5dbf9ed774c56df24b8d0775"
+    },
+    {
+      "id": "lake_siss",
+      "file": "lake_siss.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2481428,
+      "sha256": "1464c8f73f38a1000b045da1538549a5be477c26d0e4efba3e76b743f32ad1f1"
+    },
+    {
+      "id": "treyni_shrine",
+      "file": "treyni_shrine.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2820059,
+      "sha256": "a2dc94e6a29a890923ae5a9e7b16eff8a6b133e352130988a48e7d4d22625dc7"
+    },
+    {
+      "id": "sealed_cave",
+      "file": "sealed_cave.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2480097,
+      "sha256": "84fcd82c0f7d58c0e39200f039b4b4541a22c1637b98547cd3e4ee01227f9cb0"
+    },
+    {
+      "id": "dwarf_village",
+      "file": "dwarf_village.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2763159,
+      "sha256": "d6b26c74cabe5a24b007880c00591e71241c90ad408f48233ed468c636645d26"
+    },
+    {
+      "id": "orc_camp",
+      "file": "orc_camp.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2322521,
+      "sha256": "a7ab23dee287857a3b65a5524d8f65219c8182e50ca407a0bd3d4b3dff527730"
+    }
+  ]
+}

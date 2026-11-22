@@ -309,3 +309,8 @@ changes and new decisions with a date.
 22Nov2026 — Make the Malukshure coast/access proposal concrete under an explicit conditional H→O checker input,retaining the active game slot until the owner chooses. Ocoverage is spatial gameplay,not national ownership;an8-block pin does not implement the capital. [Measured proposal](../world/malukshure-coastal-access.md).
 
 22Nov2026 — Label the measured Eastern Plains fringe in the native/readable map while keeping the whole-plain and grain-district uncertainty explicit. Preserve all actual terrain and numerical registration;do not convert WN context into an initial farming district. [Audit](../world/eastern-plains-label.md).
+
+
+## Art-branch history retained with the combined delivery
+
+21Nov2026 — R127: retain the original El Dorado court/volcano concepts after full-resolution framing review; update their current designed first-air metadata to73/197 and verify all58 reservations against source8f8c294. Exact prompts remain historical. [Current registration](../docs/art/places/current-map-registration-r127.md).

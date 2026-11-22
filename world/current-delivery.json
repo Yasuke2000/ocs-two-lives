@@ -1,0 +1,1342 @@
+{
+  "review_bundle": "current source,painting and58place concepts",
+  "source_before_integration": "b3189e7b8a86e1372e92ee48c4cd64ac4f35491c",
+  "art_before_integration": "b4b86349993ff4fd7cdafbf0665ef140892b0382",
+  "display_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "normal_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "normal_artifact_sha256": {
+    "anchors.toml": "dd9a8509fe36b15f7514518f0737cd4a6ad830cc5a68a1390926ab3a8a7de7c4",
+    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+    "exclude.png": "072b49b48f706144729f6dd3ffb5c85ff46211f9afa3ad0824c83c5435983e78",
+    "height.png": "23f9db2c21da88c2e8861b2b68c476cf2cd819eb54a1d41645282b0416c78c19",
+    "index.json": "44ba520e87a708fc0880cb611df6f114e32c844a0c272015fb3188fab3d67f47",
+    "preview.png": "8fe008ebe5901a84df9badd989710d175869afc6f5834ecf92d5a400f7f913fc",
+    "road.png": "6ae1649947d9b952af925f00ad5c62acf56beaba84c89f2abd332d1784f0b42c",
+    "roads.json": "e9e995848146d18dac189af5cc3ee260fe3cfd60a9f7ddf2dd290da32730b9cd",
+    "rugged.png": "92be3acd3fc4c1e39367d4a3bc67c36fcbcfcd9624a4964cbc8d57c496a757ee",
+    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+    "sites.toml": "3b45ae32faf2b93e35eb72990ea3e8e8f87c35adac9caa4052cd09b25e0f8130",
+    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+  },
+  "normal_conversion_rerun": false,
+  "source_and_art_numeric_registration_match": true,
+  "registered_places": 58,
+  "roads": 22,
+  "facts": {
+    "records": 353,
+    "sha256": "7df02f00f184eea6bdf1a8df86fdea53da930640f08f815728c330a5edb50fb6",
+    "confidence_counts": {
+      "canon-explicit": 127,
+      "canon-implied": 41,
+      "fan-wiki": 44,
+      "our interpretation": 141
+    }
+  },
+  "inventory_records": 143,
+  "physical_followups_open": 42,
+  "historical_approved_relation_records": [
+    [
+      "ogre_village_ruin",
+      "tempest"
+    ],
+    [
+      "jia",
+      "tempest"
+    ],
+    [
+      "jia",
+      "laura"
+    ],
+    [
+      "ulgr_nature_park",
+      "blumund"
+    ],
+    [
+      "ulgr_nature_park",
+      "elmine"
+    ]
+  ],
+  "new_protected_changes": false,
+  "places": [
+    {
+      "id": "tempest",
+      "current_image": "../docs/art/places/tempest.png",
+      "current_image_sha256": "ac8c107788442eeda88718337a455630966401baa88a9bbfdc4d83ad1b56ee30",
+      "sheet": "../docs/art/places/tempest.md",
+      "sheet_sha256": "25d19cf2c5001fe998ca94dc4f547aadd87e50358bfd689f260730ef04d4c5b1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        0.0,
+        0.0,
+        148.0,
+        "clearing",
+        64.0
+      ],
+      "designed_first_air": 70,
+      "original_prompt_tail_sha256": "a047e33b4c521c9b9276fdac2b9b39234818ebc1725baa35b7811b9403fa530d"
+    },
+    {
+      "id": "arrival",
+      "current_image": "../docs/art/places/arrival.png",
+      "current_image_sha256": "a11798d0681b080d99f4b4c14405d9bab579607485408d5c9b41ce76c9cf8b0a",
+      "sheet": "../docs/art/places/arrival.md",
+      "sheet_sha256": "9bb01b6bbcba5d5c1a82ef201f66ec3172cdc676ff0814c938efd9f67d496b90",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        0.0,
+        -1000.0,
+        60.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 76,
+      "original_prompt_tail_sha256": "2d4567efc2431be677b10f708d763b90caed8d7a30d048d1c305cab00236d342"
+    },
+    {
+      "id": "wayfarers_camp",
+      "current_image": "../docs/art/places/wayfarers_camp.png",
+      "current_image_sha256": "7358001c41a73c76bfbf718c37e07f99e48a4f7b60010832b4a2dfdac98ed2c9",
+      "sheet": "../docs/art/places/wayfarers_camp.md",
+      "sheet_sha256": "0ef3cc1a14eff4a1bf203b6cfe64db85265fd2eba7258ebe8daed79419a07f95",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        15.0,
+        -985.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 76,
+      "original_prompt_tail_sha256": "e607deef08756cdda38baa5e7b6591c7b2c821261efc4758d199730c9feb4cb6"
+    },
+    {
+      "id": "sealed_cave",
+      "current_image": "../docs/art/places/sealed_cave.png",
+      "current_image_sha256": "84fcd82c0f7d58c0e39200f039b4b4541a22c1637b98547cd3e4ee01227f9cb0",
+      "sheet": "../docs/art/places/sealed_cave.md",
+      "sheet_sha256": "cd62f4b669d1c5bc576cda0b98a3e909240f07da66c9cbbe4792033b64772c5c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -120.0,
+        -400.0,
+        75.0,
+        "carve",
+        48.0
+      ],
+      "designed_first_air": 77,
+      "original_prompt_tail_sha256": "d804c98b027cb0364fe11939656f8828bc60683e48c168b6eaeb060a88e3d446"
+    },
+    {
+      "id": "goblin_village",
+      "current_image": "../docs/art/places/goblin_village.png",
+      "current_image_sha256": "a9cb73709750dc561d864b4d0852e55eed1e2cf9a1553edd802fa8622062284b",
+      "sheet": "../docs/art/places/goblin_village.md",
+      "sheet_sha256": "9651b2ea27f9e02c14259e2226d3dec2eae998ddb22c0805f156ec9fc33b6b34",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -530.0,
+        -220.0,
+        56.0,
+        "village",
+        48.0
+      ],
+      "designed_first_air": 73,
+      "original_prompt_tail_sha256": "9dbca4f910daaa61d9d1d5832ae9a478f125d8078c0a2398b520d2a36a699022"
+    },
+    {
+      "id": "spirit_gate",
+      "current_image": "../docs/art/places/spirit_gate.png",
+      "current_image_sha256": "27c7d08f7808514bfba2d3a20cbd712387ce1186bc9a8892744b39400ece12cd",
+      "sheet": "../docs/art/places/spirit_gate.md",
+      "sheet_sha256": "184250f58f4dc63d87d3ed0e38a1f46b93d5cb5fcb72688df4c128bfdbead8b3",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -285.0,
+        350.0,
+        70.0,
+        "lakeside",
+        48.0
+      ],
+      "designed_first_air": 70,
+      "original_prompt_tail_sha256": "0dd2acca5739203e8610d24be696216b36c82ea56e8ceb39ae8355c97a588c44"
+    },
+    {
+      "id": "shizu_spawn",
+      "current_image": "../docs/art/places/shizu_spawn.png",
+      "current_image_sha256": "afb94a169f80908d7aae13984c6a1d993cdd15f97de2d185ce72f9c529cb68c4",
+      "sheet": "../docs/art/places/shizu_spawn.md",
+      "sheet_sha256": "acd843e4f8897fcdb007977c67026abd529920668a8332e25e33f89661c5ccb2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -420.0,
+        -80.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 72,
+      "original_prompt_tail_sha256": "89c419675df55dff5c90b9e503020ad432aad79ca7e59e0002a2dd52b032ee4c"
+    },
+    {
+      "id": "outcast_road",
+      "current_image": "../docs/art/places/outcast_road.png",
+      "current_image_sha256": "2bdd6f3d601355866a8fe867f666dfef31befbc180f0598b1bdbbef1311ab218",
+      "sheet": "../docs/art/places/outcast_road.md",
+      "sheet_sha256": "14405d20ac7a1d473d9744ef0b8429d532e3308fce9ca135e1e55030faddc819",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        0.0,
+        52.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 70,
+      "original_prompt_tail_sha256": "02a9e7f4e1a47f3376935206808290e0fa68925b5d39b7aceebb84996e76a552"
+    },
+    {
+      "id": "treyni_grove",
+      "current_image": "../docs/art/places/treyni_grove.png",
+      "current_image_sha256": "6591d97d912d54fc2d530d409c2b3e8572735a30afe67eac0dafd4fe19f48f31",
+      "sheet": "../docs/art/places/treyni_grove.md",
+      "sheet_sha256": "6d7ec41fd353874dcdc0a3456068a0b56d5280f962053cbfc581707b4202feaa",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        320.0,
+        470.0,
+        56.0,
+        "village",
+        48.0
+      ],
+      "designed_first_air": 72,
+      "original_prompt_tail_sha256": "05a778f64f353702dc1bb3ffefc9499ec29a4608ea237c081c4effbaf5a5c0ac"
+    },
+    {
+      "id": "treyni_shrine",
+      "current_image": "../docs/art/places/treyni_shrine.png",
+      "current_image_sha256": "a2dc94e6a29a890923ae5a9e7b16eff8a6b133e352130988a48e7d4d22625dc7",
+      "sheet": "../docs/art/places/treyni_shrine.md",
+      "sheet_sha256": "b7ce04b2b6906b121a86276d13baa7d49715e6f147c3d7afcf492a270cafb8cb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        500.0,
+        600.0,
+        36.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 71,
+      "original_prompt_tail_sha256": "94b90baa97e54fddbaef6900c1e49b77032c50286bf7758ba2e13c7cc55c3242"
+    },
+    {
+      "id": "ogre_village_ruin",
+      "current_image": "../docs/art/places/ogre_village_ruin.png",
+      "current_image_sha256": "fb6a0481f72e5d7b4226f530a5eb6e58473a95072079da941fa9d89ec3ebaf1c",
+      "sheet": "../docs/art/places/ogre_village_ruin.md",
+      "sheet_sha256": "31cd044ac7ccc9d97d1130b37eff6dd9a7d15d4f31dd306e3d1a66884dc3323f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        500.0,
+        300.0,
+        32.0,
+        "village",
+        48.0
+      ],
+      "designed_first_air": 105,
+      "original_prompt_tail_sha256": "3c74d70397540fdd12aebbe5a2bfe025a84c614abff7c089e57dccb83baaa303"
+    },
+    {
+      "id": "dwargon",
+      "current_image": "../docs/art/places/dwargon.png",
+      "current_image_sha256": "ecb46d4de40f2a1aff5506ac49dd04ed1ce46f193a78aa710df53c5718ecb060",
+      "sheet": "../docs/art/places/dwargon.md",
+      "sheet_sha256": "5975fa0797b2b729d7888c008f5507633514cad161142d5d1a35c21ede3905e5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        780.0,
+        -1390.0,
+        127.0,
+        "carve",
+        48.0
+      ],
+      "designed_first_air": 146,
+      "original_prompt_tail_sha256": "d362d691a9d7122ca783e46c17ca84d3ebfbcbd23446bd71939718fe89874118"
+    },
+    {
+      "id": "dwargo",
+      "current_image": "../docs/art/places/dwargo.png",
+      "current_image_sha256": "081819d95755bf7a559af41f537dde600e1d6d44d2116acb812be4bb72787a5c",
+      "sheet": "../docs/art/places/dwargo.md",
+      "sheet_sha256": "d20a0d7a3cdecc7b4239d9b54826a5e45a81394e2c9a2dc48fd26ae66ad49351",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        780.0,
+        -1490.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 188,
+      "original_prompt_tail_sha256": "4f4aeefb4b3a56c6a29c7b4e81b993fd86e1142a6f2f10e897df0fd586e644e1"
+    },
+    {
+      "id": "dwargon_throne",
+      "current_image": "../docs/art/places/dwargon_throne.png",
+      "current_image_sha256": "aafe30019887958770ddee251cf3a525eda4090571f1f1da756fe1c883c66167",
+      "sheet": "../docs/art/places/dwargon_throne.md",
+      "sheet_sha256": "9bc8fd459c1645932cea930e3c0e529bbe605f81bc2ccb3201e9456317231f90",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        780.0,
+        -1496.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 182,
+      "original_prompt_tail_sha256": "17feb14f93f46082380046c8aca5e92321241a70e7aaef75368a0a3f581e8a7a"
+    },
+    {
+      "id": "kaijin_smithy",
+      "current_image": "../docs/art/places/kaijin_smithy.png",
+      "current_image_sha256": "a8d970026e1372eed18254671d121f9ac4092478aaccd537f976c22b7a9b97ac",
+      "sheet": "../docs/art/places/kaijin_smithy.md",
+      "sheet_sha256": "f97adbde9ecc70850b5884696ed5872bdb6b648f0f4a92cb4eaacf3274ea118a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        768.0,
+        -1474.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 198,
+      "original_prompt_tail_sha256": "d6a464371f7e8e17402cce8c2ad0dc767f344e9fe47834f9428a182b18ebad22"
+    },
+    {
+      "id": "dwarf_village",
+      "current_image": "../docs/art/places/dwarf_village.png",
+      "current_image_sha256": "d6b26c74cabe5a24b007880c00591e71241c90ad408f48233ed468c636645d26",
+      "sheet": "../docs/art/places/dwarf_village.md",
+      "sheet_sha256": "2cd7a3c17a7fc0e99d18c749fc6112acd68fee051472fa77fb4797a7e1dfabf6",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        1000.0,
+        -1000.0,
+        124.0,
+        "village",
+        64.0
+      ],
+      "designed_first_air": 73,
+      "original_prompt_tail_sha256": "09ba081f4e9cc9ac8269ac133e655c1f56b5e9d782c72a4a79252ba131be80c4"
+    },
+    {
+      "id": "dwarven_arena",
+      "current_image": "../docs/art/places/dwarven_arena.png",
+      "current_image_sha256": "ce75daaadd2c98f3bb75146b63e400f6c61e25bf4ff3b0c09e1693ec8723c481",
+      "sheet": "../docs/art/places/dwarven_arena.md",
+      "sheet_sha256": "93971678abb735cfefa1cdd69e76472d2c19ffa9f8454cbd625cd2ebb5e6fd31",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        1100.0,
+        -980.0,
+        58.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 73,
+      "original_prompt_tail_sha256": "38c9c4449a6278431f415294e28a2488eaf1a9297963bac2e49e207ccf7a033c"
+    },
+    {
+      "id": "dragons_nest",
+      "current_image": "../docs/art/places/dragons_nest.png",
+      "current_image_sha256": "c7cf976c054442baec2583813d8263b2b0c7718b6bd5d9e8bf5d10679a870f09",
+      "sheet": "../docs/art/places/dragons_nest.md",
+      "sheet_sha256": "110e1acd1d2c57b4d0badbe1b8f917fa45b6f1c700fc6b2d344889599d1d91b7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        350.0,
+        -2000.0,
+        85.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 272,
+      "original_prompt_tail_sha256": "e772878ffa6463989d2b4f6d8e9c2ad538a691e128fdb60e4e4982f7c09a88ac"
+    },
+    {
+      "id": "ameld_source",
+      "current_image": "../docs/art/places/ameld_source.png",
+      "current_image_sha256": "df40d632c64279119a89eea10b204dbacb1e9b4ed5281053846af859adf83525",
+      "sheet": "../docs/art/places/ameld_source.md",
+      "sheet_sha256": "d0e296b0b7bc07f7a0d9f929b173cf4011050029776aeff48b799295431c2542",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        200.0,
+        -1240.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 91,
+      "original_prompt_tail_sha256": "0d8ebd7fd27334ba7f613bc138ca374ae41c2feb082804e59ec94359ac988767"
+    },
+    {
+      "id": "ameld_mouth",
+      "current_image": "../docs/art/places/ameld_mouth.png",
+      "current_image_sha256": "d311ac05d41c85c0169f9f6c4f1fe3e3d02ab73af60cfb9154c8d3efe9df6274",
+      "sheet": "../docs/art/places/ameld_mouth.md",
+      "sheet_sha256": "b3dfe8810bfd19dee747e6cc36140886c07b89dc5c67b532dfb3547656eb9343",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        2150.0,
+        1250.0,
+        8.0,
+        "coast",
+        24.0
+      ],
+      "designed_first_air": 63,
+      "original_prompt_tail_sha256": "16bf13fba63cf97d7b083c36c9e399262cf2d036ce6fe4e94922aba325e66aa9"
+    },
+    {
+      "id": "lake_siss",
+      "current_image": "../docs/art/places/lake_siss.png",
+      "current_image_sha256": "1464c8f73f38a1000b045da1538549a5be477c26d0e4efba3e76b743f32ad1f1",
+      "sheet": "../docs/art/places/lake_siss.md",
+      "sheet_sha256": "31dcbcba5c10bd5ee6a65ba13ff45848c01486541832d2bb3e0c1622c364d9b4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        1100.0,
+        -100.0,
+        96.0,
+        "lakeside",
+        48.0
+      ],
+      "designed_first_air": 66,
+      "original_prompt_tail_sha256": "57e398faebd6a9c227f3ed3158f1118dbb7322158694fef4c70421d613be7be0"
+    },
+    {
+      "id": "lizardmen_village",
+      "current_image": "../docs/art/places/lizardmen_village.png",
+      "current_image_sha256": "4e9128ae9368e22363ef28c7f80d5f935b27c2627a096339c5125d2af3d5c3df",
+      "sheet": "../docs/art/places/lizardmen_village.md",
+      "sheet_sha256": "d39a73cf91cf29ccde9a45411319d106ec592c933749c7290784d91c51711142",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        1100.0,
+        265.0,
+        60.0,
+        "lakeside",
+        48.0
+      ],
+      "designed_first_air": 65,
+      "original_prompt_tail_sha256": "6a8d1d7c191ab8d0266a093ac3b9d280f3b424c4f8629a7f82905ca5aac67724"
+    },
+    {
+      "id": "lizardmen_caverns",
+      "current_image": "../docs/art/places/lizardmen_caverns.png",
+      "current_image_sha256": "2e85c5b9db3a98c3f8c9b42f0d77030a8cc79a9b9710c364e0b149fe7b21ec90",
+      "sheet": "../docs/art/places/lizardmen_caverns.md",
+      "sheet_sha256": "941997e1c46f15ec2c2964021266917ebd0cba4e7fb6b6a78fb0390ba5189bba",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        1300.0,
+        520.0,
+        64.0,
+        "carve",
+        48.0
+      ],
+      "designed_first_air": 102,
+      "original_prompt_tail_sha256": "3b337856f28b0fba880b7396a20b9308a64ba24787ebbdfd296cef8d9a242563"
+    },
+    {
+      "id": "orc_camp",
+      "current_image": "../docs/art/places/orc_camp-v2.png",
+      "current_image_sha256": "cfb392cc56913b4891b629c339a9d5da6375d376d88d9ea49580a128657bc6ec",
+      "sheet": "../docs/art/places/orc_camp.md",
+      "sheet_sha256": "8f6d675713f02ec14af4416038ca283cc78138fa9bc0135e63fe97cae4b2bf63",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        1750.0,
+        550.0,
+        60.0,
+        "village",
+        48.0
+      ],
+      "designed_first_air": 72,
+      "original_prompt_tail_sha256": "4c511550c7b5d45eda96bd9679cae26e211aecf5a7b44b4e7b5fb550113e9d0e",
+      "current_edit_prompt": "../docs/art/places/orc-camp-v2-prompt.json"
+    },
+    {
+      "id": "blumund",
+      "current_image": "../docs/art/places/blumund.png",
+      "current_image_sha256": "cfac73e29ba82869529ff78c4083c451c60f0cfd5dbf9ed774c56df24b8d0775",
+      "sheet": "../docs/art/places/blumund.md",
+      "sheet_sha256": "5d0051a063feee6321ae85e4220924e0158868728f892547b04509f63c109194",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -1500.0,
+        -620.0,
+        97.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 72,
+      "original_prompt_tail_sha256": "02a9cd1b56c1eaef52e8e15235624cae4bacacfa4961b74bb279278fb7726936"
+    },
+    {
+      "id": "ballachia",
+      "current_image": "../docs/art/places/ballachia.png",
+      "current_image_sha256": "da456eabb1edb33144d1629c1b5645d3185e9a197ccf822a36a2f57c2a589cee",
+      "sheet": "../docs/art/places/ballachia.md",
+      "sheet_sha256": "bc89d18de06c7f40858f8900a3e203f4ee0bb80ff2d67ee33d953e1b9f9381ab",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -2450.0,
+        -450.0,
+        68.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 72,
+      "original_prompt_tail_sha256": "da37930af75102f1a1f696b9c01726a3745f753fb9703c81e57a6e20dcd70d5f"
+    },
+    {
+      "id": "englassia",
+      "current_image": "../docs/art/places/englassia.png",
+      "current_image_sha256": "ed83fc018034f906ff05d2b0dc68d3f42b8acdc1999fbbb024559864caccbb5d",
+      "sheet": "../docs/art/places/englassia.md",
+      "sheet_sha256": "51fabdea69aadca27abde7429d5f2c46ac22c4561b1b471fef748209b85a4a31",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -2900.0,
+        -550.0,
+        124.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 76,
+      "original_prompt_tail_sha256": "d53fdc68975a7eb32dc5c09835f8255e1b427f362db0ed874abb3a12fae9bff1"
+    },
+    {
+      "id": "marris",
+      "current_image": "../docs/art/places/marris.png",
+      "current_image_sha256": "a1c7eae558955b3f49b0053dd70fa7981a3ad449cfcc8398803a60cfcba13b54",
+      "sheet": "../docs/art/places/marris.md",
+      "sheet_sha256": "6aa1467269ee03bfd1415f6f5ecd3dc7a1ecad2615189afefe51f80cf2ee5133",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -1800.0,
+        -1650.0,
+        101.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 67,
+      "original_prompt_tail_sha256": "8d489f75accfeef34bc67e8a38f9d10436eda07619a08adaed327331c0eea97a"
+    },
+    {
+      "id": "siltrosso",
+      "current_image": "../docs/art/places/siltrosso.png",
+      "current_image_sha256": "ee764899c5a28090bdb0a58120fa8f6f9a712e7a27299c7fdc27d9ab006e452f",
+      "sheet": "../docs/art/places/siltrosso.md",
+      "sheet_sha256": "dce1ad43f8f21c5a167428c5882bcca69140834a66ad331c2579af36610e0f73",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -2297.0,
+        -1370.0,
+        66.0,
+        "coast",
+        48.0
+      ],
+      "designed_first_air": 65,
+      "original_prompt_tail_sha256": "86b3b309efa55e2612e813233a142e7e4bf7a5bf1a954592145efb4aa3fa196c"
+    },
+    {
+      "id": "lubelius",
+      "current_image": "../docs/art/places/lubelius.png",
+      "current_image_sha256": "aca5c28222a6fe1347a52c05d9928e615f32b6d938ba1f181363f279231a9110",
+      "sheet": "../docs/art/places/lubelius.md",
+      "sheet_sha256": "8dff1003b5784153ac419dca65b06947cea8fa6c56690d2ab3495a40386dab68",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -3600.0,
+        -1300.0,
+        97.0,
+        "plateau",
+        48.0
+      ],
+      "designed_first_air": 71,
+      "original_prompt_tail_sha256": "417be41c82c31fcd9b9d53f88112bdccfd6aef1e7f94c834ee91e3040cff43d0"
+    },
+    {
+      "id": "sacred_mountain",
+      "current_image": "../docs/art/places/sacred_mountain.png",
+      "current_image_sha256": "a70502dd0a782ae19443d0fbd781ddd6fe0383aebd50928dba688f8f7726beb8",
+      "sheet": "../docs/art/places/sacred_mountain.md",
+      "sheet_sha256": "6eabe4d592ae8e873b2e17c3c86127fd191d6703cf39a8f4b1efd64579b803f4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -3900.0,
+        -1600.0,
+        95.0,
+        "plateau",
+        48.0
+      ],
+      "designed_first_air": 175,
+      "original_prompt_tail_sha256": "bf6efe3593c181dcfa4cd8cee1856b54ee18f5529f84b11c58b6535b77e2635c"
+    },
+    {
+      "id": "coleus",
+      "current_image": "../docs/art/places/coleus.png",
+      "current_image_sha256": "e43d50adf10486316afd4750024e7b25fc2bc1b531a36952ee4c0088709f1a36",
+      "sheet": "../docs/art/places/coleus.md",
+      "sheet_sha256": "b85a88938eef0edba77aee2890f82acacc6292502a882bb4780dcd88f55cc083",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -3520.0,
+        -860.0,
+        73.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 75,
+      "original_prompt_tail_sha256": "9058438c34dd586536f19ec1ba7b5626bbfe169f663b7438d1ff520efe7f8a6b"
+    },
+    {
+      "id": "heaven_tower",
+      "current_image": "../docs/art/places/heaven_tower.png",
+      "current_image_sha256": "7304f0047d826dde6d737e717d165c1a0227e4376c53bac75b41b7981d475f64",
+      "sheet": "../docs/art/places/heaven_tower.md",
+      "sheet_sha256": "649ff094276a5df4046bbf6d2c7113e2d5ee618e931b244c77c4330fe331f98d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -4200.0,
+        -200.0,
+        84.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 73,
+      "original_prompt_tail_sha256": "520e96cc003e0ca9d19f2d697f86970f6bba91f216d8b17fbcfbc4e01e6747f1"
+    },
+    {
+      "id": "morgdahl",
+      "current_image": "../docs/art/places/morgdahl.png",
+      "current_image_sha256": "9a635473dae1d9a31255f06c540f66f9afccda5ed258b752352810ba72a83973",
+      "sheet": "../docs/art/places/morgdahl.md",
+      "sheet_sha256": "5c9c54ac04766d66a4d38df93295cd2ed863a6b8e817a325b4001a3b815df0bb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -3200.0,
+        330.0,
+        61.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 72,
+      "original_prompt_tail_sha256": "fea0692d62547c29ac4b8192c5b43cb4d635a0baad9ed26113f373df4e775e0a"
+    },
+    {
+      "id": "raja",
+      "current_image": "../docs/art/places/raja.png",
+      "current_image_sha256": "111a6d58bdbcf1bb77fe43a5d6e7c70e5d9c41e749b8a3a93828a46330ff991c",
+      "sheet": "../docs/art/places/raja.md",
+      "sheet_sha256": "756aa8ae00b243fb9909e7b9945bfbc47245c09f554b0b85f2f28094797fc6b6",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -2850.0,
+        360.0,
+        71.0,
+        "lakeside",
+        48.0
+      ],
+      "designed_first_air": 74,
+      "original_prompt_tail_sha256": "03f4533f6a4c68d6ec8393e73a94a1442cc4c152b665eb30189d12afc3df119b"
+    },
+    {
+      "id": "nostraille",
+      "current_image": "../docs/art/places/nostraille.png",
+      "current_image_sha256": "dfe2332c7c8affc8456ad2330fa794903693b47de7c901dd6f6ed4d380e2001f",
+      "sheet": "../docs/art/places/nostraille.md",
+      "sheet_sha256": "266c7d2f0eed748487b3d9e7d7d622ec4c332ade3274a8b546e930140f714781",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -2550.0,
+        330.0,
+        66.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 76,
+      "original_prompt_tail_sha256": "e01a9dfd718bdb751f0b2bc5c29936328c1844a78ffb01d72a1babfbc3bd5392"
+    },
+    {
+      "id": "yuzalgh",
+      "current_image": "../docs/art/places/yuzalgh.png",
+      "current_image_sha256": "d338af1796df3d2201e3c85a9431362f2b9479ded9a6ee96c4e453ebfccff275",
+      "sheet": "../docs/art/places/yuzalgh.md",
+      "sheet_sha256": "58d7b6c7da21e724ec995b6173559664848e900251fbc4aa3142ad2012e423ec",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -2350.0,
+        300.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 76,
+      "original_prompt_tail_sha256": "f490a385ac4b4cae3c2c1cec250e36da419c4128dadb23930cdb00ac9c2204d9"
+    },
+    {
+      "id": "yggdonia",
+      "current_image": "../docs/art/places/yggdonia.png",
+      "current_image_sha256": "82350483fa15001f529a8ad4ceede4d57312cba326b902d61d489eb50cdf2271",
+      "sheet": "../docs/art/places/yggdonia.md",
+      "sheet_sha256": "3be931874f68ce27dca246b4cfda4e36c360f413149a7a31e6fbd5774510093b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -2150.0,
+        -80.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 75,
+      "original_prompt_tail_sha256": "0f2cdf15b6a0e9309d19525c9a3346c437ec1d85fa98eb2eb4ef95234f5c84ff"
+    },
+    {
+      "id": "filtwood",
+      "current_image": "../docs/art/places/filtwood.png",
+      "current_image_sha256": "e3a77cd6707560a69cd305502a56d25206937e43e88f19db0f2cf34e92ab7db6",
+      "sheet": "../docs/art/places/filtwood.md",
+      "sheet_sha256": "0a95d2bdc7d3b6b719f6a14e7108489dc822123cf708923e44848a8487d1d046",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -1200.0,
+        2750.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 65,
+      "original_prompt_tail_sha256": "5314ff1d6e785c660a1a071521df0351cbd38a62970d253b4525a75da4372ecb"
+    },
+    {
+      "id": "ghastone",
+      "current_image": "../docs/art/places/ghastone.png",
+      "current_image_sha256": "8fa7153e10b7155a1e5c2e419459e28cd5b49b0a32dd603f07a32caa30039506",
+      "sheet": "../docs/art/places/ghastone.md",
+      "sheet_sha256": "9d85a26f9421fcbb3f47728149487e5cfed9b20f56b133f853090dd4355a17cc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -3200.0,
+        -300.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 72,
+      "original_prompt_tail_sha256": "aba9ab3f0bec5b220d7e208d63856345f3349ff98d726816a4274bbc2fbb2074"
+    },
+    {
+      "id": "rostia",
+      "current_image": "../docs/art/places/rostia.png",
+      "current_image_sha256": "df753fe5bec72a360999df872965ab866afeefeefae36fcf95474671e7f17f87",
+      "sheet": "../docs/art/places/rostia.md",
+      "sheet_sha256": "df17a9eb7e454f04e7f563ae9d6751f9da8ab6cfbd838f6f314f26b725edbea0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -2780.0,
+        200.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 73,
+      "original_prompt_tail_sha256": "20e346fa9661e966a3b2728c9465457c2d313809deda2ed724d36a6861f38a51"
+    },
+    {
+      "id": "sainte_malukshure",
+      "current_image": "../docs/art/places/sainte_malukshure.png",
+      "current_image_sha256": "ffa75b7abfb55f2e9a7eea3f97104752170658fcb814b916e825153922f8fb9b",
+      "sheet": "../docs/art/places/sainte_malukshure.md",
+      "sheet_sha256": "a36806acf93dbde45c087d5482653da3fe2dc19031fc823d40308f41d8a410b1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -100.0,
+        2000.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 69,
+      "original_prompt_tail_sha256": "b707c68bd870cbcf50265ada334d2e1b3ed2a74458d3598064d8845f6731ebec"
+    },
+    {
+      "id": "ulgr_nature_park",
+      "current_image": "../docs/art/places/ulgr_nature_park.png",
+      "current_image_sha256": "fd156227502cd4c089d31745ad92420865212b4dea45d50f35dde17b3d7e1e12",
+      "sheet": "../docs/art/places/ulgr_nature_park.md",
+      "sheet_sha256": "1c7da37f106f38cef4d21c4fd2e30657612cefd63bc28385c8f4c17b6ecf1ac3",
+      "dimensions": [
+        1362,
+        1155
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -950.0,
+        2850.0,
+        63.0,
+        "plateau",
+        48.0
+      ],
+      "designed_first_air": 112,
+      "original_prompt_tail_sha256": "2b07db0366c34dbd03f89e87a7d8bc2b8fdc941ab6dfc5789212387483fd717c"
+    },
+    {
+      "id": "elmine",
+      "current_image": "../docs/art/places/elmine.png",
+      "current_image_sha256": "26cd73aec643f1e97ae1bb2eebc191468bb5bdaa779e60bfac1d0af4f4bf4193",
+      "sheet": "../docs/art/places/elmine.md",
+      "sheet_sha256": "a4059999b0375207943d79992d5a4d1deb1dfe1cb408077fc921fa8146049bca",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -1680.0,
+        1740.0,
+        100.0,
+        "clearing",
+        64.0
+      ],
+      "designed_first_air": 104,
+      "original_prompt_tail_sha256": "5698fea44edbf3bcc3899010367894bd015dc67837642a83e4d86c4be18bd6ea"
+    },
+    {
+      "id": "jia",
+      "current_image": "../docs/art/places/jia.png",
+      "current_image_sha256": "00832280dece56006497aa79e7194fb21feefb7f2a0cb120cbf6444c22f0712d",
+      "sheet": "../docs/art/places/jia.md",
+      "sheet_sha256": "62ed1c2acb5d392bf397e833298380aabcf8143d2029a4f979e2319adcf40d6c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        200.0,
+        2450.0,
+        68.0,
+        "plateau",
+        48.0
+      ],
+      "designed_first_air": 235,
+      "original_prompt_tail_sha256": "4b8fab2a7d84e93ffab55e8850b7d440d27e2edfdc7ca3f8b6093b9be2f8a9a5"
+    },
+    {
+      "id": "laura",
+      "current_image": "../docs/art/places/laura.png",
+      "current_image_sha256": "8939b4ba79c1670ad41cd491cb9688f85321bb06c00a1abc474d6d83bcad45de",
+      "sheet": "../docs/art/places/laura.md",
+      "sheet_sha256": "ad1d2fee85749e3ab6c1d6c4ac6486aed780a78321814f3661546b7f61a3eb1d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        1500.0,
+        1600.0,
+        100.0,
+        "clearing",
+        64.0
+      ],
+      "designed_first_air": 71,
+      "original_prompt_tail_sha256": "2d273fd1b4676b9a268af092cf8f6e74d247571f524763ec5507b9ac52cca59e"
+    },
+    {
+      "id": "forgotten_dragon_city",
+      "current_image": "../docs/art/places/forgotten_dragon_city.png",
+      "current_image_sha256": "23e85886229ea0c46d4a2208394578a5ab1926a8e5989b8deb50c397c192980a",
+      "sheet": "../docs/art/places/forgotten_dragon_city.md",
+      "sheet_sha256": "6d6e50aec55fc91d5c3282bb16ee0abcdf3decec13f6d12fe580c2dceeacd0dc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        2650.0,
+        800.0,
+        100.0,
+        "clearing",
+        64.0
+      ],
+      "designed_first_air": 75,
+      "original_prompt_tail_sha256": "0bb9cfac65a968d69b6fde7d09c99a21272dd834c91a05cb6c009225188cb01c"
+    },
+    {
+      "id": "clayman_castle",
+      "current_image": "../docs/art/places/clayman_castle.png",
+      "current_image_sha256": "5e3d4afb78b06b57a56c3d019cdf9ded5885c6d048530d6fadc8405b9998a903",
+      "sheet": "../docs/art/places/clayman_castle.md",
+      "sheet_sha256": "4759c1b292d337aa209bb5354bbbf0c45addd5875753e431c50e14edbb834f75",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        3300.0,
+        -600.0,
+        90.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 73,
+      "original_prompt_tail_sha256": "0e80e9e25e13f0be975d4edcd8a265dd52df1c7e5323393241f608886f46b7d1"
+    },
+    {
+      "id": "amrita",
+      "current_image": "../docs/art/places/amrita.png",
+      "current_image_sha256": "694c22e1817a11fbb41936c4488db300eba70e3f1f0489a6255de73a86cf4280",
+      "sheet": "../docs/art/places/amrita.md",
+      "sheet_sha256": "a58d6fda4264726d68f93ead0020408162f26139cce261cdcd4898320cb3fdb4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        3800.0,
+        -500.0,
+        63.0,
+        "carve",
+        48.0
+      ],
+      "designed_first_air": 89,
+      "original_prompt_tail_sha256": "fa5a25e623bf6d5e6d46ff84d7967a5690e48c498e3734f9031e95a6345da27d"
+    },
+    {
+      "id": "nasca",
+      "current_image": "../docs/art/places/nasca.png",
+      "current_image_sha256": "1dafc87a05b7a2b39b112598f775cc67c34e0973cfe280c00156d5d152e64a6a",
+      "sheet": "../docs/art/places/nasca.md",
+      "sheet_sha256": "0858b9e4e75fde25cd8d4fa60b181cc33d1283e96b04d4b86e9083a65aaf736a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        3200.0,
+        -1800.0,
+        90.0,
+        "plateau",
+        48.0
+      ],
+      "designed_first_air": 75,
+      "original_prompt_tail_sha256": "2726229920275230cdb11f10b0d04bb12c6818b8422e6cbf3c29328a9552f182"
+    },
+    {
+      "id": "great_holy_mountain",
+      "current_image": "../docs/art/places/great_holy_mountain.png",
+      "current_image_sha256": "25c732a59ecc10f43f0fbdf6ed5bed09c55483b60cf4db773ecb90818ea896c6",
+      "sheet": "../docs/art/places/great_holy_mountain.md",
+      "sheet_sha256": "fb9359062192086953b41c6ad7c32354268976e23cf54a99451ad28d21b99b21",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        3350.0,
+        -1350.0,
+        80.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 247,
+      "original_prompt_tail_sha256": "23829e5d6872144c79a1c3f759f9dc7012e6462d521142b10ce0814a8691646a"
+    },
+    {
+      "id": "el_dorado",
+      "current_image": "../docs/art/places/el_dorado.png",
+      "current_image_sha256": "0070aa8ea02a4d46552e408077bfd2dfe30abc9555d4b2e3a8314f2c62d2ec63",
+      "sheet": "../docs/art/places/el_dorado.md",
+      "sheet_sha256": "11c67f261e50c225f8e758616d35abe70f45284c96421b977ff9e1db658cfac7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -4300.0,
+        3000.0,
+        100.0,
+        "clearing",
+        64.0
+      ],
+      "designed_first_air": 73,
+      "original_prompt_tail_sha256": "a4197d2d7f1800dd48353e67b60a3eeaad6d1c4477d50741f8a2e41ddae0d9e1"
+    },
+    {
+      "id": "el_dorado_volcano",
+      "current_image": "../docs/art/places/el_dorado_volcano.png",
+      "current_image_sha256": "588b0fb53693199eb37ff656873f0491a6cf036d076ee95530c0af7429f684c1",
+      "sheet": "../docs/art/places/el_dorado_volcano.md",
+      "sheet_sha256": "ed53b45486586fb909b4f6dfcde82ee4be9d0bd8c356312ee6f04aae136af3dc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -3900.0,
+        3200.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 197,
+      "original_prompt_tail_sha256": "e2d0467c34a1f290a65efd3c1748dd237d814356a379748b198254e522f9a00f"
+    },
+    {
+      "id": "frost_palace",
+      "current_image": "../docs/art/places/frost_palace.png",
+      "current_image_sha256": "1076ab872ec17edcc5676c03f25d3d82a28b0bb82e37143dce85a6b0063abd24",
+      "sheet": "../docs/art/places/frost_palace.md",
+      "sheet_sha256": "04bb9d921e607ebf509a298612e7c9fd49f5eca53cb4bac868d8b1f454cc0312",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -1530.0,
+        -3680.0,
+        89.0,
+        "clearing",
+        48.0
+      ],
+      "designed_first_air": 71,
+      "original_prompt_tail_sha256": "6623c4d76788e76be77570b4ff2b8a3eaaf0dcfb14743b784aa1cc22b8c2a763"
+    },
+    {
+      "id": "blumund_road",
+      "current_image": "../docs/art/places/blumund_road.png",
+      "current_image_sha256": "d4be4e8ab2b8b0a752b399a3a6b5f55f0bd80eccf1f33ce1fff860ccffe823ed",
+      "sheet": "../docs/art/places/blumund_road.md",
+      "sheet_sha256": "688c6c60e6505b83b2b89d5dc6565c71d92a471426bda46d55ab104bd38ea183",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -1340.0,
+        -520.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 71,
+      "original_prompt_tail_sha256": "8387368386c3c711a483943a884502723225a6474b60128840aa8e0020566575"
+    },
+    {
+      "id": "englassia_road",
+      "current_image": "../docs/art/places/englassia_road.png",
+      "current_image_sha256": "52a04a12ece32a968b45bc5a92b46c6115babf30432fafdc5f45e749d39467d5",
+      "sheet": "../docs/art/places/englassia_road.md",
+      "sheet_sha256": "3dcf2c7ef451a37ba1bb50af1ed8ce36a31aec3f227a16f10d09e8523bbb5b25",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -2650.0,
+        -520.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 73,
+      "original_prompt_tail_sha256": "64a7f2ac37a51a67fdcca955ef99d084340a27bd080308217066781866b309b2"
+    },
+    {
+      "id": "old_well",
+      "current_image": "../docs/art/places/old_well.png",
+      "current_image_sha256": "98cf8cdfd28a41e09c112979dcc30cb313b0edb47d6e59b9705b22b64706fb1a",
+      "sheet": "../docs/art/places/old_well.md",
+      "sheet_sha256": "5156445bbb95dcd8fe63802b1613d167e2364ccf0a2829207b75d08a555522fb",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -1000.0,
+        -340.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 76,
+      "original_prompt_tail_sha256": "bc49e9352d369667a64da30e9460fc5759d6477c07043c466f1fab2ce8f26750"
+    },
+    {
+      "id": "rookie_camp",
+      "current_image": "../docs/art/places/rookie_camp.png",
+      "current_image_sha256": "98e6958f9618d95bd00cbc43e34d60cc73ca5952cbe01c793d2108a9f93ca877",
+      "sheet": "../docs/art/places/rookie_camp.md",
+      "sheet_sha256": "d0cb47cdc8212aac3e4d5cea56c8776bee5f18c69289272f1d82975a7c774052",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "reservation_x_z_r_kind_margin": [
+        -120.0,
+        -560.0,
+        8.0,
+        "clearing",
+        24.0
+      ],
+      "designed_first_air": 73,
+      "original_prompt_tail_sha256": "3d564d1c30285ae70ba8c53b617358584120229369ae4951591388d51cb389e4"
+    }
+  ],
+  "active_pending_alternatives": false,
+  "runtime_applied": false,
+  "full_goal_complete": false,
+  "bundle_checks": {
+    "checker_errors": 0,
+    "relations_checked": 56,
+    "warnings": 2,
+    "repository_tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.795,
+    "normal_parsed_geometry_matches_current_display": true,
+    "original58PNGs_and58sheets_exact_to_art_tip": true,
+    "retained_preview_and_painted_atlas_bytes_exact": true,
+    "road_profiles": [
+      {
+        "id": "tempest_dwargon",
+        "maximum_exported_grade": 0.5000000000000085
+      },
+      {
+        "id": "tempest_blumund",
+        "maximum_exported_grade": 0.4145593141157564
+      },
+      {
+        "id": "blumund_englassia_lubelius",
+        "maximum_exported_grade": 0.5
+      },
+      {
+        "id": "dwargon_dwarf_village",
+        "maximum_exported_grade": 0.5000000000000114
+      },
+      {
+        "id": "sacred_mountain_trail",
+        "maximum_exported_grade": 0.5000000000000455
+      },
+      {
+        "id": "treyni_marsh_trail",
+        "maximum_exported_grade": 0.38179387307052826
+      },
+      {
+        "id": "siss_cavern_and_orc_trail",
+        "maximum_exported_grade": 0.5000000000000114
+      },
+      {
+        "id": "ogre_foothill_trail",
+        "maximum_exported_grade": 0.5000000000000008
+      },
+      {
+        "id": "canaat_high_pass",
+        "maximum_exported_grade": 0.5000000000000171
+      },
+      {
+        "id": "falmuth_road",
+        "maximum_exported_grade": 0.07925304884756149
+      },
+      {
+        "id": "western_belt_road",
+        "maximum_exported_grade": 0.17164391531122264
+      },
+      {
+        "id": "western_desert_caravan",
+        "maximum_exported_grade": 0.3825000000000003
+      },
+      {
+        "id": "fulbrosia_stair",
+        "maximum_exported_grade": 0.5000000000000199
+      },
+      {
+        "id": "southern_royal_road",
+        "maximum_exported_grade": 0.5000000000000171
+      },
+      {
+        "id": "ulgracia_south_road",
+        "maximum_exported_grade": 0.5000000000000114
+      },
+      {
+        "id": "eurazania_road",
+        "maximum_exported_grade": 0.5000000000000114
+      },
+      {
+        "id": "milim_river_road",
+        "maximum_exported_grade": 0.4900000000000187
+      },
+      {
+        "id": "jistav_border_road",
+        "maximum_exported_grade": 0.42950039375451965
+      },
+      {
+        "id": "imperial_volcano_road",
+        "maximum_exported_grade": 0.5000000000000455
+      },
+      {
+        "id": "el_dorado_volcanic_way",
+        "maximum_exported_grade": 0.5000000000000455
+      },
+      {
+        "id": "frost_palace_forecourt",
+        "maximum_exported_grade": 0.0
+      },
+      {
+        "id": "englassia_coleus_royal_approach",
+        "maximum_exported_grade": 0.5
+      }
+    ]
+  },
+  "native_image_dimension_counts": {
+    "1536x1024": 57,
+    "1362x1155": 1
+  },
+  "official_reference_review": {
+    "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp",
+    "http_status": 200,
+    "sha256": "d306892d8ca705742628ec75c2163082ab40da1ef4b1e691903a5926bc4a3f7a",
+    "visually_inspected_with_painted_atlas": true,
+    "copied_into_repository": false,
+    "remaining_proportion_difference": "Smaller Ice/ElDorado interpretation;larger alternative remains pending."
+  }
+}
