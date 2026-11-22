@@ -1,3 +1,7 @@
+## 22/11 — Frost Palace briefs match the approved inland map
+
+Correct two stale round28 headers in the knowledge-pack and lore place pages: current own-world anchor(-1530,71,-3680),clearing,r89; coastal/Lerfing placement is historical. Link the existing R109 implementation and registration. The 85x69 model is an entrance,not a whole-palace footprint. WN central-continent support remains distinct from unread LN agreement. No new map/site/terrain/art/runtime change or live integration claim. Existing source/export evidence is retained without another terrain run. Required repository gate passed:472tests,26skipped,zero failures in65.152seconds;validation and diff check pass.
+
 ## 22/11 — Licensed English LN1 cave passages directly read
 
 Requiredgate472tests/26skipped/0failures65.042seconds;diff/protectedchecks passed.

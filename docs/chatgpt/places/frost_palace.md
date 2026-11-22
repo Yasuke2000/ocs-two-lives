@@ -1,12 +1,13 @@
 # Frost Palace (Guy Crimson)
 
-**Own-world source correction (round28):** directly read WN78 places the palace centrally on the frozen continent; LN agreement remains unverified. The active coast-kind reserve is a server interpretation. An inert inland alternative and entry-versus-palace decision are recorded in [C22 source review](https://github.com/Yasuke2000/ocs-two-lives/blob/chatgpt/world-map/world/frost-palace-source-review.md). No active placement/type change is made. Earlier Lerfing coordinates and the southern causeway are not surveyed canon.
+**Current own-world placement — approved inland:** Yasuke chose the interior snowfield at **(-1530, -3680)**. The active site is a **clearing**, radius **89**, with staged first-air **71**; the former coastal reservation is retired in the drawing. See the [implemented placement and registration](../../../world/frost-palace-inland-r109.md). Directly read WN78 supports a central frozen-continent setting; LN agreement remains unverified. These Minecraft coordinates and the entrance layout are our interpretation. Runtime placement and full-palace architecture remain a technical follow-up.
 
 `id: frost_palace` · build (our blueprint) · region **I** (Ice Continent)
 
 | | |
 |---|---|
-| Anchor (Lerfing's map, x, z) | **-1980, -4300** (x grows east, z grows south) |
+| Current own-world anchor (x, y, z) | **-1530, 71, -3680** (staged; live integration pending) |
+| Historical anchor (Lerfing's map, x, z) | **-1980, -4300** (x grows east, z grows south) |
 | Audit status (19/11/2026) | **ISSUE, low** |
 | Blueprint | [`blueprints/frost_palace.py`](../../../blueprints/frost_palace.py), 85 x 51 x 69 blocks (x, y, z), anchor [42, 4, 65] |
 | Preview (blueprint only) | ![frost_palace](../../previews/frost_palace-iso.png) |
@@ -20,7 +21,7 @@ Guy kept his castle encased in ice after his encounter with Velzard; the cold of
 
 The southern gate: white masonry visible under blue ice on each gate tower; curved blades of ice; a dark blue passage with pointed wall bays, clusters of small crystals at their feet and a reflective floor; at the audience door two dark-blue leaves ajar on deepslate jambs, with pale ice curling across their panels; two violet cup lamps on quartz stems.
 
-Why it stands here (anchor table, Lerfing coordinates): Moved from the design's (-1850, -4250), whose box would reach Lerfing's glass-pane ice crystals (keepout lerfing_ice): 130 west on the same shore plain, y 72/74/75.
+Historical Lerfing placement rationale (superseded for the own-world map): Moved from the design's (-1850, -4250), whose box would reach Lerfing's glass-pane ice crystals (keepout lerfing_ice): 130 west on the same shore plain, y 72/74/75.
 
 ## Current state: BlueMap audit of 19/11/2026
 
