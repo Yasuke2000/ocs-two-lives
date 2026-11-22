@@ -734,7 +734,7 @@ canon = "Frost Palace (Guy Crimson)"
 build = "frost_palace"
 old_x = -2435
 old_z = -4314
-notes = "Moved from the design's (-1850, -4250), whose box would reach Lerfing's glass-pane ice crystals (keepout lerfing_ice): 130 west on the same shore plain, y 72/74/75."
+notes = "Legacy Lerfing coordinates remain in this source table until own-world integration. Yasuke approved the R109 inland target (-1530, 71, -3680), surface land, clearing radius 89; use the reviewed own-world registration rather than the former shore-plain description. The 85x69 entrance model is not the full palace. See world/frost-palace-inland-r109.md."
 
 # --- Sidequest road stops (sidequests.toml anchor = "world"; numbers moved here with the import) ----------------------
 

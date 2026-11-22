@@ -25,3 +25,9 @@ All58 identities remain; only Frost Palace’s active site attributes,its local 
 [R110 painting](https://github.com/Yasuke2000/ocs-two-lives/blob/e3963e24ed15157d524cc39d3243c69526dbeebc/world/painting-round110/README.md) now follows this site/forecourt move;R107 is historical. Source/era/whole-map obligations remain open.
 
 Required repository gate:472tests,26skipped,zero failures(65.002s);validation and zero changed-JavaScript pass. Initial gate caught the stale coastal generated tables;running the existing generator resolved both failures. `git diff --check` passes.
+
+## Registration note correction — 22 November 2026
+
+The source `design/data/anchors.toml` intentionally still holds the legacy live coordinates until Claude integrates the own-world export. Its Frost Palace `notes` field now distinguishes those legacy coordinates from the approved inland destination **(-1530,71,-3680)**. No position, region, build binding or gameplay field changes in this correction.
+
+The converter preserves source notes verbatim. Earlier generated staging snapshots consequently retain the former shore-plain note even when their numerical coordinates are inland. That note is historical, not evidence of a coastal placement. The next normal export will inherit the corrected source note. Existing exports and their published hashes remain historical and are not relabelled or hand-edited. The map and `world/sites.toml` already use the approved inland clearing; runtime integration remains separate.
