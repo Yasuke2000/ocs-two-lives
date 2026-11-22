@@ -18,7 +18,8 @@ execute as TtlBotSleep run ttl choose slime
 @sleep 3
 time set 18000
 ttl sleep TtlBotSleep bed
-@until 20 ttl sleep expect morning
+# On a freshly started server the arrival may still move the reborn soul (waking it); the player check puts it back to bed.
+@until 40 ttl sleep TtlBotSleep expect morning
 ttl sleep TtlBotSleep expect awake
 ttl sleep TtlBotSleep clear
 ttl reset TtlBotSleep
