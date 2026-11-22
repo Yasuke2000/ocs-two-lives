@@ -299,3 +299,5 @@ changes and new decisions with a date.
 22Nov2026 — Add three original small offshore rock islets suggested by the official illustration between the western southern shore and El Dorado. Keep all existing sites,roads and geography;label dimensions/heights and nearest-island Xcoverage as interpretation rather than sovereign ownership. [Evidence](../world/western-offshore-islets.md).
 
 22Nov2026 — Keep the regional guide pinned to the actual current source and semantic biome census; palette-index renumbering is not a landscape-wide biome change. Preserve the 22 region narratives and all curated image references while replacing superseded current-version claims. [Current guide](../world/regions.md).
+
+22Nov2026 — Deliver a full-layer larger-island alternative with fresh normal, road, lake and coverage evidence before seeking the island-size decision. Preserve the active map and every site radius; disclose the three moved registrations and generated heights. [Complete study](../world/island-proportion-alternative.md).

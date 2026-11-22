@@ -1,0 +1,764 @@
+{
+  "baseline_source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+  "alternative_source_sha256": "cc097cf0a9f360188f9a9ba961937ed63ed5b2015b79fcf3c909068144580acb",
+  "transforms": [
+    {
+      "id": "ice-continent",
+      "scale": 1.6453019881364634,
+      "translation_x": -600,
+      "translation_z": -118.52793705227577,
+      "matrix": [
+        1.6453019881364634,
+        0,
+        0,
+        1.6453019881364634,
+        387.312041848789,
+        2256.1833792899097
+      ],
+      "bounds": [
+        -4400.516743628319,
+        -4943.0,
+        -257.399542202484,
+        -3085.4211493541698
+      ],
+      "nearest_mainland_sea": 927.7643038613462
+    },
+    {
+      "id": "el-dorado-island",
+      "scale": 1.3516402817999293,
+      "translation_x": -600,
+      "translation_z": 202.41945685200608,
+      "matrix": [
+        1.3516402817999293,
+        0,
+        0,
+        1.3516402817999293,
+        912.0532117396963,
+        -852.501388547782
+      ],
+      "bounds": [
+        -6184.731447928408,
+        2188.161261016981,
+        -2940.1215913901024,
+        3919.0
+      ],
+      "nearest_mainland_sea": 961.9126617154982
+    }
+  ],
+  "transformed_elements": [
+    {
+      "layer": "coast",
+      "id": "ice-continent",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "coast",
+      "id": "el-dorado-island",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "coast",
+      "id": "ice-coastal-islet-1",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "coast",
+      "id": "ice-coastal-islet-2",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "coast",
+      "id": "ice-coastal-islet-3",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "coast",
+      "id": "ice-coastal-islet-4",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "coast",
+      "id": "ice-coastal-islet-5",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "lakes",
+      "id": "el-dorado-eastern-lake",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "mountains",
+      "id": "el-dorado-volcano",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "mountains",
+      "id": "ice-spine",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "hills",
+      "id": "ice-coastal-islet-1-rock-shoulder",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "hills",
+      "id": "ice-coastal-islet-3-rock-shoulder",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "forests",
+      "id": "el-dorado-northwestern-woodland",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "forests",
+      "id": "el-dorado-eastern-lakeside-woodland",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "biomes",
+      "id": "ice-permafrost",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "biomes",
+      "id": "ice-high-peaks",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "biomes",
+      "id": "ice-coastal-islet-1-snow",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "biomes",
+      "id": "ice-coastal-islet-2-snow",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "biomes",
+      "id": "ice-coastal-islet-3-snow",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "biomes",
+      "id": "ice-coastal-islet-4-snow",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "biomes",
+      "id": "ice-coastal-islet-5-snow",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "biomes",
+      "id": "el-dorado-rock-cone",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "regions",
+      "id": "nation-I",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "regions",
+      "id": "nation-X",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "regions",
+      "id": "ice-coastal-islet-1-coverage",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "regions",
+      "id": "ice-coastal-islet-2-coverage",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "regions",
+      "id": "ice-coastal-islet-3-coverage",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "regions",
+      "id": "ice-coastal-islet-4-coverage",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "regions",
+      "id": "ice-coastal-islet-5-coverage",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "roads",
+      "id": "el_dorado_volcanic_way",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "roads",
+      "id": "frost_palace_forecourt",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "sites",
+      "id": "site-el_dorado",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "sites",
+      "id": "site-el_dorado_volcano",
+      "text": "",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "sites",
+      "id": "site-frost_palace",
+      "text": "",
+      "variant": "ice-continent"
+    },
+    {
+      "layer": "labels",
+      "id": "",
+      "text": "El Dorado",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "labels",
+      "id": "",
+      "text": "El Dorado Volcano",
+      "variant": "el-dorado-island"
+    },
+    {
+      "layer": "labels",
+      "id": "",
+      "text": "Frost Palace",
+      "variant": "ice-continent"
+    }
+  ],
+  "limits": "Inactive complete source alternative, not accepted terrain. Uniform island-coordinate transforms and retained radii/scalar heights are original interpretation. Generated site heights may change. No final-noise/chunk or whole-city architecture acceptance.",
+  "endpoint_adjustment": {
+    "road": "el_dorado_volcanic_way",
+    "before": "-4764.835972,3202.419457",
+    "after": "-4808.000000,3202.419457",
+    "reason": "Uniform scaling moved the first point 35.164 blocks beyond the unchanged-radius city disc, exceeding the 32-block join limit. Extend the first segment to eight blocks inside the retained radius."
+  },
+  "route_grid_adjustment": {
+    "id": "el_dorado_volcanic_way",
+    "first_trial_max_exported_grade": 0.7407407407407907,
+    "first_trial_failing_segments": 40,
+    "first_trial_normal_seconds": 73.9,
+    "correction": "Four-block cardinal stair-step source legs along the scaled route, with nearest-grid original vertex snapping; no grading code modified.",
+    "source_vertices_before": 23,
+    "source_vertices_after": 188,
+    "maximum_original_vertex_snap": 2.6717935326256983
+  },
+  "normal_export": {
+    "source_sha256": "cc097cf0a9f360188f9a9ba961937ed63ed5b2015b79fcf3c909068144580acb",
+    "box": {
+      "x0": -7680,
+      "z0": -6144,
+      "x1": 6144,
+      "z1": 5120,
+      "width_px": 3456,
+      "height_px": 2816,
+      "content": [
+        -6185,
+        -4943,
+        4730,
+        3919
+      ],
+      "sea_margin": 1200,
+      "region": 512
+    },
+    "warnings": [],
+    "artifacts": {
+      "anchors.toml": "c9318ac4b4be8b4813952132e844decefc5584963fbe89124ef0a87fb0526638",
+      "biome.png": "f8fbb0ed282d98ea4c3b904dfa347ae71c2cf4f6d8a16a548fbb452acc156f0e",
+      "canon_map.txt": "b4faa1679f24fc1e124f549201a32072dac30690ac5f5e58ebb15784c9cda7d2",
+      "exclude.png": "c73ab91e80cb32a66ae1247f607f6135a2eddb8867e3817c6d8ef2289e1aa0bf",
+      "height.png": "d56fc8e335405b3b94600baf11df5b997e480530c370dceb0b9866858b53ddcc",
+      "index.json": "4c31c2232ce6a16dac91b212b2edadeaa1ecc747ea2165ffa1bda458b26eb95f",
+      "preview.png": "5d3877e4cdcbc0ad849e5a4373de5677c4199a4dc73098f052be620ef493b170",
+      "road.png": "d06d0691781fc468df27839dae363904d080227c371fa446689d1cfc348cee58",
+      "roads.json": "11e3476255dbfcd202290aa34bb7975a15b45a9efc640610a3e1315ac8c86592",
+      "rugged.png": "40de89d99ac57046a6b332b15ec21d949d872f63ae7748f5321a953388401900",
+      "sites.json": "73b5b8b7f92e6cfb766d0ade61fdbf85e2e20d25e11586d4e6ce5121c6bc5210",
+      "sites.png": "ea9035287d01da57c25fbd950707aeb0a900efae825ab28ee744eb512cd165c7",
+      "sites.toml": "306a87e5dfc849dc023ca1031f5fdfbfb702f3c824569c5547a49287ac3671a8",
+      "water.png": "119d9a9ce71315a2e17c67844576469e9ccbf53e7d147b81125640157fd917c0"
+    },
+    "runtime_acceptance": false,
+    "duration_seconds": 73.7
+  },
+  "site_checks": {
+    "registrations": 58,
+    "unchanged_records": 55,
+    "all_source_radii_retained": true,
+    "changed_records": [
+      {
+        "id": "el_dorado",
+        "before": {
+          "id": "el_dorado",
+          "kind": "clearing",
+          "x": -4300,
+          "z": 3000,
+          "r": 100,
+          "plated": true,
+          "y": 73,
+          "index": 37,
+          "fade": 50,
+          "biome": null,
+          "margin": 64.0
+        },
+        "alternative": {
+          "id": "el_dorado",
+          "kind": "clearing",
+          "x": -4900,
+          "z": 3202,
+          "r": 100,
+          "plated": true,
+          "y": 70,
+          "index": 37,
+          "fade": 50,
+          "biome": null,
+          "margin": 64.0
+        }
+      },
+      {
+        "id": "el_dorado_volcano",
+        "before": {
+          "id": "el_dorado_volcano",
+          "kind": "clearing",
+          "x": -3900,
+          "z": 3200,
+          "r": 8,
+          "plated": false,
+          "y": 197
+        },
+        "alternative": {
+          "id": "el_dorado_volcano",
+          "kind": "clearing",
+          "x": -4359,
+          "z": 3473,
+          "r": 8,
+          "plated": false,
+          "y": 222
+        }
+      },
+      {
+        "id": "frost_palace",
+        "before": {
+          "id": "frost_palace",
+          "kind": "clearing",
+          "x": -1530,
+          "z": -3680,
+          "r": 89,
+          "plated": true,
+          "y": 71,
+          "index": 38,
+          "fade": 44,
+          "biome": "minecraft:snowy_plains",
+          "margin": 48.0
+        },
+        "alternative": {
+          "id": "frost_palace",
+          "kind": "clearing",
+          "x": -2130,
+          "z": -3799,
+          "r": 89,
+          "plated": true,
+          "y": 75,
+          "index": 38,
+          "fade": 44,
+          "biome": "minecraft:snowy_plains",
+          "margin": 48.0
+        }
+      }
+    ]
+  },
+  "road_checks": {
+    "count": 22,
+    "unchanged_exports": 20,
+    "profiles": [
+      {
+        "id": "tempest_dwargon",
+        "maximum_exported_segment_grade": 0.5000000000000085,
+        "matches_current_export": true
+      },
+      {
+        "id": "tempest_blumund",
+        "maximum_exported_segment_grade": 0.4145593141157564,
+        "matches_current_export": true
+      },
+      {
+        "id": "blumund_englassia_lubelius",
+        "maximum_exported_segment_grade": 0.5,
+        "matches_current_export": true
+      },
+      {
+        "id": "dwargon_dwarf_village",
+        "maximum_exported_segment_grade": 0.5000000000000114,
+        "matches_current_export": true
+      },
+      {
+        "id": "sacred_mountain_trail",
+        "maximum_exported_segment_grade": 0.5000000000000455,
+        "matches_current_export": true
+      },
+      {
+        "id": "treyni_marsh_trail",
+        "maximum_exported_segment_grade": 0.38179387307052826,
+        "matches_current_export": true
+      },
+      {
+        "id": "siss_cavern_and_orc_trail",
+        "maximum_exported_segment_grade": 0.5000000000000114,
+        "matches_current_export": true
+      },
+      {
+        "id": "ogre_foothill_trail",
+        "maximum_exported_segment_grade": 0.5000000000000008,
+        "matches_current_export": true
+      },
+      {
+        "id": "canaat_high_pass",
+        "maximum_exported_segment_grade": 0.5000000000000171,
+        "matches_current_export": true
+      },
+      {
+        "id": "falmuth_road",
+        "maximum_exported_segment_grade": 0.07925304884756149,
+        "matches_current_export": true
+      },
+      {
+        "id": "western_belt_road",
+        "maximum_exported_segment_grade": 0.17164391531122264,
+        "matches_current_export": true
+      },
+      {
+        "id": "western_desert_caravan",
+        "maximum_exported_segment_grade": 0.3825000000000003,
+        "matches_current_export": true
+      },
+      {
+        "id": "fulbrosia_stair",
+        "maximum_exported_segment_grade": 0.5000000000000199,
+        "matches_current_export": true
+      },
+      {
+        "id": "southern_royal_road",
+        "maximum_exported_segment_grade": 0.5000000000000171,
+        "matches_current_export": true
+      },
+      {
+        "id": "ulgracia_south_road",
+        "maximum_exported_segment_grade": 0.5000000000000114,
+        "matches_current_export": true
+      },
+      {
+        "id": "eurazania_road",
+        "maximum_exported_segment_grade": 0.5000000000000114,
+        "matches_current_export": true
+      },
+      {
+        "id": "milim_river_road",
+        "maximum_exported_segment_grade": 0.4900000000000187,
+        "matches_current_export": true
+      },
+      {
+        "id": "jistav_border_road",
+        "maximum_exported_segment_grade": 0.42950039375451965,
+        "matches_current_export": true
+      },
+      {
+        "id": "imperial_volcano_road",
+        "maximum_exported_segment_grade": 0.5000000000000455,
+        "matches_current_export": true
+      },
+      {
+        "id": "el_dorado_volcanic_way",
+        "maximum_exported_segment_grade": 0.5,
+        "matches_current_export": false
+      },
+      {
+        "id": "frost_palace_forecourt",
+        "maximum_exported_segment_grade": 0.0,
+        "matches_current_export": false
+      },
+      {
+        "id": "englassia_coleus_royal_approach",
+        "maximum_exported_segment_grade": 0.5,
+        "matches_current_export": true
+      }
+    ],
+    "finite_grade_limit": 0.5,
+    "runtime_acceptance": false
+  },
+  "xml_checks": {
+    "unchanged_children": 250,
+    "changed_children": [
+      {
+        "layer": "coast",
+        "index": 1,
+        "id": "ice-continent"
+      },
+      {
+        "layer": "coast",
+        "index": 2,
+        "id": "el-dorado-island"
+      },
+      {
+        "layer": "coast",
+        "index": 5,
+        "id": "ice-coastal-islet-1"
+      },
+      {
+        "layer": "coast",
+        "index": 6,
+        "id": "ice-coastal-islet-2"
+      },
+      {
+        "layer": "coast",
+        "index": 7,
+        "id": "ice-coastal-islet-3"
+      },
+      {
+        "layer": "coast",
+        "index": 8,
+        "id": "ice-coastal-islet-4"
+      },
+      {
+        "layer": "coast",
+        "index": 9,
+        "id": "ice-coastal-islet-5"
+      },
+      {
+        "layer": "lakes",
+        "index": 10,
+        "id": "el-dorado-eastern-lake"
+      },
+      {
+        "layer": "mountains",
+        "index": 4,
+        "id": "el-dorado-volcano"
+      },
+      {
+        "layer": "mountains",
+        "index": 5,
+        "id": "ice-spine"
+      },
+      {
+        "layer": "hills",
+        "index": 9,
+        "id": "ice-coastal-islet-1-rock-shoulder"
+      },
+      {
+        "layer": "hills",
+        "index": 10,
+        "id": "ice-coastal-islet-3-rock-shoulder"
+      },
+      {
+        "layer": "forests",
+        "index": 13,
+        "id": "el-dorado-northwestern-woodland"
+      },
+      {
+        "layer": "forests",
+        "index": 14,
+        "id": "el-dorado-eastern-lakeside-woodland"
+      },
+      {
+        "layer": "biomes",
+        "index": 7,
+        "id": "ice-permafrost"
+      },
+      {
+        "layer": "biomes",
+        "index": 8,
+        "id": "ice-high-peaks"
+      },
+      {
+        "layer": "biomes",
+        "index": 23,
+        "id": "ice-coastal-islet-1-snow"
+      },
+      {
+        "layer": "biomes",
+        "index": 24,
+        "id": "ice-coastal-islet-2-snow"
+      },
+      {
+        "layer": "biomes",
+        "index": 25,
+        "id": "ice-coastal-islet-3-snow"
+      },
+      {
+        "layer": "biomes",
+        "index": 26,
+        "id": "ice-coastal-islet-4-snow"
+      },
+      {
+        "layer": "biomes",
+        "index": 27,
+        "id": "ice-coastal-islet-5-snow"
+      },
+      {
+        "layer": "biomes",
+        "index": 29,
+        "id": "el-dorado-rock-cone"
+      },
+      {
+        "layer": "regions",
+        "index": 20,
+        "id": "nation-I"
+      },
+      {
+        "layer": "regions",
+        "index": 21,
+        "id": "nation-X"
+      },
+      {
+        "layer": "regions",
+        "index": 24,
+        "id": "ice-coastal-islet-1-coverage"
+      },
+      {
+        "layer": "regions",
+        "index": 25,
+        "id": "ice-coastal-islet-2-coverage"
+      },
+      {
+        "layer": "regions",
+        "index": 26,
+        "id": "ice-coastal-islet-3-coverage"
+      },
+      {
+        "layer": "regions",
+        "index": 27,
+        "id": "ice-coastal-islet-4-coverage"
+      },
+      {
+        "layer": "regions",
+        "index": 28,
+        "id": "ice-coastal-islet-5-coverage"
+      },
+      {
+        "layer": "roads",
+        "index": 19,
+        "id": "el_dorado_volcanic_way"
+      },
+      {
+        "layer": "roads",
+        "index": 20,
+        "id": "frost_palace_forecourt"
+      },
+      {
+        "layer": "sites",
+        "index": 51,
+        "id": "site-el_dorado"
+      },
+      {
+        "layer": "sites",
+        "index": 52,
+        "id": "site-el_dorado_volcano"
+      },
+      {
+        "layer": "sites",
+        "index": 53,
+        "id": "site-frost_palace"
+      },
+      {
+        "layer": "labels",
+        "index": 51,
+        "id": ""
+      },
+      {
+        "layer": "labels",
+        "index": 52,
+        "id": ""
+      },
+      {
+        "layer": "labels",
+        "index": 53,
+        "id": ""
+      }
+    ],
+    "baseline_map_unmodified": true,
+    "scoped_changes_only": true
+  },
+  "coverage_checks": {
+    "native_land_four_block_centres": 2954337,
+    "unassigned_native_land_centres": 0,
+    "method": "Every four-block centre intersecting a flattened native coast polygon must intersect at least one current gameplay region polygon;includes islands and detached islets. Sovereign ownership is not inferred."
+  },
+  "checker": {
+    "errors": 0,
+    "relations_checked": 56,
+    "relations_failed": 0,
+    "warnings": [
+      "Existing Laura mountain-river crossing",
+      "Design box exceeds preferred target but fits hard cap"
+    ]
+  },
+  "lake_checks": {
+    "report": "island-proportion-alternative-lakes.json",
+    "summary": {
+      "lakes": 13,
+      "passing_lakes": 13,
+      "passing_bank_checks": 13,
+      "passing_connection_checks": 13,
+      "external_dry_bank_samples": 2598,
+      "internal_dry_boundary_bank_samples": 4,
+      "source_samples": 44156,
+      "source_wet_samples": 44152,
+      "dry_boundary_samples": 4,
+      "missing_expected_connections": 0,
+      "observed_river_lake_links": 8,
+      "external_wet_contact_samples": 21,
+      "overall_pass": true
+    },
+    "scope": "Normal raster evidence only;not continuous bank,diagonal/final-noise,per-block fluid,chunk placement or in-game leak acceptance. Source-endpoint proximity is a finite designed-connection rule,not a canonical geographical claim."
+  },
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "duration_seconds": 65.278,
+    "validation": "passed",
+    "diff_check": "passed"
+  }
+}
