@@ -146,7 +146,7 @@ Painting e28b579 gate472tests,26skipped,zero failures(65.227s); source checker0e
 
 ## 21/11 — Southeastern water and woodland restored (R106)
 
-[Source/terrain review](../world/southeastern-water-wood-r106.md) restores the official illustration's unnamed southeastern water and woodland to its north/northwest. Exact36/66-vertex outlines,positions,level68/depth4 and light tree choice are interpretation. A wrong-side preliminary forest draft was corrected after direct image reinspection. Source `b2750950`; checker0errors/56relations/2prior warnings; normal67.6s. All previous XML and58 site/22 route exports retained exactly. No apply.
+[Source/terrain review](../world/southeastern-water-wood-r106.md) restores the official illustration's unnamed southeastern water and woodland to its north/northwest. Exact36/66-vertex outlines,positions,level68/depth4 and light tree choice are interpretation. A wrong-side preliminary forest draft was corrected after direct image reinspection. Source `b2750950`; checker0errors/56relations/2prior warnings; normal67.7s. All previous XML and58 site/22 route exports retained exactly. No apply.
 
 Lake4406core cells allwater68; designedbed64..66.75 (rim taper). Height/water each change4406cells inside the new lake; biome14122inside new features;rugged5041within8.92blocks. Lake/woodland gap6.58;nearest site edge497.03. Atlas58 numbers/20 names/42 rows browser-checked without overlap;minimum number spacing31.62px. Milim orientation moves south y1344.23->1395 to clear the water; all other text/number geometry retained. Panel metadata fixed from stale138 to142 along with visible caption142/42. Ledger312/inventory142 retains every prior row/classification and42 open physical follow-ups.
 
