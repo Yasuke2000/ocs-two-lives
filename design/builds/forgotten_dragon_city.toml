@@ -6,8 +6,8 @@ landmark = "City of the Forgotten Dragon (Milim)"
 # (design/data/anchors.toml forgotten_dragon_city, the landmark's `at`): the lake-and-river plain of the badlands, relief 2,
 # dry within the box + search (1 % water on the imported world). search 128 lets the placer find the flattest dry ground.
 anchor = [60, 5, 118]
-ground = "survey"
-search = 128
+ground = "fixed"
+y = 75
 dimension = "minecraft:overworld"
 version = 3
 clear_above = true

@@ -7,8 +7,8 @@ landmark = "Clayman's Castle"
 # The real terrain there is low and lake-dotted (18/11/2026: at least 29 % water everywhere within 64), so the survey
 # looks further (search 160); the log line says how far the castle ended up.
 anchor = [54, 6, 102]
-ground = "survey"
-search = 160
+ground = "fixed"
+y = 73
 dimension = "minecraft:overworld"
 version = 2
 clear_above = true

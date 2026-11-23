@@ -2111,10 +2111,10 @@ const TtlData = {
         16,
         68
       ],
-      "clear_above": true,
+      "clear_above": false,
       "dimension": "minecraft:overworld",
       "dry": true,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Amrita (Jistav capital)",
       "margin": 8,
       "max_wet": 0.05,
@@ -2123,7 +2123,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 128,
+      "search": 48,
       "size": [
         69,
         32,
@@ -2132,6 +2132,7 @@ const TtlData = {
       "title": "Amrita — Buried Gallery of Jistav",
       "version": 1,
       "x": 3800,
+      "y": 89,
       "z": -500
     },
     {
@@ -2143,7 +2144,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Ballachia",
       "margin": 12,
       "max_wet": 0.1,
@@ -2153,7 +2154,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 128,
+      "search": 48,
       "size": [
         76,
         38,
@@ -2162,6 +2163,7 @@ const TtlData = {
       "title": "Ballachia — The Freed Travellers' Yard",
       "version": 2,
       "x": -2450,
+      "y": 72,
       "z": -450
     },
     {
@@ -2173,7 +2175,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Blumund capital (Londo)",
       "margin": 8,
       "max_wet": 0.1,
@@ -2182,7 +2184,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 64,
+      "search": 48,
       "size": [
         124,
         52,
@@ -2191,6 +2193,7 @@ const TtlData = {
       "title": "Blumund — Londo",
       "version": 4,
       "x": -1500,
+      "y": 72,
       "z": -620
     },
     {
@@ -2202,7 +2205,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Clayman's Castle",
       "margin": 8,
       "max_wet": 0.1,
@@ -2212,7 +2215,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 160,
+      "search": 48,
       "size": [
         109,
         66,
@@ -2221,6 +2224,7 @@ const TtlData = {
       "title": "Clayman's Castle — the Puppet Nation of Jistav",
       "version": 2,
       "x": 3300,
+      "y": 73,
       "z": -600
     },
     {
@@ -2232,7 +2236,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Coleus",
       "margin": 10,
       "max_wet": 0.1,
@@ -2251,6 +2255,7 @@ const TtlData = {
       "title": "Coleus — The Palace of Herbaria",
       "version": 1,
       "x": -3520,
+      "y": 75,
       "z": -860
     },
     {
@@ -2262,7 +2267,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Dragon's Nest (highest peak of the Great Canaat Mountains)",
       "margin": 8,
       "max_wet": 0.1,
@@ -2272,7 +2277,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 32,
+      "search": 48,
       "size": [
         73,
         46,
@@ -2281,6 +2286,7 @@ const TtlData = {
       "title": "The Dragon's Nest",
       "version": 2,
       "x": 350,
+      "y": 272,
       "z": -2000
     },
     {
@@ -2293,7 +2299,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "margin": 6,
       "max_wet": 0.1,
       "name": "dwarven_arena",
@@ -2311,6 +2317,7 @@ const TtlData = {
       "title": "The Dwarven Arena",
       "version": 2,
       "x": 1100,
+      "y": 73,
       "z": -980
     },
     {
@@ -2322,7 +2329,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "margin": 16,
       "max_wet": 0.1,
       "name": "el_dorado",
@@ -2339,6 +2346,7 @@ const TtlData = {
       "title": "Golden City of El Dorado — Leon’s Audience Court",
       "version": 1,
       "x": -4300,
+      "y": 73,
       "z": 3000
     },
     {
@@ -2350,7 +2358,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Elmine (Sarion capital in the Divine Tree)",
       "margin": 8,
       "max_wet": 0.05,
@@ -2360,7 +2368,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 0,
+      "search": 48,
       "size": [
         75,
         60,
@@ -2369,6 +2377,7 @@ const TtlData = {
       "title": "Elmine — Terrace of the Divine Tree",
       "version": 1,
       "x": -1680,
+      "y": 104,
       "z": 1740
     },
     {
@@ -2380,7 +2389,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Englassia capital (Lura): Freedom Academy, Free Guild HQ",
       "margin": 8,
       "max_wet": 0.1,
@@ -2389,7 +2398,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 64,
+      "search": 48,
       "size": [
         128,
         60,
@@ -2398,6 +2407,7 @@ const TtlData = {
       "title": "Englassia — Lura",
       "version": 4,
       "x": -2900,
+      "y": 76,
       "z": -550
     },
     {
@@ -2409,7 +2419,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "City of the Forgotten Dragon (Milim)",
       "margin": 8,
       "max_wet": 0.1,
@@ -2419,7 +2429,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 128,
+      "search": 48,
       "size": [
         121,
         44,
@@ -2428,6 +2438,7 @@ const TtlData = {
       "title": "City of the Forgotten Dragon — Milim's domain",
       "version": 3,
       "x": 2650,
+      "y": 75,
       "z": 800
     },
     {
@@ -2439,7 +2450,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Frost Palace (Guy Crimson)",
       "margin": 8,
       "max_wet": 0.1,
@@ -2458,6 +2469,7 @@ const TtlData = {
       "title": "The Frost Palace — Guy Crimson's gate",
       "version": 1,
       "x": -1530,
+      "y": 71,
       "z": -3680
     },
     {
@@ -2469,7 +2481,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Great Holy Mountain (Velgrynd)",
       "margin": 12,
       "max_wet": 0.08,
@@ -2487,6 +2499,7 @@ const TtlData = {
       "title": "Scorching God Mountain — Velgrynd’s sanctuary",
       "version": 1,
       "x": 3350,
+      "y": 247,
       "z": -1350
     },
     {
@@ -2498,7 +2511,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Heaven Tower (Dagruel, Damargania)",
       "margin": 16,
       "max_wet": 0.1,
@@ -2517,6 +2530,7 @@ const TtlData = {
       "title": "Heaven Tower — Holy Void of Damargania",
       "version": 1,
       "x": -4200,
+      "y": 73,
       "z": -200
     },
     {
@@ -2528,7 +2542,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Jia (Fulbrosia capital, Frey)",
       "margin": 12,
       "max_wet": 0.05,
@@ -2538,7 +2552,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 96,
+      "search": 48,
       "size": [
         73,
         40,
@@ -2547,6 +2561,7 @@ const TtlData = {
       "title": "Jia — Frey's Landing Court",
       "version": 1,
       "x": 200,
+      "y": 235,
       "z": 2450
     },
     {
@@ -2558,7 +2573,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Laura (Eurazania capital, rebuilt)",
       "margin": 8,
       "max_wet": 0.1,
@@ -2568,7 +2583,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 64,
+      "search": 48,
       "size": [
         113,
         46,
@@ -2577,6 +2592,7 @@ const TtlData = {
       "title": "Laura — capital of the Beast Kingdom of Eurazania",
       "version": 3,
       "x": 1500,
+      "y": 71,
       "z": 1600
     },
     {
@@ -2588,7 +2604,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Holy City Lubelius (Lune)",
       "margin": 8,
       "max_wet": 0.1,
@@ -2597,7 +2613,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 64,
+      "search": 48,
       "size": [
         120,
         64,
@@ -2606,6 +2622,7 @@ const TtlData = {
       "title": "Holy City Lubelius — Lune",
       "version": 2,
       "x": -3600,
+      "y": 71,
       "z": -1300
     },
     {
@@ -2617,7 +2634,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Marris (Falmuth capital)",
       "margin": 8,
       "max_wet": 0.1,
@@ -2626,7 +2643,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 64,
+      "search": 48,
       "size": [
         136,
         64,
@@ -2635,6 +2652,7 @@ const TtlData = {
       "title": "Marris — Falmuth",
       "version": 4,
       "x": -1800,
+      "y": 67,
       "z": -1650
     },
     {
@@ -2646,7 +2664,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Morgdahl",
       "margin": 10,
       "max_wet": 0.08,
@@ -2656,7 +2674,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 96,
+      "search": 48,
       "size": [
         69,
         31,
@@ -2665,6 +2683,7 @@ const TtlData = {
       "title": "Morgdahl — The Timber Landing",
       "version": 1,
       "x": -3200,
+      "y": 72,
       "z": 330
     },
     {
@@ -2850,7 +2869,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Nasca (Eastern Empire capital)",
       "margin": 12,
       "max_wet": 0.1,
@@ -2860,7 +2879,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 96,
+      "search": 48,
       "size": [
         85,
         42,
@@ -2869,6 +2888,7 @@ const TtlData = {
       "title": "Nasca — Imperial audience court",
       "version": 1,
       "x": 3200,
+      "y": 75,
       "z": -1800
     },
     {
@@ -2880,7 +2900,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Nostraille",
       "margin": 12,
       "max_wet": 0.08,
@@ -2890,7 +2910,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 32,
+      "search": 48,
       "size": [
         72,
         33,
@@ -2899,6 +2919,7 @@ const TtlData = {
       "title": "Nostraille — The Wool Hall",
       "version": 1,
       "x": -2550,
+      "y": 76,
       "z": 330
     },
     {
@@ -2910,7 +2931,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Raja",
       "margin": 12,
       "max_wet": 0.08,
@@ -2929,6 +2950,7 @@ const TtlData = {
       "title": "Raja — The Old Lakeside Workings",
       "version": 1,
       "x": -2850,
+      "y": 74,
       "z": 360
     },
     {
@@ -2940,7 +2962,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Sacred Mountain (Inner Sanctum, Luminous)",
       "margin": 16,
       "max_wet": 0.1,
@@ -2958,6 +2980,7 @@ const TtlData = {
       "title": "Sacred Mountain — the seal of the Inner Sanctum",
       "version": 1,
       "x": -3900,
+      "y": 175,
       "z": -1600
     },
     {
@@ -2966,10 +2989,10 @@ const TtlData = {
         5,
         82
       ],
-      "clear_above": true,
+      "clear_above": false,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Sealed Cave (Veldora's prison, Rimuru's birthplace)",
       "margin": 8,
       "max_wet": 0.1,
@@ -2988,6 +3011,7 @@ const TtlData = {
       "title": "The Sealed Cave: Veldora's prison, Rimuru's birthplace",
       "version": 2,
       "x": -120,
+      "y": 77,
       "z": -400
     },
     {
@@ -2999,7 +3023,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Siltrosso",
       "margin": 12,
       "max_wet": 0.1,
@@ -3009,7 +3033,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 96,
+      "search": 48,
       "size": [
         73,
         37,
@@ -3018,6 +3042,7 @@ const TtlData = {
       "title": "Siltrosso — The Rosso counting court",
       "version": 1,
       "x": -2297,
+      "y": 65,
       "z": -1370
     },
     {
@@ -3059,7 +3084,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "margin": 8,
       "max_wet": 0.1,
       "name": "spirit_gate",
@@ -3068,7 +3093,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 64,
+      "search": 48,
       "size": [
         57,
         40,
@@ -3077,6 +3102,7 @@ const TtlData = {
       "title": "The gate to the Dwelling of the Spirits",
       "version": 2,
       "x": -285,
+      "y": 70,
       "z": 350
     },
     {
@@ -3118,7 +3144,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Treyni's grove (Dryad sanctuary)",
       "margin": 8,
       "max_wet": 0.1,
@@ -3137,6 +3163,7 @@ const TtlData = {
       "title": "Treyni's shrine",
       "version": 4,
       "x": 500,
+      "y": 71,
       "z": 600
     },
     {
@@ -3148,7 +3175,7 @@ const TtlData = {
       "clear_above": true,
       "dimension": "minecraft:overworld",
       "dry": false,
-      "ground": "survey",
+      "ground": "fixed",
       "landmark": "Galut / Ulgr Nature Park (Ulgracia)",
       "margin": 10,
       "max_wet": 0.05,
@@ -3158,7 +3185,7 @@ const TtlData = {
       "repair_depth": 48,
       "repair_keep_water": false,
       "repair_margin": 8,
-      "search": 64,
+      "search": 48,
       "size": [
         71,
         28,
@@ -3167,6 +3194,7 @@ const TtlData = {
       "title": "Ulgr Nature Park — The Spirit Trail",
       "version": 1,
       "x": -950,
+      "y": 112,
       "z": 2850
     },
     {

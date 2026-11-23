@@ -9,8 +9,8 @@
 name = "dwarven_arena"
 title = "The Dwarven Arena"
 anchor = [3, 1, 25]
-ground = "survey"
-search = 48
+ground = "fixed"
+y = 73
 beside = "dwarf_village"
 dimension = "minecraft:overworld"
 version = 2

@@ -3,11 +3,12 @@ name = "sealed_cave"
 title = "The Sealed Cave: Veldora's prison, Rimuru's birthplace"
 landmark = "Sealed Cave (Veldora's prison, Rimuru's birthplace)"
 anchor = [44, 5, 82]
-ground = "survey"
+ground = "fixed"
+y = 77
 # The canon point lies on a river (18/11/2026: at least 18 % water everywhere within 64): the survey looks further.
 search = 128
 dimension = "minecraft:overworld"
 version = 2
-clear_above = true
+clear_above = false
 margin = 8
 notes = "A rocky hill in a forest clearing with the cave mouth in its south face; antechamber with pond and hipokute plot, the sealed chamber with the spent Unlimited Imprisonment seal. Interior is our interpretation; canon gives the location and the facts (design/lore/sealed_cave.md)."

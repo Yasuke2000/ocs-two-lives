@@ -4,8 +4,8 @@
 name = "spirit_gate"
 title = "The gate to the Dwelling of the Spirits"
 anchor = [28, 5, 24]
-ground = "survey"
-search = 64
+ground = "fixed"
+y = 70
 dimension = "minecraft:overworld"
 version = 2
 clear_above = true

@@ -2,8 +2,8 @@ name = "amrita"
 title = "Amrita — Buried Gallery of Jistav"
 landmark = "Amrita (Jistav capital)"
 anchor = [34, 16, 68]
-ground = "survey"
-search = 128
+ground = "fixed"
+y = 89
 margin = 8
 max_wet = 0.05
 # The gallery floor lies below the water table (ground - 16): the box is drained before placing, or the stairs and slabs set
@@ -11,4 +11,4 @@ max_wet = 0.05
 dry = true
 dimension = "minecraft:overworld"
 version = 1
-clear_above = true
+clear_above = false
