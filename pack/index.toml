@@ -714,7 +714,7 @@ hash = "826ca8d60e51c4b8fa906c115604c6469380a12505b36b603abe2b37534151fb"
 
 [[files]]
 file = "config/bluemap/maps/tensura.conf"
-hash = "f48193d6dd962feda2a46a62d043cb8b6fb9a5a2259195a2bb11511a525005bf"
+hash = "17b5174cc51bc0cf6cc464c0e4dd55ca9e242dbd9d33638876e6fbad5d3df615"
 
 [[files]]
 file = "config/bluemap/plugin.conf"

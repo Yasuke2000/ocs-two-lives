@@ -97,12 +97,19 @@ def slug(text: str) -> str:
 def tensura_conf(canon: dict) -> str:
     oc, orow, rows = load_grid()
     regions, _ = region_labels(canon, oc, orow, rows)
-    x0, z0, x1, z1 = canon["lerfing"]["inner"]
+    own = ROOT / "pack" / "config" / "ttl" / "world" / "index.json"
+    if own.is_file():  # the own world (tools/world/build.py --apply): its design box, the sea margin included
+        box = json.loads(own.read_text(encoding="utf-8"))["box"]
+        x0, z0, x1, z1 = box["x0"] + PAD, box["z0"] + PAD, box["x1"] - PAD, box["z1"] - PAD
+        mask_note = "# Only the own world's design box (the continent plus its sea margin) is rendered; the free lands are not."
+    else:
+        x0, z0, x1, z1 = canon["lerfing"]["inner"]
+        mask_note = "# Only Lerfing's imported map plus a strip of the generated sea is rendered; the free lands further out are not."
     start = tomllib.loads(ANCHORS.read_text(encoding="utf-8"))["tempest"]
     o = [HEADER, "# Life 2: the canon Tensura continent in the overworld of world-ttl (design/lore/world.md).",
          f"world: {q(WORLD)}", 'dimension: "minecraft:overworld"', 'name: "Tensura (Life 2)"', "sorting: 0",
          f"start-pos: {{ x: {start['x']}, z: {start['z']} }}", "",
-         "# Only Lerfing's imported map plus a strip of the generated sea is rendered; the free lands further out are not.",
+         mask_note,
          "render-mask: [",
          "  {",
          f"    min-x: {x0 - PAD}", f"    max-x: {x1 + PAD}", f"    min-z: {z0 - PAD}", f"    max-z: {z1 + PAD}",
