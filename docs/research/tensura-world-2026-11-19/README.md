@@ -1,3 +1,7 @@
+## Current-source larger-island proposal
+
+[Complete inactive candidate](../../../world/island-proportion-current-review.md) carries current Filtwood and early-trail choices,37reviewed island replacements,default checker and fresh normal export. Ledger358;only one authored proposal record added. Active source555c842f and original painting remain unchanged;owner size choice still pending.
+
 ## LN12 licensed eastbound source
 
 [Selected prologue review](ln12-eastbound-source-review.md) adds one scoped primary claim,357records. Actual45/45endpoint inspected;Canaat/Dwargon chapters remain unread. No geometry,art or runtime changes;source555c842f retained.

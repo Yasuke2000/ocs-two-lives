@@ -9,7 +9,7 @@ The post-Kijin map now includes Yasuke's approved Filtwood western forest-edge p
 | Geometry and checked preview | [map.svg](map.svg) · [preview.png](preview.png);58sites,23roads |
 | Named original illustration | [Painted atlas](painting-round112/atlas.png) · [marked terrain](atlas.png) |
 | Export versus illustration | [Same-frame comparison](painting-round112/current-source-comparison.png) |
-| Geography and evidence | [Regions](regions.md) · [357-record ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) · [official reference comparison](comparison.md) |
+| Geography and evidence | [Regions](regions.md) · [358-record ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) · [official reference comparison](comparison.md) |
 | Place concepts | [58image/sheet pairs](../docs/art/places/README.md) |
 | Current approval and checks | [Filtwood adoption](filtwood-approved.md) · [audit](filtwood-approved-audit.json) · [delivery manifest](current-delivery.json) |
 | Initial story state | [Immediately after Kijin naming](era.md),anime S1E10 |
@@ -25,3 +25,5 @@ The143-entry location inventory still has42physical follow-ups. Source gaps,C05m
 The requested `chatgpt/world-map` draft now includes the approved-Filtwood and source-review item PRs, plus upstream main history. Both document conflicts were resolved with both histories retained. The [consolidation audit](consolidation-audit.json) records current checker/test scope and the protected-path comparison. Runtime, mod and tools match upstream main except for the five earlier owner-approved geography records and the newly approved single arrival-road kind. No main merge or deployment.
 
 [Approved early Tempest trail adoption](early-tempest-trails-review.md): both Tempest routes are unpaved at the initial snapshot;all points retained,later paving is separate. Updated original painting and comparison follow the same source.
+
+[Updated full-layer larger-island candidate](island-proportion-current-review.md) follows current source555c842f with its approved Filtwood and early trails;normal74.6s,all13finite lake cases pass. It remains inactive pending the island-size choice;current painting still represents the active smaller-island map.

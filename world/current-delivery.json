@@ -25,13 +25,13 @@
   "registered_places": 58,
   "roads": 23,
   "facts": {
-    "records": 357,
-    "sha256": "387df190f36581f4e8dae4be471e4740c3ba3871bc0e1a691313bd8e0f4745c1",
+    "records": 358,
+    "sha256": "86599be76ba984c15cad7f6d40f7036103b6068a0fa26d42bf0d85b6e7c2d1ac",
     "confidence_counts": {
       "canon-explicit": 129,
       "canon-implied": 41,
       "fan-wiki": 44,
-      "our interpretation": 143
+      "our interpretation": 144
     }
   },
   "inventory_records": 143,
@@ -1595,6 +1595,28 @@
       "validation_passed": false,
       "changed_js_files": 0,
       "dependency": "Same retained Filtwood legacy U grid versus owner-approved J anchor."
+    }
+  },
+  "inactive_current_island_candidate": {
+    "source_sha256": "97667b2a506b81011c8bb01a6d0abd30e731cc1c6781a37dd0af7633eaf5aaa4",
+    "active_source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+    "production_replaced": false,
+    "owner_choice_pending": true,
+    "review": "island-proportion-current-review.md",
+    "normal_seconds": 74.6,
+    "normal_skip_check": false,
+    "default_checker_errors": 0,
+    "relations": 56,
+    "finite_lakes_passed": 13,
+    "repository_gate": {
+      "passed": false,
+      "tests": 494,
+      "seconds": 66.671,
+      "failures": 2,
+      "skipped": 26,
+      "validation_passed": false,
+      "changed_js_files": 0,
+      "dependency": "Same retained legacy Filtwood U grid versus owner-approved J anchor."
     }
   }
 }
