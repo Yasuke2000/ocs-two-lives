@@ -50,7 +50,7 @@
 					dimension: "minecraft:overworld"
 					id: "1FE8E4CBC11567AE"
 					ignore_dimension: false
-					position: [I; 1230, -64, 410]
+					position: [I; -270, -64, -550]
 					size: [I; 301, 384, 301]
 					type: "location"
 				}

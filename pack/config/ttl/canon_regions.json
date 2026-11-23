@@ -43,7 +43,7 @@
       "banner_subtitle": "ジュラ・テンペスト連邦国",
       "biomes": [["minecraft:forest", 4], ["minecraft:birch_forest", 3], ["minecraft:old_growth_birch_forest", 2], ["minecraft:flower_forest", 2], ["minecraft:plains", 2], ["minecraft:swamp", 1]],
       "zones": {
-        "centre": [1720, 900],
+        "centre": [0, 0],
         "fade": 50,
         "rings": [
           {
@@ -282,217 +282,217 @@
     {
       "name": "Tempest (Rimuru, capital of the Federation)",
       "kind": "capital",
-      "at": [1720, 900]
+      "at": [0, 0]
     },
     {
       "name": "Sealed Cave (Veldora's prison, Rimuru's birthplace)",
       "kind": "cave",
-      "at": [1380, 560]
+      "at": [-120, -400]
     },
     {
       "name": "Old goblin village (Rigurd's tribe)",
       "kind": "village",
-      "at": [1390, 710]
+      "at": [-530, -220]
     },
     {
       "name": "Lake Siss",
       "kind": "lake",
-      "at": [3050, 750]
+      "at": [1100, -100]
     },
     {
       "name": "Lizardmen's caverns (Gabiru, Avalos)",
       "kind": "cave",
-      "at": [3300, 1200]
+      "at": [1300, 520]
     },
     {
       "name": "Orc War battlefield (Lake Siss marsh)",
       "kind": "battlefield",
-      "at": [3600, 1250]
+      "at": [1750, 550]
     },
     {
       "name": "Great Ameld River source (Canaat foothills)",
       "kind": "river",
-      "at": [2500, -200]
+      "at": [200, -1240]
     },
     {
       "name": "Great Ameld River mouth",
       "kind": "river",
-      "at": [4580, 2300]
+      "at": [2150, 1250]
     },
     {
       "name": "Hidden ogre village (Kijin homeland, burned)",
       "kind": "ruin",
-      "at": [2150, 400]
+      "at": [500, 300]
     },
     {
       "name": "Treyni's grove (Dryad sanctuary)",
       "kind": "forest",
-      "at": [1920, 1540]
+      "at": [320, 470]
     },
     {
       "name": "Dwargo (Dwargon cavern capital)",
       "kind": "capital",
-      "at": [1878, -644]
+      "at": [780, -1490]
     },
     {
       "name": "Dwargon main gate",
       "kind": "gate",
-      "at": [1878, -544]
+      "at": [780, -1390]
     },
     {
       "name": "Dragon's Nest (highest peak of the Great Canaat Mountains)",
       "kind": "mountain",
-      "at": [2420, -1536]
+      "at": [350, -2000]
     },
     {
       "name": "Marris (Falmuth capital)",
       "kind": "capital",
-      "at": [-2000, -1450]
+      "at": [-1800, -1650]
     },
     {
       "name": "Siltrosso",
       "kind": "city",
-      "at": [-2450, -1650]
+      "at": [-2297, -1370]
     },
     {
       "name": "Blumund capital (Londo)",
       "kind": "capital",
-      "at": [-450, 150]
+      "at": [-1500, -620]
     },
     {
       "name": "Ballachia",
       "kind": "town",
-      "at": [-1660, -460]
+      "at": [-2450, -450]
     },
     {
       "name": "Englassia capital (Lura): Freedom Academy, Free Guild HQ",
       "kind": "capital",
-      "at": [-2150, -410]
+      "at": [-2900, -550]
     },
     {
       "name": "Holy City Lubelius (Lune)",
       "kind": "capital",
-      "at": [-2550, -700]
+      "at": [-3600, -1300]
     },
     {
       "name": "Sacred Mountain (Inner Sanctum, Luminous)",
       "kind": "mountain",
-      "at": [-2980, -900]
+      "at": [-3900, -1600]
     },
     {
       "name": "Coleus",
       "kind": "town",
-      "at": [-3080, 600]
+      "at": [-3520, -860]
     },
     {
       "name": "Morgdahl",
       "kind": "capital",
-      "at": [-2440, 740]
+      "at": [-3200, 330]
     },
     {
       "name": "Nostraille",
       "kind": "capital",
-      "at": [-1780, 550]
+      "at": [-2550, 330]
     },
     {
       "name": "Ghastone",
       "kind": "town",
-      "at": [-2000, 300]
+      "at": [-3200, -300]
     },
     {
       "name": "Rostia",
       "kind": "town",
-      "at": [-2100, 1000]
+      "at": [-2780, 200]
     },
     {
       "name": "Yuzalgh",
       "kind": "capital",
-      "at": [-1580, 650]
+      "at": [-2350, 300]
     },
     {
       "name": "Yggdonia",
       "kind": "capital",
-      "at": [-1400, 300]
+      "at": [-2150, -80]
     },
     {
       "name": "Filtwood",
       "kind": "town",
-      "at": [-900, 700]
+      "at": [-1200, 2750]
     },
     {
       "name": "Raja",
       "kind": "capital",
-      "at": [-2050, 760]
+      "at": [-2850, 360]
     },
     {
       "name": "Sainte Malukshure",
       "kind": "town",
-      "at": [-2500, 1300]
+      "at": [-100, 2000]
     },
     {
       "name": "Elmine (Sarion capital in the Divine Tree)",
       "kind": "capital",
-      "at": [1100, 2760]
+      "at": [-1680, 1740]
     },
     {
       "name": "Galut / Ulgr Nature Park (Ulgracia)",
       "kind": "capital",
-      "at": [-1040, 1060]
+      "at": [-950, 2850]
     },
     {
       "name": "Heaven Tower (Dagruel, Damargania)",
       "kind": "capital",
-      "at": [-4500, 560]
+      "at": [-4200, -200]
     },
     {
       "name": "Golden City of El Dorado (Leon)",
       "kind": "capital",
-      "at": [-3300, 4300]
+      "at": [-4300, 3000]
     },
     {
       "name": "El Dorado volcano",
       "kind": "volcano",
-      "at": [-2850, 4600]
+      "at": [-3900, 3200]
     },
     {
       "name": "Frost Palace (Guy Crimson)",
       "kind": "palace",
-      "at": [-1980, -4300]
+      "at": [-1530, -3680]
     },
     {
       "name": "Nasca (Eastern Empire capital)",
       "kind": "capital",
-      "at": [5100, -2680]
+      "at": [3200, -1800]
     },
     {
       "name": "Great Holy Mountain (Velgrynd)",
       "kind": "volcano",
-      "at": [5120, -1860]
+      "at": [3350, -1350]
     },
     {
       "name": "Amrita (Jistav capital)",
       "kind": "capital",
-      "at": [6100, -650]
+      "at": [3800, -500]
     },
     {
       "name": "Clayman's Castle",
       "kind": "palace",
-      "at": [5620, -900]
+      "at": [3300, -600]
     },
     {
       "name": "City of the Forgotten Dragon (Milim)",
       "kind": "capital",
-      "at": [4680, 840]
+      "at": [2650, 800]
     },
     {
       "name": "Laura (Eurazania capital, rebuilt)",
       "kind": "capital",
-      "at": [3300, 2600]
+      "at": [1500, 1600]
     },
     {
       "name": "Jia (Fulbrosia capital, Frey)",
       "kind": "capital",
-      "at": [-2700, 1500]
+      "at": [200, 2450]
     }
   ],
   "sites": []

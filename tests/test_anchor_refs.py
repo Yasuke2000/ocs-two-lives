@@ -128,11 +128,8 @@ class AnchorRefs(unittest.TestCase):
                 with self.subTest(landmark=lm["name"], keepout=k["id"]):
                     self.assertGreater(gap((lm["x"] - r, lm["z"] - r, lm["x"] + r, lm["z"] + r), k), 0)
 
-    def test_lizardmen_village_on_the_lake_clear_of_lerfings_huts(self):
+    def test_lizardmen_village_by_lake_siss(self):
         lv = self.anchors["lizardmen_village"]
-        huts = [k for k in self.keepouts if k["id"].startswith("lerfing_lake_village")]
-        self.assertEqual(len(huts), 9)
-        self.assertGreater(min(gap((lv["x"], lv["z"], lv["x"], lv["z"]), k) for k in huts), 48 + 64)
         self.assertLess(math.hypot(lv["x"] - self.anchors["lake_siss"]["x"], lv["z"] - self.anchors["lake_siss"]["z"]), 400)
 
 

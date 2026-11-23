@@ -668,9 +668,9 @@ const TtlData = {
       "safe_radius": 48,
       "search": 40,
       "version": 1,
-      "x": 1660,
+      "x": 0,
       "yaw": -149,
-      "z": -100
+      "z": -1000
     }
   },
   "artifice": {
@@ -1173,8 +1173,8 @@ const TtlData = {
       "radius": 48,
       "smithy": {
         "anchor": "kaijin_smithy",
-        "x": 1866,
-        "z": -628
+        "x": 768,
+        "z": -1474
       }
     }
   },
@@ -1294,8 +1294,8 @@ const TtlData = {
           "at": {
             "anchor": "tempest",
             "radius": 48,
-            "x": 1720,
-            "z": 900
+            "x": 0,
+            "z": 0
           },
           "kind": "quest"
         },
@@ -1344,8 +1344,8 @@ const TtlData = {
           "at": {
             "anchor": "orc_camp",
             "radius": 64,
-            "x": 3600,
-            "z": 1250
+            "x": 1750,
+            "z": 550
           },
           "kind": "quest"
         },
@@ -1418,8 +1418,8 @@ const TtlData = {
             "anchor": "tempest",
             "dz": 40,
             "radius": 48,
-            "x": 1720,
-            "z": 940
+            "x": 0,
+            "z": 40
           },
           "kind": "event"
         },
@@ -1539,8 +1539,8 @@ const TtlData = {
         "arena": {
           "anchor": "tempest",
           "radius": 48,
-          "x": 1720,
-          "z": 900
+          "x": 0,
+          "z": 0
         },
         "cooldown_hours": 48,
         "entity": "tensura:shizu",
@@ -1693,8 +1693,8 @@ const TtlData = {
           "at": {
             "anchor": "lake_siss",
             "radius": 96,
-            "x": 3050,
-            "z": 750
+            "x": 1100,
+            "z": -100
           },
           "kind": "quest"
         },
@@ -1738,8 +1738,8 @@ const TtlData = {
           "at": {
             "anchor": "dwargon_throne",
             "radius": 40,
-            "x": 1878,
-            "z": -650
+            "x": 780,
+            "z": -1496
           },
           "kind": "statue",
           "statue": "ttl_gazel"
@@ -1780,8 +1780,8 @@ const TtlData = {
           "at": {
             "anchor": "shizu_spawn",
             "radius": 48,
-            "x": 1300,
-            "z": 820
+            "x": -420,
+            "z": -80
           },
           "kind": "quest",
           "stages": [
@@ -1842,8 +1842,8 @@ const TtlData = {
         "arena": {
           "anchor": "tempest",
           "radius": 48,
-          "x": 1720,
-          "z": 900
+          "x": 0,
+          "z": 0
         },
         "cooldown_hours": 72,
         "entity": "tensura_neb:rimuru_ogre_fight",
@@ -2131,8 +2131,8 @@ const TtlData = {
       ],
       "title": "Amrita — Buried Gallery of Jistav",
       "version": 1,
-      "x": 6100,
-      "z": -650
+      "x": 3800,
+      "z": -500
     },
     {
       "anchor": [
@@ -2161,8 +2161,8 @@ const TtlData = {
       ],
       "title": "Ballachia — The Freed Travellers' Yard",
       "version": 2,
-      "x": -1660,
-      "z": -460
+      "x": -2450,
+      "z": -450
     },
     {
       "anchor": [
@@ -2190,8 +2190,8 @@ const TtlData = {
       ],
       "title": "Blumund — Londo",
       "version": 4,
-      "x": -450,
-      "z": 150
+      "x": -1500,
+      "z": -620
     },
     {
       "anchor": [
@@ -2220,8 +2220,8 @@ const TtlData = {
       ],
       "title": "Clayman's Castle — the Puppet Nation of Jistav",
       "version": 2,
-      "x": 5620,
-      "z": -900
+      "x": 3300,
+      "z": -600
     },
     {
       "anchor": [
@@ -2250,8 +2250,8 @@ const TtlData = {
       ],
       "title": "Coleus — The Palace of Herbaria",
       "version": 1,
-      "x": -3080,
-      "z": 600
+      "x": -3520,
+      "z": -860
     },
     {
       "anchor": [
@@ -2280,8 +2280,8 @@ const TtlData = {
       ],
       "title": "The Dragon's Nest",
       "version": 2,
-      "x": 2420,
-      "z": -1536
+      "x": 350,
+      "z": -2000
     },
     {
       "anchor": [
@@ -2310,8 +2310,8 @@ const TtlData = {
       ],
       "title": "The Dwarven Arena",
       "version": 2,
-      "x": 2100,
-      "z": -90
+      "x": 1100,
+      "z": -980
     },
     {
       "anchor": [
@@ -2338,8 +2338,8 @@ const TtlData = {
       ],
       "title": "Golden City of El Dorado — Leon’s Audience Court",
       "version": 1,
-      "x": -3300,
-      "z": 4300
+      "x": -4300,
+      "z": 3000
     },
     {
       "anchor": [
@@ -2368,8 +2368,8 @@ const TtlData = {
       ],
       "title": "Elmine — Terrace of the Divine Tree",
       "version": 1,
-      "x": 1100,
-      "z": 2760
+      "x": -1680,
+      "z": 1740
     },
     {
       "anchor": [
@@ -2397,8 +2397,8 @@ const TtlData = {
       ],
       "title": "Englassia — Lura",
       "version": 4,
-      "x": -2150,
-      "z": -410
+      "x": -2900,
+      "z": -550
     },
     {
       "anchor": [
@@ -2427,8 +2427,8 @@ const TtlData = {
       ],
       "title": "City of the Forgotten Dragon — Milim's domain",
       "version": 3,
-      "x": 4680,
-      "z": 840
+      "x": 2650,
+      "z": 800
     },
     {
       "anchor": [
@@ -2457,8 +2457,8 @@ const TtlData = {
       ],
       "title": "The Frost Palace — Guy Crimson's gate",
       "version": 1,
-      "x": -1980,
-      "z": -4300
+      "x": -1530,
+      "z": -3680
     },
     {
       "anchor": [
@@ -2486,8 +2486,8 @@ const TtlData = {
       ],
       "title": "Scorching God Mountain — Velgrynd’s sanctuary",
       "version": 1,
-      "x": 5120,
-      "z": -1860
+      "x": 3350,
+      "z": -1350
     },
     {
       "anchor": [
@@ -2516,8 +2516,8 @@ const TtlData = {
       ],
       "title": "Heaven Tower — Holy Void of Damargania",
       "version": 1,
-      "x": -4500,
-      "z": 560
+      "x": -4200,
+      "z": -200
     },
     {
       "anchor": [
@@ -2546,8 +2546,8 @@ const TtlData = {
       ],
       "title": "Jia — Frey's Landing Court",
       "version": 1,
-      "x": -2700,
-      "z": 1500
+      "x": 200,
+      "z": 2450
     },
     {
       "anchor": [
@@ -2576,8 +2576,8 @@ const TtlData = {
       ],
       "title": "Laura — capital of the Beast Kingdom of Eurazania",
       "version": 3,
-      "x": 3300,
-      "z": 2600
+      "x": 1500,
+      "z": 1600
     },
     {
       "anchor": [
@@ -2605,8 +2605,8 @@ const TtlData = {
       ],
       "title": "Holy City Lubelius — Lune",
       "version": 2,
-      "x": -2550,
-      "z": -700
+      "x": -3600,
+      "z": -1300
     },
     {
       "anchor": [
@@ -2634,8 +2634,8 @@ const TtlData = {
       ],
       "title": "Marris — Falmuth",
       "version": 4,
-      "x": -2000,
-      "z": -1450
+      "x": -1800,
+      "z": -1650
     },
     {
       "anchor": [
@@ -2664,8 +2664,8 @@ const TtlData = {
       ],
       "title": "Morgdahl — The Timber Landing",
       "version": 1,
-      "x": -2440,
-      "z": 740
+      "x": -3200,
+      "z": 330
     },
     {
       "anchor": [
@@ -2868,8 +2868,8 @@ const TtlData = {
       ],
       "title": "Nasca — Imperial audience court",
       "version": 1,
-      "x": 5100,
-      "z": -2680
+      "x": 3200,
+      "z": -1800
     },
     {
       "anchor": [
@@ -2898,8 +2898,8 @@ const TtlData = {
       ],
       "title": "Nostraille — The Wool Hall",
       "version": 1,
-      "x": -1780,
-      "z": 550
+      "x": -2550,
+      "z": 330
     },
     {
       "anchor": [
@@ -2928,8 +2928,8 @@ const TtlData = {
       ],
       "title": "Raja — The Old Lakeside Workings",
       "version": 1,
-      "x": -2050,
-      "z": 760
+      "x": -2850,
+      "z": 360
     },
     {
       "anchor": [
@@ -2957,8 +2957,8 @@ const TtlData = {
       ],
       "title": "Sacred Mountain — the seal of the Inner Sanctum",
       "version": 1,
-      "x": -2980,
-      "z": -900
+      "x": -3900,
+      "z": -1600
     },
     {
       "anchor": [
@@ -2987,8 +2987,8 @@ const TtlData = {
       ],
       "title": "The Sealed Cave: Veldora's prison, Rimuru's birthplace",
       "version": 2,
-      "x": 1380,
-      "z": 560
+      "x": -120,
+      "z": -400
     },
     {
       "anchor": [
@@ -3017,8 +3017,8 @@ const TtlData = {
       ],
       "title": "Siltrosso — The Rosso counting court",
       "version": 1,
-      "x": -2450,
-      "z": -1650
+      "x": -2297,
+      "z": -1370
     },
     {
       "anchor": [
@@ -3076,8 +3076,8 @@ const TtlData = {
       ],
       "title": "The gate to the Dwelling of the Spirits",
       "version": 2,
-      "x": 1570,
-      "z": 1130
+      "x": -285,
+      "z": 350
     },
     {
       "anchor": [
@@ -3136,8 +3136,8 @@ const TtlData = {
       ],
       "title": "Treyni's shrine",
       "version": 4,
-      "x": 1958,
-      "z": 1540
+      "x": 500,
+      "z": 600
     },
     {
       "anchor": [
@@ -3166,8 +3166,8 @@ const TtlData = {
       ],
       "title": "Ulgr Nature Park — The Spirit Trail",
       "version": 1,
-      "x": -1040,
-      "z": 1060
+      "x": -950,
+      "z": 2850
     },
     {
       "anchor": [
@@ -4617,8 +4617,8 @@ const TtlData = {
         "radius": 10,
         "regen_minutes": 8,
         "title": "bandit camp south of the Dwarven Road's bend",
-        "x": 1818,
-        "z": 420
+        "x": 79,
+        "z": -705
       },
       {
         "count": 3,
@@ -4631,8 +4631,8 @@ const TtlData = {
         "radius": 10,
         "regen_minutes": 8,
         "title": "bandit camp north of the Dwarven Road's bend",
-        "x": 1800,
-        "z": 170
+        "x": 37,
+        "z": -1181
       },
       {
         "count": 3,
@@ -4646,8 +4646,8 @@ const TtlData = {
         "radius": 10,
         "regen_minutes": 8,
         "title": "highwaymen's hide on the Blumund road",
-        "x": 700,
-        "z": 548
+        "x": -524,
+        "z": -477
       },
       {
         "count": 3,
@@ -4661,8 +4661,8 @@ const TtlData = {
         "radius": 10,
         "regen_minutes": 8,
         "title": "highwaymen's hide near Blumund's border",
-        "x": 60,
-        "z": 330
+        "x": -1150,
+        "z": -421
       },
       {
         "count": 4,
@@ -4675,8 +4675,8 @@ const TtlData = {
         "radius": 12,
         "regen_minutes": 10,
         "title": "deserters' camp on the Falmuth border",
-        "x": -2050,
-        "z": -860
+        "x": -2099,
+        "z": -1310
       },
       {
         "count": 3,
@@ -4689,8 +4689,8 @@ const TtlData = {
         "radius": 10,
         "regen_minutes": 10,
         "title": "deserters' hollow on the Falmuth border",
-        "x": -2160,
-        "z": -960
+        "x": -2229,
+        "z": -1194
       },
       {
         "count": 3,
@@ -4703,8 +4703,8 @@ const TtlData = {
         "radius": 10,
         "regen_minutes": 12,
         "title": "rogue adventurers' camp in Jura's west woods",
-        "x": 1100,
-        "z": 420
+        "x": -347,
+        "z": -340
       },
       {
         "count": 3,
@@ -4717,8 +4717,8 @@ const TtlData = {
         "radius": 10,
         "regen_minutes": 12,
         "title": "rogue adventurers' camp east of Englassia",
-        "x": -1750,
-        "z": -160
+        "x": -2597,
+        "z": -357
       }
     ],
     "group": {
@@ -5042,8 +5042,8 @@ const TtlData = {
           ],
           "capital": "tempest",
           "center": [
-            1720,
-            888
+            0,
+            -12
           ],
           "landmarks": [
             "goblin_village",
@@ -5091,8 +5091,8 @@ const TtlData = {
           ],
           "capital": "dwargon",
           "center": [
-            1878,
-            -580
+            780,
+            -1426
           ]
         },
         "id": "dwargon",
@@ -5133,8 +5133,8 @@ const TtlData = {
           ],
           "capital": "build:blumund",
           "center": [
-            -450,
-            150
+            -1500,
+            -620
           ]
         },
         "id": "blumund",
@@ -5168,8 +5168,8 @@ const TtlData = {
           ],
           "capital": "build:marris",
           "center": [
-            -2000,
-            -1450
+            -1800,
+            -1650
           ]
         },
         "id": "falmuth",
@@ -5208,8 +5208,8 @@ const TtlData = {
           ],
           "capital": "build:lubelius",
           "center": [
-            -2550,
-            -700
+            -3600,
+            -1300
           ]
         },
         "id": "holy_church",
@@ -5278,8 +5278,8 @@ const TtlData = {
           "capital": "landmark:lizardmen_caverns",
           "capital_radius": 128,
           "center": [
-            3300,
-            1200
+            1300,
+            520
           ],
           "landmarks": [
             "lizardmen_village",
@@ -5316,8 +5316,8 @@ const TtlData = {
           ],
           "capital": "build:laura",
           "center": [
-            3300,
-            2600
+            1500,
+            1600
           ]
         },
         "id": "eurazania",
@@ -6326,8 +6326,8 @@ const TtlData = {
         "surface": "land",
         "title": "Old goblin village (Rigurd's tribe)",
         "version": 2,
-        "x": 1390,
-        "z": 710
+        "x": -530,
+        "z": -220
       },
       {
         "canon": "Lake Siss",
@@ -6345,8 +6345,8 @@ const TtlData = {
         "surface": "water",
         "title": "Lizardmen's village on Lake Siss",
         "version": 2,
-        "x": 3184,
-        "z": 988
+        "x": 1100,
+        "z": 265
       },
       {
         "canon": "Lizardmen's caverns (Gabiru, Avalos)",
@@ -6364,8 +6364,8 @@ const TtlData = {
         "surface": "land",
         "title": "Lizardmen's caverns (Gabiru, Avalos)",
         "version": 2,
-        "x": 3300,
-        "z": 1200
+        "x": 1300,
+        "z": 520
       },
       {
         "canon": "Orc War battlefield (Lake Siss marsh)",
@@ -6398,8 +6398,8 @@ const TtlData = {
         "surface": "land",
         "title": "Orc camp at the Orc War battlefield",
         "version": 2,
-        "x": 3600,
-        "z": 1250
+        "x": 1750,
+        "z": 550
       },
       {
         "name": "dwarf_village",
@@ -6416,8 +6416,8 @@ const TtlData = {
         "surface": "land",
         "title": "Dwarf village on the Dwarven Road",
         "version": 2,
-        "x": 2000,
-        "z": -110
+        "x": 1000,
+        "z": -1000
       },
       {
         "canon": "Hidden ogre village (Kijin homeland, burned)",
@@ -6435,8 +6435,8 @@ const TtlData = {
         "surface": "land",
         "title": "Burned ruin at the hidden ogre village",
         "version": 2,
-        "x": 2150,
-        "z": 400
+        "x": 500,
+        "z": 300
       },
       {
         "canon": "Treyni's grove (Dryad sanctuary)",
@@ -6454,8 +6454,8 @@ const TtlData = {
         "surface": "land",
         "title": "Treyni's grove (dryad sanctuary)",
         "version": 2,
-        "x": 1920,
-        "z": 1540
+        "x": 320,
+        "z": 470
       }
     ]
   },
@@ -7672,10 +7672,10 @@ const TtlData = {
         "kind": "outcast_contact",
         "surface": true,
         "tag": "ttl.npc.outcast_contact",
-        "x": 1720,
+        "x": 0,
         "y": 64,
         "yaw": 180,
-        "z": 952
+        "z": 52
       },
       {
         "anchor": "build",
@@ -8579,9 +8579,9 @@ const TtlData = {
         ],
         "radius": 10,
         "title": "the wayfarers' camp on Jura's rim",
-        "x": 1675,
+        "x": 15,
         "y": 0,
-        "z": -85
+        "z": -985
       },
       {
         "anchor": "landmark",
@@ -8610,9 +8610,9 @@ const TtlData = {
         ],
         "radius": 10,
         "title": "the Blumund road camp at Jura's edge",
-        "x": -250,
+        "x": -1340,
         "y": 0,
-        "z": 250
+        "z": -520
       },
       {
         "anchor": "world",
@@ -8627,9 +8627,9 @@ const TtlData = {
         ],
         "radius": 10,
         "title": "the Englassia road post",
-        "x": -1880,
+        "x": -2650,
         "y": 0,
-        "z": -500
+        "z": -520
       },
       {
         "anchor": "landmark",
@@ -8669,9 +8669,9 @@ const TtlData = {
         "cap": 0,
         "id": "old_well",
         "title": "the old well on the Blumund road",
-        "x": 300,
+        "x": -1000,
         "y": 0,
-        "z": 410
+        "z": -340
       },
       {
         "anchor": "world",
@@ -8679,9 +8679,9 @@ const TtlData = {
         "cap": 0,
         "id": "rookie_camp",
         "title": "the abandoned rookie camp",
-        "x": 1550,
+        "x": -120,
         "y": 0,
-        "z": -60
+        "z": -560
       }
     ],
     "quest": [

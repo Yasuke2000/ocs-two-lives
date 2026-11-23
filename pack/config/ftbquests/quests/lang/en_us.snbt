@@ -47,7 +47,7 @@
 	chapter.378BD420FE635504.title: "Daily Deeds: Jura"
 	chapter.3CFEA682A10FDD1C.chapter_subtitle: [
 		"Dwargon: a kingdom of smiths behind a white gate."
-		"About 1,500 blocks north of Tempest, cut into the southern face of the Great Canaat Mountains, lies the dwarf kingdom of Dwargon: a neutral trade hub inside a cavern, ruled for three hundred years by the Hero King Gazel Dwargo. It is where Kaijin was judged, and where every smith in the world wants to work."
+		"About 1,600 blocks north-east of Tempest, cut into the southern face of the Great Canaat Mountains, lies the dwarf kingdom of Dwargon: a neutral trade hub inside a cavern, ruled for three hundred years by the Hero King Gazel Dwargo. It is where Kaijin was judged, and where every smith in the world wants to work."
 	]
 	chapter.3CFEA682A10FDD1C.title: "The Armed Nation"
 	chapter.3DD6FBE383605A48.chapter_subtitle: [
@@ -141,7 +141,7 @@
 	chapter.738ADA3283D061B5.title: "A Life That Counts"
 	chapter.7BD0671B53FE48F5.chapter_subtitle: [
 		"Your second life begins in the Forest of Jura."
-		"Your soul has crossed. The Forest of Jura, the monster town of Tempest, the dwarves of Dwargon far to the north and Lake Siss to the east: this is the world of Tensura, and you are part of it now."
+		"Your soul has crossed. The Forest of Jura, the monster town of Tempest, the dwarves of Dwargon far to the north-east and Lake Siss to the east: this is the world of Tensura, and you are part of it now."
 	]
 	chapter.7BD0671B53FE48F5.title: "Reborn"
 	chapter_group.089866DB8636BACD.title: "First Life — the Mortal Realm"
@@ -455,7 +455,7 @@
 	quest.0C9933D5EB683ACC.quest_subtitle: "Wander"
 	quest.0C9933D5EB683ACC.title: "Into the Dark Forest"
 	quest.0D4D0DF9B4020101.quest_desc: [
-		"On the west road to Blumund, at x 1300, z 820, use /ttl story fight hinata_sakaguchi. Hinata once learned from Shizu. She believes she has found the monster responsible for her teacher’s death. Behind you, Tempest’s defenders are losing their magic to another barrier."
+		"On the west road to Blumund, at x -420, z -80, use /ttl story fight hinata_sakaguchi. Hinata once learned from Shizu. She believes she has found the monster responsible for her teacher’s death. Behind you, Tempest’s defenders are losing their magic to another barrier."
 		""
 		"A credited victory over Hinata costs 30 Holy Church reputation. That cost applies to either oath."
 		""
@@ -629,7 +629,7 @@
 	quest.1585311527965ABC.quest_subtitle: "Act III"
 	quest.1585311527965ABC.title: "The Orc War"
 	quest.16275F334E658FCF.quest_desc: [
-		"At the Sealed Cave, near x 1380, z 560, stand by its placed entrance and claim the trial. Veldora answers someone who helped defeat Charybdis. If the encounter is cooling down, return later and use /ttl story fight veldora. In the anime Raphael analyzes the prison and Rimuru releases his friend. The trial is our version of that return."
+		"At the Sealed Cave, near x -120, z -400, stand by its placed entrance and claim the trial. Veldora answers someone who helped defeat Charybdis. If the encounter is cooling down, return later and use /ttl story fight veldora. In the anime Raphael analyzes the prison and Rimuru releases his friend. The trial is our version of that return."
 		""
 		"&7&o“Unlimited Imprisonment was the first problem Rimuru promised to solve for a friend.”&r"
 		""
@@ -874,7 +874,7 @@
 	quest.1E7D098A7387BF0C.quest_subtitle: "Capstone"
 	quest.1E7D098A7387BF0C.title: "Friend of the Forges"
 	quest.1ECB5979C243CC5A.quest_desc: [
-		"Go to Tempest’s south gate near x 1720, z 940 and use /ttl story fight folgen. In this telling the field commander leads Falmuth’s attack. The people behind the gate need the road held long enough to get the wounded indoors."
+		"Go to Tempest’s south gate near x 0, z 40 and use /ttl story fight folgen. In this telling the field commander leads Falmuth’s attack. The people behind the gate need the road held long enough to get the wounded indoors."
 		""
 		"&7&o“On the Blumund road one barrier closed around Rimuru. At home another stripped Tempest’s defenders of their strength.”&r"
 	]
@@ -1518,7 +1518,7 @@
 	]
 	quest.3E7E77BB944CF7E0.title: "Pigs on Two Legs"
 	quest.3E952054AC18967B.quest_desc: [
-		"Carry the honey offering to the City of the Forgotten Dragon, about 3,000 blocks east of Tempest."
+		"Carry the honey offering to the City of the Forgotten Dragon, about 2,800 blocks east of Tempest."
 		""
 		"&7&o“The offering was accepted. The jar was licked clean before you reached the gate on your way out.”&r"
 	]
@@ -1903,7 +1903,7 @@
 	quest.51BE6D1FFA78B4AF.quest_subtitle: "Five ways of life"
 	quest.51BE6D1FFA78B4AF.title: "The Ledger"
 	quest.51FF35F087F1E23D.quest_desc: [
-		"Milim arrived at Tempest like a storm and stayed for the honey: Rimuru calmed the Dragonoid Demon Lord with something sweet and she called him a friend (anime season 1, episode 16). A friend of Tempest is worth a few jars. Take eight bottles of honey to Milim's domain, in the badlands far to the east, beyond Lake Siss (about 3,000 blocks from Tempest), and ask what she thinks of the lake."
+		"Milim arrived at Tempest like a storm and stayed for the honey: Rimuru calmed the Dragonoid Demon Lord with something sweet and she called him a friend (anime season 1, episode 16). A friend of Tempest is worth a few jars. Take eight bottles of honey to Milim's domain, in the badlands far to the east, beyond Lake Siss (about 2,800 blocks from Tempest), and ask what she thinks of the lake."
 		""
 		"Hand in eight honey bottles in the City of the Forgotten Dragon, where Milim keeps her court."
 	]
@@ -1938,7 +1938,7 @@
 		""
 		"Take a boat out to the middle of the lake (open water, about a hundred blocks from any shore) and claim the reward to bring it up. It rises over the water, summons nothing but waves, and turns furious at 60% and again at 30% of its health. Bring a party and keep the boat steady."
 		""
-		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis from your boat, within 96 blocks of the arena's centre (x 3050, z 750)."
+		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis from your boat, within 96 blocks of the arena's centre (x 1100, z -100)."
 	]
 	quest.531A7A2DD9F75DC8.quest_subtitle: "Begin the fight"
 	quest.531A7A2DD9F75DC8.title: "Face the Whirlpool"
@@ -2085,7 +2085,7 @@
 		""
 		"Take a boat out to the middle of the lake and claim the reward to bring it up. It rises over the water and turns furious at 60% and again at 30% of its health. The claim also records the story flag \"charybdis_woke\"."
 		""
-		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis from your boat, within 96 blocks of the arena's centre (x 3050, z 750)."
+		"&6If the call fails&r (Charybdis is already out, or still resting from the last fight: 72 hours), type /ttl story fight charybdis from your boat, within 96 blocks of the arena's centre (x 1100, z -100)."
 	]
 	quest.59F4870034DD1420.quest_subtitle: "Begin the fight"
 	quest.59F4870034DD1420.title: "Wake the Calamity"
@@ -2614,7 +2614,7 @@
 	]
 	quest.6F54281B6FBEDD14.title: "The Stronghold"
 	quest.7070BCCFF604CC3C.quest_desc: [
-		"To the north-west of Tempest lies the cave where the Storm Dragon Veldora was sealed for three hundred years, and where a slime woke up with a Great Sage in his head."
+		"To the north of Tempest lies the cave where the Storm Dragon Veldora was sealed for three hundred years, and where a slime woke up with a Great Sage in his head."
 	]
 	quest.7070BCCFF604CC3C.title: "The Sealed Cave"
 	quest.7084AFF4A1F3AAC4.quest_desc: [
@@ -2748,7 +2748,7 @@
 	quest.77B55FED87C57904.quest_desc: [
 		"Treyni is the dryad who keeps the forest, the one who first asked Rimuru to end the Orc Lord (anime season 1, episode 11). Her shrine lies in the south of the forest, beyond the river that drains Jura's lakes. She knows the calamity's name and she will say it once."
 		""
-		"The way is not short (the shrine is about 700 blocks south of Tempest, and the road leaves the dark forest behind only at the end). Go to the grove and stand in her shrine."
+		"The way is not short (the shrine is about 800 blocks south-east of Tempest, and the road leaves the dark forest behind only at the end). Go to the grove and stand in her shrine."
 	]
 	quest.77B55FED87C57904.quest_subtitle: "A road south (optional)"
 	quest.77B55FED87C57904.title: "Treyni's Warning"
@@ -2759,7 +2759,7 @@
 	]
 	quest.77FAE029ED2DC6B6.title: "The King’s Otherworlders"
 	quest.782264F2B6B57D9D.quest_desc: [
-		"Treyni, the dryad who guards the forest, keeps a shrine in the south of the forest, about 700 blocks south of Tempest. Pilgrims leave flowers; adventurers leave quietly."
+		"Treyni, the dryad who guards the forest, keeps a shrine in the south of the forest, about 800 blocks south-east of Tempest. Pilgrims leave flowers; adventurers leave quietly."
 		""
 		"&7&o“The trees leaned in to listen. You chose your words carefully.”&r"
 	]

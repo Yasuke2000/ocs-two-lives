@@ -1,7 +1,7 @@
 // Places early Tempest (blueprints/tempest.py → structures ttl:tempest_0..n, one z slab each) in the Tensura
 // world: the hobgoblin village just after the ogres joined, in a forest clearing. Its arrival point (the south
-// edge of the village green, signpost beside it) goes on the tempest anchor of design/data/anchors.toml (Lerfing's
-// map: the middle of Jura, 1720, 900), read from TtlAnchors (generated/anchors.js); move it there, not here (gen_data
+// edge of the village green, signpost beside it) goes on the tempest anchor of design/data/anchors.toml (the own
+// world: the middle of Jura, 0, 0), read from TtlAnchors (generated/anchors.js); move it there, not here (gen_data
 // checks that the fallback literal below equals the anchor). Bump TTL_TEMPEST_VERSION after changing the blueprint; a
 // world reset of the overworld places it again on the new terrain (world_reset.js).
 //
@@ -30,7 +30,7 @@ const TTL_TEMPEST_VERSION = 4
 
 const TtlTempest = {
   // World position of the arrival point (anchors.toml tempest); its blueprint coordinates are TtlTempestFootprint.arrival.
-  LANDMARK: typeof TtlAnchors !== 'undefined' && TtlAnchors.tempest ? { x: TtlAnchors.tempest.x, z: TtlAnchors.tempest.z } : { x: 1720, z: 900 },
+  LANDMARK: typeof TtlAnchors !== 'undefined' && TtlAnchors.tempest ? { x: TtlAnchors.tempest.x, z: TtlAnchors.tempest.z } : { x: 0, z: 0 },
   PROBE: 'ttl_tempest_probe',
   RESIDENT: 'ttl_tempest_resident',
   FILLS_PER_TICK: 150,

@@ -10,12 +10,12 @@ import gen_data  # noqa: E402
 
 
 class BuildDataTests(unittest.TestCase):
-    def test_landmarks_carry_lerfing_coordinates(self):
+    def test_landmarks_carry_the_anchor_coordinates(self):
         canon = json.loads(gen_data.CANON.read_text(encoding="utf-8"))
-        # Lerfing's map: Tempest stands in the middle of Jura at its anchor (design/data/anchors.toml).
+        # Tempest's canon landmark stands at its anchor (design/data/anchors.toml; build.py --apply moves them together).
         at = next(lm["at"] for lm in canon["landmarks"] if lm["name"].startswith("Tempest"))
-        self.assertEqual(gen_data.landmark_world(at), (1720, 900))
-        self.assertEqual((gen_data.anchor_table()["tempest"]["x"], gen_data.anchor_table()["tempest"]["z"]), (1720, 900))
+        t = gen_data.anchor_table()["tempest"]
+        self.assertEqual(gen_data.landmark_world(at), (t["x"], t["z"]))
 
     def test_footprint_of_the_test_hut(self):
         fp = gen_data.read_footprint(gen_data.structure_files("test_hut"))

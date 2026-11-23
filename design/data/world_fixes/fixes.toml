@@ -8,42 +8,5 @@
 #   commands absolute-coordinate commands, run in order in the overworld (fill <= 32768 blocks each); a fill whose
 #            filter finds nothing is a no-op ("No blocks were filled"), counted as nothing to do, never as a failure
 
-[raja_lava]
-title = "Raja: the surface lava pool south-east of the workings"
-why = "Place audit 19/11/2026 (staging): a surface lava pool about 15 blocks south-east of Raja's box (box x -2058..-1979, z 699..768, ground y 73), outside the repair ring (8 columns), clearly visible on the map. Filled with dirt at the surface (grass spreads back), stone below; nothing but lava and fire is touched."
-version = 1
-area = [-1990, 755, -1930, 815]
-commands = [
-  "fill -1990 70 755 -1930 80 775 minecraft:dirt replace minecraft:lava",
-  "fill -1990 70 776 -1930 80 795 minecraft:dirt replace minecraft:lava",
-  "fill -1990 70 796 -1930 80 815 minecraft:dirt replace minecraft:lava",
-  "fill -1990 60 755 -1930 69 785 minecraft:stone replace minecraft:lava",
-  "fill -1990 60 786 -1930 69 815 minecraft:stone replace minecraft:lava",
-  "fill -1990 70 755 -1930 84 785 minecraft:air replace minecraft:fire",
-  "fill -1990 70 786 -1930 84 815 minecraft:air replace minecraft:fire",
-]
-
-[sacred_mountain_water]
-title = "Sacred Mountain: water pockets in the box and on its north edge"
-why = "Place audit 19/11/2026 (staging): the build is cut into a steep slope; 86 water cells stand in its box above the ground and 16 in the ring, pockets on the north edge (box x -3036..-2956, z -932..-852, ground y 120), one where a moss carpet belongs (-3012 120 -929). The blueprint holds no water at all, so every water cell from y 116 up to 143 in the box and the north ring becomes dirt; the carpet goes back."
-version = 1
-area = [-3044, -940, -2948, -852]
-commands = [
-  "fill -3036 116 -932 -2956 143 -919 minecraft:dirt replace minecraft:water",
-  "fill -3036 116 -918 -2956 143 -905 minecraft:dirt replace minecraft:water",
-  "fill -3036 116 -904 -2956 143 -891 minecraft:dirt replace minecraft:water",
-  "fill -3036 116 -890 -2956 143 -877 minecraft:dirt replace minecraft:water",
-  "fill -3036 116 -876 -2956 143 -863 minecraft:dirt replace minecraft:water",
-  "fill -3036 116 -862 -2956 143 -852 minecraft:dirt replace minecraft:water",
-  "fill -3044 116 -940 -2948 143 -933 minecraft:dirt replace minecraft:water",
-  "setblock -3012 120 -929 minecraft:moss_carpet",
-]
-
-[frost_palace_skirt]
-title = "Frost Palace: snow on the dirt skirt south of the palace"
-why = "Place audit 19/11/2026 (staging): a brown dirt skirt along the south edge of the box on the snowfield (box x -2018..-1934, z -4369..-4301, ground y 73). The blueprint holds no dirt; dirt in the south band (the box's last rows and the 8-column ring, y 66..80) becomes snow block."
-version = 1
-area = [-2026, -4310, -1926, -4290]
-commands = [
-  "fill -2026 66 -4310 -1926 80 -4290 minecraft:snow_block replace minecraft:dirt",
-]
+# OWN WORLD (own-world-switch): no fixes. raja_lava, sacred_mountain_water and frost_palace_skirt repaired defects of
+# Lerfing's imported terrain at its coordinates; on the own world those boxes are other places (git history has them).

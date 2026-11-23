@@ -27,11 +27,13 @@ site = "clearing"
 r = 60
 min_r = 60
 biome = "minecraft:plains"
+y = 76
 
 [wayfarers_camp]
 site = "clearing"
 r = 8
 min_r = 8
+y = 76
 
 [sealed_cave]
 site = "carve"
@@ -46,12 +48,14 @@ facing = "south"
 min_cover = 6
 clear_above = false
 ground = "fixed"
+y = 77
 
 [goblin_village]
 site = "village"
 r = 56
 min_r = 56
 biome = "minecraft:plains"
+y = 73
 
 [spirit_gate]
 site = "lakeside"
@@ -64,21 +68,25 @@ height = 30
 biome = "minecraft:plains"
 facing = "auto"
 ground = "fixed"
+y = 70
 
 [shizu_spawn]
 site = "clearing"
 r = 8
 min_r = 8
+y = 72
 
 [outcast_road]
 site = "clearing"
 r = 8
 min_r = 8
+y = 70
 
 [treyni_grove]
 site = "village"
 r = 56
 min_r = 56
+y = 72
 
 [treyni_shrine]
 site = "clearing"
@@ -90,12 +98,14 @@ margin = 8
 height = 12
 biome = "minecraft:meadow"
 ground = "fixed"
+y = 71
 
 [ogre_village_ruin]
 site = "village"
 r = 32
 min_r = 32
 biome = "minecraft:windswept_forest"
+y = 105
 
 [dwargon]
 site = "carve"
@@ -115,22 +125,26 @@ y = 146
 site = "clearing"
 r = 8
 min_r = 8
+y = 188
 
 [dwargon_throne]
 site = "clearing"
 r = 8
 min_r = 8
+y = 182
 
 [kaijin_smithy]
 site = "clearing"
 r = 8
 min_r = 8
+y = 198
 
 [dwarf_village]
 site = "village"
 r = 124
 min_r = 124
 biome = "minecraft:meadow"
+y = 73
 
 [dwarven_arena]
 site = "clearing"
@@ -142,6 +156,7 @@ margin = 8
 height = 25
 biome = "minecraft:meadow"
 ground = "fixed"
+y = 73
 
 [dragons_nest]
 site = "clearing"
@@ -160,16 +175,19 @@ y = 272
 site = "clearing"
 r = 8
 min_r = 8
+y = 91
 
 [ameld_mouth]
 site = "coast"
 r = 8
 min_r = 8
+y = 63
 
 [lake_siss]
 site = "lakeside"
 r = 96
 min_r = 8
+y = 66
 
 [lizardmen_village]
 site = "lakeside"
@@ -178,6 +196,7 @@ min_r = 56
 biome = "minecraft:swamp"
 facing = "auto"
 surface = "water"
+y = 65
 
 [lizardmen_caverns]
 site = "carve"
@@ -186,12 +205,14 @@ min_r = 64
 biome = "minecraft:swamp"
 facing = "auto"
 min_cover = 6
+y = 102
 
 [orc_camp]
 site = "village"
 r = 60
 min_r = 48
 biome = "minecraft:plains"
+y = 72
 
 [blumund]
 site = "clearing"
@@ -202,6 +223,7 @@ plate = [140, 132]
 margin = 8
 height = 28
 ground = "fixed"
+y = 72
 
 [ballachia]
 site = "clearing"
@@ -213,6 +235,7 @@ margin = 12
 height = 30
 facing = "auto"
 ground = "fixed"
+y = 72
 
 [englassia]
 site = "clearing"
@@ -223,6 +246,7 @@ plate = [144, 128]
 margin = 8
 height = 53
 ground = "fixed"
+y = 76
 
 [marris]
 site = "clearing"
@@ -233,6 +257,7 @@ plate = [152, 128]
 margin = 8
 height = 38
 ground = "fixed"
+y = 67
 
 [siltrosso]
 site = "coast"
@@ -244,6 +269,7 @@ margin = 12
 height = 23
 facing = "auto"
 ground = "fixed"
+y = 65
 
 [lubelius]
 site = "plateau"
@@ -254,6 +280,7 @@ plate = [136, 136]
 margin = 8
 height = 54
 ground = "fixed"
+y = 71
 
 [sacred_mountain]
 site = "plateau"
@@ -264,6 +291,7 @@ plate = [113, 113]
 margin = 16
 height = 47
 ground = "fixed"
+y = 175
 
 [coleus]
 site = "clearing"
@@ -275,6 +303,7 @@ margin = 10
 height = 40
 biome = "minecraft:desert"
 ground = "fixed"
+y = 75
 
 [heaven_tower]
 site = "clearing"
@@ -286,6 +315,7 @@ margin = 16
 height = 56
 biome = "minecraft:desert"
 ground = "fixed"
+y = 73
 
 [morgdahl]
 site = "clearing"
@@ -297,6 +327,7 @@ margin = 10
 height = 21
 facing = "auto"
 ground = "fixed"
+y = 72
 
 [raja]
 site = "lakeside"
@@ -308,6 +339,7 @@ margin = 12
 height = 21
 facing = "auto"
 ground = "fixed"
+y = 74
 
 [nostraille]
 site = "clearing"
@@ -318,36 +350,43 @@ plate = [96, 88]
 margin = 12
 height = 16
 ground = "fixed"
+y = 76
 
 [yuzalgh]
 site = "clearing"
 r = 8
 min_r = 8
+y = 76
 
 [yggdonia]
 site = "clearing"
 r = 8
 min_r = 8
+y = 75
 
 [filtwood]
 site = "clearing"
 r = 8
 min_r = 8
+y = 65
 
 [ghastone]
 site = "clearing"
 r = 8
 min_r = 8
+y = 72
 
 [rostia]
 site = "clearing"
 r = 8
 min_r = 8
+y = 73
 
 [sainte_malukshure]
 site = "clearing"
 r = 8
 min_r = 8
+y = 69
 
 [ulgr_nature_park]
 site = "plateau"
@@ -358,6 +397,7 @@ plate = [91, 85]
 margin = 10
 height = 21
 ground = "fixed"
+y = 112
 
 [elmine]
 site = "clearing"
@@ -368,6 +408,7 @@ plate = [91, 91]
 margin = 8
 height = 56
 ground = "fixed"
+y = 104
 
 [jia]
 site = "plateau"
@@ -378,6 +419,7 @@ plate = [97, 93]
 margin = 12
 height = 32
 ground = "fixed"
+y = 235
 
 [laura]
 site = "clearing"
@@ -388,6 +430,7 @@ plate = [129, 129]
 margin = 8
 height = 28
 ground = "fixed"
+y = 71
 
 [forgotten_dragon_city]
 site = "clearing"
@@ -398,6 +441,7 @@ plate = [137, 141]
 margin = 8
 height = 28
 ground = "fixed"
+y = 75
 
 [clayman_castle]
 site = "clearing"
@@ -408,6 +452,7 @@ plate = [125, 125]
 margin = 8
 height = 60
 ground = "fixed"
+y = 73
 
 [amrita]
 site = "carve"
@@ -422,6 +467,7 @@ facing = "south"
 min_cover = 6
 clear_above = false
 ground = "fixed"
+y = 89
 
 [nasca]
 site = "plateau"
@@ -432,6 +478,7 @@ plate = [109, 103]
 margin = 12
 height = 32
 ground = "fixed"
+y = 75
 
 [great_holy_mountain]
 site = "clearing"
@@ -442,6 +489,7 @@ plate = [113, 109]
 margin = 12
 height = 34
 ground = "fixed"
+y = 247
 
 [el_dorado]
 site = "clearing"
@@ -453,11 +501,13 @@ margin = 16
 height = 32
 facing = "auto"
 ground = "fixed"
+y = 73
 
 [el_dorado_volcano]
 site = "clearing"
 r = 8
 min_r = 8
+y = 197
 
 [frost_palace]
 site = "clearing"
@@ -470,23 +520,28 @@ height = 46
 biome = "minecraft:snowy_plains"
 facing = "auto"
 ground = "fixed"
+y = 71
 
 [blumund_road]
 site = "clearing"
 r = 8
 min_r = 8
+y = 71
 
 [englassia_road]
 site = "clearing"
 r = 8
 min_r = 8
+y = 73
 
 [old_well]
 site = "clearing"
 r = 8
 min_r = 8
+y = 76
 
 [rookie_camp]
 site = "clearing"
 r = 8
 min_r = 8
+y = 73

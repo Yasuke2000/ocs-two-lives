@@ -17,6 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import enemies_check  # noqa: E402
+import anchor_refs  # noqa: E402
 import gen_npcs  # noqa: E402
 
 DATA_JS = ROOT / "pack" / "kubejs" / "server_scripts" / "ttl" / "generated" / "data.js"
@@ -51,8 +52,13 @@ class Enemies(unittest.TestCase):
 
     def test_camp_spots_are_refused(self):
         tempest = DATA["factions"]["faction"][0]["domain"]["center"]
-        for x, z, why in ((tempest[0], tempest[1] - 300, "domain or spawn zone"), (1690, -60, "the arrival"),
-                          (2000, -150, "the dwarf village"), (-1500, -700, "sea")):
+        a = anchor_refs.table()
+        box = json.loads((ROOT / "pack" / "config" / "ttl" / "world" / "index.json").read_text(encoding="utf-8"))["box"] \
+            if (ROOT / "pack" / "config" / "ttl" / "world" / "index.json").is_file() else {"x0": -9000, "z0": -7000}
+        for x, z, why in ((tempest[0], tempest[1] - 300, "domain or spawn zone"),
+                          (a["arrival"]["x"] + 30, a["arrival"]["z"] + 40, "the arrival"),
+                          (a["dwarf_village"]["x"] + 20, a["dwarf_village"]["z"] + 20, "the dwarf village"),
+                          (box["x0"] + 200, box["z0"] + 200, "sea")):
             en = fresh()
             c = camp(en, "dwarven_road_south")
             c["x"], c["z"] = x, z

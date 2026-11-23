@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import anchor_refs  # noqa: E402
 import gen_data  # noqa: E402
 
 
@@ -47,9 +48,11 @@ class DomainDataTests(unittest.TestCase):
     def test_shipped_domains_are_valid_and_centred(self):
         fac = copy.deepcopy(self.data["factions"])
         self.run_check(fac)
-        # Lerfing's map: the centres follow design/data/anchors.toml (Tempest 1720, 900; Laura 3300, 2600).
-        self.assertEqual(self.faction(fac, "tempest")["domain"]["center"], [1720, 888])
-        self.assertEqual(self.faction(fac, "eurazania")["domain"]["center"], [3300, 2600])
+        # The centres follow design/data/anchors.toml: Tempest's square sits 12 north of its arrival point (the growth
+        # square's middle), Eurazania's on Laura.
+        a = anchor_refs.table()
+        self.assertEqual(self.faction(fac, "tempest")["domain"]["center"], [a["tempest"]["x"], a["tempest"]["z"] - 12])
+        self.assertEqual(self.faction(fac, "eurazania")["domain"]["center"], [a["laura"]["x"], a["laura"]["z"]])
 
     def test_eurazania_is_a_faction_and_no_longer_pending(self):
         eur = self.faction(self.data["factions"], "eurazania")
@@ -84,9 +87,11 @@ class DomainDataTests(unittest.TestCase):
         self.bad(lambda f: self.faction(f, "tempest").update(territory="everything"))
 
     def test_the_life2_arrival_stays_free(self):
-        # The arrival (anchors.toml, 1660, -100) lies on the way to Dwargon's gate (1878, -544): a
-        # Dwargon capital square of 500 would reach it and must fail.
-        self.bad(lambda f: self.faction(f, "dwargon")["domain"].update(capital_radius=500))
+        # The arrival lies on the way from Tempest to Dwargon's gate: a Dwargon capital square just large enough to
+        # reach it must fail.
+        a = anchor_refs.table()
+        reach = max(abs(a["arrival"]["x"] - a["dwargon"]["x"]), abs(a["arrival"]["z"] - a["dwargon"]["z"])) + 16
+        self.bad(lambda f: self.faction(f, "dwargon")["domain"].update(capital_radius=reach))
 
     def test_boss_area_stays_outside(self):
         world = copy.deepcopy(self.data["world"])

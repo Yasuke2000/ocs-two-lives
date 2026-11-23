@@ -30,7 +30,9 @@ TARGET = ROOT / "pack" / "kubejs" / "server_scripts" / "ttl" / "generated" / "da
 ANCHORS_JS = ROOT / "pack" / "kubejs" / "server_scripts" / "ttl" / "generated" / "anchors.js"
 FOOTPRINTS = ROOT / "pack" / "kubejs" / "server_scripts" / "ttl" / "generated" / "builds.js"
 CANON = ROOT / "pack" / "config" / "ttl" / "canon_regions.json"
-CANON_MAP = ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
+# The grid the mod reads (CanonMap): the own world's (tools/world/build.py --apply) when present, else Lerfing's.
+_OWN_WORLD_MAP = ROOT / "pack" / "config" / "ttl" / "world" / "canon_map.txt"
+CANON_MAP = _OWN_WORLD_MAP if _OWN_WORLD_MAP.is_file() else ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
 STRUCTURES = ROOT / "pack" / "kubejs" / "data" / "ttl" / "structure"
 SCRIPTS = ROOT / "pack" / "kubejs" / "server_scripts" / "ttl"
 NONE = -999  # "no value" in the footprint grids (same marker as blueprints/_footprint.py)

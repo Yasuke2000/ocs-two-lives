@@ -37,8 +37,9 @@
 
 [tempest]
 name = "Tempest (Rimuru, capital of the Federation)"
-x = 1720
-z = 900
+x = 0
+z = 0
+y = 70
 region = "J"
 kind = "settlement"
 surface = "land"
@@ -49,8 +50,9 @@ notes = "Middle of Jura (§3.2): y 63/65/68, relief 5, the lake at x 1500..1600 
 
 [arrival]
 name = "Life 2 arrival (world spawn), yaw -149"
-x = 1660
-z = -100
+x = 0
+z = -1000
+y = 76
 region = "J"
 kind = "arrival"
 surface = "land"
@@ -60,8 +62,9 @@ notes = "Jura's safe outer rim on the way from Tempest to the Dwargon gate, 1,00
 
 [wayfarers_camp]
 name = "Wayfarers' camp on Jura's rim (sidequests rim_camp)"
-x = 1675
-z = -85
+x = 15
+z = -985
+y = 76
 region = "J"
 kind = "spot"
 surface = "land"
@@ -75,8 +78,9 @@ notes = "Arrival-relative."
 
 [sealed_cave]
 name = "Sealed Cave (Veldora's prison, Rimuru's birthplace)"
-x = 1380
-z = 560
+x = -120
+z = -400
+y = 77
 region = "J"
 kind = "build"
 surface = "land"
@@ -88,8 +92,9 @@ notes = "A mesa of the spire field (y 75/85/123), cave mouth in its south face; 
 
 [goblin_village]
 name = "Old goblin village (Rigurd's tribe)"
-x = 1390
-z = 710
+x = -530
+z = -220
+y = 73
 region = "J"
 kind = "landmark"
 surface = "land"
@@ -101,8 +106,9 @@ notes = "Moved from the design's (1480, 720), which is 45 % lake: 90 blocks west
 
 [spirit_gate]
 name = "Spirit Gate (Ramiris' doorway)"
-x = 1570
-z = 1130
+x = -285
+z = 350
+y = 70
 region = "J"
 kind = "build"
 surface = "land"
@@ -113,8 +119,9 @@ notes = "275 SSW of Tempest (WP-L4: moved from the design's (1540, 1080), whose 
 
 [shizu_spawn]
 name = "Hinata's ambush west of Tempest (bosses.toml hinata_sakaguchi spawn, r 48)"
-x = 1300
-z = 820
+x = -420
+z = -80
+y = 72
 region = "J"
 kind = "spot"
 surface = "land"
@@ -128,8 +135,9 @@ notes = "West of the lake, as today's (-400, -60). The id is the design's (§3.2
 
 [outcast_road]
 name = "The Outcast on Tempest's south road"
-x = 1720
-z = 952
+x = 0
+z = 52
+y = 70
 region = "J"
 kind = "spot"
 surface = "land"
@@ -143,8 +151,9 @@ notes = "Tempest-relative, unchanged offset."
 
 [treyni_grove]
 name = "Treyni's grove (Dryad sanctuary)"
-x = 1920
-z = 1540
+x = 320
+z = 470
+y = 72
 region = "J"
 kind = "landmark"
 surface = "land"
@@ -156,8 +165,9 @@ notes = "660 SE of Tempest, east of the river that drains Jura's lakes; y 73/74/
 
 [treyni_shrine]
 name = "Treyni's shrine (beside the grove's tree)"
-x = 1958
-z = 1540
+x = 500
+z = 600
+y = 71
 region = "J"
 kind = "build"
 surface = "land"
@@ -168,8 +178,9 @@ notes = "Grove + 38 east, beside = treyni_grove as today."
 
 [ogre_village_ruin]
 name = "Hidden ogre village (Kijin homeland, burned)"
-x = 2150
-z = 400
+x = 500
+z = 300
+y = 105
 region = "J"
 kind = "landmark"
 surface = "land"
@@ -184,8 +195,9 @@ notes = "North foot of the east-Jura massif ('north-eastern hills'), y 81/89/99.
 [dwargon]
 name = "Dwargon main gate (TtlDwargon.GATE)"
 title = "Dwargon"
-x = 1878
-z = -544
+x = 780
+z = -1390
+y = 146
 region = "D"
 kind = "settlement"
 surface = "land"
@@ -196,8 +208,9 @@ notes = "Inside the mountain (§3.3, WP-L7b): the gate at the foot of the escarp
 
 [dwargo]
 name = "Dwargo (Dwargon cavern capital)"
-x = 1878
-z = -644
+x = 780
+z = -1490
+y = 188
 region = "D"
 kind = "pin"
 surface = "land"
@@ -211,8 +224,9 @@ notes = "City centre pin, under the mountain."
 
 [dwargon_throne]
 name = "Gazel's throne room (statue)"
-x = 1878
-z = -650
+x = 780
+z = -1496
+y = 182
 region = "D"
 kind = "spot"
 surface = "land"
@@ -226,8 +240,9 @@ notes = "Dwargon-relative (bosses.toml Gazel statue)."
 
 [kaijin_smithy]
 name = "Kaijin's smithy"
-x = 1866
-z = -628
+x = 768
+z = -1474
+y = 198
 region = "D"
 kind = "spot"
 surface = "land"
@@ -239,8 +254,9 @@ notes = "Dwargon-relative (artifice.toml smithy)."
 
 [dwarf_village]
 name = "Dwarf village on the road to Dwargon"
-x = 2000
-z = -110
+x = 1000
+z = -1000
+y = 73
 region = "D"
 kind = "landmark"
 surface = "land"
@@ -251,8 +267,9 @@ notes = "150 east of the road on the apron foot, y 78/81/88, dry."
 
 [dwarven_arena]
 name = "Dwarven Arena"
-x = 2100
-z = -90
+x = 1100
+z = -980
+y = 73
 region = "D"
 kind = "build"
 surface = "land"
@@ -266,8 +283,9 @@ notes = "Part of the dwarf village (owner 19/11/2026: \"the arena is not even in
 
 [dragons_nest]
 name = "Dragon's Nest (highest peak of the Great Canaat Mountains)"
-x = 2420
-z = -1536
+x = 350
+z = -2000
+y = 272
 region = "D"
 kind = "build"
 surface = "land"
@@ -279,8 +297,9 @@ notes = "Summit shoulder y ~273, relief 4, 100 N of the lava lake under the 316 
 
 [ameld_source]
 name = "Great Ameld River source (Canaat foothills)"
-x = 2500
-z = -200
+x = 200
+z = -1240
+y = 91
 region = "D"
 kind = "pin"
 surface = "land"
@@ -291,8 +310,9 @@ notes = "Apron foot; the brook that feeds the Jura lakes (our reading)."
 
 [ameld_mouth]
 name = "Great Ameld River mouth"
-x = 4580
-z = 2300
+x = 2150
+z = 1250
+y = 63
 region = "MB"
 kind = "pin"
 surface = "water"
@@ -305,8 +325,9 @@ notes = "Moved from the design's (4500, 2400), which is the bay's west shore (la
 
 [lake_siss]
 name = "Lake Siss (Charybdis arena centre, r 96)"
-x = 3050
-z = 750
+x = 1100
+z = -100
+y = 66
 region = "W"
 kind = "pin"
 surface = "water"
@@ -317,8 +338,9 @@ notes = "Lerfing's lake with its marsh ring and his stilt-hut village on the wat
 
 [lizardmen_village]
 name = "Lizardmen's stilt village"
-x = 3184
-z = 988
+x = 1100
+z = 265
+y = 65
 region = "W"
 kind = "landmark"
 surface = "shore"
@@ -329,8 +351,9 @@ notes = "South shore of Lake Siss, swamp, part water (surface = water in landmar
 
 [lizardmen_caverns]
 name = "Lizardmen's caverns (Gabiru, Avalos)"
-x = 3300
-z = 1200
+x = 1300
+z = 520
+y = 102
 region = "W"
 kind = "landmark"
 surface = "land"
@@ -342,8 +365,9 @@ notes = "Moved 50 south of the design's (3300, 1150), whose centre is lake: the 
 
 [orc_camp]
 name = "Orc War battlefield (Orc Lord, Orc Disaster)"
-x = 3600
-z = 1250
+x = 1750
+z = 550
+y = 72
 region = "W"
 kind = "landmark"
 surface = "land"
@@ -358,8 +382,9 @@ notes = "South-east of the lake where the marsh meets Eurazania's jungle: Geld's
 [blumund]
 name = "Blumund capital (Londo): Fuze, the guild"
 title = "Blumund"
-x = -450
-z = 150
+x = -1500
+z = -620
+y = 72
 region = "R"
 kind = "build"
 surface = "land"
@@ -371,8 +396,9 @@ notes = "The small kingdom right at Jura's door, by the inlet; y 75/79/85."
 
 [ballachia]
 name = "Ballachia"
-x = -1660
-z = -460
+x = -2450
+z = -450
+y = 72
 region = "G"
 kind = "build"
 surface = "land"
@@ -385,8 +411,9 @@ notes = "On the eastbound road between Londo and Lura, Englassian side; flat."
 [englassia]
 name = "Englassia capital (Lura): Freedom Academy, Free Guild HQ"
 title = "Englassia"
-x = -2150
-z = -410
+x = -2900
+z = -550
+y = 76
 region = "G"
 kind = "build"
 surface = "land"
@@ -398,8 +425,9 @@ notes = "Centre of the western plain, y 65/66/66."
 
 [marris]
 name = "Marris (Falmuth capital)"
-x = -2000
-z = -1450
+x = -1800
+z = -1650
+y = 67
 region = "F"
 kind = "build"
 surface = "land"
@@ -411,8 +439,9 @@ notes = "The north arm, north-west of Jura, by the sea."
 
 [siltrosso]
 name = "Siltrosso"
-x = -2450
-z = -1650
+x = -2297
+z = -1370
+y = 65
 region = "F"
 kind = "build"
 surface = "land"
@@ -424,8 +453,9 @@ notes = "The arm's western tip, in Falmuth's neighbourhood."
 
 [lubelius]
 name = "Holy City Lubelius (Lune)"
-x = -2550
-z = -700
+x = -3600
+z = -1300
+y = 71
 region = "L"
 kind = "build"
 surface = "land"
@@ -437,8 +467,9 @@ notes = "East foot of the north-west ridge."
 
 [sacred_mountain]
 name = "Sacred Mountain (Inner Sanctum, Luminous)"
-x = -2980
-z = -900
+x = -3900
+z = -1600
+y = 175
 region = "L"
 kind = "build"
 surface = "land"
@@ -450,8 +481,9 @@ notes = "On the ridge (y 111/124/148, peak 187 at (-2976, -992)), the only real 
 
 [coleus]
 name = "Coleus"
-x = -3080
-z = 600
+x = -3520
+z = -860
+y = 75
 region = "V"
 kind = "build"
 surface = "land"
@@ -463,8 +495,9 @@ notes = "The Damargania border: desert edge, y 72/74/76."
 
 [heaven_tower]
 name = "Heaven Tower (Dagruel, Damargania)"
-x = -4500
-z = 560
+x = -4200
+z = -200
+y = 73
 region = "V"
 kind = "build"
 surface = "land"
@@ -476,8 +509,9 @@ notes = "Deep in the desert, relief 1."
 
 [morgdahl]
 name = "Morgdahl"
-x = -2440
-z = 740
+x = -3200
+z = 330
+y = 72
 region = "O"
 kind = "build"
 surface = "land"
@@ -489,8 +523,9 @@ notes = "Moved from the design's (-2350, 750), which is in the river (93 % water
 
 [raja]
 name = "Raja"
-x = -2050
-z = 760
+x = -2850
+z = 360
+y = 74
 region = "A"
 kind = "build"
 surface = "land"
@@ -502,8 +537,9 @@ notes = "On the belt's lake, as its lore asks (repair_keep_water)."
 
 [nostraille]
 name = "Nostraille"
-x = -1780
-z = 550
+x = -2550
+z = 330
+y = 76
 region = "N"
 kind = "build"
 surface = "land"
@@ -515,8 +551,9 @@ notes = "Quiet hill kingdom east of Raja, y 81."
 
 [yuzalgh]
 name = "Yuzalgh"
-x = -1580
-z = 650
+x = -2350
+z = 300
+y = 76
 region = "Y"
 kind = "pin"
 surface = "land"
@@ -526,8 +563,9 @@ old_z = 321
 
 [yggdonia]
 name = "Yggdonia"
-x = -1400
-z = 300
+x = -2150
+z = -80
+y = 75
 region = "Q"
 kind = "pin"
 surface = "land"
@@ -537,8 +575,9 @@ old_z = 180
 
 [filtwood]
 name = "Filtwood"
-x = -900
-z = 700
+x = -1200
+z = 2750
+y = 65
 region = "U"
 kind = "pin"
 surface = "land"
@@ -548,8 +587,9 @@ old_z = 616
 
 [ghastone]
 name = "Ghastone"
-x = -2000
-z = 300
+x = -3200
+z = -300
+y = 72
 region = "G"
 kind = "pin"
 surface = "land"
@@ -559,8 +599,9 @@ old_z = 490
 
 [rostia]
 name = "Rostia"
-x = -2100
-z = 1000
+x = -2780
+z = 200
+y = 73
 region = "A"
 kind = "pin"
 surface = "land"
@@ -570,8 +611,9 @@ old_z = 975
 
 [sainte_malukshure]
 name = "Sainte Malukshure"
-x = -2500
-z = 1300
+x = -100
+z = 2000
+y = 69
 region = "H"
 kind = "pin"
 surface = "land"
@@ -581,8 +623,9 @@ old_z = 1291
 
 [ulgr_nature_park]
 name = "Galut / Ulgr Nature Park (Ulgracia)"
-x = -1040
-z = 1060
+x = -950
+z = 2850
+y = 112
 region = "U"
 kind = "build"
 surface = "land"
@@ -596,8 +639,9 @@ notes = "Ulgracia's woodland south of Blumund, y 80/83/86."
 
 [elmine]
 name = "Elmine (Sarion capital in the Divine Tree)"
-x = 1100
-z = 2760
+x = -1680
+z = 1740
+y = 104
 region = "S"
 kind = "build"
 surface = "land"
@@ -609,8 +653,9 @@ notes = "Sarion <-> Fulbrosia swap (owner Q3): Paulzero's giant grove is the Div
 
 [jia]
 name = "Jia (Fulbrosia capital, Frey)"
-x = -2700
-z = 1500
+x = 200
+z = 2450
+y = 235
 region = "H"
 kind = "build"
 surface = "land"
@@ -622,8 +667,9 @@ notes = "A mesa of the south-west crystal hills (owner Q3), terrain kept; y 73/8
 
 [laura]
 name = "Laura (Eurazania capital, rebuilt)"
-x = 3300
-z = 2600
+x = 1500
+z = 1600
+y = 71
 region = "B"
 kind = "build"
 surface = "land"
@@ -635,8 +681,9 @@ notes = "Heart of the jungle peninsula, y 74/81/84."
 
 [forgotten_dragon_city]
 name = "City of the Forgotten Dragon (Milim)"
-x = 4680
-z = 840
+x = 2650
+z = 800
+y = 75
 region = "M"
 kind = "build"
 surface = "land"
@@ -648,8 +695,9 @@ notes = "The lake-and-river plain of the badlands, relief 2."
 
 [clayman_castle]
 name = "Clayman's Castle (Walpurgis gate inside)"
-x = 5620
-z = -900
+x = 3300
+z = -600
+y = 73
 region = "P"
 kind = "build"
 surface = "land"
@@ -661,8 +709,9 @@ notes = "Jistav, south of the Empire's red crater, flat; WP-L1 repaint spot dark
 
 [amrita]
 name = "Amrita (Jistav capital)"
-x = 6100
-z = -650
+x = 3800
+z = -500
+y = 89
 region = "P"
 kind = "build"
 surface = "land"
@@ -674,8 +723,9 @@ notes = "Jistav's plain."
 
 [nasca]
 name = "Nasca (Eastern Empire capital)"
-x = 5100
-z = -2680
+x = 3200
+z = -1800
+y = 75
 region = "E"
 kind = "build"
 surface = "land"
@@ -687,8 +737,9 @@ notes = "The valley north of the crater, relief 1."
 
 [great_holy_mountain]
 name = "Great Holy Mountain (Velgrynd's sanctuary)"
-x = 5120
-z = -1860
+x = 3350
+z = -1350
+y = 247
 region = "E"
 kind = "build"
 surface = "land"
@@ -700,8 +751,9 @@ notes = "NW flank of the red crater (y 110); the crater lake and lava stay."
 
 [el_dorado]
 name = "Golden City of El Dorado (Leon)"
-x = -3300
-z = 4300
+x = -4300
+z = 3000
+y = 73
 region = "X"
 kind = "build"
 surface = "land"
@@ -713,8 +765,9 @@ notes = "The green plain NW of the island's volcano, y 80/85/91."
 
 [el_dorado_volcano]
 name = "El Dorado volcano"
-x = -2850
-z = 4600
+x = -3900
+z = 3200
+y = 197
 region = "X"
 kind = "pin"
 surface = "land"
@@ -725,8 +778,9 @@ notes = "Peak 221 at (-2858, 4672)."
 
 [frost_palace]
 name = "Frost Palace (Guy Crimson)"
-x = -1980
-z = -4300
+x = -1530
+z = -3680
+y = 71
 region = "I"
 kind = "build"
 surface = "land"
@@ -740,8 +794,9 @@ notes = "Legacy Lerfing coordinates remain in this source table until own-world 
 
 [blumund_road]
 name = "Blumund road camp at Jura's edge (sidequests blumund_road)"
-x = -250
-z = 250
+x = -1340
+z = -520
+y = 71
 region = "R"
 kind = "spot"
 surface = "land"
@@ -752,8 +807,9 @@ notes = "On the Londo -> Tempest road, 100 blocks inside Blumund from Jura's bor
 
 [englassia_road]
 name = "Englassia road post (sidequests englassia_road)"
-x = -1880
-z = -500
+x = -2650
+z = -520
+y = 73
 region = "G"
 kind = "spot"
 surface = "land"
@@ -764,8 +820,9 @@ notes = "Between Ballachia and Lura on the eastbound road."
 
 [old_well]
 name = "The old well on the Blumund road (sidequests old_well)"
-x = 300
-z = 410
+x = -1000
+z = -340
+y = 76
 region = "J"
 kind = "spot"
 surface = "land"
@@ -776,8 +833,9 @@ notes = "On the straight road Londo -> Tempest, west Jura, outside the dark band
 
 [rookie_camp]
 name = "The abandoned rookie camp (sidequests rookie_camp)"
-x = 1550
-z = -60
+x = -120
+z = -560
+y = 73
 region = "J"
 kind = "spot"
 surface = "land"
@@ -786,100 +844,6 @@ old_z = -420
 map = false
 notes = "On the rim between the arrival and Tempest, 230 blocks from the arrival, 960 from Tempest (safe rim)."
 
-# --- Lerfing's and Paulzero's own builds (kept 1:1) -------------------------------------------------------------------
-
-# Lerfing's stilt-hut village on Lake Siss is nine hut clusters round the lake (brown stained glass roofs, oak fences),
-# measured on the imported world (WP-L4: every column whose top block is brown_stained_glass, clustered, + 8 blocks).
-# The design's single box (2900..3600 x 400..1000) missed four clusters and covered the whole lake.
-[keepout.lerfing_lake_village_sw]
-name = "Lerfing's lake village: south-west huts"
-x0 = 2814
-z0 = 982
-x1 = 2886
-z1 = 1050
-
-[keepout.lerfing_lake_village_w]
-name = "Lerfing's lake village: west huts"
-x0 = 2700
-z0 = 816
-x1 = 2768
-z1 = 880
-
-[keepout.lerfing_lake_village_c]
-name = "Lerfing's lake village: central huts (north)"
-x0 = 3228
-z0 = 566
-x1 = 3298
-z1 = 644
-
-[keepout.lerfing_lake_village_cs]
-name = "Lerfing's lake village: central huts (south)"
-x0 = 3248
-z0 = 794
-x1 = 3314
-z1 = 862
-
-[keepout.lerfing_lake_village_e]
-name = "Lerfing's lake village: east huts (the main quarter)"
-x0 = 3536
-z0 = 544
-x1 = 3748
-z1 = 792
-
-[keepout.lerfing_lake_village_ne1]
-name = "Lerfing's lake village: north-east huts"
-x0 = 3836
-z0 = 690
-x1 = 3902
-z1 = 758
-
-[keepout.lerfing_lake_village_ne2]
-name = "Lerfing's lake village: north-east huts"
-x0 = 3914
-z0 = 376
-x1 = 3980
-z1 = 442
-
-[keepout.lerfing_lake_village_ne3]
-name = "Lerfing's lake village: north-east huts"
-x0 = 4024
-z0 = 326
-x1 = 4090
-z1 = 394
-
-[keepout.lerfing_lake_village_ne4]
-name = "Lerfing's lake village: north-east huts"
-x0 = 4250
-z0 = 416
-x1 = 4318
-z1 = 486
-
-[keepout.paulzero_grove]
-name = "Paulzero's giant trees (the Divine Tree; 13 'built by Paulzero' signs)"
-x0 = 350
-z0 = 2600
-x1 = 1050
-z1 = 3150
-
-[keepout.lerfing_ice]
-name = "Lerfing's ice crystals on the Ice Continent's south shore (white concrete, glass panes)"
-# WP-L4: measured on the imported world (white concrete / glass panes at -1858..-1586 x -4450..-4308, + 8), joined with
-# the design's box.
-x0 = -1870
-z0 = -4458
-x1 = -1578
-z1 = -4280
-
-[keepout.lerfing_north_islet]
-name = "Lerfing's builds on the north islet (wool, terracotta, flower pots)"
-x0 = -1100
-z0 = -1800
-x1 = -500
-z1 = -1300
-
-[keepout.lerfing_spawn_chest]
-name = "Lerfing's spawn chest (-453, 73, 979)"
-x0 = -460
-z0 = 970
-x1 = -446
-z1 = 988
+# --- Keepouts ----------------------------------------------------------------------------------------------------------
+# None in the own world: the 13 boxes round Lerfing's and Paulzero's builds (lake village huts, Paulzero's grove, the ice
+# crystals, the north islet, the spawn chest) protected builds that exist only in the imported map (git history has them).

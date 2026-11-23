@@ -66,7 +66,7 @@
 					dimension: "minecraft:overworld"
 					id: "38A8072C68EE074E"
 					ignore_dimension: false
-					position: [I; 1708, -64, 868]
+					position: [I; -12, -64, -32]
 					size: [I; 25, 384, 25]
 					type: "location"
 				}
@@ -123,7 +123,7 @@
 					dimension: "minecraft:overworld"
 					id: "14622E57FD07FB48"
 					ignore_dimension: false
-					position: [I; 3180, -64, 1080]
+					position: [I; 1180, -64, 400]
 					size: [I; 241, 384, 241]
 					type: "location"
 				}
@@ -190,7 +190,7 @@
 					dimension: "minecraft:overworld"
 					id: "2D6CA9699822D6C0"
 					ignore_dimension: false
-					position: [I; 3466, -64, 1116]
+					position: [I; 1616, -64, 416]
 					size: [I; 269, 384, 269]
 					type: "location"
 				}
@@ -237,7 +237,7 @@
 					dimension: "minecraft:overworld"
 					id: "1CA4EFBFAE517063"
 					ignore_dimension: false
-					position: [I; 3560, -64, 1210]
+					position: [I; 1710, -64, 510]
 					size: [I; 81, 384, 81]
 					type: "location"
 				}
@@ -333,7 +333,7 @@
 					dimension: "minecraft:overworld"
 					id: "5EBBA2B88DF562DB"
 					ignore_dimension: false
-					position: [I; 3560, -64, 1210]
+					position: [I; 1710, -64, 510]
 					size: [I; 81, 384, 81]
 					type: "location"
 				}
@@ -453,7 +453,7 @@
 					dimension: "minecraft:overworld"
 					id: "2E164C0ACED1E71D"
 					ignore_dimension: false
-					position: [I; 3500, -64, 1150]
+					position: [I; 1650, -64, 450]
 					size: [I; 201, 384, 201]
 					type: "location"
 				}
@@ -520,7 +520,7 @@
 					dimension: "minecraft:overworld"
 					id: "7892E51F264ECCAD"
 					ignore_dimension: false
-					position: [I; 3500, -64, 1150]
+					position: [I; 1650, -64, 450]
 					size: [I; 201, 384, 201]
 					type: "location"
 				}
@@ -577,7 +577,7 @@
 					dimension: "minecraft:overworld"
 					id: "0D1463E16423959A"
 					ignore_dimension: false
-					position: [I; 3180, -64, 1080]
+					position: [I; 1180, -64, 400]
 					size: [I; 241, 384, 241]
 					type: "location"
 				}
@@ -624,7 +624,7 @@
 					dimension: "minecraft:overworld"
 					id: "3A92CBA9FB0EFA1B"
 					ignore_dimension: false
-					position: [I; 3560, -64, 1210]
+					position: [I; 1710, -64, 510]
 					size: [I; 81, 384, 81]
 					type: "location"
 				}
@@ -728,7 +728,7 @@
 					dimension: "minecraft:overworld"
 					id: "79E6D41847D1E679"
 					ignore_dimension: false
-					position: [I; 3560, -64, 1210]
+					position: [I; 1710, -64, 510]
 					size: [I; 81, 384, 81]
 					type: "location"
 				}
@@ -840,7 +840,7 @@
 					dimension: "minecraft:overworld"
 					id: "26BE7BED85C68AD1"
 					ignore_dimension: false
-					position: [I; 3500, -64, 1150]
+					position: [I; 1650, -64, 450]
 					size: [I; 201, 384, 201]
 					type: "location"
 				}

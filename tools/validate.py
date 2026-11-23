@@ -102,6 +102,11 @@ def check_config_text() -> None:
             if not data.startswith(header) or not served.is_file() or data != served.read_bytes():
                 errors.append(f"invalid BlueMap marker or mismatched webroot copy: {p.name}")
             continue
+        if p.parent == PACK / "config/ttl/world" and p.suffix == ".png":
+            # The own world's design rasters (tools/world/build.py --apply; design/architecture/own-world.md §3.8).
+            if not data.startswith(bytes.fromhex("89504e470d0a1a0a")):
+                errors.append(f"not a PNG: {p.relative_to(ROOT)}")
+            continue
         if bytes([0]) in data[:4096]:
             errors.append(f"binary file in pack/config (a mod database?): {p.relative_to(ROOT)}")
 

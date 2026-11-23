@@ -14,7 +14,9 @@ sys.path.insert(0, str(ROOT / "tools"))
 import anchor_refs  # noqa: E402
 import npc_looks  # noqa: E402
 BUILDS = ROOT / "design" / "builds"
-CANON_MAP = ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
+# The grid the mod reads (CanonMap): the own world's (tools/world/build.py --apply) when present, else Lerfing's.
+_OWN_WORLD_MAP = ROOT / "pack" / "config" / "ttl" / "world" / "canon_map.txt"
+CANON_MAP = _OWN_WORLD_MAP if _OWN_WORLD_MAP.is_file() else ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
 ID = re.compile(r"^[a-z][a-z0-9_]*$")
 RES = re.compile(r"^[a-z0-9_.-]+:[a-z0-9_/.-]+$")
 STAGE = re.compile(r"^ttl(\.[a-z0-9_]+)+$")

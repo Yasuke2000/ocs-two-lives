@@ -1,0 +1,2565 @@
+{
+ "what": "Own-world generator rasters (tools/world/svg2rasters.py, design/architecture/own-world.md).",
+ "version": 1,
+ "source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+ "paint": null,
+ "seed": 2026,
+ "box": {
+  "x0": -6656,
+  "z0": -5632,
+  "x1": 6144,
+  "z1": 5120,
+  "width_px": 3200,
+  "height_px": 2688,
+  "content": [
+   -5253,
+   -4376,
+   4730,
+   3670
+  ],
+  "sea_margin": 1200,
+  "region": 512
+ },
+ "pixel": {
+  "blocks": 4,
+  "sample": "centre",
+  "rows": "north to south (+z)",
+  "world_to_px": "u = (x - x0) / 4 - 0.5, v = (z - z0) / 4 - 0.5 (pixel centres)"
+ },
+ "sea_level": 63,
+ "files": {
+  "height": {
+   "file": "height.png",
+   "format": "gray16",
+   "value": "round((H + 64) * 16)",
+   "scale": 16,
+   "offset": 64,
+   "meaning": "H = designed surface = y of the first air block; offset = (H-128)/128"
+  },
+  "rugged": {
+   "file": "rugged.png",
+   "format": "gray8",
+   "value": "round(rugged * 255)",
+   "classes": [
+    [
+     "flat",
+     0.0,
+     0.1,
+     8.0
+    ],
+    [
+     "rolling",
+     0.1,
+     0.45,
+     5.0
+    ],
+    [
+     "hills",
+     0.45,
+     0.75,
+     3.0
+    ],
+    [
+     "alpine",
+     0.75,
+     1.0,
+     1.5
+    ]
+   ],
+   "factor": [
+    [
+     0.0,
+     8.0
+    ],
+    [
+     0.1,
+     8.0
+    ],
+    [
+     0.3,
+     5.0
+    ],
+    [
+     0.6,
+     3.0
+    ],
+    [
+     0.8,
+     1.5
+    ],
+    [
+     1.0,
+     1.5
+    ]
+   ],
+   "jaggedness": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.8,
+     0.0
+    ],
+    [
+     1.0,
+     0.6
+    ]
+   ]
+  },
+  "water": {
+   "file": "water.png",
+   "format": "gray16",
+   "value": "0 = dry, else level + 64",
+   "offset": 64,
+   "meaning": "level = y of the first air above the water; fill sources from the bed to level - 1"
+  },
+  "road": {
+   "file": "road.png",
+   "format": "gray8",
+   "classes": {
+    "none": 0,
+    "corridor": 1,
+    "trail": 2,
+    "main": 3,
+    "trail_bridge": 4,
+    "main_bridge": 5
+   }
+  },
+  "biome": {
+   "file": "biome.png",
+   "format": "palette8",
+   "biomes": [
+    "#ocean",
+    "minecraft:beach",
+    "minecraft:birch_forest",
+    "minecraft:dark_forest",
+    "minecraft:desert",
+    "minecraft:forest",
+    "minecraft:frozen_peaks",
+    "minecraft:jagged_peaks",
+    "minecraft:jungle",
+    "minecraft:meadow",
+    "minecraft:old_growth_birch_forest",
+    "minecraft:old_growth_spruce_taiga",
+    "minecraft:plains",
+    "minecraft:river",
+    "minecraft:snowy_plains",
+    "minecraft:snowy_slopes",
+    "minecraft:sparse_jungle",
+    "minecraft:stony_peaks",
+    "minecraft:swamp",
+    "minecraft:windswept_gravelly_hills",
+    "minecraft:windswept_hills",
+    "minecraft:wooded_badlands",
+    "tensura:ancient_forest",
+    "tensura:barren_land",
+    "tensura:desert_of_death"
+   ],
+   "auto": {
+    "#ocean": "vanilla's ocean biome by depth and temperature"
+   }
+  },
+  "sites": {
+   "file": "sites.png",
+   "format": "gray8",
+   "value": "1-based index into sites (plated, inside r)"
+  },
+  "exclude": {
+   "file": "exclude.png",
+   "format": "gray8",
+   "bits": {
+    "site": 1,
+    "road": 2,
+    "cavity": 4
+   },
+   "margins": {
+    "site": 48,
+    "road": 8,
+    "cavity": 8
+   }
+  }
+ },
+ "jura": {
+  "core": 200,
+  "band": 600,
+  "core_biome": "tensura:ancient_forest",
+  "band_biome": "minecraft:dark_forest"
+ },
+ "sites": [
+  {
+   "id": "tempest",
+   "kind": "clearing",
+   "x": 0,
+   "z": 0,
+   "r": 148,
+   "plated": true,
+   "y": 70,
+   "index": 1,
+   "fade": 74,
+   "biome": "minecraft:plains",
+   "margin": 64.0
+  },
+  {
+   "id": "arrival",
+   "kind": "clearing",
+   "x": 0,
+   "z": -1000,
+   "r": 60,
+   "plated": true,
+   "y": 76,
+   "index": 2,
+   "fade": 30,
+   "biome": "minecraft:plains",
+   "margin": 48.0
+  },
+  {
+   "id": "wayfarers_camp",
+   "kind": "clearing",
+   "x": 15,
+   "z": -985,
+   "r": 8,
+   "plated": false,
+   "y": 76
+  },
+  {
+   "id": "sealed_cave",
+   "kind": "carve",
+   "x": -120,
+   "z": -400,
+   "r": 75,
+   "plated": true,
+   "y": 77,
+   "index": 3,
+   "fade": 38,
+   "biome": null,
+   "margin": 48.0,
+   "cover": 6
+  },
+  {
+   "id": "goblin_village",
+   "kind": "village",
+   "x": -530,
+   "z": -220,
+   "r": 56,
+   "plated": true,
+   "y": 73,
+   "index": 4,
+   "fade": 28,
+   "biome": "minecraft:plains",
+   "margin": 48.0
+  },
+  {
+   "id": "spirit_gate",
+   "kind": "lakeside",
+   "x": -285,
+   "z": 350,
+   "r": 70,
+   "plated": true,
+   "y": 70,
+   "index": 5,
+   "fade": 35,
+   "biome": "minecraft:plains",
+   "margin": 48.0
+  },
+  {
+   "id": "shizu_spawn",
+   "kind": "clearing",
+   "x": -420,
+   "z": -80,
+   "r": 8,
+   "plated": false,
+   "y": 72
+  },
+  {
+   "id": "outcast_road",
+   "kind": "clearing",
+   "x": 0,
+   "z": 52,
+   "r": 8,
+   "plated": false,
+   "y": 70
+  },
+  {
+   "id": "treyni_grove",
+   "kind": "village",
+   "x": 320,
+   "z": 470,
+   "r": 56,
+   "plated": true,
+   "y": 72,
+   "index": 6,
+   "fade": 28,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "treyni_shrine",
+   "kind": "clearing",
+   "x": 500,
+   "z": 600,
+   "r": 36,
+   "plated": true,
+   "y": 71,
+   "index": 7,
+   "fade": 24,
+   "biome": "minecraft:meadow",
+   "margin": 48.0
+  },
+  {
+   "id": "ogre_village_ruin",
+   "kind": "village",
+   "x": 500,
+   "z": 300,
+   "r": 32,
+   "plated": true,
+   "y": 105,
+   "index": 8,
+   "fade": 24,
+   "biome": "minecraft:windswept_forest",
+   "margin": 48.0
+  },
+  {
+   "id": "dwargon",
+   "kind": "carve",
+   "x": 780,
+   "z": -1390,
+   "r": 127,
+   "plated": true,
+   "y": 146,
+   "index": 9,
+   "fade": 64,
+   "biome": null,
+   "margin": 48.0,
+   "cover": 6
+  },
+  {
+   "id": "dwargo",
+   "kind": "clearing",
+   "x": 780,
+   "z": -1490,
+   "r": 8,
+   "plated": false,
+   "y": 188
+  },
+  {
+   "id": "dwargon_throne",
+   "kind": "clearing",
+   "x": 780,
+   "z": -1496,
+   "r": 8,
+   "plated": false,
+   "y": 182
+  },
+  {
+   "id": "kaijin_smithy",
+   "kind": "clearing",
+   "x": 768,
+   "z": -1474,
+   "r": 8,
+   "plated": false,
+   "y": 198
+  },
+  {
+   "id": "dwarf_village",
+   "kind": "village",
+   "x": 1000,
+   "z": -1000,
+   "r": 124,
+   "plated": true,
+   "y": 73,
+   "index": 10,
+   "fade": 62,
+   "biome": "minecraft:meadow",
+   "margin": 64.0
+  },
+  {
+   "id": "dwarven_arena",
+   "kind": "clearing",
+   "x": 1100,
+   "z": -980,
+   "r": 58,
+   "plated": true,
+   "y": 73,
+   "index": 11,
+   "fade": 29,
+   "biome": "minecraft:meadow",
+   "margin": 48.0
+  },
+  {
+   "id": "dragons_nest",
+   "kind": "clearing",
+   "x": 350,
+   "z": -2000,
+   "r": 85,
+   "plated": true,
+   "y": 272,
+   "index": 12,
+   "fade": 42,
+   "biome": "minecraft:stony_peaks",
+   "margin": 48.0
+  },
+  {
+   "id": "ameld_source",
+   "kind": "clearing",
+   "x": 200,
+   "z": -1240,
+   "r": 8,
+   "plated": false,
+   "y": 91
+  },
+  {
+   "id": "ameld_mouth",
+   "kind": "coast",
+   "x": 2150,
+   "z": 1250,
+   "r": 8,
+   "plated": false,
+   "y": 63
+  },
+  {
+   "id": "lake_siss",
+   "kind": "lakeside",
+   "x": 1100,
+   "z": -100,
+   "r": 96,
+   "plated": false,
+   "y": 66
+  },
+  {
+   "id": "lizardmen_village",
+   "kind": "lakeside",
+   "x": 1100,
+   "z": 265,
+   "r": 60,
+   "plated": true,
+   "y": 65,
+   "index": 13,
+   "fade": 30,
+   "biome": "minecraft:swamp",
+   "margin": 48.0
+  },
+  {
+   "id": "lizardmen_caverns",
+   "kind": "carve",
+   "x": 1300,
+   "z": 520,
+   "r": 64,
+   "plated": true,
+   "y": 102,
+   "index": 14,
+   "fade": 32,
+   "biome": "minecraft:swamp",
+   "margin": 48.0,
+   "cover": 6
+  },
+  {
+   "id": "orc_camp",
+   "kind": "village",
+   "x": 1750,
+   "z": 550,
+   "r": 60,
+   "plated": true,
+   "y": 72,
+   "index": 15,
+   "fade": 30,
+   "biome": "minecraft:plains",
+   "margin": 48.0
+  },
+  {
+   "id": "blumund",
+   "kind": "clearing",
+   "x": -1500,
+   "z": -620,
+   "r": 97,
+   "plated": true,
+   "y": 72,
+   "index": 16,
+   "fade": 48,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "ballachia",
+   "kind": "clearing",
+   "x": -2450,
+   "z": -450,
+   "r": 68,
+   "plated": true,
+   "y": 72,
+   "index": 17,
+   "fade": 34,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "englassia",
+   "kind": "clearing",
+   "x": -2900,
+   "z": -550,
+   "r": 124,
+   "plated": true,
+   "y": 76,
+   "index": 18,
+   "fade": 62,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "marris",
+   "kind": "clearing",
+   "x": -1800,
+   "z": -1650,
+   "r": 101,
+   "plated": true,
+   "y": 67,
+   "index": 19,
+   "fade": 50,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "siltrosso",
+   "kind": "coast",
+   "x": -2297,
+   "z": -1370,
+   "r": 66,
+   "plated": true,
+   "y": 65,
+   "index": 20,
+   "fade": 33,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "lubelius",
+   "kind": "plateau",
+   "x": -3600,
+   "z": -1300,
+   "r": 97,
+   "plated": true,
+   "y": 71,
+   "index": 21,
+   "fade": 48,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "sacred_mountain",
+   "kind": "plateau",
+   "x": -3900,
+   "z": -1600,
+   "r": 95,
+   "plated": true,
+   "y": 175,
+   "index": 22,
+   "fade": 48,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "coleus",
+   "kind": "clearing",
+   "x": -3520,
+   "z": -860,
+   "r": 73,
+   "plated": true,
+   "y": 75,
+   "index": 23,
+   "fade": 36,
+   "biome": "minecraft:desert",
+   "margin": 48.0
+  },
+  {
+   "id": "heaven_tower",
+   "kind": "clearing",
+   "x": -4200,
+   "z": -200,
+   "r": 84,
+   "plated": true,
+   "y": 73,
+   "index": 24,
+   "fade": 42,
+   "biome": "minecraft:desert",
+   "margin": 48.0
+  },
+  {
+   "id": "morgdahl",
+   "kind": "clearing",
+   "x": -3200,
+   "z": 330,
+   "r": 61,
+   "plated": true,
+   "y": 72,
+   "index": 25,
+   "fade": 30,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "raja",
+   "kind": "lakeside",
+   "x": -2850,
+   "z": 360,
+   "r": 71,
+   "plated": true,
+   "y": 74,
+   "index": 26,
+   "fade": 36,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "nostraille",
+   "kind": "clearing",
+   "x": -2550,
+   "z": 330,
+   "r": 66,
+   "plated": true,
+   "y": 76,
+   "index": 27,
+   "fade": 33,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "yuzalgh",
+   "kind": "clearing",
+   "x": -2350,
+   "z": 300,
+   "r": 8,
+   "plated": false,
+   "y": 76
+  },
+  {
+   "id": "yggdonia",
+   "kind": "clearing",
+   "x": -2150,
+   "z": -80,
+   "r": 8,
+   "plated": false,
+   "y": 75
+  },
+  {
+   "id": "filtwood",
+   "kind": "clearing",
+   "x": -1200,
+   "z": 2750,
+   "r": 8,
+   "plated": false,
+   "y": 65
+  },
+  {
+   "id": "ghastone",
+   "kind": "clearing",
+   "x": -3200,
+   "z": -300,
+   "r": 8,
+   "plated": false,
+   "y": 72
+  },
+  {
+   "id": "rostia",
+   "kind": "clearing",
+   "x": -2780,
+   "z": 200,
+   "r": 8,
+   "plated": false,
+   "y": 73
+  },
+  {
+   "id": "sainte_malukshure",
+   "kind": "clearing",
+   "x": -100,
+   "z": 2000,
+   "r": 8,
+   "plated": false,
+   "y": 69
+  },
+  {
+   "id": "ulgr_nature_park",
+   "kind": "plateau",
+   "x": -950,
+   "z": 2850,
+   "r": 63,
+   "plated": true,
+   "y": 112,
+   "index": 28,
+   "fade": 32,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "elmine",
+   "kind": "clearing",
+   "x": -1680,
+   "z": 1740,
+   "r": 100,
+   "plated": true,
+   "y": 104,
+   "index": 29,
+   "fade": 50,
+   "biome": null,
+   "margin": 64.0
+  },
+  {
+   "id": "jia",
+   "kind": "plateau",
+   "x": 200,
+   "z": 2450,
+   "r": 68,
+   "plated": true,
+   "y": 235,
+   "index": 30,
+   "fade": 34,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "laura",
+   "kind": "clearing",
+   "x": 1500,
+   "z": 1600,
+   "r": 100,
+   "plated": true,
+   "y": 71,
+   "index": 31,
+   "fade": 50,
+   "biome": null,
+   "margin": 64.0
+  },
+  {
+   "id": "forgotten_dragon_city",
+   "kind": "clearing",
+   "x": 2650,
+   "z": 800,
+   "r": 100,
+   "plated": true,
+   "y": 75,
+   "index": 32,
+   "fade": 50,
+   "biome": null,
+   "margin": 64.0
+  },
+  {
+   "id": "clayman_castle",
+   "kind": "clearing",
+   "x": 3300,
+   "z": -600,
+   "r": 90,
+   "plated": true,
+   "y": 73,
+   "index": 33,
+   "fade": 45,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "amrita",
+   "kind": "carve",
+   "x": 3800,
+   "z": -500,
+   "r": 63,
+   "plated": true,
+   "y": 89,
+   "index": 34,
+   "fade": 32,
+   "biome": null,
+   "margin": 48.0,
+   "cover": 6
+  },
+  {
+   "id": "nasca",
+   "kind": "plateau",
+   "x": 3200,
+   "z": -1800,
+   "r": 90,
+   "plated": true,
+   "y": 75,
+   "index": 35,
+   "fade": 45,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "great_holy_mountain",
+   "kind": "clearing",
+   "x": 3350,
+   "z": -1350,
+   "r": 80,
+   "plated": true,
+   "y": 247,
+   "index": 36,
+   "fade": 40,
+   "biome": null,
+   "margin": 48.0
+  },
+  {
+   "id": "el_dorado",
+   "kind": "clearing",
+   "x": -4300,
+   "z": 3000,
+   "r": 100,
+   "plated": true,
+   "y": 73,
+   "index": 37,
+   "fade": 50,
+   "biome": null,
+   "margin": 64.0
+  },
+  {
+   "id": "el_dorado_volcano",
+   "kind": "clearing",
+   "x": -3900,
+   "z": 3200,
+   "r": 8,
+   "plated": false,
+   "y": 197
+  },
+  {
+   "id": "frost_palace",
+   "kind": "clearing",
+   "x": -1530,
+   "z": -3680,
+   "r": 89,
+   "plated": true,
+   "y": 71,
+   "index": 38,
+   "fade": 44,
+   "biome": "minecraft:snowy_plains",
+   "margin": 48.0
+  },
+  {
+   "id": "blumund_road",
+   "kind": "clearing",
+   "x": -1340,
+   "z": -520,
+   "r": 8,
+   "plated": false,
+   "y": 71
+  },
+  {
+   "id": "englassia_road",
+   "kind": "clearing",
+   "x": -2650,
+   "z": -520,
+   "r": 8,
+   "plated": false,
+   "y": 73
+  },
+  {
+   "id": "old_well",
+   "kind": "clearing",
+   "x": -1000,
+   "z": -340,
+   "r": 8,
+   "plated": false,
+   "y": 76
+  },
+  {
+   "id": "rookie_camp",
+   "kind": "clearing",
+   "x": -120,
+   "z": -560,
+   "r": 8,
+   "plated": false,
+   "y": 73
+  }
+ ],
+ "lakes": [
+  {
+   "id": "tempest-west-lake",
+   "level": 68,
+   "depth": 6
+  },
+  {
+   "id": "lake-siss",
+   "level": 66,
+   "depth": 12
+  },
+  {
+   "id": "raja-lake",
+   "level": 72,
+   "depth": 4
+  },
+  {
+   "id": "coleus-oasis",
+   "level": 75,
+   "depth": 5
+  },
+  {
+   "id": "ulgr-spring",
+   "level": 92,
+   "depth": 4
+  },
+  {
+   "id": "clayman-moat",
+   "level": 76,
+   "depth": 5
+  },
+  {
+   "id": "laura-headwater-basin",
+   "level": 139,
+   "depth": 5
+  },
+  {
+   "id": "elmine-root-lake",
+   "level": 68,
+   "depth": 6
+  },
+  {
+   "id": "imperial-unnamed-basin",
+   "level": 68,
+   "depth": 5
+  },
+  {
+   "id": "el-dorado-eastern-lake",
+   "level": 68,
+   "depth": 5
+  },
+  {
+   "id": "englassia-capital-lake",
+   "level": 70,
+   "depth": 5
+  },
+  {
+   "id": "western-unnamed-basin",
+   "level": 68,
+   "depth": 5
+  },
+  {
+   "id": "southeastern-unnamed-basin",
+   "level": 68,
+   "depth": 4
+  }
+ ],
+ "rivers": [
+  {
+   "id": "great-ameld-headwaters",
+   "width": 10.0,
+   "reaches": [
+    {
+     "level": 91,
+     "from": [
+      200,
+      -1240
+     ],
+     "to": [
+      190,
+      -1198
+     ],
+     "length": 48
+    },
+    {
+     "level": 89,
+     "from": [
+      189,
+      -1194
+     ],
+     "to": [
+      178,
+      -1153
+     ],
+     "length": 48
+    },
+    {
+     "level": 87,
+     "from": [
+      177,
+      -1149
+     ],
+     "to": [
+      165,
+      -1097
+     ],
+     "length": 60
+    },
+    {
+     "level": 85,
+     "from": [
+      164,
+      -1094
+     ],
+     "to": [
+      160,
+      -1056
+     ],
+     "length": 44
+    },
+    {
+     "level": 83,
+     "from": [
+      160,
+      -1053
+     ],
+     "to": [
+      160,
+      -1015
+     ],
+     "length": 44
+    },
+    {
+     "level": 81,
+     "from": [
+      161,
+      -1011
+     ],
+     "to": [
+      165,
+      -968
+     ],
+     "length": 48
+    },
+    {
+     "level": 79,
+     "from": [
+      165,
+      -964
+     ],
+     "to": [
+      174,
+      -915
+     ],
+     "length": 56
+    },
+    {
+     "level": 77,
+     "from": [
+      175,
+      -911
+     ],
+     "to": [
+      186,
+      -869
+     ],
+     "length": 52
+    },
+    {
+     "level": 75,
+     "from": [
+      187,
+      -865
+     ],
+     "to": [
+      204,
+      -812
+     ],
+     "length": 64
+    },
+    {
+     "level": 73,
+     "from": [
+      206,
+      -809
+     ],
+     "to": [
+      221,
+      -773
+     ],
+     "length": 44
+    },
+    {
+     "level": 71,
+     "from": [
+      223,
+      -770
+     ],
+     "to": [
+      367,
+      -672
+     ],
+     "length": 196
+    },
+    {
+     "level": 70,
+     "from": [
+      371,
+      -671
+     ],
+     "to": [
+      409,
+      -655
+     ],
+     "length": 48
+    },
+    {
+     "level": 69,
+     "from": [
+      413,
+      -653
+     ],
+     "to": [
+      446,
+      -636
+     ],
+     "length": 44
+    },
+    {
+     "level": 68,
+     "from": [
+      449,
+      -634
+     ],
+     "to": [
+      1060,
+      -251
+     ],
+     "length": 772
+    },
+    {
+     "level": 66,
+     "from": [
+      1063,
+      -248
+     ],
+     "to": [
+      1084,
+      -223
+     ],
+     "length": 40
+    }
+   ]
+  },
+  {
+   "id": "great-ameld-outlet",
+   "width": 18.0,
+   "reaches": [
+    {
+     "level": 66,
+     "from": [
+      1553,
+      -42
+     ],
+     "to": [
+      2066,
+      954
+     ],
+     "length": 1272
+    },
+    {
+     "level": 65,
+     "from": [
+      2069,
+      957
+     ],
+     "to": [
+      2100,
+      1000
+     ],
+     "length": 60
+    },
+    {
+     "level": 63,
+     "from": [
+      2102,
+      1003
+     ],
+     "to": [
+      2151,
+      1247
+     ],
+     "length": 276
+    }
+   ]
+  },
+  {
+   "id": "tempest-brook-upper",
+   "width": 7.0,
+   "reaches": [
+    {
+     "level": 88,
+     "from": [
+      -660,
+      -860
+     ],
+     "to": [
+      -641,
+      -811
+     ],
+     "length": 60
+    },
+    {
+     "level": 86,
+     "from": [
+      -639,
+      -807
+     ],
+     "to": [
+      -622,
+      -762
+     ],
+     "length": 56
+    },
+    {
+     "level": 84,
+     "from": [
+      -621,
+      -758
+     ],
+     "to": [
+      -594,
+      -706
+     ],
+     "length": 64
+    },
+    {
+     "level": 82,
+     "from": [
+      -592,
+      -703
+     ],
+     "to": [
+      -551,
+      -670
+     ],
+     "length": 60
+    },
+    {
+     "level": 80,
+     "from": [
+      -548,
+      -668
+     ],
+     "to": [
+      -500,
+      -642
+     ],
+     "length": 64
+    },
+    {
+     "level": 78,
+     "from": [
+      -497,
+      -641
+     ],
+     "to": [
+      -471,
+      -614
+     ],
+     "length": 44
+    },
+    {
+     "level": 76,
+     "from": [
+      -469,
+      -610
+     ],
+     "to": [
+      -454,
+      -581
+     ],
+     "length": 40
+    },
+    {
+     "level": 74,
+     "from": [
+      -453,
+      -577
+     ],
+     "to": [
+      -436,
+      -532
+     ],
+     "length": 56
+    },
+    {
+     "level": 72,
+     "from": [
+      -435,
+      -529
+     ],
+     "to": [
+      -426,
+      -493
+     ],
+     "length": 44
+    },
+    {
+     "level": 70,
+     "from": [
+      -425,
+      -490
+     ],
+     "to": [
+      -418,
+      -437
+     ],
+     "length": 60
+    },
+    {
+     "level": 68,
+     "from": [
+      -418,
+      -433
+     ],
+     "to": [
+      -349,
+      -42
+     ],
+     "length": 448
+    }
+   ]
+  },
+  {
+   "id": "jura-sarion-river",
+   "width": 10.0,
+   "reaches": [
+    {
+     "level": 68,
+     "from": [
+      -325,
+      240
+     ],
+     "to": [
+      10,
+      1449
+     ],
+     "length": 1488
+    },
+    {
+     "level": 67,
+     "from": [
+      10,
+      1453
+     ],
+     "to": [
+      -1,
+      1501
+     ],
+     "length": 56
+    },
+    {
+     "level": 66,
+     "from": [
+      -2,
+      1504
+     ],
+     "to": [
+      -25,
+      1550
+     ],
+     "length": 56
+    },
+    {
+     "level": 65,
+     "from": [
+      -27,
+      1554
+     ],
+     "to": [
+      -50,
+      1599
+     ],
+     "length": 56
+    },
+    {
+     "level": 64,
+     "from": [
+      -52,
+      1602
+     ],
+     "to": [
+      -114,
+      1792
+     ],
+     "length": 216
+    },
+    {
+     "level": 63,
+     "from": [
+      -115,
+      1795
+     ],
+     "to": [
+      -356,
+      2727
+     ],
+     "length": 1072
+    }
+   ]
+  },
+  {
+   "id": "western-trade-river",
+   "width": 14.0,
+   "reaches": [
+    {
+     "level": 84,
+     "from": [
+      -3440,
+      -1140
+     ],
+     "to": [
+      -3429,
+      -1094
+     ],
+     "length": 52
+    },
+    {
+     "level": 82,
+     "from": [
+      -3428,
+      -1090
+     ],
+     "to": [
+      -3415,
+      -1040
+     ],
+     "length": 56
+    },
+    {
+     "level": 80,
+     "from": [
+      -3414,
+      -1036
+     ],
+     "to": [
+      -3404,
+      -996
+     ],
+     "length": 48
+    },
+    {
+     "level": 78,
+     "from": [
+      -3403,
+      -992
+     ],
+     "to": [
+      -3394,
+      -944
+     ],
+     "length": 56
+    },
+    {
+     "level": 76,
+     "from": [
+      -3393,
+      -940
+     ],
+     "to": [
+      -3390,
+      -895
+     ],
+     "length": 52
+    },
+    {
+     "level": 74,
+     "from": [
+      -3390,
+      -891
+     ],
+     "to": [
+      -3399,
+      -844
+     ],
+     "length": 56
+    },
+    {
+     "level": 72,
+     "from": [
+      -3400,
+      -840
+     ],
+     "to": [
+      -3417,
+      -801
+     ],
+     "length": 48
+    },
+    {
+     "level": 70,
+     "from": [
+      -3419,
+      -798
+     ],
+     "to": [
+      -3441,
+      -754
+     ],
+     "length": 56
+    },
+    {
+     "level": 68,
+     "from": [
+      -3443,
+      -751
+     ],
+     "to": [
+      -3464,
+      -706
+     ],
+     "length": 56
+    },
+    {
+     "level": 67,
+     "from": [
+      -3465,
+      -703
+     ],
+     "to": [
+      -3313,
+      1157
+     ],
+     "length": 2172
+    },
+    {
+     "level": 66,
+     "from": [
+      -3316,
+      1160
+     ],
+     "to": [
+      -3352,
+      1235
+     ],
+     "length": 92
+    },
+    {
+     "level": 65,
+     "from": [
+      -3352,
+      1239
+     ],
+     "to": [
+      -3356,
+      1289
+     ],
+     "length": 56
+    },
+    {
+     "level": 63,
+     "from": [
+      -3356,
+      1292
+     ],
+     "to": [
+      -3341,
+      1500
+     ],
+     "length": 220
+    }
+   ]
+  },
+  {
+   "id": "raja-stream",
+   "width": 6.0,
+   "reaches": [
+    {
+     "level": 78,
+     "from": [
+      -2720,
+      60
+     ],
+     "to": [
+      -2730,
+      98
+     ],
+     "length": 44
+    },
+    {
+     "level": 76,
+     "from": [
+      -2731,
+      102
+     ],
+     "to": [
+      -2742,
+      140
+     ],
+     "length": 44
+    },
+    {
+     "level": 74,
+     "from": [
+      -2743,
+      143
+     ],
+     "to": [
+      -2741,
+      183
+     ],
+     "length": 48
+    },
+    {
+     "level": 72,
+     "from": [
+      -2739,
+      186
+     ],
+     "to": [
+      -2785,
+      427
+     ],
+     "length": 292
+    }
+   ]
+  },
+  {
+   "id": "ulgr-spring-brook",
+   "width": 6.0,
+   "reaches": [
+    {
+     "level": 91,
+     "from": [
+      -800,
+      3035
+     ],
+     "to": [
+      -821,
+      3044
+     ],
+     "length": 28
+    },
+    {
+     "level": 89,
+     "from": [
+      -824,
+      3046
+     ],
+     "to": [
+      -859,
+      3050
+     ],
+     "length": 40
+    },
+    {
+     "level": 87,
+     "from": [
+      -862,
+      3050
+     ],
+     "to": [
+      -897,
+      3047
+     ],
+     "length": 40
+    },
+    {
+     "level": 85,
+     "from": [
+      -901,
+      3046
+     ],
+     "to": [
+      -934,
+      3034
+     ],
+     "length": 40
+    },
+    {
+     "level": 83,
+     "from": [
+      -938,
+      3033
+     ],
+     "to": [
+      -969,
+      3019
+     ],
+     "length": 40
+    },
+    {
+     "level": 81,
+     "from": [
+      -973,
+      3018
+     ],
+     "to": [
+      -1002,
+      3001
+     ],
+     "length": 40
+    },
+    {
+     "level": 79,
+     "from": [
+      -1005,
+      2999
+     ],
+     "to": [
+      -1033,
+      2979
+     ],
+     "length": 40
+    },
+    {
+     "level": 77,
+     "from": [
+      -1036,
+      2977
+     ],
+     "to": [
+      -1066,
+      2959
+     ],
+     "length": 40
+    },
+    {
+     "level": 75,
+     "from": [
+      -1069,
+      2957
+     ],
+     "to": [
+      -1100,
+      2940
+     ],
+     "length": 40
+    },
+    {
+     "level": 73,
+     "from": [
+      -1104,
+      2939
+     ],
+     "to": [
+      -1137,
+      2927
+     ],
+     "length": 40
+    },
+    {
+     "level": 71,
+     "from": [
+      -1140,
+      2925
+     ],
+     "to": [
+      -1173,
+      2911
+     ],
+     "length": 40
+    },
+    {
+     "level": 69,
+     "from": [
+      -1176,
+      2909
+     ],
+     "to": [
+      -1208,
+      2894
+     ],
+     "length": 40
+    },
+    {
+     "level": 67,
+     "from": [
+      -1211,
+      2892
+     ],
+     "to": [
+      -1244,
+      2879
+     ],
+     "length": 40
+    },
+    {
+     "level": 65,
+     "from": [
+      -1248,
+      2878
+     ],
+     "to": [
+      -1279,
+      2863
+     ],
+     "length": 40
+    },
+    {
+     "level": 63,
+     "from": [
+      -1282,
+      2860
+     ],
+     "to": [
+      -1309,
+      2838
+     ],
+     "length": 40
+    }
+   ]
+  },
+  {
+   "id": "laura-mountain-falls",
+   "width": 8.0,
+   "reaches": [
+    {
+     "level": 137,
+     "from": [
+      1490,
+      1062
+     ],
+     "to": [
+      1490,
+      1062
+     ],
+     "length": 4
+    },
+    {
+     "level": 135,
+     "from": [
+      1489,
+      1066
+     ],
+     "to": [
+      1475,
+      1098
+     ],
+     "length": 40
+    },
+    {
+     "level": 133,
+     "from": [
+      1474,
+      1102
+     ],
+     "to": [
+      1460,
+      1135
+     ],
+     "length": 40
+    },
+    {
+     "level": 131,
+     "from": [
+      1459,
+      1138
+     ],
+     "to": [
+      1446,
+      1171
+     ],
+     "length": 40
+    },
+    {
+     "level": 129,
+     "from": [
+      1445,
+      1175
+     ],
+     "to": [
+      1434,
+      1209
+     ],
+     "length": 40
+    },
+    {
+     "level": 127,
+     "from": [
+      1432,
+      1212
+     ],
+     "to": [
+      1421,
+      1246
+     ],
+     "length": 40
+    },
+    {
+     "level": 125,
+     "from": [
+      1420,
+      1250
+     ],
+     "to": [
+      1408,
+      1283
+     ],
+     "length": 40
+    },
+    {
+     "level": 123,
+     "from": [
+      1406,
+      1287
+     ],
+     "to": [
+      1388,
+      1317
+     ],
+     "length": 40
+    },
+    {
+     "level": 121,
+     "from": [
+      1386,
+      1320
+     ],
+     "to": [
+      1368,
+      1350
+     ],
+     "length": 40
+    },
+    {
+     "level": 119,
+     "from": [
+      1366,
+      1353
+     ],
+     "to": [
+      1350,
+      1384
+     ],
+     "length": 40
+    },
+    {
+     "level": 117,
+     "from": [
+      1350,
+      1388
+     ],
+     "to": [
+      1350,
+      1423
+     ],
+     "length": 40
+    },
+    {
+     "level": 115,
+     "from": [
+      1350,
+      1427
+     ],
+     "to": [
+      1350,
+      1463
+     ],
+     "length": 40
+    },
+    {
+     "level": 113,
+     "from": [
+      1350,
+      1467
+     ],
+     "to": [
+      1350,
+      1502
+     ],
+     "length": 40
+    },
+    {
+     "level": 111,
+     "from": [
+      1350,
+      1506
+     ],
+     "to": [
+      1354,
+      1541
+     ],
+     "length": 40
+    },
+    {
+     "level": 109,
+     "from": [
+      1356,
+      1545
+     ],
+     "to": [
+      1368,
+      1578
+     ],
+     "length": 40
+    },
+    {
+     "level": 107,
+     "from": [
+      1370,
+      1582
+     ],
+     "to": [
+      1382,
+      1616
+     ],
+     "length": 40
+    },
+    {
+     "level": 105,
+     "from": [
+      1383,
+      1619
+     ],
+     "to": [
+      1396,
+      1653
+     ],
+     "length": 40
+    },
+    {
+     "level": 103,
+     "from": [
+      1397,
+      1657
+     ],
+     "to": [
+      1410,
+      1690
+     ],
+     "length": 40
+    },
+    {
+     "level": 101,
+     "from": [
+      1413,
+      1692
+     ],
+     "to": [
+      1442,
+      1713
+     ],
+     "length": 40
+    },
+    {
+     "level": 99,
+     "from": [
+      1445,
+      1715
+     ],
+     "to": [
+      1474,
+      1735
+     ],
+     "length": 40
+    },
+    {
+     "level": 97,
+     "from": [
+      1477,
+      1738
+     ],
+     "to": [
+      1506,
+      1758
+     ],
+     "length": 40
+    },
+    {
+     "level": 95,
+     "from": [
+      1509,
+      1760
+     ],
+     "to": [
+      1538,
+      1781
+     ],
+     "length": 40
+    },
+    {
+     "level": 93,
+     "from": [
+      1542,
+      1783
+     ],
+     "to": [
+      1570,
+      1803
+     ],
+     "length": 40
+    },
+    {
+     "level": 91,
+     "from": [
+      1574,
+      1805
+     ],
+     "to": [
+      1601,
+      1829
+     ],
+     "length": 40
+    },
+    {
+     "level": 89,
+     "from": [
+      1604,
+      1831
+     ],
+     "to": [
+      1630,
+      1855
+     ],
+     "length": 40
+    },
+    {
+     "level": 87,
+     "from": [
+      1633,
+      1858
+     ],
+     "to": [
+      1659,
+      1881
+     ],
+     "length": 40
+    },
+    {
+     "level": 85,
+     "from": [
+      1662,
+      1884
+     ],
+     "to": [
+      1689,
+      1908
+     ],
+     "length": 40
+    },
+    {
+     "level": 83,
+     "from": [
+      1692,
+      1911
+     ],
+     "to": [
+      1718,
+      1934
+     ],
+     "length": 40
+    },
+    {
+     "level": 81,
+     "from": [
+      1721,
+      1937
+     ],
+     "to": [
+      1748,
+      1961
+     ],
+     "length": 40
+    },
+    {
+     "level": 79,
+     "from": [
+      1751,
+      1964
+     ],
+     "to": [
+      1777,
+      1987
+     ],
+     "length": 40
+    },
+    {
+     "level": 77,
+     "from": [
+      1780,
+      1990
+     ],
+     "to": [
+      1813,
+      2003
+     ],
+     "length": 40
+    },
+    {
+     "level": 75,
+     "from": [
+      1817,
+      2005
+     ],
+     "to": [
+      1850,
+      2018
+     ],
+     "length": 40
+    },
+    {
+     "level": 73,
+     "from": [
+      1854,
+      2019
+     ],
+     "to": [
+      1887,
+      2033
+     ],
+     "length": 40
+    },
+    {
+     "level": 71,
+     "from": [
+      1891,
+      2034
+     ],
+     "to": [
+      1925,
+      2047
+     ],
+     "length": 40
+    },
+    {
+     "level": 69,
+     "from": [
+      1928,
+      2049
+     ],
+     "to": [
+      1962,
+      2062
+     ],
+     "length": 40
+    },
+    {
+     "level": 67,
+     "from": [
+      1965,
+      2063
+     ],
+     "to": [
+      1999,
+      2077
+     ],
+     "length": 40
+    },
+    {
+     "level": 65,
+     "from": [
+      2002,
+      2078
+     ],
+     "to": [
+      2036,
+      2091
+     ],
+     "length": 40
+    },
+    {
+     "level": 63,
+     "from": [
+      2039,
+      2093
+     ],
+     "to": [
+      2073,
+      2106
+     ],
+     "length": 40
+    }
+   ]
+  },
+  {
+   "id": "western-basin-outlet",
+   "width": 8.0,
+   "reaches": [
+    {
+     "level": 68,
+     "from": [
+      -2162,
+      540
+     ],
+     "to": [
+      -2479,
+      1214
+     ],
+     "length": 828
+    },
+    {
+     "level": 67,
+     "from": [
+      -2480,
+      1218
+     ],
+     "to": [
+      -2512,
+      1293
+     ],
+     "length": 92
+    },
+    {
+     "level": 66,
+     "from": [
+      -2513,
+      1296
+     ],
+     "to": [
+      -2530,
+      1326
+     ],
+     "length": 40
+    },
+    {
+     "level": 65,
+     "from": [
+      -2531,
+      1330
+     ],
+     "to": [
+      -2550,
+      1363
+     ],
+     "length": 44
+    },
+    {
+     "level": 64,
+     "from": [
+      -2552,
+      1366
+     ],
+     "to": [
+      -2581,
+      1414
+     ],
+     "length": 64
+    },
+    {
+     "level": 63,
+     "from": [
+      -2583,
+      1418
+     ],
+     "to": [
+      -2750,
+      1658
+     ],
+     "length": 308
+    }
+   ]
+  }
+ ],
+ "roads": [
+  {
+   "id": "tempest_dwargon",
+   "kind": "main",
+   "half": 2,
+   "corridor": 5,
+   "margin": 24.0,
+   "bridges": [
+    [
+     1116,
+     12
+    ]
+   ]
+  },
+  {
+   "id": "tempest_blumund",
+   "kind": "main",
+   "half": 2,
+   "corridor": 5,
+   "margin": 24.0,
+   "bridges": [
+    [
+     528,
+     4
+    ]
+   ]
+  },
+  {
+   "id": "blumund_englassia_lubelius",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": [
+    [
+     1652,
+     44
+    ],
+    [
+     2272,
+     40
+    ]
+   ]
+  },
+  {
+   "id": "dwargon_dwarf_village",
+   "kind": "main",
+   "half": 2,
+   "corridor": 5,
+   "margin": 24.0,
+   "bridges": []
+  },
+  {
+   "id": "sacred_mountain_trail",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "treyni_marsh_trail",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "siss_cavern_and_orc_trail",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "ogre_foothill_trail",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "canaat_high_pass",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "falmuth_road",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "western_belt_road",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": [
+    [
+     1180,
+     8
+    ]
+   ]
+  },
+  {
+   "id": "western_desert_caravan",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": [
+    [
+     432,
+     12
+    ]
+   ]
+  },
+  {
+   "id": "fulbrosia_stair",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": [
+    [
+     2576,
+     12
+    ]
+   ]
+  },
+  {
+   "id": "southern_royal_road",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": [
+    [
+     912,
+     12
+    ]
+   ]
+  },
+  {
+   "id": "ulgracia_south_road",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "eurazania_road",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": [
+    [
+     1164,
+     8
+    ]
+   ]
+  },
+  {
+   "id": "milim_river_road",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": [
+    [
+     332,
+     28
+    ]
+   ]
+  },
+  {
+   "id": "jistav_border_road",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "imperial_volcano_road",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "el_dorado_volcanic_way",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "frost_palace_forecourt",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": []
+  },
+  {
+   "id": "englassia_coleus_royal_approach",
+   "kind": "trail",
+   "half": 1,
+   "corridor": 4,
+   "margin": 16.0,
+   "bridges": [
+    [
+     352,
+     36
+    ],
+    [
+     576,
+     40
+    ],
+    [
+     836,
+     12
+    ]
+   ]
+  }
+ ],
+ "warnings": []
+}

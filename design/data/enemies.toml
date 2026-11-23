@@ -183,10 +183,10 @@ title = "outlaws in the wilds"
 # on Lerfing's map (canon_map.txt: land of the region named in the comment) and sit beside the road, not on it.
 [[camp]]
 id = "dwarven_road_south"
-title = "bandit camp south of the Dwarven Road's bend"   # J, 489 N of Tempest, 70 E of the road (x 1790)
+title = "bandit camp south of the Dwarven Road's bend"   # J, a third of the way up the Tempest - Dwargon road, 70 E of it
 group = "dwarven_road"
-x = 1818
-z = 420
+x = 79
+z = -705
 radius = 10
 count = 4
 regen_minutes = 8
@@ -195,10 +195,10 @@ faction = "dwargon"
 
 [[camp]]
 id = "dwarven_road_north"
-title = "bandit camp north of the Dwarven Road's bend"   # J, 300 S of the arrival, beside the road (x 1816-1822)
+title = "bandit camp north of the Dwarven Road's bend"   # D, the Canaat foothills beside the Tempest - Dwargon road, north of the arrival
 group = "dwarven_road"
-x = 1800
-z = 170
+x = 37
+z = -1181
 radius = 10
 count = 3
 regen_minutes = 8
@@ -207,10 +207,10 @@ faction = "dwargon"
 
 [[camp]]
 id = "blumund_road_east"
-title = "highwaymen's hide on the Blumund road"          # J, Jura's west woods, on the line Blumund - Tempest
+title = "highwaymen's hide on the Blumund road"          # J, Jura's west woods beside the Tempest - Blumund road
 group = "blumund_road"
-x = 700
-z = 548
+x = -524
+z = -477
 radius = 10
 count = 3
 regen_minutes = 8
@@ -219,10 +219,10 @@ faction = "blumund"
 
 [[camp]]
 id = "blumund_road_west"
-title = "highwaymen's hide near Blumund's border"        # J, 250 E of the old well
+title = "highwaymen's hide near Blumund's border"        # J, by the Tempest - Blumund road near Blumund's border
 group = "blumund_road"
-x = 60
-z = 330
+x = -1150
+z = -421
 radius = 10
 count = 3
 regen_minutes = 8
@@ -231,10 +231,10 @@ faction = "blumund"
 
 [[camp]]
 id = "falmuth_border_road"
-title = "deserters' camp on the Falmuth border"          # F, south edge of Falmuth's western lands, north of Englassia
+title = "deserters' camp on the Falmuth border"          # F, Falmuth's southern edge by the Falmuth road, north of Englassia
 group = "falmuth_border"
-x = -2050
-z = -860
+x = -2099
+z = -1310
 radius = 12
 count = 4
 regen_minutes = 10
@@ -243,10 +243,10 @@ faction = "falmuth"
 
 [[camp]]
 id = "falmuth_border_woods"
-title = "deserters' hollow on the Falmuth border"        # F, 130 north-west of the road camp
+title = "deserters' hollow on the Falmuth border"        # F, north-west of the road camp
 group = "falmuth_border"
-x = -2160
-z = -960
+x = -2229
+z = -1194
 radius = 10
 count = 3
 regen_minutes = 10
@@ -255,10 +255,10 @@ faction = "falmuth"
 
 [[camp]]
 id = "jura_rogues"
-title = "rogue adventurers' camp in Jura's west woods"   # J, the forest track to the Sealed Cave
+title = "rogue adventurers' camp in Jura's west woods"   # J, the woods south-west of the Sealed Cave
 group = "wilds"
-x = 1100
-z = 420
+x = -347
+z = -340
 radius = 10
 count = 3
 regen_minutes = 12
@@ -269,8 +269,8 @@ faction = "tempest"
 id = "englassia_rogues"
 title = "rogue adventurers' camp east of Englassia"      # G, between Ballachia and the Englassia road post
 group = "wilds"
-x = -1750
-z = -160
+x = -2597
+z = -357
 radius = 10
 count = 3
 regen_minutes = 12

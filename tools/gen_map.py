@@ -22,7 +22,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CANON = ROOT / "pack" / "config" / "ttl" / "canon_regions.json"
-GRID = ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
+# The grid the mod reads (CanonMap): the own world's (tools/world/build.py --apply) when present, else Lerfing's.
+_OWN_WORLD_MAP = ROOT / "pack" / "config" / "ttl" / "world" / "canon_map.txt"
+GRID = _OWN_WORLD_MAP if _OWN_WORLD_MAP.is_file() else ROOT / "pack" / "config" / "ttl" / "canon_map.txt"
 ANCHORS = ROOT / "design" / "data" / "anchors.toml"
 OUT = ROOT / "pack" / "config" / "bluemap" / "maps"
 

@@ -34,9 +34,10 @@ const TtlDwargon = {
   // The arrival point in front of the gate (blueprint TtlDwargonFootprint.arrival), rotation none: the gate faces
   // south. At the foot of the escarpment on the Canaat's south flank (the plateau above it at y 200-215 holds the
   // cavern), 1,440 blocks north of Tempest (design/data/anchors.toml dwargon; tools/lerfing/dwargon_fit.py).
-  GATE: { x: 1878, z: -544 },
+  GATE: { x: 780, z: -1390 },
   // World y of the blueprint's layer 0 (the road at y BASE + 3, the arrival at BASE + 4): the road meets the apron
-  // at the box's south edge and the rock over the city is 7 blocks at its thinnest (median 28). null = old fit.
+  // at the box's south edge. Own world: anchors.toml dwargon y (146, the carve site's walking level) - 4; the site
+  // keeps >= min_cover 6 blocks of rock over the roof by construction (world/sites.toml). null = old fit.
   BASE: 142,
   COVER: 6,
   PROBE: 'ttl_dwargon_probe',

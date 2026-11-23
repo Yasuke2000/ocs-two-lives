@@ -1094,7 +1094,7 @@ hash = "13a29a46205e984cfe23038fe742e420913c499ee038606bac6b0f9c2087f396"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/armed_nation.snbt"
-hash = "7a4c380a048317f759ebdb74a10465cf2bb8f36e4a3ed9033243d124d1185798"
+hash = "16e945c17111b0118f2ee3a48f55718c18b7f382f6296e39391b45ff7dad04ed"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/arts.snbt"
@@ -1102,7 +1102,7 @@ hash = "d098c69422297d7edf0145cedfebd160ebe3d1750c70e9d99fbcf5035cd9cb29"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/crossroads.snbt"
-hash = "427a85a2f047bad7fecafd29e92c6fa11884f321a1253089fda08166997e1a37"
+hash = "9ac09a68a59bc0c91e3158195d9251814faac49e75012a4f646f9c39b8fbbdaf"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/daily_deeds.snbt"
@@ -1110,7 +1110,7 @@ hash = "47acc0dde500ee205f83eb48634895487b802cbfbd82087d9f97464037b0db08"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/daily_jura.snbt"
-hash = "939e682ba18437595bda8ac9a035fcbe032b2a51a8b0ba553a032e915f7b7ca1"
+hash = "5d8b96be61f7d8235ffa607aca78df0960736301eb8224181974d21baf0bad91"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/delving.snbt"
@@ -1134,7 +1134,7 @@ hash = "75c30535579aa1ddaa665612ab79656a7535bf1e3f8ec5f5bab31c45d9d280ff"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/harvest_festival.snbt"
-hash = "7260d374aaee8840e62d18c35801a75dc38d1f9795ba962b0ba6602d73f8b6b8"
+hash = "6c64af6868d051bbc15bf30eb66038089935f05b8837cabb5b447f092b9bf51a"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/homestead.snbt"
@@ -1142,11 +1142,11 @@ hash = "4b0c90b2c37bdb9640c2fbd91f04835aa3899776a6d4fa2cd9179a0b3b291cdd"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/kings_test.snbt"
-hash = "8488cdfef246de4d7c2235c7addd1f2587f0a6814426db7f27ab9ef08b085ced"
+hash = "9aac8a8da29cae0dac52b2f877c71ddb0ac1a2ab6796db0bdb2fb960867f3cc6"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mask_and_blade.snbt"
-hash = "302eac1bb80f2636f87bb77a451a87dab7072297fc82e72b195dbb530cde51e5"
+hash = "0f06cabb45867b28db238e92e99432a336a89c11f29f7772cc10c7a21cf88dda"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mortal_life.snbt"
@@ -1158,15 +1158,15 @@ hash = "c370c6c2a663c754ba57cb5749986816d39291e946aca3dba0e5a46359c00d2d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/orc_lord.snbt"
-hash = "3f60549cd896cf89f0ff1bf22deeba377896f210d8abb002878e4df8f88353cd"
+hash = "d402c07708a8b2cb2e2e3cbd631054202e51514e58980f7a3759124d0af64b0d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/puppet_master.snbt"
-hash = "3993daa80e7bbf813abc3a2d2f1fc8afa517507e3d3416bef8b3fcfd81828e5d"
+hash = "d3a08d30d319d5c40cdd6257205b412356e176bc8ac14a1675eb66e1074e4624"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/reborn.snbt"
-hash = "c1dad9a2e0de1a422ca2ed8d34959e197dd5a7f6a4ec95535b6df09e87f58674"
+hash = "2703e39cf27440d3d3f0525f79c86229064b6e51983492ea0483720b596e015d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/roads_ruins.snbt"
@@ -1190,15 +1190,15 @@ hash = "f66106f9213ea47aef17fbdfb67548c403835757e7e805d2659d22942a7423ed"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tempest_rises.snbt"
-hash = "9e5c3c0b5efb8c1bbcb4d1bbdfbc9a8f9b14b39d8db0dbb09d23aeb699fbade5"
+hash = "ccc9dd5270c6e3fe6ecfa7b49f4c83c429c2aee38939defb751e30260ea2f999"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/two_hundred_thousand.snbt"
-hash = "e1947083a02f593a6eab874f62054ea68e326a29f407e3377b49a48ba95fb2c2"
+hash = "d7f3fedb2372e3d6986ea24bff6675c88b8613e671fce26e4bb163061c6fc333"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/whirlpool.snbt"
-hash = "2d27f21a56ec5333d422afcc2a500fbfe195e25cd0c81960747a3bb2833f900e"
+hash = "fdda3d279c26a034aeb054bfc6cf02458d08e58da96a41c04abafd17423bf221"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
@@ -1206,7 +1206,7 @@ hash = "fa792420b8546bafa3673aa2aac7dc21cac295c6038694d0b45c9b50ef692304"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "0d672c4f76dc9a9beb9dd1365920ed2f19b56462b024b741d3835f755b4ce9bd"
+hash = "183d6483fe283c43c32cb0c2ba09c8a454879b71ab64e94416d9fb5d2363b4aa"
 
 [[files]]
 file = "config/ftbquests/quests/lang/nl_nl.snbt"
@@ -1598,7 +1598,51 @@ hash = "59c7ed0f184ed070c93b31a64bf18a1a0d7f634f74854f1576c044bd6cec9cf0"
 
 [[files]]
 file = "config/ttl/canon_regions.json"
-hash = "9453422f436db7561a0745b404f5fb971b930f5bab46e9ca9b956f952e1165d8"
+hash = "d36d193f221cfc1859ba64259641edb48822ff571ac87f1409424b8f496bdc2e"
+
+[[files]]
+file = "config/ttl/world/biome.png"
+hash = "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc"
+
+[[files]]
+file = "config/ttl/world/canon_map.txt"
+hash = "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec"
+
+[[files]]
+file = "config/ttl/world/exclude.png"
+hash = "072b49b48f706144729f6dd3ffb5c85ff46211f9afa3ad0824c83c5435983e78"
+
+[[files]]
+file = "config/ttl/world/height.png"
+hash = "23f9db2c21da88c2e8861b2b68c476cf2cd819eb54a1d41645282b0416c78c19"
+
+[[files]]
+file = "config/ttl/world/index.json"
+hash = "23a38b6b2e3fa38596343063bd715b61e4b9b5a93ee26481502ccc6e1ae2a621"
+
+[[files]]
+file = "config/ttl/world/road.png"
+hash = "6ae1649947d9b952af925f00ad5c62acf56beaba84c89f2abd332d1784f0b42c"
+
+[[files]]
+file = "config/ttl/world/roads.json"
+hash = "e9e995848146d18dac189af5cc3ee260fe3cfd60a9f7ddf2dd290da32730b9cd"
+
+[[files]]
+file = "config/ttl/world/rugged.png"
+hash = "92be3acd3fc4c1e39367d4a3bc67c36fcbcfcd9624a4964cbc8d57c496a757ee"
+
+[[files]]
+file = "config/ttl/world/sites.json"
+hash = "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013"
+
+[[files]]
+file = "config/ttl/world/sites.png"
+hash = "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5"
+
+[[files]]
+file = "config/ttl/world/water.png"
+hash = "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
 
 [[files]]
 file = "config/vanilla_structures/placement_structure_config.json5"
@@ -2149,12 +2193,24 @@ file = "kubejs/data/minecraft/worldgen/density_function/overworld/erosion.json"
 hash = "1cf4668bbb0f24f73300f66bf2c16a070b4304f0f93e07bb1d548edf3a0008fd"
 
 [[files]]
+file = "kubejs/data/minecraft/worldgen/density_function/overworld/factor.json"
+hash = "001c64112ecb079f3929c3c323f297fd40bed84b74059daafe3b558bc879b35e"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/density_function/overworld/jaggedness.json"
+hash = "eb4689bd70b4db4ae7f912b5cc02835687788d0f3e30958c34564f6b232be7ed"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/density_function/overworld/offset.json"
+hash = "e6a2b45510f8e6c4fe1a581af4061fb0571be75cd35167cdf34778c2452ebaa2"
+
+[[files]]
 file = "kubejs/data/minecraft/worldgen/density_function/overworld/ridges.json"
 hash = "2b85aae8d5bb8d25fe4b379b6377e91625ec4720c091b36d2d07d995fd965e6f"
 
 [[files]]
 file = "kubejs/data/minecraft/worldgen/noise_settings/overworld.json"
-hash = "4aab94fee2a23b88a39f7e57af601f711d611b607fe21f3e04156c11216c1639"
+hash = "85ffd1a43ecf3ed9bb27633e590c1b9c4eab5941a5dc2da5c2e17526f02de394"
 
 [[files]]
 file = "kubejs/data/tensura/loot_table/advancement_reward/adamantite.json"
@@ -2223,6 +2279,14 @@ hash = "2187ffd1f6a1c7d1b4c66ce9a1ae9c908f7fe670f1bc1515710078a17183bd02"
 [[files]]
 file = "kubejs/data/ttl/loot_table/entities/enemy_rogue_adventurer.json"
 hash = "5a6a2fd556a5eb7090fe65d21787af1ad506ef2b530dd03d6939bddab5bc22d9"
+
+[[files]]
+file = "kubejs/data/ttl/neoforge/biome_modifier/design_road.json"
+hash = "6c6dc71029ef94ca13beabdafe24f79f5693b62d1caaa9ad6757e49d63728694"
+
+[[files]]
+file = "kubejs/data/ttl/neoforge/biome_modifier/design_water.json"
+hash = "88c8e69ee171e17bea0d2e99d796be8a806baddbfdee33e089af92d51faf409c"
 
 [[files]]
 file = "kubejs/data/ttl/neoforge/biome_modifier/more_goats.json"
@@ -2777,6 +2841,22 @@ file = "kubejs/data/ttl/worldgen/biome/walpurgis.json"
 hash = "031ca3f63e21a0a7ebbbb316fab928f27a9544afc6ce68dd0acf8776a74e3bdc"
 
 [[files]]
+file = "kubejs/data/ttl/worldgen/configured_feature/design_road.json"
+hash = "0585084a5f103f0e494027c04792ef8c501d2dbe0d64f256b0fe4fbe1e5c471c"
+
+[[files]]
+file = "kubejs/data/ttl/worldgen/configured_feature/design_water.json"
+hash = "ed202114bbcb9a6e10950c20d3f3c46ad93e7e341dbb2dac64f8bed53323501f"
+
+[[files]]
+file = "kubejs/data/ttl/worldgen/placed_feature/design_road.json"
+hash = "7b2776e326819d6c0131bb8becb3e8a2a40ab9710e0bc019ae319088e68e8dfd"
+
+[[files]]
+file = "kubejs/data/ttl/worldgen/placed_feature/design_water.json"
+hash = "5405e42adf69365df2783d7b843c1e418e45ae026f5431757c50bfcb02b85415"
+
+[[files]]
 file = "kubejs/server_scripts/ttl/absorb/absorb.js"
 hash = "419185bd34c9c85627171b8028725b32d2f6e80551e648b38e1624298b799f50"
 
@@ -2942,7 +3022,7 @@ hash = "aba724b81546b1b73b253460418b272ac2ee350f2ba0761423c847bd4900585a"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/anchors.js"
-hash = "83bfb553ef523bf6bef2b162de6c7096f52af5d3cfe7dcf396ae1dbacafc8a45"
+hash = "6dacf29cf5bdb32b551c0624bb83359a4482b220dc066dd52aee822e1f5e4a1e"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/builds.js"
@@ -2950,7 +3030,7 @@ hash = "a2ba76e68960b9399db67e75b829f585b5e250474ae617b8d16ed6014f0360a8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/data.js"
-hash = "e4599d8536f64a29e56a5cf8b38d4e63383f0e74d906754df296acfa7b7bcef2"
+hash = "dc266cb8354b37270d9c5fbb60e08a5f6db51809a5f67926d7229d73157aa93c"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/dwargon_footprint.js"
@@ -2962,7 +3042,7 @@ hash = "be431726c5095293051c1560bcaaa5c8d12f054860fa2beae60017d5ffa0aaa8"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/placements.js"
-hash = "b60b011bac2ff7039b1555d140a8c30ee41c406cfcf941bc93d5f8abb38ed7e5"
+hash = "b49080bf7bab92d542113b962580497fd013b255986ccccb99b2fff289a39e1f"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/generated/quests.js"
@@ -3050,7 +3130,7 @@ hash = "49b585f15cb94fc874a661db4284248a907703fa470df75770235a167ade03f9"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/dwargon.js"
-hash = "b6c0ea9151c10936bd24dc56e43c21ac15bb4edb51c962ea53cd2306617879f1"
+hash = "c7d738e5f685b6d887fdaa4027c732c2bbb119cd7e0c3434bab074026717ac87"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/forests.js"
@@ -3122,7 +3202,7 @@ hash = "f310a76f5e3904102a3b865883eb146c798504edc64d320aa58ba0299eca7072"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/tempest.js"
-hash = "5b5d89b250cb10265c4800fd79776fef340bd63ad5877120a57049f7249505bf"
+hash = "159c3d4c02ec83bf04cbe9b0f9448ce501d02d8103671db37bc639d73f6375f2"
 
 [[files]]
 file = "kubejs/server_scripts/ttl/life/trade_roads.js"
