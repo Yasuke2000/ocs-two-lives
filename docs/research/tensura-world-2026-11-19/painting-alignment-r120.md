@@ -1,0 +1,9 @@
+# Visible Ulgr brook follows source — R120
+
+[Current painting](../../../world/painting-round112/README.md) follows source `4093f844` / map commit `6b866fd` in [PR107](https://github.com/Yasuke2000/ocs-two-lives/pull/107). Exact current points and six-block water width are present in the visible native overlay. Original bank ink closes the historical short land outlet while preserving the spring and shore. All R118 native children and original bitmap assets remain; their historical metadata is not relabelled current.
+
+The final continent changes 166 pixels, at most 16.24 blocks from the new route or old land outlet, with all exterior pixels identical. The atlas embeds that exact PNG and retains all other XML except root source metadata. All 58 registrations, 20 labels and 42 rows remain; browser minimum number spacing 32.47 pixels, no overlap. No new source-geometry issue was identified from the painting comparison. Source/normal staging/census are adopted only at their exact matching hash; the painting does not prove global relief or runtime fluid acceptance.
+
+This native composition adds no canon claim, new bitmap generation or copyrighted reference pixels. Ledger 324; inventory 142/42. C23, broader proportions, missing-source/location coverage and initial-era consistency remain open. This branch incorporates source PR107 and is stacked over the preceding painting branch (PR106); older proposals retain their own snapshots. No main merge or live world action.
+
+Verification: default checker zero errors, all 56 relations, two prior warnings. Exact-source normal staging (66.4 seconds) is adopted unchanged. Required repository gate: 472 tests, 26 skipped, zero failures in 64.136 seconds. Validation and `git diff --check` pass. Final continent, local comparison and browser layout inspected. No in-game acceptance claim.

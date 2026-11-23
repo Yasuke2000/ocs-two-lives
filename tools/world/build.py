@@ -129,6 +129,8 @@ def main(argv=None):
     ap.add_argument("--sea-margin", type=int, default=s2r.SEA_MARGIN)
     ap.add_argument("--region", type=int, default=s2r.REGION)
     ap.add_argument("--sites", default=str(sfb.SITES_TOML))
+    ap.add_argument("--paint", default=str(s2r.paint_mod.PAINT),
+                    help="paint layers (world/paint/, tools/world/paint.py); '' builds the SVG alone")
     args = ap.parse_args(argv)
     svg = Path(args.svg)
     if not svg.is_file():
@@ -145,8 +147,12 @@ def main(argv=None):
 
     text = svg.read_text(encoding="utf-8")
     try:
+        layers = s2r.paint_mod.load(args.paint) if args.paint else None
+        if layers is not None:
+            print("paint: %s (%s)" % (Path(args.paint).relative_to(ROOT) if Path(args.paint).is_relative_to(ROOT) else args.paint,
+                                       ", ".join(n for n in ("height", "rugged", "biome") if getattr(layers, n) is not None)))
         world = s2r.build(text, s2r.Options(seed=args.seed, sea_margin=args.sea_margin, region=args.region),
-                          args.sites)
+                          args.sites, paint=layers)
     except s2r.MapError as e:
         print("svg2rasters: %s" % e, file=sys.stderr)
         return 1

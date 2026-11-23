@@ -1,0 +1,8 @@
+{
+ "x0": -6656,
+ "z0": -5632,
+ "px": 4,
+ "w": 3200,
+ "h": 2688,
+ "note": "Paint layers cover x0..x0+w*px, z0..z0+h*px in world blocks; do not resize the PNGs."
+}

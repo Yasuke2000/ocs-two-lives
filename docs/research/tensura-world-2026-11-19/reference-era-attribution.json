@@ -1,0 +1,696 @@
+{
+  "date": "2026-11-22",
+  "corrected_curated_rows": 69,
+  "unique_assets": 24,
+  "corrected_ledger_ids": [
+    "OFF-VIS-J-059",
+    "OFF-VIS-D-059",
+    "OFF-VIS-G-059",
+    "OFF-VIS-L-059",
+    "OFF-VIS-I-059"
+  ],
+  "ledger_count": 347,
+  "fresh_official_episode_headers": [
+    {
+      "route": "no4",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no4",
+      "displayed_episode": 4,
+      "displayed_title": "ドワーフの王国にて",
+      "status": 200,
+      "sha256": "fc87ce4480587fe1dbe59c134153246622dc03630aceac71641b144c3f34c0b1"
+    },
+    {
+      "route": "no9",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no9",
+      "displayed_episode": 9,
+      "displayed_title": "大鬼族の襲撃",
+      "status": 200,
+      "sha256": "23af5af444d90abcaa3e9bceea72423c38f0282d7448ecf338928a65775d02dc"
+    },
+    {
+      "route": "no10",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no10",
+      "displayed_episode": 10,
+      "displayed_title": "オークロード",
+      "status": 200,
+      "sha256": "669c465f0d3cfbfe443090818794cc89ed2e9a4249da8f1d6b3e20e709373ddf"
+    },
+    {
+      "route": "no20",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no20",
+      "displayed_episode": 20,
+      "displayed_title": "ユウキ・カグラザカ",
+      "status": 200,
+      "sha256": "ed7a58795bbd377ba9ad1b9ba6f4eac4dae6f78d6f1fda912b203ad4df0853ee"
+    },
+    {
+      "route": "no21",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no21",
+      "displayed_episode": 21,
+      "displayed_title": "シズさんの教え子達",
+      "status": 200,
+      "sha256": "74b08bdb6177e037183e2058d5db41a7464d8c1adb05ce07edab30c284a2820d"
+    },
+    {
+      "route": "no22",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no22",
+      "displayed_episode": 22,
+      "displayed_title": "迷宮攻略",
+      "status": 200,
+      "sha256": "173d52158b24a8280fe4452744f36e2895daea6727bf2b906efefcd8456ee998"
+    },
+    {
+      "route": "no45",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no45",
+      "displayed_episode": 42,
+      "displayed_title": "魔王たち",
+      "status": 200,
+      "sha256": "eb774d79a4561d648ae2dff2eb023992a012c71ce2ba75f760a001f7df309e63"
+    },
+    {
+      "route": "no54",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no54",
+      "displayed_episode": 50,
+      "displayed_title": "聖人の思惑",
+      "status": 200,
+      "sha256": "2409f1fa7f5671dec6c71827b4c05f8c280c196276ca06d3b1ed47ca077fd5ce"
+    },
+    {
+      "route": "no57",
+      "url": "https://www.ten-sura.com/anime/tensura/story/no57",
+      "displayed_episode": 53,
+      "displayed_title": "両翼会議",
+      "status": 200,
+      "sha256": "fcd1efd38153ba5b194c0be4ba85b6fc3729795a7d283f71cea2636149020f39"
+    }
+  ],
+  "freshly_viewed_gallery": {
+    "episode": 4,
+    "images": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "manifest": [
+      {
+        "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img1.jpg",
+        "file": "episode4-img1.jpg",
+        "status": 200,
+        "sha256": "f4f267aabf41d0220d96f6b73db2f9471e8d5e1199a7c632acd8699983b236bc"
+      },
+      {
+        "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img2.jpg",
+        "file": "episode4-img2.jpg",
+        "status": 200,
+        "sha256": "dcd7caeb2b618746f2395eddd4396178b6bbfec4448f494d6beca41048c4d08f"
+      },
+      {
+        "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img3.jpg",
+        "file": "episode4-img3.jpg",
+        "status": 200,
+        "sha256": "bac7daaf6e1fae715d060c04bdd70254191cb0005cf59dd7594586c9fa5f5d93"
+      },
+      {
+        "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img4.jpg",
+        "file": "episode4-img4.jpg",
+        "status": 200,
+        "sha256": "dd4faa4c6dc2550ae45b4212aeee2fc397324e2e0515c0810ba962993a8f1da4"
+      },
+      {
+        "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no4/img5.jpg",
+        "file": "episode4-img5.jpg",
+        "status": 200,
+        "sha256": "f53edd5d0e92e1c490aa159d4156c8ac1fbecf157711fa6614379d58eea23b87"
+      }
+    ],
+    "previous_image_hashes_retained": true
+  },
+  "curation_changes": [
+    {
+      "region": "J",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "J",
+      "asset": "9-3",
+      "source_locator_before": "Official episode gallery route no9, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 3; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Early woodland setting, not a surveyed Tempest clearing."
+    },
+    {
+      "region": "J",
+      "asset": "9-4",
+      "source_locator_before": "Official episode gallery route no9, image 4; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 4; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Ogre encounter vegetation; no exact route coordinates."
+    },
+    {
+      "region": "J",
+      "asset": "sealed_cave",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Cave visual vocabulary; attribution qualified."
+    },
+    {
+      "region": "J",
+      "asset": "rimuru_city",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Later developed-city reference;do not instantiate this metropolis immediately after Kijin naming. Original episode/timestamp remains unverified. Application: Later basin and expansion context only; no metropolis at initial snapshot."
+    },
+    {
+      "region": "D",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "D",
+      "asset": "4-3",
+      "source_locator_before": "Official episode gallery route no4, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no4, image 3; no frame timestamp supplied. Displayed episode4; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode4 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Rock and entrance vocabulary; no measured gate bearing."
+    },
+    {
+      "region": "D",
+      "asset": "4-4",
+      "source_locator_before": "Official episode gallery route no4, image 4; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no4, image 4; no frame timestamp supplied. Displayed episode4; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode4 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Workshop masonry/tools; not city street geometry."
+    },
+    {
+      "region": "D",
+      "asset": "dwargon_gate",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Gate/apron appearance, not exact scale."
+    },
+    {
+      "region": "W",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "W",
+      "asset": "lake_siss",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Reed/water appearance only; not lake boundaries."
+    },
+    {
+      "region": "W",
+      "asset": "10-5",
+      "source_locator_before": "Official episode gallery route no10, image 5; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no10, image 5; no frame timestamp supplied. Displayed episode10; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode10 contains the selected instant,but this gallery frame is not timestamped against the naming scene. Do not automatically activate its encounter or character state immediately after naming. Application: Grass and woodland background only; character pose does not locate a shoreline."
+    },
+    {
+      "region": "R",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "R",
+      "asset": "londo",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Fields and low wall appearance; no exact capital plan."
+    },
+    {
+      "region": "R",
+      "asset": "9-3",
+      "source_locator_before": "Official episode gallery route no9, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 3; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement."
+    },
+    {
+      "region": "G",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "G",
+      "asset": "20-2",
+      "source_locator_before": "Official episode gallery route no20, image 2; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no20, image 2; no frame timestamp supplied. Displayed episode20; header rechecked22Nov2026.",
+      "snapshot_use_after": "Displayed episode20 is later than the selected S1E10instant. Visual reference only;it does not establish initial construction,occupancy or events. Application: Yuuki office context only; no capital exterior."
+    },
+    {
+      "region": "G",
+      "asset": "21-3",
+      "source_locator_before": "Official episode gallery route no21, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no21, image 3; no frame timestamp supplied. Displayed episode21; header rechecked22Nov2026.",
+      "snapshot_use_after": "Displayed episode21 is later than the selected S1E10instant. Visual reference only;it does not establish initial construction,occupancy or events. Application: Academy classroom materials; not city or campus coordinates."
+    },
+    {
+      "region": "F",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "F",
+      "asset": "londo",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Blumund fields/town massing only; not a view of this country or proof of its climate."
+    },
+    {
+      "region": "F",
+      "asset": "coleus",
+      "source_locator_before": "Official Coleus announcement 2023-05-09, production concept; OFF-COL-002, not an S1E10 frame.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official Coleus announcement 2023-05-09, production concept; OFF-COL-002, not an S1E10 frame.",
+      "snapshot_use_after": "Official production panorama used for its stated visual role;not proof of S1E10 building condition,occupancy or cross-country climate. Stepped town massing and rock colour only; do not transplant Coleus palace, domes or arid climate."
+    },
+    {
+      "region": "L",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "L",
+      "asset": "57-3",
+      "source_locator_before": "Official episode gallery route no57, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no57, image 3; no frame timestamp supplied. Displayed episode53; header rechecked22Nov2026.",
+      "snapshot_use_after": "Displayed episode53 is later than the selected S1E10instant. Visual reference only;it does not establish initial construction,occupancy or events. Application: Lubelius meeting columns; not a capital or sacred-stair layout."
+    },
+    {
+      "region": "L",
+      "asset": "54-5",
+      "source_locator_before": "Official episode gallery route no54, image 5; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no54, image 5; no frame timestamp supplied. Displayed episode50; header rechecked22Nov2026.",
+      "snapshot_use_after": "Displayed episode50 is later than the selected S1E10instant. Visual reference only;it does not establish initial construction,occupancy or events. Application: Gold-tracery material context; not exterior geography."
+    },
+    {
+      "region": "V",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "V",
+      "asset": "coleus",
+      "source_locator_before": "Official Coleus announcement 2023-05-09, production concept; OFF-COL-002, not an S1E10 frame.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official Coleus announcement 2023-05-09, production concept; OFF-COL-002, not an S1E10 frame.",
+      "snapshot_use_after": "Official production panorama used for its stated visual role;not proof of S1E10 building condition,occupancy or cross-country climate. Coleus component only; not all Damargania or Dagruel's capital."
+    },
+    {
+      "region": "V",
+      "asset": "4-3",
+      "source_locator_before": "Official episode gallery route no4, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no4, image 3; no frame timestamp supplied. Displayed episode4; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode4 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Dwargon pale rock only; does not locate a western settlement."
+    },
+    {
+      "region": "O",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "O",
+      "asset": "londo",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Blumund fields/town massing only; not a view of this country or proof of its climate."
+    },
+    {
+      "region": "O",
+      "asset": "lake_siss",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Reeds/bank material only; not proof of local lakes or coast."
+    },
+    {
+      "region": "A",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "A",
+      "asset": "londo",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Blumund fields/town massing only; not a view of this country or proof of its climate."
+    },
+    {
+      "region": "A",
+      "asset": "lake_siss",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Reeds/bank material only; no local hydrology claim."
+    },
+    {
+      "region": "N",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "N",
+      "asset": "londo",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Blumund fields/town massing only; not a view of this country or proof of its climate."
+    },
+    {
+      "region": "N",
+      "asset": "9-3",
+      "source_locator_before": "Official episode gallery route no9, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 3; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement."
+    },
+    {
+      "region": "Y",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "Y",
+      "asset": "londo",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Blumund fields/town massing only; not a view of this country or proof of its climate."
+    },
+    {
+      "region": "Y",
+      "asset": "9-3",
+      "source_locator_before": "Official episode gallery route no9, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 3; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement."
+    },
+    {
+      "region": "Q",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "Q",
+      "asset": "londo",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Blumund fields/town massing only; not a view of this country or proof of its climate."
+    },
+    {
+      "region": "Q",
+      "asset": "9-3",
+      "source_locator_before": "Official episode gallery route no9, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 3; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement."
+    },
+    {
+      "region": "U",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "U",
+      "asset": "22-5",
+      "source_locator_before": "Official episode gallery route no22, image 5; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no22, image 5; no frame timestamp supplied. Displayed episode22; header rechecked22Nov2026.",
+      "snapshot_use_after": "Displayed episode22 is later than the selected S1E10instant. Visual reference only;it does not establish initial construction,occupancy or events. Application: Spirit Dwelling masonry context only; not Ulgr park, Galut or mainland entrance placement."
+    },
+    {
+      "region": "U",
+      "asset": "9-3",
+      "source_locator_before": "Official episode gallery route no9, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 3; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement."
+    },
+    {
+      "region": "S",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "S",
+      "asset": "elmine",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Giant-tree city visual; episode/era unverified."
+    },
+    {
+      "region": "S",
+      "asset": "9-3",
+      "source_locator_before": "Official episode gallery route no9, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 3; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement."
+    },
+    {
+      "region": "H",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "H",
+      "asset": "jia",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Cliff city vocabulary, not measured height or bearing."
+    },
+    {
+      "region": "H",
+      "asset": "khusha_mountains",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Rock spires only; not a Fulbrosia panorama or exact site."
+    },
+    {
+      "region": "B",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "B",
+      "asset": "laura",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Intact waterfall city, not a surveyed plan; attribution qualified."
+    },
+    {
+      "region": "B",
+      "asset": "9-3",
+      "source_locator_before": "Official episode gallery route no9, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 3; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement."
+    },
+    {
+      "region": "M",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "M",
+      "asset": "laura",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Cultivated valley vocabulary only; not Milim's temple or local city."
+    },
+    {
+      "region": "M",
+      "asset": "coleus",
+      "source_locator_before": "Official Coleus announcement 2023-05-09, production concept; OFF-COL-002, not an S1E10 frame.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official Coleus announcement 2023-05-09, production concept; OFF-COL-002, not an S1E10 frame.",
+      "snapshot_use_after": "Official production panorama used for its stated visual role;not proof of S1E10 building condition,occupancy or cross-country climate. Stepped town massing and rock colour only; do not transplant Coleus palace, domes or arid climate."
+    },
+    {
+      "region": "P",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "P",
+      "asset": "amrita",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Clayman castle/wet basin context; not the underground Amrita city layout."
+    },
+    {
+      "region": "P",
+      "asset": "9-3",
+      "source_locator_before": "Official episode gallery route no9, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no9, image 3; no frame timestamp supplied. Displayed episode9; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode9 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Neighbouring Jura woodland vocabulary only; does not establish this country's vegetation share or settlement."
+    },
+    {
+      "region": "E",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "E",
+      "asset": "laura",
+      "source_locator_before": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Secondary pinned fan-map asset; episode and original production attribution remain unverified.",
+      "snapshot_use_after": "Secondary reference with unverified original episode and timestamp;initial architecture,state and residents are not certified. Application: Valley/farmland vocabulary only; not an Imperial settlement."
+    },
+    {
+      "region": "E",
+      "asset": "4-3",
+      "source_locator_before": "Official episode gallery route no4, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no4, image 3; no frame timestamp supplied. Displayed episode4; header rechecked22Nov2026.",
+      "snapshot_use_after": "Episode4 precedes the selected Kijin-naming instant; use the visible setting/material cue only,not continued presence or activities of depicted characters. Application: Canaat rock material only; not Nasca or an Empire panorama."
+    },
+    {
+      "region": "I",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "I",
+      "asset": "45-3",
+      "source_locator_before": "Official episode gallery route no45, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no45, image 3; no frame timestamp supplied. Displayed episode42; header rechecked22Nov2026.",
+      "snapshot_use_after": "Displayed episode42 is later than the selected S1E10instant. Visual reference only;it does not establish initial construction,occupancy or events. Application: Cold blue wall material only; no confirmed exterior palace or coastline."
+    },
+    {
+      "region": "I",
+      "asset": "45-4",
+      "source_locator_before": "Official episode gallery route no45, image 4; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no45, image 4; no frame timestamp supplied. Displayed episode42; header rechecked22Nov2026.",
+      "snapshot_use_after": "Displayed episode42 is later than the selected S1E10instant. Visual reference only;it does not establish initial construction,occupancy or events. Application: Cold blue floor material only; no measured island geometry or C22 resolution."
+    },
+    {
+      "region": "X",
+      "asset": "world",
+      "source_locator_before": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official world guide; illustration, not a measured survey.",
+      "snapshot_use_after": "Illustrated broad geography only;the unchaptered base image does not date political borders,city development or destruction to the post-Kijin instant. Country placement and continental silhouette only; no surveyed border, height, street or exact distance."
+    },
+    {
+      "region": "X",
+      "asset": "coleus",
+      "source_locator_before": "Official Coleus announcement 2023-05-09, production concept; OFF-COL-002, not an S1E10 frame.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official Coleus announcement 2023-05-09, production concept; OFF-COL-002, not an S1E10 frame.",
+      "snapshot_use_after": "Official production panorama used for its stated visual role;not proof of S1E10 building condition,occupancy or cross-country climate. Stepped town massing and rock colour only; do not transplant Coleus palace, domes or arid climate."
+    },
+    {
+      "region": "X",
+      "asset": "45-3",
+      "source_locator_before": "Official episode gallery route no45, image 3; no frame timestamp supplied.",
+      "snapshot_use_before": "Early woodland and workshop visual vocabulary may inform initial snapshot; later city, concept and interior frames do not activate events or establish S1E10 construction.",
+      "source_locator_after": "Official episode gallery route no45, image 3; no frame timestamp supplied. Displayed episode42; header rechecked22Nov2026.",
+      "snapshot_use_after": "Displayed episode42 is later than the selected S1E10instant. Visual reference only;it does not establish initial construction,occupancy or events. Application: Leon's colour association only; meeting-room wall is not El Dorado architecture or geography."
+    }
+  ],
+  "unchanged_fields": "All curated roles,application limits,image URLs,dimensions,hashes,inspection notes and confidences. All ledger fields except five locator/snapshot_use pairs.",
+  "route_research_limits": "No verified new LN Ameld bearing. Publisher LN1 link leads to Google Play ISBN search;Google Books metadata returned429. Comic DAYS chapter2 exposes a login/ticket boundary,not story geography. Fan-fiction and unlicensed mirror search results were not used.",
+  "unchanged_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "runtime_acceptance": false,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "duration_seconds": 65.504,
+    "validation": "passed",
+    "diff_check": "passed"
+  }
+}

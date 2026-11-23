@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-21",
+  "sources": [
+    {
+      "id": "wn42",
+      "url": "https://ncode.syosetu.com/n6316bn/44/",
+      "final": "https://ncode.syosetu.com/n6316bn/44/",
+      "status": 200,
+      "bytes": 65011,
+      "sha256": "9cd30f70b294051552f60bdee73e1418b85c5cada222d4720b46e5b7c56d48b2",
+      "paragraphs": 387
+    },
+    {
+      "id": "publisher-novel-index",
+      "url": "https://gcnovels.jp/slime/novel.html",
+      "final": "https://gcnovels.jp/slime/novel.html",
+      "status": 200,
+      "bytes": 29467,
+      "sha256": "a5ba24737d68cb914b48ab39c91ca1737b735933793fce4c898d69d0fff8c850",
+      "paragraphs": 81
+    }
+  ],
+  "facts_added": [
+    "WN42-001"
+  ],
+  "local_trial_result": {
+    "readable_story_pages": false,
+    "capture_bytes": {
+      "LN20.html": 0,
+      "LN21.html": 0
+    },
+    "status_and_title": "not obtained",
+    "helper": "stopped after missing final metadata; no publisher bypass attempted"
+  },
+  "unchanged_source_text_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa"
+}

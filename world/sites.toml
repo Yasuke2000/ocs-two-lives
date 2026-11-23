@@ -145,7 +145,7 @@ ground = "fixed"
 
 [dragons_nest]
 site = "clearing"
-r = 64
+r = 85
 min_r = 64
 box = [73, 73]
 plate = [89, 89]
@@ -216,7 +216,7 @@ ground = "fixed"
 
 [englassia]
 site = "clearing"
-r = 98
+r = 124
 min_r = 98
 box = [128, 112]
 plate = [144, 128]
@@ -257,7 +257,7 @@ ground = "fixed"
 
 [sacred_mountain]
 site = "plateau"
-r = 80
+r = 95
 min_r = 80
 box = [81, 81]
 plate = [113, 113]
@@ -460,8 +460,8 @@ r = 8
 min_r = 8
 
 [frost_palace]
-site = "coast"
-r = 67
+site = "clearing"
+r = 89
 min_r = 67
 box = [85, 69]
 plate = [101, 85]

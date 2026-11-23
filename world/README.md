@@ -100,3 +100,17 @@ same table for readers (id, kind, min_r).
 - Roads: the checker samples every 4 blocks; a wet run is lake, ocean or a river corridor (half the river width on each
   side). The road grade (1 in 2) is not checked yet: it needs the height estimate of the converter.
 - Rules only the converter can judge (height continuity, river reach steps) are not here.
+
+## Painting on top of the map (world/paint/)
+
+The SVG holds the geography; the paint layers shape what lies between: raise a range, roughen a belt, swap a patch of
+plains for cherry grove. `python -I tools/world/paint.py template` makes `world/paint/` from the current build:
+`height.png` and `rugged.png` (8-bit grey, 128 = no change; height steps of 2 blocks), `biome.png` (RGB, black = no
+change, colours from `legend.json` / `legend.png`, hard pencil), `frame.json` (where the layers sit in the world), and
+`reference/base.png` + `reference/overlay.png` (the current terrain and the sites/roads/coast, to paint over; not
+committed). Paint in Krita, GIMP or Photoshop at the same size, or with the script brushes (`paint.py blob|ridge|disc`),
+then `python -I tools/world/paint.py status` and `python -I tools/world/build.py`.
+
+The converter applies paint after the relief and **before** lakes, rivers, sites and roads: site plates stay flat and
+at their level, water keeps its level, the coast stays the SVG's (painted land never drops into the sea), and a site's
+own biome wins over painted biome. `index.json` records the paint's hash; `--paint ''` builds the SVG alone.

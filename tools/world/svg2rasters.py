@@ -57,6 +57,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
+import paint as paint_mod  # noqa: E402
 import pngcodec  # noqa: E402
 import sites_from_builds as sfb  # noqa: E402
 import svgparse  # noqa: E402
@@ -389,8 +390,9 @@ class Site:
 class World:
     """All rasters of one build. Fine grid w x h at PX blocks, coarse grid cw x ch at CELL blocks."""
 
-    def __init__(self, shapes, opts, anchors=None, overrides=None, reqs=None, source_hash=""):
+    def __init__(self, shapes, opts, anchors=None, overrides=None, reqs=None, source_hash="", paint=None):
         self.shapes, self.o = shapes, opts
+        self.paint = paint  # tools/world/paint.py Paint (world/paint/*.png) or None
         self.anchors = anchors or {}
         self.ov = overrides or {}
         self.reqs = reqs or {}
@@ -1173,9 +1175,80 @@ class World:
         bad = [b for b in used if b not in ALLOWED_BIOMES and b not in AUTO_BIOMES]
         if bad:
             raise MapError("sites.toml region/forest defaults name biomes that are not allowed: %s" % ", ".join(bad))
+        self.paint_biomes(out, site, site_b)
+        used = sorted(set(out) - {"#ocean"})
         self.biome_list = ["#ocean"] + used
         index = {b: k for k, b in enumerate(self.biome_list)}
         self.biome = bytes(index[b] for b in out)
+
+    # ---- paint (world/paint/, tools/world/paint.py): after the relief, before water, sites and roads
+    def _paint_range(self, layer):
+        p = self.paint
+        data = getattr(p, layer)
+        if data is None:
+            return None
+        cols = [k % p.w for k, v in enumerate(data) if v != (0 if layer == "biome" else 128)]
+        rows = [k // p.w for k, v in enumerate(data) if v != (0 if layer == "biome" else 128)]
+        if not cols:
+            return None
+        pad = p.px  # bilinear height reaches one paint pixel further
+        return self.px_range(p.x0 + min(cols) * p.px - pad, p.z0 + min(rows) * p.px - pad,
+                             p.x0 + (max(cols) + 1) * p.px + pad, p.z0 + (max(rows) + 1) * p.px + pad)
+
+    def apply_paint(self):
+        if self.paint is None:
+            return
+        w, H, rug, land, p = self.w, self.H, self.rug, self.land, self.paint
+        raised = lowered = 0
+        rng = self._paint_range("height")
+        if rng:
+            i0, i1, j0, j1 = rng
+            for j in range(j0, j1 + 1):
+                for i in range(i0, i1 + 1):
+                    g = j * w + i
+                    if not land[g]:
+                        continue
+                    x, z = self.centre(i, j)
+                    d = p.height_at(x, z)
+                    if d:
+                        # Painted land never drops into the sea: the coast is the SVG's.
+                        H[g] = max(SEA + 1.0, H[g] + d)
+                        raised += d > 0
+                        lowered += d < 0
+        rng = self._paint_range("rugged")
+        if rng:
+            i0, i1, j0, j1 = rng
+            for j in range(j0, j1 + 1):
+                for i in range(i0, i1 + 1):
+                    g = j * w + i
+                    if land[g]:
+                        d = p.rugged_at(*self.centre(i, j))
+                        if d:
+                            rug[g] = clamp(rug[g] + d, 0.0, 1.0)
+        self.paint_stats = {"raised_px": raised, "lowered_px": lowered}
+        if p.bad_colours:
+            self.warn("paint: %d biome.png pixels have colours not in legend.json (ignored; python -I tools/world/paint.py status)"
+                      % sum(p.bad_colours.values()))
+
+    def paint_biomes(self, out, site, site_b):
+        """Painted biomes win over the SVG's biomes, forests and the Jura rings; site plates and water keep theirs."""
+        if self.paint is None or self.paint.biome is None:
+            return
+        rng = self._paint_range("biome")
+        if not rng:
+            return
+        w, land, wk = self.w, self.land, self.wkind
+        i0, i1, j0, j1 = rng
+        for j in range(j0, j1 + 1):
+            for i in range(i0, i1 + 1):
+                g = j * w + i
+                if not land[g] or wk[g] or (site[g] and site_b[site[g]]):
+                    continue
+                b = self.paint.biome_at(*self.centre(i, j))
+                if b:
+                    if b not in ALLOWED_BIOMES:
+                        raise MapError("world/paint/biome.png paints %r, not an allowed biome (tools/world/biomes.txt)" % b)
+                    out[g] = b
 
     def coast_strip(self):
         """Land pixels within ~2 pixels of the sea (the exact coast distance is known in the band)."""
@@ -1239,6 +1312,7 @@ class World:
         self.fine_land()
         self.features()
         self.relief()
+        self.apply_paint()
         self.lakes()
         self.rivers()
         self.sites()
@@ -1440,6 +1514,8 @@ def legend(world):
         "what": "Own-world generator rasters (tools/world/svg2rasters.py, design/architecture/own-world.md).",
         "version": 1,
         "source_sha256": world.source_hash,
+        "paint": (dict(world.paint.frame, sha256=world.paint.fingerprint(), **getattr(world, "paint_stats", {}))
+                  if world.paint is not None else None),
         "seed": world.o.seed,
         "box": {"x0": world.x0, "z0": world.z0, "x1": world.x0 + world.w * PX, "z1": world.z0 + world.h * PX,
                 "width_px": world.w, "height_px": world.h, "content": [round(v) for v in world.content],
@@ -1545,7 +1621,7 @@ def write_outputs(world, out):
     (out / "canon_map.txt").write_text(canon_map(world), encoding="utf-8", newline="\n")
 
 
-def build(svg_text, opts=None, sites_toml=None, anchors=None, sources=None):
+def build(svg_text, opts=None, sites_toml=None, anchors=None, sources=None, paint=None):
     """Parse + rasterise. Returns the World (raises MapError on a fatal map problem)."""
     opts = opts or Options()
     rep = svgparse.Report()
@@ -1563,7 +1639,9 @@ def build(svg_text, opts=None, sites_toml=None, anchors=None, sources=None):
         full = sfb.requirements(src, kinds)
         reqs = {k: v for k, v in full.items() if k in kinds}
     sha = hashlib.sha256(svg_text.encode("utf-8")).hexdigest()
-    world = World(shapes, opts, anchors, overrides, reqs, sha)
+    if paint is not None:  # the paint is part of the source: a paint change is a new build
+        sha = hashlib.sha256((sha + paint.fingerprint()).encode("utf-8")).hexdigest()
+    world = World(shapes, opts, anchors, overrides, reqs, sha, paint)
     for wmsg in rep.warnings:
         world.warn(wmsg["message"])
     return world.run()
@@ -1577,10 +1655,13 @@ def main(argv=None):
     ap.add_argument("--seed", type=int, default=SEED)
     ap.add_argument("--sea-margin", type=int, default=SEA_MARGIN)
     ap.add_argument("--region", type=int, default=REGION)
+    ap.add_argument("--paint", default=str(paint_mod.PAINT), help="paint layers folder ('' = no paint)")
     args = ap.parse_args(argv)
     text = Path(args.svg).read_text(encoding="utf-8")
     try:
-        world = build(text, Options(seed=args.seed, sea_margin=args.sea_margin, region=args.region), args.sites)
+        layers = paint_mod.load(args.paint) if args.paint else None
+        world = build(text, Options(seed=args.seed, sea_margin=args.sea_margin, region=args.region), args.sites,
+                      paint=layers)
     except MapError as e:
         print("svg2rasters: %s" % e, file=sys.stderr)
         return 1
