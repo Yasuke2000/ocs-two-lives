@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-23",
+  "source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+  "normal_artifacts_checked": 14,
+  "registered_sites_checked": 58,
+  "roads": 23,
+  "regional_headings_retained": 22,
+  "biome_mix_paragraphs_retained": 22,
+  "curated_reference_paragraphs_retained": 22,
+  "all_current_site_reservations_and_levels_match_manifest": true,
+  "outer_painting_source_metadata_matches": true,
+  "biome_png_matches_historical_census": true,
+  "facts_unique": 355,
+  "geometry_art_and_protected_paths_changed": false,
+  "repository_gate_passed": false,
+  "full_goal_complete": false,
+  "repository_gate": {
+    "passed": false,
+    "tests": 472,
+    "skipped": 26,
+    "failures": 2,
+    "seconds": 67.426,
+    "validation_failed": true,
+    "reason": "Inherited Filtwood legacy U versus owner-approved J;both failures match the preceding source branch."
+  }
+}

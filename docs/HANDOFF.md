@@ -1,3 +1,7 @@
+## 2026-11-23 — current terrain-guide correction
+
+`world/regions.md` and `world/comparison.md` now identify source9526890d and23roads after approved Filtwood. Removed current-tense claims that all58sites/22roads and painted pixels remain unchanged since R127;those assertions belong to earlier revisions. Current Filtwood audit/manifest and painting are linked. Retained all22regional headings,22biome mixes and22curated-reference paragraphs. LN20 later-capital evidence is now beside the Eurazania narrative,with the S1E10 exclusion explicit. No map/art/terrain/runtime edit. See [guide audit](../world/current-guide-audit.json). Fresh required gate:472tests in67.426s,26skipped,the same2legacy-U/J failures plus validation;not passing. The same integration dependency remains.
+
 ## 2026-11-23 — licensed LN20 capital-source follow-up
 
 Branch `chatgpt/ln20-capital-source` stacks on approved-Filtwood PR146. Ordinary ebookjapan trial now works after closing its coupon popup; selected chapter1 opening at viewer36/93 directly places the later planned Milim capital in former Eurazania. Added LN20-CAPITAL-001;355unique rows. Sample menu lists only prologue/chapter1,not the Long Wall chapter3. No whole-sample reading or exact capital coordinate/name. [Source review](research/tensura-world-2026-11-19/ln20-licensed-capital-review.md). All map/art/terrain bytes retained. Fresh gate:472tests in68.854s,26skipped,the same2inherited Filtwood legacy-U/J failures plus validation;not passing. No runtime changes or apply.
