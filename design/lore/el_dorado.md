@@ -4,7 +4,11 @@
 
 In episode 87, Laplace and his companions pose as eastern merchants to meet Leon in **Golden City El Dorado**. The episode synopsis names the place. The wide shot shows three visitors facing broad white stairs with a red runner edged in gold. Gold balustrades flank the ascent. Leon's high-backed throne has a pointed outline and purple-red upholstery against tall pale wall panels. A second view shows the thick gilded armrests. In another still Leon stands under glazed ribs beside climbing roses and an ornate mirror; the image does not establish how that space connects to the audience hall. [Episode 87 synopsis](https://www.ten-sura.com/anime/tensura/story/no92) · [Wide audience view](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no92/img1.jpg) · [Throne detail](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no92/img5.jpg) · [Glazed garden](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no92/img3.jpg)
 
-The Japanese series encyclopedia's geography entry describes a six-pointed city on magically levelled land, with streets spiralling upward towards a white royal castle. The city plan forms a layered defensive spell. The entry cites the volume 13.5 setting guide (p. 210) and light novel volume 18 (pp. 123–125); those passages were consulted through the encyclopedia. The pack atlas places the continent to the south-west and links its wealth to a volcano. The volcano and its mines lie beyond this build. [Japanese encyclopedia, 黄金郷](https://ja.wikipedia.org/wiki/転生したらスライムだった件#黄金郷) · [Continent research, section X](world.md#x-el-dorado-黄金郷エルドラド)
+The Japanese series encyclopedia's geography entry describes a six-pointed city on magically levelled land, with streets spiralling upward towards a white royal castle. The city plan forms a layered defensive spell. The entry cites the volume 13.5 setting guide (p. 210) and light novel volume 18 (pp. 123–125); those passages are reported by the secondary encyclopedia and have not been directly read. They do not establish the exact S1E10 city form. The public guide13.5 trial inspected in this dossier stops before the cited body page. The pack atlas places the continent to the south-west and links its wealth to a volcano. The volcano and its mines lie beyond this build. [Japanese encyclopedia, 黄金郷](https://ja.wikipedia.org/wiki/転生したらスライムだった件#黄金郷) · [Continent research, section X](world.md#x-el-dorado-黄金郷エルドラド)
+
+## Current own-world and era scope
+
+The source map reserves a radius100 court at (-4300,3000), with a distinct volcano marker at (-3900,3200). These are authored server coordinates, not canon measurements or a complete city footprint. A later audience/garden image gives visual cues only; it does not establish an identical early plan, initial mine activity or an active initial visit. Read [era policy](../../world/era.md). The retired placement survey below does not govern the new geometry.
 
 ## The court and our interpretation
 
@@ -16,7 +20,7 @@ At the north end of the **east arcade**, the roof changes from dark prismarine t
 
 On the dais, two small pointed gold ornaments sit against the pale wall panels on either side of the throne. Their profiles echo the isolated pendants visible beyond the visitors in the wide shot. [Episode 87, throne room](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/anime/tensura-portal-anime-tensura/assets/images/story/no92/img1.jpg)
 
-## Scale and placement
+## Historical scale and placement
 
 The blueprint is **81 × 39 × 83** blocks (x, y, z). The obelisk approach at local **(40, 4, 74)** is anchored at world **x −3300, z 4300** on Lerfing's map before terrain survey, on the green plain north-west of the island's volcano (plains, ground y 83, relief 13). The bounding-rectangle and chunk counts below are from the old grid. The three structure slabs start at z 0, 28 and 56. Including the 48-block search radius and 16-block terrain margin, the bounding rectangle is x −4912 through −4704, z 3102 through 3312. All 210 chunks it intersects are marked X. [Placement](../builds/el_dorado.toml) · [Political fan-map trace](../../pack/config/ttl/canon_map.txt)
 

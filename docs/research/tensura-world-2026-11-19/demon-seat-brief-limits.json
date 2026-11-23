@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-23",
+  "scope": [
+    "docs/chatgpt/places/el_dorado.md",
+    "docs/chatgpt/places/jia.md",
+    "design/lore/el_dorado.md",
+    "design/lore/jia.md"
+  ],
+  "source_and_ledger_hashes_retained": {
+    "world/map.svg": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+    "world/preview.png": "2c1eb3ddde92388d94af8c4aa65938a12c2f2fdef3da8a6bd55a15fd06cc9ea1",
+    "docs\\research\\tensura-world-2026-11-19\\geography-facts.csv": "1b5d94c0a96f64717a104e9b76488bd7593f59e3487a5b6e7e9ba4697185a12c"
+  },
+  "new_claims": 0,
+  "geometry_changed": false,
+  "runtime_applied": false,
+  "verification": {
+    "ledger_unique_records": 355,
+    "retained_sites": 58,
+    "current_brief_coordinates_match_svg": true,
+    "local_links_resolve": true,
+    "diff_check_passed": true,
+    "repository_check": {
+      "tests": 494,
+      "seconds": 66.607,
+      "failures": 2,
+      "skipped": 26,
+      "changed_js_files": 0,
+      "validation_passed": false,
+      "dependency": "Retained legacy Filtwood U grid versus owner-approved J anchor."
+    }
+  }
+}
