@@ -1,3 +1,7 @@
+## Current mainland/proportion requirement review
+
+[Current12-context audit](../../../world/current-geography-review.md) verifies named native elements/source IDs. [14-marker recalculation](../../../world/proportion-audit.md) fixes the stale inland-palace ratio/bearing;all13other numeric rows retained. Ledger360and all geometry/art/normal outputs unchanged;source,owner and technical dependencies remain explicit.
+
 ## Current Amrita nesting choice
 
 [Concrete marker-only trial](../../../world/amrita-current-nesting-review.md) has four default integration errors and remains inactive. One explicitly interpreted record brings the ledger to360. Source synopsis reread;the creative brief stops prescribing a public mound/shaft as canon. Active534d07ad and all terrain/art retained.

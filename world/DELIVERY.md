@@ -37,3 +37,7 @@ The requested `chatgpt/world-map` draft now includes the approved-Filtwood and s
 [Current Dwargon city planning](dwargon-city-current-fit.md) now displays the exact current inactive room/gallery geometry and fresh surface-fit measurements;it does not add the East gate/Imperial road or activate carving.
 
 [Current Amrita nesting trial](amrita-current-nesting-review.md) exposes four default integration conflicts;active geometry remains unchanged pending the source-led nested-location versus explicit server-deviation choice.
+
+[Current14-marker proportion benchmark](proportion-audit.md) now follows the approved inland palace;the previous palace ratio/bearing were stale. All13other displayed numeric rows are retained. It remains a secondary review signal with unknown projection,not a canonical scale test.
+
+[Current mainland requirement review](current-geography-review.md) checks all12requested contexts and separates present terrain from pending source,owner and technical dependencies.

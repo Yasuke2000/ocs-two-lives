@@ -26,7 +26,7 @@
   "roads": 23,
   "facts": {
     "records": 360,
-    "sha256": "feb834a7fd04568d70d8237cd32d4032ea6b1de635aafdee818ed962e351a42a",
+    "sha256": "22f11c3262c05862beeb3a15f87528146fe5bf8623f7f3fe265f0376e618e0fe",
     "confidence_counts": {
       "canon-explicit": 130,
       "canon-implied": 41,
@@ -1748,5 +1748,27 @@
       "relations": 56,
       "warnings": 2
     }
-  }
+  },
+  "current_proportion_benchmark": {
+    "review": "proportion-audit.md",
+    "audit": "proportion-current-audit.json",
+    "source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+    "reference_confidence": "fan-wiki; not surveyed canon",
+    "markers": 14,
+    "numeric_rows_changed": [
+      "frost_palace"
+    ],
+    "geometry_changed": false,
+    "repository_gate": {
+      "tests": 494,
+      "seconds": 66.388,
+      "failures": 2,
+      "skipped": 26,
+      "passed": false,
+      "validation_passed": false,
+      "changed_js_files": 0,
+      "scope": "Same retained authoring legacy Filtwood U/J failures;no map or runtime behaviour changed."
+    }
+  },
+  "current_mainland_requirement_review": "current-geography-review.md"
 }
