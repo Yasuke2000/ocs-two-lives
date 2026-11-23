@@ -25,10 +25,10 @@
   "registered_places": 58,
   "roads": 23,
   "facts": {
-    "records": 358,
-    "sha256": "067ad8cee0f5cb8e647b360326d787a95b1ea1ce5e44eb2660671600573d5fd7",
+    "records": 359,
+    "sha256": "73cc659375f830f2738f3993c9172d48e2edaefa9aec992efc59e735f40ae5ba",
     "confidence_counts": {
-      "canon-explicit": 129,
+      "canon-explicit": 130,
       "canon-implied": 41,
       "fan-wiki": 44,
       "our interpretation": 144
@@ -1688,6 +1688,24 @@
       "validation_passed": false,
       "changed_js_files": 0,
       "scope": "Same retained authoring legacy Filtwood U/J dependency;the separate candidate H/O check is recorded independently."
+    }
+  },
+  "ln13_east_city_source_review": {
+    "review": "../docs/research/tensura-world-2026-11-19/ln13-east-city-source-review.md",
+    "claim_id": "LN13-EAST-GATE-001",
+    "production_changed": false,
+    "full_city_list_verified": false,
+    "wn_bridge_identity_verified": false,
+    "initial_construction_verified": false,
+    "repository_gate": {
+      "tests": 494,
+      "seconds": 66.561,
+      "skipped": 26,
+      "failures": 2,
+      "validation_passed": false,
+      "passed": false,
+      "changed_js_files": 0,
+      "scope": "Same two retained legacy Filtwood U/J failures plus validation;source-only change."
     }
   }
 }

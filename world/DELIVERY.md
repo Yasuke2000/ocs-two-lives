@@ -9,7 +9,7 @@ The post-Kijin map now includes Yasuke's approved Filtwood western forest-edge p
 | Geometry and checked preview | [map.svg](map.svg) · [preview.png](preview.png);58sites,23roads |
 | Named original illustration | [Painted atlas](painting-round112/atlas.png) · [marked terrain](atlas.png) |
 | Export versus illustration | [Same-frame comparison](painting-round112/current-source-comparison.png) |
-| Geography and evidence | [Regions](regions.md) · [358-record ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) · [official reference comparison](comparison.md) |
+| Geography and evidence | [Regions](regions.md) · [359-record ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) · [official reference comparison](comparison.md) |
 | Place concepts | [58image/sheet pairs](../docs/art/places/README.md) |
 | Current approval and checks | [Filtwood adoption](filtwood-approved.md) · [audit](filtwood-approved-audit.json) · [delivery manifest](current-delivery.json) |
 | Initial story state | [Immediately after Kijin naming](era.md),anime S1E10 |
@@ -31,3 +31,5 @@ The requested `chatgpt/world-map` draft now includes the approved-Filtwood and s
 [Runtime source review](runtime-source-review.md) identifies the older technical branch source and the exact approved Filtwood/trail deltas. Canonical LF source534d07ad matches the existing converter index;the older555c842f label was a raw Windows-line-ending hash. Flat-site configuration counts in the island proposal are corrected to32of34.
 
 [Current Malukshure coastal proposal](malukshure-current-review.md) retains approved Filtwood and early trails. It remains inactive: the default checker rejects the H/O binding; only the separately proposed O input passes. The isolated converter explicitly uses skip-check for that pending binding.
+
+[Direct LN13 East city access review](../docs/research/tensura-world-2026-11-19/ln13-east-city-source-review.md) strengthens one location/route relationship;the physical representation remains missing and the later blockade is excluded from the initial map. All normal terrain/art remain unchanged.

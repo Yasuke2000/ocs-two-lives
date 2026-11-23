@@ -82,7 +82,7 @@ Sources/confidence/details remain in the [geography ledger](../docs/research/ten
 | [Dungeon](https://tensura.fandom.com/wiki/Dungeon) | portal or interior | interior or portal review | tempest |
 | [Dwargon Central](https://tensura.fandom.com/wiki/Armed_Nation_of_Dwargon) | mainland feature | site present | dwargon |
 | [Dwargon eastern entrance / bridge (WN)](dwargon-crossing-source-review.md) | mainland feature | missing distinct representation | — |
-| [Dwargon East city](https://tensura.fandom.com/wiki/Armed_Nation_of_Dwargon) | city or city interior | missing distinct representation | — |
+| [Dwargon East city — direct LN13 follow-up](../docs/research/tensura-world-2026-11-19/ln13-east-city-source-review.md) | city or city interior | missing distinct representation | — |
 | [Dwargon West city](https://tensura.fandom.com/wiki/Armed_Nation_of_Dwargon) | city or city interior | missing distinct representation | — |
 | [Dwelling of the Elementals](https://tensura.fandom.com/wiki/Dwelling_of_the_Elementals) | portal or interior | interior or portal review | ulgr_nature_park;spirit_gate |
 | [Eastern Plains — source/terrain review](eastern-plains-source-review.md) | mainland feature | partial | nation-E;nation-J;eastern-approach-plains;jura-eastern-foothill-woodland |

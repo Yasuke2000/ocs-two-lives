@@ -1,3 +1,7 @@
+## Licensed LN13: East city access
+
+[Direct source review](ln13-east-city-source-review.md) adds one narrow primary East city/gate/Imperial-road relationship. Ledger359; physical placement and initial construction remain unresolved. Canonical534d07ad, all terrain/art and143/42inventory retained. Older snapshots below retain their original counts.
+
 ## Current Ameld source and brief review
 
 [Current Ameld brief review](ameld-current-source-review.md) corrects two retired-coordinate briefs and a delta suggestion; rereads four existing WN claim locators without adding duplicate facts. Ledger358; canonical534d07ad and all art/terrain remain unchanged. C03/LN topology remains open.

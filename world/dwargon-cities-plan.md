@@ -1,3 +1,5 @@
+> Current LN13 follow-up: [direct East city/access evidence](../docs/research/tensura-world-2026-11-19/ln13-east-city-source-review.md) independently corroborates East and an Imperial-road relationship only. It does not verify the full city list, equate the WN bridge, establish initial construction or validate this interpreted plan. Earlier source/count statements below retain their original scope.
+
 # Dwargon East and West: underground planning alternative — round58
 
 **R86 supersedes the coordinates/terrain context below:** [current relocation and fit](dwargon-relocation-r86.md). Earlier tables and images retain their historical source.
