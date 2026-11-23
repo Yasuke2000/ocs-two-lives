@@ -1,3 +1,5 @@
+> **Current owner decision:** Amrita is to be nested beneath Clayman's castle;the independent eastern reservation is superseded. [Approved target/technical adoption](../../../world/amrita-approved.md). Existing serialized coordinates and the public-shaft blueprint are migration inputs,not the selected final geography. Exact depth,extent and initial access remain unverified.
+
 # Amrita (Jistav capital)
 
 **Own-world source correction:** the current circle(3800,-500), radius63, is an eastern **game reservation**, not a verified independent surface-city/entrance coordinate. Official episode81 places the ancient ruins beneath Clayman's former castle. Current rule E350..700 and the existing external mound/shaft need C07 access/marker reconciliation; only an inert alternative is drawn, with no assigned depth. Later expedition/access/NPC states are not the initial post-Kijin world. The positions in the retired Lerfing audit below do not define canonical geography. [Source and placement study](../../../world/amrita-placement-review.md).

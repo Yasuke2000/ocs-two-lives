@@ -1,3 +1,7 @@
+## Owner decision: Amrita beneath the castle
+
+Yasuke selected beneath-castle nesting and retirement of the independent eastern reservation. [Approved target/technical adoption](../../../world/amrita-approved.md). C07geography choice is resolved;exact depth/extent/access and coordinated technical adoption remain pending. Ledger360and active terrain/art are retained;two other owner geography choices remain.
+
 ## Current mainland/proportion requirement review
 
 [Current12-context audit](../../../world/current-geography-review.md) verifies named native elements/source IDs. [14-marker recalculation](../../../world/proportion-audit.md) fixes the stale inland-palace ratio/bearing;all13other numeric rows retained. Ledger360and all geometry/art/normal outputs unchanged;source,owner and technical dependencies remain explicit.

@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-23",
+  "owner": "Yasuke",
+  "decision_source": "Explicit user reply to the PR167 nesting-choice question",
+  "approved_geography": "Amrita beneath Clayman castle;retire independent eastern reservation",
+  "exact_centroid_depth_volume_approved": false,
+  "technical_adoption_pending": true,
+  "ledger_records": 360,
+  "all_prior_ids_classes_retained": true,
+  "unchanged_map_art_blueprint": {
+    "world/map.svg": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+    "world/preview.png": "36f596611e53d49eabd8dac555319efee9efc85d800a31dd61d51b0f97b957d2",
+    "world/atlas.png": "9f9d92931983cbcc64cccd7ece988a6a0130fa140afeb0415b0fc69cfb0155ea",
+    "world/painting-round112/continent.png": "5388c03dbd80299888d6ef6bbc79bb355aede6b7cfe144868d9b0681d9e616c7",
+    "world/painting-round112/atlas.png": "02dd0629657ead33ac5db3524ea746e43952e0afe327e08039c59bdf833e4af2",
+    "docs/art/places/amrita.png": "694c22e1817a11fbb41936c4488db300eba70e3f1f0489a6255de73a86cf4280",
+    "blueprints/amrita.py": "729066ffc5b10e0dac4297c4097004605e2c16eda5b928a1a56b518cf6980102"
+  },
+  "unchanged_normal_outputs": {
+    "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
+    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+    "exclude.png": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
+    "height.png": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+    "index.json": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
+    "preview.png": "8c9cd937110cec246ab6ad1fb2231170b02e003589ba853936bd71eb89309362",
+    "road.png": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
+    "roads.json": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
+    "rugged.png": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
+    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+    "sites.toml": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
+    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+  },
+  "protected_paths_edited": false,
+  "local_links_checked": 29,
+  "exact_art_prompt_retained": true,
+  "repository_gate": {
+    "tests": 494,
+    "seconds": 69.131,
+    "failures": 2,
+    "skipped": 26,
+    "passed": false,
+    "validation_passed": false,
+    "changed_js_files": 0,
+    "scope": "Same retained legacy Filtwood U/J failures;owner decision documentation only."
+  }
+}

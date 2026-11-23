@@ -28,12 +28,12 @@ All cited native elements and claim IDs exist. That proves representation and tr
 | SVG,origin,scale,terrain |58sites,23roads;Tempest(0,0);mainland9983x6250,design12800x10752;14normal artifact hashes retained. | Native map exists;preceding standard active check0errors/56relations/2warnings remains separately pinned. No new conversion or final fluid/worldgen acceptance claimed. |
 | Regions,preview,painting,iterations |22region narratives,preview,numbered terrain/painted atlases and58concept PNG/sheet pairs linked in [DELIVERY](DELIVERY.md). Iteration/source history retained. | Deliverables exist;concepts do not prove exact architecture,all initial residents or numerical height reconstruction. |
 | Legal reference comparison |[Comparison](comparison.md) links original output beside remote official imagery;licensed originals remain private. | Links/source roles retained;no licensed image pixels added here. |
-| Fixed conflicts exposed |Current island,coast and nesting candidates are inactive;approved Filtwood,inland palace and early trails remain active. | Three owner choices pending;silence is not approval. |
+| Fixed conflicts exposed |Current island,coast and nesting candidates are inactive;approved Filtwood,inland palace and early trails remain active. | Two owner choices remain pending. Amrita nesting is selected;technical adoption remains pending. |
 | Authoring PR and protected paths |Item PR and draft74;main3555a00 and technical c3bb48e re-fetched this turn. | Authoring delivery exists;no main merge,world apply or deploy. Technical source/old-grid dependencies remain distinct. |
 
 ## Required next actions
 
-Yasuke must choose the [larger islands](island-proportion-current-review.md),[Malukshure coast](malukshure-current-review.md) and [Amrita nesting](amrita-current-nesting-review.md). Those choices affect geography or the fixed contract and cannot be activated silently. Adoption must be followed by source-aligned illustration/site context and fresh checks/conversion.
+Yasuke must still choose the [larger islands](island-proportion-current-review.md) and [Malukshure coast](malukshure-current-review.md). [Amrita nesting is now approved](amrita-approved.md);its coordinated technical adoption remains pending. Those choices affect geography or the fixed contract and cannot be activated silently. Adoption must be followed by source-aligned illustration/site context and fresh checks/conversion.
 
 Claude must reconcile approved own-world registration with the legacy Filtwood U/J dependency,and perform technical conversion/placement and local Minecraft checks. Refetched technical-branch state is not a runtime test. Forbidden implementation paths remain untouched by this creative review.
 

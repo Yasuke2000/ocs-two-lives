@@ -1,3 +1,5 @@
+> **Current owner decision:** Amrita is to be nested beneath Clayman's castle;the independent eastern reservation is superseded. [Approved target/technical adoption](../../../world/amrita-approved.md). Existing serialized coordinates and the public-shaft blueprint are migration inputs,not the selected final geography. Exact depth,extent and initial access remain unverified.
+
 # Ancient Amrita / dormant subsurface gallery (`amrita`): concept art
 
 ![Original concept illustration](amrita.png)

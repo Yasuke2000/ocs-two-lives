@@ -32,7 +32,7 @@
   ],
   "candidate_conversion_run": false,
   "production_changed": false,
-  "owner_choice_pending": true,
+  "owner_choice_pending": false,
   "unchanged_map_art": {
     "world/map.svg": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
     "world/preview.png": "36f596611e53d49eabd8dac555319efee9efc85d800a31dd61d51b0f97b957d2",
@@ -132,5 +132,7 @@
     "scope": "Same legacy Filtwood U/J failures; candidate four-error report is a separate result."
   },
   "protected_paths_edited": false,
-  "no_candidate_conversion": true
+  "no_candidate_conversion": true,
+  "owner_decision_reference": "amrita-approved.md",
+  "technical_adoption_pending": true
 }

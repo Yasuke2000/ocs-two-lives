@@ -26,7 +26,7 @@
   "roads": 23,
   "facts": {
     "records": 360,
-    "sha256": "22f11c3262c05862beeb3a15f87528146fe5bf8623f7f3fe265f0376e618e0fe",
+    "sha256": "a1f0c080911899172d4896134611bd4493f8012748cccf154d3d16aba8ccf9e4",
     "confidence_counts": {
       "canon-explicit": 130,
       "canon-implied": 41,
@@ -1731,7 +1731,7 @@
     "source_sha256": "57a763feae36fd7bd2317d7712107184fbccf54a2e80812b16a2de635e43e478",
     "default_checker_errors": 4,
     "production_changed": false,
-    "owner_choice_pending": true,
+    "owner_choice_pending": false,
     "conversion_run": false,
     "repository_gate": {
       "tests": 494,
@@ -1747,7 +1747,11 @@
       "errors": 0,
       "relations": 56,
       "warnings": 2
-    }
+    },
+    "owner_decision": "Nest Amrita beneath Clayman castle;retire separate eastern reservation",
+    "decision_review": "amrita-approved.md",
+    "technical_adoption_pending": true,
+    "exact_candidate_geometry_approved": false
   },
   "current_proportion_benchmark": {
     "review": "proportion-audit.md",
@@ -1770,5 +1774,24 @@
       "scope": "Same retained authoring legacy Filtwood U/J failures;no map or runtime behaviour changed."
     }
   },
-  "current_mainland_requirement_review": "current-geography-review.md"
+  "current_mainland_requirement_review": "current-geography-review.md",
+  "approved_amrita_target": {
+    "review": "amrita-approved.md",
+    "date": "2026-11-23",
+    "owner": "Yasuke",
+    "relationship": "beneath Clayman castle",
+    "independent_eastern_reservation": "retire on coordinated adoption",
+    "serialized_map_changed": false,
+    "technical_adoption_pending": true,
+    "repository_gate": {
+      "tests": 494,
+      "seconds": 69.131,
+      "failures": 2,
+      "skipped": 26,
+      "passed": false,
+      "validation_passed": false,
+      "changed_js_files": 0,
+      "scope": "Same retained legacy Filtwood U/J failures;owner decision documentation only."
+    }
+  }
 }

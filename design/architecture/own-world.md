@@ -584,3 +584,7 @@ answers below are retained as history and are superseded for these corrected rel
   - Tensura's giant ancient-forest trees generate naturally.
 - **Q5 Roads:** laid by a generator feature on the designed corridor. Not asked; the recommended default is adopted. trade_roads.js stays behind a flag.
 - **Q6 Canon liberties:** lock all five: Blumund joined to Jura by land, the Divine Tree as a designed giant tree, Fulbrosia in the SW mesas, El Dorado as a SW island, Ulgracia south of Blumund. Keep the Lerfing/Paulzero credit line.
+
+## Owner update — Amrita nesting, 23 November 2026
+
+Yasuke chose Amrita beneath Clayman's castle and retirement of the separate eastern reservation. This supersedes that independent eastern target;Amrita remains a named underground place. The old E350–700 relation,independent-site spacing,carve representation,Jistav road destination and public-shaft template require coordinated technical reconciliation by Claude. Exact centre/depth/extent/initial access are not established by this choice. The current four-error marker-only trial remains inactive pending that work. [Approved target and adoption requirements](../../world/amrita-approved.md).

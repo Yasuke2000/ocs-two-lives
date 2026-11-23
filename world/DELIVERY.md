@@ -1,3 +1,5 @@
+> **Amrita choice resolved:** Yasuke selected beneath-castle nesting and retirement of the eastern reservation. [Approved target/technical handoff](amrita-approved.md). The serialized eastern circle remains only until coordinated adoption;the four-error trial is not activated. Two other geography choices remain pending.
+
 # Current world-map review bundle
 
 ![Named original painted atlas](painting-round112/atlas.png)

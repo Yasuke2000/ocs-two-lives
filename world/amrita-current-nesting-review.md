@@ -1,3 +1,5 @@
+> **Owner decision,23 November2026:** Yasuke selected beneath-castle nesting and retirement of the eastern reservation. [Approved target and technical handoff](amrita-approved.md). The measured candidate below remains inactive;its exact centre/depth/volume are not approved construction geometry. The options below describe the earlier review.
+
 # Amrita: current nesting decision and marker-only failure
 
 23 November 2026. [Same-scale comparison](amrita-current-nesting-comparison.png) · [original comparison SVG](amrita-current-nesting-comparison.svg) · [inactive marker-only candidate](amrita-current-nested-candidate.svg) · [actual default report](amrita-current-nested-check.json) · [integrity audit](amrita-current-nesting-audit.json).
