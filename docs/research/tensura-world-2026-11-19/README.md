@@ -1,3 +1,7 @@
+## Current short contradiction summary
+
+[Current decisions and open conflicts](contradictions.md) now fit a short overview;all24IDs and the previous dated record are preserved in the [byte-exact history](contradictions-history-through-trial-review.md). No source confidence,owner choice or terrain changes. [Audit](contradictions-summary-audit.json).
+
 ## 23 November — licensed LN20 sample and capital-era distinction
 
 [Selected primary review](ln20-licensed-capital-review.md) adds one narrowly scoped LN claim: the later planned Milim capital is in former Eurazania. It supplies no exact coordinate or early city identity. The licensed sample works, but its chapter menu omits the Long Wall chapter. Ledger355; map and terrain unchanged.
