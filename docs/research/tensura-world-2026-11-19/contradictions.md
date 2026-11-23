@@ -1,3 +1,7 @@
+## 23 November — C08 primary-source follow-up
+
+[LN20 chapter1 opening](ln20-licensed-capital-review.md) directly distinguishes the later planned Milim capital site in former Eurazania from the initial-era capital question. No exact coordinate or capital name is established. LN20ch3 remains unread: the working93-page licensed sample offers only the prologue and chapter1 in its menu. Earlier route failures below retain their dated scope.
+
 # Geography evidence and contradictions — 2026-11-19
 
 This is the first claim ledger, not a declaration that every site or border is proved. The CSV separates source continuity, verification and map action. It contains paraphrases and links only. The ledger now adds 58 exact site-placement records as interpretation; these are not additional verified canon facts. No licensed map, anime frame or novel passage is included.

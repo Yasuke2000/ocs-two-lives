@@ -25,10 +25,10 @@
   "registered_places": 58,
   "roads": 23,
   "facts": {
-    "records": 354,
-    "sha256": "9522f49018554af2834840c28c3d64208f50829fd7d87baa547697c2063b54bb",
+    "records": 355,
+    "sha256": "b0585cc4c393e2e8b194b65c2f3075712e1bc8c9897655df198d94406471d866",
     "confidence_counts": {
-      "canon-explicit": 127,
+      "canon-explicit": 128,
       "canon-implied": 41,
       "fan-wiki": 44,
       "our interpretation": 142
@@ -1486,5 +1486,26 @@
     "region": "J",
     "exact_western_bearing": "our interpretation",
     "audit": "filtwood-approved-audit.json"
+  },
+  "source_followup": {
+    "review": "../docs/research/tensura-world-2026-11-19/ln20-licensed-capital-review.md",
+    "date": "2026-11-23",
+    "terrain_changed": false,
+    "checks": {
+      "repository_gate_passed": false,
+      "tests": 472,
+      "skipped": 26,
+      "failures": 2,
+      "seconds": 68.854,
+      "inherited_failures": [
+        "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_gen_data_check_covers_the_env_file"
+      ],
+      "validation": "Legacy canon_map.txt reads U at retained Filtwood(-900,700);approved region is J.",
+      "changed_javascript_files": 0,
+      "map_and_preview_bytes_unchanged": true,
+      "protected_paths_changed": false,
+      "git_diff_check_passed": true
+    }
   }
 }

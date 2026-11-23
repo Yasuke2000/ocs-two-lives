@@ -1,0 +1,55 @@
+{
+  "review_date": "2026-11-23",
+  "url": "https://ebookjapan.yahoo.co.jp/viewer/trial/B00183344114/",
+  "sample_counter_pages": 93,
+  "complete_sample_read": false,
+  "chapter3_read": false,
+  "chapter1_selected_opening_read": true,
+  "claim_ids": [
+    "LN20-CAPITAL-001"
+  ],
+  "copyrighted_images_copied_into_repo": false,
+  "selected_private_evidence": [
+    {
+      "file": "contents.png",
+      "sha256": "8bce9680b4bcee2b39b769439220b34d3a2309a048f9692ea9ea99939ba5708d",
+      "role": "Sample contents inspected;chapter3 not offered."
+    },
+    {
+      "file": "chapter1-0.png",
+      "sha256": "d0b926697f3a8acbb7e60d776c5cab11588fd74273259c89d2926c5aa692e15a",
+      "role": "Chapter1 heading;viewer34/93."
+    },
+    {
+      "file": "chapter1-1.png",
+      "sha256": "097c598da38a76a7a2b3943a177a452b578185a31d1ddbeeca4fcf25a5e2ff16",
+      "role": "Chapter1 opening setting;viewer36/93;LN20-CAPITAL-001."
+    },
+    {
+      "file": "chapter1-controls.png",
+      "sha256": "951e0f0ef59bfb250607714afe95b09cd9a9dceab2f76322e552e7cc20df6668",
+      "role": "Viewer46/93 confirms selected chapter navigation count."
+    },
+    {
+      "file": "actual-reader-7.png",
+      "sha256": "d7e996a24ebb062f7053fc5b162948a3e71b00956e85b79d5b75ce9bbd3a96a3",
+      "role": "Later battle overview front matter;not an initial-state map or source of coordinates."
+    }
+  ],
+  "repository_checks": {
+    "repository_gate_passed": false,
+    "tests": 472,
+    "skipped": 26,
+    "failures": 2,
+    "seconds": 68.854,
+    "inherited_failures": [
+      "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+      "test_gen_data_check_covers_the_env_file"
+    ],
+    "validation": "Legacy canon_map.txt reads U at retained Filtwood(-900,700);approved region is J.",
+    "changed_javascript_files": 0,
+    "map_and_preview_bytes_unchanged": true,
+    "protected_paths_changed": false,
+    "git_diff_check_passed": true
+  }
+}

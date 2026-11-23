@@ -1,3 +1,7 @@
+## 2026-11-23 — licensed LN20 capital-source follow-up
+
+Branch `chatgpt/ln20-capital-source` stacks on approved-Filtwood PR146. Ordinary ebookjapan trial now works after closing its coupon popup; selected chapter1 opening at viewer36/93 directly places the later planned Milim capital in former Eurazania. Added LN20-CAPITAL-001;355unique rows. Sample menu lists only prologue/chapter1,not the Long Wall chapter3. No whole-sample reading or exact capital coordinate/name. [Source review](research/tensura-world-2026-11-19/ln20-licensed-capital-review.md). All map/art/terrain bytes retained. Fresh gate:472tests in68.854s,26skipped,the same2inherited Filtwood legacy-U/J failures plus validation;not passing. No runtime changes or apply.
+
 ## 2026-11-22 — Yasuke-approved Filtwood forest-edge placement
 
 Branch `chatgpt/filtwood-approved`; base `chatgpt/world-map`. Yasuke explicitly approved "Bosrandvoorstel gebruiken; Filtwood U → J". Source region changed U→J only; old Lerfing x/z retained. Own-world pin(-1050,600),r8,margin24; new1102-block trail. Fresh default checker0errors/56relations/2warnings; normal71.9s without skip-check,generated(-1050,74,600),J. All57other sites/22old roads unchanged,241height centres changed,water/biome bytes unchanged,all13lake+8Hinputs unchanged. Updated terrain/painted atlases,marker39,source354records,Filtwood sheet and manifest. Original image/prompt retained.

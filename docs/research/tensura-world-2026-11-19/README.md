@@ -1,3 +1,7 @@
+## 23 November — licensed LN20 sample and capital-era distinction
+
+[Selected primary review](ln20-licensed-capital-review.md) adds one narrowly scoped LN claim: the later planned Milim capital is in former Eurazania. It supplies no exact coordinate or early city identity. The licensed sample works, but its chapter menu omits the Long Wall chapter. Ledger355; map and terrain unchanged.
+
 ## R130 — Whole-deliverable review finds water and prose defects
 
 [Review against the owner brief](delivery-review-r130.md) distinguishes direct evidence from open source/era/proportion work. [Ulgr study](../../../world/ulgr-spring-level-r130.md) lowers an authored spring/head102→92,retaining all plan vertices/site heights. Interface11→1;all13 lake cases pass;Laura17 remains open. All22 road profiles meet1:2 within floating-point tolerance. Current [regional guide](../../../world/regions.md) keeps22 narratives/69 image links while removing stale chronology andfixing palace/El Dorado/biome text. R128 census andR129 illustration are adopted within their scope;no duplicate geographic claim or image generation. Ledger333 (one new authored design record),inventory142/42.
