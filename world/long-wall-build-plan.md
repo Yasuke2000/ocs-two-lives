@@ -1,3 +1,5 @@
+> Source-access follow-up23November2026: [licensed LN20/LN21 boundary review](../docs/research/tensura-world-2026-11-19/licensed-trial-boundary-review.md). The actual sample endpoints are verified. The available LN21 chapter1 portion was screened,but its wall-specific passage remains unverified; no confidence upgrade. Earlier access/reading statements below retain their dated route and scope.
+
 # Long Wall: measured contour and caravan opening — round72
 
 [Original plan/section](long-wall-build-plan.png) · [gate sweep detail](long-wall-gate-detail.png) · [editable gate detail](long-wall-gate-detail.svg) · [editable SVG](long-wall-build-plan.svg) · [measured physical proposal](long-wall-build-plan.json)

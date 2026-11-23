@@ -26,7 +26,7 @@
   "roads": 23,
   "facts": {
     "records": 355,
-    "sha256": "b0585cc4c393e2e8b194b65c2f3075712e1bc8c9897655df198d94406471d866",
+    "sha256": "1b5d94c0a96f64717a104e9b76488bd7593f59e3487a5b6e7e9ba4697185a12c",
     "confidence_counts": {
       "canon-explicit": 128,
       "canon-implied": 41,
@@ -1532,5 +1532,25 @@
     "main_branch_changed": false,
     "normal_conversion_rerun": false,
     "normal_artifacts_retained_exact": 14
+  },
+  "licensed_trial_boundary_review": {
+    "date": "2026-11-23",
+    "review": "../docs/research/tensura-world-2026-11-19/licensed-trial-boundary-review.md",
+    "claims_retained": 355,
+    "confidence_upgrades": 0,
+    "geometry_changed": false,
+    "checks": {
+      "repository_gate_passed": false,
+      "tests": 494,
+      "skipped": 26,
+      "failures": 2,
+      "seconds": 66.398,
+      "validation_failed": true,
+      "reason": "Inherited Filtwood legacy U versus approved J;the two failures match the consolidated authoring baseline.",
+      "changed_javascript_files": 0,
+      "normal_artifact_hashes_retained_exact": 14,
+      "ledger_claims_and_confidences_unchanged": 355,
+      "only_two_wall_verification_fields_changed": true
+    }
   }
 }

@@ -1,3 +1,5 @@
+> Source-access follow-up23November2026: [licensed LN20/LN21 boundary review](licensed-trial-boundary-review.md). The actual sample endpoints are verified. The available LN21 chapter1 portion was screened,but its wall-specific passage remains unverified; no confidence upgrade. Earlier access/reading statements below retain their dated route and scope.
+
 # Primary source review — round 45
 
 Round57 [source qualification](treant-route-context-r57.md): WN43 explicitly describes within-sanctuary movement. The immobility wording below reports the earlier WN42 speech,not an absolute rule for every location. The community remains unlocated.

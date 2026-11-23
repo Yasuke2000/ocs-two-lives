@@ -1,0 +1,434 @@
+{
+  "date": "2026-11-23",
+  "ln20": {
+    "store": "https://ebookjapan.yahoo.co.jp/books/247818/A003344114/",
+    "reader": "https://ebookjapan.yahoo.co.jp/viewer/trial/B00183344114/",
+    "sample_counter_end": 93,
+    "later_captures_visually_screened": 24,
+    "scope": "Available chapter1 segment screened through the sample endpoint;prologue remains selected-only;not a complete chapter or volume.",
+    "additional_geographic_claims": 0
+  },
+  "ln21": {
+    "store": "https://ebookjapan.yahoo.co.jp/books/247818/A004522856/",
+    "reader": "https://ebookjapan.yahoo.co.jp/viewer/trial/B00184522856/",
+    "sample_counter_end": 89,
+    "chapter1_heading_counter": 40,
+    "verified_reader_positions": [
+      {
+        "i": 0,
+        "readerPosition": 40,
+        "file": "chapter1-verified-0.png"
+      },
+      {
+        "i": 1,
+        "readerPosition": 42,
+        "file": null
+      },
+      {
+        "i": 2,
+        "readerPosition": 44,
+        "file": null
+      },
+      {
+        "i": 3,
+        "readerPosition": 46,
+        "file": null
+      },
+      {
+        "i": 4,
+        "readerPosition": 48,
+        "file": null
+      },
+      {
+        "i": 5,
+        "readerPosition": 50,
+        "file": null
+      },
+      {
+        "i": 6,
+        "readerPosition": 52,
+        "file": null
+      },
+      {
+        "i": 7,
+        "readerPosition": 54,
+        "file": null
+      },
+      {
+        "i": 8,
+        "readerPosition": 56,
+        "file": null
+      },
+      {
+        "i": 9,
+        "readerPosition": 58,
+        "file": null
+      },
+      {
+        "i": 10,
+        "readerPosition": 60,
+        "file": null
+      },
+      {
+        "i": 11,
+        "readerPosition": 62,
+        "file": null
+      },
+      {
+        "i": 12,
+        "readerPosition": 64,
+        "file": "chapter1-verified-12.png"
+      },
+      {
+        "i": 13,
+        "readerPosition": 66,
+        "file": "chapter1-verified-13.png"
+      },
+      {
+        "i": 14,
+        "readerPosition": 68,
+        "file": "chapter1-verified-14.png"
+      },
+      {
+        "i": 15,
+        "readerPosition": 70,
+        "file": "chapter1-verified-15.png"
+      },
+      {
+        "i": 16,
+        "readerPosition": 72,
+        "file": "chapter1-verified-16.png"
+      },
+      {
+        "i": 17,
+        "readerPosition": 74,
+        "file": "chapter1-verified-17.png"
+      },
+      {
+        "i": 18,
+        "readerPosition": 76,
+        "file": "chapter1-verified-18.png"
+      },
+      {
+        "i": 19,
+        "readerPosition": 78,
+        "file": "chapter1-verified-19.png"
+      },
+      {
+        "i": 20,
+        "readerPosition": 80,
+        "file": "chapter1-verified-20.png"
+      },
+      {
+        "i": 21,
+        "readerPosition": 82,
+        "file": "chapter1-verified-21.png"
+      },
+      {
+        "i": 22,
+        "readerPosition": 84,
+        "file": "chapter1-verified-22.png"
+      },
+      {
+        "i": 23,
+        "readerPosition": 86,
+        "file": "chapter1-verified-23.png"
+      },
+      {
+        "i": 24,
+        "readerPosition": 89,
+        "file": "chapter1-verified-24.png"
+      }
+    ],
+    "scope": "Available chapter1 portion and ending at89/89 visually screened;not a complete chapter,prologue,sample or volume.",
+    "wall_specific_passage_verified": false,
+    "additional_geographic_claims": 0,
+    "rejected_inference": "A comparison of Dagruel to a towering wall is a simile,not a geographic description of the Long Wall."
+  },
+  "facts_count_retained": 355,
+  "confidence_upgrades": 0,
+  "copyrighted_pixels_in_repository": false,
+  "private_evidence": [
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-6.png",
+      "sha256": "624a263bc0e81f1b2d4e00bd4f01f52e337503582ead16aeb27a170f2513ab06"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-7.png",
+      "sha256": "7c7c6031eab67ff7519973eb733b12bacf602cbafb7d8f19b42010d965bb8359"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-8.png",
+      "sha256": "d761a25d7d57489d4bd1075ddd5b9a1ecd1af10c9b83dc18bdec62d1b0e6d82b"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-9.png",
+      "sha256": "b1221dbcc5383f82bd4f1e477630e1a22f2f5698dbe9310da4949fc06214339f"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-10.png",
+      "sha256": "ab346c80e134a653f6a4c36b2bf096193d2d7803d69baf905e7e0fd171910b5a"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-11.png",
+      "sha256": "4a1fa89d8a4c7bd47bba04fe9f29b9983bc16a903c3827db23406e5ef9e6476f"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-12.png",
+      "sha256": "78837b340648f7f5c0b31981127fcfce0b191a028d3be40f91576d758e0a0f04"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-13.png",
+      "sha256": "0eb34266a76238ad48372b2afc7fd404644c5daac37384ec5929a288574fc588"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-14.png",
+      "sha256": "89458d0f71fcb2bac859424c820423f028df3bd329647fa02b1c9e67b6af0c50"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-15.png",
+      "sha256": "1bc59fdbb7a46c2e7c2a7d26b512daa356654e92f0906f2f0a7eff5eb059ee56"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-16.png",
+      "sha256": "5d376fb0cc57ce2eca050e478d72703aa2523b6e4be4f8fc525120da4fc0b21b"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-17.png",
+      "sha256": "bb426de4c149bdc3ebe2d26f19e80e2eae0f41b9ccc7f45107598a15fed5f335"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-18.png",
+      "sha256": "36e315950bd062d2e3b4f62695287df87f2006b257cf5463777586a44c0f9905"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-19.png",
+      "sha256": "e5c118643554190db82c536a1723cda176c9f986bfb3321d8d71ed68101dc708"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-20.png",
+      "sha256": "5a2cbeeb649e4271c8bd3a548af7006242d27ce8de5911be94caa29ed0a50665"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-21.png",
+      "sha256": "679d9ca04824fec0815996a7eb03720f9ed600adb0a9c28efb7266cb67082058"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-22.png",
+      "sha256": "6914346c2eb9fe887e62c050dad6de48648cf98edc191455377422b39b6e86d5"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-23.png",
+      "sha256": "61340bd7800905d897d712ebbdb2cce81f33a4e2308a4fa628a7857dc6d94e04"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-24.png",
+      "sha256": "9cc70305c8f83390a4e8746a4a5f8fd50d6158ecc3bbb5c72f26d84feb5e4ee1"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-25.png",
+      "sha256": "eaa630784863eb09a2ce799f7b17a424467de1fe3ceddb26789f3fa8f23d8b2e"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-26.png",
+      "sha256": "2e16675eed85732bd65a3cf0a9c169aa0a18721d4084af96410411c44ee965f0"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-27.png",
+      "sha256": "4fdc79b268e640f52527b21ba2864aa291a007e6dfefc565126557eb916f4bdd"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-28.png",
+      "sha256": "63c4a0732127be1e2e730669c9ca7ff99da3775a7f6180c46d13f1336d16d947"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-29.png",
+      "sha256": "2e16517b1a47e21d385a649fe79d25c5eb37ff25df3810875dcb05b1af7111ad"
+    },
+    {
+      "volume": 20,
+      "filename": "chapter1-remaining-controls.png",
+      "sha256": "f0fff82894952b08dc777c460b6d44e9ee5c3d3e11837fb7227856b7caa6de1c"
+    },
+    {
+      "volume": 21,
+      "filename": "contents.png",
+      "sha256": "f217b4cd8f5dd7352ee33c4efbf8a866c6b87f604673164f8df4de603190c8cc"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-11.png",
+      "sha256": "8c87f7ed26135cc26df5d60550b0a3ef8d66d5902985a7cec303a5bc32df53a7"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-0.png",
+      "sha256": "15aa565ad95094c6d47e18f34c3b86aa08ae9d20f87662142e1c8c8e23242619"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-12.png",
+      "sha256": "d88481461233e13a0435e0db343bf1f6c4dd6953155e2ed82699fffd984c53d2"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-13.png",
+      "sha256": "ae527ba73b3489a6b310b11400478c754272d3a3433cab1735fd1c11ccaafb92"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-14.png",
+      "sha256": "2bd95e9a00a3b2eaca49e805b88a9b6a7aa5950182ac85a9c88ccb387f4f55b1"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-15.png",
+      "sha256": "6837a3dc6279a933b90c072d91ee89f09df23203497c2e1b6254dc877e266768"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-16.png",
+      "sha256": "203307ef449ba9e80820b4fd2d8565c5ab08b83f118b6db3db98d3fffc4689c9"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-17.png",
+      "sha256": "46deaeac71e50c77d88106651964dc3778072cecef3e0122834044c3387a2c5b"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-18.png",
+      "sha256": "ea413b430201d4d7dad64e8804b0f468d11bf57c048263855b7b434ffd25265e"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-19.png",
+      "sha256": "0ca3f6f8e97b885bed53badeab016dead8b6dbb9791b8833f4847fd53afeb4c5"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-20.png",
+      "sha256": "5467f3b4e205d37cb491ccd2be70aded8001005873dbb4decd0b3aa38cefc592"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-21.png",
+      "sha256": "0e0a5c9c1d8ab91a618223f7e5620aa10a390060dccef9a6197c29d7644ad5f0"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-22.png",
+      "sha256": "330af1c292b35588fbf8dfeab43961d7a0c118e8cc195ef2ea74d6235f5de87c"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-23.png",
+      "sha256": "7defee80de1faa871ae847084aeabb351dd9fa625c6904e181a4a39f4e5b336e"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-verified-24.png",
+      "sha256": "b6a5a6df1818787e650ded12e2e6f737b4fb63c7940309e14eb895494c1da5cc"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-1.png",
+      "sha256": "2e37734c9787ce3c22eb9172bc2983b33975db14f76a0f2f6b1b7664a60136f5"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-2.png",
+      "sha256": "afbce30bf7757715117a82087b78c5aa627aff41511eed4311d3dc83beeeea32"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-3.png",
+      "sha256": "95108377dd610ac30c8e07b7d7e4abe6b4fa58bb5c10e62af47474baa021c9a3"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-4.png",
+      "sha256": "b0bb876a6be3146f7c9cc3997c9dd40a3eadb530462c958a68ab253cc4dce73c"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-5.png",
+      "sha256": "d910031d4a50ba1f543e7aeb7279738cd91fef3a20b643faaa4e93a5bcadc298"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-6.png",
+      "sha256": "4b34c698e7053dff35624e7641d56acd90c2c9c5d8c70d4fe3752fa12cd3e1e0"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-7.png",
+      "sha256": "46e008665ba9deb8ffc6a5af2edf66bbc2075126bafabe9ecec96041e015d85a"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-8.png",
+      "sha256": "b6b762707d88aca079024274c42e61e35464439c7c1717c55b44043ae0696cb0"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-9.png",
+      "sha256": "f88a5b2bda6956348de5d92efe656054ca9bc9c544219c1a2982dcd0f0ca24f4"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-10.png",
+      "sha256": "7b3e2c5d7f955a9a25bb310ceac203d74478ebb7995400f29b3fdf5d378b03f7"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-12.png",
+      "sha256": "4381f41c0c451bc2a99ac4662ee1e8ca98249037e50a8b07880091325a38c35b"
+    },
+    {
+      "volume": 21,
+      "filename": "chapter1-13.png",
+      "sha256": "5c92d45631c2981381fc5656ef5a8952308b7111648887a1b626337266fbf489"
+    }
+  ],
+  "source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+  "geometry_changed": false,
+  "runtime_applied": false,
+  "checks": {
+    "repository_gate_passed": false,
+    "tests": 494,
+    "skipped": 26,
+    "failures": 2,
+    "seconds": 66.398,
+    "validation_failed": true,
+    "reason": "Inherited Filtwood legacy U versus approved J;the two failures match the consolidated authoring baseline.",
+    "changed_javascript_files": 0,
+    "normal_artifact_hashes_retained_exact": 14,
+    "ledger_claims_and_confidences_unchanged": 355,
+    "only_two_wall_verification_fields_changed": true
+  }
+}

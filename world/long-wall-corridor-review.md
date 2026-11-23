@@ -1,3 +1,5 @@
+> Source-access follow-up23November2026: [licensed LN20/LN21 boundary review](../docs/research/tensura-world-2026-11-19/licensed-trial-boundary-review.md). The actual sample endpoints are verified. The available LN21 chapter1 portion was screened,but its wall-specific passage remains unverified; no confidence upgrade. Earlier access/reading statements below retain their dated route and scope.
+
 # Long Wall corridor correction — round40
 
 [R72 physical proposal](long-wall-build-plan.md) rechecks this corridor against current source90ee15b1 and adds bounded contour/gate geometry. Original R40 values below are historical;current measured plan clearances agree. The wall remains unregistered and missing in active terrain.

@@ -1,3 +1,5 @@
+> Source-access follow-up23November2026: [licensed LN20/LN21 boundary review](licensed-trial-boundary-review.md). The actual sample endpoints are verified. The available LN21 chapter1 portion was screened,but its wall-specific passage remains unverified; no confidence upgrade. Earlier access/reading statements below retain their dated route and scope.
+
 # LN20: licensed trial access and a later capital distinction
 
 Reviewed 23 November 2026. This is selected-passage research, not a reading of the complete sample, chapter or volume.
