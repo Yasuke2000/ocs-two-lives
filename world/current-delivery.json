@@ -1479,7 +1479,8 @@
         "maximum_exported_grade": 0.03999999999999915,
         "wet_sample_cells": 0
       }
-    ]
+    ],
+    "scope": "Historical approved-Filtwood checks before current-main history integration;current combined checks are in authoring_consolidation."
   },
   "owner_approved_filtwood": {
     "date": "2026-11-22",
@@ -1507,5 +1508,29 @@
       "protected_paths_changed": false,
       "git_diff_check_passed": true
     }
+  },
+  "authoring_consolidation": {
+    "branch": "chatgpt/world-map",
+    "upstream_main": "3555a00bf893d0aea2413b853e98fee209489835",
+    "audit": "consolidation-audit.json",
+    "checks": {
+      "standard_map_checker_errors": 0,
+      "relations_checked": 56,
+      "standing_warnings": 2,
+      "repository_gate_passed": false,
+      "repository_tests": 494,
+      "skipped": 26,
+      "failures": 2,
+      "seconds": 67.106,
+      "upstream_javascript_files_syntax_checked": 17,
+      "failed_tests": [
+        "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_gen_data_check_covers_the_env_file"
+      ],
+      "validation": "Retained legacy Filtwood(-900,700) reads U in old canon_map.txt;approved source region is J."
+    },
+    "main_branch_changed": false,
+    "normal_conversion_rerun": false,
+    "normal_artifacts_retained_exact": 14
   }
 }

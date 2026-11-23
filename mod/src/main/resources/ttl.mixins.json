@@ -4,15 +4,19 @@
   "package": "com.yasuke.ttl.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BaseFireBlockMixin",
     "ChunkGeneratorMixin",
     "ChunkGeneratorStructureStateAccessor",
+    "EnchantmentMenuMixin",
     "EndPortalBlockMixin",
     "NetherPortalBlockMixin",
     "PlacedFeatureMixin",
     "ReincarnationMenuMixin",
     "ServerCommonPacketListenerImplMixin",
     "ServerLevelMixin",
-    "ServerPlayerMixin"
+    "ServerPlayerMixin",
+    "SpellManaMixin",
+    "TensuraIronCastMixin"
   ],
   "client": [
     "client.GreatSageSceneMixin"

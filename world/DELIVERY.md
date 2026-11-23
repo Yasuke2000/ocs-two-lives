@@ -16,8 +16,10 @@ The post-Kijin map now includes Yasuke's approved Filtwood western forest-edge p
 
 Source/export `9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4`. Fresh normal staging passed without skip-check in71.9s. Standard checker:0errors,56relations,2standingwarnings. The biome/water rasters,57other sites and22existing roads are unchanged; only241height cells change. Original painting now includes the trail and new marker39. Original place PNGs and exact prompts are retained.
 
-**Repository integration remains blocked by the old-map binding:** required gate ran472tests,26skipped,2failures; validation reads U at the retained legacy Filtwood(-900,700) while the approved source binding is J. [Exact handoff](filtwood-approved.md). Runtime,mod and tools were not changed. This is a draft creative delivery,not a main-ready or deployed world.
+**Repository integration remains blocked by the old-map binding:** latest combined gate ran 494 tests, 26 skipped, 2 failures; validation reads U at the retained legacy Filtwood(-900,700) while the approved source binding is J. [Exact handoff](filtwood-approved.md). Runtime,mod and tools were not changed. This is a draft creative delivery,not a main-ready or deployed world.
 
 Two owner choices remain pending: [larger Ice/ElDorado proportions](https://github.com/Yasuke2000/ocs-two-lives/pull/132) and [Malukshure coastal H-to-O setting](https://github.com/Yasuke2000/ocs-two-lives/pull/135). Their candidate geometry remains inactive. Filtwood's [earlier proposal](https://github.com/Yasuke2000/ocs-two-lives/pull/142) is now adopted here.
 
 The143-entry location inventory still has42physical follow-ups. Source gaps,C05mountain bearing,C07Amrita nesting,Galut registration and complete cities remain open. Claude owns runtime conversion,in-game acceptance,world apply and chunk generation. No main merge,apply or deployment by this delivery.
+
+The requested `chatgpt/world-map` draft now includes the approved-Filtwood and source-review item PRs, plus upstream main history. Both document conflicts were resolved with both histories retained. The [consolidation audit](consolidation-audit.json) records current checker/test scope and the protected-path comparison. Runtime, mod and tools match upstream main except for the five earlier owner-approved relation data records. No main merge or deployment.

@@ -21,18 +21,42 @@
 # (it only adds item tags to Tensura items, which `tensura` already covers).
 # lightmanscurrency: Life 1 has no money (its coins are Tensura's, and bank accounts and network traders are also refused
 # in the Mortal dimensions by config/lightmanscurrency-server.txt); the Mana Ledger and shops are Life 2 things.
-# occultism (O-N1, owner 18/11/2026, design/architecture/paths-necro-artificer.md §0.2): its rituals (possess_skeleton,
-# wild_hunt, resurrect_mob, familiars, spirits) are Life 2 things; banning the namespace takes chalk, rituals and every
-# Occultism item out of Life 1.
-namespaces = ["tensura", "tensura_neb", "greatsage", "lightmanscurrency", "occultism"]
+# Occultism is NOT banned as a whole any more (owner Yasuke 22/11/2026, issue #145): its normal items (silver, iesnium,
+# Otherworld blocks and goggles, spirit fire, divination rod, storage, butcher knife, datura, ...) work in Life 1. Only its
+# RITUAL items stay out (O-N1: summoning and possession are Life 2 / necromancer things), in `items` and `tags` below.
+namespaces = ["tensura", "tensura_neb", "greatsage", "lightmanscurrency"]
 
 # Single items, full id: items = ["somemod:magic_ring"]
-items = []
+# Occultism's rituals (ids read from occultism-1.21.1-neoforge-1.227.0; `/ttl stash check` fails on an unknown id):
+#   - drawing and activating a pentacle: every ritual bowl (the golden/iesnium ones start a ritual, the others hold its
+#     offerings), the two chalices of the pentacles, the ritual satchels that place a whole pentacle, the JEI pentacle icons;
+#     the chalks themselves are the tag occultism:tools/chalk below (impure chalk cannot draw and stays allowed);
+#   - spirits and demons a ritual binds: empty/bound books of binding (the unbound ones are tag occultism:books/books_of_binding),
+#     the books of calling (tags below), the familiar ring, the djinni's magic lamp, the miner spirits (tag occultism:miners).
+# Allowed on purpose: the soul gems (they hold a caught mob, no ritual summons), the Dictionary of Spirits (a book to read),
+# the dimensional mineshaft and storage blocks (useless without spirits, harmless with them).
+# tombstone:book_of_soulbound (issue #70, owner 22/11/2026): Soulbound does nothing at the Life 1 death (only ttl:soulbound
+# items cross to Life 2), so the book waits in the soul stash and comes back in Life 2, where Tombstone's Soulbound works.
+items = [
+  "occultism:sacrificial_bowl", "occultism:copper_sacrificial_bowl", "occultism:silver_sacrificial_bowl",
+  "occultism:golden_sacrificial_bowl", "occultism:iesnium_sacrificial_bowl", "occultism:dark_sacrificial_bowl",
+  "occultism:dark_copper_sacrificial_bowl", "occultism:dark_silver_sacrificial_bowl", "occultism:dark_golden_sacrificial_bowl",
+  "occultism:dark_iesnium_sacrificial_bowl", "occultism:celestial_chalice", "occultism:eldritch_chalice",
+  "occultism:ritual_satchel_t1", "occultism:ritual_satchel_t2",
+  "occultism:pentacle_craft", "occultism:pentacle_misc", "occultism:pentacle_possess", "occultism:pentacle_summon",
+  "occultism:book_of_binding_empty", "occultism:book_of_binding_bound_foliot", "occultism:book_of_binding_bound_djinni",
+  "occultism:book_of_binding_bound_afrit", "occultism:book_of_binding_bound_marid",
+  "occultism:familiar_ring", "occultism:magic_lamp_empty",
+  "tombstone:book_of_soulbound",
+]
 
 # Item tags, full id without the #: tags = ["c:ingots/netherite"]
 # ttl:paths: the necromancer's and artificer's items and blocks (soul ash, Bone Altar, Workshop Bench, ...;
 # data/ttl/tags/item/paths.json). Life 1 stays mortal: the paths open in Life 2.
-tags = ["ttl:paths"]
+# occultism:tools/chalk (the 18 chalks that draw pentacles), books of binding and calling, miners (the spirits of the
+# dimensional mineshaft): Occultism's own tags, see the ritual list above.
+tags = ["ttl:paths", "occultism:tools/chalk", "occultism:books/books_of_binding", "occultism:books/book_of_calling_foliot",
+  "occultism:books/book_of_calling_djinni", "occultism:miners"]
 
 # Exceptions to a namespace ban, full item ids: allow = ["tensura:bronze_coin"]
 allow = []
@@ -41,6 +65,8 @@ allow = []
 # SpellPreCastEvent before every player cast (scrolls and spellbooks alike), life/mortal_banned.js cancels it for these
 # schools. Blood (raise_dead, devour, sacrifice, ...) and eldritch are the necromancer's and the abyss's magic. The rest
 # of Iron's stays usable in Life 1, and what a soul learns there carries over (D4). Empty list = no veto.
+# In the Mortal dimensions Iron's spends its own mana, not Tensura magicules (issue #104: ttl-portals SpellManaMixin,
+# life/mortal_spells.js); a Life 1 Human's 50-70 magicules could not pay a single spell through the Tensura bridge.
 # Fallback if the veto cannot be registered (the log says "[ttl] stash: Iron's spell veto NOT registered"): put
 # "irons_spellbooks" into `namespaces` (the master plan's Q13 "Iron's in Life 1: off").
 spell_schools = ["irons_spellbooks:blood", "irons_spellbooks:eldritch"]

@@ -1,3 +1,48 @@
+## 2026-11-23 — consolidated creative map on current main history
+
+The requested `chatgpt/world-map` authoring branch includes owner-approved Filtwood, the355-record source dossier, current guide/painting and the capital-identity correction. Upstream main 3555a00bf893d0aea2413b853e98fee209489835 is incorporated unchanged in runtime/tool/mod paths, apart from the five previously owner-approved relation data records already in authoring history. Only the decision-log and handoff conflicts needed resolution; both histories are preserved. This is a draft authoring integration, not a main merge, world apply or deployment.
+
+The known Filtwood legacy-grid U versus approved J dependency still requires technical reconciliation. Larger-island/Malukshure owner choices and source gaps remain open. Fresh combined checks:map checker0errors/56relations/2standingwarnings;repository494tests in67.106s,26skipped,the same2legacy-U/J failures plus validation. All17upstream-changed JS files pass syntax checking. All14normal export hashes,source/preview and original art remain exact. See [consolidation audit](../world/consolidation-audit.json). Earlier check counts remain historical.
+
+## Upstream main handoff additions
+
+
+## 22/11 — owner calls on #145 and #70 (branch `life1-occultism-soulbound`, Claude)
+
+**#145** Occultism allowed in Life 1, ritual items banned per item/tag in `mortal_banned.toml` (list and reasons in the file
+and `design/decisions.md`); `/ttl stash check` asserts every id/tag exists. **#70** only `ttl:soulbound` crosses; ttl-portals
+0.9.3 `EnchantmentMenuMixin` keeps Tombstone's Soulbound off enchanting tables in the Mortal dimensions, the Book of Soulbound
+is stashed until Life 2; guide + wiki two-lives EN/NL explain it. Test `life1_bans.rcon` (hook `/ttl soul table`). Open edge:
+a Soulbound book from a Life 1 villager or loot can still be applied with an anvil (harmless, explained in the guide).
+
+## 22/11 — Life 1 tester issues #85 #104 (fixed) and #70 #145 (owner calls), branch `fix-life1-issues`, PR #148, Claude
+
+**#104** Iron's spells failed in Life 1: the Tensura bridge (`manaConversionMultiplier = 50`) asks a Life 1 Human (50-70
+magicules) for 50 x the cost; ttl-portals 0.9.2 `SpellManaMixin` + `TensuraIronCastMixin` make Iron's use its own mana in
+the Mortal dimensions (Life 2 keeps the bridge; blood/eldritch veto O-N1 kept). **#85** frames did not light in the Mortal
+Realm (vanilla `BaseFireBlock.inPortalDimension`): `BaseFireBlockMixin`. Hooks `/ttl spells`, `/ttl useon`; tests
+`life1_spells.rcon`, `portals.rcon` part 2, `tests/test_life1_rules.py`. **Verified locally** (release jar 0.9.2):
+life1_spells, portals, carryover, soul, race_lock, paths_items, life1_status, two_lives. **Open for Yasuke** (options on the
+issues): #145 Occultism banned in Life 1 by O-N1; #70 Tombstone's Soulbound does not cross to Life 2 (only `ttl:soulbound`).
+Client side not done: the bridge hides Iron's mana bar, also in Life 1 (a client mixin on `ManaBarOverlay` would fix it).
+
+## 22/11 — tester issues #72 #73 #75 #86 #144 (branch `fix-reset-sleep-l2h`, Claude, for Yasuke)
+
+**#73/#72 reset kept skills**: `/ttl reset` revoked only uniques and set the race with `tensura edit race set` (keeps every
+other ability, the old race's intrinsics and the EP). Now `life/soul_wipe.js`: registry `revokeAll`, every other ability
+one at a time, `tensura reset <p> race tensura:human` (EP, existence, spirits, statistics; no race menu). Tensura never
+forgets a resistance: a revoke puts it back to the start of learning (negative mastery, inactive), counted as not held.
+The Life 1 death strips the abilities the Human learned; the command rebirth rolls the new race's EP (`... set <race> true`).
+**#86**: the Mortal Realm reads the overworld clock and vanilla's sleep there could not move it; `life/sleep.js` moves it on
+NeoForge's `SleepFinishedTimeEvent`; gamerule `playersSleepingPercentage` 50 (applied at server start). **#144**: L2H Life 1
+caps 100/150/200 (owner call open: remove them?). **#75**: `/ttl life1 status <player> [<preset>]`, `/ttl life1 days`
+(karma.toml [presets]). `TtlKarma.set` now goes through the dispatcher (runCommandSilent landed a moment later).
+**Verified locally** (Lerfing): reset_full, sleep (Mortal Realm and overworld), life1_status, karma, race_lock, rebirth,
+rebirth_scene, two_lives, registry, registry_reconcile, soul, carryover, bed_spawn, roads, absorb, legendary,
+trial_knowledge, trial_strength, necro_ranks, quests. **Not done**: L2Archery (suggested in #144) needs `/add-mod` and an owner yes.
+
+## Creative map handoff history
+
 ## 2026-11-23 — capital identity and consolidated authoring delivery
 
 The Forgotten Dragon City place/lore pages,proportion note,world brief and era policy no longer assert that Milim's later capital was built at the authored `laura` coordinate. Direct LN20 evidence only fixes former Eurazania. Carrion's initial undestroyed capital remains distinct;C24 proper-name uncertainty is kept explicit instead of presenting the technical ID as proof. No numeric reservations,blueprints,terrain,art,tools,mod or pack files change. Ledger355 retained;no duplicate source claim. Fresh required gate:472tests in67.434s,26skipped,the same2legacy-U/J failures plus validation. All57matching imported-table technical tuples remain unchanged;source/anchor files remain byte-identical.

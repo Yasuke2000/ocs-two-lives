@@ -20,7 +20,7 @@ const TtlKarma = {
   TRACKED: { active: 'ttl.l1.active', far: 'ttl.l1.far', nether: 'ttl.l1.nether', end: 'ttl.l1.end', advancements: 'ttl.l1.adv' },
   // Bookkeeping of the tracked stats above (visited squares and today's count), reset with them.
   TRACK_EXTRA: ['ttl.l1.cells', 'ttl.l1.cellDay', 'ttl.l1.cellsToday'],
-  KEYS: ['ttl.karma.base', 'ttl.karma.life1', 'ttl.karma.score', 'ttl.karma.dark', 'ttl.karma.bonus', 'ttl.tier', 'ttl.l1.days'],
+  KEYS: ['ttl.karma.base', 'ttl.karma.life1', 'ttl.karma.score', 'ttl.karma.dark', 'ttl.karma.bonus', 'ttl.tier', 'ttl.l1.days', 'ttl.l1.staffset'],
 
   conf() {
     return TtlData.karma
@@ -373,7 +373,9 @@ const TtlKarma = {
       return
     }
     var base = this.base(player)[key] || 0
-    server.runCommandSilent(`scoreboard players set ${player.username} ${this.OBJ}${key} ${base + n}`)
+    // Through the dispatcher, not runCommandSilent: the score must be there when the caller reads the verdict right after
+    // (/ttl life1 status checks the tier at once; runCommandSilent's command landed a moment later).
+    TtlCmd.run(server, `scoreboard players set ${player.username} ${this.OBJ}${key} ${base + n}`)
   },
 
   // One line for /ttl inspect.

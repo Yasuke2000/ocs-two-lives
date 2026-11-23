@@ -22,5 +22,24 @@
     "seconds": 67.426,
     "validation_failed": true,
     "reason": "Inherited Filtwood legacy U versus owner-approved J;both failures match the preceding source branch."
+  },
+  "current_main_consolidation": {
+    "audit": "consolidation-audit.json",
+    "checks": {
+      "standard_map_checker_errors": 0,
+      "relations_checked": 56,
+      "standing_warnings": 2,
+      "repository_gate_passed": false,
+      "repository_tests": 494,
+      "skipped": 26,
+      "failures": 2,
+      "seconds": 67.106,
+      "upstream_javascript_files_syntax_checked": 17,
+      "failed_tests": [
+        "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_gen_data_check_covers_the_env_file"
+      ],
+      "validation": "Retained legacy Filtwood(-900,700) reads U in old canon_map.txt;approved source region is J."
+    }
   }
 }

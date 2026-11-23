@@ -34,10 +34,22 @@ run_test() {
 
 # Tests never post to Discord (#story, #events): the mute is set for the run and lifted after it, and
 # discord.js drops every post while a test bot is online as well.
+# TTL_QUIET=1 prints only the failing steps (the command and its error reply) and one verdict line, and returns 1 when a
+# step failed: the full transcript of a green test is noise for whoever reads the output (an agent pays for every line).
 ingame_test() {
+  local out bad rc=0
   rcon "ttl discord mute on" >/dev/null
-  run_test "$INGAME_DIR/${1:?usage: test <name>}.rcon"
+  if [ -n "${TTL_QUIET:-}" ]; then
+    out=$(run_test "$INGAME_DIR/${1:?usage: test <name>}.rcon" 2>&1 | plain)
+    bad=$(grep -B1 -E "$FAILED_RE" <<<"$out" || true)
+    if [ -n "$bad" ]; then printf '%s\n%s: failing\n' "$bad" "$1"; rc=1
+    elif grep -q '^skipped: ' <<<"$out"; then echo "$1: skipped"
+    else echo "$1: ok"; fi
+  else
+    run_test "$INGAME_DIR/${1:?usage: test <name>}.rcon"
+  fi
   rcon "ttl discord mute off" >/dev/null
+  return $rc
 }
 
 # Start-up world works: after a restart the canon builds and landmarks whose version changed are taken out and placed
@@ -68,15 +80,20 @@ wait_world_settled() {
 # A test fails on command errors, or when a trial test ends the other way than its name says (`*_fail` must fail,
 # every other trial test must pass). Tests with an ingame_skip_reason print "skipped (<reason>)" and do not count as
 # failing. INGAME_OUT=<dir> keeps each test's output as <dir>/<name>.out. Prints one line per test and
-# "<n> failing"; returns non-zero when any test failed.
+# "<n> failing"; returns non-zero when any test failed. TTL_QUIET=1 leaves out the ok and skipped lines and prints
+# "passed: <n>, skipped: <n>" instead (no "<name> " start, so verify does not take it for a failing test's line).
 ingame_test_all() {
-  local fails=0 f name out verdict bot result want why
+  local fails=0 passed=0 skipped=0 f name out verdict bot result want why
   wait_world_settled
   rcon "ttl discord mute on" >/dev/null
   for f in "$INGAME_DIR"/*.rcon; do
     name=$(basename "$f" .rcon)
     why=$(ingame_skip_reason "$name")
-    if [ -n "$why" ]; then printf '%-24s %s\n' "$name" "skipped ($why)"; continue; fi
+    if [ -n "$why" ]; then
+      skipped=$((skipped + 1))
+      [ -n "${TTL_QUIET:-}" ] || printf '%-24s %s\n' "$name" "skipped ($why)"
+      continue
+    fi
     out=$(run_test "$f" 2>&1 | plain)
     verdict=ok
     if grep -qE 'Unknown or incomplete|Incorrect argument|An unexpected error|ttl: ' <<<"$out"; then verdict="command error"; fi
@@ -88,11 +105,18 @@ ingame_test_all() {
     fi
     # `@import` tests (lerfing*.rcon) skip themselves on a world that is not Lerfing's import: not a failure.
     if [ "$verdict" = ok ] && grep -q '^skipped: ' <<<"$out"; then verdict="skipped (not Lerfing's import)"; fi
-    [ "$verdict" = ok ] || [[ $verdict == skipped* ]] || fails=$((fails + 1))
-    printf '%-24s %s\n' "$name" "$verdict"
+    case "$verdict" in
+      ok) passed=$((passed + 1)) ;;
+      skipped*) skipped=$((skipped + 1)) ;;
+      *) fails=$((fails + 1)) ;;
+    esac
+    if [ -z "${TTL_QUIET:-}" ] || [[ $verdict != ok && $verdict != skipped* ]]; then
+      printf '%-24s %s\n' "$name" "$verdict"
+    fi
     [ -z "${INGAME_OUT:-}" ] || printf '%s\n' "$out" > "$INGAME_OUT/$name.out"
   done
   rcon "ttl discord mute off" >/dev/null
+  [ -z "${TTL_QUIET:-}" ] || echo "passed: $passed, skipped: $skipped"
   echo "$fails failing"
   [ "$fails" -eq 0 ]
 }

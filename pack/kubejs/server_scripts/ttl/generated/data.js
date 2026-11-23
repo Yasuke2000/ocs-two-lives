@@ -5453,7 +5453,7 @@ const TtlData = {
         "title": "Death and the Spirit Corridor"
       },
       {
-        "body": "When Life 1 ends, your body's belongings do not come with you: inventory, armour, ender chest and backpacks are left behind. Your soul keeps:\n\n- your levels, advancements, karma and quest progress\n- your *Soul Gem*: every soul starts with one. It cannot be thrown away in Life 1. In Life 2, right-click it for a short echo of your first life (a few seconds of Regeneration and Resistance, then it rests for a while)\n- a *Remembered Enchantment*: a Hero or Legend whose strongest side was *Craft* is reborn with one enchanted book, the best enchantment they carried, at a lower level\n\nItems from Tensura that you carried into the Mortal Realm are put away safely and come back at rebirth.\n",
+        "body": "When Life 1 ends, your body's belongings do not come with you: inventory, armour, ender chest and backpacks are left behind. Your soul keeps:\n\n- your levels, advancements, karma and quest progress\n- your *Soul Gem*: every soul starts with one. It cannot be thrown away in Life 1. In Life 2, right-click it for a short echo of your first life (a few seconds of Regeneration and Resistance, then it rests for a while)\n- a *Remembered Enchantment*: a Hero or Legend whose strongest side was *Craft* is reborn with one enchanted book, the best enchantment they carried, at a lower level\n\nOnly the Soul Gem crosses with you. *Soulbound* from the Tombstone mod does not work for the Life 1 death: that death is not a normal death, so a Soulbound item stays behind like the rest. The enchanting table does not offer Soulbound in the Mortal Realm, and a *Book of Soulbound* waits for you until Life 2, where Soulbound works as usual.\n\nItems that do not belong in the Mortal Realm are put away safely and come back at rebirth: Tensura's items, and Occultism's ritual tools (chalk, ritual bowls, books of binding and calling, the familiar ring). The rest of Occultism, and Iron's Spells, work in Life 1.\n",
         "title": "What your soul keeps"
       },
       {
@@ -5904,6 +5904,63 @@ const TtlData = {
       "other_tail": 0.15,
       "stat": "mob_kills",
       "tail": 0.15
+    },
+    "presets": {
+      "dark": {
+        "dark": true,
+        "stats": {
+          "advancements": 10,
+          "mob_kills": 60,
+          "play_time": 216000,
+          "villagers": 8
+        },
+        "tier": "normal"
+      },
+      "elite": {
+        "stats": {
+          "advancements": 35,
+          "deepslate_diamond_ore": 30,
+          "enchants": 15,
+          "far": 3000,
+          "mob_kills": 300,
+          "nether": 1,
+          "play_time": 720000,
+          "trades": 60
+        },
+        "tier": "elite"
+      },
+      "legendary": {
+        "stats": {
+          "advancements": 60,
+          "ancient_debris": 10,
+          "deepslate_diamond_ore": 60,
+          "enchants": 50,
+          "end": 1,
+          "ender_dragon": 1,
+          "far": 6000,
+          "mob_kills": 800,
+          "nether": 1,
+          "play_time": 900000,
+          "raids_won": 2,
+          "trades": 200,
+          "wither": 1
+        },
+        "tier": "legendary"
+      },
+      "normal": {
+        "stats": {
+          "advancements": 15,
+          "far": 1500,
+          "mob_kills": 80,
+          "play_time": 216000,
+          "trades": 10
+        },
+        "tier": "normal"
+      },
+      "underdog": {
+        "stats": {},
+        "tier": "underdog"
+      }
     },
     "stats": [
       {
@@ -6404,20 +6461,51 @@ const TtlData = {
   },
   "mortal_banned": {
     "allow": [],
-    "items": [],
+    "items": [
+      "occultism:sacrificial_bowl",
+      "occultism:copper_sacrificial_bowl",
+      "occultism:silver_sacrificial_bowl",
+      "occultism:golden_sacrificial_bowl",
+      "occultism:iesnium_sacrificial_bowl",
+      "occultism:dark_sacrificial_bowl",
+      "occultism:dark_copper_sacrificial_bowl",
+      "occultism:dark_silver_sacrificial_bowl",
+      "occultism:dark_golden_sacrificial_bowl",
+      "occultism:dark_iesnium_sacrificial_bowl",
+      "occultism:celestial_chalice",
+      "occultism:eldritch_chalice",
+      "occultism:ritual_satchel_t1",
+      "occultism:ritual_satchel_t2",
+      "occultism:pentacle_craft",
+      "occultism:pentacle_misc",
+      "occultism:pentacle_possess",
+      "occultism:pentacle_summon",
+      "occultism:book_of_binding_empty",
+      "occultism:book_of_binding_bound_foliot",
+      "occultism:book_of_binding_bound_djinni",
+      "occultism:book_of_binding_bound_afrit",
+      "occultism:book_of_binding_bound_marid",
+      "occultism:familiar_ring",
+      "occultism:magic_lamp_empty",
+      "tombstone:book_of_soulbound"
+    ],
     "namespaces": [
       "tensura",
       "tensura_neb",
       "greatsage",
-      "lightmanscurrency",
-      "occultism"
+      "lightmanscurrency"
     ],
     "spell_schools": [
       "irons_spellbooks:blood",
       "irons_spellbooks:eldritch"
     ],
     "tags": [
-      "ttl:paths"
+      "ttl:paths",
+      "occultism:tools/chalk",
+      "occultism:books/books_of_binding",
+      "occultism:books/book_of_calling_foliot",
+      "occultism:books/book_of_calling_djinni",
+      "occultism:miners"
     ]
   },
   "nations": {

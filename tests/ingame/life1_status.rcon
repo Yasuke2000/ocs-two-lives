@@ -1,0 +1,45 @@
+# #75: /ttl life1 status <player> <preset> jumps a Life 1 soul to a karma tier (karma/life1_status.js, karma.toml
+# [presets]); /ttl life1 days sets the days of active play (the Legend's 30, which idle time and tick speed never give);
+# /ttl life1 trial sets the Trial of the Soul's result in the Corridor. Expect no "ttl:" failure lines. The command itself
+# fails with "ttl: ..." when a preset no longer reaches its tier.
+ttlbot spawn TtlBotLifeA
+@sleep 4
+ttl life1 status TtlBotLifeA
+ttl karma TtlBotLifeA expect tier underdog
+ttl life1 status TtlBotLifeA legendary
+ttl ops expect cmdlog last "ttl life1 status"
+ttl karma TtlBotLifeA expect tier legendary
+ttl life1 status TtlBotLifeA dark
+ttl karma TtlBotLifeA expect tier normal
+ttl karma TtlBotLifeA expect dark true
+ttl life1 status TtlBotLifeA elite
+ttl karma TtlBotLifeA expect tier elite
+ttl karma TtlBotLifeA expect dark false
+ttl life1 days TtlBotLifeA 40
+ttl karma TtlBotLifeA expect days 40
+ttl life1 days TtlBotLifeA 30
+ttl karma TtlBotLifeA expect days 30
+ttl life1 status TtlBotLifeA
+# The Corridor judges the staff-set life like any other: a Hero gets the Hero's offers.
+kill TtlBotLifeA
+@sleep 1
+ttl karma TtlBotLifeA expect phase corridor
+ttl karma TtlBotLifeA expect tier elite
+ttl karma TtlBotLifeA expect offers 4
+ttl reset TtlBotLifeA
+ttlbot remove TtlBotLifeA
+# The Trial gate: an underdog draws its unique at random; with the Trial set to passed it picks 1 of 3 (step unique).
+ttlbot spawn TtlBotLifeB
+@sleep 4
+kill TtlBotLifeB
+execute as TtlBotLifeB run ttl wish strength
+ttl life1 trial TtlBotLifeB pass
+ttl life1 status TtlBotLifeB
+ttl karma TtlBotLifeB expect tier underdog
+execute as TtlBotLifeB run ttl choose slime
+@sleep 1
+ttl karma TtlBotLifeB expect step unique
+ttl karma TtlBotLifeB pick
+ttl karma TtlBotLifeB expect phase life2
+ttl reset TtlBotLifeB
+ttlbot remove TtlBotLifeB

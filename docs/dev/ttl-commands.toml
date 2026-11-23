@@ -84,7 +84,34 @@ subs = [
 [reset]
 group = "life"
 who = "staff"
-does = "Sends a soul back to a fresh Life 1: clears items, stages, registry holds, karma, soul, reputation, story, absorb and artificer data. With `/ttl absorb clear` the only way to give a soul its awakening claim back."
+does = "Sends a soul back to a fresh Life 1: clears items, stages, registry holds, every other Tensura ability (skills, magic, arts, race intrinsics; resistances back to the start of learning), the body (EP, existence, spirits) back to a fresh Human, karma, soul, reputation, story, absorb and artificer data. With `/ttl absorb clear` the only way to give a soul its awakening claim back."
+
+[wipe]
+group = "life"
+who = "test"
+does = "The abilities ManasCore keeps on a soul, with their mastery, and its max magicule (what `/ttl reset` and the Life 1 death take off)."
+subs = [
+  ["expect", "test", "Assert a held ability (`has <skill> yes|no`), the number of held abilities (`count`), or a max magicule ceiling (`magicule`)."],
+]
+
+[life1]
+group = "life"
+who = "staff"
+does = "Life 1 progression for staff and testers (op only, never a player command; every use logged, posted to the staff channel and stamped on the soul): jump a soul past the Life 1 gates to test what they unlock. A tier needs a karma score, days of ACTIVE play (idle time and tick speed do not count: the Legend's 30 days are ~10 real hours) and, for Legend, a major boss; the Trial of the Soul decides 1-of-3 uniques or a random one."
+subs = [
+  ["status", "staff", "Without a preset: tier, score, active days, bosses, Dark, what each higher tier still needs, the Corridor step and Trial, staff stamps. With a preset (`underdog`, `normal`, `elite`, `legendary`, `dark`; karma.toml [presets]): set the Life 1 stats that reach it, e.g. `/ttl life1 status <p> legendary` (Life 1 only)."],
+  ["days", "staff", "Set the days of active play in Life 1, e.g. `/ttl life1 days <p> 30` for the Legend's 30 (Life 1 only; score and bosses unchanged)."],
+  ["trial", "staff", "`pass` or `fail`: the Trial of the Soul's result, in the Corridor after the Last Wish (a running Trial ends with it). The Last Wish has no gate (`/ttl wish`)."],
+]
+
+[sleep]
+group = "life"
+who = "test"
+does = "Test hooks of sleeping through the night in the Mortal Realm (the night slept away there moves the shared clock)."
+subs = [
+  ["<target>", "test", "`bed`: a bed in the sky above the soul and the soul asleep in it (fails when Minecraft refuses); `clear`: that bed removed; `expect morning`: the morning came for it (a soul woken early by a late teleport is put back to bed); `expect awake|mortal`: the soul is awake / in the Mortal Realm."],
+  ["expect", "test", "`expect morning`: the shared clock is in the early morning."],
+]
 
 [soul]
 group = "life"
@@ -94,6 +121,7 @@ subs = [
   ["<target> give", "staff", "Issue a Soul Gem if the body holds none."],
   ["<target> use", "test", "The Life 2 echo (short Regeneration + Resistance), as a right-click would."],
   ["<target> clear", "staff", "Forget the gem flag, the remembered enchantment and the cooldown."],
+  ["table", "test", "Assert whether an enchanting table where the player stands offers Tombstone's Soulbound (real EnchantmentMenu, n rolls)."],
   ["expect", "test", "Assert a soul field, or how many stacks of an item the body holds."],
 ]
 
@@ -107,7 +135,21 @@ subs = [
   ["equip", "test", "Put one item into the first free Curios slot."],
   ["soulbound", "test", "Treat that item id as soulbound until the next script reload."],
   ["spell", "test", "Assert whether a cast of an Iron's Spells school is refused where the player stands."],
+  ["check", "test", "Assert that every item id and tag in mortal_banned.toml exists (a typo would ban nothing)."],
   ["expect", "test", "Assert a stash field."],
+]
+
+[spells]
+group = "life"
+who = "staff"
+does = "Iron's Spells in Life 1: in the Mortal dimensions Iron's spends its own mana, not Tensura magicules (issue #104). Without a subcommand: magicules, Iron's mana and max mana."
+subs = [
+  ["mana", "test", "Set the player's Iron's mana."],
+  ["cancast", "test", "Assert whether a spellbook cast of a spell passes Iron's checks (mana, cooldown, learning) where the player stands."],
+  ["cost", "test", "Assert the Iron's mana a spellbook cast asks for (`plain` = the spell's own cost)."],
+  ["cast", "test", "Start a real spellbook cast of a spell (an instant one goes off on the next tick)."],
+  ["spent", "test", "Assert that the last `cast` took its plain mana and no magicules."],
+  ["summons", "test", "Assert that at least n spell summons of the player stand within 16 blocks."],
 ]
 
 [racelock]
@@ -788,6 +830,15 @@ who = "test"
 does = "The command log of /ttl and the other ops commands (literal paths only, never free text, selectors or NBT)."
 subs = [
   ["expect", "test", "Assert the last logged command path: `expect cmdlog last <path>`."],
+]
+
+[useon]
+group = "ops"
+who = "test"
+does = "The player right-clicks a block face with its main-hand item, the way a real click arrives (test bots cannot click). First used for flint and steel on a portal frame."
+subs = [
+  ["<target>", "test", "Right-click the block face at x y z with what the player holds."],
+  ["expect", "test", "Assert the block at a position in the player's dimension."],
 ]
 
 [guideforget]

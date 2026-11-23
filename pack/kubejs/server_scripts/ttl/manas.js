@@ -34,5 +34,23 @@ const TtlManas = {
       console.error(`[ttl] manas bridge: reading ${player.username}'s skills failed: ${e}`)
       return null
     }
+  },
+
+  // Every ability ManasCore keeps on the player, whatever its state: skills of every kind, magic, battlewill arts,
+  // resistances (also the ones still being learned, negative mastery), race intrinsics and temporary skills.
+  // [{id, unique, mastery, temporary}], or null when ManasCore can't be read. Used by the soul wipe (life/soul_wipe.js).
+  learned(player) {
+    var api = this.load()
+    if (!api) return null
+    try {
+      var out = []
+      api.skills.getSkillsFrom(player).getLearnedSkills().forEach(i => {
+        out.push({ id: String(i.getSkillId()), unique: !!i.is(api.unique), mastery: Number(i.getMastery()), temporary: !!i.isTemporarySkill() })
+      })
+      return out
+    } catch (e) {
+      console.error(`[ttl] manas bridge: listing ${player.username}'s abilities failed: ${e}`)
+      return null
+    }
   }
 }

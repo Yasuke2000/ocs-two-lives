@@ -79,5 +79,20 @@ case "${1:-}" in
   test)     ingame_test "${2:?usage: server.sh test <name>}" ;;
   test-all) ingame_test_all ;;
   who) humans ;;
-  *) echo "usage: server.sh status|logs [n]|follow|restart|deploy [--force]|rcon \"<cmd>\"|reload|push-scripts|place <name> <dim> <x> <y> <z>|verify <name> [<dim> <x> <y> <z>]|test <name>|test-all|who" >&2; exit 2 ;;
+  # One screen for "how is staging?": read this instead of separate kubectl / SSH calls. Every line degrades to a
+  # placeholder on its own (server down, no metrics access, no gh), so the rest still prints.
+  brief)
+    echo "mc:      $(k get pods -l app=mc -o jsonpath='{.items[0].status.phase}, restarts {.items[0].status.containerStatuses[0].restartCount}, since {.items[0].status.startTime}' 2>/dev/null || echo 'no mc pod')"
+    mem=$(k top pod -l app=mc --no-headers 2>/dev/null | awk '{print "mc " $3 ", cpu " $2}' || true)
+    node=$(k top node homelab-node3 --no-headers 2>/dev/null | awk '{print "node3 " $5 " used (" $4 ")"}' || true)
+    echo "memory:  ${mem:-mc ?}; ${node:-node3 ?}"
+    online=$(humans 2>/dev/null) || online="? (rcon failed)"
+    echo "online:  ${online:-nobody}"
+    echo "ttl-ops: $(k logs deploy/ttl-ops -c ops --tail=1 2>/dev/null || echo '?')"
+    if command -v gh >/dev/null 2>&1; then
+      gh api "repos/${TTL_REPORT_REPO:-Yasuke2000/ocs-two-lives}/commits/main/status" --jq \
+        '"gate:    main " + .sha[0:7] + " local-test-all=" + ([.statuses[] | select(.context == "local-test-all") | .state][0] // "none")' 2>/dev/null \
+        || echo "gate:    ? (gh api failed)"
+    fi ;;
+  *) echo "usage: server.sh brief|status|logs [n]|follow|restart|deploy [--force]|rcon \"<cmd>\"|reload|push-scripts|place <name> <dim> <x> <y> <z>|verify <name> [<dim> <x> <y> <z>]|test <name>|test-all|who" >&2; exit 2 ;;
 esac

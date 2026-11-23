@@ -1,3 +1,5 @@
+> Current consolidated delivery23November2026: [delivery index](DELIVERY.md),[audit](consolidation-audit.json). Approved Filtwood and source follow-ups are included on `chatgpt/world-map`;main history is incorporated without new runtime code. Standard checker0errors/56relations;combined repository gate494tests,26skipped,2known legacy-U/J failures. No main merge or apply.
+
 > Current update22November2026: [approved Filtwood forest-edge adoption](filtwood-approved.md). Pin(-1050,74,600),J;updated maps and23roads. Standard map checker passes; repository gate has two legacy-map failures. Earlier dated source/hash/check statements below remain historical.
 
 ## Start here: current map review bundle

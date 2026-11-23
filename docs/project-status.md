@@ -68,7 +68,14 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - Karma that counts active play (anti-farming), Life 1 deaths judged into tiers (Wanderer → Legend, Fallen).
 - 119 Life 1 quests in 10 chapters ending in "A Life That Counted"; the Mortal Nether/End and the Mortal Dragon.
 - Life 1 items do not carry over (ender chest and Curios emptied); soulbound items + the Soul Gem do.
-- Tensura content banned in Life 1 (`design/data/mortal_banned.toml`, one line per mod).
+- Tensura content banned in Life 1 (`design/data/mortal_banned.toml`, one line per mod); of Occultism only the ritual items.
+- Only the Soul Gem (`ttl:soulbound`) crosses to Life 2; Tombstone's Soulbound is not offered in Life 1.
+- Iron's Spells work in Life 1 on Iron's own mana (the Tensura magicule bridge only in Life 2); Nether portal frames light in the
+  Mortal Realm and Mortal Nether (ttl-portals 0.9.2).
+- Sleeping skips the night in the Mortal Realm too (50 % of the souls there; one shared clock with the Tensura world).
+- `/ttl reset` is a full character reset (every ability, EP and the body back to a fresh Human); abilities a Human learns
+  in Life 1 stay behind at the Life 1 death. `/ttl life1 status <player> <preset>` jumps a tester to a karma tier.
+- L2Hostility in Life 1: level caps 100 / 150 / 200 (Mortal Realm / Nether / End), half damage per level.
 
 **Corridor and rebirth**
 - Spirit Corridor with the Voice of the World, Last Wish, 10 trial arenas, Great Sage reincarnation scene.
@@ -143,6 +150,7 @@ Launch only after the playtests, after the "Before launch" checklist in `docs/se
 - The generated Tensura continent will be replaced by an imported 1:1 hand-made world map (owner, 19/11): site
   biomes, canon-site terrain and build spots will need a new pass then.
 - Untested with real players: skins rendering, duels/wars between players, shops and wallets, the Labyrinth hall.
+- L2Hostility Life 1 caps (#144): raised 40/50/60 → 100/150/200; removing them (the tester's ask) is an owner call.
 - Before launch: run the reset checklist in `docs/server.md` (era, test registry holders, test story/party/nation records).
 - Place audit leftovers (19/11): Dragon's Nest's white pad and the Sealed Cave's 32 missing logs and visible pad (Raja's
   lava pool, Sacred Mountain's water and Frost Palace's skirt are one-time world fixes, `design/data/world_fixes/`).

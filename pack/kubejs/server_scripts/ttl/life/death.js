@@ -49,6 +49,8 @@ EntityEvents.death('minecraft:player', event => {
     } catch (e) {
       console.error(`[ttl] ${name}: Life 1 strip failed: ${e}`)
     }
+    // Abilities the Human body learned in Life 1 (resistances from damage) do not reach Life 2 (life/soul_wipe.js, #72).
+    try { TtlSoulWipe.lifeOne(server, player) } catch (e) { console.error(`[ttl] ${name}: Life 1 ability strip failed: ${e}`) }
     server.runCommandSilent(`quietly clear ${name}`)
     life.toCorridor(server, player)
     server.runCommandSilent(`quietly gamemode adventure ${name}`)
