@@ -52,6 +52,7 @@ TOOLS = [
                     "block of a small box (<= 64x64x64). load=false skips chunks that are not loaded.",
      "inputSchema": {"type": "object", "required": ["from", "to"], "properties": {
          "dim": DIM, "from": BOX, "to": BOX, "mode": {"enum": ["summary", "heightmap", "blocks"]},
+         "surface": {"enum": ["world", "terrain"], "description": "heightmap: world = top block incl. trees; terrain = ground (no leaves)"},
          "load": {"type": "boolean"}}}},
     {"name": "preview_build",
      "description": "Compile a build program, check every block against the registry, lint it (floating parts, "
@@ -215,6 +216,8 @@ def t_read_region(args):
     q["mode"] = mode
     if args.get("load") is False:
         q["load"] = "false"
+    if mode == "heightmap" and args.get("surface"):
+        q["surface"] = args["surface"]
     data = _bridge().get("region", **q)
     if mode == "heightmap":
         valid = [h for h in data["heights"] if h is not None]

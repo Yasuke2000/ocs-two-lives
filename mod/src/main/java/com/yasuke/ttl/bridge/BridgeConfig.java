@@ -61,6 +61,8 @@ public final class BridgeConfig {
     int maxReadCells = 262_144;
     int maxSummaryCells = 1_048_576;
     int maxHeightmapColumns = 262_144;
+    /** Chunks one request may load or generate (in the background, through a ticket). */
+    int maxPreloadChunks = 4096;
     /** Local test servers only: any box is writable (protect boxes still apply). */
     boolean allowAnywhere = false;
     final List<Zone> zones = new ArrayList<>();
@@ -90,6 +92,7 @@ public final class BridgeConfig {
             c.maxReadCells = o.has("max_read_cells") ? o.get("max_read_cells").getAsInt() : c.maxReadCells;
             c.maxSummaryCells = o.has("max_summary_cells") ? o.get("max_summary_cells").getAsInt() : c.maxSummaryCells;
             c.maxHeightmapColumns = o.has("max_heightmap_columns") ? o.get("max_heightmap_columns").getAsInt() : c.maxHeightmapColumns;
+            c.maxPreloadChunks = o.has("max_preload_chunks") ? o.get("max_preload_chunks").getAsInt() : c.maxPreloadChunks;
             c.allowAnywhere = bool(o, "allow_anywhere", c.allowAnywhere);
             readZones(o.getAsJsonArray("zones"), c.zones);
             readZones(o.getAsJsonArray("protect"), c.protect);

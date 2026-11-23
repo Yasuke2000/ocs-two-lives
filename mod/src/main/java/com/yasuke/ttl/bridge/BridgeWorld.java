@@ -144,8 +144,12 @@ final class BridgeWorld {
         return out;
     }
 
-    /** Surface heights (WORLD_SURFACE: y of the highest non-air block), surface blocks and surface biomes per column. */
-    static JsonObject heightmap(ServerLevel level, int x1, int z1, int x2, int z2, boolean load) {
+    /**
+     * Surface heights per column (y of the highest block of the chosen heightmap: WORLD_SURFACE = any non-air block,
+     * "terrain" = MOTION_BLOCKING_NO_LEAVES, the ground under trees but on top of water), surface blocks and biomes.
+     */
+    static JsonObject heightmap(ServerLevel level, int x1, int z1, int x2, int z2, boolean load, String surface) {
+        Heightmap.Types type = "terrain".equals(surface) ? Heightmap.Types.MOTION_BLOCKING_NO_LEAVES : Heightmap.Types.WORLD_SURFACE;
         int w = x2 - x1 + 1, l = z2 - z1 + 1;
         JsonArray heights = new JsonArray();
         Map<String, Integer> blockIdx = new LinkedHashMap<>();
@@ -163,7 +167,7 @@ final class BridgeWorld {
                     biomes.add(-1);
                     continue;
                 }
-                int y = c.getHeight(Heightmap.Types.WORLD_SURFACE, wx & 15, wz & 15);
+                int y = c.getHeight(type, wx & 15, wz & 15);
                 heights.add(y);
                 pos.set(wx, y, wz);
                 String block = BuiltInRegistries.BLOCK.getKey(c.getBlockState(pos).getBlock()).toString();
@@ -177,6 +181,7 @@ final class BridgeWorld {
         out.add("from", Bridge.arr(x1, z1));
         out.add("size", Bridge.arr(w, l));
         out.addProperty("order", "x fastest, then z");
+        out.addProperty("surface", "terrain".equals(surface) ? "terrain" : "world");
         out.add("heights", heights);
         out.add("block_palette", Bridge.strings(blockIdx.keySet()));
         out.add("blocks_rle", blocks.json());

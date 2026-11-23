@@ -114,3 +114,14 @@ then `python -I tools/world/paint.py status` and `python -I tools/world/build.py
 The converter applies paint after the relief and **before** lakes, rivers, sites and roads: site plates stay flat and
 at their level, water keeps its level, the coast stays the SVG's (painted land never drops into the sea), and a site's
 own biome wins over painted biome. `index.json` records the paint's hash; `--paint ''` builds the SVG alone.
+
+## Checking the generated world against the design
+
+`python -I tools/world/compare_design.py` (a server with the rasters in `config/ttl/world/` and the build bridge on, e.g.
+the local server: `TTL_LOCAL_DIR=... python -I tools/world/compare_design.py`) generates and reads every plated site
+plus a margin and reports per site: the plate (share of columns within ±1 of the walking level), the ground around it
+(median and p90 of |generated − designed|), water at its designed level and biome agreement, with a picture per site
+in `world/build/compare/` (designed | generated | difference). `/ttlsite check all` checks the same plates in the noise
+alone, without generating. First full run (23/11/2026, ChatGPT's continent, local pack server, the switch data of
+`own-world-switch`): 38/38 sites OK in `/ttlsite check all`; ground median 0–2 blocks off the design at 36 of 38 sites
+(Dwargon 4, the Dragon's Nest slopes 7: alpine noise on top of the design), water at level 86–100 %, biomes 97–100 %.

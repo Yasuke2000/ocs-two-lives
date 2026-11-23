@@ -11,6 +11,8 @@ import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.TicketType;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
@@ -25,7 +27,10 @@ import java.net.InetSocketAddress;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -43,6 +48,10 @@ import java.util.function.Supplier;
 public final class Bridge {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final int MAX_BODY = 64 * 1024 * 1024;
+    /** Chunks a request needs are loaded (generated if new) through this ticket, off the tick: it expires by itself. */
+    private static final TicketType<ChunkPos> TICKET = TicketType.create("ttl_bridge", Comparator.comparingLong(ChunkPos::toLong), 20 * 120);
+    private static final int PRELOAD_BATCH = 64;
+    private static final long PRELOAD_TIMEOUT_MS = 10 * 60 * 1000;
 
     private static MinecraftServer server;
     private static BridgeConfig config;
@@ -142,7 +151,7 @@ public final class Bridge {
             body = error(e.getMessage());
         } catch (TimeoutException e) {
             status = 503;
-            body = error("server thread did not answer in time");
+            body = error("timed out: " + (e.getMessage() == null ? "the server thread did not answer in time" : e.getMessage()));
         } catch (Exception e) {
             status = 500;
             body = error(e.toString());
@@ -179,13 +188,25 @@ public final class Bridge {
             case "GET health": return onMain(Bridge::health);
             case "GET registry": return onMain(() -> BridgeWorld.registry(server));
             case "GET zones": return zones();
-            case "GET region": return onMain(() -> region(q));
+            case "GET region": {
+                if (!"false".equals(q.get("load"))) preload(q.getOrDefault("dim", "minecraft:overworld"), num(q, "x1"), num(q, "z1"), num(q, "x2"), num(q, "z2"));
+                return onMain(() -> region(q));
+            }
             case "POST biome": {
                 JsonObject req = body(ex);
+                if (!(req.has("dry_run") && req.get("dry_run").getAsBoolean())) {
+                    int[] a = ints(req.getAsJsonArray("from"), 3), b = ints(req.getAsJsonArray("to"), 3);
+                    preload(str(req, "dim", "minecraft:overworld"), a[0], a[2], b[0], b[2]);
+                }
                 return onMain(() -> biome(req));
             }
             case "POST jobs": {
                 JsonObject req = body(ex);
+                boolean dry = req.has("dry_run") && req.get("dry_run").getAsBoolean();
+                if (!dry || (req.has("load") && req.get("load").getAsBoolean())) {
+                    int[] o = ints(req.getAsJsonArray("origin"), 3), sz = ints(req.getAsJsonArray("size"), 3);
+                    preload(str(req, "dim", "minecraft:overworld"), o[0], o[2], o[0] + sz[0] - 1, o[2] + sz[2] - 1);
+                }
                 return onMain(() -> jobs.submit(req));
             }
             case "GET jobs": {
@@ -199,6 +220,50 @@ public final class Bridge {
                 break;
         }
         throw new NotFound("no endpoint " + method + " " + path);
+    }
+
+    /**
+     * Loads (and generates, when new) every chunk of x1..x2, z1..z2 without blocking the server thread: a timed region
+     * ticket per missing chunk, then this HTTP thread waits until they are all loaded. Generating hundreds of chunks
+     * synchronously on the server thread would trip the watchdog (a tick over max-tick-time stops the server).
+     */
+    private static void preload(String dim, int x1, int z1, int x2, int z2) throws Exception {
+        List<ChunkPos> all = new ArrayList<>();
+        for (int cx = Math.min(x1, x2) >> 4; cx <= Math.max(x1, x2) >> 4; cx++)
+            for (int cz = Math.min(z1, z2) >> 4; cz <= Math.max(z1, z2) >> 4; cz++) all.add(new ChunkPos(cx, cz));
+        if (all.size() > config.maxPreloadChunks)
+            throw new BadRequest(all.size() + " chunks, limit " + config.maxPreloadChunks + " per request (max_preload_chunks)");
+        long deadline = System.currentTimeMillis() + PRELOAD_TIMEOUT_MS;
+        for (int start = 0; start < all.size(); start += PRELOAD_BATCH) {
+            List<ChunkPos> batch = all.subList(start, Math.min(all.size(), start + PRELOAD_BATCH));
+            List<ChunkPos> missing = onMain(() -> {
+                ServerLevel level = BridgeWorld.level(server, dim);
+                List<ChunkPos> out = new ArrayList<>();
+                for (ChunkPos p : batch) {
+                    if (level.getChunkSource().getChunkNow(p.x, p.z) == null) {
+                        level.getChunkSource().addRegionTicket(TICKET, p, 0, p);
+                        out.add(p);
+                    }
+                }
+                return out;
+            });
+            while (!missing.isEmpty()) {
+                if (System.currentTimeMillis() > deadline) throw new TimeoutException("chunk generation");
+                Thread.sleep(200);
+                List<ChunkPos> waiting = missing;
+                missing = onMain(() -> {
+                    ServerLevel level = BridgeWorld.level(server, dim);
+                    List<ChunkPos> out = new ArrayList<>();
+                    for (ChunkPos p : waiting) {
+                        if (level.getChunkSource().getChunkNow(p.x, p.z) == null) {
+                            level.getChunkSource().addRegionTicket(TICKET, p, 0, p); // refresh before it expires
+                            out.add(p);
+                        }
+                    }
+                    return out;
+                });
+            }
+        }
     }
 
     private static <T> T onMain(Supplier<T> task) throws Exception {
@@ -243,7 +308,8 @@ public final class Bridge {
         if (mode.equals("heightmap")) {
             long cols = (long) (Math.abs(x2 - x1) + 1) * (Math.abs(z2 - z1) + 1);
             if (cols > config.maxHeightmapColumns) throw new BadRequest(cols + " columns, limit " + config.maxHeightmapColumns);
-            return BridgeWorld.heightmap(level, Math.min(x1, x2), Math.min(z1, z2), Math.max(x1, x2), Math.max(z1, z2), load);
+            return BridgeWorld.heightmap(level, Math.min(x1, x2), Math.min(z1, z2), Math.max(x1, x2), Math.max(z1, z2), load,
+                    q.getOrDefault("surface", "world"));
         }
         int y1 = num(q, "y1"), y2 = num(q, "y2");
         BoundingBox box = new BoundingBox(Math.min(x1, x2), Math.max(Math.min(y1, y2), level.getMinBuildHeight()), Math.min(z1, z2),

@@ -1,7 +1,7 @@
 """HTTP client for the ttl-portals build bridge (stdlib only).
 
 Where the bridge is: TTL_BRIDGE_URL (default http://127.0.0.1:25599). The token: TTL_BRIDGE_TOKEN, else the file
-TTL_BRIDGE_TOKEN_FILE, else <TTL_LOCAL_DIR>/config/ttl/bridge.token (the local test server, tools/local.sh).
+TTL_BRIDGE_TOKEN_FILE, else <TTL_LOCAL_DIR>/server/config/ttl/bridge.token (the local test server, tools/local.sh).
 For staging, forward the port first: `kubectl -n ocs-two-lives port-forward deploy/mc 25599:25599` (docs/dev/build-bridge.md).
 """
 import json
@@ -25,7 +25,9 @@ def _token() -> str:
     if os.environ.get("TTL_BRIDGE_TOKEN_FILE"):
         candidates.append(Path(os.environ["TTL_BRIDGE_TOKEN_FILE"]))
     if os.environ.get("TTL_LOCAL_DIR"):
-        candidates.append(Path(os.environ["TTL_LOCAL_DIR"]) / "config" / "ttl" / "bridge.token")
+        local = Path(os.environ["TTL_LOCAL_DIR"])
+        candidates += [local / "server" / "config" / "ttl" / "bridge.token",  # tools/local.sh layout
+                       local / "config" / "ttl" / "bridge.token"]
     for path in candidates:
         if path.exists():
             return path.read_text(encoding="utf-8").strip()
