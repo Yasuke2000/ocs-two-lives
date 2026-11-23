@@ -26,7 +26,7 @@
   "roads": 23,
   "facts": {
     "records": 359,
-    "sha256": "73cc659375f830f2738f3993c9172d48e2edaefa9aec992efc59e735f40ae5ba",
+    "sha256": "e445a37e815c3084b69621fdbcf53a8015055d9f9d6561dbc12b4cd73e9977ee",
     "confidence_counts": {
       "canon-explicit": 130,
       "canon-implied": 41,
@@ -1706,6 +1706,24 @@
       "passed": false,
       "changed_js_files": 0,
       "scope": "Same two retained legacy Filtwood U/J failures plus validation;source-only change."
+    }
+  },
+  "current_dwargon_city_planning": {
+    "review": "dwargon-city-current-fit.md",
+    "active": false,
+    "column_tests": 52150,
+    "minimum_designed_allowance": 10.0859375,
+    "registered_sites_added": 0,
+    "production_changed": false,
+    "repository_gate": {
+      "tests": 494,
+      "seconds": 66.158,
+      "failures": 2,
+      "skipped": 26,
+      "passed": false,
+      "validation_passed": false,
+      "changed_js_files": 0,
+      "scope": "Same authoring legacy Filtwood U/J failures; no technical WIP or in-game run."
     }
   }
 }

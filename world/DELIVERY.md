@@ -33,3 +33,5 @@ The requested `chatgpt/world-map` draft now includes the approved-Filtwood and s
 [Current Malukshure coastal proposal](malukshure-current-review.md) retains approved Filtwood and early trails. It remains inactive: the default checker rejects the H/O binding; only the separately proposed O input passes. The isolated converter explicitly uses skip-check for that pending binding.
 
 [Direct LN13 East city access review](../docs/research/tensura-world-2026-11-19/ln13-east-city-source-review.md) strengthens one location/route relationship;the physical representation remains missing and the later blockade is excluded from the initial map. All normal terrain/art remain unchanged.
+
+[Current Dwargon city planning](dwargon-city-current-fit.md) now displays the exact current inactive room/gallery geometry and fresh surface-fit measurements;it does not add the East gate/Imperial road or activate carving.

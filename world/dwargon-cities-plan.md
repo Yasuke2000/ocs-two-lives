@@ -1,3 +1,5 @@
+> [Current extracted plan and finite check](dwargon-city-current-fit.md) replaces the old illustration as the current-coordinate planning handoff. All seven volumes remain inactive; current source534d07ad, 52,150column tests. Earlier numerical results below retain their original scope.
+
 > Current LN13 follow-up: [direct East city/access evidence](../docs/research/tensura-world-2026-11-19/ln13-east-city-source-review.md) independently corroborates East and an Imperial-road relationship only. It does not verify the full city list, equate the WN bridge, establish initial construction or validate this interpreted plan. Earlier source/count statements below retain their original scope.
 
 # Dwargon East and West: underground planning alternative — round58

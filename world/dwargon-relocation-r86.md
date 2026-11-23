@@ -1,3 +1,5 @@
+> [Current extracted plan and finite check](dwargon-city-current-fit.md) replaces the old illustration as the current-coordinate planning handoff. All seven volumes remain inactive; current source534d07ad, 52,150column tests. Earlier numerical results below retain their original scope.
+
 # Dwargon moves northeast within the unchanged contract — round 86
 
 **R87 painting follow-up closed:** [published current painting](https://github.com/Yasuke2000/ocs-two-lives/blob/d98513e79e386b493410ab219d110c5d5bd1fa61/world/painting-round87/README.md) aligns the moved relief, roads and six site groups. Earlier pending notes below retain their historical R86 context.
