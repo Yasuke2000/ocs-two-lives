@@ -1,26 +1,35 @@
-# Great Ameld River mouth
+# Great Ameld coastal-outlet reservation
 
-`id: ameld_mouth` · map pin only · region **MB** (Milim's Domain / Beast Kingdom of Eurazania)
+`id: ameld_mouth` · unplated map pin · gameplay region **MB**
 
-| | |
-|---|---|
-| Anchor (Lerfing's map, x, z) | **4580, 2300** (x grows east, z grows south) |
-| Audit status (19/11/2026) | **not rendered on the map yet** |
-| Lore | [`design/lore/world.md`](../../../design/lore/world.md), section M |
+| Registration | Current authored own-world map |
+| --- | --- |
+| Centre (x, z) | **2150, 1250**; east +x, south +z |
+| Normal exported y | **63** |
+| Marker | radius8, `coast`, margin24; `plated=false` |
+| Authority | [map.svg](../../../world/map.svg), canonical source `534d07ad` |
+| Historical imported anchor | 4580, 2300; not the current drawing or a canonical survey |
 
-## Lore (canon)
+## Source scope
 
-Where the river from Lake Siss reaches the sea (Lerfing's river). Pin only.
+The [official map glossary](https://www.ten-sura.com/map) verifies flow into Siss. [Author WN chapter31](https://ncode.syosetu.com/n6316bn/33/#L187) describes an eastern bend in a military-route discussion, not a surveyed lake-to-sea outlet. The [river wiki](https://tensura.fandom.com/wiki/Great_Ameld_River) supplies secondary southern-ocean context. The exact Siss-to-sea connection and this mouth are authored interpolation (DES-002); the old imported river is not evidence of canonical hydrography.
 
-## What it should look like
+See [current river source review](../../research/tensura-world-2026-11-19/ameld-current-source-review.md), ledger OFF-001 / WN13-003–004 / WN31-002–003 / DES-002, and [regions](../../../world/regions.md). Equivalent LN passage, exact source/mouth and complete river network remain C03. No verified close-up anime frame or timestamp is claimed.
 
-Pin only. Suggestion for concept art: a broad river delta with wetlands and sandbanks opening into the sea.
+## Creative direction
 
-Why it stands here (anchor table, Lerfing coordinates): Moved from the design's (4500, 2400), which is the bay's west shore (land): Lerfing's river from Lake Siss enters the eastern sea at ~(4560, 2280), between Milim's land and Eurazania.
+One low reed-lined channel opening onto the sea, with small sand/gravel bank tongues. The current authored reach is 18 blocks wide. A large distributary delta, harbour, farms, towers and settlements are not established or required. Exact width, coast, branch topology and camera bearing are our interpretation.
 
-## Current state: BlueMap audit of 19/11/2026
+This is a radius8 location reservation, not the whole landform, a building footprint or a dry terrain plate. Use the normal exported water profile for terrain; the concept image does not prescribe numerical fall heights. Initial era is immediately after Kijin naming (anime S1E10); enduring geography does not authorize later construction.
 
-Map: Tensura by Lerfing (current, being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
+[Original concept and exact prompt](../../art/places/ameld_mouth.md). Keep prompt provenance intact. Any player text must be EN+NL.
+
+## Historical BlueMap audit — 19 November 2026
+
+The following describes retired imported terrain. Rendering status, screenshots and pre-generation notes are historical, not current own-world acceptance.
+
+
+Historical imported map: Tensura by Lerfing. The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
 
 - **Status:** not rendered on the map yet
 - **Placed:** not applicable (no structure: pin)
@@ -29,9 +38,5 @@ Map: Tensura by Lerfing (current, being replaced). The screenshots are from the 
 
 The BlueMap has no tiles here yet (the screenshots were black), so there are no screenshots for this place.
 
-## What ChatGPT can deliver for this place
 
-- Concept art: `docs/art/places/ameld_mouth.png` + `docs/art/places/ameld_mouth.md` (see [art.md](../art.md)).
-- Lore and quest text in EN and NL for this place (see [tasks.md](../tasks.md)).
-
-Back to the [world guide](../world.md) · [knowledge pack](../README.md)
+Back to the [world guide](../world.md) · [knowledge pack](../README.md).

@@ -1,3 +1,7 @@
+## Current Ameld source and brief review
+
+[Current Ameld brief review](ameld-current-source-review.md) corrects two retired-coordinate briefs and a delta suggestion; rereads four existing WN claim locators without adding duplicate facts. Ledger358; canonical534d07ad and all art/terrain remain unchanged. C03/LN topology remains open.
+
 ## Current-source Malukshure coastal proposal
 
 [Updated conditional review](../../../world/malukshure-current-review.md) preserves the current approved map choices. One existing authored-design row is refreshed; all358claim IDs and confidence classes remain. Default H/O error is explicit; separate O input passes; isolated converter uses skip-check. No active geometry or runtime changes.
