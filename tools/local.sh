@@ -148,15 +148,17 @@ start_server() {
   # wait_ready looks for "Done (" in latest.log, so it must be new; keep the last run's log (an import, a crash).
   [ -f "$SRV/logs/latest.log" ] && mv -f "$SRV/logs/latest.log" "$SRV/logs/previous.log"
   say "starting (heap $MEMORY, game 127.0.0.1:$PORT, RCON 127.0.0.1:$RCON_PORT)"
-  # No bug-report token: /bug saves to ttl-reports/ instead of opening GitHub issues. -Dttl.local marks the process.
+  # No bug-report token: /bug saves to ttl-reports/ instead of opening GitHub issues. -Dttl.local marks the process,
+  # -Dttl.localport tells two local servers apart (a second TTL_LOCAL_DIR beside the first: 23/11 a stop of the second
+  # found the first's java by the shared marker and killed it).
   (cd "$SRV" && exec env -u TTL_GITHUB_TOKEN -u TTL_REPORT_REPO -u CFG_DISCORD_TOKEN \
-     "$java" -Dttl.local=1 @user_jvm_args.txt "@$args" nogui < /dev/null > "$SRV/console.log" 2>&1) &
+     "$java" -Dttl.local=1 "-Dttl.localport=$PORT" @user_jvm_args.txt "@$args" nogui < /dev/null > "$SRV/console.log" 2>&1) &
   local p=$! i
   if [ -n "$WIN" ]; then
     # Git Bash pids are not Windows pids; find java.exe by its marker so tasklist/taskkill can see it.
     p=
     for i in 1 2 3 4 5 6 7 8 9 10; do
-      p=$(powershell.exe -NoProfile -Command "(Get-CimInstance Win32_Process -Filter \"Name='java.exe'\" | Where-Object { \$_.CommandLine -like '*-Dttl.local=1*' } | Select-Object -First 1).ProcessId" 2>/dev/null | tr -d '\r ')
+      p=$(powershell.exe -NoProfile -Command "(Get-CimInstance Win32_Process -Filter \"Name='java.exe'\" | Where-Object { \$_.CommandLine -like '*-Dttl.localport=$PORT *' } | Select-Object -First 1).ProcessId" 2>/dev/null | tr -d '\r ')
       [ -n "$p" ] && break
       sleep 1
     done
@@ -343,6 +345,10 @@ EOF
   # BlueMap's web server only on this PC.
   if [ -f "$SRV/config/bluemap/webserver.conf" ] && ! grep -q '^ip:' "$SRV/config/bluemap/webserver.conf"; then
     printf '\n# tools/local.sh: this PC only\nip: "127.0.0.1"\n' >> "$SRV/config/bluemap/webserver.conf"
+  fi
+  # A second local server beside the first (TTL_LOCAL_PORT/RCON_PORT too) needs its own map port.
+  if [ -f "$SRV/config/bluemap/webserver.conf" ] && [ -n "${TTL_LOCAL_MAP_PORT:-}" ]; then
+    sed -i "s/^port: .*/port: $TTL_LOCAL_MAP_PORT/" "$SRV/config/bluemap/webserver.conf"
   fi
   # DATAPACKS=/data/datapacks/ttl-overrides on staging: the image copies it into the world before each start.
   mkdir -p "$SRV/$LEVEL/datapacks"
