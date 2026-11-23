@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-23",
+  "source": "https://ebookjapan.yahoo.co.jp/viewer/trial/B00180849626/",
+  "store": "https://ebookjapan.yahoo.co.jp/books/247818/A001849626/",
+  "private_source_hashes": {
+    "trial-discovery.json": "f9a6e6cd9b92152c1cccd4095a6780b011aa1b8ef54f40745cae0b283923fcf6",
+    "front-6.png": "b12a377ad277ffef6288771d31f1d7227df7e08153f3bacbbf998e3f394fb702",
+    "front-12.png": "76e53106b7e6f01d78080b95a43078ce48707bc4d0c453123a62f778fc6d7e51",
+    "front-17.png": "b2566318e9d4be9d92a6b30b2227576a426449262fca9764d712bf2bcd4fb73a",
+    "front-18.png": "8b439b80c11778e54aa16b7161025289fab07f9f9030e8aeb6fc2d6bf4b17f17",
+    "control-26.png": "3d1ace548f9903b778754ae920a1e983cd2eaeb2e9aeec6c5e78d81b3c50a6c5",
+    "front-27.png": "a649c83f37a321f903d4fb5b7fa544b052bef55493c312211ca1ba621442e6d0",
+    "later-prologue-navigation.json": "511b0c7f740ede28b64597140c5ede9dce94b6e823d691105fee8c20e4afccea"
+  },
+  "selected_prologue_captures_visually_screened": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ],
+  "blank_capture_excluded": [
+    7
+  ],
+  "post_reader_store_captures_excluded": [
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "actual_endpoint_counter": "45/45",
+  "story_claims_added": [
+    "LN12-EASTBOUND-001"
+  ],
+  "unread": [
+    "full prologue",
+    "chapter1 body",
+    "chapter2 body",
+    "chapter4 body",
+    "whole volume"
+  ],
+  "no_challenge_bypassed": true,
+  "no_purchase_or_login": true,
+  "retained_artifact_sha256": {
+    "world\\map.svg": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+    "world\\preview.png": "36f596611e53d49eabd8dac555319efee9efc85d800a31dd61d51b0f97b957d2",
+    "world\\painting-round112\\continent.png": "5388c03dbd80299888d6ef6bbc79bb355aede6b7cfe144868d9b0681d9e616c7",
+    "world\\painting-round112\\atlas.png": "02dd0629657ead33ac5db3524ea746e43952e0afe327e08039c59bdf833e4af2",
+    "tools\\world\\canon_relations.toml": "76e1386229a7368ad0ef1546f0594e4c9b9085316ba0b22ef0ab76196fc550df"
+  },
+  "ledger_records": 357,
+  "geometry_changed": false,
+  "runtime_applied": false,
+  "verification": {
+    "unique_ledger_records": 357,
+    "retained_normal_artifact_hashes": 14,
+    "local_delivery_links_resolve": true,
+    "summary_words": 660,
+    "repository_gate": {
+      "passed": false,
+      "tests": 494,
+      "seconds": 66.439,
+      "failures": 2,
+      "skipped": 26,
+      "validation_passed": false,
+      "changed_js_files": 0,
+      "dependency": "Same retained Filtwood legacy U grid versus owner-approved J anchor."
+    },
+    "production_svg_edited": false,
+    "new_map_check_or_converter_run": false
+  }
+}

@@ -1,6 +1,6 @@
 # Geography contradictions — current short summary
 
-23 November 2026. Map source `555c842f`; initial state: immediately after Kijin naming, anime S1E10. The ledger contains 356 qualified claims, including authored geometry, not 356 proved canon facts.
+23 November 2026. Map source `555c842f`; initial state: immediately after Kijin naming, anime S1E10. The ledger contains 357 qualified claims, including authored geometry, not 357 proved canon facts.
 
 Prefer **directly verified LN > WN > manga > anime > official map > wiki**. An unread novel citation is a lead, not primary verification. Keep continuities and later political events separate. All 24 conflict IDs and the full dated evidence are preserved in the [unchanged research history](contradictions-history-through-trial-review.md).
 
@@ -30,3 +30,5 @@ Prefer **directly verified LN > WN > manga > anime > official map > wiki**. An u
 See the [current regions guide](../../../world/regions.md), [fact ledger](geography-facts.csv) and full history for sources and measured proposals. No unresolved choice is silently activated; no full source, city or Minecraft acceptance claim is made.
 
 **C18 road decision:** Yasuke approved early trails on both Tempest routes and only the arrival road-kind data exception. Standard checker passes;later paving remains a runtime handoff. [Adoption](../../../world/early-tempest-trails-review.md).
+
+LN12 prologue now directly verifies a later eastbound intention only;Canaat/Dwargon target chapters remain unread. [Reading limits](ln12-eastbound-source-review.md).

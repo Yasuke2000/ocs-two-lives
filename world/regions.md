@@ -405,3 +405,7 @@ Yasuke approved the [C20forest-edge proposal](filtwood-approved.md) on22November
 ## Unregistered Galut precinct study
 
 [Terraced layout and profiles](galut-terraced-precinct.md) examine the existing near-coast ridge without moving the nature park,flattening the whole disc or accepting a capital coordinate. Court/walk surfaces are proposed design,not current terrain. Capital-name evidence remains primary;the exact location and C15contract are open. Active region geometry and biome shares remain unchanged.
+
+## LN12 eastbound narrative: scope of the eastern connection
+
+[Directly read licensed prologue](../docs/research/tensura-world-2026-11-19/ln12-eastbound-source-review.md),LN12-EASTBOUND-001,describes Yuuki's later eastbound intention and base move in the Rudra/Empire context. It supplies no surveyed pass,exact border or capital coordinate,and does not independently establish a northeast bearing from Jura. Retain the present source-qualified geography;do not instantiate that later flight at the post-Kijin baseline. All terrain geometry and biome census values remain unchanged.

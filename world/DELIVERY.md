@@ -9,7 +9,7 @@ The post-Kijin map now includes Yasuke's approved Filtwood western forest-edge p
 | Geometry and checked preview | [map.svg](map.svg) · [preview.png](preview.png);58sites,23roads |
 | Named original illustration | [Painted atlas](painting-round112/atlas.png) · [marked terrain](atlas.png) |
 | Export versus illustration | [Same-frame comparison](painting-round112/current-source-comparison.png) |
-| Geography and evidence | [Regions](regions.md) · [356-record ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) · [official reference comparison](comparison.md) |
+| Geography and evidence | [Regions](regions.md) · [357-record ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) · [official reference comparison](comparison.md) |
 | Place concepts | [58image/sheet pairs](../docs/art/places/README.md) |
 | Current approval and checks | [Filtwood adoption](filtwood-approved.md) · [audit](filtwood-approved-audit.json) · [delivery manifest](current-delivery.json) |
 | Initial story state | [Immediately after Kijin naming](era.md),anime S1E10 |

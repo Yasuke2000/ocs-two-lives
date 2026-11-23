@@ -1,3 +1,7 @@
+## LN12 licensed eastbound source
+
+[Selected prologue review](ln12-eastbound-source-review.md) adds one scoped primary claim,357records. Actual45/45endpoint inspected;Canaat/Dwargon chapters remain unread. No geometry,art or runtime changes;source555c842f retained.
+
 ## Current short contradiction summary
 
 [Current decisions and open conflicts](contradictions.md) now fit a short overview;all24IDs and the previous dated record are preserved in the [byte-exact history](contradictions-history-through-trial-review.md). No source confidence,owner choice or terrain changes. [Audit](contradictions-summary-audit.json).
