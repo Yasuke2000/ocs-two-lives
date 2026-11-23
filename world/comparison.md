@@ -17,3 +17,5 @@ Start with the [current delivery index](DELIVERY.md). [Earlier comparisons](comp
 The two Tempest routes now use owner-approved early forest-trail surfaces, with all route vertices retained. [Exact terrain effects and six separately approved protected data records](early-tempest-trails-review.md). Later paving is a runtime handoff, not current construction.
 
 [Updated full-layer larger-island candidate](island-proportion-current-review.md) follows current source534d07ad with its approved Filtwood and early trails;normal74.6s,all13finite lake cases pass. It remains inactive pending the island-size choice;current painting still represents the active smaller-island map.
+
+The [current coastal comparison](malukshure-current-comparison.png) shows the inactive Malukshure/O reservation beside the active H slot. It preserves the approved Filtwood/early-trail source; its conditional export is distinct from the active standard-checked map.

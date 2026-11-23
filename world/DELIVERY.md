@@ -29,3 +29,5 @@ The requested `chatgpt/world-map` draft now includes the approved-Filtwood and s
 [Updated full-layer larger-island candidate](island-proportion-current-review.md) follows current source534d07ad with its approved Filtwood and early trails;normal74.6s,all13finite lake cases pass. It remains inactive pending the island-size choice;current painting still represents the active smaller-island map.
 
 [Runtime source review](runtime-source-review.md) identifies the older technical branch source and the exact approved Filtwood/trail deltas. Canonical LF source534d07ad matches the existing converter index;the older555c842f label was a raw Windows-line-ending hash. Flat-site configuration counts in the island proposal are corrected to32of34.
+
+[Current Malukshure coastal proposal](malukshure-current-review.md) retains approved Filtwood and early trails. It remains inactive: the default checker rejects the H/O binding; only the separately proposed O input passes. The isolated converter explicitly uses skip-check for that pending binding.

@@ -1,0 +1,262 @@
+{
+  "source_sha256": "96324fe90cc835b900525c8bab4ae4651fb13ba41106121d37cc8f08bcf047d9",
+  "lakes": [
+    {
+      "id": "tempest-west-lake",
+      "water_first_air": 68,
+      "inside_centres": 3564,
+      "wet_centres": 3562,
+      "dry_exact_boundary_centres": 2,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 212,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.375,
+      "observed_rivers": [
+        "jura-sarion-river",
+        "tempest-brook-upper"
+      ],
+      "expected_rivers": [
+        "jura-sarion-river",
+        "tempest-brook-upper"
+      ],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "lake-siss",
+      "water_first_air": 66,
+      "inside_centres": 16986,
+      "wet_centres": 16985,
+      "dry_exact_boundary_centres": 1,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 469,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.8125,
+      "observed_rivers": [
+        "great-ameld-headwaters",
+        "great-ameld-outlet"
+      ],
+      "expected_rivers": [
+        "great-ameld-headwaters",
+        "great-ameld-outlet"
+      ],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "raja-lake",
+      "water_first_air": 72,
+      "inside_centres": 628,
+      "wet_centres": 628,
+      "dry_exact_boundary_centres": 0,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 86,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.25,
+      "observed_rivers": [
+        "raja-stream"
+      ],
+      "expected_rivers": [
+        "raja-stream"
+      ],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "coleus-oasis",
+      "water_first_air": 75,
+      "inside_centres": 1142,
+      "wet_centres": 1142,
+      "dry_exact_boundary_centres": 0,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 113,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.3125,
+      "observed_rivers": [],
+      "expected_rivers": [],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "ulgr-spring",
+      "water_first_air": 92,
+      "inside_centres": 509,
+      "wet_centres": 509,
+      "dry_exact_boundary_centres": 0,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 74,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.25,
+      "observed_rivers": [
+        "ulgr-spring-brook"
+      ],
+      "expected_rivers": [
+        "ulgr-spring-brook"
+      ],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "clayman-moat",
+      "water_first_air": 76,
+      "inside_centres": 1012,
+      "wet_centres": 1012,
+      "dry_exact_boundary_centres": 0,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 121,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.3125,
+      "observed_rivers": [],
+      "expected_rivers": [],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "laura-headwater-basin",
+      "water_first_air": 139,
+      "inside_centres": 311,
+      "wet_centres": 311,
+      "dry_exact_boundary_centres": 0,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 55,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.3125,
+      "observed_rivers": [
+        "laura-mountain-falls"
+      ],
+      "expected_rivers": [
+        "laura-mountain-falls"
+      ],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "elmine-root-lake",
+      "water_first_air": 68,
+      "inside_centres": 2930,
+      "wet_centres": 2930,
+      "dry_exact_boundary_centres": 0,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 183,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.375,
+      "observed_rivers": [],
+      "expected_rivers": [],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "imperial-unnamed-basin",
+      "water_first_air": 68,
+      "inside_centres": 1893,
+      "wet_centres": 1892,
+      "dry_exact_boundary_centres": 1,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 189,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.3125,
+      "observed_rivers": [],
+      "expected_rivers": [],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "el-dorado-eastern-lake",
+      "water_first_air": 68,
+      "inside_centres": 1672,
+      "wet_centres": 1668,
+      "dry_exact_boundary_centres": 4,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 157,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.3125,
+      "observed_rivers": [],
+      "expected_rivers": [],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "englassia-capital-lake",
+      "water_first_air": 70,
+      "inside_centres": 1624,
+      "wet_centres": 1624,
+      "dry_exact_boundary_centres": 0,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 312,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.3125,
+      "observed_rivers": [],
+      "expected_rivers": [],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "western-unnamed-basin",
+      "water_first_air": 68,
+      "inside_centres": 6091,
+      "wet_centres": 6091,
+      "dry_exact_boundary_centres": 0,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 301,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.3125,
+      "observed_rivers": [
+        "western-basin-outlet"
+      ],
+      "expected_rivers": [
+        "western-basin-outlet"
+      ],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    },
+    {
+      "id": "southeastern-unnamed-basin",
+      "water_first_air": 68,
+      "inside_centres": 4406,
+      "wet_centres": 4406,
+      "dry_exact_boundary_centres": 0,
+      "strict_dry_centres": 0,
+      "wrong_level_centres": 0,
+      "dry_bank_centres": 275,
+      "bank_below_plus2": 0,
+      "minimum_depth": 1.25,
+      "observed_rivers": [],
+      "expected_rivers": [],
+      "missing_rivers": [],
+      "unclassified_wet_contacts": 0,
+      "pass": true
+    }
+  ],
+  "lake_cases": 13,
+  "passing_lakes": 13,
+  "coverage": {
+    "strict_native_land_centres": 2659658,
+    "unassigned_strict_native_land_centres": 0,
+    "method": "Every four-block centre strictly inside flattened coast scanline intervals must be inside or on a gameplay region. Exact native shoreline centres are excluded from this scope; sovereignty is not inferred."
+  },
+  "limits": "Finite native raster checks;not continuous/diagonal bank,final noise,fluid columns,chunks or in-game acceptance. Native exact-shoreline centres excluded from coverage census."
+}

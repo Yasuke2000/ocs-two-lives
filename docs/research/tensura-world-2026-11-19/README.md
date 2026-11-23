@@ -1,3 +1,7 @@
+## Current-source Malukshure coastal proposal
+
+[Updated conditional review](../../../world/malukshure-current-review.md) preserves the current approved map choices. One existing authored-design row is refreshed; all358claim IDs and confidence classes remain. Default H/O error is explicit; separate O input passes; isolated converter uses skip-check. No active geometry or runtime changes.
+
 ## Canonical current source and technical switch review
 
 [Source alignment and audit corrections](../../../world/runtime-source-review.md):current canonical LF source534d07ad matches Git and the existing normal converter index. Earlier555c842f is the raw Windows CRLF alias of the same geometry. The technical WIP still uses olderb48666e9. The island flat-preparation count is corrected to32of34;placement index remains58. Ledger358and all normal outputs retained.

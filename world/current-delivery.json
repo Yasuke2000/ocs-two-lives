@@ -26,7 +26,7 @@
   "roads": 23,
   "facts": {
     "records": 358,
-    "sha256": "671217d7de00c52eb3d2020d965c60437e561b45530ae17ac0f83ed65a795577",
+    "sha256": "067ad8cee0f5cb8e647b360326d787a95b1ea1ce5e44eb2660671600573d5fd7",
     "confidence_counts": {
       "canon-explicit": 129,
       "canon-implied": 41,
@@ -1663,6 +1663,31 @@
       ],
       "comparison_image_change": "Visible canonical source label only;embedded normal and painted images retained.",
       "protected_paths_unchanged": true
+    }
+  },
+  "inactive_current_coastal_candidate": {
+    "source_sha256": "96324fe90cc835b900525c8bab4ae4651fb13ba41106121d37cc8f08bcf047d9",
+    "active_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+    "production_replaced": false,
+    "owner_choice_pending": true,
+    "review": "malukshure-current-review.md",
+    "default_checker_errors": 1,
+    "conditional_checker_errors": 0,
+    "relations": 56,
+    "converter_seconds": 68.9,
+    "skip_check_used": true,
+    "finite_lakes_passed": 13,
+    "retained_index_records": 57,
+    "retained_roads": 23,
+    "repository_gate": {
+      "passed": false,
+      "tests": 494,
+      "seconds": 66.564,
+      "skipped": 26,
+      "failures": 2,
+      "validation_passed": false,
+      "changed_js_files": 0,
+      "scope": "Same retained authoring legacy Filtwood U/J dependency;the separate candidate H/O check is recorded independently."
     }
   }
 }

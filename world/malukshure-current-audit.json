@@ -1,0 +1,597 @@
+{
+  "active_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+  "candidate_source_sha256": "96324fe90cc835b900525c8bab4ae4651fb13ba41106121d37cc8f08bcf047d9",
+  "native_changes": [
+    {
+      "layer": "coast",
+      "id": "mainland",
+      "type": "replaced"
+    },
+    {
+      "layer": "biomes",
+      "id": "malukshure-alternative-cape-biomes",
+      "type": "added"
+    },
+    {
+      "layer": "regions",
+      "id": "nation-O",
+      "type": "replaced"
+    },
+    {
+      "layer": "roads",
+      "id": "malukshure_coastal_approach",
+      "type": "added"
+    },
+    {
+      "layer": "sites",
+      "id": "site-sainte_malukshure",
+      "type": "replaced"
+    },
+    {
+      "layer": "labels",
+      "id": "Sainte Malukshure",
+      "type": "replaced"
+    }
+  ],
+  "anchor_input_change": "Only sainte_malukshure region H to O;current Filtwood J retained.",
+  "production_map_changed": false,
+  "owner_approved_activation": false,
+  "default_checker": {
+    "errors": [
+      {
+        "rule": "site",
+        "message": "site sainte_malukshure at (-2320, 1645) is in region O, anchors.toml says region H"
+      }
+    ],
+    "relations": 56
+  },
+  "conditional_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2,
+    "input": "world/malukshure-current-anchors.toml"
+  },
+  "conditional_build": {
+    "skip_check_used": true,
+    "reason": "Build CLI has no alternate-anchor argument;default candidate check rejects the explicitly pending H-to-O binding. Separate checker with proposed anchor file passes.",
+    "applied": false,
+    "seconds": 68.9,
+    "source_sha256": "96324fe90cc835b900525c8bab4ae4651fb13ba41106121d37cc8f08bcf047d9",
+    "box": {
+      "x0": -6656,
+      "z0": -5632,
+      "x1": 6144,
+      "z1": 5120,
+      "width_px": 3200,
+      "height_px": 2688,
+      "content": [
+        -5253,
+        -4376,
+        4730,
+        3670
+      ],
+      "sea_margin": 1200,
+      "region": 512
+    },
+    "warnings": [],
+    "artifacts": {
+      "anchors.toml": "972f51e134c35462eddae187f954bdc62022999c3e86d05bf5570dba6f3c43d3",
+      "biome.png": "6630f8676d99b7d405b99ba4c0931ceaa4ac32968b3080d05d0e74de2f3d4022",
+      "canon_map.txt": "e34cde4e6a6618d3e0a6788875a26d0d4453de8b6d74e78eafb2475a431729a5",
+      "exclude.png": "95424fb43295a4c03c26e00c0d7ce7b16cd5e6c591d4894d024235185349f833",
+      "height.png": "4ed9c5cb9c4c8bf8a22d95147c47256517b254bb0f5d80d92cfd16f7d8a7e815",
+      "index.json": "a21dd7f0788dc21a81e0fd9801135431ed57b3bee6f0b482bd01618fe36a889d",
+      "preview.png": "cff0197f7e9f965087d5c2b16f6d635c746b2d0197e0206be772563c6f0b8273",
+      "road.png": "6d18a762918c9a93a404bd202bfd9c41218d6bc43faf2396d6052e64b9079ffd",
+      "roads.json": "701c81e9416350f625aa316caf84dd441606306505ad458abc1198ac6fa59818",
+      "rugged.png": "2bf6437475c110d7e5172e7ba2ab9c0e498ec90149c29973d4b7d763eda1f4e3",
+      "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+      "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+      "sites.toml": "928ed6e235c37934be0ac3da5c3606199d3f5339e951f6148e0de78d5a7325bf",
+      "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+    }
+  },
+  "separately_generated_proposed_registration": {
+    "method": "Existing build.anchor_coords/update_anchors with proposed O input;UTF8 source reads;no manual coordinate edits.",
+    "sha256": "f0935e8defde1311558ff426bf0d6432e01726200e8c8dd3c5451653631b099b",
+    "only_metadata_difference_from_cli_anchors": "sainte_malukshure region H to O",
+    "sainte": {
+      "name": "Sainte Malukshure",
+      "x": -2320,
+      "z": 1645,
+      "y": 64,
+      "region": "O",
+      "kind": "pin",
+      "surface": "land",
+      "canon": "Sainte Malukshure",
+      "old_x": -2996,
+      "old_z": 1291
+    },
+    "filtwood": {
+      "name": "Filtwood",
+      "x": -1050,
+      "z": 600,
+      "y": 74,
+      "region": "J",
+      "kind": "pin",
+      "surface": "land",
+      "canon": "Filtwood",
+      "old_x": -1062,
+      "old_z": 616
+    }
+  },
+  "index_records": {
+    "total": 58,
+    "retained": 57,
+    "changed": [
+      {
+        "id": "sainte_malukshure",
+        "before": {
+          "id": "sainte_malukshure",
+          "kind": "clearing",
+          "x": -100,
+          "z": 2000,
+          "r": 8,
+          "plated": false,
+          "y": 69
+        },
+        "candidate": {
+          "id": "sainte_malukshure",
+          "kind": "clearing",
+          "x": -2320,
+          "z": 1645,
+          "r": 8,
+          "plated": false,
+          "y": 64
+        }
+      }
+    ]
+  },
+  "flat_preparation_configurations": {
+    "total": 34,
+    "all_retained_byte_exact": true
+  },
+  "road_checks": [
+    {
+      "id": "tempest_dwargon",
+      "maximum_grade": 0.5000000000000085,
+      "wet_samples": 3,
+      "matches_active_export": true
+    },
+    {
+      "id": "tempest_blumund",
+      "maximum_grade": 0.4145593141157564,
+      "wet_samples": 1,
+      "matches_active_export": true
+    },
+    {
+      "id": "blumund_englassia_lubelius",
+      "maximum_grade": 0.5,
+      "wet_samples": 21,
+      "matches_active_export": true
+    },
+    {
+      "id": "dwargon_dwarf_village",
+      "maximum_grade": 0.5000000000000114,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "sacred_mountain_trail",
+      "maximum_grade": 0.5000000000000455,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "treyni_marsh_trail",
+      "maximum_grade": 0.38179387307052826,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "siss_cavern_and_orc_trail",
+      "maximum_grade": 0.5000000000000114,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "ogre_foothill_trail",
+      "maximum_grade": 0.5000000000000008,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "canaat_high_pass",
+      "maximum_grade": 0.5000000000000171,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "falmuth_road",
+      "maximum_grade": 0.07925304884756149,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "western_belt_road",
+      "maximum_grade": 0.17164391531122264,
+      "wet_samples": 2,
+      "matches_active_export": true
+    },
+    {
+      "id": "western_desert_caravan",
+      "maximum_grade": 0.3825000000000003,
+      "wet_samples": 3,
+      "matches_active_export": true
+    },
+    {
+      "id": "fulbrosia_stair",
+      "maximum_grade": 0.5000000000000199,
+      "wet_samples": 3,
+      "matches_active_export": true
+    },
+    {
+      "id": "southern_royal_road",
+      "maximum_grade": 0.5000000000000171,
+      "wet_samples": 3,
+      "matches_active_export": true
+    },
+    {
+      "id": "ulgracia_south_road",
+      "maximum_grade": 0.5000000000000114,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "eurazania_road",
+      "maximum_grade": 0.5000000000000114,
+      "wet_samples": 2,
+      "matches_active_export": true
+    },
+    {
+      "id": "milim_river_road",
+      "maximum_grade": 0.4900000000000187,
+      "wet_samples": 7,
+      "matches_active_export": true
+    },
+    {
+      "id": "jistav_border_road",
+      "maximum_grade": 0.42950039375451965,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "imperial_volcano_road",
+      "maximum_grade": 0.5000000000000455,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "el_dorado_volcanic_way",
+      "maximum_grade": 0.5000000000000455,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "frost_palace_forecourt",
+      "maximum_grade": 0.0,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "englassia_coleus_royal_approach",
+      "maximum_grade": 0.5,
+      "wet_samples": 22,
+      "matches_active_export": true
+    },
+    {
+      "id": "filtwood_jura_trail",
+      "maximum_grade": 0.03999999999999915,
+      "wet_samples": 0,
+      "matches_active_export": true
+    },
+    {
+      "id": "malukshure_coastal_approach",
+      "maximum_grade": 0.5,
+      "wet_samples": 0,
+      "matches_active_export": false
+    }
+  ],
+  "finite_checks": {
+    "source_sha256": "96324fe90cc835b900525c8bab4ae4651fb13ba41106121d37cc8f08bcf047d9",
+    "lakes": [
+      {
+        "id": "tempest-west-lake",
+        "water_first_air": 68,
+        "inside_centres": 3564,
+        "wet_centres": 3562,
+        "dry_exact_boundary_centres": 2,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 212,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.375,
+        "observed_rivers": [
+          "jura-sarion-river",
+          "tempest-brook-upper"
+        ],
+        "expected_rivers": [
+          "jura-sarion-river",
+          "tempest-brook-upper"
+        ],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "lake-siss",
+        "water_first_air": 66,
+        "inside_centres": 16986,
+        "wet_centres": 16985,
+        "dry_exact_boundary_centres": 1,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 469,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.8125,
+        "observed_rivers": [
+          "great-ameld-headwaters",
+          "great-ameld-outlet"
+        ],
+        "expected_rivers": [
+          "great-ameld-headwaters",
+          "great-ameld-outlet"
+        ],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "raja-lake",
+        "water_first_air": 72,
+        "inside_centres": 628,
+        "wet_centres": 628,
+        "dry_exact_boundary_centres": 0,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 86,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.25,
+        "observed_rivers": [
+          "raja-stream"
+        ],
+        "expected_rivers": [
+          "raja-stream"
+        ],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "coleus-oasis",
+        "water_first_air": 75,
+        "inside_centres": 1142,
+        "wet_centres": 1142,
+        "dry_exact_boundary_centres": 0,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 113,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.3125,
+        "observed_rivers": [],
+        "expected_rivers": [],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "ulgr-spring",
+        "water_first_air": 92,
+        "inside_centres": 509,
+        "wet_centres": 509,
+        "dry_exact_boundary_centres": 0,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 74,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.25,
+        "observed_rivers": [
+          "ulgr-spring-brook"
+        ],
+        "expected_rivers": [
+          "ulgr-spring-brook"
+        ],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "clayman-moat",
+        "water_first_air": 76,
+        "inside_centres": 1012,
+        "wet_centres": 1012,
+        "dry_exact_boundary_centres": 0,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 121,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.3125,
+        "observed_rivers": [],
+        "expected_rivers": [],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "laura-headwater-basin",
+        "water_first_air": 139,
+        "inside_centres": 311,
+        "wet_centres": 311,
+        "dry_exact_boundary_centres": 0,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 55,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.3125,
+        "observed_rivers": [
+          "laura-mountain-falls"
+        ],
+        "expected_rivers": [
+          "laura-mountain-falls"
+        ],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "elmine-root-lake",
+        "water_first_air": 68,
+        "inside_centres": 2930,
+        "wet_centres": 2930,
+        "dry_exact_boundary_centres": 0,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 183,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.375,
+        "observed_rivers": [],
+        "expected_rivers": [],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "imperial-unnamed-basin",
+        "water_first_air": 68,
+        "inside_centres": 1893,
+        "wet_centres": 1892,
+        "dry_exact_boundary_centres": 1,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 189,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.3125,
+        "observed_rivers": [],
+        "expected_rivers": [],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "el-dorado-eastern-lake",
+        "water_first_air": 68,
+        "inside_centres": 1672,
+        "wet_centres": 1668,
+        "dry_exact_boundary_centres": 4,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 157,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.3125,
+        "observed_rivers": [],
+        "expected_rivers": [],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "englassia-capital-lake",
+        "water_first_air": 70,
+        "inside_centres": 1624,
+        "wet_centres": 1624,
+        "dry_exact_boundary_centres": 0,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 312,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.3125,
+        "observed_rivers": [],
+        "expected_rivers": [],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "western-unnamed-basin",
+        "water_first_air": 68,
+        "inside_centres": 6091,
+        "wet_centres": 6091,
+        "dry_exact_boundary_centres": 0,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 301,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.3125,
+        "observed_rivers": [
+          "western-basin-outlet"
+        ],
+        "expected_rivers": [
+          "western-basin-outlet"
+        ],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      },
+      {
+        "id": "southeastern-unnamed-basin",
+        "water_first_air": 68,
+        "inside_centres": 4406,
+        "wet_centres": 4406,
+        "dry_exact_boundary_centres": 0,
+        "strict_dry_centres": 0,
+        "wrong_level_centres": 0,
+        "dry_bank_centres": 275,
+        "bank_below_plus2": 0,
+        "minimum_depth": 1.25,
+        "observed_rivers": [],
+        "expected_rivers": [],
+        "missing_rivers": [],
+        "unclassified_wet_contacts": 0,
+        "pass": true
+      }
+    ],
+    "lake_cases": 13,
+    "passing_lakes": 13,
+    "coverage": {
+      "strict_native_land_centres": 2659658,
+      "unassigned_strict_native_land_centres": 0,
+      "method": "Every four-block centre strictly inside flattened coast scanline intervals must be inside or on a gameplay region. Exact native shoreline centres are excluded from this scope; sovereignty is not inferred."
+    },
+    "limits": "Finite native raster checks;not continuous/diagonal bank,final noise,fluid columns,chunks or in-game acceptance. Native exact-shoreline centres excluded from coverage census."
+  },
+  "active_normal_hashes": {
+    "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
+    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+    "exclude.png": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
+    "height.png": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+    "index.json": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
+    "preview.png": "8c9cd937110cec246ab6ad1fb2231170b02e003589ba853936bd71eb89309362",
+    "road.png": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
+    "roads.json": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
+    "rugged.png": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
+    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+    "sites.toml": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
+    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+  },
+  "verification": {
+    "active_source_and_14_exports_retained": true,
+    "active_preview_and_painting_retained": true,
+    "canonical_anchors_unchanged": true,
+    "proposed_input_only_sainte_region_changes": true,
+    "only_existing_design_claim_updated": "DES-MAL-ACCESS-001",
+    "ledger_ids_and_confidence_classes_retained": 358,
+    "local_delivery_links_resolve": true,
+    "repository_gate": {
+      "passed": false,
+      "tests": 494,
+      "seconds": 66.564,
+      "skipped": 26,
+      "failures": 2,
+      "validation_passed": false,
+      "changed_js_files": 0,
+      "scope": "Same retained authoring legacy Filtwood U/J dependency;the separate candidate H/O check is recorded independently."
+    }
+  }
+}
