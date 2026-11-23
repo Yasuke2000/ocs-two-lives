@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1450" height="880" viewBox="0 0 1450 880" role="img" aria-labelledby="title desc"><title id="title">Amrita: active eastern reservation and castle-centred marker trial</title><desc id="desc">Same-scale plan comparison. The trial changes only the Amrita centre and label and fails four current rules. No depth or full ruin footprint is established.</desc><rect width="1450" height="880" fill="#f2ead9"/><g font-family="Arial,sans-serif" fill="#253c3b"><text x="45" y="55" font-size="30" font-weight="bold">Amrita: a nested place needs more than a moved pin</text><text x="45" y="91" font-size="18">Canonical source534d07ad · same plan scale · exact trial centre is our interpretation · no depth assigned</text>
+<rect x="45" y="128" width="650" height="360" rx="12" fill="#e2e4d6"/><text x="65" y="163" font-size="23" font-weight="bold">Active eastern game reservation</text>
+<circle cx="225" cy="310" r="54" fill="#c8b195" stroke="#806448" stroke-width="3"/><circle cx="525" cy="370" r="37.8" fill="#6d8f9d" fill-opacity=".45" stroke="#3d697c" stroke-width="3" stroke-dasharray="8 5"/>
+<text x="80" y="219" font-size="18">Castle(3300,-600), r90</text><path d="M211 227L225 252" stroke="#806448"/>
+<rect x="485" y="366" width="8" height="8" fill="#b05f45"/><text x="363" y="445" font-size="16">Existing road end(3740,-500)</text>
+<text x="290" y="258" font-size="18">Amrita(3800,-500), r63</text><path d="M395 267L535 330" fill="none" stroke="#3d697c"/>
+<text x="70" y="470" font-size="17">509.90-block centre separation</text>
+<rect x="755" y="128" width="650" height="360" rx="12" fill="#e2e4d6"/><text x="775" y="163" font-size="23" font-weight="bold">Castle-centred marker-only trial</text>
+<circle cx="935" cy="310" r="54" fill="#c8b195" stroke="#806448" stroke-width="3"/><circle cx="935" cy="310" r="37.8" fill="#6d8f9d" fill-opacity=".45" stroke="#3d697c" stroke-width="3" stroke-dasharray="8 5"/>
+<text x="790" y="219" font-size="18">Castle(3300,-600), r90</text><path d="M921 227L935 252" stroke="#806448"/>
+<rect x="1195" y="366" width="8" height="8" fill="#b05f45"/><text x="1073" y="445" font-size="16">Existing road end(3740,-500)</text>
+<text x="1000" y="258" font-size="18">Amrita(3300,-600), r63</text><path d="M1105 267L945 270" fill="none" stroke="#3d697c"/>
+<text x="780" y="470" font-size="17">0-block separation; overlapping discs</text>
+<text x="45" y="542" font-size="24" font-weight="bold">Four measured default-check failures in the marker-only trial</text>
+<text x="65" y="586" font-size="19">1. Castle centre is outside the current mountain/hill polygons required for a carve site.</text>
+<text x="65" y="625" font-size="19">2. Separate-site spacing rejects overlapping r90/r63 reservations with margin48.</text>
+<text x="65" y="664" font-size="19">3. The existing Jistav road end loses its registered destination:361 blocks beyond the nearest site disc.</text>
+<text x="65" y="703" font-size="19">4. The fixed Amrita-east-of-castle relation still requires350–700 blocks.</text>
+<text x="45" y="762" font-size="20" font-weight="bold">Source relationship: ancient Amrita beneath the castle. Exact centre, depth and initial access remain unverified.</text>
+<text x="45" y="802" font-size="18">Choose nested castle-linked geography with technical redesign, or retain the eastern reservation as a server deviation.</text>
+<text x="45" y="841" font-size="17">The trial remains inactive; nested geometry, the road destination and registration require coordinated technical design.</text></g></svg>

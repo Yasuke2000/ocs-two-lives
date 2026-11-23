@@ -25,13 +25,13 @@
   "registered_places": 58,
   "roads": 23,
   "facts": {
-    "records": 359,
-    "sha256": "e445a37e815c3084b69621fdbcf53a8015055d9f9d6561dbc12b4cd73e9977ee",
+    "records": 360,
+    "sha256": "feb834a7fd04568d70d8237cd32d4032ea6b1de635aafdee818ed962e351a42a",
     "confidence_counts": {
       "canon-explicit": 130,
       "canon-implied": 41,
       "fan-wiki": 44,
-      "our interpretation": 144
+      "our interpretation": 145
     }
   },
   "inventory_records": 143,
@@ -1724,6 +1724,29 @@
       "validation_passed": false,
       "changed_js_files": 0,
       "scope": "Same authoring legacy Filtwood U/J failures; no technical WIP or in-game run."
+    }
+  },
+  "inactive_amrita_nesting_trial": {
+    "review": "amrita-current-nesting-review.md",
+    "source_sha256": "57a763feae36fd7bd2317d7712107184fbccf54a2e80812b16a2de635e43e478",
+    "default_checker_errors": 4,
+    "production_changed": false,
+    "owner_choice_pending": true,
+    "conversion_run": false,
+    "repository_gate": {
+      "tests": 494,
+      "seconds": 66.575,
+      "failures": 2,
+      "skipped": 26,
+      "validation_passed": false,
+      "passed": false,
+      "changed_js_files": 0,
+      "scope": "Same legacy Filtwood U/J failures; candidate four-error report is a separate result."
+    },
+    "active_default_checker": {
+      "errors": 0,
+      "relations": 56,
+      "warnings": 2
     }
   }
 }

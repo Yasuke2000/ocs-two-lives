@@ -10,7 +10,7 @@ Current display and normal source 534d07ad; mainland 9,983 × 6,250 blocks, expo
 
 The selected state is immediately after Kijin naming,anime S1E10. Fulbrosia is south of Jura;Ulgracia south of Sarion. The approved inland palace,western islets and small Ulgr/Laura head interfaces are represented in current source. The painting keeps historical brushwork/height provenance and is not an exact vertical reconstruction. Politics,later buildings and roads retain their [era limits](era.md).
 
-Remaining source/contract questions include the Imperial mountain bearing,Amrita nesting/reserve,Malukshure coast binding and extra-location registration. Filtwood placement is owner-approved; its legacy-grid/runtime integration remains open. [Contradictions](../docs/research/tensura-world-2026-11-19/contradictions.md),359-record [source ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) and143/42 [location index](location-index.md) keep these visible. Whole-wiki coverage,all architectural details and Minecraft acceptance remain unproved.
+Remaining source/contract questions include the Imperial mountain bearing,Amrita nesting/reserve,Malukshure coast binding and extra-location registration. Filtwood placement is owner-approved; its legacy-grid/runtime integration remains open. [Contradictions](../docs/research/tensura-world-2026-11-19/contradictions.md),360-record [source ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) and143/42 [location index](location-index.md) keep these visible. Whole-wiki coverage,all architectural details and Minecraft acceptance remain unproved.
 
 Start with the [current delivery index](DELIVERY.md). [Earlier comparisons](comparison-history-through-r143.md) retain their original source versions and historical counts.
 
@@ -19,3 +19,5 @@ The two Tempest routes now use owner-approved early forest-trail surfaces, with 
 [Updated full-layer larger-island candidate](island-proportion-current-review.md) follows current source534d07ad with its approved Filtwood and early trails;normal74.6s,all13finite lake cases pass. It remains inactive pending the island-size choice;current painting still represents the active smaller-island map.
 
 The [current coastal comparison](malukshure-current-comparison.png) shows the inactive Malukshure/O reservation beside the active H slot. It preserves the approved Filtwood/early-trail source; its conditional export is distinct from the active standard-checked map.
+
+[Current Amrita nesting trial](amrita-current-nesting-review.md) exposes four default integration conflicts;active geometry remains unchanged pending the source-led nested-location versus explicit server-deviation choice.

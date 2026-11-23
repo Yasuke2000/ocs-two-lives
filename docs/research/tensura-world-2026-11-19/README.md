@@ -1,3 +1,7 @@
+## Current Amrita nesting choice
+
+[Concrete marker-only trial](../../../world/amrita-current-nesting-review.md) has four default integration errors and remains inactive. One explicitly interpreted record brings the ledger to360. Source synopsis reread;the creative brief stops prescribing a public mound/shaft as canon. Active534d07ad and all terrain/art retained.
+
 ## Licensed LN13: East city access
 
 [Direct source review](ln13-east-city-source-review.md) adds one narrow primary East city/gate/Imperial-road relationship. Ledger359; physical placement and initial construction remain unresolved. Canonical534d07ad, all terrain/art and143/42inventory retained. Older snapshots below retain their original counts.

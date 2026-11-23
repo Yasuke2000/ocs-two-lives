@@ -1,6 +1,6 @@
 # Geography contradictions — current short summary
 
-23 November 2026. Map source `534d07ad`; initial state: immediately after Kijin naming, anime S1E10. The ledger contains 359 qualified claims, including authored geometry, not 358 proved canon facts.
+23 November 2026. Map source `534d07ad`; initial state: immediately after Kijin naming, anime S1E10. The ledger contains 360 qualified claims, including authored geometry, not 360 proved canon facts.
 
 Prefer **directly verified LN > WN > manga > anime > official map > wiki**. An unread novel citation is a lead, not primary verification. Keep continuities and later political events separate. All 24 conflict IDs and the full dated evidence are preserved in the [unchanged research history](contradictions-history-through-trial-review.md).
 
@@ -10,7 +10,7 @@ Prefer **directly verified LN > WN > manga > anime > official map > wiki**. An u
 | --- | --- | --- |
 | C03 | WN travel places the Ameld route northward with an eastern bend; equivalent LN bearing remains unverified. | Retain the WN-qualified corridor. Exact outlet geometry is interpreted; do not promote WN to LN. [Recorded sources](geography-facts.csv) and full history. |
 | C05 | Server mountain south of Nasca; fan marker north; wiki only supports adjacency. | Neither bearing is primary-confirmed. Retain the fixed placement and commented alternative pending stronger evidence. [Review](nasca-source-topology-r76.md). |
-| C07 | LN10 distinguishes buried Amrita; official episode81 places ruins beneath the former castle. The game reserves a separate eastern marker. | Atlas states the buried association; marker remains a game reservation. Depth, extent and technical nesting are unresolved. [Study](../../../world/amrita-placement-review.md). |
+| C07 | LN10 distinguishes buried Amrita; official episode81 places ruins beneath the former castle. The game reserves a separate eastern marker. | Atlas states the buried association; marker remains a game reservation. Depth, extent and technical nesting are unresolved. [Current four-error trial](../../../world/amrita-current-nesting-review.md); [source study](../../../world/amrita-placement-review.md). |
 | C12 | Smaller server islands differ from the official illustration's broad apparent proportions. Projection is unknown. | [Current full-layer candidate](../../../world/island-proportion-current-review.md) remains inactive pending Yasuke's choice; the hard-box fit does not prove canonical scale. [Comparison](../../../world/island-proportion-review.md), [proposal132](https://github.com/Yasuke2000/ocs-two-lives/pull/132). |
 | C14 | Author's LN-aligned Vacation story supports a coastal capital and Sarion adjacency; the server binding remains H/Fulbrosia. | Keep the tested coastal/O proposal inactive pending the binding choice. Exact west bearing stays secondary. [Primary review](vacation-source-review-r55.md), [current conditional proposal](../../../world/malukshure-current-review.md). |
 | C24 | Licensed guide8.5 prints Rondo for Eurazania and Blumund; wiki uses Laura. | Display Carrion's capital; retain technical ID `laura`. Neither a typo nor a corrected canon name is proved. [Edition review](../../../world/guide85-source-review.md). |

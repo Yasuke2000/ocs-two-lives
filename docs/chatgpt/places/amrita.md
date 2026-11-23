@@ -16,15 +16,17 @@
 
 The publisher-hosted [LN10 prologue](https://gcnovels.jp/reading/slime10.htm) describes Kazalim founding Amrita as a refuge-city modelled on the lost homeland after fleeing Soma. It distinguishes the wards/golems defending Amrita from Adalman’s surface-city defence. The checked passage supplies no exact founding year; the earlier 2,000-year figure is unverified here. The [official episode81 synopsis](https://www.ten-sura.com/anime/tensura/story/no86) places the ruins beneath Clayman’s former castle. Exact depth, full extent and initial access remain unverified; later investigation or defense activation is not an initial S1E10 event.
 
-## What it should look like
+## Creative direction and implementation limit
 
-A grassy mound over the old capital; broken column bases around an open shaft; between two stone wardens a flight of steps descends under three surviving lintels into a vaulted nave with eight memorial alcoves, a sealed door with luminous joints and an oculus letting daylight on a patterned floor.
+Use the [source-led dormant gallery concept](../../art/places/amrita.md): enclosed old masonry, continuous dark roof, original abstract reliefs, dry patterned floor and a closed door. Exact ribs, alcoves, lighting, guardians and dimensions are our interpretation. The later anime stills provide cavern/mural/warded-door vocabulary, not a surveyed layout or proof of S1E10 access.
 
-Why it stands here (anchor table, Lerfing coordinates): Jistav's plain.
+The existing blueprint's grassy mound, open shaft, oculus and exterior approach are historical server design. Its `hillside()` routine builds an exposed grassy approach and clears space above it; that code is not evidence of a canonical entrance. Do not recreate those surface openings as canon when converting this map. The concept deliberately excludes them; the technical blueprint is unchanged and still requires reconciliation.
 
-## Current state: BlueMap audit of 19/11/2026
+The [current marker-only nesting trial](../../../world/amrita-current-nesting-review.md) shows why simply moving the radius63 circle onto the castle is insufficient: it fails four default rules. Actual depth, complete ruin extent, initial access and a nested carve/parent representation remain unresolved. The castle-centred trial coordinates are our interpretation; the official synopsis does not survey the ruin centre. No final depth or live placement is authorized by this brief.
 
-Map: Tensura by Lerfing (current, being replaced). The screenshots are from the public BlueMap; positions and terrain will change with the new world, the lore and the design intent above will not.
+## Historical BlueMap audit — 19 November 2026
+
+These screenshots and placement coordinates describe retired imported Lerfing terrain. They do not verify the current own-world source, nested geometry or initial-era access.
 
 - **Status:** OK
 - **Placed:** 6100 76 -650 (corner 6066 60 -718)
