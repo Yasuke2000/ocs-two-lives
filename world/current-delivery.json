@@ -2,8 +2,8 @@
   "review_bundle": "current source,painting and58place concepts",
   "source_before_integration": "b3189e7b8a86e1372e92ee48c4cd64ac4f35491c",
   "art_before_integration": "b4b86349993ff4fd7cdafbf0665ef140892b0382",
-  "display_source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
-  "normal_source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+  "display_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+  "normal_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
   "normal_artifact_sha256": {
     "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
     "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
@@ -26,7 +26,7 @@
   "roads": 23,
   "facts": {
     "records": 358,
-    "sha256": "86599be76ba984c15cad7f6d40f7036103b6068a0fa26d42bf0d85b6e7c2d1ac",
+    "sha256": "671217d7de00c52eb3d2020d965c60437e561b45530ae17ac0f83ed65a795577",
     "confidence_counts": {
       "canon-explicit": 129,
       "canon-implied": 41,
@@ -1554,7 +1554,7 @@
     }
   },
   "early_tempest_trails": {
-    "source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+    "source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
     "owner_approved": true,
     "standard_checker_errors": 0,
     "relations": 56,
@@ -1599,7 +1599,7 @@
   },
   "inactive_current_island_candidate": {
     "source_sha256": "97667b2a506b81011c8bb01a6d0abd30e731cc1c6781a37dd0af7633eaf5aaa4",
-    "active_source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+    "active_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
     "production_replaced": false,
     "owner_choice_pending": true,
     "review": "island-proportion-current-review.md",
@@ -1617,6 +1617,52 @@
       "validation_passed": false,
       "changed_js_files": 0,
       "dependency": "Same retained legacy Filtwood U grid versus owner-approved J anchor."
+    },
+    "site_config_total": 34,
+    "site_config_unchanged": 32,
+    "site_index_unchanged": 55
+  },
+  "source_hash_convention": {
+    "canonical": "SHA256 of UTF-8 SVG text with LF line endings; matches git blob and converter index.",
+    "previous_worktree_raw_crlf_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+    "canonical_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+    "geometry_changed": false,
+    "converter_rerun_required": false,
+    "existing_normal_input_text_identical": true
+  },
+  "runtime_source_review": {
+    "technical_commit": "0fc6eb27e97ab74c0b53bcc55ffb3d116b6ae877",
+    "technical_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+    "matches_current": false,
+    "review": "runtime-source-review.md",
+    "runtime_modified": false,
+    "actual_pack_checks_performed": false,
+    "verification": {
+      "map_checker": {
+        "errors": 0,
+        "relations": 56,
+        "warnings": 2
+      },
+      "repository_gate": {
+        "passed": false,
+        "tests": 494,
+        "seconds": 66.206,
+        "skipped": 26,
+        "failures": 2,
+        "validation_passed": false,
+        "changed_js_files": 0,
+        "scope": "Same authoring legacy Filtwood failures;technical WIP tests not run here."
+      },
+      "all14_normal_hashes_retained": true,
+      "git_worktree_and_converter_source_equal": true,
+      "unchanged_rendered_images": [
+        "world/preview.png",
+        "world/atlas.png",
+        "world/painting-round112/continent.png",
+        "world/painting-round112/atlas.png"
+      ],
+      "comparison_image_change": "Visible canonical source label only;embedded normal and painted images retained.",
+      "protected_paths_unchanged": true
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-23",
-  "source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+  "source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
   "prior_source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
   "approved_roads": [
     "tempest_dwargon",
@@ -285,5 +285,10 @@
   "active_xml_comparison": "Parent active XML is identical after changing only the two approved road-kind attributes; comments independently scoped.",
   "local_delivery_links_resolve": true,
   "presentation_roots_match_source": true,
-  "normal_artifacts_hash_checked": 14
+  "normal_artifacts_hash_checked": 14,
+  "prior_reported_worktree_raw_crlf_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+  "all58_index_records_directly_compared": true,
+  "flat_preparation_records_in_sites_json": 34,
+  "normal_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+  "index_comparison_scope": "All58index records retained;sites.json separately contains34flat preparations."
 }

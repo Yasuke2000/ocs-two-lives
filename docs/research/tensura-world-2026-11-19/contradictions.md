@@ -1,6 +1,6 @@
 # Geography contradictions — current short summary
 
-23 November 2026. Map source `555c842f`; initial state: immediately after Kijin naming, anime S1E10. The ledger contains 358 qualified claims, including authored geometry, not 358 proved canon facts.
+23 November 2026. Map source `534d07ad`; initial state: immediately after Kijin naming, anime S1E10. The ledger contains 358 qualified claims, including authored geometry, not 358 proved canon facts.
 
 Prefer **directly verified LN > WN > manga > anime > official map > wiki**. An unread novel citation is a lead, not primary verification. Keep continuities and later political events separate. All 24 conflict IDs and the full dated evidence are preserved in the [unchanged research history](contradictions-history-through-trial-review.md).
 

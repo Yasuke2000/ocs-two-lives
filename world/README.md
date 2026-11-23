@@ -1,6 +1,6 @@
-> Inactive current-source proposal: [full-layer larger islands](island-proportion-current-review.md),with fresh checker,normal export and13lake checks. Active source555c842f and its painting remain unchanged pending the size choice.
+> Inactive current-source proposal: [full-layer larger islands](island-proportion-current-review.md),with fresh checker,normal export and13lake checks. Active source534d07ad and its painting remain unchanged pending the size choice.
 
-> Current23November2026: [approved early Tempest trails](early-tempest-trails-review.md). Both routes use trail kind;all vertices retained. Standard checker0errors/56relations;normal68.6s without skip-check. Source555c842f;358qualified claims. Later paving remains a runtime phase. Earlier dated checks and provenance retain their historical scope.
+> Current23November2026: [approved early Tempest trails](early-tempest-trails-review.md). Both routes use trail kind;all vertices retained. Standard checker0errors/56relations;normal68.6s without skip-check. Source534d07ad;358qualified claims. Later paving remains a runtime phase. Earlier dated checks and provenance retain their historical scope.
 
 > Current consolidated delivery23November2026: [delivery index](DELIVERY.md),[audit](consolidation-audit.json). Approved Filtwood and source follow-ups are included on `chatgpt/world-map`;main history is incorporated without new runtime code. Standard checker0errors/56relations;combined repository gate494tests,26skipped,2known legacy-U/J failures. No main merge or apply.
 

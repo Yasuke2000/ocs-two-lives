@@ -4,7 +4,7 @@
 
 [Full candidate source](island-proportion-current-candidate.svg) · [checker preview](island-proportion-current-preview.png) · [normal terrain preview](island-proportion-current-terrain.png) · [audit](island-proportion-current-audit.json) · [finite water/coverage checks](island-proportion-current-finite-checks.json) · [official reference link](https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp).
 
-The earlier full-layer proposal was verified against source50c27a6f. This version retains current source555c842f's approved Filtwood placement,early Tempest trail kinds,Laura water correction and all other mainland changes. Exactly37 island-specific source elements were still identical to that older baseline;their reviewed replacements are copied onto the current source. The active map,preview,painting and normal outputs are untouched.
+The earlier full-layer proposal was verified against source50c27a6f. This version retains current source534d07ad's approved Filtwood placement,early Tempest trail kinds,Laura water correction and all other mainland changes. Exactly37 island-specific source elements were still identical to that older baseline;their reviewed replacements are copied onto the current source. The active map,preview,painting and normal outputs are untouched.
 
 ## The choice this makes reviewable
 
@@ -18,7 +18,7 @@ The candidate transforms all related coast,mountain,hill,lake,woodland,biome,gam
 | ElDorado precinct | -4300,73,3000 | -4900,70,3202 |
 | ElDorado volcano marker | -3900,197,3200 | -4359,222,3473 |
 
-These are generated candidate positions and first-air values,not canonical measurements. All55other index records are exact. Separate sites.json has56unchanged configuration records because the volcano is an unplated marker;the audit explicitly distinguishes those schemas. Both selected early Tempest road kinds and the new Filtwood trail remain intact.
+These are generated candidate positions and first-air values,not canonical measurements. All55other index records are exact. Separate sites.json contains34flat terrain-preparation records,of which32remain unchanged. The58-entry placement index also covers4carved sites and20unplated markers. Only the city and palace alter flat configurations;the volcano marker changes the index. The earlier56configuration count was incorrect and is superseded by these direct counts. Both selected early Tempest road kinds and the new Filtwood trail remain intact.
 
 ## Fresh candidate evidence
 

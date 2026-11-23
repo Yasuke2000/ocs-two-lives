@@ -8,7 +8,7 @@ The standard checker initially rejected the change because arrival had to be nea
 
 ## Actual terrain consequence
 
-Source **555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a**. Standard checker:0errors,56relations,2standing warnings (Laura escarpment river and design box above ordinary target). Normal staging export ran without skip-check in68.6s; no apply or deployment.
+Source **534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0**. Standard checker:0errors,56relations,2standing warnings (Laura escarpment river and design box above ordinary target). Normal staging export ran without skip-check in68.6s; no apply or deployment.
 
 | Export evidence | Result |
 | --- | --- |

@@ -1,3 +1,7 @@
+## Canonical current source and technical switch review
+
+[Source alignment and audit corrections](../../../world/runtime-source-review.md):current canonical LF source534d07ad matches Git and the existing normal converter index. Earlier555c842f is the raw Windows CRLF alias of the same geometry. The technical WIP still uses olderb48666e9. The island flat-preparation count is corrected to32of34;placement index remains58. Ledger358and all normal outputs retained.
+
 ## Current-source larger-island proposal
 
 [Complete inactive candidate](../../../world/island-proportion-current-review.md) carries current Filtwood and early-trail choices,37reviewed island replacements,default checker and fresh normal export. Ledger358;only one authored proposal record added. Active source555c842f and original painting remain unchanged;owner size choice still pending.

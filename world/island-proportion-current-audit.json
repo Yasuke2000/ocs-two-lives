@@ -1,5 +1,5 @@
 {
-  "active_source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+  "active_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
   "candidate_source_sha256": "97667b2a506b81011c8bb01a6d0abd30e731cc1c6781a37dd0af7633eaf5aaa4",
   "prior_full_candidate_commit": "8d6e96ba60a7e4ef6f72f77a3f933f937a993c8f",
   "prior_full_candidate_sha256": "cc097cf0a9f360188f9a9ba961937ed63ed5b2015b79fcf3c909068144580acb",
@@ -292,7 +292,7 @@
   "owner_approved_activation": false,
   "site_exports": {
     "index_records_retained": 55,
-    "site_config_records_retained": 56,
+    "site_config_records_retained": 32,
     "site_config_changes": [
       "el_dorado",
       "frost_palace"
@@ -378,7 +378,9 @@
           "margin": 48.0
         }
       }
-    ]
+    ],
+    "site_config_records_total": 34,
+    "schema_explanation": "58index records;34flat preparations,4carves and20unplated markers. Candidate changes3index records and2flat preparations."
   },
   "road_checks": [
     {
@@ -1018,5 +1020,6 @@
     "validation_passed": false,
     "changed_js_files": 0,
     "dependency": "Same retained legacy Filtwood U grid versus owner-approved J anchor."
-  }
+  },
+  "prior_active_worktree_raw_crlf_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a"
 }

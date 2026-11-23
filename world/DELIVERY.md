@@ -14,7 +14,7 @@ The post-Kijin map now includes Yasuke's approved Filtwood western forest-edge p
 | Current approval and checks | [Filtwood adoption](filtwood-approved.md) · [audit](filtwood-approved-audit.json) · [delivery manifest](current-delivery.json) |
 | Initial story state | [Immediately after Kijin naming](era.md),anime S1E10 |
 
-Source/export `555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a`. Fresh normal staging passed without skip-check in68.6s. Standard checker:0errors,56relations,2standingwarnings. For the latest early-trail change,biome/water rasters,all58site exports and21other road records are unchanged;309height cells change by at most1block. Original painting now includes the trail and new marker39. Original place PNGs and exact prompts are retained.
+Source/export `534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0`. Fresh normal staging passed without skip-check in68.6s. Standard checker:0errors,56relations,2standingwarnings. For the latest early-trail change,biome/water rasters,all58site exports and21other road records are unchanged;309height cells change by at most1block. Original painting now includes the trail and new marker39. Original place PNGs and exact prompts are retained.
 
 **Repository integration remains blocked by the old-map binding:** latest combined gate ran 494 tests, 26 skipped, 2 failures; validation reads U at the retained legacy Filtwood(-900,700) while the approved source binding is J. [Exact handoff](filtwood-approved.md). No runtime,mod or tool code was authored; the six individually approved relation-data records are the protected-path exceptions. This is a draft creative delivery,not a main-ready or deployed world.
 
@@ -26,4 +26,6 @@ The requested `chatgpt/world-map` draft now includes the approved-Filtwood and s
 
 [Approved early Tempest trail adoption](early-tempest-trails-review.md): both Tempest routes are unpaved at the initial snapshot;all points retained,later paving is separate. Updated original painting and comparison follow the same source.
 
-[Updated full-layer larger-island candidate](island-proportion-current-review.md) follows current source555c842f with its approved Filtwood and early trails;normal74.6s,all13finite lake cases pass. It remains inactive pending the island-size choice;current painting still represents the active smaller-island map.
+[Updated full-layer larger-island candidate](island-proportion-current-review.md) follows current source534d07ad with its approved Filtwood and early trails;normal74.6s,all13finite lake cases pass. It remains inactive pending the island-size choice;current painting still represents the active smaller-island map.
+
+[Runtime source review](runtime-source-review.md) identifies the older technical branch source and the exact approved Filtwood/trail deltas. Canonical LF source534d07ad matches the existing converter index;the older555c842f label was a raw Windows-line-ending hash. Flat-site configuration counts in the island proposal are corrected to32of34.

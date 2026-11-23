@@ -1,0 +1,201 @@
+{
+  "date": "2026-11-23",
+  "technical_branch": "own-world-switch",
+  "technical_commit": "0fc6eb27e97ab74c0b53bcc55ffb3d116b6ae877",
+  "technical_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "current_canonical_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+  "prior_worktree_raw_crlf_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+  "source_convention": "UTF8 LF normalized source;current map bytes,Git blob and converter index now match.",
+  "core_runtime_files": [
+    {
+      "file": "biome.png",
+      "technical_sha256": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+      "current_sha256": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+      "equal": true
+    },
+    {
+      "file": "canon_map.txt",
+      "technical_sha256": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+      "current_sha256": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+      "equal": true
+    },
+    {
+      "file": "exclude.png",
+      "technical_sha256": "072b49b48f706144729f6dd3ffb5c85ff46211f9afa3ad0824c83c5435983e78",
+      "current_sha256": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
+      "equal": false
+    },
+    {
+      "file": "height.png",
+      "technical_sha256": "23f9db2c21da88c2e8861b2b68c476cf2cd819eb54a1d41645282b0416c78c19",
+      "current_sha256": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+      "equal": false
+    },
+    {
+      "file": "index.json",
+      "technical_sha256": "23a38b6b2e3fa38596343063bd715b61e4b9b5a93ee26481502ccc6e1ae2a621",
+      "current_sha256": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
+      "equal": false
+    },
+    {
+      "file": "road.png",
+      "technical_sha256": "6ae1649947d9b952af925f00ad5c62acf56beaba84c89f2abd332d1784f0b42c",
+      "current_sha256": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
+      "equal": false
+    },
+    {
+      "file": "roads.json",
+      "technical_sha256": "e9e995848146d18dac189af5cc3ee260fe3cfd60a9f7ddf2dd290da32730b9cd",
+      "current_sha256": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
+      "equal": false
+    },
+    {
+      "file": "rugged.png",
+      "technical_sha256": "92be3acd3fc4c1e39367d4a3bc67c36fcbcfcd9624a4964cbc8d57c496a757ee",
+      "current_sha256": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
+      "equal": false
+    },
+    {
+      "file": "sites.json",
+      "technical_sha256": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+      "current_sha256": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+      "equal": true
+    },
+    {
+      "file": "sites.png",
+      "technical_sha256": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+      "current_sha256": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+      "equal": true
+    },
+    {
+      "file": "water.png",
+      "technical_sha256": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7",
+      "current_sha256": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7",
+      "equal": true
+    }
+  ],
+  "changed_index_records": [
+    {
+      "id": "filtwood",
+      "technical": {
+        "id": "filtwood",
+        "kind": "clearing",
+        "x": -1200,
+        "z": 2750,
+        "r": 8,
+        "plated": false,
+        "y": 65
+      },
+      "current": {
+        "id": "filtwood",
+        "kind": "clearing",
+        "x": -1050,
+        "z": 600,
+        "r": 8,
+        "plated": false,
+        "y": 74
+      }
+    }
+  ],
+  "retained_index_records": 57,
+  "road_changes": [
+    {
+      "id": "tempest_dwargon",
+      "technical_kind": "main",
+      "current_kind": "trail",
+      "new_route": false
+    },
+    {
+      "id": "tempest_blumund",
+      "technical_kind": "main",
+      "current_kind": "trail",
+      "new_route": false
+    },
+    {
+      "id": "filtwood_jura_trail",
+      "technical_kind": null,
+      "current_kind": "trail",
+      "new_route": true
+    }
+  ],
+  "technical_filtwood": {
+    "name": "Filtwood",
+    "x": -1200,
+    "z": 2750,
+    "y": 65,
+    "region": "U",
+    "kind": "pin",
+    "surface": "land",
+    "canon": "Filtwood",
+    "old_x": -1062,
+    "old_z": 616
+  },
+  "current_staging_filtwood": {
+    "name": "Filtwood",
+    "x": -1050,
+    "z": 600,
+    "y": 74,
+    "region": "J",
+    "kind": "pin",
+    "surface": "land",
+    "canon": "Filtwood",
+    "old_x": -1062,
+    "old_z": 616
+  },
+  "grid_samples": {
+    "technical_own_world": {
+      "legacy_anchor": "J",
+      "technical_southern_pin": "U",
+      "approved_forest_edge": "J"
+    },
+    "current_own_world": {
+      "legacy_anchor": "J",
+      "technical_southern_pin": "U",
+      "approved_forest_edge": "J"
+    },
+    "legacy": {
+      "legacy_anchor": "U",
+      "technical_southern_pin": ".",
+      "approved_forest_edge": "U"
+    }
+  },
+  "export_schema": {
+    "index": 58,
+    "flat_preparations": 34,
+    "separate_carves": 4,
+    "unplated_markers": 20,
+    "island_proposal_unchanged_flat_records": 32,
+    "island_proposal_unchanged_index_records": 55
+  },
+  "runtime_modified": false,
+  "branch_merged": false,
+  "world_applied": false,
+  "in_game_acceptance_proven": false,
+  "verification": {
+    "map_checker": {
+      "errors": 0,
+      "relations": 56,
+      "warnings": 2
+    },
+    "repository_gate": {
+      "passed": false,
+      "tests": 494,
+      "seconds": 66.206,
+      "skipped": 26,
+      "failures": 2,
+      "validation_passed": false,
+      "changed_js_files": 0,
+      "scope": "Same authoring legacy Filtwood failures;technical WIP tests not run here."
+    },
+    "all14_normal_hashes_retained": true,
+    "git_worktree_and_converter_source_equal": true,
+    "unchanged_rendered_images": [
+      "world/preview.png",
+      "world/atlas.png",
+      "world/painting-round112/continent.png",
+      "world/painting-round112/atlas.png"
+    ],
+    "comparison_image_change": "Visible canonical source label only;embedded normal and painted images retained.",
+    "protected_paths_unchanged": true
+  }
+}
