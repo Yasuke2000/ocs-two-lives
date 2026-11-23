@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
-# Upload Lerfing's prepared overworld to the staging server and arm the ttl-import.txt marker (docs/server.md
-# "World import", design/architecture/lerfing-import.md §6.3). Runs any time nobody is online: the server keeps
+# Upload a prepared overworld (the own world pregenerated on a local server: docs/own-world-local.md; formerly
+# Lerfing's map) to the staging server and arm the ttl-import.txt marker (docs/server.md "World import"). Runs any
+# time nobody is online: the server keeps
 # running, the upload goes to /data/import (not the world), and the swap itself happens at the next start
 # (ttl-portals 0.9.0), so the restart is the normal deploy.
 #
-#   bash tools/import_world.sh [--dry-run] [--src DIR] [--batch N] [--margin GIB] [--no-marker [--while-online]]
+#   bash tools/import_world.sh --src WORLD_DIR [--manifest] [--dry-run] [--batch N] [--margin GIB] [--no-marker [--while-online]]
+#
+# WORLD_DIR is the local world folder (e.g. $TTL_LOCAL_DIR/server/world-ttl, server stopped). --manifest writes
+# WORLD_DIR/sha256.txt (the region files' checksums) first. Refused when the local world's seed is not the server's
+# (the server keeps its own level.dat: chunks it generates later at the edges would not match) or when the local
+# server's design rasters (config/ttl/world/index.json source_sha256) are not main's (another map).
 #
 # (a) refuses while a human is online (test bots don't count: `server.sh who`);
 # (b) checks the local world (DIR/region/r.*.mca = the lines of DIR/sha256.txt) and the free space on /data;
@@ -12,9 +18,8 @@
 #     kubectl exec, BATCH files per stream: a broken run resumes where it stopped when started again), then checks
 #     every file's sha256 on the pod against sha256.txt; a bad file is deleted and sent again (3 rounds at most);
 # (d) writes /data/world-ttl/ttl-import.txt = "minecraft:overworld import <count>" and removes /data/ttl-pregen.done,
-#     but only when main's pack (what the restart installs) has ttl-portals >= 0.9.0, the Lerfing grid and the
-#     anchor table: an older mod ignores the marker, and the import without the anchors would put Tempest, Dwargon
-#     and the builds at the old continent's coordinates on Lerfing's map;
+#     but only when main's pack (what the restart installs) has ttl-portals >= 0.9.0, the anchor table and the same
+#     own-world rasters the local world was generated from;
 # (e) prints the next steps (restart through the normal deploy, the log lines to watch).
 # --dry-run does every check, measures the upload speed (data piped into /dev/null on the pod) and prints the plan;
 # it uploads nothing, writes no marker and changes nothing on the server.
@@ -52,21 +57,23 @@ FOLDER=import                 # the marker's folder: not in world-ttl, so ttl-po
 REMOTE=/data/import
 WORLD=/data/world-ttl
 MIN_MOD=0.9.0
-SRC="${TTL_IMPORT_SRC:-/c/Users/david/AppData/Local/Temp/claude/c--Users-david-Documents-Claims-poc/1537105e-29c1-44a8-bf81-a2b0788a3048/scratchpad/lerfing_world}"
-DRY=""; BATCH=25; MARGIN_GIB=2; MARKER=1; WHILE_ONLINE=""
+SRC="${TTL_IMPORT_SRC:-}"
+DRY=""; BATCH=25; MARGIN_GIB=2; MARKER=1; WHILE_ONLINE=""; MAKE_MANIFEST=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --dry-run) DRY=1 ;;
     --src) SRC="${2:?--src DIR}"; shift ;;
+    --manifest) MAKE_MANIFEST=1 ;;
     --batch) BATCH="${2:?--batch N}"; shift ;;
     --margin) MARGIN_GIB="${2:?--margin GIB}"; shift ;;
     --no-marker) MARKER="" ;;
     --while-online) WHILE_ONLINE=1 ;;
     -h|--help) sed -n '2,25p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
-    *) echo "usage: import_world.sh [--dry-run] [--src DIR] [--batch N] [--margin GIB] [--no-marker [--while-online]]" >&2; exit 2 ;;
+    *) echo "usage: import_world.sh --src WORLD_DIR [--manifest] [--dry-run] [--batch N] [--margin GIB] [--no-marker [--while-online]]" >&2; exit 2 ;;
   esac
   shift
 done
+[ -n "$SRC" ] || { echo "usage: import_world.sh --src WORLD_DIR ... (the local world folder, e.g. \$TTL_LOCAL_DIR/server/world-ttl)" >&2; exit 2; }
 command -v cygpath >/dev/null && case "$SRC" in [A-Za-z]:*) SRC=$(cygpath -u "$SRC") ;; esac
 [ "$(basename "$SRC")" = region ] && SRC=$(dirname "$SRC")   # the region folder itself is fine too
 MANIFEST="$SRC/sha256.txt"
@@ -101,7 +108,23 @@ say "night pregen: ${pregen:-unknown} (a restart stops it; ttl-ops' own deploy p
 
 # (b) ----------------------------------------------------------------------------------------------------------------
 step "(b) local world and free space"
-[ -d "$SRC/region" ] && [ -f "$MANIFEST" ] || die 1 "no $SRC/region or $MANIFEST (run tools/lerfing/import.py --out first)"
+[ -d "$SRC/region" ] || die 1 "no $SRC/region (stop the local server first; --src is the world folder)"
+if [ -n "$MAKE_MANIFEST" ]; then
+  say "writing $MANIFEST (sha256 of every region file; a minute or two for a few GB)"
+  (cd "$SRC" && sha256sum region/r.*.mca > sha256.txt) || die 1 "cannot write $MANIFEST"
+fi
+[ -f "$MANIFEST" ] || die 1 "no $MANIFEST: run again with --manifest"
+# The seed: the server keeps its own level.dat, so a world made with another seed would not match the chunks the server
+# generates later beyond the upload (caves, ores, trees, structures differ at every edge).
+PY=$(command -v python3 || command -v python)
+LOCAL_SEED=$("$PY" -I -c 'import sys; sys.path.insert(0, sys.argv[2]); import nbt; d = nbt.read_gzip(sys.argv[1]); d = d.get("Data", d); print(d["WorldGenSettings"]["seed"])' "$SRC/level.dat" "$HERE" 2>/dev/null || true)
+SERVER_SEED=$(bash "$HERE/server.sh" rcon "seed" 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' | grep -oE -- '-?[0-9]{3,}' | head -1 || true)
+say "seed: local ${LOCAL_SEED:-?}, server ${SERVER_SEED:-?}"
+[ -n "$LOCAL_SEED" ] && [ -n "$SERVER_SEED" ] || die 1 "cannot read both seeds (local $SRC/level.dat, server: tools/server.sh rcon seed)"
+[ "$LOCAL_SEED" = "$SERVER_SEED" ] || die 1 "the local world's seed is not the server's: generate it again with TTL_LOCAL_SEED=$SERVER_SEED"
+LOCAL_INDEX="$(dirname "$SRC")/config/ttl/world/index.json"
+LOCAL_MAP=$(grep -o '"source_sha256": *"[0-9a-f]*"' "$LOCAL_INDEX" 2>/dev/null | grep -o '[0-9a-f]\{64\}' || true)
+say "design rasters the local world was generated from: ${LOCAL_MAP:-none found at $LOCAL_INDEX}"
 find "$SRC/region" -maxdepth 1 -type f -name 'r.*.mca' -printf '%f %s\n' | sort > "$TMP/local"
 tr -d '\r' < "$MANIFEST" | awk 'NF { n = $2; sub(/^\*/, "", n); sub(/^region\//, "", n); print n }' | sort > "$TMP/names"
 COUNT=$(wc -l < "$TMP/local" | tr -d ' ')
@@ -190,11 +213,12 @@ LINE="$DIM $FOLDER $COUNT"
 ready=""; why=""
 if git -C "$HERE/.." fetch -q origin main 2>/dev/null; then
   mod=$(git -C "$HERE/.." show FETCH_HEAD:pack/mods/ttl-portals.pw.toml 2>/dev/null | grep -o 'ttl-portals-[0-9.]*[0-9]' | head -1 | sed 's/ttl-portals-//' || true)
-  grid=$(git -C "$HERE/.." show FETCH_HEAD:pack/config/ttl/canon_regions.json 2>/dev/null | grep -c '"lerfing"' || true)
+  main_map=$(git -C "$HERE/.." show FETCH_HEAD:pack/config/ttl/world/index.json 2>/dev/null | grep -o '"source_sha256": *"[0-9a-f]*"' | grep -o '[0-9a-f]\{64\}' || true)
   anchors=$(git -C "$HERE/.." show FETCH_HEAD:pack/kubejs/server_scripts/ttl/generated/anchors.js 2>/dev/null | grep -c '"tempest"' || true)
-  say "main ($(git -C "$HERE/.." rev-parse --short FETCH_HEAD)): ttl-portals ${mod:-?}, Lerfing grid $([ "${grid:-0}" -gt 0 ] && echo yes || echo no), anchor table $([ "${anchors:-0}" -gt 0 ] && echo yes || echo no); the server runs ${INSTALLED:-?}"
+  say "main ($(git -C "$HERE/.." rev-parse --short FETCH_HEAD)): ttl-portals ${mod:-?}, own-world rasters ${main_map:-none}, anchor table $([ "${anchors:-0}" -gt 0 ] && echo yes || echo no); the server runs ${INSTALLED:-?}"
   [ "$(printf '%s\n%s\n' "$MIN_MOD" "${mod:-0}" | sort -V | head -1)" = "$MIN_MOD" ] || why="main has ttl-portals ${mod:-?}, the marker needs $MIN_MOD+ (an older mod ignores it)"
-  [ "${grid:-0}" -gt 0 ] || why="${why:+$why; }main has no Lerfing grid (canon_regions.json \"lerfing\")"
+  [ -n "$main_map" ] || why="${why:+$why; }main has no own-world rasters (pack/config/ttl/world/index.json: merge own-world-switch first)"
+  [ -z "$main_map" ] || [ "$main_map" = "$LOCAL_MAP" ] || why="${why:+$why; }main's rasters ($main_map) are not the ones the local world was generated from (${LOCAL_MAP:-?}): pregenerate again on main's pack"
   [ "${anchors:-0}" -gt 0 ] || why="${why:+$why; }main has no anchor table (generated/anchors.js, WP-L4): Tempest, Dwargon and the builds would land at the old coordinates"
   [ -n "$why" ] || ready=1
 else
@@ -229,12 +253,12 @@ cat <<EOF
      [ttl] world import: checking $REMOTE for $DIM
      [ttl] world import: source OK: $COUNT region files (...), ... chunks; ... sampled: statuses {...}, DataVersion 2860..2860
      [ttl] world import: $DIM from $FOLDER; old terrain in ttl-backup/<time> (moved); /ttl worldreset $DIM follows once the server has started
-   then the placers: [ttl] arrival grounded at 1780 ... -150, tempest placed, dwargon placed, landmarks, builds
-   ([ttl] chunks: holding ... lines, no watchdog).
+   then the placers: [ttl] arrival grounded, tempest placed (arrival at 0 70 0), dwargon placed (gate at 780 146 -1390),
+   landmarks, builds ([ttl] chunks: holding ... lines, no watchdog).
    Stop and read docs/server.md "World import" on: "world import REFUSED" (nothing moved, old world runs, marker
    kept), "world import FAILED and was undone", or a start that stops on "ttl-import.journal exists".
-3. First checks (rcon): ttlmap 1720 900 -> "imported chunk"; execute in minecraft:overworld if block -453 73 979
-   minecraft:chest (Lerfing's spawn chest: no chunk was regenerated); ttl world expect continent 1720 900 yes.
+3. First checks (rcon): ttlsite status ("sea level 63 (as designed)"), ttlsite check all (38 of 38 OK),
+   ttlmap 0 0 -> "imported chunk"; then tools/world/compare_design.py through a port-forwarded bridge if wanted.
 4. bluemap purge tensura, then bluemap force-update tensura. Pregen stays night-only (ttl-ops, needs < 85 % disk).
 5. Rollback if the owner does not want it: docs/server.md "World import", "Rollback".
 EOF

@@ -7,7 +7,8 @@
 **Generated for the first time in the full pack** on a local server here: three worldgen defects (sea level 65, missing
 `ttl:canon_sites` wrappers, design overrides only on `own-world-pack`), fixed on **`own-world-switch`**; then
 `/ttlsite check all` 38/38, `compare_design.py` ground 0-2 blocks at 36/38 sites, every build and landmark placed.
-**Do not merge `own-world-switch` before the reset night.** Open there: WP-W9 text (quests, wiki EN/NL, guide book name
+**Do not merge `own-world-switch` before the reset night.** Look at it, pregenerate and upload: `docs/own-world-local.md`
+(`tools/import_world.sh --src <world> --manifest` now takes the own world: seed and map checks). Open there: WP-W9 text (quests, wiki EN/NL, guide book name
 Lerfing's distances; `chapter_11_mask_and_blade` three_witnesses is now sea), `test_dwargon_carve` (Lerfing ground
 sample), `tools/local.sh test all` on the switched world, then W11/W12 (Homelab volume, ttl-reset, pregen). The bridge
 fix (chunk preload) is on `ccr-92df5619-1ronqe` with the paint and compare tools.
