@@ -1,3 +1,5 @@
+> **Current owner adoption,24 November:** larger islands and coastal Malukshure are active;Sainte gameplay H to O. [Current delivery](../../../world/approved-islands-coast.md). All360ledger identities/confidence classes retained. No geography owner choice is pending;Amrita coordinated migration,legacy registration,42physical follow-ups and source gaps remain. Earlier dated status entries below are history.
+
 ## Owner decision: Amrita beneath the castle
 
 Yasuke selected beneath-castle nesting and retirement of the independent eastern reservation. [Approved target/technical adoption](../../../world/amrita-approved.md). C07geography choice is resolved;exact depth/extent/access and coordinated technical adoption remain pending. Ledger360and active terrain/art are retained;two other owner geography choices remain.

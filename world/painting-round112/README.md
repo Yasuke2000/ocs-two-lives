@@ -1,23 +1,13 @@
-> Current23November2026: [approved early Tempest trails](../early-tempest-trails-review.md),source534d07ad. Original earthy trail strokes and fresh actual terrain are included in the continent,numbered atlas and same-frame comparison. Historical nested brushwork remains and is not an exact height reconstruction. All58 registrations retained.
+# Current source-aligned painted atlas
 
-> Current update22November2026: [approved Filtwood forest-edge adoption](../filtwood-approved.md). Pin(-1050,74,600),J;updated maps and23roads. Standard map checker passes; repository gate has two legacy-map failures. Earlier dated source/hash/check statements below remain historical.
+![Current original painted atlas](atlas.png)
 
-# Current source and painted map together
+Yasuke's selected larger islands and coastal Malukshure are active. Source `36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627`;58sites and24roads. [Adoption/limits](../approved-islands-coast.md) · [source geometry](../map.svg) · [same-frame terrain comparison](current-source-comparison.png) · [58-site registration](site-registration.json) · [browser anchor verification](../approved-islands-coast-atlas-check.json) · [component provenance](provenance.json).
 
-![Named painted atlas](atlas.png)
+The current painting frame is[-8448,-6144,16896,11264]. Original island brushwork is transformed and clipped to the selected coasts;the coastal cape and approach are drawn in native SVG. Existing mainland brushwork and the original project textures are retained. No copyrighted reference pixels or new AI raster generation are used. Rendering follows the editable SVG. This is an illustration,not an exact reconstruction of numerical heights or actual Minecraft structures.
 
-[Same-frame terrain/painting comparison](current-source-comparison.png) · [editable comparison](current-source-comparison.svg) · [source-adoption audit](current-source-adoption-audit.json) · [58-site registration](site-registration.json) · [component provenance](provenance.json).
+The two numbered atlases match current source coordinates at all58anchor points each. Browser matrix checks also caught and corrected inherited Filtwood marker/leader errors. The22context labels remain orientation aids;42physical follow-ups remain visible,not additional numbered sites. Four concept placement sheets are updated while exact generation prompts and original PNGs remain retained.
 
-This branch combines the complete current source dossier from `d1f4882` with the original painted atlas from `7446b2b`. The local source now includes the Laura basin/head139→river137 small-fall correction,the individual reference-era limits,the conditional Malukshure proposal,the Eastern Plains label,the inland-palace source-note correction and the selected LN14 primary evidence. The351-record ledger and143/42 inventory are present together with the painting.
+The same-frame comparison crops both the actual normal terrain and original painting to the current13824by11264normal box. The actual normal export ran in91.6seconds withoutskipcheck. All13finite lake cases pass;strict native land coverage has0unassigned centres. The required repository gate has3legacy-registration failures plus validation;no world apply or deployment occurred. Claude's coordinated Amrita nesting,registration refresh and Minecraft acceptance remain pending.
 
-Display source **b48666e9** and normal terrain **a9b6b970** remain separate: the Eastern Plains geographical text changes the display source without changing parsed terrain. All14 existing normal files are adopted byte-exact from current source staging; no conversion is rerun or falsely repinned. The approved inland Frost Palace remains at(-1530,71,-3680). Live integration is not performed.
-
-The original native brushwork,continent PNG,atlas PNG,58 numerical registration records,22context labels and42open rows are retained. Their historical component/height provenance remains in provenance.json and the component groups. Updating the root source context does not assert an exact vertical-height reconstruction. The comparison places the current owned normal preview beside the owned illustration in exactly the same12800x10752world frame; it embeds no external art or reference pixels.
-
-The [previous scoped label delivery](https://github.com/Yasuke2000/ocs-two-lives/blob/7446b2be7bfc3622c4762b745e05f41a6009d9a9/world/painting-round112/README.md) remains the history of the earlier mixed-source branch. Its full-source-adoption:false note describes that earlier step. The new current_full_source_adoption record describes this integration. All historical painting decisions are retained.
-
-The larger-island and Malukshure H→O proposals remain inactive pending the owner's choices. Canon-source gaps,unlocated places and post-Kijin architecture/runtime limits stay explicit. This combines reviewable map/source/illustration deliverables; it does not certify complete wiki coverage,whole-city builds or a deployed Minecraft world.
-
-Verification: standard checker0errors,56relations,2standingwarnings. Required `bash tools/check.sh` passed:472tests,26skipped,zero failures in65.650s. Native/atlas bitmap and XML/58registration retention assertions pass. Browser finds no context overlap or clipped panel text. Preview,atlas and comparison were visually inspected;`git diff --check` passes.
-
-The inherited registration metadata `open_inventory_rows` is corrected41→42 to match the42 unchanged visible SVG rows and physical-follow-up inventory; no place is added or closed.
+[Previous presentation state](https://github.com/Yasuke2000/ocs-two-lives/blob/f0d8825ee399b364a69168f4a0240b0bb135a7e2/world/painting-round112/README.md) preserves earlier composition/source history. Nested provenance records retain their historical sources;the approved_islands_coast record identifies this current update. Older unchanged-bitmap,smaller-island and pending-owner claims describe earlier versions.

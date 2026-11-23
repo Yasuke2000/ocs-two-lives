@@ -1,3 +1,5 @@
+> **Selected and activated:** Yasuke approved the larger islands. [Combined current adoption](approved-islands-coast.md). The candidate metrics below remain historical proposal evidence;current source/painting/registration are in the adoption.
+
 # Current full-layer larger-island proposal — inactive
 
 ![Active and candidate numerical terrain at the same world scale](island-proportion-current-comparison.png)

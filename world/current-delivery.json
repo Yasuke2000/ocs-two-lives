@@ -2,31 +2,31 @@
   "review_bundle": "current source,painting and58place concepts",
   "source_before_integration": "b3189e7b8a86e1372e92ee48c4cd64ac4f35491c",
   "art_before_integration": "b4b86349993ff4fd7cdafbf0665ef140892b0382",
-  "display_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
-  "normal_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+  "display_source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "normal_source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
   "normal_artifact_sha256": {
-    "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
-    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
-    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
-    "exclude.png": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
-    "height.png": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
-    "index.json": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
-    "preview.png": "8c9cd937110cec246ab6ad1fb2231170b02e003589ba853936bd71eb89309362",
-    "road.png": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
-    "roads.json": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
-    "rugged.png": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
-    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
-    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
-    "sites.toml": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
-    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+    "anchors.toml": "23888472345972a93ec52f491e0b2b453160e27c57a37ff95c697fa61b886b61",
+    "biome.png": "fc7333bd2fe8fe974c8a51696741e1ff60f2e422607d7b16778b1b191bd86c2b",
+    "canon_map.txt": "fc64299b52f769a62039720f20d345fe1958a1a82d184e1d375c27934d434b2a",
+    "exclude.png": "452e55eadb2b8144bac5556c6c31708dafebb4734e0869fe278a465017862bb2",
+    "height.png": "0fa14d548941fb5ea63bef47bfd2e6e92cdf1344979a8544af962706696b5a33",
+    "index.json": "cdaa4c051c6907c47892a4d7662f30faab54975ac5c678aeb5dcbf0a7f9f7564",
+    "preview.png": "65f10fbec26fa7b36127d1c9119d6fde96c1ae42039c57a096a1edf9113d232b",
+    "road.png": "51a287ec1adf52c48bdb843eaff6a008183002ad17744656584e11c9b83799fb",
+    "roads.json": "6baee4ba2ed2b9ffa150a878c259d654d597c22bd887d74ed22f90d9469abdad",
+    "rugged.png": "764807cfda7089db9332857b2aa7911fbad8e8dca5a97cff35873e1cd124a896",
+    "sites.json": "73b5b8b7f92e6cfb766d0ade61fdbf85e2e20d25e11586d4e6ce5121c6bc5210",
+    "sites.png": "ea9035287d01da57c25fbd950707aeb0a900efae825ab28ee744eb512cd165c7",
+    "sites.toml": "be6c604fa9aad6498c8f032f3ca9ce5f5f46713aec7e8928de5c4bb8326b77f1",
+    "water.png": "f7edd0218a70298a48f6525a3777f656c628d910eb3ebae210d55410aaaefff4"
   },
   "normal_conversion_rerun": true,
   "source_and_art_numeric_registration_match": true,
   "registered_places": 58,
-  "roads": 23,
+  "roads": 24,
   "facts": {
     "records": 360,
-    "sha256": "a1f0c080911899172d4896134611bd4493f8012748cccf154d3d16aba8ccf9e4",
+    "sha256": "74c8f331a1542821796984c423f0eb1a04227e9f1880ec2befb7884d5628a962",
     "confidence_counts": {
       "canon-explicit": 130,
       "canon-implied": 41,
@@ -58,7 +58,7 @@
       "elmine"
     ]
   ],
-  "new_protected_changes": true,
+  "new_protected_changes": false,
   "places": [
     {
       "id": "tempest",
@@ -425,7 +425,7 @@
       "current_image": "../docs/art/places/ameld_source.png",
       "current_image_sha256": "df40d632c64279119a89eea10b204dbacb1e9b4ed5281053846af859adf83525",
       "sheet": "../docs/art/places/ameld_source.md",
-      "sheet_sha256": "d0e296b0b7bc07f7a0d9f929b173cf4011050029776aeff48b799295431c2542",
+      "sheet_sha256": "25cb4aecd1f9eff0d0b049b2c87834c173dc8af575a33eb5a368e9c6ec25b5d3",
       "dimensions": [
         1536,
         1024
@@ -445,7 +445,7 @@
       "current_image": "../docs/art/places/ameld_mouth.png",
       "current_image_sha256": "d311ac05d41c85c0169f9f6c4f1fe3e3d02ab73af60cfb9154c8d3efe9df6274",
       "sheet": "../docs/art/places/ameld_mouth.md",
-      "sheet_sha256": "b3dfe8810bfd19dee747e6cc36140886c07b89dc5c67b532dfb3547656eb9343",
+      "sheet_sha256": "671670ce7ef61524917a1803e9dc56bf942eb2c3e90aa31e00a91856d1817b24",
       "dimensions": [
         1536,
         1024
@@ -886,19 +886,19 @@
       "current_image": "../docs/art/places/sainte_malukshure.png",
       "current_image_sha256": "ffa75b7abfb55f2e9a7eea3f97104752170658fcb814b916e825153922f8fb9b",
       "sheet": "../docs/art/places/sainte_malukshure.md",
-      "sheet_sha256": "a36806acf93dbde45c087d5482653da3fe2dc19031fc823d40308f41d8a410b1",
+      "sheet_sha256": "3fdcba53c7e81a2ded85144a62ff1ecdf7f7d806892949a86b7a1a58a031b2a3",
       "dimensions": [
         1536,
         1024
       ],
       "reservation_x_z_r_kind_margin": [
-        -100.0,
-        2000.0,
+        -2320.0,
+        1645.0,
         8.0,
         "clearing",
         24.0
       ],
-      "designed_first_air": 69,
+      "designed_first_air": 64,
       "original_prompt_tail_sha256": "b707c68bd870cbcf50265ada334d2e1b3ed2a74458d3598064d8845f6731ebec"
     },
     {
@@ -1026,7 +1026,7 @@
       "current_image": "../docs/art/places/amrita.png",
       "current_image_sha256": "694c22e1817a11fbb41936c4488db300eba70e3f1f0489a6255de73a86cf4280",
       "sheet": "../docs/art/places/amrita.md",
-      "sheet_sha256": "a58d6fda4264726d68f93ead0020408162f26139cce261cdcd4898320cb3fdb4",
+      "sheet_sha256": "e81b3351642f1d5fe6531432fdf0f6b48631c80ba170dd22a5bd1d212d44e361",
       "dimensions": [
         1536,
         1024
@@ -1086,19 +1086,19 @@
       "current_image": "../docs/art/places/el_dorado.png",
       "current_image_sha256": "0070aa8ea02a4d46552e408077bfd2dfe30abc9555d4b2e3a8314f2c62d2ec63",
       "sheet": "../docs/art/places/el_dorado.md",
-      "sheet_sha256": "11c67f261e50c225f8e758616d35abe70f45284c96421b977ff9e1db658cfac7",
+      "sheet_sha256": "0556c79b89b729da474aa0ff27dc7a772137a6539eaef185471ef9d25e6d0194",
       "dimensions": [
         1536,
         1024
       ],
       "reservation_x_z_r_kind_margin": [
-        -4300.0,
-        3000.0,
+        -4900.0,
+        3202.0,
         100.0,
         "clearing",
         64.0
       ],
-      "designed_first_air": 73,
+      "designed_first_air": 70,
       "original_prompt_tail_sha256": "a4197d2d7f1800dd48353e67b60a3eeaad6d1c4477d50741f8a2e41ddae0d9e1"
     },
     {
@@ -1106,19 +1106,19 @@
       "current_image": "../docs/art/places/el_dorado_volcano.png",
       "current_image_sha256": "588b0fb53693199eb37ff656873f0491a6cf036d076ee95530c0af7429f684c1",
       "sheet": "../docs/art/places/el_dorado_volcano.md",
-      "sheet_sha256": "ed53b45486586fb909b4f6dfcde82ee4be9d0bd8c356312ee6f04aae136af3dc",
+      "sheet_sha256": "c983a6f4280b5960510fe4386004d7bf93d17011de9f5ad1aefcc274346d1cd2",
       "dimensions": [
         1536,
         1024
       ],
       "reservation_x_z_r_kind_margin": [
-        -3900.0,
-        3200.0,
+        -4359.0,
+        3473.0,
         8.0,
         "clearing",
         24.0
       ],
-      "designed_first_air": 197,
+      "designed_first_air": 222,
       "original_prompt_tail_sha256": "e2d0467c34a1f290a65efd3c1748dd237d814356a379748b198254e522f9a00f"
     },
     {
@@ -1126,19 +1126,19 @@
       "current_image": "../docs/art/places/frost_palace.png",
       "current_image_sha256": "1076ab872ec17edcc5676c03f25d3d82a28b0bb82e37143dce85a6b0063abd24",
       "sheet": "../docs/art/places/frost_palace.md",
-      "sheet_sha256": "04bb9d921e607ebf509a298612e7c9fd49f5eca53cb4bac868d8b1f454cc0312",
+      "sheet_sha256": "5a5be1265e5d355d7cec83695b7b0f4982a9993239cbec6e68de2a214776b501",
       "dimensions": [
         1536,
         1024
       ],
       "reservation_x_z_r_kind_margin": [
-        -1530.0,
-        -3680.0,
+        -2130.0,
+        -3799.0,
         89.0,
         "clearing",
         48.0
       ],
-      "designed_first_air": 71,
+      "designed_first_air": 75,
       "original_prompt_tail_sha256": "6623c4d76788e76be77570b4ff2b8a3eaaf0dcfb14743b784aa1cc22b8c2a763"
     },
     {
@@ -1345,142 +1345,29 @@
       "relations": 56,
       "warnings": 2
     },
-    "normal_conversion_seconds": 71.9,
+    "normal_conversion_seconds": 91.6,
+    "skip_check": false,
     "repository_gate": {
       "passed": false,
-      "tests": 472,
+      "validation_passed": false,
+      "tests": 494,
       "skipped": 26,
-      "failures": 2,
-      "seconds": 70.131,
-      "validation_failures": [
-        "Legacy canon_map.txt reads U at retained Lerfing anchor(-900,700),source region now J."
-      ],
+      "seconds": 72.283,
+      "failures": 3,
+      "changed_js_files": 0,
       "failed_tests": [
         "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_every_anchor_on_its_ground_and_in_its_region[sainte_malukshure]",
         "test_gen_data_check_covers_the_env_file"
       ],
-      "protected_paths_edited": false
+      "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened."
     },
-    "other57_exported_sites_exact": true,
-    "old22_road_exports_exact": true,
-    "road_profiles": [
-      {
-        "id": "tempest_dwargon",
-        "maximum_exported_grade": 0.5000000000000085,
-        "wet_sample_cells": 3
-      },
-      {
-        "id": "tempest_blumund",
-        "maximum_exported_grade": 0.4145593141157564,
-        "wet_sample_cells": 1
-      },
-      {
-        "id": "blumund_englassia_lubelius",
-        "maximum_exported_grade": 0.5,
-        "wet_sample_cells": 21
-      },
-      {
-        "id": "dwargon_dwarf_village",
-        "maximum_exported_grade": 0.5000000000000114,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "sacred_mountain_trail",
-        "maximum_exported_grade": 0.5000000000000455,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "treyni_marsh_trail",
-        "maximum_exported_grade": 0.38179387307052826,
-        "wet_sample_cells": 3
-      },
-      {
-        "id": "siss_cavern_and_orc_trail",
-        "maximum_exported_grade": 0.5000000000000114,
-        "wet_sample_cells": 4
-      },
-      {
-        "id": "ogre_foothill_trail",
-        "maximum_exported_grade": 0.5000000000000008,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "canaat_high_pass",
-        "maximum_exported_grade": 0.5000000000000171,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "falmuth_road",
-        "maximum_exported_grade": 0.07925304884756149,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "western_belt_road",
-        "maximum_exported_grade": 0.17164391531122264,
-        "wet_sample_cells": 2
-      },
-      {
-        "id": "western_desert_caravan",
-        "maximum_exported_grade": 0.3825000000000003,
-        "wet_sample_cells": 3
-      },
-      {
-        "id": "fulbrosia_stair",
-        "maximum_exported_grade": 0.5000000000000199,
-        "wet_sample_cells": 3
-      },
-      {
-        "id": "southern_royal_road",
-        "maximum_exported_grade": 0.5000000000000171,
-        "wet_sample_cells": 3
-      },
-      {
-        "id": "ulgracia_south_road",
-        "maximum_exported_grade": 0.5000000000000114,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "eurazania_road",
-        "maximum_exported_grade": 0.5000000000000114,
-        "wet_sample_cells": 2
-      },
-      {
-        "id": "milim_river_road",
-        "maximum_exported_grade": 0.4900000000000187,
-        "wet_sample_cells": 7
-      },
-      {
-        "id": "jistav_border_road",
-        "maximum_exported_grade": 0.42950039375451965,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "imperial_volcano_road",
-        "maximum_exported_grade": 0.5000000000000455,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "el_dorado_volcanic_way",
-        "maximum_exported_grade": 0.5000000000000455,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "frost_palace_forecourt",
-        "maximum_exported_grade": 0,
-        "wet_sample_cells": 0
-      },
-      {
-        "id": "englassia_coleus_royal_approach",
-        "maximum_exported_grade": 0.5,
-        "wet_sample_cells": 22
-      },
-      {
-        "id": "filtwood_jura_trail",
-        "maximum_exported_grade": 0.03999999999999915,
-        "wet_sample_cells": 0
-      }
-    ],
-    "scope": "Historical approved-Filtwood checks before current-main history integration;current combined checks are in authoring_consolidation."
+    "site_index_unchanged": 54,
+    "flat_preparations_unchanged": 32,
+    "road_exports_unchanged": 21,
+    "finite_checks": "approved-islands-coast-finite-checks.json",
+    "atlas_checks": "approved-islands-coast-atlas-check.json",
+    "scope": "Current combined owner-selected adoption;older nested audits remain historical."
   },
   "owner_approved_filtwood": {
     "date": "2026-11-22",
@@ -1601,7 +1488,7 @@
     "source_sha256": "97667b2a506b81011c8bb01a6d0abd30e731cc1c6781a37dd0af7633eaf5aaa4",
     "active_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
     "production_replaced": false,
-    "owner_choice_pending": true,
+    "owner_choice_pending": false,
     "review": "island-proportion-current-review.md",
     "normal_seconds": 74.6,
     "normal_skip_check": false,
@@ -1620,7 +1507,10 @@
     },
     "site_config_total": 34,
     "site_config_unchanged": 32,
-    "site_index_unchanged": 55
+    "site_index_unchanged": 55,
+    "owner_selected": true,
+    "superseded_by_active_adoption": "approved-islands-coast.md",
+    "historical_proposal": true
   },
   "source_hash_convention": {
     "canonical": "SHA256 of UTF-8 SVG text with LF line endings; matches git blob and converter index.",
@@ -1669,7 +1559,7 @@
     "source_sha256": "96324fe90cc835b900525c8bab4ae4651fb13ba41106121d37cc8f08bcf047d9",
     "active_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
     "production_replaced": false,
-    "owner_choice_pending": true,
+    "owner_choice_pending": false,
     "review": "malukshure-current-review.md",
     "default_checker_errors": 1,
     "conditional_checker_errors": 0,
@@ -1688,7 +1578,10 @@
       "validation_passed": false,
       "changed_js_files": 0,
       "scope": "Same retained authoring legacy Filtwood U/J dependency;the separate candidate H/O check is recorded independently."
-    }
+    },
+    "owner_selected": true,
+    "superseded_by_active_adoption": "approved-islands-coast.md",
+    "historical_proposal": true
   },
   "ln13_east_city_source_review": {
     "review": "../docs/research/tensura-world-2026-11-19/ln13-east-city-source-review.md",
@@ -1756,23 +1649,13 @@
   "current_proportion_benchmark": {
     "review": "proportion-audit.md",
     "audit": "proportion-current-audit.json",
-    "source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
-    "reference_confidence": "fan-wiki; not surveyed canon",
+    "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
     "markers": 14,
-    "numeric_rows_changed": [
-      "frost_palace"
+    "numeric_rows_changed_from_previous": [
+      "frost_palace",
+      "el_dorado"
     ],
-    "geometry_changed": false,
-    "repository_gate": {
-      "tests": 494,
-      "seconds": 66.388,
-      "failures": 2,
-      "skipped": 26,
-      "passed": false,
-      "validation_passed": false,
-      "changed_js_files": 0,
-      "scope": "Same retained authoring legacy Filtwood U/J failures;no map or runtime behaviour changed."
-    }
+    "canonical_scale_verified": false
   },
   "current_mainland_requirement_review": "current-geography-review.md",
   "approved_amrita_target": {
@@ -1793,5 +1676,17 @@
       "changed_js_files": 0,
       "scope": "Same retained legacy Filtwood U/J failures;owner decision documentation only."
     }
-  }
+  },
+  "owner_geography_choices_pending": [],
+  "approved_islands_coast": {
+    "review": "approved-islands-coast.md",
+    "audit": "approved-islands-coast-audit.json",
+    "date": "2026-11-24",
+    "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+    "active": true,
+    "island_sizes_owner_selected": true,
+    "sainte_region": "O",
+    "legacy_runtime_registration_pending": true
+  },
+  "historical_nested_audits_note": "Earlier source versions and checks retain their historical values;bundle_checks and approved_islands_coast identify current adoption."
 }

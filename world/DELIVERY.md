@@ -1,45 +1,11 @@
-> **Amrita choice resolved:** Yasuke selected beneath-castle nesting and retirement of the eastern reservation. [Approved target/technical handoff](amrita-approved.md). The serialized eastern circle remains only until coordinated adoption;the four-error trial is not activated. Two other geography choices remain pending.
+# Current world-map delivery
 
-# Current world-map review bundle
+![Current original painted atlas](painting-round112/atlas.png)
 
-![Named original painted atlas](painting-round112/atlas.png)
+Yasuke's larger islands and coastal Malukshure are active. The snapshot remains immediately after Kijin naming, with early Tempest forest trails. Eastern Empire, western countries, Jura, Dwargon, southern countries and both offshore landmasses are included.
 
-The post-Kijin map now includes Yasuke's approved Filtwood western forest-edge placement: **(-1050,74,600),gameplay J**,with a1102-block woodland trail. Exact western bearing remains interpreted; Filtwood remains an independent kingdom.
+[Adoption, coordinates and checks](approved-islands-coast.md) · [geometry](map.svg) · [checked preview](preview.png) · [numbered terrain atlas](atlas.png) · [terrain/painting comparison](painting-round112/current-source-comparison.png) · [regions](regions.md) · [58 place concepts](../docs/art/places/README.md) · [manifest](current-delivery.json) · [source conflicts](../docs/research/tensura-world-2026-11-19/contradictions.md).
 
-| Deliverable | Current evidence |
-| --- | --- |
-| Geometry and checked preview | [map.svg](map.svg) · [preview.png](preview.png);58sites,23roads |
-| Named original illustration | [Painted atlas](painting-round112/atlas.png) · [marked terrain](atlas.png) |
-| Export versus illustration | [Same-frame comparison](painting-round112/current-source-comparison.png) |
-| Geography and evidence | [Regions](regions.md) · [360-record ledger](../docs/research/tensura-world-2026-11-19/geography-facts.csv) · [official reference comparison](comparison.md) |
-| Place concepts | [58image/sheet pairs](../docs/art/places/README.md) |
-| Current approval and checks | [Filtwood adoption](filtwood-approved.md) · [audit](filtwood-approved-audit.json) · [delivery manifest](current-delivery.json) |
-| Initial story state | [Immediately after Kijin naming](era.md),anime S1E10 |
+**Map check passes:** 58 sites, 24 roads, 0 errors / 56 relations / 2 standing warnings; normal export 91.6 seconds without skip-check. All 13 finite lake cases pass and every strict native land centre has gameplay coverage. All 58 atlas anchors in each map match current coordinates.
 
-Source/export `534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0`. Fresh normal staging passed without skip-check in68.6s. Standard checker:0errors,56relations,2standingwarnings. For the latest early-trail change,biome/water rasters,all58site exports and21other road records are unchanged;309height cells change by at most1block. Original painting now includes the trail and new marker39. Original place PNGs and exact prompts are retained.
-
-**Repository integration remains blocked by the old-map binding:** latest combined gate ran 494 tests, 26 skipped, 2 failures; validation reads U at the retained legacy Filtwood(-900,700) while the approved source binding is J. [Exact handoff](filtwood-approved.md). No runtime,mod or tool code was authored; the six individually approved relation-data records are the protected-path exceptions. This is a draft creative delivery,not a main-ready or deployed world.
-
-Two owner choices remain pending: [larger Ice/ElDorado proportions](https://github.com/Yasuke2000/ocs-two-lives/pull/132) and [Malukshure coastal H-to-O setting](https://github.com/Yasuke2000/ocs-two-lives/pull/135). Their candidate geometry remains inactive. Filtwood's [earlier proposal](https://github.com/Yasuke2000/ocs-two-lives/pull/142) is now adopted here.
-
-The143-entry location inventory still has42physical follow-ups. Source gaps,C05mountain bearing,C07Amrita nesting,Galut registration and complete cities remain open. Claude owns runtime conversion,in-game acceptance,world apply and chunk generation. No main merge,apply or deployment by this delivery.
-
-The requested `chatgpt/world-map` draft now includes the approved-Filtwood and source-review item PRs, plus upstream main history. Both document conflicts were resolved with both histories retained. The [consolidation audit](consolidation-audit.json) records current checker/test scope and the protected-path comparison. Runtime, mod and tools match upstream main except for the five earlier owner-approved geography records and the newly approved single arrival-road kind. No main merge or deployment.
-
-[Approved early Tempest trail adoption](early-tempest-trails-review.md): both Tempest routes are unpaved at the initial snapshot;all points retained,later paving is separate. Updated original painting and comparison follow the same source.
-
-[Updated full-layer larger-island candidate](island-proportion-current-review.md) follows current source534d07ad with its approved Filtwood and early trails;normal74.6s,all13finite lake cases pass. It remains inactive pending the island-size choice;current painting still represents the active smaller-island map.
-
-[Runtime source review](runtime-source-review.md) identifies the older technical branch source and the exact approved Filtwood/trail deltas. Canonical LF source534d07ad matches the existing converter index;the older555c842f label was a raw Windows-line-ending hash. Flat-site configuration counts in the island proposal are corrected to32of34.
-
-[Current Malukshure coastal proposal](malukshure-current-review.md) retains approved Filtwood and early trails. It remains inactive: the default checker rejects the H/O binding; only the separately proposed O input passes. The isolated converter explicitly uses skip-check for that pending binding.
-
-[Direct LN13 East city access review](../docs/research/tensura-world-2026-11-19/ln13-east-city-source-review.md) strengthens one location/route relationship;the physical representation remains missing and the later blockade is excluded from the initial map. All normal terrain/art remain unchanged.
-
-[Current Dwargon city planning](dwargon-city-current-fit.md) now displays the exact current inactive room/gallery geometry and fresh surface-fit measurements;it does not add the East gate/Imperial road or activate carving.
-
-[Current Amrita nesting trial](amrita-current-nesting-review.md) exposes four default integration conflicts;active geometry remains unchanged pending the source-led nested-location versus explicit server-deviation choice.
-
-[Current14-marker proportion benchmark](proportion-audit.md) now follows the approved inland palace;the previous palace ratio/bearing were stale. All13other displayed numeric rows are retained. It remains a secondary review signal with unknown projection,not a canonical scale test.
-
-[Current mainland requirement review](current-geography-review.md) checks all12requested contexts and separates present terrain from pending source,owner and technical dependencies.
+**The whole task is not finished.** The repository gate has three legacy-registration failures plus failed validation (Filtwood U/J and Sainte H/O). Claude's coordinated Amrita nesting, runtime registration, Minecraft terrain/structures and in-game acceptance remain. There are 42 physical follow-ups from the 143-entry source inventory. No owner geography choices remain pending; source gaps and technical work remain. Nothing has been applied or deployed to the server.

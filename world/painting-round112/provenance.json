@@ -12,7 +12,7 @@
   "global_relief_resampled": false,
   "runtime_applied": false,
   "vertical_limit": "This illustration is not an exact height reconstruction;R130 pond height is adopted as plan context and the dune has interpretive light/shade.",
-  "current_display_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "current_display_source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
   "current_source_commit": "d1f4882",
   "display_followup": "Only capital display wording and root source metadata refreshed;the original terrain composition and continent PNG are retained. The earlier source_sha256/map_commit still identify the actual Coleus terrain/brushwork basis.",
   "western_islet_followup": {
@@ -56,6 +56,17 @@
     "native_vector_trail_added": true,
     "root_source_metadata_corrected": true,
     "historical_component_height_basis_retained": true,
+    "runtime_applied": false
+  },
+  "approved_islands_coast": {
+    "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+    "date": "2026-11-24",
+    "active": true,
+    "normal_seconds": 91.6,
+    "original_island_brushwork_transformed": true,
+    "copyrighted_reference_pixels_embedded": false,
+    "atlas_checks": "../approved-islands-coast-atlas-check.json",
+    "prior_records_are_historical": true,
     "runtime_applied": false
   }
 }

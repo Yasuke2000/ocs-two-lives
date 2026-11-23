@@ -1,3 +1,5 @@
+> **Current approved registration (24 November 2026):** centre x/first-air-y/z **(-2320,64,1645)**, radius **8**, kind `clearing`. Gameplay O; independent Malukshure, not a sovereignty claim. Unplated radius8 country pin;coast/cape/route are interpreted. [Active map and checks](../../../world/approved-islands-coast.md). The retained concept image is illustrative;earlier coordinates,fit tests and pending-choice statements below are historical and are superseded here. Its exact generation prompt remains historical evidence. No current voxel fit or complete city/palace is certified.
+
 # Sainte-Malukshure: C14 coastal alternative (`sainte_malukshure`): concept art
 
 ![Original source-qualified concept](sainte_malukshure.png)

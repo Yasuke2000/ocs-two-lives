@@ -1,9 +1,9 @@
 {
   "world_frame": [
-    -8064,
-    -5632,
-    16128,
-    10752
+    -8448,
+    -6144,
+    16896,
+    11264
   ],
   "map_pixels": [
     2200,
@@ -14,582 +14,582 @@
     {
       "number": 1,
       "id": "tempest",
-      "world_x": 0.0,
-      "world_z": 0.0,
-      "anchor_px": 1100.0,
-      "anchor_py": 898.2539682539682,
-      "label_px": 1100.0,
-      "label_py": 898.2539682539682
+      "world_x": 0,
+      "world_z": 0,
+      "anchor_px": 1100,
+      "anchor_py": 930,
+      "label_px": 1100,
+      "label_py": 930
     },
     {
       "number": 2,
       "id": "arrival",
-      "world_x": 0.0,
-      "world_z": -1000.0,
-      "anchor_px": 1100.0,
-      "anchor_py": 761.8452380952381,
-      "label_px": 1100.0,
-      "label_py": 761.8452380952381
+      "world_x": 0,
+      "world_z": -1000,
+      "anchor_px": 1100,
+      "anchor_py": 799.7916666666666,
+      "label_px": 1100,
+      "label_py": 799.7916666666667
     },
     {
       "number": 3,
       "id": "wayfarers_camp",
-      "world_x": 15.0,
-      "world_z": -985.0,
-      "anchor_px": 1102.0461309523807,
-      "anchor_py": 763.891369047619,
-      "label_px": 1125.2924727707612,
-      "label_py": 783.4813560834242
+      "world_x": 15,
+      "world_z": -985,
+      "anchor_px": 1101.953125,
+      "anchor_py": 801.7447916666667,
+      "label_px": 1124.1428149175447,
+      "label_py": 820.4443247462989
     },
     {
       "number": 4,
       "id": "sealed_cave",
-      "world_x": -120.0,
-      "world_z": -400.0,
-      "anchor_px": 1083.6309523809523,
-      "anchor_py": 843.6904761904761,
-      "label_px": 1083.6309523809523,
-      "label_py": 843.6904761904761
+      "world_x": -120,
+      "world_z": -400,
+      "anchor_px": 1084.375,
+      "anchor_py": 877.9166666666666,
+      "label_px": 1084.375,
+      "label_py": 877.9166666666667
     },
     {
       "number": 5,
       "id": "goblin_village",
-      "world_x": -530.0,
-      "world_z": -220.0,
-      "anchor_px": 1027.703373015873,
-      "anchor_py": 868.2440476190476,
-      "label_px": 1027.703373015873,
-      "label_py": 868.2440476190476
+      "world_x": -530,
+      "world_z": -220,
+      "anchor_px": 1030.9895833333333,
+      "anchor_py": 901.3541666666666,
+      "label_px": 1030.9895833333335,
+      "label_py": 901.3541666666667
     },
     {
       "number": 6,
       "id": "spirit_gate",
-      "world_x": -285.0,
-      "world_z": 350.0,
-      "anchor_px": 1061.1235119047617,
-      "anchor_py": 945.9970238095237,
-      "label_px": 1061.1235119047617,
-      "label_py": 945.9970238095237
+      "world_x": -285,
+      "world_z": 350,
+      "anchor_px": 1062.890625,
+      "anchor_py": 975.5729166666666,
+      "label_px": 1062.890625,
+      "label_py": 975.5729166666666
     },
     {
       "number": 7,
       "id": "shizu_spawn",
-      "world_x": -420.0,
-      "world_z": -80.0,
-      "anchor_px": 1042.7083333333333,
-      "anchor_py": 887.3412698412698,
-      "label_px": 1062.7083333333333,
-      "label_py": 887.3412698412698
+      "world_x": -420,
+      "world_z": -80,
+      "anchor_px": 1045.3125,
+      "anchor_py": 919.5833333333333,
+      "label_px": 1064.403409090909,
+      "label_py": 919.5833333333334
     },
     {
       "number": 8,
       "id": "outcast_road",
-      "world_x": 0.0,
-      "world_z": 52.0,
-      "anchor_px": 1100.0,
-      "anchor_py": 905.3472222222222,
-      "label_px": 1108.1264772616269,
-      "label_py": 931.252489395449
+      "world_x": 0,
+      "world_z": 52,
+      "anchor_px": 1100,
+      "anchor_py": 936.7708333333333,
+      "label_px": 1107.7570919315528,
+      "label_py": 961.4985883623226
     },
     {
       "number": 9,
       "id": "treyni_grove",
-      "world_x": 320.0,
-      "world_z": 470.0,
-      "anchor_px": 1143.6507936507935,
-      "anchor_py": 962.3660714285713,
-      "label_px": 1143.6507936507935,
-      "label_py": 962.3660714285713
+      "world_x": 320,
+      "world_z": 470,
+      "anchor_px": 1141.6666666666667,
+      "anchor_py": 991.1979166666667,
+      "label_px": 1141.6666666666665,
+      "label_py": 991.1979166666666
     },
     {
       "number": 10,
       "id": "treyni_shrine",
-      "world_x": 500.0,
-      "world_z": 600.0,
-      "anchor_px": 1168.204365079365,
-      "anchor_py": 980.0992063492063,
-      "label_px": 1188.204365079365,
-      "label_py": 980.0992063492063
+      "world_x": 500,
+      "world_z": 600,
+      "anchor_px": 1165.1041666666665,
+      "anchor_py": 1008.125,
+      "label_px": 1184.1950757575758,
+      "label_py": 1008.125
     },
     {
       "number": 11,
       "id": "ogre_village_ruin",
-      "world_x": 500.0,
-      "world_z": 300.0,
-      "anchor_px": 1168.204365079365,
-      "anchor_py": 939.1765873015872,
-      "label_px": 1168.204365079365,
-      "label_py": 939.1765873015872
+      "world_x": 500,
+      "world_z": 300,
+      "anchor_px": 1165.1041666666665,
+      "anchor_py": 969.0625,
+      "label_px": 1165.1041666666667,
+      "label_py": 969.0625
     },
     {
       "number": 12,
       "id": "dwargon",
-      "world_x": 780.0,
-      "world_z": -1390.0,
-      "anchor_px": 1206.3988095238094,
-      "anchor_py": 708.6458333333333,
-      "label_px": 1206.3988095238096,
-      "label_py": 708.6458333333334
+      "world_x": 780,
+      "world_z": -1390,
+      "anchor_px": 1201.5625,
+      "anchor_py": 749.0104166666666,
+      "label_px": 1201.5625000000002,
+      "label_py": 749.0104166666667
     },
     {
       "number": 13,
       "id": "dwargo",
-      "world_x": 780.0,
-      "world_z": -1490.0,
-      "anchor_px": 1206.3988095238094,
-      "anchor_py": 695.0049603174602,
-      "label_px": 1208.2608404006141,
-      "label_py": 673.7865051188879
+      "world_x": 780,
+      "world_z": -1490,
+      "anchor_px": 1201.5625,
+      "anchor_py": 735.9895833333334,
+      "label_px": 1203.3398931096772,
+      "label_py": 715.7356033710597
     },
     {
       "number": 14,
       "id": "dwargon_throne",
-      "world_x": 780.0,
-      "world_z": -1496.0,
-      "anchor_px": 1206.3988095238094,
-      "anchor_py": 694.1865079365078,
-      "label_px": 1175.3753950327823,
-      "label_py": 695.4711297944538
+      "world_x": 780,
+      "world_z": -1496,
+      "anchor_px": 1201.5625,
+      "anchor_py": 735.2083333333334,
+      "label_px": 1171.9492407131104,
+      "label_py": 736.4345632886453
     },
     {
       "number": 15,
       "id": "kaijin_smithy",
-      "world_x": 768.0,
-      "world_z": -1474.0,
-      "anchor_px": 1204.7619047619046,
-      "anchor_py": 697.1875,
-      "label_px": 1238.1116947598662,
-      "label_py": 701.6723642222327
+      "world_x": 768,
+      "world_z": -1474,
+      "anchor_px": 1200,
+      "anchor_py": 738.0729166666666,
+      "label_px": 1231.8338904525995,
+      "label_py": 742.3539234242525
     },
     {
       "number": 16,
       "id": "dwarf_village",
-      "world_x": 1000.0,
-      "world_z": -1000.0,
-      "anchor_px": 1236.4087301587301,
-      "anchor_py": 761.8452380952381,
-      "label_px": 1236.4087301587301,
-      "label_py": 761.8452380952381
+      "world_x": 1000,
+      "world_z": -1000,
+      "anchor_px": 1230.2083333333333,
+      "anchor_py": 799.7916666666666,
+      "label_px": 1230.2083333333333,
+      "label_py": 799.7916666666667
     },
     {
       "number": 17,
       "id": "dwarven_arena",
-      "world_x": 1100.0,
-      "world_z": -980.0,
-      "anchor_px": 1250.0496031746031,
-      "anchor_py": 764.5734126984127,
-      "label_px": 1270.0496031746031,
-      "label_py": 764.5734126984127
+      "world_x": 1100,
+      "world_z": -980,
+      "anchor_px": 1243.2291666666665,
+      "anchor_py": 802.3958333333334,
+      "label_px": 1262.3200757575758,
+      "label_py": 802.3958333333334
     },
     {
       "number": 18,
       "id": "dragons_nest",
-      "world_x": 350.0,
-      "world_z": -2000.0,
-      "anchor_px": 1147.7430555555554,
-      "anchor_py": 625.436507936508,
-      "label_px": 1147.7430555555554,
-      "label_py": 625.436507936508
+      "world_x": 350,
+      "world_z": -2000,
+      "anchor_px": 1145.5729166666667,
+      "anchor_py": 669.5833333333334,
+      "label_px": 1145.5729166666665,
+      "label_py": 669.5833333333334
     },
     {
       "number": 19,
       "id": "ameld_source",
-      "world_x": 200.0,
-      "world_z": -1240.0,
-      "anchor_px": 1127.281746031746,
-      "anchor_py": 729.1071428571428,
-      "label_px": 1105.027170410011,
-      "label_py": 725.1709182832041
+      "world_x": 200,
+      "world_z": -1240,
+      "anchor_px": 1126.0416666666667,
+      "anchor_py": 768.5416666666666,
+      "label_px": 1104.7986626641014,
+      "label_py": 764.7843613915434
     },
     {
       "number": 20,
       "id": "ameld_mouth",
-      "world_x": 2150.0,
-      "world_z": 1250.0,
-      "anchor_px": 1393.2787698412696,
-      "anchor_py": 1068.7648809523807,
-      "label_px": 1393.2787698412696,
-      "label_py": 1068.7648809523807
+      "world_x": 2150,
+      "world_z": 1250,
+      "anchor_px": 1379.9479166666665,
+      "anchor_py": 1092.7604166666665,
+      "label_px": 1379.9479166666665,
+      "label_py": 1092.7604166666665
     },
     {
       "number": 21,
       "id": "lake_siss",
-      "world_x": 1100.0,
-      "world_z": -100.0,
-      "anchor_px": 1250.0496031746031,
-      "anchor_py": 884.6130952380952,
-      "label_px": 1250.0496031746031,
-      "label_py": 884.6130952380952
+      "world_x": 1100,
+      "world_z": -100,
+      "anchor_px": 1243.2291666666665,
+      "anchor_py": 916.9791666666666,
+      "label_px": 1243.2291666666667,
+      "label_py": 916.9791666666667
     },
     {
       "number": 22,
       "id": "lizardmen_village",
-      "world_x": 1100.0,
-      "world_z": 265.0,
-      "anchor_px": 1250.0496031746031,
-      "anchor_py": 934.4022817460317,
-      "label_px": 1250.0496031746031,
-      "label_py": 934.4022817460317
+      "world_x": 1100,
+      "world_z": 265,
+      "anchor_px": 1243.2291666666665,
+      "anchor_py": 964.5052083333334,
+      "label_px": 1243.2291666666667,
+      "label_py": 964.5052083333334
     },
     {
       "number": 23,
       "id": "lizardmen_caverns",
-      "world_x": 1300.0,
-      "world_z": 520.0,
-      "anchor_px": 1277.3313492063492,
-      "anchor_py": 969.1865079365078,
-      "label_px": 1277.3313492063492,
-      "label_py": 969.1865079365078
+      "world_x": 1300,
+      "world_z": 520,
+      "anchor_px": 1269.2708333333333,
+      "anchor_py": 997.7083333333334,
+      "label_px": 1269.2708333333333,
+      "label_py": 997.7083333333334
     },
     {
       "number": 24,
       "id": "orc_camp",
-      "world_x": 1750.0,
-      "world_z": 550.0,
-      "anchor_px": 1338.7152777777776,
-      "anchor_py": 973.2787698412698,
-      "label_px": 1338.7152777777776,
-      "label_py": 973.2787698412698
+      "world_x": 1750,
+      "world_z": 550,
+      "anchor_px": 1327.8645833333333,
+      "anchor_py": 1001.6145833333334,
+      "label_px": 1327.8645833333333,
+      "label_py": 1001.6145833333334
     },
     {
       "number": 25,
       "id": "blumund",
-      "world_x": -1500.0,
-      "world_z": -620.0,
-      "anchor_px": 895.3869047619047,
-      "anchor_py": 813.6805555555555,
-      "label_px": 895.3869047619047,
-      "label_py": 813.6805555555555
+      "world_x": -1500,
+      "world_z": -620,
+      "anchor_px": 904.6875,
+      "anchor_py": 849.2708333333334,
+      "label_px": 904.6875,
+      "label_py": 849.2708333333334
     },
     {
       "number": 26,
       "id": "ballachia",
-      "world_x": -2450.0,
-      "world_z": -450.0,
-      "anchor_px": 765.7986111111111,
-      "anchor_py": 836.8700396825396,
-      "label_px": 765.7986111111111,
-      "label_py": 836.8700396825396
+      "world_x": -2450,
+      "world_z": -450,
+      "anchor_px": 780.9895833333333,
+      "anchor_py": 871.40625,
+      "label_px": 780.9895833333334,
+      "label_py": 871.40625
     },
     {
       "number": 27,
       "id": "englassia",
-      "world_x": -2900.0,
-      "world_z": -550.0,
-      "anchor_px": 704.4146825396824,
-      "anchor_py": 823.2291666666666,
-      "label_px": 704.4146825396824,
-      "label_py": 823.2291666666666
+      "world_x": -2900,
+      "world_z": -550,
+      "anchor_px": 722.3958333333334,
+      "anchor_py": 858.3854166666666,
+      "label_px": 722.3958333333333,
+      "label_py": 858.3854166666667
     },
     {
       "number": 28,
       "id": "marris",
-      "world_x": -1800.0,
-      "world_z": -1650.0,
-      "anchor_px": 854.4642857142857,
-      "anchor_py": 673.1795634920635,
-      "label_px": 854.4642857142857,
-      "label_py": 673.1795634920635
+      "world_x": -1800,
+      "world_z": -1650,
+      "anchor_px": 865.625,
+      "anchor_py": 715.15625,
+      "label_px": 865.625,
+      "label_py": 715.1562500000001
     },
     {
       "number": 29,
       "id": "siltrosso",
-      "world_x": -2297.0,
-      "world_z": -1370.0,
-      "anchor_px": 786.6691468253968,
-      "anchor_py": 711.3740079365078,
-      "label_px": 786.6691468253968,
-      "label_py": 711.3740079365078
+      "world_x": -2297,
+      "world_z": -1370,
+      "anchor_px": 800.9114583333334,
+      "anchor_py": 751.6145833333333,
+      "label_px": 800.9114583333333,
+      "label_py": 751.6145833333333
     },
     {
       "number": 30,
       "id": "lubelius",
-      "world_x": -3600.0,
-      "world_z": -1300.0,
-      "anchor_px": 608.9285714285713,
-      "anchor_py": 720.922619047619,
-      "label_px": 608.9285714285713,
-      "label_py": 720.922619047619
+      "world_x": -3600,
+      "world_z": -1300,
+      "anchor_px": 631.25,
+      "anchor_py": 760.7291666666666,
+      "label_px": 631.2499999999999,
+      "label_py": 760.7291666666667
     },
     {
       "number": 31,
       "id": "sacred_mountain",
-      "world_x": -3900.0,
-      "world_z": -1600.0,
-      "anchor_px": 568.0059523809523,
-      "anchor_py": 680.0,
-      "label_px": 568.0059523809523,
-      "label_py": 680.0
+      "world_x": -3900,
+      "world_z": -1600,
+      "anchor_px": 592.1875,
+      "anchor_py": 721.6666666666666,
+      "label_px": 592.1874999999999,
+      "label_py": 721.6666666666667
     },
     {
       "number": 32,
       "id": "coleus",
-      "world_x": -3520.0,
-      "world_z": -860.0,
-      "anchor_px": 619.8412698412698,
-      "anchor_py": 780.9424603174602,
-      "label_px": 619.8412698412698,
-      "label_py": 780.9424603174602
+      "world_x": -3520,
+      "world_z": -860,
+      "anchor_px": 641.6666666666667,
+      "anchor_py": 818.0208333333334,
+      "label_px": 641.6666666666666,
+      "label_py": 818.0208333333334
     },
     {
       "number": 33,
       "id": "heaven_tower",
-      "world_x": -4200.0,
-      "world_z": -200.0,
-      "anchor_px": 527.0833333333333,
-      "anchor_py": 870.9722222222222,
-      "label_px": 527.0833333333333,
-      "label_py": 870.9722222222222
+      "world_x": -4200,
+      "world_z": -200,
+      "anchor_px": 553.125,
+      "anchor_py": 903.9583333333334,
+      "label_px": 553.125,
+      "label_py": 903.9583333333334
     },
     {
       "number": 34,
       "id": "morgdahl",
-      "world_x": -3200.0,
-      "world_z": 330.0,
-      "anchor_px": 663.4920634920634,
-      "anchor_py": 943.2688492063492,
-      "label_px": 663.4920634920634,
-      "label_py": 943.2688492063492
+      "world_x": -3200,
+      "world_z": 330,
+      "anchor_px": 683.3333333333334,
+      "anchor_py": 972.96875,
+      "label_px": 683.3333333333333,
+      "label_py": 972.96875
     },
     {
       "number": 35,
       "id": "raja",
-      "world_x": -2850.0,
-      "world_z": 360.0,
-      "anchor_px": 711.235119047619,
-      "anchor_py": 947.3611111111111,
-      "label_px": 711.235119047619,
-      "label_py": 947.3611111111111
+      "world_x": -2850,
+      "world_z": 360,
+      "anchor_px": 728.90625,
+      "anchor_py": 976.875,
+      "label_px": 728.90625,
+      "label_py": 976.8750000000001
     },
     {
       "number": 36,
       "id": "nostraille",
-      "world_x": -2550.0,
-      "world_z": 330.0,
-      "anchor_px": 752.1577380952381,
-      "anchor_py": 943.2688492063492,
-      "label_px": 752.1577380952381,
-      "label_py": 943.2688492063492
+      "world_x": -2550,
+      "world_z": 330,
+      "anchor_px": 767.96875,
+      "anchor_py": 972.96875,
+      "label_px": 767.96875,
+      "label_py": 972.96875
     },
     {
       "number": 37,
       "id": "yuzalgh",
-      "world_x": -2350.0,
-      "world_z": 300.0,
-      "anchor_px": 779.4394841269841,
-      "anchor_py": 939.1765873015872,
-      "label_px": 799.4394841269841,
-      "label_py": 939.1765873015872
+      "world_x": -2350,
+      "world_z": 300,
+      "anchor_px": 794.0104166666666,
+      "anchor_py": 969.0625,
+      "label_px": 813.1013257575758,
+      "label_py": 969.0625
     },
     {
       "number": 38,
       "id": "yggdonia",
-      "world_x": -2150.0,
-      "world_z": -80.0,
-      "anchor_px": 806.7212301587301,
-      "anchor_py": 887.3412698412698,
-      "label_px": 806.7212301587301,
-      "label_py": 887.3412698412698
+      "world_x": -2150,
+      "world_z": -80,
+      "anchor_px": 820.0520833333334,
+      "anchor_py": 919.5833333333333,
+      "label_px": 820.0520833333334,
+      "label_py": 919.5833333333334
     },
     {
       "number": 39,
       "id": "filtwood",
-      "world_x": -1050.0,
-      "world_z": 600.0,
-      "anchor_px": 956.7708333333334,
-      "anchor_py": 980.0992063492064,
-      "label_px": 956.7708333333334,
-      "label_py": 980.0992063492064
+      "world_x": -1050,
+      "world_z": 600,
+      "anchor_px": 963.28125,
+      "anchor_py": 1008.125,
+      "label_px": 963.2812500000001,
+      "label_py": 1008.1250000000001
     },
     {
       "number": 40,
       "id": "ghastone",
-      "world_x": -3200.0,
-      "world_z": -300.0,
-      "anchor_px": 663.4920634920634,
-      "anchor_py": 857.3313492063492,
-      "label_px": 663.4920634920634,
-      "label_py": 857.3313492063492
+      "world_x": -3200,
+      "world_z": -300,
+      "anchor_px": 683.3333333333334,
+      "anchor_py": 890.9375,
+      "label_px": 683.3333333333333,
+      "label_py": 890.9375
     },
     {
       "number": 41,
       "id": "rostia",
-      "world_x": -2780.0,
-      "world_z": 200.0,
-      "anchor_px": 720.7837301587301,
-      "anchor_py": 925.5357142857142,
-      "label_px": 722.6457610355347,
-      "label_py": 904.3172590871418
+      "world_x": -2780,
+      "world_z": 200,
+      "anchor_px": 738.0208333333333,
+      "anchor_py": 956.0416666666667,
+      "label_px": 739.7982264430104,
+      "label_py": 935.787686704393
     },
     {
       "number": 42,
       "id": "sainte_malukshure",
-      "world_x": -100.0,
-      "world_z": 2000.0,
-      "anchor_px": 1086.359126984127,
-      "anchor_py": 1171.0714285714284,
-      "label_px": 1086.359126984127,
-      "label_py": 1171.0714285714284
+      "world_x": -2320,
+      "world_z": 1645,
+      "anchor_px": 797.9166666666666,
+      "anchor_py": 1144.1927083333335,
+      "label_px": 797.9166666666667,
+      "label_py": 1144.1927083333335
     },
     {
       "number": 43,
       "id": "ulgr_nature_park",
-      "world_x": -950.0,
-      "world_z": 2850.0,
-      "anchor_px": 970.4117063492063,
-      "anchor_py": 1287.0188492063492,
-      "label_px": 970.4117063492063,
-      "label_py": 1287.0188492063492
+      "world_x": -950,
+      "world_z": 2850,
+      "anchor_px": 976.3020833333334,
+      "anchor_py": 1301.09375,
+      "label_px": 976.3020833333333,
+      "label_py": 1301.09375
     },
     {
       "number": 44,
       "id": "elmine",
-      "world_x": -1680.0,
-      "world_z": 1740.0,
-      "anchor_px": 870.8333333333333,
-      "anchor_py": 1135.6051587301586,
-      "label_px": 870.8333333333333,
-      "label_py": 1135.6051587301586
+      "world_x": -1680,
+      "world_z": 1740,
+      "anchor_px": 881.25,
+      "anchor_py": 1156.5625,
+      "label_px": 881.25,
+      "label_py": 1156.5624999999998
     },
     {
       "number": 45,
       "id": "jia",
-      "world_x": 200.0,
-      "world_z": 2450.0,
-      "anchor_px": 1127.281746031746,
-      "anchor_py": 1232.455357142857,
-      "label_px": 1127.281746031746,
-      "label_py": 1232.455357142857
+      "world_x": 200,
+      "world_z": 2450,
+      "anchor_px": 1126.0416666666667,
+      "anchor_py": 1249.0104166666667,
+      "label_px": 1126.0416666666667,
+      "label_py": 1249.0104166666665
     },
     {
       "number": 46,
       "id": "laura",
-      "world_x": 1500.0,
-      "world_z": 1600.0,
-      "anchor_px": 1304.6130952380952,
-      "anchor_py": 1116.5079365079364,
-      "label_px": 1304.6130952380952,
-      "label_py": 1116.5079365079364
+      "world_x": 1500,
+      "world_z": 1600,
+      "anchor_px": 1295.3125,
+      "anchor_py": 1138.3333333333333,
+      "label_px": 1295.3125,
+      "label_py": 1138.3333333333333
     },
     {
       "number": 47,
       "id": "forgotten_dragon_city",
-      "world_x": 2650.0,
-      "world_z": 800.0,
-      "anchor_px": 1461.4831349206347,
-      "anchor_py": 1007.3809523809523,
-      "label_px": 1461.4831349206347,
-      "label_py": 1007.3809523809523
+      "world_x": 2650,
+      "world_z": 800,
+      "anchor_px": 1445.0520833333333,
+      "anchor_py": 1034.1666666666667,
+      "label_px": 1445.0520833333333,
+      "label_py": 1034.1666666666665
     },
     {
       "number": 48,
       "id": "clayman_castle",
-      "world_x": 3300.0,
-      "world_z": -600.0,
-      "anchor_px": 1550.1488095238094,
-      "anchor_py": 816.4087301587301,
-      "label_px": 1550.1488095238094,
-      "label_py": 816.4087301587301
+      "world_x": 3300,
+      "world_z": -600,
+      "anchor_px": 1529.6875,
+      "anchor_py": 851.875,
+      "label_px": 1529.6875,
+      "label_py": 851.875
     },
     {
       "number": 49,
       "id": "amrita",
-      "world_x": 3800.0,
-      "world_z": -500.0,
-      "anchor_px": 1618.3531746031745,
-      "anchor_py": 830.0496031746031,
-      "label_px": 1618.3531746031745,
-      "label_py": 830.0496031746031
+      "world_x": 3800,
+      "world_z": -500,
+      "anchor_px": 1594.7916666666665,
+      "anchor_py": 864.8958333333334,
+      "label_px": 1594.7916666666665,
+      "label_py": 864.8958333333334
     },
     {
       "number": 50,
       "id": "nasca",
-      "world_x": 3200.0,
-      "world_z": -1800.0,
-      "anchor_px": 1536.5079365079364,
-      "anchor_py": 652.718253968254,
-      "label_px": 1536.5079365079364,
-      "label_py": 652.718253968254
+      "world_x": 3200,
+      "world_z": -1800,
+      "anchor_px": 1516.6666666666667,
+      "anchor_py": 695.625,
+      "label_px": 1516.6666666666665,
+      "label_py": 695.6250000000001
     },
     {
       "number": 51,
       "id": "great_holy_mountain",
-      "world_x": 3350.0,
-      "world_z": -1350.0,
-      "anchor_px": 1556.9692460317458,
-      "anchor_py": 714.1021825396825,
-      "label_px": 1556.9692460317458,
-      "label_py": 714.1021825396825
+      "world_x": 3350,
+      "world_z": -1350,
+      "anchor_px": 1536.1979166666665,
+      "anchor_py": 754.21875,
+      "label_px": 1536.1979166666665,
+      "label_py": 754.2187500000001
     },
     {
       "number": 52,
       "id": "el_dorado",
-      "world_x": -4300.0,
-      "world_z": 3000.0,
-      "anchor_px": 513.4424603174602,
-      "anchor_py": 1307.4801587301586,
-      "label_px": 513.4424603174602,
-      "label_py": 1307.4801587301586
+      "world_x": -4900,
+      "world_z": 3202.419457,
+      "anchor_px": 461.9791666666667,
+      "anchor_py": 1346.9817001302083,
+      "label_px": 461.9791666666666,
+      "label_py": 1346.981700130208
     },
     {
       "number": 53,
       "id": "el_dorado_volcano",
-      "world_x": -3900.0,
-      "world_z": 3200.0,
-      "anchor_px": 568.0059523809523,
-      "anchor_py": 1334.7619047619046,
-      "label_px": 568.0059523809523,
-      "label_py": 1334.7619047619046
+      "world_x": -4359.343887,
+      "world_z": 3472.747513,
+      "anchor_px": 532.3770980468751,
+      "anchor_py": 1382.1806657552083,
+      "label_px": 532.377098046875,
+      "label_py": 1382.180665755208
     },
     {
       "number": 54,
       "id": "frost_palace",
-      "world_x": -1530.0,
-      "world_z": -3680.0,
-      "anchor_px": 891.2946428571428,
-      "anchor_py": 396.26984126984127,
-      "label_px": 891.2946428571428,
-      "label_py": 396.26984126984127
+      "world_x": -2130,
+      "world_z": -3798.527937,
+      "anchor_px": 822.65625,
+      "anchor_py": 435.400008203125,
+      "label_px": 822.65625,
+      "label_py": 435.4000082031251
     },
     {
       "number": 55,
       "id": "blumund_road",
-      "world_x": -1340.0,
-      "world_z": -520.0,
-      "anchor_px": 917.2123015873015,
-      "anchor_py": 827.3214285714286,
-      "label_px": 937.2123015873015,
-      "label_py": 827.3214285714286
+      "world_x": -1340,
+      "world_z": -520,
+      "anchor_px": 925.5208333333334,
+      "anchor_py": 862.2916666666667,
+      "label_px": 944.6117424242424,
+      "label_py": 862.2916666666667
     },
     {
       "number": 56,
       "id": "englassia_road",
-      "world_x": -2650.0,
-      "world_z": -520.0,
-      "anchor_px": 738.5168650793651,
-      "anchor_py": 827.3214285714286,
-      "label_px": 740.3788959561697,
-      "label_py": 806.1029733728561
+      "world_x": -2650,
+      "world_z": -520,
+      "anchor_px": 754.9479166666666,
+      "anchor_py": 862.2916666666667,
+      "label_px": 756.7253097763438,
+      "label_py": 842.0376867043931
     },
     {
       "number": 57,
       "id": "old_well",
-      "world_x": -1000.0,
-      "world_z": -340.0,
-      "anchor_px": 963.5912698412698,
-      "anchor_py": 851.8749999999999,
-      "label_px": 963.5912698412698,
-      "label_py": 851.8749999999999
+      "world_x": -1000,
+      "world_z": -340,
+      "anchor_px": 969.7916666666666,
+      "anchor_py": 885.7291666666666,
+      "label_px": 969.7916666666666,
+      "label_py": 885.7291666666666
     },
     {
       "number": 58,
       "id": "rookie_camp",
-      "world_x": -120.0,
-      "world_z": -560.0,
-      "anchor_px": 1083.6309523809523,
-      "anchor_py": 821.8650793650793,
-      "label_px": 1085.492983257757,
-      "label_py": 800.6466241665069
+      "world_x": -120,
+      "world_z": -560,
+      "anchor_px": 1084.375,
+      "anchor_py": 857.0833333333334,
+      "label_px": 1086.1523931096772,
+      "label_py": 836.8293533710596
     }
   ],
   "geographic_context_labels": [
@@ -600,14 +600,14 @@
         3899.9996509090906,
         -1949.9995927272726
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        1565.9549560546875,
-        621.7570190429688,
-        1698.8426513671875,
-        642.7570190429688
-      ],
-      "callout": null
+        1544.7969970703125,
+        665.5938720703125,
+        1671.0577392578125,
+        686.5938720703125
+      ]
     },
     {
       "label": "Canaat Mountains",
@@ -616,14 +616,14 @@
         1843.1999968581822,
         -1331.199997556363
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        1274.2020263671875,
-        706.1666870117188,
-        1428.6551513671875,
-        727.1666870117188
-      ],
-      "callout": null
+        1266.3126220703125,
+        746.1668090820312,
+        1413.84619140625,
+        767.1668090820312
+      ]
     },
     {
       "label": "Great Jura Forest",
@@ -632,14 +632,14 @@
         -200.00186181818026,
         750.0035490909104
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        998.952392578125,
-        990.0609741210938,
-        1146.921630859375,
-        1011.0609741210938
-      ],
-      "callout": null
+        1003.5675048828125,
+        1017.1568603515625,
+        1145.0819091796875,
+        1038.1568603515625
+      ]
     },
     {
       "label": "Jistav",
@@ -648,14 +648,14 @@
         3599.9968581818193,
         -875.0024145454545
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        1565.477294921875,
-        768.39599609375,
-        1616.221435546875,
-        789.39599609375
-      ],
-      "callout": null
+        1544.281005859375,
+        805.5674438476562,
+        1593.2052001953125,
+        826.5674438476562
+      ]
     },
     {
       "label": "Milim's Domain",
@@ -664,14 +664,14 @@
         3500.013381818182,
         1433.6000000000013
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        1509.737060546875,
-        1083.3095703125,
-        1645.895751953125,
-        1104.3095703125
-      ],
-      "callout": null
+        1491.137451171875,
+        1106.1668701171875,
+        1620.61083984375,
+        1127.1668701171875
+      ]
     },
     {
       "label": "Eurazania",
@@ -680,14 +680,14 @@
         1519.9980218181827,
         1250.0008727272743
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        1264.8018798828125,
-        1058.2650146484375,
-        1350.3009033203125,
-        1079.2650146484375
-      ],
-      "callout": null
+        1257.32275390625,
+        1082.2606201171875,
+        1339.3646240234375,
+        1103.260498046875
+      ]
     },
     {
       "label": "Fulbrosia",
@@ -696,14 +696,14 @@
         300.0027927272731,
         2850.0011054545466
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        1101.0323486328125,
-        1276.51904296875,
-        1181.2247314453125,
-        1297.51904296875
-      ],
-      "callout": null
+        1101.0006103515625,
+        1290.59423828125,
+        1177.9788818359375,
+        1311.59423828125
+      ]
     },
     {
       "label": "Sarion",
@@ -712,14 +712,14 @@
         -1550.0034327272715,
         2050.0009890909105
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        861.0347290039062,
-        1167.3919677734375,
-        916.8609008789062,
-        1188.3919677734375
-      ],
-      "callout": null
+        871.9110717773438,
+        1186.4273681640625,
+        924.7304077148438,
+        1207.4273681640625
+      ]
     },
     {
       "label": "Ulgracia",
@@ -728,20 +728,20 @@
         -2199.9984872727273,
         2980.000116363637
       ],
-      "font_size": 19.0,
-      "display_box": [
-        764.5885009765625,
-        1294.251953125,
-        835.6241455078125,
-        1315.251953125
-      ],
+      "font_size": 19,
       "callout": {
         "leader_endpoint_world": [
           -850,
           3125
         ],
         "endpoint_inside_existing_U": true
-      }
+      },
+      "display_box": [
+        779.8466796875,
+        1307.52099609375,
+        848.0874633789062,
+        1328.5211181640625
+      ]
     },
     {
       "label": "Blumund",
@@ -750,13 +750,7 @@
         -1653.4062545454549,
         121.0181818181818
       ],
-      "font_size": 19.0,
-      "display_box": [
-        835.1640625,
-        904.2619018554688,
-        913.84228515625,
-        925.2619018554688
-      ],
+      "font_size": 19,
       "callout": null,
       "main_atlas_label_world_position": [
         -1800.0244363636366,
@@ -766,7 +760,13 @@
         20,
         0
       ],
-      "layout_reason": "Avoids marker37 after projection; orientation text only,all place coordinates unchanged."
+      "layout_reason": "Avoids marker37 after projection; orientation text only,all place coordinates unchanged.",
+      "display_box": [
+        847.212890625,
+        935.2576904296875,
+        922.7921142578125,
+        956.2576904296875
+      ]
     },
     {
       "label": "Englassia",
@@ -775,14 +775,14 @@
         -3050.0027345454546,
         -799.9998836363638
       ],
-      "font_size": 14.0,
+      "font_size": 14,
+      "callout": null,
       "display_box": [
-        654.5155029296875,
-        781.1270141601562,
-        714.3250732421875,
-        797.1270141601562
-      ],
-      "callout": null
+        674.7705688476562,
+        818.33349609375,
+        731.211669921875,
+        833.33349609375
+      ]
     },
     {
       "label": "Falmuth",
@@ -791,14 +791,14 @@
         -1374.9999709090907,
         -1930.000872727272
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        876.59423828125,
-        624.4849853515625,
-        948.28173828125,
-        645.4849853515625
-      ],
-      "callout": null
+        886.7605590820312,
+        668.1978759765625,
+        955.60302734375,
+        689.1978759765625
+      ]
     },
     {
       "label": "Lubelius",
@@ -807,14 +807,14 @@
         -3775.000319999999,
         -1900.0027927272722
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        548.8695068359375,
-        628.5770263671875,
-        621.2445068359375,
-        649.5770263671875
-      ],
-      "callout": null
+        573.9323120117188,
+        672.1039428710938,
+        643.1475830078125,
+        693.1039428710938
+      ]
     },
     {
       "label": "Desert of Death",
@@ -823,46 +823,46 @@
         -4200.002443636364,
         -650.0021527272729
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        461.4033203125,
-        799.0880126953125,
-        592.7626953125,
-        820.0880126953125
-      ],
-      "callout": null
+        490.452880859375,
+        834.8644409179688,
+        616.23486328125,
+        855.8644409179688
+      ]
     },
     {
       "label": "Ice Continent",
       "region": "I",
       "world_text_position_interpreted": [
-        -1649.9970327272722,
-        -3980.001629090909
+        -2327.4313565166576,
+        -4292.121213839726
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        818.027587890625,
-        344.84698486328125,
-        932.255126953125,
-        365.84698486328125
-      ],
-      "callout": null
+        742.6600952148438,
+        360.6300964355469,
+        851.9776611328125,
+        381.6300964355469
+      ]
     },
     {
       "label": "El Dorado",
       "region": "X",
       "world_text_position_interpreted": [
-        -4049.9973818181816,
-        2715.0024145454554
+        -4562.0863907100065,
+        2817.205240135926
       ],
-      "font_size": 19.0,
+      "font_size": 19,
+      "callout": null,
       "display_box": [
-        504.83404541015625,
-        1258.10400390625,
-        590.2559204101562,
-        1279.10400390625
-      ],
-      "callout": null
+        465.2205810546875,
+        1286.3238525390625,
+        546.9526977539062,
+        1307.3238525390625
+      ]
     },
     {
       "label": "Khusha Mountains",
@@ -874,10 +874,10 @@
       ],
       "font_size": 17.523809523809526,
       "display_box": [
-        767.296142578125,
-        1060.952392578125,
-        915.036865234375,
-        1080.952392578125
+        782.4305419921875,
+        1085.3486328125,
+        923.7904663085938,
+        1104.3486328125
       ]
     },
     {
@@ -890,10 +890,10 @@
       "source_qualified": true,
       "not_a_political_mask": true,
       "display_box": [
-        421.0390625,
-        741,
-        619.2099609375,
-        762
+        451.9106140136719,
+        780.121337890625,
+        640.8168334960938,
+        800.121337890625
       ]
     },
     {
@@ -910,16 +910,16 @@
         "ice-coastal-islet-5"
       ],
       "leader_target_world_interpreted": [
-        -200,
-        -3450
+        58.25164422149635,
+        -3420.108479780889
       ],
       "source_qualified": true,
       "not_a_political_mask": true,
       "display_box": [
-        1001.8671875,
-        533,
-        1218.3720703125,
-        554
+        1006.3424682617188,
+        581.5758056640625,
+        1212.7486572265625,
+        601.5758056640625
       ]
     },
     {
@@ -938,10 +938,10 @@
       "not_a_political_mask": true,
       "partial_terrain_only": true,
       "display_box": [
-        695.4500122070312,
-        977.6428833007812,
-        878.1531372070312,
-        996.6428833007812
+        713.8120727539062,
+        1006.3486328125,
+        888.4911499023438,
+        1023.3486328125
       ]
     },
     {
@@ -949,12 +949,6 @@
       "region": "X (gameplay only;ownership unverified)",
       "world_text_position_interpreted": null,
       "font_size": 17,
-      "display_box": [
-        144,
-        1154,
-        342.4658203125,
-        1173
-      ],
       "callout": {
         "from": [
           365,
@@ -964,7 +958,13 @@
           470,
           1165
         ]
-      }
+      },
+      "display_box": [
+        187.40911865234375,
+        1173.4395751953125,
+        377.0898132324219,
+        1191.4395751953125
+      ]
     },
     {
       "label": "Eastern Plains (fringe)",
@@ -972,14 +972,8 @@
         2400,
         -690
       ],
-      "source_display_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+      "source_display_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
       "font_size": 19,
-      "display_box": [
-        1323.203125,
-        830,
-        1512.796875,
-        851
-      ],
       "callout": {
         "from": [
           1427.3809523809525,
@@ -990,11 +984,17 @@
           804.1319444444445
         ]
       },
-      "scope": "Current authored open fringe only;not whole plain,farmland or political boundary."
+      "scope": "Current authored open fringe only;not whole plain,farmland or political boundary.",
+      "display_box": [
+        1313.0926513671875,
+        864.0758666992188,
+        1494.1954345703125,
+        885.0758666992188
+      ]
     }
   ],
   "open_inventory_rows": 42,
-  "source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
   "khusha_orientation_label": {
     "world_x": -1340.5090909090904,
     "world_z": 958.8363636363638,
@@ -1012,7 +1012,7 @@
   "geographic_context_label_count": 22,
   "inventory": 143,
   "physical_followups": 42,
-  "ledger_unique": 351,
+  "ledger_unique": 360,
   "note_r110": "Only54 world/anchor/label and forecourt follow owner-approved inland clearing. Other57 marker positions retained;142/42 inventory and314 current ledger.",
   "note_r112": "All58 marker world/anchor/number positions unchanged;20 contexts/42 open rows retained;exact El Dorado canopy overlay. Inventory142/42.",
   "note_r116": "All58 world/anchor/number positions retained;20contexts/42rows unchanged. Only2river first vertices follow R115. Original R112 snapshot retained in Git atdfd66c1.",
@@ -1050,5 +1050,17 @@
     "number": 39,
     "region": "J",
     "other57_records_retained": true
-  }
+  },
+  "approved_islands_coast": {
+    "date": "2026-11-23",
+    "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+    "moved_sites": [
+      "el_dorado",
+      "el_dorado_volcano",
+      "frost_palace",
+      "sainte_malukshure"
+    ],
+    "note": "Original brushwork transformed;world labels and58marker projections reconciled;not exact vertical reconstruction."
+  },
+  "minimum_number_spacing": 30.99461214824317
 }

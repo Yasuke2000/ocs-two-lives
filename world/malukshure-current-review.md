@@ -1,3 +1,5 @@
+> **Selected and activated:** Yasuke approved the coast and Sainte H to O. [Combined current adoption](approved-islands-coast.md). Current default checking and normal conversion pass without skip-check. The candidate metrics below remain historical proposal evidence;legacy H/O registration remains a technical dependency.
+
 # Current Malukshure coastal proposal — inactive
 
 ![Active and proposed numerical terrain](malukshure-current-comparison.png)

@@ -588,3 +588,7 @@ answers below are retained as history and are superseded for these corrected rel
 ## Owner update — Amrita nesting, 23 November 2026
 
 Yasuke chose Amrita beneath Clayman's castle and retirement of the separate eastern reservation. This supersedes that independent eastern target;Amrita remains a named underground place. The old E350–700 relation,independent-site spacing,carve representation,Jistav road destination and public-shaft template require coordinated technical reconciliation by Claude. Exact centre/depth/extent/initial access are not established by this choice. The current four-error marker-only trial remains inactive pending that work. [Approved target and adoption requirements](../../world/amrita-approved.md).
+
+### Owner updates — larger islands and Malukshure (24 November 2026)
+
+Yasuke chose the larger Ice Continent and El Dorado proposal (PR #161),superseding the original smaller dimensions,and the coastal Malukshure proposal (PR #163),including Sainte gameplay H to O. Both are now active in the authoring SVG and normal export. The exact scales,western coordinate,cape and trail are authored;gameplay O is not sovereign membership. No owner geography choice remains pending. [Adoption and technical limits](../../world/approved-islands-coast.md). Amrita beneath-castle migration and legacy registration still require Claude.

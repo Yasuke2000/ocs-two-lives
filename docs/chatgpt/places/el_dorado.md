@@ -1,3 +1,5 @@
+> **Current approved registration (24 November 2026):** centre x/first-air-y/z **(-4900,70,3202)**, radius **100**, kind `clearing`. Island placement is the owner-selected larger form;exact coordinates,heights and illustrated architecture remain interpretation. [Active map and checks](../../../world/approved-islands-coast.md). The retained concept image is illustrative;earlier coordinates,fit tests and pending-choice statements below are historical and are superseded here. Its exact generation prompt remains historical evidence. No current voxel fit or complete city/palace is certified.
+
 # Golden City of El Dorado (Leon)
 
 **Own-world reservation:** x -4300, z 3000, radius100, clearing; one authored palace precinct, not the whole canonical city. Read [map.svg](../../../world/map.svg) and the [initial-era policy](../../../world/era.md). The imported anchor and screenshots below are historical.

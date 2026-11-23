@@ -1,3 +1,5 @@
+> **Current approved registration (24 November 2026):** centre x/first-air-y/z **(-2130,75,-3799)**, radius **89**, kind `clearing`. Island placement is the owner-selected larger form;exact coordinates,heights and illustrated architecture remain interpretation. [Active map and checks](../../../world/approved-islands-coast.md). The retained concept image is illustrative;earlier coordinates,fit tests and pending-choice statements below are historical and are superseded here. Its exact generation prompt remains historical evidence. No current voxel fit or complete city/palace is certified.
+
 # White Ice Palace / inner entry corridor (`frost_palace`): concept art
 
 ![Original concept illustration](frost_palace.png)

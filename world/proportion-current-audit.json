@@ -1,794 +1,259 @@
 {
-  "source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
-  "date": "2026-11-23",
-  "method": "Re-extract 14 reference marker positions from the three privately cached files at the user-supplied pinned repository revision; subtract Rimuru City(1670,1120); normalize both systems to their Tempest\u2013Siss distance; bearings atan2(east,north), wrap deltas to[-180,180).",
-  "reference_revision": "ec4d0e3db2ba4b229d412a273bbcdd19f45425b6",
-  "reference_source": "https://git.fish/KartoffelChipss/TensuraMap/src/commit/ec4d0e3db2ba4b229d412a273bbcdd19f45425b6",
-  "reference_confidence": "fan-wiki; marker geometry on an illustration with unknown projection/precision",
-  "private_reference_hashes": {
+  "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "date": "2026-11-24",
+  "method": "Distance from Tempest divided by Tempest-Siss distance;bearing clockwise from north. Same pinned fan-reference inputs retained,not a new canonical survey.",
+  "reference_confidence": "fan-wiki;unknown projection and marker precision",
+  "private_reference_hashes_retained": {
     "capitals.reference.txt": "1431e0e8e676c49c8caf8fbee8135aed396c7dca6a0ff80382760b6bcfacf75f",
     "pois.reference.txt": "36deff3a55584db6288144d4e995d5bbdefee25e3eec6bf989ab6393d228c9a6",
     "cities.reference.txt": "6e8c5e8a366032896f5f3de41537802bae1e57e77542529f6e5618106651b5fe"
   },
-  "previous_csv_sha256": "1bad28cb3b139b77393683437929f87211a98fd25a5f80f28ad5bdde75ad0b83",
-  "current_csv_sha256": "cc48f0c78a7113b3e2939a9da2f3524f209920c0543ce1dc92b50a1b240df418",
   "world_normalizer_blocks": 1104.536101718726,
-  "reference_normalizer_pixels": 166.20770138594662,
-  "reference_origin_pixels": [
-    1670.0,
-    1120.0
-  ],
+  "current_csv_sha256": "2acab16849902d48bd94de35c8a80173e068e3003410413f6ce9cc1a46c729ff",
   "rows": [
     {
       "id": "dwargon",
-      "reference_name": "Dwargon Gate",
-      "reference_position": [
-        1840.0,
-        880.0
+      "current_position": [
+        780,
+        -1390
       ],
       "reference_relative_pixels": [
         170.0,
         -240.0
       ],
-      "current_position": [
-        780.0,
-        -1390.0
-      ],
-      "current_distance_blocks": 1593.8946012832844,
-      "previous_display": {
-        "authored_distance_over_siss": "1.4430",
-        "relative_distance_delta_percent": "-18.5",
-        "authored_bearing_degrees": "29.3",
-        "bearing_delta_degrees": "-6.0"
-      },
       "current_display": {
         "authored_distance_over_siss": "1.4430",
         "relative_distance_delta_percent": "-18.5",
         "authored_bearing_degrees": "29.3",
         "bearing_delta_degrees": "-6.0"
-      },
-      "full_precision": {
-        "reference_ratio": 1.7695258459420742,
-        "authored_ratio": 1.4430443684032477,
-        "distance_delta_percent": -18.450223730132166,
-        "reference_bearing": 35.3112134396332,
-        "authored_bearing": 29.299008745009736,
-        "bearing_delta": -6.012204694623449
       }
     },
     {
       "id": "lake_siss",
-      "reference_name": "Lake Siss",
-      "reference_position": [
-        1835.0,
-        1100.0
+      "current_position": [
+        1100,
+        -100
       ],
       "reference_relative_pixels": [
         165.0,
         -20.0
       ],
-      "current_position": [
-        1100.0,
-        -100.0
-      ],
-      "current_distance_blocks": 1104.536101718726,
-      "previous_display": {
-        "authored_distance_over_siss": "1.0",
-        "relative_distance_delta_percent": "0.0",
-        "authored_bearing_degrees": "84.8",
-        "bearing_delta_degrees": "1.7"
-      },
       "current_display": {
         "authored_distance_over_siss": "1.0000",
         "relative_distance_delta_percent": "0.0",
         "authored_bearing_degrees": "84.8",
         "bearing_delta_degrees": "1.7"
-      },
-      "full_precision": {
-        "reference_ratio": 1.0,
-        "authored_ratio": 1.0,
-        "distance_delta_percent": 0.0,
-        "reference_bearing": 83.08877288097531,
-        "authored_bearing": 84.8055710922652,
-        "bearing_delta": 1.7167982112898699
       }
     },
     {
       "id": "blumund",
-      "reference_name": "Londo",
-      "reference_position": [
-        1500.0,
-        1050.0
+      "current_position": [
+        -1500,
+        -620
       ],
       "reference_relative_pixels": [
         -170.0,
         -70.0
       ],
-      "current_position": [
-        -1500.0,
-        -620.0
-      ],
-      "current_distance_blocks": 1623.0834852218786,
-      "previous_display": {
-        "authored_distance_over_siss": "1.4695",
-        "relative_distance_delta_percent": "32.8",
-        "authored_bearing_degrees": "292.5",
-        "bearing_delta_degrees": "0.1"
-      },
       "current_display": {
         "authored_distance_over_siss": "1.4695",
         "relative_distance_delta_percent": "32.8",
         "authored_bearing_degrees": "292.5",
         "bearing_delta_degrees": "0.1"
-      },
-      "full_precision": {
-        "reference_ratio": 1.1061326375099443,
-        "authored_ratio": 1.469470742238539,
-        "distance_delta_percent": 32.84760727669318,
-        "reference_bearing": 292.38013505195954,
-        "authored_bearing": 292.4569389999421,
-        "bearing_delta": 0.07680394798256884
       }
     },
     {
       "id": "marris",
-      "reference_name": "Marris",
-      "reference_position": [
-        1455.0,
-        870.0
+      "current_position": [
+        -1800,
+        -1650
       ],
       "reference_relative_pixels": [
         -215.0,
         -250.0
       ],
-      "current_position": [
-        -1800.0,
-        -1650.0
-      ],
-      "current_distance_blocks": 2441.823089414956,
-      "previous_display": {
-        "authored_distance_over_siss": "2.2107",
-        "relative_distance_delta_percent": "11.4",
-        "authored_bearing_degrees": "312.5",
-        "bearing_delta_degrees": "-6.8"
-      },
       "current_display": {
         "authored_distance_over_siss": "2.2107",
         "relative_distance_delta_percent": "11.4",
         "authored_bearing_degrees": "312.5",
         "bearing_delta_degrees": "-6.8"
-      },
-      "full_precision": {
-        "reference_ratio": 1.9838716204267959,
-        "authored_ratio": 2.2107227510403047,
-        "distance_delta_percent": 11.434768675440088,
-        "reference_bearing": 319.30446896050796,
-        "authored_bearing": 312.5104470780008,
-        "bearing_delta": -6.794021882507138
       }
     },
     {
       "id": "elmine",
-      "reference_name": "Elmine Sarion",
-      "reference_position": [
-        1395.0,
-        1360.0
+      "current_position": [
+        -1680,
+        1740
       ],
       "reference_relative_pixels": [
         -275.0,
         240.0
       ],
-      "current_position": [
-        -1680.0,
-        1740.0
-      ],
-      "current_distance_blocks": 2418.677324489565,
-      "previous_display": {
-        "authored_distance_over_siss": "2.1898",
-        "relative_distance_delta_percent": "-0.3",
-        "authored_bearing_degrees": "224.0",
-        "bearing_delta_degrees": "-4.9"
-      },
       "current_display": {
         "authored_distance_over_siss": "2.1898",
         "relative_distance_delta_percent": "-0.3",
         "authored_bearing_degrees": "224.0",
         "bearing_delta_degrees": "-4.9"
-      },
-      "full_precision": {
-        "reference_ratio": 2.196047457226082,
-        "authored_ratio": 2.189767560087854,
-        "distance_delta_percent": -0.28596363514657996,
-        "reference_bearing": 228.88790956083307,
-        "authored_bearing": 223.99491399474581,
-        "bearing_delta": -4.892995566087251
       }
     },
     {
       "id": "jia",
-      "reference_name": "Jia",
-      "reference_position": [
-        1670.0,
-        1480.0
+      "current_position": [
+        200,
+        2450
       ],
       "reference_relative_pixels": [
         0.0,
         360.0
       ],
-      "current_position": [
-        200.0,
-        2450.0
-      ],
-      "current_distance_blocks": 2458.149710656371,
-      "previous_display": {
-        "authored_distance_over_siss": "2.2255",
-        "relative_distance_delta_percent": "2.7",
-        "authored_bearing_degrees": "175.3",
-        "bearing_delta_degrees": "-4.7"
-      },
       "current_display": {
         "authored_distance_over_siss": "2.2255",
         "relative_distance_delta_percent": "2.7",
         "authored_bearing_degrees": "175.3",
         "bearing_delta_degrees": "-4.7"
-      },
-      "full_precision": {
-        "reference_ratio": 2.1659646153462724,
-        "authored_ratio": 2.2255041793847563,
-        "distance_delta_percent": 2.7488705778771605,
-        "reference_bearing": 180.0,
-        "authored_bearing": 175.333141628561,
-        "bearing_delta": -4.666858371438991
       }
     },
     {
       "id": "laura",
-      "reference_name": "Laura",
-      "reference_position": [
-        1960.0,
-        1325.0
+      "current_position": [
+        1500,
+        1600
       ],
       "reference_relative_pixels": [
         290.0,
         205.0
       ],
-      "current_position": [
-        1500.0,
-        1600.0
-      ],
-      "current_distance_blocks": 2193.171219946131,
-      "previous_display": {
-        "authored_distance_over_siss": "1.9856",
-        "relative_distance_delta_percent": "-7.1",
-        "authored_bearing_degrees": "136.8",
-        "bearing_delta_degrees": "11.6"
-      },
       "current_display": {
         "authored_distance_over_siss": "1.9856",
         "relative_distance_delta_percent": "-7.1",
         "authored_bearing_degrees": "136.8",
         "bearing_delta_degrees": "11.6"
-      },
-      "full_precision": {
-        "reference_ratio": 2.1367290094273788,
-        "authored_ratio": 1.9856039259680345,
-        "distance_delta_percent": -7.072730458217736,
-        "reference_bearing": 125.25635871296285,
-        "authored_bearing": 136.8476102659946,
-        "bearing_delta": 11.591251553031753
       }
     },
     {
       "id": "nasca",
-      "reference_name": "Imprerial Capital Nasca",
-      "reference_position": [
-        2070.0,
-        730.0
+      "current_position": [
+        3200,
+        -1800
       ],
       "reference_relative_pixels": [
         400.0,
         -390.0
       ],
-      "current_position": [
-        3200.0,
-        -1800.0
-      ],
-      "current_distance_blocks": 3671.5119501371637,
-      "previous_display": {
-        "authored_distance_over_siss": "3.324",
-        "relative_distance_delta_percent": "-1.1",
-        "authored_bearing_degrees": "60.6",
-        "bearing_delta_degrees": "14.9"
-      },
       "current_display": {
         "authored_distance_over_siss": "3.3240",
         "relative_distance_delta_percent": "-1.1",
         "authored_bearing_degrees": "60.6",
         "bearing_delta_degrees": "14.9"
-      },
-      "full_precision": {
-        "reference_ratio": 3.361210727782637,
-        "authored_ratio": 3.324030735096902,
-        "distance_delta_percent": -1.1061488165088118,
-        "reference_bearing": 45.725224299059256,
-        "authored_bearing": 60.64224645720873,
-        "bearing_delta": 14.917022158149479
       }
     },
     {
       "id": "amrita",
-      "reference_name": "Amrita",
-      "reference_position": [
-        2280.0,
-        1000.0
+      "current_position": [
+        3800,
+        -500
       ],
       "reference_relative_pixels": [
         610.0,
         -120.0
       ],
-      "current_position": [
-        3800.0,
-        -500.0
-      ],
-      "current_distance_blocks": 3832.75357934736,
-      "previous_display": {
-        "authored_distance_over_siss": "3.47",
-        "relative_distance_delta_percent": "-7.2",
-        "authored_bearing_degrees": "82.5",
-        "bearing_delta_degrees": "3.6"
-      },
       "current_display": {
         "authored_distance_over_siss": "3.4700",
         "relative_distance_delta_percent": "-7.2",
         "authored_bearing_degrees": "82.5",
         "bearing_delta_degrees": "3.6"
-      },
-      "full_precision": {
-        "reference_ratio": 3.740447864393292,
-        "authored_ratio": 3.4700120470334648,
-        "distance_delta_percent": -7.230038411555095,
-        "reference_bearing": 78.87081071038882,
-        "authored_bearing": 82.50414236027014,
-        "bearing_delta": 3.6333316498813133
       }
     },
     {
       "id": "forgotten_dragon_city",
-      "reference_name": "City of the forgotten Dragon",
-      "reference_position": [
-        2070.0,
-        1240.0
+      "current_position": [
+        2650,
+        800
       ],
       "reference_relative_pixels": [
         400.0,
         120.0
       ],
-      "current_position": [
-        2650.0,
-        800.0
-      ],
-      "current_distance_blocks": 2768.1221071332816,
-      "previous_display": {
-        "authored_distance_over_siss": "2.5061",
-        "relative_distance_delta_percent": "-0.3",
-        "authored_bearing_degrees": "106.8",
-        "bearing_delta_degrees": "0.1"
-      },
       "current_display": {
         "authored_distance_over_siss": "2.5061",
         "relative_distance_delta_percent": "-0.3",
         "authored_bearing_degrees": "106.8",
         "bearing_delta_degrees": "0.1"
-      },
-      "full_precision": {
-        "reference_ratio": 2.512592719074403,
-        "authored_ratio": 2.5061400010610004,
-        "distance_delta_percent": -0.2568151202706481,
-        "reference_bearing": 106.69924423399362,
-        "authored_bearing": 106.7983717813053,
-        "bearing_delta": 0.09912754731169571
       }
     },
     {
       "id": "frost_palace",
-      "reference_name": "Frost Palace",
-      "reference_position": [
-        1200.0,
-        320.0
+      "current_position": [
+        -2130,
+        -3799
       ],
       "reference_relative_pixels": [
         -470.0,
         -800.0
       ],
-      "current_position": [
-        -1530.0,
-        -3680.0
-      ],
-      "current_distance_blocks": 3985.385803156327,
-      "previous_display": {
-        "authored_distance_over_siss": "3.2901",
-        "relative_distance_delta_percent": "-41.1",
-        "authored_bearing_degrees": "335.6",
-        "bearing_delta_degrees": "6.1"
-      },
       "current_display": {
-        "authored_distance_over_siss": "3.6082",
-        "relative_distance_delta_percent": "-35.4",
-        "authored_bearing_degrees": "337.4",
-        "bearing_delta_degrees": "7.9"
-      },
-      "full_precision": {
-        "reference_ratio": 5.582454738282916,
-        "authored_ratio": 3.6081987695601994,
-        "distance_delta_percent": -35.36537350108404,
-        "reference_bearing": 329.56576424655657,
-        "authored_bearing": 337.4243703487201,
-        "bearing_delta": 7.858606102163549
+        "authored_distance_over_siss": "3.9432",
+        "relative_distance_delta_percent": "-29.4",
+        "authored_bearing_degrees": "330.7",
+        "bearing_delta_degrees": "1.2"
       }
     },
     {
       "id": "el_dorado",
-      "reference_name": "Golden City of El Dorado",
-      "reference_position": [
-        800.0,
-        1565.0
+      "current_position": [
+        -4900,
+        3202
       ],
       "reference_relative_pixels": [
         -870.0,
         445.0
       ],
-      "current_position": [
-        -4300.0,
-        3000.0
-      ],
-      "current_distance_blocks": 5243.090691567331,
-      "previous_display": {
-        "authored_distance_over_siss": "4.7469",
-        "relative_distance_delta_percent": "-19.3",
-        "authored_bearing_degrees": "235.1",
-        "bearing_delta_degrees": "-7.8"
-      },
       "current_display": {
-        "authored_distance_over_siss": "4.7469",
-        "relative_distance_delta_percent": "-19.3",
-        "authored_bearing_degrees": "235.1",
-        "bearing_delta_degrees": "-7.8"
-      },
-      "full_precision": {
-        "reference_ratio": 5.8794065018911255,
-        "authored_ratio": 4.746871273296327,
-        "distance_delta_percent": -19.262747493824683,
-        "reference_bearing": 242.91051697439426,
-        "authored_bearing": 235.09750438407525,
-        "bearing_delta": -7.813012590319005
+        "authored_distance_over_siss": "5.2995",
+        "relative_distance_delta_percent": "-9.9",
+        "authored_bearing_degrees": "236.8",
+        "bearing_delta_degrees": "-6.1"
       }
     },
     {
       "id": "sealed_cave",
-      "reference_name": "Sealed Cave",
-      "reference_position": [
-        1660.0,
-        1060.0
+      "current_position": [
+        -120,
+        -400
       ],
       "reference_relative_pixels": [
         -10.0,
         -60.0
       ],
-      "current_position": [
-        -120.0,
-        -400.0
-      ],
-      "current_distance_blocks": 417.612260356422,
-      "previous_display": {
-        "authored_distance_over_siss": "0.3781",
-        "relative_distance_delta_percent": "3.3",
-        "authored_bearing_degrees": "343.3",
-        "bearing_delta_degrees": "-7.2"
-      },
       "current_display": {
         "authored_distance_over_siss": "0.3781",
         "relative_distance_delta_percent": "3.3",
         "authored_bearing_degrees": "343.3",
         "bearing_delta_degrees": "-7.2"
-      },
-      "full_precision": {
-        "reference_ratio": 0.36597356678278065,
-        "authored_ratio": 0.3780883754787115,
-        "distance_delta_percent": 3.310296096636245,
-        "reference_bearing": 350.5376777919744,
-        "authored_bearing": 343.3007557660064,
-        "bearing_delta": -7.236922025967999
       }
     },
     {
       "id": "ogre_village_ruin",
-      "reference_name": "Ogre Village",
-      "reference_position": [
-        1780.0,
-        1190.0
+      "current_position": [
+        500,
+        300
       ],
       "reference_relative_pixels": [
         110.0,
         70.0
       ],
-      "current_position": [
-        500.0,
-        300.0
-      ],
-      "current_distance_blocks": 583.09518948453,
-      "previous_display": {
-        "authored_distance_over_siss": "0.5279",
-        "relative_distance_delta_percent": "-32.7",
-        "authored_bearing_degrees": "121.0",
-        "bearing_delta_degrees": "-1.5"
-      },
       "current_display": {
         "authored_distance_over_siss": "0.5279",
         "relative_distance_delta_percent": "-32.7",
         "authored_bearing_degrees": "121.0",
         "bearing_delta_degrees": "-1.5"
-      },
-      "full_precision": {
-        "reference_ratio": 0.7844645405527361,
-        "authored_ratio": 0.5279095799378564,
-        "distance_delta_percent": -32.704468762107496,
-        "reference_bearing": 122.47119229084849,
-        "authored_bearing": 120.96375653207352,
-        "bearing_delta": -1.5074357587749887
       }
     }
   ],
-  "numeric_rows_changed": [
-    "frost_palace"
+  "numeric_rows_changed_from_previous": [
+    "frost_palace",
+    "el_dorado"
   ],
-  "numeric_rows_unchanged": 13,
-  "active_geometry_changed": false,
-  "owner_inland_choice_retained": true,
-  "unchanged_normal_outputs": {
-    "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
-    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
-    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
-    "exclude.png": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
-    "height.png": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
-    "index.json": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
-    "preview.png": "8c9cd937110cec246ab6ad1fb2231170b02e003589ba853936bd71eb89309362",
-    "road.png": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
-    "roads.json": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
-    "rugged.png": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
-    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
-    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
-    "sites.toml": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
-    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
-  },
-  "unchanged_map_art": {
-    "world/map.svg": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
-    "world/preview.png": "36f596611e53d49eabd8dac555319efee9efc85d800a31dd61d51b0f97b957d2",
-    "world/atlas.png": "9f9d92931983cbcc64cccd7ece988a6a0130fa140afeb0415b0fc69cfb0155ea",
-    "world/painting-round112/continent.png": "5388c03dbd80299888d6ef6bbc79bb355aede6b7cfe144868d9b0681d9e616c7",
-    "world/painting-round112/atlas.png": "02dd0629657ead33ac5db3524ea746e43952e0afe327e08039c59bdf833e4af2"
-  },
-  "requested_mainland_contexts": [
-    {
-      "requested_context": "Forest of Jura",
-      "native_ids": [
-        "nation-J",
-        "jura-rim",
-        "jura-dark-band",
-        "jura-ancient-core"
-      ],
-      "source_claims": [
-        "OFF-003"
-      ],
-      "assessment": "Forest and core/band represented;exact edges,biomes and danger rings are authored.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Tempest",
-      "native_ids": [
-        "site-tempest",
-        "tempest-growth-clearing"
-      ],
-      "source_claims": [
-        "OFF-003"
-      ],
-      "assessment": "Origin(0,0) and early village reservation;complete city and later development remain distinct.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Dwargon",
-      "native_ids": [
-        "nation-D",
-        "site-dwargon",
-        "canaat-massif"
-      ],
-      "source_claims": [
-        "WN13-003",
-        "LN13-EAST-GATE-001"
-      ],
-      "assessment": "Capital/mountain context present;extra cities are inactive and the LN Imperial road has no verified global point.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Blumund",
-      "native_ids": [
-        "nation-R",
-        "site-blumund"
-      ],
-      "source_claims": [
-        "OFF-012"
-      ],
-      "assessment": "Country,capital reservation and land connection present;full borders/city extent authored.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Falmuth",
-      "native_ids": [
-        "nation-F",
-        "site-marris"
-      ],
-      "source_claims": [
-        "OFF-014"
-      ],
-      "assessment": "Country and Marris reservation present;initial Falmuth naming retained;trade identity does not survey borders.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Western Nations",
-      "native_ids": [
-        "nation-G",
-        "nation-O",
-        "nation-A",
-        "nation-N",
-        "nation-Y",
-        "nation-Q",
-        "western-unnamed-basin"
-      ],
-      "source_claims": [
-        "OFF-013",
-        "MAP-WES-WATER-104"
-      ],
-      "assessment": "Multiple masks and river/lake context;small-state order,identities and unknown capitals retain source limits.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Demon Lords lands",
-      "native_ids": [
-        "nation-H",
-        "nation-B",
-        "nation-M",
-        "nation-P",
-        "nation-V",
-        "nation-L",
-        "nation-I",
-        "nation-X"
-      ],
-      "source_claims": [
-        "GUIDE85-SOUTH-001",
-        "OFF-009",
-        "OFF-015",
-        "OFF-011"
-      ],
-      "assessment": "Initial land contexts;islands,C07Amrita and C14coast remain open;later ownership changes excluded.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Eurazania",
-      "native_ids": [
-        "nation-B",
-        "eurazania-jungle",
-        "eurazania-orchard-fringe",
-        "site-laura"
-      ],
-      "source_claims": [
-        "OFF-008",
-        "LN05-001",
-        "LN05-002"
-      ],
-      "assessment": "Warm country,orchard context and pre-destruction capital reservation;C24name/full city extent open.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Sarion",
-      "native_ids": [
-        "nation-S",
-        "sarion-canopy",
-        "site-elmine"
-      ],
-      "source_claims": [
-        "GUIDE85-SOUTH-001",
-        "OFF-004"
-      ],
-      "assessment": "Southern projection,canopy and Divine Tree/capital reservation;tree/build geometry and borders not surveyed.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Lake Siss",
-      "native_ids": [
-        "nation-W",
-        "lake-siss",
-        "siss-marsh",
-        "siss-limestone"
-      ],
-      "source_claims": [
-        "OFF-001",
-        "OFF-002"
-      ],
-      "assessment": "Basin,marsh and cave-setting context;shore dimensions and downstream connection authored/C03.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Great Canaat Mountains",
-      "native_ids": [
-        "canaat-massif",
-        "canaat-eastern-apron",
-        "canaat-main-ridge",
-        "site-dragons_nest"
-      ],
-      "source_claims": [
-        "MAP-CANAAT-001",
-        "WN13-003"
-      ],
-      "assessment": "Summit/apron and Nest reservation;compressed heights,shape and exact passes remain interpretations.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    },
-    {
-      "requested_context": "Eastern Empire",
-      "native_ids": [
-        "nation-E",
-        "site-nasca",
-        "great-holy-volcano",
-        "imperial-northern-forest",
-        "eastern-approach-plains"
-      ],
-      "source_claims": [
-        "OFF-010",
-        "MAP-003"
-      ],
-      "assessment": "Eastern landmass,capital,volcano and woodland/plain context;C05bearing,broader plain and unlocated cities open.",
-      "presence_verified": true,
-      "complete_canon_fidelity_proved": false
-    }
-  ],
-  "research_metadata": {
-    "records": 360,
-    "required_nonempty_fields": [
-      "claim",
-      "source_title",
-      "locator",
-      "url",
-      "confidence"
-    ],
-    "all_fields_present": true,
-    "semantic_full_source_review_proved": false
-  },
-  "external_state_rechecked": {
-    "main": "3555a00bf893d0aea2413b853e98fee209489835",
-    "technical": "c3bb48ef72d173d60f98206c60654000925d50f0",
-    "pr167_discussion": "Only CodeRabbit bot comment at this check;no owner choice."
-  },
-  "repository_gate": {
-    "tests": 494,
-    "seconds": 66.388,
-    "failures": 2,
-    "skipped": 26,
-    "passed": false,
-    "validation_passed": false,
-    "changed_js_files": 0,
-    "scope": "Same retained authoring legacy Filtwood U/J failures;no map or runtime behaviour changed."
-  },
-  "local_links_checked": 16,
-  "ledger_360_ids_classes_retained": true,
-  "prior_ledger_change": "DES-FRO-109 notes only",
-  "protected_paths_edited": false
+  "geometry_changed_for_owner_adoption": true,
+  "canonical_scale_verified": false
 }
