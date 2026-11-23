@@ -1,6 +1,6 @@
 # Geography contradictions — current short summary
 
-23 November 2026. Map source `9526890d`; initial state: immediately after Kijin naming, anime S1E10. The ledger contains 355 qualified claims, including authored geometry, not 355 proved canon facts.
+23 November 2026. Map source `555c842f`; initial state: immediately after Kijin naming, anime S1E10. The ledger contains 356 qualified claims, including authored geometry, not 356 proved canon facts.
 
 Prefer **directly verified LN > WN > manga > anime > official map > wiki**. An unread novel citation is a lead, not primary verification. Keep continuities and later political events separate. All 24 conflict IDs and the full dated evidence are preserved in the [unchanged research history](contradictions-history-through-trial-review.md).
 
@@ -28,3 +28,5 @@ Prefer **directly verified LN > WN > manga > anime > official map > wiki**. An u
 **C06/C10:** gameplay masks and biome shares are interpretations, not sovereignty or surveyed climate. **C11:** the orc encounter marker does not represent all Orbic. **C13/C16/C17:** WN maps, Tengu access and the Englassia royal-lake context retain their continuity and construction limits. **C19/C21:** corrected Siss/Charybdis and Coleus treatments do not establish exact shores or city borders. **C23:** the small authored headwater transitions have finite checks; final fluids and noise are unverified.
 
 See the [current regions guide](../../../world/regions.md), [fact ledger](geography-facts.csv) and full history for sources and measured proposals. No unresolved choice is silently activated; no full source, city or Minecraft acceptance claim is made.
+
+**C18 road decision:** Yasuke approved early trails on both Tempest routes and only the arrival road-kind data exception. Standard checker passes;later paving remains a runtime handoff. [Adoption](../../../world/early-tempest-trails-review.md).

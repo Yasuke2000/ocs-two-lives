@@ -1,0 +1,289 @@
+{
+  "date": "2026-11-23",
+  "source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+  "prior_source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+  "approved_roads": [
+    "tempest_dwargon",
+    "tempest_blumund"
+  ],
+  "road_vertices_retained": true,
+  "all58_site_exports_byte_identical": true,
+  "other21_road_exports_byte_identical": true,
+  "protected_data_change": {
+    "file": "tools/world/canon_relations.toml",
+    "record": "site_rule arrival",
+    "field": "road_kind",
+    "before": "main",
+    "after": "trail",
+    "near_road_retained": 16,
+    "explicit_owner_authorization": true
+  },
+  "normal_build": {
+    "skip_check": false,
+    "seconds": 68.6,
+    "runtime_applied": false
+  },
+  "map_check": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "artifact_delta": {
+    "anchors.toml": {
+      "before_sha256": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
+      "after_sha256": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
+      "byte_identical": true
+    },
+    "biome.png": {
+      "before_sha256": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+      "after_sha256": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+      "byte_identical": true
+    },
+    "canon_map.txt": {
+      "before_sha256": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+      "after_sha256": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+      "byte_identical": true
+    },
+    "exclude.png": {
+      "before_sha256": "4a0a34de0ad7e321f61eda127b160c7726e6accf8b69436d6dfa298402368073",
+      "after_sha256": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
+      "byte_identical": false
+    },
+    "height.png": {
+      "before_sha256": "01497626185e8eddd6638c4004c6a8f1bbe396c78e5e885c309e7ed85caa63de",
+      "after_sha256": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+      "byte_identical": false
+    },
+    "index.json": {
+      "before_sha256": "248e58c4d52806042a07009ba04a974d1384ca7bb22f8b53c2386652542b718d",
+      "after_sha256": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
+      "byte_identical": false
+    },
+    "preview.png": {
+      "before_sha256": "2e278f2cff317735e4b201c12c0abb91fb57b86471d13147349ba63015175bdc",
+      "after_sha256": "8c9cd937110cec246ab6ad1fb2231170b02e003589ba853936bd71eb89309362",
+      "byte_identical": false
+    },
+    "road.png": {
+      "before_sha256": "3795fca905892db86f0c6a2211a743c845afa1b71e90c1c9c2957295a17c0074",
+      "after_sha256": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
+      "byte_identical": false
+    },
+    "roads.json": {
+      "before_sha256": "53a0a24647294d37df7278b3fa7941dcf29249a38d5dde488d886cba003bcab8",
+      "after_sha256": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
+      "byte_identical": false
+    },
+    "rugged.png": {
+      "before_sha256": "f787bd2db68be75cc4500fed8feeb0558ec42657d14944f9df074645ce579009",
+      "after_sha256": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
+      "byte_identical": false
+    },
+    "sites.json": {
+      "before_sha256": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+      "after_sha256": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+      "byte_identical": true
+    },
+    "sites.png": {
+      "before_sha256": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+      "after_sha256": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+      "byte_identical": true
+    },
+    "sites.toml": {
+      "before_sha256": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
+      "after_sha256": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
+      "byte_identical": true
+    },
+    "water.png": {
+      "before_sha256": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7",
+      "after_sha256": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7",
+      "byte_identical": true
+    }
+  },
+  "raster_delta": {
+    "rasters": {
+      "height.png": {
+        "changed_cells": 309,
+        "max_raw_delta": 16,
+        "pixel_bbox": [
+          1315,
+          1082,
+          1822,
+          1369
+        ]
+      },
+      "road.png": {
+        "changed_cells": 2118,
+        "max_raw_delta": 4,
+        "pixel_bbox": [
+          1300,
+          1072,
+          1860,
+          1384
+        ]
+      },
+      "exclude.png": {
+        "changed_cells": 375,
+        "max_raw_delta": 2,
+        "pixel_bbox": [
+          1294,
+          1068,
+          1864,
+          1389
+        ]
+      },
+      "rugged.png": {
+        "changed_cells": 2419,
+        "max_raw_delta": 146,
+        "pixel_bbox": [
+          1309,
+          1080,
+          1838,
+          1374
+        ]
+      }
+    },
+    "road_grades": [
+      {
+        "id": "tempest_dwargon",
+        "maximum_grade": 0.5000000000000085,
+        "wet_samples": 3
+      },
+      {
+        "id": "tempest_blumund",
+        "maximum_grade": 0.4145593141157564,
+        "wet_samples": 1
+      },
+      {
+        "id": "blumund_englassia_lubelius",
+        "maximum_grade": 0.5,
+        "wet_samples": 21
+      },
+      {
+        "id": "dwargon_dwarf_village",
+        "maximum_grade": 0.5000000000000114,
+        "wet_samples": 0
+      },
+      {
+        "id": "sacred_mountain_trail",
+        "maximum_grade": 0.5000000000000455,
+        "wet_samples": 0
+      },
+      {
+        "id": "treyni_marsh_trail",
+        "maximum_grade": 0.38179387307052826,
+        "wet_samples": 0
+      },
+      {
+        "id": "siss_cavern_and_orc_trail",
+        "maximum_grade": 0.5000000000000114,
+        "wet_samples": 0
+      },
+      {
+        "id": "ogre_foothill_trail",
+        "maximum_grade": 0.5000000000000008,
+        "wet_samples": 0
+      },
+      {
+        "id": "canaat_high_pass",
+        "maximum_grade": 0.5000000000000171,
+        "wet_samples": 0
+      },
+      {
+        "id": "falmuth_road",
+        "maximum_grade": 0.07925304884756149,
+        "wet_samples": 0
+      },
+      {
+        "id": "western_belt_road",
+        "maximum_grade": 0.17164391531122264,
+        "wet_samples": 2
+      },
+      {
+        "id": "western_desert_caravan",
+        "maximum_grade": 0.3825000000000003,
+        "wet_samples": 3
+      },
+      {
+        "id": "fulbrosia_stair",
+        "maximum_grade": 0.5000000000000199,
+        "wet_samples": 3
+      },
+      {
+        "id": "southern_royal_road",
+        "maximum_grade": 0.5000000000000171,
+        "wet_samples": 3
+      },
+      {
+        "id": "ulgracia_south_road",
+        "maximum_grade": 0.5000000000000114,
+        "wet_samples": 0
+      },
+      {
+        "id": "eurazania_road",
+        "maximum_grade": 0.5000000000000114,
+        "wet_samples": 2
+      },
+      {
+        "id": "milim_river_road",
+        "maximum_grade": 0.4900000000000187,
+        "wet_samples": 7
+      },
+      {
+        "id": "jistav_border_road",
+        "maximum_grade": 0.42950039375451965,
+        "wet_samples": 0
+      },
+      {
+        "id": "imperial_volcano_road",
+        "maximum_grade": 0.5000000000000455,
+        "wet_samples": 0
+      },
+      {
+        "id": "el_dorado_volcanic_way",
+        "maximum_grade": 0.5000000000000455,
+        "wet_samples": 0
+      },
+      {
+        "id": "frost_palace_forecourt",
+        "maximum_grade": 0.0,
+        "wet_samples": 0
+      },
+      {
+        "id": "englassia_coleus_royal_approach",
+        "maximum_grade": 0.5,
+        "wet_samples": 22
+      },
+      {
+        "id": "filtwood_jura_trail",
+        "maximum_grade": 0.03999999999999915,
+        "wet_samples": 0
+      }
+    ],
+    "other_road_records_unchanged": true
+  },
+  "ledger_records": 356,
+  "runtime_paving_scheduler_implemented": false,
+  "candidate_build_historical": {
+    "skip_check": true,
+    "seconds": 68.5,
+    "reason": "Review before owner approved the single protected data exception; superseded by normal standard-checked build."
+  },
+  "repository_check": {
+    "tests": 494,
+    "seconds": 67.443,
+    "skipped": 26,
+    "failures": 2,
+    "validation_passed": false,
+    "changed_js_files": 0,
+    "failed_tests": [
+      "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+      "test_gen_data_check_covers_the_env_file"
+    ],
+    "scope": "Same retained legacy Filtwood U grid versus approved J anchor; no additional failures."
+  },
+  "active_xml_comparison": "Parent active XML is identical after changing only the two approved road-kind attributes; comments independently scoped.",
+  "local_delivery_links_resolve": true,
+  "presentation_roots_match_source": true,
+  "normal_artifacts_hash_checked": 14
+}

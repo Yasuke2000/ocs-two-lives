@@ -1,3 +1,5 @@
+> Current23November2026: [approved early Tempest trails](../early-tempest-trails-review.md),source555c842f. Original earthy trail strokes and fresh actual terrain are included in the continent,numbered atlas and same-frame comparison. Historical nested brushwork remains and is not an exact height reconstruction. All58 registrations retained.
+
 > Current update22November2026: [approved Filtwood forest-edge adoption](../filtwood-approved.md). Pin(-1050,74,600),J;updated maps and23roads. Standard map checker passes; repository gate has two legacy-map failures. Earlier dated source/hash/check statements below remain historical.
 
 # Current source and painted map together

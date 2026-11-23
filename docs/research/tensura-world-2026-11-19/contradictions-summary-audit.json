@@ -46,5 +46,12 @@
     "validation_passed": false,
     "changed_js_files": 0,
     "known_dependency": "Legacy Filtwood U grid versus approved J anchor; no new failure."
+  },
+  "audit_scope": "Original summary condensation; later approved road adoption recorded separately.",
+  "later_early_trail_update": {
+    "current_summary_words": 644,
+    "ledger_records": 356,
+    "source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+    "original_history_archive_retained": true
   }
 }

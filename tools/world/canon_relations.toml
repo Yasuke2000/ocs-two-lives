@@ -558,7 +558,7 @@ note = "The Sealed Cave is in a rocky hill."
 [[site_rule]]
 id = "arrival"
 near_road = 16
-road_kind = "main"
+road_kind = "trail"
 source = "design/lore/world.md"
 note = "The arrival is on the Dwarven Road."
 

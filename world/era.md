@@ -42,15 +42,12 @@ cannot prove an early village already had its future city layout.
 
 ## Fixed map contract and technical handoff (C18)
 
-The production drawing retains 58 registered footprints and mandatory main-road kinds. They include server
+The production drawing retains 58 registered footprints and 23 route corridors. They include server
 adaptations and capacity for future content. **A reserved footprint is not a claim that its later structure
 or event exists at this snapshot.** The machine-readable [site-state overlay](../docs/research/tensura-world-2026-11-19/era-site-state.csv)
 marks the distinction. The atlas uses the early village name and explicitly calls these terrain reservations.
 
-The paved Tempest highways required by the old drawing brief postdate this early village. An early trail
-alternative is drawn as an inert SVG comment, while the required live road metadata is retained. The runtime
-team must reconcile route construction and later structures/NPCs before claiming an era-correct generated
-world. No runtime scripts, technical tool rules or site registrations are changed here.
+Yasuke approved early trail surfaces on the existing Tempest-Dwargon and Tempest-Blumund routes on23November2026. Their active metadata now uses `trail`; every route vertex and all58 site registrations remain. Later paving must follow the same routes as a separate runtime phase; this delivery does not implement that scheduler. The existing Dwargon-dwarf-village road remains `main`. The owner separately authorized only the arrival relation's `road_kind` main-to-trail data change, retaining its16-block proximity requirement. The old commented trail sketch is historical; it does not override the current routes. Wider structure/NPC era review remains open. See [adoption and checks](early-tempest-trails-review.md).
 
 All later-state source records remain in the evidence ledger with a `snapshot_use` qualification. This policy
 supersedes the former mixed-era presentation in world/regions.md. Geography research and the wiki gap list

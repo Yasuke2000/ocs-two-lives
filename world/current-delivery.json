@@ -2,19 +2,19 @@
   "review_bundle": "current source,painting and58place concepts",
   "source_before_integration": "b3189e7b8a86e1372e92ee48c4cd64ac4f35491c",
   "art_before_integration": "b4b86349993ff4fd7cdafbf0665ef140892b0382",
-  "display_source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
-  "normal_source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+  "display_source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+  "normal_source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
   "normal_artifact_sha256": {
     "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
     "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
     "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
-    "exclude.png": "4a0a34de0ad7e321f61eda127b160c7726e6accf8b69436d6dfa298402368073",
-    "height.png": "01497626185e8eddd6638c4004c6a8f1bbe396c78e5e885c309e7ed85caa63de",
-    "index.json": "248e58c4d52806042a07009ba04a974d1384ca7bb22f8b53c2386652542b718d",
-    "preview.png": "2e278f2cff317735e4b201c12c0abb91fb57b86471d13147349ba63015175bdc",
-    "road.png": "3795fca905892db86f0c6a2211a743c845afa1b71e90c1c9c2957295a17c0074",
-    "roads.json": "53a0a24647294d37df7278b3fa7941dcf29249a38d5dde488d886cba003bcab8",
-    "rugged.png": "f787bd2db68be75cc4500fed8feeb0558ec42657d14944f9df074645ce579009",
+    "exclude.png": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
+    "height.png": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+    "index.json": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
+    "preview.png": "8c9cd937110cec246ab6ad1fb2231170b02e003589ba853936bd71eb89309362",
+    "road.png": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
+    "roads.json": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
+    "rugged.png": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
     "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
     "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
     "sites.toml": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
@@ -25,13 +25,13 @@
   "registered_places": 58,
   "roads": 23,
   "facts": {
-    "records": 355,
-    "sha256": "1b5d94c0a96f64717a104e9b76488bd7593f59e3487a5b6e7e9ba4697185a12c",
+    "records": 356,
+    "sha256": "74cbce1ce960d2f3959400a561a0f18033539ff3f5814fdcdb9815508723b989",
     "confidence_counts": {
       "canon-explicit": 128,
       "canon-implied": 41,
       "fan-wiki": 44,
-      "our interpretation": 142
+      "our interpretation": 143
     }
   },
   "inventory_records": 143,
@@ -58,7 +58,7 @@
       "elmine"
     ]
   ],
-  "new_protected_changes": false,
+  "new_protected_changes": true,
   "places": [
     {
       "id": "tempest",
@@ -1552,5 +1552,31 @@
       "ledger_claims_and_confidences_unchanged": 355,
       "only_two_wall_verification_fields_changed": true
     }
-  }
+  },
+  "early_tempest_trails": {
+    "source_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
+    "owner_approved": true,
+    "standard_checker_errors": 0,
+    "relations": 56,
+    "normal_seconds": 68.6,
+    "normal_skip_check": false,
+    "site_exports_unchanged": 58,
+    "other_road_records_unchanged": 21,
+    "later_runtime_paving_implemented": false,
+    "audit": "early-tempest-trails-audit.json",
+    "repository_check": {
+      "tests": 494,
+      "seconds": 67.443,
+      "skipped": 26,
+      "failures": 2,
+      "validation_passed": false,
+      "changed_js_files": 0,
+      "failed_tests": [
+        "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_gen_data_check_covers_the_env_file"
+      ],
+      "scope": "Same retained legacy Filtwood U grid versus approved J anchor; no additional failures."
+    }
+  },
+  "new_protected_change_scope": "Owner explicitly approved only site_rule arrival road_kind main to trail; near_road16 and every other data field/record retained. Earlier five approved geography records remain historical."
 }

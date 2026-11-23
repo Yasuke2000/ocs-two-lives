@@ -1,3 +1,7 @@
+## 2026-11-23 — owner-approved early Tempest trails
+
+Both Tempest road kinds are now trail;route vertices,58site exports and21other road exports remain exact. Yasuke separately authorized only arrival road_kind main→trail in the relation data;near_road16 retained. Standard checker0errors/56relations/2standingwarnings;normal68.6s without skip-check. Source555c842f;ledger356. Height309cells max1block;water/biomes exact. Original painting/terrain atlas/comparison refreshed. [Adoption and remaining runtime handoff](../world/early-tempest-trails-review.md). Fresh repository gate:494 tests in67.443s,26skipped,the same two Filtwood old-grid U/J failures plus validation;zero changed JS files. Other open source/owner choices remain;no apply or deployment.
+
 ## 2026-11-23 — El Dorado and Jia source/era brief corrections
 
 Two place briefs and two lore sheets now distinguish current own-world reservations from retired Lerfing surveys, secondary unread LN/guide citations from direct verification, island volcano from palace precinct, and later court visuals from unverified early floor plans. Map, preview, ledger355, concepts and runtime remain unchanged. [Targeted review](research/tensura-world-2026-11-19/demon-seat-brief-limits.md). Full cities, C12 and remaining initial architecture stay open. Fresh required gate:494 tests in66.607s,26 skipped,the same two legacy Filtwood U/J failures plus validation;zero changed JS files. All local brief links and current coordinates checked. No new map checker/converter run for prose-only edits.
