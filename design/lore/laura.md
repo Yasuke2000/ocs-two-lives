@@ -2,7 +2,7 @@
 
 **Capital name under review (C24).** The licensed electronic guide8.5 card prints Rondo, also printed for Blumund; the wiki uses Laura. No printing error or novel-prose resolution is verified. Current map display uses Carrion's capital; `laura` remains the technical ID. Later mentions of Laura on this page retain that legacy/wiki name, not independent primary confirmation. [Source comparison](../../world/guide85-source-review.md).
 
-This existing blueprint interprets a later reconstructed Eurazania settlement. The selected post-Kijin world instead contains the undestroyed old capital, Laura, under Carrion. Do not label the later reconstruction as a verified initial-era Laura design.
+This existing blueprint interprets a later reconstructed Eurazania settlement. The selected post-Kijin world instead contains Carrion's undestroyed old capital. The technical ID `laura` is retained; its proper name remains under C24 review. Do not label the later reconstruction as a verified initial-era city design.
 Geography and placement are in [world.md](world.md) §B, the placement contract in `design/builds/laura.toml`. Read this
 before changing the blueprint.
 

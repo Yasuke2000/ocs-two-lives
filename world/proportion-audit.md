@@ -31,4 +31,4 @@ from -17.5 to -4.9 degrees. The old Forgotten Dragon City moves to (2650,800); i
 change from -9.8% to -0.3% and from -13.3 to +0.1 degrees. The CSV retains the original baseline columns.
 These near matches do not establish canonical survey accuracy: marker projection and placement precision
 remain unknown. Exact coordinates and approach roads are our interpretation. The Dragon City change
-concerns Milim's old settlement, not the later capital built at Laura.
+concerns Milim's old settlement, not the later planned capital project in former Eurazania. The directly inspected [LN20 chapter 1 opening](../docs/research/tensura-world-2026-11-19/ln20-licensed-capital-review.md) does not establish that project's exact coordinates or identify it with the authored `laura` reservation.

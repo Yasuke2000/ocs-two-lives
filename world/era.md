@@ -22,8 +22,11 @@ advancing against the lizardmen around Siss. Episode 11 follows the arrival of G
   destroyed. The Orc Lord conflict is unresolved; the orc marker is an approach/reserved encounter location,
   not a monument to a finished victory or a settled High Orc district.
 - Falmuth is still **Falmuth**. Farmenas and Youm's kingship are future political changes.
-- Clayman, Frey and Carrion retain Jistav, Fulbrosia and Eurazania respectively. Laura is still the
-  pre-destruction capital. Milim's earlier Dragon Faithful territory is distinct from her later expanded dominion.
+- Clayman, Frey and Carrion retain Jistav, Fulbrosia and Eurazania respectively. Carrion's capital is still
+  undestroyed; `laura` is the retained technical ID, with its proper name under [C24 review](guide85-source-review.md).
+  Milim's earlier Dragon Faithful territory is distinct from her later expanded dominion. The
+  [LN20 planned capital project](../docs/research/tensura-world-2026-11-19/ln20-licensed-capital-review.md)
+  in former Eurazania is a later setting, not initial construction or an exact current-site identification.
 - The Eastern Empire is under Rudra, not Emperor Masayuki. Dwargon remains Gazel's kingdom; the continental
   kingdoms and old terrain can exist without having diplomatic ties to Rimuru yet.
 - Kaijin is already helping Rimuru's village. A Dwargon workshop footprint does not make him a second

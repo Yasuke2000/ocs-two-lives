@@ -1,3 +1,9 @@
+## 2026-11-23 — capital identity and consolidated authoring delivery
+
+The Forgotten Dragon City place/lore pages,proportion note,world brief and era policy no longer assert that Milim's later capital was built at the authored `laura` coordinate. Direct LN20 evidence only fixes former Eurazania. Carrion's initial undestroyed capital remains distinct;C24 proper-name uncertainty is kept explicit instead of presenting the technical ID as proof. No numeric reservations,blueprints,terrain,art,tools,mod or pack files change. Ledger355 retained;no duplicate source claim. Fresh required gate:472tests in67.434s,26skipped,the same2legacy-U/J failures plus validation. All57matching imported-table technical tuples remain unchanged;source/anchor files remain byte-identical.
+
+The approved Filtwood drawing and source follow-ups are ready for fast-forward inclusion in the requested `chatgpt/world-map` draft authoring branch. This is not main or runtime deployment. The known legacy-U/J validation/two-test dependency remains explicit. Do not undo the owner-approved J binding merely to obtain a green authoring check. Larger-island/Malukshure choices and unresolved source bearings remain open.
+
 ## 2026-11-23 — current terrain-guide correction
 
 `world/regions.md` and `world/comparison.md` now identify source9526890d and23roads after approved Filtwood. Removed current-tense claims that all58sites/22roads and painted pixels remain unchanged since R127;those assertions belong to earlier revisions. Current Filtwood audit/manifest and painting are linked. Retained all22regional headings,22biome mixes and22curated-reference paragraphs. LN20 later-capital evidence is now beside the Eurazania narrative,with the S1E10 exclusion explicit. No map/art/terrain/runtime edit. See [guide audit](../world/current-guide-audit.json). Fresh required gate:472tests in67.426s,26skipped,the same2legacy-U/J failures plus validation;not passing. The same integration dependency remains.

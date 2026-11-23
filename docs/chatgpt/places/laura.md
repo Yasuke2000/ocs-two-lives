@@ -14,7 +14,7 @@
 
 ## Lore (canon)
 
-Eurazania is a warm agricultural kingdom known for its fruit orchards. At the selected post-Kijin baseline, Carrion rules and Laura is still the undestroyed capital. Milim's later attack and Tempest's subsequent reconstruction assistance are future events, not the initial state. See [era policy](../../../world/era.md), OFF-008 and LN05-001..003 in the [claim ledger](../../research/tensura-world-2026-11-19/geography-facts.csv).
+Eurazania is a warm agricultural kingdom known for its fruit orchards. At the selected post-Kijin baseline, Carrion rules and his old capital is still undestroyed. The ID `laura` is retained; the proper name remains under C24 review. Milim's later attack and Tempest's subsequent reconstruction assistance are future events, not the initial state. See [era policy](../../../world/era.md), OFF-008 and LN05-001..003 in the [claim ledger](../../research/tensura-world-2026-11-19/geography-facts.csv).
 
 ## What it should look like
 

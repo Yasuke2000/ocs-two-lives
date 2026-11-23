@@ -14,7 +14,7 @@ are ours. The full findings of the pass are in [lore-pass-2026-11.md](lore-pass-
 The broad territory relationship below remains wiki-level evidence; exact city coordinates and the two
 approach trails are our interpretation. The secondary marker benchmark is in
 [proportion-audit.csv](../../world/proportion-audit.csv). This old settlement is distinct from later
-capital construction at Laura; no later annexation or castle is applied to the post-Kijin baseline.
+planned capital project in former Eurazania. [LN20 chapter 1's opening](../../docs/research/tensura-world-2026-11-19/ln20-licensed-capital-review.md) establishes that broader setting, not an exact site at `laura`. No later annexation or castle construction is applied to the post-Kijin baseline.
 
 | Fact | Source |
 | --- | --- |

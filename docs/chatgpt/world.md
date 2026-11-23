@@ -178,8 +178,8 @@ Extent = bounding box on the current map (x0..x1, z0..z1).
 ### B: Beast Kingdom of Eurazania
 
 - **Colour** `#87DC45` · **banner** 獣王国ユーラザニア · **extent** x 1504..4544, z 1312..5440
-- **Lore.** Carrion's kingdom of beastmen, south of Jura and east of Fulbrosia: agricultural, fertile, tropical, famous for fruit. Milim destroyed its old capital; Tempest helped build the new one, Laura.
-- **Faction.** Faction `eurazania` (capital Laura, throne `carrion`).
+- **Lore.** Carrion's kingdom of beastmen, south of Jura and east of Fulbrosia: agricultural, fertile, tropical, famous for fruit. At the selected post-Kijin instant, Carrion's old capital is undestroyed. Milim's attack and Tempest's reconstruction aid are later events. The readable map uses Carrion's capital; `laura` remains a technical ID because the proper name is under [C24 review](../../world/guide85-source-review.md). The [LN20 planned Milim capital](../research/tensura-world-2026-11-19/ln20-licensed-capital-review.md) is only located broadly in former Eurazania by the inspected passage.
+- **Faction.** Faction `eurazania` (capital reservation ID `laura`, throne `carrion`; the ID does not settle the capital's canon name).
 - **Terrain (current).** a jungle peninsula reaching far to the south (jungle, savanna, plains).
 - **Places.** [Laura](places/laura.md)
 
@@ -368,7 +368,7 @@ long canon note in `design/lore/`.
 | Place | Region | Kind | x, z | From Tempest | Lore summary | Lore page |
 |---|---|---|---|---|---|---|
 | [Elmine (Sarion capital in the Divine Tree)](places/elmine.md) | S | build | 1100, 2760 | 1,960 blocks S | Elmine, capital of Emperor Elmesia's elven Sorcerous Dynasty of Sarion, built in the colossal Divine Tree. | [elmine.md](../../design/lore/elmine.md) |
-| [Laura (Eurazania capital, rebuilt)](places/laura.md) | B | build | 3300, 2600 | 2,320 blocks SE | Laura, the rebuilt capital of Carrion's Beast Kingdom of Eurazania. | [laura.md](../../design/lore/laura.md) |
+| [Carrion's capital (legacy ID laura)](places/laura.md) | B | build | 3300, 2600 | 2,320 blocks SE | Carrion's capital reservation; existing blueprint interprets later reconstruction, not the initial city. Proper name under review. | [laura.md](../../design/lore/laura.md) |
 
 ### The west: Blumund, Falmuth, Englassia, Lubelius, Ulgracia
 
