@@ -9,3 +9,5 @@ Yasuke's larger islands and coastal Malukshure are active. The snapshot remains 
 **Map check passes:** 58 sites, 24 roads, 0 errors / 56 relations / 2 standing warnings; normal export 91.6 seconds without skip-check. All 13 finite lake cases pass and every strict native land centre has gameplay coverage. All 58 atlas anchors in each map match current coordinates.
 
 **The whole task is not finished.** The repository gate has three legacy-registration failures plus failed validation (Filtwood U/J and Sainte H/O). Claude's coordinated Amrita nesting, runtime registration, Minecraft terrain/structures and in-game acceptance remain. There are 42 physical follow-ups from the 143-entry source inventory. No owner geography choices remain pending; source gaps and technical work remain. Nothing has been applied or deployed to the server.
+
+[Current technical-source handoff](runtime-source-review.md):the applied technical branch still uses the older source. All11core inputs and5placement records differ;old reported38-site tests do not certify the current58-index design. Full-box generation extent and source-aware acceptance are specified for Claude.
