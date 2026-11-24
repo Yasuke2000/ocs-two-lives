@@ -1,3 +1,9 @@
+## 24 November 2026 — latest technical-source/extent handoff
+
+[Read-only current comparison](../world/runtime-source-review.md) pins own-world-switcha944e35a (new local/map-render helpers) but its applied source remainsb48666e9,not approved36c77b45. All11core inputs differ;5full index records change,53remain exact;technical22roads versus current24. Exact five-site anchor/grid samples expose why a region-only test cannot certify coordinates. Default compare_design checks38plated windows,omits20unplated pins,and excludes carve/village plate gates. Reported38/38old-source tests are not rerun or promoted to current acceptance.
+
+Current864x704chunk rectangle differs from the guide's oldradius400frame:that frame covers current land but misses1024blocks of western ocean margin. Square centre(-768,-512),halfwidth432chunks geometrically encloses currentbox;command bounds/seed/inclusion still require technical verification. No server/chunks touched. Amrita nesting,legacy registration,quest-distance/Dwargon-carve and actual-pack acceptance remain Claude work. Map,art,ledger and14normal outputs retained;no protected edit or technical merge.
+
 ## 24 November 2026 — owner-selected islands and Malukshure active
 
 [Current adoption](../world/approved-islands-coast.md):Yasuke selected larger Ice/ElDorado and coastal Malukshure;Sainte H to O. Combined source36c77b45,58sites/24roads,13824x11264normal box. Default checker0errors/56relations/2standingwarnings;normal91.6s withoutskipcheck. Four index records move;54exact,32/34flat preparations exact,21old road exports exact. All13finite lake cases pass;2,954,426strict land centres covered,0unassigned. New22region biome census,painting/atlases/comparison,8place notes,14marker benchmark,360samefactIDs/classes and current manifest reconciled. Browser checks all58anchors per atlas;inherited Filtwood marker/leader errors corrected. Concepts and exact prompts retained.

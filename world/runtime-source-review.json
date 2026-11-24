@@ -1,77 +1,109 @@
 {
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "technical_branch": "own-world-switch",
-  "technical_commit": "0fc6eb27e97ab74c0b53bcc55ffb3d116b6ae877",
+  "technical_commit": "a944e35ae6199769251112c11c4f4152c9b6c397",
+  "authoring_commit": "7599d01f93380dc9cb9205fef1459dd1ca112c89",
   "technical_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
-  "current_canonical_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
-  "prior_worktree_raw_crlf_sha256": "555c842fe9673fc8e4c4e129c7c29afe51073bc4ad6762e08fb71f061b5f6d4a",
-  "source_convention": "UTF8 LF normalized source;current map bytes,Git blob and converter index now match.",
+  "technical_SVG_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "current_canonical_source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "technical_box": {
+    "x0": -6656,
+    "z0": -5632,
+    "x1": 6144,
+    "z1": 5120,
+    "width_px": 3200,
+    "height_px": 2688,
+    "content": [
+      -5253,
+      -4376,
+      4730,
+      3670
+    ],
+    "sea_margin": 1200,
+    "region": 512
+  },
+  "current_box": {
+    "x0": -7680,
+    "z0": -6144,
+    "x1": 6144,
+    "z1": 5120,
+    "width_px": 3456,
+    "height_px": 2816,
+    "content": [
+      -6185,
+      -4943,
+      4730,
+      3919
+    ],
+    "sea_margin": 1200,
+    "region": 512
+  },
   "core_runtime_files": [
     {
       "file": "biome.png",
       "technical_sha256": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
-      "current_sha256": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
-      "equal": true
+      "current_sha256": "fc7333bd2fe8fe974c8a51696741e1ff60f2e422607d7b16778b1b191bd86c2b",
+      "equal": false
     },
     {
       "file": "canon_map.txt",
       "technical_sha256": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
-      "current_sha256": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
-      "equal": true
+      "current_sha256": "fc64299b52f769a62039720f20d345fe1958a1a82d184e1d375c27934d434b2a",
+      "equal": false
     },
     {
       "file": "exclude.png",
       "technical_sha256": "072b49b48f706144729f6dd3ffb5c85ff46211f9afa3ad0824c83c5435983e78",
-      "current_sha256": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
+      "current_sha256": "452e55eadb2b8144bac5556c6c31708dafebb4734e0869fe278a465017862bb2",
       "equal": false
     },
     {
       "file": "height.png",
       "technical_sha256": "23f9db2c21da88c2e8861b2b68c476cf2cd819eb54a1d41645282b0416c78c19",
-      "current_sha256": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+      "current_sha256": "0fa14d548941fb5ea63bef47bfd2e6e92cdf1344979a8544af962706696b5a33",
       "equal": false
     },
     {
       "file": "index.json",
       "technical_sha256": "23a38b6b2e3fa38596343063bd715b61e4b9b5a93ee26481502ccc6e1ae2a621",
-      "current_sha256": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
+      "current_sha256": "cdaa4c051c6907c47892a4d7662f30faab54975ac5c678aeb5dcbf0a7f9f7564",
       "equal": false
     },
     {
       "file": "road.png",
       "technical_sha256": "6ae1649947d9b952af925f00ad5c62acf56beaba84c89f2abd332d1784f0b42c",
-      "current_sha256": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
+      "current_sha256": "51a287ec1adf52c48bdb843eaff6a008183002ad17744656584e11c9b83799fb",
       "equal": false
     },
     {
       "file": "roads.json",
       "technical_sha256": "e9e995848146d18dac189af5cc3ee260fe3cfd60a9f7ddf2dd290da32730b9cd",
-      "current_sha256": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
+      "current_sha256": "6baee4ba2ed2b9ffa150a878c259d654d597c22bd887d74ed22f90d9469abdad",
       "equal": false
     },
     {
       "file": "rugged.png",
       "technical_sha256": "92be3acd3fc4c1e39367d4a3bc67c36fcbcfcd9624a4964cbc8d57c496a757ee",
-      "current_sha256": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
+      "current_sha256": "764807cfda7089db9332857b2aa7911fbad8e8dca5a97cff35873e1cd124a896",
       "equal": false
     },
     {
       "file": "sites.json",
       "technical_sha256": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
-      "current_sha256": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
-      "equal": true
+      "current_sha256": "73b5b8b7f92e6cfb766d0ade61fdbf85e2e20d25e11586d4e6ce5121c6bc5210",
+      "equal": false
     },
     {
       "file": "sites.png",
       "technical_sha256": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
-      "current_sha256": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
-      "equal": true
+      "current_sha256": "ea9035287d01da57c25fbd950707aeb0a900efae825ab28ee744eb512cd165c7",
+      "equal": false
     },
     {
       "file": "water.png",
       "technical_sha256": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7",
-      "current_sha256": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7",
-      "equal": true
+      "current_sha256": "f7edd0218a70298a48f6525a3777f656c628d910eb3ebae210d55410aaaefff4",
+      "equal": false
     }
   ],
   "changed_index_records": [
@@ -95,107 +127,519 @@
         "plated": false,
         "y": 74
       }
+    },
+    {
+      "id": "sainte_malukshure",
+      "technical": {
+        "id": "sainte_malukshure",
+        "kind": "clearing",
+        "x": -100,
+        "z": 2000,
+        "r": 8,
+        "plated": false,
+        "y": 69
+      },
+      "current": {
+        "id": "sainte_malukshure",
+        "kind": "clearing",
+        "x": -2320,
+        "z": 1645,
+        "r": 8,
+        "plated": false,
+        "y": 64
+      }
+    },
+    {
+      "id": "el_dorado",
+      "technical": {
+        "id": "el_dorado",
+        "kind": "clearing",
+        "x": -4300,
+        "z": 3000,
+        "r": 100,
+        "plated": true,
+        "y": 73,
+        "index": 37,
+        "fade": 50,
+        "biome": null,
+        "margin": 64.0
+      },
+      "current": {
+        "id": "el_dorado",
+        "kind": "clearing",
+        "x": -4900,
+        "z": 3202,
+        "r": 100,
+        "plated": true,
+        "y": 70,
+        "index": 37,
+        "fade": 50,
+        "biome": null,
+        "margin": 64.0
+      }
+    },
+    {
+      "id": "el_dorado_volcano",
+      "technical": {
+        "id": "el_dorado_volcano",
+        "kind": "clearing",
+        "x": -3900,
+        "z": 3200,
+        "r": 8,
+        "plated": false,
+        "y": 197
+      },
+      "current": {
+        "id": "el_dorado_volcano",
+        "kind": "clearing",
+        "x": -4359,
+        "z": 3473,
+        "r": 8,
+        "plated": false,
+        "y": 222
+      }
+    },
+    {
+      "id": "frost_palace",
+      "technical": {
+        "id": "frost_palace",
+        "kind": "clearing",
+        "x": -1530,
+        "z": -3680,
+        "r": 89,
+        "plated": true,
+        "y": 71,
+        "index": 38,
+        "fade": 44,
+        "biome": "minecraft:snowy_plains",
+        "margin": 48.0
+      },
+      "current": {
+        "id": "frost_palace",
+        "kind": "clearing",
+        "x": -2130,
+        "z": -3799,
+        "r": 89,
+        "plated": true,
+        "y": 75,
+        "index": 38,
+        "fade": 44,
+        "biome": "minecraft:snowy_plains",
+        "margin": 48.0
+      }
     }
   ],
-  "retained_index_records": 57,
-  "road_changes": [
+  "retained_index_records": 53,
+  "roads": {
+    "technical": 22,
+    "current": 24,
+    "retained": 18,
+    "changed": [
+      {
+        "id": "el_dorado_volcanic_way",
+        "technical_kind": "trail",
+        "current_kind": "trail",
+        "other_fields_equal": false
+      },
+      {
+        "id": "tempest_dwargon",
+        "technical_kind": "main",
+        "current_kind": "trail",
+        "other_fields_equal": false
+      },
+      {
+        "id": "frost_palace_forecourt",
+        "technical_kind": "trail",
+        "current_kind": "trail",
+        "other_fields_equal": false
+      },
+      {
+        "id": "tempest_blumund",
+        "technical_kind": "main",
+        "current_kind": "trail",
+        "other_fields_equal": false
+      }
+    ],
+    "added": [
+      "filtwood_jura_trail",
+      "malukshure_coastal_approach"
+    ],
+    "removed": []
+  },
+  "anchor_and_grid_samples": [
     {
-      "id": "tempest_dwargon",
-      "technical_kind": "main",
-      "current_kind": "trail",
-      "new_route": false
+      "id": "filtwood",
+      "technical_canonical_anchor": {
+        "name": "Filtwood",
+        "x": -1200,
+        "z": 2750,
+        "y": 65,
+        "region": "U",
+        "kind": "pin",
+        "surface": "land",
+        "canon": "Filtwood",
+        "old_x": -1062,
+        "old_z": 616
+      },
+      "current_generated_anchor": {
+        "name": "Filtwood",
+        "x": -1050,
+        "z": 600,
+        "y": 74,
+        "region": "J",
+        "kind": "pin",
+        "surface": "land",
+        "canon": "Filtwood",
+        "old_x": -1062,
+        "old_z": 616
+      },
+      "at_technical_index_position": {
+        "technical_grid": "U",
+        "current_grid": "U"
+      },
+      "at_current_index_position": {
+        "technical_grid": "J",
+        "current_grid": "J"
+      },
+      "at_technical_canonical_anchor_position": {
+        "technical_grid": "U",
+        "current_grid": "U"
+      },
+      "authoring_canonical_anchor_before_technical_adoption": {
+        "name": "Filtwood",
+        "x": -900,
+        "z": 700,
+        "region": "J",
+        "kind": "pin",
+        "surface": "land",
+        "canon": "Filtwood",
+        "old_x": -1062,
+        "old_z": 616
+      },
+      "at_authoring_legacy_anchor_position": {
+        "technical_own_world": "J",
+        "current_own_world": "J",
+        "legacy_grid": "U"
+      }
     },
     {
-      "id": "tempest_blumund",
-      "technical_kind": "main",
-      "current_kind": "trail",
-      "new_route": false
+      "id": "sainte_malukshure",
+      "technical_canonical_anchor": {
+        "name": "Sainte Malukshure",
+        "x": -100,
+        "z": 2000,
+        "y": 69,
+        "region": "H",
+        "kind": "pin",
+        "surface": "land",
+        "canon": "Sainte Malukshure",
+        "old_x": -2996,
+        "old_z": 1291
+      },
+      "current_generated_anchor": {
+        "name": "Sainte Malukshure",
+        "x": -2320,
+        "z": 1645,
+        "y": 64,
+        "region": "O",
+        "kind": "pin",
+        "surface": "land",
+        "canon": "Sainte Malukshure",
+        "old_x": -2996,
+        "old_z": 1291
+      },
+      "at_technical_index_position": {
+        "technical_grid": "H",
+        "current_grid": "H"
+      },
+      "at_current_index_position": {
+        "technical_grid": "O",
+        "current_grid": "O"
+      },
+      "at_technical_canonical_anchor_position": {
+        "technical_grid": "H",
+        "current_grid": "H"
+      },
+      "authoring_canonical_anchor_before_technical_adoption": {
+        "name": "Sainte Malukshure",
+        "x": -2500,
+        "z": 1300,
+        "region": "O",
+        "kind": "pin",
+        "surface": "land",
+        "canon": "Sainte Malukshure",
+        "old_x": -2996,
+        "old_z": 1291
+      },
+      "at_authoring_legacy_anchor_position": {
+        "technical_own_world": "O",
+        "current_own_world": "O",
+        "legacy_grid": "H"
+      }
     },
     {
-      "id": "filtwood_jura_trail",
-      "technical_kind": null,
-      "current_kind": "trail",
-      "new_route": true
+      "id": "el_dorado",
+      "technical_canonical_anchor": {
+        "name": "Golden City of El Dorado (Leon)",
+        "x": -4300,
+        "z": 3000,
+        "y": 73,
+        "region": "X",
+        "kind": "build",
+        "surface": "land",
+        "canon": "Golden City of El Dorado (Leon)",
+        "build": "el_dorado",
+        "old_x": -4808,
+        "old_z": 3240,
+        "notes": "The green plain NW of the island's volcano, y 80/85/91."
+      },
+      "current_generated_anchor": {
+        "name": "Golden City of El Dorado (Leon)",
+        "x": -4900,
+        "z": 3202,
+        "y": 70,
+        "region": "X",
+        "kind": "build",
+        "surface": "land",
+        "canon": "Golden City of El Dorado (Leon)",
+        "build": "el_dorado",
+        "old_x": -4808,
+        "old_z": 3240,
+        "notes": "The green plain NW of the island's volcano, y 80/85/91."
+      },
+      "at_technical_index_position": {
+        "technical_grid": "X",
+        "current_grid": "X"
+      },
+      "at_current_index_position": {
+        "technical_grid": ".",
+        "current_grid": "X"
+      },
+      "at_technical_canonical_anchor_position": {
+        "technical_grid": "X",
+        "current_grid": "X"
+      },
+      "authoring_canonical_anchor_before_technical_adoption": {
+        "name": "Golden City of El Dorado (Leon)",
+        "x": -3300,
+        "z": 4300,
+        "region": "X",
+        "kind": "build",
+        "surface": "land",
+        "canon": "Golden City of El Dorado (Leon)",
+        "build": "el_dorado",
+        "old_x": -4808,
+        "old_z": 3240,
+        "notes": "The green plain NW of the island's volcano, y 80/85/91."
+      },
+      "at_authoring_legacy_anchor_position": {
+        "technical_own_world": ".",
+        "current_own_world": ".",
+        "legacy_grid": "X"
+      }
+    },
+    {
+      "id": "el_dorado_volcano",
+      "technical_canonical_anchor": {
+        "name": "El Dorado volcano",
+        "x": -3900,
+        "z": 3200,
+        "y": 197,
+        "region": "X",
+        "kind": "pin",
+        "surface": "land",
+        "canon": "El Dorado volcano",
+        "old_x": -5077,
+        "old_z": 2991,
+        "notes": "Peak 221 at (-2858, 4672)."
+      },
+      "current_generated_anchor": {
+        "name": "El Dorado volcano",
+        "x": -4359,
+        "z": 3473,
+        "y": 222,
+        "region": "X",
+        "kind": "pin",
+        "surface": "land",
+        "canon": "El Dorado volcano",
+        "old_x": -5077,
+        "old_z": 2991,
+        "notes": "Peak 221 at (-2858, 4672)."
+      },
+      "at_technical_index_position": {
+        "technical_grid": "X",
+        "current_grid": "X"
+      },
+      "at_current_index_position": {
+        "technical_grid": ".",
+        "current_grid": "X"
+      },
+      "at_technical_canonical_anchor_position": {
+        "technical_grid": "X",
+        "current_grid": "X"
+      },
+      "authoring_canonical_anchor_before_technical_adoption": {
+        "name": "El Dorado volcano",
+        "x": -2850,
+        "z": 4600,
+        "region": "X",
+        "kind": "pin",
+        "surface": "land",
+        "canon": "El Dorado volcano",
+        "old_x": -5077,
+        "old_z": 2991,
+        "notes": "Peak 221 at (-2858, 4672)."
+      },
+      "at_authoring_legacy_anchor_position": {
+        "technical_own_world": ".",
+        "current_own_world": ".",
+        "legacy_grid": "X"
+      }
+    },
+    {
+      "id": "frost_palace",
+      "technical_canonical_anchor": {
+        "name": "Frost Palace (Guy Crimson)",
+        "x": -1530,
+        "z": -3680,
+        "y": 71,
+        "region": "I",
+        "kind": "build",
+        "surface": "land",
+        "canon": "Frost Palace (Guy Crimson)",
+        "build": "frost_palace",
+        "old_x": -2435,
+        "old_z": -4314,
+        "notes": "Legacy Lerfing coordinates remain in this source table until own-world integration. Yasuke approved the R109 inland target (-1530, 71, -3680), surface land, clearing radius 89; use the reviewed own-world registration rather than the former shore-plain description. The 85x69 entrance model is not the full palace. See world/frost-palace-inland-r109.md."
+      },
+      "current_generated_anchor": {
+        "name": "Frost Palace (Guy Crimson)",
+        "x": -2130,
+        "z": -3799,
+        "y": 75,
+        "region": "I",
+        "kind": "build",
+        "surface": "land",
+        "canon": "Frost Palace (Guy Crimson)",
+        "build": "frost_palace",
+        "old_x": -2435,
+        "old_z": -4314,
+        "notes": "Legacy Lerfing coordinates remain in this source table until own-world integration. Yasuke approved the R109 inland target (-1530, 71, -3680), surface land, clearing radius 89; use the reviewed own-world registration rather than the former shore-plain description. The 85x69 entrance model is not the full palace. See world/frost-palace-inland-r109.md."
+      },
+      "at_technical_index_position": {
+        "technical_grid": "I",
+        "current_grid": "I"
+      },
+      "at_current_index_position": {
+        "technical_grid": "I",
+        "current_grid": "I"
+      },
+      "at_technical_canonical_anchor_position": {
+        "technical_grid": "I",
+        "current_grid": "I"
+      },
+      "authoring_canonical_anchor_before_technical_adoption": {
+        "name": "Frost Palace (Guy Crimson)",
+        "x": -1980,
+        "z": -4300,
+        "region": "I",
+        "kind": "build",
+        "surface": "land",
+        "canon": "Frost Palace (Guy Crimson)",
+        "build": "frost_palace",
+        "old_x": -2435,
+        "old_z": -4314,
+        "notes": "Legacy Lerfing coordinates remain in this source table until own-world integration. Yasuke approved the R109 inland target (-1530, 71, -3680), surface land, clearing radius 89; use the reviewed own-world registration rather than the former shore-plain description. The 85x69 entrance model is not the full palace. See world/frost-palace-inland-r109.md."
+      },
+      "at_authoring_legacy_anchor_position": {
+        "technical_own_world": "I",
+        "current_own_world": "I",
+        "legacy_grid": "I"
+      }
     }
   ],
-  "technical_filtwood": {
-    "name": "Filtwood",
-    "x": -1200,
-    "z": 2750,
-    "y": 65,
-    "region": "U",
-    "kind": "pin",
-    "surface": "land",
-    "canon": "Filtwood",
-    "old_x": -1062,
-    "old_z": 616
-  },
-  "current_staging_filtwood": {
-    "name": "Filtwood",
-    "x": -1050,
-    "z": 600,
-    "y": 74,
-    "region": "J",
-    "kind": "pin",
-    "surface": "land",
-    "canon": "Filtwood",
-    "old_x": -1062,
-    "old_z": 616
-  },
-  "grid_samples": {
-    "technical_own_world": {
-      "legacy_anchor": "J",
-      "technical_southern_pin": "U",
-      "approved_forest_edge": "J"
-    },
-    "current_own_world": {
-      "legacy_anchor": "J",
-      "technical_southern_pin": "U",
-      "approved_forest_edge": "J"
-    },
-    "legacy": {
-      "legacy_anchor": "U",
-      "technical_southern_pin": ".",
-      "approved_forest_edge": "U"
-    }
-  },
   "export_schema": {
-    "index": 58,
+    "index_records": 58,
     "flat_preparations": 34,
-    "separate_carves": 4,
-    "unplated_markers": 20,
-    "island_proposal_unchanged_flat_records": 32,
-    "island_proposal_unchanged_index_records": 55
+    "carves": 4,
+    "plated_default_compare_design_count": 38,
+    "unplated": 20
+  },
+  "technical_documented_test_report": {
+    "source": "docs/HANDOFF.md at technical_commit",
+    "ttlsite": "38/38",
+    "ground_comparison": "0-2 blocks at36/38",
+    "new_run_performed": false,
+    "applies_to_current_authoring_source": false
+  },
+  "generation_frame_math": {
+    "current_half_open_box": [
+      -7680,
+      -6144,
+      6144,
+      5120
+    ],
+    "rectangle_chunks": [
+      864,
+      704
+    ],
+    "rectangle_chunk_cells": 608256,
+    "old_documented_square_assuming_chunk_radius": [
+      -6656,
+      -6656,
+      6144,
+      6144
+    ],
+    "uncovered_current_western_ocean_margin_blocks": 1024,
+    "enclosing_square_centre_x_z": [
+      -768,
+      -512
+    ],
+    "enclosing_square_half_width_blocks": 6912,
+    "enclosing_square_half_width_chunks": 432,
+    "command_not_executed": true,
+    "limit": "Geometry only;confirm actual command bounds/radius/inclusion and production seed in technical workflow before generating. Old documented footprint still contains all current native land,but not the full new western ocean margin."
   },
   "runtime_modified": false,
-  "branch_merged": false,
+  "technical_branch_merged": false,
   "world_applied": false,
   "in_game_acceptance_proven": false,
-  "verification": {
-    "map_checker": {
-      "errors": 0,
-      "relations": 56,
-      "warnings": 2
-    },
-    "repository_gate": {
-      "passed": false,
-      "tests": 494,
-      "seconds": 66.206,
-      "skipped": 26,
-      "failures": 2,
-      "validation_passed": false,
-      "changed_js_files": 0,
-      "scope": "Same authoring legacy Filtwood failures;technical WIP tests not run here."
-    },
-    "all14_normal_hashes_retained": true,
-    "git_worktree_and_converter_source_equal": true,
-    "unchanged_rendered_images": [
-      "world/preview.png",
-      "world/atlas.png",
-      "world/painting-round112/continent.png",
-      "world/painting-round112/atlas.png"
+  "existing_repository_gate": {
+    "passed": false,
+    "validation_passed": false,
+    "tests": 494,
+    "skipped": 26,
+    "seconds": 72.283,
+    "failures": 3,
+    "changed_js_files": 0,
+    "failed_tests": [
+      "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+      "test_every_anchor_on_its_ground_and_in_its_region[sainte_malukshure]",
+      "test_gen_data_check_covers_the_env_file"
     ],
-    "comparison_image_change": "Visible canonical source label only;embedded normal and painted images retained.",
-    "protected_paths_unchanged": true
+    "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened."
+  },
+  "repository_gate": {
+    "passed": false,
+    "validation_passed": false,
+    "tests": 494,
+    "skipped": 26,
+    "seconds": 74.539,
+    "failures": 3,
+    "changed_js_files": 0,
+    "failed_tests": [
+      "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+      "test_every_anchor_on_its_ground_and_in_its_region[sainte_malukshure]",
+      "test_gen_data_check_covers_the_env_file"
+    ],
+    "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
+    "scope": "Fresh check on the documentation/source-alignment handoff;the same three legacy registration failures plus validation. No changed JavaScript."
+  },
+  "verification": {
+    "normal_source_and_all14_hashes_retained": true,
+    "map_art_ledger_changed": false,
+    "protected_paths_edited": false,
+    "map_checker_or_converter_rerun": false,
+    "reason": "Read-only technical/source audit and documentation;authored source and normal outputs unchanged."
   }
 }

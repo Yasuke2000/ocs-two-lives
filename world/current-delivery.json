@@ -1352,7 +1352,7 @@
       "validation_passed": false,
       "tests": 494,
       "skipped": 26,
-      "seconds": 72.283,
+      "seconds": 74.539,
       "failures": 3,
       "changed_js_files": 0,
       "failed_tests": [
@@ -1360,7 +1360,8 @@
         "test_every_anchor_on_its_ground_and_in_its_region[sainte_malukshure]",
         "test_gen_data_check_covers_the_env_file"
       ],
-      "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened."
+      "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
+      "scope": "Fresh check on the documentation/source-alignment handoff;the same three legacy registration failures plus validation. No changed JavaScript."
     },
     "site_index_unchanged": 54,
     "flat_preparations_unchanged": 32,
@@ -1521,38 +1522,39 @@
     "existing_normal_input_text_identical": true
   },
   "runtime_source_review": {
-    "technical_commit": "0fc6eb27e97ab74c0b53bcc55ffb3d116b6ae877",
-    "technical_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
-    "matches_current": false,
     "review": "runtime-source-review.md",
-    "runtime_modified": false,
-    "actual_pack_checks_performed": false,
-    "verification": {
-      "map_checker": {
-        "errors": 0,
-        "relations": 56,
-        "warnings": 2
-      },
-      "repository_gate": {
-        "passed": false,
-        "tests": 494,
-        "seconds": 66.206,
-        "skipped": 26,
-        "failures": 2,
-        "validation_passed": false,
-        "changed_js_files": 0,
-        "scope": "Same authoring legacy Filtwood failures;technical WIP tests not run here."
-      },
-      "all14_normal_hashes_retained": true,
-      "git_worktree_and_converter_source_equal": true,
-      "unchanged_rendered_images": [
-        "world/preview.png",
-        "world/atlas.png",
-        "world/painting-round112/continent.png",
-        "world/painting-round112/atlas.png"
+    "audit": "runtime-source-review.json",
+    "technical_commit": "a944e35ae6199769251112c11c4f4152c9b6c397",
+    "technical_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+    "current_source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+    "core_files_differ": 11,
+    "changed_index_records": [
+      "filtwood",
+      "sainte_malukshure",
+      "el_dorado",
+      "el_dorado_volcano",
+      "frost_palace"
+    ],
+    "retained_index_records": 53,
+    "technical_test_scope_reused": false,
+    "default_compare_windows": 38,
+    "runtime_applied": false,
+    "in_game_acceptance_proven": false,
+    "repository_gate": {
+      "passed": false,
+      "validation_passed": false,
+      "tests": 494,
+      "skipped": 26,
+      "seconds": 74.539,
+      "failures": 3,
+      "changed_js_files": 0,
+      "failed_tests": [
+        "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_every_anchor_on_its_ground_and_in_its_region[sainte_malukshure]",
+        "test_gen_data_check_covers_the_env_file"
       ],
-      "comparison_image_change": "Visible canonical source label only;embedded normal and painted images retained.",
-      "protected_paths_unchanged": true
+      "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
+      "scope": "Fresh check on the documentation/source-alignment handoff;the same three legacy registration failures plus validation. No changed JavaScript."
     }
   },
   "inactive_current_coastal_candidate": {
