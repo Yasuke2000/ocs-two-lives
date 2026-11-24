@@ -25,16 +25,16 @@
   "registered_places": 58,
   "roads": 24,
   "facts": {
-    "records": 360,
-    "sha256": "74c8f331a1542821796984c423f0eb1a04227e9f1880ec2befb7884d5628a962",
+    "records": 361,
+    "sha256": "01adb1071b7eb8851822328a6afe68c50bf7bd7d8eb1707742266c6b99473da0",
     "confidence_counts": {
       "canon-explicit": 130,
       "canon-implied": 41,
-      "fan-wiki": 44,
+      "fan-wiki": 45,
       "our interpretation": 145
     }
   },
-  "inventory_records": 143,
+  "inventory_records": 144,
   "physical_followups_open": 42,
   "historical_approved_relation_records": [
     [
@@ -1352,7 +1352,7 @@
       "validation_passed": false,
       "tests": 494,
       "skipped": 26,
-      "seconds": 74.539,
+      "seconds": 83.574,
       "failures": 3,
       "changed_js_files": 0,
       "failed_tests": [
@@ -1361,7 +1361,7 @@
         "test_gen_data_check_covers_the_env_file"
       ],
       "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
-      "scope": "Fresh check on the documentation/source-alignment handoff;the same three legacy registration failures plus validation. No changed JavaScript."
+      "scope": "Fresh source-discovery/inventory-only check;the same three legacy registration failures plus validation;zero changed JavaScript."
     },
     "site_index_unchanged": 54,
     "flat_preparations_unchanged": 32,
@@ -1690,5 +1690,31 @@
     "sainte_region": "O",
     "legacy_runtime_registration_pending": true
   },
-  "historical_nested_audits_note": "Earlier source versions and checks retain their historical values;bundle_checks and approved_islands_coast identify current adoption."
+  "historical_nested_audits_note": "Earlier source versions and checks retain their historical values;bundle_checks and approved_islands_coast identify current adoption.",
+  "orbic_cached_category_review": {
+    "review": "../docs/research/tensura-world-2026-11-19/orbic-category-current-review.md",
+    "returned_titles": 5,
+    "live_completeness_verified": false,
+    "article_bodies_all_read": false,
+    "new_later_state_lead": "Lake Tribe Village (later-state lead)",
+    "new_initial_sites": 0,
+    "initial_physical_followups": 42,
+    "ulgracia_category_listing_verified": false,
+    "repository_gate": {
+      "passed": false,
+      "validation_passed": false,
+      "tests": 494,
+      "skipped": 26,
+      "seconds": 83.574,
+      "failures": 3,
+      "changed_js_files": 0,
+      "failed_tests": [
+        "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_every_anchor_on_its_ground_and_in_its_region[sainte_malukshure]",
+        "test_gen_data_check_covers_the_env_file"
+      ],
+      "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
+      "scope": "Fresh source-discovery/inventory-only check;the same three legacy registration failures plus validation;zero changed JavaScript."
+    }
+  }
 }

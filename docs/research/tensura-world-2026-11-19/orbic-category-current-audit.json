@@ -1,0 +1,101 @@
+{
+  "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "date": "2026-11-24",
+  "category_url": "https://tensura.fandom.com/wiki/Category:Orbic",
+  "returned_titles": [
+    [
+      "Geld Junior",
+      "https://tensura.fandom.com/wiki/Geld_Junior",
+      "character",
+      "Direct article request402;title classification only in this step"
+    ],
+    [
+      "Geld Senior",
+      "https://tensura.fandom.com/wiki/Geld_Senior",
+      "character",
+      "Direct article request402;title classification only in this step"
+    ],
+    [
+      "Juuroku Ko",
+      "https://tensura.fandom.com/wiki/Juuroku_Ko",
+      "character redirect",
+      "Resolved cached article Kojuroku;selected current-base/background/reference fields read"
+    ],
+    [
+      "Orc Kingdom of Orbic",
+      "https://tensura.fandom.com/wiki/Orc_Kingdom_of_Orbic",
+      "country",
+      "Indexed article body examined;capital/tribes already tracked"
+    ],
+    [
+      "Orc War",
+      "https://tensura.fandom.com/wiki/Orc_War",
+      "event",
+      "Direct article request402;title classification only in this step"
+    ]
+  ],
+  "category_cache_age_reported": "1.5years",
+  "live_complete": false,
+  "all_article_bodies_read": false,
+  "new_claim": {
+    "claim_id": "WIK-ORB-LAKE-001",
+    "subject": "Lake Tribe Village (later-state lead)",
+    "claim": "A wiki character entry associates the later Tempest farmer Kojuroku with a base named Lake Tribe Village;the location is not surveyed.",
+    "source_type": "indexed fan-wiki character article",
+    "continuity": "Secondary LN-companion/guest-story attribution;not a directly read primary passage",
+    "source_title": "Tensura wiki:Kojuroku",
+    "locator": "Base of Operations;Country of Residence;Background;reference1to guide13.5p180,Monster Country Farmer Early Morning;primary story unread",
+    "url": "https://tensura.fandom.com/wiki/Kojuroku",
+    "confidence": "fan-wiki",
+    "verification": "Cached article via Juuroku_Ko redirect directly read24Nov2026;selected fields/background/reference lines480-534. Indexed article reports crawl last year,not a live revision.",
+    "map_action": "Track as a later-state settlement lead only;no initial post-Kijin pin,field,orc residence or ancestral Orbic location is added.",
+    "conflict_id": "C11;C18",
+    "notes": "Wiki credits guest writer Tatsuya Masuda;primary attribution/story and spatial relation unread. A character base label is not a measured village,shoreline or new Lake Siss identification. Founding date is not established.",
+    "snapshot_use": "The cited biography follows the Orc War and naming;do not project that later social/settlement state into the immediately post-Kijin map."
+  },
+  "ledger_before": 360,
+  "ledger_after": 361,
+  "prior_ids_classes_retained": true,
+  "discovery_before": 139,
+  "discovery_after": 140,
+  "expanded_before": 143,
+  "expanded_after": 144,
+  "initial_physical_followups": 42,
+  "new_initial_places": 0,
+  "protected_paths_edited": false,
+  "map_changed": false,
+  "normal_export_rerun": false,
+  "ulgracia_category_complete": false,
+  "repository_gate": {
+    "passed": false,
+    "validation_passed": false,
+    "tests": 494,
+    "skipped": 26,
+    "seconds": 83.574,
+    "failures": 3,
+    "changed_js_files": 0,
+    "failed_tests": [
+      "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+      "test_every_anchor_on_its_ground_and_in_its_region[sainte_malukshure]",
+      "test_gen_data_check_covers_the_env_file"
+    ],
+    "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
+    "scope": "Fresh source-discovery/inventory-only check;the same three legacy registration failures plus validation;zero changed JavaScript."
+  },
+  "verification": {
+    "all360prior_fact_records_exact": true,
+    "current_index_records": 58,
+    "all14normal_artifact_hashes_retained": true,
+    "normal_source_retained": true,
+    "atlas_AST_changes": "Only143-entry inventory text to144-entry inventory in each SVG;all embedded image bytes and transforms retained.",
+    "atlas_anchor_checks": {
+      "terrain": 58,
+      "painting": 58,
+      "maximum_error_px": 0.0006452348314369555
+    },
+    "initial_physical_rows": 42,
+    "new_initial_sites": 0,
+    "map_checker_or_converter_rerun": false
+  },
+  "local_links_checked": 15
+}

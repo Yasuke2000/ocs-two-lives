@@ -1010,9 +1010,9 @@
     ]
   },
   "geographic_context_label_count": 22,
-  "inventory": 143,
+  "inventory": 144,
   "physical_followups": 42,
-  "ledger_unique": 360,
+  "ledger_unique": 361,
   "note_r110": "Only54 world/anchor/label and forecourt follow owner-approved inland clearing. Other57 marker positions retained;142/42 inventory and314 current ledger.",
   "note_r112": "All58 marker world/anchor/number positions unchanged;20 contexts/42 open rows retained;exact El Dorado canopy overlay. Inventory142/42.",
   "note_r116": "All58 world/anchor/number positions retained;20contexts/42rows unchanged. Only2river first vertices follow R115. Original R112 snapshot retained in Git atdfd66c1.",
@@ -1062,5 +1062,10 @@
     ],
     "note": "Original brushwork transformed;world labels and58marker projections reconciled;not exact vertical reconstruction."
   },
-  "minimum_number_spacing": 30.99461214824317
+  "minimum_number_spacing": 30.99461214824317,
+  "orbic_later_state_lead": {
+    "source_claim": "WIK-ORB-LAKE-001",
+    "initial_map_marker_added": false,
+    "physical_panel_rows_retained": 42
+  }
 }

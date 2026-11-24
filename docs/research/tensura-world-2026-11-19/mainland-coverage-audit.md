@@ -1,3 +1,5 @@
+> **Current24November:**144expanded entries,42initial physical follow-ups. The returned five-title Orbic cache is enumerated;Ulgracia's child listing remains unavailable. Lake Tribe Village is tracked solely as a later-state lead with no initial coordinate or construction. [Review](orbic-category-current-review.md). Earlier dated count/access statements below are historical.
+
 # Current coverage: western offshore rocks
 
 **143 expanded inventory entries;42 existing physical follow-ups.** One illustrated offshore-rock group now has original active terrain. It is not a new numbered destination or confirmed country territory. [Source and export review](../../../world/western-offshore-islets.md). Earlier counts below are historical. The source discovery table has139rows;the expanded mainland inventory also retains its additional scope-routing records.

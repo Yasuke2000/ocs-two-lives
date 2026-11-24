@@ -1,3 +1,8 @@
+## 24November2026 — Orbic category cache and later settlement lead
+
+[Source review](research/tensura-world-2026-11-19/orbic-category-current-review.md):normal encoded Orbic category now returns5cached titles (crawl1.5years ago),all enumerated;3direct article bodies still402. Juuroku Ko resolves to Kojuroku;selected base/background/reference fields identify Lake Tribe Village as a later named-orc/Tempest lead. Primary guide13.5p180guest story attributed by wiki to Tatsuya Masuda remains unread;fan-wiki only. NewWIK-ORB-LAKE-001retains prior360IDs/classes. Discovery140/expanded144;42initial physical follow-ups retained,no new initial construction or numbered site. Ulgracia category stillunavailable;C05no verified bearing,no move. Both atlas panels update inventory count only;source36c77b45,geometry/14normal outputs/continent/concepts retained. Fresh required494tests83.574s/26skips,the same3legacy-registration failures plus validation;0JS. All360prior fact records exact;both atlas ASTs differ only in inventory text;all58anchors per atlas stillmatch. Technical integration/Amrita/legacy gates unchanged.
+
+
 ## 24 November 2026 — latest technical-source/extent handoff
 
 [Read-only current comparison](../world/runtime-source-review.md) pins own-world-switcha944e35a (new local/map-render helpers) but its applied source remainsb48666e9,not approved36c77b45. All11core inputs differ;5full index records change,53remain exact;technical22roads versus current24. Exact five-site anchor/grid samples expose why a region-only test cannot certify coordinates. Default compare_design checks38plated windows,omits20unplated pins,and excludes carve/village plate gates. Reported38/38old-source tests are not rerun or promoted to current acceptance.

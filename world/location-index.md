@@ -1,3 +1,12 @@
+# Current coverage:144entries and an Orbic category screen
+
+[24November source review](../docs/research/tensura-world-2026-11-19/orbic-category-current-review.md) enumerates the returned five-title Orbic cache and tracks one new later-state settlement lead. **144expanded entries;42initial physical follow-ups retained.** Ulgracia category traversal remains open. Earlier counts below describe historical snapshots.
+
+| Location lead | Scope | Initial map treatment | Source |
+| --- | --- | --- | --- |
+| Lake Tribe Village (later-state lead) | Later named-orc Tempest context;primary guest story unread | No initial pin,coordinates,field or settlement added;founding/spatial relation unknown | [Kojuroku wiki](https://tensura.fandom.com/wiki/Kojuroku),WIK-ORB-LAKE-001 |
+
+
 # Current coverage: western offshore rocks
 
 **143 expanded inventory entries;42 existing physical follow-ups.** One illustrated offshore-rock group now has original active terrain. It is not a new numbered destination or confirmed country territory. [Source and export review](western-offshore-islets.md). Earlier counts below are historical. The source discovery table has139rows;the expanded mainland inventory also retains its additional scope-routing records.

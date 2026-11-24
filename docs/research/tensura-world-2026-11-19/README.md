@@ -1,3 +1,5 @@
+> **Current source discovery,24November:**[Orbic five-title category screen](orbic-category-current-review.md) identifies one new later-state location lead. Ledger361qualified records;expanded inventory144/discovery140;42initial physical follow-ups retained. New claim is fan-wiki only. No initial orc village or geometry change;Ulgracia category traversal and source/technical limits remain open. Earlier dated counts below are history.
+
 > **Current owner adoption,24 November:** larger islands and coastal Malukshure are active;Sainte gameplay H to O. [Current delivery](../../../world/approved-islands-coast.md). All360ledger identities/confidence classes retained. No geography owner choice is pending;Amrita coordinated migration,legacy registration,42physical follow-ups and source gaps remain. Earlier dated status entries below are history.
 
 ## Owner decision: Amrita beneath the castle
