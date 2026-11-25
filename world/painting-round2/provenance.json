@@ -1,0 +1,30 @@
+{
+  "map_commit": "efa2cc8",
+  "source_svg_sha256": "5e736ccc68f73ad533028c6263a5fe81459551683796ef70cfdcc1e45be632e8",
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "guide_pixels": [
+    1536,
+    1024
+  ],
+  "purpose": "Original preview/terrain guides only; painting is presentation, not a terrain source.",
+  "generated_painting_sha256": "33391b11f1b46cac1af3f7aba5f0733d589e7b86c26b7cd14b112e4b521122db",
+  "native_overlay_counts": {
+    "coast": 3,
+    "lakes": 8,
+    "rivers": 8,
+    "roads": 21
+  },
+  "presentation_rule": "Raster provides pictorial texture only. Native clipping/ocean wash and exact coast/water/road vectors define visible geometry. Tree/ridge strokes remain pictorial, not measured terrain.",
+  "original_geometry_unchanged": true,
+  "review_round": 2,
+  "input_original_painting_pr": "https://github.com/Yasuke2000/ocs-two-lives/pull/88",
+  "input_original_painting_sha256": "50710b473e9c218dceea86a2af62a007b517614f5bf08ecf780253f66e9ca2e9",
+  "original_generated_output": "exec-0ac34016-2bd0-4c30-909a-d4df5e6921ba.png",
+  "raw_output_pixels_are_original": true,
+  "remaining": "Third coupled review and all source/site/fixed-rule obligations remain open."
+}
