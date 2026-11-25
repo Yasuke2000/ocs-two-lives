@@ -1,0 +1,33 @@
+{
+  "map_commit": "60297bd",
+  "source_svg_sha256": "2518f19c20593d85c13581c61b58f9a25125f7a79ce94152119ec3464524360b",
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "guide_pixels": [
+    1536,
+    1024
+  ],
+  "purpose": "Original preview/terrain guides only; painting is presentation, not a terrain source.",
+  "generated_painting_sha256": "c0862bdd638cee4c935653b4c3878bc9a40cb004cb4d311526a91a7223d1741a",
+  "native_overlay_counts": {
+    "coast": 3,
+    "lakes": 8,
+    "rivers": 8,
+    "roads": 21
+  },
+  "presentation_rule": "Raster provides pictorial texture only. Native clipping/ocean wash and exact coast/water/road vectors define visible geometry. Tree/ridge strokes remain pictorial, not measured terrain.",
+  "original_geometry_unchanged": true,
+  "review_round": 3,
+  "input_original_painting_pr": "https://github.com/Yasuke2000/ocs-two-lives/pull/90",
+  "input_original_painting_sha256": "33391b11f1b46cac1af3f7aba5f0733d589e7b86c26b7cd14b112e4b521122db",
+  "original_generated_output": "exec-1541296b-9d3f-4f94-b507-c4f81520d382.png",
+  "intermediate_original_output": "exec-1d3b4ff5-95bf-4371-a7cd-9569b5e2ea3a.png",
+  "raw_output_pixels_are_original": true,
+  "svg_review_decision": "Retain current active geometry. Excessive painted southern ridges and the invented Imperial stream were illustration errors; they do not justify new terrain. C07 remains an inert access alternative.",
+  "remaining": "Source/site/fixed-rule obligations,42 place concepts and technical era acceptance remain open. Third painting/SVG review delivered without new active geometry.",
+  "original_generated_output_sha256": "28b6c7743a2bd41def6030bce27c30b8bf07fddda600801fb824dc9e76f3eb34"
+}
