@@ -26,30 +26,30 @@
     },
     {
       "rule": "size",
-      "message": "the design box is 12800 x 10752, above the target 12288 x 10240 (cap 14336 x 11264)"
+      "message": "the design box is 13824 x 11264, above the target 12288 x 10240 (cap 14336 x 11264)"
     }
   ],
   "stats": {
     "bridges": 13,
     "road_main_blocks": 300,
-    "road_trail_blocks": 32802,
+    "road_trail_blocks": 33931,
     "mainland_bbox": [
       9983,
       6250
     ],
     "design_box": {
-      "x0": -6656.0,
-      "y0": -5632.0,
+      "x0": -7680.0,
+      "y0": -6144.0,
       "x1": 6144.0,
       "y1": 5120.0,
-      "width": 12800.0,
-      "height": 10752.0
+      "width": 13824.0,
+      "height": 11264.0
     },
-    "land_share_of_box": 0.304,
-    "land_area_blocks2": 41868821,
-    "land_area_km2": 41.87,
-    "lake_area_km2": 0.68,
-    "coast_length_blocks": 53193,
+    "land_share_of_box": 0.299,
+    "land_area_blocks2": 46564710,
+    "land_area_km2": 46.56,
+    "lake_area_km2": 0.71,
+    "coast_length_blocks": 60328,
     "river_length_blocks": 13554,
     "count_coast": 12,
     "count_lakes": 13,
@@ -57,9 +57,9 @@
     "count_mountains": 14,
     "count_hills": 14,
     "count_forests": 15,
-    "count_biomes": 31,
+    "count_biomes": 32,
     "count_regions": 31,
-    "count_roads": 23,
+    "count_roads": 24,
     "count_sites": 58,
     "count_ridges": 4
   },
@@ -247,13 +247,6 @@
       "wind": "ESE"
     },
     {
-      "id": "sainte_malukshure",
-      "kind": "clearing",
-      "distance": 2002,
-      "bearing": 183,
-      "wind": "S"
-    },
-    {
       "id": "dragons_nest",
       "kind": "clearing",
       "distance": 2030,
@@ -352,6 +345,13 @@
       "wind": "W"
     },
     {
+      "id": "sainte_malukshure",
+      "kind": "clearing",
+      "distance": 2844,
+      "bearing": 235,
+      "wind": "SW"
+    },
+    {
       "id": "raja",
       "kind": "lakeside",
       "distance": 2873,
@@ -429,13 +429,6 @@
       "wind": "WNW"
     },
     {
-      "id": "frost_palace",
-      "kind": "clearing",
-      "distance": 3985,
-      "bearing": 337,
-      "wind": "NNW"
-    },
-    {
       "id": "heaven_tower",
       "kind": "clearing",
       "distance": 4205,
@@ -450,18 +443,25 @@
       "wind": "WNW"
     },
     {
+      "id": "frost_palace",
+      "kind": "clearing",
+      "distance": 4355,
+      "bearing": 331,
+      "wind": "NNW"
+    },
+    {
       "id": "el_dorado_volcano",
       "kind": "clearing",
-      "distance": 5045,
+      "distance": 5573,
       "bearing": 231,
       "wind": "SW"
     },
     {
       "id": "el_dorado",
       "kind": "clearing",
-      "distance": 5243,
-      "bearing": 235,
-      "wind": "SW"
+      "distance": 5854,
+      "bearing": 237,
+      "wind": "WSW"
     }
   ],
   "relations": [
@@ -903,9 +903,9 @@
       "dir": "SW",
       "min": 3400,
       "max": 7350,
-      "distance": 5243,
-      "bearing": 235,
-      "wind": "SW",
+      "distance": 5854,
+      "bearing": 237,
+      "wind": "WSW",
       "ok": true,
       "source": "design/lore/world.md"
     },
@@ -915,7 +915,7 @@
       "dir": "SE",
       "min": 150,
       "max": 1500,
-      "distance": 447,
+      "distance": 604,
       "bearing": 117,
       "wind": "ESE",
       "ok": true,
@@ -927,8 +927,8 @@
       "dir": "N",
       "min": 2350,
       "max": 5000,
-      "distance": 3985,
-      "bearing": 337,
+      "distance": 4355,
+      "bearing": 331,
       "wind": "NNW",
       "ok": true,
       "source": "design/lore/world.md"

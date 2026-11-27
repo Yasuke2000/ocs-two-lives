@@ -1,32 +1,13 @@
-# Amrita: owner-approved beneath-castle relationship
+# Amrita: approved target and current adoption dependencies
 
-23 November 2026. Yasuke selected the beneath-castle option presented in PR167: link Amrita beneath Clayman's castle and retire the separate eastern reservation. This resolves the C07 geography choice. It does not certify the marker-only trial as a passing map or approve an exact ruin centroid,depth,volume,entrance or construction plan.
+Yasuke selected Amrita beneath Clayman's castle on 23 November 2026 and retirement of the independent eastern reservation. The choice is resolved. It does not approve an exact ruin centroid,depth,volume,entrance or construction plan. No further owner geography choice is pending.
 
-[Measured trial and four dependencies](amrita-current-nesting-review.md) · [Source relationship and still limits](amrita-placement-review.md) · [Current active map](map.svg).
+The current active source is`36c77b45`,with the selected larger islands,coastal Malukshure,Filtwood and early trails. It still contains the eastern Amrita circle(3800,-500),r63 as a **superseded migration input**,not the selected final geography. Clayman's castle is at(3300,-600),r90. The fresh [inactive current trial](amrita-current-nested-candidate.svg) keeps all other current geometry and recent owner choices;its circle and label alone move to the castle. Same-centre placement is an interpretation,not a measured canon centroid. [Current report](amrita-current-nested-check.json) · [trial preview](amrita-current-nested-preview.png).
 
-## Approved target
+Four default errors remain:carve centre outside hill/mountain support;separate overlapping site discs;the former eastern road destination;the fixed E350-700 relation. [Measured review](amrita-current-nesting-review.md). The [official episode 81 synopsis](https://www.ten-sura.com/anime/tensura/story/no86) supports the beneath-castle relationship;the directly read LN10 prologue distinguishes the ancient ruin. Neither supplies exact coordinates,depth or an initial public shaft.
 
-Amrita remains the same named place/identity, represented as an underground part of the castle complex. The independent eastern position(3800,-500), its external mound/public shaft and its role as a separate road destination are superseded design targets. Retiring that reservation does not mean deleting the Amrita identity or its source history. The dormant interior concept remains useful for materials/mood,not exact construction geometry.
+Claude must reconcile the obsolete east relation,castle-linked parent/vertical semantics,underground cover/carve representation,Jistav road destination and the existing exposed public-mound/shaft template as one source-aligned technical adoption. Verify actual occupied voxels,lining,rock,fluids,join and initial dormant/non-public state. Retire the separate eastern target without deleting the Amrita identity. The later expedition,public opening,visitors,active wards and outcomes remain excluded from the post-Kijin snapshot.
 
-The official episode81 synopsis establishes the beneath-castle relationship. Its source does not measure a centre at the authored castle point(3300,-600),an entire radius63 city,depth or full lateral extent. The same-centre marker trial is still an interpreted experiment. The selected initial era remains immediately after Kijin naming;later expeditions,public opening,visitors,active wards and outcomes are excluded.
+After that work,regenerate registration/normal outputs and align the active preview,atlas,painting and place sheets;pass the standard checker and combined required offline/local Minecraft checks. Do not activate this four-error trial or run skip-check to label it accepted. [Full current readiness audit](../docs/research/tensura-world-2026-11-19/current-map-readiness.md) · [technical source handoff](runtime-source-review.md).
 
-## Concrete technical handoff to Claude
-
-| Dependency from the current measured trial | Required result before adoption |
-| --- | --- |
-| Fixed Amrita E350–700 relation | Reconcile the obsolete relation with the approved nested geography. Do not preserve the eastern target as the intended final map. |
-| Separate-site spacing | Represent Amrita as a castle-linked underground place,with appropriate parent/vertical semantics rather than two independent overlapping surface discs. |
-| Carve containment | Provide an actual underground-volume/roof/cover representation beneath the castle. The current castle centre is outside relief polygons;the existing carve rule does not support this trial. |
-| Jistav road end at(3740,-500) | Redesign its destination/access so the retired eastern reservation is no longer required. The source does not prescribe a replacement road course. |
-| Existing public-mound template | Reconcile the exposed grassy approach,shaft and oculus with the enclosed,non-public initial design;check join,occupied voxels,rock,lining,cover and fluids. |
-| Delivery and acceptance | Regenerate registration and normal outputs,pass the standard map checker and required repository/local Minecraft checks,then align preview,atlas,painting and affected place sheets with the adopted source. |
-
-The existing four-error candidate is not activated by this owner reply. No skip-check conversion or technical implementation is performed here. This records the chosen final geography and the exact remaining implementation work under the established creative/technical split.
-
-## Current serialized state
-
-Until coordinated technical adoption,the active SVG still contains the superseded eastern circle. It is retained only as the existing migration input,not the selected final geography. Active canonical source534d07ad,58site IDs,23roads,normal outputs,preview,painting,concept PNG and blueprint bytes remain unchanged by this decision record. A partial move would currently fail four default checks. The prior active checker result0errors/56relations/2warnings remains separately scoped.
-
-The ledger keeps360existing claim IDs/classes;existing Amrita design records now point to this decision. Two other owner geography choices remain open:larger islands and Malukshure coast. Amrita technical adoption and the legacy Filtwood integration failures remain unresolved. No protected path,main merge,world apply,chunk generation or deployment is changed.
-
-Verification:494tests in69.131s,26skipped,the same two legacy Filtwood U/J failures plus validation;zero changed JavaScript. Gate remains failing. All360IDs/classes retained;29local links resolve;exact art prompt,map/art/blueprint and14normal output hashes retained. No new SVG/checker/converter or Minecraft run for this decision-only change. [Audit](amrita-approved-audit.json).
+[Previous owner-decision record](https://github.com/Yasuke2000/ocs-two-lives/blob/ce784f8bba12a8668d8eaf1f6e0e1b9575d64dd5/world/amrita-approved.md) preserves the dated source/hash/test history. The larger-island and coastal choices described there as pending have since been selected and adopted. This review does not change the active source,art,blueprint,normal outputs or protected implementation.

@@ -13,3 +13,5 @@ Yasuke's larger islands and coastal Malukshure are active. The snapshot remains 
 [Current technical-source handoff](runtime-source-review.md):the applied technical branch still uses the older source. All11core inputs and5placement records differ;old reported38-site tests do not certify the current58-index design. Full-box generation extent and source-aware acceptance are specified for Claude.
 
 [Orbic cached category and later village lead](../docs/research/tensura-world-2026-11-19/orbic-category-current-review.md):361qualified ledger records and144expanded inventory entries. The new later-state lead adds no initial map point;42physical follow-ups remain.
+
+[Current requirement-by-requirement readiness](../docs/research/tensura-world-2026-11-19/current-map-readiness.md) regenerates the stale tracked checker report and rebases the inactive Amrita trial onto the selected map. Active geometry passes;the accepted underground target still needs coordinated technical adoption.

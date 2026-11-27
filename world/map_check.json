@@ -9,40 +9,40 @@
     },
     {
       "rule": "size",
-      "message": "the design box is 12288 x 10752, above the target 12288 x 10240 (cap 14336 x 11264)"
+      "message": "the design box is 13824 x 11264, above the target 12288 x 10240 (cap 14336 x 11264)"
     }
   ],
   "stats": {
-    "bridges": 8,
-    "road_main_blocks": 3374,
-    "road_trail_blocks": 27380,
+    "bridges": 13,
+    "road_main_blocks": 300,
+    "road_trail_blocks": 33931,
     "mainland_bbox": [
-      9653,
+      9983,
       6250
     ],
     "design_box": {
-      "x0": -6144.0,
-      "y0": -5632.0,
+      "x0": -7680.0,
+      "y0": -6144.0,
       "x1": 6144.0,
       "y1": 5120.0,
-      "width": 12288.0,
-      "height": 10752.0
+      "width": 13824.0,
+      "height": 11264.0
     },
-    "land_share_of_box": 0.321,
-    "land_area_blocks2": 42346666,
-    "land_area_km2": 42.35,
-    "lake_area_km2": 0.43,
-    "coast_length_blocks": 47598,
-    "river_length_blocks": 12040,
-    "count_coast": 3,
-    "count_lakes": 8,
-    "count_rivers": 8,
-    "count_mountains": 10,
-    "count_hills": 6,
-    "count_forests": 12,
-    "count_biomes": 18,
-    "count_regions": 22,
-    "count_roads": 21,
+    "land_share_of_box": 0.299,
+    "land_area_blocks2": 46564710,
+    "land_area_km2": 46.56,
+    "lake_area_km2": 0.71,
+    "coast_length_blocks": 60328,
+    "river_length_blocks": 13554,
+    "count_coast": 12,
+    "count_lakes": 13,
+    "count_rivers": 9,
+    "count_mountains": 14,
+    "count_hills": 14,
+    "count_forests": 15,
+    "count_biomes": 32,
+    "count_regions": 31,
+    "count_roads": 24,
     "count_sites": 58,
     "count_ridges": 4
   },
@@ -146,25 +146,18 @@
       "wind": "ESE"
     },
     {
+      "id": "filtwood",
+      "kind": "clearing",
+      "distance": 1209,
+      "bearing": 240,
+      "wind": "WSW"
+    },
+    {
       "id": "ameld_source",
       "kind": "clearing",
       "distance": 1256,
       "bearing": 9,
       "wind": "N"
-    },
-    {
-      "id": "dwarf_village",
-      "kind": "village",
-      "distance": 1265,
-      "bearing": 18,
-      "wind": "NNE"
-    },
-    {
-      "id": "dwarven_arena",
-      "kind": "clearing",
-      "distance": 1282,
-      "bearing": 23,
-      "wind": "NNE"
     },
     {
       "id": "lizardmen_caverns",
@@ -174,6 +167,13 @@
       "wind": "ESE"
     },
     {
+      "id": "dwarf_village",
+      "kind": "village",
+      "distance": 1414,
+      "bearing": 45,
+      "wind": "NE"
+    },
+    {
       "id": "blumund_road",
       "kind": "clearing",
       "distance": 1437,
@@ -181,11 +181,18 @@
       "wind": "WNW"
     },
     {
+      "id": "dwarven_arena",
+      "kind": "clearing",
+      "distance": 1473,
+      "bearing": 48,
+      "wind": "NE"
+    },
+    {
       "id": "dwargon",
       "kind": "carve",
-      "distance": 1550,
-      "bearing": 0,
-      "wind": "N"
+      "distance": 1594,
+      "bearing": 29,
+      "wind": "NNE"
     },
     {
       "id": "blumund",
@@ -197,23 +204,23 @@
     {
       "id": "kaijin_smithy",
       "kind": "clearing",
-      "distance": 1634,
-      "bearing": 360,
-      "wind": "N"
+      "distance": 1662,
+      "bearing": 28,
+      "wind": "NNE"
     },
     {
       "id": "dwargo",
       "kind": "clearing",
-      "distance": 1650,
-      "bearing": 0,
-      "wind": "N"
+      "distance": 1682,
+      "bearing": 28,
+      "wind": "NNE"
     },
     {
       "id": "dwargon_throne",
       "kind": "clearing",
-      "distance": 1656,
-      "bearing": 0,
-      "wind": "N"
+      "distance": 1687,
+      "bearing": 28,
+      "wind": "NNE"
     },
     {
       "id": "orc_camp",
@@ -221,13 +228,6 @@
       "distance": 1834,
       "bearing": 107,
       "wind": "ESE"
-    },
-    {
-      "id": "sainte_malukshure",
-      "kind": "clearing",
-      "distance": 2002,
-      "bearing": 183,
-      "wind": "S"
     },
     {
       "id": "dragons_nest",
@@ -328,6 +328,13 @@
       "wind": "W"
     },
     {
+      "id": "sainte_malukshure",
+      "kind": "clearing",
+      "distance": 2844,
+      "bearing": 235,
+      "wind": "SW"
+    },
+    {
       "id": "raja",
       "kind": "lakeside",
       "distance": 2873,
@@ -340,13 +347,6 @@
       "distance": 2952,
       "bearing": 281,
       "wind": "W"
-    },
-    {
-      "id": "filtwood",
-      "kind": "clearing",
-      "distance": 3000,
-      "bearing": 204,
-      "wind": "SSW"
     },
     {
       "id": "ulgr_nature_park",
@@ -391,13 +391,6 @@
       "wind": "WNW"
     },
     {
-      "id": "frost_palace",
-      "kind": "coast",
-      "distance": 3634,
-      "bearing": 336,
-      "wind": "NNW"
-    },
-    {
       "id": "nasca",
       "kind": "plateau",
       "distance": 3672,
@@ -433,18 +426,25 @@
       "wind": "WNW"
     },
     {
+      "id": "frost_palace",
+      "kind": "clearing",
+      "distance": 4355,
+      "bearing": 331,
+      "wind": "NNW"
+    },
+    {
       "id": "el_dorado_volcano",
       "kind": "clearing",
-      "distance": 5045,
+      "distance": 5573,
       "bearing": 231,
       "wind": "SW"
     },
     {
       "id": "el_dorado",
       "kind": "clearing",
-      "distance": 5243,
-      "bearing": 235,
-      "wind": "SW"
+      "distance": 5854,
+      "bearing": 237,
+      "wind": "WSW"
     }
   ],
   "relations": [
@@ -454,9 +454,9 @@
       "dir": "N",
       "min": 1200,
       "max": 1600,
-      "distance": 1550,
-      "bearing": 0,
-      "wind": "N",
+      "distance": 1594,
+      "bearing": 29,
+      "wind": "NNE",
       "ok": true,
       "source": "design/lore/world.md"
     },
@@ -574,9 +574,9 @@
       "dir": "N",
       "min": 800,
       "max": 1750,
-      "distance": 1265,
-      "bearing": 18,
-      "wind": "NNE",
+      "distance": 1414,
+      "bearing": 45,
+      "wind": "NE",
       "ok": true,
       "source": "design/lore/world.md"
     },
@@ -586,9 +586,9 @@
       "dir": "S",
       "min": 300,
       "max": 700,
-      "distance": 532,
-      "bearing": 131,
-      "wind": "SE",
+      "distance": 448,
+      "bearing": 151,
+      "wind": "SSE",
       "ok": true,
       "source": "design/lore/world.md"
     },
@@ -610,9 +610,9 @@
       "dir": "N",
       "min": 350,
       "max": 800,
-      "distance": 570,
-      "bearing": 38,
-      "wind": "NE",
+      "distance": 746,
+      "bearing": 325,
+      "wind": "NW",
       "ok": true,
       "source": "design/lore/world.md"
     },
@@ -658,9 +658,9 @@
       "dir": "any",
       "min": 200,
       "max": 1600,
-      "distance": 369,
-      "bearing": 147,
-      "wind": "SSE",
+      "distance": 599,
+      "bearing": 255,
+      "wind": "WSW",
       "ok": true,
       "source": "design/lore/world.md"
     },
@@ -886,9 +886,9 @@
       "dir": "SW",
       "min": 3400,
       "max": 7350,
-      "distance": 5243,
-      "bearing": 235,
-      "wind": "SW",
+      "distance": 5854,
+      "bearing": 237,
+      "wind": "WSW",
       "ok": true,
       "source": "design/lore/world.md"
     },
@@ -898,7 +898,7 @@
       "dir": "SE",
       "min": 150,
       "max": 1500,
-      "distance": 447,
+      "distance": 604,
       "bearing": 117,
       "wind": "ESE",
       "ok": true,
@@ -910,8 +910,8 @@
       "dir": "N",
       "min": 2350,
       "max": 5000,
-      "distance": 3634,
-      "bearing": 336,
+      "distance": 4355,
+      "bearing": 331,
       "wind": "NNW",
       "ok": true,
       "source": "design/lore/world.md"
@@ -946,8 +946,8 @@
       "dir": "W",
       "min": 1700,
       "max": 3650,
-      "distance": 1803,
-      "bearing": 273,
+      "distance": 2593,
+      "bearing": 276,
       "wind": "W",
       "ok": true,
       "source": "design/lore/marris.md"

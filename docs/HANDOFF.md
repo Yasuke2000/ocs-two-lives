@@ -1,3 +1,12 @@
+## 27 November 2026 — current report and unmet Amrita adoption
+
+[Current readiness audit](research/tensura-world-2026-11-19/current-map-readiness.md): the tracked world/map_check.json was stale (12288x10752 box and 9653-block mainland width). Regenerated from actual source36c77b45: 0errors/56relations/2warnings,13824x11264 box,9983x6250 mainland,58sites/24roads. Active source/preview and all14normal hashes are retained.
+
+The inactive Amrita candidate now follows the latest selected map. Only its circle and label differ;fresh default validation still has four errors: carve support,parent spacing,road end and E350-700relation. No conversion or skip-check. All22region sections have required fields and3-5reference links;361unique claim IDs have complete source fields;58PNG/MDpairs exist. These are structural checks,not semantic/full canon proof.
+
+Refetched again on27November:main3555a00 and authoringce784f8 unchanged;own-world-switch a944e35 still applies old sourceb48666e9. PR167/170/171/172 contain only bot comments,no new implementation evidence. Owner choices are resolved;Claude must coordinate nested-location semantics,registration and source-aligned actual-pack acceptance. Fresh required gate:494tests75.457s,26skipped,the same3legacy-registration failures plus validation,0JS. 47local links checked. No new protected edit,world apply,main merge or deployment.
+
+
 ## 24November2026 — Orbic category cache and later settlement lead
 
 [Source review](research/tensura-world-2026-11-19/orbic-category-current-review.md):normal encoded Orbic category now returns5cached titles (crawl1.5years ago),all enumerated;3direct article bodies still402. Juuroku Ko resolves to Kojuroku;selected base/background/reference fields identify Lake Tribe Village as a later named-orc/Tempest lead. Primary guide13.5p180guest story attributed by wiki to Tatsuya Masuda remains unread;fan-wiki only. NewWIK-ORB-LAKE-001retains prior360IDs/classes. Discovery140/expanded144;42initial physical follow-ups retained,no new initial construction or numbered site. Ulgracia category stillunavailable;C05no verified bearing,no move. Both atlas panels update inventory count only;source36c77b45,geometry/14normal outputs/continent/concepts retained. Fresh required494tests83.574s/26skips,the same3legacy-registration failures plus validation;0JS. All360prior fact records exact;both atlas ASTs differ only in inventory text;all58anchors per atlas stillmatch. Technical integration/Amrita/legacy gates unchanged.

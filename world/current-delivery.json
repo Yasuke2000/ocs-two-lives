@@ -1352,7 +1352,7 @@
       "validation_passed": false,
       "tests": 494,
       "skipped": 26,
-      "seconds": 83.574,
+      "seconds": 75.457,
       "failures": 3,
       "changed_js_files": 0,
       "failed_tests": [
@@ -1361,7 +1361,8 @@
         "test_gen_data_check_covers_the_env_file"
       ],
       "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
-      "scope": "Fresh source-discovery/inventory-only check;the same three legacy registration failures plus validation;zero changed JavaScript."
+      "scope": "Fresh required check after date change and remote refetch;the same three legacy registration failures plus validation;zero changed JavaScript.",
+      "date": "2026-11-27"
     },
     "site_index_unchanged": 54,
     "flat_preparations_unchanged": 32,
@@ -1623,20 +1624,27 @@
   },
   "inactive_amrita_nesting_trial": {
     "review": "amrita-current-nesting-review.md",
-    "source_sha256": "57a763feae36fd7bd2317d7712107184fbccf54a2e80812b16a2de635e43e478",
+    "source_sha256": "614118d9d359354b9115348d08079c0d67813c9fca897bafacb09d1e787d8318",
     "default_checker_errors": 4,
     "production_changed": false,
     "owner_choice_pending": false,
     "conversion_run": false,
     "repository_gate": {
-      "tests": 494,
-      "seconds": 66.575,
-      "failures": 2,
-      "skipped": 26,
-      "validation_passed": false,
       "passed": false,
+      "validation_passed": false,
+      "tests": 494,
+      "skipped": 26,
+      "seconds": 75.457,
+      "failures": 3,
       "changed_js_files": 0,
-      "scope": "Same legacy Filtwood U/J failures; candidate four-error report is a separate result."
+      "failed_tests": [
+        "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_every_anchor_on_its_ground_and_in_its_region[sainte_malukshure]",
+        "test_gen_data_check_covers_the_env_file"
+      ],
+      "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
+      "scope": "Fresh required check after date change and remote refetch;the same three legacy registration failures plus validation;zero changed JavaScript.",
+      "date": "2026-11-27"
     },
     "active_default_checker": {
       "errors": 0,
@@ -1646,7 +1654,8 @@
     "owner_decision": "Nest Amrita beneath Clayman castle;retire separate eastern reservation",
     "decision_review": "amrita-approved.md",
     "technical_adoption_pending": true,
-    "exact_candidate_geometry_approved": false
+    "exact_candidate_geometry_approved": false,
+    "active": false
   },
   "current_proportion_benchmark": {
     "review": "proportion-audit.md",
@@ -1677,7 +1686,8 @@
       "validation_passed": false,
       "changed_js_files": 0,
       "scope": "Same retained legacy Filtwood U/J failures;owner decision documentation only."
-    }
+    },
+    "current_active_source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627"
   },
   "owner_geography_choices_pending": [],
   "approved_islands_coast": {
@@ -1716,5 +1726,35 @@
       "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
       "scope": "Fresh source-discovery/inventory-only check;the same three legacy registration failures plus validation;zero changed JavaScript."
     }
+  },
+  "current_readiness": {
+    "review": "../docs/research/tensura-world-2026-11-19/current-map-readiness.md",
+    "audit": "current-map-readiness-audit.json",
+    "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+    "active_report": "map_check.json",
+    "active_errors": 0,
+    "active_relations": 56,
+    "active_warnings": 2,
+    "goal_complete": false,
+    "amrita_technical_adoption_pending": true,
+    "owner_geography_choice_pending": false,
+    "repository_gate": {
+      "passed": false,
+      "validation_passed": false,
+      "tests": 494,
+      "skipped": 26,
+      "seconds": 75.457,
+      "failures": 3,
+      "changed_js_files": 0,
+      "failed_tests": [
+        "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_every_anchor_on_its_ground_and_in_its_region[sainte_malukshure]",
+        "test_gen_data_check_covers_the_env_file"
+      ],
+      "reason": "Legacy Lerfing grid/bindings: Filtwood U versus approved J;Sainte H versus approved O. Generator validation stops at Filtwood. No tests or protected code weakened.",
+      "scope": "Fresh required check after date change and remote refetch;the same three legacy registration failures plus validation;zero changed JavaScript.",
+      "date": "2026-11-27"
+    },
+    "reviewed_date": "2026-11-27"
   }
 }

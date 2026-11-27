@@ -1,31 +1,11 @@
-> **Owner decision,23 November2026:** Yasuke selected beneath-castle nesting and retirement of the eastern reservation. [Approved target and technical handoff](amrita-approved.md). The measured candidate below remains inactive;its exact centre/depth/volume are not approved construction geometry. The options below describe the earlier review.
+# Current Amrita marker-only trial on the selected map
 
-# Amrita: current nesting decision and marker-only failure
+27 November 2026. Active source`36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627`. The earlier trial used an older map;this one is rebuilt from the latest source so the approved larger islands,coastal Malukshure,Filtwood and early trails are retained. [Inactive SVG](amrita-current-nested-candidate.svg) · [actual default failure report](amrita-current-nested-check.json) · [current preview](amrita-current-nested-preview.png) · [integrity/readiness audit](current-map-readiness-audit.json).
 
-23 November 2026. [Same-scale comparison](amrita-current-nesting-comparison.png) · [original comparison SVG](amrita-current-nesting-comparison.svg) · [inactive marker-only candidate](amrita-current-nested-candidate.svg) · [actual default report](amrita-current-nested-check.json) · [integrity audit](amrita-current-nesting-audit.json).
+Exactly two native elements differ from the active map:Amrita's circle centre(3800,-500)to(3300,-600),and its moved/correctly labelled inactive trial text. All 57 other site records and every other source element are retained. Radius 63,carve kind and margins stay unchanged. This is a horizontal test only;no depth,ruin volume or exact centroid is established.
 
-## Source and current geometry
+The default checker returns the same four errors on the current map:carve support absent at the castle point;overlapping independent discs(edge gap -153 versus margin 48);old Jistav road end 361 blocks beyond the nearest disc;obsolete E350-700distance relation. The report's coincident-point bearing is not meaningful geography. Two ordinary water/box warnings remain. No conversion or skip-check is run for the failing candidate.
 
-The [official episode81 synopsis](https://www.ten-sura.com/anime/tensura/story/no86) was directly reread with its displayed heading. It places ancient Amrita beneath Clayman's former castle. The route is no86; route no81 displays episode76 and is not the source. The [LN10 public prologue](https://gcnovels.jp/reading/slime10.htm), already directly read, distinguishes the ancient defended ruin from the surface city and older Soma homeland. No new LN passage or exact ruin-centre/depth measurement is claimed.
+The active drawing separately passes 0 errors / 56 relations / 2 warnings at13824x11264,58sites/24roads. Its normal source 36c77b45 and preview bytes remain exact. Passing the old separate-site contract does not mean the accepted beneath-castle target is implemented.
 
-Active source534d07ad retains castle(3300,-600), r90 and the eastern Amrita reservation(3800,-500), r63. Their centres are509.90blocks apart. Normal index y73 for the castle and y89 for Amrita are server registration values, not verified relative ruin depths; the separate marker cannot be read as a measured subsurface relationship. The old public mound/shaft blueprint and its exposed approach are likewise interpretations. Creative direction now follows the enclosed dormant gallery concept rather than presenting that exterior entrance as canon.
-
-## Concrete trial and four failures
-
-The candidate changes only Amrita centre3800,-500→3300,-600 and its label. All other site attributes, all57other marker records and every other native element are retained. Recentring the existing radius63 reservation is our interpretation, not a source-proved centroid. No depth, room envelope or arbitrary new hill is drawn.
-
-Default checker returns four errors: carve centre outside all mountain/hill polygons; overlapping separate site discs (edge gap−153 versus margin48); existing `jistav_border_road` end(3740,-500) now361blocks beyond the nearest site disc; fixed E350..700 relation fails at zero separation. The reported compass bearing at coincident points has no geographic meaning; distance alone proves that relation fails. Two standing water/box warnings remain. The candidate is deliberately inactive and is not a passing delivery map.
-
-This demonstrates why one rule-data exception would not complete adoption. Technical work must represent a castle-linked underground place, reconcile parent/vertical spacing and carving support, decide actual dry volume/depth and template joins, and redesign the road's destination. A new hill or clearing-kind substitution solely to satisfy the checker would not establish the requested ruin geography. No `--skip-check` conversion is run.
-
-## Owner choice
-
-A. Follow the beneath-castle relationship as a nested castle-linked location; retire the independent eastern reservation and have Claude reconcile the fixed relation, registration, road and underground/template support. Exact centre/depth/extent remain authored design to review, not newly established canon.
-
-B. Retain the eastern reservation as an explicit server deviation. Its external public mound/shaft must still not be described as a source-established entrance; the source-led concept remains a dormant interior study.
-
-Neither choice is silently activated. The current C07 comment already contains the castle-linked access alternative; this complete marker-only trial exposes its integration dependencies. No protected file, canonical anchor, production SVG, terrain output or original artwork is changed. Later expedition, public opening, visitors, active wards and outcomes remain excluded from the initial post-Kijin world.
-
-All58registered sites,23roads,13lakes and14normal outputs remain current. Ledger adds one explicitly interpreted trial record,360total; existing source confidence is retained. Inventory143/42 stays open. Full schema, ruin construction, fluids and Minecraft acceptance remain unproved. See the earlier [source/access study](amrita-placement-review.md) for the separate r8 access projection and source-still limits.
-
-Fresh active checker:0errors,56relations,2standingwarnings. Fresh required repository gate:494tests in66.575s,26skipped,the same two legacy Filtwood U/J failures plus validation;zero changed JavaScript. Gate remains failing. Exactly two native candidate elements differ (Amrita circle and label);24local brief/review/lore links resolve. All14normal artifacts,selected map/art and the Amrita blueprint are byte-identical. The original comparison was visually inspected.
+[Approved target and coordinated technical work](amrita-approved.md):parent/vertical semantics,carve cover/rock/fluids,road destination and public-shaft/template reconciliation belong together. No new owner decision is requested;the exact interpreted candidate geometry is not approved construction. [Earlier trial/source discussion](https://github.com/Yasuke2000/ocs-two-lives/blob/ce784f8bba12a8668d8eaf1f6e0e1b9575d64dd5/world/amrita-current-nesting-review.md) retains its historical source and comparison images.
