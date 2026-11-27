@@ -1,0 +1,1497 @@
+{
+  "round": 111,
+  "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+  "biome_raw_sha256": "92e067f9f9257c62e1733ad1e49fe84ea884a3c5ad2754c16d57ac1c41b63dc3",
+  "method": "All four-block pixel centres in current biome export; native region union per letter; exact shared-boundary samples assigned to first SVG region in source order; ocean palette0 excluded. No runtime chunk-boundary claim.",
+  "region_count": 22,
+  "biome_rows": 108,
+  "non_ocean_cells": 2702958,
+  "assigned_non_ocean_cells": 2693482,
+  "shared_boundary_non_ocean_cells": 26,
+  "unassigned_inland_non_ocean_cells": 0,
+  "outside_native_coast_non_ocean_cells": 9476,
+  "maximum_outside_coast_distance": 20.4424948411572,
+  "outside_native_coast_biomes": {
+    "minecraft:beach": 8410,
+    "minecraft:forest": 1,
+    "minecraft:old_growth_birch_forest": 27,
+    "minecraft:plains": 768,
+    "minecraft:river": 15,
+    "tensura:barren_land": 255
+  },
+  "interpretation_limits": "Areas describe current designed gameplay masks,not sovereign national borders or canonical climate percentages. Edge samples outside native coastline are reported separately. Final biome/noise/tree generation requires runtime tests.",
+  "regions": [
+    {
+      "region": "V",
+      "region_name": "Damargania / western wastes",
+      "cells": 205548,
+      "area_blocks2": 3288768,
+      "biomes": [
+        {
+          "region": "V",
+          "region_name": "Damargania / western wastes",
+          "biome": "minecraft:plains",
+          "cells": 91413,
+          "area_blocks2": 1462608,
+          "share_percent": 44.47282386595832,
+          "denominator_cells": 205548,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "V",
+          "region_name": "Damargania / western wastes",
+          "biome": "tensura:desert_of_death",
+          "cells": 81541,
+          "area_blocks2": 1304656,
+          "share_percent": 39.67005273707358,
+          "denominator_cells": 205548,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "V",
+          "region_name": "Damargania / western wastes",
+          "biome": "tensura:barren_land",
+          "cells": 21454,
+          "area_blocks2": 343264,
+          "share_percent": 10.43746472843326,
+          "denominator_cells": 205548,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "V",
+          "region_name": "Damargania / western wastes",
+          "biome": "minecraft:desert",
+          "cells": 8595,
+          "area_blocks2": 137520,
+          "share_percent": 4.181505049915348,
+          "denominator_cells": 205548,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "V",
+          "region_name": "Damargania / western wastes",
+          "biome": "minecraft:beach",
+          "cells": 2331,
+          "area_blocks2": 37296,
+          "share_percent": 1.1340416836943197,
+          "denominator_cells": 205548,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "V",
+          "region_name": "Damargania / western wastes",
+          "biome": "minecraft:river",
+          "cells": 146,
+          "area_blocks2": 2336,
+          "share_percent": 0.07102963784614785,
+          "denominator_cells": 205548,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "V",
+          "region_name": "Damargania / western wastes",
+          "biome": "minecraft:forest",
+          "cells": 68,
+          "area_blocks2": 1088,
+          "share_percent": 0.03308229707902777,
+          "denominator_cells": 205548,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "L",
+      "region_name": "Holy Empire of Lubelius",
+      "cells": 77882,
+      "area_blocks2": 1246112,
+      "biomes": [
+        {
+          "region": "L",
+          "region_name": "Holy Empire of Lubelius",
+          "biome": "minecraft:plains",
+          "cells": 73377,
+          "area_blocks2": 1174032,
+          "share_percent": 94.21560822783185,
+          "denominator_cells": 77882,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "L",
+          "region_name": "Holy Empire of Lubelius",
+          "biome": "minecraft:desert",
+          "cells": 2384,
+          "area_blocks2": 38144,
+          "share_percent": 3.061041062119617,
+          "denominator_cells": 77882,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "L",
+          "region_name": "Holy Empire of Lubelius",
+          "biome": "minecraft:stony_peaks",
+          "cells": 1236,
+          "area_blocks2": 19776,
+          "share_percent": 1.5870162553606737,
+          "denominator_cells": 77882,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "L",
+          "region_name": "Holy Empire of Lubelius",
+          "biome": "minecraft:beach",
+          "cells": 464,
+          "area_blocks2": 7424,
+          "share_percent": 0.5957730926273079,
+          "denominator_cells": 77882,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "L",
+          "region_name": "Holy Empire of Lubelius",
+          "biome": "minecraft:snowy_slopes",
+          "cells": 338,
+          "area_blocks2": 5408,
+          "share_percent": 0.43398988212937517,
+          "denominator_cells": 77882,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "L",
+          "region_name": "Holy Empire of Lubelius",
+          "biome": "minecraft:river",
+          "cells": 83,
+          "area_blocks2": 1328,
+          "share_percent": 0.10657147993117795,
+          "denominator_cells": 77882,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "F",
+      "region_name": "Kingdom of Falmuth",
+      "cells": 138789,
+      "area_blocks2": 2220624,
+      "biomes": [
+        {
+          "region": "F",
+          "region_name": "Kingdom of Falmuth",
+          "biome": "minecraft:plains",
+          "cells": 136341,
+          "area_blocks2": 2181456,
+          "share_percent": 98.23617145451009,
+          "denominator_cells": 138789,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "F",
+          "region_name": "Kingdom of Falmuth",
+          "biome": "minecraft:beach",
+          "cells": 2448,
+          "area_blocks2": 39168,
+          "share_percent": 1.7638285454899163,
+          "denominator_cells": 138789,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "D",
+      "region_name": "Armed Nation of Dwargon",
+      "cells": 315841,
+      "area_blocks2": 5053456,
+      "biomes": [
+        {
+          "region": "D",
+          "region_name": "Armed Nation of Dwargon",
+          "biome": "minecraft:plains",
+          "cells": 232290,
+          "area_blocks2": 3716640,
+          "share_percent": 73.54649966280502,
+          "denominator_cells": 315841,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "D",
+          "region_name": "Armed Nation of Dwargon",
+          "biome": "minecraft:forest",
+          "cells": 51142,
+          "area_blocks2": 818272,
+          "share_percent": 16.192324619032995,
+          "denominator_cells": 315841,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "D",
+          "region_name": "Armed Nation of Dwargon",
+          "biome": "minecraft:stony_peaks",
+          "cells": 14884,
+          "area_blocks2": 238144,
+          "share_percent": 4.712497744118084,
+          "denominator_cells": 315841,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "D",
+          "region_name": "Armed Nation of Dwargon",
+          "biome": "minecraft:jagged_peaks",
+          "cells": 5110,
+          "area_blocks2": 81760,
+          "share_percent": 1.617902678879563,
+          "denominator_cells": 315841,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "D",
+          "region_name": "Armed Nation of Dwargon",
+          "biome": "minecraft:snowy_slopes",
+          "cells": 3770,
+          "area_blocks2": 60320,
+          "share_percent": 1.1936385713064486,
+          "denominator_cells": 315841,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "D",
+          "region_name": "Armed Nation of Dwargon",
+          "biome": "minecraft:meadow",
+          "cells": 3221,
+          "area_blocks2": 51536,
+          "share_percent": 1.0198169332037323,
+          "denominator_cells": 315841,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "D",
+          "region_name": "Armed Nation of Dwargon",
+          "biome": "minecraft:frozen_peaks",
+          "cells": 3150,
+          "area_blocks2": 50400,
+          "share_percent": 0.9973372678024702,
+          "denominator_cells": 315841,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "D",
+          "region_name": "Armed Nation of Dwargon",
+          "biome": "minecraft:beach",
+          "cells": 2178,
+          "area_blocks2": 34848,
+          "share_percent": 0.6895874823091366,
+          "denominator_cells": 315841,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "D",
+          "region_name": "Armed Nation of Dwargon",
+          "biome": "minecraft:river",
+          "cells": 96,
+          "area_blocks2": 1536,
+          "share_percent": 0.030395040542551478,
+          "denominator_cells": 315841,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "E",
+      "region_name": "Eastern Empire",
+      "cells": 158209,
+      "area_blocks2": 2531344,
+      "biomes": [
+        {
+          "region": "E",
+          "region_name": "Eastern Empire",
+          "biome": "minecraft:plains",
+          "cells": 136250,
+          "area_blocks2": 2180000,
+          "share_percent": 86.12025864520982,
+          "denominator_cells": 158209,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "E",
+          "region_name": "Eastern Empire",
+          "biome": "minecraft:snowy_slopes",
+          "cells": 8033,
+          "area_blocks2": 128528,
+          "share_percent": 5.077460827133729,
+          "denominator_cells": 158209,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "E",
+          "region_name": "Eastern Empire",
+          "biome": "minecraft:stony_peaks",
+          "cells": 5419,
+          "area_blocks2": 86704,
+          "share_percent": 3.4252160117313175,
+          "denominator_cells": 158209,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "E",
+          "region_name": "Eastern Empire",
+          "biome": "minecraft:forest",
+          "cells": 4200,
+          "area_blocks2": 67200,
+          "share_percent": 2.6547162297972933,
+          "denominator_cells": 158209,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "E",
+          "region_name": "Eastern Empire",
+          "biome": "minecraft:beach",
+          "cells": 2343,
+          "area_blocks2": 37488,
+          "share_percent": 1.4809524110512045,
+          "denominator_cells": 158209,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "E",
+          "region_name": "Eastern Empire",
+          "biome": "minecraft:river",
+          "cells": 1892,
+          "area_blocks2": 30272,
+          "share_percent": 1.1958864539943999,
+          "denominator_cells": 158209,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "E",
+          "region_name": "Eastern Empire",
+          "biome": "minecraft:frozen_peaks",
+          "cells": 72,
+          "area_blocks2": 1152,
+          "share_percent": 0.045509421082239314,
+          "denominator_cells": 158209,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "P",
+      "region_name": "Jistav",
+      "cells": 74305,
+      "area_blocks2": 1188880,
+      "biomes": [
+        {
+          "region": "P",
+          "region_name": "Jistav",
+          "biome": "minecraft:plains",
+          "cells": 40836,
+          "area_blocks2": 653376,
+          "share_percent": 54.95727070856604,
+          "denominator_cells": 74305,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "P",
+          "region_name": "Jistav",
+          "biome": "minecraft:dark_forest",
+          "cells": 32664,
+          "area_blocks2": 522624,
+          "share_percent": 43.95935670547069,
+          "denominator_cells": 74305,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "P",
+          "region_name": "Jistav",
+          "biome": "minecraft:stony_peaks",
+          "cells": 534,
+          "area_blocks2": 8544,
+          "share_percent": 0.7186595787632057,
+          "denominator_cells": 74305,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "P",
+          "region_name": "Jistav",
+          "biome": "minecraft:beach",
+          "cells": 271,
+          "area_blocks2": 4336,
+          "share_percent": 0.36471300720005384,
+          "denominator_cells": 74305,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "J",
+      "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+      "cells": 282750,
+      "area_blocks2": 4524000,
+      "biomes": [
+        {
+          "region": "J",
+          "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+          "biome": "minecraft:forest",
+          "cells": 114984,
+          "area_blocks2": 1839744,
+          "share_percent": 40.66631299734748,
+          "denominator_cells": 282750,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "J",
+          "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+          "biome": "minecraft:plains",
+          "cells": 83476,
+          "area_blocks2": 1335616,
+          "share_percent": 29.52290008841733,
+          "denominator_cells": 282750,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "J",
+          "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+          "biome": "minecraft:dark_forest",
+          "cells": 67080,
+          "area_blocks2": 1073280,
+          "share_percent": 23.724137931034484,
+          "denominator_cells": 282750,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "J",
+          "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+          "biome": "tensura:ancient_forest",
+          "cells": 6727,
+          "area_blocks2": 107632,
+          "share_percent": 2.3791335101679927,
+          "denominator_cells": 282750,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "J",
+          "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+          "biome": "minecraft:old_growth_spruce_taiga",
+          "cells": 5082,
+          "area_blocks2": 81312,
+          "share_percent": 1.797347480106101,
+          "denominator_cells": 282750,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "J",
+          "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+          "biome": "minecraft:old_growth_birch_forest",
+          "cells": 2826,
+          "area_blocks2": 45216,
+          "share_percent": 0.9994694960212201,
+          "denominator_cells": 282750,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "J",
+          "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+          "biome": "minecraft:stony_peaks",
+          "cells": 1789,
+          "area_blocks2": 28624,
+          "share_percent": 0.6327144120247569,
+          "denominator_cells": 282750,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "J",
+          "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+          "biome": "minecraft:river",
+          "cells": 487,
+          "area_blocks2": 7792,
+          "share_percent": 0.172236958443855,
+          "denominator_cells": 282750,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "J",
+          "region_name": "Jura Forest / Rimuru's village (gameplay J)",
+          "biome": "minecraft:meadow",
+          "cells": 299,
+          "area_blocks2": 4784,
+          "share_percent": 0.10574712643678162,
+          "denominator_cells": 282750,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "W",
+      "region_name": "Lake Siss marsh",
+      "cells": 113326,
+      "area_blocks2": 1813216,
+      "biomes": [
+        {
+          "region": "W",
+          "region_name": "Lake Siss marsh",
+          "biome": "minecraft:swamp",
+          "cells": 67646,
+          "area_blocks2": 1082336,
+          "share_percent": 59.69150945061151,
+          "denominator_cells": 113326,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "W",
+          "region_name": "Lake Siss marsh",
+          "biome": "minecraft:plains",
+          "cells": 33634,
+          "area_blocks2": 538144,
+          "share_percent": 29.678979228067696,
+          "denominator_cells": 113326,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "W",
+          "region_name": "Lake Siss marsh",
+          "biome": "minecraft:forest",
+          "cells": 5089,
+          "area_blocks2": 81424,
+          "share_percent": 4.490584684891375,
+          "denominator_cells": 113326,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "W",
+          "region_name": "Lake Siss marsh",
+          "biome": "minecraft:dark_forest",
+          "cells": 3451,
+          "area_blocks2": 55216,
+          "share_percent": 3.0451970421615515,
+          "denominator_cells": 113326,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "W",
+          "region_name": "Lake Siss marsh",
+          "biome": "minecraft:old_growth_spruce_taiga",
+          "cells": 2981,
+          "area_blocks2": 47696,
+          "share_percent": 2.6304643241621517,
+          "denominator_cells": 113326,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "W",
+          "region_name": "Lake Siss marsh",
+          "biome": "minecraft:river",
+          "cells": 525,
+          "area_blocks2": 8400,
+          "share_percent": 0.4632652701057127,
+          "denominator_cells": 113326,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "M",
+      "region_name": "Milim's old domain",
+      "cells": 300948,
+      "area_blocks2": 4815168,
+      "biomes": [
+        {
+          "region": "M",
+          "region_name": "Milim's old domain",
+          "biome": "minecraft:plains",
+          "cells": 262721,
+          "area_blocks2": 4203536,
+          "share_percent": 87.2978056009676,
+          "denominator_cells": 300948,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "M",
+          "region_name": "Milim's old domain",
+          "biome": "minecraft:forest",
+          "cells": 14154,
+          "area_blocks2": 226464,
+          "share_percent": 4.703138083655648,
+          "denominator_cells": 300948,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "M",
+          "region_name": "Milim's old domain",
+          "biome": "minecraft:wooded_badlands",
+          "cells": 13374,
+          "area_blocks2": 213984,
+          "share_percent": 4.443957095577974,
+          "denominator_cells": 300948,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "M",
+          "region_name": "Milim's old domain",
+          "biome": "minecraft:river",
+          "cells": 4502,
+          "area_blocks2": 72032,
+          "share_percent": 1.4959394978534497,
+          "denominator_cells": 300948,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "M",
+          "region_name": "Milim's old domain",
+          "biome": "minecraft:dark_forest",
+          "cells": 4225,
+          "area_blocks2": 67600,
+          "share_percent": 1.4038970187540705,
+          "denominator_cells": 300948,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "M",
+          "region_name": "Milim's old domain",
+          "biome": "minecraft:beach",
+          "cells": 1972,
+          "area_blocks2": 31552,
+          "share_percent": 0.655262703191249,
+          "denominator_cells": 300948,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "B",
+      "region_name": "Beast Kingdom of Eurazania",
+      "cells": 213338,
+      "area_blocks2": 3413408,
+      "biomes": [
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "minecraft:jungle",
+          "cells": 95333,
+          "area_blocks2": 1525328,
+          "share_percent": 44.686366235738596,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "minecraft:plains",
+          "cells": 74151,
+          "area_blocks2": 1186416,
+          "share_percent": 34.75752092922967,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "minecraft:sparse_jungle",
+          "cells": 22256,
+          "area_blocks2": 356096,
+          "share_percent": 10.432271794054506,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "tensura:barren_land",
+          "cells": 14975,
+          "area_blocks2": 239600,
+          "share_percent": 7.019377701112788,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "minecraft:swamp",
+          "cells": 2929,
+          "area_blocks2": 46864,
+          "share_percent": 1.3729387169655665,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "minecraft:beach",
+          "cells": 1285,
+          "area_blocks2": 20560,
+          "share_percent": 0.6023305740186933,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "minecraft:stony_peaks",
+          "cells": 858,
+          "area_blocks2": 13728,
+          "share_percent": 0.4021787023408863,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "minecraft:river",
+          "cells": 720,
+          "area_blocks2": 11520,
+          "share_percent": 0.3374926173489955,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "minecraft:snowy_slopes",
+          "cells": 433,
+          "area_blocks2": 6928,
+          "share_percent": 0.20296431015571537,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "B",
+          "region_name": "Beast Kingdom of Eurazania",
+          "biome": "minecraft:old_growth_spruce_taiga",
+          "cells": 398,
+          "area_blocks2": 6368,
+          "share_percent": 0.18655841903458362,
+          "denominator_cells": 213338,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "S",
+      "region_name": "Sorcerous Dynasty of Sarion",
+      "cells": 137546,
+      "area_blocks2": 2200736,
+      "biomes": [
+        {
+          "region": "S",
+          "region_name": "Sorcerous Dynasty of Sarion",
+          "biome": "minecraft:old_growth_birch_forest",
+          "cells": 104381,
+          "area_blocks2": 1670096,
+          "share_percent": 75.8880665377401,
+          "denominator_cells": 137546,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "S",
+          "region_name": "Sorcerous Dynasty of Sarion",
+          "biome": "minecraft:plains",
+          "cells": 31447,
+          "area_blocks2": 503152,
+          "share_percent": 22.862896776351185,
+          "denominator_cells": 137546,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "S",
+          "region_name": "Sorcerous Dynasty of Sarion",
+          "biome": "minecraft:stony_peaks",
+          "cells": 1217,
+          "area_blocks2": 19472,
+          "share_percent": 0.884794904977244,
+          "denominator_cells": 137546,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "S",
+          "region_name": "Sorcerous Dynasty of Sarion",
+          "biome": "minecraft:beach",
+          "cells": 444,
+          "area_blocks2": 7104,
+          "share_percent": 0.32280109926860834,
+          "denominator_cells": 137546,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "S",
+          "region_name": "Sorcerous Dynasty of Sarion",
+          "biome": "minecraft:river",
+          "cells": 57,
+          "area_blocks2": 912,
+          "share_percent": 0.041440681662861883,
+          "denominator_cells": 137546,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "R",
+      "region_name": "Kingdom of Blumund",
+      "cells": 116771,
+      "area_blocks2": 1868336,
+      "biomes": [
+        {
+          "region": "R",
+          "region_name": "Kingdom of Blumund",
+          "biome": "minecraft:plains",
+          "cells": 108626,
+          "area_blocks2": 1738016,
+          "share_percent": 93.02480924202071,
+          "denominator_cells": 116771,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "R",
+          "region_name": "Kingdom of Blumund",
+          "biome": "minecraft:river",
+          "cells": 6314,
+          "area_blocks2": 101024,
+          "share_percent": 5.407164450077502,
+          "denominator_cells": 116771,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "R",
+          "region_name": "Kingdom of Blumund",
+          "biome": "minecraft:birch_forest",
+          "cells": 1831,
+          "area_blocks2": 29296,
+          "share_percent": 1.5680263079017907,
+          "denominator_cells": 116771,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "Q",
+      "region_name": "Yggdonia",
+      "cells": 5269,
+      "area_blocks2": 84304,
+      "biomes": [
+        {
+          "region": "Q",
+          "region_name": "Yggdonia",
+          "biome": "minecraft:birch_forest",
+          "cells": 5210,
+          "area_blocks2": 83360,
+          "share_percent": 98.88024293034732,
+          "denominator_cells": 5269,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "Q",
+          "region_name": "Yggdonia",
+          "biome": "minecraft:plains",
+          "cells": 59,
+          "area_blocks2": 944,
+          "share_percent": 1.1197570696526855,
+          "denominator_cells": 5269,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "U",
+      "region_name": "Ulgracia",
+      "cells": 13947,
+      "area_blocks2": 223152,
+      "biomes": [
+        {
+          "region": "U",
+          "region_name": "Ulgracia",
+          "biome": "minecraft:old_growth_birch_forest",
+          "cells": 13045,
+          "area_blocks2": 208720,
+          "share_percent": 93.53265935326593,
+          "denominator_cells": 13947,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "U",
+          "region_name": "Ulgracia",
+          "biome": "minecraft:plains",
+          "cells": 780,
+          "area_blocks2": 12480,
+          "share_percent": 5.592600559260056,
+          "denominator_cells": 13947,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "U",
+          "region_name": "Ulgracia",
+          "biome": "minecraft:beach",
+          "cells": 118,
+          "area_blocks2": 1888,
+          "share_percent": 0.8460600846060086,
+          "denominator_cells": 13947,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "U",
+          "region_name": "Ulgracia",
+          "biome": "minecraft:river",
+          "cells": 4,
+          "area_blocks2": 64,
+          "share_percent": 0.028680002868000286,
+          "denominator_cells": 13947,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "G",
+      "region_name": "Kingdom of Englassia",
+      "cells": 76038,
+      "area_blocks2": 1216608,
+      "biomes": [
+        {
+          "region": "G",
+          "region_name": "Kingdom of Englassia",
+          "biome": "minecraft:plains",
+          "cells": 52326,
+          "area_blocks2": 837216,
+          "share_percent": 68.81559220389805,
+          "denominator_cells": 76038,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "G",
+          "region_name": "Kingdom of Englassia",
+          "biome": "minecraft:forest",
+          "cells": 20219,
+          "area_blocks2": 323504,
+          "share_percent": 26.590652042399853,
+          "denominator_cells": 76038,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "G",
+          "region_name": "Kingdom of Englassia",
+          "biome": "minecraft:desert",
+          "cells": 1686,
+          "area_blocks2": 26976,
+          "share_percent": 2.2173123964333623,
+          "denominator_cells": 76038,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "G",
+          "region_name": "Kingdom of Englassia",
+          "biome": "minecraft:river",
+          "cells": 906,
+          "area_blocks2": 14496,
+          "share_percent": 1.1915095084036929,
+          "denominator_cells": 76038,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "G",
+          "region_name": "Kingdom of Englassia",
+          "biome": "minecraft:birch_forest",
+          "cells": 901,
+          "area_blocks2": 14416,
+          "share_percent": 1.1849338488650412,
+          "denominator_cells": 76038,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "O",
+      "region_name": "Morgdahl",
+      "cells": 88320,
+      "area_blocks2": 1413120,
+      "biomes": [
+        {
+          "region": "O",
+          "region_name": "Morgdahl",
+          "biome": "minecraft:plains",
+          "cells": 86240,
+          "area_blocks2": 1379840,
+          "share_percent": 97.64492753623189,
+          "denominator_cells": 88320,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "O",
+          "region_name": "Morgdahl",
+          "biome": "minecraft:river",
+          "cells": 1512,
+          "area_blocks2": 24192,
+          "share_percent": 1.7119565217391304,
+          "denominator_cells": 88320,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "O",
+          "region_name": "Morgdahl",
+          "biome": "minecraft:beach",
+          "cells": 568,
+          "area_blocks2": 9088,
+          "share_percent": 0.6431159420289855,
+          "denominator_cells": 88320,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "A",
+      "region_name": "Raja",
+      "cells": 7621,
+      "area_blocks2": 121936,
+      "biomes": [
+        {
+          "region": "A",
+          "region_name": "Raja",
+          "biome": "minecraft:plains",
+          "cells": 6977,
+          "area_blocks2": 111632,
+          "share_percent": 91.5496653982417,
+          "denominator_cells": 7621,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "A",
+          "region_name": "Raja",
+          "biome": "minecraft:river",
+          "cells": 644,
+          "area_blocks2": 10304,
+          "share_percent": 8.4503346017583,
+          "denominator_cells": 7621,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "N",
+      "region_name": "Nostraille",
+      "cells": 8080,
+      "area_blocks2": 129280,
+      "biomes": [
+        {
+          "region": "N",
+          "region_name": "Nostraille",
+          "biome": "minecraft:plains",
+          "cells": 8067,
+          "area_blocks2": 129072,
+          "share_percent": 99.8391089108911,
+          "denominator_cells": 8080,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "N",
+          "region_name": "Nostraille",
+          "biome": "minecraft:river",
+          "cells": 13,
+          "area_blocks2": 208,
+          "share_percent": 0.1608910891089109,
+          "denominator_cells": 8080,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "Y",
+      "region_name": "Yuzalgh",
+      "cells": 2647,
+      "area_blocks2": 42352,
+      "biomes": [
+        {
+          "region": "Y",
+          "region_name": "Yuzalgh",
+          "biome": "minecraft:plains",
+          "cells": 2644,
+          "area_blocks2": 42304,
+          "share_percent": 99.88666414809218,
+          "denominator_cells": 2647,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "Y",
+          "region_name": "Yuzalgh",
+          "biome": "minecraft:birch_forest",
+          "cells": 3,
+          "area_blocks2": 48,
+          "share_percent": 0.11333585190782018,
+          "denominator_cells": 2647,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "H",
+      "region_name": "Harpy Queendom of Fulbrosia",
+      "cells": 140532,
+      "area_blocks2": 2248512,
+      "biomes": [
+        {
+          "region": "H",
+          "region_name": "Harpy Queendom of Fulbrosia",
+          "biome": "minecraft:plains",
+          "cells": 91765,
+          "area_blocks2": 1468240,
+          "share_percent": 65.29829505023767,
+          "denominator_cells": 140532,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "H",
+          "region_name": "Harpy Queendom of Fulbrosia",
+          "biome": "minecraft:windswept_hills",
+          "cells": 34223,
+          "area_blocks2": 547568,
+          "share_percent": 24.35246064953178,
+          "denominator_cells": 140532,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "H",
+          "region_name": "Harpy Queendom of Fulbrosia",
+          "biome": "minecraft:jungle",
+          "cells": 11599,
+          "area_blocks2": 185584,
+          "share_percent": 8.253636182506476,
+          "denominator_cells": 140532,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "H",
+          "region_name": "Harpy Queendom of Fulbrosia",
+          "biome": "minecraft:beach",
+          "cells": 1550,
+          "area_blocks2": 24800,
+          "share_percent": 1.102951640907409,
+          "denominator_cells": 140532,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "H",
+          "region_name": "Harpy Queendom of Fulbrosia",
+          "biome": "minecraft:river",
+          "cells": 766,
+          "area_blocks2": 12256,
+          "share_percent": 0.5450715851194033,
+          "denominator_cells": 140532,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "H",
+          "region_name": "Harpy Queendom of Fulbrosia",
+          "biome": "minecraft:old_growth_birch_forest",
+          "cells": 629,
+          "area_blocks2": 10064,
+          "share_percent": 0.4475848916972646,
+          "denominator_cells": 140532,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "I",
+      "region_name": "Ice Continent",
+      "cells": 127010,
+      "area_blocks2": 2032160,
+      "biomes": [
+        {
+          "region": "I",
+          "region_name": "Ice Continent",
+          "biome": "minecraft:snowy_plains",
+          "cells": 97426,
+          "area_blocks2": 1558816,
+          "share_percent": 76.7073458782773,
+          "denominator_cells": 127010,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "I",
+          "region_name": "Ice Continent",
+          "biome": "minecraft:frozen_peaks",
+          "cells": 29584,
+          "area_blocks2": 473344,
+          "share_percent": 23.2926541217227,
+          "denominator_cells": 127010,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    },
+    {
+      "region": "X",
+      "region_name": "El Dorado",
+      "cells": 88765,
+      "area_blocks2": 1420240,
+      "biomes": [
+        {
+          "region": "X",
+          "region_name": "El Dorado",
+          "biome": "minecraft:plains",
+          "cells": 77192,
+          "area_blocks2": 1235072,
+          "share_percent": 86.9622035712274,
+          "denominator_cells": 88765,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "X",
+          "region_name": "El Dorado",
+          "biome": "minecraft:forest",
+          "cells": 4788,
+          "area_blocks2": 76608,
+          "share_percent": 5.3940179124654986,
+          "denominator_cells": 88765,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "X",
+          "region_name": "El Dorado",
+          "biome": "minecraft:beach",
+          "cells": 2306,
+          "area_blocks2": 36896,
+          "share_percent": 2.597870782402974,
+          "denominator_cells": 88765,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "X",
+          "region_name": "El Dorado",
+          "biome": "minecraft:river",
+          "cells": 1668,
+          "area_blocks2": 26688,
+          "share_percent": 1.8791190221371035,
+          "denominator_cells": 88765,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "X",
+          "region_name": "El Dorado",
+          "biome": "minecraft:snowy_slopes",
+          "cells": 1538,
+          "area_blocks2": 24608,
+          "share_percent": 1.7326649017067537,
+          "denominator_cells": 88765,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        },
+        {
+          "region": "X",
+          "region_name": "El Dorado",
+          "biome": "minecraft:stony_peaks",
+          "cells": 1273,
+          "area_blocks2": 20368,
+          "share_percent": 1.4341238100602716,
+          "denominator_cells": 88765,
+          "source_sha256": "74d63267bfa7032d1f6d7203e8e27dfa01ae948e8e5cf03f26f4bbeab2c0c079",
+          "confidence": "our interpretation",
+          "scope": "Designed four-block samples inside native gameplay mask; not surveyed sovereignty/climate or final in-game biome distribution"
+        }
+      ]
+    }
+  ]
+}

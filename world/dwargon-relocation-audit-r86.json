@@ -1,0 +1,394 @@
+{
+  "round": 86,
+  "source_sha256": "355d1a338f7dccf835123ff7af6a68cfda3319363378c60f7f04359cab67d3a7",
+  "baseline_source_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "changed_active_shapes": {
+    "mountains": [
+      "dwargon-gate-apron"
+    ],
+    "hills": [
+      "dwargon-forecourt-shoulder"
+    ],
+    "roads": [
+      "tempest_dwargon",
+      "dwargon_dwarf_village",
+      "canaat_high_pass"
+    ],
+    "sites": [
+      "site-dwargon",
+      "site-dwargo",
+      "site-dwargon_throne",
+      "site-kaijin_smithy",
+      "site-dwarf_village",
+      "site-dwarven_arena"
+    ]
+  },
+  "moved_sites": {
+    "dwargon": {
+      "before": [
+        0.0,
+        -1550.0
+      ],
+      "after": [
+        780.0,
+        -1390.0
+      ],
+      "radius": 127.0,
+      "kind": "carve",
+      "margin": "48"
+    },
+    "dwargo": {
+      "before": [
+        0.0,
+        -1650.0
+      ],
+      "after": [
+        780.0,
+        -1490.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": "24"
+    },
+    "dwargon_throne": {
+      "before": [
+        0.0,
+        -1656.0
+      ],
+      "after": [
+        780.0,
+        -1496.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": "24"
+    },
+    "kaijin_smithy": {
+      "before": [
+        -12.0,
+        -1634.0
+      ],
+      "after": [
+        768.0,
+        -1474.0
+      ],
+      "radius": 8.0,
+      "kind": "clearing",
+      "margin": "24"
+    },
+    "dwarf_village": {
+      "before": [
+        400.0,
+        -1200.0
+      ],
+      "after": [
+        1000.0,
+        -1000.0
+      ],
+      "radius": 124.0,
+      "kind": "village",
+      "margin": "64"
+    },
+    "dwarven_arena": {
+      "before": [
+        500.0,
+        -1180.0
+      ],
+      "after": [
+        1100.0,
+        -980.0
+      ],
+      "radius": 58.0,
+      "kind": "clearing",
+      "margin": "48"
+    }
+  },
+  "sites_retained": 58,
+  "unchanged_site_attributes": 52,
+  "dwargon_distance_from_tempest": 1593.8946012832844,
+  "dwargon_bearing": 29.299008745009736,
+  "reference_bearing_secondary": 35.3112134396332,
+  "bearing_error_before": -35.3112134396332,
+  "bearing_error_after": -6.012204694623463,
+  "relative_distance_error_before_percent": -20.69604030497022,
+  "relative_distance_error_after_percent": -18.450223730132166,
+  "raster_deltas": {
+    "height": {
+      "cells": 33272,
+      "world_bounds": [
+        -262,
+        -1698,
+        1186,
+        -818
+      ]
+    },
+    "rugged": {
+      "cells": 21260,
+      "world_bounds": [
+        -126,
+        -1674,
+        1182,
+        -818
+      ]
+    },
+    "water": {
+      "cells": 0
+    },
+    "biome": {
+      "cells": 7313,
+      "world_bounds": [
+        -54,
+        -1690,
+        1154,
+        -878
+      ]
+    },
+    "sites": {
+      "cells": 12770,
+      "world_bounds": [
+        -126,
+        -1674,
+        1154,
+        -878
+      ]
+    },
+    "road": {
+      "cells": 2472,
+      "world_bounds": [
+        -34,
+        -1590,
+        1006,
+        -1002
+      ]
+    },
+    "exclude": {
+      "cells": 30152,
+      "world_bounds": [
+        -174,
+        -1722,
+        1202,
+        -814
+      ]
+    }
+  },
+  "all_water_bytes_unchanged": true,
+  "changed_anchor_records": [
+    "dwargon",
+    "dwargo",
+    "dwargon_throne",
+    "kaijin_smithy",
+    "dwarf_village",
+    "dwarven_arena"
+  ],
+  "changed_flat_site_records": [
+    "dwarf_village",
+    "dwarven_arena"
+  ],
+  "road_max_grades": {
+    "tempest_dwargon": 0.5000000000000085,
+    "tempest_blumund": 0.4145593141157564,
+    "blumund_englassia_lubelius": 0.4999999999999887,
+    "dwargon_dwarf_village": 0.5000000000000114,
+    "sacred_mountain_trail": 0.5000000000000455,
+    "treyni_marsh_trail": 0.38179387307052826,
+    "siss_cavern_and_orc_trail": 0.5000000000000114,
+    "ogre_foothill_trail": 0.5000000000000008,
+    "canaat_high_pass": 0.5000000000000171,
+    "falmuth_road": 0.07925304884756149,
+    "western_belt_road": 0.17164391531122264,
+    "western_desert_caravan": 0.3825000000000003,
+    "fulbrosia_stair": 0.5000000000000199,
+    "southern_royal_road": 0.5000000000000171,
+    "ulgracia_south_road": 0.5000000000000114,
+    "eurazania_road": 0.5000000000000114,
+    "milim_river_road": 0.4900000000000187,
+    "jistav_border_road": 0.42950039375451965,
+    "imperial_volcano_road": 0.5000000000000455,
+    "el_dorado_volcanic_way": 0.5000000000000455,
+    "frost_palace_forecourt": 0.0
+  },
+  "max_road_grade": 0.5000000000000455,
+  "gate_approach_first_air": 146,
+  "roof_columns_checked": 3179,
+  "minimum_designed_roof_cover": 6.0,
+  "proposal_cover": [
+    {
+      "id": "proposal-dwargon-west-city",
+      "attributes": {
+        "id": "proposal-dwargon-west-city",
+        "points": "617.900000,-1720.000000 617.599398,-1706.315727 615.364353,-1693.016547 611.540394,-1680.608286 606.539985,-1669.280083 600.605087,-1659.092370 593.776213,-1650.266547 586.059847,-1643.282007 577.619631,-1638.658530 568.807243,-1636.589888 560.000000,-1636.750000 551.391866,-1638.475571 542.936600,-1641.226382 534.517989,-1644.983106 526.223787,-1650.266547 518.494913,-1657.742370 512.003785,-1667.693063 507.325540,-1679.741533 504.635647,-1693.016547 503.657724,-1706.614390 503.900000,-1720.000000 505.002927,-1733.066021 506.943910,-1745.858453 509.965650,-1758.240662 514.312047,-1769.791361 519.994913,-1780.007630 526.768694,-1788.608453 534.304930,-1795.644122 542.391693,-1801.289194 550.973714,-1805.484594 560.000000,-1807.750000 569.225395,-1807.370277 578.164537,-1803.857047 586.272906,-1797.345222 593.231306,-1788.608453 599.105087,-1778.657630 604.231722,-1768.204341 608.900284,-1757.373909 613.056090,-1745.858453 616.254195,-1733.364684 617.900000,-1720.000000",
+        "data-first-air": "110",
+        "data-ceiling-block-y": "140",
+        "data-lining": "2",
+        "data-source-claims": "WIK-DWG-002;DES-DWG-058;DES-DWG-086"
+      },
+      "lined_column_centres": 16167,
+      "minimum_designed_first_air": 157.9921875,
+      "reference_roof_top": 142.0,
+      "minimum_reference_cover": 15.9921875,
+      "not_runtime_accepted": true
+    },
+    {
+      "id": "proposal-dwargon-west-gallery",
+      "attributes": {
+        "id": "proposal-dwargon-west-gallery",
+        "points": "760.000000,-1456.000000 758.944444,-1462.546296 757.333333,-1471.259259 755.500000,-1481.750000 753.777778,-1493.629630 752.500000,-1506.509259 752.000000,-1520.000000 753.425926,-1535.046296 756.740741,-1552.148148 760.500000,-1570.250000 763.259259,-1588.296296 763.574074,-1605.231481 760.000000,-1620.000000 751.527778,-1633.009259 739.111111,-1645.185185 724.250000,-1656.250000 708.444444,-1665.925926 693.194444,-1673.935185 680.000000,-1680.000000 668.495370,-1683.472222 657.407407,-1684.444444 646.875000,-1683.750000 637.037037,-1682.222222 628.032407,-1680.694444 620.000000,-1680.000000 612.916667,-1680.000000 606.666667,-1680.000000 601.250000,-1680.000000 596.666667,-1680.000000 592.916667,-1680.000000 590.000000,-1680.000000",
+        "data-width": "6",
+        "data-first-air": "72",
+        "data-air-height": "8",
+        "data-lining": "2",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_column_centres": 3665,
+      "minimum_designed_first_air": 116.421875,
+      "reference_roof_top": 82.0,
+      "minimum_reference_cover": 34.421875,
+      "not_runtime_accepted": true
+    },
+    {
+      "id": "proposal-dwargon-east-city",
+      "attributes": {
+        "id": "proposal-dwargon-east-city",
+        "points": "1142.025000,-1690.000000 1141.599147,-1673.274778 1138.432833,-1657.020224 1133.015558,-1641.854572 1125.931645,-1628.008990 1117.523873,-1615.557341 1107.849635,-1604.770224 1096.918116,-1596.233564 1084.961143,-1590.582648 1072.476927,-1588.054308 1060.000000,-1588.250000 1047.805143,-1590.359031 1035.826850,-1593.721134 1023.900484,-1598.312685 1012.150365,-1604.770224 1001.201127,-1613.907341 992.005362,-1626.069299 985.377848,-1640.795207 981.567167,-1657.020224 980.181776,-1673.639810 980.525000,-1690.000000 982.087480,-1705.969581 984.837206,-1721.604776 989.118004,-1736.738587 995.275400,-1750.856108 1003.326127,-1763.342659 1012.922317,-1773.854776 1023.598650,-1782.453927 1035.054899,-1789.353459 1047.212761,-1794.481171 1060.000000,-1797.250000 1073.069310,-1796.785895 1085.733095,-1792.491946 1097.219950,-1784.533049 1107.077683,-1773.854776 1115.398873,-1761.692659 1122.661606,-1748.916416 1129.275402,-1735.679222 1135.162794,-1721.604776 1139.693443,-1706.334613 1142.025000,-1690.000000",
+        "data-first-air": "80",
+        "data-ceiling-block-y": "110",
+        "data-lining": "2",
+        "data-source-claims": "WIK-DWG-002;DES-DWG-058;DES-DWG-086"
+      },
+      "lined_column_centres": 27610,
+      "minimum_designed_first_air": 122.0859375,
+      "reference_roof_top": 112.0,
+      "minimum_reference_cover": 10.0859375,
+      "not_runtime_accepted": true
+    },
+    {
+      "id": "proposal-dwargon-east-gallery",
+      "attributes": {
+        "id": "proposal-dwargon-east-gallery",
+        "points": "760.000000,-1456.000000 766.296296,-1464.097222 774.814815,-1475.333333 785.000000,-1488.625000 796.296296,-1502.888889 808.148148,-1517.041667 820.000000,-1530.000000 831.944444,-1542.361111 844.444444,-1555.111111 857.500000,-1567.750000 871.111111,-1579.777778 885.277778,-1590.694444 900.000000,-1600.000000 915.972222,-1607.777778 933.333333,-1614.444444 951.250000,-1620.000000 968.888889,-1624.444444 985.416667,-1627.777778 1000.000000,-1630.000000 1013.009259,-1630.532407 1025.185185,-1629.259259 1036.250000,-1626.875000 1045.925926,-1624.074074 1053.935185,-1621.550926 1060.000000,-1620.000000",
+        "data-width": "6",
+        "data-first-air": "72",
+        "data-air-height": "8",
+        "data-lining": "2",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_column_centres": 3760,
+      "minimum_designed_first_air": 95.0361328125,
+      "reference_roof_top": 82.0,
+      "minimum_reference_cover": 13.0361328125,
+      "not_runtime_accepted": true
+    },
+    {
+      "id": "proposal-dwargon-capital-stair-shaft",
+      "attributes": {
+        "id": "proposal-dwargon-capital-stair-shaft",
+        "cx": "760.0",
+        "cy": "-1456.0",
+        "r": "8",
+        "data-lining": "2",
+        "data-bottom-first-air": "72",
+        "data-top-first-air": "146",
+        "data-stair-radius": "6",
+        "data-stair-rise-per-turn": "8",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_column_centres": 316,
+      "minimum_designed_first_air": 193.375,
+      "reference_roof_top": 152.0,
+      "minimum_reference_cover": 41.375,
+      "not_runtime_accepted": true
+    },
+    {
+      "id": "proposal-dwargon-west-stair-shaft",
+      "attributes": {
+        "id": "proposal-dwargon-west-stair-shaft",
+        "cx": "590.0",
+        "cy": "-1680.0",
+        "r": "8",
+        "data-lining": "2",
+        "data-bottom-first-air": "72",
+        "data-top-first-air": "110",
+        "data-stair-radius": "6",
+        "data-stair-rise-per-turn": "8",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_column_centres": 316,
+      "minimum_designed_first_air": 164.171875,
+      "reference_roof_top": 116.0,
+      "minimum_reference_cover": 48.171875,
+      "not_runtime_accepted": true
+    },
+    {
+      "id": "proposal-dwargon-east-stair-shaft",
+      "attributes": {
+        "id": "proposal-dwargon-east-stair-shaft",
+        "cx": "1060.0",
+        "cy": "-1620.0",
+        "r": "8",
+        "data-lining": "2",
+        "data-bottom-first-air": "72",
+        "data-top-first-air": "80",
+        "data-stair-radius": "6",
+        "data-stair-rise-per-turn": "8",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_column_centres": 316,
+      "minimum_designed_first_air": 136.3349609375,
+      "reference_roof_top": 86.0,
+      "minimum_reference_cover": 50.3349609375,
+      "not_runtime_accepted": true
+    }
+  ],
+  "default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "normal_build_seconds": 66.1,
+  "runtime_applied": false,
+  "ledger_unique": 286,
+  "unchanged_ledger_rows": 279,
+  "updated_placement_rows": [
+    "SITE-012",
+    "SITE-013",
+    "SITE-014",
+    "SITE-015",
+    "SITE-016",
+    "SITE-017"
+  ],
+  "inventory_rows": 135,
+  "physical_followups": 42,
+  "inventory_bytes_unchanged": true,
+  "protected_paths_unchanged": true,
+  "atlas_browser_numbers": 58,
+  "atlas_browser_context_names": 16,
+  "atlas_browser_open_rows": 42,
+  "atlas_number_spacing": 31.6210088351,
+  "all15_context_labels_fit": true,
+  "official_reference_and_final_previews_viewed": true,
+  "normal_exports_match_final_trial_except_index_source": [
+    "anchors.toml",
+    "biome.png",
+    "canon_map.txt",
+    "exclude.png",
+    "height.png",
+    "preview.png",
+    "road.png",
+    "roads.json",
+    "rugged.png",
+    "sites.json",
+    "sites.png",
+    "sites.toml",
+    "water.png"
+  ],
+  "painting_alignment_pending": true,
+  "concept_reservations_current": 58,
+  "art_registration_commit": "120f5d57e20eb16936edc9da3c847deb55579ef7",
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.842
+  }
+}

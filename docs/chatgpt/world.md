@@ -1,5 +1,11 @@
 # World guide: canon geography of the Tensura world
 
+> **Selected initial era:** immediately after Kijin naming, S1E10. [Era policy](../../world/era.md) and [targeted brief corrections](../research/tensura-world-2026-11-19/era-brief-review-r121.md) take precedence over later events, faction titles and imported-world audit descriptions below.
+
+> **Small western states:** the Council-map order is a community-reported lead, not an independently authenticated anime frame. The river belt, birch identity, industries and imported adjacency table below are project interpretations. Use the [current evidence review](../research/tensura-world-2026-11-19/western-country-evidence.md) before treating them as canon.
+
+> Ghastone and Rostia are kingdom identities, not verified Englassia/Raja towns. Their G/A bindings and imported coordinates below are historical gameplay records. Current authored pins do not locate capitals or country boundaries. [R96 source review](../../world/western-country-identity-r96.md).
+
 > **Read this first.** Every coordinate in this file comes from **Lerfing's imported map** (*Tensura by Lerfing*, the
 > current Life 2 world). That map **is being replaced** by a new, fully own world (owner decision of 19/11/2026), so the
 > coordinates will change. **What matters is the geography relations**: what lies north, south, east and west of
@@ -28,7 +34,7 @@ Read it from **Tempest**, in the middle of Jura (the Great Jura Forest). Distanc
 
 | Direction | What lies there | Distance from Tempest |
 |---|---|---|
-| Centre | **Jura** (Jura-Tempest Federation): forest, plains with forested mesas, small lakes. The Sealed Cave (north-west), the old goblin village, the Spirit Gate (south-south-west), Treyni's grove (south-east), the hidden ogre village (north-east foot of the east massif). | 0 to about 600 |
+| Centre | **Jura** (Rimuru’s village; later federation): forest, plains with forested mesas, small lakes. The Sealed Cave (north-west), the old goblin village, the Spirit Gate (south-south-west), Treyni's grove (south-east), the destroyed ogre-village reservation (east/southeast of Rimuru’s village in the current authored map). | 0 to about 600 |
 | North | The **Canaat Mountains** and **Dwargon**: a grey massif, the largest range of the continent, climbing to the world's highest point; a lava lake near the top; the **Dragon's Nest** on the highest shoulder. Dwargon's gate is on the south flank; the city lies **inside the mountain**. The **Great Ameld River** rises at the mountain's foot. The Life 2 arrival is between the two, on Jura's rim. | Dwargon gate 1,450; arrival 1,000; Dragon's Nest about 2,540 |
 | East | **Lake Siss** and the lizardmen's marsh (the Orc War battlefield at its south-east), then **Milim's Domain**, a huge red-and-green badland. | Lake Siss 1,340; Forgotten Dragon city 2,960 |
 | North-east | **Jistav** (Clayman's Castle, Amrita) is the north-eastern corner of Milim's badland; the **Eastern Empire** (Nasca, the red volcano of the Great Holy Mountain) is the landmass beyond it, north of Jistav. | Clayman's Castle about 4,300, Amrita 4,650; Nasca about 4,900 |
@@ -99,7 +105,7 @@ goblin village to Dwargon takes about **two months on foot** or **three days on 
 | **Great Canaat Mountains** | North of Jura. Largest range; a grey massif; summit with a lava lake; the Dragon's Nest on the highest shoulder. Dwargon lies inside it. |
 | **Dwargon in the mountain** | A cavern city carved into the massif behind one escarpment, gate on the south flank facing the apron and the road to Tempest, a skylight crack above the main street (section 6). |
 | **Great Ameld River** | Rises at the Canaat's foothills (north-east of the Dwargon gate), feeds the Jura lakes (our reading) and Lake Siss, and runs on to the eastern sea between Milim's land and Eurazania. In canon it runs from the Canaat foot to the southern ocean through Milim's plains. |
-| **Lake Siss** | East of Jura: the lizardmen's round lake with a swamp ring; Charybdis (the whirlpool boss) lives in it; stilt villages on its shores. |
+| **Lake Siss** | East of Jura: the lizardmen's broad lake with wetlands and limestone caves; any Charybdis encounter here is a later server adaptation, not a canonical aquatic habitat. |
 | **Jura lakes** | A lake just west of Tempest (so the village has running water nearby) and a pond south of it; a river that drains Jura's lakes passes west of Treyni's grove. |
 | **Sealed Cave** | A cave in a rocky hill (a mesa of the spire field) in the forest north-west of Tempest; the mouth in the south face. Veldora's seal. |
 | **Rock spires / mesas of Jura** | Forested mesas with grey terracotta tops; the goblin village stands at the foot of one. |
@@ -121,11 +127,11 @@ subtitle** is the Japanese name shown on screen. The terrain line describes Lerf
 Extent = bounding box on the current map (x0..x1, z0..z1).
 
 
-### J: Jura-Tempest Federation
+### J: Jura / Rimuru's village (later Jura-Tempest Federation)
 
 - **Colour** `#E472D2` · **banner** ジュラ・テンペスト連邦国 · **extent** x −416..2416, z −720..2256
-- **Lore.** The Great Jura Forest, Veldora's old hunting ground. After Veldora was sealed it filled with goblins, direwolves, ogres, lizardmen, dryads and orcs. Rimuru united them into the Jura-Tempest Federation, a monster nation that trades with Dwargon and Blumund.
-- **Faction.** Faction `tempest` (capital Tempest). Hostile or friendly NPCs: goblins, hobgoblins, kijin, Tempest Wolves, dryads.
+- **Lore.** The Great Jura Forest, Veldora's old hunting ground. After Veldora was sealed it filled with goblins, direwolves, ogres, lizardmen, dryads and orcs. At the selected post-Kijin instant Rimuru leads a young village. The later federation and its diplomatic/trade relationships must not be presented as completed initial state. The imported faction/banner below is a legacy gameplay identifier, not a contemporaneous sovereign border.
+- **Faction.** Gameplay faction `tempest`; Rimuru's early village, with later capital capacity reserved. Hostile or friendly NPCs: goblins, hobgoblins, kijin, Tempest Wolves, dryads.
 - **Terrain (current).** rolling plains with forested mesas (spires, grey terracotta tops) and small lakes, low in the south, rising to a massif on the east side; open grass with scattered woods on Lerfing's map, so the Great Jura Forest of the lore is planted on top of it (section 6).
 - **Places.** [Tempest](places/tempest.md), [Life 2 arrival](places/arrival.md), [Wayfarers' camp on Jura's rim](places/wayfarers_camp.md), [Sealed Cave](places/sealed_cave.md), [Old goblin village](places/goblin_village.md), [Spirit Gate](places/spirit_gate.md), [Hinata's ambush west of Tempest](places/shizu_spawn.md), [The Outcast on Tempest's south road](places/outcast_road.md), [Treyni's grove](places/treyni_grove.md), [Treyni's shrine](places/treyni_shrine.md), [Hidden ogre village](places/ogre_village_ruin.md), [The old well on the Blumund road](places/old_well.md), [The abandoned rookie camp](places/rookie_camp.md)
 
@@ -142,7 +148,7 @@ Extent = bounding box on the current map (x0..x1, z0..z1).
 - **Colour** `#468C6E` · **banner** シス湖 — 蜥蜴人族の湿地帯 · **extent** x 2400..4304, z 304..1312
 - **Lore.** A large expanse of marsh and limestone on the shores of Lake Siss. Its caverns form a labyrinth that is the lizardmen's fortress and seat of government; they live off the lake's fish.
 - **Faction.** Faction `lizardmen` (capital: the lizardmen's caverns).
-- **Terrain (current).** a round lake with a swamp ring (mangrove, swamp).
+- **Terrain (imported-world history).** the old imported lake was round. The own-world drawing uses a broad elongated basin; exact shores are interpretation, with wetlands and low southern village access.
 - **Places.** [Lake Siss](places/lake_siss.md), [Lizardmen's stilt village](places/lizardmen_village.md), [Lizardmen's caverns](places/lizardmen_caverns.md), [Orc War battlefield](places/orc_camp.md)
 
 ### M: Milim's Domain
@@ -172,8 +178,8 @@ Extent = bounding box on the current map (x0..x1, z0..z1).
 ### B: Beast Kingdom of Eurazania
 
 - **Colour** `#87DC45` · **banner** 獣王国ユーラザニア · **extent** x 1504..4544, z 1312..5440
-- **Lore.** Carrion's kingdom of beastmen, south of Jura and east of Fulbrosia: agricultural, fertile, tropical, famous for fruit. Milim destroyed its old capital; Tempest helped build the new one, Laura.
-- **Faction.** Faction `eurazania` (capital Laura, throne `carrion`).
+- **Lore.** Carrion's kingdom of beastmen, south of Jura and east of Fulbrosia: agricultural, fertile, tropical, famous for fruit. At the selected post-Kijin instant, Carrion's old capital is undestroyed. Milim's attack and Tempest's reconstruction aid are later events. The readable map uses Carrion's capital; `laura` remains a technical ID because the proper name is under [C24 review](../../world/guide85-source-review.md). The [LN20 planned Milim capital](../research/tensura-world-2026-11-19/ln20-licensed-capital-review.md) is only located broadly in former Eurazania by the inspected passage.
+- **Faction.** Faction `eurazania` (capital reservation ID `laura`, throne `carrion`; the ID does not settle the capital's canon name).
 - **Terrain (current).** a jungle peninsula reaching far to the south (jungle, savanna, plains).
 - **Places.** [Laura](places/laura.md)
 
@@ -199,7 +205,7 @@ Extent = bounding box on the current map (x0..x1, z0..z1).
 - **Lore.** A republic south of Sarion and near Jura that lives from trade with Sarion and from farming. Citizens are elemental magic users; citizenship needs a spirit-contract ceremony. Capital Galut; Ulgr Nature Park holds the entrance to Ramiris's Dwelling of the Spirits in the series.
 - **Faction.** No faction in the pack yet.
 - **Terrain (current).** woodland and plains south of Blumund.
-- **Places.** [Filtwood](places/filtwood.md), [Galut / Ulgr Nature Park](places/ulgr_nature_park.md)
+- **Places.** [Filtwood](places/filtwood.md), [Ulgr Nature Park](places/ulgr_nature_park.md)
 
 ### F: Kingdom of Falmuth
 
@@ -310,7 +316,7 @@ long canon note in `design/lore/`.
 
 | Place | Region | Kind | x, z | From Tempest | Lore summary | Lore page |
 |---|---|---|---|---|---|---|
-| [Tempest (Rimuru, capital of the Federation)](places/tempest.md) | J | settlement | 1720, 900 | Tempest itself | Rimuru's capital, the Jura-Tempest Federation. Built as the early hobgoblin village just after the six ogres were named, then grown in two later rings (trade town, festival capital). | [tempest.md](../../design/lore/tempest.md) |
+| [Rimuru's village (future Tempest)](places/tempest.md) | J | settlement | 1720, 900 | Tempest itself | Initial village immediately after the six ogres were named; trade-town and festival-capital rings are later reserved phases, not current state. | [tempest.md](../../design/lore/tempest.md) |
 | [Life 2 arrival (world spawn), yaw -149](places/arrival.md) | J | arrival | 1660, −100 | 1,000 blocks N | Where every Life 2 soul wakes. On the safe rim of Jura, on the road between Tempest and Dwargon. | [world.md](../../design/lore/world.md) |
 | [Wayfarers' camp on Jura's rim (sidequests rim_camp)](places/wayfarers_camp.md) | J | spot | 1675, −85 | 990 blocks N | Small camp beside the arrival where wayfarers and the first side quests wait. | [world.md](../../design/lore/world.md) |
 | [Sealed Cave (Veldora's prison, Rimuru's birthplace)](places/sealed_cave.md) | J | build | 1380, 560 | 480 blocks NW | Veldora's prison and Rimuru's birthplace, a cave in a rocky hill of the Jura forest. | [sealed_cave.md](../../design/lore/sealed_cave.md) |
@@ -341,7 +347,7 @@ long canon note in `design/lore/`.
 
 | Place | Region | Kind | x, z | From Tempest | Lore summary | Lore page |
 |---|---|---|---|---|---|---|
-| [Lake Siss (Charybdis arena centre, r 96)](places/lake_siss.md) | W | pin | 3050, 750 | 1,340 blocks E | Lake Siss, the lizardmen's lake, with its marsh ring and the arena of the whirlpool boss Charybdis. | [world.md](../../design/lore/world.md) |
+| [Lake Siss (Charybdis arena centre, r 96)](places/lake_siss.md) | W | pin | 3050, 750 | 1,340 blocks E | Lake Siss and its wetlands; the radius96 encounter slot is a later server reservation. Charybdis is an aerial calamity. | [world.md](../../design/lore/world.md) |
 | [Lizardmen's stilt village](places/lizardmen_village.md) | W | landmark | 3184, 988 | 1,470 blocks E | The lizardmen's stilt village on the south shore of Lake Siss. | [world.md](../../design/lore/world.md) |
 | [Lizardmen's caverns (Gabiru, Avalos)](places/lizardmen_caverns.md) | W | landmark | 3300, 1200 | 1,610 blocks E | The lizardmen's underground caverns: fortress and seat of government (Gabiru, Avalos). | [world.md](../../design/lore/world.md) |
 | [Orc War battlefield (Orc Lord, Orc Disaster)](places/orc_camp.md) | W | landmark | 3600, 1250 | 1,910 blocks E | The Orc War battlefield, where Geld's horde gathered south-east of Lake Siss. | [world.md](../../design/lore/world.md) |
@@ -362,7 +368,7 @@ long canon note in `design/lore/`.
 | Place | Region | Kind | x, z | From Tempest | Lore summary | Lore page |
 |---|---|---|---|---|---|---|
 | [Elmine (Sarion capital in the Divine Tree)](places/elmine.md) | S | build | 1100, 2760 | 1,960 blocks S | Elmine, capital of Emperor Elmesia's elven Sorcerous Dynasty of Sarion, built in the colossal Divine Tree. | [elmine.md](../../design/lore/elmine.md) |
-| [Laura (Eurazania capital, rebuilt)](places/laura.md) | B | build | 3300, 2600 | 2,320 blocks SE | Laura, the rebuilt capital of Carrion's Beast Kingdom of Eurazania. | [laura.md](../../design/lore/laura.md) |
+| [Carrion's capital (legacy ID laura)](places/laura.md) | B | build | 3300, 2600 | 2,320 blocks SE | Carrion's capital reservation; existing blueprint interprets later reconstruction, not the initial city. Proper name under review. | [laura.md](../../design/lore/laura.md) |
 
 ### The west: Blumund, Falmuth, Englassia, Lubelius, Ulgracia
 
@@ -375,9 +381,9 @@ long canon note in `design/lore/`.
 | [Siltrosso](places/siltrosso.md) | F | build | −2450, −1650 | 4,890 blocks NW | Siltrosso, the small kingdom of the Rosso family (Granbell, Mariabell). | [siltrosso.md](../../design/lore/siltrosso.md) |
 | [Holy City Lubelius (Lune)](places/lubelius.md) | L | build | −2550, −700 | 4,560 blocks W | The holy city Lubelius (Lune), seat of the Western Holy Church and secret domain of Luminous. | [lubelius.md](../../design/lore/lubelius.md) |
 | [Sacred Mountain (Inner Sanctum, Luminous)](places/sacred_mountain.md) | L | build | −2980, −900 | 5,030 blocks W | The Sacred Mountain and the sealed Inner Sanctum gate of Lubelius. | [sacred_mountain.md](../../design/lore/sacred_mountain.md) |
-| [Filtwood](places/filtwood.md) | U | pin | −900, 700 | 2,630 blocks W | Filtwood, a pin in Ulgracia's woodland. | [world.md](../../design/lore/world.md) |
+| [Filtwood](places/filtwood.md) | U | pin | −900, 700 | 2,630 blocks W | Server U pin; canonical kingdom near Jura, placement disputed (C20). | [world.md](../../design/lore/world.md) |
 | [Ghastone](places/ghastone.md) | G | pin | −2000, 300 | 3,770 blocks W | Ghastone, a pin on Englassia's western plain. | [world.md](../../design/lore/world.md) |
-| [Galut / Ulgr Nature Park (Ulgracia)](places/ulgr_nature_park.md) | U | build | −1040, 1060 | 2,760 blocks W | Galut / Ulgr Nature Park, Ulgracia's woodland park and the entrance to the Dwelling of the Spirits in the series. | [ulgr_nature_park.md](../../design/lore/ulgr_nature_park.md) |
+| [Ulgr Nature Park (Ulgracia)](places/ulgr_nature_park.md) | U | build | −1040, 1060 | 2,760 blocks W | Ulgr Nature Park, Ulgracia's woodland park and the entrance to the Dwelling of the Spirits in the series. | [ulgr_nature_park.md](../../design/lore/ulgr_nature_park.md) |
 | [Blumund road camp at Jura's edge (sidequests blumund_road)](places/blumund_road.md) | R | spot | −250, 250 | 2,070 blocks W | Road camp on the Londo-Tempest road, at Jura's edge. | [world.md](../../design/lore/world.md) |
 | [Englassia road post (sidequests englassia_road)](places/englassia_road.md) | G | spot | −1880, −500 | 3,860 blocks W | Road post on the eastbound road between Ballachia and Lura. | [world.md](../../design/lore/world.md) |
 

@@ -1,0 +1,70 @@
+{
+  "source_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
+  "sources": [
+    {
+      "url": "https://ncode.syosetu.com/n6316bn/140/",
+      "name": "wn136",
+      "status": 200,
+      "sha256": "b77bd2adde98c858db9b73dc78348a68376a480a59e92b64e3a3e7c3e74bed74",
+      "bytes": 55292
+    },
+    {
+      "url": "https://ncode.syosetu.com/n6316bn/141/",
+      "name": "wn137",
+      "status": 200,
+      "sha256": "665722b3b68b88060d59bd0f2c45d41c22bd8429bda58f74708e55f4352c0fe0",
+      "bytes": 60531
+    }
+  ],
+  "paragraph_ids": {
+    "WN136": [
+      "L17",
+      "L18",
+      "L31",
+      "L157"
+    ],
+    "WN137": [
+      "L97",
+      "L98",
+      "L99",
+      "L102",
+      "L106",
+      "L107",
+      "L108",
+      "L109",
+      "L110",
+      "L111",
+      "L142",
+      "L145"
+    ]
+  },
+  "new_ledger_ids": [
+    "WN136-CAP-093",
+    "WN136-HIS-093",
+    "WN137-ROAD-093",
+    "WN137-TOWN-093",
+    "WN137-TREANT-093"
+  ],
+  "ledger_unique": 299,
+  "inventory": 137,
+  "physical_followups": 42,
+  "prior293_ledger_rows_unchanged": true,
+  "prior_inventory_statuses_unchanged": true,
+  "prior_physical_assessments_unchanged": true,
+  "production_geometry_changed": false,
+  "new_numbered_sites": 0,
+  "runtime_applied": false,
+  "source_scope": "Selected public author paragraphs only; no full-LN,full-wiki or anime equivalence claim.",
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.404
+  },
+  "all137_index_names_checked": true,
+  "all_prior136_coverage_statuses_retained": true,
+  "physical_followup_count_recomputed": 42,
+  "terrain_atlas_change_scope": "Only caption136 to137 and panel round/count attributes; all other XML identical to prior published atlas.",
+  "source_and_committed_terrain_outputs_unchanged": true,
+  "original_diagram_visually_inspected": true
+}

@@ -10,13 +10,13 @@
 | Preview (blueprint only) | ![raja](../../previews/raja-iso.png) |
 | Lore page | [`design/lore/raja.md`](../../../design/lore/raja.md) |
 
-## Lore (canon)
+## Source context and initial-era limit
 
-Queen Towa rules Raja; its gold mines and the lake's contamination are tied to the queen's inherited tiara.
+The [public Bandai Namco Filmworks release sheet](https://img.sunrise-inc.co.jp/images/news/20804_81jbgi5uz7f4_pdf.pdf),page2 Story,places Raja west of Tempest and describes its former gold prosperity and mine-poisoned lake during Scarlet Bond. Official notice7828 identifies miners under Towa. Exact conditions,royal roster and mine operation at the post-Kijin instant remain unverified; a film-era cure is not the initial state.
 
 ## What it should look like
 
-A quiet lakeside after the crisis: a clear inlet, exhausted galleries with rails under a timber portal, a winding tower and wheel, two settling beds on the shore and an assay house with a small crown in its south window.
+A restrained old mine approach beside the current authored lake: timber-set portal,short rail,small sheave/drum and modest assay shed. Exact architecture and inlet are our interpretation. Neutral muted water does not certify a chemical state or a cure. Exclude crown tributes,healed-lake celebration,tiara ritual and named later visitors. The older after-crisis blueprint description needs era review before use.
 
 Why it stands here (anchor table, Lerfing coordinates): On the belt's lake, as its lore asks (repair_keep_water).
 

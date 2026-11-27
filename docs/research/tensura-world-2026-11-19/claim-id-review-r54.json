@@ -1,0 +1,104 @@
+{
+  "baseline_commit": "d7d76c4",
+  "rows": 233,
+  "unique_claim_ids": 233,
+  "duplicates": [],
+  "required_fields_checked": [
+    "claim_id",
+    "subject",
+    "claim",
+    "source_type",
+    "continuity",
+    "source_title",
+    "locator",
+    "url",
+    "confidence",
+    "verification",
+    "map_action",
+    "snapshot_use"
+  ],
+  "missing_required_fields": [],
+  "corrections": [
+    {
+      "old_ambiguous_id": "WN13-005",
+      "subject": "Canaat trade routes",
+      "new_id": "WN13-007"
+    },
+    {
+      "old_ambiguous_id": "WN13-006",
+      "subject": "Dwargon exterior and interior",
+      "new_id": "WN13-008",
+      "clarification": "Cavern claim narrowed; the original pasture claim remains WN13-006."
+    }
+  ],
+  "limits": "Unique keys and populated evidence fields are checked. This does not prove every claim true,all citations fully read,or all world locations represented.",
+  "new_records": [
+    "WN147-001",
+    "WIK-IMP-054"
+  ],
+  "locator_corrections": {
+    "WN13-007": "Actual HTML L37-L43",
+    "WN13-008": "Actual HTML L48,L190",
+    "WN14-001": "Actual HTML L29-L36",
+    "WN14-002": "Actual HTML L34-L35"
+  },
+  "locator_note": "R51 line numbers were web-extraction line numbers,not actual source paragraph IDs. Current rows now use verified HTML anchors.",
+  "confidence_counts": {
+    "canon-explicit": 81,
+    "canon-implied": 17,
+    "fan-wiki": 36,
+    "our interpretation": 99
+  },
+  "direct_ln_claim_ids": [
+    "LN02-001",
+    "LN02-002",
+    "LN03-001",
+    "LN05-001",
+    "LN05-002",
+    "LN05-003",
+    "LN06-001",
+    "LN06-002",
+    "LN06-003",
+    "LN10-001",
+    "LN10-002",
+    "LN10-003",
+    "LN06-004",
+    "LN07-001"
+  ],
+  "current_map_reference_check": [
+    {
+      "file": "world/regions.md",
+      "distinct_claim_references": 25,
+      "missing_ids": []
+    },
+    {
+      "file": "world/dwargon-approach-fix.md",
+      "distinct_claim_references": 2,
+      "missing_ids": []
+    },
+    {
+      "file": "world/location-index-audit.json",
+      "distinct_claim_references": 22,
+      "missing_ids": []
+    },
+    {
+      "file": "world/map.svg",
+      "distinct_claim_references": 29,
+      "missing_ids": []
+    }
+  ],
+  "baseline_rows": 231,
+  "baseline_unique_ids": 229,
+  "original_WN13_005_and_006_claims_preserved": true,
+  "production_geometry_changed": false,
+  "source_evidence_changed": true,
+  "production_source_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
+  "repository_validation": {
+    "passed": true,
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.641,
+    "ingame_run": false
+  }
+}

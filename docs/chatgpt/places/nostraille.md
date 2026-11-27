@@ -10,9 +10,11 @@
 | Preview (blueprint only) | ![nostraille](../../previews/nostraille-iso.png) |
 | Lore page | [`design/lore/nostraille.md`](../../../design/lore/nostraille.md) |
 
-## Lore (canon)
+## Source context (qualified)
 
 On the Council map; canon gives geography only.
+
+A community comparison reports this name on a later Council map (FAN-WES-034). The selected official episode76 stills inspected here do not expose that map; exact borders/capital and S1E10 buildings/industries remain unverified. The project role below is our interpretation,not canonical national architecture or economy.
 
 ## What it should look like
 

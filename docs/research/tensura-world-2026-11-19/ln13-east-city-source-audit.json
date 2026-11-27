@@ -1,0 +1,97 @@
+{
+  "date": "2026-11-23",
+  "store": "https://ebookjapan.yahoo.co.jp/books/247818/A002008485/",
+  "reader": "https://ebookjapan.yahoo.co.jp/viewer/trial/B00182008485/",
+  "discovery": "LN13 link in previously cached ordinary LN14 series list; title verified on public LN13 store page; ordinary trial button opened the reader.",
+  "private_source_hashes": {
+    "store.html": "60bba457ae08df65c661a8c24569373d7792cb4707bfdc28f54f30282614b5d6",
+    "actual-trial.html": "32678f4d67c3542a409485b17275f8b51208509e5ca09812b411ecba351ef5b5",
+    "reader.png": "855248b1c4f0314712f283355fee5faa1d5e0c993fc9abf84962d14a02e6bc41",
+    "opening-6.png": "67a83bb23b64bc454c6c68cfca66ce783a44a40611b24e89387b5fbbfbf0545a",
+    "opening-controls.png": "57466a4c5d230f6b7cbc32ed7d0d7b6a2f6045630fba881e29dd22f9c88b93dd",
+    "sample-16.png": "1d87f2dd3319d01aa9b9bff1ea54f861f8f98025ebc19c87f177998b9bb53cce",
+    "sample-17.png": "e53c8b2f3619bc126227baf2589e56ac94ad3a92f2c02ed7c1dceda45ccf8675",
+    "sample-27.png": "c0032e433e5fc6023c72b5b99928b4410a15ca127840e12b328568c3cfc8564f",
+    "sample-28.png": "83786c6861e36b2d470359c3542a840be0449bb904c9cadc123083e3140a1f5e",
+    "sample-29.png": "8ab83dc74df2839e583fc0027db3f1bc99cdcf9bddc5c022b896233c40d71fb4",
+    "sample-30.png": "7238a938145699d9ec25ac05d65b28dc9670fb3fbde11850ec352e948813bf0f",
+    "sample-31.png": "05d1d88411002ccb55480eafe872a4a5faf0d71c9a3aba5afea966d9bbd13e00",
+    "sample-32.png": "d59ca97e5472ce25755d0c25d136a749189de4ff216ae7e7b6fedbd0321fd6ba"
+  },
+  "visually_inspected_captures": {
+    "opening": [
+      6,
+      9,
+      10,
+      11
+    ],
+    "sample": [
+      14,
+      16,
+      17,
+      18,
+      22,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34
+    ]
+  },
+  "reader_counter_observed": "14/53 on opening-controls; 53/53 endpoint counter was not captured.",
+  "last_story_capture": 31,
+  "purchase_handoff_capture": 32,
+  "challenge_encountered": true,
+  "challenge_solved": false,
+  "further_browser_requests_after_challenge": false,
+  "excluded_material": "Purchase/challenge captures are not story evidence. No complete chapter/sample/volume reading claim.",
+  "active_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+  "unchanged_map_art": {
+    "world/map.svg": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+    "world/preview.png": "36f596611e53d49eabd8dac555319efee9efc85d800a31dd61d51b0f97b957d2",
+    "world/atlas.png": "9f9d92931983cbcc64cccd7ece988a6a0130fa140afeb0415b0fc69cfb0155ea",
+    "world/painting-round112/continent.png": "5388c03dbd80299888d6ef6bbc79bb355aede6b7cfe144868d9b0681d9e616c7",
+    "world/painting-round112/atlas.png": "02dd0629657ead33ac5db3524ea746e43952e0afe327e08039c59bdf833e4af2"
+  },
+  "unchanged_normal_outputs": {
+    "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
+    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+    "exclude.png": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
+    "height.png": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+    "index.json": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
+    "preview.png": "8c9cd937110cec246ab6ad1fb2231170b02e003589ba853936bd71eb89309362",
+    "road.png": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
+    "roads.json": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
+    "rugged.png": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
+    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+    "sites.toml": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
+    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+  },
+  "facts_after": {
+    "count": 359,
+    "added_ids": [
+      "LN13-EAST-GATE-001"
+    ],
+    "prior_confidence_classes_retained": true
+  },
+  "repository_gate": {
+    "tests": 494,
+    "seconds": 66.561,
+    "skipped": 26,
+    "failures": 2,
+    "validation_passed": false,
+    "passed": false,
+    "changed_js_files": 0,
+    "scope": "Same two retained legacy Filtwood U/J failures plus validation;source-only change."
+  },
+  "local_links_checked": 11,
+  "prior_358_ids_and_confidences_retained": true,
+  "prior_row_change": "WIK-DWG-002 verification only;primary corroborates East, not full list",
+  "original_diagram_visually_inspected": true
+}

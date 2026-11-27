@@ -1,5 +1,7 @@
 # Lore pass, 18/11/2026: canon accuracy and tone
 
+Round57 source correction: the historical Treyni row below called the eastern-half claim correct. The [current primary-source review](../../docs/research/tensura-world-2026-11-19/treant-route-context-r57.md) does not establish that political boundary or sanctuary parcel. Current own-world reservations and source limits supersede the imported-map coordinates; this table remains a historical assessment, not current geographical verification.
+
 Owner request (decisions.md, 18/11 afternoon): "make sure our pseudo-lore-accurate vibes are right" and "make the City
 of the Forgotten Dragon lore accurate". Scope: the City of the Forgotten Dragon (placement, look), the player-facing
 text (story.toml, npcs.toml, quests, guide.toml, Voice of the World lines in the scripts, region and build titles) and
@@ -71,7 +73,7 @@ War); the Voice of the World / Great Sage speaks in the canon register (《告�
 | `story.toml` Leon | "not a place for tourists" | "no place for the idle. State your business, or leave." | modern word; Leon is cold and curt |
 | `story.toml` Edmaris | "the kingdom of Falmuth is a busy kingdom" | "Falmuth has richer guests waiting at the door" | clumsy line |
 | `story.toml` Luminous statue | "The Church's patron saint" | "The Church's god … Luminous" | the Western Holy Church worships the god Luminous (Luminism); she is a god to them, not a saint ([Western_Holy_Church](https://tensura.fandom.com/wiki/Western_Holy_Church)) |
-| `story.toml` Treyni (light) | "a calamity stirs in its depths" | "a calamity is gathering above its waters" | Charybdis flies; it is fought in the air, not in the lake (anime season 1 ep. 20–22) |
+| `story.toml` Treyni (light) | "a calamity stirs in its depths" | "a calamity is gathering above its waters" | Charybdis flies; it is fought in the air, not in the lake (anime season 1 ep. 18–19; official episode19 synopsis verified) |
 | `story.toml` Milim | "I am Milim, I am very strong" / "He is my friend!" | "I am Milim Nava, the strongest Demon Lord there is … Make it interesting" / "Rimuru is my best friend!" | Milim introduces herself with her full name and her strength; Rimuru is her "best friend" (anime season 1 ep. 16) |
 | `story.toml`, `npcs.toml` | Elen | Eren (display name; the id `elen` and the PNG stay) | the official site lists her as Eren ([ten-sura.com/character/eren](https://www.ten-sura.com/character/eren)); world.md and blumund.md already said Eren |
 | `npcs.toml` Fuze | "or just to stare at the scar?" | "the paperwork?" | Fuze has no scar (official art) |

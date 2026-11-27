@@ -1,0 +1,181 @@
+{
+  "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "protected_paths_edited": false,
+  "site_identities": 58,
+  "site_radii_retained": true,
+  "original_concept_PNGs_and_exact_prompt_tails_retained": true,
+  "normal_artifact_hashes_verified": 14,
+  "facts_identities": 360,
+  "new_current_local_links_checked": 41,
+  "canonical_anchor_change": "Only Sainte region H to O;legacy coordinates retained",
+  "runtime_applied": false,
+  "requested_mainland_contexts": [
+    {
+      "context": "Forest of Jura",
+      "native_ids": [
+        "nation-J",
+        "jura-rim",
+        "jura-dark-band",
+        "jura-ancient-core"
+      ],
+      "claim_ids": [
+        "OFF-003"
+      ],
+      "present": true
+    },
+    {
+      "context": "Tempest",
+      "native_ids": [
+        "site-tempest",
+        "tempest-growth-clearing"
+      ],
+      "claim_ids": [
+        "OFF-003"
+      ],
+      "present": true
+    },
+    {
+      "context": "Dwargon",
+      "native_ids": [
+        "nation-D",
+        "site-dwargon",
+        "canaat-massif"
+      ],
+      "claim_ids": [
+        "WN13-003",
+        "LN13-EAST-GATE-001"
+      ],
+      "present": true
+    },
+    {
+      "context": "Blumund",
+      "native_ids": [
+        "nation-R",
+        "site-blumund"
+      ],
+      "claim_ids": [
+        "OFF-012"
+      ],
+      "present": true
+    },
+    {
+      "context": "Falmuth",
+      "native_ids": [
+        "nation-F",
+        "site-marris"
+      ],
+      "claim_ids": [
+        "OFF-014"
+      ],
+      "present": true
+    },
+    {
+      "context": "Western Nations",
+      "native_ids": [
+        "nation-G",
+        "nation-O",
+        "nation-A",
+        "nation-N",
+        "nation-Y",
+        "nation-Q",
+        "western-unnamed-basin"
+      ],
+      "claim_ids": [
+        "OFF-013",
+        "MAP-WES-WATER-104"
+      ],
+      "present": true
+    },
+    {
+      "context": "Demon Lords lands",
+      "native_ids": [
+        "nation-H",
+        "nation-B",
+        "nation-M",
+        "nation-P",
+        "nation-V",
+        "nation-L",
+        "nation-I",
+        "nation-X"
+      ],
+      "claim_ids": [
+        "GUIDE85-SOUTH-001",
+        "OFF-009",
+        "OFF-015",
+        "OFF-011"
+      ],
+      "present": true
+    },
+    {
+      "context": "Eurazania",
+      "native_ids": [
+        "nation-B",
+        "eurazania-jungle",
+        "eurazania-orchard-fringe",
+        "site-laura"
+      ],
+      "claim_ids": [
+        "OFF-008",
+        "LN05-001",
+        "LN05-002"
+      ],
+      "present": true
+    },
+    {
+      "context": "Sarion",
+      "native_ids": [
+        "nation-S",
+        "sarion-canopy",
+        "site-elmine"
+      ],
+      "claim_ids": [
+        "GUIDE85-SOUTH-001",
+        "OFF-004"
+      ],
+      "present": true
+    },
+    {
+      "context": "Lake Siss",
+      "native_ids": [
+        "nation-W",
+        "lake-siss",
+        "siss-marsh",
+        "siss-limestone"
+      ],
+      "claim_ids": [
+        "OFF-001",
+        "OFF-002"
+      ],
+      "present": true
+    },
+    {
+      "context": "Great Canaat Mountains",
+      "native_ids": [
+        "canaat-massif",
+        "canaat-eastern-apron",
+        "canaat-main-ridge",
+        "site-dragons_nest"
+      ],
+      "claim_ids": [
+        "MAP-CANAAT-001",
+        "WN13-003"
+      ],
+      "present": true
+    },
+    {
+      "context": "Eastern Empire",
+      "native_ids": [
+        "nation-E",
+        "site-nasca",
+        "great-holy-volcano",
+        "imperial-northern-forest",
+        "eastern-approach-plains"
+      ],
+      "claim_ids": [
+        "OFF-010",
+        "MAP-003"
+      ],
+      "present": true
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "base_art_commit": "558b032",
+  "main_map_reservation_cross_check_commit": "48b0846",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "shizu_spawn",
+      "file": "shizu_spawn.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2635152,
+      "sha256": "afb94a169f80908d7aae13984c6a1d993cdd15f97de2d185ce72f9c529cb68c4",
+      "generated_original_basename": "exec-1e792356-a208-4313-a878-a7d1dbf84624.png",
+      "generated_original_sha256": "670c604285179f02db997ba3a832a0529b44a1e0fac07e56aba68cd647360b02",
+      "legacy_input_sha256": "a12860d4f84fdd20ba530311d814f642e73d87599e8720d8f58e4a33dd4f78b6",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-420.0",
+        "cy": "-80.0",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "outcast_road",
+      "file": "outcast_road.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2346407,
+      "sha256": "2bdd6f3d601355866a8fe867f666dfef31befbc180f0598b1bdbbef1311ab218",
+      "generated_original_basename": "exec-87a245a1-9d23-4546-b23f-b48792638cd0.png",
+      "generated_original_sha256": "be33e209b81df5083268381d62f93114e0a9472588d4f03d34baee8836b0cfd9",
+      "legacy_input_sha256": "93de98178f42b895b718de10112b582bde5b5f185371ac30a4bc0b6adf585993",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "0.0",
+        "cy": "52.0",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "treyni_grove",
+      "file": "treyni_grove.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2120904,
+      "sha256": "6591d97d912d54fc2d530d409c2b3e8572735a30afe67eac0dafd4fe19f48f31",
+      "generated_original_basename": "exec-5f589807-cfe3-4ebb-a4eb-5fb7218534fe.png",
+      "generated_original_sha256": "a6e83048bf13cc8211b2dddf2cb5713157d26401fbcf63a69226de2789152614",
+      "legacy_input_sha256": "762a5975ea5ba10f8405d6c7db3c7f193c599f04e5377e6d197f93a7f46d2488",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "320",
+        "cy": "470",
+        "r": "56.0",
+        "data-site": "village",
+        "data-margin": "48"
+      },
+      "cleanup_input_original_basename": "exec-dc889c8f-0146-488b-9c9b-3a089203aee8.png",
+      "cleanup_input_sha256": "fabcde2bac60665a97e32a6a36517cf6ef924d055e3f6294cd0944fe67d2fdfc",
+      "cleanup_purpose": "Quieter material planes and readable central approach; exact cleanup prompt retained separately from the first edit."
+    },
+    {
+      "id": "blumund_road",
+      "file": "blumund_road.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2375622,
+      "sha256": "d4be4e8ab2b8b0a752b399a3a6b5f55f0bd80eccf1f33ce1fff860ccffe823ed",
+      "generated_original_basename": "exec-f41ed896-3976-41ad-91c9-1a5d0af0415d.png",
+      "generated_original_sha256": "4dcaa5e6bfbda293b6c2474d1be03d9a22efcc36139bc9447b70551f36c9af65",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-1340",
+        "cy": "-520",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "englassia_road",
+      "file": "englassia_road.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2467230,
+      "sha256": "52a04a12ece32a968b45bc5a92b46c6115babf30432fafdc5f45e749d39467d5",
+      "generated_original_basename": "exec-3aff144a-bffd-4fdd-8af8-f434101222e6.png",
+      "generated_original_sha256": "87d7dd5d83fbfa082d0556c2c80d91374a7766976aa256f4857a8c9a90121c91",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-2650",
+        "cy": "-520",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    },
+    {
+      "id": "rookie_camp",
+      "file": "rookie_camp.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 1857999,
+      "sha256": "98e6958f9618d95bd00cbc43e34d60cc73ca5952cbe01c793d2108a9f93ca877",
+      "generated_original_basename": "exec-5d20c7bf-ed4d-4594-8283-0c04230ccc1b.png",
+      "generated_original_sha256": "5cac2303797f290029c85303d2f6b5fb941d6dff863fed4e05b7535fbd93049f",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-120",
+        "cy": "-560",
+        "r": "8.0",
+        "data-site": "clearing",
+        "data-margin": "24"
+      }
+    }
+  ],
+  "limits": "Three own-image edits and three new originals; representative server designs,not canonical named camps,whole treant settlement or runtime acceptance."
+}

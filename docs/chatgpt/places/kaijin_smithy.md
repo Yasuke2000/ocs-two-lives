@@ -1,5 +1,7 @@
 # Kaijin's smithy
 
+**Current authored world reservation (R86):** `(768,-1474)`, radius8; [current geography and fit](../../../world/dwargon-relocation-r86.md). Legacy Lerfing coordinates below are historical.
+
 `id: kaijin_smithy` · spot (NPC, boss or quest point) · region **D** (Armed Nation of Dwargon)
 
 | | |
@@ -11,7 +13,7 @@
 
 ## Lore (canon)
 
-Kaijin, master blacksmith, was exiled by King Gazel and then joined Rimuru. His smithy in Dwargon is where the pack's Artificer path starts.
+By the selected snapshot, Kaijin and his apprentices have already joined Rimuru's village ([official episode6](https://www.ten-sura.com/anime/tensura/story/no6)); episode9 places their building work there. This Dwargon pin represents his former premises, not a second current Kaijin residence. The Artificer path starting here is a server adaptation, not canon geography. The workshop's post-departure occupant is unverified; do not place another Kaijin here for the initial world.
 
 ## What it should look like
 

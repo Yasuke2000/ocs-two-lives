@@ -1,5 +1,7 @@
 # Knowledge pack for ChatGPT: the creative side of OCS Tensura: Two Lives
 
+**Initial world state:** use [the post-Kijin snapshot](../../world/era.md). Later story descriptions and imported-world audits are reference material, not proof that later residents, cities or events already exist. [Targeted era review](../research/tensura-world-2026-11-19/era-brief-review-r121.md).
+
 This folder is everything ChatGPT needs for the **creative** work on the project: drawing a new world map, concept art per place, blueprint designs,
 lore and quest text in English and Dutch, and NPC skin art. Read this file first, then the others.
 

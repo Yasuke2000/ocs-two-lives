@@ -1,0 +1,85 @@
+{
+  "round": 57,
+  "rows": 241,
+  "unique_claim_ids": 241,
+  "new_claims": [
+    "WN31-007",
+    "WN43-001",
+    "WN43-002",
+    "OFF-TRE-057"
+  ],
+  "required_fields_checked": [
+    "claim_id",
+    "subject",
+    "claim",
+    "source_type",
+    "continuity",
+    "source_title",
+    "locator",
+    "url",
+    "confidence",
+    "verification",
+    "map_action",
+    "snapshot_use"
+  ],
+  "missing_required_fields": [],
+  "direct_printed_ln_claims": 14,
+  "selected_author_ln_aligned_side_story_claims": 3,
+  "source_access": [
+    {
+      "name": "wn31",
+      "url": "https://ncode.syosetu.com/n6316bn/33/",
+      "status": 200,
+      "bytes": 58899,
+      "sha256": "a06ea2972c933b7e18d9dd6f08e2a4feaae7a35763b6a263497f7d27db3a31a8",
+      "paragraphs": 322
+    },
+    {
+      "name": "wn43",
+      "url": "https://ncode.syosetu.com/n6316bn/45/",
+      "status": 200,
+      "bytes": 56541,
+      "sha256": "611dc717f693cb7f64df8aae27a79985adfe1ddbf7d551c2301eebb122e1b0b5",
+      "paragraphs": 239
+    },
+    {
+      "name": "official-treyni",
+      "url": "https://www.ten-sura.com/character/treyni",
+      "status": 200,
+      "bytes": 123751,
+      "sha256": "876ec82273356b3fb919a81e99570b55800be14e560ce024ffeb8e8a995bdaad",
+      "paragraphs": 0
+    }
+  ],
+  "source_sha256": "e886217dd39aae8eded8fc6fb76859d4db0c6d029c56ba8cdb9f5e19c7b023e0",
+  "production_svg_changed": false,
+  "placement_or_inventory_classification_changed": false,
+  "source_limits": [
+    "Selected passages only,not whole novel or wiki.",
+    "Original WN and anime continuity remain distinct.",
+    "No new tree,shrine,territorial border,coordinate or cart-road distance verified."
+  ],
+  "production_and_protected_paths_unchanged_from_commit": "485ef65",
+  "repository_gate": {
+    "validation": "pass",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.329,
+    "changed_js": 0,
+    "ingame_run": false
+  },
+  "original_diagram": {
+    "visually_inspected": true,
+    "svg_sha256": "e57cc6c2d4f2f307dd5f26776c29050c33c7bba049a7d3e5e0bcc3fb10f17f20",
+    "png_sha256": "86e3353c6cfd86aed3b5eda337ceace4c99aec63cedcd5d61f4b32cb44636fc1",
+    "copyrighted_source_art_used": false,
+    "georeferenced": false
+  },
+  "corrected_guides": [
+    "design/lore/treyni_shrine.md",
+    "design/lore/lore-pass-2026-11.md",
+    "docs/chatgpt/places/treyni_grove.md",
+    "docs/chatgpt/places/treyni_shrine.md"
+  ]
+}

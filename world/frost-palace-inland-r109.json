@@ -1,0 +1,168 @@
+{
+  "round": 109,
+  "source_sha256": "0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b",
+  "owner_decision": "Move palace inland; adjust coastal registration",
+  "active_site": {
+    "id": "frost_palace",
+    "kind": "clearing",
+    "x": -1530,
+    "z": -3680,
+    "r": 89,
+    "plated": true,
+    "y": 71,
+    "index": 38,
+    "fade": 44,
+    "biome": "minecraft:snowy_plains",
+    "margin": 48.0
+  },
+  "land_centroid": [
+    -1647.3336490884303,
+    -3823.556664002035
+  ],
+  "centre_distance_to_land_centroid": 185.40685259126786,
+  "site_edge_distance_to_native_coast": 285.5749581859416,
+  "buffered_columns": 8585,
+  "buffered_first_air_min": 71.0,
+  "buffered_first_air_max": 71.0,
+  "buffered_relief": 0.0,
+  "buffered_sampled_water": 0,
+  "buffered_corner_radius": 88.35440000362178,
+  "active_xml_changes": {
+    "roads": [
+      {
+        "index": 20,
+        "id": "frost_palace_forecourt",
+        "before": {
+          "id": "frost_palace_forecourt",
+          "points": "-1540,-3310 -1500,-3310 -1460,-3310",
+          "data-kind": "trail",
+          "data-id": "frost_palace_forecourt",
+          "data-margin": "16"
+        },
+        "after": {
+          "id": "frost_palace_forecourt",
+          "points": "-1570,-3680 -1530,-3680 -1490,-3680",
+          "data-kind": "trail",
+          "data-id": "frost_palace_forecourt",
+          "data-margin": "16"
+        }
+      }
+    ],
+    "sites": [
+      {
+        "index": 53,
+        "id": "site-frost_palace",
+        "before": {
+          "data-id": "frost_palace",
+          "data-site": "coast",
+          "data-margin": "48",
+          "cx": "-1500",
+          "cy": "-3310",
+          "r": "67.0",
+          "id": "site-frost_palace",
+          "fill": "#9f3531",
+          "fill-opacity": ".8",
+          "stroke": "#f7ead2",
+          "stroke-width": "5"
+        },
+        "after": {
+          "data-id": "frost_palace",
+          "data-site": "clearing",
+          "data-margin": "48",
+          "cx": "-1530",
+          "cy": "-3680",
+          "r": "89.0",
+          "id": "site-frost_palace",
+          "fill": "#9f3531",
+          "fill-opacity": ".8",
+          "stroke": "#f7ead2",
+          "stroke-width": "5"
+        }
+      }
+    ],
+    "labels": [
+      {
+        "index": 53,
+        "id": null,
+        "before": {
+          "x": "-1413.0",
+          "y": "-3298.0",
+          "font-size": "40",
+          "fill": "#243439"
+        },
+        "after": {
+          "x": "-1421.0",
+          "y": "-3668.0",
+          "font-size": "40",
+          "fill": "#243439"
+        }
+      }
+    ]
+  },
+  "rasters": {
+    "height": {
+      "changed_cells": 5210,
+      "pixel_bounds": [
+        1249,
+        455,
+        1319,
+        602
+      ]
+    },
+    "water": {
+      "changed_cells": 0,
+      "pixel_bounds": null
+    },
+    "biome": {
+      "changed_cells": 108,
+      "pixel_bounds": [
+        1258,
+        583,
+        1315,
+        596
+      ]
+    },
+    "rugged": {
+      "changed_cells": 4923,
+      "pixel_bounds": [
+        1248,
+        455,
+        1313,
+        595
+      ]
+    },
+    "road": {
+      "changed_cells": 156,
+      "pixel_bounds": [
+        1270,
+        486,
+        1300,
+        581
+      ]
+    }
+  },
+  "limitations": "Four-block bilinear height and containing-cell water; existing unrotated entrance only,not complete palace/support/collision/noise/in-game acceptance. Native coast/biomes/regions unchanged; old coastal preparation and forecourt retire. Owner-approved world/sites.toml kind/r and site_sizes row are regenerated with the existing generator; exact staged y71 table supplied for live integration. No tools rule edit or runtime apply.",
+  "exported_site_records_changed": [
+    "frost_palace"
+  ],
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.002
+  },
+  "generated_registration": {
+    "method": "Existing tools/world/sites_from_builds.py;owner explicit approval",
+    "changed_fields": {
+      "world/sites.toml": [
+        "frost_palace.site",
+        "frost_palace.r"
+      ],
+      "world/site_sizes.md": [
+        "frost_palace kind"
+      ]
+    },
+    "staged_y": 71,
+    "live_applied": false
+  }
+}

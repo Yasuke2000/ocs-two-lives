@@ -112,12 +112,12 @@ note = "The shrine stands just east of the grove's tree."
 
 [[relation]]
 a = "ogre_village_ruin"
-dir = "NE"
+dir = "SE"
 b = "tempest"
 min = 400
 max = 900
-source = "design/lore/world.md"
-note = "The hidden ogre village lies in the north-eastern hills of Jura, at the north foot of the east massif."
+source = "design/lore/world-map-corrections.md"
+note = "The supplied wiki places the ogre village at the Khusha foothills; the pinned reference marker is southeast of Rimuru City, not northeast."
 
 [[relation]]
 a = "dwarf_village"
@@ -341,22 +341,22 @@ note = "Sarion lies on Jura's southern border."
 
 [[relation]]
 a = "jia"
-dir = "SW"
+dir = "S"
 b = "tempest"
-tol = 45
+tol = 35
 min = 2000
 max = 4350
-source = "design/lore/world.md"
-note = "Fulbrosia holds the south-western hills."
+source = "design/lore/world-map-corrections.md"
+note = "Owner correction: Fulbrosia is south of Jura, following the supplied anime map."
 
 [[relation]]
 a = "jia"
 dir = "W"
 b = "laura"
-min = 2900
-max = 6200
-source = "design/lore/world.md"
-note = "Fulbrosia lies south of Jura and west of Eurazania."
+min = 900
+max = 2600
+source = "design/lore/world-map-corrections.md"
+note = "Fulbrosia is west/southwest of Eurazania; distances reflect playable compression."
 
 [[relation]]
 a = "el_dorado"
@@ -529,19 +529,19 @@ note = "West-to-east sequence of the small western nations."
 a = "ulgr_nature_park"
 dir = "S"
 b = "blumund"
-min = 650
-max = 1400
-source = "design/lore/world.md"
-note = "Ulgracia lies south of Blumund."
+min = 2400
+max = 4000
+source = "design/lore/world-map-corrections.md"
+note = "Ulgracia is far south beyond Sarion, rather than adjacent to Blumund."
 
 [[relation]]
 a = "ulgr_nature_park"
-dir = "NW"
+dir = "S"
 b = "elmine"
-min = 1350
-max = 2900
-source = "design/lore/world.md"
-note = "Our reading: Ulgracia lies north-west of Sarion, not south of it."
+min = 800
+max = 1600
+source = "design/lore/world-map-corrections.md"
+note = "Owner correction: Ulgracia lies south of Sarion, as in the official guide and supplied anime reference."
 
 [[site_rule]]
 id = "dwargon"
@@ -558,7 +558,7 @@ note = "The Sealed Cave is in a rocky hill."
 [[site_rule]]
 id = "arrival"
 near_road = 16
-road_kind = "main"
+road_kind = "trail"
 source = "design/lore/world.md"
 note = "The arrival is on the Dwarven Road."
 

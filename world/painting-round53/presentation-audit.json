@@ -1,0 +1,199 @@
+{
+  "source_map_commit": "d02956c",
+  "source_svg_sha256": "8c24a34906638713849bd3b82e32a362ef75c0f65b77e1175b6a0b1e97a1d2d6",
+  "production_geometry_and_current_exports_unchanged": true,
+  "native_source_vectors_verified": {
+    "coast": 3,
+    "biomes": 2,
+    "lakes": 9,
+    "rivers": 8,
+    "roads": 21
+  },
+  "coast_clip_and_ocean_mask_match_current_source": true,
+  "source_site_positions_and_projections_verified": 58,
+  "minimum_number_bubble_spacing_px": 32.47054606006469,
+  "all_non_image_atlas_elements_retained": true,
+  "leaders_before_all_number_bubbles": true,
+  "browser_context_labels": 16,
+  "full_text_boxes_with_2px_stroke_inside_current_sampled_masks": 15,
+  "context_text_clear_of_number_boxes_padded_7px": true,
+  "ulgracia_callout_endpoint_inside_current_mask": true,
+  "open_inventory_rows_fit_panel": 32,
+  "atlas_embeds_exact_continent_png": true,
+  "original_texture_hashes_retained": true,
+  "new_raster_generation": false,
+  "composition_pixels_changed_vs_R50": 1387,
+  "maximum_rgb_channel_delta_vs_R50": 32,
+  "changed_pixel_bounds": [
+    742,
+    376,
+    792,
+    420
+  ],
+  "png_files": {
+    "atlas.png": {
+      "pixels": [
+        2200,
+        2680
+      ],
+      "mode": "RGB",
+      "bytes": 3200983,
+      "sha256": "35a41d06cc3392457e95a0e27faa82defc2a966d11b49e5ac0517cc457031568"
+    },
+    "continent.png": {
+      "pixels": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 1912752,
+      "sha256": "c713ef90bdbbe5d85215c62248d9fd3fa677355b4fedee173ba380f3f441deec"
+    }
+  },
+  "actual_browser_context_boxes": [
+    {
+      "text": "Eastern Empire",
+      "x": 1565.9549560546875,
+      "y": 621.7570190429688,
+      "width": 132.8876953125,
+      "height": 21
+    },
+    {
+      "text": "Canaat Mountains",
+      "x": 1159.1824951171875,
+      "y": 661.3150024414062,
+      "width": 154.453125,
+      "height": 21
+    },
+    {
+      "text": "Great Jura Forest",
+      "x": 998.952392578125,
+      "y": 990.0609741210938,
+      "width": 147.96923828125,
+      "height": 21
+    },
+    {
+      "text": "Jistav",
+      "x": 1565.477294921875,
+      "y": 768.39599609375,
+      "width": 50.744140625,
+      "height": 21
+    },
+    {
+      "text": "Milim's Domain",
+      "x": 1509.7357177734375,
+      "y": 1044.6240234375,
+      "width": 136.15869140625,
+      "height": 21
+    },
+    {
+      "text": "Eurazania",
+      "x": 1264.8018798828125,
+      "y": 1058.2650146484375,
+      "width": 85.4990234375,
+      "height": 21
+    },
+    {
+      "text": "Fulbrosia",
+      "x": 1101.0323486328125,
+      "y": 1276.51904296875,
+      "width": 80.1923828125,
+      "height": 21
+    },
+    {
+      "text": "Sarion",
+      "x": 861.0347290039062,
+      "y": 1167.3919677734375,
+      "width": 55.826171875,
+      "height": 21
+    },
+    {
+      "text": "Ulgracia",
+      "x": 764.5885009765625,
+      "y": 1294.251953125,
+      "width": 71.03564453125,
+      "height": 21
+    },
+    {
+      "text": "Blumund",
+      "x": 825.3981323242188,
+      "y": 942.3170166015625,
+      "width": 78.67822265625,
+      "height": 21
+    },
+    {
+      "text": "Englassia",
+      "x": 654.5155029296875,
+      "y": 781.1270141601562,
+      "width": 59.8095703125,
+      "height": 16
+    },
+    {
+      "text": "Falmuth",
+      "x": 876.59423828125,
+      "y": 624.4849853515625,
+      "width": 71.6875,
+      "height": 21
+    },
+    {
+      "text": "Lubelius",
+      "x": 548.8695068359375,
+      "y": 628.5770263671875,
+      "width": 72.375,
+      "height": 21
+    },
+    {
+      "text": "Desert of Death",
+      "x": 461.4033203125,
+      "y": 799.0880126953125,
+      "width": 131.359375,
+      "height": 21
+    },
+    {
+      "text": "Ice Continent",
+      "x": 818.027587890625,
+      "y": 344.84698486328125,
+      "width": 114.2275390625,
+      "height": 21
+    },
+    {
+      "text": "El Dorado",
+      "x": 504.83404541015625,
+      "y": 1258.10400390625,
+      "width": 85.421875,
+      "height": 21
+    }
+  ],
+  "limitations": "Native curves are flattened by the repository parser for text containment. Pictorial relief and vegetation are illustrative. This presentation supplies no new canonical locations, initial-era runtime gating, structure fit or live-server acceptance.",
+  "native_relief_masks_verified": 2,
+  "analytical_height_cells_verified": 666,
+  "lighting_input_height_hashes_verified": true,
+  "changed_composition_pixel_centres_outside_96block_relief_buffer": 0,
+  "changed_pixel_world_centre_bounds": [
+    -267.75,
+    -1678.75,
+    257.25,
+    -1216.75
+  ],
+  "original_R38_R43_png_bytes_retained": true,
+  "production_normal_export_source_matches": true,
+  "relief_overlay_kind": "Native SVG delta-height-gradient lighting; no newly generated or edited raw raster painting.",
+  "northwest_lighting_gradient_rule_verified": true,
+  "repository_validation": {
+    "painting": {
+      "tests": 472,
+      "skipped": 26,
+      "failures": 0,
+      "seconds": 64.352
+    },
+    "map_pointer": {
+      "tests": 472,
+      "skipped": 26,
+      "failures": 0,
+      "seconds": 64.333
+    },
+    "validation_passed": true,
+    "changed_js_files": 0,
+    "ingame_run": false
+  }
+}

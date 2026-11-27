@@ -1,0 +1,43 @@
+{
+  "round": 84,
+  "source_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "claims": 285,
+  "all284_previous_claims_preserved": true,
+  "inventory": 135,
+  "all134_previous_inventory_rows_and_statuses_preserved": true,
+  "new_missing_complex": "Dwargon eastern entrance / bridge (WN)",
+  "physical_followups": 42,
+  "missing": 29,
+  "partial": 8,
+  "country_pins_unverified": 2,
+  "parent_designs_unverified": 3,
+  "atlas": {
+    "normal_terrain_image_bytes_unchanged": true,
+    "only_coverage_elements_changed": true,
+    "registered_sites": 58,
+    "context_names": 16,
+    "open_rows": 42,
+    "browser_rows_fit_panel": true,
+    "no_row_overlap": true,
+    "changed_pixels": 19658,
+    "change_bbox": [
+      65,
+      2631,
+      815,
+      2968
+    ]
+  },
+  "required_scope": "Continuity-qualified WN entrance/crossing; no guessed continent position or city correspondence.",
+  "licensed_novel_story_pages_read": false,
+  "source_preview_terrain_unchanged": true,
+  "source_comparison": "UTF8 normalized text; Windows working copy uses CRLF.",
+  "R81_painting_coverage_panel_pending": true,
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.667
+  },
+  "runtime_applied": false
+}

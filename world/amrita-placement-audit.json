@@ -1,0 +1,22 @@
+{
+  "base_commit": "052f262",
+  "source_sha256": "2518f19c20593d85c13581c61b58f9a25125f7a79ce94152119ec3464524360b",
+  "all_non_label_layers_equal": true,
+  "all58_sites_and_radii_match": true,
+  "height_water_biome_road_and_terrain_preview_bytes_equal": true,
+  "inert_access_projection": {
+    "x": 3300,
+    "z": -600,
+    "radius": 8,
+    "depth": null,
+    "full_ruin_footprint": "unverified",
+    "role": "illustrative castle-linked access projection,not a surveyed city centre"
+  },
+  "active_reservation": {
+    "x": 3800,
+    "z": -500,
+    "radius": 63,
+    "rule": "E350..700 from clayman_castle"
+  },
+  "limit": "Source/semantic alternative,not applied or registered; no runtime access or underground build acceptance."
+}

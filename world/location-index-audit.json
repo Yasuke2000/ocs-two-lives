@@ -1,0 +1,2033 @@
+{
+  "baseline_commit": "f118b6e",
+  "source_sha256": "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1",
+  "presentation_only": false,
+  "production_svg_changed": true,
+  "terrain_image_bytes_retained": false,
+  "terrain_image_sha256": "201ad3800fd091e229438e0d16269c91bcde454f320caa28f2f5e8592ed8fcac",
+  "existing_numbered_reservations": 58,
+  "geographic_labels": [
+    {
+      "label": "Eastern Empire",
+      "gameplay_context": "E",
+      "claims": "OFF-010;MAP-003",
+      "world_label_position_interpreted": [
+        3850,
+        -1950
+      ],
+      "font_size": 25,
+      "display_box": [
+        1696.7903645833335,
+        769.0872395833334,
+        1881.7903645833335,
+        809.3372395833334
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Canaat Mountains",
+      "gameplay_context": "D",
+      "claims": "WN13-003;WN13-006",
+      "world_label_position_interpreted": [
+        1000,
+        -1660
+      ],
+      "font_size": 25,
+      "display_box": [
+        1170.5364583333335,
+        821.0078125,
+        1387.5364583333335,
+        861.2578125
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Great Jura Forest",
+      "gameplay_context": "J",
+      "claims": "OFF-003",
+      "world_label_position_interpreted": [
+        -200,
+        750
+      ],
+      "font_size": 25,
+      "display_box": [
+        961.1927083333335,
+        1252.4856770833335,
+        1167.1927083333335,
+        1292.7356770833335
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Jistav",
+      "gameplay_context": "P",
+      "claims": "OFF-AMR-001",
+      "world_label_position_interpreted": [
+        3600,
+        -850
+      ],
+      "font_size": 25,
+      "display_box": [
+        1706.03125,
+        966.02734375,
+        1783.03125,
+        1006.27734375
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Milim's Domain",
+      "gameplay_context": "M",
+      "claims": "OFF-015;MAP-001",
+      "world_label_position_interpreted": [
+        3500.013381818182,
+        1433.6000000000013
+      ],
+      "font_size": 25,
+      "display_box": [
+        1660.0570068359375,
+        1330.9000244140625,
+        1831.0726318359375,
+        1357.9000244140625
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Eurazania",
+      "gameplay_context": "B",
+      "claims": "OFF-008",
+      "world_label_position_interpreted": [
+        1520,
+        1250
+      ],
+      "font_size": 25,
+      "display_box": [
+        1310.1354166666667,
+        1342.00390625,
+        1434.1354166666667,
+        1382.25390625
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Fulbrosia",
+      "gameplay_context": "H",
+      "claims": "OFF-009;FAN-001",
+      "world_label_position_interpreted": [
+        300,
+        2850
+      ],
+      "font_size": 25,
+      "display_box": [
+        1095.7109375,
+        1628.4622395833335,
+        1211.7109375,
+        1668.7122395833335
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Sarion",
+      "gameplay_context": "S",
+      "claims": "FAN-010",
+      "world_label_position_interpreted": [
+        -1550,
+        2050
+      ],
+      "font_size": 25,
+      "display_box": [
+        780.4934895833334,
+        1485.2330729166667,
+        864.4934895833334,
+        1525.4830729166667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Ulgracia",
+      "gameplay_context": "U",
+      "claims": "OFF-004",
+      "world_label_position_interpreted": [
+        -2200,
+        2980
+      ],
+      "font_size": 23,
+      "display_box": [
+        657.1197916666667,
+        1652.9469791666668,
+        755.1197916666667,
+        1690.7769791666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": {
+        "leader_endpoint_world": [
+          -850,
+          3125
+        ],
+        "endpoint_inside_existing_U_mask": true,
+        "endpoint_number_box_clearance_pixels": 28.232265625000082
+      }
+    },
+    {
+      "label": "Blumund",
+      "gameplay_context": "R",
+      "claims": "OFF-012",
+      "world_label_position_interpreted": [
+        -1800.028509090909,
+        121.018181818182
+      ],
+      "font_size": 25,
+      "display_box": [
+        784.9801635742188,
+        1105.300048828125,
+        884.4684448242188,
+        1132.300048828125
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Englassia",
+      "gameplay_context": "G",
+      "claims": "OFF-013",
+      "world_label_position_interpreted": [
+        -2850,
+        -800
+      ],
+      "font_size": 25,
+      "display_box": [
+        530.74609375,
+        974.9791666666667,
+        648.74609375,
+        1015.2291666666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Falmuth",
+      "gameplay_context": "F",
+      "claims": "OFF-014",
+      "world_label_position_interpreted": [
+        -1400,
+        -1880
+      ],
+      "font_size": 25,
+      "display_box": [
+        795.8489583333334,
+        781.6197916666667,
+        902.8489583333334,
+        821.8697916666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Lubelius",
+      "gameplay_context": "L",
+      "claims": "WIK-WAL-001;LN06-004",
+      "world_label_position_interpreted": [
+        -3750,
+        -1900
+      ],
+      "font_size": 25,
+      "display_box": [
+        375.61328125,
+        778.0390625,
+        481.61328125,
+        818.2890625
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Desert of Death",
+      "gameplay_context": "V",
+      "claims": "WIK-WAL-001",
+      "world_label_position_interpreted": [
+        -4200,
+        -650
+      ],
+      "font_size": 25,
+      "display_box": [
+        255.046875,
+        1001.8346354166667,
+        441.046875,
+        1042.0846354166667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "Ice Continent",
+      "gameplay_context": "I",
+      "claims": "OFF-011;MAP-005",
+      "world_label_position_interpreted": [
+        -1650,
+        -3980
+      ],
+      "font_size": 25,
+      "display_box": [
+        723.58984375,
+        405.6432291666667,
+        885.58984375,
+        445.8932291666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    },
+    {
+      "label": "El Dorado",
+      "gameplay_context": "X",
+      "claims": "MAP-006",
+      "world_label_position_interpreted": [
+        -4000,
+        2740
+      ],
+      "font_size": 25,
+      "display_box": [
+        322.3541666666667,
+        1608.7682291666667,
+        445.3541666666667,
+        1649.0182291666667
+      ],
+      "marker_clearance_padding_pixels": 7,
+      "callout": null
+    }
+  ],
+  "in_mask_text_labels": 15,
+  "callouts_with_endpoint_in_mask": 1,
+  "all_label_boxes_disjoint_from_58_padded_number_bubbles": true,
+  "all_label_boxes_pairwise_disjoint": true,
+  "inventory_rows_preserved": 129,
+  "open_rows_preserved": 32,
+  "open_name_status_rows": [
+    {
+      "name": "Butterflies of the Night",
+      "status": "parent-design-present-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Council headquarters",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Destroyed Imperial frontier city",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Duchy of Laquia",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Dwargon East city",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Dwargon West city",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Englassia royal castle",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Free Guild headquarters",
+      "status": "parent-design-present-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Freedom Academy",
+      "status": "parent-design-present-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Galut",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "General Kingdom of Doran",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Carnada",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Ghastone",
+      "status": "pin-present-country-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Kingdom of Grada",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Kaien",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Larbach",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Malbarath",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Morapha",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Rostia",
+      "status": "pin-present-country-unverified",
+      "display_code": "U"
+    },
+    {
+      "name": "Kingdom of Silberia",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Kingdom of Spiru",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Long Wall",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Magic Tower",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Orc Kingdom of Orbic",
+      "status": "partial-terrain-representation",
+      "display_code": "P"
+    },
+    {
+      "name": "Republic of Boruss",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Republic of Zamund",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Resort Island",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Soma ruins",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Tengu settlement",
+      "status": "partial-terrain-representation",
+      "display_code": "P"
+    },
+    {
+      "name": "Town of Guratol",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Treant Settlement",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    },
+    {
+      "name": "Unnamed Imperial vassal town",
+      "status": "missing-distinct-representation",
+      "display_code": "M"
+    }
+  ],
+  "runtime_acceptance": false,
+  "actual_browser_geographic_label_boxes": [
+    {
+      "x": 1722.304443359375,
+      "y": 749.3416748046875,
+      "width": 167.2265625,
+      "height": 27,
+      "text": "Eastern Empire",
+      "region": "E"
+    },
+    {
+      "x": 1363.253173828125,
+      "y": 855.7000122070312,
+      "width": 195.09375,
+      "height": 27,
+      "text": "Canaat Mountains",
+      "region": "D"
+    },
+    {
+      "x": 1016.4427490234375,
+      "y": 1213.4056396484375,
+      "width": 187.06640625,
+      "height": 27,
+      "text": "Great Jura Forest",
+      "region": "J"
+    },
+    {
+      "x": 1730.6864013671875,
+      "y": 938.404052734375,
+      "width": 64.203125,
+      "height": 27,
+      "text": "Jistav",
+      "region": "P"
+    },
+    {
+      "x": 1660.0570068359375,
+      "y": 1282.160888671875,
+      "width": 171.015625,
+      "height": 27,
+      "text": "Milim's Domain",
+      "region": "M"
+    },
+    {
+      "x": 1351.5201416015625,
+      "y": 1299.3448486328125,
+      "width": 108.3671875,
+      "height": 27,
+      "text": "Eurazania",
+      "region": "B"
+    },
+    {
+      "x": 1145.1788330078125,
+      "y": 1574.346435546875,
+      "width": 101.6640625,
+      "height": 27,
+      "text": "Fulbrosia",
+      "region": "H"
+    },
+    {
+      "x": 842.8169555664062,
+      "y": 1436.845703125,
+      "width": 69.546875,
+      "height": 27,
+      "text": "Sarion",
+      "region": "S"
+    },
+    {
+      "x": 724.843994140625,
+      "y": 1597.6856689453125,
+      "width": 82.9298095703125,
+      "height": 24.9998779296875,
+      "text": "Ulgracia",
+      "region": "U"
+    },
+    {
+      "x": 784.9801635742188,
+      "y": 1153.251953125,
+      "width": 99.48828125,
+      "height": 27,
+      "text": "Blumund",
+      "region": "R"
+    },
+    {
+      "x": 603.6990966796875,
+      "y": 946.9960327148438,
+      "width": 101.81640625,
+      "height": 27,
+      "text": "Englassia",
+      "region": "G"
+    },
+    {
+      "x": 858.1026000976562,
+      "y": 761.3704223632812,
+      "width": 90.5703125,
+      "height": 27,
+      "text": "Falmuth",
+      "region": "F"
+    },
+    {
+      "x": 453.7624816894531,
+      "y": 757.93359375,
+      "width": 91.40621948242188,
+      "height": 27,
+      "text": "Lubelius",
+      "region": "L"
+    },
+    {
+      "x": 339.16705322265625,
+      "y": 972.7816772460938,
+      "width": 165.94528198242188,
+      "height": 26.99993896484375,
+      "text": "Desert of Death",
+      "region": "V"
+    },
+    {
+      "x": 788.5392456054688,
+      "y": 400.439208984375,
+      "width": 144.4453125,
+      "height": 27,
+      "text": "Ice Continent",
+      "region": "I"
+    },
+    {
+      "x": 402.54290771484375,
+      "y": 1555.4344482421875,
+      "width": 107.95703125,
+      "height": 27,
+      "text": "El Dorado",
+      "region": "X"
+    },
+    {
+      "x": 724.7719116210938,
+      "y": 1303.0999755859375,
+      "width": 185.65625,
+      "height": 25,
+      "text": "Khusha Mountains"
+    },
+    {
+      "x": 529.9921875,
+      "y": 902,
+      "width": 190.015625,
+      "height": 20,
+      "text": "Royal lake (WN-derived)"
+    },
+    {
+      "x": 1046.1953125,
+      "y": 605,
+      "width": 207.6092529296875,
+      "height": 19.99993896484375,
+      "text": "Ice-coast islets (illustrated)"
+    },
+    {
+      "x": 650.8828125,
+      "y": 1200.0001220703125,
+      "width": 197.234375,
+      "height": 20,
+      "text": "Tengu glade (interpreted)"
+    }
+  ],
+  "actual_browser_open_row_boxes": [
+    {
+      "x": 65,
+      "y": 2711,
+      "width": 184.529296875,
+      "height": 19,
+      "text": "U  Butterflies of the Night"
+    },
+    {
+      "x": 65,
+      "y": 2735,
+      "width": 180.98388671875,
+      "height": 19,
+      "text": "M  Council headquarters"
+    },
+    {
+      "x": 65,
+      "y": 2759,
+      "width": 249.9052734375,
+      "height": 19,
+      "text": "M  Destroyed Imperial frontier city"
+    },
+    {
+      "x": 65,
+      "y": 2783,
+      "width": 102.27978515625,
+      "height": 19,
+      "text": "P  Divine Tree"
+    },
+    {
+      "x": 65,
+      "y": 2807,
+      "width": 142.28955078125,
+      "height": 19,
+      "text": "M  Duchy of Laquia"
+    },
+    {
+      "x": 65,
+      "y": 2831,
+      "width": 156.38037109375,
+      "height": 19,
+      "text": "M  Dwargon East city"
+    },
+    {
+      "x": 65,
+      "y": 2855,
+      "width": 325.35595703125,
+      "height": 19,
+      "text": "M  Dwargon eastern entrance / bridge (WN)"
+    },
+    {
+      "x": 65,
+      "y": 2879,
+      "width": 160.77978515625,
+      "height": 19,
+      "text": "M  Dwargon West city"
+    },
+    {
+      "x": 65,
+      "y": 2903,
+      "width": 125.86669921875,
+      "height": 19,
+      "text": "P  Eastern Plains"
+    },
+    {
+      "x": 65,
+      "y": 2927,
+      "width": 183.84326171875,
+      "height": 19,
+      "text": "M  Englassia royal castle"
+    },
+    {
+      "x": 65,
+      "y": 2951,
+      "width": 201.76904296875,
+      "height": 19,
+      "text": "U  Free Guild headquarters"
+    },
+    {
+      "x": 595,
+      "y": 2711,
+      "width": 160.173828125,
+      "height": 19,
+      "text": "U  Freedom Academy"
+    },
+    {
+      "x": 595,
+      "y": 2735,
+      "width": 59.79345703125,
+      "height": 19,
+      "text": "M  Galut"
+    },
+    {
+      "x": 595,
+      "y": 2759,
+      "width": 221.109375,
+      "height": 19,
+      "text": "M  General Kingdom of Doran"
+    },
+    {
+      "x": 595,
+      "y": 2783,
+      "width": 176.00732421875,
+      "height": 19,
+      "text": "P  Kingdom of Ballachia"
+    },
+    {
+      "x": 595,
+      "y": 2807,
+      "width": 175.35986328125,
+      "height": 19,
+      "text": "M  Kingdom of Carnada"
+    },
+    {
+      "x": 595,
+      "y": 2831,
+      "width": 159.8916015625,
+      "height": 19,
+      "text": "P  Kingdom of Coleus"
+    },
+    {
+      "x": 595,
+      "y": 2855,
+      "width": 169.78125,
+      "height": 19,
+      "text": "P  Kingdom of Filtwood"
+    },
+    {
+      "x": 595,
+      "y": 2879,
+      "width": 181.98388671875,
+      "height": 19,
+      "text": "U  Kingdom of Ghastone"
+    },
+    {
+      "x": 595,
+      "y": 2903,
+      "width": 157.39697265625,
+      "height": 19,
+      "text": "M  Kingdom of Grada"
+    },
+    {
+      "x": 595,
+      "y": 2927,
+      "width": 153.09375,
+      "height": 19,
+      "text": "M  Kingdom of Kaien"
+    },
+    {
+      "x": 595,
+      "y": 2951,
+      "width": 171.046875,
+      "height": 19,
+      "text": "M  Kingdom of Larbach"
+    },
+    {
+      "x": 1125,
+      "y": 2711,
+      "width": 185.203125,
+      "height": 19,
+      "text": "M  Kingdom of Malbarath"
+    },
+    {
+      "x": 1125,
+      "y": 2735,
+      "width": 194.8916015625,
+      "height": 19,
+      "text": "P  Kingdom of Malukshure"
+    },
+    {
+      "x": 1125,
+      "y": 2759,
+      "width": 177.244140625,
+      "height": 19,
+      "text": "M  Kingdom of Morapha"
+    },
+    {
+      "x": 1125,
+      "y": 2783,
+      "width": 156.45068359375,
+      "height": 19,
+      "text": "U  Kingdom of Rostia"
+    },
+    {
+      "x": 1125,
+      "y": 2807,
+      "width": 166.84326171875,
+      "height": 19,
+      "text": "M  Kingdom of Silberia"
+    },
+    {
+      "x": 1125,
+      "y": 2831,
+      "width": 172.20556640625,
+      "height": 19,
+      "text": "P  Kingdom of Siltrosso"
+    },
+    {
+      "x": 1125,
+      "y": 2855,
+      "width": 149.296875,
+      "height": 19,
+      "text": "M  Kingdom of Spiru"
+    },
+    {
+      "x": 1125,
+      "y": 2879,
+      "width": 93.859375,
+      "height": 19,
+      "text": "M  Long Wall"
+    },
+    {
+      "x": 1125,
+      "y": 2903,
+      "width": 115.33349609375,
+      "height": 19,
+      "text": "M  Magic Tower"
+    },
+    {
+      "x": 1125,
+      "y": 2927,
+      "width": 120,
+      "height": 19,
+      "text": "M  Night Garden"
+    },
+    {
+      "x": 1655,
+      "y": 2711,
+      "width": 238.50048828125,
+      "height": 19,
+      "text": "M  Night Garden burial chamber"
+    },
+    {
+      "x": 1655,
+      "y": 2735,
+      "width": 179.697265625,
+      "height": 19,
+      "text": "P  Orc Kingdom of Orbic"
+    },
+    {
+      "x": 1655,
+      "y": 2759,
+      "width": 162.06640625,
+      "height": 19,
+      "text": "M  Republic of Boruss"
+    },
+    {
+      "x": 1655,
+      "y": 2783,
+      "width": 171.03125,
+      "height": 19,
+      "text": "M  Republic of Zamund"
+    },
+    {
+      "x": 1655,
+      "y": 2807,
+      "width": 119.046875,
+      "height": 19,
+      "text": "M  Resort Island"
+    },
+    {
+      "x": 1655,
+      "y": 2831,
+      "width": 105.36376953125,
+      "height": 19,
+      "text": "M  Soma ruins"
+    },
+    {
+      "x": 1655,
+      "y": 2855,
+      "width": 145.19189453125,
+      "height": 19,
+      "text": "P  Tengu settlement"
+    },
+    {
+      "x": 1655,
+      "y": 2879,
+      "width": 137.640625,
+      "height": 19,
+      "text": "M  Town of Guratol"
+    },
+    {
+      "x": 1655,
+      "y": 2903,
+      "width": 153.34326171875,
+      "height": 19,
+      "text": "M  Treant Settlement"
+    },
+    {
+      "x": 1655,
+      "y": 2927,
+      "width": 251.328125,
+      "height": 19,
+      "text": "M  Unnamed Imperial vassal town"
+    }
+  ],
+  "browser_label_boxes_with_2px_stroke_clear_of_7px_padded_number_bubbles": true,
+  "all_58_original_numbered_groups_byte_equivalent": true,
+  "all_32_open_rows_fit_panel": true,
+  "actual_browser_non_callout_text_bounds_with_stroke_inside_context": 15,
+  "ulgracia_leader_with_1px_buffer_clear_of_padded_number_boxes": true,
+  "previous_layout_source_sha256": "bb0e4b295dc1b75b8ac2778dd4f8b5240b69c26af5c4da35beac785595e6aaca",
+  "registration_from_r41": {
+    "scale": 0.96,
+    "translate_x": 88,
+    "translate_y": 5.2,
+    "legend_y_shift": -77
+  },
+  "display_box_coordinate_space": "Historical r41 local coordinates; apply registration_from_r41. Actual browser boxes below are current global coordinates.",
+  "actual_browser_number_boxes": [
+    {
+      "x": 1130.56005859375,
+      "y": 1084.5567626953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1130.56005859375,
+      "y": 912.6880493164062,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1155.452880859375,
+      "y": 934.0672607421875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1109.939208984375,
+      "y": 1015.8112182617188,
+      "width": 26.8800048828125,
+      "height": 26.87994384765625,
+      "text": ""
+    },
+    {
+      "x": 1039.465576171875,
+      "y": 1046.751953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1081.5711669921875,
+      "y": 1144.7200927734375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1077.568115234375,
+      "y": 1070.8096923828125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1124.6080322265625,
+      "y": 1115.6512451171875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1185.5584716796875,
+      "y": 1165.3408203125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1216.499267578125,
+      "y": 1187.689697265625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1216.499267578125,
+      "y": 1136.1185302734375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1264.62255859375,
+      "y": 845.6568603515625,
+      "width": 26.8800048828125,
+      "height": 26.87994384765625,
+      "text": ""
+    },
+    {
+      "x": 1266.4080810546875,
+      "y": 808.092041015625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1234.8433837890625,
+      "y": 828.664794921875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1294.574462890625,
+      "y": 835.5192260742188,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1302.4306640625,
+      "y": 912.6854248046875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1338.82421875,
+      "y": 916.1222534179688,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1190.713623046875,
+      "y": 740.8096313476562,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1164.937744140625,
+      "y": 871.4368286132812,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1500.0928955078125,
+      "y": 1299.4049072265625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1319.6224365234375,
+      "y": 1067.3729248046875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1319.6224365234375,
+      "y": 1130.10888671875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1354,
+      "y": 1173.932861328125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1431.3377685546875,
+      "y": 1179.088134765625,
+      "width": 26.8798828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 872.7520141601562,
+      "y": 977.996826171875,
+      "width": 26.8800048828125,
+      "height": 26.87994384765625,
+      "text": ""
+    },
+    {
+      "x": 709.4656372070312,
+      "y": 1007.21923828125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 632.118408203125,
+      "y": 990.025634765625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 821.1807861328125,
+      "y": 800.9631958007812,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 735.760009765625,
+      "y": 849.0880126953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 511.81121826171875,
+      "y": 861.12646484375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 460.2496337890625,
+      "y": 809.5648193359375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 525.5584106445312,
+      "y": 936.74560546875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 408.68798828125,
+      "y": 1050.1888427734375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 580.5568237304688,
+      "y": 1141.2833251953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 640.7200317382812,
+      "y": 1146.4384765625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 692.2816162109375,
+      "y": 1141.2833251953125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 726.649658203125,
+      "y": 1136.1185302734375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 761.0272216796875,
+      "y": 1070.8096923828125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 924.3135986328125,
+      "y": 1557.212890625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 580.5568237304688,
+      "y": 1032.9952392578125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 654.534423828125,
+      "y": 1098.563232421875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1113.3759765625,
+      "y": 1428.313720703125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 967.283203125,
+      "y": 1574.4063720703125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 841.8112182617188,
+      "y": 1383.6256103515625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1164.937744140625,
+      "y": 1505.6512451171875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1388.3680419921875,
+      "y": 1359.5584716796875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1586.031982421875,
+      "y": 1222.0577392578125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1697.7471923828125,
+      "y": 981.4336547851562,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1783.6864013671875,
+      "y": 998.627197265625,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1680.5633544921875,
+      "y": 775.187255859375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1706.3392333984375,
+      "y": 852.5248413085938,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 391.4944152832031,
+      "y": 1600.182373046875,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 460.2496337890625,
+      "y": 1634.56005859375,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 872.7520141601562,
+      "y": 515.6511840820312,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 900.2464599609375,
+      "y": 995.1808471679688,
+      "width": 26.8800048828125,
+      "height": 26.87994384765625,
+      "text": ""
+    },
+    {
+      "x": 675.0880126953125,
+      "y": 995.1808471679688,
+      "width": 26.8800048828125,
+      "height": 26.87994384765625,
+      "text": ""
+    },
+    {
+      "x": 958.681640625,
+      "y": 1026.12158203125,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    },
+    {
+      "x": 1129.1392822265625,
+      "y": 988.3071899414062,
+      "width": 26.8800048828125,
+      "height": 26.8800048828125,
+      "text": ""
+    }
+  ],
+  "production_change_review": "world/tengu-glade-r99.md",
+  "previous_snapshot_terrain_image_replaced_by_current_normal_export": true,
+  "new_label_geographical_claims": 0,
+  "linked_terrain_claims_added": [
+    "DES-CUR-049"
+  ],
+  "all58_actual_world_anchor_registration_matches": [
+    {
+      "id": "tempest",
+      "projected_anchor_error_blocks": 0.01861818181896524
+    },
+    {
+      "id": "arrival",
+      "projected_anchor_error_blocks": 0.017454545453801984
+    },
+    {
+      "id": "wayfarers_camp",
+      "projected_anchor_error_blocks": 0.028313241944531043
+    },
+    {
+      "id": "sealed_cave",
+      "projected_anchor_error_blocks": 0.025414201794423913
+    },
+    {
+      "id": "goblin_village",
+      "projected_anchor_error_blocks": 0.026453539499564943
+    },
+    {
+      "id": "spirit_gate",
+      "projected_anchor_error_blocks": 0.03374702190837001
+    },
+    {
+      "id": "shizu_spawn",
+      "projected_anchor_error_blocks": 0.026285049013448723
+    },
+    {
+      "id": "outcast_road",
+      "projected_anchor_error_blocks": 0.018036363635474117
+    },
+    {
+      "id": "treyni_grove",
+      "projected_anchor_error_blocks": 0.00967026626290046
+    },
+    {
+      "id": "treyni_shrine",
+      "projected_anchor_error_blocks": 0.028532828707221052
+    },
+    {
+      "id": "ogre_village_ruin",
+      "projected_anchor_error_blocks": 0.025823815006898575
+    },
+    {
+      "id": "dwargon",
+      "projected_anchor_error_blocks": 0.017745454545547545
+    },
+    {
+      "id": "dwargo",
+      "projected_anchor_error_blocks": 0.017745454545547545
+    },
+    {
+      "id": "dwargon_throne",
+      "projected_anchor_error_blocks": 0.0058181818185403245
+    },
+    {
+      "id": "kaijin_smithy",
+      "projected_anchor_error_blocks": 0.01525262746672081
+    },
+    {
+      "id": "dwarf_village",
+      "projected_anchor_error_blocks": 0.025705567458151293
+    },
+    {
+      "id": "dwarven_arena",
+      "projected_anchor_error_blocks": 0.010043739055660804
+    },
+    {
+      "id": "dragons_nest",
+      "projected_anchor_error_blocks": 0.015592835820268679
+    },
+    {
+      "id": "ameld_source",
+      "projected_anchor_error_blocks": 0.01839870638561217
+    },
+    {
+      "id": "ameld_mouth",
+      "projected_anchor_error_blocks": 0.010892593586322247
+    },
+    {
+      "id": "lake_siss",
+      "projected_anchor_error_blocks": 0.0018398706390443979
+    },
+    {
+      "id": "lizardmen_village",
+      "projected_anchor_error_blocks": 0.011215101978790307
+    },
+    {
+      "id": "lizardmen_caverns",
+      "projected_anchor_error_blocks": 0.019375506391346116
+    },
+    {
+      "id": "orc_camp",
+      "projected_anchor_error_blocks": 0.028434782564703446
+    },
+    {
+      "id": "blumund",
+      "projected_anchor_error_blocks": 0.026496692448909745
+    },
+    {
+      "id": "ballachia",
+      "projected_anchor_error_blocks": 0.017575339597292433
+    },
+    {
+      "id": "englassia",
+      "projected_anchor_error_blocks": 0.030082025605566443
+    },
+    {
+      "id": "marris",
+      "projected_anchor_error_blocks": 0.03019995074181494
+    },
+    {
+      "id": "siltrosso",
+      "projected_anchor_error_blocks": 0.0262322746134762
+    },
+    {
+      "id": "lubelius",
+      "projected_anchor_error_blocks": 0.02374074852486495
+    },
+    {
+      "id": "sacred_mountain",
+      "projected_anchor_error_blocks": 0.03048305314339915
+    },
+    {
+      "id": "coleus",
+      "projected_anchor_error_blocks": 0.014452063823779527
+    },
+    {
+      "id": "heaven_tower",
+      "projected_anchor_error_blocks": 0.028168653816275625
+    },
+    {
+      "id": "morgdahl",
+      "projected_anchor_error_blocks": 0.03189005907495508
+    },
+    {
+      "id": "raja",
+      "projected_anchor_error_blocks": 0.02945086396777393
+    },
+    {
+      "id": "nostraille",
+      "projected_anchor_error_blocks": 0.03074566421125796
+    },
+    {
+      "id": "yuzalgh",
+      "projected_anchor_error_blocks": 0.03394174883653455
+    },
+    {
+      "id": "yggdonia",
+      "projected_anchor_error_blocks": 0.009313635253871152
+    },
+    {
+      "id": "filtwood",
+      "projected_anchor_error_blocks": 0.02901079878714185
+    },
+    {
+      "id": "ghastone",
+      "projected_anchor_error_blocks": 0.022928361303610093
+    },
+    {
+      "id": "rostia",
+      "projected_anchor_error_blocks": 0.008330368617781097
+    },
+    {
+      "id": "sainte_malukshure",
+      "projected_anchor_error_blocks": 0.029212835398407345
+    },
+    {
+      "id": "ulgr_nature_park",
+      "projected_anchor_error_blocks": 0.030134025687222697
+    },
+    {
+      "id": "elmine",
+      "projected_anchor_error_blocks": 0.019340532524104587
+    },
+    {
+      "id": "jia",
+      "projected_anchor_error_blocks": 0.02118848899947346
+    },
+    {
+      "id": "laura",
+      "projected_anchor_error_blocks": 0.02778752916068691
+    },
+    {
+      "id": "forgotten_dragon_city",
+      "projected_anchor_error_blocks": 0.0235061026019778
+    },
+    {
+      "id": "clayman_castle",
+      "projected_anchor_error_blocks": 0.008330368617812858
+    },
+    {
+      "id": "amrita",
+      "projected_anchor_error_blocks": 0.02853282870692432
+    },
+    {
+      "id": "nasca",
+      "projected_anchor_error_blocks": 0.022593731304131334
+    },
+    {
+      "id": "great_holy_mountain",
+      "projected_anchor_error_blocks": 0.025892543360892927
+    },
+    {
+      "id": "el_dorado",
+      "projected_anchor_error_blocks": 0.023540280231644048
+    },
+    {
+      "id": "el_dorado_volcano",
+      "projected_anchor_error_blocks": 0.012218181818298035
+    },
+    {
+      "id": "frost_palace",
+      "projected_anchor_error_blocks": 0.030093276478797944
+    },
+    {
+      "id": "blumund_road",
+      "projected_anchor_error_blocks": 0.02526055953004669
+    },
+    {
+      "id": "englassia_road",
+      "projected_anchor_error_blocks": 0.03089805150515296
+    },
+    {
+      "id": "old_well",
+      "projected_anchor_error_blocks": 0.02046313355011785
+    },
+    {
+      "id": "rookie_camp",
+      "projected_anchor_error_blocks": 0.029368854025288358
+    }
+  ],
+  "r49_existing_layout_unchanged": true,
+  "r49_full_stroked_text_boxes_in_updated_masks": [
+    {
+      "label": "Eastern Empire",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Canaat Mountains",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Great Jura Forest",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Jistav",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Milim's Domain",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Eurazania",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Fulbrosia",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Sarion",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Blumund",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Englassia",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Falmuth",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Lubelius",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Desert of Death",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "Ice Continent",
+      "full_stroked_box_in_updated_mask": true
+    },
+    {
+      "label": "El Dorado",
+      "full_stroked_box_in_updated_mask": true
+    }
+  ],
+  "r52_non_image_atlas_elements_unchanged": true,
+  "r56_active_geometry_and_atlas_unchanged": true,
+  "r58_active_geometry_and_atlas_unchanged": true,
+  "r58_comparison_baseline_commit": "42cc64a",
+  "r60_only_atlas_embedded_image_changed": true,
+  "r62_only_atlas_embedded_image_changed": true,
+  "r64_only_open_panel_changed": true,
+  "current_inventory_records": 142,
+  "current_open_rows": 42,
+  "r68_only_atlas_embedded_image_changed": false,
+  "r68_atlas_changes": {
+    "embedded_current_terrain": true,
+    "legend_qualifications": [
+      [
+        "42 \u00b7 Sainte Malukshure",
+        "42 \u00b7 Sainte game pin (C14)"
+      ],
+      [
+        "54 \u00b7 Frost Palace",
+        "54 \u00b7 Frost Palace coastal reserve (C22)"
+      ]
+    ],
+    "all_label_positions_retained": true
+  },
+  "r77_only_atlas_embedded_image_changed": false,
+  "r77_atlas_changes": {
+    "embedded_current_terrain": true,
+    "coverage_caption": "132-entry inventory to133-entry inventory",
+    "all_58_marker_positions_retained": true,
+    "all_16_context_positions_retained": true,
+    "all_41_open_rows_retained": true
+  },
+  "r80_atlas_changes": {
+    "embedded_current_terrain": true,
+    "inventory_caption": "133 to134",
+    "all_existing_positions_retained": true
+  },
+  "r97_projection_review": "Same design box and exact previous marker groups retained; earlier round-specific records are historical.",
+  "r99_context_name_count": 20,
+  "r99_existing_markers_and_labels_verified_except_Khusha_orientation": true,
+  "r99_coverage_row": "P  Tengu settlement",
+  "r104_current_browser_review": {
+    "labels": [
+      {
+        "x": 1722.304443359375,
+        "y": 749.3416748046875,
+        "width": 167.2265625,
+        "height": 27,
+        "text": "Eastern Empire",
+        "region": "E"
+      },
+      {
+        "x": 1363.253173828125,
+        "y": 855.7000122070312,
+        "width": 195.09375,
+        "height": 27,
+        "text": "Canaat Mountains",
+        "region": "D"
+      },
+      {
+        "x": 1016.4427490234375,
+        "y": 1213.4056396484375,
+        "width": 187.06640625,
+        "height": 27,
+        "text": "Great Jura Forest",
+        "region": "J"
+      },
+      {
+        "x": 1730.6864013671875,
+        "y": 938.404052734375,
+        "width": 64.203125,
+        "height": 27,
+        "text": "Jistav",
+        "region": "P"
+      },
+      {
+        "x": 1660.0570068359375,
+        "y": 1282.160888671875,
+        "width": 171.015625,
+        "height": 27,
+        "text": "Milim's Domain",
+        "region": "M"
+      },
+      {
+        "x": 1351.5201416015625,
+        "y": 1299.3448486328125,
+        "width": 108.3671875,
+        "height": 27,
+        "text": "Eurazania",
+        "region": "B"
+      },
+      {
+        "x": 1145.1788330078125,
+        "y": 1574.346435546875,
+        "width": 101.6640625,
+        "height": 27,
+        "text": "Fulbrosia",
+        "region": "H"
+      },
+      {
+        "x": 842.8169555664062,
+        "y": 1436.845703125,
+        "width": 69.546875,
+        "height": 27,
+        "text": "Sarion",
+        "region": "S"
+      },
+      {
+        "x": 724.843994140625,
+        "y": 1597.6856689453125,
+        "width": 82.9298095703125,
+        "height": 24.9998779296875,
+        "text": "Ulgracia",
+        "region": "U"
+      },
+      {
+        "x": 784.9801635742188,
+        "y": 1105.300048828125,
+        "width": 99.48828125,
+        "height": 27,
+        "text": "Blumund",
+        "region": "R"
+      },
+      {
+        "x": 603.6990966796875,
+        "y": 946.9960327148438,
+        "width": 101.81640625,
+        "height": 27,
+        "text": "Englassia",
+        "region": "G"
+      },
+      {
+        "x": 858.1026000976562,
+        "y": 761.3704223632812,
+        "width": 90.5703125,
+        "height": 27,
+        "text": "Falmuth",
+        "region": "F"
+      },
+      {
+        "x": 453.7624816894531,
+        "y": 757.93359375,
+        "width": 91.40621948242188,
+        "height": 27,
+        "text": "Lubelius",
+        "region": "L"
+      },
+      {
+        "x": 339.16705322265625,
+        "y": 972.7816772460938,
+        "width": 165.94528198242188,
+        "height": 26.99993896484375,
+        "text": "Desert of Death",
+        "region": "V"
+      },
+      {
+        "x": 788.5392456054688,
+        "y": 400.439208984375,
+        "width": 144.4453125,
+        "height": 27,
+        "text": "Ice Continent",
+        "region": "I"
+      },
+      {
+        "x": 402.54290771484375,
+        "y": 1555.4344482421875,
+        "width": 107.95703125,
+        "height": 27,
+        "text": "El Dorado",
+        "region": "X"
+      },
+      {
+        "x": 724.7719116210938,
+        "y": 1303.0999755859375,
+        "width": 185.65625,
+        "height": 25,
+        "text": "Khusha Mountains"
+      },
+      {
+        "x": 529.9921875,
+        "y": 902,
+        "width": 190.015625,
+        "height": 20,
+        "text": "Royal lake (WN-derived)"
+      },
+      {
+        "x": 1046.1953125,
+        "y": 605,
+        "width": 207.6092529296875,
+        "height": 19.99993896484375,
+        "text": "Ice-coast islets (illustrated)"
+      },
+      {
+        "x": 650.8828125,
+        "y": 1200.0001220703125,
+        "width": 197.234375,
+        "height": 20,
+        "text": "Tengu glade (interpreted)"
+      }
+    ],
+    "numbered_circle_count": 58,
+    "context_name_count": 20,
+    "open_rows": 42,
+    "minimum_number_spacing_px": 31.621008835113628,
+    "minimum_text_to_number_circle_clearance_px": 10.08953855783222,
+    "all_label_boxes_pairwise_disjoint": true,
+    "Blumund_text_moved_from_local_y": 1209.95,
+    "Blumund_text_moved_to_local_y": 1160,
+    "prior_round_fields_are_historical": true
+  },
+  "r106_current_browser_review": {
+    "source_sha256": "b275095000ed41e635c72295d05dbd3516cf8fd0c596a7a0e7a9fe14159815e1",
+    "context_names": 20,
+    "numbered_circles": 58,
+    "open_rows": 42,
+    "minimum_number_spacing_px": 31.621008835113628,
+    "label_overlap": false,
+    "all_prior_text_and_number_geometry_retained": false,
+    "panel_metadata_corrected_from_stale138_to142": true,
+    "all_numbered_and_other_text_geometry_retained": true,
+    "declared_orientation_text_adjustment": "Milim domain y1344.23->1395; avoids overlap with new water.",
+    "labels": [
+      {
+        "x": 1722.304443359375,
+        "y": 749.3416748046875,
+        "width": 167.2265625,
+        "height": 27,
+        "text": "Eastern Empire",
+        "region": "E"
+      },
+      {
+        "x": 1363.253173828125,
+        "y": 855.7000122070312,
+        "width": 195.09375,
+        "height": 27,
+        "text": "Canaat Mountains",
+        "region": "D"
+      },
+      {
+        "x": 1016.4427490234375,
+        "y": 1213.4056396484375,
+        "width": 187.06640625,
+        "height": 27,
+        "text": "Great Jura Forest",
+        "region": "J"
+      },
+      {
+        "x": 1730.6864013671875,
+        "y": 938.404052734375,
+        "width": 64.203125,
+        "height": 27,
+        "text": "Jistav",
+        "region": "P"
+      },
+      {
+        "x": 1660.0570068359375,
+        "y": 1330.9000244140625,
+        "width": 171.015625,
+        "height": 27,
+        "text": "Milim's Domain",
+        "region": "M"
+      },
+      {
+        "x": 1351.5201416015625,
+        "y": 1299.3448486328125,
+        "width": 108.3671875,
+        "height": 27,
+        "text": "Eurazania",
+        "region": "B"
+      },
+      {
+        "x": 1145.1788330078125,
+        "y": 1574.346435546875,
+        "width": 101.6640625,
+        "height": 27,
+        "text": "Fulbrosia",
+        "region": "H"
+      },
+      {
+        "x": 842.8169555664062,
+        "y": 1436.845703125,
+        "width": 69.546875,
+        "height": 27,
+        "text": "Sarion",
+        "region": "S"
+      },
+      {
+        "x": 724.843994140625,
+        "y": 1597.6856689453125,
+        "width": 82.9298095703125,
+        "height": 24.9998779296875,
+        "text": "Ulgracia",
+        "region": "U"
+      },
+      {
+        "x": 784.9801635742188,
+        "y": 1105.300048828125,
+        "width": 99.48828125,
+        "height": 27,
+        "text": "Blumund",
+        "region": "R"
+      },
+      {
+        "x": 603.6990966796875,
+        "y": 946.9960327148438,
+        "width": 101.81640625,
+        "height": 27,
+        "text": "Englassia",
+        "region": "G"
+      },
+      {
+        "x": 858.1026000976562,
+        "y": 761.3704223632812,
+        "width": 90.5703125,
+        "height": 27,
+        "text": "Falmuth",
+        "region": "F"
+      },
+      {
+        "x": 453.7624816894531,
+        "y": 757.93359375,
+        "width": 91.40621948242188,
+        "height": 27,
+        "text": "Lubelius",
+        "region": "L"
+      },
+      {
+        "x": 339.16705322265625,
+        "y": 972.7816772460938,
+        "width": 165.94528198242188,
+        "height": 26.99993896484375,
+        "text": "Desert of Death",
+        "region": "V"
+      },
+      {
+        "x": 788.5392456054688,
+        "y": 400.439208984375,
+        "width": 144.4453125,
+        "height": 27,
+        "text": "Ice Continent",
+        "region": "I"
+      },
+      {
+        "x": 402.54290771484375,
+        "y": 1555.4344482421875,
+        "width": 107.95703125,
+        "height": 27,
+        "text": "El Dorado",
+        "region": "X"
+      },
+      {
+        "x": 724.7719116210938,
+        "y": 1303.0999755859375,
+        "width": 185.65625,
+        "height": 25,
+        "text": "Khusha Mountains"
+      },
+      {
+        "x": 529.9921875,
+        "y": 902,
+        "width": 190.015625,
+        "height": 20,
+        "text": "Royal lake (WN-derived)"
+      },
+      {
+        "x": 1046.1953125,
+        "y": 605,
+        "width": 207.6092529296875,
+        "height": 19.99993896484375,
+        "text": "Ice-coast islets (illustrated)"
+      },
+      {
+        "x": 650.8828125,
+        "y": 1200.0001220703125,
+        "width": 197.234375,
+        "height": 20,
+        "text": "Tengu glade (interpreted)"
+      }
+    ]
+  }
+}

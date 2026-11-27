@@ -1,0 +1,41 @@
+{
+  "round": 78,
+  "source_map_commit": "08527b0",
+  "source_svg_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
+  "previous_composition": "../painting-round69/continent.svg",
+  "previous_painting_source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+  "baseline_export_source_sha256": "82135855d80430f1e4a723f92c86d9802b45c79e03fe2cd2c8c03503bfb6da2e",
+  "baseline_export_active_geometry_equivalent_to_previous_painting": true,
+  "method": "Native SVG island substrate and bilinear current-height light; coastal current-minus-prior shallowness wash; exact source coast clipping and outline. Original raster textures retained.",
+  "new_image_generation": false,
+  "copyrighted_reference_images_used_as_generation_inputs": false,
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "current_height_sha256": "d596283ceccdb8926af914fde3618478562277c2b3ba647d5f5a22c85deeae8e",
+  "baseline_height_sha256": "9674d560e06d7310ba9a2b9c56a7027d083b73edb12e4023a8b72f0111a483a2",
+  "normal_terrain_preview_sha256": "2158f4e3c24657de83d84a9ddca959a1b369213c0365808d4ff342b56d0a4670",
+  "raw_original_art": {
+    "world\\painting-current\\paint-current.png": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+    "world\\painting-round43\\paint-r43.png": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e"
+  },
+  "land_lighting_rule": "t=clamp((surface-64)/30,0,1);light=clamp(.24*(dx+dz),-.26,.26);RGB=round(lerp([188,183,98],[155,166,79],t)+75*light).",
+  "sea_wash_rule": "v=clamp((current+24)/87,0,1)-clamp((prior+24)/87,0,1);alpha=round(min(.28,.28*abs(v))*4096)/4096. Positive teal;negative deep blue.",
+  "input_changed_height_cells": 38397,
+  "mask_blend_buffer_world": 16,
+  "land_samples": 2100,
+  "sea_samples": 2436,
+  "production_svg_changed_in_this_round": false,
+  "limits": "Native brush grain,colour and lighting are illustration choices. Not a metric height/depth map,source climate,owner,settlement or runtime placement proof. The new island and its F administrative coverage retain R77 source/initial-era qualifications.",
+  "decorative_strokes": "Original fine brush grain and a34-world-unit faint shore glow;neither changes source coast or asserts vegetation/extra land.",
+  "underpainting": {
+    "file": "../painting-round69/continent.png",
+    "sha256": "09534b5b4fc51513a005242db6d6df2f26f254128bd02016726209dea242628a",
+    "method": "Existing own rendered PNG as native SVG image;original R69 SVG and editable nodes retained.",
+    "reason": "Adding the local sea wash among the original filtered layers produced unrelated RGB differences. Verified raster underpainting isolates the new native strokes without modifying old pixels."
+  },
+  "original_nodes_location": "retained-r69-native-composition (display:none);not rerendered behind the new layers."
+}

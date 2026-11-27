@@ -1,54 +1,69 @@
-# Ballachia — The Freed Travellers' Yard
+# Ballachia — Initial-era cart court proposal
 
-Masayuki's party helps expose Orthrus in the small western Kingdom of Ballachia. After the
-raid, the freed elves need safe passage home to the Great Jura Forest. The yard imagines their departure after Masayuki agrees to escort them home. Chapter 108
-places the investigation in Ballachia. In anime episode 65 Soei reports the fall of
-Orthrus to Rimuru, and the episode follows Masayuki’s visit to the kingdom. [Kodansha, chapter 108](https://pocket.shonenmagazine.com/title/00380/episode/378955) · [Chapter 108 story summary](https://tensura.fandom.com/wiki/The_Eve_of_the_Festival) · [Episode 65, *The Lightspeed Hero*](https://www.crunchyroll.com/watch/G50UZ0PKJ/the-lightspeed-hero) · [Orthrus](https://tensura.fandom.com/wiki/Orthrus) · [Japanese series wiki, volume 8 synopsis](https://ja.wikipedia.org/wiki/転生したらスライムだった件#あらすじ8巻)
+The playable snapshot is immediately after the Kijin naming (S1E10). A neutral
+covered cart court is **our interpretation**, not a surveyed canonical capital or
+a claim about this building's ownership. Ballachia remains a partial location.
 
-**What the anime shows.** In the establishing shot captioned “Kingdom of Ballachia”, a
-colonnade runs beneath a long eave. Warm, narrow windows illuminate the slate-blue roofline.
-A ribbed dome rises above a ring of tall windows. Smaller domes, slender smoking chimneys,
-a deep round arch and a glowing circular traceried window give the city a distinctive
-night silhouette. The caption identifies the kingdom. The building’s ownership and use
-are unspecified. The official episode preview also shows travellers beneath the hoops of
-a covered wagon. [Ballachia establishing frame](https://tensura.fandom.com/wiki/File:Episode_65_-_Kingdom_of_Ballachia.png) · [Episode 65, official gallery, third still](https://www.ten-sura.com/anime/tensura/story/no69)
+## Sources and chronology
 
-**Our interpretation.** The yard borrows the colonnade, lit drum, round porch and window
-tracery from that skyline for a street-level landmark. We placed the former exchange
-behind it. Six bays stand open onto the arcade. Remnants of iron partitions, provisions
-and folded blankets mark its change of use. Two parted chain links in the paving lead
-from the hall toward a canvas-topped wagon in the cart shed. The eastbound road, small lodging house, carters’
-shelter and memorial are part of our layout.
+The official [episode 65 synopsis](https://www.ten-sura.com/anime/tensura/story/no69)
+reports Soei's investigation of elf trafficking and Masayuki's already completed
+destruction of Orthrus. It does not name Ballachia or locate its capital. Those
+later events must not appear completed in the initial world.
 
-From the square, look along the arcade at eye level. The establishing shot shows a low
-dark balustrade, narrow posts on broad plinths, bracketed capitals and circular ornaments
-above repeated tall panes. Four of our bays carry three-block-wide amber windows with
-a raised centre pane and projecting mullion. The continuous railing breaks at the
-central entrance. The warm timber ceiling is edged with a stone cornice. The bay width,
-materials and central passage are our interpretation. [Episode 65, Ballachia street-level facade](https://tensura.fandom.com/wiki/File:Episode_65_-_Kingdom_of_Ballachia.png)
+The [WEBザテレビジョン episode review, page 2](https://thetv.jp/news/detail/1211892/p2/)
+explicitly names Ballachia Kingdom as the party's destination and describes the
+later return of freed elves to Jura. This is secondary editorial evidence, not
+an independently read light-novel passage or a geographical survey.
 
-A player can board the wagon at local (55, 4, 49) and look east between three hoops at
-the driver's low wooden seat-back. In the episode the backrest has two upright supports,
-and daylight enters the open end above it. We use two fence posts and a dark slab to give
-that detail the right outline. The rear step and passenger bench are our interpretation.
-Chapter 108 supplies the reason for the escort; the wagon fittings follow the anime shot.
-[Production still published by KADOKAWA’s The Television](https://thetv.jp/news/detail/1211892/13401124/) · [Kodansha, chapter 108](https://pocket.shonenmagazine.com/title/00380/episode/378955)
+Ten licensed episode images in the publisher's gallery were inspected during
+R101. The [covered wagon image](https://thetv.jp/news/detail/1211892/13401124/)
+supports a reference for the hoops and driver backrest. It gives no country
+boundary or initial-era parcel. Festival and Dungeon images in that selection
+are later Tempest context, not Ballachia terrain. No Ballachia exterior panorama
+was found in these ten selected images; this does not establish what the complete
+episode contains. Copyrighted source images are retained privately, not in this repo.
 
-The box is **76 × 38 × 66 blocks** (x, y, z). The south approach joins the east road at local
-(38, 4, 41). The survey starts at **x −1660, z −460**, on Lerfing's map inside land region G (Englassia),
-on the eastbound road between Lura and Londo (plains, relief 4, a strip of beach on the lake shore). The political fan map marks
-Ballachia separately; the pack's grid groups its land with Englassia. [Map research and original reference coordinates](world.md#f-kingdom-of-falmuth) · [Pack landmark registry](../../pack/config/ttl/canon_regions.json)
+The earlier brief asserted a captioned Ballachia skyline with blue domes,
+colonnades, a belfry and tracery. Its linked Fandom frame was not independently
+retrieved. Keep these as project architecture pending direct source inspection.
+[Manga chapter 108](https://pocket.shonenmagazine.com/title/00380/episode/378955)
+is a further lead whose story pages were not read in this review. Neither lead
+justifies a primary-source claim here.
 
-Our approach roads lose their kerbs and narrow to coarse-dirt wheel ruts with grass
-between them. Low meadow banks, dotted with daisies and cornflowers, shelter the road
-verges. The west and east exits meet the edge at local z 39, and the south exit at
-local x 38. The placer surveys within 32 blocks and uses a 12-block earthen skirt for
-low ground or a stepped cut into higher slopes. The paving ends inside the box; actual
-road connections and the final grade depend on the surveyed world terrain.
+## Original building design
 
-The hall, belfry and yard are original blockwork built with the pack's town and lighting
-helpers. The mod inventories include dwarf and lizardman prisons and a dwarven merchant
-cart in Tensura, as well as Iron's ravager prison. A western civilian yard called for a
-different layout. Das_Felixle's town hall provided a community reference for the scale
-contrast between a market and its belfry. The author lists no download or reuse licence.
-All geometry was built locally. [Das_Felixle, *Medieval Town Hall*](https://www.planetminecraft.com/project/medieval-town-hall-2471489/)
+Retain the original arcade, blue domes, timber eaves, warm windows, rounded porch,
+lodging and covered wagon as an authored visual language. These choices do not
+establish a canonical public building or the appearance of the entire kingdom.
+Use ordinary travel supplies and an open court. Exclude rescue memorials, broken
+links, cage fragments and a freed-traveller procession from the initial snapshot.
+
+The registered [old blueprint](../../blueprints/ballachia.py) still represents the
+later departure-yard scenario. Its historical docstring overstates the unverified
+establishing-frame and chapter evidence; this page supplies the corrected source
+qualification. The old model and generated structures remain unchanged.
+
+An [unregistered alternative](../../world/build-proposals/ballachia_initial.py)
+opens five internal partition fragments, restores the west exterior wall and
+repaves the two rescue-link motifs. Its size remains 76 × 38 × 66 blocks and its
+local anchor remains (38, 4, 41). The [comparison plan and voxel audit](../../world/ballachia-initial-r101.md)
+make the limited changes reviewable. Claude must review, register, generate and
+test the candidate before any use in game.
+
+## Placement limits
+
+The own-world authored reservation is **x −2450, z −450, radius 68**, a clearing
+with gameplay region binding **G**. That binding does not establish Englassian
+sovereignty, Ballachia's national border or a capital coordinate. The retired
+Lerfing anchor (−1660, −460) and its road/terrain survey are historical only.
+
+The box and local approach tracks are design dimensions, not a terrain fit or
+road-connection guarantee. Country extent, capital, initial architectural state,
+terrain fit and runtime placement remain open. Do not enlarge the reservation
+or activate a later state merely to accommodate the existing model.
+
+The prior mod inventory found dwarf/lizardman prisons and a dwarven merchant cart,
+not a matching neutral western precinct. This candidate reuses the existing
+original blockwork rather than importing another creator's structure. No anime
+image, map texture or third-party build is distributed with this proposal.

@@ -1,6 +1,6 @@
 # Hidden ogre village (Kijin homeland, burned)
 
-`id: ogre_village_ruin` · landmark (a Tensura mod structure placed in game) · region **J** (Jura-Tempest Federation)
+`id: ogre_village_ruin` · landmark (a Tensura mod structure placed in game) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

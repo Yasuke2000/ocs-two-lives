@@ -1,5 +1,7 @@
 # Marris: lore behind blueprints/marris.py
 
+**Initial era.** Retain Falmuth under Edmaris. The war, defeat and Farmenas references below are later history; do not stage them as completed at S1E10. See [snapshot policy](../../world/era.md) and [targeted review](../../docs/research/tensura-world-2026-11-19/era-brief-review-r121.md).
+
 The build reference for Marris, capital of the Kingdom of Falmuth (later Farmenas), with the royal castle and a
 Western Holy Church presence. Geography and placement are in [world.md](world.md) §F. Read this before changing the
 blueprint.

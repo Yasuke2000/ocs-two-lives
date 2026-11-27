@@ -1,0 +1,44 @@
+{
+  "round": 85,
+  "source_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "adopted_map_commit": "3587f1992d629bf4524c04fbc4bc6c1cae9f5169",
+  "painting_baseline": "world/painting-round81/atlas.svg",
+  "only_coverage_elements_changed": true,
+  "unchanged_embedded_continent_image": true,
+  "no_new_continent_render_required": true,
+  "numbered_sites": 58,
+  "context_names": 16,
+  "open_rows": 42,
+  "inventory_rows": 135,
+  "ledger_records": 285,
+  "no_new_geographical_claims": true,
+  "runtime_applied": false,
+  "ledger_unique_verified": 285,
+  "inventory_rows_verified": 135,
+  "all42_labels_match_inventory": true,
+  "changed_pixels": 19658,
+  "change_bbox": [
+    65,
+    2238,
+    815,
+    2575
+  ],
+  "all_pixel_changes_within_coverage_panel": true,
+  "browser_measurements": {
+    "numbered_bubbles": 58,
+    "context_names": 16,
+    "open_rows": 42,
+    "no_row_overlap": true,
+    "rows_fit_panel": true
+  },
+  "unchanged_continent_sha256": "975dc93d146065f069479d5872a8b0f43c6e6bcdff254b3c1efdfbc4b7093d56",
+  "all_prior_R81_art_unchanged_from_commit": "2c62a5e",
+  "visual_panel_review": true,
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.024
+  }
+}

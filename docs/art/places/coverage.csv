@@ -1,0 +1,59 @@
+id,x,z,radius,kind,delivered_image,delivered_sheet,legacy_local_image_exists,legacy_local_sheet_exists,next_action
+tempest,0,0,148.0,clearing,tempest.png,tempest.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+arrival,0,-1000,60.0,clearing,arrival.png,arrival.md,True,True,Review source/era/build fit; representative concept is not runtime acceptance.
+wayfarers_camp,15.0,-985.0,8.0,clearing,wayfarers_camp.png,wayfarers_camp.md,True,True,Review source/era/build fit; representative concept is not runtime acceptance.
+sealed_cave,-120,-400,75.0,carve,sealed_cave.png,sealed_cave.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+goblin_village,-530,-220,56.0,village,goblin_village.png,goblin_village.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+spirit_gate,-285,350,70.0,lakeside,spirit_gate.png,spirit_gate.md,True,True,Review source/era/build fit; representative concept is not runtime acceptance.
+shizu_spawn,-420.0,-80.0,8.0,clearing,shizu_spawn.png,shizu_spawn.md,True,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+outcast_road,0.0,52.0,8.0,clearing,outcast_road.png,outcast_road.md,True,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+treyni_grove,320,470,56.0,village,treyni_grove.png,treyni_grove.md,True,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+treyni_shrine,500,600,36.0,clearing,treyni_shrine.png,treyni_shrine.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+ogre_village_ruin,500,300,32.0,village,ogre_village_ruin.png,ogre_village_ruin.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+dwargon,0,-1550,127.0,carve,dwargon.png,dwargon.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+dwargo,0.0,-1650.0,8.0,clearing,dwargo.png,dwargo.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+dwargon_throne,0.0,-1656.0,8.0,clearing,dwargon_throne.png,dwargon_throne.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+kaijin_smithy,-12.0,-1634.0,8.0,clearing,kaijin_smithy.png,kaijin_smithy.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+dwarf_village,400,-1200,124.0,village,dwarf_village.png,dwarf_village.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+dwarven_arena,500.0,-1180.0,58.0,clearing,dwarven_arena.png,dwarven_arena.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+dragons_nest,350,-2000,64.0,clearing,dragons_nest.png,dragons_nest.md,True,True,Review source/era/build fit; representative concept is not runtime acceptance.
+ameld_source,200,-1240,8.0,clearing,ameld_source.png,ameld_source.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+ameld_mouth,2150,1250,8.0,coast,ameld_mouth.png,ameld_mouth.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+lake_siss,1100,-100,96.0,lakeside,lake_siss.png,lake_siss.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+lizardmen_village,1100,265,60.0,lakeside,lizardmen_village.png,lizardmen_village.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+lizardmen_caverns,1300,520,64.0,carve,lizardmen_caverns.png,lizardmen_caverns.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+orc_camp,1750,550,60.0,village,orc_camp.png,orc_camp.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+blumund,-1500,-620,97.0,clearing,blumund.png,blumund.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+ballachia,-2450,-450,68.0,clearing,ballachia.png,ballachia.md,True,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+englassia,-2900,-550,98.0,clearing,englassia.png,englassia.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+marris,-1800,-1650,101.0,clearing,marris.png,marris.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+siltrosso,-2297,-1370,66.0,coast,siltrosso.png,siltrosso.md,True,True,Review source/era/build fit; concept is not runtime acceptance.
+lubelius,-3600,-1300,97.0,plateau,lubelius.png,lubelius.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+sacred_mountain,-3900,-1600,80.0,plateau,sacred_mountain.png,sacred_mountain.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+coleus,-3520,-860,73.0,clearing,coleus.png,coleus.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+heaven_tower,-4200,-200,84.0,clearing,heaven_tower.png,heaven_tower.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+morgdahl,-3200,330,61.0,clearing,morgdahl.png,morgdahl.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+raja,-2850,360,71.0,lakeside,raja.png,raja.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+nostraille,-2550,330,66.0,clearing,nostraille.png,nostraille.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+yuzalgh,-2350,300,8.0,clearing,yuzalgh.png,yuzalgh.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+yggdonia,-2150,-80,8.0,clearing,yggdonia.png,yggdonia.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+filtwood,-1200,2750,8.0,clearing,filtwood.png,filtwood.md,False,True,Review source/era/fit; representative art does not certify whole-country/build/runtime acceptance.
+ghastone,-3200,-300,8.0,clearing,ghastone.png,ghastone.md,False,True,Review source/era/fit; representative art does not certify whole-country/build/runtime acceptance.
+rostia,-2780,200,8.0,clearing,rostia.png,rostia.md,False,True,Review source/era/fit; representative art does not certify whole-country/build/runtime acceptance.
+sainte_malukshure,-100,2000,8.0,clearing,sainte_malukshure.png,sainte_malukshure.md,False,True,Review source/era/fit; art coverage does not certify the full location. C14 coastal image remains an inert alternative.
+ulgr_nature_park,-950,2850,63.0,plateau,ulgr_nature_park.png,ulgr_nature_park.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+elmine,-1680,1740,100.0,clearing,elmine.png,elmine.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+jia,200,2450,68.0,plateau,jia.png,jia.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+laura,1500,1600,100.0,clearing,laura.png,laura.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+forgotten_dragon_city,2650,800,100.0,clearing,forgotten_dragon_city.png,forgotten_dragon_city.md,False,True,Review source/era/fit; representative art does not certify whole-country/build/runtime acceptance.
+clayman_castle,3300,-600,90.0,clearing,clayman_castle.png,clayman_castle.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+amrita,3800,-500,63.0,carve,amrita.png,amrita.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+nasca,3200,-1800,90.0,plateau,nasca.png,nasca.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+great_holy_mountain,3350,-1350,80.0,clearing,great_holy_mountain.png,great_holy_mountain.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+el_dorado,-4300,3000,100.0,clearing,el_dorado.png,el_dorado.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+el_dorado_volcano,-3900,3200,8.0,clearing,el_dorado_volcano.png,el_dorado_volcano.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+frost_palace,-1500,-3310,67.0,coast,frost_palace.png,frost_palace.md,False,True,Review source/era/build fit; concept is not runtime acceptance.
+blumund_road,-1340,-520,8.0,clearing,blumund_road.png,blumund_road.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+englassia_road,-2650,-520,8.0,clearing,englassia_road.png,englassia_road.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.
+old_well,-1000,-340,8.0,clearing,old_well.png,old_well.md,False,True,Review source/era/fit; representative art does not certify whole-country/build/runtime acceptance.
+rookie_camp,-120,-560,8.0,clearing,rookie_camp.png,rookie_camp.md,False,True,Review source/era/fit; representative concept is not whole-place/runtime acceptance.

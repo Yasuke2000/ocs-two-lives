@@ -1,0 +1,54 @@
+{
+  "source_sha256": "43fed30354a1aeca839b8ac3c13dc0ab16c200af62332695dc72c3cb7238ad9a",
+  "source_matches_published_map_R91": true,
+  "retained_R90_native_SVG_exact": true,
+  "underpainting_R90_PNG_exact": true,
+  "native_road_records_checked": 22,
+  "changed_roads": [
+    "blumund_englassia_lubelius",
+    "englassia_coleus_royal_approach"
+  ],
+  "exact_new_lake_and_court_vertices": true,
+  "castle_building_added": false,
+  "light_samples_independently_checked": 863,
+  "changed_continent_pixels": 955,
+  "max_RGB_channel_change": 224,
+  "changed_pixel_bounds": [
+    431,
+    447,
+    493,
+    485
+  ],
+  "max_changed_pixel_centre_distance_from_support": 4.330749115540073,
+  "antialias_tolerance_world_blocks": 8.5,
+  "source_and_terrain_previews_unchanged_after_adoption": true,
+  "registered_sites": 58,
+  "all_world_coordinates_and_projections_checked": true,
+  "prior17_context_labels_exact": true,
+  "context_names": 18,
+  "old_number_groups_leaders_and_42_panel_retained": true,
+  "caption_inventory": 136,
+  "panel_metadata_corrected": true,
+  "minimum_bubble_spacing": 32.470561517449696,
+  "label_overlap": false,
+  "atlas_embeds_exact_continent_PNG": true,
+  "ledger_unique": 294,
+  "physical_followups": 42,
+  "historical_art_unchanged": true,
+  "protected_paths_unchanged": true,
+  "checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "new_AI_images": 0,
+  "runtime_applied": false,
+  "limits": "WN-qualified source setting; authored local layout. No LN/anime equivalence, S1E10 construction, royal building, whole-capital or runtime acceptance.",
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.466
+  },
+  "final_atlas_detail_comparison_and_source_preview_visually_inspected": true
+}

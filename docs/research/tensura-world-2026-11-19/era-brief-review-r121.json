@@ -1,0 +1,60 @@
+{
+  "review": "R121 initial-era brief reconciliation",
+  "geometry_source_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
+  "baseline_commit": "6b866fd8f5e7a4e4e94d72889ef526ee4f0a0888",
+  "era_registry_rows": 58,
+  "era_registry_unique_ids": 58,
+  "selected_narrative_briefs_reviewed": [
+    "tempest",
+    "kaijin_smithy",
+    "marris",
+    "orc_camp",
+    "lizardmen_caverns",
+    "englassia",
+    "clayman_castle",
+    "goblin_village",
+    "coleus",
+    "dwargon_throne"
+  ],
+  "jura_header_labels_revised": [
+    "arrival",
+    "goblin_village",
+    "ogre_village_ruin",
+    "old_well",
+    "outcast_road",
+    "rookie_camp",
+    "sealed_cave",
+    "shizu_spawn",
+    "spirit_gate",
+    "tempest",
+    "treyni_grove",
+    "treyni_shrine",
+    "wayfarers_camp"
+  ],
+  "all58_full_narrative_and_primary_source_review_complete": false,
+  "facts_unique": 328,
+  "new_claim_ids": [
+    "ERA-POSTK-004",
+    "ERA-POSTK-005",
+    "ERA-POSTK-006",
+    "WIK-ABI-121"
+  ],
+  "unchanged_source_and_visual_files": [
+    "world/map.svg",
+    "world/preview.png",
+    "world/atlas.svg",
+    "world/atlas.png",
+    "world/terrain-preview.png",
+    "world/terrain-preview-provenance.json",
+    "world/sites.toml",
+    "world/site_sizes.md"
+  ],
+  "runtime_changed": false,
+  "limits": "Inventory reconciliation and targeted narrative corrections only. This does not verify every other brief, concept image, building roster, initial architecture, source coordinate or actual runtime state.",
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.649
+  }
+}

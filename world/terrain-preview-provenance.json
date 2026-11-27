@@ -1,0 +1,33 @@
+{
+  "source_svg_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "staged_index_source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "preview_sha256": "65f10fbec26fa7b36127d1c9119d6fde96c1ae42039c57a096a1edf9113d232b",
+  "copied_without_pixel_modification": true,
+  "source_file": "world/build/preview.png",
+  "normal_seconds": 91.6,
+  "skip_check": false,
+  "applied_to_runtime": false,
+  "prior_provenance": {
+    "source_svg_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
+    "staged_index_source_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
+    "preview_sha256": "4e705f2ec8c0469f8ab4f164c944622dd06919e24fdc49efc6ea1a44567aab93",
+    "original_preview_pixels": [
+      1600,
+      1344
+    ],
+    "copied_without_pixel_modification": true,
+    "applied_to_runtime": false,
+    "previous_preview_source_sha256": "e785c2b0a37105994f29ed4eae0f48fa8884b57d334a80c0811a350bfac7ed74",
+    "normal_build_seconds": 67.7,
+    "source_change_review": "world/southeastern-water-wood-r106.md",
+    "registration": {
+      "existing58_numeric_groups_retained": true,
+      "context_names": 20,
+      "relocated_context": "Khusha Mountains",
+      "inventory": 138,
+      "physical_followups": 42
+    },
+    "comment_only_source_change": false,
+    "round": 119
+  }
+}

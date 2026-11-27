@@ -1,0 +1,29 @@
+{
+  "source_sha256": "e785c2b0a37105994f29ed4eae0f48fa8884b57d334a80c0811a350bfac7ed74",
+  "normal_build_seconds": 67.6,
+  "checker_errors": 0,
+  "relations_checked": 56,
+  "existing_warnings": 2,
+  "lake_area_blocks2": 97399.81385000002,
+  "lake_bounds": [
+    -2212.82,
+    328.36,
+    -1659.88,
+    558.51
+  ],
+  "lake_vertices": 40,
+  "outlet_length_blocks": 1287.9912549990258,
+  "outlet_vertices": 36,
+  "all_prior_XML_retained": true,
+  "height_changed_cells": 7203,
+  "height_maximum_distance_from_new_water": 5.6053141408898,
+  "water_changed_cells": 6739,
+  "water_maximum_distance_from_new_water": 0.0,
+  "biome_changed_cells": 6739,
+  "biome_maximum_distance_from_new_water": 0.0,
+  "sites.json_byte_identical": true,
+  "roads.json_byte_identical": true,
+  "lake_to_implicit_sea_four_connected": true,
+  "wet_connectivity_method": "four-neighbour; explicit inland water plus implicit sea where designed ground <63; bounded local crop",
+  "minimum_site_edge_clearance_to_lake": 188.00090841626223
+}

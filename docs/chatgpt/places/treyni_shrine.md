@@ -1,6 +1,8 @@
-# Treyni's shrine (beside the grove's tree)
+# Treyni's shrine (authored old-forest site)
 
-`id: treyni_shrine` · build (our blueprint) · region **J** (Jura-Tempest Federation)
+Round57 [source/route review](../../research/tensura-world-2026-11-19/treant-route-context-r57.md): current grove(320,470),r56,and shrine(500,600),r36,are project reservations. The treant settlement remains distinct and unlocated. Do not turn the WN wetland relief estimate into a Tempest cart-road distance,an east-of-Ameld sovereign boundary or an initial-era supply event. WN43 qualifies treant movement as within their sanctuary. Imported coordinates and +38 offset below are historical.
+
+`id: treyni_shrine` · build (our blueprint) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|

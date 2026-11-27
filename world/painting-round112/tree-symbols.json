@@ -1,0 +1,253 @@
+{
+  "seed": 111,
+  "count": 35,
+  "minimum_centre_spacing": 33,
+  "limits": "Original decorative tree symbols;not Minecraft tree count,species or density. Clipped to exact source polygons.",
+  "trees": [
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4122.000590948676,
+      "z": 2641.4248429603845,
+      "height": 47.79290831562477,
+      "width": 14.951357733858158
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4299.044367595022,
+      "z": 2726.587162652072,
+      "height": 31.56221770662338,
+      "width": 12.548897367591401
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4186.598001052822,
+      "z": 2684.2729527368815,
+      "height": 36.054234124762495,
+      "width": 13.221970640310158
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4371.908183973643,
+      "z": 2747.441042831281,
+      "height": 46.95359480548526,
+      "width": 13.801919668908619
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4228.519186609429,
+      "z": 2682.422391402432,
+      "height": 46.28927443122322,
+      "width": 17.090357572327125
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4263.910767102467,
+      "z": 2699.7595895253025,
+      "height": 45.99434306023923,
+      "width": 11.860146445062563
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4066.1041234033646,
+      "z": 2623.717010505792,
+      "height": 47.70019311570225,
+      "width": 17.06724714220404
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4102.6266427827,
+      "z": 2611.9150339088383,
+      "height": 40.300538297753214,
+      "width": 17.985064769729373
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4414.275737672453,
+      "z": 2794.775041913519,
+      "height": 30.795769125041463,
+      "width": 17.723723774500648
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4198.931246888385,
+      "z": 2718.1928422601763,
+      "height": 39.76056179146655,
+      "width": 13.524870227432611
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4235.8183437321295,
+      "z": 2722.978841524722,
+      "height": 32.919638035875245,
+      "width": 11.748352095511784
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4201.631955981081,
+      "z": 2637.9124031118,
+      "height": 38.01387173809445,
+      "width": 13.314007579153612
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4332.927964626611,
+      "z": 2724.777966998399,
+      "height": 39.01130165670548,
+      "width": 15.339982732954821
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4169.484192286097,
+      "z": 2646.055255834866,
+      "height": 40.898967891968994,
+      "width": 11.28569123162405
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4445.743929798174,
+      "z": 2766.7086246094127,
+      "height": 40.53235436533011,
+      "width": 15.921332131153928
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4419.010154424239,
+      "z": 2727.7394770232004,
+      "height": 42.94119142739976,
+      "width": 15.964072605446832
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4337.632055521928,
+      "z": 2687.1869056973314,
+      "height": 40.25851993337308,
+      "width": 18.634287822589563
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4238.609151983423,
+      "z": 2645.125135804919,
+      "height": 33.11222335361975,
+      "width": 17.774919512074966
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4295.239098531284,
+      "z": 2677.2772771718587,
+      "height": 44.99641559523524,
+      "width": 15.9698531316923
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4146.838431183405,
+      "z": 2618.1435205154094,
+      "height": 34.49256627890056,
+      "width": 11.137412007183766
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4307.043741797267,
+      "z": 2766.5156302643186,
+      "height": 36.810187947319804,
+      "width": 16.313952000066276
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4153.86469216085,
+      "z": 2694.853096408794,
+      "height": 30.003705417411503,
+      "width": 17.220675967606834
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4339.946262436879,
+      "z": 2757.3158319424997,
+      "height": 31.811194371823234,
+      "width": 12.812510709296138
+    },
+    {
+      "forest": "el-dorado-northwestern-woodland",
+      "x": -4267.766714109091,
+      "z": 2738.306756152334,
+      "height": 35.864599793439176,
+      "width": 11.840255317077125
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3256.194407475655,
+      "z": 3222.604683352521,
+      "height": 42.17932464192777,
+      "width": 13.499758244720358
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3274.316302987347,
+      "z": 3192.1618408367794,
+      "height": 48.14675780889668,
+      "width": 12.562827168366102
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3211.4759468014813,
+      "z": 3190.474244579227,
+      "height": 37.94656670903447,
+      "width": 18.9102396728442
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3275.809984337789,
+      "z": 3116.146068744913,
+      "height": 45.31731717902187,
+      "width": 17.574983533364126
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3307.744527452306,
+      "z": 3126.6453478450035,
+      "height": 35.523111385144446,
+      "width": 16.110534218589027
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3260.130620101181,
+      "z": 3159.412889803204,
+      "height": 46.15506953398432,
+      "width": 13.45264767495699
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3197.6378646277667,
+      "z": 3224.603741873644,
+      "height": 31.66584815944438,
+      "width": 14.5927275713642
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3226.5012685728234,
+      "z": 3241.174931342038,
+      "height": 39.67053571339093,
+      "width": 17.403941886736767
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3241.0935348424014,
+      "z": 3129.76120682328,
+      "height": 42.25038650893849,
+      "width": 18.3328107975679
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3293.2179239952507,
+      "z": 3164.2261034869875,
+      "height": 39.27209838238196,
+      "width": 18.40864946064573
+    },
+    {
+      "forest": "el-dorado-eastern-lakeside-woodland",
+      "x": -3178.5713314535633,
+      "z": 3195.1239756045516,
+      "height": 34.6919726116651,
+      "width": 17.596888523878683
+    }
+  ]
+}

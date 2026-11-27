@@ -1,5 +1,7 @@
 # Dwarf village on the road to Dwargon
 
+**Current authored world reservation (R86):** `(1000,-1000)`, radius124; [current geography and fit](../../../world/dwargon-relocation-r86.md). Legacy Lerfing coordinates below are historical.
+
 `id: dwarf_village` · landmark (a Tensura mod structure placed in game) · region **D** (Armed Nation of Dwargon)
 
 | | |

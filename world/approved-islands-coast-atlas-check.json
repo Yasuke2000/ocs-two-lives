@@ -1,0 +1,16 @@
+{
+  "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "results": [
+    {
+      "file": "world/atlas.svg",
+      "markers": 58,
+      "maximum_anchor_error_px": 0.000046179245227282375
+    },
+    {
+      "file": "world/painting-round112/atlas.svg",
+      "markers": 58,
+      "maximum_anchor_error_px": 0.0006452348314369555
+    }
+  ],
+  "method": "Actual browser SVG CTM of anchor circles versus projected current world coordinates;58 in each atlas."
+}

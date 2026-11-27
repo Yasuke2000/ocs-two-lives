@@ -1,0 +1,969 @@
+{
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "map_pixels": [
+    2200,
+    1466.6666666666667
+  ],
+  "top": 130,
+  "sites": [
+    {
+      "number": 1,
+      "id": "tempest",
+      "world_x": 0.0,
+      "world_z": 0.0,
+      "anchor_px": 1100.0,
+      "anchor_py": 898.2539682539682,
+      "label_px": 1100.0,
+      "label_py": 898.2539682539682
+    },
+    {
+      "number": 2,
+      "id": "arrival",
+      "world_x": 0.0,
+      "world_z": -1000.0,
+      "anchor_px": 1100.0,
+      "anchor_py": 761.8452380952381,
+      "label_px": 1100.0,
+      "label_py": 761.8452380952381
+    },
+    {
+      "number": 3,
+      "id": "wayfarers_camp",
+      "world_x": 15.0,
+      "world_z": -985.0,
+      "anchor_px": 1102.0461309523807,
+      "anchor_py": 763.891369047619,
+      "label_px": 1125.2924727707612,
+      "label_py": 783.4813560834242
+    },
+    {
+      "number": 4,
+      "id": "sealed_cave",
+      "world_x": -120.0,
+      "world_z": -400.0,
+      "anchor_px": 1083.6309523809523,
+      "anchor_py": 843.6904761904761,
+      "label_px": 1083.6309523809523,
+      "label_py": 843.6904761904761
+    },
+    {
+      "number": 5,
+      "id": "goblin_village",
+      "world_x": -530.0,
+      "world_z": -220.0,
+      "anchor_px": 1027.703373015873,
+      "anchor_py": 868.2440476190476,
+      "label_px": 1027.703373015873,
+      "label_py": 868.2440476190476
+    },
+    {
+      "number": 6,
+      "id": "spirit_gate",
+      "world_x": -285.0,
+      "world_z": 350.0,
+      "anchor_px": 1061.1235119047617,
+      "anchor_py": 945.9970238095237,
+      "label_px": 1061.1235119047617,
+      "label_py": 945.9970238095237
+    },
+    {
+      "number": 7,
+      "id": "shizu_spawn",
+      "world_x": -420.0,
+      "world_z": -80.0,
+      "anchor_px": 1042.7083333333333,
+      "anchor_py": 887.3412698412698,
+      "label_px": 1062.7083333333333,
+      "label_py": 887.3412698412698
+    },
+    {
+      "number": 8,
+      "id": "outcast_road",
+      "world_x": 0.0,
+      "world_z": 52.0,
+      "anchor_px": 1100.0,
+      "anchor_py": 905.3472222222222,
+      "label_px": 1108.1264772616269,
+      "label_py": 931.252489395449
+    },
+    {
+      "number": 9,
+      "id": "treyni_grove",
+      "world_x": 320.0,
+      "world_z": 470.0,
+      "anchor_px": 1143.6507936507935,
+      "anchor_py": 962.3660714285713,
+      "label_px": 1143.6507936507935,
+      "label_py": 962.3660714285713
+    },
+    {
+      "number": 10,
+      "id": "treyni_shrine",
+      "world_x": 500.0,
+      "world_z": 600.0,
+      "anchor_px": 1168.204365079365,
+      "anchor_py": 980.0992063492063,
+      "label_px": 1188.204365079365,
+      "label_py": 980.0992063492063
+    },
+    {
+      "number": 11,
+      "id": "ogre_village_ruin",
+      "world_x": 500.0,
+      "world_z": 300.0,
+      "anchor_px": 1168.204365079365,
+      "anchor_py": 939.1765873015872,
+      "label_px": 1168.204365079365,
+      "label_py": 939.1765873015872
+    },
+    {
+      "number": 12,
+      "id": "dwargon",
+      "world_x": 780.0,
+      "world_z": -1390.0,
+      "anchor_px": 1206.3988095238094,
+      "anchor_py": 708.6458333333333,
+      "label_px": 1206.3988095238096,
+      "label_py": 708.6458333333334
+    },
+    {
+      "number": 13,
+      "id": "dwargo",
+      "world_x": 780.0,
+      "world_z": -1490.0,
+      "anchor_px": 1206.3988095238094,
+      "anchor_py": 695.0049603174602,
+      "label_px": 1208.2608404006141,
+      "label_py": 673.7865051188879
+    },
+    {
+      "number": 14,
+      "id": "dwargon_throne",
+      "world_x": 780.0,
+      "world_z": -1496.0,
+      "anchor_px": 1206.3988095238094,
+      "anchor_py": 694.1865079365078,
+      "label_px": 1175.3753950327823,
+      "label_py": 695.4711297944538
+    },
+    {
+      "number": 15,
+      "id": "kaijin_smithy",
+      "world_x": 768.0,
+      "world_z": -1474.0,
+      "anchor_px": 1204.7619047619046,
+      "anchor_py": 697.1875,
+      "label_px": 1238.1116947598662,
+      "label_py": 701.6723642222327
+    },
+    {
+      "number": 16,
+      "id": "dwarf_village",
+      "world_x": 1000.0,
+      "world_z": -1000.0,
+      "anchor_px": 1236.4087301587301,
+      "anchor_py": 761.8452380952381,
+      "label_px": 1236.4087301587301,
+      "label_py": 761.8452380952381
+    },
+    {
+      "number": 17,
+      "id": "dwarven_arena",
+      "world_x": 1100.0,
+      "world_z": -980.0,
+      "anchor_px": 1250.0496031746031,
+      "anchor_py": 764.5734126984127,
+      "label_px": 1270.0496031746031,
+      "label_py": 764.5734126984127
+    },
+    {
+      "number": 18,
+      "id": "dragons_nest",
+      "world_x": 350.0,
+      "world_z": -2000.0,
+      "anchor_px": 1147.7430555555554,
+      "anchor_py": 625.436507936508,
+      "label_px": 1147.7430555555554,
+      "label_py": 625.436507936508
+    },
+    {
+      "number": 19,
+      "id": "ameld_source",
+      "world_x": 200.0,
+      "world_z": -1240.0,
+      "anchor_px": 1127.281746031746,
+      "anchor_py": 729.1071428571428,
+      "label_px": 1105.027170410011,
+      "label_py": 725.1709182832041
+    },
+    {
+      "number": 20,
+      "id": "ameld_mouth",
+      "world_x": 2150.0,
+      "world_z": 1250.0,
+      "anchor_px": 1393.2787698412696,
+      "anchor_py": 1068.7648809523807,
+      "label_px": 1393.2787698412696,
+      "label_py": 1068.7648809523807
+    },
+    {
+      "number": 21,
+      "id": "lake_siss",
+      "world_x": 1100.0,
+      "world_z": -100.0,
+      "anchor_px": 1250.0496031746031,
+      "anchor_py": 884.6130952380952,
+      "label_px": 1250.0496031746031,
+      "label_py": 884.6130952380952
+    },
+    {
+      "number": 22,
+      "id": "lizardmen_village",
+      "world_x": 1100.0,
+      "world_z": 265.0,
+      "anchor_px": 1250.0496031746031,
+      "anchor_py": 934.4022817460317,
+      "label_px": 1250.0496031746031,
+      "label_py": 934.4022817460317
+    },
+    {
+      "number": 23,
+      "id": "lizardmen_caverns",
+      "world_x": 1300.0,
+      "world_z": 520.0,
+      "anchor_px": 1277.3313492063492,
+      "anchor_py": 969.1865079365078,
+      "label_px": 1277.3313492063492,
+      "label_py": 969.1865079365078
+    },
+    {
+      "number": 24,
+      "id": "orc_camp",
+      "world_x": 1750.0,
+      "world_z": 550.0,
+      "anchor_px": 1338.7152777777776,
+      "anchor_py": 973.2787698412698,
+      "label_px": 1338.7152777777776,
+      "label_py": 973.2787698412698
+    },
+    {
+      "number": 25,
+      "id": "blumund",
+      "world_x": -1500.0,
+      "world_z": -620.0,
+      "anchor_px": 895.3869047619047,
+      "anchor_py": 813.6805555555555,
+      "label_px": 895.3869047619047,
+      "label_py": 813.6805555555555
+    },
+    {
+      "number": 26,
+      "id": "ballachia",
+      "world_x": -2450.0,
+      "world_z": -450.0,
+      "anchor_px": 765.7986111111111,
+      "anchor_py": 836.8700396825396,
+      "label_px": 765.7986111111111,
+      "label_py": 836.8700396825396
+    },
+    {
+      "number": 27,
+      "id": "englassia",
+      "world_x": -2900.0,
+      "world_z": -550.0,
+      "anchor_px": 704.4146825396824,
+      "anchor_py": 823.2291666666666,
+      "label_px": 704.4146825396824,
+      "label_py": 823.2291666666666
+    },
+    {
+      "number": 28,
+      "id": "marris",
+      "world_x": -1800.0,
+      "world_z": -1650.0,
+      "anchor_px": 854.4642857142857,
+      "anchor_py": 673.1795634920635,
+      "label_px": 854.4642857142857,
+      "label_py": 673.1795634920635
+    },
+    {
+      "number": 29,
+      "id": "siltrosso",
+      "world_x": -2297.0,
+      "world_z": -1370.0,
+      "anchor_px": 786.6691468253968,
+      "anchor_py": 711.3740079365078,
+      "label_px": 786.6691468253968,
+      "label_py": 711.3740079365078
+    },
+    {
+      "number": 30,
+      "id": "lubelius",
+      "world_x": -3600.0,
+      "world_z": -1300.0,
+      "anchor_px": 608.9285714285713,
+      "anchor_py": 720.922619047619,
+      "label_px": 608.9285714285713,
+      "label_py": 720.922619047619
+    },
+    {
+      "number": 31,
+      "id": "sacred_mountain",
+      "world_x": -3900.0,
+      "world_z": -1600.0,
+      "anchor_px": 568.0059523809523,
+      "anchor_py": 680.0,
+      "label_px": 568.0059523809523,
+      "label_py": 680.0
+    },
+    {
+      "number": 32,
+      "id": "coleus",
+      "world_x": -3520.0,
+      "world_z": -860.0,
+      "anchor_px": 619.8412698412698,
+      "anchor_py": 780.9424603174602,
+      "label_px": 619.8412698412698,
+      "label_py": 780.9424603174602
+    },
+    {
+      "number": 33,
+      "id": "heaven_tower",
+      "world_x": -4200.0,
+      "world_z": -200.0,
+      "anchor_px": 527.0833333333333,
+      "anchor_py": 870.9722222222222,
+      "label_px": 527.0833333333333,
+      "label_py": 870.9722222222222
+    },
+    {
+      "number": 34,
+      "id": "morgdahl",
+      "world_x": -3200.0,
+      "world_z": 330.0,
+      "anchor_px": 663.4920634920634,
+      "anchor_py": 943.2688492063492,
+      "label_px": 663.4920634920634,
+      "label_py": 943.2688492063492
+    },
+    {
+      "number": 35,
+      "id": "raja",
+      "world_x": -2850.0,
+      "world_z": 360.0,
+      "anchor_px": 711.235119047619,
+      "anchor_py": 947.3611111111111,
+      "label_px": 711.235119047619,
+      "label_py": 947.3611111111111
+    },
+    {
+      "number": 36,
+      "id": "nostraille",
+      "world_x": -2550.0,
+      "world_z": 330.0,
+      "anchor_px": 752.1577380952381,
+      "anchor_py": 943.2688492063492,
+      "label_px": 752.1577380952381,
+      "label_py": 943.2688492063492
+    },
+    {
+      "number": 37,
+      "id": "yuzalgh",
+      "world_x": -2350.0,
+      "world_z": 300.0,
+      "anchor_px": 779.4394841269841,
+      "anchor_py": 939.1765873015872,
+      "label_px": 799.4394841269841,
+      "label_py": 939.1765873015872
+    },
+    {
+      "number": 38,
+      "id": "yggdonia",
+      "world_x": -2150.0,
+      "world_z": -80.0,
+      "anchor_px": 806.7212301587301,
+      "anchor_py": 887.3412698412698,
+      "label_px": 806.7212301587301,
+      "label_py": 887.3412698412698
+    },
+    {
+      "number": 39,
+      "id": "filtwood",
+      "world_x": -1200.0,
+      "world_z": 2750.0,
+      "anchor_px": 936.3095238095237,
+      "anchor_py": 1273.3779761904761,
+      "label_px": 936.3095238095237,
+      "label_py": 1273.3779761904761
+    },
+    {
+      "number": 40,
+      "id": "ghastone",
+      "world_x": -3200.0,
+      "world_z": -300.0,
+      "anchor_px": 663.4920634920634,
+      "anchor_py": 857.3313492063492,
+      "label_px": 663.4920634920634,
+      "label_py": 857.3313492063492
+    },
+    {
+      "number": 41,
+      "id": "rostia",
+      "world_x": -2780.0,
+      "world_z": 200.0,
+      "anchor_px": 720.7837301587301,
+      "anchor_py": 925.5357142857142,
+      "label_px": 722.6457610355347,
+      "label_py": 904.3172590871418
+    },
+    {
+      "number": 42,
+      "id": "sainte_malukshure",
+      "world_x": -100.0,
+      "world_z": 2000.0,
+      "anchor_px": 1086.359126984127,
+      "anchor_py": 1171.0714285714284,
+      "label_px": 1086.359126984127,
+      "label_py": 1171.0714285714284
+    },
+    {
+      "number": 43,
+      "id": "ulgr_nature_park",
+      "world_x": -950.0,
+      "world_z": 2850.0,
+      "anchor_px": 970.4117063492063,
+      "anchor_py": 1287.0188492063492,
+      "label_px": 970.4117063492063,
+      "label_py": 1287.0188492063492
+    },
+    {
+      "number": 44,
+      "id": "elmine",
+      "world_x": -1680.0,
+      "world_z": 1740.0,
+      "anchor_px": 870.8333333333333,
+      "anchor_py": 1135.6051587301586,
+      "label_px": 870.8333333333333,
+      "label_py": 1135.6051587301586
+    },
+    {
+      "number": 45,
+      "id": "jia",
+      "world_x": 200.0,
+      "world_z": 2450.0,
+      "anchor_px": 1127.281746031746,
+      "anchor_py": 1232.455357142857,
+      "label_px": 1127.281746031746,
+      "label_py": 1232.455357142857
+    },
+    {
+      "number": 46,
+      "id": "laura",
+      "world_x": 1500.0,
+      "world_z": 1600.0,
+      "anchor_px": 1304.6130952380952,
+      "anchor_py": 1116.5079365079364,
+      "label_px": 1304.6130952380952,
+      "label_py": 1116.5079365079364
+    },
+    {
+      "number": 47,
+      "id": "forgotten_dragon_city",
+      "world_x": 2650.0,
+      "world_z": 800.0,
+      "anchor_px": 1461.4831349206347,
+      "anchor_py": 1007.3809523809523,
+      "label_px": 1461.4831349206347,
+      "label_py": 1007.3809523809523
+    },
+    {
+      "number": 48,
+      "id": "clayman_castle",
+      "world_x": 3300.0,
+      "world_z": -600.0,
+      "anchor_px": 1550.1488095238094,
+      "anchor_py": 816.4087301587301,
+      "label_px": 1550.1488095238094,
+      "label_py": 816.4087301587301
+    },
+    {
+      "number": 49,
+      "id": "amrita",
+      "world_x": 3800.0,
+      "world_z": -500.0,
+      "anchor_px": 1618.3531746031745,
+      "anchor_py": 830.0496031746031,
+      "label_px": 1618.3531746031745,
+      "label_py": 830.0496031746031
+    },
+    {
+      "number": 50,
+      "id": "nasca",
+      "world_x": 3200.0,
+      "world_z": -1800.0,
+      "anchor_px": 1536.5079365079364,
+      "anchor_py": 652.718253968254,
+      "label_px": 1536.5079365079364,
+      "label_py": 652.718253968254
+    },
+    {
+      "number": 51,
+      "id": "great_holy_mountain",
+      "world_x": 3350.0,
+      "world_z": -1350.0,
+      "anchor_px": 1556.9692460317458,
+      "anchor_py": 714.1021825396825,
+      "label_px": 1556.9692460317458,
+      "label_py": 714.1021825396825
+    },
+    {
+      "number": 52,
+      "id": "el_dorado",
+      "world_x": -4300.0,
+      "world_z": 3000.0,
+      "anchor_px": 513.4424603174602,
+      "anchor_py": 1307.4801587301586,
+      "label_px": 513.4424603174602,
+      "label_py": 1307.4801587301586
+    },
+    {
+      "number": 53,
+      "id": "el_dorado_volcano",
+      "world_x": -3900.0,
+      "world_z": 3200.0,
+      "anchor_px": 568.0059523809523,
+      "anchor_py": 1334.7619047619046,
+      "label_px": 568.0059523809523,
+      "label_py": 1334.7619047619046
+    },
+    {
+      "number": 54,
+      "id": "frost_palace",
+      "world_x": -1530.0,
+      "world_z": -3680.0,
+      "anchor_px": 891.2946428571428,
+      "anchor_py": 396.26984126984127,
+      "label_px": 891.2946428571428,
+      "label_py": 396.26984126984127
+    },
+    {
+      "number": 55,
+      "id": "blumund_road",
+      "world_x": -1340.0,
+      "world_z": -520.0,
+      "anchor_px": 917.2123015873015,
+      "anchor_py": 827.3214285714286,
+      "label_px": 937.2123015873015,
+      "label_py": 827.3214285714286
+    },
+    {
+      "number": 56,
+      "id": "englassia_road",
+      "world_x": -2650.0,
+      "world_z": -520.0,
+      "anchor_px": 738.5168650793651,
+      "anchor_py": 827.3214285714286,
+      "label_px": 740.3788959561697,
+      "label_py": 806.1029733728561
+    },
+    {
+      "number": 57,
+      "id": "old_well",
+      "world_x": -1000.0,
+      "world_z": -340.0,
+      "anchor_px": 963.5912698412698,
+      "anchor_py": 851.8749999999999,
+      "label_px": 963.5912698412698,
+      "label_py": 851.8749999999999
+    },
+    {
+      "number": 58,
+      "id": "rookie_camp",
+      "world_x": -120.0,
+      "world_z": -560.0,
+      "anchor_px": 1083.6309523809523,
+      "anchor_py": 821.8650793650793,
+      "label_px": 1085.492983257757,
+      "label_py": 800.6466241665069
+    }
+  ],
+  "geographic_context_labels": [
+    {
+      "label": "Eastern Empire",
+      "region": "E",
+      "world_text_position_interpreted": [
+        3899.9996509090906,
+        -1949.9995927272726
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        1565.9549560546875,
+        621.7570190429688,
+        1698.8426513671875,
+        642.7570190429688
+      ],
+      "callout": null
+    },
+    {
+      "label": "Canaat Mountains",
+      "region": "D",
+      "world_text_position_interpreted": [
+        1843.1999968581822,
+        -1331.199997556363
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        1274.2020263671875,
+        706.1666870117188,
+        1428.6551513671875,
+        727.1666870117188
+      ],
+      "callout": null
+    },
+    {
+      "label": "Great Jura Forest",
+      "region": "J",
+      "world_text_position_interpreted": [
+        -200.00186181818026,
+        750.0035490909104
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        998.952392578125,
+        990.0609741210938,
+        1146.921630859375,
+        1011.0609741210938
+      ],
+      "callout": null
+    },
+    {
+      "label": "Jistav",
+      "region": "P",
+      "world_text_position_interpreted": [
+        3599.9968581818193,
+        -875.0024145454545
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        1565.477294921875,
+        768.39599609375,
+        1616.221435546875,
+        789.39599609375
+      ],
+      "callout": null
+    },
+    {
+      "label": "Milim's Domain",
+      "region": "M",
+      "world_text_position_interpreted": [
+        3500.013381818182,
+        1433.6000000000013
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        1509.737060546875,
+        1083.3095703125,
+        1645.895751953125,
+        1104.3095703125
+      ],
+      "callout": null
+    },
+    {
+      "label": "Eurazania",
+      "region": "B",
+      "world_text_position_interpreted": [
+        1519.9980218181827,
+        1250.0008727272743
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        1264.8018798828125,
+        1058.2650146484375,
+        1350.3009033203125,
+        1079.2650146484375
+      ],
+      "callout": null
+    },
+    {
+      "label": "Fulbrosia",
+      "region": "H",
+      "world_text_position_interpreted": [
+        300.0027927272731,
+        2850.0011054545466
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        1101.0323486328125,
+        1276.51904296875,
+        1181.2247314453125,
+        1297.51904296875
+      ],
+      "callout": null
+    },
+    {
+      "label": "Sarion",
+      "region": "S",
+      "world_text_position_interpreted": [
+        -1550.0034327272715,
+        2050.0009890909105
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        861.0347290039062,
+        1167.3919677734375,
+        916.8609008789062,
+        1188.3919677734375
+      ],
+      "callout": null
+    },
+    {
+      "label": "Ulgracia",
+      "region": "U",
+      "world_text_position_interpreted": [
+        -2199.9984872727273,
+        2980.000116363637
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        764.5885009765625,
+        1294.251953125,
+        835.6241455078125,
+        1315.251953125
+      ],
+      "callout": {
+        "leader_endpoint_world": [
+          -850,
+          3125
+        ],
+        "endpoint_inside_existing_U": true
+      }
+    },
+    {
+      "label": "Blumund",
+      "region": "R",
+      "world_text_position_interpreted": [
+        -1653.4062545454549,
+        121.0181818181818
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        835.1640625,
+        904.2619018554688,
+        913.84228515625,
+        925.2619018554688
+      ],
+      "callout": null,
+      "main_atlas_label_world_position": [
+        -1800.0244363636366,
+        121.0181818181818
+      ],
+      "painted_layout_offset_from_source_projection_pixels": [
+        20,
+        0
+      ],
+      "layout_reason": "Avoids marker37 after projection; orientation text only,all place coordinates unchanged."
+    },
+    {
+      "label": "Englassia",
+      "region": "G",
+      "world_text_position_interpreted": [
+        -3050.0027345454546,
+        -799.9998836363638
+      ],
+      "font_size": 14.0,
+      "display_box": [
+        654.5155029296875,
+        781.1270141601562,
+        714.3250732421875,
+        797.1270141601562
+      ],
+      "callout": null
+    },
+    {
+      "label": "Falmuth",
+      "region": "F",
+      "world_text_position_interpreted": [
+        -1374.9999709090907,
+        -1930.000872727272
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        876.59423828125,
+        624.4849853515625,
+        948.28173828125,
+        645.4849853515625
+      ],
+      "callout": null
+    },
+    {
+      "label": "Lubelius",
+      "region": "L",
+      "world_text_position_interpreted": [
+        -3775.000319999999,
+        -1900.0027927272722
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        548.8695068359375,
+        628.5770263671875,
+        621.2445068359375,
+        649.5770263671875
+      ],
+      "callout": null
+    },
+    {
+      "label": "Desert of Death",
+      "region": "V",
+      "world_text_position_interpreted": [
+        -4200.002443636364,
+        -650.0021527272729
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        461.4033203125,
+        799.0880126953125,
+        592.7626953125,
+        820.0880126953125
+      ],
+      "callout": null
+    },
+    {
+      "label": "Ice Continent",
+      "region": "I",
+      "world_text_position_interpreted": [
+        -1649.9970327272722,
+        -3980.001629090909
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        818.027587890625,
+        344.84698486328125,
+        932.255126953125,
+        365.84698486328125
+      ],
+      "callout": null
+    },
+    {
+      "label": "El Dorado",
+      "region": "X",
+      "world_text_position_interpreted": [
+        -4049.9973818181816,
+        2715.0024145454554
+      ],
+      "font_size": 19.0,
+      "display_box": [
+        504.83404541015625,
+        1258.10400390625,
+        590.2559204101562,
+        1279.10400390625
+      ],
+      "callout": null
+    },
+    {
+      "label": "Khusha Mountains",
+      "region": null,
+      "callout": null,
+      "world_text_position_interpreted": [
+        -1899.0545454545454,
+        1266.0363636363627
+      ],
+      "font_size": 17.523809523809526,
+      "display_box": [
+        767.296142578125,
+        1060.952392578125,
+        915.036865234375,
+        1080.952392578125
+      ]
+    },
+    {
+      "label": "Royal lake (WN-derived)",
+      "world_text_position_interpreted": [
+        -4251.927272727273,
+        -1028.1890909090907
+      ],
+      "source_id": "englassia-capital-lake",
+      "source_qualified": true,
+      "not_a_political_mask": true,
+      "display_box": [
+        421.0390625,
+        741,
+        619.2099609375,
+        762
+      ]
+    },
+    {
+      "label": "Ice-coast islets (illustrated)",
+      "world_text_position_interpreted": [
+        73.30909090909063,
+        -2553.018181818182
+      ],
+      "source_ids": [
+        "ice-coastal-islet-1",
+        "ice-coastal-islet-2",
+        "ice-coastal-islet-3",
+        "ice-coastal-islet-4",
+        "ice-coastal-islet-5"
+      ],
+      "leader_target_world_interpreted": [
+        -200,
+        -3450
+      ],
+      "source_qualified": true,
+      "not_a_political_mask": true,
+      "display_box": [
+        1001.8671875,
+        533,
+        1218.3720703125,
+        554
+      ]
+    },
+    {
+      "label": "Tengu glade (interpreted)",
+      "world_text_position_interpreted": [
+        -2292.363636382255,
+        651.636363636364
+      ],
+      "leader_target_world_interpreted": [
+        -1003,
+        944
+      ],
+      "source_ids": [
+        "tengu-ridge-glade"
+      ],
+      "not_a_political_mask": true,
+      "partial_terrain_only": true,
+      "display_box": [
+        695.4500122070312,
+        977.6428833007812,
+        878.1531372070312,
+        996.6428833007812
+      ]
+    }
+  ],
+  "open_inventory_rows": 41,
+  "source_sha256": "0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b",
+  "khusha_orientation_label": {
+    "world_x": -1340.5090909090904,
+    "world_z": 958.8363636363638,
+    "painting_px": 917.1428571428571,
+    "painting_py": 1029.047619047619,
+    "main_atlas_parent_transform": [
+      0.96,
+      0,
+      0,
+      0.96,
+      88,
+      5.2
+    ]
+  },
+  "geographic_context_label_count": 20,
+  "inventory": 142,
+  "physical_followups": 42,
+  "ledger_unique": 314,
+  "note_r110": "Only54 world/anchor/label and forecourt follow owner-approved inland clearing. Other57 marker positions retained;142/42 inventory and314 current ledger."
+}

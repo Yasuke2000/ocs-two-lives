@@ -1,0 +1,341 @@
+{
+  "round": 73,
+  "goal_status": "incomplete;do not mark achieved",
+  "scope": "Creative map/art/source delivery audit;technical conversion and placement remain Claude handoff,not silently reassigned to the creative agent. Real geography/source/coverage obligations remain open.",
+  "production_source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+  "map_input_commit": "40c783306a6fc2ab39c20fd2771d0676837d9ef9",
+  "checker": {
+    "fresh_run": true,
+    "errors": 0,
+    "relations_checked": 56,
+    "relations_failed": 0,
+    "warnings": 2,
+    "warnings_description": [
+      "Laura river/escarpment crossing",
+      "Preferred design box exceeded;inside hard cap"
+    ],
+    "source_and_reference_visually_compared": true
+  },
+  "registered_sites": 58,
+  "regions": [
+    {
+      "letter": "J",
+      "name": "Jura Forest / Rimuru's village (gameplay J)",
+      "target_percentages_present": true,
+      "image_manifest_rows": 5,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "D",
+      "name": "Armed Nation of Dwargon",
+      "target_percentages_present": true,
+      "image_manifest_rows": 4,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "W",
+      "name": "Lake Siss marsh",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "R",
+      "name": "Kingdom of Blumund",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "G",
+      "name": "Kingdom of Englassia",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "F",
+      "name": "Kingdom of Falmuth",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "L",
+      "name": "Holy Empire of Lubelius",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "V",
+      "name": "Damargania / western wastes",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "O",
+      "name": "Morgdahl",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "A",
+      "name": "Raja",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "N",
+      "name": "Nostraille",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "Y",
+      "name": "Yuzalgh",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "Q",
+      "name": "Yggdonia",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "U",
+      "name": "Ulgracia",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "S",
+      "name": "Sorcerous Dynasty of Sarion",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "H",
+      "name": "Harpy Queendom of Fulbrosia",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "B",
+      "name": "Beast Kingdom of Eurazania",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "M",
+      "name": "Milim's old domain",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "P",
+      "name": "Jistav",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "E",
+      "name": "Eastern Empire",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "I",
+      "name": "Ice Continent",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    },
+    {
+      "letter": "X",
+      "name": "El Dorado",
+      "target_percentages_present": true,
+      "image_manifest_rows": 3,
+      "required_prose_fields_present": true
+    }
+  ],
+  "reference_manifest_rows": 69,
+  "ledger": {
+    "unique_records": 268,
+    "all_core_attribution_fields_filled": true,
+    "direct_printed_ln_claims": 14,
+    "separately_classified_author_side_story_claims": 6,
+    "entire_wiki_or_every_primary_source_verified": false
+  },
+  "inventory": {
+    "entries": 132,
+    "map_status_counts": {
+      "terrain-present": 6,
+      "site-present": 22,
+      "container": 2,
+      "separate-world-review": 12,
+      "interior-or-portal-review": 2,
+      "category-route": 18,
+      "unverified-new-entry": 1,
+      "missing-distinct-representation": 28,
+      "game-continuity-review": 4,
+      "region-present": 15,
+      "organisation-review": 4,
+      "WN-continuity-review": 2,
+      "partial": 7,
+      "partial-terrain-representation": 1,
+      "historical-review": 3,
+      "parent-design-present-unverified": 3,
+      "pin-present-country-unverified": 2
+    },
+    "physical_followups": 41,
+    "unknown_horn_empire_identity": true,
+    "unretrieved_child_categories": [
+      "Category:Orbic",
+      "Category:Ulgracia"
+    ]
+  },
+  "art": {
+    "pull_request": 101,
+    "published_commit": "7d5699b",
+    "audit_manifest_sha256": "4482f7b0e3e3083ccfa51386b5f6ec986055b014a86d170f9d87d250346f1072",
+    "pairs": 58,
+    "current_numerical_reservations_checked": 58,
+    "stale_radii_corrected": [
+      "englassia:98->124",
+      "dragons_nest:64->85",
+      "sacred_mountain:80->95"
+    ],
+    "all_png_bytes_unchanged": true,
+    "independent_art_branch_gate": {
+      "repository_validation": "passed",
+      "art_branch_tests": 462,
+      "skipped": 26,
+      "failures": 0,
+      "seconds": 44.559,
+      "changed_javascript_files": 0,
+      "all58_current_reservations_verified": true,
+      "all58_png_bytes_match_baseline_git_blobs": true,
+      "all55_unchanged_sheets_match_baseline": true,
+      "all3_changed_sheets_preserve_original_prompt_sections": true,
+      "scope": "Art branch retains its older code/source tree;this is its gate,not a current-terrain or runtime test."
+    }
+  },
+  "painting": {
+    "current_pull_request": 102,
+    "current_round": 69,
+    "published_image_commit": "1eaa081",
+    "current_source_sha256": "90ee15b1816a66fa7c19649ff47f4e89557c29a7d6a366f4bd22848cccf7e61d",
+    "three_historical_coupled_reviews": [
+      {
+        "pr": 88,
+        "head": "025ac5cac2109ec0c9b7db50f82c4555db916698"
+      },
+      {
+        "pr": 90,
+        "head": "458eebbe4455b672fa705157fd7dc4c4b3f4c236"
+      },
+      {
+        "pr": 92,
+        "head": "8cfd2c328c3d018eea2eb6201f34daee84547c02"
+      }
+    ],
+    "scope": "Three completed original presentation/review rounds;not three new mandatory terrain changes. Current R69 registration follows later actual relief changes. Painting is illustrative,not a metric terrain raster.",
+    "historical_png_blobs_checked": [
+      {
+        "pr": 88,
+        "head": "025ac5cac2109ec0c9b7db50f82c4555db916698",
+        "path": "world/painted-atlas.png",
+        "sha256": "cbec9a9f7ffffe0d103a9cccc3d9c6cab057f4e1eef7a65b71a42f3600a1026c",
+        "dimensions": [
+          2200,
+          2147
+        ]
+      },
+      {
+        "pr": 90,
+        "head": "458eebbe4455b672fa705157fd7dc4c4b3f4c236",
+        "path": "world/painting-round2/atlas.png",
+        "sha256": "2afe9a57653a0c4db3be290ffe887f7c7b7c06c4dae493a4d372b2ea898ecfcd",
+        "dimensions": [
+          2200,
+          2147
+        ]
+      },
+      {
+        "pr": 92,
+        "head": "8cfd2c328c3d018eea2eb6201f34daee84547c02",
+        "path": "world/painting-round3/atlas.png",
+        "sha256": "1f3384805b213e1bcaf73c336c9d69f99ed4aa310548074c5709f4387de6c23b",
+        "dimensions": [
+          2200,
+          2147
+        ]
+      }
+    ],
+    "current_registration_audit_sha256": "1403b367cb2eb3b1b7ba2e0eba3203aea7f7568934fb9946ae62774b95b1becf",
+    "current_registration_flags_checked": true
+  },
+  "next_creative_requirement": {
+    "conflict": "C17",
+    "evidence": "Contradiction register records directly read WN56 central-lake castle setting;source SVG has no Englassia castle/lake alternative geometry.",
+    "action": "Draw a qualified inert castle/lake alternative andsource-linked plan;retain the mandatory dry capital slot andseparate WN/LN evidence.",
+    "status": "incomplete;no active flood or source SVG edit in this audit"
+  },
+  "inputs": [
+    {
+      "path": "world/map.svg",
+      "sha256": "4c46e173341045c111b2b08c7e5480d41a1eee8a98de4bfae92be0bb841feba0"
+    },
+    {
+      "path": "world/preview.png",
+      "sha256": "9574d2cbba556299b99721f548672f5f3698aa0350f079df3c656cdf8adf7df4"
+    },
+    {
+      "path": "world/regions.md",
+      "sha256": "cbdb5981ad57455652884853c29540a2a0e615e2e64622405dd06542b828f7e8"
+    },
+    {
+      "path": "world/era.md",
+      "sha256": "83e8c298f38bf8d70fd388fc67f6e57d94079b5b6e21e2ac9e7c7bec3dfad333"
+    },
+    {
+      "path": "docs/research/tensura-world-2026-11-19/geography-facts.csv",
+      "sha256": "7048dda1088b68f6c85260ce258467103af35f8bf615712cf44b478fe1878dc7"
+    },
+    {
+      "path": "docs/research/tensura-world-2026-11-19/contradictions.md",
+      "sha256": "9a8b2130dc9c89ebd2ce5c4821f75e996372fdc2c469344f6d773c965646edf5"
+    },
+    {
+      "path": "docs/research/tensura-world-2026-11-19/wiki-location-coverage.csv",
+      "sha256": "89ad529b71b5bb921592e08f9e99a7cc6249d9ee5f50243fdbc451429f217b98"
+    }
+  ],
+  "runtime_actions_in_this_round": false,
+  "map_branch_verification": {
+    "repository_validation": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 62.503,
+    "changed_javascript_files": 0,
+    "input_and_inventory_count_checks": "passed",
+    "historical_painting_png_git_blobs_checked": 3,
+    "current_painting_source_and_registration_flags_checked": true
+  }
+}

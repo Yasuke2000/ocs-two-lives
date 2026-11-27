@@ -1,0 +1,674 @@
+{
+  "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "biome_png_sha256": "fc7333bd2fe8fe974c8a51696741e1ff60f2e422607d7b16778b1b191bd86c2b",
+  "method": "All non-ocean four-block centres inside native gameplay polygons;first source letter wins shared boundaries;offshore raster fringe excluded. Masks are gameplay,not sovereignty or canonical climate.",
+  "regions": [
+    {
+      "region": "V",
+      "cells": 205548,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 91413,
+          "share_percent": 44.47282386595832
+        },
+        {
+          "biome": "tensura:desert_of_death",
+          "cells": 81541,
+          "share_percent": 39.670052737073576
+        },
+        {
+          "biome": "tensura:barren_land",
+          "cells": 21454,
+          "share_percent": 10.43746472843326
+        },
+        {
+          "biome": "minecraft:desert",
+          "cells": 8595,
+          "share_percent": 4.181505049915348
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 2331,
+          "share_percent": 1.1340416836943197
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 146,
+          "share_percent": 0.07102963784614785
+        },
+        {
+          "biome": "minecraft:forest",
+          "cells": 68,
+          "share_percent": 0.03308229707902777
+        }
+      ]
+    },
+    {
+      "region": "L",
+      "cells": 77882,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 73377,
+          "share_percent": 94.21560822783185
+        },
+        {
+          "biome": "minecraft:desert",
+          "cells": 2384,
+          "share_percent": 3.061041062119617
+        },
+        {
+          "biome": "minecraft:stony_peaks",
+          "cells": 1236,
+          "share_percent": 1.587016255360674
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 464,
+          "share_percent": 0.5957730926273079
+        },
+        {
+          "biome": "minecraft:snowy_slopes",
+          "cells": 338,
+          "share_percent": 0.4339898821293752
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 83,
+          "share_percent": 0.10657147993117794
+        }
+      ]
+    },
+    {
+      "region": "F",
+      "cells": 138789,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 136341,
+          "share_percent": 98.23617145451009
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 2448,
+          "share_percent": 1.7638285454899163
+        }
+      ]
+    },
+    {
+      "region": "D",
+      "cells": 315841,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 232290,
+          "share_percent": 73.54649966280502
+        },
+        {
+          "biome": "minecraft:forest",
+          "cells": 51142,
+          "share_percent": 16.192324619032995
+        },
+        {
+          "biome": "minecraft:stony_peaks",
+          "cells": 14884,
+          "share_percent": 4.712497744118084
+        },
+        {
+          "biome": "minecraft:jagged_peaks",
+          "cells": 5110,
+          "share_percent": 1.6179026788795627
+        },
+        {
+          "biome": "minecraft:snowy_slopes",
+          "cells": 3770,
+          "share_percent": 1.1936385713064486
+        },
+        {
+          "biome": "minecraft:meadow",
+          "cells": 3221,
+          "share_percent": 1.0198169332037323
+        },
+        {
+          "biome": "minecraft:frozen_peaks",
+          "cells": 3150,
+          "share_percent": 0.9973372678024702
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 2178,
+          "share_percent": 0.6895874823091366
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 96,
+          "share_percent": 0.030395040542551474
+        }
+      ]
+    },
+    {
+      "region": "E",
+      "cells": 158209,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 136250,
+          "share_percent": 86.12025864520982
+        },
+        {
+          "biome": "minecraft:snowy_slopes",
+          "cells": 8033,
+          "share_percent": 5.077460827133728
+        },
+        {
+          "biome": "minecraft:stony_peaks",
+          "cells": 5419,
+          "share_percent": 3.4252160117313175
+        },
+        {
+          "biome": "minecraft:forest",
+          "cells": 4200,
+          "share_percent": 2.6547162297972933
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 2343,
+          "share_percent": 1.4809524110512045
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 1892,
+          "share_percent": 1.1958864539943999
+        },
+        {
+          "biome": "minecraft:frozen_peaks",
+          "cells": 72,
+          "share_percent": 0.045509421082239314
+        }
+      ]
+    },
+    {
+      "region": "P",
+      "cells": 74305,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 40836,
+          "share_percent": 54.95727070856604
+        },
+        {
+          "biome": "minecraft:dark_forest",
+          "cells": 32664,
+          "share_percent": 43.9593567054707
+        },
+        {
+          "biome": "minecraft:stony_peaks",
+          "cells": 534,
+          "share_percent": 0.7186595787632057
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 271,
+          "share_percent": 0.36471300720005384
+        }
+      ]
+    },
+    {
+      "region": "J",
+      "cells": 282750,
+      "biomes": [
+        {
+          "biome": "minecraft:forest",
+          "cells": 114984,
+          "share_percent": 40.66631299734748
+        },
+        {
+          "biome": "minecraft:plains",
+          "cells": 83476,
+          "share_percent": 29.52290008841733
+        },
+        {
+          "biome": "minecraft:dark_forest",
+          "cells": 67080,
+          "share_percent": 23.724137931034484
+        },
+        {
+          "biome": "tensura:ancient_forest",
+          "cells": 6727,
+          "share_percent": 2.379133510167993
+        },
+        {
+          "biome": "minecraft:old_growth_spruce_taiga",
+          "cells": 5082,
+          "share_percent": 1.797347480106101
+        },
+        {
+          "biome": "minecraft:old_growth_birch_forest",
+          "cells": 2826,
+          "share_percent": 0.9994694960212201
+        },
+        {
+          "biome": "minecraft:stony_peaks",
+          "cells": 1789,
+          "share_percent": 0.6327144120247569
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 487,
+          "share_percent": 0.172236958443855
+        },
+        {
+          "biome": "minecraft:meadow",
+          "cells": 299,
+          "share_percent": 0.10574712643678161
+        }
+      ]
+    },
+    {
+      "region": "W",
+      "cells": 113326,
+      "biomes": [
+        {
+          "biome": "minecraft:swamp",
+          "cells": 67646,
+          "share_percent": 59.69150945061151
+        },
+        {
+          "biome": "minecraft:plains",
+          "cells": 33634,
+          "share_percent": 29.6789792280677
+        },
+        {
+          "biome": "minecraft:forest",
+          "cells": 5089,
+          "share_percent": 4.490584684891376
+        },
+        {
+          "biome": "minecraft:dark_forest",
+          "cells": 3451,
+          "share_percent": 3.0451970421615515
+        },
+        {
+          "biome": "minecraft:old_growth_spruce_taiga",
+          "cells": 2981,
+          "share_percent": 2.6304643241621517
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 525,
+          "share_percent": 0.4632652701057127
+        }
+      ]
+    },
+    {
+      "region": "M",
+      "cells": 300948,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 262721,
+          "share_percent": 87.2978056009676
+        },
+        {
+          "biome": "minecraft:forest",
+          "cells": 14154,
+          "share_percent": 4.703138083655648
+        },
+        {
+          "biome": "minecraft:wooded_badlands",
+          "cells": 13374,
+          "share_percent": 4.443957095577973
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 4502,
+          "share_percent": 1.4959394978534497
+        },
+        {
+          "biome": "minecraft:dark_forest",
+          "cells": 4225,
+          "share_percent": 1.4038970187540705
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 1972,
+          "share_percent": 0.655262703191249
+        }
+      ]
+    },
+    {
+      "region": "B",
+      "cells": 168444,
+      "biomes": [
+        {
+          "biome": "minecraft:jungle",
+          "cells": 73607,
+          "share_percent": 43.698202369927095
+        },
+        {
+          "biome": "minecraft:plains",
+          "cells": 51568,
+          "share_percent": 30.61432879770131
+        },
+        {
+          "biome": "minecraft:sparse_jungle",
+          "cells": 22256,
+          "share_percent": 13.212699769656384
+        },
+        {
+          "biome": "tensura:barren_land",
+          "cells": 14975,
+          "share_percent": 8.890194960936572
+        },
+        {
+          "biome": "minecraft:swamp",
+          "cells": 2929,
+          "share_percent": 1.7388568307568093
+        },
+        {
+          "biome": "minecraft:stony_peaks",
+          "cells": 858,
+          "share_percent": 0.5093680985965662
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 720,
+          "share_percent": 0.42744176106005555
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 700,
+          "share_percent": 0.4155683788083874
+        },
+        {
+          "biome": "minecraft:snowy_slopes",
+          "cells": 433,
+          "share_percent": 0.25705872574861677
+        },
+        {
+          "biome": "minecraft:old_growth_spruce_taiga",
+          "cells": 398,
+          "share_percent": 0.2362803068081974
+        }
+      ]
+    },
+    {
+      "region": "S",
+      "cells": 137546,
+      "biomes": [
+        {
+          "biome": "minecraft:old_growth_birch_forest",
+          "cells": 104381,
+          "share_percent": 75.8880665377401
+        },
+        {
+          "biome": "minecraft:plains",
+          "cells": 31447,
+          "share_percent": 22.862896776351185
+        },
+        {
+          "biome": "minecraft:stony_peaks",
+          "cells": 1217,
+          "share_percent": 0.884794904977244
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 444,
+          "share_percent": 0.32280109926860834
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 57,
+          "share_percent": 0.04144068166286188
+        }
+      ]
+    },
+    {
+      "region": "R",
+      "cells": 116771,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 108626,
+          "share_percent": 93.02480924202071
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 6314,
+          "share_percent": 5.407164450077502
+        },
+        {
+          "biome": "minecraft:birch_forest",
+          "cells": 1831,
+          "share_percent": 1.5680263079017907
+        }
+      ]
+    },
+    {
+      "region": "Q",
+      "cells": 5269,
+      "biomes": [
+        {
+          "biome": "minecraft:birch_forest",
+          "cells": 5210,
+          "share_percent": 98.88024293034731
+        },
+        {
+          "biome": "minecraft:plains",
+          "cells": 59,
+          "share_percent": 1.1197570696526855
+        }
+      ]
+    },
+    {
+      "region": "U",
+      "cells": 13947,
+      "biomes": [
+        {
+          "biome": "minecraft:old_growth_birch_forest",
+          "cells": 13045,
+          "share_percent": 93.53265935326594
+        },
+        {
+          "biome": "minecraft:plains",
+          "cells": 781,
+          "share_percent": 5.599770559977056
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 121,
+          "share_percent": 0.8675700867570086
+        }
+      ]
+    },
+    {
+      "region": "G",
+      "cells": 76038,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 52326,
+          "share_percent": 68.81559220389805
+        },
+        {
+          "biome": "minecraft:forest",
+          "cells": 20219,
+          "share_percent": 26.590652042399853
+        },
+        {
+          "biome": "minecraft:desert",
+          "cells": 1686,
+          "share_percent": 2.2173123964333623
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 906,
+          "share_percent": 1.1915095084036929
+        },
+        {
+          "biome": "minecraft:birch_forest",
+          "cells": 901,
+          "share_percent": 1.1849338488650412
+        }
+      ]
+    },
+    {
+      "region": "O",
+      "cells": 88423,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 86365,
+          "share_percent": 97.67255125928774
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 1512,
+          "share_percent": 1.7099623401151285
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 546,
+          "share_percent": 0.6174864005971297
+        }
+      ]
+    },
+    {
+      "region": "A",
+      "cells": 7621,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 6977,
+          "share_percent": 91.5496653982417
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 644,
+          "share_percent": 8.4503346017583
+        }
+      ]
+    },
+    {
+      "region": "N",
+      "cells": 8080,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 8067,
+          "share_percent": 99.83910891089108
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 13,
+          "share_percent": 0.1608910891089109
+        }
+      ]
+    },
+    {
+      "region": "Y",
+      "cells": 2647,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 2644,
+          "share_percent": 99.88666414809218
+        },
+        {
+          "biome": "minecraft:birch_forest",
+          "cells": 3,
+          "share_percent": 0.11333585190782017
+        }
+      ]
+    },
+    {
+      "region": "H",
+      "cells": 133997,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 85649,
+          "share_percent": 63.918595192429684
+        },
+        {
+          "biome": "minecraft:windswept_hills",
+          "cells": 34223,
+          "share_percent": 25.540124032627595
+        },
+        {
+          "biome": "minecraft:jungle",
+          "cells": 11275,
+          "share_percent": 8.414367485839236
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 1455,
+          "share_percent": 1.0858452054896752
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 766,
+          "share_percent": 0.5716545892818496
+        },
+        {
+          "biome": "minecraft:old_growth_birch_forest",
+          "cells": 629,
+          "share_percent": 0.46941349433196267
+        }
+      ]
+    },
+    {
+      "region": "I",
+      "cells": 332324,
+      "biomes": [
+        {
+          "biome": "minecraft:snowy_plains",
+          "cells": 252254,
+          "share_percent": 75.90604349971714
+        },
+        {
+          "biome": "minecraft:frozen_peaks",
+          "cells": 80070,
+          "share_percent": 24.093956500282857
+        }
+      ]
+    },
+    {
+      "region": "X",
+      "cells": 184250,
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "cells": 157932,
+          "share_percent": 85.71614654002714
+        },
+        {
+          "biome": "minecraft:stony_peaks",
+          "cells": 10691,
+          "share_percent": 5.802442333785617
+        },
+        {
+          "biome": "minecraft:forest",
+          "cells": 8765,
+          "share_percent": 4.757123473541384
+        },
+        {
+          "biome": "minecraft:beach",
+          "cells": 3275,
+          "share_percent": 1.7774762550881953
+        },
+        {
+          "biome": "minecraft:river",
+          "cells": 3060,
+          "share_percent": 1.66078697421981
+        },
+        {
+          "biome": "minecraft:windswept_gravelly_hills",
+          "cells": 527,
+          "share_percent": 0.28602442333785616
+        }
+      ]
+    }
+  ]
+}

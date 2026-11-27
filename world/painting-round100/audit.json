@@ -1,0 +1,46 @@
+{
+  "source_sha256": "dbef5ac01a2e22f6aca9182527fc6610295f385da9fec2058ccf2f52cd833197",
+  "map_commit": "696115d8f9947f9d00e4daab3294190a2de0d75a",
+  "native_meadow_points_exact": true,
+  "prior_R98_native_composition_retained_except_root_metadata": true,
+  "current_height_matches_existing_light_basis": true,
+  "changed_continent_pixels": 15,
+  "max_RGB_channel_change": 87,
+  "changed_pixel_bounds": [
+    670,
+    624,
+    674,
+    627
+  ],
+  "max_changed_pixel_centre_distance_outside_16block_support": 0.0,
+  "registered_sites": 58,
+  "all_site_attributes_world_coordinates_and_projections_checked": true,
+  "context_names": 20,
+  "prior_atlas_XML_retained_except_declared_label_row_image_metadata_changes": true,
+  "context_metadata_and_display_boxes_match_actual_SVG_browser": true,
+  "minimum_bubble_spacing": 32.470561517449696,
+  "label_overlap": false,
+  "atlas_embeds_exact_current_continent": true,
+  "production_source_and_previews_unchanged_after_adoption": true,
+  "inventory": 138,
+  "ledger_unique": 305,
+  "physical_followups": 42,
+  "Tengu_coverage": "partial-terrain-representation",
+  "active_Tengu_path_or_buildings_added": false,
+  "historical_art_and_protected_paths_unchanged": true,
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "runtime_applied": false,
+  "source_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "limits": "Interpreted meadow palette and parcel,not a full village,flat building pad,sovereign boundary,initial roster or runtime placement.",
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.658
+  }
+}

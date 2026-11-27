@@ -1,0 +1,1715 @@
+{
+  "source_sha256": "cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371",
+  "baseline_commit": "78ca1c8",
+  "baseline_source_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "geometry": {
+    "baseline_source_text_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+    "candidate_source_text_sha256": "cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371",
+    "unchanged_active_layers": [
+      "sites",
+      "lakes",
+      "rivers",
+      "mountains",
+      "hills",
+      "biomes",
+      "roads",
+      "labels"
+    ],
+    "unchanged_island_coasts": true,
+    "unchanged_other11_forests": true,
+    "nodes": [
+      {
+        "layer": "coast",
+        "id": "mainland",
+        "nodes": 120
+      },
+      {
+        "layer": "coast",
+        "id": "ice-continent",
+        "nodes": 105
+      },
+      {
+        "layer": "coast",
+        "id": "el-dorado-island",
+        "nodes": 48
+      },
+      {
+        "layer": "lakes",
+        "id": "tempest-west-lake",
+        "nodes": 33
+      },
+      {
+        "layer": "lakes",
+        "id": "lake-siss",
+        "nodes": 42
+      },
+      {
+        "layer": "lakes",
+        "id": "raja-lake",
+        "nodes": 24
+      },
+      {
+        "layer": "lakes",
+        "id": "coleus-oasis",
+        "nodes": 40
+      },
+      {
+        "layer": "lakes",
+        "id": "ulgr-spring",
+        "nodes": 40
+      },
+      {
+        "layer": "lakes",
+        "id": "clayman-moat",
+        "nodes": 40
+      },
+      {
+        "layer": "lakes",
+        "id": "laura-headwater-basin",
+        "nodes": 40
+      },
+      {
+        "layer": "lakes",
+        "id": "elmine-root-lake",
+        "nodes": 40
+      },
+      {
+        "layer": "lakes",
+        "id": "imperial-unnamed-basin",
+        "nodes": 28
+      },
+      {
+        "layer": "mountains",
+        "id": "canaat-eastern-apron",
+        "nodes": 33
+      },
+      {
+        "layer": "mountains",
+        "id": "canaat-massif",
+        "nodes": 57
+      },
+      {
+        "layer": "mountains",
+        "id": "sacred-ridge",
+        "nodes": 27
+      },
+      {
+        "layer": "mountains",
+        "id": "great-holy-volcano",
+        "nodes": 40
+      },
+      {
+        "layer": "mountains",
+        "id": "el-dorado-volcano",
+        "nodes": 40
+      },
+      {
+        "layer": "mountains",
+        "id": "ice-spine",
+        "nodes": 36
+      },
+      {
+        "layer": "mountains",
+        "id": "jia-sky-pillars",
+        "nodes": 24
+      },
+      {
+        "layer": "mountains",
+        "id": "khusha-west-spires",
+        "nodes": 24
+      },
+      {
+        "layer": "mountains",
+        "id": "khusha-east-spires",
+        "nodes": 24
+      },
+      {
+        "layer": "mountains",
+        "id": "laura-waterfall-escarpment",
+        "nodes": 30
+      },
+      {
+        "layer": "hills",
+        "id": "sealed-cave-hill",
+        "nodes": 22
+      },
+      {
+        "layer": "hills",
+        "id": "ogre-hills",
+        "nodes": 23
+      },
+      {
+        "layer": "hills",
+        "id": "siss-limestone",
+        "nodes": 25
+      },
+      {
+        "layer": "hills",
+        "id": "amrita-mound",
+        "nodes": 25
+      },
+      {
+        "layer": "hills",
+        "id": "ulgr-bluff",
+        "nodes": 30
+      },
+      {
+        "layer": "hills",
+        "id": "sarion-hills",
+        "nodes": 32
+      },
+      {
+        "layer": "forests",
+        "id": "jura-rim",
+        "nodes": 48
+      },
+      {
+        "layer": "forests",
+        "id": "jura-dark-band",
+        "nodes": 49
+      },
+      {
+        "layer": "forests",
+        "id": "treyni-oldwood",
+        "nodes": 32
+      },
+      {
+        "layer": "forests",
+        "id": "jura-ancient-core",
+        "nodes": 32
+      },
+      {
+        "layer": "forests",
+        "id": "sarion-canopy",
+        "nodes": 42
+      },
+      {
+        "layer": "forests",
+        "id": "eurazania-jungle",
+        "nodes": 58
+      },
+      {
+        "layer": "forests",
+        "id": "jistav-darkwood",
+        "nodes": 120
+      },
+      {
+        "layer": "forests",
+        "id": "ulgr-wood",
+        "nodes": 23
+      },
+      {
+        "layer": "forests",
+        "id": "western-birch",
+        "nodes": 28
+      },
+      {
+        "layer": "forests",
+        "id": "englassia-groves",
+        "nodes": 32
+      },
+      {
+        "layer": "forests",
+        "id": "imperial-northern-forest",
+        "nodes": 108
+      },
+      {
+        "layer": "forests",
+        "id": "jura-eastern-foothill-woodland",
+        "nodes": 97
+      },
+      {
+        "layer": "biomes",
+        "id": "western-death-desert",
+        "nodes": 40
+      },
+      {
+        "layer": "biomes",
+        "id": "western-barren-belt",
+        "nodes": 13
+      },
+      {
+        "layer": "biomes",
+        "id": "western-barren-belt-part-2",
+        "nodes": 11
+      },
+      {
+        "layer": "biomes",
+        "id": "coleus-dunes",
+        "nodes": 29
+      },
+      {
+        "layer": "biomes",
+        "id": "siss-marsh",
+        "nodes": 34
+      },
+      {
+        "layer": "biomes",
+        "id": "milim-red-crescent",
+        "nodes": 39
+      },
+      {
+        "layer": "biomes",
+        "id": "eastern-grasslands",
+        "nodes": 33
+      },
+      {
+        "layer": "biomes",
+        "id": "ice-permafrost",
+        "nodes": 105
+      },
+      {
+        "layer": "biomes",
+        "id": "ice-high-peaks",
+        "nodes": 31
+      },
+      {
+        "layer": "biomes",
+        "id": "fulbrosia-highlands",
+        "nodes": 33
+      },
+      {
+        "layer": "biomes",
+        "id": "jura-dark-biome",
+        "nodes": 49
+      },
+      {
+        "layer": "biomes",
+        "id": "jura-ancient-biome",
+        "nodes": 32
+      },
+      {
+        "layer": "biomes",
+        "id": "tempest-growth-clearing",
+        "nodes": 20
+      },
+      {
+        "layer": "biomes",
+        "id": "eastern-approach-plains",
+        "nodes": 36
+      },
+      {
+        "layer": "biomes",
+        "id": "eurazania-orchard-fringe",
+        "nodes": 44
+      },
+      {
+        "layer": "biomes",
+        "id": "eurazania-field-north",
+        "nodes": 16
+      },
+      {
+        "layer": "biomes",
+        "id": "eurazania-field-east",
+        "nodes": 16
+      },
+      {
+        "layer": "biomes",
+        "id": "eurazania-field-west",
+        "nodes": 14
+      },
+      {
+        "layer": "biomes",
+        "id": "orbic-depleted-ground",
+        "nodes": 32
+      },
+      {
+        "layer": "biomes",
+        "id": "western-northwest-headland",
+        "nodes": 35
+      },
+      {
+        "layer": "regions",
+        "id": "nation-V",
+        "nodes": 78
+      },
+      {
+        "layer": "regions",
+        "id": "nation-L",
+        "nodes": 32
+      },
+      {
+        "layer": "regions",
+        "id": "nation-F",
+        "nodes": 49
+      },
+      {
+        "layer": "regions",
+        "id": "nation-D",
+        "nodes": 71
+      },
+      {
+        "layer": "regions",
+        "id": "nation-E",
+        "nodes": 35
+      },
+      {
+        "layer": "regions",
+        "id": "nation-P",
+        "nodes": 48
+      },
+      {
+        "layer": "regions",
+        "id": "nation-J",
+        "nodes": 97
+      },
+      {
+        "layer": "regions",
+        "id": "nation-W",
+        "nodes": 56
+      },
+      {
+        "layer": "regions",
+        "id": "nation-M",
+        "nodes": 74
+      },
+      {
+        "layer": "regions",
+        "id": "nation-B",
+        "nodes": 71
+      },
+      {
+        "layer": "regions",
+        "id": "nation-S",
+        "nodes": 47
+      },
+      {
+        "layer": "regions",
+        "id": "nation-R",
+        "nodes": 66
+      },
+      {
+        "layer": "regions",
+        "id": "nation-Q",
+        "nodes": 19
+      },
+      {
+        "layer": "regions",
+        "id": "nation-U",
+        "nodes": 15
+      },
+      {
+        "layer": "regions",
+        "id": "nation-G",
+        "nodes": 59
+      },
+      {
+        "layer": "regions",
+        "id": "nation-O",
+        "nodes": 67
+      },
+      {
+        "layer": "regions",
+        "id": "nation-A",
+        "nodes": 25
+      },
+      {
+        "layer": "regions",
+        "id": "nation-N",
+        "nodes": 23
+      },
+      {
+        "layer": "regions",
+        "id": "nation-Y",
+        "nodes": 12
+      },
+      {
+        "layer": "regions",
+        "id": "nation-H",
+        "nodes": 34
+      },
+      {
+        "layer": "regions",
+        "id": "nation-I",
+        "nodes": 105
+      },
+      {
+        "layer": "regions",
+        "id": "nation-X",
+        "nodes": 48
+      }
+    ],
+    "max_outline_nodes": 120,
+    "original_over120": 9,
+    "current_over120": 0,
+    "exact_tool_polygon_coverage_valid": true,
+    "uncovered_land_area": 0,
+    "mask_outside_land_area": 0,
+    "site_centre_region_changes": [],
+    "site_disc_coverage_status_changes": [],
+    "coast_displacement_native": 15.958509904586064,
+    "coast_changed_area": 141991.09012857845,
+    "woodland_displacement_native": 0.49816188782156534,
+    "land_bounds": [
+      -5259.439999580383,
+      -4375.6,
+      4730.0,
+      3670.0
+    ],
+    "limit": "Exact coverage of the repository16-step flattened polygons,not proof of continuous cubic topology,canon borders or runtime fit.",
+    "region_boundary_changes": [
+      {
+        "region": "V",
+        "boundary_displacement_blocks": 15.417106616982782,
+        "changed_area_blocks2": 33006.5766716045
+      },
+      {
+        "region": "L",
+        "boundary_displacement_blocks": 7.350715008754006,
+        "changed_area_blocks2": 2105.393130159295
+      },
+      {
+        "region": "F",
+        "boundary_displacement_blocks": 23.701222219649434,
+        "changed_area_blocks2": 12045.011758785522
+      },
+      {
+        "region": "D",
+        "boundary_displacement_blocks": 13.052078962063936,
+        "changed_area_blocks2": 16623.779809747695
+      },
+      {
+        "region": "E",
+        "boundary_displacement_blocks": 19.089232063827737,
+        "changed_area_blocks2": 15097.848412150915
+      },
+      {
+        "region": "P",
+        "boundary_displacement_blocks": 35.996517768025726,
+        "changed_area_blocks2": 1772.2865222984678
+      },
+      {
+        "region": "J",
+        "boundary_displacement_blocks": 0.49645332048560586,
+        "changed_area_blocks2": 738.3775314749015
+      },
+      {
+        "region": "W",
+        "boundary_displacement_blocks": 0.49182504755457007,
+        "changed_area_blocks2": 414.2415086373382
+      },
+      {
+        "region": "M",
+        "boundary_displacement_blocks": 41.243011667911844,
+        "changed_area_blocks2": 22347.825477104772
+      },
+      {
+        "region": "B",
+        "boundary_displacement_blocks": 21.360236163173237,
+        "changed_area_blocks2": 11606.463775152357
+      },
+      {
+        "region": "S",
+        "boundary_displacement_blocks": 42.32685579356647,
+        "changed_area_blocks2": 11544.370699264166
+      },
+      {
+        "region": "R",
+        "boundary_displacement_blocks": 0.4986555218295334,
+        "changed_area_blocks2": 532.3248541618334
+      },
+      {
+        "region": "Q",
+        "boundary_displacement_blocks": 0.43083145100053677,
+        "changed_area_blocks2": 49.29122014729936
+      },
+      {
+        "region": "U",
+        "boundary_displacement_blocks": 14.36741051877087,
+        "changed_area_blocks2": 3949.3202731526662
+      },
+      {
+        "region": "G",
+        "boundary_displacement_blocks": 0.47049794817776985,
+        "changed_area_blocks2": 269.39483710843103
+      },
+      {
+        "region": "O",
+        "boundary_displacement_blocks": 26.12499402396331,
+        "changed_area_blocks2": 2996.599360252182
+      },
+      {
+        "region": "A",
+        "boundary_displacement_blocks": 0.4054969725381308,
+        "changed_area_blocks2": 47.92189699330406
+      },
+      {
+        "region": "N",
+        "boundary_displacement_blocks": 0.4324753457599946,
+        "changed_area_blocks2": 91.64122750204066
+      },
+      {
+        "region": "Y",
+        "boundary_displacement_blocks": 0.4658900870506454,
+        "changed_area_blocks2": 117.1940591962375
+      },
+      {
+        "region": "H",
+        "boundary_displacement_blocks": 13.636791878068523,
+        "changed_area_blocks2": 13590.407673306268
+      },
+      {
+        "region": "I",
+        "boundary_displacement_blocks": 0.0,
+        "changed_area_blocks2": 0.0
+      },
+      {
+        "region": "X",
+        "boundary_displacement_blocks": 0.0,
+        "changed_area_blocks2": 0.0
+      }
+    ]
+  },
+  "topology_prepass": {
+    "face_count": 91,
+    "overlap_faces": 17,
+    "gap_faces": 17,
+    "thin_faces_assigned_to_nearest_interior": 35,
+    "coverage_valid": true,
+    "land_gap_area": 0.0,
+    "outside_land_area": 0.0,
+    "arc_count": 57,
+    "regions": [
+      {
+        "id": "nation-V",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-L",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-F",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 23.70122178691961,
+        "area_change": 0.0776696398037126
+      },
+      {
+        "id": "nation-D",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 3.0255965466026025,
+        "area_change": 0.17128036019867973
+      },
+      {
+        "id": "nation-E",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 19.089232287776866,
+        "area_change": 0.14587785548832585
+      },
+      {
+        "id": "nation-P",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 35.99651788715116,
+        "area_change": 0.012222144524578208
+      },
+      {
+        "id": "nation-J",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.09916287546753608,
+        "area_change": 9.292153700693527
+      },
+      {
+        "id": "nation-W",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-M",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 41.243011529227594,
+        "area_change": 0.16169999999891616
+      },
+      {
+        "id": "nation-B",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 21.360236421912383,
+        "area_change": 0.21278634295263943
+      },
+      {
+        "id": "nation-S",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 42.32685573499955,
+        "area_change": 32.90898449993237
+      },
+      {
+        "id": "nation-R",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-Q",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-U",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.002703437713463447,
+        "area_change": 0.010911871907928784
+      },
+      {
+        "id": "nation-G",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-O",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 26.1249937156464,
+        "area_change": 58.661170452870124
+      },
+      {
+        "id": "nation-A",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-N",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-Y",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-H",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.12965325859919455,
+        "area_change": 2.780824876626419
+      },
+      {
+        "id": "nation-I",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      },
+      {
+        "id": "nation-X",
+        "type": "Polygon",
+        "valid": true,
+        "hausdorff": 0.0,
+        "area_change": 0.0
+      }
+    ]
+  },
+  "fit_trials": {
+    "contacts": [
+      {
+        "river": "great-ameld-outlet",
+        "arc": 45,
+        "edge": 26,
+        "old_mouth_distance": 9.978444282172442
+      },
+      {
+        "river": "jura-sarion-river",
+        "arc": 39,
+        "edge": 16,
+        "old_mouth_distance": 15.792446397958505
+      },
+      {
+        "river": "western-trade-river",
+        "arc": 4,
+        "edge": 1,
+        "old_mouth_distance": 15.7958471613825
+      },
+      {
+        "river": "ulgr-spring-brook",
+        "arc": 28,
+        "edge": 4,
+        "old_mouth_distance": 15.801027604179783
+      },
+      {
+        "river": "laura-mountain-falls",
+        "arc": 45,
+        "edge": 17,
+        "old_mouth_distance": 15.800867064816568
+      }
+    ],
+    "junction_contacts": [
+      {
+        "interior_arc": 3,
+        "vertex": 1,
+        "coast_arc": 4,
+        "edge": 0,
+        "gap": 0.006367412213141648
+      },
+      {
+        "interior_arc": 9,
+        "vertex": 24,
+        "coast_arc": 8,
+        "edge": 37,
+        "gap": 0.002484321611176679
+      },
+      {
+        "interior_arc": 19,
+        "vertex": 52,
+        "coast_arc": 27,
+        "edge": 0,
+        "gap": 0.005764482437884271
+      },
+      {
+        "interior_arc": 34,
+        "vertex": 27,
+        "coast_arc": 33,
+        "edge": 33,
+        "gap": 1.9445619554191025e-13
+      },
+      {
+        "interior_arc": 48,
+        "vertex": 16,
+        "coast_arc": 45,
+        "edge": 27,
+        "gap": 0.005463212155567184
+      },
+      {
+        "interior_arc": 51,
+        "vertex": 14,
+        "coast_arc": 50,
+        "edge": 54,
+        "gap": 0.0023193487086550645
+      },
+      {
+        "interior_arc": 52,
+        "vertex": 53,
+        "coast_arc": 49,
+        "edge": 51,
+        "gap": 0.003124576107564552
+      },
+      {
+        "interior_arc": 53,
+        "vertex": 38,
+        "coast_arc": 54,
+        "edge": 4,
+        "gap": 3.615488724216013e-13
+      }
+    ],
+    "site_contacts": [
+      {
+        "site": "dwarf_village",
+        "arc": 35,
+        "edge": 24
+      },
+      {
+        "site": "dwarf_village",
+        "arc": 35,
+        "edge": 25
+      },
+      {
+        "site": "dwarf_village",
+        "arc": 35,
+        "edge": 26
+      },
+      {
+        "site": "dwarf_village",
+        "arc": 35,
+        "edge": 27
+      },
+      {
+        "site": "ameld_mouth",
+        "arc": 45,
+        "edge": 26
+      },
+      {
+        "site": "ameld_mouth",
+        "arc": 45,
+        "edge": 27
+      },
+      {
+        "site": "siltrosso",
+        "arc": 8,
+        "edge": 15
+      },
+      {
+        "site": "siltrosso",
+        "arc": 8,
+        "edge": 16
+      },
+      {
+        "site": "frost_palace",
+        "arc": 56,
+        "edge": 27
+      },
+      {
+        "site": "frost_palace",
+        "arc": 56,
+        "edge": 28
+      },
+      {
+        "site": "frost_palace",
+        "arc": 56,
+        "edge": 29
+      }
+    ],
+    "trials": [
+      {
+        "coast_tolerance": 15,
+        "nodes": {
+          "nation-V": 78,
+          "nation-L": 32,
+          "nation-F": 49,
+          "nation-D": 71,
+          "nation-E": 37,
+          "nation-P": 48,
+          "nation-J": 97,
+          "nation-W": 56,
+          "nation-M": 75,
+          "nation-B": 71,
+          "nation-S": 47,
+          "nation-R": 66,
+          "nation-Q": 19,
+          "nation-U": 15,
+          "nation-G": 59,
+          "nation-O": 67,
+          "nation-A": 25,
+          "nation-N": 23,
+          "nation-Y": 12,
+          "nation-H": 34,
+          "nation-I": 105,
+          "nation-X": 48,
+          "mainland": 123
+        },
+        "valid": true,
+        "coverage_valid": true,
+        "gap_area": 0.0,
+        "outside_area": 0.0,
+        "coast_displacement": 14.791873302808924,
+        "land_changed_area": 134664.64771753654,
+        "mouths": [
+          {
+            "river": "great-ameld-outlet",
+            "distance": 9.978444258416497
+          },
+          {
+            "river": "jura-sarion-river",
+            "distance": 15.7924463814199
+          },
+          {
+            "river": "western-trade-river",
+            "distance": 15.795847170984759
+          },
+          {
+            "river": "ulgr-spring-brook",
+            "distance": 15.801027580958678
+          },
+          {
+            "river": "laura-mountain-falls",
+            "distance": 15.800867064816568
+          }
+        ]
+      },
+      {
+        "coast_tolerance": 16,
+        "nodes": {
+          "nation-V": 78,
+          "nation-L": 32,
+          "nation-F": 49,
+          "nation-D": 71,
+          "nation-E": 35,
+          "nation-P": 48,
+          "nation-J": 97,
+          "nation-W": 56,
+          "nation-M": 74,
+          "nation-B": 71,
+          "nation-S": 47,
+          "nation-R": 66,
+          "nation-Q": 19,
+          "nation-U": 15,
+          "nation-G": 59,
+          "nation-O": 67,
+          "nation-A": 25,
+          "nation-N": 23,
+          "nation-Y": 12,
+          "nation-H": 34,
+          "nation-I": 105,
+          "nation-X": 48,
+          "mainland": 120
+        },
+        "valid": true,
+        "coverage_valid": true,
+        "gap_area": 0.0,
+        "outside_area": 0.0,
+        "coast_displacement": 15.958509904586064,
+        "land_changed_area": 141991.09012857845,
+        "mouths": [
+          {
+            "river": "great-ameld-outlet",
+            "distance": 9.978444258416497
+          },
+          {
+            "river": "jura-sarion-river",
+            "distance": 15.7924463814199
+          },
+          {
+            "river": "western-trade-river",
+            "distance": 15.795847170984759
+          },
+          {
+            "river": "ulgr-spring-brook",
+            "distance": 15.801027580958678
+          },
+          {
+            "river": "laura-mountain-falls",
+            "distance": 15.800867064816568
+          }
+        ],
+        "candidate_file": "map-shared-curves-r49-16.svg",
+        "candidate_sha256": "0e694934d093f41846977c5c5e48fe7c175e78fa5536d6996a979a2122e48069"
+      },
+      {
+        "coast_tolerance": 17,
+        "nodes": {
+          "nation-V": 78,
+          "nation-L": 31,
+          "nation-F": 49,
+          "nation-D": 71,
+          "nation-E": 35,
+          "nation-P": 48,
+          "nation-J": 97,
+          "nation-W": 56,
+          "nation-M": 74,
+          "nation-B": 71,
+          "nation-S": 47,
+          "nation-R": 66,
+          "nation-Q": 19,
+          "nation-U": 15,
+          "nation-G": 59,
+          "nation-O": 67,
+          "nation-A": 25,
+          "nation-N": 23,
+          "nation-Y": 12,
+          "nation-H": 34,
+          "nation-I": 105,
+          "nation-X": 48,
+          "mainland": 119
+        },
+        "valid": true,
+        "coverage_valid": true,
+        "gap_area": 0.0,
+        "outside_area": 0.0,
+        "coast_displacement": 16.70576518552138,
+        "land_changed_area": 147245.35312139717,
+        "mouths": [
+          {
+            "river": "great-ameld-outlet",
+            "distance": 9.978444258416497
+          },
+          {
+            "river": "jura-sarion-river",
+            "distance": 15.7924463814199
+          },
+          {
+            "river": "western-trade-river",
+            "distance": 15.795847170984759
+          },
+          {
+            "river": "ulgr-spring-brook",
+            "distance": 15.801027580958678
+          },
+          {
+            "river": "laura-mountain-falls",
+            "distance": 15.800867064816568
+          }
+        ],
+        "candidate_file": "map-shared-curves-r49-17.svg",
+        "candidate_sha256": "14589347b6b54b96f23b7bfadb707b048be191e2f9cdbc21a48cd58c2a7dcd76"
+      }
+    ]
+  },
+  "exports": {
+    "source_sha256": "cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371",
+    "baseline_source_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+    "box_identical": true,
+    "normal_build_seconds": 65.6,
+    "converter_warnings": [],
+    "raster_changes": {
+      "height": {
+        "changed_cells": 899865,
+        "pixel_values_equal": false
+      },
+      "water": {
+        "changed_cells": 12,
+        "pixel_values_equal": false
+      },
+      "biome": {
+        "changed_cells": 15533,
+        "pixel_values_equal": false
+      },
+      "road": {
+        "changed_cells": 0,
+        "pixel_values_equal": true
+      },
+      "exclude": {
+        "changed_cells": 0,
+        "pixel_values_equal": true
+      },
+      "rugged": {
+        "changed_cells": 71191,
+        "pixel_values_equal": false
+      },
+      "sites": {
+        "changed_cells": 0,
+        "pixel_values_equal": true
+      }
+    },
+    "site_disc_height_audit": [
+      {
+        "id": "tempest",
+        "sampled_disc_cells": 4304,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "arrival",
+        "sampled_disc_cells": 716,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "wayfarers_camp",
+        "sampled_disc_cells": 13,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "sealed_cave",
+        "sampled_disc_cells": 1116,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "goblin_village",
+        "sampled_disc_cells": 612,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "spirit_gate",
+        "sampled_disc_cells": 961,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "shizu_spawn",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "outcast_road",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "treyni_grove",
+        "sampled_disc_cells": 612,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "treyni_shrine",
+        "sampled_disc_cells": 256,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "ogre_village_ruin",
+        "sampled_disc_cells": 208,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "dwargon",
+        "sampled_disc_cells": 3164,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "dwargo",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "dwargon_throne",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "kaijin_smithy",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "dwarf_village",
+        "sampled_disc_cells": 3024,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "dwarven_arena",
+        "sampled_disc_cells": 648,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "dragons_nest",
+        "sampled_disc_cells": 800,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "ameld_source",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "ameld_mouth",
+        "sampled_disc_cells": 13,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "lake_siss",
+        "sampled_disc_cells": 1804,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "lizardmen_village",
+        "sampled_disc_cells": 710,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "lizardmen_caverns",
+        "sampled_disc_cells": 812,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "orc_camp",
+        "sampled_disc_cells": 709,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "blumund",
+        "sampled_disc_cells": 1844,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "ballachia",
+        "sampled_disc_cells": 901,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "englassia",
+        "sampled_disc_cells": 1882,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "marris",
+        "sampled_disc_cells": 2010,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "siltrosso",
+        "sampled_disc_cells": 857,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "lubelius",
+        "sampled_disc_cells": 1844,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "sacred_mountain",
+        "sampled_disc_cells": 1264,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "coleus",
+        "sampled_disc_cells": 1044,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "heaven_tower",
+        "sampled_disc_cells": 1396,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "morgdahl",
+        "sampled_disc_cells": 734,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "raja",
+        "sampled_disc_cells": 988,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "nostraille",
+        "sampled_disc_cells": 861,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "yuzalgh",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "yggdonia",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "filtwood",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 8,
+        "max_height_change": 0.0625
+      },
+      {
+        "id": "ghastone",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "rostia",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "sainte_malukshure",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 12,
+        "max_height_change": 0.25
+      },
+      {
+        "id": "ulgr_nature_park",
+        "sampled_disc_cells": 777,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "elmine",
+        "sampled_disc_cells": 1976,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "jia",
+        "sampled_disc_cells": 906,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "laura",
+        "sampled_disc_cells": 1976,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "forgotten_dragon_city",
+        "sampled_disc_cells": 1954,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "clayman_castle",
+        "sampled_disc_cells": 1576,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "amrita",
+        "sampled_disc_cells": 788,
+        "changed_height_cells": 1,
+        "max_height_change": 0.0625
+      },
+      {
+        "id": "nasca",
+        "sampled_disc_cells": 1576,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "great_holy_mountain",
+        "sampled_disc_cells": 1257,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "el_dorado",
+        "sampled_disc_cells": 1976,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "el_dorado_volcano",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "frost_palace",
+        "sampled_disc_cells": 882,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "blumund_road",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "englassia_road",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "old_well",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      },
+      {
+        "id": "rookie_camp",
+        "sampled_disc_cells": 12,
+        "changed_height_cells": 0,
+        "max_height_change": 0.0
+      }
+    ],
+    "road_profiles": [
+      {
+        "id": "tempest_dwargon",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "tempest_blumund",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "blumund_englassia_lubelius",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "dwargon_dwarf_village",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "sacred_mountain_trail",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "treyni_marsh_trail",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "siss_cavern_and_orc_trail",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "ogre_foothill_trail",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "canaat_high_pass",
+        "changed_heights": 72,
+        "max_height_delta": 0.0700000000000216
+      },
+      {
+        "id": "falmuth_road",
+        "changed_heights": 102,
+        "max_height_delta": 0.09999999999999432
+      },
+      {
+        "id": "western_belt_road",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "western_desert_caravan",
+        "changed_heights": 33,
+        "max_height_delta": 0.04999999999999716
+      },
+      {
+        "id": "fulbrosia_stair",
+        "changed_heights": 407,
+        "max_height_delta": 0.18000000000000682
+      },
+      {
+        "id": "southern_royal_road",
+        "changed_heights": 64,
+        "max_height_delta": 0.14000000000000057
+      },
+      {
+        "id": "ulgracia_south_road",
+        "changed_heights": 230,
+        "max_height_delta": 0.3200000000000074
+      },
+      {
+        "id": "eurazania_road",
+        "changed_heights": 26,
+        "max_height_delta": 0.0799999999999983
+      },
+      {
+        "id": "milim_river_road",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "jistav_border_road",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "imperial_volcano_road",
+        "changed_heights": 9,
+        "max_height_delta": 0.04999999999999716
+      },
+      {
+        "id": "el_dorado_volcanic_way",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      },
+      {
+        "id": "frost_palace_forecourt",
+        "changed_heights": 0,
+        "max_height_delta": 0.0
+      }
+    ],
+    "sites_json_byte_equal": true,
+    "atlas_only_embedded_terrain_image_changed": true,
+    "atlas_registration_unchanged": true,
+    "geographic_label_mask_checks": [
+      {
+        "label": "Eastern Empire",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Canaat Mountains",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Great Jura Forest",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Jistav",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Milim's Domain",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Eurazania",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Fulbrosia",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Sarion",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Blumund",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Englassia",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Falmuth",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Lubelius",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Desert of Death",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "Ice Continent",
+        "full_stroked_box_in_updated_mask": true
+      },
+      {
+        "label": "El Dorado",
+        "full_stroked_box_in_updated_mask": true
+      }
+    ],
+    "height_change_max": 11.5,
+    "height_change_quantiles_nonzero": [
+      0.1875,
+      2.625,
+      6.75,
+      11.5
+    ],
+    "water_level_changes": [
+      {
+        "x": -118.0,
+        "z": 1790.0,
+        "encoded_before": 127,
+        "encoded_after": 128
+      },
+      {
+        "x": -114.0,
+        "z": 1790.0,
+        "encoded_before": 127,
+        "encoded_after": 128
+      },
+      {
+        "x": -110.0,
+        "z": 1794.0,
+        "encoded_before": 127,
+        "encoded_after": 128
+      },
+      {
+        "x": -802.0,
+        "z": 3038.0,
+        "encoded_before": 127,
+        "encoded_after": 129
+      },
+      {
+        "x": -798.0,
+        "z": 3038.0,
+        "encoded_before": 127,
+        "encoded_after": 129
+      },
+      {
+        "x": -798.0,
+        "z": 3042.0,
+        "encoded_before": 127,
+        "encoded_after": 129
+      },
+      {
+        "x": -794.0,
+        "z": 3042.0,
+        "encoded_before": 127,
+        "encoded_after": 129
+      },
+      {
+        "x": -782.0,
+        "z": 3070.0,
+        "encoded_before": 0,
+        "encoded_after": 127
+      },
+      {
+        "x": -778.0,
+        "z": 3070.0,
+        "encoded_before": 0,
+        "encoded_after": 127
+      },
+      {
+        "x": -778.0,
+        "z": 3074.0,
+        "encoded_before": 0,
+        "encoded_after": 127
+      },
+      {
+        "x": -774.0,
+        "z": 3074.0,
+        "encoded_before": 0,
+        "encoded_after": 127
+      },
+      {
+        "x": -774.0,
+        "z": 3078.0,
+        "encoded_before": 0,
+        "encoded_after": 127
+      }
+    ],
+    "maximum_exported_road_grade": 0.5000000000000491,
+    "ulgracia_callout_endpoint_in_updated_mask": true,
+    "all58_exported_anchor_positions_identical": true,
+    "anchors_toml_byte_equal": true
+  },
+  "checker": {
+    "errors": 0,
+    "relations_checked": 56,
+    "relations_failed": 0,
+    "warnings": [
+      "Laura river/escarpment crossing",
+      "Design box12800x10752 above preferred12288x10240,below hard cap"
+    ]
+  },
+  "visual_review": "Production checker preview compared with cached official introductory map; original large-scale proportional departures retained and disclosed in regions.md.",
+  "painting_status": "R43 painting retains source7d021766 geometry and is now historical; native masks/registration need refresh against cb07cce7.",
+  "runtime_applied": false,
+  "repository_gate": {
+    "validation": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 62.509
+  }
+}

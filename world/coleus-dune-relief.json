@@ -1,0 +1,118 @@
+{
+  "source_sha256": "0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e",
+  "baseline_source_sha256": "9dbec53483073eb05ce8c106dc1713c10b10a4f0c0450689c9248a4f856f863c",
+  "native_height_control": 110,
+  "rasters": {
+    "biome.png": {
+      "changed_cells": 0
+    },
+    "exclude.png": {
+      "changed_cells": 0
+    },
+    "height.png": {
+      "changed_cells": 661,
+      "max_delta_blocks": 11.25,
+      "changed_world_bounds": [
+        -3622,
+        -1062,
+        -3466,
+        -970
+      ],
+      "before_after_range": [
+        [
+          69.3125,
+          71.4375
+        ],
+        [
+          69.375,
+          81.5
+        ]
+      ]
+    },
+    "preview.png": {
+      "changed_cells": 176
+    },
+    "road.png": {
+      "changed_cells": 0
+    },
+    "rugged.png": {
+      "changed_cells": 0
+    },
+    "sites.png": {
+      "changed_cells": 0
+    },
+    "water.png": {
+      "changed_cells": 0
+    }
+  },
+  "metadata": {
+    "sites.json": true,
+    "sites.toml": true,
+    "anchors.toml": true
+  },
+  "sites_with_changed_height": [],
+  "lake_buffers_with_changed_height": [],
+  "roads_changed": [
+    {
+      "id": "western_desert_caravan",
+      "changed_fields": [
+        "points"
+      ],
+      "example_point": [
+        -3200.0,
+        -300.0,
+        72.25,
+        0
+      ],
+      "before_point_count": 500,
+      "after_point_count": 500
+    }
+  ],
+  "site_index_equal": true,
+  "road_index_equal": true,
+  "water_index_equal": true,
+  "nearest_site_edge": [
+    49.29574808635009,
+    "coleus"
+  ],
+  "section": {
+    "x": -3550,
+    "z0": -1120,
+    "z1": -900,
+    "step": 2,
+    "method": "four-neighbour bilinear planning samples; not final noise/collision",
+    "before_max": 75.0,
+    "after_max": 81.0625
+  },
+  "all22_road_profiles_within_half_grade": true,
+  "road_height_changes": [
+    {
+      "id": "western_desert_caravan",
+      "changed_points": 10,
+      "maximum_y_change": 0.09000000000000341,
+      "maximum_grade": 0.3825000000000003
+    }
+  ],
+  "new_native_bounds": [
+    -3623.0,
+    -1058.75,
+    -3472.0,
+    -977.0
+  ],
+  "all_prior_active_xml_retained": true,
+  "atlas_nonimage_xml_retained": true,
+  "reference": {
+    "announcement": "https://www.ten-sura.com/news/anime/coleus/news/post/9015",
+    "video": "https://www.youtube.com/watch?v=WuIDVoKdVGU",
+    "dunes_timestamp_seconds": 25,
+    "palace_timestamp_seconds": 8,
+    "private_sampled_frames_viewed": 14,
+    "failed_seek_seconds": [
+      60,
+      70,
+      80,
+      90
+    ],
+    "full_episode_or_continuous_trailer_review": false
+  }
+}

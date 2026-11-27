@@ -1,6 +1,12 @@
-# Hinata's ambush west of Tempest (bosses.toml hinata_sakaguchi spawn, r 48)
+# Future encounter reservation (`shizu_spawn`)
 
-`id: shizu_spawn` · spot (NPC, boss or quest point) · region **J** (Jura-Tempest Federation)
+## Current own-world design — round36
+
+Current own-world pin(-420,-80),radius8; the legacy boss encounter radius48 is a separate gameplay parameter. This is an empty future server quest location,not a Shizu home or a measured canonical Hinata ambush parcel. No living Shizu/Hinata or later battle is placed at the S1E10 baseline. [Current map and era](../../../world/era.md).
+
+The imported-map coordinate table and audit below are historical. Current terrain and source-qualified concept sheets supersede their geometry/era assumptions.
+
+`id: shizu_spawn` · spot (NPC, boss or quest point) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|
@@ -9,9 +15,9 @@
 | Relative to | `tempest` + (-420, -80) |
 | Lore | [`design/lore/world.md`](../../../design/lore/world.md), section J |
 
-## Lore (canon)
+## Source context and project role
 
-Quest spot (`bosses.toml`, boss `hinata_sakaguchi`, radius 48): the Shizu / Hinata storyline of chapter 11, an hour's walk west of Tempest. The id keeps the early design name.
+Server quest spot (`bosses.toml`, boss `hinata_sakaguchi`, encounter radius48): a later Hinata-themed adaptation. The earlier one-hour-west claim is project travel design,not a verified canonical distance; the id retains its early design name.
 
 ## What it should look like
 

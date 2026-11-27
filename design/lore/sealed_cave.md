@@ -13,7 +13,7 @@ north-west of Tempest (1720, 900) in the dark-forest band (2,000 magicule); the 
 - Rimuru wakes in the same cave after his death and meets Veldora there; the two take the name Tempest.
 - Veldora's aura filled the cave with magicules, which is why magic ore and hipokute grass grow there. Later it became
   Tempest's hipokute farm under Gabiru's supervision (and a dungeon in the wiki's terms).
-- In our Life 2 timeline Rimuru has already swallowed Veldora and left, so the seal is spent and the dragon is gone.
+- In our Life 2 timeline Rimuru has already swallowed Veldora and left, so the dragon no longer occupies the cave. This does not establish a destroyed sealing skill or source-confirmed broken prison architecture. See [official episode2](https://www.ten-sura.com/anime/tensura/story/no2).
 
 ## What we built (and which parts are our interpretation)
 
@@ -31,6 +31,18 @@ Canon gives the place, the seal and the magicules; it does not give a floor plan
 - Lore link to the Tempest zone: the magicule that is deadly around Tempest (1720, 900) comes from this cave in canon (the core is r 200 round Tempest, the band to r 600 takes in the cave). No game
   logic is attached to that.
 
+## Current source/terrain qualification — round47
+
+The coordinates and danger-band figures above describe the legacy imported-map
+implementation; they are not canonical measurements. The current replacement SVG
+governs positions. Its exact radii and deadly forest zones remain server choices.
+The [licensed manga review](../../docs/research/tensura-world-2026-11-19/licensed-manga-review-r47.md)
+adds directly inspected cave-formation/plant/underground-water cues without a surveyed
+plan. Keep interior water separate from the dry entrance plate; do not convert the
+existing authored rune/chain decoration into a primary-source claim. The developed
+farm is later content and still requires era gating; no blueprint/runtime correction
+is implemented by this note.
+
 ## References and sources
 
 - https://tensura.fandom.com/wiki/Sealed_Cave (via search extracts; direct fetches are blocked, see `world.md`)
@@ -39,3 +51,7 @@ Canon gives the place, the seal and the magicules; it does not give a floor plan
 - Visual references only, nothing copied: the mod structures `irons_spellbooks:ice_spider_den/cavern/cavern_extension/circle_henge`
   (standing stones), `irons_spellbooks:mountain_tower`, and Tensura's `charybdis_cave/charybdis_entrance` and
   `ruin/tower/ruined_wizard_tower` (mossy stone palette, cave mouth shape).
+
+## Direct licensed LN1 follow-up
+
+The [free licensed serialization review](../../docs/research/tensura-world-2026-11-19/licensed-ln1-cave-followup.md) directly supports naturally occurring cave hipokute and an interior water encounter. The blind narrator’s apparent-lake inference is not a surveyed river/lake plan. Retain the dry entrance and qualify the authored pond,basin,runes and chains;do not add a surface lake or instantiate the later developed farm. These earlier observations do not fix the exact post-Kijin interior condition. No blueprint,runtime or terrain change accompanies this source update.

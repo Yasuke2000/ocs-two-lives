@@ -1,0 +1,37 @@
+{
+  "round": 110,
+  "source_sha256": "0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b",
+  "map_commit": "5026a0d841818950c1cc364e7ed47e7d0e2492ac",
+  "only_native_forecourt_changes": true,
+  "all_other_R107_native_XML_retained_except_source_metadata": true,
+  "only_atlas_image_root_metadata_and_site54_groups_change": true,
+  "registered_sites": 58,
+  "all_world_coordinates_and_projections_checked": true,
+  "other57_marker_groups_unchanged": true,
+  "changed_continent_pixels": 0,
+  "changed_pixel_bounds": null,
+  "max_RGB_channel_change": 0,
+  "all_changed_pixels_inside_16block_old_new_forecourt_support": true,
+  "all_exterior_pixels_identical": true,
+  "ledger_unique": 314,
+  "inventory": 142,
+  "physical_followups": 42,
+  "atlas_embeds_exact_final_continent": true,
+  "global_relief_resampling": false,
+  "context_names": 20,
+  "open_rows": 42,
+  "minimum_circle_spacing": 32.470561517449696,
+  "label_overlap": false,
+  "source_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "normal_staging_origin": "R109 main staging67.3s;adopted unchanged,no new painting build",
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.953
+  }
+}

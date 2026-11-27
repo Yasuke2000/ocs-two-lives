@@ -1,0 +1,60 @@
+{
+  "round": 81,
+  "source_map_commit": "d3ad9ea",
+  "source_svg_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "production_geometry_unchanged_in_this_presentation_round": true,
+  "source_vectors_verified_including_retained_prior_nodes": {
+    "coast": 4,
+    "biomes": 2,
+    "lakes": 10,
+    "rivers": 8,
+    "roads": 21
+  },
+  "coast_clip_and_ocean_mask_match_current_source": true,
+  "all_previous_nodes_and_defs_retained_editably": true,
+  "underpainting_file_sha256_verified": "bd937a7213c8d0d6e76c3e3afba64257cf1184dd34d33d5df3a71c887ddf73ea",
+  "all_prior_painting_round_files_unchanged": true,
+  "original_texture_hashes_retained": true,
+  "source_site_positions_and_projections_verified": 58,
+  "minimum_number_bubble_spacing_px": 32.47054606006469,
+  "non_image_atlas_elements_unchanged_except_inventory_caption": true,
+  "browser_context_labels": 16,
+  "full_stroked_label_boxes_inside_current_masks": 15,
+  "context_text_clear_of_number_boxes": true,
+  "open_inventory_rows_fit_panel": 41,
+  "open_names_match_current134_entry_inventory": true,
+  "atlas_embeds_exact_continent_png": true,
+  "bank_samples_independently_checked": 648,
+  "mask_matches_all2123_height_cells_plus16": true,
+  "composition_pixels_changed_vs_R78": 361,
+  "maximum_rgb_channel_delta_vs_R78": 171,
+  "changed_pixel_bbox": [
+    419,
+    826,
+    447,
+    841
+  ],
+  "maximum_changed_pixel_distance_from_actual_height_change_footprint": 10.75,
+  "current_height_sha256": "6f4efa02412ba76f7a2c4832cfbaab7445eba6a276361dad2aeffb1708f2bd04",
+  "baseline_height_sha256": "d596283ceccdb8926af914fde3618478562277c2b3ba647d5f5a22c85deeae8e",
+  "new_AI_generation": false,
+  "new_PNG_exports_rendered_from_native_SVG": true,
+  "ledger_unique": 280,
+  "coverage_inventory": 134,
+  "physical_followups": 41,
+  "runtime_applied": false,
+  "sampler_scope": "Bilinear normal-height difference for illustrative bank lighting;not runtime water/noise/density or placement acceptance.",
+  "visual_review": {
+    "atlas_and_continent_viewed": true,
+    "official_reference_compared": true,
+    "new_production_correction_required": false,
+    "limits": "Original interpretive terrain; not runtime placement acceptance."
+  },
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.039
+  }
+}

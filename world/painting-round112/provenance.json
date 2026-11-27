@@ -1,0 +1,72 @@
+{
+  "source_sha256": "0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e",
+  "map_commit": "97716c0",
+  "native_basis_commit": "2aa27e5a18ee7868b69e835c503d1b3b2d253c35",
+  "native_basis": "Original R129 composition;all previous native child trees and historical component metadata retained.",
+  "owned_baseline_PNG_sha256": "bc51a9278d6d9c89625b9b8d33fc83a0e4c38a2ed940fd4335deed39b4b67682",
+  "new_native_geometry": "Exact authored Coleus dune footprint;original northwest sand light and southeast shade,clipped to that footprint.",
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "copyrighted_reference_pixels_embedded": false,
+  "PNG_method": "Chrome native SVG render",
+  "global_relief_resampled": false,
+  "runtime_applied": false,
+  "vertical_limit": "This illustration is not an exact height reconstruction;R130 pond height is adopted as plan context and the dune has interpretive light/shade.",
+  "current_display_source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "current_source_commit": "d1f4882",
+  "display_followup": "Only capital display wording and root source metadata refreshed;the original terrain composition and continent PNG are retained. The earlier source_sha256/map_commit still identify the actual Coleus terrain/brushwork basis.",
+  "western_islet_followup": {
+    "source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+    "baseline_commit": "ce511ee",
+    "native_children_appended": 2,
+    "all19_prior_native_children_retained": true,
+    "source_coast_footprints_exact": true,
+    "new_AI_images": 0,
+    "PNG_method": "Chrome native SVG rendering",
+    "global_relief_resampled": false,
+    "scope": "Three low offshore rock additions;not full height or runtime reconstruction."
+  },
+  "eastern_plains_context_followup": {
+    "source_display_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+    "source_commit": "5dbd409",
+    "current_source_terrain_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+    "source_PR": 136,
+    "full_source_adoption": false,
+    "new_native_or_bitmap_geometry": false,
+    "component_height_basis_retained": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+    "scope": "New original context label/leader only. Existing native/painted continent and58numeric registrations retained. Source-height correction and later source dossiers are not copied into this historical painting branch."
+  },
+  "current_full_source_adoption": {
+    "source_commit": "d1f488242f1b15d8155ad88034c15dc81f88a132",
+    "display_source_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+    "terrain_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+    "ledger_records": 351,
+    "inventory_records": 143,
+    "physical_followups": 42,
+    "normal_artifacts_adopted": 14,
+    "previous_painting_commit": "7446b2be7bfc3622c4762b745e05f41a6009d9a9",
+    "native_pixels_retained": true,
+    "height_reconstruction": false,
+    "scope": "Complete current source dossier and matching normal outputs adopted. Illustration plan remains compatible; historical brushwork and height basis are retained,not relabelled as a reconstruction of current numerical heights."
+  },
+  "approved_filtwood_update": {
+    "date": "2026-11-22",
+    "source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+    "normal_source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+    "native_vector_trail_added": true,
+    "root_source_metadata_corrected": true,
+    "historical_component_height_basis_retained": true,
+    "runtime_applied": false
+  },
+  "approved_islands_coast": {
+    "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+    "date": "2026-11-24",
+    "active": true,
+    "normal_seconds": 91.6,
+    "original_island_brushwork_transformed": true,
+    "copyrighted_reference_pixels_embedded": false,
+    "atlas_checks": "../approved-islands-coast-atlas-check.json",
+    "prior_records_are_historical": true,
+    "runtime_applied": false
+  }
+}

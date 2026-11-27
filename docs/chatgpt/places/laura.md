@@ -1,4 +1,6 @@
-# Laura (Eurazania capital, rebuilt)
+# Carrion's capital in Eurazania (legacy site ID: laura)
+
+**Capital name under review (C24).** The licensed electronic guide8.5 card prints Rondo, also printed for Blumund; the wiki uses Laura. No printing error or novel-prose resolution is verified. Current map display uses Carrion's capital; `laura` remains the technical ID. Later mentions of Laura on this page retain that legacy/wiki name, not independent primary confirmation. [Source comparison](../../../world/guide85-source-review.md).
 
 `id: laura` · build (our blueprint) · region **B** (Beast Kingdom of Eurazania)
 
@@ -12,11 +14,13 @@
 
 ## Lore (canon)
 
-An agricultural kingdom with fertile soil and a tropical climate, famous for fruit. Milim destroyed the old capital and Tempest helped build Laura. Carrion is a lion beastman.
+Eurazania is a warm agricultural kingdom known for its fruit orchards. At the selected post-Kijin baseline, Carrion rules and his old capital is still undestroyed. The ID `laura` is retained; the proper name remains under C24 review. Milim's later attack and Tempest's subsequent reconstruction assistance are future events, not the initial state. See [era policy](../../../world/era.md), OFF-008 and LN05-001..003 in the [claim ledger](../../research/tensura-world-2026-11-19/geography-facts.csv).
 
 ## What it should look like
 
-A timber longhouse-style hall with a tall thatch roof and a lion's head in the south gable, totem pillars with lion caps, stilt houses with ladders, orchards of jungle trees with cocoa on the trunks, melon and berry rows, a fruit market with eight stalls, a young stone wall with towers and a gate, Tempest light-blue banners at the gate and beside the throne. Gold-and-brown palette.
+The existing blueprint is a later reconstruction interpretation: a timber hall, lion motifs, stilt houses, orchard details and a fruit market, with new walls and Tempest banners. Its banners, alliance imagery and reconstruction history must not be used for the initial era. The pre-destruction castle/town form still needs a separate source/architecture review; this blueprint is not proof of it. Gold-and-brown materials and fruit-growing landscape are design references, with exact details marked as our interpretation.
+
+The authored world keeps Laura at (1500,1600), radius100. Its wider valley now has sparse-jungle and open-field biome reservations. Their exact shapes are our interpretation; biome selection alone does not place orchards or verify the old city. The coordinates and screenshots below describe the retired imported-map audit.
 
 Why it stands here (anchor table, Lerfing coordinates): Heart of the jungle peninsula, y 74/81/84.
 

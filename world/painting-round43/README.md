@@ -1,0 +1,21 @@
+# Current painted continent — round43
+
+Historical source7d021766 presentation. The current shared-curve presentation is [round50](../painting-round50/README.md). Original pixels, prompt and generation provenance below are retained.
+
+[Marked atlas](atlas.png) · [clean continent](continent.png) · [editable composition](continent.svg) · [prompt and inputs](prompt.json) · [provenance](provenance.json) · [geometry/layout audit](presentation-audit.json) · [official reference comparison](comparison.md).
+
+This painting follows the current map geometry at source SHA `7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa` (western headland, map feature commit50e0715). The built-in `image_gen` tool edited the prior original R38 painting using only that artwork and fresh own checker/terrain guides. No copyrighted anime or official map image was supplied to generation. The selected generated PNG is retained byte-for-byte as `paint-r43.png`. The exact prompt, input roles and output filename/hash are in `prompt.json`.
+
+The new generated texture is used only through the source headland's feathered native SVG mask. Earlier original art remains the base elsewhere; R38 assets and provenance are retained in their historical folder. The blend uses a 128-block mask stroke and 32-block Gaussian sigma in world coordinates. The composed raster differs at 4,799 pixels from the R38 composition. Beyond the 320-block local review buffer there are 12 small rendered edge differences of at most 2/255 per RGB channel; complete pixel identity outside the headland is not claimed. All larger changes are confined to that local area. These are presentation measurements, not newly discovered landforms.
+
+Exact current native polygons define the three coasts, nine lakes and two habitat highlights; eight river centre-lines retain their source widths and all 21 road polylines retain their geometry. Ocean/land masks share the current source shores. Raw blue pigment is suppressed beneath native water overlays so the painter cannot introduce an extra inland lake or inlet. Ridge, canopy, soil and bank strokes remain pictorial; they are not a surveyed heightmap or completed structures.
+
+The marked atlas registers all 58 source world positions and verifies their pixel projection. Number centres remain at least 32.47 pixels apart. Leader lines render before the number bubbles, keeping nearby relative-anchor pointers from drawing over digits. Sixteen geographical context names are included; Englassia uses 14-point type to fit its crowded context, with a larger name repeated in the legend. Ulgracia uses an offshore text callout ending in its existing mask. Actual browser text boxes are checked against padded number boxes. The separate 32-entry M/P/U panel preserves all open coverage classifications; the full 129-entry index remains linked. No missing country receives invented coordinates.
+
+## Painting to SVG review
+
+The new cape now has coherent painted bare ground within the exact current shoreline. Existing northern ice, southern peninsulas, Imperial basin and Orbic habitat are retained. Native vectors and marker projections pass the audit. The composed painting, marked atlas, current checker/terrain guides and cached official reference were visually compared. No further source-geometry correction was justified by this painting round, so the active SVG is retained. The default checker still reports 0 errors, all 56 relations and the same 2 warnings. A painting does not resolve C12 scale/projection, C07 Amrita, C14 Sainte, C22 Frost Palace or the other recorded source/binding differences.
+
+The production SVG/checker preview, terrain exports and protected paths remain unchanged in this round. Existing217 claims / 14 directly read LN claims,129 inventory entries/32 explicit follow-ups and 58 registered art pairs are retained. This refresh closes the stale-painting presentation task; it does not prove the full faithful-continent/source/era/build-fit/runtime goal complete. No apply, Minecraft chunk generation, main merge or deployment occurs.
+
+Repository validation and472 tests pass (26 skips, zero failures,44.683s test tier). Map-pointer branch validation and472 tests also pass (26 skips, zero failures,44.328s).

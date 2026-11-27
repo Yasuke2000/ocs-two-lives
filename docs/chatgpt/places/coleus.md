@@ -12,7 +12,7 @@
 
 ## Lore (canon)
 
-In the Coleus film Yuuki sends Rimuru to settle the succession dispute between two princes; Princess Zenobia lives in the palace.
+The Visions of Coleus OVA supplies a later mission and palace reference involving Rimuru, Yuuki and the succession dispute. It is not proof that Rimuru is already on that mission at the selected S1E10 instant. Keep the country/palace interpretation separate from that later encounter; exact initial court roster and political condition remain unverified here.
 
 ## What it should look like
 
@@ -41,3 +41,7 @@ Map: Tensura by Lerfing (current, being replaced). The screenshots are from the 
 - Lore and quest text in EN and NL for this place (see [tasks.md](../tasks.md)).
 
 Back to the [world guide](../world.md) · [knowledge pack](../README.md)
+
+## Own-world correction — 20 November 2026
+
+The new authored map uses Coleus(-3520,-860), radius73. The official outline places the independent kingdom between Ingrassia and Lubelius; V is a terrain selector, not its sovereign affiliation. The coordinates above describe the retired Lerfing-map audit. The succession plot and later OVA character states are not the initial post-Kijin snapshot. [Source review](../../research/tensura-world-2026-11-19/coleus-placement-review.md).

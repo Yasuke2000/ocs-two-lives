@@ -1,0 +1,14 @@
+{
+  "round": 110,
+  "source_sha256": "0ae040ec3779d96d6efac288cdc46cfaf5339b1deeafbcfcf3c07224fa6f3c2b",
+  "native_basis": "world/painting-round107/continent.svg",
+  "native_basis_normalized_sha256": "127bf581a88fb77683ba91e3c587e38c745fec43daa57962f7ea5f8566423b2e",
+  "changes": "Exact source forecourt translation;site54 world/anchor/number moves inland;current ledger314. All other native XML retained apart from root metadata and embedded image.",
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "copyrighted_reference_pixels_embedded": false,
+  "PNG_method": "Native SVG rendered with Chrome;PNG read-only comparison",
+  "runtime_applied": false,
+  "global_relief_resampled": false,
+  "map_commit": "5026a0d841818950c1cc364e7ed47e7d0e2492ac"
+}

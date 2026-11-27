@@ -29,7 +29,7 @@ Draw each `<circle>` of the `sites` layer with `r` at least `min_r`: a smaller c
 | englassia_road | clearing | 8 |
 | filtwood | clearing | 8 |
 | forgotten_dragon_city | clearing | 99 |
-| frost_palace | coast | 67 |
+| frost_palace | clearing | 67 |
 | ghastone | clearing | 8 |
 | goblin_village | village | 56 |
 | great_holy_mountain | clearing | 79 |

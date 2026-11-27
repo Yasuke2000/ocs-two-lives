@@ -1,0 +1,595 @@
+{
+  "baseline_commit": "aeb2144",
+  "baseline_source_sha256": "a24cea9b46a751dbaa9b6765e2c1a5a8d829624744c980d8a9d65d159bb51295",
+  "coast_vertices_before": 363,
+  "coast_vertices_after": 388,
+  "region_V_vertices_before": 136,
+  "region_V_vertices_after": 170,
+  "added_land_area_blocks2": 373521.95765000005,
+  "mainland_area_before": 39196542.21139998,
+  "mainland_area_after": 39570064.169049986,
+  "mainland_bounds_before": [
+    -4923.33,
+    -2580.0,
+    4730.0,
+    3670.0
+  ],
+  "mainland_bounds_after": [
+    -5259.44,
+    -2580.0,
+    4730.0,
+    3670.0
+  ],
+  "max_boundary_displacement_blocks": 984.2252346389012,
+  "nearest_site_edge": {
+    "id": "sacred_mountain",
+    "blocks": 356.95831856541747
+  },
+  "nearest_road_centreline": {
+    "id": "sacred_mountain_trail",
+    "blocks": 505.65342410944237
+  },
+  "source_confidence": "canon-implied visual headland cue; exact original geometry and habitat our interpretation",
+  "new_settlements": 0,
+  "runtime_acceptance": false,
+  "source_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "normal_build_seconds": 57.0,
+  "normal_build_warnings": [],
+  "checker_errors": 0,
+  "checker_relations_passed": 56,
+  "checker_warnings": 2,
+  "new_box": {
+    "x0": -6656,
+    "z0": -5632,
+    "x1": 6144,
+    "z1": 5120,
+    "width_px": 3200,
+    "height_px": 2688,
+    "content": [
+      -5259,
+      -4376,
+      4730,
+      3670
+    ],
+    "sea_margin": 1200,
+    "region": 512
+  },
+  "old_box": {
+    "x0": -6144,
+    "z0": -5632,
+    "x1": 6144,
+    "z1": 5120,
+    "width_px": 3072,
+    "height_px": 2688,
+    "content": [
+      -4935,
+      -4376,
+      4730,
+      3670
+    ],
+    "sea_margin": 1200,
+    "region": 512
+  },
+  "world_aligned_old_extent_column_offset_pixels": 128,
+  "world_aligned_common_extent_changes": {
+    "height.png": {
+      "changed_cells_in_prior_extent": 88951,
+      "world_pixel_centre_bounds": [
+        -5558.0,
+        -2406.0,
+        -3762.0,
+        -1274.0
+      ]
+    },
+    "water.png": {
+      "changed_cells_in_prior_extent": 0,
+      "world_pixel_centre_bounds": null
+    },
+    "biome.png": {
+      "changed_cells_in_prior_extent": 23895,
+      "world_pixel_centre_bounds": [
+        -5254.0,
+        -2118.0,
+        -3838.0,
+        -1486.0
+      ]
+    },
+    "road.png": {
+      "changed_cells_in_prior_extent": 0,
+      "world_pixel_centre_bounds": null
+    },
+    "sites.png": {
+      "changed_cells_in_prior_extent": 0,
+      "world_pixel_centre_bounds": null
+    },
+    "exclude.png": {
+      "changed_cells_in_prior_extent": 0,
+      "world_pixel_centre_bounds": null
+    }
+  },
+  "unchanged_world_aligned_or_byte_identical_exports": [
+    "water.png",
+    "road.png",
+    "sites.png",
+    "exclude.png",
+    "sites.json"
+  ],
+  "all_58_site_attributes_unchanged": true,
+  "all_21_road_geometries_unchanged": true,
+  "road_export_differences": [
+    {
+      "path": "/roads/4/points/37/2",
+      "before": 98.38,
+      "after": 98.39
+    },
+    {
+      "path": "/roads/4/points/39/2",
+      "before": 101.56,
+      "after": 101.57
+    },
+    {
+      "path": "/roads/4/points/42/2",
+      "before": 106.55,
+      "after": 106.56
+    },
+    {
+      "path": "/roads/4/points/43/2",
+      "before": 108.13,
+      "after": 108.15
+    },
+    {
+      "path": "/roads/4/points/44/2",
+      "before": 109.75,
+      "after": 109.76
+    },
+    {
+      "path": "/roads/4/points/45/2",
+      "before": 111.53,
+      "after": 111.55
+    },
+    {
+      "path": "/roads/4/points/46/2",
+      "before": 113.32,
+      "after": 113.34
+    },
+    {
+      "path": "/roads/4/points/47/2",
+      "before": 115.1,
+      "after": 115.13
+    },
+    {
+      "path": "/roads/4/points/48/2",
+      "before": 116.87,
+      "after": 116.9
+    },
+    {
+      "path": "/roads/4/points/49/2",
+      "before": 118.68,
+      "after": 118.71
+    },
+    {
+      "path": "/roads/4/points/50/2",
+      "before": 120.42,
+      "after": 120.45
+    },
+    {
+      "path": "/roads/4/points/51/2",
+      "before": 122.18,
+      "after": 122.21
+    },
+    {
+      "path": "/roads/4/points/52/2",
+      "before": 124.18,
+      "after": 124.21
+    },
+    {
+      "path": "/roads/4/points/53/2",
+      "before": 126.18,
+      "after": 126.21
+    },
+    {
+      "path": "/roads/4/points/54/2",
+      "before": 128.18,
+      "after": 128.21
+    },
+    {
+      "path": "/roads/4/points/55/2",
+      "before": 130.18,
+      "after": 130.21
+    },
+    {
+      "path": "/roads/4/points/56/2",
+      "before": 132.18,
+      "after": 132.21
+    },
+    {
+      "path": "/roads/4/points/57/2",
+      "before": 134.18,
+      "after": 134.21
+    },
+    {
+      "path": "/roads/4/points/58/2",
+      "before": 136.18,
+      "after": 136.21
+    },
+    {
+      "path": "/roads/4/points/59/2",
+      "before": 138.18,
+      "after": 138.21
+    },
+    {
+      "path": "/roads/4/points/60/2",
+      "before": 140.18,
+      "after": 140.21
+    },
+    {
+      "path": "/roads/4/points/61/2",
+      "before": 142.18,
+      "after": 142.21
+    },
+    {
+      "path": "/roads/4/points/62/2",
+      "before": 143.96,
+      "after": 144.0
+    },
+    {
+      "path": "/roads/4/points/63/2",
+      "before": 145.73,
+      "after": 145.76
+    },
+    {
+      "path": "/roads/4/points/64/2",
+      "before": 147.73,
+      "after": 147.76
+    },
+    {
+      "path": "/roads/4/points/65/2",
+      "before": 149.73,
+      "after": 149.76
+    },
+    {
+      "path": "/roads/4/points/66/2",
+      "before": 151.73,
+      "after": 151.76
+    },
+    {
+      "path": "/roads/4/points/67/2",
+      "before": 153.72,
+      "after": 153.76
+    },
+    {
+      "path": "/roads/4/points/68/2",
+      "before": 155.72,
+      "after": 155.75
+    },
+    {
+      "path": "/roads/4/points/69/2",
+      "before": 157.41,
+      "after": 157.45
+    },
+    {
+      "path": "/roads/4/points/70/2",
+      "before": 158.86,
+      "after": 158.89
+    },
+    {
+      "path": "/roads/4/points/71/2",
+      "before": 159.92,
+      "after": 159.96
+    },
+    {
+      "path": "/roads/4/points/72/2",
+      "before": 160.98,
+      "after": 161.02
+    },
+    {
+      "path": "/roads/4/points/73/2",
+      "before": 161.98,
+      "after": 162.02
+    }
+  ],
+  "all_21_other_gameplay_polygons_unchanged": true,
+  "all_existing_biomes_unchanged": true,
+  "changed_raster_cells_within_annex_buffer_blocks": 640,
+  "all_58_sampled_site_disc_heights_unchanged": true,
+  "site_height_audit": [
+    {
+      "id": "tempest",
+      "sampled_disc_cells": 4304,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "arrival",
+      "sampled_disc_cells": 716,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "wayfarers_camp",
+      "sampled_disc_cells": 13,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "sealed_cave",
+      "sampled_disc_cells": 1116,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "goblin_village",
+      "sampled_disc_cells": 612,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "spirit_gate",
+      "sampled_disc_cells": 961,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "shizu_spawn",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "outcast_road",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "treyni_grove",
+      "sampled_disc_cells": 612,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "treyni_shrine",
+      "sampled_disc_cells": 256,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "ogre_village_ruin",
+      "sampled_disc_cells": 208,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "dwargon",
+      "sampled_disc_cells": 3164,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "dwargo",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "dwargon_throne",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "kaijin_smithy",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "dwarf_village",
+      "sampled_disc_cells": 3024,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "dwarven_arena",
+      "sampled_disc_cells": 648,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "dragons_nest",
+      "sampled_disc_cells": 800,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "ameld_source",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "ameld_mouth",
+      "sampled_disc_cells": 13,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "lake_siss",
+      "sampled_disc_cells": 1804,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "lizardmen_village",
+      "sampled_disc_cells": 710,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "lizardmen_caverns",
+      "sampled_disc_cells": 812,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "orc_camp",
+      "sampled_disc_cells": 709,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "blumund",
+      "sampled_disc_cells": 1844,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "ballachia",
+      "sampled_disc_cells": 901,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "englassia",
+      "sampled_disc_cells": 1882,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "marris",
+      "sampled_disc_cells": 2010,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "siltrosso",
+      "sampled_disc_cells": 857,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "lubelius",
+      "sampled_disc_cells": 1844,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "sacred_mountain",
+      "sampled_disc_cells": 1264,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "coleus",
+      "sampled_disc_cells": 1044,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "heaven_tower",
+      "sampled_disc_cells": 1396,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "morgdahl",
+      "sampled_disc_cells": 734,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "raja",
+      "sampled_disc_cells": 988,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "nostraille",
+      "sampled_disc_cells": 861,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "yuzalgh",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "yggdonia",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "filtwood",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "ghastone",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "rostia",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "sainte_malukshure",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "ulgr_nature_park",
+      "sampled_disc_cells": 777,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "elmine",
+      "sampled_disc_cells": 1976,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "jia",
+      "sampled_disc_cells": 906,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "laura",
+      "sampled_disc_cells": 1976,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "forgotten_dragon_city",
+      "sampled_disc_cells": 1954,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "clayman_castle",
+      "sampled_disc_cells": 1576,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "amrita",
+      "sampled_disc_cells": 788,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "nasca",
+      "sampled_disc_cells": 1576,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "great_holy_mountain",
+      "sampled_disc_cells": 1257,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "el_dorado",
+      "sampled_disc_cells": 1976,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "el_dorado_volcano",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "frost_palace",
+      "sampled_disc_cells": 882,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "blumund_road",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "englassia_road",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "old_well",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    },
+    {
+      "id": "rookie_camp",
+      "sampled_disc_cells": 12,
+      "changed_height_cells": 0
+    }
+  ],
+  "unchanged_road_profiles": 20,
+  "changed_road_profiles": [
+    "sacred_mountain_trail"
+  ],
+  "max_changed_exported_road_height_blocks": 0.040000000000020464,
+  "all_existing_water_relief_forest_source_shapes_unchanged": true,
+  "official_reference_direct_get_matches_inspected_cache": true,
+  "official_reference_sha256": "d306892d8ca705742628ec75c2163082ab40da1ef4b1e691903a5926bc4a3f7a"
+}

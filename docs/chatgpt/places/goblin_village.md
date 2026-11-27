@@ -1,6 +1,6 @@
 # Old goblin village (Rigurd's tribe)
 
-`id: goblin_village` · landmark (a Tensura mod structure placed in game) · region **J** (Jura-Tempest Federation)
+`id: goblin_village` · landmark (a Tensura mod structure placed in game) · region **J** (Jura; future Tempest gameplay region)
 
 | | |
 |---|---|
@@ -11,7 +11,7 @@
 
 ## Lore (canon)
 
-The goblins lived in shabby huts before Rimuru named them. In Life 2 it is the old quarter that the new town replaces gradually; Rigurd, the goblin chief, still lives in a chief hut.
+The old goblin huts and the new settlement footprint must remain distinct. This server landmark preserves an older village template; its exact post-relocation condition and residents are unverified. Do not assert that it is already an occupied quarter of the new town or that Rigurd still resides in its chief hut. A mod structure and its spawn pieces do not establish those initial canon residents. See [snapshot policy](../../../world/era.md).
 
 ## What it should look like
 

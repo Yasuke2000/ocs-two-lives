@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-23",
+  "upstream_main": "3555a00bf893d0aea2413b853e98fee209489835",
+  "consolidated_creative_tip": "61647d86b92bc5e43ba191d58dd4a64c04c2219d",
+  "source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+  "facts": 355,
+  "normal_artifacts_retained_exact": 14,
+  "normal_conversion_rerun": false,
+  "protected_diff_from_main": [
+    "tools/world/canon_relations.toml"
+  ],
+  "approved_relation_pairs": [
+    [
+      "ogre_village_ruin",
+      "tempest"
+    ],
+    [
+      "jia",
+      "tempest"
+    ],
+    [
+      "jia",
+      "laura"
+    ],
+    [
+      "ulgr_nature_park",
+      "blumund"
+    ],
+    [
+      "ulgr_nature_park",
+      "elmine"
+    ]
+  ],
+  "decision_log_main_append_retained": true,
+  "creative_decision_log_retained": true,
+  "main_handoff_additions_retained": true,
+  "creative_handoff_retained": true,
+  "full_goal_complete": false,
+  "runtime_applied": false,
+  "checks": {
+    "standard_map_checker_errors": 0,
+    "relations_checked": 56,
+    "standing_warnings": 2,
+    "repository_gate_passed": false,
+    "repository_tests": 494,
+    "skipped": 26,
+    "failures": 2,
+    "seconds": 67.106,
+    "upstream_javascript_files_syntax_checked": 17,
+    "failed_tests": [
+      "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+      "test_gen_data_check_covers_the_env_file"
+    ],
+    "validation": "Retained legacy Filtwood(-900,700) reads U in old canon_map.txt;approved source region is J."
+  },
+  "main_branch_changed": false,
+  "source_and_preview_unchanged_by_main_integration": true,
+  "item_prs_included_in_authoring_branch": [
+    146,
+    155
+  ],
+  "unresolved": [
+    "Legacy/own-world Filtwood technical registration transition",
+    "Owner choice on larger island proportions",
+    "Owner choice on Malukshure coastal binding",
+    "Unverified source bearings,naming and extra-location interpretations"
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "previous_commit": "b053e13b4fdd98eab5a804ea704cc59105df4e1e",
+  "old_characters": 111009,
+  "new_characters": 57746,
+  "old_lines": 694,
+  "new_lines": 381,
+  "region_count": 22,
+  "curated_image_link_count": 69,
+  "all_curated_image_links_retained": true,
+  "biome_basis": "R128 census retained by byte-exact region geometry and biome PNG",
+  "corrected_stale_claims": [
+    "Ice crossing formerly ended at a coastal palace despite the approved inland placement.",
+    "El Dorado landform paragraph retained pre-R125 island dimensions.",
+    "All inline biome paragraphs still named R119 despite R125/R128 changes.",
+    "Ulgr spring102/head gap11 superseded by authored92/gap1 in R130."
+  ],
+  "sections": [
+    {
+      "letter": "J",
+      "image_reference_links_retained": 5,
+      "biome_values_source_round": 128,
+      "biome_rows": 9,
+      "exact_percent_sum": 99.99999999999999,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "D",
+      "image_reference_links_retained": 4,
+      "biome_values_source_round": 128,
+      "biome_rows": 9,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "W",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 6,
+      "exact_percent_sum": 99.99999999999999,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "R",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 3,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "G",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 5,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "F",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 2,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "L",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 6,
+      "exact_percent_sum": 100.00000000000001,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "V",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 7,
+      "exact_percent_sum": 100.00000000000001,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "O",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 3,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "A",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 2,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "N",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 2,
+      "exact_percent_sum": 100.00000000000001,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "Y",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 2,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "Q",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 2,
+      "exact_percent_sum": 100.00000000000001,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "U",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 3,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "S",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 5,
+      "exact_percent_sum": 99.99999999999999,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "H",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 6,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "B",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 10,
+      "exact_percent_sum": 99.99999999999999,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "M",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 6,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "P",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 4,
+      "exact_percent_sum": 99.99999999999999,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "E",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 7,
+      "exact_percent_sum": 100.00000000000001,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "I",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 2,
+      "exact_percent_sum": 100.0,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    },
+    {
+      "letter": "X",
+      "image_reference_links_retained": 3,
+      "biome_values_source_round": 128,
+      "biome_rows": 5,
+      "exact_percent_sum": 100.00000000000001,
+      "mood_explicitly_interpretation": true,
+      "current_fields_present": true
+    }
+  ],
+  "limits": "Current deliverable structure/numerical reconciliation;not semantic verification of every source or whole-wiki/initial-era architecture acceptance."
+}

@@ -1,0 +1,1345 @@
+{
+  "source_map_commit": "475abb9",
+  "source_svg_sha256": "cb07cce7f028aaaa71914209928db3a8ad1b7b9a892ab24520ab827072d62371",
+  "normal_export_source_matches": true,
+  "read_only": true,
+  "gate": {
+    "id": "dwargon",
+    "kind": "carve",
+    "x": 0,
+    "z": -1550,
+    "r": 127,
+    "plated": true,
+    "y": 146,
+    "index": 9,
+    "fade": 64,
+    "biome": null,
+    "margin": 48.0,
+    "cover": 6
+  },
+  "blueprint_size": [
+    148,
+    92,
+    168
+  ],
+  "blueprint_arrival": [
+    74,
+    4,
+    120
+  ],
+  "roof_columns_checked": 3179,
+  "bilinear_surface_minus_first_roof_rock_blocks": {
+    "minimum": 6.0,
+    "median": 14.171875,
+    "maximum": 48.0
+  },
+  "columns_below_six_blocks_cover": 0,
+  "gate_centre_sample_surface_y": 185.0,
+  "relative_pins": [
+    {
+      "id": "dwargo",
+      "kind": "clearing",
+      "x": 0,
+      "z": -1650,
+      "r": 8,
+      "plated": false,
+      "y": 188
+    },
+    {
+      "id": "dwargon_throne",
+      "kind": "clearing",
+      "x": 0,
+      "z": -1656,
+      "r": 8,
+      "plated": false,
+      "y": 182
+    },
+    {
+      "id": "kaijin_smithy",
+      "kind": "clearing",
+      "x": -12,
+      "z": -1634,
+      "r": 8,
+      "plated": false,
+      "y": 198
+    }
+  ],
+  "pin_height_semantics": "Unplated pin y is sampled exterior surface, not cavern walking floor; horizontal anchor_refs resolves x/z only. Current seated Gazel uses blueprint royal coordinates plus placed base, not the pin height. No live placement failure inferred.",
+  "surface_profile": [
+    {
+      "z": -1800,
+      "surface_y": 154.359375
+    },
+    {
+      "z": -1798,
+      "surface_y": 153.5625
+    },
+    {
+      "z": -1796,
+      "surface_y": 152.78125
+    },
+    {
+      "z": -1794,
+      "surface_y": 152.0
+    },
+    {
+      "z": -1792,
+      "surface_y": 151.203125
+    },
+    {
+      "z": -1790,
+      "surface_y": 150.40625
+    },
+    {
+      "z": -1788,
+      "surface_y": 149.609375
+    },
+    {
+      "z": -1786,
+      "surface_y": 148.8125
+    },
+    {
+      "z": -1784,
+      "surface_y": 148.03125
+    },
+    {
+      "z": -1782,
+      "surface_y": 147.25
+    },
+    {
+      "z": -1780,
+      "surface_y": 146.484375
+    },
+    {
+      "z": -1778,
+      "surface_y": 145.71875
+    },
+    {
+      "z": -1776,
+      "surface_y": 144.9375
+    },
+    {
+      "z": -1774,
+      "surface_y": 144.15625
+    },
+    {
+      "z": -1772,
+      "surface_y": 143.375
+    },
+    {
+      "z": -1770,
+      "surface_y": 142.59375
+    },
+    {
+      "z": -1768,
+      "surface_y": 141.84375
+    },
+    {
+      "z": -1766,
+      "surface_y": 141.09375
+    },
+    {
+      "z": -1764,
+      "surface_y": 140.34375
+    },
+    {
+      "z": -1762,
+      "surface_y": 139.59375
+    },
+    {
+      "z": -1760,
+      "surface_y": 138.84375
+    },
+    {
+      "z": -1758,
+      "surface_y": 138.09375
+    },
+    {
+      "z": -1756,
+      "surface_y": 137.328125
+    },
+    {
+      "z": -1754,
+      "surface_y": 136.5625
+    },
+    {
+      "z": -1752,
+      "surface_y": 135.90625
+    },
+    {
+      "z": -1750,
+      "surface_y": 135.25
+    },
+    {
+      "z": -1748,
+      "surface_y": 134.671875
+    },
+    {
+      "z": -1746,
+      "surface_y": 134.09375
+    },
+    {
+      "z": -1744,
+      "surface_y": 133.515625
+    },
+    {
+      "z": -1742,
+      "surface_y": 132.9375
+    },
+    {
+      "z": -1740,
+      "surface_y": 132.359375
+    },
+    {
+      "z": -1738,
+      "surface_y": 131.78125
+    },
+    {
+      "z": -1736,
+      "surface_y": 131.28125
+    },
+    {
+      "z": -1734,
+      "surface_y": 130.78125
+    },
+    {
+      "z": -1732,
+      "surface_y": 130.375
+    },
+    {
+      "z": -1730,
+      "surface_y": 129.96875
+    },
+    {
+      "z": -1728,
+      "surface_y": 129.5625
+    },
+    {
+      "z": -1726,
+      "surface_y": 129.15625
+    },
+    {
+      "z": -1724,
+      "surface_y": 128.734375
+    },
+    {
+      "z": -1722,
+      "surface_y": 128.3125
+    },
+    {
+      "z": -1720,
+      "surface_y": 127.890625
+    },
+    {
+      "z": -1718,
+      "surface_y": 127.46875
+    },
+    {
+      "z": -1716,
+      "surface_y": 127.03125
+    },
+    {
+      "z": -1714,
+      "surface_y": 126.59375
+    },
+    {
+      "z": -1712,
+      "surface_y": 126.15625
+    },
+    {
+      "z": -1710,
+      "surface_y": 125.71875
+    },
+    {
+      "z": -1708,
+      "surface_y": 125.265625
+    },
+    {
+      "z": -1706,
+      "surface_y": 124.8125
+    },
+    {
+      "z": -1704,
+      "surface_y": 124.359375
+    },
+    {
+      "z": -1702,
+      "surface_y": 123.90625
+    },
+    {
+      "z": -1700,
+      "surface_y": 132.453125
+    },
+    {
+      "z": -1698,
+      "surface_y": 141.0
+    },
+    {
+      "z": -1696,
+      "surface_y": 143.0
+    },
+    {
+      "z": -1694,
+      "surface_y": 145.0
+    },
+    {
+      "z": -1692,
+      "surface_y": 147.5
+    },
+    {
+      "z": -1690,
+      "surface_y": 150.0
+    },
+    {
+      "z": -1688,
+      "surface_y": 152.0
+    },
+    {
+      "z": -1686,
+      "surface_y": 154.0
+    },
+    {
+      "z": -1684,
+      "surface_y": 156.0
+    },
+    {
+      "z": -1682,
+      "surface_y": 158.0
+    },
+    {
+      "z": -1680,
+      "surface_y": 160.0
+    },
+    {
+      "z": -1678,
+      "surface_y": 162.0
+    },
+    {
+      "z": -1676,
+      "surface_y": 164.0
+    },
+    {
+      "z": -1674,
+      "surface_y": 166.0
+    },
+    {
+      "z": -1672,
+      "surface_y": 168.0
+    },
+    {
+      "z": -1670,
+      "surface_y": 170.0
+    },
+    {
+      "z": -1668,
+      "surface_y": 172.0
+    },
+    {
+      "z": -1666,
+      "surface_y": 174.0
+    },
+    {
+      "z": -1664,
+      "surface_y": 175.0
+    },
+    {
+      "z": -1662,
+      "surface_y": 176.0
+    },
+    {
+      "z": -1660,
+      "surface_y": 178.0
+    },
+    {
+      "z": -1658,
+      "surface_y": 180.0
+    },
+    {
+      "z": -1656,
+      "surface_y": 182.0
+    },
+    {
+      "z": -1654,
+      "surface_y": 184.0
+    },
+    {
+      "z": -1652,
+      "surface_y": 185.75
+    },
+    {
+      "z": -1650,
+      "surface_y": 187.5
+    },
+    {
+      "z": -1648,
+      "surface_y": 189.0
+    },
+    {
+      "z": -1646,
+      "surface_y": 190.5
+    },
+    {
+      "z": -1644,
+      "surface_y": 191.5
+    },
+    {
+      "z": -1642,
+      "surface_y": 192.5
+    },
+    {
+      "z": -1640,
+      "surface_y": 193.0
+    },
+    {
+      "z": -1638,
+      "surface_y": 193.5
+    },
+    {
+      "z": -1636,
+      "surface_y": 193.75
+    },
+    {
+      "z": -1634,
+      "surface_y": 194.0
+    },
+    {
+      "z": -1632,
+      "surface_y": 194.0
+    },
+    {
+      "z": -1630,
+      "surface_y": 194.0
+    },
+    {
+      "z": -1628,
+      "surface_y": 194.0
+    },
+    {
+      "z": -1626,
+      "surface_y": 194.0
+    },
+    {
+      "z": -1624,
+      "surface_y": 194.0
+    },
+    {
+      "z": -1622,
+      "surface_y": 194.0
+    },
+    {
+      "z": -1620,
+      "surface_y": 193.75
+    },
+    {
+      "z": -1618,
+      "surface_y": 193.5
+    },
+    {
+      "z": -1616,
+      "surface_y": 193.75
+    },
+    {
+      "z": -1614,
+      "surface_y": 194.0
+    },
+    {
+      "z": -1612,
+      "surface_y": 194.75
+    },
+    {
+      "z": -1610,
+      "surface_y": 195.5
+    },
+    {
+      "z": -1608,
+      "surface_y": 195.5
+    },
+    {
+      "z": -1606,
+      "surface_y": 195.5
+    },
+    {
+      "z": -1604,
+      "surface_y": 195.5
+    },
+    {
+      "z": -1602,
+      "surface_y": 195.5
+    },
+    {
+      "z": -1600,
+      "surface_y": 195.5
+    },
+    {
+      "z": -1598,
+      "surface_y": 195.5
+    },
+    {
+      "z": -1596,
+      "surface_y": 195.25
+    },
+    {
+      "z": -1594,
+      "surface_y": 195.0
+    },
+    {
+      "z": -1592,
+      "surface_y": 194.75
+    },
+    {
+      "z": -1590,
+      "surface_y": 194.5
+    },
+    {
+      "z": -1588,
+      "surface_y": 194.5
+    },
+    {
+      "z": -1586,
+      "surface_y": 194.5
+    },
+    {
+      "z": -1584,
+      "surface_y": 195.75
+    },
+    {
+      "z": -1582,
+      "surface_y": 197.0
+    },
+    {
+      "z": -1580,
+      "surface_y": 199.0
+    },
+    {
+      "z": -1578,
+      "surface_y": 201.0
+    },
+    {
+      "z": -1576,
+      "surface_y": 201.0
+    },
+    {
+      "z": -1574,
+      "surface_y": 201.0
+    },
+    {
+      "z": -1572,
+      "surface_y": 201.0
+    },
+    {
+      "z": -1570,
+      "surface_y": 201.0
+    },
+    {
+      "z": -1568,
+      "surface_y": 201.0
+    },
+    {
+      "z": -1566,
+      "surface_y": 201.0
+    },
+    {
+      "z": -1564,
+      "surface_y": 199.0
+    },
+    {
+      "z": -1562,
+      "surface_y": 197.0
+    },
+    {
+      "z": -1560,
+      "surface_y": 195.0
+    },
+    {
+      "z": -1558,
+      "surface_y": 193.0
+    },
+    {
+      "z": -1556,
+      "surface_y": 191.0
+    },
+    {
+      "z": -1554,
+      "surface_y": 189.0
+    },
+    {
+      "z": -1552,
+      "surface_y": 187.0
+    },
+    {
+      "z": -1550,
+      "surface_y": 185.0
+    },
+    {
+      "z": -1548,
+      "surface_y": 183.0
+    },
+    {
+      "z": -1546,
+      "surface_y": 181.0
+    },
+    {
+      "z": -1544,
+      "surface_y": 179.0
+    },
+    {
+      "z": -1542,
+      "surface_y": 177.0
+    },
+    {
+      "z": -1540,
+      "surface_y": 159.5
+    },
+    {
+      "z": -1538,
+      "surface_y": 142.0
+    },
+    {
+      "z": -1536,
+      "surface_y": 140.0
+    },
+    {
+      "z": -1534,
+      "surface_y": 138.0
+    },
+    {
+      "z": -1532,
+      "surface_y": 108.6875
+    },
+    {
+      "z": -1530,
+      "surface_y": 79.375
+    },
+    {
+      "z": -1528,
+      "surface_y": 78.84375
+    },
+    {
+      "z": -1526,
+      "surface_y": 78.3125
+    },
+    {
+      "z": -1524,
+      "surface_y": 77.796875
+    },
+    {
+      "z": -1522,
+      "surface_y": 77.28125
+    },
+    {
+      "z": -1520,
+      "surface_y": 76.765625
+    },
+    {
+      "z": -1518,
+      "surface_y": 76.25
+    },
+    {
+      "z": -1516,
+      "surface_y": 75.734375
+    },
+    {
+      "z": -1514,
+      "surface_y": 75.21875
+    },
+    {
+      "z": -1512,
+      "surface_y": 74.78125
+    },
+    {
+      "z": -1510,
+      "surface_y": 74.34375
+    },
+    {
+      "z": -1508,
+      "surface_y": 73.953125
+    },
+    {
+      "z": -1506,
+      "surface_y": 73.5625
+    },
+    {
+      "z": -1504,
+      "surface_y": 73.1875
+    },
+    {
+      "z": -1502,
+      "surface_y": 72.8125
+    },
+    {
+      "z": -1500,
+      "surface_y": 72.421875
+    },
+    {
+      "z": -1498,
+      "surface_y": 72.03125
+    },
+    {
+      "z": -1496,
+      "surface_y": 71.796875
+    },
+    {
+      "z": -1494,
+      "surface_y": 71.5625
+    },
+    {
+      "z": -1492,
+      "surface_y": 71.46875
+    },
+    {
+      "z": -1490,
+      "surface_y": 71.375
+    },
+    {
+      "z": -1488,
+      "surface_y": 71.28125
+    },
+    {
+      "z": -1486,
+      "surface_y": 71.1875
+    },
+    {
+      "z": -1484,
+      "surface_y": 71.09375
+    },
+    {
+      "z": -1482,
+      "surface_y": 71.0
+    },
+    {
+      "z": -1480,
+      "surface_y": 70.953125
+    },
+    {
+      "z": -1478,
+      "surface_y": 70.90625
+    },
+    {
+      "z": -1476,
+      "surface_y": 70.90625
+    },
+    {
+      "z": -1474,
+      "surface_y": 70.90625
+    },
+    {
+      "z": -1472,
+      "surface_y": 70.90625
+    },
+    {
+      "z": -1470,
+      "surface_y": 70.90625
+    },
+    {
+      "z": -1468,
+      "surface_y": 70.90625
+    },
+    {
+      "z": -1466,
+      "surface_y": 70.90625
+    },
+    {
+      "z": -1464,
+      "surface_y": 70.890625
+    },
+    {
+      "z": -1462,
+      "surface_y": 70.875
+    },
+    {
+      "z": -1460,
+      "surface_y": 70.8125
+    },
+    {
+      "z": -1458,
+      "surface_y": 70.75
+    },
+    {
+      "z": -1456,
+      "surface_y": 70.703125
+    },
+    {
+      "z": -1454,
+      "surface_y": 70.65625
+    },
+    {
+      "z": -1452,
+      "surface_y": 70.609375
+    },
+    {
+      "z": -1450,
+      "surface_y": 70.5625
+    },
+    {
+      "z": -1448,
+      "surface_y": 70.5
+    },
+    {
+      "z": -1446,
+      "surface_y": 70.4375
+    },
+    {
+      "z": -1444,
+      "surface_y": 70.359375
+    },
+    {
+      "z": -1442,
+      "surface_y": 70.28125
+    },
+    {
+      "z": -1440,
+      "surface_y": 70.203125
+    },
+    {
+      "z": -1438,
+      "surface_y": 70.125
+    },
+    {
+      "z": -1436,
+      "surface_y": 70.0625
+    },
+    {
+      "z": -1434,
+      "surface_y": 70.0
+    },
+    {
+      "z": -1432,
+      "surface_y": 69.9375
+    },
+    {
+      "z": -1430,
+      "surface_y": 69.875
+    },
+    {
+      "z": -1428,
+      "surface_y": 69.828125
+    },
+    {
+      "z": -1426,
+      "surface_y": 69.78125
+    },
+    {
+      "z": -1424,
+      "surface_y": 69.734375
+    },
+    {
+      "z": -1422,
+      "surface_y": 69.6875
+    },
+    {
+      "z": -1420,
+      "surface_y": 69.640625
+    },
+    {
+      "z": -1418,
+      "surface_y": 69.59375
+    },
+    {
+      "z": -1416,
+      "surface_y": 69.578125
+    },
+    {
+      "z": -1414,
+      "surface_y": 69.5625
+    },
+    {
+      "z": -1412,
+      "surface_y": 69.5625
+    },
+    {
+      "z": -1410,
+      "surface_y": 69.5625
+    },
+    {
+      "z": -1408,
+      "surface_y": 69.578125
+    },
+    {
+      "z": -1406,
+      "surface_y": 69.59375
+    },
+    {
+      "z": -1404,
+      "surface_y": 69.609375
+    },
+    {
+      "z": -1402,
+      "surface_y": 69.625
+    },
+    {
+      "z": -1400,
+      "surface_y": 69.65625
+    },
+    {
+      "z": -1398,
+      "surface_y": 69.6875
+    },
+    {
+      "z": -1396,
+      "surface_y": 69.75
+    },
+    {
+      "z": -1394,
+      "surface_y": 69.8125
+    },
+    {
+      "z": -1392,
+      "surface_y": 69.859375
+    },
+    {
+      "z": -1390,
+      "surface_y": 69.90625
+    },
+    {
+      "z": -1388,
+      "surface_y": 69.953125
+    },
+    {
+      "z": -1386,
+      "surface_y": 70.0
+    },
+    {
+      "z": -1384,
+      "surface_y": 70.0625
+    },
+    {
+      "z": -1382,
+      "surface_y": 70.125
+    },
+    {
+      "z": -1380,
+      "surface_y": 70.21875
+    },
+    {
+      "z": -1378,
+      "surface_y": 70.3125
+    },
+    {
+      "z": -1376,
+      "surface_y": 70.375
+    },
+    {
+      "z": -1374,
+      "surface_y": 70.4375
+    },
+    {
+      "z": -1372,
+      "surface_y": 70.5
+    },
+    {
+      "z": -1370,
+      "surface_y": 70.5625
+    },
+    {
+      "z": -1368,
+      "surface_y": 70.625
+    },
+    {
+      "z": -1366,
+      "surface_y": 70.6875
+    },
+    {
+      "z": -1364,
+      "surface_y": 70.75
+    },
+    {
+      "z": -1362,
+      "surface_y": 70.8125
+    },
+    {
+      "z": -1360,
+      "surface_y": 70.875
+    },
+    {
+      "z": -1358,
+      "surface_y": 70.9375
+    },
+    {
+      "z": -1356,
+      "surface_y": 70.984375
+    },
+    {
+      "z": -1354,
+      "surface_y": 71.03125
+    },
+    {
+      "z": -1352,
+      "surface_y": 71.078125
+    },
+    {
+      "z": -1350,
+      "surface_y": 71.125
+    },
+    {
+      "z": -1348,
+      "surface_y": 71.125
+    },
+    {
+      "z": -1346,
+      "surface_y": 71.125
+    },
+    {
+      "z": -1344,
+      "surface_y": 71.125
+    },
+    {
+      "z": -1342,
+      "surface_y": 71.125
+    },
+    {
+      "z": -1340,
+      "surface_y": 71.15625
+    },
+    {
+      "z": -1338,
+      "surface_y": 71.1875
+    },
+    {
+      "z": -1336,
+      "surface_y": 71.1875
+    },
+    {
+      "z": -1334,
+      "surface_y": 71.1875
+    },
+    {
+      "z": -1332,
+      "surface_y": 71.15625
+    },
+    {
+      "z": -1330,
+      "surface_y": 71.125
+    },
+    {
+      "z": -1328,
+      "surface_y": 71.125
+    },
+    {
+      "z": -1326,
+      "surface_y": 71.125
+    },
+    {
+      "z": -1324,
+      "surface_y": 71.09375
+    },
+    {
+      "z": -1322,
+      "surface_y": 71.0625
+    },
+    {
+      "z": -1320,
+      "surface_y": 71.03125
+    },
+    {
+      "z": -1318,
+      "surface_y": 71.0
+    },
+    {
+      "z": -1316,
+      "surface_y": 70.96875
+    },
+    {
+      "z": -1314,
+      "surface_y": 70.9375
+    },
+    {
+      "z": -1312,
+      "surface_y": 70.90625
+    },
+    {
+      "z": -1310,
+      "surface_y": 70.875
+    },
+    {
+      "z": -1308,
+      "surface_y": 70.859375
+    },
+    {
+      "z": -1306,
+      "surface_y": 70.84375
+    },
+    {
+      "z": -1304,
+      "surface_y": 70.828125
+    },
+    {
+      "z": -1302,
+      "surface_y": 70.8125
+    },
+    {
+      "z": -1300,
+      "surface_y": 70.78125
+    },
+    {
+      "z": -1298,
+      "surface_y": 70.75
+    },
+    {
+      "z": -1296,
+      "surface_y": 70.71875
+    },
+    {
+      "z": -1294,
+      "surface_y": 70.6875
+    },
+    {
+      "z": -1292,
+      "surface_y": 70.671875
+    },
+    {
+      "z": -1290,
+      "surface_y": 70.65625
+    },
+    {
+      "z": -1288,
+      "surface_y": 70.640625
+    },
+    {
+      "z": -1286,
+      "surface_y": 70.625
+    },
+    {
+      "z": -1284,
+      "surface_y": 70.625
+    },
+    {
+      "z": -1282,
+      "surface_y": 70.625
+    },
+    {
+      "z": -1280,
+      "surface_y": 70.625
+    }
+  ],
+  "centre_column_roof_section": [
+    {
+      "z": -1668.5,
+      "first_roof_rock_y": 159,
+      "surface_y": 171.5,
+      "cover": 12.5
+    },
+    {
+      "z": -1667.5,
+      "first_roof_rock_y": 161,
+      "surface_y": 172.5,
+      "cover": 11.5
+    },
+    {
+      "z": -1663.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 175.25,
+      "cover": 7.25
+    },
+    {
+      "z": -1662.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 175.75,
+      "cover": 7.75
+    },
+    {
+      "z": -1661.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 176.5,
+      "cover": 8.5
+    },
+    {
+      "z": -1660.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 177.5,
+      "cover": 9.5
+    },
+    {
+      "z": -1659.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 178.5,
+      "cover": 10.5
+    },
+    {
+      "z": -1658.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 179.5,
+      "cover": 11.5
+    },
+    {
+      "z": -1657.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 180.5,
+      "cover": 12.5
+    },
+    {
+      "z": -1656.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 181.5,
+      "cover": 13.5
+    },
+    {
+      "z": -1655.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 182.5,
+      "cover": 14.5
+    },
+    {
+      "z": -1654.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 183.5,
+      "cover": 15.5
+    },
+    {
+      "z": -1653.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 184.453125,
+      "cover": 16.453125
+    },
+    {
+      "z": -1652.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 185.359375,
+      "cover": 17.359375
+    },
+    {
+      "z": -1651.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 186.265625,
+      "cover": 18.265625
+    },
+    {
+      "z": -1650.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 187.171875,
+      "cover": 19.171875
+    },
+    {
+      "z": -1649.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 188.0,
+      "cover": 20.0
+    },
+    {
+      "z": -1648.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 188.75,
+      "cover": 20.75
+    },
+    {
+      "z": -1647.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 189.5,
+      "cover": 21.5
+    },
+    {
+      "z": -1646.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 190.25,
+      "cover": 22.25
+    },
+    {
+      "z": -1645.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 190.84375,
+      "cover": 22.84375
+    },
+    {
+      "z": -1644.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 191.28125,
+      "cover": 23.28125
+    },
+    {
+      "z": -1643.5,
+      "first_roof_rock_y": 168,
+      "surface_y": 191.71875,
+      "cover": 23.71875
+    },
+    {
+      "z": -1572.5,
+      "first_roof_rock_y": 195,
+      "surface_y": 201.0,
+      "cover": 6.0
+    },
+    {
+      "z": -1571.5,
+      "first_roof_rock_y": 195,
+      "surface_y": 201.0,
+      "cover": 6.0
+    },
+    {
+      "z": -1570.5,
+      "first_roof_rock_y": 194,
+      "surface_y": 201.0,
+      "cover": 7.0
+    },
+    {
+      "z": -1569.5,
+      "first_roof_rock_y": 191,
+      "surface_y": 201.0,
+      "cover": 10.0
+    },
+    {
+      "z": -1568.5,
+      "first_roof_rock_y": 157,
+      "surface_y": 201.0,
+      "cover": 44.0
+    },
+    {
+      "z": -1567.5,
+      "first_roof_rock_y": 154,
+      "surface_y": 201.0,
+      "cover": 47.0
+    },
+    {
+      "z": -1566.5,
+      "first_roof_rock_y": 157,
+      "surface_y": 201.0,
+      "cover": 44.0
+    },
+    {
+      "z": -1565.5,
+      "first_roof_rock_y": 155,
+      "surface_y": 200.5,
+      "cover": 45.5
+    },
+    {
+      "z": -1564.5,
+      "first_roof_rock_y": 156,
+      "surface_y": 199.5,
+      "cover": 43.5
+    },
+    {
+      "z": -1563.5,
+      "first_roof_rock_y": 153,
+      "surface_y": 198.5,
+      "cover": 45.5
+    },
+    {
+      "z": -1562.5,
+      "first_roof_rock_y": 156,
+      "surface_y": 197.5,
+      "cover": 41.5
+    }
+  ],
+  "limits": "Offline designed surface and authored roof envelope only. No voxel cavity, gate opening, initial-era room content, queue layout, East/West city, NPC route or live-server placement verified. A satisfactory roof-cover check does not prove road-to-template continuity. The native road ends before the blueprint boundary; the placement repair can modify the eventual terrain, so this is not a demonstrated live failure.",
+  "road_template_join": {
+    "road_id": "tempest_dwargon",
+    "road_endpoint": [
+      0.0,
+      -1495.0,
+      71.33,
+      0
+    ],
+    "blueprint_south_box_boundary_z": -1502,
+    "south_edge_minus_endpoint_gap_blocks": 7.0,
+    "template_reference_first_air_y": 146,
+    "exported_reference_height_difference_blocks": 74.67,
+    "template_base_y": 142,
+    "status": "Offline road/template interface mismatch; runtime repair and walkability not tested.",
+    "required_next_action": "Author a graded native terrain approach to the fixed template level, then check/build/review the join and all affected reservations. Do not lower the fixed blueprint base or silently alter tools/runtime."
+  },
+  "repository_validation": {
+    "passed": true,
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 62.692,
+    "ingame_run": false
+  }
+}

@@ -1,5 +1,11 @@
 # City of the Forgotten Dragon (Milim)
 
+## Current own-world/source correction — round37
+
+Current old settlement(2650,800),radius100. Official Middray profile directly supports a temple here,not the existing project skeleton/pyramid design. The new image is a modest interpreted goods-yard precinct,with the larger bone avenue outside the camera. It does not certify or remove the existing blueprint; no late Laura palace is imported. [Source distinctions](../../research/tensura-world-2026-11-19/final-place-source-review.md).
+
+Imported-map coordinates and older audit descriptions below are historical; current source/era qualifications supersede them.
+
 `id: forgotten_dragon_city` · build (our blueprint) · region **M** (Milim's Domain)
 
 | | |
@@ -10,11 +16,16 @@
 | Preview (blueprint only) | ![forgotten_dragon_city](../../previews/forgotten_dragon_city-iso.png) |
 | Lore page | [`design/lore/forgotten_dragon_city.md`](../../../design/lore/forgotten_dragon_city.md) |
 
-## Lore (canon)
+## Source context and project interpretation
+
+Own-world placement update (20 November 2026): the authored map now reserves this old settlement at
+**(2650,800), radius 100**. This improves its southeastern reference proportions while keeping all fixed
+rules. The preceding coordinates describe the retired imported map. Exact server placement remains our
+interpretation. At the post-Kijin baseline this is separate from Milim's later planned capital project in former Eurazania. [The directly inspected LN20 opening](../../research/tensura-world-2026-11-19/ln20-licensed-capital-review.md) does not locate that project at the authored `laura` reservation.
 
 Milim's domain on the south-eastern edge of the continent is fertile river plain fed by the Ameld; the Dragon Faithful run the city with no government: head priest Middray and priest Hermes gather what the people produce at the Central Temple and hand it out evenly; the temple is Milim's castle. Wyverns live in the city. Primitive and poor until Tempest develops it.
 
-## What it should look like
+## Existing project build interpretation — not verified canon architecture
 
 Our interpretation: a primitive commune that grew inside the bones of a dead ancient dragon. South to north: an avenue under six bone rib arches with granaries on either side, a plaza with bone fires, the dragon skull (glowing eye sockets, horns) whose mouth is the tunnel into the Central Temple's hall, a five-tier stepped pyramid with a summit pavilion and bonfire, Milim's bone throne on a dais at the back of the hall, pink banners (her colour, our choice), and mud-brick huts with thatch cone roofs, wheat plots, animal pens and a pond. A wyvern roost on the temple's upper tiers is not built yet.
 

@@ -1,0 +1,109 @@
+{
+  "source_sha256": "50c27a6ff1e8d9f39ee9f5571062ef2b7b25ed5a3a16760dcd4ca9e9d334b561",
+  "geometry_source_commit": "9102570",
+  "baseline_painting_commit": "ce511ee",
+  "all_prior_native_child_trees_exact": true,
+  "prior_native_child_count": 19,
+  "appended_native_child_trees": 2,
+  "exact_authored_coast_vertices": true,
+  "new_reference_pixels_embedded": false,
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "normal_staging_rerun": false,
+  "source_adoption_files": [
+    "design/decisions.md",
+    "docs/HANDOFF.md",
+    "docs/research/tensura-world-2026-11-19/geography-facts.csv",
+    "docs/research/tensura-world-2026-11-19/mainland-coverage-audit.csv",
+    "docs/research/tensura-world-2026-11-19/mainland-coverage-audit.md",
+    "docs/research/tensura-world-2026-11-19/source-access.csv",
+    "docs/research/tensura-world-2026-11-19/wiki-location-coverage.csv",
+    "world/README.md",
+    "world/atlas.png",
+    "world/atlas.svg",
+    "world/comparison.md",
+    "world/location-index.md",
+    "world/map.svg",
+    "world/preview.png",
+    "world/region-biomes-western-islets.csv",
+    "world/region-biomes-western-islets.json",
+    "world/region-biomes-western-islets.md",
+    "world/regions.md",
+    "world/western-offshore-islets.json",
+    "world/western-offshore-islets.md",
+    "world/western-offshore-islets.png",
+    "world/western-offshore-islets.svg"
+  ],
+  "source_adoption_companion_exceptions": [
+    "design/decisions.md",
+    "docs/HANDOFF.md",
+    "world/README.md",
+    "world/western-offshore-islets.md"
+  ],
+  "scope": "Actual low islet addition to original illustration;not a full terrain-height or runtime rendering proof.",
+  "changed_continent_pixels": 200,
+  "coastal_changed_pixels": 199,
+  "changed_pixel_bbox": [
+    337,
+    694,
+    506,
+    747
+  ],
+  "coastal_changed_pixel_bbox": [
+    337,
+    707,
+    365,
+    747
+  ],
+  "maximum_coastal_changed_pixel_centre_distance_blocks": 12.725674834758212,
+  "outside_20_block_coast_envelope_identical": false,
+  "outside_20_block_changed_pixels": 1,
+  "outside_20_block_maximum_RGB_difference": 1,
+  "outside_20_block_maximum_1_RGB_tolerance_pass": true,
+  "nonlocal_limit": "One one-unit RGB change at pixel505,694 after SVG recomposition;cause not established. The same exception occurs against a fresh baseline render. All19prior native child trees are exact.",
+  "maximum_RGB_difference": 210,
+  "normal_staging_files_adopted": [
+    "anchors.toml",
+    "biome.png",
+    "canon_map.txt",
+    "exclude.png",
+    "height.png",
+    "index.json",
+    "preview.png",
+    "road.png",
+    "roads.json",
+    "rugged.png",
+    "sites.json",
+    "sites.png",
+    "sites.toml",
+    "water.png"
+  ],
+  "source_adoption_commit": "7b70e71",
+  "browser_layout": {
+    "number_count": 58,
+    "label": {
+      "text": "Western rocks (illustrated)",
+      "x": 144,
+      "y": 1154,
+      "w": 198.4658203125,
+      "h": 19
+    },
+    "overlaps": [],
+    "inventory_caption": "42 missing, partial or unverified physical representations from the 143-entry inventory; source/history reviews remain open."
+  },
+  "source_files_byte_exact": 18,
+  "all58_site_registration_records_exact": true,
+  "all_prior_atlas_layout_retained": true,
+  "normal_staging_file_count": 14,
+  "required_repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.198
+  },
+  "map_checker": {
+    "errors": 0,
+    "relations_passed": 56,
+    "standing_warnings": 2
+  }
+}

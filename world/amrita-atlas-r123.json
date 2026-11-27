@@ -1,0 +1,37 @@
+{
+  "baseline_commit": "501ffd88127620db838115309b7e2f71b00d99b4",
+  "source_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
+  "original_atlas_children_unchanged": 7,
+  "new_groups": [
+    "canon-association-amrita-r123"
+  ],
+  "retained_byte_exact": [
+    "world/map.svg",
+    "world/sites.toml",
+    "world/preview.png"
+  ],
+  "protected_or_build_paths_changed": false,
+  "atlas_pixel_difference_bbox": [
+    1727,
+    995,
+    2168,
+    1122
+  ],
+  "registered_numbers": 58,
+  "context_labels_retained": 20,
+  "new_caption_lines": 3,
+  "inventory_rows": 42,
+  "minimum_number_spacing_px": 31.621008835113628,
+  "browser_overlap": false,
+  "ledger_unique_claims": 328,
+  "C07": "Open: technical nesting/access versus east-of-castle reservation; no active site relocation.",
+  "repository_gate": {
+    "command": "bash tools/check.sh",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 64.023,
+    "validation": "pass",
+    "changed_js": 0
+  }
+}

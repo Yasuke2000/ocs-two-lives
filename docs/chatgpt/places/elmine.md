@@ -1,5 +1,9 @@
 # Elmine (Sarion capital in the Divine Tree)
 
+**Current own-world handoff (R88):** use `world/map.svg`, centre (−1680,1740), r100, margin64, walking first-air 104 in source `355d1a33`. Northern approach; root lake east/southeast. [Current lore](../../../design/lore/elmine.md) and [tree/approach study](../../../world/elmine-tree-study-r88.md) supersede the imported-map placement below. Paulzero's grove and coordinates (1100,2760) are historical. The small 75×60×75 model is not the full tree/capital; the 180° trial is not configured placement.
+
+## Historical imported-world brief
+
 `id: elmine` · build (our blueprint) · region **S** (Sorcerous Dynasty of Sarion)
 
 | | |

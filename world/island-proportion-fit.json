@@ -1,0 +1,109 @@
+{
+  "previous_comment_source_sha256": "016977e5c503277d1f741599c1d4c98b84386cc1fe3f9417ae2b4f18cd895bb3",
+  "comment_only_source_sha256": "9dbec53483073eb05ce8c106dc1713c10b10a4f0c0450689c9248a4f856f863c",
+  "variants": [
+    {
+      "id": "ice-continent",
+      "scale": 1.6453019881364634,
+      "translation_x": -600,
+      "translation_z": -118.52793705227577,
+      "matrix": [
+        1.6453019881364634,
+        0,
+        0,
+        1.6453019881364634,
+        387.312041848789,
+        2256.1833792899097
+      ],
+      "bounds": [
+        -4400.516743628319,
+        -4943.0,
+        -257.399542202484,
+        -3085.4211493541698
+      ],
+      "nearest_mainland_sea": 927.7643038613462,
+      "current_site_checks": [
+        {
+          "id": "frost_palace",
+          "centre_inside": true,
+          "disc_edge_to_coast": 223.51450225447013
+        }
+      ],
+      "selected_existing_relief_checks": [
+        {
+          "id": "ice-spine",
+          "contained": true
+        },
+        {
+          "id": "ice-high-peaks",
+          "contained": true
+        }
+      ]
+    },
+    {
+      "id": "el-dorado-island",
+      "scale": 1.3516402817999293,
+      "translation_x": -600,
+      "translation_z": 202.41945685200608,
+      "matrix": [
+        1.3516402817999293,
+        0,
+        0,
+        1.3516402817999293,
+        912.0532117396963,
+        -852.501388547782
+      ],
+      "bounds": [
+        -6184.731447928408,
+        2188.161261016981,
+        -2940.1215913901024,
+        3919.0
+      ],
+      "nearest_mainland_sea": 961.9126617154982,
+      "current_site_checks": [
+        {
+          "id": "el_dorado",
+          "centre_inside": true,
+          "disc_edge_to_coast": 404.61144263681643
+        },
+        {
+          "id": "el_dorado_volcano",
+          "centre_inside": true,
+          "disc_edge_to_coast": 216.45767277025232
+        }
+      ],
+      "selected_existing_relief_checks": [
+        {
+          "id": "el-dorado-volcano",
+          "contained": true
+        },
+        {
+          "id": "el-dorado-rock-cone",
+          "contained": true
+        }
+      ]
+    }
+  ],
+  "trial_land_bounds": [
+    -6184.731447928408,
+    -4943.0,
+    4730.0,
+    3919.0
+  ],
+  "trial_box": [
+    -7680,
+    -6144,
+    6144,
+    5120
+  ],
+  "trial_box_dimensions": [
+    13824,
+    11264
+  ],
+  "hard_box_limit": [
+    14336,
+    11264
+  ],
+  "fits_hard_box": true,
+  "caveat": "Inactive coast study. Box fit and selected containment do not verify all internal terrain, site kinds, early era or faithful reference-relative bearings."
+}

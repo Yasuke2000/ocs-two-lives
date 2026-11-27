@@ -192,6 +192,8 @@ continent rule, owners and the ring, so none of the ~10 script consumers of `own
 
 ### 3.3 Build sites by construction
 
+**Owner update R109 (21/11/2026):** Yasuke chose “Paleis naar binnenland; kustregistratie laten aanpassen”. Frost Palace now uses the reviewed central snowfield(-1530,-3680),an inland clearing,r89,staged first-air71. This supersedes its historical coast classification in the table below. The existing generator regenerates its kind/r registration;Claude integrates the live anchor/build preparation. WN central-continent evidence remains separate from unread LN agreement. [Current source/fit review](../../world/frost-palace-inland-r109.md).
+
 Every anchor is a **site** in the SVG (`data-site`, `r`), with Claude-owned overrides in `world/sites.toml` (per id:
 `ground`, `fade`, `biome`, `facing`, `min_cover`, `notes`):
 
@@ -315,7 +317,7 @@ terrain asks, audited 19/11), carried by the ChatGPT brief as fixed:
 | Laura | clearing in jungle, orchard rings |
 | Clayman's Castle | clearing in a bowl of `dark_forest`, moat lake polygon |
 | Great Holy Mountain, Dragon's Nest | clearings on mountain polygons (crater rim; shoulder at 272) |
-| El Dorado, Frost Palace, Siltrosso | coast plates |
+| El Dorado, Siltrosso | coast plates; Frost Palace superseded by Yasuke’s R109 inland-clearing decision |
 
 ### 4.2 Landmark templates (Tensura villages) and blueprints
 
@@ -567,6 +569,13 @@ go to `pack/kubejs/assets/ttl/textures/...` as 16 × 16 PNGs; never edit anythin
 
 ## Owner answers (Yasuke, 19/11/2026)
 
+**Superseding owner clarification:** follow anime/wiki geography where the earlier liberties differ.
+Fulbrosia is south of Jura and Ulgracia south of Sarion. The owner separately authorized updating only
+five relation entries in `tools/world/canon_relations.toml`; see [world-map-corrections.md](../lore/world-map-corrections.md).
+Their exact block ranges are server compression, not canonical measurements. The older Q6 directional
+answers below are retained as history and are superseded for these corrected relations.
+
+
 - **Q1 Scale:** smaller, as recommended: ~9,500 × 7,000 mainland in a ~12,288 × 10,240 design box.
 - **Q2 Origin:** Tempest = (0, 0), spawn = the arrival on the north rim. Not asked; the recommended default is adopted.
 - **Q3 Water:** flat reaches with small waterfalls, and lakes filled by a deterministic feature, as recommended.
@@ -575,3 +584,11 @@ go to `pack/kubejs/assets/ttl/textures/...` as 16 × 16 PNGs; never edit anythin
   - Tensura's giant ancient-forest trees generate naturally.
 - **Q5 Roads:** laid by a generator feature on the designed corridor. Not asked; the recommended default is adopted. trade_roads.js stays behind a flag.
 - **Q6 Canon liberties:** lock all five: Blumund joined to Jura by land, the Divine Tree as a designed giant tree, Fulbrosia in the SW mesas, El Dorado as a SW island, Ulgracia south of Blumund. Keep the Lerfing/Paulzero credit line.
+
+## Owner update — Amrita nesting, 23 November 2026
+
+Yasuke chose Amrita beneath Clayman's castle and retirement of the separate eastern reservation. This supersedes that independent eastern target;Amrita remains a named underground place. The old E350–700 relation,independent-site spacing,carve representation,Jistav road destination and public-shaft template require coordinated technical reconciliation by Claude. Exact centre/depth/extent/initial access are not established by this choice. The current four-error marker-only trial remains inactive pending that work. [Approved target and adoption requirements](../../world/amrita-approved.md).
+
+### Owner updates — larger islands and Malukshure (24 November 2026)
+
+Yasuke chose the larger Ice Continent and El Dorado proposal (PR #161),superseding the original smaller dimensions,and the coastal Malukshure proposal (PR #163),including Sainte gameplay H to O. Both are now active in the authoring SVG and normal export. The exact scales,western coordinate,cape and trail are authored;gameplay O is not sovereign membership. No owner geography choice remains pending. [Adoption and technical limits](../../world/approved-islands-coast.md). Amrita beneath-castle migration and legacy registration still require Claude.

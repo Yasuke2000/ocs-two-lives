@@ -1,0 +1,586 @@
+{
+  "source_display_sha256": "b48666e9a6785a5900bb694525c38487fea2c9ade1171df62d843589c671c661",
+  "normal_source_sha256": "a9b6b9708d90705e05fac52714e8caef943241a95dded621223b3805cb44b7cb",
+  "centre": [
+    -776,
+    2836
+  ],
+  "radius_retained": 60,
+  "envelope_native_coast_clearance": 48.26291004731583,
+  "courts": [
+    {
+      "id": "upper_trade_court",
+      "name": "Upper trade court",
+      "centre": [
+        -800,
+        2844
+      ],
+      "dimensions": [
+        28,
+        24
+      ],
+      "rotation_degrees": 0,
+      "planned_first_air": 112,
+      "polygon": [
+        [
+          -814.0,
+          2832.0
+        ],
+        [
+          -786.0,
+          2832.0
+        ],
+        [
+          -786.0,
+          2856.0
+        ],
+        [
+          -814.0,
+          2856.0
+        ]
+      ],
+      "sampled_existing_range": [
+        111.3125,
+        111.8125
+      ],
+      "sampled_max_cut": 0,
+      "sampled_max_fill": 0.6875
+    },
+    {
+      "id": "middle_terrace",
+      "name": "Middle terrace",
+      "centre": [
+        -732,
+        2848
+      ],
+      "dimensions": [
+        20,
+        12
+      ],
+      "rotation_degrees": 75,
+      "planned_first_air": 108,
+      "polygon": [
+        [
+          -728.7926354932907,
+          2836.7878274664945
+        ],
+        [
+          -723.6162545912404,
+          2856.1063439922755
+        ],
+        [
+          -735.2073645067093,
+          2859.2121725335055
+        ],
+        [
+          -740.3837454087596,
+          2839.8936560077245
+        ]
+      ],
+      "sampled_existing_range": [
+        104.29422343591293,
+        110.1346716074734
+      ],
+      "sampled_max_cut": 2.1346716074733934,
+      "sampled_max_fill": 3.705776564087074
+    },
+    {
+      "id": "lower_court",
+      "name": "Lower court",
+      "centre": [
+        -740,
+        2814
+      ],
+      "dimensions": [
+        20,
+        12
+      ],
+      "rotation_degrees": 60,
+      "planned_first_air": 104,
+      "polygon": [
+        [
+          -739.8038475772934,
+          2802.3397459621556
+        ],
+        [
+          -729.8038475772934,
+          2819.6602540378444
+        ],
+        [
+          -740.1961524227066,
+          2825.6602540378444
+        ],
+        [
+          -750.1961524227066,
+          2808.3397459621556
+        ]
+      ],
+      "sampled_existing_range": [
+        98.94483213111405,
+        108.18449408023935
+      ],
+      "sampled_max_cut": 4.184494080239347,
+      "sampled_max_fill": 5.055167868885945
+    }
+  ],
+  "walking_links": [
+    {
+      "name": "Northern approach",
+      "points": [
+        [
+          -992,
+          2720,
+          112.4375
+        ],
+        [
+          -988,
+          2724,
+          112.4375
+        ],
+        [
+          -984,
+          2728,
+          112.46875
+        ],
+        [
+          -980,
+          2732,
+          112.4375
+        ],
+        [
+          -976,
+          2732,
+          112.453125
+        ],
+        [
+          -972,
+          2732,
+          112.484375
+        ],
+        [
+          -968,
+          2732,
+          112.5
+        ],
+        [
+          -964,
+          2732,
+          112.5
+        ],
+        [
+          -960,
+          2732,
+          112.5
+        ],
+        [
+          -956,
+          2732,
+          112.5
+        ],
+        [
+          -952,
+          2732,
+          112.484375
+        ],
+        [
+          -948,
+          2732,
+          112.4375
+        ],
+        [
+          -944,
+          2732,
+          112.390625
+        ],
+        [
+          -940,
+          2732,
+          112.34375
+        ],
+        [
+          -936,
+          2732,
+          112.28125
+        ],
+        [
+          -932,
+          2732,
+          112.203125
+        ],
+        [
+          -928,
+          2732,
+          112.125
+        ],
+        [
+          -924,
+          2732,
+          112.03125
+        ],
+        [
+          -920,
+          2732,
+          111.9375
+        ],
+        [
+          -916,
+          2736,
+          111.796875
+        ],
+        [
+          -912,
+          2736,
+          111.703125
+        ],
+        [
+          -908,
+          2736,
+          111.609375
+        ],
+        [
+          -904,
+          2736,
+          111.53125
+        ],
+        [
+          -900,
+          2736,
+          111.453125
+        ],
+        [
+          -896,
+          2736,
+          111.375
+        ],
+        [
+          -892,
+          2740,
+          111.28125
+        ],
+        [
+          -888,
+          2744,
+          111.21875
+        ],
+        [
+          -884,
+          2748,
+          111.15625
+        ],
+        [
+          -880,
+          2752,
+          111.125
+        ],
+        [
+          -876,
+          2756,
+          111.09375
+        ],
+        [
+          -872,
+          2760,
+          111.0625
+        ],
+        [
+          -868,
+          2764,
+          111.0625
+        ],
+        [
+          -864,
+          2768,
+          111.0625
+        ],
+        [
+          -860,
+          2772,
+          111.0625
+        ],
+        [
+          -856,
+          2776,
+          111.0625
+        ],
+        [
+          -852,
+          2780,
+          111.0625
+        ],
+        [
+          -848,
+          2784,
+          111.109375
+        ],
+        [
+          -844,
+          2788,
+          111.125
+        ],
+        [
+          -840,
+          2792,
+          111.125
+        ],
+        [
+          -840,
+          2796,
+          111.15625
+        ],
+        [
+          -836,
+          2800,
+          111.21875
+        ],
+        [
+          -836,
+          2804,
+          111.25
+        ],
+        [
+          -836,
+          2808,
+          111.28125
+        ],
+        [
+          -832,
+          2812,
+          111.34375
+        ],
+        [
+          -828,
+          2816,
+          111.40625
+        ],
+        [
+          -824,
+          2820,
+          111.46875
+        ],
+        [
+          -820,
+          2824,
+          111.484375
+        ],
+        [
+          -816,
+          2828,
+          111.515625
+        ],
+        [
+          -812,
+          2832,
+          112
+        ],
+        [
+          -808,
+          2836,
+          112
+        ],
+        [
+          -804,
+          2840,
+          112
+        ],
+        [
+          -800,
+          2844,
+          112
+        ]
+      ],
+      "length": 250.39191898578645,
+      "max_planned_grade": 0.08562621178430849,
+      "sampled_max_cut": 0.0234375,
+      "sampled_max_fill": 0.5
+    },
+    {
+      "name": "Upper to middle",
+      "points": [
+        [
+          -800,
+          2844,
+          112
+        ],
+        [
+          -796,
+          2844,
+          112
+        ],
+        [
+          -792,
+          2844,
+          112
+        ],
+        [
+          -788,
+          2844,
+          112
+        ],
+        [
+          -784,
+          2844,
+          111.34375
+        ],
+        [
+          -780,
+          2844,
+          111.3125
+        ],
+        [
+          -776,
+          2844,
+          111.28125
+        ],
+        [
+          -772,
+          2844,
+          111.25
+        ],
+        [
+          -768,
+          2844,
+          111.25
+        ],
+        [
+          -764,
+          2844,
+          111.25
+        ],
+        [
+          -760,
+          2844,
+          111.25
+        ],
+        [
+          -756,
+          2844,
+          111.25
+        ],
+        [
+          -752,
+          2844,
+          111.25
+        ],
+        [
+          -748,
+          2844,
+          111.25
+        ],
+        [
+          -744,
+          2844,
+          110.9375
+        ],
+        [
+          -740,
+          2844,
+          110.015625
+        ],
+        [
+          -736,
+          2848,
+          108
+        ],
+        [
+          -732,
+          2848,
+          108
+        ]
+      ],
+      "length": 69.65685424949238,
+      "max_planned_grade": 0.3563155264572837,
+      "sampled_max_cut": 1.34375,
+      "sampled_max_fill": 0.625
+    },
+    {
+      "name": "Middle to lower",
+      "points": [
+        [
+          -732,
+          2848,
+          108
+        ],
+        [
+          -732,
+          2844,
+          108
+        ],
+        [
+          -736,
+          2840,
+          108
+        ],
+        [
+          -736,
+          2836,
+          107.390625
+        ],
+        [
+          -736,
+          2832,
+          106.484375
+        ],
+        [
+          -736,
+          2828,
+          105.546875
+        ],
+        [
+          -736,
+          2824,
+          104.5
+        ],
+        [
+          -740,
+          2820,
+          104
+        ],
+        [
+          -740,
+          2816,
+          104
+        ]
+      ],
+      "length": 35.31370849898476,
+      "max_planned_grade": 0.26171875,
+      "sampled_max_cut": 2.078125,
+      "sampled_max_fill": 0.375
+    }
+  ],
+  "walk_half_width_study": 2,
+  "walk_coast_clearance_study": 48,
+  "existing_site_buffer_study": "radius + max(48,site margin) + walk half-width2 + additional planning spare4",
+  "planned_grade_limit": 0.5,
+  "sample_scope": "Bilinear interpolation of existing4-block first-air raster;court samples2-block grid;link profile5samples per segment. These are planned surfaces,not current exported road or runtime geometry.",
+  "source_coordinates_authored_not_canon": true,
+  "registered_site_added": false,
+  "terrain_modified_or_converted": false,
+  "inventory_status_closed": false,
+  "whole_city_or_architecture_accepted": false,
+  "disc_raster_centres": {
+    "count": 716,
+    "dry": 716,
+    "height_range": [
+      88.6875,
+      112.125
+    ]
+  },
+  "court_area_blocks2": 1152,
+  "existing_road_to_plaza_connected": true,
+  "continuous_segments_against_flattened_native_geometry": {
+    "walk_edge_minimum_coast_clearance": 60.73680505663507,
+    "walk_edge_minimum_spare_existing_site_buffer": 5.0,
+    "scope": "Exact segments versus checker-flattened coast and circular site buffers;not continuous cubic curves or final-noise acceptance."
+  },
+  "fractional_profile_limit": "Court levels112/108/104are whole blocks;intermediate geometric profiles still need blockwise stair design.",
+  "normal_index_sha256": "44ba520e87a708fc0880cb611df6f114e32c844a0c272015fb3188fab3d67f47",
+  "source_commit_before_study": "2b8b6f88f760458b2ee0143a0768571c49096ce2",
+  "required_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 65.738
+  },
+  "final_figure_visually_inspected": true,
+  "all14_existing_normal_hashes_retained": true
+}

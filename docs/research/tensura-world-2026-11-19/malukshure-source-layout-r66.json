@@ -1,0 +1,100 @@
+{
+  "round": 66,
+  "source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+  "production_unchanged": true,
+  "ledger_unique": 259,
+  "thematic_design_reference_records": 201,
+  "coordinate_interpretations": 58,
+  "direct_printed_LN_claims": 14,
+  "author_side_story_claims": 6,
+  "inventory": 132,
+  "physical_followups": 41,
+  "new_claim_ids": [
+    "AUTH-VAC-004",
+    "AUTH-VAC-005",
+    "AUTH-VAC-006"
+  ],
+  "selected_contexts": {
+    "02": [
+      "L25-L37",
+      "L81"
+    ],
+    "05": [
+      "L36-L40"
+    ],
+    "07": [
+      "L295-L301",
+      "L311-L316"
+    ]
+  },
+  "diagram_kind": "Topological source/design-interface diagram;not geographical geometry or a blueprint.",
+  "no_tower_founding_date_verified": true,
+  "in_game_run": false,
+  "main_merged": false,
+  "private_source_caches": [
+    {
+      "chapter": "chapter03",
+      "bytes": 78822,
+      "sha256": "0da2ad9c284c62d2b250b6bf87d60d6ec6132d5e7c588ab9c371f1763bfe78cc",
+      "review": "Cached for bounded keyword navigation;only selected contexts listed above support new claims."
+    },
+    {
+      "chapter": "chapter04",
+      "bytes": 83344,
+      "sha256": "15b5bb141f906e8132a5aceabca078683106db26a5b808b5520b125ecc7f344b",
+      "review": "Cached for bounded keyword navigation;only selected contexts listed above support new claims."
+    },
+    {
+      "chapter": "chapter05",
+      "bytes": 71709,
+      "sha256": "09e1cbb460e460bed2faa9f144440b38459f8420947a8fecbec76a16fd695c63",
+      "review": "Cached for bounded keyword navigation;only selected contexts listed above support new claims."
+    },
+    {
+      "chapter": "chapter06",
+      "bytes": 79116,
+      "sha256": "0e2b359639f054b8705cc686f4d42656e43145ba3b3224b611ac19ff2593eeca",
+      "review": "Cached for bounded keyword navigation;only selected contexts listed above support new claims."
+    },
+    {
+      "chapter": "chapter07",
+      "bytes": 84802,
+      "sha256": "19017c5b0989c27c6dfd60b3548eefccb1f257a2c32e258a2ccc8014d34fb297",
+      "review": "Cached for bounded keyword navigation;only selected contexts listed above support new claims."
+    },
+    {
+      "chapter": "chapter08",
+      "bytes": 75152,
+      "sha256": "8dff765708cfb17d94d52e8f9aebc7cf8de5963709e41d6e72bfd66f61b8900e",
+      "review": "Cached for bounded keyword navigation;only selected contexts listed above support new claims."
+    },
+    {
+      "chapter": "chapter09",
+      "bytes": 88337,
+      "sha256": "63973f2c2a3115a6dc6a2968b7bcc28869db3429e171ac07ff904bb8a0c3c6d2",
+      "review": "Cached for bounded keyword navigation;only selected contexts listed above support new claims."
+    },
+    {
+      "chapter": "chapter10",
+      "bytes": 121322,
+      "sha256": "c9eb2dcd9d32af54029549db593fa7790dfa64b42ca7d2e184811bf7dce4dd4c",
+      "review": "Cached for bounded keyword navigation;only selected contexts listed above support new claims."
+    }
+  ],
+  "repository_gate": {
+    "validation_passed": true,
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.274,
+    "changed_JS_files": 0
+  },
+  "retained_source_artifacts": [
+    "world/map.svg",
+    "world/preview.png",
+    "world/terrain-preview.png",
+    "world/atlas.svg",
+    "world/atlas.png"
+  ],
+  "visual_review": "Diagram inspected after moving two annotations clear of borders and approach arrow;schematic only."
+}

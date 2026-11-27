@@ -1,0 +1,92 @@
+{
+  "base_art_commit": "840c26f",
+  "main_map_reservation_cross_check_commit": "052f262",
+  "current_main_terrain_geometry_commit": "efa2cc8",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10; exact earlier architectural states unverified.",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "elmine",
+      "file": "elmine.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2897385,
+      "sha256": "26cd73aec643f1e97ae1bb2eebc191468bb5bdaa779e60bfac1d0af4f4bf4193",
+      "generated_original_basename": "exec-e0d480ca-0f57-4c4f-b81a-d41edd26ec5a.png",
+      "generated_original_sha256": "a9e7f19fefe307ea68d85bf831879d8d0a97ec256002af52074c310dcc5f19b3",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-1680",
+        "cy": "1740",
+        "r": "100.0",
+        "data-site": "clearing",
+        "data-margin": "64"
+      }
+    },
+    {
+      "id": "jia",
+      "file": "jia.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2699820,
+      "sha256": "00832280dece56006497aa79e7194fb21feefb7f2a0cb120cbf6444c22f0712d",
+      "generated_original_basename": "exec-3b9344f9-9463-4f6a-9f64-2139f42d9c57.png",
+      "generated_original_sha256": "8546abfd4435e8f23c3a510f2d883353cf75253625120b3952f337a2c9ec1f2a",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "200",
+        "cy": "2450",
+        "r": "68.0",
+        "data-site": "plateau",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "laura",
+      "file": "laura.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2965513,
+      "sha256": "8939b4ba79c1670ad41cd491cb9688f85321bb06c00a1abc474d6d83bcad45de",
+      "generated_original_basename": "exec-a748895a-c007-4e7f-8b59-c977cea27aac.png",
+      "generated_original_sha256": "26900d95a4727b364271742b629b852e1db012eca9ed96bf7717131b26c08a03",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "1500",
+        "cy": "1600",
+        "r": "100.0",
+        "data-site": "clearing",
+        "data-margin": "64"
+      }
+    },
+    {
+      "id": "nasca",
+      "file": "nasca.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2553174,
+      "sha256": "1dafc87a05b7a2b39b112598f775cc67c34e0973cfe280c00156d5d152e64a6a",
+      "generated_original_basename": "exec-0f4cd156-6ccb-4112-b2c5-88eb7be04cd5.png",
+      "generated_original_sha256": "01eea166ecc96e5864c68a25c02b3db74f863c3fdc3657a65dc018508532bf9b",
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "3200",
+        "cy": "-1800",
+        "r": "90.0",
+        "data-site": "plateau",
+        "data-margin": "48"
+      }
+    }
+  ],
+  "limits": "Representative architectural concepts, no new geographical evidence, surveyed plans or runtime acceptance. Secondary episode/timestamps remain unverified; Nasca architecture is explicit server interpretation."
+}

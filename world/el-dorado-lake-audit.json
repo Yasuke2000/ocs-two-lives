@@ -1,0 +1,145 @@
+{
+  "round": 80,
+  "source_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "baseline_source_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
+  "lake_bounds": [
+    -3651.0,
+    3054.0,
+    -3377.0,
+    3192.0
+  ],
+  "lake_area": 26764.5,
+  "lake_vertices": 26,
+  "authored_water_first_air": 68,
+  "authored_depth": 5,
+  "minimum_coast_clearance": 157.31832849750327,
+  "nearest_road_centreline": 263.4331034627197,
+  "nearest_site_edge": 256.7659343646761,
+  "all_previous_parsed_shapes_unchanged": true,
+  "raster_deltas": {
+    "height.png": {
+      "changed_cells": 2123,
+      "world_centres_bounds": [
+        -3658,
+        3050,
+        -3370,
+        3198
+      ],
+      "max_distance_from_lake": 14.084056792618556,
+      "centres_outside_el_dorado": 0,
+      "encoded_delta_range": [
+        -111.0,
+        118.0
+      ],
+      "delta_blocks": [
+        -6.9375,
+        7.375
+      ]
+    },
+    "rugged.png": {
+      "changed_cells": 2045,
+      "world_centres_bounds": [
+        -3658,
+        3050,
+        -3374,
+        3198
+      ],
+      "max_distance_from_lake": 8.94427190999916,
+      "centres_outside_el_dorado": 0,
+      "encoded_delta_range": [
+        -51.0,
+        -3.0
+      ]
+    },
+    "water.png": {
+      "changed_cells": 1668,
+      "world_centres_bounds": [
+        -3650,
+        3058,
+        -3382,
+        3190
+      ],
+      "max_distance_from_lake": 0.0,
+      "centres_outside_el_dorado": 0,
+      "encoded_delta_range": [
+        132.0,
+        132.0
+      ]
+    },
+    "biome.png": {
+      "changed_cells": 1668,
+      "world_centres_bounds": [
+        -3650,
+        3058,
+        -3382,
+        3190
+      ],
+      "max_distance_from_lake": 0.0,
+      "centres_outside_el_dorado": 0,
+      "encoded_delta_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "sites.png": {
+      "changed_cells": 0,
+      "encoded_delta_range": null
+    },
+    "road.png": {
+      "changed_cells": 0,
+      "encoded_delta_range": null
+    },
+    "exclude.png": {
+      "changed_cells": 0,
+      "encoded_delta_range": null
+    }
+  },
+  "byte_identical_exports": [
+    "sites.json",
+    "sites.toml",
+    "anchors.toml",
+    "roads.json",
+    "sites.png",
+    "road.png",
+    "exclude.png"
+  ],
+  "strictly_interior_water_centres": 1665,
+  "wet_centres_strictly_in_polygon": 1665,
+  "total_new_wet_cells": 1668,
+  "dry_four_neighbour_rim_first_air_range": [
+    70.0,
+    70.0
+  ],
+  "site_count": 58,
+  "painting_status": "R78 painting predates this lake;explicit integration remains required.",
+  "runtime_acceptance": false,
+  "normal_build_seconds": 65.6,
+  "normal_converter_warnings": 0,
+  "official_reference": {
+    "url": "https://www.ten-sura.com/4GfGdAp7/wp-content/themes/tensura_portal/assets/images/portal-map/world/intro/map-base.webp",
+    "sha256": "d306892d8ca705742628ec75c2163082ab40da1ef4b1e691903a5926bc4a3f7a",
+    "review": "Cached original viewed beside current source preview;unlabelled water cue,not a surveyed plan."
+  },
+  "ledger_unique": 280,
+  "inventory_records": 134,
+  "physical_followups": 41,
+  "all133_prior_inventory_rows_retained": true,
+  "atlas_embeds_exact_current_preview": true,
+  "atlas_non_image_elements_unchanged_except_inventory_caption": true,
+  "new_wet_bed_first_air_range": [
+    63.0,
+    66.6875
+  ],
+  "nominal_water_depth_from_encoded_height_range": [
+    1.3125,
+    5.0
+  ],
+  "repository_gate": {
+    "result": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 62.581
+  },
+  "visual_review": "Official introductory image,final checker preview,original before/after study and current terrain atlas directly viewed. Existing geography retained;unidentified eastern lake added as a qualified visual interpretation."
+}

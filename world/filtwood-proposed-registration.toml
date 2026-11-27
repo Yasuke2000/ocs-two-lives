@@ -1,0 +1,15 @@
+# Review-only proposed registration generated with unmodified build.update_anchors/anchor_coords.
+# Requires owner adoption of the U-to-J gameplay binding;not a live application.
+# Candidate source b0cee788780dcaadce33b5bf473f5ebc319323e3ceb5c5d005ab97f06489388f
+[filtwood]
+name = "Filtwood"
+x = -1050
+z = 600
+y = 74
+region = "J"
+kind = "pin"
+surface = "land"
+canon = "Filtwood"
+old_x = -1062
+old_z = 616
+

@@ -1,0 +1,138 @@
+{
+  "date": "2026-11-23",
+  "active_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+  "candidate_sha256": "57a763feae36fd7bd2317d7712107184fbccf54a2e80812b16a2de635e43e478",
+  "candidate_errors": [
+    {
+      "rule": "site",
+      "message": "carve site amrita at (3300, -600) is not inside a mountain or hill polygon"
+    },
+    {
+      "rule": "site",
+      "message": "sites clayman_castle and amrita are 0 blocks apart: edge gap -153 = distance - (r1_eff 90 + r2_eff 63) is below the larger data-margin 48"
+    },
+    {
+      "rule": "road",
+      "message": "roads <polyline> #18 (jistav_border_road): its end (3740, -500) is 361 blocks from the nearest site (max 32 from a site's disc)"
+    },
+    {
+      "rule": "canon",
+      "message": "amrita is E of clayman_castle, 350..700 blocks: distance 0 is outside 350..700; bearing 180 deg (S) is not within 45 deg of E (source design/lore/world.md)"
+    }
+  ],
+  "candidate_warnings": [
+    {
+      "rule": "water",
+      "message": "rivers <polyline> #8 (laura-mountain-falls) crosses the mountain mountains <polygon> #13 (laura-waterfall-escarpment)"
+    },
+    {
+      "rule": "size",
+      "message": "the design box is 12800 x 10752, above the target 12288 x 10240 (cap 14336 x 11264)"
+    }
+  ],
+  "candidate_conversion_run": false,
+  "production_changed": false,
+  "owner_choice_pending": false,
+  "unchanged_map_art": {
+    "world/map.svg": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+    "world/preview.png": "36f596611e53d49eabd8dac555319efee9efc85d800a31dd61d51b0f97b957d2",
+    "world/atlas.png": "9f9d92931983cbcc64cccd7ece988a6a0130fa140afeb0415b0fc69cfb0155ea",
+    "world/painting-round112/continent.png": "5388c03dbd80299888d6ef6bbc79bb355aede6b7cfe144868d9b0681d9e616c7",
+    "world/painting-round112/atlas.png": "02dd0629657ead33ac5db3524ea746e43952e0afe327e08039c59bdf833e4af2",
+    "docs/art/places/amrita.png": "694c22e1817a11fbb41936c4488db300eba70e3f1f0489a6255de73a86cf4280"
+  },
+  "unchanged_normal_outputs": {
+    "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
+    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+    "exclude.png": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
+    "height.png": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+    "index.json": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
+    "preview.png": "8c9cd937110cec246ab6ad1fb2231170b02e003589ba853936bd71eb89309362",
+    "road.png": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
+    "roads.json": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
+    "rugged.png": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
+    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+    "sites.toml": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
+    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+  },
+  "blueprint_unchanged_sha256": "729066ffc5b10e0dac4297c4097004605e2c16eda5b928a1a56b518cf6980102",
+  "private_source_review": "Official no86 header/synopsis directly reread;no new still reading or LN access.",
+  "facts": {
+    "count": 360,
+    "added_id": "DES-AMR-NEST-001"
+  },
+  "native_element_changes": [
+    {
+      "id": "site-amrita",
+      "tag": "circle",
+      "before": {
+        "data-id": "amrita",
+        "data-site": "carve",
+        "data-margin": "48",
+        "cx": "3800",
+        "cy": "-500",
+        "r": "63.0",
+        "id": "site-amrita",
+        "fill": "#9f3531",
+        "fill-opacity": ".8",
+        "stroke": "#f7ead2",
+        "stroke-width": "5"
+      },
+      "after": {
+        "data-id": "amrita",
+        "data-site": "carve",
+        "data-margin": "48",
+        "cx": "3300",
+        "cy": "-600",
+        "r": "63.0",
+        "id": "site-amrita",
+        "fill": "#9f3531",
+        "fill-opacity": ".8",
+        "stroke": "#f7ead2",
+        "stroke-width": "5"
+      },
+      "text_changed": false
+    },
+    {
+      "id": null,
+      "tag": "text",
+      "before": {
+        "x": "3883.0",
+        "y": "-488.0",
+        "font-size": "40",
+        "fill": "#243439"
+      },
+      "after": {
+        "x": "3420.0",
+        "y": "-470.0",
+        "font-size": "40",
+        "fill": "#243439"
+      },
+      "text_changed": true
+    }
+  ],
+  "local_links_checked": 24,
+  "prior_359_claim_ids_classes_retained": true,
+  "original_comparison_visually_inspected": true,
+  "active_default_checker": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2
+  },
+  "repository_gate": {
+    "tests": 494,
+    "seconds": 66.575,
+    "failures": 2,
+    "skipped": 26,
+    "validation_passed": false,
+    "passed": false,
+    "changed_js_files": 0,
+    "scope": "Same legacy Filtwood U/J failures; candidate four-error report is a separate result."
+  },
+  "protected_paths_edited": false,
+  "no_candidate_conversion": true,
+  "owner_decision_reference": "amrita-approved.md",
+  "technical_adoption_pending": true
+}

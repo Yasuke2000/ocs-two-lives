@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-23",
+  "source_sha256": "9526890d27a6896b5a5e08d9269629bb0a8e5db5aa09882dabbebd90173be3f4",
+  "normal_artifacts_checked": 14,
+  "registered_sites_checked": 58,
+  "roads": 23,
+  "regional_headings_retained": 22,
+  "biome_mix_paragraphs_retained": 22,
+  "curated_reference_paragraphs_retained": 22,
+  "all_current_site_reservations_and_levels_match_manifest": true,
+  "outer_painting_source_metadata_matches": true,
+  "biome_png_matches_historical_census": true,
+  "facts_unique": 355,
+  "geometry_art_and_protected_paths_changed": false,
+  "repository_gate_passed": false,
+  "full_goal_complete": false,
+  "repository_gate": {
+    "passed": false,
+    "tests": 472,
+    "skipped": 26,
+    "failures": 2,
+    "seconds": 67.426,
+    "validation_failed": true,
+    "reason": "Inherited Filtwood legacy U versus owner-approved J;both failures match the preceding source branch."
+  },
+  "current_main_consolidation": {
+    "audit": "consolidation-audit.json",
+    "checks": {
+      "standard_map_checker_errors": 0,
+      "relations_checked": 56,
+      "standing_warnings": 2,
+      "repository_gate_passed": false,
+      "repository_tests": 494,
+      "skipped": 26,
+      "failures": 2,
+      "seconds": 67.106,
+      "upstream_javascript_files_syntax_checked": 17,
+      "failed_tests": [
+        "test_every_anchor_on_its_ground_and_in_its_region[filtwood]",
+        "test_gen_data_check_covers_the_env_file"
+      ],
+      "validation": "Retained legacy Filtwood(-900,700) reads U in old canon_map.txt;approved source region is J."
+    }
+  }
+}

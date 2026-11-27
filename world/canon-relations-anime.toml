@@ -1,0 +1,637 @@
+# Historical proposal adopted into the default matrix by explicit owner permission, 19/11/2026.
+# Authoritative rules: tools/world/canon_relations.toml. This snapshot now has identical data.
+# Canon relations of the new Tensura world map (checked by tools/world/map_check.py against the sites of world/map.svg).
+# Design: design/architecture/own-world.md section 2.4 (canon geography) and 6.1 rule 6.
+#
+# [[relation]]: "a is <dir> of b, min..max blocks apart" (centre of the site to centre of the site).
+#   a, b     anchor ids of design/data/anchors.toml
+#   dir      N NNE NE ENE E ESE SE SSE S SSW SW WSW W WNW NW NNW: the compass bearing from b to a (north is up, smaller y).
+#            near / any: only the distance is checked
+#   tol      allowed deviation of the bearing in degrees; default 45 for N/E/S/W, 35 for NE/SE/SW/NW, 25 for the 16-wind names
+#   bearing  [lo, hi] compass degrees instead of dir + tol (wraps through 0, so [330, 30] is north)
+#   min,max  block distance range (min defaults to 0, max to no limit)
+#   source   the lore file under design/lore/ that supports the relation (tests/test_map_check.py checks it exists)
+#   note     what the lore says, in a line
+# [[site_rule]]: id + source, and any of x_min x_max y_min y_max (centre), inside = "mountains" | "mountains_or_hills" |
+#   "forests" (+ forest_types = [...]), near_road = <blocks> (+ road_kind = "main"), lake_width_min = <blocks>.
+# [[gap]]: the sea between the landmasses of sites a and b is min..max blocks wide (landmass = coast polygon).
+#
+# Only relations the lore supports are listed: directions and neighbours come from design/lore/*.md (mostly world.md) and
+# its pack copy docs/chatgpt/world.md. Pack inventions (the wayfarers' camp, the Outcast, the rookie camp, the old well, the
+# road camps, Hinata's ambush spot, the pins Filtwood/Ghastone/Rostia/Sainte Malukshure, Yggdonia) have no relation: the map
+# is free to put them anywhere in their region.
+#
+# Distances follow the new scale (design/architecture/own-world.md 2.3: Tempest->Dwargon about 1,400, Blumund 1,900, Lake
+# Siss 1,100, Laura 2,200, Nasca 3,300, Heaven Tower 4,200; mainland about 9,500 x 7,000). The six ranges the design fixes
+# are used as given; every other range runs from about 0.65 to 1.4 times the reference distance of the starter template
+# (the old Lerfing map times about 0.75, lore: design/lore/world.md "Distances from the Tempest arrival point").
+
+[[relation]]
+a = "dwargon"
+dir = "N"
+b = "tempest"
+tol = 30
+min = 1200
+max = 1600
+source = "design/lore/world.md"
+note = "The Canaat Mountains and Dwargon rise directly north of Jura; the gate is about 1,400 blocks north of Tempest (design: 1,200..1,600)."
+
+[[relation]]
+a = "arrival"
+dir = "N"
+b = "tempest"
+min = 900
+max = 1100
+source = "design/lore/world.md"
+note = "The Life 2 arrival is on Jura's rim 1,000 blocks north of Tempest, on the way to Dwargon (design: 900..1,100)."
+
+[[relation]]
+a = "sealed_cave"
+dir = "NW"
+b = "tempest"
+min = 350
+max = 600
+source = "design/lore/sealed_cave.md"
+note = "Veldora's cave lies north-west of Tempest in the forest (design: 350..600)."
+
+[[relation]]
+a = "goblin_village"
+dir = "NW"
+b = "tempest"
+tol = 40
+min = 300
+max = 650
+source = "design/lore/world.md"
+note = "Rigurd's old village, north-west of Tempest in the dark band."
+
+[[relation]]
+a = "goblin_village"
+dir = "any"
+b = "sealed_cave"
+min = 150
+max = 500
+source = "design/lore/world.md"
+note = "The old goblin village stands between the lake and the cave: close to the Sealed Cave."
+
+[[relation]]
+a = "spirit_gate"
+dir = "SSW"
+b = "tempest"
+tol = 40
+min = 250
+max = 550
+source = "design/lore/spirit_domain.md"
+note = "Ramiris' doorway, south-south-west of Tempest by the lake shore."
+
+[[relation]]
+a = "treyni_grove"
+dir = "any"
+b = "tempest"
+bearing = [100, 170]
+min = 500
+max = 800
+source = "design/lore/treyni_shrine.md"
+note = "Treyni's grove lies south-east of Tempest, 500..800 blocks away at bearing 100..170 (design section 6.1)."
+
+[[relation]]
+a = "treyni_shrine"
+dir = "any"
+b = "tempest"
+bearing = [100, 170]
+min = 500
+max = 800
+source = "design/lore/treyni_shrine.md"
+note = "The shrine stands beside the grove's tree, in the same stretch of old wood (design section 6.1)."
+
+[[relation]]
+a = "treyni_shrine"
+dir = "E"
+b = "treyni_grove"
+min = 150
+max = 500
+source = "design/lore/treyni_shrine.md"
+note = "The shrine stands just east of the grove's tree."
+
+[[relation]]
+a = "ogre_village_ruin"
+dir = "SE"
+b = "tempest"
+min = 400
+max = 900
+source = "design/lore/world-map-corrections.md"
+note = "The supplied wiki places the ogre village at the Khusha foothills; the pinned reference marker is southeast of Rimuru City, not northeast."
+
+[[relation]]
+a = "dwarf_village"
+dir = "N"
+b = "tempest"
+min = 800
+max = 1750
+source = "design/lore/world.md"
+note = "The dwarf village stands on the apron foot beside the road from Tempest to Dwargon."
+
+[[relation]]
+a = "dwarf_village"
+dir = "S"
+b = "dwargon"
+tol = 50
+min = 300
+max = 700
+source = "design/lore/world.md"
+note = "The dwarf village is on the road to Dwargon, on the foot of the Canaat apron south of the gate."
+
+[[relation]]
+a = "dwarven_arena"
+dir = "any"
+b = "dwarf_village"
+min = 60
+max = 700
+source = "design/lore/dwarven_arena.md"
+note = "The arena stands beside the dwarf village on the Dwarven Road (anchors.toml: 102 blocks from its centre, inside its apron)."
+
+[[relation]]
+a = "dragons_nest"
+dir = "N"
+b = "dwargon"
+min = 350
+max = 800
+source = "design/lore/world.md"
+note = "The Dragon's Nest is on the highest peak of the Canaat; Dwargon's gate is on the south flank of the same massif."
+
+[[relation]]
+a = "dwargo"
+dir = "N"
+b = "dwargon"
+min = 100
+max = 400
+source = "design/lore/dwargon.md"
+note = "The cavern city lies inside the mountain behind the gate, so north of it."
+
+[[relation]]
+a = "dwargon_throne"
+dir = "any"
+b = "dwargon"
+min = 100
+max = 500
+source = "design/lore/dwargon.md"
+note = "Gazel's throne room is at the top of the cavern city behind the gate."
+
+[[relation]]
+a = "kaijin_smithy"
+dir = "any"
+b = "dwargon"
+min = 60
+max = 500
+source = "design/lore/dwargon.md"
+note = "Kaijin's smithy is on the forge street inside the cavern city (anchors.toml: 85 blocks from the gate, behind it)."
+
+[[relation]]
+a = "ameld_source"
+dir = "any"
+b = "dwargon"
+min = 200
+max = 1600
+source = "design/lore/world.md"
+note = "The Great Ameld rises at the apron foot of the Canaat, near the Dwargon gate."
+
+[[relation]]
+a = "lake_siss"
+dir = "E"
+b = "tempest"
+min = 900
+max = 1300
+source = "design/lore/world.md"
+note = "Lake Siss lies east of Jura, about 1,100 blocks east of Tempest (design: 900..1,300)."
+
+[[relation]]
+a = "lizardmen_village"
+dir = "S"
+b = "lake_siss"
+min = 150
+max = 900
+source = "design/lore/world.md"
+note = "The lizardmen's stilt village is on the south shore of Lake Siss."
+
+[[relation]]
+a = "lizardmen_caverns"
+dir = "S"
+b = "lake_siss"
+min = 150
+max = 1000
+source = "design/lore/world.md"
+note = "The lizardmen's caverns are on the south shore of Lake Siss."
+
+[[relation]]
+a = "orc_camp"
+dir = "SE"
+b = "lake_siss"
+min = 600
+max = 1300
+source = "design/lore/world.md"
+note = "The Orc War battlefield lies south-east of the lake, where the marsh meets Eurazania's jungle."
+
+[[relation]]
+a = "ameld_mouth"
+dir = "SE"
+b = "ameld_source"
+tol = 45
+min = 1650
+max = 3600
+source = "design/lore/world.md"
+note = "The Great Ameld runs from the Canaat foothills through Milim's plains to the eastern sea."
+
+[[relation]]
+a = "ameld_mouth"
+dir = "SE"
+b = "lake_siss"
+tol = 45
+min = 1100
+max = 2400
+source = "design/lore/world.md"
+note = "Lake Siss feeds the Great Ameld, which reaches the eastern sea between Milim's land and Eurazania."
+
+[[relation]]
+a = "forgotten_dragon_city"
+dir = "E"
+b = "tempest"
+min = 1650
+max = 3500
+source = "design/lore/forgotten_dragon_city.md"
+note = "Milim's capital lies east of Lake Siss and Jura."
+
+[[relation]]
+a = "forgotten_dragon_city"
+dir = "E"
+b = "lake_siss"
+min = 900
+max = 2000
+source = "design/lore/forgotten_dragon_city.md"
+note = "Milim's capital lies east of Lake Siss."
+
+[[relation]]
+a = "clayman_castle"
+dir = "NE"
+b = "forgotten_dragon_city"
+min = 700
+max = 1550
+source = "design/lore/world.md"
+note = "Jistav is the north-eastern corner of Milim's badland."
+
+[[relation]]
+a = "amrita"
+dir = "E"
+b = "clayman_castle"
+min = 350
+max = 700
+source = "design/lore/world.md"
+note = "Amrita lies on Jistav's plain, east of Clayman's castle."
+
+[[relation]]
+a = "nasca"
+dir = "N"
+b = "clayman_castle"
+min = 800
+max = 1700
+source = "design/lore/world.md"
+note = "The Eastern Empire is the landmass north of Jistav."
+
+[[relation]]
+a = "nasca"
+dir = "NE"
+b = "tempest"
+tol = 45
+min = 2400
+max = 5150
+source = "design/lore/world.md"
+note = "The Eastern Empire is the far north-eastern landmass."
+
+[[relation]]
+a = "great_holy_mountain"
+dir = "S"
+b = "nasca"
+min = 300
+max = 650
+source = "design/lore/nasca.md"
+note = "Nasca stands in the valley north of the volcano of the Great Holy Mountain."
+
+[[relation]]
+a = "laura"
+dir = "SE"
+b = "tempest"
+min = 1450
+max = 3050
+source = "design/lore/world.md"
+note = "Eurazania is the jungle peninsula south-east of Jura."
+
+[[relation]]
+a = "laura"
+dir = "S"
+b = "lake_siss"
+min = 1150
+max = 2450
+source = "design/lore/world.md"
+note = "Eurazania runs south below Lake Siss."
+
+[[relation]]
+a = "elmine"
+dir = "S"
+b = "tempest"
+min = 1250
+max = 2700
+source = "design/lore/world.md"
+note = "Sarion lies on Jura's southern border."
+
+[[relation]]
+a = "jia"
+dir = "S"
+b = "tempest"
+tol = 35
+min = 2000
+max = 4350
+source = "design/lore/world-map-corrections.md"
+note = "Owner correction: Fulbrosia is south of Jura, following the supplied anime map."
+
+[[relation]]
+a = "jia"
+dir = "W"
+b = "laura"
+min = 900
+max = 2600
+source = "design/lore/world-map-corrections.md"
+note = "Fulbrosia is west/southwest of Eurazania; distances reflect playable compression."
+
+[[relation]]
+a = "el_dorado"
+dir = "SW"
+b = "tempest"
+min = 3400
+max = 7350
+source = "design/lore/world.md"
+note = "El Dorado is the island to the south-west."
+
+[[relation]]
+a = "el_dorado_volcano"
+dir = "SE"
+b = "el_dorado"
+min = 150
+max = 1500
+source = "design/lore/el_dorado.md"
+note = "The Golden City stands on the green plain north-west of the island's volcano."
+
+[[relation]]
+a = "frost_palace"
+dir = "N"
+b = "tempest"
+tol = 45
+min = 2350
+max = 5000
+source = "design/lore/world.md"
+note = "The Ice Continent lies far to the north."
+
+[[relation]]
+a = "blumund"
+dir = "W"
+b = "tempest"
+min = 1600
+max = 2200
+source = "design/lore/world.md"
+note = "Blumund is Jura's western neighbour, here joined to it by land (design Q6), about 1,900 blocks west of Tempest (design: 1,600..2,200)."
+
+[[relation]]
+a = "marris"
+dir = "NW"
+b = "blumund"
+tol = 45
+min = 1000
+max = 2200
+source = "design/lore/world.md"
+note = "Falmuth lies north-west of Blumund (canon: north, and Blumund lies east of Falmuth)."
+
+[[relation]]
+a = "marris"
+dir = "W"
+b = "dwargon"
+min = 1700
+max = 3650
+source = "design/lore/marris.md"
+note = "Falmuth is a rich kingdom west of Dwargon."
+
+[[relation]]
+a = "siltrosso"
+dir = "W"
+b = "marris"
+tol = 45
+min = 150
+max = 900
+source = "design/lore/siltrosso.md"
+note = "Siltrosso stands at the western tip of Falmuth's north arm."
+
+[[relation]]
+a = "englassia"
+dir = "W"
+b = "blumund"
+min = 650
+max = 1450
+source = "design/lore/world.md"
+note = "Englassia lies west of Blumund."
+
+[[relation]]
+a = "englassia"
+dir = "W"
+b = "tempest"
+min = 1900
+max = 4150
+source = "design/lore/englassia.md"
+note = "Englassia is the most advanced human nation west of the Jura Forest."
+
+[[relation]]
+a = "ballachia"
+dir = "E"
+b = "englassia"
+min = 150
+max = 1500
+source = "design/lore/ballachia.md"
+note = "Ballachia lies on the eastbound road between Lura (Englassia) and Londo (Blumund)."
+
+[[relation]]
+a = "ballachia"
+dir = "W"
+b = "blumund"
+min = 300
+max = 1500
+source = "design/lore/ballachia.md"
+note = "Ballachia lies on the road between Lura and Londo."
+
+[[relation]]
+a = "lubelius"
+dir = "NW"
+b = "tempest"
+min = 2500
+max = 5350
+source = "design/lore/world.md"
+note = "Lubelius lies on the north-west ridge of the western landmass."
+
+[[relation]]
+a = "sacred_mountain"
+dir = "NW"
+b = "lubelius"
+min = 150
+max = 900
+source = "design/lore/sacred_mountain.md"
+note = "The pack locates the Sacred Mountain north-west of Lune."
+
+[[relation]]
+a = "heaven_tower"
+dir = "W"
+b = "tempest"
+min = 2750
+max = 5900
+source = "design/lore/world.md"
+note = "Damargania is far to the west (design: about 4,200 blocks)."
+
+[[relation]]
+a = "coleus"
+dir = "E"
+b = "heaven_tower"
+min = 400
+max = 2000
+source = "design/lore/world.md"
+note = "Coleus stands on the eastern edge of the Damargania desert; the Heaven Tower is deep in it."
+
+[[relation]]
+a = "raja"
+dir = "W"
+b = "tempest"
+min = 1850
+max = 4000
+source = "design/lore/raja.md"
+note = "Raja is a small state west of Tempest."
+
+[[relation]]
+a = "nostraille"
+dir = "E"
+b = "morgdahl"
+tol = 45
+min = 150
+max = 1500
+source = "design/lore/world.md"
+note = "The Western Council map gives the west-to-east sequence Morgdahl, Nostraille, Yuzalgh, Yggdonia."
+
+[[relation]]
+a = "yuzalgh"
+dir = "E"
+b = "nostraille"
+tol = 45
+min = 150
+max = 900
+source = "design/lore/world.md"
+note = "West-to-east sequence of the small western nations."
+
+[[relation]]
+a = "ulgr_nature_park"
+dir = "S"
+b = "blumund"
+min = 2400
+max = 4000
+source = "design/lore/world-map-corrections.md"
+note = "Ulgracia is far south beyond Sarion, rather than adjacent to Blumund."
+
+[[relation]]
+a = "ulgr_nature_park"
+dir = "S"
+b = "elmine"
+min = 800
+max = 1600
+source = "design/lore/world-map-corrections.md"
+note = "Owner correction: Ulgracia lies south of Sarion, as in the official guide and supplied anime reference."
+
+[[site_rule]]
+id = "dwargon"
+inside = "mountains"
+source = "design/lore/world.md"
+note = "Dwargon lies inside the Canaat mountains."
+
+[[site_rule]]
+id = "sealed_cave"
+inside = "mountains_or_hills"
+source = "design/lore/sealed_cave.md"
+note = "The Sealed Cave is in a rocky hill."
+
+[[site_rule]]
+id = "arrival"
+near_road = 16
+road_kind = "main"
+source = "design/lore/world.md"
+note = "The arrival is on the Dwarven Road."
+
+[[site_rule]]
+id = "lake_siss"
+lake_width_min = 400
+source = "design/lore/world.md"
+note = "Lake Siss is a real lake, at least 400 blocks wide."
+
+[[site_rule]]
+id = "treyni_grove"
+inside = "forests"
+forest_types = ["dark", "old_taiga", "ancient"]
+source = "design/lore/treyni_shrine.md"
+note = "Treyni's grove is deep in old forest."
+
+[[site_rule]]
+id = "treyni_shrine"
+inside = "forests"
+forest_types = ["dark", "old_taiga", "ancient"]
+source = "design/lore/treyni_shrine.md"
+note = "Treyni's shrine is deep in old forest."
+
+[[site_rule]]
+id = "nasca"
+x_min = 3000
+source = "design/lore/world.md"
+note = "The Eastern Empire is the far east."
+
+[[site_rule]]
+id = "great_holy_mountain"
+x_min = 3000
+source = "design/lore/world.md"
+note = "The Eastern Empire is the far east."
+
+[[site_rule]]
+id = "coleus"
+x_max = -3000
+source = "design/lore/world.md"
+note = "Damargania is the far west."
+
+[[site_rule]]
+id = "heaven_tower"
+x_max = -3000
+source = "design/lore/world.md"
+note = "Damargania is the far west."
+
+[[site_rule]]
+id = "elmine"
+y_min = 1500
+source = "design/lore/world.md"
+note = "Sarion lies far south."
+
+[[site_rule]]
+id = "laura"
+y_min = 1500
+source = "design/lore/world.md"
+note = "Eurazania lies far south."
+
+[[gap]]
+a = "frost_palace"
+b = "tempest"
+min = 900
+max = 1200
+source = "design/lore/world.md"
+note = "The Ice Continent lies north of the mainland across 900..1,200 blocks of sea (design section 8)."
+
+[[gap]]
+a = "el_dorado"
+b = "tempest"
+min = 700
+max = 1300
+source = "design/lore/world.md"
+note = "El Dorado is a south-western island, about 900 blocks of sea from the mainland."

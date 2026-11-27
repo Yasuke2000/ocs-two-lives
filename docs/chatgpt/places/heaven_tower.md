@@ -1,5 +1,9 @@
 # Heaven Tower (Dagruel, Damargania)
 
+## Current own-world terrain - R97
+
+The current authored western coast changes the normal-export preparation ground for Heaven Tower from first-air71 to73 at unchanged centre(-4200,-200), radius84. All sampled cells in that reservation change+2blocks. The adjoining western caravan profile follows the same change. Carry staged anchor/site heights together when applying the map; no live placement has been changed. This is original server terrain, not a measured canonical elevation. [Coast and fit review](../../../world/western-peninsula-r97.md). Imported-map coordinates and older placement/audit records below are historical.
+
 `id: heaven_tower` · build (our blueprint) · region **V** (Holy Void of Damargania)
 
 | | |

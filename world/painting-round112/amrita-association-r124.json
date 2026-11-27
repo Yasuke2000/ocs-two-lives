@@ -1,0 +1,35 @@
+{
+  "baseline_commit": "2738634558684a28998b1a61bdab2cbd010a2f24",
+  "source_geometry_sha256": "4093f844d341962bc49704a6c2f1564c6ffa69ea19f18f5fdcaa6712a5334f89",
+  "source_annotation_pr": "https://github.com/Yasuke2000/ocs-two-lives/pull/111",
+  "original_atlas_children_retained": 124,
+  "new_group": "canon-association-amrita-r124",
+  "unchanged_byte_exact": [
+    "continent.svg",
+    "continent.png",
+    "audit.json",
+    "provenance.json",
+    "site-registration.json"
+  ],
+  "atlas_changed_pixel_bbox": [
+    1566,
+    816,
+    2141,
+    986
+  ],
+  "numbers": 58,
+  "prior_context_labels": 20,
+  "new_caption_lines": 3,
+  "inventory_rows": 42,
+  "minimum_number_spacing_px": 32.470561517449696,
+  "overlap": false,
+  "C07": "Open; annotation is not a relocated site, entrance, extent or surveyed city centroid.",
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.87,
+    "validation": "pass",
+    "changed_js": 0
+  }
+}

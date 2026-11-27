@@ -1,5 +1,9 @@
 # Englassia capital (Lura): Freedom Academy, Free Guild HQ
 
+**Current own-world handoff (R91):** centre(−2900,−550), r124, walking first-air76; existing academy/Guild precinct. [Current water/route review](../../../world/englassia-lake-r91.md) places a separate WN-derived royal lake northwest, preserving the dry model. Castle and whole-capital registration remain open. The imported-world positions and audit below are historical; later teacher/visit state is not the S1E10 baseline.
+
+## Historical imported-world brief
+
 `id: englassia` · build (our blueprint) · region **G** (Kingdom of Englassia)
 
 | | |
@@ -12,7 +16,7 @@
 
 ## Lore (canon)
 
-The leading power of the Western Nations: a large walled capital with two gates, home of the Council of the West, the Free Guild HQ (Yuuki) and the Freedom Academy where Rimuru taught Shizu's students.
+The leading power of the Western Nations: a large walled capital with two gates, home of the Council of the West, the Free Guild HQ (Yuuki) and the Freedom Academy where Rimuru teaches Shizu's students later. At S1E10 he is not yet stationed here as their teacher; the later classroom visit is not an initial resident/event state.
 
 ## What it should look like
 

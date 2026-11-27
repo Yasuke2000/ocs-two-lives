@@ -1,0 +1,259 @@
+{
+  "source_sha256": "36c77b45ee33edb37d737e062327ae936eeae68eeb6904d5054b4325196a8627",
+  "date": "2026-11-24",
+  "method": "Distance from Tempest divided by Tempest-Siss distance;bearing clockwise from north. Same pinned fan-reference inputs retained,not a new canonical survey.",
+  "reference_confidence": "fan-wiki;unknown projection and marker precision",
+  "private_reference_hashes_retained": {
+    "capitals.reference.txt": "1431e0e8e676c49c8caf8fbee8135aed396c7dca6a0ff80382760b6bcfacf75f",
+    "pois.reference.txt": "36deff3a55584db6288144d4e995d5bbdefee25e3eec6bf989ab6393d228c9a6",
+    "cities.reference.txt": "6e8c5e8a366032896f5f3de41537802bae1e57e77542529f6e5618106651b5fe"
+  },
+  "world_normalizer_blocks": 1104.536101718726,
+  "current_csv_sha256": "2acab16849902d48bd94de35c8a80173e068e3003410413f6ce9cc1a46c729ff",
+  "rows": [
+    {
+      "id": "dwargon",
+      "current_position": [
+        780,
+        -1390
+      ],
+      "reference_relative_pixels": [
+        170.0,
+        -240.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "1.4430",
+        "relative_distance_delta_percent": "-18.5",
+        "authored_bearing_degrees": "29.3",
+        "bearing_delta_degrees": "-6.0"
+      }
+    },
+    {
+      "id": "lake_siss",
+      "current_position": [
+        1100,
+        -100
+      ],
+      "reference_relative_pixels": [
+        165.0,
+        -20.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "1.0000",
+        "relative_distance_delta_percent": "0.0",
+        "authored_bearing_degrees": "84.8",
+        "bearing_delta_degrees": "1.7"
+      }
+    },
+    {
+      "id": "blumund",
+      "current_position": [
+        -1500,
+        -620
+      ],
+      "reference_relative_pixels": [
+        -170.0,
+        -70.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "1.4695",
+        "relative_distance_delta_percent": "32.8",
+        "authored_bearing_degrees": "292.5",
+        "bearing_delta_degrees": "0.1"
+      }
+    },
+    {
+      "id": "marris",
+      "current_position": [
+        -1800,
+        -1650
+      ],
+      "reference_relative_pixels": [
+        -215.0,
+        -250.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "2.2107",
+        "relative_distance_delta_percent": "11.4",
+        "authored_bearing_degrees": "312.5",
+        "bearing_delta_degrees": "-6.8"
+      }
+    },
+    {
+      "id": "elmine",
+      "current_position": [
+        -1680,
+        1740
+      ],
+      "reference_relative_pixels": [
+        -275.0,
+        240.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "2.1898",
+        "relative_distance_delta_percent": "-0.3",
+        "authored_bearing_degrees": "224.0",
+        "bearing_delta_degrees": "-4.9"
+      }
+    },
+    {
+      "id": "jia",
+      "current_position": [
+        200,
+        2450
+      ],
+      "reference_relative_pixels": [
+        0.0,
+        360.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "2.2255",
+        "relative_distance_delta_percent": "2.7",
+        "authored_bearing_degrees": "175.3",
+        "bearing_delta_degrees": "-4.7"
+      }
+    },
+    {
+      "id": "laura",
+      "current_position": [
+        1500,
+        1600
+      ],
+      "reference_relative_pixels": [
+        290.0,
+        205.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "1.9856",
+        "relative_distance_delta_percent": "-7.1",
+        "authored_bearing_degrees": "136.8",
+        "bearing_delta_degrees": "11.6"
+      }
+    },
+    {
+      "id": "nasca",
+      "current_position": [
+        3200,
+        -1800
+      ],
+      "reference_relative_pixels": [
+        400.0,
+        -390.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "3.3240",
+        "relative_distance_delta_percent": "-1.1",
+        "authored_bearing_degrees": "60.6",
+        "bearing_delta_degrees": "14.9"
+      }
+    },
+    {
+      "id": "amrita",
+      "current_position": [
+        3800,
+        -500
+      ],
+      "reference_relative_pixels": [
+        610.0,
+        -120.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "3.4700",
+        "relative_distance_delta_percent": "-7.2",
+        "authored_bearing_degrees": "82.5",
+        "bearing_delta_degrees": "3.6"
+      }
+    },
+    {
+      "id": "forgotten_dragon_city",
+      "current_position": [
+        2650,
+        800
+      ],
+      "reference_relative_pixels": [
+        400.0,
+        120.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "2.5061",
+        "relative_distance_delta_percent": "-0.3",
+        "authored_bearing_degrees": "106.8",
+        "bearing_delta_degrees": "0.1"
+      }
+    },
+    {
+      "id": "frost_palace",
+      "current_position": [
+        -2130,
+        -3799
+      ],
+      "reference_relative_pixels": [
+        -470.0,
+        -800.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "3.9432",
+        "relative_distance_delta_percent": "-29.4",
+        "authored_bearing_degrees": "330.7",
+        "bearing_delta_degrees": "1.2"
+      }
+    },
+    {
+      "id": "el_dorado",
+      "current_position": [
+        -4900,
+        3202
+      ],
+      "reference_relative_pixels": [
+        -870.0,
+        445.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "5.2995",
+        "relative_distance_delta_percent": "-9.9",
+        "authored_bearing_degrees": "236.8",
+        "bearing_delta_degrees": "-6.1"
+      }
+    },
+    {
+      "id": "sealed_cave",
+      "current_position": [
+        -120,
+        -400
+      ],
+      "reference_relative_pixels": [
+        -10.0,
+        -60.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "0.3781",
+        "relative_distance_delta_percent": "3.3",
+        "authored_bearing_degrees": "343.3",
+        "bearing_delta_degrees": "-7.2"
+      }
+    },
+    {
+      "id": "ogre_village_ruin",
+      "current_position": [
+        500,
+        300
+      ],
+      "reference_relative_pixels": [
+        110.0,
+        70.0
+      ],
+      "current_display": {
+        "authored_distance_over_siss": "0.5279",
+        "relative_distance_delta_percent": "-32.7",
+        "authored_bearing_degrees": "121.0",
+        "bearing_delta_degrees": "-1.5"
+      }
+    }
+  ],
+  "numeric_rows_changed_from_previous": [
+    "frost_palace",
+    "el_dorado"
+  ],
+  "geometry_changed_for_owner_adoption": true,
+  "canonical_scale_verified": false
+}

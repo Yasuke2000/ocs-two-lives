@@ -1,0 +1,359 @@
+{
+  "terrain_source_sha256": "c3ca6a55fe98c1e080726d0e941ba2a72f289076265a91df0e6daadbc6aa4009",
+  "normalization": "UTF-8 text with universal newlines",
+  "pixel_blocks": 4,
+  "sampling": "Nearest raster cell by floor((coordinate-box_origin)/4); circle statistics use cell centres, not continuous terrain.",
+  "proposals": [
+    {
+      "proposal": "former_hillside",
+      "x": -1000,
+      "z": 1100,
+      "radius": 40,
+      "centre_sample_height": 96.75,
+      "disc_min_height": 78.0,
+      "disc_max_height": 123.0625,
+      "wet_pixels": 0,
+      "sampled_disc_pixels": 316
+    },
+    {
+      "proposal": "revised_ridge",
+      "x": -1000,
+      "z": 940,
+      "radius": 40,
+      "centre_sample_height": 188.5,
+      "disc_min_height": 146.5,
+      "disc_max_height": 189.75,
+      "wet_pixels": 0,
+      "sampled_disc_pixels": 316
+    }
+  ],
+  "north_south_profile_x": -1000,
+  "profile": [
+    {
+      "z": 860,
+      "height": 118.3125
+    },
+    {
+      "z": 864,
+      "height": 121.4375
+    },
+    {
+      "z": 868,
+      "height": 124.5
+    },
+    {
+      "z": 872,
+      "height": 127.6875
+    },
+    {
+      "z": 876,
+      "height": 130.9375
+    },
+    {
+      "z": 880,
+      "height": 134.25
+    },
+    {
+      "z": 884,
+      "height": 137.5
+    },
+    {
+      "z": 888,
+      "height": 140.9375
+    },
+    {
+      "z": 892,
+      "height": 144.625
+    },
+    {
+      "z": 896,
+      "height": 148.3125
+    },
+    {
+      "z": 900,
+      "height": 151.9375
+    },
+    {
+      "z": 904,
+      "height": 155.8125
+    },
+    {
+      "z": 908,
+      "height": 159.875
+    },
+    {
+      "z": 912,
+      "height": 163.9375
+    },
+    {
+      "z": 916,
+      "height": 168.0
+    },
+    {
+      "z": 920,
+      "height": 172.25
+    },
+    {
+      "z": 924,
+      "height": 176.625
+    },
+    {
+      "z": 928,
+      "height": 181.0625
+    },
+    {
+      "z": 932,
+      "height": 185.4375
+    },
+    {
+      "z": 936,
+      "height": 187.9375
+    },
+    {
+      "z": 940,
+      "height": 188.5
+    },
+    {
+      "z": 944,
+      "height": 189.125
+    },
+    {
+      "z": 948,
+      "height": 189.6875
+    },
+    {
+      "z": 952,
+      "height": 188.1875
+    },
+    {
+      "z": 956,
+      "height": 184.5625
+    },
+    {
+      "z": 960,
+      "height": 180.9375
+    },
+    {
+      "z": 964,
+      "height": 177.3125
+    },
+    {
+      "z": 968,
+      "height": 174.4375
+    },
+    {
+      "z": 972,
+      "height": 172.3125
+    },
+    {
+      "z": 976,
+      "height": 170.25
+    },
+    {
+      "z": 980,
+      "height": 168.125
+    },
+    {
+      "z": 984,
+      "height": 165.5
+    },
+    {
+      "z": 988,
+      "height": 162.25
+    },
+    {
+      "z": 992,
+      "height": 159.0625
+    },
+    {
+      "z": 996,
+      "height": 155.875
+    },
+    {
+      "z": 1000,
+      "height": 152.6875
+    },
+    {
+      "z": 1004,
+      "height": 149.625
+    },
+    {
+      "z": 1008,
+      "height": 146.5625
+    },
+    {
+      "z": 1012,
+      "height": 143.4375
+    },
+    {
+      "z": 1016,
+      "height": 140.4375
+    },
+    {
+      "z": 1020,
+      "height": 137.5625
+    },
+    {
+      "z": 1024,
+      "height": 134.625
+    },
+    {
+      "z": 1028,
+      "height": 131.75
+    },
+    {
+      "z": 1032,
+      "height": 129.0625
+    },
+    {
+      "z": 1036,
+      "height": 126.625
+    },
+    {
+      "z": 1040,
+      "height": 124.1875
+    },
+    {
+      "z": 1044,
+      "height": 121.75
+    },
+    {
+      "z": 1048,
+      "height": 119.5
+    },
+    {
+      "z": 1052,
+      "height": 117.375
+    },
+    {
+      "z": 1056,
+      "height": 115.25
+    },
+    {
+      "z": 1060,
+      "height": 113.125
+    },
+    {
+      "z": 1064,
+      "height": 111.125
+    },
+    {
+      "z": 1068,
+      "height": 109.1875
+    },
+    {
+      "z": 1072,
+      "height": 107.3125
+    },
+    {
+      "z": 1076,
+      "height": 105.375
+    },
+    {
+      "z": 1080,
+      "height": 103.625
+    },
+    {
+      "z": 1084,
+      "height": 102.1875
+    },
+    {
+      "z": 1088,
+      "height": 100.6875
+    },
+    {
+      "z": 1092,
+      "height": 99.1875
+    },
+    {
+      "z": 1096,
+      "height": 97.875
+    },
+    {
+      "z": 1100,
+      "height": 96.75
+    },
+    {
+      "z": 1104,
+      "height": 95.625
+    },
+    {
+      "z": 1108,
+      "height": 94.5
+    },
+    {
+      "z": 1112,
+      "height": 93.3125
+    },
+    {
+      "z": 1116,
+      "height": 92.0625
+    },
+    {
+      "z": 1120,
+      "height": 90.8125
+    },
+    {
+      "z": 1124,
+      "height": 89.5625
+    },
+    {
+      "z": 1128,
+      "height": 88.25
+    },
+    {
+      "z": 1132,
+      "height": 86.8125
+    },
+    {
+      "z": 1136,
+      "height": 85.3125
+    },
+    {
+      "z": 1140,
+      "height": 83.875
+    },
+    {
+      "z": 1144,
+      "height": 82.5625
+    },
+    {
+      "z": 1148,
+      "height": 81.25
+    },
+    {
+      "z": 1152,
+      "height": 80.0
+    },
+    {
+      "z": 1156,
+      "height": 78.6875
+    },
+    {
+      "z": 1160,
+      "height": 77.5625
+    },
+    {
+      "z": 1164,
+      "height": 76.5
+    },
+    {
+      "z": 1168,
+      "height": 75.4375
+    },
+    {
+      "z": 1172,
+      "height": 74.375
+    },
+    {
+      "z": 1176,
+      "height": 73.75
+    },
+    {
+      "z": 1180,
+      "height": 73.5625
+    }
+  ],
+  "limit": "Staged raster measurements, not Minecraft chunks or a graded build. Ridge disc needs authored terraces; exact site placement is interpretation.",
+  "measurement_context": "Samples originally taken from0e5bd64 build; parsed live SVG elements and resulting terrain preview verified unchanged after comment-only revision."
+}

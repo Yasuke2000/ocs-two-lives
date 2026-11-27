@@ -1,6 +1,8 @@
-# Laura: lore behind blueprints/laura.py
+# Carrion's capital in Eurazania (legacy site ID: laura)
 
-The build reference for Laura, the new capital of the Beast Kingdom of Eurazania ruled by the Beast King Carrion.
+**Capital name under review (C24).** The licensed electronic guide8.5 card prints Rondo, also printed for Blumund; the wiki uses Laura. No printing error or novel-prose resolution is verified. Current map display uses Carrion's capital; `laura` remains the technical ID. Later mentions of Laura on this page retain that legacy/wiki name, not independent primary confirmation. [Source comparison](../../world/guide85-source-review.md).
+
+This existing blueprint interprets a later reconstructed Eurazania settlement. The selected post-Kijin world instead contains Carrion's undestroyed old capital. The technical ID `laura` is retained; its proper name remains under C24 review. Do not label the later reconstruction as a verified initial-era city design.
 Geography and placement are in [world.md](world.md) §B, the placement contract in `design/builds/laura.toml`. Read this
 before changing the blueprint.
 
@@ -11,7 +13,7 @@ The geography entry describes Eurazania’s agriculture, the loss of its capital
 | Fact | How the build shows it | Source |
 | --- | --- | --- |
 | Eurazania is an agricultural kingdom with fertile soil, a tropical climate and famous fruit | Orchards of jungle trees with cocoa on the trunks, melon and berry rows, a fruit market with eight stalls, palms and jungle trees | [world.md](world.md) §B (fandom: Beast_Kingdom_of_Eurazania) |
-| Milim destroyed the old capital; Tempest helped build the new one, Laura | A young stone wall with towers and a gate (the lesson of the attack), Tempest light-blue banners on the gate and beside the throne | [world.md](world.md) §B |
+| Later events: Milim destroys the old capital and Tempest offers reconstruction help; these are outside the selected initial era | The existing blueprint's young walls and Tempest banners are later design choices, not initial-era features. Naming the new capital Laura is not established by this evidence. | LN05-001..003 and the [era policy](../../world/era.md); [claim ledger](../../docs/research/tensura-world-2026-11-19/geography-facts.csv) |
 | Carrion is a lion beastman and the Beast Master of Eurazania | A lion's head in the great hall's south gable, totem pillars with lion caps, a lion throne with a hide rug | [Japanese Wikipedia, Carrion](https://ja.wikipedia.org/wiki/転生したらスライムだった件#カリオン) |
 | A nation of beastmen, not a refined court *(our interpretation)* | A timber longhouse-style hall with a tall thatch roof, stilt houses with ladders | — |
 

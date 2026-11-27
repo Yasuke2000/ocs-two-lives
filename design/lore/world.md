@@ -1,5 +1,7 @@
 # The Tensura world: canon geography for Life 2
 
+> Historical imported-world survey: the Lerfing coordinates and country-mask groupings below are not the current own-world source. Use `world/map.svg` and `world/regions.md` for current geometry. In particular, the Ghastone G and Rostia A bindings do not prove Englassia/Raja sovereignty or locate their capitals; see [R96 identity review](../../world/western-country-identity-r96.md).
+
 The Life 2 overworld is **Lerfing's Tensura map**, imported 1:1 (credit: [CREDITS.md](../../CREDITS.md); design:
 [lerfing-import.md](../architecture/lerfing-import.md)). The land is Lerfing's terrain block for block; what we add is
 the canon reading of it: which part of his continent is which nation, and where each canon place stands. **World
@@ -114,11 +116,13 @@ Grid letter, name, `banner_subtitle`, then lore, terrain on Lerfing's map and la
 
 ### W: Lizardmen's Marsh of Lake Siss (シス湖 — 蜥蜴人族の湿地帯), Lerfing's swamp
 
+Own-world correction: the [current source-based lake](../../world/map.svg) is elongated rather than defined by a circular arena. Charybdis is an aerial calamity; see [official glossary](https://www.ten-sura.com/keyword/#A-77). Imported coordinates below remain historical context.
+
 - **Lore.** A large expanse of marsh and limestone formations on the shores of Lake Siss. Its caverns form a natural
   labyrinth that is the lizardmen's fortress and seat of government. The lizardmen live off the lake's fish.
-- **Terrain.** Lerfing's round lake (floor y 34–50, `swamp` biome all over it) with the swamp ring x 2350..3950, z 290..1230. Stored biomes:
+- **Imported-world terrain (historical, not canon shape evidence).** Lerfing's round lake (floor y 34–50, `swamp` biome all over it) with the swamp ring x 2350..3950, z 290..1230. Stored biomes:
   plains 61 %, swamp 36 %. **Lerfing's stilt-hut village** stands on the lake's west shore (x 2900..3600, z 400..1000, kept as he built it).
-- **Landmarks:** Lake Siss (3050, 750; the Charybdis arena is the lake itself, r 96); the lizardmen's stilt village (3184, 988) on the south shore;
+- **Landmarks:** Lake Siss (3050, 750; later server Charybdis encounter reservation, r 96; not proof of canonical aquatic habitat); the lizardmen's stilt village (3184, 988) on the south shore;
   the lizardmen's caverns (3300, 1200) on the south shore; the Orc War battlefield (3600, 1250) at the south-east,
   where the marsh meets Eurazania's jungle: Geld's horde came up from the south.
 - Lake Siss is the lizardmen's lake, far off from Tempest (1,340 blocks): reaching it needed an envoy (Gabiru) and an army march.
@@ -216,8 +220,8 @@ Grid letter, name, `banner_subtitle`, then lore, terrain on Lerfing's map and la
 
 - **Lore.** A republic south of Sarion and near Jura that lives from trade with Sarion and from farming. Its
   citizens are elemental magic users, and citizenship requires a spirit-contract ceremony. Its capital is Galut.
-- **Terrain.** The woodland south of Blumund, x −1600..−100, z 600..2150 (plains 76 %, forest 17 %); Lerfing's own spawn (−456, 976) is here. Our reading: north-west of Sarion rather than south of it.
-- **Landmark.** Galut / Ulgr Nature Park (−1040, 1060). The fan map's dot is "Ulgr Nature Park", so Galut's exact site is *unverified*; Filtwood (−900, 700) is a pin.
+- **Terrain (historical Lerfing survey).** Woodland south of Blumund, x −1600..−100, z 600..2150 (plains 76 %, forest 17 %); Lerfing's spawn (−456, 976) is here. This imported-world survey does not override the official south-of-Sarion geography or the proposed own-world placement.
+- **Landmark.** Ulgr Nature Park (−1040, 1060). The fan map's dot is "Ulgr Nature Park", so Galut's exact site is *unverified*; Filtwood (−900, 700) is a historical server pin. C20 disputes its U binding: official episode24 names a kingdom and wiki places it near Jura. See [study](../../world/southern-location-study.md).
 - Source: https://tensura.fandom.com/wiki/Republic_of_Ulgracia
 
 ### R: Kingdom of Blumund (ブルムンド王国)
@@ -288,7 +292,7 @@ Grid letter, name, `banner_subtitle`, then lore, terrain on Lerfing's map and la
 
 ### O, N, Y, Q, A: small Western Nations (Morgdahl, Nostraille, Yuzalgh, Yggdonia, Raja)
 
-The anime map seen at the Western Council supports the west-to-east sequence Morgdahl, Nostraille, Yuzalgh and Yggdonia. The fan cartographer identifies Raja's exact position as speculative. The English epithets are pack choices. [Council map comparison](https://www.reddit.com/r/TenseiSlime/comments/1suz7yb/new_countries/) · [Cartographer's account](https://www.reddit.com/r/TenseiSlime/comments/1um7i81/i_created_a_bunch_of_tensura_political_maps/)
+A community post reports the west-to-east sequence Morgdahl, Nostraille, Yuzalgh and Yggdonia on a later Western Council anime map. This is secondary evidence (FAN-WES-034): the post text was read, but the underlying frame and exact timestamp have not been independently authenticated here. The five official episode 76 stills do not show that map; this does not prove its absence from the full episode. The fan cartographer identifies Raja's exact position as speculative. The English epithets are pack choices. [Council map comparison](https://www.reddit.com/r/TenseiSlime/comments/1suz7yb/new_countries/) · [Cartographer's account](https://www.reddit.com/r/TenseiSlime/comments/1um7i81/i_created_a_bunch_of_tensura_political_maps/)
 
 They share the river-and-lake belt (z 500..1000) between Englassia and the Fulbrosia hills, from west to east:
 
@@ -391,3 +395,7 @@ The owner chose to take Lerfing's scale as drawn: land 15,040 × 11,372 blocks; 
 chunks. Jura is 23,954 chunks (about 2,400 × 2,600 blocks), the Canaat and Dwargon 21,895, Milim's Domain 32,769, the
 Ice Continent 31,689. The old traced grid (14,016 × 10,128 blocks, Tempest at 0, 0) and its 10,000- and 14,000-block
 coordinates are gone; git history keeps those notes.
+
+## Own-world Amrita/Soma access correction — 20 November 2026
+
+The older imported-map coordinates and eastward distance above are server placement history. Official episode81 places Amrita ruins beneath Clayman's former castle; LN10 directly distinguishes older Soma from the later distant Amrita refuge-city. The current separate eastern circle remains a mandatory game reservation under C07, not a source-established public surface entrance. Depth/full ruin extent and exact entrance coordinates are unknown; eastern chambers remain possible. [Concrete source/access review](../../world/amrita-placement-review.md). No technical data, active site position or runtime access is changed.

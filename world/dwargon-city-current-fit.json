@@ -1,0 +1,276 @@
+{
+  "active_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+  "index_source_sha256": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+  "normal_height_sha256": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+  "date": "2026-11-23",
+  "method": "Every integer-column centre in native proposal footprints buffered by declared lining; round distance buffer for galleries/circles; current four-block height grid bilinearly sampled.",
+  "rows": [
+    {
+      "id": "proposal-dwargon-west-city",
+      "native_tag": "polygon",
+      "attributes": {
+        "id": "proposal-dwargon-west-city",
+        "points": "617.900000,-1720.000000 617.599398,-1706.315727 615.364353,-1693.016547 611.540394,-1680.608286 606.539985,-1669.280083 600.605087,-1659.092370 593.776213,-1650.266547 586.059847,-1643.282007 577.619631,-1638.658530 568.807243,-1636.589888 560.000000,-1636.750000 551.391866,-1638.475571 542.936600,-1641.226382 534.517989,-1644.983106 526.223787,-1650.266547 518.494913,-1657.742370 512.003785,-1667.693063 507.325540,-1679.741533 504.635647,-1693.016547 503.657724,-1706.614390 503.900000,-1720.000000 505.002927,-1733.066021 506.943910,-1745.858453 509.965650,-1758.240662 514.312047,-1769.791361 519.994913,-1780.007630 526.768694,-1788.608453 534.304930,-1795.644122 542.391693,-1801.289194 550.973714,-1805.484594 560.000000,-1807.750000 569.225395,-1807.370277 578.164537,-1803.857047 586.272906,-1797.345222 593.231306,-1788.608453 599.105087,-1778.657630 604.231722,-1768.204341 608.900284,-1757.373909 613.056090,-1745.858453 616.254195,-1733.364684 617.900000,-1720.000000",
+        "data-first-air": "110",
+        "data-ceiling-block-y": "140",
+        "data-lining": "2",
+        "data-source-claims": "WIK-DWG-002;DES-DWG-058;DES-DWG-086"
+      },
+      "lined_integer_column_centres": 16167,
+      "reference_roof_top": 142.0,
+      "minimum_surface_allowance": 15.9921875,
+      "minimum_at_xz": [
+        619.5,
+        -1722.5
+      ],
+      "columns_below_six": 0,
+      "outside_D_centres": 0,
+      "outside_mountain_centres": 0,
+      "room_columns_overlapping_historical_capital_box": 0,
+      "bounds": [
+        501.657724,
+        -1809.75,
+        619.9,
+        -1634.589888
+      ]
+    },
+    {
+      "id": "proposal-dwargon-west-gallery",
+      "native_tag": "polyline",
+      "attributes": {
+        "id": "proposal-dwargon-west-gallery",
+        "points": "760.000000,-1456.000000 758.944444,-1462.546296 757.333333,-1471.259259 755.500000,-1481.750000 753.777778,-1493.629630 752.500000,-1506.509259 752.000000,-1520.000000 753.425926,-1535.046296 756.740741,-1552.148148 760.500000,-1570.250000 763.259259,-1588.296296 763.574074,-1605.231481 760.000000,-1620.000000 751.527778,-1633.009259 739.111111,-1645.185185 724.250000,-1656.250000 708.444444,-1665.925926 693.194444,-1673.935185 680.000000,-1680.000000 668.495370,-1683.472222 657.407407,-1684.444444 646.875000,-1683.750000 637.037037,-1682.222222 628.032407,-1680.694444 620.000000,-1680.000000 612.916667,-1680.000000 606.666667,-1680.000000 601.250000,-1680.000000 596.666667,-1680.000000 592.916667,-1680.000000 590.000000,-1680.000000",
+        "data-width": "6",
+        "data-first-air": "72",
+        "data-air-height": "8",
+        "data-lining": "2",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_integer_column_centres": 3665,
+      "reference_roof_top": 82.0,
+      "minimum_surface_allowance": 34.421875,
+      "minimum_at_xz": [
+        759.5,
+        -1542.5
+      ],
+      "columns_below_six": 0,
+      "outside_D_centres": 0,
+      "outside_mountain_centres": 0,
+      "room_columns_overlapping_historical_capital_box": 0,
+      "bounds": [
+        585.0,
+        -1689.444444,
+        768.574074,
+        -1451.0
+      ]
+    },
+    {
+      "id": "proposal-dwargon-east-city",
+      "native_tag": "polygon",
+      "attributes": {
+        "id": "proposal-dwargon-east-city",
+        "points": "1142.025000,-1690.000000 1141.599147,-1673.274778 1138.432833,-1657.020224 1133.015558,-1641.854572 1125.931645,-1628.008990 1117.523873,-1615.557341 1107.849635,-1604.770224 1096.918116,-1596.233564 1084.961143,-1590.582648 1072.476927,-1588.054308 1060.000000,-1588.250000 1047.805143,-1590.359031 1035.826850,-1593.721134 1023.900484,-1598.312685 1012.150365,-1604.770224 1001.201127,-1613.907341 992.005362,-1626.069299 985.377848,-1640.795207 981.567167,-1657.020224 980.181776,-1673.639810 980.525000,-1690.000000 982.087480,-1705.969581 984.837206,-1721.604776 989.118004,-1736.738587 995.275400,-1750.856108 1003.326127,-1763.342659 1012.922317,-1773.854776 1023.598650,-1782.453927 1035.054899,-1789.353459 1047.212761,-1794.481171 1060.000000,-1797.250000 1073.069310,-1796.785895 1085.733095,-1792.491946 1097.219950,-1784.533049 1107.077683,-1773.854776 1115.398873,-1761.692659 1122.661606,-1748.916416 1129.275402,-1735.679222 1135.162794,-1721.604776 1139.693443,-1706.334613 1142.025000,-1690.000000",
+        "data-first-air": "80",
+        "data-ceiling-block-y": "110",
+        "data-lining": "2",
+        "data-source-claims": "WIK-DWG-002;DES-DWG-058;DES-DWG-086"
+      },
+      "lined_integer_column_centres": 27610,
+      "reference_roof_top": 112.0,
+      "minimum_surface_allowance": 10.0859375,
+      "minimum_at_xz": [
+        983.5,
+        -1640.5
+      ],
+      "columns_below_six": 0,
+      "outside_D_centres": 0,
+      "outside_mountain_centres": 0,
+      "room_columns_overlapping_historical_capital_box": 0,
+      "bounds": [
+        978.181776,
+        -1799.25,
+        1144.025,
+        -1586.054308
+      ]
+    },
+    {
+      "id": "proposal-dwargon-east-gallery",
+      "native_tag": "polyline",
+      "attributes": {
+        "id": "proposal-dwargon-east-gallery",
+        "points": "760.000000,-1456.000000 766.296296,-1464.097222 774.814815,-1475.333333 785.000000,-1488.625000 796.296296,-1502.888889 808.148148,-1517.041667 820.000000,-1530.000000 831.944444,-1542.361111 844.444444,-1555.111111 857.500000,-1567.750000 871.111111,-1579.777778 885.277778,-1590.694444 900.000000,-1600.000000 915.972222,-1607.777778 933.333333,-1614.444444 951.250000,-1620.000000 968.888889,-1624.444444 985.416667,-1627.777778 1000.000000,-1630.000000 1013.009259,-1630.532407 1025.185185,-1629.259259 1036.250000,-1626.875000 1045.925926,-1624.074074 1053.935185,-1621.550926 1060.000000,-1620.000000",
+        "data-width": "6",
+        "data-first-air": "72",
+        "data-air-height": "8",
+        "data-lining": "2",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_integer_column_centres": 3760,
+      "reference_roof_top": 82.0,
+      "minimum_surface_allowance": 13.0361328125,
+      "minimum_at_xz": [
+        869.5,
+        -1572.5
+      ],
+      "columns_below_six": 0,
+      "outside_D_centres": 0,
+      "outside_mountain_centres": 0,
+      "room_columns_overlapping_historical_capital_box": 0,
+      "bounds": [
+        755.0,
+        -1635.532407,
+        1065.0,
+        -1451.0
+      ]
+    },
+    {
+      "id": "proposal-dwargon-capital-stair-shaft",
+      "native_tag": "circle",
+      "attributes": {
+        "id": "proposal-dwargon-capital-stair-shaft",
+        "cx": "760.0",
+        "cy": "-1456.0",
+        "r": "8",
+        "data-lining": "2",
+        "data-bottom-first-air": "72",
+        "data-top-first-air": "146",
+        "data-stair-radius": "6",
+        "data-stair-rise-per-turn": "8",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_integer_column_centres": 316,
+      "reference_roof_top": 152.0,
+      "minimum_surface_allowance": 41.375,
+      "minimum_at_xz": [
+        750.5,
+        -1458.5
+      ],
+      "columns_below_six": 0,
+      "outside_D_centres": 0,
+      "outside_mountain_centres": 0,
+      "room_columns_overlapping_historical_capital_box": 0,
+      "bounds": [
+        750.0,
+        -1466.0,
+        770.0,
+        -1446.0
+      ]
+    },
+    {
+      "id": "proposal-dwargon-west-stair-shaft",
+      "native_tag": "circle",
+      "attributes": {
+        "id": "proposal-dwargon-west-stair-shaft",
+        "cx": "590.0",
+        "cy": "-1680.0",
+        "r": "8",
+        "data-lining": "2",
+        "data-bottom-first-air": "72",
+        "data-top-first-air": "110",
+        "data-stair-radius": "6",
+        "data-stair-rise-per-turn": "8",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_integer_column_centres": 316,
+      "reference_roof_top": 116.0,
+      "minimum_surface_allowance": 48.171875,
+      "minimum_at_xz": [
+        599.5,
+        -1677.5
+      ],
+      "columns_below_six": 0,
+      "outside_D_centres": 0,
+      "outside_mountain_centres": 0,
+      "room_columns_overlapping_historical_capital_box": 0,
+      "bounds": [
+        580.0,
+        -1690.0,
+        600.0,
+        -1670.0
+      ]
+    },
+    {
+      "id": "proposal-dwargon-east-stair-shaft",
+      "native_tag": "circle",
+      "attributes": {
+        "id": "proposal-dwargon-east-stair-shaft",
+        "cx": "1060.0",
+        "cy": "-1620.0",
+        "r": "8",
+        "data-lining": "2",
+        "data-bottom-first-air": "72",
+        "data-top-first-air": "80",
+        "data-stair-radius": "6",
+        "data-stair-rise-per-turn": "8",
+        "data-source-claims": "DES-DWG-058;DES-DWG-086"
+      },
+      "lined_integer_column_centres": 316,
+      "reference_roof_top": 86.0,
+      "minimum_surface_allowance": 50.3349609375,
+      "minimum_at_xz": [
+        1050.5,
+        -1617.5
+      ],
+      "columns_below_six": 0,
+      "outside_D_centres": 0,
+      "outside_mountain_centres": 0,
+      "room_columns_overlapping_historical_capital_box": 0,
+      "bounds": [
+        1050.0,
+        -1630.0,
+        1070.0,
+        -1610.0
+      ]
+    }
+  ],
+  "total_column_tests": 52150,
+  "scope": "Designed surface allowance only; no continuous rock, natural caves, fluid simulation, carve, foundation or occupied-voxel acceptance. Shaft roof allowance uses top first-air+4 headroom+2 lining.",
+  "proposal_active": false,
+  "city_identities": "LN13 directly supports East/access only; full Central/East/West list stays wiki-qualified.",
+  "external_access_route_located": false,
+  "unchanged_normal_outputs": {
+    "anchors.toml": "471631e6d06c99f3061185af135f95b31431db31fd9d07dba9bafb69d88d8636",
+    "biome.png": "18364891d18482b5f39b7c8a2fd7d5fb61a8b9f71d9681c7b7fba2fdc8d58cdc",
+    "canon_map.txt": "190e24404fddf9775a29247c94ca1e5755677a9ec70d610013f38a646cb597ec",
+    "exclude.png": "b0de78f0b641963f5fdb0b3c9e17d2209f0317a4ef3b4061b06629ee8d236b75",
+    "height.png": "bb54423821fc0d879dcd37f0d1741169a310197b4dbd3ca75d65dcd7dd74797d",
+    "index.json": "4a12b1d46624baa826cf845303e20c90818ebb03f0bda8004cbc72e2330342bb",
+    "preview.png": "8c9cd937110cec246ab6ad1fb2231170b02e003589ba853936bd71eb89309362",
+    "road.png": "d31143c9b73bac721cc4a6e2f4123a80a018f6ff5374f4c3812ad235cc139507",
+    "roads.json": "f90349a82ec99fb1357318fa8d75a2d3a5875076c4db50a703e4ec9de1b373c0",
+    "rugged.png": "4086666af6c321f7011899879ddfc906cf8140889696c9221aeb4eebc3cec031",
+    "sites.json": "e3395f117f2f4bc33fd3bc6d5326f2ee9fd5749a6d2a48c36281bbb7bf6b2013",
+    "sites.png": "67bc78566716e245607cf76f0cc4e66f1d066d641afa4e961d3e01947fb495b5",
+    "sites.toml": "d62ab2255fd7c2d388ccd33caa53a05f09374015fd2d59250c767d2177f38952",
+    "water.png": "a8dfeb46afd154f44f44582d791dcafe16f7d8e77214faf3b6f64eccfcef74a7"
+  },
+  "unchanged_map_art": {
+    "world/map.svg": "534d07ade01d21f3763bebf98cfd18428761aba50388ec70cff4b77e87e787f0",
+    "world/preview.png": "36f596611e53d49eabd8dac555319efee9efc85d800a31dd61d51b0f97b957d2",
+    "world/atlas.png": "9f9d92931983cbcc64cccd7ece988a6a0130fa140afeb0415b0fc69cfb0155ea",
+    "world/painting-round112/continent.png": "5388c03dbd80299888d6ef6bbc79bb355aede6b7cfe144868d9b0681d9e616c7",
+    "world/painting-round112/atlas.png": "02dd0629657ead33ac5db3524ea746e43952e0afe327e08039c59bdf833e4af2"
+  },
+  "reference_capital_box": {
+    "xmin": 706,
+    "zmin": -1510,
+    "xmax": 854,
+    "zmax": -1342,
+    "provenance": "R86 anchor-relative placement; current blueprint declares SIZE(148,92,168). Reference footprint only, not actual occupied-voxel inspection.",
+    "blueprint": "blueprints/dwargon.py",
+    "blueprint_sha256": "35308888affb5a3ab6f4632351ff0118e92bc3ebdf8adb3f2ec9e0e0990c092e"
+  },
+  "repository_gate": {
+    "tests": 494,
+    "seconds": 66.158,
+    "failures": 2,
+    "skipped": 26,
+    "passed": false,
+    "validation_passed": false,
+    "changed_js_files": 0,
+    "scope": "Same authoring legacy Filtwood U/J failures; no technical WIP or in-game run."
+  },
+  "plan_png_visually_inspected": true,
+  "ledger_records": 359,
+  "protected_paths_edited": false
+}

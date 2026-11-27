@@ -1,0 +1,72 @@
+{
+  "round": 65,
+  "article_url": "https://www.ten-sura.com/news/anime/coleus/news/post/9114",
+  "video_url": "https://www.youtube.com/watch?v=CUb4QowYwYo",
+  "normal_player_duration_seconds": 90.081,
+  "viewed_times_seconds": [
+    1,
+    3,
+    5,
+    7,
+    8,
+    10,
+    15,
+    20,
+    25,
+    28,
+    30,
+    32,
+    35,
+    38,
+    40,
+    42,
+    45,
+    55
+  ],
+  "interior_evidence_times_seconds": [
+    1,
+    3
+  ],
+  "scene_name_verified_by": "official article;not inferred solely from montage",
+  "rejected_inference": "Crystal shot00:05 does not prove a room join,depth,ceiling or a continuous route.",
+  "source_sha256": "c2f806a9ecde5da6f867820138794baab8697991a1102003243d981563f7b450",
+  "production_unchanged": true,
+  "new_ledger_ids": [
+    "OFF-NG-065",
+    "AN-NGVIS-065"
+  ],
+  "ledger_unique": 256,
+  "inventory": 132,
+  "physical_followups": 41,
+  "private_capture_hashes": {
+    "opening-10s.png": "ac5b1840cd395723c7dfd111f5c1afea92397d5bdf49ca126f5853d80d552b96",
+    "opening-15s.png": "66e34050ebb6a885350f4d8bd019e24d56e4cdfc12e85c0c1149cb53a34c09c4",
+    "opening-1s.png": "a88edae11449b1b39108a93f84a9742272c3dc8cbdf0eab21a0c69bafdce146e",
+    "opening-20s.png": "fab9a98f853a96198c7bc8cbb51d5979a59359f768c99f8fd095447caa7075fd",
+    "opening-25s.png": "ec43e1010efa317f44ae89cf6545f3e91e16dd048956d30b82cb332618fe2b69",
+    "opening-28s.png": "c5c10adc4d4cbd64835eeb260ba49e4922395959055c948d60c4f4a92ceabbc5",
+    "opening-30s.png": "578b44a6cc06a560073b743a42743f5d7d6e4dd8adaa6e5545618486b8f3daa8",
+    "opening-32s.png": "92be60436ebb1d1ad88d7a7cec7a89e86d6fafdd06e3a4f839810d94f0a60fa7",
+    "opening-35s.png": "1dd3ab41b3da5dad38c369b4ca151e0a857c86afe59bcc53c29e037d2e2575b6",
+    "opening-38s.png": "a9d59c7feba9bc5d42e8cf4dc2fd6b1186eae9969b0ea3bcb8c50b381ecfe0ce",
+    "opening-3s.png": "71aa88019ecaf10c0405b8abb43fc6217503b542b00cd13828c0084e753d2f2d",
+    "opening-40s.png": "0a77cce7070a2e35c1b823aab4e0747990b70f12d126199e8f17a1b557aa577c",
+    "opening-42s.png": "1834b6a7a7d53cdf29051e0c900abf88fdaef29f1640d2e0782cb84495b6afb8",
+    "opening-45s.png": "0bc5f18436c0c59772a8bfb652334e40199db96b0caa4eb6bb7a42be7f1134ff",
+    "opening-55s.png": "be240968034c004e17c7ab87981998f85360cc432ee3b47e628ed0426b0322d9",
+    "opening-5s.png": "f7f5edb8c4c5cdfe86c5fb8fabaca8796623341fb0ac5ad158efca306e9b773a",
+    "opening-7s.png": "21746fea9186b406bcebe91ac96d9623c1236066588bb29141f26a910f130c2d",
+    "opening-8s.png": "c22a2d9800d9070b54f3b5c61ced3f8046c3750f5e136d6a98c39392ecd2c98e"
+  },
+  "copyrighted_media_in_repo": false,
+  "no_primary_LN_upgrade": true,
+  "repository_gate": {
+    "validation_passed": true,
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "seconds": 63.468,
+    "changed_JS_files": 0,
+    "in_game_run": false
+  }
+}

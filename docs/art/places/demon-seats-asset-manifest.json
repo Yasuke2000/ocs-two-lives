@@ -1,0 +1,95 @@
+{
+  "base_art_commit": "80f0b54",
+  "main_map_reservation_cross_check_commit": "8ea1e96",
+  "all58_site_attributes_equal": true,
+  "art_branch_does_not_include_later_map_commits": true,
+  "snapshot": "Immediately after Kijin naming, anime S1E10",
+  "size_gate_bytes": 3000000,
+  "assets": [
+    {
+      "id": "clayman_castle",
+      "file": "clayman_castle.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2102893,
+      "sha256": "5e3d4afb78b06b57a56c3d019cdf9ded5885c6d048530d6fadc8405b9998a903",
+      "generated_original_basename": "exec-bbae4375-7250-4ad9-8d97-10cc8da6afc3.png",
+      "generated_original_sha256": "341e150d6216057543edd5aa5613444d9c9665bf7c05d2c86b0b2d8b3bee3348",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "3300",
+        "cy": "-600",
+        "r": "90.0",
+        "data-site": "clearing",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "amrita",
+      "file": "amrita.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 1996526,
+      "sha256": "694c22e1817a11fbb41936c4488db300eba70e3f1f0489a6255de73a86cf4280",
+      "generated_original_basename": "exec-31e8b128-f6ee-4d69-a798-01f4fb4a10f8.png",
+      "generated_original_sha256": "138ff4cfc6dd72652a592ad7059baa7bcffc6a9e0cf391224bc47660f5560892",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "3800",
+        "cy": "-500",
+        "r": "63.0",
+        "data-site": "carve",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "frost_palace",
+      "file": "frost_palace.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2075482,
+      "sha256": "1076ab872ec17edcc5676c03f25d3d82a28b0bb82e37143dce85a6b0063abd24",
+      "generated_original_basename": "exec-5199bb35-5ae4-421f-863a-1a93933fccb4.png",
+      "generated_original_sha256": "1ea15b2449e6ad5ebb37b3cd213eec7f34e95cfa4160da42264e9c51ecd0a4c3",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-1500",
+        "cy": "-3310",
+        "r": "67.0",
+        "data-site": "coast",
+        "data-margin": "48"
+      }
+    },
+    {
+      "id": "el_dorado",
+      "file": "el_dorado.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2261232,
+      "sha256": "0070aa8ea02a4d46552e408077bfd2dfe30abc9555d4b2e3a8314f2c62d2ec63",
+      "generated_original_basename": "exec-7639576f-0209-4c47-9ca5-b1377afd7d6e.png",
+      "generated_original_sha256": "b4aeb17eb468db048568693ea3f39cd61a9e7eeabe9e010a0224c2541abd79a5",
+      "legacy_input_sha256": null,
+      "lossless_repackaged": true,
+      "rgb_pixels_equal_original": true,
+      "site": {
+        "cx": "-4300",
+        "cy": "3000",
+        "r": "100.0",
+        "data-site": "clearing",
+        "data-margin": "64"
+      }
+    }
+  ],
+  "limits": "Original architectural interpretations, not new canonical location measurements or runtime acceptance. Amrita C07 and Frost Palace C22 placement/access/type decisions remain open; exact architectures are interpretation."
+}

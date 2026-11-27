@@ -1,0 +1,40 @@
+{
+  "access_date": "2026-11-22",
+  "licensed_platform_url": "https://tapas.io/series/that-time-i-got-reincarnated-as-a-slime-novel/info",
+  "free_scope": "First five serialized episodes per official platform sale notice;later paid.",
+  "selected_primary_passages_read": [
+    {
+      "url": "https://tapas.io/episode/3507009",
+      "access": "Public web index;not a successful local full-page fetch"
+    },
+    {
+      "url": "https://tapas.io/episode/3507011",
+      "access": "Public web index;not a successful local full-page fetch"
+    },
+    {
+      "url": "https://tapas.io/episode/3507014",
+      "access": "Public web index;not a successful local full-page fetch"
+    }
+  ],
+  "full_LN1_or_LN6_read": false,
+  "novel6_tree_verified": false,
+  "text_or_source_images_committed": false,
+  "negative_access_scope": "Regional reader block and quota response are access results,not statements about source contents.",
+  "private_source_files": [
+    {
+      "name": "publisher-ln6-sample.html",
+      "sha256": "aaf489f737b22b9fd532db7adc4587c0ac96dde6368cf981e6ed96dc41a77a91",
+      "bytes": 50767
+    },
+    {
+      "name": "yenpress-ln6.html",
+      "sha256": "e600f0445e836d9c9b24028f1b4e5ec62b05bb6a5be771821de165c6f8118c78",
+      "bytes": 122995
+    },
+    {
+      "name": "reader-status.json",
+      "sha256": "fe1f246911a9419904fc79a0f364b03086c957338b52f26991670248f6c55060",
+      "bytes": 3645
+    }
+  ]
+}

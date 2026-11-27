@@ -1,0 +1,39 @@
+{
+  "source_sha256": "0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e",
+  "baseline_painting_commit": "2aa27e5a18ee7868b69e835c503d1b3b2d253c35",
+  "source_commit": "97716c0",
+  "all_prior_native_child_trees_retained": true,
+  "appended_child_trees": 2,
+  "exact_authored_dune_footprint": true,
+  "changed_pixels": 73,
+  "changed_pixel_bbox": [
+    423,
+    435,
+    437,
+    442
+  ],
+  "maximum_RGB_difference": 72,
+  "maximum_changed_centre_distance_from_dune_blocks": 3.382005639313723,
+  "outside_15_block_envelope_identical": true,
+  "new_AI_images": 0,
+  "raw_raster_editing": false,
+  "copyrighted_reference_pixels_embedded": false,
+  "global_height_resampling": false,
+  "source_adoption_file_count": 40,
+  "normal_staging_files_adopted": 14,
+  "all58_site_rows_retained": true,
+  "all_other_atlas_XML_retained": true,
+  "browser_numbers": 58,
+  "browser_context_texts": 23,
+  "browser_inventory_rows": 42,
+  "browser_minimum_number_spacing": 32.470561517449696,
+  "browser_label_overlap": false,
+  "source_adoption_current_byte_equal_files": 36,
+  "source_adoption_companion_prose_updates": [
+    "docs/HANDOFF.md",
+    "world/coleus-dune-relief.md",
+    "world/regions.md",
+    "design/decisions.md"
+  ],
+  "decision_log_merge": "Both prior R129 painting and source R130 entries retained;append-only merge."
+}

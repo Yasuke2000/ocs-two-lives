@@ -1,0 +1,82 @@
+{
+  "round": 76,
+  "source_sha256": "82135855d80430f1e4a723f92c86d9802b45c79e03fe2cd2c8c03503bfb6da2e",
+  "source_changed": false,
+  "source_records": [
+    {
+      "url": "https://ncode.syosetu.com/n6316bn/172/",
+      "status": 200,
+      "sha256": "6cd373a7f3f099289fe5fd7859fc10fde15b73016dbf2e3b047143cbdc8b6974",
+      "bytes": 51858
+    },
+    {
+      "url": "https://ncode.syosetu.com/n6316bn/173/",
+      "status": 200,
+      "sha256": "8b099ee9f889ff0839762837af2a9fe7d57b7c89d7e2084076421aadeb6e4d96",
+      "bytes": 71162
+    }
+  ],
+  "category_url": "https://tensura.fandom.com/wiki/Category%3AEastern_Empire",
+  "category_review": "All 55 visible indexed titles classified; no full-body or live-wiki completeness claim.",
+  "title_counts": {
+    "character title": 38,
+    "child category": 2,
+    "country article": 1,
+    "geographic feature": 1,
+    "military article": 1,
+    "organisation title": 12
+  },
+  "guardian_child_listing_count": 22,
+  "double_zero_child_route": "not returned by attempted indexed search; remains open",
+  "inventory_entries": 132,
+  "physical_followups": 41,
+  "new_claim_ids": [
+    "WN166-001",
+    "WN167-001"
+  ],
+  "ledger_count": 275,
+  "printed_ln_claims": 14,
+  "author_side_story_claims": 6,
+  "coordinates_assigned": false,
+  "geometry_or_runtime_changed": false,
+  "guardian_child_titles": [
+    "Arios",
+    "Bernie",
+    "Calgurio Heath",
+    "Damrada",
+    "Double 0 Numbers",
+    "Category:Double 0 Numbers",
+    "Feldway",
+    "Four Horsemen",
+    "Garcia",
+    "Gardner",
+    "Gradim",
+    "Granit",
+    "Imperial Guardians",
+    "Imperial Intelligence Bureau",
+    "Jiwu",
+    "Krishna",
+    "Marco",
+    "Minaza",
+    "Tatsuya Kondou",
+    "Three Great Generals",
+    "Velgrynd",
+    "Yuuki Kagurazaka"
+  ],
+  "guardian_child_url": "https://tensura.fandom.com/wiki/Category%3AImperial_Guardians",
+  "verification": {
+    "repository_gate": "passed",
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 62.734,
+    "unique_ledger_ids": 275,
+    "category_unique_titles": 55,
+    "inventory_rows": 132,
+    "changed_inventory_rows": 2,
+    "coverage_statuses_unchanged": true,
+    "source_paragraph_ids_and_hashes_checked": true,
+    "production_source_and_export_provenance_unchanged": true,
+    "diagram": "Original native SVG without external image embeds; PNG viewed and labels/relationship limits inspected."
+  }
+}

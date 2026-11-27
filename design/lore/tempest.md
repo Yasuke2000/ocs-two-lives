@@ -1,5 +1,7 @@
 # Tempest (early): lore behind blueprints/tempest.py
 
+**Initial-era interpretation.** Dedicated new Kijin houses, workshop rooms, palisade details and the meeting hall are design choices. At the instant just after naming, a completed new Shuna workshop is not source-established. Keep the early settlement and construction vocabulary separate from later city growth. See [snapshot policy](../../world/era.md) and [targeted review](../../docs/research/tensura-world-2026-11-19/era-brief-review-r121.md).
+
 The build reference for early Tempest: the hobgoblin village just after the ogres were named (anime season 1,
 episodes 9–11; light novel vol. 1–2). Geography and placement are in [world.md](world.md) §J. Read this before
 changing the blueprint.

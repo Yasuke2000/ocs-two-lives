@@ -1,5 +1,7 @@
 # Clayman's Castle: lore behind blueprints/clayman_castle.py
 
+**Initial era.** Clayman still holds the castle. The later raid, fog encounter and Walpurgis timing below are visual/story references, not initial troop or quest state. Early garrison details remain unverified. See [snapshot policy](../../world/era.md) and [targeted review](../../docs/research/tensura-world-2026-11-19/era-brief-review-r121.md).
+
 The build reference for the seat of the Demon Lord Clayman, "Crazy Pierrot", in the Puppet Nation of Jistav
 (anime season 2, the Walpurgis arc; light novel vol. 6–7). Geography and placement are in [world.md](world.md) §P,
 the placement contract in `design/builds/clayman_castle.toml`. Read this before changing the blueprint.

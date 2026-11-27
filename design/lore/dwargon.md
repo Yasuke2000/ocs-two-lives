@@ -1,5 +1,7 @@
 # Dwargon: lore behind blueprints/dwargon.py
 
+**Initial-era placement.** Kaijin and his apprentices have already joined Rimuru’s village (official episode6/9). Their old Dwargon premises do not authorize a second current Kaijin resident. See [snapshot policy](../../world/era.md) and [targeted review](../../docs/research/tensura-world-2026-11-19/era-brief-review-r121.md).
+
 The build reference for the Armed Nation of Dwargon (武装国家ドワルゴン). Geography and placement are in
 [world.md](world.md) §D. Read this before changing the blueprint.
 

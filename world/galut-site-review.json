@@ -1,0 +1,62 @@
+{
+  "baseline_source_sha256": "0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e",
+  "normal_export_source_sha256": "0b8bcf56c8054ae0b03f60dcf5b8777672b5097078803390f2d82636a52f045e",
+  "historic_proposal": {
+    "x": -900,
+    "z": 3050,
+    "radius": 60,
+    "inside_U": true,
+    "coast_edge_clearance": 39.959364927533656,
+    "wet_edge_clearance": 0.0,
+    "nearest_site_edge": 83.15528128088303,
+    "road_distance": 263.18814562969965,
+    "height_min": 67.8125,
+    "height_max": 111.4375,
+    "relief": 43.625
+  },
+  "wet_features_intersected": [
+    "ulgr-spring-brook"
+  ],
+  "declared_search": {
+    "radius": 60,
+    "coast_edge_minimum": 48,
+    "wet_edge_minimum": 8,
+    "site_spacing": "max(48,current-site margin)",
+    "whole_disc_inside_current_gameplay_U": true,
+    "buffer_quadrant_segments": 128,
+    "centre_sample_step": 4
+  },
+  "feasible_centre_area_blocks2": 1709.8188713405373,
+  "feasible_sampled_centres": 104,
+  "least_sampled_relief": {
+    "x": -776,
+    "z": 2836,
+    "radius": 60,
+    "inside_U": true,
+    "coast_edge_clearance": 48.262910047315884,
+    "wet_edge_clearance": 16.232932516072182,
+    "nearest_site_edge": 51.56230979223437,
+    "road_distance": 181.41664752717708,
+    "height_min": 88.6875,
+    "height_max": 112.125,
+    "relief": 23.4375
+  },
+  "scope": "Dry circular planning precinct only,not a full capital. Wet-clearance8 and radius60 are authored study choices. Gameplay U is not a surveyed sovereign boundary. No assertion that all city layouts are impossible.",
+  "current_source_changes": "Only an inert comment marks the old proposal as requiring redesign. No alternate centre accepted.",
+  "comment_only_source_sha256": "a5e1c2f6d811ff367da3da90aa60871ce421a99a9bfeb564501a0e533cda9c3a",
+  "standard_check": {
+    "errors": 0,
+    "relations": 56,
+    "warnings": 2,
+    "preview_byte_identical": true,
+    "active_xml_retained": true
+  },
+  "source_evidence": {
+    "wn_url": "https://ncode.syosetu.com/n6316bn/64/#L45",
+    "selected_actual_HTML_paragraph": "L45",
+    "private_cached_paragraph_file_sha256": "1c74057ad092513f8dbd0395322d87ab5df19849d7499544cb352ff56db4aa02",
+    "public_request_status": 403,
+    "indexed_author_text_read": true,
+    "scope": "Trade relationship only;no capital coordinates or full LN verification."
+  }
+}

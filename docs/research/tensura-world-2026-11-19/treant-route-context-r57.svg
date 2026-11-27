@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="1430" viewBox="0 0 1300 1430">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#467e87"/></marker></defs>
+<rect width="1300" height="1430" fill="#f3efdf"/>
+<text x="60" y="65" font-family="Georgia" font-size="31" fill="#25474c">JURA TREANTS: ROUTE AND SANCTUARY EVIDENCE</text>
+<text x="60" y="108" font-family="Arial" font-size="21" fill="#25474c">Source relationships only · schematic positions and lengths · no coordinates, scale or compass axis</text>
+<rect x="45" y="155" width="1210" height="370" rx="14" fill="#faf7ea" stroke="#9cae92" stroke-width="2"/>
+<text x="75" y="201" font-family="Georgia" font-size="26" fill="#25474c">1 · WN31: an avoided approach</text>
+<rect x="80" y="250" width="275" height="100" rx="14" fill="#e2e7cf" stroke="#9cae92" stroke-width="2"/>
+<text x="105" y="291" font-family="Arial" font-size="21" fill="#25474c">Orc force</text>
+<text x="105" y="323" font-family="Arial" font-size="19" fill="#25474c">Origin not plotted</text>
+<rect x="945" y="250" width="275" height="100" rx="14" fill="#e2e7cf" stroke="#9cae92" stroke-width="2"/>
+<text x="970" y="291" font-family="Arial" font-size="21" fill="#25474c">Wetlands</text>
+<text x="970" y="323" font-family="Arial" font-size="19" fill="#25474c">Chosen approach</text>
+<path d="M360 280 H935" fill="none" stroke="#467e87" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="440" y="263" font-family="Arial" font-size="20" fill="#25474c">Wetland route in the account</text>
+<rect x="550" y="375" width="330" height="90" rx="14" fill="#e4dec6" stroke="#9cae92" stroke-width="2"/>
+<text x="575" y="411" font-family="Arial" font-size="21" fill="#25474c">Treant settlement</text>
+<text x="575" y="443" font-family="Arial" font-size="19" fill="#25474c">Avoided alternative</text>
+<path d="M355 325 Q430 420 540 420" fill="none" stroke="#a58257" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="90" y="404" font-family="Arial" font-size="19" fill="#25474c">Hakurou&#x27;s inference</text>
+<text x="90" y="434" font-family="Arial" font-size="19" fill="#25474c">No settlement bearing</text>
+<text x="75" y="496" font-family="Arial" font-size="19" fill="#25474c">WN31-007 · author HTML L190–194 · route assessment is not a geographical survey</text>
+<rect x="45" y="560" width="1210" height="420" rx="14" fill="#faf7ea" stroke="#9cae92" stroke-width="2"/>
+<text x="75" y="606" font-family="Georgia" font-size="26" fill="#25474c">2 · WN43: later relief at the wetland assembly</text>
+<rect x="80" y="660" width="330" height="115" rx="14" fill="#e2e7cf" stroke="#9cae92" stroke-width="2"/>
+<text x="105" y="701" font-family="Arial" font-size="21" fill="#25474c">Treant sanctuary</text>
+<text x="105" y="737" font-family="Arial" font-size="19" fill="#25474c">Fruit collection and stores</text>
+<rect x="890" y="660" width="330" height="115" rx="14" fill="#e2e7cf" stroke="#9cae92" stroke-width="2"/>
+<text x="915" y="701" font-family="Arial" font-size="21" fill="#25474c">Wetland assembly</text>
+<text x="915" y="737" font-family="Arial" font-size="19" fill="#25474c">Orcs being named</text>
+<path d="M420 715 H880" fill="none" stroke="#467e87" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="490" y="694" font-family="Arial" font-size="21" fill="#25474c">Food transport</text>
+<text x="80" y="827" font-family="Arial" font-size="22" fill="#25474c">Shadow-moving wolves: a round trip in a day.</text>
+<text x="80" y="869" font-family="Arial" font-size="21" fill="#25474c">Cart detour: narrator estimates more than two months; direction/time basis is unspecified.</text>
+<text x="80" y="912" font-family="Arial" font-size="20" fill="#25474c">No cart speed, road alignment, straight-line length or distance from Tempest is established.</text>
+<text x="75" y="953" font-family="Arial" font-size="19" fill="#25474c">WN43-001/002 · author HTML L18,L46–48,L54–63,L68–72 · after the Orc Disaster</text>
+<rect x="45" y="1015" width="1210" height="345" rx="14" fill="#e5ead9" stroke="#9cae92" stroke-width="2"/>
+<text x="75" y="1061" font-family="Georgia" font-size="26" fill="#25474c">3 · Source limits for the Minecraft map</text>
+<text x="80" y="1112" font-family="Arial" font-size="22" fill="#25474c">Official anime profile: Treyni guards the forest treants.</text>
+<text x="80" y="1153" font-family="Arial" font-size="20" fill="#25474c">WN43: movement is restricted to the sanctuary; the earlier WN42 wording needs that qualification.</text>
+<text x="80" y="1194" font-family="Arial" font-size="21" fill="#25474c">No verified east-of-Ameld political half, sanctuary boundary, altar or settlement parcel.</text>
+<text x="80" y="1235" font-family="Arial" font-size="21" fill="#25474c">The registered grove tree and authored shrine remain project adaptations.</text>
+<text x="80" y="1276" font-family="Arial" font-size="20" fill="#25474c">C15 coverage stays open. Later relief, alliance and Dungeon events are separate from S1E10.</text>
+<text x="75" y="1330" font-family="Arial" font-size="19" fill="#25474c">OFF-TRE-057 · ten-sura.com/character/treyni · selected passages, not a whole-source reading</text>
+<text x="60" y="1400" font-family="Arial" font-size="18" fill="#25474c">Sources and confidence: geography-facts.csv · treant-route-context-r57.md · original diagram, no copied source art</text>
+</svg>

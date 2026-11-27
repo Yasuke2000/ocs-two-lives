@@ -1,0 +1,844 @@
+{
+  "source_map_commit": "50e0715",
+  "presentation_basis_commit": "4847edd",
+  "source_svg_sha256": "7d021766b648dcfd89a6dcbebeaede431d4b7375773692a341d27bb3506503aa",
+  "production_svg_and_checker_preview_unchanged": true,
+  "native_source_vector_counts_verified": {
+    "coast": 3,
+    "biomes": 2,
+    "lakes": 9,
+    "rivers": 8,
+    "roads": 21
+  },
+  "coast_clip_and_ocean_mask_match_current_source": true,
+  "new_painting_used_only_in_source_headland_feathered_mask": true,
+  "headland_stroke_width_world": 128,
+  "headland_blur_sigma_world": 32,
+  "changed_composition_pixels_vs_R38": 4799,
+  "changed_pixel_world_centre_bounds": [
+    -5265.75,
+    -2119.75,
+    -2745.75,
+    -1374.25
+  ],
+  "maximum_changed_pixel_distance_to_native_headland_blocks": 1340.8992205605907,
+  "changed_pixels_outside_320_block_headland_buffer": 12,
+  "maximum_rgb_channel_delta_outside_buffer_on_255_scale": 2,
+  "all_larger_than_2_rgb_changes_confined_to_320_block_headland_buffer": true,
+  "prior_original_raw_png_bytes_retained": true,
+  "verified_source_site_world_positions_and_projections": 58,
+  "minimum_number_bubble_centre_spacing_pixels": 32.47054606006469,
+  "leader_lines_painted_before_all_number_bubbles": true,
+  "geographical_context_names": 16,
+  "open_inventory_names_and_statuses_retained": 32,
+  "atlas_embeds_exact_clean_composition_bytes": true,
+  "selected_generated_png_bytes_retained": true,
+  "current_normal_export_source_matches": true,
+  "terrain_regenerated_this_painting_round": false,
+  "png_files": {
+    "atlas.png": {
+      "sha256": "6ca99c2576bc9dac6698654a6b707aebd33bf6ebbac6750f2d43477e85926ea2",
+      "pixels": [
+        2200,
+        2680
+      ],
+      "mode": "RGB",
+      "bytes": 3201277
+    },
+    "continent.png": {
+      "sha256": "02781545349b59691b230e43cca1ea1d4394c2cacefc7721abcd1f0888f776cf",
+      "pixels": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 1912652
+    },
+    "geometry-guide.png": {
+      "sha256": "7d232050fa3e6988b9d1955fe10e53122aac5833eaf1ca2431a088997c0f52dd",
+      "pixels": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 301715
+    },
+    "paint-r43.png": {
+      "sha256": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e",
+      "pixels": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 1884628
+    },
+    "terrain-guide.png": {
+      "sha256": "5f216b59b24260106b4c92237f581c8516ba013be15b27bf52970231673f7b0d",
+      "pixels": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 500756
+    }
+  },
+  "limitations": "Native vectors,masks and marker projections are checked. Tree,ridge,bank and soil strokes remain pictorial; no additional canon borders,source completeness,structure fit or runtime acceptance follows. Twelve tiny rendered edge differences outside the local review buffer reach at most2/255 per channel; complete pixel identity outside the headland is not claimed.",
+  "actual_browser_geographic_label_boxes": [
+    {
+      "text": "Eastern Empire",
+      "x": 1565.9549560546875,
+      "y": 621.7570190429688,
+      "width": 132.8876953125,
+      "height": 21
+    },
+    {
+      "text": "Canaat Mountains",
+      "x": 1159.1824951171875,
+      "y": 661.3150024414062,
+      "width": 154.453125,
+      "height": 21
+    },
+    {
+      "text": "Great Jura Forest",
+      "x": 998.952392578125,
+      "y": 990.0609741210938,
+      "width": 147.96923828125,
+      "height": 21
+    },
+    {
+      "text": "Jistav",
+      "x": 1565.477294921875,
+      "y": 768.39599609375,
+      "width": 50.744140625,
+      "height": 21
+    },
+    {
+      "text": "Milim's Domain",
+      "x": 1509.7357177734375,
+      "y": 1044.6240234375,
+      "width": 136.15869140625,
+      "height": 21
+    },
+    {
+      "text": "Eurazania",
+      "x": 1264.8018798828125,
+      "y": 1058.2650146484375,
+      "width": 85.4990234375,
+      "height": 21
+    },
+    {
+      "text": "Fulbrosia",
+      "x": 1101.0323486328125,
+      "y": 1276.51904296875,
+      "width": 80.1923828125,
+      "height": 21
+    },
+    {
+      "text": "Sarion",
+      "x": 861.0347290039062,
+      "y": 1167.3919677734375,
+      "width": 55.826171875,
+      "height": 21
+    },
+    {
+      "text": "Ulgracia",
+      "x": 764.5885009765625,
+      "y": 1294.251953125,
+      "width": 71.03564453125,
+      "height": 21
+    },
+    {
+      "text": "Blumund",
+      "x": 825.3981323242188,
+      "y": 942.3170166015625,
+      "width": 78.67822265625,
+      "height": 21
+    },
+    {
+      "text": "Englassia",
+      "x": 654.5155029296875,
+      "y": 781.1270141601562,
+      "width": 59.8095703125,
+      "height": 16
+    },
+    {
+      "text": "Falmuth",
+      "x": 876.59423828125,
+      "y": 624.4849853515625,
+      "width": 71.6875,
+      "height": 21
+    },
+    {
+      "text": "Lubelius",
+      "x": 548.8695068359375,
+      "y": 628.5770263671875,
+      "width": 72.375,
+      "height": 21
+    },
+    {
+      "text": "Desert of Death",
+      "x": 461.4033203125,
+      "y": 799.0880126953125,
+      "width": 131.359375,
+      "height": 21
+    },
+    {
+      "text": "Ice Continent",
+      "x": 818.027587890625,
+      "y": 344.84698486328125,
+      "width": 114.2275390625,
+      "height": 21
+    },
+    {
+      "text": "El Dorado",
+      "x": 504.83404541015625,
+      "y": 1258.10400390625,
+      "width": 85.421875,
+      "height": 21
+    }
+  ],
+  "actual_browser_number_boxes": [
+    {
+      "text": "",
+      "x": 1086,
+      "y": 884.2540283203125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1086,
+      "y": 747.844970703125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1111.2919921875,
+      "y": 769.4810180664062,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1069.6309814453125,
+      "y": 829.6900024414062,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1013.7030029296875,
+      "y": 854.2440185546875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1047.1240234375,
+      "y": 931.9970092773438,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1048.7080078125,
+      "y": 873.3410034179688,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1094.1259765625,
+      "y": 917.2520141601562,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1129.6510009765625,
+      "y": 948.3660278320312,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1174.2039794921875,
+      "y": 966.0989990234375,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1154.2039794921875,
+      "y": 925.177001953125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1086,
+      "y": 672.8200073242188,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1087.862060546875,
+      "y": 637.9609985351562,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1054.97705078125,
+      "y": 659.64599609375,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1117.7130126953125,
+      "y": 665.8469848632812,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1140.56298828125,
+      "y": 720.56298828125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1174.2039794921875,
+      "y": 723.2919921875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1133.7430419921875,
+      "y": 611.43701171875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1091.0269775390625,
+      "y": 711.1710205078125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1379.279052734375,
+      "y": 1054.7650146484375,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1236.050048828125,
+      "y": 870.6129760742188,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1236.050048828125,
+      "y": 920.4019775390625,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1263.3310546875,
+      "y": 955.18701171875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1324.7149658203125,
+      "y": 959.2789916992188,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 881.3870239257812,
+      "y": 799.6810302734375,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 751.7990112304688,
+      "y": 822.8699951171875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 690.4149780273438,
+      "y": 809.22900390625,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 840.4639892578125,
+      "y": 659.1799926757812,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 772.6690063476562,
+      "y": 697.3740234375,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 594.9290161132812,
+      "y": 706.9229736328125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 554.0059814453125,
+      "y": 666,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 605.8410034179688,
+      "y": 766.9420166015625,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 513.0830078125,
+      "y": 856.9719848632812,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 649.4920043945312,
+      "y": 929.2689819335938,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 697.2349853515625,
+      "y": 933.3610229492188,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 738.1580200195312,
+      "y": 929.2689819335938,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 785.4390258789062,
+      "y": 925.177001953125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 792.7210083007812,
+      "y": 873.3410034179688,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 922.3099975585938,
+      "y": 1259.3780517578125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 649.4920043945312,
+      "y": 843.3309936523438,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 708.64599609375,
+      "y": 890.3170166015625,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1072.3590087890625,
+      "y": 1157.071044921875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 956.4119873046875,
+      "y": 1273.01904296875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 856.8330078125,
+      "y": 1121.60498046875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1113.281982421875,
+      "y": 1218.4549560546875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1290.613037109375,
+      "y": 1102.508056640625,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1447.4830322265625,
+      "y": 993.3809814453125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1536.1490478515625,
+      "y": 802.4089965820312,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1604.35302734375,
+      "y": 816.0499877929688,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1522.508056640625,
+      "y": 638.718017578125,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1542.968994140625,
+      "y": 700.1019897460938,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 499.4420166015625,
+      "y": 1293.47998046875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 554.0059814453125,
+      "y": 1320.761962890625,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 881.3870239257812,
+      "y": 432.7409973144531,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 923.2119750976562,
+      "y": 813.3209838867188,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 726.3790283203125,
+      "y": 792.10302734375,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 949.5910034179688,
+      "y": 837.875,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "text": "",
+      "x": 1071.4930419921875,
+      "y": 786.64697265625,
+      "width": 28,
+      "height": 28
+    }
+  ],
+  "actual_browser_open_row_boxes": [
+    {
+      "text": "U  Butterflies of the Night",
+      "x": 65,
+      "y": 2317,
+      "width": 196.08984375,
+      "height": 20
+    },
+    {
+      "text": "M  Council headquarters",
+      "x": 65,
+      "y": 2348,
+      "width": 191.109375,
+      "height": 20
+    },
+    {
+      "text": "M  Destroyed Imperial frontier city",
+      "x": 65,
+      "y": 2379,
+      "width": 265.076171875,
+      "height": 20
+    },
+    {
+      "text": "M  Duchy of Laquia",
+      "x": 65,
+      "y": 2410,
+      "width": 150.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Dwargon East city",
+      "x": 65,
+      "y": 2441,
+      "width": 166.0498046875,
+      "height": 20
+    },
+    {
+      "text": "M  Dwargon West city",
+      "x": 65,
+      "y": 2472,
+      "width": 170.7080078125,
+      "height": 20
+    },
+    {
+      "text": "M  Englassia royal castle",
+      "x": 65,
+      "y": 2503,
+      "width": 194.09375,
+      "height": 20
+    },
+    {
+      "text": "U  Free Guild headquarters",
+      "x": 65,
+      "y": 2534,
+      "width": 213.109375,
+      "height": 20
+    },
+    {
+      "text": "U  Freedom Academy",
+      "x": 595,
+      "y": 2317,
+      "width": 170.06640625,
+      "height": 20
+    },
+    {
+      "text": "M  Galut",
+      "x": 595,
+      "y": 2348,
+      "width": 64.0166015625,
+      "height": 20
+    },
+    {
+      "text": "M  General Kingdom of Doran",
+      "x": 595,
+      "y": 2379,
+      "width": 234.125,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Carnada",
+      "x": 595,
+      "y": 2410,
+      "width": 185.109375,
+      "height": 20
+    },
+    {
+      "text": "U  Kingdom of Ghastone",
+      "x": 595,
+      "y": 2441,
+      "width": 192.125,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Grada",
+      "x": 595,
+      "y": 2472,
+      "width": 166.078125,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Kaien",
+      "x": 595,
+      "y": 2503,
+      "width": 162.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Larbach",
+      "x": 595,
+      "y": 2534,
+      "width": 181.109375,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Malbarath",
+      "x": 1125,
+      "y": 2317,
+      "width": 196.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Morapha",
+      "x": 1125,
+      "y": 2348,
+      "width": 187.09375,
+      "height": 20
+    },
+    {
+      "text": "U  Kingdom of Rostia",
+      "x": 1125,
+      "y": 2379,
+      "width": 165.078125,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Silberia",
+      "x": 1125,
+      "y": 2410,
+      "width": 176.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Kingdom of Spiru",
+      "x": 1125,
+      "y": 2441,
+      "width": 158.078125,
+      "height": 20
+    },
+    {
+      "text": "M  Long Wall",
+      "x": 1125,
+      "y": 2472,
+      "width": 99.375,
+      "height": 20
+    },
+    {
+      "text": "M  Magic Tower",
+      "x": 1125,
+      "y": 2503,
+      "width": 121.7060546875,
+      "height": 20
+    },
+    {
+      "text": "P  Orc Kingdom of Orbic",
+      "x": 1125,
+      "y": 2534,
+      "width": 190.73828125,
+      "height": 20
+    },
+    {
+      "text": "M  Republic of Boruss",
+      "x": 1655,
+      "y": 2317,
+      "width": 171.078125,
+      "height": 20
+    },
+    {
+      "text": "M  Republic of Zamund",
+      "x": 1655,
+      "y": 2348,
+      "width": 181.09375,
+      "height": 20
+    },
+    {
+      "text": "M  Resort Island",
+      "x": 1655,
+      "y": 2379,
+      "width": 126.046875,
+      "height": 20
+    },
+    {
+      "text": "M  Soma ruins",
+      "x": 1655,
+      "y": 2410,
+      "width": 111.046875,
+      "height": 20
+    },
+    {
+      "text": "M  Tengu settlement",
+      "x": 1655,
+      "y": 2441,
+      "width": 157.751953125,
+      "height": 20
+    },
+    {
+      "text": "M  Town of Guratol",
+      "x": 1655,
+      "y": 2472,
+      "width": 145.734375,
+      "height": 20
+    },
+    {
+      "text": "M  Treant Settlement",
+      "x": 1655,
+      "y": 2503,
+      "width": 163.0693359375,
+      "height": 20
+    },
+    {
+      "text": "M  Unnamed Imperial vassal town",
+      "x": 1655,
+      "y": 2534,
+      "width": 266.109375,
+      "height": 20
+    }
+  ],
+  "geographic_text_with_2px_stroke_clear_of_7px_padded_number_boxes": true,
+  "non_callout_context_text_boxes_inside_existing_masks": 15,
+  "all_32_open_rows_fit_panel": true,
+  "central_relative_anchor_digits_visually_checked_after_leader_layering": true,
+  "repository_gate": {
+    "tests": 472,
+    "skipped": 26,
+    "failures": 0,
+    "test_seconds": 44.683
+  }
+}

@@ -1,5 +1,7 @@
 # Gazel's throne room (statue)
 
+**Current authored world reservation (R86):** `(780,-1496)`, radius8; [current geography and fit](../../../world/dwargon-relocation-r86.md). Legacy Lerfing coordinates below are historical.
+
 `id: dwargon_throne` · spot (NPC, boss or quest point) · region **D** (Armed Nation of Dwargon)
 
 | | |
@@ -11,7 +13,7 @@
 
 ## Lore (canon)
 
-King Gazel Dwargo, the Hero King, receives Rimuru here. In the pack the room is cut from Tensura's own dwarf arena structure (credited in CREDITS.md).
+Gazel rules Dwargon. The official episode5 synopsis places Rimuru and Kaijin's dispute before his court; that earlier visit is not a claim that Rimuru remains here while the initial village scene is active. The throne-room reserve can persist without replaying the trial or later diplomatic ceremonies. The pack's room is adapted from Tensura's dwarf arena structure (CREDITS.md), an implementation choice rather than a canon floor plan.
 
 ## What it should look like
 

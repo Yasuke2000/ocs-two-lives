@@ -10,9 +10,11 @@
 | Preview (blueprint only) | ![morgdahl](../../previews/morgdahl-iso.png) |
 | Lore page | [`design/lore/morgdahl.md`](../../../design/lore/morgdahl.md) |
 
-## Lore (canon)
+## Source context (qualified)
 
 Shown on the Western Council map; no canon plan or industry. The pack calls it a timber landing.
+
+A community comparison reports this name on a later Council map (FAN-WES-034). The selected official episode76 stills inspected here do not expose that map; exact borders/capital and S1E10 buildings/industries remain unverified. The project role below is our interpretation,not canonical national architecture or economy.
 
 ## What it should look like
 

@@ -1,0 +1,34 @@
+{
+  "round": 81,
+  "source_map_commit": "d3ad9ea",
+  "source_svg_sha256": "9fd0c5fba52560dc035fc1552a6e364b087931174e20503a7677de942daa6f9e",
+  "previous_composition": "../painting-round78/continent.svg",
+  "previous_painting_source_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
+  "baseline_export_source_sha256": "e8f1747008dc6fa22609170f1175a90e977be0c0360f234cbb914d7a59259e91",
+  "method": "Verified R78 PNG underpainting;exact new source-lake polygon and bilinear current-minus-prior bank-gradient lighting in native SVG. Prior editable nodes and original textures retained.",
+  "underpainting": {
+    "file": "../painting-round78/continent.png",
+    "sha256": "bd937a7213c8d0d6e76c3e3afba64257cf1184dd34d33d5df3a71c887ddf73ea"
+  },
+  "world_frame": [
+    -8064,
+    -5632,
+    16128,
+    10752
+  ],
+  "new_image_generation": false,
+  "copyrighted_reference_images_used_as_generation_inputs": false,
+  "current_height_sha256": "6f4efa02412ba76f7a2c4832cfbaab7445eba6a276361dad2aeffb1708f2bd04",
+  "baseline_height_sha256": "d596283ceccdb8926af914fde3618478562277c2b3ba647d5f5a22c85deeae8e",
+  "normal_terrain_preview_sha256": "9cad2e8a8bbc7b863a996d0152419b3ff8a73936fefa6e4b3b6d0e345a26cb5e",
+  "raw_original_art": {
+    "world\\painting-current\\paint-current.png": "f38820a55e8d02460ee11bc3ab509077885e32e232680f53d4b1dbb85c032610",
+    "world\\painting-round43\\paint-r43.png": "7d908d12ba5dc45e29817f76ef74f950950a0cae725c9ee7920365d748472f2e"
+  },
+  "input_changed_height_cells": 2123,
+  "bank_lighting_samples": 648,
+  "mask_blend_buffer_world": 16,
+  "lighting_rule": "delta=current-prior;light=clamp(.18*(delta_dx+delta_dz),-.16,.16);alpha=round(abs(light)*4096)/4096;northwest illustrative light.",
+  "production_svg_changed_in_this_round": false,
+  "limits": "Bilinear height-difference lighting and texture are illustration choices,not runtime water/noise/density simulation or a metric depth map. R80 lake identity,outlet and initial state remain unverified;exact shore and nominal water/depth are authored."
+}
